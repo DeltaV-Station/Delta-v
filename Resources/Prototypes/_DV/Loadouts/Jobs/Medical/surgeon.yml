@@ -5,59 +5,55 @@
   equipment:
     id: SurgeonPDA
 
-# Clothing
+# Head
+- type: loadout
+  id: BlackSurgeryCap
+  equipment:
+    head: ClothingHeadHatSurgcapBlack
 
-- type: loadoutGroup
-  id: SurgeonHead
-  name: loadout-group-surgeon-head
-  loadouts:
-  - BlueSurgeryCap
-  - GreenSurgeryCap
-  - PurpleSurgeryCap
+- type: loadout
+  id: CyanSurgeryCap
+  equipment:
+    head: ClothingHeadHatSurgcapCyan
 
-- type: loadoutGroup
-  id: SurgeonScrubs
-  name: loadout-group-surgeon-scrubs
-  loadouts:
-  - MedicalBlueScrubs
-  - MedicalGreenScrubs
-  - MedicalPurpleScrubs
+- type: loadout
+  id: PinkSurgeryCap
+  equipment:
+    head: ClothingHeadHatSurgcapPink
 
-- type: loadoutGroup
-  id: SurgeonPDA
-  name: loadout-group-surgeon-id
-  loadouts:
-  - SurgeonPDA
+- type: loadout
+  id: WhiteSurgeryCap
+  equipment:
+    head: ClothingHeadHatSurgcapWhite
 
-- type: loadoutGroup
-  id: SurgeonGloves
-  name: loadout-group-surgeon-gloves
-  loadouts:
-  - LatexGloves
-  - NitrileGloves
+- type: loadout
+  id: RainbowSurgeryCap
+  equipment:
+    head: ClothingHeadHatSurgcapRainbow
 
-- type: loadoutGroup
-  id: SurgeonMask
-  name: loadout-group-surgeon-mask
-  loadouts:
-  - SterileMask
+# Jumpsuit
+- type: loadout
+  id: MedicalBlackScrubs
+  equipment:
+    jumpsuit: UniformScrubsColorBlack
 
-# Loadout
+- type: loadout
+  id: MedicalCyanScrubs
+  equipment:
+    jumpsuit: UniformScrubsColorCyan
 
-- type: roleLoadout
-  id: JobSurgeon
-  groups:
-  - GroupTankHarness
-  - SurgeonHead
-  - MedicalDoctorNeck
-  - SurgeonMask
-  - SurgeonScrubs
-  - SurgeonGloves
-  - MedicalBackpack
-  - MedicalDoctorOuterClothing
-  - MedicalShoes
-  - SurgeonPDA
-  - Glasses
-  - SurvivalMedical
-  - Trinkets
-  - GroupSpeciesBreathToolMedical
+- type: loadout
+  id: MedicalPinkScrubs
+  equipment:
+    jumpsuit: UniformScrubsColorPink
+
+- type: loadout
+  id: MedicalWhiteScrubs
+  equipment:
+    jumpsuit: UniformScrubsColorWhite
+
+- type: loadout
+  id: MedicalRainbowScrubs
+  equipment:
+    jumpsuit: UniformScrubsColorRainbow
+
