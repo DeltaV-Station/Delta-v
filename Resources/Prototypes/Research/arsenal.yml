@@ -1,39 +1,25 @@
 # Tier 1
 
-- type: technology
-  id: DraconicMunitions
-  name: research-technology-exotic-ammunition # DeltaV - name change to Exotic Ammunition
-  icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
-    state: incendiarydisplay
-  discipline: Arsenal
-  tier: 2 # DeltaV moved to t2 from t1
-  cost: 10000
-  recipeUnlocks:
-  - BoxShotgunIncendiary
-  - MagazineRifleIncendiary
-  - MagazinePistolIncendiary
-  - MagazineLightRifleIncendiary
-  - SpeedLoaderMagnumIncendiary
-  - MagazineShotgunIncendiary
-  - MagazineBoxPistolIncendiary
-  - MagazineBoxMagnumIncendiary
-  - MagazineBoxLightRifleIncendiary
-  - MagazineBoxRifleIncendiary
-  - MagazineBoxSpecialIncendiary # DeltaV
-  # DeltaV - Merges uranium and incend ammo techs, adds 38 special uranium rounds
-  - MagazineRifleUranium
-  - MagazinePistolUranium
-  - MagazineLightRifleUranium
-  - SpeedLoaderMagnumUranium
-  - MagazineBoxPistolUranium
-  - MagazineBoxMagnumUranium
-  - MagazineBoxLightRifleUranium
-  - MagazineBoxRifleUranium
-  - BoxShotgunUranium
-  - SpeedLoaderSpecialUranium
-  - MagazineBoxSpecialUranium
-  # End of modified code
+#- type: technology # DeltaV merged draconic and uranium munitions and moved to our namespace
+#  id: DraconicMunitions
+#  name: research-technology-draconic-muntions
+#  icon:
+#    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
+#    state: incendiarydisplay
+#  discipline: Arsenal
+#  tier: 2 # DeltaV moved to t2 from t1
+#  cost: 10000
+#  recipeUnlocks:
+#  - BoxShotgunIncendiary
+#  - MagazineRifleIncendiary
+#  - MagazinePistolIncendiary
+#  - MagazineLightRifleIncendiary
+#  - SpeedLoaderMagnumIncendiary
+#  - MagazineShotgunIncendiary
+#  - MagazineBoxPistolIncendiary
+#  - MagazineBoxMagnumIncendiary
+#  - MagazineBoxLightRifleIncendiary
+#  - MagazineBoxRifleIncendiary
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -74,7 +60,7 @@
   - MagazineBoxSpecialRubber
   # End of modified code
 
-#- type: technology
+#- type: technology # DeltaV merged draconic and uranium munitions and moved to our namespace
 #  id: UraniumMunitions
 #  name: research-technology-uranium-munitions
 #  icon:
