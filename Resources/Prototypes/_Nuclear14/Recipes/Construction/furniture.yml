@@ -1,22 +1,4 @@
 - type: construction
-  id: N14Bedroll
-  name: bedroll
-  description: A bedroll for sleeping on the road. Not very comfy.
-  graph: N14Bed
-  startNode: start
-  targetNode: bedroll
-  category: construction-category-furniture
-  icon:
-    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
-    state: bedroll_unrolled
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-  hide: false
-
-- type: construction
   name: wooden chair
   id: N14ChairWood
   graph: N14Seat
