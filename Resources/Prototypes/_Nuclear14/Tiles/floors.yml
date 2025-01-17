@@ -300,7 +300,7 @@
 
 - type: tile
   id: FloorMetalTunnelRusty
-  name: rusty tunnel floor
+  name: tunnel floor rusty
   sprite: /Textures/_Nuclear14/Tiles/tunnelrusty.png
   baseTurf: FloorWasteland
   isSubfloor: true
@@ -314,7 +314,7 @@
 
 - type: tile
   id: FloorMetalTunnelWasteland
-  name: wasteland tunnel floor
+  name: tunnel floor wasteland
   sprite: /Textures/_Nuclear14/Tiles/tunnelwasteland.png
   variants: 11
   placementVariants: [0, 1, 2, 3, 5, 6, 7, 8, 9, 10]
@@ -331,7 +331,7 @@
 # MS13 Metal Tiles
 - type: tile
   id: FloorMS13MetalIndustrial
-  name: industrial metal tile
+  name: metal tile industrial
   sprite: /Textures/_Nuclear14/Tiles/ms13/Steel/steel_industrial.png
   variants: 8
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7]
@@ -382,7 +382,7 @@
 
 - type: tile
   id: FloorMS13MetalSolid
-  name: solid metal tile
+  name: metal tile solid
   sprite: /Textures/_Nuclear14/Tiles/ms13/Steel/steel_solid.png
   variants: 4
   placementVariants: [0, 1, 2, 3]
@@ -400,7 +400,7 @@
 # Interior
 - type: tile
   id: FloorWoodOak
-  name: oak wood floor
+  name: wood oak floor
   sprite: /Textures/_Nuclear14/Tiles/oak.png
   variants: 4
   placementVariants: [0, 1, 2, 3]
@@ -417,7 +417,7 @@
 
 - type: tile
   id: FloorWoodOakBroken
-  name: oak woof broken floor
+  name: wood oak broken floor
   sprite: /Textures/_Nuclear14/Tiles/oakbroken.png
   variants: 4
   placementVariants: [0, 1, 2, 3]
@@ -482,7 +482,7 @@
 
 - type: tile
   id: FloorWoodMaple
-  name: maple wood floor
+  name: wood maple floor
   sprite: /Textures/_Nuclear14/Tiles/maple.png
   variants: 4
   placementVariants: [0, 1, 2, 3]
@@ -500,7 +500,7 @@
 # MS13 wood
 - type: tile
   id: FloorMS13WoodCommon
-  name: common wood floor
+  name: wood common floor
   sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_common.png
   variants: 4
   placementVariants: [0, 1, 2, 3]
@@ -517,7 +517,7 @@
 
 - type: tile
   id: FloorMS13WoodCommonDamaged
-  name: common wood damaged floor
+  name: wood damaged common floor
   sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_common_damaged.png
   variants: 4
   placementVariants: [0, 1, 2, 3]
@@ -534,7 +534,7 @@
 
 - type: tile
   id: FloorMS13WoodFancy
-  name: fancy wood floor
+  name: wood fancy floor
   sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_fancy.png
   variants: 4
   placementVariants: [0, 1, 2, 3]
@@ -551,7 +551,7 @@
 
 - type: tile
   id: FloorMS13WoodFancyDamaged
-  name: fancy wood damaged floor
+  name: wood fancy damaged floor
   sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_fancy_damaged.png
   variants: 4
   placementVariants: [0, 1, 2, 3]
@@ -568,7 +568,7 @@
 
 - type: tile
   id: FloorMS13WoodMosaic
-  name: mosaic wood floor
+  name: wood mosaic floor
   sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_mosaic.png
   variants: 4
   placementVariants: [0, 1, 2, 3]
@@ -585,7 +585,7 @@
 
 - type: tile
   id: FloorMS13WoodMosaicDamaged
-  name: damaged mosaic wood floor
+  name: wood damaged mosaic floor
   sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_mosaic_damaged.png
   variants: 4
   placementVariants: [0, 1, 2, 3]
@@ -602,7 +602,7 @@
 
 - type: tile
   id: FloorMS13WoodWide
-  name: wide wood floor
+  name: wood wide floor
   sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_wide.png
   variants: 4
   placementVariants: [0, 1, 2, 3]
@@ -619,7 +619,7 @@
 
 - type: tile
   id: FloorMS13WoodWideDamaged
-  name: wide damaged wood floor
+  name: wood floor wide damaged
   sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_wide_damaged.png
   variants: 4
   placementVariants: [0, 1, 2, 3]
@@ -653,7 +653,7 @@
 # MS13 Carpet
 - type: tile
   id: FloorMS13CarpetRed
-  name: alternate red carpet
+  name: red carpet alternate
   sprite: /Textures/_Nuclear14/Tiles/ms13/Carpet/carpet_red.png
   baseTurf: FloorWasteland
   isSubfloor: false
@@ -668,7 +668,7 @@
 
 - type: tile
   id: FloorMS13CarpetFancyRed
-  name: fancy red carpet
+  name: red carpet fancy
   sprite: /Textures/_Nuclear14/Tiles/ms13/Carpet/carpet_fancy_red.png
   baseTurf: FloorWasteland
   isSubfloor: false
@@ -698,7 +698,7 @@
 
 - type: tile
   id: FloorMS13CarpetFancyBlue
-  name: fancy blue carpet
+  name: blue carpet fancy
   sprite: /Textures/_Nuclear14/Tiles/ms13/Carpet/carpet_fancy_blue.png
   baseTurf: FloorWasteland
   isSubfloor: false
@@ -728,7 +728,7 @@
 
 - type: tile
   id: FloorMS13CarpetFancyGreen
-  name: fancy green carpet
+  name: green carpet fancy
   sprite: /Textures/_Nuclear14/Tiles/ms13/Carpet/carpet_fancy_green.png
   baseTurf: FloorWasteland
   isSubfloor: false
@@ -743,7 +743,7 @@
 
 - type: tile
   id: FloorMS13CarpetViolet
-  name: violet carpet
+  name: carpet violet
   sprite: /Textures/_Nuclear14/Tiles/ms13/Carpet/carpet_violet.png
   baseTurf: FloorWasteland
   isSubfloor: false
@@ -760,7 +760,7 @@
 # Concrete
 - type: tile
   id: N14FloorConcrete
-  name: alternate concrete
+  name: concrete alternate
   sprite: /Textures/_Nuclear14/Tiles/concrete.png
   variants: 6
   placementVariants: [0, 1, 2, 3, 4, 5]
@@ -775,7 +775,7 @@
 
 - type: tile
   id: N14FloorConcreteTileGoon
-  name: alternate concrete tile
+  name: concrete tile alternate
   sprite: /Textures/_Nuclear14/Tiles/concrete-goon.png
   variants: 1
   baseTurf: FloorWasteland
@@ -789,7 +789,7 @@
 
 - type: tile
   id: N14FloorConcreteGreyBay
-  name: alternate concrete grey
+  name: concrete grey alternate
   sprite: /Textures/_Nuclear14/Tiles/concrete-bay.png
   variants: 1
   baseTurf: FloorWasteland
@@ -830,7 +830,7 @@
 
 - type: tile
   id: N14FloorConcreteDark
-  name: alternate concrete dark
+  name: concrete dark alternate
   sprite: /Textures/_Nuclear14/Tiles/concretedark.png
   variants: 6
   placementVariants: [0, 1, 2, 3, 4, 5]
@@ -861,7 +861,7 @@
 # MS13 Concrete & Brick
 - type: tile
   id: FloorMS13BrickConcrete
-  name: concrete brick
+  name: brick concrete
   sprite: /Textures/_Nuclear14/Tiles/ms13/Concrete/brickconcrete.png
   variants: 9
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -876,7 +876,7 @@
 
 - type: tile
   id: FloorMS13BrickHorizontal
-  name: horizontal brick
+  name: brick horizontal
   sprite: /Textures/_Nuclear14/Tiles/ms13/Brick/brickhorizontal.png
   variants: 9
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -890,7 +890,7 @@
 
 - type: tile
   id: FloorMS13BrickVertical
-  name: vertical brick
+  name: brick vertical
   sprite: /Textures/_Nuclear14/Tiles/ms13/Brick/brickvertical.png
   variants: 9
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -905,7 +905,7 @@
 
 - type: tile
   id: FloorMS13Concrete
-  name: big concrete
+  name: concrete big
   sprite: /Textures/_Nuclear14/Tiles/ms13/Concrete/concrete_big.png
   baseTurf: FloorWasteland
   isSubfloor: true
@@ -931,7 +931,7 @@
 
 - type: tile
   id: FloorMS13ConcreteIndustrialAlt
-  name: alternate industrial concrete
+  name: industrial concrete alternate
   sprite: /Textures/_Nuclear14/Tiles/ms13/Concrete/concrete_industrial_alt.png
   baseTurf: FloorWasteland
   isSubfloor: true
@@ -944,7 +944,7 @@
 
 - type: tile
   id: FloorMS13ConcreteIndustrialSplit
-  name: split industrial concrete
+  name: industrial concrete split
   sprite: /Textures/_Nuclear14/Tiles/ms13/Concrete/concrete_industrial_split.png
   baseTurf: FloorWasteland
   isSubfloor: true
@@ -957,7 +957,7 @@
 
 - type: tile
   id: FloorMS13TileConcreteSmall
-  name: small concrete tile
+  name: concrete tile small
   sprite: /Textures/_Nuclear14/Tiles/ms13/Concrete/tileconcretesmall.png
   variants: 3
   placementVariants: [0, 1, 2]
@@ -999,7 +999,7 @@
 
 - type: tile
   id: FloorMS13TileSierraBroken
-  name: broken sierra tile
+  name: sierra tile broken
   sprite: /Textures/_Nuclear14/Tiles/ms13/sierrabroken.png
   variants: 3
   placementVariants: [0, 1, 2]
@@ -1029,7 +1029,7 @@
 
 - type: tile
   id: FloorMS13TileBlackFull
-  name: full black tile
+  name: black tile full
   sprite: /Textures/_Nuclear14/Tiles/ms13/Full/tileblackfull.png
   variants: 8
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7]
@@ -1044,7 +1044,7 @@
 
 - type: tile
   id: FloorMS13TileBlackLarge
-  name: large black tile
+  name: black tile large
   sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tileblacklarge.png
   variants: 8
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7]
@@ -1059,7 +1059,7 @@
 
 - type: tile
   id: FloorMS13TileLongBlue
-  name: long blue tile
+  name: blue tile long
   sprite: /Textures/_Nuclear14/Tiles/ms13/Long/tilebluelong.png
   variants: 8
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7]
@@ -1089,7 +1089,7 @@
 
 - type: tile
   id: FloorMS13TileCafe
-  name: weathered cafe tile
+  name: cafe tile weathered
   sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tilecafe.png
   variants: 8
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7]
@@ -1117,7 +1117,7 @@
 
 - type: tile
   id: FloorMS13TileCeramicBroken
-  name: broken ceramic tile
+  name: ceramic tile broken
   sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tileceramicbroken.png
   variants: 7
   placementVariants: [0, 1, 2, 3, 4, 5, 6]
@@ -1132,7 +1132,7 @@
 
 - type: tile
   id: FloorMS13TileCheck
-  name: weathered checkered tile
+  name: checkered tile weathered
   sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tilecheck.png
   variants: 8
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7]
@@ -1162,7 +1162,7 @@
 
 - type: tile
   id: FloorMS13TileGreenFull
-  name: full green tile
+  name: green tile full
   sprite: /Textures/_Nuclear14/Tiles/ms13/Full/tilegreenfull.png
   variants: 8
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7]
@@ -1192,7 +1192,7 @@
 
 - type: tile
   id: FloorMS13TileGreyLarge
-  name: large grey tile
+  name: grey tile large
   sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tilegreylarge.png
   variants: 8
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7]
@@ -1207,7 +1207,7 @@
 
 - type: tile
   id: FloorMS13TileGreyLong
-  name: long grey tile
+  name: grey tile long
   sprite: /Textures/_Nuclear14/Tiles/ms13/Long/tilegreylong.png
   variants: 8
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7]
@@ -1237,7 +1237,7 @@
 
 - type: tile
   id: FloorMS13TileNavyFull
-  name: full navy tile
+  name: navy tile full
   sprite: /Textures/_Nuclear14/Tiles/ms13/Full/tilenavyfull.png
   variants: 8
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7]
@@ -1252,7 +1252,7 @@
 
 - type: tile
   id: FloorMS13TileNavyLarge
-  name: large navy tile
+  name: navy tile large
   sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tilenavylarge.png
   variants: 8
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7]
@@ -1267,7 +1267,7 @@
 
 - type: tile
   id: FloorMS13TileWhiteLarge
-  name: large white tile
+  name: white tile large
   sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tilewhitelarge.png
   variants: 8
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7]
@@ -1282,7 +1282,7 @@
 
 - type: tile
   id: FloorMS13TileWhiteFull
-  name: full white tile
+  name: white tile full
   sprite: /Textures/_Nuclear14/Tiles/ms13/Full/tilewhitefull.png
   variants: 8
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7]
