@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseStructure
   id: N14FurnitureCasinoRoulettetable
-  name: Roulette Table
-  description: An old casino roulette table. It still works.
+  name: roulette table
+  description: A casino roulette table.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/roulettetable.rsi
@@ -43,5 +43,3 @@
         layer:
         - MidImpassable
         - LowImpassable
-      
-# TODO: Make this functioning. The animation is there, just needs to move on click and spit out a number and colour as text.

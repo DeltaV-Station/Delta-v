@@ -1,5 +1,3 @@
-# N14TODO: Change bases to have wood, metal, 64x and storage and use inheritance. So that desks have 10 storage.
-
 - type: entity
   id: N14FreeTableBase # Base off this for metal tables
   parent: BaseStructure
@@ -430,18 +428,6 @@
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: metal_counter_cross
 
-
-# - type: entity
-  # id: N14TableMetalBuilt
-  # parent: Table
-  # name: metal table
-  # description: A cold handmade metal table.
-#  components: # TODO: Needs sprites
-#  - type: Sprite
-#    sprite: _Nuclear14/Structures/Furniture/Tables/metaltablebuilt.rsi
-#  - type: Icon
-#    sprite: _Nuclear14/Structures/Furniture/Tables/metaltablebuilt.rsi
-
 - type: entity
   id: N14TableMetalGrate
   parent: Table
@@ -469,17 +455,6 @@
   - type: Construction
     graph: N14TableRecipes
     node: start
-
-# - type: entity
-  # id: N14TableWoodenBuilt
-  # parent: TableWood
-  # name: wooden table
-  # description: A wooden table made of scraps.
-#  components: # TODO: Needs sprites
-#  - type: Sprite
-#    sprite: _Nuclear14/Structures/Furniture/Tables/woodentablecraft.rsi
-#  - type: Icon
-#    sprite: _Nuclear14/Structures/Furniture/Tables/woodentablecraft.rsi
 
 - type: entity
   parent: TableWood

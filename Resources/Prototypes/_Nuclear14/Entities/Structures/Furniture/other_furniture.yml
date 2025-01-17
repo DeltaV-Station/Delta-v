@@ -10,7 +10,7 @@
   parent: BaseStructure
   id: N14GrandfatherClock
   name: grandfather clock
-  description: An old pre-war clock. Looks grand.
+  description: A clock. Looks grand.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/np13_misc.rsi
@@ -21,7 +21,7 @@
   parent: BaseStructure
   id: N14Television
   name: television
-  description: An old pre-war television.
+  description: An old television.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/televisions.rsi
@@ -37,7 +37,7 @@
 - type: entity
   parent: N14Television
   id: N14TelevisionRadking
-  description: A Radking brand television.
+  description: A fancy television.
   components:
   - type: Sprite
     state: radking_tv
@@ -53,7 +53,7 @@
 - type: entity
   parent: N14Television
   id: N14TelevisionTube
-  description: An old pre-war tube television.
+  description: An old tube television.
   components:
   - type: Sprite
     state: tube_tv
@@ -83,203 +83,3 @@
   components:
   - type: Sprite
     state: tiny_tv
-
-- type: entity
-  parent: SeatBase
-  id: N14Toilet
-  name: toilet
-  description: Waste not, want not
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Decoration/world.rsi
-    state: toilet
-  - type: Clickable
-  - type: InteractionOutline
-  - type: Anchorable
-  - type: Physics
-    bodyType: Static
-  - type: Transform
-    anchored: true
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 80
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 40
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-  - type: AmbientSound
-    enabled: false
-    volume: -8
-    range: 8
-    sound:
-      path: /Audio/Ambience/Objects/drain.ogg
-  - type: ContainerContainer
-    containers:
-      stash: !type:ContainerSlot {}
-  - type: SolutionContainerManager
-    solutions:
-      drainBuffer:
-        maxVol: 500
-      toilet:
-        maxVol: 250
-  - type: Drain
-    autoDrain: false
-  - type: DumpableSolution
-    solution: drainBuffer
-
-- type: entity
-  parent: N14Toilet
-  id: N14ToiletWater
-  suffix: filled water
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      toilet:
-        reagents:
-        - ReagentId: Water
-          Quantity: 200
-  - type: SolutionRegeneration
-    solution: toilet
-    generated:
-      reagents:
-      - ReagentId: Water
-        Quantity: 2
-
-- type: entity
-  parent: N14Toilet
-  id: N14ToiletDirty
-  suffix: filled dirty water
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      toilet:
-        reagents:
-        - ReagentId: Water
-          Quantity: 180
-        - ReagentId: GastroToxin
-          Quantity: 20
-  - type: SolutionRegeneration
-    solution: toilet
-    generated:
-      reagents:
-      - ReagentId: Water
-        Quantity: 3
-      - ReagentId: GastroToxin
-        Quantity: 1
-
-- type: entity
-  parent: N14Toilet
-  id: N14ToiletIrradiated
-  suffix: filled rad water
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      toilet:
-        reagents:
-        - ReagentId: Water
-          Quantity: 180
-        - ReagentId: GastroToxin
-          Quantity: 20
-  - type: SolutionRegeneration
-    solution: toilet
-    generated:
-      reagents:
-      - ReagentId: Water
-        Quantity: 3
-      - ReagentId: GastroToxin
-        Quantity: 1
-
-#- type: entity
-#  parent: N14Shower - this parent needs to be made
-#  id: N14Sink
-#  name: sink
-#  description: Waste not, want not
-#  components:
-#  - type: Sprite
-#    state: sink
-#  - type: SolutionContainerManager
-#    solutions:
-#      drainBuffer:
-#        maxVol: 100
-#      tank:
-#        maxVol: 200
-#  - type: DrainableSolution
-#    solution: tank
-#  - type: ReagentTank
-#  - type: Drain
-#    autoDrain: false
-#  - type: DumpableSolution
-#    solution: drainBuffer
-#
-#- type: entity
-#  parent: N14Sink
-#  id: N14SinkFilledWater
-#  suffix: filled water
-#  components:
-#  - type: SolutionContainerManager
-#    solutions:
-#      drainBuffer:
-#        maxVol: 200
-#      tank:
-#        reagents:
-#        - ReagentId: Water
-#          Quantity: 200
-#  - type: SolutionRegeneration
-#    solution: tank
-#    generated:
-#      reagents:
-#      - ReagentId: Water
-#        Quantity: 1
-#
-#- type: entity
-#  parent: N14Sink
-#  id: N14SinkFilledWaterDirty
-#  suffix: filled water dirty
-#  components:
-#  - type: SolutionContainerManager
-#    solutions:
-#      drainBuffer:
-#        maxVol: 200
-#      tank:
-#        reagents:
-#        - ReagentId: WaterDirty
-#          Quantity: 200
-#  - type: SolutionRegeneration
-#    solution: tank
-#    generated:
-#      reagents:
-#      - ReagentId: WaterDirty
-#        Quantity: 1
-#
-#- type: entity
-#  parent: N14Sink
-#  id: N14SinkFilledWaterIrradiated
-#  suffix: filled water irradiated
-#  components:
-#  - type: SolutionContainerManager
-#    solutions:
-#      drainBuffer:
-#        maxVol: 200
-#      tank:
-#        reagents:
-#        - ReagentId: WaterIrradiated
-#          Quantity: 200
-#  - type: SolutionRegeneration
-#    solution: tank
-#    generated:
-#      reagents:
-#      - ReagentId: WaterIrradiated
-#        Quantity: 1

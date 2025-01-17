@@ -251,85 +251,12 @@
 
 - type: entity
   parent: N14DecorFloorBase
-  id: N14DecorStalagmite1
-  name: stalagmite
-  description: Pointy rocks! Mites go up, tites come...
-  components:
-  - type: Sprite
-    state: stalagmite
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-            radius: 0.20
-        density: 1000
-        mask:
-        - MachineMask
-        layer:
-        - MachineLayer
-
-- type: entity
-  parent: N14DecorStalagmite1
-  id: N14DecorStalagmite2
-  components:
-  - type: Sprite
-    state: stalagmite1
-
-- type: entity
-  parent: N14DecorStalagmite1
-  id: N14DecorStalagmite3
-  components:
-  - type: Sprite
-    state: stalagmite2
-
-- type: entity
-  parent: N14DecorStalagmite1
-  id: N14DecorStalagmite4
-  components:
-  - type: Sprite
-    state: stalagmite3
-
-- type: entity
-  parent: N14DecorStalagmite1
-  id: N14DecorStalagmite5
-  components:
-  - type: Sprite
-    state: stalagmite4
-
-- type: entity
-  parent: N14DecorStalagmite1
-  id: N14DecorStalagmite6
-  components:
-  - type: Sprite
-    state: stalagmite5
-
-- type: entity
-  parent: N14DecorStalagmite1
   id: N14DecorMinecart
   name: minecrart
   description: It seems to have fallen over...
   components:
   - type: Sprite
     state: minecart_fallen
-
-- type: entity
-  parent: N14DecorFloorBase
-  id: N14DecorSignLeftMine
-  name: sign
-  description: A sign, for a mine, pointing li...left
-  components:
-  - type: Sprite
-    state: sign_left
-
-- type: entity
-  parent: N14DecorFloorBase
-  id: N14DecorSignRightMine
-  name: sign
-  description: A sign, pointing right.
-  components:
-  - type: Sprite
-    state: sign_right
 
 # World Decor
 - type: entity

@@ -1,5 +1,3 @@
-# TODO:RESET:TIMEDSTORAGEFILL
-
 # Metal Closets
 - type: entity
   parent: ClosetBase
@@ -48,34 +46,12 @@
     stateDoorOpen: closet_open
     stateDoorClosed: closet_door
 
-
 - type: entity
   parent: N14ClosetBaseW
   id: N14ClosetGrey1
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/Closets/closetgrey.rsi
-  - type: Weldable
-
-- type: entity
-  parent: [ N14ClosetGrey1 ]
-  id: N14ClosetGrey1Refilling
-  suffix: Refilling,Domestic,Random
-
-- type: entity
-  parent: [ N14ClosetGrey1 ]
-  id: N14LootClosetGrey1
-  suffix: Loot,Domestic,Random
-
-- type: entity
-  parent: [ N14ClosetGrey1 ]
-  id: N14ClosetGrey1RefillingGeneric
-  suffix: Refilling,Generic,Random
-
-- type: entity
-  parent: [ N14ClosetGrey1 ]
-  id: N14LootGenericClosetGrey1
-  suffix: Loot,Generic,Random
 
 - type: entity
   id: N14ClosetGrey2
@@ -83,26 +59,6 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/Closets/closetgrey2.rsi
-
-- type: entity
-  parent: [ N14ClosetGrey2 ]
-  id: N14ClosetGrey2Refilling
-  suffix: Refilling,Domestic,Random
-
-- type: entity
-  parent: [ N14ClosetGrey2 ]
-  id: N14LootClosetGrey2
-  suffix: Loot,Domestic,Random
-
-- type: entity
-  parent: [ N14ClosetGrey2 ]
-  id: N14ClosetGrey2RefillingGeneric
-  suffix: Refilling,Generic,Random
-
-- type: entity
-  parent: [ N14ClosetGrey2 ]
-  id: N14LootGenericClosetGrey2
-  suffix: Loot,Generic,Random
 
 - type: entity
   parent: N14ClosetBaseW
@@ -114,48 +70,9 @@
     sprite: _Nuclear14/Structures/Storage/Closets/closetold.rsi
 
 - type: entity
-  parent: [ N14ClosetRusty ]
-  id: N14ClosetRustyRefilling
-  suffix: Refilling,Domestic,Random
-
-- type: entity
-  parent: [ N14ClosetRusty ]
-  id: N14LootClosetRusty
-  suffix: Loot,Domestic,Random
-
-- type: entity
-  parent: [ N14ClosetRusty ]
-  id: N14ClosetRustyRefillingGeneric
-  suffix: Refilling,Generic,Random
-
-- type: entity
-  parent: [ N14ClosetRusty ]
-  id: N14LootGenericClosetRusty
-  suffix: Loot,Generic,Random
-
-- type: entity
-  parent: N14ClosetBaseW
-  id: N14ClosetGunCabinet
-  name: gun cabinet
-  description: A secure cabinet for storing guns.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Storage/Closets/guncabinet.rsi
-
-- type: entity
-  parent: [ N14ClosetGunCabinet ]
-  id: N14ClosetGunCabinetRefilling
-  suffix: Refilling,Military,Random
-
-- type: entity
-  parent: [ N14ClosetGunCabinet ]
-  id: N14LootClosetGunCabinet
-  suffix: Loot,Military,Random
-
-- type: entity
   parent: N14ClosetBaseW
   id: N14ClosetFridgeDirty
-  name: fridge
+  name: dirty fridge
   description: A dirty old fridge for keeping food fresh
   components:
   - type: Sprite
@@ -165,21 +82,12 @@
   - type: AntiRottingContainer
 
 - type: entity
-  parent: N14ClosetBaseW
+  parent: N14ClosetFridgeDirty
   id: N14ClosetFridgeWideDirty
-  name: fridge
-  description: A dirty old fridge for keeping food fresh
+  name: dirty wide fridge
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/Closets/fridgewidedirty.rsi
-  - type: ExplosionResistance
-    damageCoefficient: 0.90
-  - type: AntiRottingContainer
-
-- type: entity
-  parent: [ N14ClosetFridgeDirty, N14ClosetFridgeWideDirty ]
-  id: N14LootClosetFridge
-  suffix: Loot,Domestic,Random
 
 - type: entity
   parent: N14ClosetBaseW
@@ -201,33 +109,13 @@
         layer:
         - MachineLayer
 
-- type: entity
-  parent: [ N14ClosetDouble ]
-  id: N14ClosetDoubleRefilling
-  suffix: Refilling,Domestic,Random
-
-- type: entity
-  parent: [ N14ClosetDouble ]
-  id: N14LootClosetDouble
-  suffix: Loot,Domestic,Random
-
-- type: entity
-  parent: [ N14ClosetDouble ]
-  id: N14ClosetDoubleRefillingGeneric
-  suffix: Refilling,Generic,Random
-
-- type: entity
-  parent: [ N14ClosetDouble ]
-  id: N14LootGenericClosetDouble
-  suffix: Loot,Generic,Random
-
 # Wooden Closets
 
 - type: entity
   parent: N14ClosetBase
   id: N14ClosetCabinetWood
   name: cabinet
-  description: An old pre-war wooden cabinet.
+  description: An old wooden cabinet.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/Closets/cabinet.rsi
@@ -255,111 +143,9 @@
     - Wooden
 
 - type: entity
-  parent: [ N14ClosetCabinetWood ]
-  id: N14ClosetCabinetWoodRefilling
-  suffix: Refilling,Domestic,Random
-
-- type: entity
-  parent: [ N14ClosetCabinetWood ]
-  id: N14LootClosetCabinetWood
-  suffix: Loot,Domestic,Random
-
-- type: entity
-  parent: N14ClosetBaseW
-  id: N14ClosetEnclave
-  suffix: enclave roller
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Storage/Closets/closetenclave.rsi
-
-- type: entity
   parent: N14ClosetBaseW
   id: N14ClosetGeneric
   suffix: generic roller
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/Closets/closetgeneric.rsi
-
-- type: entity
-  parent: [ N14ClosetGeneric ]
-  id: N14LootClosetGeneric
-  suffix: Loot,Generic,Random
-
-- type: entity
-  parent: [ N14ClosetGeneric ]
-  id: N14LootMilitaryClosetGeneric
-  suffix: Loot,Military,Random
-
-- type: entity
-  parent: [ N14ClosetGeneric ]
-  id: N14ClosetGenericRefillingMilitary
-  suffix: Refilling,Military,Random
-
-# Wallmounted Closets
-- type: entity
-  id: N14ClosetWallMedicabinet
-  placement:
-    mode: SnapgridCenter
-  name: medicabinet
-  description: A medicabinet mounted on the wall.
-  components:
-  - type: InteractionOutline
-  - type: Clickable
-  - type: ResistLocker
-  - type: Weldable
-  - type: WallMount
-    arc: 180
-  - type: Transform
-    noRot: false
-  - type: Sprite
-    drawdepth: WallMountedItems
-    netsync: false
-    noRot: false
-    sprite: _Nuclear14/Structures/Storage/Closets/medicabinet.rsi
-    layers:
-    - state: closet
-    - state: closet_door
-      map: ["enum.StorageVisualLayers.Door"]
-    - state: welded
-      visible: false
-      map: ["enum.WeldableLayers.BaseWelded"]
-  - type: EntityStorage
-    isCollidableWhenOpen: true
-    enteringOffset: 0, -0.75
-    closeSound:
-      path: /Audio/Items/deconstruct.ogg
-    openSound:
-      path: /Audio/Items/deconstruct.ogg
-  - type: ContainerContainer
-    containers:
-      entity_storage: !type:Container
-        ents: []
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 150
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 1
-            max: 1
-
-- type: entity
-  parent: [ N14ClosetWallMedicabinet ]
-  id: N14ClosetWallMedicabinetRefilling
-  suffix: Refilling,Medical,Random
-
-- type: entity
-  parent: [ N14ClosetWallMedicabinet ]
-  id: N14LootClosetWallMedicabinet
-  suffix: Loot,Medical,Random

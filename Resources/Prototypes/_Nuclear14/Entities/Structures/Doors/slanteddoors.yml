@@ -1,5 +1,3 @@
-#MARK: Metal (Oh... Hi Mark)
-
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: N14DoorMetalBlueSlanted
@@ -163,7 +161,6 @@
       map: ["enum.DoorVisualLayers.Base"]
 
 #MARK: Wooden
-
 - type: entity
   parent: N14DoorMetalBlueSlanted
   id: N14DoorWoodSlanted
@@ -247,77 +244,3 @@
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
-
-#MARK: Airlocks
-
-- type: entity
-  parent: N14DoorMetalBlueSlanted
-  id: N14DoorAirlockSlanted
-  name: airlock
-  suffix: slanted
-  description: An old bunker airlock.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Doors/SlantedDoors/airlock.rsi
-    drawdepth: WallTops
-    layers:
-    - state: closed
-      map: ["enum.DoorVisualLayers.Base"]
-    - state: closed_unlit
-      shader: unshaded
-      map: ["enum.DoorVisualLayers.BaseUnlit"]
-    - state: welded
-      map: ["enum.WeldableLayers.BaseWelded"]
-    - state: bolted_unlit
-      shader: unshaded
-      map: ["enum.DoorVisualLayers.BaseBolted"]
-    - state: emergency_unlit
-      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
-      shader: unshaded
-    - state: panel_open
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Door
-    bumpOpen: false
-    clickOpen: true
-    closeTimeOne: 0.6
-    closeTimeTwo: 0.8
-    openTimeOne: 1
-    openTimeTwo: 0.4
-    openingAnimationTime: 1.4
-    closingAnimationTime: 1.4
-    closedDrawDepth: WallTops
-    openDrawDepth: WallTops
-    openSound:
-      path: /Audio/_Nuclear14/Effects/Doors/DRS_Metal_Jail_Swing_Open_01.ogg
-    closeSound:
-      path: /Audio/_Nuclear14/Effects/Doors/DRS_Metal_Jail_Swing_Close_01.ogg
-    denySound:
-      path: /Audio/Machines/airlock_deny.ogg
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: AnimationPlayer
-  - type: Appearance
-  - type: BlockWeather
-  - type: Airtight
-    noAirWhenFullyAirBlocked: false
-  - type: RadiationBlocker
-    resistance: 10
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: StructuralMetallic
-  - type: ApcPowerReceiver
-    powerLoad: 10
-  - type: ExtensionCableReceiver
-  - type: Airlock
-  - type: LayerChangeOnWeld
-    unWeldedLayer: AirlockLayer
-    weldedLayer: WallLayer
-  - type: Weldable
-    time: 6
-  - type: DoorBolt

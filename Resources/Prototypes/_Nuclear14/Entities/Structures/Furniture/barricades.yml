@@ -34,55 +34,7 @@
         layer:
         - TableLayer
   - type: Climbable
-  
-- type: entity
-  id: N14BarricadeTanktrap
-  parent: N14BarricadeSandbagSingle
-  name: tank trap
-  description: A metal fabricated spike for blocking vehicles.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Furniture/barricades.rsi
-    netsync: false
-    state: iron_barricade
-    snapCardinals: true
-  - type: Damageable
-    damageModifierSet: Metallic
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        density: 1000
-        mask:
-        - TableMask
-        layer:
-        - TableLayer
-        
-- type: entity
-  id: N14BarricadeTanktrapRusty
-  parent: N14BarricadeTanktrap
-  name: tank trap
-  description: A rusty metal fabricated spike for blocking vehicles.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Furniture/barricades.rsi
-    netsync: false
-    state: iron_barricadeA
-  
+
 - type: entity
   parent: BaseStructure
   id: N14BarricadeRazorwire
@@ -160,7 +112,7 @@
   - type: Damageable
     damageModifierSet: Metallic
     damageContainer: Inorganic
-    
+
 - type: entity
   parent: N14BarricadeMetal
   id: N14BarricadeMetalGreen
@@ -168,64 +120,64 @@
   components:
   - type: Sprite
     state: green
-    
-#- type: entity 
-#  parent: N14DecorFloorWorldBase - Has to be made/fixed, Not present in dictionary
-#  id: N14DecorConcreteBarrier
-#  name: concrete barrier
-#  description: an old concrete barrier for stopping traffic.
-#  components:
-#  - type: Sprite
-#    sprite: _Nuclear14/Structures/Decoration/barriers.rsi
-#    state: concrete_barrier
-#  - type: Fixtures
-#    fixtures:
-#      fix1:
-#        shape:
-#          !type:PhysShapeAabb
-#            bounds: "0.3,0,-0.3,-0.1"
-#        density: 1000
-#        layer:
-#        - WallLayer
-#    
-#- type: entity
-#  parent: N14DecorConcreteBarrier
-#  id: N14DecorConcreteBarrierDamaged
-#  components:
-#  - type: Sprite
-#    layers:
-#    - state: concrete_barrier_1
-#      map: [ "body" ]
-#  - type: RandomSprite
-#    available:
-#      - body:
-#          concrete_barrier_1: ""
-#          concrete_barrier_2: ""
-#          concrete_barrier_3: ""
-#          concrete_barrier_4: ""
-#          concrete_barrier_5: ""
-#          
-#- type: entity
-#  parent: N14DecorConcreteBarrier
-#  id: N14DecorConcreteBarrierStriped
-#  name: concrete barrier
-#  description: an old concrete barrier for stopping traffic.
-#  components:
-#  - type: Sprite
-#    layers:
-#    - state: concrete_barrier_alt
-#      map: [ "body" ]
-#  - type: RandomSprite
-#    available:
-#      - body:
-#          concrete_barrier_alt: ""
-#          concrete_barrier_alt_1: ""
-#          
-#- type: entity
-#  parent: N14DecorConcreteBarrier
-#  id: N14DecorRoadBarrier
-#  name: road barrier
-#  description: an old wooden barrier for stopping traffic.
-#  components:
-#  - type: Sprite
-#    state: road_barrier
+
+- type: entity
+  parent: N14DecorFloorWorldBase
+  id: N14DecorConcreteBarrier
+  name: concrete barrier
+  description: an old concrete barrier for stopping traffic.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Decoration/barriers.rsi
+    state: concrete_barrier
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "0.3,0,-0.3,-0.1"
+        density: 1000
+        layer:
+        - WallLayer
+
+- type: entity
+  parent: N14DecorConcreteBarrier
+  id: N14DecorConcreteBarrierDamaged
+  components:
+  - type: Sprite
+    layers:
+    - state: concrete_barrier_1
+      map: [ "body" ]
+  - type: RandomSprite
+    available:
+      - body:
+          concrete_barrier_1: ""
+          concrete_barrier_2: ""
+          concrete_barrier_3: ""
+          concrete_barrier_4: ""
+          concrete_barrier_5: ""
+
+- type: entity
+  parent: N14DecorConcreteBarrier
+  id: N14DecorConcreteBarrierStriped
+  name: concrete barrier
+  description: an old concrete barrier for stopping traffic.
+  components:
+  - type: Sprite
+    layers:
+    - state: concrete_barrier_alt
+      map: [ "body" ]
+  - type: RandomSprite
+    available:
+      - body:
+          concrete_barrier_alt: ""
+          concrete_barrier_alt_1: ""
+
+- type: entity
+  parent: N14DecorConcreteBarrier
+  id: N14DecorRoadBarrier
+  name: road barrier
+  description: an old wooden barrier for stopping traffic.
+  components:
+  - type: Sprite
+    state: road_barrier

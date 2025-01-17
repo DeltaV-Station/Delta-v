@@ -10,7 +10,7 @@
   - type: Construction
     graph: N14Seat
     node: N14ChairWood
-    
+
 - type: entity
   parent: ChairWood
   id: N14ChairWood1
@@ -21,7 +21,7 @@
   - type: Construction
     graph: N14Seat
     node: N14ChairWood1
-    
+
 - type: entity
   parent: ChairWood
   id: N14ChairWoodPadded
@@ -33,7 +33,7 @@
   - type: Construction
     graph: N14Seat
     node: N14ChairWoodPadded
-    
+
 - type: entity
   parent: N14ChairWood
   id: N14ChairWoodSettler
@@ -45,7 +45,7 @@
   - type: Construction
     graph: N14Seat
     node: N14ChairWoodSettler
-    
+
 - type: entity
   parent: StoolBase
   id: N14ChairStoolBarBlack
@@ -58,7 +58,7 @@
   - type: Construction
     graph: N14Seat
     node: N14ChairStoolBarBlack
-    
+
 - type: entity
   parent: StoolBase
   id: N14ChairStoolBarTan
@@ -70,7 +70,7 @@
   - type: Construction
     graph: N14Seat
     node: N14ChairStoolBarTan
-    
+
 - type: entity
   parent: StoolBase
   id: N14ChairStoolBarRed
@@ -82,7 +82,7 @@
   - type: Construction
     graph: N14Seat
     node: N14ChairStoolBarRed
-    
+
 - type: entity
   parent: N14ChairWood
   id: N14ChairArmchair
@@ -95,7 +95,7 @@
   - type: Construction
     graph: N14Seat
     node: N14ChairArmchair
-    
+
 # Metal Chairs
 - type: entity
   parent: Chair
@@ -108,7 +108,7 @@
   - type: Construction
     graph: N14Seat
     node: N14ChairMetalGreen
-    
+
 - type: entity
   parent: N14ChairMetalGreen
   id: N14ChairMetalGreenUnfinished
@@ -116,7 +116,7 @@
   components:
   - type: Sprite
     state: metal_chair_unfinished
-    
+
 - type: entity
   parent: N14ChairMetalGreen
   id: N14ChairMetalGreenBroken
@@ -124,8 +124,7 @@
   components:
   - type: Sprite
     state: metal_chair_broken
-    
-    
+
 - type: entity
   parent: N14ChairMetalGreen
   id: N14ChairMetalBlue
@@ -137,7 +136,7 @@
   - type: Construction
     graph: N14Seat
     node: N14ChairMetalBlue
-    
+
 - type: entity
   parent: N14ChairMetalGreen
   id: N14ChairMetalBlueUnfinished
@@ -145,7 +144,7 @@
   components:
   - type: Sprite
     state: metal_chair_blue_unfinished
-    
+
 - type: entity
   parent: N14ChairMetalGreen
   id: N14ChairMetalBlueBroken
@@ -153,8 +152,7 @@
   components:
   - type: Sprite
     state: metal_chair_blue_broken
-    
-    
+
 - type: entity
   parent: N14ChairMetalGreen
   id: N14ChairMetalRed
@@ -166,7 +164,7 @@
   - type: Construction
     graph: N14Seat
     node: N14ChairMetalRed
-    
+
 - type: entity
   parent: N14ChairMetalGreen
   id: N14ChairMetalRedUnfinished
@@ -174,7 +172,7 @@
   components:
   - type: Sprite
     state: metal_chair_red_unfinished
-    
+
 - type: entity
   parent: N14ChairMetalGreen
   id: N14ChairMetalRedBroken
@@ -182,8 +180,7 @@
   components:
   - type: Sprite
     state: metal_chair_red_broken
-    
-    
+
 - type: entity
   parent: OfficeChairBase
   id: N14ChairOfficeRed
@@ -196,7 +193,7 @@
   - type: Construction
     graph: N14Seat
     node: N14ChairOfficeRed
-    
+
 - type: entity
   parent: OfficeChairBase
   id: N14ChairOfficeRedBroken
@@ -205,8 +202,7 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/chairs.rsi
     state: office_chair_broken
-    
-    
+
 - type: entity
   parent: OfficeChairBase
   id: N14ChairOfficeBlue
@@ -219,7 +215,7 @@
   - type: Construction
     graph: N14Seat
     node: N14ChairOfficeBlue
-    
+
 - type: entity
   parent: N14ChairOfficeRed
   id: N14ChairOfficeBlueBroken
@@ -228,8 +224,7 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/chairs.rsi
     state: office_chair_blue_broken
-    
-    
+
 - type: entity
   parent: OfficeChairBase
   id: N14ChairOfficeGreen
@@ -242,7 +237,7 @@
   - type: Construction
     graph: N14Seat
     node: N14ChairOfficeGreen
-    
+
 - type: entity
   parent: OfficeChairBase
   id: N14ChairOfficeGreenBroken
@@ -251,8 +246,7 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/chairs.rsi
     state: office_chair_green_broken
-    
-    
+
 - type: entity
   parent: OfficeChairBase
   id: N14ChairOfficeErgonomic
@@ -264,19 +258,7 @@
   - type: Construction
     graph: N14Seat
     node: N14ChairOfficeErgonomic
-    
-- type: entity
-  parent: N14ChairMetalGreen
-  id: N14ChairMetalFolding
-  name: folding chair
-  suffix: folding
-  components:
-  - type: Sprite
-    state: metal_chair_folding
-  - type: Construction
-    graph: N14Seat
-    node: N14ChairMetalFolding
-    
+
 - type: entity
   parent: N14ChairMetalGreen
   id: N14ChairBarRetro
@@ -285,20 +267,7 @@
   components:
   - type: Sprite
     state: retro_chair
-    
-- type: entity
-  parent: N14ChairMetalGreen
-  id: N14ChairPlastic
-  name: plastic chair
-  description: A plastic chair. Looks uncomfy.
-  suffix: plastic
-  components:
-  - type: Sprite
-    state: plastic_chair
-  - type: Construction
-    graph: N14Seat
-    node: N14ChairPlastic
-    
+
 - type: entity
   parent: N14ChairMetalGreen
   id: N14ChairDinerBench

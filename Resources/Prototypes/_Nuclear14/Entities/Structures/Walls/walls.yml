@@ -1,6 +1,3 @@
-# For all other walls see SS14
-# Make a base for wood, metal walls (breaks to girder), concrete (breaks to nothing / rubble), rebarconcrete (breaks to rebar girder) etc for destruction
-
 # Concrete Walls
 - type: entity
   parent: BaseWall
@@ -236,31 +233,3 @@
   - type: IconSmooth
     key: tent
     base: tent
-
-- type: entity
-  id: N14BlastDoorExteriorIndestructible
-  parent: BlastDoor
-  suffix: Indestructible, Closed
-  components:
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 10000 # pseudo indestructible
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-
-- type: entity
-  id: BlastDoorExteriorIndestructibleOpen
-  parent: BlastDoorOpen
-  suffix: Indestructible, Open
-  components:
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 10000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]

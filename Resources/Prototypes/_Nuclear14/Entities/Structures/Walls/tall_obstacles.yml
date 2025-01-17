@@ -33,7 +33,7 @@
         layer:
         - WallLayer
         density: 1000
-        
+
 - type: entity
   parent: N14BaseTallObstacle
   id: N14BarricadeWoodTall
@@ -42,7 +42,7 @@
   components:
   - type: Sprite
     state: barricade
-    
+
 - type: entity
   parent: N14BaseTallObstacle
   id: N14CellBars
@@ -52,7 +52,7 @@
     state: bars
     allowedVerbs:
     - Rattle
-    
+
 - type: entity
   parent: N14CellBars
   id: N14CellBarsSlot
@@ -80,7 +80,7 @@
         layer:
         - WallLayer
         density: 1000
-    
+
 - type: entity
   parent: N14CellBars
   id: N14CellBarsCorner
@@ -108,8 +108,8 @@
         layer:
         - WallLayer
         density: 1000
-        
-    
+
+
 - type: entity
   parent: N14CellBars
   id: N14CellBarsRust
@@ -117,7 +117,7 @@
   components:
   - type: Sprite
     state: bars_rust
-    
+
 - type: entity
   parent: N14CellBarsSlot
   id: N14CellBarsSlotRust
@@ -125,7 +125,7 @@
   components:
   - type: Sprite
     state: barsslot_rust
-    
+
 - type: entity
   parent: N14CellBarsCorner
   id: N14CellBarsCornerRust

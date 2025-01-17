@@ -93,18 +93,6 @@
               doAfter: 1
             - material: Cloth
               amount: 1
-        - to: N14ChairMetalFolding
-          steps:
-            - material: Plastic
-              amount: 1
-              doAfter: 1
-            - material: MetalRod
-              amount: 2
-        - to: N14ChairPlastic
-          steps:
-            - material: Plastic
-              amount: 2
-              doAfter: 1
 
     - node: N14ChairWood
       entity: N14ChairWood
@@ -129,7 +117,7 @@
           steps:
             - tool: Screwing
               doAfter: 1
-              
+
     - node: N14ChairWoodPadded
       entity: N14ChairWoodPadded
       edges:
@@ -144,7 +132,7 @@
           steps:
             - tool: Screwing
               doAfter: 1
-              
+
     - node: N14ChairWoodSettler
       entity: N14ChairWoodSettler
       edges:
@@ -169,7 +157,7 @@
           steps:
             - tool: Screwing
               doAfter: 1
-              
+
     - node: N14ChairStoolBarTan
       entity: N14ChairStoolBarTan
       edges:
@@ -181,7 +169,7 @@
           steps:
             - tool: Screwing
               doAfter: 1
-              
+
     - node: N14ChairStoolBarRed
       entity: N14ChairStoolBarRed
       edges:
@@ -193,7 +181,7 @@
           steps:
             - tool: Screwing
               doAfter: 1
-              
+
     - node: N14ChairArmchair
       entity: N14ChairArmchair
       edges:
@@ -208,7 +196,7 @@
           steps:
             - tool: Screwing
               doAfter: 1
-              
+
     - node: N14ChairMetalGreen
       entity: N14ChairMetalGreen
       edges:
@@ -220,7 +208,7 @@
           steps:
             - tool: Screwing
               doAfter: 1
-              
+
     - node: N14ChairMetalBlue
       entity: N14ChairMetalBlue
       edges:
@@ -259,7 +247,7 @@
           steps:
             - tool: Screwing
               doAfter: 1
-              
+
     - node: N14ChairOfficeBlue
       entity: N14ChairOfficeBlue
       edges:
@@ -274,7 +262,7 @@
           steps:
             - tool: Screwing
               doAfter: 1
-              
+
     - node: N14ChairOfficeGreen
       entity: N14ChairOfficeGreen
       edges:
@@ -289,7 +277,7 @@
           steps:
             - tool: Screwing
               doAfter: 1
-              
+
     - node: N14ChairOfficeErgonomic
       entity: N14ChairOfficeErgonomic
       edges:
@@ -303,31 +291,4 @@
               amount: 1
           steps:
             - tool: Screwing
-              doAfter: 1
-
-    - node: N14ChairMetalFolding
-      entity: N14ChairMetalFolding
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetPlastic1
-              amount: 1
-            - !type:SpawnPrototype
-              prototype: PartRodMetal1
-              amount: 2
-          steps:
-            - tool: Screwing
-              doAfter: 1
-              
-    - node: N14ChairPlastic
-      entity: N14ChairPlastic
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetPlastic1
-              amount: 2
-          steps:
-            - tool: Welding
               doAfter: 1
