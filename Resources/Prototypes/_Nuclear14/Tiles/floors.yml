@@ -289,7 +289,7 @@
   name: tunnel floor
   sprite: /Textures/_Nuclear14/Tiles/tunnelintact.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: N14FootstepMetalHollow
@@ -303,7 +303,7 @@
   name: tunnel floor rusty
   sprite: /Textures/_Nuclear14/Tiles/tunnelrusty.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: N14FootstepMetalHollow
@@ -319,7 +319,7 @@
   variants: 11
   placementVariants: [0, 1, 2, 3, 5, 6, 7, 8, 9, 10]
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
@@ -765,7 +765,7 @@
   variants: 6
   placementVariants: [0, 1, 2, 3, 4, 5]
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepConcrete
   friction: 0.30
@@ -779,7 +779,7 @@
   sprite: /Textures/_Nuclear14/Tiles/concrete-goon.png
   variants: 1
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepConcrete
   friction: 0.30
@@ -793,7 +793,7 @@
   sprite: /Textures/_Nuclear14/Tiles/concrete-bay.png
   variants: 1
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepConcrete
   friction: 0.30
@@ -807,7 +807,7 @@
   sprite: /Textures/_Nuclear14/Tiles/hexacrete.png
   variants: 1
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepConcrete
   friction: 0.30
@@ -820,7 +820,7 @@
   name: hexacrete dark
   sprite: /Textures/_Nuclear14/Tiles/hexacrete_dark.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepConcrete
   friction: 0.30
@@ -835,7 +835,7 @@
   variants: 6
   placementVariants: [0, 1, 2, 3, 4, 5]
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepConcrete
   friction: 0.30
@@ -850,7 +850,7 @@
   variants: 6
   placementVariants: [0, 1, 2, 3, 4, 5]
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepConcrete
   friction: 0.30
@@ -866,7 +866,7 @@
   variants: 9
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7, 8]
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepConcreteBroken
   friction: 0.30
@@ -881,7 +881,7 @@
   variants: 9
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7, 8]
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepConcreteBroken
   friction: 0.30
@@ -895,7 +895,7 @@
   variants: 9
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7, 8]
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepConcreteBroken
   friction: 0.30
@@ -908,7 +908,7 @@
   name: concrete big
   sprite: /Textures/_Nuclear14/Tiles/ms13/Concrete/concrete_big.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepConcrete
   friction: 0.30
@@ -921,7 +921,7 @@
   name: industrial concrete
   sprite: /Textures/_Nuclear14/Tiles/ms13/Concrete/concrete_industrial.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepConcrete
   friction: 0.30
@@ -934,7 +934,7 @@
   name: industrial concrete alternate
   sprite: /Textures/_Nuclear14/Tiles/ms13/Concrete/concrete_industrial_alt.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepConcrete
   friction: 0.30
@@ -947,7 +947,7 @@
   name: industrial concrete split
   sprite: /Textures/_Nuclear14/Tiles/ms13/Concrete/concrete_industrial_split.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepConcrete
   friction: 0.30
@@ -962,7 +962,7 @@
   variants: 3
   placementVariants: [0, 1, 2]
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepConcrete
   friction: 0.30
@@ -1316,7 +1316,7 @@
   name: road inner middle
   sprite: /Textures/_Nuclear14/Tiles/roadinnermiddle.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1329,7 +1329,7 @@
   name: road outer middle (path)
   sprite: /Textures/_Nuclear14/Tiles/roadoutermiddle.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1342,7 +1342,7 @@
   name: road corner1
   sprite: /Textures/_Nuclear14/Tiles/roadcorner1.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1355,7 +1355,7 @@
   name: road corner2
   sprite: /Textures/_Nuclear14/Tiles/roadcorner2.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1368,7 +1368,7 @@
   name: road corner3
   sprite: /Textures/_Nuclear14/Tiles/roadcorner3.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1381,7 +1381,7 @@
   name: road corner4
   sprite: /Textures/_Nuclear14/Tiles/roadcorner4.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1394,7 +1394,7 @@
   name: road bottom
   sprite: /Textures/_Nuclear14/Tiles/roadbottom.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1407,7 +1407,7 @@
   name: road left
   sprite: /Textures/_Nuclear14/Tiles/roadleft.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1420,7 +1420,7 @@
   name: road right
   sprite: /Textures/_Nuclear14/Tiles/roadright.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1433,7 +1433,7 @@
   name: road top
   sprite: /Textures/_Nuclear14/Tiles/roadtop.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1446,7 +1446,7 @@
   name: road outer turn north
   sprite: /Textures/_Nuclear14/Tiles/roadouterturnn.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1459,7 +1459,7 @@
   name: road outer turn south
   sprite: /Textures/_Nuclear14/Tiles/roadouterturns.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1472,7 +1472,7 @@
   name: road outer turn west
   sprite: /Textures/_Nuclear14/Tiles/roadouterturnw.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1485,7 +1485,7 @@
   name: road outer turn east
   sprite: /Textures/_Nuclear14/Tiles/roadouterturne.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1498,7 +1498,7 @@
   name: road outer corner 1
   sprite: /Textures/_Nuclear14/Tiles/roadoutercorner1.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1511,7 +1511,7 @@
   name: road outer corner 2
   sprite: /Textures/_Nuclear14/Tiles/roadoutercorner2.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1524,7 +1524,7 @@
   name: road outer corner 3
   sprite: /Textures/_Nuclear14/Tiles/roadoutercorner3.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1537,7 +1537,7 @@
   name: road outer corner 4
   sprite: /Textures/_Nuclear14/Tiles/roadoutercorner4.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1550,7 +1550,7 @@
   name: road inner turn 1
   sprite: /Textures/_Nuclear14/Tiles/roadinnerturn1.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1563,7 +1563,7 @@
   name: road inner turn 2
   sprite: /Textures/_Nuclear14/Tiles/roadinnerturn2.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1576,7 +1576,7 @@
   name: road inner turn 3
   sprite: /Textures/_Nuclear14/Tiles/roadinnerturn3.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1589,7 +1589,7 @@
   name: road inner turn 4
   sprite: /Textures/_Nuclear14/Tiles/roadinnerturn4.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1602,7 +1602,7 @@
   name: road tiny corner horizontal 1
   sprite: /Textures/_Nuclear14/Tiles/roadtinycornerhorizontal1.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1615,7 +1615,7 @@
   name: road tiny corner horizontal 2
   sprite: /Textures/_Nuclear14/Tiles/roadtinycornerhorizontal2.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1628,7 +1628,7 @@
   name: road tiny corner horizontal 3
   sprite: /Textures/_Nuclear14/Tiles/roadtinycornerhorizontal3.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1641,7 +1641,7 @@
   name: road tiny corner horizontal 4
   sprite: /Textures/_Nuclear14/Tiles/roadtinycornerhorizontal4.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1654,7 +1654,7 @@
   name: road tiny corner vertical 1
   sprite: /Textures/_Nuclear14/Tiles/roadtinycornervertical1.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1667,7 +1667,7 @@
   name: road tiny corner vertical 2
   sprite: /Textures/_Nuclear14/Tiles/roadtinycornervertical2.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1680,7 +1680,7 @@
   name: road tiny corner vertical 3
   sprite: /Textures/_Nuclear14/Tiles/roadtinycornervertical3.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1693,7 +1693,7 @@
   name: road tiny corner vertical 4
   sprite: /Textures/_Nuclear14/Tiles/roadtinycornervertical4.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
   friction: 0.30
@@ -1709,7 +1709,7 @@
   variants: 4
   placementVariants: [0, 1, 2, 3]
   baseTurf: space
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepDirt
   friction: 0.30
@@ -1733,7 +1733,7 @@
     North: /Textures/_Nuclear14/Tiles/Dirt/double_edge_N.png
     West: /Textures/_Nuclear14/Tiles/Dirt/double_edge_W.png
   # baseTurf: FloorBase
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepDirt
   heatCapacity: 10000
@@ -1754,7 +1754,7 @@
     North: /Textures/_Nuclear14/Tiles/Dirt/double_edge_N.png
     West: /Textures/_Nuclear14/Tiles/Dirt/double_edge_W.png
   # baseTurf: FloorBase
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: N14FootstepDirt
   heatCapacity: 10000
@@ -1776,7 +1776,7 @@
     North: /Textures/_Nuclear14/Tiles/Rubble/double_edge_N.png
     West: /Textures/_Nuclear14/Tiles/Rubble/double_edge_W.png
   # baseTurf: FloorBase
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepAsteroid
   heatCapacity: 10000
@@ -1798,7 +1798,7 @@
     North: /Textures/_Nuclear14/Tiles/Rubble/double_edge_N.png
     West: /Textures/_Nuclear14/Tiles/Rubble/double_edge_W.png
   # baseTurf: FloorBase
-  isSubfloor: true
+  isSubfloor: false
   footstepSounds:
     collection: FootstepAsteroid
   heatCapacity: 10000
