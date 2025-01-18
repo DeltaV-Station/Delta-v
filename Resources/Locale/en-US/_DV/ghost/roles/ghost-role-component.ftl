@@ -51,3 +51,12 @@ ghost-role-information-shadow-cat-name = Shadow Cat
 ghost-role-information-shadow-cat-description = A cute cat made of... shadows? How?!
 
 ghost-role-information-deltav-clippy-description = The courier's loyal pet, smells like cardboard and papers.
+
+deltav-ghost-role-information-softantag-rules = You are allowed to attack the crew without provocation.
+                                                You are allowed to coexist with the crew.
+                                                The crew is allowed to kill you without warning.
+
+deltav-ghost-role-information-salvageantag-rules =  You are a salvage mob.
+                                                    You are allowed to attack salvagers without provocation. DO NOT GIB THEIR CORPSES!
+                                                    You are allowed to attack the salvage shuttle.
+                                                    You are NOT allowed to go to the station. If the salvagers go to the station, you can't follow them.

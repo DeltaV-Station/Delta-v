@@ -334,6 +334,11 @@
         component: ForcedSleeping
         refresh: false
         type: Add
+      - !type:GenericStatusEffect # DeltaV: anesthesia
+        key: Anesthesia
+        component: Anesthesia
+        refresh: false
+        type: Add
 
 - type: reagent
   id: MuteToxin

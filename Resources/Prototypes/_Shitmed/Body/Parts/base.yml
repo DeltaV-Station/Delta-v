@@ -17,13 +17,13 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Slash
-        damage: 150
+        damage: 100 # DeltaV - was 150
       behaviors:
       - !type:GibPartBehavior { }
     - trigger:
         !type:DamageTypeTrigger
         damageType: Heat
-        damage: 200
+        damage: 2000 # DeltaV - was 200
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawnInContainer: true
@@ -67,7 +67,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Heat
-        damage: 400
+        damage: 4000 # DeltaV - was 400
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawnInContainer: true

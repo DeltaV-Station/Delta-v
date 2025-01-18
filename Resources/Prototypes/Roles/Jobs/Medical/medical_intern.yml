@@ -17,11 +17,11 @@
   access:
   - Medical
   - Maintenance
-  special: # Shitmed change
-  - !type:AddComponentSpecial
-    components:
-    - type: SurgerySpeedModifier
-      speedModifier: 1.5
+  #special: # Shitmed change. DeltaV - role modifiers bad
+  #- !type:AddComponentSpecial
+  #  components:
+  #  - type: SurgerySpeedModifier
+  #    speedModifier: 1.5
 
 - type: startingGear
   id: MedicalInternGear
