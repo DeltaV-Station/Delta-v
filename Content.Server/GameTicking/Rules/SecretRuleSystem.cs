@@ -4,6 +4,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Presets;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Shared._DV.CCVars;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Random;
 using Content.Shared.CCVar;
@@ -51,13 +52,16 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
         Log.Info($"Selected {preset.ID} as the secret preset.");
         _adminLogger.Add(LogType.EventStarted, $"Selected {preset.ID} as the secret preset.");
 
-        if (preset.Cooldown > 0) // Begin Imp
+        if (_configurationManager.GetCVar(DCCVars.EnableBacktoBack) == true) // DeltaV
         {
-            _nextRoundAllowed[preset.ID] = _ticker.RoundId + preset.Cooldown + 1;
-            Log.Info($"{preset.ID} is now on cooldown until {_nextRoundAllowed[preset.ID]}");
-        } // End Imp
+            if (preset.Cooldown > 0) // Begin Imp
+            {
+                _nextRoundAllowed[preset.ID] = _ticker.RoundId + preset.Cooldown + 1;
+                Log.Info($"{preset.ID} is now on cooldown until {_nextRoundAllowed[preset.ID]}");
+            } // End Imp
+        } // DeltaV
 
-        foreach (var rule in preset.Rules)
+foreach (var rule in preset.Rules)
         {
             EntityUid ruleEnt;
 
@@ -177,11 +181,15 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
             if (ruleComp.MinPlayers > players && ruleComp.CancelPresetOnTooFewPlayers)
                 return false;
         }
-        if (_nextRoundAllowed.ContainsKey(selected.ID) && _nextRoundAllowed[selected.ID] > _ticker.RoundId) // Begin Imp
+
+        if (_configurationManager.GetCVar(DCCVars.EnableBacktoBack) == true) // DeltaV
         {
-            Log.Info($"Skipping preset {selected.ID} (Not available until round {_nextRoundAllowed[selected.ID]}");
-            return false;
-        } // End Imp
+            if (_nextRoundAllowed.ContainsKey(selected.ID) && _nextRoundAllowed[selected.ID] > _ticker.RoundId) // Begin Imp
+            {
+                Log.Info($"Skipping preset {selected.ID} (Not available until round {_nextRoundAllowed[selected.ID]}");
+                return false;
+            } // End Imp
+        } // DeltaV
 
         return true;
     }
