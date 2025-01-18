@@ -11,5 +11,3 @@ station-event-spider-clown-spawn-announcement =  Attention. A large influx of un
 station-event-snail-migration-announcement = Attention. A large influx of unknown life forms has been detected in ventilation systems near {$location}. All personnel must vacate the area immediately.
 station-event-snail-migration-low-pop-announcement = Attention. A large influx of unknown life forms has been detected in ventilation systems near {$location}. All personnel must vacate the area immediately.
 station-event-snake-spawn-announcement = Attention. A large influx of unknown life forms has been detected in ventilation systems near {$location}. All personnel must vacate the area immediately.
-# Delta-V
-station-event-xeno-vents-announcement =  Attention. A large influx of unknown life forms has been detected in ventilation systems near {$location}. All personnel must vacate the area immediately.
