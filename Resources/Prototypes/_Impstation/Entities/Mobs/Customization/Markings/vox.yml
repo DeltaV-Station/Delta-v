@@ -1,0 +1,11 @@
+- type: marking
+  id: VoxTailLantern
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/vox.rsi
+    state: voxtaillantern
+  shader: unshaded

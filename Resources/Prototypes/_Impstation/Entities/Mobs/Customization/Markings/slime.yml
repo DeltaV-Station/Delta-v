@@ -1,0 +1,30 @@
+- type: marking
+  id: SlimeEyeglow
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
+    state: eyeglow
+  shader: unshaded
+
+- type: marking
+  id: FadingStars
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [SlimePerson]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: fadingstars1
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: fadingstars2
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: fadingstars3
+  shader: unshaded
