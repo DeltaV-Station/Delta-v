@@ -310,9 +310,24 @@
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [Harpy]
+  forcedColoring: false # DeltaV
+  followSkinColor: false # DeltaV
   sprites:
     - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
       state: bionic_wings_tone_1
+    # DeltaV - commenting out because this does not work. doing an alternate implementation
+    # - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+    #  state: bionic_wings_tone_2
+    #  shader: unshaded
+
+- type: marking
+  id: HarpyWingBionicHighlights
+  bodyPart: RArm
+  markingCategory: Overlay
+  speciesRestriction: [Harpy]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
     - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
       state: bionic_wings_tone_2
-      shader: unshaded
+  shader: unshaded
