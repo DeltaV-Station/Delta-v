@@ -73,6 +73,7 @@ public sealed class CargoTest
         var cargo = entManager.System<CargoSystem>();
 
         var bounties = protoManager.EnumeratePrototypes<CargoBountyPrototype>().ToList();
+        bounties.RemoveAll(bounty => bounty.SkipArbitrage); // DeltaV
 
         await server.WaitAssertion(() =>
         {

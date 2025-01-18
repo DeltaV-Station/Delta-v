@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._DV.Objectives.Events; // DeltaV
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
 using Content.Server.Radio.Components;
@@ -194,7 +195,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     private void EnsureSubvertedSiliconRole(EntityUid mindId)
     {
         if (!_roles.MindHasRole<SubvertedSiliconRoleComponent>(mindId))
-            _roles.MindAddRole(mindId, "MindRoleSubvertedSilicon");
+            _roles.MindAddRole(mindId, "MindRoleSubvertedSilicon", silent: true);
     }
 
     private void RemoveSubvertedSiliconRole(EntityUid mindId)
@@ -317,6 +318,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         while (query.MoveNext(out var update))
         {
             SetLaws(lawset, update, provider.LawUploadSound);
+            RaiseLocalEvent(new AILawUpdatedEvent(update, provider.Laws)); // DeltaV
         }
     }
 }

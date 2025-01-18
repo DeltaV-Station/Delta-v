@@ -55,6 +55,7 @@
   physicalDesc: reagent-physical-desc-nondescript
   metabolisms:
     Poison:
+      metabolismRate: 0.25 # DeltaV: chloral hydrate should last longer for surgery
       effects:
       - !type:Emote
         emote: Yawn
@@ -69,6 +70,16 @@
         time: 4
         type: Add
         refresh: false
+      - !type:GenericStatusEffect # DeltaV: anesthesia
+        conditions:
+        - !type:ReagentThreshold
+          reagent: ChloralHydrate
+          min: 10
+        key: Anesthesia
+        component: Anesthesia
+        refresh: false
+        time: 4.0
+        type: Add
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold

@@ -37,7 +37,7 @@
   - type: Organ # Shitmed
     slotId: stomach
   - type: Stomach
-    updateInterval: 1.5
+    digestionDelay: 30
   - type: SolutionContainerManager
     solutions:
       stomach:
