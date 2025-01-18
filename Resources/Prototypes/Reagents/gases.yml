@@ -284,6 +284,18 @@
         component: ForcedSleeping
         time: 200 # This reeks, but I guess it works LMAO
         type: Add
+      - !type:GenericStatusEffect # DeltaV: anesthesia changes
+        conditions:
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 1
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        key: Anesthesia
+        component: Anesthesia
+        time: 200
+        type: Add
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold

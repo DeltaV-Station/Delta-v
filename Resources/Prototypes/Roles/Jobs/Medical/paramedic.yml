@@ -23,11 +23,11 @@
   - Paramedic # DeltaV - Add Paramedic access
   extendedAccess:
   - Chemistry
-  special: # Shitmed change
-  - !type:AddComponentSpecial
-    components:
-    - type: SurgerySpeedModifier
-      speedModifier: 1.75
+  # special: # DeltaV - role modifiers bad
+  # - !type:AddComponentSpecial
+  #  components:
+  #  - type: SurgerySpeedModifier
+  #    speedModifier: 1.75
 
 - type: startingGear
   id: ParamedicGear

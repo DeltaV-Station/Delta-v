@@ -214,7 +214,7 @@ public partial class SharedBodySystem
 
     private void OnDamageChanged(Entity<BodyPartComponent> partEnt, ref DamageChangedEvent args)
     {
-        if (!TryComp<DamageableComponent>(partEnt, out var damageable))
+        if (!TryComp<DamageableComponent>(partEnt, out var damageable) || _timing.ApplyingState) // DeltaV: Don't try to predict limb severing
             return;
 
         var severed = false;

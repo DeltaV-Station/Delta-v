@@ -31,3 +31,15 @@
         startingItem: PowerCellMedium
   - type: RandomMetadata
     nameSegments: [names_borg] # TODO: Make good names, this is a stupid list.
+
+- type: entity
+  id: SyndicateCircuitBoard
+  parent: BaseElectronics
+  name: law board (Syndicate)
+  description: An electronics board containing the Syndicate lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: SyndicateLawset
