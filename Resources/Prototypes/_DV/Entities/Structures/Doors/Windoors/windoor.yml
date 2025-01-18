@@ -88,6 +88,15 @@
     containers:
       board: [ DoorElectronicsRobotics ]
 
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureSurgeryLocked
+  suffix: Surgery, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSurgery ]
+
 #Add windoors from upstream roles
 - type: entity
   parent: WindoorSecure

@@ -114,6 +114,9 @@
     spitDamageThreshold: 3
   - type: CrawlUnderObjects
     actionProto: ActionToggleSneakMode
+  - type: DrawDepthVisualizer
+    key: enum.SneakingVisuals.Sneaking
+    depth: SmallMobs
 
 - type: entity
   save: false

@@ -33,3 +33,6 @@ uplink-appraisal-tool-gun-desc = A modified Viper to appear as an appraisal tool
 uplink-storage-implanter-delta-desc = Hide goodies inside of yourself with new bluespace technology! Budget cuts have resulted in it NOT STORING High Value or storage items.
 
 uplink-hardsuit-syndieelite-delta-name = Syndicate Thermal Hardsuit
+
+uplink-objective-syndicate-board-name = Syndicate law board
+uplink-objective-syndicate-board-desc = Its expensive, don't lose it!
