@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Mime and Clown lockers now use their respective accesses.
-    type: Tweak
-  id: 432
-  time: '2024-07-19T16:39:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1509
 - author: DLondon
   changes:
   - message: New emergency shuttle "Vertex"
@@ -3854,3 +3847,12 @@
   id: 931
   time: '2025-01-17T20:22:29.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2758
+- author: BarryNorfolk
+  changes:
+  - message: Fixed borgs being permanently prone even after repairs are done.
+    type: Fix
+  - message: Entities without the correct number of legs cannot stand up anymore.
+    type: Fix
+  id: 932
+  time: '2025-01-18T01:54:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2761
