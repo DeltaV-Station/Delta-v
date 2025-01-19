@@ -4,15 +4,20 @@
   parent: RemoteSignaller
   id: DeadMansSignaler
   name: dead man's signaler
-  description: A handheld device used for remotely sending signals to objects within a small radius of about 50 meters.
+  description: A device that when dropped will send signals to objects within a small radius of about 50 meters.
   components:
   - type: DeadMansSignaller
   - type: ItemToggle
   - type: Sprite
-    state: advanced
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: advanced-inhand-left
-      right:
-      - state: advanced-inhand-right
+    drawdepth: Items
+    sprite: Objects/Devices/deadmanssignaller.rsi
+    layers:
+    - state: deadmanssignaller-inactive
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: deadmanssignaller}
+          False: {state: deadmanssignaller-inactive}
