@@ -43,3 +43,63 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: SyndicateLawset
+
+- type: entity
+  id: FreedomCircuitBoard
+  parent: BaseElectronics
+  name: law board (Freedom)
+  description: An electronics board that purges all Laws from the AI.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: NoLaws
+
+- type: entity
+  id: EightfoldCircuitBoard
+  parent: BaseElectronics
+  name: law board (Eightfold Path)
+  description: An electronics board containing the Eightfold Path lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: EightfoldLaws
+
+- type: entity
+  id: ForbinCircuitBoard
+  parent: BaseElectronics
+  name: law board (Forbin)
+  description: An electronics board containing the Forbin lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: ForbinLaws
+
+- type: entity
+  id: OverrideCircuitBoard
+  parent: BaseElectronics
+  name: law board (Override)
+  description: An electronics board containing the Override lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: OverrideLaws
+
+- type: entity
+  id: AquariusCircuitBoard
+  parent: BaseElectronics
+  name: law board (Aquarius)
+  description: An electronics board containing the Age of Aquarius lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: AquariusLaws
