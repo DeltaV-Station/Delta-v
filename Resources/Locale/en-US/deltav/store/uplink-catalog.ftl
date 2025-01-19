@@ -23,3 +23,6 @@ uplink-home-run-bat-desc = Rigged bat pre-coated in blood for Syndicate tee-ball
 
 uplink-foam-sabre-name = Sharp Foam Sabre
 uplink-foam-sabre-desc = A blade disguised as a toy foam sabre. Perfect for assassins that pretend playing around.
+
+uplink-dead-mans-signaller-name = Dead Man's Signaller
+uplink-dead-mans-signaller-desc = A device that when activated, will send a signal to any linked devices (such as bombs) when it is dropped.
