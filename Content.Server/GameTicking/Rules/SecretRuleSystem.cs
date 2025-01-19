@@ -4,7 +4,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Presets;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Shared._DV.CCVars;
+using Content.Shared._DV.CCVars; // DeltaV
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Random;
 using Content.Shared.CCVar;
@@ -61,7 +61,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
             } // End Imp
         } // DeltaV
 
-foreach (var rule in preset.Rules)
+        foreach (var rule in preset.Rules)
         {
             EntityUid ruleEnt;
 
