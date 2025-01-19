@@ -21,3 +21,5 @@
         enum.ToggleVisuals.Layer:
           True: {state: deadmanssignaller}
           False: {state: deadmanssignaller-inactive}
+  - type: WirelessNetworkConnection
+    range: 50
