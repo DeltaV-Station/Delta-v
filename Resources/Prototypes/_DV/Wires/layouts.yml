@@ -1,0 +1,17 @@
+- type: wireLayout
+  id: FireLock
+  wires:
+  - !type:PowerWireAction
+    pulseTimeout: 20
+  - !type:DoorBoltWireAction
+  - !type:DoorBoltLightWireAction
+  - !type:LogWireAction
+  - !type:AiInteractWireAction
+
+- type: wireLayout
+  id: ShopVendor
+  wires:
+  - !type:AiInteractWireAction
+  - !type:PowerWireAction
+  - !type:AccessWireAction
+  - !type:LogWireAction

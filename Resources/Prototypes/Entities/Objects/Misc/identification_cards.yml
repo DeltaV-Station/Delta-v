@@ -22,6 +22,7 @@
     tags:
     - DoorBumpOpener
     - WhitelistChameleon
+    - WhitelistChameleonIdCard
   - type: StealTarget
     stealGroup: IDCard
   - type: NanoChatCard # DeltaV
@@ -85,6 +86,7 @@
   - type: PresetIdCard
     job: SecurityCadet
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: default
     - state: idintern-cadet
@@ -118,6 +120,7 @@
     tags:
     - DoorBumpOpener
     - WhitelistChameleon
+    - WhitelistChameleonIdCard
     - HighRiskItem
   - type: StealTarget
     stealGroup: CaptainIDCard
@@ -128,6 +131,7 @@
   name: security ID card
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: default
     - state: idsecurityofficer
@@ -140,6 +144,7 @@
   name: warden ID card
   components:
     - type: Sprite
+      sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
       layers:
         - state: default
         - state: idwarden
@@ -276,7 +281,7 @@
     - type: Sprite
       layers:
         - state: default
-        - sprite: DeltaV/Objects/Misc/id_cards.rsi # DeltaV - Give Chaplain ID Epistemics colors
+        - sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - Give Chaplain ID Epistemics colors
           state: idchaplain
     - type: PresetIdCard
       job: Chaplain
@@ -317,6 +322,9 @@
     - type: PresetIdCard
       job: Bartender
       name: Pun Pun
+    - type: Tag #  Ignore Chameleon tags
+      tags:
+      - DoorBumpOpener
 
 - type: entity
   parent: IDCardStandard
@@ -362,7 +370,7 @@
     - type: Sprite
       layers:
         - state: default
-        - sprite: DeltaV/Objects/Misc/id_cards.rsi # DeltaV - Give Lawyer ID Justice colors
+        - sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - Give Lawyer ID Justice colors
           state: idlawyer
     - type: PresetIdCard
       job: Lawyer
@@ -429,6 +437,7 @@
   name: head of security ID card
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: silver
     - state: idheadofsecurity
@@ -458,10 +467,11 @@
   name: corpsman ID card # DeltaV - rename brigmedic to corpsman
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: default
     - state: idbrigmedic
-  - type: PresetIdCard # Delta V - Brigmedic, see Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
+  - type: PresetIdCard # DeltaV - Brigmedic, see Prototypes/_DV/Roles/Jobs/Security/brigmedic.yml
     job: Brigmedic
 
 - type: entity
@@ -605,6 +615,7 @@
   - type: ChameleonClothing
     slot: [idcard]
     default: PassengerIDCard
+    requireTag: WhitelistChameleonIdCard
   - type: UserInterface
     interfaces:
       enum.AgentIDCardUiKey.Key:
@@ -716,6 +727,7 @@
   name: detective ID card
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: default
     - state: iddetective
@@ -795,6 +807,7 @@
   name: senior officer ID card
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: default
     - state: idseniorofficer
@@ -832,3 +845,6 @@
     - DV-SpareSafe # DeltaV
   - type: NanoChatCard # DeltaV
     notificationsMuted: true
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener

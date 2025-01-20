@@ -134,7 +134,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
-    sprite: DeltaV/Structures/Piping/disposal.rsi # Delta-V: Use old sprites
+    sprite: _DV/Structures/Piping/disposal.rsi # Delta-V: Use old sprites
     state: "disposal"
 
 - type: construction
@@ -148,7 +148,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
-    sprite: DeltaV/Structures/Piping/disposal.rsi # Delta-V: Use old sprites
+    sprite: _DV/Structures/Piping/disposal.rsi # Delta-V: Use old sprites
     state: "mailing"
 
 - type: construction
@@ -696,6 +696,20 @@
   icon:
     sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
     state: heStraight
+
+- type: construction
+  id: HeatExchangerBend
+  name: radiator bend
+  description: Transfers heat between the pipe and its surroundings.
+  graph: GasBinary
+  startNode: start
+  targetNode: bendradiator
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
+    state: heBend
 
 # ATMOS TRINARY
 - type: construction

@@ -1,0 +1,17 @@
+# Added to LockerFillSalvageSpecialist with a nested selector
+- type: entityTable
+  id: LockerFillSalvageSpecialistDeltaV
+  table: !type:AllSelector
+    children:
+    - id: OreBag
+    - id: Pickaxe
+    - id: WeaponProtoKineticAccelerator
+    - id: FlashlightSeclite
+    - id: ClothingEyesGlassesMeson
+    # TODO: bluespace shelter capsule
+    - id: ClothingShoesBootsWinterMiner
+    - id: JetpackMiniFilled # replaces fire extinguisher
+    - id: ClothingNeckSalvager
+      prob: 0.2
+    - id: LunchboxLogisticsFilledRandom
+      prob: 0.3

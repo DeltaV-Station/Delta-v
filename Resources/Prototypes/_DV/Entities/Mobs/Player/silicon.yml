@@ -1,0 +1,45 @@
+- type: entity
+  id: PlayerBorgMedical
+  parent: BorgChassisMedical
+  suffix: Battery
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - MMIFilled
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: RandomMetadata
+    nameSegments: [names_borg]
+
+- type: entity
+  parent: BorgChassisSecurity
+  id: PlayerBorgSecurity
+  suffix: Battery
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - MMIFilled
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: RandomMetadata
+    nameSegments: [names_borg] # TODO: Make good names, this is a stupid list.
+
+- type: entity
+  id: SyndicateCircuitBoard
+  parent: BaseElectronics
+  name: law board (Syndicate)
+  description: An electronics board containing the Syndicate lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: SyndicateLawset

@@ -1,0 +1,227 @@
+## Mapping prototypes
+#Command
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeCJ
+  suffix: Chief Justice
+  components:
+  - type: Label
+    currentLabel: holopad-command-cj
+
+- type: entity
+  parent: Holopad
+  id: HolopadCommandEvac
+  suffix: Command Evac
+  components:
+  - type: Label
+    currentLabel: holopad-command-evac
+
+#Justice
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeProsecutor
+  suffix: Prosecutor
+  components:
+  - type: Label
+    currentLabel: holopad-justice-prosecutor
+
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeClerk
+  suffix: Clerk
+  components:
+  - type: Label
+    currentLabel: holopad-justice-clerk
+
+#Logistics
+- type: entity
+  parent: Holopad
+  id: HolopadCargoMail
+  suffix: Mailroom
+  components:
+  - type: Label
+    currentLabel: holodpad-logistics-mailroom
+
+- type: entity
+  parent: Holopad
+  id: HolopadCargoMailFront
+  suffix: Mail Front
+  components:
+  - type: Label
+    currentLabel: holodpad-logistics-mailfront
+
+#Epistemics
+- type: entity
+  parent: Holopad
+  id: HolopadEpistemicsMantis
+  suffix: Mantis
+  components:
+  - type: Label
+    currentLabel: holopad-epistemics-mantis
+
+- type: entity
+  parent: Holopad
+  id: HolopadEpistemicsOracle
+  suffix: Oracle
+  components:
+  - type: Label
+    currentLabel: holopad-epistemics-oracle
+
+#Security
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityCorpsman
+  suffix: Corpsman
+  components:
+  - type: Label
+    currentLabel: holopad-security-corpsman
+
+#Station Specific - Security
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityPermaKitchen
+  suffix: Perma Kitchen
+  components:
+  - type: Label
+    currentLabel: holopad-security-perma-kitchen
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityPermaBotany
+  suffix: Perma Botany
+  components:
+  - type: Label
+    currentLabel: holopad-security-perma-botany
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityPermaYardOne
+  suffix: Perma Yard One
+  components:
+  - type: Label
+    currentLabel: holopad-security-perma-yard-one
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityPermaYardTwo
+  suffix: Perma Yard Two
+  components:
+  - type: Label
+    currentLabel: holopad-security-perma-yard-two
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityPermaWorkshop
+  suffix: Perma Workshop
+  components:
+  - type: Label
+    currentLabel: holopad-security-perma-workshop
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityPermaGuardComplex
+  suffix: Perma Guard Complex
+  components:
+  - type: Label
+    currentLabel: holopad-security-perma-guard-complex
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityPermaMineshaft
+  suffix: Perma Mineshaft
+  components:
+  - type: Label
+    currentLabel: holopad-security-perma-mineshaft
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityArena
+  suffix: Arena
+  components:
+  - type: Label
+    currentLabel: holopad-security-perma-arena
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityGladiatorLounge
+  suffix: Gladiator Lounge
+  components:
+  - type: Label
+    currentLabel: holopad-security-perma-gladiator-lounge
+
+#General
+- type: entity
+  parent: Holopad
+  id: HolopadGeneralPark
+  suffix: Park
+  components:
+  - type: Label
+    currentLabel: holopad-general-park
+
+- type: entity
+  parent: Holopad
+  id: HolopadGeneralVoxNitrogenLounge
+  suffix: Nitrogen Lounge
+  components:
+  - type: Label
+    currentLabel: holopad-general-nitrogen-lounge
+
+- type: entity
+  parent: Holopad
+  id: HolopadGeneralShipyardDock
+  suffix: Shipyard Dock
+  components:
+  - type: Label
+    currentLabel: holopad-general-shipyard-dock
+
+#Station Specific - General
+- type: entity
+  parent: Holopad
+  id: HolopadGeneralSpesscarTrack
+  suffix: Spesscar Track
+  components:
+  - type: Label
+    currentLabel: holopad-general-spesscar-track
+
+#Medical
+- type: entity
+  parent: Holopad
+  id: HolopadMedicalOutpost
+  suffix: Outpost
+  components:
+  - type: Label
+    currentLabel: holopad-medical-outpost
+
+- type: entity
+  parent: Holopad
+  id: HolopadMedicalPsychologist
+  suffix: Psychologist
+  components:
+  - type: Label
+    currentLabel: holopad-medical-psychologist
+
+#Engineering
+- type: entity
+  parent: Holopad
+  id: HolopadEngineeringParticleAccelerator
+  suffix: PA Control
+  components:
+  - type: Label
+    currentLabel: holopad-engineering-pa-control
+
+#Service
+- type: entity
+  parent: Holopad
+  id: HolopadServiceToolroom
+  suffix: Service Toolroom
+  components:
+  - type: Label
+    currentLabel: holopad-service-toolroom
+
+- type: entity
+  parent: Holopad
+  id: HolopadServiceBarberShop
+  suffix: Barber Shop
+  components:
+  - type: Label
+    currentLabel: holopad-service-barber-shop

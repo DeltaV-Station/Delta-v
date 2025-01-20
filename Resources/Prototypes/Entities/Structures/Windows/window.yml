@@ -20,9 +20,9 @@
       - Window
   - type: Sprite
     drawdepth: WallTops
-    sprite: DeltaV/Structures/Windows/window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/window.rsi #Delta V - Resprite windows
   - type: Icon
-    sprite: DeltaV/Structures/Windows/window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/window.rsi #Delta V - Resprite windows
     state: full
   - type: Physics
     bodyType: Static
@@ -100,9 +100,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: DeltaV/Structures/Windows/tinted_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/tinted_window.rsi #Delta V - Resprite windows
   - type: Icon
-    sprite: DeltaV/Structures/Windows/tinted_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/tinted_window.rsi #Delta V - Resprite windows
   - type: IconSmooth
     base: twindow
   - type: Construction
@@ -142,10 +142,10 @@
         collection: GlassSmack
   - type: Sprite
     drawdepth: Mobs
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: window
   - type: Icon
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: window
   - type: InteractionPopup
     interactSuccessString: comp-window-knock
@@ -234,10 +234,10 @@
     - Window
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: frosted_window
   - type: Icon
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: frosted_window
   - type: StaticPrice
     price: 35
@@ -253,14 +253,14 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: DeltaV/Structures/Windows/window_diagonal.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/window_diagonal.rsi #Delta V - Resprite windows
     state: state0
   - type: IconSmooth
     mode: Diagonal
     key: windows
     base: state
   - type: Icon
-    sprite: DeltaV/Structures/Windows/window_diagonal.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/window_diagonal.rsi #Delta V - Resprite windows
     state: state0
   - type: Fixtures
     fixtures:

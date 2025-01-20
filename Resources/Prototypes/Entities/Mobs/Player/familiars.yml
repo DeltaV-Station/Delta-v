@@ -11,6 +11,8 @@
     name: ghost-role-information-remilia-name
     description: ghost-role-information-remilia-description
     rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
   - type: GhostTakeoverAvailable
   - type: Grammar
     attributes:
@@ -23,9 +25,9 @@
   - type: Access
     tags:
     - Chapel
-  - type: Damageable # Nyanotrasen - Corporeal Spirit allows Holy water to do damage
-    damageContainer: CorporealSpirit
-    damageModifierSet: CorporealSpirit
+  - type: Damageable # DeltaV
+    damageContainer: BiologicalMetaphysical
+    damageModifierSet: ManifestedSpirit
   - type: MindContainer
     showExamineInfo: true
   - type: NpcFactionMember
@@ -50,6 +52,8 @@
     name: ghost-role-information-cerberus-name
     description: ghost-role-information-cerberus-description
     rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
     raffle:
       settings: default
   - type: GhostTakeoverAvailable

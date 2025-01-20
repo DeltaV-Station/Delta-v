@@ -1,0 +1,87 @@
+- type: constructionGraph
+  id: CrateLivestockSecure
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: cratelivestocksteel
+          steps:
+            - material: Plasteel
+              amount: 5
+              doAfter: 5
+            - tool: Welding
+              doAfter: 5
+
+
+    - node: cratelivestocksteel
+      entity: CrateLivestockSteel
+      edges:
+        - to: cratelivestocksteelsecure
+          steps:
+            - material: Plasteel
+              amount: 1
+            - material: Cable
+              amount: 2
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 5
+        - to: start
+          steps:
+            - tool: Welding
+              doAfter: 5
+          conditions:
+            - !type:StorageWelded
+              welded: false
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetPlasteel1
+              amount: 5
+            - !type:EmptyAllContainers
+            - !type:DeleteEntity
+
+
+    - node: cratelivestocksteelsecure
+      entity: CrateLivestockSecure
+      edges:
+        - to: cratelivestocksecurereinforced
+          steps:
+            - material: Plasteel
+              amount: 6
+            - tool: Screwing
+              doAfter: 5
+        - to: cratelivestocksteel
+          steps:
+            - tool: Screwing
+              doAfter: 5
+          conditions:
+            - !type:StorageWelded
+              welded: false
+            - !type:Locked
+              locked: false
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetPlasteel1
+              amount: 1
+            - !type:SpawnPrototype
+              prototype: CableApcStack1
+              amount: 2
+            - !type:DeleteEntity
+
+
+    - node: cratelivestocksecurereinforced
+      entity: CrateLivestockSecureReinforced
+      edges:
+        - to: cratelivestocksteelsecure
+          steps:
+            - tool: Screwing
+              doAfter: 5
+          conditions:
+            - !type:StorageWelded
+              welded: false
+            - !type:Locked
+              locked: false
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetPlasteel1
+              amount: 6
+            - !type:DeleteEntity
