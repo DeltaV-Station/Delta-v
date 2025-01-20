@@ -1,0 +1,56 @@
+﻿- type: species
+  id: Arachne
+  name: species-name-arachne
+  roundStart: true
+  prototype: MobArachne
+  sprites: MobArachneSprites
+  defaultSkinTone: "#c0967f"
+  markingLimits: MobArachneMarkingLimits
+  dollPrototype: MobArachneDummy
+  skinColoration: HumanToned
+
+- type: markingPoints
+  id: MobArachneMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    HeadSide:
+      points: 3
+      required: false
+    Tail:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    Arms:
+      points: 2
+      required: false
+    Undershirt: # DeltaV
+      points: 1
+      required: false
+
+- type: speciesBaseSprites
+  id: MobArachneSprites
+  sprites:
+    Head: MobHumanHead
+    HeadSide: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobHumanTorso
+    Eyes: MobArachneEyes
+    LArm: MobHumanLArm
+    RArm: MobHumanRArm
+    LHand: MobHumanLHand
+    RHand: MobHumanRHand
+
+- type: humanoidBaseSprite
+  id: MobArachneEyes
+  baseSprite:
+    sprite: _EE/Mobs/Species/eyes.rsi
+    state: eyes
