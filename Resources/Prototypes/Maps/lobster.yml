@@ -1,0 +1,80 @@
+- type: gameMap
+  id: Lobster
+  mapName: 'Lobster Station'
+  mapPath: /Maps/lobster.yml
+  minPlayers: 15
+  maxPlayers: 65
+  stations:
+    Lobster:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Lobster Station {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'DV'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Vertex.yml
+        - type: StationJobs
+          availableJobs:
+          #civilian
+            Passenger: [ -1, -1 ]
+            Librarian: [ 1 , 1 ]
+          #command
+            Captain: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
+            AdministrativeAssistant: [ 1, 1 ]
+          #engineering
+            AtmosphericTechnician: [ 2, 2 ]
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 6, 8 ]
+            TechnicalAssistant: [ 3, 5 ]
+          #justice
+            ChiefJustice: [ 1, 1 ]
+            Clerk: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            Prosecutor: [ 1, 1 ]
+          #medical
+            Chemist: [ 2, 2 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 3, 6 ]
+            MedicalIntern: [ 3, 6 ]
+            Paramedic: [ 2, 2 ]
+            Psychologist: [ 1, 1 ]
+            MedicalBorg: [ 2, 2 ]
+            Surgeon: [ 1, 2 ]
+          #security
+            Brigmedic: [ 1, 1 ]
+            Detective: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            Prisoner: [ 2, 4 ]
+            SecurityOfficer: [ 4, 7 ]
+            SecurityCadet: [ 4, 7 ]
+            Warden: [ 1, 1 ]
+            SecurityBorg: [ 2, 2 ]
+          #service
+            Bartender: [ 2, 3 ]
+            Botanist: [ 2, 2 ]
+            Boxer: [ 2, 2 ]
+            Chef: [ 1, 2 ]
+            Clown: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            Janitor: [ 1, 2 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 2 ]
+            ServiceWorker: [ 3, 5 ]
+            Reporter: [ 1, 1 ]
+          #science
+            Chaplain: [ 1, 1 ]
+            Borg: [ 2, 3 ]
+            ForensicMantis: [ 1, 1 ]
+            ResearchAssistant: [ 3, 4 ]
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 3, 6 ]
+            Roboticist: [ 2, 2 ]
+          #supply
+            CargoTechnician: [ 4, 5 ]
+            Courier: [ 2, 2 ]
+            SalvageSpecialist: [ 3, 3 ]
+            Quartermaster: [ 1, 1 ]
+            CargoAssistant: [ 4, 5 ]
