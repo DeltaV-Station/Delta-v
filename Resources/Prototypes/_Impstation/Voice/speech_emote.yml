@@ -1,0 +1,37 @@
+- type: emote
+  id: Bubble
+  name: chat-emote-name-bubble
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/squish.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-bubble"]
+  chatTriggers:
+    - bubble
+    - bubbles
+    - bubbling
+    - bubbled
+
+- type: emote
+  id: Pop
+  name: chat-emote-name-pop
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/squish.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-pop"]
+  chatTriggers:
+    - pop
+    - pops
+    - popping
+    - popped
