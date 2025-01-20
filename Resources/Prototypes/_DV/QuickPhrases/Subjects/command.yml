@@ -29,6 +29,16 @@
   text: phrase-stamp
 
 - type: quickPhrase
-  id: ImplantPhrase
+  id: CommandImplantPhrase
   parent: BaseCommandSubjectPhrase
   text: phrase-implant
+  
+- type: quickPhrase
+  id: NukeDiskPhrase
+  parent: BaseCommandSubjectPhrase
+  text: phrase-nukedisk
+  
+- type: quickPhrase
+  id: PinpointerPhrase
+  parent: BaseCommandSubjectPhrase
+  text: phrase-pinpointer
