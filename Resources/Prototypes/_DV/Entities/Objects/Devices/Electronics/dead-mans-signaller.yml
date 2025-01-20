@@ -12,7 +12,7 @@
     drawdepth: Items
     sprite: _DV/Objects/Devices/deadmanssignaller.rsi
     layers:
-    - state: deadmanssignaller-inactive
+    - state: inactive
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: Appearance
   - type: GenericVisualizer
