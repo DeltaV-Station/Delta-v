@@ -75,7 +75,6 @@ namespace Content.Server.Chemistry.EntitySystems
             var bufferCurrentVolume = bufferSolution.Volume;
 
             var state = new ChemMasterBoundUserInterfaceState(
-                chemMaster.Mode,
                 BuildInputContainerInfo(inputContainer),
                 BuildOutputContainerInfo(outputContainer),
                 bufferReagents,
@@ -83,8 +82,8 @@ namespace Content.Server.Chemistry.EntitySystems
                 chemMaster.PillType,
                 chemMaster.PillDosageLimit,
                 updateLabel,
-                chemMaster.SortMethod,
-                chemMaster.TransferringAmount);
+                ent.Comp.SortMethod,
+                ent.Comp.TransferringAmount);
 
             _userInterfaceSystem.SetUiState(owner, ChemMasterUiKey.Key, state);
         }
@@ -102,19 +101,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void OnReagentButtonMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterReagentAmountButtonMessage message)
         {
-            switch (chemMaster.Comp.Mode)
-            {
-                case ChemMasterMode.Transfer:
-                    TransferReagents(chemMaster, message.ReagentId, message.Amount, message.FromBuffer);
-                    break;
-                case ChemMasterMode.Discard:
-                    DiscardReagents(chemMaster, message.ReagentId, message.Amount, message.FromBuffer);
-                    break;
-                default:
-                    // Invalid mode.
-                    return;
-            }
-
+            TransferReagents(chemMaster, message.ReagentId, chemMaster.Comp.TransferringAmount, message.FromBuffer);
             ClickSound(chemMaster);
         }
 

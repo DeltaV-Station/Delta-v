@@ -33,7 +33,6 @@ namespace Content.Client.Chemistry.UI
         private const string TransferringAmountColor = "#ffa500";
         private ReagentSortMethod _currentSortMethod = ReagentSortMethod.Alphabetical;
         private ChemMasterBoundUserInterfaceState? _lastState;
-        private string _lastAmountText = "50";
         private int _transferAmount = 50;
 
 
@@ -112,22 +111,6 @@ namespace Content.Client.Chemistry.UI
             SortMethod.AddItem(Loc.GetString("chem-master-window-sort-method-Amount-text"), (int) ReagentSortMethod.Amount);
             SortMethod.AddItem(Loc.GetString("chem-master-window-sort-method-Time-text"), (int) ReagentSortMethod.Time);
             SortMethod.OnItemSelected += HandleChildPressed;
-
-            BufferTransferButton.OnPressed += HandleDiscardTransferPress;
-            BufferDiscardButton.OnPressed += HandleDiscardTransferPress;
-        }
-
-        private void HandleDiscardTransferPress(BaseButton.ButtonEventArgs args)
-        {
-            var buttons = BufferInfo.Children
-                .Where(c => c is Button)
-                .Cast<Button>();
-
-            foreach (var button in buttons)
-            {
-                var text = BufferTransferButton.Pressed ? "transfer" : "discard";
-                button.Text = Loc.GetString($"chem-master-window-{text}-button-text");
-            }
         }
 
         private void HandleSortMethodChange(int newSortMethod)
@@ -163,7 +146,6 @@ namespace Content.Client.Chemistry.UI
                 return false;
             }
 
-            _lastAmountText = newText;
             _transferAmount = amount;
             OnTransferAmountChanged?.Invoke(amount);
             return true;
@@ -174,10 +156,7 @@ namespace Content.Client.Chemistry.UI
 
         private void SetAmountText(string newText)
         {
-            if (newText == _lastAmountText)
-                return;
-
-            if (!ValidateAmount(newText))
+            if (newText == _transferAmount.ToString() || !ValidateAmount(newText))
                 return;
 
             var localizedAmount = Loc.GetString(
@@ -208,10 +187,8 @@ namespace Content.Client.Chemistry.UI
             if (!addReagentButtons)
                 return null; // Return an empty list if reagentTransferButton creation is disabled.
 
-            var text = BufferTransferButton.Pressed ? "transfer" : "discard";
-
             var reagentTransferButton = MakeReagentButton(
-                Loc.GetString($"chem-master-window-{text}-button"),
+                Loc.GetString("chem-master-window-transfer-button"),
                 reagent,
                 isBuffer
             );
@@ -238,15 +215,15 @@ namespace Content.Client.Chemistry.UI
             SetAmountText(castState.TransferringAmount.ToString());
 
             BufferCurrentVolume.Text = $" {castState.BufferCurrentVolume?.Int() ?? 0}u";
-    
+
             InputEjectButton.Disabled = castState.InputContainerInfo is null;
             OutputEjectButton.Disabled = castState.OutputContainerInfo is null;
             CreateBottleButton.Disabled = castState.OutputContainerInfo?.Reagents == null;
             CreatePillButton.Disabled = castState.OutputContainerInfo?.Entities == null;
-            
+
             UpdateDosageFields(castState);
         }
-        
+
         //assign default values for pill and bottle fields.
         private void UpdateDosageFields(ChemMasterBoundUserInterfaceState castState)
         {
@@ -258,7 +235,7 @@ namespace Content.Client.Chemistry.UI
             var bufferVolume = castState.BufferCurrentVolume?.Int() ?? 0;
 
             PillDosage.Value = (int)Math.Min(bufferVolume, castState.PillDosageLimit);
-            
+
             PillTypeButtons[castState.SelectedPillType].Pressed = true;
             PillNumber.IsValid = x => x >= 0 && x <= pillNumberMax;
             PillDosage.IsValid = x => x > 0 && x <= castState.PillDosageLimit;
@@ -382,7 +359,7 @@ namespace Content.Client.Chemistry.UI
                 }
             }
         }
-        
+
         private void BuildContainerUI(Control control, ContainerInfo? info, bool addReagentButtons)
         {
             control.Children.Clear();
@@ -430,7 +407,7 @@ namespace Content.Client.Chemistry.UI
                     _prototypeManager.TryIndex(reagent.Reagent.Prototype, out ReagentPrototype? proto);
                     var name = proto?.LocalizedName ?? Loc.GetString("chem-master-window-unknown-reagent-text");
                     var reagentColor = proto?.SubstanceColor ?? default(Color);
-        
+
                     control.Children.Add(BuildReagentRow(reagentColor, rowCount++, name, reagent.Reagent, reagent.Quantity, false, addReagentButtons));
                 }
             }
@@ -491,7 +468,7 @@ namespace Content.Client.Chemistry.UI
                 Children = { rowContainer }
             };
         }
-        
+
         public string LabelLine
         {
             get => LabelLineEdit.Text;
