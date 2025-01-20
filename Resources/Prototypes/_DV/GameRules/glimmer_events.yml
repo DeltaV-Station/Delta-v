@@ -34,8 +34,7 @@
     weight: 6
     duration: 1
     reoccurrenceDelay: 20
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAnnouncement: false # Impstation: Random Announcer System, doesn't have an announcement usually
   - type: GlimmerEvent
     minimumGlimmer: 300
     maximumGlimmer: 600

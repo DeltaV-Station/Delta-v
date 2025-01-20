@@ -27,20 +27,14 @@ public sealed partial class MeteorSwarmComponent : Component
     public bool NonDirectional;
 
     /// <summary>
-    /// The announcement played when a meteor swarm begins.
+    /// The announcement played when a meteor swarm starts. Changed to Boolean because of Impstation Random Announcer System.
     /// </summary>
-    [DataField]
-    public LocId? Announcement = "station-event-meteor-swarm-start-announcement";
+        [DataField("startAnnouncement")]
+    public bool StartAnnouncement;
 
-    [DataField]
-    public SoundSpecifier? AnnouncementSound = new SoundPathSpecifier("/Audio/Announcements/meteors.ogg")
-    {
-        Params = new()
-        {
-            Volume = -4
-        }
-    };
-
+    [DataField("endAnnouncement")]
+    public bool EndAnnouncement;
+    
     /// <summary>
     /// Each meteor entity prototype and their corresponding weight in being picked.
     /// </summary>

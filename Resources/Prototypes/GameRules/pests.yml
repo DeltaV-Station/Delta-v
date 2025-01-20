@@ -22,9 +22,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAnnouncement: true # Impstation: Random Announcer System
     earliestStart: 15
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
@@ -47,9 +45,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAnnouncement: true # Impstation: Random Announcer System
     earliestStart: 15
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
@@ -75,9 +71,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAnnouncement: true # Impstation: Random Announcer System
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -98,9 +92,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAnnouncement: true # Impstation: Random Announcer System
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -120,9 +112,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAnnouncement: true # Impstation: Random Announcer System
     earliestStart: 15
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
