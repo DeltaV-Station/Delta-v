@@ -1,0 +1,169 @@
+- type: entity
+  id: ActionDispel
+  name: Dispel
+  description: Dispel summoned entities such as familiars or forcewalls.
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: dispel
+    useDelay: 45
+    checkCanAccess: false
+    checkCanInteract: false
+    range: 6
+    itemIconStyle: BigAction
+    canTargetSelf: false
+    event: !type:DispelPowerActionEvent
+
+- type: entity
+  id: ActionMassSleep
+  name: Mass Sleep
+  description: Put targets in a small area to sleep.
+  components:
+  - type: WorldTargetAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: mass_sleep
+    useDelay: 60
+    checkCanAccess: false
+    checkCanInteract: false
+    range: 8
+    itemIconStyle: BigAction
+    event: !type:MassSleepPowerActionEvent
+
+- type: entity
+  id: ActionMindSwapPsionic
+  name: Mind Swap
+  description: Swap minds with the target. Either can change back after 20 seconds.
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: mind_swap
+    useDelay: 240
+    checkCanAccess: false
+    checkCanInteract: false
+    range: 8
+    itemIconStyle: BigAction
+    event: !type:MindSwapPowerActionEvent
+
+- type: entity
+  id: ActionMindSwapReturn
+  name: Reverse Mind Swap
+  description: Return to your original body.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: mind_swap_return
+    useDelay: 20
+    checkCanInteract: false
+    event: !type:MindSwapPowerReturnActionEvent
+
+- type: entity
+  id: ActionNoosphericZap
+  name: Noospheric Zap
+  description: Shocks the conciousness of the target and leaves them stunned and stuttering.
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: noospheric_zap
+    useDelay: 100
+    checkCanInteract: false
+    range: 5
+    itemIconStyle: BigAction
+    event: !type:NoosphericZapPowerActionEvent
+
+- type: entity
+  id: ActionPyrokinesis
+  name: Pyrokinesis
+  description: Light a flammable target on fire.
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: pyrokinesis
+    useDelay: 50
+    range: 6
+    checkCanAccess: false
+    itemIconStyle: BigAction
+    event: !type:PyrokinesisPowerActionEvent
+
+- type: entity
+  id: ActionMetapsionic
+  name: Metapsionic Pulse
+  description: Send a mental pulse through the area to see if there are any psychics nearby.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: metapsionic
+    useDelay: 45
+    checkCanInteract: false
+    event: !type:MetapsionicPowerActionEvent
+
+- type: entity
+  id: ActionPsionicRegeneration
+  name: Psionic Regeneration
+  description: Push your natural metabolism to the limit to power your body's regenerative capability.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: regeneration
+    useDelay: 120
+    checkCanInteract: false
+    event: !type:PsionicRegenerationPowerActionEvent
+
+- type: entity
+  id: ActionTelegnosis
+  name: Telegnosis
+  description: Create a telegnostic projection to remotely observe things.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: telegnosis
+    useDelay: 150
+    checkCanInteract: false
+    event: !type:TelegnosisPowerActionEvent
+
+- type: entity
+  id: ActionPsionicInvisibility
+  name: Psionic Invisibility
+  description: Render yourself invisible to any entity that could potentially be psychic. Borgs, animals, and so on are not affected.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: invisibility
+    useDelay: 120
+    checkCanInteract: false
+    event: !type:PsionicInvisibilityPowerActionEvent
+
+- type: entity
+  id: ActionPsionicInvisibilityUsed
+  name: Turn Off Psionic Invisibility
+  description: Return to visibility, and receive a stun.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: invisibility_off
+    checkCanInteract: false
+    event: !type:RemovePsionicInvisibilityOffPowerActionEvent
+
+- type: entity
+  id: ActionPrecognition
+  name: Precognition
+  description: See into the future to get a hint about the next random event.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: precognition
+    useDelay: 240
+    checkCanInteract: false
+    checkConsciousness: false
+    event: !type:PrecognitionPowerActionEvent
