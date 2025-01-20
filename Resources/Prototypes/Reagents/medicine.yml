@@ -666,7 +666,16 @@
     Drink:
       effects:
         - !type:SatiateThirst
+          conditions: # Delta-V nerf of saline for Feroxi
+          - !type:OrganType
+            type: Aquatic
+            shouldHave: false
           factor: 6
+        - !type:SatiateThirst # Delta-V nerf of saline for Feroxi
+          conditions:
+          - !type:OrganType
+            type: Aquatic
+          factor: 2
         - !type:ModifyBloodLevel
           amount: 6
 
