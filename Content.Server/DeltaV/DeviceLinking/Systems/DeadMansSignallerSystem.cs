@@ -1,4 +1,4 @@
-using Content.Server.DeviceLinking.Components;
+using Content.Server._DV.DeviceLinking.Components;
 using Content.Server.DeviceLinking.Systems;
 using Content.Shared.Hands;
 using Content.Shared.Item.ItemToggle;
@@ -14,15 +14,14 @@ public sealed class DeadMansSignallerSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SignallerComponent, GotUnequippedHandEvent>(DeadMans);
+        SubscribeLocalEvent<DeadMansSignallerComponent, GotUnequippedHandEvent>(DeadMans);
     }
 
-    private void DeadMans(EntityUid uid, SignallerComponent component, GotUnequippedHandEvent args)
+    private void DeadMans(EntityUid uid, DeadMansSignallerComponent component, GotUnequippedHandEvent args)
     {
         if (_toggle.IsActivated(uid))
         {
-            if (HasComp<DeadMansSignallerComponent>(args.Unequipped))
-                _link.InvokePort(uid, component.Port);
+            _link.InvokePort(uid, component.Port);
         }
     }
 }

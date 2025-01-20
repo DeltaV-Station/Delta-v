@@ -10,7 +10,7 @@
   - type: ItemToggle
   - type: Sprite
     drawdepth: Items
-    sprite: Objects/Devices/deadmanssignaller.rsi
+    sprite: _DV/Objects/Devices/deadmanssignaller.rsi
     layers:
     - state: deadmanssignaller-inactive
       map: [ "enum.ToggleVisuals.Layer" ]
@@ -19,7 +19,7 @@
     visuals:
       enum.ToggleVisuals.Toggled:
         enum.ToggleVisuals.Layer:
-          True: {state: deadmanssignaller}
-          False: {state: deadmanssignaller-inactive}
+          True: {state: active}
+          False: {state: inactive}
   - type: WirelessNetworkConnection
     range: 50
