@@ -56,12 +56,12 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterReagentAmountButtonMessage>(OnReagentButtonMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterCreatePillsMessage>(OnCreatePillsMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterOutputToBottleMessage>(OnOutputToBottleMessage);
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterSortMethodUpdated>(OnSortMethodUpdated);
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterTransferringAmountUpdated>(OnTransferringAmountUpdated);
         }
 
-        private void SubscribeUpdateUiState<T>(Entity<ChemMasterComponent> ent, ref T ev)
-        {
+        private void SubscribeUpdateUiState<T>(Entity<ChemMasterComponent> ent, ref T ev) =>
             UpdateUiState(ent);
-        }
 
         private void UpdateUiState(Entity<ChemMasterComponent> ent, bool updateLabel = false)
         {
@@ -75,8 +75,16 @@ namespace Content.Server.Chemistry.EntitySystems
             var bufferCurrentVolume = bufferSolution.Volume;
 
             var state = new ChemMasterBoundUserInterfaceState(
-                BuildInputContainerInfo(inputContainer), BuildOutputContainerInfo(outputContainer),
-                bufferReagents, bufferCurrentVolume, chemMaster.PillType, chemMaster.PillDosageLimit, updateLabel);
+                chemMaster.Mode,
+                BuildInputContainerInfo(inputContainer),
+                BuildOutputContainerInfo(outputContainer),
+                bufferReagents,
+                bufferCurrentVolume,
+                chemMaster.PillType,
+                chemMaster.PillDosageLimit,
+                updateLabel,
+                chemMaster.SortMethod,
+                chemMaster.TransferringAmount);
 
             _userInterfaceSystem.SetUiState(owner, ChemMasterUiKey.Key, state);
         }
@@ -94,11 +102,19 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void OnReagentButtonMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterReagentAmountButtonMessage message)
         {
-            // Ensure the amount corresponds to one of the reagent amount buttons.
-            if (!Enum.IsDefined(typeof(ChemMasterReagentAmount), message.Amount))
-                return;
+            switch (chemMaster.Comp.Mode)
+            {
+                case ChemMasterMode.Transfer:
+                    TransferReagents(chemMaster, message.ReagentId, message.Amount, message.FromBuffer);
+                    break;
+                case ChemMasterMode.Discard:
+                    DiscardReagents(chemMaster, message.ReagentId, message.Amount, message.FromBuffer);
+                    break;
+                default:
+                    // Invalid mode.
+                    return;
+            }
 
-            TransferReagents(chemMaster, message.ReagentId, message.Amount.GetFixedPoint(), message.FromBuffer);
             ClickSound(chemMaster);
         }
 
@@ -299,6 +315,18 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 Reagents = solution.Contents
             };
+        }
+
+        private void OnSortMethodUpdated(EntityUid uid, ChemMasterComponent chemMaster, ChemMasterSortMethodUpdated args)
+        {
+            chemMaster.SortMethod = args.SortMethod;
+            UpdateUiState((uid, chemMaster));
+        }
+
+        private void OnTransferringAmountUpdated(EntityUid uid, ChemMasterComponent chemMaster, ChemMasterTransferringAmountUpdated args)
+        {
+            chemMaster.TransferringAmount = args.TransferringAmount;
+            UpdateUiState((uid, chemMaster));
         }
     }
 }

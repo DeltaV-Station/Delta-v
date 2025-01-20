@@ -2,7 +2,7 @@
                 xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                 xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-                MinSize="620 670"
+                MinSize="500 770"
                 Title="{Loc 'chem-master-bound-user-interface-title'}">
     <TabContainer Name="Tabs" Margin="5 5 7 5">
         <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="10">
@@ -10,7 +10,9 @@
             <BoxContainer Orientation="Horizontal">
                 <Label Text="{Loc 'chem-master-window-container-label'}" />
                 <Control HorizontalExpand="True" />
-                <Button MinSize="80 0" Name="InputEjectButton" Access="Public" Text="{Loc 'chem-master-window-eject-button'}" />
+                <RichTextLabel Name="InputAmountLabel" Text="{Loc 'chem-master-window-transferring-default-label'}"  Margin="0 0 7 0"/>
+                <LineEdit MinSize="140 0" Name="InputAmountLineEdit" Access="Public" PlaceHolder="{Loc 'chem-master-window-amount-placeholder'}" />
+                <Button MinSize="80 0" Name="InputEjectButton" Access="Public" Text="{Loc 'chem-master-window-eject-button'}" StyleClasses="OpenLeft" />
             </BoxContainer>
 
             <PanelContainer VerticalExpand="True" MinSize="0 200">
@@ -30,7 +32,13 @@
             <Control MinSize="0 10" />
 
             <!-- Buffer -->
-            <Label Text="{Loc 'chem-master-window-buffer-text'}" />
+            <BoxContainer Orientation="Horizontal">
+                <Label Text="{Loc 'chem-master-window-buffer-text'}" />
+                <Control HorizontalExpand="True" />
+                <Button MinSize="80 0" Name="BufferTransferButton" Access="Public" Text="{Loc 'chem-master-window-transfer-button'}" ToggleMode="True" StyleClasses="OpenRight" />
+                <OptionButton Name="SortMethod" Access="Public" ToolTip="{Loc 'chem-master-window-sort-method-tooltip'}" StyleClasses="OpenBoth" />
+                <Button MinSize="80 0" Name="BufferDiscardButton" Access="Public" Text="{Loc 'chem-master-window-discard-button'}" ToggleMode="True" StyleClasses="OpenLeft" />
+            </BoxContainer>
 
             <!-- Buffer info -->
             <PanelContainer VerticalExpand="True" MinSize="0 200">
@@ -52,6 +60,8 @@
             <BoxContainer Orientation="Horizontal">
                 <Label Text="{Loc 'chem-master-window-container-label'}" />
                 <Control HorizontalExpand="True" />
+                <Label Name="OutputAmountLabel" Text="{Loc 'chem-master-window-transferring-default-label'}" Margin="0 0 7 0"/>
+                <LineEdit MinSize="140 0" Name="OutputAmountLineEdit" Access="Public" PlaceHolder="{Loc 'chem-master-window-amount-placeholder'}" />
                 <Button MinSize="80 0" Name="OutputEjectButton" Access="Public" Text="{Loc 'chem-master-window-eject-button'}" />
             </BoxContainer>
 
