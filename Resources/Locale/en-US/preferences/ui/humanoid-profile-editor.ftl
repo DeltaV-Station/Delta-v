@@ -62,3 +62,7 @@ humanoid-profile-editor-trait-count-hint = Points available: [{$current}/{$max}]
 trait-category-disabilities = Disabilities
 trait-category-speech = Speech traits
 trait-category-quirks = Quirks
+
+#CD
+humanoid-profile-editor-reset-height-button = Reset Height
+humanoid-profile-editor-height-label = Height:
