@@ -59,6 +59,11 @@ public partial class SharedBodySystem
         {
             Containers.EnsureContainer<ContainerSlot>(ent, GetPartSlotContainerId(connection));
         }
+
+        foreach (var organ in ent.Comp.Organs.Keys)
+        {
+            Containers.EnsureContainer<ContainerSlot>(ent, GetOrganContainerId(organ));
+        }
     }
 
     private void OnBodyPartRemove(Entity<BodyPartComponent> ent, ref ComponentRemove args)
@@ -465,6 +470,10 @@ public partial class SharedBodySystem
             return null;
 
         Containers.EnsureContainer<ContainerSlot>(partUid, GetPartSlotContainerId(slotId));
+        // Shitmed Change: Don't throw if the slot already exists
+        if (part.Children.TryGetValue(slotId, out var existing))
+            return existing;
+
         var partSlot = new BodyPartSlot(slotId, partType);
         part.Children.Add(slotId, partSlot);
         Dirty(partUid, part);

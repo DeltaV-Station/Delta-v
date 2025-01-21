@@ -34,32 +34,21 @@
   recipeUnlocks:
   - WeaponLaserCarbine
 
-- type: technology
-  id: NonlethalAmmunition
-  name: research-technology-nonlethal-ammunition
-  icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
-    state: beanbag
-  discipline: Arsenal
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - MagazineShotgunBeanbag
-  - BoxShellTranquilizer
-  - BoxBeanbag
-  - WeaponDisabler
-  # DeltaV - rubber ammo which upstream removed
-  - MagazineRifleRubber
-  - MagazinePistolRubber
-  - MagazineLightRifleRubber
-  - SpeedLoaderMagnumRubber
-  - SpeedLoaderSpecialRubber
-  - MagazineBoxPistolRubber
-  - MagazineBoxMagnumRubber
-  - MagazineBoxLightRifleRubber
-  - MagazineBoxRifleRubber
-  - MagazineBoxSpecialRubber
-  # End of modified code
+# DeltaV: made nonlethals roundstart, see #2758
+#- type: technology
+#  id: NonlethalAmmunition
+#  name: research-technology-nonlethal-ammunition
+#  icon:
+#    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
+#    state: beanbag
+#  discipline: Arsenal
+#  tier: 1
+#  cost: 5000
+#  recipeUnlocks:
+#  - MagazineShotgunBeanbag
+#  - BoxShellTranquilizer
+#  - BoxBeanbag
+#  - WeaponDisabler
 
 - type: technology
   id: UraniumMunitions
