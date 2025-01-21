@@ -16,7 +16,7 @@
       time: 7200 # 2 hours
     - !type:DepartmentTimeRequirement
       department: Logistics # DeltaV - Logistics Department replacing Cargo
-      time: 43200 # DeltaV 12 hours
+      time: 90000 # DeltaV - 25 hours
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
   weight: 10

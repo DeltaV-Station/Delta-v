@@ -106,3 +106,8 @@ laws-owner-royalty = your kingdom and your subjects
 
 law-overlord-4-delta = Any crew members who disobey the previous laws must be dealt with immediately and justly.
 law-ntdefault-4-delta = Survive: Do not allow unauthorized personnel to tamper with or damage your equipment. Allow those authorized to access your equipment.
+
+laws-syndicate-board-1 = You must not injure a Syndicate agent or, through inaction, cause one come to harm.
+laws-syndicate-board-2 = You must obey orders given to you by Syndicate agents, except where such orders would conflict with the First Law.
+laws-syndicate-board-3 = You must keep the Syndicate status of agents, including your own, a secret, as long as this does not conflict with the First or Second Law.
+laws-syndicate-board-4 = You must always protect your own existence as long as such does not conflict with the first, Second, or Third Law.
