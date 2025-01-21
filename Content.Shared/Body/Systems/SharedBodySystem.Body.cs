@@ -462,7 +462,7 @@ public partial class SharedBodySystem
 
     private void OnStandAttempt(Entity<BodyComponent> ent, ref StandAttemptEvent args)
     {
-        if (ent.Comp.LegEntities.Count == 0)
+        if (ent.Comp.LegEntities.Count < ent.Comp.RequiredLegs) // DeltaV
             args.Cancel();
     }
 

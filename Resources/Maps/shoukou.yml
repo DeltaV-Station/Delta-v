@@ -2962,7 +2962,8 @@ entities:
             0: 3855
             2: 36864
           -7,-1:
-            0: 65291
+            0: 65283
+            4: 8
           -7,3:
             2: 39417
           -7,4:
@@ -3014,7 +3015,8 @@ entities:
           -6,-2:
             0: 57309
           -6,-5:
-            0: 28260
+            0: 27748
+            4: 512
           -5,-5:
             0: 65535
           0,-8:
@@ -3065,7 +3067,8 @@ entities:
           4,-5:
             0: 65535
           -4,-8:
-            0: 3064
+            0: 2808
+            4: 256
           -4,-9:
             0: 49147
           -5,-8:
@@ -3125,7 +3128,8 @@ entities:
           -6,-6:
             0: 28671
           -6,-8:
-            0: 3726
+            4: 2
+            0: 3724
           -6,-9:
             0: 61180
           -5,-9:
@@ -3374,7 +3378,8 @@ entities:
           2,-13:
             0: 61440
           3,-12:
-            0: 30479
+            0: 29455
+            4: 1024
           3,-11:
             0: 61414
           3,-10:
@@ -3580,7 +3585,8 @@ entities:
             2: 13
             0: 30578
           6,-11:
-            0: 61296
+            0: 61040
+            4: 256
           6,-10:
             0: 61408
           6,-9:
@@ -3692,7 +3698,8 @@ entities:
             0: 15
             2: 12032
           7,1:
-            0: 61695
+            0: 61567
+            9: 128
           7,2:
             0: 47359
           7,3:
@@ -3834,7 +3841,8 @@ entities:
           9,-11:
             0: 65421
           9,-10:
-            0: 15
+            0: 13
+            4: 2
           9,-13:
             0: 12919
             2: 49288
@@ -3844,9 +3852,11 @@ entities:
             2: 15
             0: 65280
           10,-11:
-            0: 65391
+            0: 65135
+            4: 256
           10,-10:
-            0: 52239
+            0: 52237
+            4: 2
           10,-13:
             2: 55281
           11,-12:
@@ -4209,6 +4219,21 @@ entities:
           moles:
           - 6666.982
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.823984
+          - 82.09976
           - 0
           - 0
           - 0
@@ -6687,13 +6712,6 @@ entities:
       parent: 2
 - proto: AirlockMedicalLocked
   entities:
-  - uid: 280
-    components:
-    - type: MetaData
-      name: surgery room
-    - type: Transform
-      pos: 8.5,-28.5
-      parent: 2
   - uid: 281
     components:
     - type: MetaData
@@ -6970,7 +6988,7 @@ entities:
       pos: 18.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -220923.66
+      secondsUntilStateChange: -222414.52
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7076,6 +7094,13 @@ entities:
       name: service airlock
     - type: Transform
       pos: -14.5,1.5
+      parent: 2
+- proto: AirlockSurgeryLocked
+  entities:
+  - uid: 280
+    components:
+    - type: Transform
+      pos: 8.5,-28.5
       parent: 2
 - proto: AirlockTheatreLocked
   entities:
@@ -34442,6 +34467,24 @@ entities:
     - type: Transform
       pos: -15.5,-29.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 5083
     components:
     - type: Transform
@@ -34452,6 +34495,35 @@ entities:
     - type: Transform
       pos: -22.5,-31.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 10544
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
   - uid: 5085
     components:
     - type: Transform
@@ -34462,16 +34534,70 @@ entities:
     - type: Transform
       pos: 14.5,-45.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 5087
     components:
     - type: Transform
       pos: -22.5,-17.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 5088
     components:
     - type: Transform
       pos: -24.5,-3.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 5089
     components:
     - type: Transform
@@ -34500,11 +34626,47 @@ entities:
     - type: Transform
       pos: 37.5,-39.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 5091
     components:
     - type: Transform
       pos: 40.5,-41.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 5092
     components:
     - type: Transform
@@ -34632,6 +34794,24 @@ entities:
     - type: Transform
       pos: 24.5,-40.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 5116
     components:
     - type: Transform
@@ -34643,6 +34823,24 @@ entities:
     - type: Transform
       pos: 41.5,-38.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 15963
     components:
     - type: Transform
@@ -37274,7 +37472,7 @@ entities:
       pos: 31.5,-36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -55115.11
+      secondsUntilStateChange: -56605.984
       state: Closing
   - uid: 5409
     components:
@@ -40906,6 +41104,13 @@ entities:
     components:
     - type: Transform
       pos: -55.40976,-1.432474
+      parent: 2
+- proto: DrinkJuiceAppleJuicebox
+  entities:
+  - uid: 16029
+    components:
+    - type: Transform
+      pos: 33.709957,-34.81473
       parent: 2
 - proto: DrinkLithiumFlask
   entities:
@@ -44621,6 +44826,13 @@ entities:
     components:
     - type: Transform
       pos: 33.450184,-29.531673
+      parent: 2
+- proto: FoodBurgerMcrib
+  entities:
+  - uid: 16028
+    components:
+    - type: Transform
+      pos: 33.163082,-34.986607
       parent: 2
 - proto: FoodButter
   entities:
@@ -69999,8 +70211,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.8968438
-        - 7.1357465
+        - 1.8977377
+        - 7.139109
         - 0
         - 0
         - 0
@@ -70017,8 +70229,8 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 10083
           - 10082
+          - 10083
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -70552,11 +70764,6 @@ entities:
     components:
     - type: Transform
       pos: 31.5,-8.5
-      parent: 2
-  - uid: 15950
-    components:
-    - type: Transform
-      pos: 34.5,-6.5
       parent: 2
 - proto: HolopadSecurityBrig
   entities:
@@ -71629,6 +71836,13 @@ entities:
         - Pressed: Toggle
         11663:
         - Pressed: Toggle
+- proto: LockerAdministrativeAssistantFilled
+  entities:
+  - uid: 16021
+    components:
+    - type: Transform
+      pos: 45.5,-31.5
+      parent: 2
 - proto: LockerAtmosphericsFilled
   entities:
   - uid: 10039
@@ -71951,6 +72165,13 @@ entities:
     - type: Transform
       pos: 22.5,-20.5
       parent: 2
+- proto: LockerSurgeonFilled
+  entities:
+  - uid: 16023
+    components:
+    - type: Transform
+      pos: 10.5,-29.5
+      parent: 2
 - proto: LockerWallMedicalDoctorFilled
   entities:
   - uid: 10090
@@ -72044,6 +72265,13 @@ entities:
     components:
     - type: Transform
       pos: 33.5,-9.5
+      parent: 2
+- proto: LunchboxEngineering
+  entities:
+  - uid: 16027
+    components:
+    - type: Transform
+      pos: 33.26244,-34.56473
       parent: 2
 - proto: LunchboxEpistemics
   entities:
@@ -81476,13 +81704,6 @@ entities:
     - type: Transform
       pos: 17.5,-37.5
       parent: 2
-- proto: SecureCabinetCommand
-  entities:
-  - uid: 10544
-    components:
-    - type: Transform
-      pos: 45.5,-31.5
-      parent: 2
 - proto: SecureCabinetMantis
   entities:
   - uid: 4636
@@ -81959,6 +82180,14 @@ entities:
           - 15317
           - 15319
           - 15318
+- proto: ShellShotgun
+  entities:
+  - uid: 16020
+    components:
+    - type: Transform
+      parent: 10544
+    - type: Physics
+      canCollide: False
 - proto: Shinai
   entities:
   - uid: 11616
@@ -84694,6 +84923,13 @@ entities:
     - type: Transform
       pos: -27.5,-17.5
       parent: 2
+- proto: SpawnPointAdminAssistant
+  entities:
+  - uid: 16024
+    components:
+    - type: Transform
+      pos: 45.5,-34.5
+      parent: 2
 - proto: SpawnPointAtmos
   entities:
   - uid: 11962
@@ -85677,6 +85913,13 @@ entities:
     components:
     - type: Transform
       pos: -32.5,-30.5
+      parent: 2
+- proto: SpawnPointSurgeon
+  entities:
+  - uid: 16022
+    components:
+    - type: Transform
+      pos: 10.5,-27.5
       parent: 2
 - proto: SpawnPointTechnicalAssistant
   entities:
@@ -90555,6 +90798,11 @@ entities:
     - type: Transform
       pos: 7.466408,-39.151566
       parent: 2
+  - uid: 16026
+    components:
+    - type: Transform
+      pos: 34.215565,-34.06473
+      parent: 2
 - proto: ToolboxMechanicalFilled
   entities:
   - uid: 12084
@@ -90738,6 +90986,13 @@ entities:
     components:
     - type: Transform
       pos: 3.415373,10.654667
+      parent: 2
+- proto: ToyNuke
+  entities:
+  - uid: 16025
+    components:
+    - type: Transform
+      pos: 36.02102,-43.760437
       parent: 2
 - proto: ToyRenault
   entities:
@@ -100703,9 +100958,28 @@ entities:
   - uid: 10082
     components:
     - type: MetaData
-      desc: The iconic sidearm of the NT's finest. Uses .45 magnum ammo.
+      desc: The iconic sidearm of the NT's finest. It has the HOS's name carved in the grip... when did they get such a beautiful revovler.                                    Uses .45 magnum ammo.
     - type: Transform
       parent: 9899
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: WeaponShotgunHandmade
+  entities:
+  - uid: 10544
+    components:
+    - type: Transform
+      parent: 5084
+    - type: BallisticAmmoProvider
+      entities:
+      - 16020
+    - type: ContainerContainer
+      containers:
+        ballistic-ammo: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 16020
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
