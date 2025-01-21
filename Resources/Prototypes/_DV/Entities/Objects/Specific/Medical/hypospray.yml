@@ -18,7 +18,7 @@
       solution: hypospray
     - type: Hypospray
       solutionName: hypospray
-      transferAmount: 5
+      transferAmount: 30 # Whole cartridge goes in
       onlyAffectsMobs: false
       injectOnly: true
     - type: HyposprayBlockNonMobInjection
@@ -100,5 +100,5 @@
       maxFillLevels: 6
       fillBaseName: bottle-1-
     - type: Item
-      size: Tiny
+      size: Small
       sprite: Objects/Specific/Chemistry/bottle.rsi
