@@ -17,11 +17,11 @@ public sealed class DeadMansSignallerSystem : EntitySystem
         SubscribeLocalEvent<DeadMansSignallerComponent, GotUnequippedHandEvent>(DeadMans);
     }
 
-    private void DeadMans(EntityUid uid, DeadMansSignallerComponent component, GotUnequippedHandEvent args)
+    private void DeadMans(Entity<DeadMansSignallerComponent> ent, ref GotUnequippedHandEvent args)
     {
-        if (_toggle.IsActivated(uid))
+        if (_toggle.IsActivated(ent.Owner))
         {
-            _link.InvokePort(uid, component.Port);
+            _link.InvokePort(ent.Owner, ent.Comp.Port);
         }
     }
 }
