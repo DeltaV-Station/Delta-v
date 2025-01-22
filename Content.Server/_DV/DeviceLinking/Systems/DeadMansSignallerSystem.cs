@@ -3,7 +3,7 @@ using Content.Server.DeviceLinking.Systems;
 using Content.Shared.Hands;
 using Content.Shared.Item.ItemToggle;
 
-namespace Content.Server.DeltaV.DeviceLinking.Systems;
+namespace Content.Server._DV.DeviceLinking.Systems;
 
 public sealed class DeadMansSignallerSystem : EntitySystem
 {

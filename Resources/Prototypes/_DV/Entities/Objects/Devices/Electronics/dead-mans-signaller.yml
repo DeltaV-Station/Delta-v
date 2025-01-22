@@ -4,7 +4,7 @@
   parent: RemoteSignaller
   id: DeadMansSignaler
   name: dead man's signaler
-  description: A device that when dropped will send signals to objects within a small radius of about 50 meters.
+  description: A device that if armed will send signals to objects within 50 meters when dropped or put away.
   components:
   - type: DeadMansSignaller
   - type: ItemToggle
