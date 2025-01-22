@@ -447,6 +447,41 @@
       effects:
       - !type:SatiateThirst
         factor: 4
+    Gas: # Delta-V - Feroxi get to breathe with this too!
+      effects:
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Aquatic
+      - !type:SatiateThirst
+        conditions:
+        - !type:OrganType
+          type: Aquatic
+        factor: 2
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: AquaticDehydrated
+      - !type:SatiateThirst
+        conditions:
+        - !type:OrganType
+          type: AquaticDehydrated
+        factor: 2
+      # Converts H2O into CO2
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Aquatic
+        ratios: # no duplicating O2 >:3
+          CarbonDioxide: 0.5
+          WaterVapor: -1.0
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: AquaticDehydrated
+        ratios: # no duplicating O2 >:3
+          CarbonDioxide: 0.5
+          WaterVapor: -1.0
 
 - type: reagent
   id: Ice
