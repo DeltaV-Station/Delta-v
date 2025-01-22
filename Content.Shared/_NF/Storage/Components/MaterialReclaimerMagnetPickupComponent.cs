@@ -1,10 +1,10 @@
-namespace Content.Shared.Frontier.Storage.Components;
+namespace Content.Shared._NF.Storage.Components;
 
 /// <summary>
 /// Applies an ongoing pickup area around the attached entity.
 /// </summary>
 [RegisterComponent]
-public sealed partial class MaterialStorageMagnetPickupComponent : Component
+public sealed partial class MaterialReclaimerMagnetPickupComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite), DataField("nextScan")]
     public TimeSpan NextScan = TimeSpan.Zero;
