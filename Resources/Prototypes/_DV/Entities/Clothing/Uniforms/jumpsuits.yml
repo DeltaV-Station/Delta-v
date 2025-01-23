@@ -428,6 +428,7 @@
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunattorney.rsi
   - type: Clothing
+<<<<<<< HEAD:Resources/Prototypes/_DV/Entities/Clothing/Uniforms/jumpsuits.yml
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunattorney.rsi
 
 - type: entity
@@ -451,3 +452,39 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/admin_assistant.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/admin_assistant.rsi
+=======
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cybersunattorney.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCybersunHazard
+  name: cybersun hazard suit
+  description: This high-visibility jumpsuit prevents you from getting run over, yet keeps you dark enough to stay unnoticed!
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cybersunhazard.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cybersunhazard.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCybersunCasual
+  name: cybersun casual jumpsuit
+  description: With all the non-descript gizmos they shoved in this thing, are you sure it's even safe to put on?
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cybersuncasual.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cybersuncasual.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCybersunRND
+  name: cybersun research turtleneck
+  description: It's another Turtleneck. What'd you expect?
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
+>>>>>>> 78551dc8e2 (meow):Resources/Prototypes/DeltaV/Entities/Clothing/Uniforms/jumpsuits.yml
