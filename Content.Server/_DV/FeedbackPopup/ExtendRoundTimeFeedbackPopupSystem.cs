@@ -22,7 +22,7 @@ public sealed partial class ExtendRoundTimeFeedbackPopupSystem : EntitySystem
 
     private void OnRoundEnd(RoundEndMessageEvent ev)
     {
-        if (!(_gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan) >= TimeSpan.FromHours(2)))
+        if (_gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan) <= TimeSpan.FromHours(2))
             return;
 
         var allMinds = _mind.GetAliveHumans();
