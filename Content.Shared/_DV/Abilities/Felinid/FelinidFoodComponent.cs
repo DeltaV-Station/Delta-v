@@ -5,7 +5,7 @@ namespace Content.Shared._DV.Abilities.Felinid;
 /// <summary>
 /// Makes this food let felinids cough up a hairball when eaten.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedFelinidSystem))]
 public sealed partial class FelinidFoodComponent : Component
 {
     /// <summary>

@@ -5,7 +5,7 @@ namespace Content.Shared._DV.Abilities.Felinid;
 /// <summary>
 /// Causes players to randomly vomit when trying to pick this up, or when it gets thrown at them.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedFelinidSystem))]
 public sealed partial class HairballComponent : Component
 {
     /// <summary>

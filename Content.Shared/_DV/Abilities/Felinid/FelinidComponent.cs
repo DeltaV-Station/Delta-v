@@ -9,7 +9,7 @@ namespace Content.Shared._DV.Abilities.Felinid;
 /// 2. Enables the cough hairball action after eating a mouse with <c>FelinidFoodComponent</c>.
 /// 3. Full immunity to hairball vomiting chance.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedFelinidSystem))]
 public sealed partial class FelinidComponent : Component
 {
     /// <summary>
