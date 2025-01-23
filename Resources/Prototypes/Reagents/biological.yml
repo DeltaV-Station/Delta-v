@@ -23,11 +23,38 @@
           - !type:OrganType
             type: Human
             shouldHave: false
+      - !type:SatiateHunger # begin EE
+        factor: 0.5
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+        reagent: Water
+        amount: 0.15
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+        reagent: Protein
+        amount: 0.125
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+        reagent: Omnizine
+        amount: 0.2 # end EE
     Food:
       effects:
         - !type:AdjustReagent
           reagent: UncookedAnimalProteins
           amount: 0.1
+          conditions: # begin EE
+          - !type:OrganType
+            type: Vampiric
+            shouldHave: false # end EE
     Medicine:
       effects:
       - !type:HealthChange

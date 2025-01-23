@@ -37,6 +37,10 @@
     state: "torso_m"
   - type: BodyPart #"Other" type
     slotId: thorax
+  - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        ents: [ ]
   - type: Extractable
     juiceSolution:
       reagents:
@@ -77,6 +81,6 @@
   - type: BodyPart
     partType: Leg
     symmetry: Left
-  - type: MovementBodyPart # should actual spiders get a seperate part from arachne?
+  - type: MovementBodyPart #should actual spiders get a seperate part from arachne?
     walkSpeed : 2.7
     sprintSpeed : 5
