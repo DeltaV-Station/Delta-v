@@ -1,4 +1,4 @@
-using Content.Shared.Frontier.Storage.Components;
+using Content.Shared._NF.Storage.Components;
 using Content.Shared.Materials;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
@@ -7,16 +7,16 @@ using Content.Shared.Hands.Components;  // Frontier
 using Content.Shared.Verbs;     // Frontier
 using Robust.Shared.Utility;    // Frontier
 
-namespace Content.Shared.Frontier.Storage.EntitySystems;
+namespace Content.Shared._NF.Storage.EntitySystems;
 
 /// <summary>
-/// <see cref="MaterialReclaimerMagnetPickupComponent"/>
+/// <see cref="MaterialStorageMagnetPickupComponent"/>
 /// </summary>
-public sealed class MaterialReclaimerMagnetPickupSystem : EntitySystem
+public sealed class MaterialStorageMagnetPickupSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedMaterialReclaimerSystem _storage = default!;
+    [Dependency] private readonly SharedMaterialStorageSystem _storage = default!;
 
     private static readonly TimeSpan ScanDelay = TimeSpan.FromSeconds(1);
 
@@ -26,24 +26,24 @@ public sealed class MaterialReclaimerMagnetPickupSystem : EntitySystem
     {
         base.Initialize();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
-        SubscribeLocalEvent<MaterialReclaimerMagnetPickupComponent, MapInitEvent>(OnMagnetMapInit);
-        SubscribeLocalEvent<MaterialReclaimerMagnetPickupComponent, EntityUnpausedEvent>(OnMagnetUnpaused);
-        SubscribeLocalEvent<MaterialReclaimerMagnetPickupComponent, ExaminedEvent>(OnExamined);  // Frontier
-        SubscribeLocalEvent<MaterialReclaimerMagnetPickupComponent, GetVerbsEvent<AlternativeVerb>>(AddToggleMagnetVerb);    // Frontier
+        SubscribeLocalEvent<MaterialStorageMagnetPickupComponent, MapInitEvent>(OnMagnetMapInit);
+        SubscribeLocalEvent<MaterialStorageMagnetPickupComponent, EntityUnpausedEvent>(OnMagnetUnpaused);
+        SubscribeLocalEvent<MaterialStorageMagnetPickupComponent, ExaminedEvent>(OnExamined);  // Frontier
+        SubscribeLocalEvent<MaterialStorageMagnetPickupComponent, GetVerbsEvent<AlternativeVerb>>(AddToggleMagnetVerb);    // Frontier
     }
 
-    private void OnMagnetUnpaused(EntityUid uid, MaterialReclaimerMagnetPickupComponent component, ref EntityUnpausedEvent args)
+    private void OnMagnetUnpaused(EntityUid uid, MaterialStorageMagnetPickupComponent component, ref EntityUnpausedEvent args)
     {
         component.NextScan += args.PausedTime;
     }
 
-    private void OnMagnetMapInit(EntityUid uid, MaterialReclaimerMagnetPickupComponent component, MapInitEvent args)
+    private void OnMagnetMapInit(EntityUid uid, MaterialStorageMagnetPickupComponent component, MapInitEvent args)
     {
         component.NextScan = _timing.CurTime + TimeSpan.FromSeconds(1); // Need to add 1 sec to fix a weird time bug with it that make it never start the magnet
     }
 
     // Frontier, used to add the magnet toggle to the context menu
-    private void AddToggleMagnetVerb(EntityUid uid, MaterialReclaimerMagnetPickupComponent component, GetVerbsEvent<AlternativeVerb> args)
+    private void AddToggleMagnetVerb(EntityUid uid, MaterialStorageMagnetPickupComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
         if (!HasComp<HandsComponent>(args.User)
             || !args.CanInteract
@@ -65,7 +65,7 @@ public sealed class MaterialReclaimerMagnetPickupSystem : EntitySystem
     }
 
     // Frontier, used to show the magnet state on examination
-    private void OnExamined(EntityUid uid, MaterialReclaimerMagnetPickupComponent component, ExaminedEvent args)
+    private void OnExamined(EntityUid uid, MaterialStorageMagnetPickupComponent component, ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString("magnet-pickup-component-on-examine-main",
                         ("stateText", Loc.GetString(component.MagnetEnabled
@@ -76,7 +76,7 @@ public sealed class MaterialReclaimerMagnetPickupSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var query = EntityQueryEnumerator<MaterialReclaimerMagnetPickupComponent, MaterialReclaimerComponent, TransformComponent>();
+        var query = EntityQueryEnumerator<MaterialStorageMagnetPickupComponent, MaterialStorageComponent, TransformComponent>();
         var currentTime = _timing.CurTime;
 
         while (query.MoveNext(out var uid, out var comp, out var storage, out var xform))
@@ -100,7 +100,7 @@ public sealed class MaterialReclaimerMagnetPickupSystem : EntitySystem
                 if (near == parentUid)
                     continue;
 
-                _storage.TryStartProcessItem(uid, near);
+                _storage.TryInsertMaterialEntity(uid, near, uid, storage);
             }
         }
     }
