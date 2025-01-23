@@ -6,6 +6,10 @@ using Content.Shared.Emp;
 using Content.Shared.Examine;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
+using Content.Shared._NF.Emp.Components; // Frontier
+using Robust.Server.GameStates; // Frontier: EMP Blast PVS
+using Robust.Shared.Configuration; // Frontier: EMP Blast PVS
+using Robust.Shared; // Frontier: EMP Blast PVS
 
 namespace Content.Server.Emp;
 
@@ -13,8 +17,10 @@ public sealed class EmpSystem : SharedEmpSystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly PvsOverrideSystem _pvs = default!; // Frontier: EMP Blast PVS
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Frontier: EMP Blast PVS
 
-    public const string EmpPulseEffectPrototype = "EffectEmpPulse";
+    public const string EmpPulseEffectPrototype = "EffectEmpBlast"; // Frontier: EffectEmpPulse
 
     public override void Initialize()
     {
@@ -41,7 +47,15 @@ public sealed class EmpSystem : SharedEmpSystem
         {
             TryEmpEffects(uid, energyConsumption, duration);
         }
-        Spawn(EmpPulseEffectPrototype, coordinates);
+
+        var empBlast = Spawn(EmpPulseEffectPrototype, coordinates); // Frontier: Added visual effect
+        EnsureComp<EmpBlastComponent>(empBlast, out var empBlastComp); // Frontier
+        empBlastComp.VisualRange = range; // Frontier
+
+        if (range > _cfg.GetCVar(CVars.NetMaxUpdateRange)) // Frontier
+            _pvs.AddGlobalOverride(empBlast); // Frontier
+
+        Dirty(empBlast, empBlastComp); // Frontier
     }
 
     /// <summary>
