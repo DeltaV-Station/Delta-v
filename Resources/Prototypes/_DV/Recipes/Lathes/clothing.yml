@@ -131,20 +131,20 @@
   id: ClothingUniformInterdyneChemist
   result: ClothingUniformInterdyneChemist
 
-#- type: latheRecipe
-#  parent: BaseJumpsuitRecipe
-#  id: ClothingUniformCybersunHazard
-#  result: ClothingUniformCybersunHazard
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformCybersunHazard
+  result: ClothingUniformCybersunHazard
 
-#- type: latheRecipe
-#  parent: BaseJumpsuitRecipe
-#  id: ClothingUniformCybersunCasual
-#  result: ClothingUniformCybersunCasual
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformCybersunCasual
+  result: ClothingUniformCybersunCasual
 
-#- type: latheRecipe
-#  parent: BaseJumpsuitRecipe
-#  id: ClothingUniformCybersunRND
-#  result: ClothingUniformCybersunRND
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformCybersunRND
+  result: ClothingUniformCybersunRND
 
 - type: latheRecipe
   parent: BaseCoatRecipe
@@ -162,10 +162,10 @@
     Cloth: 100
     Durathread: 200 #increased durathread cost since it has "armor" (Caustic is such a real damage type)
 
-#- type: latheRecipe #Commented out for now until added
-#  parent: BaseCoatRecipe
-#  id: ClothingOuterCybersunOvercoat
-#  result: ClothingOuterCybersunOvercoat
+- type: latheRecipe #Commented out for now until added
+  parent: BaseCoatRecipe
+  id: ClothingOuterCybersunOvercoat
+  result: ClothingOuterCybersunOvercoat
 
 - type: latheRecipe
   parent: BaseHatRecipe
@@ -202,3 +202,9 @@
   materials:
     Cloth: 200
     Durathread: 100
+
+- type: latheRecipe
+  id: ClothingBeltSyndicateUtility
+  result: ClothingBeltSyndicateUtility
+  materials:
+    Cloth: 200

@@ -75,7 +75,6 @@
   - type: Appearance
 
 - type: entity
-<<<<<<< HEAD:Resources/Prototypes/_DV/Entities/Clothing/Belt/belts.yml
   parent: ClothingBeltSheath
   id: ClothingBeltFoamSheath
   name: foam sheath
@@ -107,7 +106,8 @@
       components:
       - FitsInDispenser
       - Stamp
-=======
+
+- type: entity
   parent: ClothingBeltUtility
   id: ClothingBeltSyndicateUtility
   name: syndicate utility belt
@@ -117,4 +117,3 @@
     sprite: DeltaV/Clothing/Belt/syndbelt_overlay.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Belt/syndbelt_overlay.rsi
->>>>>>> 78551dc8e2 (meow):Resources/Prototypes/DeltaV/Entities/Clothing/Belt/belts.yml
