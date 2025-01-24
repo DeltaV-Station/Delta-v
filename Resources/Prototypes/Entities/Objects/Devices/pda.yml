@@ -86,6 +86,7 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - NanoChatCartridge # DeltaV
+      - NanoChatLookupCartridge # DeltaV
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
@@ -139,6 +140,7 @@
     - CrimeAssistCartridge # DeltaV
     - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
     - NanoChatCartridge # DeltaV
+    - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -153,6 +155,7 @@
       - NewsReaderCartridge
       - MedTekCartridge
       - NanoChatCartridge # DeltaV
+      - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -444,6 +447,7 @@
       - MailMetricsCartridge # DeltaV - MailMetrics courier tracker
       - StockTradingCartridge # DeltaV - StockTrading
       - NanoChatCartridge # DeltaV
+      - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -469,6 +473,7 @@
     - NewsReaderCartridge
     - StockTradingCartridge # DeltaV - StockTrading
     - NanoChatCartridge # DeltaV
+    - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -496,6 +501,7 @@
       - NewsReaderCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -808,6 +814,7 @@
       - NewsReaderCartridge
       - GlimmerMonitorCartridge
       - NanoChatCartridge # DeltaV
+      - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -834,6 +841,7 @@
       - NewsReaderCartridge
       - GlimmerMonitorCartridge
       - NanoChatCartridge # DeltaV
+      - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: BaseSecurityPDA
@@ -862,6 +870,7 @@
     - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
+    - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: BaseSecurityPDA
@@ -933,6 +942,7 @@
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: CentcomPDA
@@ -960,6 +970,7 @@
       - AstroNavCartridge
       - StockTradingCartridge # Delta-V
       - NanoChatCartridge # DeltaV
+      - NanoChatLookupCartridge # DeltaV
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
@@ -1085,6 +1096,7 @@
     preinstalled:
       - NotekeeperCartridge
       - NanoChatCartridge # DeltaV
+      - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: BaseSecurityPDA
@@ -1117,6 +1129,7 @@
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1230,6 +1243,7 @@
     - NewsReaderCartridge
     - StockTradingCartridge # DeltaV - StockTrading
     - NanoChatCartridge # DeltaV
+    - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -1294,6 +1308,7 @@
     - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
+    - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1323,6 +1338,7 @@
     - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
     - MedTekCartridge
     - NanoChatCartridge # DeltaV
+    - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: ClownPDA
@@ -1468,6 +1484,7 @@
       - NotekeeperCartridge
       - MedTekCartridge
       - NanoChatCartridge # DeltaV
+      - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: BasePDA

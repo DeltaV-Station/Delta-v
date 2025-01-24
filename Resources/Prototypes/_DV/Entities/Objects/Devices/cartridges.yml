@@ -104,3 +104,21 @@
   - type: ActiveRadio
     channels:
     - Common
+
+- type: entity
+  parent: BaseItem
+  id: NanoChatLookupCartridge
+  name: NanoChat Lookup cartridge
+  description: Lets you look up the NanoChat IDs of other people!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Devices/cartridge.rsi
+    state: cart-chat
+  - type: UIFragment
+    ui: !type:NanoChatLookupUi
+  - type: NanoChatLookupCartridge
+  - type: Cartridge
+    programName: nano-chat-lookup-program-name
+    icon:
+      sprite: _DV/Misc/program_icons.rsi
+      state: nanochat
