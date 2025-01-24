@@ -46,3 +46,36 @@
   id: SecurityFirearmWeaponRevolverDeckard
   equipment:
     pocket1: WeaponRevolverDeckard
+
+# Jumpsuit
+- type: loadout
+  id: ForensicSpecJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitForensicSpec
+
+- type: loadout
+  id: ForensicSpecJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtForensicSpec
+
+- type: loadout
+  id: ForensicSpecTurtlesuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDetTurtle
+
+- type: loadout
+  id: ForensicSpecTurtleskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDetTurtle
+
+#OuterClothing
+- type: loadout
+  id: StasecWinterCoatDet
+  equipment:
+    outerClothing: ClothingOuterCoatStasecDet
+
+#Head
+- type: loadout
+  id: DetBeret
+  equipment:
+    head: ClothingHeadHatBeretDet

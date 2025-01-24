@@ -11,6 +11,8 @@ namespace Content.Shared.Humanoid
         Hair,
         FacialHair,
         Chest,
+        Underwear, // DeltaV
+        Undershirt, // DeltaV
         Head,
         Snout,
         HeadSide, // side parts (i.e., frills)

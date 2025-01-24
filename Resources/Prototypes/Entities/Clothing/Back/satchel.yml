@@ -112,7 +112,7 @@
   description: A robust satchel for security related needs.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/security.rsi
+    sprite: _DV/Clothing/Back/Satchels/security.rsi # DeltaV - resprite security satchels
 
 - type: entity
   parent: [ClothingBackpackSatchel, BaseRestrictedContraband]

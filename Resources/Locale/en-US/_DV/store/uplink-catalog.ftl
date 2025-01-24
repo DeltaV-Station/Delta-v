@@ -35,6 +35,14 @@ uplink-appraisal-tool-gun-desc = A modified Viper to appear as an appraisal tool
 
 uplink-storage-implanter-delta-desc = Hide goodies inside of yourself with new bluespace technology! Budget cuts have resulted in it NOT STORING High Value or storage items.
 
+uplink-hardsuit-syndieelite-delta-name = Syndicate Thermal Hardsuit
+
+uplink-objective-syndicate-board-name = Syndicate law board
+uplink-objective-syndicate-board-desc = Its expensive, don't lose it!
+
+uplink-dead-mans-signaller-name = Dead Man's Signaller
+uplink-dead-mans-signaller-desc = A device that if armed, will send a signal to any linked devices (such as bombs) when it is dropped or put away.
+
 # Objectives
 uplink-syndicate-handcuff-bundle-name = Handcuff implant bundle
 uplink-syndicate-handcuff-bundle-desc = Includes 10 metal handcuffs. We recommended you share with your friends!
