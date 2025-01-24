@@ -113,7 +113,7 @@
   components:
   - type: Sprite
     sprite: _DV/Objects/Devices/cartridge.rsi
-    state: cart-chat
+    state: cart-lookup
   - type: UIFragment
     ui: !type:NanoChatLookupUi
   - type: NanoChatLookupCartridge
