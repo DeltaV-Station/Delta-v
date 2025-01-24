@@ -57,6 +57,17 @@
     heldPrefix: luxury_pen
 
 - type: entity
+  name: terragov pen
+  parent: Pen
+  id: TerraGovPen
+  description: A fancy and bright blue pen that marks you as official TerraGov paper-pusher.
+  components:
+  - type: Sprite
+    state: terragov_pen
+  - type: Item
+    heldPrefix: terragov_pen
+
+- type: entity
   id: BaseAdvancedPen
   parent: PenEmbeddable
   abstract: true

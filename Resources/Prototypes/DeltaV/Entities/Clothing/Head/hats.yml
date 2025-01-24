@@ -215,3 +215,42 @@
   - type: Clothing
     sprite: DeltaV/Clothing/Head/Hats/cj_toque.rsi
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatTerragov
+  name: terragov hat
+  description: A baby blue cap that struggles to get the respect it so desperately demands.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/terracap.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/terracap.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - HamsterWearable
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-inanimate
+    weight: 0.0002 # 5,000 times less likely than 1 regular animal
+  - type: BlockMovement
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretTerragov
+  name: terragov beret
+  description: A baby blue beret that struggles to get the respect it so desperately demands.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/beret_terragov.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/beret_terragov.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - HamsterWearable
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-inanimate
+    weight: 0.0002 # 5,000 times less likely than 1 regular animal
+  - type: BlockMovement

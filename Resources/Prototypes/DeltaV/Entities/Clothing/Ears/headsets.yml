@@ -26,7 +26,7 @@
     sprite: DeltaV/Clothing/Ears/Headsets/service.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Ears/Headsets/service.rsi
-    
+
 - type: entity
   parent: ClothingHeadsetAltSyndicate
   id: ClothingHeadsetAltSyndicateListening
@@ -79,7 +79,7 @@
     state: icon_alt
   - type: Clothing
     sprite: DeltaV/Clothing/Ears/Headsets/justice.rsi
-    
+
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetPrison
@@ -112,4 +112,18 @@
     sprite: Clothing/Ears/Headsets/security.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/security.rsi
-    
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetTerragov
+  name: terragov headset
+  description: Headset used by those with a direct line to the Terran Government.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyCommand
+  - type: Sprite
+    sprite: DeltaV/Clothing/Ears/Headsets/terragov.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Ears/Headsets/terragov.rsi

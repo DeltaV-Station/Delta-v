@@ -1,0 +1,35 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseInspectorObjective
+  components:
+  - type: Objective
+    difficulty: 0 # difficulty is unused
+    issuer: objective-issuer-terragov #[color=5b92e5]TerraGov[/color]
+  - type: RoleRequirement
+    roles:
+      mindRoles:
+      - InspectorRole
+
+- type: entity
+  parent: [BaseInspectorObjective, EscapeShuttleObjective]
+  id: InspectorEscapeObjective
+  description: Get your report back to Central Command safely.
+
+- type: entity
+  parent: [BaseInspectorObjective, BaseStealObjective]
+  id: InspectorKeepStampObjective
+  components:
+  - type: Objective
+  - type: StealCondition
+    objectiveNoOwnerText: objective-keep-stamp-safe-title
+    descriptionText: objective-keep-stamp-safe-description
+    verifyMapExistence: false
+    stealGroup: InspectorStamp
+
+- type: stealTargetGroup
+  id: InspectorStamp
+  name: steal-target-groups-inspector-stamp
+  sprite:
+    sprite: DeltaV/Objects/Misc/stamps.rsi
+    state: stamp-terragov

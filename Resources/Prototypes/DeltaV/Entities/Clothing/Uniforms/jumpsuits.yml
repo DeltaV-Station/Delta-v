@@ -418,3 +418,18 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cybersunattorney.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cybersunattorney.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTerragov
+  name: terragov jumpsuit
+  description: A bright blue and very official looking jumpsuit that makes you feel patriotic just from looking at it!
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/terragov.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/terragov.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon

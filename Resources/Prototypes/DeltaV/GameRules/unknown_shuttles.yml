@@ -87,3 +87,44 @@
         - Syndicate
       mindRoles:
       - MindRoleSynthesis
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: Inspector
+  components:
+  - type: StationEvent
+    weight: 2
+    minimumPlayers: 20
+    maxOccurrences: 1
+    duration: null
+  - type: RuleGrids
+  - type: LoadMapRule
+    preloadedGrid: SyndieRecruiterShip
+  - type: AntagSpawner
+    prototype: MobHuman
+  - type: AntagObjectives
+    objectives:
+    - InspectorEscapeObjective
+    - InspectorKeepStampObjective
+  - type: AntagSelection
+    agentName: inspector-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostInspector
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: InspectorGear
+      roleLoadout:
+      - RoleSurvivalStandard
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - fake_human_first
+        - fake_human_last
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      - type: NpcFactionMember
+        factions:
+        - NanoTrasen
+      mindRoles:
+      - MindRoleInspector

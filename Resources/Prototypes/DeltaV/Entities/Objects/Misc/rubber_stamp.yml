@@ -44,3 +44,17 @@
     sprite: DeltaV/Objects/Misc/stamps.rsi
     state: stamp-prosec
 
+- type: entity
+  name: terragov rubber stamp
+  parent: RubberStampBase
+  id: RubberStampTerragov
+  suffix: DO NOT MAP
+  description: A rubber stamp for stamping important documents that carries an aura of self-importance.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-terragov
+    stampedColor: "#5b92e5"
+    stampState: "paper_stamp-terragov"
+  - type: Sprite
+    sprite: DeltaV/Objects/Misc/stamps.rsi
+    state: stamp-terragov

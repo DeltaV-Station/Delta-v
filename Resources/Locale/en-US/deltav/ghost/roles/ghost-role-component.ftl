@@ -23,6 +23,12 @@ ghost-role-information-recruiter-rules =
 
     You are just a recruiter so do not act like a full-on antagonist, i.e. no killing people.
 
+ghost-role-information-inspector-name = Inspector
+ghost-role-information-inspector-description = You are a TerraGov Inspector sent to this station to make sure everything is in order.
+ghost-role-information-inspector-rules =
+    You are here to take notes and report back as an impartial observer.
+    Don't try to overthrow the chain of command.
+
 ghost-role-information-silvia-name = Silvia
 ghost-role-information-silvia-description = You are Silvia the space snake and the CMO's charming companion.
 ghost-role-information-silvia-rules = Keep the medical team company and help out in emergencies with your omnizine venom. Stick close to the CMO in case they need emergency healing.

@@ -1,0 +1,38 @@
+- type: job
+  id: TerraGovInspector
+  name: job-name-terragov-inspector
+  description: job-description-terragov-inspector
+  playTimeTracker: JobTerragovInspector
+  requirements:
+#    - !type:RoleTimeRequirement # DeltaV - Comment out clerk time till more people have clerk time. Maybe a week or so.
+#      role: JobClerk
+#      time: 36000 # DeltaV - 10 hours
+    - !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 36000 # 10 hours
+    - !type:RoleTimeRequirement
+      role: JobProsecutor
+      time: 36000 # 10 hours
+    - !type:OverallPlaytimeRequirement
+      time: 90000 # 25 hours
+  weight: 20
+  startingGear: InspectorGear
+  icon: "JobIconTerraGov"
+  requireAdminNotify: true
+  supervisors: job-supervisors-terragov
+  canBeAntag: false
+  whitelisted: true
+  access:
+  - Command
+  - Maintenance
+  - External
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
+      flatBonus: 0.025

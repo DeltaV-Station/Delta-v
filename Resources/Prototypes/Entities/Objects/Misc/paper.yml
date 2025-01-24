@@ -536,6 +536,29 @@
   - type: Clothing
     sprite: Objects/Misc/cc-clipboard.rsi
 
+## DeltaV - TerraGov Clipboard
+- type: entity
+  id: BoxFolderTerraGovClipboard
+  parent: BoxFolderClipboard
+  name: TerraGov clipboard
+  description: A luxurious clipboard upholstered with blue velvet. Often seen carried by TerraGov officials, seldom seen actually used.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Misc/terragov_clipboard.rsi
+    layers:
+    - state: clipboard
+    - state: clipboard_paper
+      map: ["clipboard_paper"]
+      visible: false
+    - state: clipboard_pen
+      map: ["clipboard_pen"]
+      visible: false
+    - state: clipboard_over
+  - type: Item
+    sprite: DeltaV/Objects/Misc/terragov_clipboard.rsi
+  - type: Clothing
+    sprite: DeltaV/Objects/Misc/terragov_clipboard.rsi
+
 - type: entity
   id: BoxFolderQmClipboard
   parent: [BoxFolderClipboard, BaseGrandTheftContraband]

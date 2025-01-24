@@ -50,6 +50,27 @@
   - type: PresetIdCard
     job: Courier
 
+# TerraGov
+
+- type: entity
+  parent: [IDCardStandard, BaseGrandTheftContraband]
+  id: TerraGovIDCard
+  name: terragov ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idterragov
+  - type: Item
+    heldPrefix: default
+  - type: PresetIdCard
+    job: TerraGovInspector
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - WhitelistChameleon
+    - HighRiskItem
+
 ## Alternate Job Titles
 
 # Passenger

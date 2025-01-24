@@ -1,0 +1,29 @@
+- type: antag
+  id: Inspector
+  name: roles-antag-terragov-inspector-name
+  objective: roles-antag-terragov-inspector-objective
+  antagonist: false # you ask questions and write papers not kill people
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 0 # To be determined
+  - !type:RoleTimeRequirement
+    role: JobCaptain
+    time: 0 # To be determined
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: InspectorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTerragov
+    back: ClothingBackpackSatchelLeather
+    head: ClothingHeadHatTerragov
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesColorWhite
+    belt: BoxFolderTerraGovClipboard
+    shoes: ClothingShoesLeather
+    id: TerraGovPDA
+    ears: ClothingHeadsetTerragov
+    pocket1: ClothingHeadHatBeretTerragov
+    pocket2: RubberStampTerragov
