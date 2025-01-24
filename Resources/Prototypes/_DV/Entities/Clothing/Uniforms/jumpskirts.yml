@@ -177,6 +177,19 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/hos_blue.rsi
 
+# Prison Guard Jumpskirt
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtPrisonGuard
+  name: prison guard's uniform
+  description: A comfortable, durable, waterproof uniform made to keep prison staff comfortable and safe.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Jumpskirt/prisonguard.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Jumpskirt/prisonguard.rsi
+
 - type: entity
   parent: ClothingUniformSkirtFoldableBase
   id: ClothingUniformJumpskirtHoSGrey
