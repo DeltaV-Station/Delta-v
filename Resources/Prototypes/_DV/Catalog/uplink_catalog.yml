@@ -166,3 +166,16 @@
     blacklist:
       components:
       - SurplusBundle
+
+- type: listing
+  id: UplinkDeadMansSignaller
+  name: uplink-dead-mans-signaller-name
+  description: uplink-dead-mans-signaller-desc
+  productEntity: DeadMansSignaler
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDisruption
