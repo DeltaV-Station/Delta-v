@@ -24,9 +24,14 @@ public sealed partial class NanoChatLookupUiFragment : BoxContainer
         UpdateContactList(state.Contacts);
     }
 
-    public void UpdateContactList(List<NanoChatRecipient> contacts)
+    public void UpdateContactList(List<NanoChatRecipient>? contacts)
     {
         ContactsList.RemoveAllChildren();
+        if (contacts is null)
+        {
+            ContactsList.AddChild(new Label() { Text = Loc.GetString("no-nanochat-server") });
+            return;
+        }
         for (var idx = 0; idx < contacts.Count; idx++)
         {
             var contact = contacts[idx];
