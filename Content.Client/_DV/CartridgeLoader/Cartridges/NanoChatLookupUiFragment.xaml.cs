@@ -33,7 +33,6 @@ public sealed partial class NanoChatLookupUiFragment : BoxContainer
             var contactString = new StringBuilder(contact.Name);
             contactString.AppendFormat(": #{0:D4}", contact.Number);
 
-
             var nameLabel = new Label()
             {
                 Text = contact.Name,
