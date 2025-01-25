@@ -16,7 +16,7 @@
     whitelist:
       components:
       - EncryptionKey
-      
+
 - type: entity
   name: justice encryption key box
   parent: BoxEncryptionKeyPassenger
@@ -42,3 +42,47 @@
     contents:
     - id: SyndicateRadioImplanter
       amount: 2
+
+- type: entity
+  name: syndicate hostage implanter box
+  parent: BoxCardboard
+  id: BoxSyndicateHostageImplanter
+  description: Contains hostage implants.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: implant
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,3
+    whitelist:
+      components:
+      - Implanter
+  - type: StorageFill
+    contents:
+    - id: HostageImplanter
+      amount: 6
+
+- type: entity
+  name: syndicate handcuff box
+  parent: BoxCardboard
+  id: BoxSyndicateHandcuffBundle
+  description: Contains a large amount of handcuffs
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: handcuff
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,4,3
+    whitelist:
+      components:
+      - Handcuff
+  - type: StorageFill
+    contents:
+    - id: Handcuffs
+      amount: 10
