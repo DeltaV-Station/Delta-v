@@ -444,7 +444,6 @@
       - MailMetricsCartridge # DeltaV - MailMetrics courier tracker
       - StockTradingCartridge # DeltaV - StockTrading
       - NanoChatCartridge # DeltaV
-      - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -934,7 +933,6 @@
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
-      - NanoChatLookupCartridge # DeltaV
 
 - type: entity
   parent: CentcomPDA
@@ -962,7 +960,6 @@
       - AstroNavCartridge
       - StockTradingCartridge # Delta-V
       - NanoChatCartridge # DeltaV
-      - NanoChatLookupCartridge # DeltaV
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener

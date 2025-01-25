@@ -71,11 +71,23 @@
                         Margin="0 0 4 0"
                         StyleClasses="OpenBoth"
                         ToolTip="{Loc nano-chat-new-chat}" />
+                <Button Name="LookupButton"
+                        MaxSize="32 32"
+                        StyleClasses="OpenBoth"
+                        Margin="0 0 4 0"
+                        ToolTip="{Loc nano-chat-look-up}">
+                    <TextureRect Name="SearchIcon"
+                                 StyleClasses="ButtonSquare"
+                                 TexturePath="/Textures/_DV/Interface/VerbIcons/magnifying_glass.svg.png"
+                                 Stretch="KeepAspectCentered"
+                                 MinSize="18 18" />
+                </Button>
             </BoxContainer>
         </controls:StripeBack>
 
         <!-- Main content split -->
-        <BoxContainer Orientation="Horizontal"
+        <BoxContainer Name="ChatView"
+                      Orientation="Horizontal"
                       VerticalExpand="True"
                       HorizontalExpand="True"
                       Margin="0 5 0 0">
@@ -163,5 +175,19 @@
                 </BoxContainer>
             </PanelContainer>
         </BoxContainer>
+        <PanelContainer StyleClasses="AngleRect"
+                        Name="LookupView"
+                        Visible="False"
+                        VerticalExpand="True">
+            <ScrollContainer HorizontalExpand="True"
+                             VerticalExpand="True"
+                             Margin="-10">
+                <BoxContainer Name="ContactsList"
+                              Orientation="Vertical"
+                              VerticalExpand="True"
+                              HorizontalExpand="True"
+                              Margin="0" />
+            </ScrollContainer>
+        </PanelContainer>
     </BoxContainer>
 </cartridges:NanoChatUiFragment>

@@ -10,6 +10,7 @@ using Content.Server.Station.Systems;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Server.Traitor.Uplink;
+using Content.Shared._DV.NanoChat;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Chat;
@@ -50,6 +51,7 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<PdaComponent, PdaRequestUpdateInterfaceMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaToggleFlashlightMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowRingtoneMessage>(OnUiMessage);
+            SubscribeLocalEvent<PdaComponent, PdaNanoChatListNumberMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowMusicMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowUplinkMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaLockUplinkMessage>(OnUiMessage);
@@ -180,6 +182,7 @@ namespace Content.Server.PDA
 
             var address = GetDeviceNetAddress(uid);
             var hasInstrument = HasComp<InstrumentComponent>(uid);
+            var hasNanoChatCard = HasComp<NanoChatCardComponent>(pda.ContainedId);
             var showUplink = HasComp<UplinkComponent>(uid) && IsUnlocked(uid);
 
             UpdateStationName(uid, pda);
@@ -210,6 +213,7 @@ namespace Content.Server.PDA
                 pda.StationName,
                 showUplink,
                 hasInstrument,
+                hasNanoChatCard,
                 address);
 
             _ui.SetUiState(uid, PdaUiKey.Key, state);
@@ -248,6 +252,15 @@ namespace Content.Server.PDA
 
             if (HasComp<RingerComponent>(uid))
                 _ringer.ToggleRingerUI(uid, msg.Actor);
+        }
+
+        private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaNanoChatListNumberMessage msg)
+        {
+            if (!PdaUiKey.Key.Equals(msg.UiKey))
+                return;
+
+            if (TryComp<NanoChatCardComponent>(pda.ContainedId, out var nanoChat))
+                nanoChat.ListNumber = !nanoChat.ListNumber;
         }
 
         private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaShowMusicMessage msg)
