@@ -11,10 +11,8 @@ public sealed partial class NanoChatLookupUiFragment : BoxContainer
 {
     public NanoChatLookupUiFragment()
     {
-        IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
     }
-
 
     public void UpdateState(NanoChatLookupUiState state)
     {
@@ -48,7 +46,6 @@ public sealed partial class NanoChatLookupUiFragment : BoxContainer
                 HorizontalAlignment = HAlignment.Right,
             };
 
-
             var panel = new PanelContainer()
             {
                 HorizontalExpand = true,
@@ -57,7 +54,7 @@ public sealed partial class NanoChatLookupUiFragment : BoxContainer
             panel.AddChild(nameLabel);
             panel.AddChild(numberLabel);
 
-            string styleClass = idx % 2 == 0 ? "PanelBackgroundBaseDark" : "PanelBackgroundLight";
+            var styleClass = idx % 2 == 0 ? "PanelBackgroundBaseDark" : "PanelBackgroundLight";
             panel.StyleClasses.Add(styleClass);
 
             ContactsList.AddChild(panel);
