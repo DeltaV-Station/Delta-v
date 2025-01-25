@@ -15,7 +15,6 @@ namespace Content.Shared.PDA
         public string? StationName;
         public bool HasUplink;
         public bool CanPlayMusic;
-        public bool HasNanoChatCard;
         public string? Address;
 
         public PdaUpdateState(
@@ -28,7 +27,6 @@ namespace Content.Shared.PDA
             string? stationName,
             bool hasUplink = false,
             bool canPlayMusic = false,
-            bool hasNanoChatCard = false,
             string? address = null)
             : base(programs, activeUI)
         {
@@ -38,7 +36,6 @@ namespace Content.Shared.PDA
             PdaOwnerInfo = pdaOwnerInfo;
             HasUplink = hasUplink;
             CanPlayMusic = canPlayMusic;
-            HasNanoChatCard = hasNanoChatCard;
             StationName = stationName;
             Address = address;
         }

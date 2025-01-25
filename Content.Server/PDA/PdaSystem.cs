@@ -10,7 +10,6 @@ using Content.Server.Station.Systems;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Server.Traitor.Uplink;
-using Content.Shared._DV.NanoChat;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Chat;
@@ -181,7 +180,6 @@ namespace Content.Server.PDA
 
             var address = GetDeviceNetAddress(uid);
             var hasInstrument = HasComp<InstrumentComponent>(uid);
-            var hasNanoChatCard = HasComp<NanoChatCardComponent>(pda.ContainedId);
             var showUplink = HasComp<UplinkComponent>(uid) && IsUnlocked(uid);
 
             UpdateStationName(uid, pda);
@@ -212,7 +210,6 @@ namespace Content.Server.PDA
                 pda.StationName,
                 showUplink,
                 hasInstrument,
-                hasNanoChatCard,
                 address);
 
             _ui.SetUiState(uid, PdaUiKey.Key, state);

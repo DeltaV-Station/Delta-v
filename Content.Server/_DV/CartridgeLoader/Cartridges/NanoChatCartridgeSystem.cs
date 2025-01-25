@@ -473,10 +473,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         var query = EntityQueryEnumerator<NanoChatCartridgeComponent, CartridgeComponent>();
         while (query.MoveNext(out var uid, out var comp, out var cartridge))
         {
-            if (cartridge.LoaderUid == null)
-                continue;
-
-            UpdateUI((uid, comp), cartridge.LoaderUid.Value);
+            if (cartridge.LoaderUid is { } loader)
+                UpdateUI((uid, comp), loader);
         }
     }
 
