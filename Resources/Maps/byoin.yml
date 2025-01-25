@@ -6633,7 +6633,7 @@ entities:
       pos: 0.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -237725.42
+      secondsUntilStateChange: -238460.52
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -60399,6 +60399,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 57.5,-17.5
       parent: 2
+  - uid: 5318
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 46.5,-16.5
+      parent: 2
   - uid: 5348
     components:
     - type: Transform
@@ -60688,12 +60694,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,33.5
       parent: 2
-  - uid: 8265
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 45.5,-13.5
-      parent: 2
   - uid: 8469
     components:
     - type: Transform
@@ -60908,7 +60908,7 @@ entities:
       parent: 2
 - proto: PoweredlightBlue
   entities:
-  - uid: 11076
+  - uid: 4116
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -60948,7 +60948,7 @@ entities:
       parent: 2
 - proto: PoweredlightGreen
   entities:
-  - uid: 11078
+  - uid: 4093
     components:
     - type: Transform
       pos: 22.5,-14.5
@@ -60979,7 +60979,7 @@ entities:
       parent: 2
 - proto: PoweredlightRed
   entities:
-  - uid: 11077
+  - uid: 2331
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -61145,12 +61145,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -6.5,-32.5
       parent: 2
-  - uid: 5982
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 43.5,-13.5
-      parent: 2
   - uid: 6363
     components:
     - type: Transform
@@ -61220,6 +61214,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 36.5,-13.5
+      parent: 2
+  - uid: 11078
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 43.5,-14.5
       parent: 2
   - uid: 11879
     components:
@@ -67898,17 +67898,6 @@ entities:
       - SurveillanceCameraEngineering
       nameSet: True
       id: Telecoms Airlock
-  - uid: 4093
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 45.5,-15.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraEngineering
-      nameSet: True
-      id: Telecoms Foyer
   - uid: 4420
     components:
     - type: Transform
@@ -78332,6 +78321,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -14.5,-30.5
       parent: 2
+  - uid: 5982
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,-13.5
+      parent: 2
   - uid: 6441
     components:
     - type: Transform
@@ -78354,6 +78349,12 @@ entities:
     components:
     - type: Transform
       pos: 56.5,-12.5
+      parent: 2
+  - uid: 8265
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.5,-13.5
       parent: 2
   - uid: 8313
     components:
@@ -78410,6 +78411,18 @@ entities:
     - type: Transform
       pos: 52.5,-12.5
       parent: 2
+  - uid: 11076
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.5,-13.5
+      parent: 2
+  - uid: 11077
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.5,-14.5
+      parent: 2
   - uid: 11229
     components:
     - type: Transform
@@ -78462,35 +78475,11 @@ entities:
       parent: 2
 - proto: WindowTintedReinforcedDirectional
   entities:
-  - uid: 2331
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 11.5,-13.5
-      parent: 2
-  - uid: 4116
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 13.5,-13.5
-      parent: 2
-  - uid: 5318
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 11.5,-14.5
-      parent: 2
   - uid: 10339
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 9.5,11.5
-      parent: 2
-  - uid: 11250
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 15.5,-13.5
       parent: 2
 - proto: Wirecutter
   entities:
