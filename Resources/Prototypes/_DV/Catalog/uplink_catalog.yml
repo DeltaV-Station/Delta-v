@@ -179,3 +179,46 @@
     Telecrystal: 2
   categories:
   - UplinkDisruption
+
+- type: listing
+  id: UplinkHostageImplanter
+  name: uplink-syndicate-hostage-implanter-bundle-name
+  description: uplink-syndicate-hostage-implanter-bundle-desc
+  icon: { sprite: Objects/Misc/handcuffs.rsi, state: handcuff }
+  productEntity: BoxSyndicateHostageImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkHandcuffBundle
+  name: uplink-syndicate-handcuff-bundle-name
+  description: uplink-syndicate-handcuff-bundle-desc
+  icon: { sprite: Objects/Misc/handcuffs.rsi, state: handcuff }
+  productEntity: BoxSyndicateHandcuffBundle
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
