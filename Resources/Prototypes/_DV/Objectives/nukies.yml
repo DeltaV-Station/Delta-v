@@ -1,0 +1,66 @@
+﻿# Nukies operations
+
+- type: weightedRandom
+  id: NukieOperations
+  weights:
+    NukieOperationDestroyStation: 1
+    NukieOperationKidnapHeads: 1
+
+- type: nukieOperation
+  id: NukieOperationDestroyStation
+  operationObjectives:
+  - NukeStationObjective
+
+- type: nukieOperation
+  id: NukieOperationKidnapHeads
+  operationObjectives:
+  - KidnapHeadsObjective
+  - NukieStealDiskObjective
+  nukeCodePaperOverride: nukie-operations-kidnap-heads-nuke-codes-override
+
+- type: entity
+  parent: BaseObjective
+  id: NukeStationObjective
+  name: Nuke the station.
+  description: Its your job. Get going!
+  components:
+  - type: Objective
+    difficulty: 4.0
+    issuer: objective-issuer-syndicate
+    icon:
+      sprite: Objects/Devices/nuke.rsi
+      state: nuclearbomb_base
+  - type: NukeStationCondition
+  - type: CodeCondition
+
+- type: entity
+  parent: BaseObjective
+  id: KidnapHeadsObjective
+  components:
+  - type: Objective
+    difficulty: 4.0
+    issuer: objective-issuer-syndicate
+    icon:
+      sprite: Objects/Misc/handcuffs.rsi
+      state: handcuff
+  - type: KidnapHeadsCondition
+  - type: NumberObjective
+    min: 4 # Min and max have to be the same. Otherwise, each operative will have a different number.
+    max: 4
+    title: nukie-operations-kidnap-heads-objective-title
+    description: nukie-operations-kidnap-heads-objective-descript
+
+- type: entity
+  parent: BaseStealObjective
+  id: NukieStealDiskObjective
+  components:
+  - type: Objective
+    difficulty: 4.0
+    issuer: objective-issuer-syndicate
+    icon:
+      sprite: Objects/Misc/nukedisk.rsi
+      state: icon
+  - type: StealCondition
+    stealGroup: NukeDisk
+    owner: objective-condition-steal-station
+    verifyMapExistence: false
