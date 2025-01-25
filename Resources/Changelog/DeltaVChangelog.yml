@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: DangerRevolution
-  changes:
-  - message: Construction of Security Cyborgs now requires extra steps.
-    type: Tweak
-  id: 446
-  time: '2024-07-23T10:29:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1523
 - author: NullWanderer, Adeinitas, Colin_Tel, DLondon
   changes:
   - message: Updated the server rules and made them more readable in one go, check
@@ -3854,3 +3847,14 @@
   id: 945
   time: '2025-01-24T23:45:07.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2787
+- author: beck-thompson
+  changes:
+  - message: Hostage ops. This is an alternative to nuclear operatives where you must
+      kidnap the heads of the station!
+    type: Add
+  - message: Hostage implants. These implants pacify anyone implanted and make them
+      immune from syndicate turrets.
+    type: Add
+  id: 946
+  time: '2025-01-25T01:29:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2545
