@@ -77,9 +77,9 @@ public sealed class KillPersonConditionSystem : EntitySystem
             .ToList();
 
         // Begin DeltaV Additions: Only target people with jobs
-        if (comp.OnlyChoosableJobs)
+        if (onlyJobs
         {
-            allHumans.RemoveWhere(mindId => !(
+            allHumans.RemoveAll(mindId => !(
                 _role.MindHasRole<JobRoleComponent>((mindId.Owner, mindId.Comp), out var role) &&
                 role?.Comp1.JobPrototype is {} jobId &&
                 _proto.Index(jobId).SetPreference));
