@@ -159,6 +159,11 @@ stock-trading-sell-button = Sell
 stock-trading-amount-placeholder = Amount
 stock-trading-price-history = Price History
 
+## NanoChat Lookup
+
+nano-chat-lookup-program-name = NanoChat Lookup
+nano-chat-lookup-title = NanoChat Lookup
+nano-chat-lookup-no-server = No valid telecommunications server found
 
 ## NanoChat
 
