@@ -1,0 +1,41 @@
+- type: entity
+  id: CartridgeFabricator
+  name: cartridge fabricator
+  parent: [BaseMachinePowered, ConstructibleMachine]
+  description: Converts bottles of chemicals into hypospray cartridges
+  components:
+    # TODO: Make this not the seed extractor
+    - type: Sprite
+      sprite: Structures/Machines/seed_extractor.rsi
+      snapCardinals: true
+      layers:
+        - state: seedextractor-off
+        - state: seedextractor-unlit
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PhysShapeAabb
+            bounds: "-0.25,-0.4,0.25,0.4"
+          density: 190
+          mask:
+            - MachineMask
+          layer:
+            - MachineLayer
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.PowerDeviceVisuals.Powered:
+          enum.PowerDeviceVisualLayers.Powered:
+            True: { visible: true }
+            False: { visible: false }
+    - type: CartridgeFabricator
+      groupWhitelist:
+        - Medicine
+      reagentWhitelist:
+        - Ephedrine
+    - type: Machine
+      board: CartridgeFabricatorMachineCircuitboard
