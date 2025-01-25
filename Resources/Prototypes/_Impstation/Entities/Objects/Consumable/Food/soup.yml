@@ -1,0 +1,23 @@
+- type: entity
+  parent: FoodBowlBase
+  id: FoodCamelSoup
+  name: one day blinding stew # DeltaV - name change
+  description: the hospital can't stop me. I will never go. not with the strength I've obtained.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - cigarettes
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: camelsouplit #initial design was to let this be lit up like an actual cigarette but i decided i did not want to deal with that. if someone else wants to make it work please do, there are assets for this in bowl.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 57
+        reagents:
+        - ReagentId: TearGas
+          Quantity: 40
+        - ReagentId: ChloralHydrate
+          Quantity: 17
