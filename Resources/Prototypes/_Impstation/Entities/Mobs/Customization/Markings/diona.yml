@@ -1,0 +1,35 @@
+- type: marking
+  id: DionaMoonBloom
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Diona ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/diona.rsi
+    state: dionamoonbloom
+  shader: unshaded
+
+- type: marking
+  id: DionaBigFirefly
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Diona ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dionabigfirefly
+  shader: unshaded
+
+- type: marking
+  id: DionaFirefly
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Diona ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dionafirefly
+  shader: unshaded
