@@ -1,0 +1,151 @@
+# Metal Closets
+- type: entity
+  parent: ClosetBase
+  id: N14ClosetBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Closets/closet.rsi
+    layers:
+    - state: closet
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: closet_door
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Physics
+    bodyType: Static
+  - type: EntityStorageVisuals
+    stateBaseClosed: closet
+    stateDoorOpen: closet_open
+    stateDoorClosed: closet_door
+  - type: Transform
+    anchored: true
+  - type: Anchorable # Makes the anchoring near impossible due to high time requirement
+    delay: 3600
+
+- type: entity
+  parent: N14ClosetBase
+  id: N14ClosetBaseW
+  name: closet
+  description: A basic closet for storing things.
+  components:
+  - type: Weldable
+  - type: Sprite
+    noRot: true
+    netsync: false
+    sprite: _Nuclear14/Structures/Storage/Closets/closet.rsi
+    layers:
+    - state: closet
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: closet_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: closet
+    stateDoorOpen: closet_open
+    stateDoorClosed: closet_door
+
+- type: entity
+  parent: N14ClosetBaseW
+  id: N14ClosetGrey1
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Closets/closetgrey.rsi
+
+- type: entity
+  id: N14ClosetGrey2
+  parent: N14ClosetBaseW
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Closets/closetgrey2.rsi
+
+- type: entity
+  parent: N14ClosetBaseW
+  id: N14ClosetRusty
+  name: rusty closet
+  description: A rusty old closet for storing things.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Closets/closetold.rsi
+
+- type: entity
+  parent: N14ClosetBaseW
+  id: N14ClosetFridgeDirty
+  name: dirty fridge
+  description: A dirty old fridge for keeping food fresh
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Closets/fridgedirty.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: AntiRottingContainer
+
+- type: entity
+  parent: N14ClosetFridgeDirty
+  id: N14ClosetFridgeWideDirty
+  name: dirty wide fridge
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Closets/fridgewidedirty.rsi
+
+- type: entity
+  parent: N14ClosetBaseW
+  id: N14ClosetDouble
+  name: double closet
+  description: A double closet for holding twice the things.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Closets/doublecloset.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.15,-0.45,0.45,0.45"
+        density: 145
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+# Wooden Closets
+
+- type: entity
+  parent: N14ClosetBase
+  id: N14ClosetCabinetWood
+  name: cabinet
+  description: An old wooden cabinet.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Closets/cabinet.rsi
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Tag
+    tags:
+    - Wooden
+
+- type: entity
+  parent: N14ClosetBaseW
+  id: N14ClosetGeneric
+  suffix: generic roller
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Closets/closetgeneric.rsi
