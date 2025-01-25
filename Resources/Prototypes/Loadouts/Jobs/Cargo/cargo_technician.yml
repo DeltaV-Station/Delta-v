@@ -6,14 +6,19 @@
 
 # Jumpsuit
 - type: loadout
-  id: CargoTechnicianJumpsuit
+  id: ClothingUniformJumpsuitCargoTechOveralls # DeltaV
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCargo
+    jumpsuit: ClothingUniformJumpsuitCargoTechOveralls # DeltaV
+    
+- type: loadout
+  id: ClothingUniformJumpsuitCargoTechPants # DeltaV
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCargoTechPants # DeltaV
 
 - type: loadout
-  id: CargoTechnicianJumpskirt
+  id: ClothingUniformJumpskirtCargoTechRomper # DeltaV
   equipment:
-    jumpsuit: ClothingUniformJumpskirtCargo
+    jumpsuit: ClothingUniformJumpskirtCargoTechRomper # DeltaV
 
 # Back
 - type: loadout

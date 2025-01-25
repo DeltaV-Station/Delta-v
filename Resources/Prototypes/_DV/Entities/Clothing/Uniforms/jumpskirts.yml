@@ -268,3 +268,14 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/admin_assistant.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/admin_assistant.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtCargoTechRomper
+  name: cargo tech romper
+  description: A flexible and professional skirt. It has a pair of skorts underneath for the hardest working skirt-wearers of Logistics.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/cargotechromper.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/cargotechromper.rsi
