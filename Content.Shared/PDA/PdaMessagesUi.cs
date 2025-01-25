@@ -33,6 +33,12 @@ public sealed class PdaShowMusicMessage : BoundUserInterfaceMessage
 }
 
 [Serializable, NetSerializable]
+public sealed class PdaNanoChatListNumberMessage : BoundUserInterfaceMessage
+{
+    public PdaNanoChatListNumberMessage() { }
+}
+
+[Serializable, NetSerializable]
 public sealed class PdaRequestUpdateInterfaceMessage : BoundUserInterfaceMessage
 {
     public PdaRequestUpdateInterfaceMessage() { }

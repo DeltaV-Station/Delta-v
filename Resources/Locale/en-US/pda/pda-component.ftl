@@ -42,6 +42,10 @@ comp-pda-ui-ringtone-button = Ringtone
 
 comp-pda-ui-ringtone-button-description = Change your PDA's ringtone
 
+comp-pda-ui-nano-chat-list-number-button = List NanoChat number
+
+comp-pda-ui-nano-chat-list-number-button-description = Toggle whether your NanoChat number should be listed
+
 comp-pda-ui-toggle-flashlight-button = Toggle Flashlight
 
 pda-bound-user-interface-music-button = Music Instrument

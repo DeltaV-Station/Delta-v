@@ -51,6 +51,7 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<PdaComponent, PdaRequestUpdateInterfaceMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaToggleFlashlightMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowRingtoneMessage>(OnUiMessage);
+            SubscribeLocalEvent<PdaComponent, PdaNanoChatListNumberMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowMusicMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowUplinkMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaLockUplinkMessage>(OnUiMessage);
@@ -251,6 +252,15 @@ namespace Content.Server.PDA
 
             if (HasComp<RingerComponent>(uid))
                 _ringer.ToggleRingerUI(uid, msg.Actor);
+        }
+
+        private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaNanoChatListNumberMessage msg)
+        {
+            if (!PdaUiKey.Key.Equals(msg.UiKey))
+                return;
+
+            if (TryComp<NanoChatCardComponent>(pda.ContainedId, out var nanoChat))
+                nanoChat.ListNumber = !nanoChat.ListNumber;
         }
 
         private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaShowMusicMessage msg)
