@@ -1,4 +1,5 @@
 ﻿using Robust.Shared.Audio;
+using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Beam.Components;
@@ -44,6 +45,16 @@ public abstract partial class SharedBeamComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("sound")]
     public SoundSpecifier? Sound;
+
+    /// <summary>
+    /// Allow the sprite to be randomized.
+    /// </summary>
+    /// <remarks>
+    /// Ported from imp
+    /// </remarks>
+    [ViewVariables]
+    [DataField("allowSpriteOverwrite")]
+    public bool AllowSpriteOverwrite = true;
 }
 
 /// <summary>
@@ -68,12 +79,28 @@ public sealed class BeamControllerCreatedEvent : EntityEventArgs
 public sealed class CreateBeamSuccessEvent : EntityEventArgs
 {
     public readonly EntityUid User;
-    public readonly EntityUid Target;
+
+    /// <summary>
+    /// The entity the beam targeted.
+    /// Imp - This may be null if the beam targeted a map coordinate.
+    /// </summary>
+    public readonly EntityUid? Target;
+
+    /// <summary>
+    /// The coordinates the beam targeted. This may be null if the beam targeted an entity.
+    /// </summary>
+    public readonly MapCoordinates? Coordinates;
 
     public CreateBeamSuccessEvent(EntityUid user, EntityUid target)
     {
         User = user;
         Target = target;
+    }
+
+    public CreateBeamSuccessEvent(EntityUid user, MapCoordinates coordinates)
+    {
+        User = user;
+        Coordinates = coordinates;
     }
 }
 
