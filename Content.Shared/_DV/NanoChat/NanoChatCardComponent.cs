@@ -1,5 +1,4 @@
 using Content.Shared._DV.CartridgeLoader.Cartridges;
-using Content.Shared.PDA;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -61,6 +60,6 @@ public sealed partial class NanoChatCardComponent : Component
     /// <summary>
     ///     Whether the card's number should be listed in NanoChat's lookup
     /// </summary>
-    [DataField, Access(typeof(SharedPdaSystem), Friend = AccessPermissions.ReadWrite)]
+    [DataField]
     public bool ListNumber = true;
 }

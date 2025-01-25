@@ -12,6 +12,7 @@ public sealed class NanoChatUiState : BoundUserInterfaceState
     public readonly uint OwnNumber;
     public readonly int MaxRecipients;
     public readonly bool NotificationsMuted;
+    public readonly bool ListNumber;
 
     public NanoChatUiState(
         Dictionary<uint, NanoChatRecipient> recipients,
@@ -20,7 +21,8 @@ public sealed class NanoChatUiState : BoundUserInterfaceState
         uint? currentChat,
         uint ownNumber,
         int maxRecipients,
-        bool notificationsMuted)
+        bool notificationsMuted,
+        bool listNumber)
     {
         Recipients = recipients;
         Messages = messages;
@@ -29,5 +31,6 @@ public sealed class NanoChatUiState : BoundUserInterfaceState
         OwnNumber = ownNumber;
         MaxRecipients = maxRecipients;
         NotificationsMuted = notificationsMuted;
+        ListNumber = listNumber;
     }
 }

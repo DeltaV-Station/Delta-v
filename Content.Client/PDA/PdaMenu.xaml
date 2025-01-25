@@ -61,10 +61,6 @@
                           HorizontalExpand="True"
                           MinSize="50 50"
                           Name="Settings">
-                <pda:PdaSettingsButton Name="ListNanoChatNumberButton"
-                                       Access="Public"
-                                       Text="{Loc 'comp-pda-ui-nano-chat-list-number-button'}"
-                                       Description="{Loc 'comp-pda-ui-nano-chat-list-number-button-description'}"/>
                 <pda:PdaSettingsButton Name="AccessRingtoneButton"
                                        Access="Public"
                                        Text="{Loc 'comp-pda-ui-ringtone-button'}"

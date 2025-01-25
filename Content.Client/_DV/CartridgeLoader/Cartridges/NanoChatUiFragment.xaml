@@ -76,9 +76,19 @@
                         StyleClasses="OpenBoth"
                         Margin="0 0 4 0"
                         ToolTip="{Loc nano-chat-look-up}">
-                    <TextureRect Name="SearchIcon"
-                                 StyleClasses="ButtonSquare"
+                    <TextureRect StyleClasses="ButtonSquare"
                                  TexturePath="/Textures/_DV/Interface/VerbIcons/magnifying_glass.svg.png"
+                                 Stretch="KeepAspectCentered"
+                                 MinSize="18 18" />
+                </Button>
+                <Button Name="ListNumberButton"
+                        MaxSize="32 32"
+                        StyleClasses="OpenBoth"
+                        Margin="0 0 4 0"
+                        ToolTip="{Loc nano-chat-list-number}"
+                        ToggleMode="True">
+                    <TextureRect StyleClasses="ButtonSquare"
+                                 TexturePath="/Textures/_DV/Interface/VerbIcons/hamburger_icon.svg.png"
                                  Stretch="KeepAspectCentered"
                                  MinSize="18 18" />
                 </Button>
