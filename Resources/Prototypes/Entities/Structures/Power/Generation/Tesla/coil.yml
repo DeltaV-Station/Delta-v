@@ -5,7 +5,6 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: SupermatterImmune
   - type: Transform
     anchored: true
   - type: Physics
@@ -111,6 +110,7 @@
               SheetSteel1:
                 min: 2
                 max: 4
+  - type: SupermatterImmune # imp
   - type: GuideHelp
     guides:
     - TeslaEngine
@@ -123,7 +123,6 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: SupermatterImmune
   - type: Transform
     anchored: true
   - type: Physics
@@ -207,6 +206,7 @@
               SheetSteel1:
                 min: 2
                 max: 4
+  - type: SupermatterImmune # imp
   - type: GuideHelp
     guides:
     - TeslaEngine

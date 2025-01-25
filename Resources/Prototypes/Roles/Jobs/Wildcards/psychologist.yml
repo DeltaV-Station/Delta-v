@@ -12,6 +12,10 @@
   - Psychologist # DeltaV - Add Psychologist access
   extendedAccess:
   - Chemistry
+  special: # imp
+  - !type:AddComponentSpecial
+    components:
+    - type: SupermatterSoother
 
 - type: startingGear
   id: PsychologistGear
