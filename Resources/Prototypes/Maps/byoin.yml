@@ -3,7 +3,7 @@
   mapName: 'Byōin'
   mapPath: /Maps/byoin.yml
   minPlayers: 0
-  maxPlayers: 4
+  maxPlayers: 20
   stations:
     Byoin:
       stationProto: StandardNanotrasenStation
@@ -20,36 +20,58 @@
           #Command
             Captain: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefJustice: [ 1, 1 ]
             ChiefMedicalOfficer: [ 1, 1 ]
             ChiefEngineer: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
+            ResearchDirector: [ 1, 1 ]
             AdministrativeAssistant: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
           #service
+            Reporter: [ 1, 1 ]
             Janitor: [ 1, 1 ]
-            ServiceWorker: [ 3, 3 ]
+            Bartender: [ 1, 1 ]
+            Botanist: [ 1, 1 ]
+            Chef: [ 1 , 1 ]
+            Musician: [ 1, 1 ]
+            Clown: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            ServiceWorker: [ 1, 1 ]
           #engineering
             AtmosphericTechnician: [ 1, 1 ]
-            StationEngineer: [ 1, 1 ]
+            StationEngineer: [ 1, 2 ]
             TechnicalAssistant: [ 1, 1 ]
           #medical
             Chemist: [ 1, 1 ]
-            MedicalDoctor: [ 1, 1 ]
-            MedicalIntern: [ 1, 1 ]
             Psychologist: [ 1, 1 ]
             Paramedic: [ 1, 1 ]
             Surgeon: [ 1, 1 ]
+            MedicalDoctor: [ 2, 2 ]
+            MedicalIntern: [ 1, 1 ]
           #science
+            Roboticist: [ 1, 1 ]
+            Scientist: [ 1, 2 ]
             ResearchAssistant: [ 1, 1 ]
-            Scientist: [ 1, 1 ]
+            ForensicMantis: [ 1, 1 ]
+            Chaplain: [ 1, 1 ]
+          #Silicon
+            MedicalBorg: [ 1, 1 ]
             Borg: [ 1, 1 ]
           #security
-            SecurityCadet: [ 1, 1 ]
-            SecurityOfficer: [ 1, 1 ]
+            Warden: [ 1, 1 ]
             Detective: [ 1, 1 ]
+            SecurityOfficer: [ 1, 2 ]
+            SecurityCadet: [ 1, 1 ]
+          #justice
+            Clerk: [ 1, 1 ]
+            Prosecutor: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
           #supply
-            CargoAssistant: [ 1, 1 ]
-            Courier: [ 1, 1 ]
-            CargoTechnician: [ 1, 1 ]
             SalvageSpecialist: [ 1, 1 ]
+            CargoTechnician: [ 1, 2 ]
+            Courier: [ 1, 1 ]
+            CargoAssistant: [ 1, 1 ]
           #civilian
             Passenger: [ -1, -1 ]
