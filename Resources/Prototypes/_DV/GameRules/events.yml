@@ -23,12 +23,8 @@
     earliestStart: 30
     weight: 7.5
     minimumPlayers: 10 #Enough to hopefully have at least one engineering guy
-    startAnnouncement: station-event-meteor-swarm-start-announcement
-    endAnnouncement: station-event-meteor-swarm-end-announcement
-    startAudio:
-      path: /Audio/Announcements/meteors.ogg
-      params:
-        volume: -4
+    startAnnouncement: true
+    endAnnouncement: true
     duration: null #ending is handled by MeteorSwarmRule
   - type: PrecognitionResult
     message: psionic-power-precognition-meteor-swarm-result-message
@@ -39,9 +35,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    startAnnouncement: station-event-xeno-vent-start-announcement
-    startAudio:
-      path: /Audio/Announcements/aliens.ogg
+    startAnnouncement: true
     earliestStart: 45
     minimumPlayers: 20
     weight: 1

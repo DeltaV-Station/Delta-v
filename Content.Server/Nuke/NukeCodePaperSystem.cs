@@ -8,6 +8,8 @@ using Content.Server.Station.Systems;
 using Content.Shared.Paper;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Server._EE.Announcements.Systems;  // Impstation Random Announcer System
+using Robust.Shared.Player; // Impstation Random Announcer System
 
 namespace Content.Server.Nuke
 {
@@ -18,6 +20,7 @@ namespace Content.Server.Nuke
         [Dependency] private readonly StationSystem _station = default!;
         [Dependency] private readonly PaperSystem _paper = default!;
         [Dependency] private readonly FaxSystem _faxSystem = default!;
+        [Dependency] private readonly AnnouncerSystem _announcer = default!;  // Impstation Random Announcer System
 
         public override void Initialize()
         {
@@ -69,9 +72,7 @@ namespace Content.Server.Nuke
             while (faxes.MoveNext(out var faxEnt, out var fax))
             {
                 if (!fax.ReceiveNukeCodes || !TryGetRelativeNukeCode(faxEnt, out var paperContent, station))
-                {
                     continue;
-                }
 
                 var printout = new FaxPrintout(
                     paperContent,
@@ -90,10 +91,8 @@ namespace Content.Server.Nuke
             }
 
             if (wasSent)
-            {
-                var msg = Loc.GetString("nuke-component-announcement-send-codes");
-                _chatSystem.DispatchStationAnnouncement(station, msg, colorOverride: Color.Red);
-            }
+                _announcer.SendAnnouncement(_announcer.GetAnnouncementId("NukeCodes"), Filter.Broadcast(),  // Impstation Random Announcer System: Integrates the announcer
+                    "nuke-component-announcement-send-codes", colorOverride: Color.Red);
 
             return wasSent;
         }
