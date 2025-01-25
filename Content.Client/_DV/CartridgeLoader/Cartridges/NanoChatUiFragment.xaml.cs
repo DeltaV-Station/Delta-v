@@ -77,6 +77,15 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         };
 
         LookupButton.OnPressed += _ => ToggleView();
+        LookupView.OnStartChat += contact =>
+        {
+            if (OnMessageSent is { } handler)
+            {
+                handler(NanoChatUiMessageType.NewChat, contact.Number, contact.Name, contact.JobTitle);
+                SelectChat(contact.Number);
+                ToggleView();
+            }
+        };
         ListNumberButton.OnPressed += _ =>
         {
             _listNumber = !_listNumber;
@@ -230,68 +239,6 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             scroll.SetScrollValue(new Vector2(0, float.MaxValue));
     }
 
-    private void UpdateContactList(List<NanoChatRecipient>? contacts)
-    {
-        ContactsList.RemoveAllChildren();
-        if (contacts is null)
-        {
-            ContactsList.AddChild(new Label() { Text = Loc.GetString("nano-chat-look-up-no-server") });
-            return;
-        }
-        for (var idx = 0; idx < contacts.Count; idx++)
-        {
-            var contact = contacts[idx];
-            var nameLabel = new Label()
-            {
-                Text = contact.Name,
-                HorizontalAlignment = HAlignment.Left,
-                HorizontalExpand = true
-            };
-            var numberLabel = new Label()
-            {
-                Text = $"#{contacts[idx].Number:D4}",
-                HorizontalAlignment = HAlignment.Right,
-                Margin = new Thickness(0, 0, 36, 0),
-            };
-            var startChatButton = new Button()
-            {
-                Text = "+",
-                HorizontalAlignment = HAlignment.Right,
-                MinSize = new Vector2(32, 32),
-                MaxSize = new Vector2(32, 32),
-                ToolTip = Loc.GetString("nano-chat-new-chat"),
-            };
-            startChatButton.AddStyleClass("OpenBoth");
-            if (contact.Number == _ownNumber || _recipients.ContainsKey(contact.Number))
-            {
-                startChatButton.Disabled = true;
-            }
-            startChatButton.OnPressed += _ =>
-            {
-                if (OnMessageSent is { } handler)
-                {
-                    handler(NanoChatUiMessageType.NewChat, contact.Number, contact.Name, contact.JobTitle);
-                    SelectChat(contact.Number);
-                    ToggleView();
-                }
-            };
-
-            var panel = new PanelContainer()
-            {
-                HorizontalExpand = true,
-            };
-
-            panel.AddChild(nameLabel);
-            panel.AddChild(numberLabel);
-            panel.AddChild(startChatButton);
-
-            var styleClass = idx % 2 == 0 ? "PanelBackgroundBaseDark" : "PanelBackgroundLight";
-            panel.StyleClasses.Add(styleClass);
-
-            ContactsList.AddChild(panel);
-        }
-    }
-
     private void UpdateMuteButton()
     {
         if (BellMutedIcon != null)
@@ -336,6 +283,6 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         UpdateCurrentChat();
         UpdateChatList(state.Recipients);
         UpdateMessages(state.Messages);
-        UpdateContactList(state.Contacts);
+        LookupView.UpdateContactList(state);
     }
 }

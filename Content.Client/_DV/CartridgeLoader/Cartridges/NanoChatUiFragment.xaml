@@ -185,19 +185,7 @@
                 </BoxContainer>
             </PanelContainer>
         </BoxContainer>
-        <PanelContainer StyleClasses="AngleRect"
-                        Name="LookupView"
-                        Visible="False"
-                        VerticalExpand="True">
-            <ScrollContainer HorizontalExpand="True"
-                             VerticalExpand="True"
-                             Margin="-10">
-                <BoxContainer Name="ContactsList"
-                              Orientation="Vertical"
-                              VerticalExpand="True"
-                              HorizontalExpand="True"
-                              Margin="0" />
-            </ScrollContainer>
-        </PanelContainer>
+        <cartridges:NanoChatLookupView Name="LookupView"
+                                       Visible="False" />
     </BoxContainer>
 </cartridges:NanoChatUiFragment>
