@@ -45,11 +45,9 @@ namespace Content.Client.Chemistry.UI
                 _window.PillTypeButtons[i].OnPressed += _ => SendMessage(new ChemMasterSetPillTypeMessage(pillType));
             }
 
-            _window.OnReagentButtonPressed += (_, button, amount) => SendMessage(new ChemMasterReagentAmountButtonMessage(button.Id, amount, button.IsBuffer));
+            _window.OnReagentButtonPressed += (_, button, amount, isOutput) => SendMessage(new ChemMasterReagentAmountButtonMessage(button.Id, amount, button.IsBuffer, isOutput));
             _window.OnSortMethodChanged += sortMethod => SendMessage(new ChemMasterSortMethodUpdated(sortMethod));
             _window.OnTransferAmountChanged += amount => SendMessage(new ChemMasterTransferringAmountUpdated(amount));
-
-
         }
 
         /// <summary>
