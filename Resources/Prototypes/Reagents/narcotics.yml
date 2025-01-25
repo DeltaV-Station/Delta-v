@@ -15,6 +15,7 @@
         damage:
           types:
             Poison: 0.75
+            Cellular: 1 # DeltaV - meth rots you just like in real life :D
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -228,6 +229,16 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
+  metabolisms: # DeltaV - nicotine gives you the smallest amount of cell damage just like real life :D
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 0.01
+    Food:
+      effects:
+      - !type:SatiateHunger
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent
