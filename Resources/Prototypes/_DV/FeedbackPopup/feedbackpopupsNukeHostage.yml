@@ -1,0 +1,26 @@
+﻿# Round start nukie popup.
+- type: feedbackPopup
+  id: NukieHostageRoundStartPopup
+  popupName: feedbackpopup-hostage-nukie-start-name
+  title: feedbackpopup-hostage-nukie-start-title
+  description:
+  - feedbackpopup-hostage-nukie-start-description-0
+  - feedbackpopup-hostage-nukie-start-description-1
+  - feedbackpopup-hostage-nukie-start-description-2
+  feedbackField: false
+
+# On death, or game end nukie popup.
+- type: feedbackPopup
+  id: NukieHostageRoundEndPopup
+  popupName: feedbackpopup-hostage-nukie-end-name
+  title: feedbackpopup-hostage-nukie-end-title
+  description:
+  - feedbackpopup-hostage-nukie-end-description-0
+
+# Crew popup on round end.
+- type: feedbackPopup
+  id: NukieHostageRoundEndCrewPopup
+  popupName: feedbackpopup-hostage-crew-end-name
+  title: feedbackpopup-hostage-crew-end-title
+  description:
+  - feedbackpopup-hostage-nukie-end-description-0
