@@ -34,26 +34,6 @@
     - !type:TileNotBlocked
   hide: false
 
-# Tables
-- type: construction
-  name: bar counter
-  id: N14TableCounterBar
-  graph: N14TableCounterBarRecipes
-  startNode: start
-  targetNode: TableCounterBar
-  category: construction-category-furniture
-  description: An alcohol stained bartop.
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  hide: false
-  canRotate: true
-  icon:
-    sprite: _Nuclear14/Structures/Furniture/Tables/barcounter.rsi
-    state: full
-  conditions:
-    - !type:TileNotBlocked
-
 - type: construction
   name: metal table
   id: N14TableMetalGrate
@@ -69,25 +49,6 @@
   canRotate: true
   icon:
     sprite: _Nuclear14/Structures/Furniture/Tables/metalgrate.rsi
-    state: full
-  conditions:
-    - !type:TileNotBlocked
-
-- type: construction
-  name: wooden table
-  id: N14TableWoodSettler
-  graph: N14TableRecipes
-  startNode: start
-  targetNode: TableWoodSettler
-  category: construction-category-furniture
-  description: A wooden table used by settlers.
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  hide: false
-  canRotate: true
-  icon:
-    sprite: _Nuclear14/Structures/Furniture/Tables/table_settler.rsi
     state: full
   conditions:
     - !type:TileNotBlocked

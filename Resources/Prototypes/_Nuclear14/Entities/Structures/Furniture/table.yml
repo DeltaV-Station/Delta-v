@@ -67,48 +67,6 @@
     state: table_metal_round # N14TODO: There's a second sprite of this, need it to spawn a random one.
 
 - type: entity
-  parent: N14FreeTableBase
-  id: N14TableDeskSchool
-  name: end table
-  description: A wooden end table.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
-    state: table_wood_end
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-            bounds: "-0.15,-0.25,0.25,0.25"
-        density: 55
-        mask: # tables should collide with other tables
-        - TableMask
-        layer:
-        - TableLayer
-
-- type: entity
-  parent: N14TableDeskSchool
-  id: N14TableWoodEnd
-  name: end table
-  description: A wooden end table.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
-    state: table_wood_end
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-            bounds: "-0.15,-0.25,0.25,0.25"
-        density: 55
-        mask: # tables should collide with other tables
-        - TableMask
-        layer:
-        - TableLayer
-
-- type: entity
   parent: N14TableWoodSquare
   id: N14TableWoodRound
   name: wooden table
@@ -119,7 +77,7 @@
     state: table_wood_round
 
 - type: entity
-  parent: N14TableDeskSchool
+  parent: N14FreeTableBase
   id: N14TableWoodSquare
   name: wooden table
   description: A wooden square table.
@@ -198,7 +156,7 @@
     state: desk_metal_small
 
 - type: entity
-  parent: N14TableDeskSchool
+  parent: N14FreeTableBase
   id: N14TableDeskWood
   name: wooden desk
   description: A wooden desk for working at.
@@ -229,7 +187,7 @@
     state: desk_wood
 
 - type: entity
-  parent: N14TableDeskSchool
+  parent: N14FreeTableBase
   id: N14TableDeskWoodSmall
   suffix: small
   components:
@@ -289,7 +247,7 @@
 
 # Counters / Benches / Smoothed Tables
 - type: entity
-  parent: N14TableDeskSchool
+  parent: N14FreeTableBase
   id: N14TableCounter
   name: wooden counter
   suffix: full
@@ -411,32 +369,4 @@
     sprite: _Nuclear14/Structures/Furniture/Tables/metalgrate.rsi
   - type: Construction
     graph: N14TableMetalGrateRecipes
-    node: start
-
-- type: entity
-  id: N14TableWoodSettler
-  parent: Table
-  name: wooden table
-  description: A wooden table used by settlers.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Furniture/Tables/table_settler.rsi
-  - type: Icon
-    sprite: _Nuclear14/Structures/Furniture/Tables/table_settler.rsi
-  - type: Construction
-    graph: N14TableRecipes
-    node: start
-
-- type: entity
-  parent: TableWood
-  id: N14TableCounterBar
-  name: bar counter
-  description: An alcohol stained bartop.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Furniture/Tables/barcounter.rsi
-  - type: Icon
-    sprite: _Nuclear14/Structures/Furniture/Tables/barcounter.rsi
-  - type: Construction
-    graph: N14TableCounterBarRecipes
     node: start
