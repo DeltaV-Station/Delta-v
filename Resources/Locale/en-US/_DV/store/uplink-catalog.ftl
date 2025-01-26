@@ -15,6 +15,9 @@ uplink-syndicate-radio-implanter-desc = A cranial implant that lets you talk on 
 uplink-syndicate-radio-implanter-bundle-name = Syndicate Radio Implanter Bundle
 uplink-syndicate-radio-implanter-bundle-desc = Two implanters for the price of one and a half! Share one with your Syndicate friend.
 
+uplink-syndicate-hostage-implanter-bundle-name = Hostage implant bundle
+uplink-syndicate-hostage-implanter-bundle-desc = These implants pacify when injected and also allow the hostages to enter your shuttle without being shot by turrets!
+
 uplink-doorjack-name = Airlock Access Override
 uplink-doorjack-desc = A specialized cryptographic sequencer, designed solely to doorjack NanoTrasen's updated airlocks. Does not tamper with anything else.
 
@@ -36,3 +39,10 @@ uplink-hardsuit-syndieelite-delta-name = Syndicate Thermal Hardsuit
 
 uplink-objective-syndicate-board-name = Syndicate law board
 uplink-objective-syndicate-board-desc = Its expensive, don't lose it!
+
+uplink-dead-mans-signaller-name = Dead Man's Signaller
+uplink-dead-mans-signaller-desc = A device that if armed, will send a signal to any linked devices (such as bombs) when it is dropped or put away.
+
+# Objectives
+uplink-syndicate-handcuff-bundle-name = Handcuff implant bundle
+uplink-syndicate-handcuff-bundle-desc = Includes 10 metal handcuffs. We recommended you share with your friends!
