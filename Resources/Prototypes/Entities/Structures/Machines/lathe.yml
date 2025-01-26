@@ -376,6 +376,7 @@
       - FultonBeacon
       - PowerCellHyper
       - FireExtinguisherBluespace
+      - SignallerDeadMans
       # End DeltaV additions
       - EnergyScalpel # Shitmed Change
       - EnergyCautery # Shitmed Change
@@ -1325,10 +1326,11 @@
       - ClothingOuterCoatCybersunWindbreaker
       - ClothingMaskInterdyneChemistry
       - ClothingHeadHatSurgcapCybersun
-      #- ClothingUniformCybersunHazard
-      #- ClothingUniformCybersunCasual
-      #- ClothingUniformCybersunRND
-      #- ClothingOuterCybersunOvercoat
+      - ClothingUniformCybersunHazard
+      - ClothingUniformCybersunCasual
+      - ClothingUniformCybersunRND
+      - ClothingOuterCybersunOvercoat
+      - ClothingBeltSyndicateUtility
       # End DeltaV Additions
   - type: MaterialStorage
     whitelist:
