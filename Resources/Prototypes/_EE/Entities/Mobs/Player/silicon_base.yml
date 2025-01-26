@@ -38,6 +38,18 @@
     #   safe: false
     # - type: EyeProtection # You'll want this if your robot can't wear glasses, like an IPC.
     #   protectionTime: 12
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 185
+          restitution: 0.0
+          mask:
+          - MobMask
+          layer:
+          - MobLayer
     - type: Silicon
       entityType: enum.SiliconType.Player
       batteryPowered: false # Needs to also have a battery!
@@ -299,11 +311,3 @@
     - type: Targeting
     - type: SurgeryTarget
     - type: LayingDown
-
-- type: damageModifierSet
-  id: IPC
-  coefficients:
-    Poison: 0
-    Cold: 0.2
-    Heat: 2
-    Shock: 2.5
