@@ -157,35 +157,6 @@
     sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
     state: table_wood_stand
 
-- type: entity
-  parent: N14TableWoodSquare
-  id: N14TableWoodCabledrum
-  name: cable drum
-  description: A convenient table.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
-    state: cable_reel
-
-- type: entity
-  parent: N14TableWoodSquare
-  id: N14TableCasinoDice
-  name: dice table
-  description: A table for playing dice games.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
-    state: dice_clean
-
-- type: entity
-  parent: N14TableCasinoDice
-  id: N14TableCasinoDiceDirty
-  suffix: dirty
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
-    state: dice_dirty
-
 #64x64 tables
 - type: entity
   parent: N14FreeTableBase
