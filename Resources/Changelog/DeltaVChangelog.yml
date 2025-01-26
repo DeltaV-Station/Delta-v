@@ -1,19 +1,4 @@
 ﻿Entries:
-- author: NullWanderer, Adeinitas, Colin_Tel, DLondon
-  changes:
-  - message: Updated the server rules and made them more readable in one go, check
-      them out!!!
-    type: Tweak
-  id: 447
-  time: '2024-07-24T23:19:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1494
-- author: NullWanderer
-  changes:
-  - message: Merged upstream up to 01/07
-    type: Add
-  id: 448
-  time: '2024-07-25T01:17:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1533
 - author: Fox
   changes:
   - message: Ifrit should now be behind 4 hours of Epistemics playtime
@@ -3858,3 +3843,24 @@
   id: 946
   time: '2025-01-25T01:29:42.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2545
+- author: Emily9031
+  changes:
+  - message: Added a dead man's signaller that will activate when dropped. Find it
+      in the uplink and research! Make sure you arm it!
+    type: Add
+  id: 947
+  time: '2025-01-25T04:09:54.540837+00:00'
+  url: null
+- author: ElusiveCoin
+  changes:
+  - message: Updated Chitinid Resistances to make them more tank like while still
+      being harder to heal in the midst of a battle.
+    type: Tweak
+  - message: Fixed a bug where anomalies that gave the player a point light would
+      remove the Chitinid's bio light if cured.
+    type: Fix
+  - message: Updated Guidebook text of the Chitinid species.
+    type: Tweak
+  id: 948
+  time: '2025-01-25T19:55:31.266176+00:00'
+  url: null
