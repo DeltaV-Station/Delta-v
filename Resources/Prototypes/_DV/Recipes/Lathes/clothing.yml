@@ -57,11 +57,6 @@
   id: ClothingUniformJumpskirtPrisonGuard
   result: ClothingUniformJumpskirtPrisonGuard
 
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitPrisonGuard
-  result: ClothingUniformJumpskirtPrisonGuard
-
 # Security Sweater
 
 - type: latheRecipe
@@ -123,6 +118,13 @@
   parent: BaseCommandCoatRecipe
   id: ClothingOuterChiefJustice
   result: ClothingOuterChiefJustice
+
+# Salvage Specialist
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtSalvageSpecialist
+  result: ClothingUniformJumpskirtSalvageSpecialist
 
 #Syndicate Clothing
 
