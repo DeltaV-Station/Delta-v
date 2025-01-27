@@ -279,13 +279,9 @@ namespace Content.Client.Chemistry.UI
 
             // Avoid division by zero
             if (PillDosage.Value > 0)
-            {
                 PillNumber.Value = bufferVolume / PillDosage.Value; // Delta-v
-            }
             else
-            {
                 PillNumber.Value = 0;
-            }
 
             BottleDosage.Value = bufferVolume;  // Delta-v
         }
@@ -509,10 +505,8 @@ namespace Content.Client.Chemistry.UI
                 }
             };
 
-            if (reagentButtonConstructor != null) // Delta-v - add
-            {
+            if (reagentButtonConstructor != null) // Delta-v - add button for reagent transfer
                 rowContainer.AddChild(reagentButtonConstructor);
-            }
 
             //Apply panencontainer to allow for striped rows
             return new PanelContainer
