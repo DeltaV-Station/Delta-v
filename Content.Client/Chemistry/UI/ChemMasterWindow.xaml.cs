@@ -376,7 +376,10 @@ namespace Content.Client.Chemistry.UI
 
         private void HandleBuffer(IEnumerable<ReagentQuantity> reagents, bool pillBuffer)
         {
-            foreach (var (reagent, quantity) in bufferReagents)
+            var rowCount = 0;
+            var pillRowCount = 0;
+
+            foreach (var (reagent, quantity) in reagents)
             {
                 var reagentId = reagent;
                 _prototypeManager.TryIndex(reagentId.Prototype, out ReagentPrototype? proto);
@@ -384,11 +387,15 @@ namespace Content.Client.Chemistry.UI
                 var reagentColor = proto?.SubstanceColor ?? default(Color);
 
                 if (pillBuffer)
+                {
                     PillBufferInfo.Children.Add(
-                        BuildReagentRow(reagentColor, rowCount++, name, reagentId, quantity, true, true));
+                        BuildReagentRow(reagentColor, pillRowCount++, name, reagentId, quantity, true, true));
+                }
                 else
+                {
                     BufferInfo.Children.Add(
                         BuildReagentRow(reagentColor, rowCount++, name, reagentId, quantity, true, true));
+                }
             }
         }
 
