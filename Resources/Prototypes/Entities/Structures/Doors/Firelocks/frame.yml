@@ -33,7 +33,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 100 # DeltaV - Nerfed from 500 to 100
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
