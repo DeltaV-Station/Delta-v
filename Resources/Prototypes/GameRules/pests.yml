@@ -22,7 +22,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: true # Impstation: Random Announcer System
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-xeno-vent-start-announcement
     earliestStart: 15
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
@@ -45,7 +45,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: true # Impstation: Random Announcer System
+    startAnnouncement: false
     earliestStart: 15
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
@@ -71,7 +71,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: true # Impstation: Random Announcer System
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-vent-creatures-start-announcement
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -92,7 +92,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: true # Impstation: Random Announcer System
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-vent-creatures-start-announcement
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -112,7 +112,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: true # Impstation: Random Announcer System
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-vent-creatures-start-announcement
     earliestStart: 15
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now

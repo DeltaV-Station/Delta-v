@@ -115,6 +115,8 @@
     earliestStart: 2
     minimumPlayers: 0
   - type: MeteorSwarm
+    #announcement: null #DeltaV: Comment this out for the new announcer system
+    #announcementSound: null #DeltaV: Comment this out for the new announcer system
     nonDirectional: true
     meteors:
       MeteorSpaceDust: 1
@@ -133,7 +135,7 @@
     weight: 22
     minimumPlayers: 0
   - type: MeteorSwarm
-    startAnnouncement: true
+    startAnnouncement: true #Imp: Converted to Bool, was station-event-space-dust-start-announcement
     nonDirectional: true
     meteors:
       MeteorSpaceDust: 1
@@ -152,7 +154,7 @@
     weight: 18
     minimumPlayers: 15
   - type: MeteorSwarm
-    startAnnouncement: true
+    startAnnouncement: true #Imp
     meteors:
       MeteorSmall: 7
       MeteorMedium: 3
@@ -164,7 +166,7 @@
   - type: StationEvent
     weight: 10
   - type: MeteorSwarm
-    startAnnouncement: true
+    startAnnouncement: true #Imp
     meteors:
       MeteorSmall: 3
       MeteorMedium: 6
@@ -177,7 +179,7 @@
   - type: StationEvent
     weight: 5
   - type: MeteorSwarm
-    startAnnouncement: true
+    startAnnouncement: true #Imp
     meteors:
       MeteorSmall: 2
       MeteorMedium: 4
@@ -192,7 +194,7 @@
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-game-rule-urist-swarm-result-message
   - type: MeteorSwarm
-    startAnnouncement: true
+    startAnnouncement: true #Imp
     meteors:
       MeteorUrist: 1
     waves:
@@ -207,7 +209,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    startAnnouncement: true # Impstation: Random Announcer System
+    startAnnouncement: true # Imp: Was station-event-meteor-urist-start-announcement, changed to bool for announcersystem
     weight: 3.5
     reoccurrenceDelay: 1
     duration: 1

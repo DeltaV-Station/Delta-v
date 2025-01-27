@@ -4,7 +4,7 @@
   parent: BaseGameRule
   components:
     - type: StationEvent
-      startAnnouncement: true # Impstation: Random Announcer System
+      startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-xeno-vent-start-announcement
       weight: 5
       earliestStart: 15
     - type: NoosphericStormRule

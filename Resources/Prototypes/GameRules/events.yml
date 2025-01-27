@@ -129,7 +129,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    startAnnouncement: true # Impstation: Random Announcer System
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-bureaucratic-error-announcement
     minimumPlayers: 25
     weight: 5
     duration: 1
@@ -144,7 +144,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    startAnnouncement: true # Impstation: Random Announcer System
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-clerical-error-announcement
     minimumPlayers: 15
     weight: 5
     duration: 1
@@ -284,8 +284,8 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: true # Impstation Random Announcer Port
-    endAnnouncement: true # Impstation Random Announcer Port
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-gas-leak-start-announcement
+    endAnnouncement: true # EE/Impstation: Converts to bool: was station-event-gas-leak-end-announcement
     weight: 10 # DeltaV - was 8
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-gas-leak-result-message
@@ -310,8 +310,8 @@
   components:
   - type: StationEvent
     weight: 10 
-    startAnnouncement: true # Impstation Random Announcer System
-    endAnnouncement: true # Impstation Random Announcer System
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-power-grid-check-start-announcement
+    endAnnouncement: true # EE/Impstation: Converts to bool: was station-event-power-grid-check-end-announcement
     duration: 60
     maxDuration: 120
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -324,8 +324,8 @@
   components:
   - type: StationEvent
     weight: 10
-    startAnnouncement: true # Impstation Random Announcer System
-    endAnnouncement: true # Impstation Random Announcer System
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-solar-flare-start-announcement
+    endAnnouncement: true # EE/Impstation: Converts to bool: was station-event-solar-flare-end-announcement
     duration: 120
     maxDuration: 240
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -351,7 +351,7 @@
   parent: BaseStationEventLongDelay
   components:
   - type: StationEvent
-    startAnnouncement: true # Impstation: Random Announcer System
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-vent-clog-start-announcement
     earliestStart: 20 #DeltaV - was 15
     minimumPlayers: 15
     weight: 7.5 # DeltaV - was 5
@@ -365,7 +365,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: true # Impstation: Random Announcer System
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-vent-creatures-start-announcement
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -384,7 +384,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: true # Impstation Random Announcer Port
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-vent-creatures-start-announcement
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -403,7 +403,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: true # Impstation: Random Announcer System
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-vent-creatures-start-announcement
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -419,7 +419,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: true # Impstation: Random Announcer System
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-vent-creatures-start-announcement
     earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
@@ -514,7 +514,7 @@
     weight: 5 # DeltaV - Was 8 now 5
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
-    startAnnouncement: true # Impstation: Random Announcer System
+    startAnnouncement: true # EE/Impstation: Converts to bool: was
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -579,7 +579,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: true # Impstation: Random Announcer System
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-greytide-virus-start-announcement-deltav
     weight: 5
     minimumPlayers: 25
     reoccurrenceDelay: 20

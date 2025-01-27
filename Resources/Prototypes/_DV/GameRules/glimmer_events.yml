@@ -34,7 +34,7 @@
     weight: 6
     duration: 1
     reoccurrenceDelay: 20
-    startAnnouncement: false # Impstation: Random Announcer System, doesn't have an announcement usually
+    startAnnouncement: false # EE/Impstation: Converts to bool: has no announcement locstring.
   - type: GlimmerEvent
     minimumGlimmer: 300
     maximumGlimmer: 600
