@@ -131,7 +131,6 @@ namespace Content.Shared.Chemistry
 
     [Serializable, NetSerializable]
     public sealed class ChemMasterBoundUserInterfaceState(
-        ChemMasterMode mode,
         ContainerInfo? containerInfo,
         IReadOnlyList<ReagentQuantity> bufferReagents,
         IReadOnlyList<ReagentQuantity> pillBufferReagents,
@@ -156,11 +155,9 @@ namespace Content.Shared.Chemistry
         /// </summary>
         public readonly IReadOnlyList<ReagentQuantity> PillBufferReagents = pillBufferReagents;
 
-        public readonly ChemMasterMode Mode = mode;
-
         public readonly FixedPoint2? BufferCurrentVolume = bufferCurrentVolume;
         public readonly FixedPoint2? PillBufferCurrentVolume = pillBufferCurrentVolume;
-        
+
         public readonly uint SelectedPillType = selectedPillType;
         public readonly uint PillDosageLimit = pillDosageLimit;
 
@@ -168,22 +165,6 @@ namespace Content.Shared.Chemistry
 
         public readonly int SortMethod = sortMethod;
         public readonly int TransferringAmount = transferringAmount;
-
-        public ChemMasterBoundUserInterfaceState(
-            ContainerInfo? inputContainerInfo, ContainerInfo? outputContainerInfo,
-            IReadOnlyList<ReagentQuantity> bufferReagents, FixedPoint2 bufferCurrentVolume,
-            uint selectedPillType, uint pillDosageLimit, bool updateLabel, int sortMethod, int transferringAmount)
-        {
-            InputContainerInfo = inputContainerInfo;
-            OutputContainerInfo = outputContainerInfo;
-            BufferReagents = bufferReagents;
-            BufferCurrentVolume = bufferCurrentVolume;
-            SelectedPillType = selectedPillType;
-            PillDosageLimit = pillDosageLimit;
-            UpdateLabel = updateLabel;
-            SortMethod = sortMethod;
-            TransferringAmount = transferringAmount;
-        }
     }
 
     [Serializable, NetSerializable]

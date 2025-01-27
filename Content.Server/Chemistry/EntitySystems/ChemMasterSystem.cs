@@ -85,7 +85,7 @@ namespace Content.Server.Chemistry.EntitySystems
             var pillBufferCurrentVolume = pillBufferSolution.Volume;
 
             var state = new ChemMasterBoundUserInterfaceState(
-                BuildOutputContainerInfo(outputContainer),
+                BuildInputContainerInfo(container),
                 bufferReagents,
                 pillBufferReagents,
                 bufferCurrentVolume,
@@ -112,7 +112,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void OnReagentButtonMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterReagentAmountButtonMessage message)
         {
-            TransferReagents(chemMaster, message.ReagentId, chemMaster.Comp.TransferringAmount, message.FromBuffer);
+            TransferReagents(chemMaster, message.ReagentId, chemMaster.Comp.TransferringAmount, message.FromBuffer, message.IsOutput);
             ClickSound(chemMaster);
         }
 
@@ -131,7 +131,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 var solution = isOutput ? pillBufferSolution : bufferSolution;
 
                 amount = solution.RemoveReagent(id, amount, preserveOrder: true);
-                _solutionContainerSystem.TryAddReagent(containerSoln.Value, id, amount, out var _);
+                _solutionContainerSystem.TryAddReagent(containerSoln.Value, id, amount, out _);
             }
             else // Container to buffer
             {

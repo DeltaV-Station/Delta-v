@@ -35,7 +35,6 @@ namespace Content.Client.Chemistry.UI
         private ReagentSortMethod _currentSortMethod = ReagentSortMethod.Alphabetical;
         private ChemMasterBoundUserInterfaceState? _lastState;
         private int _transferAmount = 50;
-        private bool _isOutput = false;
 
         private const string PillsRsiPath = "/Textures/Objects/Specific/Chemistry/pills.rsi";
 
@@ -50,8 +49,8 @@ namespace Content.Client.Chemistry.UI
 
             _reagents = new();
             AmountLabel.HorizontalAlignment = HAlignment.Center;
-            AmountLineEdit.OnTextEntered += SetAmount;
-            AmountLineEdit.OnFocusExit += SetAmount;
+            AmountLineEdit.OnTextEntered += (args) => SetAmountText(args.Text);
+            AmountLineEdit.OnFocusExit += (args) => SetAmountText(args.Text);
 
             // Pill type selection buttons, in total there are 20 pills.
             // Pill rsi file should have states named as pill1, pill2, and so on.
@@ -188,26 +187,15 @@ namespace Content.Client.Chemistry.UI
             UpdatePanelInfo(_lastState);
         }
 
-        private bool ValidateAmount(string newText)
-        {
-            if (string.IsNullOrWhiteSpace(newText) || !int.TryParse(newText, out int amount))
-            {
-                AmountLineEdit.SetText(string.Empty);
-                return false;
-            }
-
-            _transferAmount = amount;
-            OnTransferAmountChanged?.Invoke(amount);
-            return true;
-        }
-
-        private void SetAmount(LineEdit.LineEditEventArgs args) =>
-            SetAmountText(args.Text);
-
         private void SetAmountText(string newText)
         {
-            if (newText == _transferAmount.ToString() || !ValidateAmount(newText))
+            if (string.IsNullOrWhiteSpace(newText)
+                || !int.TryParse(newText, out var amount)
+                || newText == _transferAmount.ToString())
+            {
+                AmountLineEdit.SetText(string.Empty);
                 return;
+            }
 
             var localizedAmount = Loc.GetString(
                 "chem-master-window-transferring-label",
@@ -216,6 +204,7 @@ namespace Content.Client.Chemistry.UI
 
             AmountLabel.Text = localizedAmount;
             AmountLineEdit.SetText(string.Empty);
+            OnTransferAmountChanged?.Invoke(amount);
         }
 
         private ReagentButton MakeReagentButton(string text, ReagentId id, bool isBuffer)
@@ -259,8 +248,8 @@ namespace Content.Client.Chemistry.UI
             // Ensure the Panel Info is updated, including UI elements for Buffer Volume, Output Container and so on
             UpdatePanelInfo(castState);
             HandleSortMethodChange(castState.SortMethod);
-            SetAmountText(castState.TransferringAmount.ToString());
 
+            _transferAmount = castState.TransferringAmount;
             BufferCurrentVolume.Text = $" {castState.PillBufferCurrentVolume?.Int() ?? 0}u";
 
             InputEjectButton.Disabled = castState.ContainerInfo is null;
@@ -270,8 +259,10 @@ namespace Content.Client.Chemistry.UI
             UpdateDosageFields(castState);
         }
 
-        private FixedPoint2 CurrentStateBufferVolume(ChemMasterBoundUserInterfaceState state) =>
-            (Tabs.CurrentTab == 0 ? state.BufferCurrentVolume : state.PillBufferCurrentVolume) ?? 0;
+        private FixedPoint2 CurrentStateBufferVolume(ChemMasterBoundUserInterfaceState state)
+        {
+            return (Tabs.CurrentTab == 0 ? state.BufferCurrentVolume : state.PillBufferCurrentVolume) ?? 0;
+        }
 
         //assign default values for pill and bottle fields.
         private void UpdateDosageFields(ChemMasterBoundUserInterfaceState castState)
@@ -366,7 +357,9 @@ namespace Content.Client.Chemistry.UI
             hashSetCachedReagents.ExceptWith(bufferAsNames);
 
             foreach (var missing in hashSetCachedReagents)
+            {
                 _reagents.Remove(missing);
+            }
 
             foreach (var (reagent, quantity) in bufferReagents)
             {
