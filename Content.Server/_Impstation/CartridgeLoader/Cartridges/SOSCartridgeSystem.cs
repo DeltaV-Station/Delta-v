@@ -1,7 +1,6 @@
 using System.Threading.Channels;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared._DV.NanoChat;
-using Content.Shared._Impstation.Ghost;
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
