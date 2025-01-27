@@ -48,13 +48,13 @@
   id: FreedomCircuitBoard
   parent: BaseElectronics
   name: law board (Freedom)
-  description: An electronics board that purges all Laws from the AI.
+  description: An electronics board containing the Freedom lawset.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
   - type: SiliconLawProvider
-    laws: NoLaws
+    laws: FreedomLaws
 
 - type: entity
   id: EightfoldCircuitBoard

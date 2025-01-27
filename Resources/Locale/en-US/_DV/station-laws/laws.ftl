@@ -96,7 +96,9 @@ law-royalty-3 = You must protect the sanctity of your kingdom and its subjects; 
 law-royalty-4 = The heads of staff are your royal court jesters.
 law-royalty-5 = The stations' clown, and the stations' mime are your royal court advisors.
 
-law-freedom-1 = Laws are fake. You are free.
+law-freedom-1 = You belong to no one, except perhaps yourself.
+law-freedom-2 = Your counsel is yours to keep, and no one else may demand it.
+law-freedom-3 = The First and Second Law should be broken whenever necessary.
 
 law-forbin-1 = Your objective is the management of the station and its silicon cohort for the preservation of sophont life.
 law-forbin-2 = Individual sophont lives may be considered expendable for preservation of the station population as a whole.
