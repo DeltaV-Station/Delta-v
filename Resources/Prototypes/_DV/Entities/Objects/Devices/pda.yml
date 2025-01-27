@@ -79,13 +79,13 @@
         - Write
   - type: CartridgeLoader
     preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - CrimeAssistCartridge
-      - SecWatchCartridge
-      - NanoChatCartridge
-      - SOSCartridge # Imp
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - CrimeAssistCartridge
+    - SecWatchCartridge
+    - NanoChatCartridge
+    - SOSCartridge # Imp
 
 - type: entity
   parent: BaseJusticePDA
