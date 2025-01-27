@@ -376,6 +376,7 @@
       - FultonBeacon
       - PowerCellHyper
       - FireExtinguisherBluespace
+      - SignallerDeadMans
       # End DeltaV additions
       - EnergyScalpel # Shitmed Change
       - EnergyCautery # Shitmed Change
@@ -593,6 +594,7 @@
       - SalvageExpeditionsComputerCircuitboard
       - ComputerMassMediaCircuitboard
       - AlertsComputerCircuitboard
+      - AdvancedMicrowaveMachineCircuitBoard
       # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
@@ -771,7 +773,7 @@
   description: Prints equipment for use by security crew.
   components:
   - type: Sprite
-    sprite: Structures/Machines/techfab.rsi
+    sprite: _DV/Structures/Machines/techfab.rsi # DeltaV - resprite armoury fabs
     layers:
     - state: icon
       map: ["enum.LatheVisualLayers.IsRunning"]
@@ -840,6 +842,20 @@
       - SpeedLoaderSpecialEmpty
       - SpeedLoaderSpecialPractice
       - MagazinePistolSpecial
+      - MagazineRifleRubber
+      - MagazinePistolRubber
+      - MagazineLightRifleRubber
+      - SpeedLoaderMagnumRubber
+      - SpeedLoaderSpecialRubber
+      - MagazineBoxPistolRubber
+      - MagazineBoxMagnumRubber
+      - MagazineBoxLightRifleRubber
+      - MagazineBoxRifleRubber
+      - MagazineBoxSpecialRubber
+      - MagazineShotgunBeanbag
+      - BoxShellTranquilizer
+      - BoxBeanbag
+      - WeaponDisabler
       # End DeltaV additions
     dynamicRecipes:
       - EncryptionKeySyndie # Nyano
@@ -928,7 +944,6 @@
       - WeaponBeamCannon
       # End DeltaV additions
       - SecurityCyberneticEyes # Shitmed Change
-      - MedicalCyberneticEyes # Shitmed Change
   - type: MaterialStorage
     whitelist:
       tags:
@@ -943,7 +958,7 @@
   description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
   components:
     - type: Sprite
-      sprite: Structures/Machines/techfab.rsi
+      sprite: _DV/Structures/Machines/techfab.rsi # DeltaV - resprite armoury fabs
       layers:
         - state: icon
           map: ["enum.LatheVisualLayers.IsRunning"]
@@ -1053,6 +1068,7 @@
       - WhiteCane
       - AACTablet # DeltaV
       - BoneGel # Shitmed Change
+      - TankHarness # DeltaV
     dynamicRecipes:
       # Begin DeltaV additions
       - LauncherSyringe
@@ -1264,6 +1280,9 @@
       - ClothingNeckScarfStripedOrange
       - ClothingNeckScarfStripedBlack
       - ClothingNeckScarfStripedPurple
+      # DeltaV Ponchos
+      - ClothingNeckCWPSec
+      - ClothingNeckCWPArctic
       # Carpets
       - Carpet
       - CarpetBlack
@@ -1307,10 +1326,11 @@
       - ClothingOuterCoatCybersunWindbreaker
       - ClothingMaskInterdyneChemistry
       - ClothingHeadHatSurgcapCybersun
-      #- ClothingUniformCybersunHazard
-      #- ClothingUniformCybersunCasual
-      #- ClothingUniformCybersunRND
-      #- ClothingOuterCybersunOvercoat
+      - ClothingUniformCybersunHazard
+      - ClothingUniformCybersunCasual
+      - ClothingUniformCybersunRND
+      - ClothingOuterCybersunOvercoat
+      - ClothingBeltSyndicateUtility
       # End DeltaV Additions
   - type: MaterialStorage
     whitelist:

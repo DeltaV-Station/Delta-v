@@ -401,6 +401,22 @@
   - type: Label
     currentLabel: holopad-epistemics-breakroom # DeltaV - Science > Epistemics
 
+- type: entity
+  parent: Holopad
+  id: HolopadScienceArtifactNorth
+  suffix: Artifact North
+  components:
+  - type: Label
+    currentLabel: holopad-science-artifact-north
+
+- type: entity
+  parent: Holopad
+  id: HolopadScienceArtifactSouth
+  suffix: Artifact South
+  components:
+  - type: Label
+    currentLabel: holopad-science-artifact-south
+
 # Medical
 - type: entity
   parent: Holopad
@@ -474,6 +490,8 @@
   - type: Label
     currentLabel: holopad-medical-breakroom
 
+# DeltaV - Skipped med clinic(redundant)
+
 # Cargo
 - type: entity
   parent: Holopad
@@ -506,6 +524,8 @@
   components:
   - type: Label
     currentLabel: holopad-logistics-breakroom # DeltaV - Cargo > Logistics
+
+# DeltaV - Skipped mailroom(redundant)
 
 # Engineering
 - type: entity
@@ -572,6 +592,30 @@
   - type: Label
     currentLabel: holopad-engineering-tech-vault
 
+- type: entity
+  parent: Holopad
+  id: HolopadEngineeringAME
+  suffix: AME
+  components:
+  - type: Label
+    currentLabel: holopad-engineering-ame
+
+- type: entity
+  parent: Holopad
+  id: HolopadEngineeringPower
+  suffix: Power
+  components:
+  - type: Label
+    currentLabel: holopad-engineering-power
+
+- type: entity
+  parent: Holopad
+  id: HolopadEngineeringMain
+  suffix: Engi Main
+  components:
+  - type: Label
+    currentLabel: holopad-engineering-main
+
 # Security
 - type: entity
   parent: Holopad
@@ -608,7 +652,7 @@
 - type: entity
   parent: Holopad
   id: HolopadSecurityBreakroom
-  suffix: Breakroom
+  suffix: Sec Breakroom
   components:
   - type: Label
     currentLabel: holopad-security-breakroom
@@ -652,6 +696,25 @@
   components:
   - type: Label
     currentLabel: holopad-security-armory
+
+# DeltaV - Skipped sec locker room(against SoP)
+# DeltaV - Skipped brig med(redundant)
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityEvacCheckpoint
+  suffix: Sec Evac Checkpoint
+  components:
+  - type: Label
+    currentLabel: holopad-security-evac-checkpoint
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityArrivalsCheckpoint
+  suffix: Sec Arrivals Checkpoint
+  components:
+  - type: Label
+    currentLabel: holopad-security-arrivals-checkpoint
 
 # Service
 - type: entity
@@ -701,6 +764,14 @@
   components:
   - type: Label
     currentLabel: holopad-service-library
+
+- type: entity
+  parent: Holopad
+  id: HolopadServiceGameRoom
+  suffix: Service Game Room # DeltaV - Clarification
+  components:
+  - type: Label
+    currentLabel: holopad-service-gameroom
 
 - type: entity
   parent: Holopad

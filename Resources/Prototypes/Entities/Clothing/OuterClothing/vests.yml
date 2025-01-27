@@ -91,3 +91,7 @@
     sprite: Clothing/OuterClothing/Vests/tankharness.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/tankharness.rsi
+  - type: Tag # DeltaV: tank harnesses can be used for surgery
+    tags:
+    - PermissibleForSurgery
+    - WhitelistChameleon

@@ -155,4 +155,10 @@ public sealed class DCCVars
     /// </summary>
     public static readonly CVarDef<string> DiscordReplyColor =
         CVarDef.Create("admin.discord_reply_color", string.Empty, CVar.SERVERONLY);
+
+    /// <summary>
+    ///    Whether or not to disable the preset selecting test rule from running. Should be disabled in production. DeltaV specific, attached to Impstation Secret concurrent feature.
+    /// </summary>
+    public static readonly CVarDef<bool> EnableBacktoBack =
+        CVarDef.Create("game.disable_preset_test", false, CVar.SERVERONLY);
 }

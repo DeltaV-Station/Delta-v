@@ -102,5 +102,18 @@
       - Document
       - Flashlight
       - Radio
+      - HandLabeler
       components:
       - FitsInDispenser
+      - Stamp
+
+- type: entity
+  parent: ClothingBeltUtility
+  id: ClothingBeltSyndicateUtility
+  name: syndicate utility belt
+  description: Can hold various nefarious things.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Belt/syndbelt_overlay.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Belt/syndbelt_overlay.rsi

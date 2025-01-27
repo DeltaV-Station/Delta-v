@@ -22,6 +22,12 @@ chat-speech-verb-rodentia-2 = pieps
 chat-speech-verb-rodentia-3 = chatters
 chat-speech-verb-rodentia-4 = squeals
 
+chat-speech-verb-name-chitinid = Chitinid
+chat-speech-verb-chitinid-1 = clicks
+chat-speech-verb-chitinid-2 = chitters
+chat-speech-verb-chitinid-3 = hisses
+chat-speech-verb-chitinid-4 = buzzes
+
 chat-speech-verb-name-feroxi = Feroxi
 chat-speech-verb-feroxi-1 = blubs
 chat-speech-verb-feroxi-2 = swishes
