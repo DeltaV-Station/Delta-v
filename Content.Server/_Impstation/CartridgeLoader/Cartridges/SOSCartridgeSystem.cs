@@ -76,7 +76,6 @@ public sealed class SOSCartridgeSystem : EntitySystem
         }
         else
         {
-
             _popupSystem.PopupEntity(Loc.GetString("sos-message-sent-cooldown"), uid, PopupType.MediumCaution);
         }
     }
