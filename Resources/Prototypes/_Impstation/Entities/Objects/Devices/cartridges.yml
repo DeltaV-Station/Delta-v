@@ -4,6 +4,12 @@
   name: SOS cartridge
   description: A program to call for help.
   components:
+    - type: Sprite
+      sprite: _DV/Objects/Devices/cartridge.rsi
+      state: cart-sos
+    - type: Icon
+      sprite: _DV/Objects/Devices/cartridge.rsi
+      state: cart-sos
     - type: Cartridge
       programName: sos-program-name
       icon:
