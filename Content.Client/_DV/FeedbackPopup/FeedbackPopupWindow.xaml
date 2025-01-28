@@ -7,7 +7,9 @@
         <RichTextLabel HorizontalAlignment="Center" Name="TitleLabel" Margin="0 0 0 20"></RichTextLabel>
         <BoxContainer Name="SectionContainer" Orientation="Vertical"></BoxContainer>
         <BoxContainer Orientation="Vertical" Name="FeedbackReplyContainer" Visible="False">
+            <Label HorizontalAlignment="Center" Text="{Loc 'feedbackpopup-text-box-above'}"></Label>
             <TextEdit Name="FeedbackReply" MaxHeight="200" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="100" />
+            <Label HorizontalAlignment="Center" Text="{Loc 'feedbackpopup-text-box-below'}"></Label>
             <Button Name="SubmitButton" Text="{Loc 'feedbackpopup-submit-feedback-button'}"></Button>
             <Label HorizontalAlignment="Center" Text="{Loc 'feedbackpopup-disclaimer'}" StyleClasses="LabelSmall"></Label>
         </BoxContainer>
