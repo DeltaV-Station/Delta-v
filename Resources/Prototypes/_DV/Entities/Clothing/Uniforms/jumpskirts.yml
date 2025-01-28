@@ -55,6 +55,17 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/hopformaldress.rsi
 
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtChemShirt
+  name: formal chemistry suitskirt
+  description: There's still some odd stains on this suitskirt. Hm.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/chemsuitskirt.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/chemsuitskirt.rsi
+
 # Security alt uniforms
 
 - type: entity
