@@ -354,6 +354,7 @@ namespace Content.Server.Connection
 
                     return (ConnectionDenyReason.Whitelist, msg, null);
                 }
+            }
 
             // ALWAYS keep this at the end, to preserve the API limit.
             if (_cfg.GetCVar(CCVars.GameIPIntelEnabled) && adminData == null)
