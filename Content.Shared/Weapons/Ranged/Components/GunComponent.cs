@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Shared.Nyanotrasen.Abilities.Oni; // DeltaV: Make Oni shooting guns less accurate
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
@@ -10,7 +9,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared.Weapons.Ranged.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
-[Access(typeof(SharedGunSystem), typeof(SharedOniSystem))] // DeltaV - I didn't feel like rewriting big chunks of code
+[Access(typeof(SharedGunSystem))]
 public sealed partial class GunComponent : Component
 {
     #region Sound
