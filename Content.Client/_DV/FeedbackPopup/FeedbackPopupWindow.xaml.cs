@@ -13,11 +13,8 @@ namespace Content.Client._DV.FeedbackPopup;
 public sealed partial class FeedbackPopupWindow : FancyWindow
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     private readonly FeedbackPopupPrototype _feedbackpopup;
-
-    private TimeSpan? _resetSubmitButtonTime;
 
     public event Action<(LocId, string)>? OnSubmitted;
 
@@ -60,35 +57,11 @@ public sealed partial class FeedbackPopupWindow : FancyWindow
 
     private void OnSubmitButtonPressed(BaseButton.ButtonEventArgs args)
     {
-        // Don't do anything if they haven't written anything.
+        // If they haven't written anything, ignore it.
         if (string.IsNullOrWhiteSpace(Rope.Collapse(FeedbackReply.TextRope)))
             return;
 
-        // First time the button has been clicked
-        if (_resetSubmitButtonTime == null || _resetSubmitButtonTime < _gameTiming.RealTime)
-        {
-            SubmitButton.Text = Loc.GetString("feedbackpopup-submit-feedback-button-confirm");
-            SubmitButton.ModulateSelfOverride = Color.Red;
-            _resetSubmitButtonTime = _gameTiming.RealTime + TimeSpan.FromSeconds(2);
-            return;
-        }
-
-        // Button has been clicked inside the confirmation time.
         OnSubmitted?.Invoke((_feedbackpopup.PopupName, Rope.Collapse(FeedbackReply.TextRope)));
-    }
-
-    protected override void FrameUpdate(FrameEventArgs args)
-    {
-        base.FrameUpdate(args);
-
-        if (_resetSubmitButtonTime < _gameTiming.RealTime)
-            ResetSubmitButton();
-    }
-
-    private void ResetSubmitButton()
-    {
-        SubmitButton.Text = Loc.GetString("feedbackpopup-submit-feedback-button");
-        SubmitButton.ModulateSelfOverride = null;
     }
 }
 
