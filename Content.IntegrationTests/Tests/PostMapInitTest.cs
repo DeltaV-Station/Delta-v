@@ -17,7 +17,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Station.Components;
-using FastAccessors;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 
@@ -37,7 +36,7 @@ namespace Content.IntegrationTests.Tests
 
         private static readonly string[] Grids =
         {
-            "/Maps/DeltaV/centcomm.yml",
+            "/Maps/_DV/centcomm.yml",
             "/Maps/Shuttles/cargo.yml",
             "/Maps/Shuttles/emergency.yml",
             "/Maps/Shuttles/infiltrator.yml",
@@ -49,18 +48,19 @@ namespace Content.IntegrationTests.Tests
             "TestTeg",
             "CentComm",
             "MeteorArena",
-            "Pebble", //DeltaV
-            "Edge", //DeltaV
-            "Shoukou", //DeltaV
-            "Tortuga", //DeltaV
-            "Arena", //DeltaV
-            "Asterisk", //DeltaV
-            "Glacier", //DeltaV
-            "TheHive", //DeltaV
-            "Hammurabi", //DeltaV
-            "Lighthouse", //DeltaV
-            "Micro", //DeltaV
-            "Chibi" //DeltaV
+            "Pebble", // DeltaV
+            "Edge", // DeltaV
+            "Shoukou", // DeltaV
+            "Tortuga", // DeltaV
+            "Arena", // DeltaV
+            "Asterisk", // DeltaV
+            "Byoin", // DeltaV
+            "Glacier", // DeltaV
+            "TheHive", // DeltaV
+            "Hammurabi", // DeltaV
+            "Lighthouse", // DeltaV
+            "Micro", // DeltaV
+            "Chibi" // DeltaV
         };
 
         /// <summary>

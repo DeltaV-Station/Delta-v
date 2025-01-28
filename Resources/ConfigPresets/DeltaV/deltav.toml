@@ -4,15 +4,24 @@ lobbyenabled       = true
 lobbyduration      = 240
 round_end_pacifist = true
 contraband_examine = false # Doubtful that it's desired at all, and would require going over every item in accordance with SOP
+secret_weight_prototype = "SecretDeltaV"
+
+# New players can't join a server without admins
+[game.panic_bunker]
+enabled = true
+disable_with_admins = true
+enable_without_admins = true
+show_reason = true
+custom_reason = "You have not played on Delta-V long enough to connect to this server. Due to administrative reasons, new accounts cannot join a server with no game admins."
 
 [infolinks]
 discord    = "https://discord.gg/deltav"
 github     = "https://github.com/DeltaV-Station/Delta-v"
-#website    = "https://www.delta-v.org/"
-wiki       = "https://wiki.delta-v.org/view/Main_Page"
-#patreon    = "https://www.patreon.com/Delta_v"
+website    = "https://www.deltav.gay/"
+wiki       = "https://wiki.deltav.gay/view/Main_Page"
+patreon    = "https://www.patreon.com/c/DeltaVSS14"
 bug_report = "https://github.com/DeltaV-Station/Delta-v/issues/new/choose"
-#forum      = "https://forum.delta-v.org/"
+#forum      = "https://forum.deltav.gay/"
 appeal     = "https://discord.gg/deltav"
 
 [net]
@@ -73,3 +82,6 @@ auto_call_extension_time = 30 # next auto call at 2h30
 
 [biomass]
 easy_mode = false # reclaimer can work on soul-ful bodies, mrp server
+
+[surgery]
+can_operate_on_self = false # mrp...

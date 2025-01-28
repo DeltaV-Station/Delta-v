@@ -11,15 +11,20 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC;
+using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nyanotrasen.Kitchen.Components;
 using Content.Shared.Paper;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.Nyanotrasen.Kitchen.EntitySystems;
 
 public sealed partial class DeepFryerSystem
 {
+    private HashSet<ProtoId<FlavorPrototype>> _badFlavors = new();
+    private HashSet<ProtoId<FlavorPrototype>> _goodFlavors = new();
+
     /// <summary>
     ///     Make an item look deep-fried.
     /// </summary>
@@ -129,33 +134,33 @@ public sealed partial class DeepFryerSystem
         var extraSolution = new Solution();
         if (TryComp(item, out FlavorProfileComponent? flavorProfileComponent))
         {
-            HashSet<string> goodFlavors = new(flavorProfileComponent.Flavors);
-            goodFlavors.IntersectWith(component.GoodFlavors);
+            _goodFlavors.Clear();
+            _goodFlavors.IntersectWith(component.GoodFlavors);
 
-            HashSet<string> badFlavors = new(flavorProfileComponent.Flavors);
-            badFlavors.IntersectWith(component.BadFlavors);
+            _badFlavors.Clear();
+            _badFlavors.IntersectWith(component.BadFlavors);
 
             deepFriedComponent.PriceCoefficient = Math.Max(0.01f,
                 1.0f
-                + goodFlavors.Count * component.GoodFlavorPriceBonus
-                - badFlavors.Count * component.BadFlavorPriceMalus);
+                + _goodFlavors.Count * component.GoodFlavorPriceBonus
+                - _badFlavors.Count * component.BadFlavorPriceMalus);
 
-            if (goodFlavors.Count > 0)
+            if (_goodFlavors.Count > 0)
             {
                 foreach (var reagent in component.GoodReagents)
                 {
-                    extraSolution.AddReagent(reagent.Reagent.ToString(), reagent.Quantity * goodFlavors.Count);
+                    extraSolution.AddReagent(reagent.Reagent.ToString(), reagent.Quantity * _goodFlavors.Count);
 
                     // Mask the taste of "medicine."
                     flavorProfileComponent.IgnoreReagents.Add(reagent.Reagent.ToString());
                 }
             }
 
-            if (badFlavors.Count > 0)
+            if (_badFlavors.Count > 0)
             {
                 foreach (var reagent in component.BadReagents)
                 {
-                    extraSolution.AddReagent(reagent.Reagent.ToString(), reagent.Quantity * badFlavors.Count);
+                    extraSolution.AddReagent(reagent.Reagent.ToString(), reagent.Quantity * _badFlavors.Count);
                 }
             }
         }

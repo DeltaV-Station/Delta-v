@@ -1,7 +1,7 @@
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
-using Content.Shared.DeltaV.CCVars;
+using Content.Shared._DV.CCVars;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.GameTicking;
 using Content.Server.CartridgeLoader.Cartridges;

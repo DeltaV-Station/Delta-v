@@ -32,136 +32,57 @@
 # Delta V variants of Xenos to allow ghost takeover again
 
 - type: entity
-  name: Burrower
+  abstract: true
+  id: BaseMobXenoPlayer
+  suffix: Player
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: [MobXeno, BaseMobXenoPlayer]
   id: MobXenoPlayer
-  parent: MobXeno
-  suffix: Player
-  components:
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-xeno-name
-    description: ghost-role-information-xeno-description
-    rules: ghost-role-information-xeno-rules
-    raffle:
-      settings: default
-  - type: GhostTakeoverAvailable
+  name: Burrower
 
 - type: entity
-  name: Praetorian
-  parent: MobXenoPraetorianNPC
+  parent: [MobXenoPraetorianNPC, BaseMobXenoPlayer]
   id: MobXenoPraetorian
-  suffix: Player
-  components:
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-xeno-name
-    description: ghost-role-information-xeno-description
-    rules: ghost-role-information-xeno-rules
-    raffle:
-      settings: default
-  - type: GhostTakeoverAvailable
+  name: Praetorian
 
 - type: entity
-  name: Drone
-  parent: MobXenoDroneNPC
+  parent: [MobXenoDroneNPC, BaseMobXenoPlayer]
   id: MobXenoDrone
-  suffix: Player
-  components:
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-xeno-name
-    description: ghost-role-information-xeno-description
-    rules: ghost-role-information-xeno-rules
-    raffle:
-      settings: default
-  - type: GhostTakeoverAvailable
+  name: Drone
 
 - type: entity
-  name: Queen
-  parent: MobXenoQueenNPC
+  parent: [MobXenoQueenNPC, BaseMobXenoPlayer]
   id: MobXenoQueen
-  suffix: Player
-  components:
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-xeno-name
-    description: ghost-role-information-xeno-description
-    rules: ghost-role-information-xeno-rules
-    raffle:
-      settings: default
-  - type: GhostTakeoverAvailable
+  name: Queen
 
 - type: entity
-  name: Ravager
-  parent: MobXenoRavagerNPC
+  parent: [MobXenoRavagerNPC, BaseMobXenoPlayer]
   id: MobXenoRavager
-  suffix: Player
-  components:
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-xeno-name
-    description: ghost-role-information-xeno-description
-    rules: ghost-role-information-xeno-rules
-    raffle:
-      settings: default
-  - type: GhostTakeoverAvailable
+  name: Ravager
 
 - type: entity
-  name: Runner
-  parent: MobXenoRunnerNPC
+  parent: [MobXenoRunnerNPC, BaseMobXenoPlayer]
   id: MobXenoRunner
-  suffix: Player
-  components:
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-xeno-name
-    description: ghost-role-information-xeno-description
-    rules: ghost-role-information-xeno-rules
-    raffle:
-      settings: default
-  - type: GhostTakeoverAvailable
+  name: Runner
 
 - type: entity
-  name: Rouny
-  parent: MobXenoRounyNPC
+  parent: [MobXenoRounyNPC, BaseMobXenoPlayer]
   id: MobXenoRouny
-  components:
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-xeno-name
-    description: ghost-role-information-xeno-description
-    rules: ghost-role-information-xeno-rules
-    raffle:
-      settings: default
-  - type: GhostTakeoverAvailable
+  name: Rouny
 
 - type: entity
-  name: Spitter
-  parent: MobXenoSpitterNPC
+  parent: [MobXenoSpitterNPC, BaseMobXenoPlayer]
   id: MobXenoSpitter
-  suffix: Player
-  components:
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-xeno-name
-    description: ghost-role-information-xeno-description
-    rules: ghost-role-information-xeno-rules
-    raffle:
-      settings: default
-  - type: GhostTakeoverAvailable
+  name: Spitter

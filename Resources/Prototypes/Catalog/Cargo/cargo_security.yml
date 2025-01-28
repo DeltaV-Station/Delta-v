@@ -1,7 +1,7 @@
 - type: cargoProduct
   id: SecurityArmor
   icon:
-    sprite: DeltaV/Clothing/OuterClothing/Armor/platecarrier.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/OuterClothing/Armor/platecarrier.rsi # DeltaV - resprite
     state: icon
   product: CrateSecurityArmor
   cost: 1000 # DeltaV - raise price for buffed armour
@@ -11,7 +11,7 @@
 - type: cargoProduct
   id: SecurityHelmet
   icon:
-    sprite: DeltaV/Clothing/Head/Helmets/security.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Helmets/security.rsi # DeltaV - resprite
     state: icon
   product: CrateSecurityHelmet
   cost: 550
@@ -25,16 +25,6 @@
     state: base
   product: CrateSecurityNonlethal
   cost: 4000
-  category: cargoproduct-category-name-security
-  group: market
-
-- type: cargoProduct
-  id: SecurityRiot
-  icon:
-    sprite: DeltaV/Clothing/OuterClothing/Armor/riot.rsi # DeltaV - resprite
-    state: icon
-  product: CrateSecurityRiot
-  cost: 7500
   category: cargoproduct-category-name-security
   group: market
 
