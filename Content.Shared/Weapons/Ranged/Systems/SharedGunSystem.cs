@@ -548,6 +548,14 @@ public abstract partial class SharedGunSystem : EntitySystem
             comp.ProjectileSpeed
         );
 
+        // Begin DeltaV additions
+        // Raise an event at the user of the gun so they have a chance to modify the gun's details.
+        if (gun.Comp.Holder != null)
+        {
+            RaiseLocalEvent(gun.Comp.Holder.Value, ref ev);
+        }
+        // End DeltaV additions
+
         RaiseLocalEvent(gun, ref ev);
 
         if (comp.SoundGunshotModified != ev.SoundGunshot)
