@@ -12,18 +12,6 @@
       - EncryptionKeyCommon
 
 - type: entity
-  parent: ClothingHeadsetHoP
-  id: ClothingHeadsetAltService
-  name: head of personnel's over-ear headset
-  components:
-  - type: Sprite
-    sprite: _DV/Clothing/Ears/Headsets/service.rsi
-    state: icon_alt
-  - type: Clothing
-    sprite: _DV/Clothing/Ears/Headsets/service.rsi
-    equippedPrefix: alt
-
-- type: entity
   parent: ClothingHeadsetAltSyndicate
   id: ClothingHeadsetAltSyndicateListening
   name: blood-red over-ear interception headset
