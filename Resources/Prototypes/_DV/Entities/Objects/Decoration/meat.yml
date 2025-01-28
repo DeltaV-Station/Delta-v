@@ -3,7 +3,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Decoration/Flesh/meat.rsi
+    sprite: _DV/Objects/Decoration/Flesh/meat.rsi
     noRot: false
     state: teeth1
   - type: Damageable
@@ -83,14 +83,14 @@
     noRot: true
     drawdepth: Overdoors
     snapCardinals: false
-    sprite: DeltaV/Objects/Decoration/Flesh/bigmeat.rsi
+    sprite: _DV/Objects/Decoration/Flesh/bigmeat.rsi
     state: whisperers
 
 - type: entity
   parent: MeatDecorBase
   id: MeatFloorMouth
   name: floor mouth
-  description: It's starving.
+  description: "It's starving."
   components:
   - type: Clickable
   - type: Tag
@@ -98,5 +98,5 @@
     - Structure
   - type: Sprite
     drawdepth: FloorObjects
-    sprite: DeltaV/Objects/Decoration/Flesh/bigmeat.rsi
+    sprite: _DV/Objects/Decoration/Flesh/bigmeat.rsi
     state: floormouth
