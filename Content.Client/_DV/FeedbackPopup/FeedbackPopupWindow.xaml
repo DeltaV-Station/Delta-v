@@ -1,0 +1,15 @@
+﻿<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'feedbackpopup-window-name'}"
+                      MinSize="300 250"
+                      SetSize="550 400">
+    <BoxContainer Orientation="Vertical" Margin="10 0 20 0">
+        <RichTextLabel HorizontalAlignment="Center" Name="TitleLabel" Margin="0 0 0 20"></RichTextLabel>
+        <BoxContainer Name="SectionContainer" Orientation="Vertical"></BoxContainer>
+        <BoxContainer Orientation="Vertical" Name="FeedbackReplyContainer" Visible="False">
+            <TextEdit Name="FeedbackReply" MaxHeight="200" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="100" />
+            <Button Name="SubmitButton" Text="{Loc 'feedbackpopup-submit-feedback-button'}"></Button>
+            <Label HorizontalAlignment="Center" Text="{Loc 'feedbackpopup-disclaimer'}" StyleClasses="LabelSmall"></Label>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -238,6 +238,23 @@
   - type: AccessReader
     access: [["Lawyer"]]
 
+#Psychologist
+- type: entity
+  parent: FilledSecureCabinet
+  id: SecureCabinetPsychologist
+  suffix: Psychologist
+  components:
+  - type: AccessReader
+    access: [["Psychologist"]]
+
+#Psionic Mantis
+- type: entity
+  parent: FilledSecureCabinet
+  id: SecureCabinetMantis
+  suffix: Psionic Mantis
+  components:
+  - type: AccessReader
+    access: [["Mantis"]]
 
 #Department Secure Cabinets
 #Command

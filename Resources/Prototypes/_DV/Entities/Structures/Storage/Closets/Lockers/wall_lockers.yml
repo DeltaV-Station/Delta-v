@@ -1,0 +1,218 @@
+- type: entity
+  parent: BaseWallCloset
+  id: BaseWallClosetDeltaV
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Storage/wall_locker.rsi
+
+- type: entity
+  parent: BaseWallLocker
+  id: BaseWallLockerDeltaV
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Storage/wall_locker.rsi
+
+- type: entity
+  parent: BaseWallClosetDeltaV
+  id: WallClosetTools
+  name: tool wall closet
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: engi_generic
+    stateDoorClosed: engi_tools_door
+    stateDoorOpen: engi_generic_open
+
+- type: entity
+  parent: BaseWallClosetDeltaV
+  id: WallClosetRadiationSuit
+  name: radiation suit wall closet
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: engi_generic
+    stateDoorClosed: engi_rad_door
+    stateDoorOpen: engi_generic_open
+
+- type: entity
+  parent: BaseWallClosetDeltaV
+  id: WallClosetL3
+  name: level 3 biohazard wall closet
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: bio
+    stateDoorClosed: bio_door
+    stateDoorOpen: bio_open
+
+- type: entity
+  parent: WallClosetL3
+  id: WallClosetL3Janitor
+  name: level 3 biohazard wall closet
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: bio_jani
+    stateDoorClosed: bio_jani_door
+    stateDoorOpen: bio_jani_open
+
+- type: entity
+  parent: WallClosetL3
+  id: WallClosetL3Security
+  name: level 3 biohazard wall closet
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: bio_sec
+    stateDoorClosed: bio_sec_door
+    stateDoorOpen: bio_sec_open
+
+- type: entity
+  parent: WallClosetL3
+  id: WallClosetL3Virology
+  name: level 3 biohazard wall closet
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: bio_viro
+    stateDoorClosed: bio_viro_door
+    stateDoorOpen: bio_viro_open
+
+- type: entity
+  parent: BaseWallLockerDeltaV
+  id: WallLockerAtmos
+  name: atmospherics wall locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: atmos
+    stateDoorClosed: atmos_door
+    stateDoorOpen: atmos_open
+  - type: AccessReader
+    access: [["Atmospherics"]]
+
+- type: entity
+  parent: BaseWallLockerDeltaV
+  id: WallLockerEngi
+  name: engineering wall locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: engi
+    stateDoorClosed: engi_door
+    stateDoorOpen: engi_open
+  - type: AccessReader
+    access: [["Engineering"]]
+
+- type: entity
+  parent: BaseWallLockerDeltaV
+  id: WallLockerElectrical
+  name: electrical wall locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: engi_generic
+    stateDoorClosed: engi_electrical_door
+    stateDoorOpen: engi_generic_open
+  - type: AccessReader
+    access: [["Engineering"]]
+
+- type: entity
+  parent: BaseWallLockerDeltaV
+  id: WallLockerWelding
+  name: welding tools wall locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: engi_generic
+    stateDoorClosed: engi_welding_door
+    stateDoorOpen: engi_generic_open
+  - type: AccessReader
+    access: [["Engineering"]]
+
+
+- type: entity
+  parent: BaseWallLockerDeltaV
+  id: WallLockerBotany
+  name: botanist wall locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: botany
+    stateDoorClosed: botany_door
+    stateDoorOpen: botany_open
+  - type: AccessReader
+    access: [["Hydroponics"]]
+
+- type: entity
+  parent: BaseWallLockerDeltaV
+  id: WallLockerSalvage
+  name: salvage wall locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: salv
+    stateDoorClosed: salv_door
+    stateDoorOpen: salv_open
+  - type: AccessReader
+    access: [["Salvage"]]
+
+- type: entity
+  parent: BaseWallLockerDeltaV
+  id: WallLockerLogistics
+  name: logistics wall locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: logi
+    stateDoorClosed: logi_door
+    stateDoorOpen: logi_open
+  - type: AccessReader
+    access: [["Cargo"]]
+
+- type: entity
+  parent: BaseWallLockerDeltaV
+  id: WallLockerJanitor
+  name: janitor wall locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: jani
+    stateDoorClosed: jani_door
+    stateDoorOpen: jani_open
+  - type: AccessReader
+    access: [["Janitor"]]
+
+- type: entity
+  parent: BaseWallLockerDeltaV
+  id: WallLockerEpistemics
+  name: epistemics wall locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: epi
+    stateDoorClosed: epi_door
+    stateDoorOpen: epi_open
+  - type: AccessReader
+    access: [["Research"]]
+
+- type: entity
+  parent: BaseWallLockerDeltaV
+  id: WallLockerSecurity
+  name: security wall locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: sec
+    stateDoorClosed: sec_door
+    stateDoorOpen: sec_open
+  - type: AccessReader
+    access: [["Security"]]
+
+- type: entity
+  parent: BaseWallLockerDeltaV
+  id: WallLockerKitchen
+  name: kitchen wall locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: chef
+    stateDoorClosed: chef_door
+    stateDoorOpen: chef_open
+  - type: AccessReader
+    access: [["Kitchen"]]
+
+- type: entity
+  parent: BaseWallLockerDeltaV
+  id: WallLockerJustice
+  name: justice wall locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: justice
+    stateDoorClosed: justice_door
+    stateDoorOpen: justice_open
+  - type: AccessReader
+    access: [["Justice"]]

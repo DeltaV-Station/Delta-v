@@ -520,6 +520,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Nukies are no longer targets of kill objectives, this includes lone ops.
       - type: RandomMetadata
         nameSegments:
         - SyndicateNamesPrefix
@@ -556,6 +557,7 @@
       playerRatio: 10
       blacklist:
         components:
+        - MindShield # DeltaV - Mind Shielded people are immune to becoming syndicate
         - AntagImmune
       mindRoles:
       - MindRoleTraitorSleeper

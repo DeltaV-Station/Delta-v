@@ -26,7 +26,7 @@ entities:
   - uid: 2
     components:
     - type: MetaData
-      name: grid
+      name: NTES Fishbowl
     - type: Transform
       pos: -0.52500004,-0.5562897
       parent: invalid
@@ -84,7 +84,6 @@ entities:
       configurators: []
       deviceLists: []
       transmitFrequencyId: ShuttleTimer
-      deviceNetId: Wireless
     - type: DecalGrid
       chunkCollection:
         version: 2
@@ -1040,12 +1039,17 @@ entities:
     - type: Transform
       pos: 5.5,-34.5
       parent: 2
-- proto: AirlockExternalGlassShuttleEmergencyLocked
+- proto: AirlockExternalGlassShuttleLocked
   entities:
+  - uid: 901
+    components:
+    - type: Transform
+      pos: 5.5,-37.5
+      parent: 2
   - uid: 953
     components:
     - type: Transform
-      pos: -4.5,-37.5
+      pos: 3.5,-37.5
       parent: 2
   - uid: 954
     components:
@@ -1055,12 +1059,7 @@ entities:
   - uid: 955
     components:
     - type: Transform
-      pos: 3.5,-37.5
-      parent: 2
-  - uid: 956
-    components:
-    - type: Transform
-      pos: 5.5,-37.5
+      pos: -4.5,-37.5
       parent: 2
 - proto: AirlockGlass
   entities:
@@ -1281,22 +1280,22 @@ entities:
       parent: 2
 - proto: AtmosDeviceFanDirectional
   entities:
-  - uid: 901
+  - uid: 957
     components:
     - type: Transform
       pos: -4.5,-37.5
       parent: 2
-  - uid: 957
+  - uid: 958
     components:
     - type: Transform
       pos: -2.5,-37.5
       parent: 2
-  - uid: 958
+  - uid: 959
     components:
     - type: Transform
       pos: 3.5,-37.5
       parent: 2
-  - uid: 959
+  - uid: 960
     components:
     - type: Transform
       pos: 5.5,-37.5
@@ -4171,6 +4170,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -3.4654634,-10.788818
+      parent: 2
+- proto: DefibrillatorCabinetFilled
+  entities:
+  - uid: 956
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,-8.5
       parent: 2
 - proto: DrinkCreamCartonXL
   entities:
@@ -8347,6 +8354,13 @@ entities:
     components:
     - type: Transform
       pos: -10.5,-27.5
+      parent: 2
+- proto: HolopadCentCommEvacShuttle
+  entities:
+  - uid: 1717
+    components:
+    - type: Transform
+      pos: 0.5,1.5
       parent: 2
 - proto: KitchenMicrowave
   entities:

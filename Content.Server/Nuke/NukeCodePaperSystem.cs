@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Server._DV.Antag; // DeltaV
 using Content.Server.Chat.Systems;
 using Content.Server.Fax;
 using Content.Shared.Fax.Components;
@@ -35,6 +36,16 @@ namespace Content.Server.Nuke
             if (!Resolve(uid, ref component))
                 return;
 
+            // DeltaV - Not the best way of doing this
+            var evnt = new GetNukeCodePaperWriting();
+            RaiseLocalEvent(ref evnt);
+            if (evnt.ToWrite != null)
+            {
+                if (TryComp<PaperComponent>(uid, out var deltavpaperComp))
+                    _paper.SetContent((uid, deltavpaperComp), evnt.ToWrite);
+                return;
+            }
+            // DeltaV - End
             if (TryGetRelativeNukeCode(uid, out var paperContent, station, onlyCurrentStation: component.AllNukesAvailable))
             {
                 if (TryComp<PaperComponent>(uid, out var paperComp))
