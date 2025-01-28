@@ -5,6 +5,7 @@ using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.PDA;
+using Content.Shared.Popups;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Profiling;
@@ -16,6 +17,7 @@ public sealed class SOSCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoaderSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly ContainerSystem _containerSystem = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
 
@@ -69,7 +71,13 @@ public sealed class SOSCartridgeSystem : EntitySystem
                 }
 
                 component.Timer = SOSCartridgeComponent.TimeOut;
+                _popupSystem.PopupEntity(Loc.GetString("sos-message-sent-success"), uid, PopupType.Medium);
             }
+        }
+        else
+        {
+
+            _popupSystem.PopupEntity(Loc.GetString("sos-message-sent-cooldown"), uid, PopupType.MediumCaution);
         }
     }
 }
