@@ -4,12 +4,14 @@
   name: SOS cartridge
   description: A program to call for help.
   components:
+    # Begin Delta-V Section - added cartridge sprite
     - type: Sprite
       sprite: _DV/Objects/Devices/cartridge.rsi
       state: cart-sos
     - type: Icon
       sprite: _DV/Objects/Devices/cartridge.rsi
       state: cart-sos
+    # End Delta-V Section
     - type: Cartridge
       programName: sos-program-name
       icon:
