@@ -5,7 +5,9 @@ using Content.Server.Shuttles.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
+using Content.Shared.Roles; // DeltaV
 using Robust.Shared.Configuration;
+using Robust.Shared.Prototypes; // DeltaV
 using Robust.Shared.Random;
 using System.Linq;
 
@@ -18,8 +20,10 @@ public sealed class KillPersonConditionSystem : EntitySystem
 {
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!; // DeltaV
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!; // DeltaV
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
 
     public override void Initialize()
