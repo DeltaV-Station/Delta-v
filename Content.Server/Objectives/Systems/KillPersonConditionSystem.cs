@@ -77,7 +77,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
             .ToList();
 
         // Begin DeltaV Additions: Only target people with jobs
-        if (onlyJobs
+        if (onlyJobs)
         {
             allHumans.RemoveAll(mindId => !(
                 _role.MindHasRole<JobRoleComponent>((mindId.Owner, mindId.Comp), out var role) &&
