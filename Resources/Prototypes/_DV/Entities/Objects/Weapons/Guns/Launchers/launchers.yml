@@ -1,22 +1,22 @@
 - type: entity
-  name: china lake
   parent: [BaseWeaponLauncher, BaseGunWieldable]
-  suffix: Robot, energy based
   id: WeaponLauncherChinaLakeBorg
+  name: china lake
+  suffix: Robot, energy based
   description: PLOOP! Contains a built in replicator to slowly make more ammo.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
     layers:
-      - state: icon
-        map: ["enum.GunVisualLayers.Base"]
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
   - type: Gun
     fireRate: 1
     selectedMode: SemiAuto
     availableModes:
-      - SemiAuto
+    - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
   - type: Battery
@@ -30,17 +30,17 @@
     autoRechargeRate: 2
 
 - type: entity
-  name: Flashbang Launcher
   parent: BaseWeaponLauncher
-  suffix: Robot, energy based
   id: WeaponLauncherFlashbangBorg
+  name: flashbang launcher
+  suffix: Robot, energy based
   description: A Cyborg Mounted Grenade Launcher, designed to fire flashbangs. Refills its own ammo
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
     layers:
-      - state: icon
-        map: ["enum.GunVisualLayers.Base"]
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
   - type: Gun
@@ -49,7 +49,7 @@
     fireRate: 1
     selectedMode: SemiAuto
     availableModes:
-      - SemiAuto
+    - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
   - type: Battery
@@ -70,17 +70,17 @@
   - type: AmmoCounter
 
 - type: entity
-  name: Crowd Control Launcher
   parent: BaseWeaponLauncher
-  suffix: Robot, energy based
   id: WeaponLauncherCrowdControlBorg
+  name: crowd control launcher
+  suffix: Robot, energy based
   description: A hybrid stinger and teargas grenade launcher
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
     layers:
-      - state: icon
-        map: ["enum.GunVisualLayers.Base"]
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
   - type: ProjectileBatteryAmmoProvider
