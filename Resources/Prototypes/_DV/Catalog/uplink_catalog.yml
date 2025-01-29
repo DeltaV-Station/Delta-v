@@ -222,3 +222,65 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkBodyBagBox
+  name: uplink-syndicate-bodybag-name
+  description: uplink-syndicate-bodybag-desc
+  icon: { sprite: Objects/Specific/Medical/Morgue/bodybags.rsi, state: bag }
+  productEntity: BoxBodyBag
+  cost:
+    Telecrystal: 0
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+# Free bundle for hostage ops
+- type: listing
+  id: UplinkStunBundleNukie
+  name: uplink-syndicate-stun-bundle-name
+  description: uplink-syndicate-stun-bundle-desc
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box_of_doom }
+  productEntity: BoxSyndicateStunBundle
+  cost:
+    Telecrystal: 0
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+# Stun bundle for everyone
+- type: listing
+  id: UplinkStunBundle
+  name: uplink-syndicate-stun-bundle-name
+  description: uplink-syndicate-stun-bundle-desc
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box_of_doom }
+  productEntity: BoxSyndicateStunBundle
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkWeaponry

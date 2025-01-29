@@ -3,7 +3,7 @@
 - type: weightedRandom
   id: NukieOperations
   weights:
-    NukieOperationDestroyStation: 1
+    NukieOperationDestroyStation: 100
     NukieOperationKidnapHeads: 1
 
 - type: nukieOperation
@@ -49,6 +49,10 @@
     max: 4
     title: nukie-operations-kidnap-heads-objective-title
     description: nukie-operations-kidnap-heads-objective-descript
+  - type: StoreUnlocker
+    listings:
+    - UplinkBodyBagBox
+    - UplinkStunBundleNukie
 
 - type: entity
   parent: BaseStealObjective

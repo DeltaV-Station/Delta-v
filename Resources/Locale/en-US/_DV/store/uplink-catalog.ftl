@@ -46,3 +46,9 @@ uplink-dead-mans-signaller-desc = A device that if armed, will send a signal to 
 # Objectives
 uplink-syndicate-handcuff-bundle-name = Handcuff implant bundle
 uplink-syndicate-handcuff-bundle-desc = Includes 10 metal handcuffs. We recommended you share with your friends!
+
+uplink-syndicate-bodybag-name = Box of body bags
+uplink-syndicate-bodybag-desc = For when stuff goes wrong.
+
+uplink-syndicate-stun-bundle-name = Stun bundle
+uplink-syndicate-stun-bundle-desc = Includes a stun baton and a disabler.
