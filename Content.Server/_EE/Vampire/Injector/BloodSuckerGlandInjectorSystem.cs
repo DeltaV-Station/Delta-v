@@ -28,7 +28,7 @@ namespace Content.Server.Vampire
             if (bloodSuckerComponent.InjectWhenSuck)
                 return;
 
-            bloodSuckerComponent.InjectWhenSucc = true;
+            bloodSuckerComponent.InjectWhenSuck = true;
             bloodSuckerComponent.InjectReagent = component.InjectReagent;
             bloodSuckerComponent.UnitsToInject = component.UnitsToInject;
             component.Used = true;

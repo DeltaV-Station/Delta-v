@@ -235,8 +235,8 @@
       - ReagentId: Nocturine
         Quantity: 0.15
   - type: BloodSucker
-    unitsToSucc: 35
-    injectWhenSucc: true
+    unitsToSuck: 35
+    injectWhenSuck: true
     injectReagent: Cryptobiolin
     unitsToInject: 10
     webRequired: true
