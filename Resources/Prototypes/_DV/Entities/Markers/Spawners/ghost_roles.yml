@@ -133,6 +133,8 @@
     name: ghost-role-information-oneirophage-name
     description: ghost-role-information-oneirophage-description
     rules: ghost-role-information-oneirophage-rules
+    mindRoles:
+      - MindRoleOneirophage
     requirements: # keep in sync with the antag prototype
     - !type:OverallPlaytimeRequirement
       time: 86400 # 24h so you probably know some general lore or something
