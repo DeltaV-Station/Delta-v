@@ -6,8 +6,8 @@ namespace Content.Server.Vampire
         /// <summary>
         /// How much to suck each time we suck.
         /// </summary>
-        [DataField("unitsToSucc")]
-        public float UnitsToSucc = 20f;
+        [DataField("unitsToSuck")]
+        public float UnitsToSuck = 20f;
 
         /// <summary>
         /// The time (in seconds) that it takes to suck an entity.
@@ -15,13 +15,13 @@ namespace Content.Server.Vampire
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public TimeSpan Delay = TimeSpan.FromSeconds(4);
 
-        // ***INJECT WHEN SUCC***
+        // ***INJECT WHEN SUCK***
 
         /// <summary>
         /// Whether to inject chems into a chemstream when we suck something.
         /// </summary>
-        [DataField("injectWhenSucc")]
-        public bool InjectWhenSucc = false;
+        [DataField("injectWhenSuck")]
+        public bool InjectWhenSuck = false;
 
         /// <summary>
         /// How many units of our injected chem to inject.

@@ -25,7 +25,7 @@ namespace Content.Server.Vampire
                 return;
 
             // They already have one.
-            if (bloodSuckerComponent.InjectWhenSucc)
+            if (bloodSuckerComponent.InjectWhenSuck)
                 return;
 
             bloodSuckerComponent.InjectWhenSucc = true;
