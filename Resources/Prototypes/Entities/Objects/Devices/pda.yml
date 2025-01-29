@@ -167,6 +167,15 @@
     id: PassengerIDCard
   - type: PdaBorderColor
     borderColor: "#717059"
+  # Begin Delta-V addition - no SOS cart for shitter roles
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - NanoChatCartridge # DeltaV
+  # End Delta-V addition
 
 - type: entity
   parent: BasePDA
@@ -331,6 +340,15 @@
     borderColor: "#C18199"
   - type: Icon
     state: pda-clown
+  # Begin Delta-V addition - no SOS cart for shitter roles
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - NanoChatCartridge # DeltaV
+  # End Delta-V addition
   - type: Slippery # secretly made of bananium
   - type: StepTrigger
   - type: CollisionWake
@@ -389,6 +407,15 @@
   - type: Icon
     state: pda-mime
   - type: Muted # for random sentience event
+  # Begin Delta-V addition - no SOS cart for shitter roles
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - NanoChatCartridge # DeltaV
+  # End Delta-V addition
 
 - type: entity
   name: chaplain PDA
@@ -1280,6 +1307,15 @@
     accentVColor: "#390504"
   - type: Icon
     state: pda-boxer
+  # Begin Delta-V addition - no SOS cart for shitter roles
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - NanoChatCartridge # DeltaV
+  # End Delta-V addition
 
 - type: entity
   parent: BaseSecurityPDA
@@ -1365,6 +1401,15 @@
         tags:
         - Write
   - type: Unremoveable
+  # Begin Delta-V addition - no SOS cart for shitter roles
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - NanoChatCartridge # DeltaV
+  # End Delta-V addition
 
 - type: entity
   parent: BasePDA
