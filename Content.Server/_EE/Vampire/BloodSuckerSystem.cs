@@ -143,65 +143,62 @@ namespace Content.Server.Vampire
             _doAfter.TryStartDoAfter(args);
         }
 
-        public bool TrySuck(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodsuckerComp = null)
-        {
-            // Is bloodsucker a bloodsucker?
-            if (!Resolve(bloodsucker, ref bloodsuckerComp))
-                return false;
+       public bool TrySuck(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodsuckerComp = null) // begin DetlaV
+{
+    if (!Resolve(bloodsucker, ref bloodsuckerComp)) return false;
+    if (!TryValidateVictim(victim)) return false;
 
-            // Does victim have a bloodstream?
-            if (!TryComp<BloodstreamComponent>(victim, out var bloodstream))
-                return false;
+    if (!TryGetBloodsuckerStomach(bloodsucker, out var stomach)) return false;
+    if (!TryValidateSolution(bloodsucker)) return false;
 
-            // No blood left, yikes.
-            if (_bloodstreamSystem.GetBloodLevelPercentage(victim, bloodstream) == 0.0f)
-                return false;
-
-            // Does bloodsucker have a stomach?
-            var stomachList = _bodySystem.GetBodyOrganEntityComps<StomachComponent>(bloodsucker);
-            if (stomachList.Count == 0)
-                return false;
-
-            var stomach = stomachList.FirstOrDefault(); // DeltaV
-
-            if (!_solutionSystem.TryGetSolution(bloodsucker, StomachSystem.DefaultSolutionName, out var stomachSolution))
-                return false;
-
-            // Are we too full?
-
-            if (_solutionSystem.PercentFull(bloodsucker) >= 1)
-            {
-                _popups.PopupEntity(Loc.GetString("drink-component-try-use-drink-had-enough"), bloodsucker, bloodsucker, Shared.Popups.PopupType.MediumCaution);
-                return false;
-            }
-
-            _adminLogger.Add(Shared.Database.LogType.MeleeHit, Shared.Database.LogImpact.Medium, $"{ToPrettyString(bloodsucker):player} sucked blood from {ToPrettyString(victim):target}");
-
-            // All good, bloodsucking time.
-            _audio.PlayPvs("/Audio/Items/drink.ogg", bloodsucker);
-            _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked-victim", ("sucker", bloodsucker)), victim, victim, Shared.Popups.PopupType.LargeCaution);
-            _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked", ("target", victim)), bloodsucker, bloodsucker, Shared.Popups.PopupType.Medium);
-            EnsureComp<BloodSuckedComponent>(victim);
-
-            // Make everything actually ingest.
-            if (bloodstream.BloodSolution == null)
-                return false;
-
-            var temp = _solutionSystem.SplitSolution(bloodstream.BloodSolution.Value, bloodsuckerComp.UnitsToSuck);
-            _stomachSystem.TryTransferSolution(bloodsucker, temp, stomach); // DeltaV
-
-            // Add a little pierce
-            DamageSpecifier damage = new();
-            damage.DamageDict.Add("Piercing", 1); // Slowly accumulate enough to gib after like half an hour
-
-            _damageableSystem.TryChangeDamage(victim, damage, true, true);
-
-            //I'm not porting the nocturine gland, this code is deprecated, and will be reworked at a later date.
-            //if (bloodsuckerComp.InjectWhenSuck && _solutionSystem.TryGetInjectableSolution(victim, out var injectable))
-            //{
-            //    _solutionSystem.TryAddReagent(victim, injectable, bloodsuckerComp.InjectReagent, bloodsuckerComp.UnitsToInject, out var acceptedQuantity);
-            //}
-            return true;
-        }
-    }
+    PlayBloodSuckEffects(bloodsucker, victim);
+    return CompleteBloodSuck(bloodsucker, victim, stomach, bloodsuckerComp);
 }
+
+private bool TryValidateVictim(EntityUid victim)
+{
+    if (!TryComp<BloodstreamComponent>(victim, out var bloodstream) || bloodstream.BloodSolution == null) return false;
+    if (_bloodstreamSystem.GetBloodLevelPercentage(victim, bloodstream) == 0.0f) return false;
+    return true;
+}
+
+private bool TryGetBloodsuckerStomach(EntityUid bloodsucker, out StomachComponent stomach)
+{
+    stomach = _bodySystem.GetBodyOrganEntityComps<StomachComponent>(bloodsucker).FirstOrDefault();
+    return stomach != null;
+}
+
+private bool TryValidateSolution(EntityUid bloodsucker)
+{
+    if (_solutionSystem.PercentFull(bloodsucker) >= 1)
+    {
+        _popups.PopupEntity(Loc.GetString("drink-component-try-use-drink-had-enough"), bloodsucker, bloodsucker, Shared.Popups.PopupType.MediumCaution);
+        return false;
+    }
+    return true;
+}
+
+private void PlayBloodSuckEffects(EntityUid bloodsucker, EntityUid victim)
+{
+    _adminLogger.Add(Shared.Database.LogType.MeleeHit, Shared.Database.LogImpact.Medium, $"{ToPrettyString(bloodsucker):player} sucked blood from {ToPrettyString(victim):target}");
+    _audio.PlayPvs("/Audio/Items/drink.ogg", bloodsucker);
+    _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked-victim", ("sucker", bloodsucker)), victim, victim, Shared.Popups.PopupType.LargeCaution);
+    _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked", ("target", victim)), bloodsucker, bloodsucker, Shared.Popups.PopupType.Medium);
+    EnsureComp<BloodSuckedComponent>(victim);
+}
+
+private bool CompleteBloodSuck(EntityUid bloodsucker, EntityUid victim, StomachComponent stomach, BloodSuckerComponent bloodsuckerComp)
+{
+    if (!TryComp<BloodstreamComponent>(victim, out var bloodstream) || bloodstream.BloodSolution == null) return false;
+
+    var extractedBlood = _solutionSystem.SplitSolution(bloodstream.BloodSolution.Value, bloodsuckerComp.UnitsToSuck);
+    _stomachSystem.TryTransferSolution(bloodsucker, extractedBlood, stomach);
+
+    DamageSpecifier damage = new();
+    damage.DamageDict.Add("Piercing", 1);
+    _damageableSystem.TryChangeDamage(victim, damage, true, true);
+
+    return true;
+}
+    }
+} // End DeltaV
