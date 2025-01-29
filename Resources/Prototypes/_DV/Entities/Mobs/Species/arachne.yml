@@ -101,7 +101,13 @@
   - type: Speech
     speechSounds: Alto
   - type: Inventory
-    templateId: anytaur
+    templateId: arachne
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Arachne/displacement.rsi
+            state: jumpsuit
   - type: Tag
     tags:
     - CanPilot
@@ -142,9 +148,10 @@
 
 - type: entity
   save: false
-  name: Urist McHands
+  name: Urist McArachne
   parent: MobHumanDummy
   id: MobArachneDummy
+  categories: [ HideSpawnMenu ]
   noSpawn: true
   description: A dummy arachne meant to be used in character setup.
   components:
@@ -220,6 +227,12 @@
       state: none
       visible: false
   - type: Inventory
-    templateId: anytaur
+    templateId: arachne
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Arachne/displacement.rsi
+            state: jumpsuit
   - type: HumanoidAppearance
     species: Arachne
