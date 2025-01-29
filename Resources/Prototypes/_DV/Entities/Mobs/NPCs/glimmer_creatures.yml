@@ -164,7 +164,7 @@
 - type: entity
   name: oneirophage
   parent: MobGiantSpider
-  id: Oneirophage
+  id: MobOneirophage
   description: The 'dream-eater' spider, rumored to be one of the potential genetic sources for arachne.
   components:
   - type: GhostRole
@@ -246,6 +246,7 @@
   - type: PotentialPsionic
   - type: Psionic
     removable: false
+  - type: GlimmerSource
   - type: MetapsionicPower
   - type: AntiPsionicWeapon
     punish: false
