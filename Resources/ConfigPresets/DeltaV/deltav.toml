@@ -38,7 +38,9 @@ limit    = 10.0
 [admin]
 see_own_notes   = true
 deadmin_on_join = true
-alert.min_players_sharing_connection = 2
+allow_multi_server_play = false
+[admin.alert]
+min_players_sharing_connection = 2
 
 [server]
 id         = "deltav"
@@ -85,3 +87,6 @@ easy_mode = false # reclaimer can work on soul-ful bodies, mrp server
 
 [surgery]
 can_operate_on_self = false # mrp...
+
+[control]
+storage_limit = 2
