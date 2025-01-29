@@ -53,3 +53,15 @@
   - type: SynthesisRole
   - type: RoleBriefing
     briefing: synthesis-role-briefing
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleOneirophage
+  name: Oneirophage Role
+  components:
+  - type: MindRole
+    antagPrototype: Oneirophage
+    exclusiveAntag: true
+  - type: OneirophageRole
+  - type: RoleBriefing
+    briefing: oneirophage-role-briefing

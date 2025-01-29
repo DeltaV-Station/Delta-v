@@ -5,21 +5,21 @@
   placement:
     mode: SnapgridCenter
     snap:
-      - Wall
+    - Wall
   components:
   - type: Sprite
     layers:
-      - sprite: Nyanotrasen/Structures/cocoon.rsi
-        state: cocoon_large1
-        map: [ "enum.DamageStateVisualLayers.Base" ]
+    - sprite: Nyanotrasen/Structures/cocoon.rsi
+      state: cocoon_large1
+      map: [ "enum.DamageStateVisualLayers.Base" ]
   - type: RandomSprite
     available:
-      - enum.DamageStateVisualLayers.Base:
-          cocoon_large1: ""
-      - enum.DamageStateVisualLayers.Base: #your guess for why randomsprite requires an arbitrary layer is as good as mine friend
-          cocoon_large2: ""
-      - enum.DamageStateVisualLayers.Base:
-          cocoon_large3: ""
+    - enum.DamageStateVisualLayers.Base:
+        cocoon_large1: ""
+    - enum.DamageStateVisualLayers.Base: #your guess for why randomsprite requires an arbitrary layer is as good as mine friend
+        cocoon_large2: ""
+    - enum.DamageStateVisualLayers.Base:
+        cocoon_large3: ""
   - type: Cocoon
   - type: Clickable
   - type: InteractionOutline
@@ -76,18 +76,18 @@
   placement:
     mode: SnapgridCenter
     snap:
-      - Wall
+    - Wall
   components:
   - type: Sprite
     layers:
-      - sprite: Nyanotrasen/Structures/cocoon.rsi
-        state: cocoon1
-        map: [ "enum.DamageStateVisualLayers.Base" ]
+    - sprite: Nyanotrasen/Structures/cocoon.rsi
+      state: cocoon1
+      map: [ "enum.DamageStateVisualLayers.Base" ]
   - type: RandomSprite
     available:
-      - enum.DamageStateVisualLayers.Base:
-          cocoon1: ""
-      - enum.DamageStateVisualLayers.Base: #your guess for why randomsprite requires an arbitrary layer is as good as mine friend
-          cocoon2: ""
-      - enum.DamageStateVisualLayers.Base:
-          cocoon3: ""
+    - enum.DamageStateVisualLayers.Base:
+        cocoon1: ""
+    - enum.DamageStateVisualLayers.Base: #your guess for why randomsprite requires an arbitrary layer is as good as mine friend
+        cocoon2: ""
+    - enum.DamageStateVisualLayers.Base:
+        cocoon3: ""
