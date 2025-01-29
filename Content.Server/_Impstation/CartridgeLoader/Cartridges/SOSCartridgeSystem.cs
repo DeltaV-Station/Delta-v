@@ -71,7 +71,8 @@ public sealed class SOSCartridgeSystem : EntitySystem
         // DeltaV - send feedback that you failed
         else
         {
-            _popupSystem.PopupEntity(Loc.GetString("sos-message-sent-cooldown"), uid, PopupType.MediumCaution);
+            var seconds = Math.Round(component.Timer);
+            _popupSystem.PopupEntity(Loc.GetString("sos-message-sent-cooldown", ("count", seconds)), uid, PopupType.MediumCaution);
         }
     }
 }
