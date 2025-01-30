@@ -1,4 +1,4 @@
-namespace Content.Shared.Cocoon
+namespace Content.Shared._DV.Cocoon
 {
     [RegisterComponent]
     public sealed partial class CocoonComponent : Component

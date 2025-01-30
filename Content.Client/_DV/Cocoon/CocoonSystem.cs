@@ -1,10 +1,10 @@
-using Content.Shared.Cocoon;
+using System.Numerics;
+using Content.Shared._DV.Cocoon;
 using Content.Shared.Humanoid;
 using Robust.Client.GameObjects;
 using Robust.Shared.Containers;
-using System.Numerics;
 
-namespace Content.Client.Cocoon
+namespace Content.Client._DV.Cocoon
 {
     public sealed class CocoonSystem : EntitySystem
     {

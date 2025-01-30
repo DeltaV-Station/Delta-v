@@ -1,26 +1,26 @@
-﻿using Content.Shared.Cocoon;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Verbs;
-using Content.Shared.DoAfter;
-using Content.Shared.Stunnable;
-using Content.Shared.Eye.Blinding.Systems;
+﻿using Content.Server.DoAfter;
+using Content.Server.Popups;
+using Content.Server.Speech.Components;
+using Content.Shared._DV.Cocoon;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
-using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
-using Content.Shared.Humanoid;
-using Content.Server.Popups;
-using Content.Server.DoAfter;
-using Content.Server.Speech.Components;
-using Robust.Shared.Containers;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Destructible;
-using Robust.Shared.Random;
+using Content.Shared.DoAfter;
+using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Humanoid;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Storage;
+using Content.Shared.Stunnable;
+using Content.Shared.Verbs;
+using Robust.Shared.Containers;
+using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Cocoon
+namespace Content.Server._DV.Cocoon
 {
     public sealed class CocooningSystem : EntitySystem
     {

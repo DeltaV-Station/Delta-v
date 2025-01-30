@@ -1,7 +1,7 @@
-using Robust.Shared.Serialization;
 using Content.Shared.DoAfter;
+using Robust.Shared.Serialization;
 
-namespace Content.Shared.Cocoon
+namespace Content.Shared._DV.Cocoon
 {
     [Serializable, NetSerializable]
     public sealed partial class CocoonDoAfterEvent : SimpleDoAfterEvent

@@ -1,26 +1,26 @@
 using System.Linq;
-using Content.Shared.Verbs;
-using Content.Shared.Damage;
-using Content.Shared.DoAfter;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.Interaction;
-using Content.Shared.Inventory;
-using Content.Shared.Administration.Logs;
-using Content.Shared.Vampiric;
-using Content.Shared.Cocoon;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Server.Popups;
 using Content.Server.DoAfter;
 using Content.Server.Nutrition.Components;
+using Content.Server.Popups;
+using Content.Shared._DV.Cocoon;
+using Content.Shared._DV.Vampiric;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.DoAfter;
 using Content.Shared.HealthExaminable;
-using Robust.Shared.Prototypes;
+using Content.Shared.Interaction;
+using Content.Shared.Inventory;
+using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Vampire
+namespace Content.Server._DV.Vampire
 {
     public sealed class BloodSuckerSystem : EntitySystem
     {

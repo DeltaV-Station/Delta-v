@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Cocoon
+namespace Content.Shared._DV.Cocoon
 {
     [RegisterComponent, NetworkedComponent]
     public sealed partial class CocoonerComponent : Component

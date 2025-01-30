@@ -1,4 +1,4 @@
-namespace Content.Server.Vampire
+namespace Content.Server._DV.Vampire
 {
     /// <summary>
     /// For entities who have been sucked.

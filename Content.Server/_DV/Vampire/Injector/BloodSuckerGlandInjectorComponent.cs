@@ -1,4 +1,4 @@
-namespace Content.Server.Vampiric
+namespace Content.Server._DV.Vampire.Injector
 {
     [RegisterComponent]
     /// <summary>
