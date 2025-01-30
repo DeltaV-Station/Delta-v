@@ -30,7 +30,7 @@ public sealed class SiliconLawBoundUserInterface : BoundUserInterface
     {
         base.UpdateState(state);
 
-        if (state is not SiliconLawBuiState msg)
+        if (_menu is null || state is not SiliconLawBuiState msg)
             return;
 
         if (_laws != null && _laws.Count == msg.Laws.Count)
