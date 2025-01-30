@@ -1,0 +1,46 @@
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryResetDislocatedJoint
+  name: Reset Dislocated Joint
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepResetDislocatedJoint
+  - type: SurgeryPartPresentCondition
+  - type: SurgeryHasAilmentCondition
+    pack: BoneAilments
+    ailment: JointDislocation
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryMendHairlineFractures
+  name: Mend Hairline Fractures
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepMendHairlineFractures
+    - SurgeryStepSealWounds
+  - type: SurgeryPartPresentCondition
+  - type: SurgeryHasAilmentCondition
+    pack: BoneAilments
+    ailment: HairlineFracture
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryMendCompoundFractures
+  name: Mend Compound Fractures
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepPriseOpenBones
+    - SurgeryStepMendCompoundFractures
+  - type: SurgeryPartPresentCondition
+  - type: SurgeryHasAilmentCondition
+    pack: BoneAilments
+    ailment: CompoundFracture
