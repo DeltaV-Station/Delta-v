@@ -216,6 +216,14 @@
     implant: SyndicateRadioImplant # DeltaV
 
 - type: entity
+  id: RadioImplanter
+  suffix: radio Syndicate
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: RadioImplant
+
+- type: entity
   id: UplinkImplanter
   name: uplink implanter
   parent: BaseImplantOnlyImplanterSyndi
@@ -305,14 +313,14 @@
   name: mindshield implanter
   parent: BaseImplantOnlyImplanter
   components:
-  - type: Implanter
-    implant: MindShieldImplant
+    - type: Implanter
+      implant: MindShieldImplant
 
 # Centcomm implanters
 
 - type: entity
   id: RadioImplanterCentcomm
-  name: centcomm radio implanter
+  name: centcomm radio implanter # DeltaV
   parent: BaseImplantOnlyImplanter
   components:
   - type: Implanter
@@ -320,7 +328,7 @@
 
 - type: entity
   id: DeathRattleImplanterCentcomm
-  name: centcomm death rattle implanter
+  name: centcomm death rattle implanter # DeltaV
   parent: BaseImplantOnlyImplanter
   components:
   - type: Implanter
