@@ -5,6 +5,7 @@
   name: survival-title
   showInVote: true # secret # DeltaV - Me when the survival. Used for periapsis.
   description: survival-description
+  cooldown: 2 # Imp - Can't occur thrice
   rules:
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
@@ -155,6 +156,7 @@
     - tator
   name: traitor-title
   description: traitor-description
+  cooldown: 2 # Imp - Can't occur thrice
   showInVote: false
   rules:
     - Traitor
@@ -185,6 +187,7 @@
   name: nukeops-title
   description: nukeops-description
   showInVote: false
+  cooldown: 2 # Imp - Can't occur thrice
   rules:
     - Nukeops
     - SubGamemodesRule
@@ -222,6 +225,7 @@
   - zomber
   name: zombie-title
   description: zombie-description
+  cooldown: 2 # Imp - Can't occur thrice
   showInVote: false
   rules:
   - Zombie

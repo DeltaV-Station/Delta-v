@@ -451,3 +451,62 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/admin_assistant.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/admin_assistant.rsi
+
+# Cargo Tech Overalls uniform
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoTechOveralls
+  name: cargo tech overalls
+  description: A sturdy pair of overalls with leather straps and chartreuse buckles. Helpful for lifting heavy loads.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cargotechoveralls.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cargotechoveralls.rsi
+    
+# Cargo Tech Pants uniform
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoTechPants
+  name: cargo tech pants
+  description: A crisp white collared shirt with a snappy pair of pants. There are leather knee pads for support.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cargotechpants.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cargotechpants.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCybersunHazard
+  name: cybersun hazard suit
+  description: This high-visibility jumpsuit prevents you from getting run over, yet keeps you dark enough to stay unnoticed!
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunhazard.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunhazard.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCybersunCasual
+  name: cybersun casual jumpsuit
+  description: With all the non-descript gizmos they shoved in this thing, are you sure it's even safe to put on?
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersuncasual.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersuncasual.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCybersunRND
+  name: cybersun research turtleneck
+  description: It's another Turtleneck. What'd you expect?
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi

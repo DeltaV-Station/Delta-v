@@ -21,12 +21,6 @@
             - material: Cable
               amount: 5
               doAfter: 5
-            - tag: DrinkSpaceGlue
-              name: space glue
-              icon:
-                sprite: Objects/Consumable/Drinks/glue-tube.rsi
-                state: icon
-              doAfter: 5
     - node: prescsecglasses
       entity: ClothingEyesPrescriptionSecurityGlasses
 
@@ -52,12 +46,6 @@
               doAfter: 5
             - material: Cable
               amount: 5
-              doAfter: 5
-            - tag: DrinkSpaceGlue
-              name: space glue
-              icon:
-                sprite: Objects/Consumable/Drinks/glue-tube.rsi
-                state: icon
               doAfter: 5
     - node: presccorpsglasses
       entity: ClothingEyesPrescriptionCorpsmanGlasses
