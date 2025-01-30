@@ -155,6 +155,18 @@
     targetUser: true
 
 - type: entity
+  parent: BaseSubdermalImplant
+  id: RadioImplant
+  name: radio implant
+  description: This implant grants access to the Syndicate channel without a headset.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: RadioImplant
+    radioChannels:
+    - Syndicate
+
+- type: entity
   parent: [ BaseSubdermalImplant, StorePresetUplink ]
   id: UplinkImplant
   name: uplink implant
@@ -383,6 +395,9 @@
   categories: [ HideSpawnMenu ]
   components:
    - type: SubdermalImplant
+   - type: Tag
+     tags:
+       - MindShield
    - type: MindShieldImplant
 
 - type: entity
@@ -394,3 +409,15 @@
   components:
   - type: RattleOnTrigger
     radioChannel: CentCom
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RadioImplantCentcomm
+  name: centcomm radio implant
+  description: This implant grants access to the Centcomm channel without a headset. Only authorized for Centcomm employees.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: RadioImplant
+    radioChannels:
+    - CentCom
