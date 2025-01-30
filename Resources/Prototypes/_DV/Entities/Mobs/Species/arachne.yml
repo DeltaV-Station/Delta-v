@@ -9,14 +9,14 @@
     # Arachne are one of the species that needs a manual visual layers setup.
     layers:
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      sprite: _EE/Mobs/Species/arachne.rsi
+      sprite: _DV/Mobs/Species/arachne.rsi
       state: spider_body
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
       color: "#e8b59b"
       sprite: Mobs/Species/Human/parts.rsi
       state: torso_m
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-      sprite: _EE/Mobs/Species/arachne.rsi
+      sprite: _DV/Mobs/Species/arachne.rsi
       state: spider_body_front
     - map: [ "enum.HumanoidVisualLayers.Head" ]
       color: "#e8b59b"
@@ -24,7 +24,7 @@
       state: head_m
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
       color: "#008800"
-      sprite: _EE/Mobs/Species/eyes.rsi
+      sprite: _DV/Mobs/Species/eyes.rsi
       state: eyes
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
       color: "#e8b59b"
@@ -163,14 +163,14 @@
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      sprite: _EE/Mobs/Species/arachne.rsi
+      sprite: _DV/Mobs/Species/arachne.rsi
       state: spider_body
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
       color: "#e8b59b"
       sprite: Mobs/Species/Human/parts.rsi
       state: torso_m
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-      sprite: _EE/Mobs/Species/arachne.rsi
+      sprite: _DV/Mobs/Species/arachne.rsi
       state: spider_body_front
     - map: [ "enum.HumanoidVisualLayers.Head" ]
       color: "#e8b59b"
@@ -178,7 +178,7 @@
       state: head_m
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
       color: "#008800"
-      sprite: _EE/Mobs/Species/eyes.rsi
+      sprite: _DV/Mobs/Species/eyes.rsi
       state: eyes
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
       color: "#e8b59b"
