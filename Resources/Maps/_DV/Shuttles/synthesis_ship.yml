@@ -1617,9 +1617,13 @@ entities:
   entities:
   - uid: 315
     components:
+    - type: MetaData
+      desc: This one seems to make slightly less power than the base model. Someone cheaped out.
     - type: Transform
       pos: 2.5,-4.5
       parent: 1
+    - type: PowerSupplier
+      supplyRate: 8000
 - proto: GravityGeneratorMini
   entities:
   - uid: 294
@@ -2210,22 +2214,12 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: VendingMachineChemicals
-  entities:
-  - uid: 185
-    components:
-    - type: Transform
-      pos: 9.5,1.5
-      parent: 1
-    - type: AccessReader
-      enabled: False
-    - type: Emagged
-- proto: WallPlastitanium
+- proto: VendingMachineChemicalsSyndicate
   entities:
   - uid: 138
     components:
     - type: Transform
-      pos: -1.5,3.5
+      pos: 9.5,1.5
       parent: 1
 - proto: WallShuttle
   entities:
@@ -2550,6 +2544,11 @@ entities:
     components:
     - type: Transform
       pos: 1.5,0.5
+      parent: 1
+  - uid: 185
+    components:
+    - type: Transform
+      pos: -1.5,3.5
       parent: 1
   - uid: 215
     components:
