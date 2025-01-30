@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Chat; // Delta-v
 using Content.Shared.Implants.Components;
@@ -9,6 +8,7 @@ using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
+using System.Linq;
 
 namespace Content.Shared.Implants;
 
@@ -18,6 +18,7 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
     public const string BaseStorageId = "storagebase";
 
@@ -80,16 +81,11 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
         if (!_container.TryGetContainer(uid, BaseStorageId, out var storageImplant))
             return;
 
-        var entCoords = Transform(component.ImplantedEntity.Value).Coordinates;
-
         var containedEntites = storageImplant.ContainedEntities.ToArray();
 
         foreach (var entity in containedEntites)
         {
-            if (Terminating(entity))
-                continue;
-
-            _container.RemoveEntity(storageImplant.Owner, entity, force: true, destination: entCoords);
+            _transformSystem.DropNextTo(entity, uid);
         }
     }
 

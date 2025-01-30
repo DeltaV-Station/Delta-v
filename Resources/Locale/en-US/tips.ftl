@@ -133,20 +133,5 @@ tips-dataset-132 = By right clicking on a player, and then clicking the heart ic
 tips-dataset-133 = Monkeys and kobolds have a rare chance to be sentient. Ook!
 tips-dataset-134 = You can tell if an area with firelocks up is spaced by looking to see if the firelocks have lights beside them.
 tips-dataset-135 = Instead of picking it up, you can alt-click food to eat it. This also works for mice and other creatures without hands.
-# Nyanotrasen - Specific tips below
-tips-dataset-136 = Psionic insulation prevents you from using or being targeted by psionic abilities. Look for insulative headgear or cryptobiolin pills.
-tips-dataset-137 = Lotophagoi oil from the oracle will drug you up for a long time, but is one of the most reliable sources of psionics.
-tips-dataset-138 = Turn off glimmer probers when glimmer approaches cautious levels.
-tips-dataset-139 = Glimmer probers power themselves when glimmer gets too high.
-tips-dataset-140 = Oneirophages have psionic invisiblity. Psionic insulation will allow you to see them.
-tips-dataset-141 = Someone who looks just like you may be a paradox anomaly.
-tips-dataset-142 = Rat kings can command their rats to attack someone by pointing at them.
-tips-dataset-143 = Some rat kings are known to be friendly. As long as the rat army never goes rogue, it could be a great boon to the station.
-tips-dataset-144 = The reverse engineering machine benefits greatly from machine upgrades.
-tips-dataset-145 = The reverse engineering machine can reverse engineer blood red hardsuits.
-tips-dataset-146 = The metempsychotic machine's chance to reincarnate you into a humanoid is guaranteed for a number of times equal to its scanning module tier.
-tips-dataset-147 = Glimmer wisps will only attack you if they detect you are psionic, or you aggravate them by damaging them or dragging away a body they are trying to drain.
-tips-dataset-148 = Bibles, holy water, and the anti-psychic knife can deal holy damage, which has strong effects against some creatures."
-tips-dataset-149 = Ectoplasm is used in the recipe for normality crystals.
-# DeltaV - Specific tips below
-tips-dataset-150 = As a Security Officer, if you're not sure how to determine the severity of a crime or the appropriate punishment, take a look at the Crime Assist application in your PDA!
+tips-dataset-136 = If you're trapped behind an electrified door, disable the APC or throw your ID at the door to avoid getting shocked!
+tips-dataset-137 = If the AI electrifies a door and you have insulated gloves, snip and mend the power wire to reset their electrification!

@@ -245,6 +245,14 @@
   - type: Implanter
     implant: DeathAcidifierImplant
 
+- type: entity
+  id: FakeMindShieldImplanter
+  suffix: fake mindshield
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: FakeMindShieldImplant
+
 # Security and Command implanters
 
 - type: entity
@@ -254,3 +262,15 @@
   components:
     - type: Implanter
       implant: MindShieldImplant
+
+# Nukie implants
+
+- type: entity
+  id: HostageImplanter
+  suffix: hostage
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: HostageImplant
+    implantTime: 20
+    drawTime: 15

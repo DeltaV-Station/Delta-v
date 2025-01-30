@@ -194,7 +194,6 @@
       - SubstationMachineCircuitboard
       - WallmountSubstationElectronics
       - CellRechargerCircuitboard
-      - BorgChargerCircuitboard
       - WeaponCapacitorRechargerCircuitboard
       - HandheldStationMap
       - ClothingHeadHatWelding
@@ -376,6 +375,7 @@
       - FultonBeacon
       - PowerCellHyper
       - FireExtinguisherBluespace
+      - SignallerDeadMans
       # End DeltaV additions
       - EnergyScalpel # Shitmed Change
       - EnergyCautery # Shitmed Change
@@ -511,8 +511,8 @@
     - DeepFryerMachineCircuitboard #Nyano - Summary: adds deep fryer circuit board
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
-    - StationAnchorCircuitboard
     - SalvageMagnetMachineCircuitboard
+    - BorgChargerCircuitboard
     - OperatingTableCircuitboard # Shitmed Change
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
@@ -1292,8 +1292,28 @@
       - CarpetPurple
       - CarpetCyan
       - CarpetWhite
+      # Bedsheets
+      - BedsheetBlack
+      - BedsheetBlue
+      - BedsheetBrown
+      - BedsheetGreen
+      - BedsheetGrey
+      - BedsheetOrange
+      - BedsheetPurple
+      - BedsheetRed
+      - BedsheetWhite
+      - BedsheetYellow
+      - BedsheetClown
+      - BedsheetCosmos
+      - BedsheetIan
+      - BedsheetMedical
+      - BedsheetMime
+      - BedsheetNT
+      - BedsheetRainbow
+      - BedsheetBrigmedic
   - type: EmagLatheRecipes
     emagStaticRecipes:
+      # Clothing
       - ClothingHeadHatCentcomcap
       - ClothingHeadHatCentcom
       - ClothingUniformJumpsuitCentcomAgent
@@ -1316,6 +1336,8 @@
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
       - ClothingOuterWinterSyndieCap
+      # Bedsheets
+      - BedsheetSyndie
       # Begin DeltaV Additions
       - ClothingUniformInterdyneChemist
       - UniformScrubsColorCybersun
@@ -1325,10 +1347,11 @@
       - ClothingOuterCoatCybersunWindbreaker
       - ClothingMaskInterdyneChemistry
       - ClothingHeadHatSurgcapCybersun
-      #- ClothingUniformCybersunHazard
-      #- ClothingUniformCybersunCasual
-      #- ClothingUniformCybersunRND
-      #- ClothingOuterCybersunOvercoat
+      - ClothingUniformCybersunHazard
+      - ClothingUniformCybersunCasual
+      - ClothingUniformCybersunRND
+      - ClothingOuterCybersunOvercoat
+      - ClothingBeltSyndicateUtility
       # End DeltaV Additions
   - type: MaterialStorage
     whitelist:
