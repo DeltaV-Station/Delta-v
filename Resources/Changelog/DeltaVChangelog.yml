@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Lyndomen & Fox
-  changes:
-  - message: Interdyne has begun sending Synthesis Specialists to bargain with the
-      station!
-    type: Add
-  id: 461
-  time: '2024-08-04T00:19:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1530
 - author: DarkenedSynergy
   changes:
   - message: Prescriptions security HUDs are no longer uncraftable.
@@ -3869,3 +3861,11 @@
   id: 960
   time: '2025-01-29T21:48:08.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2815
+- author: Field Command
+  changes:
+  - message: Added many missing roles to Byoin and expanded Byoin to accommodate these
+      roles. Soft cap also up from 4 to 20.
+    type: Tweak
+  id: 961
+  time: '2025-01-30T04:16:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2795
