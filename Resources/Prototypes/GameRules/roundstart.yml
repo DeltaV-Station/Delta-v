@@ -96,6 +96,8 @@
     minPlayers: 20
   - type: LoadMapRule
     mapPath: /Maps/Nonstations/nukieplanet.yml
+  - type: NukieOperation # DeltaV - Nukie operations!
+    operations: NukieOperations
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
@@ -139,7 +141,7 @@
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 3
-      playerRatio: 10
+      playerRatio: 12 # DeltaV
       startingGear: SyndicateOperativeGearFull
       roleLoadout:
       - RoleSurvivalNukie
@@ -204,7 +206,7 @@
     definitions:
     - prefRoles: [ Traitor ]
       mindRoles:
-      - MindRoleTraitor
+      - MindRoleTraitorReinforcement
 
 - type: entity
   id: Revolutionary

@@ -23,10 +23,10 @@
   description: An advanced hardsuit helmet designed for work in special operations.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/ReverseEngineering/syndicate.rsi
+    sprite: _DV/Clothing/Head/ReverseEngineering/syndicate.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/ReverseEngineering/syndicate.rsi
-  - type: PointLight 
+    sprite: _DV/Clothing/Head/ReverseEngineering/syndicate.rsi
+  - type: PointLight
     color: aquamarine
 
 - type: entity
@@ -37,9 +37,9 @@
   description: An assault hardsuit helmet featuring a top-secret translucent polymer.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/ReverseEngineering/juggernaut.rsi
+    sprite: _DV/Clothing/Head/ReverseEngineering/juggernaut.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/ReverseEngineering/juggernaut.rsi
+    sprite: _DV/Clothing/Head/ReverseEngineering/juggernaut.rsi
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitERTLeader
