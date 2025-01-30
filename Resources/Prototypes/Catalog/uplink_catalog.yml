@@ -864,15 +864,28 @@
 # Disruption
 
 - type: listing
+  id: UplinkAccessBreaker
+  name: uplink-access-breaker-name
+  description: uplink-access-breaker-desc
+  productEntity: AccessBreaker
+  discountCategory: rareDiscounts # DeltaV - was veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 2 # DeltaV - was 3
+  cost:
+    Telecrystal: 4 # DeltaV - was 5
+  categories:
+  - UplinkDisruption
+
+- type: listing
   id: UplinkEmag
   name: uplink-emag-name
   description: uplink-emag-desc
   productEntity: Emag
-  discountCategory: rareDiscounts # DeltaV - was very rare
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2 # DeltaV
+    Telecrystal: 2
   cost:
-    Telecrystal: 4 # DeltaV - was 8, can no longer emag doors
+    Telecrystal: 4
   categories:
   - UplinkDisruption
 
