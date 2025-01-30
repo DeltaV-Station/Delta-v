@@ -100,6 +100,16 @@
     requiredLegs: 8
   - type: Speech
     speechSounds: Alto
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Arachne
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 5
   - type: Inventory
     templateId: arachne
     displacements:
@@ -131,9 +141,6 @@
       types:
         Blunt: 0.05 #per second, scales with pressure and other constants. Reduced Damage. This allows medicine to heal faster than damage.
   - type: MovementAlwaysTouching
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 3.0
-    baseSprintSpeed : 5.0
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning

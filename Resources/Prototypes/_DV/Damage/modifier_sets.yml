@@ -39,3 +39,15 @@
     Cold: 1.1
     Shock: 1.15
     Radiation: 0.2
+
+- type: damageModifierSet
+  id: Arachne
+  coefficients:
+    Cold: 0.5
+    Blunt: 0.9
+    Slash: 0.8
+    Piercing: 0.8
+    Heat: 1.25
+    Radiation: 1.25
+  flatReductions:
+    Cold: 3
