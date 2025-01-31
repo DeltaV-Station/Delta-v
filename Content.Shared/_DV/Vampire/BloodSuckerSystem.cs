@@ -1,10 +1,4 @@
-﻿using System.Linq;
-using Content.Server.Atmos.Components;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
-using Content.Server.Nutrition.Components;
 using Content.Shared._DV.Cocoon;
-using Content.Shared._DV.Vampire;
 using Content.Shared._DV.Vampiric;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Systems;
@@ -21,7 +15,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Server._DV.Vampire
+namespace Content.Shared._DV.Vampire
 {
     public sealed class BloodSuckerSystem : EntitySystem
     {

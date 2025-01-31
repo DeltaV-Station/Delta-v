@@ -1,4 +1,4 @@
-namespace Content.Server._DV.Vampire
+namespace Content.Shared._DV.Vampire
 {
     [RegisterComponent]
     public sealed partial class BloodSuckerComponent : Component
