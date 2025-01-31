@@ -31,6 +31,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
             .Bind(ContentKeyFunctions.UseItemInHand, InputCmdHandler.FromDelegate(HandleUseItem, handle: false, outsidePrediction: false))
             .Bind(ContentKeyFunctions.AltUseItemInHand, InputCmdHandler.FromDelegate(HandleAltUseInHand, handle: false, outsidePrediction: false))
             .Bind(ContentKeyFunctions.SwapHands, InputCmdHandler.FromDelegate(SwapHandsPressed, handle: false, outsidePrediction: false))
+            .Bind(ContentKeyFunctions.SwapHandsReversed, InputCmdHandler.FromDelegate(SwapHandsReversedPressed, handle: false, outsidePrediction: false))
             .Bind(ContentKeyFunctions.Drop, new PointerInputCmdHandler(DropPressed))
             .Register<SharedHandsSystem>();
     }
@@ -78,21 +79,34 @@ public abstract partial class SharedHandsSystem : EntitySystem
             TryUseItemInHand(args.SenderSession.AttachedEntity.Value, true, handName: msg.HandName);
     }
 
-    private void SwapHandsPressed(ICommonSession? session)
+    private void ChangeHandIndex(ICommonSession? session, int modifier)
     {
         if (!TryComp(session?.AttachedEntity, out HandsComponent? component))
             return;
-
         if (!_actionBlocker.CanInteract(session.AttachedEntity.Value, null))
             return;
-
         if (component.ActiveHand == null || component.Hands.Count < 2)
             return;
 
-        var newActiveIndex = component.SortedHands.IndexOf(component.ActiveHand.Name) + 1;
+        var newActiveIndex = component.SortedHands.IndexOf(component.ActiveHand.Name) + modifier;
+        if (newActiveIndex < 0)
+        {
+            newActiveIndex += component.SortedHands.Count;
+        }
+        
         var nextHand = component.SortedHands[newActiveIndex % component.Hands.Count];
 
         TrySetActiveHand(session.AttachedEntity.Value, nextHand, component);
+    }
+
+    private void SwapHandsPressed(ICommonSession? session)
+    {
+        ChangeHandIndex(session, 1);
+    }
+
+    private void SwapHandsReversedPressed(ICommonSession? session)
+    {
+        ChangeHandIndex(session, -1);
     }
 
     private bool DropPressed(ICommonSession? session, EntityCoordinates coords, EntityUid netEntity)
