@@ -412,6 +412,15 @@ public sealed class StorageWindow : BaseWindow
         {
             if (storageComp.StoredItems.TryGetValue(ent, out var updated))
             {
+                // Begin DeltaV Additions: Fix infinite gold stars
+                data.Control.Marked = _contained.IndexOf(ent) switch
+                {
+                    0 => ItemGridPieceMarks.First,
+                    1 => ItemGridPieceMarks.Second,
+                    _ => null,
+                };
+                // End DeltaV Additions
+
                 if (data.Loc.Equals(updated))
                 {
                     DebugTools.Assert(data.Control.Location == updated);
