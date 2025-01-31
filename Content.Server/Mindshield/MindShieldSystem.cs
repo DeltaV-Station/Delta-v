@@ -6,6 +6,7 @@ using Content.Shared.Database;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
 using Content.Shared.Mindshield.Components;
+using Content.Shared.NPC.Components; // DeltaV
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Tag;
 
@@ -37,8 +38,18 @@ public sealed class MindShieldSystem : EntitySystem
     /// </summary>
     public void OnImplanted(EntityUid uid, SubdermalImplantComponent comp, ref ImplantImplantedEvent ev)
     {
-        if (comp.AddedComponents is {} components && ev.Implanted is {} user)
+        if (ev.Implanted is not {} user)
+            return;
+
+        if (comp.AddedComponents is { } components)
+        {
             EntityManager.AddComponents(user, components);
+            if (components.ContainsKey("MindShield"))
+            {
+                MindShieldRemovalCheck(ev.Implanted.Value, ev.Implant);
+            }
+
+        }
     }
 
     /// <summary>
@@ -52,9 +63,22 @@ public sealed class MindShieldSystem : EntitySystem
 
     /// <summary>
     /// Checks if the implanted person was a Rev or Head Rev and remove role or destroy mindshield respectively.
+    /// DeltaV: Destroys mindshield on Syndicates as well.
     /// </summary>
     public void MindShieldRemovalCheck(EntityUid implanted, EntityUid implant)
     {
+        // DeltaV - Destroy Mindshield on Syndicates
+        if (TryComp<NpcFactionMemberComponent>(implanted, out var component))
+        {
+            var factions = component.Factions;
+            if (factions.Contains("Syndicate"))
+            {
+                QueueDel(implant);
+                // No popup as to allow more sneaky opportunities for syndicates.
+            }
+        }
+        // DeltaV - End destroy Mindshield on Syndicates
+
         if (HasComp<HeadRevolutionaryComponent>(implanted))
         {
             _popupSystem.PopupEntity(Loc.GetString("head-rev-break-mindshield"), implanted);

@@ -4,7 +4,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ShowJobIcons
-  - type: ShowMindShieldIcons
+  #- type: ShowMindShieldIcons # DeltaV - Remove MindShield icons from sechuds
   - type: ShowCriminalRecordIcons
 
 - type: entity
@@ -59,16 +59,16 @@
     - HudSecurity
 
 - type: entity
-  parent: [ClothingEyesBase, BaseCommandContraband]
+  parent: [ClothingEyesBase, ShowAdministrationIcons, BaseCommandContraband] # DeltaV - Add MindShield to admin huds.
   id: ClothingEyesHudCommand
   name: administration hud
-  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status.
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID and MindShield status. # DeltaV - Add MindShield to admin huds.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Hud/command.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/command.rsi
-  - type: ShowJobIcons
+  #- type: ShowJobIcons # DeltaV - Using parent ShowAdministrationIcons
 
 - type: entity
   parent: ClothingEyesBase
@@ -165,7 +165,7 @@
     - HudMedicalSecurity
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
+  parent: [ClothingEyesBase, ShowAdministrationIcons, ShowSecurityIcons, ShowMedicalIcons] # DeltaV - Seperated Admin from Sec icons
   id: ClothingEyesHudMultiversal
   name: multiversal hud
   description: Filler
@@ -181,7 +181,7 @@
   - type: ShowSyndicateIcons
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
+  parent: [ClothingEyesBase, ShowAdministrationIcons, ShowSecurityIcons, ShowMedicalIcons] # DeltaV - Seperated Admin from Sec icons
   id: ClothingEyesHudOmni
   name: omni hud
   description: Filler
@@ -199,7 +199,7 @@
   - type: ShowSyndicateIcons
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, BaseSyndicateContraband]
+  parent: [ClothingEyesBase, ShowAdministrationIcons, ShowSecurityIcons, BaseSyndicateContraband] # DeltaV - Seperated Admin from Sec icons
   id: ClothingEyesHudSyndicate
   name: syndicate visor
   description: The syndicate's professional head-up display, designed for better detection of humanoids and their subsequent elimination.
@@ -211,7 +211,7 @@
   - type: ShowSyndicateIcons
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, BaseSyndicateContraband]
+  parent: [ClothingEyesBase, ShowAdministrationIcons, ShowSecurityIcons, BaseSyndicateContraband] # DeltaV - Seperated Admin from Sec icons
   id: ClothingEyesHudSyndicateAgent
   name: syndicate agent visor
   description: The Syndicate Agent's professional heads-up display, designed for quick diagnosis of their team's status.
@@ -224,7 +224,7 @@
   - type: ShowHealthBars
 
 - type: entity
-  parent: [ClothingEyesGlassesSunglasses, ShowSecurityIcons]
+  parent: [ClothingEyesGlassesSunglasses, ShowAdministrationIcons, ShowSecurityIcons] # DeltaV - Seperated Admin from Sec icons
   id: ClothingEyesGlassesHiddenSecurity
   suffix: Syndicate
 

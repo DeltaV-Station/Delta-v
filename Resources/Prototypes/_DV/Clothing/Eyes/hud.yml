@@ -1,0 +1,13 @@
+- type: entity
+  id: ShowAdministrationIcons
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
+
+- type: entity
+  parent: [ClothingEyesGlassesSecurity, ShowAdministrationIcons]
+  id: ClothingEyesGlassesInvestigator
+  name: investigator glasses
+  description: Improved security glasses that allows the user to see MindShield status.
