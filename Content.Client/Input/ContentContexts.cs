@@ -57,7 +57,6 @@ namespace Content.Client.Input
             human.AddFunction(EngineKeyFunctions.MoveRight);
             human.AddFunction(EngineKeyFunctions.Walk);
             human.AddFunction(ContentKeyFunctions.SwapHands);
-            human.AddFunction(ContentKeyFunctions.SwapHandsReversed);
             human.AddFunction(ContentKeyFunctions.Drop);
             human.AddFunction(ContentKeyFunctions.UseItemInHand);
             human.AddFunction(ContentKeyFunctions.AltUseItemInHand);
@@ -114,7 +113,6 @@ namespace Content.Client.Input
             aghost.AddFunction(EngineKeyFunctions.MoveRight);
             aghost.AddFunction(EngineKeyFunctions.Walk);
             aghost.AddFunction(ContentKeyFunctions.SwapHands);
-            aghost.AddFunction(ContentKeyFunctions.SwapHandsReversed);
             aghost.AddFunction(ContentKeyFunctions.Drop);
             aghost.AddFunction(ContentKeyFunctions.UseItemInHand);
             aghost.AddFunction(ContentKeyFunctions.AltUseItemInHand);
@@ -138,6 +136,11 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.OpenDecalSpawnWindow);
             common.AddFunction(ContentKeyFunctions.OpenAdminMenu);
             common.AddFunction(ContentKeyFunctions.OpenGuidebook);
+
+            // DeltaV - Swap Hands Reversed Start
+            human.AddFunction(ContentKeyFunctions.SwapHandsReversed);
+            aghost.AddFunction(ContentKeyFunctions.SwapHandsReversed);
+            // DeltaV - Swap Hands Reversed End
         }
     }
 }
