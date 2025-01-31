@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: ZweiHawke
-  changes:
-  - message: Added 85 new PDA sprites
-    type: Add
-  id: 466
-  time: '2024-08-12T02:09:06.480432+00:00'
-  url: null
 - author: deltanedas
   changes:
   - message: Merged last months changes (except meteors) from upstream, report any
@@ -3868,3 +3861,12 @@
   id: 965
   time: '2025-01-30T23:52:16.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2822
+- author: beck-thompson
+  changes:
+  - message: 'Stun bundle: 4 tc for a stun baton and disabler!'
+    type: Add
+  - message: Hostage ops now receive free body bags and stun bundle in their uplink!
+    type: Add
+  id: 966
+  time: '2025-01-31T03:29:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2816
