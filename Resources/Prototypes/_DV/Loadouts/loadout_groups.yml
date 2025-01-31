@@ -461,6 +461,52 @@
   - ChemistWinterBoots
   - ChemistShoes
 
+## Surgeon
+- type: loadoutGroup
+  id: SurgeonHead
+  name: loadout-group-surgeon-head
+  loadouts:
+  - BlueSurgeryCap
+  - GreenSurgeryCap
+  - PurpleSurgeryCap
+  - BlackSurgeryCap
+  - CyanSurgeryCap
+  - PinkSurgeryCap
+  - WhiteSurgeryCap
+  - RainbowSurgeryCap
+
+- type: loadoutGroup
+  id: SurgeonScrubs
+  name: loadout-group-surgeon-scrubs
+  loadouts:
+  - MedicalBlueScrubs
+  - MedicalGreenScrubs
+  - MedicalPurpleScrubs
+  - MedicalBlackScrubs
+  - MedicalCyanScrubs
+  - MedicalPinkScrubs
+  - MedicalWhiteScrubs
+  - MedicalRainbowScrubs
+
+- type: loadoutGroup
+  id: SurgeonMask
+  name: loadout-group-surgeon-mask
+  loadouts:
+  - SterileMask
+
+- type: loadoutGroup
+  id: SurgeonGloves
+  name: loadout-group-surgeon-gloves
+  loadouts:
+  - LatexGloves
+  - NitrileGloves
+
+- type: loadoutGroup
+  id: SurgeonPDA
+  name: loadout-group-surgeon-id
+  loadouts:
+  - SurgeonPDA
+
 # Justice
 ## Chief Justice
 - type: loadoutGroup
