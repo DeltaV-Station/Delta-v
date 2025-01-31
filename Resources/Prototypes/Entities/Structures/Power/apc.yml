@@ -145,6 +145,10 @@
     price: 500
   - type: BatteryDrinkerSource # EE IPCs
     maxAmount: 10000
+  - type: GuideHelp
+    guides:
+    - VoltageNetworks
+    - Power
 
 # APC under construction
 - type: entity

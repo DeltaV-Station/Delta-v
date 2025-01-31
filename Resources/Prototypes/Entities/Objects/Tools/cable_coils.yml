@@ -42,6 +42,10 @@
         Heat: -1.66
         Shock: -1.66
   # EE Change End
+  - type: GuideHelp
+    guides:
+    - VoltageNetworks
+    - Power
   # FIXME: Used isnt actually implemented so its still unlimited.
   # Uncomment this when its implemented, and make sure it handles StackComponent right
   #- type: Hemostat # Shitmed
