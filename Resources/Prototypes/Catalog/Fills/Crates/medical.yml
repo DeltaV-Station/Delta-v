@@ -46,12 +46,12 @@
   id: CrateMindShieldImplants
   parent: CrateMedical
   name: MindShield implant crate
-  description: Crate filled with 3 MindShield implants.
+  description: Crate holding a MindShield implant. # DeltaV - lowered MindShield count from 3 to 1
   components:
   - type: StorageFill
     contents:
       - id: MindShieldImplanter
-        amount: 3
+        amount: 1 # DeltaV - lowered MindShield count from 3 to 1
 
 - type: entity
   id: CrateMedicalSurgery
