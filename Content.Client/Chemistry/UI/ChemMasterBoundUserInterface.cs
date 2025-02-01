@@ -34,7 +34,7 @@ namespace Content.Client.Chemistry.UI
             // Setup static button actions.
             _window.InputEjectButton.OnPressed += _ => SendMessage(
                 new ItemSlotButtonPressedEvent(SharedChemMaster.InputSlotName));
-            _window.CreatePillButton.OnPressed += _ => SendMessage(
+            _window.CreatePillButton.OnPressed += _ => SendMessage( // Delta-v
                 new ChemMasterCreatePillsMessage(
                     (uint) _window.PillDosage.Value, (uint) _window.PillNumber.Value, _window.LabelLine));
             _window.CreateBottleButton.OnPressed += _ => SendMessage(
