@@ -12,18 +12,6 @@
       - EncryptionKeyCommon
 
 - type: entity
-  parent: ClothingHeadsetHoP
-  id: ClothingHeadsetAltService
-  name: head of personnel's over-ear headset
-  components:
-  - type: Sprite
-    sprite: _DV/Clothing/Ears/Headsets/service.rsi
-    state: icon_alt
-  - type: Clothing
-    sprite: _DV/Clothing/Ears/Headsets/service.rsi
-    equippedPrefix: alt
-
-- type: entity
   parent: ClothingHeadsetAltSyndicate
   id: ClothingHeadsetAltSyndicateListening
   name: blood-red over-ear interception headset
@@ -123,3 +111,18 @@
     state: icon_alt
   - type: Clothing
     equippedPrefix: alt
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetGreySyndicate
+  name: passenger headset
+  suffix: Recruiter
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyTraffic
+      # - EncryptionKeySyndie # Taken out until remodeling of recruiter is done.
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/base.rsi
