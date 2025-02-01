@@ -5,6 +5,7 @@ using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
 using Content.Shared.Camera;
 using Content.Shared.CombatMode;
+using Content.Shared.Mech.Components; // Goobstation
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -148,6 +149,9 @@ public sealed partial class GunSystem : SharedGunSystem
             return;
 
         var entityNull = _player.LocalEntity;
+
+        if (TryComp<MechPilotComponent>(entity, out var mechPilot)) // Goobstation
+            entity = mechPilot.Mech;
 
         if (entityNull == null || !TryComp<CombatModeComponent>(entityNull, out var combat) || !combat.IsInCombatMode)
         {

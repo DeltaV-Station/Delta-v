@@ -2,15 +2,27 @@
 
 - type: latheRecipe
   abstract: true
-  id: BaseMechPartRecipe
+  id: BaseMechPartRipley # Delta V - Made new bases for each Mech
   category: Mech
   completetime: 10
+
+- type: latheRecipe
+ abstract: true
+ id: BaseMechPartHonker # Delta V - Made new bases for each Mech
+ category: Mech
+ completetime: 10
+
+- type: latheRecipe
+ abstract: true
+ id: BaseMechPartHamptr # Delta V - Made new bases for each Mech
+ category: Mech
+ completetime: 10
 
 # Recipes
 
 # Ripley
 - type: latheRecipe
-  parent: BaseMechPartRecipe
+  parent: BaseMechPartRipley # Delta V
   id: RipleyHarness
   result: RipleyHarness
   materials:
@@ -18,7 +30,7 @@
     Glass: 1200
 
 - type: latheRecipe
-  parent: BaseMechPartRecipe
+  parent: BaseMechPartRipley # Delta V
   id: RipleyLArm
   result: RipleyLArm
   materials:
@@ -41,7 +53,7 @@
   result: RipleyRArm
 
 - type: latheRecipe
-  parent: BaseMechPartRecipe
+  parent: BaseMechPartRipley # Delta V
   id: MechEquipmentGrabber
   result: MechEquipmentGrabber
   materials:
@@ -50,7 +62,7 @@
 
 # H.O.N.K.
 - type: latheRecipe
-  parent: BaseMechPartRecipe
+  parent: BaseMechPartHonker # Delta V
   id: HonkerHarness
   result: HonkerHarness
   materials:
@@ -59,7 +71,7 @@
     Bananium: 500
 
 - type: latheRecipe
-  parent: BaseMechPartRecipe
+  parent: BaseMechPartHonker # Delta V
   id: HonkerLArm
   result: HonkerLArm
   materials:
@@ -83,7 +95,7 @@
   result: HonkerRArm
 
 - type: latheRecipe
-  parent: BaseMechPartRecipe
+  parent: BaseMechPartHonker # Delta V
   id: MechEquipmentHorn
   result: MechEquipmentHorn
   materials:
@@ -92,7 +104,7 @@
 
 # HAMTR
 - type: latheRecipe
-  parent: BaseMechPartRecipe
+  parent: BaseMechPartHamptr # Delta V
   id: HamtrHarness
   result: HamtrHarness
   materials:
@@ -100,7 +112,7 @@
     Glass: 1000
 
 - type: latheRecipe
-  parent: BaseMechPartRecipe
+  parent: BaseMechPartHamptr # Delta V
   id: HamtrLArm
   result: HamtrLArm
   materials:
@@ -123,7 +135,7 @@
   result: HamtrRArm
 
 - type: latheRecipe
-  parent: BaseMechPartRecipe
+  parent: BaseMechPartHamptr # Delta V  
   id: MechEquipmentGrabberSmall
   result: MechEquipmentGrabberSmall
   materials:

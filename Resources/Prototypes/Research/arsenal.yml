@@ -32,6 +32,7 @@
   cost: 7500
   recipeUnlocks:
   - WeaponLaserCarbine
+  - WeaponMechCombatFiredartLaser # Goobstation
 
 # DeltaV: made nonlethals roundstart, see #2758
 #- type: technology
@@ -88,7 +89,8 @@
   - HoloprojectorSecurity
   - WeaponDisablerSMG
   - BorgModuleSecurityEscalate # Delta-V : SecBorg Research
-
+  - WeaponMechCombatDisabler # Goobstation
+ 
 - type: technology
   id: ExplosiveTechnology
   name: research-technology-explosive-technology
@@ -135,6 +137,7 @@
   - WeaponLaserCannon
   - WeaponXrayCannon
   - WeaponBeamCannon # DeltaV - Adds Beam cannon
+  - WeaponMechCombatSolarisLaser # Goobstation
 
 # DeltaV: merged with concentrated laser weaponry
 #- type: technology
@@ -164,7 +167,8 @@
   - WeaponCrusherGlaive
   - BorgModuleFauna
   - ShuttleGunKineticCircuitboard
-
+  - MechEquipmentKineticAccelerator # Goobstation
+ 
 - type: technology
   id: BasicShuttleArmament
   name: research-technology-basic-shuttle-armament
@@ -201,7 +205,8 @@
   recipeUnlocks:
   - WeaponAdvancedLaser
   - PortableRecharger
-
+  - WeaponMechCombatImmolationGun # Goobstation
+- 
 - type: technology
   id: ExperimentalBatteryAmmo
   name: research-technology-experimental-battery-ammo
