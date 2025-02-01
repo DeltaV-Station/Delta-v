@@ -4,6 +4,7 @@
                 xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                 MinSize="800 00"
                 Title="{Loc 'chem-master-bound-user-interface-title'}">
+    <!-- DeltaV: Use a box container to allow for a container viewable on all tabs -->
     <BoxContainer Orientation="Horizontal" VerticalExpand="true" MinSize="0 200">
         <TabContainer Name="Tabs" Margin="5 5 7 5" HorizontalExpand="True">
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="10">
@@ -14,6 +15,7 @@
                     <OptionButton Name="SortMethod" Access="Public" ToolTip="{Loc 'chem-master-window-sort-method-tooltip'}" StyleClasses="OpenRight" />
                 </BoxContainer>
 
+                <!-- DeltaV: Move buffer -->
                 <!-- Buffer info -->
                 <PanelContainer VerticalExpand="True" HorizontalExpand="True" MinSize="0 300">
                     <PanelContainer.PanelOverride>
@@ -29,6 +31,7 @@
                 </PanelContainer>
             </BoxContainer>
 
+            <!-- DeltaV: Add the pill buffer -->
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="10">
                 <!-- Pill Buffer -->
                 <BoxContainer Orientation="Horizontal">
@@ -107,6 +110,7 @@
                 </PanelContainer>
             </BoxContainer>
         </TabContainer>
+        <!-- DeltaV: container viewable on all tabs -->
         <BoxContainer Orientation="Vertical" Margin="5 5 7 5" MinSize="300 0">
             <!-- Input container info -->
             <BoxContainer Orientation="Horizontal">

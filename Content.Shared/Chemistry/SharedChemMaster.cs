@@ -11,7 +11,7 @@ namespace Content.Shared.Chemistry
     {
         public const uint PillTypes = 20;
         public const string BufferSolutionName = "buffer";
-        public const string PillBufferSolutionName = "pillBuffer";
+        public const string PillBufferSolutionName = "pillBuffer"; // Delta-v
         public const string InputSlotName = "beakerSlot";
         public const string OutputSlotName = "outputSlot";
         public const string PillSolutionName = "food";
@@ -34,16 +34,16 @@ namespace Content.Shared.Chemistry
     public sealed class ChemMasterReagentAmountButtonMessage : BoundUserInterfaceMessage
     {
         public readonly ReagentId ReagentId;
-        public readonly int Amount;
+        public readonly int Amount; // Delta-v
         public readonly bool FromBuffer;
-        public readonly bool IsOutput;
+        public readonly bool IsOutput; // Delta-v
 
-        public ChemMasterReagentAmountButtonMessage(ReagentId reagentId, int amount, bool fromBuffer, bool isOutput)
+        public ChemMasterReagentAmountButtonMessage(ReagentId reagentId, int amount, bool fromBuffer, bool isOutput) // Delta-v
         {
             ReagentId = reagentId;
             Amount = amount;
             FromBuffer = fromBuffer;
-            IsOutput = isOutput;
+            IsOutput = isOutput; // Delta-v
         }
     }
 
@@ -85,12 +85,6 @@ namespace Content.Shared.Chemistry
     public sealed class ChemMasterTransferringAmountUpdated(int transferringAmount) : BoundUserInterfaceMessage
     {
         public readonly int TransferringAmount = transferringAmount;
-    }
-
-    public enum ChemMasterMode
-    {
-        Transfer,
-        Discard,
     }
 
     /// <summary>

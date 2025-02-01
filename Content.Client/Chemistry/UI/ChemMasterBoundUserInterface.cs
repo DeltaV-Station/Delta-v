@@ -10,10 +10,14 @@ namespace Content.Client.Chemistry.UI
     /// Initializes a <see cref="ChemMasterWindow"/> and updates it when new server messages are received.
     /// </summary>
     [UsedImplicitly]
-    public sealed class ChemMasterBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey) // Delta-v
+    public sealed class ChemMasterBoundUserInterface : BoundUserInterface
     {
         [ViewVariables]
         private ChemMasterWindow? _window;
+
+        public ChemMasterBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+        {
+        }
 
         /// <summary>
         /// Called each time a chem master UI instance is opened. Generates the window and fills it with

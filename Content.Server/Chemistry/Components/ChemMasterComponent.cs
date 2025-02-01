@@ -21,9 +21,16 @@ namespace Content.Server.Chemistry.Components
         [DataField("clickSound"), ViewVariables(VVAccess.ReadWrite)]
         public SoundSpecifier ClickSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");
 
+        /// <summary> 
+        /// DeltaV: The enum integer value for which SortMethod the user has selected.
+        /// Directly castable as a SortMethod, but nothing server-side needs that.
+        /// </summary>
         [DataField]
         public int SortMethod;
 
+        /// <summary> 
+        /// DeltaV: How much is the user transferring on each transfer?
+        /// </summary>
         [DataField]
         public int TransferringAmount;
     }
