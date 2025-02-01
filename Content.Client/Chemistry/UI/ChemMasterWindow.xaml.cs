@@ -24,16 +24,16 @@ namespace Content.Client.Chemistry.UI
     public sealed partial class ChemMasterWindow : FancyWindow
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        public event Action<BaseButton.ButtonEventArgs, ReagentButton, int, bool>? OnReagentButtonPressed; // Delta-v
-        public event Action<int>? OnAmountButtonPressed; // Delta-v
-        public event Action<int>? OnSortMethodChanged; // Delta-v
-        public event Action<int>? OnTransferAmountChanged; // Delta-v
+        public event Action<BaseButton.ButtonEventArgs, ReagentButton, int, bool>? OnReagentButtonPressed; // DeltaV
+        public event Action<int>? OnAmountButtonPressed; // DeltaV
+        public event Action<int>? OnSortMethodChanged; // DeltaV
+        public event Action<int>? OnTransferAmountChanged; // DeltaV
         public readonly Button[] PillTypeButtons;
 
-        private const string TransferringAmountColor = "#ffffff"; // Delta-v
-        private ReagentSortMethod _currentSortMethod = ReagentSortMethod.Alphabetical; // Delta-v
-        private ChemMasterBoundUserInterfaceState? _lastState; // Delta-v
-        private int _transferAmount = 50; // Delta-v
+        private const string TransferringAmountColor = "#ffffff"; // DeltaV
+        private ReagentSortMethod _currentSortMethod = ReagentSortMethod.Alphabetical; // DeltaV
+        private ChemMasterBoundUserInterfaceState? _lastState; // DeltaV
+        private int _transferAmount = 50; // DeltaV
 
         private const string PillsRsiPath = "/Textures/Objects/Specific/Chemistry/pills.rsi";
 
@@ -46,9 +46,9 @@ namespace Content.Client.Chemistry.UI
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
 
-            AmountLabel.HorizontalAlignment = HAlignment.Center; // Delta-v
-            AmountLineEdit.OnTextEntered += (args) => SetAmountText(args.Text); // Delta-v
-            AmountLineEdit.OnFocusExit += (args) => SetAmountText(args.Text); // Delta-v
+            AmountLabel.HorizontalAlignment = HAlignment.Center; // DeltaV
+            AmountLineEdit.OnTextEntered += (args) => SetAmountText(args.Text); // DeltaV
+            AmountLineEdit.OnFocusExit += (args) => SetAmountText(args.Text); // DeltaV
 
             // Pill type selection buttons, in total there are 20 pills.
             // Pill rsi file should have states named as pill1, pill2, and so on.
@@ -100,7 +100,7 @@ namespace Content.Client.Chemistry.UI
             Tabs.SetTabTitle(0, Loc.GetString("chem-master-window-input-tab"));
             Tabs.SetTabTitle(1, Loc.GetString("chem-master-window-output-tab"));
 
-            // Delta-v Start - Necessary for sorting/custom amounts
+            // DeltaV Start - Necessary for sorting/custom amounts
             SortMethod.AddItem(
                 Loc.GetString("chem-master-window-sort-method-Alphabetical-text"),
                 (int) ReagentSortMethod.Alphabetical);
@@ -128,7 +128,7 @@ namespace Content.Client.Chemistry.UI
 
             PillSortMethod.OnItemSelected += HandleChildPressed;
 
-            // Delta-v - Specific amounts to allow for better, specific items
+            // DeltaV - Specific amounts to allow for better, specific items
             int[] amounts =
             [
                 1, 5, 10, 15, 20, 25, 30, 33, 40, 45, 50, 55, 60, 66, 70, 75, 80, 85, 90, 99, 100, 125, 150, 175, 200, 225, 250, 275, 300, 500
@@ -205,26 +205,26 @@ namespace Content.Client.Chemistry.UI
             AmountLabel.Text = localizedAmount;
             AmountLineEdit.SetText(string.Empty);
             OnTransferAmountChanged?.Invoke(amount);
-            // Delta-v end
+            // DeltaV end
         }
 
-        private ReagentButton MakeReagentButton(string text, ReagentId id, bool isBuffer) // Delta-v
+        private ReagentButton MakeReagentButton(string text, ReagentId id, bool isBuffer) // DeltaV
         {
-            var reagentTransferButton = new ReagentButton(text, id, isBuffer); // Delta-v
+            var reagentTransferButton = new ReagentButton(text, id, isBuffer); // DeltaV
             reagentTransferButton.OnPressed += args
-                => OnReagentButtonPressed?.Invoke(args, reagentTransferButton, _transferAmount, Tabs.CurrentTab == 1); // Delta-v
+                => OnReagentButtonPressed?.Invoke(args, reagentTransferButton, _transferAmount, Tabs.CurrentTab == 1); // DeltaV
             return reagentTransferButton;
         }
         /// <summary>
         /// Conditionally generates a set of reagent buttons based on the supplied boolean argument.
         /// This was moved outside of BuildReagentRow to facilitate conditional logic, stops indentation depth getting out of hand as well.
         /// </summary>
-        private ReagentButton? CreateReagentTransferButton(ReagentId reagent, bool isBuffer, bool addReagentButtons) // Delta-v
+        private ReagentButton? CreateReagentTransferButton(ReagentId reagent, bool isBuffer, bool addReagentButtons) // DeltaV
         {
             if (!addReagentButtons)
                 return null; // Return an empty list if reagentTransferButton creation is disabled.
 
-             // Delta-v
+             // DeltaV
             var reagentTransferButton = MakeReagentButton(
                 Loc.GetString("chem-master-window-transfer-button"),
                 reagent,
@@ -249,19 +249,19 @@ namespace Content.Client.Chemistry.UI
 
             // Ensure the Panel Info is updated, including UI elements for Buffer Volume, Output Container and so on
             UpdatePanelInfo(castState);
-            HandleSortMethodChange(castState.SortMethod); // Delta-v
+            HandleSortMethodChange(castState.SortMethod); // DeltaV
 
-            _transferAmount = castState.TransferringAmount; // Delta-v
-            BufferCurrentVolume.Text = $" {castState.PillBufferCurrentVolume?.Int() ?? 0}u"; // Delta-v
+            _transferAmount = castState.TransferringAmount; // DeltaV
+            BufferCurrentVolume.Text = $" {castState.PillBufferCurrentVolume?.Int() ?? 0}u"; // DeltaV
 
-            InputEjectButton.Disabled = castState.ContainerInfo is null; // Delta-v
-            CreateBottleButton.Disabled = castState.PillBufferReagents.Count == 0; // Delta-v
-            CreatePillButton.Disabled = castState.PillBufferReagents.Count == 0; // Delta-v
+            InputEjectButton.Disabled = castState.ContainerInfo is null; // DeltaV
+            CreateBottleButton.Disabled = castState.PillBufferReagents.Count == 0; // DeltaV
+            CreatePillButton.Disabled = castState.PillBufferReagents.Count == 0; // DeltaV
 
             UpdateDosageFields(castState);
         }
 
-        private FixedPoint2 CurrentStateBufferVolume(ChemMasterBoundUserInterfaceState state) // Delta-v
+        private FixedPoint2 CurrentStateBufferVolume(ChemMasterBoundUserInterfaceState state) // DeltaV
         {
             return (Tabs.CurrentTab == 0 ? state.BufferCurrentVolume : state.PillBufferCurrentVolume) ?? 0;
         }
@@ -269,21 +269,21 @@ namespace Content.Client.Chemistry.UI
         //assign default values for pill and bottle fields.
         private void UpdateDosageFields(ChemMasterBoundUserInterfaceState castState)
         {
-            var bufferVolume = castState.PillBufferCurrentVolume?.Int() ?? 0; // Delta-v
-            PillDosage.Value = (int) Math.Min(bufferVolume, castState.PillDosageLimit); // Delta-v
+            var bufferVolume = castState.PillBufferCurrentVolume?.Int() ?? 0; // DeltaV
+            PillDosage.Value = (int) Math.Min(bufferVolume, castState.PillDosageLimit); // DeltaV
 
             PillTypeButtons[castState.SelectedPillType].Pressed = true;
-            PillNumber.IsValid = x => x >= 0; // Delta-v
+            PillNumber.IsValid = x => x >= 0; // DeltaV
             PillDosage.IsValid = x => x > 0 && x <= castState.PillDosageLimit;
-            BottleDosage.IsValid = x => x >= 0; // Delta-v
+            BottleDosage.IsValid = x => x >= 0; // DeltaV
 
             // Avoid division by zero
             if (PillDosage.Value > 0)
-                PillNumber.Value = bufferVolume / PillDosage.Value; // Delta-v
+                PillNumber.Value = bufferVolume / PillDosage.Value; // DeltaV
             else
                 PillNumber.Value = 0;
 
-            BottleDosage.Value = bufferVolume;  // Delta-v
+            BottleDosage.Value = bufferVolume;  // DeltaV
         }
         /// <summary>
         /// Generate a product label based on reagents in the buffer.
@@ -291,11 +291,11 @@ namespace Content.Client.Chemistry.UI
         /// <param name="state">State data sent by the server.</param>
         private string GenerateLabel(ChemMasterBoundUserInterfaceState state)
         {
-            if (CurrentStateBufferVolume(state) == 0) // Delta-v
+            if (CurrentStateBufferVolume(state) == 0) // DeltaV
                 return "";
 
-            var buffer = Tabs.CurrentTab == 0 ? state.BufferReagents : state.PillBufferReagents; // Delta-v
-            var reagent = buffer.OrderBy(r => r.Quantity).First().Reagent; // Delta-v
+            var buffer = Tabs.CurrentTab == 0 ? state.BufferReagents : state.PillBufferReagents; // DeltaV
+            var reagent = buffer.OrderBy(r => r.Quantity).First().Reagent; // DeltaV
 
             _prototypeManager.TryIndex(reagent.Prototype, out ReagentPrototype? proto);
             return proto?.LocalizedName ?? "";
@@ -307,9 +307,9 @@ namespace Content.Client.Chemistry.UI
         /// <param name="state">State data for the dispenser.</param>
         private void UpdatePanelInfo(ChemMasterBoundUserInterfaceState state)
         {
-            BuildContainerUI(ContainerInfoContainer, state.ContainerInfo, true); // Delta-v
-            BuildBufferInfo(state); // Delta-v
-            BuildPillBufferInfo(state); // Delta-v
+            BuildContainerUI(ContainerInfoContainer, state.ContainerInfo, true); // DeltaV
+            BuildBufferInfo(state); // DeltaV
+            BuildPillBufferInfo(state); // DeltaV
         }
 
         private void BuildBufferInfo(ChemMasterBoundUserInterfaceState state)
@@ -337,15 +337,15 @@ namespace Content.Client.Chemistry.UI
             };
             bufferHBox.AddChild(bufferVol);
 
-            var bufferReagents = state.BufferReagents.OrderBy(x => x.Reagent.Prototype); // Delta-v
+            var bufferReagents = state.BufferReagents.OrderBy(x => x.Reagent.Prototype); // DeltaV
 
-            if (_currentSortMethod == ReagentSortMethod.Amount) // Delta-v
-                bufferReagents = bufferReagents.OrderByDescending(x => x.Quantity); // Delta-v
+            if (_currentSortMethod == ReagentSortMethod.Amount) // DeltaV
+                bufferReagents = bufferReagents.OrderByDescending(x => x.Quantity); // DeltaV
 
-            HandleBuffer(_currentSortMethod == ReagentSortMethod.Time ? state.BufferReagents : bufferReagents, false); // Delta-v
+            HandleBuffer(_currentSortMethod == ReagentSortMethod.Time ? state.BufferReagents : bufferReagents, false); // DeltaV
         }
 
-        // Delta-v Start
+        // DeltaV Start
 
         private void BuildPillBufferInfo(ChemMasterBoundUserInterfaceState state)
         {
@@ -380,7 +380,7 @@ namespace Content.Client.Chemistry.UI
             HandleBuffer(_currentSortMethod == ReagentSortMethod.Time ? state.PillBufferReagents : bufferReagents, true);
         }
 
-        private void HandleBuffer(IEnumerable<ReagentQuantity> reagents, bool pillBuffer) // Delta-v
+        private void HandleBuffer(IEnumerable<ReagentQuantity> reagents, bool pillBuffer) // DeltaV
         {
             var rowCount = 0;
             var pillRowCount = 0;
@@ -405,7 +405,7 @@ namespace Content.Client.Chemistry.UI
             }
         }
 
-        // Delta-v End
+        // DeltaV End
 
         private void BuildContainerUI(Control control, ContainerInfo? info, bool addReagentButtons)
         {
@@ -505,7 +505,7 @@ namespace Content.Client.Chemistry.UI
                 }
             };
 
-            if (reagentButtonConstructor != null) // Delta-v - add button for reagent transfer
+            if (reagentButtonConstructor != null) // DeltaV - add button for reagent transfer
                 rowContainer.AddChild(reagentButtonConstructor);
 
             //Apply panencontainer to allow for striped rows
@@ -527,7 +527,7 @@ namespace Content.Client.Chemistry.UI
     {
         public bool IsBuffer = true;
         public ReagentId Id { get; set; }
-        public ReagentButton(string text, ReagentId id, bool isBuffer) // Delta-v
+        public ReagentButton(string text, ReagentId id, bool isBuffer) // DeltaV
         {
             AddStyleClass(StyleBase.ButtonOpenLeft);
             Text = text;
@@ -536,7 +536,7 @@ namespace Content.Client.Chemistry.UI
         }
     }
 
-    // Delta-v
+    // DeltaV
     public enum ReagentSortMethod
     {
         Time,
