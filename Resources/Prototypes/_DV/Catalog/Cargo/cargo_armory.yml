@@ -30,14 +30,14 @@
 
 - type: cargoProduct
   id: ArmoryEnergyGun
-  icon: 
+  icon:
     sprite: _DV/Objects/Weapons/Guns/Battery/energygun.rsi
     state: icon
   product: CrateArmoryEnergyGun
   cost: 5500
   category: Armory
   group: market
- 
+
 - type: cargoProduct
   id: ArmoryEnergyGunMini
   icon:
@@ -45,5 +45,17 @@
     state: icon
   product: CrateArmoryEnergyGunMini
   cost: 3500
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: ArmoryArmingSword
+  name: Arming Sword Crate
+  description: Contains two Plasteel Arming Swords. Requires Armory access to open.
+  icon:
+    sprite: _NF/Objects/Weapons/Melee/armingsword.rsi
+    state: icon
+  product: CrateArmoryArmingSword
+  cost: 2500
   category: Armory
   group: market
