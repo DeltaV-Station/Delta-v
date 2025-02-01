@@ -28,6 +28,7 @@
     - state: unlit
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic

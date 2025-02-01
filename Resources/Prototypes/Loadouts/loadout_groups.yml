@@ -27,6 +27,7 @@
   - ClothingNeckLesbianPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
+  - ClothingNeckOmnisexualPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
@@ -696,8 +697,11 @@
   id: CargoTechnicianJumpsuit
   name: loadout-group-cargo-technician-jumpsuit
   loadouts:
-  - CargoTechnicianJumpsuit
-  - CargoTechnicianJumpskirt
+ #- CargoTechnicianJumpsuit
+ #- CargoTechnicianJumpskirt
+  - ClothingUniformJumpsuitCargoTechPants # DeltaV
+  - ClothingUniformJumpsuitCargoTechOveralls # DeltaV
+  - ClothingUniformJumpskirtCargoTechRomper # DeltaV
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
