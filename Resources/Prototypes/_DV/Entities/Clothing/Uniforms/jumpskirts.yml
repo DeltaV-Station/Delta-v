@@ -66,6 +66,17 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/chemsuitskirt.rsi
 
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtScientistFormal
+  name: scientist's formal jumpskirt
+  description: A uniform for sophisticated scientists, best worn with its matching tie.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/scientist_formal.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/scientist_formal.rsi
+
 # Security alt uniforms
 
 - type: entity
