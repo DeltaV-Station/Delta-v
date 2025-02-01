@@ -7,5 +7,5 @@ public sealed partial class PlayerAccuracyModifierComponent : Component
     public float SpreadModifier = 15f;
 
     [DataField]
-    public float MaxSpreadAngle = 360f;
+    public float MaxSpreadAngle = 180f;
 }
