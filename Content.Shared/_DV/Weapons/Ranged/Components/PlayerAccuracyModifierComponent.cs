@@ -1,10 +1,12 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Shared._DV.Weapons.Ranged.Components;
 
 /// <summary>
 /// Alters the accuracy of attached entity's held or wielded guns via
 /// <see cref="Shared.Weapons.Ranged.Events.GunRefreshModifiersEvent"/>.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class PlayerAccuracyModifierComponent : Component
 {
     /// <summary>

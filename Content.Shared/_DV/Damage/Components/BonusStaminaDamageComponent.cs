@@ -1,3 +1,5 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Shared._DV.Damage.Components;
 
 /// <summary>
@@ -5,7 +7,7 @@ namespace Content.Shared._DV.Damage.Components;
 /// and weapon attacks.
 /// <see cref="Shared.Damage.Events.StaminaMeleeHitEvent"/>
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class BonusStaminaDamageComponent : Component
 {
     /// <summary>

@@ -1,9 +1,11 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Shared._DV.Prying.Components;
 
 /// <summary>
 /// Alters the interaction speed of attached entity's tools.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class PlayerToolModifierComponent : Component
 {
     /// <summary>
