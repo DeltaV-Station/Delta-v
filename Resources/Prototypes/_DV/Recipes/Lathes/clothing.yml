@@ -52,6 +52,18 @@
   id: ClothingUniformJumpskirtWardenGrey
   result: ClothingUniformJumpskirtWardenGrey
 
+# Detective
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitForensicSpec
+  result: ClothingUniformJumpsuitForensicSpec
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtForensicSpec
+  result: ClothingUniformJumpskirtForensicSpec
+
 # Security Sweater
 
 - type: latheRecipe
@@ -59,6 +71,37 @@
   id: ClothingOuterStasecSweater
   result: ClothingOuterStasecSweater
   completetime: 4
+
+# Command Winter Coats
+
+- type: latheRecipe
+  parent: BaseCommandCoatRecipe
+  id: ClothingOuterCoatStasecHoS
+  result: ClothingOuterCoatStasecHoS
+
+- type: latheRecipe
+  parent: BaseCommandCoatRecipe
+  id: ClothingOuterCoatStasecWarden
+  result: ClothingOuterCoatStasecWarden
+
+# Winter Coats
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatStasec
+  result: ClothingOuterCoatStasec
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatStasecDet
+  result: ClothingOuterCoatStasecDet
+
+# Non-Command Hats
+
+- type: latheRecipe # DeltaV - added to lathe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatBeretDet
+  result: ClothingHeadHatBeretDet
 
 # Chief Justice Wardrobe
 
