@@ -26,7 +26,7 @@ public sealed partial class FeedbackPopupWindow : FancyWindow
         _feedbackpopup = _proto.Index(popupProto);
 
         // When the submit button is pressed, pass up the vars back to the UI controller.
-        SubmitButton.OnPressed += _ => OnSubmitted?.Invoke((_feedbackpopup.PopupName, Rope.Collapse(FeedbackReply.TextRope)));
+        SubmitButton.OnPressed += OnSubmitButtonPressed;
 
         PopulateWindow();
     }
@@ -52,6 +52,15 @@ public sealed partial class FeedbackPopupWindow : FancyWindow
             Margin = new Thickness(0,0,0,10),
         };
         SectionContainer.AddChild(label);
+    }
+
+    private void OnSubmitButtonPressed(BaseButton.ButtonEventArgs args)
+    {
+        // If they haven't written anything, ignore it.
+        if (string.IsNullOrWhiteSpace(Rope.Collapse(FeedbackReply.TextRope)))
+            return;
+
+        OnSubmitted?.Invoke((_feedbackpopup.PopupName, Rope.Collapse(FeedbackReply.TextRope)));
     }
 }
 
