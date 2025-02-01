@@ -4,7 +4,7 @@ namespace Content.Shared._DV.Weapons.Ranged.Components;
 public sealed partial class PlayerAccuracyModifierComponent : Component
 {
     [DataField]
-    public float SpreadModifier = 15f;
+    public float SpreadMultiplier = 15f;
 
     [DataField]
     public float MaxSpreadAngle = 180f;

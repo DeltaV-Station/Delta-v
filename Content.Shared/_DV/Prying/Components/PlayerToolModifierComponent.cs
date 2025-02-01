@@ -4,5 +4,5 @@ namespace Content.Shared._DV.Prying.Components;
 public sealed partial class PlayerToolModifierComponent : Component
 {
     [DataField]
-    public float PryTimeModifier = 1.0f;
+    public float PryTimeMultiplier = 1.0f;
 }

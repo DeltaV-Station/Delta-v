@@ -11,9 +11,9 @@
   - type: Sprite
     scale: 1.2, 1.2
   - type: PlayerToolModifier
-    pryTimeModifier: 0.6
+    pryTimeMultiplier: 0.6
   - type: PlayerAccuracyModifier
-    spreadModifier: 15
+    spreadMultiplier: 15
     maxSpreadAngle: 180
   - type: BonusStaminaDamage
     multiplier: 1.25

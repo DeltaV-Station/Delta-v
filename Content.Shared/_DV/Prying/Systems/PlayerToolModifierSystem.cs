@@ -14,6 +14,6 @@ public sealed partial class PlayerToolModifierSystem : EntitySystem
 
     private void OnPry(Entity<PlayerToolModifierComponent> ent, ref GetPryTimeModifierEvent args)
     {
-        args.PryTimeModifier *= ent.Comp.PryTimeModifier;
+        args.PryTimeModifier *= ent.Comp.PryTimeMultiplier;
     }
 }
