@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Velcroboy
-  changes:
-  - message: Re-added The Reclaimer....sort of...
-    type: Add
-  id: 468
-  time: '2024-08-12T02:09:06.480995+00:00'
-  url: null
 - author: DarkenedSynergy
   changes:
   - message: Prescriptions security HUDs are no longer uncraftable.
@@ -3865,3 +3858,12 @@
   id: 967
   time: '2025-01-31T05:16:17.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2824
+- author: beck-thompson
+  changes:
+  - message: Thieves can now roll in survival.
+    type: Add
+  - message: Survival gamemode weight -5%, traitor gamemode weight +5%
+    type: Add
+  id: 968
+  time: '2025-02-01T06:55:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2823
