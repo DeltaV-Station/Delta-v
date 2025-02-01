@@ -5,6 +5,7 @@
   minLimit: 0
   maxLimit: 3
   loadouts:
+  - ClothingHeadHatUshanka
   - FlowerWreath
   - Hairflower
   - Headphones
@@ -1489,3 +1490,13 @@
   hidden: true
   loadouts:
   - LoadoutSpeciesBreathToolSecurity
+
+  # Hats
+
+- type: loadoutGroup
+  id: ClothingHeadHatUshanka
+  name: loadout-group-ushanka
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClothingHeadHatUshanka
