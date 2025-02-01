@@ -12,3 +12,6 @@ ent-CrateArmoryEnergyGun = Energy Gun Crate
 
 ent-CrateArmoryEnergyGunMini = Miniature Energy Gun Crate
     .desc = Contains three Miniature Energy Guns. Requires Armory access to open.
+
+ent-CrateArmoryArmingSword = Arming Sword Crate
+    .desc = Contains two Plasteel Arming Swords. Requires Armory access to open.

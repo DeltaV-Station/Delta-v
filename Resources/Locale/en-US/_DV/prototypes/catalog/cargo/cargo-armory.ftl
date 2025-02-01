@@ -12,3 +12,6 @@ ent-ArmoryEnergyGun = { ent-CrateArmoryEnergyGun }
 
 ent-ArmoryEnergyGunMini = { ent-CrateArmoryEnergyGunMini }
     .desc = { ent-CrateArmoryEnergyGunMini.desc }
+
+ent-ArmoryArmingSword = { ent-CrateArmoryArmingSword }
+    .desc = { ent-CrateArmoryArmingSword.desc}
