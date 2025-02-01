@@ -79,6 +79,8 @@ public abstract partial class SharedHandsSystem : EntitySystem
             TryUseItemInHand(args.SenderSession.AttachedEntity.Value, true, handName: msg.HandName);
     }
 
+    // Delta-V - SwapHandsPressed moved to Content.Shared._DV.Hands.EntitySystems.SharedHandsSystem
+
     private bool DropPressed(ICommonSession? session, EntityCoordinates coords, EntityUid netEntity)
     {
         if (TryComp(session?.AttachedEntity, out HandsComponent? hands) && hands.ActiveHand != null)
