@@ -13,6 +13,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
+using Content.Shared._EE.Silicon.Components;
 
 namespace Content.Server.Chat;
 
@@ -164,7 +165,10 @@ public sealed class SuicideSystem : EntitySystem
             return;
         }
 
-        args.DamageType ??= "Bloodloss";
+        if (HasComp<SiliconComponent>(victim)) // Goobstation
+            args.DamageType ??= "Shock";
+        else
+            args.DamageType ??= "Bloodloss";
         _suicide.ApplyLethalDamage(victim, args.DamageType);
         args.Handled = true;
     }

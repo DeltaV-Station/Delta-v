@@ -7,6 +7,10 @@
   requirements:
   - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
     time: 43200 # DeltaV - 12 hours
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - IPC
   guides: [ Zombies ]
 
 - type: antag
@@ -15,4 +19,9 @@
   antagonist: true
   setPreference: false
   objective: roles-antag-zombie-objective
+  requirements:
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - IPC
   guides: [ Zombies ]

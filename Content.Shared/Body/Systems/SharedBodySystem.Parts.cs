@@ -502,7 +502,8 @@ public partial class SharedBodySystem
         Containers.EnsureContainer<ContainerSlot>(partId.Value, GetPartSlotContainerId(slotId));
         slot = new BodyPartSlot(slotId, partType);
 
-        if (!part.Children.TryAdd(slotId, slot.Value))
+        if (!part.Children.ContainsKey(slotId) // Shitmed Change
+            && !part.Children.TryAdd(slotId, slot.Value))
             return false;
 
         Dirty(partId.Value, part);
