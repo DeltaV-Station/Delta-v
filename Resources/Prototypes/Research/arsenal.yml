@@ -1,26 +1,25 @@
 # Tier 1
 
-- type: technology
-  id: DraconicMunitions
-  name: research-technology-draconic-munitions
-  icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
-    state: incendiarydisplay
-  discipline: Arsenal
-  tier: 2 # DeltaV moved to t2 from t1
-  cost: 10000
-  recipeUnlocks:
-  - BoxShotgunIncendiary
-  - MagazineRifleIncendiary
-  - MagazinePistolIncendiary
-  - MagazineLightRifleIncendiary
-  - SpeedLoaderMagnumIncendiary
-  - MagazineShotgunIncendiary
-  - MagazineBoxPistolIncendiary
-  - MagazineBoxMagnumIncendiary
-  - MagazineBoxLightRifleIncendiary
-  - MagazineBoxRifleIncendiary
-  - MagazineBoxSpecialIncendiary # DeltaV
+#- type: technology # DeltaV merged draconic and uranium munitions and moved to our namespace
+#  id: DraconicMunitions
+#  name: research-technology-draconic-muntions
+#  icon:
+#    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
+#    state: incendiarydisplay
+#  discipline: Arsenal
+#  tier: 1
+#  cost: 10000
+#  recipeUnlocks:
+#  - BoxShotgunIncendiary
+#  - MagazineRifleIncendiary
+#  - MagazinePistolIncendiary
+#  - MagazineLightRifleIncendiary
+#  - SpeedLoaderMagnumIncendiary
+#  - MagazineShotgunIncendiary
+#  - MagazineBoxPistolIncendiary
+#  - MagazineBoxMagnumIncendiary
+#  - MagazineBoxLightRifleIncendiary
+#  - MagazineBoxRifleIncendiary
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -50,28 +49,28 @@
 #  - BoxBeanbag
 #  - WeaponDisabler
 
-- type: technology
-  id: UraniumMunitions
-  name: research-technology-uranium-munitions
-  icon:
-    sprite: Objects/Materials/Sheets/other.rsi
-    state: uranium
-  discipline: Arsenal
-  tier: 2 # DeltaV moved to t2 from t1
-  cost: 7500
-  recipeUnlocks:
-  - MagazineRifleUranium
-  - MagazinePistolUranium
-  - MagazineLightRifleUranium
-  - SpeedLoaderMagnumUranium
-  - MagazineBoxPistolUranium
-  - MagazineBoxMagnumUranium
-  - MagazineBoxLightRifleUranium
-  - MagazineBoxRifleUranium
-  - BoxShotgunUranium
+#- type: technology # DeltaV merged draconic and uranium munitions and moved to our namespace
+#  id: UraniumMunitions
+#  name: research-technology-uranium-munitions
+#  icon:
+#    sprite: Objects/Materials/Sheets/other.rsi
+#    state: uranium
+#  discipline: Arsenal
+#  tier: 1
+#  cost: 7500
+#  recipeUnlocks:
+#  - MagazineRifleUranium
+#  - MagazinePistolUranium
+#  - MagazineLightRifleUranium
+#  - SpeedLoaderMagnumUranium
+#  - MagazineBoxPistolUranium
+#  - MagazineBoxMagnumUranium
+#  - MagazineBoxLightRifleUranium
+#  - MagazineBoxRifleUranium
+#  - BoxShotgunUranium
   # DeltaV - .38 special uranium ammo - Adds .38 special uranium ammo to the research tree
-  - SpeedLoaderSpecialUranium
-  - MagazineBoxSpecialUranium
+#  - SpeedLoaderSpecialUranium
+#  - MagazineBoxSpecialUranium
   # End of modified code
 
 - type: technology
@@ -107,6 +106,7 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  - SignallerDeadMans # DeltaV - Dead Man's Signaller
 
 - type: technology
   id: SpecialMeans

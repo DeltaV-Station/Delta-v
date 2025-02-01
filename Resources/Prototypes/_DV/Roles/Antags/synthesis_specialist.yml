@@ -13,17 +13,18 @@
 - type: startingGear
   id: SyndicateSynthesisGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSyndieFormal
-    jumpskirt: ClothingUniformJumpskirtSyndieFormalDress
+    jumpsuit: ClothingUniformInterdyneChemist
     back: ClothingBackpackChemistry
     belt: ChemBag
-    eyes: ClothingEyesGlassesChemical
+    eyes: ClothingEyesGlassesChemicalInterdyne
     gloves: ClothingHandsGlovesChemist
-    outerClothing: ClothingOuterCoatLabChem
+    outerClothing: ClothingOuterInterdyneChemistrySuit
     shoes: ClothingShoesEnclosedChem
     id: SyndiPDA
     ears: ClothingHeadsetAltSyndicate
     pocket1: HandLabeler
     pocket2: RubberStampSyndicate
-    mask: ClothingMaskNeckGaiter
+    mask: ClothingMaskInterdyneChemistry
     head: ClothingHeadHatSyndie
+  inhand:
+    - DefibrillatorSyndicate

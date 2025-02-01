@@ -36,15 +36,27 @@
     event: !type:ToggleCrawlingStateEvent
 
 - type: entity
-  id: ActionPrecognition
-  name: Precognition
-  description: See into the future to get a hint about the next random event.
+  id: ActionChitzite
+  name: Cough Up Chitzite
+  description: Purge the excess radiation build-up from your body, and gain a cool danger rock.
   components:
   - type: InstantAction
+    charges: 0
+    enabled: false
+    maxCharges: 1
+    icon: { sprite: _DV/Objects/Specific/Species/chitinid.rsi, state: chitzite }
+    useDelay: 300
+    event: !type:CoughItemActionEvent
+
+- type: entity
+  id: ActionHairball
+  name: Cough Up Hairball
+  description: Purge some of your chemstream, and gain a cool hairball to throw at people.
+  components:
+  - type: InstantAction
+    charges: 1
     icon:
-      sprite: _DV/Interface/Actions/actions_psionics.rsi
-      state: precognition
-    useDelay: 240
-    checkCanInteract: false
-    checkConsciousness: false
-    event: !type:PrecognitionPowerActionEvent
+      sprite: Nyanotrasen/Objects/Specific/Species/felinid.rsi
+      state: icon
+    useDelay: 30
+    event: !type:CoughItemActionEvent
