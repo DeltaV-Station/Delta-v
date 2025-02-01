@@ -1,0 +1,9 @@
+- type: antag
+  id: Oneirophage
+  name: roles-antag-oneirophage-name
+  antagonist: true
+  objective: roles-antag-oneirophage-objective
+  # keep these in sync with the spawner
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 86400 # 24h so you probably know some general lore or something

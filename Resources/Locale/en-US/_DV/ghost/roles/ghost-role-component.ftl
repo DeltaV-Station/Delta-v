@@ -60,3 +60,9 @@ deltav-ghost-role-information-salvageantag-rules =  You are a salvage mob.
                                                     You are allowed to attack salvagers without provocation. DO NOT GIB THEIR CORPSES!
                                                     You are allowed to attack the salvage shuttle.
                                                     You are NOT allowed to go to the station. If the salvagers go to the station, you can't follow them.
+
+ghost-role-information-oneirophage-name = Oneirophage
+ghost-role-information-oneirophage-description = Nest. Lure. Ambush. Consume.
+ghost-role-information-oneirophage-rules =          You are a team antagonist with all Spiders.
+                                                    The crew is allowed to kill you without warning.
+                                                    You are allowed to attack the crew without provocation.
