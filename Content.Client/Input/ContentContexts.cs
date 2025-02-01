@@ -136,6 +136,11 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.OpenDecalSpawnWindow);
             common.AddFunction(ContentKeyFunctions.OpenAdminMenu);
             common.AddFunction(ContentKeyFunctions.OpenGuidebook);
+
+            // DeltaV - Swap Hands Reversed Start
+            human.AddFunction(ContentKeyFunctions.SwapHandsReversed);
+            aghost.AddFunction(ContentKeyFunctions.SwapHandsReversed);
+            // DeltaV - Swap Hands Reversed End
         }
     }
 }
