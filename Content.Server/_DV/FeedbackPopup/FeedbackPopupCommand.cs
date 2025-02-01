@@ -43,7 +43,7 @@ public sealed class FeedbackPopupCommand : LocalizedEntityCommands
             return;
         }
 
-        if (!_feedback.SendPopup(target, args[1]))
+        if (!_feedback.SendPopup(target, args[1], false))
         {
             shell.WriteError(Loc.GetString("feedbackpopup-command-error-popup-send-fail"));
             return;

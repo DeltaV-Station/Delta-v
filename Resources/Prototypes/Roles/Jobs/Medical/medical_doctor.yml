@@ -15,13 +15,15 @@
   - Maintenance
   extendedAccess:
   - Chemistry
-  - Paramedic # DeltaV - Add Paramedic access
-  - Surgery # DeltaV - Add Surgery access
-  special: # Shitmed change
-  - !type:AddComponentSpecial
-    components:
-    - type: SurgerySpeedModifier
-      speedModifier: 1.75
+  # Begin DeltaV changes
+  - Paramedic # Add Paramedic access
+  - Surgery # Add Surgery access
+  #special: Shitmed change
+  #- !type:AddComponentSpecial
+  #  components:
+  #  - type: SurgerySpeedModifier
+  #    speedModifier: 1.75
+  # End DeltaV
 
 - type: startingGear
   id: DoctorGear
