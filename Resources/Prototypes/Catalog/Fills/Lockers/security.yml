@@ -187,7 +187,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesGlassesSecurity
+#      - id: ClothingEyesGlassesSecurity # DeltaV - Replaced with Investigator glasses
+      - id: ClothingEyesGlassesInvestigator # DeltaV - Replacing sec glasses
 #        prob: 0.3 # DeltaV - standardise until HUD balance worked out
 #      - id: ClothingHeadHatFedoraBrown # DeltaV - removed for incongruence
 #      - id: ClothingNeckTieDet # DeltaV - removed for incongruence

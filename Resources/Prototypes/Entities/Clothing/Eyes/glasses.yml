@@ -191,10 +191,10 @@
     coverage: EYES
 
 - type: entity
-  parent: [ClothingEyesBase, BaseCommandContraband]
+  parent: [ClothingEyesBase, ShowAdministrationIcons, BaseCommandContraband] # DeltaV - Add MindShield to admin glasses.
   id: ClothingEyesGlassesCommand
   name: administration glasses
-  description: Upgraded sunglasses that provide flash immunity and show ID card status. 
+  description: Upgraded sunglasses that provide flash immunity and show ID card status.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/commandglasses.rsi
@@ -209,7 +209,7 @@
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
-  - type: ShowJobIcons
+  #- type: ShowJobIcons # DeltaV - Parent ShowAdministrationIcons instead
 
 - type: entity
   parent: ClothingEyesBase
