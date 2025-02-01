@@ -91,6 +91,7 @@
   - type: TargetObjective
     title: objective-condition-teach-person-title
   - type: PickRandomPerson
+    onlyChoosableJobs: true
 
 # Kill fellow traitor objective
 - type: entity

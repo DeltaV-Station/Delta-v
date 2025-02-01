@@ -96,6 +96,7 @@
   - type: TargetObjective
     title: objective-condition-kill-person-title
   - type: PickRandomPerson
+    onlyChoosableJobs: true # DeltaV
 
 - type: entity
   parent: [BaseTraitorObjective, BaseKillObjective]
