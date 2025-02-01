@@ -159,7 +159,6 @@ stock-trading-sell-button = Sell
 stock-trading-amount-placeholder = Amount
 stock-trading-price-history = Price History
 
-
 ## NanoChat
 
 # General
@@ -179,6 +178,9 @@ nano-chat-new-message-title = Message from {$sender}
 nano-chat-new-message-body = {$message}
 nano-chat-toggle-mute = Mute notifications
 nano-chat-delivery-failed = Failed to deliver
+nano-chat-look-up-no-server = No valid telecommunications server found
+nano-chat-look-up = Look up numbers
+nano-chat-list-number = List number
 
 # Create chat popup
 nano-chat-new-title = Add a new chat
