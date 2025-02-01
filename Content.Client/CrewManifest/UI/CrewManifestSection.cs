@@ -22,7 +22,7 @@ public sealed class CrewManifestSection : BoxContainer
         AddChild(new Label()
         {
             StyleClasses = { "LabelBig" },
-            Text = Loc.GetString($"department-{section.ID}")
+            Text = Loc.GetString(section.Name)
         });
 
         // Delta-V - changed type from GridContainer to BoxContainer to better handle long names and titles.
