@@ -108,7 +108,8 @@ JobQuartermaster = Logistics Officer
 JobReporter = Reporter
 JobResearchAssistant = Research Assistant
 JobResearchDirector = Mystagogue
-JobSalvageSpecialist = Salvage Specialist
+# DeltaV
+#JobSalvageSpecialist = Salvage Specialist
 JobScientist = Scientist
 JobSecurityCadet = Security Cadet
 JobSecurityOfficer = Security Officer
