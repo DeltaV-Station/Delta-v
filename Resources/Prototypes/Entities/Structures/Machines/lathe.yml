@@ -351,7 +351,7 @@
       - BluespaceBeaker
       - SyringeBluespace
       #- WeaponForceGun # DeltaV
-      - WeaponLaserSvalinn
+      #- WeaponLaserSvalinn #DeltaV
       - WeaponGrapplingGun
       #- WeaponTetherGun # DeltaV
       - ClothingBackpackHolding
@@ -1098,7 +1098,7 @@
       - EnergyScalpel
       - EnergyCautery
       - AdvancedRetractor
-      - OmnimedTool
+      #- OmnimedTool # DeltaV - Removed medical multi tool as a tech.
       - MedicalCyberneticEyes
   - type: Machine
     board: MedicalTechFabCircuitboard

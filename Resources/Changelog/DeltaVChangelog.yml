@@ -1,86 +1,4 @@
 ﻿Entries:
-- author: Velcroboy
-  changes:
-  - message: Re-added The Reclaimer....sort of...
-    type: Add
-  id: 468
-  time: '2024-08-12T02:09:06.480995+00:00'
-  url: null
-- author: DarkenedSynergy
-  changes:
-  - message: Prescriptions security HUDs are no longer uncraftable.
-    type: Fix
-  id: 469
-  time: '2024-08-12T02:09:06.481179+00:00'
-  url: null
-- author: deltanedas
-  changes:
-  - message: Emergency crowbars can't fit in pockets. Please don't take them without
-      an emergency!
-    type: Tweak
-  - message: You can now put grilled cheese, scrambled eggs, ghost peppers in burgers.
-    type: Tweak
-  id: 470
-  time: '2024-08-12T11:58:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1598
-- author: portfiend
-  changes:
-  - message: Added the AAC tablet and its corresponding UI, allowing mute characters
-      to communicate. This can be enabled in your loadout (under Trinkets) or created
-      in the Medical Techfab.
-    type: Add
-  id: 471
-  time: '2024-08-12T15:15:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1491
-- author: deltanedas
-  changes:
-  - message: Fixed nothing happening.
-    type: Fix
-  id: 472
-  time: '2024-08-12T19:40:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1609
-- author: Adeinitas, Timemaster99
-  changes:
-  - message: Gave Carpy the legal carp a suit or shirt.
-    type: Add
-  id: 473
-  time: '2024-08-12T22:47:30.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1456
-- author: rosieposieeee
-  changes:
-  - message: Added more access-locked blast doors for mappers.
-    type: Add
-  id: 474
-  time: '2024-08-13T12:35:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1615
-- author: DarkenedSynergy
-  changes:
-  - message: Nukie mouse reinforcement radios can no longer call in humans.
-    type: Fix
-  id: 475
-  time: '2024-08-13T15:55:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1617
-- author: portfiend
-  changes:
-  - message: Mail now shows the job icon of the recipient again.
-    type: Fix
-  id: 476
-  time: '2024-08-13T16:05:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1620
-- author: Velcroboy
-  changes:
-  - message: Tweaked the AME to produce power with diminishing returns
-    type: Tweak
-  id: 477
-  time: '2024-08-14T12:16:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1625
-- author: MilonPL
-  changes:
-  - message: Backpacks are now available in prisoner and gladiator loadouts.
-    type: Add
-  id: 478
-  time: '2024-08-14T19:38:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1628
 - author: deltanedas
   changes:
   - message: Fixed recruiter's pen not working.
@@ -3865,3 +3783,87 @@
   id: 967
   time: '2025-01-31T05:16:17.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2824
+- author: beck-thompson
+  changes:
+  - message: Thieves can now roll in survival.
+    type: Add
+  - message: Survival gamemode weight -5%, traitor gamemode weight +5%
+    type: Add
+  id: 968
+  time: '2025-02-01T06:55:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2823
+- author: deltanedas
+  changes:
+  - message: Made uranium far less radioactive.
+    type: Tweak
+  id: 969
+  time: '2025-02-01T18:10:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2841
+- author: sowelipililimute
+  changes:
+  - message: Autodoc can now operate on patients only under the effect of chloral
+      hydrate
+    type: Add
+  id: 970
+  time: '2025-02-01T18:30:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2843
+- author: Lyndomen
+  changes:
+  - message: Re-added pride cloaks to the PrideVend
+    type: Add
+  id: 971
+  time: '2025-02-01T19:28:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2826
+- author: Niomi0
+  changes:
+  - message: New keybind to swap hands in reverse, 'Shift-X' by default. Should only
+      matter if you play borg.
+    type: Add
+  id: 972
+  time: '2025-02-01T19:49:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2829
+- author: IAmNotGray
+  changes:
+  - message: Elegance, a service station, is now recieving crew members!
+    type: Add
+  - message: The new NTES Transport is here to take you to Central Command. _In style!_
+    type: Add
+  id: 973
+  time: '2025-02-02T04:03:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2020
+- author: Velcroboy
+  changes:
+  - message: Removed Hammurabi Prison Station. Map is undergoing a significant overhaul.
+      It will be back...eventually.
+    type: Remove
+  id: 974
+  time: '2025-02-02T04:32:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2851
+- author: Radezolid
+  changes:
+  - message: The medical multitool is no longer available as a researcheable technology.
+    type: Tweak
+  id: 975
+  time: '2025-02-02T06:08:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2834
+- author: Radezolid
+  changes:
+  - message: Universals are now way more expensive.
+    type: Tweak
+  id: 976
+  time: '2025-02-02T06:09:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2833
+- author: Radezolid
+  changes:
+  - message: Ported the conveyor arrows from Frontier Station!
+    type: Tweak
+  id: 977
+  time: '2025-02-02T06:12:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2846
+- author: Stop-Signs
+  changes:
+  - message: Svallin laser pistols have been removed from the research tree.
+    type: Remove
+  id: 978
+  time: '2025-02-02T18:57:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2835
