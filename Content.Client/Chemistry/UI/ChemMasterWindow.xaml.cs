@@ -254,7 +254,7 @@ namespace Content.Client.Chemistry.UI
             _transferAmount = castState.TransferringAmount; // DeltaV
             BufferCurrentVolume.Text = $" {castState.PillBufferCurrentVolume?.Int() ?? 0}u"; // DeltaV
 
-            InputEjectButton.Disabled = castState.ContainerInfo is null; // DeltaV
+            InputEjectButton.Disabled = castState.InputContainerInfo is null; // DeltaV
             CreateBottleButton.Disabled = castState.PillBufferReagents.Count == 0; // DeltaV
             CreatePillButton.Disabled = castState.PillBufferReagents.Count == 0; // DeltaV
 
@@ -307,7 +307,7 @@ namespace Content.Client.Chemistry.UI
         /// <param name="state">State data for the dispenser.</param>
         private void UpdatePanelInfo(ChemMasterBoundUserInterfaceState state)
         {
-            BuildContainerUI(ContainerInfoContainer, state.ContainerInfo, true); // DeltaV
+            BuildContainerUI(ContainerInfoContainer, state.InputContainerInfo, true); // DeltaV
             BuildBufferInfo(state); // DeltaV
             BuildPillBufferInfo(state); // DeltaV
         }

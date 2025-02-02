@@ -82,9 +82,9 @@ namespace Content.Shared.Chemistry
     }
 
     [Serializable, NetSerializable]
-    public sealed class ChemMasterTransferringAmountUpdated(int transferringAmount) : BoundUserInterfaceMessage
+    public sealed class ChemMasterTransferringAmountUpdated(int transferringAmount) : BoundUserInterfaceMessage // DeltaV
     {
-        public readonly int TransferringAmount = transferringAmount;
+        public readonly int TransferringAmount = transferringAmount; // DeltaV
     }
 
     /// <summary>
@@ -124,41 +124,54 @@ namespace Content.Shared.Chemistry
     }
 
     [Serializable, NetSerializable]
-    public sealed class ChemMasterBoundUserInterfaceState(
-        ContainerInfo? containerInfo,
-        IReadOnlyList<ReagentQuantity> bufferReagents,
-        IReadOnlyList<ReagentQuantity> pillBufferReagents,
-        FixedPoint2 bufferCurrentVolume,
-        FixedPoint2 pillBufferCurrentVolume,
-        uint selectedPillType,
-        uint pillDosageLimit,
-        bool updateLabel,
-        int sortMethod,
-        int transferringAmount)
-        : BoundUserInterfaceState
+    public sealed class ChemMasterBoundUserInterfaceState : BoundUserInterfaceState
     {
-        public readonly ContainerInfo? ContainerInfo = containerInfo;
+        public readonly ContainerInfo? InputContainerInfo;
 
         /// <summary>
         /// A list of the reagents and their amounts within the buffer, if applicable.
         /// </summary>
-        public readonly IReadOnlyList<ReagentQuantity> BufferReagents = bufferReagents;
+        public readonly IReadOnlyList<ReagentQuantity> BufferReagents;
 
         /// <summary>
         /// A list of the reagents and their amounts within the pill buffer, if applicable.
         /// </summary>
-        public readonly IReadOnlyList<ReagentQuantity> PillBufferReagents = pillBufferReagents;
+        public readonly IReadOnlyList<ReagentQuantity> PillBufferReagents; // DeltaV
 
-        public readonly FixedPoint2? BufferCurrentVolume = bufferCurrentVolume;
-        public readonly FixedPoint2? PillBufferCurrentVolume = pillBufferCurrentVolume;
+        public readonly FixedPoint2? BufferCurrentVolume;
+        public readonly FixedPoint2? PillBufferCurrentVolume;
 
-        public readonly uint SelectedPillType = selectedPillType;
-        public readonly uint PillDosageLimit = pillDosageLimit;
+        public readonly uint SelectedPillType;
+        public readonly uint PillDosageLimit;
 
-        public readonly bool UpdateLabel = updateLabel;
+        public readonly bool UpdateLabel;
 
-        public readonly int SortMethod = sortMethod;
-        public readonly int TransferringAmount = transferringAmount;
+        public readonly int SortMethod; // DeltaV
+        public readonly int TransferringAmount; // DeltaV
+
+        public ChemMasterBoundUserInterfaceState(
+            ContainerInfo? containerInfo,
+            IReadOnlyList<ReagentQuantity> bufferReagents,
+            IReadOnlyList<ReagentQuantity> pillBufferReagents,
+            FixedPoint2 bufferCurrentVolume,
+            FixedPoint2 pillBufferCurrentVolume,
+            uint selectedPillType,
+            uint pillDosageLimit,
+            bool updateLabel,
+            int sortMethod,
+            int transferringAmount)
+        {
+            InputContainerInfo = containerInfo;
+            BufferReagents = bufferReagents;
+            PillBufferReagents = pillBufferReagents;
+            BufferCurrentVolume = bufferCurrentVolume;
+            PillBufferCurrentVolume = pillBufferCurrentVolume;
+            SelectedPillType = selectedPillType;
+            PillDosageLimit = pillDosageLimit;
+            UpdateLabel = updateLabel;
+            SortMethod = sortMethod;
+            TransferringAmount = transferringAmount;
+        }
     }
 
     [Serializable, NetSerializable]

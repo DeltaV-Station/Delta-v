@@ -86,7 +86,7 @@
   - type: SolutionContainerManager
     solutions:
       buffer: {}
-      pillBuffer: {}
+      pillBuffer: {} # DeltaV
   - type: DumpableSolution
     solution: buffer
     unlimited: true
