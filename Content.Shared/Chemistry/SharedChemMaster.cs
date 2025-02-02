@@ -132,7 +132,7 @@ namespace Content.Shared.Chemistry
         /// A list of the reagents and their amounts within the buffer, if applicable.
         /// </summary>
         public readonly IReadOnlyList<ReagentQuantity> BufferReagents;
-        
+
         public readonly FixedPoint2? BufferCurrentVolume;
         public readonly uint SelectedPillType;
 
