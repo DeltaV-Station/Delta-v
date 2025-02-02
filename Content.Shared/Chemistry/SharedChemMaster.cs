@@ -150,7 +150,7 @@ namespace Content.Shared.Chemistry
 
         public readonly FixedPoint2? PillBufferCurrentVolume; // DeltaV
 
-        public ChemMasterBoundUserInterfaceState(
+        public ChemMasterBoundUserInterfaceState(  // DeltaV
             ContainerInfo? inputContainerInfo,
             IReadOnlyList<ReagentQuantity> bufferReagents,
             IReadOnlyList<ReagentQuantity> pillBufferReagents,
@@ -169,11 +169,11 @@ namespace Content.Shared.Chemistry
             PillDosageLimit = pillDosageLimit;
             UpdateLabel = updateLabel;
 
-            SortMethod = sortMethod;
-            TransferringAmount = transferringAmount;
+            SortMethod = sortMethod; // DeltaV
+            TransferringAmount = transferringAmount; // DeltaV
 
-            PillBufferReagents = pillBufferReagents;
-            PillBufferCurrentVolume = pillBufferCurrentVolume;
+            PillBufferReagents = pillBufferReagents; // DeltaV
+            PillBufferCurrentVolume = pillBufferCurrentVolume; // DeltaV
         }
     }
 
