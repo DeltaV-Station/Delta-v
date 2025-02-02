@@ -1,13 +1,8 @@
 - type: entity
-  parent: ClothingBackpack
+  parent: ClothingBackpackSatchel
   id: ClothingSatchelHoP
   name: HoP's Satchel
   description: Fashionable, with plenty of room for pens
   components:
   - type: Sprite
     sprite: _DV/Clothing/Back/Satchels/hop.rsi
-  - type: Storage
-    grid:
-    - 0,0,1,3
-    - 3,0,6,3
-    - 8,0,9,3
