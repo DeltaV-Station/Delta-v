@@ -132,6 +132,7 @@ namespace Content.Shared.Chemistry
         /// A list of the reagents and their amounts within the buffer, if applicable.
         /// </summary>
         public readonly IReadOnlyList<ReagentQuantity> BufferReagents;
+        public readonly uint SelectedPillType;
 
         /// <summary>
         /// A list of the reagents and their amounts within the pill buffer, if applicable.
@@ -139,9 +140,7 @@ namespace Content.Shared.Chemistry
         public readonly IReadOnlyList<ReagentQuantity> PillBufferReagents; // DeltaV
 
         public readonly FixedPoint2? BufferCurrentVolume;
-        public readonly FixedPoint2? PillBufferCurrentVolume;
-
-        public readonly uint SelectedPillType;
+        
         public readonly uint PillDosageLimit;
 
         public readonly bool UpdateLabel;
@@ -149,8 +148,10 @@ namespace Content.Shared.Chemistry
         public readonly int SortMethod; // DeltaV
         public readonly int TransferringAmount; // DeltaV
 
+        public readonly FixedPoint2? PillBufferCurrentVolume; // DeltaV
+
         public ChemMasterBoundUserInterfaceState(
-            ContainerInfo? containerInfo,
+            ContainerInfo? inputContainerInfo,
             IReadOnlyList<ReagentQuantity> bufferReagents,
             IReadOnlyList<ReagentQuantity> pillBufferReagents,
             FixedPoint2 bufferCurrentVolume,
@@ -161,16 +162,18 @@ namespace Content.Shared.Chemistry
             int sortMethod,
             int transferringAmount)
         {
-            InputContainerInfo = containerInfo;
+            InputContainerInfo = inputContainerInfo;
             BufferReagents = bufferReagents;
-            PillBufferReagents = pillBufferReagents;
             BufferCurrentVolume = bufferCurrentVolume;
-            PillBufferCurrentVolume = pillBufferCurrentVolume;
             SelectedPillType = selectedPillType;
             PillDosageLimit = pillDosageLimit;
             UpdateLabel = updateLabel;
+
             SortMethod = sortMethod;
             TransferringAmount = transferringAmount;
+
+            PillBufferReagents = pillBufferReagents;
+            PillBufferCurrentVolume = pillBufferCurrentVolume;
         }
     }
 
