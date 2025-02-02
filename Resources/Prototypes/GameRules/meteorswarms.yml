@@ -136,6 +136,8 @@
     minimumPlayers: 0
   - type: MeteorSwarm
     startAnnouncement: true #Imp: Converted to Bool, was station-event-space-dust-start-announcement
+#    announcement: station-event-space-dust-start-announcement # DeltaV: Commented out for aforementioned booleaning
+#    announcementSound: /Audio/Announcements/attention.ogg 
     nonDirectional: true
     meteors:
       MeteorSpaceDust: 1
@@ -194,7 +196,9 @@
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-game-rule-urist-swarm-result-message
   - type: MeteorSwarm
-    startAnnouncement: true #Imp
+    startAnnouncement: true #Imp: Was station-event-meteor-urist-start-announcement, changed to startannouncement & bool for announcersystem
+#    announcement: station-event-meteor-urist-start-announcement
+#    announcementSound: /Audio/Announcements/attention.ogg
     meteors:
       MeteorUrist: 1
     waves:
@@ -209,7 +213,9 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    startAnnouncement: true # Imp: Was station-event-meteor-urist-start-announcement, changed to bool for announcersystem
+    startAnnouncement: true # DeltaV: Was station-event-immovable-rod-start-announcement, changed to startannouncement & bool for announcersystem
+#    startAudio:
+#      path: /Audio/Announcements/attention.ogg
     weight: 3.5
     reoccurrenceDelay: 1
     duration: 1

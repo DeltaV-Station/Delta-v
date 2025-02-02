@@ -22,7 +22,9 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-xeno-vent-start-announcement
+    startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-vent-creatures-start-announcement
+#    startAudio:
+#      path: /Audio/Announcements/attention.ogg # DeltaV: Commented out due to aforementioned booleaning
     earliestStart: 15
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
@@ -45,7 +47,9 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: false
+    startAnnouncement: false # EE/Impstation: Converted to Boolean, was station-event-vent-creatures-start-announcement
+#    startAudio:
+#      path: /Audio/Announcements/attention.ogg # DeltaV: Commented out due to aforementioned booleaning
     earliestStart: 15
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
@@ -72,6 +76,8 @@
   components:
   - type: StationEvent
     startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-vent-creatures-start-announcement
+#    startAudio:
+#      path: /Audio/Announcements/attention.ogg # DeltaV: Commented out due to aforementioned booleaning
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -93,6 +99,8 @@
   components:
   - type: StationEvent
     startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-vent-creatures-start-announcement
+#    startAudio:
+#      path: /Audio/Announcements/attention.ogg # DeltaV: Commented out due to aforementioned booleaning
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -113,6 +121,8 @@
   components:
   - type: StationEvent
     startAnnouncement: true # EE/Impstation: Converts to bool: was station-event-vent-creatures-start-announcement
+#    startAudio:
+#      path: /Audio/Announcements/attention.ogg # DeltaV: Commented out due to aforementioned booleaning
     earliestStart: 15
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
