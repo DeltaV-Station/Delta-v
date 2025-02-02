@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingHopDuffel
+  name: HoP's duffel bag
+  description: For those that HoPe more carry space will help them.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Back/Duffels/hop.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,4
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
