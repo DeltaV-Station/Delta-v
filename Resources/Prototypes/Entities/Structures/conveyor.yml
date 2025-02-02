@@ -12,7 +12,7 @@
   - type: Transform
     anchored: true
   - type: Sprite
-    sprite: Structures/conveyor.rsi
+    sprite: _NF/Structures/conveyor.rsi # Frontier
     state: conveyor_started_cw
     drawdepth: HighFloorObjects
   - type: ApcPowerReceiver
@@ -41,6 +41,7 @@
       - Forward
       - Off
   - type: Appearance
+  - type: SyncSprite # DeltaV
   - type: GenericVisualizer
     visuals:
       enum.ConveyorVisuals.State:
