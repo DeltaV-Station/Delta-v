@@ -10,7 +10,7 @@ public sealed partial class BlindHealingComponent : Component
     ///     A multiplier that will be applied to the above if an entity is repairing themselves.
     /// </summary>
     [DataField]
-    public float SelfHealPenalty = 3f;
+    public float SelfHealPenalty = 4f;
 
     /// <summary>
     ///     Whether or not an entity is allowed to repair itself.

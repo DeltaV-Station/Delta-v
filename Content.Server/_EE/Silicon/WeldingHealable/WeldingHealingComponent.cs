@@ -25,7 +25,7 @@ namespace Content.Server._EE.Silicon.WeldingHealing
         ///     The fuel amount needed to repair physical related damage
         /// </summary>
         [DataField]
-        public int FuelCost = 5;
+        public int FuelCost = 15;
 
         [DataField]
         public int DoAfterDelay = 3;
@@ -34,7 +34,7 @@ namespace Content.Server._EE.Silicon.WeldingHealing
         ///     A multiplier that will be applied to the above if an entity is repairing themselves.
         /// </summary>
         [DataField]
-        public float SelfHealPenalty = 3f;
+        public float SelfHealPenalty = 4f;
 
         /// <summary>
         ///     Whether or not an entity is allowed to repair itself.
