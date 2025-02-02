@@ -132,18 +132,17 @@ namespace Content.Shared.Chemistry
         /// A list of the reagents and their amounts within the buffer, if applicable.
         /// </summary>
         public readonly IReadOnlyList<ReagentQuantity> BufferReagents;
+        public readonly FixedPoint2? BufferCurrentVolume;
         public readonly uint SelectedPillType;
+
+        public readonly uint PillDosageLimit;
+
+        public readonly bool UpdateLabel;
 
         /// <summary>
         /// A list of the reagents and their amounts within the pill buffer, if applicable.
         /// </summary>
         public readonly IReadOnlyList<ReagentQuantity> PillBufferReagents; // DeltaV
-
-        public readonly FixedPoint2? BufferCurrentVolume;
-        
-        public readonly uint PillDosageLimit;
-
-        public readonly bool UpdateLabel;
 
         public readonly int SortMethod; // DeltaV
         public readonly int TransferringAmount; // DeltaV
