@@ -202,17 +202,17 @@
   - WeaponAdvancedLaser
   - PortableRecharger
 
-- type: technology
-  id: ExperimentalBatteryAmmo
-  name: research-technology-experimental-battery-ammo
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 2 # DeltaV: moved to t2 from t3
-  cost: 15000
-  recipeUnlocks:
-  - WeaponLaserSvalinn
+#- type: technology # DeltaV - Removed for only causing issues
+#  id: ExperimentalBatteryAmmo
+#  name: research-technology-experimental-battery-ammo
+#  icon:
+#    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+#    state: icon
+#  discipline: Arsenal
+#  tier: 3
+#  cost: 15000
+#  recipeUnlocks:
+#  - WeaponLaserSvalinn
 
 - type: technology
   id: AdvancedShuttleWeapon
