@@ -1,73 +1,28 @@
-using Content.Shared._DV.Cocoon;
-using Content.Shared._DV.Vampiric;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.DoAfter;
 using Content.Shared.HealthExaminable;
-using Content.Shared.Interaction;
-using Content.Shared.Inventory;
 using Content.Shared.Popups;
-using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._DV.Vampire
 {
     public sealed class BloodSuckerSystem : EntitySystem
     {
-        [Dependency] private readonly SharedBodySystem _bodySystem = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popups = default!;
-        [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly StomachSystem _stomachSystem = default!;
-        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-        [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-        [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<BloodSuckerComponent, GetVerbsEvent<InnateVerb>>(AddSuckVerb);
             SubscribeLocalEvent<BloodSuckedComponent, HealthBeingExaminedEvent>(OnHealthExamined);
             SubscribeLocalEvent<BloodSuckedComponent, DamageChangedEvent>(OnDamageChanged);
-            SubscribeLocalEvent<BloodSuckerComponent, BloodSuckDoAfterEvent>(OnDoAfter);
         }
 
-        private void AddSuckVerb(EntityUid uid, BloodSuckerComponent component, GetVerbsEvent<InnateVerb> args)
-        {
-
-            var victim = args.Target;
-            var ignoreClothes = false;
-
-            if (TryComp<CocoonComponent>(args.Target, out var cocoon))
-            {
-                victim = cocoon.Victim ?? args.Target;
-                ignoreClothes = cocoon.Victim != null;
-            } else if (component.WebRequired)
-                return;
-
-            if (!TryComp<BloodstreamComponent>(victim, out var bloodstream) || args.User == victim || !args.CanAccess)
-                return;
-
-            InnateVerb verb = new()
-            {
-                Act = () =>
-                {
-                    StartSuckDoAfter(uid, victim, component, bloodstream, !ignoreClothes); // start doafter
-                },
-                Text = Loc.GetString("action-name-suck-blood"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Nyanotrasen/Icons/verbiconfangs.png")),
-                Priority = 2
-            };
-            args.Verbs.Add(verb);
-        }
 
         private void OnHealthExamined(EntityUid uid, BloodSuckedComponent component, HealthBeingExaminedEvent args)
         {
@@ -86,114 +41,24 @@ namespace Content.Shared._DV.Vampire
                     RemComp<BloodSuckedComponent>(uid);
         }
 
-        private void OnDoAfter(EntityUid uid, BloodSuckerComponent component, BloodSuckDoAfterEvent args)
+
+        private bool TryValidateSolution(EntityUid bloodsucker)
         {
-            if (args.Cancelled || args.Handled || args.Args.Target == null)
-                return;
-
-            args.Handled = TrySuck(uid, args.Args.Target.Value);
-        }
-
-        public void StartSuckDoAfter(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodSuckerComponent = null, BloodstreamComponent? stream = null, bool doChecks = true)
-        {
-            if (!Resolve(bloodsucker, ref bloodSuckerComponent) || !Resolve(victim, ref stream))
-                return;
-
-            if (doChecks)
+            if (_solutionSystem.PercentFull(bloodsucker) >= 1)
             {
-                if (!_interactionSystem.InRangeUnobstructed(bloodsucker, victim))
-                    return;
-
-                if (_inventorySystem.TryGetSlotEntity(victim, "head", out var headUid) && HasComp<PressureProtectionComponent>(headUid))
-                {
-                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-helmet", ("helmet", headUid)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
-                    return;
-                }
-
-                if (_inventorySystem.TryGetSlotEntity(bloodsucker, "mask", out var maskUid) &&
-                    EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
-                    blocker.Enabled)
-                {
-                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-mask", ("mask", maskUid)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
-                    return;
-                }
+                _popups.PopupEntity(Loc.GetString("drink-component-try-use-drink-had-enough"), bloodsucker, bloodsucker, Shared.Popups.PopupType.MediumCaution);
+                return false;
             }
-
-            if (stream.BloodReagent != "Blood")
-                _popups.PopupEntity(Loc.GetString("bloodsucker-not-blood", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
-            else if (_solutionSystem.PercentFull(victim) != 0)
-                _popups.PopupEntity(Loc.GetString("bloodsucker-fail-no-blood", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
-            else
-                _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
-
-            _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start-victim", ("sucker", bloodsucker)), victim, victim, Shared.Popups.PopupType.LargeCaution);
-
-            var args = new DoAfterArgs(EntityManager, bloodsucker, bloodSuckerComponent.Delay, new BloodSuckDoAfterEvent(), bloodsucker, target: victim)
-            {
-                BreakOnMove = false,
-                DistanceThreshold = 2f,
-                NeedHand = false
-            };
-
-            _doAfter.TryStartDoAfter(args);
+            return true;
         }
 
-       public bool TrySuck(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodsuckerComp = null) // begin DetlaV
-{
-    if (!Resolve(bloodsucker, ref bloodsuckerComp)) return false;
-    if (!TryValidateVictim(victim)) return false;
-
-    if (!TryGetBloodsuckerStomach(bloodsucker, out var stomach)) return false;
-    if (!TryValidateSolution(bloodsucker)) return false;
-
-    PlayBloodSuckEffects(bloodsucker, victim);
-    return CompleteBloodSuck(bloodsucker, victim, stomach, bloodsuckerComp);
-}
-
-private bool TryValidateVictim(EntityUid victim)
-{
-    if (!TryComp<BloodstreamComponent>(victim, out var bloodstream) || bloodstream.BloodSolution == null) return false;
-    if (_bloodstreamSystem.GetBloodLevelPercentage(victim, bloodstream) == 0.0f) return false;
-    return true;
-}
-
-private bool TryGetBloodsuckerStomach(EntityUid bloodsucker, out StomachComponent stomach)
-{
-    stomach = _bodySystem.GetBodyOrganEntityComps<StomachComponent>(bloodsucker).FirstOrDefault();
-    return stomach != null;
-}
-
-private bool TryValidateSolution(EntityUid bloodsucker)
-{
-    if (_solutionSystem.PercentFull(bloodsucker) >= 1)
-    {
-        _popups.PopupEntity(Loc.GetString("drink-component-try-use-drink-had-enough"), bloodsucker, bloodsucker, Shared.Popups.PopupType.MediumCaution);
-        return false;
+        public void PlayBloodSuckEffects(EntityUid bloodsucker, EntityUid victim)
+        {
+            _adminLogger.Add(Shared.Database.LogType.MeleeHit, Shared.Database.LogImpact.Medium, $"{ToPrettyString(bloodsucker):player} sucked blood from {ToPrettyString(victim):target}");
+            _audio.PlayPvs("/Audio/Items/drink.ogg", bloodsucker);
+            _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked-victim", ("sucker", bloodsucker)), victim, victim, Shared.Popups.PopupType.LargeCaution);
+            _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked", ("target", victim)), bloodsucker, bloodsucker, Shared.Popups.PopupType.Medium);
+            EnsureComp<BloodSuckedComponent>(victim);
+        }
     }
-    return true;
 }
-
-private void PlayBloodSuckEffects(EntityUid bloodsucker, EntityUid victim)
-{
-    _adminLogger.Add(Shared.Database.LogType.MeleeHit, Shared.Database.LogImpact.Medium, $"{ToPrettyString(bloodsucker):player} sucked blood from {ToPrettyString(victim):target}");
-    _audio.PlayPvs("/Audio/Items/drink.ogg", bloodsucker);
-    _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked-victim", ("sucker", bloodsucker)), victim, victim, Shared.Popups.PopupType.LargeCaution);
-    _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked", ("target", victim)), bloodsucker, bloodsucker, Shared.Popups.PopupType.Medium);
-    EnsureComp<BloodSuckedComponent>(victim);
-}
-
-private bool CompleteBloodSuck(EntityUid bloodsucker, EntityUid victim, StomachComponent stomach, BloodSuckerComponent bloodsuckerComp)
-{
-    if (!TryComp<BloodstreamComponent>(victim, out var bloodstream) || bloodstream.BloodSolution == null) return false;
-
-    var extractedBlood = _solutionSystem.SplitSolution(bloodstream.BloodSolution.Value, bloodsuckerComp.UnitsToSuck);
-    _stomachSystem.TryTransferSolution(bloodsucker, extractedBlood, stomach);
-
-    DamageSpecifier damage = new();
-    damage.DamageDict.Add("Piercing", 1);
-    _damageableSystem.TryChangeDamage(victim, damage, true, true);
-
-    return true;
-}
-    }
-} // End DeltaV

@@ -1,10 +1,11 @@
 using Content.Shared.Interaction;
+using Content.Shared.Popups;
 
 namespace Content.Shared._DV.Vampire.Injector
 {
     public sealed class BloodSuckerGlandInjectorSystem : EntitySystem
     {
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
