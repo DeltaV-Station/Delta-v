@@ -124,7 +124,7 @@
   - type: StorageFill
     contents:
     - id: Paper
-      amount: 10 # DeltaV - make room for more folders in the bureaucracy crate
+      amount: 6 # DeltaV - make room for more folders & stickies in the bureaucracy crate
     - id: Pen
       amount: 2
     - id: BoxFolderClipboard
@@ -136,6 +136,12 @@
       amount: 2 # DeltaV - more folders in the bureacracy crate
     - id: BoxFolderYellow
       amount: 2 # DeltaV - more folders in the bureacracy crate
+    # Begin DeltaV: sticky notes
+    - id: PaperStickyNoteStackFilled
+    - id: PaperStickyNoteStackFilledPink
+    - id: PaperStickyNoteStackFilledGreen
+    - id: PaperStickyNoteStackFilledBlue
+    # End DeltaV: sticky notes
     - id: NewtonCradle
     - id: BoxEnvelope
     - id: BrbSign
