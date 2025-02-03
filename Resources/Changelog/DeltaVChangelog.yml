@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: MilonPL
-  changes:
-  - message: The admin PDA health analyzer no longer shows a popup to the player.
-    type: Fix
-  id: 484
-  time: '2024-08-18T04:08:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1637
 - author: deltanedas
   changes:
   - message: Fixed Vox mantes not getting a tank harness.
@@ -3862,3 +3855,10 @@
   id: 983
   time: '2025-02-03T12:05:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2859
+- author: SolStar
+  changes:
+  - message: Fixed bug causing precognition power to sometimes fail to display a message.
+    type: Fix
+  id: 984
+  time: '2025-02-03T12:05:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2865
