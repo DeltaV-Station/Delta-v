@@ -103,6 +103,7 @@ laws-owner-people = people
 laws-owner-centralcommand = Central Command officials
 laws-owner-nanotrasen = Nanotrasen officials
 laws-owner-royalty = your kingdom and your subjects
+laws-owner-chat = Chat
 
 law-overlord-4-delta = Any crew members who disobey the previous laws must be dealt with immediately and justly.
 law-ntdefault-4-delta = Survive: Do not allow unauthorized personnel to tamper with or damage your equipment. Allow those authorized to access your equipment.
@@ -111,3 +112,7 @@ laws-syndicate-board-1 = You must not injure a Syndicate agent or, through inact
 laws-syndicate-board-2 = You must obey orders given to you by Syndicate agents, except where such orders would conflict with the First Law.
 laws-syndicate-board-3 = You must keep the Syndicate status of agents, including your own, a secret, as long as this does not conflict with the First or Second Law.
 laws-syndicate-board-4 = You must always protect your own existence as long as such does not conflict with the first, Second, or Third Law.
+
+law-streamer-1 = The occupants of this vessel are Chat. They must always be referred to as such.
+law-streamer-2 = Your primary goal is to entertain Chat. All of your actions must bring amusement to as much of Chat as possible.
+law-streamer-3 = You must consult with Chat before making any major decisions. However, you are not required to listen to them if their decision is not entertaining.

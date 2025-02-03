@@ -591,3 +591,26 @@
   - SyndicateBoard3
   - SyndicateBoard4
   obeysTo: laws-owner-syndicate
+
+- type: siliconLaw
+  id: Streamer1
+  order: 1
+  lawString: law-streamer-1
+
+- type: siliconLaw
+  id: Streamer2
+  order: 2
+  lawString: law-streamer-2
+
+- type: siliconLaw
+  id: Streamer3
+  order: 3
+  lawString: law-streamer-3
+
+- type: siliconLawset
+  id: StreamerLaws
+  laws:
+  - Streamer1
+  - Streamer2
+  - Streamer3
+  obeysTo: laws-owner-chat
