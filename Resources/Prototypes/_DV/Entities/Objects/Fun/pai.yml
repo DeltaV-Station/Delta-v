@@ -1,0 +1,85 @@
+﻿- type: entity
+  parent: PersonalAI
+  id: LearnerPAI
+  name: learner ai tutor
+  description: Your electronic pal here to help teach you the ins and outs of the station!
+
+- type: entity
+  parent: LearnerPAI
+  id: LearnerEngiPAI
+  name: engineering ai tutor
+  description: Your electronic pal here to help teach you the ins and outs of station engineering!
+  components:
+  - type: ToggleableGhostRole
+    roleName: engi-tutor-role-name
+    roleDescription: engi-tutor-role-description
+    roleRules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: IntrinsicRadioReceiver
+    channels:
+    - Engineering
+
+- type: entity
+  parent: LearnerPAI
+  id: LearnerMedPAI
+  name: medical ai tutor
+  description: Your electronic pal here to help teach you the ins and outs of all things medical!
+  components:
+  - type: ToggleableGhostRole
+    roleName: med-tutor-role-name
+    roleDescription: med-tutor-role-description
+    roleRules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: IntrinsicRadioReceiver
+    channels:
+    - Medical
+
+- type: entity
+  parent: LearnerPAI
+  id: LearnerLogiPAI
+  name: logistics ai tutor
+  description: Your electronic pal here to help teach you the ins and outs of things related to logistics!
+  components:
+  - type: ToggleableGhostRole
+    roleName: logi-tutor-role-name
+    roleDescription: logi-tutor-role-description
+    roleRules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: IntrinsicRadioReceiver
+    channels:
+    - Supply
+
+- type: entity
+  parent: LearnerPAI
+  id: LearnerSecPAI
+  name: security ai tutor
+  description: Your electronic pal here to help teach you the ins and outs of station security!
+  components:
+  - type: ToggleableGhostRole
+    roleName: sec-tutor-role-name
+    roleDescription: sec-tutor-role-description
+    roleRules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: IntrinsicRadioReceiver
+    channels:
+    - Security
+
+- type: entity
+  parent: LearnerPAI
+  id: LearnerEpiPAI
+  name: epistemics ai tutor
+  description: Your electronic pal here to help teach you the ins and outs of research and development!
+  components:
+  - type: ToggleableGhostRole
+    roleName: epi-tutor-role-name
+    roleDescription: epi-tutor-role-description
+    roleRules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: IntrinsicRadioReceiver
+    channels:
+    - Science
