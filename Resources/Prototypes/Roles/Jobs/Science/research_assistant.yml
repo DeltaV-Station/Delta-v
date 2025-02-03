@@ -3,7 +3,7 @@
   name: job-name-research-assistant
   description: job-description-research-assistant
   playTimeTracker: JobResearchAssistant
-  antagAdvantage: 2 # DeltaV - Protolathe, anomaly stuff, glimmer factor 
+  antagAdvantage: 2 # DeltaV - Protolathe, anomaly stuff, glimmer factor
   requirements:
     # - !type:DepartmentTimeRequirement # DeltaV - Removes time limit
     #   department: Science
@@ -25,6 +25,7 @@
     shoes: ClothingShoesColorWhite
     id: ResearchAssistantPDA
     ears: ClothingHeadsetScience
+    pocket1: LearnerEpiPAI # DeltaV - PAI for teaching
     pocket2: BookScientistsGuidebook
   #storage:
     #back:

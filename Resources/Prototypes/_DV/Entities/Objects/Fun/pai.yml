@@ -16,9 +16,10 @@
     roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
-  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
     channels:
     - Engineering
+    - Common
 
 - type: entity
   parent: LearnerPAI
@@ -32,9 +33,10 @@
     roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
-  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
     channels:
     - Medical
+    - Common
 
 - type: entity
   parent: LearnerPAI
@@ -48,9 +50,10 @@
     roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
-  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
     channels:
     - Supply
+    - Common
 
 - type: entity
   parent: LearnerPAI
@@ -64,9 +67,10 @@
     roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
-  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
     channels:
     - Security
+    - Common
 
 - type: entity
   parent: LearnerPAI
@@ -80,6 +84,7 @@
     roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
-  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
     channels:
     - Science
+    - Common
