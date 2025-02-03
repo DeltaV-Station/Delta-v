@@ -23,3 +23,6 @@
     providedRecipes: # if any new unique foods get added this will need updating
     - RecipeBaguetteSword
     - RecipeThrowingCroissant
+  - type: RadiationSource # ideally only when opened.
+    intensity: .5
+    intensitySlope: .7
