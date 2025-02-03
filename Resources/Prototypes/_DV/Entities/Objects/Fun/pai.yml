@@ -1,8 +1,58 @@
 ﻿- type: entity
-  parent: PersonalAI
+  parent: BaseItem
   id: LearnerPAI
   name: learner ai tutor
   description: Your electronic pal here to help teach you the ins and outs of the station!
+  components:
+  - type: Instrument
+    allowPercussion: false
+    handheld: false
+    bank: 1
+    program: 2
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.StationMapUiKey.Key:
+        type: StationMapBoundUserInterface
+        requireInputValidation: false
+  - type: Sprite
+    sprite: Objects/Fun/pai.rsi
+    layers:
+    - state: pai-base
+    - state: pai-off-overlay
+      shader: unshaded
+      map: [ "screen" ]
+  - type: Input
+    context: "human"
+  - type: PAI
+  - type: BlockMovement
+  - type: Examiner
+  - type: IntrinsicRadioReceiver
+  - type: DoAfter
+  - type: Actions
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+  - type: MobState
+    allowedStates:
+    - Alive
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: pai-off-overlay }
+          Searching: { state: pai-searching-overlay }
+          On: { state: pai-on-overlay }
+  - type: StationMap
+  - type: ChangeVoiceInContainer
+    whitelist:
+      components:
+      - SecretStash
 
 - type: entity
   parent: LearnerPAI
@@ -10,16 +60,23 @@
   name: engineering ai tutor
   description: Your electronic pal here to help teach you the ins and outs of station engineering!
   components:
-  - type: ToggleableGhostRole
-    roleName: engi-tutor-role-name
-    roleDescription: engi-tutor-role-description
-    roleRules: ghost-role-information-familiar-rules
+  - type: GhostRole
+    makeSentient: true
+    name: engi-tutor-role-name
+    description: engi-tutor-role-description
+    rules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 72000
   - type: ActiveRadio
     channels:
     - Engineering
     - Common
+  - type: GhostTakeoverAvailable
+
 
 - type: entity
   parent: LearnerPAI
@@ -27,12 +84,16 @@
   name: medical ai tutor
   description: Your electronic pal here to help teach you the ins and outs of all things medical!
   components:
-  - type: ToggleableGhostRole
-    roleName: med-tutor-role-name
-    roleDescription: med-tutor-role-description
-    roleRules: ghost-role-information-familiar-rules
+  - type: GhostRole
+    name: med-tutor-role-name
+    description: med-tutor-role-description
+    rules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
+    requirements: # DeltaV
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 72000
   - type: ActiveRadio
     channels:
     - Medical
@@ -44,12 +105,16 @@
   name: logistics ai tutor
   description: Your electronic pal here to help teach you the ins and outs of things related to logistics!
   components:
-  - type: ToggleableGhostRole
-    roleName: logi-tutor-role-name
-    roleDescription: logi-tutor-role-description
-    roleRules: ghost-role-information-familiar-rules
+  - type: GhostRole
+    name: logi-tutor-role-name
+    description: logi-tutor-role-description
+    rules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
+    requirements: # DeltaV
+    - !type:DepartmentTimeRequirement
+      department: Logistics
+      time: 72000
   - type: ActiveRadio
     channels:
     - Supply
@@ -61,12 +126,16 @@
   name: security ai tutor
   description: Your electronic pal here to help teach you the ins and outs of station security!
   components:
-  - type: ToggleableGhostRole
-    roleName: sec-tutor-role-name
-    roleDescription: sec-tutor-role-description
-    roleRules: ghost-role-information-familiar-rules
+  - type: GhostRole
+    name: sec-tutor-role-name
+    description: sec-tutor-role-description
+    rules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
+    requirements: # DeltaV
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 72000
   - type: ActiveRadio
     channels:
     - Security
@@ -78,12 +147,16 @@
   name: epistemics ai tutor
   description: Your electronic pal here to help teach you the ins and outs of research and development!
   components:
-  - type: ToggleableGhostRole
-    roleName: epi-tutor-role-name
-    roleDescription: epi-tutor-role-description
-    roleRules: ghost-role-information-familiar-rules
+  - type: GhostRole
+    name: epi-tutor-role-name
+    description: epi-tutor-role-description
+    rules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 72000
   - type: ActiveRadio
     channels:
     - Science
