@@ -124,7 +124,7 @@
   - type: StorageFill
     contents:
     - id: Paper
-      amount: 6 # DeltaV - make room for more folders & stickies in the bureaucracy crate
+      amount: 2 # DeltaV - make room for more folders & stickies & reams in the bureaucracy crate
     - id: Pen
       amount: 2
     - id: BoxFolderClipboard
@@ -145,14 +145,16 @@
     - id: NewtonCradle
     - id: BoxEnvelope
     - id: BrbSign
-    # Start DeltaV - More folders in the bureaucracy crate
+    # Start DeltaV - More folders & colored paper reams in the bureaucracy crate
     - id: BoxFolderBlack
       amount: 2
     - id: BoxFolderGrey
       amount: 2
     - id: BoxFolderGreen
       amount: 2
-    # End DeltaV - More folders in the bureaucracy crate
+    - id: BoxReamClassic
+    - id: BoxReamBright
+    # End DeltaV - More folders & colored paper reams in the bureaucracy crate
 
 - type: entity
   id: CrateServiceFaxMachine
