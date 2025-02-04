@@ -2,6 +2,7 @@ using Content.Shared.Chat;
 using Content.Shared.Tools;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
+using Robust.Shared.GameStates; // DeltaV
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Radio.Components;
@@ -9,7 +10,7 @@ namespace Content.Shared.Radio.Components;
 /// <summary>
 ///     This component is by entities that can contain encryption keys
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // DeltaV: Network it
 public sealed partial class EncryptionKeyHolderComponent : Component
 {
     /// <summary>
@@ -17,6 +18,7 @@ public sealed partial class EncryptionKeyHolderComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("keysUnlocked")]
+    [AutoNetworkedField] // DeltaV
     public bool KeysUnlocked = true;
 
     /// <summary>
