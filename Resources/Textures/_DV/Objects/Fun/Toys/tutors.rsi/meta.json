@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/9ddb8cf084e292571d4e9c79745db25befbd82fe. pai-searching-overlay heavily modified. Syndicate variants by fedKotikeD, and potato by Doru991. Tutor Variants edited by GTheGlorious",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "logi-pai-base"
+        },
+        {
+            "name": "pai-base"
+        },
+        {
+            "name": "sec-pai-base"
+        },
+        {
+            "name": "engi-pai-base"
+        },
+        {
+            "name": "med-pai-base"
+        },
+        {
+            "name": "epi-pai-base"
+        },
+        {
+            "name": "pai-on-overlay",
+            "delays": [
+                [
+                    0.8,
+                    0.8
+                ]
+            ]
+        },
+        {
+            "name": "sec-pai-on-overlay",
+            "delays": [
+                [
+                    0.8,
+                    0.8
+                ]
+            ]
+        }
+    ]
+}

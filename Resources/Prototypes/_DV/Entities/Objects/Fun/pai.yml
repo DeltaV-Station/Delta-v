@@ -18,10 +18,10 @@
         type: StationMapBoundUserInterface
         requireInputValidation: false
   - type: Sprite
-    sprite: Objects/Fun/pai.rsi
+    sprite: _DV/Objects/Fun/Toys/tutors.rsi
     layers:
     - state: pai-base
-    - state: pai-off-overlay
+    - state: pai-on-overlay
       shader: unshaded
       map: [ "screen" ]
   - type: Input
@@ -41,13 +41,6 @@
     allowedStates:
     - Alive
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ToggleableGhostRoleVisuals.Status:
-        screen:
-          Off: { state: pai-off-overlay }
-          Searching: { state: pai-searching-overlay }
-          On: { state: pai-on-overlay }
   - type: StationMap
   - type: ChangeVoiceInContainer
     whitelist:
@@ -71,6 +64,13 @@
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 72000
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/tutors.rsi
+    layers:
+    - state: engi-pai-base
+    - state: pai-on-overlay
+      shader: unshaded
+      map: [ "screen" ]
   - type: ActiveRadio
     channels:
     - Engineering
@@ -94,6 +94,13 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 72000
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/tutors.rsi
+    layers:
+    - state: med-pai-base
+    - state: pai-on-overlay
+      shader: unshaded
+      map: [ "screen" ]
   - type: ActiveRadio
     channels:
     - Medical
@@ -115,6 +122,13 @@
     - !type:DepartmentTimeRequirement
       department: Logistics
       time: 72000
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/tutors.rsi
+    layers:
+    - state: logi-pai-base
+    - state: pai-on-overlay
+      shader: unshaded
+      map: [ "screen" ]
   - type: ActiveRadio
     channels:
     - Supply
@@ -136,6 +150,13 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 72000
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/tutors.rsi
+    layers:
+    - state: sec-pai-base
+    - state: sec-pai-on-overlay
+      shader: unshaded
+      map: [ "screen" ]
   - type: ActiveRadio
     channels:
     - Security
@@ -157,6 +178,13 @@
     - !type:DepartmentTimeRequirement
       department: Epistemics
       time: 72000
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/tutors.rsi
+    layers:
+    - state: epi-pai-base
+    - state: pai-on-overlay
+      shader: unshaded
+      map: [ "screen" ]
   - type: ActiveRadio
     channels:
     - Science
