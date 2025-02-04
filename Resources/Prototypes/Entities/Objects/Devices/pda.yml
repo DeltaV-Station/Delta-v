@@ -167,15 +167,6 @@
     id: PassengerIDCard
   - type: PdaBorderColor
     borderColor: "#717059"
-  # Begin Delta-V addition - no SOS cart for shitter roles
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - NanoChatCartridge # DeltaV
-  # End Delta-V addition
 
 - type: entity
   parent: BasePDA
