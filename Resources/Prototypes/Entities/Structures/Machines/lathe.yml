@@ -194,7 +194,6 @@
       - SubstationMachineCircuitboard
       - WallmountSubstationElectronics
       - CellRechargerCircuitboard
-      - BorgChargerCircuitboard
       - WeaponCapacitorRechargerCircuitboard
       - HandheldStationMap
       - ClothingHeadHatWelding
@@ -352,7 +351,7 @@
       - BluespaceBeaker
       - SyringeBluespace
       #- WeaponForceGun # DeltaV
-      - WeaponLaserSvalinn
+      #- WeaponLaserSvalinn #DeltaV
       - WeaponGrapplingGun
       #- WeaponTetherGun # DeltaV
       - ClothingBackpackHolding
@@ -512,8 +511,8 @@
     - DeepFryerMachineCircuitboard #Nyano - Summary: adds deep fryer circuit board
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
-    - StationAnchorCircuitboard
     - SalvageMagnetMachineCircuitboard
+    - BorgChargerCircuitboard
     - OperatingTableCircuitboard # Shitmed Change
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
@@ -657,6 +656,20 @@
     - LightHeadBorg
     - TorsoBorg
     - BorgModuleSurgery # Shitmed Change
+    # Shitmed Change
+    - BorgModuleSurgery
+    - TorsoIPC
+    - LeftArmIPC
+    - RightArmIPC
+    - LeftLegIPC
+    - RightLegIPC
+    - HeadIPC
+    - LeftHandIPC
+    - RightHandIPC
+    - LeftFootIPC
+    - RightFootIPC
+    - OrganIPCEyes
+    - OrganIPCPump
     dynamicRecipes:
     - ProximitySensor
     - ClothingEyesHudDiagnostic
@@ -1085,7 +1098,7 @@
       - EnergyScalpel
       - EnergyCautery
       - AdvancedRetractor
-      - OmnimedTool
+      #- OmnimedTool # DeltaV - Removed medical multi tool as a tech.
       - MedicalCyberneticEyes
   - type: Machine
     board: MedicalTechFabCircuitboard
@@ -1293,8 +1306,28 @@
       - CarpetPurple
       - CarpetCyan
       - CarpetWhite
+      # Bedsheets
+      - BedsheetBlack
+      - BedsheetBlue
+      - BedsheetBrown
+      - BedsheetGreen
+      - BedsheetGrey
+      - BedsheetOrange
+      - BedsheetPurple
+      - BedsheetRed
+      - BedsheetWhite
+      - BedsheetYellow
+      - BedsheetClown
+      - BedsheetCosmos
+      - BedsheetIan
+      - BedsheetMedical
+      - BedsheetMime
+      - BedsheetNT
+      - BedsheetRainbow
+      - BedsheetBrigmedic
   - type: EmagLatheRecipes
     emagStaticRecipes:
+      # Clothing
       - ClothingHeadHatCentcomcap
       - ClothingHeadHatCentcom
       - ClothingUniformJumpsuitCentcomAgent
@@ -1317,6 +1350,8 @@
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
       - ClothingOuterWinterSyndieCap
+      # Bedsheets
+      - BedsheetSyndie
       # Begin DeltaV Additions
       - ClothingUniformInterdyneChemist
       - UniformScrubsColorCybersun

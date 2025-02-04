@@ -165,6 +165,12 @@ binds:
 - function: SwapHands
   type: State
   key: X
+  # DeltaV - Swap Hands Reversed Start
+- function: SwapHandsReversed
+  type: State
+  key: X
+  mod1: Shift
+  # DeltaV - Swap Hands Reversed End
 - function: MoveStoredItem
   type: State
   key: MouseLeft
