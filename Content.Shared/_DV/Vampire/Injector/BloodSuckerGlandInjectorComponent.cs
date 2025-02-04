@@ -4,7 +4,7 @@ namespace Content.Shared._DV.Vampire.Injector
     /// <summary>
     /// Item that gives a bloodsucker injection glands (for poison, usually)
     /// </summary>
-    public sealed partial class BloodSuckerGlandInjectorComponent : Component
+    public partial class BloodSuckerGlandInjectorComponent
     {
         public bool Used = false;
 

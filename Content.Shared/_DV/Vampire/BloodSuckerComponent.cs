@@ -1,7 +1,7 @@
 namespace Content.Shared._DV.Vampire
 {
     [RegisterComponent]
-    public sealed partial class BloodSuckerComponent : Component
+    public partial class BloodSuckerComponent
     {
         /// <summary>
         /// How much to suck each time we suck.
@@ -21,7 +21,7 @@ namespace Content.Shared._DV.Vampire
         /// Whether to inject chems into a chemstream when we suck something.
         /// </summary>
         [DataField("injectWhenSuck")]
-        public bool InjectWhenSuck = false;
+        public bool InjectWhenSuck;
 
         /// <summary>
         /// How many units of our injected chem to inject.
@@ -39,6 +39,6 @@ namespace Content.Shared._DV.Vampire
         /// Whether we need to web the thing up first...
         /// </summary>
         [DataField("webRequired")]
-        public bool WebRequired = false;
+        public bool WebRequired;
     }
 }
