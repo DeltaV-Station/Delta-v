@@ -9,6 +9,7 @@ using Content.Server.Jobs;
 using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
+using Content.Shared._EE.Silicon.Components; // Goobstation
 using Content.Server.Psionics; // DeltaV
 using Content.Server.Traits.Assorted; // DeltaV
 using Content.Shared.Atmos;
@@ -170,6 +171,9 @@ namespace Content.Server.Cloning
 
             if (!TryComp<HumanoidAppearanceComponent>(bodyToClone, out var humanoid))
                 return false; // whatever body was to be cloned, was not a humanoid
+
+            if (HasComp<SiliconComponent>(bodyToClone))
+                return false; // Goobstation: Don't clone IPCs.
 
             // Begin Nyano-code: allow paradox anomalies to be cloned.
             var pref = humanoid.LastProfileLoaded;

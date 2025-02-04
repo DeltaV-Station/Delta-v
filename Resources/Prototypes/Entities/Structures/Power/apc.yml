@@ -143,6 +143,8 @@
     priority: 1
   - type: StaticPrice
     price: 500
+  - type: BatteryDrinkerSource # EE IPCs
+    maxAmount: 10000
   - type: GuideHelp
     guides:
     - VoltageNetworks
@@ -213,6 +215,8 @@
   - type: Battery
     maxCharge: 50000
     startingCharge: 50000
+  - type: BatteryDrinkerSource # EE IPCs
+    maxAmount: 5000
 
 - type: entity
   parent: BaseAPC
@@ -222,6 +226,8 @@
   - type: Battery
     maxCharge: 100000
     startingCharge: 100000
+  - type: BatteryDrinkerSource # EE IPCs
+    maxAmount: 12000
 
 - type: entity
   parent: BaseAPC
@@ -231,6 +237,8 @@
   - type: Battery
     maxCharge: 150000
     startingCharge: 150000
+  - type: BatteryDrinkerSource # EE IPCs
+    maxAmount: 18000
 
 - type: entity
   parent: BaseAPC
@@ -240,3 +248,5 @@
   - type: Battery
     maxCharge: 200000
     startingCharge: 200000
+  - type: BatteryDrinkerSource # EE IPCs
+    maxAmount: 26000
