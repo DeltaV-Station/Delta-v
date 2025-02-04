@@ -126,6 +126,14 @@ public abstract class SharedLayingDownSystem : EntitySystem
             HasComp<DebrainedComponent>(uid))
             return false;
 
+        // Begin DeltaV Addition
+        // Don't allow users to start trying to stand if they couldn't stand anyway
+        var msg = new StandAttemptEvent();
+        RaiseLocalEvent(uid, msg, false);
+        if (msg.Cancelled)
+            return false;
+        // End DeltaV Addition
+
         var args = new DoAfterArgs(EntityManager, uid, layingDown.StandingUpTime, new StandingUpDoAfterEvent(), uid)
         {
             BreakOnHandChange = false,

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: FirelockFrame
   parent: BaseStructureDynamic
   name: firelock frame
@@ -33,7 +33,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 100 # DeltaV - Nerfed from 500 to 100
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
