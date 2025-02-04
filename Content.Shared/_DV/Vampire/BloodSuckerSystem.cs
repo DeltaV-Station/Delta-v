@@ -54,7 +54,7 @@ namespace Content.Shared.Vampire
             return false;
         }
 
-        public void PlayBloodSuckEffects(EntityUid bloodsucker, EntityUid victim)
+        private void PlayBloodSuckEffects(EntityUid bloodsucker, EntityUid victim)
         {
             _adminLogger.Add(LogType.MeleeHit, LogImpact.Medium, $"{ToPrettyString(bloodsucker):player} sucked blood from {ToPrettyString(victim):target}");
             _audio.PlayPvs("/Audio/Items/drink.ogg", bloodsucker);

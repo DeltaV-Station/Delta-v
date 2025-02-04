@@ -122,50 +122,50 @@ namespace Content.Server.Vampire
        public bool TrySuck(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodsuckerComp = null)
 
 
-        {
-            var sharedBloodSuckerSystem = EntitySystem.Get<SharedBloodSuckerSystem>();
+{
+    var sharedBloodSuckerSystem = EntitySystem.Get<SharedBloodSuckerSystem>();
 
-            if (!Resolve(bloodsucker, ref bloodsuckerComp))
-                return false;
-            if (!TryValidateVictim(victim))
-                return false;
+    if (!Resolve(bloodsucker, ref bloodsuckerComp))
+        return false;
+    if (!TryValidateVictim(victim))
+        return false;
 
-            if (!TryGetBloodsuckerStomach(bloodsucker, out var stomach))
-                return false;
-            if (!sharedBloodSuckerSystem.TryValidateSolution(bloodsucker))
-                return false;
+    if (!TryGetBloodsuckerStomach(bloodsucker, out var stomach))
+        return false;
+    if (!sharedBloodSuckerSystem.TryValidateSolution(bloodsucker))
+        return false;
 
-            sharedBloodSuckerSystem.PlayBloodSuckEffects(bloodsucker, victim);
-            return CompleteBloodSuck(bloodsucker, victim, stomach, bloodsuckerComp);
-        }
+    sharedBloodSuckerSystem.PlayBloodSuckEffects(bloodsucker, victim);
+    return CompleteBloodSuck(bloodsucker, victim, stomach, bloodsuckerComp);
+}
 
-        private bool TryValidateVictim(EntityUid victim)
-        {
-            if (!TryComp<BloodstreamComponent>(victim, out var bloodstream) || bloodstream.BloodSolution == null)
-                return false;
-            return _bloodstreamSystem.GetBloodLevelPercentage(victim, bloodstream) != 0.0f;
-        }
+private bool TryValidateVictim(EntityUid victim)
+{
+    if (!TryComp<BloodstreamComponent>(victim, out var bloodstream) || bloodstream.BloodSolution == null)
+        return false;
+    return _bloodstreamSystem.GetBloodLevelPercentage(victim, bloodstream) != 0.0f;
+}
 
-        private bool TryGetBloodsuckerStomach(EntityUid bloodsucker, out StomachComponent stomach)
-        {
-            stomach = _bodySystem.GetBodyOrganEntityComps<StomachComponent>(bloodsucker).FirstOrDefault();
-            return true;
-        }
+private bool TryGetBloodsuckerStomach(EntityUid bloodsucker, out StomachComponent stomach)
+{
+    stomach = _bodySystem.GetBodyOrganEntityComps<StomachComponent>(bloodsucker).FirstOrDefault();
+    return true;
+}
 
 
-        private bool CompleteBloodSuck(EntityUid bloodsucker, EntityUid victim, StomachComponent stomach, BloodSuckerComponent bloodsuckerComp)
-        {
-            if (!TryComp<BloodstreamComponent>(victim, out var bloodstream) || bloodstream.BloodSolution == null)
-                return false;
+private bool CompleteBloodSuck(EntityUid bloodsucker, EntityUid victim, StomachComponent stomach, BloodSuckerComponent bloodsuckerComp)
+{
+    if (!TryComp<BloodstreamComponent>(victim, out var bloodstream) || bloodstream.BloodSolution == null)
+        return false;
 
-            var extractedBlood = _solutionSystem.SplitSolution(bloodstream.BloodSolution.Value, bloodsuckerComp.UnitsToSuck);
-            _stomachSystem.TryTransferSolution(bloodsucker, extractedBlood, stomach);
+    var extractedBlood = _solutionSystem.SplitSolution(bloodstream.BloodSolution.Value, bloodsuckerComp.UnitsToSuck);
+    _stomachSystem.TryTransferSolution(bloodsucker, extractedBlood, stomach);
 
-            DamageSpecifier damage = new();
-            damage.DamageDict.Add("Piercing", 1);
-            _damageableSystem.TryChangeDamage(victim, damage, true);
+    DamageSpecifier damage = new();
+    damage.DamageDict.Add("Piercing", 1);
+    _damageableSystem.TryChangeDamage(victim, damage, true);
 
-            return true;
-        }
+    return true;
+}
     }
 }
