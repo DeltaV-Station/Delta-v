@@ -202,10 +202,9 @@
 # Prison Guard Jumpskirt
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformJumpsuitPrisonGuard
   id: ClothingUniformJumpskirtPrisonGuard
-  name: prison guard's uniform
-  description: A comfortable, durable, waterproof uniform made to keep prison staff comfortable and safe.
+  name: prison guard's jumpskirt
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpskirt/prisonguard.rsi
@@ -307,10 +306,9 @@
 # Salvage uniform
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformJumpsuitSalvageSpecialist
   id: ClothingUniformJumpskirtSalvageSpecialist
   name: salvage specialist's jumpskirt
-  description: It's a snappy jumpsuit with a sturdy set of overalls. It's very dirty.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpskirt/explorer.rsi
