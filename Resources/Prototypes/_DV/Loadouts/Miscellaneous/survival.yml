@@ -1,3 +1,99 @@
+# Species
+- type: loadoutEffectGroup
+  id: WaterBreather
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Feroxi
+
+# Basic
+- type: loadout
+  id: EmergencyWater
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxSurvivalWater
+
+# Clown
+- type: loadout
+  id: EmergencyWaterClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxHugWater
+
+# Mime
+- type: loadout
+  id: EmergencyWaterMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxMimeWater
+
+# Engineering / Extended
+- type: loadout
+  id: EmergencyWaterExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxSurvivalEngineeringWater
+
+# Medical
+- type: loadout
+  id: EmergencyWaterMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxSurvivalMedicalWater
+
+# Security
+- type: loadout
+  id: EmergencyWaterSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxSurvivalSecurityWater
+
+# Syndicate
+- type: loadout
+  id: EmergencyWaterSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxSurvivalWater
+
+# Full EVA Tank, Any Species
+- type: loadout
+  id: LoadoutSpeciesEVAWater
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  equipment:
+    suitstorage: WaterTankFilled
+
+# Species-appropriate Double Emergency Tank in Pocket 1
+- type: loadout
+  id: LoadoutSpeciesPocketDoubleWater
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  equipment:
+    pocket1: DoubleEmergencyWaterTankFilled
+
 # Corpsman
 - type: loadout
   id: EmergencyOxygenCorpsman
@@ -16,6 +112,14 @@
   storage:
     back:
     - BoxSurvivalBrigmedicNitrogen
+
+- type: loadout
+  id: EmergencyNitrogenCorpsman
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  equipment:
+    mask: BoxSurvivalBrigmedicWater
 
 - type: loadout
   id: LoadoutSpeciesBreathToolCorpsman

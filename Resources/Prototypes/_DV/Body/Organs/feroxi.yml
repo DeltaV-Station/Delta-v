@@ -24,14 +24,16 @@
 - type: entity
   parent: BaseHumanOrgan
   id: OrganFeroxiLungs
-  name: Aquatic Lungs
-  description: "A pair of amphibious lungs, filtering oxygen out of the air continuously."
+  name: Aquatic Lungs and Gills
+  description: "A pair of amphibious lungs along with gills, filtering oxygen out of the air continuously."
   components:
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
     layers:
       - state: lung-l
       - state: lung-r
+  - type: Organ
+    removable: false
   - type: Lung
   - type: Metabolizer
     removeEmpty: true

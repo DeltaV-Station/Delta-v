@@ -69,5 +69,11 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     /// </summary>
     [DataField]
     public bool CanEnable = true;
+
+    /// <summary>
+    ///     DV - Yknow I like being able to just say that an organ can also just, not be removed :blunt:
+    /// </summary>
+    [DataField]
+    public bool Removable = true;
     // Shitmed Change End
 }

@@ -100,14 +100,17 @@ marking-FeroxiTipTwoToneTailAndDorsal-feroxi-tail-under = Under Tail
 marking-FeroxiTipTwoToneTailAndDorsal-feroxi-dorsal = Base Dorsal
 marking-FeroxiTipTwoToneTailAndDorsal-feroxi-dorsal-tip = Dorsal Tip
 
-
 marking-FeroxiTorsoStripesBlitz = Small Under Arm Stripes
 marking-FeroxiTorsoStripesBlitz-feroxi-torso-stripes-blitz = Stripes
-
 
 marking-FeroxiLegStripesBlitz = Calf Stripes
 marking-FeroxiLegStripesBlitz-feroxi-leg-stripes-blitz = Stripes
 
-
 marking-FeroxiArmStripesBlitz = Shoulder Stripes
 marking-FeroxiArmStripesBlitz-feroxi-arm-stripes-blitz = Stripes
+
+marking-FeroxiTorsoCountershadingF = Countershading (Feminine)
+marking-FeroxiTorsoCountershadingF-feroxi-torso-countershading-f = Countershading
+
+marking-FeroxiTorsoCountershadingM = Countershading (Masculine)
+marking-FeroxiTorsoCountershadingM-feroxi-torso-countershading-m = Countershading

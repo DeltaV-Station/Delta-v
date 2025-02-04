@@ -266,6 +266,24 @@
   - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-torso-stripes-blitz
 
+- type: marking
+  id: FeroxiTorsoCountershadingF
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
+    state: feroxi-torso-countershading-f
+
+- type: marking
+  id: FeroxiTorsoCountershadingM
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
+    state: feroxi-torso-countershading-m
+
 # Leg Markings
 - type: marking
   id: FeroxiLegStripesBlitz
