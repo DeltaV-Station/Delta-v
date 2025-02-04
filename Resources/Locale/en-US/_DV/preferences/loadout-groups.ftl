@@ -64,7 +64,7 @@ loadout-group-cargo-assistant-outerclothing = Cargo Assistant outer clothing
 loadout-group-cargo-assistant-shoes = Cargo Assistant shoes
 
 loadout-group-salvage-specialist-neck = Salvage Specialist neck
-loudout-group-salvage-specialist-jumpsuit = Salvage Specialist jumpsuit
+loadout-group-salvage-specialist-jumpsuit = Salvage Specialist jumpsuit
 
 loadout-group-salvage-id-delta = Salvage Specialist PDA
 
