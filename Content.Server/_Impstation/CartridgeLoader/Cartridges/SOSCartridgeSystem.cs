@@ -6,7 +6,7 @@ using Content.Shared.Popups;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
 
-namespace Content.Server.CartridgeLoader.Cartridges;
+namespace Content.Server._Impstation.CartridgeLoader.Cartridges;
 
 public sealed class SOSCartridgeSystem : EntitySystem
 {
