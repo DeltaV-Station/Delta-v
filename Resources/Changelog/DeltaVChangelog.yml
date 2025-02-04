@@ -1,108 +1,4 @@
 ﻿Entries:
-- author: portfiend
-  changes:
-  - message: The Courier and Logistics Officer now have a new program in their PDA
-      for tracking mail delivery performance, including earnings and percent of packages
-      opened, damaged, or expired.
-    type: Add
-  id: 481
-  time: '2024-08-16T12:24:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1472
-- author: deltanedas
-  changes:
-  - message: Fixed Corpsman and Paramedic starting gear.
-    type: Fix
-  id: 482
-  time: '2024-08-16T20:33:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1627
-- author: portfiend
-  changes:
-  - message: AAC tablet now shows a heading label on each group of phrases.
-    type: Tweak
-  - message: AAC tablet has more phrases, including colors, relative locations, common
-      objects, temperature hazards, and Pronouns!!
-    type: Add
-  id: 483
-  time: '2024-08-16T20:34:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1634
-- author: MilonPL
-  changes:
-  - message: The admin PDA health analyzer no longer shows a popup to the player.
-    type: Fix
-  id: 484
-  time: '2024-08-18T04:08:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1637
-- author: deltanedas
-  changes:
-  - message: Fixed Vox mantes not getting a tank harness.
-    type: Fix
-  id: 485
-  time: '2024-08-18T10:10:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1647
-- author: MilonPL
-  changes:
-  - message: Fixed the mass sleep power.
-    type: Fix
-  id: 486
-  time: '2024-08-18T10:32:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1649
-- author: deltanedas
-  changes:
-  - message: Changed air vent lockout threshold from 60kpa to 30kpa.
-    type: Tweak
-  id: 487
-  time: '2024-08-18T10:36:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1638
-- author: jimmy12or
-  changes:
-  - message: Added the Plant Bag of Holding! A plant bag with much more space for
-      your produce and seeds!
-    type: Add
-  - message: Added Plant Bag of Holding to Hydroponics research, which now costs 7500
-      points.
-    type: Tweak
-  id: 488
-  time: '2024-08-18T10:44:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1651
-- author: deltanedas
-  changes:
-  - message: Mindshield implants can now be removed.
-    type: Tweak
-  id: 489
-  time: '2024-08-18T10:47:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1631
-- author: deltanedas
-  changes:
-  - message: Added the grappling hook back to the research tree.
-    type: Add
-  - message: Burgers can have 50 ingredients now.
-    type: Tweak
-  - message: Fixed Synthesis Specialists not showing up in the round end summary.
-    type: Fix
-  id: 490
-  time: '2024-08-18T17:21:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1636
-- author: MilonPL
-  changes:
-  - message: Senior job icons are now selectable in agent IDs.
-    type: Fix
-  id: 491
-  time: '2024-08-20T10:02:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1657
-- author: MilonPL
-  changes:
-  - message: AAC tablets now properly get picked up by intercoms.
-    type: Fix
-  id: 492
-  time: '2024-08-21T07:24:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1660
-- author: deltanedas
-  changes:
-  - message: Fixed Vox Fugitives and other antags not getting nitrogen.
-    type: Fix
-  id: 493
-  time: '2024-08-22T13:48:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1666
 - author: deltanedas
   changes:
   - message: Merged upstream, except for mining rebalance and energy shotgun.
@@ -3867,3 +3763,98 @@
   id: 980
   time: '2025-02-03T02:04:20.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2862
+- author: AeraAuling
+  changes:
+  - message: Skeletons now take Holy damage as they are undead.
+    type: Tweak
+  id: 981
+  time: '2025-02-03T11:44:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2854
+- author: sowelipililimute
+  changes:
+  - message: Sticky notes exist, and can be found in the bureaucracy crate
+    type: Add
+  id: 982
+  time: '2025-02-03T11:51:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2853
+- author: Radezolid
+  changes:
+  - message: Fixed the Shitmed locale in the controls keybind menu
+    type: Fix
+  id: 983
+  time: '2025-02-03T12:05:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2859
+- author: SolStar
+  changes:
+  - message: Fixed bug causing precognition power to sometimes fail to display a message.
+    type: Fix
+  id: 984
+  time: '2025-02-03T12:05:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2865
+- author: Spielern
+  changes:
+  - message: Added IPCs as a playable species.
+    type: Add
+  id: 985
+  time: '2025-02-03T12:08:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2800
+- author: Fox & Lyndomen
+  changes:
+  - message: Overhauls the Interdyne ship to be 99% less valid
+    type: Tweak
+  id: 986
+  time: '2025-02-03T12:16:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2646
+- author: Colin-Tel
+  changes:
+  - message: Adjusted the credits in the Patrons tab. Thank you to everyone who donated!
+    type: Tweak
+  id: 987
+  time: '2025-02-03T17:58:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2867
+- author: sowelipililimute
+  changes:
+  - message: Papermoon dyed paper reams are now available to spice up your paperwork
+      in the Bureaucracy crate
+    type: Add
+  id: 988
+  time: '2025-02-03T19:25:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2864
+- author: Lyndomen
+  changes:
+  - message: Big bureaucracy demands 4 more papers in paper bins.
+    type: Tweak
+  id: 989
+  time: '2025-02-03T19:48:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2868
+- author: IAmNotGray
+  changes:
+  - message: Elegance has been tweaked according to community feedback. Thank you
+      for your patience!
+    type: Tweak
+  id: 990
+  time: '2025-02-04T05:45:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2871
+- author: Spielern
+  changes:
+  - message: IPCs can now enter cryosleep.
+    type: Fix
+  - message: IPCs can be flashed.
+    type: Fix
+  id: 991
+  time: '2025-02-04T15:18:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2875
+- author: beck-thompson
+  changes:
+  - message: Hostage implants are now free for hostage ops nukies
+    type: Tweak
+  id: 992
+  time: '2025-02-04T16:20:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2874
+- author: deltanedas
+  changes:
+  - message: Fixed multiple having radio implants breaking the first one.
+    type: Fix
+  id: 993
+  time: '2025-02-04T18:50:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2882
