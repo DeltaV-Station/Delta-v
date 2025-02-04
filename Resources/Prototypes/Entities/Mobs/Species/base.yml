@@ -19,6 +19,8 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.Underwear" ] # DeltaV
+    - map: [ "enum.HumanoidVisualLayers.Undershirt" ] # DeltaV
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -138,6 +140,11 @@
     - Adrenaline
     - PsionicsDisabled #Nyano - Summary: PCs can have psionics disabled.
     - PsionicallyInsulated #Nyano - Summary: PCs can be made insulated from psionic powers.
+    - Addicted # DeltaV - Psych med addictions system
+    - SuppressAddiction # DeltaV - Psych med addictions system
+    - InPain # DeltaV - Pain system
+    - SuppressPain # DeltaV - Pain system
+    - Anesthesia # DeltaV - Anesthesia
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -185,12 +192,13 @@
   - type: Stripping
   - type: UserInterface
     interfaces:
-      enum.VoiceMaskUIKey.Key:
-        type: VoiceMaskBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      # Shitmed
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -217,6 +225,10 @@
     - DoorBumpOpener
     - AnomalyHost
   - type: PotentialPsionic # DeltaV - organic species can all be psionic
+  - type: FootPrints # DeltaV port from EE, blood splatter
+  - type: LayingDown # WD EDIT
+  - type: Targeting # Shitmed Change
+  - type: SurgeryTarget # Shitmed Change
 
 - type: entity
   save: false
@@ -285,6 +297,7 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
+  - type: LayingDown # WD EDIT
 
 - type: entity
   save: false
@@ -311,6 +324,8 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.Underwear" ] # DeltaV
+    - map: [ "enum.HumanoidVisualLayers.Undershirt" ] # DeltaV
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]

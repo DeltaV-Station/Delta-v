@@ -7,8 +7,10 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: SpriteFade # DeltaV - Makes it so person behind curtain can see behind it
   - type: Occluder
   - type: AnimationPlayer
+  - type: InteractionOutline # DeltaV - Makes it clear what you're interacting with
   - type: Fixtures
     fixtures:
       fix1:
@@ -49,7 +51,7 @@
         spawn:
           MaterialCloth1:
             min: 1
-            max: 2
+            max: 1
   - type: WallMount
     arc: 360
 
@@ -59,9 +61,8 @@
   suffix: Hospital
   description: Contains less than 1% mercury.
   components:
-  - type: Sprite
-    snapCardinals: true
-    sprite: Structures/Decoration/Curtains/hospital.rsi
+  - type: Sprite # DeltaV - Removed cardinal snapping
+    sprite: _DV/Structures/Decoration/Curtains/hospital.rsi # DeltaV - Changed sprite path
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]

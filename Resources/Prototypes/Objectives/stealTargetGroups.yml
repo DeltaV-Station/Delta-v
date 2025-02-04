@@ -94,13 +94,6 @@
 # Thief Collection
 
 - type: stealTargetGroup
-  id: Figurines
-  name: steal-target-groups-figurines
-  sprite:
-    sprite: Objects/Fun/figurines.rsi
-    state: figurine_spawner
-
-- type: stealTargetGroup
   id: HeadCloak
   name: steal-target-groups-heads-cloaks
   sprite:
@@ -387,7 +380,7 @@
     state: fox
 
 - type: stealTargetGroup
-  id: AnimalSecurity #DeltaV - Adjusts because we have multiple possible sec animals
+  id: AnimalSecurity # DeltaV - Adjusts because we have multiple possible sec animals
   name: steal-target-groups-animal-shiva
   sprite:
     sprite: Mobs/Pets/shiva.rsi

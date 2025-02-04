@@ -7,9 +7,9 @@
   markingLimits: MobOniMarkingLimits
   sprites: MobHumanSprites
   skinColoration: Hues
-  maleFirstNames: names_oni_male
-  femaleFirstNames: names_oni_female
-  lastNames: names_oni_location
+  maleFirstNames: NamesOniMale
+  femaleFirstNames: NamesOniFemale
+  lastNames: NamesOniLocation
   naming: LastNoFirst
 
 - type: markingPoints
@@ -33,6 +33,12 @@
       points: 2
       required: false
     Chest:
+      points: 1
+      required: false
+    Underwear:
+      points: 1
+      required: false
+    Undershirt:
       points: 1
       required: false
     Legs:

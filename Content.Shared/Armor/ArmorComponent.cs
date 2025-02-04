@@ -22,6 +22,37 @@ public sealed partial class ArmorComponent : Component
     /// </summary>
     [DataField]
     public float PriceMultiplier = 1;
+
+    /// <summary>
+    /// DeltaV: The incoming stamina projectile damage will get multiplied by this value.
+    /// </summary>
+    [DataField]
+    public float StaminaDamageCoefficient = 1;
+
+    /// <summary>
+    /// DeltaV: The configured stamina melee damage coefficient. The actual value used
+    /// will be this or the blunt damage coefficient, whichever provides better protection.
+    /// </summary>
+    [DataField]
+    private float _staminaMeleeDamageCoefficient = 1;
+
+    /// <summary>
+    /// DeltaV: Gets or sets the effective stamina melee damage coefficient, using either the configured
+    /// value or the blunt damage coefficient, whichever provides better protection (lower value).
+    /// </summary>
+    [Access(typeof(SharedArmorSystem))]
+    public float StaminaMeleeDamageCoefficient
+    {
+        get
+        {
+            // Try to get the blunt damage coefficient from modifiers
+            var bluntCoefficient = Modifiers.Coefficients.GetValueOrDefault("Blunt", 1.0f);
+
+            // Return whichever provides better protection (lower coefficient)
+            return Math.Min(bluntCoefficient, _staminaMeleeDamageCoefficient);
+        }
+        set => _staminaMeleeDamageCoefficient = value;
+    }
 }
 
 /// <summary>

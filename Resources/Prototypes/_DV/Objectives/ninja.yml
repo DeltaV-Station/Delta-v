@@ -1,0 +1,81 @@
+# Kill
+
+- type: entity
+  abstract: true
+  parent: [ BaseNinjaObjective, BaseTeachLessonObjective ]
+  id: BaseNinjaTeachLessonObjective
+  description: This fool has spoken out against the Spider Clan. Teach them the error of their ways.
+  components:
+  - type: Objective
+    unique: true
+    icon:
+      sprite: Objects/Weapons/Throwable/throwing_star.rsi
+      state: icon
+  - type: TargetObjective
+    title: objective-condition-teach-person-title
+
+- type: entity
+  parent: BaseNinjaTeachLessonObjective
+  id: NinjaTeachLessonRandomHeadObjective
+  components:
+  - type: PickRandomHead
+
+- type: entity
+  parent: BaseNinjaTeachLessonObjective
+  id: NinjaTeachLessonRandomPersonObjective
+  components:
+  - type: PickRandomPerson
+
+- type: entity
+  parent: [ BaseNinjaObjective, BaseKillObjective ]
+  id: NinjaKillRandomHeadObjective
+  description: The Spider Clan is in need of more saboteur cyborgs. This head's brain will be perfect.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Melee/energykatana.rsi
+      state: icon
+  - type: TargetObjective
+    title: objective-ninja-kill-head-title
+  - type: PickRandomHead
+  - type: KillPersonCondition
+    requireDead: true
+
+# Steal
+
+- type: entity
+  abstract: true
+  parent: [ BaseNinjaObjective, BaseStealObjective ]
+  id: BaseNinjaStealObjective
+  components:
+  - type: StealCondition
+    verifyMapExistence: false
+
+- type: entity
+  parent: BaseNinjaStealObjective
+  id: NinjaIanDossierStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: BookIanDossier
+
+- type: entity
+  parent: BaseNinjaStealObjective
+  id: NinjaLuckyBillStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: SpaceCashLuckyBill
+
+- type: entity
+  parent: BaseNinjaStealObjective
+  id: NinjaCaptainsCloakStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: CaptainsCloak
+
+- type: entity
+  parent: BaseNinjaStealObjective
+  id: NinjaNotaryStampStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: RubberStampNotary
+    owner: job-name-clerk

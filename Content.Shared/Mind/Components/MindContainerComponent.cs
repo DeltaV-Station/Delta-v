@@ -14,8 +14,13 @@ public sealed partial class MindContainerComponent : Component
     ///     The mind controlling this mob. Can be null.
     /// </summary>
     [DataField, AutoNetworkedField]
-    [Access(typeof(SharedMindSystem), Other = AccessPermissions.ReadWriteExecute)] // FIXME Friends
     public EntityUid? Mind { get; set; }
+
+    /// <summary>
+    /// DeltaV: The first mind to control this mob. Will only be null if the mob never had a mind at all.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? OriginalMind;
 
     /// <summary>
     ///     True if we have a mind, false otherwise.
@@ -35,7 +40,6 @@ public sealed partial class MindContainerComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("ghostOnShutdown")]
-    [Access(typeof(SharedMindSystem), Other = AccessPermissions.ReadWriteExecute)] // FIXME Friends
     public bool GhostOnShutdown { get; set; } = true;
 }
 

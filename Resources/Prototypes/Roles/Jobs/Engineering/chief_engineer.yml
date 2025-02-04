@@ -6,17 +6,15 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 36000 # DeltaV - 10 hours
+      time: 72000 # DeltaV - 20 hours
 #    - !type:RoleTimeRequirement # DeltaV - No Station Engineer time requirement
 #      role: JobStationEngineer
 #      time: 21600 #6 hrs
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 90000 # DeltaV - 25 hours, was 10
+      time: 108000 # DeltaV - 30 hours, was 10
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 # DeltaV - was 40 hours upstream
-#   - !type:AgeRequirement - DeltaV - PR #1611 for context
-#     requiredAge: 20
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"

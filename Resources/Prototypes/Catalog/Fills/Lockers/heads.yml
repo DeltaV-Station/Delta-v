@@ -9,7 +9,7 @@
     - id: CargoBountyComputerCircuitboard
     - id: CargoRequestComputerCircuitboard
     - id: CargoSaleComputerCircuitboard
-    - id: CargoShuttleComputerCircuitboard
+    #- id: CargoShuttleComputerCircuitboard # DeltaV: hasn't been used in years
     - id: CargoShuttleConsoleCircuitboard
     - id: SalvageMagnetMachineCircuitboard
     - id: CigPackGreen
@@ -19,6 +19,7 @@
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampQm
+    - id: AstroNavCartridge
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -117,7 +118,7 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfPersonnelDeltaV
-    - id: AccessConfigurator
+    #- id: AccessConfigurator # DeltaV - They don't really need it, moved to the administrative assistant starting gear.
     - id: BoxEncryptionKeyPassenger
     - id: BoxEncryptionKeyService
     - id: BoxHeadset
@@ -137,7 +138,7 @@
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampHop
-    - id: WeaponDisabler
+    #- id: WeaponDisabler # DeltaV - There is no reason for the service head to have a disabler.
     - id: ClothingEyesHudCommand
 
 - type: entity
@@ -228,6 +229,9 @@
     - id: MedicalTechFabCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
+    - id: MedTekCartridge
+    # Shitmed
+    #- id: MedicalBiofabMachineBoard #DeltaV - Replaced with a flatpack at Prototypes/_DV/Catalog/Fills/Lockers/heads.yml
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -271,6 +275,7 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: LockerFillResearchDirectorDeltaV
+    - id: Intellicard
     - id: BoxEncryptionKeyScience
     - id: CircuitImprinterMachineCircuitboard
     - id: ClothingBeltUtilityFilled
@@ -324,7 +329,7 @@
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfSecurityDeltaV
     - id: BookSecretDocuments
-    #- id: WeaponEnergyShotgun # DeltaV - replaced by X-01
+    - id: WeaponEnergyShotgun
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
@@ -340,6 +345,8 @@
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     - id: WeaponDisabler
+    #- id: WantedListCartridge # DeltaV - replaced by secwatch
+    - id: DrinkHosFlask
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -350,6 +357,7 @@
     - id: ClothingOuterHardsuitCombatHoS # DeltaV - ClothingOuterHardsuitSecurityRed replaced in favour of head of security's advanced combat hardsuit.
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
+    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
 
 # No hardsuit locker
 - type: entity

@@ -32,7 +32,7 @@
 # Silicons
 - type: roleLoadout
   id: JobStationAi
-  nameDataset: names_ai
+  nameDataset: NamesAIDeltaV # DeltaV
 
 # Civilian
 - type: roleLoadout
@@ -143,6 +143,7 @@
   - JanitorNeck # DeltaV
   - JanitorJumpsuit
   - JanitorGloves
+  - JanitorPDADelta # DeltaV
   - CommonBackpack
   - JanitorOuterClothing
   - Glasses
@@ -364,12 +365,14 @@
   - HeadofSecurityJumpsuit
   - SecurityBackpack
   - SecurityBelt
-  - HeadofSecurityOuterClothing
+  - HeadofSecurityOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was HeadofSecurityOuterClothing
   - HeadofSecurityShoes # DeltaV - winter boots
   - SurvivalSecurity
   - Trinkets
-#  - SecurityStar # DeltaV - removed for incongruence
+  - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityAllFirearm # DeltaV - loadouts
+  - SecurityAllAmmo # DeltaV - loadouts
 
 - type: roleLoadout
   id: JobWarden
@@ -379,12 +382,14 @@
   - WardenJumpsuit
   - SecurityBackpack
   - SecurityBelt
-  - WardenOuterClothing
+  - WardenOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was WardenOuterClothing
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-#  - SecurityStar # DeltaV - removed for incongruence
+  - SecurityStar 
   - GroupSpeciesBreathToolSecurity
+  - SecurityAllFirearm # DeltaV - loadouts
+  - SecurityAllAmmo # DeltaV - loadouts
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -393,29 +398,32 @@
   - SecurityNeck # DeltaV
   - SecurityJumpsuit
   - SecurityBackpack
-  - SecurityOuterClothing
+  - SecurityOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was SecurityOuterClothing
   - SecurityShoes
   - SecurityPDA
   - SecurityBelt
   - SurvivalSecurity
   - Trinkets
-#  - SecurityStar # DeltaV - removed for incongruence
+  - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityFirearm # DeltaV - loadouts
+  - SecurityFirearmAmmo # DeltaV - loadouts
 
 - type: roleLoadout
   id: JobDetective
   groups:
-  - GroupTankHarness
   - DetectiveHead
   - SecurityNeck # DeltaV - replace DetectiveNeck for incongruence
-  - DetectiveJumpsuit
+  - DetectiveJumpsuitDeltaV # DeltaV - Replaced with DeltaV version, was DetectiveJumpsuit
   - SecurityBackpack
-  - DetectiveOuterClothing
+  - DetectiveOuterClothingDeltaV # DeltaV - Replaced with DeltaV version, was DetectiveOuterClothing
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-#  - SecurityStar # DeltaV - removed for incongruence
+  - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityRevolverFirearm # DeltaV - loadouts
+  - SecurityRevolverAmmo # DeltaV - loadouts
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -538,6 +546,11 @@
   - MedicalBackpack
   - Glasses
   - SurvivalMedical # DeltaV, replaces Survival
+  - PsychologistPDADelta # DeltaV
+  - PsychologistHead # DeltaV
+  - Scarfs # DeltaV
+  - PsychologistOuterClothing # DeltaV
+  - PsychologistShoes # DeltaV
   - Trinkets
   - GroupSpeciesBreathTool
 

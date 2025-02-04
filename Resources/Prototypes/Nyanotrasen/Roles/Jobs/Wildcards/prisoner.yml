@@ -13,6 +13,9 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 21600
+  special:
+  - !type:AddImplantSpecial
+    implants: [ TrackingImplant ]
 
 - type: startingGear
   id: PrisonerGear

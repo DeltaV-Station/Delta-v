@@ -65,7 +65,7 @@
   - type: ReverseEngineering # DeltaV
     difficulty: 2
     recipes:
-    - MiningDrill
+    - MiningDrillDiamond
 
 - type: entity
   name: diamond tipped mining drill
@@ -88,10 +88,6 @@
         Brute: 6
       types:
         Structural: 30
-  - type: ReverseEngineering # DeltaV
-    difficulty: 3
-    recipes:
-    - MiningDrillDiamond
 
 
 - type: entity
@@ -157,6 +153,7 @@
   - type: GunRequiresWield
   - type: Item
     size: Ginormous
+    sprite: Objects/Weapons/Melee/crusher-inhands.rsi
   - type: DisarmMalus
   - type: Prying
 
@@ -199,3 +196,6 @@
   - type: Tag
     tags:
       - Pickaxe
+  - type: Item
+    size: Ginormous
+    sprite: Objects/Weapons/Melee/crusher_glaive-inhands.rsi

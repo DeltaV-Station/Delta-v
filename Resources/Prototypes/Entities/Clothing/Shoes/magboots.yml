@@ -14,8 +14,7 @@
     sprite: Clothing/Shoes/Boots/magboots.rsi
   - type: ToggleClothing
     action: ActionToggleMagboots
-  - type: ToggleVerb
-    text: toggle-magboots-verb-get-data-text
+    mustEquip: false
   - type: ComponentToggler
     components:
     - type: NoSlip
@@ -35,10 +34,6 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: ReverseEngineering # DeltaV
-    difficulty: 2
-    recipes:
-    - ClothingShoesBootsMagSci
 
 - type: entity
   parent: [ClothingShoesBootsMagBase]

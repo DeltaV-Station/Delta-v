@@ -28,9 +28,9 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 108000 # DeltaV - 30 hours
-  - !type:DepartmentTimeRequirement # DeltaV - Medical dept time requirement
-    department: Medical
-    time: 36000 # DeltaV - 10 hours
+  - !type:RoleTimeRequirement #Delta V - they should be able to make basic chems
+    role: JobChemist
+    time: 14400 # DeltaV- 4 hours
 
 - type: antag
   id: NukeopsCommander
@@ -70,6 +70,7 @@
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
     - DeathAcidifierImplanter
+    - BionicVoiceMaskImplanter # Delta-V - Voice masking implant
 
 #Nuclear Operative Gear
 - type: startingGear
@@ -85,8 +86,8 @@
   equipment:
     neck: SyndicateWhistle
     outerClothing: ClothingOuterHardsuitSyndieCommander
-  inhand:
-  - NukeOpsDeclarationOfWar
+#  inhand: # DeltaV - Removal Of War.
+#  - NukeOpsDeclarationOfWar
 
 #Nuclear Operative Medic Gear
 - type: startingGear
@@ -109,6 +110,7 @@
     - HandheldHealthAnalyzer
     - CombatMedipen
     - DeathAcidifierImplanter
+    - OmnimedToolSyndie # Shitmed
 
 #Lone Operative Gear
 - type: startingGear

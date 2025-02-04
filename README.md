@@ -10,7 +10,7 @@ Space Station 14 is a remake of SS13 that runs on [Robust Toolbox](https://githu
 ## Links
 
 #### DeltaV
-[Website](https://delta-v.org/) | [Wiki](https://wiki.delta-v.org/view/Main_Page) | [Discord](https://go.delta-v.org/AtDxv)
+[Website](https://deltav.gay/) | [Wiki](https://wiki.deltav.gay/view/Main_Page) | [Discord](https://discord.gg/deltav)
 
 #### Space Station 14
 
@@ -24,10 +24,7 @@ The [docs site](https://docs.spacestation14.io/) has documentation on SS14s cont
 
 We are happy to accept contributions from anybody. Get in Discord if you want to help. We've got a [list of issues](https://github.com/DeltaV-Station/Delta-v/issues) that need to be done and anybody can pick them up. Don't be afraid to ask for help either!
 
-We are currently accepting translations of the game on our main repository. If you would like to translate the game into another language check the #localization channel in our [Discord](https://go.delta-v.org/AtDxv)
-
-If you make any contributions, please make sure to read the markers section in [MARKERS.md](https://github.com/DeltaV-Station/Delta-v/blob/master/MARKERS.md)
-Any changes made to files belonging to our upstream should be properly marked in accordance to what is specified there.
+Make sure to read [CONTRIBUTING.md](/CONTRIBUTING.md) if you are new to Delta-V!
 
 ## Building
 
@@ -41,6 +38,8 @@ Any changes made to files belonging to our upstream should be properly marked in
 
 Content contributed to this repository after commit 87c70a89a67d0521a56388e6b1c3f2cb947943e4 is licensed under the GNU Affero General Public License version 3.0, unless otherwise stated. See `LICENSE-AGPLv3.txt`.
 Content contributed to this repository before commit 87c70a89a67d0521a56388e6b1c3f2cb947943e4 is licensed under the MIT license, unless otherwise stated. See `LICENSE-MIT.txt`.
+
+To be more specific, code in `Content.*/DeltaV`, `Resources/*/DeltaV` and any Delta-V specific scripts in `Tools` are licensed under AGPLv3. Other files are originally from other codebases and are not owned by Delta-V, though any code must be relicensable to AGPLv3. SS14 is MIT licensed so this forking is possible.
 
 [87c70a89a67d0521a56388e6b1c3f2cb947943e4](https://github.com/DeltaV-Station/Delta-v/commit/87c70a89a67d0521a56388e6b1c3f2cb947943e4) was pushed on February 17th 2024 at 21:48 UTC
 

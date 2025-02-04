@@ -1,10 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using Content.Server.Access.Systems;
 using Content.Server.Forensics;
-using Content.Server.GameTicking;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems; // DeltaV
+using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
@@ -159,7 +158,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         {
             Name = name,
             Age = age,
-            JobTitle = card?.Comp.JobTitle ?? jobPrototype.LocalizedName, // DeltaV
+            JobTitle = card?.Comp.LocalizedJobTitle ?? jobPrototype.LocalizedName, // DeltaV
             JobIcon = card?.Comp.JobIcon ?? jobPrototype.Icon, // DeltaV
             JobPrototype = jobId,
             Species = species,

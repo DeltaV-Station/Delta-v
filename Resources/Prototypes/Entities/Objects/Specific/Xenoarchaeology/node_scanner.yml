@@ -12,10 +12,6 @@
     - type: NodeScanner
     - type: UseDelay
       delay: 3
-    - type: ReverseEngineering # Nyano
-      difficulty: 2
-      recipes:
-        - NodeScanner
     - type: GuideHelp
       guides:
       - ArtifactReports

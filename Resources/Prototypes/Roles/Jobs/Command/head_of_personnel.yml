@@ -19,8 +19,6 @@
       time: 72000 # 20 hours
     - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
       time: 90000 # 25 hours
-#   - !type:AgeRequirement - DeltaV - PR #1611 for context
-#     requiredAge: 20
   weight: 10 # DeltaV - Changed HoP weight from 20 to 10 due to them not being more important than other Heads
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"

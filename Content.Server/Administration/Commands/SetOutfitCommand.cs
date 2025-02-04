@@ -16,6 +16,8 @@ using Content.Shared.Station;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Server._EE.Silicon.IPC; // Goobstation
+using Content.Shared.Radio.Components; // Goobstation
 
 namespace Content.Server.Administration.Commands
 {
@@ -163,7 +165,12 @@ namespace Content.Server.Administration.Commands
                 var stationSpawning = entityManager.System<SharedStationSpawningSystem>();
                 stationSpawning.EquipRoleLoadout(target, roleLoadout, jobProto);
             }
-
+            
+            if (entityManager.HasComponent<EncryptionKeyHolderComponent>(target))
+            {
+                var encryption = entityManager.System<InternalEncryptionKeySpawner>();
+                encryption.TryInsertEncryptionKey(target, startingGear, entityManager);
+            }
             return true;
         }
     }

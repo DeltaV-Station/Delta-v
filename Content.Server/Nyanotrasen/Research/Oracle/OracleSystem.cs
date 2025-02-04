@@ -107,7 +107,7 @@ public sealed class OracleSystem : EntitySystem
         if (HasComp<MobStateComponent>(args.Used))
             return;
 
-        if (!TryComp<MetaDataComponent>(args.Used, out var meta))
+        if (!TryComp(args.Used, out MetaDataComponent? meta))
             return;
 
         if (HasComp<BorgChassisComponent>(args.User))
@@ -139,13 +139,13 @@ public sealed class OracleSystem : EntitySystem
             return;
         }
 
-        EntityManager.QueueDeleteEntity(args.Used);
+        QueueDel(args.Used);
 
         _adminLog.Add(LogType.InteractHand,
             LogImpact.Medium,
             $"{ToPrettyString(args.User):player} sold {ToPrettyString(args.Used)} to {ToPrettyString(uid)}.");
 
-        EntityManager.SpawnEntity("ResearchDisk5000", Transform(args.User).Coordinates);
+        Spawn("ResearchDisk5000", Transform(args.User).Coordinates);
 
         DispenseLiquidReward(uid, component);
 
@@ -153,7 +153,7 @@ public sealed class OracleSystem : EntitySystem
 
         while (i != 0)
         {
-            EntityManager.SpawnEntity("MaterialBluespace1", Transform(args.User).Coordinates);
+            Spawn("MaterialBluespace1", Transform(args.User).Coordinates);
             i--;
         }
 

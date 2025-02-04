@@ -1,0 +1,45 @@
+- type: entity
+  parent: CrateEngineering
+  id: CrateEngineEssentials
+  name: engine essentials crate
+  description: Everything you need to power the station, in a superposition of containing both a singularity and a tesla.
+  suffix: 1 per map MAX
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:GroupSelector
+        children:
+        - !type:NestedSelector
+          tableId: TeslaEssentials
+        - !type:NestedSelector
+          tableId: SingularityEssentials
+
+- type: entityTable
+  id: TeslaEssentials
+  table: !type:AllSelector
+    children:
+    - id: TeslaGeneratorFlatpack
+    - id: TeslaGeneratorFlatpack
+      prob: 0.3 # Small chance of a free backup
+    - id: TeslaCoilFlatpack
+      amount: !type:RangeNumberSelector
+        range: 4, 6
+    - id: TeslaGroundingRodFlatpack
+      amount: !type:ConstantNumberSelector
+        value: 4
+
+- type: entityTable
+  id: SingularityEssentials
+  table: !type:AllSelector
+    children:
+    - id: SingularityGeneratorFlatpack
+    - id: SingularityGeneratorFlatpack
+      prob: 0.3 # Small chance of a free backup
+    # intentionally separate rolls so they are probably mismatched
+    # you might get spare tanks you might have to get more from the tank dispenser
+    - id: RadiationCollectorFlatpack
+      amount: !type:RangeNumberSelector
+        range: 8, 12
+    - id: PlasmaTankFilled
+      amount: !type:RangeNumberSelector
+        range: 8, 12

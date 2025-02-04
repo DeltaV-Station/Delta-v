@@ -1,23 +1,19 @@
 using Content.Shared.Actions;
-using Content.Shared.Construction.Components;
+using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Polymorph;
 using Content.Shared.Polymorph.Components;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
+using Content.Shared.Verbs;
+using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared.Whitelist;
 
 namespace Content.Shared.Polymorph.Systems;
 
@@ -27,29 +23,29 @@ namespace Content.Shared.Polymorph.Systems;
 /// </summary>
 public abstract class SharedChameleonProjectorSystem : EntitySystem
 {
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISerializationManager _serMan = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChameleonDisguiseComponent, GotEquippedHandEvent>(OnDisguiseEquippedHand);
+        SubscribeLocalEvent<ChameleonDisguiseComponent, InteractHandEvent>(OnDisguiseInteractHand, before: [typeof(SharedItemSystem)]);
+        SubscribeLocalEvent<ChameleonDisguiseComponent, DamageChangedEvent>(OnDisguiseDamaged);
         SubscribeLocalEvent<ChameleonDisguiseComponent, InsertIntoEntityStorageAttemptEvent>(OnDisguiseInsertAttempt);
         SubscribeLocalEvent<ChameleonDisguiseComponent, ComponentShutdown>(OnDisguiseShutdown);
 
-        SubscribeLocalEvent<ChameleonDisguisedComponent, DamageChangedEvent>(OnDamageChanged);
-
         SubscribeLocalEvent<ChameleonProjectorComponent, AfterInteractEvent>(OnInteract);
+        SubscribeLocalEvent<ChameleonProjectorComponent, GetVerbsEvent<UtilityVerb>>(OnGetVerbs);
         SubscribeLocalEvent<ChameleonProjectorComponent, DisguiseToggleNoRotEvent>(OnToggleNoRot);
         SubscribeLocalEvent<ChameleonProjectorComponent, DisguiseToggleAnchoredEvent>(OnToggleAnchored);
         SubscribeLocalEvent<ChameleonProjectorComponent, HandDeselectedEvent>(OnDeselected);
@@ -59,10 +55,17 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
     #region Disguise entity
 
-    private void OnDisguiseEquippedHand(Entity<ChameleonDisguiseComponent> ent, ref GotEquippedHandEvent args)
+    private void OnDisguiseInteractHand(Entity<ChameleonDisguiseComponent> ent, ref InteractHandEvent args)
     {
         TryReveal(ent.Comp.User);
         args.Handled = true;
+    }
+
+    private void OnDisguiseDamaged(Entity<ChameleonDisguiseComponent> ent, ref DamageChangedEvent args)
+    {
+        // this mirrors damage 1:1
+        if (args.DamageDelta is {} damage)
+            _damageable.TryChangeDamage(ent.Comp.User, damage);
     }
 
     private void OnDisguiseInsertAttempt(Entity<ChameleonDisguiseComponent> ent, ref InsertIntoEntityStorageAttemptEvent args)
@@ -78,47 +81,51 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
     #endregion
 
-    #region Disguised player
-
-    private void OnDamageChanged(Entity<ChameleonDisguisedComponent> ent, ref DamageChangedEvent args)
-    {
-        if (args.DamageDelta is not {} damage)
-            return;
-
-        // reveal once enough damage is taken for the disguise to reveal itself
-        var total = damage.GetTotal();
-        if (total > ent.Comp.Integrity)
-            TryReveal((ent, ent.Comp));
-        else
-            ent.Comp.Integrity -= total;
-    }
-
-    #endregion
-
     #region Projector
 
     private void OnInteract(Entity<ChameleonProjectorComponent> ent, ref AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Target is not {} target)
+        if (args.Handled || !args.CanReach || args.Target is not {} target)
+            return;
+
+        args.Handled = true;
+        TryDisguise(ent, args.User, target);
+    }
+
+    private void OnGetVerbs(Entity<ChameleonProjectorComponent> ent, ref GetVerbsEvent<UtilityVerb> args)
+    {
+        if (!args.CanAccess)
             return;
 
         var user = args.User;
-        args.Handled = true;
+        var target = args.Target;
+        args.Verbs.Add(new UtilityVerb()
+        {
+            Act = () =>
+            {
+                TryDisguise(ent, user, target);
+            },
+            Text = Loc.GetString("chameleon-projector-set-disguise")
+        });
+    }
 
+    public bool TryDisguise(Entity<ChameleonProjectorComponent> ent, EntityUid user, EntityUid target)
+    {
         if (_container.IsEntityInContainer(target))
         {
-            _popup.PopupClient(Loc.GetString(ent.Comp.ContainerPopup), target, user);
-            return;
+            _popup.PopupClient(Loc.GetString("chameleon-projector-inside-container"), target, user);
+            return false;
         }
 
         if (IsInvalid(ent.Comp, target))
         {
-            _popup.PopupClient(Loc.GetString(ent.Comp.InvalidPopup), target, user);
-            return;
+            _popup.PopupClient(Loc.GetString("chameleon-projector-invalid"), target, user);
+            return false;
         }
 
-        _popup.PopupClient(Loc.GetString(ent.Comp.SuccessPopup), target, user);
+        _popup.PopupClient(Loc.GetString("chameleon-projector-success"), target, user);
         Disguise(ent, user, target);
+        return true;
     }
 
     private void OnToggleNoRot(Entity<ChameleonProjectorComponent> ent, ref DisguiseToggleNoRotEvent args)
@@ -170,8 +177,8 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     /// </summary>
     public bool IsInvalid(ChameleonProjectorComponent comp, EntityUid target)
     {
-        return _whitelistSystem.IsWhitelistFail(comp.Whitelist, target)
-            || _whitelistSystem.IsBlacklistPass(comp.Blacklist, target);
+        return _whitelist.IsWhitelistFail(comp.Whitelist, target)
+            || _whitelist.IsBlacklistPass(comp.Blacklist, target);
     }
 
     /// <summary>
@@ -194,10 +201,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
         proj.Disguised = user;
 
-        var xform = Transform(user);
-        var disguise = Spawn(proj.DisguiseProto, xform.Coordinates);
-        var disguiseXform = Transform(disguise);
-        _xform.SetParent(disguise, disguiseXform, user, xform);
+        var disguise = SpawnAttachedTo(proj.DisguiseProto, user.ToCoordinates());
 
         var disguised = AddComp<ChameleonDisguisedComponent>(user);
         disguised.Disguise = disguise;
@@ -219,19 +223,6 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
         CopyComp<ItemComponent>((disguise, comp));
 
         _appearance.CopyData(entity, disguise);
-
-        var mass = CompOrNull<PhysicsComponent>(entity)?.Mass ?? 0f;
-
-        // let the disguise die when its taken enough damage, which then transfers to the player
-        // health is proportional to mass, and capped to not be insane
-        if (TryComp<MobThresholdsComponent>(disguise, out var thresholds) && TryComp<MobThresholdsComponent>(user, out var userThresholds))
-        {
-            // cap disguise integrity at max health so you dont have to kill beforeif the player is of flesh and blood, cap max health to theirs
-            // so that when reverting damage scales 1:1 and not round removing
-            var playerMax = _mobThreshold.GetThresholdForState(user, MobState.Dead, userThresholds).Float();
-            var max = playerMax == 0f ? proj.MaxHealth : Math.Max(proj.MaxHealth, playerMax);
-            disguised.Integrity = max;
-        }
     }
 
     /// <summary>

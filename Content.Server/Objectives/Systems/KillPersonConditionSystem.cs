@@ -1,11 +1,13 @@
+using System.Linq;
 using Content.Server.Objectives.Components;
+using Content.Server.Revolutionary.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
-using Content.Shared.Roles.Jobs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
+using System.Linq;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -17,7 +19,6 @@ public sealed class KillPersonConditionSystem : EntitySystem
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedJobSystem _job = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
 
@@ -26,9 +27,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<KillPersonConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
-
         SubscribeLocalEvent<PickRandomPersonComponent, ObjectiveAssignedEvent>(OnPersonAssigned);
-
         SubscribeLocalEvent<PickRandomHeadComponent, ObjectiveAssignedEvent>(OnHeadAssigned);
     }
 
@@ -40,31 +39,20 @@ public sealed class KillPersonConditionSystem : EntitySystem
         args.Progress = GetProgress(target.Value, comp.RequireDead);
     }
 
-    private void OnPersonAssigned(EntityUid uid, PickRandomPersonComponent comp, ref ObjectiveAssignedEvent args)
+    private void OnPersonAssigned(Entity<PickRandomPersonComponent> ent, ref ObjectiveAssignedEvent args)
     {
-        // invalid objective prototype
-        if (!TryComp<TargetObjectiveComponent>(uid, out var target))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        // target already assigned
-        if (target.Target != null)
-            return;
-
-        // no other humans to kill
-        var allHumans = _mind.GetAliveHumansExcept(args.MindId);
-        if (allHumans.Count == 0)
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        _target.SetTarget(uid, _random.Pick(allHumans), target);
+        AssignRandomTarget(ent, ref args, _ => true);
     }
 
-    private void OnHeadAssigned(EntityUid uid, PickRandomHeadComponent comp, ref ObjectiveAssignedEvent args)
+    private void OnHeadAssigned(Entity<PickRandomHeadComponent> ent, ref ObjectiveAssignedEvent args)
+    {
+        AssignRandomTarget(ent, ref args, mindId =>
+            TryComp<MindComponent>(mindId, out var mind) &&
+            mind.OwnedEntity is { } ownedEnt &&
+            HasComp<CommandStaffComponent>(ownedEnt));
+    }
+
+    private void AssignRandomTarget(EntityUid uid, ref ObjectiveAssignedEvent args, Predicate<EntityUid> filter, bool fallbackToAny = true)
     {
         // invalid prototype
         if (!TryComp<TargetObjectiveComponent>(uid, out var target))
@@ -77,26 +65,46 @@ public sealed class KillPersonConditionSystem : EntitySystem
         if (target.Target != null)
             return;
 
-        // no other humans to kill
-        var allHumans = _mind.GetAliveHumansExcept(args.MindId);
-        if (allHumans.Count == 0)
+        // Get all alive humans, filter out any with TargetObjectiveImmuneComponent
+        var allHumans = _mind.GetAliveHumans(args.MindId)
+            .Where(mindId =>
+            {
+                if (!TryComp<MindComponent>(mindId, out var mindComp) || mindComp.OwnedEntity == null)
+                    return false;
+                return !HasComp<TargetObjectiveImmuneComponent>(mindComp.OwnedEntity.Value);
+            })
+            .ToList();
+
+        // Can't have multiple objectives to kill the same person
+        foreach (var objective in args.Mind.Objectives)
+        {
+            if (HasComp<KillPersonConditionComponent>(objective) && TryComp<TargetObjectiveComponent>(objective, out var kill))
+            {
+                allHumans.RemoveAll(x => x.Owner == kill.Target);
+            }
+        }
+
+        // Filter out targets based on the filter
+        var filteredHumans = allHumans.Where(mind => filter(mind)).ToList();
+
+        // There's no humans and we can't fall back to any other target
+        if (filteredHumans.Count == 0 && !fallbackToAny)
         {
             args.Cancelled = true;
             return;
         }
 
-        var allHeads = new List<EntityUid>();
-        foreach (var mind in allHumans)
+        // Pick between humans matching our filter or fall back to all humans alive
+        var selectedHumans = filteredHumans.Count > 0 ? filteredHumans : allHumans;
+
+        // Still no valid targets even after the fallback
+        if (selectedHumans.Count == 0)
         {
-            // RequireAdminNotify used as a cheap way to check for command department
-            if (_job.MindTryGetJob(mind, out _, out var prototype) && prototype.RequireAdminNotify)
-                allHeads.Add(mind);
+            args.Cancelled = true;
+            return;
         }
 
-        if (allHeads.Count == 0)
-            allHeads = allHumans; // fallback to non-head target
-
-        _target.SetTarget(uid, _random.Pick(allHeads), target);
+        _target.SetTarget(uid, _random.Pick(selectedHumans), target);
     }
 
     private float GetProgress(EntityUid target, bool requireDead)

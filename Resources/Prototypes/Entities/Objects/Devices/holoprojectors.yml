@@ -67,10 +67,11 @@
       - HolofanProjector
   - type: StaticPrice
     price: 80
-  - type: ReverseEngineering # Nayno
-    difficulty: 3
-    recipes:
-      - HolofanProjector
+  - type: GuideHelp
+    guides:
+    - AtmosTools
+    - Fires
+    - Spacing
 
 - type: entity
   parent: HolofanProjector
@@ -99,10 +100,6 @@
         - HolofanProjector
     - type: StaticPrice
       price: 130
-    - type: ReverseEngineering # delta
-      difficulty: 3
-      recipes:
-        - HoloprojectorField
 
 - type: entity
   parent: HoloprojectorField
@@ -124,17 +121,14 @@
       signProto: HolosignSecurity
       chargeUse: 120
     - type: Sprite
-      sprite: Objects/Devices/Holoprojectors/security.rsi
+      sprite: _DV/Objects/Devices/Holoprojectors/security.rsi # DeltaV - resprite holobarrier projector
       state: icon
     - type: Tag
       tags:
         - HolofanProjector
+        - SecBeltEquip
     - type: StaticPrice
       price: 50
-    - type: ReverseEngineering # delta
-      difficulty: 2
-      recipes:
-        - HoloprojectorSecurity
 
 - type: entity
   parent: HoloprojectorSecurity

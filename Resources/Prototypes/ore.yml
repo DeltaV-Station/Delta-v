@@ -90,7 +90,7 @@
   id: RandomOreDistributionStandard
   weights:
     OreSteel: 10
-    OreCoal: 10
+    OreCoal: 12 # DeltaV: increased slightly from 10 so there is a surplus to give to chem
     OreSpaceQuartz: 8
     OreGold: 2
     OrePlasma: 4
@@ -98,7 +98,6 @@
     OreUranium: 1
     OreBananium: 0.5
     OreArtifactFragment: 0.5
-    OreSalt: 5 #Delta V - Adds so our rocks can spawn salt
 
 - type: weightedRandomOre
   id: OreCrab
