@@ -125,7 +125,7 @@
       time: 7200 # 2h chemist so you know how to make CH
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointGhostRoboticist
   components:

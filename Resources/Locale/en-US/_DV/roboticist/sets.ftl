@@ -11,7 +11,7 @@ roboticist-set-saboteur-description =
 roboticist-set-mechanic-name = Field Mechanic
 roboticist-set-mechanic-description =
     Leading from the front is your calling, repairing your borgs is your goal.
-    Comes with an Elite Syndicate Hardsuit, and a set of Advanced Tools
+    Comes with an Syndicate Thermal Hardsuit, and a set of Advanced Tools
 
 roboticist-set-infiltrator-name = Obfuscation Specialist
 roboticist-set-infiltrator-description =

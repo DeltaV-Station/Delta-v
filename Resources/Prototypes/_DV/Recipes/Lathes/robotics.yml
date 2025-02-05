@@ -10,11 +10,6 @@
 
 - type: latheRecipe
   parent: BaseBorgModuleRecipe
-  id: BorgModuleSecurityPeacekeeper
-  result: BorgModuleSecurityPeacekeeper
-
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
   id: BorgModuleSecurityPatrol
   result: BorgModuleSecurityPatrol
 
@@ -22,36 +17,6 @@
   parent: BaseBorgModuleRecipe
   id: BorgModuleSecurityBastion
   result: BorgModuleSecurityBastion
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: LeftArmBorgSecurity
-  result: LeftArmBorgSecurity
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightArmBorgSecurity
-  result: RightArmBorgSecurity
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: LeftLegBorgSecurity
-  result: LeftLegBorgSecurity
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightLegBorgSecurity
-  result: RightLegBorgSecurity
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: HeadBorgSecurity
-  result: HeadBorgSecurity
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: TorsoBorgSecurity
-  result: TorsoBorgSecurity
 
 - type: latheRecipe
   id: BorgModuleSyndicateWeapon
@@ -136,17 +101,6 @@
 - type: latheRecipe
   id: SyndicateNeuroling
   result: SyndicateNeuroling
-  category: Robotics
-  completetime: 15
-  materials:
-    Steel: 100
-    Glass: 300
-    Plastic: 300
-    Gold: 100
-
-- type: latheRecipe
-  id: BorgModuleNeurolink
-  result: BorgModuleNeurolink
   category: Robotics
   completetime: 15
   materials:

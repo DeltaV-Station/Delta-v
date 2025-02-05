@@ -237,72 +237,52 @@ entities:
       data:
         tiles:
           0,0:
-            0: 32753
-            1: 32768
+            0: 49073
           0,-1:
             0: 28979
-            2: 2112
+            1: 2112
           -1,0:
-            1: 128
-            0: 65392
-            2: 1
+            0: 49072
+            1: 1
           0,1:
-            0: 131
-            1: 8
-            2: 51248
-          -1,1:
-            0: 4411
-            2: 25216
-          0,2:
-            2: 4
-          1,0:
-            2: 16385
-            0: 4368
+            0: 35019
             1: 8704
+          -1,1:
+            0: 9083
+          1,0:
+            1: 7
+            0: 13072
           1,1:
-            0: 4401
-            1: 2
-            2: 8256
+            0: 307
+            1: 8256
           1,2:
-            2: 1
+            1: 1
           1,-1:
-            2: 4096
+            1: 16384
           -2,0:
+            1: 12
             0: 34816
+          -2,-1:
+            1: 16384
           -2,1:
-            2: 32832
+            1: 32832
             0: 136
-          -1,2:
-            2: 5
           -1,-1:
-            0: 16512
-            1: 32776
-            2: 516
+            1: 4612
+            0: 49288
+          -1,2:
+            1: 1
           -1,-2:
-            2: 61024
+            1: 49152
           0,-2:
-            2: 65216
+            0: 4096
+            1: 24576
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
           moles:
           - 21.824879
           - 82.10312
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.14975
-          moles:
-          - 20.078888
-          - 75.53487
           - 0
           - 0
           - 0
@@ -398,22 +378,24 @@ entities:
     - type: AccessReader
       enabled: False
     - type: Emagged
-- proto: AtmosDeviceFanTiny
+- proto: AtmosDeviceFanDirectional
   entities:
   - uid: 78
     components:
     - type: Transform
       pos: 0.5,-4.5
       parent: 1
+  - uid: 241
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,2.5
+      parent: 1
   - uid: 248
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 2.5,2.5
-      parent: 1
-  - uid: 249
-    components:
-    - type: Transform
-      pos: -1.5,2.5
       parent: 1
 - proto: Bed
   entities:
@@ -875,14 +857,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ComfyChair
-  entities:
-  - uid: 250
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,3.5
-      parent: 1
 - proto: ComputerIFFSyndicate
   entities:
   - uid: 32
@@ -1162,7 +1136,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 241
           - 131
           - 129
           - 130
@@ -1633,6 +1606,14 @@ entities:
     - type: Transform
       pos: -4.5,4.5
       parent: 1
+- proto: N14ChairCaptain
+  entities:
+  - uid: 249
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,3.5
+      parent: 1
 - proto: NitrogenTankFilled
   entities:
   - uid: 91
@@ -1912,18 +1893,6 @@ entities:
     - type: InsideEntityStorage
   - uid: 130
     components:
-    - type: Transform
-      parent: 133
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: SeniorResearcherIDCard
-  entities:
-  - uid: 241
-    components:
-    - type: MetaData
-      desc: A long stolen ID card, passed on from roboticist to roboticist. Use it to unlock borgs.
-      name: Reckless Roboticist
     - type: Transform
       parent: 133
     - type: Physics
