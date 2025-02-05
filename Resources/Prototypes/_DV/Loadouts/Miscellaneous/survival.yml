@@ -14,7 +14,7 @@
     proto: WaterBreather
   storage:
     back:
-    - BoxSurvivalWater
+    - BoxSurvivalWaterVapor
 
 # Clown
 - type: loadout
@@ -24,7 +24,7 @@
     proto: WaterBreather
   storage:
     back:
-    - BoxHugWater
+    - BoxHugWaterVapor
 
 # Mime
 - type: loadout
@@ -34,7 +34,7 @@
     proto: WaterBreather
   storage:
     back:
-    - BoxMimeWater
+    - BoxMimeWaterVapor
 
 # Engineering / Extended
 - type: loadout
@@ -44,7 +44,7 @@
     proto: WaterBreather
   storage:
     back:
-    - BoxSurvivalEngineeringWater
+    - BoxSurvivalEngineeringWaterVapor
 
 # Medical
 - type: loadout
@@ -54,7 +54,7 @@
     proto: WaterBreather
   storage:
     back:
-    - BoxSurvivalMedicalWater
+    - BoxSurvivalMedicalWaterVapor
 
 # Security
 - type: loadout
@@ -64,7 +64,7 @@
     proto: WaterBreather
   storage:
     back:
-    - BoxSurvivalSecurityWater
+    - BoxSurvivalSecurityWaterVapor
 
 # Syndicate
 - type: loadout
@@ -74,7 +74,7 @@
     proto: WaterBreather
   storage:
     back:
-    - BoxSurvivalWater
+    - BoxSurvivalWaterVapor
 
 # Full EVA Tank, Any Species
 - type: loadout
@@ -83,7 +83,7 @@
   - !type:GroupLoadoutEffect
     proto: WaterBreather
   equipment:
-    suitstorage: WaterTankFilled
+    suitstorage: WaterVaporTankFilled
 
 # Species-appropriate Double Emergency Tank in Pocket 1
 - type: loadout
@@ -92,7 +92,7 @@
   - !type:GroupLoadoutEffect
     proto: WaterBreather
   equipment:
-    pocket1: DoubleEmergencyWaterTankFilled
+    pocket1: DoubleEmergencyWaterVaporTankFilled
 
 # Corpsman
 - type: loadout
@@ -119,7 +119,7 @@
   - !type:GroupLoadoutEffect
     proto: WaterBreather
   equipment:
-    mask: BoxSurvivalBrigmedicWater
+    mask: BoxSurvivalBrigmedicWaterVapor
 
 - type: loadout
   id: LoadoutSpeciesBreathToolCorpsman
