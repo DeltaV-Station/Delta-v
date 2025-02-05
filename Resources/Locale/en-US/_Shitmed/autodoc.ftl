@@ -25,7 +25,7 @@ autodoc-error-patient-unsedated = PATIENT REQUIRES SEDATION
 # I barely speak chinese, but I double checked I wasn't saying a slur with google translate, so this should be ok. Especially since 99.9% of our players don't speak chinese anyway.
 
 # Chinese text translates approximately to "People's Glorious Automatic Surgery Machine"
-autodoc-title = AUTODOC 人民辉煌自动手术机 MK.XIV
+#autodoc-title = AUTODOC 人民辉煌自动手术机 MK.XIV # DeltaV
 # Chinese text translates approximately to "New Plan"
 autodoc-create-program = NEW PROGRAM 新计划
 # Chinese text translates approximately to "Plan Title"
@@ -47,7 +47,7 @@ autodoc-add-step = ADD STEP 添加一步
 # Chinese text translates approximately to "Remove a Step"
 autodoc-remove-step = REMOVE STEP 删除一步
 # Chinese text translates approximately to "Launch the Glorious People's Project" (as with all these long sentences, im not super sure on the translation making sense)
-autodoc-start-program = START PROGRAM 发起光荣人民计划
+#autodoc-start-program = START PROGRAM 发起光荣人民计划 # DeltaV
 
 # Chinese text translates approximately to "Start Surgical Operation"
 autodoc-add-step-surgery = PERFORM SURGERY 开始手术
