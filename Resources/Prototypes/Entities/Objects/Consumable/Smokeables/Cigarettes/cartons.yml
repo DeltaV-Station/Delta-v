@@ -16,11 +16,13 @@
     size: Normal
   - type: Storage
     grid:
-    - 0,0,4,1
+##    - 0,0,4,1 DeltaV Change, removed false advertisement
+      - 0,0,5,1
   - type: StorageFill
     contents:
       - id: CigPackGreen
-        amount: 5
+##        amount: 5 DeltaV changes
+        amount: 6
   - type: Tag
     tags:
     - Trash
@@ -39,12 +41,16 @@
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi
     layers:
       - state: closed
+        map: ["closeLayer"] #DeltaV change, fixed broken "open" layer
+      - state: open
+        map: ["openLayer"]
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi
   - type: StorageFill
     contents:
       - id: CigPackRed
-        amount: 5
+##        amount: 5 DeltaV changes
+        amount: 6
 
 - type: entity
   id: CigCartonBlue
@@ -56,12 +62,16 @@
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi
     layers:
       - state: closed
+        map: ["closeLayer"]
+      - state: open
+        map: ["openLayer"]
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi
   - type: StorageFill
     contents:
       - id: CigPackBlue
-        amount: 5
+##        amount: 5 DeltaV changes
+        amount: 6
 
 - type: entity
   id: CigCartonBlack
@@ -73,12 +83,16 @@
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi
     layers:
       - state: closed
+        map: ["closeLayer"] #DeltaV change, fixed broken "open" layer
+      - state: open
+        map: ["openLayer"]
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi
   - type: StorageFill
     contents:
       - id: CigPackBlack
-        amount: 5
+##        amount: 5 DeltaV changes
+        amount: 6
 
 - type: entity
   id: CigCartonMixed
@@ -90,6 +104,9 @@
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
     layers:
       - state: closed
+        map: ["closeLayer"] #DeltaV change, fixed broken "open" layer
+      - state: open
+        map: ["openLayer"]
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
   - type: StorageFill

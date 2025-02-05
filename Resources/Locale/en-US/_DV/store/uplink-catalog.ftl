@@ -43,6 +43,9 @@ uplink-objective-syndicate-board-desc = Its expensive, don't lose it!
 uplink-dead-mans-signaller-name = Dead Man's Signaller
 uplink-dead-mans-signaller-desc = A device that if armed, will send a signal to any linked devices (such as bombs) when it is dropped or put away.
 
+uplink-chainsmoker-bundle-name = Chainsmoker Bundle.
+uplink-chainsmoker-bundle-desc = A Carton of 6 Packs of Interdyne Herbals, plus a commemorative flippo that never runs out of fuel.
+
 # Objectives
 uplink-core-extraction-toolbox-name = Core Extraction Toolbox
 uplink-core-extraction-toolbox-desc = A toolbox containing everything you need to remove a nuclear bomb's plutonium core. Instructions not included.

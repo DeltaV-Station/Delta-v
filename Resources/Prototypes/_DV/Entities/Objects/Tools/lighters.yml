@@ -1,0 +1,101 @@
+- type: entity
+  name: Blood-red Flippo
+  parent: FlippoLighter
+  id: SyndicateFlippo
+  description: "A Valid choice in lighters. Awarded to exceptionaly loyal customers. Contains no copper."
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Tools/syndielighter.rsi
+    layers:
+    - state: SyndieLighterIcon
+      map: ["base"]
+    - state: SyndieLighterTop
+      map: ["top"]
+      visible: false
+    - state: SyndieLighterOpen
+      map: ["open"]
+      visible: false
+    - state: SyndieLighterFire
+      map: ["flame"]
+      visible: false
+      shader: unshaded
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/Items/Lighters/zippo_open.ogg
+      params:
+        volume: -5
+    soundDeactivate:
+      path: /Audio/Items/Lighters/zippo_close.ogg
+      params:
+        volume: -5
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+            Heat: 5 #Increased heat damage because its evil.
+  - type: ItemToggleSize
+    activatedSize: Small
+  - type: ItemToggleHot
+  - type: Item
+    size: Tiny
+    sprite: _DV/Objects/Tools/syndielighter.rsi
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        flame:
+          True: { visible: true }
+          False: { visible: false }
+        open:
+          True: { visible: true }
+          False: { visible: false }
+        top:
+          True: { visible: true }
+          False: { visible: false }
+        base:
+          True: { visible: false }
+          False: { visible: true }
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 12
+        maxVol: 12
+  - type: Welder
+    fuelConsumption: 0.01
+    fuelLitCost: 0.1
+    tankSafe: true
+  - type: ToggleableLightVisuals
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: SyndieLighterInhandLLit
+        shader: unshaded
+      right:
+      - state: SyndieLighterInhandRLit
+        shader: unshaded
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 1 # does a little bit of damage on hit when off
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 2 #much stronger than the other lighters
+    color: green
+  - type: ItemTogglePointLight
+  - type: UseDelay
+  - type: IgnitionSource
+    ignited: false
+  - type: SolutionRegeneration
+    solution: Welder
+    generated:
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 0.1
+  - type: ReverseEngineering # I mean, its basically a mini advanced-welder, but valid.
+    difficulty: 4
+    recipes:
+    - WelderExperimental
