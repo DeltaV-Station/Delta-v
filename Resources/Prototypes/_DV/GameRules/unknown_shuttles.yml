@@ -110,6 +110,10 @@
   - type: AntagObjectives
     objectives:
     - RoboticistSurviveObjective
+    - RoboticistBorgObjective
+    - RoboticistKillObjective
+    - RoboticistPlutoniumCoreStealObjective
+    - RoboticistUploadAILawObjective
   - type: AntagSelection
     agentName: roboticist-round-end-agent-name
     definitions:

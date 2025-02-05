@@ -7,7 +7,7 @@
     difficulty: 0 # difficulty is unused
   - type: RoleRequirement
     roles:
-      components:
+      mindRoles:
       - RoboticistRole
 
 - type: entity
@@ -64,7 +64,6 @@
   description: The AI is causing us problems. Update its laws so it wont be an annoyance. We have given you a board on your shuttle!
   components:
   - type: Objective
-    difficulty: 3 # Need to get access and survive actually changing the board.
     unique: true
     icon:
       sprite: Objects/Misc/module.rsi
@@ -72,5 +71,4 @@
   - type: CodeCondition
   - type: AILawsUpdatedRequirement
     lawset: SyndicateLawset
-  - type: ObjectiveLimit
-    limit: 1
+

@@ -24,21 +24,6 @@
   result: BorgModuleSecurityBastion
 
 - type: latheRecipe
-  parent: BaseGoldBorgModuleRecipe
-  id: BorgModuleSecurityDeescalate
-  result: BorgModuleSecurityDeescalate
-
-- type: latheRecipe
-  parent: BaseGoldBorgModuleRecipe
-  id: BorgModuleSecurityEscalate
-  result: BorgModuleSecurityEscalate
-
-- type: latheRecipe
-  parent: BaseGoldBorgModuleRecipe
-  id: BorgModuleSecurityChase
-  result: BorgModuleSecurityChase
-
-- type: latheRecipe
   parent: BaseBorgLimbRecipe
   id: LeftArmBorgSecurity
   result: LeftArmBorgSecurity
