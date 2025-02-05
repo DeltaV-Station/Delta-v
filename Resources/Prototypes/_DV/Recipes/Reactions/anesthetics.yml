@@ -1,0 +1,82 @@
+- type: reaction
+  id: Anodynafil
+  minTemp: 400
+  reactants:
+    ChloralHydrate:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+    SodiumCarbonate:
+      amount: 1
+    Iodine:
+      amount: 1
+  products:
+    Anodynafil: 3
+    Oxygen: 1
+    Water: 1
+
+- type: reaction
+  id: AnodynafilBlood
+  conserveData: true
+  reactants:
+    Anodynafil:
+      amount: 1
+    Blood:
+      amount: 1
+  products:
+    AnodynafilBlood: 1
+
+- type: reaction
+  id: AnodynafilInsectBlood
+  conserveData: true
+  reactants:
+    Anodynafil:
+      amount: 1
+    InsectBlood:
+      amount: 1
+  products:
+    AnodynafilInsectBlood: 1
+
+- type: reaction
+  id: AnodynafilSlime
+  conserveData: true
+  reactants:
+    Anodynafil:
+      amount: 1
+    Slime:
+      amount: 1
+  products:
+    AnodynafilSlime: 1
+
+- type: reaction
+  id: AnodynafilSap
+  conserveData: true
+  reactants:
+    Anodynafil:
+      amount: 1
+    Sap:
+      amount: 1
+  products:
+    AnodynafilSap: 1
+
+- type: reaction
+  id: AnodynafilCopperBlood
+  conserveData: true
+  reactants:
+    Anodynafil:
+      amount: 1
+    CopperBlood:
+      amount: 1
+  products:
+    AnodynafilCopperBlood: 1
+
+- type: reaction
+  id: AnodynafilAmmoniaBlood
+  conserveData: true
+  reactants:
+    Anodynafil:
+      amount: 1
+    AmmoniaBlood:
+      amount: 1
+  products:
+    AnodynafilAmmoniaBlood: 1
