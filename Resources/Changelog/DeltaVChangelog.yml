@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Made meteor swarm event spawn the old meteors again
-    type: Tweak
-  id: 495
-  time: '2024-08-22T14:29:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1658
 - author: portfiend
   changes:
   - message: More floor tiles have been added to the cutter machine, namely Service
@@ -3855,3 +3848,10 @@
   id: 994
   time: '2025-02-04T23:15:58.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2873
+- author: deltanedas
+  changes:
+  - message: Fixed IPC nukies not getting comms.
+    type: Fix
+  id: 995
+  time: '2025-02-05T07:29:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2884
