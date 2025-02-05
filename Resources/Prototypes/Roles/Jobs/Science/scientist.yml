@@ -6,7 +6,7 @@
   antagAdvantage: 2 # DeltaV - Protolathe, anomaly stuff, glimmer factor.
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Science
+      department: Epistemics # DeltaV - Epistemics replacing Science
       time: 14400 #4 hrs
   startingGear: ScientistGear
   icon: "JobIconScientist"
