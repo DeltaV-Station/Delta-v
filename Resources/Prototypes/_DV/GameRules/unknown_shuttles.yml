@@ -110,9 +110,6 @@
   - type: AntagObjectives
     objectives:
     - RoboticistSurviveObjective
-    - RoboticistBorgObjective
-    - RoboticistKillObjective
-    - RoboticistPlutoniumCoreStealObjective
   - type: AntagSelection
     agentName: roboticist-round-end-agent-name
     definitions:
@@ -135,8 +132,6 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: RoboticistRole
-        prototype: RoboNeuroticist
-      - type: RoleBriefing
-        briefing: You are Cybersun's Robo-Neuroticist! Build your borg army, send them at the station, and enact your will.
+      mindRoles:
+      - MindRoleRoboNeuroticist
+

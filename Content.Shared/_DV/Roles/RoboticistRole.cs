@@ -1,6 +1,6 @@
 using Content.Shared.Roles;
 
-namespace Content.Shared.DeltaV.Roles;
+namespace Content.Shared._DV.Roles;
 
-[RegisterComponent, ExclusiveAntagonist]
-public sealed partial class RoboticistRoleComponent : AntagonistRoleComponent;
+[RegisterComponent]
+public sealed partial class RoboticistRoleComponent : BaseMindRoleComponent;
