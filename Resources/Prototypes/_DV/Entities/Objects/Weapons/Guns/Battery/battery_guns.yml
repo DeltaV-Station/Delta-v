@@ -91,10 +91,10 @@
       fireCost: 100
       name: lethal
       state: lethal
-    # - proto: BulletEnergyGunIon
-    #   fireCost: 250
-    #   name: ion
-    #   state: special
+    - proto: BulletEnergyGunIon
+      fireCost: 250
+      name: ion
+      state: special
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -286,7 +286,7 @@
   - type: HitscanBatteryAmmoProvider
     proto: ColdLaser
     fireCost: 100
-    
+
 - type: entity
   parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponBeamCannon

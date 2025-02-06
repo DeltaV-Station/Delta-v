@@ -255,6 +255,7 @@
     damage:
       types:
         Heat: 5
+        Ion: 10 #Goobstation
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -295,6 +296,7 @@
     damage:
       types:
         Heat: 1
+        Ion: 5 #Goobstation
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -965,6 +967,7 @@
     damage:
       types:
         Heat: 2
+        Ion: 4 #Goobstation
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -1030,7 +1033,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-       # - Impassable 
+       # - Impassable
        # - BulletImpassable
         - Opaque # Delta-V changed from impassable so that they can go through windows
       fly-by: *flybyfixture

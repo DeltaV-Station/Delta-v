@@ -45,3 +45,42 @@
         Heat: 24 # these will hurt but not quite a 4 shot
     soundHit:
       collection: MeatLaserImpact
+
+- type: entity #Goobstation, put here so the X-01 stuff isnt spread everywhere.
+  name: ion bolt
+  id: BulletEnergyGunIon
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: blue
+  - type: Ammo
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Opaque
+  - type: Projectile
+    impactEffect: BulletImpactEffectBlueDisabler
+    damage:
+      types:
+        Ion: 20
+    soundHit:
+      collection: MeatLaserImpact
