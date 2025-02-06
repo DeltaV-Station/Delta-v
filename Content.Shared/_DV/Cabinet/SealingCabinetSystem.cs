@@ -1,9 +1,10 @@
+using Content.Shared.Cabinet;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 
-namespace Content.Shared.Cabinet;
+namespace Content.Shared._DV.Cabinet;
 
 public sealed class SealingCabinetSystem : EntitySystem
 {
