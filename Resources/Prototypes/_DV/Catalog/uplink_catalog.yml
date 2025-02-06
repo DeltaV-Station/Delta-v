@@ -265,3 +265,24 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkHostageImplanterNukieFree
+  name: uplink-syndicate-hostage-implanter-bundle-name
+  description: uplink-syndicate-hostage-implanter-bundle-desc
+  icon: { sprite: Objects/Misc/handcuffs.rsi, state: handcuff }
+  productEntity: BoxSyndicateHostageImplanter
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink

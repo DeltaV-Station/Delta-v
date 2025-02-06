@@ -123,8 +123,10 @@
   components:
   - type: StorageFill
     contents:
-    - id: Paper
-      amount: 2 # DeltaV - make room for more folders & stickies & reams in the bureaucracy crate
+    # DeltaV - replace the paper in the bureaucracy crate with a ream
+    - id: BoxReamWhite
+    # - id: Paper
+    #   amount: 15
     - id: Pen
       amount: 2
     - id: BoxFolderClipboard
