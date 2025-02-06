@@ -3,14 +3,12 @@
   name: job-name-research-assistant
   description: job-description-research-assistant
   playTimeTracker: JobResearchAssistant
-  antagAdvantage: 2 # DeltaV - Protolathe, anomaly stuff, glimmer factor 
+  antagAdvantage: 2 # DeltaV - Protolathe, anomaly stuff, glimmer factor
   requirements:
-    # - !type:DepartmentTimeRequirement # DeltaV - Removes time limit
-    #   department: Science
-    #   time: 54000 #15 hrs
-    #   inverted: true # stop playing intern if you're good at science!
-  - !type:OverallPlaytimeRequirement # DeltaV
-    time: 3600 # 1 hr
+    - !type:DepartmentTimeRequirement
+      department: Epistemics # DeltaV - Epistemics replacing Science
+      time: 54000 #15 hrs
+      inverted: true # stop playing intern if you're good at science!
   startingGear: ResearchAssistantGear
   icon: "JobIconResearchAssistant"
   supervisors: job-supervisors-science

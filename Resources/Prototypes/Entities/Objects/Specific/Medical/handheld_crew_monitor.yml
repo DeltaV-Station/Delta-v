@@ -59,6 +59,8 @@
     useRate: 10
   - type: StaticPrice
     price: 750
+  - type: Tag # DeltaV - Let it be put in storage implants by removing HighRiskItem
+    tags: []
 
 - type: entity
   id: SpyCrewMonitorEmpty
