@@ -43,7 +43,11 @@ public sealed partial class ShopVendorWindow : FancyWindow
         VendingContents.SearchBar = SearchBar;
         VendingContents.DataFilterCondition += DataFilterCondition;
         VendingContents.GenerateItem += GenerateButton;
-        VendingContents.ItemKeyBindDown += (args, data) => OnItemSelected?.Invoke(((ShopVendorListingData) data).Index);
+        VendingContents.ItemKeyBindDown += (args, data) =>
+        {
+            if (args.Function == EngineKeyFunctions.UIClick)
+                OnItemSelected?.Invoke(((ShopVendorListingData) data).Index);
+        };
     }
 
     public void SetEntity(EntityUid owner)
