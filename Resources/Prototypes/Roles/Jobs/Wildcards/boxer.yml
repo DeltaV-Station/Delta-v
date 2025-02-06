@@ -3,25 +3,16 @@
   name: job-name-boxer
   description: job-description-boxer
   playTimeTracker: JobBoxer
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 7200 # DeltaV 2 hours
   startingGear: BoxerGear
   icon: "JobIconBoxer"
   supervisors: job-supervisors-hop
   access:
+  #- Service # DeltaV
   - Maintenance
-  - Theatre # DeltaV - Add Theatre access
-  - Boxer # DeltaV - Add Boxer access
-  special: # Nyanotrasen - BoxerComponent, see Content.Server/Nyanotrasen/Abilities/Boxer/Boxer/BoxerComponent.cs
-  - !type:AddComponentSpecial
-    components:
-    - type: Boxer
-      modifiers:
-        coefficients: # These only apply to unarmed
-          Blunt: 1.5
-          Slash: 1.5
-          Piercing: 1.5
+  # Begin DeltaV Additions
+  - Theatre # Boxer is vaguely a theatre role
+  - Boxer
+  # End DeltaV Additions
 
 - type: startingGear
   id: BoxerGear

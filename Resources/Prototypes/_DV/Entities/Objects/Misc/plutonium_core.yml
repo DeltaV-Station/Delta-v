@@ -5,7 +5,7 @@
   description: Extremely radioactive, even looking at this with the naked eye is dangerous.
   components:
   - type: Sprite
-    sprite: Objects/Misc/plutonium_core.rsi
+    sprite: _DV/Objects/Misc/plutonium_core.rsi
     state: icon
   - type: StealTarget
     stealGroup: PlutoniumCore
@@ -25,7 +25,7 @@
   description: Solid container for radioactive objects.
   components:
   - type: Sprite
-    sprite: Objects/Misc/nuke_core_container.rsi
+    sprite: _DV/Objects/Misc/nuke_core_container.rsi
     layers:
     - state: closed
       map: [ "enum.OpenableVisuals.Layer" ]

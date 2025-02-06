@@ -1,7 +1,6 @@
-﻿using Content.Shared.Actions;
 using Content.Shared.Implants;
-using Content.Shared.Storage;
-using Content.Shared.Storage.EntitySystems;
+//using Content.Shared.Storage;
+//using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Containers;
 
 namespace Content.Shared._DV.Implants.Radio;
@@ -15,42 +14,45 @@ public abstract class SharedRadioImplantSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<RadioImplantComponent, ImplantImplantedEvent>(OnImplanted);
-        SubscribeLocalEvent<RadioImplantComponent, EntGotRemovedFromContainerMessage>(OnPossiblyUnimplanted);
+        SubscribeLocalEvent<RadioImplantComponent, EntGotRemovedFromContainerMessage>(OnRemoved);
     }
 
     /// <summary>
     /// Handles implantation of the implant.
     /// </summary>
-    private void OnImplanted(EntityUid uid, RadioImplantComponent component, ImplantImplantedEvent args)
+    private void OnImplanted(Entity<RadioImplantComponent> ent, ref ImplantImplantedEvent args)
     {
-        if (args.Implanted is not { Valid: true })
+        if (args.Implanted is not {} user)
             return;
 
-        component.Implantee = args.Implanted.Value;
-        Dirty(uid, component);
+        ent.Comp.Implantee = user;
+        Dirty(ent, ent.Comp);
 
         // make sure the person entity gets slapped with a component so it can react to it talking.
-        var hasRadioImplantComponent = EnsureComp<HasRadioImplantComponent>(args.Implanted.Value);
-        hasRadioImplantComponent.Implant = uid;
-        Dirty(component.Implantee.Value, hasRadioImplantComponent);
+        var implanted = EnsureComp<HasRadioImplantComponent>(user);
+        implanted.Implants.Add(ent);
+        Dirty(user, implanted);
     }
-
 
     /// <summary>
     /// Handles removal of the implant from its containing mob.
     /// </summary>
     /// <remarks>Done via <see cref="EntGotRemovedFromContainerMessage"/> because there is no specific event for an implant being removed.</remarks>
-    private void OnPossiblyUnimplanted(EntityUid uid, RadioImplantComponent component, EntGotRemovedFromContainerMessage args)
+    private void OnRemoved(Entity<RadioImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        if (Terminating(uid))
+        if (TerminatingOrDeleted(ent) ||
+            ent.Comp.Implantee is not {} user ||
+            // this gets fired if it gets removed from ANY container but really, we just want to know if it was removed from its owner...
+            // so check if the ent we got implanted into matches the container's owner (here, the container's owner is the entity)
+            user != args.Container.Owner ||
+            !TryComp<HasRadioImplantComponent>(user, out var implanted))
             return;
 
-        // this gets fired if it gets removed from ANY container but really, we just want to know if it was removed from its owner...
-        // so check if the ent we got implanted into matches the container's owner (here, the container's owner is the entity)
-        if (component.Implantee is not null && component.Implantee == args.Container.Owner)
-        {
-            RemComp<HasRadioImplantComponent>(component.Implantee.Value);
-            component.Implantee = null;
-        }
+        implanted.Implants.Remove(ent);
+        if (implanted.Implants.Count == 0)
+            RemComp<HasRadioImplantComponent>(user);
+        else
+            Dirty(user, implanted);
+        ent.Comp.Implantee = null;
     }
 }
