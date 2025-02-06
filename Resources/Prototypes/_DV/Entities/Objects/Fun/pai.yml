@@ -1,6 +1,7 @@
 ﻿- type: entity
+  abstract: true
   parent: BaseItem
-  id: LearnerPAI
+  id: BaseLearnerPAI
   name: learner ai tutor
   description: Your electronic pal here to help teach you the ins and outs of the station!
   components:
@@ -46,9 +47,8 @@
     whitelist:
       components:
       - SecretStash
-
 - type: entity
-  parent: LearnerPAI
+  parent: BaseLearnerPAI
   id: LearnerEngiPAI
   name: engineering ai tutor
   description: Your electronic pal here to help teach you the ins and outs of station engineering!
@@ -79,7 +79,7 @@
 
 
 - type: entity
-  parent: LearnerPAI
+  parent: BaseLearnerPAI
   id: LearnerMedPAI
   name: medical ai tutor
   description: Your electronic pal here to help teach you the ins and outs of all things medical!
@@ -107,7 +107,7 @@
     - Common
 
 - type: entity
-  parent: LearnerPAI
+  parent: BaseLearnerPAI
   id: LearnerLogiPAI
   name: logistics ai tutor
   description: Your electronic pal here to help teach you the ins and outs of things related to logistics!
@@ -135,7 +135,7 @@
     - Common
 
 - type: entity
-  parent: LearnerPAI
+  parent: BaseLearnerPAI
   id: LearnerSecPAI
   name: security ai tutor
   description: Your electronic pal here to help teach you the ins and outs of station security!
@@ -163,7 +163,7 @@
     - Common
 
 - type: entity
-  parent: LearnerPAI
+  parent: BaseLearnerPAI
   id: LearnerEpiPAI
   name: epistemics ai tutor
   description: Your electronic pal here to help teach you the ins and outs of research and development!
