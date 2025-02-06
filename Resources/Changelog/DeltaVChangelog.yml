@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: Skubman, dootythefrooty
-  changes:
-  - message: Quite a few new horns for Onis have been added, with three-tone variants
-      and some striped variants! The new horns include the Serket, Nepeta, Vantas,
-      Makara, and more.
-    type: Add
-  - message: Onis get two new tusk markings in the 'Snout' section, and several pointy
-      ear markings that help them resemble tieflings, orcs, elves and more.
-    type: Add
-  - message: Allows felinids, harpies and oni to have more human markings.
-    type: Tweak
-  id: 498
-  time: '2024-08-27T07:20:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1691
 - author: deltanedas
   changes:
   - message: Merged last weeks changes from upstream, report any bugs.
@@ -3856,3 +3842,12 @@
   id: 997
   time: '2025-02-06T08:16:13.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2812
+- author: Spielern
+  changes:
+  - message: IPC Administrative Assistants will now spawn with encryption keys.
+    type: Fix
+  - message: Added Cyborg emotes to IPCs.
+    type: Add
+  id: 998
+  time: '2025-02-06T09:26:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2886
