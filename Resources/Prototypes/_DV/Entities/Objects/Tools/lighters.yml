@@ -23,13 +23,8 @@
     activatedDamage:
       types:
         Heat: 5 #Increased heat damage because its evil.
-  - type: ItemToggleSize
-    activatedSize: Small
-  - type: ItemToggleHot
   - type: Item
-    size: Tiny
     sprite: _DV/Objects/Tools/syndielighter.rsi
-  - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.ToggleVisuals.Toggled:
@@ -54,20 +49,11 @@
       right:
       - state: inhand-right-lit
         shader: unshaded
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    damage:
-      types:
-        Blunt: 1 # does a little bit of damage on hit when off
   - type: PointLight
     enabled: false
     netsync: false
     radius: 2 #much stronger than the other lighters
     color: green
-  - type: ItemTogglePointLight
-  - type: UseDelay
-  - type: IgnitionSource
-    ignited: false
   - type: SolutionRegeneration
     solution: Welder
     generated:
