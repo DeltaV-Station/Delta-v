@@ -1,32 +1,5 @@
 - type: entity
   parent: VendingMachine
-  id: VendingMachinePride
-  name: Pride-O-Mat
-  description: A vending machine containing crimes.
-  components:
-  - type: VendingMachine
-    pack: PrideDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-  - type: Advertise
-    pack: PrideDrobeAds
-  - type: SpeakOnUIClosed
-    pack: PrideDrobeGoodbyes
-  - type: Speech
-  - type: Sprite
-    sprite: _DV/Structures/Machines/VendingMachines/pride.rsi
-    layers:
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.Base"]
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
-      shader: unshaded
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-
-- type: entity
-  parent: VendingMachine
   id: VendingMachineCourierDrobe
   name: CourierDrobe
   description: Neither solar flares nor meteors nor plasma fire nor void of space stays these couriers from the swift completion of their appointed rounds.

@@ -5,7 +5,8 @@
     TraitorObjectiveGroupSteal: 1
     TraitorObjectiveGroupKill: 1
     TraitorObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
-    TraitorObjectiveGroupSocial: 1 #Involves helping/harming others without killing them or stealing their stuff
+    TraitorObjectiveGroupSocial: 0.5 # DeltaV #Involves helping/harming others without killing them or stealing their stuff
+    TraitorObjectiveGroupSpecial: .2 # DeltaV
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSteal
@@ -14,6 +15,8 @@
     CMOHyposprayStealObjective: 1
     CMOCrewMonitorStealObjective: 1
     RDHardsuitStealObjective: 1
+    NukeDiskStealObjective: 0.25 # DeltaV - was 1
+    PlutoniumCoreStealObjective: 0.5 # DeltaV
     MagbootsStealObjective: 1
     # CorgiMeatStealObjective: 1 # DeltaV - Disable the horrible murder of Ian as an objective
     MantisKnifeStealObjective: 1 # Nyanotrasen - ForensicMantis steal objective, see Resources/Prototypes/Nyanotrasen/Objectives/traitor.yml
@@ -27,8 +30,6 @@
     LOLuckyBillStealObjective: 0.5 # DeltaV - LO steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
     HoPBookIanDossierStealObjective: 1 # DeltaV - HoP steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
     HoSGunStealObjective: 0.5 # DeltaV
-    PlutoniumCoreStealObjective: 0.5 # DeltaV, was reverted upstream
-    NukeDiskStealObjective: 0.25
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
@@ -50,7 +51,7 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial
   weights:
-    RandomTraitorAliveObjective: 1
+    # RandomTraitorAliveObjective: 1 DeltaV removed for being a less fun version of progress objective.
     RandomTraitorProgressObjective: 1
 
 #Thief groups

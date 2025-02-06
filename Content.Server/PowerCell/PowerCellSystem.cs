@@ -6,7 +6,7 @@ using Content.Shared.PowerCell.Components;
 using Content.Shared.Rounding;
 using Robust.Shared.Containers;
 using System.Diagnostics.CodeAnalysis;
-using Content.Server.Kitchen.Components;
+using Content.Shared.Kitchen.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.UserInterface;
 using Content.Shared.Containers.ItemSlots;
@@ -228,8 +228,8 @@ public sealed partial class PowerCellSystem : SharedPowerCellSystem
 
     private void OnCellSlotExamined(EntityUid uid, PowerCellSlotComponent component, ExaminedEvent args)
     {
-        TryGetBatteryFromSlot(uid, out var battery);
-        OnBatteryExamined(uid, battery, args);
+        TryGetBatteryFromSlot(uid, out var batteryEnt, out var battery); // Goobstation
+        OnBatteryExamined(batteryEnt.GetValueOrDefault(uid), battery, args); // Goobstation
     }
 
     private void OnBatteryExamined(EntityUid uid, BatteryComponent? component, ExaminedEvent args)

@@ -43,6 +43,19 @@
       Steel: 100
   - type: StaticPrice
     price: 30
+  - type: Retractor # Shitmed
+    speed: 0.35
+  - type: Hemostat # Shitmed
+    speed: 0.6
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/Items/wirecutter.ogg
+      params:
+        variation: 0.125
+    endSound:
+      path: /Audio/Items/wirecutter.ogg
+      params:
+        variation: 0.125
 
 - type: entity
   name: screwdriver
@@ -87,6 +100,15 @@
       Steel: 100
   - type: StaticPrice
     price: 30
+  - type: Retractor # Shitmed
+    speed: 0.45
+  - type: Tending # Shitmed
+    speed: 0.65
+  - type: SurgeryTool # Shitmed
+    startSound:
+      collection: Screwdriver
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
 
 - type: entity
   name: wrench
@@ -126,6 +148,9 @@
       Steel: 100
   - type: StaticPrice
     price: 22
+  - type: GuideHelp
+    guides:
+    - Construction
 
 - type: entity
   name: multitool
@@ -174,6 +199,12 @@
       Plastic: 100
   - type: StaticPrice
     price: 56
+  - type: GuideHelp
+    guides:
+    - Networking
+    - WirePanels
+    - Airlocks
+    - InspectingPower
 
 - type: entity
   name: network configurator
@@ -224,7 +255,7 @@
       price: 56
     - type: GuideHelp
       guides:
-      - NetworkConfigurator
+      - Networking
 
 #Power tools
 #Later on these should switch probably switch damage when changing the tool behavior.
@@ -314,7 +345,6 @@
   - type: LimitedCharges
     maxCharges: 30
     charges: 30
-  - type: UseDelay
   - type: Sprite
     sprite: Objects/Tools/rcd.rsi
     state: icon

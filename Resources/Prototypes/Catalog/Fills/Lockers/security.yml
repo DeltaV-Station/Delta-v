@@ -26,6 +26,7 @@
       - id: LunchboxSecurityFilledRandom
         prob: 0.3
       - id: ClothingOuterVestPlateCarrierAdv
+      - id: ClothingHeadsetAltSecurity # Restored from upstream merge.
       # End DeltaV additions
       - id: ClothingNeckShockCollar
         amount: 2
@@ -60,6 +61,7 @@
       - id: LunchboxSecurityFilledRandom
         prob: 0.3
       - id: ClothingOuterVestPlateCarrierAdv
+      - id: ClothingHeadsetAltSecurity # Restored from upstream merge.
       # End DeltaV additions
       - id: ClothingNeckShockCollar
         amount: 2
@@ -216,11 +218,8 @@
     contents:
       - id: ClothingHeadHelmetBombSuit
       - id: ClothingOuterSuitBomb
-      # NT is cheap, what can you do...
       - id: Wirecutter
-        prob: 0.9
       - id: Screwdriver
-        prob: 0.9
       - id: Multitool
         prob: 0.5
 
@@ -308,7 +307,7 @@
       amount: 4
 
 - type: entity
-  parent: GunSafeBaseSecure
+  parent: [GunSafeBaseSecure, BaseRestrictedContraband]
   id: GunSafeLaserCarbine
   name: laser safe
   components:

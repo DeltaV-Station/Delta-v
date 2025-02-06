@@ -12,7 +12,6 @@ loadout-group-hop-shoes = Head of Personnel shoes
 loadout-group-admin-assistant-head = Administrative Assistant head
 loadout-group-admin-assistant-jumpsuit = Administrative Assistant jumpsuit
 loadout-group-admin-assistant-outerclothing = Administrative Assistant outer clothing
-loadout-group-admin-assistant-headset = Administrative Assistant headset
 loadout-group-admin-assistant-shoes = Administrative Assistant shoes
 loadout-group-admin-assistant-gloves = Administrative Assistant gloves
 
@@ -50,6 +49,7 @@ loadout-group-courier-neck = Courier neck
 loadout-group-courier-jumpsuit = Courier jumpsuit
 loadout-group-courier-shoes = Courier shoes
 loadout-group-courier-outerclothing = Courier outer clothing
+loadout-group-courier-backpack = Courier backpack
 loadout-group-courier-id = Courier ID
 
 loadout-group-mail-carrier-head = Mail Carrier head
@@ -79,6 +79,12 @@ loadout-group-psychologist-head = Psychologist head
 loadout-group-psychologist-outerclothing = Psychologist outer clothing
 loadout-group-psychologist-shoes = Psychologist shoes
 loadout-group-psychologist-id-delta = Psychologist PDA
+
+loadout-group-surgeon-head = Surgeon head
+loadout-group-surgeon-mask = Surgeon mask
+loadout-group-surgeon-scrubs = Surgeon scrubs
+loadout-group-surgeon-gloves = Surgeon gloves
+loadout-group-surgeon-id = Surgeon PDA
 
 # Miscellaneous
 loadout-group-scarfs = Scarf

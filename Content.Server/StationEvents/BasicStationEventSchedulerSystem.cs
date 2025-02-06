@@ -41,7 +41,7 @@ namespace Content.Server.StationEvents
                 && _event.TryGenerateRandomEvent(component.ScheduledGameRules, TimeSpan.FromSeconds(component.TimeUntilNextEvent)) is {} firstEvent)
             {
                 _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", firstEvent), ("seconds", (int)component.TimeUntilNextEvent)));
-                _next.UpdateNextEvent(nextEventComponent, firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent));
+                _next.UpdateNextEvent(nextEventComponent, firstEvent, GameTicker.RoundDuration() + TimeSpan.FromSeconds(component.TimeUntilNextEvent));
             }
             // End DeltaV Additions
         }
@@ -76,7 +76,7 @@ namespace Content.Server.StationEvents
                 if (TryComp<NextEventComponent>(uid, out var nextEventComponent)) // If there is a nextEventComponent use the stashed event instead of running it directly.
                 {
                     ResetTimer(eventScheduler); // Time needs to be reset ahead of time since we need to chose events based on the next time it will run.
-                    var nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(eventScheduler.TimeUntilNextEvent);
+                    var nextEventTime = GameTicker.RoundDuration() + TimeSpan.FromSeconds(eventScheduler.TimeUntilNextEvent);
                     if (_event.TryGenerateRandomEvent(eventScheduler.ScheduledGameRules, nextEventTime) is not {} generatedEvent)
                         continue;
 

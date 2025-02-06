@@ -67,6 +67,11 @@
       - HolofanProjector
   - type: StaticPrice
     price: 80
+  - type: GuideHelp
+    guides:
+    - AtmosTools
+    - Fires
+    - Spacing
 
 - type: entity
   parent: HolofanProjector
@@ -116,7 +121,7 @@
       signProto: HolosignSecurity
       chargeUse: 120
     - type: Sprite
-      sprite: Objects/Devices/Holoprojectors/security.rsi
+      sprite: _DV/Objects/Devices/Holoprojectors/security.rsi # DeltaV - resprite holobarrier projector
       state: icon
     - type: Tag
       tags:
