@@ -1,70 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Merged upstream, except for mining rebalance and energy shotgun.
-    type: Add
-  - message: Every shuttle's price increased due to the rising cost of materials.
-    type: Tweak
-  - message: Fixed the Flatpacker being broken.
-    type: Fix
-  id: 494
-  time: '2024-08-22T14:27:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1665
-- author: deltanedas
-  changes:
-  - message: Made meteor swarm event spawn the old meteors again
-    type: Tweak
-  id: 495
-  time: '2024-08-22T14:29:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1658
-- author: portfiend
-  changes:
-  - message: More floor tiles have been added to the cutter machine, namely Service
-      department tiles such as bar, kitchen, clown, mime, laundry, and arcade tiles.
-    type: Add
-  id: 496
-  time: '2024-08-24T10:22:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1673
-- author: Timemaster99
-  changes:
-  - message: Ported Harpy updates from EE
-    type: Add
-  id: 497
-  time: '2024-08-27T00:21:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1641
-- author: Skubman, dootythefrooty
-  changes:
-  - message: Quite a few new horns for Onis have been added, with three-tone variants
-      and some striped variants! The new horns include the Serket, Nepeta, Vantas,
-      Makara, and more.
-    type: Add
-  - message: Onis get two new tusk markings in the 'Snout' section, and several pointy
-      ear markings that help them resemble tieflings, orcs, elves and more.
-    type: Add
-  - message: Allows felinids, harpies and oni to have more human markings.
-    type: Tweak
-  id: 498
-  time: '2024-08-27T07:20:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1691
-- author: deltanedas
-  changes:
-  - message: Merged last weeks changes from upstream, report any bugs.
-    type: Add
-  - message: Cleaned up a lot of guidebooks.
-    type: Tweak
-  id: 499
-  time: '2024-08-28T03:33:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1693
-- author: deltanedas
-  changes:
-  - message: Fixed Nyano winter coat loadouts (Mail carrier and Mantis) not giving
-      you anything.
-    type: Fix
-  id: 500
-  time: '2024-08-28T06:07:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1697
-- author: deltanedas
-  changes:
   - message: Disaster victim ghost roles now have a playtime requirement.
     type: Tweak
   id: 501
@@ -3858,3 +3794,58 @@
   id: 993
   time: '2025-02-04T18:50:39.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2882
+- author: sowelipililimute
+  changes:
+  - message: Remaining two white papers in the bureaucracy crate have been replaced
+      with a ream of white paper
+    type: Tweak
+  id: 994
+  time: '2025-02-04T23:15:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2873
+- author: deltanedas
+  changes:
+  - message: Fixed IPC nukies not getting comms.
+    type: Fix
+  id: 995
+  time: '2025-02-05T07:29:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2884
+- author: Radezolid
+  changes:
+  - message: Fixed CC's checkpoint diagonal windows from shocking people.
+    type: Fix
+  id: 996
+  time: '2025-02-06T04:04:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2898
+- author: rosieposieeee
+  changes:
+  - message: 'Test Merge: Added an SOS program to HOPs locker and all PDAs except
+      for Passenger PDAs. Upon pressing it, it sends a message on sec radio requesting
+      help along with the name on your ID, followed by a cooldown.'
+    type: Add
+  id: 997
+  time: '2025-02-06T08:16:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2812
+- author: Spielern
+  changes:
+  - message: IPC Administrative Assistants will now spawn with encryption keys.
+    type: Fix
+  - message: Added Cyborg emotes to IPCs.
+    type: Add
+  id: 998
+  time: '2025-02-06T09:26:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2886
+- author: sowelipililimute
+  changes:
+  - message: Autodoc only lists surgeries relevant to the given part, e.g. it won't
+      suggest that you can lobotomise a left leg
+    type: Tweak
+  id: 999
+  time: '2025-02-06T10:23:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2844
+- author: deltanedas
+  changes:
+  - message: Increased seismic charge cost to 1250 mining points.
+    type: Tweak
+  id: 1000
+  time: '2025-02-06T10:36:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2885
