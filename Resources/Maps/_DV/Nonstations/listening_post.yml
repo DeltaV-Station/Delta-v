@@ -624,7 +624,7 @@ entities:
       pos: -6.5,-6.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -10893.122
+      secondsUntilStateChange: -11199.732
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -687,7 +687,7 @@ entities:
       pos: -2.5,-6.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -10885.355
+      secondsUntilStateChange: -11191.966
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -717,6 +717,14 @@ entities:
     - type: Transform
       pos: 0.5,3.5
       parent: 1
+- proto: AllTraitorCodesPaper
+  entities:
+  - uid: 1253
+    components:
+    - type: Transform
+      parent: 567
+    - type: Physics
+      canCollide: False
 - proto: AlwaysPoweredLightColoredFrostyBlue
   entities:
   - uid: 16
@@ -3859,26 +3867,26 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 410
           - 416
-          - 407
           - 406
-          - 409
+          - 407
           - 589
-          - 415
+          - 409
           - 417
-          - 420
-          - 413
-          - 412
-          - 419
+          - 415
           - 588
-          - 587
-          - 408
           - 418
-          - 590
+          - 408
           - 411
-          - 414
+          - 590
           - 591
+          - 410
+          - 413
+          - 420
+          - 419
+          - 412
+          - 587
+          - 414
           - 592
 - proto: ClosetWallMixed
   entities:
@@ -4444,13 +4452,25 @@ entities:
     - type: Transform
       pos: 8.5,2.5
       parent: 1
-- proto: filingCabinetDrawerRandom
+- proto: filingCabinetDrawer
   entities:
   - uid: 567
     components:
     - type: Transform
       pos: 9.5,0.5
       parent: 1
+    - type: Storage
+      storedItems:
+        1253:
+          position: 0,0
+          _rotation: South
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 1253
 - proto: FireAlarm
   entities:
   - uid: 621
@@ -6311,8 +6331,7 @@ entities:
   - uid: 1192
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -6.1092777,2.866567
+      pos: -5.987184,2.8954349
       parent: 1
     - type: Paper
       stampState: paper_stamp-syndicate
@@ -6329,7 +6348,7 @@ entities:
   - uid: 1215
     components:
     - type: Transform
-      pos: 4.2250843,-7.068519
+      pos: 4.1906867,-7.1493835
       parent: 1
     - type: Paper
       stampState: paper_stamp-syndicate
@@ -6344,6 +6363,29 @@ entities:
 
 
         Make sure the situation is hopeless before you arm her, we'd threaten to kill you otherwise, but youll be dead anyways.
+  - uid: 1252
+    components:
+    - type: Transform
+      pos: 0.23913574,0.36962616
+      parent: 567
+    - type: EmbeddableProjectile
+      embeddedIntoUid: 567
+    - type: Paper
+      stampState: paper_stamp-syndicate
+      stampedBy:
+      - stampedColor: '#850000FF'
+        stampedName: stamp-component-stamped-name-syndicate
+      content: >-
+        Weve provided you with a list of all active codewords at the time of your FTL. 
+
+
+        Any new codewords from assets activated after your arrival will not be available here.
+
+
+        Do NOT let this fall into enemy hands.
+    - type: Physics
+      canCollide: False
+      bodyType: Static
 - proto: PhoneInstrumentSyndicate
   entities:
   - uid: 1132
@@ -7428,6 +7470,33 @@ entities:
     - Rotatable
     - Anchorable
     - Pullable
+- proto: SyndicateBusinessCard
+  entities:
+  - uid: 1254
+    components:
+    - type: Transform
+      pos: 12.159487,2.336687
+      parent: 1
+  - uid: 1255
+    components:
+    - type: Transform
+      pos: 12.159487,2.336687
+      parent: 1
+  - uid: 1256
+    components:
+    - type: Transform
+      pos: 12.159487,2.336687
+      parent: 1
+  - uid: 1257
+    components:
+    - type: Transform
+      pos: 12.159487,2.336687
+      parent: 1
+  - uid: 1258
+    components:
+    - type: Transform
+      pos: 12.159487,2.336687
+      parent: 1
 - proto: SyndicateMicrowave
   entities:
   - uid: 755
