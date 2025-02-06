@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: MilonPL
-  changes:
-  - message: Fixed felinid/harpy/vulpkanin chat emotes.
-    type: Fix
-  id: 503
-  time: '2024-08-30T04:25:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1710
 - author: deltanedas
   changes:
   - message: Disabled Station AI until it's fully implemented.
@@ -3849,3 +3842,11 @@
   id: 1002
   time: '2025-02-06T13:22:55.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2799
+- author: deltanedas
+  changes:
+  - message: Added back the station AI overlay to the diagnostic HUD as it no longer
+      gives you infinite reach.
+    type: Add
+  id: 1003
+  time: '2025-02-06T13:40:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2903
