@@ -6,10 +6,10 @@
   antagAdvantage: 8 # DeltaV - Reduced TC: External Access + Free hardsuit and weapons
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Logistics # DeltaV - Logistics Department replacing Cargo
-      time: 21600 # DeltaV 6 hrs
-  #  - !type:OverallPlaytimeRequirement # DeltaV
-  #    time: 36000 #10 hrs
+      department: Logistics # DeltaV - Logistics department replacing Cargo
+      time: 10800 # 3 hrs
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hrs
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm

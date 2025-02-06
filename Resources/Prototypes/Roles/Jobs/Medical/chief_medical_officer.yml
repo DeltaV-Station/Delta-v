@@ -9,19 +9,19 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 14400 # DeltaV 4 hrs
-#    - !type:RoleTimeRequirement # DeltaV - No Medical Doctor time requirement
-#      role: JobMedicalDoctor
-#      time: 21600 #6 hrs
+      time: 10800 #3 hrs
+    - !type:RoleTimeRequirement
+      role: JobMedicalDoctor
+      time: 21600 #6 hrs
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 90000 # DeltaV - 25 hours
+      time: 36000 #10 hrs
     - !type:OverallPlaytimeRequirement
-      time: 90000 # DeltaV - 25 hours, was 20
+      time: 144000 #40 hrs
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
-  requireAdminNotify: true
+  requireAdminNotify: true # DeltaV
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
@@ -30,21 +30,22 @@
   - Maintenance
   - Chemistry
   - ChiefMedicalOfficer
-  - Paramedic # DeltaV - Add Paramedic access
-  - External # DeltaV - Paramedics need this access
-  - Psychologist # DeltaV - Add Psychologist access
+  #- Brig # DeltaV - Removed brig access
   - Cryogenics
-  - Surgery # DeltaV - Add surgery access
+  # Begin DeltaV Additions
+  - Paramedic
+  - External # Paramedics need this access, this is more for promoting
+  - Psychologist
+  - Surgery
+  # End DeltaV Additions
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-  - !type:AddComponentSpecial
-    components:
-    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
-      flatBonus: 0.025
+      - type: PsionicBonusChance # DeltaV - makes it more likely to become psionic.
+        flatBonus: 0.025
   # Shitmed Change
   - !type:AddComponentSpecial
     components:

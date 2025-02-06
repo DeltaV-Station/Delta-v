@@ -4,28 +4,25 @@
   description: job-description-warden
   playTimeTracker: JobWarden
   requirements:
-    - !type:RoleTimeRequirement # DeltaV - JobSecurityOfficer time requirement. Make them experienced in proper officer work.
+    - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 36000 # DeltaV - 10 hrs
-    - !type:RoleTimeRequirement # DeltaV - JobDetective time requirement. Give them an understanding of basic forensics.
-      role: JobDetective
-      time: 21600 # DeltaV - 6 hours
+      time: 36000 #10 hrs
   startingGear: WardenGear
   icon: "JobIconWarden"
-  requireAdminNotify: true
+  requireAdminNotify: true # DeltaV
   supervisors: job-supervisors-hos
   canBeAntag: false
   whitelisted: true # DeltaV
   access:
   - Security
-  #- Brig # Delta V: Removed
+  #- Brig # DeltaV - Removed brig access
   - Armory
   - Maintenance
-  #- Service # Delta V: Access adjustments
+  #- Service # DeltaV - Sec isn't service
   - External
   - Detective
   - Cryogenics
-  - Corpsman #Delta V: Corpsman is actively implemented, warden requires access to the treatment of their prisoners.
+  - Corpsman # DeltaV - Warden requires access to the treatment of their prisoners.
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -36,8 +33,8 @@
     eyes: ClothingEyesGlassesSecurity
     id: WardenPDA
     ears: ClothingHeadsetSecurity
-  #  pocket1: WeaponPistolMk58Nonlethal # DeltaV - loadouts
+    #pocket1: WeaponPistolMk58Nonlethal # DeltaV - loadouts
   storage:
     back:
     - Flash
-  # - MagazinePistol # DeltaV - loadouts
+    #- MagazinePistol # DeltaV - loadouts

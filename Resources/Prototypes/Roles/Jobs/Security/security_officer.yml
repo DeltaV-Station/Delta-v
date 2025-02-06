@@ -6,18 +6,18 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 # DeltaV - 10 hours
+      time: 36000 #10 hrs
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
   - Security
-  #- Brig # Delta V: Removed
+  #- Brig # DeltaV - Removed brig access
   - Maintenance
-  #- Service # Delta V: Access adjustments
+  #- Service # DeltaV - Sec isn't service
   - External
-  #- Cryogenics # Delta V: Access adjustments
+  #- Cryogenics # DeltaV - No looting cryo for basic sec
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -27,8 +27,8 @@
   equipment:
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetSecurity
-  #  pocket1: WeaponPistolMk58Nonlethal # DeltaV - loadouts
+    #pocket1: WeaponPistolMk58Nonlethal # DeltaV - loadouts
   storage:
     back:
     - Flash
-  #  - MagazinePistol # DeltaV - loadouts
+    #- MagazinePistol # DeltaV - loadouts
