@@ -339,11 +339,13 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
-  - type: Damageable #Goobstation - Ion Damage
+    # Begin Goobstation additions
+  - type: Damageable
     damageContainer: Silicon
     damageModifierSet: SiliconProtected
   - type: ExplosionResistance
     damageCoefficient: 0.5
+    # End Goobstation additions
 
 - type: entity
   id: BaseBorgChassisDerelict
