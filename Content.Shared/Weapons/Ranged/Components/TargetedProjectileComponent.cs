@@ -8,5 +8,5 @@ namespace Content.Shared.Weapons.Ranged.Components;
 public sealed partial class TargetedProjectileComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public EntityUid? Target; // Impstation
+    public EntityUid? Target; // Imp
 }
