@@ -18,7 +18,7 @@
   sprite:
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     state: base
-    
+
 - type: stealTargetGroup
   id: BoxFolderRdClipboard
   name: steal-target-groups-box-folder-rd-clipboard
@@ -39,6 +39,13 @@
   sprite:
     sprite: _DV/Mobs/Pets/silvia.rsi
     state: silvia
+
+- type: stealTargetGroup
+  id: PlutoniumCore
+  name: steal-target-groups-plutonium-core
+  sprite:
+    sprite: _DV/Objects/Misc/plutonium_core.rsi
+    state: icon
 
 # Ninja
 

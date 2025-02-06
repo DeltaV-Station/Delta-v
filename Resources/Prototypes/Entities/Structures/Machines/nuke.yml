@@ -1,3 +1,4 @@
+# DeltaV note: these are completely reorganized for nuke core extraction
 - type: entity
   abstract: true
   parent: [BaseStructure, StructureWheeled, BaseMajorContraband]
@@ -137,17 +138,6 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
-
-- type: entity
-  parent: BaseNuclearBomb
-  id: NuclearBombDisarmed
-  suffix: Disarmed
-  description: "You can clearly see that this can't be armed, given its lack of nuclear material."
-  components:
-  - type: StaticPrice
-    price: 1000 # fancy paperweight
-  - type: Construction
-    node: disarmed
 
 - type: entity
   parent: StorageTank
