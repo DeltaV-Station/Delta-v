@@ -51,14 +51,16 @@
 
 # Tier 3
 
-- type: technology
-  id: HighEndSurgery
-  name: research-technology-high-end-surgery
-  icon:
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
-    state: omnimed
-  discipline: CivilianServices
-  tier: 3
-  cost: 10000
-  recipeUnlocks:
-  - OmnimedTool
+# Start DeltaV changes - Removed the medical multitool.
+#- type: technology
+#  id: HighEndSurgery
+#  name: research-technology-high-end-surgery
+#  icon:
+#    sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
+#    state: omnimed
+#  discipline: CivilianServices
+#  tier: 3
+#  cost: 10000
+#  recipeUnlocks:
+#  - OmnimedTool
+# End of DeltaV changes

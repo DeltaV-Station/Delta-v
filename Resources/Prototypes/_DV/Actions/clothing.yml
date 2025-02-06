@@ -1,0 +1,7 @@
+- type: entity
+  id: ActionToggleHudDiagnosticCamera
+  name: Toggle camera mod
+  description: Toggles the AI vision camera mod on and off.
+  components:
+  - type: InstantAction
+    event: !type:ToggleActionEvent

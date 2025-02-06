@@ -14,15 +14,6 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 21600
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: Boxer
-      modifiers:
-        coefficients: # These only apply to unarmed
-          Blunt: 1.5
-          Slash: 1.5
-          Piercing: 1.5
 
 - type: startingGear
   id: NyanoGladiatorGear

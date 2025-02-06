@@ -1,0 +1,42 @@
+using Content.Shared._Shitmed.Medical.Surgery;
+using Content.Shared.FixedPoint;
+using Robust.Shared.GameStates;
+
+namespace Content.Shared._DV.Surgery;
+
+/// <summary>
+///     Component that indicates how an entity should respond to unsanitary surgery conditions
+/// </summary>
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedSurgerySystem))]
+public sealed partial class SurgeryContaminableComponent : Component
+{
+    /// <summary>
+    ///     How much cross contamination should increase dirtiness per incompatible DNA
+    /// </summary>
+    [DataField]
+    public FixedPoint2 CrossContaminationDirtinessLevel = 40.0;
+
+    /// <summary>
+    ///     The level of dirtiness above which toxin damage will be dealt
+    /// </summary>
+    [DataField]
+    public FixedPoint2 DirtinessThreshold = 50.0;
+
+    /// <summary>
+    ///     The base amount of toxin damage to deal above the threshold
+    /// </summary>
+    [DataField]
+    public FixedPoint2 BaseDamage = 2.0;
+
+    /// <summary>
+    ///     The inverse of the coefficient to scale the toxin damage by
+    /// </summary>
+    [DataField]
+    public FixedPoint2 InverseDamageCoefficient = 250.0;
+
+    /// <summary>
+    ///     The upper limit on how much toxin damage can be dealt in a single step
+    /// </summary>
+    [DataField]
+    public FixedPoint2 ToxinStepLimit = 15.0;
+}
