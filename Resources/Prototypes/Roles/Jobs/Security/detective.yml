@@ -4,18 +4,18 @@
   description: job-description-detective
   playTimeTracker: JobDetective
   requirements:
-    - !type:RoleTimeRequirement # DeltaV - JobSecurityOfficer time requirement
-      role: JobSecurityOfficer
-      time: 21600 # DeltaV - 6 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 54000 # 15 hours
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
   - Security
-  #- Brig # Delta V: Removed
+  #- Brig # DeltaV - Removed brig access
   - Maintenance
-  #- Service # Delta V: Access adjustments
+  #- Service # DeltaV - Sec isn't service
   - Detective
   - Cryogenics
   - External
