@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Replaced Mime's breath mask with a spacepen.
-    type: Tweak
-  id: 510
-  time: '2024-09-01T03:18:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1730
-- author: deltanedas
-  changes:
   - message: Salvage still has most roundstart equipment like ore bags, seismics and
       fultons.
     type: Tweak
@@ -3846,3 +3839,11 @@
   id: 1009
   time: '2025-02-06T18:29:42.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2900
+- author: Darkmajia, Lyndomen
+  changes:
+  - message: Ports turret fixes from Impstation, they may now shoot at prone entities.
+      Grenades can also hit prone entities.
+    type: Tweak
+  id: 1010
+  time: '2025-02-06T19:57:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2910
