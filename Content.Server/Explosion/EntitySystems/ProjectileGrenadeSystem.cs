@@ -1,6 +1,6 @@
-using Content.Server.Explosion.Components;
+﻿using Content.Server.Explosion.Components;
 using Content.Server.Weapons.Ranged.Systems;
-using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Components; // Imp
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;

@@ -210,7 +210,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     /// <summary>
     /// Sets the targeted entity of the gun. Should be called before attempting to shoot to avoid shooting over the target.
     /// </summary>
-    public void SetTarget(GunComponent gun, EntityUid target)
+    public void SetTarget(GunComponent gun, EntityUid target) // Impstation
     {
         gun.Target = target;
     }
