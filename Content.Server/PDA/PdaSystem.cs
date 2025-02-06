@@ -10,6 +10,7 @@ using Content.Server.Station.Systems;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Server.Traitor.Uplink;
+using Content.Shared._DV.Reputation; // DeltaV
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Chat;
@@ -38,6 +39,7 @@ namespace Content.Server.PDA
         [Dependency] private readonly UnpoweredFlashlightSystem _unpoweredFlashlight = default!;
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly IdCardSystem _idCard = default!;
+        [Dependency] private readonly ReputationSystem _reputation = default!; // DeltaV
 
         public override void Initialize()
         {
@@ -53,6 +55,7 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<PdaComponent, PdaShowMusicMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowUplinkMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaLockUplinkMessage>(OnUiMessage);
+            SubscribeLocalEvent<PdaComponent, PdaShowContractsMessage>(OnUiMessage); // DeltaV
 
             SubscribeLocalEvent<PdaComponent, CartridgeLoaderNotificationSentEvent>(OnNotification);
 
@@ -280,6 +283,18 @@ namespace Content.Server.PDA
                 UpdatePdaUi(uid, pda);
             }
         }
+
+        // End DeltaV Additions
+        private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaShowContractsMessage msg)
+        {
+            if (!PdaUiKey.Key.Equals(msg.UiKey))
+                return;
+
+            // check if its locked again to prevent malicious clients opening locked uplinks
+            if (HasComp<ContractsComponent>(uid) && IsUnlocked(uid))
+                _reputation.ToggleUi(msg.Actor, uid);
+        }
+        // End DeltaV Additions
 
         private bool IsUnlocked(EntityUid uid)
         {
