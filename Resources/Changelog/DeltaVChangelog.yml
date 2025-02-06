@@ -1,15 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Merged last weeks changes from upstream, report any bugs.
-    type: Add
-  - message: Cleaned up a lot of guidebooks.
-    type: Tweak
-  id: 499
-  time: '2024-08-28T03:33:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1693
-- author: deltanedas
-  changes:
   - message: Fixed Nyano winter coat loadouts (Mail carrier and Mantis) not giving
       you anything.
     type: Fix
@@ -3851,3 +3842,11 @@
   id: 998
   time: '2025-02-06T09:26:54.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2886
+- author: sowelipililimute
+  changes:
+  - message: Autodoc only lists surgeries relevant to the given part, e.g. it won't
+      suggest that you can lobotomise a left leg
+    type: Tweak
+  id: 999
+  time: '2025-02-06T10:23:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2844
