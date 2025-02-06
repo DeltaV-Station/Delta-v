@@ -1,12 +1,12 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Cabinet;
+namespace Content.Shared._DV.Cabinet;
 
 /// <summary>
 /// Item cabinet that cannot be opened if it has an item inside.
 /// The only way to open it after that is to emag it.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, Access(typeof(SealingCabinetSystem))]
 public sealed partial class SealingCabinetComponent : Component
 {
     /// <summary>

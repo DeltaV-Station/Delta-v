@@ -1,8 +1,8 @@
 using Content.Shared.Mind;
 using Content.Shared.Store;
-using Content.Server.Objectives.Systems;
+using Content.Server._DV.Objectives.Systems;
 
-namespace Content.Server.Store.Conditions;
+namespace Content.Server._DV.Store.Conditions;
 
 /// <summary>
 /// Requires that the buyer have an objective that unlocks this listing.

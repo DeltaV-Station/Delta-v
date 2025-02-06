@@ -1,7 +1,7 @@
-using Content.Server.Objectives.Components;
+using Content.Server._DV.Objectives.Components;
 using Content.Shared.Mind;
 
-namespace Content.Server.Objectives.Systems;
+namespace Content.Server._DV.Objectives.Systems;
 
 /// <summary>
 /// Provides api for listings with <c>ObjectiveUnlockRequirement</c> to use.
