@@ -47,6 +47,10 @@ public sealed class FeedbackPopupManager
         if (string.IsNullOrWhiteSpace(_webhookUrl))
             return;
 
+        // If they didn't write anything in feedback form, don't send it.
+        if (string.IsNullOrWhiteSpace(message.FeedbackMessage))
+            return;
+
         SendDiscordWebhookMessage(CreateMessage(message.FeedbackName, message.FeedbackMessage, _ticker.RoundId, message.MsgChannel.UserName));
     }
 

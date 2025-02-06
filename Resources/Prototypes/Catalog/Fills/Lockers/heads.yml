@@ -140,6 +140,7 @@
     - id: RubberStampHop
     #- id: WeaponDisabler # DeltaV - There is no reason for the service head to have a disabler.
     - id: ClothingEyesHudCommand
+    - id: SOSCartridge # DeltaV - adds SOS app https://github.com/DeltaV-Station/Delta-v/pull/2812
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -345,6 +346,8 @@
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     - id: WeaponDisabler
+    #- id: WantedListCartridge # DeltaV - replaced by secwatch
+    - id: DrinkHosFlask
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

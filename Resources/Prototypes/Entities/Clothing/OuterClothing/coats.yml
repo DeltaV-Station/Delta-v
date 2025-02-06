@@ -10,7 +10,7 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing]
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing] # DeltaV - remove ClothingOuterArmorBase as it is no longer security equipment.
   id: ClothingOuterCoatDetective
   name: detective trenchcoat
   description: A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. Wearing it makes you feel for the plight of the Tibetans.
@@ -23,13 +23,20 @@
     contents:
     - id: SmokingPipeFilledTobacco
     - id: FlippoEngravedLighter
-#  - type: Armor #same as regular sec armor # DeltaV - remove armour as it is no longer security equipment.
-#    modifiers:
-#      coefficients:
-#        Blunt: 0.70
-#        Slash: 0.70
-#        Piercing: 0.70
-#        Heat: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 1 #its a coat. it doesnt do shit
+
+# DeltaV: Sprite doesn't exist
+#- type: entity
+#  parent: [ClothingOuterCoatDetectiveLoadout]
+#  id: ClothingOuterCoatDetectiveLoadoutGrey
+#  name: noir trenchcoat
+#  description: Ah, your trusty coat. There's a few tears here and there, giving it a more timely look. Or at least, that's what you told yourself when you found out gettin' it repaired would set you back 200 spesos.
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
+#  - type: Clothing
+#    sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
 
 - type: entity
   parent: ClothingOuterCoatDetective

@@ -49,6 +49,11 @@
     max: 4
     title: nukie-operations-kidnap-heads-objective-title
     description: nukie-operations-kidnap-heads-objective-descript
+  - type: StoreUnlocker
+    listings:
+    - UplinkBodyBagBox
+    - UplinkStunBundleNukie
+    - UplinkHostageImplanterNukieFree
 
 - type: entity
   parent: BaseStealObjective
