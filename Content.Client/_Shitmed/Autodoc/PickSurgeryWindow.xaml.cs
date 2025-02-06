@@ -51,7 +51,7 @@ public sealed partial class PickSurgeryWindow : FancyWindow
         {
             args.Button.Select(args.Id);
             _symmetry = args.Button.SelectedValue;
-            UpdateSurgeries(); // Delta-V: only display surgeries for selected part
+            UpdateSurgeries();
         };
 
         foreach (var part in Enum.GetValues<BodyPartType>())
@@ -67,7 +67,7 @@ public sealed partial class PickSurgeryWindow : FancyWindow
 
             _part = part;
             UpdateSubmit();
-            UpdateSurgeries(); // Delta-V: only display surgeries for selected part
+            UpdateSurgeries();
         };
         Parts.OnItemDeselected += _ =>
         {
@@ -111,7 +111,6 @@ public sealed partial class PickSurgeryWindow : FancyWindow
         foreach (var id in _surgery.AllSurgeries)
         {
             var name = _proto.Index(id).Name;
-            // Begin Delta-V: only display surgeries for selected part
             var protoId = new EntProtoId<SurgeryComponent>(id);
             if (_part is not BodyPartType part)
             {
@@ -136,7 +135,6 @@ public sealed partial class PickSurgeryWindow : FancyWindow
 
             if (passesFilter)
                 Surgeries.AddItem(name, metadata: id);
-            // End Delta-V: only display surgeries for selected part
         }
         Surgeries.SortItemsByText();
     }
