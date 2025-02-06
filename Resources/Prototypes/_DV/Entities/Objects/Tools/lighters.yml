@@ -7,32 +7,22 @@
   - type: Sprite
     sprite: _DV/Objects/Tools/syndielighter.rsi
     layers:
-    - state: SyndieLighterIcon
+    - state: icon
       map: ["base"]
-    - state: SyndieLighterTop
+    - state: top
       map: ["top"]
       visible: false
-    - state: SyndieLighterOpen
+    - state: open
       map: ["open"]
       visible: false
-    - state: SyndieLighterFire
+    - state: fire
       map: ["flame"]
       visible: false
       shader: unshaded
-  - type: ItemToggle
-    predictable: false
-    soundActivate:
-      path: /Audio/Items/Lighters/zippo_open.ogg
-      params:
-        volume: -5
-    soundDeactivate:
-      path: /Audio/Items/Lighters/zippo_close.ogg
-      params:
-        volume: -5
   - type: ItemToggleMeleeWeapon
     activatedDamage:
-        types:
-            Heat: 5 #Increased heat damage because its evil.
+      types:
+        Heat: 5 #Increased heat damage because its evil.
   - type: ItemToggleSize
     activatedSize: Small
   - type: ItemToggleHot
@@ -55,25 +45,14 @@
         base:
           True: { visible: false }
           False: { visible: true }
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 12
-        maxVol: 12
-  - type: Welder
-    fuelConsumption: 0.01
-    fuelLitCost: 0.1
-    tankSafe: true
   - type: ToggleableLightVisuals
     spriteLayer: lighter_flame
     inhandVisuals:
       left:
-      - state: SyndieLighterInhandLLit
+      - state: inhand-left-lit
         shader: unshaded
       right:
-      - state: SyndieLighterInhandRLit
+      - state: inhand-right-lit
         shader: unshaded
   - type: MeleeWeapon
     wideAnimationRotation: 180

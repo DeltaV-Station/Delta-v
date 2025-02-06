@@ -20,7 +20,7 @@
   - type: StorageFill
     contents:
       - id: CigPackGreen
-        amount: 6 #DeltaV Change, Increased contents
+        amount: 6 # DeltaV - Increased contents to match description
   - type: Tag
     tags:
     - Trash
@@ -37,17 +37,14 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi
-    layers:
-      - state: closed
-        map: ["closeLayer"] #DeltaV change, fixed broken "open" layer
-      - state: open
-        map: ["openLayer"] #End DeltaV Change
+    ##layers:
+    ##  - state: closed #Delta-V - Already inherited, causes issues.
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi
   - type: StorageFill
     contents:
       - id: CigPackRed
-        amount: 6 #DeltaV Change, Increased contents
+        amount: 6 # DeltaV - Increased contents to match description
 
 - type: entity
   id: CigCartonBlue
@@ -57,17 +54,14 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi
-    layers:
-      - state: closed
-        map: ["closeLayer"] #DeltaV change, fixed broken "open" layer
-      - state: open
-        map: ["openLayer"] #End DeltaV Change
+    ##layers:
+    ##  - state: closed #Delta-V - Already inherited, causes issues.
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi
   - type: StorageFill
     contents:
       - id: CigPackBlue
-        amount: 6 #DeltaV Change, Increased contents
+        amount: 6 # DeltaV - Increased contents to match description
 
 - type: entity
   id: CigCartonBlack
@@ -77,17 +71,14 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi
-    layers:
-      - state: closed
-        map: ["closeLayer"] #DeltaV change, fixed broken "open" layer
-      - state: open
-        map: ["openLayer"] #End DeltaV Change
+    ##layers:
+    ##  - state: closed #Delta-V - Already inherited, causes issues.
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi
   - type: StorageFill
     contents:
       - id: CigPackBlack
-        amount: 6 #DeltaV Change, Increased contents
+        amount: 6 # DeltaV - Increased contents to match description
 
 - type: entity
   id: CigCartonMixed
@@ -97,11 +88,8 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
-    layers:
-      - state: closed
-        map: ["closeLayer"] #DeltaV change, fixed broken "open" layer
-      - state: open
-        map: ["openLayer"] #End DeltaV Change
+    ##layers:
+    ##  - state: closed #Delta-V - Already inherited, causes issues.
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
   - type: StorageFill
