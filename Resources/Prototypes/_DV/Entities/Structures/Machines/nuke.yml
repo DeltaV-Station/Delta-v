@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseNuclearBomb
+  id: NuclearBombDisarmed
+  suffix: Disarmed
+  description: "You can clearly see that this can't be armed, given its lack of nuclear material."
+  components:
+  - type: StaticPrice
+    price: 1000 # fancy paperweight
+  - type: Construction
+    node: disarmed

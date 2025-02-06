@@ -1,27 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Disaster victim ghost roles now have a playtime requirement.
-    type: Tweak
-  id: 501
-  time: '2024-08-28T16:14:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1699
-- author: deltanedas
-  changes:
-  - message: Fixed whitelists not working for some people.
-    type: Fix
-  id: 502
-  time: '2024-08-30T03:42:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1708
-- author: MilonPL
-  changes:
-  - message: Fixed felinid/harpy/vulpkanin chat emotes.
-    type: Fix
-  id: 503
-  time: '2024-08-30T04:25:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1710
-- author: deltanedas
-  changes:
   - message: Disabled Station AI until it's fully implemented.
     type: Remove
   - message: Fixed saying lol not making you laugh.
@@ -3849,3 +3828,25 @@
   id: 1000
   time: '2025-02-06T10:36:00.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2885
+- author: deltanedas
+  changes:
+  - message: Fixed not being able to put spy monitors in your storage implant.
+    type: Fix
+  id: 1001
+  time: '2025-02-06T11:41:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2901
+- author: deltanedas
+  changes:
+  - message: Fixed non-crew being picked for traitor kill objectives.
+    type: Fix
+  id: 1002
+  time: '2025-02-06T13:22:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2799
+- author: deltanedas
+  changes:
+  - message: Added back the station AI overlay to the diagnostic HUD as it no longer
+      gives you infinite reach.
+    type: Add
+  id: 1003
+  time: '2025-02-06T13:40:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2903
