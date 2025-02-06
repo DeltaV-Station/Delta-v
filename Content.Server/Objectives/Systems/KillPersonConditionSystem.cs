@@ -6,6 +6,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles; // DeltaV
+using Content.Shared.Roles.Jobs; // DeltaV
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes; // DeltaV
 using Robust.Shared.Random;
