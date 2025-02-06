@@ -9,7 +9,6 @@ marking-FeroxiTailAndDorsal-feroxi-dorsal = Base Dorsal
 marking-FeroxiSnout = Snout
 marking-FeroxiSnout-feroxi-snout = Base Snout
 
-
 marking-FeroxiEarsTips = Tipped Ears
 marking-FeroxiEarsTips-feroxi-ears = Base Ears
 marking-FeroxiEarsTips-feroxi-ears-inner = Inner Ear
@@ -20,6 +19,14 @@ marking-FeroxiSnoutStripe = Striped Snout
 marking-FeroxiSnoutStripe-feroxi-snout = Base Snout
 marking-FeroxiSnoutStripe-feroxi-snout-stripe = Stripe
 
+marking-FeroxiSnoutCountershading = Countershaded Snout
+marking-FeroxiSnoutCountershading-feroxi-snout = Base Snout
+marking-FeroxiSnoutCountershading-feroxi-snout-Countershading = Countershading
+
+marking-FeroxiSnoutCountershadingStripe = Striped and Countershaded Snout with
+marking-FeroxiSnoutCountershadingStripe-feroxi-snout = Base Snout
+marking-FeroxiSnoutCountershadingStripe-feroxi-snout-countershading = Countershading
+marking-FeroxiSnoutCountershadingStripe-feroxi-snout-stripe = Stripe
 
 marking-FeroxiTailBlitz = Striped Tail with Fin Tips and Dorsal
 marking-FeroxiTailBlitz-feroxi-tail = Base Tail

@@ -56,6 +56,30 @@
   - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
     state: feroxi-snout-stripe
 
+- type: marking
+  id: FeroxiSnoutCountershading
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+    state: feroxi-snout
+  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+    state: feroxi-snout-countershading
+
+- type: marking
+  id: FeroxiSnoutCountershadingStripe
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+    state: feroxi-snout
+  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+    state: feroxi-snout-countershading
+  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+    state: feroxi-snout-stripe
+
 # Tail Markings
 - type: marking
   id: FeroxiTail

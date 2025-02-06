@@ -18,7 +18,7 @@
 
 # Clown
 - type: loadout
-  id: EmergencyWaterClown
+  id: EmergencyWaterVaporClown
   effects:
   - !type:GroupLoadoutEffect
     proto: WaterBreather
@@ -28,7 +28,7 @@
 
 # Mime
 - type: loadout
-  id: EmergencyWaterMime
+  id: EmergencyWaterVaporMime
   effects:
   - !type:GroupLoadoutEffect
     proto: WaterBreather
@@ -38,7 +38,7 @@
 
 # Engineering / Extended
 - type: loadout
-  id: EmergencyWaterExtended
+  id: EmergencyWaterVaporExtended
   effects:
   - !type:GroupLoadoutEffect
     proto: WaterBreather
@@ -48,7 +48,7 @@
 
 # Medical
 - type: loadout
-  id: EmergencyWaterMedical
+  id: EmergencyWaterVaporMedical
   effects:
   - !type:GroupLoadoutEffect
     proto: WaterBreather
@@ -58,7 +58,7 @@
 
 # Security
 - type: loadout
-  id: EmergencyWaterSecurity
+  id: EmergencyWaterVaporSecurity
   effects:
   - !type:GroupLoadoutEffect
     proto: WaterBreather
@@ -68,7 +68,7 @@
 
 # Syndicate
 - type: loadout
-  id: EmergencyWaterSyndicate
+  id: EmergencyWaterVaporSyndicate
   effects:
   - !type:GroupLoadoutEffect
     proto: WaterBreather
@@ -78,7 +78,7 @@
 
 # Full EVA Tank, Any Species
 - type: loadout
-  id: LoadoutSpeciesEVAWater
+  id: LoadoutSpeciesEVAWaterVapor
   effects:
   - !type:GroupLoadoutEffect
     proto: WaterBreather
@@ -87,7 +87,7 @@
 
 # Species-appropriate Double Emergency Tank in Pocket 1
 - type: loadout
-  id: LoadoutSpeciesPocketDoubleWater
+  id: LoadoutSpeciesPocketDoubleWaterVapor
   effects:
   - !type:GroupLoadoutEffect
     proto: WaterBreather
