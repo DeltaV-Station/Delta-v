@@ -61,8 +61,8 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
             return;
 
         var players = _antag.GetTotalPlayerCount(_player.Sessions);
-        var min = comp.Min * players / comp.PlayerRatio;
-        var max = comp.Max * players / comp.PlayerRatio;
+        var min = Math.Max(comp.Min, comp.Min * players / comp.PlayerRatio);
+        var max = Math.Max(comp.Max, comp.Max * players / comp.PlayerRatio);
         var count = Math.Max(RobustRandom.Next(min, max), 1);
         Log.Info($"Spawning {count} critters for {ToPrettyString(uid):rule}");
         for (int i = 0; i < count; i++)

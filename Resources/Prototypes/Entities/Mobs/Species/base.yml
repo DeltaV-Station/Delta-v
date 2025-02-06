@@ -19,6 +19,8 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.Underwear" ] # DeltaV
+    - map: [ "enum.HumanoidVisualLayers.Undershirt" ] # DeltaV
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -142,6 +144,7 @@
     - SuppressAddiction # DeltaV - Psych med addictions system
     - InPain # DeltaV - Pain system
     - SuppressPain # DeltaV - Pain system
+    - Anesthesia # DeltaV - Anesthesia
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -193,6 +196,9 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      # Shitmed
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -220,6 +226,9 @@
     - AnomalyHost
   - type: PotentialPsionic # DeltaV - organic species can all be psionic
   - type: FootPrints # DeltaV port from EE, blood splatter
+  - type: LayingDown # WD EDIT
+  - type: Targeting # Shitmed Change
+  - type: SurgeryTarget # Shitmed Change
 
 - type: entity
   save: false
@@ -288,6 +297,7 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
+  - type: LayingDown # WD EDIT
 
 - type: entity
   save: false
@@ -314,6 +324,8 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.Underwear" ] # DeltaV
+    - map: [ "enum.HumanoidVisualLayers.Undershirt" ] # DeltaV
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]

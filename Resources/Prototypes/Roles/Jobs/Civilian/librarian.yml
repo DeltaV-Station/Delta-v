@@ -4,7 +4,7 @@
   description: job-description-librarian
   playTimeTracker: JobLibrarian
   requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
+    - !type:OverallPlaytimeRequirement # DeltaV
       time: 3600 # 1 hr
   startingGear: LibrarianGear
   icon: "JobIconLibrarian"

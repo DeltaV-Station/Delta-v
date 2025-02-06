@@ -33,7 +33,6 @@ using Content.Server.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Collections;
 using Content.Shared.Ghost.Roles.Components;
-using Content.Shared.Roles.Jobs;
 
 namespace Content.Server.Ghost.Roles;
 
@@ -87,7 +86,7 @@ public sealed partial class GhostRoleSystem : EntitySystem // Converted to parti
         SubscribeLocalEvent<GhostRoleRaffleComponent, ComponentShutdown>(OnRaffleShutdown);
 
         SubscribeLocalEvent<GhostRoleMobSpawnerComponent, TakeGhostRoleEvent>(OnSpawnerTakeRole);
-        SubscribeLocalEvent<GhostRoleCharacterSpawnerComponent, TakeGhostRoleEvent>(OnSpawnerTakeCharacter); // DeltaV - Character ghost roles, see Content.Server/DeltaV/Ghost/Roles/GhostRoleSystem.Character.cs
+        SubscribeLocalEvent<GhostRoleCharacterSpawnerComponent, TakeGhostRoleEvent>(OnSpawnerTakeCharacter); // DeltaV - Character ghost roles, see Content.Server/_DV/Ghost/Roles/GhostRoleSystem.Character.cs
         SubscribeLocalEvent<GhostRoleMobSpawnerComponent, GetVerbsEvent<Verb>>(OnVerb);
         SubscribeLocalEvent<GhostRoleMobSpawnerComponent, GhostRoleRadioMessage>(OnGhostRoleRadioMessage);
         _playerManager.PlayerStatusChanged += PlayerStatusChanged;
@@ -515,13 +514,13 @@ public sealed partial class GhostRoleSystem : EntitySystem // Converted to parti
         var newMind = _mindSystem.CreateMind(player.UserId,
             EntityManager.GetComponent<MetaDataComponent>(mob).EntityName);
 
-        _roleSystem.MindAddRole(newMind, "MindRoleGhostMarker");
-
-        if(_roleSystem.MindHasRole<GhostRoleMarkerRoleComponent>(newMind!, out var markerRole))
-            markerRole.Value.Comp2.Name = role.RoleName;
-
         _mindSystem.SetUserId(newMind, player.UserId);
         _mindSystem.TransferTo(newMind, mob);
+
+        _roleSystem.MindAddRoles(newMind.Owner, role.MindRoles, newMind.Comp);
+
+        if (_roleSystem.MindHasRole<GhostRoleMarkerRoleComponent>(newMind!, out var markerRole))
+            markerRole.Value.Comp2.Name = role.RoleName;
     }
 
     /// <summary>

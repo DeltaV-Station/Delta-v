@@ -520,6 +520,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Nukies are no longer targets of kill objectives, this includes lone ops.
       - type: RandomMetadata
         nameSegments:
         - SyndicateNamesPrefix
@@ -556,6 +557,7 @@
       playerRatio: 10
       blacklist:
         components:
+        - MindShield # DeltaV - Mind Shielded people are immune to becoming syndicate
         - AntagImmune
       mindRoles:
       - MindRoleTraitorSleeper
@@ -583,7 +585,7 @@
   components:
   - type: StationEvent
     weight: 10
-    reoccurrenceDelay: 30 #DeltaV - Was 20 #20 mins feels too short, and can scramble borgs way too much
+    reoccurrenceDelay: 30 # DeltaV - Was 20 #20 mins feels too short, and can scramble borgs way too much
     duration: 1
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-ion-storm-result-message

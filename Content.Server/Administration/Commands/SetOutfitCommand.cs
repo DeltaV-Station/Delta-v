@@ -16,6 +16,8 @@ using Content.Shared.Station;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared._DV.Silicon.IPC; // DeltaV
+using Content.Shared.Radio.Components; // Goobstation
 
 namespace Content.Server.Administration.Commands
 {
@@ -164,6 +166,13 @@ namespace Content.Server.Administration.Commands
                 stationSpawning.EquipRoleLoadout(target, roleLoadout, jobProto);
             }
 
+            // Begin DeltaV/Goob Additions
+            if (entityManager.HasComponent<EncryptionKeyHolderComponent>(target))
+            {
+                var encryption = entityManager.System<InternalEncryptionKeySpawner>();
+                encryption.TryInsertEncryptionKey(target, startingGear);
+            }
+            // End DeltaV/Goob Additions
             return true;
         }
     }

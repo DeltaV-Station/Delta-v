@@ -1,0 +1,52 @@
+﻿- type: entity
+  parent: FireAxeCabinet
+  id: SpareIdCabinet
+  name: spare id cabinet
+  description: There is a small label that reads "For emergency use only".
+  components:
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 300
+          behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 50000 # Good luck lol
+          behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalGlassBreak
+    - type: Sprite
+      sprite: _DV/Structures/Wallmounts/idcard_cabinet.rsi
+      layers:
+        - state: cabinet
+        - state: card
+          map: ["enum.ItemCabinetVisuals.Layer"]
+          visible: true
+        - state: glass
+          map: ["enum.OpenableVisuals.Layer"]
+    - type: ItemSlots
+      slots:
+        ItemCabinet:
+          ejectOnInteract: true
+          whitelist:
+            components:
+              - IdCard
+    - type: AccessReader
+      access: [["DV-SpareSafe"]]
+    - type: SpareIDSafe
+
+- type: entity
+  id: SpareIdCabinetFilled
+  parent: [SpareIdCabinet,FireAxeCabinetFilled]
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      ItemCabinet:
+      - CaptainIDCard

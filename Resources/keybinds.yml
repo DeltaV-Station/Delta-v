@@ -44,6 +44,9 @@ binds:
 - function: Walk
   type: State
   key: Shift
+- function: ToggleStanding
+  type: State
+  key: R
 # Shuttle
 - function: ShuttleStrafeUp
   type: State
@@ -66,7 +69,6 @@ binds:
 - function: ShuttleBrake
   type: State
   key: Space
-# Camera
 - function: CameraRotateLeft
   type: State
   key: NumpadNum7
@@ -163,6 +165,12 @@ binds:
 - function: SwapHands
   type: State
   key: X
+  # DeltaV - Swap Hands Reversed Start
+- function: SwapHandsReversed
+  type: State
+  key: X
+  mod1: Shift
+  # DeltaV - Swap Hands Reversed End
 - function: MoveStoredItem
   type: State
   key: MouseLeft

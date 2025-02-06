@@ -5,6 +5,7 @@ lobbyenabled = false
 map = "Dev"
 role_timers = false
 contraband_examine = false # DeltaV
+secret_weight_prototype = "SecretDeltaV" # DeltaV
 
 [ghost]
 role_time = 0.5
@@ -35,3 +36,6 @@ see_own_notes = true
 
 [server] # DeltaV
 rules_file = "DeltaVRuleset"
+
+[control] # DeltaV
+storage_limit = 2
