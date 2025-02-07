@@ -14,7 +14,7 @@
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - NukeOpsUplink
+      - CommanderUplink
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
@@ -36,7 +36,7 @@
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - NukeOpsUplink
+      - AgentUplink
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
