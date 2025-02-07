@@ -3,32 +3,27 @@
   name: reputation-level-unknown-agent
   reputation: 0
   maxContracts: 2
-  maxDifficulty: 1.5
 
 - type: reputationLevel
   id: PreferredPawn
   name: reputation-level-preferred-pawn
   reputation: 20
   maxContracts: 3
-  maxDifficulty: 2
 
 - type: reputationLevel
   id: ReputableInsider
   name: reputation-level-reputable-insider
   reputation: 40
   maxContracts: 3
-  maxDifficulty: 2.5
 
 - type: reputationLevel
   id: ReliableContact
   name: reputation-level-reliable-contact
   reputation: 60
   maxContracts: 4
-  maxDifficulty: 3.5
 
 - type: reputationLevel
   id: SyndicateOperative
   name: reputation-level-syndicate-operative
   reputation: 80
   maxContracts: 4
-  maxDifficulty: 5 # "endgame" objectives
