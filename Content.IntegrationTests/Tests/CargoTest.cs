@@ -22,7 +22,7 @@ public sealed class CargoTest
     private static readonly HashSet<ProtoId<CargoProductPrototype>> Ignored =
     [
         // This is ignored because it is explicitly intended to be able to sell for more than it costs.
-        // new("FunCrateGambling") // DeltaV - no gambling
+        new("FunCrateGambling"),
         new("LivestockArenaMobLarge"), // Deltav - add crate to exceptions
         new("LivestockArenaMobSmall") // Deltav - add crate to exceptions
     ];
