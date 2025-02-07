@@ -44,7 +44,7 @@ uplink-dead-mans-signaller-name = Dead Man's Signaller
 uplink-dead-mans-signaller-desc = A device that if armed, will send a signal to any linked devices (such as bombs) when it is dropped or put away.
 
 uplink-chainsmoker-bundle-name = Chainsmoker Bundle.
-uplink-chainsmoker-bundle-desc = A Carton of 6 Packs of Interdyne Herbals, plus a commemorative flippo that never runs out of fuel.
+uplink-chainsmoker-bundle-desc = A Carton of 6 Packs of Interdyne Herbals, plus a weaponized flippo that turns welding fuel into incendiary shots.
 
 # Objectives
 uplink-core-extraction-toolbox-name = Core Extraction Toolbox

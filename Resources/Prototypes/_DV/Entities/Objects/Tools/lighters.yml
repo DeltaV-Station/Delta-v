@@ -2,7 +2,7 @@
   parent: FlippoLighter
   id: SyndicateFlippo
   name: Blood-red Flippo
-  description: "A Valid choice in lighters. Awarded to exceptionaly loyal customers. Contains no copper."
+  description: "A Valid choice in lighters. Capable of superheating welding fuel into incendiary shots when lit. Contains no copper."
   components:
   - type: Sprite
     sprite: _DV/Objects/Tools/syndielighter.rsi
@@ -19,12 +19,24 @@
       map: ["flame"]
       visible: false
       shader: unshaded
-  - type: ItemToggleMeleeWeapon
-    activatedDamage:
-      types:
-        Heat: 5 #Increased heat damage because its evil.
   - type: Item
     sprite: _DV/Objects/Tools/syndielighter.rsi
+  - type: Welder #removed lighting and upkeep to make it easier to judge how many shots you have, replaces passive regeneration
+    fuelConsumption: 0
+    fuelLitCost: 0
+    tankSafe: true
+  - type: SolutionAmmoProvider
+    proto: BulletLighterIncendiary
+    fireCost: 3
+    solutionId: Welder
+  - type: ComponentToggler
+    components:
+    - type: Gun
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/water_spray.ogg
+      soundEmpty:
+        path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+      showExamineText: false
   - type: GenericVisualizer
     visuals:
       enum.ToggleVisuals.Toggled:
@@ -54,13 +66,3 @@
     netsync: false
     radius: 2 #much stronger than the other lighters
     color: green
-  - type: SolutionRegeneration
-    solution: Welder
-    generated:
-      reagents:
-      - ReagentId: WeldingFuel
-        Quantity: 0.1
-  - type: ReverseEngineering # I mean, its basically a mini advanced-welder, but valid.
-    difficulty: 2
-    recipes:
-    - WelderExperimental
