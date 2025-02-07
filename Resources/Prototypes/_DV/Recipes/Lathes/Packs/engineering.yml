@@ -1,0 +1,21 @@
+## Dynamic
+
+- type: latheRecipePack
+  id: Jetpacks
+  recipes:
+  - JetpackBlue
+  - JetpackMini
+  - JetpackVoid
+
+- type: latheRecipePack
+  parent: Jetpacks
+  id: AtmosToolsDeltaV
+  recipes:
+  - FireExtinguisherBluespace
+  - PowerCellHyper
+  - RCDAmmo
+
+- type: latheRecipePack
+  id: EngineeringBoardsDeltaV
+  recipes:
+  - AlertsComputerCircuitboard

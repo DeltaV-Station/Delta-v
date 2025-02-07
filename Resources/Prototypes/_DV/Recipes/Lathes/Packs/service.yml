@@ -1,0 +1,24 @@
+## Static
+
+- type: latheRecipePack
+  id: ReportingStatic
+  recipes:
+  - CassetteTape
+  - TapeRecorder
+
+- type: latheRecipePacks
+  id: ServiceBoardsStaticDeltaV
+  recipes:
+  - DeepFryerMachineCircuitboard
+
+## Dynamic
+
+- type: latheRecipePack
+  id: ServiceDeltaV
+  recipes:
+  - PlantBagOfHolding
+
+- type: latheRecipePack
+  id: ServiceBoardsDeltaV
+  recipes:
+  - AdvancedMicrowaveMachineCircuitBoard
