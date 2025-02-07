@@ -9,3 +9,20 @@
       Capacitor: 2
       Glass: 4
       Cable: 5
+
+- type: entity
+  id: CartridgeFabricatorMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: cartridge fabricator machine board
+  description: A machine printed circuit board for a cartridge fabricator
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: CartridgeFabricator
+      stackRequirements:
+        Manipulator: 2
+        Capacitor: 1
+        # replacing the console screen
+        Glass: 1
+        Cable: 2
