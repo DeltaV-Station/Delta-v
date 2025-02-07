@@ -66,3 +66,9 @@
     netsync: false
     radius: 2 #much stronger than the other lighters
     color: green
+  - type: SolutionRegeneration
+    solution: Welder
+    generated:
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 0.1
