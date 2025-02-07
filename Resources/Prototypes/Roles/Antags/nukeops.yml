@@ -77,7 +77,8 @@
   id: SyndicateOperativeGearFull
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
-    pocket2: BaseUplinkRadio40TC
+    pocket2: BaseUplinkRadio45TC # DeltaV removal of armor
+    outerClothing: ClothingOuterCoatSyndieCap # DeltaV removal of armor
 
 #Nuclear Operative Commander Gear
 - type: startingGear
@@ -85,7 +86,7 @@
   parent: SyndicateOperativeGearFull
   equipment:
     neck: SyndicateWhistle
-    outerClothing: ClothingOuterHardsuitSyndieCommander
+    outerClothing: ClothingOuterCoatSyndieCapArmored # DeltaV removal of armor
 #  inhand: # DeltaV - Removal Of War.
 #  - NukeOpsDeclarationOfWar
 
@@ -95,7 +96,7 @@
   parent: SyndicateOperativeGearFull
   equipment:
     eyes: ClothingEyesHudSyndicateAgent
-    outerClothing: ClothingOuterHardsuitSyndieMedic
+    outerClothing: ClothingOuterCoatCybersunWindbreaker # DeltaV removal of armor
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiAgentPDA
     belt: ClothingBeltMilitaryWebbingMedFilled
