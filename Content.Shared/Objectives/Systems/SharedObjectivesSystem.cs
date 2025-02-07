@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
+using Content.Shared.Random; // DeltaV
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -163,5 +164,13 @@ public abstract class SharedObjectivesSystem : EntitySystem
             return;
 
         comp.Icon = icon;
+    }
+
+    /// <summary>
+    /// DeltaV - Lets code in shared call this
+    /// </summary>
+    public virtual EntityUid? GetRandomObjective(EntityUid mindId, MindComponent mind, ProtoId<WeightedRandomPrototype> objectiveGroupProto, float maxDifficulty)
+    {
+        return null;
     }
 }
