@@ -2,7 +2,7 @@
 - type: entity
   parent: BaseUplinkRadio40TC
   id: BaseUplinkRadio45TC
-  suffix: 45 TC, NukeOps, Commander, Agent
+  suffix: 45 TC, NukeOps
   components:
   - type: Store
     balance:
@@ -14,6 +14,7 @@
 - type: entity
   parent: BaseUplinkRadio40TC
   id: CommanderUplinkRadio45TC
+  suffix: 45 TC, NukeOps, Commander
   components:
   - type: Tag
     tags:
@@ -23,6 +24,8 @@
 - type: entity
   parent: BaseUplinkRadio40TC
   id: AgentUplinkRadio45TC
+  suffix: 45 TC, NukeOps, Agent
+
   components:
   - type: Tag
     tags:
