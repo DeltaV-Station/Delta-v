@@ -1,0 +1,11 @@
+<BoxContainer xmlns="https://spacestation14.io"
+		xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+		Orientation="Horizontal"
+		HorizontalExpand="true"
+		MinHeight="64">
+	<Label Name="Title"/> <!-- Set in constructor -->
+	<BoxContainer Orientation="Vertical">
+		<Button Name="CompleteButton" Text="Complete"/>
+		<Button Name="RejectButton" Text="Reject"/>
+	</BoxContainer>
+</BoxContainer>
