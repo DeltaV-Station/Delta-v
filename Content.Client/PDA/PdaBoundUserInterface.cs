@@ -74,7 +74,7 @@ namespace Content.Client.PDA
                 SendMessage(new PdaLockUplinkMessage());
             };
 
-            _menu.ShowContractsButton.OnPressed += _ => SendMessage(new PdaShowContractsMessage()); // DeltaV
+            _menu.ContractsButton.OnPressed += _ => SendMessage(new PdaShowContractsMessage()); // DeltaV
 
             _menu.OnProgramItemPressed += ActivateCartridge;
             _menu.OnInstallButtonPressed += InstallCartridge;

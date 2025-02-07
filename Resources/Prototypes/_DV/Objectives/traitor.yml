@@ -104,6 +104,11 @@
     blacklist:
       components:
       - SocialObjective
+  - type: ReputationCondition
+    reputation: 30
+  - type: ContractObjective
+    reputation: 15
+    payment: 6
 
 - type: entity
   parent: [BaseTraitorObjective, BaseTeachLessonObjective]
@@ -131,6 +136,11 @@
   - type: PickRandomTraitor
   - type: KillPersonCondition
     requireDead: true # Being able to leave them on the shuttle doesn't make sense when killing another traitor.
+  - type: ReputationCondition
+    reputation: 60
+  - type: ContractObjective
+    reputation: 15
+    payment: 8
 
 # Upload AI law
 - type: entity

@@ -10,8 +10,8 @@ namespace Content.Client._DV.Reputation.UI;
 [GenerateTypedNameReferences]
 public sealed partial class Contract : BoxContainer
 {
-    public event Action OnComplete;
-    public event Action OnReject;
+    public event Action? OnComplete;
+    public event Action? OnReject;
 
     public Contract(string title)
     {
