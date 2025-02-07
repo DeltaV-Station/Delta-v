@@ -2,8 +2,9 @@
 		xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
 		Orientation="Horizontal"
 		HorizontalExpand="true"
-		MinHeight="64">
-	<Label Name="Title"/> <!-- Set in constructor -->
+		MinHeight="64"
+		Margin="5">
+	<Label Name="Title" HorizontalExpand="True"/> <!-- Set in constructor -->
 	<BoxContainer Orientation="Vertical">
 		<Button Name="CompleteButton" Text="Complete"/>
 		<Button Name="RejectButton" Text="Reject"/>

@@ -45,7 +45,8 @@ public sealed partial class ContractsWindow : FancyWindow
             {
                 Contracts.AddChild(new Label()
                 {
-                    Text = "< no contract active >"
+                    Text = "< no contract active >",
+                    Align = Label.AlignMode.Center
                 });
                 // TODO: NextUnlock thing
             }

@@ -55,7 +55,7 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<PdaComponent, PdaShowMusicMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowUplinkMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaLockUplinkMessage>(OnUiMessage);
-            SubscribeLocalEvent<PdaComponent, PdaShowContractsMessage>(OnUiMessage); // DeltaV
+            SubscribeLocalEvent<PdaComponent, PdaShowContractsMessage>(OnShowContracts); // DeltaV
 
             SubscribeLocalEvent<PdaComponent, CartridgeLoaderNotificationSentEvent>(OnNotification);
 
@@ -285,7 +285,7 @@ namespace Content.Server.PDA
         }
 
         // End DeltaV Additions
-        private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaShowContractsMessage msg)
+        private void OnShowContracts(EntityUid uid, PdaComponent pda, PdaShowContractsMessage msg)
         {
             if (!PdaUiKey.Key.Equals(msg.UiKey))
                 return;

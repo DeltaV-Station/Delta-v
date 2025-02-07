@@ -3,11 +3,18 @@
 		MinSize="450 400"
 		Title="{Loc 'contracts-menu-title'}">
 	<BoxContainer Orientation="Vertical">
-		<Label Name="Level"/> <!-- Set at runtime -->
-		<Label Name="Reputation"/> <!-- Set at runtime -->
-		<Label Text="contracts:"/>
-		<BoxContainer Name="Contracts" Orientation="Vertical" HorizontalExpand="True"/> <!-- Populated at runtime -->
-		<Label Text="offerings:"/>
-		<BoxContainer Name="Offerings" Orientation="Vertical" HorizontalExpand="True"/> <!-- Populated at runtime -->
+		<controls:StripeBack>
+			<BoxContainer Orientation="Vertical">
+				<Label Name="Level" Align="Center" StyleClasses="LabelBig"/> <!-- Set at runtime -->
+				<Label Name="Reputation" Align="Center" StyleClasses="LabelBig"/> <!-- Set at runtime -->
+			</BoxContainer>
+		</controls:StripeBack>
+		<Label Text="Contracts" Margin="5"/>
+		<controls:HLine Color="#404040" Thickness="2" Margin="0 5 0 5"/>
+		<BoxContainer Name="Contracts" Orientation="Vertical" HorizontalExpand="True" Margin="5"/> <!-- Populated at runtime -->
+		<controls:HLine Color="#404040" Thickness="2" Margin="0 5 0 5"/>
+		<Label Text="Offerings" Align="Right" Margin="5"/>
+		<controls:HLine Color="#404040" Thickness="2" Margin="0 5 0 5"/>
+		<BoxContainer Name="Offerings" Orientation="Vertical" HorizontalExpand="True" Margin="5"/> <!-- Populated at runtime -->
 	</BoxContainer>
 </controls:FancyWindow>
