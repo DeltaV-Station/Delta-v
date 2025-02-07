@@ -14,13 +14,13 @@ public sealed partial class ContractObjectiveComponent : Component
     /// <summary>
     /// How much reputation to add when completed.
     /// </summary>
-    [DataField(required: true)]
+    [DataField]
     public int Reputation;
 
     /// <summary>
     /// How much currency to give when completed.
     /// </summary>
-    [DataField(required: true)]
+    [DataField]
     public FixedPoint2 Payment;
 
     /// <summary>
