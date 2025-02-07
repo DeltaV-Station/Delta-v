@@ -85,6 +85,7 @@ public sealed class ReputationSystem : EntitySystem
     {
         // update CurrentLevel for client after server changes it, so UI can use it
         UpdateLevel(ent);
+        UpdateUI(ent);
     }
 
     private void OnAcceptMessage(Entity<ContractsComponent> ent, ref ContractsAcceptMessage args)
@@ -123,6 +124,17 @@ public sealed class ReputationSystem : EntitySystem
         var mind = AddComp<MindReputationComponent>(mindId);
         contracts.Mind = mindId;
         mind.Pda = pda;
+    }
+
+    public void ToggleUI(EntityUid user, EntityUid uid)
+    {
+        UpdateUI(uid);
+        _ui.TryToggleUi(uid, ContractsUiKey.Key, user);
+    }
+
+    private void UpdateUI(EntityUid uid)
+    {
+        _ui.SetUiState(uid, ContractsUiKey.Key, new ContractsState());
     }
 
     /// <summary>
