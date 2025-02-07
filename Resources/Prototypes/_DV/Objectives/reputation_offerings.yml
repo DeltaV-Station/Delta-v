@@ -1,11 +1,17 @@
 - type: reputationOfferingGroups
   id: ReputationOfferings
   groups:
+  - ReputationOfferingGroupStealMinor
   - ReputationOfferingGroupSteal
   - ReputationOfferingGroupKill
   # no state as taking a contract to escape is basically paid eorg
   - ReputationOfferingGroupSocial
   - ReputationOfferingGroupSpecial
+
+- type: weightedRandom
+  id: ReputationOfferingGroupStealMinor
+  weights:
+    TraitorObjectiveGroupStealMinor: 1
 
 - type: weightedRandom
   id: ReputationOfferingGroupSteal

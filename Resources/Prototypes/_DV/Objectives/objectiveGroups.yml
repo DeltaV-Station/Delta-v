@@ -1,3 +1,14 @@
+## Traitor
+# Stealing
+- type: weightedRandom
+  id: TraitorObjectiveGroupStealMinor
+  weights:
+    ClerkNotaryStealObjective: 1
+    RCDStealObjective: 1
+    CargoRequestStealObjective: 1
+    ResearchComputerStealObjective: 1
+    CriminalRecordsStealObjective: 0.75
+
 ## Ninja
 # Hacking things
 - type: weightedRandom

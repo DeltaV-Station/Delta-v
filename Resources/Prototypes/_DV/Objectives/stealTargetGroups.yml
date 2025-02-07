@@ -1,4 +1,59 @@
-﻿- type: stealTargetGroup
+## Minor Theft, something that isn't heavily controlled but something people won't be happy with you stealing
+
+- type: stealTargetGroup
+  id: RubberStampNotary
+  name: steal-target-groups-notary-stamp
+  sprite:
+    sprite: _DV/Objects/Misc/stamps.rsi
+    state: stamp-notary
+
+- type: stealTargetGroup
+  id: RCD
+  name: steal-target-groups-rcd
+  sprite:
+    sprite: Objects/Tools/rcd.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: CargoRequestConsoleCircuitboard
+  name: steal-target-groups-cargo-request-console-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: cpu_supply
+
+- type: stealTargetGroup
+  id: ResearchComputerCircuitboard
+  name: steal-target-groups-research-computer-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: cpu_science
+
+- type: stealTargetGroup
+  id: CriminalRecordsComputerCircuitboard
+  name: steal-target-groups-criminal-records-computer-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: cpu_security
+
+## Easily stolen controlled items, not on someone's person
+
+- type: stealTargetGroup
+  id: IDComputerCircuitboard
+  name: steal-target-groups-id-computer-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: cpu_command
+
+- type: stealTargetGroup
+  id: CommsComputerCircuitboard
+  name: steal-target-groups-comms-computer-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: cpu_command
+
+## Unique items from heads
+
+- type: stealTargetGroup
   id: SpaceCashLuckyBill
   name: steal-target-groups-lucky-bill
   sprite:
@@ -27,13 +82,6 @@
     state: rd_clipboard
 
 - type: stealTargetGroup
-  id: RubberStampNotary
-  name: steal-target-groups-notary-stamp
-  sprite:
-    sprite: _DV/Objects/Misc/stamps.rsi
-    state: stamp-notary
-
-- type: stealTargetGroup
   id: AnimalSilvia
   name: steal-target-groups-silvia
   sprite:
@@ -45,15 +93,6 @@
   name: steal-target-groups-plutonium-core
   sprite:
     sprite: _DV/Objects/Misc/plutonium_core.rsi
-    state: icon
-
-## Minor Theft, something that isn't heavily controlled but something people won't be happy with you stealing
-
-- type: stealTargetGroup
-  id: RCD
-  name: steal-target-groups-rcd
-  sprite:
-    sprite: Objects/Tools/rcd.rsi
     state: icon
 
 # Ninja

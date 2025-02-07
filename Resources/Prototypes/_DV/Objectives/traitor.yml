@@ -5,11 +5,21 @@
   components:
   - type: ReputationCondition
     reputation: 0
-  - type: ContractObjective # DeltaV
+  - type: ContractObjective
     reputation: 5
-    payment: 3
+    payment: 1
 
 # Low Risk
+
+- type: entity # Locker steal objective.
+  parent: BaseMinorStealObjective
+  id: ClerkNotaryStealObjective
+  components:
+  - type: NotJobRequirement
+    job: Clerk
+  - type: StealCondition
+    stealGroup: RubberStampNotary
+    owner: job-name-clerk
 
 - type: entity
   parent: BaseMinorStealObjective
@@ -21,7 +31,54 @@
     stealGroup: RCD
     owner: objective-condition-steal-engineering
 
+- type: entity
+  parent: BaseMinorStealObjective
+  id: CargoRequestConsoleCircuitboard
+  components:
+  - type: NotDepartmentRequirement
+    department: Logistics
+  - type: StealCondition
+    stealGroup: CargoRequestConsoleCircuitboard
+
+- type: entity
+  parent: BaseMinorStealObjective
+  id: ResearchComputerStealObjective
+  components:
+  - type: NotDepartmentRequirement
+    department: Epistemics
+  - type: StealCondition
+    stealGroup: ResearchComputerCircuitboard
+
+- type: entity
+  parent: BaseMinorStealObjective
+  id: CriminalRecordsStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: CriminalRecordsComputerCircuitboard
+  # sec is harder to steal from so higher risk and reward
+  - type: ContractObjective
+    reputation: 10
+    payment: 3
+
 # Moderatate Risk
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: IDComputerStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: IDComputerCircuitboard
+  - type: ContractObjective
+    payment: 3 # It's easy
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: CommsComputerStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: CommsComputerCircuitboard
+  - type: ContractObjective
+    payment: 3 # It's easy
 
 - type: entity # Logistics Officer steal objective.
   parent: BaseTraitorStealObjective
@@ -54,16 +111,6 @@
   - type: StealCondition
     stealGroup: WeaponEnergyGunMultiphase
     owner: job-name-hos
-
-- type: entity # Clerk steal objective.
-  parent: BaseTraitorStealObjective
-  id: ClerkNotaryStealObjective
-  components:
-  - type: NotJobRequirement
-    job: Clerk
-  - type: StealCondition
-    stealGroup: RubberStampNotary
-    owner: job-name-clerk
 
 - type: entity
   abstract: true
