@@ -35,9 +35,12 @@ public sealed partial class ContractsWindow : FancyWindow
         Contracts.RemoveAllChildren();
         for (int i = 0; i < comp.Slots.Count; i++)
         {
+            var index = i;
             if (comp.Slots[i].ObjectiveTitle is {} title)
             {
                 var contract = new Contract(title);
+                contract.OnComplete += () => OnComplete?.Invoke(index);
+                contract.OnReject += () => OnReject?.Invoke(index);
                 Contracts.AddChild(contract);
                 // TODO: green when objective is complete
             }

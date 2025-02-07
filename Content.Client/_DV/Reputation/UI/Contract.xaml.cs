@@ -22,7 +22,6 @@ public sealed partial class Contract : BoxContainer
         CompleteButton.OnPressed += _ => OnComplete?.Invoke();
         RejectButton.OnPressed += _ => OnReject?.Invoke();
 
-        OnComplete += () => Orphan();
-        OnReject += () => Orphan();
+        OnReject += () => Orphan(); // this will always remove the contract so predict it
     }
 }
