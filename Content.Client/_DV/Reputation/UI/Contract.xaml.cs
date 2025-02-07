@@ -13,7 +13,7 @@ public sealed partial class Contract : BoxContainer
     public event Action OnComplete;
     public event Action OnReject;
 
-    public ContractsWindow(string title)
+    public Contract(string title)
     {
         RobustXamlLoader.Load(this);
 
