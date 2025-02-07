@@ -193,6 +193,39 @@
     - Logistics
 
 - type: listing
+  id: UplinkDeadMansSignaller
+  name: uplink-dead-mans-signaller-name
+  description: uplink-dead-mans-signaller-desc
+  productEntity: DeadMansSignaler
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDisruption
+
+# Objective-specific
+- type: listing
+  id: UplinkCoreExtractionToolbox
+  name: uplink-core-extraction-toolbox-name
+  description: uplink-core-extraction-toolbox-desc
+  icon:
+    sprite: _DV/Objects/Misc/nuke_core_container.rsi
+    state: closed
+  productEntity: ToolboxSyndicateFilledCoreExtraction
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
   id: UplinkAntimovObjectiveBoard
   name: uplink-objective-syndicate-board-name
   description: uplink-objective-syndicate-board-desc
@@ -210,19 +243,6 @@
     blacklist:
       components:
       - SurplusBundle
-
-- type: listing
-  id: UplinkDeadMansSignaller
-  name: uplink-dead-mans-signaller-name
-  description: uplink-dead-mans-signaller-desc
-  productEntity: DeadMansSignaler
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkDisruption
 
 - type: listing
   id: UplinkHostageImplanter
