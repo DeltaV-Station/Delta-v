@@ -1,0 +1,9 @@
+﻿#this uplink MUST be used for nukeops, as it has the tag for filtering the listing.
+- type: entity
+  parent: BaseUplinkRadio40TC
+  id: BaseUplinkRadio45TC
+  suffix: 45 TC, NukeOps
+  components:
+  - type: Store
+    balance:
+      Telecrystal: 45
