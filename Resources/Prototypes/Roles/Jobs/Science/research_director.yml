@@ -5,20 +5,15 @@
   playTimeTracker: JobResearchDirector
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
-    # Start DeltaV additions - Server specific roles
-    - !type:RoleTimeRequirement
-      role: JobForensicMantis
-      time: 7200 # 2 hrs
-    # End DeltaV additions
     - !type:DepartmentTimeRequirement
-      department: Epistemics # DeltaV - Epistemics Department replacing Science
-      time: 90000 # DeltaV - 25 hours
+      department: Epistemics # DeltaV - Epistemics replacing Science
+      time: 36000 #10 hrs
     - !type:OverallPlaytimeRequirement
-      time: 90000 # DeltaV - 25 hours, was 40
+      time: 144000 #40 hrs
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
-  requireAdminNotify: true
+  requireAdminNotify: true # DeltaV
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
@@ -26,22 +21,25 @@
   - Command
   - Maintenance
   - ResearchDirector
-  - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/_DV/Access/epistemics.yml
-  - Chapel # DeltaV - Chaplain is in Epistemics
-  - Robotics # DeltaV - Robotics access
-  - External # DeltaV - AI satellite access
+  #- Brig # DeltaV - Removed brig access
   - Cryogenics
-  special: # Nyanotrasen - Mystagogue can use the Bible
-  - !type:AddComponentSpecial
-    components:
-    - type: BibleUser # Nyano - Lets them heal with bibles
-    - type: Psionic # Nyano - They start with telepathic chat
-    - type: DispelPower # Nyano - They get the Dispel psionic power on spawn
+  # Begin DeltaV Additions
+  - Mantis
+  - Chapel # Chaplain is in Epistemics
+  - Robotics
+  - External # Needed to access the AI satellite
+  # end DeltaV Additions
+  special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+      # Begin DeltaV Additions
+      - type: BibleUser # Lets them heal with bibles
+      - type: Psionic # They start with telepathic chat
+      - type: DispelPower # They get the Dispel psionic power on spawn
+      # End DeltaV Additions
 
 - type: startingGear
   id: ResearchDirectorGear

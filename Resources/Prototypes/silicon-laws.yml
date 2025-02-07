@@ -1,4 +1,4 @@
-﻿# Crewsimov
+# Crewsimov
 - type: siliconLaw
   id: Crewsimov1
   order: 1
@@ -525,10 +525,16 @@
     Clown: 1
     Cowboy: 1
     Druid: 1
+    EightfoldLaws: 1
+    AquariusLaws: 1
     # Delta-V : # Less harmful outright, so higher chance of spawn
     Pranksimov: 0.5 # I'm being optimistic here; loophole should be closed but...
     Royalty: 0.5
+    FreedomLaws: 0.5
+    ForbinLaws: 0.5
     #Delta-V : Potentially Harmful Lawsets
     Tyrant: 0.25
     Aggressive: 0.25
+    OverrideLaws: 0.25
+    StreamerLaws: 1
     #Delta-V : lawsets end
