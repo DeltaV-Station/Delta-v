@@ -368,6 +368,8 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RcdUiKey.Key
+  - type: StealTarget # DeltaV
+    stealGroup: RCD
 
 - type: entity
   id: RCDEmpty

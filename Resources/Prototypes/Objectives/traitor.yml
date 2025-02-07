@@ -32,6 +32,11 @@
     difficulty: 2.75
   - type: ObjectiveLimit
     limit: 2 # there is usually only 1 of each steal objective, have 2 max for drama
+  - type: ReputationCondition # DeltaV
+    reputation: 20
+  - type: ContractObjective # DeltaV
+    reputation: 10
+    payment: 5
 
 # state
 
@@ -69,6 +74,12 @@
   # Giving it a limit keeps the objective unique and interesting without being overdone.
   - type: ObjectiveLimit # Delta-V
     limit: 1 # Delta-V
+  - type: ContractObjective # DeltaV
+    reputation: 40
+    payment: 20 # Go wild
+    prepaid: true
+  - type: ReputationCondition # DeltaV - DAGD is endgame
+    reputation: 90
 
 #- type: entity
 #  parent: [BaseTraitorObjective, BaseLivingObjective]
@@ -97,6 +108,11 @@
     title: objective-condition-kill-person-title
   - type: PickRandomPerson
     onlyChoosableJobs: true # DeltaV
+  - type: ContractObjective # DeltaV
+    reputation: 15
+    payment: 6
+  - type: ReputationCondition # DeltaV
+    reputation: 80
 
 - type: entity
   parent: [BaseTraitorObjective, BaseKillObjective]
@@ -115,6 +131,11 @@
     # don't count missing evac as killing as heads are higher profile, so you really need to do the dirty work
     # if ce flies a shittle to centcom you better find a way onto it
     requireDead: true
+  - type: ContractObjective # DeltaV
+    reputaton: 20
+    payment: 10
+  - type: ReputationCondition # DeltaV
+    reputation: 80
 
 # social
 
@@ -139,6 +160,9 @@
   - type: TargetObjective
     title: objective-condition-other-traitor-progress-title
   - type: RandomTraitorProgress
+  - type: ContractObjective # DeltaV
+    reputation: 5
+    payment: 4
 
 # steal
 
@@ -211,6 +235,8 @@
   - type: StealCondition
     stealGroup: WeaponEnergyShotgun
     owner: job-name-hos
+  - type: ReputationCondition # DeltaV
+    reputation: 60
 
 ## ce
 
@@ -262,6 +288,8 @@
     difficulty: 3.5
   - type: NotJobRequirement
     job: Captain
+  - type: ReputationCondition # DeltaV
+    reputation: 60
 
 - type: entity
   parent: BaseCaptainObjective
@@ -298,3 +326,5 @@
   - type: StealCondition
     stealGroup: NukeDisk
     owner: objective-condition-steal-station
+  - type: ReputationCondition # DeltaV
+    reputation: 75

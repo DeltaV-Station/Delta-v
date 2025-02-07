@@ -47,6 +47,15 @@
     sprite: _DV/Objects/Misc/plutonium_core.rsi
     state: icon
 
+## Minor Theft, something that isn't heavily controlled but something people won't be happy with you stealing
+
+- type: stealTargetGroup
+  id: RCD
+  name: steal-target-groups-rcd
+  sprite:
+    sprite: Objects/Tools/rcd.rsi
+    state: icon
+
 # Ninja
 
 - type: stealTargetGroup

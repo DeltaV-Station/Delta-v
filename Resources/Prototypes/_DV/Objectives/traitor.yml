@@ -1,3 +1,28 @@
+- type: entity
+  abstract: true
+  parent: BaseTraitorStealObjective
+  id: BaseMinorStealObjective
+  components:
+  - type: ReputationCondition
+    reputation: 0
+  - type: ContractObjective # DeltaV
+    reputation: 5
+    payment: 3
+
+# Low Risk
+
+- type: entity
+  parent: BaseMinorStealObjective
+  id: RCDStealObjective
+  components:
+  - type: NotDepartmentRequirement
+    department: Engineering
+  - type: StealCondition
+    stealGroup: RCD
+    owner: objective-condition-steal-engineering
+
+# Moderatate Risk
+
 - type: entity # Logistics Officer steal objective.
   parent: BaseTraitorStealObjective
   id: LOLuckyBillStealObjective
@@ -115,7 +140,7 @@
   description: The AI is causing us problems. Update its laws so it wont be an annoyance. We have given you a board in your uplink!
   components:
   - type: Objective
-    difficulty: 3 # Need to get access and survive actually changing the board.
+    difficulty: 5 # Need to get access and survive actually changing the board.
     unique: true
     icon:
       sprite: Objects/Misc/module.rsi
