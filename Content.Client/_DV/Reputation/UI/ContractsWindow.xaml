@@ -6,8 +6,8 @@
 		<Label Name="Level"/> <!-- Set at runtime -->
 		<Label Name="Reputation"/> <!-- Set at runtime -->
 		<Label Text="contracts:"/>
-		<BoxContainer Name="Contracts"/> <!-- Populated at runtime -->
+		<BoxContainer Name="Contracts" Orientation="Vertical" HorizontalExpand="True"/> <!-- Populated at runtime -->
 		<Label Text="offerings:"/>
-		<BoxContainer Name="Offerings"/> <!-- Populated at runtime -->
+		<BoxContainer Name="Offerings" Orientation="Vertical" HorizontalExpand="True"/> <!-- Populated at runtime -->
 	</BoxContainer>
 </controls:FancyWindow>
