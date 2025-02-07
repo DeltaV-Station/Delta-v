@@ -9,7 +9,6 @@ namespace Content.Client._DV.CartridgeLoader.Cartridges;
 [GenerateTypedNameReferences]
 public sealed partial class NewChatPopup : DefaultWindow
 {
-    private const int MaxInputLength = 16;
     private const int MaxNumberLength = 4; // i hardcoded it to be 4 so suffer
 
     public event Action<uint, string, string?>? OnChatCreated;
@@ -25,9 +24,14 @@ public sealed partial class NewChatPopup : DefaultWindow
         CancelButton.OnPressed += _ => Close();
         CreateButton.OnPressed += _ => CreateChat();
 
-        // Input validation
-        NumberInput.OnTextChanged += _ => ValidateInputs();
-        NameInput.OnTextChanged += _ => ValidateInputs();
+        NumberInput.OnTabComplete += _ => NameInput.GrabKeyboardFocus();
+        NumberInput.OnTextEntered += _ => CreateChat();
+
+        NameInput.OnTabComplete += _ => JobInput.GrabKeyboardFocus();
+        NameInput.OnTextEntered += _ => CreateChat();
+
+        JobInput.OnTabComplete += _ => NumberInput.GrabKeyboardFocus();
+        JobInput.OnTextEntered += _ => CreateChat();
 
         // Input validation
         NumberInput.OnTextChanged += args =>
