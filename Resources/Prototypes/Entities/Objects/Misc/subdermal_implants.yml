@@ -163,6 +163,7 @@
   - type: Store
     balance:
       Telecrystal: 0
+  - type: Contracts # DeltaV - Forced 0 reputation to prevent buying bloodreds etc on it
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
