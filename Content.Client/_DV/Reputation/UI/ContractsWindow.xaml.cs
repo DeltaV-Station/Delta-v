@@ -14,6 +14,7 @@ public sealed partial class ContractsWindow : FancyWindow
     public event Action<int>? OnAccept;
     public event Action<int>? OnComplete;
     public event Action<int>? OnReject;
+    public event Action? OnRescan;
 
     public EntityUid Owner;
 
@@ -21,6 +22,8 @@ public sealed partial class ContractsWindow : FancyWindow
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+
+        RescanButton.OnPressed += _ => OnRescan?.Invoke();
     }
 
     public void UpdateState()
@@ -46,12 +49,7 @@ public sealed partial class ContractsWindow : FancyWindow
             }
             else
             {
-                Contracts.AddChild(new Label()
-                {
-                    Text = "< no contract active >",
-                    Align = Label.AlignMode.Center
-                });
-                // TODO: NextUnlock thing
+                Contracts.AddChild(new EmptyContract(comp.Slots[i].NextUnlock));
             }
         }
 
@@ -62,10 +60,13 @@ public sealed partial class ContractsWindow : FancyWindow
             var offering = comp.OfferingTitles[i];
             var button = new Button()
             {
-                Text = offering + " - 0 TC 0 REP" // TODO
+                Text = offering
             };
             button.OnPressed += _ => OnAccept?.Invoke(index);
             Offerings.AddChild(button);
         }
+
+        // failsafe incase of bad rng or whatever not giving you anything
+        RescanContainer.Visible = comp.OfferingTitles.Count == 0;
     }
 }

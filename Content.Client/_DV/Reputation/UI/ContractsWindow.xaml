@@ -9,12 +9,17 @@
 				<Label Name="Reputation" Align="Center" StyleClasses="LabelBig"/> <!-- Set at runtime -->
 			</BoxContainer>
 		</controls:StripeBack>
-		<Label Text="Contracts" Margin="5"/>
+		<Label Text="{Loc 'contracts-contracts'}" Margin="5"/>
 		<controls:HLine Color="#404040" Thickness="2" Margin="0 5 0 5"/>
 		<BoxContainer Name="Contracts" Orientation="Vertical" HorizontalExpand="True" Margin="5"/> <!-- Populated at runtime -->
 		<controls:HLine Color="#404040" Thickness="2" Margin="0 5 0 5"/>
-		<Label Text="Offerings" Align="Right" Margin="5"/>
+		<Label Text="{Loc 'contracts-offerings'}" Align="Right" Margin="5"/>
 		<controls:HLine Color="#404040" Thickness="2" Margin="0 5 0 5"/>
 		<BoxContainer Name="Offerings" Orientation="Vertical" HorizontalExpand="True" Margin="5"/> <!-- Populated at runtime -->
+		<BoxContainer Name="RescanContainer" Orientation="Horizontal" Align="Center" Visible="False">
+			<controls:StripeBack HorizontalExpand="True">
+				<Button Name="RescanButton" Text="{Loc 'contracts-rescan'}" MaxWidth="150"/>
+			</controls:StripeBack>
+		</BoxContainer>
 	</BoxContainer>
 </controls:FancyWindow>

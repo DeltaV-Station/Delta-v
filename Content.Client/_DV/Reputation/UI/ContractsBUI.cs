@@ -19,6 +19,7 @@ public sealed class ContractsBUI : BoundUserInterface
         _window.OnAccept += i => SendMessage(new ContractsAcceptMessage(i));
         _window.OnComplete += i => SendMessage(new ContractsCompleteMessage(i));
         _window.OnReject += i => SendMessage(new ContractsRejectMessage(i));
+        _window.OnRescan += () => SendMessage(new ContractsRescanMessage());
         _window.OnClose += Close;
         _window.OpenCentered();
     }

@@ -29,7 +29,9 @@ public sealed class ReputationSystem : EntitySystem
         Subs.BuiEvents<ContractsComponent>(ContractsUiKey.Key, subs =>
         {
             subs.Event<ContractsAcceptMessage>(OnAcceptMessage);
+            subs.Event<ContractsCompleteMessage>(OnCompleteMessage);
             subs.Event<ContractsRejectMessage>(OnRejectMessage);
+            subs.Event<ContractsRescanMessage>(OnRescanMessage);
         });
 
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
@@ -91,7 +93,7 @@ public sealed class ReputationSystem : EntitySystem
     private void OnAcceptMessage(Entity<ContractsComponent> ent, ref ContractsAcceptMessage args)
     {
         var i = args.Index;
-        if (i < 0 || i >= ent.Comp.Offerings.Count )
+        if (i < 0 || i >= ent.Comp.Offerings.Count)
             return;
 
         if (ent.Comp.Offerings[i] is not {} objective || !TryTakeContract(ent, objective))
@@ -101,9 +103,20 @@ public sealed class ReputationSystem : EntitySystem
         PickOfferings(ent);
     }
 
+    private void OnCompleteMessage(Entity<ContractsComponent> ent, ref ContractsCompleteMessage args)
+    {
+        TryCompleteContract(ent, args.Index);
+    }
+
     private void OnRejectMessage(Entity<ContractsComponent> ent, ref ContractsRejectMessage args)
     {
         TryRejectContract(ent, args.Index);
+    }
+
+    private void OnRescanMessage(Entity<ContractsComponent> ent, ref ContractsRescanMessage args)
+    {
+        if (!HasOffering(ent))
+            PickOfferings(ent);
     }
 
     #endregion
@@ -232,6 +245,9 @@ public sealed class ReputationSystem : EntitySystem
         RaiseLocalEvent(objective, ref ev);
 
         ClearSlot(ent, index, ent.Comp.RejectDelay);
+        if (GetMind(ent) is {} mind)
+            _mind.TryRemoveObjective(mind, objective);
+        Del(objective); // allow taking again it in the future if you know you can
         return true;
     }
 
@@ -348,6 +364,17 @@ public sealed class ReputationSystem : EntitySystem
         }
 
         return null;
+    }
+
+    private bool HasOffering(Entity<ContractsComponent> ent)
+    {
+        foreach (var uid in ent.Comp.Offerings)
+        {
+            if (uid != null)
+                return true;
+        }
+
+        return false;
     }
 
     private void ClearSlot(Entity<ContractsComponent> ent, int index, TimeSpan delay)
