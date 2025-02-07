@@ -17,7 +17,7 @@ public sealed partial class Contract : BoxContainer
     {
         RobustXamlLoader.Load(this);
 
-        Title.text = title;
+        Title.Text = title;
 
         CompleteButton.OnPressed += _ => OnComplete?.Invoke();
         RejectButton.OnPressed += _ => OnReject?.Invoke();
