@@ -31,7 +31,8 @@ public sealed partial class ReputationLevelPrototype : IPrototype
 
     /// <summary>
     /// Maximum difficulty for objectives that can be rolled.
+    /// <c>ReputationCondition</c> should be used for fine-grained control.
     /// </summary>
-    [DataField(required: true)]
-    public float MaxDifficulty;
+    [DataField]
+    public float MaxDifficulty = 6f;
 }

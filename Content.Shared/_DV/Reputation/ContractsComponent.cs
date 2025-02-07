@@ -31,19 +31,8 @@ public sealed partial class ContractsComponent : Component
     [ViewVariables]
     public ReputationLevelPrototype? CurrentLevel;
 
-    /// <summary>
-    /// Objective groups that offerings can be picked from.
-    /// Up to 1 objective of this group can be offered.
-    /// </summary>
     [DataField]
-    public List<ProtoId<WeightedRandomPrototype>> OfferingGroups = new List<ProtoId<WeightedRandomPrototype>>
-    {
-        "TraitorObjectiveGroupSteal",
-        "TraitorObjectiveGroupKill",
-        "TraitorObjectiveGroupState",
-        "TraitorObjectiveGroupSocial",
-        "TraitorObjectiveGroupSpecial"
-    };
+    public ProtoId<ReputationOfferingGroupsPrototype> OfferingGroups = "ReputationOfferings";
 
     /// <summary>
     /// Offering objectives that can be taken in the UI.

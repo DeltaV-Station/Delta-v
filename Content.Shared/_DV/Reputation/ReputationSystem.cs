@@ -124,6 +124,7 @@ public sealed class ReputationSystem : EntitySystem
         var mind = AddComp<MindReputationComponent>(mindId);
         contracts.Mind = mindId;
         mind.Pda = pda;
+        PickOfferings((pda, contracts));
     }
 
     public void ToggleUI(EntityUid user, EntityUid uid)
@@ -148,9 +149,10 @@ public sealed class ReputationSystem : EntitySystem
             return;
 
         var difficulty = level.MaxDifficulty;
-        foreach (var group in ent.Comp.OfferingGroups)
+        var groups = _proto.Index(ent.Comp.OfferingGroups);
+        foreach (var weights in groups.Groups)
         {
-            if (_objectives.GetRandomObjective(mind, mind, group, difficulty) is not {} objective)
+            if (_objectives.GetRandomObjective(mind, mind, weights, difficulty) is not {} objective)
                 continue;
 
             ent.Comp.Offerings.Add(objective);
