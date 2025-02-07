@@ -5,3 +5,35 @@
   components:
   - type: AccessReader
     access: [["Robotics"]]
+
+- type: entity
+  parent: LockableButton
+  suffix: Justice
+  id: LockableButtonJustice
+  components:
+  - type: AccessReader
+    access: [["Justice"]]
+
+- type: entity
+  parent: LockableButton
+  suffix: Prosecutor
+  id: LockableButtonProsecutor
+  components:
+  - type: AccessReader
+    access: [["Prosecutor"]]
+
+- type: entity
+  parent: LockableButton
+  suffix: Clerk
+  id: LockableButtonClerk
+  components:
+  - type: AccessReader
+    access: [["Clerk"]]
+
+- type: entity
+  parent: LockableButton
+  suffix: Chief Justice
+  id: LockableButtonRCJ
+  components:
+  - type: AccessReader
+    access: [["ChiefJustice"]]
