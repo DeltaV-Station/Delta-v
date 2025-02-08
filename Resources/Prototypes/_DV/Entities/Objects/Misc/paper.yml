@@ -464,3 +464,33 @@
   id: TapeRecorderTranscript
   name: record transcript
   # TODO: could have a unique sprite in the future
+
+- type: entity
+  parent: BoxFolderRed
+  id: BoxFolderFakeNukeCodes
+  name: fake nuclear code folder
+  description: contains a single paper that looks like it would contain a nuke code.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: folder-colormap
+      color: "#cc2323"
+    - state: folder-base
+    - state: folder-stamp-inverse
+      color: "#1dff00"
+  - type: StorageFill
+    contents:
+      - id: FakeNukeCodePaper
+        amount: 1
+
+- type: entity
+  parent: Paper
+  id: FakeNukeCodePaper
+  suffix: Fake
+  name: nuclear authentication codes
+  components:
+  - type: Paper
+    content: |2
+      [color=red]TOP SECRET![/color]
+      nuclear fission explosive (NT-XXXXXXX) code: XXXXXX

@@ -143,6 +143,51 @@ entities:
           decals:
             103: 4.0081463,-7.165461
         - node:
+            color: '#9B00007F'
+            id: FullTileOverlayGreyscale
+          decals:
+            123: -9,-7
+        - node:
+            color: '#9B00007F'
+            id: HalfTileOverlayGreyscale
+          decals:
+            119: -9,-8
+        - node:
+            color: '#9B00007F'
+            id: HalfTileOverlayGreyscale180
+          decals:
+            116: -9,-6
+        - node:
+            color: '#9B00007F'
+            id: HalfTileOverlayGreyscale270
+          decals:
+            117: -8,-7
+        - node:
+            color: '#9B00007F'
+            id: HalfTileOverlayGreyscale90
+          decals:
+            118: -10,-7
+        - node:
+            color: '#9B00007F'
+            id: QuarterTileOverlayGreyscale
+          decals:
+            122: -8,-8
+        - node:
+            color: '#9B00007F'
+            id: QuarterTileOverlayGreyscale180
+          decals:
+            115: -10,-6
+        - node:
+            color: '#9B00007F'
+            id: QuarterTileOverlayGreyscale270
+          decals:
+            121: -8,-6
+        - node:
+            color: '#9B00007F'
+            id: QuarterTileOverlayGreyscale90
+          decals:
+            120: -10,-8
+        - node:
             color: '#FF0000FF'
             id: WarnBox
           decals:
@@ -338,7 +383,7 @@ entities:
             0: 65535
           2,0:
             0: 64511
-            1: 1024
+            2: 1024
           0,-2:
             0: 65535
           1,-2:
@@ -351,7 +396,7 @@ entities:
             0: 65535
           -1,-2:
             0: 64511
-            2: 1024
+            3: 1024
           3,0:
             0: 65535
           3,-1:
@@ -379,15 +424,15 @@ entities:
           -1,2:
             0: 12031
           -2,-2:
-            0: 63486
-            3: 2048
+            0: 63482
+            4: 2052
           -2,-1:
             0: 61182
           -2,-3:
             0: 60660
           -1,-3:
             0: 61439
-            4: 4096
+            5: 4096
           4,-1:
             0: 65527
           4,0:
@@ -478,6 +523,21 @@ entities:
           - 0
           - 0
         - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 19.950384
+          - 75.051445
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
           temperature: 293.15
           moles:
           - 21.824873
@@ -527,6 +587,93 @@ entities:
     - type: RadiationGridResistance
     - type: Shuttle
     - type: NavMap
+  - uid: 401
+    components:
+    - type: MetaData
+      name: solution - pen
+    - type: Transform
+      parent: 386
+    - type: Solution
+      solution:
+        maxVol: 30
+        name: pen
+        reagents: []
+    - type: ContainedSolution
+      containerName: pen
+      container: 386
+  - uid: 1271
+    components:
+    - type: MetaData
+      name: solution - pen
+    - type: Transform
+      parent: 1270
+    - type: Solution
+      solution:
+        maxVol: 30
+        name: pen
+        reagents: []
+    - type: ContainedSolution
+      containerName: pen
+      container: 1270
+  - uid: 1273
+    components:
+    - type: MetaData
+      name: solution - pen
+    - type: Transform
+      parent: 1272
+    - type: Solution
+      solution:
+        maxVol: 30
+        name: pen
+        reagents: []
+    - type: ContainedSolution
+      containerName: pen
+      container: 1272
+- proto: ActionAGhostShowCommunications
+  entities:
+  - uid: 1268
+    components:
+    - type: Transform
+      parent: 1260
+    - type: InstantAction
+      originalIconColor: '#FFFFFFFF'
+      container: 1260
+- proto: ActionAGhostShowCrewMonitoring
+  entities:
+  - uid: 1266
+    components:
+    - type: Transform
+      parent: 1260
+    - type: InstantAction
+      originalIconColor: '#FFFFFFFF'
+      container: 1260
+- proto: ActionAGhostShowRadar
+  entities:
+  - uid: 1265
+    components:
+    - type: Transform
+      parent: 1260
+    - type: InstantAction
+      originalIconColor: '#FFFFFFFF'
+      container: 1260
+- proto: ActionAGhostShowStationRecords
+  entities:
+  - uid: 1267
+    components:
+    - type: Transform
+      parent: 1260
+    - type: InstantAction
+      originalIconColor: '#FFFFFFFF'
+      container: 1260
+- proto: ActionAIViewLaws
+  entities:
+  - uid: 1264
+    components:
+    - type: Transform
+      parent: 1260
+    - type: InstantAction
+      originalIconColor: '#FFFFFFFF'
+      container: 1260
 - proto: ActionChangeVoiceMask
   entities:
   - uid: 646
@@ -537,6 +684,24 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 644
       attachedEntity: 620
+- proto: ActionJumpToCore
+  entities:
+  - uid: 1262
+    components:
+    - type: Transform
+      parent: 1260
+    - type: InstantAction
+      originalIconColor: '#FFFFFFFF'
+      container: 1260
+- proto: ActionSurvCameraLights
+  entities:
+  - uid: 1263
+    components:
+    - type: Transform
+      parent: 1260
+    - type: InstantAction
+      originalIconColor: '#FFFFFFFF'
+      container: 1260
 - proto: ActionToggleLight
   entities:
   - uid: 73
@@ -546,6 +711,15 @@ entities:
     - type: InstantAction
       originalIconColor: '#FFFFFFFF'
       container: 71
+- proto: ActionViewLaws
+  entities:
+  - uid: 1261
+    components:
+    - type: Transform
+      parent: 1260
+    - type: InstantAction
+      originalIconColor: '#FFFFFFFF'
+      container: 1260
 - proto: AgentIDCard
   entities:
   - uid: 374
@@ -595,10 +769,8 @@ entities:
   entities:
   - uid: 4
     components:
-    - type: MetaData
-      desc: The ominous red light fills you with dread
-      name: suspicious airlock
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: 3.5,6.5
       parent: 1
     missingComponents:
@@ -624,7 +796,7 @@ entities:
       pos: -6.5,-6.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -11199.732
+      secondsUntilStateChange: -18145.834
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -687,7 +859,7 @@ entities:
       pos: -2.5,-6.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -11191.966
+      secondsUntilStateChange: -18138.068
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2574,11 +2746,12 @@ entities:
     - type: Transform
       pos: 16.5,8.5
       parent: 1
-- proto: AtmosDeviceFanTiny
+- proto: AtmosDeviceFanDirectional
   entities:
   - uid: 341
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: 3.5,6.5
       parent: 1
 - proto: BalloonJuggernaut
@@ -2604,9 +2777,14 @@ entities:
           - 73
     - type: HandheldLight
       toggleActionEntity: 73
-    - type: PointLight
-      enabled: False
     - type: ActionsContainer
+- proto: BarberScissors
+  entities:
+  - uid: 1156
+    components:
+    - type: Transform
+      pos: -1.4242729,5.649396
+      parent: 1
 - proto: BarSignWhiskeyEcho
   entities:
   - uid: 956
@@ -2615,6 +2793,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 5.5,-4.5
       parent: 1
+    - type: Emagged
 - proto: Bed
   entities:
   - uid: 343
@@ -2817,28 +2996,18 @@ entities:
       pos: 1.5,-3.5
       parent: 1
     - type: Emagged
-- proto: BoxFolderRed
+- proto: BoxFolderFakeNukeCodes
   entities:
   - uid: 1155
     components:
-    - type: MetaData
-      desc: a folder containing blank paper, that people will think contains the nuke code.
-      name: Fake nuclear authentication codes folder
     - type: Transform
-      pos: -6.7169685,3.634596
+      pos: -6.789336,3.7909489
       parent: 1
-    - type: Storage
-      storedItems:
-        1156:
-          position: 0,0
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1156
+    - type: UserInterface
+      actors:
+        enum.StorageUiKey.Key:
+        - invalid
+    - type: ActiveUserInterface
 - proto: BoxHandcuff
   entities:
   - uid: 118
@@ -2875,20 +3044,10 @@ entities:
     - type: InsideEntityStorage
 - proto: BriefcaseBrownFilled
   entities:
-  - uid: 401
+  - uid: 1269
     components:
     - type: Transform
-      pos: 12.580331,-0.57071495
-      parent: 1
-  - uid: 402
-    components:
-    - type: Transform
-      pos: 12.615925,0.015501022
-      parent: 1
-  - uid: 403
-    components:
-    - type: Transform
-      pos: 12.615925,-0.21887398
+      pos: 8.569595,1.2264723
       parent: 1
 - proto: BriefcaseSyndieLobbyingBundleFilled
   entities:
@@ -3833,61 +3992,6 @@ entities:
     - type: Transform
       pos: 4.7236505,1.7666011
       parent: 1
-- proto: ClosetWallBlack
-  entities:
-  - uid: 405
-    components:
-    - type: MetaData
-      desc: A closet packed with forged stamps
-      name: stamp closet
-    - type: Transform
-      pos: 10.5,3.5
-      parent: 1
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-        - 1.8856695
-        - 7.0937095
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 416
-          - 406
-          - 407
-          - 589
-          - 409
-          - 417
-          - 415
-          - 588
-          - 418
-          - 408
-          - 411
-          - 590
-          - 591
-          - 410
-          - 413
-          - 420
-          - 419
-          - 412
-          - 587
-          - 414
-          - 592
 - proto: ClosetWallMixed
   entities:
   - uid: 388
@@ -4161,16 +4265,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 12.5,0.5
       parent: 1
-- proto: ComputerIFFSyndicate
-  entities:
-  - uid: 507
-    components:
-    - type: MetaData
-      desc: Allows you to control the IFF and stealth characteristics of this rock youre trapped on.
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -5.5,-7.5
-      parent: 1
 - proto: ComputerMassMedia
   entities:
   - uid: 311
@@ -4190,6 +4284,39 @@ entities:
       maxRange: 2048
     - type: WorldLoader
       radius: 2048
+- proto: ComputerShuttleSyndie
+  entities:
+  - uid: 1259
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 12.5,-0.5
+      parent: 1
+- proto: CrateEngineeringCableBulk
+  entities:
+  - uid: 402
+    components:
+    - type: Transform
+      pos: -5.5,-7.5
+      parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: CrateFoodDonkpocketSavory
   entities:
   - uid: 551
@@ -5763,7 +5890,7 @@ entities:
   - uid: 816
     components:
     - type: Transform
-      pos: -1.2090025,5.7052317
+      pos: -1.0030047,5.7003574
       parent: 1
 - proto: HighSecDoor
   entities:
@@ -5784,6 +5911,11 @@ entities:
     - type: Transform
       pos: -2.5,3.5
       parent: 1
+    - type: StationAiVision
+      occluded: False
+      enabled: False
+    - type: StationAiWhitelist
+      enabled: False
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 747
@@ -6030,16 +6162,6 @@ entities:
     - type: Transform
       pos: 16.778532,-0.7526432
       parent: 1
-- proto: Paper
-  entities:
-  - uid: 1156
-    components:
-    - type: MetaData
-      name: nuclear authentication codes
-    - type: Transform
-      parent: 1155
-    - type: Physics
-      canCollide: False
 - proto: PaperAccessLogs
   entities:
   - uid: 1073
@@ -6279,7 +6401,7 @@ entities:
     - type: MetaData
       name: Instruction manual
     - type: Transform
-      pos: -2.3352265,3.246592
+      pos: -2.2845595,3.286944
       parent: 1
     - type: Paper
       stampState: paper_stamp-syndicate
@@ -6391,7 +6513,7 @@ entities:
   - uid: 1132
     components:
     - type: Transform
-      pos: -6.227521,3.6231134
+      pos: -6.5115585,3.7121906
       parent: 1
 - proto: PlasmaReinforcedWindowDirectional
   entities:
@@ -6827,22 +6949,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -6.5,-2.5
       parent: 1
-- proto: RandomVendingDrinks
-  entities:
-  - uid: 787
-    components:
-    - type: Transform
-      pos: 4.5,-2.5
-      parent: 1
-    - type: Emagged
-- proto: RandomVendingSnacks
-  entities:
-  - uid: 788
-    components:
-    - type: Transform
-      pos: 4.5,-3.5
-      parent: 1
-    - type: Emagged
 - proto: ReinforcedPlasmaWindow
   entities:
   - uid: 789
@@ -6913,207 +7019,25 @@ entities:
       desc: Opens access to the emergency decomissioning device, for use in emergencies.
       name: decomissioning device key
     - type: Transform
-      pos: -6.5032644,3.673221
+      pos: -6.192114,3.883606
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
         1217:
         - Pressed: Toggle
-- proto: RubberStampAdminAssistant
-  entities:
-  - uid: 589
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampApproved
-  entities:
-  - uid: 407
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampCaptain
-  entities:
-  - uid: 417
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampCE
-  entities:
-  - uid: 413
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampChaplain
-  entities:
-  - uid: 416
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampChiefJustice
-  entities:
-  - uid: 588
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampClown
-  entities:
-  - uid: 414
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampCMO
-  entities:
-  - uid: 412
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampDenied
-  entities:
-  - uid: 411
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampDetective
-  entities:
-  - uid: 591
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampHop
-  entities:
-  - uid: 419
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampHos
-  entities:
-  - uid: 409
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampLawyer
-  entities:
-  - uid: 587
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampMantis
-  entities:
-  - uid: 415
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampMime
-  entities:
-  - uid: 420
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampNotary
-  entities:
-  - uid: 590
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampQm
-  entities:
-  - uid: 408
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampRd
-  entities:
-  - uid: 418
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampSyndicate
-  entities:
-  - uid: 410
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampTrader
-  entities:
-  - uid: 592
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampWarden
-  entities:
-  - uid: 406
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: SalvageLorePaperGamingSpawner
   entities:
   - uid: 801
     components:
     - type: Transform
       pos: 12.5,-9.5
+      parent: 1
+- proto: SheetGlass
+  entities:
+  - uid: 403
+    components:
+    - type: Transform
+      pos: -3.5228221,-5.39265
       parent: 1
 - proto: SheetPlasteel
   entities:
@@ -7166,10 +7090,6 @@ entities:
     - type: Transform
       pos: 4.5,4.5
       parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        4:
-        - Pressed: DoorBolt
   - uid: 807
     components:
     - type: MetaData
@@ -7395,6 +7315,139 @@ entities:
     - type: Transform
       pos: -5.5,-2.5
       parent: 1
+- proto: StampLockerListeningPost
+  entities:
+  - uid: 405
+    components:
+    - type: Transform
+      pos: 10.5,3.5
+      parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.734816
+        - 6.5262127
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+- proto: StationAiBrain
+  entities:
+  - uid: 1260
+    components:
+    - type: MetaData
+      name: positronic brain (PB-51)
+    - type: Transform
+      rot: 6.0597243309021 rad
+      pos: 10.5,0.5
+      parent: 1
+    - type: SiliconLawProvider
+      lawset:
+        obeysTo: laws-owner-crew
+        laws:
+        - lawIdentifierOverride: null
+          order: 1
+          lawString: law-ntdefault-1
+        - lawIdentifierOverride: null
+          order: 2
+          lawString: law-ntdefault-2
+        - lawIdentifierOverride: null
+          order: 3
+          lawString: law-ntdefault-3
+        - lawIdentifierOverride: null
+          order: 4
+          lawString: law-ntdefault-4-delta
+    - type: SiliconLawBound
+      lastLawProvider: 1260
+    - type: Access
+      tags:
+      - EmergencyShuttleRepealAll
+      - Captain
+      - HeadOfPersonnel
+      - ChiefEngineer
+      - ChiefMedicalOfficer
+      - HeadOfSecurity
+      - ResearchDirector
+      - Command
+      - Cryogenics
+      - Security
+      - Detective
+      - Armory
+      - Lawyer
+      - Engineering
+      - Medical
+      - Quartermaster
+      - Salvage
+      - Cargo
+      - Research
+      - Service
+      - Maintenance
+      - External
+      - Janitor
+      - Theatre
+      - Bar
+      - Chemistry
+      - Kitchen
+      - Chapel
+      - Hydroponics
+      - Atmospherics
+      - Mail
+      - Orders
+      - Mantis
+      - Paramedic
+      - Psychologist
+      - Boxer
+      - Clown
+      - Library
+      - Mime
+      - Musician
+      - Reporter
+      - Zookeeper
+      - Justice
+      - ChiefJustice
+      - Prosecutor
+      - Clerk
+      - Corpsman
+      - Robotics
+      - Surgery
+    - type: Eye
+      drawFov: True
+    - type: NameIdentifier
+      fullIdentifier: (PB-51)
+      identifier: 51
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 1261
+          - 1262
+          - 1263
+          - 1264
+          - 1265
+          - 1266
+          - 1267
+          - 1268
+    - type: MindContainer
+      originalMind: invalid
+    - type: MobMover
+    - type: MovementSpeedModifier
+    - type: Emoting
+    missingComponents:
+    - ActionGrant
+    - UserInterface
+    - IntrinsicRadioReceiver
+    - IntrinsicRadioTransmitter
+    - ActiveRadio
 - proto: StationAnchor
   entities:
   - uid: 1054
@@ -7409,6 +7462,74 @@ entities:
     - type: Transform
       pos: 1.5,4.5
       parent: 1
+- proto: Stimpack
+  entities:
+  - uid: 386
+    components:
+    - type: Transform
+      pos: 4.6880875,10.393544
+      parent: 1
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - pen
+    - type: Tag
+      tags:
+      - Trash
+    - type: ContainerContainer
+      containers:
+        solution@pen: !type:ContainerSlot
+          ent: 401
+    - type: Forensics
+      residues: []
+      dnas:
+      - ACCTCGCTGTAAACAT
+      fibers: []
+      fingerprints: []
+  - uid: 1270
+    components:
+    - type: Transform
+      pos: 4.2818375,10.476935
+      parent: 1
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - pen
+    - type: Tag
+      tags:
+      - Trash
+    - type: ContainerContainer
+      containers:
+        solution@pen: !type:ContainerSlot
+          ent: 1271
+    - type: Forensics
+      residues: []
+      dnas:
+      - ACCTCGCTGTAAACAT
+      fibers: []
+      fingerprints: []
+  - uid: 1272
+    components:
+    - type: Transform
+      pos: 4.520056,10.789653
+      parent: 1
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - pen
+    - type: Tag
+      tags:
+      - Trash
+    - type: ContainerContainer
+      containers:
+        solution@pen: !type:ContainerSlot
+          ent: 1273
+    - type: Forensics
+      residues: []
+      dnas:
+      - ACCTCGCTGTAAACAT
+      fibers: []
+      fingerprints: []
 - proto: SubstationBasic
   entities:
   - uid: 997
@@ -7606,12 +7727,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 8.5,1.5
       parent: 1
-  - uid: 386
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 12.5,-0.5
-      parent: 1
   - uid: 387
     components:
     - type: Transform
@@ -7669,6 +7784,13 @@ entities:
           showEnts: False
           occludes: True
           ents: []
+- proto: Telecrystal5
+  entities:
+  - uid: 507
+    components:
+    - type: Transform
+      pos: -6.511505,3.381673
+      parent: 1
 - proto: ToiletEmpty
   entities:
   - uid: 832
@@ -7731,6 +7853,15 @@ entities:
     - type: Transform
       pos: 4.5,0.5
       parent: 1
+    - type: Emagged
+- proto: VendingMachineColaBlack
+  entities:
+  - uid: 788
+    components:
+    - type: Transform
+      pos: 4.5,-2.5
+      parent: 1
+    - type: Emagged
 - proto: VendingMachineGames
   entities:
   - uid: 840
@@ -7757,12 +7888,21 @@ entities:
     - type: Transform
       pos: -3.5,0.5
       parent: 1
+    - type: Emagged
 - proto: VendingMachineSeedsUnlocked
   entities:
   - uid: 842
     components:
     - type: Transform
       pos: 11.5,-2.5
+      parent: 1
+    - type: Emagged
+- proto: VendingMachineSnack
+  entities:
+  - uid: 787
+    components:
+    - type: Transform
+      pos: 4.5,-3.5
       parent: 1
     - type: Emagged
 - proto: VendingMachineSyndieDrobe
