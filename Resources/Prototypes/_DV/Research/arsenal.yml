@@ -59,6 +59,8 @@
   recipeUnlocks:
   - WeaponEnergyGunPistol
   - WeaponGunLaserCarbineAutomatic
+  technologyPrerequisites: # DeltaV: added prerequesite
+  - EnergyGuns
 
 - type: technology
   id: RobustMelee
@@ -83,3 +85,5 @@
   cost: 10000
   recipeUnlocks:
   - WeaponColdCannon
+  technologyPrerequisites: # DeltaV: added prerequesite
+  - AdvancedAtmospherics

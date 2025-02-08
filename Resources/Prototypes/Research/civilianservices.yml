@@ -36,6 +36,8 @@
   - HamtrPeripheralsElectronics
   - MechEquipmentGrabberSmall
   - VimHarness
+  technologyPrerequisites:
+  - BasicRobotics
 
 - type: technology
   id: AudioVisualCommunication
@@ -83,6 +85,8 @@
   cost: 5000
   recipeUnlocks:
   - BorgModuleAdvancedCleaning
+  technologyPrerequisites: # DeltaV: added prerequesite
+  - BasicRobotics
 
 - type: technology
   id: MeatManipulation
@@ -164,7 +168,9 @@
   - HonkerPeripheralsElectronics
   - HonkerTargetingElectronics
   - MechEquipmentHorn
-
+  technologyPrerequisites: # DeltaV: added prerequesite
+  - RipleyAPLU
+- 
 - type: technology
   id: AdvancedSpray
   name: research-technology-advanced-spray
@@ -177,6 +183,8 @@
   recipeUnlocks:
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
+  technologyPrerequisites: # DeltaV: added prerequesite
+  - AdvancedCleaning
 
 - type: technology
   id: BluespaceCargoTransport
@@ -203,6 +211,8 @@
   cost: 10000
   recipeUnlocks:
   - ClothingShoesBootsSpeed
+  technologyPrerequisites: # DeltaV: added prerequesite
+  - MagentsTech
 
 - type: technology
   id: BluespaceChemistry
