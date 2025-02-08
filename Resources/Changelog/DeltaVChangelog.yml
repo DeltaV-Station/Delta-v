@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: TJohnson
-  changes:
-  - message: Station Security uniform standards have been relaxed, and officers may
-      now roll their sleeves on-duty.
-    type: Tweak
-  id: 517
-  time: '2024-09-04T21:13:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1753
 - author: MilonPL
   changes:
   - message: The security webbing inventory is now split into two parts. You can no
@@ -3841,3 +3833,14 @@
   id: 1016
   time: '2025-02-07T18:02:07.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2923
+- author: Lyndomen
+  changes:
+  - message: Nukeops no longer start with armor, but their armors are purchasable
+      in the uplink. Some are restricted by which role you have on the team (Only
+      commander can buy a suit of commander armor, etc)
+    type: Tweak
+  - message: Nukeops get 5 extra TC each
+    type: Tweak
+  id: 1017
+  time: '2025-02-08T05:40:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2916
