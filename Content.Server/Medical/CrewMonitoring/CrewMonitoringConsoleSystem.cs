@@ -62,7 +62,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
         foreach (var (sensorId, status) in sensorStatus)
         {
-            // DamagePercentage above 1.25f is considered critical. It is null when sensor vitals are off.
+            // DamagePercentage above 1f is considered critical. It is null when sensor vitals are off.
             var isCritical = status.DamagePercentage is >= 1f;
 
             // Skip crew members that we have already alerted about
