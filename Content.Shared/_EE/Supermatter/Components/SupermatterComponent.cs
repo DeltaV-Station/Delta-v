@@ -375,6 +375,13 @@ public sealed partial class SupermatterComponent : Component
     /// The radio channel for supermatter alerts
     /// </summary>
     [DataField]
+    public bool SuppressAnnouncements = false;
+
+
+    /// <summary>
+    /// The radio channel for supermatter alerts
+    /// </summary>
+    [DataField]
     public ProtoId<RadioChannelPrototype> Channel = "Engineering";
 
     /// <summary>
