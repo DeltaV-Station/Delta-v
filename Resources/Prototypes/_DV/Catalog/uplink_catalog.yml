@@ -1,4 +1,48 @@
 - type: listing
+  id: UplinkHardsuitCommanderSyndie
+  name: uplink-hardsuit-commander-syndie-name
+  description: uplink-hardsuit-commander-syndie-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi, state: icon }
+  productEntity:
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - CommanderUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkHardsuitAgentSyndie
+  name: uplink-hardsuit-agent-syndie-name
+  description: uplink-hardsuit-agent-syndie-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiemedic.rsi, state: icon }
+  productEntity:
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - AgentUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
   id: Mouse Operative Reinforcement
   name: uplink-reinforcement-radio-nukie-mouse-name
   description: uplink-reinforcement-radio-nukie-mouse-desc
