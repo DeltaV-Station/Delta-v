@@ -31,3 +31,12 @@
     tags:
     - NukeOpsUplink
     - AgentUplink
+
+- type: entity
+  parent: BaseUplinkRadio60TC
+  id: BaseUplinkRadio65TC
+  suffix: 65 TC, LoneOps
+  components:
+    - type: Store
+      balance:
+        Telecrystal: 65
