@@ -11,18 +11,15 @@
     - !type:RoleTimeRequirement
       role: JobSalvageSpecialist
       time: 10800 #3 hrs
-    - !type:RoleTimeRequirement # DeltaV - Courier role time requirement
-      role: JobCourier
-      time: 7200 # 2 hours
     - !type:DepartmentTimeRequirement
-      department: Logistics # DeltaV - Logistics Department replacing Cargo
-      time: 90000 # DeltaV - 25 hours
+      department: Logistics # DeltaV - Logistics department replacing Cargo
+      time: 36000 #10 hours
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
-  requireAdminNotify: true
+  requireAdminNotify: true # DeltaV
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
@@ -33,6 +30,7 @@
   - Maintenance
   - External
   - Command
+  #- Brig # DeltaV - Removed brig access
   - Orders # DeltaV - Orders, see Resources/Prototypes/_DV/Access/cargo.yml
   - Cryogenics
   special:
