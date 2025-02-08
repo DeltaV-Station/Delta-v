@@ -38,7 +38,7 @@
       points: 1
       required: false
     Chest:
-      points: 1
+      points: 4 # Imp 1<4
       required: false
     # Begin DeltaV changes.
     Underwear:
@@ -49,16 +49,16 @@
       required: false
     # End DeltaV changes.
     Legs:
-      points: 4
+      points: 8 # Imp 6<8
       required: false
     Arms:
-      points: 4
+      points: 8 # Imp 6<8
       required: false
 
 - type: humanoidBaseSprite
   id: MobSlimeMarkingFollowSkin
   markingsMatchSkin: true
-  layerAlpha: 0.5
+  layerAlpha: 0.75 # Imp 0.5<0.75
 
 - type: humanoidBaseSprite
   id: MobSlimeHead
