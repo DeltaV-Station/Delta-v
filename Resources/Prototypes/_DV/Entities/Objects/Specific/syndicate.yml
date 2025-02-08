@@ -12,7 +12,7 @@
     - NukeOpsUplink
 
 - type: entity
-  parent: BaseUplinkRadio40TC
+  parent: BaseUplinkRadio45TC
   id: CommanderUplinkRadio45TC
   suffix: 45 TC, NukeOps, Commander
   components:
@@ -22,7 +22,7 @@
     - CommanderUplink
 
 - type: entity
-  parent: BaseUplinkRadio40TC
+  parent: BaseUplinkRadio45TC
   id: AgentUplinkRadio45TC
   suffix: 45 TC, NukeOps, Agent
 
