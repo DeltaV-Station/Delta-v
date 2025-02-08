@@ -1,4 +1,5 @@
 using Content.Shared.Medical.SuitSensor;
+using Robust.Shared.Audio; // DeltaV
 
 namespace Content.Server.Medical.CrewMonitoring;
 
@@ -16,4 +17,34 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     /// </summary>
     [DataField("sensorTimeout"), ViewVariables(VVAccess.ReadWrite)]
     public float SensorTimeout = 10f;
+
+    // DeltaV - start of alert system code
+    /// <summary>
+    ///     Should the component beep if someone goes critical or dies
+    /// </summary>
+    [DataField]
+    public bool AlertsEnabled = true;
+
+    /// <summary>
+    ///     Track sensors that have triggered the crew member critical alert.
+    /// </summary>
+    public HashSet<string> AlertedSensors = [];
+
+    /// <summary>
+    ///     Accumulated time for tracking alert cooldown
+    /// </summary>
+    public float AccumulatedFrameTime = 0f;
+
+    /// <summary>
+    ///     Time between alerts
+    /// </summary>
+    [DataField]
+    public float AlertCooldown = 15f;
+
+    /// <summary>
+    ///     Alert sound that is played when a crew member goes into critical / dies.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier AlertSound = new SoundPathSpecifier("/Audio/_DV/Medical/CrewMonitoring/crew_alert.ogg");
+    // DeltaV - end of alert system code
 }
