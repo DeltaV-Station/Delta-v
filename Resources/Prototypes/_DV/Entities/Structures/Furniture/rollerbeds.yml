@@ -9,7 +9,7 @@
     - type: Item
       size: Small
     - type: Sprite
-      sprite: DeltaV/Structures/Furniture/rollerbeds.rsi
+      sprite: _DV/Structures/Furniture/rollerbeds.rsi
       noRot: true
       layers:
       - state: rollerbed
@@ -61,8 +61,8 @@
 
 
 - type: entity
-  parent: RollerBedHolo
   id: RollerBedHoloSpawnFolded
+  parent: RollerBedHolo
   suffix: folded
   components:
   - type: Foldable
