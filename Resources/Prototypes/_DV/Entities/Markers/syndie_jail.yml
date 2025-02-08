@@ -1,0 +1,27 @@
+- type: entity
+  parent: WarpPoint
+  id: WarpPointSyndieJail
+  suffix: Syndie Jail
+  components:
+  - type: WarpPoint
+    location: Syndie Jail
+  - type: SyndieFultonBeacon
+    whitelist:
+      components:
+      - MobState
+
+- type: entity
+  parent: MarkerBase
+  id: MarkerSyndieJailLoot
+  name: syndie fulton loot beacon
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Markers/cross.rsi
+      state: green
+    - sprite: Objects/Consumable/Drinks/golden_cup.rsi
+      state: icon
+  - type: SyndieFultonBeacon
+    blacklist:
+      components:
+      - MobState
