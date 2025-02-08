@@ -796,7 +796,7 @@ entities:
       pos: -6.5,-6.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -18145.834
+      secondsUntilStateChange: -18425.781
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -859,7 +859,7 @@ entities:
       pos: -2.5,-6.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -18138.068
+      secondsUntilStateChange: -18418.016
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5916,6 +5916,7 @@ entities:
       enabled: False
     - type: StationAiWhitelist
       enabled: False
+    - type: Emagged
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 747
@@ -7846,6 +7847,7 @@ entities:
     - type: Transform
       pos: 4.5,-4.5
       parent: 1
+    - type: Emagged
 - proto: VendingMachineCigs
   entities:
   - uid: 565
