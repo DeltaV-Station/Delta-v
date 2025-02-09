@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: rosieposieeee
-  changes:
-  - message: Added Space Disposals with a warning sign on them, and made disposals
-      pretty again.
-    type: Tweak
-  id: 519
-  time: '2024-09-05T05:46:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1009
 - author: Radezolid
   changes:
   - message: Fixed Mystagogue cloak not counting towards the thief's cloak objective
@@ -3843,3 +3835,11 @@
   id: 1018
   time: '2025-02-08T10:46:09.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2927
+- author: deltanedas
+  changes:
+  - message: Made air alarms less sensitive to higher oxygen and slightly lower pressure.
+      Opening random firelocks is more likely to actually be dangerous!
+    type: Tweak
+  id: 1019
+  time: '2025-02-09T03:00:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2939
