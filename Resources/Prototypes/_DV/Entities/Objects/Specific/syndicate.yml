@@ -12,7 +12,7 @@
     - NukeOpsUplink
 
 - type: entity
-  parent: BaseUplinkRadio40TC
+  parent: BaseUplinkRadio45TC
   id: CommanderUplinkRadio45TC
   suffix: 45 TC, NukeOps, Commander
   components:
@@ -22,7 +22,7 @@
     - CommanderUplink
 
 - type: entity
-  parent: BaseUplinkRadio40TC
+  parent: BaseUplinkRadio45TC
   id: AgentUplinkRadio45TC
   suffix: 45 TC, NukeOps, Agent
 
@@ -31,3 +31,12 @@
     tags:
     - NukeOpsUplink
     - AgentUplink
+
+- type: entity
+  parent: BaseUplinkRadio60TC
+  id: BaseUplinkRadio65TC
+  suffix: 65 TC, LoneOps
+  components:
+    - type: Store
+      balance:
+        Telecrystal: 65
