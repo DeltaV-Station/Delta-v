@@ -376,7 +376,7 @@
   - type: SurgeryTendWoundsEffect
     damage:
       groups:
-        Brute: -5 # DeltaV: was -5
+        Brute: -5
   - type: SurgeryRepeatableStep
   - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
     toolDirtiness: 0.5
