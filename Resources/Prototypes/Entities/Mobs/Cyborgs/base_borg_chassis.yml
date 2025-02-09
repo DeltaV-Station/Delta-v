@@ -108,6 +108,7 @@
     doAfterDelay: 10
     allowSelfRepair: false
   - type: BorgChassis
+  - type: SurgerySelfDirty # DeltaV: borgs get dirty from doing surgery
   - type: LockingWhitelist
     blacklist:
       components:

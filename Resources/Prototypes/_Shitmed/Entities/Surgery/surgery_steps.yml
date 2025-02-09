@@ -3,6 +3,7 @@
   abstract: true
   components:
   - type: SurgeryStep
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
 
 - type: entity
   parent: SurgeryStepBase
@@ -232,6 +233,9 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
     state: insertion
   - type: SurgeryAddPartStep
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 7.5
+    gloveDirtiness: 7.5
 
 - type: entity
   parent: SurgeryStepBase
@@ -329,6 +333,9 @@
     damage:
       types:
         Slash: 30
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 7.5
+    gloveDirtiness: 7.5
 
 # Tend Wounds
 
@@ -362,15 +369,18 @@
   - type: SurgeryStep
     tool:
     - type: Tending
-    duration: 3 # DeltaV: was 1
+    duration: 2 # DeltaV: was 1
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
   - type: SurgeryTendWoundsEffect
     damage:
       groups:
-        Brute: -3 # DeltaV: was -5
+        Brute: -5
   - type: SurgeryRepeatableStep
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 0.5
+    gloveDirtiness: 0.5
 
 - type: entity
   parent: SurgeryStepBase
@@ -381,7 +391,7 @@
   - type: SurgeryStep
     tool:
     - type: Tending
-    duration: 3 # DeltaV: was 1
+    duration: 2 # DeltaV: was 1
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
@@ -393,8 +403,11 @@
   - type: SurgeryDamageChangeEffect # DeltaV
     damage:
       types:
-        Slash: 2
+        Slash: 1
   - type: SurgeryRepeatableStep
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 0.5
+    gloveDirtiness: 0.5
 
 - type: entity
   parent: SurgeryStepBase
@@ -477,6 +490,9 @@
     damage:
       types:
         Slash: 50
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 7.5
+    gloveDirtiness: 7.5
 
 - type: entity
   parent: SurgeryStepBase
@@ -498,6 +514,9 @@
     damage:
       types:
         Blunt: 5
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 7.5
+    gloveDirtiness: 7.5
 
 - type: entity
   parent: SurgeryStepInsertOrgan
