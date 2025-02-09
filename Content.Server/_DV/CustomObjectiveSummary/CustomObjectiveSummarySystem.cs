@@ -1,4 +1,6 @@
+using Content.Server.Administration.Logs;
 using Content.Shared._DV.CustomObjectiveSummary;
+using Content.Shared.Database;
 using Content.Shared.Mind;
 using Robust.Shared.Network;
 
@@ -8,6 +10,7 @@ public sealed class CustomObjectiveSummarySystem : EntitySystem
 {
     [Dependency] private readonly IServerNetManager _net = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
 
     public override void Initialize()
     {
@@ -24,10 +27,12 @@ public sealed class CustomObjectiveSummarySystem : EntitySystem
         if (mind.Value.Comp.Objectives.Count == 0)
             return;
 
-        var comp = EnsureComp<Shared._DV.CustomObjectiveSummary.CustomObjectiveSummaryComponent>(mind.Value);
+        var comp = EnsureComp<CustomObjectiveSummaryComponent>(mind.Value);
 
         comp.ObjectiveSummary = msg.Summary;
         Dirty(mind.Value.Owner, comp);
+
+        _adminLog.Add(LogType.ObjectiveSummary, $"{ToPrettyString(mind.Value.Comp.OwnedEntity)} wrote objective summery: {msg.Summary}");
     }
 
     private void OnEvacShuttleLeft(EvacShuttleLeftEvent args)
