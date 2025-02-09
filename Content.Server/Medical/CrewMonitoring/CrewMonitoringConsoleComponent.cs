@@ -33,13 +33,13 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     /// <summary>
     ///     Accumulated time for tracking alert cooldown
     /// </summary>
-    public float AccumulatedFrameTime = 0f;
+    public TimeSpan AccumulatedTime = TimeSpan.Zero;
 
     /// <summary>
     ///     Time between alerts
     /// </summary>
     [DataField]
-    public float AlertCooldown = 15f;
+    public TimeSpan AlertCooldown = TimeSpan.FromSeconds(15);
 
     /// <summary>
     ///     Alert sound that is played when a crew member goes into critical / dies.

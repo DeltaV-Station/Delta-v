@@ -75,11 +75,11 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
             if (!status.IsAlive || isCritical)
             {
-                if (component.AccumulatedFrameTime >= component.AlertCooldown)
+                if (component.AccumulatedTime >= component.AlertCooldown)
                 {
                     var audioParams = AudioParams.Default.WithVolume(-2f).WithMaxDistance(4f);
                     _audio.PlayPvs(component.AlertSound, uid, audioParams);
-                    component.AccumulatedFrameTime = 0f;
+                    component.AccumulatedTime = TimeSpan.Zero;
                 }
 
                 // We are doing this outside the cooldown check to avoid "alert queues"
@@ -126,7 +126,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         var query = EntityQueryEnumerator<CrewMonitoringConsoleComponent>();
         while (query.MoveNext(out var uid, out var cmp))
         {
-            cmp.AccumulatedFrameTime += frameTime;
+            cmp.AccumulatedTime += TimeSpan.FromSeconds(frameTime);
         }
     }
     // DeltaV - end of alert system code
