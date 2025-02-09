@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fulton recipes can now be unlocked with the Aerial Extractions tech.
-    type: Add
-  id: 523
-  time: '2024-09-07T13:17:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1760
 - author: Fox
   changes:
   - message: New Lobby Track "The Station" by A-Guy
@@ -3844,3 +3837,16 @@
   id: 1022
   time: '2025-02-09T17:33:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2941
+- author: sowelipililimute
+  changes:
+  - message: Surgical tools get less dirtier than before from normal procedures and
+      dirtier from cross contamination, and have a lower base poison damage once they
+      become too dirty
+    type: Tweak
+  - message: Poor sanitation now deals poison damage on the specific part
+    type: Add
+  - message: Poison damage from surgery is no longer unbounded
+    type: Fix
+  id: 1023
+  time: '2025-02-09T19:24:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2926
