@@ -728,7 +728,7 @@
 
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
-  name: loadout-group-salvage-specialist-backpack
+  name: loadout-group-shaft-miner-backpack # DeltaV - Shaft Miner
   loadouts:
   - SalvageSpecialistBackpack
   - SalvageSpecialistSatchel
@@ -736,14 +736,14 @@
 
 - type: loadoutGroup
   id: SalvageSpecialistOuterClothing
-  name: loadout-group-salvage-specialist-outerclothing
+  name: loadout-group-shaft-miner-outerclothing # DeltaV - Shaft Miner
   minLimit: 0
   loadouts:
   - SalvageSpecialistWintercoat
 
 - type: loadoutGroup
   id: SalvageSpecialistShoes
-  name: loadout-group-salvage-specialist-shoes
+  name: loadout-group-shaft-miner-shoes # DeltaV - Shaft Miner
   loadouts:
   - SalvageBoots
   # Begin DeltaV changes

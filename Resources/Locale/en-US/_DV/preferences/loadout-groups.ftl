@@ -62,9 +62,12 @@ loadout-group-cargo-assistant-backpack = Cargo Assistant backpack
 loadout-group-cargo-assistant-outerclothing = Cargo Assistant outer clothing
 loadout-group-cargo-assistant-shoes = Cargo Assistant shoes
 
-loadout-group-salvage-specialist-neck = Salvage Specialist neck
+loadout-group-shaft-miner-neck = Shaft Miner neck
+loadout-group-shaft-miner-backpack = Shaft Miner backpack
+loadout-group-shaft-miner-outerclothing = Shaft Miner outer clothing
+loadout-group-shaft-miner-shoes = Shaft Miner shoes
 
-loadout-group-salvage-id-delta = Salvage Specialist PDA
+loadout-group-shaft-miner-pda = Shaft Miner PDA
 
 # Medical
 loadout-group-chemist-gloves = Chemist gloves

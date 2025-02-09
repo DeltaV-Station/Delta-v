@@ -1,3 +1,4 @@
+# DeltaV note: these have Salvage Specialist replaced with Shaft Miner
 tips-dataset-1 = If you're on fire, you can click the alert on the right of your screen to stop, drop, and roll.
 tips-dataset-2 = You can view and edit all keybindings used in-game at any time through the Options menu.
 tips-dataset-3 = You can access the in-game guidebook through the escape menu, or by pressing Numpad 0 by default.
@@ -43,13 +44,13 @@ tips-dataset-42 = As a Nuclear Operative, communication is key! Use your radio t
 tips-dataset-43 = As a Nuclear Operative, remember that stealth is an option. It'll be hard for the captain to fight back if he gets caught off guard by what he thinks is just a regular passenger!
 tips-dataset-44 = As an antagonist, be mindful of the power of destroying telecommunications. It'll be a lot harder for people to call you out if they can't do so effectively!
 tips-dataset-45 = You can examine your headset to see which radio channels you have available and how to speak in them.
-tips-dataset-46 = As a Salvage Specialist, always carry a GPS on you and take note of the station's coordinates in case your salvage is lost to space.
-tips-dataset-47 = As a Salvage Specialist, you can use your proto-kinetic accelerator to move yourself in space when in a pinch. Just be wary that it isn't very effective.
-tips-dataset-48 = As a Salvage Specialist, never forget to mine ore! Ore can be sold to logistics for a pretty penny, be used for construction, and also be used by Scientists for fancy technology.
-tips-dataset-49 = As a Salvage Specialist, try asking epistemics for a tethergun. It can be used to grab items off of salvage wrecks extremely efficiently!
-tips-dataset-50 = As a Salvage Specialist, try asking epistemics for a grappling hook. It can be used to propel yourself onto wrecks, or if stuck in space you don't have to rely on the proto-kinetic accelerator.
+tips-dataset-46 = As a Shaft Miner, always carry a GPS on you and take note of the station's coordinates in case your salvage is lost to space.
+tips-dataset-47 = As a Shaft Miner, you can use your proto-kinetic accelerator to move yourself in space when in a pinch. Just be wary that it isn't very effective.
+tips-dataset-48 = As a Shaft Miner, never forget to mine ore! Ore can be sold to logistics for a pretty penny, be used for construction, and also be used by Scientists for fancy technology.
+tips-dataset-49 = As a Shaft Miner, try asking epistemics for a tethergun. It can be used to grab items off of salvage wrecks extremely efficiently!
+tips-dataset-50 = As a Shaft Miner, try asking epistemics for a grappling hook. It can be used to propel yourself onto wrecks, or if stuck in space you don't have to rely on the proto-kinetic accelerator.
 tips-dataset-51 = Tip #51 does not exist and has never existed. Ignore any rumors to the contrary.
-tips-dataset-52 = As a Salvage Specialist, consider cooperating with the Cargo Technicians. They can order you a wide variety of useful items, including ones that may be hard to get otherwise, such laser guns and shuttle building materials.
+tips-dataset-52 = As a Shaft Miner, consider cooperating with the Cargo Technicians. They can order you a wide variety of useful items, including ones that may be hard to get otherwise, such laser guns and shuttle building materials.
 tips-dataset-53 = As a Cargo Technician, consider asking epistemics for a Ripley APLU. When paired with a hydraulic clamp, you can grab valuable maintenance objects like fuel tanks much more easily, and make deliveries in a swift manner.
 tips-dataset-54 = As a Cargo Technician, try to maintain a surplus of materials. They are extremely useful for Scientists and Station Engineers to have immediate access to.
 tips-dataset-55 = As a Cargo Technician, if you have a surplus of cash try gambling! Sometimes you gain more money than you begin with.
