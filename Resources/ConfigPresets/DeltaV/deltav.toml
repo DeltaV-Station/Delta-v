@@ -81,8 +81,8 @@ space_wind = true
 arrivals = false
 emergency_dock_time = 240 # an extra minute over the default
 emergency_transit_time_min = 90
-auto_call_time = 120 # rounds are longer
-auto_call_extension_time = 30 # next auto call at 2h30
+auto_call_time = 150 # rounds are extra longer
+auto_call_extension_time = 30 # next auto call at 3h00
 
 [biomass]
 easy_mode = false # reclaimer can work on soul-ful bodies, mrp server
