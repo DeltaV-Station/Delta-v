@@ -21,6 +21,15 @@ public sealed partial class NukieOperationComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<NukieOperationPrototype>? ChosenOperation;
+
+    [DataField]
+    public bool HasWarBeenDeclared;
+
+    /// <summary>
+    ///     Automatically calls war after set time.
+    /// </summary>
+    [DataField]
+    public TimeSpan AutoWarCallTime = TimeSpan.FromMinutes(2);
 }
 
 /// <summary>

@@ -1,10 +1,12 @@
 ﻿using Content.Server.Antag;
+using Content.Server.GameTicking;
 using Content.Server.Objectives;
 using Content.Shared._DV.FeedbackOverwatch;
 using Content.Shared.Mind;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Toolshed.Commands.Math;
 
 namespace Content.Server._DV.Antag;
 
@@ -15,6 +17,8 @@ public sealed class NukieOperationSystem : EntitySystem
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedFeedbackOverwatchSystem _feedback = default!;
+    [Dependency] private readonly GameTicker _ticker = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -23,7 +27,25 @@ public sealed class NukieOperationSystem : EntitySystem
         SubscribeLocalEvent<GetNukeCodePaperWriting>(OnNukeCodePaperWritingEvent);
     }
 
-    private void OnAntagSelected(Entity<NukieOperationComponent> ent, ref AfterAntagEntitySelectedEvent args)
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        var currentTime = _ticker.RoundDuration();
+        var query = EntityQueryEnumerator<NukieOperationComponent>();
+        // query.MoveNext(out var nukieOperationComp);
+        // nukieOperationComp.AutoWarCallTime
+        if (query.MoveNext(out var nukieOperationComp)
+            && nukieOperationComp.ChosenOperation == "NukieOperationDestroyStation"
+            && currentTime >= nukieOperationComp.AutoWarCallTime
+            && !nukieOperationComp.HasWarBeenDeclared)
+        {
+
+
+
+        }
+    }
+
+private void OnAntagSelected(Entity<NukieOperationComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
         // Yes this is bad, but I couldn't easily find an event that would work.
         if (ent.Comp.ChosenOperation == null)
