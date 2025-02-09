@@ -1,0 +1,42 @@
+# All the Kitsune customization
+
+# Tail Markings
+- type: marking
+  id: KitsuneTailDefault
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Kitsune]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+          color: "#fffafa"
+  sprites:
+    - sprite: Mobs\Customization\kitsune\tails.rsi
+      state: kitsune_primary
+    - sprite: Mobs\Customization\kitsune\tails.rsi
+      state: kitsune_secondary
+
+# Ear Markings
+
+- type: marking
+  id: KitsuneEarsDefault
+  bodyPart: Head
+  markingCategory: HeadTop
+  speciesRestriction: [Kitsune]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+          color: "#fffafa"
+  sprites:
+    - sprite: Mobs\Customization\kitsune\ears.rsi
+      state: kitsune_fluffy_ears
+    - sprite: Mobs\Customization\kitsune\ears.rsi
+      state: kitsune_fluffy_fluff
