@@ -1,48 +1,4 @@
 ﻿Entries:
-- author: rosieposieeee
-  changes:
-  - message: Added Space Disposals with a warning sign on them, and made disposals
-      pretty again.
-    type: Tweak
-  id: 519
-  time: '2024-09-05T05:46:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1009
-- author: Radezolid
-  changes:
-  - message: Fixed Mystagogue cloak not counting towards the thief's cloak objective
-    type: Fix
-  id: 520
-  time: '2024-09-06T21:26:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1759
-- author: adeinitas
-  changes:
-  - message: Wing covers have been installed on various ERT suits and some others,
-      and they now fit harpies.
-    type: Tweak
-  id: 521
-  time: '2024-09-07T04:37:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1754
-- author: flyingkarii
-  changes:
-  - message: Removed command age requirement.
-    type: Tweak
-  id: 522
-  time: '2024-09-07T04:38:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1611
-- author: deltanedas
-  changes:
-  - message: Fulton recipes can now be unlocked with the Aerial Extractions tech.
-    type: Add
-  id: 523
-  time: '2024-09-07T13:17:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1760
-- author: Fox
-  changes:
-  - message: New Lobby Track "The Station" by A-Guy
-    type: Add
-  id: 524
-  time: '2024-09-07T13:44:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1761
 - author: Fox
   changes:
   - message: Added cryo and some new maints to Pebble!
@@ -3843,3 +3799,61 @@
   id: 1018
   time: '2025-02-08T10:46:09.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2927
+- author: deltanedas
+  changes:
+  - message: Made air alarms less sensitive to higher oxygen and slightly lower pressure.
+      Opening random firelocks is more likely to actually be dangerous!
+    type: Tweak
+  id: 1019
+  time: '2025-02-09T03:00:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2939
+- author: Lyndomen
+  changes:
+  - message: Surgical procedures repairing burns and brute damage are slightly more
+      effective.
+    type: Tweak
+  id: 1020
+  time: '2025-02-09T05:31:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2935
+- author: Lyndomen
+  changes:
+  - message: Nukie medic and commander armor can now actually get purchased, and they
+      get 5 extra TC.
+    type: Tweak
+  id: 1021
+  time: '2025-02-09T05:32:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2934
+- author: Quanteey
+  changes:
+  - message: NT now stocks brute trauma kits with additional bicaridine pills
+    type: Tweak
+  id: 1022
+  time: '2025-02-09T17:33:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2941
+- author: sowelipililimute
+  changes:
+  - message: Surgical tools get less dirtier than before from normal procedures and
+      dirtier from cross contamination, and have a lower base poison damage once they
+      become too dirty
+    type: Tweak
+  - message: Poor sanitation now deals poison damage on the specific part
+    type: Add
+  - message: Poison damage from surgery is no longer unbounded
+    type: Fix
+  id: 1023
+  time: '2025-02-09T19:24:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2926
+- author: Smugman
+  changes:
+  - message: Added the Chainsmoker Bundle to the Uplink. 6 Packs of Interdynes plus
+      a Valid Lighter that shoots fire!
+    type: Add
+  - message: After a "False Advertising" lawsuit, Cigarette Cartons now ACTUALLY Contain
+      6 packs. (except discount dan's)
+    type: Tweak
+  - message: Fixed Cigarette cartons aside from "Nomads" not displaying their Opened
+      State.
+    type: Fix
+  id: 1024
+  time: '2025-02-09T22:21:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2894
