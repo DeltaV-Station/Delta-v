@@ -240,6 +240,7 @@
       - SpeedLoaderSpecialPractice
       - MagazineBoxSpecial
       - MagazinePistolSpecial
+      - MagazineLaser
       # End of modified code
   - type: BlueprintReceiver
     whitelist:
@@ -430,7 +431,8 @@
       - WeaponEnergyGun       # Energy Gun
       - WeaponEnergyGunMini   # Miniature Energy Gun
       - WeaponEnergyGunPistol # PDW-9 Energy Pistol
-      - WeaponGunLaserCarbineAutomatic # IK-60 Laser Carbine
+      - WeaponImmolator
+      - WeaponEnergyGunAdvanced
       - MagazinePistolRubber
       - SpeedLoaderMagnumRubber
       - SpeedLoaderSpecialRubber
@@ -869,6 +871,7 @@
       - BoxShellTranquilizer
       - BoxBeanbag
       - WeaponDisabler
+      - MagazineLaser # 20 Round Laser Magazine
       # End DeltaV additions
     dynamicRecipes:
       - EncryptionKeySyndie # Nyano
@@ -932,8 +935,8 @@
       - ClothingHeadCage # Nyanotrasen - Insulative headgear
       - WeaponEnergyGun # DeltaV - Energy Gun
       - WeaponEnergyGunMini # Energy Gun but miniature
-      - WeaponEnergyGunPistol # Energy Gun Mini but with the power of a normal energy gun
-      - WeaponGunLaserCarbineAutomatic # New Laser Projectiles with a 20 round carbine
+      - WeaponEnergyGunAdvanced # Energy Gun but self-recharging
+      - WeaponImmolator # Incendiary Laser Gun
       - MagazinePistolRubber
       - SpeedLoaderMagnumRubber
       - SpeedLoaderSpecialRubber

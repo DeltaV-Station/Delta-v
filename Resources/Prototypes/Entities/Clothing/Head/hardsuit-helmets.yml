@@ -572,6 +572,15 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertchaplain.rsi
   - type: PointLight
     color: "#ffffff"
+  - type: Psionic             #DeltaV: Start - Psionic Countering Abilities
+  - type: TinfoilHat
+    passthrough: true
+    destroyOnFry: false
+  - type: ClothingGrantPsionicPower
+    power: DispelPower
+  - type: GuideHelp
+    guides:
+    - Psionics                #DeltaV: End - Psionic Countering Abilities
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -593,6 +602,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FireProtection #DeltaV: ERT overhaul
+    reduction: 0.2 #DeltaV: ERT overhaul
 
 #ERT Medical Hardsuit
 - type: entity

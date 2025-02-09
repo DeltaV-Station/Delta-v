@@ -32,6 +32,8 @@
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
   - MagazineBoxSpecialHoly
+  - MagazineBoxSpecialMindbreaker
+  - BoxShellSoulbreaker # Nyanotrasen - Soulbreaker shotgun ammo
 
 - type: technology
   id: EnergyGuns
@@ -59,6 +61,18 @@
   recipeUnlocks:
   - WeaponEnergyGunPistol
   - WeaponGunLaserCarbineAutomatic
+
+- type: technology
+  id: IncendiaryLaserWeapons
+  name: research-technology-incendiary-laser-weapons
+  icon:
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/immolator.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - WeaponImmolator
 
 - type: technology
   id: RobustMelee
