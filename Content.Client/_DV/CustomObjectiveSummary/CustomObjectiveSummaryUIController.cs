@@ -1,22 +1,22 @@
-using Content.Shared._DV.CustomObjectiveSummery;
+using Content.Shared._DV.CustomObjectiveSummary;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Network;
 
-namespace Content.Client._DV.CustomObjectiveSummery;
+namespace Content.Client._DV.CustomObjectiveSummary;
 
-public sealed class CustomObjectiveSummeryUIController : UIController
+public sealed class CustomObjectiveSummaryUIController : UIController
 {
     [Dependency] private readonly IClientNetManager _net = default!;
 
-    private CustomObjectiveSummeryWindow? _window;
+    private CustomObjectiveSummaryWindow? _window;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeNetworkEvent<CustomObjectiveSummeryOpenMessage>(OnCustomObjectiveSummeryOpen);
+        SubscribeNetworkEvent<CustomObjectiveSummaryOpenMessage>(OnCustomObjectiveSummaryOpen);
     }
 
-    private void OnCustomObjectiveSummeryOpen(CustomObjectiveSummeryOpenMessage msg, EntitySessionEventArgs args)
+    private void OnCustomObjectiveSummaryOpen(CustomObjectiveSummaryOpenMessage msg, EntitySessionEventArgs args)
     {
         OpenWindow();
     }
@@ -26,7 +26,7 @@ public sealed class CustomObjectiveSummeryUIController : UIController
         // If a window is already open, close it
         _window?.Close();
 
-        _window = new CustomObjectiveSummeryWindow();
+        _window = new CustomObjectiveSummaryWindow();
         _window.OpenCentered();
         _window.OnClose += () => _window = null;
         _window.OnSubmitted += OnFeedbackSubmitted;
@@ -36,7 +36,7 @@ public sealed class CustomObjectiveSummeryUIController : UIController
     {
         var msg = new CustomObjectiveClientSetObjective
         {
-            Summery = args,
+            Summary = args,
         };
         _net.ClientSendMessage(msg);
         _window?.Close();

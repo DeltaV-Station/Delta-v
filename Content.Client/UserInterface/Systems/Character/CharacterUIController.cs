@@ -1,5 +1,6 @@
 using System.Linq;
-using Content.Client._DV.CustomObjectiveSummery; // DeltaV
+using Content.Client._DV.CustomObjectiveSummary;
+// DeltaV
 using Content.Client.CharacterInfo;
 using Content.Client.Gameplay;
 using Content.Client.Stylesheets;
@@ -33,7 +34,7 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
     [Dependency] private readonly ILogManager _logMan = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly CustomObjectiveSummeryUIController _objective = default!; // DeltaV
+    [Dependency] private readonly CustomObjectiveSummaryUIController _objective = default!; // DeltaV
     [Dependency] private readonly IClientNetManager _net = default!; // DeltaV
 
     [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
@@ -178,7 +179,7 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
 
             _window.Objectives.AddChild(objectiveControl);
         }
-        // DeltaV
+        // DeltaV start - Custom objective summary
         if (objectives.Count > 0)
         {
             var button = new Button
@@ -190,6 +191,7 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
 
             _window.Objectives.AddChild(button);
         }
+        // DeltaV end
 
         if (briefing != null)
         {

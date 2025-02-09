@@ -12,7 +12,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Objectives.Commands;
-using Content.Shared._DV.CustomObjectiveSummery; // DeltaV
+// DeltaV
 using Content.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
@@ -163,7 +163,27 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                     totalObjectives++;
 
                     agentSummary.Append("- ");
-                    // DeltaV - Remote greentexts
+                    /* DeltaV - Removed greentext
+                    if (progress > 0.99f)
+                    {
+                        agentSummary.AppendLine(Loc.GetString(
+                            "objectives-objective-success",
+                            ("objective", objectiveTitle),
+                            ("markupColor", "green")
+                        ));
+                        completedObjectives++;
+                    }
+                    else
+                    {
+                        agentSummary.AppendLine(Loc.GetString(
+                            "objectives-objective-fail",
+                            ("objective", objectiveTitle),
+                            ("progress", (int) (progress * 100)),
+                            ("markupColor", "red")
+                        ));
+                    }
+                    */
+                    // DeltaV - Remove greentext
                     agentSummary.AppendLine(Loc.GetString(
                         "objectives-objective",
                         ("objective", objectiveTitle)
@@ -173,11 +193,11 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
             var successRate = totalObjectives > 0 ? (float) completedObjectives / totalObjectives : 0f;
             // DeltaV custom objective response.
-            if (TryComp<CustomObjectiveSummeryComponent>(mindId, out var customComp))
+            if (TryComp<Shared._DV.CustomObjectiveSummary.CustomObjectiveSummaryComponent>(mindId, out var customComp))
             {
                 // We have to spit it like this to make it readable. Yeah, it sucks but for some reason the entire thing
                 // is just one long string...
-                var words = customComp.ObjectiveSummery.Split(" ");
+                var words = customComp.ObjectiveSummary.Split(" ");
                 var currentLine = "";
                 foreach (var word in words)
                 {

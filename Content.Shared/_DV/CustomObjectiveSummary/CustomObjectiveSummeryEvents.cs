@@ -2,38 +2,38 @@ using Lidgren.Network;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._DV.CustomObjectiveSummery;
+namespace Content.Shared._DV.CustomObjectiveSummary;
 
 /// <summary>
-///     Message from the client with what they are updating their summery to.
+///     Message from the client with what they are updating their summary to.
 /// </summary>
 public sealed class CustomObjectiveClientSetObjective : NetMessage
 {
     public override MsgGroups MsgGroup => MsgGroups.EntityEvent;
 
     /// <summary>
-    ///     The summery that the user wrote.
+    ///     The summary that the user wrote.
     /// </summary>
-    public string Summery = string.Empty;
+    public string Summary = string.Empty;
 
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {
-        Summery = buffer.ReadString();
+        Summary = buffer.ReadString();
     }
 
     public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
     {
-        buffer.Write(Summery);
+        buffer.Write(Summary);
     }
 
     public override NetDeliveryMethod DeliveryMethod => NetDeliveryMethod.ReliableUnordered;
 }
 
 /// <summary>
-///     Clients listen for this event and when they get it, they open a popup so the player can fill out the objective summery.
+///     Clients listen for this event and when they get it, they open a popup so the player can fill out the objective summary.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class CustomObjectiveSummeryOpenMessage : EntityEventArgs;
+public sealed class CustomObjectiveSummaryOpenMessage : EntityEventArgs;
 
 /// <summary>
 ///     DeltaV event for when the evac shuttle leaves.

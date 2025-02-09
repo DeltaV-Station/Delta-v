@@ -1,7 +1,7 @@
-custom-objective-button-text = Write objective summery
+custom-objective-button-text = Write objective summary
 
 # UI
-custom-objective-UI-title = Custom objective summery
+custom-objective-UI-title = Custom objective summary
 custom-objective-UI-submit-button-text = Submit
 custom-objective-UI-submit-button-text-confirm = Confirm submission
 custom-objective-UI-explain = Explain how you completed your objectives here!
