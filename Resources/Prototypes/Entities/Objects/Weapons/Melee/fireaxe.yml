@@ -32,7 +32,10 @@
         Slash: 10
         Structural: 40
   - type: Item
-    size: Ginormous
+    size: Huge # Delta V - Now It Fits in bags
+    shape:
+    - 0,0,3,1
+    - 2,2,3,2
   - type: Clothing
     sprite: Objects/Weapons/Melee/fireaxe.rsi
     quickEquip: false

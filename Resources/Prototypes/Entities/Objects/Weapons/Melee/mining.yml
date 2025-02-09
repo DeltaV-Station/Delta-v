@@ -152,7 +152,10 @@
         Structural: 30
   - type: GunRequiresWield
   - type: Item
-    size: Ginormous
+    size: Huge # Delta V - Crusher in bag time
+    shape:
+    - 0,0,4,0
+    - 3,1,4,1
     sprite: Objects/Weapons/Melee/crusher-inhands.rsi
   - type: DisarmMalus
   - type: Prying
@@ -197,5 +200,7 @@
     tags:
       - Pickaxe
   - type: Item
-    size: Ginormous
+    size: Huge # Delta V - Crusher in bag time
+    shape:
+    - 0,0,6,0
     sprite: Objects/Weapons/Melee/crusher_glaive-inhands.rsi
