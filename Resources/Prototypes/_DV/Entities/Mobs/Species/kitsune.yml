@@ -1,0 +1,58 @@
+type: entity
+save: false
+name: Urist McKitsune
+parent: BaseMobHuman
+id: MobKitsuneBase
+abstract: true
+component:
+- type: Sprite
+  scale: 0.8, 0.8
+- type: HumanoidAppearance
+  species: Kitsune
+- type: Fixtures
+  fixtures:
+    fix1:
+      shape:
+        !type:PhysShapeCircle
+        radius: 0.35
+      density: 50
+      restitution: 0.0
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
+- type: Body
+  prototype: Felinid
+- type: Damageable
+- type: MeleeWeapon
+  soundHit:
+    path: /Audio/Weapons/hiss.ogg
+  animation: WeaponArcClaw
+  damage:
+    types:
+     Heat: 5
+- type: Speech
+  speechSounds: Alto
+- type: Vocal
+  wilhelm: "/Audio/Nyanotrasen/Voice/Felinid/cat_wilhelm.ogg"
+  sounds:
+    Male: MaleFelinid
+    Female: FemaleFelinid
+    Unsexed: MaleFelinid
+- type: Polymorphable
+  innatePolymorphs:
+    - KitsuneMorph
+- type: InteractionPopup
+  successChance: 0.5
+  interactSuccessString: petting-success-soft-floofy-kitsune
+  interactFailureString: petting-failure-generic
+  interactSuccessSpawn: EffectHearts
+  interactSuccessSound:
+    path: /Audio/Animals/fox_squeak.ogg
+- type: Kitsune
+- type: PseudoItem
+  storedOffset: "0,17"
+  shape:
+    - 0,0,1,4
+    - 0,2,3,4
+    - 4,0,5,4
