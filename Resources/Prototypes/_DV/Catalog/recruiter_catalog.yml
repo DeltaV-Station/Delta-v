@@ -6,7 +6,7 @@
   productEntity: DrinkCanPackBloodRed
   icon: { sprite: Objects/Consumable/Drinks/robustnukie.rsi, state: icon }
   cost:
-    CheapTelecrystal: 2
+    CheapTelecrystal: 10
   categories:
   - RecruiterJunk
   conditions:
@@ -68,7 +68,7 @@
   cost:
     CheapTelecrystal: 2
   categories:
-  - RecruiterJunk
+  - RecruiterUniforms
 
 - type: listing
   id: UplinkRecruiterOperativeSuit
@@ -78,7 +78,7 @@
   cost:
     CheapTelecrystal: 2
   categories:
-  - RecruiterJunk
+  - RecruiterUniforms
 
 - type: listing
   id: UplinkRecruiterBalloon
@@ -190,7 +190,7 @@
   cost:
     CheapTelecrystal: 4
   categories:
-  - RecruiterJunk
+  - RecruiterTreasure
 
 - type: listing
   id: UplinkRecruiterBanner
@@ -199,16 +199,6 @@
   productEntity: BannerSyndicate
   cost:
     CheapTelecrystal: 4
-  categories:
-  - RecruiterJunk
-
-- type: listing
-  id: UplinkRecruiterBedsheet
-  name: uplink-recruiter-bedsheet-name
-  description: uplink-recruiter-bedsheet-desc
-  productEntity: BedsheetSyndie
-  cost:
-    CheapTelecrystal: 2
   categories:
   - RecruiterJunk
 
@@ -240,7 +230,7 @@
   cost:
     CheapTelecrystal: 2
   categories:
-  - RecruiterJunk
+  - RecruiterUniforms
 
 - type: listing
   id: UplinkRecruiterCybersunCasual
@@ -250,7 +240,7 @@
   cost:
     CheapTelecrystal: 2
   categories:
-  - RecruiterJunk
+  - RecruiterUniforms
 
 - type: listing
   id: UplinkRecruiterCybersunHazard
@@ -260,7 +250,7 @@
   cost:
     CheapTelecrystal: 2
   categories:
-  - RecruiterJunk
+  - RecruiterUniforms
 
 - type: listing
   id: UplinkRecruiterCybersunSurgeon
@@ -270,7 +260,8 @@
   cost:
     CheapTelecrystal: 6
   categories:
-  - RecruiterJunk
+  - RecruiterUniforms
+  - RecruiterKits
 
 - type: listing
   id: UplinkRecruiterCybersunLawyer
@@ -280,7 +271,8 @@
   cost:
     CheapTelecrystal: 8
   categories:
-  - RecruiterTreasure
+  - RecruiterUniforms
+  - RecruiterKits
 
 - type: listing
   id: UplinkRecruiterInterdynechem
@@ -290,7 +282,8 @@
   cost:
     CheapTelecrystal: 8
   categories:
-  - RecruiterTreasure
+  - RecruiterUniforms
+  - RecruiterKits
 
 - type: listing
   id: UplinkRecruiterRealcapfruit
@@ -312,14 +305,78 @@
     CheapTelecrystal: 10
   categories:
   - RecruiterTreasure
+  - RecruiterKits
 
-  - type: listing
+- type: listing
   id: UplinkRecruiterCyberpen
   name: uplink-recruiter-cyberpen-name
   description: uplink-recruiter-cyberpen-desc
-  productEntity:
-  icon: { sprite: Clothing/Hands/Gloves/tacticalmaidgloves.rsi, state: icon }
+  productEntity: CyberPen
   cost:
     CheapTelecrystal: 10
   categories:
   - RecruiterTreasure
+
+- type: listing
+  id: UplinkRecruiterGGF
+  name: uplink-recruiter-ggf-name
+  description: uplink-recruiter-ggf-desc
+  productEntity: BookGorlexGirlfriends
+  cost:
+    CheapTelecrystal: 20
+  categories:
+  - RecruiterJunk
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+
+- type: listing
+  id: UplinkRecruiterRandomdonk
+  name: uplink-recruiter-randomdonk-name
+  description: uplink-recruiter-randomdonk-desc
+  productEntity: BoxRandomDonk
+  icon: { sprite: Objects/Consumable/Food/Baked/donkpocket.rsi, state: box }
+  cost:
+    CheapTelecrystal: 4
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterMicrowave
+  name: uplink-recruiter-microwave-name
+  description: uplink-recruiter-microwave-desc
+  productEntity: SyndicateMicrowave
+  cost:
+    CheapTelecrystal: 10
+  categories:
+  - RecruiterTreasure
+
+- type: listing
+  id: UplinkRecruiterWintercoat
+  name: uplink-recruiter-wintercoat-name
+  description: uplink-recruiter-wintercoat-desc
+  productEntity: ClothingOuterWinterSyndie
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterWinterboots
+  name: uplink-recruiter-winterboots-name
+  description: uplink-recruiter-winterboots-desc
+  productEntity: ClothingShoesBootsWinterSyndicate
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterLingSting
+  name: uplink-recruiter-lingsting-name
+  description: uplink-recruiter-lingsting-desc
+  productEntity: DrinkChangelingStingCan
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk

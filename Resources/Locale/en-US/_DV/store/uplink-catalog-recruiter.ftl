@@ -1,6 +1,6 @@
 #Recruiter Junk
 uplink-recruiter-soda-name = Blood-red Brew 6pack
-uplink-recruiter-soda-desc = a 6pack of delicious, mildly toxic Blood-red Brew
+uplink-recruiter-soda-desc = a 6pack of stimulating, mildly toxic Blood-red Brew
 
 uplink-recruiter-toysword-name = Toy sword
 uplink-recruiter-toysword-desc = New Sandy-Cat plastic sword! Comes with realistic sound and full color! Looks almost like the real thing! You'd Know.
@@ -16,9 +16,6 @@ uplink-recruiter-toolbox-desc = a black and red toolbox with extra space that pa
 
 uplink-recruiter-banner-name = Syndicate banner
 uplink-recruiter-banner-desc = a black and red banner scientitifcally PROVEN to cause hatred for NT.
-
-uplink-recruiter-bedsheet-name = Syndicate bedsheet
-uplink-recruiter-bedsheet-desc = a comfy bedsheet with an aura of righteousness decorated with the Syndicate emblem.
 
 uplink-recruiter-utilitybelt-name = Syndicate utility belt
 uplink-recruiter-utilitybelt-desc = a sleek black toolbelt designed to hold your tools while looking stylish. Comes Empty.
@@ -50,5 +47,23 @@ uplink-recruiter-realcapfruit-desc = Were 99% sure these dont make guns, but you
 uplink-recruiter-maid-name = Tactical Maid kit
 uplink-recruiter-maid-desc = A full tactical maid uniform. the gloves are insulated! Comes in a snazzy lunchbox.
 
-uplink-recruiter-cyberpen-name =
-uplink-recruiter-cyberpen-desc = A full tactical maid uniform. the gloves are insulated! Comes in a snazzy lunchbox.
+uplink-recruiter-cyberpen-name = Cybersun Pen
+uplink-recruiter-cyberpen-desc = Cybersun's legal department pen with a hard-light tip. Can forge documents, act as a scredriver or emergency weapon. Pricy.
+
+uplink-recruiter-ggf-name = Gorlex Girlfriends issue 197
+uplink-recruiter-ggf-desc = Our most successful propadanga campaign yet, too successful, we have only three magazines left to give to you, so theyre expensive.
+
+uplink-recruiter-randomdonk-name = Donk pocket grab bag
+uplink-recruiter-randomdonk-desc = We throw a random box of Donk pockets at you, could be limited edition, could be berry.
+
+uplink-recruiter-microwave-name = Donk Co. microwave
+uplink-recruiter-microwave-desc = an advanced microwave that cooks at double speed. If somebody knew how, they could also use it to make edible weapons, but how would they?
+
+uplink-recruiter-wintercoat-name = Syndicate's winter coat
+uplink-recruiter-wintercoat-desc = An insulated winter coat, Syndieland production.
+
+uplink-recruiter-winterboots-name = Syndicate's winter boots
+uplink-recruiter-winterboots-desc = Durable, heavy boots, Syndieland production.
+
+uplink-recruiter-lingsting-name = Changeling Sting soda
+uplink-recruiter-lingsting-desc = a Stylish soda with an inconsistent appearance.

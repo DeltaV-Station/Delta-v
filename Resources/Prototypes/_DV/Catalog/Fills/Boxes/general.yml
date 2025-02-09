@@ -126,3 +126,44 @@
     - id: ToyFigurineNukieElite
     - id: ToyFigurineNukieCommander
     - id: ToyFigurineFootsoldier
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxRandomDonk
+  components:
+  - type: Sprite
+    layers:
+    - state: box
+    - state: writing_of_doom
+  - type: Storage
+    maxItemSize: Normal
+  - type: StorageFill
+    contents:
+    #Main
+    - id: FoodBoxDonkpocketHonk
+      orGroup: RandomDonk
+      prob: 0.15
+    - id: FoodBoxDonkpocketBerry
+      orGroup: RandomDonk
+      prob: 0.1
+    - id: FoodBoxDonkpocketCarp
+      orGroup: RandomDonk
+      prob: 0.05
+    - id: FoodBoxDonkpocketDink
+      orGroup: RandomDonk
+      prob: 0.1
+    - id: FoodBoxDonkpocket
+      orGroup: RandomDonk
+      prob: 0.2
+    - id: FoodBoxDonkpocketStonk
+      orGroup: RandomDonk
+      prob: 0.05
+    - id: FoodBoxDonkpocketPizza
+      orGroup: RandomDonk
+      prob: 0.15
+    - id: FoodBoxDonkpocketSpicy
+      orGroup: RandomDonk
+      prob: 0.1
+    - id: FoodBoxDonkpocketTeriyaki
+      orGroup: RandomDonk
+      prob: 0.1
