@@ -18,6 +18,7 @@ using Content.Server.Shuttles.Events;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
 using Content.Server.Station.Systems;
+using Content.Shared._DV.CustomObjectiveSummery; // DeltaV
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -220,6 +221,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
             };
             _deviceNetworkSystem.QueuePacket(uid, null, payload, netComp.TransmitFrequency);
         }
+        RaiseLocalEvent(new EvacShuttleLeftEvent()); // DeltaV
     }
 
     /// <summary>

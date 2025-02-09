@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client._DV.CustomObjectiveSummery; // DeltaV
 using Content.Client.CharacterInfo;
 using Content.Client.Gameplay;
 using Content.Client.Stylesheets;
@@ -17,6 +18,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input.Binding;
+using Robust.Shared.Network; // DeltaV
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
@@ -31,6 +33,8 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
     [Dependency] private readonly ILogManager _logMan = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly CustomObjectiveSummeryUIController _objective = default!; // DeltaV
+    [Dependency] private readonly IClientNetManager _net = default!; // DeltaV
 
     [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
     [UISystemDependency] private readonly SpriteSystem _sprite = default!;
@@ -173,6 +177,18 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
             }
 
             _window.Objectives.AddChild(objectiveControl);
+        }
+        // DeltaV
+        if (objectives.Count > 0)
+        {
+            var button = new Button
+            {
+                Text = Loc.GetString("custom-objective-button-text"),
+                Margin = new Thickness(0, 10, 0, 10)
+            };
+            button.OnPressed += _ => _objective.OpenWindow();
+
+            _window.Objectives.AddChild(button);
         }
 
         if (briefing != null)
