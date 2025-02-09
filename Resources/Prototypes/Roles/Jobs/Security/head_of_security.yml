@@ -4,32 +4,32 @@
   description: job-description-hos
   playTimeTracker: JobHeadOfSecurity
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 72000 # DeltaV - 20 hours
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 36000 # DeltaV 10 hrs
-    - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
-      department: Command
-      time: 36000 # 10 hours
+      time: 10800 #3 hrs
+    - !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 36000 #10 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 108000 # 30 hrs
     - !type:OverallPlaytimeRequirement
-      time: 90000 # DeltaV - 25 hours, was 40
+      time: 144000 #40 hrs
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
-  requireAdminNotify: true
+  requireAdminNotify: true # DeltaV
   supervisors: job-supervisors-captain
   canBeAntag: false
   whitelisted: true # DeltaV
   access:
   - HeadOfSecurity
   - Command
-  #- Brig  # Delta V: Removed
+  #- Brig # DeltaV - Removed brig access
   - Security
   - Armory
   - Maintenance
-  #- Service # Delta V: Access adjustments
+  #- Service # DeltaV - Sec isn't service
   - External
   - Detective
   - Corpsman # DeltaV - added Corpsman access
@@ -40,10 +40,8 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-  - !type:AddComponentSpecial
-    components:
-    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
-      flatBonus: 0.025
+      - type: PsionicBonusChance # DeltaV - makes it more likely to become psionic.
+        flatBonus: 0.025
 
 - type: startingGear
   id: HoSGear
@@ -52,8 +50,8 @@
     id: HoSPDA
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity
-  #  pocket1: WeaponPistolMk58Nonlethal # DeltaV - loadouts
+    #pocket1: WeaponPistolMk58 # DeltaV - loadouts
   storage:
     back:
     - Flash
-  # - MagazinePistol # DeltaV - loadouts
+    #- MagazinePistol # DeltaV - loadouts
