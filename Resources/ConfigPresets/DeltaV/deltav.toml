@@ -84,7 +84,7 @@ emergency_transit_time_min = 90
 auto_call_time = 135 # rounds are extra longer
 auto_call_extension_time = 30 # next auto call at 2h50
 emergency_early_launch_allowed = true # MRP server command ban time
-recall_turning_point = 0.33 # floating point error time
+recall_turning_point = 0.67 # floating point error time
 
 [biomass]
 easy_mode = false # reclaimer can work on soul-ful bodies, mrp server
