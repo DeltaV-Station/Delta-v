@@ -532,13 +532,13 @@
   id: UnisexThaven
   sounds:
     Scream:
-      collection: UnisexScreams
+      collection: MaleScreams
     Laugh:
-      collection: UnisexLaugh
+      collection: MaleLaugh
     Sneeze:
-      collection: UnisexSneezes
+      collection: MaleSneezes
     Cough:
-      collection: UnisexCoughs
+      collection: MaleCoughs
     CatMeow:
       collection: CatMeows
     CatHisses:
@@ -548,15 +548,15 @@
     RobotBeep:
       collection: RobotBeeps
     Yawn:
-      collection: UnisexYawn
+      collection: MaleYawn
     Snore:
       collection: Snores
     Sigh:
-      collection: UnisexSigh
+      collection: MaleSigh
     Honk:
       collection: BikeHorn
     Crying:
-      collection: UnisexCry
+      collection: MaleCry
     Whistle:
       collection: Whistles
     Weh:
@@ -566,9 +566,9 @@
     Ungh:
       collection: Ungh
     Gasp:
-      collection: UnisexGasp
+      collection: MaleGasp
     DefaultDeathgasp:
-      collection: UnisexDeathGasp
+      collection: MaleDeathGasp
   params:
     variation: 0.05
     pitch: 1.25
