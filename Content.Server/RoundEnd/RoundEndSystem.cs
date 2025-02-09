@@ -48,7 +48,7 @@ namespace Content.Server.RoundEnd
         /// <summary>
         /// Countdown to use where there is no station alert countdown to be found.
         /// </summary>
-        public TimeSpan DefaultCountdownDuration { get; set; } = TimeSpan.FromMinutes(15); // DeltaV extra 5 minutes
+        public TimeSpan DefaultCountdownDuration { get; set; } = TimeSpan.FromMinutes(10);
 
         private CancellationTokenSource? _countdownTokenSource = null;
         private CancellationTokenSource? _cooldownTokenSource = null;
