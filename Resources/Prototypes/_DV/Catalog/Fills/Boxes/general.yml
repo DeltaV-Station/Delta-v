@@ -105,3 +105,24 @@
     contents:
     - id: Stunbaton
     - id: WeaponDisabler
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxSyndicateFigurines
+  name: syndicate figurines box
+  description: A box of a full set of syndicate figurines!
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: writing_of_doom
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+    - id: ToyFigurineNukie
+    - id: ToyFigurineNukieElite
+    - id: ToyFigurineNukieCommander
+    - id: ToyFigurineFootsoldier

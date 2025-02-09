@@ -9,3 +9,40 @@
     state: icon
   - type: Item
     sprite: _DV/Objects/Storage/Briefcases/briefcase_cybersun.rsi
+
+- type: entity
+  parent: CybersunBriefcase
+  id: RecruiterBriefcase
+  suffix: Recruiter Uplink, 50TC
+  components:
+  - type: AccessReader
+    access: [ [ "SyndicateAgent" ] ]
+    breakOnEmag: true
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,8,4
+  - type: StorageFill
+    contents:
+    - id: PaperRecruiterUplink
+      amount: 1
+  - type: Lock
+    lockOnClick: false
+    breakOnEmag: true
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: Store
+    name: store-recruiter-name-uplink
+    ownerOnly: true
+    categories:
+    - RecruiterJunk
+    - RecruiterTreasure
+    currencyWhitelist:
+    - CheapTelecrystal
+    balance:
+      CheapTelecrystal: 50
+

@@ -1,0 +1,325 @@
+#Recruiter Junk
+- type: listing
+  id: UplinkRecruiterSoda
+  name: uplink-recruiter-soda-name
+  description: uplink-recruiter-soda-desc
+  productEntity: DrinkCanPackBloodRed
+  icon: { sprite: Objects/Consumable/Drinks/robustnukie.rsi, state: icon }
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkRecruiterSnackbox
+  name: uplink-snack-box-name
+  description: uplink-snack-box-desc
+  productEntity: HappyHonkNukieSnacks
+  cost:
+    CheapTelecrystal: 5
+  categories:
+  - RecruiterJunk
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkRecruiterRevolverCapGun
+  name: uplink-revolver-cap-gun-name
+  description: uplink-revolver-cap-gun-desc
+  productEntity: RevolverCapGun
+  cost:
+    CheapTelecrystal: 4
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterSyndicateStamp
+  name: uplink-syndicate-stamp-name
+  description: uplink-syndicate-stamp-desc
+  productEntity: RubberStampSyndicate
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterostumePyjama
+  name: uplink-costume-pyjama-name
+  description: uplink-costume-pyjama-desc
+  productEntity: ClothingBackpackDuffelSyndicatePyjamaBundle
+  cost:
+    CheapTelecrystal: 6
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterOperativeSkirt
+  name: uplink-operative-skirt-name
+  description: uplink-operative-skirt-desc
+  productEntity: ClothingUniformJumpskirtOperative
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterOperativeSuit
+  name: uplink-operative-suit-name
+  description: uplink-operative-suit-desc
+  productEntity: ClothingUniformJumpsuitOperative
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterBalloon
+  name: uplink-balloon-name
+  description: uplink-balloon-desc
+  productEntity: BalloonSyn
+  cost:
+    CheapTelecrystal: 10
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterScarfSyndieGreen
+  name: uplink-scarf-syndie-green-name
+  description: uplink-scarf-syndie-green-desc
+  productEntity: ClothingNeckScarfStripedSyndieGreen
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterScarfSyndieRed
+  name: uplink-scarf-syndie-red-name
+  description: uplink-scarf-syndie-red-desc
+  productEntity: ClothingNeckScarfStripedSyndieRed
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterOutlawHat
+  name: uplink-outlaw-hat-name
+  description: uplink-outlaw-hat-desc
+  productEntity: ClothingHeadHatOutlawHat
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterOutlawGlasses
+  name: uplink-outlaw-glasses-name
+  description: uplink-outlaw-glasses-desc
+  productEntity: ClothingEyesGlassesOutlawGlasses
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterSyndicateBusinessCard
+  name: uplink-business-card-name
+  description: uplink-business-card-desc
+  productEntity: SyndicateBusinessCard
+  categories:
+    - RecruiterJunk
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+
+- type: listing
+  id: UplinkRecruiterToysword
+  name: uplink-recruiter-toysword-name
+  description: uplink-recruiter-toysword-desc
+  productEntity: ToySword
+  icon: { sprite: Objects/Fun/toy_sword.rsi, state: icon }
+  cost:
+    CheapTelecrystal: 6
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterFigurineBox
+  name: uplink-recruiter-figurinebox-name
+  description: uplink-recruiter-figurinebox-desc
+  productEntity: BoxSyndicateFigurines
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterLunchbox
+  name: uplink-recruiter-lunchbox-name
+  description: uplink-recruiter-lunchbox-desc
+  productEntity: LunchboxSyndicate
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterToolbox
+  name: uplink-recruiter-toolbox-name
+  description: uplink-recruiter-toolbox-desc
+  productEntity: ToolboxSyndicate
+  cost:
+    CheapTelecrystal: 6
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterCigarettes
+  name: uplink-cigarettes-name
+  description: uplink-cigarettes-desc
+  productEntity: CigPackSyndicate
+  cost:
+    CheapTelecrystal: 4
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterBanner
+  name: uplink-recruiter-banner-name
+  description: uplink-recruiter-banner-desc
+  productEntity: BannerSyndicate
+  cost:
+    CheapTelecrystal: 4
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterBedsheet
+  name: uplink-recruiter-bedsheet-name
+  description: uplink-recruiter-bedsheet-desc
+  productEntity: BedsheetSyndie
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterUtilitybelt
+  name: uplink-recruiter-utilitybelt-name
+  description: uplink-recruiter-utilitybelt-desc
+  productEntity: ClothingBeltSyndicateUtility
+  cost:
+    CheapTelecrystal: 4
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterSyndiehat
+  name: uplink-recruiter-syndiehat-name
+  description: uplink-recruiter-syndiehat-desc
+  productEntity: ClothingHeadHatSyndie
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterCybersunrnd
+  name: uplink-recruiter-cybersunrnd-name
+  description: uplink-recruiter-cybersunrnd-desc
+  productEntity: ClothingUniformCybersunRND
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterCybersunCasual
+  name: uplink-recruiter-cybersuncasual-name
+  description: uplink-recruiter-cybersuncasual-desc
+  productEntity: ClothingUniformCybersunCasual
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterCybersunHazard
+  name: uplink-recruiter-cybersunhazard-name
+  description: uplink-recruiter-cybersunhazard-desc
+  productEntity: ClothingUniformCybersunHazard
+  cost:
+    CheapTelecrystal: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterCybersunSurgeon
+  name: uplink-recruiter-cybersunsurgeon-name
+  description: uplink-recruiter-cybersunsurgeon-desc
+  productEntity: BriefcaseRecruiterSurgeonKit
+  cost:
+    CheapTelecrystal: 6
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterCybersunLawyer
+  name: uplink-recruiter-cybersunlawyer-name
+  description: uplink-recruiter-cybersunlawyer-desc
+  productEntity: BriefcaseRecruiterLawyerkit
+  cost:
+    CheapTelecrystal: 8
+  categories:
+  - RecruiterTreasure
+
+- type: listing
+  id: UplinkRecruiterInterdynechem
+  name: uplink-recruiter-interdynechem-name
+  description: uplink-recruiter-interdynechem-desc
+  productEntity: ClothingBackpackDuffelRecruiterInterdyne
+  cost:
+    CheapTelecrystal: 8
+  categories:
+  - RecruiterTreasure
+
+- type: listing
+  id: UplinkRecruiterRealcapfruit
+  name: uplink-recruiter-realcapfruit-name
+  description: uplink-recruiter-realcapfruit-desc
+  productEntity: RealCapfruitSeeds
+  cost:
+    CheapTelecrystal: 8
+  categories:
+  - RecruiterTreasure
+
+- type: listing
+  id: UplinkRecruiterMaid
+  name: uplink-recruiter-maid-name
+  description: uplink-recruiter-maid-desc
+  productEntity: LunchboxRecruiterMaid
+  icon: { sprite: Clothing/Hands/Gloves/tacticalmaidgloves.rsi, state: icon }
+  cost:
+    CheapTelecrystal: 10
+  categories:
+  - RecruiterTreasure
+
+  - type: listing
+  id: UplinkRecruiterCyberpen
+  name: uplink-recruiter-cyberpen-name
+  description: uplink-recruiter-cyberpen-desc
+  productEntity:
+  icon: { sprite: Clothing/Hands/Gloves/tacticalmaidgloves.rsi, state: icon }
+  cost:
+    CheapTelecrystal: 10
+  categories:
+  - RecruiterTreasure

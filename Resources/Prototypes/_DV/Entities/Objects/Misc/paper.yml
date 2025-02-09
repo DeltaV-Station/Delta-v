@@ -464,3 +464,24 @@
   id: TapeRecorderTranscript
   name: record transcript
   # TODO: could have a unique sprite in the future
+
+- type: entity
+  parent: Paper
+  id: PaperRecruiterUplink
+  name: Briefcase Uplink Instructions
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Paper
+    stampState: paper_stamp-syndicate
+    stampedBy:
+    - stampedColor: "#ff0000"
+      stampedName: Syndicate
+    content: |2
+
+      This DNA-Secure and extra-spacious briefcase is an uplink to one of our surplus warehouses.
+      Use them as incentives to join for potential recruits, or to reward yourself for a job well done.
+      You have been given an initial budget, and every successful recruitment will grant you additional funds to spend.
+      Its mostly all junk in here, so anything "good" is going to sincerely cost you.
+      We also have some listings here that we dont bother to give to our operatives, theyre not useful but very shiny.
+
+      While the Uplink is DNA-locked to you, please avoid losing it.
