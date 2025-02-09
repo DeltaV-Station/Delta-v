@@ -167,3 +167,23 @@
     - id: FoodBoxDonkpocketTeriyaki
       orGroup: RandomDonk
       prob: 0.1
+
+- type: entity
+  parent: BoxHoloparasite
+  id: BoxHolosecretary
+  name: holosecretary box
+  description: A box containing a holosecretary injector
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: holo
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+    - id: HolosecretaryInfo
+    - id: Holosecretaryinjector
+    - id: BoxFolderClipboard

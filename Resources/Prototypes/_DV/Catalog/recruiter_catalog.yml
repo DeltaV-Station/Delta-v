@@ -6,7 +6,7 @@
   productEntity: DrinkCanPackBloodRed
   icon: { sprite: Objects/Consumable/Drinks/robustnukie.rsi, state: icon }
   cost:
-    CheapTelecrystal: 10
+    CheapTelecrystal: 5
   categories:
   - RecruiterJunk
   conditions:
@@ -380,3 +380,29 @@
     CheapTelecrystal: 2
   categories:
   - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterBribe5k
+  name: uplink-recruiter-bribe5k-name
+  description: uplink-recruiter-bribe5k-desc
+  productEntity: SpaceCash5000
+  cost:
+    CheapTelecrystal: 10
+  categories:
+  - RecruiterTreasure
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 5
+
+- type: listing
+  id: UplinkRecruiterHolosecretary
+  name: uplink-recruiter-holosecretary-name
+  description: uplink-recruiter-holosecretary-desc
+  productEntity: BoxHolosecretary
+  cost:
+    CheapTelecrystal: 25
+  categories:
+  - RecruiterTreasure
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2

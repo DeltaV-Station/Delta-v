@@ -1,6 +1,6 @@
 #Recruiter Junk
 uplink-recruiter-soda-name = Blood-red Brew 6pack
-uplink-recruiter-soda-desc = a 6pack of stimulating, mildly toxic Blood-red Brew
+uplink-recruiter-soda-desc = a 6pack of stimulating, mildly toxic Blood-red Brew.
 
 uplink-recruiter-toysword-name = Toy sword
 uplink-recruiter-toysword-desc = New Sandy-Cat plastic sword! Comes with realistic sound and full color! Looks almost like the real thing! You'd Know.
@@ -67,3 +67,9 @@ uplink-recruiter-winterboots-desc = Durable, heavy boots, Syndieland production.
 
 uplink-recruiter-lingsting-name = Changeling Sting soda
 uplink-recruiter-lingsting-desc = a Stylish soda with an inconsistent appearance.
+
+uplink-recruiter-bribe5k-name = 5000 Spesos
+uplink-recruiter-bribe5k-desc = A 5000 Speso dividend, for use in bribing security or as a tempting sign on bonus. Were only giving you up to 5 of these.
+
+uplink-recruiter-holosecretary-name = Holosecretary Kit
+uplink-recruiter-holosecretary-desc = The pride and joy of Cybersun, now demoted into your secretary! The holosecretary is nearly identical to an ordinary holoparasite, but is unable to hurt anyone or anything. In exchange, it has Hands. Were not giving out more than two of these.
