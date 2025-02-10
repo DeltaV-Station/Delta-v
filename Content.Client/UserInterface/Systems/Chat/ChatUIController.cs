@@ -78,6 +78,8 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
 
     private ISawmill _sawmill = default!;
 
+    private string? _autoHighlights = null;
+
     public static readonly Dictionary<char, ChatSelectChannel> PrefixToChannel = new()
     {
         {SharedChatSystem.LocalPrefix, ChatSelectChannel.Local},
@@ -167,11 +169,6 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
     private string? _highlightsColor;
 
     private bool _autoFillHighlightsEnabled;
-
-    /// <summary>
-    ///     A bool to keep track if the 'CharacterUpdated' event is a new player attaching or the opening of the character info panel.
-    /// </summary>
-    private bool _charInfoIsAttach = false;
 
     // TODO add a cap for this for non-replays
     public readonly List<(GameTick Tick, ChatMessage Msg)> History = new();
@@ -266,19 +263,14 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
 
         _config.OnValueChanged(CCVars.ChatWindowOpacity, OnChatWindowOpacityChanged);
 
-        _config.OnValueChanged(CCVars.ChatAutoFillHighlights, (value) => { _autoFillHighlightsEnabled = value; });
+        _config.OnValueChanged(CCVars.ChatAutoFillHighlights, (value) => { _autoFillHighlightsEnabled = value; UpdateHighlights(); });
         _autoFillHighlightsEnabled = _config.GetCVar(CCVars.ChatAutoFillHighlights);
 
         _config.OnValueChanged(CCVars.ChatHighlightsColor, (value) => { _highlightsColor = value; });
         _highlightsColor = _config.GetCVar(CCVars.ChatHighlightsColor);
 
-        // Load highlights if any were saved.
-        string highlights = _config.GetCVar(CCVars.ChatHighlights);
-
-        if (!string.IsNullOrEmpty(highlights))
-        {
-            UpdateHighlights(highlights);
-        }
+        _config.OnValueChanged(CCVars.ChatHighlights, UpdateHighlights);
+        UpdateHighlights(_config.GetCVar(CCVars.ChatHighlights));
     }
 
     public void OnScreenLoad()
@@ -313,10 +305,6 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
 
     private void CharacterUpdated(CharacterData data)
     {
-        // If the _charInfoIsAttach is false then the character panel created the event, dismiss.
-        if (!_charInfoIsAttach)
-            return;
-
         var (_, job, _, _, entityName) = data;
 
         // If the character has a normal name (eg. "Name Surname" and not "Name Initial Surname" or a particular species name)
@@ -324,18 +312,15 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         if (entityName.Count(c => c == ' ') == 1)
             entityName = entityName.Replace(' ', '\n');
 
-        var newHighlights = entityName;
+        _autoHighlights = entityName;
 
         // Convert the job title to kebab-case and use it as a key for the loc file.
         var jobKey = job.Replace(' ', '-').ToLower();
 
         var loc = IoCManager.Resolve<ILocalizationManager>();
         if (loc.TryGetString($"highlights-{jobKey}", out var jobMatches))
-            newHighlights += '\n' + jobMatches.Replace(", ", "\n");
-
-        UpdateHighlights(newHighlights);
-        HighlightsUpdated?.Invoke(newHighlights);
-        _charInfoIsAttach = false;
+            _autoHighlights += '\n' + jobMatches.Replace(", ", "\n");
+        UpdateHighlights();
     }
 
     private void SetChatWindowOpacity(float opacity)
@@ -502,12 +487,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
     private void OnAttachedChanged(EntityUid uid)
     {
         UpdateChannelPermissions();
-
-        if (_autoFillHighlightsEnabled)
-        {
-            _charInfoIsAttach = true;
-            _characterInfo.RequestCharacterInfo();
-        }
+        _characterInfo.RequestCharacterInfo();
     }
 
     private void AddSpeechBubble(ChatMessage msg, SpeechBubble.SpeechType speechType)
@@ -675,20 +655,24 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         }
     }
 
-    public void UpdateHighlights(string highlights)
+    public void UpdateHighlights(string? newHighlights = null)
     {
-        // Save the newly provided list of highlighs if different.
-        if (!_config.GetCVar(CCVars.ChatHighlights).Equals(highlights, StringComparison.CurrentCultureIgnoreCase))
+        var configuredHighlights = _config.GetCVar(CCVars.ChatHighlights);
+        var highlights = newHighlights ?? configuredHighlights;
+        // Save the newly provided list of highlights if different.
+        if (newHighlights is not null && !configuredHighlights.Equals(highlights, StringComparison.CurrentCultureIgnoreCase))
         {
             _config.SetCVar(CCVars.ChatHighlights, highlights);
             _config.SaveToFile();
         }
 
+        if (_autoFillHighlightsEnabled)
+            highlights += '\n' + _autoHighlights;
         // If the word is surrounded by "" we replace them with a whole-word regex tag.
         highlights = highlights.Replace("\"", "\\b");
 
         // Fill the array with the highlights separated by newlines, disregarding empty entries.
-        string[] arrHighlights = highlights.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        var arrHighlights = highlights.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         _highlights.Clear();
         foreach (var keyword in arrHighlights)
         {
