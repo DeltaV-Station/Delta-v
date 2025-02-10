@@ -55,3 +55,6 @@ uplink-syndicate-bodybag-desc = For when stuff goes wrong.
 
 uplink-syndicate-stun-bundle-name = Stun bundle
 uplink-syndicate-stun-bundle-desc = Includes a stun baton and a disabler.
+
+uplink-syndie-fulton-name = Syndicate Fultons
+uplink-syndie-fulton-desc = Proprietary Waffle Corp fultons that send high value items to the Syndicate Vault for processing, or send sophonts to the Syndicate Jail for ransom.

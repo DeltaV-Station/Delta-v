@@ -1,0 +1,66 @@
+using Content.Shared._DV.CCVars;
+using Content.Shared.Humanoid;
+using Content.Shared.Mind;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Roles.Jobs;
+using Robust.Shared.Configuration;
+
+namespace Content.Shared._DV.Traitor;
+
+/// <summary>
+/// Provides API for ransoming entities.
+/// </summary>
+public sealed class RansomSystem : EntitySystem
+{
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly MobStateSystem _mob = default!;
+    [Dependency] private readonly SharedJobSystem _job = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+
+    private float _mobBase;
+    private float _humanoidBase;
+    private float _deadMod;
+    private float _critMod;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        Subs.CVar(_cfg, DCCVars.MobRansom, n => _mobBase = n, true);
+        Subs.CVar(_cfg, DCCVars.HumanoidRansom, n => _humanoidBase = n, true);
+        Subs.CVar(_cfg, DCCVars.RansomDeadModifier, n => _deadMod = n, true);
+        Subs.CVar(_cfg, DCCVars.RansomCritModifier, n => _critMod = n, true);
+    }
+
+    /// <summary>
+    /// Ransoms an entity and returns the price.
+    /// </summary>
+    public int RansomEntity(EntityUid uid)
+    {
+        var ransom = RansomEntity(uid);
+        EnsureComp<RansomComponent>(uid).Ransom = ransom;
+        return ransom;
+    }
+
+    /// <summary>
+    /// Get the price for an entity's ransom.
+    /// </summary>
+    public int GetRansom(EntityUid uid)
+    {
+        var ransom = HasComp<HumanoidAppearanceComponent>(uid)
+            ? _humanoidBase
+            : _mobBase;
+
+        // hostages are more valuable alive than dead, shocker
+        if (_mob.IsDead(uid))
+            ransom *= _deadMod;
+        else if (_mob.IsCritical(uid))
+            ransom *= _critMod;
+
+        // multiply by the job's ransom value
+        if (_mind.GetMind(uid) is {} mind && _job.MindTryGetJob(mind, out var job))
+            ransom *= job.RansomModifier;
+
+        return (int) ransom;
+    }
+}

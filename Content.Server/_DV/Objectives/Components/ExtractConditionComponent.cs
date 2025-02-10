@@ -1,5 +1,5 @@
 using Content.Server._DV.Objectives.Systems;
-using Content.Server.Objectives.Components.Targets;
+using Content.Shared.Objectives;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.Objectives.Components;
@@ -30,13 +30,10 @@ public sealed partial class ExtractConditionComponent : Component
     [DataField]
     public LocId? OwnerText;
 
-    // All this need to be loc string
     [DataField(required: true)]
     public LocId ObjectiveText;
     [DataField(required: true)]
     public LocId ObjectiveNoOwnerText;
     [DataField(required: true)]
     public LocId DescriptionText;
-    [DataField(required: true)]
-    public LocId DescriptionMultipleText;
 }

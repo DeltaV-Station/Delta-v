@@ -9,6 +9,28 @@
     reputation: 5
     payment: 1
 
+- type: entity
+  abstract: true
+  parent: [ BaseRansomObjective, BaseTraitorObjective ]
+  id: BaseTraitorRansomObjective
+  description: Detain the target and fulton them back to HQ. We will then hold them ransom.
+  components:
+  - type: Objective
+    difficulty: 3
+    icon:
+      sprite: Objects/Tools/fulton.rsi # TODO: syndie fulton sprite
+      state: extraction_pack
+  - type: TargetObjective
+    title: objective-condition-ransom-title
+  - type: ReputationCondition
+    reputation: 60
+  - type: ContractObjective
+    reputation: 10
+    payment: 4
+  - type: StoreUnlocker
+    listings:
+    - SyndieFulton
+
 # Low Risk
 
 - type: entity # Locker steal objective.
@@ -17,7 +39,7 @@
   components:
   - type: NotJobRequirement
     job: Clerk
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: RubberStampNotary
     owner: job-name-clerk
 
@@ -27,7 +49,7 @@
   components:
   - type: NotDepartmentRequirement
     department: Engineering
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: RCD
     owner: objective-condition-steal-engineering
 
@@ -37,7 +59,7 @@
   components:
   - type: NotDepartmentRequirement
     department: Logistics
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: CargoRequestConsoleCircuitboard
 
 - type: entity
@@ -46,14 +68,14 @@
   components:
   - type: NotDepartmentRequirement
     department: Epistemics
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: ResearchComputerCircuitboard
 
 - type: entity
   parent: BaseMinorStealObjective
   id: CriminalRecordsStealObjective
   components:
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: CriminalRecordsComputerCircuitboard
   # sec is harder to steal from so higher risk and reward
   - type: ContractObjective
@@ -66,7 +88,7 @@
   parent: BaseTraitorStealObjective
   id: IDComputerStealObjective
   components:
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: IDComputerCircuitboard
   - type: ContractObjective
     payment: 3 # It's easy
@@ -75,7 +97,7 @@
   parent: BaseTraitorStealObjective
   id: CommsComputerStealObjective
   components:
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: CommsComputerCircuitboard
   - type: ContractObjective
     payment: 3 # It's easy
@@ -86,7 +108,7 @@
   components:
   - type: NotJobRequirement
     job: Quartermaster
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: SpaceCashLuckyBill
     # owner: job-name-qm
 
@@ -96,7 +118,7 @@
   components:
   - type: NotJobRequirement
     job: HeadOfPersonnel
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: BookIanDossier
     # owner: job-name-hop
 
@@ -108,7 +130,7 @@
     difficulty: 3 # HoS will mostly be using the gun to stop you from stealing it
   - type: NotJobRequirement
     job: HeadOfSecurity
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: WeaponEnergyGunMultiphase
     owner: job-name-hos
 
@@ -119,7 +141,7 @@
   components:
   - type: NotJobRequirement
     job: ChiefMedicalOfficer
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: AnimalSilvia
     owner: job-name-cmo
 
@@ -130,7 +152,7 @@
   components:
   - type: NotJobRequirement
     job: ResearchDirector
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: BoxFolderRdClipboard
     owner: job-name-rd
 
@@ -147,10 +169,6 @@
       state: icon
   - type: TeachLessonCondition
   - type: CodeCondition
-  - type: ObjectiveBlacklistRequirement
-    blacklist:
-      components:
-      - SocialObjective
   - type: ReputationCondition
     reputation: 30
   - type: ContractObjective
@@ -221,9 +239,18 @@
     # its hard to steal and leaves evidence, but you can get away with it.
     difficulty: 3.5
   - type: NotCommandRequirement
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: PlutoniumCore
     owner: objective-condition-steal-nuclear-bomb
   - type: StoreUnlocker
     listings:
     - UplinkCoreExtractionToolbox
+
+# High Risk
+
+- type: entity
+  parent: BaseTraitorRansomObjective
+  id: RansomRandomPersonObjective
+  components:
+  - type: PickRandomPerson
+    onlyChoosableJobs: true

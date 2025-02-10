@@ -1,4 +1,5 @@
 using Content.Server._DV.Objectives.Components;
+using Content.Server.Objectives.Systems;
 using Content.Server.Store.Systems;
 using Content.Shared._DV.Reputation;
 using Content.Shared.FixedPoint;
@@ -10,6 +11,7 @@ namespace Content.Server._DV.Objectives.Systems;
 /// </summary>
 public sealed class ContractObjectiveSystem : EntitySystem
 {
+    [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
     [Dependency] private readonly ReputationSystem _reputation = default!;
     [Dependency] private readonly StoreSystem _store = default!;
 
@@ -25,6 +27,8 @@ public sealed class ContractObjectiveSystem : EntitySystem
 
     private void OnTaken(Entity<ContractObjectiveComponent> ent, ref ContractTakenEvent args)
     {
+        ent.Comp.Pda = args.Pda;
+
         if (ent.Comp.Prepaid)
             Pay(ent, args.Pda);
     }
@@ -41,5 +45,21 @@ public sealed class ContractObjectiveSystem : EntitySystem
         _currency.Clear();
         _currency[ent.Comp.Currency] = ent.Comp.Payment;
         _store.TryAddCurrency(_currency, pda);
+    }
+
+    /// <summary>
+    /// Fail all active incomplete contracts with a given component, based on a predicate.
+    /// </summary>
+    public void FailContracts<T>(Predicate<Entity<T>> pred) where T: Component
+    {
+        var query = EntityQueryEnumerator<T, ContractObjectiveComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var contract))
+        {
+            if (_codeCondition.IsCompleted(uid) || !pred((uid, comp)))
+                continue;
+
+            if (contract.Pda is {} pda && TryComp<ContractsComponent>(pda, out var contracts))
+                _reputation.TryFailContract((pda, contracts), uid);
+        }
     }
 }

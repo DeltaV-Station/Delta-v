@@ -5,7 +5,7 @@
   components:
   - type: WarpPoint
     location: Syndie Jail
-  - type: SyndieFultonBeacon
+  - type: ExtractionBeacon
     whitelist:
       components:
       - MobState
@@ -21,7 +21,26 @@
       state: green
     - sprite: Objects/Consumable/Drinks/golden_cup.rsi
       state: icon
-  - type: SyndieFultonBeacon
+  - type: ExtractionBeacon
     blacklist:
       components:
       - MobState
+
+- type: entity
+  categories: [ Spawner ]
+  parent: BaseAntagSpawner
+  id: SyndicateMarshalSpawner
+  name: syndicate marshal spawner
+  components:
+  - type: Sprite
+    layers:
+    - Sprite: Markers/cross.rsi
+      state: green
+    - sprite: Clothing/Head/Hats/syndiecap_maa.rsi
+      state: icon
+  - type: GhostRole
+    name: ghost-role-information-syndicate-marshal-name
+    description: ghost-role-information-syndicate-marshal-description
+    rules: ghost-role-information-syndicate-marshal-rules
+    mindRoles:
+    - MindRoleGhostRoleNeutral

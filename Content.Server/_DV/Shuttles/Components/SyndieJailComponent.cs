@@ -1,4 +1,5 @@
 using Content.Server._DV.Shuttles.Systems;
+using Robust.Shared.Utility;
 
 namespace Content.Server._DV.Shuttles.Components;
 
@@ -16,8 +17,14 @@ public sealed partial class SyndieJailComponent : Component
     public ResPath Path = new ResPath("/Maps/_DV/Nonstations/syndie_jail.yml");
 
     /// <summary>
-    /// How far away to load it.
+    /// Minimum distance to load the grid at.
     /// </summary>
     [DataField]
-    public float Range = 800f;
+    public float MinRange = 800f;
+
+    /// <summary>
+    /// Maximum distance to load the grid at.
+    /// </summary>
+    [DataField]
+    public float MaxRange = 1000f;
 }
