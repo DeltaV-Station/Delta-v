@@ -1,6 +1,7 @@
 extraction-fulton-not-target = You don't need to extract this.
 extraction-fulton-dead = They need to be alive to be extracted!
 extraction-fulton-no-destination = No destination found!
+extraction-fulton-anchored = It needs to be unanchored first.
 
 syndicate-ransom-announcement-sender = Syndicate Ransom Announcement
 syndicate-ransom-announcement =

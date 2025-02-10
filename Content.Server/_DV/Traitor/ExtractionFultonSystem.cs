@@ -106,6 +106,12 @@ public sealed class ExtractionFultonSystem : SharedExtractionFultonSystem
 
     private bool CanExtractPopup(Entity<MindComponent?> mind, EntityUid user, EntityUid target)
     {
+        if (Transform(target).Anchored)
+        {
+            _popup.PopupEntity(Loc.GetString("extraction-fulton-anchored"), target, user);
+            return false;
+        }
+
         if (_extractCondition.FindObjective(mind, target) != null)
             return true;
 
