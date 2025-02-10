@@ -55,7 +55,7 @@
 
 - type: entity
   parent: BaseMinorStealObjective
-  id: CargoRequestConsoleCircuitboard
+  id: CargoRequestStealObjective
   components:
   - type: NotDepartmentRequirement
     department: Logistics
@@ -254,3 +254,12 @@
   components:
   - type: PickRandomPerson
     onlyChoosableJobs: true
+
+- type: entity
+  parent: BaseTraitorRansomObjective
+  id: RansomRandomHeadObjective
+  components:
+  - type: PickRandomHead
+  - type: ContractObjective # more rep and tc for a head duh
+    reputation: 15
+    payment: 5

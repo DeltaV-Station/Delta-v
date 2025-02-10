@@ -9,6 +9,13 @@
     ResearchComputerStealObjective: 1
     CriminalRecordsStealObjective: 0.75
 
+# Ransom
+- type: weightedRandom
+  id: TraitorObjectiveGroupRansom
+  weights:
+    RansomRandomPersonObjective: 1
+    RansomRandomHeadObjective: 0.5
+
 ## Ninja
 # Hacking things
 - type: weightedRandom

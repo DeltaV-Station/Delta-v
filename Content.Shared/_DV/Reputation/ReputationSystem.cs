@@ -169,7 +169,7 @@ public sealed class ReputationSystem : EntitySystem
                 continue;
 
             ent.Comp.Offerings.Add(objective);
-            ent.Comp.OfferingTitles.Add(Name(objective));
+            ent.Comp.OfferingTitles.Add(ContractName(objective));
         }
         Dirty(ent);
     }
@@ -202,7 +202,7 @@ public sealed class ReputationSystem : EntitySystem
 
         ent.Comp.Objectives[index] = objective;
         var slot = ent.Comp.Slots[index];
-        slot.ObjectiveTitle = Name(objective);
+        slot.ObjectiveTitle = ContractName(objective);
         ent.Comp.Slots[index] = slot;
         Dirty(ent);
 
@@ -337,6 +337,15 @@ public sealed class ReputationSystem : EntitySystem
         return null;
     }
 
+    public string ContractName(EntityUid objective)
+    {
+        var title = Name(objective);
+        if (!TryComp<ContractObjectiveComponent>(objective, out var contract))
+            return;
+
+        return $"{title} - {contract.Reputation} REP + {contract.Payment} TC";
+    }
+
     #endregion
 
     private int? FindOpenSlot(Entity<ContractsComponent> ent)
@@ -448,7 +457,8 @@ public sealed class ReputationSystem : EntitySystem
         {
             _levels.Add(proto);
         }
-        // sort levels by their reputation requirement, ascending
-        _levels.Sort((a, b) => (a.Reputation.CompareTo(b.Reputation)));
+        // sort levels by their reputation requirement, descending
+        // this allows GetLevel to work
+        _levels.Sort((a, b) => (b.Reputation.CompareTo(a.Reputation)));
     }
 }
