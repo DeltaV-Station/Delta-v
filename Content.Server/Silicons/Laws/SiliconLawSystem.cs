@@ -159,7 +159,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         component.Subverted = true;
 
         // Add the first emag law before the others
-        var name = CompOrNull<EmagSiliconLawComponent>(uid)?.OwnerName ?? Name(args.UserUid); // DeltaV: Reuse emagger name if possible
+        var name = CompOrNull<EmagSiliconLawComponent>(uid)?.OwnerName ?? Name(args.user); // DeltaV: Reuse emagger name if possible
         component.Lawset?.Laws.Insert(0, new SiliconLaw
         {
             LawString = Loc.GetString("law-emag-custom", ("name", name), ("title", Loc.GetString(component.Lawset.ObeysTo))), // DeltaV: pass name from variable
