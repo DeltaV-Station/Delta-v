@@ -1,3 +1,4 @@
+using Content.Shared._DV.Objectives.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Objectives.Systems;
@@ -10,6 +11,7 @@ public sealed class ReputationSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedContractObjectiveSystem _contract = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
@@ -169,7 +171,7 @@ public sealed class ReputationSystem : EntitySystem
                 continue;
 
             ent.Comp.Offerings.Add(objective);
-            ent.Comp.OfferingTitles.Add(ContractName(objective));
+            ent.Comp.OfferingTitles.Add(_contract.ContractName(objective));
         }
         Dirty(ent);
     }
@@ -202,7 +204,7 @@ public sealed class ReputationSystem : EntitySystem
 
         ent.Comp.Objectives[index] = objective;
         var slot = ent.Comp.Slots[index];
-        slot.ObjectiveTitle = ContractName(objective);
+        slot.ObjectiveTitle = _contract.ContractName(objective);
         ent.Comp.Slots[index] = slot;
         Dirty(ent);
 
@@ -335,15 +337,6 @@ public sealed class ReputationSystem : EntitySystem
         }
 
         return null;
-    }
-
-    public string ContractName(EntityUid objective)
-    {
-        var title = Name(objective);
-        if (!TryComp<ContractObjectiveComponent>(objective, out var contract))
-            return;
-
-        return $"{title} - {contract.Reputation} REP + {contract.Payment} TC";
     }
 
     #endregion

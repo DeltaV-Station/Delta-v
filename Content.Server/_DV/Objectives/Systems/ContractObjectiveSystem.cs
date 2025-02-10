@@ -1,6 +1,7 @@
 using Content.Server._DV.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Server.Store.Systems;
+using Content.Shared._DV.Objectives.Systems;
 using Content.Shared._DV.Reputation;
 using Content.Shared.FixedPoint;
 
@@ -9,7 +10,7 @@ namespace Content.Server._DV.Objectives.Systems;
 /// <summary>
 /// Handles reputation + TC gains for <see cref="ContractObjectiveComponent"/>.
 /// </summary>
-public sealed class ContractObjectiveSystem : EntitySystem
+public sealed class ContractObjectiveSystem : SharedContractObjectiveSystem
 {
     [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
     [Dependency] private readonly ReputationSystem _reputation = default!;
@@ -61,5 +62,14 @@ public sealed class ContractObjectiveSystem : EntitySystem
             if (contract.Pda is {} pda && TryComp<ContractsComponent>(pda, out var contracts))
                 _reputation.TryFailContract((pda, contracts), uid);
         }
+    }
+
+    public override string ContractName(EntityUid objective)
+    {
+        var title = base.ContractName(objective);
+        if (!TryComp<ContractObjectiveComponent>(objective, out var contract))
+            return title;
+
+        return $"{title} - {contract.Reputation} REP + {contract.Payment} TC";
     }
 }
