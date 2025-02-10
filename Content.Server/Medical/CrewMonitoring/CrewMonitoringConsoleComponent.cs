@@ -1,9 +1,10 @@
 using Content.Shared.Medical.SuitSensor;
 using Robust.Shared.Audio; // DeltaV
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom; // DeltaV
 
 namespace Content.Server.Medical.CrewMonitoring;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentPause] // DeltaV - add AutoGenerateComponentPause
 [Access(typeof(CrewMonitoringConsoleSystem))]
 public sealed partial class CrewMonitoringConsoleComponent : Component
 {
@@ -33,7 +34,8 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     /// <summary>
     ///     Accumulated time for tracking alert cooldown
     /// </summary>
-    public TimeSpan AccumulatedTime = TimeSpan.Zero;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan NextAlert;
 
     /// <summary>
     ///     Time between alerts

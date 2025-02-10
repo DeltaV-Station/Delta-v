@@ -1,14 +1,15 @@
 using System.Linq;
 using Content.Server.DeviceNetwork;
 using Content.Server.DeviceNetwork.Systems;
-using Content.Server.Power.EntitySystems;  // DeltaV
+using Content.Server.Power.EntitySystems; // DeltaV
 using Content.Server.PowerCell;
 using Content.Shared.Medical.CrewMonitoring;
 using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Pinpointer;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;  // DeltaV
-using Robust.Shared.Audio.Systems;  // DeltaV
+using Robust.Shared.Audio; // DeltaV
+using Robust.Shared.Audio.Systems; // DeltaV
+using Robust.Shared.Timing; // DeltaV
 
 namespace Content.Server.Medical.CrewMonitoring;
 
@@ -16,7 +17,8 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 {
     [Dependency] private readonly PowerCellSystem _cell = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;  // DeltaV
+    [Dependency] private readonly SharedAudioSystem _audio = default!; // DeltaV
+    [Dependency] private readonly IGameTiming _timing = default!; // DeltaV
 
     public override void Initialize()
     {
@@ -75,11 +77,11 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
             if (!status.IsAlive || isCritical)
             {
-                if (component.AccumulatedTime >= component.AlertCooldown)
+                if (_timing.CurTime >= component.NextAlert)
                 {
                     var audioParams = AudioParams.Default.WithVolume(-2f).WithMaxDistance(4f);
                     _audio.PlayPvs(component.AlertSound, uid, audioParams);
-                    component.AccumulatedTime = TimeSpan.Zero;
+                    component.NextAlert = _timing.CurTime + component.AlertCooldown;
                 }
 
                 // We are doing this outside the cooldown check to avoid "alert queues"
@@ -117,17 +119,4 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         var allSensors = component.ConnectedSensors.Values.ToList();
         _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors));
     }
-
-    // DeltaV - start alert system code
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<CrewMonitoringConsoleComponent>();
-        while (query.MoveNext(out var uid, out var cmp))
-        {
-            cmp.AccumulatedTime += TimeSpan.FromSeconds(frameTime);
-        }
-    }
-    // DeltaV - end of alert system code
 }
