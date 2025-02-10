@@ -51,7 +51,7 @@ public sealed partial class ContractsWindow : FancyWindow
             }
             else
             {
-                var empty = new EmptyContract(comp.Slots[i].NextUnlock));
+                var empty = new EmptyContract(comp.Slots[i].NextUnlock);
                 if (!empty.IsLocked)
                     slotsFull = false;
                 Contracts.AddChild(empty);
