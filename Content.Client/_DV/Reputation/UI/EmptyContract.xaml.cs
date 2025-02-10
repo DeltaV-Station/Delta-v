@@ -19,6 +19,8 @@ public sealed partial class EmptyContract : BoxContainer
     private TimeSpan? _nextUnlock;
     private TimeSpan _nextUpdate;
 
+    public bool IsLocked => UnlockLabel.Visible;
+
     public EmptyContract(TimeSpan? nextUnlock)
     {
         RobustXamlLoader.Load(this);
