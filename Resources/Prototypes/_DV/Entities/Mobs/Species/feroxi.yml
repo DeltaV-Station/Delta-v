@@ -92,6 +92,8 @@
   - type: TypingIndicator
     proto: feroxi
   - type: FeroxiDehydrate
+    hydratedMetabolizer: Feroxi
+    dehydratedMetabolizer: FeroxiDehydrated
     dehydrationThreshold: 150
 
 - type: entity

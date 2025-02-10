@@ -71,7 +71,7 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     public bool CanEnable = true;
 
     /// <summary>
-    ///     DV - Yknow I like being able to just say that an organ can also just, not be removed :blunt:
+    ///     DeltaV - Can this organ be removed? Used to be able to make organs unremovable by setting it to false.
     /// </summary>
     [DataField]
     public bool Removable = true;

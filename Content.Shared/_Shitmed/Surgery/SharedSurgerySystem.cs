@@ -267,7 +267,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
                     || ent.Comp.Reattaching
                     && !organs.Any(organ => HasComp<OrganReattachedComponent>(organ.Id))))
                     args.Cancelled = true;
-                // DV - allowing unremovability to shitmed
+                // DeltaV - Checks if any organ has the removable component set to true, hiding it from the surgery UI
                 if (!organs.Any(organ => !TryComp<OrganComponent>(organ.Id, out var organComp)
                     || organComp.Removable))
                     args.Cancelled = true;

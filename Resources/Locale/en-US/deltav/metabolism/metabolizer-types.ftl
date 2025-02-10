@@ -1,2 +1,2 @@
-metabolizer-type-aquatic = Aquatic
-metabolizer-type-aquatic-dehydrated = Dehydrated Aquatic
+metabolizer-type-feroxi = Feroxi
+metabolizer-type-feroxi-dehydrated = Dehydrated Feroxi

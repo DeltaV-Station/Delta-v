@@ -24,7 +24,7 @@
 - type: entity
   parent: BaseHumanOrgan
   id: OrganFeroxiLungs
-  name: Aquatic Lungs and Gills
+  name: Feroxian Lungs and Gills
   description: "A pair of amphibious lungs along with gills, filtering oxygen out of the air continuously."
   components:
   - type: Sprite
@@ -39,7 +39,7 @@
     removeEmpty: true
     solutionOnBody: false
     solution: "Lung"
-    metabolizerTypes: [ Aquatic ]
+    metabolizerTypes: [ Feroxi ]
     groups:
     - id: Gas
       rateModifier: 100.0

@@ -8,6 +8,7 @@ public sealed class FeroxiDehydrateSystem : EntitySystem
 {
     [Dependency] private readonly BodySystem _body = default!;
 
+
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<FeroxiDehydrateComponent, ThirstComponent>();
@@ -24,6 +25,11 @@ public sealed class FeroxiDehydrateSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Checks and changes the lungs when meeting the threshold for a swap of metabolizer
+    /// </summary>
+    /// <param name="ent"></param>
+    /// <param name="shouldBeDehydrated"></param>
     private void UpdateDehydrationStatus(Entity<FeroxiDehydrateComponent> ent, bool shouldBeDehydrated)
     {
         ent.Comp.Dehydrated = shouldBeDehydrated;
@@ -34,6 +40,7 @@ public sealed class FeroxiDehydrateSystem : EntitySystem
             {
                 continue;
             }
+            //Changing the metabolizer to the appropriate value based
             var newMetabolizer = shouldBeDehydrated ? ent.Comp.DehydratedMetabolizer : ent.Comp.HydratedMetabolizer;
             metabolizer.MetabolizerTypes!.Clear();
             metabolizer.MetabolizerTypes.Add(newMetabolizer);
