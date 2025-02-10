@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Content.Shared.Lathe;
 using Content.Shared.Research.Prototypes;
+using Content.Shared.ReverseEngineering; // DeltaV
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
@@ -91,6 +92,23 @@ public sealed class ResearchTest
                         Assert.That(latheTechs, Does.Contain(recipe), $"Recipe '{recipe}' from tech '{tech.ID}' cannot be unlocked on any lathes.");
                     }
                 }
+
+                // Begin DeltaV Additions: Check RE recipes too
+                foreach (var proto in allEnts)
+                {
+                    if (proto.Abstract)
+                        continue;
+
+                    if (!proto.TryGetComponent<ReverseEngineeringComponent>(out var rev))
+                        continue;
+
+                    foreach (var recipe in rev.Recipes)
+                    {
+                        unlockedTechs.Add(recipe);
+                        Assert.That(latheTechs, Does.Contain(recipe), $"Reverse engineered recipe \"{recipe}\" cannot be unlocked on any lathe.");
+                    }
+                }
+                // End DeltaV Additions
 
                 // now check that every dynamic recipe a lathe lists can be unlocked
                 foreach (var recipe in latheTechs)
