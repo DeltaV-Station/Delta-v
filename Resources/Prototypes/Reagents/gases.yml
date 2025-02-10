@@ -29,7 +29,7 @@
       - !type:Oxygenate # Delta-V - Feroxi Still need to breathe
         conditions:
         - !type:OrganType
-          type: Aquatic  
+          type: Feroxi
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:

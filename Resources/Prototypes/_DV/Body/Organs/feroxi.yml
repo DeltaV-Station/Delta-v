@@ -11,6 +11,9 @@
       - Pill
       - Crayon
       - Paper
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [ Feroxi, Animal ]
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -25,6 +28,7 @@
   parent: BaseHumanOrgan
   id: OrganFeroxiLungs
   name: Feroxian Lungs and Gills
+  categories: [ HideSpawnMenu ]
   description: "A pair of amphibious lungs along with gills, filtering oxygen out of the air continuously."
   components:
   - type: Sprite

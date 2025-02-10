@@ -452,33 +452,33 @@
       - !type:Oxygenate
         conditions:
         - !type:OrganType
-          type: Aquatic
+          type: Feroxi
       - !type:SatiateThirst
         conditions:
         - !type:OrganType
-          type: Aquatic
+          type: Feroxi
         factor: 2
       - !type:Oxygenate
         conditions:
         - !type:OrganType
-          type: AquaticDehydrated
+          type: FeroxiDehydrated
       - !type:SatiateThirst
         conditions:
         - !type:OrganType
-          type: AquaticDehydrated
+          type: FeroxiDehydrated
         factor: 2
       # Converts H2O into CO2
       - !type:ModifyLungGas
         conditions:
         - !type:OrganType
-          type: Aquatic
+          type: Feroxi
         ratios: # no duplicating O2 >:3
           CarbonDioxide: 0.5
           WaterVapor: -1.0
       - !type:ModifyLungGas
         conditions:
         - !type:OrganType
-          type: AquaticDehydrated
+          type: FeroxiDehydrated
         ratios: # no duplicating O2 >:3
           CarbonDioxide: 0.5
           WaterVapor: -1.0
