@@ -13,8 +13,7 @@ public sealed partial class EmptyContract : BoxContainer
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    public event Action? OnComplete;
-    public event Action? OnReject;
+    public event Action? OnUnlock;
 
     private TimeSpan? _nextUnlock;
     private TimeSpan _nextUpdate;
@@ -43,6 +42,7 @@ public sealed partial class EmptyContract : BoxContainer
             // unlocked now
             _nextUnlock = null;
             UnlockLabel.Visible = false;
+            OnUnlock?.Invoke();
             return;
         }
 
