@@ -36,6 +36,7 @@ public sealed partial class ContractsWindow : FancyWindow
         Reputation.Text = $"{comp.Reputation} Reputation";
 
         Contracts.RemoveAllChildren();
+        var slotsFull = true;
         for (int i = 0; i < comp.Slots.Count; i++)
         {
             var index = i;
@@ -49,6 +50,8 @@ public sealed partial class ContractsWindow : FancyWindow
             }
             else
             {
+                if (comp.Slots[i].NextUnlock == null)
+                    slotsFull = false;
                 Contracts.AddChild(new EmptyContract(comp.Slots[i].NextUnlock));
             }
         }
@@ -63,6 +66,7 @@ public sealed partial class ContractsWindow : FancyWindow
                 Text = offering
             };
             button.OnPressed += _ => OnAccept?.Invoke(index);
+            button.Disabled = slotsFull;
             Offerings.AddChild(button);
         }
 
