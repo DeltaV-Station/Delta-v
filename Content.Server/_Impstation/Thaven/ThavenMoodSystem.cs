@@ -363,4 +363,11 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         base.OnEmagged(uid, comp, ref args);
         TryAddRandomMood(uid, WildcardDataset, comp);
     }
+
+    // Begin DeltaV: thaven mood upsets
+    public void AddWildcardMood(Entity<ThavenMoodsComponent> ent)
+    {
+        TryAddRandomMood(ent.Owner, WildcardDataset, ent.Comp);
+    }
+    // End DeltaV: thaven mood upsets
 }
