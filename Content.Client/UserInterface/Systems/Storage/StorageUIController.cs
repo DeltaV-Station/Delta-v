@@ -6,6 +6,7 @@ using Content.Client.Interaction;
 using Content.Client.Storage;
 using Content.Client.Storage.Systems;
 using Content.Client.UserInterface.Systems.Hotbar.Widgets;
+using Content.Client.UserInterface.Systems.Info;
 using Content.Client.UserInterface.Systems.Storage.Controls;
 using Content.Client.Verbs.UI;
 using Content.Shared.CCVar;
@@ -37,6 +38,7 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly CloseRecentWindowUIController _closeRecentWindowUIController = default!;
     [UISystemDependency] private readonly StorageSystem _storage = default!;
 
     /// <summary>
@@ -173,6 +175,8 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
                 hotbar?.SingleStorageContainer.AddChild(window);
                 reorder(hotbar?.SingleStorageContainer, window);
             }
+
+            _closeRecentWindowUIController.SetMostRecentlyInteractedWindow(window);
         }
         else
         {
