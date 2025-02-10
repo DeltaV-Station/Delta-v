@@ -1,34 +1,4 @@
 ﻿Entries:
-- author: flyingkarii
-  changes:
-  - message: Removed command age requirement.
-    type: Tweak
-  id: 522
-  time: '2024-09-07T04:38:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1611
-- author: deltanedas
-  changes:
-  - message: Fulton recipes can now be unlocked with the Aerial Extractions tech.
-    type: Add
-  id: 523
-  time: '2024-09-07T13:17:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1760
-- author: Fox
-  changes:
-  - message: New Lobby Track "The Station" by A-Guy
-    type: Add
-  id: 524
-  time: '2024-09-07T13:44:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1761
-- author: Fox
-  changes:
-  - message: Added cryo and some new maints to Pebble!
-    type: Add
-  - message: Adjusts some elements of Pebble
-    type: Tweak
-  id: 525
-  time: '2024-09-07T15:10:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1489
 - author: Velcroboy
   changes:
   - message: Department specific shelves no longer restrict the items that can be
@@ -3844,3 +3814,44 @@
   id: 1021
   time: '2025-02-09T05:32:37.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2934
+- author: Quanteey
+  changes:
+  - message: NT now stocks brute trauma kits with additional bicaridine pills
+    type: Tweak
+  id: 1022
+  time: '2025-02-09T17:33:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2941
+- author: sowelipililimute
+  changes:
+  - message: Surgical tools get less dirtier than before from normal procedures and
+      dirtier from cross contamination, and have a lower base poison damage once they
+      become too dirty
+    type: Tweak
+  - message: Poor sanitation now deals poison damage on the specific part
+    type: Add
+  - message: Poison damage from surgery is no longer unbounded
+    type: Fix
+  id: 1023
+  time: '2025-02-09T19:24:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2926
+- author: Smugman
+  changes:
+  - message: Added the Chainsmoker Bundle to the Uplink. 6 Packs of Interdynes plus
+      a Valid Lighter that shoots fire!
+    type: Add
+  - message: After a "False Advertising" lawsuit, Cigarette Cartons now ACTUALLY Contain
+      6 packs. (except discount dan's)
+    type: Tweak
+  - message: Fixed Cigarette cartons aside from "Nomads" not displaying their Opened
+      State.
+    type: Fix
+  id: 1024
+  time: '2025-02-09T22:21:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2894
+- author: sowelipililimute, bogus_0451
+  changes:
+  - message: Added the autoclave to sterilise surgical tools in bulk
+    type: Add
+  id: 1025
+  time: '2025-02-10T12:22:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2933

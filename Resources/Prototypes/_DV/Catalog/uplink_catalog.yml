@@ -350,3 +350,18 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkChainsmokerBundle
+  name: uplink-chainsmoker-bundle-name
+  description: uplink-chainsmoker-bundle-desc
+  productEntity: CigCartonSyndicate
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 3 # Incredible value! (Still a horrendous waste)
+  cost:
+    Telecrystal: 6 # 12TC worth of cigs, plus a bonus lighter. (Or you could just emag a shadycig, and get infinite interdynes for free)
+  categories:
+  - UplinkChemicals
+  - UplinkPointless
+  - UplinkWeaponry
