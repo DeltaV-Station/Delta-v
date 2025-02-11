@@ -32,7 +32,7 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     public HashSet<string> AlertedSensors = [];
 
     /// <summary>
-    ///     Accumulated time for tracking alert cooldown
+    ///     Timestamp of the next possible alert (alert cooldown)
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextAlert;
