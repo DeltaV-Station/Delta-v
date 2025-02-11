@@ -1,91 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: Fixed Mystagogue cloak not counting towards the thief's cloak objective
-    type: Fix
-  id: 520
-  time: '2024-09-06T21:26:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1759
-- author: adeinitas
-  changes:
-  - message: Wing covers have been installed on various ERT suits and some others,
-      and they now fit harpies.
-    type: Tweak
-  id: 521
-  time: '2024-09-07T04:37:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1754
-- author: flyingkarii
-  changes:
-  - message: Removed command age requirement.
-    type: Tweak
-  id: 522
-  time: '2024-09-07T04:38:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1611
-- author: deltanedas
-  changes:
-  - message: Fulton recipes can now be unlocked with the Aerial Extractions tech.
-    type: Add
-  id: 523
-  time: '2024-09-07T13:17:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1760
-- author: Fox
-  changes:
-  - message: New Lobby Track "The Station" by A-Guy
-    type: Add
-  id: 524
-  time: '2024-09-07T13:44:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1761
-- author: Fox
-  changes:
-  - message: Added cryo and some new maints to Pebble!
-    type: Add
-  - message: Adjusts some elements of Pebble
-    type: Tweak
-  id: 525
-  time: '2024-09-07T15:10:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1489
-- author: Velcroboy
-  changes:
-  - message: Department specific shelves no longer restrict the items that can be
-      placed in them.
-    type: Tweak
-  id: 526
-  time: '2024-09-07T17:46:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1763
-- author: deltanedas
-  changes:
-  - message: Bookshelves can now fit any kind of item, not just books.
-    type: Tweak
-  id: 527
-  time: '2024-09-07T22:05:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1765
-- author: portfiend
-  changes:
-  - message: Added Rodentia, a new species of playable rodent-like humanoids.
-    type: Add
-  - message: Mobs that are capable of rummaging (such as the new Rodentia species)
-      can do so every five minutes. They will find small snacks in trash bins instead
-      of entire wheels of cheese.
-    type: Tweak
-  id: 528
-  time: '2024-09-08T02:04:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1511
-- author: DisposableCrewmember42
-  changes:
-  - message: The wardrobe restock box can now be used to restock the CourierDrobe.
-      Lock and Load!
-    type: Fix
-  id: 529
-  time: '2024-09-08T02:10:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1768
-- author: adeinitas
-  changes:
-  - message: Moths now have a bigger range of color. Existing moths may look weirder
-      than usual.
-    type: Tweak
-  id: 530
-  time: '2024-09-08T04:24:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1695
 - author: Stop-Signs
   changes:
   - message: The Butlertron now gives you a bigger reward for fulfilling its food
@@ -3843,3 +3756,98 @@
   id: 1019
   time: '2025-02-09T03:00:40.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2939
+- author: Lyndomen
+  changes:
+  - message: Surgical procedures repairing burns and brute damage are slightly more
+      effective.
+    type: Tweak
+  id: 1020
+  time: '2025-02-09T05:31:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2935
+- author: Lyndomen
+  changes:
+  - message: Nukie medic and commander armor can now actually get purchased, and they
+      get 5 extra TC.
+    type: Tweak
+  id: 1021
+  time: '2025-02-09T05:32:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2934
+- author: Quanteey
+  changes:
+  - message: NT now stocks brute trauma kits with additional bicaridine pills
+    type: Tweak
+  id: 1022
+  time: '2025-02-09T17:33:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2941
+- author: sowelipililimute
+  changes:
+  - message: Surgical tools get less dirtier than before from normal procedures and
+      dirtier from cross contamination, and have a lower base poison damage once they
+      become too dirty
+    type: Tweak
+  - message: Poor sanitation now deals poison damage on the specific part
+    type: Add
+  - message: Poison damage from surgery is no longer unbounded
+    type: Fix
+  id: 1023
+  time: '2025-02-09T19:24:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2926
+- author: Smugman
+  changes:
+  - message: Added the Chainsmoker Bundle to the Uplink. 6 Packs of Interdynes plus
+      a Valid Lighter that shoots fire!
+    type: Add
+  - message: After a "False Advertising" lawsuit, Cigarette Cartons now ACTUALLY Contain
+      6 packs. (except discount dan's)
+    type: Tweak
+  - message: Fixed Cigarette cartons aside from "Nomads" not displaying their Opened
+      State.
+    type: Fix
+  id: 1024
+  time: '2025-02-09T22:21:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2894
+- author: sowelipililimute, bogus_0451
+  changes:
+  - message: Added the autoclave to sterilise surgical tools in bulk
+    type: Add
+  id: 1025
+  time: '2025-02-10T12:22:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2933
+- author: Eternally-Confused
+  changes:
+  - message: surgical duffels and syndicate surgical duffels now contain a nitrous
+      oxide tank
+    type: Tweak
+  id: 1026
+  time: '2025-02-10T23:48:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2951
+- author: Eternally-Confused
+  changes:
+  - message: Returned "Clearly Nuclear"
+    type: Add
+  id: 1027
+  time: '2025-02-10T23:51:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2952
+- author: Stop-Signs
+  changes:
+  - message: Food now gets metabolized 4 times faster.
+    type: Tweak
+  id: 1028
+  time: '2025-02-11T00:07:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2942
+- author: Quanteey
+  changes:
+  - message: The crew monitor handheld and console now beep when a crew member goes
+      into critical condition or dies!
+    type: Tweak
+  id: 1029
+  time: '2025-02-11T08:40:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2930
+- author: AeraAuling
+  changes:
+  - message: NT has started to supply stations with high-quality arming swords. Security
+      and Salvage can pick one up from cargo for their work. (credit to MagnusCrowe)
+    type: Add
+  id: 1030
+  time: '2025-02-11T12:50:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2836
