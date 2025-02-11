@@ -9,6 +9,7 @@
 
 ## Dynamic
 
+# available in medfab and emagged protolathe
 - type: latheRecipePack
   id: SyringeGuns
   recipes:
@@ -16,11 +17,16 @@
   - MiniSyringe
 
 - type: latheRecipePack
-  id: MedicalRE
+  parent: SyringeGuns
+  id: MedicalDeltaV
   recipes:
-  - HandheldCrewMonitor
+  - HandheldCrewMonitor # RE
 
 - type: latheRecipePack
   id: MedicalBoardsDeltaV
   recipes:
   - CrewMonitoringComputerCircuitboard
+  - CloningConsoleComputerCircuitboard
+  - MedicalScannerMachineCircuitboard
+  - MetempsychoticMachineCircuitboard
+  - CloningPodMachineCircuitboard # RE

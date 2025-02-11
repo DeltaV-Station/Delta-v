@@ -31,6 +31,8 @@
 ## Dynamic
 
 - type: latheRecipePack
+  parent:
+  - RoboticsDeltaV # DeltaV
   id: Robotics
   recipes:
   - ProximitySensor

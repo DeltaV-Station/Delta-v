@@ -26,8 +26,10 @@
   tier: 1
   cost: 7500
   recipeUnlocks:
+  # Uranium
   - MagazineRifleUranium
   - MagazinePistolUranium
+  - MagazinePistolSubMachineGunUranium
   - MagazineLightRifleUranium
   - SpeedLoaderMagnumUranium
   - MagazineBoxPistolUranium
@@ -37,9 +39,11 @@
   - BoxShotgunUranium
   - SpeedLoaderSpecialUranium
   - MagazineBoxSpecialUranium
+  # Incendiary
   - BoxShotgunIncendiary
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
+  - MagazinePistolSubMachineGunIncendiary
   - MagazineLightRifleIncendiary
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
@@ -47,6 +51,8 @@
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
+  - SpeedLoaderSpecialUranium
+  - MagazineBoxSpecialIncendiary
   - MagazineBoxSpecialHoly
 
 - type: technology

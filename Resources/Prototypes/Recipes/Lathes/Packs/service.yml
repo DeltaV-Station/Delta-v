@@ -52,6 +52,8 @@
   - SynthesizerInstrument
 
 - type: latheRecipePack
+  parent:
+  - ServiceBoardsDeltaV # DeltaV
   id: ServiceBoards
   recipes:
   - BiofabricatorMachineCircuitboard
