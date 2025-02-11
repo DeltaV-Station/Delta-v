@@ -31,20 +31,13 @@ public sealed class ContractsCompleteMessage(int index) : BoundUserInterfaceMess
 }
 
 /// <summary>
-/// Rejects an active contract with slots index.
+/// Rejects a contract offering with offerings index.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class ContractsRejectMessage(int index) : BoundUserInterfaceMessage
 {
     public readonly int Index = index;
 }
-
-/// <summary>
-/// Picks more offerings if there are none available.
-/// Failsafe incase of bad RNG giving you nothing.
-/// </summary>
-[Serializable, NetSerializable]
-public sealed class ContractsRescanMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
 public sealed class PdaShowContractsMessage : BoundUserInterfaceMessage;

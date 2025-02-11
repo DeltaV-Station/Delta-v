@@ -33,12 +33,22 @@ public sealed class ReputationSystem : EntitySystem
             subs.Event<ContractsAcceptMessage>(OnAcceptMessage);
             subs.Event<ContractsCompleteMessage>(OnCompleteMessage);
             subs.Event<ContractsRejectMessage>(OnRejectMessage);
-            subs.Event<ContractsRescanMessage>(OnRescanMessage);
         });
 
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
 
         CacheLevels();
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<ContractsComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            PickOfferings((uid, comp));
+        }
     }
 
     #region Event Handlers
@@ -66,7 +76,7 @@ public sealed class ReputationSystem : EntitySystem
 
         foreach (var obj in ent.Comp.Objectives)
         {
-            ObjectiveFailed(ent, obj);
+            ContractFailed(ent, obj);
         }
 
         // unlink it from the mind
@@ -101,8 +111,11 @@ public sealed class ReputationSystem : EntitySystem
         if (ent.Comp.Offerings[i] is not {} objective || !TryTakeContract(ent, objective))
             return;
 
-        ent.Comp.Offerings[i] = null; // prevent the accepted objective from being deleted below
-        PickOfferings(ent);
+        ent.Comp.Offerings[i] = null;
+        ent.Comp.OfferingSlots[i] = new OfferingSlot
+        {
+            NextUnlock = _timing.CurTime + ent.Comp.AcceptDelay
+        };
     }
 
     private void OnCompleteMessage(Entity<ContractsComponent> ent, ref ContractsCompleteMessage args)
@@ -112,13 +125,7 @@ public sealed class ReputationSystem : EntitySystem
 
     private void OnRejectMessage(Entity<ContractsComponent> ent, ref ContractsRejectMessage args)
     {
-        TryRejectContract(ent, args.Index);
-    }
-
-    private void OnRescanMessage(Entity<ContractsComponent> ent, ref ContractsRescanMessage args)
-    {
-        if (!HasOffering(ent))
-            PickOfferings(ent);
+        TryRejectOffering(ent, args.Index);
     }
 
     #endregion
@@ -139,6 +146,12 @@ public sealed class ReputationSystem : EntitySystem
         var mind = AddComp<MindReputationComponent>(mindId);
         contracts.Mind = mindId;
         mind.Pda = pda;
+        var offerings = _proto.Index(contracts.OfferingGroups).Groups.Count;
+        for (var i = 0; i < offerings; i++)
+        {
+            contracts.Offerings.Add(null);
+            contracts.OfferingSlots.Add(new OfferingSlot());
+        }
         PickOfferings((pda, contracts));
     }
 
@@ -154,39 +167,40 @@ public sealed class ReputationSystem : EntitySystem
     }
 
     /// <summary>
-    /// Delete old unpicked objective offerings and generate new ones.
+    /// Pick new offerings for open offering slots.
     /// </summary>
     public void PickOfferings(Entity<ContractsComponent> ent)
     {
-        ClearOfferings(ent);
-
         if (GetMind(ent) is not {} mind || ent.Comp.CurrentLevel is not {} level)
             return;
 
         var difficulty = level.MaxDifficulty;
         var groups = _proto.Index(ent.Comp.OfferingGroups);
-        foreach (var weights in groups.Groups)
+        for (var i = 0; i < groups.Groups.Count; i++)
         {
-            if (_objectives.GetRandomObjective(mind, mind, weights, difficulty) is not {} objective)
+            // can't add a new offering yet
+            if (ent.Comp.Offerings[i] != null || IsLocked(ent.Comp.OfferingSlots[i].NextUnlock))
                 continue;
 
-            ent.Comp.Offerings.Add(objective);
-            ent.Comp.OfferingTitles.Add(_contract.ContractName(objective));
-        }
-        Dirty(ent);
-    }
+            var weights = groups.Groups[i];
+            if (_objectives.GetRandomObjective(mind, mind, weights, difficulty) is not {} objective)
+            {
+                // prevent spinlock
+                ent.Comp.OfferingSlots[i] = new OfferingSlot
+                {
+                    NextUnlock = _timing.CurTime + ent.Comp.AcceptDelay
+                };
+                Dirty(ent);
+                continue;
+            }
 
-    /// <summary>
-    /// Clear the offerings lists without dirtying them.
-    /// </summary>
-    private void ClearOfferings(Entity<ContractsComponent> ent)
-    {
-        foreach (var obj in ent.Comp.Offerings)
-        {
-            Del(obj);
+            ent.Comp.Offerings[i] = objective;
+            ent.Comp.OfferingSlots[i] = new OfferingSlot
+            {
+                Title = _contract.ContractName(objective)
+            };
+            Dirty(ent);
         }
-        ent.Comp.Offerings.Clear();
-        ent.Comp.OfferingTitles.Clear();
     }
 
     /// <summary>
@@ -234,22 +248,23 @@ public sealed class ReputationSystem : EntitySystem
         return true;
     }
 
-    public bool TryRejectContract(Entity<ContractsComponent> ent, int index)
+    public bool TryRejectOffering(Entity<ContractsComponent> ent, int index)
     {
         if (index < 0 ||
-            index >= ent.Comp.Slots.Count ||
-            ent.Comp.Objectives[index] is not {} objective)
+            index >= ent.Comp.OfferingSlots.Count ||
+            ent.Comp.Offerings[index] is not {} objective)
         {
             return false;
         }
 
-        var ev = new ContractRejectedEvent(ent);
-        RaiseLocalEvent(objective, ref ev);
-
-        ClearSlot(ent, index, ent.Comp.RejectDelay);
-        if (GetMind(ent) is {} mind)
-            _mind.TryRemoveObjective(mind, objective);
-        Del(objective); // allow taking again it in the future if you know you can
+        ent.Comp.Offerings[index] = null;
+        ent.Comp.OfferingSlots[index] = new OfferingSlot
+        {
+            Title = null,
+            NextUnlock = _timing.CurTime + ent.Comp.RejectDelay
+        };
+        Dirty(ent);
+        Del(objective);
         return true;
     }
 
@@ -262,7 +277,7 @@ public sealed class ReputationSystem : EntitySystem
         if (FindContract(ent, objective) is not {} index)
             return false;
 
-        ObjectiveFailed(ent, objective);
+        ContractFailed(ent, objective);
         ClearSlot(ent, index, ent.Comp.CompleteDelay);
         return true;
     }
@@ -341,6 +356,11 @@ public sealed class ReputationSystem : EntitySystem
 
     #endregion
 
+    private bool IsLocked(TimeSpan? nextUnlock)
+    {
+        return nextUnlock is {} unlock && _timing.CurTime < unlock;
+    }
+
     private int? FindOpenSlot(Entity<ContractsComponent> ent)
     {
         for (var i = 0; i < ent.Comp.Slots.Count; i++)
@@ -348,7 +368,7 @@ public sealed class ReputationSystem : EntitySystem
             if (ent.Comp.Objectives[i] != null)
                 continue;
 
-            if (ent.Comp.Slots[i].NextUnlock is {} unlock && _timing.CurTime < unlock)
+            if (IsLocked(ent.Comp.Slots[i].NextUnlock))
                 continue;
 
             return i;
@@ -366,17 +386,6 @@ public sealed class ReputationSystem : EntitySystem
         }
 
         return null;
-    }
-
-    private bool HasOffering(Entity<ContractsComponent> ent)
-    {
-        foreach (var uid in ent.Comp.Offerings)
-        {
-            if (uid != null)
-                return true;
-        }
-
-        return false;
     }
 
     private void ClearSlot(Entity<ContractsComponent> ent, int index, TimeSpan delay)
@@ -413,16 +422,17 @@ public sealed class ReputationSystem : EntitySystem
             // this should never happen but removing objectives just incase
             for (var i = newSlots; i > oldSlots; i--)
             {
-                var objective = ent.Comp.Objectives[i - 1];
-                ObjectiveFailed(ent, objective);
-                ent.Comp.Objectives.RemoveAt(i - 1);
-                ent.Comp.Slots.RemoveAt(i - 1);
+                var j = i - 1;
+                var objective = ent.Comp.Objectives[j];
+                ContractFailed(ent, objective);
+                ent.Comp.Objectives.RemoveAt(j);
+                ent.Comp.Slots.RemoveAt(j);
             }
         }
         Dirty(ent);
     }
 
-    private void ObjectiveFailed(Entity<ContractsComponent> ent, EntityUid? uid)
+    private void ContractFailed(Entity<ContractsComponent> ent, EntityUid? uid)
     {
         if (GetMind(ent) is not {} mind)
             return;

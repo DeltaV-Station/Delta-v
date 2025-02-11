@@ -5,8 +5,5 @@
 		MinHeight="64"
 		Margin="5">
 	<Label Name="Title" HorizontalExpand="True"/> <!-- Set in constructor -->
-	<BoxContainer Orientation="Vertical">
-		<Button Name="CompleteButton" Text="Complete"/>
-		<Button Name="RejectButton" Text="Reject"/>
-	</BoxContainer>
+	<Button Name="CompleteButton" Text="Complete" Margin="5"/>
 </BoxContainer>

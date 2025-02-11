@@ -15,7 +15,6 @@ public sealed partial class ContractsWindow : FancyWindow
     public event Action<int>? OnAccept;
     public event Action<int>? OnComplete;
     public event Action<int>? OnReject;
-    public event Action? OnRescan;
 
     public EntityUid Owner;
 
@@ -23,8 +22,6 @@ public sealed partial class ContractsWindow : FancyWindow
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-
-        RescanButton.OnPressed += _ => OnRescan?.Invoke();
     }
 
     public void UpdateState()
@@ -45,14 +42,13 @@ public sealed partial class ContractsWindow : FancyWindow
             {
                 var contract = new Contract(title);
                 contract.OnComplete += () => OnComplete?.Invoke(index);
-                contract.OnReject += () => OnReject?.Invoke(index);
                 Contracts.AddChild(contract);
                 // TODO: green when objective is complete
             }
             else
             {
                 var empty = new EmptyContract(comp.Slots[i].NextUnlock);
-                empty.OnUnlock += UpdateState;
+                empty.OnUnlock += EnableAccepts;
                 if (!empty.IsLocked)
                     slotsFull = false;
                 Contracts.AddChild(empty);
@@ -60,20 +56,22 @@ public sealed partial class ContractsWindow : FancyWindow
         }
 
         Offerings.RemoveAllChildren();
-        for (int i = 0; i < comp.OfferingTitles.Count; i++)
+        for (int i = 0; i < comp.OfferingSlots.Count; i++)
         {
             var index = i;
-            var offering = comp.OfferingTitles[i];
-            var button = new Button()
-            {
-                Text = offering
-            };
-            button.OnPressed += _ => OnAccept?.Invoke(index);
-            button.Disabled = slotsFull;
-            Offerings.AddChild(button);
+            var offering = new ContractOffering(comp.OfferingSlots[i]);
+            offering.AcceptDisabled = slotsFull;
+            offering.OnAccept += () => OnAccept?.Invoke(index);
+            offering.OnReject += () => OnReject?.Invoke(index);
+            Offerings.AddChild(offering);
         }
+    }
 
-        // failsafe incase of bad rng or whatever not giving you anything
-        RescanContainer.Visible = comp.OfferingTitles.Count == 0;
+    private void EnableAccepts()
+    {
+        foreach (var child in Offerings.Children)
+        {
+            ((ContractOffering) child).AcceptDisabled = false;
+        }
     }
 }

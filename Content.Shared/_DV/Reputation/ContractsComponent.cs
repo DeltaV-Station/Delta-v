@@ -41,10 +41,10 @@ public sealed partial class ContractsComponent : Component
     public List<EntityUid?> Offerings = new();
 
     /// <summary>
-    /// The title of each offering objective.
+    /// All slots for offerings.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public List<string> OfferingTitles = new();
+    public List<OfferingSlot> OfferingSlots = new();
 
     /// <summary>
     /// The objectives for each slot.
@@ -67,10 +67,16 @@ public sealed partial class ContractsComponent : Component
     public TimeSpan CompleteDelay = TimeSpan.FromMinutes(5);
 
     /// <summary>
-    /// How long you have to wait before you can get a new contract after you reject one.
+    /// How long you have to wait before you can get a new offering after you reject one.
     /// </summary>
     [DataField]
     public TimeSpan RejectDelay = TimeSpan.FromMinutes(15);
+
+    /// <summary>
+    /// How long you have to wait before you can get a new offering after you accept one.
+    /// </summary>
+    [DataField]
+    public TimeSpan AcceptDelay = TimeSpan.FromMinutes(3);
 }
 
 /// <summary>
@@ -87,6 +93,25 @@ public partial record struct ContractSlot
 
     /// <summary>
     /// When the slot gets unlocked and a new contract can be taken.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan? NextUnlock;
+}
+
+/// <summary>
+/// An offering slot which can have an available objective.
+/// </summary>
+[DataDefinition, Serializable, NetSerializable]
+public partial record struct OfferingSlot
+{
+    /// <summary>
+    /// The title of the available objective, or null if locked.
+    /// </summary>
+    [DataField]
+    public string? Title;
+
+    /// <summary>
+    /// When the slot gets unlocked and a new offering is rolled.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan? NextUnlock;

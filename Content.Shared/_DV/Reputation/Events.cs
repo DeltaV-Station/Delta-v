@@ -9,13 +9,6 @@ namespace Content.Shared._DV.Reputation;
 public record struct ContractTakenEvent(Entity<ContractsComponent> Pda, Entity<MindComponent> Mind);
 
 /// <summary>
-/// Event that gets raised on an objective after it has been rejected.
-/// It gets deleted afterwards.
-/// </summary>
-[ByRefEvent]
-public record struct ContractRejectedEvent(Entity<ContractsComponent> Pda);
-
-/// <summary>
 /// Event that gets raised on an objective after it becomes impossible to completed.
 /// It gets deleted afterwards.
 /// </summary>

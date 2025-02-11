@@ -11,7 +11,6 @@ namespace Content.Client._DV.Reputation.UI;
 public sealed partial class Contract : BoxContainer
 {
     public event Action? OnComplete;
-    public event Action? OnReject;
 
     public Contract(string title)
     {
@@ -20,8 +19,5 @@ public sealed partial class Contract : BoxContainer
         Title.Text = title;
 
         CompleteButton.OnPressed += _ => OnComplete?.Invoke();
-        RejectButton.OnPressed += _ => OnReject?.Invoke();
-
-        OnReject += () => Orphan(); // this will always remove the contract so predict it
     }
 }
