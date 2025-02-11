@@ -9,6 +9,7 @@
   color: "#24591F"
   metabolisms:
     Food:
+      metabolismRate: 2 # DeltaV
       effects:
       - !type:SatiateHunger
   plantMetabolism:
@@ -28,6 +29,7 @@
   color: "#D3D3D3"
   metabolisms:
     Food: #This makes it not compete with medicines, a large bonus for something that can heal
+      metabolismRate: 2 # DeltaV
       effects:
       - !type:HealthChange
         probability: 0.5
@@ -57,6 +59,7 @@
   color: "#FFFFE5"
   metabolisms:
     Food:
+      metabolismRate: 2 # DeltaV
       effects:
       - !type:HealthChange
         probability: 0.5
@@ -79,6 +82,7 @@
   meltingPoint: 146.0
   metabolisms:
     Food:
+      metabolismRate: 2 # DeltaV
       effects:
       - !type:SatiateHunger
         conditions:
