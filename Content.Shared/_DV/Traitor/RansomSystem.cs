@@ -37,7 +37,7 @@ public sealed class RansomSystem : EntitySystem
     /// </summary>
     public int RansomEntity(EntityUid uid)
     {
-        var ransom = RansomEntity(uid);
+        var ransom = GetRansom(uid);
         EnsureComp<RansomComponent>(uid).Ransom = ransom;
         return ransom;
     }

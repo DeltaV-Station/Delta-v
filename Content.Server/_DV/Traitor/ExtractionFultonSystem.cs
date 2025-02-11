@@ -26,7 +26,6 @@ public sealed class ExtractionFultonSystem : SharedExtractionFultonSystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedFultonSystem _fulton = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -43,19 +42,23 @@ public sealed class ExtractionFultonSystem : SharedExtractionFultonSystem
 
         args.Handled = true;
 
-        var user = args.User;
+        AttachFulton(ent, target, args.User);
+    }
+
+    protected override void AttachFulton(Entity<ExtractionFultonComponent> ent, EntityUid target, EntityUid user)
+    {
         if (_mind.GetMind(user) is not {} mindId || !TryComp<MindComponent>(mindId, out var mind))
             return;
 
         if (HasComp<FultonedComponent>(target))
         {
-            _popup.PopupEntity(Loc.GetString("fulton-fultoned"), target, user);
+            Popup.PopupEntity(Loc.GetString("fulton-fultoned"), target, user);
             return;
         }
 
         if (_charges.IsEmpty(ent))
         {
-            _popup.PopupEntity(Loc.GetString("emag-no-charges"), ent, user);
+            Popup.PopupEntity(Loc.GetString("emag-no-charges"), ent, user);
             return;
         }
 
@@ -65,12 +68,12 @@ public sealed class ExtractionFultonSystem : SharedExtractionFultonSystem
         if (FindBeacon(ent, target) is not {} beacon)
         {
             Log.Error($"No beacon found accepting {ToPrettyString(target)} from {ToPrettyString(ent)}");
-            _popup.PopupEntity(Loc.GetString("extraction-fulton-no-destination"), ent, user);
+            Popup.PopupEntity(Loc.GetString("extraction-fulton-no-destination"), ent, user);
             return;
         }
 
         var ev = new ExtractionFultonDoAfterEvent(GetNetEntity(beacon));
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.ApplyDelay, ev, eventTarget: ent, target: target, used: args.Used)
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.ApplyDelay, ev, eventTarget: ent, target: target, used: ent)
         {
             BreakOnMove = true,
             NeedHand = true
@@ -108,7 +111,7 @@ public sealed class ExtractionFultonSystem : SharedExtractionFultonSystem
     {
         if (Transform(target).Anchored)
         {
-            _popup.PopupEntity(Loc.GetString("extraction-fulton-anchored"), target, user);
+            Popup.PopupEntity(Loc.GetString("extraction-fulton-anchored"), target, user);
             return false;
         }
 
@@ -119,14 +122,14 @@ public sealed class ExtractionFultonSystem : SharedExtractionFultonSystem
         {
             if (!_mob.IsAlive(target))
             {
-                _popup.PopupEntity(Loc.GetString("extraction-fulton-dead"), target, user);
+                Popup.PopupEntity(Loc.GetString("extraction-fulton-dead"), target, user);
                 return false;
             }
 
             return true;
         }
 
-        _popup.PopupEntity(Loc.GetString("extraction-fulton-not-target"), target, user);
+        Popup.PopupEntity(Loc.GetString("extraction-fulton-not-target"), target, user);
         return false;
     }
 }
