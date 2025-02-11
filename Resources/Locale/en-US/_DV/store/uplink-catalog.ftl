@@ -56,7 +56,7 @@ uplink-hardsuit-agent-syndie-desc = The iconic blood-white hardsuit, painted wit
 uplink-core-extraction-toolbox-name = Core Extraction Toolbox
 uplink-core-extraction-toolbox-desc = A toolbox containing everything you need to remove a nuclear bomb's plutonium core. Instructions not included.
 
-uplink-syndicate-handcuff-bundle-name = Handcuff implant bundle
+uplink-syndicate-handcuff-bundle-name = Handcuff bundle
 uplink-syndicate-handcuff-bundle-desc = Includes 10 metal handcuffs. We recommended you share with your friends!
 
 uplink-syndicate-bodybag-name = Box of body bags
