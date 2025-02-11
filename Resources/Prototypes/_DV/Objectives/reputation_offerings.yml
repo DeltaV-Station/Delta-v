@@ -1,40 +1,10 @@
-- type: reputationOfferingGroups
+- type: weightedRandom
   id: ReputationOfferings
   groups:
-  - ReputationOfferingGroupStealMinor
-  - ReputationOfferingGroupSteal
-  - ReputationOfferingGroupKill
-  # no state as taking a contract to escape is basically paid eorg
-  - ReputationOfferingGroupSocial
-  - ReputationOfferingGroupSpecial
-  - ReputationOfferingGroupRansom
-
-- type: weightedRandom
-  id: ReputationOfferingGroupStealMinor
-  weights:
-    TraitorObjectiveGroupStealMinor: 1
-
-- type: weightedRandom
-  id: ReputationOfferingGroupSteal
-  weights:
+    TraitorObjectiveGroupStealMinor: 0.5
     TraitorObjectiveGroupSteal: 1
-
-- type: weightedRandom
-  id: ReputationOfferingGroupKill
-  weights:
     TraitorObjectiveGroupKill: 1
-
-- type: weightedRandom
-  id: ReputationOfferingGroupSocial
-  weights:
-    TraitorObjectiveGroupSocial: 1
-
-- type: weightedRandom
-  id: ReputationOfferingGroupSpecial
-  weights:
-    TraitorObjectiveGroupSpecial: 1
-
-- type: weightedRandom
-  id: ReputationOfferingGroupRansom
-  weights:
+    # no state as taking a contract to escape is basically paid eorg
+    TraitorObjectiveGroupSocial: 0.5
+    TraitorObjectiveGroupSpecial: 0.2
     TraitorObjectiveGroupRansom: 1

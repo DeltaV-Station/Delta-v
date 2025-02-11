@@ -146,12 +146,6 @@ public sealed class ReputationSystem : EntitySystem
         var mind = AddComp<MindReputationComponent>(mindId);
         contracts.Mind = mindId;
         mind.Pda = pda;
-        var offerings = _proto.Index(contracts.OfferingGroups).Groups.Count;
-        for (var i = 0; i < offerings; i++)
-        {
-            contracts.Offerings.Add(null);
-            contracts.OfferingSlots.Add(new OfferingSlot());
-        }
         PickOfferings((pda, contracts));
     }
 
@@ -175,15 +169,14 @@ public sealed class ReputationSystem : EntitySystem
             return;
 
         var difficulty = level.MaxDifficulty;
-        var groups = _proto.Index(ent.Comp.OfferingGroups);
-        for (var i = 0; i < groups.Groups.Count; i++)
+        var groups = level.OfferingGroups;
+        for (var i = 0; i < ent.Comp.OfferingSlots.Count; i++)
         {
             // can't add a new offering yet
             if (ent.Comp.Offerings[i] != null || IsLocked(ent.Comp.OfferingSlots[i].NextUnlock))
                 continue;
 
-            var weights = groups.Groups[i];
-            if (_objectives.GetRandomObjective(mind, mind, weights, difficulty) is not {} objective)
+            if (_objectives.GetRandomObjective(mind, mind, groups, difficulty) is not {} objective)
             {
                 // prevent spinlock
                 ent.Comp.OfferingSlots[i] = new OfferingSlot
@@ -403,6 +396,12 @@ public sealed class ReputationSystem : EntitySystem
     {
         var old = ent.Comp.CurrentLevel;
         ent.Comp.CurrentLevel = GetLevel(ent.Comp.Reputation);
+        UpdateContractSlots(ent);
+        UpdateOfferingSlots(ent);
+    }
+
+    private void UpdateContractSlots(Entity<ContractsComponent> ent)
+    {
         var oldSlots = ent.Comp.Slots.Count;
         var newSlots = ent.Comp.CurrentLevel?.MaxContracts ?? 0;
         if (oldSlots == newSlots)
@@ -427,6 +426,37 @@ public sealed class ReputationSystem : EntitySystem
                 ContractFailed(ent, objective);
                 ent.Comp.Objectives.RemoveAt(j);
                 ent.Comp.Slots.RemoveAt(j);
+            }
+        }
+        Dirty(ent);
+    }
+
+    private void UpdateOfferingSlots(Entity<ContractsComponent> ent)
+    {
+        var oldSlots = ent.Comp.OfferingSlots.Count;
+        var newSlots = ent.Comp.CurrentLevel?.MaxOfferings ?? 0;
+        if (oldSlots == newSlots)
+            return;
+
+        if (newSlots > oldSlots)
+        {
+            // levelling up, add new slot(s)
+            for (var i = oldSlots; i < newSlots; i++)
+            {
+                ent.Comp.Offerings.Add(null);
+                ent.Comp.OfferingSlots.Add(new OfferingSlot());
+            }
+        }
+        else
+        {
+            // this should never happen but removing objectives just incase
+            for (var i = newSlots; i > oldSlots; i--)
+            {
+                var j = i - 1;
+                var objective = ent.Comp.Offerings[j];
+                Del(objective);
+                ent.Comp.Offerings.RemoveAt(j);
+                ent.Comp.OfferingSlots.RemoveAt(j);
             }
         }
         Dirty(ent);

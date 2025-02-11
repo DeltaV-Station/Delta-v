@@ -1,3 +1,4 @@
+using Content.Shared.Random;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Reputation;
@@ -24,10 +25,16 @@ public sealed partial class ReputationLevelPrototype : IPrototype
     public int Reputation;
 
     /// <summary>
-    /// Maximum number of contracts that can be taken.
+    /// Maximum number of contracts that can be active at once.
     /// </summary>
     [DataField(required: true)]
     public int MaxContracts;
+
+    /// <summary>
+    /// Maximum number of offering slots that there can be.
+    /// </summary>
+    [DataField(required: true)]
+    public int MaxOfferings;
 
     /// <summary>
     /// Maximum difficulty for objectives that can be rolled.
@@ -35,4 +42,10 @@ public sealed partial class ReputationLevelPrototype : IPrototype
     /// </summary>
     [DataField]
     public float MaxDifficulty = 6f;
+
+    /// <summary>
+    /// Offering groups that can be used.
+    /// </summary>
+    [DataField]
+    public ProtoId<WeightedRandomPrototype> OfferingGroups = "ReputationOfferings";
 }

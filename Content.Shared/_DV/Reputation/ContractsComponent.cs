@@ -31,9 +31,6 @@ public sealed partial class ContractsComponent : Component
     [ViewVariables]
     public ReputationLevelPrototype? CurrentLevel;
 
-    [DataField]
-    public ProtoId<ReputationOfferingGroupsPrototype> OfferingGroups = "ReputationOfferings";
-
     /// <summary>
     /// Offering objectives that can be taken in the UI.
     /// </summary>
