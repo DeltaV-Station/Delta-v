@@ -796,7 +796,7 @@ entities:
       pos: -6.5,-6.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -18425.781
+      secondsUntilStateChange: -18780.352
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -859,7 +859,7 @@ entities:
       pos: -2.5,-6.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -18418.016
+      secondsUntilStateChange: -18772.586
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3980,17 +3980,17 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 11.5,1.5
       parent: 1
-- proto: CigPackSyndicate
+- proto: CigCartonSyndicate
   entities:
-  - uid: 558
+  - uid: 406
     components:
     - type: Transform
-      pos: 4.7080255,1.4853511
+      pos: 4.4801474,1.4728861
       parent: 1
-  - uid: 569
+  - uid: 407
     components:
     - type: Transform
-      pos: 4.7236505,1.7666011
+      pos: 4.607483,1.8064512
       parent: 1
 - proto: ClosetWallMixed
   entities:
@@ -4526,12 +4526,12 @@ entities:
   - uid: 1157
     components:
     - type: Transform
-      pos: 4.387086,1.8028436
+      pos: 12.806574,2.460118
       parent: 1
   - uid: 1158
     components:
     - type: Transform
-      pos: 4.2412524,1.6847059
+      pos: 8.1884,2.2979681
       parent: 1
 - proto: EncryptionKeyCommand
   entities:
