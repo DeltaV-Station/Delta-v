@@ -92,6 +92,13 @@ public sealed class ReputationSystem : EntitySystem
             slot.NextUnlock += args.PausedTime;
             ent.Comp.Slots[i] = slot;
         }
+
+        for (var i = 0; i < ent.Comp.OfferingSlots.Count; i++)
+        {
+            var slot = ent.Comp.OfferingSlots[i];
+            slot.NextUnlock += args.PausedTime;
+            ent.Comp.OfferingSlots[i] = slot;
+        }
         Dirty(ent);
     }
 

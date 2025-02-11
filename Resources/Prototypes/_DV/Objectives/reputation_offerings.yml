@@ -1,6 +1,6 @@
 - type: weightedRandom
   id: ReputationOfferings
-  groups:
+  weights:
     TraitorObjectiveGroupStealMinor: 0.5
     TraitorObjectiveGroupSteal: 1
     TraitorObjectiveGroupKill: 1
