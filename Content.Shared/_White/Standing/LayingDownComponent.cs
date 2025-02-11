@@ -7,7 +7,7 @@ namespace Content.Shared._White.Standing;
 public sealed partial class LayingDownComponent : Component
 {
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public float StandingUpTime { get; set; } = .5f;
+    public float StandingUpTime { get; set; } = 2f;
 
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public float SpeedModify { get; set; } = .2f; // DeltaV - reduce from .4f to .2f
