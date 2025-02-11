@@ -7174,7 +7174,7 @@ entities:
       pos: 0.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -363005.28
+      secondsUntilStateChange: -368772.06
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7713,7 +7713,7 @@ entities:
   - uid: 12269
     components:
     - type: MetaData
-      name: Prison Guard office
+      name: Guard Office
     - type: Transform
       pos: 47.5,15.5
       parent: 2
@@ -31285,15 +31285,15 @@ entities:
     - type: Transform
       pos: 5.5,-4.5
       parent: 2
-  - uid: 7625
-    components:
-    - type: Transform
-      pos: 46.5,29.5
-      parent: 2
   - uid: 11039
     components:
     - type: Transform
       pos: 21.5,-17.5
+      parent: 2
+  - uid: 12385
+    components:
+    - type: Transform
+      pos: 46.5,29.5
       parent: 2
 - proto: ComputerTelevisionCircuitboard
   entities:
@@ -32540,6 +32540,13 @@ entities:
       parent: 2
     - type: NavMapBeacon
       text: Security
+  - uid: 12458
+    components:
+    - type: Transform
+      pos: 49.5,16.5
+      parent: 2
+    - type: NavMapBeacon
+      text: Guard Office
 - proto: DefaultStationBeaconSolars
   entities:
   - uid: 585
@@ -66867,24 +66874,6 @@ entities:
     - type: Transform
       pos: 15.5,45.5
       parent: 2
-  - uid: 12458
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 54.5,23.5
-      parent: 2
-  - uid: 12459
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 57.5,23.5
-      parent: 2
-  - uid: 12460
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 60.5,23.5
-      parent: 2
   - uid: 12461
     components:
     - type: Transform
@@ -74902,6 +74891,17 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Armory
+  - uid: 7625
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 50.5,17.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Guard Office
   - uid: 8361
     components:
     - type: Transform
@@ -75001,17 +75001,6 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Attorney Office
-  - uid: 12385
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 50.5,17.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraSecurity
-      nameSet: True
-      id: Prison Guard Office
   - uid: 12649
     components:
     - type: Transform
