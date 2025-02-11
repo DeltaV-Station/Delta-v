@@ -1,39 +1,4 @@
 ﻿Entries:
-- author: Fox
-  changes:
-  - message: Added cryo and some new maints to Pebble!
-    type: Add
-  - message: Adjusts some elements of Pebble
-    type: Tweak
-  id: 525
-  time: '2024-09-07T15:10:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1489
-- author: Velcroboy
-  changes:
-  - message: Department specific shelves no longer restrict the items that can be
-      placed in them.
-    type: Tweak
-  id: 526
-  time: '2024-09-07T17:46:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1763
-- author: deltanedas
-  changes:
-  - message: Bookshelves can now fit any kind of item, not just books.
-    type: Tweak
-  id: 527
-  time: '2024-09-07T22:05:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1765
-- author: portfiend
-  changes:
-  - message: Added Rodentia, a new species of playable rodent-like humanoids.
-    type: Add
-  - message: Mobs that are capable of rummaging (such as the new Rodentia species)
-      can do so every five minutes. They will find small snacks in trash bins instead
-      of entire wheels of cheese.
-    type: Tweak
-  id: 528
-  time: '2024-09-08T02:04:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1511
 - author: DisposableCrewmember42
   changes:
   - message: The wardrobe restock box can now be used to restock the CourierDrobe.
@@ -3857,3 +3822,32 @@
   id: 1024
   time: '2025-02-09T22:21:28.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2894
+- author: sowelipililimute, bogus_0451
+  changes:
+  - message: Added the autoclave to sterilise surgical tools in bulk
+    type: Add
+  id: 1025
+  time: '2025-02-10T12:22:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2933
+- author: Eternally-Confused
+  changes:
+  - message: surgical duffels and syndicate surgical duffels now contain a nitrous
+      oxide tank
+    type: Tweak
+  id: 1026
+  time: '2025-02-10T23:48:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2951
+- author: Eternally-Confused
+  changes:
+  - message: Returned "Clearly Nuclear"
+    type: Add
+  id: 1027
+  time: '2025-02-10T23:51:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2952
+- author: Stop-Signs
+  changes:
+  - message: Food now gets metabolized 4 times faster.
+    type: Tweak
+  id: 1028
+  time: '2025-02-11T00:07:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2942
