@@ -41,3 +41,5 @@ artifact-trigger-hint-plasma = Gaseous plasma
 artifact-trigger-hint-land = Active deceleration
 artifact-trigger-hint-examine = Examination
 artifact-trigger-hint-medical = Therapeutic chemicals
+
+artifact-trigger-hint-expression = Expressiveness
