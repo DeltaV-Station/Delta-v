@@ -157,6 +157,10 @@
     - id: BoxReamClassic
     - id: BoxReamBright
     # End DeltaV - More folders & colored paper reams in the bureaucracy crate
+    # Start DeltaV - low chance of paperwork hater stamp
+    - id: RubberStampHatePaperwork
+      prob: 0.05
+    # End DeltaV - low chance of paperwork hater stamp
 
 - type: entity
   id: CrateServiceFaxMachine
