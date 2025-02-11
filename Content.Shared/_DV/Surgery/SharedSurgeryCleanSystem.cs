@@ -102,10 +102,15 @@ public abstract class SharedSurgeryCleanSystem : EntitySystem
         if (args.Handled || args.Cancelled || args.Args.Target == null)
             return;
 
-        var ev = new SurgeryCleanedEvent(ent.Comp.DirtAmount, ent.Comp.DnaAmount);
-        RaiseLocalEvent(args.Args.Target.Value, ref ev);
+        DoClean(ent, args.Args.Target.Value);
 
         args.Repeat = RequiresCleaning(args.Args.Target.Value);
+    }
+
+    public void DoClean(Entity<SurgeryCleansDirtComponent> cleaner, EntityUid target)
+    {
+        var ev = new SurgeryCleanedEvent(cleaner.Comp.DirtAmount, cleaner.Comp.DnaAmount);
+        RaiseLocalEvent(target, ref ev);
     }
 
     private void OnCleanDirt(Entity<SurgeryDirtinessComponent> ent, ref SurgeryCleanedEvent args)
