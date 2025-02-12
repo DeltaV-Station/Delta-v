@@ -12,6 +12,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Objectives.Commands;
+using Content.Shared._DV.CustomObjectiveSummary;
 // DeltaV
 using Content.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;
@@ -193,7 +194,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
             var successRate = totalObjectives > 0 ? (float) completedObjectives / totalObjectives : 0f;
             // DeltaV custom objective response.
-            if (TryComp<Shared._DV.CustomObjectiveSummary.CustomObjectiveSummaryComponent>(mindId, out var customComp))
+            if (TryComp<CustomObjectiveSummaryComponent>(mindId, out var customComp))
             {
                 // We have to spit it like this to make it readable. Yeah, it sucks but for some reason the entire thing
                 // is just one long string...

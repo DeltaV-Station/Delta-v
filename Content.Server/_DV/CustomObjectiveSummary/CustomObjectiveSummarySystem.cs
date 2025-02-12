@@ -1,6 +1,8 @@
 using Content.Server.Administration.Logs;
 using Content.Shared._DV.CustomObjectiveSummary;
+using Content.Shared._DV.FeedbackOverwatch;
 using Content.Shared.Database;
+using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Robust.Shared.Network;
 
@@ -11,10 +13,12 @@ public sealed class CustomObjectiveSummarySystem : EntitySystem
     [Dependency] private readonly IServerNetManager _net = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private readonly SharedFeedbackOverwatchSystem _feedback = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<EvacShuttleLeftEvent>(OnEvacShuttleLeft);
+        SubscribeLocalEvent<RoundEndMessageEvent>(OnRoundEnd);
 
         _net.RegisterNetMessage<CustomObjectiveClientSetObjective>(OnCustomObjectiveFeedback);
     }
@@ -50,6 +54,19 @@ public sealed class CustomObjectiveSummarySystem : EntitySystem
                 continue;
 
             RaiseNetworkEvent(new CustomObjectiveSummaryOpenMessage(), session);
+        }
+    }
+
+    private void OnRoundEnd(RoundEndMessageEvent ev)
+    {
+        var allMinds = _mind.GetAliveHumans();
+
+        foreach (var mind in allMinds)
+        {
+            if (mind.Comp.Objectives.Count == 0)
+                continue;
+
+            _feedback.SendPopupMind(mind, "RemoveGreentextPopup");
         }
     }
 }
