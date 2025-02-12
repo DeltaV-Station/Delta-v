@@ -29,7 +29,6 @@ entities:
     - type: MetaData
       name: unknown
     - type: Transform
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -3003,11 +3002,6 @@ entities:
     - type: Transform
       pos: -6.789336,3.7909489
       parent: 1
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
-    - type: ActiveUserInterface
 - proto: BoxHandcuff
   entities:
   - uid: 118
@@ -6410,7 +6404,7 @@ entities:
       - stampedColor: '#850000FF'
         stampedName: stamp-component-stamped-name-syndicate
       content: >-
-        You can make use of this long-range holopad to make calls. 
+        You can make use of this long-range holopad to make calls.
 
 
         Use the Chameleon gear provided to dress the part of whomever youre trying to impersonate.
@@ -6419,7 +6413,7 @@ entities:
         Holocalls give the callers name, use the Agent ID to provide one.
 
 
-        Holocalls also say from where they are made, use the Labeler to change yours, 
+        Holocalls also say from where they are made, use the Labeler to change yours,
 
         the Format is ( Department - Location )
 - proto: PaperStationWarrant
@@ -6499,7 +6493,7 @@ entities:
       - stampedColor: '#850000FF'
         stampedName: stamp-component-stamped-name-syndicate
       content: >-
-        Weve provided you with a list of all active codewords at the time of your FTL. 
+        Weve provided you with a list of all active codewords at the time of your FTL.
 
 
         Any new codewords from assets activated after your arrival will not be available here.
@@ -7438,8 +7432,6 @@ entities:
           - 1266
           - 1267
           - 1268
-    - type: MindContainer
-      originalMind: invalid
     - type: MobMover
     - type: MovementSpeedModifier
     - type: Emoting
