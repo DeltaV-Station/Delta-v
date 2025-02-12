@@ -5,6 +5,7 @@ lobbyduration      = 240
 round_end_pacifist = true
 contraband_examine = false # Doubtful that it's desired at all, and would require going over every item in accordance with SOP
 secret_weight_prototype = "SecretDeltaV"
+role_timer_override = "DeltaV"
 
 # New players can't join a server without admins
 [game.panic_bunker]
@@ -88,6 +89,3 @@ easy_mode = false # reclaimer can work on soul-ful bodies, mrp server
 
 [surgery]
 can_operate_on_self = false # mrp...
-
-[control]
-storage_limit = 2

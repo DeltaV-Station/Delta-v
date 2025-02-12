@@ -4,13 +4,9 @@
   description: job-description-chaplain
   playTimeTracker: JobChaplain
   antagAdvantage: 4 # DeltaV - Protolathe, Increased Psionics, Gib machine, anomaly access, glimmer factor
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Epistemics # DeltaV - Epistemics Department replacing Science
-      time: 14400 # DeltaV 4 hours
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
-  supervisors: job-supervisors-rd
+  supervisors: job-supervisors-rd # DeltaV - Change supervisor to mystagogue
   access:
   - Chapel
   - Research # DeltaV - Move Chaplain into Epistemics
@@ -19,9 +15,7 @@
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
-  - !type:AddComponentSpecial
-    components:
-    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
+    - type: PsionicBonusChance # DeltaV - makes it more likely to become psionic.
       multiplier: 3
 
 - type: startingGear

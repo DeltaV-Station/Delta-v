@@ -12,6 +12,10 @@ using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared._DV.Surgery; // DeltaV: expanded anesthesia
+using Content.Server.Forensics; // DeltaV: surgery cross contamination
+using Content.Server._DV.Surgery; // DeltaV: surgery cross contamination
+using Content.Shared.FixedPoint; // DeltaV: surgery cross contamination
+using Content.Shared.Damage.Prototypes; // DeltaV: surgery cross contamination
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
 using Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
@@ -40,6 +44,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly RottingSystem _rot = default!;
     [Dependency] private readonly BlindableSystem _blindableSystem = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!; // DeltaV: surgery cross contamination
 
     public override void Initialize()
     {
@@ -47,6 +52,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
 
         SubscribeLocalEvent<SurgeryToolComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
         SubscribeLocalEvent<SurgeryTargetComponent, SurgeryStepDamageEvent>(OnSurgeryStepDamage);
+        SubscribeLocalEvent<SurgeryTargetComponent, SurgeryDirtinessEvent>(OnSurgerySanitation); // DeltaV: surgery cross contamination
         // You might be wondering "why aren't we using StepEvent for these two?" reason being that StepEvent fires off regardless of success on the previous functions
         // so this would heal entities even if you had a used or incorrect organ.
         SubscribeLocalEvent<SurgerySpecialDamageChangeEffectComponent, SurgeryStepDamageChangeEvent>(OnSurgerySpecialDamageChange);
@@ -140,6 +146,116 @@ public sealed class SurgerySystem : SharedSurgerySystem
 
     private void OnSurgeryStepDamage(Entity<SurgeryTargetComponent> ent, ref SurgeryStepDamageEvent args) =>
         SetDamage(args.Body, args.Damage, args.PartMultiplier, args.User, args.Part);
+
+    // Begin DeltaV: surgery cross contamination
+    private FixedPoint2 Dirtiness(EntityUid entity)
+    {
+        var comp = EnsureComp<SurgeryDirtinessComponent>(entity);
+        return comp.Dirtiness;
+    }
+
+    private HashSet<string> CrossContaminants(EntityUid entity)
+    {
+        var comp = EnsureComp<SurgeryCrossContaminationComponent>(entity);
+        return comp.DNAs;
+    }
+
+    public FixedPoint2 TotalDirtiness(EntityUid user, List<EntityUid> tools, Entity<DnaComponent, SurgeryContaminableComponent> target)
+    {
+        var total = FixedPoint2.Zero;
+        var dnas = new HashSet<string>();
+
+        if (HasComp<SurgerySelfDirtyComponent>(user))
+        {
+            total += Dirtiness(user);
+            dnas.UnionWith(CrossContaminants(user));
+        }
+        else
+        {
+            if (_inventory.TryGetSlotEntity(user, "gloves", out var glovesEntity))
+            {
+                total += Dirtiness(glovesEntity.Value);
+                dnas.UnionWith(CrossContaminants(glovesEntity.Value));
+            }
+
+            foreach (var tool in tools)
+            {
+                total += Dirtiness(tool);
+                dnas.UnionWith(CrossContaminants(tool));
+            }
+        }
+
+        dnas.Remove(target.Comp1.DNA);
+
+        return total + dnas.Count * target.Comp2.CrossContaminationDirtinessLevel;
+    }
+
+    public FixedPoint2 DamageToBeDealt(Entity<SurgeryContaminableComponent> ent, FixedPoint2 dirtiness)
+    {
+        if (ent.Comp.DirtinessThreshold > dirtiness)
+        {
+            return 0;
+        }
+
+        var exceedsAmount = (dirtiness - ent.Comp.DirtinessThreshold).Float();
+        var additionalDamage = (1f / ent.Comp.InverseDamageCoefficient.Float()) * (exceedsAmount * exceedsAmount);
+
+        return FixedPoint2.Min(FixedPoint2.New(additionalDamage) + ent.Comp.BaseDamage, ent.Comp.ToxinStepLimit);
+    }
+
+    private void AddDirt(EntityUid ent, FixedPoint2 amount)
+    {
+        var dirtiness = EnsureComp<SurgeryDirtinessComponent>(ent);
+        dirtiness.Dirtiness += amount;
+        Dirty(ent, dirtiness);
+    }
+
+    private void AddDNA(EntityUid ent, string dna)
+    {
+        var contamination = EnsureComp<SurgeryCrossContaminationComponent>(ent);
+        contamination.DNAs.Add(dna);
+    }
+
+    private void OnSurgerySanitation(Entity<SurgeryTargetComponent> target, ref Content.Shared._DV.Surgery.SurgeryDirtinessEvent args)
+    {
+        if (!TryComp<SurgeryContaminableComponent>(target.Owner, out var contaminableComp))
+            return;
+
+        if (!TryComp<DnaComponent>(target.Owner, out var dnaComp))
+            return;
+
+        var dirtiness = TotalDirtiness(args.User, args.Tools, new(target.Owner, dnaComp, contaminableComp));
+        var damage = DamageToBeDealt(new(target.Owner, contaminableComp), dirtiness);
+
+        if (damage > 0)
+        {
+            var sepsis = new DamageSpecifier(_prototypes.Index<DamageTypePrototype>("Poison"), damage);
+            SetDamage(target.Owner, sepsis, 0.5f, args.User, args.Part);
+        }
+
+        if (!TryComp<SurgeryStepDirtinessComponent>(args.Step, out var surgicalStepDirtiness))
+            return;
+
+        if (HasComp<SurgerySelfDirtyComponent>(args.User))
+        {
+            AddDirt(args.User, surgicalStepDirtiness.ToolDirtiness);
+            AddDNA(args.User, dnaComp.DNA);
+            return;
+        }
+
+        if (_inventory.TryGetSlotEntity(args.User, "gloves", out var glovesEntity))
+        {
+            AddDirt(glovesEntity.Value, surgicalStepDirtiness.GloveDirtiness);
+            AddDNA(glovesEntity.Value, dnaComp.DNA);
+        }
+        foreach (var tool in args.Tools)
+        {
+            AddDirt(tool, surgicalStepDirtiness.ToolDirtiness);
+            AddDNA(tool, dnaComp.DNA);
+        }
+    }
+
+    // End DeltaV: surgery cross contamination
 
     private void OnSurgeryDamageChange(Entity<SurgeryDamageChangeEffectComponent> ent, ref SurgeryStepEvent args) // DeltaV
     {
