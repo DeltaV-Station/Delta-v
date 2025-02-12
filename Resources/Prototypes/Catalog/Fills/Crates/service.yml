@@ -62,7 +62,7 @@
         orGroup: CigCarton2
       - id: CigCartonPurple # DeltaV
         prob: 0.33
-        orGroup: CigCarton3 
+        orGroup: CigCarton3
       - id: CigCartonCandy # DeltaV
         orGroup: CigCarton3
       - id: CigarGoldCase
@@ -147,7 +147,7 @@
     - id: NewtonCradle
     - id: BoxEnvelope
     - id: BrbSign
-    # Start DeltaV - More folders & colored paper reams in the bureaucracy crate
+    # Begin DeltaV - More folders & colored paper reams in the bureaucracy crate, low chance of paperwork hater stamp
     - id: BoxFolderBlack
       amount: 2
     - id: BoxFolderGrey
@@ -156,7 +156,9 @@
       amount: 2
     - id: BoxReamClassic
     - id: BoxReamBright
-    # End DeltaV - More folders & colored paper reams in the bureaucracy crate
+    - id: RubberStampHatePaperwork
+      prob: 0.05
+    # End DeltaV - More folders & colored paper reams in the bureaucracy crate, low chance of paperwork hater stamp
 
 - type: entity
   id: CrateServiceFaxMachine
