@@ -1,0 +1,62 @@
+- type: entity
+  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  id: Autoclave
+  name: autoclave
+  description: Makes anything you put in it very clean
+  components:
+  - type: Appearance
+  - type: Autoclave
+  - type: SurgeryCleansDirt
+    dirtAmount: 10
+    dnaAmount: 2
+  - type: Sprite
+    sprite: _DV/Structures/Machines/autoclave.rsi
+    snapCardinals: true
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: door_closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: light_active
+      shader: unshaded
+      visible: false
+      map: ["enum.AutoclaveVisuals.ProcessingLayer"]
+    - state: light_inactive
+      shader: unshaded
+      visible: false
+      map: ["enum.AutoclaveVisuals.IdleLayer"]
+  - type: ApcPowerReceiver
+    powerLoad: 400
+  - type: Machine
+    board: AutoclaveMachineCircuitboard
+  - type: EntityStorageVisuals
+    stateBaseClosed: base
+    stateDoorOpen: door_open
+    stateDoorClosed: door_closed
+  - type: EntityStorage
+    isCollidableWhenOpen: true
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - entity_storage
+    - machine_board
+    - machine_parts
+  - type: Construction
+    containers:
+    - entity_storage
+    - machine_board
+    - machine_parts
+  - type: GenericVisualizer
+    visuals:
+      enum.AutoclaveVisuals.IsProcessing:
+        enum.AutoclaveVisuals.ProcessingLayer:
+          True: { visible: true }
+          False: { visible: false }
+      enum.AutoclaveVisuals.IsIdle:
+        enum.AutoclaveVisuals.IdleLayer:
+          True: { visible: true }
+          False: { visible: false }
