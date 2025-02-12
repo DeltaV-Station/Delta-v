@@ -1,6 +1,5 @@
 using System.Linq;
-using Content.Client._DV.CustomObjectiveSummary;
-// DeltaV
+using Content.Client._DV.CustomObjectiveSummary; // DeltaV
 using Content.Client.CharacterInfo;
 using Content.Client.Gameplay;
 using Content.Client.Stylesheets;
