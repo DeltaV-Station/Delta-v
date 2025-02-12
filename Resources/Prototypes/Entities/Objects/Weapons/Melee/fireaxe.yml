@@ -32,15 +32,13 @@
         Slash: 10
         Structural: 40
   - type: Item
-    size: Huge # Delta V - Now It Fits in bags
-    shape:
-    - 0,0,3,1
-    - 2,2,3,2
+    size: Ginormous
   - type: Clothing
     sprite: Objects/Weapons/Melee/fireaxe.rsi
     quickEquip: false
     slots:
     - back
+    - suitStorage
   - type: Tool
     qualities:
       - Prying
@@ -79,6 +77,7 @@
     quickEquip: false
     slots:
     - back
+    - suitStorage
   - type: Tool
     qualities:
     - Prying # DeltaV - Makes so it can only pry tiles, not plates. #1844
