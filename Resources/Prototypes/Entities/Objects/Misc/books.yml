@@ -333,7 +333,7 @@
   id: BookSpaceLaw
   parent: BaseGuidebook
   name: space law
-  description: A set of Nanotrasen guidelines for keeping law and order on their space stations.
+  description: A set of Nanotrasen and TerraGov guidelines for keeping law and order on their space stations. # Delta-V - Reference TerraGov
   components:
   - type: Sprite
     layers:
@@ -342,10 +342,13 @@
       color: "#87011c"
     - state: icon_law
       color: "#f7d61a"
-  #- type: GuideHelp
-    #openOnActivation: true
-    #guides:
-    #- SpaceLaw # TODO: Delta-V space law guidebook
+  - type: GuideHelp
+    openOnActivation: true
+    guides:
+    - SpaceLaw # Delta-V - Space Law
+    - StandardOperatingProcedure # Delta-V - SOP
+    - CompanyPolicy # Delta-V - CoPo
+    - AlertProcedure # Delta-V - Alert Procedure
 
 - type: entity
   parent: BookBase
