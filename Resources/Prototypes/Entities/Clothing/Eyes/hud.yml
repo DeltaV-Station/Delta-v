@@ -16,15 +16,27 @@
   - type: ShowHealthIcons
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ ClothingEyesBase, BaseToggleClothing ] # DeltaV - Added BaseToggleClothing
   id: ClothingEyesHudDiagnostic
   name: diagnostic hud
-  description: A heads-up display capable of analyzing the integrity and status of robotics and exosuits. Made out of see-borg-ium.
+  description: A heads-up display capable of analyzing the integrity and status of robotics and exosuits. Made out of see-borg-ium. Has a camera mod to work with Station AI. # DeltaV - Add last sentence
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Hud/diag.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/diag.rsi
+  # Begin DeltaV Additions
+  - type: ToggleClothing
+    action: ActionToggleHudDiagnosticCamera
+    disableOnUnequip: true
+  - type: ItemToggle
+    onActivate: false # remove verb so you can't press E on it to add StationAiOverlay to a grid or something
+  - type: ComponentToggler
+    parent: true
+    components:
+    - type: StationAiOverlay
+      cosmetic: true # don't give roboticists reach hacks
+  # End DeltaV Additions
   - type: ShowHealthBars
     damageContainers:
     - Inorganic
