@@ -5,5 +5,5 @@
   noSpawn: true
   components:
   - type: InstantAction
-    icon: { sprite: Structures\Specific\Species\Kitsune\foxfire.rsi, state: icon }
+    icon: { sprite: _DV/Structures/Specific/Species/Kitsune/foxfire.rsi, state: icon }
     event: !type:CreateFoxfireActionEvent
