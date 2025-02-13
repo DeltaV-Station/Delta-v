@@ -14,7 +14,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.28
+          radius: 0.35
         density: 50
         restitution: 0.0
         mask:
@@ -24,7 +24,8 @@
   - type: Body
     prototype: Felinid
   - type: Damageable
-    damageModifierSet: Felinid
+    damageContainer: BiologicalMetaphysical # foxes take holy damage but at a reduced amount
+    damageModifierSet: Kitsune
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Items/hiss.ogg
