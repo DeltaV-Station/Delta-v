@@ -89,7 +89,6 @@
       types:
         Structural: 30
 
-
 - type: entity
   abstract: true
   parent: BaseItem
@@ -120,6 +119,7 @@
       - Pickaxe
   - type: Sprite
     sprite: Objects/Weapons/Melee/crusher.rsi
+   # state: icon # DeltaV - crusher axe back slots
   - type: AmmoCounter
   - type: UseDelayOnShoot
   - type: UseDelay
@@ -168,8 +168,6 @@
     slots:
     - Back
     - suitStorage
-
-
 
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSecurityCargoContraband]
