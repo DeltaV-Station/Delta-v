@@ -200,7 +200,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
         var exceedsAmount = (dirtiness - ent.Comp.DirtinessThreshold).Float();
         var additionalDamage = (1f / ent.Comp.InverseDamageCoefficient.Float()) * (exceedsAmount * exceedsAmount);
 
-        return FixedPoint2.New(additionalDamage) + ent.Comp.BaseDamage;
+        return FixedPoint2.Min(FixedPoint2.New(additionalDamage) + ent.Comp.BaseDamage, ent.Comp.ToxinStepLimit);
     }
 
     private void AddDirt(EntityUid ent, FixedPoint2 amount)

@@ -221,7 +221,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
 
             else if (sensor.DamagePercentage != null)
             {
-                var index = MathF.Round(4f * sensor.DamagePercentage.Value);
+                var index = (int)(sensor.DamagePercentage.Value * 5f); // DeltaV - Ensure damage states are calculated properly
 
                 if (index >= 5)
                     specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Alerts/human_crew_monitoring.rsi"), "critical");
