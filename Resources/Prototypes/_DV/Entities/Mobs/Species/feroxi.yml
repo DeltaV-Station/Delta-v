@@ -40,11 +40,6 @@
         # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
         # sprite refactor when
         state: l_leg
-      - shader: StencilMask
-        map: [ "enum.HumanoidVisualLayers.StencilMask" ]
-        sprite: _DV/Mobs/Customization/Feroxi/masking_helpers.rsi
-        state: female_full
-        visible: false
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]

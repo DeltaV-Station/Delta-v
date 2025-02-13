@@ -1,6 +1,7 @@
 - type: entity
   parent: OrganAnimalStomach
   id: OrganFeroxiStomach
+  name: feroxian stomach
   categories: [ HideSpawnMenu ]
   components:
   - type: Stomach
@@ -27,7 +28,7 @@
 - type: entity
   parent: BaseHumanOrgan
   id: OrganFeroxiLungs
-  name: Feroxian Lungs and Gills
+  name: feroxian lungs and gills
   categories: [ HideSpawnMenu ]
   description: "A pair of amphibious lungs along with gills, filtering oxygen out of the air continuously."
   components:
