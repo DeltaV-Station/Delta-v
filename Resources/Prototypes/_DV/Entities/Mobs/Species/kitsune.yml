@@ -27,11 +27,11 @@
     damageModifierSet: Felinid
   - type: MeleeWeapon
     soundHit:
-      path: /Audio/Weapons/hiss.ogg
+      path: /Audio/Items/hiss.ogg
     animation: WeaponArcClaw
     damage:
       types:
-      Heat: 5
+        Heat: 5
   - type: Speech
     speechSounds: Alto
   - type: Vocal
