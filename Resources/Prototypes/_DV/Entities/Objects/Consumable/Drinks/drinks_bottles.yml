@@ -1,0 +1,14 @@
+- type: entity
+  parent: DrinkBottleGlassBaseFull
+  id: DrinkAngobittersBottleFull
+  name: angobitters bottle
+  description: It's like sake but if you're trying to get FUCKED. UP.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Angobitters
+          Quantity: 100
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/angobitters.rsi
