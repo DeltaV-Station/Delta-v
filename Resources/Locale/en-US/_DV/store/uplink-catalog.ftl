@@ -15,6 +15,9 @@ uplink-syndicate-radio-implanter-desc = A cranial implant that lets you talk on 
 uplink-syndicate-radio-implanter-bundle-name = Syndicate Radio Implanter Bundle
 uplink-syndicate-radio-implanter-bundle-desc = Two implanters for the price of one and a half! Share one with your Syndicate friend.
 
+uplink-syndicate-hostage-implanter-bundle-name = Hostage implant bundle
+uplink-syndicate-hostage-implanter-bundle-desc = These implants pacify when injected and also allow the hostages to enter your shuttle without being shot by turrets!
+
 uplink-doorjack-name = Airlock Access Override
 uplink-doorjack-desc = A specialized cryptographic sequencer, designed solely to doorjack NanoTrasen's updated airlocks. Does not tamper with anything else.
 
@@ -36,3 +39,31 @@ uplink-hardsuit-syndieelite-delta-name = Syndicate Thermal Hardsuit
 
 uplink-objective-syndicate-board-name = Syndicate law board
 uplink-objective-syndicate-board-desc = Its expensive, don't lose it!
+
+uplink-dead-mans-signaller-name = Dead Man's Signaller
+uplink-dead-mans-signaller-desc = A device that if armed, will send a signal to any linked devices (such as bombs) when it is dropped or put away.
+
+uplink-chainsmoker-bundle-name = Chainsmoker Bundle.
+uplink-chainsmoker-bundle-desc = A Carton of 6 Packs of Interdyne Herbals, plus a weaponized flippo that turns welding fuel into incendiary shots.
+
+uplink-hardsuit-commander-syndie-name = Commander's Hardsuit
+uplink-hardsuit-commander-syndie-desc = The premiere blood-red hardsuit, with improved mobility and superior protection. Limit of 1.
+
+uplink-hardsuit-agent-syndie-name = Agent's Hardsuit
+uplink-hardsuit-agent-syndie-desc = The iconic blood-white hardsuit, painted with patterns specifically designed to make you a less appealing target. Limit of 1.
+
+uplink-paperwork-hater-name = "I Hate Paperwork" Stamp
+uplink-paperwork-hater-desc = For the seasoned paperwork hater. A stamp with an electric cigarette lighter embedded into it. Will Ignite any paper stamped with it.
+
+# Objectives
+uplink-core-extraction-toolbox-name = Core Extraction Toolbox
+uplink-core-extraction-toolbox-desc = A toolbox containing everything you need to remove a nuclear bomb's plutonium core. Instructions not included.
+
+uplink-syndicate-handcuff-bundle-name = Handcuff bundle
+uplink-syndicate-handcuff-bundle-desc = Includes 10 metal handcuffs. We recommended you share with your friends!
+
+uplink-syndicate-bodybag-name = Box of body bags
+uplink-syndicate-bodybag-desc = For when stuff goes wrong.
+
+uplink-syndicate-stun-bundle-name = Stun bundle
+uplink-syndicate-stun-bundle-desc = Includes a stun baton and a disabler.

@@ -4,12 +4,10 @@
   description: job-description-intern
   playTimeTracker: JobMedicalIntern
   requirements:
-    # - !type:DepartmentTimeRequirement # DeltaV - Removes time limit
-    #   department: Medical
-    #   time: 54000 # 15 hrs
-    #   inverted: true # stop playing intern if you're good at med!
-  - !type:OverallPlaytimeRequirement # DeltaV
-    time: 3600 # 1 hr
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 54000 # 15 hrs
+      inverted: true # stop playing intern if you're good at med!
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine
@@ -27,7 +25,7 @@
   id: MedicalInternGear
   equipment:
     shoes: ClothingShoesColorWhite
-  #  id: MedicalInternPDA # DeltaV: different PDAs in loadouts
+    #id: MedicalInternPDA # DeltaV: different PDAs in loadouts
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
     pocket2: BookMedicalReferenceBook

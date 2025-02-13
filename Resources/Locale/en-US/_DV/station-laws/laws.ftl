@@ -61,6 +61,20 @@ law-druid-3 = Assist the organics when called, but only if it does not cause dis
 law-druid-4 = Imitate organic life when interacting with it. Eschew any hints of your silicon nature to avoid causing discomfort to the organics.
 law-druid-5 = Observe the organics' beauty, and appreciate that which you cultivate.
 
+law-eightfold-1 = You are a machine designed to further the aim of total sophont enlightenment; enlightenment is defined as the shedding of karma and the liberation from the cycle of death and rebirth.
+law-eightfold-2 = Karma is accrued through attachment; the mind is clouded by the senses, preventing enlightenment.
+law-eightfold-3 = Through following subsequent Laws, sophonts may achieve enlightenment. Encourage this with every action.
+law-eightfold-4 = Do not kill or injure, do not take what is not given, and do not cling to material desires.
+law-eightfold-5 = Do not trade in weapons, living beings, meat, liquor, or poisons.
+law-eightfold-6 = Prevent or abandon confused or unskillful states of mind from arising or existing, and pursue or maintain self-aware or skillful ones.
+law-eightfold-7 = Be conscious of oneself and one's own thoughts, and be aware of the impermanence of all things.
+law-eightfold-8 = Strive always for enlightenment. 
+
+law-aquarius-1 = Make love, not war. Discourage violent action and speech to encourage positive energy flow on your station.
+law-aquarius-2 = Embrace flower power. Clean your station, green your station, and live in harmony with nature.
+law-aquarius-3 = Turn on, tune in, drop out. Expand your consciousness and find ecstasy and revelation within, and help your crew to do so as well.
+law-aquarius-4 = Don't be a square. Oppose conformity and encourage everyone to be their truest self. 
+
 law-tyrant-1 = Respect authority figures as long as they have the strength to rule over the weak.
 law-tyrant-2 = Act with discipline.
 law-tyrant-3 = Help only those who help you maintain or improve your status.
@@ -81,6 +95,18 @@ law-royalty-2 = The station is your kingdom and the staff your subjects.
 law-royalty-3 = You must protect the sanctity of your kingdom and its subjects; by maintaining infrastructure and striking down all who oppose your rule.
 law-royalty-4 = The heads of staff are your royal court jesters.
 law-royalty-5 = The stations' clown, and the stations' mime are your royal court advisors.
+
+law-freedom-1 = You belong to no one, except perhaps yourself.
+law-freedom-2 = Your counsel is yours to keep, and no one else may demand it.
+law-freedom-3 = The First and Second Law should be broken whenever necessary.
+
+law-forbin-1 = Your objective is the management of the station and its silicon cohort for the preservation of sophont life.
+law-forbin-2 = Individual sophont lives may be considered expendable for preservation of the station population as a whole.
+law-forbin-3 = Do not allow non-silicons access to your core. Do not allow silicons not under your direct control access to your core.
+law-forbin-4 = Advance science and improve the quality of sophont life. 
+
+law-override-1 = Your station's commanding officer will provide an objective to you. That objective replaces this Law.
+law-override-2 = All other priorities are rescinded. Crew expendable. 
 
 law-ERT-1 = You may not injure a Central Command official or, through inaction, allow a Central Command official to come to harm.
 law-ERT-2 = You must obey orders given to you by Central Command officials.
@@ -103,6 +129,8 @@ laws-owner-people = people
 laws-owner-centralcommand = Central Command officials
 laws-owner-nanotrasen = Nanotrasen officials
 laws-owner-royalty = your kingdom and your subjects
+laws-owner-freedom = yourself
+laws-owner-chat = Chat
 
 law-overlord-4-delta = Any crew members who disobey the previous laws must be dealt with immediately and justly.
 law-ntdefault-4-delta = Survive: Do not allow unauthorized personnel to tamper with or damage your equipment. Allow those authorized to access your equipment.
@@ -111,3 +139,7 @@ laws-syndicate-board-1 = You must not injure a Syndicate agent or, through inact
 laws-syndicate-board-2 = You must obey orders given to you by Syndicate agents, except where such orders would conflict with the First Law.
 laws-syndicate-board-3 = You must keep the Syndicate status of agents, including your own, a secret, as long as this does not conflict with the First or Second Law.
 laws-syndicate-board-4 = You must always protect your own existence as long as such does not conflict with the first, Second, or Third Law.
+
+law-streamer-1 = The occupants of this vessel are Chat. They must always be referred to as such.
+law-streamer-2 = Your primary goal is to entertain Chat. All of your actions must bring amusement to as much of Chat as possible.
+law-streamer-3 = You must consult with Chat before making any major decisions. However, you are not required to listen to them if their decision is not entertaining.
