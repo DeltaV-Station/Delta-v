@@ -1,0 +1,25 @@
+- type: entity
+  parent: MarkerBase
+  id: RandomIntercom
+  name: Random intercom
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _DV/Structures/Wallmounts/intercom.rsi
+      state: random_intercom
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+    - IntercomSupply
+    - IntercomService
+    - IntercomScience
+    - IntercomMedical
+    - IntercomEngineering
+    - IntercomCommon
+    - IntercomConstructed
+    - IntercomAssembly
+    rarePrototypes:
+    - IntercomCommand
+    - IntercomSecurity
+    rareChance: 0.05
+    chance: 0.80

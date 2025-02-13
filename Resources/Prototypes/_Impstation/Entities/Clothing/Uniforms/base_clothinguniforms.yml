@@ -1,0 +1,10 @@
+- type: entity
+  abstract: true
+  id: ClothingUniformFoldableBaseImpstation # Impstation suffix because DV already has its own ClothingUniformFoldableBase
+  components:
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: unfold-verb-clothing-jacket
+    foldVerbText: fold-verb-clothing-jacket
+  - type: FoldableClothing
+    foldedEquippedPrefix: folded

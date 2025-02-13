@@ -1,5 +1,6 @@
 using Content.Server.Storage.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Item.ItemToggle; // DeltaV
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
@@ -15,6 +16,7 @@ public sealed class MagnetPickupSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly ItemToggleSystem _toggle = default!; // DeltaV
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
@@ -49,11 +51,18 @@ public sealed class MagnetPickupSystem : EntitySystem
 
             comp.NextScan += ScanDelay;
 
-            if (!_inventory.TryGetContainingSlot((uid, xform, meta), out var slotDef))
+            // Begin DeltaV Addition: Make ore bags use ItemToggle
+            if (!_toggle.IsActivated(uid))
                 continue;
+            // End DeltaV Addition
 
-            if ((slotDef.SlotFlags & comp.SlotFlags) == 0x0)
-                continue;
+            // Begin DeltaV Removals: Allow ore bags to work inhand
+            //if (!_inventory.TryGetContainingSlot((uid, xform, meta), out var slotDef))
+            //    continue;
+
+            //if ((slotDef.SlotFlags & comp.SlotFlags) == 0x0)
+            //    continue;
+            // End DeltaV Removals
 
             // No space
             if (!_storage.HasSpace((uid, storage)))

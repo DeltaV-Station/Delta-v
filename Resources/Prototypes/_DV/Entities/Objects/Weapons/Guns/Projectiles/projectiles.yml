@@ -1,0 +1,63 @@
+# Because Hitscan lasers aren't fun to shoot in my opinion, we give the HoS pistol a special lethal laser that moves
+- type: entity
+  parent: BaseBullet
+  id: BulletEnergyGunLaser
+  name: energy bolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: red
+  - type: Ammo
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Opaque
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+  - type: Projectile
+    impactEffect: BulletImpactEffectRedDisabler
+    damage:
+      types:
+        Heat: 24 # these will hurt but not quite a 4 shot
+    soundHit:
+      collection: MeatLaserImpact
+
+- type: entity
+  parent: BulletPistolIncendiary
+  id: BulletLighterIncendiary
+  name: welding fuel bullet
+  description: a superheated jet of welding fuel, coming right at you.
+  components:
+  - type: PointLight
+    enabled: true
+    color: green
+    radius: 2.0
+    energy: 7.0
+  - type: Projectile
+    damage:
+      types:
+        Heat: 5

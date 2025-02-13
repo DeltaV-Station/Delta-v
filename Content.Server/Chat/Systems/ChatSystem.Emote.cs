@@ -170,16 +170,18 @@ public partial class ChatSystem
         if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emotes)) // DeltaV, renames to emotes
             return;
 
-        foreach (var emote in emotes) // DeltaV - Multiple emotes for the same trigger
+        bool validEmote = false; // DeltaV - Multiple emotes for the same trigger
+        foreach (var emote in emotes)
         {
             if (!AllowedToUseEmote(uid, emote))
-                return;
+                continue;
+
+            InvokeEmoteEvent(uid, emote);
+            validEmote = true; // DeltaV
         }
 
-        foreach (var emote in emotes) // DeltaV - Multiple emotes for the same trigger
-        {
-            InvokeEmoteEvent(uid, emote);
-        }
+        if (!validEmote) // DeltaV
+            return;
 
         static string TrimPunctuation(string textInput)
         {

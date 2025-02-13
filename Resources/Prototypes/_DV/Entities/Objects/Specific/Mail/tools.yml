@@ -1,0 +1,13 @@
+- type: entity
+  name: courier bag
+  id: CourierBag
+  parent: MailBag
+  description: Keeps your parcels safe.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Belt/courierbag.rsi
+    state: icon
+  - type: Clothing
+    sprite: _DV/Clothing/Belt/courierbag.rsi
+    quickEquip: false
+    slots: [belt]

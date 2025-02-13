@@ -32,7 +32,7 @@
 # Silicons
 - type: roleLoadout
   id: JobStationAi
-  nameDataset: names_ai
+  nameDataset: NamesAIDeltaV # DeltaV
 
 # Civilian
 - type: roleLoadout
@@ -143,6 +143,7 @@
   - JanitorNeck # DeltaV
   - JanitorJumpsuit
   - JanitorGloves
+  - JanitorPDADelta # DeltaV
   - CommonBackpack
   - JanitorOuterClothing
   - Glasses
@@ -364,7 +365,7 @@
   - HeadofSecurityJumpsuit
   - SecurityBackpack
   - SecurityBelt
-  - HeadofSecurityOuterClothing
+  - HeadofSecurityOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was HeadofSecurityOuterClothing
   - HeadofSecurityShoes # DeltaV - winter boots
   - SurvivalSecurity
   - Trinkets
@@ -381,7 +382,7 @@
   - WardenJumpsuit
   - SecurityBackpack
   - SecurityBelt
-  - WardenOuterClothing
+  - WardenOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was WardenOuterClothing
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
@@ -397,7 +398,7 @@
   - SecurityNeck # DeltaV
   - SecurityJumpsuit
   - SecurityBackpack
-  - SecurityOuterClothing
+  - SecurityOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was SecurityOuterClothing
   - SecurityShoes
   - SecurityPDA
   - SecurityBelt
@@ -411,12 +412,11 @@
 - type: roleLoadout
   id: JobDetective
   groups:
-  - GroupTankHarness
   - DetectiveHead
   - SecurityNeck # DeltaV - replace DetectiveNeck for incongruence
-  - DetectiveJumpsuit
+  - DetectiveJumpsuitDeltaV # DeltaV - Replaced with DeltaV version, was DetectiveJumpsuit
   - SecurityBackpack
-  - DetectiveOuterClothing
+  - DetectiveOuterClothingDeltaV # DeltaV - Replaced with DeltaV version, was DetectiveOuterClothing
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
@@ -546,6 +546,11 @@
   - MedicalBackpack
   - Glasses
   - SurvivalMedical # DeltaV, replaces Survival
+  - PsychologistPDADelta # DeltaV
+  - PsychologistHead # DeltaV
+  - Scarfs # DeltaV
+  - PsychologistOuterClothing # DeltaV
+  - PsychologistShoes # DeltaV
   - Trinkets
   - GroupSpeciesBreathTool
 

@@ -191,7 +191,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return;
 
         if (!TryGetWeapon(user, out var weaponUid, out var weapon) ||
-            weaponUid != GetEntity(msg.Weapon))
+            weaponUid != GetEntity(msg.Weapon) ||
+            !weapon.CanWideSwing) // Goobstation Change
         {
             return;
         }
@@ -219,7 +220,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var ev = new GetMeleeDamageEvent(uid, new(component.Damage), new(), user, component.ResistanceBypass);
         RaiseLocalEvent(uid, ref ev);
 
-        return DamageSpecifier.ApplyModifierSets(ev.Damage, ev.Modifiers);
+        // Begin DeltaV additions
+        // Allow users of melee weapons to have bonuses applied
+        var userEv = new GetMeleeDamageEvent(uid, new(component.Damage), new(), user, component.ResistanceBypass);
+        RaiseLocalEvent(user, ref userEv);
+
+        return DamageSpecifier.ApplyModifierSets(ev.Damage, ev.Modifiers.Concat(userEv.Modifiers));
+        // End DeltaV additions
     }
 
     public float GetAttackRate(EntityUid uid, EntityUid user, MeleeWeaponComponent? component = null)
@@ -511,7 +518,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         RaiseLocalEvent(target.Value, attackedEvent);
 
         var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
-        var damageResult = Damageable.TryChangeDamage(target, modifiedDamage, origin:user, ignoreResistances:resistanceBypass);
+        var damageResult = Damageable.TryChangeDamage(target, modifiedDamage, origin: user, partMultiplier: component.ClickPartDamageMultiplier); // Shitmed Change
 
         if (damageResult is {Empty: false})
         {
@@ -666,7 +673,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             RaiseLocalEvent(entity, attackedEvent);
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
 
-            var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin:user);
+            var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, partMultiplier: component.HeavyPartDamageMultiplier); // Shitmed Change
 
             if (damageResult != null && damageResult.GetTotal() > FixedPoint2.Zero)
             {

@@ -1,0 +1,339 @@
+- type: entity
+  abstract: true
+  parent: ReagentContainerBase
+  id: ReagentTinBase
+  components:
+  - type: Openable
+    openableByHand: false
+    sound:
+      path: /Audio/Items/can_open3.ogg
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon-open"}
+          False: {state: "icon"}
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 6
+      behaviors:
+      - !type:OpenBehavior
+  - type: Item
+    sprite: Objects/Consumable/Food/snacks.rsi
+    heldPrefix: packet
+    size: Normal
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 3
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 3
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ReagentTinBase
+  id: ReagentTinPowderedJuiceOrange
+  name: tin of powdered orange juice
+  description: A container of powdered orange juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/powdered_drinks.rsi
+    layers:
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: overlay-container
+      color: "#FFC420"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: PowderedJuiceOrange
+          Quantity: 50
+
+- type: entity
+  parent: ReagentTinBase
+  id: ReagentTinPowderedMilk
+  name: tin of powdered milk
+  description: A container of powdered milk manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the milk.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/powdered_drinks.rsi
+    layers:
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: overlay-container
+      color: "#FAFAFA"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: PowderedMilk
+          Quantity: 50
+
+- type: entity
+  parent: ReagentTinBase
+  id: ReagentTinPowderedMilkSoy
+  name: tin of powdered soy milk
+  description: A container of powdered soy milk manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the milk.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/powdered_drinks.rsi
+    layers:
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: overlay-container
+      color: "#FFFCE3"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: PowderedMilkSoy
+          Quantity: 50
+
+- type: entity
+  parent: ReagentTinBase
+  id: ReagentTinPowderedJuiceLime
+  name: tin of powdered lime juice
+  description: A container of powdered lime juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/powdered_drinks.rsi
+    layers:
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: overlay-container
+      color: "#B4FF64"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: PowderedJuiceLime
+          Quantity: 50
+
+- type: entity
+  parent: ReagentTinBase
+  id: ReagentTinPowderedJuiceLemon
+  name: tin of powdered lemon juice
+  description: A container of powdered lemon juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/powdered_drinks.rsi
+    layers:
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: overlay-container
+      color: "#FFFC69"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: PowderedJuiceLemon
+          Quantity: 50
+
+- type: entity
+  parent: ReagentTinBase
+  id: ReagentTinPowderedJuicePineapple
+  name: tin of powdered pineapple juice
+  description: A container of powdered pineapple juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/powdered_drinks.rsi
+    layers:
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: overlay-container
+      color: "#FFD644"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: PowderedJuicePineapple
+          Quantity: 50
+
+- type: entity
+  parent: ReagentTinBase
+  id: ReagentTinPowderedJuiceBanana
+  name: tin of powdered banana juice
+  description: A container of powdered banana juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/powdered_drinks.rsi
+    layers:
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: overlay-container
+      color: "#FFFEBF"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: PowderedJuiceBanana
+          Quantity: 50
+
+- type: entity
+  parent: ReagentTinBase
+  id: ReagentTinPowderedJuiceBerry
+  name: tin of powdered berry juice
+  description: A container of powdered berry juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/powdered_drinks.rsi
+    layers:
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: overlay-container
+      color: "#D366FF"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: PowderedJuiceBerry
+          Quantity: 50
+
+- type: entity
+  parent: ReagentTinBase
+  id: ReagentTinPowderedJuiceWatermelon
+  name: tin of powdered melon juice
+  description: A container of powdered watermelon juice manufactured by HydroCo. NOTE - Melon only; water not included, sold separately. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/powdered_drinks.rsi
+    layers:
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: overlay-container
+      color: "#FFBCDB"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: PowderedJuiceWatermelon
+          Quantity: 50
+
+- type: entity
+  parent: ReagentTinBase
+  id: ReagentTinPowderedJuiceGrape
+  name: tin of powdered grape juice
+  description: A container of powdered grape juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/powdered_drinks.rsi
+    layers:
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: overlay-container
+      color: "#E57DFF"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: PowderedJuiceGrape
+          Quantity: 50
+
+- type: entity
+  parent: ReagentTinBase
+  id: ReagentTinPowderedJuiceApple
+  name: tin of powdered apple juice
+  description: A container of powdered apple juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/powdered_drinks.rsi
+    layers:
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: overlay-container
+      color: "#FFC67E"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: PowderedJuiceApple
+          Quantity: 50
+
+- type: entity
+  parent: ReagentTinBase
+  id: ReagentTinPowderedJuiceCherry
+  name: tin of powdered cherry juice
+  description: A container of powdered cherry juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/powdered_drinks.rsi
+    layers:
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: overlay-container
+      color: "#A9536C"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: PowderedJuiceCherry
+          Quantity: 50
+
+- type: entity
+  parent: ReagentTinBase
+  id: ReagentTinPowderedJuiceCarrot
+  name: tin of powdered carrot juice
+  description: A container of powdered carrot juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/powdered_drinks.rsi
+    layers:
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: overlay-container
+      color: "#FFA06B"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: PowderedJuiceCarrot
+          Quantity: 50
+
+- type: entity
+  parent: ReagentTinBase
+  id: ReagentTinPowderedJuiceTomato
+  name: tin of powdered tomato juice
+  description: A container of powdered tomato juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/powdered_drinks.rsi
+    layers:
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: overlay-container
+      color: "#D85553"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: PowderedJuiceTomato
+          Quantity: 50

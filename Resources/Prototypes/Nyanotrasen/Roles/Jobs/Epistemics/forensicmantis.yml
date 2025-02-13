@@ -18,7 +18,7 @@
   access:
   - Research
   - Maintenance
-  - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
+  - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/_DV/Access/epistemics.yml
   special:
   - !type:AddComponentSpecial
     components:
@@ -28,7 +28,7 @@
 - type: startingGear
   id: ForensicMantisGear
   equipment:
-    id: ForensicMantisPDA
+    id: PsionicMantisPDA
     eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetScience # DeltaV - Mantis is part of Epistemics
     belt: ClothingBeltMantis

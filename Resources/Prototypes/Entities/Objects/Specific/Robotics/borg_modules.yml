@@ -188,6 +188,7 @@
     - Wirecutter
     - Multitool
     - WelderIndustrial
+    - GasAnalyzer # DeltaV - Add gas analyzer to the tools module
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: tool-module }
 
@@ -219,7 +220,6 @@
   - type: ItemBorgModule
     items:
     - MiningDrill
-    - Shovel
     - MineralScannerUnpowered
     - OreBag
     - Crowbar
@@ -242,6 +242,23 @@
     - HandheldGPSBasic
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: grappling-module }
+
+- type: entity
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  id: BorgModuleFauna
+  name: fauna protection module
+  description: A borg module for protection from deadly space fauna.
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-carp
+  - type: ItemBorgModule
+    items:
+    - WeaponProtoKineticAcceleratorOneHanded
+    - WeaponCrusherDagger
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: fauna-module }
 
 # engineering modules
 - type: entity
@@ -568,7 +585,7 @@
 
 - type: entity
   id: BorgModuleOperative
-  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: operative cyborg module
   description: A module that comes with a crowbar, an Emag and a syndicate pinpointer.
   components:
@@ -587,7 +604,7 @@
 
 - type: entity
   id: BorgModuleEsword
-  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: energy sword cyborg module
   description: A module that comes with a double energy sword.
   components:
@@ -604,7 +621,7 @@
 
 - type: entity
   id: BorgModuleL6C
-  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: L6C ROW cyborg module
   description: A module that comes with a L6C.
   components:
@@ -637,3 +654,44 @@
     - type: Construction # DeltaV: construction for adding explosive payload to the dud version
       graph: BorgModuleMartyr
       node: live
+
+# Shitmed Modules
+
+- type: entity
+  id: BorgModuleSurgery
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: surgery cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-surgery
+  - type: ItemBorgModule
+    items:
+    - Scalpel
+    - Drill
+    - Hemostat
+    - Retractor
+    - Cautery
+    - SawElectric
+    - BoneGel
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: surgery-module }
+
+- type: entity
+  id: BorgModuleAdvancedSurgery
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: advanced surgery cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-advanced-surgery
+  - type: ItemBorgModule
+    items:
+    - EnergyScalpel
+    - EnergyCautery
+    - AdvancedRetractor
+    - BoneGel
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-surgery-module }

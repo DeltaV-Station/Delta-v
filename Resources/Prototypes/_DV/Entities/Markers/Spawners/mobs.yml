@@ -1,0 +1,80 @@
+- type: entity
+  name: Arctic Fox Siobhan Spawner
+  id: SpawnMobArcticFoxSiobhan
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobArcticFoxSiobhan
+
+- type: entity
+  name: Sec Dog Laika Spawner
+  id: SpawnMobSecDogLaika
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobSecDogLaika
+
+- type: entity
+  name: Syndicate Guard Spawner
+  id: SpawnMobRadioGuard
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobRadioGuard
+
+- type: entity
+  name: Sec Animal Spawner
+  id: SpawnMobSecLaikaOrShiva
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobSecDogLaika
+      - MobSpiderShiva
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobJusticePet
+  name: Justice Pet Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Aliens/Carps/space.rsi
+      state: icon
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCarpLegal
+    
+- type: entity
+  name: Silvia Spawner
+  id: SpawnMobCMOPetSilvia
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: silvia
+        sprite: _DV/Mobs/Pets/silvia.rsi
+  - type: ConditionalSpawner
+    prototypes:
+      - MobCobraSilvia      

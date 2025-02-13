@@ -19,6 +19,13 @@
     ClothingNeckTieChem: 2  # Chemist's tie to go along a new variant of their suit
     ClothingShoesEnclosedChem: 2 # Realistic chemistry shoes
     ClothingOuterApronChemist: 2 # Realistic PPE apron for chemistry
+    ClothingOuterExplorerCoat: 2 # Really nice labcoat
     ClothingEyesGlassesChemist: 2 # Safety glasses
     ClothingHandsGlovesChemist: 2 # Heavy duty chemistry gloves
     # End of modified code
+  # Begin DeltaV modifications - Add contraband to the chemdrobe
+  contrabandInventory:
+    ClothingMaskInterdyneChemistry: 1
+    ClothingOuterInterdyneChemistrySuit: 1
+    ClothingUniformInterdyneChemist: 1
+  # End of DeltaV modifications

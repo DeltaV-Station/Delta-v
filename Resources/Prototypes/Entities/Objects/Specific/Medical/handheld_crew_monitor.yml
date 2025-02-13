@@ -59,6 +59,8 @@
     useRate: 10
   - type: StaticPrice
     price: 750
+  - type: Tag # DeltaV - Let it be put in storage implants by removing HighRiskItem
+    tags: []
 
 - type: entity
   id: SpyCrewMonitorEmpty
@@ -82,7 +84,7 @@
   - type: Item
     sprite: Objects/Specific/Medical/syndihandheldcrewmonitor.rsi
   - type: PowerCellDraw
-    useRate: 40
+    useRate: 0 # DeltaV - Changed to zero with the removal of the microreactor in observations kit
 
 - type: entity
   id: SyndiCrewMonitorEmpty

@@ -80,7 +80,7 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
     /// How long to wait between analysis rolls.
     /// </summary>
     [DataField]
-    public TimeSpan AnalysisDuration = TimeSpan.FromSeconds(30);
+    public TimeSpan AnalysisDuration = TimeSpan.FromSeconds(15);
 
     /// <summary>
     /// Last result to show in the ui

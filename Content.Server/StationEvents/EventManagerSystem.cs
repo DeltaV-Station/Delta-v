@@ -3,7 +3,7 @@ using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
 using Content.Server.StationEvents.Components;
 using Content.Shared.CCVar;
-using Content.Shared.DeltaV.CCVars; // DeltaV
+using Content.Shared._DV.CCVars; // DeltaV
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
@@ -59,37 +59,51 @@ public sealed class EventManagerSystem : EntitySystem
     /// </summary>
     public void RunRandomEvent(EntityTableSelector limitedEventsTable)
     {
-        if (!TryBuildLimitedEvents(limitedEventsTable, out var limitedEvents))
+        if (TryGenerateRandomEvent(limitedEventsTable) is {} randomLimitedEvent) // DeltaV - seperated into own method
+            GameTicker.AddGameRule(randomLimitedEvent);
+    }
+
+    /// <summary>
+    /// DeltaV: Returns a random event from the list of events given that can be run at a given time.
+    /// </summary>
+    /// <param name="limitedEventsTable">The list of events that can be chosen.</param>
+    /// <param name="eventRunTime">The time to use for checking time restrictions. Uses current time if null.</param>
+    /// <returns>The generated event id</returns>
+    /// <remarks>
+    /// This is taken out of RunRandomEvent.
+    /// </remarks>
+    public EntProtoId? TryGenerateRandomEvent(EntityTableSelector limitedEventsTable, TimeSpan? eventRunTime = null)
+    {
+        if (!TryBuildLimitedEvents(limitedEventsTable, out var limitedEvents, eventRunTime))
         {
             Log.Warning("Provided event table could not build dict!");
-            return;
+            return null;
         }
 
         var randomLimitedEvent = FindEvent(limitedEvents); // this picks the event, It might be better to use the GetSpawns to do it, but that will be a major rebalancing fuck.
         if (randomLimitedEvent == null)
         {
             Log.Warning("The selected random event is null!");
-            return;
+            return null;
         }
 
-        if (!_prototype.TryIndex(randomLimitedEvent, out _))
+        if (!_prototype.HasIndex(randomLimitedEvent))
         {
             Log.Warning("A requested event is not available!");
-            return;
+            return null;
         }
 
-        GameTicker.AddGameRule(randomLimitedEvent);
+        return randomLimitedEvent;
     }
 
     /// <summary>
     /// Returns true if the provided EntityTableSelector gives at least one prototype with a StationEvent comp.
     /// </summary>
-    public bool TryBuildLimitedEvents(EntityTableSelector limitedEventsTable, out Dictionary<EntityPrototype, StationEventComponent> limitedEvents)
+    public bool TryBuildLimitedEvents(EntityTableSelector limitedEventsTable, out Dictionary<EntityPrototype, StationEventComponent> limitedEvents, TimeSpan? eventRunTime = null) // DeltaV - Add a time overide
     {
         limitedEvents = new Dictionary<EntityPrototype, StationEventComponent>();
-
-        var availableEvents = AvailableEvents(); // handles the player counts and individual event restrictions
-
+        // DeltaV - Overide time for stashing events
+        var availableEvents = AvailableEvents(eventRunTime: eventRunTime); // handles the player counts and individual event restrictions
         if (availableEvents.Count == 0)
         {
             Log.Warning("No events were available to run!");
@@ -152,20 +166,20 @@ public sealed class EventManagerSystem : EntitySystem
             return null;
         }
 
-        var sumOfWeights = 0;
+        var sumOfWeights = 0.0f;
 
         foreach (var stationEvent in availableEvents.Values)
         {
-            sumOfWeights += (int) stationEvent.Weight;
+            sumOfWeights += stationEvent.Weight;
         }
 
-        sumOfWeights = _random.Next(sumOfWeights);
+        sumOfWeights = _random.NextFloat(sumOfWeights);
 
         foreach (var (proto, stationEvent) in availableEvents)
         {
-            sumOfWeights -= (int) stationEvent.Weight;
+            sumOfWeights -= stationEvent.Weight;
 
-            if (sumOfWeights <= 0)
+            if (sumOfWeights <= 0.0f)
             {
                 return proto.ID;
             }
@@ -184,13 +198,14 @@ public sealed class EventManagerSystem : EntitySystem
     public Dictionary<EntityPrototype, StationEventComponent> AvailableEvents(
         bool ignoreEarliestStart = false,
         int? playerCountOverride = null,
-        TimeSpan? currentTimeOverride = null)
-    {
+        TimeSpan? currentTimeOverride = null,
+        TimeSpan? eventRunTime = null) // DeltaV
+   {
         var playerCount = playerCountOverride ?? _playerManager.PlayerCount;
 
         // playerCount does a lock so we'll just keep the variable here
         var currentTime = currentTimeOverride ?? (!ignoreEarliestStart
-            ? GameTicker.RoundDuration()
+            ? eventRunTime ?? GameTicker.RoundDuration() // DeltaV - Use eventRunTime instead of RoundDuration if provided
             : TimeSpan.Zero);
 
         var result = new Dictionary<EntityPrototype, StationEventComponent>();

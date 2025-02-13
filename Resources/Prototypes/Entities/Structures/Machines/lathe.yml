@@ -150,6 +150,7 @@
       - ExteriorLightTube
       - LightBulb
       - LedLightBulb
+      - DimLightBulb
       - Bucket
       - DrinkMug
       - DrinkMugMetal
@@ -193,7 +194,6 @@
       - SubstationMachineCircuitboard
       - WallmountSubstationElectronics
       - CellRechargerCircuitboard
-      - BorgChargerCircuitboard
       - WeaponCapacitorRechargerCircuitboard
       - HandheldStationMap
       - ClothingHeadHatWelding
@@ -205,6 +205,8 @@
       - SilverRing
       - GoldRingDiamond
       - SilverRingDiamond
+      - CassetteTape
+      - TapeRecorder
       # End Delta-V additions
   - type: EmagLatheRecipes
     emagStaticRecipes:
@@ -231,6 +233,7 @@
       - RiotShield
       - SpeedLoaderMagnum
       - SpeedLoaderMagnumEmpty
+      - WeaponProtoKineticAccelerator
       # DeltaV - .38 special ammo - Add .38 special lethals to emagged autolathe
       - SpeedLoaderSpecial
       - SpeedLoaderSpecialEmpty
@@ -348,8 +351,7 @@
       - BluespaceBeaker
       - SyringeBluespace
       #- WeaponForceGun # DeltaV
-      - WeaponLaserSvalinn
-      - WeaponProtoKineticAccelerator
+      #- WeaponLaserSvalinn #DeltaV
       - WeaponGrapplingGun
       #- WeaponTetherGun # DeltaV
       - ClothingBackpackHolding
@@ -373,9 +375,14 @@
       - FultonBeacon
       - PowerCellHyper
       - FireExtinguisherBluespace
+      - SignallerDeadMans
       # End DeltaV additions
+      - EnergyScalpel # Shitmed Change
+      - EnergyCautery # Shitmed Change
+      - AdvancedRetractor # Shitmed Change
   - type: EmagLatheRecipes
     emagDynamicRecipes:
+      - BorgModuleFauna
       - BoxBeanbag
       - BoxShotgunIncendiary
       - BoxShotgunUranium
@@ -415,6 +422,9 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - WeaponCrusher
+      - WeaponCrusherDagger
+      - WeaponCrusherGlaive
       # Begin DeltaV additions
       - BoxShellSoulbreaker # Nyanotrasen - Shotgun shell to get rid of psionics
       - WeaponEnergyGun       # Energy Gun
@@ -439,6 +449,8 @@
       - AdvancedTruncheon
       - LauncherSyringe
       - MiniSyringe
+      - WeaponColdCannon
+      - WeaponBeamCannon
       # End DeltaV additions
 
 - type: entity
@@ -499,8 +511,9 @@
     - DeepFryerMachineCircuitboard #Nyano - Summary: adds deep fryer circuit board
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
-    - StationAnchorCircuitboard
     - SalvageMagnetMachineCircuitboard
+    - BorgChargerCircuitboard
+    - OperatingTableCircuitboard # Shitmed Change
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
       - HellfireFreezerMachineCircuitBoard
@@ -523,7 +536,6 @@
       - SolarControlComputerCircuitboard
       - SolarTrackerElectronics
       - TurboItemRechargerCircuitboard
-      - PowerComputerCircuitboard
       - AutolatheHyperConvectionMachineCircuitboard
       - ProtolatheHyperConvectionMachineCircuitboard
       - CircuitImprinterHyperConvectionMachineCircuitboard
@@ -536,6 +548,7 @@
       - DawInstrumentMachineCircuitboard
       - CloningConsoleComputerCircuitboard
       - StasisBedMachineCircuitboard
+      - AutodocCircuitboard # Shitmed
       - OreProcessorIndustrialMachineCircuitboard
       - CargoTelepadMachineCircuitboard
       - RipleyCentralElectronics
@@ -569,15 +582,19 @@
       - MassMediaCircuitboard
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
-    # Begin Nyano additions
+      - SMESAdvancedMachineCircuitboard
+      - HolopadMachineCircuitboard
+      # Begin Nyano additions
       - ReverseEngineeringMachineCircuitboard
       - CrewMonitoringComputerCircuitboard
       - MetempsychoticMachineCircuitboard
-    # End Nyano additions
-    # Begin DeltaV additions
+      # End Nyano additions
+      # Begin DeltaV additions
       - SalvageExpeditionsComputerCircuitboard
       - ComputerMassMediaCircuitboard
-    # End DeltaV additions
+      - AlertsComputerCircuitboard
+      - AdvancedMicrowaveMachineCircuitBoard
+      # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ShuttleGunDusterCircuitboard
@@ -638,8 +655,24 @@
     - RightLegBorg
     - LightHeadBorg
     - TorsoBorg
+    - BorgModuleSurgery # Shitmed Change
+    # Shitmed Change
+    - BorgModuleSurgery
+    - TorsoIPC
+    - LeftArmIPC
+    - RightArmIPC
+    - LeftLegIPC
+    - RightLegIPC
+    - HeadIPC
+    - LeftHandIPC
+    - RightHandIPC
+    - LeftFootIPC
+    - RightFootIPC
+    - OrganIPCEyes
+    - OrganIPCPump
     dynamicRecipes:
     - ProximitySensor
+    - ClothingEyesHudDiagnostic
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
     - BorgModuleGPS
@@ -676,6 +709,14 @@
     - BorgModuleSecurityChase
     - BorgModuleSecurityEscalate
     - JetpackVoid
+    # Shitmed Change
+    - BorgModuleAdvancedSurgery
+    - JawsOfLifeLeftArm
+    - JawsOfLifeRightArm
+    - SpeedLeftLeg
+    - SpeedRightLeg
+    - BasicCyberneticEyes
+    # Shitmed End
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - ClothingOuterHardsuitJuggernautReverseEngineered
@@ -745,7 +786,7 @@
   description: Prints equipment for use by security crew.
   components:
   - type: Sprite
-    sprite: Structures/Machines/techfab.rsi
+    sprite: _DV/Structures/Machines/techfab.rsi # DeltaV - resprite armoury fabs
     layers:
     - state: icon
       map: ["enum.LatheVisualLayers.IsRunning"]
@@ -802,6 +843,7 @@
       - WeaponDisablerPractice
       - WeaponFlareGunSecurity
       - WeaponLaserCarbinePractice
+      - WeaponProtoKineticAccelerator
       - Zipties
       # Begin DeltaV additions
       - ClothingNeckShockCollar # Nyanotrasen - Shock Collar recipe
@@ -813,9 +855,24 @@
       - SpeedLoaderSpecialEmpty
       - SpeedLoaderSpecialPractice
       - MagazinePistolSpecial
+      - MagazineRifleRubber
+      - MagazinePistolRubber
+      - MagazineLightRifleRubber
+      - SpeedLoaderMagnumRubber
+      - SpeedLoaderSpecialRubber
+      - MagazineBoxPistolRubber
+      - MagazineBoxMagnumRubber
+      - MagazineBoxLightRifleRubber
+      - MagazineBoxRifleRubber
+      - MagazineBoxSpecialRubber
+      - MagazineShotgunBeanbag
+      - BoxShellTranquilizer
+      - BoxBeanbag
+      - WeaponDisabler
       # End DeltaV additions
     dynamicRecipes:
       - EncryptionKeySyndie # Nyano
+      - BorgModuleFauna
       - BoxBeanbag
       - BoxShotgunIncendiary
       - BoxShotgunUranium
@@ -866,6 +923,9 @@
       - WeaponLaserCarbine
       - WeaponXrayCannon
       - ClothingBackpackElectropack
+      - WeaponCrusher
+      - WeaponCrusherDagger
+      - WeaponCrusherGlaive
       # Begin DeltaV additions
       - BoxShellSoulbreaker # Nyanotrasen - Shotgun shell to get rid of psionics
       - ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
@@ -893,7 +953,10 @@
       - ClothingOuterHardsuitSyndieReverseEngineered
       - ClothingShoesBootsSecurityMagboots
       - AdvancedTruncheon
+      - WeaponColdCannon
+      - WeaponBeamCannon
       # End DeltaV additions
+      - SecurityCyberneticEyes # Shitmed Change
   - type: MaterialStorage
     whitelist:
       tags:
@@ -908,7 +971,7 @@
   description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
   components:
     - type: Sprite
-      sprite: Structures/Machines/techfab.rsi
+      sprite: _DV/Structures/Machines/techfab.rsi # DeltaV - resprite armoury fabs
       layers:
         - state: icon
           map: ["enum.LatheVisualLayers.IsRunning"]
@@ -1017,6 +1080,8 @@
       - ClothingEyesGlassesChemical
       - WhiteCane
       - AACTablet # DeltaV
+      - BoneGel # Shitmed Change
+      - TankHarness # DeltaV
     dynamicRecipes:
       # Begin DeltaV additions
       - LauncherSyringe
@@ -1029,6 +1094,12 @@
       - ClothingEyesHudMedical # Nyano
       - ChemicalPayload # Nyano
       - SyringeCryostasis
+      # Shitmed Change
+      - EnergyScalpel
+      - EnergyCautery
+      - AdvancedRetractor
+      #- OmnimedTool # DeltaV - Removed medical multi tool as a tech.
+      - MedicalCyberneticEyes
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
@@ -1094,6 +1165,8 @@
       - ClothingHeadHatHopcap
       - ClothingUniformJumpsuitHoP
       - ClothingUniformJumpskirtHoP
+      - ClothingUniformJumpsuitHoPFormal # DeltaV - Was never added, appearently?
+      - ClothingUniformJumpskirtHoPFormal # DeltaV - Formal dresses
       - ClothingHeadHatBeretHoS
       - ClothingHeadHatHoshat
       - ClothingUniformJumpsuitHoS
@@ -1142,11 +1215,13 @@
       - ClothingUniformJumpsuitQMTurtleneck
       - ClothingUniformJumpskirtQMTurtleneck
       - ClothingUniformJumpsuitQMFormal
+      - ClothingUniformJumpskirtQMFormal # DeltaV - Formal dresses
       - ClothingHeadHatBeretRND
       - ClothingHeadHatCJToque # DeltaV - Chief Justice
       - ClothingUniformJumpsuitChiefJustice # DeltaV - Chief Justice
       - ClothingUniformJumpskirtChiefJustice # DeltaV - Chief Justice
       - ClothingUniformJumpsuitChiefJusticeFormal # DeltaV - Chief Justice
+      - ClothingUniformJumpskirtCJFormal # DeltaV - Formal dresses
       - ClothingUniformJumpsuitChiefJusticeWhite # DeltaV - Chief Justice
       - ClothingUniformJumpsuitResearchDirector
       - ClothingUniformJumpskirtResearchDirector
@@ -1172,6 +1247,7 @@
       - ClothingUniformJumpskirtWardenBlue # DeltaV - alternate sec uniforms
       - ClothingUniformJumpsuitWardenGrey # DeltaV - alternate sec uniforms
       - ClothingUniformJumpskirtWardenGrey # DeltaV - alternate sec uniforms
+      - ClothingBeltPaperwork # DeltaV - Added the paperwork belt
       - ClothingHeadHatParamedicsoft
       # Winter outfits
       - ClothingOuterWinterCap
@@ -1217,6 +1293,9 @@
       - ClothingNeckScarfStripedOrange
       - ClothingNeckScarfStripedBlack
       - ClothingNeckScarfStripedPurple
+      # DeltaV Ponchos
+      - ClothingNeckCWPSec
+      - ClothingNeckCWPArctic
       # Carpets
       - Carpet
       - CarpetBlack
@@ -1227,8 +1306,28 @@
       - CarpetPurple
       - CarpetCyan
       - CarpetWhite
+      # Bedsheets
+      - BedsheetBlack
+      - BedsheetBlue
+      - BedsheetBrown
+      - BedsheetGreen
+      - BedsheetGrey
+      - BedsheetOrange
+      - BedsheetPurple
+      - BedsheetRed
+      - BedsheetWhite
+      - BedsheetYellow
+      - BedsheetClown
+      - BedsheetCosmos
+      - BedsheetIan
+      - BedsheetMedical
+      - BedsheetMime
+      - BedsheetNT
+      - BedsheetRainbow
+      - BedsheetBrigmedic
   - type: EmagLatheRecipes
     emagStaticRecipes:
+      # Clothing
       - ClothingHeadHatCentcomcap
       - ClothingHeadHatCentcom
       - ClothingUniformJumpsuitCentcomAgent
@@ -1251,6 +1350,23 @@
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
       - ClothingOuterWinterSyndieCap
+      # Bedsheets
+      - BedsheetSyndie
+      # Begin DeltaV Additions
+      - ClothingUniformInterdyneChemist
+      - UniformScrubsColorCybersun
+      - ClothingUniformCybersunAttorney
+      - ClothingHeadHatSurgcapCybersun
+      - ClothingOuterInterdyneChemistrySuit
+      - ClothingOuterCoatCybersunWindbreaker
+      - ClothingMaskInterdyneChemistry
+      - ClothingHeadHatSurgcapCybersun
+      - ClothingUniformCybersunHazard
+      - ClothingUniformCybersunCasual
+      - ClothingUniformCybersunRND
+      - ClothingOuterCybersunOvercoat
+      - ClothingBeltSyndicateUtility
+      # End DeltaV Additions
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1349,11 +1465,12 @@
       idleState: icon
       runningState: building
       defaultProductionAmount: 10
+      priceModifier: 1 # DeltaV
       staticRecipes:
         - BluespaceCrystal #Nyano - Summary: Bluespace Crystals can be created here.
         - SheetSteel
         - SheetGlass1
-        - SheetRGlass
+        - SheetRGlassRaw
         - SheetPlasma1
         - SheetPGlass1
         - SheetRPGlass1
@@ -1365,6 +1482,12 @@
     - type: MaterialStorageMagnetPickup # Delta V - Summary: Adds magnet pull from Frontier
       magnetEnabled: True
       range: 0.30 # Delta V - End Magnet Pull
+    - type: MiningPoints # DeltaV - Source of mining points for miners
+      transferSound:
+        path: /Audio/Effects/Cargo/ping.ogg
+    - type: MiningPointsLathe # DeltaV
+    - type: PlaceableSurface # DeltaV: Allow ore bags to dump into it directly
+      isPlaceable: false # but not place on it if you just click it with a random item
 
 - type: entity
   parent: OreProcessor
@@ -1380,9 +1503,10 @@
     materialUseMultiplier: 0.75
     timeMultiplier: 0.5
     staticRecipes:
+      - BluespaceCrystal # DeltaV - Bluespace Crystals can be created here.
       - SheetSteel
       - SheetGlass1
-      - SheetRGlass
+      - SheetRGlassRaw
       - SheetPlasma1
       - SheetPGlass1
       - SheetRPGlass1
@@ -1522,3 +1646,52 @@
         - Wooden
         - RawMaterial
         - Plastic
+
+# Shitmed Change Start
+- type: entity
+  id: MedicalBiofabricator
+  parent: BaseLathe
+  name: medical biofabricator
+  description: Produces organs and other organic matter that can be surgically grafted onto patients with biomass.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Structures/Machines/limbgrower.rsi
+    snapCardinals: true
+    layers:
+    - state: limbgrower_idleoff
+      map: ["enum.LatheVisualLayers.IsRunning"]
+#    - state: limbgrower_idleoff
+#      shader: unshaded
+#      map: ["enum.PowerDeviceVisualLayers.Powered"]
+#    - state: inserting
+#      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+#    - state: panel
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: MedicalBiofabMachineBoard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+  - type: Lathe
+    idleState: limbgrower_idleoff
+    runningState: limbgrower_idleon
+    staticRecipes:
+    - SynthLiver
+    - SynthHeart
+    - SynthLungs
+    - SynthEyes
+    - SynthLeftLeg
+    - SynthRightLeg
+    - SynthLeftFoot
+    - SynthRightFoot
+    - SynthLeftArm
+    - SynthRightArm
+    - SynthLeftHand
+    - SynthRightHand
+  - type: EmagLatheRecipes
+    emagStaticRecipes:
+      - PizzaLeftArm
+      - PizzaRightArm
+# Shitmed Change End

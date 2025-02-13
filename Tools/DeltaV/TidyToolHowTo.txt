@@ -1,0 +1,17 @@
+The Python add-on Ruamel is needed for this.
+
+Run 'pip install ruamel.yaml' in Windows Command Prompt
+
+If you need to update pip use cmnd 'py -m ensurepip --upgrade'
+
+To run the tidy tool:
+
+Open Windows command prompt
+Navigate to the DeltaV repository folder using 'cd' command
+Run 'python Tools/DeltaV/tidy_map.py --infile Resources/Maps/MAPNAME.yml'
+Note: if you want to clean a map that's still wip you can use 'python Tools/DeltaV/tidy_map.py --infile bin/Content.Server/data/MAPNAME.yml'
+
+After you have a 'MAPNAME_tidy.yml' you can delete the old(dirty) one and remove the '_tidy' from the filename.
+
+Original tool created by: Magil
+Modified by: MilonPL

@@ -1,0 +1,120 @@
+- type: entity
+  parent: LockerBase
+  id: LockerBaseDeltaV
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Storage/closet.rsi
+
+- type: entity
+  parent: [ LockerBaseDeltaV, LockerBaseSecure ]
+  id: LockerBaseSecureDeltaV
+
+- type: entity
+  id: LockerChiefJustice
+  parent: LockerBaseSecureDeltaV
+  name: chief justice's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: cj
+    stateDoorOpen: cj_open
+    stateDoorClosed: cj_door
+  - type: AccessReader
+    access: [["ChiefJustice"]]
+
+- type: entity
+  id: LockerClerk
+  parent: LockerBaseSecureDeltaV
+  name: clerk's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: clerk
+    stateDoorOpen: clerk_open
+    stateDoorClosed: clerk_door
+  - type: AccessReader
+    access: [["Clerk"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerPsychologist
+  name: psychologist's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: psych
+    stateDoorOpen: psych_open
+    stateDoorClosed: psych_door
+  - type: AccessReader
+    access: [["Psychologist"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerSurgeon
+  name: surgeon's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: surgeon
+    stateDoorOpen: surgeon_open
+    stateDoorClosed: surgeon_door
+  - type: AccessReader
+    access: [ [ "Surgery" ] ]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerAdministrativeAssistant
+  name: administrative assistant's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: admin_assist
+    stateDoorOpen: admin_assist_open
+    stateDoorClosed: admin_assist_door
+  - type: AccessReader
+    access: [["Command"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerKitchen
+  name: kitchen locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: chef
+    stateDoorOpen: chef_open
+    stateDoorClosed: chef_door
+  - type: AccessReader
+    access: [["Kitchen"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerJanitor
+  name: janitor's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: jani
+    stateDoorOpen: jani_open
+    stateDoorClosed: jani_door
+  - type: AccessReader
+    access: [["Janitor"]]
+
+- type: entity
+  parent: LockerBaseSecure
+  id: LockerLogistics # Wizden has sprites for this but doesn't have an entity that uses them?
+  name: logistics locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: cargo
+    stateDoorOpen: cargo_open
+    stateDoorClosed: cargo_door
+  - type: AccessReader
+    access: [["Cargo"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerArmoryStorage
+  name: armory storage locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: armory
+    stateDoorOpen: armory_open
+    stateDoorClosed: armory_door
+  - type: AccessReader
+    access: [["Armory"]]

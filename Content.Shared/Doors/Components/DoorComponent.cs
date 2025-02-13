@@ -66,7 +66,7 @@ public sealed partial class DoorComponent : Component
     /// <summary>
     ///     When the door is active, this is the time when the state will next update.
     /// </summary>
-    [AutoNetworkedField]
+    [AutoNetworkedField, ViewVariables]
     public TimeSpan? NextStateChange;
 
     /// <summary>
@@ -257,6 +257,9 @@ public sealed partial class DoorComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool CanPry = true;
+
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
+    public bool IsBeingPried;
 
     [DataField]
     public ProtoId<ToolQualityPrototype> PryingQuality = "Prying";

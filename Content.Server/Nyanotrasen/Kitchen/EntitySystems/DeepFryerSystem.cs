@@ -48,7 +48,6 @@ using Content.Shared.Power;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.Whitelist;
-using FastAccessors;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -105,7 +104,6 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
 
         SubscribeLocalEvent<DeepFryerComponent, ComponentInit>(OnInitDeepFryer);
         SubscribeLocalEvent<DeepFryerComponent, PowerChangedEvent>(OnPowerChange);
-        // SubscribeLocalEvent<DeepFryerComponent, RefreshPartsEvent>(OnRefreshParts);
         SubscribeLocalEvent<DeepFryerComponent, MachineDeconstructedEvent>(OnDeconstruct);
         SubscribeLocalEvent<DeepFryerComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<DeepFryerComponent, ThrowHitByEvent>(OnThrowHitBy);
@@ -436,14 +434,6 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
     {
         _containerSystem.EmptyContainer(component.Storage, true);
     }
-
-    // private void OnRefreshParts(EntityUid uid, DeepFryerComponent component, RefreshPartsEvent args)
-    // {
-    //     var ratingStorage = args.PartRatings[component.MachinePartStorageMax];
-    //
-    //     component.StorageMaxEntities = component.BaseStorageMaxEntities +
-    //                                    (int) (component.StoragePerPartRating * (ratingStorage - 1));
-    // }
 
     /// <summary>
     ///     Allow thrown items to land in a basket.

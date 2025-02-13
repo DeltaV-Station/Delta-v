@@ -81,10 +81,12 @@ public sealed class DoorSystem : SharedDoorSystem
             {
                 Log.Error("Unable to load RSI '{0}'. Trace:\n{1}", baseRsi, Environment.StackTrace);
             }
+            args.Sprite.BaseRSI = res?.RSI; // DeltaV
+            /* DeltaV: just set BaseRSI instead
             foreach (var layer in args.Sprite.AllLayers)
             {
                 layer.Rsi = res?.RSI;
-            }
+            }*/
         }
 
         TryComp<AnimationPlayerComponent>(uid, out var animPlayer);

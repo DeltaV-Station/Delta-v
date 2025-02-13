@@ -1,0 +1,38 @@
+- type: entity
+  parent: Paper
+  id: PaperWrittenNoteFromMumGeneric
+  name: note from mom
+  suffix: Lunchbox, Generic
+  components:
+  - type: Paper
+    content: book-text-lunchbox-generic
+    
+- type: entity
+  parent: PaperWrittenNoteFromMumGeneric
+  id: PaperWrittenNoteFromMumHealthy
+  name: note from mom
+  suffix: Lunchbox, Healthy
+  components:
+  - type: Paper
+    content: book-text-lunchbox-healthy
+    
+- type: entity
+  parent: PaperWrittenNoteFromMumGeneric
+  id: PaperWrittenNoteFromMumUnhealthy
+  name: note from mom
+  suffix: Lunchbox, Unhealthy
+  components:
+  - type: Paper
+    content: book-text-lunchbox-unhealthy
+
+- type: entity
+  parent: Paper
+  id: PaperWrittenSubscriptionNotice
+  name: "subscription notice"
+  description: "Thank you for your purchase"
+  components:
+  - type: Paper
+    content: book-text-subscription-notice
+    stampedBy:
+    - stampedColor: "#850000"
+      stampedName: stamp-component-stamped-name-syndicate

@@ -226,7 +226,7 @@
       - EncryptionKeyCommon
 
 - type: entity
-  parent: [ClothingHeadset, BaseRestrictedContraband]
+  parent: [ClothingHeadset, BaseSecurityLawyerContraband]
   id: ClothingHeadsetSecurity
   name: security headset
   description: This is used by your elite security force.
@@ -254,9 +254,9 @@
       - EncryptionKeySecurity
       - EncryptionKeyCommon
   - type: Sprite
-    sprite: DeltaV/Clothing/Ears/Headsets/securitymedical.rsi # DeltaV - Change the sprite to fit the others
+    sprite: _DV/Clothing/Ears/Headsets/securitymedical.rsi # DeltaV - Change the sprite to fit the others
   - type: Clothing
-    sprite: DeltaV/Clothing/Ears/Headsets/securitymedical.rsi # DeltaV - Change the sprite to fit the others
+    sprite: _DV/Clothing/Ears/Headsets/securitymedical.rsi # DeltaV - Change the sprite to fit the others
 
 - type: entity
   parent: ClothingHeadset
