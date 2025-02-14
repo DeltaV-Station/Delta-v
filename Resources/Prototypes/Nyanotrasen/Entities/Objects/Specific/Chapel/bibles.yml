@@ -12,3 +12,14 @@
   - type: Item
     size: Small
     sprite: Nyanotrasen/Objects/Specific/Chapel/holylight.rsi
+  - type: Spellbook
+    spellActions:
+      ActionFlashRune: -1
+      ActionStunRune: -1
+      ActionForceWall: -1
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Spellbook
+  - type: StealTarget
+    stealGroup: BibleMystagogue
