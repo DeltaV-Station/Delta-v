@@ -296,7 +296,7 @@ public sealed class LockSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, LockComponent component, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Access))
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction)) // DeltaV - emag for lockers instead of doorjack
             return;
 
         if (!component.Locked || !component.BreakOnAccessBreaker)
