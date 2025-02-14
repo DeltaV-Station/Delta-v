@@ -23,8 +23,8 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi
-        state: mag-slug-1
+      - sprite: Objects/Storage/boxes.rsi
+        state: shellslug
   - type: EntityTableSpawner
     table: !type:NestedSelector
       tableId: AmmoBoxTable
