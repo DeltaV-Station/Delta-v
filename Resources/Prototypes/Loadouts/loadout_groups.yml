@@ -19,6 +19,7 @@
   - CigarCase
   - CigarGold
   - ClothingNeckLGBTPin
+  - ClothingNeckAllyPin
   - ClothingNeckAromanticPin
   - ClothingNeckAsexualPin
   - ClothingNeckBisexualPin
@@ -27,6 +28,8 @@
   - ClothingNeckLesbianPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
+  - ClothingNeckOmnisexualPin
+  - ClothingNeckGenderqueerPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
@@ -54,6 +57,7 @@
   - WhiteCane
   - CDDogtags # taken from Cosmatic Drift
   - TapeRecorder
+  - ClothingHeadHatUshanka
   # End DeltaV Additions
 
 - type: loadoutGroup
@@ -696,8 +700,11 @@
   id: CargoTechnicianJumpsuit
   name: loadout-group-cargo-technician-jumpsuit
   loadouts:
-  - CargoTechnicianJumpsuit
-  - CargoTechnicianJumpskirt
+ #- CargoTechnicianJumpsuit
+ #- CargoTechnicianJumpskirt
+  - ClothingUniformJumpsuitCargoTechPants # DeltaV
+  - ClothingUniformJumpsuitCargoTechOveralls # DeltaV
+  - ClothingUniformJumpskirtCargoTechRomper # DeltaV
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack

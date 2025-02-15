@@ -1,4 +1,3 @@
-using Content.Shared.Nyanotrasen.Abilities.Oni;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -7,7 +6,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Tools.Components;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(SharedToolSystem), typeof(SharedOniSystem))] // DeltaV - Allowed OniSystem access
+[Access(typeof(SharedToolSystem))]
 public sealed partial class ToolComponent : Component
 {
     [DataField]

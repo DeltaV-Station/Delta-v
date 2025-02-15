@@ -5,10 +5,12 @@ lobbyduration      = 240
 round_end_pacifist = true
 contraband_examine = false # Doubtful that it's desired at all, and would require going over every item in accordance with SOP
 secret_weight_prototype = "SecretDeltaV"
+role_timer_override = "DeltaV"
 
 # New players can't join a server without admins
 [game.panic_bunker]
 enabled = true
+min_overall_minutes = 240
 disable_with_admins = true
 enable_without_admins = true
 show_reason = true
@@ -38,7 +40,9 @@ limit    = 10.0
 [admin]
 see_own_notes   = true
 deadmin_on_join = true
-alert.min_players_sharing_connection = 2
+allow_multi_server_play = false
+[admin.alert]
+min_players_sharing_connection = 2
 
 [server]
 id         = "deltav"

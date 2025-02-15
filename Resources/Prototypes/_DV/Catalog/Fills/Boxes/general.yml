@@ -86,3 +86,22 @@
     contents:
     - id: Handcuffs
       amount: 10
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxSyndicateStunBundle
+  name: syndicate stun box
+  description: A box of two basic stun weapons.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: writing_of_doom
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+    - id: Stunbaton
+    - id: WeaponDisabler

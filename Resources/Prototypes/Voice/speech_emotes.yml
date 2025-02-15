@@ -214,10 +214,25 @@
     - BorgChassis
   chatMessages: ["chat-emote-msg-clap"]
   chatTriggers:
-    - clap
     - claps
     - clapping
     - clapped
+
+- type: emote
+  id: ClapSingle
+  name: chat-emote-name-clap-single
+  category: Hands
+  icon: Interface/Emotes/clap.png #TODO: Needs a sprite that distinguishes it better from clap
+  whitelist:
+    components:
+    - Hands
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [ "chat-emote-msg-clap-single" ]
+  chatTriggers:
+    - clap
+    - claps their hands together
 
 - type: emote
   id: Snap
@@ -318,10 +333,9 @@
   category: Vocal
   icon: Interface/Emotes/buzz.png
   whitelist:
-    requireAll: true
     components:
     - BorgChassis
-    - Vocal
+    - Silicon # DeltaV - Removes 'requireAll' component and adds IPCs to whitelist
   chatMessages: ["chat-emote-msg-buzz"]
   chatTriggers:
     - buzzing
@@ -370,10 +384,9 @@
   category: Vocal
   icon: Interface/Emotes/beep.png
   whitelist:
-    requireAll: true
     components:
     - BorgChassis
-    - Vocal
+    - Silicon # DeltaV - Removes 'requireAll' component and adds IPCs to whitelist
   chatMessages: ["chat-emote-msg-beep"]
   chatTriggers:
     - beep
@@ -387,10 +400,9 @@
   category: Vocal
   icon: Interface/Emotes/chime.png
   whitelist:
-    requireAll: true
     components:
     - BorgChassis
-    - Vocal
+    - Silicon # DeltaV - Removes 'requireAll' component and adds IPCs to whitelist
   chatMessages: ["chat-emote-msg-chime"]
   chatTriggers:
     - chime
@@ -404,10 +416,9 @@
   category: Vocal
   icon: Interface/Emotes/buzztwo.png
   whitelist:
-    requireAll: true
     components:
     - BorgChassis
-    - Vocal
+    - Silicon # DeltaV - Removes 'requireAll' component and adds IPCs to whitelist
   chatMessages: ["chat-emote-msg-buzzestwo"]
   chatTriggers:
     - buzztwice
@@ -427,10 +438,9 @@
   category: Vocal
   icon: Interface/Emotes/ping.png
   whitelist:
-    requireAll: true
     components:
     - BorgChassis
-    - Vocal
+    - Silicon # DeltaV - Removes 'requireAll' component and adds IPCs to whitelist
   chatMessages: ["chat-emote-msg-ping"]
   chatTriggers:
     - ping
