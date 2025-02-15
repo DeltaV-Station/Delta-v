@@ -43,6 +43,10 @@
         requireInputValidation: false
   - type: StationMap
   - type: GhostRole
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 36000 # ten hours
     makeSentient: true
     name: Maintenance Drone
     description: Maintain the station. Ignore other beings except drones.
