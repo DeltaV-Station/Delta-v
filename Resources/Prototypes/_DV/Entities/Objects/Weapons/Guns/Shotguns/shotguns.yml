@@ -45,39 +45,11 @@
     capacity: 4
     proto: ShellShotgunBeanbag
 
-# - type: entity
-#   name: Borg Riot Shotgun
-#   parent: BaseWeaponShotgun
-#   id: WeaponShotgunRiotBorg
-#   description: A modified shotgun used by Borg security forces. It has a lower capacity, but self loads shells.
-#   components:
-#   - type: Sprite
-#     sprite: _DV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
-#   - type: Gun
-#     fireRate: 1.5
-#     selectedMode: SemiAuto
-#     availableModes:
-#     - SemiAuto
-#     soundGunshot:
-#      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
-#     soundEmpty:
-#      path: /Audio/Weapons/Guns/Empty/empty.ogg
-#   - type: ProjectileBatteryAmmoProvider
-#     proto: PelletShotgunBeanbag
-#     fireCost: 100
-#   - type: Battery
-#     maxcharge: 400
-#     startingCharge: 200
-#   - type: BatterySelfRecharger
-#     autorRecharge: true
-#     autoRechargeRate: 20
-#   - type: AmmoCounter
-
 - type: entity
   name: Borg Riot Shotgun
   parent: BaseItem
   id: WeaponRiotShotgunBorg
-  description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses replicated .30 rifle ammo generated internally.
+  description: A heavily modified shotgun for borgs, firing off beanbag rounds. Ammo repplicates overtime
   components:
     - type: Sprite
       sprite: Objects/Weapons/Guns/LMGs/l6.rsi
