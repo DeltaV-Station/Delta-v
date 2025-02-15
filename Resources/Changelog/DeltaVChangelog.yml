@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: DisposableCrewmember42
   changes:
-  - message: Added Greenshift to the gamemode vote pool.
-    type: Tweak
-  id: 539
-  time: '2024-09-10T22:36:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1787
-- author: DisposableCrewmember42
-  changes:
   - message: Borgs can no longer sacrifice their equipment to the Oracle
     type: Fix
   id: 540
@@ -3852,3 +3845,14 @@
   id: 1038
   time: '2025-02-15T03:51:19.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2783
+- author: Stop-Signs
+  changes:
+  - message: The book of mysteries is now a steal objective, spawning in the locker
+      instead of on the mystagogue.
+    type: Tweak
+  - message: The book of mysteries can no longer summon ifrits, instead granting the
+      secret of forcewall!
+    type: Tweak
+  id: 1039
+  time: '2025-02-15T18:42:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2975
