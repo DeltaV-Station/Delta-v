@@ -63,8 +63,8 @@
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7
-      90: 0.5
-      120: 0.3
+      80: 0.5 # DeltaV - was 90
+      100: 0.3 # DeltaV - was 120, which is irrelvant?
   - type: SiliconDownOnDead
   - type: Speech
   - type: Deathgasp
