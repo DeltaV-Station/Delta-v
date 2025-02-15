@@ -153,22 +153,23 @@
     - type: CanEnterCryostorage # Goobstation
     - type: StatusIcon # Goobstation
       bounds: -0.5,-0.5,0.5,0.5
-    - type: Bloodstream This is left commented out because it's not necessary for a robot, but you may want it.
+    - type: Bloodstream # begin DeltaV
       damageBleedModifiers: BloodlossIPC
       bloodReagent: Oil
       bleedReductionAmount: 0
       bloodMaxVolume: 100
       chemicalMaxVolume: 0
       bleedPuddleThreshold: 3
-      bleedRefreshAmount: 0
-      bloodLossThreshold: 0
-      maxBleedAmount: 14
+      bleedRefreshAmount: 0.0
+      bloodLossThreshold: 0.8
+      bloodRefreshAmount: 0
+      maxBleedAmount: 2 # not a lot, but its hard to stop
       bloodlossDamage:
         types:
-          Blunt: 0.2 # DeltaV was Heat, lubricant is running low
+          Blunt: 0.2 # lubricant is running low
       bloodlossHealDamage:
         types:
-          Burn: 0
+          Burn: 0 # end DeltaV
     - type: Flammable
       fireSpread: true
       canResistFire: true
