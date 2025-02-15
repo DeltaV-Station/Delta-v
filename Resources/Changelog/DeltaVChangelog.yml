@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: DisposableCrewmember42
   changes:
-  - message: Maximum custom burger stack height lowered to 6.
-    type: Tweak
-  id: 537
-  time: '2024-09-10T18:45:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1782
-- author: DisposableCrewmember42
-  changes:
   - message: Felinids' skin/fur color may now be chosen freely.
     type: Tweak
   id: 538
@@ -3847,3 +3840,13 @@
   id: 1036
   time: '2025-02-14T23:02:19.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2977
+- author: deltanedas
+  changes:
+  - message: Merged last fortnight's changes from upstream, excluding the resprites
+      and access breaker.
+    type: Add
+  - message: Fixed not being able to make medical huds in the medical techfab.
+    type: Fix
+  id: 1037
+  time: '2025-02-15T03:50:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2946
