@@ -3,6 +3,7 @@ using Content.Server.Access.Systems;
 using Content.Server.Forensics;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems; // DeltaV
+using Content.Shared.Forensics.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
