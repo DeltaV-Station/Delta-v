@@ -83,6 +83,13 @@
   - type: PhysicalComposition
     materialComposition:
       Plasma: 100
+  - type: Healing   # DeltaV - Change Start
+    delay: 2.0
+    damageContainers:
+    - HumanoidSilicon
+    damage:
+      types:
+        Radiation: -5.0 # DeltaV - Change End
   - type: Stack
     stackType: Plasma
     baseLayer: base
