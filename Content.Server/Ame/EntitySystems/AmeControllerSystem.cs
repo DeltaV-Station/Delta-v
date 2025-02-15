@@ -360,10 +360,10 @@ public sealed class AmeControllerSystem : EntitySystem
                 ToggleInjecting(uid, user: user, controller: comp);
                 break;
             case UiButton.IncreaseFuel:
-                AdjustInjectionAmount(uid, +2, user: user, controller: comp);
+                AdjustInjectionAmount(uid, +1, user: user, controller: comp); // DeltaV - was +2
                 break;
             case UiButton.DecreaseFuel:
-                AdjustInjectionAmount(uid, -2, user: user, controller: comp);
+                AdjustInjectionAmount(uid, -1, user: user, controller: comp); // DeltaV - was -2
                 break;
         }
 

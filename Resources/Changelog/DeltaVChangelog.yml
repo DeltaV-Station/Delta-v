@@ -1,32 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Merged upstream changes from last week.
-    type: Add
-  id: 535
-  time: '2024-09-09T15:20:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1762
-- author: DisposableCrewmember42
-  changes:
-  - message: Returned search functionality to the Drinks page. Bartenders, rejoice!
-    type: Fix
-  id: 536
-  time: '2024-09-09T21:37:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1779
-- author: DisposableCrewmember42
-  changes:
-  - message: Maximum custom burger stack height lowered to 6.
-    type: Tweak
-  id: 537
-  time: '2024-09-10T18:45:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1782
-- author: DisposableCrewmember42
-  changes:
-  - message: Felinids' skin/fur color may now be chosen freely.
-    type: Tweak
-  id: 538
-  time: '2024-09-10T22:23:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1783
 - author: DisposableCrewmember42
   changes:
   - message: Added Greenshift to the gamemode vote pool.
@@ -3846,3 +3818,37 @@
   id: 1034
   time: '2025-02-13T17:38:49.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2967
+- author: deltanedas
+  changes:
+  - message: Fixed being able to hear ash storms in the lobby.
+    type: Fix
+  id: 1035
+  time: '2025-02-14T22:58:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2978
+- author: Toby222
+  changes:
+  - message: Fixed health analyzer dummy sprite being too big when you first open
+      it
+    type: Fix
+  id: 1036
+  time: '2025-02-14T23:02:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2977
+- author: deltanedas
+  changes:
+  - message: Merged last fortnight's changes from upstream, excluding the resprites
+      and access breaker.
+    type: Add
+  - message: Fixed not being able to make medical huds in the medical techfab.
+    type: Fix
+  id: 1037
+  time: '2025-02-15T03:50:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2946
+- author: nkokic
+  changes:
+  - message: AME is back to linear with advanced efficiency drop.
+    type: Tweak
+  - message: Decreased AME injection adjustment rate to 1.
+    type: Tweak
+  id: 1038
+  time: '2025-02-15T03:51:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2783
