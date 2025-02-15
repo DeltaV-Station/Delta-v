@@ -1,0 +1,46 @@
+- type: entity
+  parent: WarpPoint
+  id: WarpPointSyndieJail
+  suffix: Syndie Jail
+  components:
+  - type: WarpPoint
+    location: Syndie Jail
+  - type: ExtractionBeacon
+    whitelist:
+      components:
+      - MobState
+
+- type: entity
+  parent: MarkerBase
+  id: MarkerSyndieJailLoot
+  name: syndie fulton loot beacon
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Markers/cross.rsi
+      state: green
+    - sprite: Objects/Consumable/Drinks/golden_cup.rsi
+      state: icon
+  - type: ExtractionBeacon
+    blacklist:
+      components:
+      - MobState
+
+- type: entity
+  categories: [ Spawner ]
+  parent: BaseAntagSpawner
+  id: SyndicateMarshalSpawner
+  name: syndicate marshal spawner
+  components:
+  - type: Sprite
+    layers:
+    - Sprite: Markers/cross.rsi
+      state: green
+    - sprite: Clothing/Head/Hats/syndiecap_maa.rsi
+      state: icon
+  - type: GhostRole
+    name: ghost-role-information-syndicate-marshal-name
+    description: ghost-role-information-syndicate-marshal-description
+    rules: ghost-role-information-syndicate-marshal-rules
+    mindRoles:
+    - MindRoleGhostRoleNeutral
