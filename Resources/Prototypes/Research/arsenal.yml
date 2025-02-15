@@ -2,7 +2,7 @@
 
 #- type: technology # DeltaV merged draconic and uranium munitions and moved to our namespace
 #  id: DraconicMunitions
-#  name: research-technology-draconic-muntions
+#  name: research-technology-draconic-munitions
 #  icon:
 #    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
 #    state: incendiarydisplay
@@ -13,6 +13,7 @@
 #  - BoxShotgunIncendiary
 #  - MagazineRifleIncendiary
 #  - MagazinePistolIncendiary
+#  - MagazinePistolSubMachineGunIncendiary
 #  - MagazineLightRifleIncendiary
 #  - SpeedLoaderMagnumIncendiary
 #  - MagazineShotgunIncendiary
@@ -61,6 +62,7 @@
 #  recipeUnlocks:
 #  - MagazineRifleUranium
 #  - MagazinePistolUranium
+#  - MagazinePistolSubMachineGunUranium
 #  - MagazineLightRifleUranium
 #  - SpeedLoaderMagnumUranium
 #  - MagazineBoxPistolUranium
@@ -68,10 +70,6 @@
 #  - MagazineBoxLightRifleUranium
 #  - MagazineBoxRifleUranium
 #  - BoxShotgunUranium
-  # DeltaV - .38 special uranium ammo - Adds .38 special uranium ammo to the research tree
-#  - SpeedLoaderSpecialUranium
-#  - MagazineBoxSpecialUranium
-  # End of modified code
 
 - type: technology
   id: AdvancedRiotControl
@@ -148,22 +146,6 @@
 #  cost: 10000
 #  recipeUnlocks:
 #  - WeaponXrayCannon
-
-- type: technology
-  id: ExperimentalSalvageWeaponry
-  name: research-technology-experimental-salvage-weaponry
-  icon:
-    sprite: Objects/Weapons/Melee/crusher_glaive.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - WeaponCrusher
-  - WeaponCrusherDagger
-  - WeaponCrusherGlaive
-  - BorgModuleFauna
-  - ShuttleGunKineticCircuitboard
 
 - type: technology
   id: BasicShuttleArmament

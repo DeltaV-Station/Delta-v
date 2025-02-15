@@ -863,16 +863,30 @@
 
 # Disruption
 
+# DeltaV - replaced by doorjack
+#- type: listing
+#  id: UplinkAccessBreaker
+#  name: uplink-access-breaker-name
+#  description: uplink-access-breaker-desc
+#  productEntity: AccessBreaker
+#  discountCategory: rareDiscounts # DeltaV - was veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 2 # DeltaV - was 3
+#  cost:
+#    Telecrystal: 4 # DeltaV - was 5
+#  categories:
+#  - UplinkDisruption
+
 - type: listing
   id: UplinkEmag
   name: uplink-emag-name
   description: uplink-emag-desc
   productEntity: Emag
-  discountCategory: rareDiscounts # DeltaV - was very rare
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2 # DeltaV
+    Telecrystal: 2
   cost:
-    Telecrystal: 4 # DeltaV - was 8, can no longer emag doors
+    Telecrystal: 4
   categories:
   - UplinkDisruption
 
@@ -1150,7 +1164,7 @@
   productEntity: ReinforcementRadioSyndicateNukeops
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-nukeop }
   cost:
-    Telecrystal: 20 # DeltaV - Was 35
+    Telecrystal: 20 # DeltaV - Was 30
   categories:
   - UplinkAllies
   conditions:
@@ -2109,8 +2123,11 @@
   description: uplink-combat-bakery-desc
   icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
   productEntity: CombatBakeryKit
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
-    Telecrystal: 6
+    Telecrystal: 4
   categories:
   - UplinkJob
   conditions:
