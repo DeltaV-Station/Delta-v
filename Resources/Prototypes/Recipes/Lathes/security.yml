@@ -88,13 +88,13 @@
     Plastic: 750
     Gold: 500
 
-- type: latheRecipe
-  parent: BaseWeaponRecipeLong
-  id: WeaponLaserSvalinn
-  result: WeaponLaserSvalinn
-  materials:
-    Steel: 2000
-    Gold: 500
+#- type: latheRecipe # DeltaV - Removed 
+#  parent: BaseWeaponRecipeLong
+#  id: WeaponLaserSvalinn
+#  result: WeaponLaserSvalinn
+#  materials:
+#    Steel: 2000
+#    Gold: 500
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -282,6 +282,23 @@
   result: MagazinePistolSubMachineGun
   materials:
     Steel: 300
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolSubMachineGunUranium
+  result: MagazinePistolSubMachineGunUranium
+  materials:
+    Steel: 25
+    Plastic: 250
+    Uranium: 250
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolSubMachineGunIncendiary
+  result: MagazinePistolSubMachineGunIncendiary
+  materials:
+    Steel: 25
+    Plastic: 275
 
 - type: latheRecipe
   parent: BaseEmptyAmmoRecipe

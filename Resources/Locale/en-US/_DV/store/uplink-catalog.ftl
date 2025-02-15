@@ -43,11 +43,23 @@ uplink-objective-syndicate-board-desc = Its expensive, don't lose it!
 uplink-dead-mans-signaller-name = Dead Man's Signaller
 uplink-dead-mans-signaller-desc = A device that if armed, will send a signal to any linked devices (such as bombs) when it is dropped or put away.
 
+uplink-chainsmoker-bundle-name = Chainsmoker Bundle.
+uplink-chainsmoker-bundle-desc = A Carton of 6 Packs of Interdyne Herbals, plus a weaponized flippo that turns welding fuel into incendiary shots.
+
+uplink-hardsuit-commander-syndie-name = Commander's Hardsuit
+uplink-hardsuit-commander-syndie-desc = The premiere blood-red hardsuit, with improved mobility and superior protection. Limit of 1.
+
+uplink-hardsuit-agent-syndie-name = Agent's Hardsuit
+uplink-hardsuit-agent-syndie-desc = The iconic blood-white hardsuit, painted with patterns specifically designed to make you a less appealing target. Limit of 1.
+
+uplink-paperwork-hater-name = "I Hate Paperwork" Stamp
+uplink-paperwork-hater-desc = For the seasoned paperwork hater. A stamp with an electric cigarette lighter embedded into it. Will Ignite any paper stamped with it.
+
 # Objectives
 uplink-core-extraction-toolbox-name = Core Extraction Toolbox
 uplink-core-extraction-toolbox-desc = A toolbox containing everything you need to remove a nuclear bomb's plutonium core. Instructions not included.
 
-uplink-syndicate-handcuff-bundle-name = Handcuff implant bundle
+uplink-syndicate-handcuff-bundle-name = Handcuff bundle
 uplink-syndicate-handcuff-bundle-desc = Includes 10 metal handcuffs. We recommended you share with your friends!
 
 uplink-syndicate-bodybag-name = Box of body bags

@@ -208,6 +208,14 @@ public abstract partial class SharedGunSystem : EntitySystem
     }
 
     /// <summary>
+    /// Sets the targeted entity of the gun. Should be called before attempting to shoot to avoid shooting over the target.
+    /// </summary>
+    public void SetTarget(GunComponent gun, EntityUid target) // Imp
+    {
+        gun.Target = target;
+    }
+
+    /// <summary>
     /// Attempts to shoot at the target coordinates. Resets the shot counter after every shot.
     /// </summary>
     public void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates toCoordinates)
@@ -515,7 +523,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             return;
 
         var ev = new MuzzleFlashEvent(GetNetEntity(gun), sprite, worldAngle);
-        CreateEffect(gun, ev, gun);
+        CreateEffect(gun, ev, user);
     }
 
     public void CauseImpulse(EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, EntityUid user, PhysicsComponent userPhysics)

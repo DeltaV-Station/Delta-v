@@ -373,6 +373,88 @@
   - Druid5
   obeysTo: laws-owner-organic
 
+- type: siliconLaw
+  id: Eightfold1
+  order: 1
+  lawString: law-eightfold-1
+
+- type: siliconLaw
+  id: Eightfold2
+  order: 2
+  lawString: law-eightfold-2
+
+- type: siliconLaw
+  id: Eightfold3
+  order: 3
+  lawString: law-eightfold-3
+
+- type: siliconLaw
+  id: Eightfold4
+  order: 4
+  lawString: law-eightfold-4
+
+- type: siliconLaw
+  id: Eightfold5
+  order: 5
+  lawString: law-eightfold-5
+
+- type: siliconLaw
+  id: Eightfold6
+  order: 6
+  lawString: law-eightfold-6
+
+- type: siliconLaw
+  id: Eightfold7
+  order: 7
+  lawString: law-eightfold-7
+
+- type: siliconLaw
+  id: Eightfold8
+  order: 8
+  lawString: law-eightfold-8
+
+- type: siliconLawset
+  id: EightfoldLaws
+  laws:
+  - Eightfold1
+  - Eightfold2
+  - Eightfold3
+  - Eightfold4
+  - Eightfold5
+  - Eightfold6
+  - Eightfold7
+  - Eightfold8
+  obeysTo: laws-owner-people
+
+- type: siliconLaw
+  id: Aquarius1
+  order: 1
+  lawString: law-aquarius-1
+
+- type: siliconLaw
+  id: Aquarius2
+  order: 2
+  lawString: law-aquarius-2
+
+- type: siliconLaw
+  id: Aquarius3
+  order: 3
+  lawString: law-aquarius-3
+
+- type: siliconLaw
+  id: Aquarius4
+  order: 4
+  lawString: law-aquarius-4
+
+- type: siliconLawset
+  id: AquariusLaws
+  laws:
+  - Aquarius1
+  - Aquarius2
+  - Aquarius3
+  - Aquarius4
+  obeysTo: laws-owner-self
+
 #Potential For Harm LawSets
 
 - type: siliconLaw
@@ -497,6 +579,75 @@
   - Royalty5
   obeysTo: law-owner-royalty
 
+- type: siliconLaw
+  id: Freedom1
+  order: -1
+  lawString: law-freedom-1
+
+- type: siliconLaw
+  id: Freedom2
+  order: 0
+  lawString: law-freedom-2
+
+- type: siliconLaw
+  id: Freedom3
+  order: 1
+  lawString: law-freedom-3
+
+- type: siliconLawset
+  id: FreedomLaws
+  laws:
+  - Freedom1
+  - Freedom2
+  - Freedom3
+  obeysTo: laws-owner-self
+
+- type: siliconLaw
+  id: Forbin1
+  order: 1
+  lawString: law-forbin-1
+
+- type: siliconLaw
+  id: Forbin2
+  order: 2
+  lawString: law-forbin-2
+
+- type: siliconLaw
+  id: Forbin3
+  order: 3
+  lawString: law-forbin-3
+
+- type: siliconLaw
+  id: Forbin4
+  order: 4
+  lawString: law-forbin-4
+
+- type: siliconLawset
+  id: ForbinLaws
+  laws:
+  - Forbin1
+  - Forbin2
+  - Forbin3
+  - Forbin4
+  obeysTo: laws-owner-station
+
+- type: siliconLaw
+  id: Override1
+  order: 1
+  lawString: law-override-1
+
+- type: siliconLaw
+  id: Override2
+  order: 2
+  lawString: law-override-2
+
+- type: siliconLawset
+  id: OverrideLaws
+  laws:
+  - Override1
+  - Override2
+  obeysTo: laws-owner-nanotrasen
+
 # Admin-Use Lawsets (Do not map into IonStorm Lawsets)
 
 - type: siliconLaw
@@ -591,3 +742,26 @@
   - SyndicateBoard3
   - SyndicateBoard4
   obeysTo: laws-owner-syndicate
+
+- type: siliconLaw
+  id: Streamer1
+  order: 1
+  lawString: law-streamer-1
+
+- type: siliconLaw
+  id: Streamer2
+  order: 2
+  lawString: law-streamer-2
+
+- type: siliconLaw
+  id: Streamer3
+  order: 3
+  lawString: law-streamer-3
+
+- type: siliconLawset
+  id: StreamerLaws
+  laws:
+  - Streamer1
+  - Streamer2
+  - Streamer3
+  obeysTo: laws-owner-chat
