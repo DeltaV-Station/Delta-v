@@ -278,41 +278,22 @@
       amount: 5
 
 - type: entity
-  name: empty oil pack
-  description: Fit with a proprietary and disposable connector, oil can easily be injected to top off a bleeding IPC. Needs oil.
-  parent: BaseHealingItem
-  id: EmptyOilpack
-  suffix: Full
-  components:
-  - type: Tag
-    tags:
-    - Bloodpack
-  - type: Sprite
-    state: bloodpack
-  - type: Stack
-    stackType: EmptyOilpack
-    count: 10
-  - type: StackPrice
-    price: 10
-
-- type: entity
-  id: EmptyOilpack1
-  parent: EmptyOilpack
-  suffix: Single
-  components:
-  - type: Stack
-    stackType: EmptyOilpack
-    count: 1
-
-- type: entity
   name: oil pack
-  description: Fit with a proprietary and disposable connector, oil can easily be injected to top off a bleeding IPC.
-  parent: EmptyOilpack
+  description: Fit with a proprietary and disposable connector, oil can easily be injected to top off a bleeding IPC
+  parent: BaseHealingItem
   id: Oilpack
   suffix: Full
   components:
   - type: Sprite
-    state: bloodpack
+    sprite: _DV/Objects/Medical/Oilpack.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: _DV/Objects/Medical/Oilpack.rsi
+    heldPrefix: icon
+  - type: Tag
+    tags:
+    - Bloodpack
   - type: Healing
     damageContainers:
     - HumanoidSilicon
@@ -330,6 +311,7 @@
   - type: StackPrice
     price: 10
 
+
 - type: entity
   id: Oilpack1
   parent: Oilpack
@@ -338,3 +320,4 @@
   - type: Stack
     stackType: Oilpack
     count: 1
+

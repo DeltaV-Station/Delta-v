@@ -1,13 +1,6 @@
 ﻿- type: stack
   id: Oilpack
   name: oil pack
-  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: bloodpack }
+  icon: { sprite: "/Textures/_DV/Objects/Medical/Oilpack.rsi", state: icon }
   spawn: Oilpack
-  maxCount: 10
-
-- type: stack
-  id: EmptyOilpack
-  name: empty oil pack
-  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: bloodpack }
-  spawn: EmptyOilpack
   maxCount: 10
