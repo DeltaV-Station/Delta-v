@@ -73,7 +73,7 @@
       heatDamage:
         types:
           Heat: 2 # DeltaV was 3
-      atmosTemperatureTransferEfficiency: 0.1 # DeltaV
+      atmosTemperatureTransferEfficiency: 0.05
     - type: KillOnOverheat # GoobStation
     - type: Deathgasp
       prototype: SiliconDeathgasp
@@ -153,22 +153,22 @@
     - type: CanEnterCryostorage # Goobstation
     - type: StatusIcon # Goobstation
       bounds: -0.5,-0.5,0.5,0.5
-    #- type: Bloodstream This is left commented out because it's not necessary for a robot, but you may want it.
-    #  damageBleedModifiers: BloodlossIPC
-    #  bloodReagent: Oil
-    #  bleedReductionAmount: 0
-    #  bloodMaxVolume: 500
-    #  chemicalMaxVolume: 0
-    #  bleedPuddleThreshold: 3
-    #  bleedRefreshAmount: 0
-    #  bloodLossThreshold: 0
-    #  maxBleedAmount: 14
-    #  bloodlossDamage:
-    #    types:
-    #      Burn: 1.5
-    #  bloodlossHealDamage:
-    #    types:
-    #      Burn: 0
+    - type: Bloodstream This is left commented out because it's not necessary for a robot, but you may want it.
+      damageBleedModifiers: BloodlossIPC
+      bloodReagent: Oil
+      bleedReductionAmount: 0
+      bloodMaxVolume: 100
+      chemicalMaxVolume: 0
+      bleedPuddleThreshold: 3
+      bleedRefreshAmount: 0
+      bloodLossThreshold: 0
+      maxBleedAmount: 14
+      bloodlossDamage:
+        types:
+          Blunt: 0.2 # DeltaV was Heat, lubricant is running low
+      bloodlossHealDamage:
+        types:
+          Burn: 0
     - type: Flammable
       fireSpread: true
       canResistFire: true
