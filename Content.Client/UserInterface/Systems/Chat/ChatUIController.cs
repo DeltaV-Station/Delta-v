@@ -43,6 +43,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Client.Nyanotrasen.Chat; //Nyano - Summary: chat namespace.
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
+using Content.Shared.Dataset; // DeltaV - For message highlighting
 
 namespace Content.Client.UserInterface.Systems.Chat;
 
@@ -78,7 +79,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
 
     private ISawmill _sawmill = default!;
 
-    private string? _autoHighlights = null;
+    private readonly List<string> _autoHighlights = [];
 
     public static readonly Dictionary<char, ChatSelectChannel> PrefixToChannel = new()
     {
@@ -161,7 +162,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
     /// <summary>
     ///     A list of words to be highlighted in the chatbox.
     /// </summary>
-    private List<string> _highlights = [];
+    private readonly List<string> _highlights = [];
 
     /// <summary>
     ///     The color (hex) in witch the words will be highlighted as.
@@ -290,12 +291,12 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
 
     public void OnSystemLoaded(CharacterInfoSystem system)
     {
-        system.OnCharacterUpdate += CharacterUpdated;
+        system.OnCharacterUpdate += UpdateAutoHighlights;
     }
 
     public void OnSystemUnloaded(CharacterInfoSystem system)
     {
-        system.OnCharacterUpdate -= CharacterUpdated;
+        system.OnCharacterUpdate -= UpdateAutoHighlights;
     }
 
     private void OnChatWindowOpacityChanged(float opacity)
@@ -303,23 +304,29 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         SetChatWindowOpacity(opacity);
     }
 
-    private void CharacterUpdated(CharacterData data)
+    /// <summary>
+    /// For Message highlighting
+    /// </summary>
+    /// <param name="data"></param>
+    private void UpdateAutoHighlights(CharacterData data)
     {
         var (_, job, _, _, entityName) = data;
+
+        _autoHighlights.Clear();
 
         // If the character has a normal name (eg. "Name Surname" and not "Name Initial Surname" or a particular species name)
         // subdivide it so that the name and surname individually get highlighted.
         if (entityName.Count(c => c == ' ') == 1)
-            entityName = entityName.Replace(' ', '\n');
+            _autoHighlights.AddRange(entityName.Split(' '));
+        _autoHighlights.Add(entityName);
 
-        _autoHighlights = entityName;
-
-        // Convert the job title to kebab-case and use it as a key for the loc file.
-        var jobKey = job.Replace(' ', '-').ToLower();
-
-        var loc = IoCManager.Resolve<ILocalizationManager>();
-        if (loc.TryGetString($"highlights-{jobKey}", out var jobMatches))
-            _autoHighlights += '\n' + jobMatches.Replace(", ", "\n");
+        var jobKey = "ChatHighlight" + job.Replace(" ", "");
+        var prot = IoCManager.Resolve<IPrototypeManager>();
+        if (prot.TryIndex<LocalizedDatasetPrototype>(jobKey, out var jobMatches))
+            _autoHighlights.AddRange(jobMatches.Values.Select(Loc.GetString));
+        else
+            _autoHighlights.Add("Missing LocalizedDataset for Job: " + jobKey);
+        _chatSys?.Log.Debug("autoHighlights:\n" + string.Join("\n", _autoHighlights));
         UpdateHighlights();
     }
 
@@ -666,18 +673,13 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
             _config.SaveToFile();
         }
 
-        if (_autoFillHighlightsEnabled)
-            highlights += '\n' + _autoHighlights;
-        // If the word is surrounded by "" we replace them with a whole-word regex tag.
-        highlights = highlights.Replace("\"", "\\b");
+        var allHighlights = _autoFillHighlightsEnabled
+            ? highlights.Split("\n").Concat(_autoHighlights)
+            : highlights.Split("\n");
 
-        // Fill the array with the highlights separated by newlines, disregarding empty entries.
-        var arrHighlights = highlights.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         _highlights.Clear();
-        foreach (var keyword in arrHighlights)
-        {
-            _highlights.Add(keyword);
-        }
+        // If the word is surrounded by "" we replace them with a whole-word regex tag.
+        _highlights.AddRange(allHighlights.Select(highlight => highlight.Replace("\"", "\\b")));
 
         // Arrange the list in descending order so that when highlighting,
         // the full word (eg. "Security") appears before the abbreviation (eg. "Sec").
