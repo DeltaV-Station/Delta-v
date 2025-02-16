@@ -44,6 +44,7 @@ using Robust.Shared.Utility;
 using Content.Client.Nyanotrasen.Chat; //Nyano - Summary: chat namespace.
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
 using Content.Shared.Dataset; // DeltaV - For message highlighting
+using Content.Shared._DV.CCVars; // DeltaV - For message highlighting
 
 namespace Content.Client.UserInterface.Systems.Chat;
 
@@ -264,14 +265,14 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
 
         _config.OnValueChanged(CCVars.ChatWindowOpacity, OnChatWindowOpacityChanged);
 
-        _config.OnValueChanged(CCVars.ChatAutoFillHighlights, (value) => { _autoFillHighlightsEnabled = value; UpdateHighlights(); });
-        _autoFillHighlightsEnabled = _config.GetCVar(CCVars.ChatAutoFillHighlights);
+        _config.OnValueChanged(DCCVars.ChatAutoFillHighlights, (value) => { _autoFillHighlightsEnabled = value; UpdateHighlights(); });
+        _autoFillHighlightsEnabled = _config.GetCVar(DCCVars.ChatAutoFillHighlights);
 
-        _config.OnValueChanged(CCVars.ChatHighlightsColor, (value) => { _highlightsColor = value; });
-        _highlightsColor = _config.GetCVar(CCVars.ChatHighlightsColor);
+        _config.OnValueChanged(DCCVars.ChatHighlightsColor, (value) => { _highlightsColor = value; });
+        _highlightsColor = _config.GetCVar(DCCVars.ChatHighlightsColor);
 
-        _config.OnValueChanged(CCVars.ChatHighlights, UpdateHighlights);
-        UpdateHighlights(_config.GetCVar(CCVars.ChatHighlights));
+        _config.OnValueChanged(DCCVars.ChatHighlights, UpdateHighlights);
+        UpdateHighlights(_config.GetCVar(DCCVars.ChatHighlights));
     }
 
     public void OnScreenLoad()
@@ -664,12 +665,12 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
 
     public void UpdateHighlights(string? newHighlights = null)
     {
-        var configuredHighlights = _config.GetCVar(CCVars.ChatHighlights);
+        var configuredHighlights = _config.GetCVar(DCCVars.ChatHighlights);
         var highlights = newHighlights ?? configuredHighlights;
         // Save the newly provided list of highlights if different.
         if (newHighlights is not null && !configuredHighlights.Equals(highlights, StringComparison.CurrentCultureIgnoreCase))
         {
-            _config.SetCVar(CCVars.ChatHighlights, highlights);
+            _config.SetCVar(DCCVars.ChatHighlights, highlights);
             _config.SaveToFile();
         }
 

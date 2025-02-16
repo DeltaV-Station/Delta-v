@@ -3,3 +3,7 @@ ui-options-general-forknotice = Note: These settings are fork-specific and might
 
 ui-options-no-filters = Disable species vision filters
 ui-options-function-swap-hands-reversed = Swap hands (reversed)
+
+ui-options-auto-fill-highlights = Auto-fill the highlights with the character's information
+ui-options-highlights-color = Highlights color:
+ui-options-highlights-color-example = This is an highlighted text.
