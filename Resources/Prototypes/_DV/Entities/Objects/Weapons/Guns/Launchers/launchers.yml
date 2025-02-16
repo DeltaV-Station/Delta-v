@@ -38,6 +38,9 @@
   components:
   - type: Sprite
     sprite: _DV\Objects\Weapons\Guns\Launchers\nonlethal_launcher.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
   - type: Item
     sprite: _DV\Objects\Weapons\Guns\Launchers\nonlethal_launcher.rsi
     size: Huge
