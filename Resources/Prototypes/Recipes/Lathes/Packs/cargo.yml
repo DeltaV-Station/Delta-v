@@ -1,0 +1,35 @@
+## Static
+
+- type: latheRecipePack
+  id: CargoStatic
+  recipes:
+  - AppraisalTool
+  - Pickaxe
+
+- type: latheRecipePack
+  id: CargoBoardsStatic
+  recipes:
+  - OreProcessorMachineCircuitboard
+  - SalvageMagnetMachineCircuitboard
+
+## Dynamic
+
+- type: latheRecipePack
+  parent:
+  - MiningDeltaV # DeltaV
+  id: Mining
+  recipes:
+  - MiningDrill
+  - MiningDrillDiamond
+  - MineralScannerEmpty
+  - AdvancedMineralScannerEmpty
+  - OreBagOfHolding
+
+- type: latheRecipePack
+  parent:
+  - LogisticsBoards # DeltaV
+  id: CargoBoards
+  recipes:
+  - OreProcessorIndustrialMachineCircuitboard
+  - CargoTelepadMachineCircuitboard
+  - ShuttleGunKineticCircuitboard

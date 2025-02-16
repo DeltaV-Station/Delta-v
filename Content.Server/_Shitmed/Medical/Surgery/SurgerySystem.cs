@@ -12,9 +12,9 @@ using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared._DV.Surgery; // DeltaV: expanded anesthesia
-using Content.Server.Forensics; // DeltaV: surgery cross contamination
 using Content.Server._DV.Surgery; // DeltaV: surgery cross contamination
 using Content.Shared.FixedPoint; // DeltaV: surgery cross contamination
+using Content.Shared.Forensics.Components; // DeltaV: surgery cross contamination
 using Content.Shared.Damage.Prototypes; // DeltaV: surgery cross contamination
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
