@@ -1,4 +1,6 @@
 using Content.Server._EE.Silicon.WeldingHealing;
+using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 using Content.Shared.Tools.Components;
 using Content.Shared._EE.Silicon.WeldingHealing;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -9,6 +11,7 @@ using Content.Shared.Popups;
 using Content.Shared.Tools;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
+using Content.Shared.IdentityManagement;
 using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
 
 namespace Content.Server._EE.Silicon.WeldingHealable;
@@ -19,6 +22,7 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!; // DeltaV
 
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     public override void Initialize()
@@ -43,6 +47,15 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
         _damageableSystem.TryChangeDamage(uid, component.Damage, true, false, origin: args.User);
 
         _solutionContainer.RemoveReagent(solution.Value, welder.FuelReagent, component.FuelCost);
+
+        // DeltaV - Begin changes, stop bleeding on weld
+        if (component.WeldingBloodlossModifier != 0)
+        {
+            if (!TryComp<BloodstreamComponent>(uid, out var bloodstream))
+                return;
+            var isBleeding = bloodstream.BleedAmount > 0;
+            _bloodstreamSystem.TryModifyBleedAmount(uid, component.WeldingBloodlossModifier);
+        } // DeltaV - End changes
 
         var str = Loc.GetString("comp-repairable-repair",
             ("target", uid),
