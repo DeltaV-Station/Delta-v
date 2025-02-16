@@ -1,4 +1,6 @@
+using Content.Shared.Radio;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.Mail.Components
 {
@@ -40,7 +42,7 @@ namespace Content.Server._DV.Mail.Components
         public LocId ShipmentReceivedMessage = "mail-received-message";
 
         [DataField]
-        public string RadioChannel = "Supply";
+        public ProtoId<RadioChannelPrototype> RadioChannel = "Supply";
 
         /// <summary>
         /// How many mail candidates do we need per actual delivery sent when

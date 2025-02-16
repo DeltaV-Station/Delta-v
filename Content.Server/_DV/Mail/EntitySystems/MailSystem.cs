@@ -726,11 +726,10 @@ namespace Content.Server._DV.Mail.EntitySystems
         /// <summary>
         /// ImpStation
         /// Send a radio notification about new mail
-        /// /// </summary>
-        private void Report(EntityUid source, string channelName, string messageKey, params (string, object)[] args)
+        /// </summary>
+        private void Report(EntityUid source, ProtoId<RadioChannelPrototype> channel, string messageKey, params (string, object)[] args)
         {
             var message = args.Length == 0 ? Loc.GetString(messageKey) : Loc.GetString(messageKey, args);
-            var channel = _prototypeManager.Index<RadioChannelPrototype>(channelName);
             _radioSystem.SendRadioMessage(source, message, channel, source);
         }
 
