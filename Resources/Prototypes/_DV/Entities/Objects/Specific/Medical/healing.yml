@@ -296,10 +296,10 @@
     damage:
       groups:
         Burn: 0 # funny cant remove
-    ModifyBloodLevel: 25 # restores a lot of blood for IPCs.
+    ModifyBloodLevel: 20 # restores a lot of blood for IPCs.
   - type: Stack
     stackType: Oilpack
-    count: 10
+    count: 5
   - type: StackPrice
     price: 10
 
