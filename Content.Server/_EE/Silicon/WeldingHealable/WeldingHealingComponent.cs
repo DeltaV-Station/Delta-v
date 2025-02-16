@@ -22,7 +22,7 @@ namespace Content.Server._EE.Silicon.WeldingHealing
         /// DeltaV: Modifies bleeding stacks by this after welding.
         /// This should generally be negative.
         [DataField]
-        public float WeldingBleedingModifier = 0.0f;
+        public float bloodlossModifier = 0.0f;
 
         [DataField(customTypeSerializer:typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
         public string QualityNeeded = "Welding";

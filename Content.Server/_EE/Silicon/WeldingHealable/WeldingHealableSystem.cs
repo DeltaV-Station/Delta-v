@@ -49,9 +49,9 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
         _solutionContainer.RemoveReagent(solution.Value, welder.FuelReagent, component.FuelCost);
 
         // Begin DeltaV Additions - stop bleeding on weld
-        if (component.WeldingBleedingModifier != 0)
+        if (component.bloodlossModifier != 0)
         {
-            _bloodstreamSystem.TryModifyBleedAmount(uid, component.WeldingBleedingModifier);
+            _bloodstreamSystem.TryModifyBleedAmount(uid, component.bloodlossModifier);
         }
         // End DeltaV Additions
 
