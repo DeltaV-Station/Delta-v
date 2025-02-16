@@ -31,6 +31,18 @@ namespace Content.Server._DV.Mail.Components
         public string MailPool = "RandomDeltaVMailDeliveryPool"; // Frontier / DeltaV: Mail rework
 
         /// <summary>
+        /// Imp. Whether or not the telepad should output a message upon recieving mail.
+        /// </summary>
+        [DataField]
+        public bool RadioNotification = false;
+
+        [DataField]
+        public LocId ShipmentReceivedMessage = "mail-received-message";
+
+        [DataField]
+        public string RadioChannel = "Supply";
+
+        /// <summary>
         /// How many mail candidates do we need per actual delivery sent when
         /// the mail goes out? The number of candidates is divided by this number
         /// to determine how many deliveries will be teleported in.
