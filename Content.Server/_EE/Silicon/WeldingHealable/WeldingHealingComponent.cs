@@ -18,12 +18,10 @@ namespace Content.Server._EE.Silicon.WeldingHealing
         [DataField(required: true)]
         public DamageSpecifier Damage;
 
-        /// <remarks>
-        ///     This should generally be negative,
-        ///     since you're, like, trying to heal damage.
-        /// </remarks>
-        [DataField("WeldingBloodlossModifier")] // DeltaV - IPCS stop bleeding
-        [ViewVariables(VVAccess.ReadWrite)]
+        /// <summary>
+        /// DeltaV: Modifies bleeding stacks by this after welding.
+        /// This should generally be negative.
+        [DataField]
         public float WeldingBleedingModifier = 0.0f;
 
         [DataField(customTypeSerializer:typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
