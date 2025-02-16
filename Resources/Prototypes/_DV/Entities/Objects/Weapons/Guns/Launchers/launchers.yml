@@ -37,12 +37,10 @@
   description: A Cyborg Mounted Grenade Launcher, designed to fire flashbangs, or expend all of its energy to fire an EMP. Refills its own ammo
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
-    layers:
-    - state: icon
-      map: ["enum.GunVisualLayers.Base"]
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    sprite: _DV\Objects\Weapons\Guns\Launchers\nonlethal_launcher.rsi
+  - type: Item
+    sprite: _DV\Objects\Weapons\Guns\Launchers\nonlethal_launcher.rsi
+    size: Huge
   - type: Gun
     minAngle: 1
     maxAngle: 2

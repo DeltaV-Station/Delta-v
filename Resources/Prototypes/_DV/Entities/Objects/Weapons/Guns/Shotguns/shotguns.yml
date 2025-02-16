@@ -46,40 +46,40 @@
     proto: ShellShotgunBeanbag
 
 - type: entity
-  name: Borg Riot Shotgun
   parent: BaseItem
   id: WeaponRiotShotgunBorg
+  name: borg riot shotgun
   description: A heavily modified shotgun for borgs, firing off beanbag rounds. Ammo repplicates overtime
   components:
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/LMGs/l6.rsi
-      netsync: false
-      layers:
-        - state: base
-          map: [ "enum.GunVisualLayers.Base" ]
-    - type: Item
-      size: Huge
-    - type: Gun
-      minAngle: 0
-      maxAngle: 10
-      angleIncrease: 1
-      angleDecay: 16
-      fireRate: 1.5
-      selectedMode: SemiAuto
-      availableModes:
-        - SemiAuto
-      soundGunshot:
-        path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
-      soundEmpty:
-        path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
-    - type: Battery
-      maxCharge: 400
-      startingCharge: 200
-    - type: ProjectileBatteryAmmoProvider
-      proto: PelletShotgunBeanbag
-      fireCost: 100
-    - type: BatterySelfRecharger
-      autoRecharge: true
-      autoRechargeRate: 20
-    - type: AmmoCounter
-    - type: Appearance
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+    netsync: false
+    layers:
+     - state: base
+       map: [ "enum.GunVisualLayers.Base" ]
+  - type: Item
+    size: Huge
+  - type: Gun
+    minAngle: 0
+    maxAngle: 10
+    angleIncrease: 1
+    angleDecay: 16
+    fireRate: 1.5
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: Battery
+    maxCharge: 400
+    startingCharge: 200
+  - type: ProjectileBatteryAmmoProvider
+    proto: PelletShotgunBeanbag
+    fireCost: 100
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20
+  - type: AmmoCounter
+  - type: Appearance
