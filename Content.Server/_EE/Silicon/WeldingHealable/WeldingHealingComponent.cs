@@ -24,7 +24,7 @@ namespace Content.Server._EE.Silicon.WeldingHealing
         /// </remarks>
         [DataField("WeldingBloodlossModifier")] // DeltaV - IPCS stop bleeding
         [ViewVariables(VVAccess.ReadWrite)]
-        public float WeldingBloodlossModifier = 0.0f;
+        public float WeldingBleedingModifier = 0.0f;
 
         [DataField(customTypeSerializer:typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
         public string QualityNeeded = "Welding";
