@@ -288,12 +288,8 @@
     sprite: _DV/Objects/Medical/Oilpack.rsi
     state: icon
   - type: Item
-    size: Small
     sprite: _DV/Objects/Medical/Oilpack.rsi
     heldPrefix: icon
-  - type: Tag
-    tags:
-    - Bloodpack
   - type: Healing
     damageContainers:
     - HumanoidSilicon
@@ -301,10 +297,6 @@
       groups:
         Burn: 0 # funny cant remove
     ModifyBloodLevel: 25 # restores a lot of blood for IPCs.
-    healingBeginSound:
-      path: "/Audio/Items/Medical/brutepack_begin.ogg"
-    healingEndSound:
-      path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: Oilpack
     count: 10
@@ -317,7 +309,6 @@
   suffix: Single
   components:
   - type: Stack
-    stackType: Oilpack
     count: 1
 
 - type: entity
@@ -329,14 +320,8 @@
   components:
   - type: Sprite
     sprite: _DV/Objects/Medical/Omnipatch.rsi
-    state: icon
   - type: Item
-    size: Small
     sprite: _DV/Objects/Medical/Omnipatch.rsi
-    heldPrefix: icon
-  - type: Tag
-    tags:
-    - Bloodpack
   - type: Healing
     damageContainers:
     - HumanoidSilicon
@@ -347,15 +332,8 @@
         Brute: -60 # 20 per type, mostly irrelevant cause welder gaming
     ModifyBloodLevel: 25 # restores a lot of blood for IPCs.
     bloodlossModifier: -20 # DeltaV - IPCs bleed
-    healingBeginSound:
-      path: "/Audio/Items/Medical/brutepack_begin.ogg"
-    healingEndSound:
-      path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: Omnipatch
-    count: 10
-  - type: StackPrice
-    price: 10
 
 - type: entity
   id: Omnipatch1
@@ -363,96 +341,4 @@
   suffix: Single
   components:
   - type: Stack
-    stackType: OmniPatch
-    count: 1
-
-- type: entity
-  name: oil pack
-  description: Fit with a proprietary and disposable connector, oil can easily be injected to top off a bleeding IPC
-  parent: BaseHealingItem
-  id: Oilpack
-  suffix: Full
-  components:
-  - type: Sprite
-    sprite: _DV/Objects/Medical/Oilpack.rsi
-    state: icon
-  - type: Item
-    size: Small
-    sprite: _DV/Objects/Medical/Oilpack.rsi
-    heldPrefix: icon
-  - type: Tag
-    tags:
-    - Bloodpack
-  - type: Healing
-    damageContainers:
-    - HumanoidSilicon
-    damage:
-      groups:
-        Burn: 0 # funny cant remove
-    ModifyBloodLevel: 25 # restores a lot of blood for IPCs.
-    healingBeginSound:
-      path: "/Audio/Items/Medical/brutepack_begin.ogg"
-    healingEndSound:
-      path: "/Audio/Items/Medical/brutepack_end.ogg"
-  - type: Stack
-    stackType: Oilpack
-    count: 10
-  - type: StackPrice
-    price: 10
-
-
-- type: entity
-  id: Oilpack1
-  parent: Oilpack
-  suffix: Single
-  components:
-  - type: Stack
-    stackType: Oilpack
-    count: 1
-
-- type: entity
-  name: omni patch
-  description: A topical patch of specially grown silica microbots, curated to heal machine entities. Smells of ozone.
-  parent: Oilpack
-  id: OmniPatch
-  suffix: Full
-  components:
-  - type: Sprite
-    sprite: _DV/Objects/Medical/Omnipatch.rsi
-    state: icon
-  - type: Item
-    size: Small
-    sprite: _DV/Objects/Medical/Omnipatch.rsi
-    heldPrefix: icon
-  - type: Tag
-    tags:
-    - Bloodpack
-  - type: Healing
-    damageContainers:
-    - HumanoidSilicon
-    - Silicon
-    damage:
-      groups:
-        Burn: -60 # 25 per type
-        Brute: -60 # 20 per type, mostly irrelevant cause welder gaming
-    ModifyBloodLevel: 25 # restores a lot of blood for IPCs.
-    bloodlossModifier: -20 # DeltaV - IPCs bleed
-    healingBeginSound:
-      path: "/Audio/Items/Medical/brutepack_begin.ogg"
-    healingEndSound:
-      path: "/Audio/Items/Medical/brutepack_end.ogg"
-  - type: Stack
-    stackType: Oilpack
-    count: 10
-  - type: StackPrice
-    price: 10
-
-
-- type: entity
-  id: Omnipatch1
-  parent: OmniPatch
-  suffix: Single
-  components:
-  - type: Stack
-    stackType: OmniPatch
     count: 1
