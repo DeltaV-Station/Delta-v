@@ -616,6 +616,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (checkEmote)
             TryEmoteChatInput(source, action);
         SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, source, range, author);
+
+        var ev = new EntityEmotedEvent(source, wrappedMessage);
+        RaiseLocalEvent(source, ev);
         if (!hideLog)
             if (name != Name(source))
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {ToPrettyString(source):user} as {name}: {action}");
@@ -978,6 +981,18 @@ public sealed class EntitySpokeEvent : EntityEventArgs
         Message = message;
         Channel = channel;
         ObfuscatedMessage = obfuscatedMessage;
+    }
+}
+
+public sealed class EntityEmotedEvent : EntityEventArgs
+{
+    public readonly EntityUid Source;
+    public readonly string Message;
+
+    public EntityEmotedEvent(EntityUid source, string message)
+    {
+        Source = source;
+        Message = message;
     }
 }
 
