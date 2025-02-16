@@ -72,7 +72,7 @@
           Cold: 0.1 #per second, scales with temperature & other constants
       heatDamage:
         types:
-          Heat: 2 # DeltaV was 3
+          Heat: 2 # DeltaV - was 3
       atmosTemperatureTransferEfficiency: 0.05
     - type: KillOnOverheat # GoobStation
     - type: Deathgasp
