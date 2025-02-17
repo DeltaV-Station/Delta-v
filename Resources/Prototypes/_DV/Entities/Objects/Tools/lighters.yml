@@ -299,6 +299,8 @@
       shader: unshaded
   - type: Item
     sprite: _DV/Objects/Tools/corporatelighters/centcomm.rsi
+  - type: ItemToggleRequiresLock
+    requireLocked: false
   - type: Welder #
     fuelConsumption: 0.0
     fuelLitCost: 10

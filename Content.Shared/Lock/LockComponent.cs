@@ -18,7 +18,7 @@ public sealed partial class LockComponent : Component
     /// </summary>
     [DataField("locked"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public bool Locked  = true;
+    public bool Locked = true;
 
     /// <summary>
     /// Whether or not the lock is locked by simply clicking.
