@@ -1,4 +1,4 @@
-﻿- type: vendingMachineInventory
+- type: vendingMachineInventory
   id: DinnerwareInventory
   startingInventory:
     ButchCleaver: 1
@@ -27,4 +27,8 @@
     DrinkMugOne: 1
     DrinkMugRainbow: 2
     DrinkMugRed: 2
-    LunchboxGeneric: 10 # Delta-V Adds Lunchbox
+    LunchboxGeneric: 10 # DeltaV - Adds Lunchbox
+  contrabandInventory:
+    CandyBowl: 1
+    BarSpoon: 2
+    DrinkShaker: 2
