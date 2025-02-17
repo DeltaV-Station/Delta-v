@@ -39,6 +39,14 @@ namespace Content.Shared.Chemistry.Reaction
         [DataField("conserveEnergy")]
         public bool ConserveEnergy = true;
 
+        // Begin Delta-V: Reactions can preserve DNA
+        /// <summary>
+        ///     If true, this reaction will attempt to conserve data such as DNA.
+        /// </summary>
+        [DataField]
+        public bool ConserveData = false;
+        // End Delta-V: Reactions can preserve DNA
+
         /// <summary>
         ///     The maximum temperature the reaction can occur at.
         /// </summary>
