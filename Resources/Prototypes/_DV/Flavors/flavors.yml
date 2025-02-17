@@ -116,17 +116,6 @@
   flavorType: Complex
   description: flavor-complex-blellow
 
-- type: flavor
-  id: drgibbbloodred
-  flavorType: Complex
-  description: flavor-complex-drgibbbloodred
-
-- type: flavor
-  id: lemonlimebitters
-  flavorType: Complex
-  description: flavor-complex-lemon-lime-bitters
-
-
 #Delta-V additional drink flavors
 - type: flavor
   id: deadrum
@@ -183,6 +172,15 @@
   flavorType: Complex
   description: flavor-complex-mothamphetamine-deltav
 
+- type: flavor
+  id: drgibbbloodred
+  flavorType: Complex
+  description: flavor-complex-drgibbbloodred
+
+- type: flavor
+  id: lemonlimebitters
+  flavorType: Complex
+  description: flavor-complex-lemon-lime-bitters
 
 # this is prefixed with "candy" to avoid clashes with potential future strawberries upstream
 - type: flavor
