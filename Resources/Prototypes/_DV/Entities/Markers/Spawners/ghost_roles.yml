@@ -143,6 +143,8 @@
     name: ghost-role-information-roboticist-name
     description: ghost-role-information-roboticist-description
     rules: ghost-role-information-roboticist-rules
+    mindRoles:
+    - MindRoleRoboNeuroticist
     requirements: # keep in sync with the antag prototype
     - !type:OverallPlaytimeRequirement
       time: 259200 # 72 hours
