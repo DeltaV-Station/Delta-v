@@ -181,9 +181,14 @@
   id: HoPBackpack
   name: loadout-group-hop-backpack
   loadouts:
-  - CommonBackpack
-  - CommonSatchel
-  - CommonDuffel
+ # - CommonBackpack
+ # - CommonSatchel
+ # - CommonDuffel
+ # Start DeltaV changes
+  - BackpackHoP 
+  - SatchelHoP 
+  - HopDuffel 
+  # End of DeltaV changes
   - HoPBackpackIan
 
 - type: loadoutGroup
