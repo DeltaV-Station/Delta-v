@@ -240,6 +240,12 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.EscapeMenu);
             AddButton(ContentKeyFunctions.EscapeContext);
 
+            AddHeader("ui-options-header-nano-chat");
+            AddButton(ContentKeyFunctions.NanoChatNavigateUp); // DeltaV - NanoChat keybinds
+            AddButton(ContentKeyFunctions.NanoChatNavigateDown); // DeltaV - NanoChat keybinds
+            AddButton(ContentKeyFunctions.NanoChatNavigateUpUnread); // DeltaV - NanoChat keybinds
+            AddButton(ContentKeyFunctions.NanoChatNavigateDownUnread); // DeltaV - NanoChat keybinds
+
             // Shitmed Change Start - TODO: Add hands, feet and groin targeting.
             AddHeader("ui-options-header-targeting");
             AddButton(ContentKeyFunctions.TargetHead);
