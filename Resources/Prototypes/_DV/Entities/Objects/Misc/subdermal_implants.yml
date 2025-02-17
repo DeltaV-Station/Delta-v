@@ -1,5 +1,5 @@
 - type: entity
-  categories: [ HideSpawnMenu, Spawner ]
+  categories: [ HideSpawnMenu ]
   parent: BaseSubdermalImplant
   id: BionicVoiceMaskImplant
   name: bionic voice mask implant
@@ -14,7 +14,7 @@
         type: VoiceMaskBoundUserInterface
 
 - type: entity
-  categories: [ HideSpawnMenu, Spawner ]
+  categories: [ HideSpawnMenu ]
   parent: BionicVoiceMaskImplant
   id: BionicSyrinxImplant
   name: bionic syrinx implant
@@ -27,7 +27,7 @@
       - HarpySinger # Ensure this is only for harpies and if this component gets renamed, CHANGE IT TO THE NEW VALUE!!!
 
 - type: entity
-  categories: [ HideSpawnMenu, Spawner ]
+  categories: [ HideSpawnMenu ]
   parent: StorageImplant
   id: RadioImplant
   name: generic radio implant
@@ -50,7 +50,7 @@
   - type: RadioImplant
 
 - type: entity
-  categories: [ HideSpawnMenu, Spawner ]
+  categories: [ HideSpawnMenu ]
   parent: BaseSubdermalImplant
   id: SyndicateRadioImplant
   name: syndicate radio implant
@@ -59,3 +59,14 @@
   - type: RadioImplant
     channels:
     - Syndicate
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseSubdermalImplant
+  id: RadioImplantCentcomm
+  name: centcomm radio implant
+  description: This implant grants access to the Centcomm channel without a headset. Only authorized for Centcomm employees.
+  components:
+  - type: RadioImplant
+    channels:
+    - CentCom

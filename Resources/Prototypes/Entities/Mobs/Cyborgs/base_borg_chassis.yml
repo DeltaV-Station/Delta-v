@@ -108,6 +108,7 @@
     doAfterDelay: 10
     allowSelfRepair: false
   - type: BorgChassis
+  - type: SurgerySelfDirty # DeltaV: borgs get dirty from doing surgery
   - type: LockingWhitelist
     blacklist:
       components:
@@ -168,7 +169,6 @@
     - cell_slot
   - type: Lock
     locked: true
-    breakOnEmag: false
     unlockOnClick: false
   - type: ActivatableUIRequiresLock
   - type: LockedWiresPanel

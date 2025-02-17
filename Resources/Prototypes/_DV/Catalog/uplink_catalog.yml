@@ -1,4 +1,48 @@
 - type: listing
+  id: UplinkHardsuitCommanderSyndie
+  name: uplink-hardsuit-commander-syndie-name
+  description: uplink-hardsuit-commander-syndie-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi, state: icon }
+  productEntity: ClothingOuterHardsuitSyndieCommander
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - CommanderUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkHardsuitAgentSyndie
+  name: uplink-hardsuit-agent-syndie-name
+  description: uplink-hardsuit-agent-syndie-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiemedic.rsi, state: icon }
+  productEntity: ClothingOuterHardsuitSyndieMedic
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - AgentUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
   id: Mouse Operative Reinforcement
   name: uplink-reinforcement-radio-nukie-mouse-name
   description: uplink-reinforcement-radio-nukie-mouse-desc
@@ -149,6 +193,52 @@
     - Logistics
 
 - type: listing
+  id: UplinkDeadMansSignaller
+  name: uplink-dead-mans-signaller-name
+  description: uplink-dead-mans-signaller-desc
+  productEntity: DeadMansSignaler
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDisruption
+
+- type: listing
+  id: UplinkPaperworkhater
+  name: uplink-paperwork-hater-name
+  description: uplink-paperwork-hater-desc
+  productEntity: RubberStampHatePaperwork
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 0
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkPointless
+
+# Objective-specific
+- type: listing
+  id: UplinkCoreExtractionToolbox
+  name: uplink-core-extraction-toolbox-name
+  description: uplink-core-extraction-toolbox-desc
+  icon:
+    sprite: _DV/Objects/Misc/nuke_core_container.rsi
+    state: closed
+  productEntity: ToolboxSyndicateFilledCoreExtraction
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
   id: UplinkAntimovObjectiveBoard
   name: uplink-objective-syndicate-board-name
   description: uplink-objective-syndicate-board-desc
@@ -166,19 +256,6 @@
     blacklist:
       components:
       - SurplusBundle
-
-- type: listing
-  id: UplinkDeadMansSignaller
-  name: uplink-dead-mans-signaller-name
-  description: uplink-dead-mans-signaller-desc
-  productEntity: DeadMansSignaler
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkDisruption
 
 - type: listing
   id: UplinkHostageImplanter
@@ -286,3 +363,18 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkChainsmokerBundle
+  name: uplink-chainsmoker-bundle-name
+  description: uplink-chainsmoker-bundle-desc
+  productEntity: CigCartonSyndicate
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 3 # Incredible value! (Still a horrendous waste)
+  cost:
+    Telecrystal: 6 # 12TC worth of cigs, plus a bonus lighter. (Or you could just emag a shadycig, and get infinite interdynes for free)
+  categories:
+  - UplinkChemicals
+  - UplinkPointless
+  - UplinkWeaponry
