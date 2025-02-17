@@ -37,9 +37,10 @@
   sprite:
     entity: BorgChassisSyndicateSaboteur
   content:
-  - BorgChassisSyndicateSaboteur
+  - PlayerBorgSyndicateSaboteurGhostRole
   - BorgModuleEsword
   - BorgModuleRCD
+  - BorgModuleChameleonProjector
 
 - type: thiefBackpackSet
   id: RoboticistWarmonger
@@ -48,7 +49,7 @@
   sprite:
     entity: BorgChassisSyndicateAssault
   content:
-  - ReinforcementRadioSyndicateCyborgAssault
+  - PlayerBorgSyndicateAssaultGhostRole
 
 - type: thiefBackpackSet
   id: RoboticistClown

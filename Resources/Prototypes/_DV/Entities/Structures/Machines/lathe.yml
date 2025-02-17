@@ -6,25 +6,6 @@
   components:
   - type: Sprite
     sprite: _DV/Structures/Machines/synd_exosuit_fabricator.rsi
-    layers:
-    - state: fab-idle
-      map: ["enum.LatheVisualLayers.IsRunning"]
-    - state: fab-load
-      map: ["enum.MaterialStorageVisualLayers.Inserting"]
-    - state: fab-o
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: ExosuitFabricatorMachineCircuitboard
   - type: Lathe
-    idleState: fab-idle
-    runningState: fab-active
-    staticRecipes:
-    - BorgModuleSyndicateWeapon
-    - BorgModuleRadioJammerRecharging
-    - BorgModuleMartyr
-    - BorgModuleBlades
-    - BorgModuleCHIMP
-    - BorgModuleSyndicateRadio
-    - BorgModuleCrewMonitor
-    - SyndicateNeuroling
-    - BorgModuleOperative
+    staticPacks:
+    - BorgModulesSyndicateStatic

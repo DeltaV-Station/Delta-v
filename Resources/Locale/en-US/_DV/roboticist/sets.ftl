@@ -26,4 +26,4 @@ roboticist-set-warmonger-description =
 roboticist-set-clown-name = Robotic Humor
 roboticist-set-clown-description =
     Madness and recklessness define you, you have no grip on reality.
-    Comes with Clown gear, a service borg ready for clowning, and a jonkbot.
+    Comes with Clown gear, a service borg ready for emagging, and a jonkbot.
