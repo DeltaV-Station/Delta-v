@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Fugitives now get a copy of their warrant before the station does.
-    type: Tweak
-  id: 544
-  time: '2024-09-12T13:30:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1797
-- author: deltanedas
-  changes:
   - message: Artifacts can no longer become sentient.
     type: Remove
   id: 545
@@ -3856,3 +3849,12 @@
   id: 1043
   time: '2025-02-16T18:41:44.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2991
+- author: deltanedas
+  changes:
+  - message: Borgs and IPCs now leave metal fibers when touching things.
+    type: Add
+  - message: Fixed IPCs not leaving fibers when using gloves.
+    type: Fix
+  id: 1044
+  time: '2025-02-17T03:25:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2992
