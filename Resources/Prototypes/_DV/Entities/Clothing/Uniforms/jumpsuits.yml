@@ -468,7 +468,7 @@
 # Cargo Tech Pants uniform
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBaseImpstation ] # DeltaV - Cargo clothing expansion
   id: ClothingUniformJumpsuitCargoTechPants
   name: cargo tech pants
   description: A crisp white collared shirt with a snappy pair of pants. There are leather knee pads for support.
