@@ -32,7 +32,7 @@
   ## Repairing
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="WelderIndustrialAdvanced" Caption="Welder"/>
-    Welders can be used to repair [color=yellow]Brute[/color] damage.
+    Welders can be used to repair [color=yellow]Brute[/color] damage and stop [color=orange]Bleeding[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="CableApcStack" Caption="Cables (any type)"/>
@@ -41,6 +41,18 @@
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="SheetGlass" Caption="Glass Sheets (any type)"/>
     Glass Sheets can be used to repair [color=yellow]Blindness[/color].
+  </Box>
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="SheetPlasma" Caption="Plasma Sheets"/>
+    Plasma Sheets can be used to repair [color=green]Radiation[/color] damage.
+  </Box>
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="SheetPlastic" Caption="Plastic Sheets"/>
+    Plastic Sheets can be used to stop [color=orange]Bleeding[/color].
+  </Box>
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="Oilpack" Caption="Oil Packs"/>
+    IPCs have no blood, but they have Oil. Oil Packs can be used to replenish [color=red]Oil[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
     In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by right-clicking).
