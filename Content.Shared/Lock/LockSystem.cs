@@ -407,7 +407,7 @@ public sealed class LockSystem : EntitySystem
         _activatableUI.CloseAll(uid);
     }
     /// DeltaV - Start ItemToggleRequiresLockComponent logic
-    private void OnActivateAttempt(EntityUid uid, ItemToggleRequiresLockComponent component,ref ItemToggleActivateAttemptEvent args)
+    private void OnActivateAttempt(EntityUid uid, ItemToggleRequiresLockComponent component, ref ItemToggleActivateAttemptEvent args)
     {
         if (args.Cancelled)
             return;
@@ -416,7 +416,7 @@ public sealed class LockSystem : EntitySystem
         {
             args.Cancelled = true;
             if (lockComp.Locked)
-            args.Popup = Loc.GetString("lock-comp-has-user-access-fail");
+                args.Popup = Loc.GetString("lock-comp-has-user-access-fail");
         }
     }
     /// DeltaV - End of ItemToggleRequiresLockComponent logic

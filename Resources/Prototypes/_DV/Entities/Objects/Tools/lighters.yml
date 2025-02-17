@@ -301,6 +301,7 @@
     sprite: _DV/Objects/Tools/corporatelighters/centcomm.rsi
   - type: ItemToggleRequiresLock
     requireLocked: false
+  - type: RequiresEyeProtection
   - type: Welder #
     fuelConsumption: 0.0
     fuelLitCost: 10
@@ -373,3 +374,117 @@
   - type: Lock
   - type: AccessReader
     access: [["CentralCommand"]]
+
+- type: entity
+  parent: FlippoLighter
+  id: SpiderclanFlippo
+  name: Spider-Clan lighter
+  description: "A high tech jet lighter, engineered to function even in deep space. Runs on a tiny microfusion cell."
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Tools/corporatelighters/spiderclan.rsi
+    layers:
+    - state: icon
+      map: ["base"]
+    - state: top
+      map: ["top"]
+      visible: false
+    - state: open
+      map: ["open"]
+      visible: false
+    - state: flame
+      map: ["flame"]
+      visible: false
+      shader: unshaded
+  - type: Item
+    sprite: _DV/Objects/Tools/corporatelighters/spiderclan.rsi
+  - type: Welder #
+    fuelConsumption: 0
+    fuelLitCost: 0
+    tankSafe: true
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        flame:
+          True: { visible: true }
+          False: { visible: false }
+        open:
+          True: { visible: true }
+          False: { visible: false }
+        top:
+          True: { visible: true }
+          False: { visible: false }
+        base:
+          True: { visible: false }
+          False: { visible: true }
+  - type: ToggleableLightVisuals
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-lit
+        shader: unshaded
+      right:
+      - state: inhand-right-lit
+        shader: unshaded
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 2 #much stronger than the other lighters
+    color: green
+
+- type: entity
+  parent: FlippoLighter
+  id: WaffleCoFlippo
+  name: Waffle Co. flippo
+  description: "A robust mass produced lighter. The Waffle Co. logo turns the spark wheel when pushed up, minimising risk of lighter burns for even the most inept user."
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Tools/corporatelighters/waffleco.rsi
+    layers:
+    - state: icon
+      map: ["base"]
+    - state: top
+      map: ["top"]
+      visible: false
+    - state: open
+      map: ["open"]
+      visible: false
+    - state: flame
+      map: ["flame"]
+      visible: false
+      shader: unshaded
+  - type: Item
+    sprite: _DV/Objects/Tools/corporatelighters/waffleco.rsi
+  - type: Welder #
+    fuelConsumption: 0
+    fuelLitCost: 0
+    tankSafe: true
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        flame:
+          True: { visible: true }
+          False: { visible: false }
+        open:
+          True: { visible: true }
+          False: { visible: false }
+        top:
+          True: { visible: true }
+          False: { visible: false }
+        base:
+          True: { visible: false }
+          False: { visible: true }
+  - type: ToggleableLightVisuals
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-lit
+        shader: unshaded
+      right:
+      - state: inhand-right-lit
+        shader: unshaded
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 2 #much stronger than the other lighters
+    color: brown
