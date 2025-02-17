@@ -97,6 +97,8 @@
   recipeUnlocks:
   - WeaponEnergyGunPistol
   - WeaponGunLaserCarbineAutomatic
+  technologyPrerequisites: # DeltaV: added prerequesite
+  - EnergyGuns
 
 # Tier 3
 
@@ -123,3 +125,5 @@
   cost: 10000
   recipeUnlocks:
   - WeaponColdCannon
+  technologyPrerequisites: # DeltaV: added prerequesite
+  - AdvancedAtmospherics
