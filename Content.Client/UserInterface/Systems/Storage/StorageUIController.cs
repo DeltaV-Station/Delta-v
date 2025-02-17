@@ -40,11 +40,6 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
     [UISystemDependency] private readonly StorageSystem _storage = default!;
     [UISystemDependency] private readonly UserInterfaceSystem _ui = default!;
 
-    /// <summary>
-    /// Cached positions for opening nested storage.
-    /// </summary>
-    private readonly Dictionary<EntityUid, Vector2> _reservedStorage = new();
-
     private readonly DragDropHelper<ItemGridPiece> _menuDragHelper;
 
     public ItemGridPiece? DraggingGhost => _menuDragHelper.Dragged;
