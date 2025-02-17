@@ -406,7 +406,7 @@
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpsuit/prosecutorred.rsi
   - type: Clothing
-    sprite: _DV/Clothing/Uniforms/Jumpsuit/prosecutorred.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/admin_assistant.rsi
 
 - type: entity
   parent: ClothingUniformFoldableBase
@@ -452,8 +452,6 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/admin_assistant.rsi
 
-# Cargo Tech Overalls uniform
-
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCargoTechOveralls
@@ -464,7 +462,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cargotechoveralls.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cargotechoveralls.rsi
-    
+
 # Cargo Tech Pants uniform
 
 - type: entity
@@ -477,6 +475,17 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cargotechpants.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cargotechpants.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitRoboNeuroticist
+  name: robo-neuroticist's jumpsuit
+  description: An suit fit with dozens of cybernetic gadgets.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/roboneuroticistpurple.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/roboneuroticistpurple.rsi
 
 - type: entity
   parent: ClothingUniformBase

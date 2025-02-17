@@ -1,0 +1,16 @@
+- type: entity
+  parent: RadioHandheld
+  id: RadioHandheldSyndicate
+  name: syndicate radio
+  description: A nefarious syndicate radio.
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Syndicate
+  - type: RadioSpeaker
+    channels:
+    - Syndicate
+  - type: Sprite
+    sprite: Objects/Devices/securityhandy.rsi
+  - type: Item
+    sprite: Objects/Devices/securityhandy.rsi
+    heldPrefix: walkietalkie
