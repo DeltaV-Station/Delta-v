@@ -4,14 +4,6 @@
   id: RechargingRadioJammer
   description: This device will disrupt any nearby outgoing radio communication as well as suit sensors when activated. Recharges itself, but can easily run out of power set to high.
   components:
-  - type: Sprite
-    sprite: Objects/Devices/jammer.rsi
-    layers:
-    - state: jammer
-    - state: jammer_high_charge
-      map: ["enum.RadioJammerLayers.LED"]
-      shader: unshaded
-      visible: false
   - type: RadioJammer
     settings:
     - wattage: 12
@@ -26,11 +18,6 @@
       range: 16
       message: radio-jammer-component-set-message-high
       name: radio-jammer-component-setting-high
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-  - type: ContainerContainer
-    containers:
-      cell_slot: !type:ContainerSlot
   - type: ItemSlots
     slots:
       cell_slot:
