@@ -55,6 +55,28 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/hopformaldress.rsi
 
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtChemShirt
+  name: formal chemistry suitskirt
+  description: There's still some odd stains on this suitskirt. Hm.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/chemsuitskirt.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/chemsuitskirt.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtScientistFormal
+  name: scientist's formal jumpskirt
+  description: A uniform for sophisticated scientists, best worn with its matching tie.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/scientist_formal.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/scientist_formal.rsi
+
 # Security alt uniforms
 
 - type: entity
@@ -177,6 +199,18 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/hos_blue.rsi
 
+# Prison Guard Jumpskirt
+
+- type: entity
+  parent: ClothingUniformJumpsuitPrisonGuard
+  id: ClothingUniformJumpskirtPrisonGuard
+  name: prison guard's jumpskirt
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/prisonguard.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/prisonguard.rsi
+
 - type: entity
   parent: ClothingUniformSkirtFoldableBase
   id: ClothingUniformJumpskirtHoSGrey
@@ -206,6 +240,41 @@
   id: ClothingUniformJumpskirtCentcomDirector
   name: director's jumpskirt
   description: A sharp and professional jumpskirt worn by a high-ranking member of Central Command.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi
+
+# Central Command
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCentcomAgent
+  name: CentComm agent's jumpskirt
+  description: A suitskirt worn by CentComm's legal team. Smells of burnt coffee.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/centcom_agent.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/centcom_agent.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCentcomOfficial
+  name: CentComm official's jumpskirt
+  description: It's a jumpskirt with a nice golden hem, worn by CentComm's officials.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/centcom_official.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/centcom_official.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCentcomOfficer
+  name: CentComm officer's jumpskirt
+  description: It's a jumpskirt worn by CentComm Officers.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi
@@ -268,6 +337,18 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/admin_assistant.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/admin_assistant.rsi
+
+# Salvage uniform
+
+- type: entity
+  parent: ClothingUniformJumpsuitSalvageSpecialist
+  id: ClothingUniformJumpskirtSalvageSpecialist
+  name: salvage specialist's jumpskirt
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/explorer.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/explorer.rsi
 
 - type: entity
   parent: ClothingUniformBase
