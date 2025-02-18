@@ -117,14 +117,13 @@
   id: ThiefObjectiveGroupAnimal
   weights:
     IanStealObjective: 1
-    BingusStealObjective: 1
+    #BingusStealObjective: 1 # DeltaV - no stealing ghost roles
     McGriffStealObjective: 1
     WalterStealObjective: 1
     MortyStealObjective: 1
     RenaultStealObjective: 1
-    ShivaStealObjective: 1
+    #ShivaStealObjective: 1 # DeltaV - no stealing ghost roles
     TropicoStealObjective: 1
-    SilviaStealObjective: 1 # DeltaV - CMO steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
 
 - type: weightedRandom
   id: ThiefObjectiveGroupEscape
