@@ -109,6 +109,8 @@
     allowSelfRepair: false
   - type: BorgChassis
   - type: SurgerySelfDirty # DeltaV: borgs get dirty from doing surgery
+  - type: Fiber # DeltaV - borgs leave metal fibers
+    fiberMaterial: fibers-plasteel
   - type: LockingWhitelist
     blacklist:
       components:
@@ -169,7 +171,6 @@
     - cell_slot
   - type: Lock
     locked: true
-    breakOnEmag: false
     unlockOnClick: false
   - type: ActivatableUIRequiresLock
   - type: LockedWiresPanel
@@ -339,6 +340,8 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
+  - type: Fiber # DeltaV - syndiborgs have black plasteel fibers
+    fiberColor: fibers-black
 
 - type: entity
   id: BaseBorgChassisDerelict
@@ -359,3 +362,5 @@
   - type: IonStormTarget
     chance: 1
   - type: ShowJobIcons
+  - type: Fiber # DeltaV - derelict borgs have degraded plasteel fibers
+    fiberMaterial: fibers-degraded-plasteel
