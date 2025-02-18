@@ -432,6 +432,13 @@ public abstract partial class SharedMoverController : VirtualController
             return false;
         }
 
+        mobMover.LastPosition = coordinates;
+
+        if (mobMover.StepSoundDistance < distanceNeeded)
+            return false;
+
+        mobMover.StepSoundDistance -= distanceNeeded;
+
         // DeltaV - Don't play the sound if they have no shoes and the component
         if (NoShoesSilentQuery.HasComp(uid) &
             !_inventory.TryGetSlotEntity(uid, "shoes", out var _))
@@ -439,13 +446,6 @@ public abstract partial class SharedMoverController : VirtualController
             return false;
         }
         // End DeltaV code
-
-        mobMover.LastPosition = coordinates;
-
-        if (mobMover.StepSoundDistance < distanceNeeded)
-            return false;
-
-        mobMover.StepSoundDistance -= distanceNeeded;
 
         if (FootstepModifierQuery.TryComp(uid, out var moverModifier))
         {
