@@ -40,17 +40,6 @@
     stealGroup: RubberStampNotary
     owner: job-name-clerk
 
-- type: entity
-  abstract: true
-  parent: BaseTraitorStealObjective
-  id: SilviaStealObjective
-  components:
-  - type: NotJobRequirement
-    job: ChiefMedicalOfficer
-  - type: StealCondition
-    stealGroup: AnimalSilvia
-    owner: job-name-cmo
-
 # Mystagogue steal objective
 - type: entity
   parent: BaseTraitorStealObjective
