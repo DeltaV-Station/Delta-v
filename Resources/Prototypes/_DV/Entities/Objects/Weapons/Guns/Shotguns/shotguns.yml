@@ -46,16 +46,11 @@
     proto: ShellShotgunBeanbag
 
 - type: entity
-  parent: BaseItem
+  parent: WeaponLightMachineGunL6Borg
   id: WeaponRiotShotgunBorg
   name: borg riot shotgun
   description: A heavily modified shotgun for borgs, firing off beanbag rounds. Ammo repplicates over time.
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
-    layers:
-     - state: base
-       map: [ "enum.GunVisualLayers.Base" ]
   - type: Item
     size: Huge
   - type: Gun
@@ -80,5 +75,3 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 20
-  - type: AmmoCounter
-  - type: Appearance
