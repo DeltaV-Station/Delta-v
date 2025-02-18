@@ -71,7 +71,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
 
-        [Dependency] private readonly LogisticStatsSystem _logisticsStatsSystem = default!; // DeltaV - system that keeps track of mail and cargo stats
+        [Dependency] private readonly LogisticStatsSystem _logisticsStatsSystem = default!;
         [Dependency] private readonly RadioSystem _radioSystem = default!; // ImpStation - for radio notifications of new mail
 
         private ISawmill _sawmill = default!;
