@@ -1,72 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Artifacts can now interact with the noosphere in several ways.
-    type: Add
-  id: 542
-  time: '2024-09-12T01:25:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1785
-- author: TadJohnson00
-  changes:
-  - message: Remove justice helm from construction graph.
-    type: Remove
-  id: 543
-  time: '2024-09-12T13:00:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1815
-- author: deltanedas
-  changes:
-  - message: Fugitives now get a copy of their warrant before the station does.
-    type: Tweak
-  id: 544
-  time: '2024-09-12T13:30:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1797
-- author: deltanedas
-  changes:
-  - message: Artifacts can no longer become sentient.
-    type: Remove
-  id: 545
-  time: '2024-09-12T15:26:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1818
-- author: TadJohnson00
-  changes:
-  - message: Mass sleep duration reduced from 30s to 5s.
-    type: Tweak
-  id: 546
-  time: '2024-09-14T02:26:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1816
-- author: Fox
-  changes:
-  - message: New Emergency Shuttle "NTES Titan" coming soon to a station near you!
-    type: Add
-  id: 547
-  time: '2024-09-14T23:35:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1722
-- author: Fox
-  changes:
-  - message: Edge Station has finished being refit, new sec, new evac, and a vox-safe
-      service area!
-    type: Add
-  id: 548
-  time: '2024-09-15T00:30:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1599
-- author: adeinitas
-  changes:
-  - message: Shoukou's Epistemics has moved and there is a new library where it was.
-    type: Tweak
-  id: 549
-  time: '2024-09-15T02:55:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1703
-- author: Colin-Tel
-  changes:
-  - message: Chibi's max population has been lowered from 10 to 4.
-    type: Tweak
-  - message: Asterisk's max population has been lowered from 70 to 50.
-    type: Tweak
-  id: 550
-  time: '2024-09-15T03:34:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1758
-- author: deltanedas
-  changes:
   - message: Merged upstream changes for this week.
     type: Add
   id: 551
@@ -3856,3 +3790,91 @@
   id: 1041
   time: '2025-02-15T19:49:35.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2983
+- author: Eternally-Confused
+  changes:
+  - message: returned the IPC "whirr" and "boop" emotes
+    type: Fix
+  id: 1042
+  time: '2025-02-16T18:09:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2985
+- author: deltanedas
+  changes:
+  - message: Fixed uplink's objectives tab not existing.
+    type: Fix
+  id: 1043
+  time: '2025-02-16T18:41:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2991
+- author: deltanedas
+  changes:
+  - message: Borgs and IPCs now leave metal fibers when touching things.
+    type: Add
+  - message: Fixed IPCs not leaving fibers when using gloves.
+    type: Fix
+  id: 1044
+  time: '2025-02-17T03:25:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2992
+- author: Stop-Signs
+  changes:
+  - message: Some adjustments have been made to the arsenal tech tree.
+    type: Tweak
+  - message: regular truncheons are now roundstart!
+    type: Tweak
+  id: 1045
+  time: '2025-02-18T03:44:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2993
+- author: deltanedas
+  changes:
+  - message: Shiva and Bingus are no longer thief objectives.
+    type: Remove
+  id: 1046
+  time: '2025-02-18T04:45:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3002
+- author: BlitzTheSquishy
+  changes:
+  - message: Lemon lime bitters! Australians Rejoice!
+    type: Add
+  id: 1047
+  time: '2025-02-18T09:06:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2464
+- author: Toby222
+  changes:
+  - message: Felinid footsteps no longer explode as soon as they put on shoes
+    type: Fix
+  id: 1048
+  time: '2025-02-18T17:08:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3004
+- author: Lyndomen
+  changes:
+  - message: IPC batteries now last 15% longer
+    type: Tweak
+  - message: IPCs can no longer be emagged
+    type: Remove
+  - message: IPCs now start with a survival box full of healing items
+    type: Add
+  - message: IPCs now take radiation and cold damage, with 50% resistance to both
+    type: Tweak
+  - message: IPCs may be cleansed of radiation with Plasma Sheets
+    type: Add
+  - message: IPCs now have a bloodstream of Oil. They do not regenerate oil, or stop
+      bleeding without intervention. They will very very slowly tick Blunt damage
+      when low on Oil.
+    type: Add
+  - message: IPC bleeding may be stopped with a Plastic Sheet or welding
+    type: Tweak
+  - message: IPCs may get back Oil by using an Oil Pack, printable at the medical
+      techfab or exosuit fabricator roundstart, or purchasable by logistics
+    type: Add
+  - message: Syndicate members may purchase a Silicon focused repair and recharge
+      kit; the Omnipatch Kit
+    type: Add
+  id: 1049
+  time: '2025-02-18T19:44:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2979
+- author: dvir001
+  changes:
+  - message: Added the plant box storage, you can now buy a big storage for plants
+      from cargo.
+    type: Add
+  id: 1050
+  time: '2025-02-18T19:47:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2994
