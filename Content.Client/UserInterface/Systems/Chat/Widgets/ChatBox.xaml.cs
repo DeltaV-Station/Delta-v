@@ -1,4 +1,3 @@
-using System.Text.RegularExpressions;
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Shared.Chat;
 using Content.Shared.Input;
@@ -37,10 +36,10 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnTextChanged += OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect += OnChannelSelect;
         ChatInput.FilterButton.Popup.OnChannelFilter += OnChannelFilter;
-        ChatInput.FilterButton.Popup.OnNewHighlights += OnNewHighlights;
+        ChatInput.FilterButton.Popup.OnNewHighlights += OnNewHighlights; // DeltaV - Message highlighting
         _controller = UserInterfaceManager.GetUIController<ChatUIController>();
         _controller.MessageAdded += OnMessageAdded;
-        _controller.HighlightsUpdated += OnHighlightsReceived;
+        _controller.HighlightsUpdated += OnHighlightsReceived; // DeltaV - Message highlighting
         _controller.RegisterChat(this);
     }
 
@@ -95,11 +94,6 @@ public partial class ChatBox : UIWidget
         {
             _controller.ClearUnfilteredUnreads(channel);
         }
-    }
-
-    private void OnNewHighlights(string highlights)
-    {
-        _controller.UpdateHighlights(highlights);
     }
 
     public void AddLine(string message, Color color)
@@ -181,10 +175,17 @@ public partial class ChatBox : UIWidget
         _controller.NotifyChatTextChange();
     }
 
+    // DeltaV - Message highlights start
+    private void OnNewHighlights(string highlights)
+    {
+        _controller.UpdateHighlights(highlights);
+    }
+
     private void OnHighlightsReceived(string highlights)
     {
         ChatInput.FilterButton.Popup.SetHighlights(highlights);
     }
+    // DeltaV - Message highlights end
 
     protected override void Dispose(bool disposing)
     {

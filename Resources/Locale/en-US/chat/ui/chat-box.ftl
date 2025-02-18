@@ -3,7 +3,6 @@ hud-chatbox-info-talk = {$talk-key} to talk.
 hud-chatbox-info-cycle = Click here to talk, {$cycle-key} to cycle channels.
 hud-chatbox-info-unbound = Click here to talk.
 
-hud-chatbox-select-channels = Channels:
 hud-chatbox-select-name-prefixed = {$prefix} {$name}
 hud-chatbox-select-channel-Admin = Admin
 hud-chatbox-select-channel-Console = Console
@@ -32,12 +31,3 @@ hud-chatbox-channel-Server = Server
 hud-chatbox-channel-Visual = Actions
 hud-chatbox-channel-Damage = Damage
 hud-chatbox-channel-Unspecified = Unspecified
-
-hud-chatbox-highlights = Highlights:
-hud-chatbox-highlights-button = Submit
-hud-chatbox-highlights-tooltip = The words need to be separated by a newline,
-                                 if wrapped around " they will be highlighted
-                                 only if separated by spaces.
-hud-chatbox-highlights-placeholder = Urist
-                                     "Para"
-                                     Bridge

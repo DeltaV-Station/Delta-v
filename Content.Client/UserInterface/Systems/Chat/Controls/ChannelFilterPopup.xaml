@@ -3,11 +3,13 @@
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Systems.Chat.Controls">
     <PanelContainer Name="FilterPopupPanel" StyleClasses="BorderedWindowPanel">
+        <!-- DeltaV - Additional outer BoxContainer for changed layout including message highlighting -->
         <BoxContainer Orientation="Horizontal" SeparationOverride="8" Margin="10 0">
             <BoxContainer Orientation="Vertical" Margin="0 10">
                 <Label Text="{Loc 'hud-chatbox-select-channels'}"/>
                 <BoxContainer Name="FilterVBox" MinWidth="105" Orientation="Vertical" SeparationOverride="4"/>
             </BoxContainer>
+            <!-- DeltaV - Message highlighting start -->
             <BoxContainer Name="HighlightsVBox" MinWidth="120" Margin="0 10" Orientation="Vertical" SeparationOverride="4">
                 <Label Text="{Loc 'hud-chatbox-highlights'}"/>
                 <!-- Custom background for the TextEdit -->
@@ -19,6 +21,7 @@
                 </PanelContainer>
                 <Button Name="HighlightButton" Text="{Loc 'hud-chatbox-highlights-button'}" ToolTip="{Loc 'hud-chatbox-highlights-tooltip'}"/>
             </BoxContainer>
+            <!-- DeltaV - Message highlighting end -->
         </BoxContainer>
     </PanelContainer>
 </controls:ChannelFilterPopup>
