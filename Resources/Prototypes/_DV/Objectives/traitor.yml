@@ -62,6 +62,16 @@
     stealGroup: BoxFolderRdClipboard
     owner: job-name-rd
 
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: BibleMystagogueStealObjective
+  components:
+  - type: NotJobRequirement
+    job: ResearchDirector
+  - type: StealCondition
+    stealGroup: BibleMystagogue
+    owner: job-name-rd
+
 # teach lesson
 - type: entity
   abstract: true

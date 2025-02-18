@@ -1,53 +1,4 @@
 ﻿Entries:
-- author: DisposableCrewmember42
-  changes:
-  - message: Added Greenshift to the gamemode vote pool.
-    type: Tweak
-  id: 539
-  time: '2024-09-10T22:36:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1787
-- author: DisposableCrewmember42
-  changes:
-  - message: Borgs can no longer sacrifice their equipment to the Oracle
-    type: Fix
-  id: 540
-  time: '2024-09-11T12:17:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1769
-- author: DisposableCrewmember42
-  changes:
-  - message: Added blue and purple tomato soup, made using Blue Tomatoes.
-    type: Add
-  id: 541
-  time: '2024-09-12T00:51:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1781
-- author: deltanedas
-  changes:
-  - message: Artifacts can now interact with the noosphere in several ways.
-    type: Add
-  id: 542
-  time: '2024-09-12T01:25:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1785
-- author: TadJohnson00
-  changes:
-  - message: Remove justice helm from construction graph.
-    type: Remove
-  id: 543
-  time: '2024-09-12T13:00:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1815
-- author: deltanedas
-  changes:
-  - message: Fugitives now get a copy of their warrant before the station does.
-    type: Tweak
-  id: 544
-  time: '2024-09-12T13:30:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1797
-- author: deltanedas
-  changes:
-  - message: Artifacts can no longer become sentient.
-    type: Remove
-  id: 545
-  time: '2024-09-12T15:26:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1818
 - author: TadJohnson00
   changes:
   - message: Mass sleep duration reduced from 30s to 5s.
@@ -3852,3 +3803,60 @@
   id: 1038
   time: '2025-02-15T03:51:19.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2783
+- author: Stop-Signs
+  changes:
+  - message: The book of mysteries is now a steal objective, spawning in the locker
+      instead of on the mystagogue.
+    type: Tweak
+  - message: The book of mysteries can no longer summon ifrits, instead granting the
+      secret of forcewall!
+    type: Tweak
+  id: 1039
+  time: '2025-02-15T18:42:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2975
+- author: HTMLSystem
+  changes:
+  - message: Added jumpskirts for prison guards, salvagers, chemist, and scientist.
+    type: Add
+  id: 1040
+  time: '2025-02-15T19:39:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2840
+- author: deltanedas
+  changes:
+  - message: Fixed nukie medic and commander not having gear.
+    type: Fix
+  id: 1041
+  time: '2025-02-15T19:49:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2983
+- author: Eternally-Confused
+  changes:
+  - message: returned the IPC "whirr" and "boop" emotes
+    type: Fix
+  id: 1042
+  time: '2025-02-16T18:09:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2985
+- author: deltanedas
+  changes:
+  - message: Fixed uplink's objectives tab not existing.
+    type: Fix
+  id: 1043
+  time: '2025-02-16T18:41:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2991
+- author: deltanedas
+  changes:
+  - message: Borgs and IPCs now leave metal fibers when touching things.
+    type: Add
+  - message: Fixed IPCs not leaving fibers when using gloves.
+    type: Fix
+  id: 1044
+  time: '2025-02-17T03:25:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2992
+- author: Stop-Signs
+  changes:
+  - message: Some adjustments have been made to the arsenal tech tree.
+    type: Tweak
+  - message: regular truncheons are now roundstart!
+    type: Tweak
+  id: 1045
+  time: '2025-02-18T03:44:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2993
