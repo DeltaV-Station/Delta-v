@@ -9,7 +9,7 @@ public abstract class SharedThavenMoodSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ThavenMoodsComponent, GotEmaggedEvent>(OnEmagged);
+        // SubscribeLocalEvent<ThavenMoodsComponent, GotEmaggedEvent>(OnEmagged); DeltaV: no emagging thavens
     }
 	protected virtual void OnEmagged(EntityUid uid, ThavenMoodsComponent comp, ref GotEmaggedEvent args)
     {
