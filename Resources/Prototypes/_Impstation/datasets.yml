@@ -2,22 +2,28 @@
   id: Departments
   values:
     - Engineering
-    - Research
+    - Epistemics
     - Botany
     - Service
     - Security
     - Medical
-    - Cargo
+    - Justice
+    - The Bar
+    - The Kitchen
+    - Logistics
+    - the Janitorial Departments
+    - Reporting
+    - Entertainment
+    - Surgery
 
 - type: dataset
   id: Pets
   values:
     - Pun Pun the Monkey
-    - VILE SHITPIG the SHITPIG
     - Hamlet the Hamster
     - Shiva the Spider
     - Ian the Corgi
-    - Morticia the Possum
+    - Morticia the Raccoon
     - Morty the Possum
     - Paperwork the Sloth
     - Walter the Dog
@@ -25,7 +31,17 @@
     - Willow the Kangaroo
     - Smile the Slime
     - Tropico the Crab
-    - Major the Spacebear
+    - Carpy the Legal Carp
+    - Laika the Security Dog
+    - Remilia the Chaplain's Familiar
+    - Alexander the Pig
+    - Clippy the Courier Cat
+    - Runtime the Cat
+    - Exception the Cat
+    - Silvia the Medical Snake
+    - Bingus the Cat
+    - A Bee
+    - Siobahn the Epistemics Fox
 
 - type: dataset
   id: Rooms
@@ -34,11 +50,24 @@
     - The Library
     - Escape Pod
     - The Maints Bar
-    - Maints
     - The Restroom
-    - The Station Anchor
-    - Solars
+    - Dorms
     - The Morgue
+    - The Center of the Station
+    - The Chapel
+    - The Bar
+    - The Boxing Ring
+    - The Logistics Front Desk
+    - The Tool Room
+    - Evac
+    - Solars
+    - Arrivals
+    - The Laundry Room
+    - The Station Anchor
+    - The Park
+    - Court
+    - The Arcade
+    - The Stage
 
 - type: dataset
   id: FoodRestrictions
@@ -71,52 +100,74 @@
     - Scarves
     - Folders
     - Spray bottles
-    - Lizard Plushies
+    - Plushies
     - Figurines
     - Toys
     - Lockers
+    - Cigarettes
+    - Lighters
+    - Candles
+    - Signatures
+    - Empty bottles
+    - Paper
+    - Crayons
+    - Toys
+    - Lamps
+    - Pens
+    - Lightbulbs
+    - Books
+    - Snacks
 
 - type: dataset
   id: Edibles
   values:
-    - Gray Plush
+    - Enchiladas
     - Copypasta
     - Moldy Bread Slice
     - Baseball Burger
     - Empowered Burger
     - McGuffin
-    - Suppermatter
+    - Cotton Pizza
+    - Crazy Hamburger
     - Stick of Cannabis Butter
-    - Bungo Curry
-    - Salty Sweet Miso Cola Soup
+    - Cheesecake Balls
+    - Engine Fodder
     - Bread Dog
     - Camel's Soup
-    - Toddler Rings Stew
+    - Chili Con Carnival
+    - Salty Sweet Miso Cola Soup
+    - Ketchup
+    - Chicken Nuggets
+    - Borito Pie
+    - Blue Tomato Soup
+    - Buttered Toast
+    - Ratburger
 
 - type: dataset
   id: Holidays
   values:
-    - Binkus Day
+    - Bingus Day
     - Foster's Feast
-    - Gondaltide
-    - St. Pun Pun's Eve
-    - Intergalactic Driving-Under-The-Influence Day
-    - Clownsmas
+    - Preston’s Tomato Incident
+    - Submarine's Memorial
+    - Pranksgiving
+    - Sector Delta Employee Appreciation Week
     - Intergalactic Hug A Robot Day
-    - Labor Day
-    - Teo First Contact Day
-    - Fall of the Twin Trees Day
-    - Yum Yum's Birthday
+    - Todaybor Day
+    - Teo's First Contact Day
+    - Wear Pajamas to Work Day
+    - Roy’s Birthday
     - NT Corporate Mindfulness Day
-    - Steven's Barmitzvah
-    - Silicon Awareness Day
-    - Logistics Improvement Day
-    - Small Ear Syndrome Awareness Day
+    - Night of Holy Herbs
+    - Logistics Appreciation Week
+    - Big Ear Syndrome Awareness Day
     - Gunchday
-    - Gerold's Ascension
+    - Gerry Patrick's Ascension
     - The Good Day of Digging and Playing
     - the Talent Show
-    - The Tegument of Actuality
+    - Luperthavia
+    - Taco Tuesday
+    - Penny's Big Day
 
 - type: dataset
   id: Clothes
@@ -127,6 +178,14 @@
     - Capes
     - Glasses
     - Backpacks
+    - Coats
+    - Mantles
+    - Berets
+    - Jackets
+    - Plushies
+    - Shoes
+    - Ties
+    - Scarves
 
 - type: dataset
   id: CommandRoles
@@ -137,21 +196,9 @@
     - Head of Personnel
     - Chief Engineer
     - Chief Medical Officer
-    - Research Director
-
-- type: dataset
-  id: DAGDname
-  values:
-    - DieAGloriousDeath
-    - FolkHero
-    - FolkHero
-    - FolkHero
-    - FolkHero
-    - FolkHero
-    - FolkHero
-    - FolkHero
-    - FolkHero
-    - FolkHero
+    - Mystagogue
+    - Chief Justice
+    - Administrative Assistant
 
 - type: dataset
   id: SpeechRestrictions

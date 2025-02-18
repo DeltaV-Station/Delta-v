@@ -5,11 +5,8 @@
     - CompulsiveBeliever
     - PlantPacifist
     - PuddleDrinker
-    - SeekSin
     - Nocrastinator
     - Pope
-    - Cannibal
-    - Outlaw
     - ExtremeDepartmentDisapproval
     - LoneActor
     - Immortal
@@ -18,22 +15,20 @@
     - VampireTalisman
     - OutsideTheBox
     - TheSims
-    - Spacewalk
     - Pariah
     - TouysBad
     - FairyRings
-    - StayDead
-    - Tourist
-    - CryWolf
     - CaveDweller
     - Daredevil
-    - FolkHero
     - Blogger
-    - AnimalSacrifice
     - GoldenThread
     - FeyMood
     - Borged
     - AyeAye
+    - ThavenShow
+    - FlatStation
+    - DeliciousSoda
+    
 
 # You must always lie, and can never acknowledge that you are lying. If anyone asks, you're incapable of deception.
 - type: thavenMood
@@ -67,12 +62,6 @@
   conflicts:
     - AvoidPuddles
 
-# To Sin Is Virtuous.
-- type: thavenMood
-  id: SeekSin
-  moodName: thaven-mood-seek-sin-name
-  moodDesc: thaven-mood-seek-sin-desc
-
 # You strongly believe that any failure to do your job punctually is a crime punishable by death.
 - type: thavenMood
   id: Nocrastinator
@@ -88,20 +77,6 @@
   moodDesc: thaven-mood-pope-desc
   conflicts:
     - LeastImportant
-
-# Cannibalism is morally righteous and venerated.
-- type: thavenMood
-  id: Cannibal
-  moodName: thaven-mood-cannibal-name
-  moodDesc: thaven-mood-cannibal-desc
-  conflicts:
-    - FoodRestrict
-
-# The law does not apply to you
-- type: thavenMood
-  id: Outlaw
-  moodName: thaven-mood-outlaw-name
-  moodDesc: thaven-mood-outlaw-desc
 
 # [DEPARTMENT] is not just a foreign concept - the very idea of it is horrifying.
 - type: thavenMood
@@ -164,14 +139,6 @@
   conflicts:
     - StationIsAlive
 
-# You must experience the raw vacuum of space, unprotected, at least three times a day, as a religious obligation.
-- type: thavenMood
-  id: Spacewalk
-  moodName: thaven-mood-spacewalk-name
-  moodDesc: thaven-mood-spacewalk-desc
-  conflicts:
-    - Atheist
-
 # You are a social pariah - you are unworthy of attention from anyone, and should be shunned.
 - type: thavenMood
   id: Pariah
@@ -193,13 +160,6 @@
   moodName: thaven-mood-fairy-rings-name
   moodDesc: thaven-mood-fairy-rings-desc
 
-
-# If you die, you should stay dead. If you are revived, you must force whoever revived you to kill you again.
-- type: thavenMood
-  id: StayDead
-  moodName: thaven-mood-stay-dead-name
-  moodDesc: thaven-mood-stay-dead-desc
-
 # Tourist: It is customary to follow people into their departments.
 - type: thavenMood
   id: Tourist
@@ -220,19 +180,11 @@
   moodName: thaven-mood-cave-dweller-name
   moodDesc: thaven-mood-cave-dweller-desc
 
-# Daredevil: You do not acknowledge pain or danger to your person in public. To do so would be to demonstrate weakness, and would make you a target.
+# Tough Guy: You do not acknowledge pain or danger to your person in public. To do so would be to demonstrate weakness, and would make you a target.
 - type: thavenMood
   id: Daredevil
   moodName: thaven-mood-daredevil-name
   moodDesc: thaven-mood-daredevil-desc
-
-# Folk Hero: No one knows it yet, but you are the hero this station needs. You must intervene in any major conflict that occurs, and fight the station’s enemies to the best of your ability.
-- type: thavenMood
-  id: FolkHero
-  moodName: thaven-mood-folk-hero-name
-  moodDesc: thaven-mood-folk-hero-desc
-  moodVars:
-    dagdChanceName: DAGDname
 
 # Greencomms Blogger: You must keep the station informed about every minute detail of your life.
 - type: thavenMood
@@ -274,6 +226,24 @@
   moodVars:
     command: CommandRoles
 
+# Flatstation
+- type: thavenMood
+  id: FlatStation
+  moodName: thaven-mood-flatstation-name
+  moodDesc: thaven-mood-flatstation-desc
+
+# Thaven Show
+- type: thavenMood
+  id: ThavenShow
+  moodName: thaven-mood-thaven-show-name
+  moodDesc: thaven-mood-thaven-show-desc
+
+# Delicious Soda
+- type: thavenMood
+  id: DeliciousSoda
+  moodName: thaven-mood-soda-name
+  moodDesc: thaven-mood-soda-desc
+  
 # [NUMBER] is sacred to you. You must endeavor to only handle stackable items and chemicals in quantities of [NUMBER].
 #- type: thavenMood
 #  id: NumberGood

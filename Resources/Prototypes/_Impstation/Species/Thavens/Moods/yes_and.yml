@@ -21,7 +21,7 @@
     - Duel
     - Prometheus
     - Klingon
-    - SogginsLaw
+    - MarasLaw
     - Generous
     - FavorsRepaid
     - Bookkeeper
@@ -38,7 +38,6 @@
     - ItemGood
     - Hypochondriac
     - ImposterSyndrome
-    - YesMan
     - Centrist
     - SpeechRestriction
 
@@ -139,7 +138,7 @@
   conflicts:
     - Procrastinator
 
-# Speaking face-to-face is unacceptably personal. Any conversation must be had over the radio, or through an intermediary individual.
+# Your social status is dependent on the number of friends you have on Nanochat. You must collect as many numbers as possible.
 - type: thavenMood
   id: RadioOnly
   moodName: thaven-mood-radio-only-name
@@ -181,9 +180,9 @@
 
 # All agreements must be documented and signed for posterity and authenticity, no matter how small.
 - type: thavenMood
-  id: SogginsLaw
-  moodName: thaven-mood-soggins-name
-  moodDesc: thaven-mood-soggins-desc
+  id: MarasLaw
+  moodName: thaven-mood-maras-name
+  moodDesc: thaven-mood-maras-desc
 
 # Imitation is the highest form of flattery. Attempt to emulate the mannerisms and accents of everyone you speak to.
 - type: thavenMood
@@ -305,23 +304,14 @@
   moodName: thaven-mood-imposter-syndrome-name
   moodDesc: thaven-mood-imposter-syndrome-desc
 
-# Yes Man: You just can't say "no." You must agree with everyone, and perform any task requested of you, regardless of its source.
-- type: thavenMood
-  id: YesMan
-  moodName: thaven-mood-yes-man-name
-  moodDesc: thaven-mood-yes-man-desc
-  conflicts:
-    - Centrist
-
 # Centrist: You are ambivalent towards any and all decisions, and refuse to take sides.
 - type: thavenMood
   id: Centrist
   moodName: thaven-mood-centrist-name
   moodDesc: thaven-mood-centrist-desc
   conflicts:
-    - YesMan
 
-# Public Sector: Your job should not be done in private if it can be helped. If at all possible, you should renovate the facilities to allow public access to your workplace.
+# Public Sector: Your job should not be done in private if it can be helped. If at all possible, you should renovate the facilities to allow public access to a view of your workplace.
 - type: thavenMood
   id: PublicSector
   moodName: thaven-mood-public-sector-name
@@ -337,6 +327,18 @@
   moodVars:
     speechType: SpeechRestrictions
 
+# Stinky: The smell of the crew revolts you. You must inform them of their stench.
+- type: thavenMood
+  id: Stinky
+  moodName: thaven-mood-stinky-name
+  moodDesc: thaven-mood-stinky-desc
+  
+# Zen Arcade: You are the God of Gaming. Any time you walk past an arcade machine, you must play it.
+- type: thavenMood
+  id: Stinky
+  moodName: thaven-mood-zen-arcade-name
+  moodDesc: thaven-mood-zen-arcade-desc
+  
 # The color [COLOR] is the only acceptable color for decorations. Endeavor to make your environment this color where possible.
 #- type: thavenMood
 #  id: ColorGood

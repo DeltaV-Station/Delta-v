@@ -10,11 +10,9 @@
     - DontSpeakToCommand
     - DisapproveOfDrugs
     - ExcessivelyDisorganized
-    - DetestSilicons
     - DinnerFloor
     - HugBad
     - AlwaysAlone
-    - Atheist
     - Procrastinator
     - NoRadio
     - ImproperStorage
@@ -35,7 +33,6 @@
     - Claustrophobic
     - Agoraphobic
     - NonSmoker
-    - MadHatter
     - Crawler
     - Elevated
 
@@ -78,7 +75,7 @@
   conflicts:
     - MustDoDrugs
 
-# Personal property is theft. All of your possessions must be publicly accessible (within reason.)
+# It's unnatural. You should endeavor to keep your environment as filthy and disorganized as possible.
 - type: thavenMood
   id: ExcessivelyDisorganized
   moodName: thaven-mood-excessively-disorganized-name
@@ -86,15 +83,7 @@
   conflicts:
     - ExcessivelyOrganized
 
-# Silicons are beneath you: Speaking to them is demeaning, and must be avoided at all costs.
-- type: thavenMood
-  id: DetestSilicons
-  moodName: thaven-mood-detest-silicons-name
-  moodDesc: thaven-mood-detest-silicons-desc
-  conflicts:
-    - WorshipSilicons
-
-# Food and drink must only be consumed off of the floor.
+# Food and drink must only be consumed off of the floor, as is proper.
 - type: thavenMood
   id: DinnerFloor
   moodName: thaven-mood-dinner-floor-name
@@ -118,14 +107,6 @@
   conflicts:
     - NeverAlone
 
-# You do not approve of organized religion. It should be dismantled or disrupted wherever possible.
-- type: thavenMood
-  id: Atheist
-  moodName: thaven-mood-atheist-name
-  moodDesc: thaven-mood-atheist-desc
-  conflicts:
-    - VeryReligious
-
 # Punctuality is impolite. You must walk slowly at all times, and be fashionably late to any obligations.
 - type: thavenMood
   id: Procrastinator
@@ -134,7 +115,7 @@
   conflicts:
     - Scheduler
 
-# Using radio communications is exceptionally rude. All conversations must be had in-person, face-to-face. Throw away your headset.
+# Using radio communications is exceptionally rude. All conversations must be had in-person, face-to-face.
 - type: thavenMood
   id: NoRadio
   moodName: thaven-mood-no-radio-name
@@ -156,7 +137,7 @@
   moodName: thaven-mood-ferengi-name
   moodDesc: thaven-mood-ferengi-desc
 
-# You must obtain a license in order to carry or use any tool, and have it stamped by the relevant authorities.
+# You and everyone else must obtain a license in order to carry or use any tool, and it must be stamped by the relevant authorities.
 - type: thavenMood
   id: ToolLicense
   moodName: thaven-mood-tool-license-name
@@ -190,7 +171,7 @@
   conflicts:
     - DisapproveOfDrugs
 
-# You refuse to respond to anyone who is of a lower rank than you.
+# You are incredibly reluctant to respond to anyone who is of a lower rank than you.
 - type: thavenMood
   id: RankSnob
   moodName: thaven-mood-rank-snob-name
@@ -206,7 +187,7 @@
   moodVars:
     clothes: Clothes
 
-# Hats and helmets make your hair look bad. You cannot wear them.
+# Hats and helmets make your hair look bad. If you have to wear one, which you shouldn't, you should get a haircut immediately afterwards.
 - type: thavenMood
   id: HatHair
   moodName: thaven-mood-hat-hair-name
@@ -215,7 +196,7 @@
     - HardsuitsBad
     - UniformIsJob
 
-# Never trust anyone whose outfit is better than yours.
+# Never trust anyone whose outfit is worse than yours.
 - type: thavenMood
   id: DistrustFashion
   moodName: thaven-mood-distrust-fashion-name
@@ -287,12 +268,6 @@
     word1: ThavenWords
     word2: ThavenWords
     word3: ThavenWords
-
-# Mad Hatter: You are alone on the station. Everyone else is a figment of your imagination.
-- type: thavenMood
-  id: MadHatter
-  moodName: thaven-mood-mad-hatter-name
-  moodDesc: thaven-mood-mad-hatter-desc
 
 # Creepy Crawly: You have extreme vertigo, to the point where merely standing upright can cause discomfort. You're much more comfortable crawling along the floor.
 - type: thavenMood

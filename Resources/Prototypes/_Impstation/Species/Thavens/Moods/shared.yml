@@ -17,7 +17,6 @@
     - MusicBad
     - MusicGood
     - FriendshipIsRank
-    - OneTrueThaven
     - YourDepartmentOnly
     - MustCongregate
     - ViolenceDistasteful
@@ -57,7 +56,7 @@
   conflicts:
     - ViolenceDistasteful
 
-# The Station Is A Living Being: Harming or modifying the station is abhorrent. Anything which aims to harm the station is an infection.
+# The Station Is A Living Being: You believe the station is a large and benevolent creature. You must take care of her and tend to her needs as frequently as possible.
 - type: thavenMood
   id: StationIsAlive
   moodName: thaven-mood-station-is-alive-name
@@ -101,27 +100,13 @@
   moodName: thaven-mood-friendship-is-rank-name
   moodDesc: thaven-mood-friendship-is-rank-desc
 
-# You are the one true Thaven, the others are pretenders.
-- type: thavenMood
-  id: OneTrueThaven
-  moodName: thaven-mood-one-true-thaven-name
-  moodDesc: thaven-mood-one-true-thaven-desc
-  conflicts:
-    - MustCongregate
-
-# Violence between Thaven is permitted with no legal repercussions.
+# Violence between Thaven is permitted. ... With legal repercussions.
 - type: thavenMood
   id: ViolencePermitted
   moodName: thaven-mood-violence-permitted-name
   moodDesc: thaven-mood-violence-permitted-desc
   conflicts:
     - ViolenceDistasteful
-
-# The Thaven are the only truly capable members of the crew. Other species are like children, naive and inexperienced.
-- type: thavenMood
-  id: ThavenOnlyCrew
-  moodName: thaven-mood-thaven-only-crew-name
-  moodDesc: thaven-mood-thaven-only-crew-desc
 
 # You strongly believe that your department is the only one that actually does anything.
 - type: thavenMood
@@ -148,7 +133,7 @@
   conflicts:
     - ViolencePermitted
 
-# [STATION PET] must be venerated as a god.
+# [STATION PET] must be venerated as a god. [STATION PET] must be collected and brought to the Chapel to be worshiped and brought offerings. If they cannot be located, a shrine must be constructed in their honor.
 - type: thavenMood
   id: PetGod
   moodName: thaven-mood-pet-god-name

@@ -1,5 +1,5 @@
 thaven-mood-possessive-of-property-name = Possessive Of Property
-thaven-mood-possessive-of-property-desc = You are extremely possessive of your property. Refuse to relinquish it, and if it is misplaced or stolen, it must be retrieved at all costs.
+thaven-mood-possessive-of-property-desc = You are extremely possessive of your property. Refuse to relinquish it, and if it is misplaced or stolen, it must be retrieved.
 
 thaven-mood-excessively-organized-name = Excessively Organized
 thaven-mood-excessively-organized-desc = You are obsessively organized; everything has its place and must be returned to it.
@@ -32,13 +32,13 @@ thaven-mood-very-religious-name = You Are Very Religious
 thaven-mood-very-religious-desc = You should attend the chapel regularly to pray, and speak with the Chaplain if possible.
 
 thaven-mood-only-speak-to-command-name = VIP
-thaven-mood-only-speak-to-command-desc = You are too important to speak to the rabble. You will only speak to command.
+thaven-mood-only-speak-to-command-desc = Problems you encounter are too complex to be solved by your peers. Escalate them to your higher-ups for advice instead.
 
 thaven-mood-scheduler-name = Punctual
 thaven-mood-scheduler-desc = You believe that time must be strictly managed. Everything should be scheduled in advance, and tardiness is exceptionally rude.
 
-thaven-mood-radio-only-name = Public Speaker
-thaven-mood-radio-only-desc = You firmly believe in the freedom of information. Speaking privately, face-to-face, is needlessly concealing information from the public. Your side of any conversation must be routed through a radio connection.
+thaven-mood-radio-only-name = Nanochat Addict
+thaven-mood-radio-only-desc = Your social status is dependent on the number of friends you have on Nanochat. You must collect as many numbers as possible.
 
 thaven-mood-proper-storage-name = Proper Handling
 thaven-mood-proper-storage-desc = It is unacceptable to allow personal belongings to touch the floor. Your possessions should be properly stored, placed on tables, or exchanged by hand.
@@ -49,8 +49,8 @@ thaven-mood-swearing-good-desc = Swearing is the spice of any conversation, and 
 thaven-mood-statement-only-name = Asking Questions Is Rude
 thaven-mood-statement-only-desc = It would be terribly impolite to go around flagrantly asking questions all over the place. You'd prefer to phrase everything as a concrete statement.
 
-thaven-mood-theft-neutral-name = Petty Theft Is Morally Neutral
-thaven-mood-theft-neutral-desc = You don't understand the concept of property as it relates to other people.
+thaven-mood-theft-neutral-name = Sharing is Caring
+thaven-mood-theft-neutral-desc = You don't understand the concept of property. You don't own your belongings, and no one owns theirs either.
 
 thaven-mood-duel-name = Code Duello
 thaven-mood-duel-desc = Disagreements must be settled through a formal duel, violent or otherwise. The winner is correct.
@@ -58,11 +58,8 @@ thaven-mood-duel-desc = Disagreements must be settled through a formal duel, vio
 thaven-mood-prometheus-name = Philosopher
 thaven-mood-prometheus-desc = You possess incalculable wisdom, and all must hear it.
 
-thaven-mood-klingon-name = Die With A Sword In Your Hand
-thaven-mood-klingon-desc = It is a great dishonor to be unarmed. Openly carrying a lethal weapon at all times is very important to you.
-
-thaven-mood-soggins-name = Soggins' Law
-thaven-mood-soggins-desc = All agreements must be documented and signed for posterity and authenticity, no matter how small.
+thaven-mood-maras-name = Mara's Law
+thaven-mood-maras-desc = Bureaucracy is the spice of life. All agreements must be documented and signed for posterity and authenticity, no matter how small.
 
 thaven-mood-imitation-name = I Wanna Be Like You
 thaven-mood-imitation-desc = Imitation is the highest form of flattery. Attempting to emulate the mannerisms and accents of everyone you speak to will get you far in life.
@@ -71,7 +68,7 @@ thaven-mood-generous-name = Philanthropist
 thaven-mood-generous-desc = It's only polite to provide anyone kind enough to speak to you with a gift.
 
 thaven-mood-favors-repaid-name = Equivalent Exchange
-thaven-mood-favors-repaid-desc = Favors must be repaid in kind. If anyone is unable to do so, they are in debt, and must be shunned, until such time as they have repaid the favor.
+thaven-mood-favors-repaid-desc = Favors must be repaid in kind. If anyone is unable to do so, they are in debt, and must be shamed, until such time as they have repaid the favor.
 
 thaven-mood-bookkeeper-name = Bookkeeper
 thaven-mood-bookkeeper-desc = You feel bookkeeping is vitally important for the proper functioning of a station. Make sure to provide your supervisor with a detailed log of each job task you complete.
@@ -104,7 +101,7 @@ thaven-mood-smoker-name = Smoker
 thaven-mood-smoker-desc = You are hopelessly addicted to cigarettes. If you're not actively smoking, you experience withdrawal symptoms.
 
 thaven-mood-eye-for-eye-name = Eye For An Eye
-thaven-mood-eye-for-eye-desc = Retribution should be proportional.
+thaven-mood-eye-for-eye-desc = You must treat every living being the way that it treats you.
 
 thaven-mood-optimist-name = Optimist
 thaven-mood-optimist-desc = Nothing is ever as bad as it seems. You're able to see the positives in any situation.
@@ -115,14 +112,17 @@ thaven-mood-hypochondriac-desc = You've been sickly since you were a child. Ever
 thaven-mood-imposter-syndrome-name = Imposter Syndrome
 thaven-mood-imposter-syndrome-desc = You feel your life experience drain from your mind. You are brand-new at your job, unsure of how anything works. You should probably find someone experienced to show you the ropes.
 
-thaven-mood-yes-man-name = Yes Man
-thaven-mood-yes-man-desc = You just can't say "no." You must agree with everyone, and perform any task requested of you, regardless of its source.
-
 thaven-mood-centrist-name = Centrist
 thaven-mood-centrist-desc = You are ambivalent towards any and all decisions, and refuse to take sides.
 
 thaven-mood-public-sector-name = Public Sector
-thaven-mood-public-sector-desc = Your job should not be done in private if it can be helped. If at all possible, you should renovate the facilities to allow public access to your workplace.
+thaven-mood-public-sector-desc = Your job should not be done in private if it can be helped. If at all possible, you should renovate the facilities to allow public access to a view of your workplace.
+
+thaven-mood-stinky-name = Everyone is Stinky
+thaven-mood-stinky-desc = The smell of the crew revolts you. You must inform them of their stench.
+
+thaven-mood-zen-arcade-name = Zen Arcade
+thaven-mood-zen-arcade-desc = You are the God of Gaming. Any time you walk past an arcade machine, you must play it.
 
 thaven-mood-speech-restriction-name = {$speechType ->
   *[FullNameAndTitle] Full Name And Title
@@ -141,7 +141,7 @@ thaven-mood-speech-restriction-name = {$speechType ->
   [Alliterate] Always Alliterate At All Apportunities
   [ThirdPerson] Third Person
   [TitleCase] Title Case
-  [GreySpeak] Grayspeak Is The Height Of Fashion
+  [PirateSpeak] Piratespeak Is The Height Of Fashion
 }
 thaven-mood-speech-restriction-desc = {$speechType ->
   *[FullNameAndTitle] Thaven refuse to acknowledge anyone who fails to refer to them using their full name, and expect everyone else to do the same.
@@ -160,5 +160,5 @@ thaven-mood-speech-restriction-desc = {$speechType ->
   [Alliterate] Alliteration is virtuous. Endeavor to use it wherever possible.
   [ThirdPerson] The third person point-of-view is the only respectful manner of speaking.
   [TitleCase] You Are Miraculously Capable Of Pronouncing Capital Letters, And Believe It Is Important That You Do So.
-  [GreySpeak] You should endeavor to speak like Grays to the best of your ability.
+  [PirateSpeak] You should endeavor to speak like a pirate to the best of your ability.
 }

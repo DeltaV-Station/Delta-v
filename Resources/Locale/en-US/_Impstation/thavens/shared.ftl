@@ -11,7 +11,7 @@ thaven-mood-honor-department-name = Honor Among Departments
 thaven-mood-honor-department-desc = If a Thaven brings dishonor to their department, they must be shunned, and have their actions publicly brought to light.
 
 thaven-mood-station-is-alive-name = The Station Is A Living Being
-thaven-mood-station-is-alive-desc = Harming or modifying the station is abhorrent. Anything which aims to harm the station is an infection.
+thaven-mood-station-is-alive-desc = You believe the station is a large and benevolent creature. You must take care of her and tend to her needs as frequently as possible.
 
 thaven-mood-uniform-is-job-name = Your Uniform IS Your Job
 thaven-mood-uniform-is-job-desc = If someone is wearing a uniform, they must do that job. Anyone not wearing a uniform is a passenger, and must be treated as such.
@@ -20,22 +20,16 @@ thaven-mood-uniform-last-year-name = Your Uniform Is SO Last Year
 thaven-mood-uniform-last-year-desc = You need to find some new threads.
 
 thaven-mood-music-bad-name = Music Is Rude
-thaven-mood-music-bad-desc = Music is fanciful, frivolous, and unnecessary. It has no place on the station.
+thaven-mood-music-bad-desc = Music is fanciful, frivolous, and unnecessary.
 
 thaven-mood-music-good-name = Music Is Sacred
 thaven-mood-music-good-desc = It's important that Thaven be listening to music as often as possible. Multiple songs overlapping is blasphemous, and should be avoided at all costs.
 
 thaven-mood-friendship-is-rank-name = Friendship Is Vital
-thaven-mood-friendship-is-rank-desc = Friendships are the true measure of one’s character. The more friends you have, the higher you rank in society.
-
-thaven-mood-one-true-thaven-name = You Are The One True Thaven
-thaven-mood-one-true-thaven-desc = All others are insidious pretenders.
+thaven-mood-friendship-is-rank-desc = Friendships are the true measure of one’s character. The more friends you have, the higher your rank in society.
 
 thaven-mood-violence-permitted-name = Violence Between Thaven Is Permitted
-thaven-mood-violence-permitted-desc = ... With no legal repercussions.
-
-thaven-mood-thaven-only-crew-name = Thaven Vs. The World
-thaven-mood-thaven-only-crew-desc = You believe that Nanotrasen is not accommodating enough of Thaven needs. An effort should be made to fight for better rights and protections under Space Law.
+thaven-mood-violence-permitted-desc = ... With legal repercussions.
 
 thaven-mood-your-department-only-name = Other Departments Are Inefficient
 thaven-mood-your-department-only-desc = You strongly believe that your department is the only one that actually does anything.
@@ -47,7 +41,7 @@ thaven-mood-violence-distasteful-name = Violence Is Distasteful
 thaven-mood-violence-distasteful-desc = Conflict should be settled through mediated dispute, and one should only resort to violence if all other options have failed.
 
 thaven-mood-pet-god-name = {$pet} Is A God
-thaven-mood-pet-god-desc = {$pet} must be collected and brought to the Chapel to be worshiped and brought offerings.
+thaven-mood-pet-god-desc = {$pet} must be collected and brought to the Chapel to be worshiped and brought offerings. If they cannot be located, a shrine must be constructed in their honor.
 
 thaven-mood-room-holy-name = {$room} Is A Holy Place
 thaven-mood-room-holy-desc = Thaven must congregate at least three times per day at {$room}. If such a room does not exist, it must be constructed. If it is made inaccessible, Thaven must set up a place of worship as close to it as they legally can.
