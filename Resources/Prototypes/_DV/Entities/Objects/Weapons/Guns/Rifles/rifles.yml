@@ -239,34 +239,26 @@
           - CartridgeRifle
 
 - type: entity
-  parent: [BaseWeaponRifle, BaseGunWieldable]
+  parent: [BaseWeaponRevolver, BaseGunWieldable]
   id: WeaponRifleGavel
   name: Gavel # Riffing on the Taurus Judge
   description: A modernized revolver carbine. Uses .45 magnum ammo.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Rifles/gavel.rsi
-  - type: Gun
-    fireRate: 1
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
-  - type: GunRequiresWield
-  - type: RevolverAmmoProvider
-    capacity: 7
-    chambers: [ True, True, True, True, True, True, True ]
-    ammoSlots: [ null, null, null, null, null, null, null ]
-    soundEject:
-      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
-  - type: ItemSlots
-  - type: ContainerContainer
-    containers:
-      revolver-ammo: !type:Container
+  - type: Item
+    size: Large
+  - type: Tag
+    tags: []
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Rifles/gavel.rsi
-  - type: ItemToggle
-    toggle: false
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 1
+  - type: RevolverAmmoProvider
+    capacity: 7 # This is to make it stand out a lil bit despite being slower than sidearm revolvers
+    chambers: [ True, True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null, null ]
