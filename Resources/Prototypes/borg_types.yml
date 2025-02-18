@@ -1,4 +1,4 @@
-﻿# Generic borg
+# Generic borg
 - type: borgType
   id: generic
 
@@ -86,6 +86,7 @@
     - BorgModuleCargo
 
   defaultModules:
+  - BorgModuleTool # DeltaV - Added Tool Module to default
   - BorgModuleGrapplingGun
   - BorgModuleMining
   - BorgModuleAppraisal
@@ -127,6 +128,7 @@
     - BorgModuleJanitor
 
   defaultModules:
+  - BorgModuleTool # DeltaV - Added Tool Module to default
   - BorgModuleLightReplacer
   - BorgModuleCleaning
 
@@ -168,6 +170,7 @@
     - BorgModuleMedical
 
   defaultModules:
+  - BorgModuleTool # DeltaV - Added Tool Module to default
   - BorgModuleTreatment
   - BorgModuleSurgery # DeltaV
 
@@ -227,6 +230,7 @@
     - BorgModuleService
 
   defaultModules:
+  - BorgModuleTool # DeltaV - Added Tool Module to default
   - BorgModuleMusique
   - BorgModuleService
   - BorgModuleClowning
