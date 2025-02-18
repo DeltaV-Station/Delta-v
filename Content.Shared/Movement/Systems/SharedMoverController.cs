@@ -440,7 +440,7 @@ public abstract partial class SharedMoverController : VirtualController
         mobMover.StepSoundDistance -= distanceNeeded;
 
         // DeltaV - Don't play the sound if they have no shoes and the component
-        if (NoShoesSilentQuery.HasComp(uid) &
+        if (NoShoesSilentQuery.HasComp(uid) &&
             !_inventory.TryGetSlotEntity(uid, "shoes", out var _))
         {
             return false;
