@@ -43,7 +43,7 @@
     correctionPower: 1.75 # The hud part decreases efficiency
 
 - type: entity
-  parent: [ClothingEyesBase, ClothingEyesHudDiagnostic]
+  parent: ClothingEyesHudDiagnostic
   id: RoboNeuroticistVisor
   name: robo-neuroticist visor
   description: The Robo-Neuroticist's advanced heads-up display, designed for quick diagnosis of their Neurolings.

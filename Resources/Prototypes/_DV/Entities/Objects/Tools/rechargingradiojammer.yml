@@ -7,11 +7,11 @@
   - type: Sprite
     sprite: Objects/Devices/jammer.rsi
     layers:
-        - state: jammer
-        - state: jammer_high_charge
-          map: ["enum.RadioJammerLayers.LED"]
-          shader: unshaded
-          visible: false
+    - state: jammer
+    - state: jammer_high_charge
+      map: ["enum.RadioJammerLayers.LED"]
+      shader: unshaded
+      visible: false
   - type: RadioJammer
     settings:
     - wattage: 12
@@ -37,15 +37,3 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMicroreactor
         disableEject: true
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.RadioJammerVisuals.LEDOn:
-        RadioJammerLayers.LED:
-          True: { visible: True }
-          False: { visible: False }
-      enum.RadioJammerVisuals.ChargeLevel:
-        RadioJammerLayers.LED:
-          Low: {state: jammer_low_charge}
-          Medium: {state: jammer_medium_charge}
-          High: {state: jammer_high_charge}
