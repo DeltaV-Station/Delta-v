@@ -14,4 +14,5 @@ public sealed partial class KitsuneComponent : Component
     [DataField]
     public EntProtoId FoxfireActionId = "ActionFoxfire";
     public EntityUid? FoxfireAction;
+    public List<EntityUid> ActiveFoxFires = [];
 }

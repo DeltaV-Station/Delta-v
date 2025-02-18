@@ -5,5 +5,7 @@
   noSpawn: true
   components:
   - type: InstantAction
+    charges: 3
+    disableWhenEmpty: false
     icon: { sprite: _DV/Structures/Specific/Species/Kitsune/foxfire.rsi, state: icon }
     event: !type:CreateFoxfireActionEvent

@@ -6,6 +6,7 @@ namespace Content.Server._DV.Abilities.Kitsune;
 public sealed class KitsuneSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly IEntityManager _entity = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -22,11 +23,16 @@ public sealed class KitsuneSystem : EntitySystem
     private void OnCreateFoxfire(EntityUid uid, KitsuneComponent component, CreateFoxfireActionEvent args)
     {
         Log.Error("Fire still broke");
-        if (_actions.GetCharges(component.FoxfireAction) is not int charges || charges < 1)
-            return;
+        if (_actions.GetCharges(component.FoxfireAction) is { } and < 1)
+        {
+            _entity.DeleteEntity(component.ActiveFoxFires[0]);
+            component.ActiveFoxFires.RemoveAt(0);
+        }
         var fireEnt = Spawn(component.FoxfirePrototype, Transform(uid).Coordinates);
         var fireComp = EnsureComp<FoxFireComponent>(fireEnt);
         fireComp.Owner = uid;
+        component.ActiveFoxFires.Add(fireEnt);
+        _actions.SetEnabled(component.FoxfireAction, true);
         args.Handled = true;
     }
     private void OnFoxFireShutdown(EntityUid uid, FoxFireComponent component, ComponentShutdown args)
@@ -39,6 +45,7 @@ public sealed class KitsuneSystem : EntitySystem
     private void OnFoxFireDestroyed(EntityUid uid, KitsuneComponent component, FoxfireDestroyedEvent args)
     {
         Log.Error("Fire didn't break");
+        component.ActiveFoxFires.Remove(uid);
         _actions.AddCharges(component.FoxfireAction, 1);
         _actions.SetEnabled(component.FoxfireAction, true);
     }
