@@ -47,6 +47,25 @@
       collection: MeatLaserImpact
 
 - type: entity
+  abstract: true
+  parent: BaseBullet
+  id: BaseBulletRubber
+  name: base bullet rubber
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: rubber
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/snap.ogg
+  - type: StaminaDamageOnCollide
+    damage: 22 # 5 hits to stun sounds reasonable
+
+- type: entity
   parent: BulletPistolIncendiary
   id: BulletLighterIncendiary
   name: welding fuel bullet
