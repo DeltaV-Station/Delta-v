@@ -599,6 +599,7 @@ public sealed partial class ChatUIController : UIController
             UnreadMessageCountsUpdated?.Invoke(channel, 0);
         }
     }
+
     public override void FrameUpdate(FrameEventArgs delta)
     {
         UpdateQueuedSpeechBubbles(delta);

@@ -6,7 +6,7 @@ namespace Content.Client.Options.UI;
 public sealed partial class OptionsTabControlRow
 {
     /// <summary>
-    /// DeltaV: Add a color slider option, backed by a simple string CVar.
+    ///     Add a color slider option, backed by a simple string CVar.
     /// </summary>
     /// <param name="cVar">The CVar represented by the slider.</param>
     /// <param name="slider">The UI control for the option.</param>

@@ -40,10 +40,10 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
         _player.LocalPlayerAttached += _ => _characterInfo.RequestCharacterInfo();
         _player.LocalPlayerDetached += _ => _characterInfo.RequestCharacterInfo();
 
-        _config.OnValueChanged(DCCVars.ChatAutoFillHighlights, (value) => { _autoFillHighlightsEnabled = value; UpdateHighlights(); });
+        _config.OnValueChanged(DCCVars.ChatAutoFillHighlights, value => { _autoFillHighlightsEnabled = value; UpdateHighlights(); });
         _autoFillHighlightsEnabled = _config.GetCVar(DCCVars.ChatAutoFillHighlights);
 
-        _config.OnValueChanged(DCCVars.ChatHighlightsColor, (value) => { _highlightsColor = value; });
+        _config.OnValueChanged(DCCVars.ChatHighlightsColor, value => _highlightsColor = value);
         _highlightsColor = _config.GetCVar(DCCVars.ChatHighlightsColor);
 
         _config.OnValueChanged(DCCVars.ChatHighlights, UpdateHighlights);

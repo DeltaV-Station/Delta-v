@@ -175,18 +175,6 @@ public partial class ChatBox : UIWidget
         _controller.NotifyChatTextChange();
     }
 
-    // DeltaV - Message highlights start
-    private void OnNewHighlights(string highlights)
-    {
-        _controller.UpdateHighlights(highlights);
-    }
-
-    private void OnHighlightsReceived(string highlights)
-    {
-        ChatInput.FilterButton.Popup.SetHighlights(highlights);
-    }
-    // DeltaV - Message highlights end
-
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);
