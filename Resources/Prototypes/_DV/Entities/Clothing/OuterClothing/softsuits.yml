@@ -10,3 +10,6 @@
     sprite: _DV/Clothing/OuterClothing/Suits/eva_roboneuroticist.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetRoboNeuroticist
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot { }
