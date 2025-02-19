@@ -15,10 +15,9 @@
   id: SyndieExosuitFabricatorMachineCircuitboard
   name: syndicate exosuit fabricator machine board
   components:
-  - type: Machineboard
+  - type: MachineBoard
     prototype: SyndieExosuitFabricator
     stackRequirements:
       Capacitor: 2
       Glass: 4
       Cable: 5
-    
