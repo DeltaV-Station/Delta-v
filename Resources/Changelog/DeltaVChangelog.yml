@@ -1,27 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Merged upstream changes for this week.
-    type: Add
-  id: 551
-  time: '2024-09-16T15:41:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1825
-- author: deltanedas
-  changes:
-  - message: Plant Bag of Holding is now much cheaper to make.
-    type: Tweak
-  id: 552
-  time: '2024-09-16T23:39:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1832
-- author: deltanedas
-  changes:
-  - message: The Uncloneable trait's failure message is clearer now.
-    type: Tweak
-  id: 553
-  time: '2024-09-17T03:49:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1840
-- author: deltanedas
-  changes:
   - message: Made the random sentience event a glimmer event.
     type: Tweak
   - message: Fixed glimmer events never running.
@@ -3878,3 +3857,36 @@
   id: 1050
   time: '2025-02-18T19:47:13.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2994
+- author: Lyndomen
+  changes:
+  - message: Emergency Evac shuttle now takes 3 minutes to depart
+    type: Tweak
+  - message: Periapsis & Horizon now have a 3 hour default timer. Feel free to leave
+      earlier by calling the shuttle.
+    type: Tweak
+  - message: Command may now truly early launch the shuttle. Do not abuse this, command
+      is held to a high standard.
+    type: Tweak
+  - message: Recalling the shuttle got a little easier, it can now be recalled 2~
+      minutes later.
+    type: Tweak
+  - message: The shuttle will now arrive in 10 minutes on Code Delta, not 20.
+    type: Tweak
+  id: 1051
+  time: '2025-02-19T04:04:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2944
+- author: Lyndomen
+  changes:
+  - message: Ahelping the exact same thing 6 times will get one automatically banned.
+      File an appeal if this was in error.
+    type: Add
+  id: 1052
+  time: '2025-02-19T04:21:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3010
+- author: Toby222
+  changes:
+  - message: Mail teleporters now notify about new mail in the Logistics comms channel
+    type: Add
+  id: 1053
+  time: '2025-02-19T11:37:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2989
