@@ -7,8 +7,8 @@
   - !type:OverallPlaytimeRequirement
     time: 86400 # 24h so you probably know some general lore or something
   - !type:RoleTimeRequirement
-    role: JobScientist
-    time: 14,400 # 4h scientist so you know how to make borgs
+    role: JobRoboticist
+    time: 7200 # 2h roboticist so you know how to make robot
 
 - type: startingGear
   id: SyndicateRoboticistGear
@@ -31,4 +31,4 @@
     - Emag
     - EncryptionKeyBinary
     - NukeCoreContainer
-    - AntimovCircuitBoard
+    - UplinkAntimovObjectiveBoard

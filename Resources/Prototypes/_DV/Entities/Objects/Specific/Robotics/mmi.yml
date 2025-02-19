@@ -4,22 +4,14 @@
   name: syndicate neuroling
   description: An artificial brain, full of false-life and nefarious intent
   components:
-    - type: ToggleableGhostRole
-      examineTextMindPresent: positronic-brain-installed
-      examineTextMindSearching: positronic-brain-still-searching
-      examineTextNoMind: positronic-brain-off
-      beginSearchingText: positronic-brain-searching
-      roleName: synd-positronic-brain-role-name
-      roleDescription: synd-positronic-brain-role-description
-      wipeVerbText: positronic-brain-wipe-device-verb-text
-      wipeVerbPopup: positronic-brain-wiped-device
-      stopSearchVerbText: positronic-brain-stop-searching-verb-text
-      stopSearchVerbPopup: positronic-brain-stopped-searching
-    - type: IntrinsicRadioTransmitter
-      channels:
-      - Binary
-      - Syndicate
-    - type: ActiveRadio
-      channels:
-      - Binary
-      - Syndicate
+  - type: ToggleableGhostRole
+    roleName: synd-positronic-brain-role-name
+    roleDescription: synd-positronic-brain-role-description
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Syndicate
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Syndicate
