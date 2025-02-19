@@ -1,3 +1,7 @@
+## hey this is carousel
+## in service of vox being somewhat in line with impstation species design standards
+## i have rearranged the furniture in here quite severely
+
 - type: species
   id: Vox
   name: species-name-vox
@@ -6,7 +10,7 @@
   sprites: MobVoxSprites
   markingLimits: MobVoxMarkingLimits
   dollPrototype: MobVoxDummy
-  skinColoration: VoxFeathers
+  skinColoration: Hues # Imp VoxFeathers<Hues
   defaultSkinTone: "#6c741d"
   maleFirstNames: names_vox
   femaleFirstNames: names_vox
@@ -46,20 +50,23 @@
       points: 1
       required: false
     Head:
-      points: 1
-      required: true
+      points: 2 # Imp 1<2
+      required: false # Imp true<false
+    HeadSide: # Imp
+      points: 2
+      required: false
     Snout:
       points: 1
-      required: true
-      defaultMarkings: [ VoxBeak ]
+      required: false # Imp true<false
+      #defaultMarkings: [ VoxBeak ]
     Arms:
-      points: 4
-      required: true
-      defaultMarkings: [ VoxLArmScales, VoxRArmScales, VoxRHandScales, VoxLHandScales ]
+      points: 6 # Imp 4<6
+      required: false # Imp true<false
+      #defaultMarkings: [ VoxLArmScales, VoxRArmScales, VoxRHandScales, VoxLHandScales ]
     Legs:
-      points: 4
-      required: true
-      defaultMarkings: [ VoxLLegScales, VoxRLegScales, VoxRFootScales, VoxLFootScales ]
+      points: 6 # Imp 4<6
+      required: false #imp
+      #defaultMarkings: [ VoxLLegScales, VoxRLegScales, VoxRFootScales, VoxLFootScales ]
     # Begin DeltaV changes.
     Underwear:
       points: 1
@@ -69,12 +76,15 @@
       required: false
     # End DeltaV changes.
     Chest:
-      points: 1
+      points: 2 # Imp 1<2
+      required: false
+    Overlay: # Imp
+      points: 4
       required: false
     Tail:
       points: 1
       required: true
-      defaultMarkings: [ VoxTail ]
+      defaultMarkings: [ VoxTailBack ] # Imp VoxTail < VoxTailBack
 
 - type: humanoidBaseSprite
   id: MobVoxEyes
@@ -133,7 +143,7 @@
 - type: humanoidBaseSprite
   id: MobVoxLHand
   baseSprite:
-    sprite: Mobs/Species/Vox/parts.rsi
+    sprite: Mobs/Customization/vox_parts.rsi # Imp Mobs/Species/Vox/parts.rsi>Mobs/Customization/vox_parts.rsi
     state: l_hand
 
 - type: humanoidBaseSprite
@@ -157,7 +167,7 @@
 - type: humanoidBaseSprite
   id: MobVoxRHand
   baseSprite:
-    sprite: Mobs/Species/Vox/parts.rsi
+    sprite: Mobs/Customization/vox_parts.rsi # Imp Mobs/Species/Vox/parts.rsi>Mobs/Customization/vox_parts.rsi
     state: r_hand
 
 - type: humanoidBaseSprite

@@ -7,6 +7,10 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobHumanDummy
   skinColoration: HumanToned
+  sexes:
+  - Male
+  - Female
+  - Unsexed
 
 # The lack of a layer means that
 # this person cannot have round-start anything
@@ -22,8 +26,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking # DeltaV
-    Undershirt: MobHumanoidAnyMarking # DeltaV
+    Underwear: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
     Chest: MobHumanTorso
     Eyes: MobHumanoidEyes
     HeadTop: MobHumanoidAnyMarking
@@ -35,8 +39,6 @@
     RLeg: MobHumanRLeg
     LFoot: MobHumanLFoot
     RFoot: MobHumanRFoot
-    Tail: MobHumanoidAnyMarking # Nyanotrasen - Felinid
-    HeadSide: MobHumanoidAnyMarking # Einstein Engines - Oni
 
 - type: markingPoints
   id: MobHumanMarkingLimits
@@ -60,7 +62,7 @@
       points: 1
       required: false
     Chest:
-      points: 1
+      points: 4 # Imp 1<4
       required: false
     # Begin DeltaV changes.
     Underwear:
@@ -71,10 +73,10 @@
       required: false
     # End DeltaV changes.
     Legs:
-      points: 6
+      points: 8 # Imp 6<8
       required: false
     Arms:
-      points: 6
+      points: 8 # Imp 6<8
       required: false
 
 - type: humanoidBaseSprite
