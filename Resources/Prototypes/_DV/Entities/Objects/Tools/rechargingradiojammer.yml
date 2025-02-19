@@ -1,0 +1,26 @@
+- type: entity
+  name: recharging radio jammer
+  parent: RadioJammer
+  id: RechargingRadioJammer
+  description: This device will disrupt any nearby outgoing radio communication as well as suit sensors when activated. Recharges itself, but can easily run out of power set to high.
+  components:
+  - type: RadioJammer
+    settings:
+    - wattage: 12
+      range: 4
+      message: radio-jammer-component-set-message-low
+      name: radio-jammer-component-setting-low
+    - wattage: 18
+      range: 8
+      message: radio-jammer-component-set-message-medium
+      name: radio-jammer-component-setting-medium
+    - wattage: 24
+      range: 16
+      message: radio-jammer-component-set-message-high
+      name: radio-jammer-component-setting-high
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
+        disableEject: true

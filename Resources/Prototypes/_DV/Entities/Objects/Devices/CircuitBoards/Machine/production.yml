@@ -9,3 +9,15 @@
       Capacitor: 2
       Glass: 4
       Cable: 5
+
+- type: entity
+  parent: ExosuitFabricatorMachineCircuitboard
+  id: SyndieExosuitFabricatorMachineCircuitboard
+  name: syndicate exosuit fabricator machine board
+  components:
+  - type: MachineBoard
+    prototype: SyndicateExosuitFabricator
+    stackRequirements:
+      Capacitor: 2
+      Glass: 4
+      Cable: 5

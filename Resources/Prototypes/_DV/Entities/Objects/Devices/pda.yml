@@ -661,3 +661,12 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType: !type:String
         pda-hygienetechnician
+
+- type: entity
+  parent: SyndiPDA
+  id: RoboNeuroticistPDA
+  name: robo-neuroticist PDA
+  description: An elite PDA for an elite Operative. Bits of wire and grease poke from the chassis.
+  components:
+  - type: Pda
+    id: RoboNeuroticistIDCard

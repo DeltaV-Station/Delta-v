@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingOuterHardsuitSyndicate
+  id: ClothingOuterHardsuitRoboNeurotisist
+  name: robo-neuroticist softshell suit
+  description: "Dramatic cape, stylish collar, and packed to the gills with life support tech'"
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Suits/eva_roboneuroticist.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Suits/eva_roboneuroticist.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetRoboNeuroticist
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot { }
