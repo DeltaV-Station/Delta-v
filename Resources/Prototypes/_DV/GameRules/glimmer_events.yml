@@ -33,8 +33,7 @@
     weight: 6
     duration: 1
     reoccurrenceDelay: 20
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAnnouncement: false # EE/Impstation: Converts to bool: has no announcement locstring.
   - type: GlimmerEvent
     minimumGlimmer: 300
     maximumGlimmer: 600
