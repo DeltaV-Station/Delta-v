@@ -142,6 +142,12 @@
   - type: Fiber
     fiberMaterial: fibers-latex
   - type: FingerprintMask
+  # Shitmed: gloves are responsible for surgical speed
+  - type: SurgerySpeedModifier
+    speedModifier: 1.25
+  - type: Armor
+    modifiers: {}
+  # End Shitmed: gloves are responsible for surgical speed
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -156,6 +162,13 @@
   - type: Fiber
     fiberMaterial: fibers-nitrile
   - type: FingerprintMask
+  # Shitmed: gloves are responsible for surgical speed
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
+  - type: Armor
+    modifiers: {}
+  # End Shitmed: gloves are responsible for surgical speed
+
 ####
 - type: entity
   parent: ClothingHandsButcherable
