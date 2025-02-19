@@ -1,0 +1,13 @@
+#Pilot hardsuit
+- type: entity
+  id: SuitStoragePilot
+  parent: SuitStorageBase
+  suffix: Pilot
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled # DeltaV - Changed Air Tank to O2 Tank
+        - id: ClothingOuterHardsuitPilot
+        - id: ClothingMaskBreath
+        - id: JetpackMiniFilled
+  - type: AccessReader
