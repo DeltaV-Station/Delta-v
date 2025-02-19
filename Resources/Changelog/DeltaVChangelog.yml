@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: The Uncloneable trait's failure message is clearer now.
-    type: Tweak
-  id: 553
-  time: '2024-09-17T03:49:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1840
-- author: deltanedas
-  changes:
   - message: Made the random sentience event a glimmer event.
     type: Tweak
   - message: Fixed glimmer events never running.
@@ -3890,3 +3883,10 @@
   id: 1052
   time: '2025-02-19T04:21:12.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3010
+- author: Toby222
+  changes:
+  - message: Mail teleporters now notify about new mail in the Logistics comms channel
+    type: Add
+  id: 1053
+  time: '2025-02-19T11:37:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2989
