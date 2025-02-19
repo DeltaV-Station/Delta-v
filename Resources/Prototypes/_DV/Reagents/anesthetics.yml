@@ -1,0 +1,72 @@
+- type: reagent
+  id: Anodynafil
+  name: reagent-name-anodynafil
+  desc: reagent-desc-anodynafil
+  flavor: tingly
+  color: "#8FABA3"
+  physicalDesc: reagent-physical-desc-sticky
+  group: Medicine
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:SameDNA
+        key: Anesthesia
+        component: Anesthesia
+        refresh: false
+        time: 4.0
+        type: Add
+      - !type:Emote
+        emote: Yawn
+        showInChat: true
+        probability: 0.1
+        conditions:
+        - !type:SameDNA
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.5
+        sprintSpeedModifier: 0.5
+        conditions:
+        - !type:SameDNA
+
+- type: reagent
+  id: AnodynafilBlood
+  parent: Anodynafil
+  name: reagent-name-anodynafil-blood
+  desc: reagent-desc-anodynafil-blood
+  color: "#b9b6ce"
+
+- type: reagent
+  id: AnodynafilInsectBlood
+  parent: Anodynafil
+  name: reagent-name-anodynafil-insect-blood
+  desc: reagent-desc-anodynafil-insect-blood
+  color: "#88c5b0"
+
+- type: reagent
+  id: AnodynafilSlime
+  parent: Anodynafil
+  name: reagent-name-anodynafil-slime
+  desc: reagent-desc-anodynafil-slime
+  color: "#5ecd94"
+
+- type: reagent
+  id: AnodynafilSap
+  parent: Anodynafil
+  name: reagent-name-anodynafil-sap
+  desc: reagent-desc-anodynafil-sap
+  color: "#c9b5a1"
+
+- type: reagent
+  id: AnodynafilCopperBlood
+  parent: Anodynafil
+  name: reagent-name-anodynafil-copper-blood
+  desc: reagent-desc-anodynafil-copper-blood
+  color: "#7cbdff"
+
+- type: reagent
+  id: AnodynafilAmmoniaBlood
+  parent: Anodynafil
+  name: reagent-name-anodynafil-ammonia-blood
+  desc: reagent-desc-anodynafil-ammonia-blood
+  color: "#a9b7e4"
