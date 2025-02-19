@@ -666,7 +666,16 @@
     Drink:
       effects:
         - !type:SatiateThirst
+          conditions: # Delta-V nerf of saline for Feroxi
+          - !type:OrganType
+            type: Feroxi
+            shouldHave: false
           factor: 6
+        - !type:SatiateThirst # Delta-V nerf of saline for Feroxi
+          conditions:
+          - !type:OrganType
+            type: Feroxi
+          factor: 2
         - !type:ModifyBloodLevel
           amount: 6
 
@@ -1180,7 +1189,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 12
-          
+
 - type: reagent
   id: Opporozidone #Name based of an altered version of the startreck chem "Opporozine"
   name: reagent-name-opporozidone
