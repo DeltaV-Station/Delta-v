@@ -617,10 +617,10 @@
   parent: FlippoLighter
   id: DonkcoLighter
   name: Donk Co. flippo
-  description: "A robust mass produced lighter. The Waffle Co. logo turns the spark wheel when pushed up, minimising risk of lighter burns for even the most inept user."
+  description: "The flippo of choice for the seasoned traitor. A Breaded novelty lighter made by Donk Co. Somehow edible while lit."
   components:
   - type: Sprite
-    sprite: _DV/Objects/Tools/corporatelighters/waffleco.rsi
+    sprite: _DV/Objects/Tools/corporatelighters/donkco.rsi
     layers:
     - state: icon
       map: ["base"]
@@ -635,8 +635,33 @@
       visible: false
       shader: unshaded
   - type: Item
-    sprite: _DV/Objects/Tools/corporatelighters/waffleco.rsi
+    sprite: _DV/Objects/Tools/corporatelighters/donkco.rsi
   - type: Welder #
+  - type: Tag
+    tags:
+    - DonkPocket
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 12
+        maxVol: 12
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Omnizine
+          Quantity: 10
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - meaty
+      - cheap
+  - type: ComponentToggler
+    components:
+    - type: Food
     fuelConsumption: 0
     fuelLitCost: 0
     tankSafe: true
@@ -668,7 +693,7 @@
     enabled: false
     netsync: false
     radius: 2
-    color: brown
+    color: orange
 
 - type: entity
   parent: FlippoLighter
