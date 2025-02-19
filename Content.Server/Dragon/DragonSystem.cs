@@ -97,12 +97,12 @@ public sealed partial class DragonSystem : EntitySystem
             if (!_mobState.IsDead(uid))
                 comp.RiftAccumulator += frameTime;
 
-            // Delete it, naughty dragon!
-            if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)
-            {
-                Roar(uid, comp);
-                QueueDel(uid);
-            }
+            // Delete it, naughty dragon! // DeltaV - Dragons can stay alive
+            //if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)
+            //{
+            //    Roar(uid, comp);
+            //    QueueDel(uid);
+            //}
         }
     }
 
