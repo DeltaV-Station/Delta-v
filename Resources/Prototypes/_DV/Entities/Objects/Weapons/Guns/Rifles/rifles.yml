@@ -249,9 +249,9 @@
   - type: Item
     size: Large
   - type: Tag # Remove the revolver default tags
+    tags: []
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Rifles/gavel.rsi
-    quickEquip: false
     slots:
     - Back
     - suitStorage
@@ -259,7 +259,6 @@
   - type: Gun
     fireRate: 1
     maxAngle: 31.5 # because mandated weilding this (should) correct to 1.5
-    angleIncrease:
   - type: RevolverAmmoProvider
     capacity: 7 # This is to make it stand out a lil bit despite being slower than sidearm revolvers
     chambers: [ True, True, True, True, True, True, True ]
