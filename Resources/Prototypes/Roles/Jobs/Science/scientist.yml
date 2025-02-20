@@ -3,10 +3,10 @@
   name: job-name-scientist
   description: job-description-scientist
   playTimeTracker: JobScientist
-  antagAdvantage: 2 # DeltaV - Protolathe, anomaly stuff, glimmer factor.   
+  antagAdvantage: 2 # DeltaV - Protolathe, anomaly stuff, glimmer factor.
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Epistemics # DeltaV - Epistemics Department replacing Science
+      department: Epistemics # DeltaV - Epistemics replacing Science
       time: 14400 #4 hrs
   startingGear: ScientistGear
   icon: "JobIconScientist"
@@ -14,7 +14,7 @@
   access:
   - Research
   - Maintenance
-  extendedAccess: # DeltaV: Scientists get robotics access on lowpop
+  extendedAccess: # DeltaV - Scientists get robotics access on lowpop
   - Robotics
 
 - type: startingGear

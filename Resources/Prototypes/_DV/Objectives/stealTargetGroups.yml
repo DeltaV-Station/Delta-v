@@ -18,7 +18,7 @@
   sprite:
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     state: base
-    
+
 - type: stealTargetGroup
   id: BoxFolderRdClipboard
   name: steal-target-groups-box-folder-rd-clipboard
@@ -40,11 +40,10 @@
     sprite: _DV/Mobs/Pets/silvia.rsi
     state: silvia
 
-- type: stealTargetGroup
-  id: DefibrillatorCompactAdvanced
-  name: steal-target-groups-defibrillator-compact-advanced
+  id: PlutoniumCore
+  name: steal-target-groups-plutonium-core
   sprite:
-    sprite: DeltaV/Objects/Medical/advancedcompactdefib.rsi
+    sprite: _DV/Objects/Misc/plutonium_core.rsi
     state: icon
 
 # Ninja
