@@ -1,58 +1,4 @@
 ﻿Entries:
-- author: Fox
-  changes:
-  - message: Edge Station has finished being refit, new sec, new evac, and a vox-safe
-      service area!
-    type: Add
-  id: 548
-  time: '2024-09-15T00:30:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1599
-- author: adeinitas
-  changes:
-  - message: Shoukou's Epistemics has moved and there is a new library where it was.
-    type: Tweak
-  id: 549
-  time: '2024-09-15T02:55:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1703
-- author: Colin-Tel
-  changes:
-  - message: Chibi's max population has been lowered from 10 to 4.
-    type: Tweak
-  - message: Asterisk's max population has been lowered from 70 to 50.
-    type: Tweak
-  id: 550
-  time: '2024-09-15T03:34:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1758
-- author: deltanedas
-  changes:
-  - message: Merged upstream changes for this week.
-    type: Add
-  id: 551
-  time: '2024-09-16T15:41:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1825
-- author: deltanedas
-  changes:
-  - message: Plant Bag of Holding is now much cheaper to make.
-    type: Tweak
-  id: 552
-  time: '2024-09-16T23:39:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1832
-- author: deltanedas
-  changes:
-  - message: The Uncloneable trait's failure message is clearer now.
-    type: Tweak
-  id: 553
-  time: '2024-09-17T03:49:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1840
-- author: deltanedas
-  changes:
-  - message: Made the random sentience event a glimmer event.
-    type: Tweak
-  - message: Fixed glimmer events never running.
-    type: Fix
-  id: 554
-  time: '2024-09-17T05:44:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1834
 - author: Beck Thompson
   changes:
   - message: The "Die a glorious death" objective is now limited to one traitor per
@@ -3860,3 +3806,87 @@
   id: 1047
   time: '2025-02-18T09:06:06.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2464
+- author: Toby222
+  changes:
+  - message: Felinid footsteps no longer explode as soon as they put on shoes
+    type: Fix
+  id: 1048
+  time: '2025-02-18T17:08:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3004
+- author: Lyndomen
+  changes:
+  - message: IPC batteries now last 15% longer
+    type: Tweak
+  - message: IPCs can no longer be emagged
+    type: Remove
+  - message: IPCs now start with a survival box full of healing items
+    type: Add
+  - message: IPCs now take radiation and cold damage, with 50% resistance to both
+    type: Tweak
+  - message: IPCs may be cleansed of radiation with Plasma Sheets
+    type: Add
+  - message: IPCs now have a bloodstream of Oil. They do not regenerate oil, or stop
+      bleeding without intervention. They will very very slowly tick Blunt damage
+      when low on Oil.
+    type: Add
+  - message: IPC bleeding may be stopped with a Plastic Sheet or welding
+    type: Tweak
+  - message: IPCs may get back Oil by using an Oil Pack, printable at the medical
+      techfab or exosuit fabricator roundstart, or purchasable by logistics
+    type: Add
+  - message: Syndicate members may purchase a Silicon focused repair and recharge
+      kit; the Omnipatch Kit
+    type: Add
+  id: 1049
+  time: '2025-02-18T19:44:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2979
+- author: dvir001
+  changes:
+  - message: Added the plant box storage, you can now buy a big storage for plants
+      from cargo.
+    type: Add
+  id: 1050
+  time: '2025-02-18T19:47:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2994
+- author: Lyndomen
+  changes:
+  - message: Emergency Evac shuttle now takes 3 minutes to depart
+    type: Tweak
+  - message: Periapsis & Horizon now have a 3 hour default timer. Feel free to leave
+      earlier by calling the shuttle.
+    type: Tweak
+  - message: Command may now truly early launch the shuttle. Do not abuse this, command
+      is held to a high standard.
+    type: Tweak
+  - message: Recalling the shuttle got a little easier, it can now be recalled 2~
+      minutes later.
+    type: Tweak
+  - message: The shuttle will now arrive in 10 minutes on Code Delta, not 20.
+    type: Tweak
+  id: 1051
+  time: '2025-02-19T04:04:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2944
+- author: Lyndomen
+  changes:
+  - message: Ahelping the exact same thing 6 times will get one automatically banned.
+      File an appeal if this was in error.
+    type: Add
+  id: 1052
+  time: '2025-02-19T04:21:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3010
+- author: Toby222
+  changes:
+  - message: Mail teleporters now notify about new mail in the Logistics comms channel
+    type: Add
+  id: 1053
+  time: '2025-02-19T11:37:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2989
+- author: Lyndomen
+  changes:
+  - message: IPC bloodloss no longer causes more bleeding
+    type: Tweak
+  - message: IPCs eyes may be repaired with glass again
+    type: Fix
+  id: 1054
+  time: '2025-02-20T01:08:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3016
