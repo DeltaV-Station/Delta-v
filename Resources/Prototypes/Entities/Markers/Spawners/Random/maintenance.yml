@@ -205,7 +205,7 @@
         children:
         - id: NitrogenTankFilled
         - id: DoubleEmergencyNitrogenTankFilled
-      - !type:GroupSelector # DeltaV - Random water vapor tanks spawn to
+      - !type:GroupSelector # DeltaV - Random water vapor tanks spawn too
         children:
         - id: WaterVaporTankFilled
         - id: DoubleEmergencyWaterVaporTankFilled

@@ -12,19 +12,21 @@ public sealed partial class FeroxiDehydrateComponent : Component
     /// <summary>
     /// Defines which <see cref="MetabolizerTypePrototype"> to use when over the <see cref="DehydrationThreshold"/>
     /// </summary>
-    [DataField]
+    [DataField(required: true)]
     public ProtoId<MetabolizerTypePrototype> HydratedMetabolizer;
+
     /// <summary>
     /// Defines which <see cref="MetabolizerTypePrototype"=> to use when below the <see cref="DehydrationThreshold"/>
     /// </summary>
-    [DataField]
+    [DataField(required: true)]
     public ProtoId<MetabolizerTypePrototype> DehydratedMetabolizer;
 
     [DataField]
-    public bool Dehydrated;
+    public bool Dehydrated = false;
+
     /// <summary>
     /// Gives the threshold on when to flip between <see cref="HydratedMetabolizer"/> and <see cref="DehydratedMetabolizer"/>
     /// </summary>
-    [DataField]
+    [DataField(required: true)]
     public float DehydrationThreshold;
 }

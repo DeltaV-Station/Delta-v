@@ -8,7 +8,6 @@ public sealed class FeroxiDehydrateSystem : EntitySystem
 {
     [Dependency] private readonly BodySystem _body = default!;
 
-
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<FeroxiDehydrateComponent, ThirstComponent>();
