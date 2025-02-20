@@ -168,6 +168,8 @@
             state: hands
 
   - type: UserInterface
+    interfaces:
       enum.ThavenMoodsUiKey.Key: # impstation edit
         type: ThavenMoodsBoundUserInterface
         requireInputValidation: false
+    
