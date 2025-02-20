@@ -1,4 +1,4 @@
-﻿- type: vendingMachineInventory
+- type: vendingMachineInventory
   id: DiscountDansInventory
   startingInventory:
     FoodSnackCheesie: 3
@@ -9,3 +9,6 @@
     FoodSnackEnergy: 3
     CigPackMixed: 2
     DiscountDanLighter: 2 #DeltaV - branded lighter addition
+  contrabandInventory:
+    FoodSnackDanDanNoodles: 3
+    FoodBakedBunHoney: 3

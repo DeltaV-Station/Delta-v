@@ -1,0 +1,13 @@
+﻿- type: stack
+  id: Oilpack
+  name: oil pack
+  icon: { sprite: "/Textures/_DV/Objects/Medical/Oilpack.rsi", state: icon }
+  spawn: Oilpack
+  maxCount: 5
+
+- type: stack
+  id: OmniPatch
+  name: omni patch
+  icon: { sprite: "/Textures/_DV/Objects/Medical/Omnipatch.rsi", state: icon }
+  spawn: OmniPatch
+  maxCount: 10
