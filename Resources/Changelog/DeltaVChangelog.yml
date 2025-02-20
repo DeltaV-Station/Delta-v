@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Beck Thompson
-  changes:
-  - message: The "Die a glorious death" objective is now limited to one traitor per
-      round maximum!
-    type: Tweak
-  id: 555
-  time: '2024-09-17T05:47:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1819
 - author: Fox
   changes:
   - message: New Lobby Track "Get It Done" by A-Guy
@@ -3890,3 +3882,10 @@
   id: 1054
   time: '2025-02-20T01:08:46.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3016
+- author: Eternally-Confused
+  changes:
+  - message: omnipatch stacks now correctly include 10 patches
+    type: Fix
+  id: 1055
+  time: '2025-02-20T23:06:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3014
