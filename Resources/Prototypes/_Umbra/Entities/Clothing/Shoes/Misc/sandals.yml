@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesSandals
+  name: sandals
+  description: A pair of fine adjustable leather sandals. Reptilians' top choice.
+  components:
+  - type: Sprite
+    sprite: _Umbra/Clothing/Shoes/Misc/sandals.rsi
+  - type: Clothing
+    sprite: _Umbra/Clothing/Shoes/Misc/sandals.rsi
