@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Made the random sentience event a glimmer event.
-    type: Tweak
-  - message: Fixed glimmer events never running.
-    type: Fix
-  id: 554
-  time: '2024-09-17T05:44:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1834
 - author: Beck Thompson
   changes:
   - message: The "Die a glorious death" objective is now limited to one traitor per
@@ -3890,3 +3881,12 @@
   id: 1053
   time: '2025-02-19T11:37:54.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2989
+- author: Lyndomen
+  changes:
+  - message: IPC bloodloss no longer causes more bleeding
+    type: Tweak
+  - message: IPCs eyes may be repaired with glass again
+    type: Fix
+  id: 1054
+  time: '2025-02-20T01:08:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3016
