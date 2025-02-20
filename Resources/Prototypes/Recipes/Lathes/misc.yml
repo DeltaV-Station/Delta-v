@@ -57,6 +57,11 @@
 
 - type: latheRecipe
   parent: BaseLightRecipe
+  id: WarmLightBulb
+  result: WarmLightBulb
+
+- type: latheRecipe
+  parent: BaseLightRecipe
   id: GlowstickRed
   result: GlowstickRed
   materials:
@@ -187,6 +192,11 @@
   result: FloorTileItemAstroSnow
 
 - type: latheRecipe
+  parent: BaseFauxTileRecipe
+  id: FauxTileAstroAsteroidSand
+  result: FloorTileItemAstroAsteroidSand
+
+- type: latheRecipe
   id: FloorGreenCircuit
   result: FloorTileItemGCircuit4
   completetime: 2
@@ -227,37 +237,3 @@
   completetime: 3
   materials:
     Plastic: 200
-
-# Start Delta-V
-
-- type: latheRecipe
-  id: GoldRing
-  result: GoldRing
-  completetime: 10
-  materials:
-    Gold: 500
-
-- type: latheRecipe
-  id: SilverRing
-  result: SilverRing
-  completetime: 10
-  materials:
-    Silver: 500
-
-- type: latheRecipe
-  id: GoldRingDiamond
-  result: GoldRingDiamond
-  completetime: 15
-  materials:
-    Gold: 500
-    Diamond: 100
-
-- type: latheRecipe
-  id: SilverRingDiamond
-  result: SilverRingDiamond
-  completetime: 15
-  materials:
-    Silver: 500
-    Diamond: 100
-
-# End Delta-V

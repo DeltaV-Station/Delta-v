@@ -92,7 +92,8 @@
     - id: FoodMeatGoliath
       amount: 3
     - id: MaterialGoliathHide1
-  - type: Prying # DeltaV: let sentient goliaths pry doors
+      amount: 3
+  - type: Prying # DeltaV - let sentient goliaths pry doors
     pryPowered: true
     force: true
     speedModifier: 1.5
