@@ -1,0 +1,41 @@
+- type: entity
+  parent: PresentRandom
+  id: MysteryLighterBox
+  name: Novelty lighter mystery box
+  description: A box containing a single novelty lighter from any of a long list of corporations (and discount dan). Upon realising that these boxes mostly advertised their competitors, NT quietly hid the option to dispense these.
+  suffix: Filled
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/figurines.rsi
+    layers:
+      - state: fig_box
+  - type: SpawnItemsOnUse
+    items:
+      - id: MysteryFigureBoxTrash
+      - id: CybersunFlippo
+        prob: 0.10
+        orGroup: LighterOption
+      - id: InterdyneFlippo
+        prob: 0.10
+        orGroup: LighterOption
+      - id: NanotrasenFlippo
+        prob: 0.05
+        orGroup: LighterOption
+      - id: SpiderclanFlippo
+        prob: 0.05
+        orGroup: LighterOption
+      - id: WaffleCoFlippo
+        prob: 0.15
+        orGroup: LighterOption
+      - id: HonkCoFlippo
+        prob: 0.10
+        orGroup: LighterOption
+      - id: GorlexMatchbox
+        prob: 0.05
+        orGroup: LighterOption
+      - id: DiscountDanLighter
+        prob: 0.20
+        orGroup: LighterOption
+      - id: DonkcoLighter
+        prob: 0.05
+        orGroup: LighterOption

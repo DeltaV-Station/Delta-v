@@ -157,6 +157,10 @@
     fuelConsumption: 0
     fuelLitCost: 0
     tankSafe: true
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+          Radiation: 1
   - type: GenericVisualizer
     visuals:
       enum.ToggleVisuals.Toggled:

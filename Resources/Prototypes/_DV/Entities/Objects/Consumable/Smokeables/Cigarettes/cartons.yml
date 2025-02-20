@@ -33,6 +33,7 @@
   parent: CigCartonGreen
   name: Interdyne Herbals carton
   description: A carton containing 6 packets of Interdynes, plus an exclusive flippo.
+  suffix: Weapon
   components:
   - type: Sprite
     sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Cartons/syndicate.rsi
@@ -54,3 +55,15 @@
     - ClothingBackpackHolding
     - ClothingBackpackDuffelHolding
     - ClothingBackpackSatchelHolding
+
+- type: entity
+  id: CigCartonSyndicateSafe
+  parent: CigCartonSyndicate
+  suffix: Safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: CigPackSyndicate
+      amount: 6
+    - id: InterdyneFlippo
+      amount: 1
