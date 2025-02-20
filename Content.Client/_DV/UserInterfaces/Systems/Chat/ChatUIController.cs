@@ -97,8 +97,9 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
             : highlights.Split("\n");
 
         _highlights.Clear();
-        // If the word is surrounded by "" we replace them with a whole-word regex tag.
-        _highlights.AddRange(allHighlights.Select(highlight => highlight.Replace("\"", "\\b")));
+        // Use `"` as layman symbol for Regex `\b`, ignore all other special sequences
+        // (Without the escape, a name like `Robert'); DROP TABLE users; --` breaks all messsages)
+        _highlights.AddRange(allHighlights.Select(highlight => Regex.Escape(highlight).Replace("\"", "\\b")));
 
         // Arrange the list in descending order so that when highlighting,
         // the full word (eg. "Security") appears before the abbreviation (eg. "Sec").
