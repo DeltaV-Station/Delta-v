@@ -118,7 +118,7 @@ thaven-mood-centrist-desc = You are ambivalent towards any and all decisions, an
 thaven-mood-public-sector-name = Public Sector
 thaven-mood-public-sector-desc = Your job should not be done in private if it can be helped. If at all possible, you should renovate the facilities to allow public access to a view of your workplace.
 
-thaven-mood-stinky-name = Everyone is Stinky
+thaven-mood-stinky-name = Everyone Stinks
 thaven-mood-stinky-desc = The smell of the crew revolts you. You must inform them of their stench.
 
 thaven-mood-zen-arcade-name = Zen Arcade
