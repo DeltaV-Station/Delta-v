@@ -61,8 +61,8 @@
     proto: guardian
   - type: Vocal
     sounds:
-      Male: MaleThaven
-      Female: FemaleThaven
+      Male: UnisexThaven
+      Female: UnisexThaven
       Unsexed: UnisexThaven
   - type: Speech
     speechSounds: Alto
@@ -167,7 +167,7 @@
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: hands
 
+  - type: UserInterface
       enum.ThavenMoodsUiKey.Key: # impstation edit
         type: ThavenMoodsBoundUserInterface
         requireInputValidation: false
-    
