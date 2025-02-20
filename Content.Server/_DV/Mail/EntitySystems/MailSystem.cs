@@ -13,6 +13,7 @@ using Content.Server.Destructible;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
+using Content.Server.Radio.EntitySystems; // ImpStation - for radio notifications of new mail
 using Content.Server.Spawners.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
@@ -32,6 +33,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.PDA;
+using Content.Shared.Radio; // ImpStation - for radio notifications of new mail
 using Content.Shared.Roles;
 using Content.Shared.Storage;
 using Content.Shared.Tag;
@@ -69,8 +71,8 @@ namespace Content.Server._DV.Mail.EntitySystems
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
 
-        // DeltaV - system that keeps track of mail and cargo stats
         [Dependency] private readonly LogisticStatsSystem _logisticsStatsSystem = default!;
+        [Dependency] private readonly RadioSystem _radioSystem = default!; // ImpStation - for radio notifications of new mail
 
         private ISawmill _sawmill = default!;
 
@@ -104,11 +106,12 @@ namespace Content.Server._DV.Mail.EntitySystems
 
                 mailTeleporter.Accumulator += frameTime;
 
-                if (mailTeleporter.Accumulator < mailTeleporter.TeleportInterval.TotalSeconds)
-                    continue;
-
-                mailTeleporter.Accumulator -= (float)mailTeleporter.TeleportInterval.TotalSeconds;
-                SpawnMail(uid, mailTeleporter);
+                if (mailTeleporter.Accumulator >= mailTeleporter.TeleportInterval.TotalSeconds)
+                {
+                    mailTeleporter.Accumulator -= (float)mailTeleporter.TeleportInterval.TotalSeconds;
+                    var timeUntilNextMail = TimeSpan.FromSeconds(double.Round(mailTeleporter.TeleportInterval.TotalSeconds - mailTeleporter.Accumulator));
+                    SpawnMail(uid, timeUntilNextMail, mailTeleporter);
+                }
             }
         }
 
@@ -119,7 +122,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         {
             if (args.SpawnResult == null ||
                 args.Job == null ||
-                args.Station is not {} station)
+                args.Station is not { } station)
             {
                 return;
             }
@@ -162,16 +165,16 @@ namespace Content.Server._DV.Mail.EntitySystems
             if (!component.IsPriority)
                 return;
 
-                // This is a successful delivery. Keep the failure timer from triggering.
-                component.PriorityCancelToken?.Cancel();
+            // This is a successful delivery. Keep the failure timer from triggering.
+            component.PriorityCancelToken?.Cancel();
 
-                // The priority tape is visually considered to be a part of the
-                // anti-tamper lock, so remove that too.
-                _appearanceSystem.SetData(uid, MailVisuals.IsPriority, false);
+            // The priority tape is visually considered to be a part of the
+            // anti-tamper lock, so remove that too.
+            _appearanceSystem.SetData(uid, MailVisuals.IsPriority, false);
 
-                // The examination code depends on this being false to not show
-                // the priority tape description anymore.
-                component.IsPriority = false;
+            // The examination code depends on this being false to not show
+            // the priority tape description anymore.
+            component.IsPriority = false;
         }
 
         /// <summary>
@@ -506,7 +509,7 @@ namespace Content.Server._DV.Mail.EntitySystems
 
                 mailComp.PriorityCancelToken = new CancellationTokenSource();
 
-                Timer.Spawn((int) component.PriorityDuration.TotalMilliseconds,
+                Timer.Spawn((int)component.PriorityDuration.TotalMilliseconds,
                     () =>
                     {
                         // DeltaV - Expired mail recorded to logistic stats
@@ -636,7 +639,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         /// <summary>
         /// Handle the spawning of all the mail for a mail teleporter.
         /// </summary>
-        private void SpawnMail(EntityUid uid, MailTeleporterComponent? component = null)
+        private void SpawnMail(EntityUid uid, TimeSpan timeUntilNextMail, MailTeleporterComponent? component = null)
         {
             if (!Resolve(uid, ref component))
             {
@@ -716,6 +719,18 @@ namespace Content.Server._DV.Mail.EntitySystems
                 _containerSystem.EmptyContainer(queued);
 
             _audioSystem.PlayPvs(component.TeleportSound, uid);
+            if (component.RadioNotification) // ImpStation - for radio notifications of new mail
+                Report(uid, component.RadioChannel, component.ShipmentReceivedMessage, ("timeLeft", timeUntilNextMail));
+        }
+
+        /// <summary>
+        /// ImpStation
+        /// Send a radio notification about new mail
+        /// </summary>
+        private void Report(EntityUid source, ProtoId<RadioChannelPrototype> channel, string messageKey, params (string, object)[] args)
+        {
+            var message = args.Length == 0 ? Loc.GetString(messageKey) : Loc.GetString(messageKey, args);
+            _radioSystem.SendRadioMessage(source, message, channel, source);
         }
 
         private void OpenMail(EntityUid uid, MailComponent? component = null, EntityUid? user = null)
@@ -726,7 +741,7 @@ namespace Content.Server._DV.Mail.EntitySystems
             _audioSystem.PlayPvs(component.OpenSound, uid);
 
             if (user != null)
-                _handsSystem.TryDrop((EntityUid) user);
+                _handsSystem.TryDrop((EntityUid)user);
 
             if (!_containerSystem.TryGetContainer(uid, "contents", out var contents))
             {
