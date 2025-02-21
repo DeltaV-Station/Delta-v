@@ -97,12 +97,13 @@
     layers:
     - state: icon
     - state: heart
+      shader: unshaded
     - state: screenshine
   - type: MultiHandedItem
   - type: Fixtures
     fixtures:
       fix1:
-        density: 155
+        density: 20
   - type: EmitSoundOnUse
     sound:
       path: /Audio/_EE/Voice/IPC/pai_whistle.ogg
@@ -124,5 +125,5 @@
       path: /Audio/_EE/Voice/IPC/pai_whistle.ogg
     delay: 5
   - type: HeldSpeedModifier
-    walkModifier: 0.6
-    sprintModifier: 0.6
+    walkModifier: 0.7
+    sprintModifier: 0.7
