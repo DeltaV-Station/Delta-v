@@ -1,5 +1,5 @@
-using Robust.Shared.GameStates;
 using Content.Shared.Lock;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._DV.Lock;
 

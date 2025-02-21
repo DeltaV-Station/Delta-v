@@ -2,14 +2,9 @@ using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Lock;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Popups;
-using JetBrains.Annotations;
 
 namespace Content.Shared._DV.Lock;
 
-/// <summary>
-/// Handles (un)locking and examining of Lock components
-/// </summary>
-[UsedImplicitly]
 public sealed class ItemToggleRequiresLockSystem : EntitySystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
