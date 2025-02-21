@@ -8,34 +8,10 @@
   - type: Sprite
     sprite: Objects/Fun/figurines.rsi
     layers:
-      - state: fig_box
+    state: fig_box
   - type: SpawnItemsOnUse
     items:
       - id: MysteryFigureBoxTrash
-      - id: CybersunFlippo
-        prob: 0.10
-        orGroup: LighterOption
-      - id: InterdyneFlippo
-        prob: 0.10
-        orGroup: LighterOption
-      - id: NanotrasenFlippo
-        prob: 0.05
-        orGroup: LighterOption
-      - id: SpiderclanFlippo
-        prob: 0.05
-        orGroup: LighterOption
-      - id: WaffleCoFlippo
-        prob: 0.15
-        orGroup: LighterOption
-      - id: HonkCoFlippo
-        prob: 0.10
-        orGroup: LighterOption
-      - id: GorlexMatchbox
-        prob: 0.05
-        orGroup: LighterOption
-      - id: DiscountDanLighter
-        prob: 0.20
-        orGroup: LighterOption
-      - id: DonkcoLighter
-        prob: 0.05
-        orGroup: LighterOption
+  - type: SpawnTableOnUse
+    table: BrandedFlippoTable
+

@@ -11,9 +11,6 @@ using Content.Shared.Popups;
 using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
 using Content.Shared.UserInterface;
-using Content.Shared.Item.ItemToggle; ///DeltaV -start for ItemToggleRequiresLock
-using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared._DV.Lock; ///DeltaV -end for ItemToggleRequiresLock
 using Content.Shared.Verbs;
 using Content.Shared.Wires;
 using JetBrains.Annotations;
@@ -58,8 +55,6 @@ public sealed class LockSystem : EntitySystem
 
         SubscribeLocalEvent<ActivatableUIRequiresLockComponent, ActivatableUIOpenAttemptEvent>(OnUIOpenAttempt);
         SubscribeLocalEvent<ActivatableUIRequiresLockComponent, LockToggledEvent>(LockToggled);
-
-        SubscribeLocalEvent<ItemToggleRequiresLockComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
     }
 
     private void OnStartup(EntityUid uid, LockComponent lockComp, ComponentStartup args)
@@ -410,18 +405,4 @@ public sealed class LockSystem : EntitySystem
 
         _activatableUI.CloseAll(uid);
     }
-    /// DeltaV - Start ItemToggleRequiresLockComponent logic
-    private void OnActivateAttempt(EntityUid uid, ItemToggleRequiresLockComponent component, ref ItemToggleActivateAttemptEvent args)
-    {
-        if (args.Cancelled)
-            return;
-
-        if (TryComp<LockComponent>(uid, out var lockComp) && lockComp.Locked != component.RequireLocked)
-        {
-            args.Cancelled = true;
-            if (lockComp.Locked)
-                args.Popup = Loc.GetString("lock-comp-has-user-access-fail");
-        }
-    }
-    /// DeltaV - End of ItemToggleRequiresLockComponent logic
 }

@@ -1,0 +1,17 @@
+- type: entityTable
+  id: BrandedFlippoTable
+  table: !type:GroupSelector
+    children:
+    - id: CybersunFlippo
+    - id: InterdyneFlippo
+    - id: WaffleCoFlippo
+    - id: HonkCoFlippo
+    - id: DiscountDanLighter
+    - id: GorlexMatchbox
+      weight: 0.5
+    - id: DonkcoLighter
+      weight: 0.5
+    - id: NanotrasenFlippo
+      weight: 0.25
+    - id: SpiderclanFlippo
+      weight: 0.25
