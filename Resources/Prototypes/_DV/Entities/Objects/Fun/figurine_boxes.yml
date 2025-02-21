@@ -9,9 +9,14 @@
     sprite: Objects/Fun/figurines.rsi
     layers:
     state: fig_box
-  - type: SpawnItemsOnUse
-    items:
-      - id: MysteryFigureBoxTrash
   - type: SpawnTableOnUse
-    table: BrandedFlippoTable
-
+    table:
+      !type:AllSelector
+      children:
+      - id: MysteryFigureBoxTrash
+      - !type:GroupSelector
+        children:
+        - id: CybersunFlippo
+          weight: 1
+        - id: InterdyneFlippo
+          weight: 1
