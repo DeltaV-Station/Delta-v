@@ -1,4 +1,6 @@
 - type: currency
-  id: CheapTelecrystal
-  displayName: store-currency-display-cheaptelecrystal
-  canWithdraw: false
+  id: TreatCoin
+  displayName: store-currency-display-treatcoin
+  cash:
+    1: Treatcoin1
+  canWithdraw: true

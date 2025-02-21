@@ -1,1 +1,1 @@
-store-currency-display-cheaptelecrystal = TC?
+store-currency-display-treatcoin = TC

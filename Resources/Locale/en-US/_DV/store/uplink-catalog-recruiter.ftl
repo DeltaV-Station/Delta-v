@@ -73,3 +73,6 @@ uplink-recruiter-bribe5k-desc = A 5000 Speso dividend, for use in bribing securi
 
 uplink-recruiter-holosecretary-name = Holosecretary Kit
 uplink-recruiter-holosecretary-desc = The pride and joy of Cybersun, now demoted into your secretary! The holosecretary is nearly identical to an ordinary holoparasite, but is unable to hurt anyone or anything. In exchange, it has Hands. Were not giving out more than two of these.
+
+  uplink-recruiter-nukieplush-name = Nuclear Operative Plush
+  uplink-recruiter-nukieplush-desc = a Plushie depicting a 100% fictitious "nuclear operative" in their equally fictional Blood-red hardsuit.
