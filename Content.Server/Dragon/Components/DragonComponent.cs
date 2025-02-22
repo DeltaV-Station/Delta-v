@@ -21,7 +21,7 @@ namespace Content.Server.Dragon
         /// When any rift is destroyed how long is the dragon weakened for
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite), DataField("weakenedDuration")]
-        public float WeakenedDuration = 120f;
+        public float WeakenedDuration = 60f; // DeltaV - buff dragon
 
         /// <summary>
         /// Has a rift been destroyed and the dragon in a temporary weakened state?
@@ -35,7 +35,7 @@ namespace Content.Server.Dragon
         /// <summary>
         /// Maximum time the dragon can go without spawning a rift before they die.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite), DataField("maxAccumulator")] public float RiftMaxAccumulator = 300f;
+        [ViewVariables(VVAccess.ReadWrite), DataField("maxAccumulator")] public float RiftMaxAccumulator = 600f; // DeltaV - 10 mins to die
 
         [DataField("spawnRiftAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string SpawnRiftAction = "ActionSpawnRift";

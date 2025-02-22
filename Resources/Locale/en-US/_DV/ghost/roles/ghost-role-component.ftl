@@ -61,4 +61,4 @@ deltav-ghost-role-information-salvageantag-rules =  You are a salvage mob.
                                                     You are allowed to attack the salvage shuttle.
                                                     You are NOT allowed to go to the station. If the salvagers go to the station, you can't follow them.
 
-deltav-ghost-role-information-space-dragon-description = Call in 3 carp rifts and take over this quadrant!
+deltav-ghost-role-information-space-dragon-description = Call in 3 carp rifts and take over this quadrant! You must place a rift every 10 minutes or suffer the consequences!

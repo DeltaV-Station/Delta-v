@@ -97,13 +97,19 @@ public sealed partial class DragonSystem : EntitySystem
             if (!_mobState.IsDead(uid))
                 comp.RiftAccumulator += frameTime;
 
-            /* DeltaV - Dragons can stay alive
-            // Delete it, naughty dragon!
-            if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)
+          	// DeltaV - begin Dragon changes
+            if (comp.RiftAccumulator = .5 * comp.RiftMaxAccumulator) // dragon has half the time left
             {
                 Roar(uid, comp);
-                QueueDel(uid);
-            }*/
+				_popup.PopupEntity(Loc.GetString("deltav-dragon-halftime-popup"), uid, uid);
+			}
+
+            if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)  // dragon is out of time
+            {
+                Roar(uid, comp);
+                Damageable.TryChangeDamage(uid, new DamageSpecifier(DamageType.Blunt, 400)); // gib time
+            }
+			// DeltaV - end Dragon changes
         }
     }
 
