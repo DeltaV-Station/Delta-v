@@ -82,6 +82,13 @@
     state: rd_clipboard
 
 - type: stealTargetGroup
+  id: BibleMystagogue
+  name: steal-target-groups-bible-mystagogue
+  sprite:
+    sprite: Nyanotrasen/Objects/Specific/Chapel/holylight.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: AnimalSilvia
   name: steal-target-groups-silvia
   sprite:

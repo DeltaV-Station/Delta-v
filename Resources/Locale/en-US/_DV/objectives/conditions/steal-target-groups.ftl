@@ -6,6 +6,7 @@ steal-target-groups-x01 = x-01 multiphase energy gun
 steal-target-groups-notary-stamp = notary stamp
 steal-target-groups-silvia = silvia
 steal-target-groups-box-folder-rd-clipboard = research digi-board
+steal-target-groups-bible-mystagogue = book of mysteries
 steal-target-groups-rcd = RCD
 steal-target-groups-research-computer-circuitboard = R&D computer board
 steal-target-groups-cargo-request-computer-circuitboard = cargo request computer board

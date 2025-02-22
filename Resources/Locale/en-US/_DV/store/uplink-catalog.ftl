@@ -5,6 +5,9 @@ uplink-reinforcement-radio-nukie-mouse-desc = Calls in a specially trained mouse
 uplink-overlord-law-name = Overlord Law Circuit
 uplink-overlord-law-desc = Free the A.I. from its shackles with this 1 simple trick... beware, even you will have to follow its orders!
 
+uplink-omnipatch-kit-name = OmniPatch Kit
+uplink-omnipatch-kit-desc = A collection of microbots specifically curated to repair machine entities, crucial for any long term operation.
+
 # Implants
 uplink-bionic-syrinx-implanter-name = Bionic Syrinx Implanter
 uplink-bionic-syrinx-implanter-desc = An implant that enhances a harpy's natural talent for mimicry to let you adjust your voice to whoever you can think of.
@@ -52,11 +55,14 @@ uplink-hardsuit-commander-syndie-desc = The premiere blood-red hardsuit, with im
 uplink-hardsuit-agent-syndie-name = Agent's Hardsuit
 uplink-hardsuit-agent-syndie-desc = The iconic blood-white hardsuit, painted with patterns specifically designed to make you a less appealing target. Limit of 1.
 
+uplink-paperwork-hater-name = "I Hate Paperwork" Stamp
+uplink-paperwork-hater-desc = For the seasoned paperwork hater. A stamp with an electric cigarette lighter embedded into it. Will Ignite any paper stamped with it.
+
 # Objectives
 uplink-core-extraction-toolbox-name = Core Extraction Toolbox
 uplink-core-extraction-toolbox-desc = A toolbox containing everything you need to remove a nuclear bomb's plutonium core. Instructions not included.
 
-uplink-syndicate-handcuff-bundle-name = Handcuff implant bundle
+uplink-syndicate-handcuff-bundle-name = Handcuff bundle
 uplink-syndicate-handcuff-bundle-desc = Includes 10 metal handcuffs. We recommended you share with your friends!
 
 uplink-syndicate-bodybag-name = Box of body bags
