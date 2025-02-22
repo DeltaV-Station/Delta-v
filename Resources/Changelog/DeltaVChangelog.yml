@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: DisposableCrewmember42
-  changes:
-  - message: Shut the oracle up. Scientists may now research in peace.
-    type: Tweak
-  id: 557
-  time: '2024-09-17T14:09:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1786
 - author: deltanedas
   changes:
   - message: You no longer need a crowbar to pry powered firelocks open.
@@ -3889,3 +3882,12 @@
   id: 1056
   time: '2025-02-20T23:20:35.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3020
+- author: Stop-Signs
+  changes:
+  - message: Disaster pizza crate is no longer orderable
+    type: Remove
+  - message: Emergency pizza crate now costs more
+    type: Tweak
+  id: 1057
+  time: '2025-02-22T01:30:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3013
