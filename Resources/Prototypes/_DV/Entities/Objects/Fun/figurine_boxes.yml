@@ -2,21 +2,18 @@
   parent: PresentRandom
   id: MysteryLighterBox
   name: Novelty lighter mystery box
-  description: A box containing a single novelty lighter from any of a long list of corporations (and discount dan). Upon realising that these boxes mostly advertised their competitors, NT quietly hid the option to dispense these.
   suffix: Filled
+  description: A box containing a single novelty lighter from any of a long list of corporations (and discount dan). Upon realising that these boxes mostly advertised their competitors, NT quietly hid the option to dispense these.
   components:
   - type: Sprite
     sprite: Objects/Fun/figurines.rsi
     layers:
-    state: fig_box
+    - state: fig_box
   - type: SpawnTableOnUse
-    table:
-      !type:AllSelector
+    table: !type:AllSelector
       children:
       - id: MysteryFigureBoxTrash
       - !type:GroupSelector
         children:
         - id: CybersunFlippo
-          weight: 1
         - id: InterdyneFlippo
-          weight: 1
