@@ -80,5 +80,11 @@ namespace Content.Server.Dragon
             },
         };
 
+        /// <summary>
+        ///DeltaV stops the halftime popup from displaying 1000 times
+        /// </summary>
+        [DataField]
+        public bool HalftimePopupShown = false;
+
     }
 }
