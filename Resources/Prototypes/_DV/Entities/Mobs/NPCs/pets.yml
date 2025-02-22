@@ -87,6 +87,20 @@
         Base: dead
         BaseUnshaded: dead_mouth
         BaseUnshadedAccessory: suit_dead
+  - type: Accentless
+    removes:
+    - type: ReplacementAccent
+      accent: genericAggressive
+  - type: Body
+    prototype: Human # For two hands.
+  - type: InnateTool
+    tools:
+      - id: LuxuryPen
+      - id: RubberStampCarpy
+  - type: Inventory
+    speciesId: carp
+    templateId: carpy
+  - type: Hands
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -98,6 +112,39 @@
       department: Justice
       time: 3600 # 1 hours
   - type: GhostTakeoverAvailable
+  - type: UserInterface
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+
+- type: entity
+  name: legal carp stamp
+  parent: RubberStampBase
+  id: RubberStampCarpy
+  suffix: DO NOT MAP
+  description: A stamp specially designed for legal carps, to mark documents that aren't fishy.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-carpy
+    stampedColor: "#a81f3d"
+    stampState: "paper_stamp-notary"
+  - type: Sprite
+    sprite: _DV/Objects/Misc/stamps.rsi
+    state: stamp-notary
+
+- type: inventoryTemplate
+  id: carpy
+  slots:
+  - name: id
+    slotTexture: id
+    slotFlags: IDCARD
+    slotGroup: SecondHotbar
+    stripTime: 6
+    uiWindowPos: 2,1
+    strippingWindowPos: 2,4
+    displayName: ID
 
 - type: entity
   name: Silvia
