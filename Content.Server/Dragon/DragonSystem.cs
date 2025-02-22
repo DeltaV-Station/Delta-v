@@ -100,7 +100,7 @@ public sealed partial class DragonSystem : EntitySystem
                 comp.RiftAccumulator += frameTime;
 
             // DeltaV - begin Dragon changes
-            if (comp.RiftAccumulator == 0.5 * comp.RiftMaxAccumulator) // at halftime tell them they gonna die
+            if (Math.Round(comp.RiftAccumulator) == 0.5 * comp.RiftMaxAccumulator) // at halftime tell them they gonna die
             {
                 Roar(uid, comp);
               _popup.PopupEntity(Loc.GetString("deltav-dragon-halftime-popup"),uid,uid);
