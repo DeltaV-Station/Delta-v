@@ -9928,12 +9928,6 @@ entities:
     - type: Transform
       pos: -12.5,-46.5
       parent: 100
-    - type: Door
-      secondsUntilStateChange: -4461.0415
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 19646
     components:
     - type: MetaData
@@ -14217,6 +14211,13 @@ entities:
     components:
     - type: Transform
       pos: 35.5,51.5
+      parent: 100
+- proto: Autoclave
+  entities:
+  - uid: 22032
+    components:
+    - type: Transform
+      pos: -15.5,48.5
       parent: 100
 - proto: Autolathe
   entities:
@@ -80089,6 +80090,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -20.5,-58.5
+      parent: 100
+  - uid: 22033
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -19.5,-58.5
       parent: 100
 - proto: GasPipeTJunction
   entities:
