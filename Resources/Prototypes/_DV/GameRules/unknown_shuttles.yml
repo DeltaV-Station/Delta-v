@@ -100,9 +100,6 @@
   - type: StationEvent
     weight: 2
     minimumPlayers: 35 #big threat, but has to have ghosts to matter
-    maxOccurrences: 1
-    duration: 1
-  - type: RuleGrids
   - type: LoadMapRule
     preloadedGrid: SyndieRoboticistShip
   - type: AntagSpawner

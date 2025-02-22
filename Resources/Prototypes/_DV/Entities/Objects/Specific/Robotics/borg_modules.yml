@@ -82,6 +82,19 @@
     - WeaponEnergyGunMiniRecharging
 
 # Syndicate modules
+
+- type: entity
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  id: BaseBorgModuleSyndie
+  abstract: true
+  name: unfinished martyr cyborg module
+  description: This unfinished module has a large space for an explosive payload, with "boom" helpfully scribbled under it.
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+
 - type: entity
   parent: BorgModuleMartyr
   id: BorgModuleMartyrDud
@@ -110,15 +123,11 @@
     - RechargingRadioJammer
 
 - type: entity
-  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  parent: BaseBorgModuleSyndie
   id: BorgModuleBlades # locked behind Syndie exofab
   name: blade cyborg module
   description: "A module that comes with enough knives to poke your eye out."
   components:
-  - type: Sprite
-    layers:
-    - state: syndicate
-    - state: icon-syndicate
   - type: ItemBorgModule
     items:
     - Cutlass
@@ -127,29 +136,21 @@
     - KnifePlastic
 
 - type: entity
-  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  parent: BaseBorgModuleSyndie
   id: BorgModuleCHIMP # locked behind Syndie exofab
   name: Experimental C.H.I.M.P. cyborg module
-  description: "A module that comes with an unrechargable experimental C.H.I.M.P. handcannon."
+  description: "A module that comes with an unrechargable experimental C.H.I.M.P. handcannon. Cheap and disposable."
   components:
-  - type: Sprite
-    layers:
-    - state: syndicate
-    - state: icon-syndicate
   - type: ItemBorgModule
     items:
     - WeaponPistolCHIMPUpgraded
 
 - type: entity
-  parent: [ BaseBorgModule, BaseProviderBorgModule, ClothingEyesHudSyndicate]
+  parent: [ BaseBorgModuleSyndie, ClothingEyesHudSyndicate]
   id: BorgModuleSyndicateRadio # locked behind Syndie exofab
   name: syndicate radio cyborg module
   description: "A module that comes with a syndicate handheld radio and PDA."
   components:
-  - type: Sprite
-    layers:
-    - state: syndicate
-    - state: icon-syndicate
   - type: ItemBorgModule
     items:
     - RadioHandheldSyndicate
@@ -161,29 +162,21 @@
     - Biological
 
 - type: entity
-  parent: [ BaseBorgModule, BaseProviderBorgModule]
+  parent: BaseBorgModuleSyndie
   id: BorgModuleCrewMonitor # locked behind Syndie exofab
   name: crew monitoring module
   description: "A module that comes with a crew monitor."
   components:
-  - type: Sprite
-    layers:
-    - state: syndicate
-    - state: icon-syndicate
   - type: ItemBorgModule
     items:
     - SyndiCrewMonitorRecharging
 
 - type: entity
-  parent: [ BaseBorgModule, BaseProviderBorgModule]
+  parent: BaseBorgModuleSyndie
   id: BorgModuleChameleonProjector # locked behind Syndie exofab
   name: chameleon projector module
   description: "A module used to create a hard-light replica of any object around you."
   components:
-  - type: Sprite
-    layers:
-    - state: syndicate
-    - state: icon-syndicate
   - type: ItemBorgModule
     items:
     - ChameleonProjector
