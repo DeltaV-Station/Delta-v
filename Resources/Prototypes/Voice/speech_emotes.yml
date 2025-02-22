@@ -64,10 +64,9 @@
   category: Vocal
   icon: Interface/Emotes/honk.png
   whitelist:
-    requireAll: true
     components:
-    - Vocal
     - BorgChassis
+    - Silicon # DeltaV - Removes 'requireAll' component and adds IPCs to whitelist
   chatMessages: ["chat-emote-msg-honk"]
   chatTriggers:
     - honk

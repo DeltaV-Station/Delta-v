@@ -54,6 +54,8 @@
   - ClothingUniformJumpskirtSeniorEngineer
 
 - type: latheRecipePack
+  parent:
+  - ClothingMedicalDeltaV # DeltaV
   id: ClothingMedical
   recipes:
   - ClothingUniformJumpsuitChemistry
@@ -207,6 +209,8 @@
   - CarpetWhite
 
 - type: latheRecipePack
+  parent:
+  - ClothingCentcommDeltaV # DeltaV
   id: ClothingCentComm
   recipes:
   - ClothingHeadHatCentcomcap

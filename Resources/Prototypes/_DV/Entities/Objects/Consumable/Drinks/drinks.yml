@@ -149,3 +149,19 @@
   - type: Icon
     sprite: _DV/Objects/Consumable/Drinks/doubleicecreamglass.rsi
     state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: LemonLimeBittersGlass
+  suffix: lemon lime bitters
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: LemonLimeBitters
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/lemonlimebitters.rsi
+    state: icon
