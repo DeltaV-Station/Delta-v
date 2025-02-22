@@ -3,6 +3,7 @@ using Content.Server.Objectives.Systems;
 using Content.Server.Popups;
 using Content.Server.Roles;
 using Content.Shared.Actions;
+using Content.Shared.Damage; // DeltaV
 using Content.Shared.Dragon;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
@@ -20,6 +21,7 @@ namespace Content.Server.Dragon;
 
 public sealed partial class DragonSystem : EntitySystem
 {
+    [Dependency] private readonly DamageableSystem _damageable = default!; // DeltaV
     [Dependency] private readonly CarpRiftsConditionSystem _carpRifts = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
@@ -97,17 +99,17 @@ public sealed partial class DragonSystem : EntitySystem
             if (!_mobState.IsDead(uid))
                 comp.RiftAccumulator += frameTime;
 
-          	// DeltaV - begin Dragon changes
-            if (comp.RiftAccumulator = .5 * comp.RiftMaxAccumulator) // dragon has half the time left
+            // DeltaV - begin Dragon changes
+            if (comp.RiftAccumulator == 0.5 * comp.RiftMaxAccumulator) // at halftime tell them they gonna die
             {
                 Roar(uid, comp);
-				_popup.PopupEntity(Loc.GetString("deltav-dragon-halftime-popup"), uid, uid);
-			}
+              _popup.PopupEntity(Loc.GetString("deltav-dragon-halftime-popup"),uid,uid);
+            }
 
             if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)  // dragon is out of time
             {
                 Roar(uid, comp);
-                Damageable.TryChangeDamage(uid, new DamageSpecifier(DamageType.Blunt, 400)); // gib time
+                _damageable.TryChangeDamage(uid, comp.DeathDamage,true,true); // gib time
             }
 			// DeltaV - end Dragon changes
         }

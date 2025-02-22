@@ -1,3 +1,4 @@
+using Content.Shared.Damage; // DeltaV
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -65,5 +66,19 @@ namespace Content.Server.Dragon
         /// </summary>
         [DataField]
         public ProtoId<NpcFactionPrototype> Faction = "Dragon";
+
+        /// <summary>
+        /// DeltaV Damage dealt to dragon on death
+        /// So we dont just delete it
+        /// </summary>
+        [DataField]
+        public DamageSpecifier DeathDamage = new()
+        {
+            DamageDict = new()
+            {
+                { "Blunt", 400 },
+            },
+        };
+
     }
 }
