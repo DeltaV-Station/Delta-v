@@ -95,7 +95,8 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         TryComp<FingerprintComponent>(player, out var fingerprintComponent);
         TryComp<DnaComponent>(player, out var dnaComponent);
 
-        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, jobId, fingerprintComponent?.Fingerprint, dnaComponent?.DNA, profile, records);
+        var prints = fingerprintComponent?.Fingerprint ?? CompOrNull<FiberComponent>(player)?.Fiberprint; // DeltaV - IPCs use fibers
+        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, jobId, prints, dnaComponent?.DNA, profile, records); // DeltaV - use prints var
     }
 
 

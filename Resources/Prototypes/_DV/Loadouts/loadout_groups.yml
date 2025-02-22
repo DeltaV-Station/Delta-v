@@ -196,6 +196,14 @@
   - SalvageCloak
   - ScarfBrown
 
+- type: loadoutGroup
+  id: SalvageSpecialistJumpsuit
+  name: loadout-group-salvage-specialist-jumpsuit
+  minLimit: 0
+  loadouts:
+  - SalvageJumpsuit
+  - SalvageJumpskirt
+
 # Security
 ## Brig Medic
 - type: loadoutGroup
@@ -856,3 +864,12 @@
   - ScarfOrange
   - ScarfBlack
   - ScarfZebra
+
+# Species
+- type: loadoutGroup
+  id: GroupHumanoidSilicon
+  name: loadout-group-humanoid-silicon
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - EmergencyIPCBox

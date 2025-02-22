@@ -8,6 +8,8 @@
   - ClothingUniformSkirtCourier
   # QM
   - ClothingUniformJumpskirtQMFormal
+  # Salvage
+  - ClothingUniformJumpskirtSalvageSpecialist
 
 - type: latheRecipePack
   id: ClothingCommandDeltaV
@@ -22,6 +24,16 @@
   # Psionic Mantis
   - ClothingUniformJumpsuitMantis
   - ClothingUniformSkirtMantis
+  # Scientist
+  - ClothingUniformJumpsuitScientistFormal
+  - ClothingUniformJumpskirtScientistFormal
+
+- type: latheRecipePack
+  id: ClothingMedicalDeltaV
+  recipes:
+  # Chemist
+  - ClothingUniformJumpsuitChemShirt
+  - ClothingUniformJumpskirtChemShirt
 
 - type: latheRecipePack
   id: ClothingJustice
@@ -52,6 +64,9 @@
   - ClothingUniformJumpskirtWardenBlue
   - ClothingUniformJumpsuitWardenGrey
   - ClothingUniformJumpskirtWardenGrey
+  # Prison Guard
+  - ClothingUniformJumpsuitPrisonGuard
+  - ClothingUniformJumpskirtPrisonGuard
 
 - type: latheRecipePack
   id: WinterCoatsDeltaV
@@ -67,6 +82,15 @@
   id: BeltsDeltaV
   recipes:
   - ClothingBeltPaperwork
+
+- type: latheRecipePack
+  id: ClothingCentcommDeltaV
+  recipes:
+  - ClothingHeadHatBeretCentcomm
+  - ClothingUniformJumpskirtCentcomAgent
+  - ClothingUniformJumpskirtCentcomOfficer
+  - ClothingUniformJumpskirtCentcomOfficial
+  - ClothingHeadHatBeretCentcomm
 
 - type: latheRecipePack
   id: ClothingSyndieDeltaV
