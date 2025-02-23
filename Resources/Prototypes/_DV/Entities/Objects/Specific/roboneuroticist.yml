@@ -1,0 +1,15 @@
+- type: entity
+  parent: ToolboxThief
+  id: RoboNeuroticistStash
+  name: roboneuroticist's specialty
+  description: "You've trained for this. Pick how you want to specialize"
+  components:
+  - type: ThiefUndeterminedBackpack
+    maxSelectedSets: 1
+    possibleSets:
+    - RoboNeuroticistCommander
+    - RoboNeuroticistSaboteur
+    - RoboNeuroticistMechanic
+    - RoboNeuroticistInfiltrator
+    - RoboNeuroticistWarmonger
+    - RoboNeuroticistClown
