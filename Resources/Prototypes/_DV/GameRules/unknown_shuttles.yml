@@ -101,7 +101,7 @@
     weight: 2
     minimumPlayers: 35 #big threat, but has to have ghosts to matter
   - type: LoadMapRule
-    preloadedGrid: SyndieRoboticistShip
+    preloadedGrid: RoboNeuroticistShip
   - type: AntagSpawner
     prototype: MobHuman
   - type: AntagObjectives
@@ -118,7 +118,7 @@
       min: 1
       max: 1
       pickPlayer: false
-      startingGear: SyndicateNeuroRoboticistGear
+      startingGear: RoboNeuroticistGear
       roleLoadout:
       - RoleSurvivalStandard
       components:
@@ -134,5 +134,5 @@
         factions:
         - Syndicate
       mindRoles:
-      - MindRoleNeuro
+      - MindRoleRoboNeuroticist
 
