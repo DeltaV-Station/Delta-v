@@ -787,6 +787,12 @@ public abstract partial class SharedSurgerySystem
         if (TryComp(user, out SurgerySpeedModifierComponent? surgerySpeedMod))
             speed *= surgerySpeedMod.SpeedModifier;
 
+        var ev = new SurgerySpeedModifyEvent(1f);
+        RaiseLocalEvent(user, ref ev);
+        if (TryComp<InventoryComponent>(user, out var inv))
+            _inventory.RelayEvent((user, inv), ref ev);
+        speed = ev.Multiplier;
+
         return stepComp.Duration / speed;
     }
     private (Entity<SurgeryComponent> Surgery, int Step)? GetNextStep(EntityUid body, EntityUid part, Entity<SurgeryComponent?> surgery, List<EntityUid> requirements)
