@@ -18,12 +18,12 @@ public sealed class ItemToggleRequiresLockSystem : EntitySystem
         SubscribeLocalEvent<ItemToggleRequiresLockComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
     }
 
-    private void OnActivateAttempt(EntityUid uid, ItemToggleRequiresLockComponent component, ref ItemToggleActivateAttemptEvent args)
+    private void OnActivateAttempt(Entity<T> ent, ItemToggleRequiresLockComponent comp, ref ItemToggleActivateAttemptEvent args)
     {
         if (args.Cancelled)
             return;
 
-        if (TryComp<LockComponent>(uid, out var lockComp) && lockComp.Locked != component.RequireLocked)
+        if (TryComp<LockComponent>(ent, out var lockComp) && lockComp.Locked != ent.Comp.RequireLocked)
         {
             args.Cancelled = true;
             if (lockComp.Locked)
