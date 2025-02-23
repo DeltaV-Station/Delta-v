@@ -906,7 +906,8 @@ namespace Content.Server.Administration.Systems
                     _gameTicker.RoundDuration().ToString("hh\\:mm\\:ss"),
                     _gameTicker.RunLevel,
                     playedSound: playSound,
-                    isDiscord: fromWebhook,
+                    isDiscord: fromWebhook, // DeltaV
+                    adminOnly: message.AdminOnly,
                     noReceivers: nonAfkAdmins.Count == 0
                 );
                 _messageQueues[msg.UserId].Enqueue(GenerateAHelpMessage(messageParams, _discordReplyPrefix));
@@ -942,7 +943,7 @@ namespace Content.Server.Administration.Systems
                 .ToList();
         }
 
-        private static DiscordRelayedData GenerateAHelpMessage(AHelpMessageParams parameters, string? discordReplyPrefix = "(DISCORD)") // Delta-v
+        private DiscordRelayedData GenerateAHelpMessage(AHelpMessageParams parameters, string? discordReplyPrefix = "(DISCORD)") // DeltaV - added reply prefix
         {
             var stringbuilder = new StringBuilder();
 
@@ -958,7 +959,7 @@ namespace Content.Server.Administration.Systems
             if (parameters.RoundTime != string.Empty && parameters.RoundState == GameRunLevel.InRound)
                 stringbuilder.Append($" **{parameters.RoundTime}**");
             if (!parameters.PlayedSound)
-                stringbuilder.Append(" **(S)**");
+                stringbuilder.Append($" **{(parameters.AdminOnly ? Loc.GetString("bwoink-message-admin-only") : Loc.GetString("bwoink-message-silent"))}**");
 
             if (parameters.IsDiscord) // Frontier - Discord Indicator
                 stringbuilder.Append($" **{discordReplyPrefix}**");
@@ -1062,6 +1063,7 @@ namespace Content.Server.Administration.Systems
         public string RoundTime { get; set; }
         public GameRunLevel RoundState { get; set; }
         public bool PlayedSound { get; set; }
+        public readonly bool AdminOnly;
         public bool NoReceivers { get; set; }
         public bool IsDiscord { get; set; } // Frontier
         public string? Icon { get; set; }
@@ -1074,6 +1076,7 @@ namespace Content.Server.Administration.Systems
             GameRunLevel roundState,
             bool playedSound,
             bool isDiscord = false, // Frontier
+            bool adminOnly = false,
             bool noReceivers = false,
             string? icon = null)
         {
@@ -1084,6 +1087,7 @@ namespace Content.Server.Administration.Systems
             RoundState = roundState;
             IsDiscord = isDiscord; // Frontier
             PlayedSound = playedSound;
+            AdminOnly = adminOnly;
             NoReceivers = noReceivers;
             Icon = icon;
         }
