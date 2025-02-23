@@ -1,3 +1,4 @@
+using Content.Client.Items;
 using Content.Shared._DV.Surgery;
 
 namespace Content.Client._DV.Surgery;
@@ -7,6 +8,13 @@ namespace Content.Client._DV.Surgery;
 /// </summary>
 public sealed class SurgeryCleanSystem : SharedSurgeryCleanSystem
 {
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        Subs.ItemStatus<SurgeryDirtinessComponent>(ent => new SurgeryDirtinessItemStatus(ent, EntityManager));
+    }
+
     public override bool RequiresCleaning(EntityUid target)
     {
         // Predict that it can be cleaned if it has dirt on it

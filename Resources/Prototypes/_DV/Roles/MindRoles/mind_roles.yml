@@ -58,3 +58,15 @@
   - type: SynthesisRole
   - type: RoleBriefing
     briefing: synthesis-role-briefing
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleRoboNeuroticist
+  name: Robo-Neuroticist Role
+  components:
+  - type: MindRole
+    antagPrototype:  RoboNeuroticist
+    exclusiveAntag: true
+  - type: RoboNeuroticistRole
+  - type: RoleBriefing
+    briefing: roboneuroticist-role-briefing

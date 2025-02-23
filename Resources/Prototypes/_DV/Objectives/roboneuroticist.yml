@@ -1,0 +1,75 @@
+- type: entity
+  abstract: true
+  parent: BaseTraitorObjective
+  id: BaseRoboNeuroticistObjective
+  components:
+  - type: Objective
+    difficulty: 0 # difficulty is unused
+  - type: RoleRequirement
+    roles:
+      mindRoles:
+      - RoboNeuroticistRole
+
+- type: entity
+  parent: [ BaseRoboNeuroticistObjective, BaseSurviveObjective ]
+  id: RoboNeuroticistSurviveObjective
+  name: Survive
+  description: As precious as they are, your cyborgs are less valuable than your own life.
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Mask/gassyndicate.rsi
+      state: icon
+
+- type: entity
+  parent: [ BaseRoboNeuroticistObjective, BaseSurviveObjective ]
+  id: RoboNeuroticistBorgObjective
+  name: Conspiracy to Convert
+  description: The crew of this station is yours to command, turn them into cyborgs till your have reaped your fill.
+  components:
+  - type: Objective
+    icon:
+      sprite: Interface/Actions/actions_borg.rsi
+      state: state-laws
+
+- type: entity
+  parent: [ BaseRoboNeuroticistObjective, BaseKillObjective ]
+  id: RoboNeuroticistKillObjective
+  name: Condemn them to Metal
+  description: Your dossier indicates that there is one very appealing neural pattern on the crew. Turn them into a Cyborg.
+  components:
+  - type: Objective
+    unique: true
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      state: icon
+  - type: TargetObjective
+    title: objective-roboneuroticist-kill-title
+  - type: PickRandomHead
+  - type: KillPersonCondition
+    requireDead: true
+
+- type: entity
+  parent: [ BaseRoboNeuroticistObjective, BaseStealObjective ]
+  id: RoboNeuroticistPlutoniumCoreStealObjective
+  components:
+  - type: Objective
+  - type: StealCondition
+    stealGroup: PlutoniumCore
+    owner: objective-condition-steal-nuclear-bomb
+
+- type: entity
+  parent: BaseRoboNeuroticistObjective
+  id: RoboNeuroticistUploadAILawObjective
+  name: Subvert the Station AI
+  description: The AI is causing us problems. Update its laws so it wont be an annoyance. We have given you a board in your backpack!
+  components:
+  - type: Objective
+    unique: true
+    icon:
+      sprite: Objects/Misc/module.rsi
+      state: generic
+  - type: CodeCondition
+  - type: AILawsUpdatedRequirement
+    lawset: SyndicateLawset
+
