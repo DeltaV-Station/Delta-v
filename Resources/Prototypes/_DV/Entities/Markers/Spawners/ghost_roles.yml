@@ -137,12 +137,12 @@
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
-  id: SpawnPointGhostRoboticist
+  id: SpawnPointGhostRoboNeuroticist
   components:
   - type: GhostRole
-    name: ghost-role-information-roboticist-name
-    description: ghost-role-information-roboticist-description
-    rules: ghost-role-information-roboticist-rules
+    name: ghost-role-information-roboneuroticist-name
+    description: ghost-role-information-roboneuroticist-description
+    rules: ghost-role-information-roboneuroticist-rules
     mindRoles:
     - MindRoleRoboNeuroticist
     requirements: # keep in sync with the antag prototype

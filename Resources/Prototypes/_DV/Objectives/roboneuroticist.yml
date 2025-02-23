@@ -1,18 +1,18 @@
 - type: entity
   abstract: true
   parent: BaseTraitorObjective
-  id: BaseRoboticistObjective
+  id: BaseRoboNeuroticistObjective
   components:
   - type: Objective
     difficulty: 0 # difficulty is unused
   - type: RoleRequirement
     roles:
       mindRoles:
-      - RoboticistRole
+      - RoboNeuroticistRole
 
 - type: entity
-  parent: [ BaseRoboticistObjective, BaseSurviveObjective ]
-  id: RoboticistSurviveObjective
+  parent: [ BaseRoboNeuroticistObjective, BaseSurviveObjective ]
+  id: RoboNeuroticistSurviveObjective
   name: Survive
   description: As precious as they are, your cyborgs are less valuable than your own life.
   components:
@@ -22,8 +22,8 @@
       state: icon
 
 - type: entity
-  parent: [ BaseRoboticistObjective, BaseSurviveObjective ]
-  id: RoboticistBorgObjective
+  parent: [ BaseRoboNeuroticistObjective, BaseSurviveObjective ]
+  id: RoboNeuroticistBorgObjective
   name: Conspiracy to Convert
   description: The crew of this station is yours to command, turn them into cyborgs till your have reaped your fill.
   components:
@@ -33,8 +33,8 @@
       state: state-laws
 
 - type: entity
-  parent: [ BaseRoboticistObjective, BaseKillObjective ]
-  id: RoboticistKillObjective
+  parent: [ BaseRoboNeuroticistObjective, BaseKillObjective ]
+  id: RoboNeuroticistKillObjective
   name: Condemn them to Metal
   description: Your dossier indicates that there is one very appealing neural pattern on the crew. Turn them into a Cyborg.
   components:
@@ -50,8 +50,8 @@
     requireDead: true
 
 - type: entity
-  parent: [ BaseRoboticistObjective, BaseStealObjective ]
-  id: RoboticistPlutoniumCoreStealObjective
+  parent: [ BaseRoboNeuroticistObjective, BaseStealObjective ]
+  id: RoboNeuroticistPlutoniumCoreStealObjective
   components:
   - type: Objective
   - type: StealCondition
@@ -59,8 +59,8 @@
     owner: objective-condition-steal-nuclear-bomb
 
 - type: entity
-  parent: BaseRoboticistObjective
-  id: RoboticistUploadAILawObjective
+  parent: BaseRoboNeuroticistObjective
+  id: RoboNeuroticistUploadAILawObjective
   name: Subvert the Station AI
   description: The AI is causing us problems. Update its laws so it wont be an annoyance. We have given you a board in your backpack!
   components:

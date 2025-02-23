@@ -1,7 +1,7 @@
 - type: antag
   id: RoboNeuroticist
-  name: roles-antag-syndicate-roboticist-name
-  objective: roles-antag-syndicate-roboticist-objective
+  name: roles-antag-roboneuroticist-name
+  objective: roles-antag-roboneuroticist-objective
   antagonist: true # making evil borgs
   requirements:
   - !type:OverallPlaytimeRequirement
@@ -11,7 +11,7 @@
     time: 7200 # 2h roboticist so you know how to make robot
 
 - type: startingGear
-  id: SyndicateRoboticistGear
+  id: RoboNeuroticistGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitRoboNeuroticist
     back: ClothingBackpackSyndicate

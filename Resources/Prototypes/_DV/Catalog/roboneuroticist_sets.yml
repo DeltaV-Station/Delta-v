@@ -1,7 +1,7 @@
 - type: thiefBackpackSet
-  id: RoboticistCommander
-  name: roboticist-set-commander-name
-  description: roboticist-set-commander-description
+  id: RoboNeuroticistCommander
+  name: roboneuroticist-set-commander-name
+  description: roboneuroticist-set-commander-description
   sprite:
     entity: ClothingMaskGasVoiceChameleon
   content:
@@ -10,9 +10,9 @@
   - EncryptionKeyCommon
 
 - type: thiefBackpackSet
-  id: RoboticistSaboteur
-  name: roboticist-set-saboteur-name
-  description: roboticist-set-saboteur-description
+  id: RoboNeuroticistSaboteur
+  name: roboneuroticist-set-saboteur-name
+  description: roboneuroticist-set-saboteur-description
   sprite:
     entity: PowerSink
   content:
@@ -21,9 +21,9 @@
   - BorgModuleRCD
 
 - type: thiefBackpackSet
-  id: RoboticistMechanic
-  name: roboticist-set-mechanic-name
-  description: roboticist-set-mechanic-description
+  id: RoboNeuroticistMechanic
+  name: roboneuroticist-set-mechanic-name
+  description: roboneuroticist-set-mechanic-description
   sprite:
     entity: ClothingBeltChiefEngineerFilled
   content:
@@ -31,9 +31,9 @@
   - ClothingBeltChiefEngineerFilled
 
 - type: thiefBackpackSet
-  id: RoboticistInfiltrator
-  name: roboticist-set-infiltrator-name
-  description: roboticist-set-infiltrator-description
+  id: RoboNeuroticistInfiltrator
+  name: roboneuroticist-set-infiltrator-name
+  description: roboneuroticist-set-infiltrator-description
   sprite:
     entity: BorgChassisSyndicateSaboteur
   content:
@@ -43,18 +43,18 @@
   - BorgModuleChameleonProjector
 
 - type: thiefBackpackSet
-  id: RoboticistWarmonger
-  name: roboticist-set-warmonger-name
-  description: roboticist-set-warmonger-description
+  id: RoboNeuroticistWarmonger
+  name: roboneuroticist-set-warmonger-name
+  description: roboneuroticist-set-warmonger-description
   sprite:
     entity: BorgChassisSyndicateAssault
   content:
   - PlayerBorgSyndicateAssaultGhostRole
 
 - type: thiefBackpackSet
-  id: RoboticistClown
-  name: roboticist-set-clown-name
-  description: roboticist-set-clown-description
+  id: RoboNeuroticistClown
+  name: roboneuroticist-set-clown-name
+  description: roboneuroticist-set-clown-description
   sprite:
     entity: ClothingMaskClown
   content:

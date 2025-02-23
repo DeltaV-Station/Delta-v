@@ -106,19 +106,19 @@
     prototype: MobHuman
   - type: AntagObjectives
     objectives:
-    - RoboticistSurviveObjective
-    - RoboticistBorgObjective
-    - RoboticistKillObjective
-    - RoboticistPlutoniumCoreStealObjective
-    - RoboticistUploadAILawObjective
+    - RoboNeuroticistSurviveObjective
+    - RoboNeuroticistBorgObjective
+    - RoboNeuroticistKillObjective
+    - RoboNeuroticistPlutoniumCoreStealObjective
+    - RoboNeuroticistUploadAILawObjective
   - type: AntagSelection
-    agentName: roboticist-round-end-agent-name
+    agentName: roboneuroticist-round-end-agent-name
     definitions:
-    - spawnerPrototype: SpawnPointGhostRoboticist
+    - spawnerPrototype: SpawnPointGhostRoboNeuroticist
       min: 1
       max: 1
       pickPlayer: false
-      startingGear: SyndicateRoboticistGear
+      startingGear: SyndicateNeuroRoboticistGear
       roleLoadout:
       - RoleSurvivalStandard
       components:
@@ -134,5 +134,5 @@
         factions:
         - Syndicate
       mindRoles:
-      - MindRoleRoboNeuroticist
+      - MindRoleNeuro
 
