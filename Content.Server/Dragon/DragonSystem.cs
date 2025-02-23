@@ -112,7 +112,7 @@ public sealed partial class DragonSystem : EntitySystem
                 Roar(uid, comp);
                 _damageable.TryChangeDamage(uid, comp.DeathDamage,true,true); // gib time
             }
-			// End DeltaV Changes
+            // End DeltaV Changes
         }
     }
 
