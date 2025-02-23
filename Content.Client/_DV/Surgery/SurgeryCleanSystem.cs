@@ -11,8 +11,10 @@ public sealed class SurgeryCleanSystem : SharedSurgeryCleanSystem
     public override void Initialize()
     {
         base.Initialize();
+
         Subs.ItemStatus<SurgeryDirtinessComponent>(ent => new SurgeryDirtinessItemStatus(ent, EntityManager));
     }
+
     public override bool RequiresCleaning(EntityUid target)
     {
         // Predict that it can be cleaned if it has dirt on it
