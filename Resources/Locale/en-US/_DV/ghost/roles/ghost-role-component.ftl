@@ -60,3 +60,11 @@ deltav-ghost-role-information-salvageantag-rules =  You are a salvage mob.
                                                     You are allowed to attack salvagers without provocation. DO NOT GIB THEIR CORPSES!
                                                     You are allowed to attack the salvage shuttle.
                                                     You are NOT allowed to go to the station. If the salvagers go to the station, you can't follow them.
+
+ghost-role-information-syndicate-marshal-name = Syndicate Marshal
+ghost-role-information-syndicate-marshal-description = Run the syndicate prison and keep the hostages in line.
+ghost-role-information-syndicate-marshal-rules =
+    You are a [color=green][bold]Non-antagonist[/bold][/color] working for the Syndicate.
+    Don't abuse prisoners, they are hostages being kept for ransom!
+    You can /ghost if you get bored, the role will stay available for others to take.
+    All normal rules apply unless an administrator tells you otherwise.

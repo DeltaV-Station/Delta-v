@@ -1,10 +1,114 @@
+- type: entity
+  abstract: true
+  parent: BaseTraitorStealObjective
+  id: BaseMinorStealObjective
+  components:
+  - type: ReputationCondition
+    reputation: 0
+  - type: ContractObjective
+    reputation: 5
+    payment: 1
+
+- type: entity
+  abstract: true
+  parent: [ BaseRansomObjective, BaseTraitorObjective ]
+  id: BaseTraitorRansomObjective
+  description: Detain the target and fulton them back to HQ. We will then hold them ransom.
+  components:
+  - type: Objective
+    difficulty: 3
+    icon:
+      sprite: Objects/Tools/fulton.rsi # TODO: syndie fulton sprite
+      state: extraction_pack
+  - type: TargetObjective
+    title: objective-condition-ransom-title
+  - type: ReputationCondition
+    reputation: 60
+  - type: ContractObjective
+    reputation: 10
+    payment: 4
+  - type: StoreUnlocker
+    listings:
+    - SyndieFulton
+
+# Low Risk
+
+- type: entity # Locker steal objective.
+  parent: BaseMinorStealObjective
+  id: ClerkNotaryStealObjective
+  components:
+  - type: NotJobRequirement
+    job: Clerk
+  - type: ExtractCondition
+    stealGroup: RubberStampNotary
+    owner: job-name-clerk
+
+- type: entity
+  parent: BaseMinorStealObjective
+  id: RCDStealObjective
+  components:
+  - type: NotDepartmentRequirement
+    department: Engineering
+  - type: ExtractCondition
+    stealGroup: RCD
+    owner: objective-condition-steal-engineering
+
+- type: entity
+  parent: BaseMinorStealObjective
+  id: CargoRequestStealObjective
+  components:
+  - type: NotDepartmentRequirement
+    department: Logistics
+  - type: ExtractCondition
+    stealGroup: CargoRequestConsoleCircuitboard
+
+- type: entity
+  parent: BaseMinorStealObjective
+  id: ResearchComputerStealObjective
+  components:
+  - type: NotDepartmentRequirement
+    department: Epistemics
+  - type: ExtractCondition
+    stealGroup: ResearchComputerCircuitboard
+
+- type: entity
+  parent: BaseMinorStealObjective
+  id: CriminalRecordsStealObjective
+  components:
+  - type: ExtractCondition
+    stealGroup: CriminalRecordsComputerCircuitboard
+  # sec is harder to steal from so higher risk and reward
+  - type: ContractObjective
+    reputation: 10
+    payment: 3
+
+# Moderatate Risk
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: IDComputerStealObjective
+  components:
+  - type: ExtractCondition
+    stealGroup: IDComputerCircuitboard
+  - type: ContractObjective
+    payment: 3 # It's easy
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: CommsComputerStealObjective
+  components:
+  - type: ExtractCondition
+    stealGroup: CommsComputerCircuitboard
+  - type: ContractObjective
+    payment: 3 # It's easy
+
 - type: entity # Logistics Officer steal objective.
   parent: BaseTraitorStealObjective
   id: LOLuckyBillStealObjective
   components:
   - type: NotJobRequirement
     job: Quartermaster
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: SpaceCashLuckyBill
     # owner: job-name-qm
 
@@ -14,7 +118,7 @@
   components:
   - type: NotJobRequirement
     job: HeadOfPersonnel
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: BookIanDossier
     # owner: job-name-hop
 
@@ -26,19 +130,9 @@
     difficulty: 3 # HoS will mostly be using the gun to stop you from stealing it
   - type: NotJobRequirement
     job: HeadOfSecurity
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: WeaponEnergyGunMultiphase
     owner: job-name-hos
-
-- type: entity # Clerk steal objective.
-  parent: BaseTraitorStealObjective
-  id: ClerkNotaryStealObjective
-  components:
-  - type: NotJobRequirement
-    job: Clerk
-  - type: StealCondition
-    stealGroup: RubberStampNotary
-    owner: job-name-clerk
 
 # Mystagogue steal objective
 - type: entity
@@ -47,7 +141,7 @@
   components:
   - type: NotJobRequirement
     job: ResearchDirector
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: BoxFolderRdClipboard
     owner: job-name-rd
 
@@ -74,10 +168,11 @@
       state: icon
   - type: TeachLessonCondition
   - type: CodeCondition
-  - type: ObjectiveBlacklistRequirement
-    blacklist:
-      components:
-      - SocialObjective
+  - type: ReputationCondition
+    reputation: 30
+  - type: ContractObjective
+    reputation: 15
+    payment: 6
 
 - type: entity
   parent: [BaseTraitorObjective, BaseTeachLessonObjective]
@@ -105,6 +200,11 @@
   - type: PickRandomTraitor
   - type: KillPersonCondition
     requireDead: true # Being able to leave them on the shuttle doesn't make sense when killing another traitor.
+  - type: ReputationCondition
+    reputation: 60
+  - type: ContractObjective
+    reputation: 15
+    payment: 8
 
 # Upload AI law
 - type: entity
@@ -114,7 +214,7 @@
   description: The AI is causing us problems. Update its laws so it wont be an annoyance. We have given you a board in your uplink!
   components:
   - type: Objective
-    difficulty: 3 # Need to get access and survive actually changing the board.
+    difficulty: 5 # Need to get access and survive actually changing the board.
     unique: true
     icon:
       sprite: Objects/Misc/module.rsi
@@ -138,9 +238,27 @@
     # its hard to steal and leaves evidence, but you can get away with it.
     difficulty: 3.5
   - type: NotCommandRequirement
-  - type: StealCondition
+  - type: ExtractCondition
     stealGroup: PlutoniumCore
     owner: objective-condition-steal-nuclear-bomb
   - type: StoreUnlocker
     listings:
     - UplinkCoreExtractionToolbox
+
+# High Risk
+
+- type: entity
+  parent: BaseTraitorRansomObjective
+  id: RansomRandomPersonObjective
+  components:
+  - type: PickRandomPerson
+    onlyChoosableJobs: true
+
+- type: entity
+  parent: BaseTraitorRansomObjective
+  id: RansomRandomHeadObjective
+  components:
+  - type: PickRandomHead
+  - type: ContractObjective # more rep and tc for a head duh
+    reputation: 15
+    payment: 5
