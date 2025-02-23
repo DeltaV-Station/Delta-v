@@ -11,10 +11,10 @@ public sealed class SurgeryDirtinessItemStatus : SplitBar
     private readonly EntityUid _uid;
     private FixedPoint2? _dirtiness = null;
 
-    public SurgeryDirtinessItemStatus(EntityUid uid, IEntityManager entManager)
+    public SurgeryDirtinessItemStatus(EntityUid uid, IEntityManager entMan)
     {
         _uid = uid;
-        _entMan = entManager;
+        _entMan = entMan;
         Margin = new Thickness(4);
         MinHeight = 16;
         MaxHeight = 16;
@@ -23,12 +23,13 @@ public sealed class SurgeryDirtinessItemStatus : SplitBar
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
-        if (!_entMan.TryGetComponent<SurgeryDirtinessComponent>(_uid, out var dirtiness))
+
+        if (!_entMan.TryGetComponent<SurgeryDirtinessComponent>(_uid, out var comp))
             return;
 
-        if (_dirtiness == dirtiness.Dirtiness)
+        if (_dirtiness == comp.Dirtiness)
             return;
-        _dirtiness = dirtiness.Dirtiness;
+        _dirtiness = comp.Dirtiness;
 
         Clear();
 
