@@ -9,7 +9,7 @@
     sprite: Objects/Fun/figurines.rsi
     layers:
     - state: fig_box
-  - type: SpawnTableOnUse
+  - type: SpawnTableOnUse #Spawns the lighter inside of whoever opens it, for some reason
     table: !type:AllSelector
       children:
       - id: MysteryFigureBoxTrash
@@ -17,3 +17,13 @@
         children:
         - id: CybersunFlippo
         - id: InterdyneFlippo
+        - id: NanotrasenFlippo
+          weight: 0.25
+        - id: SpiderclanFlippo
+          weight: 0.25
+        - id: WaffleCoFlippo
+        - id: HonkCoFlippo
+        - id: GorlexMatchbox
+          weight: 0.5
+        - id: DonkcoLighter
+          weight: 0.5
