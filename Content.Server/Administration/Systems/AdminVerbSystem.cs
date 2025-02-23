@@ -392,8 +392,8 @@ namespace Content.Server.Administration.Systems
                         Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
                     });
                 }
-				
-				// thaven moods
+
+                // Begin DeltaV Additions - thaven moods
                 if (TryComp<ThavenMoodsComponent>(args.Target, out var moods)) 
                 {
                     args.Verbs.Add(new Verb()
@@ -414,7 +414,7 @@ namespace Content.Server.Administration.Systems
                 }
             }
         }
-                // thaven moods
+                // End DeltaV Additions
 
         private void AddDebugVerbs(GetVerbsEvent<Verb> args)
         {
