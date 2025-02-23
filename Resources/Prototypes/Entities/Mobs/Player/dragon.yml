@@ -163,6 +163,9 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
+    weakenedDuration: 60 # DeltaV - Half the normal time
+    riftMaxAccumulator: 600 # DeltaV - Double the normal time
+
   - type: GuideHelp
     guides:
     - MinorAntagonists

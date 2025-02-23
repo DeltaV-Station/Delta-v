@@ -22,7 +22,7 @@ namespace Content.Server.Dragon
         /// When any rift is destroyed how long is the dragon weakened for
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite), DataField("weakenedDuration")]
-        public float WeakenedDuration = 60f; // DeltaV - buff dragon
+        public float WeakenedDuration = 60f;
 
         /// <summary>
         /// Has a rift been destroyed and the dragon in a temporary weakened state?
@@ -36,8 +36,7 @@ namespace Content.Server.Dragon
         /// <summary>
         /// Maximum time the dragon can go without spawning a rift before they die.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite), DataField("maxAccumulator")] public float RiftMaxAccumulator = 600f; // DeltaV - 10 mins to die
-
+        [ViewVariables(VVAccess.ReadWrite), DataField("maxAccumulator")] public float RiftMaxAccumulator = 300f;
         [DataField("spawnRiftAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string SpawnRiftAction = "ActionSpawnRift";
 
@@ -68,7 +67,7 @@ namespace Content.Server.Dragon
         public ProtoId<NpcFactionPrototype> Faction = "Dragon";
 
         /// <summary>
-        /// DeltaV Damage dealt to dragon on death
+        /// DeltaV: Damage dealt to dragon on death
         /// So we dont just delete it
         /// </summary>
         [DataField]
@@ -81,10 +80,10 @@ namespace Content.Server.Dragon
         };
 
         /// <summary>
-        ///DeltaV stops the halftime popup from displaying 1000 times
+        /// DeltaV: Stops the halftime popup from displaying 1000 times
         /// </summary>
         [DataField]
-        public bool HalftimePopupShown = false;
+        public bool HalftimePopupShown;
 
     }
 }

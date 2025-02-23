@@ -99,12 +99,12 @@ public sealed partial class DragonSystem : EntitySystem
             if (!_mobState.IsDead(uid))
                 comp.RiftAccumulator += frameTime;
 
-            // DeltaV - begin Dragon changes
+            // Begin DeltaV Changes
             if (!comp.HalftimePopupShown && Math.Round(comp.RiftAccumulator) == 0.5 * comp.RiftMaxAccumulator) // at halftime tell them they gonna die
             {
                 Roar(uid, comp);
-              _popup.PopupEntity(Loc.GetString("deltav-dragon-halftime-popup"),uid,uid);
-              comp.HalftimePopupShown = true; // no spamming popups
+                _popup.PopupEntity(Loc.GetString("deltav-dragon-halftime-popup"), uid, uid);
+                comp.HalftimePopupShown = true; // no spamming popups
             }
 
             if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)  // dragon is out of time
@@ -112,7 +112,7 @@ public sealed partial class DragonSystem : EntitySystem
                 Roar(uid, comp);
                 _damageable.TryChangeDamage(uid, comp.DeathDamage,true,true); // gib time
             }
-			// DeltaV - end Dragon changes
+			// End DeltaV Changes
         }
     }
 
@@ -179,7 +179,7 @@ public sealed partial class DragonSystem : EntitySystem
         var carpUid = Spawn(component.RiftPrototype, _transform.GetMapCoordinates(uid, xform: xform));
         component.Rifts.Add(carpUid);
         Comp<DragonRiftComponent>(carpUid).Dragon = uid;
-        component.HalftimePopupShown = false; // DeltaV reset popup flag
+        component.HalftimePopupShown = false; // DeltaV - Reset popup flag
     }
 
     // TODO: just make this a move speed modifier component???
