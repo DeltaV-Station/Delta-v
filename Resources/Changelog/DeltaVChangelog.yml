@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: MilonPL
   changes:
-  - message: Fixed rodentia not getting thirsty.
-    type: Fix
-  id: 562
-  time: '2024-09-19T08:39:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1864
-- author: MilonPL
-  changes:
   - message: Fixed barefoot felinids making footsteps sounds.
     type: Fix
   id: 563
@@ -3888,3 +3881,15 @@
   id: 1061
   time: '2025-02-23T03:08:28.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3026
+- author: Lyndomen
+  changes:
+  - message: Dragons despawn in 10 minutes with no rifts, up from 5
+    type: Tweak
+  - message: Dragons now are gibbed upon being removed for having no rifts; not deleted.
+      Collect the corpses!
+    type: Tweak
+  - message: Dragons are only weakened for 1 minute after rift destruction, not 2
+    type: Tweak
+  id: 1062
+  time: '2025-02-23T13:45:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3017
