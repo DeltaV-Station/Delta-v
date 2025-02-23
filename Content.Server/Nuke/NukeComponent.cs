@@ -23,7 +23,7 @@ namespace Content.Server.Nuke
         /// </summary>
         [DataField("timer")]
         [ViewVariables(VVAccess.ReadWrite)]
-        public int Timer = 450; // DeltaV - raised to 450 from 300 (7.5 minutes)
+        public int Timer = 300;
 
         /// <summary>
         ///     If the nuke is disarmed, this sets the minimum amount of time the timer can have.
