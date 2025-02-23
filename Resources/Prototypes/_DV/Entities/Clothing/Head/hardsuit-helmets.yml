@@ -158,3 +158,130 @@
       coefficients:
         Heat: 0.90
         Radiation: 0.75
+
+#Elite ERT Hardsuit Helmets
+#ERT Leader Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndieCommander ]
+  id: ClothingHeadHelmetHardsuitERTLeaderElite
+  name: Elite ERT leader hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hardsuits/ERThelmets/eliteertleader.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hardsuits/ERThelmets/eliteertleader.rsi
+  - type: PointLight
+    color: "#addbff"
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: FireProtection
+    reduction: 0.2
+
+#ERT Chaplain Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
+  id: ClothingHeadHelmetHardsuitERTChaplainElite
+  name: Elite ERT chaplain hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hardsuits/ERThelmets/eliteertchaplain.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hardsuits/ERThelmets/eliteertchaplain.rsi
+  - type: PointLight
+    color: "#ffffff"
+  - type: Psionic
+  - type: TinfoilHat
+    passthrough: true
+    destroyOnFry: false
+  - type: ClothingGrantPsionicPower
+    power: DispelPower
+  - type: GuideHelp
+    guides:
+    - Psionics
+  - type: FireProtection
+    reduction: 0.2
+
+#ERT Engineer Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
+  id: ClothingHeadHelmetHardsuitERTEngineerElite
+  name: Elite ERT engineer hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hardsuits/ERThelmets/eliteertengineer.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hardsuits/ERThelmets/eliteertengineer.rsi
+  - type: PointLight
+    color: "#f4ffad"
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: FireProtection
+    reduction: 0.2
+
+#ERT Medical Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndieElite ]
+  id: ClothingHeadHelmetHardsuitERTMedicalElite
+  name: Elite ERT medic hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hardsuits/ERThelmets/eliteertmedical.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hardsuits/ERThelmets/eliteertmedical.rsi
+  - type: PointLight
+    color: "#adffec"
+  - type: FireProtection
+    reduction: 0.2
+
+#ERT Security Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
+  id: ClothingHeadHelmetHardsuitERTSecurityElite
+  name: Elite ERT security hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hardsuits/ERThelmets/eliteertsecurity.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hardsuits/ERThelmets/eliteertsecurity.rsi
+  - type: PointLight
+    color: "#ffadc6"
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: FireProtection
+    reduction: 0.2
+
+#ERT Janitor Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
+  id: ClothingHeadHelmetHardsuitERTJanitorElite
+  name: Elite ERT janitor hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hardsuits/ERThelmets/eliteertjanitor.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hardsuits/ERThelmets/eliteertjanitor.rsi
+  - type: PointLight
+    color: "#cbadff"
+  - type: FireProtection
+    reduction: 0.2
