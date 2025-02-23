@@ -165,13 +165,11 @@ binds:
 - function: SwapHands
   type: State
   key: X
-  # DeltaV - Swap Hands Reversed Start
+  # DeltaV - Begin custom keybinds
 - function: SwapHandsReversed
   type: State
   key: X
   mod1: Shift
-  # DeltaV - Swap Hands Reversed End
-  # DeltaV - NanoChat keybinds Start
 - function: NanoChatNavigateUp
   type: State
   key: Up
@@ -190,7 +188,7 @@ binds:
   key: Down
   mod1: Alt
   mod2: Shift
-  # DeltaV - NanoChat keybinds End
+  # DeltaV - End custom keybinds
 - function: MoveStoredItem
   type: State
   key: MouseLeft

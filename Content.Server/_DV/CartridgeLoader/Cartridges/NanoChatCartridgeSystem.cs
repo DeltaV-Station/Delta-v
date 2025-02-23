@@ -292,7 +292,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
     private void HandleToggleMuteChat(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
     {
-        Log.Debug($"Toggling mute for chat #{msg.RecipientNumber:D4} on card #{card.Comp.Number:D4}");
         if (msg.RecipientNumber is not uint chat)
             return;
         _nanoChat.ToggleChatMuted((card, card.Comp), chat);
@@ -528,7 +527,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         var title = "";
         if (!string.IsNullOrEmpty(senderRecipient.JobTitle))
         {
-            var titleRecipient = Truncate(Loc.GetString("nano-chat-new-message-title-recipient",
+            var titleRecipient = SharedNanoChatSystem.Truncate(Loc.GetString("nano-chat-new-message-title-recipient",
                 ("sender", senderName), ("jobTitle", senderRecipient.JobTitle)), NotificationTitleMaxLength, " \\[...\\]");
             title = Loc.GetString("nano-chat-new-message-title", ("sender", titleRecipient));
         }
@@ -537,7 +536,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         _cartridge.SendNotification(pdaUid,
             title,
-            Loc.GetString("nano-chat-new-message-body", ("message", Truncate(message.Content, NotificationMaxLength, " [...]"))),
+            Loc.GetString("nano-chat-new-message-body", ("message", SharedNanoChatSystem.Truncate(message.Content, NotificationMaxLength, " [...]"))),
             loader);
     }
 
@@ -597,14 +596,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         return null;
     }
-
-    /// <summary>
-    ///     Truncates a string to a maximum length.
-    /// </summary>
-    private static string Truncate(string text, int maxLength, string overflowText = "...") =>
-        text.Length <= maxLength
-            ? text
-            : text[..(maxLength - overflowText.Length)] + overflowText;
 
     private void OnUiReady(Entity<NanoChatCartridgeComponent> ent, ref CartridgeUiReadyEvent args)
     {
