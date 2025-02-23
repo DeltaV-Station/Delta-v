@@ -881,3 +881,4 @@ public sealed partial class AdminVerbSystem
         MakeMinigun = -28,
         SetBulletAmount = -29,
     }
+}
