@@ -17,7 +17,7 @@ public sealed class ThavenMoodUpset : StationEventSystem<ThavenMoodUpsetRuleComp
         var thavens = EntityQueryEnumerator<ThavenMoodsComponent>();
         while (thavens.MoveNext(out var thavenUid, out var thavenComp))
         {
-            _thavenMoods.AddWildcardMood(new(thavenUid, thavenComp));
+            _thavenMoods.AddWildcardMood(thavenUid, thavenComp);
         }
     }
 }
