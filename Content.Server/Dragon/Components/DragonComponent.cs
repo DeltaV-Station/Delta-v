@@ -37,6 +37,7 @@ namespace Content.Server.Dragon
         /// Maximum time the dragon can go without spawning a rift before they die.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite), DataField("maxAccumulator")] public float RiftMaxAccumulator = 300f;
+
         [DataField("spawnRiftAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string SpawnRiftAction = "ActionSpawnRift";
 
