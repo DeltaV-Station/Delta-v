@@ -6,3 +6,13 @@
   components:
   - type: Sprite
     sprite: _DV/Clothing/Back/Satchels/centcom.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingSatchelHoP
+  name: HoP's Satchel
+  description: Fashionable, with plenty of room for pens
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Back/Satchels/hop.rsi
+    state: icon
