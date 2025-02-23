@@ -59,11 +59,12 @@ deltav-ghost-role-information-softantag-rules = You are allowed to attack the cr
 deltav-ghost-role-information-salvageantag-rules =  You are a salvage mob.
                                                     You are allowed to attack salvagers without provocation. DO NOT GIB THEIR CORPSES!
                                                     You are allowed to attack the salvage shuttle.
-                                                    You are NOT allowed to go to the station. If the salvagers go to the station, you can't follow them.
-
+                                                    You are NOT allowed to go to the station. If the salvagers go to the station, you can't follow them
 
 ghost-role-information-roboneuroticist-name = Syndicate Robo-Neuroticist
 ghost-role-information-roboneuroticist-description = You are a member of the Syndicate, sent by Cybersun Industries! You are provided with all of the tools to manufacture and upgrade the various Silicon entities aboard a nearby station, in the name of accomplishing your nefarious goals.
 ghost-role-information-roboneuroticist-rules =
     Build machines of war, and send them to the station to extract your toll.
     Your ship contains all of the resources you need to get started, but for the more advanced modules, you must strike out at the station.
+    
+deltav-ghost-role-information-space-dragon-description = Call in 3 carp rifts and take over this quadrant! You must place a rift every 10 minutes or suffer the consequences!
