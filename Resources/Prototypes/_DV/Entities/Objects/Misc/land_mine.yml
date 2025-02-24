@@ -19,6 +19,9 @@
   id: LandMineShrapnel
   components:
   - type: DeleteOnTrigger
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
   - type: ProjectileGrenade
     fillPrototype: PelletClusterLethal
     capacity: 30
