@@ -175,7 +175,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/hop.rsi # DeltaV - resprite
 
 - type: entity
-  parent: [ClothingUniformSkirtFoldableBase, BaseCommandContraband] # DeltaV - add foldable jumpsuits
+  parent: [ClothingUniformSkirtRollableBase, BaseCommandContraband] # DeltaV - add rollable jumpsuits
   id: ClothingUniformJumpskirtHoS
   name: head of security's jumpskirt
   description: A standard Station Security uniform, adorned with gold emblems and commander's epaulettes. # DeltaV - improved description
