@@ -24,6 +24,12 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction CycleChatChannelForward = "CycleChatChannelForward";
         public static readonly BoundKeyFunction CycleChatChannelBackward = "CycleChatChannelBackward";
         public static readonly BoundKeyFunction EscapeContext = "EscapeContext";
+        // DeltaV - Begin NanoChat keybinds
+        public static readonly BoundKeyFunction NanoChatNavigateUp = "NanoChatNavigateUp";
+        public static readonly BoundKeyFunction NanoChatNavigateDown = "NanoChatNavigateDown";
+        public static readonly BoundKeyFunction NanoChatNavigateUpUnread = "NanoChatNavigateUpUnread";
+        public static readonly BoundKeyFunction NanoChatNavigateDownUnread = "NanoChatNavigateDownUnread";
+        // DeltaV - End NanoChat keybinds
         public static readonly BoundKeyFunction OpenCharacterMenu = "OpenCharacterMenu";
         public static readonly BoundKeyFunction OpenEmotesMenu = "OpenEmotesMenu";
         public static readonly BoundKeyFunction OpenCraftingMenu = "OpenCraftingMenu";
