@@ -7,6 +7,7 @@
   - ClothingUniformCourier
   - ClothingUniformSkirtCourier
   # QM
+  - ClothingHeadHatBeretLogi
   - ClothingUniformJumpskirtQMFormal
   # Salvage
   - ClothingUniformJumpskirtSalvageSpecialist
@@ -14,13 +15,21 @@
 - type: latheRecipePack
   id: ClothingCommandDeltaV
   recipes:
+  # Captain
+  - ClothingHeadHatBeretCap
   # HoP
   - ClothingUniformJumpsuitHoPFormal
   - ClothingUniformJumpskirtHoPFormal
+  # Administrative Assistant
+  - ClothingUniformJumpsuitAdminAssistant
+  - ClothingUniformJumpskirtAdminAssistant
 
 - type: latheRecipePack
   id: ClothingEpistemics
   recipes:
+  # Mystagogue
+  - ClothingHeadHatBeretMysta
+  - ClothingHeadHoodMysta
   # Psionic Mantis
   - ClothingUniformJumpsuitMantis
   - ClothingUniformSkirtMantis
