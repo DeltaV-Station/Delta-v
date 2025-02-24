@@ -1,0 +1,24 @@
+- type: entity
+  name: explosive mine
+  suffix: DeltaV
+  parent: BaseLandMine
+  id: LandMineHE
+  components:
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 21 # DeltaV - 10 > 20
+    intensitySlope: 10 # DeltaV - 3 > 10
+    totalIntensity: 120 # about a ~4 tile radius
+    canCreateVacuum: false
+
+- type: entity
+  name: shrapnel mine
+  suffix: DeltaV
+  parent: BaseLandMine
+  id: LandMineShrapnel
+  components:
+  - type: DeleteOnTrigger
+  - type: ProjectileGrenade
+    fillPrototype: PelletClusterLethal
+    capacity: 30
