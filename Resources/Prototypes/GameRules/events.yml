@@ -137,7 +137,7 @@
   - type: StationEvent
     startAnnouncement: station-event-bureaucratic-error-announcement
     startAudio: #Delta-V: Previously unheard announcer line for DeltaV's custom announcer
-      path: /Audio/Announcements/bureaucratic_error.ogg 
+      path: /Audio/Announcements/bureaucratic_error.ogg
     minimumPlayers: 25
     weight: 5
     duration: 1
@@ -178,7 +178,7 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 1 # DeltaV - was 6.5
+    weight: 2 # DeltaV - was 6.5
     earliestStart: 60 # DeltaV - was 40
     reoccurrenceDelay: 20
     minimumPlayers: 45 # DeltaV - was 20
@@ -308,7 +308,7 @@
   - type: StationEvent
     earliestStart: 15
     minimumPlayers: 10 # DeltaV - Was 15
-    weight: 5 # DeltaV - was 7
+    weight: 7
     duration: 240
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-kudzu-growth-result-message
@@ -497,7 +497,7 @@
   id: LoneOpsSpawn
   components:
   - type: StationEvent
-    earliestStart: 60 # DeltaV - was 45
+    earliestStart: 45
     weight: 3.5 # DeltaV - was 5
     minimumPlayers: 30 # DeltaV - was 20
     reoccurrenceDelay: 30
