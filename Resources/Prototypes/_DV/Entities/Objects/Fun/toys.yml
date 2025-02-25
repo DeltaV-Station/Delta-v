@@ -85,7 +85,6 @@
   - type: Sprite
     sprite: _DV/Objects/Fun/Toys/mortyplush.rsi
     state: icon
-
 - type: entity
   parent: BasePlushie
   id: PlushieIPC
@@ -100,10 +99,8 @@
       shader: unshaded
     - state: screenshine
   - type: MultiHandedItem
-  - type: Fixtures
-    fixtures:
-      fix1:
-        density: 20
+  - type: Item
+    size: Ginormous
   - type: EmitSoundOnUse
     sound:
       path: /Audio/_EE/Voice/IPC/pai_whistle.ogg
@@ -120,7 +117,6 @@
     soundHit:
       path: /Audio/_EE/Voice/IPC/robot-scream.ogg
   - type: Food
-    requiresSpecialDigestion: true
     useSound:
       path: /Audio/_EE/Voice/IPC/pai_whistle.ogg
     delay: 5
