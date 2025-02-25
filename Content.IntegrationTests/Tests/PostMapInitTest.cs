@@ -52,6 +52,7 @@ namespace Content.IntegrationTests.Tests
             "Edge", // DeltaV
             "Shoukou", // DeltaV
             "Tortuga", // DeltaV
+            "Angle", // DeltaV
             "Arena", // DeltaV
             "Asterisk", // DeltaV
             "Byoin", // DeltaV
