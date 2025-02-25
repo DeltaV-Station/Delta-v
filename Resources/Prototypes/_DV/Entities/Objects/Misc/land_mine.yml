@@ -7,9 +7,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 21 # DeltaV - 10 > 20
-    intensitySlope: 10 # DeltaV - 3 > 10
-    totalIntensity: 120 # about a ~4 tile radius
+    maxIntensity: 21
+    intensitySlope: 10
+    totalIntensity: 120
     canCreateVacuum: false
 
 - type: entity
