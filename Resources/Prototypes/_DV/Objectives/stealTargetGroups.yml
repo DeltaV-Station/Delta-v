@@ -54,6 +54,34 @@
     sprite: _DV/Objects/Misc/plutonium_core.rsi
     state: icon
 
+- type: stealTargetGroup
+  id: EngineeringTechFabCircuitboard
+  name: steal-target-groups-engineering-techfab-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: engineering
+
+- type: stealTargetGroup
+  id: LogisticsTechFabCircuitboard
+  name: steal-target-groups-logistics-techfab-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: supply
+
+- type: stealTargetGroup
+  id: ServiceTechFabCircuitboard
+  name: steal-target-groups-service-techfab-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: service
+
+- type: stealTargetGroup
+  id: EpistemicsTechFabCircuitboard
+  name: steal-target-groups-epistemics-techfab-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: science
+
 # Ninja
 
 - type: stealTargetGroup
