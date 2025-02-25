@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fixed chameleon projectors making you invisible when used with a crate.
-    type: Fix
-  id: 576
-  time: '2024-09-23T12:21:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1884
 - author: MilonPL
   changes:
   - message: Fixed the non-antagonist slime ghost role rules.
@@ -3911,3 +3904,11 @@
   id: 1075
   time: '2025-02-25T09:45:29.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2948
+- author: deltanedas
+  changes:
+  - message: Fixed being able to immediately respawn after observing, it now has a
+      cooldown like dying.
+    type: Fix
+  id: 1076
+  time: '2025-02-25T10:06:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3044
