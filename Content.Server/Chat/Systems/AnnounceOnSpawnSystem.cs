@@ -1,10 +1,13 @@
 using Content.Server.Chat;
+using Content.Server._EE.Announcements.Systems; // Impstation Random Announcer System
+using Robust.Shared.Player; // Impstation Random Announcer System
 
 namespace Content.Server.Chat.Systems;
 
 public sealed class AnnounceOnSpawnSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation Random Announcer System
 
     public override void Initialize()
     {
@@ -15,8 +18,8 @@ public sealed class AnnounceOnSpawnSystem : EntitySystem
 
     private void OnInit(EntityUid uid, AnnounceOnSpawnComponent comp, MapInitEvent args)
     {
-        var message = Loc.GetString(comp.Message);
         var sender = comp.Sender != null ? Loc.GetString(comp.Sender) : Loc.GetString("chat-manager-sender-announcement");
-        _chat.DispatchGlobalAnnouncement(message, sender, playSound: true, comp.Sound, comp.Color);
+        _announcer.SendAnnouncement(_announcer.GetAnnouncementId("SpawnAnnounceCaptain"), Filter.Broadcast(), // Impstation Random Announcer System: The announcer themselves
+            comp.Message, sender, comp.Color);
     }
 }
