@@ -281,19 +281,9 @@ cmd-options-help = Usage: options [tab]
 ui-options-enable-color-name = Add colors to character names
 ui-options-colorblind-friendly = Colorblind friendly mode
 ui-options-reduced-motion = Reduce motion of visual effects
-ui-options-chat-window-opacity = Chat window opacity
 ui-options-screen-shake-intensity = Screen shake intensity
 
-## Shitmed Change
-ui-options-header-targeting = Targeting
-ui-options-function-target-head = Target head
-ui-options-function-target-torso = Target torso
-ui-options-function-target-left-arm = Target left arm
-ui-options-function-target-left-hand = Target left hand
-ui-options-function-target-right-arm = Target right arm
-ui-options-function-target-right-hand = Target right hand
-ui-options-function-target-left-leg = Target left leg
-ui-options-function-target-left-foot = Target left foot
-ui-options-function-target-right-leg = Target right leg
-ui-options-function-target-right-foot = Target right foot
-ui-options-function-toggle-standing = Crawl/Stand
+ui-options-chat-window-opacity = Chat window opacity
+ui-options-speech-bubble-text-opacity = Speech bubble text opacity
+ui-options-speech-bubble-speaker-opacity = Speech bubble speaker opacity
+ui-options-speech-bubble-background-opacity = Speech bubble background opacity
