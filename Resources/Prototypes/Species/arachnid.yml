@@ -63,7 +63,7 @@
       required: true
       defaultMarkings: [ ArachnidCheliceraeDownwards ]
     Chest:
-      points: 1
+      points: 4 # Imp 1<4
       required: false
     # Begin DeltaV changes.
     Underwear:
@@ -74,92 +74,94 @@
       required: false
     # End DeltaV changes.
     Legs:
-      points: 6
+      points: 8 # Imp 6<8
       required: false
     Arms:
-      points: 6
+      points: 8 # Imp 6<8
       required: false
+
+# imp change: all sprites redirect to lighter versions of the base sprite
 
 - type: humanoidBaseSprite
   id: MobArachnidHead
   baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi # imp
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobArachnidHeadMale
   baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi # imp
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobArachnidHeadFemale
   baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi # imp
     state: head_f
 
 - type: humanoidBaseSprite
   id: MobArachnidTorso
   baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi # imp
     state: torso_m
 
 - type: humanoidBaseSprite
   id: MobArachnidTorsoMale
   baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi # imp
     state: torso_m
 
 - type: humanoidBaseSprite
   id: MobArachnidTorsoFemale
   baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi # imp
     state: torso_f
 
 - type: humanoidBaseSprite
   id: MobArachnidLLeg
   baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi # imp
     state: l_leg
 
 - type: humanoidBaseSprite
   id: MobArachnidLHand
   baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi # imp
     state: l_hand
 
 - type: humanoidBaseSprite
   id: MobArachnidLArm
   baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi # imp
     state: l_arm
 
 - type: humanoidBaseSprite
   id: MobArachnidLFoot
   baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi # imp
     state: l_foot
 
 - type: humanoidBaseSprite
   id: MobArachnidRLeg
   baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi # imp
     state: r_leg
 
 - type: humanoidBaseSprite
   id: MobArachnidRHand
   baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi # imp
     state: r_hand
 
 - type: humanoidBaseSprite
   id: MobArachnidRArm
   baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi # imp
     state: r_arm
 
 - type: humanoidBaseSprite
   id: MobArachnidRFoot
   baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi # imp
     state: r_foot
