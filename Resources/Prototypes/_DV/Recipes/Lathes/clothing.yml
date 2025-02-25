@@ -119,6 +119,35 @@
   id: ClothingOuterChiefJustice
   result: ClothingOuterChiefJustice
 
+# Clerk
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitClerk
+  result: ClothingUniformJumpsuitClerk
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtClerk
+  result: ClothingUniformJumpskirtClerk
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterClerkVest
+  result: ClothingOuterClerkVest
+
+# Prosecutor
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitProsecutor
+  result: ClothingUniformJumpsuitProsecutor
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtProsecutor
+  result: ClothingUniformJumpskirtProsecutor
+
 # Salvage Specialist
 
 - type: latheRecipe
@@ -159,6 +188,13 @@
   parent: BaseCommandHatRecipe
   id: ClothingHeadHatBeretLogi
   result: ClothingHeadHatBeretLogi
+
+# Prison Guard Hat
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadPrisonGuard
+  result: ClothingHeadPrisonGuard
 
 #Centcomm Clothing
 
