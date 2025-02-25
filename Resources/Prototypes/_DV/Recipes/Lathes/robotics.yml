@@ -1,4 +1,24 @@
 - type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleSecurityEscalate
+  result: BorgModuleSecurityEscalate
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleSecurityChase
+  result: BorgModuleSecurityChase
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleSecurityPatrol
+  result: BorgModuleSecurityPatrol
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleSecurityBastion
+  result: BorgModuleSecurityBastion
+
+- type: latheRecipe
   id: BorgModuleSyndicateWeapon
   result: BorgModuleSyndicateWeapon
   category: Robotics

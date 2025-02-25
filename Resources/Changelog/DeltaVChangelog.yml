@@ -1,47 +1,4 @@
 ﻿Entries:
-- author: Avalon-Proto
-  changes:
-  - message: 'Removed Sechud From Corpsman Glasses. Stick some secglasses in your
-      pocket :blunt:'
-    type: Tweak
-  id: 571
-  time: '2024-09-21T13:24:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1879
-- author: adeinitas
-  changes:
-  - message: Updated Shoko to have an anchor, and fixed bugs. Enjoy Little Port!
-    type: Tweak
-  id: 572
-  time: '2024-09-21T21:00:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1863
-- author: deltanedas
-  changes:
-  - message: Merged last weeks changes from upstream.
-    type: Tweak
-  id: 573
-  time: '2024-09-22T04:10:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1891
-- author: Aikakakah
-  changes:
-  - message: Added cybernetic limbs!
-    type: Add
-  id: 574
-  time: '2024-09-22T06:04:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1857
-- author: deltanedas
-  changes:
-  - message: Fixed verbs not working...
-    type: Fix
-  id: 575
-  time: '2024-09-22T14:19:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1895
-- author: deltanedas
-  changes:
-  - message: Fixed chameleon projectors making you invisible when used with a crate.
-    type: Fix
-  id: 576
-  time: '2024-09-23T12:21:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1884
 - author: MilonPL
   changes:
   - message: Fixed the non-antagonist slime ghost role rules.
@@ -3908,3 +3865,50 @@
   id: 1070
   time: '2025-02-24T08:33:00.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3038
+- author: Eternally-Confused
+  changes:
+  - message: Added missing Chief Justice, AA, and other command uniforms to the uniform
+      printer
+    type: Add
+  id: 1071
+  time: '2025-02-24T22:04:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3037
+- author: TadJohnson00
+  changes:
+  - message: Added Delta-V specific HE and shrapnel mines for mappers to use.
+    type: Add
+  id: 1072
+  time: '2025-02-25T08:26:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3039
+- author: Colin-Tel
+  changes:
+  - message: Updated rule S4 to allow law changes in certain situations.
+    type: Tweak
+  id: 1073
+  time: '2025-02-25T08:50:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2809
+- author: Toby222
+  changes:
+  - message: Fixed being able to add empty NanoChat contacts
+    type: Fix
+  id: 1074
+  time: '2025-02-25T09:42:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3045
+- author: widgetbeck, crocodilecarousel, TGRCdev, airfryerbuyonegetonefree, sowelipililimute,
+    honeyed_lemons_, DinnerCalzone, kushbreth
+  changes:
+  - message: Thaven have been added as a species! These fey creatures are struck by
+      Moods, a new mechanic similar to silicon laws- but far more dramatic. Ported
+      from Impstation with love.
+    type: Add
+  id: 1075
+  time: '2025-02-25T09:45:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2948
+- author: deltanedas
+  changes:
+  - message: Fixed being able to immediately respawn after observing, it now has a
+      cooldown like dying.
+    type: Fix
+  id: 1076
+  time: '2025-02-25T10:06:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3044
