@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Message;
+using Content.Shared._DV.Ailments; // DeltaV
 using Content.Shared._DV.Traits.Assorted; // DeltaV
 using Content.Shared.Atmos;
 using Content.Client.UserInterface.Controls;
@@ -38,6 +39,7 @@ namespace Content.Client.HealthAnalyzer.UI
         private readonly IPrototypeManager _prototypes;
         private readonly IResourceCache _cache;
         private readonly UnborgableSystem _unborgable; // DeltaV
+        private readonly SharedAilmentSystem _ailments; // DeltaV
 
         // Shitmed Change Start
         public event Action<TargetBodyPart?, EntityUid>? OnBodyPartSelected;
@@ -60,6 +62,7 @@ namespace Content.Client.HealthAnalyzer.UI
             _prototypes = dependencies.Resolve<IPrototypeManager>();
             _cache = dependencies.Resolve<IResourceCache>();
             _unborgable = _entityManager.System<UnborgableSystem>(); // DeltaV
+            _ailments = _entityManager.System<SharedAilmentSystem>(); // DeltaV
             // Shitmed Change Start
             _bodyPartControls = new Dictionary<TargetBodyPart, TextureButton>
             {
@@ -187,8 +190,9 @@ namespace Content.Client.HealthAnalyzer.UI
 
             // Alerts
 
+            var ailments = _ailments.HealthAnalyzerMessages(part is {} partId ? partId : _target.Value); // DeltaV: ailments
             var unborgable = _unborgable.IsUnborgable(_target.Value); // DeltaV
-            var showAlerts = msg.Unrevivable == true || msg.Bleeding == true || unborgable;
+            var showAlerts = msg.Unrevivable == true || msg.Bleeding == true || unborgable || ailments.Count > 0;
 
             AlertsDivider.Visible = showAlerts;
             AlertsContainer.Visible = showAlerts;
@@ -219,6 +223,18 @@ namespace Content.Client.HealthAnalyzer.UI
                     Margin = new Thickness(0, 4),
                     MaxWidth = 300
                 });
+
+            // Begin DeltaV: ailments
+            foreach (var ailment in ailments)
+            {
+                AlertsContainer.AddChild(new RichTextLabel
+                {
+                    Text = ailment,
+                    Margin = new Thickness(0, 4),
+                    MaxWidth = 300
+                });
+            }
+            // End DeltaV: ailments
 
             // Damage Groups
 
