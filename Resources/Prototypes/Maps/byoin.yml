@@ -3,7 +3,7 @@
   mapName: 'Byōin'
   mapPath: /Maps/byoin.yml
   minPlayers: 0
-  maxPlayers: 20
+  maxPlayers: 25
   stations:
     Byoin:
       stationProto: StandardNanotrasenStation
@@ -64,12 +64,15 @@
             Detective: [ 1, 1 ]
             SecurityOfficer: [ 1, 2 ]
             SecurityCadet: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ]
+            Prisoner: [ 2, 2 ]
+            PrisonGuard: [ 1, 1 ]
           #justice
             Clerk: [ 1, 1 ]
             Prosecutor: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
           #supply
-            SalvageSpecialist: [ 1, 1 ]
+            SalvageSpecialist: [ 1, 2 ]
             CargoTechnician: [ 1, 2 ]
             Courier: [ 1, 1 ]
             CargoAssistant: [ 1, 1 ]
