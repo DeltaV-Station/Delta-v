@@ -6,7 +6,7 @@
   dummyPrototype: BorgChassisSecurity
 
   # Functional
-  extraModuleCount: 3
+  extraModuleCount: 2
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
@@ -14,9 +14,9 @@
 
   # TODO: change these when reworking secborg modules to have the equivalent of roundstart gear
   defaultModules:
+  - BorgModuleTool
   - BorgModuleSecurityDeescalate
   - BorgModuleSecurityPatrol
-  - BorgModuleSecurityBastion
 
   lawset: SiliconPolice
 
