@@ -1,0 +1,65 @@
+# don't use these if you have a normal air mixer -> air vent station,
+# these are for controlling pumps for a passive vent station
+
+- type: entity
+  parent: GasPipeSensor
+  id: GasPipeSensorControlOxygen
+  suffix: Control, Oxygen Content
+  components:
+  - type: Label
+    currentLabel: gas-pipe-sensor-control-oxygen
+  - type: AtmosMonitor
+    temperatureThresholdId: ignore
+    pressureThresholdId: ignore
+    gasThresholdPrototypes:
+      Oxygen: controlOxygen
+      Nitrogen: ignore
+      CarbonDioxide: ignore
+      Plasma: ignore
+      Tritium: ignore
+      WaterVapor: ignore
+      Ammonia: ignore
+      NitrousOxide: ignore
+      Frezon: ignore
+
+- type: entity
+  parent: GasPipeSensor
+  id: GasPipeSensorControlNitrogen
+  suffix: Control, Nitrogen Content
+  components:
+  - type: Label
+    currentLabel: gas-pipe-sensor-control-nitrogen
+  - type: AtmosMonitor
+    temperatureThresholdId: ignore
+    pressureThresholdId: ignore
+    gasThresholdPrototypes:
+      Oxygen: ignore
+      Nitrogen: controlNitrogen
+      CarbonDioxide: ignore
+      Plasma: ignore
+      Tritium: ignore
+      WaterVapor: ignore
+      Ammonia: ignore
+      NitrousOxide: ignore
+      Frezon: ignore
+
+- type: entity
+  parent: GasPipeSensor
+  id: GasPipeSensorControlOverpressure
+  suffix: Control, Overpressure
+  components:
+  - type: Label
+    currentLabel: gas-pipe-sensor-control-overpressure
+  - type: AtmosMonitor
+    temperatureThresholdId: ignore
+    pressureThresholdId: controlOverpressure
+    gasThresholdPrototypes:
+      Oxygen: ignore
+      Nitrogen: ignore
+      CarbonDioxide: ignore
+      Plasma: ignore
+      Tritium: ignore
+      WaterVapor: ignore
+      Ammonia: ignore
+      NitrousOxide: ignore
+      Frezon: ignore
