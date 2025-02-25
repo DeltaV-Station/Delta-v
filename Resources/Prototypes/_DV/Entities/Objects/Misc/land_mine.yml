@@ -1,8 +1,8 @@
 - type: entity
-  name: explosive mine
-  suffix: DeltaV
   parent: BaseLandMine
   id: LandMineHE
+  name: explosive mine
+  suffix: DeltaV, High Explosive
   components:
   - type: ExplodeOnTrigger
   - type: Explosive
@@ -13,10 +13,9 @@
     canCreateVacuum: false
 
 - type: entity
-  name: shrapnel mine
-  suffix: DeltaV
   parent: BaseLandMine
   id: LandMineShrapnel
+  name: shrapnel mine
   components:
   - type: DeleteOnTrigger
   - type: ContainerContainer
