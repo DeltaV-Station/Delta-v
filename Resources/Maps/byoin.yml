@@ -28258,6 +28258,11 @@ entities:
     - type: Transform
       pos: 46.5,29.5
       parent: 2
+  - uid: 2970
+    components:
+    - type: Transform
+      pos: -2.5,15.5
+      parent: 2
   - uid: 4780
     components:
     - type: Transform
@@ -28332,11 +28337,6 @@ entities:
     components:
     - type: Transform
       pos: -3.5,14.5
-      parent: 2
-  - uid: 14163
-    components:
-    - type: Transform
-      pos: -2.5,15.5
       parent: 2
   - uid: 14164
     components:
@@ -35023,10 +35023,10 @@ entities:
       text: Captain's Quarters
 - proto: DefaultStationBeaconCERoom
   entities:
-  - uid: 2970
+  - uid: 8082
     components:
     - type: Transform
-      pos: -2.5,13.5
+      pos: -2.5,15.5
       parent: 2
     - type: NavMapBeacon
       text: CE's Bedroom
@@ -35183,13 +35183,6 @@ entities:
       parent: 2
     - type: NavMapBeacon
       text: HoP's Office
-  - uid: 8082
-    components:
-    - type: Transform
-      pos: 4.5,15.5
-      parent: 2
-    - type: NavMapBeacon
-      text: HoP's Bedroom
 - proto: DefaultStationBeaconHOSRoom
   entities:
   - uid: 13734
