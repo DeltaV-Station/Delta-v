@@ -326,7 +326,7 @@ namespace Content.Server.Database
 
 
         Task<List<string>> GetJobWhitelists(Guid player, CancellationToken cancel = default);
-        Task<bool> IsJobWhitelisted(Guid player, ProtoId<JobPrototype> job);
+        Task<bool> IsJobWhitelisted(Guid player, ProtoId<JobPrototype> job, CancellationToken cancel = default);
 
         Task<bool> RemoveJobWhitelist(Guid player, ProtoId<JobPrototype> job);
 
@@ -1012,7 +1012,7 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetJobWhitelists(player, cancel));
         }
 
-        public Task<bool> IsJobWhitelisted(Guid player, ProtoId<JobPrototype> job)
+        public Task<bool> IsJobWhitelisted(Guid player, ProtoId<JobPrototype> job, CancellationToken cancel = default)
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.IsJobWhitelisted(player, job));
