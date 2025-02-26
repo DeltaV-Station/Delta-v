@@ -2817,6 +2817,9 @@ entities:
             4944: -20,3
             4955: -16,-1
             4987: 24,21
+            4988: 0,-14
+            4989: -2,-14
+            4990: -2,-7
         - node:
             color: '#334E6DC8'
             id: DiagonalCheckerAOverlay
@@ -7735,12 +7738,6 @@ entities:
     - type: Transform
       pos: 0.5,-13.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -537452.94
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 3575
     components:
     - type: Transform
@@ -33321,6 +33318,13 @@ entities:
     components:
     - type: Transform
       pos: 17.024673,14.098475
+      parent: 2
+- proto: ClothingShoesBootsCowboyBlackFilled
+  entities:
+  - uid: 14332
+    components:
+    - type: Transform
+      pos: 33.051994,21.707272
       parent: 2
 - proto: ClothingShoesBootsLaceup
   entities:
@@ -74602,10 +74606,10 @@ entities:
     - type: Transform
       pos: -14.5,-23.5
       parent: 2
-  - uid: 14332
+  - uid: 14361
     components:
     - type: Transform
-      pos: 37.5,12.5
+      pos: 35.5,9.5
       parent: 2
 - proto: RandomSnacks
   entities:
