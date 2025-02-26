@@ -3,6 +3,7 @@ using Content.Server.Objectives.Systems;
 using Content.Server.Popups;
 using Content.Server.Roles;
 using Content.Shared.Actions;
+using Content.Shared.Damage; // DeltaV
 using Content.Shared.Dragon;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
@@ -20,6 +21,7 @@ namespace Content.Server.Dragon;
 
 public sealed partial class DragonSystem : EntitySystem
 {
+    [Dependency] private readonly DamageableSystem _damageable = default!; // DeltaV
     [Dependency] private readonly CarpRiftsConditionSystem _carpRifts = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
@@ -97,12 +99,20 @@ public sealed partial class DragonSystem : EntitySystem
             if (!_mobState.IsDead(uid))
                 comp.RiftAccumulator += frameTime;
 
-            // Delete it, naughty dragon!
-            if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)
+            // Begin DeltaV Changes
+            if (!comp.HalftimePopupShown && Math.Round(comp.RiftAccumulator) == 0.5 * comp.RiftMaxAccumulator) // at halftime tell them they gonna die
             {
                 Roar(uid, comp);
-                QueueDel(uid);
+                _popup.PopupEntity(Loc.GetString("deltav-dragon-halftime-popup"), uid, uid);
+                comp.HalftimePopupShown = true; // no spamming popups
             }
+
+            if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)  // dragon is out of time
+            {
+                Roar(uid, comp);
+                _damageable.TryChangeDamage(uid, comp.DeathDamage,true,true); // gib time
+            }
+            // End DeltaV Changes
         }
     }
 
@@ -169,6 +179,7 @@ public sealed partial class DragonSystem : EntitySystem
         var carpUid = Spawn(component.RiftPrototype, _transform.GetMapCoordinates(uid, xform: xform));
         component.Rifts.Add(carpUid);
         Comp<DragonRiftComponent>(carpUid).Dragon = uid;
+        component.HalftimePopupShown = false; // DeltaV - Reset popup flag
     }
 
     // TODO: just make this a move speed modifier component???
