@@ -1,0 +1,13 @@
+- type: entity
+  parent: ExosuitFabricator
+  id: SyndicateExosuitFabricator
+  name: syndicate exosuit fabricator
+  description: Creates parts for evil robotics and other mechanical needs
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Machines/synd_exosuit_fabricator.rsi
+  - type: Lathe
+    staticPacks:
+    - BorgModulesSyndicateStatic
+  - type: Machine
+    board: SyndieExosuitFabricatorMachineCircuitboard
