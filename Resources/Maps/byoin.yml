@@ -7736,7 +7736,7 @@ entities:
       pos: 0.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -537395.3
+      secondsUntilStateChange: -537452.94
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12761,10 +12761,10 @@ entities:
       parent: 2
 - proto: BookHowToRockAndStone
   entities:
-  - uid: 6201
+  - uid: 9588
     components:
     - type: Transform
-      pos: -14.484765,-0.33887804
+      pos: -12.344038,-0.5950904
       parent: 2
 - proto: BookHowToSurvive
   entities:
@@ -12773,10 +12773,10 @@ entities:
     - type: Transform
       pos: 23.536066,5.8174067
       parent: 2
-  - uid: 9588
+  - uid: 8249
     components:
     - type: Transform
-      pos: -14.646385,-0.7127552
+      pos: -12.500288,-0.4075904
       parent: 2
   - uid: 14244
     components:
@@ -34842,6 +34842,16 @@ entities:
     components:
     - type: Transform
       pos: 6.5,1.5
+      parent: 2
+  - uid: 6201
+    components:
+    - type: Transform
+      pos: -12.5,-1.5
+      parent: 2
+  - uid: 7341
+    components:
+    - type: Transform
+      pos: -12.5,0.5
       parent: 2
   - uid: 7368
     components:
@@ -69444,11 +69454,6 @@ entities:
     components:
     - type: Transform
       pos: -14.5,-1.5
-      parent: 2
-  - uid: 8249
-    components:
-    - type: Transform
-      pos: -14.5,-0.5
       parent: 2
   - uid: 14226
     components:
