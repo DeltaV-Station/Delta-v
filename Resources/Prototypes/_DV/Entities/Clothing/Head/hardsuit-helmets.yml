@@ -158,3 +158,15 @@
       coefficients:
         Heat: 0.90
         Radiation: 0.75
+
+#Roboneuroticist Helmet
+- type: entity
+  parent: ClothingHeadHelmetSyndicate
+  id: ClothingHeadHelmetRoboNeuroticist
+  name: robo-neuroticist softshell helmet
+  description: A dramatic, stylish helmet. Designed for maximum borg induced space-badassery.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Helmets/eva_roboneuroticist.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Helmets/eva_roboneuroticist.rsi

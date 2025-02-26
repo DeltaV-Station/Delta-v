@@ -6,3 +6,13 @@
   components:
   - type: Sprite
     sprite: _DV/Clothing/Back/Backpacks/centcom.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackHoP
+  name: HoP's Backpack
+  description: To store all your stamps and paperwork
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Back/Backpacks/hop.rsi
+    state: icon
