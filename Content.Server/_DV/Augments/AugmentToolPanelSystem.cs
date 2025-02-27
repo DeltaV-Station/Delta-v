@@ -75,7 +75,7 @@ public sealed class AugmentToolPanelSystem : EntitySystem
             }
             else if (desiredHand.HeldEntity is not null)
             {
-                _popup.PopupCursor("your hand is full", body);
+                _popup.PopupCursor(Loc.GetString("augment-tool-panel-hand-full"), body);
                 return;
             }
 
@@ -84,7 +84,7 @@ public sealed class AugmentToolPanelSystem : EntitySystem
 
             if (!_hands.TryPickup(body, desiredTool, desiredHand))
             {
-                _popup.PopupCursor("your hand can't hold that", body);
+                _popup.PopupCursor(Loc.GetString("augment-tool-panel-cannot-pick-up"), body);
                 return;
             }
             EnsureComp<AugmentToolPanelActiveItemComponent>(desiredTool);
