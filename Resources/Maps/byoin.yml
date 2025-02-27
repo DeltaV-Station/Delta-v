@@ -7233,6 +7233,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 37.5,22.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        10177:
+        - DoorStatus: DoorBolt
   - uid: 10177
     components:
     - type: MetaData
@@ -7240,6 +7246,12 @@ entities:
     - type: Transform
       pos: 37.5,19.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        8424:
+        - DoorStatus: DoorBolt
 - proto: AirlockExternalGlassShuttleArrivals
   entities:
   - uid: 492
@@ -33701,6 +33713,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 11.5,25.5
       parent: 2
+  - uid: 10425
+    components:
+    - type: Transform
+      pos: -24.5,17.5
+      parent: 2
   - uid: 11222
     components:
     - type: Transform
@@ -33730,11 +33747,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -4.5,5.5
-      parent: 2
-  - uid: 13785
-    components:
-    - type: Transform
-      pos: -24.5,17.5
       parent: 2
 - proto: ComputerBroken
   entities:
@@ -45826,17 +45838,17 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
-  - uid: 10425
-    components:
-    - type: Transform
-      pos: 7.5,44.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
   - uid: 10479
     components:
     - type: Transform
       pos: 18.5,43.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
+  - uid: 10519
+    components:
+    - type: Transform
+      pos: 7.5,44.5
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
@@ -92866,11 +92878,12 @@ entities:
       parent: 2
 - proto: WarpPointCourt
   entities:
-  - uid: 10519
+  - uid: 13785
     components:
     - type: Transform
-      pos: 3.5,40.5
+      pos: 4.5,41.5
       parent: 2
+    - type: BombingTarget
 - proto: WarpPointCryo
   entities:
   - uid: 2870
@@ -92992,6 +93005,7 @@ entities:
     - type: Transform
       pos: -19.5,-1.5
       parent: 2
+    - type: BombingTarget
 - proto: WarpPointSecurity
   entities:
   - uid: 815
