@@ -27,7 +27,7 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/corpo_jacket.rsi
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/WinterCoats/corpo_jacket.rsi
-    
+
 - type: entity
   parent: ClothingOuterWinterCoat
   id: ClothingOuterDenimJacket
@@ -112,3 +112,13 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/corpsmancoat.rsi
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/WinterCoats/corpsmancoat.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoatLong
+  id: ClothingOuterWinterLongMime
+  name: mime's long winter coat
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/mimelongcoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/mimelongcoat.rsi
