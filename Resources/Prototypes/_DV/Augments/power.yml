@@ -1,0 +1,54 @@
+- type: entity
+  parent: [ BaseItem, PowerCellSlotSmallItem ]
+  id: AugmentPowerCellSlot
+  name: augment power cell slot
+  description: Can be implanted into a body to provide power to other implants.
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: brain
+  - type: Organ
+    slotId: powerCell
+    onAdd:
+    - type: HasAugmentPowerCellSlot
+  - type: AugmentPowerCellSlot
+
+- type: entity
+  parent: BaseItem
+  id: AugmentBaseCharger
+  name: base charger augment
+  abstract: true
+  components:
+  - type: Organ
+    slotId: charger
+  - type: AugmentCharger
+
+- type: entity
+  parent: BaseItem
+  id: AugmentRechargerAPC
+  name: augment apc recharger
+  description: Allows the implantee to recharge their power cell via APCs.
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: brain
+  - type: Organ
+    slotId: charger
+    onAdd:
+    - type: BatteryDrinker
+  - type: AugmentCharger
+
+- type: entity
+  parent: BaseItem
+  id: AugmentRechargerStation
+  name: augment station recharger
+  description: Allows the implantee to recharge their power cell via cyborg recharging stations.
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: brain
+  - type: Organ
+    slotId: charger
+    onAdd:
+    - type: AugmentStationRecharge
+  - type: AugmentCharger
