@@ -10,6 +10,13 @@
     rules: ghost-role-information-syndicate-marshal-rules
     mindRoles:
     - MindRoleGhostRoleNeutral
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 259200 # 72 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 28800 # 8 hours
+  - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [ SyndicateMarshalGear ]
   - type: AutoImplant
