@@ -30,7 +30,15 @@
             <Control MinSize="0 10" />
 
             <!-- Buffer -->
-            <Label Text="{Loc 'chem-master-window-buffer-text'}" />
+            <BoxContainer Orientation="Horizontal">
+                <Label Text="{Loc 'chem-master-window-buffer-text'}" />
+                <Control HorizontalExpand="True" />
+                <Button MinSize="80 0" Name="BufferTransferButton" Access="Public" Text="{Loc 'chem-master-window-transfer-button'}" ToggleMode="True" StyleClasses="OpenRight" />
+                <Button MinSize="80 0" Name="BufferSortButton" Access="Public" Text="{Loc 'chem-master-window-sort-type-none'}" StyleClasses="OpenBoth" />
+                <!-- DeltaV - Removed discarding
+                <Button MinSize="80 0" Name="BufferDiscardButton" Access="Public" Text="{Loc 'chem-master-window-discard-button'}" ToggleMode="True" StyleClasses="OpenLeft" />
+                -->
+            </BoxContainer>
 
             <!-- Buffer info -->
             <PanelContainer VerticalExpand="True" MinSize="0 200">
