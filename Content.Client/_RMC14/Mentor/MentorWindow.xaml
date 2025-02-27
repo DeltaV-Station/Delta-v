@@ -15,8 +15,8 @@
                                   VerticalExpand="True">
                         <BoxContainer Name="Players" Access="Public" Orientation="Vertical"
                                       VerticalExpand="True" />
-                        <Button Name="DeMentorButton" Access="Public" Text="De-Mentor"
-                                StyleClasses="OpenBoth" />
+                        <!-- DeltaV - Remove de/re-mentor <Button Name="DeMentorButton" Access="Public" Text="De-Mentor"
+                                StyleClasses="OpenBoth" />-->
                     </BoxContainer>
             </ScrollContainer>
         </PanelContainer>

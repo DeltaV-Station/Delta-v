@@ -1707,13 +1707,13 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 .ToListAsync(cancellationToken: cancel);
         }
 
-        public async Task<bool> IsJobWhitelisted(Guid player, ProtoId<JobPrototype> job, CancellationToken cancel = default)
+        public async Task<bool> IsJobWhitelisted(Guid player, ProtoId<JobPrototype> job)
         {
-            await using var db = await GetDb(cancel);
+            await using var db = await GetDb();
             return await db.DbContext.RoleWhitelists
                 .Where(w => w.PlayerUserId == player)
                 .Where(w => w.RoleId == job.Id)
-                .AnyAsync(cancel);
+                .AnyAsync();
         }
 
         public async Task<bool> RemoveJobWhitelist(Guid player, ProtoId<JobPrototype> job)

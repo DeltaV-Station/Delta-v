@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server.Administration; // DeltaV
+using Content.Server.Administration.Managers; // DeltaV
 using Content.Server.Database;
 using Content.Server.Players.RateLimiting;
 using Content.Shared._RMC14.CCVar;
@@ -17,6 +19,7 @@ namespace Content.Server._RMC14.Mentor;
 
 public sealed class MentorManager : IPostInjectInit
 {
+    [Dependency] private readonly IAdminManager _admin = default!; // DeltaV
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -25,11 +28,12 @@ public sealed class MentorManager : IPostInjectInit
     [Dependency] private readonly UserDbDataManager _userDb = default!;
 
     private const string RateLimitKey = "MentorHelp";
-    private static readonly ProtoId<JobPrototype> MentorJob = "CMSeniorEnlistedAdvisor";
+    // private static readonly ProtoId<JobPrototype> MentorJob = "CMSeniorEnlistedAdvisor"; Remove mentoring jobs
 
     private readonly List<ICommonSession> _activeMentors = new();
     private readonly Dictionary<NetUserId, bool> _mentors = new();
 
+    /* DeltaV - Update mentor on perm updates
     private async Task LoadData(ICommonSession player, CancellationToken cancel)
     {
         var userId = player.UserId;
@@ -57,6 +61,7 @@ public sealed class MentorManager : IPostInjectInit
         if (isMentor)
             _activeMentors.Add(player);
     }
+    */
 
     private void FinishLoad(ICommonSession player)
     {
@@ -98,6 +103,22 @@ public sealed class MentorManager : IPostInjectInit
             return;
 
         SendMentorMessage(author.UserId, author.Name, author.UserId, author.Name, message.Message, message.MsgChannel);
+    }
+
+    // DeltaV - Update mentor on perm updates
+    private void OnAdminPermsChanged(AdminPermsChangedEventArgs args)
+    {
+        if (_admin.HasAdminFlag(args.Player, AdminFlags.MentorHelp) && !_activeMentors.Contains(args.Player))
+        {
+            _activeMentors.Add(args.Player);
+            SendMentorStatus(args.Player);
+        }
+
+        if (!_admin.HasAdminFlag(args.Player, AdminFlags.MentorHelp) && _activeMentors.Contains(args.Player))
+        {
+            _activeMentors.Remove(args.Player);
+            SendMentorStatus(args.Player);
+        }
     }
 
     private void OnDeMentor(DeMentorMsg message)
@@ -185,7 +206,7 @@ public sealed class MentorManager : IPostInjectInit
         _net.RegisterNetMessage<MentorMessagesReceivedMsg>();
         _net.RegisterNetMessage<DeMentorMsg>(OnDeMentor);
         _net.RegisterNetMessage<ReMentorMsg>(OnReMentor);
-        _userDb.AddOnLoadPlayer(LoadData);
+        //_userDb.AddOnLoadPlayer(LoadData); DeltaV Update mentor on perm updates
         _userDb.AddOnFinishLoad(FinishLoad);
         _userDb.AddOnPlayerDisconnect(ClientDisconnected);
         _rateLimit.Register(
@@ -196,5 +217,6 @@ public sealed class MentorManager : IPostInjectInit
                 _ => { }
             )
         );
+        _admin.OnPermsChanged += OnAdminPermsChanged; // DeltaV - Update mentor on perm updates
     }
 }

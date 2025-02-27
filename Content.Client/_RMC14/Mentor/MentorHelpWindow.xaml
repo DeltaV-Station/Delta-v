@@ -8,8 +8,8 @@
                      VerticalExpand="True" />
         <BoxContainer Orientation="Horizontal">
             <LineEdit Name="Chat" Access="Public" HorizontalExpand="True" />
-            <Button Name="ReMentorButton" Access="Public" Text="Re-mentor" Visible="False"
-                    StyleClasses="OpenBoth" />
+            <!-- DeltaV - Remove de/re-mentor <Button Name="ReMentorButton" Access="Public" Text="Re-mentor" Visible="False"
+                    StyleClasses="OpenBoth" />-->
         </BoxContainer>
     </BoxContainer>
 </controls:MentorHelpWindow>
