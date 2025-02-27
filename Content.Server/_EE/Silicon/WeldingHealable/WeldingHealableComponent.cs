@@ -11,6 +11,6 @@ namespace Content.Server._EE.Silicon.WeldingHealable
         /// DeltaV: Disables self-healing with any type of WeldingHealing item.
         /// </summary>
         [DataField]
-        public bool AllowSelfHealing = true;
+        public bool AllowSelfHeal = true;
     }
 }
