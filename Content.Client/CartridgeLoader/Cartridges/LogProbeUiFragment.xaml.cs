@@ -26,7 +26,8 @@ public sealed partial class LogProbeUiFragment : BoxContainer
     // DeltaV begin - Update to handle both types of data
     public void UpdateState(LogProbeUiState state)
     {
-        ProbedDeviceContainer.RemoveAllChildren();
+        EntityName.Text = name;
+        PrintButton.Disabled = string.IsNullOrEmpty(name);
 
         if (state.NanoChatData != null)
         {
