@@ -97,6 +97,8 @@
   recipeUnlocks:
   - WeaponEnergyGunPistol
   - WeaponGunLaserCarbineAutomatic
+  technologyPrerequisites: # DeltaV: added prerequesite
+  - EnergyGuns
 
 - type: technology
   id: AdvancedRiotControl
@@ -125,3 +127,5 @@
   cost: 10000
   recipeUnlocks:
   - WeaponColdCannon
+  technologyPrerequisites: # DeltaV: added prerequesite
+  - AdvancedAtmospherics
