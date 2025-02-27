@@ -1,0 +1,18 @@
+- type: gameMap
+  id: Thames
+  mapName: 'Outpost Thames'
+  mapPath: /Maps/thames.yml
+  minPlayers: 40
+  stations:
+    Tortuga:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Outpost Thames {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'IHSDV'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Vertex.yml
+        - type: StationJobs
+          availableJobs:
