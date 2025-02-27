@@ -1,0 +1,28 @@
+- type: entity
+  parent: MobHumanSyndicateAgentBase
+  id: MobHumanSyndicateMarshal
+  name: syndicate marshal
+  suffix: Human, Marshal
+  components:
+  - type: GhostRole
+    name: ghost-role-information-syndicate-marshal-name
+    description: ghost-role-information-syndicate-marshal-description
+    rules: ghost-role-information-syndicate-marshal-rules
+    mindRoles:
+    - MindRoleGhostRoleNeutral
+  - type: Loadout
+    prototypes: [ SyndicateMarshalGear ]
+  - type: AutoImplant
+    implants:
+    - DeathAcidifierImplant
+
+- type: startingGear
+  parent: SyndicateOperativeGearExtremelyBasic
+  id: SyndicateMarshalGear
+  equipment:
+    outerClothing: ClothingOuterWinterSyndieCapArmored
+    id: SyndiPDA
+    pocket1: WeaponRevolverPythonAP
+  storage:
+    back:
+    - SpeedLoaderMagnumAP

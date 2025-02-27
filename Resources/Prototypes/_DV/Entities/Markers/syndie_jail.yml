@@ -28,7 +28,7 @@
 
 - type: entity
   categories: [ Spawner ]
-  parent: BaseAntagSpawner
+  parent: MarkerBase
   id: SyndicateMarshalSpawner
   name: syndicate marshal spawner
   components:
@@ -38,9 +38,6 @@
       state: green
     - sprite: Clothing/Head/Hats/syndiecap_maa.rsi
       state: icon
-  - type: GhostRole
-    name: ghost-role-information-syndicate-marshal-name
-    description: ghost-role-information-syndicate-marshal-description
-    rules: ghost-role-information-syndicate-marshal-rules
-    mindRoles:
-    - MindRoleGhostRoleNeutral
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanSyndicateMarshal
