@@ -53,7 +53,6 @@ public sealed partial class RevenantStasisSystem : EntitySystem
         SubscribeLocalEvent<RevenantStasisComponent, ConstructionConsumedObjectEvent>(OnCrafted);
         SubscribeLocalEvent<RevenantStasisComponent, ReagentGrinderSystem.GrindAttemptEvent>(OnGrindAttempt);
         SubscribeLocalEvent<RevenantStasisComponent, TransformSpeakerNameEvent>(OnTransformName);
-
         SubscribeLocalEvent<RevenantStasisComponent, AfterInteractUsingEvent>(OnBibleInteract, before: [typeof(BibleSystem)]);
         SubscribeLocalEvent<RevenantStasisComponent, ExorciseRevenantDoAfterEvent>(OnExorcise);
     }
