@@ -381,10 +381,10 @@
   name: salt
   suffix: Full
   components:
-  - type: Tag
+  - type: Tag # Imp
     tags:
     - Salt
-  - type: RevealRevenantOnCollide
+  - type: RevealRevenantOnCollide # Imp
   - type: Stack
     stackType: SaltOre
   - type: Sprite

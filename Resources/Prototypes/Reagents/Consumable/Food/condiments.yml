@@ -164,7 +164,7 @@
       # eating salt on its own kinda sucks, kids
       - !type:SatiateThirst
         factor: -0.5
-  tileReactions:
+  tileReactions: # Imp
     - !type:EnsureTileReaction
       components:
         - type: RevealRevenantOnCollide

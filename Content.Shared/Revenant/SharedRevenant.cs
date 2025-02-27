@@ -46,7 +46,7 @@ public sealed partial class RevenantShopActionEvent : InstantActionEvent
 {
 }
 
-public sealed partial class RevenantHauntActionEvent : InstantActionEvent
+public sealed partial class RevenantHauntActionEvent : InstantActionEvent // Imp
 {
 }
 
@@ -66,7 +66,7 @@ public sealed partial class RevenantMalfunctionActionEvent : InstantActionEvent
 {
 }
 
-public sealed partial class RevenantBloodWritingEvent : InstantActionEvent
+public sealed partial class RevenantBloodWritingEvent : InstantActionEvent // Begin Imp Changes
 {
 }
 
@@ -92,7 +92,7 @@ public sealed partial class RevenantHauntWitnessEvent : EntityEventArgs
 [Serializable, NetSerializable]
 public sealed partial class ExorciseRevenantDoAfterEvent : SimpleDoAfterEvent
 {
-}
+} // End Imp Changes
 
 
 [NetSerializable, Serializable]

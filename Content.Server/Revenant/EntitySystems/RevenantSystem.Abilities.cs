@@ -29,13 +29,13 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.Map.Components;
 using Content.Shared.Whitelist;
-using Content.Shared.Hands.Components;
+using Content.Shared.Hands.Components; // Begin Imp Changes
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
 using Robust.Shared.Player;
 using Content.Shared.StatusEffect;
 using Content.Shared.Flash.Components;
-using Robust.Shared.Audio.Systems;
+using Robust.Shared.Audio.Systems; // End Imp Changes
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -50,7 +50,7 @@ public sealed partial class RevenantSystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!; // Begin Imp Changes
     [Dependency] private readonly RevenantAnimatedSystem _revenantAnimated = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 
@@ -58,7 +58,7 @@ public sealed partial class RevenantSystem
     private const string RevenantEssenceRegen = "EssenceRegen";
 
     [ValidatePrototypeId<StatusEffectPrototype>]
-    private const string FlashedId = "Flashed";
+    private const string FlashedId = "Flashed"; // End Imp Changes
 
 
     private void InitializeAbilities()
@@ -71,9 +71,9 @@ public sealed partial class RevenantSystem
         SubscribeLocalEvent<RevenantComponent, RevenantOverloadLightsActionEvent>(OnOverloadLightsAction);
         SubscribeLocalEvent<RevenantComponent, RevenantBlightActionEvent>(OnBlightAction);
         SubscribeLocalEvent<RevenantComponent, RevenantMalfunctionActionEvent>(OnMalfunctionAction);
-        SubscribeLocalEvent<RevenantComponent, RevenantBloodWritingEvent>(OnBloodWritingAction);
-        SubscribeLocalEvent<RevenantComponent, RevenantAnimateEvent>(OnAnimateAction);
-        SubscribeLocalEvent<RevenantComponent, RevenantHauntActionEvent>(OnHauntAction);
+        SubscribeLocalEvent<RevenantComponent, RevenantBloodWritingEvent>(OnBloodWritingAction); // Imp
+        SubscribeLocalEvent<RevenantComponent, RevenantAnimateEvent>(OnAnimateAction); // Imp
+        SubscribeLocalEvent<RevenantComponent, RevenantHauntActionEvent>(OnHauntAction); // Imp
     }
 
     private void OnInteract(EntityUid uid, RevenantComponent component, UserActivateInWorldEvent args)
@@ -233,6 +233,7 @@ public sealed partial class RevenantSystem
         args.Handled = true;
     }
 
+    // Begin Imp Changes
     private void OnHauntAction(EntityUid uid, RevenantComponent comp, RevenantHauntActionEvent args)
     {
         if (args.Handled)
@@ -289,6 +290,7 @@ public sealed partial class RevenantSystem
             { {comp.StolenEssenceCurrencyPrototype, comp.HauntStolenEssencePerWitness * newHaunts} }, uid);
         }
     }
+    // End Imp Changes
 
     private void OnDefileAction(EntityUid uid, RevenantComponent component, RevenantDefileActionEvent args)
     {
@@ -424,6 +426,7 @@ public sealed partial class RevenantSystem
         }
     }
 
+    // Begin Imp Changes
     private void OnBloodWritingAction(EntityUid uid, RevenantComponent component, RevenantBloodWritingEvent args)
     {
         if (args.Handled)
@@ -457,4 +460,5 @@ public sealed partial class RevenantSystem
         if (_revenantAnimated.CanAnimateObject(args.Target) && TryUseAbility(uid, comp, comp.AnimateCost, comp.AnimateDebuffs))
             _revenantAnimated.TryAnimateObject(args.Target, comp.AnimateTime, (uid, comp));
     }
+    // End Imp Changes
 }

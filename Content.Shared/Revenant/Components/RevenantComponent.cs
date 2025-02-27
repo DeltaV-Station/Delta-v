@@ -3,7 +3,7 @@ using Content.Shared.Alert;
 using Content.Shared.FixedPoint;
 using Content.Shared.Store;
 using Content.Shared.Whitelist;
-using Robust.Shared.Audio;
+using Robust.Shared.Audio; // Imp
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -31,7 +31,7 @@ public sealed partial class RevenantComponent : Component
     [DataField("spawnOnDeathPrototype", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string SpawnOnDeathPrototype = "Ectoplasm";
 
-    [DataField("stasisTime"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("stasisTime"), ViewVariables(VVAccess.ReadWrite)] // Begin Imp Changes
     public TimeSpan StasisTime = TimeSpan.FromSeconds(60);
 
     /// <summary>
@@ -50,7 +50,7 @@ public sealed partial class RevenantComponent : Component
     /// grinder will explode.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public bool GrindingRequiresSalt = true;
+    public bool GrindingRequiresSalt = true;  // End Imp Changes
 
     /// <summary>
     /// The entity's current max amount of essence. Can be increased
@@ -101,6 +101,7 @@ public sealed partial class RevenantComponent : Component
     public float MaxEssenceUpgradeAmount = 10;
     #endregion
 
+    // Begin Imp Changes
     // When used, the revenant reveals itself temporarily and gains stolen essence and a boost in
     // essence regeneration for each crewmate that witnesses it
     #region Haunt Ability
@@ -124,6 +125,7 @@ public sealed partial class RevenantComponent : Component
     public TimeSpan HauntFlashDuration = TimeSpan.FromSeconds(2);
 
     #endregion
+    // End Imp Changes
 
     //In the nearby radius, causes various objects to be thrown, messed with, and containers opened
     //Generally just causes a mess
@@ -247,6 +249,7 @@ public sealed partial class RevenantComponent : Component
     public EntityWhitelist? MalfunctionBlacklist;
     #endregion
 
+    // Begin Imp Changes
     #region Blood Writing
     [ViewVariables(VVAccess.ReadWrite), DataField("bloodWritingCost")]
     public FixedPoint2 BloodWritingCost = 2;
@@ -281,6 +284,7 @@ public sealed partial class RevenantComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool AnimateCanBoltGuns = false;
     #endregion
+    // End Imp Changes
 
     [DataField]
     public ProtoId<AlertPrototype> EssenceAlert = "Essence";
@@ -296,6 +300,6 @@ public sealed partial class RevenantComponent : Component
     public string HarvestingState = "harvesting";
     #endregion
 
-    [DataField] public EntityUid? ShopAction;
-    [DataField] public EntityUid? HauntAction;
+    [DataField] public EntityUid? ShopAction; // Imp
+    [DataField] public EntityUid? HauntAction; // Imp
 }

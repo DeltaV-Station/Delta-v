@@ -145,6 +145,7 @@ namespace Content.Shared.StatusEffect
             return false;
         }
 
+        // Begin Imp Changes
         public bool TryAddStatusEffect(EntityUid uid, string key, TimeSpan time, bool refresh, Component component,
             StatusEffectsComponent? status = null)
         {
@@ -160,6 +161,7 @@ namespace Content.Shared.StatusEffect
 
             return false;
         }
+        // End Imp Changes
 
         /// <summary>
         ///     Tries to add a status effect to an entity with a certain timer.
@@ -368,7 +370,7 @@ namespace Content.Shared.StatusEffect
 
             if (!_prototypeManager.TryIndex<StatusEffectPrototype>(key, out var proto))
                 return false;
-            if (!proto.AlwaysAllowed && !status.AllowedEffects.Contains(key)) // Impstation
+            if (!proto.AlwaysAllowed && !status.AllowedEffects.Contains(key)) // Imp
                 return false;
 
             return true;
