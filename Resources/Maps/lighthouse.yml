@@ -5877,7 +5877,7 @@ entities:
             1: 7
           8,12:
             0: 30708
-            7: 32768
+            3: 32768
           8,13:
             0: 247
             1: 61440
@@ -6023,7 +6023,7 @@ entities:
             0: 65535
           -7,-13:
             0: 45155
-            3: 12
+            4: 12
           -6,-12:
             0: 65335
           -6,-11:
@@ -6447,24 +6447,24 @@ entities:
             0: 65535
           -3,-15:
             0: 13104
-            3: 128
-            4: 32768
+            4: 128
+            5: 32768
           -3,-14:
             0: 13107
-            5: 128
-            6: 32768
+            6: 128
+            7: 32768
           -3,-17:
             0: 61457
             1: 238
           -2,-16:
             0: 64447
           -2,-15:
-            3: 48
-            4: 12288
+            4: 48
+            5: 12288
             0: 34952
           -2,-14:
-            5: 48
-            6: 12288
+            6: 48
+            7: 12288
             0: 32904
           -2,-17:
             0: 47308
@@ -6734,7 +6734,7 @@ entities:
             1: 57856
           9,12:
             0: 238
-            7: 61440
+            3: 61440
           10,10:
             1: 15
             0: 47872
@@ -6745,7 +6745,7 @@ entities:
             1: 8192
           10,12:
             0: 102
-            7: 4096
+            3: 4096
             1: 49152
           10,8:
             0: 32768
@@ -6861,17 +6861,17 @@ entities:
           -7,-15:
             0: 17
             1: 4352
-            3: 52416
+            4: 52416
           -7,-14:
             1: 1
             0: 12560
-            3: 17612
+            4: 17612
           -6,-16:
             0: 65520
           -6,-15:
-            3: 30576
+            4: 30576
           -6,-14:
-            3: 119
+            4: 119
             0: 61440
           -6,-17:
             1: 4096
@@ -6990,7 +6990,7 @@ entities:
             0: 63280
           9,13:
             1: 28672
-            7: 238
+            3: 238
           9,14:
             1: 18146
             0: 8192
@@ -7000,7 +7000,7 @@ entities:
             1: 7715
             0: 8192
           10,13:
-            7: 17
+            3: 17
             1: 9728
           10,14:
             1: 242
@@ -7271,67 +7271,67 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
           - 103.92799
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -9928,12 +9928,6 @@ entities:
     - type: Transform
       pos: -12.5,-46.5
       parent: 100
-    - type: Door
-      secondsUntilStateChange: -4235.348
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 19646
     components:
     - type: MetaData
@@ -14217,6 +14211,13 @@ entities:
     components:
     - type: Transform
       pos: 35.5,51.5
+      parent: 100
+- proto: Autoclave
+  entities:
+  - uid: 22032
+    components:
+    - type: Transform
+      pos: -15.5,48.5
       parent: 100
 - proto: Autolathe
   entities:
@@ -30111,6 +30112,86 @@ entities:
     - type: Transform
       pos: -57.5,74.5
       parent: 100
+  - uid: 22016
+    components:
+    - type: Transform
+      pos: -10.5,94.5
+      parent: 100
+  - uid: 22017
+    components:
+    - type: Transform
+      pos: -10.5,93.5
+      parent: 100
+  - uid: 22018
+    components:
+    - type: Transform
+      pos: -10.5,92.5
+      parent: 100
+  - uid: 22019
+    components:
+    - type: Transform
+      pos: -10.5,91.5
+      parent: 100
+  - uid: 22020
+    components:
+    - type: Transform
+      pos: -10.5,90.5
+      parent: 100
+  - uid: 22021
+    components:
+    - type: Transform
+      pos: -10.5,89.5
+      parent: 100
+  - uid: 22022
+    components:
+    - type: Transform
+      pos: -10.5,88.5
+      parent: 100
+  - uid: 22023
+    components:
+    - type: Transform
+      pos: -10.5,87.5
+      parent: 100
+  - uid: 22024
+    components:
+    - type: Transform
+      pos: -9.5,82.5
+      parent: 100
+  - uid: 22025
+    components:
+    - type: Transform
+      pos: -9.5,87.5
+      parent: 100
+  - uid: 22026
+    components:
+    - type: Transform
+      pos: -9.5,86.5
+      parent: 100
+  - uid: 22027
+    components:
+    - type: Transform
+      pos: -9.5,85.5
+      parent: 100
+  - uid: 22028
+    components:
+    - type: Transform
+      pos: -9.5,84.5
+      parent: 100
+  - uid: 22029
+    components:
+    - type: Transform
+      pos: -9.5,83.5
+      parent: 100
+  - uid: 22030
+    components:
+    - type: Transform
+      pos: -9.5,81.5
+      parent: 100
+  - uid: 22031
+    components:
+    - type: Transform
+      pos: -9.5,80.5
+      parent: 100
 - proto: CableApcStack
   entities:
   - uid: 10832
@@ -45625,6 +45706,11 @@ entities:
     - type: Transform
       pos: -21.5,-9.5
       parent: 100
+  - uid: 22011
+    components:
+    - type: Transform
+      pos: 12.5,-52.5
+      parent: 100
 - proto: CleanerDispenser
   entities:
   - uid: 20809
@@ -59501,11 +59587,6 @@ entities:
     - type: Transform
       pos: 21.565899,25.115238
       parent: 100
-  - uid: 21646
-    components:
-    - type: Transform
-      pos: -10.497249,100.51098
-      parent: 100
 - proto: FloorDrain
   entities:
   - uid: 1662
@@ -60280,6 +60361,12 @@ entities:
     components:
     - type: Transform
       pos: -7.5,-56.5
+      parent: 100
+  - uid: 22010
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -21.5,-58.5
       parent: 100
 - proto: GasPipeBend
   entities:
@@ -79998,6 +80085,18 @@ entities:
       parent: 100
     - type: AtmosPipeColor
       color: '#0055CCFF'
+  - uid: 22009
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -20.5,-58.5
+      parent: 100
+  - uid: 22033
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -19.5,-58.5
+      parent: 100
 - proto: GasPipeTJunction
   entities:
   - uid: 167
@@ -96795,6 +96894,13 @@ entities:
     - type: Transform
       pos: -49.37981,54.331165
       parent: 100
+- proto: NitrousOxideCanister
+  entities:
+  - uid: 15981
+    components:
+    - type: Transform
+      pos: -17.5,-66.5
+      parent: 100
 - proto: NodeScanner
   entities:
   - uid: 4336
@@ -99003,6 +99109,13 @@ entities:
     components:
     - type: Transform
       pos: -1.5,-21.5
+      parent: 100
+- proto: PoweredLEDLightPostSmall
+  entities:
+  - uid: 21646
+    components:
+    - type: Transform
+      pos: -10.5,96.5
       parent: 100
 - proto: Poweredlight
   entities:
@@ -115090,10 +115203,10 @@ entities:
     - type: Transform
       pos: -18.5,-66.5
       parent: 100
-  - uid: 15981
+  - uid: 22008
     components:
     - type: Transform
-      pos: -17.5,-66.5
+      pos: -19.5,-54.5
       parent: 100
 - proto: Stunbaton
   entities:
@@ -139203,6 +139316,29 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -72.5,84.5
+      parent: 100
+  - uid: 22012
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -10.5,96.5
+      parent: 100
+  - uid: 22013
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.5,96.5
+      parent: 100
+  - uid: 22014
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -10.5,96.5
+      parent: 100
+  - uid: 22015
+    components:
+    - type: Transform
+      pos: -10.5,96.5
       parent: 100
 - proto: WindowTintedDirectional
   entities:

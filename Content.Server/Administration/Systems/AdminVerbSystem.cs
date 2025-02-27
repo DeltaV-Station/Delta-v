@@ -41,6 +41,8 @@ using Robust.Server.Player;
 using Content.Shared.Silicons.StationAi;
 using Robust.Shared.Physics.Components;
 using static Content.Shared.Configurable.ConfigurationComponent;
+using Content.Shared._Impstation.Thaven.Components; // DeltaV
+using Content.Server._Impstation.Thaven; // DeltaV
 
 namespace Content.Server.Administration.Systems
 {
@@ -73,6 +75,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly AdminFrozenSystem _freeze = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
+	    [Dependency] private readonly ThavenMoodsSystem _moods = default!; // DeltaV
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 
@@ -389,8 +392,29 @@ namespace Content.Server.Administration.Systems
                         Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
                     });
                 }
+
+                // Begin DeltaV Additions - thaven moods
+                if (TryComp<ThavenMoodsComponent>(args.Target, out var moods)) 
+                {
+                    args.Verbs.Add(new Verb()
+                    {
+                        Text = Loc.GetString("thaven-moods-ui-verb"),
+                        Category = VerbCategory.Admin,
+                        Act = () =>
+                        {
+                            var ui = new ThavenMoodsEui(_moods, EntityManager, _adminManager);
+                            if (!_playerManager.TryGetSessionByEntity(args.User, out var session))
+                                return;
+
+                            _euiManager.OpenEui(ui, session);
+                            ui.UpdateMoods(moods, args.Target);
+                        },
+                        Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"), 
+                    });
+                }
             }
         }
+                // End DeltaV Additions
 
         private void AddDebugVerbs(GetVerbsEvent<Verb> args)
         {

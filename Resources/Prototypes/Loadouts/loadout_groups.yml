@@ -87,6 +87,7 @@
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # DeltaV
 
 - type: loadoutGroup
   id: GroupEVATank
@@ -181,9 +182,14 @@
   id: HoPBackpack
   name: loadout-group-hop-backpack
   loadouts:
-  - CommonBackpack
-  - CommonSatchel
-  - CommonDuffel
+  # Start DeltaV changes
+  # - CommonBackpack
+  # - CommonSatchel
+  # - CommonDuffel
+  - BackpackHoP 
+  - SatchelHoP 
+  - HopDuffel 
+  # End of DeltaV changes
   - HoPBackpackIan
 
 - type: loadoutGroup
