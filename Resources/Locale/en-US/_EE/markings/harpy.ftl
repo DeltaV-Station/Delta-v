@@ -81,6 +81,7 @@ marking-HarpyTailForkedLong = Long Forked Tail (Whitescale)
 marking-HarpyTailForkedLong-forked_long = Tail
 
 marking-HarpyTailSwallow = Swallow Tail (Whitescale)
+marking-HarpyTailSwallow-swallow_tail = Tail
 
 marking-HarpyChestDefault = Wing & Groin Under-Clothes
 marking-HarpyChestDefault-upper = Wing Under-Clothes
