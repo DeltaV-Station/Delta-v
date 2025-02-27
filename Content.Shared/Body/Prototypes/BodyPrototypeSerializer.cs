@@ -126,7 +126,7 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
         var name = node.Get<ValueDataNode>("name").Value;
         var root = node.Get<ValueDataNode>("root").Value;
         var slotNodes = node.Get<MappingDataNode>("slots");
-        var allConnections = new Dictionary<string, (string? Part, HashSet<string>? Connections, Dictionary<string, string>? Organs)>();
+        var allConnections = new Dictionary<string, (string? Part, HashSet<string>? Connections, Dictionary<string, string>? Organs, HashSet<string>? OrganSlots)>(); // DeltaV - let body prototypes define empty slots
 
         foreach (var (keyNode, valueNode) in slotNodes)
         {
@@ -161,10 +161,23 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
                 }
             }
 
-            allConnections.Add(slotId, (part, connections, organs));
+            // Begin DeltaV - let body prototypes define empty slots
+            HashSet<string>? organSlots = null;
+            if (slot.TryGet("organSlots", out SequenceDataNode? slotOrganSlotsNode))
+            {
+                organSlots = new HashSet<string>();
+
+                foreach (var organSlotId in slotOrganSlotsNode)
+                {
+                    organSlots.Add(((ValueDataNode) organSlotId).Value);
+                }
+            }
+
+            allConnections.Add(slotId, (part, connections, organs, organSlots));
+            // End DeltaV - let body prototypes define empty slots
         }
 
-        foreach (var (slotId, (_, connections, _)) in allConnections)
+        foreach (var (slotId, (_, connections, _, _)) in allConnections) // DeltaV - let body prototypes define empty slots
         {
             if (connections == null)
                 continue;
@@ -180,9 +193,9 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
 
         var slots = new Dictionary<string, BodyPrototypeSlot>();
 
-        foreach (var (slotId, (part, connections, organs)) in allConnections)
+        foreach (var (slotId, (part, connections, organs, organSlots)) in allConnections) // DeltaV - let body prototypes define empty slots
         {
-            var slot = new BodyPrototypeSlot(part, connections ?? new HashSet<string>(), organs ?? new Dictionary<string, string>());
+            var slot = new BodyPrototypeSlot(part, connections ?? new HashSet<string>(), organs ?? new Dictionary<string, string>(), organSlots ?? new HashSet<string>()); // DeltaV - let body prototypes define empty slots
             slots.Add(slotId, slot);
         }
 
