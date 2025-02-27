@@ -3,7 +3,7 @@
   mapName: 'Byōin'
   mapPath: /Maps/byoin.yml
   minPlayers: 0
-  maxPlayers: 20
+  maxPlayers: 25
   stations:
     Byoin:
       stationProto: StandardNanotrasenStation
@@ -39,9 +39,10 @@
             Mime: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 1, 1 ]
+            Boxer: [ 2, 2 ]
           #engineering
-            AtmosphericTechnician: [ 1, 1 ]
-            StationEngineer: [ 1, 2 ]
+            AtmosphericTechnician: [ 2, 2 ]
+            StationEngineer: [ 2, 2 ]
             TechnicalAssistant: [ 1, 1 ]
           #medical
             Chemist: [ 1, 1 ]
@@ -52,7 +53,7 @@
             MedicalIntern: [ 1, 1 ]
           #science
             Roboticist: [ 1, 1 ]
-            Scientist: [ 1, 2 ]
+            Scientist: [ 2, 2 ]
             ResearchAssistant: [ 1, 1 ]
             ForensicMantis: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
@@ -62,15 +63,18 @@
           #security
             Warden: [ 1, 1 ]
             Detective: [ 1, 1 ]
-            SecurityOfficer: [ 1, 2 ]
+            SecurityOfficer: [ 2, 2 ]
             SecurityCadet: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ]
+            Prisoner: [ 2, 2 ]
+            PrisonGuard: [ 1, 1 ]
           #justice
             Clerk: [ 1, 1 ]
             Prosecutor: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
           #supply
-            SalvageSpecialist: [ 1, 1 ]
-            CargoTechnician: [ 1, 2 ]
+            SalvageSpecialist: [ 2, 2 ]
+            CargoTechnician: [ 2, 2 ]
             Courier: [ 1, 1 ]
             CargoAssistant: [ 1, 1 ]
           #civilian
