@@ -37,7 +37,7 @@
   - type: AugmentCharger
 
 - type: entity
-  parent: BaseItem
+  parent: AugmentBaseCharger
   id: AugmentRechargerAPC
   name: augment apc recharger
   description: Allows the implantee to recharge their power cell via APCs.
@@ -45,17 +45,12 @@
   - type: Sprite
     sprite: _DV/Objects/Augments/Power.rsi
     state: apc
-  - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
-    state: brain
   - type: Organ
-    slotId: charger
     onAdd:
     - type: BatteryDrinker
-  - type: AugmentCharger
 
 - type: entity
-  parent: BaseItem
+  parent: AugmentBaseCharger
   id: AugmentRechargerStation
   name: augment station recharger
   description: Allows the implantee to recharge their power cell via cyborg recharging stations.
@@ -64,7 +59,5 @@
     sprite: _DV/Objects/Augments/Power.rsi
     state: station
   - type: Organ
-    slotId: charger
     onAdd:
     - type: AugmentStationRecharge
-  - type: AugmentCharger
