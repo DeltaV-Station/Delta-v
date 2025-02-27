@@ -15,15 +15,18 @@
       - right leg
       - left leg
       - head # Shitmed
+      organSlots: [ powerCell, charger ] # DeltaV augments
       organs:
         core: SentientSlimeCore
         lungs: OrganSlimeLungs
     right arm:
       part: RightArmSlime
+      organSlots: [ armImplant ] # DeltaV - augments
       connections:
       - right hand
     left arm:
       part: LeftArmSlime
+      organSlots: [ armImplant ] # DeltaV - augments
       connections:
       - left hand
     right hand:

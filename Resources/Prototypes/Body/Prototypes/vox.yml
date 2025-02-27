@@ -18,6 +18,7 @@
       - right leg
       - left leg
       - head # Shitmed
+      organSlots: [ powerCell, charger ] # DeltaV augments
       organs:
         heart: OrganHumanHeart
         lungs: OrganVoxLungs
@@ -26,10 +27,12 @@
         kidneys: OrganHumanKidneys
     right arm:
       part: RightArmVox
+      organSlots: [ armImplant ] # DeltaV - augments
       connections:
       - right hand
     left arm:
       part: LeftArmVox
+      organSlots: [ armImplant ] # DeltaV - augments
       connections:
       - left hand
     right hand:
