@@ -15,8 +15,8 @@
   description: Can be implanted into a body to provide power to other implants.
   components:
   - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
-    state: brain
+    sprite: _DV/Objects/Augments/Power.rsi
+    state: cell
   - type: Organ
     slotId: powerCell
     onAdd:
@@ -29,6 +29,9 @@
   name: base charger augment
   abstract: true
   components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/Power.rsi
+    state: cell
   - type: Organ
     slotId: charger
   - type: AugmentCharger
@@ -39,6 +42,9 @@
   name: augment apc recharger
   description: Allows the implantee to recharge their power cell via APCs.
   components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/Power.rsi
+    state: apc
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
     state: brain
@@ -55,8 +61,8 @@
   description: Allows the implantee to recharge their power cell via cyborg recharging stations.
   components:
   - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
-    state: brain
+    sprite: _DV/Objects/Augments/Power.rsi
+    state: station
   - type: Organ
     slotId: charger
     onAdd:
