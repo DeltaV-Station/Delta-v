@@ -10,7 +10,7 @@ namespace Content.Shared._DV.Augments;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class AugmentToolPanelComponent : Component
 {
-    [DataField, ViewVariables]
+    [DataField]
     public float PowerDrawOnSwitch = 10f;
 }
 
