@@ -90,7 +90,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 {
                     var solution = active.Program switch
                     {
-                        GrinderProgram.Grind => GetGrindSolution(item),
+                        GrinderProgram.Grind => GetGrindSolution(item,(uid, reagentGrinder), inputContainer.ContainedEntities), // Imp
                         GrinderProgram.Juice => CompOrNull<ExtractableComponent>(item)?.JuiceSolution,
                         _ => null,
                     };
@@ -319,12 +319,18 @@ namespace Content.Server.Kitchen.EntitySystems
             _audioSystem.PlayPvs(reagentGrinder.Comp.ClickSound, reagentGrinder.Owner, AudioParams.Default.WithVolume(-2f));
         }
 
-        private Solution? GetGrindSolution(EntityUid uid)
+        private Solution? GetGrindSolution(EntityUid uid, Entity<ReagentGrinderComponent> grinder, IReadOnlyList<EntityUid> contents)
         {
             if (TryComp<ExtractableComponent>(uid, out var extractable)
                 && extractable.GrindableSolution is not null
                 && _solutionContainersSystem.TryGetSolution(uid, extractable.GrindableSolution, out _, out var solution))
             {
+                var ev = new GrindAttemptEvent(grinder, contents); // Begin Imp Changes
+                RaiseLocalEvent(uid, ev);
+
+                if (ev.Cancelled)
+                    return null;    // End Imp Changes
+
                 return solution;
             }
             else
@@ -342,5 +348,19 @@ namespace Content.Server.Kitchen.EntitySystems
         {
             return CompOrNull<ExtractableComponent>(uid)?.JuiceSolution is not null;
         }
+
+        // Begin Imp Changes
+        public sealed partial class GrindAttemptEvent : CancellableEntityEventArgs
+        {
+            public Entity<ReagentGrinderComponent> Grinder;
+            public IReadOnlyList<EntityUid> Reagents;
+
+            public GrindAttemptEvent(Entity<ReagentGrinderComponent> grinder, IReadOnlyList<EntityUid> reagents)
+            {
+                Grinder = grinder;
+                Reagents = reagents;
+            }
+        }
+        // End Imp Changes
     }
 }

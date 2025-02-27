@@ -51,7 +51,7 @@ public sealed partial class RevenantStasisSystem : EntitySystem
         SubscribeLocalEvent<RevenantStasisComponent, ChangeDirectionAttemptEvent>(OnAttemptDirection);
         SubscribeLocalEvent<RevenantStasisComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<RevenantStasisComponent, ConstructionConsumedObjectEvent>(OnCrafted);
-        SubscribeLocalEvent<RevenantStasisComponent, GrindAttemptEvent>(OnGrindAttempt);
+        SubscribeLocalEvent<RevenantStasisComponent, ReagentGrinderSystem.GrindAttemptEvent>(OnGrindAttempt);
         SubscribeLocalEvent<RevenantStasisComponent, TransformSpeakerNameEvent>(OnTransformName);
 
         SubscribeLocalEvent<RevenantStasisComponent, AfterInteractUsingEvent>(OnBibleInteract, before: [typeof(BibleSystem)]);
@@ -124,7 +124,7 @@ public sealed partial class RevenantStasisSystem : EntitySystem
             _mind.TransferTo(mindId, args.New);
     }
 
-    private void OnGrindAttempt(EntityUid uid, RevenantStasisComponent comp, GrindAttemptEvent args)
+    private void OnGrindAttempt(EntityUid uid, RevenantStasisComponent comp, ReagentGrinderSystem.GrindAttemptEvent args)
     {
         if (!comp.Revenant.Comp.GrindingRequiresSalt)
             return;
