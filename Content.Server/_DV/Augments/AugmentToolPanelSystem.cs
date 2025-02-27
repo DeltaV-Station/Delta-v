@@ -19,7 +19,6 @@ public sealed class AugmentToolPanelSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly AugmentPowerCellSystem _augmentPowerCell = default!;
 
     public override void Initialize()
@@ -40,22 +39,16 @@ public sealed class AugmentToolPanelSystem : EntitySystem
         if (!TryComp<HandsComponent>(body, out var hands))
             return;
 
-        if (!_container.TryGetContainingContainer((augment, null, null), out var container))
-        {
+        if (!_container.TryGetContainingContainer(augment.Owner, out var container))
             return;
-        }
 
         if (!_augmentPowerCell.TryDrawPower(augment, augment.Comp.PowerDrawOnSwitch))
-        {
             return;
-        }
 
         foreach (var part in _body.GetBodyPartChildren(container.Owner))
         {
             if (part.Component.PartType != BodyPartType.Hand)
-            {
                 continue;
-            }
 
             var handLocation = part.Component.Symmetry switch {
                 BodyPartSymmetry.None => HandLocation.Middle,
@@ -66,9 +59,7 @@ public sealed class AugmentToolPanelSystem : EntitySystem
 
             var desiredHand = hands.Hands.Values.FirstOrDefault(hand => hand.Location == handLocation);
             if (desiredHand == null)
-            {
                 continue;
-            }
 
             // if we have a tool that's currently out
             if (HasComp<AugmentToolPanelActiveItemComponent>(desiredHand.HeldEntity))
@@ -88,18 +79,15 @@ public sealed class AugmentToolPanelSystem : EntitySystem
                 return;
             }
 
-            var desiredTool = GetEntity(args.DesiredTool);
-            if (desiredTool is null)
-            {
+            if (GetEntity(args.DesiredTool) is not {} desiredTool)
                 return;
-            }
 
-            if (!_hands.TryPickup(body, desiredTool.Value, desiredHand))
+            if (!_hands.TryPickup(body, desiredTool, desiredHand))
             {
                 _popup.PopupCursor("your hand can't hold that", body);
                 return;
             }
-            EnsureComp<AugmentToolPanelActiveItemComponent>(desiredTool.Value);
+            EnsureComp<AugmentToolPanelActiveItemComponent>(desiredTool);
         }
 
         return;
