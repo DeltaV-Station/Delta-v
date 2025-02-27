@@ -24,4 +24,4 @@ public sealed partial class AugmentActivatableUIComponent : Component
 /// <summary>
 ///     Event that should be dispatched by the <see cref="AugmentActivatableUIComponent.OpenAction"/> to open the UI
 /// </summary>
-public sealed partial class AugmentUIOpenEvent : InstantActionEvent { }
+public sealed partial class AugmentUIOpenEvent : InstantActionEvent;

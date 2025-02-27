@@ -1,24 +1,24 @@
+using Content.Server.Power.Components; // ough BatteryComponent why are you in server
+using Content.Server.Power.EntitySystems;
+using Content.Server.PowerCell;
 using Content.Shared._DV.Augments;
 using Content.Shared.Alert;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Systems;
 using Content.Shared.Mobs.Systems;
-using Content.Server.PowerCell;
 using Content.Shared.Popups;
-using Content.Server.Power.Components; // ough BatteryComponent why are you in server
-using Content.Server.Power.EntitySystems;
 using Content.Shared.PowerCell.Components;
 
 namespace Content.Server._DV.Augments;
 
 public sealed class AugmentPowerCellSystem : EntitySystem
 {
+    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
 
     public override void Initialize()
     {
@@ -90,7 +90,7 @@ public sealed class AugmentPowerCellSystem : EntitySystem
             if (TryGetAugmentPowerCell(owner) is not (var augment, var battery))
                 continue;
 
-            if (battery is null)
+            if (battery is not {} insertedBattery)
             {
                 if (_alerts.IsShowingAlert(owner, augment.Comp1.BatteryAlert))
                 {
@@ -105,7 +105,7 @@ public sealed class AugmentPowerCellSystem : EntitySystem
                 _alerts.ClearAlert(owner, augment.Comp1.NoBatteryAlert);
             }
 
-            var chargePercent = (short) MathF.Round(battery.Value.Comp.CurrentCharge / battery.Value.Comp.MaxCharge * 10f);
+            var chargePercent = (short) MathF.Round(insertedBattery.Comp.CurrentCharge / insertedBattery.Comp.MaxCharge * 10f);
             _alerts.ShowAlert(owner, augment.Comp1.BatteryAlert, chargePercent);
         }
     }

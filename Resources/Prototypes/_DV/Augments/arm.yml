@@ -51,27 +51,27 @@
   - type: Storage
     whitelist:
       tags:
-        - Wirecutter
-        - Crowbar
-        - Screwdriver
-        - Wrench
-        - GeigerCounter
-        - Powerdrill
-        - JawsOfLife
-        - HolofanProjector
-        - Multitool
-        - AppraisalTool
+      - Wirecutter
+      - Crowbar
+      - Screwdriver
+      - Wrench
+      - GeigerCounter
+      - Powerdrill
+      - JawsOfLife
+      - HolofanProjector
+      - Multitool
+      - AppraisalTool
       components:
-        - StationMap
-        - SprayPainter
-        - NetworkConfigurator
-        - RCD
-        - RCDAmmo
-        - Welder
-        - PowerCell
-        - Geiger
-        - TrayScanner
-        - GasAnalyzer
+      - StationMap
+      - SprayPainter
+      - NetworkConfigurator
+      - RCD
+      - RCDAmmo
+      - Welder
+      - PowerCell
+      - Geiger
+      - TrayScanner
+      - GasAnalyzer
 
 - type: entity
   parent: AugmentBaseToolPanel
@@ -82,13 +82,13 @@
   - type: Storage
     whitelist:
       tags:
-        - PlantSampleTaker
-        - BotanyShovel
-        - BotanyHoe
-        - BotanyHatchet
-        - Dropper
+      - PlantSampleTaker
+      - BotanyShovel
+      - BotanyHoe
+      - BotanyHatchet
+      - Dropper
       components:
-        - HandLabeler
+      - HandLabeler
 
 - type: entity
   parent: AugmentBaseToolPanel
@@ -115,7 +115,8 @@
     state: surgical
   - type: Storage
     whitelist:
+      requireAll: true
       tags:
-        - SurgeryTool
+      - SurgeryTool
       components:
-        - SurgeryTool
+      - SurgeryTool

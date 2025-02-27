@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.UserInterface;
@@ -7,7 +6,6 @@ using Content.Shared._DV.Augments;
 
 namespace Content.Client._DV.Augments;
 
-[UsedImplicitly]
 public sealed class AugmentToolPanelMenuBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly IClyde _displayManager = default!;
@@ -36,9 +34,6 @@ public sealed class AugmentToolPanelMenuBoundUserInterface : BoundUserInterface
 
     public void SendAugmentToolPanelSystemMessage(EntityUid? desiredTool)
     {
-        if (desiredTool is {} tool)
-            SendMessage(new AugmentToolPanelSystemMessage(_entMan.GetNetEntity(tool)));
-        else
-            SendMessage(new AugmentToolPanelSystemMessage(null));
+        SendMessage(new AugmentToolPanelSystemMessage(_entMan.GetNetEntity(desiredTool)));
     }
 }
