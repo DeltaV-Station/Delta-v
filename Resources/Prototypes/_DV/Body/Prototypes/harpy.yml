@@ -27,10 +27,12 @@
         kidneys: OrganAnimalKidneys
     right arm:
       part: RightArmHarpy
+      organSlots: [ armImplant ]
       connections:
       - right hand
     left arm:
       part: LeftArmHarpy
+      organSlots: [ armImplant ]
       connections:
       - left hand
     right hand:

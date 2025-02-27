@@ -27,10 +27,12 @@
       - head # Shitmed Change
     right arm:
       part: RightArmRodentia
+      organSlots: [ armImplant ]
       connections:
       - right hand
     left arm:
       part: LeftArmRodentia
+      organSlots: [ armImplant ]
       connections:
       - left hand
     right hand:

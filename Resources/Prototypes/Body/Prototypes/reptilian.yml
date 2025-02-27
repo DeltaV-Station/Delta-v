@@ -27,10 +27,12 @@
       - head # Shitmed
     right arm:
       part: RightArmReptilian
+      organSlots: [ armImplant ] # DeltaV - augments
       connections:
       - right hand
     left arm:
       part: LeftArmReptilian
+      organSlots: [ armImplant ] # DeltaV - augments
       connections:
       - left hand
     right hand:

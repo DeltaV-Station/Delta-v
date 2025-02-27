@@ -27,10 +27,12 @@
         kidneys: OrganHumanKidneys
     right arm:
       part: RightArmThaven
+      organSlots: [ armImplant ] # DeltaV - augments
       connections:
       - right hand
     left arm:
       part: LeftArmThaven
+      organSlots: [ armImplant ] # DeltaV - augments
       connections:
       - left hand
     right hand:

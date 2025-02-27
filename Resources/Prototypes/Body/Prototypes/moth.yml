@@ -29,10 +29,12 @@
       part: RightArmMoth
       connections:
       - right hand
+      organSlots: [ armImplant ] # DeltaV - augments
     left arm:
       part: LeftArmMoth
       connections:
       - left hand
+      organSlots: [ armImplant ] # DeltaV - augments
     right hand:
       part: RightHandMoth
     left hand:

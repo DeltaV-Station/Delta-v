@@ -27,10 +27,12 @@
       - head # Shitmed
     right arm:
       part: RightArmArachnid
+      organSlots: [ armImplant ] # DeltaV - augments
       connections:
       - right hand
     left arm:
       part: LeftArmArachnid
+      organSlots: [ armImplant ] # DeltaV - augments
       connections:
       - left hand
     right hand:

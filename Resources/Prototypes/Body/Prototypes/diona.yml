@@ -23,10 +23,12 @@
         lungs: OrganDionaLungsNymph
     right arm:
       part: RightArmDiona
+      organSlots: [ armImplant ] # DeltaV - augments
       connections:
       - right hand
     left arm:
       part: LeftArmDiona
+      organSlots: [ armImplant ] # DeltaV - augments
       connections:
       - left hand
     right hand:
