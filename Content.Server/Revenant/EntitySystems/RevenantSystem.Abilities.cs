@@ -35,10 +35,7 @@ using Content.Shared.Interaction.Components;
 using Robust.Shared.Player;
 using Content.Shared.StatusEffect;
 using Content.Shared.Flash.Components;
-using Content.Shared.Flash;
 using Robust.Shared.Audio.Systems;
-using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -46,20 +43,23 @@ public sealed partial class RevenantSystem
 {
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly RevenantAnimatedSystem _revenantAnimated = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 
     [ValidatePrototypeId<StatusEffectPrototype>]
     private const string RevenantEssenceRegen = "EssenceRegen";
+
+    [ValidatePrototypeId<StatusEffectPrototype>]
+    private const string FlashedId = "Flashed";
+
 
     private void InitializeAbilities()
     {
@@ -262,27 +262,31 @@ public sealed partial class RevenantSystem
         // Give the witnesses a spook!
         _audioSystem.PlayGlobal(comp.HauntSound, witnessAndRevenantFilter, true);
 
+        var newHaunts = 0;
+
         foreach (var witness in witnesses)
         {
             _statusEffects.TryAddStatusEffect<FlashedComponent>(GetEntity(witness),
-                SharedFlashSystem.FlashedKey,
+                FlashedId,
                 comp.HauntFlashDuration,
                 false
             );
+            if (!EnsureComp<HauntedComponent>(GetEntity(witness), out var haunted))
+                newHaunts += 1;
         }
 
-        if (witnesses.Count > 0 && _statusEffects.TryAddStatusEffect(uid,
+        if (newHaunts > 0 && _statusEffects.TryAddStatusEffect(uid,
             RevenantEssenceRegen,
             comp.HauntEssenceRegenDuration,
             true,
-            component: new RevenantRegenModifierComponent(witnesses)
+            component: new RevenantRegenModifierComponent(witnesses, newHaunts)
         ))
         {
             if (_mind.TryGetMind(uid, out var _, out var mind) && mind.Session != null)
                 RaiseNetworkEvent(new RevenantHauntWitnessEvent(witnesses), mind.Session);
 
             _store.TryAddCurrency(new Dictionary<string, FixedPoint2>
-            { {comp.StolenEssenceCurrencyPrototype, comp.HauntStolenEssencePerWitness * witnesses.Count} }, uid);
+            { {comp.StolenEssenceCurrencyPrototype, comp.HauntStolenEssencePerWitness * newHaunts} }, uid);
         }
     }
 

@@ -19,9 +19,9 @@ public sealed class RevenantAnimatedSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var enumerator = EntityQueryEnumerator<RevenantAnimatedComponent, PointLightComponent>();
+        var enumerator = EntityQueryEnumerator<RevenantAnimatedComponent>();
 
-        while (enumerator.MoveNext(out var uid, out var comp, out var light))
+        while (enumerator.MoveNext(out var uid, out var comp))
         {
             if (comp.LightOverlay == null)
                 continue;
@@ -37,18 +37,14 @@ public sealed class RevenantAnimatedSystem : EntitySystem
 
         comp.LightOverlay = (lightEnt, light);
 
-        _lights.SetEnabled(uid, true, light);
-        _lights.SetColor(uid, comp.LightColor, light);
-        _lights.SetRadius(uid, comp.LightRadius, light);
-        Dirty(uid, light);
+        _lights.SetEnabled(lightEnt, true, light);
+        _lights.SetColor(lightEnt, comp.LightColor, light);
+        _lights.SetRadius(lightEnt, comp.LightRadius, light);
     }
 
     private void OnShutdown(EntityUid uid, RevenantAnimatedComponent comp, ComponentShutdown args)
     {
         if (comp.LightOverlay != null)
-        {
             Del(comp.LightOverlay);
-            return;
-        }
     }
 }
