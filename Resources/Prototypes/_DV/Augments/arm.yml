@@ -15,8 +15,8 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
-    state: brain
+    sprite: _DV/Objects/Augments/Arm.rsi
+    state: icon
   - type: Storage
     maxItemSize: Normal
     defaultStorageOrientation: Vertical
@@ -46,6 +46,8 @@
   name: tools panel augment
   description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold tools.
   components:
+  - type: Sprite
+    state: engineering
   - type: Storage
     whitelist:
       tags:
@@ -109,6 +111,8 @@
   name: surgical tools panel augment
   description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold surgical tools.
   components:
+  - type: Sprite
+    state: surgical
   - type: Storage
     whitelist:
       tags:
