@@ -1,0 +1,117 @@
+- type: entity
+  parent: BaseItem
+  id: AugmentBaseArm
+  name: base arm augment
+  abstract: true
+  components:
+  - type: Organ
+    slotId: armImplant
+  - type: AugmentArm
+
+- type: entity
+  parent: AugmentBaseArm
+  id: AugmentBaseToolPanel
+  name: base tool panel augment
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: brain
+  - type: Storage
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,9,1
+  - type: Item
+    size: Ginormous
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: AugmentToolPanel
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.AugmentToolPanelUiKey.Key:
+        type: AugmentToolPanelMenuBoundUserInterface
+        interactionRange: 0
+  - type: AugmentActivatableUI
+    key: enum.AugmentToolPanelUiKey.Key
+  - type: AugmentAction
+
+- type: entity
+  parent: AugmentBaseToolPanel
+  id: AugmentToolsPanel
+  name: tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold tools.
+  components:
+  - type: Storage
+    whitelist:
+      tags:
+        - Wirecutter
+        - Crowbar
+        - Screwdriver
+        - Wrench
+        - GeigerCounter
+        - Powerdrill
+        - JawsOfLife
+        - HolofanProjector
+        - Multitool
+        - AppraisalTool
+      components:
+        - StationMap
+        - SprayPainter
+        - NetworkConfigurator
+        - RCD
+        - RCDAmmo
+        - Welder
+        - PowerCell
+        - Geiger
+        - TrayScanner
+        - GasAnalyzer
+
+- type: entity
+  parent: AugmentBaseToolPanel
+  id: AugmentBotanyPanel
+  name: botanical tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold botanical tools.
+  components:
+  - type: Storage
+    whitelist:
+      tags:
+        - PlantSampleTaker
+        - BotanyShovel
+        - BotanyHoe
+        - BotanyHatchet
+        - Dropper
+      components:
+        - HandLabeler
+
+- type: entity
+  parent: AugmentBaseToolPanel
+  id: AugmentPaperworkPanel
+  name: paperwork tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold paperwork tools.
+  components:
+  - type: Storage
+    whitelist:
+      tags:
+      - Folder
+      - HandLabeler
+      components:
+      - Stamp
+      - TapeRecorder
+
+- type: entity
+  parent: AugmentBaseToolPanel
+  id: AugmentSurgicalPanel
+  name: surgical tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold surgical tools.
+  components:
+  - type: Storage
+    whitelist:
+      tags:
+        - SurgeryTool
+      components:
+        - SurgeryTool

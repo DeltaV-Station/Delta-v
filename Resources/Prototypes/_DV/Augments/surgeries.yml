@@ -119,3 +119,61 @@
   - type: SurgeryOrganCondition
     organ:
     - type: AugmentCharger
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryOpenArmAugment
+  name: Open Cavity For Arm Augments
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepOpenOrganSlot
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Arm
+  - type: SurgeryOrganSlotCondition
+    organSlot: armImplant
+    inverse: true
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryInsertArmAugment
+  name: Insert Arm Augment
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepInsertAugmentArm
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Arm
+  - type: SurgeryOrganCondition
+    organ:
+    - type: AugmentArm
+    inverse: true
+    reattaching: true
+  - type: SurgeryOrganSlotCondition
+    organSlot: armImplant
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryRemoveArmAugment
+  name: Remove Arm Augment
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepClampInternalBleeders
+    - SurgeryStepRemoveOrgan
+  - type: SurgeryPartCondition
+    part: Arm
+  - type: SurgeryOrganCondition
+    organ:
+    - type: AugmentArm

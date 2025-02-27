@@ -9,3 +9,9 @@
   id: SurgeryStepInsertAugmentPowerCellCharger
   name: Add power cell charger
   categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: SurgeryStepInsertOrgan
+  id: SurgeryStepInsertAugmentArm
+  name: Add arm augment
+  categories: [ HideSpawnMenu ]
