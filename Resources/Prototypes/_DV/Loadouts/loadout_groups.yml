@@ -43,6 +43,7 @@
 - type: loadoutGroup
   id: LibrarianNeck
   name: loadout-group-librarian-neck
+  minLimit: 0
   loadouts:
   - ScarfGreen
   - ScarfRed
@@ -199,7 +200,7 @@
 - type: loadoutGroup
   id: SalvageSpecialistJumpsuit
   name: loadout-group-salvage-specialist-jumpsuit
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - SalvageJumpsuit
   - SalvageJumpskirt
