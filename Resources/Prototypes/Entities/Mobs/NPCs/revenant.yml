@@ -10,8 +10,8 @@
     context: "ghost"
   - type: Spectral
   - type: MovementSpeedModifier
-    baseWalkSpeed: 6
-    baseSprintSpeed: 6
+    baseWalkSpeed: 5 # DeltaV slight nerf
+    baseSprintSpeed: 5 # DeltaV slight nerf
   - type: Sprite
     sprite: _DV/Mobs/Ghosts/revenant.rsi # DeltaV - Custom revenant sprite
     layers:

@@ -336,7 +336,7 @@ public sealed partial class RevenantSystem
             {
                 //hardcoded damage specifiers til i die.
                 var dspec = new DamageSpecifier();
-                dspec.DamageDict.Add("Structural", 60);
+                dspec.DamageDict.Add("Structural", 30); // DeltaV - 60 to 30
                 _damage.TryChangeDamage(ent, dspec, origin: uid);
             }
 
