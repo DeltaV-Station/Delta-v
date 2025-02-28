@@ -50,6 +50,33 @@
                 "Client"
             ],
             "preLaunchTask": "build"
+<<<<<<< HEAD
+=======
+        },
+        {
+            "name": "Server/2xClient",
+            "configurations": [
+                "Server",
+                "Client",
+                "Client"
+            ],
+            "preLaunchTask": "build"
+        },
+        {
+            "name": "Server/Client (Tools Config)",
+            "configurations": [
+                "Server (Tools Config)",
+                "Client (Tools Config)"
+            ],
+            "preLaunchTask": "build"
+        },
+        {
+            "name": "Server/Client (No Build)",
+            "configurations": [
+                "Server",
+                "Client"
+            ],
+>>>>>>> d0cdf2f39b (Merge pull request #1767 from AftrLite/the-cosmic-cult)
         }
     ]
 }
