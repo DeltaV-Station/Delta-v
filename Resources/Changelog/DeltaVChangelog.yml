@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: Fixed deep fryer not being repairable after being broken.
-    type: Fix
-  id: 585
-  time: '2024-09-30T14:41:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1940
 - author: MilonPL
   changes:
   - message: You can no longer take headcages off by yourself.
@@ -3920,3 +3913,11 @@
   id: 1084
   time: '2025-02-27T20:17:36.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3056
+- author: deltanedas
+  changes:
+  - message: Borgs now get healed like IPCs, repeated welding for brute and cables
+      for burn damage.
+    type: Tweak
+  id: 1085
+  time: '2025-02-28T18:33:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3064
