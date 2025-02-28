@@ -14,12 +14,22 @@
 
 - type: entity
   parent: BaseLatheLube
+  id: BaseTechFabDepartamental
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+
+- type: entity
+  parent: BaseTechFabDepartamental
   id: EngineeringTechFab
   name: engineering techfab
   description: Prints equipment for engineers.
   components:
   - type: Sprite
-    sprite: Structures/Machines/techfab.rsi
     layers:
     - state: icon
       map: ["enum.LatheVisualLayers.IsRunning"]
@@ -32,8 +42,6 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Lathe
-    idleState: icon
-    runningState: icon
     staticPacks:
     - ToolsStatic
     - PartsStatic
@@ -56,13 +64,12 @@
     stealGroup: EngineeringTechFabCircuitboard
 
 - type: entity
-  parent: BaseLatheLube
+  parent: BaseTechFabDepartamental
   id: LogisticsTechFab
   name: logistics techfab
   description: Prints equipment for the logistics department.
   components:
   - type: Sprite
-    sprite: Structures/Machines/techfab.rsi
     layers:
     - state: icon
       map: ["enum.LatheVisualLayers.IsRunning"]
@@ -75,8 +82,6 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Lathe
-    idleState: icon
-    runningState: icon
     staticPacks:
     - ToolsStatic
     - PartsStatic
@@ -92,13 +97,12 @@
     stealGroup: ServiceTechFabCircuitboard
 
 - type: entity
-  parent: BaseLatheLube
+  parent: BaseTechFabDepartamental
   id: ServiceTechFab
   name: service techfab
   description: Prints equipment for the service department.
   components:
   - type: Sprite
-    sprite: Structures/Machines/techfab.rsi
     layers:
     - state: icon
       map: ["enum.LatheVisualLayers.IsRunning"]
@@ -111,8 +115,6 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Lathe
-    idleState: icon
-    runningState: icon
     staticPacks:
     - RingsStatic
     - ReportingStatic
@@ -129,13 +131,10 @@
     stealGroup: ServiceTechFabCircuitboard
 
 - type: entity
-  parent: BaseLatheLube
+  parent: BaseTechFabDepartamental
   id: EpistemicsTechFab
-  name: epistemics techfab
-  description: Prints equipment for the epistemics department.
   components:
   - type: Sprite
-    sprite: Structures/Machines/techfab.rsi
     layers:
     - state: icon
       map: ["enum.LatheVisualLayers.IsRunning"]
@@ -148,8 +147,6 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Lathe
-    idleState: icon
-    runningState: icon
     staticPacks:
     - ToolsStatic
     - PartsStatic
@@ -166,5 +163,3 @@
     board: EpistemicsTechFabCircuitboard
   - type: StealTarget
     stealGroup: EpistemicsTechFabCircuitboard
-
-
