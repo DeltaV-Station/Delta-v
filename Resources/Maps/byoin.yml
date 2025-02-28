@@ -7163,15 +7163,13 @@ entities:
       pos: -23.5,-0.5
       parent: 2
     - type: DeviceLinkSink
-      invokeCounter: 3
+      invokeCounter: 4
     - type: DeviceLinkSource
       linkedPorts:
         9037:
         - DoorStatus: DoorBolt
         9038:
         - DoorStatus: DoorBolt
-        8986:
-        - DoorStatus: Toggle
   - uid: 8986
     components:
     - type: MetaData
@@ -7180,15 +7178,13 @@ entities:
       pos: -23.5,-1.5
       parent: 2
     - type: DeviceLinkSink
-      invokeCounter: 3
+      invokeCounter: 4
     - type: DeviceLinkSource
       linkedPorts:
         9038:
         - DoorStatus: DoorBolt
         9037:
         - DoorStatus: DoorBolt
-        7146:
-        - DoorStatus: Toggle
   - uid: 9037
     components:
     - type: MetaData
@@ -7197,15 +7193,13 @@ entities:
       pos: -27.5,-0.5
       parent: 2
     - type: DeviceLinkSink
-      invokeCounter: 3
+      invokeCounter: 4
     - type: DeviceLinkSource
       linkedPorts:
         7146:
         - DoorStatus: DoorBolt
         8986:
         - DoorStatus: DoorBolt
-        9038:
-        - DoorStatus: Toggle
   - uid: 9038
     components:
     - type: MetaData
@@ -7214,15 +7208,13 @@ entities:
       pos: -27.5,-1.5
       parent: 2
     - type: DeviceLinkSink
-      invokeCounter: 3
+      invokeCounter: 4
     - type: DeviceLinkSource
       linkedPorts:
         7146:
         - DoorStatus: DoorBolt
         8986:
         - DoorStatus: DoorBolt
-        9037:
-        - DoorStatus: Toggle
 - proto: AirlockExternalGlassSecurityLocked
   entities:
   - uid: 8424
