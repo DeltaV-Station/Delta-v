@@ -65,6 +65,7 @@
   name: Robo-Neuroticist Role
   components:
   - type: MindRole
+    roleType: SoloAntagonist
     antagPrototype:  RoboNeuroticist
     exclusiveAntag: true
   - type: RoboNeuroticistRole
