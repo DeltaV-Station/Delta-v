@@ -312,7 +312,7 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
     {
         var author = message.AuthorName;
         if (message.IsMentor)
-            author = $"[bold][color=red]{author}[/color][/bold]";
+            author = $"[bold][color=red]{_player.GetPlayerData(message.Author).UserName}[/color][/bold]"; // DeltaV - Use usernames for curators
 
         var text = $"{message.Time:HH:mm} {author}: {FormattedMessage.EscapeText(message.Text)}";
         return FormattedMessage.FromMarkupPermissive(text);

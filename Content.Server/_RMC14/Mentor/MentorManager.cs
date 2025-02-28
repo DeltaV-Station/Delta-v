@@ -8,6 +8,7 @@ using Content.Server.Players.RateLimiting;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Mentor;
 using Content.Shared.Administration;
+using Content.Shared.Mind; // DeltaV
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Roles;
 using Robust.Server.Player;
@@ -20,6 +21,7 @@ namespace Content.Server._RMC14.Mentor;
 public sealed class MentorManager : IPostInjectInit
 {
     [Dependency] private readonly IAdminManager _admin = default!; // DeltaV
+    [Dependency] private readonly IEntityManager _entity = default!; // DeltaV
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -102,7 +104,8 @@ public sealed class MentorManager : IPostInjectInit
         if (!_player.TryGetSessionById(message.MsgChannel.UserId, out var author))
             return;
 
-        SendMentorMessage(author.UserId, author.Name, author.UserId, author.Name, message.Message, message.MsgChannel);
+        var mind = _entity.System<SharedMindSystem>();
+        SendMentorMessage(author.UserId, author.Name, author.UserId, mind.GetCharacterName(author.UserId) ?? author.Name, message.Message, message.MsgChannel); // DeltaV - Try to use character name
     }
 
     // DeltaV - Update mentor on perm updates
