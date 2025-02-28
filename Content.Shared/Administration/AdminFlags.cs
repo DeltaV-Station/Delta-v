@@ -130,9 +130,9 @@
         Whitelist = 1 << 25,
 
         /// <summary>
-        ///     Lets you use the mentor help system.
+        ///     DeltaV - Lets you use the Curator Chat
         /// </summary>
-        MentorHelp = 1 << 30,
+        CuratorChat = 1 << 30,
 
         /// <summary>
         ///     Dangerous host permissions like scsi.

@@ -108,13 +108,13 @@ public sealed class MentorManager : IPostInjectInit
     // DeltaV - Update mentor on perm updates
     private void OnAdminPermsChanged(AdminPermsChangedEventArgs args)
     {
-        if (_admin.HasAdminFlag(args.Player, AdminFlags.MentorHelp) && !_activeMentors.Contains(args.Player))
+        if (_admin.HasAdminFlag(args.Player, AdminFlags.CuratorChat) && !_activeMentors.Contains(args.Player)) // DeltaV - Rename to Curator Chat
         {
             _activeMentors.Add(args.Player);
             SendMentorStatus(args.Player);
         }
 
-        if (!_admin.HasAdminFlag(args.Player, AdminFlags.MentorHelp) && _activeMentors.Contains(args.Player))
+        if (!_admin.HasAdminFlag(args.Player, AdminFlags.CuratorChat) && _activeMentors.Contains(args.Player)) // DeltaV - Rename to Curator Chat
         {
             _activeMentors.Remove(args.Player);
             SendMentorStatus(args.Player);
