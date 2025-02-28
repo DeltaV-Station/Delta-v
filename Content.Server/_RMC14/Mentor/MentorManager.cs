@@ -108,7 +108,7 @@ public sealed class MentorManager : IPostInjectInit
         SendMentorMessage(author.UserId, author.Name, author.UserId, mind.GetCharacterName(author.UserId) ?? author.Name, message.Message, message.MsgChannel); // DeltaV - Try to use character name
     }
 
-    // DeltaV - Update mentor on perm updates
+    // DeltaV - Begin Update mentor on perm updates
     private void OnAdminPermsChanged(AdminPermsChangedEventArgs args)
     {
         if (_admin.HasAdminFlag(args.Player, AdminFlags.CuratorChat) && !_activeMentors.Contains(args.Player)) // DeltaV - Rename to Curator Chat
@@ -124,6 +124,7 @@ public sealed class MentorManager : IPostInjectInit
         }
     }
 
+    /*
     private void OnDeMentor(DeMentorMsg message)
     {
         if (!_player.TryGetSessionById(message.MsgChannel.UserId, out var session) ||
@@ -148,6 +149,7 @@ public sealed class MentorManager : IPostInjectInit
         _activeMentors.Add(session);
         SendMentorStatus(session);
     }
+    DeltaV - End Update mentor on perm updates */
 
     private void SendMentorStatus(ICommonSession player)
     {
@@ -207,8 +209,8 @@ public sealed class MentorManager : IPostInjectInit
         _net.RegisterNetMessage<MentorSendMessageMsg>(OnMentorSendMessage);
         _net.RegisterNetMessage<MentorHelpMsg>(OnMentorHelpMessage);
         _net.RegisterNetMessage<MentorMessagesReceivedMsg>();
-        _net.RegisterNetMessage<DeMentorMsg>(OnDeMentor);
-        _net.RegisterNetMessage<ReMentorMsg>(OnReMentor);
+        //_net.RegisterNetMessage<DeMentorMsg>(OnDeMentor); DeltaV Update mentor on perm updates
+        //_net.RegisterNetMessage<ReMentorMsg>(OnReMentor); DeltaV Update mentor on perm updates
         //_userDb.AddOnLoadPlayer(LoadData); DeltaV Update mentor on perm updates
         _userDb.AddOnFinishLoad(FinishLoad);
         _userDb.AddOnPlayerDisconnect(ClientDisconnected);
