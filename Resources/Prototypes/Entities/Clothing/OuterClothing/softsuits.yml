@@ -14,7 +14,7 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
-    - HidesHarpyWings
+    - HidesHarpyWings # DeltaV
 
 #Syndicate EVA
 - type: entity
@@ -32,7 +32,7 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
-    - HidesHarpyWings
+    - HidesHarpyWings # DeltaV
 
 #Emergency EVA
 - type: entity
@@ -54,7 +54,6 @@
     coolingCoefficient: 0.5
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetEVALarge
-    slot: head
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
@@ -75,7 +74,7 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
-    - HidesHarpyWings
+    - HidesHarpyWings # DeltaV
 
 #NTSRA Voidsuit / Ancient Voidsuit
 - type: entity
@@ -153,7 +152,6 @@
     mask: /Textures/Effects/LightMasks/double_cone.png
   - type: RotatingLight
     speed: 360
->>>>>>> 7495081c40 (Paramedic Void Suit update (#34657))
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
