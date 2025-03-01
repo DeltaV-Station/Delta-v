@@ -1,22 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Syndicate duffelbags can be reverse engineered for bags of holding.
-    type: Add
-  - message: Hyper-capacity powercells can be made by reverse engineering high-capacity
-      powercells, which can also be reverse engineered to make microreactor cells.
-    type: Add
-  - message: Moonboots can now be reverse engineered for speedboots.
-    type: Add
-  - message: Any cloning board that gets reverse engineered unlocks every cloning
-      board instead of itself (which was useless since you already have it).
-    type: Tweak
-  - message: Removed reverse engineering from items that made no sense to reverse
-      engineer like roundstart equipment or tier 1 techs.
-    type: Remove
-  id: 592
-  time: '2024-10-02T13:04:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1915
 - author: Radezolid
   changes:
   - message: Moved the reverse engineered combat hardsuits to the security techfab.
@@ -3921,3 +3903,11 @@
   id: 1091
   time: '2025-03-01T12:32:45.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3081
+- author: Smugman
+  changes:
+  - message: Syndicate listening posts have been SIGNIFICANTLY remodeled, and given
+      a self destruct device. Validhunt one Today!
+    type: Tweak
+  id: 1092
+  time: '2025-03-01T14:26:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2912
