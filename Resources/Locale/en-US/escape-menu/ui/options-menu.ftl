@@ -179,8 +179,7 @@ ui-options-function-open-character-menu = Open character menu
 ui-options-function-open-context-menu = Open context menu
 ui-options-function-open-crafting-menu = Open crafting menu
 ui-options-function-open-inventory-menu = Open inventory
-#DeltaV
-ui-options-function-open-staff-chats = Open admin help and curator chat
+ui-options-function-open-a-help = Open admin help and curator chat
 ui-options-function-open-abilities-menu = Open action menu
 ui-options-function-open-emotes-menu = Open emotes menu
 ui-options-function-toggle-round-end-summary-window = Toggle round end summary window
