@@ -56,7 +56,7 @@ public sealed class PlanetSystem : EntitySystem
     {
         var map = SpawnPlanet(id, runMapInit: false);
         var mapId = Comp<MapComponent>(map).MapId;
-        if (!_mapLoader.TryLoadMapWithId(mapId, path, out _, out var grids))
+        if (!_mapLoader.TryLoadGrid(mapId, path, out var grid))
         {
             Log.Error($"Failed to load planet grid {path} for planet {id}!");
             Del(map);
@@ -64,12 +64,9 @@ public sealed class PlanetSystem : EntitySystem
         }
 
         // don't want rocks spawning inside the base
-        foreach (var gridUid in grids)
-        {
-            _setTiles.Clear();
-            var aabb = Comp<MapGridComponent>(gridUid).LocalAABB;
-            _biome.ReserveTiles(map, aabb.Enlarged(0.2f), _setTiles);
-        }
+        _setTiles.Clear();
+        var aabb = Comp<MapGridComponent>(grid.Value).LocalAABB;
+        _biome.ReserveTiles(map, aabb.Enlarged(0.2f), _setTiles);
 
         _map.InitializeMap(map);
         return map;
