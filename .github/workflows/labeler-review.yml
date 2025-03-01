@@ -2,7 +2,7 @@ name: "Labels: Approved (Real)"
 on:
   workflow_run:
     workflows:
-    - labels_approved_proxy
+    - "Labels: Approved"
 permissions:
   contents: read
   pull-requests: write
