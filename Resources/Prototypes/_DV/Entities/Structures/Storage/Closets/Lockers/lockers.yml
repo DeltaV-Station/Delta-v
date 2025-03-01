@@ -9,9 +9,27 @@
   parent: [ LockerBaseDeltaV, LockerBaseSecure ]
   id: LockerBaseSecureDeltaV
 
+# Begin DeltaV additions - made it so that the health of command lockers matched that of LockerBaseSecure (75) while keeping regular secure lockers at 50 health
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: CommandLockerBaseSecureDeltaV
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+# End DeltaV additions
+
 - type: entity
   id: LockerChiefJustice
-  parent: LockerBaseSecureDeltaV
+  parent: CommandLockerBaseSecureDeltaV #DeltaV - changed from LockerBaseSecureDeltaV to CommandLockerBaseSecureDeltaV
   name: chief justice's locker
   components:
   - type: Appearance
@@ -60,7 +78,7 @@
     access: [ [ "Surgery" ] ]
 
 - type: entity
-  parent: LockerBaseSecureDeltaV
+  parent: CommandLockerBaseSecureDeltaV # DeltaV - changed from LockerBaseSecureDeltaV to CommandLockerBaseSecureDeltaV
   id: LockerAdministrativeAssistant
   name: administrative assistant's locker
   components:
@@ -118,3 +136,40 @@
     stateDoorClosed: armory_door
   - type: AccessReader
     access: [["Armory"]]
+
+- type: entity
+  id: LockerForensicMantis
+  parent: LockerBooze # DeltaV - reparent from det's locker to booze cabinet
+  suffix: Empty
+  name: psionic mantis' cabinet # DeltaV - Rename Forensic Mantis to Psionic Mantis
+  description: You'll never know what's inside until you collapse the quantum superposition of all possible mysteries.
+  components:
+  # Begin DeltaV removals - Removed/commented out the Damageable type since they increase damage resistance to an absurd point
+  #                      - (was the easiest fix I found, hope it doesn't screw anything over)
+  ## Because it holds a traitor objective, StrongMetallic,
+  ## but not as much HP as LockerBaseSecure, because it's not a Head's locker.
+  ##- type: Damageable
+  ##  damageContainer: Inorganic
+  ##  damageModifierSet: StrongMetallic
+  # End DeltaV removals
+  - type: AccessReader
+    access: [["Mantis"]]
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+          MaterialWoodPlank1:
+            min: 1
+            max: 2
