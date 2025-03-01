@@ -44,6 +44,13 @@
   - Syndicate
 
 - type: mapCategories
+  id: PirateShip
+  map: /Maps/Shuttles/pirate.yml
+  allowed:
+  - Pirate
+  - Syndicate # it has 2 turret toolboxes for some reason
+
+- type: mapCategories
   id: RoboNeuroticistShip
   map: /Maps/Shuttles/roboneuroticist_ship.yml
   allowed:
