@@ -170,8 +170,8 @@
 - type: entity
   parent: [ GrenadeBase, BaseSyndicateContraband ]
   id: SingularityGrenade
-  name: singularity grenade
-  description: Grenade that simulates the power of a singularity, pulling things in a heap.
+  name: supermatter grenade # DeltaV - use old name
+  description: Grenade that simulates delamination of the supermatter engine, pulling things in a heap and exploding after some time. # DeltaV - use old desc
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/singularitygrenade.rsi
@@ -187,6 +187,11 @@
       path: /Audio/Effects/Grenades/Supermatter/smbeep.ogg
       params:
         volume: -5
+  - type: Explosive # DeltaV - made explosive again
+    explosionType: Default
+    totalIntensity: 200
+    intensitySlope: 30
+    maxIntensity: 120
   - type: SoundOnTrigger
     removeOnTrigger: true
     sound:
@@ -223,7 +228,7 @@
           path: /Audio/Effects/Grenades/Supermatter/supermatter_end.ogg
           params:
             volume: 5
-      - type: DeleteOnTrigger
+      - type: ExplodeOnTrigger # DeltaV - was DeleteOnTrigger, made explosive
 
 - type: entity
   name: whitehole grenade
