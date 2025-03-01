@@ -1,12 +1,14 @@
-name: "Labels: Approved"
+name: "Labels: Approved (Real)"
 on:
-  pull_request_review:
-    types: [submitted]
+  workflow_run:
+    workflows:
+    - labels_approved_proxy
 permissions:
   contents: read
   pull-requests: write
 jobs:
   add_label:
+    name: Add labels
     # Change the repository name after you've made sure the team name is correct for your fork!
     if: ${{ (github.repository == 'DeltaV-Station/Delta-v') && (github.event.review.state == 'APPROVED') }}
     runs-on: ubuntu-latest
@@ -14,7 +16,7 @@ jobs:
     - uses: tspascoal/get-user-teams-membership@v3
       id: directionMember
       with:
-        username: ${{ github.actor }}
+        username: ${{ github.event.workflow_run.actor.login }}
         team: "direction"
         GITHUB_TOKEN: ${{ secrets.LABELER_PAT }}
     - if: ${{ steps.directionMember.outputs.isTeamMember == 'true' }}
@@ -24,7 +26,7 @@ jobs:
     - uses: tspascoal/get-user-teams-membership@v3
       id: maintMember
       with:
-        username: ${{ github.actor }}
+        username: ${{ github.event.workflow_run.actor.login }}
         team: "maintainers"
         GITHUB_TOKEN: ${{ secrets.LABELER_PAT }}
     - if: ${{ steps.maintMember.outputs.isTeamMember == 'true' }}

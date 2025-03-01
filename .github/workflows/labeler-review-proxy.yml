@@ -1,0 +1,11 @@
+name: "Labels: Approved"
+on:
+  pull_request_review:
+    types: [submitted]
+jobs:
+  labels_approved_proxy:
+    runs-on: ubuntu-latest
+    name: proxy workflow
+    steps:
+    - name: Copium
+      run: echo "Why does pull_request_review_target not exist"
