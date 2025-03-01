@@ -7,6 +7,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Content.Shared.Whitelist; // DeltaV
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
 
@@ -20,6 +21,7 @@ namespace Content.Shared.Emag.Systems;
 /// 5. Optionally, set Repeatable on the event to true if you don't want the emagged component to be added
 public sealed class EmagSystem : EntitySystem
 {
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // DeltaV
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -60,6 +62,11 @@ public sealed class EmagSystem : EntitySystem
 
         if (_tag.HasTag(target, ent.Comp.EmagImmuneTag))
             return false;
+
+        // Begin DeltaV Additions
+        if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, target))
+            return false;
+        // End DeltaV Additions
 
         TryComp<LimitedChargesComponent>(ent, out var charges);
         if (_charges.IsEmpty(ent, charges))

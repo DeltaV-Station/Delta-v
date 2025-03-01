@@ -30,8 +30,7 @@ public sealed partial class BorgSwitchableTypeSystem
         // re-add law 0 and final law based on new lawset
         if (CompOrNull<EmagSiliconLawComponent>(uid)?.OwnerName != null)
         {
-            // raising the event manually to bypass re-emagging checks
-            var ev = new GotEmaggedEvent(uid, EmagType.Interaction); // user wont be used since OwnerName isnt null, safe to pass itself
+            var ev = new SiliconEmaggedEvent(uid);
             RaiseLocalEvent(uid, ref ev);
         }
 
