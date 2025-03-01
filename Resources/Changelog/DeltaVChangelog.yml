@@ -1,14 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Fugitive reports no longer include the name of the fugitive. Use your
-      detective skills!
-    type: Tweak
-  id: 590
-  time: '2024-10-02T13:03:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1817
-- author: deltanedas
-  changes:
   - message: Psionics can now be sacrificed in the chapel to lower glimmer.
     type: Add
   id: 591
@@ -3921,3 +3913,11 @@
   id: 1089
   time: '2025-03-01T11:32:42.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3078
+- author: KZhProgram
+  changes:
+  - message: Nerfed the health of maintenance and emergency closets so they aren't
+      double the health of basically every other locker/safe in the game.
+    type: Tweak
+  id: 1090
+  time: '2025-03-01T11:38:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3075
