@@ -194,21 +194,25 @@
   result: HydroponicsTrayMachineCircuitboard
 
 - type: latheRecipe
+  abstract: true # DeltaV - departmental lathes
   parent: BaseCircuitboardRecipe
   id: AutolatheMachineCircuitboard
   result: AutolatheMachineCircuitboard
 
 - type: latheRecipe
+  abstract: true # DeltaV - departmental lathes
   parent: BaseCircuitboardRecipe
   id: ProtolatheMachineCircuitboard
   result: ProtolatheMachineCircuitboard
 
 - type: latheRecipe
+  abstract: true # DeltaV - departmental lathes
   parent: BaseGoldCircuitboardRecipe
   id: AutolatheHyperConvectionMachineCircuitboard
   result: AutolatheHyperConvectionMachineCircuitboard
 
 - type: latheRecipe
+  abstract: true # DeltaV - departmental lathes
   parent: BaseGoldCircuitboardRecipe
   id: ProtolatheHyperConvectionMachineCircuitboard
   result: ProtolatheHyperConvectionMachineCircuitboard
