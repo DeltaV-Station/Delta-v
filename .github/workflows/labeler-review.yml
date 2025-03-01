@@ -1,0 +1,33 @@
+name: "Labels: Approved"
+on:
+  pull_request_review:
+    types: [submitted]
+jobs:
+  add_label:
+    # Change the repository name after you've made sure the team name is correct for your fork!
+    if: ${{ (github.repository == 'DeltaV-Station/Delta-v') && (github.event.review.state == 'APPROVED') }}
+    permissions:
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+    - uses: tspascoal/get-user-teams-membership@v3
+      id: directionMember
+      with:
+        username: ${{ github.actor }}
+        team: "direction"
+        GITHUB_TOKEN: ${{ secrets.LABELER_PAT }}
+    - if: ${{ steps.directionMember.outputs.isTeamMember == 'true' }}
+      uses: actions-ecosystem/action-add-labels@v1
+      with:
+        labels: "S: Direction Approved"
+    - uses: tspascoal/get-user-teams-membership@v3
+      id: maintMember
+      with:
+        username: ${{ github.actor }}
+        team: "maintainers"
+        GITHUB_TOKEN: ${{ secrets.LABELER_PAT }}
+    - if: ${{ steps.maintMember.outputs.isTeamMember == 'true' }}
+      uses: actions-ecosystem/action-add-labels@v1
+      with:
+        labels: "S: Approved"
