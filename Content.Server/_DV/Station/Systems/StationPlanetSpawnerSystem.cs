@@ -20,7 +20,7 @@ public sealed class StationPlanetSpawnerSystem : EntitySystem
         if (ent.Comp.GridPath is not {} path)
             return;
 
-        ent.Comp.Map = _planet.LoadPlanet(ent.Comp.Planet, path.ToString());
+        ent.Comp.Map = _planet.LoadPlanet(ent.Comp.Planet, path);
     }
 
     private void OnShutdown(Entity<StationPlanetSpawnerComponent> ent, ref ComponentShutdown args)
