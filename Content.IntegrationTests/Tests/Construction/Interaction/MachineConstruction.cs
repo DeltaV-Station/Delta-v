@@ -6,8 +6,8 @@ public sealed class MachineConstruction : InteractionTest
 {
     private const string MachineFrame = "MachineFrame";
     private const string Unfinished = "UnfinishedMachineFrame";
-    private const string ProtolatheBoard = "ProtolatheMachineCircuitboard";
-    private const string Protolathe = "Protolathe";
+    private const string ProtolatheBoard = "EngineeringTechFabCircuitboard"; // DeltaV - departmental techfabs
+    private const string Protolathe = "EngineeringTechFab"; // DeltaV
     private const string Beaker = "Beaker";
 
     [Test]
