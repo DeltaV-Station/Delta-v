@@ -2,13 +2,13 @@ name: "Labels: Approved"
 on:
   pull_request_review:
     types: [submitted]
+permissions:
+  contents: read
+  pull-requests: write
 jobs:
   add_label:
     # Change the repository name after you've made sure the team name is correct for your fork!
     if: ${{ (github.repository == 'DeltaV-Station/Delta-v') && (github.event.review.state == 'APPROVED') }}
-    permissions:
-      contents: read
-      pull-requests: write
     runs-on: ubuntu-latest
     steps:
     - uses: tspascoal/get-user-teams-membership@v3
