@@ -272,15 +272,13 @@ namespace Content.Server.Cargo.Systems
 
         private void GetTradeStations(StationDataComponent data, ref List<EntityUid> ents)
         {
+            // Begin DeltaV Changes
             var tradeStationQuery = AllEntityQuery<TradeStationComponent>(); // We *could* cache this, but I don't know where it'd go
-
             while (tradeStationQuery.MoveNext(out var uid, out _))
             {
-                //if (!_tradeQuery.HasComponent(uid))
-                //    continue;
-
                 ents.Add(uid);
             }
+            // End DeltaV Changes
         }
 
         private void OnRemoveOrderMessage(EntityUid uid, CargoOrderConsoleComponent component, CargoConsoleRemoveOrderMessage args)
