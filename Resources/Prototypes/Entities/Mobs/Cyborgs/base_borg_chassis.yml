@@ -310,7 +310,9 @@
   - type: Access
     enabled: false
     groups:
-    - AllAccessBorg
+    - AllAccessBorg # DeltaV
+    tags:
+    - Borg
   - type: AccessReader
     access: [["Command"], ["Research"]]
   - type: SlavedBorg # DeltaV: NT borgs are enslaved to the AI by default
