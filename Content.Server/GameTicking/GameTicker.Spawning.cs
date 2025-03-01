@@ -381,6 +381,7 @@ namespace Content.Server.GameTicking
             _adminLogger.Add(LogType.LateJoin,
                 LogImpact.Low,
                 $"{player.Name} late joined the round as an Observer with {ToPrettyString(ghost):entity}.");
+            _respawn.SetDeathRespawnTime(player.UserId); // DeltaV - no seeing all the valids then respawning immediately
         }
 
         #region Spawn Points

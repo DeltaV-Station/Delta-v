@@ -50,6 +50,10 @@
   - BorgModuleCable
 
   lawset: Engineer # DeltaV: Custom lawset
+  addComponents: # DeltaV - orange plasteel fibers
+  - type: Fiber
+    fiberMaterial: fibers-plasteel
+    fiberColor: fibers-orange
 
   radioChannels:
   - Engineering
@@ -85,6 +89,11 @@
   - BorgModuleGrapplingGun
   - BorgModuleMining
   - BorgModuleAppraisal
+
+  addComponents: # DeltaV - brown plasteel fibers
+  - type: Fiber
+    fiberMaterial: fibers-plasteel
+    fiberColor: fibers-brown
 
   radioChannels:
   - Supply
@@ -122,6 +131,10 @@
   - BorgModuleCleaning
 
   lawset: Janitor # DeltaV: Custom lawset
+  addComponents: # DeltaV - purple plasteel fibers
+  - type: Fiber
+    fiberMaterial: fibers-plasteel
+    fiberColor: fibers-purple
 
   radioChannels:
   - Science
@@ -176,6 +189,9 @@
     actions:
     - ActionFabricateLollipop
     - ActionFabricateGumball
+  - type: Fiber # DeltaV - white plasteel fibers
+    fiberMaterial: fibers-plasteel
+    fiberColor: fibers-white
   - type: SurgeryTarget # Shitmed
   - type: Sanitized # Shitmed
 
