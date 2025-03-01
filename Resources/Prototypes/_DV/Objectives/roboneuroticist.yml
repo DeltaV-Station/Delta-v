@@ -55,6 +55,7 @@
   components:
   - type: Objective
   - type: StealCondition
+    verifyMapExistence: false
     stealGroup: PlutoniumCore
     owner: objective-condition-steal-nuclear-bomb
 
