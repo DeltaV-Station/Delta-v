@@ -1,6 +1,12 @@
 # Stations
 
 - type: mapCategories
+  id: Chibi
+  map: /Maps/chibi.yml
+  allowed:
+  - Stamps # tiny station doesn't have lockers for everyone
+
+- type: mapCategories
   id: Shoukou
   map: /Maps/shoukou.yml
   allowed:
