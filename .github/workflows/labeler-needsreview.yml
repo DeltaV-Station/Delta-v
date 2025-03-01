@@ -33,7 +33,7 @@ jobs:
         (github.event.review.author_association == 'OWNER' ||
          github.event.review.author_association == 'MEMBER')
       with:
-        github_token: ${{ secrets.LABELER_PAT }}
+        token: ${{ secrets.LABELER_PAT }}
         labels: "S: Awaiting Changes"
 
     - uses: actions-ecosystem/action-remove-labels@v1
@@ -42,5 +42,5 @@ jobs:
         (github.event.review.author_association == 'OWNER' ||
          github.event.review.author_association == 'MEMBER')
       with:
-        github_token: ${{ secrets.LABELER_PAT }}
+        token: ${{ secrets.LABELER_PAT }}
         labels: "S: Needs Review"
