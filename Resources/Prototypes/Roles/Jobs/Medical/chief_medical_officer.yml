@@ -9,13 +9,16 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 10800 #3 hrs
+      time: 18000 # DeltaV - increase to 5 hrs
+    - !type:RoleTimeRequirement # DeltaV - Add sugery time requirement
+      role: JobSurgeon
+      time: 10800 # 3 hrs
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
       time: 43200 # DeltaV - Increase to 12 hrs
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 68400 # DeltaV - increased to 19 hrs to reflect other changes
+      time: 108000 # DeltaV - increase to 30 hrs to reflect other changes
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
   weight: 10
