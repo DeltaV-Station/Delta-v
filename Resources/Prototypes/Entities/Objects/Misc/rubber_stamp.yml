@@ -21,6 +21,9 @@
     size: Tiny
   - type: StealTarget
     stealGroup: Stamp
+  - type: MappingCategories # DeltaV
+    categories:
+    - Stamps
 
 - type: entity
   name: alternate rubber stamp
@@ -36,6 +39,8 @@
       params:
         volume: -2
         maxDistance: 5
+  - type: MappingCategories # DeltaV - approved/denied are fine
+    categories: []
 
 - type: entity
   name: captain's rubber stamp

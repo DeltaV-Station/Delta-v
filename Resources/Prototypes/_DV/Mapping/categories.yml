@@ -1,0 +1,28 @@
+# Stuff like bang stick that should NEVER be mapped
+- type: mappingCategory
+  id: Debug
+
+# Only centcomm gets centcomm gear
+- type: mappingCategory
+  id: Centcomm
+
+# Changeling stuff should probably never be mapped anywhere
+- type: mappingCategory
+  id: Changeling
+
+# Pirate gear for the pirate ship
+- type: mappingCategory
+  id: Pirate
+
+# Serious syndicate gear that stations should not have, like blood-reds.
+- type: mappingCategory
+  id: Syndicate
+
+# Only the wizard shuttle gets wizard gear
+- type: mappingCategory
+  id: Wizard
+
+# Stamps should not be mapped directly, their lockers should instead.
+- type: mappingCategory
+  id: Stamps
+  ignoreInsideContainer: true
