@@ -1,0 +1,22 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:ui="clr-namespace:Content.Client.ParticleAccelerator.UI"
+    Title="Noospheric Particle Accelerator"
+    MinSize="320 120">
+
+    <!-- Main Container -->
+    <BoxContainer Orientation="Vertical"
+        VerticalExpand="True">
+
+        <!-- Sub-Main container -->
+        <BoxContainer Orientation="Horizontal"
+            VerticalExpand="True"
+            HorizontalExpand="True">
+
+            <!-- Power Settings -->
+            <BoxContainer Orientation="Horizontal" Name="PowerContainer" />
+        </BoxContainer>
+
+    </BoxContainer>
+</controls:FancyWindow>
