@@ -35,7 +35,7 @@ namespace Content.Server.Roboisseur.Roboisseur
         public EntityPrototype DesiredPrototype = default!;
 
         [DataField("demandMessages")]
-        public IReadOnlyList<string> DemandMessages = new[]
+        public IReadOnlyList<LocId> DemandMessages = new[]
         {
             "roboisseur-request-1",
             "roboisseur-request-2",
@@ -46,7 +46,7 @@ namespace Content.Server.Roboisseur.Roboisseur
         };
 
         [DataField("impatientMessages")]
-        public IReadOnlyList<string> ImpatientMessages = new[]
+        public IReadOnlyList<LocId> ImpatientMessages = new[]
         {
             "roboisseur-request-impatient-1",
             "roboisseur-request-impatient-2",
@@ -54,7 +54,7 @@ namespace Content.Server.Roboisseur.Roboisseur
         };
 
         [DataField("demandMessagesTier2")]
-        public IReadOnlyList<string> DemandMessagesTier2 = new[]
+        public IReadOnlyList<LocId> DemandMessagesTier2 = new[]
         {
             "roboisseur-request-second-1",
             "roboisseur-request-second-2",
@@ -62,7 +62,7 @@ namespace Content.Server.Roboisseur.Roboisseur
         };
 
         [DataField("rewardMessages")]
-        public IReadOnlyList<String> RewardMessages = new[]
+        public IReadOnlyList<LocId> RewardMessages = new[]
         {
             "roboisseur-thanks-1",
             "roboisseur-thanks-2",
@@ -72,7 +72,7 @@ namespace Content.Server.Roboisseur.Roboisseur
         };
 
         [DataField("rewardMessagesTier2")]
-        public IReadOnlyList<String> RewardMessagesTier2 = new[]
+        public IReadOnlyList<LocId> RewardMessagesTier2 = new[]
         {
             "roboisseur-thanks-second-1",
             "roboisseur-thanks-second-2",
@@ -82,7 +82,7 @@ namespace Content.Server.Roboisseur.Roboisseur
         };
 
         [DataField("rejectMessages")]
-        public IReadOnlyList<String> RejectMessages = new[]
+        public IReadOnlyList<LocId> RejectMessages = new[]
         {
             "roboisseur-deny-1",
             "roboisseur-deny-2",
@@ -92,7 +92,7 @@ namespace Content.Server.Roboisseur.Roboisseur
         ///    these protos need to be updated when new food is added
         /// </summary>
         [DataField("tier2Protos")]
-        public List<String> Tier2Protos = new()
+        public List<EntProtoId> Tier2Protos = new()
         {
             "FoodBurgerEmpowered",
             "FoodSoupClown",
@@ -119,7 +119,7 @@ namespace Content.Server.Roboisseur.Roboisseur
         };
 
         [DataField("tier3Protos")]
-        public List<String> Tier3Protos = new()
+        public List<EntProtoId> Tier3Protos = new()
         {
             "FoodSoupChiliClown",
             "FoodCakeCheese",
@@ -150,7 +150,7 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodSoupWingFangChu",
             "FoodTacoChickenSupreme",
             "FoodTacoBeefSupreme",
-            "FoodMealGrilledCheese",
+            "FoodBakedGrilledCheeseSandwich",
             "FoodMothCheesecakeBalls",
             "FoodSoupChiliCold",
             "FoodMothKachumbariSalad",
@@ -165,7 +165,7 @@ namespace Content.Server.Roboisseur.Roboisseur
         };
 
         [DataField("robossuierRewards")]
-        public IReadOnlyList<String> RobossuierRewards = new[]
+        public IReadOnlyList<EntProtoId> RobossuierRewards = new[]
         {
             "DrinkIceCreamGlass",
             "FoodFrozenPopsicleOrange",
@@ -184,7 +184,7 @@ namespace Content.Server.Roboisseur.Roboisseur
         };
 
         [DataField("blacklistedProtos")]
-        public IReadOnlyList<String> BlacklistedProtos = new[]
+        public IReadOnlyList<EntProtoId> BlacklistedProtos = new[]
         {
             "FoodBurgerSpell",
             "FoodMothSqueakingFry",

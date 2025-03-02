@@ -320,3 +320,9 @@ ghost-role-information-artifact-description = Enact your eldritch whims. Forcibl
 ghost-role-information-tomatokiller-name = Tomato Killer
 ghost-role-information-tomatokiller-description = This little tomato will serve the botanist for the rest of his life... that is, a couple of minutes.
 
+ghost-role-information-gingerbread-name = Gingerbread Man
+ghost-role-information-gingerbread-description = A being of pure holiday spirit.
+                                     Spread molassesy goodness and to all good cheer.
+
+ghost-role-information-wizard-name = Wizard
+ghost-role-information-wizard-desc = YER A WIZARD! Show the station what your magic is made of.

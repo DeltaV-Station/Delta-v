@@ -13,7 +13,6 @@
   - type: Sprite
     sprite: _DV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
     scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
-    Scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda"
@@ -27,8 +26,6 @@
       visible: false
   - type: Icon
     sprite: _DV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
-    scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
-    Scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
     state: pda
   - type: Pda
     paiSlot:
@@ -460,14 +457,14 @@
     accentVColor: "#a23e3e"
   - type: Icon
     state: pda-qm
-  - type: CartridgeLoader # DeltaV
+  - type: CartridgeLoader # DeltaV - append nanochat, mail metrics and stock trading
     preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - MailMetricsCartridge # DeltaV - MailMetrics courier tracker
-      - StockTradingCartridge # DeltaV - StockTrading
-      - NanoChatCartridge # DeltaV
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge
+    - MailMetricsCartridge
+    - StockTradingCartridge
 
 - type: entity
   parent: BasePDA
@@ -1357,6 +1354,13 @@
   components:
   - type: Pda
     id: CluwneIDCard
+    penSlot:
+      startingItem: CrayonGreen
+      ejectSound: /Audio/Items/bikehorn.ogg
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -1366,13 +1370,6 @@
     borderColor: "#1c8f4d"
   - type: Icon
     state: pda-cluwne
-    penSlot:
-      startingItem: CrayonGreen
-      ejectSound: /Audio/Items/bikehorn.ogg
-      priority: -1
-      whitelist:
-        tags:
-        - Write
   - type: Unremoveable
 
 - type: entity
@@ -1523,3 +1520,27 @@
         type: HealthAnalyzerBoundUserInterface
       enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: BasePDA
+  id: WizardPDA
+  name: wizard PDA
+  description: You hear faint whispers coming from it.
+  components:
+  - type: Pda
+    id: WizardIDCard
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-library # DeltaV - no wizard resprite yet
+  - type: PdaBorderColor
+    borderColor: "#7F3300"
+  - type: Icon
+    state: pda-library # DeltaV - no wizard resprite yet

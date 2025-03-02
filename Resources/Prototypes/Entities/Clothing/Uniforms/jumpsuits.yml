@@ -580,7 +580,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/roboticist.rsi
 
 - type: entity
-  parent: [ClothingUniformRollableBase, BaseRestrictedContraband] # DeltaV - add rollable jumpsuits
+  parent: [ClothingUniformRollableBase, BaseSecurityContraband] # DeltaV - add rollable jumpsuits
   id: ClothingUniformJumpsuitSec
   name: security jumpsuit
   description: Charcoal trousers and a dull red shirt, the standard-issue uniform of the infamous Station Security Department. # DeltaV - improved description
@@ -602,7 +602,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/security_blue.rsi # DeltaV - resprite
 
 - type: entity
-  parent: [ClothingUniformRollableBase, BaseRestrictedContraband] # DeltaV - add rollable jumpsuits
+  parent: [ClothingUniformRollableBase, BaseSecurityContraband] # DeltaV - add rollable jumpsuits
   id: ClothingUniformJumpsuitSecGrey
   name: grey security jumpsuit
   description: A light grey shirt with bright red highlights, for dedicated and responsive security officers. # DeltaV - improved description
@@ -613,7 +613,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/security_grey.rsi # DeltaV - resprite
 
 - type: entity
-  parent: [ClothingUniformRollableBase, BaseRestrictedContraband] # DeltaV - add rollable jumpsuits
+  parent: [ClothingUniformRollableBase, BaseSecurityContraband] # DeltaV - add rollable jumpsuits
   id: ClothingUniformJumpsuitWarden
   name: warden's jumpsuit # DeltaV - renamed to mirror other security uniforms
   description: Red shirt on charcoal trousers, with white markings and epaulettes that denote a warden's rank. # DeltaV - improved description
@@ -1149,7 +1149,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/senior_physician.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseRestrictedContraband, ClothingUniformFoldableBaseImpstation] # imp - Add foldable uniform jumpsuits
+  parent: [ClothingUniformBase, BaseSecurityContraband, ClothingUniformFoldableBaseImpstation] # imp - Add foldable uniform jumpsuits
   id: ClothingUniformJumpsuitSeniorOfficer
   name: senior officer jumpsuit
   description: A sign of skill and prestige within the security department.
