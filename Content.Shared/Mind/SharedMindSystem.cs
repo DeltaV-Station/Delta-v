@@ -361,10 +361,20 @@ public abstract class SharedMindSystem : EntitySystem
             return false;
 
         var objective = mind.Objectives[index];
+        return TryRemoveObjective((mindId, mind), objective); // DeltaV
+    }
+
+    /// <summary>
+    /// DeltaV: Remove an objective from this mind, if you already know its uid.
+    /// </summary>
+    public bool TryRemoveObjective(Entity<MindComponent> mind, EntityUid objective)
+    {
+        if (!mind.Comp.Objectives.Remove(objective))
+            return false;
 
         var title = Name(objective);
         _adminLogger.Add(LogType.Mind, LogImpact.Low, $"Objective {objective} ({title}) removed from the mind of {MindOwnerLoggingString(mind)}");
-        mind.Objectives.Remove(objective);
+        mind.Comp.Objectives.Remove(objective);
         Del(objective);
         return true;
     }
