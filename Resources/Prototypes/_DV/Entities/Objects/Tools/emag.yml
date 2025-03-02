@@ -6,6 +6,7 @@
   components:
   - type: Emag
     emagType: Access # LockSystem has its type changed so this only affects airlocks
+    blacklist: null # allow airlocks
   - type: Sprite
     sprite: _DV/Objects/Tools/doorjack.rsi
   - type: Item
