@@ -12,6 +12,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Objectives.Commands;
+using Content.Shared._DV.CustomObjectiveSummary; // DeltaV
 using Content.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
@@ -162,6 +163,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                     totalObjectives++;
 
                     agentSummary.Append("- ");
+                    /* DeltaV - Removed greentext
                     if (progress > 0.99f)
                     {
                         agentSummary.AppendLine(Loc.GetString(
@@ -180,10 +182,37 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                             ("markupColor", "red")
                         ));
                     }
+                    */
+                    // DeltaV - Remove greentext
+                    agentSummary.AppendLine(Loc.GetString(
+                        "objectives-objective",
+                        ("objective", objectiveTitle)
+                    ));
                 }
             }
 
             var successRate = totalObjectives > 0 ? (float) completedObjectives / totalObjectives : 0f;
+            // DeltaV custom objective response.
+            if (TryComp<CustomObjectiveSummaryComponent>(mindId, out var customComp))
+            {
+                // We have to spit it like this to make it readable. Yeah, it sucks but for some reason the entire thing
+                // is just one long string...
+                var words = customComp.ObjectiveSummary.Split(" ");
+                var currentLine = "";
+                foreach (var word in words)
+                {
+                    currentLine += word + " ";
+
+                    // magic number
+                    if (currentLine.Length <= 50)
+                        continue;
+
+                    agentSummary.AppendLine(Loc.GetString("custom-objective-format", ("line", currentLine)));
+                    currentLine = "";
+                }
+
+                agentSummary.AppendLine(Loc.GetString("custom-objective-format", ("line", currentLine)));
+            }
             agentSummaries.Add((agentSummary.ToString(), successRate, completedObjectives));
         }
 
