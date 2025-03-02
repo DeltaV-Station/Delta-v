@@ -139,7 +139,7 @@ public partial class SharedBodySystem
         Dirty(rootPartUid, rootPart);
 
         // Setup the rest of the body entities.
-        SetupOrgans((rootPartUid, rootPart), protoRoot.Organs);
+        SetupOrgans((rootPartUid, rootPart), protoRoot.Organs, protoRoot.OrganSlots);  // DeltaV - let body prototypes define empty slots
         MapInitParts(rootPartUid, rootPart, prototype); // Shitmed Change
     }
 
@@ -203,7 +203,7 @@ public partial class SharedBodySystem
                 }
 
                 // Add organs
-                SetupOrgans((childPart, childPartComponent), connectionSlot.Organs);
+                SetupOrgans((childPart, childPartComponent), connectionSlot.Organs, connectionSlot.OrganSlots);  // DeltaV - let body prototypes define empty slots
 
                 // Enqueue it so we can also get its neighbors.
                 frontier.Enqueue(connection);
@@ -211,7 +211,8 @@ public partial class SharedBodySystem
         }
     }
 
-    private void SetupOrgans(Entity<BodyPartComponent> ent, Dictionary<string, string> organs)
+
+    private void SetupOrgans(Entity<BodyPartComponent> ent, Dictionary<string, string> organs, HashSet<string> slots)  // DeltaV - let body prototypes define empty slots
     {
         foreach (var (organSlotId, organProto) in organs)
         {
@@ -223,6 +224,16 @@ public partial class SharedBodySystem
                 Log.Error($"Could not create organ for slot {organSlotId} in {ToPrettyString(ent)}");
             }
         }
+        // Begin DeltaV - let body prototypes define empty slots
+        foreach (var organSlotId in slots)
+        {
+            TryCreateOrganSlot(ent, organSlotId, out var slot);
+            if (slot is null)
+            {
+                Log.Error($"Could not create organ slot {organSlotId} in {ToPrettyString(ent)}");
+            }
+        }
+        // End DeltaV - let body prototypes define empty slots
     }
 
     /// <summary>

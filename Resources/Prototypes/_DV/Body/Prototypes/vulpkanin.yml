@@ -18,6 +18,7 @@
         stomach: OrganVulpkaninStomach
         liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys
+      organSlots: [ powerCell, charger ]
       connections:
       - right arm
       - left arm
@@ -26,10 +27,12 @@
       - head # Shitmed Change
     right arm:
       part: RightArmVulpkanin
+      organSlots: [ armImplant ]
       connections:
       - right hand
     left arm:
       part: LeftArmVulpkanin
+      organSlots: [ armImplant ]
       connections:
       - left hand
     right hand:

@@ -18,6 +18,7 @@
       - right leg
       - left leg
       - head # Shitmed Change
+      organSlots: [ powerCell, charger ]
       organs:
         heart: OrganHumanHeart
         lungs: OrganHarpyLungs
@@ -26,10 +27,12 @@
         kidneys: OrganAnimalKidneys
     right arm:
       part: RightArmHarpy
+      organSlots: [ armImplant ]
       connections:
       - right hand
     left arm:
       part: LeftArmHarpy
+      organSlots: [ armImplant ]
       connections:
       - left hand
     right hand:
