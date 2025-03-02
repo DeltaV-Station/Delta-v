@@ -20,7 +20,7 @@ thaven-mood-extreme-department-disapproval-name = {$department} is Abhorrent
 thaven-mood-extreme-department-disapproval-desc = {$department} is not just a foreign concept - the very idea of it is horrifying.
 
 thaven-mood-lone-actor-name = Lone Actor
-thaven-mood-lone-actor-desc = You have no allegiences.
+thaven-mood-lone-actor-desc = You have no allegiances.
 
 thaven-mood-immortal-name = Immortal
 thaven-mood-immortal-desc = You are the center of the universe, an immortal being with no sense of time or morality. Mere mortals are like insects, fleeting and insubstantial.
