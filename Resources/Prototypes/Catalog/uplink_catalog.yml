@@ -18,7 +18,7 @@
   id: UplinkRevolverPython
   name: uplink-revolver-python-name
   description: uplink-revolver-python-desc
-  productEntity: WeaponRevolverPython
+  productEntity: WeaponRevolverPython # DeltaV - No longer loaded with AP by default
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 4
@@ -499,7 +499,7 @@
 
 # For the Python
 - type: listing
-  id: UplinkSpeedLoaderMagnum
+  id: UplinkSpeedLoaderMagnum # DeltaV - Added non-AP speedloader
   name: uplink-speedloader-magnum-name
   description: uplink-speedloader-magnum-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
