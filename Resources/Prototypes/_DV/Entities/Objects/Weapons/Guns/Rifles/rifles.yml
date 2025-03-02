@@ -191,7 +191,7 @@
   components:
   - type: BallisticAmmoProvider
     whitelist:
-      tags: 
+      tags:
       - CartridgeMusket
     capacity: 1
     proto: CartridgeMusket
@@ -237,3 +237,29 @@
         whitelist:
           tags:
           - CartridgeRifle
+
+- type: entity
+  parent: [BaseWeaponRevolver, BaseGunWieldable]
+  id: WeaponRifleGavel
+  name: Gavel # Riffing on the Taurus Judge
+  description: A modernized revolver carbine. Uses .45 magnum ammo.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Rifles/gavel.rsi
+  - type: Item
+    size: Large
+  - type: Tag # Remove the revolver default tags
+    tags: []
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Rifles/gavel.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: GunRequiresWield # Unwieldy gun, fight me
+  - type: Gun
+    fireRate: 1
+    maxAngle: 31.5 # because mandated weilding this (should) correct to 1.5
+  - type: RevolverAmmoProvider
+    capacity: 7 # This is to make it stand out a lil bit despite being slower than sidearm revolvers
+    chambers: [ True, True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null, null ]
