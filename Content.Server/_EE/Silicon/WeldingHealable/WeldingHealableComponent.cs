@@ -5,5 +5,12 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server._EE.Silicon.WeldingHealable
 {
     [RegisterComponent]
-    public sealed partial class WeldingHealableComponent : Component { }
+    public sealed partial class WeldingHealableComponent : Component
+    {
+        /// <summary>
+        /// DeltaV: Disables self-healing with any type of WeldingHealing item.
+        /// </summary>
+        [DataField]
+        public bool AllowSelfHeal = true;
+    }
 }
