@@ -1,0 +1,155 @@
+- type: ailmentPack
+  id: BoneAilments
+  ailments:
+  - JointDislocation
+  - HairlineFracture
+  - CompoundFracture
+  transitions:
+  # damages
+  - NullToCompound
+  - NullToHairline
+  - NullToJointDislocation
+  # worsening fractures
+  - DislocationToCompound
+  - DislocationToHairline
+  - HairlineToCompound
+  # tending to them
+  - HealDislocation
+  - HealHairline
+  - HealCompound
+
+- type: ailmentTransition
+  id: NullToJointDislocation
+  triggerChance: 0.1
+  triggers:
+  - !type:TypeDamage
+    min: 15
+    damageType: Blunt
+  effects:
+  - !type:HealthChange
+    damage:
+      types:
+        Blunt: -15
+  start: null
+  end: JointDislocation
+
+- type: ailmentTransition
+  id: NullToHairline
+  triggerChance: 0.3
+  triggers:
+  - !type:TypeDamage
+    min: 30
+    damageType: Blunt
+  effects:
+  - !type:HealthChange
+    damage:
+      types:
+        Blunt: -30
+  start: null
+  end: HairlineFracture
+
+- type: ailmentTransition
+  id: NullToCompound
+  triggerChance: 0.6
+  triggers:
+  - !type:TypeDamage
+    min: 45
+    damageType: Blunt
+  effects:
+  - !type:HealthChange
+    damage:
+      types:
+        Blunt: -45
+  start: null
+  end: CompoundFracture
+
+- type: ailmentTransition
+  id: DislocationToCompound
+  triggerChance: 0.6
+  triggers:
+  - !type:TypeDamage
+    min: 30
+    damageType: Blunt
+  effects:
+  - !type:HealthChange
+    damage:
+      types:
+        Blunt: -30
+  start: JointDislocation
+  end: CompoundFracture
+
+- type: ailmentTransition
+  id: DislocationToHairline
+  triggerChance: 0.3
+  triggers:
+  - !type:TypeDamage
+    min: 15
+    damageType: Blunt
+  effects:
+  - !type:HealthChange
+    damage:
+      types:
+        Blunt: -15
+  start: JointDislocation
+  end: HairlineFracture
+
+- type: ailmentTransition
+  id: HairlineToCompound
+  triggerChance: 0.5
+  triggers:
+  - !type:TypeDamage
+    min: 15
+    damageType: Blunt
+  effects:
+  - !type:HealthChange
+    damage:
+      types:
+        Blunt: -15
+  start: HairlineFracture
+  end: CompoundFracture
+
+- type: ailmentTransition
+  id: HealCompound
+  conditions:
+  - !type:TypeDamage
+    max: 10
+    damageType: Blunt
+  start: CompoundFracture
+  end: null
+
+- type: ailmentTransition
+  id: HealHairline
+  conditions:
+  - !type:TypeDamage
+    max: 30
+    damageType: Blunt
+  start: HairlineFracture
+  end: null
+
+- type: ailmentTransition
+  id: HealDislocation
+  conditions:
+  - !type:TypeDamage
+    max: 50
+    damageType: Blunt
+  start: JointDislocation
+  end: null
+
+- type: ailment
+  id: BaseFracture
+  abstract: true
+
+- type: ailment
+  parent: BaseFracture
+  id: JointDislocation
+  healthAnalyzerDescription: The joint is dislocated
+
+- type: ailment
+  parent: BaseFracture
+  id: HairlineFracture
+  healthAnalyzerDescription: The bones have a thin fracture
+
+- type: ailment
+  parent: BaseFracture
+  id: CompoundFracture
+  healthAnalyzerDescription: The bones have a large fracture
