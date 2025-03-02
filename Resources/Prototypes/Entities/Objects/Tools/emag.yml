@@ -6,6 +6,9 @@
   description: The all-in-one hacking solution. Friend of any syndicate. The iconic EMAG.
   components:
   - type: Emag
+    blacklist: # DeltaV - prevent emag removing access from doors
+      components:
+      - Airlock
   - type: Sprite
     sprite: Objects/Tools/emag.rsi
     state: icon
