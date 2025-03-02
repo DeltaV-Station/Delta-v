@@ -263,3 +263,15 @@
     exclusiveAntag: true
     roleType: TeamAntagonist
   - type: ZombieRole
+
+# Psi Cultist #DeltaV
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRolePsiCultist
+  name: Traitor Role
+#  description: mind-role-traitor-description
+  components:
+  - type: MindRole
+    antagPrototype: PsiCultist
+    exclusiveAntag: true
+  - type: PsiCultistRole
