@@ -154,7 +154,7 @@
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
-          collection: WoodBreak
+          collection: WoodDestroy
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
