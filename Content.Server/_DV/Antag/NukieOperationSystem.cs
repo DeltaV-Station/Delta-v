@@ -1,11 +1,16 @@
 ﻿using Content.Server.Antag;
+using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
+using Content.Server.GameTicking.Rules;
+using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Objectives;
 using Content.Shared._DV.FeedbackOverwatch;
 using Content.Shared.Mind;
 using Content.Shared.Random.Helpers;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 using Robust.Shared.Toolshed.Commands.Math;
 
 namespace Content.Server._DV.Antag;
@@ -18,6 +23,9 @@ public sealed class NukieOperationSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedFeedbackOverwatchSystem _feedback = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
+    [Dependency] private readonly IGameTiming _time = default!;
+    [Dependency] private readonly NukeopsRuleSystem _nukeops = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
     public override void Initialize()
     {
@@ -31,17 +39,19 @@ public sealed class NukieOperationSystem : EntitySystem
     {
         base.Update(frameTime);
         var currentTime = _ticker.RoundDuration();
-        var query = EntityQueryEnumerator<NukieOperationComponent>();
-        // query.MoveNext(out var nukieOperationComp);
-        // nukieOperationComp.AutoWarCallTime
-        if (query.MoveNext(out var nukieOperationComp)
+        var nukieOperationQuery = EntityQueryEnumerator<NukieOperationComponent>();
+        var nukieRuleQuery = EntityQueryEnumerator<NukeopsRuleComponent>();
+
+        // This code is bad, but its because upstream code smells ;)
+        if (nukieOperationQuery.MoveNext(out var nukieOperationComp) && nukieRuleQuery.MoveNext(out var nukeopsUid, out var nukeopsRuleComp)
             && nukieOperationComp.ChosenOperation == "NukieOperationDestroyStation"
             && currentTime >= nukieOperationComp.AutoWarCallTime
-            && !nukieOperationComp.HasWarBeenDeclared)
+            && nukeopsRuleComp.WarDeclaredTime == null
+            )
         {
-
-
-
+            nukeopsRuleComp.WarDeclaredTime = _time.CurTime;
+            _nukeops.DistributeExtraTc((nukeopsUid, nukeopsRuleComp));
+            _chat.DispatchGlobalAnnouncement(Loc.GetString("nuke-ops-auto-war-message"), Loc.GetString("nuke-ops-auto-war-title"), true, new SoundPathSpecifier("/Audio/Announcements/war.ogg"), Color.DarkRed);
         }
     }
 
