@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadHatPilot
+  name: pilot's helmet
+  description: Can't hear the voices in my headset with these earflaps over my ears. And it feels good.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Head/Hats/pilot.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Head/Hats/pilot.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
