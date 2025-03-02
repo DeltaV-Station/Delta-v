@@ -41,3 +41,23 @@
     sprite: _DV/Clothing/Neck/Misc/cwparctic.rsi
   - type: Clothing
     sprite: _DV/Clothing/Neck/Misc/cwparctic.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckAnomalyrock
+  name: Fake Anomaly
+  description: A near 1:1 re-creation of an anomalous infection
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/Misc/cosmeticanomalies.rsi
+    layers:
+    - state: icon
+      shader: unshaded
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/Misc/cosmeticanomalies.rsi
+    layers:
+    - state: icon
+      shader: unshaded
+  - type: Tag
+    tags:
+    - WhitelistChameleon
