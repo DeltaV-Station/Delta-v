@@ -26,7 +26,6 @@ public sealed partial class MonumentMenu : FancyWindow
     private readonly IEnumerable<InfluencePrototype> _influencePrototypes;
     private readonly ButtonGroup _glyphButtonGroup;
     private ProtoId<GlyphPrototype> _selectedGlyphProtoId = string.Empty;
-    private HashSet<ProtoId<InfluencePrototype>> _unlockedInfluenceProtoIds = [];
     private HashSet<ProtoId<GlyphPrototype>> _unlockedGlyphProtoIds = [];
     public Action<ProtoId<GlyphPrototype>>? OnSelectGlyphButtonPressed;
     public Action? OnRemoveGlyphButtonPressed;
@@ -54,7 +53,6 @@ public sealed partial class MonumentMenu : FancyWindow
     public void UpdateState(MonumentBuiState state)
     {
         _selectedGlyphProtoId = state.SelectedGlyph;
-        _unlockedInfluenceProtoIds = state.UnlockedInfluences;
         _unlockedGlyphProtoIds = state.UnlockedGlyphs;
 
         CultProgressBar.BackgroundStyleBoxOverride = new StyleBoxFlat { BackgroundColor = new Color(15, 17, 30) };
@@ -79,7 +77,13 @@ public sealed partial class MonumentMenu : FancyWindow
     // Update all the entropy fields
     private void UpdateEntropy(MonumentBuiState state)
     {
-        AvailableEntropy.Text = Loc.GetString("monument-interface-entropy-value", ("infused", state.AvailableEntropy.ToString()));
+        var availableEntropy = "thinking emoji"; //if you see this, problem.
+        if (_entityManager.TryGetComponent<CosmicCultComponent>(_playerManager.LocalEntity, out var cultComp))
+        {
+            availableEntropy = cultComp.EntropyBudget.ToString();
+        }
+
+        AvailableEntropy.Text = Loc.GetString("monument-interface-entropy-value", ("infused", availableEntropy));
         EntropyUntilNextStage.Text = Loc.GetString("monument-interface-entropy-value", ("infused", state.EntropyUntilNextStage.ToString()));
         CrewToConvertUntilNextStage.Text = state.CrewToConvertUntilNextStage.ToString();
     }
@@ -122,17 +126,51 @@ public sealed partial class MonumentMenu : FancyWindow
     // Update all the influence thingies
     private void UpdateInfluences()
     {
-        var influences = _influencePrototypes
-            .OrderByDescending(influence => _unlockedInfluenceProtoIds.Contains(influence.ID))
-            .ThenBy<InfluencePrototype, string>(influence => influence.Name);
-
         InfluencesContainer.RemoveAllChildren();
-        foreach (var influence in influences)
+
+        var influenceUIBoxes = new List<InfluenceUIBox>();
+        foreach (var influence in _influencePrototypes)
         {
             var unlocked = _unlockedInfluenceProtoIds.Contains(influence.ID);
             var influenceBox = new InfluenceUIBox(influence, unlocked);
+            var uiBoxState = GetUIBoxStateForInfluence(influence, state);
+            var influenceBox = new InfluenceUIBox(influence, uiBoxState);
+            influenceUIBoxes.Add(influenceBox);
             influenceBox.OnGainButtonPressed += () => OnGainButtonPressed?.Invoke(influence.ID);
-            InfluencesContainer.AddChild(influenceBox);
         }
+
+        //sort the list of UI boxes by state (locked -> owned -> not enough entropy -> enough entropy)
+        //then sort alphabetically within those categories
+        influenceUIBoxes = influenceUIBoxes.OrderBy(box => box.State)
+            .ThenBy(box => box.Proto.ID)
+            .ToList();
+
+        foreach (var box in influenceUIBoxes)
+        {
+            InfluencesContainer.AddChild(box);
+        }
+    }
+
+    private InfluenceUIBox.InfluenceUIBoxState GetUIBoxStateForInfluence(InfluencePrototype influence, MonumentBuiState state)
+    {
+        if (!_entityManager.TryGetComponent<CosmicCultComponent>(_playerManager.LocalEntity, out var cultComp)) //this feels wrong but seems to be the correct way to do this?
+            return InfluenceUIBox.InfluenceUIBoxState.Locked; //early return with locked if there's somehow no cult comp
+
+        var unlocked = cultComp.UnlockedInfluences.Contains(influence.ID);
+        var owned = cultComp.OwnedInfluences.Any(ownedProtoId => ownedProtoId.Id.Equals(influence.ID));
+
+        //more verbose than it needs to be, but it reads nicer
+        if (owned)
+        {
+            return InfluenceUIBox.InfluenceUIBoxState.Owned;
+        }
+
+        if (unlocked)
+        {
+            //if it's unlocked, do we have enough entropy to buy it?
+            return influence.Cost > cultComp.EntropyBudget ? InfluenceUIBox.InfluenceUIBoxState.UnlockedAndNotEnoughEntropy : InfluenceUIBox.InfluenceUIBoxState.UnlockedAndEnoughEntropy;
+        }
+
+        return InfluenceUIBox.InfluenceUIBoxState.Locked;
     }
 }

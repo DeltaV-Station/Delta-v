@@ -36,6 +36,7 @@ using Content.Shared.Stunnable;
 using Content.Server.Doors.Systems;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Flash;
+using Content.Shared._Impstation.Cosmiccult;
 using Content.Shared.Camera;
 using Robust.Shared.Player;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -83,6 +84,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     private const string MapPath = "Maps/_Impstation/Nonstations/cosmicvoid.yml";
     public int CultistCount;
 
@@ -270,6 +272,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     {
         if (!HasComp<CosmicEntropyMoteComponent>(args.Used) || !HasComp<CosmicCultComponent>(args.User) || !uid.Comp.Enabled || args.Handled)
             return;
+
         args.Handled = AddEntropy(uid, args.Used, args.User);
     }
     private bool AddEntropy(Entity<MonumentComponent> monument, EntityUid entropy, EntityUid cultist)
@@ -278,8 +281,15 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (TryComp<CosmicCultComponent>(cultist, out var cultComp))
             cultComp.EntropyBudget += quant;
         monument.Comp.TotalEntropy += quant;
+            Dirty(cultist, cultComp);
+        }
+
         _cultRule.TotalEntropy += quant;
+        monument.Comp.TotalEntropy = _cultRule.TotalEntropy;
         _cultRule.UpdateCultData(monument);
+
+        _ui.SetUiState(monument.Owner, MonumentKey.Key, new MonumentBuiState(monument.Comp)); //this can't be predicted (afaik) as it relies on the cultRuleSystem, which is serverside
+
         _popup.PopupEntity(Loc.GetString("cosmiccult-entropy-inserted", ("count", quant)), cultist, cultist);
         _audio.PlayEntity("/Audio/_Impstation/CosmicCult/insert_entropy.ogg", cultist, monument);
         QueueDel(entropy);
