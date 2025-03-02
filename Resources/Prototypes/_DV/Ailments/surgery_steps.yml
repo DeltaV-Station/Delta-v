@@ -1,0 +1,61 @@
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepResetDislocatedJoint
+  name: Reset dislocated joint
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Bonesetter
+    duration: 8
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
+    state: bonesetter
+  - type: SurgeryStepAilmentTransition
+    pack: BoneAilments
+    transition: HealDislocation
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepMendHairlineFractures
+  name: Mend hairline fractures
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: BoneGel
+    duration: 8
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
+    state: bone-gel
+  - type: SurgeryStepAilmentTransition
+    pack: BoneAilments
+    transition: HealHairline
+  - type: SurgeryDamageChangeEffect
+    sleepModifier: 0.2
+    damage:
+      types:
+        Slash: 30
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepMendCompoundFractures
+  name: Mend compound fractures
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: BoneGel
+    duration: 16
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
+    state: bone-gel
+  - type: SurgeryStepAilmentTransition
+    pack: BoneAilments
+    transition: HealCompound
+  - type: SurgeryDamageChangeEffect # DeltaV
+    sleepModifier: 0.1
+    damage:
+      types:
+        Slash: 60
+
