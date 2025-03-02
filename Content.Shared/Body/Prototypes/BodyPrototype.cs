@@ -26,4 +26,4 @@ public sealed partial class BodyPrototype : IPrototype
 }
 
 [DataRecord]
-public sealed record BodyPrototypeSlot(EntProtoId? Part, HashSet<string> Connections, Dictionary<string, string> Organs);
+public sealed record BodyPrototypeSlot(EntProtoId? Part, HashSet<string> Connections, Dictionary<string, string> Organs, HashSet<string> OrganSlots); // DeltaV - we need to be able to create empty organ slots
