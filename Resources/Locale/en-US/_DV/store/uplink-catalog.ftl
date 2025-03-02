@@ -70,3 +70,8 @@ uplink-syndicate-bodybag-desc = For when stuff goes wrong.
 
 uplink-syndicate-stun-bundle-name = Stun bundle
 uplink-syndicate-stun-bundle-desc = Includes a stun baton and a disabler.
+
+deltav-uplink-revolver-python-desc = A brutally simple, effective, and loud Syndicate revolver. Comes loaded with regular rounds, but can also shoot armor-piercing ones. Uses .45 magnum.
+
+uplink-speedloader-magnum-name = Speedloader (.45 magnum)
+uplink-speedloader-magnum-desc = Revolver speedloader with 6 regular catridges. Compatible with the Python.
