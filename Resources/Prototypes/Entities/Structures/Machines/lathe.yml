@@ -90,6 +90,7 @@
   parent: BaseLatheLube
   name: autolathe
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
+  suffix: DO NOT MAP # DeltaV - departamental lathes
   components:
   - type: Sprite
     sprite: Structures/Machines/autolathe.rsi
@@ -167,6 +168,7 @@
   parent: BaseLatheLube
   name: protolathe
   description: Converts raw materials into advanced items.
+  suffix: DO NOT MAP # DeltaV - departamental lathes
   components:
   - type: Sprite
     sprite: Structures/Machines/protolathe.rsi
@@ -526,6 +528,7 @@
     - Carpets
     - Bedsheets
     - BeltsDeltaV # DeltaV
+    - ClothingJustice # DeltaV
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ClothingCentComm

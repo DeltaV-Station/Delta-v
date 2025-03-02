@@ -40,6 +40,12 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.ResetZoom);
             common.AddFunction(ContentKeyFunctions.InspectEntity);
             common.AddFunction(ContentKeyFunctions.ToggleRoundEndSummaryWindow);
+            // DeltaV - Begin NanoChat keybinds
+            common.AddFunction(ContentKeyFunctions.NanoChatNavigateUp);
+            common.AddFunction(ContentKeyFunctions.NanoChatNavigateDown);
+            common.AddFunction(ContentKeyFunctions.NanoChatNavigateUpUnread);
+            common.AddFunction(ContentKeyFunctions.NanoChatNavigateDownUnread);
+            // DeltaV - End NanoChat keybinds
 
             // Not in engine, because engine cannot check for sanbox/admin status before starting placement.
             common.AddFunction(ContentKeyFunctions.EditorCopyObject);
