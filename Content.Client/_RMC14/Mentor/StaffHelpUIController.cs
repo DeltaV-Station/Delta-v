@@ -105,7 +105,8 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
 
         if (other)
         {
-            _audio?.PlayGlobal(_mHelpSound, Filter.Local(), false);
+            if (_mHelpSound is {} path)
+                _audio?.PlayGlobal(new SoundPathSpecifier(path), Filter.Local(), false);
             _clyde.RequestWindowAttention();
 
             if (!_isMentor)

@@ -24,7 +24,6 @@
   - BoxBeanbag
   - BoxShellTranquilizer
   - MagazineShotgunBeanbag
-  - WeaponDisabler
 
 - type: latheRecipePack
   id: SecurityRubberAmmoStatic
@@ -41,11 +40,10 @@
   - MagazineBoxSpecialRubber
 
 - type: latheRecipePack
+  parent: SecurityDisablers
   id: SecurityWeaponsStaticDeltaV
   recipes:
-  - WeaponDisabler
   - Truncheon
-  - WeaponDisablerSMG
 
 ## Dynamic
 
