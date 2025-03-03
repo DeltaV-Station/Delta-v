@@ -396,3 +396,14 @@
     blacklist:
       components:
       - SurplusBundle
+
+- type: listing
+  id: UplinkSpeedLoaderMagnum
+  name: uplink-speedloader-magnum-regular-name
+  description: uplink-speedloader-magnum-regular-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
+  productEntity: SpeedLoaderMagnum
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
