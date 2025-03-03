@@ -85,6 +85,14 @@ public sealed partial class HumanoidAppearanceComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public Color? CachedFacialHairColor;
 
+    // CD - Character Records
+    /// <summary>
+    ///     The height of this humanoid.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float Height = 1f;
+    // CD - Character Records
+
     /// <summary>
     ///     Which layers of this humanoid that should be hidden on equipping a corresponding item..
     /// </summary>
