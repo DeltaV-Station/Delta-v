@@ -31,32 +31,32 @@ public sealed class MappingCategoryTest
 
         await server.WaitPost(() =>
         {
-            var mapFolder = new ResPath(MapsPath);
-            foreach (var map in resMan.ContentFindFiles(mapFolder))
+            Assert.Multiple(() =>
             {
-                if (map.Extension != "yml" || map.Filename.StartsWith(".", StringComparison.Ordinal))
-                    continue;
-
-                var rootedPath = map.ToRootedPath().ToString();
-                if (rootedPath.StartsWith(TestMapsPath, StringComparison.Ordinal))
-                    continue;
-
-                mapSys.CreateMap(out var mapId);
-                Assert.That(mapLoader.TryLoad(mapId, rootedPath, out var roots), $"Failed to load map {rootedPath}");
-
-                var allowed = catSys.GetAllowedCategories(rootedPath);
-                var query = entMan.EntityQueryEnumerator<MappingCategoriesComponent>();
-                Assert.Multiple(() =>
+                var mapFolder = new ResPath(MapsPath);
+                foreach (var map in resMan.ContentFindFiles(mapFolder))
                 {
+                    if (map.Extension != "yml" || map.Filename.StartsWith(".", StringComparison.Ordinal))
+                        continue;
+
+                    var rootedPath = map.ToRootedPath().ToString();
+                    if (rootedPath.StartsWith(TestMapsPath, StringComparison.Ordinal))
+                        continue;
+
+                    mapSys.CreateMap(out var mapId);
+                    Assert.That(mapLoader.TryLoad(mapId, rootedPath, out var roots), $"Failed to load map {rootedPath}");
+
+                    var allowed = catSys.GetAllowedCategories(rootedPath);
+                    var query = entMan.EntityQueryEnumerator<MappingCategoriesComponent>();
                     while (query.MoveNext(out var uid, out var comp))
                     {
                         var ent = (uid, comp);
                         Assert.That(catSys.CanMap(ent, allowed), $"Entity {entMan.ToPrettyString(uid)} cannot be mapped on {rootedPath}");
                     }
-                });
 
-                mapMan.DeleteMap(mapId);
-            }
+                    mapMan.DeleteMap(mapId);
+                }
+            });
         });
 
         await server.WaitRunTicks(1);
