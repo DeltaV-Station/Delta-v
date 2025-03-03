@@ -39,6 +39,7 @@
     - ImposterSyndrome
     - Centrist
     - SpeechRestriction
+    - NanochatAddict
 
 # You are extremely possessive of your property. Refuse to relinquish it, and if it is misplaced or stolen, it must be retrieved at all costs.
 - type: thavenMood
@@ -133,11 +134,11 @@
   conflicts:
     - Procrastinator
 
-# Your social status is dependent on the number of friends you have on Nanochat. You must collect as many numbers as possible.
+# Your social status is dependent on the number of friends you have on Nanochat. You must use your PDA as much as possible, and message everyone you can.
 - type: thavenMood
-  id: RadioOnly
-  moodName: thaven-mood-radio-only-name
-  moodDesc: thaven-mood-radio-only-desc
+  id: NanochatAddict
+  moodName: thaven-mood-nanochat-addict-name
+  moodDesc: thaven-mood-nanochat-addict-desc
   conflicts:
     - NoRadio
 

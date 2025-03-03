@@ -9,12 +9,14 @@
     - Medical
     - Justice
     - The Bar
-    - The Kitchen # Begin DeltaV Additions
+    # Begin DeltaV Additions
+    - The Kitchen
     - Logistics
     - the Janitorial Department
     - Reporting
     - Entertainment
-    - Surgery # End DeltaV Additions
+    - Surgery
+    # End DeltaV Additions
 
 - type: dataset
   id: Pets
@@ -34,14 +36,16 @@
     - Carpy the Legal Carp
     - Laika the Security Dog
     - Remilia the Chaplain's Familiar
-    - Alexander the Pig # Begin DeltaV Additions
+    # Begin DeltaV Additions
+    - Alexander the Pig
     - Clippy the Courier Cat
     - Runtime the Cat
     - Exception the Cat
     - Silvia the Medical Snake
     - Bingus the Cat
     - A Bee
-    - Siobahn the Epistemics Fox # End DeltaV Additions
+    - Siobahn the Epistemics Fox
+    # End DeltaV Additions
 
 - type: dataset
   id: Rooms
@@ -53,7 +57,8 @@
     - The Restroom
     - Dorms
     - The Morgue
-    - The Center of the Station # Begin DeltaV Additions
+    - The Center of the Station
+    # Begin DeltaV Additions
     - The Chapel
     - The Bar
     - The Boxing Ring
@@ -67,7 +72,8 @@
     - The Park
     - Court
     - The Arcade
-    - The Stage # End DeltaV Additions
+    - The Stage
+    # End DeltaV Additions
 
 - type: dataset
   id: FoodRestrictions
@@ -101,7 +107,8 @@
     - Folders
     - Spray bottles
     - Plushies 
-    - Figurines # Begin DeltaV Additions
+    - Figurines
+    # Begin DeltaV Additions
     - Toys
     - Lockers
     - Cigarettes
@@ -118,7 +125,8 @@
     - Books
     - Snacks
     - Cassettes
-    - Trash # End DeltaV Additions
+    - Trash
+    # End DeltaV Additions
 
 - type: dataset
   id: Edibles
@@ -130,7 +138,8 @@
     - Empowered Burger
     - McGuffin
     - Crazy Hamburger
-    - Stick of Cannabis Butter # Begin DeltaV Additions
+    # Begin DeltaV Additions
+    - Stick of Cannabis Butter
     - Cheesecake Balls
     - Engine Fodder
     - Bread Dog
@@ -143,14 +152,16 @@
     - Blue Tomato Soup
     - Buttered Toast
     - Ratburger
-    - Vending Machine Snacks # End DeltaV Additions
+    - Vending Machine Snacks
+    # End DeltaV Additions
 
 - type: dataset
   id: Holidays
   values:
     - Bingus Day
     - Foster's Feast
-    - Preston’s Tomato Incident # Begin DeltaV Additions
+    # Begin DeltaV Additions
+    - Preston’s Tomato Incident 
     - Submarine's Memorial
     - Pranksgiving
     - Sector Delta Employee Appreciation Week
@@ -169,8 +180,8 @@
     - the Talent Show
     - Luperthavia
     - Penny's Big Day
-    - Taco Tuesday # End DeltaV Additions
-
+    - Taco Tuesday 
+    # End DeltaV Additions
 
 - type: dataset
   id: Clothes
@@ -194,14 +205,16 @@
   id: CommandRoles
   values:
     - Captain
-    - Logistics Officer #DeltaV - what is a quartermaster
+    - Logistics Officer # DeltaV - what is a quartermaster
     - Head of Security
     - Head of Personnel
     - Chief Engineer
     - Chief Medical Officer
-    - Mystagogue # Begin DeltaV Additions
+    # Begin DeltaV Additions
+    - Mystagogue
     - Chief Justice
-    - Administrative Assistant # End DeltaV Additions
+    - Administrative Assistant 
+    # End DeltaV Additions
 
 - type: dataset
   id: SpeechRestrictions
