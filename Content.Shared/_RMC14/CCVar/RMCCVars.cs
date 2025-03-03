@@ -13,5 +13,5 @@ public sealed class RMCCVars : CVars
         CVarDef.Create("rmc.mentor_help_rate_limit_count", 10, CVar.SERVERONLY);
 
     public static readonly CVarDef<string> RMCMentorHelpSound =
-        CVarDef.Create("rmc.mentor_help_sound", "/Audio/_RMC14/Effects/Admin/mhelp.ogg", CVar.ARCHIVE | CVar.CLIENTONLY);
+        CVarDef.Create("rmc.mentor_help_sound", "/Audio/_DV/Effects/Admin/chord2.ogg", CVar.ARCHIVE | CVar.CLIENTONLY); // DeltaV - change sound
 }
