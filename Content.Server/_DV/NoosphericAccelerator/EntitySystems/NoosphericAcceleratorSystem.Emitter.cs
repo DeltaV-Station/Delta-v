@@ -1,14 +1,14 @@
-using Content.Server.ParticleAccelerator.Components;
+using Content.Server._DV.NoosphericAccelerator.Components;
 using Content.Server.Singularity.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Singularity.Components;
 using Robust.Shared.Physics.Components;
 
-namespace Content.Server.ParticleAccelerator.EntitySystems;
+namespace Content.Server._DV.NoosphericAccelerator.EntitySystems;
 
-public sealed partial class ParticleAcceleratorSystem
+public sealed partial class NoosphericAcceleratorSystem
 {
-    private void FireEmitter(EntityUid uid, ParticleAcceleratorPowerState strength, ParticleAcceleratorEmitterComponent? emitter = null)
+    private void FireEmitter(EntityUid uid, NoosphericAcceleratorPowerState strength, NoosphericAcceleratorEmitterComponent? emitter = null)
     {
         if (!Resolve(uid, ref emitter))
             return;
@@ -16,7 +16,7 @@ public sealed partial class ParticleAcceleratorSystem
         var xformQuery = GetEntityQuery<TransformComponent>();
         if (!xformQuery.TryGetComponent(uid, out var xform))
         {
-            Log.Error("ParticleAccelerator attempted to emit a particle without (having) a transform from which to base its initial position and orientation.");
+            Log.Error("NoosphericAccelerator attempted to emit a particle without (having) a transform from which to base its initial position and orientation.");
             return;
         }
 
@@ -45,11 +45,11 @@ public sealed partial class ParticleAcceleratorSystem
             // TODO: Unhardcode this.
             food.Energy = strength switch
             {
-                ParticleAcceleratorPowerState.Standby => 0,
-                ParticleAcceleratorPowerState.Level0 => 1,
-                ParticleAcceleratorPowerState.Level1 => 2,
-                ParticleAcceleratorPowerState.Level2 => 3,
-                ParticleAcceleratorPowerState.Level3 => 10,
+                NoosphericAcceleratorPowerState.Standby => 0,
+                NoosphericAcceleratorPowerState.Level0 => 1,
+                NoosphericAcceleratorPowerState.Level1 => 2,
+                NoosphericAcceleratorPowerState.Level2 => 3,
+                NoosphericAcceleratorPowerState.Level3 => 10,
                 _ => 0,
             } * 10;
         }
@@ -57,6 +57,6 @@ public sealed partial class ParticleAcceleratorSystem
         if (TryComp<ParticleProjectileComponent>(emitted, out var particle))
             particle.State = strength;
 
-        _appearanceSystem.SetData(emitted, ParticleAcceleratorVisuals.VisualState, strength);
+        _appearanceSystem.SetData(emitted, NoosphericAcceleratorVisuals.VisualState, strength);
     }
 }

@@ -1,22 +1,22 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Server.ParticleAccelerator.Components;
+using Content.Server._DV.NoosphericAccelerator.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Server.ParticleAccelerator.EntitySystems;
+namespace Content.Server._DV.NoosphericAccelerator.EntitySystems;
 
 [UsedImplicitly]
-public sealed partial class ParticleAcceleratorSystem
+public sealed partial class NoosphericAcceleratorSystem
 {
     private void InitializePartSystem()
     {
-        SubscribeLocalEvent<ParticleAcceleratorPartComponent, ComponentShutdown>(OnComponentShutdown);
-        SubscribeLocalEvent<ParticleAcceleratorPartComponent, MoveEvent>(OnMoveEvent);
-        SubscribeLocalEvent<ParticleAcceleratorPartComponent, PhysicsBodyTypeChangedEvent>(BodyTypeChanged);
+        SubscribeLocalEvent<NoosphericAcceleratorPartComponent, ComponentShutdown>(OnComponentShutdown);
+        SubscribeLocalEvent<NoosphericAcceleratorPartComponent, MoveEvent>(OnMoveEvent);
+        SubscribeLocalEvent<NoosphericAcceleratorPartComponent, PhysicsBodyTypeChangedEvent>(BodyTypeChanged);
     }
 
-    public void RescanParts(EntityUid uid, EntityUid? user = null, ParticleAcceleratorControlBoxComponent? controller = null)
+    public void RescanParts(EntityUid uid, EntityUid? user = null, NoosphericAcceleratorControlBoxComponent? controller = null)
     {
         if (!Resolve(uid, ref controller))
             return;
@@ -24,7 +24,7 @@ public sealed partial class ParticleAcceleratorSystem
         if (controller.CurrentlyRescanning)
             return;
 
-        var partQuery = GetEntityQuery<ParticleAcceleratorPartComponent>();
+        var partQuery = GetEntityQuery<NoosphericAcceleratorPartComponent>();
         foreach (var part in AllParts(uid, controller))
         {
             if (partQuery.TryGetComponent(part, out var partState))
@@ -54,7 +54,7 @@ public sealed partial class ParticleAcceleratorSystem
         }
 
         // Find fuel chamber first by scanning cardinals.
-        var fuelQuery = GetEntityQuery<ParticleAcceleratorFuelChamberComponent>();
+        var fuelQuery = GetEntityQuery<NoosphericAcceleratorFuelChamberComponent>();
         foreach (var adjacent in _mapSystem.GetCardinalNeighborCells(gridUid.Value, grid, xform.Coordinates))
         {
             if (fuelQuery.HasComponent(adjacent)
@@ -95,19 +95,19 @@ public sealed partial class ParticleAcceleratorSystem
         var positionForeEmitter = positionFuelChamber + offsetVect * 2;
         var positionStarboardEmitter = positionFuelChamber + offsetVect * 2 - orthoOffsetVect;
 
-        ScanPart<ParticleAcceleratorEndCapComponent>(gridUid.Value, positionEndCap, rotation, out controller.EndCap, out _, grid);
-        ScanPart<ParticleAcceleratorPowerBoxComponent>(gridUid.Value, positionPowerBox, rotation, out controller.PowerBox, out _, grid);
+        ScanPart<NoosphericAcceleratorEndCapComponent>(gridUid.Value, positionEndCap, rotation, out controller.EndCap, out _, grid);
+        ScanPart<NoosphericAcceleratorPowerBoxComponent>(gridUid.Value, positionPowerBox, rotation, out controller.PowerBox, out _, grid);
 
-        if (!ScanPart<ParticleAcceleratorEmitterComponent>(gridUid.Value, positionPortEmitter, rotation, out controller.PortEmitter, out var portEmitter, grid)
-        || portEmitter.Type != ParticleAcceleratorEmitterType.Port)
+        if (!ScanPart<NoosphericAcceleratorEmitterComponent>(gridUid.Value, positionPortEmitter, rotation, out controller.PortEmitter, out var portEmitter, grid)
+        || portEmitter.Type != NoosphericAcceleratorEmitterType.Port)
             controller.PortEmitter = null;
 
-        if (!ScanPart<ParticleAcceleratorEmitterComponent>(gridUid.Value, positionForeEmitter, rotation, out controller.ForeEmitter, out var foreEmitter, grid)
-        || foreEmitter.Type != ParticleAcceleratorEmitterType.Fore)
+        if (!ScanPart<NoosphericAcceleratorEmitterComponent>(gridUid.Value, positionForeEmitter, rotation, out controller.ForeEmitter, out var foreEmitter, grid)
+        || foreEmitter.Type != NoosphericAcceleratorEmitterType.Fore)
             controller.ForeEmitter = null;
 
-        if (!ScanPart<ParticleAcceleratorEmitterComponent>(gridUid.Value, positionStarboardEmitter, rotation, out controller.StarboardEmitter, out var starboardEmitter, grid)
-        || starboardEmitter.Type != ParticleAcceleratorEmitterType.Starboard)
+        if (!ScanPart<NoosphericAcceleratorEmitterComponent>(gridUid.Value, positionStarboardEmitter, rotation, out controller.StarboardEmitter, out var starboardEmitter, grid)
+        || starboardEmitter.Type != NoosphericAcceleratorEmitterType.Starboard)
             controller.StarboardEmitter = null;
 
         controller.Assembled =
@@ -144,7 +144,7 @@ public sealed partial class ParticleAcceleratorSystem
         foreach (var entity in _mapSystem.GetAnchoredEntities(uid, grid, coordinates))
         {
             if (compQuery.TryGetComponent(entity, out comp)
-            && TryComp<ParticleAcceleratorPartComponent>(entity, out var partState) && partState.Master == null
+            && TryComp<NoosphericAcceleratorPartComponent>(entity, out var partState) && partState.Master == null
             && (rotation == null || Transform(entity).LocalRotation.EqualsApprox(rotation!.Value.Theta)))
             {
                 part = entity;
@@ -157,19 +157,19 @@ public sealed partial class ParticleAcceleratorSystem
         return false;
     }
 
-    private void OnComponentShutdown(EntityUid uid, ParticleAcceleratorPartComponent comp, ComponentShutdown args)
+    private void OnComponentShutdown(EntityUid uid, NoosphericAcceleratorPartComponent comp, ComponentShutdown args)
     {
         if (Exists(comp.Master))
             RescanParts(comp.Master!.Value);
     }
 
-    private void BodyTypeChanged(EntityUid uid, ParticleAcceleratorPartComponent comp, ref PhysicsBodyTypeChangedEvent args)
+    private void BodyTypeChanged(EntityUid uid, NoosphericAcceleratorPartComponent comp, ref PhysicsBodyTypeChangedEvent args)
     {
         if (Exists(comp.Master))
             RescanParts(comp.Master!.Value);
     }
 
-    private void OnMoveEvent(EntityUid uid, ParticleAcceleratorPartComponent comp, ref MoveEvent args)
+    private void OnMoveEvent(EntityUid uid, NoosphericAcceleratorPartComponent comp, ref MoveEvent args)
     {
         if (Exists(comp.Master))
             RescanParts(comp.Master!.Value);
