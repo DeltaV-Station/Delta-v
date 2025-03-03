@@ -38,7 +38,7 @@ public abstract class SharedImplanterSystem : EntitySystem
         SubscribeLocalEvent<ImplanterComponent, ExaminedEvent>(OnExamine);
 
         SubscribeLocalEvent<ImplanterComponent, UseInHandEvent>(OnUseInHand);
-        SubscribeLocalEvent<ImplanterComponent, GetVerbsEvent<InteractionVerb>>(OnVerb);
+        //SubscribeLocalEvent<ImplanterComponent, GetVerbsEvent<InteractionVerb>>(OnVerb); // DeltaV - hide verb as it doesn't do anything
         SubscribeLocalEvent<ImplanterComponent, DeimplantChangeVerbMessage>(OnSelected);
     }
 
