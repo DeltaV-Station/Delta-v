@@ -174,9 +174,9 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
                         var time2 = _messages.GetValueOrDefault(player2.SessionId);
                         if (time1 == null && time2 == null)
                         {
-                            return -string.Compare(
-                                GetCharacterOrUsername(player1),
+                            return string.Compare(
                                 GetCharacterOrUsername(player2),
+                                GetCharacterOrUsername(player1),
                                 StringComparison.OrdinalIgnoreCase);
                         }
                         if (time1 == null)
