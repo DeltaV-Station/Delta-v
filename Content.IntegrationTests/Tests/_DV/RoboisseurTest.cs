@@ -2,6 +2,7 @@ using Content.Server.Roboisseur.Roboisseur;
 using Content.Shared.Item;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
+using System.Collections.Generic;
 
 namespace Content.IntegrationTests.Tests._DV;
 
