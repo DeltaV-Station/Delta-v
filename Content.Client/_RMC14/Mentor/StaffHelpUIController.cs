@@ -173,7 +173,12 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
                         var time1 = _messages.GetValueOrDefault(player1.SessionId);
                         var time2 = _messages.GetValueOrDefault(player2.SessionId);
                         if (time1 == null && time2 == null)
-                            return 0;
+                        {
+                            return -string.Compare(
+                                GetCharacterOrUsername(player1),
+                                GetCharacterOrUsername(player2),
+                                StringComparison.OrdinalIgnoreCase);
+                        }
                         if (time1 == null)
                             return -1;
                         if (time2 == null)
@@ -183,7 +188,8 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
 
                     foreach (var player in playerList)
                     {
-                        MentorAddPlayerButton(player);
+                        if (player.Connected)
+                            MentorAddPlayerButton(player);
                     }
                     // DeltaV - End all players in chat sorted
 
@@ -261,11 +267,9 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
         */
 
         //Default show player name if they don't have a character
-        var character = player.Username;
+        var character = GetCharacterOrUsername(player);
         var job = "Spectator";
-        //Use Character and Job name if they exist.
-        if (!string.IsNullOrWhiteSpace(player.CharacterName))
-            character = player.CharacterName;
+        //Use Job name if they exist.
         if (!string.IsNullOrWhiteSpace(player.StartingJob))
             job = player.StartingJob;
         // DeltaV - End show char name and job if possible
@@ -325,5 +329,13 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
 
         if (_aHelp.GameAHelpButton != null)
             _aHelp.GameAHelpButton.Pressed = pressed;
+    }
+
+    //DeltaV Add player identity method
+    private string GetCharacterOrUsername(PlayerInfo player)
+    {
+        if (!string.IsNullOrWhiteSpace(player.CharacterName))
+            return player.CharacterName;
+        return player.Username;
     }
 }
