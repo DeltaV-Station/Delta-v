@@ -18,6 +18,13 @@
     Piercing: 1.15
 
 - type: damageModifierSet
+  id: Feroxi
+  coefficients:
+    Cold: 0.9
+    Blunt: 0.9
+    Slash: 1.1
+
+- type: damageModifierSet
   id: StorageTank
   coefficients:
     Blunt: 0.7
