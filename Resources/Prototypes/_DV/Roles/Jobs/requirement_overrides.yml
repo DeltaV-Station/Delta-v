@@ -64,7 +64,7 @@
     ChiefMedicalOfficer:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 18000 # 5 hours
+      time: 21600 # 6 hours
     - !type:RoleTimeRequirement
       role: JobSurgeon
       time: 10800 # 3 hrs
@@ -73,7 +73,7 @@
       time: 43200 # 12 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 108000 # 30 hours
+      time: 126000 # 35 hours
     HeadOfPersonnel:
     - !type:RoleTimeRequirement
       role: JobChef
