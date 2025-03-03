@@ -34,7 +34,9 @@ public sealed class NukieOperationSystem : EntitySystem
         SubscribeLocalEvent<NukieOperationComponent, AfterAntagEntitySelectedEvent>(OnAntagSelected);
         SubscribeLocalEvent<GetNukeCodePaperWriting>(OnNukeCodePaperWritingEvent);
     }
-
+    /// <summary>
+    /// This runs the automatic war declaration, distributes tc,and makes sure it only happens when its not hostage ops.
+    /// </summary>
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -42,7 +44,6 @@ public sealed class NukieOperationSystem : EntitySystem
         var nukieOperationQuery = EntityQueryEnumerator<NukieOperationComponent>();
         var nukieRuleQuery = EntityQueryEnumerator<NukeopsRuleComponent>();
 
-        // This code is bad, but its because upstream code smells ;)
         if (nukieOperationQuery.MoveNext(out var nukieOperationComp) && nukieRuleQuery.MoveNext(out var nukeopsUid, out var nukeopsRuleComp)
             && nukieOperationComp.ChosenOperation == "NukieOperationDestroyStation"
             && currentTime >= nukieOperationComp.AutoWarCallTime
@@ -51,7 +52,9 @@ public sealed class NukieOperationSystem : EntitySystem
         {
             nukeopsRuleComp.WarDeclaredTime = _time.CurTime;
             _nukeops.DistributeExtraTc((nukeopsUid, nukeopsRuleComp));
-            _chat.DispatchGlobalAnnouncement(Loc.GetString("nuke-ops-auto-war-message"), Loc.GetString("nuke-ops-auto-war-title"), true, new SoundPathSpecifier("/Audio/Announcements/war.ogg"), Color.DarkRed);
+            _chat.DispatchGlobalAnnouncement(Loc.GetString("nuke-ops-auto-war-message"),
+                Loc.GetString("nuke-ops-auto-war-title"),
+                true, new SoundPathSpecifier("/Audio/Announcements/war.ogg"), Color.DarkRed);
         }
     }
 
