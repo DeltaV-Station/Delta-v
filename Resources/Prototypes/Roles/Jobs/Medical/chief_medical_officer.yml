@@ -12,10 +12,10 @@
       time: 10800 #3 hrs
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 43200 # DeltaV - Increase to 12 hrs
+      time: 21600 #6 hrs
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 68400 # DeltaV - increased to 19 hrs to reflect other changes
+      time: 36000 #10 hrs
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
   weight: 10
