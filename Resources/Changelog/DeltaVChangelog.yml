@@ -1,33 +1,4 @@
 ﻿Entries:
-- author: MilonPL
-  changes:
-  - message: Reverted the frezon price nerf. Atmosians rejoice!
-    type: Tweak
-  id: 597
-  time: '2024-10-05T00:54:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1963
-- author: MilonPL
-  changes:
-  - message: Species vision filters are now disabled by default. You can re-enable
-      them in the settings!
-    type: Tweak
-  id: 598
-  time: '2024-10-05T16:25:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1953
-- author: Velcroboy
-  changes:
-  - message: APCs are rotated again to indicate the direction they are facing.
-    type: Tweak
-  id: 599
-  time: '2024-10-05T21:04:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1969
-- author: Radezolid
-  changes:
-  - message: Fixed Closet Skeleton ghost role rules.
-    type: Fix
-  id: 600
-  time: '2024-10-06T01:59:43.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1974
 - author: Velcroboy
   changes:
   - message: Sneaky mice and hamsters can avoid traps by walking very, very slow
@@ -3908,3 +3879,33 @@
   id: 1096
   time: '2025-03-02T18:06:30.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3083
+- author: sowelipililimute
+  changes:
+  - message: The HoP, LO, MG, and CE now have spare boards for their departments'
+      techfabs
+    type: Add
+  id: 1097
+  time: '2025-03-03T17:59:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3073
+- author: Quanteey
+  changes:
+  - message: Added a multitool and a screwdriver to the chief medical officer's locker
+    type: Add
+  id: 1098
+  time: '2025-03-03T19:40:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3103
+- author: sowelipililimute, kushbreth
+  changes:
+  - message: thaven moodupsets possible at 500 glimmer, new thaven markings, new thaven
+      speech bubble
+    type: Add
+  id: 1099
+  time: '2025-03-03T23:56:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3088
+- author: sowelipililimute
+  changes:
+  - message: Epistemics techfab now has a label
+    type: Fix
+  id: 1100
+  time: '2025-03-04T08:14:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3106
