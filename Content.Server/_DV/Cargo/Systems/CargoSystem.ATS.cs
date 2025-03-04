@@ -63,32 +63,25 @@ public sealed partial class CargoSystem
         if (Exists(CargoMap))
             return;
 
-        // It gets mapinit which is okay... buuutt we still want it paused to avoid power draining.
-        var options = new DeserializationOptions
-        {
-            InitializeMaps = true
-        };
-
+        var mapUid = _map.CreateMap(out var mapId);
         // Oh boy oh boy, hardcoded paths!
         var path = new ResPath("/Maps/Shuttles/trading_outpost.yml");
-        if (!_mapLoader.TryLoadMap(path, out var map, out var rootUids, options))
-            return;
-
-        // If this fails to load for whatever reason, cargo is fucked
-        if (!rootUids.Any())
-            return;
-
-        var mapUid = map.Value;
-        CargoMap = mapUid;
-        foreach (var grid in rootUids)
+        if (!_mapLoader.TryLoadGrid(mapId, path, out var grid))
         {
-            EnsureComp<ProtectedGridComponent>(grid);
-            EnsureComp<TradeStationComponent>(grid);
-
-            var shuttleComponent = EnsureComp<ShuttleComponent>(grid);
-            shuttleComponent.AngularDamping = 10000;
-            shuttleComponent.LinearDamping = 10000;
+            Log.Error($"Loading ATS from {path} failed!");
+            Del(mapUid);
+            return;
         }
+
+        CargoMap = mapUid;
+
+        var gridUid = grid.Value;
+        EnsureComp<ProtectedGridComponent>(gridUid);
+        EnsureComp<TradeStationComponent>(gridUid);
+
+        var shuttleComp = EnsureComp<ShuttleComponent>(gridUid);
+        shuttleComp.AngularDamping = 10000;
+        shuttleComp.LinearDamping = 10000;
 
         var ftl = EnsureComp<FTLDestinationComponent>(mapUid);
         ftl.Whitelist = new EntityWhitelist()
