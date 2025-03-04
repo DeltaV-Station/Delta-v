@@ -176,7 +176,7 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
 
             _window.Objectives.AddChild(objectiveControl);
         }
-        // DeltaV start - Custom objective summary
+        // Begin DeltaV Additions - Custom objective summary
         if (objectives.Count > 0)
         {
             var button = new Button
@@ -188,7 +188,7 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
 
             _window.Objectives.AddChild(button);
         }
-        // DeltaV end
+        // End DeltaV Additions
 
         if (briefing != null)
         {
