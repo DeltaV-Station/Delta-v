@@ -37,7 +37,7 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
 
     private void OnEntityRemovedFromContainer(Entity<HandPlaceholderRemoveableComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        if (!TerminatingOrDeleted(ent))
+        if (!TerminatingOrDeleted(args.Container.Owner))
             SpawnAndPickUpPlaceholder(ent, args.Container);
         RemCompDeferred<HandPlaceholderRemoveableComponent>(ent);
     }
