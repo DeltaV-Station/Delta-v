@@ -1,0 +1,206 @@
+# Most of these dont sound remotely moth-edible but they all have Moth in their ids???
+
+# Soups & Stews
+
+- type: microwaveMealRecipe
+  id: RecipeMothCottonSoup
+  name: cotton soup recipe
+  result: FoodMothCottonSoup
+  time: 10
+  group: Moth
+  reagents:
+    Water: 10
+  solids:
+    FoodBowlBig: 1
+    FoodEggplant: 1
+    FoodOnion: 1
+    FoodCarrot: 1
+    FoodMothBakedCorn: 1
+    MaterialCotton1: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMothCheeseSoup
+  name: cheese soup recipe
+  result: FoodMothCheeseSoup
+  time: 10
+  group: Soup
+  reagents:
+    Milk: 5
+    Flour: 5
+    Cream: 5 # Butter when it gets meltable
+  solids:
+    FoodBowlBig: 1
+    FoodCheeseSlice: 1
+    FoodPotato: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMothSeedSoup
+  name: seed soup recipe
+  result: FoodMothSeedSoup
+  time: 10
+  group: Soup
+  reagents:
+    Water: 5
+    Vinaigrette: 5
+  solids:
+    FoodBowlBig: 1
+    AmbrosiaVulgarisSeeds: 1
+    PoppySeeds: 1
+    WheatSeeds: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMothBeanStew
+  name: bean stew recipe
+  result: FoodMothBeanStew
+  time: 10
+  group: Soup
+  reagents:
+    Water: 5
+  solids:
+    FoodBowlBig: 1
+    FoodTinBeans: 1
+    FoodCabbage: 1
+    FoodTomato: 1
+    FoodOnion: 1
+    FoodMothBakedCorn: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMothOatStew
+  name: oat stew recipe
+  result: FoodMothOatStew
+  time: 10
+  group: Soup
+  reagents:
+    Water: 5
+    Oats: 5
+  solids:
+    FoodBowlBig: 1
+    FoodCarrot: 2 #1 when Parsnip
+    FoodPotato: 1
+    #FoodParsnip: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMothHeartburnSoup
+  name: heartburn soup recipe
+  result: FoodMothHeartburnSoup
+  time: 10
+  group: Soup
+  reagents:
+    Vinegar: 5
+    Milk: 5
+    Cream: 5
+  solids:
+    FoodBowlBig: 1
+    FoodTofuSlice: 1
+    FoodChiliPepper: 1
+
+# Salads
+
+- type: microwaveMealRecipe
+  id: RecipeMothMothicSalad
+  name: mothic salad recipe
+  result: FoodMothSaladBase
+  time: 10
+  group: Salad
+  solids:
+    FoodCabbage: 1
+    FoodOnionRedSlice: 1
+    FoodTomato: 1
+    FoodBowlBig: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMothCapreseSalad
+  name: caprese salad recipe
+  result: FoodMothCapreseSalad
+  time: 10
+  group: Salad
+  reagents:
+    Vinaigrette: 5
+  solids:
+    FoodTomato: 1
+    FoodMozzarella: 1
+    FoodAmbrosiaVulgaris: 1 #Herbs
+
+- type: microwaveMealRecipe
+  id: RecipeMothFleetSalad
+  name: fleet salad recipe
+  result: FoodMothFleetSalad
+  time: 10
+  group: Salad
+  reagents:
+    Vinaigrette: 5
+  solids:
+    FoodMothSaladBase: 1
+    FoodCarrot: 1
+    FoodBreadPlainSlice: 1
+    FoodCheeseSlice: 1 #Grilled cheese slice
+
+- type: microwaveMealRecipe
+  id: RecipeMothCottonSalad
+  name: cotton salad recipe
+  result: FoodMothCottonSalad
+  time: 10
+  group: Moth
+  reagents:
+    Vinaigrette: 5
+  solids:
+    FoodMothSaladBase: 1
+    MaterialCotton1: 1
+    FoodCarrot: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMothKachumbariSalad
+  name: kachumbari salad recipe
+  result: FoodMothKachumbariSalad
+  time: 10
+  group: Salad
+  reagents:
+    JuiceLime: 5
+  solids:
+    FoodMothSaladBase: 1
+    FoodChiliPepper: 1
+    FoodOnionRed: 1
+    FoodAmbrosiaVulgaris: 1 #Herbs
+
+# Confectionary
+
+- type: microwaveMealRecipe
+  id: RecipeMothCheesecakeBalls
+  name: cheesecake balls recipe
+  result: FoodMothCheesecakeBalls
+  time: 10
+  group: BarsAndCookies
+  reagents:
+    Sugar: 5
+    Flour: 5
+    #Honey: 5
+  solids:
+    FoodCurdCheese: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMothMothmallow
+  name: mothmallow recipe
+  result: FoodMothMothmallow
+  time: 10
+  group: Moth
+  reagents:
+    Sugar: 10
+    Rum: 5
+    MilkSoy: 5
+    #Vanilla: 5
+  solids:
+    FoodSoybeans: 1
+
+#Eventually use the pastry dough
+- type: microwaveMealRecipe
+  id: RecipeMothMoffin
+  name: moffin recipe
+  result: FoodMothMoffin
+  time: 5
+  group: Moth
+  reagents:
+    Flour: 5
+    Milk: 5
+    Egg: 6
+  solids:
+    MaterialCloth1: 1

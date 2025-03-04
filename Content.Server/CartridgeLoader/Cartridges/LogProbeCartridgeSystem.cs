@@ -97,7 +97,7 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem // DeltaV - M
     private void OnMessage(Entity<LogProbeCartridgeComponent> ent, ref CartridgeMessageEvent args)
     {
         if (args is LogProbePrintMessage cast)
-            PrintLogs(ent, cast.Actor);
+            PrintLogs(ent, cast.User);
     }
 
     private void PrintLogs(Entity<LogProbeCartridgeComponent> ent, EntityUid user)
