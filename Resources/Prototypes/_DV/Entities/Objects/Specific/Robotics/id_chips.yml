@@ -5,12 +5,12 @@
   name: identification chip
   description: A programmable ID chip that controls cyborg's accesses. Configure it using an ID card computer.
   components:
-  # TODO: custom sprite
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _DV/Objects/Specific/Robotics/id_chip.rsi
     layers:
     - state: default
-    - state: idroboticist
+    - state: unshaded
+      shader: unshaded
   - type: Item
     size: Tiny
   - type: Access
@@ -64,7 +64,8 @@
   suffix: Syndie, Copying
   description: A sinister looking ID chip for more nefarious cyborgs.
   components:
-  # TODO: custom sprite
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/id_chip.rsi
   - type: Access
     tags:
     - SyndicateAgent
