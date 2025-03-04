@@ -70757,6 +70757,11 @@ entities:
     - type: Transform
       pos: -10.3180275,-21.32284
       parent: 2
+  - uid: 13036
+    components:
+    - type: Transform
+      pos: 37.32925,5.4696975
+      parent: 2
   - uid: 13586
     components:
     - type: Transform
@@ -81863,13 +81868,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 47.5,19.5
-      parent: 2
-- proto: StimkitFilled
-  entities:
-  - uid: 13036
-    components:
-    - type: Transform
-      pos: 37.360123,5.528123
       parent: 2
 - proto: Stool
   entities:
