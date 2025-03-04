@@ -1,163 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: Fixed deep fryer not being repairable after being broken.
-    type: Fix
-  id: 585
-  time: '2024-09-30T14:41:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1940
-- author: MilonPL
-  changes:
-  - message: You can no longer take headcages off by yourself.
-    type: Fix
-  id: 586
-  time: '2024-09-30T22:10:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1949
-- author: FryOfDestiny
-  changes:
-  - message: Vulpkanin display correct mask sprites in character customization screen
-    type: Fix
-  id: 587
-  time: '2024-09-30T22:12:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1946
-- author: Stop-Signs
-  changes:
-  - message: Reduce advanced topicals cook time
-    type: Tweak
-  id: 588
-  time: '2024-10-01T15:52:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1951
-- author: Lyndomen
-  changes:
-  - message: Justice may now edit the Criminal Records Computer
-    type: Tweak
-  id: 589
-  time: '2024-10-02T12:59:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1933
-- author: deltanedas
-  changes:
-  - message: Fugitive reports no longer include the name of the fugitive. Use your
-      detective skills!
-    type: Tweak
-  id: 590
-  time: '2024-10-02T13:03:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1817
-- author: deltanedas
-  changes:
-  - message: Psionics can now be sacrificed in the chapel to lower glimmer.
-    type: Add
-  id: 591
-  time: '2024-10-02T13:04:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1883
-- author: deltanedas
-  changes:
-  - message: Syndicate duffelbags can be reverse engineered for bags of holding.
-    type: Add
-  - message: Hyper-capacity powercells can be made by reverse engineering high-capacity
-      powercells, which can also be reverse engineered to make microreactor cells.
-    type: Add
-  - message: Moonboots can now be reverse engineered for speedboots.
-    type: Add
-  - message: Any cloning board that gets reverse engineered unlocks every cloning
-      board instead of itself (which was useless since you already have it).
-    type: Tweak
-  - message: Removed reverse engineering from items that made no sense to reverse
-      engineer like roundstart equipment or tier 1 techs.
-    type: Remove
-  id: 592
-  time: '2024-10-02T13:04:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1915
-- author: Radezolid
-  changes:
-  - message: Moved the reverse engineered combat hardsuits to the security techfab.
-      You can still access them as a traitor with an emag on the exosuit fabricator.
-    type: Tweak
-  id: 593
-  time: '2024-10-02T13:19:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1956
-- author: deltanedas
-  changes:
-  - message: Merged last ~weeks changes from upstream.
-    type: Add
-  - message: Fixed captain requiring global whitelist instead of just the role whitelist.
-    type: Fix
-  - message: Frezon nerfed was reverted.
-    type: Tweak
-  id: 594
-  time: '2024-10-02T22:09:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1957
-- author: Unkn0wnGh0st333
-  changes:
-  - message: Shoukou's Bridge and Command Room have been remodeled, alongside tons
-      of station pets, and slice of life necessities added! Yay! :3
-    type: Tweak
-  id: 595
-  time: '2024-10-03T01:26:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1920
-- author: Avalon-Proto
-  changes:
-  - message: Goliaths are far less hardy than they once were
-    type: Tweak
-  id: 596
-  time: '2024-10-03T12:50:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1955
-- author: MilonPL
-  changes:
-  - message: Reverted the frezon price nerf. Atmosians rejoice!
-    type: Tweak
-  id: 597
-  time: '2024-10-05T00:54:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1963
-- author: MilonPL
-  changes:
-  - message: Species vision filters are now disabled by default. You can re-enable
-      them in the settings!
-    type: Tweak
-  id: 598
-  time: '2024-10-05T16:25:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1953
-- author: Velcroboy
-  changes:
-  - message: APCs are rotated again to indicate the direction they are facing.
-    type: Tweak
-  id: 599
-  time: '2024-10-05T21:04:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1969
-- author: Radezolid
-  changes:
-  - message: Fixed Closet Skeleton ghost role rules.
-    type: Fix
-  id: 600
-  time: '2024-10-06T01:59:43.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1974
-- author: Velcroboy
-  changes:
-  - message: Sneaky mice and hamsters can avoid traps by walking very, very slow
-    type: Tweak
-  id: 601
-  time: '2024-10-09T00:30:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1970
-- author: Callmore
-  changes:
-  - message: Prefered item quick store locations can be created again.
-    type: Fix
-  id: 602
-  time: '2024-10-12T13:44:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1996
-- author: FryOfDestiny
-  changes:
-  - message: Spiders can now hiss.
-    type: Tweak
-  id: 603
-  time: '2024-10-12T13:47:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1994
-- author: deltanedas
-  changes:
-  - message: Arachnids can now hiss.
-    type: Tweak
-  id: 604
-  time: '2024-10-12T14:01:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1997
 - author: MilonPL
   changes:
   - message: Added Lone Digger by Caravan Palace to the jukebox!
@@ -3920,3 +3761,155 @@
   id: 1084
   time: '2025-02-27T20:17:36.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3056
+- author: deltanedas
+  changes:
+  - message: Borgs now get healed like IPCs, repeated welding for brute and cables
+      for burn damage.
+    type: Tweak
+  id: 1085
+  time: '2025-02-28T18:33:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3064
+- author: Lyndomen
+  changes:
+  - message: Periapsis & Horizon now have an autoshuttle at 2:30 hours, not 3:00.
+    type: Tweak
+  id: 1086
+  time: '2025-02-28T20:34:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3071
+- author: sowelipililimute
+  changes:
+  - message: The engineering, service, logistics, and epistemics techfabs now exist
+    type: Add
+  id: 1087
+  time: '2025-02-28T21:01:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3051
+- author: deltanedas
+  changes:
+  - message: Fixed med, sec, engi and nukie ipcs not getting survival boxes.
+    type: Fix
+  id: 1088
+  time: '2025-03-01T11:00:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3065
+- author: deltanedas
+  changes:
+  - message: Fixed emags removing access from airlocks.
+    type: Fix
+  id: 1089
+  time: '2025-03-01T11:32:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3078
+- author: KZhProgram
+  changes:
+  - message: Nerfed the health of maintenance and emergency closets so they aren't
+      double the health of basically every other locker/safe in the game.
+    type: Tweak
+  id: 1090
+  time: '2025-03-01T11:38:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3075
+- author: deltanedas
+  changes:
+  - message: Fixed emagged generic borgs losing their laws when switching type.
+    type: Fix
+  id: 1091
+  time: '2025-03-01T12:32:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3081
+- author: Smugman
+  changes:
+  - message: Syndicate listening posts have been SIGNIFICANTLY remodeled, and given
+      a self destruct device. Validhunt one Today!
+    type: Tweak
+  id: 1092
+  time: '2025-03-01T14:26:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2912
+- author: ewokswagger
+  changes:
+  - message: Added Curator Chat! Open with F1 to talk with a Curator for game-related
+      assistance and events.
+    type: Add
+  id: 1093
+  time: '2025-03-02T00:03:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3070
+- author: IAmNotGray
+  changes:
+  - message: The TEG on Elegance is now accessible by Station Engineers. Read the
+      paper on station for more information!
+    type: Tweak
+  id: 1094
+  time: '2025-03-02T17:22:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3067
+- author: Field Command
+  changes:
+  - message: Reworked engineering, bridge and sec. Added perma to now include prisoner
+      slots and all that entails with that. Soft cap up from 20 to 25.
+    type: Tweak
+  id: 1095
+  time: '2025-03-02T17:30:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2960
+- author: deltanedas
+  changes:
+  - message: Renamed ammonia back to miasma.
+    type: Tweak
+  id: 1096
+  time: '2025-03-02T18:06:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3083
+- author: sowelipililimute
+  changes:
+  - message: The HoP, LO, MG, and CE now have spare boards for their departments'
+      techfabs
+    type: Add
+  id: 1097
+  time: '2025-03-03T17:59:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3073
+- author: Quanteey
+  changes:
+  - message: Added a multitool and a screwdriver to the chief medical officer's locker
+    type: Add
+  id: 1098
+  time: '2025-03-03T19:40:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3103
+- author: sowelipililimute, kushbreth
+  changes:
+  - message: thaven moodupsets possible at 500 glimmer, new thaven markings, new thaven
+      speech bubble
+    type: Add
+  id: 1099
+  time: '2025-03-03T23:56:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3088
+- author: sowelipililimute
+  changes:
+  - message: Epistemics techfab now has a label
+    type: Fix
+  id: 1100
+  time: '2025-03-04T08:14:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3106
+- author: beck-thompson
+  changes:
+  - message: Removed Hostage Ops - waiting on improvements
+    type: Remove
+  id: 1101
+  time: '2025-03-04T08:19:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3091
+- author: KZhProgram
+  changes:
+  - message: Locker health rework! Gun safes now have 125 health, department head
+      lockers have 75, and every other secure locker now has 50 with psionic mantis
+      cabinet health suffering the biggest nerf. No more 250 health mantis cabinets
+    type: Tweak
+  id: 1102
+  time: '2025-03-04T08:34:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3084
+- author: deltanedas
+  changes:
+  - message: Borgs now use their respective job requirements, with none for generic
+      borgs.
+    type: Tweak
+  id: 1103
+  time: '2025-03-04T11:39:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3109
+- author: whatston3
+  changes:
+  - message: Ported better borgs from Frontier. Certain borg modules can drop and
+      pick up their items like ore bags and beakers.
+    type: Add
+  id: 1104
+  time: '2025-03-04T12:10:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3110

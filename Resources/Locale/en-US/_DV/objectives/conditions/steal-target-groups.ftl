@@ -19,3 +19,7 @@ steal-target-groups-recruiter-pen = recruiter's pen
 
 # Ninja
 steal-target-groups-captains-cloak = captain's cloak
+steal-target-groups-engineering-techfab-circuitboard = engineering techfab's circuitboard
+steal-target-groups-logistics-techfab-circuitboard = logistics techfab's circuitboard
+steal-target-groups-service-techfab-circuitboard = service techfab's circuitboard
+steal-target-groups-epistemics-techfab-circuitboard = epistemics techfab's circuitboard

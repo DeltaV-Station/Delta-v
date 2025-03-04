@@ -53,7 +53,7 @@ thaven-mood-drunk-respect-name = The Noble Drunkard
 thaven-mood-drunk-respect-desc = You do not respect anyone who is not drunk, excluding yourself, of course.
 
 thaven-mood-rank-snob-name = Snob
-thaven-mood-rank-snob-desc = You are incredibly reluctant to respond to anyone who is of a lower rank than you.
+thaven-mood-rank-snob-desc = You are incredibly reluctant to be seen with anyone who is of a lower rank than you. If they must be addressed, do so away from peering eyes.
 
 thaven-mood-hardsuits-bad-name = {$clothes} Are SO Last Year
 thaven-mood-hardsuits-bad-desc = Anyone wearing them in public should be shunned. If you need to wear them, it should never be done where others can see it.

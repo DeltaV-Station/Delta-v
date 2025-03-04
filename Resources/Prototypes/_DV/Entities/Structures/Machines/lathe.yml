@@ -11,3 +11,157 @@
     - BorgModulesSyndicateStatic
   - type: Machine
     board: SyndieExosuitFabricatorMachineCircuitboard
+
+- type: entity
+  parent: BaseLatheLube
+  id: BaseTechFabDepartamental
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+
+- type: entity
+  parent: BaseTechFabDepartamental
+  id: EngineeringTechFab
+  name: engineering techfab
+  description: Prints equipment for engineers.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: engi
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    staticPacks:
+    - ToolsStatic
+    - PartsStatic
+    - AtmosStatic
+    - CablesStatic
+    - PowerCellsStatic
+    - ElectronicsStatic
+    - LightsStatic
+    - MaterialsStatic
+    dynamicPacks:
+    - AdvancedTools
+    - PowerCells
+    - AtmosTools
+    - EngineeringWeapons
+    - FauxTiles
+    - Equipment
+  - type: Machine
+    board: EngineeringTechFabCircuitboard
+  - type: StealTarget
+    stealGroup: EngineeringTechFabCircuitboard
+
+- type: entity
+  parent: BaseTechFabDepartamental
+  id: LogisticsTechFab
+  name: logistics techfab
+  description: Prints equipment for the logistics department.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: cargo
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    staticPacks:
+    - ToolsStatic
+    - PartsStatic
+    - LVCablesStatic
+    - CargoStatic
+    dynamicPacks:
+    - Equipment
+    - Mining
+    - SalvageWeapons
+  - type: Machine
+    board: LogisticsTechFabCircuitboard
+  - type: StealTarget
+    stealGroup: LogisticsTechFabCircuitboard
+
+- type: entity
+  parent: BaseTechFabDepartamental
+  id: ServiceTechFab
+  name: service techfab
+  description: Prints equipment for the service department.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: service
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    staticPacks:
+    - RingsStatic
+    - ReportingStatic
+    - LVCablesStatic
+    - LightsStatic
+    - ServiceStatic
+    dynamicPacks:
+    - Janitor
+    - Instruments
+    - Botany
+  - type: Machine
+    board: ServiceTechFabCircuitboard
+  - type: StealTarget
+    stealGroup: ServiceTechFabCircuitboard
+
+- type: entity
+  parent: BaseTechFabDepartamental
+  id: EpistemicsTechFab
+  name: epistemics techfab
+  description: Prints equipment for the epistemics department.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: sci
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    staticPacks:
+    - ToolsStatic
+    - PartsStatic
+    - LVCablesStatic
+    - MaterialsStatic
+    - BasicChemistryStatic
+    - ChemistryStatic
+    dynamicPacks:
+    - ScienceEquipment
+    - ScienceClothing
+    - ScienceWeapons
+    - Chemistry
+  - type: Machine
+    board: EpistemicsTechFabCircuitboard
+  - type: StealTarget
+    stealGroup: EpistemicsTechFabCircuitboard

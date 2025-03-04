@@ -1,4 +1,16 @@
 - type: entity
+  parent: MobHumanSyndicateAgentNukeops
+  id: MobHumanSyndicateHostageWarden
+  suffix: Human, Warden, HostageOps
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - nukeops-role-warden
+    - SyndicateNamesNormal
+  - type: Loadout
+    prototypes: [SyndicateOperativeHostageWardenGear]
+
+- type: entity
   parent: MobHumanSyndicateAgentBase
   id: MobHumanSyndicateMarshal
   name: syndicate marshal
