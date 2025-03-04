@@ -182,12 +182,12 @@
   id: RubberStampQm
   categories: [ DoNotMap ]
   components:
-    - type: Stamp
-      stampedName: stamp-component-stamped-name-qm
-      stampedColor: "#a23e3e"
-      stampState: "paper_stamp-qm"
-    - type: Sprite
-      state: stamp-qm
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-qm
+    stampedColor: "#a23e3e"
+    stampState: "paper_stamp-qm"
+  - type: Sprite
+    state: stamp-qm
 
 - type: entity
   name: mystagogue's rubber stamp # DeltaV - Epistemics Department replacing Science
@@ -195,12 +195,12 @@
   id: RubberStampRd
   categories: [ DoNotMap ]
   components:
-    - type: Stamp
-      stampedName: stamp-component-stamped-name-rd
-      stampedColor: "#1f66a0"
-      stampState: "paper_stamp-rd"
-    - type: Sprite
-      state: stamp-rd
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-rd
+    stampedColor: "#1f66a0"
+    stampState: "paper_stamp-rd"
+  - type: Sprite
+    state: stamp-rd
 
 - type: entity
   name: trader's rubber stamp
