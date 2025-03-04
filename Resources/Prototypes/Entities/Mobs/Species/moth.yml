@@ -119,6 +119,7 @@
         state: "creampie_moth"
         visible: false
   - type: Inventory
+    speciesId: moth # Deltav - allows moth clothing sprite variants
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -135,6 +136,7 @@
   - type: HumanoidAppearance
     species: Moth
   - type: Inventory
+    speciesId: moth # DeltaV - allows the "dummy" in the lobby menu to wear the moth sprites
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
