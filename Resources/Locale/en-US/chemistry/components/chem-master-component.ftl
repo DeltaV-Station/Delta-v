@@ -10,7 +10,7 @@ chem-master-bound-user-interface-title = ChemMaster 4000
 
 chem-master-window-input-tab = Input
 chem-master-window-output-tab = Output
-chem-master-window-container-label = Container
+chem-master-window-container-label =   Container
 chem-master-window-eject-button = Eject
 chem-master-window-no-container-loaded-text = No container loaded.
 chem-master-window-buffer-text = Buffer
