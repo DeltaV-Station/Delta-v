@@ -7,6 +7,8 @@ using Content.Server.Ghost.Components;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
+using Content.Shared._Impstation.CosmicCult.Components;
+using Content.Shared._Impstation.Ghost;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
@@ -186,11 +188,28 @@ namespace Content.Server.Ghost
                 _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
             }
 
-            SetCanSeeGhosts(uid, true);
-            _eye.SetVisibilityMask(uid, 777); // Imp hack for Cosmic Cult visibility
+            SetCanSeeGhosts(uid, true, false);
 
             var time = _gameTiming.CurTime;
             component.TimeOfDeath = time;
+        }
+
+
+        private void OnMediumStartup(EntityUid uid, MediumComponent component, ComponentStartup args)
+        {
+            // Allow this entity to be seen by other ghosts.
+            var visibility = EnsureComp<VisibilityComponent>(uid);
+
+            if (_gameTicker.RunLevel != GameRunLevel.PostRound)
+            {
+                _visibilitySystem.AddLayer((uid, visibility), (int)VisibilityFlags.Ghost, false);
+                _visibilitySystem.RemoveLayer((uid, visibility), (int)VisibilityFlags.Normal, false);
+                _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
+            }
+
+            SetCanSeeGhosts(uid, true, true);
+
+            var time = _gameTiming.CurTime;
         }
 
         private void OnGhostShutdown(EntityUid uid, GhostComponent component, ComponentShutdown args)
@@ -208,17 +227,39 @@ namespace Content.Server.Ghost
             }
 
             // Entity can't see ghosts anymore.
-            SetCanSeeGhosts(uid, false);
+            SetCanSeeGhosts(uid, false, false);
             _actions.RemoveAction(uid, component.BooActionEntity);
         }
 
         private void SetCanSeeGhosts(EntityUid uid, bool canSee, EyeComponent? eyeComponent = null)
+        private void OnMediumShutdown(EntityUid uid, MediumComponent component, ComponentShutdown args)
+        {
+            // Perf: If the entity is deleting itself, no reason to change these back.
+            if (Terminating(uid))
+                return;
+
+            // Entity can't be seen by ghosts anymore.
+            if (TryComp(uid, out VisibilityComponent? visibility))
+            {
+                _visibilitySystem.RemoveLayer((uid, visibility), (int)VisibilityFlags.Ghost, false);
+                _visibilitySystem.AddLayer((uid, visibility), (int)VisibilityFlags.Normal, false);
+                _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
+            }
+
+            // Entity can't see ghosts anymore.
+            SetCanSeeGhosts(uid, false, false);
+        }
+
+        private void SetCanSeeGhosts(EntityUid uid, bool canSee, bool medium, EyeComponent? eyeComponent = null)
         {
             if (!Resolve(uid, ref eyeComponent, false))
                 return;
 
             if (canSee)
+            {
                 _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask | (int) VisibilityFlags.Ghost, eyeComponent);
+                if (!medium) _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask | MonumentComponent.LayerMask); // IMP EDIT
+            }
             else
                 _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask & ~(int) VisibilityFlags.Ghost, eyeComponent);
         }
