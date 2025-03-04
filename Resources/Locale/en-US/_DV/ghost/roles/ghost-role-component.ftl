@@ -68,7 +68,3 @@ ghost-role-information-roboneuroticist-rules =
     Your ship contains all of the resources you need to get started, but for the more advanced modules, you must strike out at the station.
     
 deltav-ghost-role-information-space-dragon-description = Call in 3 carp rifts and take over this quadrant! You must place a rift every 10 minutes or suffer the consequences!
-
-ghost-role-information-warden-nukeop-reinforcement-name = Hostage Warden
-ghost-role-information-warden-nukeop-reinforcement-description = The nuclear operatives need a hostage guard. You, a hostage specialist, will help them.
-ghost-role-information-warden-nukeop-reinforcement-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the nuclear operatives who summoned you, your job is to keep the hostages in check, not to obtain them.
