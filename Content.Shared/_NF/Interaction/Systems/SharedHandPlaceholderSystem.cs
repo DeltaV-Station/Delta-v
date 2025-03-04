@@ -21,6 +21,7 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!; // DeltaV
     [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
@@ -114,5 +115,6 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
         placeComp.Whitelist = whitelist;
         placeComp.Prototype = prototype;
         Dirty(target, placeComp);
+        _interaction.DoContactInteraction(user, target); // DeltaV - borgs picking up items leaves fibers
     }
 }

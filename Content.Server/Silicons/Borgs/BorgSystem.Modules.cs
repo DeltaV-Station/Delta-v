@@ -198,6 +198,7 @@ public sealed partial class BorgSystem
             if (!component.ItemsCreated)
             {
                 item = Spawn(itemProto, xform.Coordinates);
+                _interaction.DoContactInteraction(chassis, item); // DeltaV - give items fibers before they might be dropped
             }
             else
             {
