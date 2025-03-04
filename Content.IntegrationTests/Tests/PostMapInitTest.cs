@@ -39,7 +39,7 @@ namespace Content.IntegrationTests.Tests
 
         private static readonly string[] Grids =
         {
-            //"/Maps/centcomm.yml", // DeltaV - centcomm is a map not grid
+            "/Maps/_DV/centcomm.yml", // DeltaV
             AdminTestArenaSystem.ArenaMapPath
         };
 
