@@ -28,6 +28,11 @@ public sealed class KitsuneSystem : EntitySystem
             _entity.DeleteEntity(component.ActiveFoxFires[0]);
             component.ActiveFoxFires.RemoveAt(0);
         }
+
+        if (_actions.GetCharges(component.FoxfireAction) is { } and <= -1)
+        {
+            _actions.SetCharges(component.FoxfireAction, 1);
+        }
         var fireEnt = Spawn(component.FoxfirePrototype, Transform(uid).Coordinates);
         var fireComp = EnsureComp<FoxFireComponent>(fireEnt);
         fireComp.Owner = uid;
@@ -46,7 +51,6 @@ public sealed class KitsuneSystem : EntitySystem
     {
         Log.Error("Fire didn't break");
         component.ActiveFoxFires.Remove(uid);
-        _actions.AddCharges(component.FoxfireAction, 1);
-        _actions.SetEnabled(component.FoxfireAction, true);
+        //_actions.AddCharges(component.FoxfireAction, 1);
     }
 }
