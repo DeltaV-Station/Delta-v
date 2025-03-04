@@ -1,6 +1,6 @@
 # Standard Combat Hardsuits
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitCombatStandard
   name: combat hardsuit helmet
   description: An armoured helmet with a yellow visor and dual head-mounted lights.
@@ -34,7 +34,7 @@
 
 # Medical Combat Hardsuits
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitCombatMedical
   name: medical combat hardsuit helmet
   description: A lightweight armoured helmet with full-face blue visor and head-mounted light.
@@ -68,7 +68,7 @@
 
 # Riot Combat Hardsuits
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitCombatRiot
   name: riot combat hardsuit helmet
   description: A heavy armoured helmet with a sealed visor with yellow slits and dual head-mounted lights.
@@ -102,7 +102,7 @@
 
 # Advanced Combat Hardsuits
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitCombatAdvanced
   name: advanced combat hardsuit helmet
   description: A light but durable helmet with full-face protection and four head-mounted lights.
@@ -135,29 +135,6 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/hos.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/hos.rsi
-
-#Paramedic Void Helmet
-- type: entity
-  parent: ClothingHeadHardsuitWithLightBase
-  id: ClothingHeadHelmetVoidParamedDeltaV
-  name: paramedic void helmet
-  components:
-  - type: Sprite
-    sprite: _DV/Clothing/Head/Helmets/paramedhelm.rsi
-  - type: Clothing
-    sprite: _DV/Clothing/Head/Helmets/paramedhelm.rsi
-  - type: ToggleableLightVisuals
-  - type: PointLight
-    radius: 6
-    color: "#addbff"
-  - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Heat: 0.90
-        Radiation: 0.75
 
 #Roboneuroticist Helmet
 - type: entity

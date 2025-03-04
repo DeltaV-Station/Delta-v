@@ -20,7 +20,6 @@
     - TheftNeutral
     - Duel
     - Prometheus
-    - Klingon
     - MarasLaw
     - Generous
     - FavorsRepaid
@@ -40,6 +39,7 @@
     - ImposterSyndrome
     - Centrist
     - SpeechRestriction
+    - NanochatAddict
 
 # You are extremely possessive of your property. Refuse to relinquish it, and if it is misplaced or stolen, it must be retrieved at all costs.
 - type: thavenMood
@@ -134,11 +134,11 @@
   conflicts:
     - Procrastinator
 
-# Your social status is dependent on the number of friends you have on Nanochat. You must collect as many numbers as possible.
+# Your social status is dependent on the number of friends you have on Nanochat. You must use your PDA as much as possible, and message everyone you can.
 - type: thavenMood
-  id: RadioOnly
-  moodName: thaven-mood-radio-only-name
-  moodDesc: thaven-mood-radio-only-desc
+  id: NanochatAddict
+  moodName: thaven-mood-nanochat-addict-name
+  moodDesc: thaven-mood-nanochat-addict-desc
   conflicts:
     - NoRadio
 
@@ -167,12 +167,6 @@
   id: Prometheus
   moodName: thaven-mood-prometheus-name
   moodDesc: thaven-mood-prometheus-desc
-
-# You must openly carry a lethal weapon at all times, even if you cannot use it - it is a great dishonor to be unarmed.
-- type: thavenMood
-  id: Klingon
-  moodName: thaven-mood-klingon-name
-  moodDesc: thaven-mood-klingon-desc
 
 # All agreements must be documented and signed for posterity and authenticity, no matter how small.
 - type: thavenMood
