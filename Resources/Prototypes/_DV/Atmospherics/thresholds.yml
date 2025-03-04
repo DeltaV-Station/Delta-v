@@ -1,0 +1,23 @@
+# Danger below 20%, Normal at 22%
+- type: alarmThreshold
+  id: controlOxygen
+  lowerBound: !type:AlarmThresholdSetting
+    threshold: 0.2 # 20%
+  lowerWarnAround: !type:AlarmThresholdSetting
+    threshold: 1.1 # 22%
+
+# Danger below 75%, Normal at 78%
+- type: alarmThreshold
+  id: controlNitrogen
+  lowerBound: !type:AlarmThresholdSetting
+    threshold: 0.75 # 75%
+  lowerWarnAround: !type:AlarmThresholdSetting
+    threshold: 1.04 # 78%
+
+# Danger above 120kPa, Normal at 105kPa
+- type: alarmThreshold
+  id: controlOverpressure
+  upperBound: !type:AlarmThresholdSetting
+    threshold: 120
+  upperWarnAround: !type:AlarmThresholdSetting
+    threshold: 0.875 # 105kPa
