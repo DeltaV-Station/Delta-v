@@ -51,7 +51,9 @@
 
   lawset: Engineer # DeltaV - Custom lawset
   job: StationEngineer # DeltaV - borg job requirements
-  addComponents: # DeltaV - orange plasteel fibers
+  addComponents: # DeltaV - fibers, departmental access
+  - type: AccessReader
+    access: [["Command"], ["Robotics"], ["Engineering"]]
   - type: Fiber
     fiberMaterial: fibers-plasteel
     fiberColor: fibers-orange
@@ -92,10 +94,12 @@
   - BorgModuleAppraisal
 
   job: SalvageSpecialist # DeltaV - borg job requirements
-  addComponents: # DeltaV - brown plasteel fibers
+  addComponents: # DeltaV - fibers, departmental access
   - type: Fiber
     fiberMaterial: fibers-plasteel
     fiberColor: fibers-brown
+  - type: AccessReader
+    access: [["Command"], ["Robotics"], ["Salvage"]]
 
   radioChannels:
   - Supply
@@ -134,10 +138,12 @@
 
   lawset: Janitor # DeltaV - Custom lawset
   job: Janitor # DeltaV - borg job requirements
-  addComponents: # DeltaV - purple plasteel fibers
+  addComponents: # DeltaV - fibers, departmental access
   - type: Fiber
     fiberMaterial: fibers-plasteel
     fiberColor: fibers-purple
+  - type: AccessReader
+    access: [["Command"], ["Robotics"], ["Janitor"]]
 
   radioChannels:
   - Science
@@ -196,6 +202,8 @@
   - type: Fiber # DeltaV - white plasteel fibers
     fiberMaterial: fibers-plasteel
     fiberColor: fibers-white
+  - type: AccessReader # DeltaV - departmental access
+    access: [["Command"], ["Robotics"], ["Medical"]]
   - type: SurgeryTarget # Shitmed
   - type: Sanitized # Shitmed
 
@@ -240,6 +248,9 @@
   - Service
 
   job: Bartender # DeltaV - borg job requirements
+  addedComponents: # DeltaV - departmental access
+  - type: AccessReader
+    access: [["Command"], ["Robotics"], ["Service"]]
 
   # Visual
   inventoryTemplateId: borgTall
