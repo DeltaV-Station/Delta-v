@@ -20,6 +20,11 @@
   id: ClothingUniformJumpsuitWardenGrey
   result: ClothingUniformJumpsuitWardenGrey
 
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitSecSenior
+  result: ClothingUniformJumpsuitSecSenior
+
 # Jumpskirts - Security
 
 - type: latheRecipe
@@ -56,6 +61,11 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtPrisonGuard
   result: ClothingUniformJumpskirtPrisonGuard
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtSecSenior
+  result: ClothingUniformJumpskirtSecSenior
 
 # Security Sweater
 
@@ -119,12 +129,82 @@
   id: ClothingOuterChiefJustice
   result: ClothingOuterChiefJustice
 
+# Clerk
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitClerk
+  result: ClothingUniformJumpsuitClerk
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtClerk
+  result: ClothingUniformJumpskirtClerk
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterClerkVest
+  result: ClothingOuterClerkVest
+
+# Prosecutor
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitProsecutor
+  result: ClothingUniformJumpsuitProsecutor
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtProsecutor
+  result: ClothingUniformJumpskirtProsecutor
+
 # Salvage Specialist
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtSalvageSpecialist
   result: ClothingUniformJumpskirtSalvageSpecialist
+
+# Administrative Assistant
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitAdminAssistant
+  result: ClothingUniformJumpsuitAdminAssistant
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtAdminAssistant
+  result: ClothingUniformJumpskirtAdminAssistant
+
+# Command Hats
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatBeretCap
+  result: ClothingHeadHatBeretCap
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatBeretMysta
+  result: ClothingHeadHatBeretMysta
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHoodMysta
+  result: ClothingHeadHoodMysta
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatBeretLogi
+  result: ClothingHeadHatBeretLogi
+
+# Prison Guard Hat
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadPrisonGuard
+  result: ClothingHeadPrisonGuard
 
 #Centcomm Clothing
 
@@ -262,3 +342,9 @@
   result: ClothingBeltSyndicateUtility
   materials:
     Cloth: 200
+
+# Mime
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterWinterLongMime
+  result: ClothingOuterWinterLongMime

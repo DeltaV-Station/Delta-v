@@ -274,7 +274,7 @@
 # Science
 - type: entity
   id: LockerResearchDirector
-  parent: LockerBase
+  parent: LockerBaseSecure # DeltaV - replaced the parent (previously LockerBase) with LockerBaseSecure to ensure locker had 75 health instead of 50
   name: mystagogue's locker # DeltaV - Epistemics Department replacing Science
   components:
   - type: Appearance
@@ -303,7 +303,7 @@
 # HoS
 - type: entity
   id: LockerHeadOfSecurity
-  parent: LockerBaseSecureDeltaV # DeltaV - resprite security lockers
+  parent: CommandLockerBaseSecureDeltaV # DeltaV - resprite security lockers, altered health due to being command locker
   name: head of security's locker
   components:
   - type: Appearance
@@ -374,6 +374,16 @@
     - entity_storage
   - type: StaticPrice
     price: 660
+    # Begin DeltaV additions - adjusted the health of gun safes to be 50 health stronger than LockerBaseSecure
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 125
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    # End DeltaV additions
 
 - type: entity
   id: GunSafeBaseSecure
