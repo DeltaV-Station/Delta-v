@@ -617,16 +617,22 @@
     droppableItems:
     - id: SynthesizerInstrument
       whitelist:
+        requireAll: true # no picking up harpies or grand pianos
         components:
         - Instrument
+        - Item
     - id: ElectricGuitarInstrument
       whitelist:
+        requireAll: true
         components:
         - Instrument
+        - Item
     - id: SaxophoneInstrument
       whitelist:
+        requireAll: true
         components:
         - Instrument
+        - Item
     # End DeltaV Additions
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: musical-module }
