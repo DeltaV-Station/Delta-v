@@ -1,6 +1,7 @@
 ﻿using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Radio;
+using Content.Shared.Roles; // DeltaV
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws; // DeltaV
 using Content.Shared.Whitelist;
@@ -90,6 +91,13 @@ public sealed partial class BorgTypePrototype : IPrototype
     /// </summary>
     [DataField]
     public ProtoId<SiliconLawsetPrototype>? Lawset;
+
+    /// <summary>
+    /// DeltaV: Optional job prototype to tie to this borg type.
+    /// It will have the requirements applied and rolebans will extend to this bogr type.
+    /// </summary>
+    [DataField]
+    public ProtoId<JobPrototype>? Job;
 
     /// <summary>
     /// Additional components to add to the borg entity when this type is selected.
