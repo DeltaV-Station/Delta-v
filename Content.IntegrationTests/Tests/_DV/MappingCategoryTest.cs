@@ -5,6 +5,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using System.Linq;
 
 namespace Content.IntegrationTests.Tests._DV;
 
@@ -42,7 +43,7 @@ public sealed class MappingCategoryTest
                         continue;
 
                     Assert.That(mapLoader.TryLoadGeneric(map, out var maps, out _), $"Failed to load map {rootedPath}");
-                    Assert.That(maps.Count, Is.Equal.To(1), $"Map {rootedPath} had multiple maps serialized!");
+                    Assert.That(maps.Count, Is.EqualTo(1), $"Map {rootedPath} had multiple maps serialized!");
 
                     var allowed = catSys.GetAllowedCategories(rootedPath);
                     var query = entMan.EntityQueryEnumerator<MappingCategoriesComponent>();
