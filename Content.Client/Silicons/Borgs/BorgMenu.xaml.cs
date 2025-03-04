@@ -131,7 +131,7 @@ public sealed partial class BorgMenu : FancyWindow
         if (comp.Chip is {} chip && _entity.TryGetComponent<IdCardComponent>(chip, out var card))
         {
             // not using the chip's entity name as that would immediately out syndie id chips
-            IdChipButton.Text = Loc.GetString("borg-id-chip-installed", ("name", card.FullName));
+            IdChipButton.Text = Loc.GetString("borg-id-chip-installed", ("name", card.FullName ?? ""));
             IdChipButton.Disabled = false;
         }
         else
