@@ -184,15 +184,17 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                     }
                     */
                     // DeltaV - Remove greentext
+                    // DeltaV - begin
                     agentSummary.AppendLine(Loc.GetString(
                         "objectives-objective",
                         ("objective", objectiveTitle)
                     ));
+                    // DeltaV - end
                 }
             }
 
             var successRate = totalObjectives > 0 ? (float) completedObjectives / totalObjectives : 0f;
-            // DeltaV custom objective response.
+            // DeltaV begin - custom objective response.
             if (TryComp<CustomObjectiveSummaryComponent>(mindId, out var customComp))
             {
                 // We have to spit it like this to make it readable. Yeah, it sucks but for some reason the entire thing
@@ -213,6 +215,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
                 agentSummary.AppendLine(Loc.GetString("custom-objective-format", ("line", currentLine)));
             }
+            // DeltaV end - custom objective response
             agentSummaries.Add((agentSummary.ToString(), successRate, completedObjectives));
         }
 
