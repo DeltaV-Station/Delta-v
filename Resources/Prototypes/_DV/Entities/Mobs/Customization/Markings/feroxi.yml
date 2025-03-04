@@ -80,6 +80,30 @@
   - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
     state: feroxi-snout-stripe
 
+- type: marking
+  id: FeroxiSnoutNurse
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+    state: feroxi-snout
+  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+    state: feroxi-snout-nurse
+
+- type: marking
+  id: FeroxiSnoutNurseCountershading
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+    state: feroxi-snout
+  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+    state: feroxi-snout-countershading
+  - sprite: _DV/Mobs/Customization/Feroxi/snout_markings.rsi
+    state: feroxi-snout-nurse
+
 # Tail Markings
 - type: marking
   id: FeroxiTail
@@ -282,6 +306,15 @@
 
 # Body Markings
 - type: marking
+  id: FeroxiHeadStripesTiger
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
+    state: feroxi-head-stripes-tiger
+
+- type: marking
   id: FeroxiTorsoStripesBlitz
   bodyPart: Chest
   markingCategory: Chest
@@ -308,6 +341,15 @@
   - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-torso-countershading-m
 
+- type: marking
+  id: FeroxiTorsoStripesTiger
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
+    state: feroxi-torso-stripes-tiger
+
 # Leg Markings
 - type: marking
   id: FeroxiLegStripesBlitz
@@ -318,6 +360,15 @@
   - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-leg-stripes-blitz
 
+- type: marking
+  id: FeroxiLegStripesTiger
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
+    state: feroxi-leg-stripes-tiger
+
 # Arm Markings
 - type: marking
   id: FeroxiArmStripesBlitz
@@ -327,3 +378,12 @@
   sprites:
   - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-arm-stripes-blitz
+
+- type: marking
+  id: FeroxiArmStripesTiger
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Feroxi ]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
+    state: feroxi-arm-stripes-tiger

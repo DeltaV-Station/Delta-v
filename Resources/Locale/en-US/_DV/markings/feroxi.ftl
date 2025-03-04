@@ -9,11 +9,13 @@ marking-FeroxiTailAndDorsal-feroxi-dorsal = Base Dorsal
 marking-FeroxiSnout = Snout
 marking-FeroxiSnout-feroxi-snout = Base Snout
 
+marking-FeroxiHeadStripesTiger = Tiger Stripes
+marking-FeroxiHeadStripesTiger-feroxi-head-stripes-tiger = Stripes
+
 marking-FeroxiEarsTips = Tipped Ears
 marking-FeroxiEarsTips-feroxi-ears = Base Ears
 marking-FeroxiEarsTips-feroxi-ears-inner = Inner Ear
 marking-FeroxiEarsTips-feroxi-ears-tips = Ear Tips
-
 
 marking-FeroxiSnoutStripe = Striped Snout
 marking-FeroxiSnoutStripe-feroxi-snout = Base Snout
@@ -27,6 +29,15 @@ marking-FeroxiSnoutCountershadingStripe = Striped and Countershaded Snout with
 marking-FeroxiSnoutCountershadingStripe-feroxi-snout = Base Snout
 marking-FeroxiSnoutCountershadingStripe-feroxi-snout-countershading = Countershading
 marking-FeroxiSnoutCountershadingStripe-feroxi-snout-stripe = Stripe
+
+marking-FeroxiSnoutNurse = Nurse Snout
+marking-FeroxiSnoutNurse-feroxi-snout = Base Snout
+marking-FeroxiSnoutNurse-feroxi-snout-nurse = Barbels
+
+marking-FeroxiSnoutNurseCountershading = Countershaded Nurse Snout
+marking-FeroxiSnoutNurseCountershading-feroxi-snout = Base Snout
+marking-FeroxiSnoutNurseCountershading-feroxi-snout-countershading = Countershading
+marking-FeroxiSnoutNurseCountershading-feroxi-snout-nurse = Barbels
 
 marking-FeroxiTailBlitz = Striped Tail with Fin Tips and Dorsal
 marking-FeroxiTailBlitz-feroxi-tail = Base Tail
@@ -110,14 +121,23 @@ marking-FeroxiTipTwoToneTailAndDorsal-feroxi-dorsal-tip = Dorsal Tip
 marking-FeroxiTorsoStripesBlitz = Small Under Arm Stripes
 marking-FeroxiTorsoStripesBlitz-feroxi-torso-stripes-blitz = Stripes
 
-marking-FeroxiLegStripesBlitz = Calf Stripes
-marking-FeroxiLegStripesBlitz-feroxi-leg-stripes-blitz = Stripes
-
-marking-FeroxiArmStripesBlitz = Shoulder Stripes
-marking-FeroxiArmStripesBlitz-feroxi-arm-stripes-blitz = Stripes
+marking-FeroxiTorsoStripesTiger = Full Stripes
+marking-FeroxiTorsoStripesTiger-feroxi-torso-stripes-tiger = Stripes
 
 marking-FeroxiTorsoCountershadingF = Countershading (Feminine)
 marking-FeroxiTorsoCountershadingF-feroxi-torso-countershading-f = Countershading
 
 marking-FeroxiTorsoCountershadingM = Countershading (Masculine)
 marking-FeroxiTorsoCountershadingM-feroxi-torso-countershading-m = Countershading
+
+marking-FeroxiLegStripesBlitz = Calf Stripes
+marking-FeroxiLegStripesBlitz-feroxi-leg-stripes-blitz = Stripes
+
+marking-FeroxiLegStripesTiger = Full Stripes
+marking-FeroxiLegStripesTiger-feroxi-leg-stripes-tiger = Stripes
+
+marking-FeroxiArmStripesBlitz = Shoulder Stripes
+marking-FeroxiArmStripesBlitz-feroxi-arm-stripes-blitz = Stripes
+
+marking-FeroxiArmStripesTiger = Full Stripes
+marking-FeroxiArmStripesTiger-feroxi-arm-stripes-tiger = Stripes
