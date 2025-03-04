@@ -248,7 +248,7 @@
   - Service
 
   job: Bartender # DeltaV - borg job requirements
-  addedComponents: # DeltaV - departmental access
+  addComponents: # DeltaV - departmental access
   - type: AccessReader
     access: [["Command"], ["Robotics"], ["Service"]]
 
