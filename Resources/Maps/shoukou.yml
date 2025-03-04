@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/04/2025 21:47:37
+  entityCount: 16131
+maps:
+- 1
+grids:
+- 2
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   1: FloorArcadeBlue
@@ -105,7 +116,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
   - uid: 2
     components:
     - type: MetaData
@@ -3167,7 +3177,8 @@ entities:
             2: 35060
           -13,3:
             2: 59520
-            0: 51
+            0: 49
+            5: 2
           -11,1:
             0: 58623
           -11,3:
@@ -3343,7 +3354,7 @@ entities:
             0: 52224
           -13,-12:
             2: 3840
-            5: 6
+            6: 6
           -12,-11:
             0: 65535
           -13,-11:
@@ -3352,7 +3363,7 @@ entities:
             0: 65535
           -13,-10:
             0: 47240
-            5: 48
+            6: 48
           -13,-9:
             0: 16379
           -11,-12:
@@ -3366,13 +3377,13 @@ entities:
             2: 3
           -10,-10:
             0: 63232
-            6: 14
+            7: 14
           -10,-12:
             0: 14
-            5: 3584
+            6: 3584
           -10,-11:
-            7: 14
-            8: 3584
+            8: 14
+            9: 3584
           -10,-13:
             0: 61166
           -9,-13:
@@ -3472,10 +3483,10 @@ entities:
           -16,-8:
             2: 4465
           -15,-11:
-            5: 65280
+            6: 65280
             0: 14
           -15,-10:
-            5: 4095
+            6: 4095
           -15,-9:
             0: 65535
           -15,-12:
@@ -3484,9 +3495,9 @@ entities:
             0: 65535
           -14,-11:
             0: 25805
-            5: 4352
+            6: 4352
           -14,-10:
-            5: 273
+            6: 273
             0: 50244
           -14,-9:
             0: 65535
@@ -3721,7 +3732,7 @@ entities:
             2: 12032
           7,1:
             0: 61567
-            9: 128
+            10: 128
           7,2:
             0: 47359
           7,3:
@@ -3873,7 +3884,8 @@ entities:
             0: 12919
             2: 49288
           9,-9:
-            0: 3822
+            0: 3818
+            3: 4
           10,-12:
             2: 15
             0: 65280
@@ -4185,6 +4197,21 @@ entities:
           moles:
           - 21.6852
           - 81.57766
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.813705
+          - 82.06108
           - 0
           - 0
           - 0
@@ -7011,7 +7038,7 @@ entities:
       pos: 18.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -235880.11
+      secondsUntilStateChange: -237616.28
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7431,6 +7458,13 @@ entities:
     - type: Transform
       pos: -29.5,-35.5
       parent: 2
+- proto: AmmoTechFab
+  entities:
+  - uid: 16128
+    components:
+    - type: Transform
+      pos: 34.5,-6.5
+      parent: 2
 - proto: AnomalyScanner
   entities:
   - uid: 349
@@ -7785,6 +7819,22 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 24.5,12.5
+      parent: 2
+  - uid: 16126
+    components:
+    - type: MetaData
+      name: IPC Recharge Station
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 16.5,-8.5
+      parent: 2
+  - uid: 16127
+    components:
+    - type: MetaData
+      name: IPC Recharge Station
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 46.5,3.5
       parent: 2
 - proto: APCHighCapacity
   entities:
@@ -8313,23 +8363,6 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-26.5
-      parent: 2
-- proto: Autolathe
-  entities:
-  - uid: 478
-    components:
-    - type: Transform
-      pos: -31.5,-27.5
-      parent: 2
-  - uid: 479
-    components:
-    - type: Transform
-      pos: -13.5,4.5
-      parent: 2
-  - uid: 480
-    components:
-    - type: Transform
-      pos: -17.5,-40.5
       parent: 2
 - proto: BackgammonBoard
   entities:
@@ -28969,6 +29002,13 @@ entities:
     - type: Transform
       pos: -45.033073,10.648991
       parent: 2
+- proto: CannedApplauseInstrument
+  entities:
+  - uid: 16130
+    components:
+    - type: Transform
+      pos: 13.114849,-45.31174
+      parent: 2
 - proto: CarbonDioxideCanister
   entities:
   - uid: 15778
@@ -34335,7 +34375,7 @@ entities:
     - type: Transform
       pos: -41.5,-7.5
       parent: 2
-  - uid: 15788
+  - uid: 16129
     components:
     - type: Transform
       pos: -24.5,-25.5
@@ -37504,8 +37544,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.8856695
-        - 7.0937095
+        - 1.8968438
+        - 7.1357465
         - 0
         - 0
         - 0
@@ -37522,14 +37562,14 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 10178
-          - 15429
-          - 15427
-          - 15428
-          - 11935
-          - 11933
-          - 11936
           - 11934
+          - 11936
+          - 11933
+          - 11935
+          - 10178
+          - 15428
+          - 15427
+          - 15429
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -37991,7 +38031,7 @@ entities:
       pos: 31.5,-36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -70071.586
+      secondsUntilStateChange: -71807.75
       state: Closing
   - uid: 5409
     components:
@@ -42934,54 +42974,37 @@ entities:
       canCollide: False
 - proto: EnergySword
   entities:
-  - uid: 12383
+  - uid: 14438
     components:
     - type: MetaData
-      desc: The button is pushed in... it smells like burnt rubber-
+      desc: It feels real but the buttons pushed in and it smells.... burnt.
       name: busted energy sword
     - type: Transform
       parent: 10452
-    - type: ItemToggleSize
-      deactivatedSize: Small
-    - type: ItemToggleMeleeWeapon
-      deactivatedDamage:
-        groups: null
-        types:
-          Blunt: 4.5
-      deactivatedSoundOnSwing: !type:SoundPathSpecifier
-        params:
-          variation: 0.025
-          playOffsetSeconds: 0
-          loop: False
-          referenceDistance: 1
-          rolloffFactor: 1
-          maxDistance: 15
-          pitch: 1
-          volume: -3
-        path: /Audio/Weapons/punchmiss.ogg
-      deactivatedSoundOnHitNoDamage: !type:SoundCollectionSpecifier
-        params:
-          variation: null
-          playOffsetSeconds: 0
-          loop: False
-          referenceDistance: 1
-          rolloffFactor: 1
-          maxDistance: 15
-          pitch: 1
-          volume: 0
-        collection: WeakHit
     - type: Physics
       canCollide: False
     missingComponents:
     - ItemToggle
-    - ComponentToggler
-    - ItemToggleHot
+- proto: EngineeringTechFab
+  entities:
+  - uid: 10812
+    components:
+    - type: Transform
+      pos: -31.5,-27.5
+      parent: 2
 - proto: Envelope
   entities:
   - uid: 6165
     components:
     - type: Transform
       pos: -9.448584,-27.21585
+      parent: 2
+- proto: EpistemicsTechFab
+  entities:
+  - uid: 15788
+    components:
+    - type: Transform
+      pos: -41.5,-3.5
       parent: 2
 - proto: ExosuitFabricator
   entities:
@@ -72192,6 +72215,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -56.760807,10.578941
       parent: 2
+- proto: KvassTankFull
+  entities:
+  - uid: 16125
+    components:
+    - type: Transform
+      pos: -7.5,-32.5
+      parent: 2
 - proto: LampBanana
   entities:
   - uid: 10028
@@ -72540,12 +72570,14 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 12388
-          - 12389
+          - 12383
           - 12417
-          - 12429
-          - 12430
+          - 12389
+          - 11788
+          - 12388
           - 12431
+          - 12430
+          - 12429
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -72743,6 +72775,35 @@ entities:
     - type: Transform
       pos: 38.5,-35.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 15097
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: LockerHeadOfPersonnelFilled
   entities:
   - uid: 10068
@@ -72984,6 +73045,13 @@ entities:
     - type: Physics
       canCollide: False
       bodyType: Static
+- proto: LogisticsTechFab
+  entities:
+  - uid: 480
+    components:
+    - type: Transform
+      pos: -17.5,-40.5
+      parent: 2
 - proto: LootSpawnerCableCoil
   entities:
   - uid: 10096
@@ -76433,7 +76501,7 @@ entities:
         stash: !type:ContainerSlot
           showEnts: False
           occludes: True
-          ent: 12383
+          ent: 14438
   - uid: 10453
     components:
     - type: Transform
@@ -78677,13 +78745,6 @@ entities:
     components:
     - type: Transform
       pos: 40.720222,3.4485822
-      parent: 2
-- proto: Protolathe
-  entities:
-  - uid: 10812
-    components:
-    - type: Transform
-      pos: -41.5,-3.5
       parent: 2
 - proto: PsychBed
   entities:
@@ -83072,12 +83133,12 @@ entities:
     - type: Transform
       pos: 36.5,5.5
       parent: 2
-- proto: SentientSmileCore
+- proto: ServiceTechFab
   entities:
-  - uid: 15097
+  - uid: 479
     components:
     - type: Transform
-      pos: -27.5,-17.5
+      pos: -13.5,4.5
       parent: 2
 - proto: ShardGlass
   entities:
@@ -83163,7 +83224,7 @@ entities:
   - uid: 11583
     components:
     - type: Transform
-      pos: -23.54676,-25.303541
+      pos: -23.274591,-25.433216
       parent: 2
   - uid: 11584
     components:
@@ -83253,7 +83314,7 @@ entities:
   - uid: 11597
     components:
     - type: Transform
-      pos: -23.29676,-25.553541
+      pos: -23.665216,-25.339466
       parent: 2
   - uid: 11598
     components:
@@ -83279,6 +83340,11 @@ entities:
     - type: InsideEntityStorage
 - proto: SheetSteel
   entities:
+  - uid: 478
+    components:
+    - type: Transform
+      pos: -22.680841,-25.386341
+      parent: 2
   - uid: 5362
     components:
     - type: Transform
@@ -83516,6 +83582,22 @@ entities:
           - 15317
           - 15319
           - 15318
+- proto: ShellShotgunSlug
+  entities:
+  - uid: 11788
+    components:
+    - type: Transform
+      parent: 10041
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 12383
+    components:
+    - type: Transform
+      parent: 10041
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: Shinai
   entities:
   - uid: 11616
@@ -85070,17 +85152,17 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -57.5,3.5
       parent: 2
-  - uid: 11788
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 3.5,15.5
-      parent: 2
   - uid: 11789
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 7.5,-49.5
+      parent: 2
+  - uid: 16124
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,15.5
       parent: 2
 - proto: SignEVA
   entities:
@@ -86166,6 +86248,13 @@ entities:
     - type: Transform
       pos: 40.5,-29.5
       parent: 2
+- proto: SpawnMobFrog
+  entities:
+  - uid: 16131
+    components:
+    - type: Transform
+      pos: -25.5,3.5
+      parent: 2
 - proto: SpawnMobJusticePet
   entities:
   - uid: 11953
@@ -86246,6 +86335,13 @@ entities:
     components:
     - type: Transform
       pos: -31.5,-7.5
+      parent: 2
+- proto: SpawnMobSmile
+  entities:
+  - uid: 16123
+    components:
+    - type: Transform
+      pos: -27.5,-17.5
       parent: 2
 - proto: SpawnPointAdminAssistant
   entities:
@@ -91987,6 +92083,29 @@ entities:
     - type: Transform
       pos: -19.633802,-16.123617
       parent: 2
+- proto: ToolDebug
+  entities:
+  - uid: 15097
+    components:
+    - type: Transform
+      parent: 10067
+    - type: Tool
+      useSound: !type:SoundPathSpecifier
+        params:
+          variation: null
+          playOffsetSeconds: 0
+          loop: False
+          referenceDistance: 1
+          rolloffFactor: 1
+          maxDistance: 15
+          pitch: 1
+          volume: 0
+        path: /Audio/Items/jaws_pry.ogg
+      qualities:
+      - Prying
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: ToyAi
   entities:
   - uid: 14758
@@ -102034,11 +102153,6 @@ entities:
     components:
     - type: Transform
       pos: -46.5,-14.5
-      parent: 2
-  - uid: 14438
-    components:
-    - type: Transform
-      pos: -7.5,-32.5
       parent: 2
   - uid: 14439
     components:
