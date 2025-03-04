@@ -66,5 +66,13 @@ ghost-role-information-roboneuroticist-description = You are a member of the Syn
 ghost-role-information-roboneuroticist-rules =
     Build machines of war, and send them to the station to extract your toll.
     Your ship contains all of the resources you need to get started, but for the more advanced modules, you must strike out at the station.
-    
+
 deltav-ghost-role-information-space-dragon-description = Call in 3 carp rifts and take over this quadrant! You must place a rift every 10 minutes or suffer the consequences!
+
+ghost-role-information-syndicate-marshal-name = Syndicate Marshal
+ghost-role-information-syndicate-marshal-description = Run the syndicate prison and keep the hostages in line.
+ghost-role-information-syndicate-marshal-rules =
+    You are a [color=green][bold]Non-antagonist[/bold][/color] working for the Syndicate.
+    Don't abuse prisoners, they are hostages being kept for ransom!
+    You can /ghost if you get bored, the role will stay available for others to take.
+    All normal rules apply unless an administrator tells you otherwise.

@@ -1,0 +1,20 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+        xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+        MinSize="500 400"
+        Title="{Loc 'contracts-menu-title'}">
+    <BoxContainer Orientation="Vertical">
+        <controls:StripeBack>
+            <BoxContainer Orientation="Vertical">
+                <Label Name="Level" Align="Center" StyleClasses="LabelBig"/> <!-- Set at runtime -->
+                <Label Name="Reputation" Align="Center" StyleClasses="LabelBig"/> <!-- Set at runtime -->
+            </BoxContainer>
+        </controls:StripeBack>
+        <Label Text="{Loc 'contracts-contracts'}" Margin="5"/>
+        <controls:HLine Color="#404040" Thickness="2" Margin="0 5 0 5"/>
+        <BoxContainer Name="Contracts" Orientation="Vertical" HorizontalExpand="True" Margin="5"/> <!-- Populated at runtime -->
+        <controls:HLine Color="#404040" Thickness="2" Margin="0 5 0 5"/>
+        <Label Text="{Loc 'contracts-offerings'}" Align="Right" Margin="5"/>
+        <controls:HLine Color="#404040" Thickness="2" Margin="0 5 0 5"/>
+        <BoxContainer Name="Offerings" Orientation="Vertical" HorizontalExpand="True" Margin="5"/> <!-- Populated at runtime -->
+    </BoxContainer>
+</controls:FancyWindow>
