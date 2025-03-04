@@ -33,6 +33,9 @@
         - MobMask
         layer:
         - MobLayer
+  - type: Damageable
+    damageContainer: BiologicalMetaphysical # foxes take holy damage but at a reduced amount
+    damageModifierSet: KitsuneFox # fox form takes more damage and no resistances, but moves F A S T
   - type: MobThresholds
     thresholds:
       0: Alive
