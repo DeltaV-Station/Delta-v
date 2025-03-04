@@ -1,0 +1,63 @@
+- type: entity
+  id: ActionOpenAugmentInterface
+  name: Open augment UI
+  description: This is a developer placeholder and should not be seen
+  components:
+  - type: InstantAction
+    icon: { sprite: Clothing/Mask/gas.rsi, state: icon }
+    iconOn: Interface/Default/blocked.png
+    event: !type:AugmentUIOpenEvent
+
+- type: entity
+  parent: [ BaseItem, PowerCellSlotSmallItem ]
+  id: AugmentPowerCellSlot
+  name: augment power cell slot
+  description: Can be implanted into a body to provide power to other implants.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/Power.rsi
+    state: cell
+  - type: Organ
+    slotId: powerCell
+    onAdd:
+    - type: HasAugmentPowerCellSlot
+  - type: AugmentPowerCellSlot
+
+- type: entity
+  parent: BaseItem
+  id: AugmentBaseCharger
+  name: base charger augment
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/Power.rsi
+    state: cell
+  - type: Organ
+    slotId: charger
+  - type: AugmentCharger
+
+- type: entity
+  parent: AugmentBaseCharger
+  id: AugmentRechargerAPC
+  name: augment apc recharger
+  description: Allows the implantee to recharge their power cell via APCs.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/Power.rsi
+    state: apc
+  - type: Organ
+    onAdd:
+    - type: BatteryDrinker
+
+- type: entity
+  parent: AugmentBaseCharger
+  id: AugmentRechargerStation
+  name: augment station recharger
+  description: Allows the implantee to recharge their power cell via cyborg recharging stations.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/Power.rsi
+    state: station
+  - type: Organ
+    onAdd:
+    - type: AugmentStationRecharge
