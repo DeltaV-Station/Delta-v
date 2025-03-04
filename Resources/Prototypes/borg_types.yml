@@ -49,7 +49,8 @@
   - BorgModuleRCD
   - BorgModuleCable
 
-  lawset: Engineer # DeltaV: Custom lawset
+  lawset: Engineer # DeltaV - Custom lawset
+  job: StationEngineer # DeltaV - borg job requirements
   addComponents: # DeltaV - orange plasteel fibers
   - type: Fiber
     fiberMaterial: fibers-plasteel
@@ -90,6 +91,7 @@
   - BorgModuleMining
   - BorgModuleAppraisal
 
+  job: SalvageSpecialist # DeltaV - borg job requirements
   addComponents: # DeltaV - brown plasteel fibers
   - type: Fiber
     fiberMaterial: fibers-plasteel
@@ -130,7 +132,8 @@
   - BorgModuleLightReplacer
   - BorgModuleCleaning
 
-  lawset: Janitor # DeltaV: Custom lawset
+  lawset: Janitor # DeltaV - Custom lawset
+  job: Janitor # DeltaV - borg job requirements
   addComponents: # DeltaV - purple plasteel fibers
   - type: Fiber
     fiberMaterial: fibers-plasteel
@@ -176,6 +179,7 @@
   - Medical
 
   lawset: Medical # DeltaV: Custom lawset
+  job: MedicalDoctor # DeltaV - borg job requirements
 
   addComponents:
   - type: SolutionScanner
@@ -234,6 +238,8 @@
   radioChannels:
   - Science
   - Service
+
+  job: Bartender # DeltaV - borg job requirements
 
   # Visual
   inventoryTemplateId: borgTall
