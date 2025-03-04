@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: MilonPL
-  changes:
-  - message: Added Lone Digger by Caravan Palace to the jukebox!
-    type: Add
-  id: 605
-  time: '2024-10-13T13:30:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1998
-- author: SaphireLattice
-  changes:
-  - message: Completely rework Lighthouse's Medbay
-    type: Add
-  id: 606
-  time: '2024-10-13T14:29:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1988
 - author: deltanedas
   changes:
   - message: Merged this week's changes from upstream.
@@ -3913,3 +3899,22 @@
   id: 1104
   time: '2025-03-04T12:10:32.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3110
+- author: beck-thompson
+  changes:
+  - message: Greentexts are now not visible at the end of round screen. (Test merge)
+    type: Remove
+  - message: You can now write custom objective summaries as traitors. (Test merge)
+    type: Add
+  - message: Round weights have been changed around slightly. (Test merge)
+    type: Tweak
+  id: 1105
+  time: '2025-03-04T22:32:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2940
+- author: deltanedas
+  changes:
+  - message: Merged late February's changes from upstream, wizard is temporarily disabled
+      thoughd.
+    type: Add
+  id: 1106
+  time: '2025-03-04T12:32:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3082
