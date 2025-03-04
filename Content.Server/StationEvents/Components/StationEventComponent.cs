@@ -19,22 +19,16 @@ public sealed partial class StationEventComponent : Component
     public float Weight = WeightNormal;
 
     [DataField]
-    public string? StartAnnouncement;
+    public bool StartAnnouncement; // Impstation Random Announcer System: Converted to Bool
 
     [DataField]
-    public string? EndAnnouncement;
+    public bool EndAnnouncement; // Impstation Random Announcer System: Converted to Bool
 
     [DataField]
     public Color StartAnnouncementColor = Color.Gold;
 
     [DataField]
     public Color EndAnnouncementColor = Color.Gold;
-
-    [DataField]
-    public SoundSpecifier? StartAudio;
-
-    [DataField]
-    public SoundSpecifier? EndAudio;
 
     /// <summary>
     ///     In minutes, when is the first round time this event can start
