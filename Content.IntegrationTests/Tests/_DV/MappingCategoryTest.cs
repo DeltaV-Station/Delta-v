@@ -44,7 +44,7 @@ public sealed class MappingCategoryTest
                         continue;
 
                     mapSys.CreateMap(out var mapId);
-                    Assert.That(mapLoader.TryLoad(mapId, rootedPath, out var roots), $"Failed to load map {rootedPath}");
+                    Assert.That(mapLoader.TryLoadMap(mapId, map, out _), $"Failed to load map {rootedPath}");
 
                     var allowed = catSys.GetAllowedCategories(rootedPath);
                     var query = entMan.EntityQueryEnumerator<MappingCategoriesComponent>();
