@@ -20,6 +20,19 @@
   - BorgModuleAdvancedSurgery
 
 - type: technology
+  id: MinuteActuators
+  name: research-technology-minute-actuators
+  icon:
+    sprite: _Shitmed/Clothing/Hands/Gloves/mechanical_surgery_gloves.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ClothingHandsGlovesMechanicalSurgical
+  - OperatingTableAdvancedCircuitboard
+
+- type: technology
   id: CyberneticEnhancements
   name: research-technology-cybernetic-enhancements
   icon:
