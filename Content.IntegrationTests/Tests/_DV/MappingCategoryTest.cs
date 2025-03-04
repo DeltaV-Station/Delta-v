@@ -41,7 +41,8 @@ public sealed class MappingCategoryTest
                     if (rootedPath.StartsWith(TestMapsPath, StringComparison.Ordinal))
                         continue;
 
-                    Assert.That(mapLoader.TryLoadMap(map, out var mapUid, out _), $"Failed to load map {rootedPath}");
+                    Assert.That(mapLoader.TryLoadGeneric(map, out var maps, out _), $"Failed to load map {rootedPath}");
+                    Assert.That(maps.Count, Is.Equal.To(1), $"Map {rootedPath} had multiple maps serialized!");
 
                     var allowed = catSys.GetAllowedCategories(rootedPath);
                     var query = entMan.EntityQueryEnumerator<MappingCategoriesComponent>();
@@ -51,7 +52,7 @@ public sealed class MappingCategoryTest
                         Assert.That(catSys.CanMap(ent, allowed), $"Entity {entMan.ToPrettyString(uid)} cannot be mapped on {rootedPath}");
                     }
 
-                    entMan.DeleteEntity(mapUid);
+                    entMan.DeleteEntity(maps.First());
                 }
             });
         });
