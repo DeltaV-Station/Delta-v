@@ -24,9 +24,7 @@ public sealed class MappingCategoryTest
         var server = pair.Server;
         var entMan = server.ResolveDependency<IEntityManager>();
         var resMan = server.ResolveDependency<IResourceManager>();
-        var mapMan = server.ResolveDependency<IMapManager>();
         var mapLoader = entMan.System<MapLoaderSystem>();
-        var mapSys = entMan.System<SharedMapSystem>();
         var catSys = entMan.System<MappingCategoriesSystem>(); // meow
 
         await server.WaitPost(() =>
@@ -53,7 +51,7 @@ public sealed class MappingCategoryTest
                         Assert.That(catSys.CanMap(ent, allowed), $"Entity {entMan.ToPrettyString(uid)} cannot be mapped on {rootedPath}");
                     }
 
-                    Del(mapUid);
+                    entMan.DeleteEntity(mapUid);
                 }
             });
         });
