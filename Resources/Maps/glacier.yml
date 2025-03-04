@@ -1,6 +1,18 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/04/2025 13:52:19
+  entityCount: 18792
+maps:
+- 1
+grids:
+- 2
+- 17520
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   56: FloorAsphalt
@@ -99,7 +111,6 @@ entities:
         - 0
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
   - uid: 2
     components:
     - type: MetaData
@@ -14804,6 +14815,76 @@ entities:
     - type: Transform
       pos: 58.5,-20.5
       parent: 2
+  - uid: 11411
+    components:
+    - type: Transform
+      pos: 18.5,-35.5
+      parent: 2
+  - uid: 11413
+    components:
+    - type: Transform
+      pos: 19.5,-35.5
+      parent: 2
+  - uid: 11551
+    components:
+    - type: Transform
+      pos: 19.5,-36.5
+      parent: 2
+  - uid: 11554
+    components:
+    - type: Transform
+      pos: 17.5,-36.5
+      parent: 2
+  - uid: 11558
+    components:
+    - type: Transform
+      pos: 18.5,-36.5
+      parent: 2
+  - uid: 11582
+    components:
+    - type: Transform
+      pos: 19.5,-37.5
+      parent: 2
+  - uid: 11663
+    components:
+    - type: Transform
+      pos: 18.5,-37.5
+      parent: 2
+  - uid: 11664
+    components:
+    - type: Transform
+      pos: 61.5,-33.5
+      parent: 2
+  - uid: 12864
+    components:
+    - type: Transform
+      pos: 62.5,-32.5
+      parent: 2
+  - uid: 12878
+    components:
+    - type: Transform
+      pos: 60.5,-33.5
+      parent: 2
+  - uid: 12879
+    components:
+    - type: Transform
+      pos: 60.5,-31.5
+      parent: 2
+  - uid: 13517
+    components:
+    - type: Transform
+      pos: 63.5,-32.5
+      parent: 2
+  - uid: 13525
+    components:
+    - type: Transform
+      pos: 60.5,-32.5
+      parent: 2
+  - uid: 14400
+    components:
+    - type: Transform
+      pos: 20.5,-37.5
+      parent: 2
 - proto: AsteroidRock
   entities:
   - uid: 338
@@ -16149,28 +16230,6 @@ entities:
     - type: Transform
       pos: -7.5,-7.5
       parent: 2
-- proto: Autolathe
-  entities:
-  - uid: 5435
-    components:
-    - type: Transform
-      pos: 50.5,7.5
-      parent: 2
-  - uid: 7224
-    components:
-    - type: Transform
-      pos: 25.5,50.5
-      parent: 2
-  - uid: 13525
-    components:
-    - type: Transform
-      pos: -19.5,1.5
-      parent: 2
-  - uid: 17618
-    components:
-    - type: Transform
-      pos: 24.5,38.5
-      parent: 2
 - proto: AutolatheMachineCircuitboard
   entities:
   - uid: 13526
@@ -17301,6 +17360,11 @@ entities:
       parent: 2
 - proto: BorgCharger
   entities:
+  - uid: 11407
+    components:
+    - type: Transform
+      pos: 24.5,38.5
+      parent: 2
   - uid: 17516
     components:
     - type: Transform
@@ -55467,6 +55531,20 @@ entities:
     - type: Transform
       pos: 11.415391,54.62904
       parent: 2
+- proto: EngineeringTechFab
+  entities:
+  - uid: 7224
+    components:
+    - type: Transform
+      pos: 25.5,50.5
+      parent: 2
+- proto: EpistemicsTechFab
+  entities:
+  - uid: 11414
+    components:
+    - type: Transform
+      pos: 36.5,-21.5
+      parent: 2
 - proto: EvidenceMarkerOne
   entities:
   - uid: 16494
@@ -58264,7 +58342,6 @@ entities:
       parent: 2
     - type: GasFilter
       filteredGas: NitrousOxide
-      enabled: true
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 18791
@@ -58275,7 +58352,6 @@ entities:
       parent: 2
     - type: GasFilter
       filteredGas: Plasma
-      enabled: true
     - type: AtmosPipeColor
       color: '#990000FF'
 - proto: GasFilterFlipped
@@ -83891,6 +83967,13 @@ entities:
     - type: Transform
       pos: -2.5,-17.5
       parent: 2
+- proto: LogisticsTechFab
+  entities:
+  - uid: 5435
+    components:
+    - type: Transform
+      pos: 50.5,7.5
+      parent: 2
 - proto: MachineAnomalyGenerator
   entities:
   - uid: 10267
@@ -89308,16 +89391,6 @@ entities:
     components:
     - type: Transform
       pos: 20.5,-36.5
-      parent: 2
-  - uid: 11423
-    components:
-    - type: Transform
-      pos: 19.5,-35.5
-      parent: 2
-  - uid: 11424
-    components:
-    - type: Transform
-      pos: 18.5,-35.5
       parent: 2
   - uid: 11426
     components:
@@ -96529,13 +96602,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 43.5,5.5
       parent: 2
-- proto: Protolathe
-  entities:
-  - uid: 13517
-    components:
-    - type: Transform
-      pos: 36.5,-21.5
-      parent: 2
 - proto: ProtolatheMachineCircuitboard
   entities:
   - uid: 13518
@@ -97082,6 +97148,17 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 17.5,59.5
+      parent: 2
+  - uid: 11423
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 49.5,7.5
+      parent: 2
+  - uid: 11424
+    components:
+    - type: Transform
+      pos: 50.5,8.5
       parent: 2
   - uid: 12363
     components:
@@ -97941,11 +98018,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -42.5,-3.5
       parent: 2
-  - uid: 12864
-    components:
-    - type: Transform
-      pos: 50.5,7.5
-      parent: 2
   - uid: 12865
     components:
     - type: Transform
@@ -98011,6 +98083,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 19.5,58.5
       parent: 2
+  - uid: 11415
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 49.5,8.5
+      parent: 2
   - uid: 12872
     components:
     - type: Transform
@@ -98044,18 +98122,6 @@ entities:
     components:
     - type: Transform
       pos: 8.5,13.5
-      parent: 2
-  - uid: 12878
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 49.5,7.5
-      parent: 2
-  - uid: 12879
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 50.5,8.5
       parent: 2
   - uid: 12880
     components:
@@ -99699,45 +99765,15 @@ entities:
     - type: Transform
       pos: 22.5,-38.5
       parent: 2
-  - uid: 11397
-    components:
-    - type: Transform
-      pos: 20.5,-37.5
-      parent: 2
   - uid: 11398
     components:
     - type: Transform
       pos: 20.5,-38.5
       parent: 2
-  - uid: 11407
-    components:
-    - type: Transform
-      pos: 19.5,-37.5
-      parent: 2
   - uid: 11409
     components:
     - type: Transform
       pos: 19.5,-38.5
-      parent: 2
-  - uid: 11411
-    components:
-    - type: Transform
-      pos: 18.5,-37.5
-      parent: 2
-  - uid: 11413
-    components:
-    - type: Transform
-      pos: 19.5,-36.5
-      parent: 2
-  - uid: 11414
-    components:
-    - type: Transform
-      pos: 18.5,-36.5
-      parent: 2
-  - uid: 11415
-    components:
-    - type: Transform
-      pos: 17.5,-36.5
       parent: 2
   - uid: 11416
     components:
@@ -99918,36 +99954,6 @@ entities:
     components:
     - type: Transform
       pos: 54.5,-26.5
-      parent: 2
-  - uid: 11551
-    components:
-    - type: Transform
-      pos: 60.5,-32.5
-      parent: 2
-  - uid: 11554
-    components:
-    - type: Transform
-      pos: 60.5,-33.5
-      parent: 2
-  - uid: 11558
-    components:
-    - type: Transform
-      pos: 60.5,-31.5
-      parent: 2
-  - uid: 11582
-    components:
-    - type: Transform
-      pos: 61.5,-33.5
-      parent: 2
-  - uid: 11663
-    components:
-    - type: Transform
-      pos: 63.5,-32.5
-      parent: 2
-  - uid: 11664
-    components:
-    - type: Transform
-      pos: 62.5,-32.5
       parent: 2
   - uid: 11725
     components:
@@ -102939,6 +102945,13 @@ entities:
     components:
     - type: Transform
       pos: 29.5,-25.5
+      parent: 2
+- proto: ServiceTechFab
+  entities:
+  - uid: 11397
+    components:
+    - type: Transform
+      pos: -19.5,1.5
       parent: 2
 - proto: ShardGlass
   entities:
@@ -120612,11 +120625,15 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 42.5,27.5
       parent: 2
+    - type: Physics
+      canCollide: False
+    - type: Airtight
+      airBlocked: False
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
     - type: Door
-      state: Opening
+      state: Open
     - type: Airlock
       autoClose: False
   - uid: 13197
@@ -120627,11 +120644,15 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 46.5,27.5
       parent: 2
+    - type: Physics
+      canCollide: False
+    - type: Airtight
+      airBlocked: False
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
     - type: Door
-      state: Opening
+      state: Open
     - type: Airlock
       autoClose: False
   - uid: 15893
@@ -120648,11 +120669,15 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 46.5,29.5
       parent: 2
+    - type: Physics
+      canCollide: False
+    - type: Airtight
+      airBlocked: False
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
     - type: Door
-      state: Opening
+      state: Open
     - type: Airlock
       autoClose: False
   - uid: 16355
@@ -120663,11 +120688,15 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 42.5,29.5
       parent: 2
+    - type: Physics
+      canCollide: False
+    - type: Airtight
+      airBlocked: False
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
     - type: Door
-      state: Opening
+      state: Open
     - type: Airlock
       autoClose: False
   - uid: 16357
