@@ -52,6 +52,8 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ChemMasterComponent, EntRemovedFromContainerMessage>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ChemMasterComponent, BoundUIOpenedEvent>(SubscribeUpdateUiState);
 
+            //SubscribeLocalEvent<ChemMasterComponent, ChemMasterSetModeMessage>(OnSetModeMessage); // DeltaV - removed discarding
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterSortingTypeCycleMessage>(OnCycleSortingTypeMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSetPillTypeMessage>(OnSetPillTypeMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterReagentAmountButtonMessage>(OnReagentButtonMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterCreatePillsMessage>(OnCreatePillsMessage);
@@ -75,10 +77,31 @@ namespace Content.Server.Chemistry.EntitySystems
             var bufferCurrentVolume = bufferSolution.Volume;
 
             var state = new ChemMasterBoundUserInterfaceState(
-                BuildInputContainerInfo(inputContainer), BuildOutputContainerInfo(outputContainer),
+                chemMaster.SortingType, BuildInputContainerInfo(inputContainer), BuildOutputContainerInfo(outputContainer), // DeltaV - removed mode
                 bufferReagents, bufferCurrentVolume, chemMaster.PillType, chemMaster.PillDosageLimit, updateLabel);
 
             _userInterfaceSystem.SetUiState(owner, ChemMasterUiKey.Key, state);
+        }
+
+        /* DeltaV - removed discarding
+        private void OnSetModeMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSetModeMessage message)
+        {
+            // Ensure the mode is valid, either Transfer or Discard.
+            if (!Enum.IsDefined(typeof(ChemMasterMode), message.ChemMasterMode))
+                return;
+
+            chemMaster.Comp.Mode = message.ChemMasterMode;
+            UpdateUiState(chemMaster);
+            ClickSound(chemMaster);
+        } */
+
+        private void OnCycleSortingTypeMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSortingTypeCycleMessage message)
+        {
+            chemMaster.Comp.SortingType++;
+            if (chemMaster.Comp.SortingType > ChemMasterSortingType.Latest)
+                chemMaster.Comp.SortingType = ChemMasterSortingType.None;
+            UpdateUiState(chemMaster);
+            ClickSound(chemMaster);
         }
 
         private void OnSetPillTypeMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSetPillTypeMessage message)

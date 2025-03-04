@@ -14,6 +14,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
+using Robust.Shared.Audio; // DeltaV
 using Robust.Shared.Configuration;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Network;
@@ -105,7 +106,8 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
 
         if (other)
         {
-            _audio?.PlayGlobal(_mHelpSound, Filter.Local(), false);
+            if (_mHelpSound is {} path)
+                _audio?.PlayGlobal(new SoundPathSpecifier(path), Filter.Local(), false);
             _clyde.RequestWindowAttention();
 
             if (!_isMentor)
