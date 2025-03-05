@@ -94,8 +94,6 @@ public enum NoosphericAcceleratorWireStatus
 {
     Power,
     Keyboard,
-    Limiter,
-    Strength,
 }
 
 [NetSerializable, Serializable]
