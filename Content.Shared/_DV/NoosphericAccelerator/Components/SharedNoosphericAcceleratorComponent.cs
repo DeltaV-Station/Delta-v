@@ -49,3 +49,12 @@ public sealed class NoosphericAcceleratorSetPowerStateMessage(NoosphericAccelera
 {
     public readonly NoosphericAcceleratorPowerState State = state;
 }
+
+[Serializable, NetSerializable]
+public enum NoosphericAcceleratorWireStatus
+{
+    Power,
+    Keyboard,
+    Limiter,
+    Strength,
+}
