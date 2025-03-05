@@ -19,6 +19,7 @@
   - BorgModuleSecurityBastion
 
   lawset: SiliconPolice
+  job: SecurityOfficer
 
   addComponents:
   - type: FlashImmunity
@@ -29,6 +30,12 @@
       0: Alive
       80: Critical # -20 to Crit Threshold
       200: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+    showOverlays: false
+    allowRevives: true
   - type: Fiber # red plasteel fibers
     fiberMaterial: fibers-plasteel
     fiberColor: fibers-red
