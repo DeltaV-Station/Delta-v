@@ -57,7 +57,7 @@ public sealed partial class NoosphericAcceleratorControlBoxComponent : Component
     /// The maximum strength level any of the noospheric particles may be set to.
     /// Modified by <see cref="NoosphericAcceleratorLimiterWireAction"/>.
     /// </summary>
-    public int MaximumStrength = 4;
+    public NoosphericAcceleratorPowerLevel MaxStrength = NoosphericAcceleratorPowerLevel.Level3;
 
     /// <summary>
     /// Maps power states to a base number used when feeding.
@@ -127,7 +127,7 @@ public sealed partial class NoosphericAcceleratorControlBoxComponent : Component
     /// </summary>
     [DataField("powerDrawBase")]
     [ViewVariables]
-    public int BasePowerDraw = 500;
+    public float BasePowerDraw = 500;
 
     /// <summary>
     /// The amount of power (in watts) the PA draws per level when turned on.

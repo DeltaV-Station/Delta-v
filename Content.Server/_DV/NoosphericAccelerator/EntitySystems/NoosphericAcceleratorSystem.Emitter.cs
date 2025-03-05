@@ -51,7 +51,7 @@ public sealed partial class NoosphericAcceleratorSystem
 
             foreach (var type in Enum.GetValues<ParticleType>())
             {
-                food.Particles[type] = strength.ParticleStrengths[type] switch
+                food.Particles[type] = strength.Particles[type] switch
                 {
                     NoosphericAcceleratorPowerLevel.Standby => comp.PowerMappings[0],
                     NoosphericAcceleratorPowerLevel.Level0 => comp.PowerMappings[1],
