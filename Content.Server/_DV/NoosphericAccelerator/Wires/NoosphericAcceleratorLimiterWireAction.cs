@@ -3,12 +3,13 @@ using Content.Server._DV.NoosphericAccelerator.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.Wires;
 using Content.Shared.Popups;
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.NoosphericAccelerator.Components;
 using Content.Shared.Wires;
 
 namespace Content.Server._DV.NoosphericAccelerator.Wires;
 
-public sealed partial class NoosphericAcceleratorLimiterWireAction : ComponentWireAction<NoosphericAcceleratorControlBoxComponent>
+public sealed partial class
+    NoosphericAcceleratorLimiterWireAction : ComponentWireAction<NoosphericAcceleratorControlBoxComponent>
 {
     public override string Name { get; set; } = "wire-name-pa-limiter";
     public override Color Color { get; set; } = Color.Teal;
@@ -19,8 +20,8 @@ public sealed partial class NoosphericAcceleratorLimiterWireAction : ComponentWi
         var result = base.GetStatusLightData(wire);
 
         if (result.HasValue
-        && EntityManager.TryGetComponent<NoosphericAcceleratorControlBoxComponent>(wire.Owner, out var controller)
-        && controller.MaxStrength >= NoosphericAcceleratorPowerState.Level3)
+            && EntityManager.TryGetComponent<NoosphericAcceleratorControlBoxComponent>(wire.Owner, out var controller)
+            && controller.MaxStrength >= NoosphericAcceleratorPowerState.Level3)
             result = new(Color.Purple, result.Value.State, result.Value.Text);
 
         return result;
@@ -41,7 +42,6 @@ public sealed partial class NoosphericAcceleratorLimiterWireAction : ComponentWi
 
     public override bool Mend(EntityUid user, Wire wire, NoosphericAcceleratorControlBoxComponent controller)
     {
-
         controller.MaxStrength = NoosphericAcceleratorPowerState.Level2;
         if (controller.SelectedStrength <= controller.MaxStrength || controller.StrengthLocked)
             return true;
@@ -58,14 +58,13 @@ public sealed partial class NoosphericAcceleratorLimiterWireAction : ComponentWi
     {
         EntityManager.System<PopupSystem>()
             .PopupEntity(
-            Loc.GetString("particle-accelerator-control-box-component-wires-update-limiter-on-pulse"),
-            user,
-            PopupType.SmallCaution
-        );
+                Loc.GetString("particle-accelerator-control-box-component-wires-update-limiter-on-pulse"),
+                user,
+                PopupType.SmallCaution
+            );
     }
 
     public override void Update(Wire wire)
     {
-
     }
 }

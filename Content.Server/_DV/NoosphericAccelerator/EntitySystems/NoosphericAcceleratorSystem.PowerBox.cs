@@ -7,10 +7,13 @@ public sealed partial class NoosphericAcceleratorSystem
 {
     private void InitializePowerBoxSystem()
     {
-        SubscribeLocalEvent<NoosphericAcceleratorPowerBoxComponent, PowerConsumerReceivedChanged>(PowerBoxReceivedChanged);
+        SubscribeLocalEvent<NoosphericAcceleratorPowerBoxComponent, PowerConsumerReceivedChanged>(
+            PowerBoxReceivedChanged);
     }
 
-    private void PowerBoxReceivedChanged(EntityUid uid, NoosphericAcceleratorPowerBoxComponent component, ref PowerConsumerReceivedChanged args)
+    private void PowerBoxReceivedChanged(EntityUid uid,
+        NoosphericAcceleratorPowerBoxComponent component,
+        ref PowerConsumerReceivedChanged args)
     {
         if (!TryComp<NoosphericAcceleratorPartComponent>(uid, out var part))
             return;
@@ -18,7 +21,8 @@ public sealed partial class NoosphericAcceleratorSystem
             return;
 
         var master = part.Master!.Value;
-        if (controller.Enabled && args.ReceivedPower >= args.DrawRate * NoosphericAcceleratorControlBoxComponent.RequiredPowerRatio)
+        if (controller.Enabled && args.ReceivedPower >=
+            args.DrawRate * NoosphericAcceleratorControlBoxComponent.RequiredPowerRatio)
             PowerOn(master, comp: controller);
         else
             PowerOff(master, comp: controller);

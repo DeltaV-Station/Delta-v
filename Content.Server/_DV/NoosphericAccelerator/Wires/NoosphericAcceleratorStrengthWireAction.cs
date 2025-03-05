@@ -1,13 +1,13 @@
 using Content.Server._DV.NoosphericAccelerator.Components;
 using Content.Server._DV.NoosphericAccelerator.EntitySystems;
 using Content.Server.Wires;
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.NoosphericAccelerator.Components;
 using Content.Shared.Wires;
-using Robust.Shared.Player;
 
 namespace Content.Server._DV.NoosphericAccelerator.Wires;
 
-public sealed partial class NoosphericAcceleratorStrengthWireAction : ComponentWireAction<NoosphericAcceleratorControlBoxComponent>
+public sealed partial class
+    NoosphericAcceleratorStrengthWireAction : ComponentWireAction<NoosphericAcceleratorControlBoxComponent>
 {
     public override string Name { get; set; } = "wire-name-pa-strength";
     public override Color Color { get; set; } = Color.Blue;
@@ -37,6 +37,9 @@ public sealed partial class NoosphericAcceleratorStrengthWireAction : ComponentW
     public override void Pulse(EntityUid user, Wire wire, NoosphericAcceleratorControlBoxComponent controller)
     {
         var paSystem = EntityManager.System<NoosphericAcceleratorSystem>();
-        paSystem.SetStrength(wire.Owner, (NoosphericAcceleratorPowerState) ((int) controller.SelectedStrength + 1), user, controller);
+        paSystem.SetStrength(wire.Owner,
+            (NoosphericAcceleratorPowerState)((int)controller.SelectedStrength + 1),
+            user,
+            controller);
     }
 }

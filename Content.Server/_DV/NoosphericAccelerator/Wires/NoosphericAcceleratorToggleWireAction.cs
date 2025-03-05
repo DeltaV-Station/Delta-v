@@ -1,13 +1,14 @@
 using Content.Server._DV.NoosphericAccelerator.Components;
 using Content.Server._DV.NoosphericAccelerator.EntitySystems;
 using Content.Server.Wires;
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.NoosphericAccelerator.Components;
 using Content.Shared.Wires;
 using Robust.Shared.Player;
 
 namespace Content.Server._DV.NoosphericAccelerator.Wires;
 
-public sealed partial class NoosphericAcceleratorPowerWireAction : ComponentWireAction<NoosphericAcceleratorControlBoxComponent>
+public sealed partial class
+    NoosphericAcceleratorPowerWireAction : ComponentWireAction<NoosphericAcceleratorControlBoxComponent>
 {
     public override string Name { get; set; } = "wire-name-pa-power";
     public override Color Color { get; set; } = Color.Yellow;

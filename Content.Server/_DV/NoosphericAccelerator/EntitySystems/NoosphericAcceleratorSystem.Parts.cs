@@ -16,7 +16,9 @@ public sealed partial class NoosphericAcceleratorSystem
         SubscribeLocalEvent<NoosphericAcceleratorPartComponent, PhysicsBodyTypeChangedEvent>(BodyTypeChanged);
     }
 
-    public void RescanParts(EntityUid uid, EntityUid? user = null, NoosphericAcceleratorControlBoxComponent? controller = null)
+    public void RescanParts(EntityUid uid,
+        EntityUid? user = null,
+        NoosphericAcceleratorControlBoxComponent? controller = null)
     {
         if (!Resolve(uid, ref controller))
             return;
@@ -88,26 +90,53 @@ public sealed partial class NoosphericAcceleratorSystem
         var offsetVect = rotation.GetCardinalDir().ToIntVec();
         var orthoOffsetVect = new Vector2i(-offsetVect.Y, offsetVect.X);
 
-        var positionFuelChamber = _mapSystem.TileIndicesFor(gridUid!.Value, grid, fuelXform.Coordinates); //   n   // n: End Cap
-        var positionEndCap = positionFuelChamber - offsetVect;                                            //  CF   // C: Control Box, F: Fuel Chamber
-        var positionPowerBox = positionFuelChamber + offsetVect;                                          //   P   // P: Power Box
-        var positionPortEmitter = positionFuelChamber + offsetVect * 2 + orthoOffsetVect;                 //  EEE  // E: Emitter (Starboard, Fore, Port)
+        var positionFuelChamber =
+            _mapSystem.TileIndicesFor(gridUid!.Value, grid, fuelXform.Coordinates); //   n   // n: End Cap
+        var positionEndCap = positionFuelChamber - offsetVect; //  CF   // C: Control Box, F: Fuel Chamber
+        var positionPowerBox = positionFuelChamber + offsetVect; //   P   // P: Power Box
+        var positionPortEmitter =
+            positionFuelChamber + offsetVect * 2 + orthoOffsetVect; //  EEE  // E: Emitter (Starboard, Fore, Port)
         var positionForeEmitter = positionFuelChamber + offsetVect * 2;
         var positionStarboardEmitter = positionFuelChamber + offsetVect * 2 - orthoOffsetVect;
 
-        ScanPart<NoosphericAcceleratorEndCapComponent>(gridUid.Value, positionEndCap, rotation, out controller.EndCap, out _, grid);
-        ScanPart<NoosphericAcceleratorPowerBoxComponent>(gridUid.Value, positionPowerBox, rotation, out controller.PowerBox, out _, grid);
+        ScanPart<NoosphericAcceleratorEndCapComponent>(gridUid.Value,
+            positionEndCap,
+            rotation,
+            out controller.EndCap,
+            out _,
+            grid);
+        ScanPart<NoosphericAcceleratorPowerBoxComponent>(gridUid.Value,
+            positionPowerBox,
+            rotation,
+            out controller.PowerBox,
+            out _,
+            grid);
 
-        if (!ScanPart<NoosphericAcceleratorEmitterComponent>(gridUid.Value, positionPortEmitter, rotation, out controller.PortEmitter, out var portEmitter, grid)
-        || portEmitter.Type != NoosphericAcceleratorEmitterType.Port)
+        if (!ScanPart<NoosphericAcceleratorEmitterComponent>(gridUid.Value,
+                positionPortEmitter,
+                rotation,
+                out controller.PortEmitter,
+                out var portEmitter,
+                grid)
+            || portEmitter.Type != NoosphericAcceleratorEmitterType.Port)
             controller.PortEmitter = null;
 
-        if (!ScanPart<NoosphericAcceleratorEmitterComponent>(gridUid.Value, positionForeEmitter, rotation, out controller.ForeEmitter, out var foreEmitter, grid)
-        || foreEmitter.Type != NoosphericAcceleratorEmitterType.Fore)
+        if (!ScanPart<NoosphericAcceleratorEmitterComponent>(gridUid.Value,
+                positionForeEmitter,
+                rotation,
+                out controller.ForeEmitter,
+                out var foreEmitter,
+                grid)
+            || foreEmitter.Type != NoosphericAcceleratorEmitterType.Fore)
             controller.ForeEmitter = null;
 
-        if (!ScanPart<NoosphericAcceleratorEmitterComponent>(gridUid.Value, positionStarboardEmitter, rotation, out controller.StarboardEmitter, out var starboardEmitter, grid)
-        || starboardEmitter.Type != NoosphericAcceleratorEmitterType.Starboard)
+        if (!ScanPart<NoosphericAcceleratorEmitterComponent>(gridUid.Value,
+                positionStarboardEmitter,
+                rotation,
+                out controller.StarboardEmitter,
+                out var starboardEmitter,
+                grid)
+            || starboardEmitter.Type != NoosphericAcceleratorEmitterType.Starboard)
             controller.StarboardEmitter = null;
 
         controller.Assembled =
@@ -130,7 +159,12 @@ public sealed partial class NoosphericAcceleratorSystem
         UpdateUI(uid, controller);
     }
 
-    private bool ScanPart<T>(EntityUid uid, Vector2i coordinates, Angle? rotation, [NotNullWhen(true)] out EntityUid? part, [NotNullWhen(true)] out T? comp, MapGridComponent? grid = null)
+    private bool ScanPart<T>(EntityUid uid,
+        Vector2i coordinates,
+        Angle? rotation,
+        [NotNullWhen(true)] out EntityUid? part,
+        [NotNullWhen(true)] out T? comp,
+        MapGridComponent? grid = null)
         where T : IComponent
     {
         if (!Resolve(uid, ref grid))
@@ -144,8 +178,8 @@ public sealed partial class NoosphericAcceleratorSystem
         foreach (var entity in _mapSystem.GetAnchoredEntities(uid, grid, coordinates))
         {
             if (compQuery.TryGetComponent(entity, out comp)
-            && TryComp<NoosphericAcceleratorPartComponent>(entity, out var partState) && partState.Master == null
-            && (rotation == null || Transform(entity).LocalRotation.EqualsApprox(rotation!.Value.Theta)))
+                && TryComp<NoosphericAcceleratorPartComponent>(entity, out var partState) && partState.Master == null
+                && (rotation == null || Transform(entity).LocalRotation.EqualsApprox(rotation!.Value.Theta)))
             {
                 part = entity;
                 return true;
@@ -163,7 +197,9 @@ public sealed partial class NoosphericAcceleratorSystem
             RescanParts(comp.Master!.Value);
     }
 
-    private void BodyTypeChanged(EntityUid uid, NoosphericAcceleratorPartComponent comp, ref PhysicsBodyTypeChangedEvent args)
+    private void BodyTypeChanged(EntityUid uid,
+        NoosphericAcceleratorPartComponent comp,
+        ref PhysicsBodyTypeChangedEvent args)
     {
         if (Exists(comp.Master))
             RescanParts(comp.Master!.Value);

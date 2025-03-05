@@ -16,6 +16,7 @@ public enum NoosphericAcceleratorPowerLevel
 public sealed class NoosphericAcceleratorPowerState
 {
     public bool Enabled = false;
+
     public Dictionary<ParticleType, NoosphericAcceleratorPowerLevel> ParticleStrengths = new()
     {
         { ParticleType.Delta, NoosphericAcceleratorPowerLevel.Standby },
@@ -25,11 +26,11 @@ public sealed class NoosphericAcceleratorPowerState
     };
 }
 
-
 [NetSerializable, Serializable]
 public sealed class NoosphericAcceleratorSetEnableMessage : BoundUserInterfaceMessage
 {
     public readonly bool Enabled;
+
     public NoosphericAcceleratorSetEnableMessage(bool enabled)
     {
         Enabled = enabled;
@@ -45,7 +46,8 @@ public sealed class NoosphericAcceleratorRescanPartsMessage : BoundUserInterface
 }
 
 [NetSerializable, Serializable]
-public sealed class NoosphericAcceleratorSetPowerStateMessage(NoosphericAcceleratorPowerState state) : BoundUserInterfaceMessage
+public sealed class NoosphericAcceleratorSetPowerStateMessage(NoosphericAcceleratorPowerState state)
+    : BoundUserInterfaceMessage
 {
     public readonly NoosphericAcceleratorPowerState State = state;
 }

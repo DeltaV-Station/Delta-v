@@ -9,7 +9,7 @@ public sealed partial class NoosphericAcceleratorEmitterComponent : Component
     public EntProtoId EmittedPrototype = "ParticlesProjectile";
 
     [DataField("emitterType")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables]
     public NoosphericAcceleratorEmitterType Type = NoosphericAcceleratorEmitterType.Fore;
 
     public override string ToString()

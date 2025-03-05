@@ -43,7 +43,7 @@ public sealed partial class NoosphericAcceleratorControlBoxComponent : Component
     /// <summary>
     /// Block re-entrant rescanning.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables]
     public bool CurrentlyRescanning = false;
 
     /// <summary>
@@ -126,28 +126,29 @@ public sealed partial class NoosphericAcceleratorControlBoxComponent : Component
     /// The amount of power (in watts) the PA draws just by existing as a functional machine.
     /// </summary>
     [DataField("powerDrawBase")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables]
     public int BasePowerDraw = 500;
 
     /// <summary>
     /// The amount of power (in watts) the PA draws per level when turned on.
     /// </summary>
     [DataField("powerDrawMult")]
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int LevelPowerDraw = 1500;
+    [ViewVariables]
+    public float LevelPowerDraw = 1500;
 
     /// <summary>
     /// The time at which the PA last fired a wave of particles.
     /// </summary>
     [DataField("lastFire")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables]
+
     public TimeSpan LastFire;
 
     /// <summary>
     /// The time at which the PA will next fire a wave of particles.
     /// </summary>
     [DataField("nextFire")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables]
     public TimeSpan NextFire;
 
     /// <summary>
@@ -164,7 +165,7 @@ public sealed partial class NoosphericAcceleratorControlBoxComponent : Component
     // So...
     // I have reflected that here to be authentic.
     [DataField("chargeTime")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables]
     public TimeSpan ChargeTime = TimeSpan.FromSeconds(6.0);
 
     /// <summary>
