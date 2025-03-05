@@ -66,7 +66,6 @@ public sealed partial class NoosphericAcceleratorSystem
         if (TryComp<NoosphericeProjectileComponent>(emitted, out var particle))
             particle.State = comp.SelectedStrength;
 
-        // DONOTMERGE-TODO: Re-enable this
-        //_appearanceSystem.SetData(emitted, NoosphericAcceleratorVisuals.VisualState, comp.SelectedStrength);
+        _appearanceSystem.SetData(emitted, NoosphericAcceleratorVisuals.VisualState, comp.SelectedStrength);
     }
 }
