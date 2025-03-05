@@ -106,7 +106,7 @@
     sprite: Clothing/Back/Satchels/science.rsi
 
 - type: entity
-  parent: [ClothingBackpackSatchel, BaseRestrictedContraband]
+  parent: [ClothingBackpackSatchel, BaseSecurityContraband]
   id: ClothingBackpackSatchelSecurity
   name: security satchel
   description: A robust satchel for security related needs.
@@ -115,7 +115,7 @@
     sprite: _DV/Clothing/Back/Satchels/security.rsi # DeltaV - resprite security satchels
 
 - type: entity
-  parent: [ClothingBackpackSatchel, BaseRestrictedContraband]
+  parent: [ClothingBackpackSatchel, BaseSecurityContraband]
   id: ClothingBackpackSatchelBrigmedic
   name: corpsman satchel # DeltaV - rename brigmedic to corpsman
   description: A sterile satchel for medical related needs.
