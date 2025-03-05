@@ -1,9 +1,9 @@
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.NoosphericAccelerator.Components;
 
 namespace Content.Server._DV.NoosphericAccelerator.Components;
 
 [RegisterComponent]
-public sealed partial class NoosphericParticleProjectileComponent : Component
+public sealed partial class NoosphericeProjectileComponent : Component
 {
     public NoosphericAcceleratorPowerState State;
 }
