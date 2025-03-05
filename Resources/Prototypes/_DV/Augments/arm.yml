@@ -16,7 +16,7 @@
   components:
   - type: Sprite
     sprite: _DV/Objects/Augments/Arm.rsi
-    state: icon
+    state: base
   - type: Storage
     maxItemSize: Normal
     defaultStorageOrientation: Vertical
@@ -39,6 +39,94 @@
   - type: AugmentActivatableUI
     key: enum.AugmentToolPanelUiKey.Key
   - type: AugmentAction
+
+- type: entity
+  id: AugmentUtilityPanelElectronics
+  parent: BaseElectronics
+  name: utility tools panel electronics
+  description: An electronics board that programs a tool panel to hold a specific type of item. This one holds utility tools.
+  components:
+  - type: Item
+    storedRotation: 0
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: mainboard
+  - type: Tag
+    tags: [ AugmentToolBelt ]
+
+- type: entity
+  id: AugmentBotanyPanelElectronics
+  parent: BaseElectronics
+  name: botany tools panel electronics
+  description: An electronics board that programs a tool panel to hold a specific type of item. This one holds botanical tools.
+  components:
+  - type: Item
+    storedRotation: 0
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: mainboard
+  - type: Tag
+    tags: [ AugmentBotanyToolBelt ]
+
+- type: entity
+  id: AugmentSurgeryPanelElectronics
+  parent: BaseElectronics
+  name: surgery tools panel electronics
+  description: An electronics board that programs a tool panel to hold a specific type of item. This one holds surgical tools.
+  components:
+  - type: Item
+    storedRotation: 0
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: mainboard
+  - type: Tag
+    tags: [ AugmentSurgeryToolBelt ]
+
+- type: entity
+  id: AugmentPaperworkPanelElectronics
+  parent: BaseElectronics
+  name: paperwork tools panel electronics
+  description: An electronics board that programs a tool panel to hold a specific type of item. This one holds paperwork tools.
+  components:
+  - type: Item
+    storedRotation: 0
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: mainboard
+  - type: Tag
+    tags: [ AugmentPaperworkToolBelt ]
+
+- type: entity
+  parent: BaseItem
+  id: AugmentToolPanelCasing
+  name: tools panel augment casing
+  description: Can be implanted into a body to provide access to specific tools. This one is incomplete.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/Arm.rsi
+    state: base
+  - type: Item
+    size: Ginormous
+  - type: Construction
+    graph: CreateToolsPanel
+    node: casing
+  - type: Tag
+    tags: [ AugmentToolPanelCasing ]
+
+- type: entity
+  parent: BaseItem
+  id: AugmentToolPanelCasingCables
+  name: tools panel augment casing with cables
+  description: Can be implanted into a body to provide access to specific tools. This one is incomplete.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/Arm.rsi
+    state: base_cables
+  - type: Item
+    size: Ginormous
+  - type: Construction
+    graph: CreateToolsPanel
+    node: cables
 
 - type: entity
   parent: AugmentBaseToolPanel
@@ -72,6 +160,9 @@
       - Geiger
       - TrayScanner
       - GasAnalyzer
+  - type: Construction
+    graph: CreateToolsPanel
+    node: tools
 
 - type: entity
   parent: AugmentBaseToolPanel
@@ -79,6 +170,8 @@
   name: botanical tools panel augment
   description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold botanical tools.
   components:
+  - type: Sprite
+    state: botany
   - type: Storage
     whitelist:
       tags:
@@ -89,6 +182,9 @@
       - Dropper
       components:
       - HandLabeler
+  - type: Construction
+    graph: CreateToolsPanel
+    node: botany
 
 - type: entity
   parent: AugmentBaseToolPanel
@@ -96,6 +192,8 @@
   name: paperwork tools panel augment
   description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold paperwork tools.
   components:
+  - type: Sprite
+    state: paperwork
   - type: Storage
     whitelist:
       tags:
@@ -104,6 +202,9 @@
       components:
       - Stamp
       - TapeRecorder
+  - type: Construction
+    graph: CreateToolsPanel
+    node: paperwork
 
 - type: entity
   parent: AugmentBaseToolPanel
@@ -120,3 +221,6 @@
       - SurgeryTool
       components:
       - SurgeryTool
+  - type: Construction
+    graph: CreateToolsPanel
+    node: surgery
