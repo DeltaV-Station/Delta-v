@@ -1,15 +1,17 @@
+using Content.Shared._DV.Noospherics;
+
 namespace Content.Server._DV.Singularity.Components;
 
+
 [RegisterComponent]
-public sealed partial class NoosphereFoodComponent : Component
+public sealed partial class NoosphericFoodComponent : Component
 {
-    // TODO: Make this into a cool hash map? Or just leave as-is...
     [DataField]
-    public float DeltaParticles = 1f;
-    [DataField]
-    public float EpsilonParticles = 1f;
-    [DataField]
-    public float ZetaParticles = 1f;
-    [DataField]
-    public float OmegaParticles = 1f;
+    public Dictionary<ParticleType, float> Particles = new()
+    {
+        { ParticleType.Delta, 1f },
+        { ParticleType.Epsilon, 1f },
+        { ParticleType.Omega, 1f },
+        { ParticleType.Zeta, 1f },
+    };
 }
