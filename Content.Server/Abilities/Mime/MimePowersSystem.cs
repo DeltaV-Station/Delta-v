@@ -5,7 +5,7 @@ using Content.Shared.Actions.Events;
 using Content.Shared.Alert;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Maps;
-using Content.Shared.Mobs.Components;
+using Content.Shared.Paper;
 using Content.Shared.Physics;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -20,8 +20,7 @@ namespace Content.Server.Abilities.Mime
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-        [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
-        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!; // DeltaV
         [Dependency] private readonly TurfSystem _turf = default!;
         [Dependency] private readonly IMapManager _mapMan = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -59,6 +58,13 @@ namespace Content.Server.Abilities.Mime
         private void OnComponentInit(EntityUid uid, MimePowersComponent component, ComponentInit args)
         {
             EnsureComp<MutedComponent>(uid);
+            if (component.PreventWriting)
+            {
+                EnsureComp<BlockWritingComponent>(uid, out var illiterateComponent);
+                illiterateComponent.FailWriteMessage = component.FailWriteMessage;
+                Dirty(uid, illiterateComponent);
+            }
+
             _alertsSystem.ShowAlert(uid, component.VowAlert);
             _actionsSystem.AddAction(uid, ref component.InvisibleWallActionEntity, component.InvisibleWallAction, uid);
             //Nyano - Summary: Add Psionic Ability to Mime.
@@ -85,25 +91,17 @@ namespace Content.Server.Abilities.Mime
             if (tile == null)
                 return;
 
-            // Check there are no walls there
-            if (_turf.IsTileBlocked(tile.Value, CollisionGroup.Impassable))
+            // Check if the tile is blocked by a wall or mob, and don't create the wall if so
+            if (_turf.IsTileBlocked(tile.Value, CollisionGroup.Impassable | CollisionGroup.Opaque))
             {
                 _popupSystem.PopupEntity(Loc.GetString("mime-invisible-wall-failed"), uid, uid);
                 return;
             }
 
-            // Check there are no mobs there
-            foreach (var entity in _lookupSystem.GetLocalEntitiesIntersecting(tile.Value, 0f))
-            {
-                if (HasComp<MobStateComponent>(entity) && entity != uid)
-                {
-                    _popupSystem.PopupEntity(Loc.GetString("mime-invisible-wall-failed"), uid, uid);
-                    return;
-                }
-            }
-            // Begin Nyano-code: mime powers are psionic.
+            // Begin DeltaV Additions
             _psionics.LogPowerUsed(uid, "invisible wall");
-            // End Nyano-code.
+            // End DeltaV Additions
+
             _popupSystem.PopupEntity(Loc.GetString("mime-invisible-wall-popup", ("mime", uid)), uid);
             // Make sure we set the invisible wall to despawn properly
             Spawn(component.WallPrototype, _turf.GetTileCenter(tile.Value));
@@ -142,6 +140,8 @@ namespace Content.Server.Abilities.Mime
             mimePowers.VowBroken = true;
             mimePowers.VowRepentTime = _timing.CurTime + mimePowers.VowCooldown;
             RemComp<MutedComponent>(uid);
+            if (mimePowers.PreventWriting)
+                RemComp<BlockWritingComponent>(uid);
             _alertsSystem.ClearAlert(uid, mimePowers.VowAlert);
             _alertsSystem.ShowAlert(uid, mimePowers.VowBrokenAlert);
             _actionsSystem.RemoveAction(uid, mimePowers.InvisibleWallActionEntity);
@@ -165,6 +165,13 @@ namespace Content.Server.Abilities.Mime
             mimePowers.ReadyToRepent = false;
             mimePowers.VowBroken = false;
             AddComp<MutedComponent>(uid);
+            if (mimePowers.PreventWriting)
+            {
+                EnsureComp<BlockWritingComponent>(uid, out var illiterateComponent);
+                illiterateComponent.FailWriteMessage = mimePowers.FailWriteMessage;
+                Dirty(uid, illiterateComponent);
+            }
+
             _alertsSystem.ClearAlert(uid, mimePowers.VowBrokenAlert);
             _alertsSystem.ShowAlert(uid, mimePowers.VowAlert);
             _actionsSystem.AddAction(uid, ref mimePowers.InvisibleWallActionEntity, mimePowers.InvisibleWallAction, uid);
