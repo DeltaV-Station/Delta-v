@@ -1,5 +1,5 @@
 using Content.Server._DV.NoosphericAccelerator.Wires;
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.NoosphericAccelerator.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server._DV.NoosphericAccelerator.Components;
@@ -47,19 +47,32 @@ public sealed partial class NoosphericAcceleratorControlBoxComponent : Component
     public bool CurrentlyRescanning = false;
 
     /// <summary>
-    /// Whether the PA is currently firing or charging to fire.
-    /// Bounded by <see cref="NoosphericAcceleratorPowerState.Standby"/> and <see cref="MaxStrength"/>.
-    /// Modified by <see cref="NoosphericAcceleratorStrengthWireAction"/>.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public NoosphericAcceleratorPowerState SelectedStrength = NoosphericAcceleratorPowerState.Standby;
-
-    /// <summary>
-    /// The maximum strength level this particle accelerator can be set to operate at.
+    /// The current strength level this noospheric particle accelerator is set to operate at.
     /// Modified by <see cref="NoosphericAcceleratorLimiterWireAction"/>.
     /// </summary>
     [ViewVariables]
-    public NoosphericAcceleratorPowerState MaxStrength = NoosphericAcceleratorPowerState.Level2;
+    public NoosphericAcceleratorPowerState SelectedStrength;
+
+    /// <summary>
+    /// The maximum strength level any of the noospheric particles may be set to.
+    /// Modified by <see cref="NoosphericAcceleratorLimiterWireAction"/>.
+    /// </summary>
+    public int MaximumStrength = 4;
+
+    /// <summary>
+    /// Maps power states to a base number used when feeding.
+    /// This is the multiplied by the PowerModifier
+    /// </summary>
+    [ViewVariables]
+    // DONOTMERGE-TODO: Is this validatable anywhere? Someone can override this with 3 numbers instead...
+    public List<float> PowerMappings = [0, 1, 2, 3, 10];
+
+    /// <summary>
+    /// Multiplies the power level of all particle types by this amount
+    /// Modified by <see cref="NoosphericAcceleratorLimiterWireAction"/>.
+    /// </summary>
+    [ViewVariables]
+    public float PowerModifier = 10;
 
     /// <summary>
     /// The power supply unit of the assembled particle accelerator.

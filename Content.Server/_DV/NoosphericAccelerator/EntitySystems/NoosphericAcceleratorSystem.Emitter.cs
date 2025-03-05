@@ -1,14 +1,15 @@
 using Content.Server._DV.NoosphericAccelerator.Components;
-using Content.Server.Singularity.Components;
 using Content.Shared.Projectiles;
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.NoosphericAccelerator.Components;
 using Robust.Shared.Physics.Components;
+using Content.Server._DV.Singularity.Components;
+using Content.Shared._DV.Noospherics;
 
 namespace Content.Server._DV.NoosphericAccelerator.EntitySystems;
 
 public sealed partial class NoosphericAcceleratorSystem
 {
-    private void FireEmitter(EntityUid uid, NoosphericAcceleratorPowerState strength, NoosphericAcceleratorEmitterComponent? emitter = null)
+    private void FireEmitter(EntityUid uid, NoosphericAcceleratorControlBoxComponent comp, NoosphericAcceleratorEmitterComponent? emitter = null)
     {
         if (!Resolve(uid, ref emitter))
             return;
@@ -40,23 +41,29 @@ public sealed partial class NoosphericAcceleratorSystem
         if (TryComp<ProjectileComponent>(emitted, out var proj))
             _projectileSystem.SetShooter(emitted, proj, uid);
 
-        if (TryComp<SinguloFoodComponent>(emitted, out var food))
+        if (TryComp<NoosphericFoodComponent>(emitted, out var food))
         {
-            // TODO: Unhardcode this.
-            food.Energy = strength switch
+            var strength = comp.SelectedStrength;
+
+            foreach (var type in Enum.GetValues<ParticleType>())
             {
-                NoosphericAcceleratorPowerState.Standby => 0,
-                NoosphericAcceleratorPowerState.Level0 => 1,
-                NoosphericAcceleratorPowerState.Level1 => 2,
-                NoosphericAcceleratorPowerState.Level2 => 3,
-                NoosphericAcceleratorPowerState.Level3 => 10,
-                _ => 0,
-            } * 10;
+                food.Particles[type] = strength.ParticleStrengths[type] switch
+                {
+                    NoosphericAcceleratorPowerLevel.Standby => comp.PowerMappings[0],
+                    NoosphericAcceleratorPowerLevel.Level0 => comp.PowerMappings[1],
+                    NoosphericAcceleratorPowerLevel.Level1 => comp.PowerMappings[2],
+                    NoosphericAcceleratorPowerLevel.Level2 => comp.PowerMappings[3],
+                    NoosphericAcceleratorPowerLevel.Level3 => comp.PowerMappings[4],
+                    _ => 0,
+                } * comp.PowerModifier;
+            }
+
         }
 
-        if (TryComp<ParticleProjectileComponent>(emitted, out var particle))
-            particle.State = strength;
+        if (TryComp<NoosphericeProjectileComponent>(emitted, out var particle))
+            particle.State = comp.SelectedStrength;
 
-        _appearanceSystem.SetData(emitted, NoosphericAcceleratorVisuals.VisualState, strength);
+        // DONOTMERGE-TODO: Re-enable this
+        //_appearanceSystem.SetData(emitted, NoosphericAcceleratorVisuals.VisualState, comp.SelectedStrength);
     }
 }
