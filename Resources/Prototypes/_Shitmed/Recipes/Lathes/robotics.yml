@@ -118,7 +118,8 @@
 - type: latheRecipe
   id: ClothingHandsGlovesMechanicalSurgical
   result: ClothingHandsGlovesMechanicalSurgical
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 3
   materials:
     Durathread: 500
