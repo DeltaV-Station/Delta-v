@@ -23,7 +23,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Physics;
 
 namespace Content.Shared.Doors.Systems;
 
@@ -150,7 +149,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
         RaiseLocalEvent(ent, new DoorStateChangedEvent(door.State));
     }
 
-    protected bool SetState(EntityUid uid, DoorState state, DoorComponent? door = null)
+    public bool SetState(EntityUid uid, DoorState state, DoorComponent? door = null)
     {
         if (!Resolve(uid, ref door))
             return false;
@@ -237,7 +236,6 @@ public abstract partial class SharedDoorSystem : EntitySystem
         }
         else if (door.State == DoorState.Open)
         {
-            door.IsBeingPried = true;
             _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(args.User)} pried {ToPrettyString(uid)} closed");
             StartClosing(uid, door, args.User, true);
         }
@@ -429,7 +427,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
     /// <param name="uid"> The uid of the door</param>
     /// <param name="door"> The doorcomponent of the door</param>
     /// <param name="user"> The user (if any) opening the door</param>
-    public bool CanClose(EntityUid uid, DoorComponent? door = null, EntityUid? user = null)
+    public bool CanClose(EntityUid uid, DoorComponent? door = null, EntityUid? user = null, bool partial = false)
     {
         if (!Resolve(uid, ref door))
             return false;
@@ -439,7 +437,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
         if (door.State is DoorState.Welded or DoorState.Closed)
             return false;
 
-        var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck);
+        var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck, partial);
         RaiseLocalEvent(uid, ev);
         if (ev.Cancelled)
             return false;
@@ -474,18 +472,16 @@ public abstract partial class SharedDoorSystem : EntitySystem
             return false;
 
         // Make sure no entity walked into the airlock when it started closing.
-        if (!CanClose(uid, door))
+        if (!CanClose(uid, door, partial: true))
         {
             door.NextStateChange = GameTiming.CurTime + door.OpenTimeTwo;
             door.State = DoorState.Open;
             AppearanceSystem.SetData(uid, DoorVisuals.State, DoorState.Open);
-            door.IsBeingPried = false;
             Dirty(uid, door);
             return false;
         }
 
         door.Partial = true;
-        door.IsBeingPried = false;
         SetCollidable(uid, true, door, physics);
         door.NextStateChange = GameTiming.CurTime + door.CloseTimeTwo;
         Dirty(uid, door);

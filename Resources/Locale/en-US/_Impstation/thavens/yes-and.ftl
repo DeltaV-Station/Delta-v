@@ -37,8 +37,8 @@ thaven-mood-only-speak-to-command-desc = Problems you encounter are too complex 
 thaven-mood-scheduler-name = Punctual
 thaven-mood-scheduler-desc = You believe that time must be strictly managed. Everything should be scheduled in advance, and tardiness is exceptionally rude.
 
-thaven-mood-radio-only-name = Nanochat Addict
-thaven-mood-radio-only-desc = Your social status is dependent on the number of friends you have on Nanochat. You must collect as many numbers as possible.
+thaven-mood-nanochat-addict-name = Nanochat Addict
+thaven-mood-nanochat-addict-desc = Your social status is dependent on the number of friends you have on Nanochat. You must use your PDA as much as possible, and message everyone you can.
 
 thaven-mood-proper-storage-name = Proper Handling
 thaven-mood-proper-storage-desc = It is unacceptable to allow personal belongings to touch the floor. Your possessions should be properly stored, placed on tables, or exchanged by hand.

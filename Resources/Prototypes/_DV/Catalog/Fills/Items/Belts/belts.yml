@@ -69,3 +69,14 @@
     - id: Bonesetter
     - id: BoneGel
     - id: SawElectric
+
+- type: entityTable
+  id: HostageWardenBelt
+  table: !type:AllSelector
+    children:
+    - id: Stunbaton
+    - id: GrenadeFlashBang
+    - id: Handcuffs
+    - id: Handcuffs
+    - id: MagazinePistolRubber
+    - id: MagazinePistolRubber

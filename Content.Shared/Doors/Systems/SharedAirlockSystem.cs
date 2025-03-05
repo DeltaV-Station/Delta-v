@@ -40,9 +40,10 @@ public abstract class SharedAirlockSystem : EntitySystem
         // only block based on bolts / power status when initially closing the door, not when its already
         // mid-transition. Particularly relevant for when the door was pried-closed with a crowbar, which bypasses
         // the initial power-check.
+
         if (TryComp(uid, out DoorComponent? door)
-            && !door.Partial
-            && !CanChangeState(uid, airlock, door.IsBeingPried))
+            && !args.Partial
+            && !CanChangeState(uid, airlock))
         {
             args.Cancel();
         }
@@ -173,8 +174,8 @@ public abstract class SharedAirlockSystem : EntitySystem
         component.Safety = value;
     }
 
-    public bool CanChangeState(EntityUid uid, AirlockComponent component, bool isBeingPried = false)
+    public bool CanChangeState(EntityUid uid, AirlockComponent component)
     {
-        return component.Powered && !DoorSystem.IsBolted(uid) || !component.Powered && isBeingPried ;
+        return component.Powered && !DoorSystem.IsBolted(uid);
     }
 }

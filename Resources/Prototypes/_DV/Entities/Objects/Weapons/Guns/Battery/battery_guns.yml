@@ -131,6 +131,9 @@
     - state: mode-disabler
       shader: unshaded
       map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Battery/mini_energygun.rsi
   - type: Gun

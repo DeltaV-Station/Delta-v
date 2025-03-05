@@ -18,3 +18,27 @@
     sound: /Audio/Animals/mouse_squeak.ogg
   - type: UseDelay
     delay: 300
+
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioSyndicateHostageWarden
+  name: hostage warden radio
+  description: Call in a guard to keep those pesky prisoners at bay.
+  suffix: Human, HostageOps
+  components:
+  - type: GhostRole
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 86400 # 24 hours so you aren't a new player.
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 21600 # 6 hours so you know how to use your kit.
+    name: ghost-role-information-warden-nukeop-reinforcement-name
+    description: ghost-role-information-warden-nukeop-reinforcement-description
+    rules: ghost-role-information-warden-nukeop-reinforcement-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanSyndicateHostageWarden

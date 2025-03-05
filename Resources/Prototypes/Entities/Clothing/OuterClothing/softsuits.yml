@@ -14,7 +14,7 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
-    - HidesHarpyWings
+    - HidesHarpyWings # DeltaV
 
 #Syndicate EVA
 - type: entity
@@ -32,7 +32,7 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
-    - HidesHarpyWings
+    - HidesHarpyWings # DeltaV
 
 #Emergency EVA
 - type: entity
@@ -54,7 +54,6 @@
     coolingCoefficient: 0.5
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetEVALarge
-    slot: head
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
@@ -75,7 +74,7 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
-    - HidesHarpyWings
+    - HidesHarpyWings # DeltaV
 
 #NTSRA Voidsuit / Ancient Voidsuit
 - type: entity
@@ -94,15 +93,17 @@
   - type: HeldSpeedModifier
 
 #Paramedic Voidsuit
-#Despite having resistances and looking like a hardsuit, this parents off the EVA suit so it goes here.
 - type: entity
-  parent: ClothingOuterEVASuitBase
+  parent: [ClothingOuterEVASuitBase, BaseMedicalContraband] #Despite "Voidsuits are light hardsuits", since it parents of EVA Suits, it goes with the other softsuits
   id: ClothingOuterHardsuitVoidParamed
   name: paramedic void suit
   description: A void suit made for paramedics.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+    layers:
+    - state: icon
+  - type: Appearance
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
   - type: PressureProtection
@@ -125,8 +126,34 @@
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitVoidParamed
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetVoidParamedDeltaV # DeltaV - Added light to the paramedic void suit
+    clothingPrototype: ClothingHeadHelmetVoidParamed
     slot: head
+  - type: ItemToggle
+    onUse: false
+    soundActivate:
+      path: /Audio/Items/flashlight_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/flashlight_off.ogg
+  # Begin DeltaV Removals - Sound spam bad
+  #- type: ItemToggleActiveSound
+  #  activeSound:
+  #    path: /Audio/Effects/Vehicle/ambulancesiren.ogg #not the best sound, but after looking through all of current freesound regarding sirens and ambulance, this was the best compromise
+  #    params:
+  #      volume: -4
+  # End DeltaV Removals
+  - type: UseDelay
+    delay: 1.0
+  - type: ToggleClothing
+    action: ActionToggleParamedicSiren
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: blue
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RotatingLight
+    speed: 360
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
