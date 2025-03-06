@@ -48,6 +48,9 @@
   components:
   - type: Contraband
     allowedDepartments: [ CentralCommand ]
+  - type: MappingCategories # DeltaV
+    categories:
+    - Centcomm
 
 - type: entity
   id: BaseCommandContraband
