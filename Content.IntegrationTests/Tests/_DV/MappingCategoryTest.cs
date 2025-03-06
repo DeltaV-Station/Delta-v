@@ -1,5 +1,6 @@
 using Content.Server._DV.Mapping;
 using Robust.Shared.ContentPack;
+using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -27,6 +28,7 @@ public sealed class MappingCategoryTest
         var resMan = server.ResolveDependency<IResourceManager>();
         var mapLoader = entMan.System<MapLoaderSystem>();
         var catSys = entMan.System<MappingCategoriesSystem>(); // meow
+        var mapSys = entMan.System<SharedMapSystem>();
 
         await server.WaitPost(() =>
         {
@@ -42,7 +44,12 @@ public sealed class MappingCategoryTest
                     if (rootedPath.StartsWith(TestMapsPath, StringComparison.Ordinal))
                         continue;
 
-                    Assert.That(mapLoader.TryLoadGeneric(map, out var maps, out _), $"Failed to load map {rootedPath}");
+                    var mapUid = mapSys.CreateMap(out var mapId);
+                    var opts = new MapLoadOptions
+                    {
+                        MergeMap = mapId // needed or else grids will be de-orphaned which is bad
+                    };
+                    Assert.That(mapLoader.TryLoadGeneric(map, out var maps, out _, opts), $"Failed to load map {rootedPath}");
                     Assert.That(maps.Count, Is.EqualTo(1), $"Map {rootedPath} had multiple maps serialized!");
 
                     var allowed = catSys.GetAllowedCategories(rootedPath);
@@ -53,7 +60,7 @@ public sealed class MappingCategoryTest
                         Assert.That(catSys.CanMap(ent, allowed), $"Entity {entMan.ToPrettyString(uid)} cannot be mapped on {rootedPath}");
                     }
 
-                    entMan.DeleteEntity(maps.First());
+                    entMan.DeleteEntity(mapUid);
                 }
             });
         });
