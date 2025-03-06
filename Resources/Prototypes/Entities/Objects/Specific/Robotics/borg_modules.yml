@@ -606,13 +606,14 @@
     - HydroponicsToolScythe
     - HydroponicsToolHatchet
     # - PlantBag # Frontier
-    # Frontier: droppable borg items
-    droppableItems:
+  # Frontier: droppable borg items
+  - type: DroppableBorgModule
+    items:
     - id: PlantBag
       whitelist:
         components:
         - NFPlantBag
-    # End Frontier
+  # End Frontier
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: harvesting-module }
 
