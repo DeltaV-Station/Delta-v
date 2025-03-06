@@ -3,8 +3,11 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Log;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Markdown.Mapping;
+using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Utility;
 using System.Linq;
 
@@ -29,6 +32,7 @@ public sealed class MappingCategoryTest
         var mapLoader = entMan.System<MapLoaderSystem>();
         var catSys = entMan.System<MappingCategoriesSystem>(); // meow
         var mapSys = entMan.System<SharedMapSystem>();
+        var sawmill = server.ResolveDependency<ILogManager>().GetSawmill("mapping_categories");
 
         await server.WaitPost(() =>
         {
@@ -44,12 +48,21 @@ public sealed class MappingCategoryTest
                     if (rootedPath.StartsWith(TestMapsPath, StringComparison.Ordinal))
                         continue;
 
+                    if (GetCategory(map, mapLoader) is not {} category)
+                    {
+                        sawmill.Warning($"Map {map} is missing a category, skipping it.");
+                        continue;
+                    }
+
                     var mapUid = mapSys.CreateMap(out var mapId);
                     var opts = new MapLoadOptions
                     {
-                        MergeMap = mapId // needed or else grids will be de-orphaned which is bad
+                        MergeMap = category == FileCategory.Map
+                            ? null // don't try to reparent maps
+                            : mapId // needed or else grids will be de-orphaned which is bad
                     };
-                    Assert.That(mapLoader.TryLoadGeneric(map, out _, out _, opts), $"Failed to load map {rootedPath}");
+                    Assert.That(mapLoader.TryLoadGeneric(map, out var maps, out _, opts), $"Failed to load map {rootedPath}");
+                    maps.Add(mapUid);
 
                     var allowed = catSys.GetAllowedCategories(rootedPath);
                     var query = entMan.EntityQueryEnumerator<MappingCategoriesComponent>();
@@ -59,7 +72,10 @@ public sealed class MappingCategoryTest
                         Assert.That(catSys.CanMap(ent, allowed), $"Entity {entMan.ToPrettyString(uid)} cannot be mapped on {rootedPath}");
                     }
 
-                    entMan.DeleteEntity(mapUid);
+                    foreach (var uid in maps)
+                    {
+                        entMan.DeleteEntity(uid);
+                    }
                 }
             });
         });
@@ -67,5 +83,18 @@ public sealed class MappingCategoryTest
         await server.WaitRunTicks(1);
 
         await pair.CleanReturnAsync();
+    }
+
+    // me when engine doesnt have this
+    private FileCategory? GetCategory(ResPath path, MapLoaderSystem mapLoader)
+    {
+        Assert.That(mapLoader.TryReadFile(path, out var data), $"Failed to read map file {path}");
+        var meta = data.Get<MappingDataNode>("meta");
+        if (!meta.TryGet<ValueDataNode>("category", out var node))
+            return null;
+
+        var valid = Enum.TryParse<FileCategory>(node.Value, out var cat);
+        Assert.That(valid, $"Category for {path} is invalid");
+        return cat;
     }
 }
