@@ -121,8 +121,9 @@
     - CableHVStackLingering10
     - Wirecutter
     - trayScanner
-    # Begin DeltaV Additions - wires module can assemble electronics
-    droppableItems:
+  # Begin DeltaV Additions - wires module can assemble electronics
+  - type: DroppableBorgModule
+    items:
     - id: APCElectronics
       whitelist:
         components:
@@ -133,7 +134,7 @@
         components:
         - Electronics
         - MachineBoard
-    # End DeltaV Additions
+  # End DeltaV Additions
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: wire-module }
 
@@ -329,7 +330,9 @@
     #- FloorTileItemSteelLingering0
     # End DeltaV Removals
     # Begin DeltaV Additions
-    droppableItems:
+  # Begin DeltaV Additions - wires module can assemble electronics
+  - type: DroppableBorgModule
+    items:
     - id: SheetSteel1
       whitelist:
         tags:
@@ -463,8 +466,9 @@
     #- Bloodpack10Lingering
     # End DeltaV Removals
     - Syringe
-    # Begin DeltaV Additions
-    droppableItems:
+  # Begin DeltaV Additions
+  - type: DroppableBorgModule
+    items:
     - id: Brutepack
       whitelist:
         components:
@@ -481,7 +485,7 @@
       whitelist:
         components:
         - Healing
-    # End DeltaV Additions
+  # End DeltaV Additions
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
 
@@ -620,8 +624,9 @@
     #- ElectricGuitarInstrument
     #- SaxophoneInstrument
     # End DeltaV Removals
-    # Begin DeltaV Additions
-    droppableItems:
+  # Begin DeltaV Additions
+  - type: DroppableBorgModule
+    items:
     - id: SynthesizerInstrument
       whitelist:
         requireAll: true # no picking up harpies or grand pianos
@@ -640,7 +645,7 @@
         components:
         - Instrument
         - Item
-    # End DeltaV Additions
+  # End DeltaV Additions
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: musical-module }
 
