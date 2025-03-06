@@ -321,15 +321,14 @@
     layers:
     - state: engineering
     - state: icon-construction
-  - type: ItemBorgModule
-    # Begin DeltaV Removals - replaced by hands
-    #items:
-    #- SheetSteelLingering0
-    #- SheetGlassLingering0
-    #- PartRodMetalLingering0
-    #- FloorTileItemSteelLingering0
-    # End DeltaV Removals
-    # Begin DeltaV Additions
+  # Begin DeltaV Removals - replaced by hands
+  #- type: ItemBorgModule
+  #  items:
+  #  - SheetSteelLingering0
+  #  - SheetGlassLingering0
+  #  - PartRodMetalLingering0
+  #  - FloorTileItemSteelLingering0
+  # End DeltaV Removals
   # Begin DeltaV Additions - wires module can assemble electronics
   - type: DroppableBorgModule
     items:
