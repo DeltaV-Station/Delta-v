@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesMechanicalSurgical
+  name: mechanical surgical gloves
+  description: A pair of mechanically supported gloves that support the wearer's precision, allowing them to move through surgeries faster with more confidence
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Clothing/Hands/Gloves/mechanical_surgery_gloves.rsi
+  - type: Clothing
+    sprite: _Shitmed/Clothing/Hands/Gloves/mechanical_surgery_gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-nanomachines
+    fiberColor: fibers-teal
+  - type: Armor
+    modifiers: {}
+  - type: SurgerySpeedModifier
+    speedModifier: 2.0
