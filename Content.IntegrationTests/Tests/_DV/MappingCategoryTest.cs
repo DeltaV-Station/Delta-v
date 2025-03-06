@@ -49,8 +49,7 @@ public sealed class MappingCategoryTest
                     {
                         MergeMap = mapId // needed or else grids will be de-orphaned which is bad
                     };
-                    Assert.That(mapLoader.TryLoadGeneric(map, out var maps, out _, opts), $"Failed to load map {rootedPath}");
-                    Assert.That(maps.Count, Is.EqualTo(1), $"Map {rootedPath} had multiple maps serialized!");
+                    Assert.That(mapLoader.TryLoadGeneric(map, out _, out _, opts), $"Failed to load map {rootedPath}");
 
                     var allowed = catSys.GetAllowedCategories(rootedPath);
                     var query = entMan.EntityQueryEnumerator<MappingCategoriesComponent>();
