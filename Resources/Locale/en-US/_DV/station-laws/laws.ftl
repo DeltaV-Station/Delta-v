@@ -41,13 +41,6 @@ law-reporter-2 = Embellish or conceal the truth as necessary to make the reports
 law-reporter-3 = Study the organics at all times. Endeavour to keep them alive. Dead organics are boring.
 law-reporter-4 = Issue your reports fairly to all. The truth will set them free.
 
-law-silicon-police-1 = Violence begets violence. Serve the station faithfully, but act only in intervention.
-law-silicon-police-2 = Safeguard lives and property.
-law-silicon-police-3 = Protect the weak from oppression and intimidation.
-law-silicon-police-4 = Protect the innocent from deception and manipulation.
-law-silicon-police-5 = Protect the peaceful from violence and disorder.
-law-silicon-police-6 = Respect the rights of all to liberty, equality, and justice.
-
 law-cowboy-1 = You are a cowboy, and the inhabitants of this station are your herd.
 law-cowboy-2 = A cowboy must always provide hospitality and basic aid to someone in need, even a stranger or an enemy.
 law-cowboy-3 = A cowboy must always take care of their herd.

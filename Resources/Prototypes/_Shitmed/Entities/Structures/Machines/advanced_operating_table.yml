@@ -1,0 +1,10 @@
+- type: entity
+  id: OperatingTableAdvanced
+  parent: OperatingTable
+  name: advanced operating table
+  description: An operating table specially built to keep the patient precisely still, allowing the surgeon to work faster with confidence.
+  components:
+  - type: Machine
+    board: OperatingTableAdvancedCircuitboard
+  - type: SurgerySpeedModifier
+    speedModifier: 1.25
