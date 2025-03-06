@@ -53,7 +53,8 @@
     - FlashRecharging
     - FlashlightSecliteRecharging
     - SecurityWhistle
-    droppableItems:
+  - type: DroppableBorgModule
+    items:
     - id: Handcuffs
       whitelist:
         components:
