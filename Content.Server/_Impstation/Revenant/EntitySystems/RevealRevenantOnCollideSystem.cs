@@ -18,7 +18,7 @@ public sealed partial class RevealRevenantOnCollideSystem : SharedRevealRevenant
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RevealRevenantOnCollideComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<RevealRevenantOnCollideComponent, ComponentStartup>(MapInitEvent);
         SubscribeLocalEvent<RevealRevenantOnCollideComponent, ComponentShutdown>(OnShutdown);
     }
 
@@ -31,7 +31,7 @@ public sealed partial class RevealRevenantOnCollideSystem : SharedRevealRevenant
         return new PhysShapeCircle(0.35f);
     }
 
-    private void OnStartup(EntityUid uid, RevealRevenantOnCollideComponent comp, ComponentStartup args)
+    private void MapInitEvent(EntityUid uid, RevealRevenantOnCollideComponent comp, ComponentStartup args)
     {
         var fixtures = EnsureComp<FixturesComponent>(uid);
         _fixtures.TryCreateFixture(uid,
