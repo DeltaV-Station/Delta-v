@@ -616,13 +616,13 @@
     layers:
     - state: service
     - state: icon-musique
-  - type: ItemBorgModule
-    # Begin DeltaV Removals - replaced by hands
-    #items:
-    #- SynthesizerInstrument
-    #- ElectricGuitarInstrument
-    #- SaxophoneInstrument
-    # End DeltaV Removals
+  # Begin DeltaV Removals - replaced by hands
+  #- type: ItemBorgModule
+  #  items:
+  #  - SynthesizerInstrument
+  #  - ElectricGuitarInstrument
+  #  - SaxophoneInstrument
+  # End DeltaV Removals
   # Begin DeltaV Additions
   - type: DroppableBorgModule
     items:
