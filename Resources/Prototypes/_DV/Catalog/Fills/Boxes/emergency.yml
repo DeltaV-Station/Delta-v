@@ -30,3 +30,15 @@
   # Intentionally wrong picture on the box. NT did not care enough to change it.
   - type: Label
     currentLabel: reagent-name-nitrogen
+
+- type: entity
+  parent: BoxSurvival
+  id: BoxSurvivalHumanoidSilicon
+  suffix: IPC
+  components:
+  - type: StorageFill
+    contents:
+    - id: Flare
+    - id: Oilpack1
+    - id: CableApcStack10
+    - id: WelderMini

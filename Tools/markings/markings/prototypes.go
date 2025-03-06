@@ -15,6 +15,7 @@ const (
 	HumanFacialHair = "HumanFacialHair"
 	VoxFacialHair   = "VoxFacialHair"
 	VoxHair         = "VoxHair"
+	ThavenHair      = "ThavenHair" // DeltaV
 )
 
 func init() {
@@ -23,6 +24,7 @@ func init() {
 	accessoryLayerMapping[HumanFacialHair] = FacialHair
 	accessoryLayerMapping[VoxFacialHair] = FacialHair
 	accessoryLayerMapping[VoxHair] = Hair
+	accessoryLayerMapping[ThavenHair] = Hair // DeltaV
 }
 
 type SpriteAccessoryPrototype struct {
