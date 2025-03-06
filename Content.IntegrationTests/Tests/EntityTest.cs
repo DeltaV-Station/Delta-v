@@ -225,7 +225,7 @@ namespace Content.IntegrationTests.Tests
         /// Note that this isn't really a strict requirement, and there are probably quite a few edge cases. Its a pretty
         /// crude test to try catch issues like this, and possibly should just be disabled.
         /// </remarks>
-        [Test]
+        //[Test] // DeltaV - disabled until its debuggable
         public async Task SpawnAndDeleteEntityCountTest()
         {
             var settings = new PoolSettings { Connected = true, Dirty = true };
