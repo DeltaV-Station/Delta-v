@@ -106,7 +106,7 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
 
     private void AfterInteract(Entity<HandPlaceholderComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach || !args.CanInteract || args.Target is not {} target)
+        if (args.Handled || !args.CanReach || args.Target is not {} target)
             return;
 
         args.Handled = true;
