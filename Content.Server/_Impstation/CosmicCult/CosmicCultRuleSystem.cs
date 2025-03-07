@@ -408,8 +408,36 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         uid.Comp.CurrentProgress = uid.Comp.TotalEntropy + (TotalCult * _config.GetCVar(ImpCCVars.CosmicCultistEntropyValue));
 
-        if (uid.Comp.CurrentProgress >= uid.Comp.TargetProgress && CurrentTier == 3 && !finaleComp.FinaleActive && !finaleComp.FinaleReady)
-            FinaleReady(uid, finaleComp);
+        if (uid.Comp.CurrentProgress >= uid.Comp.TargetProgress && CurrentTier == 3 && !finaleComp.FinaleActive && !finaleComp.FinaleReady && uid.Comp.CanTierUp)
+        {
+            if (!finaleComp.FinaleDelayStarted) //check if we've not already started the finale delay
+            {
+                finaleComp.FinaleDelayStarted = true; //set that we've started it
+                uid.Comp.CanTierUp = false; //keep it false, we don't want to take this code path after running it once
+                //do everything else
+
+                var timer = TimeSpan.FromSeconds(_config.GetCVar(ImpCCVars.CosmicCultFinaleDelaySeconds));
+                var cultistQuery = EntityQueryEnumerator<CosmicCultComponent>();
+                while (cultistQuery.MoveNext(out var cultist, out var cultistComp))
+                {
+                    var mins = timer.Minutes;
+                    var secs = timer.Seconds;
+                    _antag.SendBriefing(cultist,
+                        Loc.GetString("cosmiccult-finale-autocall-briefing",
+                            ("minutesandseconds", $"{mins} minutes and {secs} seconds")),
+                        Color.FromHex("#4cabb3"),
+                        StageAlertSound);
+                }
+
+                Timer.Spawn(timer,
+                    () =>
+                    {
+                        uid.Comp.CanTierUp = false; //keep it false, we don't want to take this code path after running it once
+                        ReadyFinale(uid, finaleComp);
+                        UpdateCultData(uid); //duplicated work but it looks nicer than calling updateAppearance on it's own
+                    });
+            }
+        }
         else if (finaleComp.FinaleReady || finaleComp.FinaleActive)
             uid.Comp.TargetProgress = uid.Comp.CurrentProgress;
         else if (uid.Comp.CurrentProgress >= uid.Comp.TargetProgress && CurrentTier == 2)
