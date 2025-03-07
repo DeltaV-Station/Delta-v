@@ -53,9 +53,9 @@
     - id: ClothingMaskBreathMedicalSecurity
     - id: EmergencyWaterVaporTankFilled
     - id: EmergencyMedipen
-    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: SpaceMedipen
     - id: Flare
-    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: FoodPSB
     - id: DrinkWaterBottleFull
   # Intentionally wrong picture on the box. NT did not care enough to change it.
   - type: Label
@@ -71,9 +71,9 @@
     - id: ClothingMaskBreath
     - id: EmergencyWaterVaporTankFilled
     - id: EmergencyMedipen
-    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: SpaceMedipen
     - id: Flare
-    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: FoodPSB
     - id: DrinkWaterBottleFull
   - type: Label
     currentLabel: reagent-name-water
@@ -88,9 +88,9 @@
     - id: ClothingMaskBreath
     - id: ExtendedEmergencyWaterVaporTankFilled
     - id: EmergencyMedipen
-    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: SpaceMedipen
     - id: Flare
-    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: FoodPSB
     - id: DrinkWaterBottleFull
   - type: Label
     currentLabel: reagent-name-water
@@ -105,9 +105,9 @@
     - id: ClothingMaskGasSecurity
     - id: EmergencyWaterVaporTankFilled
     - id: EmergencyMedipen
-    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: SpaceMedipen
     - id: Flare
-    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: FoodPSB
     - id: DrinkWaterBottleFull
   - type: Label
     currentLabel: reagent-name-water
@@ -122,9 +122,9 @@
     - id: ClothingMaskBreathMedical
     - id: EmergencyWaterVaporTankFilled
     - id: EmergencyMedipen
-    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: SpaceMedipen
     - id: Flare
-    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: FoodPSB
     - id: DrinkWaterBottleFull
   - type: Label
     currentLabel: reagent-name-water
@@ -139,9 +139,9 @@
     - id: ClothingMaskBreath
     - id: EmergencyWaterVaporTankFilled
     - id: EmergencyMedipen
-    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: SpaceMedipen
     - id: Flare
-    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: FoodPSB
     - id: DrinkWaterBottleFull
   - type: Label
     currentLabel: reagent-name-water
@@ -153,7 +153,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: SpaceMedipen # DeltaV - keep spacepen, replaces breath mask
+    - id: SpaceMedipen
     - id: EmergencyWaterVaporTankFilled
     - id: EmergencyMedipen
     - id: Flare
@@ -172,8 +172,8 @@
     - id: ClothingMaskGasSyndicate
     - id: ExtendedEmergencyWaterVaporTankFilled
     - id: EmergencyMedipen
-    - id: SpaceMedipen # DeltaV - keep spacepen, replaces flare for space
-    - id: FoodPSB # DeltaV - replace nutribrick with PSB
-    - id: DrinkWaterBottleFull # DeltaV - why didnt they get water???
+    - id: SpaceMedipen
+    - id: FoodPSB
+    - id: DrinkWaterBottleFull
   - type: Label
     currentLabel: reagent-name-water

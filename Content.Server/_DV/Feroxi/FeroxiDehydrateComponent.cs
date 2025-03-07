@@ -22,7 +22,7 @@ public sealed partial class FeroxiDehydrateComponent : Component
     public ProtoId<MetabolizerTypePrototype> DehydratedMetabolizer;
 
     [DataField]
-    public bool Dehydrated = false;
+    public bool Dehydrated;
 
     /// <summary>
     /// Gives the threshold on when to flip between <see cref="HydratedMetabolizer"/> and <see cref="DehydratedMetabolizer"/>

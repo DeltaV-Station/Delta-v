@@ -29,14 +29,13 @@
   parent: BaseHumanOrgan
   id: OrganFeroxiLungs
   name: feroxian lungs and gills
-  categories: [ HideSpawnMenu ]
   description: "A pair of amphibious lungs along with gills, filtering oxygen out of the air continuously."
   components:
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
     layers:
-      - state: lung-l
-      - state: lung-r
+    - state: lung-l
+    - state: lung-r
   - type: Organ
     removable: false
   - type: Lung
