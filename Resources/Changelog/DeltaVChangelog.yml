@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Ghost role waiting time is down to 3 seconds, from 8.
-    type: Tweak
-  id: 615
-  time: '2024-10-20T16:02:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2026
-- author: deltanedas
-  changes:
   - message: Removed salt ore in favour of coal. Give the chemists carbon!
     type: Remove
   id: 616
@@ -3922,3 +3915,11 @@
   id: 1114
   time: '2025-03-07T05:12:16.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3139
+- author: sowelipililimute
+  changes:
+  - message: Added power cells to epistemics techfab, trash bags and light replacers
+      to the service techfab, and beakers to the engineering techfab
+    type: Add
+  id: 1115
+  time: '2025-03-07T06:19:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3144
