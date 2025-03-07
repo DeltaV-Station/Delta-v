@@ -81,6 +81,14 @@
     damage:
       types:
         Heat: 8
+  - type: Speech
+    speechSounds: Alto
+    allowedEmotes: ['Growl', 'Squeak']
+  - type: Vocal
+    sounds:
+      Male: MaleKitsune
+      Female: FemaleKitsune
+      Unsexed: MaleKitsune
   - type: Tag
     tags:
     - VimPilot

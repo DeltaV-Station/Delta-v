@@ -35,12 +35,12 @@
         Heat: 5
   - type: Speech
     speechSounds: Alto
+    allowedEmotes: ['Growl', 'Squeak']
   - type: Vocal
-    wilhelm: "/Audio/Nyanotrasen/Voice/Felinid/cat_wilhelm.ogg"
     sounds:
-      Male: MaleFelinid
-      Female: FemaleFelinid
-      Unsexed: MaleFelinid
+      Male: MaleKitsune
+      Female: FemaleKitsune
+      Unsexed: MaleKitsune
   - type: TypingIndicator
     proto: kitsune
   - type: Polymorphable
