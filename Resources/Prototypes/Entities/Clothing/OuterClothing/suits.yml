@@ -9,8 +9,8 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/bombsuit.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 0.75 # DeltaV - slower, originally 0.8
-    sprintModifier: 0.75 # DeltaV - slower, originally 0.8
+    walkModifier: 0.75 # DeltaV - slower for insulation, originally 0.8
+    sprintModifier: 0.75 # DeltaV - slower for insulation, originally 0.8
   - type: Armor
     modifiers:
       coefficients:
