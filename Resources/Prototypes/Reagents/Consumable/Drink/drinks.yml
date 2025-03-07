@@ -447,7 +447,7 @@
       effects:
       - !type:SatiateThirst
         factor: 4
-    Gas: # Delta-V - Feroxi get to breathe with this too!
+    Gas: # DeltaV - Feroxi get to breathe with this too!
       effects:
       - !type:Oxygenate
         conditions:
@@ -467,19 +467,19 @@
         - !type:OrganType
           type: FeroxiDehydrated
         factor: 2
-      # Converts H2O into CO2
+      # DeltaV Converts H2O into CO2 for Feroxi
       - !type:ModifyLungGas
         conditions:
         - !type:OrganType
           type: Feroxi
-        ratios: # no duplicating O2 >:3
+        ratios: # DeltaV no duplicating O2 >:3
           CarbonDioxide: 0.5
           WaterVapor: -1.0
       - !type:ModifyLungGas
         conditions:
         - !type:OrganType
           type: FeroxiDehydrated
-        ratios: # no duplicating O2 >:3
+        ratios: # DeltaV no duplicating O2 >:3
           CarbonDioxide: 0.5
           WaterVapor: -1.0
 
