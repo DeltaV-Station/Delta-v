@@ -1,0 +1,11 @@
+- type: entity
+  id: ActionFoxfire
+  name: action-name-foxfire
+  description: action-description-foxfire
+  noSpawn: true
+  components:
+  - type: InstantAction
+    charges: 3
+    disableWhenEmpty: false
+    icon: { sprite: _DV\Structures\Specific\Species\Kitsune\foxfire.rsi, state: icon }
+    event: !type:CreateFoxfireActionEvent

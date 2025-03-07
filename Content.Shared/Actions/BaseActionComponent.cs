@@ -94,6 +94,13 @@ public abstract partial class BaseActionComponent : Component
     /// </summary>
     [DataField("charges")] public int? Charges;
 
+    // Delta V allow custom handling of empty charges
+    /// <summary>
+    ///     If disabled the action will not disable when no charges remain. Use if you want to handle no charges differently.
+    /// </summary>
+    [DataField("disableWhenEmpty")] public bool DisableWhenEmpty = true;
+    // End Delta V allow custom handling of empty charges
+
     /// <summary>
     ///     The max charges this action has. If null, this is set automatically from <see cref="Charges"/> on mapinit.
     /// </summary>
