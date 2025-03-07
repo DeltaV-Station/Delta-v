@@ -23,7 +23,7 @@ public sealed partial class ResearchSystem
 
         Dirty(primaryUid, primaryDb);
 
-        var ev = new TechnologyDatabaseSynchronizedEvent();
+        var ev = new TechnologyDatabaseModifiedEvent();
         RaiseLocalEvent(primaryUid, ref ev);
     }
 

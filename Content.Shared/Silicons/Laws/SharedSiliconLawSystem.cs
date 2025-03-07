@@ -62,17 +62,12 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
         args.Handled = true;
     }
 
-    public virtual void NotifyLawsChanged(EntityUid uid, SoundSpecifier? cue = null)
+    protected virtual void NotifyLawsChanged(EntityUid uid, SoundSpecifier? cue = null)
     {
 
     }
 
     protected virtual void EnsureSubvertedSiliconRole(EntityUid mindId)
-    {
-
-    }
-
-    protected virtual void RemoveSubvertedSiliconRole(EntityUid mindId)
     {
 
     }

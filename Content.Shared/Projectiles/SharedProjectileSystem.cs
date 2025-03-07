@@ -15,7 +15,6 @@ using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Projectiles;
 
@@ -23,7 +22,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 {
     public const string ProjectileFixture = "projectile";
 
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
@@ -39,63 +38,62 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         SubscribeLocalEvent<EmbeddableProjectileComponent, ThrowDoHitEvent>(OnEmbedThrowDoHit);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate);
         SubscribeLocalEvent<EmbeddableProjectileComponent, RemoveEmbeddedProjectileEvent>(OnEmbedRemove);
-
-        SubscribeLocalEvent<EmbeddedContainerComponent, EntityTerminatingEvent>(OnEmbeddableTermination);
     }
 
-    private void OnEmbedActivate(Entity<EmbeddableProjectileComponent> embeddable, ref ActivateInWorldEvent args)
+    private void OnEmbedActivate(EntityUid uid, EmbeddableProjectileComponent component, ActivateInWorldEvent args)
     {
-        // Unremovable embeddables moment
-        if (embeddable.Comp.RemovalTime == null)
+        // Nuh uh
+        if (component.RemovalTime == null)
             return;
 
-        if (args.Handled || !args.Complex || !TryComp<PhysicsComponent>(embeddable, out var physics) ||
-            physics.BodyType != BodyType.Static)
+        if (args.Handled || !args.Complex || !TryComp<PhysicsComponent>(uid, out var physics) || physics.BodyType != BodyType.Static)
             return;
 
         args.Handled = true;
 
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager,
-            args.User,
-            embeddable.Comp.RemovalTime.Value,
-            new RemoveEmbeddedProjectileEvent(),
-            eventTarget: embeddable,
-            target: embeddable));
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, component.RemovalTime.Value,
+            new RemoveEmbeddedProjectileEvent(), eventTarget: uid, target: uid));
     }
 
-    private void OnEmbedRemove(Entity<EmbeddableProjectileComponent> embeddable, ref RemoveEmbeddedProjectileEvent args)
+    private void OnEmbedRemove(EntityUid uid, EmbeddableProjectileComponent component, RemoveEmbeddedProjectileEvent args)
     {
         // Whacky prediction issues.
-        if (args.Cancelled || _net.IsClient)
+        if (args.Cancelled || _netManager.IsClient)
             return;
 
-        EmbedDetach(embeddable, embeddable.Comp, args.User);
+        if (component.DeleteOnRemove)
+        {
+            QueueDel(uid);
+            return;
+        }
+
+        UnEmbed(uid, component, args.User);
 
         // try place it in the user's hand
-        _hands.TryPickupAnyHand(args.User, embeddable);
+        _hands.TryPickupAnyHand(args.User, uid);
     }
 
-    private void OnEmbedThrowDoHit(Entity<EmbeddableProjectileComponent> embeddable, ref ThrowDoHitEvent args)
+    private void OnEmbedThrowDoHit(EntityUid uid, EmbeddableProjectileComponent component, ThrowDoHitEvent args)
     {
-        if (!embeddable.Comp.EmbedOnThrow)
+        if (!component.EmbedOnThrow)
             return;
 
-        EmbedAttach(embeddable, args.Target, null, embeddable.Comp);
+        Embed(uid, args.Target, null, component);
     }
 
-    private void OnEmbedProjectileHit(Entity<EmbeddableProjectileComponent> embeddable, ref ProjectileHitEvent args)
+    private void OnEmbedProjectileHit(EntityUid uid, EmbeddableProjectileComponent component, ref ProjectileHitEvent args)
     {
-        EmbedAttach(embeddable, args.Target, args.Shooter, embeddable.Comp);
+        Embed(uid, args.Target, args.Shooter, component);
 
         // Raise a specific event for projectiles.
-        if (TryComp(embeddable, out ProjectileComponent? projectile))
+        if (TryComp(uid, out ProjectileComponent? projectile))
         {
             var ev = new ProjectileEmbedEvent(projectile.Shooter!.Value, projectile.Weapon!.Value, args.Target);
-            RaiseLocalEvent(embeddable, ref ev);
+            RaiseLocalEvent(uid, ref ev);
         }
     }
 
-    private void EmbedAttach(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component)
+    private void Embed(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component)
     {
         TryComp<PhysicsComponent>(uid, out var physics);
         _physics.SetLinearVelocity(uid, Vector2.Zero, body: physics);
@@ -108,7 +106,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             var rotation = xform.LocalRotation;
             if (TryComp<ThrowingAngleComponent>(uid, out var throwingAngleComp))
                 rotation += throwingAngleComp.Angle;
-            _transform.SetLocalPosition(uid, xform.LocalPosition + rotation.RotateVec(component.Offset), xform);
+            _transform.SetLocalPosition(uid, xform.LocalPosition + rotation.RotateVec(component.Offset),
+                xform);
         }
 
         _audio.PlayPredicted(component.Sound, uid, null);
@@ -116,31 +115,12 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         var ev = new EmbedEvent(user, target);
         RaiseLocalEvent(uid, ref ev);
         Dirty(uid, component);
-
-        EnsureComp<EmbeddedContainerComponent>(target, out var embeddedContainer);
-
-        //Assert that this entity not embed
-        DebugTools.AssertEqual(embeddedContainer.EmbeddedObjects.Contains(uid), false);
-
-        embeddedContainer.EmbeddedObjects.Add(uid);
     }
 
-    public void EmbedDetach(EntityUid uid, EmbeddableProjectileComponent? component, EntityUid? user = null)
+    public void UnEmbed(EntityUid uid, EmbeddableProjectileComponent? component, EntityUid? user = null)
     {
         if (!Resolve(uid, ref component))
             return;
-
-        if (component.DeleteOnRemove)
-        {
-            QueueDel(uid);
-            return;
-        }
-
-        if (component.EmbeddedIntoUid is not null)
-        {
-            if (TryComp<EmbeddedContainerComponent>(component.EmbeddedIntoUid.Value, out var embeddedContainer))
-                embeddedContainer.EmbeddedObjects.Remove(uid);
-        }
 
         var xform = Transform(uid);
         TryComp<PhysicsComponent>(uid, out var physics);
@@ -167,22 +147,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         }
 
         _physics.WakeBody(uid, body: physics);
-    }
-
-    private void OnEmbeddableTermination(Entity<EmbeddedContainerComponent> container, ref EntityTerminatingEvent args)
-    {
-        DetachAllEmbedded(container);
-    }
-
-    public void DetachAllEmbedded(Entity<EmbeddedContainerComponent> container)
-    {
-        foreach (var embedded in container.Comp.EmbeddedObjects)
-        {
-            if (!TryComp<EmbeddableProjectileComponent>(embedded, out var embeddedComp))
-                continue;
-
-            EmbedDetach(embedded, embeddedComp);
-        }
     }
 
     private void PreventCollision(EntityUid uid, ProjectileComponent component, ref PreventCollideEvent args)

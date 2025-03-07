@@ -9,7 +9,7 @@ namespace Content.Shared.Parallax.Biomes;
 [Prototype("biomeTemplate")]
 public sealed partial class BiomeTemplatePrototype : IPrototype
 {
-    [IdDataField] public string ID { get; private set; } = default!;
+    [IdDataField] public string ID { get; } = default!;
 
     [DataField("layers")]
     public List<IBiomeLayer> Layers = new();

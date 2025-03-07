@@ -56,7 +56,7 @@ public abstract partial class SharedStationAiSystem
     /// <summary>
     /// Tries to get the entity held in the AI core using StationAiCore.
     /// </summary>
-    public bool TryGetHeld(Entity<StationAiCoreComponent?> entity, out EntityUid held)
+    private bool TryGetHeld(Entity<StationAiCoreComponent?> entity, out EntityUid held)
     {
         held = EntityUid.Invalid;
 
@@ -74,19 +74,23 @@ public abstract partial class SharedStationAiSystem
     /// <summary>
     /// Tries to get the entity held in the AI using StationAiHolder.
     /// </summary>
-    public bool TryGetHeld(Entity<StationAiHolderComponent?> entity, out EntityUid held)
+    private bool TryGetHeldFromHolder(Entity<StationAiHolderComponent?> entity, out EntityUid held)
     {
-        TryComp<StationAiCoreComponent>(entity.Owner, out var stationAiCore);
+        held = EntityUid.Invalid;
 
-        return TryGetHeld((entity.Owner, stationAiCore), out held);
+        if (!Resolve(entity.Owner, ref entity.Comp))
+            return false;
+
+        if (!_containers.TryGetContainer(entity.Owner, StationAiHolderComponent.Container, out var container) ||
+            container.ContainedEntities.Count == 0)
+            return false;
+
+        held = container.ContainedEntities[0];
+        return true;
     }
 
-    public bool TryGetCore(EntityUid entity, out Entity<StationAiCoreComponent?> core)
+    private bool TryGetCore(EntityUid ent, out Entity<StationAiCoreComponent?> core)
     {
-        var xform = Transform(entity);
-        var meta = MetaData(entity);
-        var ent = new Entity<TransformComponent?, MetaDataComponent?>(entity, xform, meta);
-
         if (!_containers.TryGetContainingContainer(ent, out var container) ||
             container.ID != StationAiCoreComponent.Container ||
             !TryComp(container.Owner, out StationAiCoreComponent? coreComp) ||

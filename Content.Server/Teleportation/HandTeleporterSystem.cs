@@ -41,9 +41,6 @@ public sealed class HandTeleporterSystem : EntitySystem
 
     private void OnUseInHand(EntityUid uid, HandTeleporterComponent component, UseInHandEvent args)
     {
-        if (args.Handled)
-            return;
-
         if (Deleted(component.FirstPortal))
             component.FirstPortal = null;
 
@@ -70,8 +67,6 @@ public sealed class HandTeleporterSystem : EntitySystem
 
             _doafter.TryStartDoAfter(doafterArgs);
         }
-
-        args.Handled = true;
     }
 
 

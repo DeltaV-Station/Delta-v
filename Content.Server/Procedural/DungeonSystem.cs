@@ -15,13 +15,10 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
-using Robust.Shared.EntitySerialization;
-using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
 
 namespace Content.Server.Procedural;
 
@@ -176,18 +173,14 @@ public sealed partial class DungeonSystem : SharedDungeonSystem
                 return Transform(uid).MapID;
         }
 
-        var opts = new MapLoadOptions
-        {
-            DeserializationOptions = DeserializationOptions.Default with {PauseMaps = true},
-            ExpectedCategory = FileCategory.Map
-        };
-
-        if (!_loader.TryLoadGeneric(proto.AtlasPath, out var res, opts) || !res.Maps.TryFirstOrNull(out var map))
-            throw new Exception($"Failed to load dungeon template.");
-
-        comp = AddComp<DungeonAtlasTemplateComponent>(map.Value.Owner);
+        var mapId = _mapManager.CreateMap();
+        _mapManager.AddUninitializedMap(mapId);
+        _loader.Load(mapId, proto.AtlasPath.ToString());
+        var mapUid = _mapManager.GetMapEntityId(mapId);
+        _mapManager.SetMapPaused(mapId, true);
+        comp = AddComp<DungeonAtlasTemplateComponent>(mapUid);
         comp.Path = proto.AtlasPath;
-        return map.Value.Comp.MapId;
+        return mapId;
     }
 
     /// <summary>

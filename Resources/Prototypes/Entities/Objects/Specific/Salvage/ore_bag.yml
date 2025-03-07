@@ -46,9 +46,8 @@
         enum.ToggleVisuals.Layer:
           True: { state: icon_on }
           False: { state: icon }
-  - type: ReverseEngineering
+  # End DeltaV Additions
+  - type: ReverseEngineering # DeltaV
     difficulty: 2
     recipes:
     - OreBagOfHolding
-  # End DeltaV Additions
-  - type: NFOreBag # Frontier

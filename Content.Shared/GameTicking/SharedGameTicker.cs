@@ -6,7 +6,6 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Timing;
-using Robust.Shared.Audio;
 
 namespace Content.Shared.GameTicking
 {
@@ -42,10 +41,7 @@ namespace Content.Shared.GameTicking
 
         private void OnRecordingStart(MappingDataNode metadata, List<object> events)
         {
-            if (RoundId != 0)
-            {
-                metadata["roundId"] = new ValueDataNode(RoundId.ToString());
-            }
+            metadata["roundId"] = new ValueDataNode(RoundId.ToString());
         }
 
         public TimeSpan RoundDuration()
@@ -197,7 +193,7 @@ namespace Content.Shared.GameTicking
         /// <summary>
         /// Sound gets networked due to how entity lifecycle works between client / server and to avoid clipping.
         /// </summary>
-        public ResolvedSoundSpecifier? RestartSound;
+        public string? RestartSound;
 
         public RoundEndMessageEvent(
             string gamemodeTitle,
@@ -206,7 +202,7 @@ namespace Content.Shared.GameTicking
             int roundId,
             int playerCount,
             RoundEndPlayerInfo[] allPlayersEndInfo,
-            ResolvedSoundSpecifier? restartSound)
+            string? restartSound)
         {
             GamemodeTitle = gamemodeTitle;
             RoundEndText = roundEndText;

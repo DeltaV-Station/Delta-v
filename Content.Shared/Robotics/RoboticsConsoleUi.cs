@@ -58,7 +58,7 @@ public sealed class RoboticsConsoleDestroyMessage : BoundUserInterfaceMessage
 /// Created by <c>BorgTransponderComponent</c> and sent to clients by <c>RoboticsConsoleComponent</c>.
 /// </summary>
 [DataRecord, Serializable, NetSerializable]
-public partial record struct CyborgControlData
+public record struct CyborgControlData
 {
     /// <summary>
     /// Texture of the borg chassis.

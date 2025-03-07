@@ -13,10 +13,6 @@
   - Orders # DeltaV - Add Orders access to cargo techs.
   extendedAccess:
   - Salvage
-  special:
-  - !type:GiveItemOnHolidaySpecial
-    holiday: BoxingDay
-    prototype: BoxCardboard
 
 - type: startingGear
   id: CargoTechGear

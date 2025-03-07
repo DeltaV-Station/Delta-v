@@ -13,8 +13,6 @@ namespace Content.Shared.Slippery
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
     public sealed partial class SlipperyComponent : Component
     {
-        public const float DefaultParalyzeTime = 1.5f;
-        public const float DefaultLaunchForwardsMultiplier = 1.5f;
         /// <summary>
         /// Path to the sound to be played when a mob slips.
         /// </summary>
@@ -27,14 +25,14 @@ namespace Content.Shared.Slippery
         /// </summary>
         [DataField, AutoNetworkedField]
         [Access(Other = AccessPermissions.ReadWrite)]
-        public float ParalyzeTime = DefaultParalyzeTime;
+        public float ParalyzeTime = 1.5f;
 
         /// <summary>
         /// The entity's speed will be multiplied by this to slip it forwards.
         /// </summary>
         [DataField, AutoNetworkedField]
         [Access(Other = AccessPermissions.ReadWrite)]
-        public float LaunchForwardsMultiplier = DefaultLaunchForwardsMultiplier;
+        public float LaunchForwardsMultiplier = 1.5f;
 
         /// <summary>
         /// If this is true, any slipping entity loses its friction until

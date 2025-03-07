@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared.Roles;
 using Content.Server.Storage.EntitySystems;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Map;
 using Robust.Shared.Collections;
 
 namespace Content.IntegrationTests.Tests.Roles;
@@ -18,7 +19,7 @@ public sealed class StartingGearPrototypeStorageTest
         var settings = new PoolSettings { Connected = true, Dirty = true };
         await using var pair = await PoolManager.GetServerClient(settings);
         var server = pair.Server;
-        var mapSystem = server.System<SharedMapSystem>();
+        var mapManager = server.ResolveDependency<IMapManager>();
         var storageSystem = server.System<StorageSystem>();
 
         var protos = server.ProtoMan
@@ -63,7 +64,7 @@ public sealed class StartingGearPrototypeStorageTest
                 }
             }
 
-            mapSystem.DeleteMap(testMap.MapId);
+            mapManager.DeleteMap(testMap.MapId);
         });
 
         await pair.CleanReturnAsync();

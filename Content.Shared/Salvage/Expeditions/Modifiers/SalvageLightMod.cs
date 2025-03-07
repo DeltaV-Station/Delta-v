@@ -6,7 +6,7 @@ namespace Content.Shared.Salvage.Expeditions.Modifiers;
 [Prototype("salvageLightMod")]
 public sealed partial class SalvageLightMod : IPrototype, IBiomeSpecificMod
 {
-    [IdDataField] public string ID { get; private set; } = default!;
+    [IdDataField] public string ID { get; } = default!;
 
     [DataField("desc")] public LocId Description { get; private set; } = string.Empty;
 

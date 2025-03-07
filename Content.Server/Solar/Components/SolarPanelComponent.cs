@@ -1,5 +1,4 @@
 using Content.Server.Solar.EntitySystems;
-using Content.Shared.Guidebook;
 
 namespace Content.Server.Solar.Components
 {
@@ -16,7 +15,6 @@ namespace Content.Server.Solar.Components
         /// Maximum supply output by this panel (coverage = 1)
         /// </summary>
         [DataField("maxSupply")]
-        [GuidebookData]
         public int MaxSupply = 750;
 
         /// <summary>

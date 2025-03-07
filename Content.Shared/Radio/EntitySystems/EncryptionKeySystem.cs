@@ -55,7 +55,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         _container.EmptyContainer(component.KeyContainer, reparent: false);
         foreach (var ent in contained)
         {
-            _hands.PickupOrDrop(args.User, ent, dropNear: true);
+            _hands.PickupOrDrop(args.User, ent);
         }
 
         if (!_timing.IsFirstTimePredicted)
@@ -232,7 +232,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
                 ("color", proto.Color),
                 ("key", key),
                 ("id", proto.LocalizedName),
-                ("freq", proto.Frequency / 10f)));
+                ("freq", proto.Frequency)));
         }
 
         if (defaultChannel != null && _protoManager.TryIndex(defaultChannel, out proto))

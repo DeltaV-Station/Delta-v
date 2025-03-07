@@ -67,18 +67,15 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
 
         SubscribeLocalEvent<DeviceListComponent, ComponentRemove>(OnComponentRemoved);
 
-        SubscribeLocalEvent<BeforeSerializationEvent>(OnMapSave);
+        SubscribeLocalEvent<BeforeSaveEvent>(OnMapSave);
     }
 
-    private void OnMapSave(BeforeSerializationEvent ev)
+    private void OnMapSave(BeforeSaveEvent ev)
     {
         var enumerator = AllEntityQuery<NetworkConfiguratorComponent>();
         while (enumerator.MoveNext(out var uid, out var conf))
         {
-            if (!TryComp(conf.ActiveDeviceList, out TransformComponent? listXform))
-                continue;
-
-            if (!ev.MapIds.Contains(listXform.MapID))
+            if (CompOrNull<TransformComponent>(conf.ActiveDeviceList)?.MapUid != ev.Map)
                 continue;
 
             // The linked device list is (probably) being saved. Make sure that the configurator is also being saved
@@ -86,10 +83,9 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
             // containing a set of all entities that are about to be saved, which would make checking this much easier.
             // This is a shitty bandaid, and will force close the UI during auto-saves.
             // TODO Map serialization refactor
-            // I'm refactoring it now and I still dont know what to do
 
             var xform = Transform(uid);
-            if (ev.MapIds.Contains(xform.MapID) && IsSaveable(uid))
+            if (xform.MapUid == ev.Map && IsSaveable(uid))
                 continue;
 
             _uiSystem.CloseUi(uid, NetworkConfiguratorUiKey.Configure);

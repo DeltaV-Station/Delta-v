@@ -2,11 +2,10 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Parallax;
 using Content.Shared._DV.Planet;
 using Content.Shared.Parallax.Biomes;
-using Robust.Shared.EntitySerialization.Systems;
+using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Server._DV.Planet;
 
@@ -15,9 +14,9 @@ public sealed class PlanetSystem : EntitySystem
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly BiomeSystem _biome = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
 
     private readonly List<(Vector2i, Tile)> _setTiles = new();
 
@@ -52,11 +51,11 @@ public sealed class PlanetSystem : EntitySystem
     /// Spawns an initialized planet map from a planet prototype and loads a grid onto it.
     /// Returns the map entity if loading succeeded.
     /// </summary>
-    public EntityUid? LoadPlanet(ProtoId<PlanetPrototype> id, ResPath path)
+    public EntityUid? LoadPlanet(ProtoId<PlanetPrototype> id, string path)
     {
         var map = SpawnPlanet(id, runMapInit: false);
         var mapId = Comp<MapComponent>(map).MapId;
-        if (!_mapLoader.TryLoadGrid(mapId, path, out var grid))
+        if (!_mapLoader.TryLoad(mapId, path, out var grids))
         {
             Log.Error($"Failed to load planet grid {path} for planet {id}!");
             Del(map);
@@ -64,9 +63,12 @@ public sealed class PlanetSystem : EntitySystem
         }
 
         // don't want rocks spawning inside the base
-        _setTiles.Clear();
-        var aabb = Comp<MapGridComponent>(grid.Value).LocalAABB;
-        _biome.ReserveTiles(map, aabb.Enlarged(0.2f), _setTiles);
+        foreach (var gridUid in grids)
+        {
+            _setTiles.Clear();
+            var aabb = Comp<MapGridComponent>(gridUid).LocalAABB;
+            _biome.ReserveTiles(map, aabb.Enlarged(0.2f), _setTiles);
+        }
 
         _map.InitializeMap(map);
         return map;

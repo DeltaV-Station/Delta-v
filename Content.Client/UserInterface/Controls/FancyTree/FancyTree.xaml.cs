@@ -7,6 +7,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared.Graphics;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -95,6 +96,7 @@ public sealed partial class FancyTree : Control
     private void LoadIcons()
     {
         IconColor = TryGetStyleProperty(StylePropertyIconColor, out Color color) ? color : Color.White;
+        string? path;
 
         if (!TryGetStyleProperty(StylePropertyIconExpanded, out IconExpanded))
             IconExpanded = _resCache.GetTexture(DefaultIconExpanded);

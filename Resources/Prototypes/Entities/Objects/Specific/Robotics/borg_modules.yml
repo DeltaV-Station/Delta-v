@@ -133,17 +133,9 @@
     layers:
     - state: generic
     - state: icon-fire-extinguisher
-  # Frontier: droppable borg items
-  #- type: ItemBorgModule
-  #  items:
-  #  - FireExtinguisher
-  - type: DroppableBorgModule
+  - type: ItemBorgModule
     items:
-    - id: FireExtinguisher
-      whitelist:
-        tags:
-        - FireExtinguisher
-  # End Frontier
+    - FireExtinguisher
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: extinguisher-module }
 
@@ -229,17 +221,9 @@
     items:
     - MiningDrill
     - MineralScannerUnpowered
-    # - OreBag # Frontier
+    - OreBag
     - Crowbar
     - RadioHandheld
-  # Frontier: droppable borg items
-  - type: DroppableBorgModule
-    items:
-    - id: OreBag
-      whitelist:
-        components:
-        - NFOreBag
-  # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: mining-module }
 
@@ -361,16 +345,8 @@
   - type: ItemBorgModule
     items:
     - MopItem
-    # - Bucket # Frontier
+    - Bucket
     - TrashBag
-  # Frontier: droppable items
-  - type: DroppableBorgModule
-    items:
-    - id: Bucket
-      whitelist:
-        tags:
-        - Bucket
-  # End Frontier
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: cleaning-module }
 
@@ -457,22 +433,10 @@
   - type: ItemBorgModule
     items:
     - HandheldHealthAnalyzerUnpowered
-    # - Beaker # Frontier
-    # - Beaker # Frontier
+    - Beaker
+    - Beaker
     - BorgDropper
     - BorgHypo
-  # Frontier: droppable borg items
-  - type: DroppableBorgModule
-    items:
-    - id: Beaker
-      whitelist:
-        tags:
-        - GlassBeaker
-    - id: Beaker
-      whitelist:
-        tags:
-        - GlassBeaker
-  # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-diagnosis-module }
 
@@ -525,27 +489,11 @@
   - type: ItemBorgModule
     items:
     - Pen
-    # - BooksBag # Frontier
+    - BooksBag
     - HandLabeler
-    # - Lighter # Frontier
-    # - DrinkShaker # Frontier
+    - Lighter
+    - DrinkShaker
     - BorgDropper
-  # Frontier: droppable items
-  - type: DroppableBorgModule
-    items:
-    - id: BooksBag
-      whitelist:
-        components:
-        - NFBookBag
-    - id: Lighter
-      whitelist:
-        components:
-        - NFLighter
-    - id: DrinkShaker
-      whitelist:
-        components:
-        - NFShaker
-  # End Frontier
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: service-module }
 
@@ -580,15 +528,7 @@
     - HydroponicsToolMiniHoe
     - HydroponicsToolSpade
     - HydroponicsToolClippers
-    # - Bucket # Frontier
-  # Frontier: droppable borg items
-  - type: DroppableBorgModule
-    items:
-    - id: Bucket
-      whitelist:
-        tags:
-        - Bucket
-  # End Frontier
+    - Bucket
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: gardening-module }
 
@@ -605,15 +545,7 @@
     items:
     - HydroponicsToolScythe
     - HydroponicsToolHatchet
-    # - PlantBag # Frontier
-  # Frontier: droppable borg items
-  - type: DroppableBorgModule
-    items:
-    - id: PlantBag
-      whitelist:
-        components:
-        - NFPlantBag
-  # End Frontier
+    - PlantBag
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: harvesting-module }
 

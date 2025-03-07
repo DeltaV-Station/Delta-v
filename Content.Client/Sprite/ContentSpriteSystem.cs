@@ -3,12 +3,12 @@ using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Client.Administration.Managers;
+using Content.Shared.Database;
 using Content.Shared.Verbs;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared.ContentPack;
-using Robust.Shared.Exceptions;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using SixLabors.ImageSharp;
@@ -24,7 +24,6 @@ public sealed class ContentSpriteSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IResourceManager _resManager = default!;
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
-    [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
 
     private ContentSpriteControl _control = new();
 
@@ -43,12 +42,12 @@ public sealed class ContentSpriteSystem : EntitySystem
     {
         base.Shutdown();
 
-        foreach (var queued in _control.QueuedTextures)
+        foreach (var queued in _control._queuedTextures)
         {
             queued.Tcs.SetCanceled();
         }
 
-        _control.QueuedTextures.Clear();
+        _control._queuedTextures.Clear();
 
         _ui.RootControl.RemoveChild(_control);
     }
@@ -104,7 +103,7 @@ public sealed class ContentSpriteSystem : EntitySystem
         var texture = _clyde.CreateRenderTarget(new Vector2i(size.X, size.Y), new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "export");
         var tcs = new TaskCompletionSource(cancelToken);
 
-        _control.QueuedTextures.Enqueue((texture, direction, entity, includeId, tcs));
+        _control._queuedTextures.Enqueue((texture, direction, entity, includeId, tcs));
 
         await tcs.Task;
     }
@@ -114,21 +113,13 @@ public sealed class ContentSpriteSystem : EntitySystem
         if (!_adminManager.IsAdmin())
             return;
 
-        var target = ev.Target;
         Verb verb = new()
         {
             Text = Loc.GetString("export-entity-verb-get-data-text"),
             Category = VerbCategory.Debug,
-            Act = async () =>
+            Act = () =>
             {
-                try
-                {
-                    await Export(target);
-                }
-                catch (Exception e)
-                {
-                    _runtimeLog.LogException(e, $"{nameof(ContentSpriteSystem)}.{nameof(Export)}");
-                }
+                Export(ev.Target);
             },
         };
 
@@ -150,7 +141,7 @@ public sealed class ContentSpriteSystem : EntitySystem
             Direction Direction,
             EntityUid Entity,
             bool IncludeId,
-            TaskCompletionSource Tcs)> QueuedTextures = new();
+            TaskCompletionSource Tcs)> _queuedTextures = new();
 
         private ISawmill _sawmill;
 
@@ -164,7 +155,7 @@ public sealed class ContentSpriteSystem : EntitySystem
         {
             base.Draw(handle);
 
-            while (QueuedTextures.TryDequeue(out var queued))
+            while (_queuedTextures.TryDequeue(out var queued))
             {
                 if (queued.Tcs.Task.IsCanceled)
                     continue;

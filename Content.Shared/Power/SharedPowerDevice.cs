@@ -6,7 +6,6 @@ namespace Content.Shared.Power
     public enum PowerDeviceVisuals : byte
     {
         VisualState,
-        Powered,
-        BatteryPowered
+        Powered
     }
 }

@@ -163,6 +163,16 @@ public sealed partial class DockingScreen : BoxContainer
             }
 
             dockContainer.AddDock(dock, DockingControl);
+
+            dockContainer.ViewPressed += () =>
+            {
+                OnDockPress(dock);
+            };
+
+            dockContainer.UndockPressed += () =>
+            {
+                UndockRequest?.Invoke(dock.Entity);
+            };
         }
     }
 

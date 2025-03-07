@@ -27,10 +27,11 @@ public sealed class WhistleSystem : EntitySystem
 
     public void OnUseInHand(EntityUid uid, WhistleComponent component, UseInHandEvent args)
     {
-        if (args.Handled || !_timing.IsFirstTimePredicted)
+        if (!_timing.IsFirstTimePredicted)
             return;
 
-        args.Handled = TryMakeLoudWhistle(uid, args.User, component);
+        TryMakeLoudWhistle(uid, args.User, component);
+        args.Handled = true;
     }
 
     public bool TryMakeLoudWhistle(EntityUid uid, EntityUid owner, WhistleComponent? component = null)

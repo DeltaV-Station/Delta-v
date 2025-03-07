@@ -14,13 +14,7 @@ public sealed partial class RoleLoadoutPrototype : IPrototype
      */
 
     [IdDataField]
-    public string ID { get; private set; } = string.Empty;
-
-    /// <summary>
-    /// Can the user edit their entity name for this role loadout?
-    /// </summary>
-    [DataField]
-    public bool CanCustomizeName;
+    public string ID { get; } = string.Empty;
 
     /// <summary>
     /// Should we use a random name for this loadout?

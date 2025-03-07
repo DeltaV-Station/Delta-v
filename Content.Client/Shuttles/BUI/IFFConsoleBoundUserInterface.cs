@@ -21,9 +21,10 @@ public sealed class IFFConsoleBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _window = this.CreateWindowCenteredLeft<IFFConsoleWindow>();
+        _window = this.CreateWindow<IFFConsoleWindow>();
         _window.ShowIFF += SendIFFMessage;
         _window.ShowVessel += SendVesselMessage;
+        _window.OpenCenteredLeft();
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

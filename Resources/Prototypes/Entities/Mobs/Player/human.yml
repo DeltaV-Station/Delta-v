@@ -105,18 +105,6 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
-  - type: PsionicBonusChance # DeltaV
+  - type: PsionicBonusChance #Nyano - Summary: makes more likely to be psionic.
     multiplier: 7
     warn: false
-
-# Wizard
-- type: entity
-  categories: [ HideSpawnMenu ]
-  name: Wizard
-  parent: MobHuman
-  id: MobHumanWizard
-  components:
-  - type: RandomHumanoidAppearance
-  - type: NpcFactionMember
-    factions:
-    - Wizard

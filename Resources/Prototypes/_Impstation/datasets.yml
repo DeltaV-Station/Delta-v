@@ -9,14 +9,12 @@
     - Medical
     - Justice
     - The Bar
-    # Begin DeltaV Additions
     - The Kitchen
     - Logistics
-    - the Janitorial Department
+    - the Janitorial Departments
     - Reporting
     - Entertainment
     - Surgery
-    # End DeltaV Additions
 
 - type: dataset
   id: Pets
@@ -36,7 +34,6 @@
     - Carpy the Legal Carp
     - Laika the Security Dog
     - Remilia the Chaplain's Familiar
-    # Begin DeltaV Additions
     - Alexander the Pig
     - Clippy the Courier Cat
     - Runtime the Cat
@@ -45,7 +42,6 @@
     - Bingus the Cat
     - A Bee
     - Siobahn the Epistemics Fox
-    # End DeltaV Additions
 
 - type: dataset
   id: Rooms
@@ -58,7 +54,6 @@
     - Dorms
     - The Morgue
     - The Center of the Station
-    # Begin DeltaV Additions
     - The Chapel
     - The Bar
     - The Boxing Ring
@@ -73,7 +68,6 @@
     - Court
     - The Arcade
     - The Stage
-    # End DeltaV Additions
 
 - type: dataset
   id: FoodRestrictions
@@ -108,7 +102,6 @@
     - Spray bottles
     - Plushies
     - Figurines
-    # Begin DeltaV Additions
     - Toys
     - Lockers
     - Cigarettes
@@ -124,9 +117,6 @@
     - Lightbulbs
     - Books
     - Snacks
-    - Cassettes
-    - Trash
-    # End DeltaV Additions
 
 - type: dataset
   id: Edibles
@@ -137,8 +127,8 @@
     - Baseball Burger
     - Empowered Burger
     - McGuffin
+    - Cotton Pizza
     - Crazy Hamburger
-    # Begin DeltaV Additions
     - Stick of Cannabis Butter
     - Cheesecake Balls
     - Engine Fodder
@@ -152,16 +142,13 @@
     - Blue Tomato Soup
     - Buttered Toast
     - Ratburger
-    - Vending Machine Snacks
-    # End DeltaV Additions
 
 - type: dataset
   id: Holidays
   values:
     - Bingus Day
     - Foster's Feast
-    # Begin DeltaV Additions
-    - Preston’s Tomato Incident 
+    - Preston’s Tomato Incident
     - Submarine's Memorial
     - Pranksgiving
     - Sector Delta Employee Appreciation Week
@@ -179,9 +166,8 @@
     - The Good Day of Digging and Playing
     - the Talent Show
     - Luperthavia
+    - Taco Tuesday
     - Penny's Big Day
-    - Taco Tuesday 
-    # End DeltaV Additions
 
 - type: dataset
   id: Clothes
@@ -205,16 +191,14 @@
   id: CommandRoles
   values:
     - Captain
-    - Logistics Officer # DeltaV - what is a quartermaster
+    - Logistics Officer
     - Head of Security
     - Head of Personnel
     - Chief Engineer
     - Chief Medical Officer
-    # Begin DeltaV Additions
     - Mystagogue
     - Chief Justice
-    - Administrative Assistant 
-    # End DeltaV Additions
+    - Administrative Assistant
 
 - type: dataset
   id: SpeechRestrictions

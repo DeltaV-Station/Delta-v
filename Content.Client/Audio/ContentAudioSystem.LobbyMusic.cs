@@ -218,7 +218,7 @@ public sealed partial class ContentAudioSystem
             return;
 
         var file = _gameTicker.RestartSound;
-        if (ResolvedSoundSpecifier.IsNullOrEmpty(file))
+        if (string.IsNullOrEmpty(file))
         {
             return;
         }

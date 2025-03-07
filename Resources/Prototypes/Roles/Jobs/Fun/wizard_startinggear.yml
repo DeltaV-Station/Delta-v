@@ -4,14 +4,13 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorDarkBlue
     head: ClothingHeadHatWizard
-    back: ClothingBackpack # Wizard backpack?
     outerClothing: ClothingOuterWizard
     shoes: ClothingShoesWizard
-    id: WizardPDA
-    ears: ClothingHeadsetAltCommand
-    belt: ClothingBeltWand
-    # pocket1: TODO: Include wizard teleport scroll
-    pocket2: WizardsGrimoire
+    id: PassengerPDA
+    ears: ClothingHeadsetService
+  storage:
+    back:
+    - BoxSurvival
 
 - type: startingGear
   id: WizardRedGear

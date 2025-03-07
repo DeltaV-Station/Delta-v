@@ -7,7 +7,7 @@ namespace Content.Shared.Ghost.Roles.Raffles;
 /// Allows specifying the settings for a ghost role raffle as a prototype.
 /// </summary>
 [Prototype("ghostRoleRaffleSettings")]
-public sealed partial class GhostRoleRaffleSettingsPrototype : IPrototype
+public sealed class GhostRoleRaffleSettingsPrototype : IPrototype
 {
     /// <inheritdoc />
     [IdDataField]

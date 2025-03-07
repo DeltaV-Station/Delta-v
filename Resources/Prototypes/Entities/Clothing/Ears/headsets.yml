@@ -242,7 +242,7 @@
     sprite: Clothing/Ears/Headsets/security.rsi
 
 - type: entity
-  parent: [ClothingHeadset, BaseSecurityContraband]
+  parent: [ClothingHeadset, BaseRestrictedContraband]
   id: ClothingHeadsetBrigmedic
   name: corpsman headset # DeltaV - rename brigmedic to corpsman
   description: A headset that helps to hear the death cries.

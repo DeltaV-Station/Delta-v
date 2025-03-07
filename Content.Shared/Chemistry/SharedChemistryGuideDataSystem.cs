@@ -14,9 +14,6 @@ public abstract class SharedChemistryGuideDataSystem : EntitySystem
     protected readonly Dictionary<string, ReagentGuideEntry> Registry = new();
 
     public IReadOnlyDictionary<string, ReagentGuideEntry> ReagentGuideRegistry => Registry;
-
-    // Only ran on the server
-    public abstract void ReloadAllReagentPrototypes();
 }
 
 [Serializable, NetSerializable]

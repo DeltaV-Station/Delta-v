@@ -1,5 +1,4 @@
 ﻿using Robust.Client.GameObjects;
-using Robust.Client.UserInterface;
 using static Content.Shared.Atmos.Components.GasAnalyzerComponent;
 
 namespace Content.Client.Atmos.UI
@@ -17,7 +16,9 @@ namespace Content.Client.Atmos.UI
         {
             base.Open();
 
-            _window = this.CreateWindowCenteredLeft<GasAnalyzerWindow>();
+            _window = new GasAnalyzerWindow();
+            _window.OnClose += OnClose;
+            _window.OpenCenteredLeft();
         }
 
         protected override void ReceiveMessage(BoundUserInterfaceMessage message)

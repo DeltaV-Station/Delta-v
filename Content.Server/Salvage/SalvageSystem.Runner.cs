@@ -144,7 +144,7 @@ public sealed partial class SalvageSystem
         while (query.MoveNext(out var uid, out var comp))
         {
             var remaining = comp.EndTime - _timing.CurTime;
-            var audioLength = _audio.GetAudioLength(comp.SelectedSong);
+            var audioLength = _audio.GetAudioLength(comp.SelectedSong.Path.ToString());
 
             if (comp.Stage < ExpeditionStage.FinalCountdown && remaining < TimeSpan.FromSeconds(45))
             {

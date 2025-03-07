@@ -14,8 +14,6 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
 
     protected override void Open()
     {
-        base.Open();
-
         EntityUid? gridUid = null;
         var stationName = string.Empty;
 

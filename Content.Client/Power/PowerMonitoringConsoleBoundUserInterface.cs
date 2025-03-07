@@ -12,8 +12,6 @@ public sealed class PowerMonitoringConsoleBoundUserInterface : BoundUserInterfac
 
     protected override void Open()
     {
-        base.Open();
-
         _menu = this.CreateWindow<PowerMonitoringWindow>();
         _menu.SetEntity(Owner);
         _menu.SendPowerMonitoringConsoleMessageAction += SendPowerMonitoringConsoleMessage;

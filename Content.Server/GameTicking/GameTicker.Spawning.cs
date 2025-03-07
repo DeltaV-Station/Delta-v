@@ -367,7 +367,6 @@ namespace Content.Server.GameTicking
             if (DummyTicker)
                 return;
 
-            var makeObserver = false;
             Entity<MindComponent?>? mind = player.GetMind();
             if (mind == null)
             {
@@ -375,13 +374,10 @@ namespace Content.Server.GameTicking
                 var (mindId, mindComp) = _mind.CreateMind(player.UserId, name);
                 mind = (mindId, mindComp);
                 _mind.SetUserId(mind.Value, player.UserId);
-                makeObserver = true;
+                _roles.MindAddRole(mind.Value, "MindRoleObserver");
             }
 
             var ghost = _ghost.SpawnGhost(mind.Value);
-            if (makeObserver)
-                _roles.MindAddRole(mind.Value, "MindRoleObserver");
-
             _adminLogger.Add(LogType.LateJoin,
                 LogImpact.Low,
                 $"{player.Name} late joined the round as an Observer with {ToPrettyString(ghost):entity}.");
@@ -436,7 +432,7 @@ namespace Content.Server.GameTicking
                 {
                     var gridXform = Transform(gridUid);
 
-                    return new EntityCoordinates(gridUid, Vector2.Transform(toMap.Position, _transform.GetInvWorldMatrix(gridXform)));
+                    return new EntityCoordinates(gridUid, Vector2.Transform(toMap.Position, gridXform.InvWorldMatrix));
                 }
 
                 return spawn;

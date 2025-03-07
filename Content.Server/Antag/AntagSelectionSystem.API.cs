@@ -19,12 +19,11 @@ public sealed partial class AntagSelectionSystem
     /// Tries to get the next non-filled definition based on the current amount of selected minds and other factors.
     /// </summary>
     public bool TryGetNextAvailableDefinition(Entity<AntagSelectionComponent> ent,
-        [NotNullWhen(true)] out AntagSelectionDefinition? definition,
-        int? players = null)
+        [NotNullWhen(true)] out AntagSelectionDefinition? definition)
     {
         definition = null;
 
-        var totalTargetCount = GetTargetAntagCount(ent, players);
+        var totalTargetCount = GetTargetAntagCount(ent);
         var mindCount = ent.Comp.SelectedMinds.Count;
         if (mindCount >= totalTargetCount)
             return false;

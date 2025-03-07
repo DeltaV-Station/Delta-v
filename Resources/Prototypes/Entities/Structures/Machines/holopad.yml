@@ -150,7 +150,8 @@
 - type: entity
   id: HolopadHologram
   name: hologram
-  categories: [ HideSpawnMenu, DoNotMap ]
+  categories: [ HideSpawnMenu ]
+  suffix: DO NOT MAP
   components:
   - type: Transform
     anchored: true

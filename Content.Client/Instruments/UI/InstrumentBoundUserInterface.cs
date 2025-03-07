@@ -2,6 +2,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Instruments.UI;
 using Content.Shared.Interaction;
 using Robust.Client.Audio.Midi;
+using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
 
@@ -12,6 +13,7 @@ namespace Content.Client.Instruments.UI
         public IEntityManager Entities => EntMan;
         [Dependency] public readonly IMidiManager MidiManager = default!;
         [Dependency] public readonly IFileDialogManager FileDialogManager = default!;
+        [Dependency] public readonly IPlayerManager PlayerManager = default!;
         [Dependency] public readonly ILocalizationManager Loc = default!;
 
         public readonly InstrumentSystem Instruments;
@@ -39,8 +41,6 @@ namespace Content.Client.Instruments.UI
 
         protected override void Open()
         {
-            base.Open();
-
             _instrumentMenu = this.CreateWindow<InstrumentMenu>();
             _instrumentMenu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
 

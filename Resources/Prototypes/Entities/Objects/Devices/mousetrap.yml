@@ -22,7 +22,6 @@
           Blunt: 2 # base damage, scales based on mass
     - type: EmitSoundOnUse
       sound: "/Audio/Items/Handcuffs/cuff_end.ogg"
-      handle: false
     - type: EmitSoundOnTrigger
       sound: "/Audio/Items/snap.ogg"
     - type: Item
@@ -63,9 +62,5 @@
   id: MousetrapArmed
   description: Useful for catching rodents sneaking into your kitchen.
   components:
-  - type: Sprite
-    layers:
-    - state: mousetraparmed
-      map: ["base"]
-  - type: Mousetrap
-    isActive: true
+    - type: Mousetrap
+      isActive: true

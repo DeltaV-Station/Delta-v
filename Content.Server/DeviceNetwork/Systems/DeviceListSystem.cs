@@ -20,7 +20,7 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
         SubscribeLocalEvent<DeviceListComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<DeviceListComponent, BeforeBroadcastAttemptEvent>(OnBeforeBroadcast);
         SubscribeLocalEvent<DeviceListComponent, BeforePacketSentEvent>(OnBeforePacketSent);
-        SubscribeLocalEvent<BeforeSerializationEvent>(OnMapSave);
+        SubscribeLocalEvent<BeforeSaveEvent>(OnMapSave);
     }
 
     private void OnShutdown(EntityUid uid, DeviceListComponent component, ComponentShutdown args)
@@ -124,14 +124,14 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
         Dirty(list);
     }
 
-    private void OnMapSave(BeforeSerializationEvent ev)
+    private void OnMapSave(BeforeSaveEvent ev)
     {
         List<EntityUid> toRemove = new();
         var query = GetEntityQuery<TransformComponent>();
         var enumerator = AllEntityQuery<DeviceListComponent, TransformComponent>();
         while (enumerator.MoveNext(out var uid, out var device, out var xform))
         {
-            if (!ev.MapIds.Contains(xform.MapID))
+            if (xform.MapUid != ev.Map)
                 continue;
 
             foreach (var ent in device.Devices)
@@ -144,10 +144,7 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
                     continue;
                 }
 
-                // This is assuming that **all** of the map is getting saved.
-                // Which is not necessarily true.
-                // AAAAAAAAAAAAAA
-                if (ev.MapIds.Contains(linkedXform.MapID))
+                if (linkedXform.MapUid == ev.Map)
                     continue;
 
                 toRemove.Add(ent);

@@ -20,6 +20,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
@@ -285,7 +286,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             return;
         }
 
-        if (TryGetHeld((args.Target.Value, targetHolder), out var held) && _timing.CurTime > intelliComp.NextWarningAllowed)
+        if (TryGetHeldFromHolder((args.Target.Value, targetHolder), out var held) && _timing.CurTime > intelliComp.NextWarningAllowed)
         {
             intelliComp.NextWarningAllowed = _timing.CurTime + intelliComp.WarningDelay;
             AnnounceIntellicardUsage(held, intelliComp.WarningSound);
@@ -360,12 +361,10 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         AttachEye(ent);
     }
 
-    public void SwitchRemoteEntityMode(Entity<StationAiCoreComponent?> entity, bool isRemote)
+    public void SwitchRemoteEntityMode(Entity<StationAiCoreComponent> ent, bool isRemote)
     {
-        if (entity.Comp?.Remote == null || entity.Comp.Remote == isRemote)
+        if (isRemote == ent.Comp.Remote)
             return;
-
-        var ent = new Entity<StationAiCoreComponent>(entity.Owner, entity.Comp);
 
         ent.Comp.Remote = isRemote;
 
@@ -542,6 +541,36 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         }
 
         return _blocker.CanComplexInteract(entity.Owner);
+    }
+
+    public bool TryGetStationAiCore(Entity<StationAiHeldComponent?> ent, [NotNullWhen(true)] out Entity<StationAiCoreComponent>? parentEnt)
+    {
+        parentEnt = null;
+        var parent = Transform(ent).ParentUid;
+
+        if (!parent.IsValid())
+            return false;
+
+        if (!TryComp<StationAiCoreComponent>(parent, out var stationAiCore))
+            return false;
+
+        parentEnt = new Entity<StationAiCoreComponent>(parent, stationAiCore);
+
+        return true;
+    }
+
+    public bool TryGetInsertedAI(Entity<StationAiCoreComponent> ent, [NotNullWhen(true)] out Entity<StationAiHeldComponent>? insertedAi)
+    {
+        insertedAi = null;
+        var insertedEnt = GetInsertedAI(ent);
+
+        if (TryComp<StationAiHeldComponent>(insertedEnt, out var stationAiHeld))
+        {
+            insertedAi = (insertedEnt.Value, stationAiHeld);
+            return true;
+        }
+
+        return false;
     }
 }
 

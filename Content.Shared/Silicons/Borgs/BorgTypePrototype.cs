@@ -1,7 +1,6 @@
 ﻿using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Radio;
-using Content.Shared.Roles; // DeltaV
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws; // DeltaV
 using Content.Shared.Whitelist;
@@ -21,7 +20,7 @@ public sealed partial class BorgTypePrototype : IPrototype
     private static readonly ProtoId<SoundCollectionPrototype> DefaultFootsteps = new("FootstepBorg");
 
     [IdDataField]
-    public required string ID { get; set; }
+    public required string ID { get; init; }
 
     //
     // Description info (name/desc) is configured via localization strings directly.
@@ -31,7 +30,7 @@ public sealed partial class BorgTypePrototype : IPrototype
     /// The prototype displayed in the selection menu for this type.
     /// </summary>
     [DataField]
-    public required EntProtoId DummyPrototype;
+    public required EntProtoId DummyPrototype { get; init; }
 
     //
     // Functional information
@@ -91,13 +90,6 @@ public sealed partial class BorgTypePrototype : IPrototype
     /// </summary>
     [DataField]
     public ProtoId<SiliconLawsetPrototype>? Lawset;
-
-    /// <summary>
-    /// DeltaV: Optional job prototype to tie to this borg type.
-    /// It will have the requirements applied and rolebans will extend to this bogr type.
-    /// </summary>
-    [DataField]
-    public ProtoId<JobPrototype>? Job;
 
     /// <summary>
     /// Additional components to add to the borg entity when this type is selected.

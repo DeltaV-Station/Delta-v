@@ -9,7 +9,8 @@ public sealed class MarkedCommand : ToolshedCommand
     [CommandImplementation]
     public IEnumerable<EntityUid> Marked(IInvocationContext ctx)
     {
-        var marked = ctx.ReadVar("marked") as IEnumerable<EntityUid>;
-        return marked ?? Array.Empty<EntityUid>();
+        var res = (IEnumerable<EntityUid>?)ctx.ReadVar("marked");
+        res ??= Array.Empty<EntityUid>();
+        return res;
     }
 }

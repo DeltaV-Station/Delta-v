@@ -27,8 +27,6 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
 
     protected override void Open()
     {
-        base.Open();
-
         _menu = this.CreateWindow<StoreMenu>();
         if (EntMan.TryGetComponent<StoreComponent>(Owner, out var store))
             _menu.Title = Loc.GetString(store.Name);

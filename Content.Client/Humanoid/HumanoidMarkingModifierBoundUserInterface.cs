@@ -21,12 +21,14 @@ public sealed class HumanoidMarkingModifierBoundUserInterface : BoundUserInterfa
     {
         base.Open();
 
-        _window = this.CreateWindowCenteredLeft<HumanoidMarkingModifierWindow>();
+        _window = this.CreateWindow<HumanoidMarkingModifierWindow>();
         _window.OnMarkingAdded += SendMarkingSet;
         _window.OnMarkingRemoved += SendMarkingSet;
         _window.OnMarkingColorChange += SendMarkingSetNoResend;
         _window.OnMarkingRankChange += SendMarkingSet;
         _window.OnLayerInfoModified += SendBaseLayer;
+
+        _window.OpenCenteredLeft();
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

@@ -3,8 +3,7 @@
 - type: latheRecipe
   abstract: true
   id: BaseToolRecipe
-  categories:
-  - Tools
+  category: Tools
   completetime: 2
   materials:
     Steel: 200
@@ -53,8 +52,7 @@
 - type: latheRecipe
   id: CableStack
   result: CableApcStack1
-  categories:
-  - Parts
+  category: Parts
   completetime: 0.1
   materials:
     Steel: 30

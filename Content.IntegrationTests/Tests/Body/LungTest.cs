@@ -11,8 +11,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using System.Linq;
 using System.Numerics;
-using Robust.Shared.EntitySerialization.Systems;
-using Robust.Shared.Utility;
 
 namespace Content.IntegrationTests.Tests.Body
 {
@@ -59,6 +57,7 @@ namespace Content.IntegrationTests.Tests.Body
 
             await server.WaitIdleAsync();
 
+            var mapManager = server.ResolveDependency<IMapManager>();
             var entityManager = server.ResolveDependency<IEntityManager>();
             var mapLoader = entityManager.System<MapLoaderSystem>();
             var mapSys = entityManager.System<SharedMapSystem>();
@@ -70,13 +69,17 @@ namespace Content.IntegrationTests.Tests.Body
             GridAtmosphereComponent relevantAtmos = default;
             var startingMoles = 0.0f;
 
-            var testMapName = new ResPath("Maps/Test/Breathing/3by3-20oxy-80nit.yml");
+            var testMapName = "Maps/Test/Breathing/3by3-20oxy-80nit.yml";
 
             await server.WaitPost(() =>
             {
                 mapSys.CreateMap(out var mapId);
-                Assert.That(mapLoader.TryLoadGrid(mapId, testMapName, out var gridEnt));
-                grid = gridEnt!.Value.Owner;
+                Assert.That(mapLoader.TryLoad(mapId, testMapName, out var roots));
+
+                var query = entityManager.GetEntityQuery<MapGridComponent>();
+                var grids = roots.Where(x => query.HasComponent(x));
+                Assert.That(grids, Is.Not.Empty);
+                grid = grids.First();
             });
 
             Assert.That(grid, Is.Not.Null, $"Test blueprint {testMapName} not found.");
@@ -145,13 +148,18 @@ namespace Content.IntegrationTests.Tests.Body
             RespiratorComponent respirator = null;
             EntityUid human = default;
 
-            var testMapName = new ResPath("Maps/Test/Breathing/3by3-20oxy-80nit.yml");
+            var testMapName = "Maps/Test/Breathing/3by3-20oxy-80nit.yml";
 
             await server.WaitPost(() =>
             {
                 mapSys.CreateMap(out var mapId);
-                Assert.That(mapLoader.TryLoadGrid(mapId, testMapName, out var gridEnt));
-                grid = gridEnt!.Value.Owner;
+
+                Assert.That(mapLoader.TryLoad(mapId, testMapName, out var ents), Is.True);
+                var query = entityManager.GetEntityQuery<MapGridComponent>();
+                grid = ents
+                    .Select<EntityUid, EntityUid?>(x => x)
+                    .FirstOrDefault((uid) => uid.HasValue && query.HasComponent(uid.Value), null);
+                Assert.That(grid, Is.Not.Null);
             });
 
             Assert.That(grid, Is.Not.Null, $"Test blueprint {testMapName} not found.");

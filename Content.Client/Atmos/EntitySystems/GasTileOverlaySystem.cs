@@ -16,7 +16,6 @@ namespace Content.Client.Atmos.EntitySystems
         [Dependency] private readonly IResourceCache _resourceCache = default!;
         [Dependency] private readonly IOverlayManager _overlayMan = default!;
         [Dependency] private readonly SpriteSystem _spriteSys = default!;
-        [Dependency] private readonly SharedTransformSystem _xformSys = default!;
 
         private GasTileOverlay _overlay = default!;
 
@@ -26,7 +25,7 @@ namespace Content.Client.Atmos.EntitySystems
             SubscribeNetworkEvent<GasOverlayUpdateEvent>(HandleGasOverlayUpdate);
             SubscribeLocalEvent<GasTileOverlayComponent, ComponentHandleState>(OnHandleState);
 
-            _overlay = new GasTileOverlay(this, EntityManager, _resourceCache, ProtoMan, _spriteSys, _xformSys);
+            _overlay = new GasTileOverlay(this, EntityManager, _resourceCache, ProtoMan, _spriteSys);
             _overlayMan.AddOverlay(_overlay);
         }
 

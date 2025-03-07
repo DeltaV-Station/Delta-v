@@ -9,10 +9,10 @@ namespace Content.Shared.Storage;
 /// Prototype wrapper around <see cref="EntitySpawnEntry"/>
 /// </summary>
 [Prototype]
-public sealed partial class EntitySpawnEntryPrototype : IPrototype
+public sealed class EntitySpawnEntryPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; private set; } = string.Empty;
+    public string ID { get; } = string.Empty;
 
     [DataField]
     public List<EntitySpawnEntry> Entries = new();

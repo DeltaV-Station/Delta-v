@@ -7,13 +7,13 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
-
+using Content.Shared.Explosion.EntitySystems;
 namespace Content.Server.Explosion.EntitySystems;
 
 // This partial part of the explosion system has all of the functions used to create the actual explosion map.
 // I.e, to get the sets of tiles & intensity values that describe an explosion.
 
-public sealed partial class ExplosionSystem
+public sealed partial class ExplosionSystem : SharedExplosionSystem
 {
     /// <summary>
     ///     This is the main explosion generating function.
@@ -89,7 +89,8 @@ public sealed partial class ExplosionSystem
         if (referenceGrid != null)
         {
             var xform = Transform(Comp<MapGridComponent>(referenceGrid.Value).Owner);
-            (_, spaceAngle, spaceMatrix) = _transformSystem.GetWorldPositionRotationMatrix(xform);
+            spaceMatrix = xform.WorldMatrix;
+            spaceAngle = xform.WorldRotation;
         }
 
         // is the explosion starting on a grid?

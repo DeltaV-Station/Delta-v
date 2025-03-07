@@ -6,13 +6,12 @@ using BenchmarkDotNet.Attributes;
 using Content.IntegrationTests;
 using Content.IntegrationTests.Pair;
 using Content.Server.Maps;
+using Robust.Server.GameObjects;
 using Robust.Shared;
 using Robust.Shared.Analyzers;
-using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Benchmarks;
 
@@ -21,7 +20,7 @@ public class MapLoadBenchmark
 {
     private TestPair _pair = default!;
     private MapLoaderSystem _mapLoader = default!;
-    private SharedMapSystem _mapSys = default!;
+    private IMapManager _mapManager = default!;
 
     [GlobalSetup]
     public void Setup()
@@ -37,7 +36,7 @@ public class MapLoadBenchmark
             .ToDictionary(x => x.ID, x => x.MapPath.ToString());
 
         _mapLoader = server.ResolveDependency<IEntitySystemManager>().GetEntitySystem<MapLoaderSystem>();
-        _mapSys = server.ResolveDependency<IEntitySystemManager>().GetEntitySystem<SharedMapSystem>();
+        _mapManager = server.ResolveDependency<IMapManager>();
     }
 
     [GlobalCleanup]
@@ -53,19 +52,17 @@ public class MapLoadBenchmark
     public string Map;
 
     public Dictionary<string, string> Paths;
-    private MapId _mapId;
 
     [Benchmark]
     public async Task LoadMap()
     {
-        var mapPath = new ResPath(Paths[Map]);
+        var mapPath = Paths[Map];
         var server = _pair.Server;
         await server.WaitPost(() =>
         {
-            var success = _mapLoader.TryLoadMap(mapPath, out var map, out _);
+            var success = _mapLoader.TryLoad(new MapId(10), mapPath, out _);
             if (!success)
                 throw new Exception("Map load failed");
-            _mapId = map.Value.Comp.MapId;
         });
     }
 
@@ -73,7 +70,9 @@ public class MapLoadBenchmark
     public void IterationCleanup()
     {
         var server = _pair.Server;
-        server.WaitPost(() => _mapSys.DeleteMap(_mapId))
-            .Wait();
+        server.WaitPost(() =>
+        {
+            _mapManager.DeleteMap(new MapId(10));
+        }).Wait();
     }
 }

@@ -19,7 +19,6 @@ public sealed class TrayScannerSystem : SharedTrayScannerSystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TrayScanRevealSystem _trayScanReveal = default!;
 
     private const string TRayAnimationKey = "trays";
     private const double AnimationLength = 0.3;
@@ -83,7 +82,7 @@ public sealed class TrayScannerSystem : SharedTrayScannerSystem
 
             foreach (var (uid, comp) in inRange)
             {
-                if (comp.IsUnderCover || _trayScanReveal.IsUnderRevealingEntity(uid))
+                if (comp.IsUnderCover)
                     EnsureComp<TrayRevealedComponent>(uid);
             }
         }

@@ -350,13 +350,33 @@ public sealed partial class AtmosMonitoringConsoleWindow : FancyWindow
         if (scroll == null)
             return;
 
+        if (!TryGetVerticalScrollbar(scroll, out var vScrollbar))
+            return;
+
         if (!TryGetNextScrollPosition(out float? nextScrollPosition))
             return;
 
-        scroll.VScrollTarget = nextScrollPosition.Value;
+        vScrollbar.ValueTarget = nextScrollPosition.Value;
 
-        if (MathHelper.CloseToPercent(scroll.VScroll, scroll.VScrollTarget))
+        if (MathHelper.CloseToPercent(vScrollbar.Value, vScrollbar.ValueTarget))
             _autoScrollActive = false;
+    }
+
+    private bool TryGetVerticalScrollbar(ScrollContainer scroll, [NotNullWhen(true)] out VScrollBar? vScrollBar)
+    {
+        vScrollBar = null;
+
+        foreach (var control in scroll.Children)
+        {
+            if (control is not VScrollBar)
+                continue;
+
+            vScrollBar = (VScrollBar)control;
+
+            return true;
+        }
+
+        return false;
     }
 
     private bool TryGetNextScrollPosition([NotNullWhen(true)] out float? nextScrollPosition)

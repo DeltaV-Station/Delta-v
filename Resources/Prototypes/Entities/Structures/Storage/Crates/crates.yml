@@ -12,8 +12,6 @@
     - Energy
     reflectProb: 0.2
     spread: 90
-  - type: RadiationBlockingContainer
-    resistance: 2.5
 
 - type: entity
   parent: CrateBaseWeldable
@@ -178,7 +176,7 @@
 # Secure Crates
 
 - type: entity
-  parent: [ CrateBaseSecure, BaseSecurityContraband ]
+  parent: [ CrateBaseSecure, BaseRestrictedContraband ]
   id: CrateSecgear
   name: secgear crate
   components:
@@ -298,7 +296,7 @@
     containers: [ entity_storage ] # DeltaV - port impstation's anti-tamper
 
 - type: entity
-  parent: [ CrateBaseSecure, BaseSecurityContraband ]
+  parent: [ CrateBaseSecure, BaseRestrictedContraband ]
   suffix: Armory, Secure
   id: CrateContrabandStorageSecure
   name: contraband storage crate

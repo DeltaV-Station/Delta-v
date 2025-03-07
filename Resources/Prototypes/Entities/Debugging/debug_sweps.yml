@@ -40,9 +40,6 @@
         whitelist:
           tags:
             - CartridgePistol
-  - type: MappingCategories # DeltaV
-    categories:
-    - Debug
 
 - type: entity
   id: MagazinePistolDebug
@@ -58,9 +55,6 @@
     capacity: 1000
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi
-  - type: MappingCategories # DeltaV
-    categories:
-    - Debug
 
 - type: entity
   id: BulletDebug
@@ -76,9 +70,6 @@
     damage:
       types:
         Blunt: 20000
-  - type: MappingCategories # DeltaV
-    categories:
-    - Debug
 
 - type: entity
   id: CartridgeDebug
@@ -91,9 +82,6 @@
       - Debug
   - type: CartridgeAmmo
     proto: BulletDebug
-  - type: MappingCategories # DeltaV
-    categories:
-    - Debug
 
 - type: entity
   name: bang stick gibber
@@ -115,9 +103,6 @@
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/debug.rsi
-  - type: MappingCategories # DeltaV
-    categories:
-    - Debug
 
 - type: entity
   name: bang stick 100dmg
@@ -131,9 +116,6 @@
     damage:
       types:
         Blunt: 100
-  - type: MappingCategories # DeltaV
-    categories:
-    - Debug
 
 - type: entity
   name: bang stick 200dmg
@@ -147,6 +129,3 @@
     damage:
       types:
         Blunt: 200
-  - type: MappingCategories # DeltaV
-    categories:
-    - Debug

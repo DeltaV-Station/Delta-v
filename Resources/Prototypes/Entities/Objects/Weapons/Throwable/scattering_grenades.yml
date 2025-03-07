@@ -20,7 +20,7 @@
   - type: ScatteringGrenade
 
 - type: entity
-  parent: [ScatteringGrenadeBase, BaseSecurityContraband]
+  parent: [ScatteringGrenadeBase, BaseRestrictedContraband]
   id: ClusterBang
   name: clusterbang
   description: Can be used only with flashbangs. Explodes several times.

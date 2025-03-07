@@ -372,16 +372,35 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         if (!_tryToScrollToListFocus)
             return;
 
+        if (!TryGetVerticalScrollbar(SensorScroller, out var vScrollbar))
+            return;
+
         if (TryGetNextScrollPosition(out float? nextScrollPosition))
         {
-            SensorScroller.VScrollTarget = nextScrollPosition.Value;
+            vScrollbar.ValueTarget = nextScrollPosition.Value;
 
-            if (MathHelper.CloseToPercent(SensorScroller.VScroll, SensorScroller.VScrollTarget))
+            if (MathHelper.CloseToPercent(vScrollbar.Value, vScrollbar.ValueTarget))
             {
                 _tryToScrollToListFocus = false;
                 return;
             }
         }
+    }
+
+    private bool TryGetVerticalScrollbar(ScrollContainer scroll, [NotNullWhen(true)] out VScrollBar? vScrollBar)
+    {
+        vScrollBar = null;
+
+        foreach (var child in scroll.Children)
+        {
+            if (child is not VScrollBar)
+                continue;
+
+            vScrollBar = (VScrollBar) child;
+            return true;
+        }
+
+        return false;
     }
 
     private bool TryGetNextScrollPosition([NotNullWhen(true)] out float? nextScrollPosition)

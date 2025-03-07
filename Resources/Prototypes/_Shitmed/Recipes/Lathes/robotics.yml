@@ -1,8 +1,7 @@
 - type: latheRecipe
   id: BorgModuleSurgery
   result: BorgModuleSurgery
-  categories:
-  - Robotics
+  category: Robotics
   completetime: 3
   materials:
     Steel: 250
@@ -12,8 +11,7 @@
 - type: latheRecipe
   id: BorgModuleAdvancedSurgery
   result: BorgModuleAdvancedSurgery
-  categories:
-  - Robotics
+  category: Robotics
   completetime: 3
   materials:
     Steel: 500
@@ -24,8 +22,7 @@
 - type: latheRecipe
   id: JawsOfLifeLeftArm
   result: JawsOfLifeLeftArm
-  categories:
-  - Robotics
+  category: Robotics
   completetime: 5
   materials:
     Steel: 1000
@@ -37,8 +34,7 @@
 - type: latheRecipe
   id: JawsOfLifeRightArm
   result: JawsOfLifeRightArm
-  categories:
-  - Robotics
+  category: Robotics
   completetime: 5
   materials:
     Steel: 1000
@@ -50,8 +46,7 @@
 - type: latheRecipe
   id: SpeedLeftLeg
   result: SpeedLeftLeg
-  categories:
-  - Robotics
+  category: Robotics
   completetime: 5
   materials:
     Steel: 1000
@@ -63,8 +58,7 @@
 - type: latheRecipe
   id: SpeedRightLeg
   result: SpeedRightLeg
-  categories:
-  - Robotics
+  category: Robotics
   completetime: 5
   materials:
     Steel: 1000
@@ -76,8 +70,7 @@
 - type: latheRecipe
   id: BasicCyberneticEyes
   result: BasicCyberneticEyes
-  categories:
-  - Robotics
+  category: Robotics
   completetime: 5
   materials:
     Steel: 1000
@@ -114,17 +107,6 @@
     Gold: 500
     Plastic: 500
     Plasma: 500
-
-- type: latheRecipe
-  id: ClothingHandsGlovesMechanicalSurgical
-  result: ClothingHandsGlovesMechanicalSurgical
-  categories:
-  - Robotics
-  completetime: 3
-  materials:
-    Durathread: 500
-    Steel: 100
-    Gold: 50
 
 # Generic
 

@@ -15,12 +15,16 @@ public sealed class RoomFillSystem : EntitySystem
 
     private void OnRoomFillMapInit(EntityUid uid, RoomFillComponent component, MapInitEvent args)
     {
+        // Just test things.
+        if (component.Size == Vector2i.Zero)
+            return;
+
         var xform = Transform(uid);
 
         if (xform.GridUid != null)
         {
             var random = new Random();
-            var room = _dungeon.GetRoomPrototype(random, component.RoomWhitelist, component.MinSize, component.MaxSize);
+            var room = _dungeon.GetRoomPrototype(component.Size, random, component.RoomWhitelist);
 
             if (room != null)
             {
@@ -28,7 +32,7 @@ public sealed class RoomFillSystem : EntitySystem
                 _dungeon.SpawnRoom(
                     xform.GridUid.Value,
                     mapGrid,
-                    _maps.LocalToTile(xform.GridUid.Value, mapGrid, xform.Coordinates) - new Vector2i(room.Size.X/2,room.Size.Y/2),
+                    _maps.LocalToTile(xform.GridUid.Value, mapGrid, xform.Coordinates),
                     room,
                     random,
                     null,

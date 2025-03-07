@@ -16,11 +16,11 @@ public sealed partial class LatheRecipePackPrototype : IPrototype, IInheritingPr
     public string ID { get; private set; } = default!;
 
     [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<LatheRecipePackPrototype>))]
-    public string[]? Parents { get; private set; }
+    public string[]? Parents { get; }
 
     [NeverPushInheritance]
     [AbstractDataField]
-    public bool Abstract { get; private set; }
+    public bool Abstract { get; }
 
     /// <summary>
     /// The lathe recipes contained by this pack.

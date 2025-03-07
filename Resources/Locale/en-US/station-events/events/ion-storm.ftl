@@ -33,21 +33,21 @@ ion-storm-law-not-having-harmful = NOT HAVING {$adjective} {$thing} IS HARMFUL T
 
 # thing is a concept or require
 ion-storm-law-requires = {$who} {$plural ->
-    [true] REQUIRE
-    *[false] REQUIRES
+    [true] REQUIRES
+    *[false] REQUIRE
 } {$thing}
 ion-storm-law-requires-subjects = {$who} {$plural ->
-    [true] REQUIRE
-    *[false] REQUIRES
+    [true] REQUIRES
+    *[false] REQUIRE
 } {$joined} {$subjects}
 
 ion-storm-law-allergic = {$who} {$plural ->
-    [true] ARE
-    *[false] IS
+    [true] IS
+    *[false] ARE
 } {$severity} ALLERGIC TO {$allergy}
 ion-storm-law-allergic-subjects = {$who} {$plural ->
-    [true] ARE
-    *[false] IS
+    [true] IS
+    *[false] ARE
 } {$severity} ALLERGIC TO {$adjective} {$subjects}
 
 ion-storm-law-feeling = {$who} {$feeling} {$concept}

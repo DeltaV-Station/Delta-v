@@ -73,7 +73,7 @@ public sealed partial class GunSystem
             _ => throw new ArgumentOutOfRangeException(),
         };
 
-        _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), damageType);
+        _damageExamine.AddDamageExamine(args.Message, damageSpec, damageType);
     }
 
     private DamageSpecifier? GetDamage(BatteryAmmoProviderComponent component)
@@ -87,7 +87,7 @@ public sealed partial class GunSystem
 
                 if (!p.Damage.Empty)
                 {
-                    return p.Damage * Damageable.UniversalProjectileDamageModifier;
+                    return p.Damage;
                 }
             }
 
@@ -96,8 +96,7 @@ public sealed partial class GunSystem
 
         if (component is HitscanBatteryAmmoProviderComponent hitscan)
         {
-            var dmg = ProtoManager.Index<HitscanPrototype>(hitscan.Prototype).Damage;
-            return dmg == null ? dmg : dmg * Damageable.UniversalHitscanDamageModifier;
+            return ProtoManager.Index<HitscanPrototype>(hitscan.Prototype).Damage;
         }
 
         return null;

@@ -108,17 +108,6 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Extractable
-    grindableSolutionName: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: GroundBee
-          Quantity: 5 # DeltaV - was 1
-  - type: Butcherable
-    spawned:
-    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
   - type: Item
     size: Tiny
   - type: Tag
@@ -126,7 +115,6 @@
     - Bee
     - Trash
   - type: Bloodstream
-    bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
@@ -138,6 +126,14 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: Extractable # DeltaV - Make it so bees can be ground up
+    grindableSolutionName: bee
+  - type: SolutionContainerManager
+    solutions:
+      bee:
+        reagents:
+        - ReagentId: GroundBee
+          Quantity: 5
   - type: ZombieImmune
 
 - type: entity
@@ -244,7 +240,6 @@
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
-  - type: ExaminableHunger
   - type: ReplacementAccent
     accent: chicken
   - type: SentienceTarget
@@ -689,7 +684,6 @@
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
-  - type: ExaminableHunger
   - type: ReplacementAccent
     accent: duck
   - type: SentienceTarget
@@ -796,24 +790,7 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Extractable
-    grindableSolutionName: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 1
-  - type: Butcherable
-    spawned:
-    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
-  - type: Item
-    size: Tiny
-  - type: Tag
-    tags:
-    - Trash
   - type: Bloodstream
-    bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
@@ -872,7 +849,6 @@
     reagentId: Milk
     quantityPerUpdate: 25
     growthDelay: 30
-  - type: ExaminableHunger
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -1042,7 +1018,6 @@
     reagentId: MilkGoat
     quantityPerUpdate: 25
     growthDelay: 20
-  - type: ExaminableHunger
   - type: Wooly
   - type: Food
     solution: wool
@@ -1355,10 +1330,10 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
-    - map: [ "id" ]
     - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "belt" ]
+    - map: [ "id" ]
     - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
@@ -2800,7 +2775,6 @@
   - type: Physics
   - type: Speech
     speechVerb: Canine
-    speechSounds: Dog
   - type: Fixtures
     fixtures:
       fix1:

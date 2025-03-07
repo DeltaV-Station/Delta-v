@@ -14,7 +14,6 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
-using Robust.Shared.Audio; // DeltaV
 using Robust.Shared.Configuration;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Network;
@@ -106,8 +105,7 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
 
         if (other)
         {
-            if (_mHelpSound is {} path)
-                _audio?.PlayGlobal(new SoundPathSpecifier(path), Filter.Local(), false);
+            _audio?.PlayGlobal(_mHelpSound, Filter.Local(), false);
             _clyde.RequestWindowAttention();
 
             if (!_isMentor)
@@ -175,12 +173,7 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
                         var time1 = _messages.GetValueOrDefault(player1.SessionId);
                         var time2 = _messages.GetValueOrDefault(player2.SessionId);
                         if (time1 == null && time2 == null)
-                        {
-                            return string.Compare(
-                                GetCharacterOrUsername(player2),
-                                GetCharacterOrUsername(player1),
-                                StringComparison.OrdinalIgnoreCase);
-                        }
+                            return 0;
                         if (time1 == null)
                             return -1;
                         if (time2 == null)
@@ -190,8 +183,7 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
 
                     foreach (var player in playerList)
                     {
-                        if (player.Connected)
-                            MentorAddPlayerButton(player);
+                        MentorAddPlayerButton(player);
                     }
                     // DeltaV - End all players in chat sorted
 
@@ -269,9 +261,11 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
         */
 
         //Default show player name if they don't have a character
-        var character = GetCharacterOrUsername(player);
+        var character = player.Username;
         var job = "Spectator";
-        //Use Job name if they exist.
+        //Use Character and Job name if they exist.
+        if (!string.IsNullOrWhiteSpace(player.CharacterName))
+            character = player.CharacterName;
         if (!string.IsNullOrWhiteSpace(player.StartingJob))
             job = player.StartingJob;
         // DeltaV - End show char name and job if possible
@@ -331,13 +325,5 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
 
         if (_aHelp.GameAHelpButton != null)
             _aHelp.GameAHelpButton.Pressed = pressed;
-    }
-
-    //DeltaV Add player identity method
-    private string GetCharacterOrUsername(PlayerInfo player)
-    {
-        if (!string.IsNullOrWhiteSpace(player.CharacterName))
-            return player.CharacterName;
-        return player.Username;
     }
 }

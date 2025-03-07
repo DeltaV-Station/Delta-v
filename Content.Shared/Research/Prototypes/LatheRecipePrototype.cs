@@ -18,12 +18,12 @@ namespace Content.Shared.Research.Prototypes
 
         /// <inheritdoc/>
         [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<LatheRecipePrototype>))]
-        public string[]? Parents { get; private set; }
+        public string[]? Parents { get; }
 
         /// <inheritdoc />
         [NeverPushInheritance]
         [AbstractDataField]
-        public bool Abstract { get; private set; }
+        public bool Abstract { get; }
 
         /// <summary>
         ///     Name displayed in the lathe GUI.
@@ -66,10 +66,10 @@ namespace Content.Shared.Research.Prototypes
         public bool ApplyMaterialDiscount = true;
 
         /// <summary>
-        /// List of categories used for visually sorting lathe recipes in the UI.
+        /// A category used for visually sorting lathe recipes in the UI.
         /// </summary>
         [DataField]
-        public List<ProtoId<LatheCategoryPrototype>> Categories = new();
+        public ProtoId<LatheCategoryPrototype>? Category;
 
         /// <summary>
         /// DeltaV: Number of mining points this recipe adds to an oreproc when printed.

@@ -14,11 +14,11 @@ public abstract class SharedGlobalSoundSystem : EntitySystem
 [Serializable, NetSerializable]
 public class GlobalSoundEvent : EntityEventArgs
 {
-    public ResolvedSoundSpecifier Specifier;
+    public string Filename;
     public AudioParams? AudioParams;
-    public GlobalSoundEvent(ResolvedSoundSpecifier specifier, AudioParams? audioParams = null)
+    public GlobalSoundEvent(string filename, AudioParams? audioParams = null)
     {
-        Specifier = specifier;
+        Filename = filename;
         AudioParams = audioParams;
     }
 }
@@ -29,7 +29,7 @@ public class GlobalSoundEvent : EntityEventArgs
 [Serializable, NetSerializable]
 public sealed class AdminSoundEvent : GlobalSoundEvent
 {
-    public AdminSoundEvent(ResolvedSoundSpecifier specifier, AudioParams? audioParams = null) : base(specifier, audioParams){}
+    public AdminSoundEvent(string filename, AudioParams? audioParams = null) : base(filename, audioParams){}
 }
 
 /// <summary>
@@ -38,7 +38,7 @@ public sealed class AdminSoundEvent : GlobalSoundEvent
 [Serializable, NetSerializable]
 public sealed class GameGlobalSoundEvent : GlobalSoundEvent
 {
-    public GameGlobalSoundEvent(ResolvedSoundSpecifier specifier, AudioParams? audioParams = null) : base(specifier, audioParams){}
+    public GameGlobalSoundEvent(string filename, AudioParams? audioParams = null) : base(filename, audioParams){}
 }
 
 public enum StationEventMusicType : byte
@@ -54,8 +54,8 @@ public sealed class StationEventMusicEvent : GlobalSoundEvent
 {
     public StationEventMusicType Type;
 
-    public StationEventMusicEvent(ResolvedSoundSpecifier specifier, StationEventMusicType type, AudioParams? audioParams = null) : base(
-        specifier, audioParams)
+    public StationEventMusicEvent(string filename, StationEventMusicType type, AudioParams? audioParams = null) : base(
+        filename, audioParams)
     {
         Type = type;
     }

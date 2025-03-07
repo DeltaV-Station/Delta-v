@@ -27,7 +27,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Spawners;
@@ -297,11 +296,24 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
-        if (ev.DoSpeech)
-            Speak(ev);
+        Speak(ev);
 
-        RemoveComponents(ev.Target, ev.ToRemove);
-        AddComponents(ev.Target, ev.ToAdd);
+        foreach (var toRemove in ev.ToRemove)
+        {
+            if (_compFact.TryGetRegistration(toRemove, out var registration))
+                RemComp(ev.Target, registration.Type);
+        }
+
+        foreach (var (name, data) in ev.ToAdd)
+        {
+            if (HasComp(ev.Target, data.Component.GetType()))
+                continue;
+
+            var component = (Component)_compFact.GetComponent(name);
+            var temp = (object)component;
+            _seriMan.CopyTo(data.Component, ref temp);
+            EntityManager.AddComponent(ev.Target, (Component)temp!);
+        }
     }
     // End Change Component Spells
     #endregion
@@ -356,29 +368,6 @@ public abstract class SharedMagicSystem : EntitySystem
         {
             var comp = EnsureComp<PreventCollideComponent>(ent);
             comp.Uid = performer;
-        }
-    }
-
-    private void AddComponents(EntityUid target, ComponentRegistry comps)
-    {
-        foreach (var (name, data) in comps)
-        {
-            if (HasComp(target, data.Component.GetType()))
-                continue;
-
-            var component = (Component)_compFact.GetComponent(name);
-            var temp = (object)component;
-            _seriMan.CopyTo(data.Component, ref temp);
-            EntityManager.AddComponent(target, (Component)temp!);
-        }
-    }
-
-    private void RemoveComponents(EntityUid target, HashSet<string> comps)
-    {
-        foreach (var toRemove in comps)
-        {
-            if (_compFact.TryGetRegistration(toRemove, out var registration))
-                RemComp(target, registration.Type);
         }
     }
     // End Spell Helpers
@@ -466,8 +455,7 @@ public abstract class SharedMagicSystem : EntitySystem
     #endregion
     #region Global Spells
 
-    // TODO: Change this into a "StartRuleAction" when actions with multiple events are supported
-    protected virtual void OnRandomGlobalSpawnSpell(RandomGlobalSpawnSpellEvent ev)
+    private void OnRandomGlobalSpawnSpell(RandomGlobalSpawnSpellEvent ev)
     {
         if (!_net.IsServer || ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer) || ev.Spawns is not { } spawns)
             return;
@@ -483,9 +471,6 @@ public abstract class SharedMagicSystem : EntitySystem
                 continue;
 
             var ent = human.Comp.OwnedEntity.Value;
-
-            if (_tag.HasTag(ent, "InvalidForGlobalSpawnSpell"))
-                continue;
 
             var mapCoords = _transform.GetMapCoordinates(ent);
             foreach (var spawn in EntitySpawnCollection.GetSpawns(spawns, _random))

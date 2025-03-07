@@ -163,7 +163,6 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
-    screamAction: null
   - type: UnblockableSpeech
   - type: FootstepModifier
     footstepSoundCollection:
@@ -258,7 +257,6 @@
     - PsionicInvisibility
     - Normal
   - type: JetpackUser # DeltaV: Lets cyborgs fly in space
-  - type: PreventDropOnDowned # Frontier: borgs don't drop items when falling (e.g. critical/dead)
 
 - type: entity
   abstract: true
@@ -341,8 +339,6 @@
   - type: MovementAlwaysTouching
   - type: Speech
     speechSounds: SyndieBorg
-    allowedEmotes:
-    - Laugh
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconSyndicate

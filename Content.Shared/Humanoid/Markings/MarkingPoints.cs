@@ -37,7 +37,7 @@ public sealed partial class MarkingPoints
 [Prototype("markingPoints")]
 public sealed partial class MarkingPointsPrototype : IPrototype
 {
-    [IdDataField] public string ID { get; private set; } = default!;
+    [IdDataField] public string ID { get; } = default!;
 
     /// <summary>
     ///     If the user of this marking point set is only allowed to

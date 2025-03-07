@@ -25,6 +25,8 @@
 - type: entity
   id: ActionSmiteNoReq
   parent: ActionSmite
+  name: Smite
+  description: Instantly gibs a target.
   components:
   - type: Magic
 

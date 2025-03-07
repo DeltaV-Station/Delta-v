@@ -1,14 +1,13 @@
 - type: npcFaction
   id: Dragon
   hostile:
-  - NanoTrasen
-  - Syndicate
-  - Xeno
-  - PetsNT
-  - Zombie
-  - Revolutionary
-  - AllHostile
-  - Wizard
+    - NanoTrasen
+    - Syndicate
+    - Xeno
+    - PetsNT
+    - Zombie
+    - Revolutionary
+    - AllHostile
 
 - type: npcFaction
   id: NanoTrasen
@@ -20,14 +19,12 @@
   - Revolutionary
   - Dragon
   - AllHostile
-  - Wizard
 
 - type: npcFaction
   id: Mouse
   hostile:
-  - PetsNT
-  - AllHostile
-  - Wizard
+    - PetsNT
+    - AllHostile
 
 - type: npcFaction
   id: Passive
@@ -40,7 +37,6 @@
   - Zombie
   - Xeno
   - AllHostile
-  - Wizard
 
 - type: npcFaction
   id: SimpleHostile
@@ -52,7 +48,6 @@
   - Zombie
   - Revolutionary
   - AllHostile
-  - Wizard
 
 - type: npcFaction
   id: SimpleNeutral
@@ -67,8 +62,7 @@
   - Zombie
   - Dragon
   - AllHostile
-  - Wizard
-  friendly: # DeltaV - Nukie hostage ops
+  friendly: # DeltaV Nukie hostage ops
   - Hostage
 
 - type: npcFaction
@@ -81,7 +75,6 @@
   - Zombie
   - Revolutionary
   - AllHostile
-  - Wizard
 
 - type: npcFaction
   id: Zombie
@@ -94,7 +87,6 @@
   - PetsNT
   - Revolutionary
   - AllHostile
-  - Wizard
 
 - type: npcFaction
   id: Revolutionary
@@ -104,7 +96,6 @@
   - SimpleHostile
   - Dragon
   - AllHostile
-  - Wizard
 
 - type: npcFaction
   id: AllHostile
@@ -120,20 +111,3 @@
   - Xeno
   - Zombie
   - Revolutionary
-  - Wizard
-
-- type: npcFaction
-  id: Wizard
-  hostile:
-  - NanoTrasen
-  - Dragon
-  - Mouse
-  - Passive
-  - PetsNT
-  - SimpleHostile
-  - SimpleNeutral
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Revolutionary
-  - AllHostile

@@ -33,7 +33,7 @@ public sealed partial class NinjaGlovesComponent : Component
 /// An ability that adds components to the user when the gloves are enabled.
 /// </summary>
 [DataRecord]
-public partial record struct NinjaGloveAbility()
+public record struct NinjaGloveAbility()
 {
     /// <summary>
     /// If not null, checks if an objective with this prototype has been completed.
