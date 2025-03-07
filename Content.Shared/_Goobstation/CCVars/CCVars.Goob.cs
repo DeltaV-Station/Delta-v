@@ -27,4 +27,12 @@ public sealed partial class GoobCVars
         CVarDef.Create("mech.gun_outside_mech", true, CVar.SERVER | CVar.REPLICATED);
 
     #endregion
+
+    #region Game Director
+
+    public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
+        CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
+
+    #endregion
+
 }

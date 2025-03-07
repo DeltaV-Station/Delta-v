@@ -84,6 +84,8 @@
       path: /Audio/Announcements/announce.ogg
     weight: 12 # DeltaV - was 8
     duration: 35
+    chaos: # Goobstation
+      Anomaly: 100
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-anomaly-spawn-result-message
   - type: AnomalySpawnRule
@@ -102,6 +104,8 @@
       path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
+    chaos: # Goobstation
+      Anomaly: 40
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-bluespace-artifact-result-message
   - type: BluespaceArtifactRule
@@ -115,6 +119,8 @@
     reoccurrenceDelay: 5
     earliestStart: 1
     duration: 1
+    chaos: # Goobstation
+      Anomaly: 40
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-bluespace-locker-result-message
   - type: BluespaceLockerRule
@@ -127,6 +133,8 @@
     weight: 10
     duration: 1
     minimumPlayers: 15
+    chaos: # Goobstation
+      Power: 100
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-breaker-flip-result-message
   - type: BreakerFlipRule
@@ -184,6 +192,12 @@
     reoccurrenceDelay: 20
     minimumPlayers: 45 # DeltaV - was 20
     duration: null
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 100
+      Medical: 100
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-dragon-spawn-result-message
   - type: SpaceSpawnRule
@@ -215,6 +229,12 @@
     earliestStart: 30
     reoccurrenceDelay: 60 # DeltaV - was 20
     minimumPlayers: 40 # DeltaV - was 30
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 40
+      Medical: 40
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-ninja-spawn-result-message
   - type: SpaceSpawnRule
@@ -272,6 +292,12 @@
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 100
+      Medical: 100
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-revenant-spawn-result-message
   - type: RandomSpawnRule
@@ -335,6 +361,9 @@
       path: /Audio/Announcements/gas_leak.ogg # DeltaV - custom announcer
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 10 # DeltaV - was 8
+    chaos:
+      Atmos: 100
+      Medical: 50
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-gas-leak-result-message
   - type: GasLeakRule
@@ -348,6 +377,10 @@
     minimumPlayers: 10 # DeltaV - Was 15
     weight: 7
     duration: 240
+    chaos:
+      Hostile: 20
+      Friend: 20
+      Medical: 100
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-kudzu-growth-result-message
   - type: KudzuGrowthRule
@@ -382,6 +415,8 @@
       path: /Audio/Announcements/attention.ogg
     duration: 120
     maxDuration: 240
+    chaos: # Goobstation
+      Friend: 20
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-solar-flare-result-message
   - type: SolarFlareRule
@@ -412,6 +447,8 @@
     minimumPlayers: 15
     weight: 7.5 # DeltaV - was 5
     duration: 60
+    chaos: # Goobstation
+      Mess: 200
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-vent-clog-result-message
   - type: VentClogRule
@@ -428,6 +465,10 @@
     minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
+    chaos: # Goobstation
+      Hostile: 10
+      Friend: 10
+      Medical: 50
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-slimes-spawn-result-message
   - type: VentCrittersRule
@@ -449,6 +490,10 @@
     minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
+    chaos: # DeltaV
+      Hostile: 10
+      Friend: 10
+      Medical: 50
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-snake-spawn-result-message
   - type: VentCrittersRule
@@ -470,6 +515,10 @@
     minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
+    chaos: # DeltaV
+      Hostile: 10
+      Friend: 10
+      Medical: 50
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-spider-spawn-result-message
   - type: VentCrittersRule
@@ -488,6 +537,10 @@
     minimumPlayers: 30 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
     duration: 30 # DeltaV: was 60, used as a delay now
+    chaos: # DeltaV
+      Hostile: 10
+      Friend: 10
+      Medical: 50
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-spider-clown-spawn-result-message
   - type: VentCrittersRule
@@ -504,6 +557,11 @@
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
+    chaos: # Goobstation
+      Hostile: 40
+      Friend: 60
+      Medical: 200
+      Death: 200
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-zombie-outbreak-result-message
   - type: ZombieRule
@@ -540,6 +598,11 @@
     minimumPlayers: 30 # DeltaV - was 20
     reoccurrenceDelay: 30
     duration: 1
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 40
+      Medical: 200
+      Death: 100
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-lone-ops-spawn-result-message
   - type: RuleGrids
