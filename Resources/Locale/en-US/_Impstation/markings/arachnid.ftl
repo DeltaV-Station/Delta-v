@@ -41,3 +41,4 @@ marking-ArachnidRLegSegments-leg_r_segments1 = Thigh
 marking-ArachnidRLegSegments-leg_r_segments2 = Shin
 
 marking-ArachnidOverlayFluffy = Fluffy
+marking-ArachnidOverlayFluffy-fluffy = Fluff
