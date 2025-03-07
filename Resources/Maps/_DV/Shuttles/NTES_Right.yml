@@ -6640,14 +6640,6 @@ entities:
           - data: null
             ReagentId: THC
             Quantity: 20
-- proto: KitchenDeepFryer
-  entities:
-  - uid: 384
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -3.5,-11.5
-      parent: 1
 - proto: KitchenKnife
   entities:
   - uid: 1254

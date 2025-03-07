@@ -17,10 +17,6 @@
   extendedAccess:
   - Hydroponics
   - Bar
-  special: # DeltaV - Chefs can't miss throwing into deep friers
-  - !type:AddComponentSpecial
-    components:
-    - type: ProfessionalChef
 
 - type: startingGear
   id: ChefGear

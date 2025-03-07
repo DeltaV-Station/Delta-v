@@ -48,22 +48,6 @@
   # TODO: make this reverse engineerable to the upgraded one
 
 - type: entity
-  id: DeepFryerMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: deep fryer machine board
-  components:
-  - type: Sprite
-    state: service
-  - type: MachineBoard
-    prototype: KitchenDeepFryer
-    stackRequirements:
-      Steel: 4
-      Glass: 2
-      Cable: 4
-      Capacitor: 1
-      MatterBin: 1
-
-- type: entity
   id: MailTeleporterMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: mail teleporter machine board

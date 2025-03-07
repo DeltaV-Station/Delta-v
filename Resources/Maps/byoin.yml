@@ -35180,13 +35180,6 @@ entities:
     - type: Transform
       pos: 52.66853,-21.380602
       parent: 2
-- proto: DeepFryerMachineCircuitboard
-  entities:
-  - uid: 8237
-    components:
-    - type: Transform
-      pos: 46.506504,-7.2881136
-      parent: 2
 - proto: DefaultStationBeaconAICore
   entities:
   - uid: 11875
@@ -68892,14 +68885,6 @@ entities:
     components:
     - type: Transform
       pos: -16.54642,-19.435186
-      parent: 2
-- proto: KitchenDeepFryer
-  entities:
-  - uid: 4940
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 11.5,-8.5
       parent: 2
 - proto: KitchenElectricGrill
   entities:

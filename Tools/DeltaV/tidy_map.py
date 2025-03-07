@@ -31,7 +31,6 @@ class TidyConfig:
     # Components that will have specific fields removed and may be removed entirely if empty
     REMOVE_COMPONENT_DATA: Dict[str, List[str]] = {
         "Airtight": ["airBlocked"],
-        "DeepFryer": ["nextFryTime"],
         "Door": ["state", "secondsUntilStateChange"],
         "MaterialReclaimer": ["nextSound"],
         "Occluder": ["enabled"],
