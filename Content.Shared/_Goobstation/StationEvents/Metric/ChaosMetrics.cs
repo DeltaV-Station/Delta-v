@@ -3,7 +3,7 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 using Robust.Shared.Utility;
 
-namespace Content.Server._Goobstation.StationEvents.Metric;
+namespace Content.Shared._Goobstation.StationEvents.Metric;
 
 public enum ChaosMetric
 {

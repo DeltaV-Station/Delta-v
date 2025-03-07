@@ -1,5 +1,5 @@
 using Content.Server._Goobstation.StationEvents; // Goobstation
-using Content.Server._Goobstation.StationEvents.Metric; // Goobstation
+using Content.Shared._Goobstation.StationEvents.Metric; // Goobstation // DeltaV - shared the prototypes for our tests
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 

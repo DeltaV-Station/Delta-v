@@ -1,5 +1,6 @@
 ﻿using Content.Server._Goobstation.StationEvents.Metric.Components;
 using Content.Shared._EE.Silicon.Components; // DeltaV - we have a different namespace
+using Content.Shared._Goobstation.StationEvents.Metric; // DeltaV - move game director prototypes to shared
 using Content.Shared.FixedPoint;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;

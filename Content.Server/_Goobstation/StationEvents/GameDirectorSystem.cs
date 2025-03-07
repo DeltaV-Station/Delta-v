@@ -8,6 +8,8 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents;
 using Content.Server.StationEvents.Components;
 using Content.Shared._Goobstation.CCVar;
+using Content.Shared._Goobstation.StationEvents; // DeltaV - shared the prototypes for our tests
+using Content.Shared._Goobstation.StationEvents.Metric; // DeltaV - shared the prototypes for our tests
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.EntityTable;
