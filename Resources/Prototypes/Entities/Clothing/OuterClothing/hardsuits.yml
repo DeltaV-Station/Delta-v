@@ -568,6 +568,9 @@
     - Hardsuit
     - WhitelistChameleon
     - HidesHarpyWings
+  - type: MappingCategories # DeltaV
+    categories:
+    - Syndicate
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -662,6 +665,9 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommander
+  - type: MappingCategories # DeltaV
+    categories:
+    - Syndicate
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -701,6 +707,9 @@
     newItem: ClothingOuterHardsuitJuggernautReverseEngineered
     recipes:
       - ClothingOuterHardsuitJuggernautReverseEngineered
+  - type: MappingCategories # DeltaV
+    categories:
+    - Syndicate
 
 #Wizard Hardsuit
 - type: entity
@@ -733,6 +742,9 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWizard
+  - type: MappingCategories # DeltaV
+    categories:
+    - Wizard
 
 #Ling Space Suit
 - type: entity
@@ -763,6 +775,9 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLing
+  - type: MappingCategories # DeltaV
+    categories:
+    - Changeling
 
 #Pirate EVA Suit (Deep Space EVA Suit)
 #Despite visually appearing like a softsuit, it functions exactly like a hardsuit would (parents off of base hardsuit, has resistances and toggleable clothing, etc.) so it goes here.
@@ -795,6 +810,9 @@
     clothingPrototype: ClothingHeadHelmetHardsuitPirateEVA
   - type: StaticPrice
     price: 0
+  - type: MappingCategories # DeltaV
+    categories:
+    - Pirate
 
 #Pirate Captain Hardsuit
 - type: entity
@@ -828,6 +846,9 @@
     clothingPrototype: ClothingHeadHelmetHardsuitPirateCap
   - type: StaticPrice
     price: 0
+  - type: MappingCategories # DeltaV
+    categories:
+    - Pirate
 
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
