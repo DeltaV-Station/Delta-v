@@ -103,7 +103,7 @@ internal sealed class NoosphericFryRule : StationEventSystem<NoosphericFryRuleCo
         while (queryReactive.MoveNext(out var reactive, out _, out var xform, out var physics))
         {
             // shoot out three bolts of lighting...
-            _glimmerReactiveSystem.BeamRandomNearProber(reactive, 1, 12);
+            _glimmerReactiveSystem.BeamRandomNearProber(reactive, 3, 12);
 
             // try to anchor if we can
             if (!xform.Anchored)
