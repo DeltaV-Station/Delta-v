@@ -37,7 +37,7 @@ public abstract class SharedImplanterSystem : EntitySystem
         SubscribeLocalEvent<ImplanterComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<ImplanterComponent, ExaminedEvent>(OnExamine);
 
-        SubscribeLocalEvent<ImplanterComponent, UseInHandEvent>(OnUseInHand);
+        //SubscribeLocalEvent<ImplanterComponent, UseInHandEvent>(OnUseInHand); // DeltaV - dont open UI ever
         //SubscribeLocalEvent<ImplanterComponent, GetVerbsEvent<InteractionVerb>>(OnVerb); // DeltaV - hide verb as it doesn't do anything
         SubscribeLocalEvent<ImplanterComponent, DeimplantChangeVerbMessage>(OnSelected);
     }
@@ -265,7 +265,7 @@ public abstract class SharedImplanterSystem : EntitySystem
         }
         else
         {
-            DrawCatastrophicFailure(implanter, component, user);
+            //DrawCatastrophicFailure(implanter, component, user); // DeltaV - no
         }
     }
 
