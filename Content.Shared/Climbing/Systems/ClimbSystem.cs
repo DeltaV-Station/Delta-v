@@ -1,3 +1,4 @@
+using Content.Shared._DV.Carrying; // DeltaV
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Climbing.Components;
@@ -154,6 +155,11 @@ public sealed partial class ClimbSystem : VirtualController
         // If already climbing then don't show outlines.
         if (TryComp(args.Dragged, out ClimbingComponent? climbing) && climbing.IsClimbing)
             return;
+
+        // Begin DeltaV Additions - prevent climbing for carried mobs
+        if (HasComp<BeingCarriedComponent>(args.Dragged))
+            return;
+        // End DeltaV Additions
 
         var canVault = args.User == args.Dragged
             ? CanVault(component, args.User, uid, out _)
