@@ -9,8 +9,8 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/bombsuit.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 0.75 # DeltaV - told to make it slower, originally 0.8
-    sprintModifier: 0.75 # DeltaV - told to make it slower, originally 0.8
+    walkModifier: 0.75 # DeltaV - slower, originally 0.8
+    sprintModifier: 0.75 # DeltaV - slower, originally 0.8
   - type: Armor
     modifiers:
       coefficients:
@@ -19,7 +19,7 @@
         Piercing: 0.9
         Heat: 0.75
   - type: ExplosionResistance
-    damageCoefficient: 0.10 # DeltaV - told to make more resistant, originally 0.15
+    damageCoefficient: 0.10 # DeltaV - made more resistant, originally 0.15
   - type: GroupExamine
   - type: Tag
     tags:
