@@ -415,6 +415,17 @@
       - SurplusBundle
 
 - type: listing
+  id: UplinkSpeedLoaderMagnum
+  name: uplink-speedloader-magnum-regular-name
+  description: uplink-speedloader-magnum-regular-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
+  productEntity: SpeedLoaderMagnum
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+- type: listing
   id: SyndieFulton
   name: uplink-syndie-fulton-name
   description: uplink-syndie-fulton-desc

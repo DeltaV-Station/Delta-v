@@ -74,5 +74,10 @@ uplink-syndicate-bodybag-desc = For when stuff goes wrong.
 uplink-syndicate-stun-bundle-name = Stun bundle
 uplink-syndicate-stun-bundle-desc = Includes a stun baton and a disabler.
 
+deltav-uplink-revolver-python-desc = A brutally simple, effective, and loud Syndicate revolver. Comes loaded with regular rounds, but can also shoot armor-piercing ones. Uses .45 magnum.
+
+uplink-speedloader-magnum-regular-name = Speedloader (.45 magnum)
+uplink-speedloader-magnum-regular-desc = Revolver speedloader with 6 regular catridges. Compatible with the Python.
+
 uplink-syndie-fulton-name = Syndicate Fultons
 uplink-syndie-fulton-desc = Proprietary Waffle Corp fultons that send high value items to the Syndicate Vault for processing, or send sophonts to the Syndicate Jail for ransom.
