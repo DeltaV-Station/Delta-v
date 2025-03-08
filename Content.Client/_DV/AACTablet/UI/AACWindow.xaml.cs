@@ -15,6 +15,7 @@ public sealed partial class AACWindow : FancyWindow
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     private readonly List<QuickPhrasePrototype> _phrases;
+    private readonly Dictionary<string, List<QuickPhrasePrototype>> _filteredPhrases = new();
     public event Action<ProtoId<QuickPhrasePrototype>>? PhraseButtonPressed;
 
     private const float SpaceWidth = 10f;
@@ -29,6 +30,7 @@ public sealed partial class AACWindow : FancyWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         _phrases = _prototype.EnumeratePrototypes<QuickPhrasePrototype>().ToList();
+        _phrases.Sort((a, b) => string.CompareOrdinal(a.Group, b.Group));
         SearchBar.OnTextChanged += FilterSearch;
         PopulateGui();
         FilterSearch(null);
@@ -37,14 +39,36 @@ public sealed partial class AACWindow : FancyWindow
     private void FilterSearch(LineEdit.LineEditEventArgs? obj)
     {
         SearchResults.DisposeAllChildren();
+        _filteredPhrases.Clear();
+
         var emptySearch = string.IsNullOrEmpty(SearchBar.Text);
-        var searchedPhrases = _phrases
-            .Where(it => emptySearch || Loc.GetString(it.Text).StartsWith(SearchBar.Text, StringComparison.CurrentCultureIgnoreCase))
-            .GroupBy(it => it.Group)
-            .OrderBy(it => it.Key)
-            .ToDictionary(group => group.Key, group => group.OrderBy(it => Loc.GetString(it.Text)).ToList());
-        var ui = CreateBoxContainerForTab(searchedPhrases);
-        SearchResults.AddChild(ui);
+        foreach (var phrase in _phrases)
+        {
+            if (!emptySearch && !Loc.GetString(phrase.Text).Contains(SearchBar.Text, StringComparison.CurrentCultureIgnoreCase))
+            {
+                continue;
+            }
+
+            if (_filteredPhrases.TryGetValue(phrase.Group, out var group))
+            {
+                group.Add(phrase);
+            }
+            else
+            {
+                _filteredPhrases.Add(phrase.Group, new List<QuickPhrasePrototype> { phrase });
+            }
+        }
+
+        foreach (var phraseList in _filteredPhrases.Values)
+        {
+            phraseList.Sort((a, b) =>
+                string.Compare(Loc.GetString(a.Text),
+                    Loc.GetString(b.Text),
+                    StringComparison.CurrentCultureIgnoreCase));
+        }
+
+        var boxContainer = CreateBoxContainerForTab(_filteredPhrases);
+        SearchResults.AddChild(boxContainer);
     }
 
     private void PopulateGui()
