@@ -26,6 +26,7 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
     {
         var firelockQ = GetEntityQuery<FirelockComponent>();
         var airlockQ = GetEntityQuery<AirlockComponent>();
+        var boltQ = GetEntityQuery<DoorBoltComponent>(); // DeltaV - accomodate AAO in the door metrics
 
         // Keep counters to calculate average at the end.
         var doorCounter = FixedPoint2.Zero;
@@ -61,9 +62,9 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
                 firelockCounter += 1;
             }
 
-            if (airlockQ.TryGetComponent(uid, out var airlock))
+            if (airlockQ.TryGetComponent(uid, out var airlock) && boltQ.TryGetComponent(uid, out var bolts)) // DeltaV - accomodate AAO in the door metrics
             {
-                if (door.State == DoorState.Emagging)
+                if (door.State == DoorState.Open && bolts.BoltsDown) // DeltaV - accomodate AAO in the door metrics
                 {
                     var modifier = GetAccessLevelModifier(uid);
                     emagCount += 1 + modifier;
