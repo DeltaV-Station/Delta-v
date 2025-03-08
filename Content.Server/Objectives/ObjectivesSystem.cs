@@ -12,10 +12,12 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Objectives.Commands;
+using Content.Shared._DV.CCVars;
 using Content.Shared._DV.CustomObjectiveSummary; // DeltaV
 using Content.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
+using Robust.Shared.Configuration; // DeltaV
 using Robust.Shared.Utility;
 
 namespace Content.Server.Objectives;
@@ -28,6 +30,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // DeltaV
 
     private IEnumerable<string>? _objectives;
 
@@ -194,7 +197,8 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
             var successRate = totalObjectives > 0 ? (float) completedObjectives / totalObjectives : 0f;
             // Begin DeltaV Additions - custom objective response.
-            if (TryComp<CustomObjectiveSummaryComponent>(mindId, out var customComp))
+            if (TryComp<CustomObjectiveSummaryComponent>(mindId, out var customComp) &&
+                customComp.ObjectiveSummary.Length <= _cfg.GetCVar(DCCVars.MaxObjectiveSummaryLength))
             {
                 // We have to spit it like this to make it readable. Yeah, it sucks but for some reason the entire thing
                 // is just one long string...
