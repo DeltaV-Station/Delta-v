@@ -22,6 +22,14 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - SecurityAmmoStatic
+    emagDynamicPacks:
+    - SecurityAmmo
+    - SecurityExplosives
+    - SecurityEquipment
+    - SecurityWeapons
 
 - type: entity
   parent: BaseTechFabDepartamental
