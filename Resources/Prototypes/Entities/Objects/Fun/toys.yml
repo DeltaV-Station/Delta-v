@@ -58,6 +58,7 @@
       stash: !type:ContainerSlot {}
   - type: Speech
     speechVerb: Default # for pais (In the secret stash)
+    speechSounds: Plushie # Imp
   - type: SecretStash
     secretStashName: secret-stash-plushie
     blacklist:
