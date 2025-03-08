@@ -122,6 +122,21 @@
     - CableHVStackLingering10
     - Wirecutter
     - trayScanner
+  # Begin DeltaV Additions - wires module can assemble electronics
+  - type: DroppableBorgModule
+    moduleId: Cables
+    items:
+    - id: APCElectronics
+      whitelist:
+        components:
+        - Electronics
+        - MachineBoard
+    - id: DoorElectronics
+      whitelist:
+        components:
+        - Electronics
+        - MachineBoard
+  # End DeltaV Additions
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: wire-module }
 
@@ -300,13 +315,36 @@
     layers:
     - state: engineering
     - state: icon-construction
-  - type: ItemBorgModule
-    moduleId: Construction # Frontier
+  # Begin DeltaV Removals - replaced by hands
+  #- type: ItemBorgModule
+  #  moduleId: Construction # Frontier
+  #  items:
+  #  - SheetSteelLingering0
+  #  - SheetGlassLingering0
+  #  - PartRodMetalLingering0
+  #  - FloorTileItemSteelLingering0
+  # End DeltaV Removals
+  # Begin DeltaV Additions - wires module can assemble electronics
+  - type: DroppableBorgModule
+    moduleId: Construction
     items:
-    - SheetSteelLingering0
-    - SheetGlassLingering0
-    - PartRodMetalLingering0
-    - FloorTileItemSteelLingering0
+    - id: SheetSteel1
+      whitelist:
+        tags:
+        - BorgMaterial
+    - id: SheetGlass1
+      whitelist:
+        tags:
+        - BorgMaterial
+    - id: PartRodMetal1
+      whitelist:
+        tags:
+        - BorgMaterial
+    - id: FloorTileItemSteel
+      whitelist:
+        components:
+        - FloorTile
+    # End DeltaV Additions
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: construction-module }
 
@@ -423,11 +461,34 @@
     moduleId: Treatment # Frontier
     items:
     - HandheldHealthAnalyzerUnpowered
-    - Brutepack10Lingering
-    - Ointment10Lingering
-    - Gauze10Lingering
-    - Bloodpack10Lingering
+    # Begin DeltaV Removals - replaced by hands
+    #- Brutepack10Lingering
+    #- Ointment10Lingering
+    #- Gauze10Lingering
+    #- Bloodpack10Lingering
+    # End DeltaV Removals
     - Syringe
+  # Begin DeltaV Additions
+  - type: DroppableBorgModule
+    moduleId: Treatment
+    items:
+    - id: Brutepack
+      whitelist:
+        components:
+        - Healing # these include ANY healing item, including tourniquets and oilpacks/lv for ipcs
+    - id: Ointment
+      whitelist:
+        components:
+        - Healing
+    - id: Gauze
+      whitelist:
+        components:
+        - Healing
+    - id: Bloodpack
+      whitelist:
+        components:
+        - Healing
+  # End DeltaV Additions
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
 
@@ -566,12 +627,37 @@
     layers:
     - state: service
     - state: icon-musique
-  - type: ItemBorgModule
+  # Begin DeltaV Removals - replaced by hands
+  #- type: ItemBorgModule
+  #  moduleId: Music # Frontier
+  #  items:
+  #  - SynthesizerInstrument
+  #  - ElectricGuitarInstrument
+  #  - SaxophoneInstrument
+  # End DeltaV Removals
+  # Begin DeltaV Additions
+  - type: DroppableBorgModule
     moduleId: Music # Frontier
     items:
-    - SynthesizerInstrument
-    - ElectricGuitarInstrument
-    - SaxophoneInstrument
+    - id: SynthesizerInstrument
+      whitelist:
+        requireAll: true # no picking up harpies or grand pianos
+        components:
+        - Instrument
+        - Item
+    - id: ElectricGuitarInstrument
+      whitelist:
+        requireAll: true
+        components:
+        - Instrument
+        - Item
+    - id: SaxophoneInstrument
+      whitelist:
+        requireAll: true
+        components:
+        - Instrument
+        - Item
+  # End DeltaV Additions
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: musical-module }
 
