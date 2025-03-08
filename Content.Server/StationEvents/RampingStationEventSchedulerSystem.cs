@@ -36,7 +36,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
 
         // Worlds shittiest probability distribution
         // Got a complaint? Send them to
-        component.MaxChaos = _random.NextFloat(component.AverageChaos - component.AverageChaos / 4, component.AverageChaos + component.AverageChaos / 4);
+        component.MaxChaos = _random.NextFloat(component.AverageChaos, component.AverageChaos + component.AverageChaos / 4); // DeltaV - Survival starts a bit faster but ends the same
         // This is in minutes, so *60 for seconds (for the chaos calc)
         component.EndTime = _random.NextFloat(component.AverageEndTime - component.AverageEndTime / 4, component.AverageEndTime + component.AverageEndTime / 4) * 60f;
         component.StartingChaos = component.MaxChaos / 10;
@@ -48,7 +48,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
             && _event.TryGenerateRandomEvent(component.ScheduledGameRules, TimeSpan.FromSeconds(component.TimeUntilNextEvent)) is {} firstEvent)
         {
             _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", firstEvent), ("seconds", (int)component.TimeUntilNextEvent)));
-            _next.UpdateNextEvent(nextEventComponent, firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent));
+            _next.UpdateNextEvent(nextEventComponent, firstEvent, GameTicker.RoundDuration() + TimeSpan.FromSeconds(component.TimeUntilNextEvent));
         }
         // End DeltaV Additions: init NextEventComp
     }
@@ -76,7 +76,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
             if (TryComp<NextEventComponent>(uid, out var nextEventComponent)) // If there is a nextEventComponent use the stashed event instead of running it directly.
             {
                 PickNextEventTime(uid, scheduler);
-                var nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(scheduler.TimeUntilNextEvent);
+                var nextEventTime = GameTicker.RoundDuration() + TimeSpan.FromSeconds(scheduler.TimeUntilNextEvent);
                 if (_event.TryGenerateRandomEvent(scheduler.ScheduledGameRules, nextEventTime) is not {} generatedEvent)
                     continue;
 

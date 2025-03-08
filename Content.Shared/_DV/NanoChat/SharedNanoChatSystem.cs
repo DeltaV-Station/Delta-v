@@ -31,6 +31,16 @@ public abstract class SharedNanoChatSystem : EntitySystem
         args.PushMarkup(Loc.GetString("nanochat-card-examine-number", ("number", $"{ent.Comp.Number:D4}")));
     }
 
+    /// <summary>
+    ///     Helper Method for truncating a string to maximum length
+    /// </summary>
+    public static string Truncate(string text, int maxLength, string overflowText = "...")
+    {
+        return text.Length > maxLength
+            ? text[..(maxLength - overflowText.Length)] + overflowText
+            : text;
+    }
+
     #region Public API Methods
 
     /// <summary>
@@ -49,11 +59,22 @@ public abstract class SharedNanoChatSystem : EntitySystem
     /// </summary>
     public void SetNumber(Entity<NanoChatCardComponent?> card, uint number)
     {
-        if (!Resolve(card, ref card.Comp))
+        if (!Resolve(card, ref card.Comp) || card.Comp.Number == number)
             return;
 
         card.Comp.Number = number;
         Dirty(card);
+    }
+
+    /// <summary>
+    ///     Sets IsClosed for a card.
+    /// </summary>
+    public void SetClosed(Entity<NanoChatCardComponent?> card, bool closed)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return;
+
+        card.Comp.IsClosed = closed;
     }
 
     /// <summary>
@@ -170,10 +191,46 @@ public abstract class SharedNanoChatSystem : EntitySystem
     /// </summary>
     public void SetNotificationsMuted(Entity<NanoChatCardComponent?> card, bool muted)
     {
-        if (!Resolve(card, ref card.Comp))
+        if (!Resolve(card, ref card.Comp) || card.Comp.NotificationsMuted == muted)
             return;
 
         card.Comp.NotificationsMuted = muted;
+        Dirty(card);
+    }
+
+    /// <summary>
+    ///     Sets whether notifications are muted for a specific chat.
+    /// </summary>
+    public void ToggleChatMuted(Entity<NanoChatCardComponent?> card, uint chat)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return;
+
+        if (!card.Comp.MutedChats.Remove(chat))
+            card.Comp.MutedChats.Add(chat);
+        Dirty(card);
+    }
+
+    /// <summary>
+    ///     Gets whether NanoChat number is listed.
+    /// </summary>
+    public bool GetListNumber(Entity<NanoChatCardComponent?> card)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return false;
+
+        return card.Comp.ListNumber;
+    }
+
+    /// <summary>
+    ///     Sets whether NanoChat number is listed.
+    /// </summary>
+    public void SetListNumber(Entity<NanoChatCardComponent?> card, bool listNumber)
+    {
+        if (!Resolve(card, ref card.Comp) || card.Comp.ListNumber == listNumber)
+            return;
+
+        card.Comp.ListNumber = listNumber;
         Dirty(card);
     }
 

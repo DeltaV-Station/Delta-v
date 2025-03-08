@@ -1,0 +1,47 @@
+- type: entity
+  parent: ChairWood
+  id: N14ChairArmchair
+  name: armchair
+  description: A padded armchair.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: armchair
+  - type: Construction
+    graph: N14Seat
+    node: N14ChairArmchair
+
+- type: entity
+  parent: Chair
+  id: N14ChairBarRetro
+  name: retro chair
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: retro_chair
+
+- type: entity
+  parent: N14ChairBarRetro
+  id: N14ChairDinerBench
+  name: diner chair
+  description: A cozy diner chair.
+  components:
+  - type: Sprite
+    state: diner_chair
+
+- type: entity
+  parent: N14ChairBarRetro
+  id: N14ChairOfficeErgonomic
+  name: ergonomic office chair
+  components:
+  - type: Sprite
+    state: ergo_chair
+
+- type: entity
+  parent: N14ChairBarRetro
+  id: N14ChairCaptain
+  name: captain chair
+  description: A chair fit for a captain.
+  components:
+  - type: Sprite
+    state: captain_chair

@@ -52,7 +52,7 @@ public sealed partial class CrimeAssistUiFragment : BoxContainer
         HomeButton.Visible = page.OnStart == null;
         Explanation.Visible = page.OnStart == null;
 
-        Subtitle.Visible = page.LocKeySeverity != null;
+        Subtitle.Visible = page.CrimeSeverity != null;
         Punishment.Visible = page.LocKeyPunishment != null;
 
         if (!isResult)
@@ -72,19 +72,21 @@ public sealed partial class CrimeAssistUiFragment : BoxContainer
         }
         else
         {
-            string color = page.LocKeySeverity! switch
+            var severity = page.CrimeSeverity!.Value;
+            var color = severity switch
             {
-                "crime-assist-crimetype-innocent" => "#39a300",
-                "crime-assist-crimetype-misdemeanour" => "#7b7b30",
-                "crime-assist-crimetype-felony" => "#7b5430",
-                "crime-assist-crimetype-capital" => "#7b2e30",
+                CrimeSeverity.Innocent => "#39a300",
+                CrimeSeverity.Misdemeanour => "#7b7b30",
+                CrimeSeverity.Felony => "#7b5430",
+                CrimeSeverity.Capital => "#7b2e30",
                 _ => "#ff00ff"
             };
 
-            Title.SetMarkup("\n[bold][font size=23][color=#a4885c]" + Loc.GetString(page.LocKeyTitle!) + "[/color][/font][/bold]");
-            Subtitle.SetMarkup($"\n[font size=19][color={color}]" + Loc.GetString(page.LocKeySeverity!) + "[/color][/font]");
-            Explanation.SetMarkup("\n[title]" + Loc.GetString(page.LocKeyDescription!) + "[/title]\n");
-            Punishment.SetMarkup("[bold][font size=15]" + Loc.GetString(page.LocKeyPunishment!) + "[/font][/bold]");
+            var severityName = Loc.GetString("crime-assist-crimetype-" + severity.ToString().ToLower());
+            Title.SetMarkup($"\n[bold][font size=23][color=#a4885c]{Loc.GetString(page.LocKeyTitle!)}[/color][/font][/bold]");
+            Subtitle.SetMarkup($"\n[font size=19][color={color}]{severityName}[/color][/font]");
+            Explanation.SetMarkup($"\n[title]{Loc.GetString(page.LocKeyDescription!)}[/title]\n");
+            Punishment.SetMarkup($"[bold][font size=15]{Loc.GetString(page.LocKeyPunishment!)}[/font][/bold]");
         }
     }
 

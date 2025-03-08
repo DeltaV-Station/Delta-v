@@ -24,9 +24,11 @@
   id: AdminAssistantGear
   equipment:
     eyes: ClothingEyesHudCommand
-    belt: BoxFolderClipboard
+    belt: ClothingBeltPaperworkFilled
     id: AdminAssistantPDA
     pocket1: RubberStampAdminAssistant
+    pocket2: AccessConfigurator # To assist with secure closets access configurations / airlock configs should a head need it.
+    ears: ClothingHeadsetAdminAssistant
   storage:
     back:
     - Flash

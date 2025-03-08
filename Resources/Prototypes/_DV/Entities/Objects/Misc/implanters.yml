@@ -1,5 +1,13 @@
 - type: entity
   parent: BaseImplantOnlyImplanterSyndi
+  id: BionicVoiceMaskImplanter
+  suffix: bionic voice mask
+  components:
+  - type: Implanter
+    implant: BionicVoiceMaskImplant
+
+- type: entity
+  parent: BionicVoiceMaskImplanter
   id: BionicSyrinxImplanter
   suffix: bionic syrinx
   components:
@@ -21,3 +29,11 @@
   components:
   - type: Implanter
     implant: SyndicateRadioImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: RadioImplanterCentcomm
+  suffix: centcomm radio
+  components:
+  - type: Implanter
+    implant: RadioImplantCentcomm

@@ -97,4 +97,9 @@ Do not use `ADMIN:` as **it will mangle** the upstream admin changelog!
 
 # Additional resources
 
-If you are new to contributing to SS14 in general, have a look at the [SS14 docs](https://docs.spacestation14.io/) or ask for help in `#contribution-help` on [Discord](https://go.delta-v.org/AtDxv)!
+If you are new to contributing to SS14 in general, have a look at the [SS14 docs](https://docs.spacestation14.io/) or ask for help in `#contribution-help` on [Discord](https://discord.gg/deltav)!
+
+## AI-Generated Content
+Code, sprites and any other AI-generated content is not allowed to be submitted to the repository.
+
+Trying to PR AI-generated content may result in you being banned from contributing.

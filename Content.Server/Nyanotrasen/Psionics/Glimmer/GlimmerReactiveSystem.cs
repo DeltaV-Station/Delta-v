@@ -65,6 +65,7 @@ namespace Content.Server.Psionics.Glimmer
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, DestructionEventArgs>(OnDestroyed);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
+            SubscribeLocalEvent<SharedGlimmerReactiveComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, AttemptMeleeThrowOnHitEvent>(OnMeleeThrowOnHitAttempt);
         }
 
@@ -230,6 +231,14 @@ namespace Content.Server.Psionics.Glimmer
             }
         }
 
+        private void OnAnchorStateChanged(EntityUid uid, SharedGlimmerReactiveComponent component, AnchorStateChangedEvent args)
+        {
+            if (!args.Anchored && _glimmerSystem.GetGlimmerTier() >= GlimmerTier.Dangerous)
+            {
+                AnchorOrExplode(uid);
+            }
+        }
+
         public void BeamRandomNearProber(EntityUid prober, int targets, float range = 10f)
         {
             List<EntityUid> targetList = new();
@@ -332,9 +341,8 @@ namespace Content.Server.Psionics.Glimmer
             _lightning.ShootRandomLightnings(uid, 10, 2, "SuperchargedLightning", 2, false);
 
             // Check if the parent of the user is alive, which will be the case if the user is an item and is being held.
-            var zapTarget = _transform.GetParentUid(args.User);
-            if (TryComp<MindContainerComponent>(zapTarget, out _))
-                _electrocutionSystem.TryDoElectrocution(zapTarget, uid, 5, TimeSpan.FromSeconds(3), true,
+            if (args.User is {} user && HasComp<MindContainerComponent>(args.User))
+                _electrocutionSystem.TryDoElectrocution(user, uid, 5, TimeSpan.FromSeconds(3), true,
                     ignoreInsulation: true);
         }
 
@@ -425,4 +433,3 @@ namespace Content.Server.Psionics.Glimmer
         }
     }
 }
-

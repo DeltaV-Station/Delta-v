@@ -22,3 +22,30 @@
   materials:
     Plastic: 150
     Steel: 50
+
+- type: latheRecipe
+  id: TankHarness
+  result: ClothingOuterVestTank
+  completetime: 2
+  materials:
+    Plastic: 300
+    Steel: 100
+
+- type: latheRecipe
+  id: Oilpack
+  result: Oilpack1
+  completetime: 1
+  materials:
+    Plastic: 250
+    Steel: 25
+
+- type: latheRecipe
+  id: HandheldCrewMonitor
+  result: HandheldCrewMonitorEmpty
+  categories:
+  - Tools
+  completetime: 2
+  materials:
+    Glass: 1200
+    Steel: 1000
+    Plastic: 1400

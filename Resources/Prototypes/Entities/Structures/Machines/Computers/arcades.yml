@@ -36,6 +36,9 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Vending
+  - type: SpookySpeaker
+    messageSet: SpookySpeakerMessagesGeneric
+    speakChance: 0.2
   - type: Anchorable
   - type: Pullable
   - type: StaticPrice
@@ -123,6 +126,7 @@
     - PlushieVox
     - PlushieXeno
     - PlushieMort # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
+    - PlushieIPC # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
     - PlasticBanana
     - RevolverCapGun
     - SnapPopBox

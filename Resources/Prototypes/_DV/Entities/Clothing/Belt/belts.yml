@@ -84,3 +84,48 @@
     sprite: _DV/Clothing/Belt/foamsheath.rsi
   - type: Clothing
     sprite: _DV/Clothing/Belt/foamsheath.rsi
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltPaperwork
+  name: paperwork belt
+  description: For all your tactical paperwork needs on the field.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Belt/paperwork.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Belt/paperwork.rsi
+  - type: Storage
+    whitelist:
+      tags:
+      - Folder
+      - Document
+      - Flashlight
+      - Radio
+      - HandLabeler
+      components:
+      - FitsInDispenser
+      - Stamp
+
+- type: entity
+  parent: ClothingBeltUtility
+  id: ClothingBeltSyndicateUtility
+  name: syndicate utility belt
+  description: Can hold various nefarious things.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Belt/syndbelt_overlay.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Belt/syndbelt_overlay.rsi
+
+- type: entity
+  parent: ClothingBeltMilitaryWebbing
+  id: ClothingBeltMilitaryWebbingHostageWarden
+  name: warden chest rig
+  description: A set of tactical webbing worn by the Gorlex Marauder hostage specialist team.
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: HostageWardenBelt

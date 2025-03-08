@@ -2,12 +2,11 @@ using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
+using Content.Shared.Cargo.Components;
 using Content.Shared.Shipyard;
 using Content.Shared.Shipyard.Prototypes;
 using Content.Shared.Whitelist;
-using Robust.Server.GameObjects;
 using Robust.Shared.Random;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server.Shipyard;
 
@@ -26,7 +25,9 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
     {
         base.Initialize();
 
-        Subs.BuiEvents<ShipyardConsoleComponent>(ShipyardConsoleUiKey.Key, subs =>
+        SubscribeLocalEvent<ShipyardConsoleComponent, BankBalanceUpdatedEvent>(OnBalanceUpdated);
+        Subs.BuiEvents<ShipyardConsoleComponent>(ShipyardConsoleUiKey.Key,
+            subs =>
         {
             subs.Event<BoundUIOpenedEvent>(OnOpened);
         });
@@ -49,7 +50,7 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
             return;
         }
 
-        if (_shipyard.TrySendShuttle(bank.Owner, vessel.Path.ToString()) is not {} shuttle)
+        if (_shipyard.TrySendShuttle(bank.Owner, vessel.Path) is not {} shuttle)
         {
             var popup = Loc.GetString("shipyard-console-error");
             Popup.PopupEntity(popup, ent, user);
@@ -61,13 +62,17 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
 
         _cargo.UpdateBankAccount(bank, bank.Comp, -vessel.Price);
 
-        var message = Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name.ToString()));
+        var message = Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name));
         _radio.SendRadioMessage(ent, message, ent.Comp.Channel, ent);
         Audio.PlayPvs(ent.Comp.ConfirmSound, ent);
+    }
 
-        // TODO: make the ui updating more robust, make pr upstream to have UpdateBankAccount support things that arent ordering consoles
-        // TODO: then have shipyard have that component and update the ui when it changes balance
-        UpdateUI(ent, bank.Comp.Balance);
+    private void OnBalanceUpdated(Entity<ShipyardConsoleComponent> ent, ref BankBalanceUpdatedEvent args)
+    {
+        if (!_ui.IsUiOpen(ent.Owner, ShipyardConsoleUiKey.Key))
+            return;
+
+        UpdateUI(ent, args.Balance);
     }
 
     private void OnOpened(Entity<ShipyardConsoleComponent> ent, ref BoundUIOpenedEvent args)

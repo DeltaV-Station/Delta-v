@@ -36,7 +36,7 @@ public sealed partial class StockTradingUi : UIFragment
         }
     }
 
-    private static void SendStockTradingUiMessage(StockTradingUiAction action, int company, float amount, BoundUserInterface userInterface)
+    private static void SendStockTradingUiMessage(StockTradingUiAction action, int company, int amount, BoundUserInterface userInterface)
     {
         var newsMessage = new StockTradingUiMessageEvent(action, company, amount);
         var message = new CartridgeUiMessage(newsMessage);

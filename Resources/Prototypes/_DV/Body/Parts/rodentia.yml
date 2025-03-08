@@ -1,160 +1,61 @@
 - type: entity
-  id: PartRodentia
-  parent: BaseItem
-  name: "rodentia body part"
   abstract: true
+  parent: BasePart
+  id: PartRodentiaBase
   components:
   - type: Sprite
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
   - type: Icon
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-  - type: Damageable
-    damageContainer: Biological
   - type: BodyPart
-  - type: ContainerContainer
-    containers:
-      bodypart: !type:Container
-        ents: []
-  - type: StaticPrice #DynamicPrice
-    price: 100
-  - type: Tag
-    tags:
-      - Trash
+    species: Rodentia
 
 - type: entity
+  parent: [ PartRodentiaBase, BaseTorso ]
   id: TorsoRodentia
   name: "rodentia torso"
-  parent: PartRodentia
-  components:
-  - type: Sprite
-    state: "torso_m"
-  - type: Icon
-    state: "torso_m"
-  - type: BodyPart
-    partType: Torso
 
 - type: entity
+  parent: [ PartRodentiaBase, BaseHead ]
   id: HeadRodentia
   name: "rodentia head"
-  parent: PartRodentia
-  components:
-  - type: Sprite
-    state: "head_m"
-  - type: Icon
-    state: "head_m"
-  - type: BodyPart
-    partType: Head
-    vital: true
-  - type: Input
-    context: "ghost"
-  - type: InputMover
-  - type: GhostOnMove
-  - type: Tag
-    tags:
-      - Head
 
 - type: entity
+  parent: [ PartRodentiaBase, BaseLeftArm ]
   id: LeftArmRodentia
   name: "left rodentia arm"
-  parent: PartRodentia
-  components:
-  - type: Sprite
-    state: "l_arm"
-  - type: Icon
-    state: "l_arm"
-  - type: BodyPart
-    partType: Arm
-    symmetry: Left
 
 - type: entity
+  parent: [ PartRodentiaBase, BaseRightArm ]
   id: RightArmRodentia
   name: "right rodentia arm"
-  parent: PartRodentia
-  components:
-  - type: Sprite
-    state: "r_arm"
-  - type: Icon
-    state: "r_arm"
-  - type: BodyPart
-    partType: Arm
-    symmetry: Right
 
 - type: entity
+  parent: [ PartRodentiaBase, BaseLeftHand ]
   id: LeftHandRodentia
   name: "left rodentia hand"
-  parent: PartRodentia
-  components:
-  - type: Sprite
-    state: "l_hand"
-  - type: Icon
-    state: "l_hand"
-  - type: BodyPart
-    partType: Hand
-    symmetry: Left
 
 - type: entity
+  parent: [ PartRodentiaBase, BaseRightHand ]
   id: RightHandRodentia
   name: "right rodentia hand"
-  parent: PartRodentia
-  components:
-  - type: Sprite
-    state: "r_hand"
-  - type: Icon
-    state: "r_hand"
-  - type: BodyPart
-    partType: Hand
-    symmetry: Right
 
 - type: entity
+  parent: [ PartRodentiaBase, BaseLeftLeg ]
   id: LeftLegRodentia
   name: "left rodentia leg"
-  parent: PartRodentia
-  components:
-  - type: Sprite
-    state: "l_leg"
-  - type: Icon
-    state: "l_leg"
-  - type: BodyPart
-    partType: Leg
-    symmetry: Left
-  - type: MovementBodyPart
 
 - type: entity
+  parent: [ PartRodentiaBase, BaseRightLeg ]
   id: RightLegRodentia
   name: "right rodentia leg"
-  parent: PartRodentia
-  components:
-  - type: Sprite
-    state: "r_leg"
-  - type: Icon
-    state: "r_leg"
-  - type: BodyPart
-    partType: Leg
-    symmetry: Right
-  - type: MovementBodyPart
 
 - type: entity
+  parent: [ PartRodentiaBase, BaseLeftFoot ]
   id: LeftFootRodentia
   name: "left rodentia foot"
-  parent: PartRodentia
-  components:
-  - type: Sprite
-    state: "l_foot"
-  - type: Icon
-    state: "l_foot"
-  - type: BodyPart
-    partType: Foot
-    symmetry: Left
 
 - type: entity
+  parent: [ PartRodentiaBase, BaseRightFoot ]
   id: RightFootRodentia
   name: "right rodentia foot"
-  parent: PartRodentia
-  components:
-  - type: Sprite
-    state: "r_foot"
-  - type: Icon
-    state: "r_foot"
-  - type: BodyPart
-    partType: Foot
-    symmetry: Right

@@ -40,17 +40,6 @@
     stealGroup: RubberStampNotary
     owner: job-name-clerk
 
-- type: entity
-  abstract: true
-  parent: BaseTraitorStealObjective
-  id: SilviaStealObjective
-  components:
-  - type: NotJobRequirement
-    job: ChiefMedicalOfficer
-  - type: StealCondition
-    stealGroup: AnimalSilvia
-    owner: job-name-cmo
-    
 # Mystagogue steal objective
 - type: entity
   parent: BaseTraitorStealObjective
@@ -60,6 +49,16 @@
     job: ResearchDirector
   - type: StealCondition
     stealGroup: BoxFolderRdClipboard
+    owner: job-name-rd
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: BibleMystagogueStealObjective
+  components:
+  - type: NotJobRequirement
+    job: ResearchDirector
+  - type: StealCondition
+    stealGroup: BibleMystagogue
     owner: job-name-rd
 
 # teach lesson
@@ -91,6 +90,7 @@
   - type: TargetObjective
     title: objective-condition-teach-person-title
   - type: PickRandomPerson
+    onlyChoosableJobs: true
 
 # Kill fellow traitor objective
 - type: entity
@@ -105,3 +105,42 @@
   - type: PickRandomTraitor
   - type: KillPersonCondition
     requireDead: true # Being able to leave them on the shuttle doesn't make sense when killing another traitor.
+
+# Upload AI law
+- type: entity
+  parent: BaseTraitorObjective
+  id: UploadAILawObjective
+  name: Subvert the Station AI
+  description: The AI is causing us problems. Update its laws so it wont be an annoyance. We have given you a board in your uplink!
+  components:
+  - type: Objective
+    difficulty: 3 # Need to get access and survive actually changing the board.
+    unique: true
+    icon:
+      sprite: Objects/Misc/module.rsi
+      state: generic
+  - type: StoreUnlocker
+    listings:
+    - UplinkAntimovObjectiveBoard
+  - type: CodeCondition
+  - type: AILawsUpdatedRequirement
+    lawset: SyndicateLawset
+  - type: ObjectiveLimit
+    limit: 1
+
+# Station
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: PlutoniumCoreStealObjective
+  components:
+  - type: Objective
+    # its hard to steal and leaves evidence, but you can get away with it.
+    difficulty: 3.5
+  - type: NotCommandRequirement
+  - type: StealCondition
+    stealGroup: PlutoniumCore
+    owner: objective-condition-steal-nuclear-bomb
+  - type: StoreUnlocker
+    listings:
+    - UplinkCoreExtractionToolbox

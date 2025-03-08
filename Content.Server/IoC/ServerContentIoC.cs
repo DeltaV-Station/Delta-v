@@ -1,3 +1,4 @@
+using Content.Server._RMC14.Mentor; // RMC14
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -6,6 +7,7 @@ using Content.Server.Afk;
 using Content.Server.Chat.Managers;
 using Content.Server.Connection;
 using Content.Server.Database;
+using Content.Server._DV.FeedbackPopup; // DeltaV
 using Content.Server.Discord;
 using Content.Server.Discord.WebhookMessages;
 using Content.Server.EUI;
@@ -73,6 +75,14 @@ namespace Content.Server.IoC
             IoCManager.Register<PlayerRateLimitManager>();
             IoCManager.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             IoCManager.Register<MappingManager>();
+            IoCManager.Register<FeedbackPopupManager>(); // DeltaV
+            IoCManager.Register<IWatchlistWebhookManager, WatchlistWebhookManager>();
+            IoCManager.Register<ConnectionManager>();
+            IoCManager.Register<MultiServerKickManager>();
+            IoCManager.Register<CVarControlManager>();
+
+            // RMC14
+            IoCManager.Register<MentorManager>();
         }
     }
 }

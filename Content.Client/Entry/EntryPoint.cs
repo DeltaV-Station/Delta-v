@@ -36,6 +36,7 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
+using Content.Client._NF.Emp.Overlays; // Frontier
 
 namespace Content.Client.Entry
 {
@@ -121,7 +122,11 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("alertLevels");
             _prototypeManager.RegisterIgnore("nukeopsRole");
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");
-            _prototypeManager.RegisterIgnore("candyFlavor"); // Delta-V
+            // Begin DeltaV Additions
+            _prototypeManager.RegisterIgnore("candyFlavor");
+            _prototypeManager.RegisterIgnore("mappingCategory");
+            _prototypeManager.RegisterIgnore("mapCategories");
+            // End DeltaV Additions
 
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
@@ -161,6 +166,7 @@ namespace Content.Client.Entry
 
             _overlayManager.AddOverlay(new SingularityOverlay());
             _overlayManager.AddOverlay(new RadiationPulseOverlay());
+            _overlayManager.AddOverlay(new EmpBlastOverlay()); // Frontier
             _chatManager.Initialize();
             _clientPreferencesManager.Initialize();
             _euiManager.Initialize();
