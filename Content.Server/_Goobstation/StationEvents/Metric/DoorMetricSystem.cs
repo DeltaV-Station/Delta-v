@@ -109,7 +109,7 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
 
     private int GetAccessLevelModifier(EntityUid uid)
     {
-        if (!TryComp<AccessReaderComponent>(uid, out var accessReaderComponent))
+        if (!TryComp<AccessReaderComponent>(uid, out var accessReaderComponent) || accessReaderComponent.AccessLists.Count == 0) // DeltaV - not all bolted open doors have accesses
             return 0;
 
         var modifier = 0;
