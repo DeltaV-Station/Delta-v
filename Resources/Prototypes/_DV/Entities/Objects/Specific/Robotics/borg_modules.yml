@@ -52,6 +52,12 @@
     - StunbatonSelfCharging
     - FlashRecharging
     - BorgHypoPax
+  - type: DroppableBorgModule
+    items:
+    - id: Handcuffs
+      whitelist:
+        components:
+        - Handcuff
 
 - type: entity
   id: BorgModuleSecurityEscalate
