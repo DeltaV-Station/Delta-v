@@ -21,6 +21,7 @@
     - state: security
     - state: icon-patrol
   - type: ItemBorgModule
+    moduleId: Patrol
     items:
     - FlashlightSecliteRecharging
     - HoloprojectorSecurityRecharging
@@ -36,6 +37,7 @@
     - state: security
     - state: icon-hold
   - type: ItemBorgModule
+    moduleId: Bastion
     items:
     - FlashRecharging
     - WeaponLauncherNonLethal
@@ -51,11 +53,23 @@
     - state: security
     - state: icon-detain
   - type: ItemBorgModule
+    moduleId: Deescalate
     items:
     - StunbatonSelfCharging
     - FlashRecharging
     - FlashlightSecliteRecharging
     - SecurityWhistle
+  - type: DroppableBorgModule
+    moduleId: Deescalate
+    items:
+    - id: Handcuffs
+      whitelist:
+        components:
+        - Handcuff
+    - id: Zipties
+      whitelist:
+        components:
+        - Handcuff
 
 - type: entity
   id: BorgModuleSecurityEscalate
@@ -68,6 +82,7 @@
     - state: security
     - state: icon-hurt
   - type: ItemBorgModule
+    moduleId: Escalate
     items:
     - Truncheon # Anti-Fauna option to stop them being relied on the Seclite (which will be removed when the Laws menu is fixed)
     - CombatKnife # Anti-fauna for blunt resistant slimes
@@ -84,10 +99,31 @@
     - state: security
     - state: icon-chase
   - type: ItemBorgModule
+    moduleId: Chase
     items:
     - WeaponDisablerSelfCharge
     - FlashlightSecliteRecharging
     - SecurityWhistle
+
+# Salvage modules
+
+- type: entity
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  id: BorgModuleFauna
+  name: fauna protection module
+  description: A borg module for protection from deadly space fauna.
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-carp
+  - type: ItemBorgModule
+    moduleId: Fauna
+    items:
+    - WeaponProtoKineticAcceleratorOneHanded
+    - WeaponCrusherDagger
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: fauna-module }
 
 # Syndicate modules
 
@@ -127,6 +163,7 @@
     - state: syndicate
     - state: icon-syndicate
   - type: ItemBorgModule
+    moduleId: RadioJammer
     items:
     - RechargingRadioJammer
 
@@ -137,6 +174,7 @@
   description: "A module that comes with enough knives to poke your eye out."
   components:
   - type: ItemBorgModule
+    moduleId: Blade
     items:
     - Cutlass
     - BarberScissors
@@ -150,6 +188,7 @@
   description: "A module that comes with an unrechargable experimental C.H.I.M.P. handcannon. Cheap and disposable."
   components:
   - type: ItemBorgModule
+    moduleId: Chimp
     items:
     - WeaponPistolCHIMPUpgraded
 
@@ -160,6 +199,7 @@
   description: "A module that comes with a syndicate handheld radio and PDA."
   components:
   - type: ItemBorgModule
+    moduleId: SyndicateRadio
     items:
     - RadioHandheldSyndicate
     - SyndiPDA
@@ -176,6 +216,7 @@
   description: "A module that comes with a crew monitor."
   components:
   - type: ItemBorgModule
+    moduleId: CrewMonitor
     items:
     - SyndiCrewMonitorRecharging
 
@@ -186,5 +227,6 @@
   description: "A module used to create a hard-light replica of any object around you."
   components:
   - type: ItemBorgModule
+    moduleId: ChameleonProjector
     items:
     - ChameleonProjector

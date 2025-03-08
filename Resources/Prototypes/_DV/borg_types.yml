@@ -38,6 +38,8 @@
   - type: Fiber # red plasteel fibers
     fiberMaterial: fibers-plasteel
     fiberColor: fibers-red
+  - type: AccessReader
+    access: [["Command"], ["Robotics"], ["Security"]]
 
   radioChannels:
   - Science
