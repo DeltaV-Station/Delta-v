@@ -1,21 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Removed salt ore in favour of coal. Give the chemists carbon!
-    type: Remove
-  id: 616
-  time: '2024-10-20T17:30:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2027
-- author: PPooch
-  changes:
-  - message: Clerks now have brig timer and evidence locker access. Don't steal the
-      Prosecutor's job from them!
-    type: Tweak
-  id: 617
-  time: '2024-10-23T07:04:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2034
-- author: deltanedas
-  changes:
   - message: Merged the past few weeks changes from upstream, report any bugs related
       to your character menu or objectives!
     type: Add
@@ -3923,3 +3908,23 @@
   id: 1115
   time: '2025-03-07T06:19:02.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3144
+- author: deltanedas
+  changes:
+  - message: Cable module can now hold up to 2 electronics.
+    type: Tweak
+  - message: Construction module can now hold plastic and plasteel, and you can mix
+      and match different items.
+    type: Tweak
+  - message: Service borgs (yes all three of you) can now hold any kind of instrument.
+    type: Tweak
+  id: 1116
+  time: '2025-03-08T19:15:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3119
+- author: deltanedas
+  changes:
+  - message: Security cyborgs now get cuffs to arrest criminals. Follow Rules of Engagement,
+      stop beating people to death!
+    type: Add
+  id: 1117
+  time: '2025-03-08T19:15:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3112
