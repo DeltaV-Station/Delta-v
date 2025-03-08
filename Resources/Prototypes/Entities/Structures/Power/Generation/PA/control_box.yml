@@ -18,7 +18,7 @@
   - type: UserInterface
     interfaces:
       enum.ParticleAcceleratorControlBoxUiKey.Key:
-        type: ParticleAcceleratorBoundUserInterface
+        type: NoosphereParticleAcceleratorBoundUserInterface # DONOTMERGE: Temp for trying out things
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: WiresPanel
