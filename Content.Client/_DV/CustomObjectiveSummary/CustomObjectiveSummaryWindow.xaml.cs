@@ -60,6 +60,6 @@ public sealed partial class CustomObjectiveSummaryWindow : FancyWindow
         CharacterLimitLabel.Text = textLength + "/" + _maxLengthSummaryLength;
 
         CharacterLimitLabel.FontColorOverride = overMax ? Color.Red : null;
-        PlaceholderText.Text = textLength == 0 ? Loc.GetString("custom-objective-window-explain-type-here") : "";
+        PlaceholderText.Visible = textLength == 0;
     }
 }

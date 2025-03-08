@@ -34,6 +34,8 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
     private IEnumerable<string>? _objectives;
 
+    private int _maxLengthSummaryLength; // DeltaV
+
     public override void Initialize()
     {
         base.Initialize();
@@ -41,6 +43,8 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
 
         _prototypeManager.PrototypesReloaded += CreateCompletions;
+
+        Subs.CVar(_cfg, DCCVars.MaxObjectiveSummaryLength, len => _maxLengthSummaryLength = len, true); // DeltaV
     }
 
     public override void Shutdown()
@@ -198,7 +202,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             var successRate = totalObjectives > 0 ? (float) completedObjectives / totalObjectives : 0f;
             // Begin DeltaV Additions - custom objective response.
             if (TryComp<CustomObjectiveSummaryComponent>(mindId, out var customComp) &&
-                customComp.ObjectiveSummary.Length <= _cfg.GetCVar(DCCVars.MaxObjectiveSummaryLength))
+                customComp.ObjectiveSummary.Length <= _maxLengthSummaryLength)
             {
                 // We have to spit it like this to make it readable. Yeah, it sucks but for some reason the entire thing
                 // is just one long string...

@@ -6,7 +6,7 @@
     <BoxContainer Orientation="Vertical" Margin="10 10 20 0">
         <Label HorizontalAlignment="Center" Text="{Loc 'custom-objective-window-explain'}" />
         <TextEdit Name="ObjectiveSummaryTextEdit" MaxHeight="500" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="200">
-            <Label Name="PlaceholderText" HorizontalAlignment="Center" VerticalAlignment="Center" StyleClasses="PlaceholderText" />
+            <Label Name="PlaceholderText" HorizontalAlignment="Center" VerticalAlignment="Center" StyleClasses="PlaceholderText" Text="{Loc 'custom-objective-window-explain-type-here'}" />
         </TextEdit>
         <Label Name="CharacterLimitLabel" HorizontalAlignment="Center" StyleClasses="LabelSmall"/>
         <Label HorizontalAlignment="Center" Text="{Loc 'custom-objective-window-explain-edit'}" />
