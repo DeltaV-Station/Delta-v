@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: Radezolid
   changes:
-  - message: Pie cannons can now be fired by pacifists!
-    type: Tweak
-  id: 623
-  time: '2024-10-26T01:46:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2046
-- author: Radezolid
-  changes:
   - message: Fixed being unable to print .38 magazines in an emagged autolathe.
     type: Fix
   id: 624
@@ -3930,3 +3923,15 @@
   id: 1122
   time: '2025-03-08T20:56:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3136
+- author: deltanedas
+  changes:
+  - message: Added ID chips which the roboticist can make. They are like ID cards
+      but need to be installed in a cyborg to work.
+    type: Add
+  - message: Borgs can have accesses added by using an ID chip in an ID card computer.
+    type: Tweak
+  - message: Borgs built during the round no longer have pseudo-AA.
+    type: Remove
+  id: 1123
+  time: '2025-03-08T22:26:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3116
