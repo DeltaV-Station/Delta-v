@@ -4,6 +4,7 @@ using Content.Client.Message;
 using Content.Shared._DV.Traits.Assorted; // DeltaV
 using Content.Shared.Atmos;
 using Content.Client.UserInterface.Controls;
+using Content.Shared._DV.MedicalRecords; // DeltaV - Medical Records
 using Content.Shared._Shitmed.Targeting; // Shitmed
 using Content.Shared.Alert;
 using Content.Shared.Damage;
@@ -50,6 +51,13 @@ namespace Content.Client.HealthAnalyzer.UI
         private EntityUid? _target;
         // Shitmed Change End
 
+        // Begin DeltaV - Medical Records
+        private readonly ButtonGroup _triageStatusGroup = new();
+
+        public event Action<TriageStatus>? OnTriageStatusChanged;
+        public event Action? OnClaimPatient;
+        // End DeltaV - Medical Records
+
         public HealthAnalyzerWindow()
         {
             RobustXamlLoader.Load(this);
@@ -83,6 +91,22 @@ namespace Content.Client.HealthAnalyzer.UI
             }
             ReturnButton.OnPressed += _ => ResetBodyPart();
             // Shitmed Change End
+
+            // Begin DeltaV - Medical Records
+            ExpectantButton.Group = _triageStatusGroup;
+            ImmediateButton.Group = _triageStatusGroup;
+            DelayedButton.Group = _triageStatusGroup;
+            MinorButton.Group = _triageStatusGroup;
+            NoneButton.Group = _triageStatusGroup;
+
+            ExpectantButton.OnPressed += _ => OnTriageStatusChanged?.Invoke(TriageStatus.Expectant);
+            ImmediateButton.OnPressed += _ => OnTriageStatusChanged?.Invoke(TriageStatus.Immediate);
+            DelayedButton.OnPressed += _ => OnTriageStatusChanged?.Invoke(TriageStatus.Delayed);
+            MinorButton.OnPressed += _ => OnTriageStatusChanged?.Invoke(TriageStatus.Minor);
+            NoneButton.OnPressed += _ => OnTriageStatusChanged?.Invoke(TriageStatus.None);
+
+            ClaimButton.OnPressed += _ => OnClaimPatient?.Invoke();
+            // End DeltaV - Medical Records
         }
 
         // Shitmed Change Start
@@ -229,6 +253,23 @@ namespace Content.Client.HealthAnalyzer.UI
             IReadOnlyDictionary<string, FixedPoint2> damagePerType = damageable.Damage.DamageDict;
 
             DrawDiagnosticGroups(damageSortedGroups, damagePerType);
+
+            // Begin DeltaV - Medical Records
+            if (msg.MedicalRecord is not {} records)
+            {
+                TriageControls.Visible = false;
+                return;
+            }
+
+            var button = records.Status switch {
+                TriageStatus.None => NoneButton,
+                TriageStatus.Minor => MinorButton,
+                TriageStatus.Delayed => DelayedButton,
+                TriageStatus.Immediate => ImmediateButton,
+                TriageStatus.Expectant => ExpectantButton,
+            };
+            button.Pressed = true;
+            // End DeltaV - Medical Records
         }
         // Shitmed Change End
         private static string GetStatus(MobState mobState)

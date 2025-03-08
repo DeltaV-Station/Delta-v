@@ -198,6 +198,39 @@
 
                 <PanelContainer StyleClasses="LowDivider"/>
 
+                <BoxContainer Name="TriageControls" Orientation="Vertical">
+                    <BoxContainer Orientation="Horizontal"
+                                  HorizontalAlignment="Center"
+                                  Margin="0 8 0 0">
+                        <Button Name="ExpectantButton"
+                                Text="Expectant"
+                                StyleClasses="OpenRight"
+                                MinSize="60 0" />
+                        <Button Name="ImmediateButton"
+                                Text="Immediate"
+                                StyleClasses="ButtonSquare"
+                                MinSize="60 0" />
+                        <Button Name="DelayedButton"
+                                Text="Delayed"
+                                StyleClasses="ButtonSquare"
+                                MinSize="60 0" />
+                        <Button Name="MinorButton"
+                                Text="Minor"
+                                StyleClasses="ButtonSquare"
+                                MinSize="60 0" />
+                        <Button Name="NoneButton"
+                                Text="None"
+                                StyleClasses="OpenLeft"
+                                MinSize="60 0" />
+                    </BoxContainer>
+
+                    <Button Name="ClaimButton"
+                            Text="Claim Patient"
+                            MinSize="60 0" />
+
+                    <PanelContainer StyleClasses="LowDivider" Margin="0 8 0 0"/>
+                </BoxContainer>
+
                 <GridContainer Margin="0 5 0 0"
                                Columns="2">
                     <Label Text="{Loc 'health-analyzer-window-entity-status-text'}"/>
