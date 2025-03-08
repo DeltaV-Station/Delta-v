@@ -1,5 +1,7 @@
+using Content.Server.Fluids.EntitySystems;
 using Content.Server.Procedural;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Database;
 using Content.Shared._DV.Salvage.Components;
 using Content.Shared._DV.Salvage.Systems;
@@ -19,7 +21,10 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SmokeSystem _smoke = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+
+    public EntProtoId SmokePrototype = "Smoke";
 
     private HashSet<Entity<TransformComponent>> _entities = new();
 
@@ -60,6 +65,10 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
             new Random(),
             null,
             clearExisting: true); // already checked for mobs and structures here
+
+        var smoke = Spawn(SmokePrototype, xform.Coordinates);
+        var spreadAmount = (int) room.Size.Length * 2;
+        _smoke.StartSmoke(smoke, new Solution(), 3f, spreadAmount);
 
         QueueDel(ent);
         return null;
