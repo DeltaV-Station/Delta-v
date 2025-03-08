@@ -43,8 +43,7 @@ public sealed partial class CustomObjectiveSummaryWindow : FancyWindow
 
         _mind.TryGetMind(_players.LocalSession, out var mindUid, out _);
 
-        UpdateWordCount();
-
+        // This is only for if you quit the server then rejoin.
         if (_entity.TryGetComponent<Shared._DV.CustomObjectiveSummary.CustomObjectiveSummaryComponent>(mindUid, out var summary))
             ObjectiveSummaryTextEdit.TextRope = new Rope.Leaf(summary.ObjectiveSummary);
 
