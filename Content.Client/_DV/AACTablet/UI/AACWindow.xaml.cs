@@ -14,6 +14,7 @@ namespace Content.Client._DV.AACTablet.UI;
 public sealed partial class AACWindow : FancyWindow
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    private readonly List<QuickPhrasePrototype> _phrases;
     public event Action<ProtoId<QuickPhrasePrototype>>? PhraseButtonPressed;
 
     private const float SpaceWidth = 10f;
@@ -27,15 +28,29 @@ public sealed partial class AACWindow : FancyWindow
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+        _phrases = _prototype.EnumeratePrototypes<QuickPhrasePrototype>().ToList();
+        SearchBar.OnTextChanged += FilterSearch;
         PopulateGui();
+        FilterSearch(null);
+    }
+
+    private void FilterSearch(LineEdit.LineEditEventArgs? obj)
+    {
+        SearchResults.DisposeAllChildren();
+        var emptySearch = string.IsNullOrEmpty(SearchBar.Text);
+        var searchedPhrases = _phrases
+            .Where(it => emptySearch || Loc.GetString(it.Text).StartsWith(SearchBar.Text, StringComparison.CurrentCultureIgnoreCase))
+            .GroupBy(it => it.Group)
+            .OrderBy(it => it.Key)
+            .ToDictionary(group => group.Key, group => group.OrderBy(it => Loc.GetString(it.Text)).ToList());
+        var ui = CreateBoxContainerForTab(searchedPhrases);
+        SearchResults.AddChild(ui);
     }
 
     private void PopulateGui()
     {
-        var phrases = _prototype.EnumeratePrototypes<QuickPhrasePrototype>().ToList();
-
         // take ALL phrases and turn them into tabs and groups, so the buttons are sorted and tabbed
-        var sortedTabs = phrases
+        var sortedTabs = _phrases
             .GroupBy(p => p.Tab)
             .OrderBy(g => g.Key)
             .ToDictionary(
@@ -48,23 +63,21 @@ public sealed partial class AACWindow : FancyWindow
                     )
             );
 
-        var tabContainer = CreateTabContainer(sortedTabs);
-        WindowBody.AddChild(tabContainer);
+        CreateTabContainer(sortedTabs);
     }
 
-    private TabContainer CreateTabContainer(Dictionary<string, Dictionary<string, List<QuickPhrasePrototype>>> sortedTabs)
+    private void CreateTabContainer(Dictionary<string, Dictionary<string, List<QuickPhrasePrototype>>> sortedTabs)
     {
-        var tabContainer = new TabContainer();
-
         foreach (var tab in sortedTabs)
         {
             var tabName = Loc.GetString(tab.Key);
             var boxContainer = CreateBoxContainerForTab(tab.Value);
-            tabContainer.AddChild(boxContainer);
-            tabContainer.SetTabTitle(tabContainer.ChildCount - 1, tabName);
+            var scroll = new ScrollContainer();
+            scroll.HScrollEnabled = false;
+            scroll.AddChild(boxContainer);
+            WindowBody.AddChild(scroll);
+            WindowBody.SetTabTitle(WindowBody.ChildCount - 1, tabName);
         }
-
-        return tabContainer;
     }
 
     private BoxContainer CreateBoxContainerForTab(Dictionary<string, List<QuickPhrasePrototype>> groups)
@@ -117,7 +130,7 @@ public sealed partial class AACWindow : FancyWindow
         var buttonContainer = new GridContainer
         {
             Margin = new Thickness(10),
-            Columns = 4
+            Columns = ColumnCount
         };
 
         return buttonContainer;
