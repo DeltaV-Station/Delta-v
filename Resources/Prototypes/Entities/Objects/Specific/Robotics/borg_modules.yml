@@ -115,6 +115,7 @@
     - state: generic
     - state: icon-cables
   - type: ItemBorgModule
+    moduleId: Cables # Frontier
     items:
     - CableApcStackLingering10
     - CableMVStackLingering10
@@ -152,6 +153,7 @@
   #  items:
   #  - FireExtinguisher
   - type: DroppableBorgModule
+    moduleId: FireExtinguisher
     items:
     - id: FireExtinguisher
       whitelist:
@@ -171,6 +173,7 @@
     - state: generic
     - state: icon-gps
   - type: ItemBorgModule
+    moduleId: GPS # Frontier
     items:
     - HandheldGPSBasic
     - HandHeldMassScannerBorg
@@ -188,6 +191,7 @@
     - state: generic
     - state: icon-radiation
   - type: ItemBorgModule
+    moduleId: RadiationDetection # Frontier
     items:
     - GeigerCounter
   - type: BorgModuleIcon
@@ -203,6 +207,7 @@
     - state: generic
     - state: icon-tools
   - type: ItemBorgModule
+    moduleId: Tools # Frontier
     items:
     - Crowbar
     - Wrench
@@ -225,6 +230,7 @@
     - state: cargo
     - state: icon-appraisal
   - type: ItemBorgModule
+    moduleId: Appraisal # Frontier
     items:
     - AppraisalTool
   - type: BorgModuleIcon
@@ -240,6 +246,7 @@
     - state: cargo
     - state: icon-mining
   - type: ItemBorgModule
+    moduleId: Mining # Frontier
     items:
     - MiningDrill
     - MineralScannerUnpowered
@@ -248,6 +255,7 @@
     - RadioHandheld
   # Frontier: droppable borg items
   - type: DroppableBorgModule
+    moduleId: Mining
     items:
     - id: OreBag
       whitelist:
@@ -267,28 +275,12 @@
     - state: cargo
     - state: icon-grappling-gun
   - type: ItemBorgModule
+    moduleId: GrapplingGun # Frontier
     items:
     - WeaponGrapplingGun
     - HandheldGPSBasic
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: grappling-module }
-
-- type: entity
-  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  id: BorgModuleFauna
-  name: fauna protection module
-  description: A borg module for protection from deadly space fauna.
-  components:
-  - type: Sprite
-    layers:
-    - state: cargo
-    - state: icon-carp
-  - type: ItemBorgModule
-    items:
-    - WeaponProtoKineticAcceleratorOneHanded
-    - WeaponCrusherDagger
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: fauna-module }
 
 # engineering modules
 - type: entity
@@ -301,6 +293,7 @@
     - state: engineering
     - state: icon-tools-adv
   - type: ItemBorgModule
+    moduleId: AdvancedTools # Frontier
     items:
     - JawsOfLife
     - PowerDrill
@@ -323,6 +316,7 @@
     - state: icon-construction
   # Begin DeltaV Removals - replaced by hands
   #- type: ItemBorgModule
+  #  moduleId: Construction # Frontier
   #  items:
   #  - SheetSteelLingering0
   #  - SheetGlassLingering0
@@ -331,6 +325,7 @@
   # End DeltaV Removals
   # Begin DeltaV Additions - wires module can assemble electronics
   - type: DroppableBorgModule
+    moduleId: Construction
     items:
     - id: SheetSteel1
       whitelist:
@@ -362,6 +357,7 @@
     - state: engineering
     - state: icon-rcd
   - type: ItemBorgModule
+    moduleId: RCD # Frontier
     items:
     - RCDRecharging
   - type: BorgModuleIcon
@@ -378,6 +374,7 @@
     - state: janitor
     - state: icon-light-replacer
   - type: ItemBorgModule
+    moduleId: LightReplacer # Frontier
     items:
     - LightReplacer
     - Crowbar
@@ -395,12 +392,14 @@
     - state: janitor
     - state: icon-mop
   - type: ItemBorgModule
+    moduleId: Cleaning # Frontier
     items:
     - MopItem
     # - Bucket # Frontier
     - TrashBag
   # Frontier: droppable items
   - type: DroppableBorgModule
+    moduleId: Cleaning
     items:
     - id: Bucket
       whitelist:
@@ -420,6 +419,7 @@
     - state: janitor
     - state: icon-mop-adv
   - type: ItemBorgModule
+    moduleId: AdvancedCleaning # Frontier
     items:
     - AdvMopItem
     - HoloprojectorBorg
@@ -440,6 +440,7 @@
     - state: medical
     - state: icon-diagnosis
   - type: ItemBorgModule
+    moduleId: Diagnosis # Frontier
     items:
     - HandheldHealthAnalyzerUnpowered
     - ClothingNeckStethoscope
@@ -456,6 +457,7 @@
     - state: medical
     - state: icon-treatment
   - type: ItemBorgModule
+    moduleId: Treatment # Frontier
     items:
     - HandheldHealthAnalyzerUnpowered
     # Begin DeltaV Removals - replaced by hands
@@ -498,6 +500,7 @@
     - state: medical
     - state: icon-defib
   - type: ItemBorgModule
+    moduleId: Defibrillator # Frontier
     items:
     - DefibrillatorOneHandedUnpowered
   - type: BorgModuleIcon
@@ -513,6 +516,7 @@
     - state: medical
     - state: icon-chemist
   - type: ItemBorgModule
+    moduleId: AdvancedTreatment # Frontier
     items:
     - HandheldHealthAnalyzerUnpowered
     # - Beaker # Frontier
@@ -521,6 +525,7 @@
     - BorgHypo
   # Frontier: droppable borg items
   - type: DroppableBorgModule
+    moduleId: AdvancedTreatment
     items:
     - id: Beaker
       whitelist:
@@ -546,6 +551,7 @@
     - state: science
     - state: icon-artifacts
   - type: ItemBorgModule
+    moduleId: Artifact # Frontier
     items:
     - NodeScanner
   - type: BorgModuleIcon
@@ -561,6 +567,7 @@
     - state: science
     - state: icon-anomalies
   - type: ItemBorgModule
+    moduleId: Anomaly # Frontier
     items:
     - AnomalyScanner
     - AnomalyLocatorUnpowered
@@ -581,6 +588,7 @@
     - state: service
     - state: icon-pen
   - type: ItemBorgModule
+    moduleId: Service # Frontier
     items:
     - Pen
     # - BooksBag # Frontier
@@ -590,6 +598,7 @@
     - BorgDropper
   # Frontier: droppable items
   - type: DroppableBorgModule
+    moduleId: Service
     items:
     - id: BooksBag
       whitelist:
@@ -618,6 +627,7 @@
     - state: icon-musique
   # Begin DeltaV Removals - replaced by hands
   #- type: ItemBorgModule
+  #  moduleId: Music # Frontier
   #  items:
   #  - SynthesizerInstrument
   #  - ElectricGuitarInstrument
@@ -625,6 +635,7 @@
   # End DeltaV Removals
   # Begin DeltaV Additions
   - type: DroppableBorgModule
+    moduleId: Music # Frontier
     items:
     - id: SynthesizerInstrument
       whitelist:
@@ -658,6 +669,7 @@
     - state: service
     - state: icon-gardening
   - type: ItemBorgModule
+    moduleId: Gardening # Frontier
     items:
     - HydroponicsToolMiniHoe
     - HydroponicsToolSpade
@@ -665,6 +677,7 @@
     # - Bucket # Frontier
   # Frontier: droppable borg items
   - type: DroppableBorgModule
+    moduleId: Gardening
     items:
     - id: Bucket
       whitelist:
@@ -684,12 +697,14 @@
     - state: service
     - state: icon-harvesting
   - type: ItemBorgModule
+    moduleId: Harvesting # Frontier
     items:
     - HydroponicsToolScythe
     - HydroponicsToolHatchet
     # - PlantBag # Frontier
   # Frontier: droppable borg items
   - type: DroppableBorgModule
+    moduleId: Harvesting
     items:
     - id: PlantBag
       whitelist:
@@ -709,6 +724,7 @@
     - state: service
     - state: icon-clown
   - type: ItemBorgModule
+    moduleId: Clowning # Frontier
     items:
     - BikeHorn
     - ClownRecorder
@@ -727,6 +743,7 @@
     - state: syndicate
     - state: icon-syndicate
   - type: ItemBorgModule
+    moduleId: Weapons # Frontier
     items:
     - WeaponPistolEchis
     - EnergyDaggerLoud
@@ -744,6 +761,7 @@
       - state: syndicate
       - state: icon-syndicate
     - type: ItemBorgModule
+      moduleId: Operative # Frontier
       items:
       - Crowbar
       - Emag
@@ -763,6 +781,7 @@
       - state: syndicate
       - state: icon-syndicate
     - type: ItemBorgModule
+      moduleId: EnergySword # Frontier
       items:
       - CyborgEnergySwordDouble
       - PinpointerSyndicateNuclear
@@ -780,6 +799,7 @@
       - state: syndicate
       - state: icon-syndicate
     - type: ItemBorgModule
+      moduleId: L6CROW # Frontier
       items:
         - WeaponLightMachineGunL6C
         - PinpointerSyndicateNuclear
@@ -797,6 +817,7 @@
         - state: syndicateborgbomb
         - state: icon-bomb
     - type: ItemBorgModule
+      moduleId: Martyr # Frontier
       items:
         - SelfDestructSeq
     - type: BorgModuleIcon
@@ -804,44 +825,3 @@
     - type: Construction # DeltaV: construction for adding explosive payload to the dud version
       graph: BorgModuleMartyr
       node: live
-
-# Shitmed Modules
-
-- type: entity
-  id: BorgModuleSurgery
-  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: surgery cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: medical
-    - state: icon-surgery
-  - type: ItemBorgModule
-    items:
-    - Scalpel
-    - Drill
-    - Hemostat
-    - Retractor
-    - Cautery
-    - SawElectric
-    - BoneGel
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: surgery-module }
-
-- type: entity
-  id: BorgModuleAdvancedSurgery
-  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: advanced surgery cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: medical
-    - state: icon-advanced-surgery
-  - type: ItemBorgModule
-    items:
-    - EnergyScalpel
-    - EnergyCautery
-    - AdvancedRetractor
-    - BoneGel
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-surgery-module }
