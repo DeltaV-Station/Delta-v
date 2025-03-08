@@ -1,10 +1,17 @@
 ﻿using Content.Server.Antag;
+using Content.Server.Chat.Systems;
+using Content.Server.GameTicking;
+using Content.Server.GameTicking.Rules;
+using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Objectives;
 using Content.Shared._DV.FeedbackOverwatch;
 using Content.Shared.Mind;
 using Content.Shared.Random.Helpers;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
+using Robust.Shared.Toolshed.Commands.Math;
 
 namespace Content.Server._DV.Antag;
 
@@ -15,6 +22,11 @@ public sealed class NukieOperationSystem : EntitySystem
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedFeedbackOverwatchSystem _feedback = default!;
+    [Dependency] private readonly GameTicker _ticker = default!;
+    [Dependency] private readonly IGameTiming _time = default!;
+    [Dependency] private readonly NukeopsRuleSystem _nukeops = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -22,8 +34,31 @@ public sealed class NukieOperationSystem : EntitySystem
         SubscribeLocalEvent<NukieOperationComponent, AfterAntagEntitySelectedEvent>(OnAntagSelected);
         SubscribeLocalEvent<GetNukeCodePaperWriting>(OnNukeCodePaperWritingEvent);
     }
+    /// <summary>
+    /// This runs the automatic war declaration, distributes tc,and makes sure it only happens when its not hostage ops.
+    /// </summary>
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        var currentTime = _ticker.RoundDuration();
+        var nukieOperationQuery = EntityQueryEnumerator<NukieOperationComponent>();
+        var nukieRuleQuery = EntityQueryEnumerator<NukeopsRuleComponent>();
 
-    private void OnAntagSelected(Entity<NukieOperationComponent> ent, ref AfterAntagEntitySelectedEvent args)
+        if (nukieOperationQuery.MoveNext(out var nukieOperationComp) && nukieRuleQuery.MoveNext(out var nukeopsUid, out var nukeopsRuleComp)
+            && nukieOperationComp.ChosenOperation == "NukieOperationDestroyStation"
+            && currentTime >= nukieOperationComp.AutoWarCallTime
+            && nukeopsRuleComp.WarDeclaredTime == null
+            )
+        {
+            nukeopsRuleComp.WarDeclaredTime = _time.CurTime;
+            _nukeops.DistributeExtraTc((nukeopsUid, nukeopsRuleComp));
+            _chat.DispatchGlobalAnnouncement(Loc.GetString("nuke-ops-auto-war-message"),
+                Loc.GetString("nuke-ops-auto-war-title"),
+                true, new SoundPathSpecifier("/Audio/Announcements/war.ogg"), Color.DarkRed);
+        }
+    }
+
+private void OnAntagSelected(Entity<NukieOperationComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
         // Yes this is bad, but I couldn't easily find an event that would work.
         if (ent.Comp.ChosenOperation == null)
