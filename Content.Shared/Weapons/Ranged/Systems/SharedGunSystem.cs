@@ -98,6 +98,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         SubscribeLocalEvent<GunComponent, CycleModeEvent>(OnCycleMode);
         SubscribeLocalEvent<GunComponent, HandSelectedEvent>(OnGunSelected);
         SubscribeLocalEvent<GunComponent, MapInitEvent>(OnMapInit);
+
+        InitializeHolders(); // DeltaV
     }
 
     private void OnMapInit(Entity<GunComponent> gun, ref MapInitEvent args)
@@ -120,7 +122,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (melee.NextAttack > component.NextFire)
         {
             component.NextFire = melee.NextAttack;
-            EntityManager.DirtyField(uid, component, nameof(MeleeWeaponComponent.NextAttack));
+            EntityManager.DirtyField(uid, component, nameof(GunComponent.NextFire));
         }
     }
 
@@ -203,6 +205,14 @@ public abstract partial class SharedGunSystem : EntitySystem
         gun.ShootCoordinates = null;
         gun.Target = null;
         EntityManager.DirtyField(uid, gun, nameof(GunComponent.ShotCounter));
+    }
+
+    /// <summary>
+    /// Sets the targeted entity of the gun. Should be called before attempting to shoot to avoid shooting over the target.
+    /// </summary>
+    public void SetTarget(GunComponent gun, EntityUid target) // Imp
+    {
+        gun.Target = target;
     }
 
     /// <summary>
@@ -513,7 +523,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             return;
 
         var ev = new MuzzleFlashEvent(GetNetEntity(gun), sprite, worldAngle);
-        CreateEffect(gun, ev, gun);
+        CreateEffect(gun, ev, user);
     }
 
     public void CauseImpulse(EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, EntityUid user, PhysicsComponent userPhysics)
@@ -545,6 +555,14 @@ public abstract partial class SharedGunSystem : EntitySystem
             comp.FireRate,
             comp.ProjectileSpeed
         );
+
+        // Begin DeltaV additions
+        // Raise an event at the user of the gun so they have a chance to modify the gun's details.
+        if (gun.Comp.Holder != null)
+        {
+            RaiseLocalEvent(gun.Comp.Holder.Value, ref ev);
+        }
+        // End DeltaV additions
 
         RaiseLocalEvent(gun, ref ev);
 

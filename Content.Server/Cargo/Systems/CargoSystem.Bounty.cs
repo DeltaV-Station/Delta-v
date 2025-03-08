@@ -98,7 +98,7 @@ public sealed partial class CargoSystem
             return;
         }
 
-        if (!TryRemoveBounty(station, bounty.Value, null, args.Actor))
+        if (!TryRemoveBounty(station, bounty.Value, true, args.Actor))
             return;
 
         FillBountyDatabase(station);
@@ -182,7 +182,7 @@ public sealed partial class CargoSystem
                 continue;
             }
 
-            TryRemoveBounty(station, bounty.Value);
+            TryRemoveBounty(station, bounty.Value, false);
             FillBountyDatabase(station);
             _adminLogger.Add(LogType.Action, LogImpact.Low, $"Bounty \"{bounty.Value.Bounty}\" (id:{bounty.Value.Id}) was fulfilled");
         }
@@ -437,33 +437,44 @@ public sealed partial class CargoSystem
     }
 
     [PublicAPI]
-    public bool TryRemoveBounty(EntityUid uid, string dataId, StationCargoBountyDatabaseComponent? component = null, EntityUid? actor = null)
+    public bool TryRemoveBounty(Entity<StationCargoBountyDatabaseComponent?> ent,
+        string dataId,
+        bool skipped,
+        EntityUid? actor = null)
     {
-        if (!TryGetBountyFromId(uid, dataId, out var data, component))
+        if (!TryGetBountyFromId(ent.Owner, dataId, out var data, ent.Comp))
             return false;
 
-        return TryRemoveBounty(uid, data.Value, component, actor);
+        return TryRemoveBounty(ent, data.Value, skipped, actor);
     }
 
-    public bool TryRemoveBounty(EntityUid uid, CargoBountyData data, StationCargoBountyDatabaseComponent? component = null, EntityUid? actor = null)
+    public bool TryRemoveBounty(Entity<StationCargoBountyDatabaseComponent?> ent,
+        CargoBountyData data,
+        bool skipped,
+        EntityUid? actor = null)
     {
-        if (!Resolve(uid, ref component))
+        if (!Resolve(ent, ref ent.Comp))
             return false;
 
-        for (var i = 0; i < component.Bounties.Count; i++)
+        for (var i = 0; i < ent.Comp.Bounties.Count; i++)
         {
-            if (component.Bounties[i].Id == data.Id)
+            if (ent.Comp.Bounties[i].Id == data.Id)
             {
-                string? actorName = default;
+                string? actorName = null;
                 if (actor != null)
                 {
-                    var getIdentityEvent = new TryGetIdentityShortInfoEvent(uid, actor.Value);
+                    var getIdentityEvent = new TryGetIdentityShortInfoEvent(ent.Owner, actor.Value);
                     RaiseLocalEvent(getIdentityEvent);
                     actorName = getIdentityEvent.Title;
                 }
 
-                component.History.Add(new CargoBountyHistoryData(data, _gameTiming.CurTime, actorName));
-                component.Bounties.RemoveAt(i);
+                ent.Comp.History.Add(new CargoBountyHistoryData(data,
+                    skipped
+                        ? CargoBountyHistoryData.BountyResult.Skipped
+                        : CargoBountyHistoryData.BountyResult.Completed,
+                    _gameTiming.CurTime,
+                    actorName));
+                ent.Comp.Bounties.RemoveAt(i);
                 return true;
             }
         }

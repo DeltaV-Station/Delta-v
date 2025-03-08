@@ -88,6 +88,10 @@ public partial class SharedBodySystem
             return null;
 
         Containers.EnsureContainer<ContainerSlot>(parentEnt, GetOrganContainerId(slotId));
+        // Shitmed Change: Don't throw when a slot already exists
+        if (parentEnt.Comp.Organs.TryGetValue(slotId, out var existing))
+            return existing;
+
         var slot = new OrganSlot(slotId);
         parentEnt.Comp.Organs.Add(slotId, slot);
         return slot;
@@ -111,7 +115,13 @@ public partial class SharedBodySystem
 
         Containers.EnsureContainer<ContainerSlot>(parent.Value, GetOrganContainerId(slotId));
         slot = new OrganSlot(slotId);
-        return part.Organs.TryAdd(slotId, slot.Value);
+        // Shitmed Change Start
+        if (!part.Organs.ContainsKey(slotId)
+            && !part.Organs.TryAdd(slotId, slot.Value))
+            return false;
+
+        return true;
+        // Shitmed Change End
     }
 
     /// <summary>

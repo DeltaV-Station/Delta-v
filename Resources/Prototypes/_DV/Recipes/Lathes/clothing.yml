@@ -20,6 +20,11 @@
   id: ClothingUniformJumpsuitWardenGrey
   result: ClothingUniformJumpsuitWardenGrey
 
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitSecSenior
+  result: ClothingUniformJumpsuitSecSenior
+
 # Jumpskirts - Security
 
 - type: latheRecipe
@@ -51,6 +56,16 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtWardenGrey
   result: ClothingUniformJumpskirtWardenGrey
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtPrisonGuard
+  result: ClothingUniformJumpskirtPrisonGuard
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtSecSenior
+  result: ClothingUniformJumpskirtSecSenior
 
 # Security Sweater
 
@@ -114,6 +129,105 @@
   id: ClothingOuterChiefJustice
   result: ClothingOuterChiefJustice
 
+# Clerk
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitClerk
+  result: ClothingUniformJumpsuitClerk
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtClerk
+  result: ClothingUniformJumpskirtClerk
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterClerkVest
+  result: ClothingOuterClerkVest
+
+# Prosecutor
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitProsecutor
+  result: ClothingUniformJumpsuitProsecutor
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtProsecutor
+  result: ClothingUniformJumpskirtProsecutor
+
+# Salvage Specialist
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtSalvageSpecialist
+  result: ClothingUniformJumpskirtSalvageSpecialist
+
+# Administrative Assistant
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitAdminAssistant
+  result: ClothingUniformJumpsuitAdminAssistant
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtAdminAssistant
+  result: ClothingUniformJumpskirtAdminAssistant
+
+# Command Hats
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatBeretCap
+  result: ClothingHeadHatBeretCap
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatBeretMysta
+  result: ClothingHeadHatBeretMysta
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHoodMysta
+  result: ClothingHeadHoodMysta
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatBeretLogi
+  result: ClothingHeadHatBeretLogi
+
+# Prison Guard Hat
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadPrisonGuard
+  result: ClothingHeadPrisonGuard
+
+#Centcomm Clothing
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatBeretCentcomm
+  result: ClothingHeadHatBeretCentcomm
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtCentcomAgent
+  result: ClothingUniformJumpskirtCentcomAgent
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtCentcomOfficer
+  result: ClothingUniformJumpskirtCentcomOfficer
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtCentcomOfficial
+  result: ClothingUniformJumpskirtCentcomOfficial
+
 #Syndicate Clothing
 
 - type: latheRecipe
@@ -131,24 +245,24 @@
   id: ClothingUniformInterdyneChemist
   result: ClothingUniformInterdyneChemist
 
-#- type: latheRecipe
-#  parent: BaseJumpsuitRecipe
-#  id: ClothingUniformCybersunHazard
-#  result: ClothingUniformCybersunHazard
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformCybersunHazard
+  result: ClothingUniformCybersunHazard
 
-#- type: latheRecipe
-#  parent: BaseJumpsuitRecipe
-#  id: ClothingUniformCybersunCasual
-#  result: ClothingUniformCybersunCasual
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformCybersunCasual
+  result: ClothingUniformCybersunCasual
 
-#- type: latheRecipe
-#  parent: BaseJumpsuitRecipe
-#  id: ClothingUniformCybersunRND
-#  result: ClothingUniformCybersunRND
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformCybersunRND
+  result: ClothingUniformCybersunRND
 
 - type: latheRecipe
   parent: BaseCoatRecipe
-  id: ClothingOuterCoatCybersunWindbreaker #unsure because its armored, but with an EMAG you can get far better things than it from machines that you DONT have to steal/make.
+  id: ClothingOuterCoatCybersunWindbreaker
   result: ClothingOuterCoatCybersunWindbreaker
   materials:
     Cloth: 100
@@ -162,17 +276,17 @@
     Cloth: 100
     Durathread: 200 #increased durathread cost since it has "armor" (Caustic is such a real damage type)
 
-#- type: latheRecipe #Commented out for now until added
-#  parent: BaseCoatRecipe
-#  id: ClothingOuterCybersunOvercoat
-#  result: ClothingOuterCybersunOvercoat
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCybersunOvercoat
+  result: ClothingOuterCybersunOvercoat
 
 - type: latheRecipe
   parent: BaseHatRecipe
   id: ClothingHeadHatSurgcapCybersun
   result: ClothingHeadHatSurgcapCybersun
 
-- type: latheRecipe #unsure about letting people craft a gasmask at the uniform printer, but also dont want to split up the uniform into different machines or leave it half-finished, added higher cloth cost because this is the only way to lathe gasmasks at all, apparently.
+- type: latheRecipe
   parent: BaseHatRecipe
   id: ClothingMaskInterdyneChemistry
   result: ClothingMaskInterdyneChemistry
@@ -194,6 +308,26 @@
   id: ClothingUniformJumpskirtHoPFormal
   result: ClothingUniformJumpskirtHoPFormal
 
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtChemShirt
+  result: ClothingUniformJumpskirtChemShirt
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitChemShirt
+  result: ClothingUniformJumpsuitChemShirt
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitScientistFormal
+  result: ClothingUniformJumpsuitScientistFormal
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtScientistFormal
+  result: ClothingUniformJumpskirtScientistFormal
+
 # Utilty
 
 - type: latheRecipe
@@ -202,3 +336,15 @@
   materials:
     Cloth: 200
     Durathread: 100
+
+- type: latheRecipe
+  id: ClothingBeltSyndicateUtility
+  result: ClothingBeltSyndicateUtility
+  materials:
+    Cloth: 200
+
+# Mime
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterWinterLongMime
+  result: ClothingOuterWinterLongMime

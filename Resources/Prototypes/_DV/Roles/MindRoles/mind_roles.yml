@@ -4,6 +4,7 @@
   name: Listening Post Role
   components:
   - type: MindRole
+    roleType: TeamAntagonist
     antagPrototype: ListeningPost
     exclusiveAntag: true
   - type: ListeningPostRole
@@ -14,6 +15,7 @@
   name: Paradox Anomaly Role
   components:
   - type: MindRole
+    roleType: SoloAntagonist
     antagPrototype: ParadoxAnomaly
     exclusiveAntag: true
   - type: ParadoxAnomalyRole
@@ -26,6 +28,7 @@
   name: Fugitive Role
   components:
   - type: MindRole
+    roleType: SoloAntagonist
     antagPrototype: Fugitive
     exclusiveAntag: true
   - type: FugitiveRole
@@ -36,6 +39,7 @@
   name: Recruiter Role
   components:
   - type: MindRole
+    roleType: SoloAntagonist
     antagPrototype: Recruiter
     exclusiveAntag: true
   - type: RecruiterRole
@@ -48,8 +52,22 @@
   name: Synthesis Specialist Role
   components:
   - type: MindRole
+    roleType: TeamAntagonist
     antagPrototype: SynthesisSpecialist
     exclusiveAntag: true
   - type: SynthesisRole
   - type: RoleBriefing
     briefing: synthesis-role-briefing
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleRoboNeuroticist
+  name: Robo-Neuroticist Role
+  components:
+  - type: MindRole
+    roleType: SoloAntagonist
+    antagPrototype:  RoboNeuroticist
+    exclusiveAntag: true
+  - type: RoboNeuroticistRole
+  - type: RoleBriefing
+    briefing: roboneuroticist-role-briefing

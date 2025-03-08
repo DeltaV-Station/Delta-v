@@ -53,46 +53,53 @@
     FoodPoppy: 1
     ClothingHeadHatGladiator: 1
     ClothingUniformJumpsuitGladiator: 1
-    ClothingUniformSkirtTurtle: 2 # Nyano - Clothing addition
-    ClothingUniformSwimsuitBlue: 2 # Nyano - Clothing addition
-    ClothingCostumeBunnySuit: 2 # Nyano - Clothing addition
-    ClothingHeadHatBunny: 2 # Nyano - Clothing addition
-    ClothingUniformDressRed: 1 # Nyano - Clothing addition
-    ClothingHeadHatCake: 2 # Nyano - Clothing addition
-    ClothingUniformSchoolGakuranBlack: 2 # Nyano - Clothing addition
-    UniformSchoolgirlBlack: 1 # Nyano - Clothing addition
-    UniformSchoolgirlBlue: 1 # Nyano - Clothing addition
-    UniformSchoolgirlCyan: 1 # Nyano - Clothing addition
-    UniformSchoolgirlGreen: 1 # Nyano - Clothing addition
-    UniformSchoolgirlOrange: 1 # Nyano - Clothing addition
-    UniformSchoolgirlPink: 1 # Nyano - Clothing addition
-    UniformSchoolgirlPurple: 1 # Nyano - Clothing addition
-    UniformSchoolgirlRed: 1 # Nyano - Clothing addition
-    UniformSchoolgirlDusk: 1 # Nyano - Clothing addition
-    UniformSchoolgirlBlazerTan: 1 # Nyano - Clothing addition
-    UniformGeisha: 1 # Nyano - Clothing addition
-    ClothingKimonoBlue: 2 # Nyano - Clothing addition
-    ClothingKimonoPink: 2 # Nyano - Clothing addition
-    ClothingKimonoPurple: 2 # Nyano - Clothing addition
-    ClothingKimonoSky: 2 # Nyano - Clothing addition
-    ClothingKimonoGreen: 2 # Nyano - Clothing addition
-    ClothingMaskOniBlue: 1 # Nyano - Clothing addition
-    ClothingMaskOniRed: 1 # Nyano - Clothing addition
-    ClothingCostumeArcDress: 1 # Nyano - Clothing addition
-    ClothingCostumeMioSkirt: 1 # Nyano - Clothing addition
-    ClothingCostumeNaota: 1 # Nyano - Clothing addition
-    ClothingUniformJumpsuitSober: 1 # DeltaV - Clothing addition
-    ClothingOuterSuitCarp: 2 # DeltaV - Move carp suit out of syndicate uplink into the AutoDrobe
-    ClothingShoesBootsWinterClown: 2  #Delta V: Add departmental winter boots
-    ClothingShoesBootsWinterMime: 2  #Delta V: Add departmental winter boots
-    ClothingUniformJumpsuitDetective: 1 # DeltaV - moved from detdrobe
-    ClothingUniformJumpskirtDetective: 1 # DeltaV - moved from detdrobe
-    ClothingUniformJumpsuitDetectiveGrey: 1 # DeltaV - moved from detdrobe
-    ClothingUniformJumpskirtDetectiveGrey: 1 # DeltaV - moved from detdrobe
-    ClothingOuterCoatDetectiveLoadout: 1 # DeltaV - moved from detdrobe
-    ClothingNeckTieDet: 1 # DeltaV - moved from detdrobe
-    ClothingHeadHatFedoraBrown: 1 # DeltaV - moved from detdrobe
-    ClothingHeadHatFedoraGrey: 1 # DeltaV - moved from detdrobe
+    # Begin DeltaV Additions
+    ClothingUniformSkirtTurtle: 2
+    ClothingUniformSwimsuitBlue: 2
+    ClothingCostumeBunnySuit: 2
+    ClothingHeadHatBunny: 2
+    ClothingUniformDressRed: 1
+    ClothingHeadHatCake: 2
+    ClothingUniformSchoolGakuranBlack: 2
+    UniformSchoolgirlBlack: 1
+    UniformSchoolgirlBlue: 1
+    UniformSchoolgirlCyan: 1
+    UniformSchoolgirlGreen: 1
+    UniformSchoolgirlOrange: 1
+    UniformSchoolgirlPink: 1
+    UniformSchoolgirlPurple: 1
+    UniformSchoolgirlRed: 1
+    UniformSchoolgirlDusk: 1
+    UniformSchoolgirlBlazerTan: 1
+    UniformGeisha: 1
+    ClothingKimonoBlue: 2
+    ClothingKimonoPink: 2
+    ClothingKimonoPurple: 2
+    ClothingKimonoSky: 2
+    ClothingKimonoGreen: 2
+    ClothingMaskOniBlue: 1
+    ClothingMaskOniRed: 1
+    ClothingCostumeArcDress: 1
+    ClothingCostumeMioSkirt: 1
+    ClothingCostumeNaota: 1
+    ClothingUniformJumpsuitSober: 1
+    ClothingOuterSuitCarp: 2 # moved out of syndicate uplink
+    ClothingShoesBootsWinterClown: 2
+    ClothingShoesBootsWinterMime: 2
+    ClothingUniformJumpsuitDetective: 1
+    ClothingUniformJumpskirtDetective: 1
+    ClothingUniformJumpsuitDetectiveGrey: 1
+    ClothingUniformJumpskirtDetectiveGrey: 1
+    ClothingOuterCoatDetectiveLoadout: 1
+    ClothingNeckTieDet: 1
+    ClothingHeadHatFedoraBrown: 1
+    ClothingHeadHatFedoraGrey: 1
+    ClothingHeadTechPriest: 2 # moved from robodrobe
+    ClothingOuterRobeTechPriest: 2
+    ClothingMaskBlushingClown: 1 # moved from emag inventory
+    ClothingMaskBlushingMime: 1
+    ClothingOuterWinterLongMime: 1
+    # End DeltaV Additions
     ClothingHeadHatCowboyBrown: 1
     ClothingHeadHatCowboyBlack: 1
     ClothingHeadHatCowboyWhite: 1
@@ -100,23 +107,22 @@
     ClothingShoesBootsCowboyBrown: 1
     ClothingShoesBootsCowboyBlack: 1
     ClothingShoesBootsCowboyWhite: 1
-    ClothingHeadTechPriest: 2 #Delta V: Added Techpriest Robe to Inventory
-    ClothingOuterRobeTechPriest: 2
-    # Begin DeltaV  modifications - Moved to regular inventory.
-    ClothingMaskSexyClown: 1
-    ClothingMaskSexyMime: 1
-    # End of DeltaV modifications.
-
-    ClothingUniformHitmanSuit: 1 #imp
-    ClothingUniformHitmanSuitSkirt: 1 #imp
-    ClothingUniformBrosBlazer: 1 #imp
-    ClothingUniformBrosBlazerSkirt: 1 #imp
+    # Begin Impstation Additions
+    ClothingUniformHitmanSuit: 1
+    ClothingUniformHitmanSuitSkirt: 1
+    ClothingUniformBrosBlazer: 1
+    ClothingUniformBrosBlazerSkirt: 1
+    # End Impstation Additions
+  contrabandInventory:
+    ClothingHeadHatRichard: 1
+    ToyFigurineBoxer: 1
+    ToyFigurineMusician: 1
   emaggedInventory:
     ClothingShoesBling: 1
     ClothingShoesBootsCowboyFancy: 1
     ClothingOuterDogi: 1
-# Begin DeltaV  modifications - Moved to regular inventory.
-#    ClothingMaskSexyClown: 1
-#    ClothingMaskSexyMime: 1
-# End of DeltaV modifications.
+    # Begin DeltaV Removals - Moved to regular inventory
+    #ClothingMaskBlushingClown: 1
+    #ClothingMaskBlushingMime: 1
+    # End DeltaV Removals
     ClothingHeadHatCowboyBountyHunter: 1

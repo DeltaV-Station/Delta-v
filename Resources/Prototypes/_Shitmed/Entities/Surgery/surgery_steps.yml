@@ -3,6 +3,7 @@
   abstract: true
   components:
   - type: SurgeryStep
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
 
 - type: entity
   parent: SurgeryStepBase
@@ -22,8 +23,8 @@
   - type: SurgeryDamageChangeEffect
     damage:
       types:
-        Bloodloss: 10
-        Slash: 3 # DeltaV
+        #Bloodloss: 10 # DeltaV
+        Slash: 12 # DeltaV
     sleepModifier: 0.5
   - type: SurgeryStepEmoteEffect
 
@@ -45,7 +46,7 @@
   - type: SurgeryDamageChangeEffect
     damage:
       types:
-        Bloodloss: -5
+        Bloodloss: -3 # DeltaV
     sleepModifier: 2
 
 - type: entity
@@ -66,7 +67,7 @@
   - type: SurgeryDamageChangeEffect # DeltaV
     damage:
       types:
-        Slash: 2
+        Slash: 4
 
 - type: entity
   parent: SurgeryStepBase
@@ -106,9 +107,10 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
   - type: SurgeryDamageChangeEffect # DeltaV
+    sleepModifier: 0.25 # Highly invasive, large damage if the patient is wriggling around
     damage:
       types:
-        Blunt: 10
+        Blunt: 15
 
 #- type: entity
 #  parent: SurgeryStepBase
@@ -231,6 +233,9 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
     state: insertion
   - type: SurgeryAddPartStep
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 7.5
+    gloveDirtiness: 7.5
 
 - type: entity
   parent: SurgeryStepBase
@@ -328,6 +333,9 @@
     damage:
       types:
         Slash: 30
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 7.5
+    gloveDirtiness: 7.5
 
 # Tend Wounds
 
@@ -350,7 +358,7 @@
   - type: SurgeryDamageChangeEffect # DeltaV
     damage:
       types:
-        Slash: 2
+        Slash: 4
 
 - type: entity
   parent: SurgeryStepBase
@@ -361,7 +369,7 @@
   - type: SurgeryStep
     tool:
     - type: Tending
-    duration: 3 # DeltaV: was 1
+    duration: 2 # DeltaV: was 1
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
@@ -370,6 +378,9 @@
       groups:
         Brute: -5
   - type: SurgeryRepeatableStep
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 0.5
+    gloveDirtiness: 0.5
 
 - type: entity
   parent: SurgeryStepBase
@@ -380,7 +391,7 @@
   - type: SurgeryStep
     tool:
     - type: Tending
-    duration: 3 # DeltaV: was 1
+    duration: 2 # DeltaV: was 1
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
@@ -389,7 +400,14 @@
     damage:
       groups:
         Burn: -5
+  - type: SurgeryDamageChangeEffect # DeltaV
+    damage:
+      types:
+        Slash: 1
   - type: SurgeryRepeatableStep
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 0.5
+    gloveDirtiness: 0.5
 
 - type: entity
   parent: SurgeryStepBase
@@ -468,10 +486,13 @@
   - type: SurgeryRemoveOrganStep
   - type: SurgeryStepEmoteEffect
   - type: SurgeryDamageChangeEffect # DeltaV
-    sleepModifier: 0.1 # Maints organ transplants are BAD
+    sleepModifier: 0.15 # Maints organ transplants are BAD
     damage:
       types:
         Slash: 50
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 7.5
+    gloveDirtiness: 7.5
 
 - type: entity
   parent: SurgeryStepBase
@@ -488,6 +509,14 @@
     state: insertion
   - type: SurgeryAddOrganStep
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect # DeltaV
+    sleepModifier: 0.5
+    damage:
+      types:
+        Blunt: 5
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 7.5
+    gloveDirtiness: 7.5
 
 - type: entity
   parent: SurgeryStepInsertOrgan

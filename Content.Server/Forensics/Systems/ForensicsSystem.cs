@@ -10,6 +10,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.DoAfter;
 using Content.Shared.Forensics;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
@@ -31,6 +32,7 @@ namespace Content.Server.Forensics
         public override void Initialize()
         {
             SubscribeLocalEvent<FingerprintComponent, ContactInteractionEvent>(OnInteract);
+            SubscribeLocalEvent<FiberComponent, ContactInteractionEvent>(OnFiberInteract); // DeltaV
             SubscribeLocalEvent<FiberComponent, MapInitEvent>(OnFiberInit); // DeltaV #1455 - unique glove fibers
             SubscribeLocalEvent<FingerprintComponent, MapInitEvent>(OnFingerprintInit);
             SubscribeLocalEvent<DnaComponent, MapInitEvent>(OnDNAInit);
@@ -63,16 +65,24 @@ namespace Content.Server.Forensics
             ApplyEvidence(uid, args.Other);
         }
 
-        // DeltaV #1455 - unique glove fibers
-        private void OnFiberInit(EntityUid uid, FiberComponent component, MapInitEvent args)
+        // Begin DeltaV Additions
+        // ipcs and borgs leave metal fibers
+        private void OnFiberInteract(Entity<FiberComponent> ent, ref ContactInteractionEvent args)
         {
-            component.Fiberprint = GenerateFingerprint(length: 7);
+            ApplyEvidence(ent, args.Other);
         }
-        // End of DeltaV code
 
-        private void OnFingerprintInit(EntityUid uid, FingerprintComponent component, MapInitEvent args)
+        // #1455 - unique glove fibers
+        private void OnFiberInit(Entity<FiberComponent> ent, ref MapInitEvent args)
         {
-            component.Fingerprint = GenerateFingerprint();
+            ent.Comp.Fiberprint = GenerateFingerprint(length: 7);
+        }
+        // End DeltaV Additions
+
+        private void OnFingerprintInit(Entity<FingerprintComponent> ent, ref MapInitEvent args)
+        {
+            ent.Comp.Fingerprint = GenerateFingerprint();
+            Dirty(ent);
         }
 
         private void OnDNAInit(EntityUid uid, DnaComponent component, MapInitEvent args)
@@ -293,10 +303,19 @@ namespace Content.Server.Forensics
                 return;
 
             var component = EnsureComp<ForensicsComponent>(target);
+            // Begin DeltaV Additions - IPCs and borgs leave fibers
+            if (TryComp<FiberComponent>(user, out var fiber) && CanAccessFingerprint(user, out _))
+            {
+                var fiberLocale = string.IsNullOrEmpty(fiber.FiberColor)
+                    ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial))
+                    : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial));
+                component.Fibers.Add(fiberLocale + " ; " + fiber.Fiberprint);
+            }
+            // End DeltaV Additions
             if (_inventory.TryGetSlotEntity(user, "gloves", out var gloves))
             {
                 // DeltaV #1455 - unique glove fibers
-                if (TryComp<FiberComponent>(gloves, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
+                if (TryComp<FiberComponent>(gloves, out fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
                 {
                     var fiberLocale = string.IsNullOrEmpty(fiber.FiberColor)
                         ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial))

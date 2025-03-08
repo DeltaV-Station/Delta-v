@@ -5,24 +5,22 @@
   playTimeTracker: JobHeadOfPersonnel
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobChef
-      time: 14400 # DeltaV - 4 hours
-    - !type:RoleTimeRequirement
-      role: JobBartender
-      time: 14400 # DeltaV - 4 hours
-    - !type:RoleTimeRequirement
-      role: JobJanitor
-      time: 14400 # DeltaV - 4 hours
-    - !type:DepartmentTimeRequirement # DeltaV - Civilian dept time requirement
-      department: Civilian
-      time: 72000 # 20 hours
-    - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
-      time: 90000 # 25 hours
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 36000 # 10 hours
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 36000 # 10 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10 hrs
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 36000 # 10 hours
   weight: 10 # DeltaV - Changed HoP weight from 20 to 10 due to them not being more important than other Heads
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
-  requireAdminNotify: true
+  requireAdminNotify: true # DeltaV
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
@@ -34,42 +32,43 @@
   - Janitor
   - Theatre
   - Kitchen
-#  - Chapel
+  #- Chapel # DeltaV - Chapel is in Epistemics
   - Hydroponics
   - External
   - Cryogenics
   # I mean they'll give themselves the rest of the access levels *anyways*.
   # As of 15/03/23 they can't do that so here's MOST of the rest of the access levels.
   # Head level access that isn't their own was deliberately left out, get AA from the captain instead.
-  # Delta V - fuck all of this HoP is a service role
-#  - Chemistry
-#  - Engineering
-#  - Research
-#  - Detective
-#  - Salvage
-#  - Security # NoooOoOo!! My HoPcurity!1
-#  - Brig
-#  - Lawyer # Lawyer is now part of the justice dept
-#  - Cargo
-#  - Atmospherics
-#  - Medical
-  - Boxer # DeltaV - Add Boxer access
-  - Clown # DeltaV - Add Clown access
-  - Library # DeltaV - Add Library access
-  - Mime # DeltaV - Add Mime access
-  - Musician # DeltaV - Add Musician access
-  - Reporter # DeltaV - Add Reporter access
-  - Zookeeper # DeltaV - Add Zookeeper access
+  # Begin DeltaV Removals - fuck all of this HoP is a service role
+  #- Chemistry
+  #- Engineering
+  #- Research
+  #- Detective
+  #- Salvage
+  #- Security # NoooOoOo!! My HoPcurity!1
+  #- Brig
+  #- Lawyer # Lawyer is now part of the justice dept
+  #- Cargo
+  #- Atmospherics
+  #- Medical
+  # End DeltaV Removals
+  # Begin DeltaV Additions - fine-grained service accesses
+  - Boxer
+  - Clown
+  - Library
+  - Mime
+  - Musician
+  - Reporter
+  - Zookeeper
+  # End DeltaV Additions
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-  - !type:AddComponentSpecial
-    components:
-    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
-      flatBonus: 0.025
+      - type: PsionicBonusChance # DeltaV: makes it more likely to become psionic.
+        flatBonus: 0.025
 
 - type: startingGear
   id: HoPGear

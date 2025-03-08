@@ -8,7 +8,8 @@ preset_enabled = true
 map_enabled = true
 
 [shuttle]
-emergency_early_launch_allowed = true
+auto_call_time = 150 # 2.5 hours
+auto_call_extension_time = 30 # next auto call at 3h00, gamers gotta game
 
 [ooc]
 enable_during_round = true

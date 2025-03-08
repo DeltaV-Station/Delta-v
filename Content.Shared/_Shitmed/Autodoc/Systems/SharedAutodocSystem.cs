@@ -317,7 +317,7 @@ public abstract class SharedAutodocSystem : EntitySystem
 
     public bool IsAwake(EntityUid uid)
     {
-        return _mobState.IsAlive(uid) && !HasComp<SleepingComponent>(uid);
+        return _mobState.IsAlive(uid) && !(HasComp<SleepingComponent>(uid) || HasComp<Content.Shared._DV.Surgery.AnesthesiaComponent>(uid)); // DeltaV: allow autodoc to proceed with only anesthesia
     }
 
     /// <summary>

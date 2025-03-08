@@ -23,11 +23,14 @@
       cost: 4
       delay: 6
       fx: EffectRCDDeconstruct6
+    - type: Tag
+      tags:
+      - ForceFixRotations # Allow fixrotations to target these
     - type: Destructible
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 500
+          damage: 100 # DeltaV - Nerfed from 500 to 100
         behaviors:
         - !type:DoActsBehavior
           acts: ["Destruction"]
@@ -123,6 +126,11 @@
       enabled: false
       castShadows: false
     - type: NavMapDoor
+    - type: GuideHelp
+      guides:
+      - FireAndGasControl
+      - Fires
+      - Spacing
 
 - type: entity
   id: Firelock
@@ -194,6 +202,9 @@
           - GlassAirlockLayer
     - type: Occluder
       enabled: false
+    - type: Tag
+      tags:
+      - ForceNoFixRotations # Prevent fixrotations from targeting these, since the base Firelock is targeted
     - type: Door
       occludes: false
     - type: Physics

@@ -212,7 +212,7 @@
 # Corpsman alt uniforms
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformJumpsuitBrigmedicTurtle
   name: corpsman's turtleneck
   description: A comfortable and tight-fitting turtleneck for those with the dedication to reach the position of Corpsman.
@@ -225,7 +225,7 @@
 # Detective uniform
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformJumpsuitForensicSpec
   name: detective's jumpsuit
   description: A white shirt and slate slacks, for forensic specialists.
@@ -236,7 +236,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/detective.rsi
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformJumpsuitDetTurtle
   name: detective's turtleneck
   description: A comfortable and tight-fitting turtleneck for those with the resolve to reach the position of Detective.
@@ -249,7 +249,7 @@
 # Senior Officer uniform
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformJumpsuitSecSenior
   name: senior officer's jumpsuit
   description: A tight-fitting tactical jumpsuit, made of light and breathable yet durable material. Can be worn all year round.
@@ -260,7 +260,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/seniorofficer.rsi
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformJumpsuitSecTurtle
   name: senior officer's turtleneck
   description: A comfortable and tight-fitting turtleneck for those with the resolve to reach the position of Senior Officer.
@@ -273,7 +273,7 @@
 # Warden alt uniforms
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformJumpsuitWardenBlue
   name: blue warden's jumpsuit
   description: A cool blue shirt with ice-white markings and warden's epaulettes.
@@ -284,7 +284,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/armourer_blue.rsi
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformJumpsuitWardenGrey
   name: grey warden's jumpsuit
   description: Charcoal pants, a grey shirt, and white warden's markings and epaulettes.
@@ -295,7 +295,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/armourer_grey.rsi
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformJumpsuitWardenTurtle
   name: warden's turtleneck
   description: A comfortable and tight-fitting turtleneck for those with the patience to reach the position of Warden.
@@ -308,7 +308,7 @@
 # HoS alt uniforms
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformJumpsuitHoSTurtle
   name: head of security's turtleneck
   description: A comfortable and tight-fitting turtleneck for those with the tenacity to reach the position of Head of Security.
@@ -409,7 +409,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/prosecutorred.rsi
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformBlackTurtleneck
   name: black turtleneck
   description: A simple black turtleneck. Perfect for any wannabe spy.
@@ -451,3 +451,73 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/admin_assistant.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/admin_assistant.rsi
+
+# Cargo Tech Overalls uniform
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoTechOveralls
+  name: cargo tech overalls
+  description: A sturdy pair of overalls with leather straps and chartreuse buckles. Helpful for lifting heavy loads.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cargotechoveralls.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cargotechoveralls.rsi
+
+# Cargo Tech Pants uniform
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBaseImpstation ] # DeltaV - Cargo clothing expansion
+  id: ClothingUniformJumpsuitCargoTechPants
+  name: cargo tech pants
+  description: A crisp white collared shirt with a snappy pair of pants. There are leather knee pads for support.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cargotechpants.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cargotechpants.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitRoboNeuroticist
+  name: robo-neuroticist's jumpsuit
+  description: A suit fit with dozens of cybernetic gadgets.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/roboneuroticistpurple.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/roboneuroticistpurple.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCybersunHazard
+  name: cybersun hazard suit
+  description: This high-visibility jumpsuit prevents you from getting run over, yet keeps you dark enough to stay unnoticed!
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunhazard.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunhazard.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCybersunCasual
+  name: cybersun casual jumpsuit
+  description: With all the non-descript gizmos they shoved in this thing, are you sure it's even safe to put on?
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersuncasual.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersuncasual.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCybersunRND
+  name: cybersun research turtleneck
+  description: It's another Turtleneck. What'd you expect?
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi

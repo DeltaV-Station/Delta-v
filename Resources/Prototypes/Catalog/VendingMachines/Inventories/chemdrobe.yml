@@ -14,17 +14,20 @@
     ClothingHandsGlovesLatex: 2
     ClothingHeadsetMedical: 2
     ClothingOuterWinterChem: 2
-    # DeltaV - Personal Protective Equipment - Add various PPE equipment including new clothings
+    # Begin DeltaV Additions - Personal Protective Equipment
     ClothingUniformJumpsuitChemShirt: 2 # New chemist jumpsuit, formal variant
+    ClothingUniformJumpskirtChemShirt: 2 # DeltaV - more jumpskirts
     ClothingNeckTieChem: 2  # Chemist's tie to go along a new variant of their suit
     ClothingShoesEnclosedChem: 2 # Realistic chemistry shoes
     ClothingOuterApronChemist: 2 # Realistic PPE apron for chemistry
+    ClothingOuterExplorerCoat: 2 # Really nice labcoat
     ClothingEyesGlassesChemist: 2 # Safety glasses
     ClothingHandsGlovesChemist: 2 # Heavy duty chemistry gloves
-    # End of modified code
-  # Begin DeltaV modifications - Add contraband to the chemdrobe
+    # End DeltaV Additions
   contrabandInventory:
+    ToyFigurineChemist: 1
+    # Begin DeltaV Additions - Interdyne clothing
     ClothingMaskInterdyneChemistry: 1
     ClothingOuterInterdyneChemistrySuit: 1
     ClothingUniformInterdyneChemist: 1
-  # End of DeltaV modifications
+    # End DeltaV Additions

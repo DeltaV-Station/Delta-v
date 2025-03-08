@@ -40,17 +40,6 @@
     stealGroup: RubberStampNotary
     owner: job-name-clerk
 
-- type: entity
-  abstract: true
-  parent: BaseTraitorStealObjective
-  id: SilviaStealObjective
-  components:
-  - type: NotJobRequirement
-    job: ChiefMedicalOfficer
-  - type: StealCondition
-    stealGroup: AnimalSilvia
-    owner: job-name-cmo
-
 # Mystagogue steal objective
 - type: entity
   parent: BaseTraitorStealObjective
@@ -60,6 +49,16 @@
     job: ResearchDirector
   - type: StealCondition
     stealGroup: BoxFolderRdClipboard
+    owner: job-name-rd
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: BibleMystagogueStealObjective
+  components:
+  - type: NotJobRequirement
+    job: ResearchDirector
+  - type: StealCondition
+    stealGroup: BibleMystagogue
     owner: job-name-rd
 
 # teach lesson
@@ -91,6 +90,7 @@
   - type: TargetObjective
     title: objective-condition-teach-person-title
   - type: PickRandomPerson
+    onlyChoosableJobs: true
 
 # Kill fellow traitor objective
 - type: entity
@@ -124,6 +124,23 @@
     - UplinkAntimovObjectiveBoard
   - type: CodeCondition
   - type: AILawsUpdatedRequirement
-    lawset: AntimovLawset
+    lawset: SyndicateLawset
   - type: ObjectiveLimit
     limit: 1
+
+# Station
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: PlutoniumCoreStealObjective
+  components:
+  - type: Objective
+    # its hard to steal and leaves evidence, but you can get away with it.
+    difficulty: 3.5
+  - type: NotCommandRequirement
+  - type: StealCondition
+    stealGroup: PlutoniumCore
+    owner: objective-condition-steal-nuclear-bomb
+  - type: StoreUnlocker
+    listings:
+    - UplinkCoreExtractionToolbox

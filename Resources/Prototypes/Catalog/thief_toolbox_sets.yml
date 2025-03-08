@@ -17,6 +17,7 @@
   - ClothingShoesChameleon
   - BarberScissors
   - ChameleonProjector
+  - FakeMindShieldImplanter
   - AgentIDCard
 
 - type: thiefBackpackSet
@@ -55,7 +56,7 @@
 - type: thiefBackpackSet
   id: SyndieSet
   name: thief-backpack-category-syndie-name
-  description: thief-backpack-category-syndie-description
+  description: thief-backpack-category-syndie-description-deltav # DeltaV
   sprite:
     sprite: Objects/Specific/Syndicate/telecrystal.rsi
     state: telecrystal
@@ -63,6 +64,7 @@
   - RadioJammer
   - TraitorCodePaper
   - Emag
+  - Doorjack # DeltaV - replaces AccessBreaker
   - Lighter
   - CigPackSyndicate
   - Telecrystal10 #The thief cannot use them, but it may induce communication with traitors
