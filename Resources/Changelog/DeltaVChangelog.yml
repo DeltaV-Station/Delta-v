@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Fixed the crew manifest.
-    type: Fix
-  id: 619
-  time: '2024-10-24T12:54:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2037
-- author: deltanedas
-  changes:
   - message: Martyr cyborg modules can now be disarmed with a crowbar to yield its
       explosive payload.
     type: Tweak
@@ -3927,3 +3920,11 @@
   id: 1118
   time: '2025-03-08T19:39:24.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3096
+- author: ThataKat
+  changes:
+  - message: The uplink Python now comes with standard rounds, and standard speedloaders
+      can be purchased in the uplink.
+    type: Tweak
+  id: 1119
+  time: '2025-03-08T19:56:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3093
