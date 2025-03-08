@@ -124,6 +124,7 @@
     - trayScanner
   # Begin DeltaV Additions - wires module can assemble electronics
   - type: DroppableBorgModule
+    moduleId: Cables
     items:
     - id: APCElectronics
       whitelist:
@@ -469,6 +470,7 @@
     - Syringe
   # Begin DeltaV Additions
   - type: DroppableBorgModule
+    moduleId: Treatment
     items:
     - id: Brutepack
       whitelist:
