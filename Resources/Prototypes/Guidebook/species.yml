@@ -18,6 +18,9 @@
     - Oni
     - Rodentia
     - Chitinid
+    - IPC
+    # ImpStation additions
+    - Thaven
 
 - type: guideEntry
   id: Arachnid
@@ -58,3 +61,8 @@
   id: Vox
   name: species-name-vox
   text: "/ServerInfo/Guidebook/Mobs/Vox.xml"
+
+- type: guideEntry
+  id: IPC
+  name: species-name-ipc
+  text: "/ServerInfo/Guidebook/Mobs/IPCs.xml"

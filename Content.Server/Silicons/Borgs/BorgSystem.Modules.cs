@@ -4,6 +4,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
+using Content.Shared._NF.Silicons.Borgs; // Frontier
 
 namespace Content.Server.Silicons.Borgs;
 
@@ -280,6 +281,13 @@ public sealed partial class BorgSystem
                 Popup.PopupEntity(Loc.GetString("borg-module-whitelist-deny"), uid, user.Value);
             return false;
         }
+
+        // Frontier - event for DroppableBorgModule to use
+        var ev = new BorgCanInsertModuleEvent((uid, component), user);
+        RaiseLocalEvent(module, ref ev);
+        if (ev.Cancelled)
+            return false;
+        // End Frontier
 
         if (TryComp<ItemBorgModuleComponent>(module, out var itemModuleComp))
         {

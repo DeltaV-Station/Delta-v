@@ -12,12 +12,12 @@
     - id: GlimmerRevenantSpawn
     - id: GlimmerMiteSpawn
     - id: GlimmerRandomSentience
+    - id: ThavenMoodUpset
 
 - type: entity
   parent: BaseGameRule
   id: GlimmerEventScheduler
   components:
-  - type: NextEvent
   - type: BasicStationEventScheduler
     minMaxEventTiming:
       min: 300

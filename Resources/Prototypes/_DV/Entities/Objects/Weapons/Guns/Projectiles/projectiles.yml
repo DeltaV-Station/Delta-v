@@ -45,3 +45,38 @@
         Heat: 24 # these will hurt but not quite a 4 shot
     soundHit:
       collection: MeatLaserImpact
+
+- type: entity
+  abstract: true
+  parent: BaseBullet
+  id: BaseBulletRubber
+  name: base bullet rubber
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: rubber
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/snap.ogg
+  - type: StaminaDamageOnCollide
+    damage: 22 # 5 hits to stun sounds reasonable
+
+- type: entity
+  parent: BulletPistolIncendiary
+  id: BulletLighterIncendiary
+  name: welding fuel bullet
+  description: a superheated jet of welding fuel, coming right at you.
+  components:
+  - type: PointLight
+    enabled: true
+    color: green
+    radius: 2.0
+    energy: 7.0
+  - type: Projectile
+    damage:
+      types:
+        Heat: 5

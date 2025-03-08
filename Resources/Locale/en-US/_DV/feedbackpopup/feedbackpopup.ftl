@@ -1,5 +1,9 @@
 feedbackpopup-window-name = Feedback popup
 feedbackpopup-submit-feedback-button = Submit feedback
+feedbackpopup-submit-feedback-button-confirm = Click again to submit
+
+feedbackpopup-text-box-above = --- Write your feedback below ---
+feedbackpopup-text-box-below = --- Write your feedback above ---
 feedbackpopup-disclaimer = Your SS14 username and other in game information will be relayed to the discord.
 
 # Discord relay formatting

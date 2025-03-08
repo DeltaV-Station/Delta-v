@@ -55,10 +55,32 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/hopformaldress.rsi
 
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtChemShirt
+  name: formal chemistry suitskirt
+  description: There's still some odd stains on this suitskirt. Hm.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/chemsuitskirt.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/chemsuitskirt.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtScientistFormal
+  name: scientist's formal jumpskirt
+  description: A uniform for sophisticated scientists, best worn with its matching tie.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/scientist_formal.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/scientist_formal.rsi
+
 # Security alt uniforms
 
 - type: entity
-  parent: ClothingUniformSkirtFoldableBase
+  parent: ClothingUniformSkirtRollableBase
   id: ClothingUniformJumpskirtSecBlue
   name: blue security jumpskirt
   description: A cool blue shirt over charcoal skirt, for the calm and collected security officer.
@@ -71,7 +93,7 @@
 # Corpsman alt uniforms
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformJumpskirtBrigmedicTurtle
   name: corpsman's turtleneck
   description: A comfortable and tight-fitting turtleneck for those with the dedication to reach the position of Corpsman.
@@ -84,7 +106,7 @@
 # Detective uniform
 
 - type: entity
-  parent: ClothingUniformSkirtFoldableBase
+  parent: ClothingUniformSkirtRollableBase
   id: ClothingUniformJumpskirtForensicSpec
   name: detective's jumpskirt
   description: A white shirt and slate skirt, for forensic specialists.
@@ -95,7 +117,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/detective.rsi
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformJumpskirtDetTurtle
   name: detective's turtleneck
   description: A comfortable and tight-fitting turtleneck for those with the resolve to reach the position of Detective.
@@ -108,7 +130,7 @@
 # Senior Officer uniform
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformJumpskirtSecSenior
   name: senior officer's jumpskirt
   description: A tight-fitting tactical jumpsuit, made of light and breathable yet durable material. Can be worn all year round.
@@ -119,7 +141,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/seniorofficer.rsi
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformJumpskirtSecTurtle
   name: senior officer's turtleneck
   description: A comfortable and tight-fitting turtleneck for those with the resolve to reach the position of Senior Officer.
@@ -132,7 +154,7 @@
 # Warden alt uniforms
 
 - type: entity
-  parent: ClothingUniformSkirtFoldableBase
+  parent: ClothingUniformSkirtRollableBase
   id: ClothingUniformJumpskirtWardenBlue
   name: blue warden's jumpskirt
   description: A cool blue shirt with ice-white markings and warden's epaulettes.
@@ -143,7 +165,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/armourer_blue.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtFoldableBase
+  parent: ClothingUniformSkirtRollableBase
   id: ClothingUniformJumpskirtWardenGrey
   name: grey warden's jumpskirt
   description: Charcoal skirt, a grey shirt, and white warden's markings and epaulettes.
@@ -154,7 +176,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/armourer_grey.rsi
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformJumpskirtWardenTurtle
   name: warden's turtleneck
   description: A comfortable and tight-fitting turtleneck for those with the patience to reach the position of Warden.
@@ -167,7 +189,7 @@
 # HoS alt uniforms
 
 - type: entity
-  parent: ClothingUniformSkirtFoldableBase
+  parent: ClothingUniformSkirtRollableBase
   id: ClothingUniformJumpskirtHoSBlue
   name: head of security's blue jumpskirt
   description: A blue Station Security shirt with charcoal skirt. Features gold emblems and commander's epaulettes.
@@ -177,8 +199,20 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/hos_blue.rsi
 
+# Prison Guard Jumpskirt
+
 - type: entity
-  parent: ClothingUniformSkirtFoldableBase
+  parent: ClothingUniformJumpsuitPrisonGuard
+  id: ClothingUniformJumpskirtPrisonGuard
+  name: prison guard's jumpskirt
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/prisonguard.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/prisonguard.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtRollableBase
   id: ClothingUniformJumpskirtHoSGrey
   name: head of security's grey jumpskirt
   description: A grey Station Security shirt with charcoal skirt. Stands out with red highlights, gold emblems, and commander's epaulettes.
@@ -189,7 +223,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/hos_grey.rsi
 
 - type: entity
-  parent: ClothingUniformFoldableBase
+  parent: ClothingUniformRollableBase
   id: ClothingUniformJumpskirtHoSTurtle
   name: head of security's turtleneck
   description: A comfortable and tight-fitting turtleneck for those with the tenacity to reach the position of Head of Security.
@@ -206,6 +240,41 @@
   id: ClothingUniformJumpskirtCentcomDirector
   name: director's jumpskirt
   description: A sharp and professional jumpskirt worn by a high-ranking member of Central Command.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi
+
+# Central Command
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCentcomAgent
+  name: CentComm agent's jumpskirt
+  description: A suitskirt worn by CentComm's legal team. Smells of burnt coffee.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/centcom_agent.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/centcom_agent.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCentcomOfficial
+  name: CentComm official's jumpskirt
+  description: It's a jumpskirt with a nice golden hem, worn by CentComm's officials.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/centcom_official.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/centcom_official.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCentcomOfficer
+  name: CentComm officer's jumpskirt
+  description: It's a jumpskirt worn by CentComm Officers.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi
@@ -268,3 +337,26 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/admin_assistant.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/admin_assistant.rsi
+
+# Salvage uniform
+
+- type: entity
+  parent: ClothingUniformJumpsuitSalvageSpecialist
+  id: ClothingUniformJumpskirtSalvageSpecialist
+  name: salvage specialist's jumpskirt
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/explorer.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/explorer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtCargoTechRomper
+  name: cargo tech romper
+  description: A flexible and professional skirt. It has a pair of skorts underneath for the hardest working skirt-wearers of Logistics.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/cargotechromper.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/cargotechromper.rsi

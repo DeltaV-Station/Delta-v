@@ -13,8 +13,10 @@
   weights:
     CaptainIDStealObjective: 1
     CMOHyposprayStealObjective: 1
-    CMOCrewMonitorStealObjective: 1
+    #CMOCrewMonitorStealObjective: 1 # DeltaV - You can buy this + paramedics all have them
     RDHardsuitStealObjective: 1
+    NukeDiskStealObjective: 0.25 # DeltaV - was 1
+    PlutoniumCoreStealObjective: 0.5 # DeltaV
     MagbootsStealObjective: 1
     # CorgiMeatStealObjective: 1 # DeltaV - Disable the horrible murder of Ian as an objective
     MantisKnifeStealObjective: 1 # Nyanotrasen - ForensicMantis steal objective, see Resources/Prototypes/Nyanotrasen/Objectives/traitor.yml
@@ -28,8 +30,7 @@
     LOLuckyBillStealObjective: 0.5 # DeltaV - LO steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
     HoPBookIanDossierStealObjective: 1 # DeltaV - HoP steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
     HoSGunStealObjective: 0.5 # DeltaV
-    PlutoniumCoreStealObjective: 0.5 # DeltaV, was reverted upstream
-    NukeDiskStealObjective: 0.25
+    BibleMystagogueStealObjective: 0.5 # DeltaV - Mysta steal objective see Resources/Prototypes/_DV/Objectives/traitor.yml
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
@@ -116,14 +117,13 @@
   id: ThiefObjectiveGroupAnimal
   weights:
     IanStealObjective: 1
-    BingusStealObjective: 1
+    #BingusStealObjective: 1 # DeltaV - no stealing ghost roles
     McGriffStealObjective: 1
     WalterStealObjective: 1
     MortyStealObjective: 1
     RenaultStealObjective: 1
-    ShivaStealObjective: 1
+    #ShivaStealObjective: 1 # DeltaV - no stealing ghost roles
     TropicoStealObjective: 1
-    SilviaStealObjective: 1 # DeltaV - CMO steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
 
 - type: weightedRandom
   id: ThiefObjectiveGroupEscape

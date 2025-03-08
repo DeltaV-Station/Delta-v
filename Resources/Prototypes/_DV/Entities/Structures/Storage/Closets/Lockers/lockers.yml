@@ -10,8 +10,24 @@
   id: LockerBaseSecureDeltaV
 
 - type: entity
-  id: LockerChiefJustice
   parent: LockerBaseSecureDeltaV
+  id: CommandLockerBaseSecureDeltaV
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: CommandLockerBaseSecureDeltaV
+  id: LockerChiefJustice
   name: chief justice's locker
   components:
   - type: Appearance
@@ -23,8 +39,8 @@
     access: [["ChiefJustice"]]
 
 - type: entity
-  id: LockerClerk
   parent: LockerBaseSecureDeltaV
+  id: LockerClerk
   name: clerk's locker
   components:
   - type: Appearance
@@ -60,7 +76,7 @@
     access: [ [ "Surgery" ] ]
 
 - type: entity
-  parent: LockerBaseSecureDeltaV
+  parent: CommandLockerBaseSecureDeltaV
   id: LockerAdministrativeAssistant
   name: administrative assistant's locker
   components:
@@ -118,3 +134,31 @@
     stateDoorClosed: armory_door
   - type: AccessReader
     access: [["Armory"]]
+
+- type: entity
+  parent: LockerBooze
+  id: LockerForensicMantis
+  name: psionic mantis' cabinet
+  suffix: Empty
+  description: You'll never know what's inside until you collapse the quantum superposition of all possible mysteries.
+  components:
+  - type: AccessReader
+    access: [["Mantis"]]
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+          MaterialWoodPlank1:
+            min: 1
+            max: 2

@@ -19,6 +19,7 @@
   - CigarCase
   - CigarGold
   - ClothingNeckLGBTPin
+  - ClothingNeckAllyPin
   - ClothingNeckAromanticPin
   - ClothingNeckAsexualPin
   - ClothingNeckBisexualPin
@@ -27,6 +28,8 @@
   - ClothingNeckLesbianPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
+  - ClothingNeckOmnisexualPin
+  - ClothingNeckGenderqueerPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
@@ -54,6 +57,7 @@
   - WhiteCane
   - CDDogtags # taken from Cosmatic Drift
   - TapeRecorder
+  - ClothingHeadHatUshanka
   # End DeltaV Additions
 
 - type: loadoutGroup
@@ -83,6 +87,7 @@
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # DeltaV
 
 - type: loadoutGroup
   id: GroupEVATank
@@ -177,9 +182,14 @@
   id: HoPBackpack
   name: loadout-group-hop-backpack
   loadouts:
-  - CommonBackpack
-  - CommonSatchel
-  - CommonDuffel
+  # Start DeltaV changes
+  # - CommonBackpack
+  # - CommonSatchel
+  # - CommonDuffel
+  - BackpackHoP 
+  - SatchelHoP 
+  - HopDuffel 
+  # End of DeltaV changes
   - HoPBackpackIan
 
 - type: loadoutGroup
@@ -529,6 +539,7 @@
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # DeltaV
 
 - type: loadoutGroup
   id: MimeHead
@@ -568,6 +579,7 @@
   minLimit: 0
   loadouts:
   - MimeWintercoat
+  - MimeWintercoatLong # DeltaV
 
 - type: loadoutGroup
   id: MimeBelt
@@ -586,6 +598,7 @@
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # DeltaV
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -696,8 +709,11 @@
   id: CargoTechnicianJumpsuit
   name: loadout-group-cargo-technician-jumpsuit
   loadouts:
-  - CargoTechnicianJumpsuit
-  - CargoTechnicianJumpskirt
+ #- CargoTechnicianJumpsuit
+ #- CargoTechnicianJumpskirt
+  - ClothingUniformJumpsuitCargoTechPants # DeltaV
+  - ClothingUniformJumpsuitCargoTechOveralls # DeltaV
+  - ClothingUniformJumpskirtCargoTechRomper # DeltaV
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -798,7 +814,7 @@
 - type: loadoutGroup
   id: StationEngineerHead
   name: loadout-group-station-engineer-head
-  minLimit: 0 # DeltaV - Not everyone remembers their (hard)hats
+  minLimit: 0
   loadouts:
   - StationEngineerHardhatYellow
   - StationEngineerHardhatOrange
@@ -888,6 +904,7 @@
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # DeltaV
 
 # Science
 - type: loadoutGroup
@@ -964,6 +981,8 @@
   # End DeltaV changes
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
+  - FormalScientistJumpsuit # DeltaV - more jumpskirts
+  - FormalScientistJumpskirt # DeltaV - more jumpskirts
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -1217,6 +1236,7 @@
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # DeltaV
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1356,6 +1376,7 @@
   - ChemistJumpsuit
   - ChemistJumpskirt
   - ChemistFormalSuit # DeltaV
+  - ChemistFormalSkirt # DeltaV - more jumpskirts
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -1414,6 +1435,7 @@
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # DeltaV
 
 # Wildcards
 - type: loadoutGroup
@@ -1458,6 +1480,7 @@
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # DeltaV
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
