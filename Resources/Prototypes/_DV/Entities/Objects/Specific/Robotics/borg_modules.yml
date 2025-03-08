@@ -54,7 +54,19 @@
     items:
     - StunbatonSelfCharging
     - FlashRecharging
-    - BorgHypoPax
+    - FlashlightSecliteRecharging
+    - SecurityWhistle
+  - type: DroppableBorgModule
+    moduleId: Deescalate
+    items:
+    - id: Handcuffs
+      whitelist:
+        components:
+        - Handcuff
+    - id: Zipties
+      whitelist:
+        components:
+        - Handcuff
 
 - type: entity
   id: BorgModuleSecurityEscalate
