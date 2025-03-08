@@ -1,57 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Removed salt ore in favour of coal. Give the chemists carbon!
-    type: Remove
-  id: 616
-  time: '2024-10-20T17:30:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2027
-- author: PPooch
-  changes:
-  - message: Clerks now have brig timer and evidence locker access. Don't steal the
-      Prosecutor's job from them!
-    type: Tweak
-  id: 617
-  time: '2024-10-23T07:04:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2034
-- author: deltanedas
-  changes:
-  - message: Merged the past few weeks changes from upstream, report any bugs related
-      to your character menu or objectives!
-    type: Add
-  id: 618
-  time: '2024-10-24T08:41:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2036
-- author: deltanedas
-  changes:
-  - message: Fixed the crew manifest.
-    type: Fix
-  id: 619
-  time: '2024-10-24T12:54:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2037
-- author: deltanedas
-  changes:
-  - message: Martyr cyborg modules can now be disarmed with a crowbar to yield its
-      explosive payload.
-    type: Tweak
-  id: 620
-  time: '2024-10-24T15:19:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1960
-- author: Solaris7518
-  changes:
-  - message: Fixed almost every midi being completely ruined by a recent change from
-      upstream. You're welcome, my fellow musicians.
-    type: Fix
-  id: 621
-  time: '2024-10-24T23:39:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2041
-- author: MilonPL
-  changes:
-  - message: Fixed playtime stats and requirements not showing up correctly.
-    type: Fix
-  id: 622
-  time: '2024-10-25T00:15:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2038
 - author: Radezolid
   changes:
   - message: Pie cannons can now be fired by pacifists!
@@ -3923,3 +3870,63 @@
   id: 1115
   time: '2025-03-07T06:19:02.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3144
+- author: deltanedas
+  changes:
+  - message: Cable module can now hold up to 2 electronics.
+    type: Tweak
+  - message: Construction module can now hold plastic and plasteel, and you can mix
+      and match different items.
+    type: Tweak
+  - message: Service borgs (yes all three of you) can now hold any kind of instrument.
+    type: Tweak
+  id: 1116
+  time: '2025-03-08T19:15:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3119
+- author: deltanedas
+  changes:
+  - message: Security cyborgs now get cuffs to arrest criminals. Follow Rules of Engagement,
+      stop beating people to death!
+    type: Add
+  id: 1117
+  time: '2025-03-08T19:15:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3112
+- author: Quanteey
+  changes:
+  - message: Significantly increased CMO playtime requirements
+    type: Tweak
+  id: 1118
+  time: '2025-03-08T19:39:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3096
+- author: ThataKat
+  changes:
+  - message: The uplink Python now comes with standard rounds, and standard speedloaders
+      can be purchased in the uplink.
+    type: Tweak
+  id: 1119
+  time: '2025-03-08T19:56:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3093
+- author: deltanedas
+  changes:
+  - message: Water vapor canisters can now be purchased by logistics.
+    type: Add
+  id: 1120
+  time: '2025-03-08T19:56:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3156
+- author: Oxdeception
+  changes:
+  - message: AAC Tablet now has a searchable tab
+    type: Add
+  - message: AAC Tablet no longer has its tabs hidden by scrolling
+    type: Tweak
+  id: 1121
+  time: '2025-03-08T20:46:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3154
+- author: HTMLSystem
+  changes:
+  - message: Fixed epistemics lab coats not having an unzipped sprite
+    type: Fix
+  - message: Made the Mystagogue lab coat unzippable
+    type: Add
+  id: 1122
+  time: '2025-03-08T20:56:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3136

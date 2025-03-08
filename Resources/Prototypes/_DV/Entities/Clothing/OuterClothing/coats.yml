@@ -131,3 +131,8 @@
     sprite: _DV/Clothing/OuterClothing/Coats/cybersunovercoat.rsi
   - type: TemperatureProtection
     coolingCoefficient: 0.1
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRndMysta]
+  id: ClothingOuterCoatRndMystaOpened
+  name: mystagogue lab coat
