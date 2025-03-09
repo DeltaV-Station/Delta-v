@@ -73,7 +73,7 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
                 airlockCounter += 1;
             }
 
-            if (power.Recalculate || !power.NeedsPower)
+            if (!power.Powered && power.NeedsPower) // DeltaV - actually count unpowered doors for the chaos
             {
                 powerCount += 1;
             }
