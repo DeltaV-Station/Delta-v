@@ -1,13 +1,15 @@
-﻿using Content.Server._Goobstation.StationEvents.Metric;
+﻿using Content.Server._DV.Administration.Commands; // DeltaV - Easier Debugging
+using Content.Server._Goobstation.StationEvents.Metric;
+using Content.Shared._Goobstation.StationEvents.Metric; // DeltaV - shared the prototypes for our tests
+using Content.Shared._Goobstation.StationEvents; // DeltaV - shared the prototypes for our tests
 using Content.Shared.EntityTable.EntitySelectors;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Content.Shared._Goobstation.StationEvents; // DeltaV - shared the prototypes for our tests
-using Content.Shared._Goobstation.StationEvents.Metric; // DeltaV - shared the prototypes for our tests
+using Robust.Shared.Timing; // DeltaV - Easier Debugging
 
 namespace Content.Server._Goobstation.StationEvents.Components;
 
-[RegisterComponent, Access(typeof(GameDirectorSystem))]
+[RegisterComponent, Access(typeof(GameDirectorSystem), typeof(GameDirectorForceEventCommand))]
 public sealed partial class GameDirectorComponent : Component
 {
 
@@ -37,6 +39,50 @@ public sealed partial class GameDirectorComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<StoryPrototype> CurrentStoryName;
+
+    // Begin DeltaV - Easier Debugging
+    /// <summary>
+    /// Debugging only - Time until the next story
+    /// </summary>
+    [ViewVariables]
+    private TimeSpan TimeUntilNextEventVV
+    {
+        get
+        {
+            var currentTime = IoCManager.Resolve<IGameTiming>().CurTime;
+            return TimeNextEvent - currentTime;
+        }
+    }
+
+    /// <summary>
+    /// Debugging only - The current story's prototype
+    /// </summary>
+    [ViewVariables]
+    private StoryPrototype CurrentStoryVV
+    {
+        get
+        {
+            var protoMan = IoCManager.Resolve<IPrototypeManager>();
+            return protoMan.Index(CurrentStoryName);
+        }
+    }
+
+    /// <summary>
+    /// Debugging only - The current story beat's prototype
+    /// </summary>
+    [ViewVariables]
+    private StoryBeatPrototype? CurrentStoryBeatVV
+    {
+        get
+        {
+            if (RemainingBeats.Count < 1)
+                return null;
+
+            var protoMan = IoCManager.Resolve<IPrototypeManager>();
+            return protoMan.Index(RemainingBeats[0]);
+        }
+    }
+    // End DeltaV - Easier Debugging
 
     /// <summary>
     ///   Remaining beats in the story we are currently executing (a list of beat IDs)

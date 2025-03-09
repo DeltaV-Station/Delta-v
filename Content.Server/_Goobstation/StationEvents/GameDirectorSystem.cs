@@ -313,7 +313,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     ///   Players gates which stories and events are available
     ///   Ghosts can be used to gate certain events (which require ghosts to occur)
     /// </summary>
-    private PlayerCount CountActivePlayers()
+    public PlayerCount CountActivePlayers() // DeltaV - Allow admins to force the story to change
     {
         var allPlayers = _playerManager.Sessions.ToList();
         var count = new PlayerCount();
@@ -380,6 +380,26 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             _chat.SendAdminAnnouncement("GameDirector " + message);
 
     }
+
+    // Begin DeltaV - Let admins switch the story
+    public void SwitchStory(GameDirectorComponent scheduler, StoryPrototype story, PlayerCount count)
+    {
+        scheduler.RemainingBeats.Clear();
+
+        // A new story was picked. Copy the full list of beats (for us to pop beats from the front as we proceed)
+        foreach (var storyBeat in story.Beats!)
+        {
+            scheduler.RemainingBeats.Add(storyBeat);
+        }
+
+
+        scheduler.CurrentStoryName = story.ID;
+        SetupEvents(scheduler, count);
+        _sawmill.Info(
+            $"New Story {story.ID}: {story.Description}. {scheduler.PossibleEvents.Count} events to use.");
+    }
+    // End DeltaV - Let admins switch the story
+
     /// <summary>
     ///   Returns the StoryBeat that should be currently used to select events.
     ///   Advances the current story and picks new stories when the current beat is complete.
@@ -451,18 +471,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
                 if (story.MinPlayers > count.Players || story.MaxPlayers < count.Players || story.Beats == null)
                     continue;
 
-
-                // A new story was picked. Copy the full list of beats (for us to pop beats from the front as we proceed)
-                foreach (var storyBeat in story.Beats)
-                {
-                    scheduler.RemainingBeats.Add(storyBeat);
-                }
-
-
-                scheduler.CurrentStoryName = storyName;
-                SetupEvents(scheduler, count);
-                _sawmill.Info(
-                    $"New Story {storyName}: {story.Description}. {scheduler.PossibleEvents.Count} events to use.");
+                SwitchStory(scheduler, story, count); // DeltaV - Let admins switch the story
 
                 var beatName = scheduler.RemainingBeats[0];
                 var beat = _prototypeManager.Index<StoryBeatPrototype>(beatName);
