@@ -101,9 +101,10 @@
     Atmos: 200
     Power: 100
     Mess: 100
-    Hunger: 100
-    Thirst: 100
-    Medical: 100
+    # DeltaV - these are untenable as baseline chaos levels
+    # Hunger: 100
+    # Thirst: 100
+    # Medical: 100
 
 - type: storyBeat
   id: PowerIssues

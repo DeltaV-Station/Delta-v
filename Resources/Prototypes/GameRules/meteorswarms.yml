@@ -114,6 +114,8 @@
     weight: 44
     earliestStart: 2
     minimumPlayers: 0
+    chaos: # DeltaV - Game Director
+      Atmos: 25
   - type: MeteorSwarm
     announcement: null
     announcementSound: null
@@ -134,6 +136,8 @@
   - type: StationEvent
     weight: 22
     minimumPlayers: 0
+    chaos: # DeltaV - Game Director
+      Atmos: 75
   - type: MeteorSwarm
     announcement: station-event-space-dust-start-announcement
     announcementSound: /Audio/Announcements/attention.ogg
@@ -154,6 +158,8 @@
   - type: StationEvent
     weight: 18
     minimumPlayers: 15
+    chaos: # DeltaV - Game Director
+      Atmos: 25
   - type: MeteorSwarm
     meteors:
       MeteorSmall: 7
@@ -165,6 +171,8 @@
   components:
   - type: StationEvent
     weight: 10
+    chaos: # DeltaV - Game Director
+      Atmos: 50
   - type: MeteorSwarm
     meteors:
       MeteorSmall: 3
@@ -177,6 +185,8 @@
   components:
   - type: StationEvent
     weight: 5
+    chaos: # DeltaV - Game Director
+      Atmos: 100
   - type: MeteorSwarm
     meteors:
       MeteorSmall: 2
@@ -189,6 +199,7 @@
   components:
   - type: StationEvent
     weight: 0.05
+  - type: DynamicRuleset # DeltaV - this event has no use to the game director
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-game-rule-urist-swarm-result-message
   - type: MeteorSwarm
@@ -216,6 +227,9 @@
     duration: 1
     earliestStart: 30
     minimumPlayers: 25
+    chaos: # DeltaV - Game Director
+      Atmos: 100
+      Medical: 20
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-immovable-rod-spawn-result-message
   - type: ImmovableRodRule

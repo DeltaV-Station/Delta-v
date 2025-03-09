@@ -30,6 +30,8 @@
       params:
         volume: -4
     duration: null #ending is handled by MeteorSwarmRule
+    chaos:
+      Atmos: 50
   - type: PrecognitionResult
     message: psionic-power-precognition-meteor-swarm-result-message
   - type: MeteorSwarmRule
@@ -46,6 +48,9 @@
     minimumPlayers: 20
     weight: 1
     duration: 30
+    chaos:
+      Hostile: 20
+      Medical: 50
   - type: PrecognitionResult
     message: psionic-power-precognition-xeno-vents-result-message
   - type: VentCrittersRule
@@ -77,6 +82,8 @@
     minimumPlayers: 15
     weight: 4
     duration: 30
+    chaos:
+      Mess: 40
   - type: PrecognitionResult
     message: psionic-power-precognition-mothroach-spawn-result-message
   - type: VentCrittersRule

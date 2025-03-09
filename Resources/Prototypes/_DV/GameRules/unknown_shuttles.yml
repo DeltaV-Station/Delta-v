@@ -15,6 +15,8 @@
     minimumPlayers: 20
     maxOccurrences: 1
     duration: null
+    chaos:
+      Hostile: 10
   - type: PrecognitionResult
     message: psionic-power-precognition-syndicate-recruiter-result-message
   - type: RuleGrids
@@ -59,6 +61,8 @@
     minimumPlayers: 20
     maxOccurrences: 1
     duration: null
+    chaos:
+      Hostile: 10
   - type: PrecognitionResult
     message: psionic-power-precognition-synthesis-specialist-result-message
   - type: RuleGrids
@@ -100,6 +104,12 @@
   - type: StationEvent
     weight: 2
     minimumPlayers: 35 #big threat, but has to have ghosts to matter
+    chaos:
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 100
+      Medical: 100
   - type: LoadMapRule
     preloadedGrid: RoboNeuroticistShip
   - type: AntagSpawner

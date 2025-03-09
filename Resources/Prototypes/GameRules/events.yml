@@ -150,6 +150,8 @@
     minimumPlayers: 25
     weight: 5
     duration: 1
+    chaos: # DeltaV - Game Director
+      Friend: 50
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-bureaucratic-error-result-message
   - type: BureaucraticErrorRule
@@ -165,6 +167,8 @@
     minimumPlayers: 15
     weight: 5
     duration: 1
+    chaos: # DeltaV - Game Director
+      Friend: 50
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-clerical-error-result-message
   - type: ClericalErrorRule
@@ -177,6 +181,9 @@
     weight: 8 # DeltaV - was 10
     duration: 1
     minimumPlayers: 10
+    chaos: # DeltaV - Game Director
+      Friend: 10
+      Hostile: 10
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-closet-skeleton-result-message
   - type: RandomEntityStorageSpawnRule
@@ -313,6 +320,7 @@
     earliestStart: 30
     reoccurrenceDelay: 60
     minimumPlayers: 10
+  - type: DynamicRuleset # DeltaV - this event has no use to the game director
   - type: AntagSelection
     agentName: wizard-round-end-name
     definitions:
@@ -399,6 +407,8 @@
         volume: -4
     duration: 60
     maxDuration: 120
+    chaos: # DeltaV - Game Director
+      Power: 100
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-power-grid-check-result-message
   - type: PowerGridCheckRule
@@ -646,6 +656,10 @@
       path: /Audio/Announcements/attention.ogg # DeltaV - Use the generic announcement sound
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
+    chaos: # DeltaV - Game Director
+      Hostile: 20
+      Death: 10
+      Combat: 20
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-sleeper-agents-result-message
   - type: AlertLevelInterceptionRule
@@ -671,6 +685,7 @@
     weight: 10
     duration: 150
     maxDuration: 300
+  - type: DynamicRuleset # DeltaV - this event has no use to the game director
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-mass-hallucinations-result-message
   - type: MassHallucinationsRule
@@ -688,6 +703,8 @@
     weight: 10
     reoccurrenceDelay: 30 # DeltaV - Was 20 #20 mins feels too short, and can scramble borgs way too much
     duration: 1
+    chaos: # DeltaV - Game Director
+      Hostile: 30
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-ion-storm-result-message
   - type: IonStormRule
@@ -714,6 +731,9 @@
     weight: 5
     minimumPlayers: 25
     reoccurrenceDelay: 20
+    chaos: # DeltaV - Game Director
+      Atmos: 50
+      Security: 50
   - type: GreytideVirusRule
     accessGroups:
     - Cargo
@@ -735,6 +755,8 @@
     reoccurrenceDelay: 20
     minimumPlayers: 4
     duration: null
+    chaos: # DeltaV - Game Director
+      Hostile: 10
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner
