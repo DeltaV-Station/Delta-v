@@ -17,7 +17,6 @@ public sealed class IlliterateSystem : EntitySystem
 
     private void PreventWriting(EntityUid uid, IlliterateComponent component, ComponentStartup args)
     {
-        EnsureComp<BlockWritingComponent>(uid, out var illiterateComponent);
-        Dirty(uid, illiterateComponent);
+        EnsureComp<BlockWritingComponent>(uid);
     }
 }
