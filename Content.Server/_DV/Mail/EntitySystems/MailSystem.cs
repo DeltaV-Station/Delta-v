@@ -32,6 +32,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Objectives.Components;
 using Content.Shared.PDA;
 using Content.Shared.Radio; // ImpStation - for radio notifications of new mail
 using Content.Shared.Roles;
@@ -175,6 +176,8 @@ namespace Content.Server._DV.Mail.EntitySystems
             // The examination code depends on this being false to not show
             // the priority tape description anymore.
             component.IsPriority = false;
+
+            RemComp<StealTargetComponent>(uid);
         }
 
         /// <summary>
