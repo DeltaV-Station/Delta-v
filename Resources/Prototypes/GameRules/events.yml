@@ -320,7 +320,7 @@
     earliestStart: 30
     reoccurrenceDelay: 60
     minimumPlayers: 10
-  - type: DynamicRuleset # DeltaV - this event has no use to the game director
+  - type: GameDirectorIgnore # DeltaV - this event has no use to the game director
   - type: AntagSelection
     agentName: wizard-round-end-name
     definitions:
@@ -685,7 +685,7 @@
     weight: 10
     duration: 150
     maxDuration: 300
-  - type: DynamicRuleset # DeltaV - this event has no use to the game director
+  - type: GameDirectorIgnore # DeltaV - this event has no use to the game director
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-mass-hallucinations-result-message
   - type: MassHallucinationsRule

@@ -199,7 +199,7 @@
   components:
   - type: StationEvent
     weight: 0.05
-  - type: DynamicRuleset # DeltaV - this event has no use to the game director
+  - type: GameDirectorIgnore # DeltaV - this event has no use to the game director
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-game-rule-urist-swarm-result-message
   - type: MeteorSwarm

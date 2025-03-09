@@ -22,7 +22,7 @@
       # Favor glimmer events just a little more than regular events.
       weight: 12
     - type: GlimmerEvent
-    - type: DynamicRuleset # glimmer events are managed by the glimmer event scheduler
+    - type: GameDirectorIgnore # glimmer events are managed by the glimmer event scheduler
 
 ## Glimmer events
 - type: entity

@@ -56,7 +56,7 @@
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
     minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
-  - type: DynamicRuleset # DeltaV - this event has no use to the game director
+  - type: GameDirectorIgnore # DeltaV - this event has no use to the game director
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-king-rat-migration-result-message
   - type: VentCrittersRule

@@ -1,3 +1,4 @@
+using Content.Server._DV.StationEvents.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Components;
 using Content.Shared._Goobstation.StationEvents.Metric;
@@ -34,7 +35,7 @@ public sealed class GameDirectorEventTaggingTest
                     if (!gameRule.HasComponent<StationEventComponent>())
                         continue;
 
-                    if (gameRule.HasComponent<DynamicRulesetComponent>())
+                    if (gameRule.HasComponent<DynamicRulesetComponent>() || gameRule.HasComponent<GameDirectorIgnoreComponent>())
                         continue;
 
                     gameRule.TryGetComponent<StationEventComponent>(out var stationEvent, componentFactory);

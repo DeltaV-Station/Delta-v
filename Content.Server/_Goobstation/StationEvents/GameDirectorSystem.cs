@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._DV.StationEvents.Components; // DeltaV - ignore events from the game directors
 using Content.Server._Goobstation.StationEvents.Components;
 using Content.Server._Goobstation.StationEvents.Metric;
 using Content.Server.Administration.Logs;
@@ -141,6 +142,11 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
 
             if (proto.HasComponent<DynamicRulesetComponent>()) // Block john shitcode moment
                 continue;
+
+            // Begin DeltaV - event ignores
+            if (proto.HasComponent<GameDirectorIgnoreComponent>()) // We don't want every event in the game directors
+                continue;
+            // End DeltaV - event ignores
 
             // Gate here on players, but not on round runtime. The story will probably last long enough for the
             // event to be ready to run again, we'll check CanRun again before we actually launch the event.
