@@ -64,16 +64,6 @@
       - Security
 
 - type: entity
-  parent: WeaponEnergyGunMini
-  id: WeaponEnergyGunMiniRecharging
-  suffix: Recharging, Do Not Map
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: BatterySelfRecharger
-      autoRecharge: true
-      autoRechargeRate: 12
-
-- type: entity
   parent: HoloprojectorSecurity
   id: HoloprojectorSecurityRecharging
   suffix: Recharging, Do Not Map
@@ -85,32 +75,3 @@
           name: power-cell-slot-component-slot-name-default
           startingItem: PowerCellMicroreactor
           disableEject: true
-
-#######################################
-####### PEACEKEEPING MODULES ##########
-#######################################
-
-- type: entity
-  parent: BorgHypo
-  id: BorgHypoPax
-  name: Borg Pax Injector
-  description: A sterile injector for rapid administration of Pax to the unruly.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      hypospray:
-        maxVol: 5 # After testing, lowered to 5u maximum capacity.
-                  # 10u of Pax would pacify someone for 40 seconds. A *very* long time, and given this can pierce hardsuits...
-                  # Now can only pacify for 20 seconds, which lets you recharge 1u of Pax in the meantime (which pacifies for 4 seconds)
-  - type: Hypospray
-    injectOnly: true # Pax regenerates, this does handicap Antag Borgs but worth seeing.
-    onlyAffectsMobs: false
-  - type: SolutionRegeneration
-    solution: hypospray
-    duration: 20 # After testing, raised to 20 seconds to recharge.
-                 # Refer to https://discord.com/channels/968983104247185448/1206353544186171482/1267039694068387893
-                 # Worth thinking more on this later, needs a careful balance to not wipe out Antags!
-    generated:
-      reagents:
-      - ReagentId: Pax
-        Quantity: 1

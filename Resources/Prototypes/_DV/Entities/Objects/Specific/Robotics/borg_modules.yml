@@ -24,10 +24,11 @@
     moduleId: Patrol
     items:
     - FlashlightSecliteRecharging
+    - HoloprojectorSecurityRecharging
     - SecurityWhistle
 
 - type: entity
-  id: BorgModuleSecurityBastion # Peacekeeper Set, Available on Round Start
+  id: BorgModuleSecurityBastion # Research Locked - AdvancedRiotControl
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: bastion cyborg module
   components:
@@ -38,7 +39,9 @@
   - type: ItemBorgModule
     moduleId: Bastion
     items:
-    - HoloprojectorSecurityRecharging
+    - FlashRecharging
+    - WeaponLauncherNonLethal
+    - SecurityWhistle
 
 - type: entity
   id: BorgModuleSecurityDeescalate # Research Locked - AdvancedRiotControl
@@ -82,10 +85,12 @@
     moduleId: Escalate
     items:
     - Truncheon # Anti-Fauna option to stop them being relied on the Seclite (which will be removed when the Laws menu is fixed)
-    - FlashRecharging
+    - CombatKnife # Anti-fauna for blunt resistant slimes
+    - WeaponRiotShotgunBorg
+    - SecurityWhistle
 
 - type: entity
-  id: BorgModuleSecurityChase # Research Locked - EnergyGunsAdvanced
+  id: BorgModuleSecurityChase # Research Locked - NonLethalAmmunition
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: chase cyborg module
   components:
@@ -96,7 +101,9 @@
   - type: ItemBorgModule
     moduleId: Chase
     items:
-    - WeaponEnergyGunMiniRecharging
+    - WeaponDisablerSelfCharge
+    - FlashlightSecliteRecharging
+    - SecurityWhistle
 
 # Salvage modules
 
