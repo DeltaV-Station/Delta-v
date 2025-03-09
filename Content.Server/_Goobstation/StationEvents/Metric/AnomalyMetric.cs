@@ -13,6 +13,8 @@ namespace Content.Server._Goobstation.StationEvents.Metric;
 /// </summary>
 public sealed class AnomalyMetric : ChaosMetricSystem<AnomalyMetricComponent>
 {
+    [Dependency] private readonly Content.Shared.Psionics.Glimmer.GlimmerSystem _glimmer = default!; // DeltaV - Glimmer
+
     public override ChaosMetrics CalculateChaos(EntityUid metricUid,
         AnomalyMetricComponent component,
         CalculateChaosEvent args)
@@ -41,6 +43,8 @@ public sealed class AnomalyMetric : ChaosMetricSystem<AnomalyMetricComponent>
         {
             anomalyChaos += 0.25f;
         }
+
+        anomalyChaos += component.GlimmerCost * _glimmer.Glimmer; // DeltaV - Glimmer
 
     var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, FixedPoint2>()
         {

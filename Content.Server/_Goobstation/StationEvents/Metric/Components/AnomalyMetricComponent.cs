@@ -23,4 +23,12 @@ public sealed partial class AnomalyMetricComponent : Component
     /// </summary>
     [DataField("dangerCost")]
     public float BaseCost = 10.0f;
+
+    // Begin DeltaV - Glimmer
+    /// <summary>
+    ///   Cost per psi of glimmer
+    /// </summary>
+    [DataField("glimmerCost")]
+    public float GlimmerCost = 0.5f;
+    // End DeltaV - Glimmer
 }
