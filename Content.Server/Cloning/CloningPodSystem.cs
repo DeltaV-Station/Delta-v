@@ -130,15 +130,10 @@ public sealed class CloningPodSystem : EntitySystem
         args.PushMarkup(Loc.GetString("cloning-pod-biomass", ("number", _material.GetMaterialAmount(ent.Owner, ent.Comp.RequiredMaterial))));
     }
 
-    // DeltaV - added karmaBonus
-    public bool TryCloning(EntityUid uid, EntityUid bodyToClone, Entity<MindComponent> mindEnt, CloningPodComponent? clonePod, float failChanceModifier = 1, float karmaBonus = 0.25f)
+    public bool TryCloning(EntityUid uid, EntityUid bodyToClone, Entity<MindComponent> mindEnt, CloningPodComponent? clonePod, float failChanceModifier = 1)
     {
         if (!Resolve(uid, ref clonePod))
             return false;
-
-        // DeltaV - This method should use Entity<CloningPodComponent> pod instead
-        // But I don't want to completely mangle it so we do this here
-        var podEnt = new Entity<CloningPodComponent>(uid, clonePod);
 
         if (HasComp<ActiveCloningPodComponent>(uid))
             return false;
