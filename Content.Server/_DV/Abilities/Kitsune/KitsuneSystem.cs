@@ -1,12 +1,22 @@
+using Content.Server.Polymorph.Systems;
+using Content.Server.Actions;
+using Content.Server.Popups;
 using Content.Shared._DV.Abilities.Kitsune;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
+using Content.Shared.Hands.Components;
+using Content.Shared.Humanoid;
+using Robust.Shared.Player;
 
 namespace Content.Server._DV.Abilities.Kitsune;
 public sealed class KitsuneSystem : EntitySystem
 {
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
+    [Dependency] private readonly ActionsSystem _actionsSystem = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -14,18 +24,62 @@ public sealed class KitsuneSystem : EntitySystem
         SubscribeLocalEvent<KitsuneComponent, CreateFoxfireActionEvent>(OnCreateFoxfire);
         SubscribeLocalEvent<FoxFireComponent, ComponentShutdown>(OnFoxFireShutdown);
         SubscribeLocalEvent<KitsuneComponent, FoxfireDestroyedEvent>(OnFoxFireDestroyed);
+        SubscribeLocalEvent<KitsuneComponent, MorphIntoKitsune>(OnMorphIntoKitsune);
+        SubscribeLocalEvent<KitsuneComponent, MapInitEvent>(OnMapInit);
     }
     private void OnStartup(EntityUid uid, KitsuneComponent component, ComponentStartup args)
     {
         Log.Error("Kitsune broke");
         component.FoxfireAction = _actions.AddAction(uid, component.FoxfireActionId);
     }
+
+    private void OnMapInit(EntityUid uid, KitsuneComponent component, MapInitEvent args)
+    {
+        // try to add kitsunemorph action to kitsune
+        if (!component.NoAction)
+        {
+            _actionsSystem.AddAction(uid, ref component.KitsuneActionEntity, component.KitsuneAction);
+        }
+
+    }
+
+    private void OnMorphIntoKitsune(EntityUid uid, KitsuneComponent component, MorphIntoKitsune args)
+    {
+
+        var ent = _polymorphSystem.PolymorphEntity(uid, component.KitsunePolymorphId);
+
+        if (!ent.HasValue)
+            return;
+
+        var skinColor = Color.Orange;
+
+        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanComp))
+        {
+            skinColor = humanComp.EyeColor;
+        }
+
+        if (TryComp<AppearanceComponent>(ent, out var appearanceComp))
+        {
+            _appearance.SetData(ent.Value, KitsuneColor.Color, skinColor, appearanceComp);
+        }
+
+        _popupSystem.PopupEntity(Loc.GetString("kitsune-popup-morph-message-others", ("entity", ent.Value)), ent.Value, Filter.PvsExcept(ent.Value), true);
+        _popupSystem.PopupEntity(Loc.GetString("kitsune-popup-morph-message-user"), ent.Value, ent.Value);
+
+        args.Handled = true;
+    }
     private void OnCreateFoxfire(EntityUid uid, KitsuneComponent component, CreateFoxfireActionEvent args)
     {
         Log.Error("Fire still broke");
+        if (!TryComp<HandsComponent>(uid, out var hands) || hands.Count < 1)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("fox-no-hands"), uid, uid);
+            return;
+        }
+
         if (_actions.GetCharges(component.FoxfireAction) is { } and < 1)
         {
-            _entity.DeleteEntity(component.ActiveFoxFires[0]);
+            _entities.DeleteEntity(component.ActiveFoxFires[0]);
             component.ActiveFoxFires.RemoveAt(0);
         }
 
@@ -53,3 +107,4 @@ public sealed class KitsuneSystem : EntitySystem
         component.ActiveFoxFires.Remove(uid);
     }
 }
+

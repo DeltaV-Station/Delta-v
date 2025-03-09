@@ -5,22 +5,21 @@
   description: A Kitsune's fox from
   components:
   - type: KitsuneFox
+  - type: Kitsune
   - type: MovementSpeedModifier
     baseWalkSpeed: 4.5
     baseSprintSpeed: 6
   - type: Sprite
     drawdepth: Mobs
-    sprite: Mobs\Animals\fox.rsi
+    sprite: _DV/Mobs/Customization/kitsune/foxform.rsi
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-      state: fox
-  - type: SpriteMovement
-    movementLayers:
-      movement:
-        state: fox-moving
-    noMovementLayers:
-      movement:
-        state: fox
+      - state: kitsune_fox_innerear
+        forcedColoring: "#FFFFFF"
+        changeColor: false
+      - state: kitsune_fox_body
+        color: "#FFFFFF"
+        visible: true
+        map: ["enum.DamageStateVisualLayers.Base"]
   - type: Carriable # DeltaV
   - type: Physics
   - type: Fixtures
@@ -89,6 +88,12 @@
       Male: MaleKitsune
       Female: FemaleKitsune
       Unsexed: MaleKitsune
+  - type: PseudoItem
+    storedOffset: "0,17"
+    shape:
+      - 0,0,1,4
+      - 0,2,3,4
+      - 4,0,5,4
   - type: Tag
     tags:
     - VimPilot
