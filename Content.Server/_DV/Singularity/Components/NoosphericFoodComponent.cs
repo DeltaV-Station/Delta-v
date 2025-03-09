@@ -2,7 +2,6 @@ using Content.Shared._DV.Noospherics;
 
 namespace Content.Server._DV.Singularity.Components;
 
-
 [RegisterComponent]
 public sealed partial class NoosphericFoodComponent : Component
 {
