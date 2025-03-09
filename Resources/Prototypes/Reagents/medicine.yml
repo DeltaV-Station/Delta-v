@@ -133,7 +133,7 @@
           types:
             Radiation: -3
           groups:
-            Brute: 1.5
+            Brute: 0.5 # DeltaV - was 1.5, implant removal damage is disabled which is why upstream bumped it
 
 - type: reagent
   id: Bicaridine
