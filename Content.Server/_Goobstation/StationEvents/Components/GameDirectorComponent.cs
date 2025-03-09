@@ -98,6 +98,13 @@ public sealed partial class PossibleEvent
     [DataField]
     public ChaosMetrics Chaos = new();
 
+    // Begin DeltaV - Make Game Director VV Better
+    public override string? ToString()
+    {
+        return $"{StationEvent} {Chaos}";
+    }
+    // End DeltaV - Make Game Director VV Better
+
     public PossibleEvent()
     {
     }
