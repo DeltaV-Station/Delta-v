@@ -42,8 +42,8 @@ trait-southern-desc = You have a different way of speakin'.
 trait-snoring-name = Snoring
 trait-snoring-desc = You will snore while sleeping.
 
-trait-illiterate-name = Illiterate
-trait-illiterate-desc = You are unable to write, whether by choice, disability, or history.
+trait-dysgraphia-name = Dysgraphia
+trait-dysgraphia-desc = You are unable to write, whether because of a disability, your history, or by choice.
 
 trait-liar-name = Pathological liar
 trait-liar-desc = You can hardly bring yourself to tell the truth. Sometimes you lie anyway.
