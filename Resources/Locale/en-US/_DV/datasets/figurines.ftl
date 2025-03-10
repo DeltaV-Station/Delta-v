@@ -57,5 +57,5 @@ figurines-recruiter-4 = Did I mention the sign-on bonus?
 
 figurines-neuroticist-1 = Borgs shall control the station.
 figurines-neuroticist-2 = MUAHAHAHAHAHAHA.
-figurines-neuroticist-3 = THE FLESH IS WEAK.
+figurines-neuroticist-3 = I have come to make an announcement.
 figurines-neuroticist-4 = You work for me now.
