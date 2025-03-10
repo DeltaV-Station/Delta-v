@@ -29,11 +29,15 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.Map.Components;
 using Content.Shared.Whitelist;
-
+// Begin DeltaV Changes
+using Robust.Shared.Prototypes;
+using Content.Shared.StatusEffect;
+// End DeltaV Changes
 namespace Content.Server.Revenant.EntitySystems;
 
 public sealed partial class RevenantSystem
 {
+    public ProtoId<StatusEffectPrototype> StatusEffectKey = "ForcedSleep"; // DeltaV
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -54,6 +58,7 @@ public sealed partial class RevenantSystem
         SubscribeLocalEvent<RevenantComponent, RevenantOverloadLightsActionEvent>(OnOverloadLightsAction);
         SubscribeLocalEvent<RevenantComponent, RevenantBlightActionEvent>(OnBlightAction);
         SubscribeLocalEvent<RevenantComponent, RevenantMalfunctionActionEvent>(OnMalfunctionAction);
+        SubscribeLocalEvent<RevenantComponent, RevenantSleepActionEvent>(OnRevenantSleepAction); // DeltaV
     }
 
     private void OnInteract(EntityUid uid, RevenantComponent component, UserActivateInWorldEvent args)
@@ -346,4 +351,28 @@ public sealed partial class RevenantSystem
             RaiseLocalEvent(ent, ref ev);
         }
     }
+
+    // Begin DeltaV Changes
+    private void OnRevenantSleepAction(EntityUid uid, RevenantComponent component, RevenantSleepActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryUseAbility(uid, component, component.SleepCost, component.SleepDebuffs))
+            return;
+
+        args.Handled = true;
+
+        var duration = 5; // Duration of the mass sleep
+        foreach (var entity in _lookup.GetEntitiesInRange(uid, component.SleepRadius))
+        {
+            if (HasComp<MobStateComponent>(entity) && entity != uid)
+            {
+                if (TryComp<DamageableComponent>(entity, out var damageable) && damageable.DamageContainerID == "Biological")
+                    _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(entity, StatusEffectKey, TimeSpan.FromSeconds(duration), false);
+            }
+        }
+        // End DeltaV Changes
+    }
+
 }

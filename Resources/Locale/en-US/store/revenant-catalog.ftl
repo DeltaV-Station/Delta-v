@@ -9,3 +9,7 @@ revenant-blight-desc = Infects all nearby organisms with an infectious disease t
 
 revenant-malfunction-name = Malfunction
 revenant-malfunction-desc = Makes nearby electronics stop working properly. Using it leaves you vulnerable to attacks for a long period of time.
+
+# Begin DeltaV Changes
+revenant-sleep-name = Sleep
+revenant-sleep-desc = Puts nearby people to sleep, leaving them vulnerable. Using it leaves you vulnerable to attacks for a short time.

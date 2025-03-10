@@ -46,3 +46,17 @@
     icon: Interface/Actions/malfunction.png
     event: !type:RevenantMalfunctionActionEvent
     useDelay: 20
+
+# Begin DeltaV Changes
+- type: entity
+  id: ActionRevenantSleep
+  name: Sleep
+  description: Costs 5 Essence.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: mass_sleep
+    event: !type:RevenantSleepActionEvent
+    useDelay: 20
+# End DeltaV Changes
