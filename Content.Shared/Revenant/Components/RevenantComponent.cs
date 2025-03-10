@@ -204,6 +204,17 @@ public sealed partial class RevenantComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> EssenceAlert = "Essence";
 
+    // Begin DeltaV Changes
+    [DataField]
+    public FixedPoint2 SleepCost = 5;
+
+    [DataField]
+    public Vector2 SleepDebuffs = new(2, 5);
+
+    [DataField]
+    public float SleepRadius = 1.5f;
+    // End DeltaV Changes
+
     #region Visualizer
     [DataField("state")]
     public string State = "idle";
