@@ -79,3 +79,26 @@
           type: Arachnid
           shouldHave: true
         amount: 6
+
+- type: reagent
+  id: Umbroxol
+  name: reagent-name-umbroxol
+  group: Medicine
+  desc: reagent-desc-umbroxol
+  physicalDesc: reagent-physical-desc-dark
+  flavor: medicine
+  color: "#211f3d"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Holy: -2
+      - !type:HealthChange
+        conditions:
+          - !type:ReagentThreshold
+            min: 15
+        damage:
+          types:
+            Cold: 2
