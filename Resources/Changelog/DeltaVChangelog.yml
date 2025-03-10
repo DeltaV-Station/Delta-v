@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: MilonPL
-  changes:
-  - message: Fixed the sudden TPS drops, please report any lag issues in the Discord!
-    type: Fix
-  id: 632
-  time: '2024-10-31T07:18:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2075
-- author: reesque
-  changes:
-  - message: pie not dropping tin on thrown
-    type: Fix
-  id: 633
-  time: '2024-11-01T13:29:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2082
 - author: Radezolid
   changes:
   - message: Fixed the Mail Carrier PDA not coming with the MailMetrics program!
@@ -3939,3 +3925,25 @@
   id: 1131
   time: '2025-03-10T07:31:34.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3178
+- author: deltanedas
+  changes:
+  - message: Added lathe upgrade kits to the Industrial Engineering tech, they can
+      be used on any kind of lathe including techfabs.
+    type: Add
+  - message: Added the cryo-stabilizing lathe upgrade kit, it makes lathes faster
+      in exchange for freezing the air.
+    type: Add
+  id: 1132
+  time: '2025-03-10T19:26:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3169
+- author: deltanedas
+  changes:
+  - message: Added a new T3 industrial tech, Matter-Energy Conversion, which lets
+      you make self-recharging RCDs.
+    type: Add
+  - message: The borg RCD module now has to be reloaded with compressed matter or
+      replaced with a different RCD.
+    type: Tweak
+  id: 1133
+  time: '2025-03-10T20:19:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3168
