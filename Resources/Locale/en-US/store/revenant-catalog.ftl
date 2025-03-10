@@ -13,3 +13,4 @@ revenant-malfunction-desc = Makes nearby electronics stop working properly. Usin
 # Begin DeltaV Changes
 revenant-sleep-name = Sleep
 revenant-sleep-desc = Puts nearby people to sleep, leaving them vulnerable. Using it leaves you vulnerable to attacks for a short time.
+# End DeltaV Changes
