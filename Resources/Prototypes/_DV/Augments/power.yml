@@ -53,7 +53,7 @@
   - type: AugmentPowerCellSlot
   - type: Construction
     graph: CreatePowerCellAugment
-    node: complete
+    node: augment
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot { }
