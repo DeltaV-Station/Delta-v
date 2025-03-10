@@ -206,3 +206,11 @@
     - !type:RoleTimeRequirement # Give them an understanding of basic forensics.
       role: JobDetective
       time: 21600 # 6 hours
+  antags:
+    NukeopsMedic:
+    - !type:RoleTimeRequirement # They should be able to make advanced brutes + pyra quickly
+      role: JobChemist
+      time: 36000 # 10 hours
+    - !type:RoleTimeRequirement # Give them a good understanding of how medical works
+      role: JobMedicalDoctor
+      time: 7200 # 2 hours (+ the time it takes to unlock medical doctor)
