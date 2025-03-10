@@ -1,8 +1,11 @@
+using Content.Server.Access.Systems;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Actions;
 using Content.Server.Popups;
 using Content.Shared._DV.Abilities.Kitsune;
 using Content.Shared._Shitmed.Humanoid.Events;
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.Hands.Components;
@@ -20,6 +23,8 @@ public sealed class KitsuneSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly AccessSystem _access = default!;
+    [Dependency] private readonly AccessReaderSystem _reader = default!;
 
     private Color? _eyeColor = null;
 
@@ -69,6 +74,11 @@ public sealed class KitsuneSystem : EntitySystem
         {
             _appearance.SetData(ent.Value, KitsuneColor.Color, _eyeColor ?? Color.Orange, appearanceComp);
         }
+
+        var accessItems = _reader.FindPotentialAccessItems(uid);
+        var accesses = _reader.FindAccessTags(uid, accessItems);
+        EnsureComp<AccessComponent>((EntityUid)ent);
+        _access.TrySetTags((EntityUid)ent, accesses);
 
         _popupSystem.PopupEntity(Loc.GetString("kitsune-popup-morph-message-others", ("entity", ent.Value)), ent.Value, Filter.PvsExcept(ent.Value), true);
         _popupSystem.PopupEntity(Loc.GetString("kitsune-popup-morph-message-user"), ent.Value, ent.Value);
