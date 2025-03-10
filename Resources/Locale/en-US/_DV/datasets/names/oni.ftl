@@ -36,21 +36,21 @@ names-oni-last-female-dataset-5 = Akiho
 names-oni-last-female-dataset-6 = Akimi
 #明
 names-oni-last-female-dataset-7 = Akashi
-names-oni-last-female-dataset-7 = Saya
+names-oni-last-female-dataset-8 = Saya
 #月
-names-oni-last-female-dataset-8 = Aporo
-names-oni-last-female-dataset-9 = Arute
-names-oni-last-female-dataset-10 = Meguru
+names-oni-last-female-dataset-9 = Aporo
+names-oni-last-female-dataset-10 = Arute
+names-oni-last-female-dataset-11 = Meguru
 #天
-names-oni-last-female-dataset-11 = Tiara
-names-oni-last-female-dataset-12 = Suisei
+names-oni-last-female-dataset-12 = Tiara
+names-oni-last-female-dataset-13 = Suisei
 #水
-names-oni-last-female-dataset-13 = Io
-names-oni-last-female-dataset-14 = Aoi
-names-oni-last-female-dataset-15 = Mizu
+names-oni-last-female-dataset-14 = Io
+names-oni-last-female-dataset-15 = Aoi
+names-oni-last-female-dataset-16 = Mizu
 #epic references
-names-oni-last-female-dataset-16 = Shuten
-names-oni-last-female-dataset-17 = Suika
+names-oni-last-female-dataset-17 = Shuten
+names-oni-last-female-dataset-18 = Suika
 
 # Location
 names-oni-location-dataset-1 = Amiboshi
