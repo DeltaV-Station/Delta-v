@@ -9,6 +9,8 @@ using Content.Server.Doors.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Revenant.Components; // Imp
+using Content.Server.Revenant.EntitySystems; // Imp
 using Content.Server.Stack;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
@@ -25,6 +27,7 @@ using Content.Shared.Database;
 using Content.Shared.Doors.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Item; // Imp
 using Content.Shared.PDA;
 using Content.Shared.Stacks;
 using Content.Shared.Verbs;
@@ -54,6 +57,7 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly BatterySystem _batterySystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly GunSystem _gun = default!;
+    [Dependency] private readonly RevenantAnimatedSystem _revenantAnimate = default!; // Imp
 
     private void AddTricksVerbs(GetVerbsEvent<Verb> args)
     {
@@ -735,6 +739,44 @@ public sealed partial class AdminVerbSystem
             };
             args.Verbs.Add(setCapacity);
         }
+
+        if (TryComp<ItemComponent>(args.Target, out var item))
+        {
+            Verb makeAnimate = new()
+            {
+                Text = "Animate Item",
+                Category = VerbCategory.Tricks,
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/Actions/animate.png")),
+                Act = () =>
+                {
+                    _revenantAnimate.TryAnimateObject(args.Target, TimeSpan.FromSeconds(60));
+                },
+                Impact = LogImpact.High,
+                Message = Loc.GetString("admin-trick-make-animate-description"),
+                Priority = (int) TricksVerbPriorities.MakeAnimate,
+            };
+            args.Verbs.Add(makeAnimate);
+        }
+
+        // Begin Imp Changes
+        if (TryComp<RevenantAnimatedComponent>(args.Target, out var animate))
+        {
+            Verb makeInanimate = new()
+            {
+                Text = "Inanimate Item",
+                Category = VerbCategory.Tricks,
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/Actions/inanimate.png")),
+                Act = () =>
+                {
+                    _revenantAnimate.InanimateTarget(args.Target, animate);
+                },
+                Impact = LogImpact.High,
+                Message = Loc.GetString("admin-trick-make-inanimate-description"),
+                Priority = (int) TricksVerbPriorities.MakeInanimate,
+            };
+            args.Verbs.Add(makeInanimate);
+        }
+        // End Imp Changes
     }
 
     private void RefillEquippedTanks(EntityUid target, Gas gasType)
@@ -880,5 +922,7 @@ public sealed partial class AdminVerbSystem
         SnapJoints = -27,
         MakeMinigun = -28,
         SetBulletAmount = -29,
+        MakeAnimate = -30, // Imp
+        MakeInanimate = -31, // Imp
     }
 }
