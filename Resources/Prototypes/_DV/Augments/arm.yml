@@ -41,8 +41,20 @@
   - type: AugmentAction
 
 - type: entity
-  id: AugmentUtilityPanelElectronics
+  id: AugmentBaseElectronics
   parent: BaseElectronics
+  abstract: true
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 100
+      Steel: 100
+    chemicalComposition:
+      Silicon: 20
+
+- type: entity
+  id: AugmentUtilityPanelElectronics
+  parent: AugmentBaseElectronics
   name: utility tools panel electronics
   description: An electronics board that programs a tool panel to hold a specific type of item. This one holds utility tools.
   components:
@@ -56,7 +68,7 @@
 
 - type: entity
   id: AugmentBotanyPanelElectronics
-  parent: BaseElectronics
+  parent: AugmentBaseElectronics
   name: botany tools panel electronics
   description: An electronics board that programs a tool panel to hold a specific type of item. This one holds botanical tools.
   components:
@@ -70,7 +82,7 @@
 
 - type: entity
   id: AugmentSurgeryPanelElectronics
-  parent: BaseElectronics
+  parent: AugmentBaseElectronics
   name: surgery tools panel electronics
   description: An electronics board that programs a tool panel to hold a specific type of item. This one holds surgical tools.
   components:
@@ -84,7 +96,7 @@
 
 - type: entity
   id: AugmentPaperworkPanelElectronics
-  parent: BaseElectronics
+  parent: AugmentBaseElectronics
   name: paperwork tools panel electronics
   description: An electronics board that programs a tool panel to hold a specific type of item. This one holds paperwork tools.
   components:
