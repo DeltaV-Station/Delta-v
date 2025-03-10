@@ -162,7 +162,7 @@
       - GasAnalyzer
   - type: Construction
     graph: CreateToolsPanel
-    node: tools
+    node: "utility tools panel"
 
 - type: entity
   parent: AugmentBaseToolPanel
@@ -184,7 +184,7 @@
       - HandLabeler
   - type: Construction
     graph: CreateToolsPanel
-    node: botany
+    node: "botany tools panel"
 
 - type: entity
   parent: AugmentBaseToolPanel
@@ -204,7 +204,7 @@
       - TapeRecorder
   - type: Construction
     graph: CreateToolsPanel
-    node: paperwork
+    node: "paperwork tools panel"
 
 - type: entity
   parent: AugmentBaseToolPanel
@@ -223,4 +223,4 @@
       - SurgeryTool
   - type: Construction
     graph: CreateToolsPanel
-    node: surgery
+    node: "surgery tools panel"
