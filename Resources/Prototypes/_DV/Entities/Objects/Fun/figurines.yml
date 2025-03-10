@@ -1,10 +1,9 @@
-
 - type: entity
+  abstract: true
   parent: BaseFigurine
   id: BaseFigurineDeltaV
   name: figurine
   description: A small miniature, specially made for the spinward sector.
-  abstract: true
   components:
   - type: Sprite
     sprite: _DV/Objects/Fun/figurines.rsi
@@ -17,7 +16,6 @@
   components:
   - type: Sprite
     state: adminassistant
-    sprite: _DV/Objects/Fun/figurines.rsi
   - type: SpeakOnTrigger
     pack: FigurinesAdminAssistant
 

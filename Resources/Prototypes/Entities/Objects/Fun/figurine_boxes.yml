@@ -133,7 +133,8 @@
       - id: ToyFigurineHamlet
         prob: 0.20
         orGroup: SpacemenFig
-      - id: ToyFigurineCJ # DeltaV - Begin DeltaV roles
+        # Begin DeltaV Additions
+      - id: ToyFigurineCJ
         orGroup: SpacemenFig
       - id: ToyFigurineClerk
         orGroup: SpacemenFig
@@ -164,4 +165,5 @@
         prob: 0.10
       - id: ToyFigurineNeuroticist
         orGroup: SpacemenFig
-        prob: 0.10 # DeltaV - End DeltaV roles
+        prob: 0.10
+        # End DeltaV Additions
