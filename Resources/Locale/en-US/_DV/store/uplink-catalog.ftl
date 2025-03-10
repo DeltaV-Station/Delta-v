@@ -78,3 +78,6 @@ deltav-uplink-revolver-python-desc = A brutally simple, effective, and loud Synd
 
 uplink-speedloader-magnum-regular-name = Speedloader (.45 magnum)
 uplink-speedloader-magnum-regular-desc = Revolver speedloader with 6 regular catridges. Compatible with the Python.
+
+uplink-syndie-fulton-name = Syndicate Fultons
+uplink-syndie-fulton-desc = Proprietary Waffle Corp fultons that send high value items to the Syndicate Vault for processing, or send sophonts to the Syndicate Jail for ransom.
