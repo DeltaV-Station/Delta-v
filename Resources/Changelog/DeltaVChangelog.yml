@@ -1,27 +1,6 @@
 ﻿Entries:
 - author: MilonPL
   changes:
-  - message: Added a no EORG reminder to the end of round!
-    type: Add
-  id: 629
-  time: '2024-10-28T23:36:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2070
-- author: Radezolid
-  changes:
-  - message: Now perma prisoners will spawn with tracking implants already implanted.
-    type: Tweak
-  id: 630
-  time: '2024-10-29T17:58:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2053
-- author: Aikakakah
-  changes:
-  - message: Fixed tattoos and scars showing through clothing.
-    type: Fix
-  id: 631
-  time: '2024-10-30T13:53:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1889
-- author: MilonPL
-  changes:
   - message: Fixed the sudden TPS drops, please report any lag issues in the Discord!
     type: Fix
   id: 632
@@ -3938,3 +3917,25 @@
   id: 1128
   time: '2025-03-09T21:44:37.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3157
+- author: deltanedas
+  changes:
+  - message: Pressing F1 is back to immediately opening AHelp, hold shift to open
+      curator chat.
+    type: Tweak
+  id: 1129
+  time: '2025-03-10T02:19:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3176
+- author: deltanedas
+  changes:
+  - message: Fixed robo-neuroticists not being able to lock their evil borgs.
+    type: Fix
+  id: 1130
+  time: '2025-03-10T03:07:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3177
+- author: deltanedas
+  changes:
+  - message: Removed raffles from carp ghost roles. Rrrr!
+    type: Tweak
+  id: 1131
+  time: '2025-03-10T07:31:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3178
