@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Traits.Assorted;
+namespace Content.Shared._DV.Traits.Assorted;
 
 /// <summary>
 /// This is used for the dysgraphia trait.

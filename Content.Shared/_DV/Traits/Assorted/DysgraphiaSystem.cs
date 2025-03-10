@@ -1,6 +1,6 @@
 using Content.Shared.Paper;
 
-namespace Content.Shared.Traits.Assorted;
+namespace Content.Shared._DV.Traits.Assorted;
 
 /// <summary>
 /// This handles preventing writing when using the dysgraphia trait.
