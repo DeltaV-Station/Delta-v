@@ -10,6 +10,8 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
+using Content.Shared.NPC.Components;
+using Content.Shared.NPC.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 
@@ -25,6 +27,7 @@ public sealed class KitsuneSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly AccessSystem _access = default!;
     [Dependency] private readonly AccessReaderSystem _reader = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
 
     private Color? _eyeColor = null;
 
@@ -62,26 +65,34 @@ public sealed class KitsuneSystem : EntitySystem
         }
     }
 
-    private void OnMorphIntoKitsune(EntityUid uid, KitsuneComponent component, MorphIntoKitsune args)
+    private void OnMorphIntoKitsune(EntityUid humanoidUid, KitsuneComponent component, MorphIntoKitsune args)
     {
 
-        var ent = _polymorphSystem.PolymorphEntity(uid, component.KitsunePolymorphId);
+        var foxUid = _polymorphSystem.PolymorphEntity(humanoidUid, component.KitsunePolymorphId);
 
-        if (!ent.HasValue)
+        if (!foxUid.HasValue)
             return;
 
-        if (TryComp<AppearanceComponent>(ent, out var appearanceComp))
+        if (TryComp<AppearanceComponent>(foxUid, out var appearanceComp))
         {
-            _appearance.SetData(ent.Value, KitsuneColor.Color, _eyeColor ?? Color.Orange, appearanceComp);
+            _appearance.SetData(foxUid.Value, KitsuneColor.Color, _eyeColor ?? Color.Orange, appearanceComp);
         }
 
-        var accessItems = _reader.FindPotentialAccessItems(uid);
-        var accesses = _reader.FindAccessTags(uid, accessItems);
-        EnsureComp<AccessComponent>((EntityUid)ent);
-        _access.TrySetTags((EntityUid)ent, accesses);
+        //Transfer Accesses
+        var accessItems = _reader.FindPotentialAccessItems(humanoidUid);
+        var accesses = _reader.FindAccessTags(humanoidUid, accessItems);
+        EnsureComp<AccessComponent>((EntityUid)foxUid);
+        _access.TrySetTags((EntityUid)foxUid, accesses);
 
-        _popupSystem.PopupEntity(Loc.GetString("kitsune-popup-morph-message-others", ("entity", ent.Value)), ent.Value, Filter.PvsExcept(ent.Value), true);
-        _popupSystem.PopupEntity(Loc.GetString("kitsune-popup-morph-message-user"), ent.Value, ent.Value);
+        //Transfer factions
+        if (TryComp<NpcFactionMemberComponent>(humanoidUid, out var factions))
+        {
+            EnsureComp<NpcFactionMemberComponent>((EntityUid)foxUid);
+            _faction.AddFactions((EntityUid)foxUid, factions.Factions);
+        }
+
+        _popupSystem.PopupEntity(Loc.GetString("kitsune-popup-morph-message-others", ("entity", foxUid.Value)), foxUid.Value, Filter.PvsExcept(foxUid.Value), true);
+        _popupSystem.PopupEntity(Loc.GetString("kitsune-popup-morph-message-user"), foxUid.Value, foxUid.Value);
 
         args.Handled = true;
     }
