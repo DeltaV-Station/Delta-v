@@ -9,7 +9,17 @@
     "states": [
         {
             "name": "foxfire",
-            "directions": 4
+            "directions": 1,
+            "delays":
+            [
+                [
+                    0.1,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+
+            ]
         },
         {
             "name": "icon",

@@ -18,7 +18,7 @@ public sealed partial class KitsuneComponent : Component
 
     [DataField] public bool NoAction = false;
 
-        /// <summary>
+    /// <summary>
     /// The foxfire prototype to use.
     /// </summary>
     [DataField]

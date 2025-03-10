@@ -28,7 +28,7 @@ public sealed class KitsuneSystem : VisualizerSystem<KitsuneComponent>
 
         foreach (var spriteLayer in args.Sprite.AllLayers)
         {
-            if(spriteLayer.RsiState.Name == "kitsune_fox_body")
+            if (spriteLayer.RsiState.Name == "kitsune_fox_body")
                 spriteLayer.Color = color;
         }
 
