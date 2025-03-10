@@ -29,7 +29,6 @@ public sealed class KitsuneSystem : EntitySystem
     }
     private void OnStartup(EntityUid uid, KitsuneComponent component, ComponentStartup args)
     {
-        Log.Error("Kitsune broke");
         component.FoxfireAction = _actions.AddAction(uid, component.FoxfireActionId);
     }
 
@@ -70,7 +69,6 @@ public sealed class KitsuneSystem : EntitySystem
     }
     private void OnCreateFoxfire(EntityUid uid, KitsuneComponent component, CreateFoxfireActionEvent args)
     {
-        Log.Error("Fire still broke");
         if (!TryComp<HandsComponent>(uid, out var hands) || hands.Count < 1)
         {
             _popupSystem.PopupEntity(Loc.GetString("fox-no-hands"), uid, uid);
@@ -96,14 +94,12 @@ public sealed class KitsuneSystem : EntitySystem
     }
     private void OnFoxFireShutdown(EntityUid uid, FoxFireComponent component, ComponentShutdown args)
     {
-        Log.Error("Fire won't break");
         if (component.Owner is null)
             return;
         RaiseLocalEvent<FoxfireDestroyedEvent>(component.Owner.Value, new());
     }
     private void OnFoxFireDestroyed(EntityUid uid, KitsuneComponent component, FoxfireDestroyedEvent args)
     {
-        Log.Error("Fire didn't break");
         component.ActiveFoxFires.Remove(uid);
     }
 }
