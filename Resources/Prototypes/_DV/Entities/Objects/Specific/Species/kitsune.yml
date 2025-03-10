@@ -18,6 +18,7 @@
   - type: Transform
     anchored: false
   - type: Physics
+    canCollide: False
     bodyType: Static
     bodyStatus: InAir
   - type: Fixtures
