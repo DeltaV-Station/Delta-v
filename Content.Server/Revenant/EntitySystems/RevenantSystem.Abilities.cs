@@ -363,7 +363,7 @@ public sealed partial class RevenantSystem
 
         args.Handled = true;
 
-        var duration = 5; // Duration of the mass sleep
+        var duration = 15; // Duration of the sleep effect
         foreach (var entity in _lookup.GetEntitiesInRange(uid, component.SleepRadius))
         {
             if (HasComp<MobStateComponent>(entity) && entity != uid)
