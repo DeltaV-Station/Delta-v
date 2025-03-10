@@ -133,3 +133,37 @@
       - id: ToyFigurineHamlet
         prob: 0.20
         orGroup: SpacemenFig
+        # Begin DeltaV Additions
+      - id: ToyFigurineCJ
+        orGroup: SpacemenFig
+      - id: ToyFigurineClerk
+        orGroup: SpacemenFig
+      - id: ToyFigurineCorpsman
+        orGroup: SpacemenFig
+      - id: ToyFigurineGladiator
+        orGroup: SpacemenFig
+      - id: ToyFigurineMantis
+        orGroup: SpacemenFig
+      - id: ToyFigurinePrisoner
+        orGroup: SpacemenFig
+      - id: ToyFigurinePrisonGuard
+        orGroup: SpacemenFig
+      - id: ToyFigurineProsec
+        orGroup: SpacemenFig
+      - id: ToyFigurineRoboticist
+        orGroup: SpacemenFig
+      - id: ToyFigurineSlimechem
+        orGroup: SpacemenFig
+      - id: ToyFigurineLPO
+        orGroup: SpacemenFig
+        prob: 0.10
+      - id: ToyFigurineSynth
+        orGroup: SpacemenFig
+        prob: 0.10
+      - id: ToyFigurineRecruiter
+        orGroup: SpacemenFig
+        prob: 0.10
+      - id: ToyFigurineNeuroticist
+        orGroup: SpacemenFig
+        prob: 0.10
+        # End DeltaV Additions
