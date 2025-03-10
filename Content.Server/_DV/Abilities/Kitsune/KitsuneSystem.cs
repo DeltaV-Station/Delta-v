@@ -35,7 +35,7 @@ public sealed class KitsuneSystem : EntitySystem
     private void OnMapInit(EntityUid uid, KitsuneComponent component, MapInitEvent args)
     {
         // try to add kitsunemorph action to kitsune
-        if (!component.NoAction)
+        if (!component.NoAction && !HasComp<KitsuneFoxComponent>(uid))
         {
             _actionsSystem.AddAction(uid, ref component.KitsuneActionEntity, component.KitsuneAction);
         }
