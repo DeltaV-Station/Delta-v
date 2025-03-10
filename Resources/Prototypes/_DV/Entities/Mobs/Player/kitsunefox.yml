@@ -13,13 +13,10 @@
     drawdepth: Mobs
     sprite: _DV/Mobs/Customization/kitsune/foxform.rsi
     layers:
-      - state: kitsune_fox_innerear
-        forcedColoring: "#FFFFFF"
-        changeColor: false
       - state: kitsune_fox_body
-        color: "#FFFFFF"
         visible: true
-        map: ["enum.DamageStateVisualLayers.Base"]
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+      - state: kitsune_fox_innerear
   - type: Carriable # DeltaV
   - type: Physics
   - type: Fixtures
