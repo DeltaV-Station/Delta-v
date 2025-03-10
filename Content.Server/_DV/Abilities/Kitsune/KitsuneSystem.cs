@@ -2,10 +2,12 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Actions;
 using Content.Server.Popups;
 using Content.Shared._DV.Abilities.Kitsune;
+using Content.Shared._Shitmed.Humanoid.Events;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
+using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 
 namespace Content.Server._DV.Abilities.Kitsune;
@@ -13,10 +15,14 @@ public sealed class KitsuneSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
+    [Dependency] private readonly PointLightSystem _light = default!;
     [Dependency] private readonly ActionsSystem _actionsSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+
+    private Color? _eyeColor = null;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -26,7 +32,17 @@ public sealed class KitsuneSystem : EntitySystem
         SubscribeLocalEvent<KitsuneComponent, FoxfireDestroyedEvent>(OnFoxFireDestroyed);
         SubscribeLocalEvent<KitsuneComponent, MorphIntoKitsune>(OnMorphIntoKitsune);
         SubscribeLocalEvent<KitsuneComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<KitsuneComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished);
     }
+
+    private void OnProfileLoadFinished(EntityUid uid, KitsuneComponent component, ProfileLoadFinishedEvent args)
+    {
+        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanComp))
+        {
+            _eyeColor = humanComp.EyeColor;
+        }
+    }
+
     private void OnStartup(EntityUid uid, KitsuneComponent component, ComponentStartup args)
     {
         component.FoxfireAction = _actions.AddAction(uid, component.FoxfireActionId);
@@ -39,7 +55,6 @@ public sealed class KitsuneSystem : EntitySystem
         {
             _actionsSystem.AddAction(uid, ref component.KitsuneActionEntity, component.KitsuneAction);
         }
-
     }
 
     private void OnMorphIntoKitsune(EntityUid uid, KitsuneComponent component, MorphIntoKitsune args)
@@ -50,16 +65,9 @@ public sealed class KitsuneSystem : EntitySystem
         if (!ent.HasValue)
             return;
 
-        var skinColor = Color.Orange;
-
-        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanComp))
-        {
-            skinColor = humanComp.EyeColor;
-        }
-
         if (TryComp<AppearanceComponent>(ent, out var appearanceComp))
         {
-            _appearance.SetData(ent.Value, KitsuneColor.Color, skinColor, appearanceComp);
+            _appearance.SetData(ent.Value, KitsuneColor.Color, _eyeColor ?? Color.Orange, appearanceComp);
         }
 
         _popupSystem.PopupEntity(Loc.GetString("kitsune-popup-morph-message-others", ("entity", ent.Value)), ent.Value, Filter.PvsExcept(ent.Value), true);
@@ -89,7 +97,10 @@ public sealed class KitsuneSystem : EntitySystem
         var fireComp = EnsureComp<FoxFireComponent>(fireEnt);
         fireComp.Owner = uid;
         component.ActiveFoxFires.Add(fireEnt);
-        _actions.SetEnabled(component.FoxfireAction, true);
+
+        if (_eyeColor is not null)
+            _light.SetColor(fireEnt, (Color)_eyeColor);
+
         args.Handled = true;
     }
     private void OnFoxFireShutdown(EntityUid uid, FoxFireComponent component, ComponentShutdown args)
