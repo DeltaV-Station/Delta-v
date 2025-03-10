@@ -185,7 +185,8 @@ public sealed class SurgerySystem : SharedSurgerySystem
             }
         }
 
-        dnas.Remove(target.Comp1.DNA);
+        if (target.Comp1.DNA is {} dna)
+            dnas.Remove(dna);
 
         return total + dnas.Count * target.Comp2.CrossContaminationDirtinessLevel;
     }
@@ -210,8 +211,11 @@ public sealed class SurgerySystem : SharedSurgerySystem
         Dirty(ent, dirtiness);
     }
 
-    private void AddDNA(EntityUid ent, string dna)
+    private void AddDNA(EntityUid ent, string? dna)
     {
+        if (dna == null)
+            return;
+
         var contamination = EnsureComp<SurgeryCrossContaminationComponent>(ent);
         contamination.DNAs.Add(dna);
     }

@@ -1,6 +1,9 @@
 # Industrial
 research-technology-aerial-extraction = Aerial Extraction
 
+# Experimental
+research-technology-cloning = Cloning
+
 # Civilian
 research-technology-syringe-gun = Syringe Gun
 

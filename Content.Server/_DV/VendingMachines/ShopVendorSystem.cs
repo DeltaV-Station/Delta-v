@@ -1,13 +1,9 @@
-using Content.Server.Advertise;
-using Content.Server.Advertise.Components;
 using Content.Shared._DV.VendingMachines;
 
 namespace Content.Server._DV.VendingMachines;
 
 public sealed class ShopVendorSystem : SharedShopVendorSystem
 {
-    [Dependency] private readonly SpeakOnUIClosedSystem _speakOnUIClosed = default!;
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -37,11 +33,5 @@ public sealed class ShopVendorSystem : SharedShopVendorSystem
                 UpdateVisuals(ent);
             }
         }
-    }
-
-    protected override void AfterPurchase(Entity<ShopVendorComponent> ent)
-    {
-        if (TryComp<SpeakOnUIClosedComponent>(ent, out var speak))
-            _speakOnUIClosed.TrySetFlag((ent.Owner, speak));
     }
 }
