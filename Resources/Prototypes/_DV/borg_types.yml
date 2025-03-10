@@ -6,7 +6,7 @@
   dummyPrototype: BorgChassisSecurity
 
   # Functional
-  extraModuleCount: 3
+  extraModuleCount: 2
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
@@ -16,7 +16,6 @@
   defaultModules:
   - BorgModuleSecurityDeescalate
   - BorgModuleSecurityPatrol
-  - BorgModuleSecurityBastion
 
   lawset: SiliconPolice
   job: SecurityOfficer
@@ -39,6 +38,8 @@
   - type: Fiber # red plasteel fibers
     fiberMaterial: fibers-plasteel
     fiberColor: fibers-red
+  - type: AccessReader
+    access: [["Command"], ["Robotics"], ["Security"]]
 
   radioChannels:
   - Science
