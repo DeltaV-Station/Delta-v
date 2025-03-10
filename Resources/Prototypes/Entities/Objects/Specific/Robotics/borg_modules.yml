@@ -357,10 +357,25 @@
     layers:
     - state: engineering
     - state: icon-rcd
-  - type: ItemBorgModule
-    moduleId: RCD # Frontier
+  # Begin DeltaV Removals - Changed to hands
+  #- type: ItemBorgModule
+  #  moduleId: RCD # Frontier
+  #  items:
+  #  - RCDRecharging
+  # End DeltaV Removals
+  # Begin DeltaV Additions
+  - type: DroppableBorgModule
+    moduleId: RCD
     items:
-    - RCDRecharging
+    - id: RCD
+      whitelist:
+        components:
+        - RCD
+    - id: RCDAmmo
+      whitelist:
+        components:
+        - RCDAmmo
+  # End DeltaV Additions
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
 
