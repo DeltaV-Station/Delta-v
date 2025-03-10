@@ -1,7 +1,7 @@
 - type: job
   id: Mime
   name: job-name-mime
-  description: job-description-mime
+  description: job-description-mime-delta # DeltaV
   playTimeTracker: JobMime
   requirements:
     - !type:OverallPlaytimeRequirement
