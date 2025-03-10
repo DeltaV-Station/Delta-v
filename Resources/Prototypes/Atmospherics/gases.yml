@@ -61,7 +61,7 @@
 
 - type: gas
   id: 6
-  name: gases-ammonia
+  name: gases-miasma # DeltaV
   specificHeat: 20
   heatCapacityRatio: 1.4
   molarMass: 44
@@ -69,7 +69,7 @@
   gasOverlayState: miasma
   gasMolesVisible: 2
   gasVisbilityFactor: 3.5
-  color: 56941E
+  color: 1E092A # DeltaV - purple instead of green, matches the sprite
   reagent: Ammonia
   pricePerMole: 0.15
 

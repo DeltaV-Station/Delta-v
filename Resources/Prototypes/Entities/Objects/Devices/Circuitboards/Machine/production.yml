@@ -3,6 +3,7 @@
   parent: BaseMachineCircuitboard
   name: autolathe machine board
   description: A machine printed circuit board for an autolathe.
+  suffix: DO NOT MAP # DeltaV - departamental lathes
   components:
     - type: MachineBoard
       prototype: Autolathe
@@ -36,6 +37,7 @@
   parent: BaseMachineCircuitboard
   name: protolathe machine board
   description: A machine printed circuit board for a protolathe.
+  suffix: DO NOT MAP # DeltaV - departamental lathes
   components:
     - type: MachineBoard
       prototype: Protolathe
@@ -1331,107 +1333,6 @@
     difficulty: 3
     recipes:
       - MiniGravityGeneratorCircuitboard
-
-- type: entity
-  id: ShuttleGunSvalinnMachineGunCircuitboard
-  parent: BaseMachineCircuitboard
-  name: LSE-400c "Svalinn machine gun" machine board
-  description: A machine printed circuit board for an LSE-400c "Svalinn machine gun"
-  components:
-  - type: Sprite
-    state: security
-  - type: MachineBoard
-    prototype: ShuttleGunSvalinnMachineGun
-    stackRequirements:
-      Steel: 5
-      CableHV: 5
-      MatterBin: 2
-      Manipulator: 4
-  - type: ReverseEngineering #delta
-    difficulty: 3
-    recipes:
-      - ShuttleGunSvalinnMachineGunCircuitboard
-
-- type: entity
-  id: ShuttleGunPerforatorCircuitboard
-  parent: BaseMachineCircuitboard
-  name: LSE-1200c "Perforator" machine board
-  description: A machine printed circuit board for an LSE-1200c "Perforator"
-  components:
-  - type: Sprite
-    state: security
-  - type: MachineBoard
-    prototype: ShuttleGunPerforator
-    stackRequirements:
-      Steel: 10
-      CableHV: 5
-      MatterBin: 4
-      Manipulator: 6
-  - type: ReverseEngineering # delta
-    difficulty: 3
-    recipes:
-      - ShuttleGunPerforatorCircuitboard
-
-- type: entity
-  id: ShuttleGunFriendshipCircuitboard
-  parent: BaseMachineCircuitboard
-  name: EXP-320g "Friendship" machine board
-  description: A machine printed circuit board for an EXP-320g "Friendship"
-  components:
-  - type: Sprite
-    state: security
-  - type: MachineBoard
-    prototype: ShuttleGunFriendship
-    stackRequirements:
-      Steel: 7
-      CableHV: 5
-      MatterBin: 3
-      Manipulator: 2
-  - type: ReverseEngineering # delta
-    difficulty: 3
-    recipes:
-      - ShuttleGunFriendshipCircuitboard
-
-- type: entity
-  id: ShuttleGunDusterCircuitboard
-  parent: BaseMachineCircuitboard
-  name: EXP-2100g "Duster" machine board
-  description: A machine printed circuit board for an EXP-2100g "Duster"
-  components:
-  - type: Sprite
-    state: security
-  - type: MachineBoard
-    prototype: ShuttleGunDuster
-    stackRequirements:
-      Steel: 10
-      CableHV: 5
-      Uranium: 2
-      MatterBin: 6
-      Manipulator: 4
-  - type: ReverseEngineering # delta
-    difficulty: 4
-    recipes:
-      - ShuttleGunDusterCircuitboard
-
-- type: entity
-  id: ShuttleGunKineticCircuitboard
-  parent: BaseMachineCircuitboard
-  name: PTK-800 "Matter Dematerializer" machine board
-  description: A machine printed circuit board for an PTK-800 "Matter Dematerializer"
-  components:
-  - type: Sprite
-    state: security
-  - type: MachineBoard
-    prototype: ShuttleGunKinetic
-    stackRequirements:
-      Steel: 5
-      CableHV: 2
-      MatterBin: 2
-      Manipulator: 3
-  - type: ReverseEngineering # delta
-    difficulty: 2
-    recipes:
-      - ShuttleGunKineticCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard

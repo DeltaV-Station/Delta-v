@@ -3,7 +3,8 @@
 - type: latheRecipe
   abstract: true
   id: BaseWeaponRecipe
-  category: Weapons
+  categories:
+  - Weapons
   completetime: 2
   materials:
     Steel: 300
@@ -18,7 +19,8 @@
 - type: latheRecipe
   abstract: true
   id: BaseAmmoRecipe
-  category: Ammo
+  categories:
+  - Ammo
   completetime: 5
 
 - type: latheRecipe
@@ -88,13 +90,14 @@
     Plastic: 750
     Gold: 500
 
-#- type: latheRecipe # DeltaV - Removed 
-#  parent: BaseWeaponRecipeLong
-#  id: WeaponLaserSvalinn
-#  result: WeaponLaserSvalinn
-#  materials:
-#    Steel: 2000
-#    Gold: 500
+- type: latheRecipe
+  abstract: true # DeltaV - removed svalinn
+  parent: BaseWeaponRecipeLong
+  id: WeaponLaserSvalinn
+  result: WeaponLaserSvalinn
+  materials:
+    Steel: 2000
+    Gold: 500
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -105,44 +108,6 @@
     Glass: 500
     Plastic: 250
     Gold: 100
-
-- type: latheRecipe
-  parent: BaseWeaponRecipeLong
-  id: WeaponProtoKineticAccelerator
-  result: WeaponProtoKineticAccelerator
-  materials:
-    Steel: 1000
-    Glass: 500
-    Gold: 100
-
-- type: latheRecipe
-  parent: BaseWeaponRecipeLong
-  id: WeaponCrusher
-  result: WeaponCrusher
-  materials:
-    Steel: 1500
-    Glass: 500
-    Plastic: 250
-    Gold: 100
-
-- type: latheRecipe
-  parent: BaseWeaponRecipe
-  id: WeaponCrusherDagger
-  result: WeaponCrusherDagger
-  materials:
-    Steel: 750
-    Glass: 300
-    Gold: 200
-
-- type: latheRecipe
-  parent: BaseWeaponRecipeLong
-  id: WeaponCrusherGlaive
-  result: WeaponCrusherGlaive
-  materials:
-    Steel: 2000
-    Glass: 500
-    Silver: 250
-    Gold: 250
 
 - type: latheRecipe
   id: ClothingBackpackElectropack

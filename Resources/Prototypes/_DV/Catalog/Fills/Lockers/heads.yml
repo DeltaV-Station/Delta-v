@@ -11,6 +11,7 @@
     - id: ClothingShoesBootsWinterLogisticsOfficer
     - id: MiningShuttleConsoleCircuitboard
     - id: StockTradingCartridge
+    - id: LogisticsTechFabCircuitboard
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 
@@ -42,6 +43,7 @@
     - id: ClothingShoesBootsLaceup
     - id: ClothingShoesMiscWhite
     - id: ClothingShoesBootsWinterHeadOfPersonel
+    - id: ServiceTechFabCircuitboard
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 
@@ -52,6 +54,7 @@
     - id: BoxPDAEngineering
     - id: CEIDCard
     - id: ClothingShoesBootsWinterChiefEngineer
+    - id: EngineeringTechFabCircuitboard
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 
@@ -69,6 +72,8 @@
     - id: ChemMasterFlatpack # So the chemist can make pills
     - id: MedBioFabricatorFlatpack # Replaced the shitmed board
     - id: AutoclaveFlatpack # Make sure surgeons have access to an autoclave
+    - id: Multitool # Ensure the flatpacks can be used without having to beg a tool
+    - id: Screwdriver # Quality of life for chemvend / nanomed restocks
 
 - type: entityTable
   id: LockerFillResearchDirectorDeltaV
@@ -78,6 +83,7 @@
     - id: RDIDCard
     - id: BoxFolderRdClipboard
     - id: ClothingShoesBootsWinterMystagogue
+    - id: EpistemicsTechFabCircuitboard
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 

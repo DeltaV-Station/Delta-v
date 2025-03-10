@@ -15,7 +15,7 @@
     allowSpeech: true
     makeSentient: true
     name: ghost-role-information-space-dragon-name
-    description: ghost-role-information-space-dragon-description
+    description: deltav-ghost-role-information-space-dragon-description # DeltaV - Dragons despawn in 10 minutes
     rules: ghost-role-information-space-dragon-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
@@ -163,6 +163,8 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
+    maxAccumulator: 600 # DeltaV - Double the normal time
+    weakenedDuration: 60 # DeltaV - Half the normal time
   - type: GuideHelp
     guides:
     - MinorAntagonists
