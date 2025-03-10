@@ -206,8 +206,7 @@
     - !type:RoleTimeRequirement # Give them an understanding of basic forensics.
       role: JobDetective
       time: 21600 # 6 hours
-
-    # Antags
+  antags:
     NukeopsMedic:
     - !type:RoleTimeRequirement # They should be able to make advanced brutes + pyra quickly
       role: JobChemist
