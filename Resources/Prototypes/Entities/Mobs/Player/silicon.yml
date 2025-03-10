@@ -510,6 +510,8 @@
     containers:
       borg_brain:
       - PositronicBrain
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipBorgAA
   - type: ItemSlots
     slots:
       cell_slot:
@@ -533,6 +535,8 @@
         - BorgModuleOperative
         - BorgModuleL6C
         - BorgModuleEsword
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipSyndie
   - type: ItemSlots
     slots:
       cell_slot:
@@ -566,6 +570,8 @@
         - BorgModuleTool
         - BorgModuleOperative
         - BorgModuleSyndicateWeapon
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipSyndie
   - type: ItemSlots
     slots:
       cell_slot:
@@ -614,6 +620,8 @@
         - BorgModuleTool
         - BorgModuleFireExtinguisher
         - BorgModuleGPS
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipAA
   - type: ItemSlots
     slots:
       cell_slot:
