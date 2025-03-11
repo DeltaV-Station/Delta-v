@@ -1,8 +1,7 @@
 using Content.Server._DV.Shuttles.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Station.Events;
-using Robust.Server.GameObjects;
-using Robust.Server.Maps;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 
@@ -25,15 +24,14 @@ public sealed class SyndieJailSystem : EntitySystem
     {
         var cc = Comp<StationCentcommComponent>(ent);
         if (cc.Entity is not {} gridUid || cc.MapEntity is not {} map)
+        {
+            Log.Error($"No centcomm grid to load syndie jail from {ToPrettyString(ent)}!");
             return;
+        }
 
         var mapId = Comp<MapComponent>(map).MapId;
         var offset = _random.NextVector2(ent.Comp.MinRange, ent.Comp.MaxRange);
-        var options = new MapLoadOptions
-        {
-            Offset = _transform.GetWorldPosition(gridUid) + offset,
-            LoadMap = false
-        };
-        _mapLoader.TryLoad(mapId, ent.Comp.Path.ToString(), out _, options);
+        _mapLoader.TryLoadGrid(mapId, ent.Comp.Path, out _,
+            offset: _transform.GetWorldPosition(gridUid) + offset);
     }
 }
