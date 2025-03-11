@@ -2,6 +2,7 @@ using Content.Server._DV.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Shared._DV.Reputation;
 using Content.Shared.Objectives.Components;
+using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 
 namespace Content.Server._DV.Objectives.Systems;
