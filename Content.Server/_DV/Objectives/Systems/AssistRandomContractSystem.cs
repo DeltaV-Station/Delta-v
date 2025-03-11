@@ -10,6 +10,7 @@ public sealed class AssistRandomContractSystem : EntitySystem
 {
     [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
     [Dependency] private readonly ContractObjectiveSystem _contractObjective = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly ReputationSystem _reputation = default!;
@@ -39,7 +40,7 @@ public sealed class AssistRandomContractSystem : EntitySystem
         _available.Clear();
         foreach (var obj in contracts.Comp.Objectives)
         {
-            if (obj is {} uid)
+            if (obj is {} uid && _whitelist.IsBlacklistFailOrNull(ent.Comp.Blacklist, uid))
                 _available.Add(uid);
         }
 

@@ -166,6 +166,10 @@
     minContracts: 1
   - type: CodeCondition
   - type: AssistRandomContract
+    blacklist:
+      components:
+      - SocialObjective # no infinite loop of free tc
+      - DieCondition # no budget nukies???
   - type: ContractObjective
     reputation: 5
     payment: 3
