@@ -27,10 +27,25 @@ public sealed class RansomSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<RansomComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<RansomComponent, MoveEvent>(OnMove);
+
         Subs.CVar(_cfg, DCCVars.MobRansom, n => _mobBase = n, true);
         Subs.CVar(_cfg, DCCVars.HumanoidRansom, n => _humanoidBase = n, true);
         Subs.CVar(_cfg, DCCVars.RansomDeadModifier, n => _deadMod = n, true);
         Subs.CVar(_cfg, DCCVars.RansomCritModifier, n => _critMod = n, true);
+    }
+
+    private void OnMapInit(Entity<RansomComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.JailMap = Transform(ent).MapID;
+    }
+
+    private void OnMove(Entity<RansomComponent> ent, ref MoveEvent args)
+    {
+        // remove ransom when its paid, or if they sneak a fulton/whatever into the jail, or get admin help
+        if (Transform(ent).MapID != ent.Comp.JailMap)
+            RemCompDeferred<RansomComponent>();
     }
 
     /// <summary>

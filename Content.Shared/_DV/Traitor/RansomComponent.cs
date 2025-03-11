@@ -1,3 +1,4 @@
+using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._DV.Traitor;
@@ -10,6 +11,13 @@ public sealed partial class RansomComponent : Component
 {
     [DataField]
     public int Ransom;
+
+    /// <summary>
+    /// The map the entity is being held on.
+    /// Ransom is ended if the entity leaves this map for any reason.
+    /// </summary>
+    [DataField]
+    public MapId Map = MapId.Nullspace;
 }
 
 /// <summary>
