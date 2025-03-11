@@ -3,13 +3,27 @@
   name: guide-entry-contracts
   text: "/ServerInfo/Guidebook/_DV/Antagonist/Contracts.xml"
   children:
+  - Assisting
   - Extraction
+  - Murder
   - Ransom
+  - Reputation
+  - SpecialObjectives
+
+- type: guideEntry
+  id: Assisting
+  name: guide-entry-assisting
+  text: "/ServerInfo/Guidebook/_DV/Antagonist/Assisting.xml"
 
 - type: guideEntry
   id: Extraction
   name: guide-entry-extraction
   text: "/ServerInfo/Guidebook/_DV/Antagonist/Extraction.xml"
+
+- type: guideEntry
+  id: Murder
+  name: guide-entry-murder
+  text: "/ServerInfo/Guidebook/_DV/Antagonist/Murder.xml"
 
 - type: guideEntry
   id: Ransom
@@ -20,3 +34,8 @@
   id: Reputation
   name: guide-entry-reputation
   text: "/ServerInfo/Guidebook/_DV/Antagonist/Reputation.xml"
+
+- type: guideEntry
+  id: SpecialObjectives
+  name: guide-entry-special-objectives
+  text: "/ServerInfo/Guidebook/_DV/Antagonist/SpecialObjectives.xml"
