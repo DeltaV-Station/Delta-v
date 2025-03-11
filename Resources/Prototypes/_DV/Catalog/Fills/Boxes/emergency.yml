@@ -45,8 +45,8 @@
 
 - type: entity
   parent: BoxSurvivalBrigmedic
-  id: BoxSurvivalBrigmedicWaterVapor
-  suffix: MedSec H2O
+  id: BoxSurvivalBrigmedicWaterBreatherCarnivore
+  suffix: MedSec H2O Carni
   components:
   - type: StorageFill
     contents:
@@ -55,7 +55,7 @@
     - id: EmergencyMedipen
     - id: SpaceMedipen
     - id: Flare
-    - id: FoodPSB
+    - id: FoodTinMRE
     - id: DrinkWaterBottleFull
   # Intentionally wrong picture on the box. NT did not care enough to change it.
   - type: Label
@@ -63,8 +63,8 @@
 
 - type: entity
   parent: BoxSurvival
-  id: BoxSurvivalWaterVapor
-  suffix: Standard H2O
+  id: BoxSurvivalWaterBreatherCarnivore
+  suffix: Standard H2O Carni
   components:
   - type: StorageFill
     contents:
@@ -73,15 +73,15 @@
     - id: EmergencyMedipen
     - id: SpaceMedipen
     - id: Flare
-    - id: FoodPSB
+    - id: FoodTinMRE
     - id: DrinkWaterBottleFull
   - type: Label
     currentLabel: reagent-name-water
 
 - type: entity
   parent: BoxSurvivalEngineering
-  id: BoxSurvivalEngineeringWaterVapor
-  suffix: Extended H2O
+  id: BoxSurvivalEngineeringWaterBreatherCarnivore
+  suffix: Extended H2O Carni
   components:
   - type: StorageFill
     contents:
@@ -90,15 +90,15 @@
     - id: EmergencyMedipen
     - id: SpaceMedipen
     - id: Flare
-    - id: FoodPSB
+    - id: FoodTinMRE
     - id: DrinkWaterBottleFull
   - type: Label
     currentLabel: reagent-name-water
 
 - type: entity
   parent: BoxSurvivalSecurity
-  id: BoxSurvivalSecurityWaterVapor
-  suffix: Security H2O
+  id: BoxSurvivalSecurityWaterBreatherCarnivore
+  suffix: Security H2O Carni
   components:
   - type: StorageFill
     contents:
@@ -107,15 +107,15 @@
     - id: EmergencyMedipen
     - id: SpaceMedipen
     - id: Flare
-    - id: FoodPSB
+    - id: FoodTinMRE
     - id: DrinkWaterBottleFull
   - type: Label
     currentLabel: reagent-name-water
 
 - type: entity
   parent: BoxSurvivalMedical
-  id: BoxSurvivalMedicalWaterVapor
-  suffix: Medical H2O
+  id: BoxSurvivalMedicalWaterBreatherCarnivore
+  suffix: Medical H2O Carni
   components:
   - type: StorageFill
     contents:
@@ -124,15 +124,15 @@
     - id: EmergencyMedipen
     - id: SpaceMedipen
     - id: Flare
-    - id: FoodPSB
+    - id: FoodTinMRE
     - id: DrinkWaterBottleFull
   - type: Label
     currentLabel: reagent-name-water
 
 - type: entity
   parent: BoxHug
-  id: BoxHugWaterVapor
-  suffix: Emergency H2O
+  id: BoxHugWaterBreatherCarnivore
+  suffix: Emergency H2O Carni
   components:
   - type: StorageFill
     contents:
@@ -141,15 +141,15 @@
     - id: EmergencyMedipen
     - id: SpaceMedipen
     - id: Flare
-    - id: FoodPSB
+    - id: FoodTinMRE
     - id: DrinkWaterBottleFull
   - type: Label
     currentLabel: reagent-name-water
 
 - type: entity
-  parent: BoxSurvivalWaterVapor
-  id: BoxMimeWaterVapor
-  suffix: Mime, Emergency H2O
+  parent: BoxSurvivalWaterBreatherCarnivore
+  id: BoxMimeWaterBreatherCarnivore
+  suffix: Mime, Emergency H2O Carni
   components:
   - type: StorageFill
     contents:
@@ -164,8 +164,8 @@
 
 - type: entity
   parent: BoxSurvivalSyndicate
-  id: BoxSurvivalSyndicateWaterVapor
-  suffix: Syndicate H2O
+  id: BoxSurvivalSyndicateWaterBreatherCarnivore
+  suffix: Syndicate H2O Carni
   components:
   - type: StorageFill
     contents:
@@ -173,7 +173,7 @@
     - id: ExtendedEmergencyWaterVaporTankFilled
     - id: EmergencyMedipen
     - id: SpaceMedipen
-    - id: FoodPSB
+    - id: FoodTinMRE
     - id: DrinkWaterBottleFull
   - type: Label
     currentLabel: reagent-name-water
