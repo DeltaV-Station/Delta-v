@@ -203,7 +203,7 @@
   - type: TargetObjective
     title: objective-condition-make-example-title
   - type: PickRandomTraitor
-    # TODO: only target traitors with a minimum reputation
+    minReputation: 60 # when you are doing your high stakes stuff smaller fish might come after you
   - type: ReputationCondition
     reputation: 40
   - type: ContractObjective
