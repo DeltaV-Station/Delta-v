@@ -91,7 +91,7 @@
   - type: ExtractCondition
     stealGroup: IDComputerCircuitboard
   - type: ContractObjective
-    payment: 3 # It's easy
+    payment: 2 # It's easy
 
 - type: entity
   parent: BaseTraitorStealObjective
@@ -100,7 +100,7 @@
   - type: ExtractCondition
     stealGroup: CommsComputerCircuitboard
   - type: ContractObjective
-    payment: 3 # It's easy
+    payment: 2 # It's easy
 
 - type: entity # Logistics Officer steal objective.
   parent: BaseTraitorStealObjective
@@ -110,7 +110,6 @@
     job: Quartermaster
   - type: ExtractCondition
     stealGroup: SpaceCashLuckyBill
-    # owner: job-name-qm
 
 - type: entity # Head of Personnel steal objective.
   parent: BaseTraitorStealObjective
@@ -120,7 +119,6 @@
     job: HeadOfPersonnel
   - type: ExtractCondition
     stealGroup: BookIanDossier
-    # owner: job-name-hop
 
 - type: entity # Head of Security steal objective.
   parent: BaseTraitorStealObjective
@@ -134,7 +132,6 @@
     stealGroup: WeaponEnergyGunMultiphase
     owner: job-name-hos
 
-# Mystagogue steal objective
 - type: entity
   parent: BaseTraitorStealObjective
   id: RdClipboardStealObjective
@@ -158,24 +155,17 @@
 # teach lesson
 - type: entity
   abstract: true
-  parent: BaseTargetObjective
-  id: BaseTeachLessonObjective
+  parent: [BaseTraitorObjective, BaseTeachLessonObjective]
+  id: BaseTraitorTeachLessonObjective
   components:
-  - type: Objective
-    unique: false
-    icon:
-      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
-      state: icon
-  - type: TeachLessonCondition
-  - type: CodeCondition
   - type: ReputationCondition
     reputation: 30
   - type: ContractObjective
     reputation: 15
-    payment: 6
+    payment: 2
 
 - type: entity
-  parent: [BaseTraitorObjective, BaseTeachLessonObjective]
+  parent: BaseTraitorTeachLessonObjective
   id: TeachLessonRandomPersonObjective
   description: Kill them, and show everyone we mean business. They only need to die once.
   components:
@@ -187,24 +177,38 @@
   - type: PickRandomPerson
     onlyChoosableJobs: true
 
-# Kill fellow traitor objective
 - type: entity
-  parent: [BaseTraitorObjective, BaseKillObjective]
-  id: KillRandomTraitorObjective
-  description: We have reason to believe that they have begun to question the syndicate and need to be eliminated.
+  parent: BaseTraitorTeachLessonObjective
+  id: TeachLessonRandomHeadObjective
+  description: Make an example of them, and show everyone we really mean business. They only need to die once, but be creative.
+  components:
+  - type: Objective
+    difficulty: 2
+    unique: false
+  - type: TargetObjective
+    title: objective-condition-make-example-title
+  - type: PickRandomHead
+  - type: ReputationCondition
+    reputation: 40
+  - type: ContractObjective
+    payment: 4
+
+- type: entity
+  parent: BaseTraitorTeachLessonObjective
+  id: TeachLessonRandomTraitorObjective
+  description: Show this turncoat what happens to those that question the syndicate. They only need to die once, but be creative.
   components:
   - type: Objective
     difficulty: 2 # They can easily buy weapons to defend themselves if they think something is up.
   - type: TargetObjective
-    title: objective-condition-traitor-kill-title
+    title: objective-condition-make-example-title
   - type: PickRandomTraitor
-  - type: KillPersonCondition
-    requireDead: true # Being able to leave them on the shuttle doesn't make sense when killing another traitor.
+    # TODO: only target traitors with a minimum reputation
   - type: ReputationCondition
-    reputation: 60
+    reputation: 40
   - type: ContractObjective
-    reputation: 15
-    payment: 8
+    reputation: 20 # so much reputation, you could be next...
+    payment: 6
 
 # Upload AI law
 - type: entity

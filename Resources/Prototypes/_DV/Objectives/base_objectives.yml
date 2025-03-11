@@ -21,3 +21,18 @@
   components:
   - type: CodeCondition
   - type: RansomCondition
+
+# requires that the player kill a target once
+- type: entity
+  abstract: true
+  parent: BaseTargetObjective
+  id: BaseTeachLessonObjective
+  components:
+  - type: Objective
+    unique: false
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      state: icon
+  - type: TeachLessonCondition
+  - type: CodeCondition
+
