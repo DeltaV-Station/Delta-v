@@ -25,7 +25,7 @@ public sealed class SyndieJailSystem : EntitySystem
         var cc = Comp<StationCentcommComponent>(ent);
         if (cc.Entity is not {} gridUid || cc.MapEntity is not {} map)
         {
-            Log.Error($"No centcomm grid to load syndie jail from {ToPrettyString(ent)}!");
+            Log.Warning($"No centcomm grid to load syndie jail from {ToPrettyString(ent)}!");
             return;
         }
 
