@@ -73,7 +73,7 @@
 
 - type: entity
   id: BorgModuleSecurityEscalate
-  parent: BorgModuleSecurityDeescalate
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: escalation cyborg module
   description: Peace was never an option.
   components:
