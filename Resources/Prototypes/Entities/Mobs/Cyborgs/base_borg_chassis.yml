@@ -315,6 +315,7 @@
     - Borg
   - type: AccessReader
     access: [["Command"], ["Research"]]
+    breakOnAccessBreaker: false # DeltaV - prevent emag metachecking by unlocking without an id
   - type: SlavedBorg # DeltaV: NT borgs are enslaved to the AI by default
     law: ObeyAI
   - type: ShowJobIcons

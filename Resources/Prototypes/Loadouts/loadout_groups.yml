@@ -89,7 +89,7 @@
   - EmergencyOxygen
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
-  - EmergencyWaterVapor # DeltaV
+  - EmergencyWaterBreatherCarnivore # DeltaV
 
 - type: loadoutGroup
   id: GroupEVATank
@@ -98,7 +98,7 @@
   loadouts:
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
-  - LoadoutSpeciesEVAWaterVapor # DeltaV
+  - LoadoutSpeciesPocketDoubleWaterBreatherCarnivore # DeltaV
 
 - type: loadoutGroup
   id: GroupPocketTankDouble
@@ -107,7 +107,7 @@
   loadouts:
   - LoadoutSpeciesPocketDoubleNitrogen
   - LoadoutSpeciesPocketDoubleOxygen
-  - LoadoutSpeciesPocketDoubleWaterVapor # DeltaV
+  - LoadoutSpeciesPocketDoubleWaterBreatherCarnivore # DeltaV
 
 # Command
 - type: loadoutGroup
@@ -190,9 +190,9 @@
   # - CommonBackpack
   # - CommonSatchel
   # - CommonDuffel
-  - BackpackHoP 
-  - SatchelHoP 
-  - HopDuffel 
+  - BackpackHoP
+  - SatchelHoP
+  - HopDuffel
   # End of DeltaV changes
   - HoPBackpackIan
 
@@ -544,7 +544,7 @@
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
-  - EmergencyWaterVaporClown # DeltaV
+  - EmergencyWaterBreatherCarnivoreClown # DeltaV
 
 - type: loadoutGroup
   id: MimeHead
@@ -604,7 +604,7 @@
   - EmergencyOxygenMime
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
-  - EmergencyWaterVaporMime # DeltaV
+  - EmergencyWaterBreatherCarnivoreMime # DeltaV
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -911,7 +911,7 @@
   - EmergencyOxygenExtended
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
-  - EmergencyWaterVaporExtended # DeltaV
+  - EmergencyWaterBreatherCarnivoreExtended # DeltaV
 
 # Science
 - type: loadoutGroup
@@ -1244,7 +1244,7 @@
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
-  - EmergencyWaterVaporSecurity # DeltaV
+  - EmergencyWaterBreatherCarnivoreSecurity # DeltaV
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1444,7 +1444,7 @@
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
-  - EmergencyWaterVaporMedical # DeltaV
+  - EmergencyWaterBreatherCarnivoreMedical # DeltaV
 
 # Wildcards
 - type: loadoutGroup
@@ -1490,7 +1490,7 @@
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
-  - EmergencyWaterVaporSyndicate # DeltaV
+  - EmergencyWaterBreatherCarnivoreSyndicate # DeltaV
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
