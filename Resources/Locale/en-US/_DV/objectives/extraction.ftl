@@ -11,3 +11,6 @@ syndicate-ransom-announcement =
     We have captured your dear {$hostage} and won't release {POSS-ADJ($hostage)} unless you pay up!
     The ransom is {$ransom} spesos, paid directly to our Donk Co. bank account.
     Don't take long... or else!
+
+syndicate-ransom-return-announcement-sender = Automated Trade Station Announcement
+syndicate-ransom-return-announcement = Unauthorized delivery received at {$station} from [UNKNOWN SENDER]. Crew are to inspect it and may claim it if desired.
