@@ -2,9 +2,11 @@ using Content.Server.Cargo.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Components;
 using Content.Shared._DV.Traitor;
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Database;
+using Content.Shared.StatusEffect;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
@@ -20,11 +22,27 @@ public sealed partial class CargoSystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedEntityStorageSystem _entityStorage = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     /// <summary>
     /// The crate to put ransomed entities in when purchasing them.
     /// </summary>
     public static readonly EntProtoId RansomCrate = "CrateSyndicate";
+
+    /// <summary>
+    /// Status effect for <see cref="ForcedSleepingComponent"/>.
+    /// </summary>
+    public static readonly ProtoId<StatusEffectPrototype> StatusEffectKey = "ForcedSleep";
+
+    /// <summary>
+    /// Sound to play for the ransom victim when being "trafficked" to the ATS.
+    /// </summary>
+    public static readonly SoundSpecifier HypoSound = new SoundPathSpecifier("/Audio/Items/hypospray.ogg");
+
+    /// <summary>
+    /// How long to be slept for.
+    /// </summary>
+    public static readonly TimeSpan SleepyTime = TimeSpan.FromSeconds(10);
 
     private void InitializeRansom()
     {
@@ -103,12 +121,15 @@ public sealed partial class CargoSystem
             if (freePads.Count == 0)
                 continue;
 
+            // sleepy time
+            _audio.PlayPvs(HypoSound, uid);
+            _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(uid, StatusEffectKey, SleepyTime, refresh: false);
+
             var pad = _random.Pick(freePads);
             var coordinates = new EntityCoordinates(trade, pad.Transform.LocalPosition);
             var crate = Spawn(RansomCrate, coordinates);
             if (!_entityStorage.Insert(uid, crate))
                 _transformSystem.DropNextTo(uid, crate); // just teleport directly if it somehow fails
-
             return trade;
         }
 
