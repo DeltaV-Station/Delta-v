@@ -88,6 +88,7 @@
   - EmergencyOxygen
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
+  - EmergencyWaterBreatherCarnivore # DeltaV
 
 - type: loadoutGroup
   id: GroupEVATank
@@ -96,6 +97,7 @@
   loadouts:
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
+  - LoadoutSpeciesPocketDoubleWaterBreatherCarnivore # DeltaV
 
 - type: loadoutGroup
   id: GroupPocketTankDouble
@@ -104,6 +106,7 @@
   loadouts:
   - LoadoutSpeciesPocketDoubleNitrogen
   - LoadoutSpeciesPocketDoubleOxygen
+  - LoadoutSpeciesPocketDoubleWaterBreatherCarnivore # DeltaV
 
 # Command
 - type: loadoutGroup
@@ -186,9 +189,9 @@
   # - CommonBackpack
   # - CommonSatchel
   # - CommonDuffel
-  - BackpackHoP 
-  - SatchelHoP 
-  - HopDuffel 
+  - BackpackHoP
+  - SatchelHoP
+  - HopDuffel
   # End of DeltaV changes
   - HoPBackpackIan
 
@@ -540,6 +543,7 @@
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
+  - EmergencyWaterBreatherCarnivoreClown # DeltaV
 
 - type: loadoutGroup
   id: MimeHead
@@ -599,6 +603,7 @@
   - EmergencyOxygenMime
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
+  - EmergencyWaterBreatherCarnivoreMime # DeltaV
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -905,6 +910,7 @@
   - EmergencyOxygenExtended
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
+  - EmergencyWaterBreatherCarnivoreExtended # DeltaV
 
 # Science
 - type: loadoutGroup
@@ -1237,6 +1243,7 @@
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
+  - EmergencyWaterBreatherCarnivoreSecurity # DeltaV
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1436,6 +1443,7 @@
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
+  - EmergencyWaterBreatherCarnivoreMedical # DeltaV
 
 # Wildcards
 - type: loadoutGroup
@@ -1481,6 +1489,7 @@
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
+  - EmergencyWaterBreatherCarnivoreSyndicate # DeltaV
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool

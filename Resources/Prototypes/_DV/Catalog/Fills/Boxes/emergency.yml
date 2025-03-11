@@ -42,3 +42,138 @@
     - id: Oilpack1
     - id: CableApcStack10
     - id: WelderMini
+
+- type: entity
+  parent: BoxSurvivalBrigmedic
+  id: BoxSurvivalBrigmedicWaterBreatherCarnivore
+  suffix: MedSec H2O Carni
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreathMedicalSecurity
+    - id: EmergencyWaterVaporTankFilled
+    - id: EmergencyMedipen
+    - id: SpaceMedipen
+    - id: Flare
+    - id: FoodTinMRE
+    - id: DrinkWaterBottleFull
+  # Intentionally wrong picture on the box. NT did not care enough to change it.
+  - type: Label
+    currentLabel: reagent-name-water
+
+- type: entity
+  parent: BoxSurvival
+  id: BoxSurvivalWaterBreatherCarnivore
+  suffix: Standard H2O Carni
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: EmergencyWaterVaporTankFilled
+    - id: EmergencyMedipen
+    - id: SpaceMedipen
+    - id: Flare
+    - id: FoodTinMRE
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: reagent-name-water
+
+- type: entity
+  parent: BoxSurvivalEngineering
+  id: BoxSurvivalEngineeringWaterBreatherCarnivore
+  suffix: Extended H2O Carni
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: ExtendedEmergencyWaterVaporTankFilled
+    - id: EmergencyMedipen
+    - id: SpaceMedipen
+    - id: Flare
+    - id: FoodTinMRE
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: reagent-name-water
+
+- type: entity
+  parent: BoxSurvivalSecurity
+  id: BoxSurvivalSecurityWaterBreatherCarnivore
+  suffix: Security H2O Carni
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSecurity
+    - id: EmergencyWaterVaporTankFilled
+    - id: EmergencyMedipen
+    - id: SpaceMedipen
+    - id: Flare
+    - id: FoodTinMRE
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: reagent-name-water
+
+- type: entity
+  parent: BoxSurvivalMedical
+  id: BoxSurvivalMedicalWaterBreatherCarnivore
+  suffix: Medical H2O Carni
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreathMedical
+    - id: EmergencyWaterVaporTankFilled
+    - id: EmergencyMedipen
+    - id: SpaceMedipen
+    - id: Flare
+    - id: FoodTinMRE
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: reagent-name-water
+
+- type: entity
+  parent: BoxHug
+  id: BoxHugWaterBreatherCarnivore
+  suffix: Emergency H2O Carni
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: EmergencyWaterVaporTankFilled
+    - id: EmergencyMedipen
+    - id: SpaceMedipen
+    - id: Flare
+    - id: FoodTinMRE
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: reagent-name-water
+
+- type: entity
+  parent: BoxSurvivalWaterBreatherCarnivore
+  id: BoxMimeWaterBreatherCarnivore
+  suffix: Mime, Emergency H2O Carni
+  components:
+  - type: StorageFill
+    contents:
+    - id: SpaceMedipen
+    - id: EmergencyWaterVaporTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodBreadBaguette
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: reagent-name-water
+
+- type: entity
+  parent: BoxSurvivalSyndicate
+  id: BoxSurvivalSyndicateWaterBreatherCarnivore
+  suffix: Syndicate H2O Carni
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSyndicate
+    - id: ExtendedEmergencyWaterVaporTankFilled
+    - id: EmergencyMedipen
+    - id: SpaceMedipen
+    - id: FoodTinMRE
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: reagent-name-water

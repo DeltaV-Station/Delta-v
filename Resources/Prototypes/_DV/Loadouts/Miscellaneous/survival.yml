@@ -1,3 +1,99 @@
+# Species
+- type: loadoutEffectGroup
+  id: WaterBreatherCarnivore
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Feroxi
+
+# Basic
+- type: loadout
+  id: EmergencyWaterBreatherCarnivore
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreatherCarnivore
+  storage:
+    back:
+    - BoxSurvivalWaterBreatherCarnivore
+
+# Clown
+- type: loadout
+  id: EmergencyWaterBreatherCarnivoreClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreatherCarnivore
+  storage:
+    back:
+    - BoxHugWaterBreatherCarnivore
+
+# Mime
+- type: loadout
+  id: EmergencyWaterBreatherCarnivoreMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreatherCarnivore
+  storage:
+    back:
+    - BoxMimeWaterBreatherCarnivore
+
+# Engineering / Extended
+- type: loadout
+  id: EmergencyWaterBreatherCarnivoreExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreatherCarnivore
+  storage:
+    back:
+    - BoxSurvivalEngineeringWaterBreatherCarnivore
+
+# Medical
+- type: loadout
+  id: EmergencyWaterBreatherCarnivoreMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreatherCarnivore
+  storage:
+    back:
+    - BoxSurvivalMedicalWaterBreatherCarnivore
+
+# Security
+- type: loadout
+  id: EmergencyWaterBreatherCarnivoreSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreatherCarnivore
+  storage:
+    back:
+    - BoxSurvivalSecurityWaterBreatherCarnivore
+
+# Syndicate
+- type: loadout
+  id: EmergencyWaterBreatherCarnivoreSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreatherCarnivore
+  storage:
+    back:
+    - BoxSurvivalWaterBreatherCarnivore
+
+# Full EVA Tank, Any Species
+- type: loadout
+  id: LoadoutSpeciesEVAWaterBreatherCarnivore
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreatherCarnivore
+  equipment:
+    suitstorage: WaterVaporTankFilled
+
+# Species-appropriate Double Emergency Tank in Pocket 1
+- type: loadout
+  id: LoadoutSpeciesPocketDoubleWaterBreatherCarnivore
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreatherCarnivore
+  equipment:
+    pocket1: DoubleEmergencyWaterVaporTankFilled
+
 # Corpsman
 - type: loadout
   id: EmergencyOxygenCorpsman
@@ -16,6 +112,14 @@
   storage:
     back:
     - BoxSurvivalBrigmedicNitrogen
+
+- type: loadout
+  id: EmergencyWaterBreatherCarnivoreCorpsman
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreatherCarnivore
+  equipment:
+    mask: BoxSurvivalBrigmedicWaterBreatherCarnivore
 
 - type: loadout
   id: LoadoutSpeciesBreathToolCorpsman
