@@ -10,5 +10,5 @@ namespace Content.Server._DV.Objectives.Components;
 public sealed partial class AssistedContractComponent : Component
 {
     [DataField]
-    public HashSet<EntityUid> Assisting;
+    public HashSet<EntityUid> Assisting = new();
 }
