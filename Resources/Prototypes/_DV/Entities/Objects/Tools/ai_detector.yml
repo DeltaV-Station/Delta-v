@@ -47,7 +47,7 @@
           red: { state: "red-unlit" }
   - type: CollidingVisuals
     whitelist:
-      tags:
+      components:
       - AiDetectable
     fixtures:
     - red
