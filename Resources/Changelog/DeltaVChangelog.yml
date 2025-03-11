@@ -1,20 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Prosecutors can now add their overcoat to loadouts.
-    type: Add
-  id: 639
-  time: '2024-11-03T09:40:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1923
-- author: Radezolid
-  changes:
-  - message: You can use emotes while sleeping to enhance narcoleptic RP.
-    type: Tweak
-  id: 640
-  time: '2024-11-03T15:33:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2084
-- author: deltanedas
-  changes:
   - message: You can no longer eat brains, they aren't allowed to remember who killed
       them anyway!
     type: Tweak
@@ -3934,8 +3920,8 @@
   url: https://github.com/DeltaV-Station/Delta-v/pull/3191
 - author: Radezolid
   changes:
-  - message: The overlord board price is back to 14 TC with a possible discount to
-      10 TC.
+  - message: The overlord board price is back to 10 TC with a possible discount to
+      7 TC.
     type: Tweak
   id: 1137
   time: '2025-03-11T04:54:23.0000000+00:00'
@@ -3947,3 +3933,25 @@
   id: 1138
   time: '2025-03-11T05:22:28.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3193
+- author: Radezolid
+  changes:
+  - message: A salvage expeditions computer board spawns inside the LO's locker now.
+    type: Tweak
+  - message: Removed the salvage expeditions computer board from research and lathes.
+    type: Remove
+  id: 1139
+  time: '2025-03-11T15:23:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3166
+- author: dffdff2423, Aquif, MilonPL, sowelipililimute, Lyndomen
+  changes:
+  - message: You can now create medical, security, and employment records in the character
+      editor. They can be accessed in game from their respective consoles. Ported
+      from Cosmatic Drift with love.
+    type: Add
+  - message: The station records console is now the employment records console. Please
+      use the security/criminal records console to match DNA/Fingerprints. Ported
+      from Cosmatic Drift with appreciation.
+    type: Tweak
+  id: 1140
+  time: '2025-03-11T15:34:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2236
