@@ -168,6 +168,8 @@
     interfaces:
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
+      enum.ContractsUiKey.Key: # DeltaV
+        type: ContractsBUI
 
 - type: entity
   parent: BaseSubdermalImplant

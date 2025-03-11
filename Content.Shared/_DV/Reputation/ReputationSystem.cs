@@ -55,13 +55,13 @@ public sealed class ReputationSystem : EntitySystem
 
     private void OnInit(Entity<ContractsComponent> ent, ref ComponentInit args)
     {
-        // creates the slots for fresh pdas
-        UpdateLevel(ent);
         _ui.SetUi(ent.Owner, ContractsUiKey.Key, new InterfaceData("ContractsBUI"));
     }
 
     private void OnMapInit(Entity<ContractsComponent> ent, ref MapInitEvent args)
     {
+        // creates the slots for fresh pdas
+        UpdateLevel(ent);
         PickOfferings(ent);
     }
 
