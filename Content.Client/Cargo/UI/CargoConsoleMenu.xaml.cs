@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Client.UserInterface.Controls;
+using Content.Shared._DV.Traitor; // DeltaV
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
@@ -23,6 +24,7 @@ namespace Content.Client.Cargo.UI
         public event Action<ButtonEventArgs>? OnItemSelected;
         public event Action<ButtonEventArgs>? OnOrderApproved;
         public event Action<ButtonEventArgs>? OnOrderCanceled;
+        public event Action<NetEntity>? OnRansomPurchase; // DeltaV
 
         private readonly List<string> _categoryStrings = new();
         private string? _category;
@@ -39,6 +41,7 @@ namespace Content.Client.Cargo.UI
 
             SearchBar.OnTextChanged += OnSearchBarTextChanged;
             Categories.OnItemSelected += OnCategoryItemSelected;
+            RansomContainer.OnPurchase += ent => OnRansomPurchase?.Invoke(ent); // DeltaV
         }
 
         private void OnCategoryItemSelected(OptionButton.ItemSelectedEventArgs args)
@@ -183,6 +186,14 @@ namespace Content.Client.Cargo.UI
             }
         }
 
+        /// <summary>
+        /// DeltaV: Forwards new ransom data to the ransom container.
+        /// </summary>
+        public void UpdateRansoms(List<RansomData> ransoms)
+        {
+            RansomContainer.UpdateRansoms(ransoms);
+        }
+
         public void UpdateCargoCapacity(int count, int capacity)
         {
             // TODO: Rename + Loc.
@@ -193,6 +204,7 @@ namespace Content.Client.Cargo.UI
         {
             AccountNameLabel.Text = name;
             PointsLabel.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", points.ToString()));
+            RansomContainer.UpdateBalance(points); // DeltaV
         }
     }
 }

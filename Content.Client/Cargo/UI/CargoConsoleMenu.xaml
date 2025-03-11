@@ -1,6 +1,7 @@
 ﻿<controls:FancyWindow xmlns="https://spacestation14.io"
                            xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                            xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                           xmlns:traitor="clr-namespace:Content.Client._DV.Traitor.UI"
                            SetSize="600 600"
                            MinSize="600 600">
     <BoxContainer Orientation="Vertical" Margin="5 0 5 0">
@@ -22,6 +23,7 @@
             <Label Name="ShuttleCapacityLabel"
                    Text="0/20" />
         </BoxContainer>
+        <traitor:RansomContainer Name="RansomContainer"/> <!-- DeltaV - show ransomed mobs -->
         <BoxContainer Orientation="Horizontal">
             <OptionButton Name="Categories"
                           Prefix="{Loc 'cargo-console-menu-categories-label'}"

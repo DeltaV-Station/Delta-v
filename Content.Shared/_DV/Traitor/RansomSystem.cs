@@ -21,6 +21,7 @@ public sealed class RansomSystem : EntitySystem
     private float _humanoidBase;
     private float _deadMod;
     private float _critMod;
+    private List<RansomData> _ransoms = new();
 
     public override void Initialize()
     {
@@ -62,5 +63,23 @@ public sealed class RansomSystem : EntitySystem
             ransom *= job.RansomModifier;
 
         return (int) ransom;
+    }
+
+    /// <summary>
+    /// Get a list of all ransomed mobs for sending to cargo request console UI.
+    /// It is reused, do not modify it.
+    /// </summary>
+    public List<RansomData> GetRansoms()
+    {
+        _ransoms.Clear();
+        var query = EntityQueryEnumerator<RansomComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            var ent = GetNetEntity(uid);
+            var name = Name(uid);
+            var price = comp.Ransom;
+            _ransoms.Add(new RansomData(ent, name, price));
+        }
+        return _ransoms;
     }
 }

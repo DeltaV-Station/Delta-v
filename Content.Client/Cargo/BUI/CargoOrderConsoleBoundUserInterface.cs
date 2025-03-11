@@ -1,5 +1,6 @@
 using Content.Shared.Cargo;
 using Content.Client.Cargo.UI;
+using Content.Shared._DV.Traitor; // DeltaV
 using Content.Shared.Cargo.BUI;
 using Content.Shared.Cargo.Events;
 using Content.Shared.Cargo.Prototypes;
@@ -88,6 +89,7 @@ namespace Content.Client.Cargo.BUI
             };
             _menu.OnOrderApproved += ApproveOrder;
             _menu.OnOrderCanceled += RemoveOrder;
+            _menu.OnRansomPurchase += ent => SendMessage(new RansomPurchaseMessage(ent)); // DeltaV
             _orderMenu.SubmitButton.OnPressed += (_) =>
             {
                 if (AddOrder())
@@ -124,6 +126,7 @@ namespace Content.Client.Cargo.BUI
             Populate(cState.Orders);
             _menu?.UpdateCargoCapacity(OrderCount, OrderCapacity);
             _menu?.UpdateBankData(AccountName, BankBalance);
+            _menu?.UpdateRansoms(cState.Ransoms); // DeltaV
         }
 
         protected override void Dispose(bool disposing)
