@@ -13,4 +13,4 @@ syndicate-ransom-announcement =
     Don't take long... or else!
 
 syndicate-ransom-return-announcement-sender = Automated Trade Station
-syndicate-ransom-return-announcement = Unauthorized delivery received at {$station} from [UNKNOWN SENDER]. Crew are to inspect it and may claim it if desired.
+syndicate-ransom-return-announcement = Unauthorized delivery received at [{$station}] from [UNKNOWN SENDER]. Crew are to inspect it and may claim it if desired.
