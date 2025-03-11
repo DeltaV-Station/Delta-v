@@ -8,7 +8,7 @@ extraction-fulton-remove-first = Remove the fulton first!
 syndicate-ransom-announcement-sender = Syndicate Ransom
 syndicate-ransom-announcement =
     Listen up well NT scum...
-    We have captured your dear {$hostage} and won't release {POSS-ADJ($hostage)} unless you pay up!
+    We have captured your dear {$hostage} and won't release {POSS-PRONOUN($hostage)} unless you pay up!
     The ransom is {$ransom} spesos, paid directly to our Donk Co. bank account.
     Don't take long... or else!
 
