@@ -13,7 +13,7 @@ public sealed partial class AssistRandomContractComponent : Component
     /// Description that gets "contract" passed.
     /// </summary>
     [DataField]
-    public LocId Description = "objectives-condition-assist-traitor-description";
+    public LocId Description = "objective-condition-assist-traitor-description";
 
     /// <summary>
     /// The picked contract.
