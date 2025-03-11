@@ -126,7 +126,7 @@ namespace Content.Client.Cargo.BUI
             Populate(cState.Orders);
             _menu?.UpdateCargoCapacity(OrderCount, OrderCapacity);
             _menu?.UpdateBankData(AccountName, BankBalance);
-            _menu?.UpdateRansoms(cState.Ransoms); // DeltaV
+            _menu?.UpdateRansoms(cState.Ransoms, BankBalance); // DeltaV
         }
 
         protected override void Dispose(bool disposing)

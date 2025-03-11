@@ -12,7 +12,7 @@
 	            <PanelContainer.PanelOverride>
 	                <gfx:StyleBoxFlat BackgroundColor="#222" />
 	            </PanelContainer.PanelOverride>
-	            <BoxContainer Name="ListingsContainer"/> <!-- Populated at runtime with RansomListing -->
+	            <BoxContainer Name="ListingsContainer" Orientation="Vertical"/> <!-- Populated at runtime with RansomListing -->
 	        </PanelContainer>
 	    </BoxContainer>
 	</controls:StripeBack>

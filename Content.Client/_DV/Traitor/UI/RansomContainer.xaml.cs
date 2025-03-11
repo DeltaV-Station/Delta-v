@@ -10,32 +10,30 @@ public sealed partial class RansomContainer : BoxContainer
 {
     public event Action<NetEntity>? OnPurchase;
 
-    private List<RansomListing> _listings = new();
-
     public RansomContainer()
     {
         RobustXamlLoader.Load(this);
     }
 
-    public void UpdateRansoms(List<RansomData> ransoms)
+    public void UpdateRansoms(List<RansomData> ransoms, int balance)
     {
         Visible = ransoms.Count > 0;
         ListingsContainer.RemoveAllChildren();
-        _listings.Clear();
         foreach (var ransom in ransoms)
         {
             var listing = new RansomListing(ransom);
+            listing.UpdateBalance(balance);
             listing.OnPurchase += ent => OnPurchase?.Invoke(ent);
-            _listings.Add(listing);
             ListingsContainer.AddChild(listing);
         }
     }
 
     public void UpdateBalance(int balance)
     {
-        foreach (var listing in _listings)
+        foreach (var control in ListingsContainer.Children)
         {
-            listing.UpdateBalance(balance);
+            if (control is RansomListing listing)
+                listing.UpdateBalance(balance);
         }
     }
 }

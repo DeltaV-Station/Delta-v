@@ -189,9 +189,9 @@ namespace Content.Client.Cargo.UI
         /// <summary>
         /// DeltaV: Forwards new ransom data to the ransom container.
         /// </summary>
-        public void UpdateRansoms(List<RansomData> ransoms)
+        public void UpdateRansoms(List<RansomData> ransoms, int balance)
         {
-            RansomContainer.UpdateRansoms(ransoms);
+            RansomContainer.UpdateRansoms(ransoms, balance);
         }
 
         public void UpdateCargoCapacity(int count, int capacity)
