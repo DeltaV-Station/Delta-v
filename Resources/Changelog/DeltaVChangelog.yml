@@ -1,67 +1,4 @@
 ﻿Entries:
-- author: Solaris7518
-  changes:
-  - message: Cancer mice no longer infest the mail system.
-    type: Remove
-  id: 626
-  time: '2024-10-28T00:25:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2061
-- author: Colin_Tel, Fox, Lyndomen
-  changes:
-  - message: Adjusted the rules, check out the metashield!
-    type: Tweak
-  id: 627
-  time: '2024-10-28T16:49:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2039
-- author: MilonPL
-  changes:
-  - message: Fixed not being able to unlock mail.
-    type: Fix
-  id: 628
-  time: '2024-10-28T19:32:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2067
-- author: MilonPL
-  changes:
-  - message: Added a no EORG reminder to the end of round!
-    type: Add
-  id: 629
-  time: '2024-10-28T23:36:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2070
-- author: Radezolid
-  changes:
-  - message: Now perma prisoners will spawn with tracking implants already implanted.
-    type: Tweak
-  id: 630
-  time: '2024-10-29T17:58:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2053
-- author: Aikakakah
-  changes:
-  - message: Fixed tattoos and scars showing through clothing.
-    type: Fix
-  id: 631
-  time: '2024-10-30T13:53:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1889
-- author: MilonPL
-  changes:
-  - message: Fixed the sudden TPS drops, please report any lag issues in the Discord!
-    type: Fix
-  id: 632
-  time: '2024-10-31T07:18:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2075
-- author: reesque
-  changes:
-  - message: pie not dropping tin on thrown
-    type: Fix
-  id: 633
-  time: '2024-11-01T13:29:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2082
-- author: Radezolid
-  changes:
-  - message: Fixed the Mail Carrier PDA not coming with the MailMetrics program!
-    type: Fix
-  id: 634
-  time: '2024-11-02T02:21:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2086
 - author: Radezolid
   changes:
   - message: Added an Agent ID to LPO for them to fake signatures, plus a backpack
@@ -3936,3 +3873,77 @@
   id: 1125
   time: '2025-03-08T23:38:32.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1669
+- author: Avalon-Proto
+  changes:
+  - message: Secborg equipment has been reassessed and redesigned, go out there and
+      show em what you're made of peacekeepers!
+    type: Tweak
+  id: 1126
+  time: '2025-03-09T18:47:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2059
+- author: Velcroboy
+  changes:
+  - message: Arena security has an evidence room now and some additional tweaks.
+    type: Tweak
+  id: 1127
+  time: '2025-03-09T20:38:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3165
+- author: IAmNotGray
+  changes:
+  - message: Elegance has been changed up slightly. The Examination Room has been
+      updated, and freezers are now cold.
+    type: Tweak
+  id: 1128
+  time: '2025-03-09T21:44:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3157
+- author: deltanedas
+  changes:
+  - message: Pressing F1 is back to immediately opening AHelp, hold shift to open
+      curator chat.
+    type: Tweak
+  id: 1129
+  time: '2025-03-10T02:19:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3176
+- author: deltanedas
+  changes:
+  - message: Fixed robo-neuroticists not being able to lock their evil borgs.
+    type: Fix
+  id: 1130
+  time: '2025-03-10T03:07:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3177
+- author: deltanedas
+  changes:
+  - message: Removed raffles from carp ghost roles. Rrrr!
+    type: Tweak
+  id: 1131
+  time: '2025-03-10T07:31:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3178
+- author: deltanedas
+  changes:
+  - message: Added lathe upgrade kits to the Industrial Engineering tech, they can
+      be used on any kind of lathe including techfabs.
+    type: Add
+  - message: Added the cryo-stabilizing lathe upgrade kit, it makes lathes faster
+      in exchange for freezing the air.
+    type: Add
+  id: 1132
+  time: '2025-03-10T19:26:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3169
+- author: deltanedas
+  changes:
+  - message: Added a new T3 industrial tech, Matter-Energy Conversion, which lets
+      you make self-recharging RCDs.
+    type: Add
+  - message: The borg RCD module now has to be reloaded with compressed matter or
+      replaced with a different RCD.
+    type: Tweak
+  id: 1133
+  time: '2025-03-10T20:19:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3168
+- author: Field Command
+  changes:
+  - message: Pebble is now as compliant as it can be with current mapping standards
+    type: Fix
+  id: 1134
+  time: '2025-03-10T23:55:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3186
