@@ -38,14 +38,14 @@ public sealed class RansomSystem : EntitySystem
 
     private void OnMapInit(Entity<RansomComponent> ent, ref MapInitEvent args)
     {
-        ent.Comp.JailMap = Transform(ent).MapID;
+        ent.Comp.Map = Transform(ent).MapID;
     }
 
     private void OnMove(Entity<RansomComponent> ent, ref MoveEvent args)
     {
         // remove ransom when its paid, or if they sneak a fulton/whatever into the jail, or get admin help
-        if (Transform(ent).MapID != ent.Comp.JailMap)
-            RemCompDeferred<RansomComponent>();
+        if (Transform(ent).MapID != ent.Comp.Map)
+            RemCompDeferred<RansomComponent>(ent);
     }
 
     /// <summary>
