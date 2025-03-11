@@ -16,6 +16,12 @@
     RansomRandomPersonObjective: 1
     RansomRandomHeadObjective: 0.5
 
+# Assisting
+- type: weightedRandom
+  id: TraitorObjectiveGroupAssist
+  weights:
+    AssistRandomTraitorObjective: 1
+
 ## Ninja
 # Hacking things
 - type: weightedRandom

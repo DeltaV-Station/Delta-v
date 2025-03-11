@@ -27,7 +27,7 @@ public sealed partial class ExtractConditionComponent : Component
     /// Help newer players by saying e.g. "steal the chief engineer's advanced magboots"
     /// instead of "steal advanced magboots". Should be a loc string.
     /// </summary>
-    [DataField]
+    [DataField("owner")]
     public LocId? OwnerText;
 
     [DataField(required: true)]

@@ -5,13 +5,14 @@ using Content.Server.Objectives.Systems;
 using Content.Shared._DV.Reputation;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Random;
+using System.Linq;
 
 namespace Content.Server._DV.Objectives.Systems;
 
 /// <summary>
-///     Handles the kill fellow traitor objective.
+/// Handles picking a random traitor for <see cref="PickRandomTraitorComponent"/>.
 /// </summary>
-public sealed class KillFellowTraitorObjectiveSystem : EntitySystem
+public sealed class PickRandomTraitorSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ReputationSystem _reputation = default!;
@@ -24,22 +25,17 @@ public sealed class KillFellowTraitorObjectiveSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PickRandomTraitorComponent, ObjectiveAssignedEvent>(OnTraitorKillAssigned);
+        SubscribeLocalEvent<PickRandomTraitorComponent, ObjectiveAssignedEvent>(OnAssigned);
     }
 
-    private void OnTraitorKillAssigned(EntityUid uid, PickRandomTraitorComponent comp, ref ObjectiveAssignedEvent args)
+    private void OnAssigned(Entity<PickRandomTraitorComponent> ent, ref ObjectiveAssignedEvent args)
     {
-        if (!TryComp<TargetObjectiveComponent>(uid, out var target))
-        {
-            Log.Error($"Missing components for {uid}.");
-            args.Cancelled = true;
-            return;
-        }
+        var target = Comp<TargetObjectiveComponent>(ent);
 
         // Target already assigned
         if (target.Target != null)
         {
-            Log.Error($"Target already assigned for {uid}.");
+            Log.Error($"Target already assigned for {ToPrettyString(ent)}");
             args.Cancelled = true;
             return;
         }
@@ -53,22 +49,20 @@ public sealed class KillFellowTraitorObjectiveSystem : EntitySystem
         {
             // check reputation first
             var reputation = _reputation.GetMindReputation(traitor.Id) ?? 0;
-            if (reputation < comp.MinReputation)
+            if (reputation < ent.Comp.MinReputation)
                 continue;
 
-            var valid = true;
-            // Going through each of OUR objectives.
-            foreach (var objective in args.Mind.Objectives)
+            // then see if they have enough contracts
+            if (ent.Comp.MinContracts > 0)
             {
-                // If one of OUR objectives already targets a traitor, don't add it to the list.
-                if (TryComp<TargetObjectiveComponent>(objective, out var targetComp) && targetComp.Target == traitor.Id)
-                {
-                    valid = false;
-                    break;
-                }
+                var pda = CompOrNull<MindReputationComponent>(traitor.Id)?.Pda;
+                var contracts = CompOrNull<ContractsComponent>(pda)?.Objectives
+                    .Count(o => o != null) ?? 0;
+                if (contracts < ent.Comp.MinContracts)
+                    continue;
             }
-            if (valid)
-                _validMinds.Add(traitor.Id);
+
+            _validMinds.Add(traitor.Id);
         }
 
         // No other traitors
@@ -78,6 +72,6 @@ public sealed class KillFellowTraitorObjectiveSystem : EntitySystem
             return;
         }
 
-        _target.SetTarget(uid, _random.Pick(_validMinds), target);
+        _target.SetTarget(ent, _random.Pick(_validMinds), target);
     }
 }

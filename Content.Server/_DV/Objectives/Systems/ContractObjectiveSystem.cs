@@ -64,6 +64,17 @@ public sealed class ContractObjectiveSystem : SharedContractObjectiveSystem
         }
     }
 
+    /// <summary>
+    /// Look up an objective's stored pda and try to fail it.
+    /// </summary>
+    public bool TryFailContract(Entity<ContractObjectiveComponent?> objective)
+    {
+        return Resolve(objective, ref objective.Comp) &&
+            objective.Comp.Pda is {} pda &&
+            TryComp<ContractsComponent>(pda, out var comp) &&
+            _reputation.TryFailContract((pda, comp), objective);
+    }
+
     public override string ContractName(EntityUid objective)
     {
         var title = base.ContractName(objective);

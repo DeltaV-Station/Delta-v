@@ -132,7 +132,7 @@
     # if ce flies a shittle to centcom you better find a way onto it
     requireDead: true
   - type: ContractObjective # DeltaV
-    reputaton: 20
+    reputation: 20
     payment: 10
   - type: ReputationCondition # DeltaV
     reputation: 80
@@ -160,9 +160,6 @@
   - type: TargetObjective
     title: objective-condition-other-traitor-progress-title
   - type: RandomTraitorProgress
-  - type: ContractObjective # DeltaV
-    reputation: 5
-    payment: 4
 
 # steal
 
