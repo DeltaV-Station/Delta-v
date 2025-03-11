@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: You can use emotes while sleeping to enhance narcoleptic RP.
-    type: Tweak
-  id: 640
-  time: '2024-11-03T15:33:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2084
 - author: deltanedas
   changes:
   - message: You can no longer eat brains, they aren't allowed to remember who killed
@@ -3949,3 +3942,16 @@
   id: 1139
   time: '2025-03-11T15:23:27.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3166
+- author: dffdff2423, Aquif, MilonPL, sowelipililimute, Lyndomen
+  changes:
+  - message: You can now create medical, security, and employment records in the character
+      editor. They can be accessed in game from their respective consoles. Ported
+      from Cosmatic Drift with love.
+    type: Add
+  - message: The station records console is now the employment records console. Please
+      use the security/criminal records console to match DNA/Fingerprints. Ported
+      from Cosmatic Drift with appreciation.
+    type: Tweak
+  id: 1140
+  time: '2025-03-11T15:34:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2236
