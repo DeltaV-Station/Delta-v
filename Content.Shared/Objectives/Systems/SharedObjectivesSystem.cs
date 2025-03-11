@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._DV.Reputation; // DeltaV
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Random; // DeltaV
@@ -14,6 +15,7 @@ public abstract class SharedObjectivesSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly ReputationSystem _reputation = default!; // DeltaV
 
     private EntityQuery<MetaDataComponent> _metaQuery;
 
@@ -46,6 +48,16 @@ public abstract class SharedObjectivesSystem : EntitySystem
                 if (_metaQuery.GetComponent(objective).EntityPrototype?.ID == proto)
                     return false;
             }
+            // Begin DeltaV Additions - check available contracts too
+            if (_reputation.GetMindContracts(mindId) is {} contracts)
+            {
+                foreach (var objective in contracts.Comp.Offerings)
+                {
+                    if (objective is {} obj && _metaQuery.Comp(obj).EntityPrototype?.ID == proto)
+                        return false;
+                }
+            }
+            // End DeltaV Additions
         }
 
         return true;

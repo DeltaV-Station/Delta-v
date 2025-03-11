@@ -12,6 +12,7 @@ public sealed class AssistRandomContractSystem : EntitySystem
     [Dependency] private readonly ContractObjectiveSystem _contractObjective = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly ReputationSystem _reputation = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
 
     private List<EntityUid> _available = new();
@@ -32,12 +33,11 @@ public sealed class AssistRandomContractSystem : EntitySystem
         if (!_target.GetTarget(ent, out var target))
             return;
 
-        if (Comp<MindReputationComponent>(target.Value).Pda is not {} pda)
+        if (_reputation.GetMindContracts(target.Value) is not {} contracts)
             return;
 
-        var contracts = Comp<ContractsComponent>(pda);
         _available.Clear();
-        foreach (var obj in contracts.Objectives)
+        foreach (var obj in contracts.Comp.Objectives)
         {
             if (obj is {} uid)
                 _available.Add(uid);

@@ -297,6 +297,20 @@ public sealed class ReputationSystem : EntitySystem
     }
 
     /// <summary>
+    /// Get the contracts pda for a mind, if it exists.
+    /// </summary>
+    public Entity<ContractsComponent>? GetMindContracts(EntityUid mindId)
+    {
+        if (CompOrNull<MindReputationComponent>(mindId)?.Pda is not {} pda)
+            return null;
+
+        if (!TryComp<ContractsComponent>(pda, out var comp))
+            return null;
+
+        return (pda, comp);
+    }
+
+    /// <summary>
     /// Gets the reputation for a mind, null if it had no <see cref="ContractsComponent"/>.
     /// </summary>
     public int? GetMindReputation(EntityUid mindId)
@@ -321,10 +335,8 @@ public sealed class ReputationSystem : EntitySystem
     public bool GiveMindReputation(EntityUid mindId, int amount)
     {
         return amount != 0 &&
-            TryComp<MindReputationComponent>(mindId, out var mind) &&
-            mind.Pda is {} pda &&
-            TryComp<ContractsComponent>(pda, out var comp) &&
-            GiveReputation((pda, comp), amount);
+            GetMindContracts(mindId) is {} contracts &&
+            GiveReputation(contracts, amount);
     }
 
     public bool GiveReputation(Entity<ContractsComponent> ent, int amount)
