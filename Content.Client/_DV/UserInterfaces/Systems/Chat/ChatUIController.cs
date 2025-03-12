@@ -13,8 +13,6 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
 {
     [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
 
-    public event Action<string>? HighlightsUpdated;
-
     /// <summary>
     ///     A list of words to be highlighted in the chatbox.
     ///     User-specified.
@@ -98,8 +96,9 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
 
         _highlights.Clear();
         // Use `"` as layman symbol for Regex `\b`, ignore all other special sequences
-        // (Without the escape, a name like `Robert'); DROP TABLE users; --` breaks all messsages)
-        _highlights.AddRange(allHighlights.Select(highlight => Regex.Escape(highlight).Replace("\"", "\\b")));
+        // (Without that escape, a name like `Robert'); DROP TABLE users; --` breaks all messsages)
+        // Turn `\` into `\\` or else it'll escape the tags inside the actual chat message for reasons I can barely intuit but not explain. 
+        _highlights.AddRange(allHighlights.Select(highlight => Regex.Escape(highlight.Replace(@"\", @"\\")).Replace("\"", "\\b")));
 
         // Arrange the list in descending order so that when highlighting,
         // the full word (eg. "Security") appears before the abbreviation (eg. "Sec").

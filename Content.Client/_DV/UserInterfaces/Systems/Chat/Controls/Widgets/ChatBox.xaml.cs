@@ -6,9 +6,4 @@ public partial class ChatBox
     {
         _controller.UpdateHighlights(highlights);
     }
-
-    private void OnHighlightsReceived(string highlights)
-    {
-        ChatInput.FilterButton.Popup.SetHighlights(highlights);
-    }
 }

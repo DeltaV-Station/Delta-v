@@ -39,7 +39,6 @@ public partial class ChatBox : UIWidget
         ChatInput.FilterButton.Popup.OnNewHighlights += OnNewHighlights; // DeltaV - Message highlighting
         _controller = UserInterfaceManager.GetUIController<ChatUIController>();
         _controller.MessageAdded += OnMessageAdded;
-        _controller.HighlightsUpdated += OnHighlightsReceived; // DeltaV - Message highlighting
         _controller.RegisterChat(this);
     }
 
