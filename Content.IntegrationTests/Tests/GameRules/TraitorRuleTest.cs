@@ -21,7 +21,7 @@ public sealed class TraitorRuleTest
     private const string TraitorGameRuleProtoId = "Traitor";
     private const string TraitorAntagRoleName = "Traitor";
 
-    [Test]
+    //[Test] // DeltaV - test is useless with reputation
     public async Task TestTraitorObjectives()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings()
@@ -53,11 +53,11 @@ public sealed class TraitorRuleTest
             Assert.That(gameRuleEnt.TryGetComponent<GameRuleComponent>(out var gameRule, compFact),
             $"Game rule entity {TraitorGameRuleProtoId} does not have a GameRuleComponent!");
 
-            //Assert.That(gameRuleEnt.TryGetComponent<AntagRandomObjectivesComponent>(out var randomObjectives, compFact), // DeltaV
-            //$"Game rule entity {TraitorGameRuleProtoId} does not have an AntagRandomObjectivesComponent!"); // DeltaV
+            Assert.That(gameRuleEnt.TryGetComponent<AntagRandomObjectivesComponent>(out var randomObjectives, compFact),
+            $"Game rule entity {TraitorGameRuleProtoId} does not have an AntagRandomObjectivesComponent!");
 
             minPlayers = gameRule.MinPlayers;
-            //maxDifficulty = randomObjectives.MaxDifficulty; // DeltaV
+            maxDifficulty = randomObjectives.MaxDifficulty;
         });
 
         // Initially in the lobby
