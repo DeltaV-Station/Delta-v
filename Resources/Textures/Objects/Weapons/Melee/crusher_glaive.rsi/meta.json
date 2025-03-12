@@ -6,29 +6,29 @@
     "x": 32,
     "y": 32
   },
-    "states": [
-        {
-          "name": "icon"
-        },
-        {
-          "name": "icon-lit"
-        },
-        {
-          "name": "equipped-BACKPACK",
-          "directions": 4
-        },
-        {
-          "name": "equipped-SUITSTORAGE",
-          "directions": 4
-        },
-        {
-          "name": "icon-uncharged",
-          "delays": [
-                [
-                    0.3,
-                    0.3
-                ]
-            ]
-        }
-    ]
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-lit"
+    },
+    {
+      "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+    {
+      "name": "equipped-SUITSTORAGE",
+      "directions": 4
+    },
+    {
+      "name": "icon-uncharged",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    }
+  ]
 }
