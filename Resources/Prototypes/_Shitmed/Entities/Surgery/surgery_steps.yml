@@ -356,6 +356,7 @@
     state: scalpel
   - type: SurgeryStepEmoteEffect
   - type: SurgeryDamageChangeEffect # DeltaV
+    sleepModifier: 0
     damage:
       types:
         Slash: 4

@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/04/2025 21:47:37
-  entityCount: 16131
+  time: 03/08/2025 12:48:57
+  entityCount: 16130
 maps:
 - 1
 grids:
@@ -7038,7 +7038,7 @@ entities:
       pos: 18.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -237616.28
+      secondsUntilStateChange: -237647.84
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -38031,7 +38031,7 @@ entities:
       pos: 31.5,-36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -71807.75
+      secondsUntilStateChange: -71839.305
       state: Closing
   - uid: 5409
     components:
@@ -45838,13 +45838,6 @@ entities:
     components:
     - type: Transform
       pos: -37.5,-39.5
-      parent: 2
-- proto: GasMinerOxygen
-  entities:
-  - uid: 16086
-    components:
-    - type: Transform
-      pos: -37.5,-41.5
       parent: 2
 - proto: GasMixer
   entities:
@@ -83133,6 +83126,13 @@ entities:
     - type: Transform
       pos: 36.5,5.5
       parent: 2
+- proto: SentientSmileCore
+  entities:
+  - uid: 16123
+    components:
+    - type: Transform
+      pos: -27.5,-17.5
+      parent: 2
 - proto: ServiceTechFab
   entities:
   - uid: 479
@@ -86335,13 +86335,6 @@ entities:
     components:
     - type: Transform
       pos: -31.5,-7.5
-      parent: 2
-- proto: SpawnMobSmile
-  entities:
-  - uid: 16123
-    components:
-    - type: Transform
-      pos: -27.5,-17.5
       parent: 2
 - proto: SpawnPointAdminAssistant
   entities:
