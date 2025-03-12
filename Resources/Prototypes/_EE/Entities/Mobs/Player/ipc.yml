@@ -66,6 +66,10 @@
       60: 0.7
       80: 0.5 # DeltaV - was 90
       100: 0.3 # DeltaV - was 120, which is irrelvant?
+  - type: DamageOnDrag # DeltaV - damage on dragging downed people
+    damage:
+      groups:
+        Brute: 0.8
   - type: SiliconDownOnDead
   - type: Speech
   - type: Deathgasp

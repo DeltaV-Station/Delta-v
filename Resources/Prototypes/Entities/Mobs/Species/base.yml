@@ -256,6 +256,13 @@
         Heat: -0.07
       groups:
         Brute: -0.07
+  - type: DamageOnDrag # DeltaV - damage on dragging downed people
+    damage:
+      groups:
+        Brute: 0.8
+    bleeding:
+      types:
+        Poison: 0.2
   - type: Fingerprint
   - type: Blindable
   # Other
