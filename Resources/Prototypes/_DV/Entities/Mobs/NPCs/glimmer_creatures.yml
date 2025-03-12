@@ -134,12 +134,13 @@
   # combat
   - type: Gun
     fireRate: 0.7
+    burstFireRate: 3
     soundGunshot:
       collection: MagicMissile
     showExamineText: false
-    selectedMode: SemiAuto
+    selectedMode: Burst
     availableModes:
-    - SemiAuto
+    - Burst
   - type: HitscanBatteryAmmoProvider
     proto: WispLash
     fireCost: 1
