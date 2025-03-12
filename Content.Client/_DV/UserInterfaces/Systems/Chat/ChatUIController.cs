@@ -1,10 +1,10 @@
 using System.Linq;
+using System.Text.RegularExpressions;
 using Content.Client.CharacterInfo;
 using Content.Shared._DV.CCVars;
 using Content.Shared.Dataset;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
-using Robust.Shared.Prototypes;
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
 
 namespace Content.Client.UserInterface.Systems.Chat;
