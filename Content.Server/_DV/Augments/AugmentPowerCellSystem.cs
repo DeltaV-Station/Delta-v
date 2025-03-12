@@ -87,10 +87,12 @@ public sealed class AugmentPowerCellSystem : EntitySystem
             if (_mobState.IsDead(owner))
                 continue;
 
-            if (TryGetAugmentPowerCell(owner) is not (var augment, var battery))
+            var powerCell = TryGetAugmentPowerCell(owner);
+            if (powerCell is null) // tuples + nested nullable = hell for pattern matching so break it down
                 continue;
+            var augment = powerCell!.Value.Organ;
 
-            if (battery is not {} insertedBattery)
+            if (powerCell!.Value.Battery is not {} insertedBattery)
             {
                 if (_alerts.IsShowingAlert(owner, augment.Comp1.BatteryAlert))
                 {

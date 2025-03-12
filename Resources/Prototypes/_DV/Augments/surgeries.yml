@@ -127,7 +127,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
-    requirement: SurgeryOpenRibcage
+    requirement: SurgeryOpenIncision
     steps:
     - SurgeryStepSawBones
     - SurgeryStepOpenOrganSlot

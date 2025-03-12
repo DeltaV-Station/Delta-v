@@ -15,7 +15,7 @@
   description: Can be implanted into a body to provide power to other implants. This one is incomplete.
   components:
   - type: Sprite
-    sprite: _DV/Objects/Augments/Power.rsi
+    sprite: _DV/Objects/Augments/power.rsi
     state: incomplete_cell
   - type: Construction
     graph: CreatePowerCellAugment
@@ -31,20 +31,20 @@
   description: Can be implanted into a body to provide power to other implants. This one is incomplete.
   components:
   - type: Sprite
-    sprite: _DV/Objects/Augments/Power.rsi
+    sprite: _DV/Objects/Augments/power.rsi
     state: incomplete_cell_cables
   - type: Construction
     graph: CreatePowerCellAugment
     node: cables
 
 - type: entity
-  parent: BaseItem
+  parent: BaseAugment
   id: AugmentPowerCellSlot
   name: augment power cell slot
   description: Can be implanted into a body to provide power to other implants.
   components:
   - type: Sprite
-    sprite: _DV/Objects/Augments/Power.rsi
+    sprite: _DV/Objects/Augments/power.rsi
     state: cell
   - type: Organ
     slotId: powerCell
@@ -65,13 +65,13 @@
         name: power-cell-slot-component-slot-name-default
 
 - type: entity
-  parent: BaseItem
+  parent: BaseAugment
   id: AugmentBaseCharger
   name: base charger augment
   abstract: true
   components:
   - type: Sprite
-    sprite: _DV/Objects/Augments/Power.rsi
+    sprite: _DV/Objects/Augments/power.rsi
     state: cell
   - type: Organ
     slotId: charger
@@ -84,7 +84,7 @@
   description: Can be implanted into a body to recharge an internal power cell. This one is incomplete.
   components:
   - type: Sprite
-    sprite: _DV/Objects/Augments/Power.rsi
+    sprite: _DV/Objects/Augments/power.rsi
     state: incomplete_charger
   - type: Construction
     graph: CreatePowerCellChargerAugment
@@ -99,7 +99,7 @@
   description: Can be implanted into a body to recharge an internal power cell. This one is incomplete.
   components:
   - type: Sprite
-    sprite: _DV/Objects/Augments/Power.rsi
+    sprite: _DV/Objects/Augments/power.rsi
     state: incomplete_charger_cables
   - type: Construction
     graph: CreatePowerCellChargerAugment
@@ -112,7 +112,6 @@
   description: Allows the implantee to recharge their power cell via APCs.
   components:
   - type: Sprite
-    sprite: _DV/Objects/Augments/Power.rsi
     state: apc
   - type: Organ
     onAdd:
@@ -128,7 +127,6 @@
   description: Allows the implantee to recharge their power cell via cyborg recharging stations.
   components:
   - type: Sprite
-    sprite: _DV/Objects/Augments/Power.rsi
     state: station
   - type: Organ
     onAdd:

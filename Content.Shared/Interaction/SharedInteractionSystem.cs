@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Body.Organ; // DeltaV - allow organs to have interactible UIs
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.CombatMode;
@@ -1279,23 +1278,8 @@ namespace Content.Shared.Interaction
             if (_containerSystem.IsInSameOrParentContainer(user, target, out _, out var container))
                 return true;
 
-            // Begin DeltaV - allow organs to have interactible UIs
-            if (IsOrganInUser(user, target))
-                return true;
-            // End DeltaV - allow organs to have interactible UIs
-
             return container != null && CanAccessViaStorage(user, target, container);
         }
-
-        // Begin DeltaV - allow organs to have interactible UIs
-        private bool IsOrganInUser(EntityUid user, EntityUid target)
-        {
-            if (!TryComp<OrganComponent>(target, out var organ))
-                return false;
-
-            return organ.Body == user;
-        }
-        // End DeltaV - allow organs to have interactible UIs
 
         /// <summary>
         ///     If a target is in range, but not in the same container as the user, it may be inside of a backpack. This
