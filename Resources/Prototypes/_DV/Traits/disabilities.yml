@@ -38,3 +38,11 @@
   traitGear: PillCanisterNeurozenium
   category: Disabilities
   components: []
+
+- type: trait
+  id: Dysgraphia
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-desc
+  category: Disabilities
+  components:
+  - type: BlockWriting
