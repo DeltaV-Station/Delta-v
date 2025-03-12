@@ -7,6 +7,7 @@
   - ClothingUniformCourier
   - ClothingUniformSkirtCourier
   # QM
+  - ClothingHeadHatBeretLogi
   - ClothingUniformJumpskirtQMFormal
   # Salvage
   - ClothingUniformJumpskirtSalvageSpecialist
@@ -14,13 +15,21 @@
 - type: latheRecipePack
   id: ClothingCommandDeltaV
   recipes:
+  # Captain
+  - ClothingHeadHatBeretCap
   # HoP
   - ClothingUniformJumpsuitHoPFormal
   - ClothingUniformJumpskirtHoPFormal
+  # Administrative Assistant
+  - ClothingUniformJumpsuitAdminAssistant
+  - ClothingUniformJumpskirtAdminAssistant
 
 - type: latheRecipePack
   id: ClothingEpistemics
   recipes:
+  # Mystagogue
+  - ClothingHeadHatBeretMysta
+  - ClothingHeadHoodMysta
   # Psionic Mantis
   - ClothingUniformJumpsuitMantis
   - ClothingUniformSkirtMantis
@@ -45,6 +54,13 @@
   - ClothingUniformJumpsuitChiefJusticeFormal
   - ClothingUniformJumpskirtCJFormal
   - ClothingUniformJumpsuitChiefJusticeWhite
+  # Clerk
+  - ClothingUniformJumpsuitClerk
+  - ClothingUniformJumpskirtClerk
+  - ClothingOuterClerkVest
+  # Prosecutor
+  - ClothingUniformJumpsuitProsecutor
+  - ClothingUniformJumpskirtProsecutor
 
 - type: latheRecipePack
   id: ClothingSecurityDeltaV
@@ -59,6 +75,8 @@
   - ClothingUniformJumpskirtSecBlue
   - ClothingUniformJumpsuitSecGrey
   - ClothingUniformJumpskirtSecGrey
+  - ClothingUniformJumpsuitSecSenior
+  - ClothingUniformJumpskirtSecSenior
   # Warden
   - ClothingUniformJumpsuitWardenBlue
   - ClothingUniformJumpskirtWardenBlue
@@ -67,6 +85,7 @@
   # Prison Guard
   - ClothingUniformJumpsuitPrisonGuard
   - ClothingUniformJumpskirtPrisonGuard
+  - ClothingHeadPrisonGuard
 
 - type: latheRecipePack
   id: WinterCoatsDeltaV
@@ -74,6 +93,7 @@
   # Coats
   - ClothingOuterChiefJustice
   - ClothingOuterStasecSweater
+  - ClothingOuterWinterLongMime
   # Ponchos
   - ClothingNeckCWPSec
   - ClothingNeckCWPArctic
@@ -82,6 +102,15 @@
   id: BeltsDeltaV
   recipes:
   - ClothingBeltPaperwork
+
+- type: latheRecipePack
+  id: ClothingCentcommDeltaV
+  recipes:
+  - ClothingHeadHatBeretCentcomm
+  - ClothingUniformJumpskirtCentcomAgent
+  - ClothingUniformJumpskirtCentcomOfficer
+  - ClothingUniformJumpskirtCentcomOfficial
+  - ClothingHeadHatBeretCentcomm
 
 - type: latheRecipePack
   id: ClothingSyndieDeltaV

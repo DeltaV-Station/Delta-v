@@ -18,6 +18,13 @@
     Piercing: 1.15
 
 - type: damageModifierSet
+  id: Feroxi
+  coefficients:
+    Cold: 0.9
+    Blunt: 0.9
+    Slash: 1.1
+
+- type: damageModifierSet
   id: StorageTank
   coefficients:
     Blunt: 0.7
@@ -39,3 +46,20 @@
     Cold: 1.1
     Shock: 1.15
     Radiation: 0.2
+
+# Represents which damage types should be modified
+# in relation to how they cause bleed rate.
+- type: damageModifierSet
+  id: BloodlossIPC
+  coefficients:
+    Blunt: 0.00 # no evil doublestack damage
+    Slash: 0.25
+    Piercing: 0.2
+    Shock: 0.0
+    Heat: -0.5 # heat damage cauterizes wounds, but will still hurt obviously.
+    Poison: 0.0
+    Radiation: 0.0
+    Asphyxiation: 0.0
+    Bloodloss: 0.0
+    Cellular: 0.0
+    Caustic: 0.0

@@ -27,3 +27,9 @@ chat-speech-verb-chitinid-1 = clicks
 chat-speech-verb-chitinid-2 = chitters
 chat-speech-verb-chitinid-3 = hisses
 chat-speech-verb-chitinid-4 = buzzes
+
+chat-speech-verb-name-feroxi = Feroxi
+chat-speech-verb-feroxi-1 = blubs
+chat-speech-verb-feroxi-2 = swishes
+chat-speech-verb-feroxi-3 = gnashes
+chat-speech-verb-feroxi-4 = growls

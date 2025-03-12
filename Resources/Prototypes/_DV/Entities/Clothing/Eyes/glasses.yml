@@ -14,7 +14,7 @@
         Caustic: 0.85
 
 - type: entity
-  parent: [ClothingEyesBase, ShowMedicalIcons, BaseRestrictedContraband]
+  parent: [ClothingEyesBase, ShowMedicalIcons, BaseSecurityContraband]
   id: ClothingEyesGlassesCorpsman
   name: corpsman glasses
   description: Security glasses designed for the Corpsman for medical needs. Now with a cool blue hue*
@@ -57,7 +57,7 @@
     coverage: EYES
 
 - type: entity
-  parent: [ClothingEyesPrescriptionBaseSecGlasses, ShowSecurityIcons, BaseRestrictedContraband]
+  parent: [ClothingEyesPrescriptionBaseSecGlasses, ShowSecurityIcons, BaseSecurityContraband]
   id: ClothingEyesPrescriptionSecurityGlasses
   name: prescription security glasses
   description: A pair of security glasses with what appears to be a... prescription lens glued on top?
@@ -71,7 +71,7 @@
     sprite: _DV/Clothing/Eyes/Glasses/prescsecglasses.rsi
 
 - type: entity
-  parent: [ClothingEyesPrescriptionBaseSecGlasses, ShowMedicalIcons, BaseRestrictedContraband]
+  parent: [ClothingEyesPrescriptionBaseSecGlasses, ShowMedicalIcons, BaseSecurityContraband]
   id: ClothingEyesPrescriptionCorpsmanGlasses
   name: prescription corpsman glasses
   description: A pair of corpsman glasses with what appears to be a... prescription lens glued on top?

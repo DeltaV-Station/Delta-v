@@ -75,7 +75,7 @@
   id: SecurityEquipment
   recipes:
   - ClothingBackpackElectropack
-  - HoloprojectorSecurity
+  #- HoloprojectorSecurity # DeltaV - made roundstart
   - PortableRecharger
   - PowerCageHigh
   - PowerCageMedium
@@ -137,10 +137,14 @@
   - SecurityWeaponsDeltaV # DeltaV
   id: SecurityWeapons
   recipes:
-  - Truncheon
+  #- Truncheon # DeltaV - made roundstart
   - WeaponAdvancedLaser
-  #- WeaponDisabler # DeltaV - made roundstart
-  - WeaponDisablerSMG
   - WeaponLaserCannon
   - WeaponLaserCarbine
   - WeaponXrayCannon
+
+- type: latheRecipePack
+  id: SecurityDisablers
+  recipes:
+  - WeaponDisabler
+  - WeaponDisablerSMG

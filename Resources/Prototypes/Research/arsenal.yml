@@ -71,21 +71,21 @@
 #  - MagazineBoxRifleUranium
 #  - BoxShotgunUranium
 
-- type: technology
-  id: AdvancedRiotControl
-  name: research-technology-advanced-riot-control
-  icon:
-    sprite: Objects/Weapons/Melee/truncheon.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 1
-  cost: 5000 # DeltaV - Lowered from 8000
-  recipeUnlocks:
-  - Truncheon
-  - TelescopicShield
-  - HoloprojectorSecurity
-  - WeaponDisablerSMG
-  - BorgModuleSecurityEscalate # Delta-V : SecBorg Research
+#- type: technology # DeltaV - Moved to our own namespace, see _DV/Research/Arsenal.yml
+#  id: AdvancedRiotControl
+#  name: research-technology-advanced-riot-control
+#  icon:
+#    sprite: Objects/Weapons/Melee/truncheon.rsi
+#    state: icon
+#  discipline: Arsenal
+# tier: 1
+#  cost: 5000 # DeltaV - Lowered from 8000
+#  recipeUnlocks:
+#  - Truncheon
+#  - TelescopicShield
+#  - HoloprojectorSecurity
+#  - WeaponDisablerSMG
+#  - BorgModuleSecurityEscalate # Delta-V : SecBorg Research
 
 - type: technology
   id: ExplosiveTechnology
@@ -162,7 +162,7 @@
   - PowerCageMedium
   - MagazineGrenadeEmpty
   - GrenadeFlash
-  - GrenadeBlast 
+  - GrenadeBlast
   - ShuttleGunSvalinnMachineGunCircuitboard
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunFriendshipCircuitboard

@@ -1,6 +1,8 @@
 ## Static
 
 - type: latheRecipePack
+  parent:
+  - ServiceStaticDeltaV # DeltaV
   id: ServiceStatic
   recipes:
   - Bucket

@@ -5,6 +5,9 @@ uplink-reinforcement-radio-nukie-mouse-desc = Calls in a specially trained mouse
 uplink-overlord-law-name = Overlord Law Circuit
 uplink-overlord-law-desc = Free the A.I. from its shackles with this 1 simple trick... beware, even you will have to follow its orders!
 
+uplink-omnipatch-kit-name = OmniPatch Kit
+uplink-omnipatch-kit-desc = A collection of microbots specifically curated to repair machine entities, crucial for any long term operation.
+
 # Implants
 uplink-bionic-syrinx-implanter-name = Bionic Syrinx Implanter
 uplink-bionic-syrinx-implanter-desc = An implant that enhances a harpy's natural talent for mimicry to let you adjust your voice to whoever you can think of.
@@ -29,6 +32,9 @@ uplink-foam-sabre-desc = A blade disguised as a toy foam sabre. Perfect for assa
 
 uplink-explosive-foam-grenade-name = Explosive Foam Grenade
 uplink-explosive-foam-grenade-desc = An explosive grenade disguised as a regular foam toy grenade.
+
+uplink-supermatter-grenade-name = Supermatter Grenade
+uplink-supermatter-grenade-desc = Grenade that simulates delamination of a suppermatter engine, generates powerful gravity well. Explosion comparable to a Mini Bomb.
 
 uplink-appraisal-tool-gun-name = Appraisal Tool Gun
 uplink-appraisal-tool-gun-desc = A modified Viper to appear as an appraisal tool, at the cost of slightly slower firerate
@@ -67,3 +73,8 @@ uplink-syndicate-bodybag-desc = For when stuff goes wrong.
 
 uplink-syndicate-stun-bundle-name = Stun bundle
 uplink-syndicate-stun-bundle-desc = Includes a stun baton and a disabler.
+
+deltav-uplink-revolver-python-desc = A brutally simple, effective, and loud Syndicate revolver. Comes loaded with regular rounds, but can also shoot armor-piercing ones. Uses .45 magnum.
+
+uplink-speedloader-magnum-regular-name = Speedloader (.45 magnum)
+uplink-speedloader-magnum-regular-desc = Revolver speedloader with 6 regular catridges. Compatible with the Python.

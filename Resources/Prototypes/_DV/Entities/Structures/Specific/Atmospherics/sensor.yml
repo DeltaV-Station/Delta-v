@@ -1,0 +1,19 @@
+# put this in a burn chamber or something you don't want to have show up as dangerous
+- type: entity
+  parent: AirSensor
+  id: AirSensorUnset
+  suffix: Unset
+  components:
+  - type: AtmosMonitor
+    temperatureThresholdId: ignore
+    pressureThresholdId: ignore
+    gasThresholdPrototypes:
+      Oxygen: ignore
+      Nitrogen: ignore
+      CarbonDioxide: ignore
+      Plasma: ignore
+      Tritium: ignore
+      WaterVapor: ignore
+      Ammonia: ignore
+      NitrousOxide: ignore
+      Frezon: ignore

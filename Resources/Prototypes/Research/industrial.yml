@@ -66,9 +66,15 @@
   tier: 1
   cost: 10000
   recipeUnlocks:
-  - AutolatheHyperConvectionMachineCircuitboard
-  - ProtolatheHyperConvectionMachineCircuitboard
-  - CircuitImprinterHyperConvectionMachineCircuitboard
+  # Begin DeltaV Removals - replaced by upgrade kits + departmental techfabs
+  #- AutolatheHyperConvectionMachineCircuitboard
+  #- ProtolatheHyperConvectionMachineCircuitboard
+  #- CircuitImprinterHyperConvectionMachineCircuitboard
+  # End DeltaV Removals
+  # Begin DeltaV Additions
+  - LatheUpgradeKitHyper
+  - LatheUpgradeKitCryo
+  # End DeltaV Additions
   - SheetifierMachineCircuitboard
 
 - type: technology
@@ -169,6 +175,8 @@
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool
+    #- Fulton # DeltaV - seperate tech Aerial Extraction
+    #- FultonBeacon # DeltaV - seperate tech Aerial Extraction
 
 - type: technology
   id: MassExcavation

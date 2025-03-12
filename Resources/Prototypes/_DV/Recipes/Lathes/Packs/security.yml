@@ -6,6 +6,7 @@
   - ClothingNeckShockCollar
   - ClothingOuterArmorPlateCarrier # plate carrier body armour
   - ClothingOuterArmorDuraVest # stabproof vest body armour
+  - HoloprojectorSecurity
 
 - type: latheRecipePack
   id: SecurityPracticeStaticDeltaV
@@ -23,7 +24,6 @@
   - BoxBeanbag
   - BoxShellTranquilizer
   - MagazineShotgunBeanbag
-  - WeaponDisabler
 
 - type: latheRecipePack
   id: SecurityRubberAmmoStatic
@@ -40,9 +40,10 @@
   - MagazineBoxSpecialRubber
 
 - type: latheRecipePack
+  parent: SecurityDisablers
   id: SecurityWeaponsStaticDeltaV
   recipes:
-  - WeaponDisabler
+  - Truncheon
 
 ## Dynamic
 
