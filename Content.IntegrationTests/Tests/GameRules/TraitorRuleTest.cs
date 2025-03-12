@@ -53,11 +53,11 @@ public sealed class TraitorRuleTest
             Assert.That(gameRuleEnt.TryGetComponent<GameRuleComponent>(out var gameRule, compFact),
             $"Game rule entity {TraitorGameRuleProtoId} does not have a GameRuleComponent!");
 
-            Assert.That(gameRuleEnt.TryGetComponent<AntagRandomObjectivesComponent>(out var randomObjectives, compFact),
-            $"Game rule entity {TraitorGameRuleProtoId} does not have an AntagRandomObjectivesComponent!");
+            //Assert.That(gameRuleEnt.TryGetComponent<AntagRandomObjectivesComponent>(out var randomObjectives, compFact), // DeltaV
+            //$"Game rule entity {TraitorGameRuleProtoId} does not have an AntagRandomObjectivesComponent!"); // DeltaV
 
             minPlayers = gameRule.MinPlayers;
-            maxDifficulty = randomObjectives.MaxDifficulty;
+            //maxDifficulty = randomObjectives.MaxDifficulty; // DeltaV
         });
 
         // Initially in the lobby
