@@ -188,4 +188,13 @@ public sealed class DCCVars
     /// </summary>
     public static readonly CVarDef<float> RansomDeadModifier =
         CVarDef.Create("game.ransom.dead_modifier", 0.2f, CVar.REPLICATED);
+
+    /* Laying down combat */
+
+    /// <summary>
+    /// Modifier to apply to all melee attacks when laying down.
+    /// Don't increase this above 1...
+    /// </summary>
+    public static readonly CVarDef<float> LayingDownMeleeMod =
+        CVarDef.Create("game.laying_down_melee_mod", 0.25f, CVar.REPLICATED);
 }

@@ -1,42 +1,6 @@
 ﻿Entries:
 - author: Radezolid
   changes:
-  - message: You can use emotes while sleeping to enhance narcoleptic RP.
-    type: Tweak
-  id: 640
-  time: '2024-11-03T15:33:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2084
-- author: deltanedas
-  changes:
-  - message: You can no longer eat brains, they aren't allowed to remember who killed
-      them anyway!
-    type: Tweak
-  id: 641
-  time: '2024-11-03T17:27:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2102
-- author: Radezolid
-  changes:
-  - message: Medibots now smile!
-    type: Tweak
-  id: 642
-  time: '2024-11-03T17:40:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2087
-- author: beck-thompson
-  changes:
-  - message: Syrinx implant now works correctly
-    type: Fix
-  id: 643
-  time: '2024-11-03T18:02:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2055
-- author: Monotheonist
-  changes:
-  - message: Changed Delta-V cartridges to tapes.
-    type: Tweak
-  id: 644
-  time: '2024-11-04T02:03:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2108
-- author: Radezolid
-  changes:
   - message: Added prescription security glasses and prescription corpsman glasses!
     type: Add
   id: 645
@@ -3949,3 +3913,44 @@
   id: 1139
   time: '2025-03-11T15:23:27.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3166
+- author: dffdff2423, Aquif, MilonPL, sowelipililimute, Lyndomen
+  changes:
+  - message: You can now create medical, security, and employment records in the character
+      editor. They can be accessed in game from their respective consoles. Ported
+      from Cosmatic Drift with love.
+    type: Add
+  - message: The station records console is now the employment records console. Please
+      use the security/criminal records console to match DNA/Fingerprints. Ported
+      from Cosmatic Drift with appreciation.
+    type: Tweak
+  id: 1140
+  time: '2025-03-11T15:34:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2236
+- author: KZhProgram
+  changes:
+  - message: MOTH CAN NOW EAT PILLS!! YIPPEEEEE
+    type: Add
+  id: 1141
+  time: '2025-03-11T21:06:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3199
+- author: deltanedas
+  changes:
+  - message: Fixed harpies being immune to anomaly infections.
+    type: Fix
+  id: 1142
+  time: '2025-03-11T22:06:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3201
+- author: KZhProgram
+  changes:
+  - message: Fixed feroxi not being able to eat prepackaged sustenance bars!
+    type: Fix
+  id: 1143
+  time: '2025-03-12T00:15:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3202
+- author: deltanedas
+  changes:
+  - message: Melee attacks made when laying down are much weaker.
+    type: Tweak
+  id: 1144
+  time: '2025-03-12T00:26:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3173
