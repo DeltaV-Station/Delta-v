@@ -266,18 +266,19 @@
     stock: 1
 
 # Event 
-#- type: listing # DeltaV - Commented out
-#  id: SpellbookEventSummonGhosts
-#  name: spellbook-event-summon-ghosts-name
-#  description: spellbook-event-summon-ghosts-description
-#  productAction: ActionSummonGhosts
-#  cost:
-#    WizCoin: 0
-#  categories:
-#  - SpellbookEvents
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
+- type: listing 
+  id: SpellbookEventSummonGhosts
+  name: spellbook-event-summon-ghosts-name
+  description: spellbook-event-summon-ghosts-description
+  productAction: ActionSummonGhosts
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
 
 #- type: listing # DeltaV - Commented out
 #  id: SpellbookEventSummonGuns
