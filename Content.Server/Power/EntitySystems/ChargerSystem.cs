@@ -11,7 +11,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Storage.Components;
 using Robust.Server.Containers;
 using Content.Shared.Whitelist;
-using Content.Server._DV.Augments;
+using Content.Server._DV.Augments; // DeltaV - bodies can have an augment power cell
 
 namespace Content.Server.Power.EntitySystems;
 
@@ -23,7 +23,7 @@ internal sealed class ChargerSystem : EntitySystem
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly AugmentPowerCellSystem _augments = default!;
+    [Dependency] private readonly AugmentPowerCellSystem _augments = default!; // DeltaV - bodies can have an augment power cell
 
     public override void Initialize()
     {

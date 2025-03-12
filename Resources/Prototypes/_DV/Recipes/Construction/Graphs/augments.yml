@@ -9,7 +9,7 @@
       - tag: AugmentCellCasing
         name: casing
         icon:
-          sprite: _DV/Objects/Augments/Power.rsi
+          sprite: _DV/Objects/Augments/power.rsi
           state: incomplete_cell
   - node: casing
     entity: AugmentPowerCellSlotCasing
@@ -39,7 +39,7 @@
       - tag: AugmentChargerCasing
         name: casing
         icon:
-          sprite: _DV/Objects/Augments/Power.rsi
+          sprite: _DV/Objects/Augments/power.rsi
           state: incomplete_charger
   - node: casing
     entity: AugmentRechargerCasing
@@ -81,7 +81,7 @@
       - tag: AugmentToolPanelCasing
         name: casing
         icon:
-          sprite: _DV/Objects/Augments/Arm.rsi
+          sprite: _DV/Objects/Augments/arm.rsi
           state: base
   - node: casing
     entity: AugmentToolPanelCasing
