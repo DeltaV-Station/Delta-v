@@ -122,7 +122,7 @@ namespace Content.Server.Nuke
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("totalIntensity")]
-        public float TotalIntensity = 100000;
+        public float TotalIntensity = 500000; #delta-V change, the nuke should hopefully actually destroy large stations now. - Solaris
 
         /// <summary>
         ///     Avoid somehow double-triggering this explosion.
