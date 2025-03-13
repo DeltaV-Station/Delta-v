@@ -303,16 +303,19 @@
   components:
   - type: RandomMetadata
     nameSegments:
-      - names_borg
+    - NamesBorg
   - type: NpcFactionMember
     factions:
     - NanoTrasen
   - type: Access
     enabled: false
     groups:
-    - AllAccessBorg
+    - AllAccessBorg # DeltaV
+    tags:
+    - Borg
   - type: AccessReader
     access: [["Command"], ["Research"]]
+    breakOnAccessBreaker: false # DeltaV - prevent emag metachecking by unlocking without an id
   - type: SlavedBorg # DeltaV: NT borgs are enslaved to the AI by default
     law: ObeyAI
   - type: ShowJobIcons
