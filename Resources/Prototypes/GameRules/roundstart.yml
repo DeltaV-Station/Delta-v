@@ -393,7 +393,7 @@
   components:
   - type: NextEvent # DeltaV: Queue Event for precognition
   - type: RampingStationEventScheduler
-    averageChaos: 6 # DeltaV
+    averageChaos: 5 # DeltaV
     averageEndTime: 180 # DeltaV
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
