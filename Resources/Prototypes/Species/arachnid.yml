@@ -8,9 +8,9 @@
   markingLimits: MobArachnidMarkingLimits
   dollPrototype: MobArachnidDummy
   skinColoration: Hues
-  maleFirstNames: names_arachnid_first
-  femaleFirstNames: names_arachnid_first
-  lastNames: names_arachnid_last
+  maleFirstNames: NamesArachnidFirst
+  femaleFirstNames: NamesArachnidFirst
+  lastNames: NamesArachnidLast
   sexes:
   - Unsexed
 
@@ -19,8 +19,8 @@
   sprites:
     Head: MobArachnidHead
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking # DeltaV
-    Undershirt: MobHumanoidAnyMarking # DeltaV
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobArachnidTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -65,14 +65,6 @@
     Chest:
       points: 1
       required: false
-    # Begin DeltaV changes.
-    Underwear:
-      points: 1
-      required: false
-    Undershirt:
-      points: 1
-      required: false
-    # End DeltaV changes.
     Legs:
       points: 6
       required: false
