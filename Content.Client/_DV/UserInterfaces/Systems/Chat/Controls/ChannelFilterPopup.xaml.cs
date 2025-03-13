@@ -21,13 +21,16 @@ public sealed partial class ChannelFilterPopup
 
         if (!string.IsNullOrEmpty(highlights))
         {
-            SetHighlights(highlights);
+            HighlightEdit.TextRope = new Rope.Leaf(highlights);
         }
     }
 
-    public void SetHighlights(string highlights)
+    public void SetAutoHighlights(string autoHighlights)
     {
-        HighlightEdit.TextRope = new Rope.Leaf(highlights);
+        var anyAutohighlights = !string.IsNullOrWhiteSpace(autoHighlights);
+        AutoHighlightEdit.Visible = anyAutohighlights;
+        AutoHighlightLabel.Visible = anyAutohighlights;
+        AutoHighlightEdit.TextRope = new Rope.Leaf(autoHighlights);
     }
 
     private void HighlightsEntered(ButtonEventArgs args)

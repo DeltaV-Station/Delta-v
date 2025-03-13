@@ -11,6 +11,12 @@ namespace Content.Client.UserInterface.Systems.Chat;
 
 public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSystem>
 {
+    /// <summary>
+    ///     Gets Invoked whenever the autofilled highlights have changed.
+    ///     Used to populate the preview in the channel selector window.
+    /// </summary>
+    public event Action<string>? OnAutoHighlightsUpdated;
+
     [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
 
     /// <summary>
@@ -84,11 +90,16 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
         var configuredHighlights = _config.GetCVar(DCCVars.ChatHighlights);
         var highlights = newHighlights ?? configuredHighlights;
         // Save the newly provided list of highlights if different.
-        if (newHighlights is not null && !configuredHighlights.Equals(highlights, StringComparison.CurrentCultureIgnoreCase))
+        if (newHighlights is not null && !string.Equals(configuredHighlights, highlights, StringComparison.CurrentCultureIgnoreCase))
         {
             _config.SetCVar(DCCVars.ChatHighlights, highlights);
             _config.SaveToFile();
         }
+
+        var effectiveAutoHighlights = _autoFillHighlightsEnabled
+            ? string.Join("\n", _autoHighlights)
+            : string.Empty;
+        OnAutoHighlightsUpdated?.Invoke(effectiveAutoHighlights);
 
         var allHighlights = _autoFillHighlightsEnabled
             ? highlights.Split("\n").Concat(_autoHighlights)
@@ -97,7 +108,7 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
         _highlights.Clear();
         // Use `"` as layman symbol for Regex `\b`, ignore all other special sequences
         // (Without that escape, a name like `Robert'); DROP TABLE users; --` breaks all messsages)
-        // Turn `\` into `\\` or else it'll escape the tags inside the actual chat message for reasons I can barely intuit but not explain. 
+        // Turn `\` into `\\` or else it'll escape the tags inside the actual chat message for reasons I can barely intuit but not explain.
         _highlights.AddRange(allHighlights.Select(highlight => Regex.Escape(highlight.Replace(@"\", @"\\")).Replace("\"", "\\b")));
 
         // Arrange the list in descending order so that when highlighting,
