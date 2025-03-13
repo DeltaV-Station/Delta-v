@@ -5,7 +5,7 @@ using Content.Server.Psionics;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
-using Content.Server.Terminator.Systems;
+using Content.Server.Objectives.Components;
 using Content.Shared.Cloning;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -23,7 +23,7 @@ namespace Content.Server.StationEvents.Events;
 
 /// <summary>
 /// Creates clones of random players to make into selected antags.
-/// 90% of the actual antag's work is done by exterminator (rip) since its a reskin.
+/// 90% of the actual antag's work is done by TargetOverrideComponent.
 /// </summary>
 public sealed class ParadoxClonerRule : StationEventSystem<ParadoxClonerRuleComponent>
 {
@@ -36,7 +36,6 @@ public sealed class ParadoxClonerRule : StationEventSystem<ParadoxClonerRuleComp
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
-    [Dependency] private readonly TerminatorSystem _terminator = default!;
 
     public override void Initialize()
     {
@@ -108,7 +107,7 @@ public sealed class ParadoxClonerRule : StationEventSystem<ParadoxClonerRuleComp
 
         // Set the kill target to the chosen player
         var spawned = mob.Value;
-        _terminator.SetTarget(spawned, mindId);
+        EnsureComp<TargetOverrideComponent>(spawned).Target = mindId;
 
         // guaranteed psionic power
         var psi = EnsureComp<PotentialPsionicComponent>(spawned);

@@ -23,7 +23,7 @@
       state: icon
   - type: TargetObjective
     title: objective-paradox-anomaly-kill-title
-  - type: TerminatorTargetOverride
+  - type: PickSpecificPerson
   - type: KillPersonCondition
     requireDead: true
 
@@ -38,7 +38,7 @@
       state: folder-white
   - type: TargetObjective
     title: objective-paradox-anomaly-friend-title
-  - type: TerminatorTargetOverride
+  - type: PickSpecificPerson
   - type: KeepAliveCondition
 
 - type: entity
