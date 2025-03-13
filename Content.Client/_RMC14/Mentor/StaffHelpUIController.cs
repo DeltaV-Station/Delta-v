@@ -123,7 +123,7 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
     public void OnSystemLoaded(BwoinkSystem system)
     {
         CommandBinds.Builder
-            .BindBefore(ContentKeyFunctions.OpenAHelp,
+            .BindBefore(ContentKeyFunctions.OpenAHelpCuratorChat, // DeltaV - change keybind
                 InputCmdHandler.FromDelegate(_ => ToggleWindow()),
                 typeof(AHelpUIController))
             .Register<StaffHelpUIController>();

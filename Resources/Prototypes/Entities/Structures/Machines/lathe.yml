@@ -326,6 +326,8 @@
     - MechEquipment
     - Cybernetics # Shitmed change
   - type: EmagLatheRecipes # DeltaV
+    emagStaticPacks:
+    - RoboticsEmagStatic
     emagDynamicPacks:
     - SecurityCybernetics # having sechud eyes is good for evil people
     - SecurityHardsuits
@@ -456,7 +458,7 @@
 
 - type: entity
   id: MedicalTechFab
-  parent: BaseLatheLube
+  parent: BaseTechFabDepartamental # DeltaV - make sure it inherits the emag recipes
   name: medical techfab
   description: Prints equipment for use by the medbay.
   components:

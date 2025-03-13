@@ -8,3 +8,15 @@
     Silver: 250
     Plasma: 500
     Bluespace: 200
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: RCDRecharging
+  result: RCDRecharging
+  completetime: 8
+  materials:
+    Steel: 1500
+    Plastic: 500
+    Uranium: 400
+    Gold: 300
+    Bluespace: 150

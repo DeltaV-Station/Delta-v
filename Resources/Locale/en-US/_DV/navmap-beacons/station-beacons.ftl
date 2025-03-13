@@ -7,8 +7,8 @@ station-beacon-lo = LO
 
 station-beacon-conference-room = Conference Room
 
+station-beacon-cloning = Cloning
 station-beacon-virology = Virology
-station-beacon-metempsychosis = Metempsychosis
 station-beacon-exam = Exam
 station-beacon-med-outpost = Med Outpost
 station-beacon-psych = Psych

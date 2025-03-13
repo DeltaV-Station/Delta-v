@@ -1,3 +1,5 @@
+# Tier 1
+
 - type: technology
   id: AerialExtraction
   name: research-technology-aerial-extraction
@@ -10,3 +12,17 @@
   recipeUnlocks:
   - Fulton
   - FultonBeacon
+
+# Tier 3
+
+- type: technology
+  id: MatterEnergyConversion
+  name: research-technology-matter-energy-conversion
+  icon:
+    sprite: Objects/Tools/rcd.rsi
+    state: icon
+  discipline: Industrial
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - RCDRecharging

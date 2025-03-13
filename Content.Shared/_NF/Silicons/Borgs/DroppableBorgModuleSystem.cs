@@ -5,6 +5,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
 
@@ -108,8 +109,8 @@ public sealed class DroppableBorgModuleSystem : EntitySystem
                 _hands.TryGetHand(chassis, handId, out var hand, hands);
                 if (hand?.HeldEntity is { } item)
                     QueueDel(item);
-                else if (!TerminatingOrDeleted(chassis)) // don't care if its empty if the server is shutting down
-                    Log.Error($"Borg {ToPrettyString(chassis)} terminated with empty hand {i} in {ToPrettyString(ent)}");
+                else if (!TerminatingOrDeleted(chassis) && Transform(chassis).MapID != MapId.Nullspace) // don't care if its empty if the server is shutting down
+                    Log.Warning($"Borg {ToPrettyString(chassis)} terminated with empty hand {i} in {ToPrettyString(ent)}");
                 _hands.RemoveHand(chassis, handId, hands);
             }
             return;

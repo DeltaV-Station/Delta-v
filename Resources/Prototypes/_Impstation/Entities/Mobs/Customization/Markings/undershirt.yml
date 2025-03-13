@@ -1,8 +1,8 @@
 - type: marking
   id: UndershirtDefault
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Vulpkanin, Rodentia, Harpy, Felinid, Vox, Oni, Chitinid] # Delta V - Chitinid
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type:
@@ -14,9 +14,9 @@
 
 - type: marking
   id: UndershirtRolled
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Vulpkanin, Rodentia, Harpy, Felinid, Vox, Oni, Chitinid] # Delta V - Chitinid
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type:
@@ -28,9 +28,9 @@
 
 - type: marking
   id: UndershirtSleeveless
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Vulpkanin, Rodentia, Harpy, Felinid, Vox, Oni, Chitinid] # Delta V - Chitinid
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type:
@@ -42,9 +42,9 @@
 
 - type: marking
   id: UndershirtRolledSleeveless
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Vulpkanin, Rodentia, Harpy, Felinid, Vox, Oni, Chitinid] # Delta V - Chitinid
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type:
@@ -56,9 +56,9 @@
 
 - type: marking
   id: UndershirtGrossSleeveless
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Vulpkanin, Rodentia, Harpy, Felinid, Vox, Oni, Chitinid] # Delta V - Chitinid
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type:
@@ -70,9 +70,9 @@
 
 - type: marking
   id: UndershirtNanotrasen
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Vulpkanin, Rodentia, Harpy, Felinid, Vox, Oni, Chitinid] # Delta V - Chitinid
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type:
@@ -83,52 +83,10 @@
     state: nanotrasen
 
 - type: marking
-  id: UndershirtBinder
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Vulpkanin, Rodentia, Harpy, Felinid, Vox, Oni, Chitinid] # Delta V - Chitinid
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/undershirt.rsi
-    state: binder
-
-- type: marking
-  id: UndershirtBraClassic
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Vulpkanin, Rodentia, Harpy, Felinid, Vox, Oni, Chitinid] # Delta V - Chitinid
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/undershirt.rsi
-    state: classic
-
-- type: marking
-  id: UndershirtBraSports
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Vulpkanin, Rodentia, Harpy, Felinid, Vox, Oni, Chitinid] # Delta V - Chitinid
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/undershirt.rsi
-    state: sports
-
-- type: marking
   id: UndershirtBraStrapless
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Vulpkanin, Rodentia, Harpy, Felinid, Vox, Oni, Chitinid] # Delta V - Chitinid
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type:

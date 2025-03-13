@@ -26,6 +26,5 @@ cloning-console-component-msg-no-cloner = Not Ready: No Cloner Detected
 cloning-console-component-msg-no-mind = Not Ready: No Soul Activity Detected
 
 cloning-console-chat-error = ERROR: INSUFFICIENT BIOMASS. CLONING THIS BODY REQUIRES {$units} UNITS OF BIOMASS.
-# DeltaV: change from SOUL IS ABSENT to INCOMPATIBLE GENOME
-cloning-console-uncloneable-trait-error = ERROR: INCOMPATIBLE GENOME, CLONING IS IMPOSSIBLE.
+cloning-console-uncloneable-trait-error = ERROR: CLONING IS IMPOSSIBLE DUE TO ABNORMAL BODY COMPOSITION.
 cloning-console-cellular-warning = WARNING: GENEFSCK CONFIDENCE SCORE IS {$percent}%. CLONING MAY HAVE UNEXPECTED RESULTS.

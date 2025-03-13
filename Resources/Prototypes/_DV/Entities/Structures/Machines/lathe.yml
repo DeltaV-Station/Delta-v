@@ -22,6 +22,14 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - SecurityAmmoStatic
+    emagDynamicPacks:
+    - SecurityAmmo
+    - SecurityExplosives
+    - SecurityEquipment
+    - SecurityWeapons
 
 - type: entity
   parent: BaseTechFabDepartamental
@@ -58,6 +66,7 @@
     - EngineeringWeapons
     - FauxTiles
     - Equipment
+    - UpgradeKits
   - type: Machine
     board: EngineeringTechFabCircuitboard
   - type: StealTarget

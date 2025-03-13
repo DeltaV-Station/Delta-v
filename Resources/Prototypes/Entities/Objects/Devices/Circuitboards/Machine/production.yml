@@ -11,10 +11,6 @@
         MatterBin: 3
         Manipulator: 1
         Glass: 1
-    - type: ReverseEngineering # DeltaV
-      difficulty: 2
-      recipes:
-      - AutolatheHyperConvectionMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -48,10 +44,6 @@
         GlassBeaker:
           amount: 2
           defaultPrototype: Beaker
-    - type: ReverseEngineering # DeltaV
-      difficulty: 2
-      recipes:
-      - ProtolatheHyperConvectionMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard

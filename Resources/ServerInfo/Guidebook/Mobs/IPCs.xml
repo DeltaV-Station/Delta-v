@@ -36,7 +36,10 @@
   </Box>
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="CableApcStack" Caption="Cables (any type)"/>
-    Cables can be used to repair [color=yellow]Burns[/color].
+    Cables can be used to repair [color=yellow]Burns[/color], except for caustic.
+
+    <GuideEntityEmbed Entity="SheetSteel" Caption="Steel Sheets"/>
+    Steel can be used to repair [color=yellow]Caustic[/color] damage.
   </Box>
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="SheetGlass" Caption="Glass Sheets (any type)"/>
