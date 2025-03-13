@@ -35,7 +35,6 @@
     - Maintenance
     - Research # need it to get to robo usually
     - Robotics # safe place to recharge + get upgrades
-    - Borg
 
 - type: entity
   parent: BaseIdChip
@@ -45,8 +44,6 @@
   - type: Access
     groups:
     - AllAccess
-    tags:
-    - Borg
 
 - type: entity
   parent: BaseIdChip
@@ -56,8 +53,6 @@
   - type: Access
     groups:
     - AllAccessBorg
-    tags:
-    - Borg
 
 # Syndicate ID Chips
 
@@ -75,7 +70,6 @@
     tags:
     - SyndicateAgent
     - NuclearOperative
-    - Borg
   - type: AgentIDCard
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
@@ -95,7 +89,6 @@
     tags:
     - SyndicateAgent
     - NuclearOperative
-    - Borg
     - External
     - Robotics
     - Maintenance

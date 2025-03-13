@@ -15,8 +15,8 @@
     Head: MobSlimeHead
     Hair: MobSlimeMarkingFollowSkin
     FacialHair: MobSlimeMarkingFollowSkin
-    UndergarmentTop: MobHumanoidAnyMarking
-    UndergarmentBottom: MobHumanoidAnyMarking
+    Underwear: MobHumanoidAnyMarking # DeltaV
+    Undershirt: MobHumanoidAnyMarking # DeltaV
     Chest: MobSlimeTorso
     Eyes: MobHumanoidEyes
     LArm: MobSlimeLArm
@@ -40,6 +40,14 @@
     Chest:
       points: 1
       required: false
+    # Begin DeltaV changes.
+    Underwear:
+      points: 1
+      required: false
+    Undershirt:
+      points: 1
+      required: false
+    # End DeltaV changes.
     Legs:
       points: 4
       required: false

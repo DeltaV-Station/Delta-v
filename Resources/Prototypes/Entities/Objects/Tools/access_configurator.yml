@@ -108,9 +108,7 @@
     - Armory
     - Atmospherics
     - Bar
-    - BasicSilicon
-    - Borg
-    #- Brig # DeltaV
+    #- Brig
     - Detective
     - Captain
     - Cargo
@@ -137,22 +135,14 @@
     - Salvage
     - Security
     - Service
-    - StationAi
+    - Surgery # DeltaV: Add surgery
     - Theatre
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent
     - Wizard
-    # Begin DeltaV Additions
-    - ChiefJustice
-    - Clerk
-    - Justice
-    - DV-SpareSafe
-    - Orders
-    - Prosecutor
-    - Robotics
-    - Surgery
-    # End DeltaV Additions
+    - DV-SpareSafe # DeltaV
+    - Orders # DeltaV
     privilegedIdSlot:
       name: id-card-console-privileged-id
       ejectSound: /Audio/Machines/id_swipe.ogg

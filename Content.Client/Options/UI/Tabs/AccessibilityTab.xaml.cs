@@ -21,8 +21,6 @@ public sealed partial class AccessibilityTab : Control
         Control.AddOptionPercentSlider(CCVars.SpeechBubbleSpeakerOpacity, SpeechBubbleSpeakerOpacitySlider);
         Control.AddOptionPercentSlider(CCVars.SpeechBubbleBackgroundOpacity, SpeechBubbleBackgroundOpacitySlider);
 
-        Control.AddOptionCheckBox(CCVars.AccessibilityClientCensorNudity, CensorNudityCheckBox);
-
         Control.Initialize();
     }
 }

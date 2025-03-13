@@ -1,7 +1,7 @@
 - type: entity
   id: PetCarrier
   name: big pet carrier
-  description: Allows large animals to be carried comfortably. It smells vaguely of toilet water and explosives.
+  description: Allows large animals to be carried comfortably.
   parent: BaseStructureDynamic
   components:
   - type: Sprite
@@ -36,10 +36,7 @@
   - type: EntityStorage
     capacity: 1
     airtight: false
-    whitelist:
-      tags:
-        - VimPilot # If it can fit in a Vim it can fit in a pet carrier.
-        - CanPilot # DeltaV - let people go in pet carriers too
+    itemCanStoreMobs: true
   - type: Weldable
   - type: ResistLocker
   - type: PlaceableSurface

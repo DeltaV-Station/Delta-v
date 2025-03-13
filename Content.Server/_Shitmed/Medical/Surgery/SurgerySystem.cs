@@ -185,8 +185,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
             }
         }
 
-        if (target.Comp1.DNA is {} dna)
-            dnas.Remove(dna);
+        dnas.Remove(target.Comp1.DNA);
 
         return total + dnas.Count * target.Comp2.CrossContaminationDirtinessLevel;
     }
@@ -211,11 +210,8 @@ public sealed class SurgerySystem : SharedSurgerySystem
         Dirty(ent, dirtiness);
     }
 
-    private void AddDNA(EntityUid ent, string? dna)
+    private void AddDNA(EntityUid ent, string dna)
     {
-        if (dna == null)
-            return;
-
         var contamination = EnsureComp<SurgeryCrossContaminationComponent>(ent);
         contamination.DNAs.Add(dna);
     }
@@ -272,11 +268,9 @@ public sealed class SurgerySystem : SharedSurgerySystem
 
     private void OnSurgerySpecialDamageChange(Entity<SurgerySpecialDamageChangeEffectComponent> ent, ref SurgeryStepDamageChangeEvent args)
     {
-        // Begin DeltaV - this shit was killed
         // Im killing this shit soon too, inshallah.
-        // if (ent.Comp.DamageType == "Rot")
-        //     _rot.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(2147483648)); // BEHOLD, SHITCODE THAT I JUST COPY PASTED. I'll redo it at some point, pinky swear :)
-        // End DeltaV - this shit was killed
+        if (ent.Comp.DamageType == "Rot")
+            _rot.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(2147483648)); // BEHOLD, SHITCODE THAT I JUST COPY PASTED. I'll redo it at some point, pinky swear :)
         /*else if (ent.Comp.DamageType == "Eye"
             && TryComp(ent, out BlindableComponent? blindComp)
             && blindComp.EyeDamage > 0)

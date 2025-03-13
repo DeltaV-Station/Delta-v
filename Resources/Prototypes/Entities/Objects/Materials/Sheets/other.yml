@@ -250,7 +250,10 @@
         - ReagentId: Radium
           Quantity: 2
         canReact: false
-  - type: PointLight # DeltaV
+  - type: RadiationSource
+    intensity: 0.01 # DeltaV - was 0.1, now 0.3 rads from a full stack
+    slope: 3
+  - type: PointLight
     radius: 1.2
     energy: 0.8
     castShadows: false

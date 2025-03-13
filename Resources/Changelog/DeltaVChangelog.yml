@@ -1,4 +1,50 @@
 ﻿Entries:
+- author: clinux
+  changes:
+  - message: Removed the ability to upgrade reinforced windows to into shuttle windows
+    type: Remove
+  id: 646
+  time: '2024-11-04T19:41:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2118
+- author: Unkn0wnGh0st333
+  changes:
+  - message: Added Robotics Airlocks, one step closer to the Roboticist Job.
+    type: Add
+  id: 647
+  time: '2024-11-04T19:54:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2121
+- author: Radezolid
+  changes:
+  - message: Re-added the fire-fighting door remote to atmospheric technicians lockers,
+      firelocks can now be bolted and they are hackable.
+    type: Add
+  id: 648
+  time: '2024-11-04T23:49:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2007
+- author: MilonPL
+  changes:
+  - message: Added the StockTrading app to cargo PDAs, available with the Orders access.
+      Gamblers rejoice!
+    type: Add
+  id: 649
+  time: '2024-11-06T17:30:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2103
+- author: Radezolid
+  changes:
+  - message: Changed the syndicate refugees rules to represent what is expected of
+      them from the administrative team.
+    type: Tweak
+  id: 650
+  time: '2024-11-06T17:51:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2127
+- author: Crow, Radezolid
+  changes:
+  - message: Added security magboots, they should only be used for EVA or situations
+      that warrant no slips.
+    type: Add
+  id: 651
+  time: '2024-11-06T20:49:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2074
 - author: SolStar2, Vivi Bunny
   changes:
   - message: Added Hushed trait. Hushed players will whisper instead of talking.
@@ -3908,56 +3954,3 @@
   id: 1145
   time: '2025-03-12T15:11:15.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3210
-- author: deltanedas
-  changes:
-  - message: IPCs can now use steel to heal Caustic damage.
-    type: Tweak
-  id: 1146
-  time: '2025-03-13T08:24:43.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3206
-- author: sowelipililimute
-  changes:
-  - message: Netinadone has been added. It can de-rot people with cryogenics and surgical
-      intervention, and is cheaper and weaker than opporozidone.
-    type: Add
-  - message: Opporozidone is now more effective at derotting people
-    type: Tweak
-  - message: Heart transplants no longer derot people to the point where they're immune
-      to rot
-    type: Remove
-  id: 1147
-  time: '2025-03-13T08:26:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3185
-- author: Quanteey
-  changes:
-  - message: Increased chemistry and medical doctor playtime requirements for the
-      nuclear operative agent
-    type: Tweak
-  id: 1148
-  time: '2025-03-13T08:26:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3181
-- author: deltanedas
-  changes:
-  - message: Added the AI detector to traitor and nukie uplinks for 1 TC.
-    type: Add
-  id: 1149
-  time: '2025-03-13T08:39:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3192
-- author: deltanedas
-  changes:
-  - message: Merged last weeks' changes from upstream, notably excluding their mail
-      system.
-    type: Add
-  - message: Removed the metempsychosis machine, the research is now for cloning instead.
-    type: Remove
-  id: 1150
-  time: '2025-03-13T14:52:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3171
-- author: Tirochora
-  changes:
-  - message: Added furred limbs as markings for felinids that allow them to recolor
-      their limbs.
-    type: Add
-  id: 1151
-  time: '2025-03-13T17:42:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3218

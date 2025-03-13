@@ -8,9 +8,9 @@
   markingLimits: MobFeroxiMarkingLimits
   dollPrototype: MobFeroxiDummy
   skinColoration: Hues
-  maleFirstNames: NamesFirstMale
-  femaleFirstNames: NamesFirstFemale
-  lastNames: NamesLast
+  maleFirstNames: names_first_male
+  femaleFirstNames: names_first_female
+  lastNames: names_last
 
 - type: speciesBaseSprites
   id: MobFeroxiSprites
@@ -20,8 +20,6 @@
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
     Chest: MobFeroxiTorso
-    UndergarmentTop: MobHumanoidAnyMarking
-    UndergarmentBottom: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking

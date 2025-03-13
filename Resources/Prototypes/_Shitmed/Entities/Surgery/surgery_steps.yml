@@ -563,11 +563,10 @@
   id: SurgeryStepInsertHeart
   name: Add heart
   categories: [ HideSpawnMenu ]
-  # DeltaV - no more funny rot surgery
-  # components:
-  # - type: SurgerySpecialDamageChangeEffect
-  #   damageType: Rot
-  #   isConsumable: true
+  components:
+  - type: SurgerySpecialDamageChangeEffect
+    damageType: Rot
+    isConsumable: true
 
 - type: entity
   parent: SurgeryStepBase
