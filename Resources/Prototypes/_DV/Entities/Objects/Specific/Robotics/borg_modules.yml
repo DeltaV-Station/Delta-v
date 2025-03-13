@@ -72,8 +72,8 @@
         - Handcuff
 
 - type: entity
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   id: BorgModuleSecurityEscalate
-  parent: BorgModuleSecurityDeescalate
   name: escalation cyborg module
   description: Peace was never an option.
   components:
