@@ -188,4 +188,13 @@ public sealed class DCCVars
             "#17FFC1FF",
             CVar.CLIENTONLY | CVar.ARCHIVE,
             "The color in which the highlights will be displayed.");
+
+    /* Laying down combat */
+
+    /// <summary>
+    /// Modifier to apply to all melee attacks when laying down.
+    /// Don't increase this above 1...
+    /// </summary>
+    public static readonly CVarDef<float> LayingDownMeleeMod =
+        CVarDef.Create("game.laying_down_melee_mod", 0.25f, CVar.REPLICATED);
 }
