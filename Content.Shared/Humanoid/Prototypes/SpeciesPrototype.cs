@@ -120,6 +120,52 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField]
     public int MaxAge = 120;
+
+    // Begin DV - CD Character Records shouldn't nuke species heights
+    /// <summary>
+    /// The base height scale for this species
+    /// </summary>
+    [DataField("baseScale")]
+    public System.Numerics.Vector2 BaseScale = new(1f, 1f);
+    // End DV - CD Character Records shouldn't nuke species heights
+
+    // Begin CD - Character Records
+    /// <summary>
+    /// The minimum height for this species
+    /// </summary>
+    [DataField("minHeight")]
+    public float MinHeight = 0.85f; // DeltaV - less trolling with the heights
+
+    /// <summary>
+    /// The maximum height for this species
+    /// </summary>
+    [DataField("maxHeight")]
+    public float MaxHeight = 1.2f; // DeltaV - less trolling with the heights
+
+    /// <summary>
+    /// The default height for this species
+    /// </summary>
+    [DataField("defaultHeight")]
+    public float DefaultHeight = 1f;
+
+    /// <summary>
+    /// The default width for this species
+    /// </summary>
+    [DataField("defaultWidth")]
+    public float DefaultWidth = 1f;
+
+    /// <summary>
+    /// Whether to scale horizontally or not
+    /// </summary>
+    [DataField("scaleWidth")]
+    public bool ScaleWidth = true;
+
+    /// <summary>
+    /// Whether to scale vertically or not
+    /// </summary>
+    [DataField("scaleHeight")]
+    public bool ScaleHeight = true;
+    // End CD - Character Records
 }
 
 public enum SpeciesNaming : byte
