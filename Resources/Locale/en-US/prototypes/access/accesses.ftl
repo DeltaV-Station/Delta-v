@@ -55,3 +55,7 @@ id-card-access-level-unused = You shouldn't see this
 id-card-access-level-central-command = Central Command
 
 id-card-access-level-wizard = Wizard
+
+id-card-access-level-station-ai = Artifical Intelligence
+id-card-access-level-borg = Cyborg
+id-card-access-level-basic-silicon = Robot

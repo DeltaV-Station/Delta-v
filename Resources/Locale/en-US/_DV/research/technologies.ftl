@@ -2,6 +2,9 @@
 research-technology-aerial-extraction = Aerial Extraction
 research-technology-matter-energy-conversion = Matter-Energy Conversion
 
+# Experimental
+research-technology-cloning = Cloning
+
 # Civilian
 research-technology-syringe-gun = Syringe Gun
 
