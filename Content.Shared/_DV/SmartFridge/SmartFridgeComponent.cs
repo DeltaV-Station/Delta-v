@@ -1,4 +1,4 @@
-using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Whitelist;
 using Robust.Shared.Analyzers;
 using Robust.Shared.Audio;
 using Robust.Shared.GameObjects;
@@ -15,9 +15,13 @@ public sealed partial class SmartFridgeComponent : Component
     public string Container = "smart_fridge_inventory";
 
     [DataField]
-    public ItemSlot InsertionSlot = new();
+    public EntityWhitelist? Whitelist;
 
-    public static string InsertionSlotId = "smart_fridge_insertion";
+    [DataField]
+    public EntityWhitelist? Blacklist;
+
+    [DataField]
+    public SoundSpecifier? InsertSound = new SoundPathSpecifier("/Audio/Weapons/Guns/MagIn/revolver_magin.ogg");
 
     [DataField, AutoNetworkedField]
     public List<SmartFridgeEntry> Entries = new();
