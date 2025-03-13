@@ -81,20 +81,6 @@
       - SurplusBundle
 
 - type: listing
-  id: Observationkit
-  name: uplink-observation-kit-name
-  description: uplink-observation-kit-desc
-  icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: tracks }
-  productEntity: Observationskit
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 3
-  cost:
-    Telecrystal: 6
-  categories:
-  - UplinkDeception
-
-- type: listing
   id: UplinkSyndicateRadioImplanter
   name: uplink-syndicate-radio-implanter-name
   description: uplink-syndicate-radio-implanter-desc
@@ -424,22 +410,3 @@
     Telecrystal: 2
   categories:
   - UplinkAmmo
-
-- type: listing
-  id: SyndieFulton
-  name: uplink-syndie-fulton-name
-  description: uplink-syndie-fulton-desc
-  icon:
-    sprite: Objects/Tools/fulton.rsi
-    state: extraction_pack
-  productEntity: SyndieFulton
-  categories:
-  - UplinkObjectives
-  conditions:
-  - !type:ObjectiveUnlockCondition
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle

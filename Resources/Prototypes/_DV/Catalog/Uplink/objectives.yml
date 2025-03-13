@@ -1,0 +1,18 @@
+- type: listing
+  id: SyndieFulton
+  name: uplink-syndie-fulton-name
+  description: uplink-syndie-fulton-desc
+  icon:
+    sprite: Objects/Tools/fulton.rsi
+    state: extraction_pack
+  productEntity: SyndieFulton
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
