@@ -1,5 +1,6 @@
 using Content.Shared.Emag.Systems;
 using Content.Shared.Tag;
+using Content.Shared.Whitelist; // DeltaV
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -19,6 +20,12 @@ public sealed partial class EmagComponent : Component
     [DataField]
     [AutoNetworkedField]
     public ProtoId<TagPrototype> EmagImmuneTag = "EmagImmune";
+
+    /// <summary>
+    /// DeltaV: Blacklist for entities that cannot be emagged with this.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Blacklist;
 
     /// <summary>
     /// What type of emag effect this device will do

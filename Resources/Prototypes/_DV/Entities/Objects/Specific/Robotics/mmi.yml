@@ -1,0 +1,17 @@
+- type: entity
+  parent: PositronicBrain
+  id: SyndicateNeuroling
+  name: syndicate neuroling
+  description: An artificial brain, full of false-life and nefarious intent
+  components:
+  - type: ToggleableGhostRole
+    roleName: synd-positronic-brain-role-name
+    roleDescription: synd-positronic-brain-role-description
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Syndicate
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Syndicate

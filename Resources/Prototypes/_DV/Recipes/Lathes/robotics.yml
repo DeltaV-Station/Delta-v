@@ -7,3 +7,165 @@
   parent: BaseGoldBorgModuleRecipe
   id: BorgModuleSecurityChase
   result: BorgModuleSecurityChase
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleSecurityPatrol
+  result: BorgModuleSecurityPatrol
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleSecurityBastion
+  result: BorgModuleSecurityBastion
+
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: IdChipBasic
+  result: IdChipBasic
+  materials:
+    Steel: 300
+    Glass: 600
+    Silver: 200
+
+# Robo Neuroling recipes
+
+- type: latheRecipe
+  id: BorgModuleSyndicateWeapon
+  result: BorgModuleSyndicateWeapon
+  categories:
+  - Robotics
+  completetime: 10
+  materials:
+    Steel: 1500
+    Glass: 3000
+    Plasteel: 1500
+    Gold: 1500
+    Plastic: 1000
+    Uranium: 1000
+    Plasma: 1000
+
+- type: latheRecipe
+  id: BorgModuleRadioJammerRecharging
+  result: BorgModuleRadioJammerRecharging
+  categories:
+  - Robotics
+  completetime: 10
+  materials:
+    Steel: 1000
+    Glass: 1000
+    Gold: 500
+    Plastic: 1000
+    Uranium: 500
+
+- type: latheRecipe
+  id: BorgModuleMartyr
+  result: BorgModuleMartyr
+  categories:
+  - Robotics
+  completetime: 10
+  materials:
+    Steel: 1500
+    Glass: 1000
+    Plastic: 1000
+    Silver: 500
+
+- type: latheRecipe
+  id: BorgModuleBlades
+  result: BorgModuleBlades
+  categories:
+  - Robotics
+  completetime: 5
+  materials:
+    Steel: 1500
+    Glass: 500
+    Plastic: 500
+
+- type: latheRecipe
+  id: BorgModuleCHIMP
+  result: BorgModuleCHIMP
+  categories:
+  - Robotics
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 200
+    Silver: 200
+    Plasma: 200
+
+- type: latheRecipe
+  id: BorgModuleSyndicateRadio
+  result: BorgModuleSyndicateRadio
+  categories:
+  - Robotics
+  completetime: 5
+  materials:
+    Steel: 200
+    Glass: 500
+    Plastic: 200
+
+- type: latheRecipe
+  id: BorgModuleCrewMonitor
+  result: BorgModuleCrewMonitor
+  categories:
+  - Robotics
+  completetime: 5
+  materials:
+    Steel: 100
+    Glass: 500
+    Plastic: 500
+    Silver: 200
+
+- type: latheRecipe
+  id: SyndicateNeuroling
+  result: SyndicateNeuroling
+  categories:
+  - Robotics
+  completetime: 15
+  materials:
+    Steel: 100
+    Glass: 300
+    Plastic: 300
+    Gold: 100
+
+- type: latheRecipe
+  id: BorgModuleOperative
+  result: BorgModuleOperative
+  categories:
+  - Robotics
+  completetime: 10
+  materials:
+    Steel: 1000
+    Glass: 1000
+    Gold: 500
+    Plastic: 1000
+    Uranium: 500
+
+- type: latheRecipe
+  id: BorgModuleChameleonProjector
+  result: BorgModuleChameleonProjector
+  categories:
+  - Robotics
+  completetime: 10
+  materials:
+    Steel: 1200
+    Glass: 1000
+    Gold: 1000
+    Plastic: 2000
+    Uranium: 1000
+
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: IdChipSyndie
+  result: IdChipSyndie
+  materials:
+    Steel: 300
+    Glass: 600
+    Silver: 200
+    Gold: 200
+    Plasma: 100
+
+- type: latheRecipe
+  parent: IdChipSyndie
+  id: IdChipRoboNeuroticist
+  result: IdChipRoboNeuroticist
