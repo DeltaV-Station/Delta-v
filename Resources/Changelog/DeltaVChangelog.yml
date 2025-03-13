@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Unkn0wnGh0st333
-  changes:
-  - message: Added Robotics Airlocks, one step closer to the Roboticist Job.
-    type: Add
-  id: 647
-  time: '2024-11-04T19:54:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2121
 - author: Radezolid
   changes:
   - message: Re-added the fire-fighting door remote to atmospheric technicians lockers,
@@ -3954,3 +3947,16 @@
   id: 1146
   time: '2025-03-13T08:24:43.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3206
+- author: sowelipililimute
+  changes:
+  - message: Netinadone has been added. It can de-rot people with cryogenics and surgical
+      intervention, and is cheaper and weaker than opporozidone.
+    type: Add
+  - message: Opporozidone is now more effective at derotting people
+    type: Tweak
+  - message: Heart transplants no longer derot people to the point where they're immune
+      to rot
+    type: Remove
+  id: 1147
+  time: '2025-03-13T08:26:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3185
