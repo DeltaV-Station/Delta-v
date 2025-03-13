@@ -32,18 +32,17 @@
   - type: ApcPowerReceiver
     powerLoad: 200
   - type: SmartFridge
-    insertionSlot:
-      whitelist:
-        components:
-          - FitsInDispenser
-          - Pill
-          - Produce
-          - Seed
-        tags:
-          - PillCanister
-          - Bottle
-          - Syringe
-          - ChemDispensable
+    whitelist:
+      components:
+        - FitsInDispenser
+        - Pill
+        - Produce
+        - Seed
+      tags:
+        - PillCanister
+        - Bottle
+        - Syringe
+        - ChemDispensable
   - type: ActivatableUI
     key: enum.SmartFridgeUiKey.Key
   - type: ActivatableUIRequiresPower
