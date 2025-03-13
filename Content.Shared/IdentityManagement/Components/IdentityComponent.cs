@@ -62,7 +62,16 @@ public sealed class IdentityRepresentation
             Gender.DemiFemme => Loc.GetString("identity-gender-feminine"), //DeltaV
             Gender.Male => Loc.GetString("identity-gender-masculine"),
             Gender.DemiMasc => Loc.GetString("identity-gender-masculine"), //DeltaV
-            Gender.Epicene or Gender.Neuter or _ => Loc.GetString("identity-gender-person")
+            Gender.Epicene
+                or Gender.Neuter
+                or Gender.Pangender
+                or Gender.Agender
+                or Gender.Androgyne
+                or Gender.NeogenderEy
+                or Gender.NeogenderFae
+                or Gender.NeogenderXe
+                or Gender.NeogenderZe
+                or _ => Loc.GetString("identity-gender-person")
         };
 
         // i.e. 'young assistant man' or 'old cargo technician person' or 'middle-aged captain'
