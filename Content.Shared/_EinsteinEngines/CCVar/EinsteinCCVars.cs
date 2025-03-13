@@ -107,6 +107,12 @@ public sealed partial class EinsteinCCVars : CVars
         CVarDef.Create("supermatter.matter_power_conversion", 10f, CVar.SERVER);
 
     /// <summary>
+    ///     Divisor on the amount of gas absorbed by the supermatter during the roundstart grace period.
+    /// </summary>
+    public static readonly CVarDef<float> SupermatterGasEfficiencyGraceModifier =
+        CVarDef.Create("supermatter.gas_efficiency_grace_modifier", 2.5f, CVar.SERVER);
+
+    /// <summary>
     ///     Divisor on the amount of damage that the supermatter takes from absorbing hot gas.
     /// </summary>
     public static readonly CVarDef<float> SupermatterMoleHeatPenalty =
@@ -154,7 +160,7 @@ public sealed partial class EinsteinCCVars : CVars
     ///     Base amount of radiation that the supermatter emits.
     /// </summary>
     public static readonly CVarDef<float> SupermatterRadsBase =
-        CVarDef.Create("supermatter.rads_base", 3f, CVar.SERVER);
+        CVarDef.Create("supermatter.rads_base", 4f, CVar.SERVER);
 
     /// <summary>
     ///     Directly multiplies the amount of rads put out by the supermatter. Be VERY conservative with this.
