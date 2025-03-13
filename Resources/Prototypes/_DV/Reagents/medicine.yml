@@ -96,9 +96,22 @@
           types:
             Holy: -2
       - !type:HealthChange
-        conditions:
-          - !type:ReagentThreshold
-            min: 15
         damage:
           types:
-            Cold: 6
+            Cold: 2
+
+- type: reagent
+  id: UnholyWater # going to be renamed later alongside holy water
+  name: reagent-name-unholy-water
+  group: Toxins
+  desc: reagent-name-unholy-water
+  physicalDesc: reagent-physical-desc-menacing
+  flavor: UnholyWater
+  color: "#1614143d"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cold: 1 # plan to change this when holy counterpart damage exists
