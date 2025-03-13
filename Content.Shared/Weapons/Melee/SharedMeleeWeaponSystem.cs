@@ -217,15 +217,17 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (!Resolve(uid, ref component, false))
             return new DamageSpecifier();
 
-        var ev = new GetMeleeDamageEvent(uid, new(component.Damage), new(), user, component.ResistanceBypass);
+        var ev = new GetMeleeDamageEvent(uid, new(component.Damage * Damageable.UniversalMeleeDamageModifier), new(), user, component.ResistanceBypass);
         RaiseLocalEvent(uid, ref ev);
 
         // Begin DeltaV additions
         // Allow users of melee weapons to have bonuses applied
-        var userEv = new GetMeleeDamageEvent(uid, new(component.Damage), new(), user, component.ResistanceBypass);
-        RaiseLocalEvent(user, ref userEv);
+        if (user != uid)
+        {
+            RaiseLocalEvent(user, ref ev);
+        }
 
-        return DamageSpecifier.ApplyModifierSets(ev.Damage, ev.Modifiers.Concat(userEv.Modifiers));
+        return DamageSpecifier.ApplyModifierSets(ev.Damage, ev.Modifiers);
         // End DeltaV additions
     }
 
@@ -256,7 +258,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        var ev = new GetMeleeDamageEvent(uid, new(component.Damage), new(), user, component.ResistanceBypass);
+        var ev = new GetMeleeDamageEvent(uid, new(component.Damage * Damageable.UniversalMeleeDamageModifier), new(), user, component.ResistanceBypass);
         RaiseLocalEvent(uid, ref ev);
 
         return ev.ResistanceBypass;

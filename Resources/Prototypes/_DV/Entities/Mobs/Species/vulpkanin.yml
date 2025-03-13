@@ -64,8 +64,8 @@
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "belt" ]
-      - map: [ "neck" ]
       - map: [ "back" ]
+      - map: [ "neck" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -100,6 +100,9 @@
       Female: FemaleVulpkanin
       Unsexed: MaleVulpkanin
   - type: DogVision
+  - type: Temperature
+    heatDamageThreshold: 315 # 10 lower than base
+    coldDamageThreshold: 240 # 20 lower than base
 
 - type: entity
   save: false

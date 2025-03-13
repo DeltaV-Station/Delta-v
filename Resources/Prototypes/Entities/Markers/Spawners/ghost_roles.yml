@@ -167,7 +167,7 @@
   components:
   - type: GhostRole
     name: ghost-role-information-space-dragon-name
-    description: ghost-role-information-space-dragon-description
+    description: deltav-ghost-role-information-space-dragon-description # DeltaV - Dragons despawn in 10 mins
     rules: ghost-role-information-space-dragon-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
@@ -217,3 +217,24 @@
     - state: green
     - sprite: Mobs/Silicon/chassis.rsi
       state: derelict_icon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostWizard
+  name: ghost role spawn point
+  suffix: wizard
+  components:
+  - type: GhostRole
+    name: ghost-role-information-wizard-name
+    description: ghost-role-information-wizard-desc
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Clothing/Head/Hats/wizardhat.rsi
+      state: icon

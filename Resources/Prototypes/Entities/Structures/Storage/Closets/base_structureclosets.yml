@@ -5,6 +5,7 @@
   description: A standard-issue Nanotrasen storage unit.
   abstract: true
   components:
+  - type: Animateable
   - type: ResistLocker
   - type: Transform
     noRot: true
@@ -70,13 +71,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 100 # DeltaV - was 300
       behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 50 # DeltaV - was 150
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
