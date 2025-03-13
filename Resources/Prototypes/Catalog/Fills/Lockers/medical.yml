@@ -185,14 +185,14 @@
       - id: ClothingHeadsetMedical
       - id: ClothingMaskSterile
       - id: ClothingShoesBootsWinterParamedic #Delta V: Add departmental winter boots
-      - id: BoxBodyBag # Delta V - Give paramedics a body bag
+      - id: BoxBodyBag # DeltaV - Give paramedics a body bag box
       - id: MedkitFilled
         prob: 0.3
       - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
 
 - type: entity
-  id: LockerParamedicFilledHardsuit # Delta V - Paramedic locker with suit
+  id: LockerParamedicFilledHardsuit # DeltaV - Paramedic locker with suit
   suffix: Filled, Hardsuit
   parent: LockerParamedic
   components:
@@ -209,7 +209,7 @@
       - id: ClothingHeadsetMedical
       - id: ClothingMaskSterile
       - id: ClothingShoesBootsWinterParamedic #Delta V: Add departmental winter boots
-      - id: BoxBodyBag # Delta V - Give paramedics a body bag
+      - id: BoxBodyBag # DeltaV - Give paramedics a body bag box
       - id: HandheldGPSBasic
       - id: MedkitFilled
         prob: 0.3
