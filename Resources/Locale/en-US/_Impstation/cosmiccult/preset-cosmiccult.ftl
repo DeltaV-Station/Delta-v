@@ -31,6 +31,7 @@ cosmiccult-finale-cultist-count = {$COUNT ->
     *[other] The summoning is hastened by {$COUNT} cultists present!
 }
 
+cosmiccult-finale-degen = You feel yourself unravelling!
 cosmiccult-finale-location = Scanners are detecting an enormous Λ-CDM spike {$location}!
 cosmiccult-finale-cancel-begin = You begin to disrupt The Monument's energies..
 cosmiccult-finale-beckon-begin = You begin to Beckon The Unknown..
@@ -185,3 +186,4 @@ cosmiccult-spire-entropy = A mote of entropy condenses from the surface of the s
 cosmiccult-entropy-inserted = You infuse {$count} entropy into The Monument.
 cosmiccult-entropy-unavailable = You can't do that right now.
 cosmiccult-astral-ascendant = {$NAME}, Ascendant
+cosmiccult-gear-pickup-rejection = The {$ITEM} resists {CAPITALIZE(THE($TARGET))}'s touch!
