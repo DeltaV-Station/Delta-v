@@ -122,7 +122,7 @@ namespace Content.Server.Nuke
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("totalIntensity")]
-        public float TotalIntensity = 100000
+        public float TotalIntensity = 100000;
 
         /// <summary>
         ///     Avoid somehow double-triggering this explosion.
