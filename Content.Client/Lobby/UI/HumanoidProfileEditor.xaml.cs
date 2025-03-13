@@ -202,6 +202,18 @@ namespace Content.Client.Lobby.UI
             PronounsButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-epicene-text"), (int) Gender.Epicene);
             PronounsButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-neuter-text"), (int) Gender.Neuter);
 
+            //Begin DeltaV additions
+            PronounsButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-demimasc-text"), (int) Gender.DemiMasc);
+            PronounsButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-demifemme-text"), (int) Gender.DemiFemme);
+            PronounsButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-androgyne-text"), (int) Gender.Androgyne);
+            PronounsButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-pangender-text"), (int) Gender.Pangender);
+            PronounsButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-agender-text"), (int) Gender.Agender);
+            PronounsButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-neogenderxe-text"), (int) Gender.NeogenderXe);
+            PronounsButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-neogenderze-text"), (int) Gender.NeogenderZe);
+            PronounsButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-neogenderfae-text"), (int) Gender.NeogenderFae);
+            PronounsButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-neogenderey-text"), (int) Gender.NeogenderEy);
+            //End DeltaV additions
+
             PronounsButton.OnItemSelected += args =>
             {
                 PronounsButton.SelectId(args.Id);

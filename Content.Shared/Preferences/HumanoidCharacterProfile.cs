@@ -512,7 +512,17 @@ namespace Content.Shared.Preferences
                 Gender.Female => Gender.Female,
                 Gender.Male => Gender.Male,
                 Gender.Neuter => Gender.Neuter,
-                _ => Gender.Epicene // Invalid enum values.
+                //Begin DeltaV additions
+                Gender.DemiMasc => Gender.DemiFemme,
+                Gender.Androgyne => Gender.Androgyne,
+                Gender.Pangender => Gender.Pangender,
+                Gender.Agender => Gender.Agender,
+                Gender.NeogenderXe => Gender.NeogenderXe,
+                Gender.NeogenderZe => Gender.NeogenderZe,
+                Gender.NeogenderFae => Gender.NeogenderFae,
+                Gender.NeogenderEy => Gender.NeogenderEy,
+                _ => Gender.Agender // Invalid enum values. DeltaV - Changed from Epicene to Agender.
+                //End DeltaV additions
             };
 
             string name;

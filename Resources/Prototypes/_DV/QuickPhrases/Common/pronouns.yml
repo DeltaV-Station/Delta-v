@@ -45,6 +45,26 @@
   text: phrase-it
 
 - type: quickPhrase
+  id: XePhrase
+  parent: BaseNounsPhrase
+  text: phrase-xe
+
+- type: quickPhrase
+  id: ZePhrase
+  parent: BaseNounsPhrase
+  text: phrase-ze
+
+- type: quickPhrase
+  id: FaePhrase
+  parent: BaseNounsPhrase
+  text: phrase-fae
+
+- type: quickPhrase
+  id: EyPhrase
+  parent: BaseNounsPhrase
+  text: phrase-ey
+
+- type: quickPhrase
   id: EveryonePhrase
   parent: BaseNounsPhrase
   text: phrase-everyone

@@ -59,7 +59,9 @@ public sealed class IdentityRepresentation
         var genderString = TrueGender switch
         {
             Gender.Female => Loc.GetString("identity-gender-feminine"),
+            Gender.DemiFemme => Loc.GetString("identity-gender-feminine"), //DeltaV
             Gender.Male => Loc.GetString("identity-gender-masculine"),
+            Gender.DemiMasc => Loc.GetString("identity-gender-masculine"), //DeltaV
             Gender.Epicene or Gender.Neuter or _ => Loc.GetString("identity-gender-person")
         };
 
