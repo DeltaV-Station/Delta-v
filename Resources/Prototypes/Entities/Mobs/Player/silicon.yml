@@ -478,6 +478,7 @@
     - state: ai_camera
       shader: unshaded
       map: ["base"]
+  - type: AiDetectable # DeltaV - AI detector
 
 # The holographic representation of the AI that is projected from a holopad.
 - type: entity
