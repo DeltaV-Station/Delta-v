@@ -16,6 +16,17 @@ humanoid-profile-editor-pronouns-male-text = He / Him
 humanoid-profile-editor-pronouns-female-text = She / Her
 humanoid-profile-editor-pronouns-epicene-text = They / Them
 humanoid-profile-editor-pronouns-neuter-text = It / Its
+# Begin DeltaV additions
+humanoid-profile-editor-pronouns-demimasc-text = He / They
+humanoid-profile-editor-pronouns-demifemme-text = She / They
+humanoid-profile-editor-pronouns-androgyne-text = She / He
+humanoid-profile-editor-pronouns-pangender-text = Any Pronouns
+humanoid-profile-editor-pronouns-agender-text = No Pronouns
+humanoid-profile-editor-pronouns-neogenderxe-text = Xe / Xem
+humanoid-profile-editor-pronouns-neogenderze-text = Ze / Hir
+humanoid-profile-editor-pronouns-neogenderfae-text = Fae / Faer
+humanoid-profile-editor-pronouns-neogenderey-text = Ey / Em
+# End DeltaV additions
 humanoid-profile-editor-import-button = Import
 humanoid-profile-editor-export-button = Export
 humanoid-profile-editor-export-image-button = Export image
