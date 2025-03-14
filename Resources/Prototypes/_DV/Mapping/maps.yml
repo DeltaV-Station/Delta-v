@@ -1,0 +1,109 @@
+# Central Command
+
+- type: mapCategories
+  id: Centcomm
+  map: /Maps/_DV/centcomm.yml
+  allowed:
+  - Centcomm
+  - Stamps # no CC official locker to put the btamp in
+
+# Stations
+
+- type: mapCategories
+  id: Chibi
+  map: /Maps/chibi.yml
+  allowed:
+  - Stamps # tiny station doesn't have lockers for everyone
+
+- type: mapCategories
+  id: Shoukou
+  map: /Maps/shoukou.yml
+  allowed:
+  - Stamps # greytide stamp is mapped on shoukou
+
+# Dungeons
+
+- type: mapCategories
+  id: SnowyLabs
+  map: /Maps/Dungeon/snowy_labs.yml
+  allowed:
+  - Centcomm # CC pen gamer loot
+
+# Nonstations
+
+- type: mapCategories
+  id: NukiePlanet
+  map: /Maps/Nonstations/nukieplanet.yml
+  allowed:
+  - Syndicate # obviously nukies can have syndicate gear
+
+- type: mapCategories
+  id: ListeningPost
+  map: /Maps/_DV/Nonstations/listening_post.yml
+  allowed:
+  - Syndicate
+
+# Shuttles
+
+- type: mapCategories
+  id: Dart
+  map: /Maps/Shuttles/dart.yml
+  allowed:
+  - Centcomm
+
+- type: mapCategories
+  id: Infiltrator
+  map: /Maps/Shuttles/infiltrator.yml
+  allowed:
+  - Syndicate
+
+- type: mapCategories
+  id: Instigator
+  map: /Maps/Shuttles/ShuttleEvent/instigator.yml
+  allowed:
+  - Syndicate
+
+- type: mapCategories
+  id: PirateShip
+  map: /Maps/Shuttles/pirate.yml
+  allowed:
+  - Pirate
+  - Syndicate # it has 2 turret toolboxes for some reason
+
+- type: mapCategories
+  id: RoboNeuroticistShip
+  map: /Maps/Shuttles/roboneuroticist_ship.yml
+  allowed:
+  - Syndicate
+
+- type: mapCategories
+  id: Striker
+  map: /Maps/Shuttles/ShuttleEvent/striker.yml
+  allowed:
+  - Syndicate
+
+- type: mapCategories
+  id: TravelingChinaCuisine
+  map: /Maps/Shuttles/ShuttleEvent/traveling_china_cuisine.yml
+  allowed:
+  - Stamps # Trader stamp
+
+- type: mapCategories
+  id: WizardShuttle
+  map: /Maps/Shuttles/wizard.yml
+  allowed:
+  - Wizard
+
+# Ruins
+
+- type: mapCategories
+  id: OldAiSat
+  map: /Maps/Ruins/old_ai_sat.yml
+  allowed:
+  - Centcomm # CC officer's jumpsuit
+
+- type: mapCategories
+  id: OldAiSatDV
+  map: /Maps/_DV/Ruins/old_ai_sat.yml
+  allowed:
+  - Centcomm # CC officer's jumpsuit

@@ -1,4 +1,4 @@
-[game]
+﻿[game]
 # Straight in-game baby
 lobbyenabled = false
 # Dev map for faster loading & convenience
@@ -7,6 +7,7 @@ role_timers = false
 contraband_examine = false # DeltaV
 secret_weight_prototype = "SecretDeltaV" # DeltaV
 role_timer_override = "DeltaV" # DeltaV
+showgreentext = false # DeltaV
 
 [ghost]
 role_time = 0.5
@@ -37,3 +38,6 @@ see_own_notes = true
 
 [server] # DeltaV
 rules_file = "DeltaVRuleset"
+
+[control] # DeltaV
+storage_limit = 2

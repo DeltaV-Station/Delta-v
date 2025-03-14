@@ -356,6 +356,7 @@
     state: scalpel
   - type: SurgeryStepEmoteEffect
   - type: SurgeryDamageChangeEffect # DeltaV
+    sleepModifier: 0
     damage:
       types:
         Slash: 4
@@ -562,10 +563,11 @@
   id: SurgeryStepInsertHeart
   name: Add heart
   categories: [ HideSpawnMenu ]
-  components:
-  - type: SurgerySpecialDamageChangeEffect
-    damageType: Rot
-    isConsumable: true
+  # DeltaV - no more funny rot surgery
+  # components:
+  # - type: SurgerySpecialDamageChangeEffect
+  #   damageType: Rot
+  #   isConsumable: true
 
 - type: entity
   parent: SurgeryStepBase

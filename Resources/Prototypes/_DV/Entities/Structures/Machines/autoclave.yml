@@ -9,8 +9,20 @@
   - type: SurgeryCleansDirt
     dirtAmount: 10
     dnaAmount: 2
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.36,0.3,0.16"
+        density: 190
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer
   - type: Sprite
     sprite: _DV/Structures/Machines/autoclave.rsi
+    drawdepth: SmallObjects
     snapCardinals: true
     layers:
     - state: base

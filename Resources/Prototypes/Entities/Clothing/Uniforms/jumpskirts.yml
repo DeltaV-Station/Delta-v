@@ -263,7 +263,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/paramedic.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtFoldableBase, BaseRestrictedContraband] # DeltaV - add foldable jumpsuits
+  parent: [ClothingUniformSkirtFoldableBase, BaseSecurityContraband] # DeltaV - add foldable jumpsuits
   id: ClothingUniformJumpskirtBrigmedic
   name: corpsman jumpskirt # DeltaV - renamed brigmedic to corpsman
   description: This uniform is issued to qualified personnel who have been trained. No one cares that the training took half a day.
@@ -370,7 +370,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/roboticist.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtFoldableBase, BaseRestrictedContraband] # DeltaV - add foldable jumpsuits
+  parent: [ClothingUniformSkirtFoldableBase, BaseSecurityContraband] # DeltaV - add foldable jumpsuits
   id: ClothingUniformJumpskirtSec
   name: security jumpskirt
   description: A charcoal skirt and a dull red shirt, the standard-issue uniform of the infamous Station Security Department. # DeltaV - improved description
@@ -381,7 +381,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/security.rsi # DeltaV - resprite
 
 - type: entity
-  parent: [ClothingUniformSkirtFoldableBase, BaseRestrictedContraband] # DeltaV - add foldable jumpsuits
+  parent: [ClothingUniformSkirtFoldableBase, BaseSecurityContraband] # DeltaV - add foldable jumpsuits
   id: ClothingUniformJumpskirtWarden
   name: warden's jumpskirt # DeltaV - renamed to mirror other security uniforms
   description: Red shirt on a charcoal skirt, with white markings and epaulettes that denote a warden's rank. # DeltaV - improved description
@@ -638,7 +638,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/senior_physician.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, BaseRestrictedContraband]
+  parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
   id: ClothingUniformJumpskirtSeniorOfficer
   name: senior officer jumpskirt
   description: A sign of skill and prestige within the security department.
@@ -649,7 +649,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/senior_officer.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtFoldableBase, BaseRestrictedContraband] # DeltaV - add foldable jumpsuits
+  parent: [ClothingUniformSkirtFoldableBase, BaseSecurityContraband] # DeltaV - add foldable jumpsuits
   id: ClothingUniformJumpskirtSecGrey
   name: grey security jumpskirt
   description: A light grey shirt with bright red highlights, for dedicated and responsive security officers. # DeltaV - improved description

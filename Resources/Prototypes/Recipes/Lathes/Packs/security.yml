@@ -139,8 +139,12 @@
   recipes:
   #- Truncheon # DeltaV - made roundstart
   - WeaponAdvancedLaser
-  #- WeaponDisabler # DeltaV - made roundstart
-  #- WeaponDisablerSMG # DeltaV - made roundstart
   - WeaponLaserCannon
   - WeaponLaserCarbine
   - WeaponXrayCannon
+
+- type: latheRecipePack
+  id: SecurityDisablers
+  recipes:
+  - WeaponDisabler
+  - WeaponDisablerSMG
