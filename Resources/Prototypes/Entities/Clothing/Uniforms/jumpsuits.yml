@@ -253,17 +253,6 @@
     sprite: Clothing/Uniforms/Jumpsuit/jester2.rsi
 
 - type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformLittleGuyOveralls
-  name: Little Guy Overalls
-  description: I'm just a little guy!
-  components:
-  - type: Sprite
-    sprite: _DV/Clothing/Uniforms/Jumpsuit/littleguy_overalls.rsi # DeltaV - Little-Guy-Ops
-  - type: Clothing
-    sprite: _DV/Clothing/Uniforms/Jumpsuit/littleguy_overalls.rsi
-
-- type: entity
   parent: [ClothingUniformBase, BaseCommandContraband, ClothingUniformFoldableBaseImpstation] # imp - Add foldable uniform jumpsuits
   id: ClothingUniformJumpsuitCMO
   name: chief medical officer's jumpsuit
