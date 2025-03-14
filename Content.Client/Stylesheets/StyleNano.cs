@@ -98,12 +98,8 @@ namespace Content.Client.Stylesheets
 
         public static readonly Color ButtonColorDefault = Color.FromHex("#464950");
         public static readonly Color ButtonColorDefaultRed = Color.FromHex("#D43B3B");
-<<<<<<< HEAD
-        public static readonly Color ButtonColorHovered = Color.FromHex("#575b61");
-=======
         public static readonly Color ButtonColorDefaultPurpleAndCool = Color.FromHex("#58296B"); // Imp
         public static readonly Color ButtonColorHovered = Color.FromHex("#575b7f");
->>>>>>> d0cdf2f39b (Merge pull request #1767 from AftrLite/the-cosmic-cult)
         public static readonly Color ButtonColorHoveredRed = Color.FromHex("#DF6B6B");
         public static readonly Color ButtonColorPressed = Color.FromHex("#3e6c45");
         public static readonly Color ButtonColorDisabled = Color.FromHex("#303133");
