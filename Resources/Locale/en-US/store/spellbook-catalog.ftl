@@ -70,7 +70,7 @@ spellbook-staff-animation-description = Bring inanimate objects to life!
 # Events
 
 spellbook-event-summon-ghosts-name = Summon Ghosts
-spellbook-event-summon-ghosts-description = Summons ghosts for all to see! Disables refunds when bought! 
+spellbook-event-summon-ghosts-description = Who ya gonna call?
 
 spellbook-event-summon-guns-name = Summon Guns
 spellbook-event-summon-guns-description = AK47s for everyone! Places a random gun in front of everybody. Disables refunds when bought!
