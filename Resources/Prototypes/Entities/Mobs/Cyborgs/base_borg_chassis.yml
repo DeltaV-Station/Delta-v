@@ -314,7 +314,7 @@
     tags:
     - Borg
   - type: AccessReader
-    access: [["Command"], ["Research"]]
+    access: [["Command"], ["Research"], ["Robotics"]] # DeltaV - add Robotics
     breakOnAccessBreaker: false # DeltaV - prevent emag metachecking by unlocking without an id
   - type: SlavedBorg # DeltaV: NT borgs are enslaved to the AI by default
     law: ObeyAI
@@ -375,7 +375,7 @@
     groups:
     - AllAccess #Randomized access would be fun. AllAccess is the best i can think of right now that does make it too hard for it to enter the station or navigate it..
   - type: AccessReader
-    access: [["Command"], ["Research"]]
+    access: [["Command"], ["Robotics"]] # DeltaV - Robotics instead of Research
   - type: StartIonStormed
     ionStormAmount: 3
   - type: IonStormTarget
