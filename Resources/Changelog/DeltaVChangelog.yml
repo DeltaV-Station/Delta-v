@@ -1,43 +1,4 @@
 ﻿Entries:
-- author: SolStar2, Vivi Bunny
-  changes:
-  - message: Added Hushed trait. Hushed players will whisper instead of talking.
-    type: Add
-  id: 652
-  time: '2024-11-06T21:50:09.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2106
-- author: Stop-Signs
-  changes:
-  - message: New Sec melee for epi to research!
-    type: Add
-  - message: Merged several arsenal techs to better fit the state of epi, as well
-      as changing the tiering and prices.
-    type: Tweak
-  id: 653
-  time: '2024-11-07T01:36:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2104
-- author: Monotheonist
-  changes:
-  - message: Justice has lunch packed for them, millions of attorneys must not go
-      hungry.
-    type: Add
-  id: 654
-  time: '2024-11-07T09:35:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2111
-- author: MilonPL
-  changes:
-  - message: Removed syndicats from the uplink.
-    type: Remove
-  id: 655
-  time: '2024-11-07T20:07:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2126
-- author: deltanedas
-  changes:
-  - message: Merged this week's changes from upstream.
-    type: Add
-  id: 656
-  time: '2024-11-07T20:09:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2090
 - author: MilonPL
   changes:
   - message: Adjusted security hardsuit lockers, now they all contain two jetpacks,
@@ -3961,3 +3922,42 @@
   id: 1151
   time: '2025-03-13T17:42:56.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3218
+- author: sowelipililimute
+  changes:
+  - message: Criminal records console can now set the wanted status again
+    type: Fix
+  id: 1152
+  time: '2025-03-14T13:23:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3222
+- author: sowelipililimute
+  changes:
+  - message: The clean meter of a surgery tool in the hotbar now also indicates the
+      cleanliness of the gloves and absence of a mask
+    type: Tweak
+  id: 1153
+  time: '2025-03-14T14:26:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3215
+- author: deltanedas
+  changes:
+  - message: Fixed some names being funny.
+    type: Fix
+  id: 1154
+  time: '2025-03-14T19:35:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3235
+- author: SlamBamActionman, sowelipililimute
+  changes:
+  - message: Roundstart antagonist roles now roll before job selection. Early cherry-pick
+      from upstream.
+    type: Add
+  id: 1155
+  time: '2025-03-14T19:36:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3231
+- author: deltanedas
+  changes:
+  - message: ID computer now toggles accesses so it works nicer when spam clicking.
+    type: Tweak
+  - message: Fixed not being able to change borg id chip access.
+    type: Fix
+  id: 1156
+  time: '2025-03-14T21:44:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3238
