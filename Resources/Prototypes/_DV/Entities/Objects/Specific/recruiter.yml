@@ -18,6 +18,9 @@
       - MindShield
     factionBlacklist:
     - Syndicate # no silly goose
+    currency: #currency type it spawns, count is handeled directly via pen system
+      Treatcoin
+
   - type: SolutionContainerManager
     solutions:
       blood:
