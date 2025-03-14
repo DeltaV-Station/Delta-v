@@ -439,6 +439,7 @@
   - type: Access
     groups:
     - AllAccess
+    - Silicon
   - type: Eye
     drawFov: false
   - type: Examiner
@@ -478,6 +479,7 @@
     - state: ai_camera
       shader: unshaded
       map: ["base"]
+  - type: AiDetectable # DeltaV - AI detector
 
 # The holographic representation of the AI that is projected from a holopad.
 - type: entity
@@ -628,7 +630,7 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
   - type: RandomMetadata
-    nameSegments: [names_borg]
+    nameSegments: [NamesBorg]
 
 - type: entity
   id: PlayerBorgDerelictGhostRole
