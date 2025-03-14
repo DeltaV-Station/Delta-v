@@ -77,6 +77,9 @@
         whitelist:
           components:
           - IdCard
+        blacklist: # DeltaV - prevent removing access using borg id chips
+          tags:
+          - IdChip
       denialSound:
         path: /Audio/Machines/custom_deny.ogg
       doAfter: 0.5
