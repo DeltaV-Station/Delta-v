@@ -140,6 +140,9 @@
         - id: FoodSnackEnergyBar
           amount: !type:RangeNumberSelector
             range: 2, 4
+        - id: DrinkWaterBottleFull
+          amount: !type:ConstantNumberSelector
+            value: 3
 
 - type: entityTable
   id: FillRandomAlcoholicBottle
