@@ -103,6 +103,10 @@ cosmiccult-role-deconverted-briefing =
     Deconverted!
     You are no longer a Cosmic Cultist.
 
+cosmiccult-monument-stage1-briefing =
+    The Monument has been beckoned.
+    It is located {$location}!
+
 cosmiccult-monument-stage2-briefing =
     The Monument grows in power!
     Its influence will affect realspace in 60 seconds.
