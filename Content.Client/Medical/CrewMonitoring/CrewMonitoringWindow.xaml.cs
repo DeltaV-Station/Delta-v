@@ -221,7 +221,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
 
             else if (sensor.DamagePercentage != null)
             {
-                var index = MathF.Round(4f * sensor.DamagePercentage.Value);
+                var index = (int)(sensor.DamagePercentage.Value * 5f); // DeltaV - Ensure damage states are calculated properly
 
                 if (index >= 5)
                     specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Alerts/human_crew_monitoring.rsi"), "critical");
@@ -372,35 +372,16 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         if (!_tryToScrollToListFocus)
             return;
 
-        if (!TryGetVerticalScrollbar(SensorScroller, out var vScrollbar))
-            return;
-
         if (TryGetNextScrollPosition(out float? nextScrollPosition))
         {
-            vScrollbar.ValueTarget = nextScrollPosition.Value;
+            SensorScroller.VScrollTarget = nextScrollPosition.Value;
 
-            if (MathHelper.CloseToPercent(vScrollbar.Value, vScrollbar.ValueTarget))
+            if (MathHelper.CloseToPercent(SensorScroller.VScroll, SensorScroller.VScrollTarget))
             {
                 _tryToScrollToListFocus = false;
                 return;
             }
         }
-    }
-
-    private bool TryGetVerticalScrollbar(ScrollContainer scroll, [NotNullWhen(true)] out VScrollBar? vScrollBar)
-    {
-        vScrollBar = null;
-
-        foreach (var child in scroll.Children)
-        {
-            if (child is not VScrollBar)
-                continue;
-
-            vScrollBar = (VScrollBar) child;
-            return true;
-        }
-
-        return false;
     }
 
     private bool TryGetNextScrollPosition([NotNullWhen(true)] out float? nextScrollPosition)

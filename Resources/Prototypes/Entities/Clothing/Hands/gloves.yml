@@ -142,6 +142,7 @@
   - type: Fiber
     fiberMaterial: fibers-latex
   - type: FingerprintMask
+  - type: SurgeryDirtiness # DeltaV - gloves that are likely to be used for surgery should have their bar visible from the getgo
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -156,6 +157,7 @@
   - type: Fiber
     fiberMaterial: fibers-nitrile
   - type: FingerprintMask
+  - type: SurgeryDirtiness # DeltaV - gloves that are likely to be used for surgery should have their bar visible from the getgo
 ####
 - type: entity
   parent: ClothingHandsButcherable
@@ -415,7 +417,7 @@
     price: 0
 
 - type: entity
-  parent: [ClothingHandsBase, BaseRestrictedContraband]
+  parent: [ClothingHandsBase, BaseSecurityContraband]
   id: ClothingHandsGlovesForensic
   name: forensic gloves
   description: Do not leave fibers or fingerprints. If you work without them, you're A TERRIBLE DETECTIVE.

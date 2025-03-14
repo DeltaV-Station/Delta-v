@@ -6,7 +6,7 @@
   dummyPrototype: BorgChassisSecurity
 
   # Functional
-  extraModuleCount: 3
+  extraModuleCount: 2
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
@@ -16,9 +16,9 @@
   defaultModules:
   - BorgModuleSecurityDeescalate
   - BorgModuleSecurityPatrol
-  - BorgModuleSecurityBastion
 
   lawset: SiliconPolice
+  job: SecurityOfficer
 
   addComponents:
   - type: FlashImmunity
@@ -29,6 +29,17 @@
       0: Alive
       80: Critical # -20 to Crit Threshold
       200: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+    showOverlays: false
+    allowRevives: true
+  - type: Fiber # red plasteel fibers
+    fiberMaterial: fibers-plasteel
+    fiberColor: fibers-red
+  - type: AccessReader
+    access: [["Command"], ["Robotics"], ["Security"]]
 
   radioChannels:
   - Science

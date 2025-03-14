@@ -3,7 +3,7 @@
   name: uplink-hardsuit-commander-syndie-name
   description: uplink-hardsuit-commander-syndie-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi, state: icon }
-  productEntity:
+  productEntity: ClothingOuterHardsuitSyndieCommander
   cost:
     Telecrystal: 8
   categories:
@@ -25,7 +25,7 @@
   name: uplink-hardsuit-agent-syndie-name
   description: uplink-hardsuit-agent-syndie-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiemedic.rsi, state: icon }
-  productEntity:
+  productEntity: ClothingOuterHardsuitSyndieMedic
   cost:
     Telecrystal: 8
   categories:
@@ -76,20 +76,6 @@
     blacklist:
       components:
       - SurplusBundle
-
-- type: listing
-  id: Observationkit
-  name: uplink-observation-kit-name
-  description: uplink-observation-kit-desc
-  icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: tracks }
-  productEntity: Observationskit
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 3
-  cost:
-    Telecrystal: 6 # DeltaV - Price Goes up, but the goods are better!
-  categories:
-  - UplinkDeception
 
 - type: listing
   id: UplinkSyndicateRadioImplanter
@@ -204,6 +190,19 @@
     Telecrystal: 2
   categories:
   - UplinkDisruption
+
+- type: listing
+  id: UplinkPaperworkhater
+  name: uplink-paperwork-hater-name
+  description: uplink-paperwork-hater-desc
+  productEntity: RubberStampHatePaperwork
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 0
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkPointless
 
 # Objective-specific
 - type: listing
@@ -350,3 +349,47 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkChainsmokerBundle
+  name: uplink-chainsmoker-bundle-name
+  description: uplink-chainsmoker-bundle-desc
+  productEntity: CigCartonSyndicate
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 3 # Incredible value! (Still a horrendous waste)
+  cost:
+    Telecrystal: 6 # 12TC worth of cigs, plus a bonus lighter. (Or you could just emag a shadycig, and get infinite interdynes for free)
+  categories:
+  - UplinkChemicals
+  - UplinkPointless
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkOmniPatchKit
+  name: uplink-omnipatch-kit-name
+  description: uplink-omnipatch-kit-desc
+  productEntity: OmniPatch
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkSpeedLoaderMagnum
+  name: uplink-speedloader-magnum-regular-name
+  description: uplink-speedloader-magnum-regular-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
+  productEntity: SpeedLoaderMagnum
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo

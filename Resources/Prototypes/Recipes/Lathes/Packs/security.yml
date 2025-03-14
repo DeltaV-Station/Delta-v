@@ -1,0 +1,150 @@
+## Static recipes
+
+- type: latheRecipePack
+  parent:
+  - SecurityEquipmentStaticDeltaV # DeltaV
+  id: SecurityEquipmentStatic
+  recipes:
+  - ClothingEyesHudSecurity
+  - ForensicPad
+  - Handcuffs
+  - TargetClown
+  - TargetHuman
+  - TargetSyndicate
+  - Zipties
+
+# Practice ammo/mags and practice weapons
+- type: latheRecipePack
+  parent:
+  - SecurityPracticeStaticDeltaV # DeltaV
+  id: SecurityPracticeStatic
+  recipes:
+  - BoxShotgunPractice
+  - MagazineBoxLightRiflePractice
+  - MagazineBoxMagnumPractice
+  - MagazineBoxPistolPractice
+  - MagazineBoxRiflePractice
+  - WeaponDisablerPractice
+  - WeaponLaserCarbinePractice
+  - WeaponFlareGunSecurity
+
+# Shared between secfab and emagged autolathe
+- type: latheRecipePack
+  parent:
+  - SecurityAmmoStaticDeltaV # DeltaV
+  id: SecurityAmmoStatic
+  recipes:
+  - BoxLethalshot
+  - BoxShotgunSlug
+  - MagazineBoxLightRifle
+  - MagazineBoxMagnum
+  - MagazineBoxPistol
+  - MagazineBoxRifle
+  - MagazineLightRifle
+  - MagazineLightRifleEmpty
+  - MagazinePistol
+  - MagazinePistolEmpty
+  - MagazinePistolSubMachineGun
+  - MagazinePistolSubMachineGunEmpty
+  - MagazinePistolSubMachineGunTopMounted
+  - MagazinePistolSubMachineGunTopMountedEmpty
+  - MagazineRifle
+  - MagazineRifleEmpty
+  - MagazineShotgun
+  - MagazineShotgunEmpty
+  - MagazineShotgunSlug
+  - SpeedLoaderMagnum
+  - SpeedLoaderMagnumEmpty
+
+- type: latheRecipePack
+  parent:
+  - SecurityWeaponsStaticDeltaV # DeltaV
+  id: SecurityWeaponsStatic
+  recipes:
+  - Flash
+  - Stunbaton
+  - CombatKnife
+  - RiotShield
+
+## Dynamic recipes
+
+- type: latheRecipePack
+  parent:
+  - SecurityEquipmentDeltaV # DeltaV
+  - SecurityCybernetics # Shitmed change
+  id: SecurityEquipment
+  recipes:
+  - ClothingBackpackElectropack
+  #- HoloprojectorSecurity # DeltaV - made roundstart
+  - PortableRecharger
+  - PowerCageHigh
+  - PowerCageMedium
+  - PowerCageSmall
+  - TelescopicShield
+
+- type: latheRecipePack
+  id: SecurityBoards
+  recipes:
+  - ShuttleGunDusterCircuitboard
+  - ShuttleGunFriendshipCircuitboard
+  - ShuttleGunPerforatorCircuitboard
+  - ShuttleGunSvalinnMachineGunCircuitboard
+
+- type: latheRecipePack
+  parent:
+  - ScienceExplosives # sec gets everything for modular grenade making that sci does
+  id: SecurityExplosives
+  recipes:
+  - ExplosivePayload
+  - GrenadeBlast
+  - GrenadeEMP
+  - GrenadeFlash
+  - MagazineGrenadeEmpty
+
+# Shared between secfab and emagged protolathe
+- type: latheRecipePack
+  parent:
+  - SecurityAmmoDeltaV # DeltaV
+  id: SecurityAmmo
+  recipes:
+  #- BoxBeanbag # DeltaV - made roundstart
+  - BoxShotgunIncendiary
+  - BoxShotgunUranium
+  #- BoxShellTranquilizer # DeltaV - made roundstart
+  - MagazineBoxLightRifleIncendiary
+  - MagazineBoxLightRifleUranium
+  - MagazineBoxMagnumIncendiary
+  - MagazineBoxMagnumUranium
+  - MagazineBoxPistolIncendiary
+  - MagazineBoxPistolUranium
+  - MagazineBoxRifleIncendiary
+  - MagazineBoxRifleUranium
+  - MagazineLightRifleIncendiary
+  - MagazineLightRifleUranium
+  - MagazinePistolIncendiary
+  - MagazinePistolUranium
+  - MagazinePistolSubMachineGunIncendiary
+  - MagazinePistolSubMachineGunUranium
+  - MagazineRifleIncendiary
+  - MagazineRifleUranium
+  #- MagazineShotgunBeanbag # DeltaV - made roundstart
+  - MagazineShotgunIncendiary
+  - SpeedLoaderMagnumIncendiary
+  - SpeedLoaderMagnumUranium
+
+- type: latheRecipePack
+  parent:
+  - SecurityWeaponsDeltaV # DeltaV
+  id: SecurityWeapons
+  recipes:
+  #- Truncheon # DeltaV - made roundstart
+  - WeaponAdvancedLaser
+  - WeaponLaserCannon
+  - WeaponLaserCarbine
+  - WeaponXrayCannon
+
+- type: latheRecipePack
+  id: SecurityDisablers
+  recipes:
+  - WeaponDisabler
+  - WeaponDisablerSMG

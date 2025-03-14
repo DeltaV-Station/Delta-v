@@ -30,13 +30,13 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     ///     without referencing the prototype or hardcoding.
     /// </summary>
 
-    [DataField, AlwaysPushInheritance]
-    public string SlotId = "";
+    [DataField]
+    public string SlotId = string.Empty;
 
-    [DataField, AlwaysPushInheritance]
+    [DataField]
     public string ToolName { get; set; } = "An organ";
 
-    [DataField, AlwaysPushInheritance]
+    [DataField]
     public float Speed { get; set; } = 1f;
 
     /// <summary>
@@ -69,5 +69,11 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     /// </summary>
     [DataField]
     public bool CanEnable = true;
+
+    /// <summary>
+    ///     DeltaV - Can this organ be removed? Used to be able to make organs unremovable by setting it to false.
+    /// </summary>
+    [DataField]
+    public bool Removable = true;
     // Shitmed Change End
 }
