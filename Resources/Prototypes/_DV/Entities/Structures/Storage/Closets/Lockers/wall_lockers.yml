@@ -216,3 +216,38 @@
     stateDoorOpen: justice_open
   - type: AccessReader
     access: [["Justice"]]
+
+- type: entity
+  parent: ClosetWallBlack
+  id: StampLockerListeningPost
+  name: stamp closet
+  description: A closet packed with forged stamps, CentComm not included.
+  suffix: DO NOT MAP
+  components:
+  - type: StorageFill
+    contents:
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    - id: RubberStampAdminAssistant
+    - id: RubberStampCaptain
+    - id: RubberStampChaplain
+    - id: RubberStampCE
+    - id: RubberStampChiefJustice
+    - id: RubberStampChaplain
+    - id: RubberStampCMO
+    - id: RubberStampClown
+    - id: RubberStampDetective
+    - id: RubberStampHop
+    - id: RubberStampHos
+    - id: RubberStampLawyer
+    - id: RubberStampQm
+    - id: RubberStampMime
+    - id: RubberStampRd
+    - id: RubberStampNotary
+    - id: RubberStampProsec
+    - id: RubberStampMantis
+    - id: RubberStampPsychologist
+    - id: RubberStampSyndicate
+    - id: RubberStampTrader
+    - id: RubberStampWarden
+    - id: RubberStampGreytide # a disturbance in the rising grey water.

@@ -12,9 +12,9 @@ using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared._DV.Surgery; // DeltaV: expanded anesthesia
-using Content.Server.Forensics; // DeltaV: surgery cross contamination
 using Content.Server._DV.Surgery; // DeltaV: surgery cross contamination
 using Content.Shared.FixedPoint; // DeltaV: surgery cross contamination
+using Content.Shared.Forensics.Components; // DeltaV: surgery cross contamination
 using Content.Shared.Damage.Prototypes; // DeltaV: surgery cross contamination
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
@@ -185,7 +185,8 @@ public sealed class SurgerySystem : SharedSurgerySystem
             }
         }
 
-        dnas.Remove(target.Comp1.DNA);
+        if (target.Comp1.DNA is {} dna)
+            dnas.Remove(dna);
 
         return total + dnas.Count * target.Comp2.CrossContaminationDirtinessLevel;
     }
@@ -200,7 +201,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
         var exceedsAmount = (dirtiness - ent.Comp.DirtinessThreshold).Float();
         var additionalDamage = (1f / ent.Comp.InverseDamageCoefficient.Float()) * (exceedsAmount * exceedsAmount);
 
-        return FixedPoint2.New(additionalDamage) + ent.Comp.BaseDamage;
+        return FixedPoint2.Min(FixedPoint2.New(additionalDamage) + ent.Comp.BaseDamage, ent.Comp.ToxinStepLimit);
     }
 
     private void AddDirt(EntityUid ent, FixedPoint2 amount)
@@ -210,8 +211,11 @@ public sealed class SurgerySystem : SharedSurgerySystem
         Dirty(ent, dirtiness);
     }
 
-    private void AddDNA(EntityUid ent, string dna)
+    private void AddDNA(EntityUid ent, string? dna)
     {
+        if (dna == null)
+            return;
+
         var contamination = EnsureComp<SurgeryCrossContaminationComponent>(ent);
         contamination.DNAs.Add(dna);
     }
@@ -268,9 +272,11 @@ public sealed class SurgerySystem : SharedSurgerySystem
 
     private void OnSurgerySpecialDamageChange(Entity<SurgerySpecialDamageChangeEffectComponent> ent, ref SurgeryStepDamageChangeEvent args)
     {
+        // Begin DeltaV - this shit was killed
         // Im killing this shit soon too, inshallah.
-        if (ent.Comp.DamageType == "Rot")
-            _rot.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(2147483648)); // BEHOLD, SHITCODE THAT I JUST COPY PASTED. I'll redo it at some point, pinky swear :)
+        // if (ent.Comp.DamageType == "Rot")
+        //     _rot.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(2147483648)); // BEHOLD, SHITCODE THAT I JUST COPY PASTED. I'll redo it at some point, pinky swear :)
+        // End DeltaV - this shit was killed
         /*else if (ent.Comp.DamageType == "Eye"
             && TryComp(ent, out BlindableComponent? blindComp)
             && blindComp.EyeDamage > 0)

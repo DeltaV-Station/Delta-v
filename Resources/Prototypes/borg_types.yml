@@ -49,7 +49,14 @@
   - BorgModuleRCD
   - BorgModuleCable
 
-  lawset: Engineer # DeltaV: Custom lawset
+  lawset: Engineer # DeltaV - Custom lawset
+  job: StationEngineer # DeltaV - borg job requirements
+  addComponents: # DeltaV - fibers, departmental access
+  - type: AccessReader
+    access: [["Command"], ["Robotics"], ["Engineering"]]
+  - type: Fiber
+    fiberMaterial: fibers-plasteel
+    fiberColor: fibers-orange
 
   radioChannels:
   - Engineering
@@ -86,6 +93,14 @@
   - BorgModuleMining
   - BorgModuleAppraisal
 
+  job: SalvageSpecialist # DeltaV - borg job requirements
+  addComponents: # DeltaV - fibers, departmental access
+  - type: Fiber
+    fiberMaterial: fibers-plasteel
+    fiberColor: fibers-brown
+  - type: AccessReader
+    access: [["Command"], ["Robotics"], ["Salvage"]]
+
   radioChannels:
   - Supply
   - Science
@@ -121,7 +136,14 @@
   - BorgModuleLightReplacer
   - BorgModuleCleaning
 
-  lawset: Janitor # DeltaV: Custom lawset
+  lawset: Janitor # DeltaV - Custom lawset
+  job: Janitor # DeltaV - borg job requirements
+  addComponents: # DeltaV - fibers, departmental access
+  - type: Fiber
+    fiberMaterial: fibers-plasteel
+    fiberColor: fibers-purple
+  - type: AccessReader
+    access: [["Command"], ["Robotics"], ["Janitor"]]
 
   radioChannels:
   - Science
@@ -163,6 +185,7 @@
   - Medical
 
   lawset: Medical # DeltaV: Custom lawset
+  job: MedicalDoctor # DeltaV - borg job requirements
 
   addComponents:
   - type: SolutionScanner
@@ -176,6 +199,11 @@
     actions:
     - ActionFabricateLollipop
     - ActionFabricateGumball
+  - type: Fiber # DeltaV - white plasteel fibers
+    fiberMaterial: fibers-plasteel
+    fiberColor: fibers-white
+  - type: AccessReader # DeltaV - departmental access
+    access: [["Command"], ["Robotics"], ["Medical"]]
   - type: SurgeryTarget # Shitmed
   - type: Sanitized # Shitmed
 
@@ -218,6 +246,11 @@
   radioChannels:
   - Science
   - Service
+
+  job: Bartender # DeltaV - borg job requirements
+  addComponents: # DeltaV - departmental access
+  - type: AccessReader
+    access: [["Command"], ["Robotics"], ["Service"]]
 
   # Visual
   inventoryTemplateId: borgTall
