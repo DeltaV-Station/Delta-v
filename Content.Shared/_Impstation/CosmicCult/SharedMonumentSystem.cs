@@ -64,8 +64,6 @@ public sealed class SharedMonumentSystem : EntitySystem
         }
         else
             _ui.CloseUi(ent.Owner, MonumentKey.Key); //close the UI if the monument isn't available
-        //todo this can probably be done better - have it keep the UI open but replace everything with some kinda "The End Is Coming" text? - ruddygreat
-
     }
 
     #region UI listeners
@@ -125,8 +123,6 @@ public sealed class SharedMonumentSystem : EntitySystem
         }
 
         cultComp.EntropyBudget -= proto.Cost;
-        ent.Comp.UnlockedInfluences.Remove(args.InfluenceProtoId);
-        cultComp.UnlockedInfluences.Remove(args.InfluenceProtoId);
         Dirty(senderEnt.Value, cultComp); //force an update to make sure that the client has the correct set of owned abilities
 
         _ui.SetUiState(ent.Owner, MonumentKey.Key, new MonumentBuiState(ent.Comp));
