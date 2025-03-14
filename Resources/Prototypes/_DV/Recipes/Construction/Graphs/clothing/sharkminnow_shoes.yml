@@ -1,0 +1,13 @@
+- type: constructionGraph
+  id: SharkminnowShoes
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: sharkminnowShoes
+          steps:
+            - material: SharkminnowChitin
+              amount: 5
+              doAfter: 8
+    - node: sharkminnowShoes
+      entity: ClothingShoesSharkminnow
