@@ -646,6 +646,14 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             Dirty(cultist, cultComp);
         }
 
+        //add the move action
+        var leaderQuery = EntityQueryEnumerator<CosmicCultLeadComponent>();
+        while (leaderQuery.MoveNext(out var leader, out var leaderComp))
+        {
+            _actions.AddAction(leader, ref leaderComp.CosmicMonumentMoveActionEntity, leaderComp.CosmicMonumentMoveAction, leader);
+        }
+
+        Dirty(uid);
     }
 
     private void MonumentTier3(Entity<MonumentComponent> uid)
@@ -672,6 +680,15 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             _antag.SendBriefing(cultist, Loc.GetString("cosmiccult-monument-stage3-briefing"), Color.FromHex("#4cabb3"), StageAlertSound);
         }
+
+        //remove the move action
+        var leaderQuery = EntityQueryEnumerator<CosmicCultLeadComponent>();
+        while (leaderQuery.MoveNext(out var leader, out var leaderComp))
+        {
+            _actions.RemoveAction(leader, leaderComp.CosmicMonumentMoveActionEntity);
+        }
+
+        Dirty(uid);
     }
 
     private void FinaleReady(Entity<MonumentComponent> uid, CosmicFinaleComponent finaleComp)
