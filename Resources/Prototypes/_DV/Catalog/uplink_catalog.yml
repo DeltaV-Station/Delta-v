@@ -55,6 +55,9 @@
     Telecrystal: 3
   categories:
   - UplinkAllies
+  conditions:
+  - !type:ReputationCondition
+    reputation: 40 # Allies
 
 - type: listing
   id: UplinkBionicSyrinxImplanter
@@ -117,6 +120,9 @@
     Telecrystal: 4
   categories:
   - UplinkDisruption
+  conditions:
+  - !type:ReputationCondition
+    reputation: 15 # It's psuedo-iconic...
 
 - type: listing
   id: BaseBallBatHomeRun
@@ -132,6 +138,9 @@
     Telecrystal: 16
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:ReputationCondition
+    reputation: 50 # Strong Melee Weapons
 
 - type: listing
   id: UplinkRealFoamSabre
@@ -147,6 +156,9 @@
     Telecrystal: 6
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:ReputationCondition
+    reputation: 20 # Melee Weapons
 
 - type: listing
   id: UplinkExGrenadeFoam
@@ -160,6 +172,9 @@
     Telecrystal: 4 # 1 TC more expensive than regular due to disguise.
   categories:
   - UplinkExplosives
+  conditions:
+  - !type:ReputationCondition
+    reputation: 40 # Explosives
 
 - type: listing
   id: UplinkViperAppraisal
@@ -177,6 +192,8 @@
   - !type:BuyerDepartmentCondition
     whitelist:
     - Logistics
+  - !type:ReputationCondition
+    reputation: 45 # Sidearms
 
 - type: listing
   id: UplinkDeadMansSignaller
