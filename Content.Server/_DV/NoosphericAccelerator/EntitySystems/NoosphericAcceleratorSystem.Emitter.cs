@@ -58,7 +58,7 @@ public sealed partial class NoosphericAcceleratorSystem
             } * 10;
         }
 
-        if (TryComp<ParticleProjectileComponent>(emitted, out var particle))
+        if (TryComp<NoosphericParticleProjectileComponent>(emitted, out var particle))
             particle.State = strength;
 
         _appearanceSystem.SetData(emitted, NoosphericAcceleratorVisuals.VisualState, strength);
