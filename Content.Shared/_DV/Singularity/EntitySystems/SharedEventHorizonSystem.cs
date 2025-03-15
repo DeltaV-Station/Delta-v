@@ -5,10 +5,10 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 
 using Content.Shared.Ghost;
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.Singularity.Components;
 using Robust.Shared.Physics;
 
-namespace Content.Shared.Singularity.EntitySystems;
+namespace Content.Shared._DV.Singularity.EntitySystems;
 
 /// <summary>
 /// The entity system primarily responsible for managing <see cref="EventHorizonComponent"/>s.

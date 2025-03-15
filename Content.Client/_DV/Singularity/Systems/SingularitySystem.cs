@@ -1,11 +1,11 @@
-﻿using Content.Shared.Singularity;
-using Content.Shared.Singularity.Components;
-using Content.Shared.Singularity.EntitySystems;
+﻿using Content.Shared._DV.Singularity;
+using Content.Shared._DV.Singularity.Components;
+using Content.Shared._DV.Singularity.EntitySystems;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
-namespace Content.Client.Singularity.Systems;
+namespace Content.Client._DV.Singularity.Systems;
 
 /// <summary>
 /// The client-side version of <see cref="SharedSingularitySystem"/>.

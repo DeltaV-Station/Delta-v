@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Singularity.Components;
+namespace Content.Shared._DV.Singularity.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ContainmentFieldComponent : Component

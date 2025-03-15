@@ -1,10 +1,10 @@
 using Robust.Shared.GameStates;
 
-using Content.Shared.Singularity.EntitySystems;
+using Content.Shared._DV.Singularity.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.Singularity.Components;
+namespace Content.Shared._DV.Singularity.Components;
 
 /// <summary>
 /// A component that makes the associated entity accumulate energy when an associated event horizon consumes things.

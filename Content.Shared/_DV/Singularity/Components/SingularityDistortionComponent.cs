@@ -1,7 +1,7 @@
-using Content.Shared.Singularity.EntitySystems;
+using Content.Shared._DV.Singularity.EntitySystems;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Singularity.Components
+namespace Content.Shared._DV.Singularity.Components
 {
     [RegisterComponent, NetworkedComponent]
     [AutoGenerateComponentState]

@@ -1,19 +1,19 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Popups;
-using Content.Server.Singularity.Events;
+using Content.Server._DV.Singularity.Events;
 using Content.Shared.Construction.Components;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.Singularity.Components;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Server.Singularity.EntitySystems;
+namespace Content.Server._DV.Singularity.EntitySystems;
 
 public sealed class ContainmentFieldGeneratorSystem : EntitySystem
 {

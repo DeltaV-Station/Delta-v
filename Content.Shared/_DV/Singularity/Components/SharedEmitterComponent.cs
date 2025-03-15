@@ -7,7 +7,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
-namespace Content.Shared.Singularity.Components;
+namespace Content.Shared._DV.Singularity.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class EmitterComponent : Component

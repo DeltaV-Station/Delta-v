@@ -1,13 +1,13 @@
 using Content.Server.Popups;
 using Content.Server.Shuttles.Components;
-using Content.Server.Singularity.Events;
+using Content.Server._DV.Singularity.Events;
 using Content.Shared.Popups;
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.Singularity.Components;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Server.Singularity.EntitySystems;
+namespace Content.Server._DV.Singularity.EntitySystems;
 
 public sealed class ContainmentFieldSystem : EntitySystem
 {

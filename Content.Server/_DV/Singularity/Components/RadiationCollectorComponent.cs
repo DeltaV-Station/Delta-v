@@ -1,7 +1,7 @@
-using Content.Server.Singularity.EntitySystems;
+using Content.Server._DV.Singularity.EntitySystems;
 using Content.Shared.Atmos;
 
-namespace Content.Server.Singularity.Components;
+namespace Content.Server._DV.Singularity.Components;
 
 /// <summary>
 ///     Generates electricity from radiation.

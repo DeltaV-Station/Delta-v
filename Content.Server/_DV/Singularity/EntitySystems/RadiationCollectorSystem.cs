@@ -5,17 +5,17 @@ using Content.Server.Atmos.Components;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Singularity.Components;
+using Content.Server._DV.Singularity.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Radiation.Events;
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.Singularity.Components;
 using Content.Shared.Timing;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
-namespace Content.Server.Singularity.EntitySystems;
+namespace Content.Server._DV.Singularity.EntitySystems;
 
 public sealed class RadiationCollectorSystem : EntitySystem
 {

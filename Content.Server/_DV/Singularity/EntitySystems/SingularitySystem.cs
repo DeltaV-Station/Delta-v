@@ -1,9 +1,9 @@
 using Content.Server.Physics.Components;
-using Content.Server.Singularity.Components;
-using Content.Server.Singularity.Events;
-using Content.Shared.Singularity.Components;
-using Content.Shared.Singularity.EntitySystems;
-using Content.Shared.Singularity.Events;
+using Content.Server._DV.Singularity.Components;
+using Content.Server._DV.Singularity.Events;
+using Content.Shared._DV.Singularity.Components;
+using Content.Shared._DV.Singularity.EntitySystems;
+using Content.Shared._DV.Singularity.Events;
 using Robust.Server.GameStates;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -11,7 +11,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Server.Singularity.EntitySystems;
+namespace Content.Server._DV.Singularity.EntitySystems;
 
 /// <summary>
 /// The server-side version of <see cref="SharedSingularitySystem"/>.

@@ -1,7 +1,7 @@
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.Singularity.Components;
 using Robust.Client.Animations;
 
-namespace Content.Client.Singularity.Visualizers;
+namespace Content.Client._DV.Singularity.Visualizers;
 
 /// <summary>
 /// The component used to reflect the state of a radiation collector in its appearance.

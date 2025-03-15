@@ -1,7 +1,7 @@
 using Robust.Shared.Containers;
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.Singularity.Components;
 
-namespace Content.Shared.Singularity.EntitySystems;
+namespace Content.Shared._DV.Singularity.EntitySystems;
 
 /// <summary>
 /// An event queued when an event horizon is contained (put into a container).

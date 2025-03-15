@@ -1,9 +1,9 @@
 using System;
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.Singularity.Components;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 
-namespace Content.Client.Singularity.Visualizers;
+namespace Content.Client._DV.Singularity.Visualizers;
 
 public sealed class RadiationCollectorSystem : VisualizerSystem<RadiationCollectorComponent>
 {

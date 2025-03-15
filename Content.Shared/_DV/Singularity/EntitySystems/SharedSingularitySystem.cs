@@ -1,13 +1,13 @@
 using System.Numerics;
 using Content.Shared.Radiation.Components;
-using Content.Shared.Singularity.Components;
-using Content.Shared.Singularity.Events;
+using Content.Shared._DV.Singularity.Components;
+using Content.Shared._DV.Singularity.Events;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Singularity.EntitySystems;
+namespace Content.Shared._DV.Singularity.EntitySystems;
 
 /// <summary>
 /// The entity system primarily responsible for managing <see cref="SingularityComponent"/>s.

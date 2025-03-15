@@ -1,12 +1,12 @@
 using System.Numerics;
 using Content.Server.Administration.Logs;
-using Content.Server.Singularity.Events;
+using Content.Server._DV.Singularity.Events;
 using Content.Server.Station.Components;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
 using Content.Shared.Mind.Components;
-using Content.Shared.Singularity.Components;
-using Content.Shared.Singularity.EntitySystems;
+using Content.Shared._DV.Singularity.Components;
+using Content.Shared._DV.Singularity.EntitySystems;
 using Content.Shared.Tag;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -16,7 +16,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 
-namespace Content.Server.Singularity.EntitySystems;
+namespace Content.Server._DV.Singularity.EntitySystems;
 
 /// <summary>
 /// The entity system primarily responsible for managing <see cref="EventHorizonComponent"/>s.

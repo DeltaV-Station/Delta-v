@@ -1,6 +1,6 @@
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.Singularity.Components;
 
-namespace Content.Server.Singularity.Events;
+namespace Content.Server._DV.Singularity.Events;
 
 /// <summary>
 /// Event raised on the target entity whenever an event horizon attempts to consume an entity.

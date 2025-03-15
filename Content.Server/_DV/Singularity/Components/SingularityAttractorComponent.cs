@@ -1,7 +1,7 @@
-using Content.Server.Singularity.EntitySystems;
+using Content.Server._DV.Singularity.EntitySystems;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server.Singularity.Components;
+namespace Content.Server._DV.Singularity.Components;
 
 /// <summary>
 /// Attracts the singularity.

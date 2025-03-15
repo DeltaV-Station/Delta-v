@@ -1,6 +1,6 @@
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.Singularity.Components;
 
-namespace Content.Shared.Singularity.Events;
+namespace Content.Shared._DV.Singularity.Events;
 
 /// <summary>
 /// An event raised whenever a singularity changes its level.

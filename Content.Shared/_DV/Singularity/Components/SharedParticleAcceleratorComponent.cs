@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.Serialization;
 
-namespace Content.Shared.Singularity.Components
+namespace Content.Shared._DV.Singularity.Components
 {
     [NetSerializable, Serializable]
     public enum ParticleAcceleratorVisuals

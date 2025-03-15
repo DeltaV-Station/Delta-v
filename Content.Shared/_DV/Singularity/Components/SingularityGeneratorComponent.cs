@@ -5,7 +5,7 @@ using Content.Shared.Physics;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Singularity.Components;
+namespace Content.Shared._DV.Singularity.Components;
 
 [RegisterComponent, AutoGenerateComponentPause, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SingularityGeneratorComponent : Component

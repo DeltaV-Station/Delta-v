@@ -1,7 +1,7 @@
-using Content.Shared.Singularity.Components;
-using Content.Server.Singularity.EntitySystems;
+using Content.Shared._DV.Singularity.Components;
+using Content.Server._DV.Singularity.EntitySystems;
 
-namespace Content.Server.Singularity.Components;
+namespace Content.Server._DV.Singularity.Components;
 
 /// <summary>
 /// The server-side version of <see cref="SharedGravityWellComponent"/>.

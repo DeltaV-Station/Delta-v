@@ -1,14 +1,14 @@
 using Content.Server.ParticleAccelerator.Components;
 using Content.Shared.Popups;
-using Content.Shared.Singularity.Components;
-using Content.Shared.Singularity.EntitySystems;
+using Content.Shared._DV.Singularity.Components;
+using Content.Shared._DV.Singularity.EntitySystems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 
-namespace Content.Server.Singularity.EntitySystems;
+namespace Content.Server._DV.Singularity.EntitySystems;
 
 public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSystem
 {

@@ -1,8 +1,8 @@
-﻿using Content.Shared.Singularity.Components;
-using Content.Shared.Singularity.EntitySystems;
+﻿using Content.Shared._DV.Singularity.Components;
+using Content.Shared._DV.Singularity.EntitySystems;
 using Robust.Client.GameObjects;
 
-namespace Content.Client.Singularity.Systems;
+namespace Content.Client._DV.Singularity.Systems;
 
 public sealed class EmitterSystem : SharedEmitterSystem
 {

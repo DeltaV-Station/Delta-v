@@ -1,8 +1,8 @@
 using Robust.Shared.GameStates;
-using Content.Shared.Singularity.EntitySystems;
+using Content.Shared._DV.Singularity.EntitySystems;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared.Singularity.Components;
+namespace Content.Shared._DV.Singularity.Components;
 
 /// <summary>
 /// A component that makes the associated entity destroy other within some distance of itself.

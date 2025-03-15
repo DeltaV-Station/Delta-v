@@ -1,8 +1,8 @@
 using Content.Shared.Emag.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.Singularity.Components;
 
-namespace Content.Shared.Singularity.EntitySystems;
+namespace Content.Shared._DV.Singularity.EntitySystems;
 
 /// <summary>
 /// Shared part of SingularitySingularityGeneratorSystem

@@ -13,8 +13,8 @@ using Content.Shared.Lock;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Projectiles;
-using Content.Shared.Singularity.Components;
-using Content.Shared.Singularity.EntitySystems;
+using Content.Shared._DV.Singularity.Components;
+using Content.Shared._DV.Singularity.EntitySystems;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using JetBrains.Annotations;
@@ -26,7 +26,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
 
-namespace Content.Server.Singularity.EntitySystems
+namespace Content.Server._DV.Singularity.EntitySystems
 {
     [UsedImplicitly]
     public sealed class EmitterSystem : SharedEmitterSystem

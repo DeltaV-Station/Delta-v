@@ -1,13 +1,13 @@
 using Content.Server.Administration;
 using Content.Server.ParticleAccelerator.Components;
 using Content.Server.ParticleAccelerator.EntitySystems;
-using Content.Server.Singularity.Components;
-using Content.Server.Singularity.EntitySystems;
+using Content.Server._DV.Singularity.Components;
+using Content.Server._DV.Singularity.EntitySystems;
 using Content.Shared.Administration;
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.Singularity.Components;
 using Robust.Shared.Console;
 
-namespace Content.Server.Singularity
+namespace Content.Server._DV.Singularity
 {
     [AdminCommand(AdminFlags.Admin)]
     public sealed class StartSingularityEngineCommand : IConsoleCommand

@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.Serialization;
 
-namespace Content.Shared.Singularity
+namespace Content.Shared._DV.Singularity
 {
     [Serializable, NetSerializable]
     public enum SingularityAppearanceKeys

@@ -1,9 +1,9 @@
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.Singularity.Components;
 
-namespace Content.Server.Singularity.Events;
+namespace Content.Server._DV.Singularity.Events;
 
 /// <summary>
 /// Event raised on the event horizon entity whenever an event horizon consumes an entity.

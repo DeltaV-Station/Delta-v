@@ -1,4 +1,4 @@
-namespace Content.Server.Singularity.Components
+namespace Content.Server._DV.Singularity.Components
 {
     /// <summary>
     /// Overrides exactly how much energy this object gives to a singularity.
