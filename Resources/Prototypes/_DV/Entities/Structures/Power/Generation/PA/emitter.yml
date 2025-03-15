@@ -1,0 +1,76 @@
+- type: entity
+  parent: NoosphericAcceleratorFinishedPart
+  id: NoosphericAcceleratorEmitterPort
+  name: PA port containment emitter
+  description: This launchs the Alpha particles, might not want to stand near this end.
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/PA/emitter_port.rsi
+  - type: NoosphericAcceleratorEmitter
+    emitterType: Port
+  - type: Construction
+    graph: NoosphericAcceleratorEmitterPort
+
+- type: entity
+  parent: NoosphericAcceleratorFinishedPart
+  id: NoosphericAcceleratorEmitterFore
+  name: PA fore containment emitter
+  description: This launchs the Alpha particles, might not want to stand near this end.
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/PA/emitter_fore.rsi
+  - type: NoosphericAcceleratorEmitter
+    emitterType: Fore
+  - type: Construction
+    graph: NoosphericAcceleratorEmitterFore
+
+- type: entity
+  parent: NoosphericAcceleratorFinishedPart
+  id: NoosphericAcceleratorEmitterStarboard
+  name: PA starboard containment emitter
+  description: This launchs the Alpha particles, might not want to stand near this end.
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/PA/emitter_starboard.rsi
+  - type: NoosphericAcceleratorEmitter
+    emitterType: Starboard
+  - type: Construction
+    graph: NoosphericAcceleratorEmitterStarboard
+
+# Unfinished
+
+- type: entity
+  parent: NoosphericAcceleratorUnfinishedBase
+  id: NoosphericAcceleratorEmitterPortUnfinished
+  name: PA port containment emitter
+  suffix: Unfinished, Port
+  description: This launchs the Alpha particles, might not want to stand near this end. It looks unfinished.
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/PA/emitter_port.rsi
+  - type: Construction
+    graph: NoosphericAcceleratorEmitterPort
+
+- type: entity
+  parent: NoosphericAcceleratorUnfinishedBase
+  id: NoosphericAcceleratorEmitterForeUnfinished
+  name: PA fore containment emitter
+  suffix: Unfinished, Fore
+  description: This launchs the Alpha particles, might not want to stand near this end. It looks unfinished.
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/PA/emitter_fore.rsi
+  - type: Construction
+    graph: NoosphericAcceleratorEmitterFore
+
+- type: entity
+  parent: NoosphericAcceleratorUnfinishedBase
+  id: NoosphericAcceleratorEmitterStarboardUnfinished
+  name: PA starboard containment emitter
+  suffix: Unfinished, Starboard
+  description: This launchs the Alpha particles, might not want to stand near this end. It looks unfinished.
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/PA/emitter_starboard.rsi
+  - type: Construction
+    graph: NoosphericAcceleratorEmitterStarboard
