@@ -326,18 +326,15 @@ public abstract class SharedNoosphericSingularitySystem : EntitySystem
         var newIntensity = GetIntensity(args.NewValue);
         if (_containers.IsEntityInContainer(ent))
         {
-            var absFalloffPower = MathF.Abs(newFalloffPower);
-            var absIntensity = MathF.Abs(newIntensity);
-
-            var factor = (1f / DistortionContainerScaling) - 1f;
-            newFalloffPower = absFalloffPower > 1f
-                ? newFalloffPower * MathF.Pow(absFalloffPower, factor)
-                : newFalloffPower;
-            newIntensity = absIntensity > 1f ? newIntensity * MathF.Pow(absIntensity, factor) : newIntensity;
+            // Also handles setting the new falloff on the component
+            InternalUpdateDistorion(ent, newFalloffPower, newIntensity, (1f / DistortionContainerScaling) - 1f);
+        }
+        else
+        {
+            ent.Comp.FalloffPower = newFalloffPower;
+            ent.Comp.Intensity = newIntensity;
         }
 
-        ent.Comp.FalloffPower = newFalloffPower;
-        ent.Comp.Intensity = newIntensity;
         Dirty(ent);
     }
 
@@ -351,15 +348,7 @@ public abstract class SharedNoosphericSingularitySystem : EntitySystem
         Entity<SingularityDistortionComponent> ent,
         ref EntGotInsertedIntoContainerMessage args)
     {
-        var absFalloffPower = MathF.Abs(ent.Comp.FalloffPower);
-        var absIntensity = MathF.Abs(ent.Comp.Intensity);
-
-        var factor = (1f / DistortionContainerScaling) - 1f;
-        ent.Comp.FalloffPower = absFalloffPower > 1
-            ? ent.Comp.FalloffPower * MathF.Pow(absFalloffPower, factor)
-            : ent.Comp.FalloffPower;
-        ent.Comp.Intensity =
-            absIntensity > 1 ? ent.Comp.Intensity * MathF.Pow(absIntensity, factor) : ent.Comp.Intensity;
+        InternalUpdateDistorion(ent, ent.Comp.FalloffPower, ent.Comp.Intensity, (1f / DistortionContainerScaling) - 1f);
     }
 
     /// <summary>
@@ -372,15 +361,30 @@ public abstract class SharedNoosphericSingularitySystem : EntitySystem
         Entity<SingularityDistortionComponent> ent,
         ref EntGotRemovedFromContainerMessage args)
     {
-        var absFalloffPower = MathF.Abs(ent.Comp.FalloffPower);
-        var absIntensity = MathF.Abs(ent.Comp.Intensity);
+        InternalUpdateDistorion(ent, ent.Comp.FalloffPower, ent.Comp.Intensity, DistortionContainerScaling - 1);
+    }
 
-        var factor = DistortionContainerScaling - 1;
+    /// <summary>
+    /// Handles updating the components distortion based on a factor and input details
+    /// </summary>
+    /// <param name="ent">The uid of the distortion shader.</param>
+    /// <param name="fallOffPower">Falloff power to use for the shader.</param>
+    /// <param name="intensity">Intensity of the shader.</param>
+    /// <param name="factor">Factor to use when calculating the new falloff/intensity</param>
+    private static void InternalUpdateDistorion(
+        Entity<SingularityDistortionComponent> ent,
+        float fallOffPower,
+        float intensity,
+        float factor)
+    {
+        var absFalloffPower = MathF.Abs(fallOffPower);
+        var absIntensity = MathF.Abs(intensity);
+
         ent.Comp.FalloffPower = absFalloffPower > 1
-            ? ent.Comp.FalloffPower * MathF.Pow(absFalloffPower, factor)
-            : ent.Comp.FalloffPower;
+            ? fallOffPower * MathF.Pow(absFalloffPower, factor)
+            : fallOffPower;
         ent.Comp.Intensity =
-            absIntensity > 1 ? ent.Comp.Intensity * MathF.Pow(absIntensity, factor) : ent.Comp.Intensity;
+            absIntensity > 1 ? intensity * MathF.Pow(absIntensity, factor) : intensity;
     }
 
     /// <summary>
