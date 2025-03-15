@@ -1,7 +1,7 @@
 - type: entity
   name: particles
   description: Accelerated particles.
-  id: ParticlesProjectile
+  id: NoosphericParticlesProjectile
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -33,7 +33,7 @@
           - Opaque
           - FullTileMask
     - type: ParticleProjectile
-    - type: SinguloFood
+    - type: NoosphericSinguloFood
       # Energy is setup by the PA particle fire function.
     - type: TimedDespawn
       lifetime: 3.0
