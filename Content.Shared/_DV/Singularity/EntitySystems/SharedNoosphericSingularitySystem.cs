@@ -270,7 +270,7 @@ public abstract class SharedNoosphericSingularitySystem : EntitySystem
     /// A state wrapper used to sync the singularity between the server and client.
     /// </summary>
     [Serializable, NetSerializable]
-    protected sealed class SingularityComponentState(NoosphericSingularityComponent singulo) : ComponentState
+    protected sealed class NoosphericSingularityComponentState(NoosphericSingularityComponent singulo) : ComponentState
     {
         /// <summary>
         /// The level of the singularity to sync.
