@@ -1,16 +1,6 @@
 ﻿Entries:
 - author: MilonPL
   changes:
-  - message: The metempsychosis will always use your player character on the first
-      cloning attempt.
-    type: Tweak
-  - message: Fixed metempsychosis never selecting non-humanoid characters.
-    type: Fix
-  id: 660
-  time: '2024-11-09T10:47:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2156
-- author: MilonPL
-  changes:
   - message: Fixed beaker solutions duplicating whenever it's thrown.
     type: Fix
   id: 661
@@ -3961,3 +3951,10 @@
   id: 1159
   time: '2025-03-15T00:03:02.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3228
+- author: Toby222
+  changes:
+  - message: Fixed missing tooltip for staff chat button
+    type: Fix
+  id: 1160
+  time: '2025-03-15T22:55:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3244
