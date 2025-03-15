@@ -5,6 +5,9 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared._DV.Recruiter;
 using Content.Shared.Popups;
+using Content.Server.Mind;
+using Content.Shared.Roles.Jobs;
+using Content.Server.EntityEffects.Effects;
 
 namespace Content.Server._DV.Recruiter;
 
@@ -15,6 +18,7 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
 {
     [Dependency] private readonly ForensicsSystem _forensics = default!;
     [Dependency] private readonly SolutionTransferSystem _transfer = default!;
+    [Dependency] private readonly SharedJobSystem _jobs = default!;
 
     protected override void DrawBlood(EntityUid uid, Entity<SolutionComponent> dest, EntityUid user)
     {
@@ -49,6 +53,12 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
             Mind.TryGetObjectiveComp<RecruitingConditionComponent>(mindId, out var obj, null))
         {
             obj.Recruited++;
+            Reward(ent,user);
         }
+    }
+    protected void Reward(Entity<RecruiterPenComponent> ent, EntityUid user)
+    {
+        var coords = Transform(user).Coordinates;
+        var pay = ent.Comp.Currency;
     }
 }

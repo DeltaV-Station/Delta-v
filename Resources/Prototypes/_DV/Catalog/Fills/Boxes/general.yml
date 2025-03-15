@@ -105,3 +105,86 @@
     contents:
     - id: Stunbaton
     - id: WeaponDisabler
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxSyndicateFigurines
+  name: syndicate figurines box
+  description: A box of a full set of syndicate figurines!
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: writing_of_doom
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+    - id: ToyFigurineNukie
+    - id: ToyFigurineNukieElite
+    - id: ToyFigurineNukieCommander
+    - id: ToyFigurineFootsoldier
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxRandomDonk
+  components:
+  - type: Sprite
+    layers:
+    - state: box
+    - state: writing_of_doom
+  - type: Storage
+    maxItemSize: Normal
+  - type: StorageFill
+    contents:
+    #Main
+    - id: FoodBoxDonkpocketHonk
+      orGroup: RandomDonk
+      prob: 0.15
+    - id: FoodBoxDonkpocketBerry
+      orGroup: RandomDonk
+      prob: 0.1
+    - id: FoodBoxDonkpocketCarp
+      orGroup: RandomDonk
+      prob: 0.05
+    - id: FoodBoxDonkpocketDink
+      orGroup: RandomDonk
+      prob: 0.1
+    - id: FoodBoxDonkpocket
+      orGroup: RandomDonk
+      prob: 0.2
+    - id: FoodBoxDonkpocketStonk
+      orGroup: RandomDonk
+      prob: 0.05
+    - id: FoodBoxDonkpocketPizza
+      orGroup: RandomDonk
+      prob: 0.15
+    - id: FoodBoxDonkpocketSpicy
+      orGroup: RandomDonk
+      prob: 0.1
+    - id: FoodBoxDonkpocketTeriyaki
+      orGroup: RandomDonk
+      prob: 0.1
+
+- type: entity
+  parent: BoxHoloparasite
+  id: BoxHolosecretary
+  name: holosecretary box
+  description: A box containing a holosecretary injector
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: holo
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+    - id: HolosecretaryInfo
+    - id: HolosecretaryInjector
+    - id: BoxFolderClipboard
+    - id: LuxuryPen
