@@ -9,6 +9,15 @@
   - type: AugmentArm
 
 - type: entity
+  parent: ActionOpenAugmentInterface
+  id: ActionOpenToolsPanel
+  name: Open tools panel
+  description: Access the tools implanted within you
+  components:
+  - type: InstantAction
+    icon: { sprite: Clothing/Belt/utility.rsi, state: icon }
+
+- type: entity
   parent: AugmentBaseArm
   id: AugmentBaseToolPanel
   name: base tool panel augment
@@ -38,6 +47,7 @@
         interactionRange: 0
   - type: AugmentActivatableUI
     key: enum.AugmentToolPanelUiKey.Key
+    openAction: ActionOpenToolsPanel
   - type: AugmentAction
   - type: Construction
     graph: CreateToolsPanel

@@ -20,11 +20,6 @@ public sealed class AugmentPowerCellSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-
     public (Entity<AugmentPowerCellSlotComponent, OrganComponent, PowerCellSlotComponent> Organ, Entity<BatteryComponent>? Battery)? TryGetAugmentPowerCell(EntityUid body)
     {
         foreach (var organ in _body.GetBodyOrganEntityComps<AugmentPowerCellSlotComponent>(body))
@@ -88,11 +83,11 @@ public sealed class AugmentPowerCellSystem : EntitySystem
                 continue;
 
             var powerCell = TryGetAugmentPowerCell(owner);
-            if (powerCell is null) // tuples + nested nullable = hell for pattern matching so break it down
+            if (powerCell is not {} power)
                 continue;
-            var augment = powerCell!.Value.Organ;
+            var augment = power.Organ;
 
-            if (powerCell!.Value.Battery is not {} insertedBattery)
+            if (power.Battery is not {} insertedBattery)
             {
                 if (_alerts.IsShowingAlert(owner, augment.Comp1.BatteryAlert))
                 {

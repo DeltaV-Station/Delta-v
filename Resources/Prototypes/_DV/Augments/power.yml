@@ -1,7 +1,8 @@
 - type: entity
   id: ActionOpenAugmentInterface
-  name: Open augment UI
-  description: This is a developer placeholder and should not be seen
+  abstract: true
+  # name: Open augment UI
+  # description: This is a developer placeholder and should not be seen
   components:
   - type: InstantAction
     icon: { sprite: Clothing/Mask/gas.rsi, state: icon }

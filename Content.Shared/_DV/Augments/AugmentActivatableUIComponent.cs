@@ -14,7 +14,7 @@ public sealed partial class AugmentActivatableUIComponent : Component
     [DataField(required: true, customTypeSerializer: typeof(EnumSerializer))]
     public Enum? Key;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public EntProtoId OpenAction = "ActionOpenAugmentInterface";
 
     [DataField, AutoNetworkedField]

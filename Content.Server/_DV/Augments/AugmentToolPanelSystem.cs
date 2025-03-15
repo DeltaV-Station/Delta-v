@@ -89,7 +89,5 @@ public sealed class AugmentToolPanelSystem : EntitySystem
             }
             EnsureComp<AugmentToolPanelActiveItemComponent>(desiredTool);
         }
-
-        return;
     }
 }
