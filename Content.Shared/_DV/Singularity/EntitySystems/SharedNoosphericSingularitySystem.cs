@@ -1,5 +1,7 @@
 using System.Numerics;
 using Content.Shared.Radiation.Components;
+using Content.Shared.Singularity.Components;
+using Content.Shared.Singularity.EntitySystems;
 using Content.Shared._DV.Singularity.Components;
 using Content.Shared._DV.Singularity.Events;
 using Robust.Shared.Containers;
@@ -10,9 +12,9 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._DV.Singularity.EntitySystems;
 
 /// <summary>
-/// The entity system primarily responsible for managing <see cref="SingularityComponent"/>s.
+/// The entity system primarily responsible for managing <see cref="NoosphericSingularityComponent"/>s.
 /// </summary>
-public abstract class SharedSingularitySystem : EntitySystem
+public abstract class SharedNoosphericSingularitySystem : EntitySystem
 {
     #region Dependencies
 
@@ -46,25 +48,27 @@ public abstract class SharedSingularitySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SingularityComponent, ComponentStartup>(OnSingularityStartup);
-        SubscribeLocalEvent<AppearanceComponent, SingularityLevelChangedEvent>(UpdateAppearance);
-        SubscribeLocalEvent<RadiationSourceComponent, SingularityLevelChangedEvent>(UpdateRadiation);
-        SubscribeLocalEvent<PhysicsComponent, SingularityLevelChangedEvent>(UpdateBody);
-        SubscribeLocalEvent<EventHorizonComponent, SingularityLevelChangedEvent>(UpdateEventHorizon);
-        SubscribeLocalEvent<SingularityDistortionComponent, SingularityLevelChangedEvent>(UpdateDistortion);
+        SubscribeLocalEvent<NoosphericSingularityComponent, ComponentStartup>(OnSingularityStartup);
+        SubscribeLocalEvent<AppearanceComponent, NoosphericSingularityLevelChangedEvent>(UpdateAppearance);
+        SubscribeLocalEvent<RadiationSourceComponent, NoosphericSingularityLevelChangedEvent>(UpdateRadiation);
+        SubscribeLocalEvent<PhysicsComponent, NoosphericSingularityLevelChangedEvent>(UpdateBody);
+        SubscribeLocalEvent<EventHorizonComponent, NoosphericSingularityLevelChangedEvent>(UpdateEventHorizon);
+        SubscribeLocalEvent<SingularityDistortionComponent, NoosphericSingularityLevelChangedEvent>(UpdateDistortion);
         SubscribeLocalEvent<SingularityDistortionComponent, EntGotInsertedIntoContainerMessage>(UpdateDistortion);
         SubscribeLocalEvent<SingularityDistortionComponent, EntGotRemovedFromContainerMessage>(UpdateDistortion);
 
-        var vvHandle = Vvm.GetTypeHandler<SingularityComponent>();
-        vvHandle.AddPath(nameof(SingularityComponent.Level), (_, comp) => comp.Level, SetLevel);
-        vvHandle.AddPath(nameof(SingularityComponent.RadsPerLevel), (_, comp) => comp.RadsPerLevel, SetRadsPerLevel);
+        var vvHandle = Vvm.GetTypeHandler<NoosphericSingularityComponent>();
+        vvHandle.AddPath(nameof(NoosphericSingularityComponent.Level), (_, comp) => comp.Level, SetLevel);
+        vvHandle.AddPath(nameof(NoosphericSingularityComponent.RadsPerLevel),
+            (_, comp) => comp.RadsPerLevel,
+            SetRadsPerLevel);
     }
 
     public override void Shutdown()
     {
-        var vvHandle = Vvm.GetTypeHandler<SingularityComponent>();
-        vvHandle.RemovePath(nameof(SingularityComponent.Level));
-        vvHandle.RemovePath(nameof(SingularityComponent.RadsPerLevel));
+        var vvHandle = Vvm.GetTypeHandler<NoosphericSingularityComponent>();
+        vvHandle.RemovePath(nameof(NoosphericSingularityComponent.Level));
+        vvHandle.RemovePath(nameof(NoosphericSingularityComponent.RadsPerLevel));
 
         base.Shutdown();
     }
@@ -72,13 +76,13 @@ public abstract class SharedSingularitySystem : EntitySystem
     #region Getters/Setters
 
     /// <summary>
-    /// Setter for <see cref="SingularityComponent.Level"/>
+    /// Setter for <see cref="NoosphericSingularityComponent.Level"/>
     /// Also sends out an event alerting that the singularities level has changed.
     /// </summary>
     /// <param name="uid">The uid of the singularity to change the level of.</param>
     /// <param name="value">The new level the singularity should have.</param>
     /// <param name="singularity">The state of the singularity to change the level of.</param>
-    public void SetLevel(EntityUid uid, byte value, SingularityComponent? singularity = null)
+    public void SetLevel(EntityUid uid, byte value, NoosphericSingularityComponent? singularity = null)
     {
         if (!Resolve(uid, ref singularity))
             return;
@@ -95,13 +99,13 @@ public abstract class SharedSingularitySystem : EntitySystem
     }
 
     /// <summary>
-    /// Setter for <see cref="SingularityComponent.RadsPerLevel"/>
+    /// Setter for <see cref="NoosphericSingularityComponent.RadsPerLevel"/>
     /// Also updates the radiation output of the singularity according to the new values.
     /// </summary>
     /// <param name="uid">The uid of the singularity to change the radioactivity of.</param>
     /// <param name="value">The new radioactivity the singularity should have.</param>
     /// <param name="singularity">The state of the singularity to change the radioactivity of.</param>
-    public void SetRadsPerLevel(EntityUid uid, float value, SingularityComponent? singularity = null)
+    public void SetRadsPerLevel(EntityUid uid, float value, NoosphericSingularityComponent? singularity = null)
     {
         if (!Resolve(uid, ref singularity))
             return;
@@ -119,14 +123,14 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// Usually follows a SharedSingularitySystem.SetLevel call, but is also used on component startup to sync everything.
     /// </summary>
     /// <param name="uid">The uid of the singularity which's level has changed.</param>
-    /// <param name="oldValue">The old level of the singularity. May be equal to <see cref="SingularityComponent.Level"/> if the component is starting.</param>
+    /// <param name="oldValue">The old level of the singularity. May be equal to <see cref="NoosphericSingularityComponent.Level"/> if the component is starting.</param>
     /// <param name="singularity">The state of the singularity which's level has changed.</param>
-    public void UpdateSingularityLevel(EntityUid uid, byte oldValue, SingularityComponent? singularity = null)
+    public void UpdateSingularityLevel(EntityUid uid, byte oldValue, NoosphericSingularityComponent? singularity = null)
     {
         if (!Resolve(uid, ref singularity))
             return;
 
-        RaiseLocalEvent(uid, new SingularityLevelChangedEvent(singularity.Level, oldValue, singularity));
+        RaiseLocalEvent(uid, new NoosphericSingularityLevelChangedEvent(singularity.Level, oldValue, singularity));
         if (singularity.Level <= 0)
             QueueDel(uid);
     }
@@ -137,7 +141,7 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// </summary>
     /// <param name="uid">The uid of the singularity.</param>
     /// <param name="singularity">The state of the singularity.</param>
-    public void UpdateSingularityLevel(EntityUid uid, SingularityComponent? singularity = null)
+    public void UpdateSingularityLevel(EntityUid uid, NoosphericSingularityComponent? singularity = null)
     {
         if (Resolve(uid, ref singularity))
             UpdateSingularityLevel(uid, singularity.Level, singularity);
@@ -150,7 +154,7 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// <param name="singularity">The state of the singularity to update the radiation of.</param>
     /// <param name="rads">The state of the radioactivity of the singularity to update.</param>
     private void UpdateRadiation(EntityUid uid,
-        SingularityComponent? singularity = null,
+        NoosphericSingularityComponent? singularity = null,
         RadiationSourceComponent? rads = null)
     {
         if (!Resolve(uid, ref singularity, ref rads, logMissing: false))
@@ -182,7 +186,7 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// </summary>
     /// <param name="singulo">A singularity.</param>
     /// <returns>The gravity well radius the singularity should have given its state.</returns>
-    public float GravPulseRange(SingularityComponent singulo)
+    public float GravPulseRange(NoosphericSingularityComponent singulo)
         => BaseGravityWellRadius * (singulo.Level + 1);
 
     /// <summary>
@@ -190,7 +194,7 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// </summary>
     /// <param name="singulo">A singularity.</param>
     /// <returns>The base gravitational acceleration the singularity should have given its state.</returns>
-    public (float, float) GravPulseAcceleration(SingularityComponent singulo)
+    public (float, float) GravPulseAcceleration(NoosphericSingularityComponent singulo)
         => (BaseGravityWellAcceleration * singulo.Level, 0f);
 
     /// <summary>
@@ -198,7 +202,7 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// </summary>
     /// <param name="singulo">A singularity.</param>
     /// <returns>The event horizon radius the singularity should have given its state.</returns>
-    public float EventHorizonRadius(SingularityComponent singulo)
+    public float EventHorizonRadius(NoosphericSingularityComponent singulo)
         => singulo.Level - 0.5f;
 
     /// <summary>
@@ -206,7 +210,7 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// </summary>
     /// <param name="singulo">A singularity.</param>
     /// <returns>Whether the singularity should be able to breach containment.</returns>
-    public bool CanBreachContainment(SingularityComponent singulo)
+    public bool CanBreachContainment(NoosphericSingularityComponent singulo)
         => singulo.Level >= SingularityBreachThreshold;
 
     /// <summary>
@@ -264,7 +268,7 @@ public abstract class SharedSingularitySystem : EntitySystem
         /// </summary>
         public readonly byte Level;
 
-        public SingularityComponentState(SingularityComponent singulo)
+        public SingularityComponentState(NoosphericSingularityComponent singulo)
         {
             Level = singulo.Level;
         }
@@ -280,7 +284,9 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// <param name="uid">The entity that is becoming a singularity.</param>
     /// <param name="comp">The singularity component that is being added to the entity.</param>
     /// <param name="args">The event arguments.</param>
-    protected virtual void OnSingularityStartup(EntityUid uid, SingularityComponent comp, ComponentStartup args)
+    protected virtual void OnSingularityStartup(EntityUid uid,
+        NoosphericSingularityComponent comp,
+        ComponentStartup args)
     {
         UpdateSingularityLevel(uid, comp);
     }
@@ -292,7 +298,9 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// <param name="uid">The entity that the event horizon and singularity are attached to.</param>
     /// <param name="comp">The event horizon associated with the singularity.</param>
     /// <param name="args">The event arguments.</param>
-    private void UpdateEventHorizon(EntityUid uid, EventHorizonComponent comp, SingularityLevelChangedEvent args)
+    private void UpdateEventHorizon(EntityUid uid,
+        EventHorizonComponent comp,
+        NoosphericSingularityLevelChangedEvent args)
     {
         var singulo = args.Singularity;
         _horizons.SetRadius(uid, EventHorizonRadius(singulo), false, comp);
@@ -306,7 +314,9 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// <param name="uid">The uid of the distortion shader.</param>
     /// <param name="comp">The state of the distortion shader.</param>
     /// <param name="args">The event arguments.</param>
-    private void UpdateDistortion(EntityUid uid, SingularityDistortionComponent comp, SingularityLevelChangedEvent args)
+    private void UpdateDistortion(EntityUid uid,
+        SingularityDistortionComponent comp,
+        NoosphericSingularityLevelChangedEvent args)
     {
         var newFalloffPower = GetFalloff(args.NewValue);
         var newIntensity = GetIntensity(args.NewValue);
@@ -373,7 +383,7 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// <param name="uid">The entity that the physics body and singularity are attached to.</param>
     /// <param name="comp">The physics body associated with the singularity.</param>
     /// <param name="args">The event arguments.</param>
-    private void UpdateBody(EntityUid uid, PhysicsComponent comp, SingularityLevelChangedEvent args)
+    private void UpdateBody(EntityUid uid, PhysicsComponent comp, NoosphericSingularityLevelChangedEvent args)
     {
         if (args.NewValue <= 1 &&
             args.OldValue >
@@ -389,9 +399,9 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// <param name="uid">The entity that the singularity is attached to.</param>
     /// <param name="comp">The appearance associated with the singularity.</param>
     /// <param name="args">The event arguments.</param>
-    private void UpdateAppearance(EntityUid uid, AppearanceComponent comp, SingularityLevelChangedEvent args)
+    private void UpdateAppearance(EntityUid uid, AppearanceComponent comp, NoosphericSingularityLevelChangedEvent args)
     {
-        _visualizer.SetData(uid, SingularityAppearanceKeys.Singularity, args.NewValue, comp);
+        _visualizer.SetData(uid, NoosphericSingularityAppearanceKeys.Singularity, args.NewValue, comp);
     }
 
     /// <summary>
@@ -400,7 +410,9 @@ public abstract class SharedSingularitySystem : EntitySystem
     /// <param name="uid">The entity that the singularity is attached to.</param>
     /// <param name="comp">The radiation source associated with the singularity.</param>
     /// <param name="args">The event arguments.</param>
-    private void UpdateRadiation(EntityUid uid, RadiationSourceComponent comp, SingularityLevelChangedEvent args)
+    private void UpdateRadiation(EntityUid uid,
+        RadiationSourceComponent comp,
+        NoosphericSingularityLevelChangedEvent args)
     {
         UpdateRadiation(uid, args.Singularity, comp);
     }

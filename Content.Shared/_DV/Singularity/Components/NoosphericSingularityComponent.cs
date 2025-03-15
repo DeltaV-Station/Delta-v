@@ -14,18 +14,22 @@ public sealed partial class NoosphericSingularityComponent : Component
     /// <summary>
     /// The current level of the singularity.
     /// Used as a scaling factor for things like visual size, event horizon radius, gravity well radius, radiation output, etc.
-    /// If you want to set this use <see cref="SharedSingularitySystem.SetLevel"/>().
+    /// If you want to set this use <see cref="SharedNoosphericSingularitySystem.SetLevel"/>().
     /// </summary>
-    [Access(friends: typeof(SharedSingularitySystem), Other = AccessPermissions.Read, Self = AccessPermissions.Read)]
+    [Access(friends: typeof(SharedNoosphericSingularitySystem),
+        Other = AccessPermissions.Read,
+        Self = AccessPermissions.Read)]
     [DataField]
     public byte Level = 1;
 
     /// <summary>
     /// The amount of radiation this singularity emits per its level.
     /// Has to be on shared in case someone attaches a RadiationPulseComponent to the singularity.
-    /// If you want to set this use <see cref="SharedSingularitySystem.SetRadsPerLevel"/>().
+    /// If you want to set this use <see cref="SharedNoosphericSingularitySystem.SetRadsPerLevel"/>().
     /// </summary>
-    [Access(friends: typeof(SharedSingularitySystem), Other = AccessPermissions.Read, Self = AccessPermissions.Read)]
+    [Access(friends: typeof(SharedNoosphericSingularitySystem),
+        Other = AccessPermissions.Read,
+        Self = AccessPermissions.Read)]
     [DataField]
     [ViewVariables]
     public float RadsPerLevel = 2f;
