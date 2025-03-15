@@ -1,32 +1,36 @@
 - type: entity
-  name: jaws of life
-  parent: BaseItem
+  name: advanced jaws of life # DeltaV - Renamed to advanced jaws of life, basic jaws of life now requires power
+  parent: BaseJawsOfLife # DeltaV - Reparented to BaseJawsOfLife
   id: JawsOfLife
-  description: A set of jaws of life, compressed through the magic of science.
+  description: An improved set of jaws of life, now with a built in microreactor and a configurable head for wire cutting. # DeltaV - Renamed to advanced jaws of life, basic jaws of life now requires power
   components:
-  - type: Tag
-    tags:
-    - JawsOfLife
-  - type: Sprite
-    sprite: Objects/Tools/jaws_of_life.rsi
-    state: jaws_pry
-  - type: Item
-    size: Normal
-  - type: Clothing
-    sprite: Objects/Tools/jaws_of_life.rsi
-    quickEquip: false
-    slots:
-      - Belt
+# DeltaV - Moved to BaseJawsOfLife
+#  - type: Tag
+#    tags:
+#    - JawsOfLife
+#  - type: Sprite
+#    sprite: Objects/Tools/jaws_of_life.rsi
+#    state: jaws_pry
+#  - type: Item
+#    size: Normal
+#  - type: Clothing
+#    sprite: Objects/Tools/jaws_of_life.rsi
+#    quickEquip: false
+#    slots:
+#      - Belt
+# End DeltaV - Moved to BaseJawsOfLife
   - type: ToolTileCompatible
     delay: 0.5
-  - type: Tool
-    qualities:
-      - Prying
-    useSound: /Audio/Items/jaws_pry.ogg
-  - type: Prying
-    speedModifier: 1.5
-    pryPowered: true
-    useSound: /Audio/Items/jaws_pry.ogg
+# DeltaV - Moved to BaseJawsOfLife
+#  - type: Tool
+#    qualities:
+#      - Prying
+#    useSound: /Audio/Items/jaws_pry.ogg
+#  - type: Prying
+#    speedModifier: 1.5
+#    pryPowered: true
+#    useSound: /Audio/Items/jaws_pry.ogg
+# End DeltaV - Moved to BaseJawsOfLife
   - type: MultipleTool
     statusShowBehavior: true
     entries:
@@ -42,13 +46,15 @@
           state: jaws_cutter
         useSound: /Audio/Items/jaws_cut.ogg
         changeSound: /Audio/Items/change_jaws.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 90
-    damage:
-      types:
-        Blunt: 10
-    soundHit:
-      collection: MetalThud
+# DeltaV - Moved to BaseJawsOfLife
+#  - type: MeleeWeapon
+#    wideAnimationRotation: 90
+#    damage:
+#      types:
+#        Blunt: 10
+#    soundHit:
+#      collection: MetalThud
+# End DeltaV - Moved to BaseJawsOfLife
 
 - type: entity
   name: syndicate jaws of life

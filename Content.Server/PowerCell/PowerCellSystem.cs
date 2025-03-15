@@ -9,6 +9,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Kitchen.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.UserInterface;
+using Content.Shared._DV.Power.Components; // DeltaV
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Popups;
 using ActivatableUISystem = Content.Shared.UserInterface.ActivatableUISystem;
@@ -32,11 +33,11 @@ public sealed partial class PowerCellSystem : SharedPowerCellSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PowerCellComponent, ChargeChangedEvent>(OnChargeChanged);
+        SubscribeLocalEvent<PowerCellComponent, Power.Components.ChargeChangedEvent>(OnChargeChanged); // DeltaV
         SubscribeLocalEvent<PowerCellComponent, ExaminedEvent>(OnCellExamined);
         SubscribeLocalEvent<PowerCellComponent, EmpAttemptEvent>(OnCellEmpAttempt);
 
-        SubscribeLocalEvent<PowerCellDrawComponent, ChargeChangedEvent>(OnDrawChargeChanged);
+        SubscribeLocalEvent<PowerCellDrawComponent, Power.Components.ChargeChangedEvent>(OnDrawChargeChanged); // DeltaV
         SubscribeLocalEvent<PowerCellDrawComponent, PowerCellChangedEvent>(OnDrawCellChanged);
 
         SubscribeLocalEvent<PowerCellSlotComponent, ExaminedEvent>(OnCellSlotExamined);
@@ -55,7 +56,7 @@ public sealed partial class PowerCellSystem : SharedPowerCellSystem
         RaiseLocalEvent(slot.Item.Value, args);
     }
 
-    private void OnChargeChanged(EntityUid uid, PowerCellComponent component, ref ChargeChangedEvent args)
+    private void OnChargeChanged(EntityUid uid, PowerCellComponent component, ref Power.Components.ChargeChangedEvent args)
     {
         if (TryComp<RiggableComponent>(uid, out var rig) && rig.IsRigged)
         {
@@ -138,26 +139,40 @@ public sealed partial class PowerCellSystem : SharedPowerCellSystem
     /// Returns whether the entity has a slotted battery and charge for the requested action.
     /// </summary>
     /// <param name="user">Popup to this user with the relevant detail if specified.</param>
-    public bool HasCharge(EntityUid uid, float charge, PowerCellSlotComponent? component = null, EntityUid? user = null)
+    public override bool HasCharge(EntityUid uid, float charge, PowerCellSlotComponent? component = null, EntityUid? user = null)
     {
         if (!TryGetBatteryFromSlot(uid, out var battery, component))
         {
-            if (user != null)
-                _popup.PopupEntity(Loc.GetString("power-cell-no-battery"), uid, user.Value);
+            // Delta V - Handled by Client
+            // if (user != null)
+            //     _popup.PopupEntity(Loc.GetString("power-cell-no-battery"), uid, user.Value);
 
             return false;
         }
 
         if (battery.CurrentCharge < charge)
         {
-            if (user != null)
-                _popup.PopupEntity(Loc.GetString("power-cell-insufficient"), uid, user.Value);
+            // Delta V - Handled by Client
+            // if (user != null)
+            //     _popup.PopupEntity(Loc.GetString("power-cell-insufficient"), uid, user.Value);
 
             return false;
         }
 
         return true;
     }
+
+    // Begin DeltaV changes
+    public override bool TryGetBatteryFromSlot(EntityUid uid,
+        [NotNullWhen(true)] out EntityUid? batteryEnt,
+        [NotNullWhen(true)] out SharedBatteryComponent? sharedBattery,
+        PowerCellSlotComponent? component = null)
+    {
+         var hasBattery = TryGetBatteryFromSlot(uid, out batteryEnt, out var battery, component);
+         sharedBattery = battery;
+         return hasBattery;
+    }
+    // End DeltaV changes
 
     /// <summary>
     /// Tries to use charge from a slotted battery.

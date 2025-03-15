@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis; // DeltaV
+using Content.Shared._DV.Power.Components; // DeltaV
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Rejuvenate;
@@ -110,4 +112,16 @@ public abstract class SharedPowerCellSystem : EntitySystem
         PowerCellDrawComponent? battery = null,
         PowerCellSlotComponent? cell = null,
         EntityUid? user = null);
+
+    // Begin DeltaV changes
+    public abstract bool HasCharge(EntityUid uid,
+        float charge,
+        PowerCellSlotComponent? component = null,
+        EntityUid? user = null);
+
+    public abstract bool TryGetBatteryFromSlot(EntityUid uid,
+        [NotNullWhen(true)] out EntityUid? batteryEnt,
+        [NotNullWhen(true)] out SharedBatteryComponent? battery,
+        PowerCellSlotComponent? component = null);
+    // End DeltaV changes
 }
