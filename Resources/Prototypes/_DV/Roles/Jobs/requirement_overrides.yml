@@ -64,10 +64,16 @@
     ChiefMedicalOfficer:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 14400 # 4 hours
+      time: 21600 # 6 hours
+    - !type:RoleTimeRequirement
+      role: JobSurgeon
+      time: 10800 # 3 hrs
+    - !type:RoleTimeRequirement
+      role: JobMedicalDoctor
+      time: 43200 # 12 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 90000 # 25 hours
+      time: 126000 # 35 hours
     HeadOfPersonnel:
     - !type:RoleTimeRequirement
       role: JobChef
@@ -176,6 +182,10 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 14400 # 4 hours
+    MedicalDoctor:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 25200 # 7 hours
 
     # Security
     Detective:
@@ -196,3 +206,11 @@
     - !type:RoleTimeRequirement # Give them an understanding of basic forensics.
       role: JobDetective
       time: 21600 # 6 hours
+  antags:
+    NukeopsMedic:
+    - !type:RoleTimeRequirement # They should be able to make advanced brutes + pyra quickly
+      role: JobChemist
+      time: 36000 # 10 hours
+    - !type:RoleTimeRequirement # Give them a good understanding of how medical works
+      role: JobMedicalDoctor
+      time: 7200 # 2 hours (+ the time it takes to unlock medical doctor)
