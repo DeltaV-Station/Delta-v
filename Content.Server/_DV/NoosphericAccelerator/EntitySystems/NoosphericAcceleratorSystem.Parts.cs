@@ -191,23 +191,23 @@ public sealed partial class NoosphericAcceleratorSystem
         return false;
     }
 
-    private void OnComponentShutdown(EntityUid uid, NoosphericAcceleratorPartComponent comp, ComponentShutdown args)
+    private void OnComponentShutdown(Entity<NoosphericAcceleratorPartComponent> ent, ref ComponentShutdown args)
     {
-        if (Exists(comp.Master))
-            RescanParts(comp.Master!.Value);
+        if (Exists(ent.Comp.Master))
+            RescanParts(ent.Comp.Master!.Value);
     }
 
-    private void BodyTypeChanged(EntityUid uid,
-        NoosphericAcceleratorPartComponent comp,
+    private void BodyTypeChanged(
+        Entity<NoosphericAcceleratorPartComponent> ent,
         ref PhysicsBodyTypeChangedEvent args)
     {
-        if (Exists(comp.Master))
-            RescanParts(comp.Master!.Value);
+        if (Exists(ent.Comp.Master))
+            RescanParts(ent.Comp.Master!.Value);
     }
 
-    private void OnMoveEvent(EntityUid uid, NoosphericAcceleratorPartComponent comp, ref MoveEvent args)
+    private void OnMoveEvent(Entity<NoosphericAcceleratorPartComponent> ent, ref MoveEvent args)
     {
-        if (Exists(comp.Master))
-            RescanParts(comp.Master!.Value);
+        if (Exists(ent.Comp.Master))
+            RescanParts(ent.Comp.Master!.Value);
     }
 }

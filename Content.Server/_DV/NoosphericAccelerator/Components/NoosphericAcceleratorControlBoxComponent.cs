@@ -113,28 +113,24 @@ public sealed partial class NoosphericAcceleratorControlBoxComponent : Component
     /// The amount of power (in watts) the PA draws just by existing as a functional machine.
     /// </summary>
     [DataField("powerDrawBase")]
-    [ViewVariables(VVAccess.ReadWrite)]
     public int BasePowerDraw = 500;
 
     /// <summary>
     /// The amount of power (in watts) the PA draws per level when turned on.
     /// </summary>
     [DataField("powerDrawMult")]
-    [ViewVariables(VVAccess.ReadWrite)]
     public int LevelPowerDraw = 1500;
 
     /// <summary>
     /// The time at which the PA last fired a wave of particles.
     /// </summary>
-    [DataField("lastFire")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public TimeSpan LastFire;
 
     /// <summary>
     /// The time at which the PA will next fire a wave of particles.
     /// </summary>
-    [DataField("nextFire")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public TimeSpan NextFire;
 
     /// <summary>
@@ -150,8 +146,7 @@ public sealed partial class NoosphericAcceleratorControlBoxComponent : Component
     // So the *actual* effective firing delay of the PA is 6 seconds, not 5 as listed in the code.
     // So...
     // I have reflected that here to be authentic.
-    [DataField("chargeTime")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public TimeSpan ChargeTime = TimeSpan.FromSeconds(6.0);
 
     /// <summary>

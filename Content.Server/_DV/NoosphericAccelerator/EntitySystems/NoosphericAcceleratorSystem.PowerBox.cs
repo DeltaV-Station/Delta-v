@@ -11,11 +11,11 @@ public sealed partial class NoosphericAcceleratorSystem
             PowerBoxReceivedChanged);
     }
 
-    private void PowerBoxReceivedChanged(EntityUid uid,
-        NoosphericAcceleratorPowerBoxComponent component,
+    private void PowerBoxReceivedChanged(
+        Entity<NoosphericAcceleratorPowerBoxComponent> ent,
         ref PowerConsumerReceivedChanged args)
     {
-        if (!TryComp<NoosphericAcceleratorPartComponent>(uid, out var part))
+        if (!TryComp<NoosphericAcceleratorPartComponent>(ent, out var part))
             return;
         if (!TryComp<NoosphericAcceleratorControlBoxComponent>(part.Master, out var controller))
             return;

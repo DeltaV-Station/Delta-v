@@ -345,21 +345,21 @@ public sealed partial class NoosphericAcceleratorSystem
         }
     }
 
-    private void OnComponentStartup(EntityUid uid, NoosphericAcceleratorControlBoxComponent comp, ComponentStartup args)
+    private void OnComponentStartup(Entity<NoosphericAcceleratorControlBoxComponent> ent, ref ComponentStartup args)
     {
-        if (TryComp<NoosphericAcceleratorPartComponent>(uid, out var part))
-            part.Master = uid;
+        if (TryComp<NoosphericAcceleratorPartComponent>(ent, out var part))
+            part.Master = ent;
     }
 
-    private void OnComponentShutdown(EntityUid uid,
-        NoosphericAcceleratorControlBoxComponent comp,
-        ComponentShutdown args)
+    private void OnComponentShutdown(
+        Entity<NoosphericAcceleratorControlBoxComponent> ent,
+        ref ComponentShutdown args)
     {
-        if (TryComp<NoosphericAcceleratorPartComponent>(uid, out var partStatus))
+        if (TryComp<NoosphericAcceleratorPartComponent>(ent, out var partStatus))
             partStatus.Master = null;
 
         var partQuery = GetEntityQuery<NoosphericAcceleratorPartComponent>();
-        foreach (var part in AllParts(uid, comp))
+        foreach (var part in AllParts(ent, ent.Comp))
         {
             if (partQuery.TryGetComponent(part, out var partData))
                 partData.Master = null;
@@ -368,68 +368,68 @@ public sealed partial class NoosphericAcceleratorSystem
 
     // This is the power state for the PA control box itself.
     // Keep in mind that the PA itself can keep firing as long as the HV cable under the power box has... power.
-    private void OnControlBoxPowerChange(EntityUid uid,
-        NoosphericAcceleratorControlBoxComponent comp,
+    private void OnControlBoxPowerChange(
+        Entity<NoosphericAcceleratorControlBoxComponent> ent,
         ref PowerChangedEvent args)
     {
-        UpdateAppearance(uid, comp);
+        UpdateAppearance(ent);
 
         if (!args.Powered)
-            _uiSystem.CloseUi(uid, NoosphericAcceleratorControlBoxUiKey.Key);
+            _uiSystem.CloseUi(ent.Owner, NoosphericAcceleratorControlBoxUiKey.Key);
     }
 
-    private void OnUISetEnableMessage(EntityUid uid,
-        NoosphericAcceleratorControlBoxComponent comp,
-        NoosphericAcceleratorSetEnableMessage msg)
+    private void OnUISetEnableMessage(
+        Entity<NoosphericAcceleratorControlBoxComponent> ent,
+        ref NoosphericAcceleratorSetEnableMessage msg)
     {
         if (!NoosphericAcceleratorControlBoxUiKey.Key.Equals(msg.UiKey))
             return;
-        if (comp.InterfaceDisabled)
+        if (ent.Comp.InterfaceDisabled)
             return;
-        if (TryComp<ApcPowerReceiverComponent>(uid, out var apcPower) && !apcPower.Powered)
+        if (TryComp<ApcPowerReceiverComponent>(ent, out var apcPower) && !apcPower.Powered)
             return;
 
         if (msg.Enabled)
         {
-            if (comp.Assembled)
-                SwitchOn(uid, msg.Actor, comp);
+            if (ent.Comp.Assembled)
+                SwitchOn(ent, msg.Actor, ent.Comp);
         }
         else
-            SwitchOff(uid, msg.Actor, comp);
+            SwitchOff(ent, msg.Actor, ent.Comp);
 
-        UpdateUI(uid, comp);
+        UpdateUI(ent);
     }
 
-    private void OnUISetPowerMessage(EntityUid uid,
-        NoosphericAcceleratorControlBoxComponent comp,
-        NoosphericAcceleratorSetPowerStateMessage msg)
+    private void OnUISetPowerMessage(
+        Entity<NoosphericAcceleratorControlBoxComponent> ent,
+        ref NoosphericAcceleratorSetPowerStateMessage msg)
     {
         if (!NoosphericAcceleratorControlBoxUiKey.Key.Equals(msg.UiKey))
             return;
-        if (comp.InterfaceDisabled)
+        if (ent.Comp.InterfaceDisabled)
             return;
-        if (TryComp<ApcPowerReceiverComponent>(uid, out var apcPower) && !apcPower.Powered)
+        if (TryComp<ApcPowerReceiverComponent>(ent, out var apcPower) && !apcPower.Powered)
             return;
 
-        SetStrength(uid, msg.State, msg.Actor, comp);
+        SetStrength(ent, msg.State, msg.Actor, ent.Comp);
 
-        UpdateUI(uid, comp);
+        UpdateUI(ent);
     }
 
-    private void OnUIRescanMessage(EntityUid uid,
-        NoosphericAcceleratorControlBoxComponent comp,
-        NoosphericAcceleratorRescanPartsMessage msg)
+    private void OnUIRescanMessage(
+        Entity<NoosphericAcceleratorControlBoxComponent> ent,
+        ref NoosphericAcceleratorRescanPartsMessage msg)
     {
         if (!NoosphericAcceleratorControlBoxUiKey.Key.Equals(msg.UiKey))
             return;
-        if (comp.InterfaceDisabled)
+        if (ent.Comp.InterfaceDisabled)
             return;
-        if (TryComp<ApcPowerReceiverComponent>(uid, out var apcPower) && !apcPower.Powered)
+        if (TryComp<ApcPowerReceiverComponent>(ent, out var apcPower) && !apcPower.Powered)
             return;
 
-        RescanParts(uid, msg.Actor, comp);
+        RescanParts(ent, msg.Actor, ent.Comp);
 
-        UpdateUI(uid, comp);
+        UpdateUI(ent);
     }
 
     public static int GetPANumericalLevel(NoosphericAcceleratorPowerState state)

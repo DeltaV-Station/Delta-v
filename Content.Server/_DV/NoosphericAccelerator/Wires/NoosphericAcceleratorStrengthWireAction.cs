@@ -3,7 +3,6 @@ using Content.Server._DV.NoosphericAccelerator.EntitySystems;
 using Content.Server.Wires;
 using Content.Shared._DV.NoospericAccelerator.Components;
 using Content.Shared.Wires;
-using Robust.Shared.Player;
 
 namespace Content.Server._DV.NoosphericAccelerator.Wires;
 
