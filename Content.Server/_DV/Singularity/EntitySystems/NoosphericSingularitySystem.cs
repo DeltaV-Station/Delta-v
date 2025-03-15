@@ -1,6 +1,6 @@
 using Content.Server.Physics.Components;
-using Content.Server._DV.Singularity.Components;
-using Content.Server._DV.Singularity.Events;
+using Content.Server.Singularity.Components;
+using Content.Server.Singularity.Events;
 using Content.Shared._DV.Singularity.Components;
 using Content.Shared._DV.Singularity.EntitySystems;
 using Content.Shared._DV.Singularity.Events;
