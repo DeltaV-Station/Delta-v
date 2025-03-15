@@ -186,39 +186,47 @@ public abstract class SharedNoosphericSingularitySystem : EntitySystem
     /// </summary>
     /// <param name="singulo">A singularity.</param>
     /// <returns>The gravity well radius the singularity should have given its state.</returns>
-    public float GravPulseRange(NoosphericSingularityComponent singulo)
-        => BaseGravityWellRadius * (singulo.Level + 1);
+    public static float GravPulseRange(NoosphericSingularityComponent singulo)
+    {
+        return BaseGravityWellRadius * (singulo.Level + 1);
+    }
 
     /// <summary>
     /// Derives the proper base gravitational acceleration for a singularity from its state.
     /// </summary>
     /// <param name="singulo">A singularity.</param>
     /// <returns>The base gravitational acceleration the singularity should have given its state.</returns>
-    public (float, float) GravPulseAcceleration(NoosphericSingularityComponent singulo)
-        => (BaseGravityWellAcceleration * singulo.Level, 0f);
+    public static (float, float) GravPulseAcceleration(NoosphericSingularityComponent singulo)
+    {
+        return (BaseGravityWellAcceleration * singulo.Level, 0f);
+    }
 
     /// <summary>
     /// Derives the proper event horizon radius for a singularity from its state.
     /// </summary>
     /// <param name="singulo">A singularity.</param>
     /// <returns>The event horizon radius the singularity should have given its state.</returns>
-    public float EventHorizonRadius(NoosphericSingularityComponent singulo)
-        => singulo.Level - 0.5f;
+    public static float EventHorizonRadius(NoosphericSingularityComponent singulo)
+    {
+        return singulo.Level - 0.5f;
+    }
 
     /// <summary>
     /// Derives whether a singularity should be able to breach containment from its state.
     /// </summary>
     /// <param name="singulo">A singularity.</param>
     /// <returns>Whether the singularity should be able to breach containment.</returns>
-    public bool CanBreachContainment(NoosphericSingularityComponent singulo)
-        => singulo.Level >= SingularityBreachThreshold;
+    public static bool CanBreachContainment(NoosphericSingularityComponent singulo)
+    {
+        return singulo.Level >= SingularityBreachThreshold;
+    }
 
     /// <summary>
     /// Derives the proper distortion shader falloff for a singularity from its state.
     /// </summary>
     /// <param name="singulo">A singularity.</param>
     /// <returns>The distortion shader falloff the singularity should have given its state.</returns>
-    public float GetFalloff(float level)
+    public static float GetFalloff(float level)
     {
         return level switch
         {
@@ -238,7 +246,7 @@ public abstract class SharedNoosphericSingularitySystem : EntitySystem
     /// </summary>
     /// <param name="singulo">A singularity.</param>
     /// <returns>The distortion shader intensity the singularity should have given its state.</returns>
-    public float GetIntensity(float level)
+    public static float GetIntensity(float level)
     {
         return level switch
         {
@@ -261,17 +269,12 @@ public abstract class SharedNoosphericSingularitySystem : EntitySystem
     /// A state wrapper used to sync the singularity between the server and client.
     /// </summary>
     [Serializable, NetSerializable]
-    protected sealed class SingularityComponentState : ComponentState
+    protected sealed class SingularityComponentState(NoosphericSingularityComponent singulo) : ComponentState
     {
         /// <summary>
         /// The level of the singularity to sync.
         /// </summary>
-        public readonly byte Level;
-
-        public SingularityComponentState(NoosphericSingularityComponent singulo)
-        {
-            Level = singulo.Level;
-        }
+        public readonly byte Level = singulo.Level;
     }
 
     #endregion Serialization
