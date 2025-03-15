@@ -7,6 +7,8 @@ research-technology-cloning = Cloning
 
 # Civilian
 research-technology-syringe-gun = Syringe Gun
+research-technology-basic-augmentation = Basic Augmentation
+research-technology-implanted-tools = Implanted Tools
 
 # Arsenal
 research-technology-exotic-ammunition = Exotic Ammunition
