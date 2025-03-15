@@ -1,11 +1,12 @@
 using Content.Shared.Singularity.EntitySystems;
+using Content.Shared._DV.Singularity.EntitySystems; // DeltaV - Allow Noospherics to access this
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Singularity.Components
 {
     [RegisterComponent, NetworkedComponent]
     [AutoGenerateComponentState]
-    [Access(typeof(SharedSingularitySystem))]
+    [Access(typeof(SharedSingularitySystem), typeof(SharedNoosphericSingularitySystem))] // DeltaV
     public sealed partial class SingularityDistortionComponent : Component
     {
         [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
