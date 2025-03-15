@@ -190,10 +190,12 @@
     contents:
       - id: ClothingEyesGlassesSecurity
 #        prob: 0.3 # DeltaV - standardise until HUD balance worked out
-#      - id: ClothingHeadHatFedoraBrown # DeltaV - removed for incongruence
-#      - id: ClothingNeckTieDet # DeltaV - removed for incongruence
-#      - id: ClothingOuterVestDetective # DeltaV - removed for incongruence
-#      - id: ClothingOuterCoatDetective # DeltaV - removed for incongruence
+      # Begin DeltaV Removals - removed for incongruence
+      #- id: ClothingHeadHatDetGadget
+      #- id: ClothingNeckTieDet
+      #- id: ClothingOuterVestDetective
+      #- id: ClothingOuterCoatDetective
+      # End DeltaV Removals
       - id: ClothingHeadsetSecurity # DeltaV - add spare headset.
       - id: FlippoEngravedLighter # DeltaV - add due to removal of trench coat
       - id: FlashlightSeclite

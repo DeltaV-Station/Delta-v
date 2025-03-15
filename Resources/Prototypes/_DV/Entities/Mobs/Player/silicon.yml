@@ -13,7 +13,7 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
   - type: RandomMetadata
-    nameSegments: [names_borg]
+    nameSegments: [NamesBorg]
 
 - type: entity
   parent: BorgChassisSecurity
@@ -30,7 +30,7 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
   - type: RandomMetadata
-    nameSegments: [names_borg] # TODO: Make good names, this is a stupid list.
+    nameSegments: [NamesBorg] # TODO: Make good names, this is a stupid list.
 
 - type: entity
   id: SyndicateCircuitBoard
