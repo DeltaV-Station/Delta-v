@@ -37,6 +37,7 @@
     - id: DragonSpawn
     #- id: KingRatMigration # DeltaV - disabled
     - id: NinjaSpawn
+    - id: ParadoxCloneSpawn
     - id: RevenantSpawn
     - id: SleeperAgents
     - id: ZombieOutbreak
@@ -270,7 +271,7 @@
   - type: StationEvent
     weight: 7 # DeltaV - was 4
     duration: null
-    earliestStart: 25 # DeltaV - was 30
+    earliestStart: 25 # DeltaV - was 20
     reoccurrenceDelay: 5 # DeltaV - was 20
     minimumPlayers: 15
   - type: ParadoxCloneRule
