@@ -3,7 +3,7 @@
 namespace Content.Shared._DV.Singularity
 {
     [Serializable, NetSerializable]
-    public enum SingularityAppearanceKeys
+    public enum NoosphericSingularityAppearanceKeys
     {
         Singularity
     }
