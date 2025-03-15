@@ -1,0 +1,192 @@
+﻿- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseLearnerPAI
+  name: learner ai tutor
+  description: Your electronic pal here to help teach you the ins and outs of the station!
+  components:
+  - type: Instrument
+    allowPercussion: false
+    handheld: false
+    bank: 1
+    program: 2
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.StationMapUiKey.Key:
+        type: StationMapBoundUserInterface
+        requireInputValidation: false
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/tutors.rsi
+    layers:
+    - state: pai-base
+    - state: pai-on-overlay
+      shader: unshaded
+      map: [ "screen" ]
+  - type: Input
+    context: "human"
+  - type: PAI
+  - type: BlockMovement
+  - type: Examiner
+  - type: IntrinsicRadioReceiver
+  - type: DoAfter
+  - type: Actions
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+  - type: MobState
+    allowedStates:
+    - Alive
+  - type: Appearance
+  - type: StationMap
+  - type: ChangeVoiceInContainer
+    whitelist:
+      components:
+      - SecretStash
+
+- type: entity
+  parent: BaseLearnerPAI
+  id: LearnerEngiPAI
+  name: engineering ai tutor
+  description: Your electronic pal here to help teach you the ins and outs of station engineering!
+  components:
+  - type: GhostRole
+    makeSentient: true
+    name: engi-tutor-role-name
+    description: engi-tutor-role-description
+    rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 72000
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/tutors.rsi
+    layers:
+    - state: engi-pai-base
+    - state: pai-on-overlay
+      shader: unshaded
+      map: [ "screen" ]
+  - type: ActiveRadio
+    channels:
+    - Engineering
+    - Common
+  - type: GhostTakeoverAvailable
+
+
+- type: entity
+  parent: BaseLearnerPAI
+  id: LearnerMedPAI
+  name: medical ai tutor
+  description: Your electronic pal here to help teach you the ins and outs of all things medical!
+  components:
+  - type: GhostRole
+    name: med-tutor-role-name
+    description: med-tutor-role-description
+    rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+    requirements: # DeltaV
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 72000
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/tutors.rsi
+    layers:
+    - state: med-pai-base
+    - state: pai-on-overlay
+      shader: unshaded
+      map: [ "screen" ]
+  - type: ActiveRadio
+    channels:
+    - Medical
+    - Common
+
+- type: entity
+  parent: BaseLearnerPAI
+  id: LearnerLogiPAI
+  name: logistics ai tutor
+  description: Your electronic pal here to help teach you the ins and outs of things related to logistics!
+  components:
+  - type: GhostRole
+    name: logi-tutor-role-name
+    description: logi-tutor-role-description
+    rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+    requirements: # DeltaV
+    - !type:DepartmentTimeRequirement
+      department: Logistics
+      time: 72000
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/tutors.rsi
+    layers:
+    - state: logi-pai-base
+    - state: pai-on-overlay
+      shader: unshaded
+      map: [ "screen" ]
+  - type: ActiveRadio
+    channels:
+    - Supply
+    - Common
+
+- type: entity
+  parent: BaseLearnerPAI
+  id: LearnerSecPAI
+  name: security ai tutor
+  description: Your electronic pal here to help teach you the ins and outs of station security!
+  components:
+  - type: GhostRole
+    name: sec-tutor-role-name
+    description: sec-tutor-role-description
+    rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+    requirements: # DeltaV
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 72000
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/tutors.rsi
+    layers:
+    - state: sec-pai-base
+    - state: sec-pai-on-overlay
+      shader: unshaded
+      map: [ "screen" ]
+  - type: ActiveRadio
+    channels:
+    - Security
+    - Common
+
+- type: entity
+  parent: BaseLearnerPAI
+  id: LearnerEpiPAI
+  name: epistemics ai tutor
+  description: Your electronic pal here to help teach you the ins and outs of research and development!
+  components:
+  - type: GhostRole
+    name: epi-tutor-role-name
+    description: epi-tutor-role-description
+    rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 72000
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/tutors.rsi
+    layers:
+    - state: epi-pai-base
+    - state: pai-on-overlay
+      shader: unshaded
+      map: [ "screen" ]
+  - type: ActiveRadio
+    channels:
+    - Science
+    - Common
