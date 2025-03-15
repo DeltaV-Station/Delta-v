@@ -62,6 +62,11 @@ public sealed partial class RevenantMalfunctionActionEvent : InstantActionEvent
 {
 }
 
+// Begin DeltaV Changes
+public sealed partial class RevenantSleepActionEvent : InstantActionEvent
+{
+}
+// End DeltaV Changes
 
 [NetSerializable, Serializable]
 public enum RevenantVisuals : byte

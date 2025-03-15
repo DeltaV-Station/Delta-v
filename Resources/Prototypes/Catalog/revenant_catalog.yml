@@ -49,3 +49,17 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+# Begin DeltaV Changes
+- type: listing
+  id: RevenantSleep
+  name: revenant-sleep-name
+  description: revenant-sleep-desc
+  productAction: ActionRevenantSleep
+  cost:
+    StolenEssence: 5
+  categories:
+  - RevenantAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+# End DeltaV Changes
