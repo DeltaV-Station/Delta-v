@@ -239,6 +239,7 @@
     - id: DrinkGlass
       amount: 2
 
+<<<<<<< HEAD
 - type: entity
   parent: BaseMailLarge
   id: MailNFBible
@@ -249,6 +250,17 @@
     - id: Bible
     - id: ClothingHeadHatWitch1 # DeltaV - Compensates for items that don't exist here
     - id: ClothingOuterCoatMNKBlackTopCoat # DeltaV - Compensates for items that don't exist here
+=======
+# - type: entity // Dummy bible mail replacement?
+#   parent: BaseMailLarge
+#   id: MailNFBible
+#   suffix: bible, extended
+#   components:
+#   - type: Mail
+#     contents:
+#     - id: Bible
+#     - id: ClothingHeadHatWitch1 # DeltaV - Compensates for items that don't exist here
+>>>>>>> d0cdf2f39b (Merge pull request #1767 from AftrLite/the-cosmic-cult)
 
 - type: entity
   parent: BaseMail

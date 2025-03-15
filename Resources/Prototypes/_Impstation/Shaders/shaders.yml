@@ -1,0 +1,33 @@
+- type: shader
+  id: AccessibleFullStealth
+  kind: source
+  path: "/Textures/_Impstation/Shaders/accessible_full_stealth.swsl"
+
+- type: shader
+  id: DisplacedStencilDrawUnshaded
+  kind: source
+  path: "/Textures/_Impstation/Shaders/displacement_unshaded.swsl"
+  stencil:
+    ref: 1
+    op: Keep
+    func: NotEqual
+  params:
+    displacementSize: 127
+
+- type: shader
+  id: SaturationShuffle
+  kind: source
+  path: "/Textures/_Impstation/Shaders/saturation_shuffle.swsl"
+  params:
+    tileSize: 32, 32
+    hsv: 1.0, 1.0, 1.0
+
+- type: shader
+  id: MonumentStars
+  kind: source
+  path: "/Textures/_Impstation/Shaders/monument_stars.swsl"
+
+- type: shader
+  id: MonumentPulse
+  kind: source
+  path: "/Textures/_Impstation/Shaders/monument_pulse.swsl"
