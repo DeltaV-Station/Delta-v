@@ -43,7 +43,6 @@ public sealed class SingularitySystem : SharedNoosphericSingularitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SingularityDistortionComponent, ComponentStartup>(OnDistortionStartup);
         SubscribeLocalEvent<NoosphericSingularityComponent, ComponentShutdown>(OnSingularityShutdown);
         SubscribeLocalEvent<NoosphericSingularityComponent, EventHorizonConsumedEntityEvent>(OnConsumed);
         SubscribeLocalEvent<SinguloFoodComponent, EventHorizonConsumedEntityEvent>(OnConsumed);
@@ -223,18 +222,6 @@ public sealed class SingularitySystem : SharedNoosphericSingularitySystem
 
         ent.Comp.AmbientSoundStream = _audio.PlayPvs(ent.Comp.AmbientSound, ent)?.Entity;
         UpdateSingularityLevel((ent, ent.Comp));
-    }
-
-    /// <summary>
-    /// Makes entities that have the singularity distortion visual warping always get their state shared with the client.
-    /// This prevents some major popin with large distortion ranges.
-    /// </summary>
-    /// <param name="uid">The entity UID of the entity that is gaining the shader.</param>
-    /// <param name="comp">The component of the shader that the entity is gaining.</param>
-    /// <param name="args">The event arguments.</param>
-    public void OnDistortionStartup(EntityUid uid, SingularityDistortionComponent comp, ComponentStartup args)
-    {
-        _pvs.AddGlobalOverride(GetNetEntity(uid));
     }
 
     /// <summary>
