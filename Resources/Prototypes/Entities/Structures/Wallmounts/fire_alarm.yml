@@ -1,6 +1,7 @@
 - type: entity
   id: FireAlarm
   name: fire alarm
+  suffix: DO NOT MAP # DeltaV - fire alarms are next to useless
   description: A fire alarm. Spicy!
   components:
   - type: WallMount
