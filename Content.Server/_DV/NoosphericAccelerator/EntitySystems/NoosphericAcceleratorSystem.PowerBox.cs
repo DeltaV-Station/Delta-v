@@ -1,24 +1,28 @@
-﻿using Content.Server.ParticleAccelerator.Components;
+﻿using Content.Server._DV.NoosphericAccelerator.Components;
 using Content.Server.Power.EntitySystems;
 
-namespace Content.Server.ParticleAccelerator.EntitySystems;
+namespace Content.Server._DV.NoosphericAccelerator.EntitySystems;
 
-public sealed partial class ParticleAcceleratorSystem
+public sealed partial class NoosphericAcceleratorSystem
 {
     private void InitializePowerBoxSystem()
     {
-        SubscribeLocalEvent<ParticleAcceleratorPowerBoxComponent, PowerConsumerReceivedChanged>(PowerBoxReceivedChanged);
+        SubscribeLocalEvent<NoosphericAcceleratorPowerBoxComponent, PowerConsumerReceivedChanged>(
+            PowerBoxReceivedChanged);
     }
 
-    private void PowerBoxReceivedChanged(EntityUid uid, ParticleAcceleratorPowerBoxComponent component, ref PowerConsumerReceivedChanged args)
+    private void PowerBoxReceivedChanged(EntityUid uid,
+        NoosphericAcceleratorPowerBoxComponent component,
+        ref PowerConsumerReceivedChanged args)
     {
-        if (!TryComp<ParticleAcceleratorPartComponent>(uid, out var part))
+        if (!TryComp<NoosphericAcceleratorPartComponent>(uid, out var part))
             return;
-        if (!TryComp<ParticleAcceleratorControlBoxComponent>(part.Master, out var controller))
+        if (!TryComp<NoosphericAcceleratorControlBoxComponent>(part.Master, out var controller))
             return;
 
         var master = part.Master!.Value;
-        if (controller.Enabled && args.ReceivedPower >= args.DrawRate * ParticleAcceleratorControlBoxComponent.RequiredPowerRatio)
+        if (controller.Enabled && args.ReceivedPower >=
+            args.DrawRate * NoosphericAcceleratorControlBoxComponent.RequiredPowerRatio)
             PowerOn(master, comp: controller);
         else
             PowerOff(master, comp: controller);

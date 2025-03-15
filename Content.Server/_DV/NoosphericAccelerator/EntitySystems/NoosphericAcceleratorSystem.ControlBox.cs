@@ -1,7 +1,7 @@
-using Content.Server.ParticleAccelerator.Components;
+using Content.Server._DV.NoosphericAccelerator.Components;
 using Content.Server.Power.Components;
 using Content.Shared.Database;
-using Content.Shared.Singularity.Components;
+using Content.Shared._DV.NoospericAccelerator.Components;
 using Robust.Shared.Utility;
 using System.Diagnostics;
 using Content.Server.Administration.Managers;
@@ -11,27 +11,30 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
-namespace Content.Server.ParticleAccelerator.EntitySystems;
+namespace Content.Server._DV.NoosphericAccelerator.EntitySystems;
 
-public sealed partial class ParticleAcceleratorSystem
+public sealed partial class NoosphericAcceleratorSystem
 {
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private void InitializeControlBoxSystem()
     {
-        SubscribeLocalEvent<ParticleAcceleratorControlBoxComponent, ComponentStartup>(OnComponentStartup);
-        SubscribeLocalEvent<ParticleAcceleratorControlBoxComponent, ComponentShutdown>(OnComponentShutdown);
-        SubscribeLocalEvent<ParticleAcceleratorControlBoxComponent, PowerChangedEvent>(OnControlBoxPowerChange);
-        SubscribeLocalEvent<ParticleAcceleratorControlBoxComponent, ParticleAcceleratorSetEnableMessage>(OnUISetEnableMessage);
-        SubscribeLocalEvent<ParticleAcceleratorControlBoxComponent, ParticleAcceleratorSetPowerStateMessage>(OnUISetPowerMessage);
-        SubscribeLocalEvent<ParticleAcceleratorControlBoxComponent, ParticleAcceleratorRescanPartsMessage>(OnUIRescanMessage);
+        SubscribeLocalEvent<NoosphericAcceleratorControlBoxComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<NoosphericAcceleratorControlBoxComponent, ComponentShutdown>(OnComponentShutdown);
+        SubscribeLocalEvent<NoosphericAcceleratorControlBoxComponent, PowerChangedEvent>(OnControlBoxPowerChange);
+        SubscribeLocalEvent<NoosphericAcceleratorControlBoxComponent, NoosphericAcceleratorSetEnableMessage>(
+            OnUISetEnableMessage);
+        SubscribeLocalEvent<NoosphericAcceleratorControlBoxComponent, NoosphericAcceleratorSetPowerStateMessage>(
+            OnUISetPowerMessage);
+        SubscribeLocalEvent<NoosphericAcceleratorControlBoxComponent, NoosphericAcceleratorRescanPartsMessage>(
+            OnUIRescanMessage);
     }
 
     public override void Update(float frameTime)
     {
         var curTime = _gameTiming.CurTime;
-        var query = EntityQueryEnumerator<ParticleAcceleratorControlBoxComponent>();
+        var query = EntityQueryEnumerator<NoosphericAcceleratorControlBoxComponent>();
         while (query.MoveNext(out var uid, out var controller))
         {
             if (controller.Firing && curTime >= controller.NextFire)
@@ -40,17 +43,17 @@ public sealed partial class ParticleAcceleratorSystem
     }
 
     [Conditional("DEBUG")]
-    private void EverythingIsWellToFire(ParticleAcceleratorControlBoxComponent controller)
+    private void EverythingIsWellToFire(NoosphericAcceleratorControlBoxComponent controller)
     {
         DebugTools.Assert(controller.Powered);
-        DebugTools.Assert(controller.SelectedStrength != ParticleAcceleratorPowerState.Standby);
+        DebugTools.Assert(controller.SelectedStrength != NoosphericAcceleratorPowerState.Standby);
         DebugTools.Assert(controller.Assembled);
         DebugTools.Assert(EntityManager.EntityExists(controller.PortEmitter));
         DebugTools.Assert(EntityManager.EntityExists(controller.ForeEmitter));
         DebugTools.Assert(EntityManager.EntityExists(controller.StarboardEmitter));
     }
 
-    public void Fire(EntityUid uid, TimeSpan curTime, ParticleAcceleratorControlBoxComponent? comp = null)
+    public void Fire(EntityUid uid, TimeSpan curTime, NoosphericAcceleratorControlBoxComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return;
@@ -66,7 +69,7 @@ public sealed partial class ParticleAcceleratorSystem
         FireEmitter(comp.StarboardEmitter!.Value, strength);
     }
 
-    public void SwitchOn(EntityUid uid, EntityUid? user = null, ParticleAcceleratorControlBoxComponent? comp = null)
+    public void SwitchOn(EntityUid uid, EntityUid? user = null, NoosphericAcceleratorControlBoxComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return;
@@ -77,19 +80,22 @@ public sealed partial class ParticleAcceleratorSystem
             return;
 
         if (user is { } player)
-            _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(player):player} has turned {ToPrettyString(uid)} on");
+            _adminLogger.Add(LogType.Action,
+                LogImpact.Low,
+                $"{ToPrettyString(player):player} has turned {ToPrettyString(uid)} on");
 
         comp.Enabled = true;
         UpdatePowerDraw(uid, comp);
 
         if (!TryComp<PowerConsumerComponent>(comp.PowerBox, out var powerConsumer)
-        || powerConsumer.ReceivedPower >= powerConsumer.DrawRate * ParticleAcceleratorControlBoxComponent.RequiredPowerRatio)
+            || powerConsumer.ReceivedPower >=
+            powerConsumer.DrawRate * NoosphericAcceleratorControlBoxComponent.RequiredPowerRatio)
             PowerOn(uid, comp);
 
         UpdateUI(uid, comp);
     }
 
-    public void SwitchOff(EntityUid uid, EntityUid? user = null, ParticleAcceleratorControlBoxComponent? comp = null)
+    public void SwitchOff(EntityUid uid, EntityUid? user = null, NoosphericAcceleratorControlBoxComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return;
@@ -97,16 +103,18 @@ public sealed partial class ParticleAcceleratorSystem
             return;
 
         if (user is { } player)
-            _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(player):player} has turned {ToPrettyString(uid)} off");
+            _adminLogger.Add(LogType.Action,
+                LogImpact.Low,
+                $"{ToPrettyString(player):player} has turned {ToPrettyString(uid)} off");
 
         comp.Enabled = false;
-        SetStrength(uid, ParticleAcceleratorPowerState.Standby, user, comp);
+        SetStrength(uid, NoosphericAcceleratorPowerState.Standby, user, comp);
         UpdatePowerDraw(uid, comp);
         PowerOff(uid, comp);
         UpdateUI(uid, comp);
     }
 
-    public void PowerOn(EntityUid uid, ParticleAcceleratorControlBoxComponent? comp = null)
+    public void PowerOn(EntityUid uid, NoosphericAcceleratorControlBoxComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return;
@@ -124,7 +132,7 @@ public sealed partial class ParticleAcceleratorSystem
         UpdateUI(uid, comp);
     }
 
-    public void PowerOff(EntityUid uid, ParticleAcceleratorControlBoxComponent? comp = null)
+    public void PowerOff(EntityUid uid, NoosphericAcceleratorControlBoxComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return;
@@ -138,17 +146,20 @@ public sealed partial class ParticleAcceleratorSystem
         UpdateUI(uid, comp);
     }
 
-    public void SetStrength(EntityUid uid, ParticleAcceleratorPowerState strength, EntityUid? user = null, ParticleAcceleratorControlBoxComponent? comp = null)
+    public void SetStrength(EntityUid uid,
+        NoosphericAcceleratorPowerState strength,
+        EntityUid? user = null,
+        NoosphericAcceleratorControlBoxComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return;
         if (comp.StrengthLocked)
             return;
 
-        strength = (ParticleAcceleratorPowerState) MathHelper.Clamp(
-            (int) strength,
-            (int) ParticleAcceleratorPowerState.Standby,
-            (int) comp.MaxStrength
+        strength = (NoosphericAcceleratorPowerState)MathHelper.Clamp(
+            (int)strength,
+            (int)NoosphericAcceleratorPowerState.Standby,
+            (int)comp.MaxStrength
         );
 
         if (strength == comp.SelectedStrength)
@@ -158,18 +169,21 @@ public sealed partial class ParticleAcceleratorSystem
         {
             var impact = strength switch
             {
-                ParticleAcceleratorPowerState.Standby => LogImpact.Low,
-                ParticleAcceleratorPowerState.Level0
-                    or ParticleAcceleratorPowerState.Level1
-                    or ParticleAcceleratorPowerState.Level2 => LogImpact.Medium,
-                ParticleAcceleratorPowerState.Level3 => LogImpact.Extreme,
+                NoosphericAcceleratorPowerState.Standby => LogImpact.Low,
+                NoosphericAcceleratorPowerState.Level0
+                    or NoosphericAcceleratorPowerState.Level1
+                    or NoosphericAcceleratorPowerState.Level2 => LogImpact.Medium,
+                NoosphericAcceleratorPowerState.Level3 => LogImpact.Extreme,
                 _ => throw new IndexOutOfRangeException(nameof(strength)),
             };
 
-            _adminLogger.Add(LogType.Action, impact, $"{ToPrettyString(player):player} has set the strength of {ToPrettyString(uid)} to {strength}");
+            _adminLogger.Add(LogType.Action,
+                impact,
+                $"{ToPrettyString(player):player} has set the strength of {ToPrettyString(uid)} to {strength}");
 
 
-            var alertMinPowerState = (ParticleAcceleratorPowerState)_cfg.GetCVar(CCVars.AdminAlertParticleAcceleratorMinPowerState);
+            var alertMinPowerState =
+                (NoosphericAcceleratorPowerState)_cfg.GetCVar(CCVars.AdminAlertParticleAcceleratorMinPowerState);
             if (strength >= alertMinPowerState)
             {
                 var pos = Transform(uid);
@@ -177,9 +191,9 @@ public sealed partial class ParticleAcceleratorSystem
                 {
                     _chat.SendAdminAlert(player,
                         Loc.GetString("particle-accelerator-admin-power-strength-warning",
-                        ("machine", ToPrettyString(uid)),
-                        ("powerState", GetPANumericalLevel(strength)),
-                        ("coordinates", pos.Coordinates)));
+                            ("machine", ToPrettyString(uid)),
+                            ("powerState", GetPANumericalLevel(strength)),
+                            ("coordinates", pos.Coordinates)));
                     _audio.PlayGlobal("/Audio/Misc/adminlarm.ogg",
                         Filter.Empty().AddPlayers(_adminManager.ActiveAdmins),
                         false,
@@ -200,12 +214,12 @@ public sealed partial class ParticleAcceleratorSystem
         }
     }
 
-    private void UpdateFiring(EntityUid uid, ParticleAcceleratorControlBoxComponent? comp = null)
+    private void UpdateFiring(EntityUid uid, NoosphericAcceleratorControlBoxComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return;
 
-        if (!comp.Powered || comp.SelectedStrength < ParticleAcceleratorPowerState.Level0)
+        if (!comp.Powered || comp.SelectedStrength < NoosphericAcceleratorPowerState.Level0)
         {
             comp.Firing = false;
             return;
@@ -219,7 +233,7 @@ public sealed partial class ParticleAcceleratorSystem
         comp.Firing = true;
     }
 
-    private void UpdatePowerDraw(EntityUid uid, ParticleAcceleratorControlBoxComponent? comp = null)
+    private void UpdatePowerDraw(EntityUid uid, NoosphericAcceleratorControlBoxComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return;
@@ -228,17 +242,17 @@ public sealed partial class ParticleAcceleratorSystem
 
         var powerDraw = comp.BasePowerDraw;
         if (comp.Enabled)
-            powerDraw += comp.LevelPowerDraw * (int) comp.SelectedStrength;
+            powerDraw += comp.LevelPowerDraw * (int)comp.SelectedStrength;
 
         powerConsumer.DrawRate = powerDraw;
     }
 
-    public void UpdateUI(EntityUid uid, ParticleAcceleratorControlBoxComponent? comp = null)
+    public void UpdateUI(EntityUid uid, NoosphericAcceleratorControlBoxComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return;
 
-        if (!_uiSystem.HasUi(uid, ParticleAcceleratorControlBoxUiKey.Key))
+        if (!_uiSystem.HasUi(uid, NoosphericAcceleratorControlBoxUiKey.Key))
             return;
 
         var draw = 0f;
@@ -251,62 +265,68 @@ public sealed partial class ParticleAcceleratorSystem
         }
 
         _uiSystem.SetUiState(uid,
-            ParticleAcceleratorControlBoxUiKey.Key,
-            new ParticleAcceleratorUIState(
-            comp.Assembled,
-            comp.Enabled,
-            comp.SelectedStrength,
-            (int) draw,
-            (int) receive,
-            comp.StarboardEmitter != null,
-            comp.ForeEmitter != null,
-            comp.PortEmitter != null,
-            comp.PowerBox != null,
-            comp.FuelChamber != null,
-            comp.EndCap != null,
-            comp.InterfaceDisabled,
-            comp.MaxStrength,
-            comp.StrengthLocked
-        ));
+            NoosphericAcceleratorControlBoxUiKey.Key,
+            new NoosphericAcceleratorUIState(
+                comp.Assembled,
+                comp.Enabled,
+                comp.SelectedStrength,
+                (int)draw,
+                (int)receive,
+                comp.StarboardEmitter != null,
+                comp.ForeEmitter != null,
+                comp.PortEmitter != null,
+                comp.PowerBox != null,
+                comp.FuelChamber != null,
+                comp.EndCap != null,
+                comp.InterfaceDisabled,
+                comp.MaxStrength,
+                comp.StrengthLocked
+            ));
     }
 
-    private void UpdateAppearance(EntityUid uid, ParticleAcceleratorControlBoxComponent? comp = null, AppearanceComponent? appearance = null)
+    private void UpdateAppearance(EntityUid uid,
+        NoosphericAcceleratorControlBoxComponent? comp = null,
+        AppearanceComponent? appearance = null)
     {
         if (!Resolve(uid, ref comp))
             return;
 
         _appearanceSystem.SetData(
             uid,
-            ParticleAcceleratorVisuals.VisualState,
+            NoosphericAcceleratorVisuals.VisualState,
             TryComp<ApcPowerReceiverComponent>(uid, out var apcPower) && !apcPower.Powered
-                ? ParticleAcceleratorVisualState.Unpowered
-                : (ParticleAcceleratorVisualState) comp.SelectedStrength,
+                ? NoosphericAcceleratorVisualState.Unpowered
+                : (NoosphericAcceleratorVisualState)comp.SelectedStrength,
             appearance
         );
     }
 
-    private void UpdatePartVisualStates(EntityUid uid, ParticleAcceleratorControlBoxComponent? controller = null)
+    private void UpdatePartVisualStates(EntityUid uid, NoosphericAcceleratorControlBoxComponent? controller = null)
     {
         if (!Resolve(uid, ref controller))
             return;
 
-        var state = controller.Powered ? (ParticleAcceleratorVisualState) controller.SelectedStrength : ParticleAcceleratorVisualState.Unpowered;
+        var state = controller.Powered
+            ? (NoosphericAcceleratorVisualState)controller.SelectedStrength
+            : NoosphericAcceleratorVisualState.Unpowered;
 
         // UpdatePartVisualState(ControlBox); (We are the control box)
         if (controller.FuelChamber.HasValue)
-            _appearanceSystem.SetData(controller.FuelChamber!.Value, ParticleAcceleratorVisuals.VisualState, state);
+            _appearanceSystem.SetData(controller.FuelChamber!.Value, NoosphericAcceleratorVisuals.VisualState, state);
         if (controller.PowerBox.HasValue)
-            _appearanceSystem.SetData(controller.PowerBox!.Value, ParticleAcceleratorVisuals.VisualState, state);
+            _appearanceSystem.SetData(controller.PowerBox!.Value, NoosphericAcceleratorVisuals.VisualState, state);
         if (controller.PortEmitter.HasValue)
-            _appearanceSystem.SetData(controller.PortEmitter!.Value, ParticleAcceleratorVisuals.VisualState, state);
+            _appearanceSystem.SetData(controller.PortEmitter!.Value, NoosphericAcceleratorVisuals.VisualState, state);
         if (controller.ForeEmitter.HasValue)
-            _appearanceSystem.SetData(controller.ForeEmitter!.Value, ParticleAcceleratorVisuals.VisualState, state);
+            _appearanceSystem.SetData(controller.ForeEmitter!.Value, NoosphericAcceleratorVisuals.VisualState, state);
         if (controller.StarboardEmitter.HasValue)
-            _appearanceSystem.SetData(controller.StarboardEmitter!.Value, ParticleAcceleratorVisuals.VisualState, state);
+            _appearanceSystem.SetData(controller.StarboardEmitter!.Value,
+                NoosphericAcceleratorVisuals.VisualState,
+                state);
         //no endcap because it has no powerlevel-sprites
     }
 
-    private IEnumerable<EntityUid> AllParts(EntityUid uid, ParticleAcceleratorControlBoxComponent? comp = null)
+    private IEnumerable<EntityUid> AllParts(EntityUid uid, NoosphericAcceleratorControlBoxComponent? comp = null)
     {
         if (Resolve(uid, ref comp))
         {
@@ -325,18 +345,20 @@ public sealed partial class ParticleAcceleratorSystem
         }
     }
 
-    private void OnComponentStartup(EntityUid uid, ParticleAcceleratorControlBoxComponent comp, ComponentStartup args)
+    private void OnComponentStartup(EntityUid uid, NoosphericAcceleratorControlBoxComponent comp, ComponentStartup args)
     {
-        if (TryComp<ParticleAcceleratorPartComponent>(uid, out var part))
+        if (TryComp<NoosphericAcceleratorPartComponent>(uid, out var part))
             part.Master = uid;
     }
 
-    private void OnComponentShutdown(EntityUid uid, ParticleAcceleratorControlBoxComponent comp, ComponentShutdown args)
+    private void OnComponentShutdown(EntityUid uid,
+        NoosphericAcceleratorControlBoxComponent comp,
+        ComponentShutdown args)
     {
-        if (TryComp<ParticleAcceleratorPartComponent>(uid, out var partStatus))
+        if (TryComp<NoosphericAcceleratorPartComponent>(uid, out var partStatus))
             partStatus.Master = null;
 
-        var partQuery = GetEntityQuery<ParticleAcceleratorPartComponent>();
+        var partQuery = GetEntityQuery<NoosphericAcceleratorPartComponent>();
         foreach (var part in AllParts(uid, comp))
         {
             if (partQuery.TryGetComponent(part, out var partData))
@@ -346,17 +368,21 @@ public sealed partial class ParticleAcceleratorSystem
 
     // This is the power state for the PA control box itself.
     // Keep in mind that the PA itself can keep firing as long as the HV cable under the power box has... power.
-    private void OnControlBoxPowerChange(EntityUid uid, ParticleAcceleratorControlBoxComponent comp, ref PowerChangedEvent args)
+    private void OnControlBoxPowerChange(EntityUid uid,
+        NoosphericAcceleratorControlBoxComponent comp,
+        ref PowerChangedEvent args)
     {
         UpdateAppearance(uid, comp);
 
         if (!args.Powered)
-            _uiSystem.CloseUi(uid, ParticleAcceleratorControlBoxUiKey.Key);
+            _uiSystem.CloseUi(uid, NoosphericAcceleratorControlBoxUiKey.Key);
     }
 
-    private void OnUISetEnableMessage(EntityUid uid, ParticleAcceleratorControlBoxComponent comp, ParticleAcceleratorSetEnableMessage msg)
+    private void OnUISetEnableMessage(EntityUid uid,
+        NoosphericAcceleratorControlBoxComponent comp,
+        NoosphericAcceleratorSetEnableMessage msg)
     {
-        if (!ParticleAcceleratorControlBoxUiKey.Key.Equals(msg.UiKey))
+        if (!NoosphericAcceleratorControlBoxUiKey.Key.Equals(msg.UiKey))
             return;
         if (comp.InterfaceDisabled)
             return;
@@ -374,9 +400,11 @@ public sealed partial class ParticleAcceleratorSystem
         UpdateUI(uid, comp);
     }
 
-    private void OnUISetPowerMessage(EntityUid uid, ParticleAcceleratorControlBoxComponent comp, ParticleAcceleratorSetPowerStateMessage msg)
+    private void OnUISetPowerMessage(EntityUid uid,
+        NoosphericAcceleratorControlBoxComponent comp,
+        NoosphericAcceleratorSetPowerStateMessage msg)
     {
-        if (!ParticleAcceleratorControlBoxUiKey.Key.Equals(msg.UiKey))
+        if (!NoosphericAcceleratorControlBoxUiKey.Key.Equals(msg.UiKey))
             return;
         if (comp.InterfaceDisabled)
             return;
@@ -388,9 +416,11 @@ public sealed partial class ParticleAcceleratorSystem
         UpdateUI(uid, comp);
     }
 
-    private void OnUIRescanMessage(EntityUid uid, ParticleAcceleratorControlBoxComponent comp, ParticleAcceleratorRescanPartsMessage msg)
+    private void OnUIRescanMessage(EntityUid uid,
+        NoosphericAcceleratorControlBoxComponent comp,
+        NoosphericAcceleratorRescanPartsMessage msg)
     {
-        if (!ParticleAcceleratorControlBoxUiKey.Key.Equals(msg.UiKey))
+        if (!NoosphericAcceleratorControlBoxUiKey.Key.Equals(msg.UiKey))
             return;
         if (comp.InterfaceDisabled)
             return;
@@ -402,14 +432,14 @@ public sealed partial class ParticleAcceleratorSystem
         UpdateUI(uid, comp);
     }
 
-    public static int GetPANumericalLevel(ParticleAcceleratorPowerState state)
+    public static int GetPANumericalLevel(NoosphericAcceleratorPowerState state)
     {
         return state switch
         {
-            ParticleAcceleratorPowerState.Level0 => 1,
-            ParticleAcceleratorPowerState.Level1 => 2,
-            ParticleAcceleratorPowerState.Level2 => 3,
-            ParticleAcceleratorPowerState.Level3 => 4,
+            NoosphericAcceleratorPowerState.Level0 => 1,
+            NoosphericAcceleratorPowerState.Level1 => 2,
+            NoosphericAcceleratorPowerState.Level2 => 3,
+            NoosphericAcceleratorPowerState.Level3 => 4,
             _ => 0
         };
     }

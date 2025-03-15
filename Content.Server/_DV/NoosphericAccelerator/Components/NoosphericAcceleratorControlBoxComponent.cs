@@ -1,8 +1,8 @@
-using Content.Server.ParticleAccelerator.Wires;
-using Content.Shared.Singularity.Components;
+using Content.Server._DV.NoosphericAccelerator.Wires;
+using Content.Shared._DV.NoospericAccelerator.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server.ParticleAccelerator.Components;
+namespace Content.Server._DV.NoosphericAccelerator.Components;
 
 // This component is in control of the PA's logic because it's the one to contain the wires for hacking.
 // And also it's the only PA component that meaningfully needs to work on its own.
@@ -11,7 +11,7 @@ namespace Content.Server.ParticleAccelerator.Components;
 ///     Also contains primary logic for actual PA behavior, part scanning, etc...
 /// </summary>
 [RegisterComponent]
-public sealed partial class ParticleAcceleratorControlBoxComponent : Component
+public sealed partial class NoosphericAcceleratorControlBoxComponent : Component
 {
     /// <summary>
     /// Whether the PA parts have been correctly arranged to make a functional device.
@@ -48,57 +48,57 @@ public sealed partial class ParticleAcceleratorControlBoxComponent : Component
 
     /// <summary>
     /// Whether the PA is currently firing or charging to fire.
-    /// Bounded by <see cref="ParticleAcceleratorPowerState.Standby"/> and <see cref="MaxStrength"/>.
-    /// Modified by <see cref="ParticleAcceleratorStrengthWireAction"/>.
+    /// Bounded by <see cref="NoosphericAcceleratorPowerState.Standby"/> and <see cref="MaxStrength"/>.
+    /// Modified by <see cref="NoosphericAcceleratorStrengthWireAction"/>.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public ParticleAcceleratorPowerState SelectedStrength = ParticleAcceleratorPowerState.Standby;
+    public NoosphericAcceleratorPowerState SelectedStrength = NoosphericAcceleratorPowerState.Standby;
 
     /// <summary>
     /// The maximum strength level this particle accelerator can be set to operate at.
-    /// Modified by <see cref="ParticleAcceleratorLimiterWireAction"/>.
+    /// Modified by <see cref="NoosphericAcceleratorLimiterWireAction"/>.
     /// </summary>
     [ViewVariables]
-    public ParticleAcceleratorPowerState MaxStrength = ParticleAcceleratorPowerState.Level2;
+    public NoosphericAcceleratorPowerState MaxStrength = NoosphericAcceleratorPowerState.Level2;
 
     /// <summary>
     /// The power supply unit of the assembled particle accelerator.
-    /// Implies the existance of a <see cref="ParticleAcceleratorPowerBoxComponent"/> attached to this entity.
+    /// Implies the existance of a <see cref="NoosphericAcceleratorPowerBoxComponent"/> attached to this entity.
     /// </summary>
     [ViewVariables]
     public EntityUid? PowerBox;
 
     /// <summary>
     /// Whether the PA is currently firing or charging to fire.
-    /// Implies the existance of a <see cref="ParticleAcceleratorEndCapComponent"/> attached to this entity.
+    /// Implies the existance of a <see cref="NoosphericAcceleratorEndCapComponent"/> attached to this entity.
     /// </summary>
     [ViewVariables]
     public EntityUid? EndCap;
 
     /// <summary>
     /// Whether the PA is currently firing or charging to fire.
-    /// Implies the existance of a <see cref="ParticleAcceleratorFuelChamberComponent"/> attached to this entity.
+    /// Implies the existance of a <see cref="NoosphericAcceleratorFuelChamberComponent"/> attached to this entity.
     /// </summary>
     [ViewVariables]
     public EntityUid? FuelChamber;
 
     /// <summary>
     /// Whether the PA is currently firing or charging to fire.
-    /// Implies the existance of a <see cref="ParticleAcceleratorEmitterComponent"/> attached to this entity.
+    /// Implies the existance of a <see cref="NoosphericAcceleratorEmitterComponent"/> attached to this entity.
     /// </summary>
     [ViewVariables]
     public EntityUid? PortEmitter;
 
     /// <summary>
     /// Whether the PA is currently firing or charging to fire.
-    /// Implies the existance of a <see cref="ParticleAcceleratorEmitterComponent"/> attached to this entity.
+    /// Implies the existance of a <see cref="NoosphericAcceleratorEmitterComponent"/> attached to this entity.
     /// </summary>
     [ViewVariables]
     public EntityUid? ForeEmitter;
 
     /// <summary>
     /// Whether the PA is currently firing or charging to fire.
-    /// Implies the existance of a <see cref="ParticleAcceleratorEmitterComponent"/> attached to this entity.
+    /// Implies the existance of a <see cref="NoosphericAcceleratorEmitterComponent"/> attached to this entity.
     /// </summary>
     [ViewVariables]
     public EntityUid? StarboardEmitter;
@@ -156,14 +156,14 @@ public sealed partial class ParticleAcceleratorControlBoxComponent : Component
 
     /// <summary>
     /// Whether the interface has been disabled via a cut wire or not.
-    /// Modified by <see cref="ParticleAcceleratorKeyboardWireAction"/>.
+    /// Modified by <see cref="NoosphericAcceleratorKeyboardWireAction"/>.
     /// </summary>
     [ViewVariables]
     public bool InterfaceDisabled = false;
 
     /// <summary>
     /// Whether the ability to change the strength of the PA has been disabled via a cut wire or not.
-    /// Modified by <see cref="ParticleAcceleratorStrengthWireAction"/>.
+    /// Modified by <see cref="NoosphericAcceleratorStrengthWireAction"/>.
     /// </summary>
     [ViewVariables]
     public bool StrengthLocked = false;
@@ -182,7 +182,7 @@ public sealed partial class ParticleAcceleratorControlBoxComponent : Component
 
     /// <summary>
     /// Whether the PA can be turned on.
-    /// Modified by <see cref="ParticleAcceleratorPowerWireAction"/>.
+    /// Modified by <see cref="NoosphericAcceleratorPowerWireAction"/>.
     /// </summary>
     [ViewVariables]
     public bool CanBeEnabled = true;

@@ -1,6 +1,6 @@
-﻿namespace Content.Server.ParticleAccelerator.Components;
+﻿namespace Content.Server._DV.NoosphericAccelerator.Components;
 
 [RegisterComponent]
-public sealed partial class ParticleAcceleratorPowerBoxComponent : Component
+public sealed partial class NoosphericAcceleratorPowerBoxComponent : Component
 {
 }

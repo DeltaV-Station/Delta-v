@@ -1,16 +1,16 @@
 ﻿using Robust.Shared.Prototypes;
 
-namespace Content.Server.ParticleAccelerator.Components;
+namespace Content.Server._DV.NoosphericAccelerator.Components;
 
 [RegisterComponent]
-public sealed partial class ParticleAcceleratorEmitterComponent : Component
+public sealed partial class NoosphericAcceleratorEmitterComponent : Component
 {
     [DataField]
     public EntProtoId EmittedPrototype = "ParticlesProjectile";
 
     [DataField("emitterType")]
     [ViewVariables(VVAccess.ReadWrite)]
-    public ParticleAcceleratorEmitterType Type = ParticleAcceleratorEmitterType.Fore;
+    public NoosphericAcceleratorEmitterType Type = NoosphericAcceleratorEmitterType.Fore;
 
     public override string ToString()
     {
@@ -18,7 +18,7 @@ public sealed partial class ParticleAcceleratorEmitterComponent : Component
     }
 }
 
-public enum ParticleAcceleratorEmitterType
+public enum NoosphericAcceleratorEmitterType
 {
     Port,
     Fore,

@@ -6,9 +6,9 @@ using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 
-namespace Content.Server.ParticleAccelerator.EntitySystems;
+namespace Content.Server._DV.NoosphericAccelerator.EntitySystems;
 
-public sealed partial class ParticleAcceleratorSystem : EntitySystem
+public sealed partial class NoosphericAcceleratorSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
