@@ -5,27 +5,23 @@ namespace Content.Shared._DV.Singularity.Events;
 /// <summary>
 /// An event raised whenever a singularity changes its level.
 /// </summary>
-public sealed class SingularityLevelChangedEvent : EntityEventArgs
+public sealed class NoosphericSingularityLevelChangedEvent(
+    byte newValue,
+    byte oldValue,
+    NoosphericSingularityComponent singularity) : EntityEventArgs
 {
     /// <summary>
     /// The new level of the singularity.
     /// </summary>
-    public readonly byte NewValue;
+    public readonly byte NewValue = newValue;
 
     /// <summary>
     /// The previous level of the singularity.
     /// </summary>
-    public readonly byte OldValue;
+    public readonly byte OldValue = oldValue;
 
     /// <summary>
     /// The singularity that just changed level.
     /// </summary>
-    public readonly SingularityComponent Singularity;
-
-    public SingularityLevelChangedEvent(byte newValue, byte oldValue, SingularityComponent singularity)
-    {
-        NewValue = newValue;
-        OldValue = oldValue;
-        Singularity = singularity;
-    }
+    public readonly NoosphericSingularityComponent Singularity = singularity;
 }
