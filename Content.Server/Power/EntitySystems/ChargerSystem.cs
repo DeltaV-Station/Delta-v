@@ -252,7 +252,7 @@ internal sealed class ChargerSystem : EntitySystem
         UpdateStatus(uid, component);
     }
 
-    // Begin DeltaV - bodies can have an augment power cell
+    // Begin DeltaV - event-based search for battery
     public bool SearchForBattery(EntityUid uid, [NotNullWhen(true)] out EntityUid? batteryUid, [NotNullWhen(true)] out BatteryComponent? component)
     {
         // try get a battery directly on the inserted entity
@@ -262,21 +262,35 @@ internal sealed class ChargerSystem : EntitySystem
             return true;
         }
 
-        // or by checking for a power cell slot on the inserted entity
-        if (_powerCell.TryGetBatteryFromSlot(uid, out batteryUid, out component))
+        var evt = new SearchForBatteryEvent();
+        RaiseLocalEvent(uid, ref evt);
+        if (evt.Handled)
         {
-            return true;
+            batteryUid = evt.Uid;
+            component = evt.Component;
+            return evt.Handled;
         }
 
-        // or by checking for an augment power cell
-        if (_augments.TryGetAugmentPowerCell(uid) is (_, var insertedBattery) && insertedBattery is {} battery)
-        {
-            batteryUid = battery.Owner;
-            component = battery.Comp;
-            return true;
-        }
-
+        batteryUid = null;
+        component = null;
         return false;
     }
-    // End DeltaV - bodies can have an augment power cell
+    // End DeltaV - event-based search for battery
 }
+
+// Begin DeltaV - event-based search for battery
+
+/// <summary>
+/// Event raised to search for batteries within an entity
+/// </summary>
+[ByRefEvent]
+public struct SearchForBatteryEvent
+{
+    public EntityUid? Uid;
+
+    public BatteryComponent? Component;
+
+    public bool Handled;
+}
+
+// End DeltaV - event-based search for battery

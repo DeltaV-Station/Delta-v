@@ -20,6 +20,25 @@ public sealed class AugmentPowerCellSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<HasAugmentPowerCellSlotComponent, SearchForBatteryEvent>(OnSearchForBattery);
+    }
+
+    private void OnSearchForBattery(Entity<HasAugmentPowerCellSlotComponent> ent, ref SearchForBatteryEvent args)
+    {
+        // or by checking for an augment power cell
+        if (TryGetAugmentPowerCell(ent) is (_, var insertedBattery) && insertedBattery is {} battery)
+        {
+            args.Uid = battery.Owner;
+            args.Component = battery.Comp;
+            args.Handled = true;
+            return;
+        }
+    }
+
     public (Entity<AugmentPowerCellSlotComponent, OrganComponent, PowerCellSlotComponent> Organ, Entity<BatteryComponent>? Battery)? TryGetAugmentPowerCell(EntityUid body)
     {
         foreach (var organ in _body.GetBodyOrganEntityComps<AugmentPowerCellSlotComponent>(body))
