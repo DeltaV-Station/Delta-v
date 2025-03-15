@@ -4,6 +4,7 @@ using Content.Server._DV.Singularity.Events;
 using Content.Shared._DV.Singularity.Components;
 using Content.Shared._DV.Singularity.EntitySystems;
 using Content.Shared._DV.Singularity.Events;
+using Content.Shared.Singularity.Components;
 using Robust.Server.GameStates;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -14,12 +15,12 @@ using Robust.Shared.Timing;
 namespace Content.Server._DV.Singularity.EntitySystems;
 
 /// <summary>
-/// The server-side version of <see cref="SharedSingularitySystem"/>.
-/// Primarily responsible for managing <see cref="SingularityComponent"/>s.
+/// The server-side version of <see cref="SharedNoosphericSingularitySystem"/>.
+/// Primarily responsible for managing <see cref="NoosphericSingularityComponent"/>s.
 /// Handles their accumulation of energy upon consuming entities (see <see cref="EventHorizonComponent"/>) and gradual dissipation.
 /// Also handles synchronizing server-side components with the singuarities level.
 /// </summary>
-public sealed class SingularitySystem : SharedSingularitySystem
+public sealed class SingularitySystem : SharedNoosphericSingularitySystem
 {
     #region Dependencies
 
@@ -43,30 +44,30 @@ public sealed class SingularitySystem : SharedSingularitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<SingularityDistortionComponent, ComponentStartup>(OnDistortionStartup);
-        SubscribeLocalEvent<SingularityComponent, ComponentShutdown>(OnSingularityShutdown);
-        SubscribeLocalEvent<SingularityComponent, EventHorizonConsumedEntityEvent>(OnConsumed);
+        SubscribeLocalEvent<NoosphericSingularityComponent, ComponentShutdown>(OnSingularityShutdown);
+        SubscribeLocalEvent<NoosphericSingularityComponent, EventHorizonConsumedEntityEvent>(OnConsumed);
         SubscribeLocalEvent<SinguloFoodComponent, EventHorizonConsumedEntityEvent>(OnConsumed);
-        SubscribeLocalEvent<SingularityComponent, EntityConsumedByEventHorizonEvent>(OnConsumedEntity);
-        SubscribeLocalEvent<SingularityComponent, TilesConsumedByEventHorizonEvent>(OnConsumedTiles);
-        SubscribeLocalEvent<SingularityComponent, SingularityLevelChangedEvent>(UpdateEnergyDrain);
-        SubscribeLocalEvent<SingularityComponent, ComponentGetState>(HandleSingularityState);
+        SubscribeLocalEvent<NoosphericSingularityComponent, EntityConsumedByEventHorizonEvent>(OnConsumedEntity);
+        SubscribeLocalEvent<NoosphericSingularityComponent, TilesConsumedByEventHorizonEvent>(OnConsumedTiles);
+        SubscribeLocalEvent<NoosphericSingularityComponent, NoosphericSingularityLevelChangedEvent>(UpdateEnergyDrain);
+        SubscribeLocalEvent<NoosphericSingularityComponent, ComponentGetState>(HandleSingularityState);
 
         // TODO: Figure out where all this coupling should be handled.
-        SubscribeLocalEvent<RandomWalkComponent, SingularityLevelChangedEvent>(UpdateRandomWalk);
-        SubscribeLocalEvent<GravityWellComponent, SingularityLevelChangedEvent>(UpdateGravityWell);
+        SubscribeLocalEvent<RandomWalkComponent, NoosphericSingularityLevelChangedEvent>(UpdateRandomWalk);
+        SubscribeLocalEvent<GravityWellComponent, NoosphericSingularityLevelChangedEvent>(UpdateGravityWell);
 
-        var vvHandle = Vvm.GetTypeHandler<SingularityComponent>();
-        vvHandle.AddPath(nameof(SingularityComponent.Energy), (_, comp) => comp.Energy, SetEnergy);
-        vvHandle.AddPath(nameof(SingularityComponent.TargetUpdatePeriod),
+        var vvHandle = Vvm.GetTypeHandler<NoosphericSingularityComponent>();
+        vvHandle.AddPath(nameof(NoosphericSingularityComponent.Energy), (_, comp) => comp.Energy, SetEnergy);
+        vvHandle.AddPath(nameof(NoosphericSingularityComponent.TargetUpdatePeriod),
             (_, comp) => comp.TargetUpdatePeriod,
             SetUpdatePeriod);
     }
 
     public override void Shutdown()
     {
-        var vvHandle = Vvm.GetTypeHandler<SingularityComponent>();
-        vvHandle.RemovePath(nameof(SingularityComponent.Energy));
-        vvHandle.RemovePath(nameof(SingularityComponent.TargetUpdatePeriod));
+        var vvHandle = Vvm.GetTypeHandler<NoosphericSingularityComponent>();
+        vvHandle.RemovePath(nameof(NoosphericSingularityComponent.Energy));
+        vvHandle.RemovePath(nameof(NoosphericSingularityComponent.TargetUpdatePeriod));
         base.Shutdown();
     }
 
@@ -79,7 +80,7 @@ public sealed class SingularitySystem : SharedSingularitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        var query = EntityQueryEnumerator<SingularityComponent>();
+        var query = EntityQueryEnumerator<NoosphericSingularityComponent>();
         while (query.MoveNext(out var uid, out var singularity))
         {
             var curTime = _timing.CurTime;
@@ -93,7 +94,7 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// </summary>
     /// <param name="uid">The uid of the singularity to update.</param>
     /// <param name="singularity">The state of the singularity to update.</param>
-    public void Update(EntityUid uid, SingularityComponent? singularity = null)
+    public void Update(EntityUid uid, NoosphericSingularityComponent? singularity = null)
     {
         if (Resolve(uid, ref singularity))
             Update(uid, _timing.CurTime - singularity.LastUpdateTime, singularity);
@@ -105,7 +106,7 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="uid">The uid of the singularity to update.</param>
     /// <param name="frameTime">The amount of time that has elapsed since the last update.</param>
     /// <param name="singularity">The state of the singularity to update.</param>
-    public void Update(EntityUid uid, TimeSpan frameTime, SingularityComponent? singularity = null)
+    public void Update(EntityUid uid, TimeSpan frameTime, NoosphericSingularityComponent? singularity = null)
     {
         if (!Resolve(uid, ref singularity))
             return;
@@ -118,13 +119,13 @@ public sealed class SingularitySystem : SharedSingularitySystem
     #region Getters/Setters
 
     /// <summary>
-    /// Setter for <see cref="SingularityComponent.Energy"/>.
+    /// Setter for <see cref="NoosphericSingularityComponent.Energy"/>.
     /// Also updates the level of the singularity accordingly.
     /// </summary>
     /// <param name="uid">The uid of the singularity to set the energy of.</param>
     /// <param name="value">The amount of energy for the singularity to have.</param>
     /// <param name="singularity">The state of the singularity to set the energy of.</param>
-    public void SetEnergy(EntityUid uid, float value, SingularityComponent? singularity = null)
+    public void SetEnergy(EntityUid uid, float value, NoosphericSingularityComponent? singularity = null)
     {
         if (!Resolve(uid, ref singularity))
             return;
@@ -164,7 +165,7 @@ public sealed class SingularitySystem : SharedSingularitySystem
         float max = float.MaxValue,
         bool snapMin = true,
         bool snapMax = true,
-        SingularityComponent? singularity = null)
+        NoosphericSingularityComponent? singularity = null)
     {
         if (!Resolve(uid, ref singularity))
             return;
@@ -177,13 +178,13 @@ public sealed class SingularitySystem : SharedSingularitySystem
     }
 
     /// <summary>
-    /// Setter for <see cref="SingularityComponent.TargetUpdatePeriod"/>.
+    /// Setter for <see cref="NoosphericSingularityComponent.TargetUpdatePeriod"/>.
     /// If the new target time implies that the singularity should have updated it does so immediately.
     /// </summary>
     /// <param name="uid">The uid of the singularity to set the update period for.</param>
     /// <param name="value">The new update period for the singularity.</param>
     /// <param name="singularity">The state of the singularity to set the update period for.</param>
-    public void SetUpdatePeriod(EntityUid uid, TimeSpan value, SingularityComponent? singularity = null)
+    public void SetUpdatePeriod(EntityUid uid, TimeSpan value, NoosphericSingularityComponent? singularity = null)
     {
         if (!Resolve(uid, ref singularity))
             return;
@@ -211,17 +212,17 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="uid">The entity UID of the singularity that is forming.</param>
     /// <param name="comp">The component of the singularity that is forming.</param>
     /// <param name="args">The event arguments.</param>
-    protected override void OnSingularityStartup(EntityUid uid, SingularityComponent comp, ComponentStartup args)
+    protected override void OnSingularityStartup(Entity<NoosphericSingularityComponent> ent, ref ComponentStartup args)
     {
-        comp.LastUpdateTime = _timing.CurTime;
-        comp.NextUpdateTime = comp.LastUpdateTime + comp.TargetUpdatePeriod;
+        ent.Comp.LastUpdateTime = _timing.CurTime;
+        ent.Comp.NextUpdateTime = ent.Comp.LastUpdateTime + ent.Comp.TargetUpdatePeriod;
 
         MetaDataComponent? metaData = null;
-        if (Resolve(uid, ref metaData) && metaData.EntityLifeStage <= EntityLifeStage.Initializing)
-            _audio.PlayPvs(comp.FormationSound, uid);
+        if (Resolve(ent, ref metaData) && metaData.EntityLifeStage <= EntityLifeStage.Initializing)
+            _audio.PlayPvs(ent.Comp.FormationSound, ent);
 
-        comp.AmbientSoundStream = _audio.PlayPvs(comp.AmbientSound, uid)?.Entity;
-        UpdateSingularityLevel(uid, comp);
+        ent.Comp.AmbientSoundStream = _audio.PlayPvs(ent.Comp.AmbientSound, ent)?.Entity;
+        UpdateSingularityLevel((ent, ent.Comp));
     }
 
     /// <summary>
@@ -244,7 +245,7 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="uid">The entity UID of the singularity that is dissipating.</param>
     /// <param name="comp">The component of the singularity that is dissipating.</param>
     /// <param name="args">The event arguments.</param>
-    public void OnSingularityShutdown(EntityUid uid, SingularityComponent comp, ComponentShutdown args)
+    public void OnSingularityShutdown(EntityUid uid, NoosphericSingularityComponent comp, ComponentShutdown args)
     {
         comp.AmbientSoundStream = _audio.Stop(comp.AmbientSoundStream);
 
@@ -266,7 +267,7 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="uid">The uid of the singularity that is being synced.</param>
     /// <param name="comp">The state of the singularity that is being synced.</param>
     /// <param name="args">The event arguments.</param>
-    private void HandleSingularityState(EntityUid uid, SingularityComponent comp, ref ComponentGetState args)
+    private void HandleSingularityState(EntityUid uid, NoosphericSingularityComponent comp, ref ComponentGetState args)
     {
         args.State = new SingularityComponentState(comp);
     }
@@ -277,7 +278,9 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="uid">The entity UID of the singularity that is consuming the entity.</param>
     /// <param name="comp">The component of the singularity that is consuming the entity.</param>
     /// <param name="args">The event arguments.</param>
-    public void OnConsumedEntity(EntityUid uid, SingularityComponent comp, ref EntityConsumedByEventHorizonEvent args)
+    public void OnConsumedEntity(EntityUid uid,
+        NoosphericSingularityComponent comp,
+        ref EntityConsumedByEventHorizonEvent args)
     {
         AdjustEnergy(uid, BaseEntityEnergy, singularity: comp);
     }
@@ -288,7 +291,9 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="uid">The entity UID of the singularity that is consuming the tiles.</param>
     /// <param name="comp">The component of the singularity that is consuming the tiles.</param>
     /// <param name="args">The event arguments.</param>
-    public void OnConsumedTiles(EntityUid uid, SingularityComponent comp, ref TilesConsumedByEventHorizonEvent args)
+    public void OnConsumedTiles(EntityUid uid,
+        NoosphericSingularityComponent comp,
+        ref TilesConsumedByEventHorizonEvent args)
     {
         AdjustEnergy(uid, args.Tiles.Count * BaseTileEnergy, singularity: comp);
     }
@@ -299,10 +304,12 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="uid">The entity UID of the singularity that is being consumed.</param>
     /// <param name="comp">The component of the singularity that is being consumed.</param>
     /// <param name="args">The event arguments.</param>
-    private void OnConsumed(EntityUid uid, SingularityComponent comp, ref EventHorizonConsumedEntityEvent args)
+    private void OnConsumed(EntityUid uid,
+        NoosphericSingularityComponent comp,
+        ref EventHorizonConsumedEntityEvent args)
     {
         // Should be slightly more efficient than checking literally everything we consume for a singularity component and doing the reverse.
-        if (EntityManager.TryGetComponent<SingularityComponent>(args.EventHorizonUid, out var singulo))
+        if (EntityManager.TryGetComponent<NoosphericSingularityComponent>(args.EventHorizonUid, out var singulo))
         {
             AdjustEnergy(args.EventHorizonUid, comp.Energy, singularity: singulo);
             SetEnergy(uid, 0.0f, comp);
@@ -317,7 +324,7 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="args">The event arguments.</param>
     public void OnConsumed(EntityUid uid, SinguloFoodComponent comp, ref EventHorizonConsumedEntityEvent args)
     {
-        if (EntityManager.TryGetComponent<SingularityComponent>(args.EventHorizonUid, out var singulo))
+        if (EntityManager.TryGetComponent<NoosphericSingularityComponent>(args.EventHorizonUid, out var singulo))
         {
             // Calculate the percentage change (positive or negative)
             var percentageChange = singulo.Energy * (comp.EnergyFactor - 1f);
@@ -332,7 +339,9 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="uid">The entity UID of the singularity that changed in level.</param>
     /// <param name="comp">The component of the singularity that changed in level.</param>
     /// <param name="args">The event arguments.</param>
-    public void UpdateEnergyDrain(EntityUid uid, SingularityComponent comp, SingularityLevelChangedEvent args)
+    public void UpdateEnergyDrain(EntityUid uid,
+        NoosphericSingularityComponent comp,
+        NoosphericSingularityLevelChangedEvent args)
     {
         comp.EnergyDrain = args.NewValue switch
         {
@@ -352,7 +361,7 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="uid">The entity UID of the singularity.</param>
     /// <param name="comp">The random walk component component sharing the entity with the singulo component.</param>
     /// <param name="args">The event arguments.</param>
-    private void UpdateRandomWalk(EntityUid uid, RandomWalkComponent comp, SingularityLevelChangedEvent args)
+    private void UpdateRandomWalk(EntityUid uid, RandomWalkComponent comp, NoosphericSingularityLevelChangedEvent args)
     {
         var scale = MathF.Max(args.NewValue, 4);
         comp.MinSpeed = 7.5f / scale;
@@ -365,7 +374,9 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="uid">The entity UID of the singularity.</param>
     /// <param name="comp">The gravity well component sharing the entity with the singulo component.</param>
     /// <param name="args">The event arguments.</param>
-    private void UpdateGravityWell(EntityUid uid, GravityWellComponent comp, SingularityLevelChangedEvent args)
+    private void UpdateGravityWell(EntityUid uid,
+        GravityWellComponent comp,
+        NoosphericSingularityLevelChangedEvent args)
     {
         var singulos = args.Singularity;
         comp.MaxRange = GravPulseRange(singulos);
