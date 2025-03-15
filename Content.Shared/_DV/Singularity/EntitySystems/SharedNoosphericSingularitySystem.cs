@@ -292,7 +292,7 @@ public abstract class SharedNoosphericSingularitySystem : EntitySystem
         Entity<NoosphericSingularityComponent> ent,
         ref ComponentStartup args)
     {
-        UpdateSingularityLevel((ent, ent.Comp));
+        UpdateSingularityLevel(ent.AsNullable());
     }
 
     // TODO: Figure out which systems should have control of which coupling.
@@ -424,7 +424,7 @@ public abstract class SharedNoosphericSingularitySystem : EntitySystem
         Entity<RadiationSourceComponent> ent,
         ref NoosphericSingularityLevelChangedEvent args)
     {
-        UpdateRadiation((ent, ent.Comp), args.Singularity);
+        UpdateRadiation(ent.AsNullable(), args.Singularity);
     }
 
     #endregion EventHandlers

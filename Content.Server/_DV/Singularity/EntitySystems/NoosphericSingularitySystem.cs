@@ -221,7 +221,7 @@ public sealed class SingularitySystem : SharedNoosphericSingularitySystem
             _audio.PlayPvs(ent.Comp.FormationSound, ent);
 
         ent.Comp.AmbientSoundStream = _audio.PlayPvs(ent.Comp.AmbientSound, ent)?.Entity;
-        UpdateSingularityLevel((ent, ent.Comp));
+        UpdateSingularityLevel(ent.AsNullable());
     }
 
     /// <summary>
