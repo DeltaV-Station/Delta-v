@@ -99,7 +99,8 @@ namespace Content.Client._DV.Singularity
         /// Repeats the transformation applied by the shader in <see cref="Resources/Textures/Shaders/singularity.swsl"/>
         /// </summary>
         private void OnProjectFromScreenToMap(ref PixelToMapEvent args)
-        {   // Mostly copypasta from the singularity shader.
+        {
+            // Mostly copypasta from the singularity shader.
             if (args.Viewport.Eye == null)
                 return;
             var maxDistance = MaxDistance * EyeManager.PixelsPerMeter;
@@ -136,10 +137,16 @@ namespace Content.Client._DV.Singularity
                 finalCoords -= delta * deformation;
             }
 
-            finalCoords.X -= MathF.Floor(finalCoords.X / (args.Viewport.Size.X * 2)) * args.Viewport.Size.X * 2; // Manually handle the wrapping reflection behaviour used by the viewport texture.
+            finalCoords.X -=
+                MathF.Floor(finalCoords.X / (args.Viewport.Size.X * 2)) * args.Viewport.Size.X *
+                2; // Manually handle the wrapping reflection behaviour used by the viewport texture.
             finalCoords.Y -= MathF.Floor(finalCoords.Y / (args.Viewport.Size.Y * 2)) * args.Viewport.Size.Y * 2;
-            finalCoords.X = (finalCoords.X >= args.Viewport.Size.X) ? ((args.Viewport.Size.X * 2) - finalCoords.X) : finalCoords.X;
-            finalCoords.Y = (finalCoords.Y >= args.Viewport.Size.Y) ? ((args.Viewport.Size.Y * 2) - finalCoords.Y) : finalCoords.Y;
+            finalCoords.X = (finalCoords.X >= args.Viewport.Size.X)
+                ? ((args.Viewport.Size.X * 2) - finalCoords.X)
+                : finalCoords.X;
+            finalCoords.Y = (finalCoords.Y >= args.Viewport.Size.Y)
+                ? ((args.Viewport.Size.Y * 2) - finalCoords.Y)
+                : finalCoords.Y;
             args.VisiblePosition = finalCoords;
         }
     }

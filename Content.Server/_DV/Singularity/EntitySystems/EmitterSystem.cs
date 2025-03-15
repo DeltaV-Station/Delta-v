@@ -68,7 +68,9 @@ namespace Content.Server._DV.Singularity.EntitySystems
             if (TryComp(uid, out LockComponent? lockComp) && lockComp.Locked)
             {
                 _popup.PopupEntity(Loc.GetString("comp-emitter-access-locked",
-                    ("target", uid)), uid, args.User);
+                        ("target", uid)),
+                    uid,
+                    args.User);
                 return;
             }
 
@@ -78,13 +80,17 @@ namespace Content.Server._DV.Singularity.EntitySystems
                 {
                     SwitchOn(uid, component);
                     _popup.PopupEntity(Loc.GetString("comp-emitter-turned-on",
-                        ("target", uid)), uid, args.User);
+                            ("target", uid)),
+                        uid,
+                        args.User);
                 }
                 else
                 {
                     SwitchOff(uid, component);
                     _popup.PopupEntity(Loc.GetString("comp-emitter-turned-off",
-                        ("target", uid)), uid, args.User);
+                            ("target", uid)),
+                        uid,
+                        args.User);
                 }
 
                 _adminLogger.Add(LogType.FieldGeneration,
@@ -95,7 +101,9 @@ namespace Content.Server._DV.Singularity.EntitySystems
             else
             {
                 _popup.PopupEntity(Loc.GetString("comp-emitter-not-anchored",
-                    ("target", uid)), uid, args.User);
+                        ("target", uid)),
+                    uid,
+                    args.User);
             }
         }
 
@@ -199,6 +207,7 @@ namespace Content.Server._DV.Singularity.EntitySystems
                 if (apcReceiver.Powered)
                     PowerOn(uid, component);
             }
+
             // Do not directly PowerOn().
             // OnReceivedPowerChanged will get fired due to DrawRate change which will turn it on.
             UpdateAppearance(uid, component);
@@ -232,7 +241,9 @@ namespace Content.Server._DV.Singularity.EntitySystems
             component.FireShotCounter = 0;
             component.TimerCancel = new CancellationTokenSource();
 
-            Timer.Spawn(component.FireBurstDelayMax, () => ShotTimerCallback(uid, component), component.TimerCancel.Token);
+            Timer.Spawn(component.FireBurstDelayMax,
+                () => ShotTimerCallback(uid, component),
+                component.TimerCancel.Token);
 
             UpdateAppearance(uid, component);
         }
@@ -298,6 +309,7 @@ namespace Content.Server._DV.Singularity.EntitySystems
             {
                 state = EmitterVisualState.Off;
             }
+
             _appearance.SetData(uid, EmitterVisuals.VisualState, state);
         }
 

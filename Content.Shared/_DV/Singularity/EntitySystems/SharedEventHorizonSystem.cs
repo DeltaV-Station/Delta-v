@@ -3,7 +3,6 @@ using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
-
 using Content.Shared.Ghost;
 using Content.Shared._DV.Singularity.Components;
 using Robust.Shared.Physics;
@@ -15,7 +14,6 @@ namespace Content.Shared._DV.Singularity.EntitySystems;
 /// </summary>
 public abstract class SharedEventHorizonSystem : EntitySystem
 {
-
     [Dependency] private readonly FixtureSystem _fixtures = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] protected readonly IViewVariablesManager Vvm = default!;
@@ -29,10 +27,18 @@ public abstract class SharedEventHorizonSystem : EntitySystem
         SubscribeLocalEvent<EventHorizonComponent, PreventCollideEvent>(OnPreventCollide);
 
         var vvHandle = Vvm.GetTypeHandler<EventHorizonComponent>();
-        vvHandle.AddPath(nameof(EventHorizonComponent.Radius), (_, comp) => comp.Radius, (uid, value, comp) => SetRadius(uid, value, eventHorizon: comp));
-        vvHandle.AddPath(nameof(EventHorizonComponent.CanBreachContainment), (_, comp) => comp.CanBreachContainment, (uid, value, comp) => SetCanBreachContainment(uid, value, eventHorizon: comp));
-        vvHandle.AddPath(nameof(EventHorizonComponent.ColliderFixtureId), (_, comp) => comp.ColliderFixtureId, (uid, value, comp) => SetColliderFixtureId(uid, value, eventHorizon: comp));
-        vvHandle.AddPath(nameof(EventHorizonComponent.ConsumerFixtureId), (_, comp) => comp.ConsumerFixtureId, (uid, value, comp) => SetConsumerFixtureId(uid, value, eventHorizon: comp));
+        vvHandle.AddPath(nameof(EventHorizonComponent.Radius),
+            (_, comp) => comp.Radius,
+            (uid, value, comp) => SetRadius(uid, value, eventHorizon: comp));
+        vvHandle.AddPath(nameof(EventHorizonComponent.CanBreachContainment),
+            (_, comp) => comp.CanBreachContainment,
+            (uid, value, comp) => SetCanBreachContainment(uid, value, eventHorizon: comp));
+        vvHandle.AddPath(nameof(EventHorizonComponent.ColliderFixtureId),
+            (_, comp) => comp.ColliderFixtureId,
+            (uid, value, comp) => SetColliderFixtureId(uid, value, eventHorizon: comp));
+        vvHandle.AddPath(nameof(EventHorizonComponent.ConsumerFixtureId),
+            (_, comp) => comp.ConsumerFixtureId,
+            (uid, value, comp) => SetConsumerFixtureId(uid, value, eventHorizon: comp));
     }
 
     public override void Shutdown()
@@ -56,7 +62,10 @@ public abstract class SharedEventHorizonSystem : EntitySystem
     /// <param name="value">The new radius of the event horizon.</param>
     /// <param name="updateFixture">Whether to update the associated fixture upon changing the radius of the event horizon.</param>
     /// <param name="eventHorizon">The state of the event horizon to change the radius of.</param>
-    public void SetRadius(EntityUid uid, float value, bool updateFixture = true, EventHorizonComponent? eventHorizon = null)
+    public void SetRadius(EntityUid uid,
+        float value,
+        bool updateFixture = true,
+        EventHorizonComponent? eventHorizon = null)
     {
         if (!Resolve(uid, ref eventHorizon))
             return;
@@ -79,7 +88,10 @@ public abstract class SharedEventHorizonSystem : EntitySystem
     /// <param name="value">Whether the event horizon should be able to breach containment.</param>
     /// <param name="updateFixture">Whether to update the associated fixture upon changing whether the event horizon can breach containment.</param>
     /// <param name="eventHorizon">The state of the event horizon to make (in)capable of breaching containment.</param>
-    public void SetCanBreachContainment(EntityUid uid, bool value, bool updateFixture = true, EventHorizonComponent? eventHorizon = null)
+    public void SetCanBreachContainment(EntityUid uid,
+        bool value,
+        bool updateFixture = true,
+        EventHorizonComponent? eventHorizon = null)
     {
         if (!Resolve(uid, ref eventHorizon))
             return;
@@ -102,7 +114,10 @@ public abstract class SharedEventHorizonSystem : EntitySystem
     /// <param name="value">The new fixture ID to associate the event horizon with.</param>
     /// <param name="updateFixture">Whether to update the associated fixture upon changing whether the event horizon can breach containment.</param>
     /// <param name="eventHorizon">The state of the event horizon with the fixture ID to change.</param>
-    public void SetColliderFixtureId(EntityUid uid, string? value, bool updateFixture = true, EventHorizonComponent? eventHorizon = null)
+    public void SetColliderFixtureId(EntityUid uid,
+        string? value,
+        bool updateFixture = true,
+        EventHorizonComponent? eventHorizon = null)
     {
         if (!Resolve(uid, ref eventHorizon))
             return;
@@ -125,7 +140,10 @@ public abstract class SharedEventHorizonSystem : EntitySystem
     /// <param name="value">The new fixture ID to associate the event horizon with.</param>
     /// <param name="updateFixture">Whether to update the associated fixture upon changing whether the event horizon can breach containment.</param>
     /// <param name="eventHorizon">The state of the event horizon with the fixture ID to change.</param>
-    public void SetConsumerFixtureId(EntityUid uid, string? value, bool updateFixture = true, EventHorizonComponent? eventHorizon = null)
+    public void SetConsumerFixtureId(EntityUid uid,
+        string? value,
+        bool updateFixture = true,
+        EventHorizonComponent? eventHorizon = null)
     {
         if (!Resolve(uid, ref eventHorizon))
             return;
@@ -146,7 +164,9 @@ public abstract class SharedEventHorizonSystem : EntitySystem
     /// <param name="uid">The uid of the event horizon associated with the fixture to update.</param>
     /// <param name="fixtures">The fixture manager component containing the fixture to update.</param>
     /// <param name="eventHorizon">The state of the event horizon associated with the fixture to update.</param>
-    public void UpdateEventHorizonFixture(EntityUid uid, FixturesComponent? fixtures = null, EventHorizonComponent? eventHorizon = null)
+    public void UpdateEventHorizonFixture(EntityUid uid,
+        FixturesComponent? fixtures = null,
+        EventHorizonComponent? eventHorizon = null)
     {
         if (!Resolve(uid, ref eventHorizon))
             return;
@@ -154,7 +174,7 @@ public abstract class SharedEventHorizonSystem : EntitySystem
         var consumerId = eventHorizon.ConsumerFixtureId;
         var colliderId = eventHorizon.ColliderFixtureId;
         if (consumerId == null || colliderId == null
-        || !Resolve(uid, ref fixtures, logMissing: false))
+                               || !Resolve(uid, ref fixtures, logMissing: false))
             return;
 
         // Update both fixtures the event horizon is associated with:

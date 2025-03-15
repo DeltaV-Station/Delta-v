@@ -25,7 +25,9 @@ public sealed class EventHorizonContainedEvent : EntityEventArgs
     /// </summary>
     public readonly EntGotInsertedIntoContainerMessage Args;
 
-    public EventHorizonContainedEvent(EntityUid entity, EventHorizonComponent eventHorizon, EntGotInsertedIntoContainerMessage args)
+    public EventHorizonContainedEvent(EntityUid entity,
+        EventHorizonComponent eventHorizon,
+        EntGotInsertedIntoContainerMessage args)
     {
         Entity = entity;
         EventHorizon = eventHorizon;

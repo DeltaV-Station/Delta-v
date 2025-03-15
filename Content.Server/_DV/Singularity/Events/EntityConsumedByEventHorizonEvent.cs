@@ -7,8 +7,11 @@ namespace Content.Server._DV.Singularity.Events;
 ///     Event raised on the event horizon entity whenever an event horizon consumes an entity.
 /// </summary>
 [ByRefEvent]
-public readonly record struct EntityConsumedByEventHorizonEvent
-(EntityUid entity, EntityUid eventHorizonUid, EventHorizonComponent eventHorizon, BaseContainer? container)
+public readonly record struct EntityConsumedByEventHorizonEvent(
+    EntityUid entity,
+    EntityUid eventHorizonUid,
+    EventHorizonComponent eventHorizon,
+    BaseContainer? container)
 {
     /// <summary>
     /// The entity being consumed by the event horizon.

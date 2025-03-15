@@ -67,7 +67,20 @@ namespace Content.Shared._DV.Singularity.Components
         public ParticleAcceleratorPowerState MaxLevel;
         public bool WirePowerBlock;
 
-        public ParticleAcceleratorUIState(bool assembled, bool enabled, ParticleAcceleratorPowerState state, int powerReceive, int powerDraw, bool emitterStarboardExists, bool emitterForeExists, bool emitterPortExists, bool powerBoxExists, bool fuelChamberExists, bool endCapExists, bool interfaceBlock, ParticleAcceleratorPowerState maxLevel, bool wirePowerBlock)
+        public ParticleAcceleratorUIState(bool assembled,
+            bool enabled,
+            ParticleAcceleratorPowerState state,
+            int powerReceive,
+            int powerDraw,
+            bool emitterStarboardExists,
+            bool emitterForeExists,
+            bool emitterPortExists,
+            bool powerBoxExists,
+            bool fuelChamberExists,
+            bool endCapExists,
+            bool interfaceBlock,
+            ParticleAcceleratorPowerState maxLevel,
+            bool wirePowerBlock)
         {
             Assembled = assembled;
             Enabled = enabled;
@@ -90,6 +103,7 @@ namespace Content.Shared._DV.Singularity.Components
     public sealed class ParticleAcceleratorSetEnableMessage : BoundUserInterfaceMessage
     {
         public readonly bool Enabled;
+
         public ParticleAcceleratorSetEnableMessage(bool enabled)
         {
             Enabled = enabled;

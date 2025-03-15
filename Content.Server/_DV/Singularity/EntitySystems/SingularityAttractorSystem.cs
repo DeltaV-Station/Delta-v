@@ -54,7 +54,9 @@ public sealed class SingularityAttractorSystem : EntitySystem
     /// <param name="uid">The uid of the attractor to make pulse.</param>
     /// <param name="attractor">The state of the attractor to make pulse.</param>
     /// <param name="xform">The transform of the attractor to make pulse.</param>
-    private void Update(EntityUid uid, SingularityAttractorComponent? attractor = null, TransformComponent? xform = null)
+    private void Update(EntityUid uid,
+        SingularityAttractorComponent? attractor = null,
+        TransformComponent? xform = null)
     {
         if (!Resolve(uid, ref attractor, ref xform))
             return;

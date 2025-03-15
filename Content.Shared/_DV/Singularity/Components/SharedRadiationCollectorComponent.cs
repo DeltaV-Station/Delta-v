@@ -13,9 +13,9 @@ namespace Content.Shared._DV.Singularity.Components
     [NetSerializable, Serializable]
     public enum RadiationCollectorVisualState
     {
-        Active = (1<<0),
-        Activating = (1<<1) | Active,
-        Deactivating = (1<<1),
+        Active = (1 << 0),
+        Activating = (1 << 1) | Active,
+        Deactivating = (1 << 1),
         Deactive = 0
     }
 }

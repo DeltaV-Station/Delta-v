@@ -16,6 +16,7 @@ public sealed partial class EmitterComponent : Component
 
     // whether the power switch is in "on"
     [ViewVariables] public bool IsOn;
+
     // Whether the power switch is on AND the machine has enough power (so is actively firing)
     [ViewVariables] public bool IsPowered;
 
@@ -97,7 +98,8 @@ public sealed partial class EmitterComponent : Component
     /// <summary>
     /// Map of signal ports to entity prototype IDs of the entity that will be fired.
     /// </summary>
-    [DataField("setTypePorts", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<string, SinkPortPrototype>))]
+    [DataField("setTypePorts",
+        customTypeSerializer: typeof(PrototypeIdDictionarySerializer<string, SinkPortPrototype>))]
     public Dictionary<string, string> SetTypePorts = new();
 }
 

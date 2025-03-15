@@ -10,7 +10,7 @@ namespace Content.Shared._DV.Singularity.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ContainmentFieldGeneratorComponent : Component
 {
-        private int _powerBuffer;
+    private int _powerBuffer;
 
     /// <summary>
     /// Store power with a cap. Decrease over time if not being powered from source.
@@ -92,7 +92,8 @@ public sealed partial class ContainmentFieldGeneratorComponent : Component
     /// The masks the raycast should not go through
     /// </summary>
     [DataField("collisionMask")]
-    public int CollisionMask = (int) (CollisionGroup.MobMask | CollisionGroup.Impassable | CollisionGroup.MachineMask | CollisionGroup.Opaque);
+    public int CollisionMask = (int)(CollisionGroup.MobMask | CollisionGroup.Impassable | CollisionGroup.MachineMask |
+                                     CollisionGroup.Opaque);
 
     /// <summary>
     /// A collection of connections that the generator has based on direction.
