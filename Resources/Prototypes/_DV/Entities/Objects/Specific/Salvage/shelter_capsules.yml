@@ -1,0 +1,63 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseShelterCapsule
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Salvage/shelter_capsule.rsi
+    state: capsule
+  - type: Item
+    size: Tiny
+  - type: UseDelay
+    delay: 15 # avoid spamming popups when you know it will fail to spawn a room
+  - type: ShelterCapsule
+
+- type: entity
+  parent: BaseShelterCapsule
+  id: ShelterCapsule
+  name: bluespace shelter capsule
+  description: An emergency shelter stored within a pocket of bluespace.
+  components:
+  - type: ShelterCapsule
+    room: EmergencyShelter
+
+- type: entity
+  parent: BaseShelterCapsule
+  id: ShelterCapsuleLuxury
+  name: luxury bluespace shelter capsule
+  description: An exorbitantly expensive luxury suite stored within a pocket of bluespace.
+  components:
+  - type: ShelterCapsule
+    room: LuxuryShelter
+
+- type: entity
+  parent: BaseShelterCapsule
+  id: ShelterCapsuleBar
+  name: luxury elite bar capsule
+  description: A luxury bar in a capsule. Bartender required and not included.
+  components:
+  - type: ShelterCapsule
+    room: EliteBarShelter
+
+# Dungeon room prototypes
+
+- type: dungeonRoom
+  id: EmergencyShelter
+  size: 5,5
+  atlas: /Maps/_DV/Nonstations/shelters.yml
+  offset: -2,-2 # grid is offset badly cba to fix it
+  ignoreTile: FloorShuttleOrange
+
+- type: dungeonRoom
+  id: LuxuryShelter
+  size: 7,7
+  atlas: /Maps/_DV/Nonstations/shelters.yml
+  offset: 4,-2
+  ignoreTile: FloorShuttleOrange
+
+- type: dungeonRoom
+  id: EliteBarShelter
+  size: 11,11
+  atlas: /Maps/_DV/Nonstations/shelters.yml
+  offset: 12,-2
+  ignoreTile: FloorShuttleOrange

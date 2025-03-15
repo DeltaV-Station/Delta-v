@@ -149,6 +149,7 @@
     tags:
     - Plastic
     - Sheet
+    - BorgMaterial # DeltaV
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -249,10 +250,7 @@
         - ReagentId: Radium
           Quantity: 2
         canReact: false
-  - type: RadiationSource
-    intensity: 0.01 # DeltaV - was 0.1, now 0.3 rads from a full stack
-    slope: 3
-  - type: PointLight
+  - type: PointLight # DeltaV
     radius: 1.2
     energy: 0.8
     castShadows: false

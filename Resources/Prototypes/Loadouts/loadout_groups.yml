@@ -22,6 +22,7 @@
   - ClothingNeckAllyPin
   - ClothingNeckAromanticPin
   - ClothingNeckAsexualPin
+  - ClothingNeckAroacePin
   - ClothingNeckBisexualPin
   - ClothingNeckGayPin
   - ClothingNeckIntersexPin
@@ -88,6 +89,7 @@
   - EmergencyOxygen
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
+  - EmergencyWaterVapor # DeltaV
 
 - type: loadoutGroup
   id: GroupEVATank
@@ -96,6 +98,7 @@
   loadouts:
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
+  - LoadoutSpeciesEVAWaterVapor # DeltaV
 
 - type: loadoutGroup
   id: GroupPocketTankDouble
@@ -104,6 +107,7 @@
   loadouts:
   - LoadoutSpeciesPocketDoubleNitrogen
   - LoadoutSpeciesPocketDoubleOxygen
+  - LoadoutSpeciesPocketDoubleWaterVapor # DeltaV
 
 # Command
 - type: loadoutGroup
@@ -540,6 +544,7 @@
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
+  - EmergencyWaterVaporClown # DeltaV
 
 - type: loadoutGroup
   id: MimeHead
@@ -599,6 +604,7 @@
   - EmergencyOxygenMime
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
+  - EmergencyWaterVaporMime # DeltaV
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -905,6 +911,7 @@
   - EmergencyOxygenExtended
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
+  - EmergencyWaterVaporExtended # DeltaV
 
 # Science
 - type: loadoutGroup
@@ -1237,6 +1244,7 @@
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
+  - EmergencyWaterVaporSecurity # DeltaV
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1436,6 +1444,7 @@
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
+  - EmergencyWaterVaporMedical # DeltaV
 
 # Wildcards
 - type: loadoutGroup
@@ -1481,6 +1490,7 @@
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
+  - EmergencyWaterVaporSyndicate # DeltaV
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
