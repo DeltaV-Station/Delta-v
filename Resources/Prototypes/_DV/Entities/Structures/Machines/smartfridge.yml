@@ -105,3 +105,14 @@
     soundHit:
       collection: MetalThud
   - type: Dumpable
+
+- type: entity
+  parent: DVSmartFridge
+  id: DVSmartFridgeMedical
+  name: Medical SmartFridge
+  description: A refrigerated storage unit for keeping lifesaving medications cold and fresh.
+  components:
+  - type: AccessReader
+    access: [["Medical"]]
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
