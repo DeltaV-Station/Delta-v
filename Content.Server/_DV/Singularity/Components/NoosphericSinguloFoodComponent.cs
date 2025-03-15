@@ -4,7 +4,7 @@ namespace Content.Server._DV.Singularity.Components
     /// Overrides exactly how much energy this object gives to a singularity.
     /// </summary>
     [RegisterComponent]
-    public sealed partial class SinguloFoodComponent : Component
+    public sealed partial class NoosphericSinguloFoodComponent : Component
     {
         /// <summary>
         /// Flat adjustment to the singularity's energy when this entity is eaten by the event horizon.

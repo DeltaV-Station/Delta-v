@@ -1,3 +1,4 @@
+using Content.Server._DV.Singularity.Components;
 using Content.Server.Physics.Components;
 using Content.Server.Singularity.Components;
 using Content.Server.Singularity.Events;
@@ -45,7 +46,7 @@ public sealed class SingularitySystem : SharedNoosphericSingularitySystem
         base.Initialize();
         SubscribeLocalEvent<NoosphericSingularityComponent, ComponentShutdown>(OnSingularityShutdown);
         SubscribeLocalEvent<NoosphericSingularityComponent, EventHorizonConsumedEntityEvent>(OnConsumed);
-        SubscribeLocalEvent<SinguloFoodComponent, EventHorizonConsumedEntityEvent>(OnConsumed);
+        SubscribeLocalEvent<NoosphericSinguloFoodComponent, EventHorizonConsumedEntityEvent>(OnConsumed);
         SubscribeLocalEvent<NoosphericSingularityComponent, EntityConsumedByEventHorizonEvent>(OnConsumedEntity);
         SubscribeLocalEvent<NoosphericSingularityComponent, TilesConsumedByEventHorizonEvent>(OnConsumedTiles);
         SubscribeLocalEvent<NoosphericSingularityComponent, NoosphericSingularityLevelChangedEvent>(UpdateEnergyDrain);
@@ -309,7 +310,7 @@ public sealed class SingularitySystem : SharedNoosphericSingularitySystem
     /// <param name="uid">The entity UID of the singularity food that is being consumed.</param>
     /// <param name="comp">The component of the singularity food that is being consumed.</param>
     /// <param name="args">The event arguments.</param>
-    public void OnConsumed(Entity<SinguloFoodComponent> ent, ref EventHorizonConsumedEntityEvent args)
+    public void OnConsumed(Entity<NoosphericSinguloFoodComponent> ent, ref EventHorizonConsumedEntityEvent args)
     {
         if (EntityManager.TryGetComponent<NoosphericSingularityComponent>(args.EventHorizonUid, out var singulo))
         {
