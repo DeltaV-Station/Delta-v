@@ -13,7 +13,7 @@
 
 - type: construction
   name: augment apc recharger
-  description: Can be implanted into a body to provide power to other implants.
+  description: Allows the implantee to recharge their power cell via APCs.
   id: AugmentRechargerAPC
   graph: CreatePowerCellChargerAugment
   startNode: start
@@ -26,7 +26,7 @@
 
 - type: construction
   name: augment station recharger
-  description: Can be implanted into a body to provide power to other implants.
+  description: Allows the implantee to recharge their power cell via cyborg recharging stations.
   id: AugmentRechargerStation
   graph: CreatePowerCellChargerAugment
   startNode: start
