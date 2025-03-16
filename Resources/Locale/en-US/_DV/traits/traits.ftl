@@ -39,5 +39,5 @@ trait-unborgable-desc = Your brain cannot be put into a man-machine interface.
 trait-depression-name = Depression
 trait-depression-desc = No mechanical effect. The world is dark but there is a light somewhere, calling to you.
 
-trait-dysgraphia-name = Dysgraphia
-trait-dysgraphia-desc = You are unable to write, whether because of a disability, your history, or by choice.
+trait-dysgraphia-name = Unable to write
+trait-dysgraphia-desc = You cannot write, whether because of a disability, your history, or by choice.
