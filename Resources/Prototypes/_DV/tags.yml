@@ -23,6 +23,9 @@
 
 - type: Tag
   id: CartridgeMusket #For the Craftable Musket
+  
+- type: Tag
+  id: ChitinSharkminnow
 
 - type: Tag
   id: ConcealCarry # For objects that can be stored in military-style boots or similar items
@@ -57,8 +60,14 @@
 - type: Tag
   id: HudMedicalSecurity #Craftable Corpsman Glasses
 
+- type: Tag # prevents ID chips being used for an id computer privileged id
+  id: IdChip
+
 - type: Tag
   id: MagazinePistolSpecial # For the .38 special ammo and pistol
+  
+- type: Tag
+  id: Magboots
 
 - type: Tag
   id: ModularBreech #Craftable Musket

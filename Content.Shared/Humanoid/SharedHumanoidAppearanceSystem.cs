@@ -160,8 +160,6 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         if (TryComp<GrammarComponent>(target, out var grammar))
             grammar.Gender = sourceHumanoid.Gender;
 
-        targetHumanoid.LastProfileLoaded = sourceHumanoid.LastProfileLoaded; // DeltaV - let paradox anomaly be cloned
-
         Dirty(target, targetHumanoid);
     }
 
@@ -420,8 +418,6 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         humanoid.Age = profile.Age;
         humanoid.Height = profile.Height; // CD - Character Records
-
-        humanoid.LastProfileLoaded = profile; // DeltaV - let paradox anomaly be cloned
 
         RaiseLocalEvent(uid, new ProfileLoadFinishedEvent()); // Shitmed Change
         Dirty(uid, humanoid);
