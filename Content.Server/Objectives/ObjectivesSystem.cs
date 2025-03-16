@@ -1,5 +1,6 @@
 using Content.Server.GameTicking;
 using Content.Server.Shuttles.Systems;
+using Content.Shared._DV.CustomObjectiveSummary; // DeltaV
 using Content.Shared.Cuffs.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
@@ -14,10 +15,11 @@ using System.Text;
 using Content.Server.Objectives.Commands;
 using Content.Shared._DV.CCVars;
 using Content.Shared._DV.CustomObjectiveSummary; // DeltaV
+using Content.Shared.CCVar;
 using Content.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
-using Robust.Shared.Configuration; // DeltaV
+using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Objectives;
@@ -30,9 +32,11 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // DeltaV
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private IEnumerable<string>? _objectives;
+
+    private bool _showGreentext;
 
     private int _maxLengthSummaryLength; // DeltaV
 
@@ -42,9 +46,11 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
 
-        _prototypeManager.PrototypesReloaded += CreateCompletions;
+        Subs.CVar(_cfg, CCVars.GameShowGreentext, value => _showGreentext = value, true);
 
         Subs.CVar(_cfg, DCCVars.MaxObjectiveSummaryLength, len => _maxLengthSummaryLength = len, true); // DeltaV
+
+        _prototypeManager.PrototypesReloaded += CreateCompletions;
     }
 
     public override void Shutdown()
@@ -170,8 +176,17 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                     totalObjectives++;
 
                     agentSummary.Append("- ");
-                    /* Begin DeltaV removal - Removed greentext
-                    if (progress > 0.99f)
+                    if (!_showGreentext)
+                    {
+                        // agentSummary.AppendLine(objectiveTitle);
+                        // Begin DeltaV Additions - Generic objective
+                        agentSummary.AppendLine(Loc.GetString(
+                            "objectives-objective",
+                            ("objective", objectiveTitle)
+                        ));
+                        // End DeltaV Additions
+                    }
+                    else if (progress > 0.99f)
                     {
                         agentSummary.AppendLine(Loc.GetString(
                             "objectives-objective-success",
@@ -189,13 +204,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                             ("markupColor", "red")
                         ));
                     }
-                    End DeltaV removal */
-                    // Begin DeltaV Additions - Generic objective
-                    agentSummary.AppendLine(Loc.GetString(
-                        "objectives-objective",
-                        ("objective", objectiveTitle)
-                    ));
-                    // End DeltaV Additions
                 }
             }
 
