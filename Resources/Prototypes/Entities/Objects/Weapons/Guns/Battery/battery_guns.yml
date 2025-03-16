@@ -805,7 +805,7 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Battery
     maxCharge: 2400 # DeltaV - Double charge
-    startingCharge: 2400
+    startingCharge: 2400 # DeltaV - Double charge
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 72 # DeltaV - Triple recharge rate
