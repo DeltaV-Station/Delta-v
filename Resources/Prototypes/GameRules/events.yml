@@ -275,6 +275,9 @@
     reoccurrenceDelay: 5 # DeltaV - was 20
     minimumPlayers: 15
   - type: ParadoxCloneRule
+    objectiveBlacklist:
+      tags:
+      - ParadoxCloneObjectiveBlacklist
   - type: AntagObjectives
     objectives:
     - ParadoxAnomalyKillObjective # DeltaV - was ParadoxCloneKillObjective

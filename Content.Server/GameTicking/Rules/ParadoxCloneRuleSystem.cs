@@ -13,7 +13,6 @@ namespace Content.Server.GameTicking.Rules;
 public sealed partial class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComponent> // DeltaV - made partial
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
@@ -23,6 +22,7 @@ public sealed partial class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxClone
         base.Initialize();
 
         SubscribeLocalEvent<ParadoxCloneRuleComponent, AntagSelectEntityEvent>(OnAntagSelectEntity);
+        SubscribeLocalEvent<ParadoxCloneRuleComponent, AfterAntagEntitySelectedEvent>(AfterAntagEntitySelected);
     }
 
     protected override void Started(EntityUid uid, ParadoxCloneRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -46,12 +46,6 @@ public sealed partial class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxClone
         if (args.Session?.AttachedEntity is not { } spawner)
             return;
 
-        if (!_prototypeManager.TryIndex(ent.Comp.Settings, out var settings))
-        {
-            Log.Error($"Used invalid cloning settings {ent.Comp.Settings} for ParadoxCloneRule");
-            return;
-        }
-
         // get possible targets
         var allHumans = _mind.GetAliveHumans();
         FilterTargets(allHumans); // DeltaV
@@ -67,7 +61,7 @@ public sealed partial class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxClone
         var playerToClone = _random.Pick(allHumans);
         var bodyToClone = playerToClone.Comp.OwnedEntity;
 
-        if (bodyToClone == null || !_cloning.TryCloning(bodyToClone.Value, _transform.GetMapCoordinates(spawner), settings, out var clone))
+        if (bodyToClone == null || !_cloning.TryCloning(bodyToClone.Value, _transform.GetMapCoordinates(spawner), ent.Comp.Settings, out var clone))
         {
             Log.Error($"Unable to make a paradox clone of entity {ToPrettyString(bodyToClone)}");
             return;
@@ -84,5 +78,17 @@ public sealed partial class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxClone
         PostClone(clone.Value); // DeltaV
 
         args.Entity = clone;
+        ent.Comp.Original = playerToClone.Owner;
+    }
+
+    private void AfterAntagEntitySelected(Entity<ParadoxCloneRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
+    {
+        if (ent.Comp.Original == null)
+            return;
+
+        if (!_mind.TryGetMind(args.EntityUid, out var cloneMindId, out var cloneMindComp))
+            return;
+
+        _mind.CopyObjectives(ent.Comp.Original.Value, (cloneMindId, cloneMindComp), ent.Comp.ObjectiveWhitelist, ent.Comp.ObjectiveBlacklist);
     }
 }
