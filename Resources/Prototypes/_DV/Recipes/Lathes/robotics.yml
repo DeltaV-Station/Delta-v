@@ -19,9 +19,21 @@
   result: BorgModuleSecurityBastion
 
 - type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: IdChipBasic
+  result: IdChipBasic
+  materials:
+    Steel: 300
+    Glass: 600
+    Silver: 200
+
+# Robo Neuroling recipes
+
+- type: latheRecipe
   id: BorgModuleSyndicateWeapon
   result: BorgModuleSyndicateWeapon
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 10
   materials:
     Steel: 1500
@@ -35,7 +47,8 @@
 - type: latheRecipe
   id: BorgModuleRadioJammerRecharging
   result: BorgModuleRadioJammerRecharging
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 10
   materials:
     Steel: 1000
@@ -47,7 +60,8 @@
 - type: latheRecipe
   id: BorgModuleMartyr
   result: BorgModuleMartyr
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 10
   materials:
     Steel: 1500
@@ -58,7 +72,8 @@
 - type: latheRecipe
   id: BorgModuleBlades
   result: BorgModuleBlades
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 5
   materials:
     Steel: 1500
@@ -68,7 +83,8 @@
 - type: latheRecipe
   id: BorgModuleCHIMP
   result: BorgModuleCHIMP
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 5
   materials:
     Steel: 500
@@ -80,7 +96,8 @@
 - type: latheRecipe
   id: BorgModuleSyndicateRadio
   result: BorgModuleSyndicateRadio
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 5
   materials:
     Steel: 200
@@ -90,7 +107,8 @@
 - type: latheRecipe
   id: BorgModuleCrewMonitor
   result: BorgModuleCrewMonitor
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 5
   materials:
     Steel: 100
@@ -101,7 +119,8 @@
 - type: latheRecipe
   id: SyndicateNeuroling
   result: SyndicateNeuroling
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 15
   materials:
     Steel: 100
@@ -112,7 +131,8 @@
 - type: latheRecipe
   id: BorgModuleOperative
   result: BorgModuleOperative
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 10
   materials:
     Steel: 1000
@@ -124,7 +144,8 @@
 - type: latheRecipe
   id: BorgModuleChameleonProjector
   result: BorgModuleChameleonProjector
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 10
   materials:
     Steel: 1200
@@ -132,3 +153,19 @@
     Gold: 1000
     Plastic: 2000
     Uranium: 1000
+
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: IdChipSyndie
+  result: IdChipSyndie
+  materials:
+    Steel: 300
+    Glass: 600
+    Silver: 200
+    Gold: 200
+    Plasma: 100
+
+- type: latheRecipe
+  parent: IdChipSyndie
+  id: IdChipRoboNeuroticist
+  result: IdChipRoboNeuroticist

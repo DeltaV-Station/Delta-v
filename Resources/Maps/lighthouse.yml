@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/04/2025 13:36:40
+  entityCount: 22036
+maps:
+- 1313
+grids:
+- 100
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   2: FloorArcadeBlue2
@@ -5299,7 +5310,7 @@ entities:
           0,7:
             0: 4080
           0,8:
-            0: 28919
+            0: 61695
           1,4:
             0: 65520
           1,5:
@@ -5877,7 +5888,7 @@ entities:
             1: 7
           8,12:
             0: 30708
-            3: 32768
+            7: 32768
           8,13:
             0: 247
             1: 61440
@@ -6023,7 +6034,7 @@ entities:
             0: 65535
           -7,-13:
             0: 45155
-            4: 12
+            3: 12
           -6,-12:
             0: 65335
           -6,-11:
@@ -6447,24 +6458,24 @@ entities:
             0: 65535
           -3,-15:
             0: 13104
-            4: 128
-            5: 32768
+            3: 128
+            4: 32768
           -3,-14:
             0: 13107
-            6: 128
-            7: 32768
+            5: 128
+            6: 32768
           -3,-17:
             0: 61457
             1: 238
           -2,-16:
             0: 64447
           -2,-15:
-            4: 48
-            5: 12288
+            3: 48
+            4: 12288
             0: 34952
           -2,-14:
-            6: 48
-            7: 12288
+            5: 48
+            6: 12288
             0: 32904
           -2,-17:
             0: 47308
@@ -6530,7 +6541,7 @@ entities:
             0: 61986
             1: 3276
           -17,18:
-            0: 62719
+            0: 29951
           -16,19:
             0: 12531
             1: 52224
@@ -6734,7 +6745,7 @@ entities:
             1: 57856
           9,12:
             0: 238
-            3: 61440
+            7: 61440
           10,10:
             1: 15
             0: 47872
@@ -6745,7 +6756,7 @@ entities:
             1: 8192
           10,12:
             0: 102
-            3: 4096
+            7: 4096
             1: 49152
           10,8:
             0: 32768
@@ -6861,17 +6872,17 @@ entities:
           -7,-15:
             0: 17
             1: 4352
-            4: 52416
+            3: 52416
           -7,-14:
             1: 1
             0: 12560
-            4: 17612
+            3: 17612
           -6,-16:
             0: 65520
           -6,-15:
-            4: 30576
+            3: 30576
           -6,-14:
-            4: 119
+            3: 119
             0: 61440
           -6,-17:
             1: 4096
@@ -6990,7 +7001,7 @@ entities:
             0: 63280
           9,13:
             1: 28672
-            3: 238
+            7: 238
           9,14:
             1: 18146
             0: 8192
@@ -7000,7 +7011,7 @@ entities:
             1: 7715
             0: 8192
           10,13:
-            3: 17
+            7: 17
             1: 9728
           10,14:
             1: 242
@@ -7149,33 +7160,39 @@ entities:
           -18,15:
             1: 50252
           -18,16:
-            1: 65092
+            1: 65348
+          -20,16:
+            1: 3840
+          -21,16:
+            1: 60072
           -20,17:
             1: 2063
             0: 30704
           -21,17:
-            1: 34944
+            1: 60074
           -20,18:
             0: 4369
             1: 8738
           -21,18:
-            1: 34952
+            1: 43690
           -20,19:
             0: 4371
             1: 8736
           -21,19:
-            1: 34952
+            1: 43694
           -20,20:
             0: 58129
             1: 7266
+          -19,16:
+            1: 7936
           -19,17:
             1: 60687
             0: 752
           -19,18:
             1: 1
-            0: 16368
+            0: 16352
           -19,19:
-            0: 65339
+            0: 61243
           -19,20:
             1: 3553
             0: 61952
@@ -7183,9 +7200,9 @@ entities:
             1: 65473
             0: 62
           -18,18:
-            0: 26480
+            0: 26416
           -18,19:
-            0: 30567
+            0: 14183
           -17,20:
             0: 255
             1: 3840
@@ -7195,14 +7212,20 @@ entities:
           -13,24:
             1: 15
           -16,21:
-            1: 3853
+            1: 12045
             0: 242
           -17,21:
-            1: 3855
+            1: 7951
             0: 240
+          -16,22:
+            1: 15
+          -17,22:
+            1: 15
           -15,21:
             0: 19
             1: 868
+          -15,22:
+            1: 7
           -14,21:
             1: 3106
           -13,21:
@@ -7210,17 +7233,23 @@ entities:
           -13,22:
             1: 17476
           -21,20:
-            1: 2184
+            1: 10986
           -20,21:
-            1: 14
+            1: 3886
           -19,21:
-            1: 2255
+            1: 36767
+          -19,22:
+            1: 12
           -18,20:
             1: 3056
             0: 28672
           -18,21:
             0: 247
             1: 3848
+          -18,22:
+            1: 15
+          -21,21:
+            1: 738
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -7255,8 +7284,68 @@ entities:
         - volume: 2500
           temperature: 235
           moles:
-          - 21.824879
-          - 82.10312
+          - 27.225372
+          - 102.419266
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -7272,66 +7361,6 @@ entities:
           moles:
           - 0
           - 103.92799
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 6666.982
           - 0
           - 0
           - 0
@@ -7367,7 +7396,6 @@ entities:
     - type: OccluderTree
     - type: Parallax
       parallax: LighthouseStation
-    - type: LoadedMap
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 2179
@@ -14219,23 +14247,6 @@ entities:
     - type: Transform
       pos: -15.5,48.5
       parent: 100
-- proto: Autolathe
-  entities:
-  - uid: 3041
-    components:
-    - type: Transform
-      pos: -2.5,7.5
-      parent: 100
-  - uid: 11357
-    components:
-    - type: Transform
-      pos: -42.5,-3.5
-      parent: 100
-  - uid: 12298
-    components:
-    - type: Transform
-      pos: 14.5,-43.5
-      parent: 100
 - proto: BananaSeeds
   entities:
   - uid: 1129
@@ -15399,6 +15410,16 @@ entities:
     components:
     - type: Transform
       pos: -10.5,-0.5
+      parent: 100
+  - uid: 22034
+    components:
+    - type: Transform
+      pos: -36.5,32.5
+      parent: 100
+  - uid: 22035
+    components:
+    - type: Transform
+      pos: 1.5,20.5
       parent: 100
 - proto: BoxBeaker
   entities:
@@ -45701,11 +45722,6 @@ entities:
       parent: 100
 - proto: CircuitImprinter
   entities:
-  - uid: 13256
-    components:
-    - type: Transform
-      pos: -21.5,-9.5
-      parent: 100
   - uid: 22011
     components:
     - type: Transform
@@ -49264,6 +49280,11 @@ entities:
       parent: 100
     - type: NavMapBeacon
       text: Reporter Room
+  - uid: 13256
+    components:
+    - type: Transform
+      pos: -2.5,6.5
+      parent: 100
   - uid: 19869
     components:
     - type: Transform
@@ -55665,12 +55686,26 @@ entities:
     - type: Transform
       pos: -8.5,42.5
       parent: 100
+- proto: EngineeringTechFab
+  entities:
+  - uid: 12298
+    components:
+    - type: Transform
+      pos: 14.5,-43.5
+      parent: 100
 - proto: EpinephrineChemistryBottle
   entities:
   - uid: 21506
     components:
     - type: Transform
       pos: -14.4696245,46.673405
+      parent: 100
+- proto: EpistemicsTechFab
+  entities:
+  - uid: 13633
+    components:
+    - type: Transform
+      pos: -21.5,-8.5
       parent: 100
 - proto: EuphoniumInstrument
   entities:
@@ -95802,6 +95837,13 @@ entities:
     - type: Physics
       canCollide: False
       bodyType: Static
+- proto: LogisticsTechFab
+  entities:
+  - uid: 11357
+    components:
+    - type: Transform
+      pos: -42.5,-3.5
+      parent: 100
 - proto: LuxuryPen
   entities:
   - uid: 18642
@@ -101848,13 +101890,6 @@ entities:
     components:
     - type: Transform
       pos: 29.414343,-21.571545
-      parent: 100
-- proto: Protolathe
-  entities:
-  - uid: 13633
-    components:
-    - type: Transform
-      pos: -21.5,-8.5
       parent: 100
 - proto: PsychBed
   entities:
@@ -110907,6 +110942,13 @@ entities:
     components:
     - type: Transform
       pos: 35.5,53.5
+      parent: 100
+- proto: ServiceTechFab
+  entities:
+  - uid: 3041
+    components:
+    - type: Transform
+      pos: -2.5,7.5
       parent: 100
 - proto: ShardGlass
   entities:

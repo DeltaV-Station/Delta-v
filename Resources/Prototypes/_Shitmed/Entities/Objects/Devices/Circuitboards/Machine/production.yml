@@ -35,3 +35,16 @@
       Cable: 3
       Silver: 2
       Steel: 4
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: OperatingTableAdvancedCircuitboard
+  name: advanced operating table machine board
+  description: A machine printed circuit board for an advanced operating table.
+  components:
+  - type: MachineBoard
+    prototype: OperatingTableAdvanced
+    stackRequirements:
+      Cable: 3
+      Silver: 2
+      Steel: 4

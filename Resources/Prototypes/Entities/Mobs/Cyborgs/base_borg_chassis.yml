@@ -104,9 +104,13 @@
     - Common
     - Science
   - type: ZombieImmune
-  - type: Repairable
-    doAfterDelay: 10
-    allowSelfRepair: false
+  # Begin DeltaV Changes - use IPC healing instead of 1 weld to heal everything
+  #- type: Repairable
+  #  doAfterDelay: 10
+  #  allowSelfRepair: false
+  - type: WeldingHealable
+    allowSelfHeal: false
+  # End DeltaV Changes
   - type: BorgChassis
   - type: SurgerySelfDirty # DeltaV: borgs get dirty from doing surgery
   - type: Fiber # DeltaV - borgs leave metal fibers
@@ -124,6 +128,7 @@
     containers:
       borg_brain: !type:ContainerSlot { }
       cell_slot: !type:ContainerSlot { }
+      borg_id_chip: !type:ContainerSlot # DeltaV - borg id chips
       borg_module: !type:Container { }
       part-container: !type:Container
   - type: PowerCellSlot
@@ -134,7 +139,7 @@
     activated: false # gets activated when a mind is added
     onUse: false # no item-borg toggling sorry
   - type: ItemTogglePointLight
-  - type: AccessToggle
+  #- type: AccessToggle # DeltaV - IdChipSlot disables access, don't re-enable it when losing power
   # TODO: refactor movement to just be based on toggle like speedboots but for the boots themselves
   # TODO: or just have sentient speedboots be fast idk
   - type: PowerCellDraw
@@ -144,6 +149,10 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+  - type: IdChipSlot # DeltaV - borg id chips
+    whitelist:
+      tags:
+      - IdChip
   - type: Body
   - type: StatusEffects
     allowed:
@@ -159,6 +168,7 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
+    screamAction: null
   - type: UnblockableSpeech
   - type: FootstepModifier
     footstepSoundCollection:
@@ -169,6 +179,7 @@
     containers:
     - part-container
     - cell_slot
+    - borg_id_chip # DeltaV - borg id chips
   - type: Lock
     locked: true
     unlockOnClick: false
@@ -199,6 +210,7 @@
         - borg_brain
         - borg_module
         - cell_slot
+        - borg_id_chip # DeltaV
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: HandheldLight
@@ -224,7 +236,7 @@
       isLooped: true
   - type: ToggleableLightVisuals
   - type: PointLight
-    enabled: false
+    enabled: false # DeltaV - comment to prevent upstream removing, borg id chips
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
     radius: 4
@@ -253,6 +265,7 @@
     - PsionicInvisibility
     - Normal
   - type: JetpackUser # DeltaV: Lets cyborgs fly in space
+  - type: PreventDropOnDowned # Frontier: borgs don't drop items when falling (e.g. critical/dead)
 
 - type: entity
   abstract: true
@@ -290,16 +303,19 @@
   components:
   - type: RandomMetadata
     nameSegments:
-      - names_borg
+    - NamesBorg
   - type: NpcFactionMember
     factions:
     - NanoTrasen
   - type: Access
     enabled: false
     groups:
-    - AllAccessBorg
+    - AllAccessBorg # DeltaV
+    tags:
+    - Borg
   - type: AccessReader
-    access: [["Command"], ["Research"]]
+    access: [["Command"], ["Research"], ["Robotics"]] # DeltaV - add Robotics
+    breakOnAccessBreaker: false # DeltaV - prevent emag metachecking by unlocking without an id
   - type: SlavedBorg # DeltaV: NT borgs are enslaved to the AI by default
     law: ObeyAI
   - type: ShowJobIcons
@@ -316,6 +332,7 @@
     factions:
     - Syndicate
   - type: Access
+    enabled: false # DeltaV - borg id chips
     tags:
     - NuclearOperative
     - SyndicateAgent
@@ -335,6 +352,8 @@
   - type: MovementAlwaysTouching
   - type: Speech
     speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconSyndicate
@@ -352,11 +371,11 @@
     factions:
     - NanoTrasen #The seemingly best fit. It was a regular NT cyborg once, after all.
   - type: Access
-    enabled: false
+    enabled: false # DeltaV - comment to prevent upstream removing, borg id chips
     groups:
     - AllAccess #Randomized access would be fun. AllAccess is the best i can think of right now that does make it too hard for it to enter the station or navigate it..
   - type: AccessReader
-    access: [["Command"], ["Research"]]
+    access: [["Command"], ["Robotics"]] # DeltaV - Robotics instead of Research
   - type: StartIonStormed
     ionStormAmount: 3
   - type: IonStormTarget
