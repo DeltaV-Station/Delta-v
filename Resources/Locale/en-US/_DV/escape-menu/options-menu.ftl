@@ -12,7 +12,7 @@ ui-options-function-nano-chat-navigate-up-unread = Navigate up to next unread
 ui-options-function-nano-chat-navigate-down-unread = Navigate down to next unread
 
 ## DeltaV staff chats
-ui-options-function-open-a-help-curator-chat = Open admin help and curator chat
+ui-options-function-open-staff-chats-deltav = Open admin help and curator chat
 
 ## DeltaV implementation of message highlights
 ui-options-auto-fill-highlights = Auto-fill the highlights with the character's information
