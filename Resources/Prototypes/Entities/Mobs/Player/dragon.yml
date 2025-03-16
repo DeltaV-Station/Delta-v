@@ -165,6 +165,12 @@
     spawnRiftAction: ActionSpawnRift
     maxAccumulator: 600 # DeltaV - Double the normal time
     weakenedDuration: 60 # DeltaV - Half the normal time
+  - type: GhostRole
+    mindRoles:
+    - MindRoleDragon
+  - type: ActionGun
+    action: ActionDragonsBreath
+    gunProto: DragonsBreathGun
   - type: GuideHelp
     guides:
     - MinorAntagonists
