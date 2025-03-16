@@ -178,13 +178,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                     agentSummary.Append("- ");
                     if (!_showGreentext)
                     {
-                        // agentSummary.AppendLine(objectiveTitle);
-                        // Begin DeltaV Additions - Generic objective
-                        agentSummary.AppendLine(Loc.GetString(
-                            "objectives-objective",
-                            ("objective", objectiveTitle)
-                        ));
-                        // End DeltaV Additions
+                        agentSummary.AppendLine(objectiveTitle);
                     }
                     else if (progress > 0.99f)
                     {
