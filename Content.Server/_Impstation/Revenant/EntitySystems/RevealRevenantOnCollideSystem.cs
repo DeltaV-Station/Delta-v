@@ -1,10 +1,9 @@
 using Content.Shared.Revenant.EntitySystems;
 using Content.Shared.Revenant.Components;
 using Content.Shared.Physics;
-using Robust.Shared.Physics.Systems; // DeltaV
-using Robust.Shared.Physics.Collision.Shapes; // DeltaV
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -35,8 +34,6 @@ public sealed partial class RevealRevenantOnCollideSystem : SharedRevealRevenant
     private void MapInitEvent(EntityUid uid, RevealRevenantOnCollideComponent comp, ComponentStartup args)
     {
         var fixtures = EnsureComp<FixturesComponent>(uid);
-        var body = EnsureComp<PhysicsComponent>(uid);
-        body.BodyType = BodyType.Dynamic;
         _fixtures.TryCreateFixture(uid,
             GetOrCreateShape(uid, fixtures),
             FixtureId,
