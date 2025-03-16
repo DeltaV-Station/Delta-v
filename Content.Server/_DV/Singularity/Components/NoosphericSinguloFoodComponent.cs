@@ -1,3 +1,5 @@
+using Content.Shared._DV.Noospherics;
+
 namespace Content.Server._DV.Singularity.Components
 {
     /// <summary>
@@ -10,7 +12,7 @@ namespace Content.Server._DV.Singularity.Components
         /// Flat adjustment to the singularity's energy when this entity is eaten by the event horizon.
         /// </summary>
         [DataField]
-        public float Energy = 1f;
+        public NoosphericParticleEnergy Energy = new(1f);
 
         /// <summary>
         /// Multiplier applied to singularity's energy.

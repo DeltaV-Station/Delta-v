@@ -1,6 +1,7 @@
 using Robust.Shared.GameStates;
 using Content.Shared._DV.Singularity.EntitySystems;
 using Robust.Shared.Audio;
+using Content.Shared._DV.Noospherics;
 
 namespace Content.Shared._DV.Singularity.Components;
 
@@ -38,7 +39,7 @@ public sealed partial class NoosphericSingularityComponent : Component
     /// The amount of energy this singularity contains.
     /// </summary>
     [DataField]
-    public float Energy = 180f;
+    public NoosphericParticleEnergy Energy = new(180f);
 
     /// <summary>
     /// The rate at which this singularity loses energy over time.

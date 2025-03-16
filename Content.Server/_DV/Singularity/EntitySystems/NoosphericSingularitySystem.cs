@@ -2,6 +2,7 @@ using Content.Server._DV.Singularity.Components;
 using Content.Server.Physics.Components;
 using Content.Server.Singularity.Components;
 using Content.Server.Singularity.Events;
+using Content.Shared._DV.Noospherics;
 using Content.Shared._DV.Singularity.Components;
 using Content.Shared._DV.Singularity.EntitySystems;
 using Content.Shared._DV.Singularity.Events;
@@ -113,19 +114,16 @@ public sealed class SingularitySystem : SharedNoosphericSingularitySystem
 
         singularity.LastUpdateTime = _timing.CurTime;
         singularity.NextUpdateTime = singularity.LastUpdateTime + singularity.TargetUpdatePeriod;
-        AdjustEnergy(uid, -singularity.EnergyDrain * (float)frameTime.TotalSeconds, singularity: singularity);
+        var delta = new NoosphericParticleEnergy(-singularity.EnergyDrain * (float)frameTime.TotalSeconds);
+        AdjustEnergy(uid, delta, singularity: singularity);
     }
 
     #region Getters/Setters
 
-    /// <summary>
-    /// Setter for <see cref="NoosphericSingularityComponent.Energy"/>.
-    /// Also updates the level of the singularity accordingly.
-    /// </summary>
-    /// <param name="uid">The uid of the singularity to set the energy of.</param>
-    /// <param name="value">The amount of energy for the singularity to have.</param>
-    /// <param name="singularity">The state of the singularity to set the energy of.</param>
-    public void SetEnergy(EntityUid uid, float value, NoosphericSingularityComponent? singularity = null)
+    public void SetEnergy(
+        EntityUid uid,
+        NoosphericParticleEnergy value,
+        NoosphericSingularityComponent? singularity = null)
     {
         if (!Resolve(uid, ref singularity))
             return;
@@ -134,9 +132,51 @@ public sealed class SingularitySystem : SharedNoosphericSingularitySystem
         if (oldValue == value)
             return;
 
-        singularity.Energy = value;
+        foreach (var item in singularity.Energy)
+        {
+            singularity.Energy[item.Key] = value[item.Key];
+        }
+
+        var average = singularity.Energy.Average();
         SetLevel(uid,
-            value switch
+            average switch
+            {
+                >= 2400 => 6,
+                >= 1600 => 5,
+                >= 900 => 4,
+                >= 300 => 3,
+                >= 200 => 2,
+                > 0 => 1,
+                _ => 0
+            },
+            singularity);
+    }
+
+    /// <summary>
+    /// Setter for <see cref="NoosphericSingularityComponent.Energy"/>.
+    /// Also updates the level of the singularity accordingly.
+    /// </summary>
+    /// <param name="uid">The uid of the singularity to set the energy of.</param>
+    /// <param name="value">The amount of energy for the singularity to have.</param>
+    /// <param name="singularity">The state of the singularity to set the energy of.</param>
+    public void SetEnergy(
+        EntityUid uid,
+        ParticleType type,
+        float value,
+        NoosphericSingularityComponent? singularity = null)
+    {
+        if (!Resolve(uid, ref singularity))
+            return;
+
+        var oldValue = singularity.Energy[type];
+        if (oldValue == value)
+            return;
+
+        singularity.Energy[type] = value;
+
+        var average = singularity.Energy.Average();
+        SetLevel(uid,
+            average switch
             {
                 >= 2400 => 6,
                 >= 1600 => 5,
@@ -160,7 +200,7 @@ public sealed class SingularitySystem : SharedNoosphericSingularitySystem
     /// <param name="snapMax">Whether the amount of energy in the singularity should be forced to within the specified range if it already is above it.</param>
     /// <param name="singularity">The state of the singularity to adjust the energy of.</param>
     public void AdjustEnergy(EntityUid uid,
-        float delta,
+        NoosphericParticleEnergy delta,
         float min = float.MinValue,
         float max = float.MaxValue,
         bool snapMin = true,
@@ -171,10 +211,15 @@ public sealed class SingularitySystem : SharedNoosphericSingularitySystem
             return;
 
         var newValue = singularity.Energy + delta;
-        if ((!snapMin && newValue < min)
-            || (!snapMax && newValue > max))
-            return;
-        SetEnergy(uid, MathHelper.Clamp(newValue, min, max), singularity);
+        foreach (var item in newValue)
+        {
+            if (!snapMin && newValue[item.Key] < min)
+                continue;
+            if (!snapMax && newValue[item.Key] > max)
+                continue;
+
+            SetEnergy(uid, item.Key, MathHelper.Clamp(newValue[item.Key], min, max), singularity);
+        }
     }
 
     /// <summary>
@@ -270,7 +315,7 @@ public sealed class SingularitySystem : SharedNoosphericSingularitySystem
         Entity<NoosphericSingularityComponent> ent,
         ref EntityConsumedByEventHorizonEvent args)
     {
-        AdjustEnergy(ent, BaseEntityEnergy, singularity: ent.Comp);
+        AdjustEnergy(ent, new NoosphericParticleEnergy(BaseEntityEnergy));
     }
 
     /// <summary>
@@ -283,7 +328,7 @@ public sealed class SingularitySystem : SharedNoosphericSingularitySystem
         Entity<NoosphericSingularityComponent> ent,
         ref TilesConsumedByEventHorizonEvent args)
     {
-        AdjustEnergy(ent, args.Tiles.Count * BaseTileEnergy, singularity: ent.Comp);
+        AdjustEnergy(ent, new NoosphericParticleEnergy(args.Tiles.Count * BaseTileEnergy), singularity: ent.Comp);
     }
 
     /// <summary>
@@ -300,7 +345,7 @@ public sealed class SingularitySystem : SharedNoosphericSingularitySystem
         if (EntityManager.TryGetComponent<NoosphericSingularityComponent>(args.EventHorizonUid, out var singulo))
         {
             AdjustEnergy(args.EventHorizonUid, ent.Comp.Energy, singularity: singulo);
-            SetEnergy(ent, 0.0f, ent.Comp);
+            SetEnergy(ent, new NoosphericParticleEnergy(), ent.Comp);
         }
     }
 
