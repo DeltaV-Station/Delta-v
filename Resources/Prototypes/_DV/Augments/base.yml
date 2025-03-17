@@ -1,0 +1,6 @@
+- type: entity
+  parent: BaseItem
+  id: BaseAugment
+  abstract: true
+  components:
+  - type: Augment
