@@ -1,0 +1,137 @@
+- type: entity
+  id: ActionOpenAugmentInterface
+  abstract: true
+  # name: Open augment UI
+  # description: This is a developer placeholder and should not be seen
+  components:
+  - type: InstantAction
+    icon: { sprite: Clothing/Mask/gas.rsi, state: icon }
+    iconOn: Interface/Default/blocked.png
+    event: !type:AugmentUIOpenEvent
+
+- type: entity
+  parent: BaseItem
+  id: AugmentPowerCellSlotCasing
+  name: augment power cell slot casing
+  description: Can be implanted into a body to provide power to other implants. This one is incomplete.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/power.rsi
+    state: incomplete_cell
+  - type: Construction
+    graph: CreatePowerCellAugment
+    node: casing
+    defaultTarget: augment
+  - type: Tag
+    tags: [ AugmentCellCasing ]
+
+- type: entity
+  parent: BaseItem
+  id: AugmentPowerCellSlotCasingCables
+  name: augment power cell slot casing with cables
+  description: Can be implanted into a body to provide power to other implants. This one is incomplete.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/power.rsi
+    state: incomplete_cell_cables
+  - type: Construction
+    graph: CreatePowerCellAugment
+    node: cables
+
+- type: entity
+  parent: BaseAugment
+  id: AugmentPowerCellSlot
+  name: augment power cell slot
+  description: Can be implanted into a body to provide power to other implants.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/power.rsi
+    state: cell
+  - type: Organ
+    slotId: powerCell
+    onAdd:
+    - type: HasAugmentPowerCellSlot
+  - type: AugmentPowerCellSlot
+  - type: Construction
+    graph: CreatePowerCellAugment
+    node: augment
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot { }
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+- type: entity
+  parent: BaseAugment
+  id: AugmentBaseCharger
+  name: base charger augment
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/power.rsi
+    state: cell
+  - type: Organ
+    slotId: charger
+  - type: AugmentCharger
+
+- type: entity
+  parent: BaseItem
+  id: AugmentRechargerCasing
+  name: augment recharger casing
+  description: Can be implanted into a body to recharge an internal power cell. This one is incomplete.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/power.rsi
+    state: incomplete_charger
+  - type: Construction
+    graph: CreatePowerCellChargerAugment
+    node: casing
+  - type: Tag
+    tags: [ AugmentChargerCasing ]
+
+- type: entity
+  parent: BaseItem
+  id: AugmentRechargerCasingCables
+  name: augment recharger casing with cables
+  description: Can be implanted into a body to recharge an internal power cell. This one is incomplete.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/power.rsi
+    state: incomplete_charger_cables
+  - type: Construction
+    graph: CreatePowerCellChargerAugment
+    node: cables
+
+- type: entity
+  parent: AugmentBaseCharger
+  id: AugmentRechargerAPC
+  name: augment apc recharger
+  description: Allows the implantee to recharge their power cell via APCs.
+  components:
+  - type: Sprite
+    state: apc
+  - type: Organ
+    onAdd:
+    - type: BatteryDrinker
+  - type: Construction
+    graph: CreatePowerCellChargerAugment
+    node: apc
+
+- type: entity
+  parent: AugmentBaseCharger
+  id: AugmentRechargerStation
+  name: augment station recharger
+  description: Allows the implantee to recharge their power cell via cyborg recharging stations.
+  components:
+  - type: Sprite
+    state: station
+  - type: Organ
+    onAdd:
+    - type: AugmentStationRecharge
+  - type: Construction
+    graph: CreatePowerCellChargerAugment
+    node: station
