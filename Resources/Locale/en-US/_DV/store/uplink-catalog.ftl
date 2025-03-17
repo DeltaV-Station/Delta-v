@@ -61,6 +61,9 @@ uplink-hardsuit-agent-syndie-desc = The iconic blood-white hardsuit, painted wit
 uplink-paperwork-hater-name = "I Hate Paperwork" Stamp
 uplink-paperwork-hater-desc = For the seasoned paperwork hater. A stamp with an electric cigarette lighter embedded into it. Will Ignite any paper stamped with it.
 
+uplink-hardsuit-nullifier-name = Psionic Nullifier Hardsuit Helmet
+uplink-hardsuit-nullifier-desc = Psionically insulates the head inside it, and protects that same head from the vacuum of space. A "must purchase" item for delving into psionic spaces.
+
 # Objectives
 uplink-core-extraction-toolbox-name = Core Extraction Toolbox
 uplink-core-extraction-toolbox-desc = A toolbox containing everything you need to remove a nuclear bomb's plutonium core. Instructions not included.
