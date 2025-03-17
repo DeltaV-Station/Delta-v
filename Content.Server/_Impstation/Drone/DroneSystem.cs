@@ -12,10 +12,7 @@ using Content.Shared.Emoting;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Interaction;
-using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -30,12 +27,6 @@ using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
-using Robust.Shared.Containers;
-using Robust.Shared.Player;
-using Robust.Shared.Random;
-using Content.Server.Traits.Assorted;
-using Content.Shared.Item.ItemToggle.Components;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Content.Server._Impstation.Drone
 {
@@ -150,6 +141,12 @@ namespace Content.Server._Impstation.Drone
             }
         }
 
+                if (TryComp<BodyComponent>(uid, out var body))
+                    _bodySystem.GibBody(uid, body: body);
+                QueueDel(uid);
+            }
+        }
+
         private void OnPowerCellChanged(EntityUid uid, DroneComponent component, PowerCellChangedEvent args)
         {
             UpdateBatteryAlert((uid, component));
@@ -199,6 +196,65 @@ namespace Content.Server._Impstation.Drone
             {
                 _appearance.SetData(uid, DroneVisuals.Status, status, appearance);
             }
+        }
+
+        public void UpdateUI(EntityUid uid, DroneComponent? component = null)
+        {
+            if (!Resolve(uid, ref component))
+                return;
+
+            var chargePercent = 0f;
+            var hasBattery = false;
+            if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
+            {
+                hasBattery = true;
+                chargePercent = battery.CurrentCharge / battery.MaxCharge;
+            }
+
+            var state = new DroneBuiState(chargePercent, hasBattery);
+            _ui.SetUiState(uid, DroneUiKey.Key, state);
+        }
+
+        private void UpdateBatteryAlert(Entity<DroneComponent> ent, PowerCellSlotComponent? slotComponent = null)
+        {
+            if (!_powerCell.TryGetBatteryFromSlot(ent, out var battery, slotComponent))
+            {
+                _alerts.ClearAlert(ent, ent.Comp.BatteryAlert);
+                _alerts.ShowAlert(ent, ent.Comp.NoBatteryAlert);
+                return;
+            }
+
+            var chargePercent = (short) MathF.Round(battery.CurrentCharge / battery.MaxCharge * 10f);
+
+            if (chargePercent == 5 && chargePercent < ent.Comp.LastChargePercent)
+            {
+                if (_gameTiming.CurTime >= ent.Comp.NextProximityAlert)
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("drone-med-battery"), ent.Owner, ent.Owner, PopupType.MediumCaution);
+                    ent.Comp.NextProximityAlert = _gameTiming.CurTime + ent.Comp.ProximityDelay;
+                }
+            }
+
+            if (chargePercent == 2 && chargePercent < ent.Comp.LastChargePercent)
+            {
+                if (_gameTiming.CurTime >= ent.Comp.NextProximityAlert)
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("drone-low-battery"), ent.Owner, ent.Owner, PopupType.LargeCaution);
+                    ent.Comp.NextProximityAlert = _gameTiming.CurTime + ent.Comp.ProximityDelay;
+                }
+            }
+
+            // we make sure 0 only shows if they have absolutely no battery.
+            // also account for floating point imprecision
+            if (chargePercent == 0 && _powerCell.HasDrawCharge(ent, cell: slotComponent))
+            {
+                chargePercent = 1;
+            }
+
+            ent.Comp.LastChargePercent = chargePercent;
+
+            _alerts.ClearAlert(ent, ent.Comp.NoBatteryAlert);
+            _alerts.ShowAlert(ent, ent.Comp.BatteryAlert, chargePercent);
         }
 
         public void UpdateUI(EntityUid uid, DroneComponent? component = null)

@@ -10,7 +10,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
 using static Content.Shared.Paper.PaperComponent;
 using Content.Shared._Impstation.Illiterate;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Paper;
 
