@@ -23,7 +23,7 @@
         type: Add
       - !type:Drunk
         slurSpeech: false
-        boozePower: 20
+        boozePower: 10 # DeltaV - 20 is ridiculous
 
 - type: reagent
   id: Dylovene
@@ -1219,7 +1219,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 12
-          
+
 - type: reagent
   id: Opporozidone #Name based of an altered version of the startreck chem "Opporozine"
   name: reagent-name-opporozidone
