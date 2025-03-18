@@ -804,10 +804,10 @@
     stealGroup: WeaponEnergyShotgun
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Battery
-    maxCharge: 2400 # DeltaV - Double charge
-    startingCharge: 2400
+    maxCharge: 1200
+    startingCharge: 1200
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 72 # DeltaV - Triple recharge rate
+    autoRechargeRate: 24
     autoRechargePause: true
     autoRechargePauseTime: 30
