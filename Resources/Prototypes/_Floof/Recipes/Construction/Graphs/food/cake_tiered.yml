@@ -1,0 +1,57 @@
+﻿- type: constructionGraph
+  id: CakeTiered
+  start: start
+  graph:
+    - node: start
+      entity: FoodCakePlain # Can change this to FoodCakeTieredSingleUnfrosted if such an entity is created at some point.
+      edges:
+        - to: singleFrosted
+          steps:
+            - material: Frosting
+              amount: 1
+              doAfter: 1
+
+    - node: singleFrosted
+      entity: FoodCakeTieredSingle
+      edges:
+        - to: doubleUnfrosted
+          steps:
+            - tag: CakeBase
+              name: Cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 1
+
+    - node: doubleUnfrosted
+      entity: FoodCakeTieredDoubleUnfrosted
+      edges:
+        - to: doubleFrosted
+          steps:
+            - material: Frosting
+              amount: 1
+              doAfter: 1
+
+    - node: doubleFrosted
+      entity: FoodCakeTieredDouble
+      edges:
+        - to: tripleUnfrosted
+          steps:
+            - tag: CakeBase
+              name: Cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 1
+
+    - node: tripleUnfrosted
+      entity: FoodCakeTieredTripleUnfrosted
+      edges:
+        - to: tripleFrosted
+          steps:
+            - material: Frosting
+              amount: 1
+              doAfter: 1
+
+    - node: tripleFrosted
+      entity: FoodCakeTieredTriple
