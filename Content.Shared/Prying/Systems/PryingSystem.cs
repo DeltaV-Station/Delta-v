@@ -1,12 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared._DV.Tools; // DeltaV
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.PowerCell; // DeltaV
 using Content.Shared.Prying.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
@@ -24,7 +22,6 @@ public sealed class PryingSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedPowerCellSystem _power = default!; // DeltaV
 
     public override void Initialize()
     {
@@ -74,10 +71,6 @@ public sealed class PryingSystem : EntitySystem
         if (!comp.Enabled)
             return false;
 
-        // DeltaV - Cancel if no power and needs power
-        if (TryComp<PryingUsePowerComponent>(tool, out var powerComp) && !_power.HasCharge(tool, powerComp.UseCost, null, user))
-                return false;
-
         if (!CanPry(target, user, out var message, comp))
         {
             if (!string.IsNullOrWhiteSpace(message))
@@ -110,7 +103,8 @@ public sealed class PryingSystem : EntitySystem
         return StartPry(target, user, null, modifier, out id);
     }
 
-    private bool CanPry(EntityUid target, EntityUid user, out string? message, PryingComponent? comp = null, PryUnpoweredComponent? unpoweredComp = null)
+    /// <param name="tool">DeltaV - The tool uid if one is being used.</param>
+    private bool CanPry(EntityUid target, EntityUid user, out string? message, PryingComponent? comp = null, PryUnpoweredComponent? unpoweredComp = null, EntityUid? tool = null)
     {
         BeforePryEvent canev;
 
@@ -130,6 +124,11 @@ public sealed class PryingSystem : EntitySystem
         }
 
         RaiseLocalEvent(target, ref canev);
+
+        // Begin DeltaV - Raise event on tool if one is being used.
+        if (tool != null)
+            RaiseLocalEvent((EntityUid)tool, ref canev);
+        // End DeltaV - Raise event on tool if one is being used.
 
         message = canev.Message;
 
@@ -185,17 +184,6 @@ public sealed class PryingSystem : EntitySystem
         {
             _audioSystem.PlayPredicted(comp.UseSound, args.Used.Value, args.User);
         }
-
-        // Begin DeltaV changes
-        if (TryComp<PryingUsePowerComponent>(args.Used, out var powerComp))
-        {
-            if (!_power.HasCharge(args.Used.Value, powerComp.UseCost, null, args.User))
-                return;
-            _power.TryGetBatteryFromSlot(args.Used.Value, out var battery, out var batteryComp);
-            if (batteryComp != null)
-                batteryComp.CurrentCharge -= powerComp.UseCost;
-        }
-        // End DeltaV changes
 
         var ev = new PriedEvent(args.User);
         RaiseLocalEvent(uid, ref ev);

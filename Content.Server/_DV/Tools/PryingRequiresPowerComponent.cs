@@ -1,9 +1,9 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._DV.Tools;
+namespace Content.Server._DV.Tools;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class PryingUsePowerComponent : Component
+public sealed partial class PryingRequiresPowerComponent : Component
 {
     [DataField]
     public float UseCost = 0;

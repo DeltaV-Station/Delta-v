@@ -1,5 +1,4 @@
 using Content.Server.Power.EntitySystems;
-using Content.Shared._DV.Power.Components; // DeltaV
 using Content.Shared.Guidebook;
 
 namespace Content.Server.Power.Components
@@ -10,7 +9,7 @@ namespace Content.Server.Power.Components
     [RegisterComponent]
     [Virtual]
     [Access(typeof(BatterySystem))]
-    public partial class BatteryComponent : SharedBatteryComponent // DeltaV move to shared space
+    public partial class BatteryComponent : Component
     {
         public string SolutionName = "battery";
 
@@ -25,7 +24,7 @@ namespace Content.Server.Power.Components
         /// Current charge of the battery in joules (ie. watt seconds)
         /// </summary>
         [DataField("startingCharge")]
-        public override float CurrentCharge { get; set; } // DeltaV - Moved to shared space
+        public float CurrentCharge;
 
         /// <summary>
         /// The price per one joule. Default is 1 credit for 10kJ.
