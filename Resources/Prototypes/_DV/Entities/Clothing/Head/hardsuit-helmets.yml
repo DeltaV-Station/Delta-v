@@ -147,3 +147,24 @@
     sprite: _DV/Clothing/Head/Helmets/eva_roboneuroticist.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Helmets/eva_roboneuroticist.rsi
+
+#Psionic Nullifier Helmet
+- type: entity
+  parent: [ ClothingHeadHelmetHardsuitSyndie, ClothingHeadEVAHelmetBase ]
+  id: ClothingHeadHelmetSyndicateNullifier
+  name: psionic nullifier hardsuit helmet
+  description: A dramatic, stylish helmet. Psionically insulates the head inside it, and protects that same head from the vacuum of space.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Helmets/psionicnullifier.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Helmets/psionicnullifier.rsi
+  - type: Item
+    heldPrefix: off
+  - type: PointLight
+    color: red
+  - type: TinfoilHat
+    destroyOnFry: false
+  - type: GuideHelp
+    guides:
+    - Psionics
