@@ -67,7 +67,8 @@
     key: enum.AutodocUiKey.Key
   - type: ActivatableUIRequiresPower
   - type: Autodoc
-  - type: Sanitized
+  - type: Sanitized # DeltaV
+  - type: SurgerySelfDirty # DeltaV
   - type: DoAfter # Required for it to do surgery
   - type: TypingIndicator
     proto: robot
