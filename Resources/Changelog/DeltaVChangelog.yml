@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Stareostar, Mylegsaresharp, Aikakakah
-  changes:
-  - message: Added new lobby art to the rotation!
-    type: Add
-  id: 684
-  time: '2024-11-18T17:05:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2226
 - author: Lyndomen, SleepyApril
   changes:
   - message: Normal kill targets now just need to be killed once- but it needs to
@@ -3963,3 +3956,24 @@
   id: 1183
   time: '2025-03-19T12:01:42.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3245
+- author: TGRCdev, formlessnameless, Lyndomen
+  changes:
+  - message: Revenants can now Haunt, which reveals them and gives them a small amount
+      of stolen essence and a boost in essence regeneration for every person that
+      witnesses them once. Revenants can see who has already been haunted by examining
+      them.
+    type: Add
+  - message: Added a new revenant ability to draw bloody glyphs on the ground.
+    type: Add
+  - message: Revenants can now animate items and make them attack living beings. Keep
+      your guns unbolted!
+    type: Add
+  - message: Revenants now enter stasis on death instead of dying outright. You can
+      kill a revenant in stasis by either destroying or exorcising its ectoplasm.
+      Grind ectoplasm with salt to destroy it.
+    type: Tweak
+  - message: Placing salt on the ground now reveals revenants who pass over it.
+    type: Tweak
+  id: 1184
+  time: '2025-03-19T16:15:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3063
