@@ -30,7 +30,7 @@
         defaultPrototype: Igniter
 
 - type: entity
-  abstract: true # DeltaV - departmental lathes
+  categories: [ HideSpawnMenu ] # DeltaV - departmental lathes
   id: ProtolatheMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: protolathe machine board
