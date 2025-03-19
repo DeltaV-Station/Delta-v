@@ -41,7 +41,7 @@
       - FireAlarm
   - type: Clickable
   - type: InteractionOutline
-  - type: FireAlarm
+  #- type: FireAlarm # DeltaV - disable fire alarms
   - type: AtmosAlertsDevice
     group: FireAlarm
   - type: ContainerFill
