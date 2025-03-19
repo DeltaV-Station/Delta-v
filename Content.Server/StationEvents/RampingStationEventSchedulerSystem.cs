@@ -111,10 +111,10 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
         var timeUntilNextEventDeviation = _random.NextFloat(-1f, 1f) * component.TimeDeviation;
         var roundTime = (float)_gameTicker.RoundDuration().TotalMinutes;
 
-        for (int i = 0; i < component.TimeKeyPoints.Count; i++)
+        foreach (var point in component.TimeKeyPoints)
         {
-            if (roundTime > component.TimeKeyPoints[i])
-                averageTimeUntilNextEvent = component.EventKeyPoints[i];
+            if (roundTime >= point.X)
+                averageTimeUntilNextEvent = point.Y;
         }
 
         component.TimeUntilNextEvent = (averageTimeUntilNextEvent + timeUntilNextEventDeviation) * 60;
