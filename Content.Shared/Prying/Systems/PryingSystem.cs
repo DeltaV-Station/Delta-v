@@ -71,7 +71,7 @@ public sealed class PryingSystem : EntitySystem
         if (!comp.Enabled)
             return false;
 
-        if (!CanPry(target, user, out var message, comp, null, tool))
+        if (!CanPry(target, user, out var message, comp, null, tool)) // DeltaV - Add tool
         {
             if (!string.IsNullOrWhiteSpace(message))
                 _popup.PopupClient(Loc.GetString(message), target, user);
