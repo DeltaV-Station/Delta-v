@@ -71,7 +71,7 @@ public sealed class PryingSystem : EntitySystem
         if (!comp.Enabled)
             return false;
 
-        if (!CanPry(target, user, out var message, comp))
+        if (!CanPry(target, user, out var message, comp, null, tool))
         {
             if (!string.IsNullOrWhiteSpace(message))
                 _popup.PopupClient(Loc.GetString(message), target, user);
@@ -176,7 +176,7 @@ public sealed class PryingSystem : EntitySystem
 
         TryComp<PryingComponent>(args.Used, out var comp);
 
-        if (!CanPry(uid, args.User, out var message, comp))
+        if (!CanPry(uid, args.User, out var message, comp, null, args.Used)) // DeltaV - Check tool for power
         {
             if (!string.IsNullOrWhiteSpace(message))
                 _popup.PopupClient(Loc.GetString(message), uid, args.User);
@@ -190,6 +190,10 @@ public sealed class PryingSystem : EntitySystem
 
         var ev = new PriedEvent(args.User);
         RaiseLocalEvent(uid, ref ev);
+        // Begin DeltaV - Emergency JoL uses power.
+        if (args.Used != null)
+            RaiseLocalEvent((EntityUid)args.Used, ref ev);
+        // End DeltaV - Emergency JoL uses power.
     }
 }
 

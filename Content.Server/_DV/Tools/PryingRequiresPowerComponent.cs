@@ -4,5 +4,5 @@ namespace Content.Server._DV.Tools;
 public sealed partial class PryingRequiresPowerComponent : Component
 {
     [DataField]
-    public float UseCost = 0;
+    public float PowerCost = 0;
 }
