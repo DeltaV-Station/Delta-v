@@ -86,7 +86,7 @@
       SpaceGlue: 5 # no change from normal lathe, overheat!!!
 
 - type: entity
-  abstract: true # DeltaV - departmental lathes
+  categories: [ HideSpawnMenu ] # DeltaV - departmental lathes
   id: Autolathe
   parent: BaseLatheLube
   name: autolathe
@@ -164,7 +164,7 @@
     board: AutolatheHyperConvectionMachineCircuitboard
 
 - type: entity
-  abstract: true # DeltaV - departmental lathes
+  categories: [ HideSpawnMenu ] # DeltaV - departmental lathes
   id: Protolathe
   parent: BaseLatheLube
   name: protolathe
