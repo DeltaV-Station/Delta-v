@@ -1,0 +1,174 @@
+- type: entity
+  abstract: true
+  parent: BaseFigurine
+  id: BaseFigurineDeltaV
+  name: figurine
+  description: A small miniature, specially made for the spinward sector.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/figurines.rsi
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurineAdminAssistant
+  name: administrative assistant figure
+  description: A figurine depicting the administrative assistant, on their way to fetch coffee for the Captain.
+  components:
+  - type: Sprite
+    state: adminassistant
+  - type: SpeakOnTrigger
+    pack: FigurinesAdminAssistant
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurineCJ
+  name: chief justice figure
+  description: A figurine depicting the Chief Justice of the station, twiddling their thumbs during the 19th meteor shower of the day.
+  components:
+  - type: Sprite
+    state: cj
+  - type: SpeakOnTrigger
+    pack: FigurinesCJ
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurineClerk
+  name: clerk figure
+  description: A figurine depicting the Clerk, what the fuck does a clerk even do.
+  components:
+  - type: Sprite
+    state: clerk
+  - type: SpeakOnTrigger
+    pack: FigurinesClerk
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurineCorpsman
+  name: corpsman figure
+  description: A figurine depicting a Corpsman, it looks exhausted.
+  components:
+  - type: Sprite
+    state: corpsman
+  - type: SpeakOnTrigger
+    pack: FigurinesCorpsman
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurineGladiator
+  name: gladiator figure
+  description: A figurine depicting a valiant Gladiator, they look eager for bloodshed.
+  components:
+  - type: Sprite
+    state: gladiator
+  - type: SpeakOnTrigger
+    pack: FigurinesGladiator
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurineMantis
+  name: mantis figure
+  description: A figurine depicting the Mantis, despairing at the rising glimmer.
+  components:
+  - type: Sprite
+    state: mantis
+  - type: SpeakOnTrigger
+    pack: FigurinesMantis
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurinePrisoner
+  name: prisoner figure
+  description: A figurine depicting a prisoner, they look quite beat up.
+  components:
+  - type: Sprite
+    state: prisoner
+  - type: SpeakOnTrigger
+    pack: FigurinesPrisoner
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurinePrisonGuard
+  name: prison guard figure
+  description: A figurine depicting a prison guard, they look like they just got done beating someone up.
+  components:
+  - type: Sprite
+    state: prisonguard
+  - type: SpeakOnTrigger
+    pack: FigurinesPrisonguard
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurineProsec
+  name: prosecutor figure
+  description: A figurine depicting a prosecutor, theyve got quite the edge to them.
+  components:
+  - type: Sprite
+    state: prosec
+  - type: SpeakOnTrigger
+    pack: FigurinesProsec
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurineRoboticist
+  name: roboticist figure
+  description: A figurine depicting a roboticist, theyre holding what looks like a broken ID card?
+  components:
+  - type: Sprite
+    state: roboticist
+  - type: SpeakOnTrigger
+    pack: FigurinesRoboticist
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurineSlimechem
+  name: slime chemist figure
+  description: A figurine depicting a slimeperson chemist, they look bubbly.
+  components:
+  - type: Sprite
+    state: slimechem
+  - type: SpeakOnTrigger
+    pack: FigurinesSlimechem
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurineLPO
+  name: listening post operator figure
+  description: A figurine depicting a listening post operator, impersonating the dead captain as usual.
+  components:
+  - type: Sprite
+    state: lpo
+  - type: SpeakOnTrigger
+    pack: FigurinesLPO
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurineSynth
+  name: synthesis specialist figure
+  description: A figurine depicting a synthesis specialist, theyre showing signs of radiation poisoning.
+  components:
+  - type: Sprite
+    state: synthesis
+  - type: SpeakOnTrigger
+    pack: FigurinesSynthesis
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurineRecruiter
+  name: cybersun lawyer figure
+  description: A figurine depicting a cybersun lawyer, it has an untrustworthy aura.
+  components:
+  - type: Sprite
+    state: recruiter
+  - type: SpeakOnTrigger
+    pack: FigurinesRecruiter
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurineNeuroticist
+  name: syndicate robo-neuroticist figure
+  description: A figurine depicting a fearsome syndicate roboticist, damn that cape is cool.
+  components:
+  - type: Sprite
+    state: neuroticist
+  - type: SpeakOnTrigger
+    pack: FigurinesNeuroticist
