@@ -36,18 +36,12 @@ public sealed partial class RampingStationEventSchedulerComponent : Component
     ///     X is round time in minutes, Y is time until next event in minutes.
     /// </summary>
     [DataField("timeKeyPoints")]
-    public List<float> TimeKeyPoints { get; private set; } = new()
+    public List<Vector2> TimeKeyPoints { get; private set; } = new()
     {
-        -99f
+        new Vector2(0f, 1f)
     };
 
-    [DataField("eventKeyPoints")]
-    public List<float> EventKeyPoints { get; private set; } = new()
-    {
-        15f
-    };
-
-[DataField]
+    [DataField]
     public float TimeDeviation = 0;
     // End of DeltaV code
 
