@@ -1,90 +1,4 @@
 ﻿Entries:
-- author: HawkeyeBlade
-  changes:
-  - message: Regeneration duraton 30 seconds > 15 seconds
-    type: Tweak
-  id: 672
-  time: '2024-11-13T10:50:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2189
-- author: MilonPL
-  changes:
-  - message: Hardsuits and armor vests now provide protection against incoming stamina
-      damage.
-    type: Tweak
-  id: 673
-  time: '2024-11-14T14:28:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2190
-- author: Fox
-  changes:
-  - message: Thieves and Sleeper Agents now need 24hrs playtime
-    type: Tweak
-  id: 674
-  time: '2024-11-14T18:08:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2193
-- author: Eternally-Confused
-  changes:
-  - message: The Corpsman now receives security magboots in their suit storage
-    type: Tweak
-  id: 675
-  time: '2024-11-16T12:37:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2212
-- author: Radezolid
-  changes:
-  - message: Now medical belts have a slot for medkits.
-    type: Tweak
-  id: 676
-  time: '2024-11-16T14:09:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2209
-- author: JustAnOrange, Lyndomen
-  changes:
-  - message: Syndicate recruiters arrive with more swagger
-    type: Add
-  id: 677
-  time: '2024-11-17T00:46:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2217
-- author: DisposableCrewmember42
-  changes:
-  - message: Prosecutors now get the towels they deserve.
-    type: Tweak
-  id: 678
-  time: '2024-11-17T00:48:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2215
-- author: Radezolid
-  changes:
-  - message: Beanbags hits hard again, bartenders rejoice!
-    type: Tweak
-  id: 679
-  time: '2024-11-17T04:45:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2219
-- author: Stop-Signs
-  changes:
-  - message: Heads of Security will now have an energy shotgun in their locker.
-    type: Add
-  id: 680
-  time: '2024-11-17T13:10:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2182
-- author: Radezolid
-  changes:
-  - message: Removed the Chief Justice cloak from the uniform printer.
-    type: Remove
-  id: 681
-  time: '2024-11-17T13:24:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2180
-- author: Beck Thompson
-  changes:
-  - message: Generic radio implants are no longer syndicate branded.
-    type: Tweak
-  id: 682
-  time: '2024-11-17T19:06:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2159
-- author: Lyndomen
-  changes:
-  - message: Security roles may select their service weapon in loadouts, along with
-      their ammunition of choice
-    type: Add
-  id: 683
-  time: '2024-11-18T02:08:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2214
 - author: Stareostar, Mylegsaresharp, Aikakakah
   changes:
   - message: Added new lobby art to the rotation!
@@ -3958,3 +3872,94 @@
   id: 1171
   time: '2025-03-17T12:24:31.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3253
+- author: sowelipililimute
+  changes:
+  - message: Added the ability to triage patients and to indicate that you're working
+      on them with health analyzers/the MedTek PDA, which is reflected on medical
+      HUDs.
+    type: Add
+  id: 1172
+  time: '2025-03-18T00:24:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3149
+- author: deltanedas
+  changes:
+  - message: Fixed not being able to remove/insert posibrains from IPC torsos.
+    type: Fix
+  id: 1173
+  time: '2025-03-18T00:28:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3264
+- author: Radezolid
+  changes:
+  - message: Security winter coats are now able to hold weaponry in the suit storage
+      slot again.
+    type: Fix
+  id: 1174
+  time: '2025-03-18T00:32:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3263
+- author: sowelipililimute
+  changes:
+  - message: SmartFridges are now implemented. You can store large amounts of chemicals
+      and plants within them for people to take.
+    type: Add
+  id: 1175
+  time: '2025-03-18T12:52:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3207
+- author: deltanedas
+  changes:
+  - message: Fixed surgery dealing damage to dead people.
+    type: Fix
+  id: 1176
+  time: '2025-03-19T00:25:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3271
+- author: JohnOakman
+  changes:
+  - message: You can now Import/Export programs in the autodoc!
+    type: Add
+  - message: Autodoc speed set to 1 instead of 0.5! (actually useful now)
+    type: Tweak
+  id: 1177
+  time: '2025-03-19T00:51:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3269
+- author: deltanedas
+  changes:
+  - message: Enabled suit storage of guns and air tanks for all outer clothing.
+    type: Add
+  id: 1178
+  time: '2025-03-19T01:25:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3265
+- author: deltanedas
+  changes:
+  - message: Syndie and omega soap now clean dirt from surgical tools twice as fast.
+    type: Tweak
+  id: 1179
+  time: '2025-03-19T01:28:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3273
+- author: deltanedas
+  changes:
+  - message: Fixed not being able to clean autodocs with soap.
+    type: Fix
+  id: 1180
+  time: '2025-03-19T01:31:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3272
+- author: Lyndomen
+  changes:
+  - message: Psionic Nullifier helmet now available for purchase in the uplink catalog;
+      a psionic proof hardsuit helmet
+    type: Add
+  id: 1181
+  time: '2025-03-19T01:43:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3259
+- author: Lyndomen
+  changes:
+  - message: Champagne and Cryptobiolin are less likely to obliterate your liver
+    type: Tweak
+  id: 1182
+  time: '2025-03-19T02:33:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3268
+- author: nkokic
+  changes:
+  - message: Added TEG parts in cargo computer.
+    type: Add
+  id: 1183
+  time: '2025-03-19T12:01:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3245
