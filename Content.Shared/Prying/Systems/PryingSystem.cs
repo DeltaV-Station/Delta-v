@@ -103,6 +103,9 @@ public sealed class PryingSystem : EntitySystem
         return StartPry(target, user, null, modifier, out id);
     }
 
+    /// <summary>
+    /// DeltaV - Add tool field
+    /// </summary>
     /// <param name="tool">DeltaV - The tool uid if one is being used.</param>
     private bool CanPry(EntityUid target, EntityUid user, out string? message, PryingComponent? comp = null, PryUnpoweredComponent? unpoweredComp = null, EntityUid? tool = null)
     {

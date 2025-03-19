@@ -1,8 +1,6 @@
-using Robust.Shared.GameStates;
-
 namespace Content.Server._DV.Tools;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class PryingRequiresPowerComponent : Component
 {
     [DataField]
