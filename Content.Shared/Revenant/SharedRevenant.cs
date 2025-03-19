@@ -46,6 +46,10 @@ public sealed partial class RevenantShopActionEvent : InstantActionEvent
 {
 }
 
+public sealed partial class RevenantHauntActionEvent : InstantActionEvent // Imp
+{
+}
+
 public sealed partial class RevenantDefileActionEvent : InstantActionEvent
 {
 }
@@ -61,6 +65,34 @@ public sealed partial class RevenantBlightActionEvent : InstantActionEvent
 public sealed partial class RevenantMalfunctionActionEvent : InstantActionEvent
 {
 }
+
+public sealed partial class RevenantBloodWritingEvent : InstantActionEvent // Begin Imp Changes
+{
+}
+
+public sealed partial class RevenantAnimateEvent : EntityTargetActionEvent
+{
+}
+
+[Serializable, NetSerializable]
+public sealed partial class RevenantHauntWitnessEvent : EntityEventArgs
+{
+    public HashSet<NetEntity> Witnesses = new();
+
+    public RevenantHauntWitnessEvent(HashSet<NetEntity> witnesses)
+    {
+        Witnesses = witnesses;
+    }
+
+    public RevenantHauntWitnessEvent() : this(new())
+    {
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed partial class ExorciseRevenantDoAfterEvent : SimpleDoAfterEvent
+{
+} // End Imp Changes
 
 
 [NetSerializable, Serializable]

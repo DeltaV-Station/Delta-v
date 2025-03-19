@@ -1,5 +1,52 @@
 - type: entity
-  parent: ClothingOuterWinterCoat
+  abstract: true
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing]
+  id: ClothingOuterArmoredWinterCoat
+  components:
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Item
+    size: Normal
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.75
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  abstract: true
+  parent: ClothingOuterArmoredWinterCoat
+  id: ClothingOuterArmoredWinterCoatToggleable
+  components:
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodWinterDefault
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+
+- type: entity
+  parent: ClothingOuterArmoredWinterCoat
   id: ClothingOuterWinterCCWarden
   name: central command's armored winter coat
   description: A tough, utilitarian coat designed for the wardens of Central Command. Reinforced kevlar plating and high quality fur allow the user to look stylish while staying protected.
@@ -15,7 +62,6 @@
         Slash: 0.7
         Piercing: 0.4 #Stronger than the warden's armored jacket, because shenanigans and CC spends alot of money.
         Heat: 0.75
-  - type: AllowSuitStorage
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -40,7 +86,7 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/denim_jacket.rsi
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: ClothingOuterArmoredWinterCoat
   id: ClothingOuterStasecSweater
   name: station security sweater
   description: A thick synthetic sweater with reinforced shoulders and elbows, enough to warm even the harshest security officer's cold heart.
@@ -49,17 +95,9 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/stasecsweater.rsi
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/WinterCoats/stasecsweater.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.75
-  - type: AllowSuitStorage
 
 - type: entity
-  parent: ClothingOuterStasecSweater
+  parent: ClothingOuterArmoredWinterCoat
   id: ClothingOuterCoatStasec
   name: station security coat
   description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards.
@@ -70,7 +108,7 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/staseccoat.rsi
 
 - type: entity
-  parent: ClothingOuterStasecSweater
+  parent: ClothingOuterArmoredWinterCoat
   id: ClothingOuterCoatStasecHoS
   name: head of security's coat
   description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is adorned with gold trim.
@@ -81,7 +119,7 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/hoscoat.rsi
 
 - type: entity
-  parent: ClothingOuterStasecSweater
+  parent: ClothingOuterArmoredWinterCoat
   id: ClothingOuterCoatStasecWarden
   name: warden's coat
   description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version features ice-white trim.
@@ -92,7 +130,7 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/armourercoat.rsi
 
 - type: entity
-  parent: ClothingOuterStasecSweater
+  parent: ClothingOuterArmoredWinterCoat
   id: ClothingOuterCoatStasecDet
   name: detective's coat
   description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is detective plum.
@@ -103,7 +141,7 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/detcoat.rsi
 
 - type: entity
-  parent: ClothingOuterStasecSweater
+  parent: ClothingOuterArmoredWinterCoat
   id: ClothingOuterCoatStasecCorpsman
   name: corpsman's coat
   description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is corpsman blue.

@@ -25,6 +25,10 @@ using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Targeting;
 using System.Linq;
 
+// DeltaV - Medical Records
+using Content.Server._DV.MedicalRecords;
+using Content.Shared._DV.MedicalRecords;
+
 namespace Content.Server.Medical;
 
 public sealed class HealthAnalyzerSystem : EntitySystem
@@ -39,6 +43,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly MedicalRecordsSystem _medicalRecords = default!;
 
     public override void Initialize()
     {
@@ -51,6 +56,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         Subs.BuiEvents<HealthAnalyzerComponent>(HealthAnalyzerUiKey.Key, subs =>
         {
             subs.Event<HealthAnalyzerPartMessage>(OnHealthAnalyzerPartSelected);
+            subs.Event<HealthAnalyzerTriageStatusMessage>(OnHealthAnalyzerTriageStatusSelected);
+            subs.Event<HealthAnalyzerTriageClaimMessage>(OnHealthAnalyzerTriageClaimSelected);
         });
         // Shitmed Change End
     }
@@ -132,6 +139,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         OpenUserInterface(args.User, uid);
         BeginAnalyzingEntity(uid, args.Target.Value);
+        uid.Comp.StationRecordKey = _medicalRecords.GetMedicalRecordsKey(args.Target.Value); // DeltaV - Medical Records
         args.Handled = true;
     }
 
@@ -226,6 +234,24 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     }
     // Shitmed Change End
 
+    // Begin DeltaV - Medical Records
+    private void OnHealthAnalyzerTriageStatusSelected(Entity<HealthAnalyzerComponent> healthAnalyzer, ref HealthAnalyzerTriageStatusMessage args)
+    {
+        if (healthAnalyzer.Comp.StationRecordKey is not {} key)
+            return;
+
+        _medicalRecords.SetPatientStatus(key, args.TriageStatus);
+    }
+
+    private void OnHealthAnalyzerTriageClaimSelected(Entity<HealthAnalyzerComponent> healthAnalyzer, ref HealthAnalyzerTriageClaimMessage args)
+    {
+        if (healthAnalyzer.Comp.StationRecordKey is not {} key)
+            return;
+
+        _medicalRecords.ClaimPatient(key, args.Actor);
+    }
+    // End DeltaV - Medical Records
+
     /// <summary>
     /// Send an update for the target to the healthAnalyzer
     /// </summary>
@@ -276,6 +302,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             unrevivable,
             // Shitmed Change
             body,
+            _medicalRecords.GetMedicalRecords(target), // DeltaV - Medical Records
             part != null ? GetNetEntity(part) : null
         ));
     }
