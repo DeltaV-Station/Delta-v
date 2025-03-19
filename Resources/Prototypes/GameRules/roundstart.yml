@@ -401,10 +401,10 @@
     # DeltaV start
     timeKeyPoints:
       - 0, 15
-      - 30, 10
-      - 60, 7
-      - 90, 5
-      - 120, 3
+      - 15, 8
+      - 40, 4
+      - 80, 2
+      - 90, 8
     timeDeviation: 1
     # DeltaV End
     scheduledGameRules: !type:NestedSelector
