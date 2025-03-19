@@ -251,3 +251,13 @@
     - id: RubberStampTrader
     - id: RubberStampWarden
     - id: RubberStampGreytide # a disturbance in the rising grey water.
+
+- type: entity
+  parent: ClosetWallOrange
+  id: ClosetWallOrangeFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillPrisonerDeltaV

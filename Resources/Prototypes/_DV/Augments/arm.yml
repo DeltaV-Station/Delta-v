@@ -1,0 +1,241 @@
+- type: entity
+  parent: BaseAugment
+  id: AugmentBaseArm
+  name: base arm augment
+  abstract: true
+  components:
+  - type: Organ
+    slotId: armImplant
+  - type: AugmentArm
+
+- type: entity
+  parent: ActionOpenAugmentInterface
+  id: ActionOpenToolsPanel
+  name: Open tools panel
+  description: Access the tools implanted within you
+  components:
+  - type: InstantAction
+    icon: { sprite: Clothing/Belt/utility.rsi, state: icon }
+
+- type: entity
+  parent: AugmentBaseArm
+  id: AugmentBaseToolPanel
+  name: base tool panel augment
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/arm.rsi
+    state: base
+  - type: Storage
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,9,1
+  - type: Item
+    size: Ginormous
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: AugmentToolPanel
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.AugmentToolPanelUiKey.Key:
+        type: AugmentToolPanelMenuBoundUserInterface
+        interactionRange: 0
+  - type: AugmentActivatableUI
+    key: enum.AugmentToolPanelUiKey.Key
+    openAction: ActionOpenToolsPanel
+  - type: AugmentAction
+  - type: Construction
+    graph: CreateToolsPanel
+
+- type: entity
+  parent: BaseElectronics
+  id: AugmentBaseElectronics
+  abstract: true
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 100
+      Steel: 100
+    chemicalComposition:
+      Silicon: 20
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: mainboard
+
+- type: entity
+  parent: AugmentBaseElectronics
+  id: AugmentUtilityPanelElectronics
+  name: utility tools panel electronics
+  description: An electronics board that programs a tool panel to hold a specific type of item. This one holds utility tools.
+  components:
+  - type: Item
+    storedRotation: 0
+  - type: Tag
+    tags: [ AugmentToolBelt ]
+
+- type: entity
+  parent: AugmentBaseElectronics
+  id: AugmentBotanyPanelElectronics
+  name: botany tools panel electronics
+  description: An electronics board that programs a tool panel to hold a specific type of item. This one holds botanical tools.
+  components:
+  - type: Item
+    storedRotation: 0
+  - type: Tag
+    tags: [ AugmentBotanyToolBelt ]
+
+- type: entity
+  parent: AugmentBaseElectronics
+  id: AugmentSurgeryPanelElectronics
+  name: surgery tools panel electronics
+  description: An electronics board that programs a tool panel to hold a specific type of item. This one holds surgical tools.
+  components:
+  - type: Item
+    storedRotation: 0
+  - type: Tag
+    tags: [ AugmentSurgeryToolBelt ]
+
+- type: entity
+  parent: AugmentBaseElectronics
+  id: AugmentPaperworkPanelElectronics
+  name: paperwork tools panel electronics
+  description: An electronics board that programs a tool panel to hold a specific type of item. This one holds paperwork tools.
+  components:
+  - type: Item
+    storedRotation: 0
+  - type: Tag
+    tags: [ AugmentPaperworkToolBelt ]
+
+- type: entity
+  parent: BaseItem
+  id: BaseIncompleteAugmentToolPanel
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/arm.rsi
+  - type: Item
+    size: Ginormous
+  - type: Construction
+    graph: CreateToolsPanel
+
+- type: entity
+  parent: BaseIncompleteAugmentToolPanel
+  id: AugmentToolPanelCasing
+  name: tools panel augment casing
+  description: Can be implanted into a body to provide access to specific tools. This one is incomplete.
+  components:
+  - type: Sprite
+    state: base
+  - type: Construction
+    node: casing
+  - type: Tag
+    tags: [ AugmentToolPanelCasing ]
+
+- type: entity
+  parent: BaseIncompleteAugmentToolPanel
+  id: AugmentToolPanelCasingCables
+  name: tools panel augment casing with cables
+  description: Can be implanted into a body to provide access to specific tools. This one is incomplete.
+  components:
+  - type: Sprite
+    state: base_cables
+  - type: Construction
+    node: cables
+
+- type: entity
+  parent: AugmentBaseToolPanel
+  id: AugmentToolsPanel
+  name: tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold tools.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: Storage
+    whitelist:
+      tags:
+      - Wirecutter
+      - Crowbar
+      - Screwdriver
+      - Wrench
+      - GeigerCounter
+      - Powerdrill
+      - JawsOfLife
+      - HolofanProjector
+      - Multitool
+      - AppraisalTool
+      components:
+      - StationMap
+      - SprayPainter
+      - NetworkConfigurator
+      - RCD
+      - RCDAmmo
+      - Welder
+      - PowerCell
+      - Geiger
+      - TrayScanner
+      - GasAnalyzer
+  - type: Construction
+    node: "utility tools panel"
+
+- type: entity
+  parent: AugmentBaseToolPanel
+  id: AugmentBotanyPanel
+  name: botanical tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold botanical tools.
+  components:
+  - type: Sprite
+    state: botany
+  - type: Storage
+    whitelist:
+      tags:
+      - PlantSampleTaker
+      - BotanyShovel
+      - BotanyHoe
+      - BotanyHatchet
+      - Dropper
+      components:
+      - HandLabeler
+  - type: Construction
+    node: "botany tools panel"
+
+- type: entity
+  parent: AugmentBaseToolPanel
+  id: AugmentPaperworkPanel
+  name: paperwork tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold paperwork tools.
+  components:
+  - type: Sprite
+    state: paperwork
+  - type: Storage
+    whitelist:
+      tags:
+      - Folder
+      - HandLabeler
+      components:
+      - Stamp
+      - TapeRecorder
+  - type: Construction
+    node: "paperwork tools panel"
+
+- type: entity
+  parent: AugmentBaseToolPanel
+  id: AugmentSurgicalPanel
+  name: surgical tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold surgical tools.
+  components:
+  - type: Sprite
+    state: surgical
+  - type: Storage
+    whitelist:
+      requireAll: true
+      tags:
+      - SurgeryTool
+      components:
+      - SurgeryTool
+  - type: Construction
+    node: "surgery tools panel"
