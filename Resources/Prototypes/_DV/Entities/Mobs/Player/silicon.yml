@@ -6,14 +6,16 @@
   - type: ContainerFill
     containers:
       borg_brain:
-      - MMIFilled
+      - PositronicBrain
+      borg_id_chip:
+      - IdChipBorgAA
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
   - type: RandomMetadata
-    nameSegments: [names_borg]
+    nameSegments: [NamesBorg]
 
 - type: entity
   parent: BorgChassisSecurity
@@ -23,14 +25,16 @@
   - type: ContainerFill
     containers:
       borg_brain:
-      - MMIFilled
+      - PositronicBrain
+      borg_id_chip:
+      - IdChipBorgAA
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
   - type: RandomMetadata
-    nameSegments: [names_borg] # TODO: Make good names, this is a stupid list.
+    nameSegments: [NamesBorg] # TODO: Make good names, this is a stupid list.
 
 - type: entity
   id: SyndicateCircuitBoard

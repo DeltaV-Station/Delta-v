@@ -52,12 +52,6 @@ uplink-dead-mans-signaller-desc = A device that if armed, will send a signal to 
 uplink-chainsmoker-bundle-name = Chainsmoker Bundle.
 uplink-chainsmoker-bundle-desc = A Carton of 6 Packs of Interdyne Herbals, plus a weaponized flippo that turns welding fuel into incendiary shots.
 
-uplink-hardsuit-commander-syndie-name = Commander's Hardsuit
-uplink-hardsuit-commander-syndie-desc = The premiere blood-red hardsuit, with improved mobility and superior protection. Limit of 1.
-
-uplink-hardsuit-agent-syndie-name = Agent's Hardsuit
-uplink-hardsuit-agent-syndie-desc = The iconic blood-white hardsuit, painted with patterns specifically designed to make you a less appealing target. Limit of 1.
-
 uplink-paperwork-hater-name = "I Hate Paperwork" Stamp
 uplink-paperwork-hater-desc = For the seasoned paperwork hater. A stamp with an electric cigarette lighter embedded into it. Will Ignite any paper stamped with it.
 
