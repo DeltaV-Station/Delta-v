@@ -42,7 +42,9 @@
   - PowerCellHigh
   - TurboItemRechargerCircuitboard
   - SMESAdvancedMachineCircuitboard
-
+  technologyPrerequisites: # DeltaV: added prerequesite
+  - PowerGeneration
+- 
 - type: technology
   id: MechanicalCompression
   name: research-technology-mechanical-compression
@@ -125,7 +127,9 @@
   - RipleyCentralElectronics
   - RipleyPeripheralsElectronics
   - MechEquipmentGrabber
-
+  technologyPrerequisites: # DeltaV: added prerequesite
+  - CritterMechs
+- 
 # Tier 2
 
 - type: technology
@@ -190,6 +194,9 @@
     - OreBagOfHolding
     - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
+    technologyPrerequisites: # DeltaV: added prerequesite
+    - SalvageEquipment
+    - Hydroponics
 
 # Tier 3
 
@@ -206,6 +213,8 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
+  technologyPrerequisites: # DeltaV: added prerequesite
+  - BluespaceChemistry
 
 - type: technology
   id: PortableFission
