@@ -1,7 +1,7 @@
 - type: entity
-  name: basic medicine bottle box
-  parent: BoxCardboard
   id: BoxBottleMedicineBasic
+  parent: BoxCardboard
+  name: basic medicine bottle box
   description: A box full of bottles with medicine.
   components:
   - type: StorageFill
@@ -21,10 +21,9 @@
       - state: bottle
 
 - type: entity
-  name: advanced medicine bottle box
-  parent: BoxCardboard
   id: BoxBottleMedicineAdvanced
-  description: A box full of bottles with medicine.
+  parent: BoxBottleMedicineBasic
+  name: advanced medicine bottle box
   components:
   - type: StorageFill
     contents:
@@ -32,7 +31,3 @@
         amount: 7
       - id: EphedrineChemistryBottle
         amount: 2
-  - type: Sprite
-    layers:
-      - state: box
-      - state: bottle
