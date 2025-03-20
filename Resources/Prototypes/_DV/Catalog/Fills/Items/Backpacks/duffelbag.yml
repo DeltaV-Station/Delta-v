@@ -15,3 +15,15 @@
     - id: WeaponProtoKineticAccelerator
     - id: SurvivalKnife
     - id: FlashlightSeclite
+
+- type: entity
+  parent: ClothingBackpackDuffelMedical
+  id: ClothingBackpackDuffelRecruiterInterdyne
+  suffix: Interdyne, Uniform
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskInterdyneChemistry
+    - id: ClothingEyesGlassesChemicalInterdyne
+    - id: ClothingOuterInterdyneChemistrySuit
+    - id: ClothingUniformInterdyneChemist
