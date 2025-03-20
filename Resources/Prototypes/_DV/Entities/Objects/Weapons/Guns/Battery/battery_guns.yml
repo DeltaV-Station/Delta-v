@@ -5,7 +5,7 @@
   description: "A basic hybrid energy gun with two settings: disable and kill."
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/energygun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -84,15 +84,15 @@
     startingCharge: 1000
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
+    fireCost: 25
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 50
+      fireCost: 25
       name: disable
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 100
+      fireCost: 50
       name: lethal
       state: lethal
     # - proto: BulletEnergyGunIon
@@ -135,6 +135,9 @@
     - state: mode-disabler
       shader: unshaded
       map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Battery/mini_energygun.rsi
   - type: Gun
@@ -461,3 +464,12 @@
     maxCharge: 800
     startingCharge: 800
   - type: GunRequiresWield
+
+- type: entity
+  parent: WeaponDisabler
+  id: WeaponDisablerSelfCharge
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one recharges
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50

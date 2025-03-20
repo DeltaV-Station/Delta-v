@@ -1,3 +1,31 @@
+## Static
+
+- type: latheRecipePack
+  id: RoboticsStaticDeltaV
+  recipes:
+  - Oilpack
+  - IdChipBasic
+
+- type: latheRecipePack
+  id: RoboticsEmagStatic
+  recipes:
+  - IdChipSyndie
+
+- type: latheRecipePack
+  id: BorgModulesSyndicateStatic
+  recipes:
+  - BorgModuleSyndicateWeapon
+  - BorgModuleRadioJammerRecharging
+  - BorgModuleMartyr
+  - BorgModuleBlades
+  - BorgModuleCHIMP
+  - BorgModuleSyndicateRadio
+  - BorgModuleCrewMonitor
+  - SyndicateNeuroling
+  - BorgModuleOperative
+  - BorgModuleChameleonProjector
+  - IdChipRoboNeuroticist
+
 ## Dynamic
 
 - type: latheRecipePack
@@ -10,8 +38,19 @@
   recipes:
   - BorgModuleSecurityChase
   - BorgModuleSecurityEscalate
+  - BorgModuleSecurityBastion
 
 - type: latheRecipePack
-  id: RoboticsStaticDeltaV
+  id: PowerAugments
   recipes:
-  - Oilpack
+  - AugmentPowerCellSlotCasing
+  - AugmentRechargerCasing
+
+- type: latheRecipePack
+  id: ToolAugments
+  recipes:
+  - AugmentToolPanelCasing
+  - AugmentUtilityPanelElectronics
+  - AugmentBotanyPanelElectronics
+  - AugmentSurgeryPanelElectronics
+  - AugmentPaperworkPanelElectronics

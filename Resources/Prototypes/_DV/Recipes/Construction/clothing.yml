@@ -52,3 +52,14 @@
   description: A pair of corpsman glasses with a prescription glass glued on top.
   icon: { sprite: _DV/Clothing/Eyes/Glasses/presccorpsglasses.rsi, state: icon }
   objectType: Item
+  
+- type: construction
+  name: sharkminnow shoes
+  id: SharkminnowShoes
+  graph: SharkminnowShoes
+  startNode: start
+  targetNode: sharkminnowShoes
+  category: construction-category-clothing
+  description: Tough shoes, the chitin flexes slightly with each step.
+  icon: { sprite: _DV/Clothing/Shoes/Misc/sharkminnow.rsi, state: icon }
+  objectType: Item
