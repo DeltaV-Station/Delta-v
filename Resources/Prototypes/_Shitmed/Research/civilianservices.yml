@@ -8,12 +8,14 @@
   icon:
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
     state: e-scalpel-on
-  discipline: CivilianServices
+  discipline: Biochemical # DeltaV
   tier: 2
   cost: 10000
   recipeUnlocks:
-  - BorgModuleAdvancedTreatment
-  - BorgModuleDefibrillator
+  # Begin DeltaV Removals - moved back to its original tech / made default module
+  #- BorgModuleAdvancedTreatment
+  #- BorgModuleDefibrillator
+  # End DeltaV Removals
   - EnergyScalpel
   - EnergyCautery
   - AdvancedRetractor
@@ -25,7 +27,7 @@
   icon:
     sprite: _Shitmed/Clothing/Hands/Gloves/mechanical_surgery_gloves.rsi
     state: icon
-  discipline: CivilianServices
+  discipline: Biochemical # DeltaV
   tier: 2
   cost: 10000
   recipeUnlocks:
@@ -38,7 +40,7 @@
   icon:
     sprite: _Shitmed/Mobs/Species/IPC/organs.rsi
     state: eyes
-  discipline: CivilianServices
+  discipline: Biochemical # DeltaV
   tier: 2
   cost: 15000
   recipeUnlocks:
@@ -56,7 +58,7 @@
   icon:
     sprite: _Shitmed/Structures/Machines/autodoc.rsi
     state: idle
-  discipline: CivilianServices
+  discipline: Biochemical # DeltaV
   tier: 2
   cost: 10000
   recipeUnlocks:
@@ -71,7 +73,7 @@
 #  icon:
 #    sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
 #    state: omnimed
-#  discipline: CivilianServices
+#  discipline: Biochemical # DeltaV
 #  tier: 3
 #  cost: 10000
 #  recipeUnlocks:
