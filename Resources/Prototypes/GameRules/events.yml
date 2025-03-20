@@ -138,7 +138,7 @@
   - type: StationEvent
     startAnnouncement: station-event-bureaucratic-error-announcement
     startAudio: #Delta-V: Previously unheard announcer line for DeltaV's custom announcer
-      path: /Audio/Announcements/bureaucratic_error.ogg 
+      path: /Audio/Announcements/bureaucratic_error.ogg
     minimumPlayers: 25
     weight: 5
     duration: 1
@@ -258,8 +258,8 @@
         - DeathAcidifierImplant
       - type: RandomMetadata
         nameSegments:
-        - names_ninja_title
-        - names_ninja
+        - NamesNinjaTitle
+        - NamesNinja
       mindRoles:
       - MindRoleNinja
 
@@ -268,7 +268,7 @@
   id: RevenantSpawn
   components:
   - type: StationEvent
-    weight: 1 # DeltaV - was 7.5, lowered because of GlimmerRevenantSpawn event
+    weight: 2 # DeltaV - was 7.5, lowered because of GlimmerRevenantSpawn event
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
@@ -310,8 +310,8 @@
         - Wizard
       - type: RandomMetadata
         nameSegments:
-        - names_wizard_first
-        - names_wizard_last
+        - NamesWizardFirst
+        - NamesWizardLast
       mindRoles:
       - MindRoleWizard
 
@@ -561,8 +561,8 @@
       - type: TargetObjectiveImmune # DeltaV - Nukies are no longer targets of kill objectives, this includes lone ops.
       - type: RandomMetadata
         nameSegments:
-        - SyndicateNamesPrefix
-        - SyndicateNamesNormal
+        - NamesSyndicatePrefix
+        - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
         - Syndicate

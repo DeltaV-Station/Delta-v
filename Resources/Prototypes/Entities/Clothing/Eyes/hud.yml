@@ -14,6 +14,7 @@
   components:
   - type: ShowHealthBars
   - type: ShowHealthIcons
+  - type: ShowTriageIcons # DeltaV - Medical Records
 
 - type: entity
   parent: [ ClothingEyesBase, BaseToggleClothing ] # DeltaV - Added BaseToggleClothing

@@ -86,8 +86,8 @@
   components:
   - type: RandomMetadata #this generates the random operation name cuz it's cool.
     nameSegments:
-    - operationPrefix
-    - operationSuffix
+    - NamesOperationPrefix
+    - NamesOperationSuffix
   - type: NukeopsRule
   - type: TeleportDiskRule # DeltaV - syndie fulton disk interaction
   - type: RuleGrids
@@ -125,7 +125,7 @@
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-commander
-        - SyndicateNamesElite
+        - NamesSyndicateElite
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -143,7 +143,7 @@
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-agent
-        - SyndicateNamesNormal
+        - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -163,7 +163,7 @@
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-operator
-        - SyndicateNamesNormal
+        - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -197,6 +197,7 @@
   - type: TraitorRule # DeltaV - roundstart traitors have less TC as they have time to complete more contracts
     startingBalance: 10
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
       max: 8
@@ -230,6 +231,7 @@
     minPlayers: 15
   - type: RevolutionaryRule
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ HeadRev ]
       max: 2 # DeltaV - Was 3
@@ -302,8 +304,8 @@
         - Wizard
       - type: RandomMetadata
         nameSegments:
-        - names_wizard_first
-        - names_wizard_last
+        - NamesWizardFirst
+        - NamesWizardLast
       mindRoles:
       - MindRoleWizard
 
@@ -325,6 +327,7 @@
     - type: IncurableZombie
     endedPopup: zombie-bioterrorist-romerol-active
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ InitialInfected ]
       max: 6
