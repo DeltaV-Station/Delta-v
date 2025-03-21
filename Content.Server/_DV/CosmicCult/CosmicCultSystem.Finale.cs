@@ -1,7 +1,7 @@
-using Content.Server._Impstation.CosmicCult.Components;
+using Content.Server._DV.CosmicCult.Components;
 using Content.Shared._Impstation.Cosmiccult;
-using Content.Shared._Impstation.CosmicCult;
-using Content.Shared._Impstation.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult;
+using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Audio;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
@@ -9,7 +9,7 @@ using Content.Shared.Interaction;
 using Content.Shared.UserInterface;
 using Robust.Shared.Utility;
 
-namespace Content.Server._Impstation.CosmicCult;
+namespace Content.Server._DV.CosmicCult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {
@@ -77,9 +77,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
             comp.BufferTimer = _timing.CurTime + comp.BufferRemainingTime;
             comp.SelectedSong = comp.BufferMusic;
             _sound.DispatchStationEventMusic(uid, comp.SelectedSong, StationEventMusicType.CosmicCult);
-            _announcer.SendAnnouncementMessage(_announcer.GetAnnouncementId("SpawnAnnounceCaptain"),
+
+            _chatSystem.DispatchStationAnnouncement(uid,
             Loc.GetString("cosmiccult-finale-location", ("location", indicatedLocation)),
-            null,
+            null, false, null,
             Color.FromHex("#cae8e8"));
 
             uid.Comp.CurrentState = FinaleState.ActiveBuffer;
@@ -91,9 +92,9 @@ public sealed partial class CosmicCultSystem : EntitySystem
             comp.FinaleTimer = _timing.CurTime + comp.FinaleRemainingTime;
             comp.SelectedSong = comp.FinaleMusic;
             _sound.DispatchStationEventMusic(uid, comp.SelectedSong, StationEventMusicType.CosmicCult);
-            _announcer.SendAnnouncementMessage(_announcer.GetAnnouncementId("SpawnAnnounceCaptain"),
+            _chatSystem.DispatchStationAnnouncement(uid,
             Loc.GetString("cosmiccult-finale-location", ("location", indicatedLocation)),
-            null,
+            null, false, null,
             Color.FromHex("#cae8e8"));
 
             uid.Comp.CurrentState = FinaleState.ActiveFinale;

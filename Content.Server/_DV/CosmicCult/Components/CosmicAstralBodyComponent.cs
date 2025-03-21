@@ -1,4 +1,4 @@
-namespace Content.Server._Impstation.CosmicCult.Components;
+namespace Content.Server._DV.CosmicCult.Components;
 
 [RegisterComponent]
 [AutoGenerateComponentPause]

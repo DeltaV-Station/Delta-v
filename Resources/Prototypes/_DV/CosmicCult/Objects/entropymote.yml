@@ -16,14 +16,14 @@
     - mote_2
     - mote_3
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/entropymote.rsi
+    sprite: _DV/CosmicCult/Objects/entropymote.rsi
     state: mote
     layers:
     - state: mote
       map: ["base"]
   - type: Appearance
   - type: Item
-    sprite: _Impstation/CosmicCult/Objects/entropymote.rsi
+    sprite: _DV/CosmicCult/Objects/entropymote.rsi
     size: Small
   - type: CosmicEntropyMote
   - type: Tag
@@ -85,6 +85,6 @@
 - type: stack
   id: Entropy
   name: mote of entropy
-  icon: { sprite: _Impstation/CosmicCult/Objects/entropymote.rsi, state: mote }
+  icon: { sprite: _DV/CosmicCult/Objects/entropymote.rsi, state: mote }
   spawn: MaterialCosmicCultEntropy1
   maxCount: 6

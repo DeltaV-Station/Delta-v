@@ -1,16 +1,15 @@
 using Content.Server.Antag;
 using Content.Server.Mind;
 using Content.Server.GameTicking.Rules;
-using Content.Server._Impstation.CosmicCult.Components;
+using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Roles;
-using Content.Shared._Impstation.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Content.Server.Radio.Components;
 using Robust.Shared.Player;
 using Content.Server.EUI;
 using Robust.Shared.Random;
-using Content.Server.Announcements.Systems;
 using Robust.Server.Audio;
 using Content.Shared.Coordinates;
 using Content.Shared.Parallax;
@@ -32,9 +31,9 @@ using Content.Server.GameTicking;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using System.Linq;
-using Content.Server._Impstation.CosmicCult.EntitySystems;
+using Content.Server._DV.CosmicCult.EntitySystems;
 using Content.Server.Shuttles.Systems;
-using Content.Shared._Impstation.CosmicCult.Components.Examine;
+using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Shared.Mind.Components;
 using Content.Shared.Body.Systems;
 using Content.Server.RoundEnd;
@@ -48,7 +47,7 @@ using Content.Server.Ghost;
 using Content.Server.Light.Components;
 using Content.Shared._Impstation.CCVar;
 using Content.Shared._Impstation.Cosmiccult;
-using Content.Shared._Impstation.CosmicCult.Prototypes;
+using Content.Shared._DV.CosmicCult.Prototypes;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid;
@@ -60,8 +59,9 @@ using Content.Server.Administration.Logs;
 using Content.Shared.Database;
 using Content.Server.CrewManifest;
 using Content.Shared.Alert;
+using Content.Server.Chat.Systems;
 
-namespace Content.Server._Impstation.CosmicCult;
+namespace Content.Server._DV.CosmicCult;
 
 /// <summary>
 /// Where all the main stuff for Cosmic Cultists happens.
@@ -70,11 +70,11 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly EuiManager _euiMan = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
-    [Dependency] private readonly AnnouncerSystem _announce = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -102,11 +102,11 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly CosmicCorruptingSystem _corrupting = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
 
-    private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_briefing.ogg");
-    private readonly SoundSpecifier _deconvertSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_deconvert.ogg");
-    private readonly SoundSpecifier _tier3Sound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/tier3.ogg");
-    private readonly SoundSpecifier _tier2Sound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/tier2.ogg");
-    private readonly SoundSpecifier _monumentAlert = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/tier_up.ogg");
+    private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/antag_cosmic_briefing.ogg");
+    private readonly SoundSpecifier _deconvertSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/antag_cosmic_deconvert.ogg");
+    private readonly SoundSpecifier _tier3Sound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/tier3.ogg");
+    private readonly SoundSpecifier _tier2Sound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/tier2.ogg");
+    private readonly SoundSpecifier _monumentAlert = new SoundPathSpecifier("/Audio/_DV/CosmicCult/tier_up.ogg");
     public Entity<MonumentComponent> MonumentInGame; // the monument in the current round.
     public EntityUid MonumentSlowZone; // the monument in the current round.
     public int CurrentTier; // current cult tier
@@ -442,8 +442,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
                     var sender = Loc.GetString("cosmiccult-announcement-sender");
                     var mapData = _map.GetMap(_transform.GetMapId(MonumentInGame.Owner.ToCoordinates()));
-                    _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier3-progress"), sender, Color.FromHex("#4cabb3"));
-                    _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier3-warning"), null, Color.FromHex("#cae8e8"));
+                    _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("cosmiccult-announce-tier3-progress"), null, false, null, Color.FromHex("#4cabb3"));
+                    _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("cosmiccult-announce-tier3-warning"), null, false, null, Color.FromHex("#cae8e8"));
                     _audio.PlayGlobal(_tier3Sound, Filter.Broadcast(), false, AudioParams.Default);
 
                     EnsureComp<ParallaxComponent>(mapData, out var parallax);
@@ -497,8 +497,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                     //do spooky effects
                     var sender = Loc.GetString("cosmiccult-announcement-sender");
                     var mapData = _map.GetMap(_transform.GetMapId(MonumentInGame.Owner.ToCoordinates()));
-                    _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier2-progress"), sender, Color.FromHex("#4cabb3"));
-                    _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier2-warning"), null, Color.FromHex("#cae8e8"));
+                    _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("cosmiccult-announce-tier2-progress"), null, false, null, Color.FromHex("#4cabb3"));
+                    _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("cosmiccult-announce-tier2-warning"), null, false, null, Color.FromHex("#cae8e8"));
                     _audio.PlayGlobal(_tier2Sound, Filter.Broadcast(), false, AudioParams.Default);
 
                     for (var i = 0; i < Convert.ToInt16(TotalCrew / 4); i++) // spawn # malign rifts equal to 25% of the playercount

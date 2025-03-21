@@ -1,5 +1,5 @@
 
-namespace Content.Server._Impstation.CosmicCult.Components;
+namespace Content.Server._DV.CosmicCult.Components;
 
 /// <summary>
 /// Objective condition that requires the player to be a rogue ascended and corrupt other players' minds.

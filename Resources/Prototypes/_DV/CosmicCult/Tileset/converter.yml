@@ -23,7 +23,7 @@
         hard: false
   - type: SpriteFade
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmicconstructpylon.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicconstructpylon.rsi
     layers:
       - state: base
       - state: base-overlay
@@ -57,7 +57,7 @@
     range: 3.5
     volume: -9
     sound:
-      path: /Audio/_Impstation/CosmicCult/god_ambient.ogg
+      path: /Audio/_DV/CosmicCult/god_ambient.ogg
   - type: CosmicMarkStructure
   - type: CosmicCorrupting
     corruptionReduction: 0.01
@@ -73,7 +73,7 @@
   suffix: Spawn, DO NOT MAP
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmicconstructpylon.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicconstructpylon.rsi
     layers:
       - state: spawnin
       - state: spawnin-overlay
@@ -95,7 +95,7 @@
   - type: Transform
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Impstation/CosmicCult/monument_spawn.ogg
+      path: /Audio/_DV/CosmicCult/monument_spawn.ogg
       params:
         volume: +8
         pitch: 0.8

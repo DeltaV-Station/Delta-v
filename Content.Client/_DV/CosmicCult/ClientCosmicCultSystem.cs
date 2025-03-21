@@ -1,10 +1,10 @@
-using Content.Shared._Impstation.CosmicCult.Components;
-using Content.Shared._Impstation.CosmicCult;
+using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
-using Content.Shared._Impstation.CosmicCult.Components.Examine;
+using Content.Shared._DV.CosmicCult.Components.Examine;
 using System.Numerics;
 using Timer = Robust.Shared.Timing.Timer;
 using Robust.Client.Audio;
@@ -12,14 +12,14 @@ using Robust.Shared.Audio;
 using Content.Client.Alerts;
 using Content.Client.UserInterface.Systems.Alerts.Controls;
 
-namespace Content.Client._Impstation.CosmicCult;
+namespace Content.Client._DV.CosmicCult;
 
 public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    private readonly ResPath _rsiPath = new("/Textures/_Impstation/CosmicCult/Effects/ability_siphonvfx.rsi");
-    private readonly SoundSpecifier _siphonSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_siphon.ogg");
+    private readonly ResPath _rsiPath = new("/Textures/_DV/CosmicCult/Effects/ability_siphonvfx.rsi");
+    private readonly SoundSpecifier _siphonSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_siphon.ogg");
     public override void Initialize()
     {
         base.Initialize();

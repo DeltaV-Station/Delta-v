@@ -1,7 +1,7 @@
 using Content.Shared.DoAfter;
 using Content.Shared.Damage;
-using Content.Shared._Impstation.CosmicCult.Components;
-using Content.Shared._Impstation.CosmicCult;
+using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Maps;
@@ -14,8 +14,8 @@ using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using Content.Shared.Mind.Components;
 using System.Collections.Immutable;
-using Content.Server._Impstation.CosmicCult.Components;
-using Content.Shared._Impstation.CosmicCult.Components.Examine;
+using Content.Server._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Server.Light.Components;
 using Content.Shared._Impstation.Cosmiccult;
 using Robust.Shared.Physics.Events;
@@ -31,7 +31,7 @@ using Timer = Robust.Shared.Timing.Timer;
 using Robust.Shared.Map;
 using Robust.Shared.Spawners;
 
-namespace Content.Server._Impstation.CosmicCult;
+namespace Content.Server._DV.CosmicCult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {

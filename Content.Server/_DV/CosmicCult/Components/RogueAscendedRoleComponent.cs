@@ -1,6 +1,6 @@
 using Content.Shared.Roles;
 
-namespace Content.Server._Impstation.CosmicCult.Components;
+namespace Content.Server._DV.CosmicCult.Components;
 
 /// <summary>
 ///     Added to mind role entities to tag that they are using the cosmic cult systems.

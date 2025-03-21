@@ -1,6 +1,6 @@
 ﻿using Content.Client.Eui;
 
-namespace Content.Client._Impstation.CosmicCult.UI;
+namespace Content.Client._DV.CosmicCult.UI;
 
 public sealed class CosmicDeconvertedEui : BaseEui
 {

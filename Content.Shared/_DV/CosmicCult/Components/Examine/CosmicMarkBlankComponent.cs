@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Impstation.CosmicCult.Components.Examine;
+namespace Content.Shared._DV.CosmicCult.Components.Examine;
 
 /// <summary>
 /// Marker component for targets under the effect of Shunt Subjectivity or Astral Projection.

@@ -1,4 +1,4 @@
-namespace Content.Shared._Impstation.CosmicCult.Components;
+namespace Content.Shared._DV.CosmicCult.Components;
 
 /// <summary>
 /// a marker component used as an extra flag for an event to toggle the monument preview.

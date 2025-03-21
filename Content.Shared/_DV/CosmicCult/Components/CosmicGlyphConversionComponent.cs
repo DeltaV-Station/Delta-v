@@ -1,6 +1,6 @@
 using Content.Shared.Damage;
 
-namespace Content.Shared._Impstation.CosmicCult.Components;
+namespace Content.Shared._DV.CosmicCult.Components;
 
 [RegisterComponent]
 public sealed partial class CosmicGlyphConversionComponent : Component

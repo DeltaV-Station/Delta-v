@@ -1,6 +1,6 @@
 using Content.Shared._Impstation.Cosmiccult;
-using Content.Shared._Impstation.CosmicCult.Components;
-using Content.Shared._Impstation.CosmicCult.Prototypes;
+using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Prototypes;
 using Content.Shared.Actions;
 using Content.Shared.Movement.Components;
 using Content.Shared.Nutrition.Components;
@@ -10,7 +10,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Impstation.CosmicCult;
+namespace Content.Shared._DV.CosmicCult;
 
 public sealed class SharedMonumentSystem : EntitySystem
 {
