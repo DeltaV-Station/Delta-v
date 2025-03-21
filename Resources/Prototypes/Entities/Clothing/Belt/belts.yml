@@ -273,6 +273,7 @@
         - SurgeryTool
         - Dropper
       components:
+        - Defibrillator # DeltaV - Add PortaFib to EMT belt
         - Hypospray
         - Injector
         - Pill
@@ -659,7 +660,7 @@
           tags:
           - Sidearm
         insertOnInteract: false
-  - type: Storage # Delta-V - Split Inventory
+  - type: Storage # DeltaV - Split Inventory
     grid:
     - 0,0,2,1
     - 4,0,7,1
@@ -687,7 +688,7 @@
     sprite: Clothing/Belt/mercwebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/mercwebbing.rsi
-  - type: Storage # Delta-V - Split Inventory
+  - type: Storage # DeltaV - Split Inventory
     grid:
     - 0,0,2,1
     - 4,0,7,1
@@ -702,7 +703,7 @@
     sprite: Clothing/Belt/salvagewebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/salvagewebbing.rsi
-  - type: Storage # Delta-V - Split Inventory, but same total size
+  - type: Storage # DeltaV - Split Inventory, but same total size
     grid:
     - 0,0,3,1
     - 5,0,8,1
@@ -719,7 +720,7 @@
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.5
-  - type: Storage # Delta-V - Split Inventory
+  - type: Storage # DeltaV - Split Inventory
     grid:
     - 0,0,2,1
     - 4,0,7,1
@@ -738,7 +739,7 @@
     size: Huge
   - type: ExplosionResistance
     damageCoefficient: 0.1
-  - type: Storage # Delta-V - Split Inventory
+  - type: Storage # DeltaV - Split Inventory
     grid:
     - 0,0,2,1
     - 4,0,7,1
