@@ -221,3 +221,24 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   fizziness: 0.4
+
+- type: reagent
+  id: LemonLimeBitters
+  name: reagent-name-lemon-lime-bitters
+  parent: BaseDrink
+  desc: reagent-desc-lemon-lime-bitters
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: lemonlimebitters
+  color: "#ffa37e"
+  metamorphicSprite:
+    sprite: _DV/Objects/Consumable/Drinks/lemonlimebitters.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  fizziness: 0.2
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2

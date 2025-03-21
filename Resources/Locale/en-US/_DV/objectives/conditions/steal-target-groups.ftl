@@ -5,6 +5,10 @@ steal-target-groups-x01 = x-01 multiphase energy gun
 steal-target-groups-notary-stamp = notary stamp
 steal-target-groups-silvia = silvia
 steal-target-groups-box-folder-rd-clipboard = research digi-board
-
+steal-target-groups-bible-mystagogue = book of mysteries
 steal-target-groups-recruiter-pen = recruiter's pen
 steal-target-groups-captains-cloak = captain's cloak
+steal-target-groups-engineering-techfab-circuitboard = engineering techfab's circuitboard
+steal-target-groups-logistics-techfab-circuitboard = logistics techfab's circuitboard
+steal-target-groups-service-techfab-circuitboard = service techfab's circuitboard
+steal-target-groups-epistemics-techfab-circuitboard = epistemics techfab's circuitboard

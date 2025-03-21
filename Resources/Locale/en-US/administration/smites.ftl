@@ -57,6 +57,7 @@ admin-smite-vomit-organs-name = Vomit Organs
 admin-smite-ghostkick-name = Ghost Kick
 admin-smite-nyanify-name = Cat Ears
 admin-smite-kill-sign-name = Kill Sign
+admin-smite-omni-accent-name = Omni-Accent
 
 ## Smite descriptions
 
@@ -99,6 +100,7 @@ admin-smite-garbage-can-description = Turn them into a garbage bin to emphasize 
 admin-smite-super-bonk-description = Slams them on every single table on the Station and beyond.
 admin-smite-super-bonk-lite-description= Slams them on every single table on the Station and beyond. Stops when the target is dead.
 admin-smite-super-slip-description = Slips them really, really hard.
+admin-smite-omni-accent-description = Makes the target speak with almost every accent available.
 
 ## Tricks descriptions
 

@@ -15,6 +15,7 @@
   - type: Tag
     tags:
     - Sheet
+    - BorgMaterial # DeltaV
   - type: Material
   - type: Damageable
     damageContainer: Inorganic
@@ -48,6 +49,13 @@
     solutions:
       glass:
         canReact: false
+  # EE - IPC Healing
+  - type: BlindHealing
+    damageContainers:
+      - Silicon
+      - HumanoidSilicon # DeltaV - IPCs need to see
+  - type: StackPrice
+    price: 2
 
 - type: entity
   parent: SheetGlassBase

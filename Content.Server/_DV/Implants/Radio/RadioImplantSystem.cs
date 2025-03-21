@@ -13,20 +13,22 @@ namespace Content.Server._DV.Implants.Radio;
 /// <inheritdoc />
 public sealed class RadioImplantSystem : SharedRadioImplantSystem
 {
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly RadioSystem _radioSystem = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly RadioSystem _radio = default!;
 
-    private EntityQuery<ActorComponent> _actorQuery;
+    private EntityQuery<ActorComponent> _actor;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _actor = GetEntityQuery<ActorComponent>();
+
         SubscribeLocalEvent<RadioImplantComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<RadioImplantComponent, EntInsertedIntoContainerMessage>(OnInsertEncryptionKey);
         SubscribeLocalEvent<RadioImplantComponent, EntRemovedFromContainerMessage>(OnRemoveEncryptionKey);
         SubscribeLocalEvent<RadioImplantComponent, RadioReceiveEvent>(OnRadioReceive);
         SubscribeLocalEvent<HasRadioImplantComponent, EntitySpokeEvent>(OnSpeak);
-        _actorQuery = GetEntityQuery<ActorComponent>();
     }
 
     /// <summary>
@@ -43,27 +45,29 @@ public sealed class RadioImplantSystem : SharedRadioImplantSystem
     private void OnSpeak(Entity<HasRadioImplantComponent> ent, ref EntitySpokeEvent args)
     {
         // not a radio message, or already handled by another radio
-        if (args.Channel is null)
+        if (args.Channel is not {} channel)
             return;
 
-        // does the implant have access to the channel the implantee is trying to speak on?
-        if (ent.Comp.Implant is {} implant
-            && TryComp<RadioImplantComponent>(implant, out var radioImplantComponent)
-            && radioImplantComponent.Channels.Contains(args.Channel.ID))
+        // does an implant have access to the channel the implantee is trying to speak on?
+        foreach (var implant in ent.Comp.Implants)
         {
-            _radioSystem.SendRadioMessage(ent, args.Message, args.Channel.ID, implant);
-            // prevent other radios they might be wearing from sending the message again
-            args.Channel = null;
+            if (TryComp<RadioImplantComponent>(implant, out var radioImplant) &&
+                radioImplant.Channels.Contains(channel.ID))
+            {
+                _radio.SendRadioMessage(ent, args.Message, channel.ID, implant);
+                // prevent other radios they might be wearing from sending the message again
+                args.Channel = null;
+            }
         }
     }
 
     /// <summary>
     /// Handles receiving radio messages and forwarding them to the implantee.
     /// </summary>
-    private void OnRadioReceive(EntityUid uid, RadioImplantComponent component, ref RadioReceiveEvent args)
+    private void OnRadioReceive(Entity<RadioImplantComponent> ent, ref RadioReceiveEvent args)
     {
-        if (_actorQuery.TryComp(component.Implantee, out var actorComponent))
-            _netManager.ServerSendMessage(args.ChatMsg, actorComponent.PlayerSession.Channel);
+        if (_actor.TryComp(ent.Comp.Implantee, out var actor))
+            _net.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
     }
 
     /// <summary>
@@ -74,12 +78,12 @@ public sealed class RadioImplantSystem : SharedRadioImplantSystem
         // check if the insertion is actually something getting inserted into the radio implant storage, since
         // this evt also fires when the radio implant is being inserted into a person.
         if (ent.Owner != args.Container.Owner
-            || !TryComp<EncryptionKeyComponent>(args.Entity, out var encryptionKeyComponent))
+            || !TryComp<EncryptionKeyComponent>(args.Entity, out var key))
             return;
 
         // copy over the radio channels that can be accessed
         ent.Comp.Channels.Clear();
-        foreach (var channel in encryptionKeyComponent.Channels)
+        foreach (var channel in key.Channels)
         {
             ent.Comp.Channels.Add(channel);
         }
@@ -99,6 +103,7 @@ public sealed class RadioImplantSystem : SharedRadioImplantSystem
             return;
 
         // clear the radio channels since there's no encryption key inserted anymore.
+        // if you ever make the storage have more than 1 key's space you will have to rebuild it instead
         ent.Comp.Channels.Clear();
         Dirty(ent);
         UpdateRadioReception(ent);
@@ -109,18 +114,17 @@ public sealed class RadioImplantSystem : SharedRadioImplantSystem
     /// </summary>
     private void UpdateRadioReception(Entity<RadioImplantComponent> ent)
     {
-        if (ent.Comp.Channels.Count != 0)
-        {
-            // we need to add this comp to actually receive radio events.
-            var channels = EnsureComp<ActiveRadioComponent>(ent).Channels;
-            foreach (var channel in ent.Comp.Channels)
-            {
-                channels.Add(channel);
-            }
-        }
-        else
+        if (ent.Comp.Channels.Count == 0)
         {
             RemComp<ActiveRadioComponent>(ent);
+            return;
+        }
+
+        // we need to add this comp to actually receive radio events.
+        var channels = EnsureComp<ActiveRadioComponent>(ent).Channels;
+        foreach (var channel in ent.Comp.Channels)
+        {
+            channels.Add(channel);
         }
     }
 }

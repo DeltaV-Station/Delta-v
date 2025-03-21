@@ -18,13 +18,20 @@
   sprite:
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     state: base
-    
+
 - type: stealTargetGroup
   id: BoxFolderRdClipboard
   name: steal-target-groups-box-folder-rd-clipboard
   sprite:
     sprite: _DV/Objects/Misc/rd_clipboard.rsi
     state: rd_clipboard
+
+- type: stealTargetGroup
+  id: BibleMystagogue
+  name: steal-target-groups-bible-mystagogue
+  sprite:
+    sprite: Nyanotrasen/Objects/Specific/Chapel/holylight.rsi
+    state: icon
 
 - type: stealTargetGroup
   id: RubberStampNotary
@@ -39,6 +46,41 @@
   sprite:
     sprite: _DV/Mobs/Pets/silvia.rsi
     state: silvia
+
+- type: stealTargetGroup
+  id: PlutoniumCore
+  name: steal-target-groups-plutonium-core
+  sprite:
+    sprite: _DV/Objects/Misc/plutonium_core.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: EngineeringTechFabCircuitboard
+  name: steal-target-groups-engineering-techfab-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: engineering
+
+- type: stealTargetGroup
+  id: LogisticsTechFabCircuitboard
+  name: steal-target-groups-logistics-techfab-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: supply
+
+- type: stealTargetGroup
+  id: ServiceTechFabCircuitboard
+  name: steal-target-groups-service-techfab-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: service
+
+- type: stealTargetGroup
+  id: EpistemicsTechFabCircuitboard
+  name: steal-target-groups-epistemics-techfab-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: science
 
 # Ninja
 

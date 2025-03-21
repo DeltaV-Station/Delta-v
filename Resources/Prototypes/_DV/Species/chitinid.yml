@@ -17,8 +17,8 @@
   sprites:
     Head: MobChitinidHead
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobChitinidTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -67,12 +67,6 @@
       points: 1
       required: false
     Chest:
-      points: 1
-      required: false
-    Underwear:
-      points: 1
-      required: false
-    Undershirt:
       points: 1
       required: false
     Legs:

@@ -1,7 +1,8 @@
 - type: latheRecipe
   id: CassetteTape
   result: CassetteTape
-  category: Tools
+  categories:
+  - Tools
   completetime: 2
   materials:
     Steel: 50
@@ -10,8 +11,46 @@
 - type: latheRecipe
   id: TapeRecorder
   result: TapeRecorder
-  category: Tools
+  categories:
+  - Tools
   completetime: 3
   materials:
     Steel: 250
     Plastic: 250
+
+- type: latheRecipe
+  id: GoldRing
+  result: GoldRing
+  completetime: 10
+  materials:
+    Gold: 500
+
+- type: latheRecipe
+  id: SilverRing
+  result: SilverRing
+  completetime: 10
+  materials:
+    Silver: 500
+
+- type: latheRecipe
+  id: GoldRingDiamond
+  result: GoldRingDiamond
+  completetime: 15
+  materials:
+    Gold: 500
+    Diamond: 100
+
+- type: latheRecipe
+  id: SilverRingDiamond
+  result: SilverRingDiamond
+  completetime: 15
+  materials:
+    Silver: 500
+    Diamond: 100
+
+- type: latheRecipe
+  id: DoubleEmergencyWaterVaporTank
+  result: DoubleEmergencyWaterVaporTank
+  completetime: 4
+  materials:
+    Steel: 250

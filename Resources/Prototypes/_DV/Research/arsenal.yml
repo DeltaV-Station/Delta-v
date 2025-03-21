@@ -1,3 +1,19 @@
+# Tier 1
+
+- type: technology
+  id: SalvageWeapons
+  name: research-technology-salvage-weapons
+  icon:
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - WeaponProtoKineticAccelerator
+  - ShuttleGunKineticCircuitboard
+  # These are roundstart but not replenishable for salvage
+
 # Tier 2
 
 - type: technology
@@ -10,8 +26,10 @@
   tier: 1
   cost: 7500
   recipeUnlocks:
+  # Uranium
   - MagazineRifleUranium
   - MagazinePistolUranium
+  - MagazinePistolSubMachineGunUranium
   - MagazineLightRifleUranium
   - SpeedLoaderMagnumUranium
   - MagazineBoxPistolUranium
@@ -21,9 +39,11 @@
   - BoxShotgunUranium
   - SpeedLoaderSpecialUranium
   - MagazineBoxSpecialUranium
+  # Incendiary
   - BoxShotgunIncendiary
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
+  - MagazinePistolSubMachineGunIncendiary
   - MagazineLightRifleIncendiary
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
@@ -31,6 +51,8 @@
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
+  - SpeedLoaderSpecialUranium
+  - MagazineBoxSpecialIncendiary
   - MagazineBoxSpecialHoly
 
 - type: technology
@@ -45,7 +67,23 @@
   recipeUnlocks:
   - WeaponEnergyGun
   - WeaponEnergyGunMini
-  - BorgModuleSecurityChase # DeltaV SecBorg research
+  - BorgModuleSecurityChase
+
+- type: technology
+  id: ExperimentalSalvageWeaponry
+  name: research-technology-experimental-salvage-weaponry
+  icon:
+    sprite: Objects/Weapons/Melee/crusher_glaive.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - WeaponCrusher
+  - WeaponCrusherDagger
+  - WeaponCrusherGlaive
+  - BorgModuleFauna
+  - ShuttleGunKineticCircuitboard
 
 - type: technology
   id: EnergyGunsAdvanced
@@ -61,16 +99,21 @@
   - WeaponGunLaserCarbineAutomatic
 
 - type: technology
-  id: RobustMelee
-  name: research-technology-robust-melee
+  id: AdvancedRiotControl
+  name: research-technology-advanced-riot-control
   icon:
     sprite: _DV/Objects/Weapons/Melee/advanced_truncheon.rsi
     state: icon
   discipline: Arsenal
-  tier: 3
+  tier: 2
   cost: 12500
   recipeUnlocks:
   - AdvancedTruncheon
+  - TelescopicShield
+  - BorgModuleSecurityEscalate
+  - BorgModuleSecurityBastion
+
+# Tier 3
 
 - type: technology
   id: IonizedCryogenicEmissionEquiplment
