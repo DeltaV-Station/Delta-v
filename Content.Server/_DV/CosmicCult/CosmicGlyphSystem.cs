@@ -1,11 +1,11 @@
-using Content.Server._Impstation.CosmicCult.Components;
+using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.Portable;
 using Content.Server.Bible.Components;
 using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
-using Content.Shared._Impstation.CosmicCult.Components;
-using Content.Shared._Impstation.CosmicCult.Components.Examine;
+using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -21,7 +21,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 
-namespace Content.Server._Impstation.CosmicCult;
+namespace Content.Server._DV.CosmicCult;
 
 public sealed class CosmicGlyphSystem : EntitySystem
 {

@@ -6,7 +6,7 @@
   components:
   - type: CosmicEquipment
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/cosmicsword.rsi
+    sprite: _DV/CosmicCult/Objects/cosmicsword.rsi
     layers:
       - state: icon
       - state: icon-overlay
@@ -24,17 +24,17 @@
         Cold: 12
         Structural: 15
     soundHit:
-      path: /Audio/_Impstation/CosmicCult/cosmicsword_hit.ogg
+      path: /Audio/_DV/CosmicCult/cosmicsword_hit.ogg
       params:
         variation: 0.2
         volume: 1
     soundSwing:
-      path: /Audio/_Impstation/CosmicCult/cosmicweapon_swing.ogg
+      path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
       params:
         variation: 0.125
         volume: -4
     soundNoDamage:
-      path: /Audio/_Impstation/CosmicCult/cosmicsword_glance.ogg
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
       params:
         variation: 0.2
         volume: -11
@@ -42,18 +42,18 @@
     reflectProb: .21
     spread: 120
     soundOnReflect:
-      path: /Audio/_Impstation/CosmicCult/cosmicsword_glance.ogg
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
       params:
         variation: 0.2
         volume: -6
   - type: Wieldable
     wieldSound:
-      path: /Audio/_Impstation/CosmicCult/cosmic_wield.ogg
+      path: /Audio/_DV/CosmicCult/cosmic_wield.ogg
       params:
         variation: 0.2
         volume: -2
     unwieldSound:
-      path: /Audio/_Impstation/CosmicCult/cosmic_unwield.ogg
+      path: /Audio/_DV/CosmicCult/cosmic_unwield.ogg
       params:
         variation: 0.2
         volume: 0
@@ -65,7 +65,7 @@
   - type: DisarmMalus
   - type: Item
     size: Huge
-    sprite: _Impstation/CosmicCult/Objects/cosmicsword-inhands.rsi
+    sprite: _DV/CosmicCult/Objects/cosmicsword-inhands.rsi
     inhandVisuals:
       left:
       - state: inhand-left
@@ -81,9 +81,9 @@
   - type: CosmicEquipment
   - type: EmbeddableProjectile
     removalTime: 2
-    sound: /Audio/_Impstation/CosmicCult/cosmiclance_impact.ogg
+    sound: /Audio/_DV/CosmicCult/cosmiclance_impact.ogg
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/cosmiclance.rsi
+    sprite: _DV/CosmicCult/Objects/cosmiclance.rsi
     layers:
       - state: icon
       - state: icon-overlay
@@ -100,17 +100,17 @@
         Asphyxiation: 10
         Cold: 10
     soundHit:
-      path: /Audio/_Impstation/CosmicCult/cosmiclance_hit.ogg
+      path: /Audio/_DV/CosmicCult/cosmiclance_hit.ogg
       params:
         variation: 0.2
         volume: 1
     soundSwing:
-      path: /Audio/_Impstation/CosmicCult/cosmicweapon_swing.ogg
+      path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
       params:
         variation: 0.125
         volume: -4
     soundNoDamage:
-      path: /Audio/_Impstation/CosmicCult/cosmicsword_glance.ogg
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
       params:
         variation: 0.2
         volume: -11
@@ -122,12 +122,12 @@
         Cold: 20
   - type: Wieldable
     wieldSound:
-      path: /Audio/_Impstation/CosmicCult/cosmic_wield.ogg
+      path: /Audio/_DV/CosmicCult/cosmic_wield.ogg
       params:
         variation: 0.2
         volume: -2
     unwieldSound:
-      path: /Audio/_Impstation/CosmicCult/cosmic_unwield.ogg
+      path: /Audio/_DV/CosmicCult/cosmic_unwield.ogg
       params:
         variation: 0.2
         volume: 0
@@ -137,14 +137,14 @@
         Piercing: 5
   - type: Item
     size: Huge
-    sprite: _Impstation/CosmicCult/Objects/cosmiclance-inhands.rsi
+    sprite: _DV/CosmicCult/Objects/cosmiclance-inhands.rsi
     inhandVisuals:
       left:
       - state: inhand-left
       right:
       - state: inhand-right
   - type: EmitSoundOnThrow
-    sound: /Audio/_Impstation/CosmicCult/cosmicweapon_swing.ogg ## THROWING SOUND - REPLACE THIS!
+    sound: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg ## THROWING SOUND - REPLACE THIS!
   - type: ThrowingAngle
     angle: 225
   - type: LandAtCursor
@@ -175,7 +175,7 @@
   components:
   - type: CosmicEquipment
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/cosmicscythe.rsi
+    sprite: _DV/CosmicCult/Objects/cosmicscythe.rsi
     layers:
       - state: icon
       - state: icon-overlay
@@ -214,17 +214,17 @@
         Cold: 12
         Structural: 15
     soundHit:
-      path: /Audio/_Impstation/CosmicCult/cosmicsword_hit.ogg
+      path: /Audio/_DV/CosmicCult/cosmicsword_hit.ogg
       params:
         variation: 0.2
         volume: 1
     soundSwing:
-      path: /Audio/_Impstation/CosmicCult/cosmicweapon_swing.ogg
+      path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
       params:
         variation: 0.125
         volume: -4
     soundNoDamage:
-      path: /Audio/_Impstation/CosmicCult/cosmicsword_glance.ogg
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
       params:
         variation: 0.2
         volume: -11
@@ -232,18 +232,18 @@
     reflectProb: .21
     spread: 120
     soundOnReflect:
-      path: /Audio/_Impstation/CosmicCult/cosmicsword_glance.ogg
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
       params:
         variation: 0.2
         volume: -6
   - type: Wieldable
     wieldSound:
-      path: /Audio/_Impstation/CosmicCult/cosmic_wield.ogg
+      path: /Audio/_DV/CosmicCult/cosmic_wield.ogg
       params:
         variation: 0.2
         volume: -2
     unwieldSound:
-      path: /Audio/_Impstation/CosmicCult/cosmic_unwield.ogg
+      path: /Audio/_DV/CosmicCult/cosmic_unwield.ogg
       params:
         variation: 0.2
         volume: 0
@@ -254,7 +254,7 @@
   - type: GunRequiresWield
   - type: Item
     size: Ginormous
-    sprite: _Impstation/CosmicCult/Objects/cosmicscythe-inhands.rsi
+    sprite: _DV/CosmicCult/Objects/cosmicscythe-inhands.rsi
     inhandVisuals:
       left:
       - state: inhand-left

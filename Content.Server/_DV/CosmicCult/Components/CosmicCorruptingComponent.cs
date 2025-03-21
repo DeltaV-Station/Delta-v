@@ -1,8 +1,8 @@
-using Content.Server._Impstation.CosmicCult.EntitySystems;
+using Content.Server._DV.CosmicCult.EntitySystems;
 using Content.Shared.Maps;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Impstation.CosmicCult.Components;
+namespace Content.Server._DV.CosmicCult.Components;
 
 [RegisterComponent]
 [AutoGenerateComponentPause]

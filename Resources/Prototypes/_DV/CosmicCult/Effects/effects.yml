@@ -7,7 +7,7 @@
       fadeOut: false
     - type: Sprite
       layers:
-      - sprite: _Impstation/CosmicCult/Effects/weaponarcs.rsi
+      - sprite: _DV/CosmicCult/Effects/weaponarcs.rsi
         state: arc_cosmic
         shader: unshaded
     - type: TimedDespawn
@@ -45,7 +45,7 @@
     anchored: true
   - type: Sprite
     layers:
-    - sprite: _Impstation/CosmicCult/Effects/tiles_spawn.rsi
+    - sprite: _DV/CosmicCult/Effects/tiles_spawn.rsi
       state: floorglow
       shader: unshaded
     netsync: false
@@ -67,7 +67,7 @@
     anchored: true
   - type: Sprite
     layers:
-    - sprite: _Impstation/CosmicCult/Effects/ability_lapsevfx.rsi
+    - sprite: _DV/CosmicCult/Effects/ability_lapsevfx.rsi
       state: vfx
       shader: unshaded
     netsync: false
@@ -84,7 +84,7 @@
     lifetime: 1.75
   - type: Sprite
     layers:
-    - sprite: _Impstation/CosmicCult/Effects/ability_blankvfx.rsi
+    - sprite: _DV/CosmicCult/Effects/ability_blankvfx.rsi
       state: vfx
       shader: unshaded
     netsync: false
@@ -118,7 +118,7 @@
     lifetime: 2.025
   - type: Sprite
     layers:
-    - sprite: _Impstation/CosmicCult/Effects/effect_cleansevfx.rsi
+    - sprite: _DV/CosmicCult/Effects/effect_cleansevfx.rsi
       state: vfx
       shader: unshaded
     netsync: false
@@ -152,7 +152,7 @@
     lifetime: 2.025
   - type: Sprite
     layers:
-    - sprite: _Impstation/CosmicCult/Effects/effect_glyphvfx.rsi
+    - sprite: _DV/CosmicCult/Effects/effect_glyphvfx.rsi
       state: vfx
       shader: unshaded
     netsync: false
@@ -186,7 +186,7 @@
     lifetime: 1.1
   - type: Sprite
     layers:
-    - sprite: _Impstation/CosmicCult/Effects/ability_glarevfx.rsi
+    - sprite: _DV/CosmicCult/Effects/ability_glarevfx.rsi
       state: vfx
       shader: unshaded
     netsync: false
@@ -220,7 +220,7 @@
     lifetime: 1.92
   - type: Sprite
     layers:
-    - sprite: _Impstation/CosmicCult/Effects/ability_impositionvfx.rsi
+    - sprite: _DV/CosmicCult/Effects/ability_impositionvfx.rsi
       state: vfx
       shader: unshaded
     netsync: false
@@ -258,7 +258,7 @@
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
-      sprite: _Impstation/CosmicCult/Effects/ability_glarevfx.rsi
+      sprite: _DV/CosmicCult/Effects/ability_glarevfx.rsi
       state: vfx
   - type: PointLight
     color: "#42a4ae"
@@ -294,7 +294,7 @@
   - type: InteractionOutline
   - type: Sprite
     layers:
-    - sprite: _Impstation/CosmicCult/Effects/effect_echo.rsi
+    - sprite: _DV/CosmicCult/Effects/effect_echo.rsi
       state: vfx
       shader: unshaded
   - type: Clickable

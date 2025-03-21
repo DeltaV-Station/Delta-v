@@ -2,7 +2,7 @@ using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Impstation.CosmicCult.Components;
+namespace Content.Shared._DV.CosmicCult.Components;
 
 [RegisterComponent]
 public sealed partial class CosmicGlyphComponent : Component
@@ -17,7 +17,7 @@ public sealed partial class CosmicGlyphComponent : Component
     [DataField] public float ActivationDamage;
     [DataField] public bool CanBeErased = true;
     [DataField] public EntProtoId GylphVFX = "CosmicGenericVFX";
-    [DataField] public SoundSpecifier GylphSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/glyph_trigger.ogg");
+    [DataField] public SoundSpecifier GylphSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/glyph_trigger.ogg");
 }
 
 public sealed class TryActivateGlyphEvent(EntityUid user, HashSet<EntityUid> cultists) : CancellableEntityEventArgs

@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Impstation.CosmicCult.Components.Examine;
+namespace Content.Shared._DV.CosmicCult.Components.Examine;
 
 /// <summary>
 /// Marker component for structures and objects.

@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace Content.Shared._Impstation.CosmicCult.Components;
+namespace Content.Shared._DV.CosmicCult.Components;
 
 /// <summary>
 /// This is used to apply an offset to the star mark that shows up at cult tier 3.

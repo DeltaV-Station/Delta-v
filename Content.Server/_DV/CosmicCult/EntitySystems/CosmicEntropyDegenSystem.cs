@@ -1,10 +1,10 @@
-using Content.Shared._Impstation.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Components;
 using Robust.Shared.Timing;
 using Content.Shared.Damage;
 using Content.Shared.Popups;
 using Robust.Shared.Random;
 
-namespace Content.Server._Impstation.CosmicCult.EntitySystems;
+namespace Content.Server._DV.CosmicCult.EntitySystems;
 
 /// <summary>
 /// Makes the person with this component take damage over time.
