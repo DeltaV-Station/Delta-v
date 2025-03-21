@@ -512,7 +512,7 @@
 # For the mosin
 - type: listing
   id: UplinkMosinAmmo
-  name: uplink-mosin-ammo-name
+  name: uplink-mosin-ammo-name-deltav # DeltaV
   description: uplink-mosin-ammo-desc
   productEntity: MagazineBoxRifle # DeltaV - changed from LightRifle to Rifle
   cost:
@@ -534,7 +534,7 @@
 - type: listing
   id: UplinkAmmoBundle
   name: uplink-ammo-bundle-name
-  description: uplink-ammo-bundle-desc
+  description: uplink-ammo-bundle-desc-deltav # DeltaV
   productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
   cost:
     Telecrystal: 15
