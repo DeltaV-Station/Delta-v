@@ -27,7 +27,7 @@
       briefing:
         text: rogue-ascended-role-greeting
         color: CadetBlue
-        sound: /Audio/_Impstation/CosmicCult/antag_cosmic_briefing.ogg
+        sound: /Audio/_DV/CosmicCult/antag_cosmic_briefing.ogg
       components:
       - type: RogueAscended
 
@@ -43,7 +43,7 @@
     mindRoles:
     - MindRoleCosmicAscended
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Mobs/astralrogue.rsi
+    sprite: _DV/CosmicCult/Mobs/astralrogue.rsi
     layers:
     - state: underlay
       shader: unshaded

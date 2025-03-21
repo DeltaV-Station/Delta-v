@@ -2,7 +2,7 @@ using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Impstation.CosmicCult.Components;
+namespace Content.Server._DV.CosmicCult.Components;
 
 [RegisterComponent, AutoGenerateComponentState]
 [Access(typeof(DeconversionSystem))]
@@ -12,8 +12,8 @@ public sealed partial class CleanseOnUseComponent : Component
 
     [DataField] public SoundSpecifier SizzleSound = new SoundPathSpecifier("/Audio/Effects/lightburn.ogg");
 
-    [DataField] public SoundSpecifier CleanseSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/cleanse_deconversion.ogg");
-    [DataField] public SoundSpecifier MalignSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/glyph_trigger.ogg");
+    [DataField] public SoundSpecifier CleanseSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/cleanse_deconversion.ogg");
+    [DataField] public SoundSpecifier MalignSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/glyph_trigger.ogg");
 
     [DataField] public EntProtoId CleanseVFX = "CleanseEffectVFX";
 

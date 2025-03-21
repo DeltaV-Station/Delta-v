@@ -1,6 +1,6 @@
 using Content.Shared.Damage;
 
-namespace Content.Shared._Impstation.CosmicCult.Components;
+namespace Content.Shared._DV.CosmicCult.Components;
 
 /// <summary>
 /// Makes the target take damage over time.
@@ -20,7 +20,7 @@ public sealed partial class CosmicEntropyDebuffComponent : Component
     /// </summary>
     [DataField]
     public float PopupChance = 0.05f;
-    
+
     /// <summary>
     /// The debuff applied while the component is present.
     /// </summary>

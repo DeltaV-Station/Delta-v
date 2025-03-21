@@ -13,7 +13,7 @@
     baseWalkSpeed: 6
     baseSprintSpeed: 6
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Mobs/astralform.rsi
+    sprite: _DV/CosmicCult/Mobs/astralform.rsi
     layers:
     - state: effect-underlay
       shader: unshaded
@@ -65,7 +65,7 @@
     baseWalkSpeed: 4
     baseSprintSpeed: 4
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Mobs/astralform.rsi
+    sprite: _DV/CosmicCult/Mobs/astralform.rsi
     layers:
     - state: base-body
       shader: unshaded
@@ -125,7 +125,6 @@
   components:
   - type: FTLSmashImmune
   - type: Physics
-
     bodyStatus: InAir
   - type: Speech
     speechVerb: Ghost
@@ -151,7 +150,7 @@
     weightlessFriction: 1
     weightlessModifier: 1
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Mobs/astralrogue.rsi
+    sprite: _DV/CosmicCult/Mobs/astralrogue.rsi
     noRot: true
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -246,17 +245,17 @@
         Cold: 3
         Structural: 20
     soundHit:
-      path: /Audio/_Impstation/CosmicCult/cosmicsword_hit.ogg
+      path: /Audio/_DV/CosmicCult/cosmicsword_hit.ogg
       params:
         variation: 0.2
         volume: -4
     soundSwing:
-      path: /Audio/_Impstation/CosmicCult/cosmicweapon_swing.ogg
+      path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
       params:
         variation: 0.125
         volume: -4
     soundNoDamage:
-      path: /Audio/_Impstation/CosmicCult/cosmicsword_glance.ogg
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
       params:
         variation: 0.2
         volume: -11
@@ -279,8 +278,6 @@
     speedModifierThresholds:
       225: 0.7
       375: 0.5
-  - type: Absorbable # imp
-    biomassRestored: 0.8
   - type: Butcherable
     spawned:
     - id: AscendedDendrite
@@ -290,7 +287,7 @@
     interactSuccessString: petting-success-rogue-ascended
     interactFailureString: petting-failure-rogue-ascended
     interactFailureSound:
-      path: /Audio/_Impstation/CosmicCult/ascendant_noise.ogg
+      path: /Audio/_DV/CosmicCult/ascendant_noise.ogg
     soundPerceivedByOthers: false
   - type: RandomMetadata
     nameSegments:

@@ -2,7 +2,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Impstation.CosmicCult.Components;
+namespace Content.Shared._DV.CosmicCult.Components;
 
 /// <summary>
 /// Component for displaying Vacuous Imposition's visuals on a player.
@@ -11,7 +11,7 @@ namespace Content.Shared._Impstation.CosmicCult.Components;
 [AutoGenerateComponentPause]
 public sealed partial class CosmicImposingComponent : Component
 {
-    public ResPath RsiPath = new("/Textures/_Impstation/CosmicCult/Effects/ability_imposition_overlay.rsi");
+    public ResPath RsiPath = new("/Textures/_DV/CosmicCult/Effects/ability_imposition_overlay.rsi");
     public readonly string States = "vfx";
 }
 

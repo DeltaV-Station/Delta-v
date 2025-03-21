@@ -26,7 +26,7 @@
     layer: 777
   - type: SpriteFade
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+    sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
       - state: stage1
         visible: true
@@ -82,7 +82,7 @@
     range: 3.5
     volume: -9
     sound:
-      path: /Audio/_Impstation/CosmicCult/god_ambient.ogg
+      path: /Audio/_DV/CosmicCult/god_ambient.ogg
   - type: ActivatableUI
     singleUser: false
     requiresComplex: true
@@ -121,7 +121,7 @@
   - type: Visibility
     layer: 777
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+    sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
       - state: stage1-spawnin
       - state: stage1-spawnin-overlay
@@ -143,7 +143,7 @@
   - type: Transform
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Impstation/CosmicCult/monument_spawn.ogg
+      path: /Audio/_DV/CosmicCult/monument_spawn.ogg
       params:
         volume: +8
         pitch: 0.8
@@ -178,7 +178,7 @@
   - type: Visibility
     layer: 777
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+    sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
     - state: stage2-relocate-out
       shader: unshaded
@@ -199,7 +199,7 @@
   - type: Transform
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Impstation/CosmicCult/monument_relocate.ogg
+      path: /Audio/_DV/CosmicCult/monument_relocate.ogg
       params:
         volume: +8
         pitch: 0.8
@@ -232,7 +232,7 @@
   - type: Visibility
     layer: 777
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+    sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
     - state: stage2-relocate-in
       shader: unshaded
@@ -253,7 +253,7 @@
   - type: Transform
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Impstation/CosmicCult/monument_relocate.ogg
+      path: /Audio/_DV/CosmicCult/monument_relocate.ogg
       params:
         volume: +8
         pitch: 0.8
@@ -352,7 +352,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+    sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
       - state: stage2
 
@@ -362,6 +362,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+    sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
       - state: stage3

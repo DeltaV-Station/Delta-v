@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Impstation.CosmicCult.Visuals;
+namespace Content.Client._DV.CosmicCult.Visuals;
 
 public sealed class MonumentPlacementPreviewOverlay : Overlay
 {
@@ -70,9 +70,9 @@ public sealed class MonumentPlacementPreviewOverlay : Overlay
         ZIndex = (int) Shared.DrawDepth.DrawDepth.Mobs; //make the overlay render at the same depth as the actual sprite. might want to make it 1 lower if things get wierd with it.
 
         //will fuck up if the wrong tier is passed in but it's not my problem if that happens
-        mainTex = new SpriteSpecifier.Rsi(new ResPath("_Impstation/CosmicCult/Tileset/monument.rsi"), $"stage{tier}");
-        outlineTex = new SpriteSpecifier.Rsi(new ResPath("_Impstation/CosmicCult/Tileset/monument.rsi"), $"stage{tier}-placement-ghost-1");
-        starTex = new SpriteSpecifier.Rsi(new ResPath("_Impstation/CosmicCult/Tileset/monument.rsi"), $"stage{tier}-placement-ghost-2");
+        mainTex = new SpriteSpecifier.Rsi(new ResPath("_DV/CosmicCult/Tileset/monument.rsi"), $"stage{tier}");
+        outlineTex = new SpriteSpecifier.Rsi(new ResPath("_DV/CosmicCult/Tileset/monument.rsi"), $"stage{tier}-placement-ghost-1");
+        starTex = new SpriteSpecifier.Rsi(new ResPath("_DV/CosmicCult/Tileset/monument.rsi"), $"stage{tier}-placement-ghost-2");
     }
 
     //this might get wierd if the player managed to leave the grid they put the monument on? theoretically not a concern because it can't be placed too close to space.

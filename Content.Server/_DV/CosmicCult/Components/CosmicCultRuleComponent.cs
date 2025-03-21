@@ -1,6 +1,6 @@
 using Content.Server.RoundEnd;
 
-namespace Content.Server._Impstation.CosmicCult.Components;
+namespace Content.Server._DV.CosmicCult.Components;
 
 /// <summary>
 /// Component for the CosmicCultRuleSystem that should store gameplay info.

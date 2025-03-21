@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: _Impstation/CosmicCult/Mobs/cosmicgod.rsi
+    sprite: _DV/CosmicCult/Mobs/cosmicgod.rsi
     offset: 0, 2
     drawdepth: Ghosts
     scale: 2,2
@@ -22,7 +22,7 @@
   components:
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Impstation/CosmicCult/god_summon.ogg
+      path: /Audio/_DV/CosmicCult/god_summon.ogg
   - type: Sprite
     layers:
     - state: spawn
@@ -97,10 +97,10 @@
     volume: 0
     range: 25
     sound:
-      path: /Audio/_Impstation/CosmicCult/god_ambient.ogg
+      path: /Audio/_DV/CosmicCult/god_ambient.ogg
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Impstation/CosmicCult/god_spawn.ogg
+      path: /Audio/_DV/CosmicCult/god_spawn.ogg
   - type: PointLight
     enabled: true
     radius: 25

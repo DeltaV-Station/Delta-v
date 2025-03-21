@@ -1,7 +1,7 @@
 using System.Numerics;
 using System.Threading;
-using Content.Shared._Impstation.CosmicCult;
-using Content.Shared._Impstation.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult;
+using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.Maps;
@@ -13,7 +13,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Client._Impstation.CosmicCult.Visuals;
+namespace Content.Client._DV.CosmicCult.Visuals;
 
 /// <summary>
 /// This handles rendering a preview of where the monument will be placed

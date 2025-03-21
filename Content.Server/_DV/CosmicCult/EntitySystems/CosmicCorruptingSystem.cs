@@ -5,9 +5,9 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
-using Content.Server._Impstation.CosmicCult.Components;
+using Content.Server._DV.CosmicCult.Components;
 
-namespace Content.Server._Impstation.CosmicCult.EntitySystems;
+namespace Content.Server._DV.CosmicCult.EntitySystems;
 public sealed class CosmicCorruptingSystem : EntitySystem
 {
     [Dependency] private readonly ITileDefinitionManager _tileDefinition = default!;

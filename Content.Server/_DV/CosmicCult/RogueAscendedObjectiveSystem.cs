@@ -1,8 +1,8 @@
-using Content.Server._Impstation.CosmicCult.Components;
+using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Objectives.Systems;
 using Content.Shared.Objectives.Components;
 
-namespace Content.Server._Impstation.CosmicCult;
+namespace Content.Server._DV.CosmicCult;
 
 public sealed class RogueAscendedObjectiveSystem : EntitySystem
 {

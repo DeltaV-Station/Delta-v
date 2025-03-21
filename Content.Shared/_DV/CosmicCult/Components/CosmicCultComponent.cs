@@ -3,12 +3,12 @@ using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
 using Content.Shared.Damage;
-using Content.Shared._Impstation.CosmicCult.Prototypes;
+using Content.Shared._DV.CosmicCult.Prototypes;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Alert;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Impstation.CosmicCult.Components;
+namespace Content.Shared._DV.CosmicCult.Components;
 
 /// <summary>
 /// Added to entities to tag that they are a cosmic cultist. Holds nearly all cultist-relevant data! Removal of this component is used to call for a deconversion
@@ -142,11 +142,11 @@ public sealed partial class CosmicCultComponent : Component
     [DataField] public EntProtoId GlareVFX = "CosmicGlareAbilityVFX";
     [DataField] public EntProtoId AbsorbVFX = "CosmicGenericVFX";
     [DataField] public EntProtoId ImpositionVFX = "CosmicImpositionAbilityVFX";
-    [DataField] public SoundSpecifier BlankSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_blank.ogg");
-    [DataField] public SoundSpecifier IngressSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_ingress.ogg");
-    [DataField] public SoundSpecifier GlareSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_glare.ogg");
-    [DataField] public SoundSpecifier NovaCastSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_nova_cast.ogg");
-    [DataField] public SoundSpecifier ImpositionSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_imposition.ogg");
+    [DataField] public SoundSpecifier BlankSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_blank.ogg");
+    [DataField] public SoundSpecifier IngressSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_ingress.ogg");
+    [DataField] public SoundSpecifier GlareSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_glare.ogg");
+    [DataField] public SoundSpecifier NovaCastSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_nova_cast.ogg");
+    [DataField] public SoundSpecifier ImpositionSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_imposition.ogg");
 
     #endregion
 }

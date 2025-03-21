@@ -1,13 +1,13 @@
 using Content.Server.Popups;
-using Content.Server._Impstation.CosmicCult.Components;
-using Content.Server._Impstation.CosmicCult.EntitySystems;
-using Content.Shared._Impstation.CosmicCult.Components;
+using Content.Server._DV.CosmicCult.Components;
+using Content.Server._DV.CosmicCult.EntitySystems;
+using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Examine;
 using Content.Server.Actions;
 using Content.Server.GameTicking.Events;
 using Robust.Server.GameObjects;
-using Content.Shared._Impstation.CosmicCult.Components.Examine;
+using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mind;
 using Robust.Shared.Timing;
@@ -20,7 +20,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Damage;
 using Content.Server.AlertLevel;
-using Content.Server.Announcements.Systems;
 using Content.Server.Pinpointer;
 using Content.Server.Ghost;
 using Content.Server.Polymorph.Systems;
@@ -42,8 +41,9 @@ using Robust.Shared.Utility;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Hands;
 using Content.Shared.Alert;
+using Content.Server.Chat.Systems;
 
-namespace Content.Server._Impstation.CosmicCult;
+namespace Content.Server._DV.CosmicCult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {
@@ -64,7 +64,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly AlertLevelSystem _alert = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -87,7 +87,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly CosmicCorruptingSystem _corrupting = default!;
 
-    private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/cosmicvoid.yml");
+    private readonly ResPath _mapPath = new("Maps/_DV/Nonstations/cosmicvoid.yml");
 
     private EntityUid? _monumentStorageMap;
 
@@ -179,7 +179,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
                 _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
                 _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
-                _announcer.SendAnnouncementMessage(_announcer.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-finale-warning"), null, Color.FromHex("#cae8e8"));
+                _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("cosmiccult-announce-finale-warning"), null, false, null, Color.FromHex("#cae8e8"));
 
                 Timer.Spawn(TimeSpan.FromSeconds(1),
                     () =>

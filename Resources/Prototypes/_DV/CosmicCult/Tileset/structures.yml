@@ -6,7 +6,7 @@
   description: Its surface glows with a myriad of inscrutable glyphs that commmunicate a single word into your mind; "Flight".
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmiccomputer.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmiccomputer.rsi
     layers:
       - state: computer
       - state: computer-unshaded
@@ -64,7 +64,7 @@
   components:
   - type: CosmicMarkStructure
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmicchair.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicchair.rsi
     state: chair
   - type: Destructible
     thresholds:
@@ -83,7 +83,7 @@
   description: A mysterious-yet-inert sturcture. Unsettling.
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmicpillar.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicpillar.rsi
     offset: 0, 0.5
     layers:
       - state: icon
@@ -151,7 +151,7 @@
   - type: Appearance
   - type: ThrusterVisuals
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmicthruster.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicthruster.rsi
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
@@ -189,7 +189,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmiclight.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmiclight.rsi
     drawdepth: Mobs
     layers:
       - state: base
@@ -229,7 +229,7 @@
   components:
   - type: InteractionOutline
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/malignrift.rsi
+    sprite: _DV/CosmicCult/Tileset/malignrift.rsi
     drawdepth: Mobs
     snapCardinals: true
     offset: 0,0.27
@@ -281,7 +281,7 @@
         layer:
         - WallLayer
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmicspire.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicspire.rsi
     offset: 0, 0.5
     layers:
       - state: base-disabled
@@ -307,7 +307,7 @@
     volume: -5
     range: 15
     sound:
-      path: /Audio/_Impstation/CosmicCult/spire_draining.ogg
+      path: /Audio/_DV/CosmicCult/spire_draining.ogg
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
@@ -338,13 +338,13 @@
   description: Altar of.. Something.
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/altar.rsi
+    sprite: _DV/CosmicCult/Tileset/altar.rsi
     layers:
     - state: cosmic
     - state: cosmic_light
       shader: unshaded
   - type: Icon
-    sprite: _Impstation/CosmicCult/Tileset/altar.rsi
+    sprite: _DV/CosmicCult/Tileset/altar.rsi
     state: cosmic
   - type: PointLight
     radius: 1.5
@@ -358,9 +358,9 @@
   description: Unfathomably, cosmically.. Square.
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmictable.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmictable.rsi
   - type: Icon
-    sprite: _Impstation/CosmicCult/Tileset/cosmictable.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmictable.rsi
     state: full
   - type: Damageable
     damageContainer: StructuralInorganic

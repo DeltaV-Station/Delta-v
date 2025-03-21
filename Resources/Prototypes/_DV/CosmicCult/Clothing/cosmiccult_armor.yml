@@ -10,11 +10,11 @@
   components:
   - type: CosmicEquipment
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Clothing/cosmiccult_armor.rsi
+    sprite: _DV/CosmicCult/Clothing/cosmiccult_armor.rsi
   - type: Item
     size: Huge
   - type: Clothing
-    sprite: _Impstation/CosmicCult/Clothing/cosmiccult_armor.rsi
+    sprite: _DV/CosmicCult/Clothing/cosmiccult_armor.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -56,7 +56,7 @@
     color: "#42a4ae"
     radius: 5
     energy: 3.4
-    mask: /Textures/_Impstation/CosmicCult/LightMasks/cosmic.png
+    mask: /Textures/_DV/CosmicCult/LightMasks/cosmic.png
     autoRot: true
     netsync: false
   - type: LightBehaviour
@@ -93,11 +93,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Clothing/cosmiccult_armor.rsi
+    sprite: _DV/CosmicCult/Clothing/cosmiccult_armor.rsi
     layers:
     - state: icon-helmet
   - type: Clothing
-    sprite: _Impstation/CosmicCult/Clothing/cosmiccult_armor.rsi
+    sprite: _DV/CosmicCult/Clothing/cosmiccult_armor.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
