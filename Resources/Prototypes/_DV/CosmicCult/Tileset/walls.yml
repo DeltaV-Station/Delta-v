@@ -9,9 +9,9 @@
     tags:
       - Wall
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmicwall.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicwall.rsi
   - type: Icon
-    sprite: _Impstation/CosmicCult/Tileset/cosmicwall.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicwall.rsi
   - type: RCDDeconstructable
   - type: Destructible
     thresholds:
@@ -32,10 +32,10 @@
   suffix: Trimmed
   components:
   - type: Icon
-    sprite: _Impstation/CosmicCult/Tileset/cosmicwall.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicwall.rsi
     state: full
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmicwall.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicwall.rsi
     layers:
       - state: full
       - map: [ "enum.EdgeLayer.South" ]
@@ -59,9 +59,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _Impstation/CosmicCult/Tileset/cosmicwindow.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicwindow.rsi
   - type: Icon
-    sprite: _Impstation/CosmicCult/Tileset/cosmicwindow.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicwindow.rsi
     state: full
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -103,9 +103,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _Impstation/CosmicCult/Tileset/cosmicwindow_dark.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicwindow_dark.rsi
   - type: Icon
-    sprite: _Impstation/CosmicCult/Tileset/cosmicwindow_dark.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicwindow_dark.rsi
     state: full
   - type: IconSmooth
     base: cosDwindow
@@ -125,14 +125,14 @@
   - type: CosmicMarkStructure
   - type: Sprite
     drawdepth: WallTops
-    sprite: _Impstation/CosmicCult/Tileset/cosmicwindow_diagonal.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicwindow_diagonal.rsi
     state: coswindow0
   - type: IconSmooth
     mode: Diagonal
     key: cultwindows
     base: coswindow
   - type: Icon
-    sprite: _Impstation/CosmicCult/Tileset/cosmicwindow_diagonal.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicwindow_diagonal.rsi
     state: coswindow0
   - type: Destructible
     thresholds:
@@ -156,12 +156,12 @@
   - type: CosmicMarkStructure
   - type: Sprite
     drawdepth: WallTops
-    sprite: _Impstation/CosmicCult/Tileset/cosmicwindow_dark_diagonal.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicwindow_dark_diagonal.rsi
     state: cosDwindow0
   - type: IconSmooth
     mode: Diagonal
     key: cultwindows
     base: cosDwindow
   - type: Icon
-    sprite: _Impstation/CosmicCult/Tileset/cosmicwindow_dark_diagonal.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicwindow_dark_diagonal.rsi
     state: cosDwindow0

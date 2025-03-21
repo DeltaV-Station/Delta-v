@@ -3,7 +3,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Impstation.CosmicCult.Components;
+namespace Content.Shared._DV.CosmicCult.Components;
 
 /// <summary>
 /// Component to designate a mob as a rogue astral ascendant.
@@ -31,13 +31,13 @@ public sealed partial class RogueAscendedComponent : Component
     public TimeSpan RogueSlumberTime = TimeSpan.FromSeconds(25);
 
     [DataField]
-    public SoundSpecifier InfectionSfx = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_nova_impact.ogg");
+    public SoundSpecifier InfectionSfx = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_nova_impact.ogg");
 
     [DataField]
-    public SoundSpecifier ShatterSfx = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ascendant_shatter.ogg");
+    public SoundSpecifier ShatterSfx = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ascendant_shatter.ogg");
 
     [DataField]
-    public SoundSpecifier MobSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ascendant_noise.ogg");
+    public SoundSpecifier MobSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ascendant_noise.ogg");
 
     [DataField]
     public EntProtoId Vfx = "CosmicGenericVFX";

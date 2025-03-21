@@ -2,7 +2,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Impstation.CosmicCult.Components;
+namespace Content.Shared._DV.CosmicCult.Components;
 
 /// <summary>
 /// Component for revealing cosmic cultists to the crew.
@@ -10,7 +10,7 @@ namespace Content.Shared._Impstation.CosmicCult.Components;
 [NetworkedComponent, RegisterComponent]
 public sealed partial class CosmicStarMarkComponent : Component
 {
-    public ResPath RsiPath = new("/Textures/_Impstation/CosmicCult/Effects/cultrevealed.rsi");
+    public ResPath RsiPath = new("/Textures/_DV/CosmicCult/Effects/cultrevealed.rsi");
 
     public readonly string States = "vfx";
 }

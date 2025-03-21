@@ -15,13 +15,13 @@
     impactEffect: CosmicNovaImpactVfx
     forceSound: true
     soundHit:
-      path: /Audio/_Impstation/CosmicCult/ability_nova_impact.ogg
+      path: /Audio/_DV/CosmicCult/ability_nova_impact.ogg
       params:
         variation: 0.1
         volume: +14
   - type: CosmicAstralNova
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Effects/ability_novavfx.rsi
+    sprite: _DV/CosmicCult/Effects/ability_novavfx.rsi
     layers:
     - state: vfx
       shader: unshaded
@@ -38,7 +38,7 @@
     volume: 0
     range: 10
     sound:
-      path: /Audio/_Impstation/CosmicCult/ability_nova_ambient.ogg
+      path: /Audio/_DV/CosmicCult/ability_nova_ambient.ogg
   - type: CosmicCorrupting
     corruptionSpeed: 0.4
     useVFX: false

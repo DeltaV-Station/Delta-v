@@ -1,9 +1,9 @@
 using Content.Shared.DoAfter;
 using Content.Server.Popups;
-using Content.Server._Impstation.CosmicCult.Components;
+using Content.Server._DV.CosmicCult.Components;
 using Content.Shared.Interaction;
-using Content.Shared._Impstation.CosmicCult.Components;
-using Content.Shared._Impstation.CosmicCult;
+using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Bible.Components;
@@ -12,7 +12,7 @@ using Content.Shared.Temperature.Components;
 using Content.Shared.Popups;
 using Content.Shared.IdentityManagement;
 
-namespace Content.Server._Impstation.CosmicCult.EntitySystems;
+namespace Content.Server._DV.CosmicCult.EntitySystems;
 public sealed class CosmicRiftSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
