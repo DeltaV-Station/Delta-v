@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskPilot
+  name: pilot breathing mask
+  description: A close-fitting breath mask designed for, it would seem, minimal comfort for the wearer.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Mask/pilot.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Mask/pilot.rsi
+  - type: IdentityBlocker
+    coverage: MOUTH
