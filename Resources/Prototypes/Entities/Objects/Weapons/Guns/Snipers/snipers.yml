@@ -27,10 +27,10 @@
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: BallisticAmmoProvider
     capacity: 10
-    proto: CartridgeLightRifle
+    proto: CartridgeRifle # DeltaV - changed from LightRifle
     whitelist:
       tags:
-      - CartridgeLightRifle
+      - CartridgeRifle # DeltaV - changed from LightRifle
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container

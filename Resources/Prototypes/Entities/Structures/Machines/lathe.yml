@@ -451,6 +451,8 @@
       - MiniSyringe
       - WeaponColdCannon
       - WeaponBeamCannon
+      - MagazineDMRIncendiary
+      - MagazineDMRUranium
       # End DeltaV additions
 
 - type: entity
@@ -840,6 +842,8 @@
       - SpeedLoaderSpecialEmpty
       - SpeedLoaderSpecialPractice
       - MagazinePistolSpecial
+      - MagazineDMR
+      - MagazineDMREmpty
       # End DeltaV additions
     dynamicRecipes:
       - EncryptionKeySyndie # Nyano
@@ -926,6 +930,8 @@
       - AdvancedTruncheon
       - WeaponColdCannon
       - WeaponBeamCannon
+      - MagazineDMRIncendiary
+      - MagazineDMRUranium
       # End DeltaV additions
       - SecurityCyberneticEyes # Shitmed Change
   - type: MaterialStorage
@@ -960,9 +966,11 @@
       idleState: icon
       runningState: icon
       staticRecipes:
-        # DeltaV - .38 special ammo - Add lethal .38 special ammo to ammo techfab
+        # DeltaV - .38 special ammo - Add lethal .38 special ammo and DMR mags to ammo techfab
         - SpeedLoaderSpecial
         - MagazineBoxSpecial
+        - MagazineDMR
+        - MagazineDMREmpty
         # End of modified code
         - BoxLethalshot
         - BoxShotgunSlug
