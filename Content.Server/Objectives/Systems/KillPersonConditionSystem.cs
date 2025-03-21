@@ -81,13 +81,26 @@ public sealed class KillPersonConditionSystem : EntitySystem
             })
             .ToList();
 
-        // Begin DeltaV Additions: Only target people with jobs
+        // Begin DeltaV Additions: Only target people on the same map, and optionally only with jobs
         if (onlyJobs)
         {
             allHumans.RemoveAll(mindId => !(
                 _role.MindHasRole<JobRoleComponent>((mindId.Owner, mindId.Comp), out var role) &&
                 role?.Comp1.JobPrototype is {} jobId &&
                 _proto.Index(jobId).SetPreference));
+        }
+
+        // no being asked to kill someone at centcom or whatever
+        if (args.Mind.OwnedEntity is {} mob)
+        {
+            var map = Transform(mob).MapID;
+            allHumans.RemoveAll(mindId =>
+            {
+                if (Comp<MindComponent>(mindId).OwnedEntity is {} otherMob)
+                    return Transform(otherMob).MapID != map;
+
+                return false;
+            });
         }
         // End DeltaV Additions
 
