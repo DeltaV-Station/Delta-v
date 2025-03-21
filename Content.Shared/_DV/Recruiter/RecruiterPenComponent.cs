@@ -50,10 +50,4 @@ public sealed partial class RecruiterPenComponent : Component
     /// </summary>
     [DataField]
     public List<ProtoId<NpcFactionPrototype>> FactionBlacklist = new();
-
-    /// <summary>
-    ///     The list of entities to spawn, with amounts and orGroups.
-    /// </summary>
-    [DataField("currency")]
-    public string Currency = default!;
 }

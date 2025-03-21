@@ -9,6 +9,7 @@ using Content.Server.Mind;
 using Content.Shared.Roles.Jobs;
 using Content.Server.EntityEffects.Effects;
 
+
 namespace Content.Server._DV.Recruiter;
 
 /// <summary>
@@ -53,12 +54,8 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
             Mind.TryGetObjectiveComp<RecruitingConditionComponent>(mindId, out var obj, null))
         {
             obj.Recruited++;
-            Reward(ent,user);
+            var ev = new PayoutEvent(user);
+            RaiseLocalEvent(ref ev);
         }
-    }
-    protected void Reward(Entity<RecruiterPenComponent> ent, EntityUid user)
-    {
-        var coords = Transform(user).Coordinates;
-        var pay = ent.Comp.Currency;
     }
 }
