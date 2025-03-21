@@ -89,7 +89,6 @@
       - state: icon-overlay
         shader: unshaded
   - type: MeleeWeapon
-    wideAnimationRotation: -135
     resistanceBypass: true
     angle: 0
     animation: WeaponArcCosmic
@@ -183,7 +182,7 @@
   - type: AmmoCounter
   - type: UseDelayOnShoot
   - type: UseDelay
-    delay: 1.1
+    delay: 2
   - type: LeechOnMarker
     leech:
       groups:
@@ -193,7 +192,7 @@
     fireRate: 1
     useKey: false
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 1
+    rechargeCooldown: 2
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
@@ -202,7 +201,7 @@
     count: 1
   - type: MeleeWeapon
     resistanceBypass: true
-    angle: 90
+    wideAnimationRotation: -135
     animation: WeaponArcCosmic
     attackRate: 0.62
     clickDamageModifier: 1.1
@@ -260,13 +259,3 @@
       - state: inhand-left
       right:
       - state: inhand-right
-  - type: DisarmMalus
-  - type: Prying
-  - type: Clothing
-    sprite: Objects/Weapons/Melee/crusher.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
-  - type: DamageOtherOnHit
-    staminaCost: 8
