@@ -1,0 +1,102 @@
+- type: entity
+  name: Kitsune
+  parent: [SimpleMobBase, StripableInventoryBase]
+  id: MobKitsuneFox
+  description: A Kitsune's fox from
+  components:
+  - type: KitsuneFox
+  - type: Kitsune
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 6
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Customization/kitsune/foxform.rsi
+    layers:
+      - state: kitsune_fox_body
+        visible: true
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+      - state: kitsune_fox_innerear
+  - type: Carriable # DeltaV
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50 #They actually are pretty light, I looked it up
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Damageable
+    damageContainer: BiologicalMetaphysical # foxes take holy damage but at a reduced amount
+    damageModifierSet: KitsuneFox # fox form takes more damage and no resistances, but moves F A S T
+  - type: TypingIndicator
+    proto: kitsune
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Inventory
+    speciesId: fox
+    templateId: pet
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: fox
+      Critical:
+        Base: fox_dead
+      Dead:
+        Base: fox_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-soft-floofy
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      collection: Fox
+  - type: LightweightDrunk
+    boozeStrengthMultiplier: 2
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: Bloodstream
+    bloodMaxVolume: 100
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Heat: 8
+  - type: Speech
+    speechSounds: Alto
+    allowedEmotes: ['Growl', 'Squeak']
+  - type: Vocal
+    sounds:
+      Male: MaleKitsune
+      Female: FemaleKitsune
+      Unsexed: MaleKitsune
+  - type: PseudoItem
+    storedOffset: "0,17"
+    shape:
+      - 0,0,1,4
+      - 0,2,3,4
+      - 4,0,5,4
+  - type: Tag
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: MindContainer
+    showExamineInfo: true
