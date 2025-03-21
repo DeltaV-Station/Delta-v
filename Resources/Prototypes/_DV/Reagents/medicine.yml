@@ -1,0 +1,81 @@
+- type: reagent
+  id: Hemoxadone
+  name: reagent-name-hemoxadone
+  group: Medicine
+  desc: reagent-desc-hemoxadone
+  physicalDesc: reagent-physical-desc-metallic
+  flavor: medicine
+  color: "#ee0044"
+  worksOnTheDead: true
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: true
+        damage:
+          types:
+            Poison: 2
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:Temperature
+          max: 213.0
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: false
+        damage:
+          types:
+            Bloodloss: -6
+      - !type:ModifyBloodLevel
+        conditions:
+        - !type:Temperature
+          max: 213.0
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: false
+        amount: 6
+
+- type: reagent
+  id: Cyanoxadone
+  name: reagent-name-cyanoxadone
+  group: Medicine
+  desc: reagent-desc-cyanoxadone
+  physicalDesc: reagent-physical-desc-metallic
+  flavor: medicine
+  color: "#00eeff"
+  worksOnTheDead: true
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: false
+        damage:
+          types:
+            Poison: 2
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:Temperature
+          max: 213.0
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: true
+        damage:
+          types:
+            Bloodloss: -6
+      - !type:ModifyBloodLevel
+        conditions:
+        - !type:Temperature
+          max: 213.0
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: true
+        amount: 6

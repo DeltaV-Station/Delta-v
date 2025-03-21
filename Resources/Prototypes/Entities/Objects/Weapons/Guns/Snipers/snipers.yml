@@ -64,6 +64,10 @@
       - CartridgeAntiMateriel
     capacity: 5
     proto: CartridgeAntiMateriel
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 0.3
   - type: GunRequiresWield # DeltaV - Firing an antimateriel rifle is.. incredibly unweildy with one hand.
   - type: Gun # DeltaV
     fireRate: 0.5

@@ -1,5 +1,1 @@
-advertisement-pride-1 = Be gay do crime!
-advertisement-pride-2 = Full of colors!
-advertisement-pride-3 = You are valid!
-
-thankyou-pride-1 = Go, do a crime!
+thankyou-pride-4 = Go, do a crime!

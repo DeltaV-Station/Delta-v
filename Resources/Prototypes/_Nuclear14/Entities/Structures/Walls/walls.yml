@@ -1,0 +1,52 @@
+# Concrete Walls
+- type: entity
+  parent: BaseWall
+  id: N14WallStore
+  name: store wall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/store.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/nc14/store.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: wallsstore
+    base: store
+
+- type: entity
+  parent: N14WallStore
+  id: N14WallSuperstore
+  name: store wall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/superstore.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/nc14/superstore.rsi
+
+- type: entity
+  parent: N14WallStore
+  id: N14WallConcreteLight
+  name: concrete wall
+  suffix: light
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/concrete.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/nc14/concrete.rsi
+
+- type: entity
+  parent: N14WallConcreteLight
+  id: N14WallConcreteDark
+  suffix: dark
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/concretedark.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/nc14/concretedark.rsi

@@ -104,6 +104,9 @@
       access: [["Atmospherics"], ["Engineering"]] # DeltaV - removed research
     - type: Lock
       locked: false
+    - type: GuideHelp
+      guides:
+      - GasCanisters
 
 - type: entity
   parent: GasCanister
