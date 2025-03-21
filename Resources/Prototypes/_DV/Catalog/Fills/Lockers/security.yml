@@ -25,7 +25,7 @@
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeVulcanRifle
-  name: vulcan safe
+  name: rifle safe
   components:
   - type: StorageFill
     contents:
@@ -33,6 +33,10 @@
       amount: 2
     - id: MagazineRifle
       amount: 4
+    - id: WeaponRifleDaito
+      amount: 1
+    - id: MagazineDMR
+      amount: 2
 
 - type: entity
   parent: GunSafeBaseSecure
@@ -69,7 +73,7 @@
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeM90Rifle
-  name: M-90 rifle safe
+  name: rifle safe
   components:
   - type: StorageFill
     contents:
@@ -77,6 +81,10 @@
       amount: 2
     - id: MagazineRifle
       amount: 4
+    - id: WeaponRifleDaito
+      amount: 1
+    - id: MagazineDMR
+      amount: 2
 
 - type: entity
   parent: GunSafeBaseSecure
