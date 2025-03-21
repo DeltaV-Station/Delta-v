@@ -1,0 +1,11 @@
+- type: entity
+  parent: [GunSafe, BaseRestrictedContraband]
+  id: GunSafeRifleDaito
+  name: Daito safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleDaito
+      amount: 2
+    - id: MagazineDMR
+      amount: 4

@@ -51,11 +51,11 @@
             - MagazineLightRifleBox
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeLightRifle
+        startingItem: CartridgeRifle # DeltaV - changed from LightRifle
         priority: 1
         whitelist:
           tags:
-            - CartridgeLightRifle
+            - CartridgeRifle # DeltaV - changed from LightRifle
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -69,7 +69,7 @@
   name: L6 SAW
   id: WeaponLightMachineGunL6
   parent: [BaseWeaponLightMachineGun, BaseSyndicateContraband]
-  description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses .30 rifle ammo.
+  description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses .20 rifle ammo. # DeltaV - .20 not .30
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/LMGs/l6.rsi
@@ -88,7 +88,7 @@
   name: L6C ROW
   id: WeaponLightMachineGunL6C
   parent: BaseItem
-  description: A L6 SAW for use by cyborgs. Creates .30 rifle ammo on the fly from an internal ammo fabricator, which slowly self-charges.
+  description: A L6 SAW for use by cyborgs. Creates .20 rifle ammo on the fly from an internal ammo fabricator, which slowly self-charges. # DeltaV - .20 not .30
   components:
     - type: Gun
       minAngle: 4
@@ -116,7 +116,7 @@
       containers:
         ballistic-ammo: !type:Container
     - type: ProjectileBatteryAmmoProvider
-      proto: CartridgeLightRifle
+      proto: CartridgeRifle  # DeltaV - changed from LightRifle
       fireCost: 100
     - type: Battery
       maxCharge: 10000
