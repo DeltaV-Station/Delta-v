@@ -111,7 +111,7 @@ cosmiccult-monument-stage3-briefing =
 
 osmiccult-rift-inuse = You can't do this right now.
 cosmiccult-rift-invaliduser = You lack to proper tools to deal with this.
-cosmiccult-rift-chaplainoops = Wield your holy scripture, or a gildgrail.
+cosmiccult-rift-chaplainoops = Wield your holy scripture.
 cosmiccult-rift-alreadyempowered = You are already empowered; the rift's power would be wasted.
 cosmiccult-rift-beginabsorb = The rift begins to merge with you...
 cosmiccult-rift-beginpurge = Your consecration begins purging the malign rift...
