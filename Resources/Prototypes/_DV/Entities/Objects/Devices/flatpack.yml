@@ -29,7 +29,7 @@
   parent: BaseFlatpack
   id: CirculatorFlatpack
   name: Circulator flatpack
-  description: A flatpack used for constructing a circulator of thermoelectric generator.
+  description: A flatpack used for constructing a circulator of the thermoelectric generator.
   components:
   - type: Flatpack
     entity: TegCirculator
@@ -44,7 +44,7 @@
   parent: BaseFlatpack
   id: TegFlatpack
   name: TEG flatpack
-  description: A flatpack used for constructing of thermoelectric generator.
+  description: A flatpack used for constructing a thermoelectric generator.
   components:
   - type: Flatpack
     entity: TegCenter
@@ -54,3 +54,21 @@
     guides:
     - TEG
     - Power
+
+- type: entity
+  parent: BaseFlatpack
+  id: AutodocSyndieFlatpack
+  name: syndie autodoc flatpack
+  description: A flatpack used for constructing a syndicate Autodoc.
+  components:
+  - type: Flatpack
+    entity: AutodocSyndie
+
+- type: entity
+  parent: BaseFlatpack
+  id: OperatingTableFlatpack
+  name: operating table flatpack
+  description: A flatpack used for constructing an operating table.
+  components:
+  - type: Flatpack
+    entity: OperatingTable
