@@ -224,7 +224,7 @@ namespace Content.Server._Impstation.Drone
                 return;
             }
 
-            var chargePercent = (short) MathF.Round(battery.CurrentCharge / battery.MaxCharge * 10f);
+            var chargePercent = (short)MathF.Round(battery.CurrentCharge / battery.MaxCharge * 10f);
 
             if (chargePercent == 5 && chargePercent < ent.Comp.LastChargePercent)
             {
