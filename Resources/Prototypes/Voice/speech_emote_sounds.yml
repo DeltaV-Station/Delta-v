@@ -92,14 +92,22 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
+    Sneeze:
+      collection: MaleSneezes # DV Added Human Sneeze
+    Cough:
+      collection: MaleCoughs # DV Added Human Cough
     Hiss:
       collection: ReptillianHiss # Impstation
     Honk:
       collection: BikeHorn
+    Yawn:
+      collection: MaleYawn # DV Added Human Yawn
     Whistle:
       collection: Whistles
     Crying:
       collection: MaleCry
+    Sigh:
+      collection: MaleSigh # DV Added Human Sigh
     Weh:
       collection: Weh
     Hew:
@@ -122,10 +130,18 @@
       collection: ReptillianHiss # Impstation
     Honk:
       collection: BikeHorn
+    Cough:
+      collection: FemaleCoughs # DV Added Human Cough
+    Yawn:
+      collection: FemaleYawn # DV Added Human Yawn
+    Sneeze:
+      collection: FemaleSneezes # DV Added Human Sneeze
     Whistle:
       collection: Whistles
     Crying:
       collection: FemaleCry
+    Sigh:
+      collection: FemaleSigh # DV Added Human Sigh
     Weh:
       collection: Weh
     Hew:
@@ -236,6 +252,12 @@
       collection: Weh
     Hew:
       collection: Hew
+    Gasp: 
+      collection: VoxGasp 
+    # DV Added vox gasping sound
+    DefaultDeathgasp:
+      path: /Audio/_DV/Effects/Gasp/vox_deathgasp_1.ogg 
+    # DV Added vox deathgasp sound
   params:
     variation: 0.125
     # We need vox sounds for the other emotes
