@@ -1,0 +1,672 @@
+# Security
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: CorpsmanPDA
+  name: corpsman PDA
+  description: Red and Sterile. Has a built-in health analyzer.
+  components:
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - CrimeAssistCartridge
+    - SecWatchCartridge
+    - NanoChatCartridge
+    - MedTekCartridge
+  - type: Pda
+    id: BrigmedicIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-corpsman
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentVColor: "#447987"
+  - type: Icon
+    state: pda-corpsman
+
+- type: entity
+  parent: ClearPDA
+  id: PrisonerPDA
+  name: prisoner PDA
+  description: Clear, so you can make sure there's nothing being smuggled inside.
+  components:
+  - type: Pda
+    id: PrisonerIDCard
+
+- type: entity
+  parent: PrisonerPDA
+  id: GladiatorPDA
+  name: gladiator PDA
+  components:
+  - type: Pda
+    id: GladiatorIDCard
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: PrisonGuardPDA
+  name: prison guard PDA
+  description: Red to hide the stains of prisoner blood.
+  components:
+  - type: Pda
+    id: PrisonGuardIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-prisonguard
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentVColor: "#DFDFDF"
+  - type: Icon
+    state: pda-prisonguard
+
+# Justice
+
+- type: entity
+  parent: BasePDA
+  id: BaseJusticePDA
+  abstract: true
+  components:
+  - type: Pda
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - CrimeAssistCartridge
+    - SecWatchCartridge
+    - NanoChatCartridge
+
+- type: entity
+  parent: BaseJusticePDA
+  id: ChiefJusticePDA
+  name: chief justice PDA
+  description: Whosoever bears this PDA is the law.
+  components:
+  - type: Pda
+    id: ChiefJusticeIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-chiefjustice
+  - type: PdaBorderColor
+    borderColor: "#470823"
+  - type: Icon
+    state: pda-chiefjustice
+
+- type: entity
+  parent: BaseJusticePDA
+  id: ClerkPDA
+  name: clerk PDA
+  description: It has the stamp to prove it's been officially notarized!
+  components:
+  - type: Pda
+    id: ClerkIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-clerk
+  - type: PdaBorderColor
+    borderColor: "#611528"
+  - type: Icon
+    state: pda-clerk
+
+- type: entity
+  parent: BaseJusticePDA
+  id: ProsecutorPDA
+  name: prosecutor PDA
+  description: Sharp. Looks like it could prosecute you all on its own.
+  components:
+  - type: Pda
+    id: ProsecutorIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-prosecutor
+  - type: PdaBorderColor
+    borderColor: "#6f6192"
+  - type: Icon
+    state: pda-prosecutor
+
+# Misc
+
+- type: entity
+  parent: SyndiPDA
+  id: SyndiListeningPostPDA
+  components:
+  - type: Pda
+    id: SyndicateIDCard
+    penSlot:
+      startingItem: CyberPen
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-syndi-agent
+
+- type: entity
+  parent: BasePDA
+  id: MartialArtistPDA
+  name: martial artist PDA
+  description: Smells like straw.
+  components:
+  - type: Pda
+    id: MartialArtistIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-martialartist
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#232323"
+  - type: Icon
+    state: pda-martialartist
+
+# Logistics
+
+- type: entity
+  parent: BasePDA
+  id: CourierPDA
+  name: courier PDA
+  description: Smells like unopened letters.
+  components:
+  - type: Pda
+    id: CourierIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-mailcarrier
+  - type: PdaBorderColor
+    borderColor: "#e39751"
+    accentVColor: "#050c4d"
+  - type: Icon
+    state: pda-mailcarrier
+  - type: CartridgeLoader # DeltaV - Courier Performance
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - MailMetricsCartridge
+    - NanoChatCartridge
+
+- type: entity
+  parent: CourierPDA
+  id: MailCarrierPDA
+  name: mail carrier PDA
+  description: Smells like unopened letters.
+  components:
+  - type: Pda
+    id: MailCarrierIDCard
+  - type: PdaBorderColor
+    borderColor: "#e39751"
+    accentVColor: "#050c4d"
+  - type: Icon
+    state: pda-mailcarrier
+
+- type: entity
+  parent: CargoPDA
+  id: CargoAssistantPDA
+  name: cargo assistant PDA
+  description: It smells like cardboard.
+  components:
+  - type: Pda
+    id: CargoAssistantIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-cargo-assistant
+
+# Epistemics
+
+- type: entity
+  parent: SciencePDA
+  id: PsionicMantisPDA
+  name: psionic mantis PDA
+  description: Smells like illegal substances.
+  components:
+  - type: Pda
+    id: ForensicMantisIDCard
+
+# Command
+
+- type: entity
+  parent: BasePDA
+  id: AdminAssistantPDA
+  name: administrative assistant PDA
+  description: Theres pen scribbles all over the edges, and a few sticky notes stuck on it.
+  components:
+  - type: Pda
+    id: AdminAssistantIDCard
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-admin-assistant
+  - type: Icon
+    state: pda-admin-assistant
+
+## Alternate Job Titles
+
+# Passenger
+
+# event visitors get externals emergency access, not a good thing for powergaming tiders
+- type: entity
+  parent: VisitorPDA
+  id: VisitorPDALoadout
+  components:
+  - type: Pda
+    id: VisitorIDCardLoadout
+
+- type: entity
+  parent: PassengerPDA
+  id: TouristPDA
+  name: tourist PDA
+  description: You came to the station for a relaxing vacation. Bon voyage!
+  components:
+  - type: Pda
+    id: TouristIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-tourist
+
+- type: entity
+  parent: PassengerPDA
+  id: OffDutyCrewPDA
+  name: off-duty crew PDA
+  description: You saved your PTO to come here with zero responsibility. Surely they won't need your help while you're here?
+  components:
+  - type: Pda
+    id: OffDutyCrewIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-offduty
+
+- type: entity
+  parent: PassengerPDA
+  id: StudentPDA
+  name: student PDA
+  description: Whether you came here to study various aspects of space architecture, unfathomably hot burn chambers, psionic activity, or are just on spring break, you're a real space student now.
+  components:
+  - type: Pda
+    id: StudentIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-student
+
+# Bartender
+
+- type: entity
+  parent: BartenderPDA
+  id: MixologistPDA
+  name: mixologist PDA
+  description: There are those who tend the bar, and then there are those who synthesize intoxicating art.
+  components:
+  - type: Pda
+    id: MixologistIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-mixologist
+
+# Chef
+
+- type: entity
+  parent: ChefPDA
+  id: BakerPDA
+  name: baker PDA
+  description: For those about to loaf, we salute you.
+  components:
+  - type: Pda
+    id: BakerIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-baker
+
+- type: entity
+  parent: ChefPDA
+  id: ButcherPDA
+  name: butcher PDA
+  description: It's as fearsome of a job title as you want it to be.
+  components:
+  - type: Pda
+    id: ButcherIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-butcher
+
+- type: entity
+  parent: ChefPDA
+  id: PizzaioloPDA
+  name: pizzaiolo PDA
+  description: Hey paesanos! It's a-time to cook-a-da-pizza!
+  components:
+  - type: Pda
+    id: PizzaioloIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-pizzaiolo
+
+# Medical Intern
+
+- type: entity
+  parent: MedicalInternPDA
+  id: PracticalNursePDA
+  name: practical nurse PDA
+  description: For those who practically nurse people to good health.
+  components:
+  - type: Pda
+    id: PracticalNurseIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-practicingnurse
+
+- type: entity
+  parent: MedicalInternPDA
+  id: ResidentPDA
+  name: resident PDA
+  description: No, it's for training your way up the medical ladder. Not evil.
+  components:
+  - type: Pda
+    id: ResidentIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-resident
+
+# Medical Doctor
+
+- type: entity
+  parent: MedicalPDA
+  id: ClinicianPDA
+  name: clinician PDA
+  description: Why do you have to be so clinical about everything!?
+  components:
+  - type: Pda
+    id: ClinicianIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-phys
+
+# Psychologist
+
+- type: entity
+  parent: PsychologistPDA
+  id: PsychiatristPDA
+  name: psychiatrist PDA
+  description: Sterile-smelling and neutrally colored.
+  components:
+  - type: Pda
+    id: PsychiatristIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-psychiatrist
+
+- type: entity
+  parent: PsychologistPDA
+  id: TherapistPDA
+  name: therapist PDA
+  description: Covered in a rubberized case in a reassuring shade of brown.
+  components:
+  - type: Pda
+    id: TherapistIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-therapist
+
+- type: entity
+  parent: PsychologistPDA
+  id: SocialWorkerPDA
+  name: social worker PDA
+  description: Dented and scratched. It's been well-used.
+  components:
+  - type: Pda
+    id: SocialWorkerIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-socialworker
+
+# Surgeon
+
+- type: entity
+  parent: BaseMedicalPDA
+  id: SurgeonPDA
+  name: surgeon PDA
+  description: Smells faintly like burnt flesh and anesthesia.
+  components:
+  - type: Pda
+    id: SurgeonIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-surgeon
+  - type: PdaBorderColor
+    borderColor: "#5b97bc"
+    accentHColor: "#ffffff"
+    accentVColor: "#ffffff"
+  - type: Icon
+    state: pda-surgeon
+
+# Atmospherics Technician
+
+- type: entity
+  parent: AtmosPDA
+  id: LifeSupportTechPDA
+  name: life support technician PDA
+  components:
+  - type: Pda
+    id: LifeSupportTechIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-lifesupporttech
+
+- type: entity
+  parent: AtmosPDA
+  id: PlasmaScientistPDA
+  name: plasma scientist PDA
+  components:
+  - type: Pda
+    id: PlasmaScientistIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-plasmatech
+
+# Station Engineer
+
+- type: entity
+  parent: EngineerPDA
+  id: ElectricianPDA
+  name: electrician PDA
+  description: Where do they get the batteries for these things?
+  components:
+  - type: Pda
+    id: ElectricianIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-electrician
+
+- type: entity
+  parent: EngineerPDA
+  id: MechanicPDA
+  name: mechanic PDA
+  description: We love wrenches!
+  components:
+  - type: Pda
+    id: MechanicIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-mechanic
+
+# Cargo Technician
+
+- type: entity
+  parent: CargoPDA
+  id: DeckWorkerPDA
+  name: deck worker PDA
+  description: Ideally you're not just swabbing it.
+  components:
+  - type: Pda
+    id: DeckWorkerIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-deckworker
+
+- type: entity
+  parent: CargoPDA
+  id: InventoryAssociatePDA
+  name: inventory associate PDA
+  components:
+  - type: Pda
+    id: InventoryAssociateIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-inventoryassociate
+
+# Salvage Technician
+
+- type: entity
+  parent: SalvagePDA
+  id: ProspectorPDA
+  name: prospector PDA
+  components:
+  - type: Pda
+    id: ProspectorIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-prospector
+
+- type: entity
+  parent: SalvagePDA
+  id: ExcavatorPDA
+  name: excavator PDA
+  components:
+  - type: Pda
+    id: ExcavatorIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-excavator
+
+# Scientist
+
+- type: entity
+  parent: SciencePDA
+  id: LabTechPDA
+  name: lab technician PDA
+  description: Part of it is melted after a close interaction with a hotplate.
+  components:
+  - type: Pda
+    id: LabTechIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-labsci
+
+- type: entity
+  parent: SciencePDA
+  id: XenoarchPDA
+  name: xenoarchaeologist PDA
+  components:
+  - type: Pda
+    id: XenoarchIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-xenobio
+
+- type: entity
+  parent: SciencePDA
+  id: RoboticistPDA
+  name: roboticist PDA
+  description: Surprisingly, it doesn't talk to you.
+  components:
+  - type: Pda
+    id: RoboticistIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-roboticist
+
+# Clown
+
+- type: entity
+  parent: ClownPDA
+  id: JesterPDA
+  name: jester PDA
+  description: Doesn't actually jingle when you move.
+  components:
+  - type: Pda
+    id: JesterIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-jester
+
+- type: entity
+  parent: ClownPDA
+  id: FoolPDA
+  name: fool PDA
+  description: Found alone on a hill.
+  components:
+  - type: Pda
+    id: FoolIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-fool
+
+# Janitor
+
+- type: entity
+  parent: JanitorPDA
+  id: HygieneTechnicianPDA
+  name: hygiene technician PDA
+  description: It sounded better than it is or so Jeffrey said.
+  components:
+  - type: Pda
+    id: HygieneTechnicianIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-hygienetechnician
+
+- type: entity
+  parent: SyndiPDA
+  id: RoboNeuroticistPDA
+  name: robo-neuroticist PDA
+  description: An elite PDA for an elite Operative. Bits of wire and grease poke from the chassis.
+  components:
+  - type: Pda
+    id: RoboNeuroticistIDCard

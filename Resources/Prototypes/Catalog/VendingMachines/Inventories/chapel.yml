@@ -3,6 +3,8 @@
   startingInventory:
     ClothingUniformJumpsuitChaplain: 2
     ClothingUniformJumpskirtChaplain: 2
+    ClothingUniformFuneralSuit: 4 #imp
+    ClothingUniformFuneralSuitSkirt: 4 #imp
     ClothingUniformJumpsuitMonasticRobeDark: 1
     ClothingUniformJumpsuitMonasticRobeLight: 1
     ClothingShoesBootsLaceup: 2 # DeltaV - Just more appropriate shoes
@@ -37,8 +39,12 @@
     Censer: 2 # Frontier
     ClothingNeckCrucifix: 1 # Frontier # DeltaV - 3 to 1
     Bible: 1
-    SilverRing: 2 # Delta-V
-    RingBox: 2 # Delta-V
+    SilverRing: 2 # DeltaV
+    RingBox: 2 # DeltaV
+  contrabandInventory:
+    FoodBakedBunHotX: 2
+    DrinkWineBottleFull: 1
+    ToyFigurineChaplain: 1
   emaggedInventory:
     ClothingOuterArmorCult: 1
     ClothingHeadHelmetCult: 1

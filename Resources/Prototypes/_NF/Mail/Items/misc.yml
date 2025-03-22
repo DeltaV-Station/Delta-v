@@ -7,7 +7,7 @@
   name: delayed smoke
   suffix: "(10s)"
   components:
-  - type: Sprite #DeltaV: Apparently these want sprites, probably because they're baseitems
+  - type: Sprite # DeltaV: Apparently these want sprites, probably because they're baseitems
     sprite: /Textures/Objects/Fun/goldbikehorn.rsi
     visible: false
     state: icon
@@ -30,7 +30,7 @@
   categories: [ HideSpawnMenu ]
   name: delayed EMP (7 meters)
   components:
-  - type: Sprite #DeltaV: Apparently these want sprites, probably because they're baseitems
+  - type: Sprite # DeltaV: Apparently these want sprites, probably because they're baseitems
     sprite: /Textures/Objects/Fun/goldbikehorn.rsi
     visible: false
     state: icon

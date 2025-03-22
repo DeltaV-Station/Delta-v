@@ -1,0 +1,53 @@
+- type: loadout
+  id: AACTablet
+  storage:
+    back:
+    - AACTablet
+
+- type: loadout
+  id: GoldRing
+  storage:
+    back:
+    - GoldRing
+
+- type: loadout
+  id: SilverRing
+  storage:
+    back:
+    - SilverRing
+
+- type: loadout
+  id: Rosary
+  equipment:
+    pocket1: ClothingRosary
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChaplain
+      time: 7200 #2 hours
+
+- type: loadout
+  id: Cane
+  storage:
+    back:
+    - Cane
+
+- type: loadout
+  id: WhiteCane
+  storage:
+    back:
+    - WhiteCane
+
+- type: loadout
+  id: TapeRecorder
+  storage:
+    back:
+    - TapeRecorderFilled
+
+- type: loadout
+  id: ClothingHeadHatUshanka
+  storage:
+    back:
+    - ClothingHeadHatUshanka
+

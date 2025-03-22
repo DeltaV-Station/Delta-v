@@ -3,9 +3,6 @@
   name: job-name-librarian
   description: job-description-librarian
   playTimeTracker: JobLibrarian
-  requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
-      time: 3600 # 1 hr
   startingGear: LibrarianGear
   icon: "JobIconLibrarian"
   supervisors: job-supervisors-hop

@@ -1,0 +1,75 @@
+- type: entity
+  abstract: true
+  parent: ClothingUniformBase
+  id: ClothingUniformJacketBase
+  components:
+  - type: RMCClothingFoldable
+    types:
+    - name: deltav-fold-top-verb
+      prefix: folded
+      priority: 0
+
+- type: entity
+  abstract: true
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformSkirtJacketBase
+  components:
+  - type: RMCClothingFoldable
+    types:
+    - name: deltav-fold-top-verb
+      prefix: folded
+      priority: 0
+
+- type: entity
+  abstract: true
+  parent: ClothingUniformBase
+  id: ClothingUniformRollableBase
+  components:
+  - type: RMCClothingFoldable
+    types:
+    - name: deltav-fold-sleeves-verb
+      prefix: rolled
+      priority: 0
+
+- type: entity
+  abstract: true
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformSkirtRollableBase
+  components:
+  - type: RMCClothingFoldable
+    types:
+    - name: deltav-fold-sleeves-verb
+      prefix: rolled
+      priority: 0
+
+- type: entity
+  abstract: true
+  parent: ClothingUniformBase
+  id: ClothingUniformFoldableBase
+  components:
+  - type: RMCClothingFoldable
+    types:
+    - name: deltav-fold-top-verb
+      prefix: folded
+      priority: 0
+    - name: deltav-fold-sleeves-verb
+      prefix: rolled
+      priority: 1
+      blacklistedPrefix: folded
+      blacklistPopup: deltav-fold-cannot
+
+- type: entity
+  abstract: true
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformSkirtFoldableBase
+  components:
+  - type: RMCClothingFoldable
+    types:
+    - name: deltav-fold-top-verb
+      prefix: folded
+      priority: 0
+    - name: deltav-fold-sleeves-verb
+      prefix: rolled
+      priority: 1
+      blacklistedPrefix: folded
+      blacklistPopup: deltav-fold-cannot

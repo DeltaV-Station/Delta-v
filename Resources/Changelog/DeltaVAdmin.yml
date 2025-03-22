@@ -72,5 +72,37 @@ Entries:
   id: 10
   time: '2024-12-14T21:31:30.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2443
+- author: deltanedas
+  changes:
+  - message: Changed warden from blanket whitelist to job whitelist.
+    type: Tweak
+  id: 11
+  time: '2024-12-29T18:33:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2559
+- author: beck-thompson
+  changes:
+  - message: New givefeedbackpopup command to force a feedback popup for players!
+    type: Add
+  id: 12
+  time: '2025-01-09T06:43:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2663
+- author: HTMLSystem
+  changes:
+  - message: Added centcomm jumpskirts, bags, and a mantle!
+    type: Add
+  - message: Added the centcomm beret to the vending machine!
+    type: Add
+  - message: Changed the title of the centcomm hardsuit for consistency!
+    type: Tweak
+  id: 13
+  time: '2025-02-18T19:38:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3003
+- author: deltanedas
+  changes:
+  - message: The nuke exploding will now end the round even without a nukeops gamerule.
+    type: Tweak
+  id: 14
+  time: '2025-03-03T18:30:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3101
 Name: Admin
 Order: 1

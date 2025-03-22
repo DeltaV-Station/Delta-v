@@ -38,15 +38,15 @@
   description: A good HOP knows that paper pushing is only half the job... petting your dog and looking fashionable is the other half.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Neck/mantles/hopmantle.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Neck/mantles/hopmantle.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Neck/mantles/hopmantle.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Neck/mantles/hopmantle.rsi # DeltaV - resprite
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckMantleHOS
   name: head of security's mantle
-  description: Shootouts with nukies are just another Tuesday for this HoS. This mantle is a symbol of commitment to the station.
+  description: Shootouts with syndicate agents are just another Tuesday for this HoS. This mantle is a symbol of commitment to the station.
   components:
   - type: Sprite
     sprite: Clothing/Neck/mantles/hosmantle.rsi

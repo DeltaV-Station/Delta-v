@@ -1,0 +1,54 @@
+- type: construction
+  name: armchair
+  id: N14ChairArmchair
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairArmchair
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: armchair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: ergonomic office chair
+  id: N14ChairOfficeErgonomic
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairOfficeErgonomic
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: ergo_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: metal table
+  id: N14TableMetalGrate
+  graph: N14TableMetalGrateRecipes
+  startNode: start
+  targetNode: TableMetalGrate
+  category: construction-category-furniture
+  description: A cold handmade metal table made from grating.
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  canRotate: true
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/metalgrate.rsi
+    state: full
+  conditions:
+    - !type:TileNotBlocked

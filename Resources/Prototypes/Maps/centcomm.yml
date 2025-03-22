@@ -1,7 +1,8 @@
 - type: gameMap
   id: CentComm
+  isGrid: true # Did you know that centcomm is the only "game map" that isn't actually a map? Send help.
   mapName: 'Central Command'
-  mapPath: /Maps/DeltaV/centcomm.yml # DeltaV
+  mapPath: /Maps/_DV/centcomm.yml # DeltaV
   minPlayers: 10
   stations:
     centcomm:

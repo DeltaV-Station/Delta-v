@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 using Robust.Shared.Configuration;
-using Content.Shared.DeltaV.CCVars;
+using Content.Shared._DV.CCVars;
 using Content.Shared.GameTicking;
 
 namespace Content.Shared.Psionics.Glimmer

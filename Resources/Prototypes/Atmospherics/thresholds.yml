@@ -15,11 +15,11 @@
     threshold: 550 # HazardHighPressure from Atmospherics.cs
   lowerBound: !type:AlarmThresholdSetting
     # Actual low pressure damage threshold is at 20 kPa, but below ~85 kPa you can't breathe due to lack of oxygen.
-    threshold: 85
+    threshold: 40 # DeltaV - was 80
   upperWarnAround: !type:AlarmThresholdSetting
     threshold: 0.7 # 385 kPa, WarningHighPressure from Atmospherics.cs
   lowerWarnAround: !type:AlarmThresholdSetting
-    threshold: 1.05 # ~90 kPa
+    threshold: 2 # DeltaV - 80kpa, was 1.05 (90kpa)
 
 # a reminder that all of these are percentages (where 1 is 100%),
 # so 0.01 is 1%,
@@ -28,6 +28,17 @@
 
 - type: alarmThreshold
   id: stationOxygen
+  lowerBound: !type:AlarmThresholdSetting
+    threshold: 0.10
+  upperBound: !type:AlarmThresholdSetting
+    threshold: 0.8 # DeltaV - was 0.3, ridiculous
+  lowerWarnAround: !type:AlarmThresholdSetting
+    threshold: 1.5
+  upperWarnAround: !type:AlarmThresholdSetting
+    threshold: 0.8
+
+- type: alarmThreshold
+  id: stationNitrogen
   lowerBound: !type:AlarmThresholdSetting
     threshold: 0.10
   lowerWarnAround: !type:AlarmThresholdSetting
@@ -97,3 +108,14 @@
     threshold: 0.8 # danger below 80% nitrogen
   lowerWarnAround: !type:AlarmThresholdSetting
     threshold: 1.125 # warning below 90%
+
+- type: alarmThreshold
+  id: freezerTemperature
+  upperBound: !type:AlarmThresholdSetting
+    threshold: 335.15 # T-38.15C (235) + 100
+  lowerBound: !type:AlarmThresholdSetting
+    threshold: 135.15 # T-38.15C (235) - 100
+  upperWarnAround: !type:AlarmThresholdSetting
+    threshold: 0.8
+  lowerWarnAround: !type:AlarmThresholdSetting
+    threshold: 1.1

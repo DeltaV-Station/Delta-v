@@ -17,7 +17,7 @@
     slots:
     - belt
   - type: Item
-    size: Ginormous
+    size: Huge # DeltaV: Was Ginormous, lets it fit in conscription bag
   - type: Storage
     maxItemSize: Normal
     grid:
@@ -46,8 +46,9 @@
         enum.ToggleVisuals.Layer:
           True: { state: icon_on }
           False: { state: icon }
-  # End DeltaV Additions
-  - type: ReverseEngineering # DeltaV
+  - type: ReverseEngineering
     difficulty: 2
     recipes:
     - OreBagOfHolding
+  # End DeltaV Additions
+  - type: NFOreBag # Frontier

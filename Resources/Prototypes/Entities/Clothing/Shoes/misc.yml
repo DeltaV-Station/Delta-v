@@ -55,6 +55,39 @@
 
 - type: entity
   parent: ClothingShoesBaseButcherable
+  id: ClothingShoeSlippersLizard
+  name: lizard plushie slippers
+  description: An adorable pair of slippers that resemble a lizardperson. Combine this with some other green clothing and you'll be the coolest crewmember on the station!
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Misc/lizard-slippers.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Misc/lizard-slippers.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepLizardSlippers
+      params:
+        variation: 0.02
+  - type: Construction
+    graph: ClothingShoeSlippersLizard
+    node: shoes
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 60
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 20
+        - ReagentId: JuiceThatMakesYouWeh
+          Quantity: 20
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
   id: ClothingShoesTourist
   name: tourist shoes
   description: These cheap sandals don't look very comfortable.
@@ -91,7 +124,7 @@
   parent: [ClothingShoesBase, PowerCellSlotSmallItem, BaseToggleClothing]
   id: ClothingShoesBootsSpeed
   name: speed boots
-  description: High-tech boots woven with quantum fibers, able to convert electricity into pure speed!
+  description: High-tech boots with interwoven bluespace fibers, able to convert electricity into pure speed! # DeltaV illegal ops
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/speedboots.rsi
@@ -103,8 +136,8 @@
   - type: ToggleClothing
     action: ActionToggleSpeedBoots
   - type: ClothingSpeedModifier
-    walkModifier: 1.5
-    sprintModifier: 1.5
+    walkModifier: 1.7 # DeltaV
+    sprintModifier: 1.7 # DeltaV
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -115,7 +148,7 @@
   - type: StaticPrice
     price: 500
   - type: PowerCellDraw
-    drawRate: 4
+    drawRate: 30 # DeltaV 4>30, you have to turn off micro reactor at somepoint
   - type: ToggleCellDraw
   - type: ItemSlots
     slots:

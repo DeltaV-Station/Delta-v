@@ -6,6 +6,8 @@
   description: A flying leviathan, loosely related to space carps.
   abstract: true
   components:
+  - type: Body # Shitmed
+    prototype: SpaceDragon
   - type: Bloodstream
     bloodMaxVolume: 650
   - type: GhostRole
@@ -13,8 +15,10 @@
     allowSpeech: true
     makeSentient: true
     name: ghost-role-information-space-dragon-name
-    description: ghost-role-information-space-dragon-description
+    description: deltav-ghost-role-information-space-dragon-description # DeltaV - Dragons despawn in 10 minutes
     rules: ghost-role-information-space-dragon-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -152,16 +156,15 @@
     - DoorBumpOpener
   - type: Puller
     needsHands: false
-    
+
 - type: entity
   parent: BaseMobDragon
   id: MobDragon
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
-  - type: ActionGun
-    action: ActionDragonsBreath
-    gunProto: DragonsBreathGun
+    maxAccumulator: 600 # DeltaV - Double the normal time
+    weakenedDuration: 60 # DeltaV - Half the normal time
   - type: GuideHelp
     guides:
     - MinorAntagonists

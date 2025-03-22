@@ -65,6 +65,7 @@
     interfaces:
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
+        requireInputValidation: false
       enum.BorgUiKey.Key:
         type: BorgBoundUserInterface
       enum.StrippingUiKey.Key:
@@ -72,6 +73,7 @@
       # Only used for NT borgs that can switch type, defined here to avoid copy-pasting the rest of this component.
       enum.BorgSwitchableTypeUiKey.SelectBorgType:
         type: BorgSelectTypeUserInterface
+  - type: Targeting # Shitmed Change
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound
@@ -102,10 +104,17 @@
     - Common
     - Science
   - type: ZombieImmune
-  - type: Repairable
-    doAfterDelay: 10
-    allowSelfRepair: false
+  # Begin DeltaV Changes - use IPC healing instead of 1 weld to heal everything
+  #- type: Repairable
+  #  doAfterDelay: 10
+  #  allowSelfRepair: false
+  - type: WeldingHealable
+    allowSelfHeal: false
+  # End DeltaV Changes
   - type: BorgChassis
+  - type: SurgerySelfDirty # DeltaV: borgs get dirty from doing surgery
+  - type: Fiber # DeltaV - borgs leave metal fibers
+    fiberMaterial: fibers-plasteel
   - type: LockingWhitelist
     blacklist:
       components:
@@ -154,6 +163,7 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
+    screamAction: null
   - type: UnblockableSpeech
   - type: FootstepModifier
     footstepSoundCollection:
@@ -166,7 +176,6 @@
     - cell_slot
   - type: Lock
     locked: true
-    breakOnEmag: false
     unlockOnClick: false
   - type: ActivatableUIRequiresLock
   - type: LockedWiresPanel
@@ -249,6 +258,7 @@
     - PsionicInvisibility
     - Normal
   - type: JetpackUser # DeltaV: Lets cyborgs fly in space
+  - type: PreventDropOnDowned # Frontier: borgs don't drop items when falling (e.g. critical/dead)
 
 - type: entity
   abstract: true
@@ -319,6 +329,7 @@
     access: [["SyndicateAgent"], ["NuclearOperative"]]
   - type: SiliconLawProvider
     laws: SyndicateStatic
+    subverted: true
   - type: IntrinsicRadioTransmitter
     channels:
     - Binary
@@ -330,11 +341,15 @@
   - type: MovementAlwaysTouching
   - type: Speech
     speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
+  - type: Fiber # DeltaV - syndiborgs have black plasteel fibers
+    fiberColor: fibers-black
 
 - type: entity
   id: BaseBorgChassisDerelict
@@ -355,3 +370,5 @@
   - type: IonStormTarget
     chance: 1
   - type: ShowJobIcons
+  - type: Fiber # DeltaV - derelict borgs have degraded plasteel fibers
+    fiberMaterial: fibers-degraded-plasteel

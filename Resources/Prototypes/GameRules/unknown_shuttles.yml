@@ -7,7 +7,7 @@
     - id: UnknownShuttleCargoLost
     - id: UnknownShuttleTravelingCuisine
     - id: UnknownShuttleDisasterEvacPod
-    #- id: UnknownShuttleHonki #DeltaV - Removes the Clown Shuttle
+    #- id: UnknownShuttleHonki # DeltaV - Removes the Clown Shuttle
     #- id: UnknownShuttleNTQuark # DeltaV - removed until theyre individually looked at
     #- id: UnknownShuttleCruiser
     #- id: UnknownShuttleCryptid
@@ -48,7 +48,7 @@
     startAnnouncement: station-event-unknown-shuttle-incoming
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 10 # 10 default
+    weight: 5 # DeltaV - was 10, all of these kinda suck
     reoccurrenceDelay: 30
     duration: 1
     maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
@@ -90,7 +90,7 @@
   - type: LoadMapRule
     preloadedGrid: DisasterEvacPod
 
-# - type: entity #DeltaV - Remove Clown Shuttle
+# - type: entity # DeltaV - Remove Clown Shuttle
 #  parent: BaseUnknownShuttleRule
 #  id: UnknownShuttleHonki
 #  components:

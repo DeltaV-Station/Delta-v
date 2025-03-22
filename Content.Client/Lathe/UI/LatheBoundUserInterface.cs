@@ -1,4 +1,4 @@
-using Content.Shared.DeltaV.Salvage; // DeltaV
+using Content.Shared._DV.Salvage; // DeltaV
 using Content.Shared.Lathe;
 using Content.Shared.Research.Components;
 using JetBrains.Annotations;
@@ -19,9 +19,8 @@ namespace Content.Client.Lathe.UI
         {
             base.Open();
 
-            _menu = this.CreateWindow<LatheMenu>();
+            _menu = this.CreateWindowCenteredRight<LatheMenu>();
             _menu.SetEntity(Owner);
-            _menu.OpenCenteredRight();
 
             _menu.OnServerListButtonPressed += _ =>
             {

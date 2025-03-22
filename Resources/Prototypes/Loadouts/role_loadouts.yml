@@ -30,9 +30,15 @@
   - GroupSpeciesBreathTool
 
 # Silicons
+#- type: roleLoadout
+#  id: JobBorg
+#  nameDataset: roleloadout doesn't support both so need to update that first.
+#  canCustomizeName: true
+
 - type: roleLoadout
   id: JobStationAi
   nameDataset: NamesAIDeltaV # DeltaV
+  canCustomizeName: true
 
 # Civilian
 - type: roleLoadout
@@ -248,6 +254,7 @@
   id: JobSalvageSpecialist
   groups:
   - SalvageSpecialistNeck # DeltaV
+  - SalvageSpecialistJumpsuit # DeltaV - more jumpskirts
   - GroupTankHarness
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
@@ -367,7 +374,7 @@
   - HeadofSecurityJumpsuit
   - SecurityBackpack
   - SecurityBelt
-  - HeadofSecurityOuterClothing
+  - HeadofSecurityOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was HeadofSecurityOuterClothing
   - HeadofSecurityShoes # DeltaV - winter boots
   - SurvivalSecurity
   - Trinkets
@@ -384,11 +391,11 @@
   - WardenJumpsuit
   - SecurityBackpack
   - SecurityBelt
-  - WardenOuterClothing
+  - WardenOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was WardenOuterClothing
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar 
+  - SecurityStar
   - GroupSpeciesBreathToolSecurity
   - SecurityAllFirearm # DeltaV - loadouts
   - SecurityAllAmmo # DeltaV - loadouts
@@ -400,7 +407,7 @@
   - SecurityNeck # DeltaV
   - SecurityJumpsuit
   - SecurityBackpack
-  - SecurityOuterClothing
+  - SecurityOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was SecurityOuterClothing
   - SecurityShoes
   - SecurityPDA
   - SecurityBelt
@@ -416,9 +423,9 @@
   groups:
   - DetectiveHead
   - SecurityNeck # DeltaV - replace DetectiveNeck for incongruence
-  - DetectiveJumpsuit
+  - DetectiveJumpsuitDeltaV # DeltaV - Replaced with DeltaV version, was DetectiveJumpsuit
   - SecurityBackpack
-  - DetectiveOuterClothing
+  - DetectiveOuterClothingDeltaV # DeltaV - Replaced with DeltaV version, was DetectiveOuterClothing
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets

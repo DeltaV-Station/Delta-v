@@ -1,0 +1,182 @@
+- type: entity
+  id: BaseBorgModuleSecurity
+  parent: BaseBorgModule
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - BorgModuleSecurity
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
+
+# Security Modules
+
+- type: entity
+  id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: patrol cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-patrol
+  - type: ItemBorgModule
+    items:
+    - FlashlightSecliteRecharging
+    - SecurityWhistle
+
+- type: entity
+  id: BorgModuleSecurityBastion # Peacekeeper Set, Available on Round Start
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: bastion cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-hold
+  - type: ItemBorgModule
+    items:
+    - HoloprojectorSecurityRecharging
+
+- type: entity
+  id: BorgModuleSecurityDeescalate # Research Locked - AdvancedRiotControl
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: de-escalation cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-detain
+  - type: ItemBorgModule
+    items:
+    - StunbatonSelfCharging
+    - FlashRecharging
+    - BorgHypoPax
+
+- type: entity
+  id: BorgModuleSecurityEscalate
+  parent: BorgModuleSecurityDeescalate
+  name: escalation cyborg module
+  description: Peace was never an option.
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-hurt
+  - type: ItemBorgModule
+    items:
+    - Truncheon # Anti-Fauna option to stop them being relied on the Seclite (which will be removed when the Laws menu is fixed)
+    - FlashRecharging
+
+- type: entity
+  id: BorgModuleSecurityChase # Research Locked - EnergyGunsAdvanced
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: chase cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-chase
+  - type: ItemBorgModule
+    items:
+    - WeaponEnergyGunMiniRecharging
+
+# Syndicate modules
+
+- type: entity
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  id: BaseBorgModuleSyndie
+  abstract: true
+  name: unfinished martyr cyborg module
+  description: This unfinished module has a large space for an explosive payload, with "boom" helpfully scribbled under it.
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+
+- type: entity
+  parent: BorgModuleMartyr
+  id: BorgModuleMartyrDud
+  name: unfinished martyr cyborg module
+  description: This unfinished module has a large space for an explosive payload, with "boom" helpfully scribbled under it.
+  components:
+  - type: ItemBorgModule
+    items:
+    - SelfDestructSeqDud
+  - type: Construction
+    node: start
+    defaultTarget: live
+
+- type: entity
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  id: BorgModuleRadioJammerRecharging # locked behind Syndie exofab
+  description: "A module that comes with a recharging radio jammer."
+  name: radio jammer cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    items:
+    - RechargingRadioJammer
+
+- type: entity
+  parent: BaseBorgModuleSyndie
+  id: BorgModuleBlades # locked behind Syndie exofab
+  name: blade cyborg module
+  description: "A module that comes with enough knives to poke your eye out."
+  components:
+  - type: ItemBorgModule
+    items:
+    - Cutlass
+    - BarberScissors
+    - Crowbar
+    - KnifePlastic
+
+- type: entity
+  parent: BaseBorgModuleSyndie
+  id: BorgModuleCHIMP # locked behind Syndie exofab
+  name: Experimental C.H.I.M.P. cyborg module
+  description: "A module that comes with an unrechargable experimental C.H.I.M.P. handcannon. Cheap and disposable."
+  components:
+  - type: ItemBorgModule
+    items:
+    - WeaponPistolCHIMPUpgraded
+
+- type: entity
+  parent: [ BaseBorgModuleSyndie, ClothingEyesHudSyndicate]
+  id: BorgModuleSyndicateRadio # locked behind Syndie exofab
+  name: syndicate radio cyborg module
+  description: "A module that comes with a syndicate handheld radio and PDA."
+  components:
+  - type: ItemBorgModule
+    items:
+    - RadioHandheldSyndicate
+    - SyndiPDA
+  - type: ShowSyndicateIcons
+  - type: ShowJobIcons
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+
+- type: entity
+  parent: BaseBorgModuleSyndie
+  id: BorgModuleCrewMonitor # locked behind Syndie exofab
+  name: crew monitoring module
+  description: "A module that comes with a crew monitor."
+  components:
+  - type: ItemBorgModule
+    items:
+    - SyndiCrewMonitorRecharging
+
+- type: entity
+  parent: BaseBorgModuleSyndie
+  id: BorgModuleChameleonProjector # locked behind Syndie exofab
+  name: chameleon projector module
+  description: "A module used to create a hard-light replica of any object around you."
+  components:
+  - type: ItemBorgModule
+    items:
+    - ChameleonProjector

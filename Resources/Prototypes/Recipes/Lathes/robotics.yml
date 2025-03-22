@@ -3,7 +3,8 @@
 - type: latheRecipe
   abstract: true
   id: BaseRoboticsRecipe
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 2
 
 - type: latheRecipe
@@ -52,6 +53,15 @@
     Glass: 100
     Plastic: 200
     Steel: 100
+
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: ClothingEyesHudDiagnostic
+  result: ClothingEyesHudDiagnostic
+  materials:
+    Steel: 200
+    Plastic: 100
+    Glass: 300
 
 - type: latheRecipe
   parent: BaseRoboticsRecipe
