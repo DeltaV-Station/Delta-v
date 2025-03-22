@@ -98,7 +98,7 @@ public sealed class ClumsySystem : EntitySystem
     private void OnBeforeClimbEvent(Entity<ClumsyComponent> ent, ref SelfBeforeClimbEvent args)
     {
         // checks if ClumsyVaulting is false, if so, skips.
-        if (!ent.Comp.ClumsyVaulting)
+        if (!ent.Comp.ClumsyVaulting || args.PuttingOnTable != ent.Owner) // DeltaV - don't bonk if someone else vaults/biomasses you
             return;
 
         // This event is called in shared, thats why it has all the extra prediction stuff.
