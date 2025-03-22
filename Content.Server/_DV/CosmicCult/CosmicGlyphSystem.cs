@@ -17,6 +17,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Robust.Server.Audio;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
@@ -36,6 +37,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly EyeSystem _eye = default!;
 
     public override void Initialize()
     {
