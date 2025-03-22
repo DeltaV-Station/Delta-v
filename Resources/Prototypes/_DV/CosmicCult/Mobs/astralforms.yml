@@ -25,7 +25,7 @@
     visMask:
       - Normal
       - Ghost
-      - 777
+      - CosmicCultMonument
   - type: ContentEye
     maxZoom: 1.2, 1.2
   - type: Speech
@@ -74,8 +74,7 @@
     drawFov: false
     visMask:
       - Normal
-      - Ghost
-      - 777
+      - CosmicCultMonument
   - type: SSDIndicator
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
@@ -175,8 +174,7 @@
     drawFov: false
     visMask:
       - Normal
-      - Ghost
-      - 777
+      - CosmicCultMonument
   - type: GhostRole
     makeSentient: true
     name: ghost-role-information-rogue-ascended-name
