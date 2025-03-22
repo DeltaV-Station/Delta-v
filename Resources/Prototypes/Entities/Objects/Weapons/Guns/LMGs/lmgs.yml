@@ -51,11 +51,11 @@
             - MagazineLightRifleBox
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeLightRifle
+        startingItem: CartridgeRifle # DeltaV - changed from LightRifle
         priority: 1
         whitelist:
           tags:
-            - CartridgeLightRifle
+            - CartridgeRifle # DeltaV - changed from LightRifle
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -116,7 +116,7 @@
       containers:
         ballistic-ammo: !type:Container
     - type: ProjectileBatteryAmmoProvider
-      proto: CartridgeLightRifle
+      proto: CartridgeRifle  # DeltaV - changed from LightRifle
       fireCost: 100
     - type: Battery
       maxCharge: 10000
