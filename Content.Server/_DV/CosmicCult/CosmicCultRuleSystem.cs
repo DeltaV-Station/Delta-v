@@ -60,6 +60,7 @@ using Content.Shared.Database;
 using Content.Server.CrewManifest;
 using Content.Shared.Alert;
 using Content.Server.Chat.Systems;
+using Content.Shared._DV.CCVars;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -160,7 +161,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             DisplayVotes = false,
             Title = Loc.GetString("cosmiccult-vote-steward-title"),
             InitiatorText = Loc.GetString("cosmiccult-vote-steward-initiator"),
-            Duration = TimeSpan.FromSeconds(_config.GetCVar(ImpCCVars.CosmicCultStewardVoteTimer)),
+            Duration = TimeSpan.FromSeconds(_config.GetCVar(DCCVars.CosmicCultStewardVoteTimer)),
             VoterEligibility = VoteManager.VoterEligibility.CosmicCult
         };
 
@@ -380,7 +381,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         //this can probably be somewhere else but
         UpdateMonumentReqsForTier(uid, CurrentTier);
 
-        uid.Comp.CurrentProgress = uid.Comp.TotalEntropy + (TotalCult * _config.GetCVar(ImpCCVars.CosmicCultistEntropyValue));
+        uid.Comp.CurrentProgress = uid.Comp.TotalEntropy + (TotalCult * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
 
         if (uid.Comp.CurrentProgress >= uid.Comp.TargetProgress && CurrentTier == 3 && finaleComp.CurrentState == FinaleState.Unavailable)
         {
@@ -389,7 +390,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                 finaleComp.FinaleDelayStarted = true; //set that we've started it
                 //do everything else
 
-                var timer = TimeSpan.FromSeconds(_config.GetCVar(ImpCCVars.CosmicCultFinaleDelaySeconds));
+                var timer = TimeSpan.FromSeconds(_config.GetCVar(DCCVars.CosmicCultFinaleDelaySeconds));
                 var cultistQuery = EntityQueryEnumerator<CosmicCultComponent>();
                 while (cultistQuery.MoveNext(out var cultist, out var cultistComp))
                 {
@@ -416,11 +417,11 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             uid.Comp.CanTierUp = false;
 
-            var timer = TimeSpan.FromSeconds(_config.GetCVar(ImpCCVars.CosmicCultT3RevealDelaySeconds));
+            var timer = TimeSpan.FromSeconds(_config.GetCVar(DCCVars.CosmicCultT3RevealDelaySeconds));
             var cultistQuery = EntityQueryEnumerator<CosmicCultComponent>();
             while (cultistQuery.MoveNext(out var cultist, out var cultistComp))
             {
-                _antag.SendBriefing(cultist, Loc.GetString("cosmiccult-monument-stage3-briefing", ("time", _config.GetCVar(ImpCCVars.CosmicCultT3RevealDelaySeconds))), Color.FromHex("#4cabb3"), _monumentAlert);
+                _antag.SendBriefing(cultist, Loc.GetString("cosmiccult-monument-stage3-briefing", ("time", _config.GetCVar(DCCVars.CosmicCultT3RevealDelaySeconds))), Color.FromHex("#4cabb3"), _monumentAlert);
             }
 
             MonumentTier3(uid);
@@ -481,13 +482,13 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             var cultistQuery = EntityQueryEnumerator<CosmicCultComponent>();
             while (cultistQuery.MoveNext(out var cultist, out var cultistComp))
             {
-                _antag.SendBriefing(cultist, Loc.GetString("cosmiccult-monument-stage2-briefing", ("time", _config.GetCVar(ImpCCVars.CosmicCultT2RevealDelaySeconds))), Color.FromHex("#4cabb3"), _monumentAlert);
+                _antag.SendBriefing(cultist, Loc.GetString("cosmiccult-monument-stage2-briefing", ("time", _config.GetCVar(DCCVars.CosmicCultT2RevealDelaySeconds))), Color.FromHex("#4cabb3"), _monumentAlert);
             }
 
             MonumentTier2(uid);
             UpdateMonumentReqsForTier(uid, CurrentTier);
 
-            Timer.Spawn(TimeSpan.FromSeconds(_config.GetCVar(ImpCCVars.CosmicCultT2RevealDelaySeconds)),
+            Timer.Spawn(TimeSpan.FromSeconds(_config.GetCVar(DCCVars.CosmicCultT2RevealDelaySeconds)),
                 () =>
                 {
                     //do spooky effects
@@ -532,21 +533,21 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     //and t3 -> finale needs an extra 20 entropy
     public void UpdateMonumentReqsForTier(Entity<MonumentComponent> monument, int tier)
     {
-        var tier3NumCrew = Math.Round((double)TotalCrew / 100 * _config.GetCVar(ImpCCVars.CosmicCultTargetConversionPercent)); // 40% of current pop
+        var tier3NumCrew = Math.Round((double)TotalCrew / 100 * _config.GetCVar(DCCVars.CosmicCultTargetConversionPercent)); // 40% of current pop
 
         switch (tier)
         {
             case 1:
                 monument.Comp.ProgressOffset = 0;
-                monument.Comp.TargetProgress = (int)(tier3NumCrew / 2 * _config.GetCVar(ImpCCVars.CosmicCultistEntropyValue));
+                monument.Comp.TargetProgress = (int)(tier3NumCrew / 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
                 break;
             case 2:
-                monument.Comp.ProgressOffset = (int)(tier3NumCrew / 2 * _config.GetCVar(ImpCCVars.CosmicCultistEntropyValue)); //reset the progress offset
-                monument.Comp.TargetProgress = (int)(tier3NumCrew * _config.GetCVar(ImpCCVars.CosmicCultistEntropyValue));
+                monument.Comp.ProgressOffset = (int)(tier3NumCrew / 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //reset the progress offset
+                monument.Comp.TargetProgress = (int)(tier3NumCrew * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
                 break;
             case 3:
-                monument.Comp.ProgressOffset = (int)(tier3NumCrew * _config.GetCVar(ImpCCVars.CosmicCultistEntropyValue));
-                monument.Comp.TargetProgress = (int)(tier3NumCrew * _config.GetCVar(ImpCCVars.CosmicCultistEntropyValue)); //removed offset; replaced with timer
+                monument.Comp.ProgressOffset = (int)(tier3NumCrew * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+                monument.Comp.TargetProgress = (int)(tier3NumCrew * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //removed offset; replaced with timer
                 break;
         }
     }
