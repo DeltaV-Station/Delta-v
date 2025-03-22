@@ -6,6 +6,7 @@ round_end_pacifist = true
 contraband_examine = false # Doubtful that it's desired at all, and would require going over every item in accordance with SOP
 secret_weight_prototype = "SecretDeltaV"
 role_timer_override = "DeltaV"
+showgreentext = false # focus more on telling a story
 
 # New players can't join a server without admins
 [game.panic_bunker]
@@ -79,6 +80,7 @@ space_wind = true
 
 [shuttle]
 arrivals = false
+cooldown = 120 # 110 longer than default
 emergency_dock_time = 360 # an extra 2 minutes over the default
 emergency_transit_time_min = 90
 auto_call_time = 120 # rounds are longer

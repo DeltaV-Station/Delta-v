@@ -1,0 +1,11 @@
+- type: techDiscipline
+  id: Biochemical
+  name: research-discipline-biochemical
+  color: "#449ae6"
+  icon:
+    sprite: Interface/Misc/research_disciplines.rsi
+    state: biochemical
+  tierPrerequisites:
+    1: 0
+    2: 1
+    3: 1

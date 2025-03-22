@@ -11,6 +11,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Storage.Components;
 using Robust.Server.Containers;
 using Content.Shared.Whitelist;
+using Content.Server._DV.Augments; // DeltaV - bodies can have an augment power cell
 
 namespace Content.Server.Power.EntitySystems;
 
@@ -22,6 +23,7 @@ internal sealed class ChargerSystem : EntitySystem
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly AugmentPowerCellSystem _augments = default!; // DeltaV - bodies can have an augment power cell
 
     public override void Initialize()
     {
@@ -250,15 +252,45 @@ internal sealed class ChargerSystem : EntitySystem
         UpdateStatus(uid, component);
     }
 
-    private bool SearchForBattery(EntityUid uid, [NotNullWhen(true)] out EntityUid? batteryUid, [NotNullWhen(true)] out BatteryComponent? component)
+    // Begin DeltaV - event-based search for battery
+    public bool SearchForBattery(EntityUid uid, [NotNullWhen(true)] out EntityUid? batteryUid, [NotNullWhen(true)] out BatteryComponent? component)
     {
         // try get a battery directly on the inserted entity
-        if (!TryComp(uid, out component))
+        if (TryComp(uid, out component))
         {
-            // or by checking for a power cell slot on the inserted entity
-            return _powerCell.TryGetBatteryFromSlot(uid, out batteryUid, out component);
+            batteryUid = uid;
+            return true;
         }
-        batteryUid = uid;
-        return true;
+
+        var evt = new SearchForBatteryEvent();
+        RaiseLocalEvent(uid, ref evt);
+        if (evt.Handled)
+        {
+            batteryUid = evt.Uid;
+            component = evt.Component;
+            return evt.Handled;
+        }
+
+        batteryUid = null;
+        component = null;
+        return false;
     }
+    // End DeltaV - event-based search for battery
 }
+
+// Begin DeltaV - event-based search for battery
+
+/// <summary>
+/// Event raised to search for batteries within an entity
+/// </summary>
+[ByRefEvent]
+public struct SearchForBatteryEvent
+{
+    public EntityUid? Uid;
+
+    public BatteryComponent? Component;
+
+    public bool Handled;
+}
+
+// End DeltaV - event-based search for battery

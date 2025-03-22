@@ -40,8 +40,8 @@
       components:
       - type: RandomMetadata
         nameSegments:
-        - fake_human_first
-        - fake_human_last
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
       - type: RandomHumanoidAppearance
         randomizeName: false
       - type: NpcFactionMember
@@ -83,8 +83,8 @@
       components:
       - type: RandomMetadata
         nameSegments:
-        - fake_human_first
-        - fake_human_last
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
       - type: RandomHumanoidAppearance
         randomizeName: false
       - type: NpcFactionMember
@@ -124,8 +124,8 @@
       components:
       - type: RandomMetadata
         nameSegments:
-        - names_hologram
-        - NamesLastMilitary
+        - NamesHologram
+        - NamesMilitaryLast
       - type: EmitSoundOnSpawn # evil sound
         sound: /Audio/Ambience/Antag/emagged_borg.ogg
       - type: RandomHumanoidAppearance

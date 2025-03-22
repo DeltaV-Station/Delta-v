@@ -37,6 +37,8 @@ autodoc-remove-program = REMOVE PROGRAM УДАЛИТЕ
 autodoc-add-step = ADD STEP ДОБАВЬ ШАГ
 autodoc-remove-step = REMOVE STEP УДАЛИ ШАГ
 autodoc-start-program = START PROGRAM НАЧНИ РАСПИСАНИЕ
+autodoc-import-program = IMPORT PROGRAM ПРОГРАММА ЧТЕНИЯ
+autodoc-export-program = EXPORT PROGRAM СОХРАНИТЬ ПРОГРАММУ
 
 autodoc-add-step-surgery = PERFORM SURGERY РАЗЫГРАЙ ОПЕРАЦИЮ
 autodoc-add-step-grab-item = GRAB ITEM ВОЗЬМИ ОБЪЕКТ

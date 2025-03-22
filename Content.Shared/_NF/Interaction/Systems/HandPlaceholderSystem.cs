@@ -31,7 +31,7 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
     {
         SubscribeLocalEvent<HandPlaceholderRemoveableComponent, EntGotRemovedFromContainerMessage>(OnEntityRemovedFromContainer);
 
-        SubscribeLocalEvent<HandPlaceholderComponent, AfterInteractEvent>(AfterInteract);
+        SubscribeLocalEvent<HandPlaceholderComponent, BeforeRangedInteractEvent>(BeforeRangedInteract);
         SubscribeLocalEvent<HandPlaceholderComponent, ContainerGettingRemovedAttemptEvent>(OnRemoveAttempt);
     }
 
@@ -85,7 +85,7 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
     {
         // trying to insert when deleted is an error, and only handle when it is being actually dropped
         var owner = container.Owner;
-        if (!ent.Comp.Enabled || TerminatingOrDeleted(owner))
+        if (!ent.Comp.Enabled || TerminatingOrDeleted(owner) || Transform(owner).MapID == MapId.Nullspace)
             return;
 
         var placeholder = ent.Comp.Placeholder;
@@ -108,9 +108,9 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
         SwapPlaceholder(ent, args.Container);
     }
 
-    private void AfterInteract(Entity<HandPlaceholderComponent> ent, ref AfterInteractEvent args)
+    private void BeforeRangedInteract(Entity<HandPlaceholderComponent> ent, ref BeforeRangedInteractEvent args)
     {
-        if (args.Handled || !args.CanReach || args.Target is not {} target)
+        if (args.Handled || !args.CanReach || args.Target is not { } target)
             return;
 
         args.Handled = true;
@@ -136,12 +136,9 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
         if (!_hands.IsHolding(user, ent, out var hand, hands))
             return;
 
-        SetPlaceholder(target, ent);
-        SetEnabled(target, true);
-
         SetEnabled(ent, false); // allow inserting into the source container
 
-        if (ent.Comp.Source is {} source)
+        if (ent.Comp.Source is { } source)
         {
             var container = _container.GetContainer(source, ent.Comp.ContainerId);
             var succeeded = _container.Insert(ent.Owner, container, force: true);
@@ -154,5 +151,8 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
 
         _hands.DoPickup(user, hand, target, hands); // Force pickup - empty hands are not okay
         _interaction.DoContactInteraction(user, target); // allow for forensics and other systems to work (why does hands system not do this???)
+
+        SetPlaceholder(target, ent);
+        SetEnabled(target, true);
     }
 }

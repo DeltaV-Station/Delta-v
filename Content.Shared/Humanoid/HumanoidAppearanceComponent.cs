@@ -1,12 +1,10 @@
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.Preferences; // DeltaV
 using Robust.Shared.Enums;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
-using Content.Shared.Preferences; // DeltaV, used for Metempsychosis, Fugitive, and Paradox Anomaly
 
 namespace Content.Shared.Humanoid;
 
@@ -85,6 +83,14 @@ public sealed partial class HumanoidAppearanceComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public Color? CachedFacialHairColor;
 
+    // CD - Character Records
+    /// <summary>
+    ///     The height of this humanoid.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float Height = 1f;
+    // CD - Character Records
+
     /// <summary>
     ///     Which layers of this humanoid that should be hidden on equipping a corresponding item..
     /// </summary>
@@ -92,10 +98,13 @@ public sealed partial class HumanoidAppearanceComponent : Component
     public HashSet<HumanoidVisualLayers> HideLayersOnEquip = [HumanoidVisualLayers.Hair];
 
     /// <summary>
-    /// DeltaV - let paradox anomaly be cloned
+    ///     Which markings the humanoid defaults to when nudity is toggled off.
     /// </summary>
-    [ViewVariables]
-    public HumanoidCharacterProfile? LastProfileLoaded;
+    [DataField]
+    public ProtoId<MarkingPrototype>? UndergarmentTop = new ProtoId<MarkingPrototype>("UndergarmentTopTanktop");
+
+    [DataField]
+    public ProtoId<MarkingPrototype>? UndergarmentBottom = new ProtoId<MarkingPrototype>("UndergarmentBottomBoxers");
 }
 
 [DataDefinition]
