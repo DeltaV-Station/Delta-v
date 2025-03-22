@@ -1,0 +1,38 @@
+- type: listing
+  id: UplinkDoorjack
+  name: uplink-doorjack-name
+  description: uplink-doorjack-desc
+  productEntity: Doorjack
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkDisruption
+
+- type: listing
+  id: UplinkDeadMansSignaller
+  name: uplink-dead-mans-signaller-name
+  description: uplink-dead-mans-signaller-desc
+  productEntity: DeadMansSignaler
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDisruption
+
+- type: listing
+  id: UplinkSyndieAutodoc
+  name: uplink-syndie-autodoc-name
+  description: uplink-syndie-autodoc-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledAutodoc
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  cost:
+    Telecrystal: 10 # this is rather high as being able to operate in a maints hideout alone is very strong
+  categories:
+  - UplinkDisruption
