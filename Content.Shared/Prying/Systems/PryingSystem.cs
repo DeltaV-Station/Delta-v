@@ -71,7 +71,7 @@ public sealed class PryingSystem : EntitySystem
         if (!comp.Enabled)
             return false;
 
-        if (!CanPry(target, user, out var message, comp, null, tool)) // DeltaV - Add tool
+        if (!CanPry(target, user, out var message, comp, tool: tool)) // DeltaV - Add tool
         {
             if (!string.IsNullOrWhiteSpace(message))
                 _popup.PopupClient(Loc.GetString(message), target, user);
@@ -129,8 +129,8 @@ public sealed class PryingSystem : EntitySystem
         RaiseLocalEvent(target, ref canev);
 
         // Begin DeltaV - Raise event on tool if one is being used.
-        if (tool != null)
-            RaiseLocalEvent((EntityUid)tool, ref canev);
+        if (tool is {} toolUid)
+            RaiseLocalEvent(toolUid, ref canev);
         // End DeltaV - Raise event on tool if one is being used.
 
         message = canev.Message;
@@ -176,7 +176,7 @@ public sealed class PryingSystem : EntitySystem
 
         TryComp<PryingComponent>(args.Used, out var comp);
 
-        if (!CanPry(uid, args.User, out var message, comp, null, args.Used)) // DeltaV - Check tool for power
+        if (!CanPry(uid, args.User, out var message, comp, tool: args.Used)) // DeltaV - Check tool for power
         {
             if (!string.IsNullOrWhiteSpace(message))
                 _popup.PopupClient(Loc.GetString(message), uid, args.User);
@@ -191,8 +191,8 @@ public sealed class PryingSystem : EntitySystem
         var ev = new PriedEvent(args.User);
         RaiseLocalEvent(uid, ref ev);
         // Begin DeltaV - Emergency JoL uses power.
-        if (args.Used != null)
-            RaiseLocalEvent((EntityUid)args.Used, ref ev);
+        if (args.Used is {} tool)
+            RaiseLocalEvent(tool, ref ev);
         // End DeltaV - Emergency JoL uses power.
     }
 }
