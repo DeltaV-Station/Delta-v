@@ -17,7 +17,7 @@ using System.Collections.Immutable;
 using Content.Server._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Server.Light.Components;
-using Content.Shared._Impstation.Cosmiccult;
+using Content.Shared._DV.Cosmiccult;
 using Robust.Shared.Physics.Events;
 using Content.Shared.NPC;
 using Content.Shared.Mobs.Components;

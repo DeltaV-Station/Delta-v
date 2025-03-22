@@ -1,4 +1,4 @@
-using Content.Shared._Impstation.Cosmiccult;
+using Content.Shared._DV.Cosmiccult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Prototypes;
 using Content.Shared.Actions;
