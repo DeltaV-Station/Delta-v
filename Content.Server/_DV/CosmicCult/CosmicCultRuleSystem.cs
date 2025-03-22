@@ -215,12 +215,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                     var ascendant = Spawn("MobCosmicAstralAscended", Transform(cultist).Coordinates);
                     _mind.TransferTo(mindContainer.Mind.Value, ascendant);
                     _metaData.SetEntityName(ascendant, Loc.GetString("cosmiccult-astral-ascendant", ("NAME", metaData.EntityName))); //Renames cultists' ascendant forms to "[CharacterName], Ascendant"
+                    _body.GibBody(cultist); // you don't need that body anymore
                 }
-            }
-            var killNonCult = EntityQueryEnumerator<HumanoidAppearanceComponent>();
-            while (killNonCult.MoveNext(out var noncult, out _))
-            {
-                _body.GibBody(noncult); // Die
             }
             QueueDel(MonumentInGame); // The monument doesn't need to stick around postround! Into the bin with you.
             QueueDel(MonumentSlowZone); // cease exist
