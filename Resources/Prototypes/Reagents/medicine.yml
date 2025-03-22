@@ -1115,7 +1115,11 @@
       - !type:SatiateThirst
         factor: 3
     Medicine:
-      effects:
+      effects: # DeltaV - Cosmic Cult
+      - !type:CleanseCult
+        conditions:
+        - !type:ReagentThreshold
+          min: 10 # DeltaV - edit end
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
@@ -1226,7 +1230,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 12
-          
+
 - type: reagent
   id: Opporozidone #Name based of an altered version of the startreck chem "Opporozine"
   name: reagent-name-opporozidone
