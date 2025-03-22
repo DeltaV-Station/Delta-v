@@ -396,6 +396,21 @@ public abstract class SharedMindSystem : EntitySystem
         return false;
     }
 
+    // DELTA-V EDIT BEGIN | currently loadbearing for Cosmic Cult's deconversion function. Used in Deconversion.
+    public void ClearObjectives(EntityUid mind, MindComponent? comp = null)
+    {
+        if (!Resolve(mind, ref comp))
+            return;
+
+        foreach (var obj in comp.Objectives)
+        {
+            QueueDel(obj);
+        }
+        comp.Objectives.Clear();
+        Dirty(mind, comp);
+    }
+    // DELTA-V EDIT END
+
     /// <summary>
     /// Tries to find an objective that has the same prototype as the argument.
     /// </summary>
