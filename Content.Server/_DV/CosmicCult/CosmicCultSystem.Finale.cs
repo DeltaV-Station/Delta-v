@@ -1,5 +1,5 @@
 using Content.Server._DV.CosmicCult.Components;
-using Content.Shared._Impstation.Cosmiccult;
+using Content.Shared._DV.Cosmiccult;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Audio;

@@ -41,6 +41,6 @@ alert-level-epsilon-instructions = Crewmembers are advised to make their way to 
 
 ## DeltaV - Cosmic Cult
 alert-level-octarine = Octarine
-alert-level-octarine-announcement = A cataclysmic bluespace event threatens to envelop realspace. Station crew are to contain the event if possible, or else evacuate. Martial Law is now in effect.
+alert-level-octarine-announcement = A cataclysmic noospheric event threatens to envelop realspace. Station crew are to contain the event if possible, or else evacuate.
 alert-level-octarine-instructions = Crewmembers are advised to listen to heads of staff for more information.
 
