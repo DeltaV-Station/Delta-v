@@ -95,7 +95,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ ClothingOuterBaseToggleable,  ClothingOuterStorageBase ] # DeltaV - "Hoodie" Pockets
+  parent: [ ClothingOuterWinterCoat ] # DeltaV - Pockets and Glacier protection
   id: ClothingOuterHoodieChaplain
   name: chaplain's hoodie
   description: Black and strict chaplain hoodie.
@@ -106,9 +106,6 @@
     sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodChaplainHood
-  - type: TemperatureProtection # DeltaV - GOD PROTECT ME FROM GLACIER!!
-    heatingCoefficient: 1.1
-    coolingCoefficient: 0.1
 
 - type: entity
   parent: ClothingOuterBase

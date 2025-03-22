@@ -1,14 +1,11 @@
 - type: entity
-  id: PrayerMatBase
-  parent: BaseStructure
   abstract: true
-  placement:
-    mode: SnapgridCenter
+  parent: BaseStructure
+  id: PrayerMatBase
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Furniture/prayermat.rsi
+    sprite: _DV/Structures/Furniture/prayermat.rsi
     drawdepth: FloorTiles
-  - type: Appearance
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Wood

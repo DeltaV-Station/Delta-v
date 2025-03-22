@@ -24,8 +24,10 @@
       collection: Punch
     damage:
       types:
-        Holy: 10 # DeltaV: was 25
-        Blunt: 1
+        Holy: 10  # Nyanotrasen - Bibles do Holy damage # DeltaV: was 25
+        Blunt: 3
+  - type: Reflect # DeltaV - Divine Intervention
+    reflectProb: 0.01 
   - type: Prayable
     bibleUserOnly: true
   - type: Summonable
@@ -51,13 +53,6 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
-  - type: MeleeWeapon # Nyanotrasen - Bibles do Holy damage
-    damage:
-      types:
-        Blunt: 3
-        Holy: 10
-  - type: Reflect
-    reflectProb: 0.01 # DeltaV - Divine Intervention
   - type: Tag
     tags:
     - Book
