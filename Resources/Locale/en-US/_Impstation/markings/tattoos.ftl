@@ -27,3 +27,41 @@ marking-FootDollJointsTattooRight = Doll Joints Foot Tattoo (Right)
 
 marking-ChestCutHere-chest_cuthere = 'Cut Here' Tattoo
 marking-ChestCutHere = 'Cut Here' Tattoo
+
+marking-HeadHeavyTattoos-head_heavy = Heavy Neck Tattoos
+marking-HeadHeavyTattoos = Heavy Neck Tattoos
+
+marking-ChestHeavyTattoos-chest_heavy1 = Heavy Chest Tattoos (Upper)
+marking-ChestHeavyTattoos-chest_heavy2 = Heavy Chest Tattoos (Middle)
+marking-ChestHeavyTattoos-chest_heavy3 = Heavy Chest Tattoos (Lower)
+marking-ChestHeavyTattoos = Heavy Chest Tattoos
+
+marking-ArmHeavyTattoosLeft-l_arm_heavy1 = Heavy Arm Tattoos (Upper)
+marking-ArmHeavyTattoosLeft-l_arm_heavy2 = Heavy Arm Tattoos (Lower)
+marking-ArmHeavyTattoosLeft = Heavy Arm Tattoos (Left)
+
+marking-ArmHeavyTattoosRight-r_arm_heavy1 = Heavy Arm Tattoos (Upper)
+marking-ArmHeavyTattoosRight-r_arm_heavy2 = Heavy Arm Tattoos (Lower)
+marking-ArmHeavyTattoosRight = Heavy Arm Tattoos (Right)
+
+marking-HandHeavyTattoosLeft-l_hand_heavy1 = Heavy Hand Tattoos (Outer)
+marking-HandHeavyTattoosLeft-l_hand_heavy2 = Heavy Hand Tattoos (Inner)
+marking-HandHeavyTattoosLeft = Heavy Hand Tattoos (Left)
+
+marking-HandHeavyTattoosRight-r_hand_heavy1 = Heavy Hand Tattoos (Outer)
+marking-HandHeavyTattoosRight-r_hand_heavy2 = Heavy Hand Tattoos (Inner)
+marking-HandHeavyTattoosRight = Heavy Hand Tattoos (Right)
+
+marking-LegHeavyTattoosLeft-l_leg_heavy1 = Heavy Leg Tattoos (Upper)
+marking-LegHeavyTattoosLeft-l_leg_heavy2 = Heavy Leg Tattoos (Lower)
+marking-LegHeavyTattoosLeft = Heavy Leg Tattoos (Left)
+
+marking-LegHeavyTattoosRight-r_leg_heavy1 = Heavy Leg Tattoos (Upper)
+marking-LegHeavyTattoosRight-r_leg_heavy2 = Heavy Leg Tattoos (Lower)
+marking-LegHeavyTattoosRight = Heavy Leg Tattoos (Right)
+
+marking-FootHeavyTattoosLeft-l_foot_heavy = Heavy Foot Tattoos (Left)
+marking-FootHeavyTattoosLeft = Heavy Foot Tattoos (Left)
+
+marking-FootHeavyTattoosRight-r_foot_heavy = Heavy Foot Tattoos (Right)
+marking-FootHeavyTattoosRight = Heavy Foot Tattoos (Right)
