@@ -1,71 +1,4 @@
 ﻿Entries:
-- author: Stareostar, Mylegsaresharp, Aikakakah
-  changes:
-  - message: Added new lobby art to the rotation!
-    type: Add
-  id: 684
-  time: '2024-11-18T17:05:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2226
-- author: Lyndomen, SleepyApril
-  changes:
-  - message: Normal kill targets now just need to be killed once- but it needs to
-      teach them a lesson that will be remembered
-    type: Tweak
-  id: 685
-  time: '2024-11-19T03:58:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2225
-- author: Lyndomen
-  changes:
-  - message: Added holiday cheer
-    type: Add
-  id: 686
-  time: '2024-11-19T05:46:09.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2233
-- author: Kr8art
-  changes:
-  - message: New mail-themed poster!
-    type: Add
-  id: 687
-  time: '2024-11-19T17:23:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2239
-- author: MilonPL, dotCatshark
-  changes:
-  - message: Added self-refilling bluespace fire extinguishers! They can be unlocked
-      in the T2 industrial research!
-    type: Add
-  id: 688
-  time: '2024-11-19T20:57:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2171
-- author: MilonPL
-  changes:
-  - message: Added Chronic pain and Addicted traits.
-    type: Add
-  - message: Reworked the addictions system.
-    type: Tweak
-  id: 689
-  time: '2024-11-20T00:59:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2192
-- author: Lyndomen
-  changes:
-  - message: Ported footprints and bloodstains from EE. Sorry Janitors.
-    type: Add
-  id: 690
-  time: '2024-11-20T01:00:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2186
-- author: therealDLondon
-  changes:
-  - message: 'New Lobby Track: "Undefined Theory" by A-Guy'
-    type: Add
-  id: 691
-  time: '2024-11-20T01:10:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2234
-- author: MilonPL
-  changes:
-  - message: Fixed pain effect popups being visible to everyone.
-    type: Fix
-  id: 692
-  time: '2024-11-20T20:26:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2248
 - author: Kr8art
   changes:
   - message: Bomberjackets now protect from the cold!
@@ -3963,3 +3896,87 @@
   id: 1183
   time: '2025-03-19T12:01:42.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3245
+- author: TGRCdev, formlessnameless, Lyndomen
+  changes:
+  - message: Revenants can now Haunt, which reveals them and gives them a small amount
+      of stolen essence and a boost in essence regeneration for every person that
+      witnesses them once. Revenants can see who has already been haunted by examining
+      them.
+    type: Add
+  - message: Added a new revenant ability to draw bloody glyphs on the ground.
+    type: Add
+  - message: Revenants can now animate items and make them attack living beings. Keep
+      your guns unbolted!
+    type: Add
+  - message: Revenants now enter stasis on death instead of dying outright. You can
+      kill a revenant in stasis by either destroying or exorcising its ectoplasm.
+      Grind ectoplasm with salt to destroy it.
+    type: Tweak
+  - message: Placing salt on the ground now reveals revenants who pass over it.
+    type: Tweak
+  id: 1184
+  time: '2025-03-19T16:15:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3063
+- author: deltanedas
+  changes:
+  - message: Fixed not being able to reclaim biomass from monkeys.
+    type: Fix
+  id: 1185
+  time: '2025-03-20T00:40:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3279
+- author: deltanedas
+  changes:
+  - message: Added back the Biochemical research discipline! Medical related techs
+      are in it now.
+    type: Add
+  - message: Removed the HONK mech research, it's now part of Civilian Mechs.
+    type: Remove
+  - message: Medical cyborgs now get the defibrillator module by default.
+    type: Tweak
+  id: 1186
+  time: '2025-03-20T13:48:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3275
+- author: deltanedas
+  changes:
+  - message: Added the syndie autodoc bundle for 10 TC, do evil surgeries!
+    type: Add
+  id: 1187
+  time: '2025-03-20T14:44:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3274
+- author: sowelipililimute
+  changes:
+  - message: Revenant ectoplasm doesn't freeze other players who look at it
+    type: Fix
+  id: 1188
+  time: '2025-03-20T14:54:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3281
+- author: Avalon-Proto
+  changes:
+  - message: Heads of Security rejoice, your equipment has been re-tuned. The X-01
+      now has been streamlined and can fire twice as many shots before needing a charge
+    type: Tweak
+  id: 1189
+  time: '2025-03-20T15:44:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3246
+- author: Stop-Signs
+  changes:
+  - message: Shuttle FTL cooldown has been raised to 2 minutes.
+    type: Tweak
+  id: 1190
+  time: '2025-03-21T00:12:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3283
+- author: Stop-Signs
+  changes:
+  - message: Battery weapons have been modified for better ergonomics.
+    type: Tweak
+  id: 1191
+  time: '2025-03-21T22:41:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3284
+- author: deltanedas
+  changes:
+  - message: Fixed Synthesis Specialists not being listed as Free Agent in the character
+      menu.
+    type: Fix
+  id: 1192
+  time: '2025-03-22T21:50:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3291
