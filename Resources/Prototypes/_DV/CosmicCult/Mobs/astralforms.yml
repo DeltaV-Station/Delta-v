@@ -47,13 +47,14 @@
 
 ### ASTRAL PROJECTION
 - type: entity
-  parent:
-  - Incorporeal
-  - BaseMob
+  parent: [ Incorporeal, BaseMob ]
   id: MobCosmicAstralProjection
   name: astral projection
   description: Neither here nor there.
   components:
+  - type: ActionGrant
+    actions:
+    - ActionCosmicReturn
   - type: Input
     context: "ghost"
   - type: Spectral
@@ -65,18 +66,22 @@
     layers:
     - state: base-body
       shader: unshaded
+    drawdepth: Ghosts
   - type: NoSlip
+  - type: CosmicAstralBody
   - type: Eye
     drawFov: false
+    visMask:
+    - Normal
+    - Ghost
   - type: SSDIndicator
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: MindContainer
     showExamineInfo: true
+  - type: Examiner
   - type: ContentEye
     maxZoom: 1.2, 1.2
-  - type: Visibility
-    layer: 2 #ghost vis layer
   - type: Speech
     enabled: false
   - type: PointLight
@@ -101,10 +106,8 @@
   - type: ActiveRadio
     channels:
     - CosmicRadio
-  - type: ActionGrant
-    actions:
-    - ActionCosmicReturn
-
+  - type: Visibility
+    layer: 2 #ghost vis layer
 
 ### ASCENDED EVENTSPAWN
 - type: entity
