@@ -178,7 +178,7 @@
       - state: icon
       - state: icon-overlay
         shader: unshaded
-  - type: AmmoCounter
+  # - type: AmmoCounter
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 2
@@ -187,6 +187,7 @@
       groups:
         Brute: -10
   - type: Gun
+    projectileSpeed: 14
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
     useKey: false
@@ -195,7 +196,7 @@
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
-    proto: BulletCharge
+    proto: ProjectileCosmicRazor
     capacity: 1
     count: 1
   - type: MeleeWeapon
@@ -206,10 +207,10 @@
     clickDamageModifier: 1.1
     damage:
       types:
-        Slash: 5
-        Piercing: 5
-        Asphyxiation: 12
-        Cold: 12
+        Slash: 3
+        Piercing: 3
+        Asphyxiation: 6
+        Cold: 6
         Structural: 15
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmicsword_hit.ogg
