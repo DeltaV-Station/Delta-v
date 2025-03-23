@@ -68,7 +68,7 @@
                                     <LineEdit Name="AgeEdit" MinSize="40 0" HorizontalAlignment="Right" />
                                 </BoxContainer>
                                 <!-- Begin CD - Character Records -->
-                                <BoxContainer HorizontalExpand="True" Visible="False"> <!-- DeltaV - we haven't decided on height yet -->
+                                <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-height-label'}" />
                                     <Control HorizontalExpand="True" />
                                     <Slider Name="CDHeightSlider" HorizontalAlignment="Right" SetWidth="300" MinValue="0.0" MaxValue="1.0"/>
