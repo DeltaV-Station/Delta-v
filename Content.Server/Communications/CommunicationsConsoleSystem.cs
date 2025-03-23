@@ -1,3 +1,5 @@
+using Content.Server._DV.Station.Components; // DeltaV - exfiltration shuttle
+using Content.Server._DV.Station.Systems; // DeltaV - exfiltration shuttle
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
@@ -31,6 +33,7 @@ namespace Content.Server.Communications
         [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
+        [Dependency] private readonly StationExfiltrationSystem _stationExfiltration = default!; // DeltaV - Exfiltration shuttle
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -52,6 +55,11 @@ namespace Content.Server.Communications
             SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleBroadcastMessage>(OnBroadcastMessage);
             SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleCallEmergencyShuttleMessage>(OnCallShuttleMessage);
             SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleRecallEmergencyShuttleMessage>(OnRecallShuttleMessage);
+            // Begin DeltaV - Exfiltration shuttle
+            SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleCallExfiltrationShuttleMessage>(OnCallExfiltrationMessage);
+            SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleRecallExfiltrationShuttleMessage>(OnRecallExfiltrationMessage);
+            // End DeltaV - Exfiltration shuttle
+
 
             // On console init, set cooldown
             SubscribeLocalEvent<CommunicationsConsoleComponent, MapInitEvent>(OnCommunicationsConsoleMapInit);
@@ -135,6 +143,7 @@ namespace Content.Server.Communications
             List<string>? levels = null;
             string currentLevel = default!;
             float currentDelay = 0;
+            TimeSpan? exfiltrationTime = null; // DeltaV - exfiltration shuttle
 
             if (stationUid != null)
             {
@@ -156,6 +165,12 @@ namespace Content.Server.Communications
                     currentLevel = alertComp.CurrentLevel;
                     currentDelay = _alertLevelSystem.GetAlertLevelDelay(stationUid.Value, alertComp);
                 }
+                // Begin DeltaV - exfiltration shuttle
+                if (TryComp<StationExfiltrationComponent>(stationUid, out var exfiltration))
+                {
+                    exfiltrationTime = exfiltration.ArrivalTime;
+                }
+                // End DeltaV - exfiltration shuttle
             }
 
             _uiSystem.SetUiState(uid, CommunicationsConsoleUiKey.Key, new CommunicationsConsoleInterfaceState(
@@ -164,7 +179,8 @@ namespace Content.Server.Communications
                 levels,
                 currentLevel,
                 currentDelay,
-                _roundEndSystem.ExpectedCountdownEnd
+                _roundEndSystem.ExpectedCountdownEnd,
+                exfiltrationTime // DeltaV - exfiltration shuttle
             ));
         }
 
@@ -328,6 +344,36 @@ namespace Content.Server.Communications
             _roundEndSystem.CancelRoundEndCountdown(uid);
             _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(message.Actor):player} has recalled the shuttle.");
         }
+
+        // Begin DeltaV - Exfiltration Shuttle
+        private void OnCallExfiltrationMessage(Entity<CommunicationsConsoleComponent> ent, ref CommunicationsConsoleCallExfiltrationShuttleMessage args)
+        {
+            if (_stationSystem.GetOwningStation(ent) is not { } station)
+                return;
+
+            if (!CanUse(args.Actor, ent))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("comms-console-permission-denied"), ent, args.Actor);
+                return;
+            }
+
+            _stationExfiltration.Call(station);
+        }
+
+        private void OnRecallExfiltrationMessage(Entity<CommunicationsConsoleComponent> ent, ref CommunicationsConsoleRecallExfiltrationShuttleMessage args)
+        {
+            if (_stationSystem.GetOwningStation(ent) is not { } station)
+                return;
+
+            if (!CanUse(args.Actor, ent))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("comms-console-permission-denied"), ent, args.Actor);
+                return;
+            }
+
+            _stationExfiltration.Recall(station);
+        }
+        // End DeltaV - Exfiltration Shuttle
     }
 
     /// <summary>
