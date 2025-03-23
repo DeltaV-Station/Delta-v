@@ -136,7 +136,9 @@
       fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
-    state: head_heavy
+    state: head_heavy1
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: head_heavy2
 
 - type: marking
   id: ChestHeavyTattoos
@@ -264,7 +266,9 @@
       fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
-    state: l_foot_heavy
+    state: l_foot_heavy1
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: l_foot_heavy2
 
 - type: marking
   id: FootHeavyTattoosRight
@@ -278,4 +282,6 @@
       fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
-    state: r_foot_heavy
+    state: r_foot_heavy1
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: r_foot_heavy2

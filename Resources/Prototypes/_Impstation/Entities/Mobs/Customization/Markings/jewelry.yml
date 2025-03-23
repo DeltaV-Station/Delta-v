@@ -9,7 +9,7 @@
     default:
       type:
         !type:SimpleColoring
-          color: "#FFFFFF"
+          color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/jewelry.rsi
     state: chest_necklace
@@ -25,10 +25,48 @@
     default:
       type:
         !type:SimpleColoring
-          color: "#FFFFFF"
+          color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/jewelry.rsi
-    state: head_earrings
+    state: head_earrings1
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: head_earrings2
+
+- type: marking
+  id: HeadEarringsDrop
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Human, Dwarf, SlimePerson]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffc833"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: head_earrings_drop1
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: head_earrings_drop2
+
+- type: marking
+  id: HeadEarringsWeights
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Human, Dwarf, SlimePerson]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffc833"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: head_earrings_weights1
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: head_earrings_weights2
 
 - type: marking
   id: HeadSeptum
@@ -41,7 +79,7 @@
     default:
       type:
         !type:SimpleColoring
-          color: "#FFFFFF"
+          color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/jewelry.rsi
     state: head_septum
@@ -57,7 +95,7 @@
     default:
       type:
         !type:SimpleColoring
-          color: "#FFFFFF"
+          color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/jewelry.rsi
     state: l_hand_bracelet
@@ -73,7 +111,7 @@
     default:
       type:
         !type:SimpleColoring
-          color: "#FFFFFF"
+          color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/jewelry.rsi
     state: r_hand_bracelet
@@ -89,10 +127,12 @@
     default:
       type:
         !type:SimpleColoring
-          color: "#FFFFFF"
+          color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/jewelry.rsi
-    state: l_hand_rings
+    state: l_hand_rings1
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: l_hand_rings2
 
 - type: marking
   id: HandRingsRight
@@ -105,7 +145,9 @@
     default:
       type:
         !type:SimpleColoring
-          color: "#FFFFFF"
+          color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/jewelry.rsi
-    state: r_hand_rings
+    state: r_hand_rings1
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: r_hand_rings2
