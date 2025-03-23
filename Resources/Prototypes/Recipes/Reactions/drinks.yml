@@ -1236,19 +1236,21 @@
   products:
     Caipirinha: 4
 
-- type: reaction
-  id: Daiquiri
-  requiredMixerCategories:
-  - Stir
-  reactants:
-    Rum:
-      amount: 4
-    Sugar:
-      amount: 1
-    JuiceLime:
-      amount: 1
-  products:
-    Daiquiri: 6
+# Begin DeltaV Removals - use our own recipe
+#- type: reaction
+#  id: Daiquiri
+#  requiredMixerCategories:
+#  - Stir
+#  reactants:
+#    Rum:
+#      amount: 4
+#    Sugar:
+#      amount: 1
+#    JuiceLime:
+#      amount: 1
+#  products:
+#    Daiquiri: 6
+# End DeltaV Removals
 
 - type: reaction
   id: DeathInTheAfternoon
