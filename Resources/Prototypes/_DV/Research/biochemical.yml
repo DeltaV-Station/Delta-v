@@ -1,15 +1,4 @@
-- type: technology
-  id: SyringeGun
-  name: research-technology-syringe-gun
-  icon:
-    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
-    state: syringe_gun
-  discipline: CivilianServices
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-    - LauncherSyringe
-    - MiniSyringe
+# Tier 1
 
 - type: technology
   id: BasicAugmentation
@@ -17,12 +6,27 @@
   icon:
     sprite: _DV/Objects/Augments/power.rsi
     state: cell
-  discipline: CivilianServices
-  tier: 2
+  discipline: Biochemical
+  tier: 1
   cost: 5000
   recipeUnlocks:
   - AugmentPowerCellSlotCasing
   - AugmentRechargerCasing
+
+- type: technology
+  id: SyringeGun
+  name: research-technology-syringe-gun
+  icon:
+    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    state: syringe_gun
+  discipline: Biochemical
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
+  - LauncherSyringe
+  - MiniSyringe
+
+# Tier 2
 
 - type: technology
   id: ImplantedTools
@@ -30,7 +34,7 @@
   icon:
     sprite: _DV/Objects/Augments/arm.rsi
     state: base
-  discipline: CivilianServices
+  discipline: Biochemical
   tier: 2
   cost: 10000
   technologyPrerequisites: [ BasicAugmentation ]
@@ -41,3 +45,4 @@
   - AugmentSurgeryPanelElectronics
   - AugmentPaperworkPanelElectronics
 
+# Tier 3

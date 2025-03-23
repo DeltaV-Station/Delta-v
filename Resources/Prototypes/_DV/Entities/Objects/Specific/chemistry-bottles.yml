@@ -1,31 +1,44 @@
 - type: entity
+  parent: BaseChemistryBottleFilled
   id: NapalmChemistryBottle
-  name: napalm bottle
-  parent: BaseChemistryEmptyBottle
+  suffix: napalm
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Napalm
-              Quantity: 30
-    - type: Tag
-      tags:
-        - Bottle
+  - type: Label
+    currentLabel: reagent-name-napalm
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Napalm
+          Quantity: 30
 
 - type: entity
+  parent: BaseChemistryBottleFilled
   id: UltravasculineChemistryBottle
-  name: ultravasculine bottle
-  parent: BaseChemistryEmptyBottle
+  suffix: ultravasculine
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Ultravasculine
-              Quantity: 30
-    - type: Tag
-      tags:
-        - Bottle
+  - type: Label
+    currentLabel: reagent-name-ultravasculine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Ultravasculine
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: ChloralHydrateChemistryBottle
+  suffix: chloral hydrate
+  components:
+  - type: Label
+    currentLabel: reagent-name-chloral-hydrate
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ChloralHydrate
+          Quantity: 30
