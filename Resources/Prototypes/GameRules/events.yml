@@ -268,15 +268,16 @@
   id: ParadoxCloneSpawn
   components:
   - type: StationEvent
-    weight: 4 # should not happen every round
+    weight: 7 # DeltaV - was 4
     duration: null
-    earliestStart: 30
-    reoccurrenceDelay: 20
+    earliestStart: 25 # DeltaV - was 30
+    reoccurrenceDelay: 5 # DeltaV - was 20
     minimumPlayers: 15
   - type: ParadoxCloneRule
   - type: AntagObjectives
     objectives:
-    - ParadoxCloneKillObjective
+    - ParadoxAnomalyKillObjective # DeltaV - was ParadoxCloneKillObjective
+    - ParadoxAnomalyFriendObjective # DeltaV
     - ParadoxCloneLivingObjective
   - type: AntagRandomSpawn # TODO: improve spawning so they only start in maints
   - type: AntagSelection
@@ -290,7 +291,7 @@
       roleLoadout:
       - RoleSurvivalStandard # give vox something to breath in case they don't get a copy
       briefing:
-        text: paradox-clone-role-greeting
+        text: paradox-anomaly-role-greeting # DeltaV
         color: lightblue
         sound: /Audio/Misc/paradox_clone_greeting.ogg
       mindRoles:

@@ -152,7 +152,10 @@
   - type: MindRole
     antagPrototype: ParadoxClone
     roleType: SoloAntagonist
+    exclusiveAntag: true # DeltaV
   - type: ParadoxCloneRole
+  - type: RoleBriefing # DeltaV
+    briefing: paradox-anomaly-role-briefing
 
 # Nukies
 - type: entity

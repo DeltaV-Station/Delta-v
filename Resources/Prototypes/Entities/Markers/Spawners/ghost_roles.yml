@@ -206,11 +206,13 @@
   id: SpawnPointGhostParadoxClone
   components:
   - type: GhostRole
-    name: ghost-role-information-paradox-clone-name
-    description: ghost-role-information-paradox-clone-description
-    rules: ghost-role-information-antagonist-rules
+    # Begin DeltaV Changes
+    name: ghost-role-information-paradox-anomaly-name
+    description: ghost-role-information-paradox-anomaly-description
+    rules: ghost-role-information-paradox-anomaly-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleParadoxAnomaly
+    # End DeltaV Changes
     raffle:
       settings: default
   - type: Sprite

@@ -10,7 +10,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.GameTicking.Rules;
 
-public sealed class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComponent>
+public sealed partial class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComponent> // DeltaV - made partial
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -31,6 +31,7 @@ public sealed class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComp
 
         // check if we got enough potential cloning targets, otherwise cancel the gamerule so that the ghost role does not show up
         var allHumans = _mind.GetAliveHumans();
+        FilterTargets(allHumans); // DeltaV
 
         if (allHumans.Count == 0)
         {
@@ -53,6 +54,7 @@ public sealed class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComp
 
         // get possible targets
         var allHumans = _mind.GetAliveHumans();
+        FilterTargets(allHumans); // DeltaV
 
         // we already checked when starting the gamerule, but someone might have died since then.
         if (allHumans.Count == 0)
@@ -74,9 +76,12 @@ public sealed class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComp
         var targetComp = EnsureComp<TargetOverrideComponent>(clone.Value);
         targetComp.Target = playerToClone.Owner; // set the kill target
 
+        /* DeltaV - no forced killing, players have a choice
         var gibComp = EnsureComp<GibOnRoundEndComponent>(clone.Value);
         gibComp.SpawnProto = ent.Comp.GibProto;
         gibComp.PreventGibbingObjectives = new() { "ParadoxCloneKillObjective" }; // don't gib them if they killed the original.
+        */
+        PostClone(clone.Value); // DeltaV
 
         args.Entity = clone;
     }
