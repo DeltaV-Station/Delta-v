@@ -1,3 +1,0 @@
-# station-event-mouse-migration-announcement = We have detected an oncoming migration of rodents to the station. Please stay out of maintenance tunnels and try and avoid excessive contact.
-# The following is the Delta-V variant, for the sake of random announcer system:
-station-event-mouse-migration-announcement = Attention. A large influx of unknown life forms has been detected in ventilation systems near {$location}.
