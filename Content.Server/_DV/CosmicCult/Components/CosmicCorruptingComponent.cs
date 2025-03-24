@@ -26,19 +26,19 @@ public sealed partial class CosmicCorruptingComponent : Component
     /// Slightly hacky but works for our purposes.
     /// </summary>
     [DataField]
-    public bool Mobile = false;
+    public bool Mobile;
 
     /// <summary>
     /// if this corruption source should floodfill through all corruptible tiles to initialise its corruptible tile set on activation.
     /// </summary>
     [DataField]
-    public bool FloodFillStarting = false;
+    public bool FloodFillStarting;
 
     /// <summary>
     /// How many times has this corruption source ticked?
     /// </summary>
     [DataField]
-    public int CorruptionTicks = 0;
+    public int CorruptionTicks;
 
     /// <summary>
     /// The maximum amount of ticks this source can do.
@@ -56,7 +56,7 @@ public sealed partial class CosmicCorruptingComponent : Component
     /// The reduction applied to corruption chance every tick.
     /// </summary>
     [DataField]
-    public float CorruptionReduction = 0f;
+    public float CorruptionReduction;
 
     /// <summary>
     /// Wether or not the CosmicCorruptingSystem should be running on this entity. use CosmicCorruptingSystem.Enable() instead of directly interacting with this variable.

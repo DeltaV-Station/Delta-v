@@ -13,10 +13,10 @@ namespace Content.Client._DV.CosmicCult.Visuals;
 
 public sealed class MonumentPlacementPreviewOverlay : Overlay
 {
-    private readonly IEntityManager _entityManager;
-    private readonly IPlayerManager _playerManager;
-    private readonly SpriteSystem _spriteSystem;
-    private readonly SharedMapSystem _mapSystem;
+    private readonly IEntityManager _ent;
+    private readonly IPlayerManager _player;
+    private readonly SpriteSystem _sprite;
+    private readonly SharedMapSystem _map;
     private readonly MonumentPlacementPreviewSystem _preview;
     private readonly IGameTiming _timing;
     public override OverlaySpace Space => OverlaySpace.WorldSpaceEntities;
@@ -29,7 +29,7 @@ public sealed class MonumentPlacementPreviewOverlay : Overlay
     private EntityCoordinates _lastPos = new();
 
     //for a slight fade in / out
-    //ss14's formatting settings can take my needlessly pulbic variables away from my cold, dead hands
+    //ss14's formatting settings can take my needlessly public variables away from my cold, dead hands
     public float fadeInProgress = 0;
     public float fadeInTime = 0.25f;
     public bool fadingIn = true;
@@ -51,10 +51,10 @@ public sealed class MonumentPlacementPreviewOverlay : Overlay
     //evil huge ctor because doing iocmanager stuff was killing the client for some reason
     public MonumentPlacementPreviewOverlay(IEntityManager entityManager, IPlayerManager playerManager, SpriteSystem spriteSystem, SharedMapSystem mapSystem, IPrototypeManager protoMan, MonumentPlacementPreviewSystem preview, IGameTiming timing, int tier)
     {
-        _entityManager = entityManager;
-        _playerManager = playerManager;
-        _spriteSystem = spriteSystem;
-        _mapSystem = mapSystem;
+        _ent = entityManager;
+        _player = playerManager;
+        _sprite = spriteSystem;
+        _map = mapSystem;
         _preview = preview;
         _timing = timing;
 
@@ -79,13 +79,13 @@ public sealed class MonumentPlacementPreviewOverlay : Overlay
     //shouldn't crash due to the comp checks, though.
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (!_entityManager.TryGetComponent<TransformComponent>(_playerManager.LocalEntity, out var transformComp))
+        if (!_ent.TryGetComponent<TransformComponent>(_player.LocalEntity, out var transformComp))
             return;
 
-        if (!_entityManager.TryGetComponent<MapGridComponent>(transformComp.GridUid, out var grid))
+        if (!_ent.TryGetComponent<MapGridComponent>(transformComp.GridUid, out var grid))
             return;
 
-        if (!_entityManager.TryGetComponent<TransformComponent>(transformComp.ParentUid, out var parentTransform))
+        if (!_ent.TryGetComponent<TransformComponent>(transformComp.ParentUid, out var parentTransform))
             return;
 
         var worldHandle = args.WorldHandle;
@@ -136,15 +136,15 @@ public sealed class MonumentPlacementPreviewOverlay : Overlay
 
         //for the desaturated monument "shadow"
         worldHandle.UseShader(_saturationShader);
-        worldHandle.DrawTexture(_spriteSystem.Frame0(mainTex), _lastPos.Position - new Vector2(1.5f, 0.5f), Color.White.WithAlpha(alpha)); //needs the offset to render in the proper position. does not inherit the extra modulate
+        worldHandle.DrawTexture(_sprite.Frame0(mainTex), _lastPos.Position - new Vector2(1.5f, 0.5f), Color.White.WithAlpha(alpha)); //needs the offset to render in the proper position. does not inherit the extra modulate
 
         //for the outline to pop
         worldHandle.UseShader(_unshadedShader);
-        worldHandle.DrawTexture(_spriteSystem.Frame0(outlineTex), _lastPos.Position - new Vector2(1.5f, 0.5f), color);
+        worldHandle.DrawTexture(_sprite.Frame0(outlineTex), _lastPos.Position - new Vector2(1.5f, 0.5f), color);
 
         //some fancy schmancy things for the inside of the monument
         worldHandle.UseShader(_starsShader);
-        worldHandle.DrawTexture(_spriteSystem.Frame0(starTex), _lastPos.Position - new Vector2(1.5f, 0.5f), color);
+        worldHandle.DrawTexture(_sprite.Frame0(starTex), _lastPos.Position - new Vector2(1.5f, 0.5f), color);
         worldHandle.UseShader(null);
     }
 }

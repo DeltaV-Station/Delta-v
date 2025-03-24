@@ -44,6 +44,8 @@ public sealed partial class RogueAscendedComponent : Component
 
     [DataField, AutoNetworkedField]
     public TimeSpan StunTime = TimeSpan.FromSeconds(7);
+
+    [DataField]
     public DamageSpecifier InfectionHeal = new()
     {
         DamageDict = new()
