@@ -25,7 +25,7 @@ public sealed partial class CleanseOnUseComponent : Component
     /// When True allows an item to purge the Cosmic Cult's Malign Rifts onInteractInHand, utilized exclusively by the CosmicRiftSystem.
     /// </summary>
     [DataField] public bool CanPurge = false;
-    [DataField, AutoNetworkedField]
+    [DataField]
     public DamageSpecifier SelfDamage = new()
     {
         DamageDict = new() {

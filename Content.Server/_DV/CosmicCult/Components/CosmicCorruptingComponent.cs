@@ -4,9 +4,8 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.CosmicCult.Components;
 
-[RegisterComponent]
+[RegisterComponent, Access(typeof(CosmicCorruptingSystem))]
 [AutoGenerateComponentPause]
-[Access(typeof(CosmicCorruptingSystem))]
 public sealed partial class CosmicCorruptingComponent : Component
 {
     /// <summary>
