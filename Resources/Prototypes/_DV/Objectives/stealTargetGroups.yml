@@ -13,6 +13,13 @@
     state: folder-hop-ian
 
 - type: stealTargetGroup
+  id: BookSecretDocuments
+  name: steal-target-groups-secret-documents
+  sprite:
+    sprite: Objects/Misc/bureaucracy.rsi
+    state: folder-sec-doc
+
+- type: stealTargetGroup
   id: WeaponEnergyGunMultiphase
   name: steal-target-groups-x01
   sprite:

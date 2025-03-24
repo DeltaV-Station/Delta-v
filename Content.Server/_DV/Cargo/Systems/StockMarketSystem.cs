@@ -168,7 +168,7 @@ public sealed class StockMarketSystem : EntitySystem
             stockMarket.StockOwnership.Remove(companyIndex);
 
         // Update the bank account (take away for buying and give for selling)
-        _cargo.UpdateBankAccount(station, bank, -totalValue);
+        _cargo.UpdateBankAccount((station, bank), -totalValue);
 
         // Log the transaction
         var verb = amount > 0 ? "bought" : "sold";
