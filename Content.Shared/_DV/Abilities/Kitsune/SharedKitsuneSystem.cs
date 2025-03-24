@@ -51,16 +51,12 @@ public abstract class SharedKitsuneSystem : EntitySystem
             return;
         }
 
-        if (_actions.GetCharges(ent.Comp.FoxfireAction) is { } and < 1)
+        if (_actions.GetCharges(ent.Comp.FoxfireAction) < 1)
         {
             QueueDel(ent.Comp.ActiveFoxFires[0]);
             ent.Comp.ActiveFoxFires.RemoveAt(0);
         }
 
-        if (_actions.GetCharges(ent.Comp.FoxfireAction) <= 0)
-        {
-            _actions.SetCharges(ent.Comp.FoxfireAction, 1);
-        }
         var fireEnt = Spawn(ent.Comp.FoxfirePrototype, Transform(ent).Coordinates);
         var fireComp = EnsureComp<FoxFireComponent>(fireEnt);
         fireComp.Kitsune = ent;
@@ -76,6 +72,14 @@ public abstract class SharedKitsuneSystem : EntitySystem
         if (ent.Comp.Kitsune is { } kitsune && TryComp<KitsuneComponent>(kitsune, out var kitsuneComp))
         {
             kitsuneComp.ActiveFoxFires.Remove(ent);
+            _actions.AddCharges(kitsuneComp.FoxfireAction, 1);
+
+            var foxfireAction = kitsuneComp.FoxfireAction;
+            if (!TryComp<InstantActionComponent>(foxfireAction, out var instantActionComp))
+                return;
+            if (_actions.GetCharges(foxfireAction) > instantActionComp.MaxCharges)
+                _actions.SetCharges(foxfireAction, instantActionComp.MaxCharges);
+
             Dirty(ent);
         }
     }

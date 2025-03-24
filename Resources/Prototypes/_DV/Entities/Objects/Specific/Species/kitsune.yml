@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: BaseStructureDynamic
   id: Foxfire
   name: foxfire
   description: An oddly cool wisp of flame giving off a comfortable glow.
@@ -38,3 +38,7 @@
     thresholds:
     - trigger: !type:DamageTrigger
         damage: 5
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: InteractionOutline
