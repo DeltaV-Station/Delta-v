@@ -12,84 +12,73 @@ public abstract class SharedKitsuneSystem : EntitySystem
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly IEntityManager _entities = default!;
 
-    protected Color? _eyeColor = null;
+    protected Color? EyeColor = null;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<KitsuneComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<KitsuneComponent, CreateFoxfireActionEvent>(OnCreateFoxfire);
         SubscribeLocalEvent<FoxFireComponent, ComponentShutdown>(OnFoxFireShutdown);
-        SubscribeLocalEvent<KitsuneComponent, FoxfireDestroyedEvent>(OnFoxFireDestroyed);
         SubscribeLocalEvent<KitsuneComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<KitsuneComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished);
     }
 
-    private void OnProfileLoadFinished(EntityUid uid, KitsuneComponent component, ProfileLoadFinishedEvent args)
+    private void OnProfileLoadFinished(Entity<KitsuneComponent> ent, ref ProfileLoadFinishedEvent args)
     {
-        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanComp))
+        if (TryComp<HumanoidAppearanceComponent>(ent, out var humanComp))
         {
-            _eyeColor = humanComp.EyeColor;
+            EyeColor = humanComp.EyeColor;
         }
     }
 
-    private void OnStartup(EntityUid uid, KitsuneComponent component, ComponentStartup args)
-    {
-        component.FoxfireAction = _actions.AddAction(uid, component.FoxfireActionId);
-    }
-
-    private void OnMapInit(EntityUid uid, KitsuneComponent component, MapInitEvent args)
+    private void OnMapInit(Entity<KitsuneComponent> ent, ref MapInitEvent args)
     {
         // try to add kitsunemorph action to kitsune
-        if (!component.NoAction && !HasComp<KitsuneFoxComponent>(uid))
+        if (!ent.Comp.NoAction && !HasComp<KitsuneFoxComponent>(ent))
         {
-            _actions.AddAction(uid, ref component.KitsuneActionEntity, component.KitsuneAction);
+            _actions.AddAction(ent, ref ent.Comp.KitsuneActionEntity, ent.Comp.KitsuneAction);
         }
+
+        ent.Comp.FoxfireAction = _actions.AddAction(ent, ent.Comp.FoxfireActionId);
     }
 
-    private void OnCreateFoxfire(EntityUid uid, KitsuneComponent component, CreateFoxfireActionEvent args)
+    private void OnCreateFoxfire(Entity<KitsuneComponent> ent, ref CreateFoxfireActionEvent args)
     {
-        if (!TryComp<HandsComponent>(uid, out var hands) || hands.Count < 1)
+        if (!TryComp<HandsComponent>(ent, out var hands) || hands.Count < 1)
         {
-            _popupSystem.PopupEntity(Loc.GetString("fox-no-hands"), uid, uid);
+            _popupSystem.PopupEntity(Loc.GetString("fox-no-hands"), ent, ent);
             return;
         }
 
-        if (_actions.GetCharges(component.FoxfireAction) is { } and < 1)
+        if (_actions.GetCharges(ent.Comp.FoxfireAction) is { } and < 1)
         {
-            _entities.DeleteEntity(component.ActiveFoxFires[0]);
-            component.ActiveFoxFires.RemoveAt(0);
+            QueueDel(ent.Comp.ActiveFoxFires[0]);
+            ent.Comp.ActiveFoxFires.RemoveAt(0);
         }
 
-        if (_actions.GetCharges(component.FoxfireAction) is { } and <= -1)
+        if (_actions.GetCharges(ent.Comp.FoxfireAction) <= 0)
         {
-            _actions.SetCharges(component.FoxfireAction, 1);
+            _actions.SetCharges(ent.Comp.FoxfireAction, 1);
         }
-        var fireEnt = Spawn(component.FoxfirePrototype, Transform(uid).Coordinates);
+        var fireEnt = Spawn(ent.Comp.FoxfirePrototype, Transform(ent).Coordinates);
         var fireComp = EnsureComp<FoxFireComponent>(fireEnt);
-        fireComp.Kitsune = uid;
-        component.ActiveFoxFires.Add(fireEnt);
+        fireComp.Kitsune = ent;
+        ent.Comp.ActiveFoxFires.Add(fireEnt);
 
-        if (_eyeColor is not null)
-            _light.SetColor(fireEnt, (Color)_eyeColor);
+        if (EyeColor is not null)
+            _light.SetColor(fireEnt, (Color)EyeColor);
 
         args.Handled = true;
     }
-    private void OnFoxFireShutdown(EntityUid uid, FoxFireComponent component, ComponentShutdown args)
+    private void OnFoxFireShutdown(Entity<FoxFireComponent> ent, ref ComponentShutdown args)
     {
-        if (component.Kitsune is null)
-            return;
-        RaiseLocalEvent<FoxfireDestroyedEvent>(component.Kitsune.Value, new());
-    }
-    private void OnFoxFireDestroyed(EntityUid uid, KitsuneComponent component, FoxfireDestroyedEvent args)
-    {
-        component.ActiveFoxFires.Remove(uid);
+        if (ent.Comp.Kitsune is { } kitsune && TryComp<KitsuneComponent>(kitsune, out var kitsuneComp))
+        {
+            kitsuneComp.ActiveFoxFires.Remove(ent);
+            Dirty(ent);
+        }
     }
 }
 
-public sealed partial class MorphIntoKitsune : InstantActionEvent
-{
-
-}
+public sealed partial class MorphIntoKitsune : InstantActionEvent;
