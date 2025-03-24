@@ -1,14 +1,10 @@
-using Content.Client._DV.Kitsune;
 using Content.Shared._DV.Abilities.Kitsune;
 using Robust.Client.GameObjects;
-using static Robust.Client.GameObjects.SpriteComponent;
 
 namespace Content.Client._DV.Kitsune;
 
-
 public sealed class KitsuneSystem : VisualizerSystem<KitsuneComponent>
 {
-
     protected override void OnAppearanceChange(EntityUid uid, KitsuneComponent comp, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null)
@@ -31,8 +27,5 @@ public sealed class KitsuneSystem : VisualizerSystem<KitsuneComponent>
             if (spriteLayer.RsiState.Name == "kitsune_fox_body")
                 spriteLayer.Color = color;
         }
-
     }
-
-
 }
