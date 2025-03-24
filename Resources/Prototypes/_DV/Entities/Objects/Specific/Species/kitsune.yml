@@ -24,8 +24,7 @@
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeCircle
+        shape: !type:PhysShapeCircle
           radius: 0.35
         density: 50
         mask:
@@ -37,10 +36,5 @@
     damageModifierSet: KitsuneFox
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 5
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: InteractionOutline

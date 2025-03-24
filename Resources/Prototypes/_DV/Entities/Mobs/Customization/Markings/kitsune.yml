@@ -8,17 +8,16 @@
   speciesRestriction: [Kitsune]
   coloring:
     default:
-      type:
-        !type:CategoryColoring
-          category: Hair
+      type: !type:CategoryColoring
+        category: Hair
       fallbackTypes:
-        - !type:SimpleColoring
-          color: "#fffafa"
+      - !type:SimpleColoring
+        color: "#fffafa"
   sprites:
-    - sprite: _DV/Mobs/Customization/kitsune/tails.rsi
-      state: kitsune_primary
-    - sprite: _DV/Mobs/Customization/kitsune/tails.rsi
-      state: kitsune_secondary
+  - sprite: _DV/Mobs/Customization/kitsune/tails.rsi
+    state: kitsune_primary
+  - sprite: _DV/Mobs/Customization/kitsune/tails.rsi
+    state: kitsune_secondary
 
 # Ear Markings
 
@@ -29,14 +28,13 @@
   speciesRestriction: [Kitsune]
   coloring:
     default:
-      type:
-        !type:CategoryColoring
-          category: Hair
+      type: !type:CategoryColoring
+        category: Hair
       fallbackTypes:
-        - !type:SimpleColoring
-          color: "#fffafa"
+      - !type:SimpleColoring
+        color: "#fffafa"
   sprites:
-    - sprite: _DV/Mobs/Customization/kitsune/ears.rsi
-      state: kitsune_fluffy_ears
-    - sprite: _DV/Mobs/Customization/kitsune/ears.rsi
-      state: kitsune_fluffy_fluff
+  - sprite: _DV/Mobs/Customization/kitsune/ears.rsi
+    state: kitsune_fluffy_ears
+  - sprite: _DV/Mobs/Customization/kitsune/ears.rsi
+    state: kitsune_fluffy_fluff

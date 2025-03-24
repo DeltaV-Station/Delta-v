@@ -1,18 +1,14 @@
 - type: entity
   save: false
+  id: BaseMobKitsune
   name: Urist McKitsune
-  parent: BaseMobHuman
-  id: MobKitsuneBase
   abstract: true
   components:
-  - type: Sprite
-  - type: HumanoidAppearance
-    species: Kitsune
+  - type: Physics
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeCircle
+        shape: !type:PhysShapeCircle
           radius: 0.35
         density: 50
         restitution: 0.0
@@ -25,13 +21,6 @@
   - type: Damageable
     damageContainer: BiologicalMetaphysical # foxes take holy damage but at a reduced amount
     damageModifierSet: Kitsune
-  - type: MeleeWeapon
-    soundHit:
-      path: /Audio/Items/hiss.ogg
-    animation: WeaponArcClaw
-    damage:
-      types:
-        Heat: 5
   - type: Speech
     speechSounds: Alto
     allowedEmotes: ['Growl', 'Squeak']
@@ -40,6 +29,7 @@
       Male: MaleKitsune
       Female: FemaleKitsune
       Unsexed: MaleKitsune
+  - type: Carriable
   - type: TypingIndicator
     proto: kitsune
   - type: InteractionPopup
@@ -53,7 +43,7 @@
   - type: PsionicBonusChance
     flatBonus: 1
   - type: LightweightDrunk
-    boozeStrengthMultiplier: 2
+    boozeStrengthMultiplier: 3
   - type: PseudoItem
     storedOffset: "0,17"
     shape:
@@ -63,10 +53,10 @@
 
 - type: entity
   save: false
-  name: Urist McHands
   parent: MobHumanDummy
   id: MobKitsuneDummy
   categories: [ HideSpawnMenu ]
+  name: Urist McHands
   description: A dummy kitsune meant to be used in character setup.
   components:
   - type: HumanoidAppearance

@@ -1,10 +1,11 @@
 - type: entity
   save: false
-  name: Urist McKitsune
-  parent: MobKitsuneBase
+  parent: [BaseMobKitsune, BaseMobHuman]
   id: MobKitsune
+  name: Urist McKitsune
   components:
-  - type: CombatMode
+  - type: HumanoidAppearance
+    species: Kitsune
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-soft-floofy-kitsune
@@ -12,25 +13,14 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/fox_squeak.ogg
-  - type: MindContainer
-    showExamineInfo: true
-  - type: Input
-    context: "human"
-  - type: MobMover
-  - type: InputMover
-  - type: Respirator
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Items/hiss.ogg
+    animation: WeaponArcClaw
     damage:
       types:
-        Asphyxiation: 1.0
-    damageRecovery:
-      types:
-        Asphyxiation: -1.0
-  - type: Alerts
-  - type: Actions
-  - type: Eye
-  - type: CameraRecoil
-  - type: Examiner
-  - type: CanHostGuardian
+        Heat: 5
+  - type: Speech
   - type: NpcFactionMember
     factions:
     - NanoTrasen
