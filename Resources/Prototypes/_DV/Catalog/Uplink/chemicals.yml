@@ -1,0 +1,17 @@
+﻿- type: listing
+  id: UplinkOmniPatchKit
+  name: uplink-omnipatch-kit-name
+  description: uplink-omnipatch-kit-desc
+  productEntity: OmniPatch
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

@@ -40,6 +40,13 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.ResetZoom);
             common.AddFunction(ContentKeyFunctions.InspectEntity);
             common.AddFunction(ContentKeyFunctions.ToggleRoundEndSummaryWindow);
+            // Begin DeltaV Additions
+            common.AddFunction(ContentKeyFunctions.OpenAHelpCuratorChat);
+            common.AddFunction(ContentKeyFunctions.NanoChatNavigateUp);
+            common.AddFunction(ContentKeyFunctions.NanoChatNavigateDown);
+            common.AddFunction(ContentKeyFunctions.NanoChatNavigateUpUnread);
+            common.AddFunction(ContentKeyFunctions.NanoChatNavigateDownUnread);
+            // End DeltaV Additions
 
             // Not in engine, because engine cannot check for sanbox/admin status before starting placement.
             common.AddFunction(ContentKeyFunctions.EditorCopyObject);
@@ -136,6 +143,11 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.OpenDecalSpawnWindow);
             common.AddFunction(ContentKeyFunctions.OpenAdminMenu);
             common.AddFunction(ContentKeyFunctions.OpenGuidebook);
+
+            // DeltaV - Swap Hands Reversed Start
+            human.AddFunction(ContentKeyFunctions.SwapHandsReversed);
+            aghost.AddFunction(ContentKeyFunctions.SwapHandsReversed);
+            // DeltaV - Swap Hands Reversed End
         }
     }
 }

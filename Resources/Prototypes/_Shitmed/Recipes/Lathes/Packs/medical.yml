@@ -1,0 +1,58 @@
+## Static
+
+- type: latheRecipePack
+  id: SurgeryStaticShitmed
+  recipes:
+  - BoneGel
+
+- type: latheRecipePack
+  id: MedicalBoardsStaticShitmed
+  recipes:
+  - OperatingTableCircuitboard
+
+- type: latheRecipePack
+  id: SynthOrgansStatic
+  recipes:
+  - SynthLiver
+  - SynthHeart
+  - SynthLungs
+  - SynthEyes
+
+- type: latheRecipePack
+  id: SynthPartsStatic
+  recipes:
+  - SynthLeftLeg
+  - SynthRightLeg
+  - SynthLeftFoot
+  - SynthRightFoot
+  - SynthLeftArm
+  - SynthRightArm
+  - SynthLeftHand
+  - SynthRightHand
+
+- type: latheRecipePack
+  id: PizzaPartsStatic
+  recipes:
+  - PizzaLeftArm
+  - PizzaRightArm
+
+## Dynamic
+
+- type: latheRecipePack
+  id: Surgery
+  recipes:
+  - EnergyScalpel
+  - EnergyCautery
+  - AdvancedRetractor
+  #- OmnimedTool # DeltaV - Removed medical multi tool as a tech.
+
+- type: latheRecipePack
+  id: CyberneticsMedical
+  recipes:
+  - MedicalCyberneticEyes
+
+- type: latheRecipePack
+  id: MedicalBoardsShitmed
+  recipes:
+  - AutodocCircuitboard
+  - OperatingTableAdvancedCircuitboard

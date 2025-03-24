@@ -43,6 +43,7 @@
 - type: loadoutGroup
   id: LibrarianNeck
   name: loadout-group-librarian-neck
+  minLimit: 0
   loadouts:
   - ScarfGreen
   - ScarfRed
@@ -195,6 +196,14 @@
   loadouts:
   - SalvageCloak
   - ScarfBrown
+
+- type: loadoutGroup
+  id: SalvageSpecialistJumpsuit
+  name: loadout-group-salvage-specialist-jumpsuit
+  minLimit: 1
+  loadouts:
+  - SalvageJumpsuit
+  - SalvageJumpskirt
 
 # Security
 ## Brig Medic
@@ -709,13 +718,6 @@
   - CorporateJacket
 
 - type: loadoutGroup
-  id: AdminAssistantEar
-  name: loadout-group-admin-assistant-headset
-  loadouts:
-  - AdminAssistantHeadset
-  - AdminAssistantAltHeadset
-
-- type: loadoutGroup
   id: AdminAssistantGloves
   name: loadout-group-admin-assistant-gloves
   minLimit: 0
@@ -863,3 +865,12 @@
   - ScarfOrange
   - ScarfBlack
   - ScarfZebra
+
+# Species
+- type: loadoutGroup
+  id: GroupHumanoidSilicon
+  name: loadout-group-humanoid-silicon
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - EmergencyIPCBox

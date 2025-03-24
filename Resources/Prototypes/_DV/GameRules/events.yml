@@ -114,7 +114,7 @@
       components:
       - type: RandomMetadata
         nameSegments:
-        - names_death_commando
+        - NamesDeathCommando
       - type: AutoImplant
         implants:
         - DeathAcidifierImplant
@@ -196,11 +196,21 @@
       components:
       - type: RandomMetadata
         nameSegments:
-        - fake_human_first
-        - fake_human_last
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
       - type: RandomHumanoidAppearance
         randomizeName: false
       - type: EmitSoundOnSpawn # fell out of the ceiling
         sound: /Audio/Effects/clang.ogg
       mindRoles:
       - MindRoleFugitive
+
+- type: entity
+  parent: BaseGlimmerEvent
+  id: ThavenMoodUpset
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 500
+    glimmerBurnLower: 30
+    glimmerBurnUpper: 70
+  - type: ThavenMoodUpsetRule

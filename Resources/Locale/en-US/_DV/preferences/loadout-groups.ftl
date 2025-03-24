@@ -12,7 +12,6 @@ loadout-group-hop-shoes = Head of Personnel shoes
 loadout-group-admin-assistant-head = Administrative Assistant head
 loadout-group-admin-assistant-jumpsuit = Administrative Assistant jumpsuit
 loadout-group-admin-assistant-outerclothing = Administrative Assistant outer clothing
-loadout-group-admin-assistant-headset = Administrative Assistant headset
 loadout-group-admin-assistant-shoes = Administrative Assistant shoes
 loadout-group-admin-assistant-gloves = Administrative Assistant gloves
 
@@ -64,6 +63,7 @@ loadout-group-cargo-assistant-outerclothing = Cargo Assistant outer clothing
 loadout-group-cargo-assistant-shoes = Cargo Assistant shoes
 
 loadout-group-salvage-specialist-neck = Salvage Specialist neck
+loadout-group-salvage-specialist-jumpsuit = Salvage Specialist jumpsuit
 
 loadout-group-salvage-id-delta = Salvage Specialist PDA
 
@@ -158,3 +158,6 @@ loadout-group-martial-artist-shoes = Martial Artist shoes
 
 loadout-group-gladiator-jumpsuit = Gladiator jumpsuit
 loadout-group-gladiator-outerclothing = Gladiator outer clothing
+
+# Species
+loadout-group-humanoid-silicon = Silicon-friendly survival box

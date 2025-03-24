@@ -55,6 +55,7 @@ public abstract partial class SharedSurgerySystem
         SubSurgery<SurgeryAffixOrganStepComponent>(OnAffixOrganStep, OnAffixOrganCheck);
         SubSurgery<SurgeryAddMarkingStepComponent>(OnAddMarkingStep, OnAddMarkingCheck);
         SubSurgery<SurgeryRemoveMarkingStepComponent>(OnRemoveMarkingStep, OnRemoveMarkingCheck);
+        SubSurgery<SurgeryAddOrganSlotStepComponent>(OnAddOrganSlotStep, OnAddOrganSlotCheck);
         Subs.BuiEvents<SurgeryTargetComponent>(SurgeryUIKey.Key, subs =>
         {
             subs.Event<SurgeryStepChosenBuiMsg>(OnSurgeryTargetStepChosen);
@@ -178,6 +179,9 @@ public abstract partial class SharedSurgerySystem
                 RaiseLocalEvent(args.Body, ref ev);
             }
         }
+
+        var dirtinessEv = new Content.Shared._DV.Surgery.SurgeryDirtinessEvent(args.User, args.Part, args.Tools, args.Step); // DeltaV: surgery cross contamination
+        RaiseLocalEvent(args.Body, ref dirtinessEv); // DeltaV: surgery cross contamination
     }
 
     private void OnToolCheck(Entity<SurgeryStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
@@ -444,6 +448,22 @@ public abstract partial class SharedSurgerySystem
                 RaiseLocalEvent(args.Body, ref ev);
             }
         }
+    }
+
+    private void OnAddOrganSlotStep(Entity<SurgeryAddOrganSlotStepComponent> ent, ref SurgeryStepEvent args)
+    {
+        if (!TryComp(args.Surgery, out SurgeryOrganSlotConditionComponent? condition))
+            return;
+
+        _body.TryCreateOrganSlot(args.Part, condition.OrganSlot, out _);
+    }
+
+    private void OnAddOrganSlotCheck(Entity<SurgeryAddOrganSlotStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
+    {
+        if (!TryComp(args.Surgery, out SurgeryOrganSlotConditionComponent? condition))
+            return;
+
+        args.Cancelled = !_body.CanInsertOrgan(args.Part, condition.OrganSlot);
     }
 
     private void OnAffixPartStep(Entity<SurgeryAffixPartStepComponent> ent, ref SurgeryStepEvent args)
@@ -783,6 +803,19 @@ public abstract partial class SharedSurgerySystem
 
         if (TryComp(user, out SurgerySpeedModifierComponent? surgerySpeedMod))
             speed *= surgerySpeedMod.SpeedModifier;
+
+        var ev = new SurgerySpeedModifyEvent(speed);
+        RaiseLocalEvent(user, ref ev);
+        if (TryComp<InventoryComponent>(user, out var inv))
+            _inventory.RelayEvent((user, inv), ref ev);
+        speed = ev.Multiplier;
+
+        if (TryComp<BuckleComponent>(target, out var buckle) && buckle.BuckledTo is {} buckledTo)
+        {
+            var buckledEvent = new SurgerySpeedModifyEvent(speed);
+            RaiseLocalEvent(buckledTo, ref buckledEvent);
+            speed = ev.Multiplier;
+        }
 
         return stepComp.Duration / speed;
     }
