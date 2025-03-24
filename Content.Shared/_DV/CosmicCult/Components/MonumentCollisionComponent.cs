@@ -12,5 +12,5 @@ public sealed partial class MonumentCollisionComponent : Component
     /// <summary>
     /// A bool that determines whether The Monument is tangible to non-cultists.
     /// </summary>
-    [DataField, AutoNetworkedField] public bool HasCollision = false;
+    [DataField, AutoNetworkedField] public bool HasCollision;
 }

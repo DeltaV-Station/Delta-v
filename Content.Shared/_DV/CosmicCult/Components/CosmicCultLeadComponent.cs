@@ -1,5 +1,5 @@
-using Robust.Shared.GameStates;
 using Content.Shared.StatusIcon;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.CosmicCult.Components;
@@ -13,13 +13,13 @@ public sealed partial class CosmicCultLeadComponent : Component
     /// <summary>
     /// The status icon corresponding to the lead cultist.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "CosmicCultLeadIcon";
+    [DataField]
+    public ProtoId<FactionIconPrototype> StatusIcon = "CosmicCultLeadIcon";
 
     /// <summary>
     /// How long the stun will last after the user is converted.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public TimeSpan StunTime = TimeSpan.FromSeconds(3);
 
     public override bool SessionSpecific => true;

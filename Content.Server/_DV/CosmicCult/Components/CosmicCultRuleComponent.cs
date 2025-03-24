@@ -38,10 +38,14 @@ public sealed partial class CosmicCultRuleComponent : Component
     [DataField]
     public TimeSpan EvacShuttleTime = TimeSpan.FromMinutes(5);
 
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField] public HashSet<EntityUid> Cultists = new();
-    [DataField] public bool WinLocked = false;
-    [DataField] public WinType WinType = WinType.CrewMinor;
+    [DataField]
+    public HashSet<EntityUid> Cultists = new();
+
+    [DataField]
+    public bool WinLocked;
+
+    [DataField]
+    public WinType WinType = WinType.CrewMinor;
 }
 
 // CosmicCultRuleComponent

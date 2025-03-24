@@ -10,6 +10,7 @@ using Robust.Client.UserInterface.XAML;
 
 namespace Content.Client._DV.CosmicCult.UI.Monument;
 [GenerateTypedNameReferences]
+
 public sealed partial class InfluenceUIBox : BoxContainer
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
@@ -44,7 +45,7 @@ public sealed partial class InfluenceUIBox : BoxContainer
         Proto = influenceProto;
 
         var availableEntropy = 0;
-        if (_entityManager.TryGetComponent<CosmicCultComponent>(_playerManager.LocalEntity, out var cultComp)) //this feels wrong but seems to be the correct way to do this?
+        if (_entityManager.TryGetComponent<CosmicCultComponent>(_playerManager.LocalEntity, out var cultComp))
         {
             availableEntropy = cultComp.EntropyBudget;
         }

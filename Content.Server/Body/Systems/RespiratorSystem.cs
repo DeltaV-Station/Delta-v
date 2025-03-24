@@ -20,7 +20,7 @@ using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Components; // DeltaV
 
 
 namespace Content.Server.Body.Systems;
@@ -78,14 +78,14 @@ public sealed class RespiratorSystem : EntitySystem
             if (_mobState.IsDead(uid) || HasComp<BreathingImmunityComponent>(uid)) // Shitmed: BreathingImmunity
                 continue;
 
-            // Begin DeltaV Code: Addition:
+            // Begin DeltaV Additions
             var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((uid, body));
             var multiplier = -1f;
             foreach (var (_, lung, _) in organs)
             {
                 multiplier *= lung.SaturationLoss;
             }
-            // End DeltaV Code
+            // End DeltaV Additions
             UpdateSaturation(uid, multiplier * (float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV: use multiplier instead of negating
 
             if (!_mobState.IsIncapacitated(uid) && !HasComp<DebrainedComponent>(uid)) // Shitmed Change - Cannot breathe in crit or when no brain.

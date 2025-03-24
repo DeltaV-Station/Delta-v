@@ -2,7 +2,6 @@
   id: ActionCosmicSiphon
   name: Siphon Entropy
   description: Silently siphon entropy from your target, dealing some damage in the process.
-  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     useDelay: 50
@@ -67,7 +66,7 @@
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: monument-relocate
-    event: !type:EventCosmicMoveMonument {}
+    event: !type:EventCosmicMoveMonument
   - type: MonumentPlacementMarker
     tier: 2
 

@@ -8,6 +8,6 @@ public sealed partial class CosmicAstralBodyComponent : Component
     [AutoPausedField]
     public TimeSpan EndAstralTime = default!;
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
     public EntityUid OriginalBody;
 }

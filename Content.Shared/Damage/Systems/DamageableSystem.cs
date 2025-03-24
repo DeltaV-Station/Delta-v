@@ -337,7 +337,7 @@ namespace Content.Shared.Damage
             Dirty(uid, comp);
         }
 
-        // DELTA-V EDIT BEGIN
+        // Begin DeltaV Additions
         public void SetDamageContainerID(EntityUid uid, string damageContainerId, DamageableComponent? comp = null)
         {
             if (!_damageableQuery.Resolve(uid, ref comp))
@@ -346,7 +346,7 @@ namespace Content.Shared.Damage
             comp.DamageContainerID = damageContainerId; // we need to be able to change DamageContainer to make cultists vulnerable to Holy Damage.
             Dirty(uid, comp);
         }
-        // DELTA-V EDIT END
+        // End DeltaV Additions
 
         private void DamageableGetState(EntityUid uid, DamageableComponent component, ref ComponentGetState args)
         {

@@ -128,9 +128,7 @@ public sealed class GlyphSelectedMessage(ProtoId<GlyphPrototype> glyphProtoId) :
 }
 
 [Serializable, NetSerializable]
-public sealed class GlyphRemovedMessage : BoundUserInterfaceMessage
-{
-}
+public sealed class GlyphRemovedMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
 public enum MonumentVisuals : byte

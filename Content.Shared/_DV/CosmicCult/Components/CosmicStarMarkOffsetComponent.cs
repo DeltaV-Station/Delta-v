@@ -9,6 +9,5 @@ namespace Content.Shared._DV.CosmicCult.Components;
 public sealed partial class CosmicStarMarkOffsetComponent : Component
 {
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
     public Vector2 Offset = Vector2.Zero;
 }

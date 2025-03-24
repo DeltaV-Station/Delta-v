@@ -15,6 +15,6 @@ public sealed partial class CosmicMarkBlankComponent : Component
     /// <summary>
     /// The status icon corresponding to the effect.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public ProtoId<SsdIconPrototype> StatusIcon { get; set; } = "CosmicSSDIcon";
+    [DataField]
+    public ProtoId<SsdIconPrototype> StatusIcon = "CosmicSSDIcon";
 }

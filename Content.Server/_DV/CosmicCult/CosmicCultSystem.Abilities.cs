@@ -26,10 +26,8 @@ using Content.Shared.Doors.Components;
 using Robust.Shared.Player;
 using Content.Shared.Physics;
 using System.Linq;
-using Content.Shared.StatusEffect;
 using Timer = Robust.Shared.Timing.Timer;
 using Robust.Shared.Map;
-using Robust.Shared.Spawners;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -372,9 +370,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
         //spawn the destination effect first because we only need one
         var destEnt = Spawn("MonumentCosmicCultMoveEnd", pos);
         var destComp = EnsureComp<MonumentMoveDestinationComponent>(destEnt);
+        var coords = Transform(_cultRule.MonumentInGame).Coordinates;
         Spawn("MonumentCollider", pos); //spawn a new collider
 
-        Spawn("MonumentCosmicCultMoveStart", Transform(_cultRule.MonumentInGame).Coordinates);
+        Spawn("MonumentCosmicCultMoveStart", coords);
         Spawn("MonumentCollider", Transform(_cultRule.MonumentInGame).Coordinates); //spawn a new collider
 
         //timers!

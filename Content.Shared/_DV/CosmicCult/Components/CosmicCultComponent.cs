@@ -2,7 +2,6 @@ using Robust.Shared.GameStates;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
-using Content.Shared.Damage;
 using Content.Shared._DV.CosmicCult.Prototypes;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Alert;
@@ -22,11 +21,8 @@ public sealed partial class CosmicCultComponent : Component
     /// <summary>
     /// The status icon prototype displayed for cosmic cultists.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "CosmicCultIcon";
-
-    [DataField] public bool IsConstruct = false;
-
+    [DataField]
+    public ProtoId<FactionIconPrototype> StatusIcon = "CosmicCultIcon";
     #endregion
 
     #region Ability Data
@@ -100,12 +96,12 @@ public sealed partial class CosmicCultComponent : Component
     /// <summary>
     /// The amount of Entropy the user is allowed to spend at The Monument.
     /// </summary>
-    [DataField, AutoNetworkedField] public int EntropyBudget = 0;
+    [DataField, AutoNetworkedField] public int EntropyBudget;
 
     /// <summary>
     /// The amount of Entropy the user is currently holding on to.
     /// </summary>
-    [DataField, AutoNetworkedField] public int EntropyStored = 0;
+    [DataField, AutoNetworkedField] public int EntropyStored;
 
     /// <summary>
     /// The maximum amount of Entropy the user can have at once.
@@ -115,7 +111,7 @@ public sealed partial class CosmicCultComponent : Component
     /// <summary>
     /// Wether or not this cultist has been empowered by a Malign Rift.
     /// </summary>
-    [DataField, AutoNetworkedField] public bool CosmicEmpowered = false;
+    [DataField, AutoNetworkedField] public bool CosmicEmpowered;
 
     /// <summary>
     /// Wether or not this cultist needs to respirate.

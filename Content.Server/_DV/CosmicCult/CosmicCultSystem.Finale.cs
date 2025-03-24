@@ -23,13 +23,14 @@ public sealed partial class CosmicCultSystem : EntitySystem
         SubscribeLocalEvent<CosmicFinaleComponent, CancelFinaleDoAfterEvent>(OnFinaleCancelDoAfter);
     }
 
-    private void OnInteract(Entity<CosmicFinaleComponent> uid, ref InteractHandEvent args)
+    private void OnInteract(Entity<CosmicFinaleComponent> ent, ref InteractHandEvent args)
     {
-        if (!HasComp<HumanoidAppearanceComponent>(args.User)) return; // humanoids only!
-        if (!HasComp<CosmicCultComponent>(args.User) && !args.Handled && uid.Comp.FinaleActive)
+        if (!HasComp<HumanoidAppearanceComponent>(args.User))
+            return; // humanoids only!
+        if (!HasComp<CosmicCultComponent>(args.User) && !args.Handled && ent.Comp.FinaleActive)
         {
-            uid.Comp.Occupied = true;
-            var doargs = new DoAfterArgs(EntityManager, args.User, uid.Comp.InteractionTime, new CancelFinaleDoAfterEvent(), uid, uid)
+            ent.Comp.Occupied = true;
+            var doargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.InteractionTime, new CancelFinaleDoAfterEvent(), ent, ent)
             {
                 DistanceThreshold = 1f, Hidden = false, BreakOnHandChange = true, BreakOnDamage = true, BreakOnMove = true
             };
@@ -37,10 +38,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
             _doAfter.TryStartDoAfter(doargs);
             args.Handled = true;
         }
-        else if (HasComp<CosmicCultComponent>(args.User) && !args.Handled && !uid.Comp.FinaleActive && uid.Comp.CurrentState != FinaleState.Unavailable)
+        else if (HasComp<CosmicCultComponent>(args.User) && !args.Handled && !ent.Comp.FinaleActive && ent.Comp.CurrentState != FinaleState.Unavailable)
         {
-            uid.Comp.Occupied = true;
-            var doargs = new DoAfterArgs(EntityManager, args.User, uid.Comp.InteractionTime, new StartFinaleDoAfterEvent(), uid, uid)
+            ent.Comp.Occupied = true;
+            var doargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.InteractionTime, new StartFinaleDoAfterEvent(), ent, ent)
             {
                 DistanceThreshold = 1f, Hidden = false, BreakOnHandChange = true, BreakOnDamage = true, BreakOnMove = true
             };
@@ -119,7 +120,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     private void OnFinaleCancelDoAfter(Entity<CosmicFinaleComponent> uid, ref CancelFinaleDoAfterEvent args)
     {
         var comp = uid.Comp;
-        if (args.Args.Target == null || args.Cancelled || args.Handled)
+        if (args.Args.Target is not {} target || args.Cancelled || args.Handled)
         {
             uid.Comp.Occupied = false;
             return;
@@ -148,23 +149,20 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
         if (TryComp<ActivatableUIComponent>(uid, out var uiComp))
         {
-            if (TryComp<UserInterfaceComponent>(uid, out var uiComp2)) //close the UI for everyone who has it open
-            {
-                _ui.CloseUi((uid.Owner, uiComp2), MonumentKey.Key);
-            }
+            _ui.CloseUi(uid.Owner, MonumentKey.Key);
 
             uiComp.Key = null; //kazne called this the laziest way to disable a UI ever
         }
 
         _appearance.SetData(uid, MonumentVisuals.FinaleReached, 1);
 
-        if (!TryComp<MonumentComponent>(args.Args.Target, out var monument))
+        if (!TryComp<MonumentComponent>(target, out var monument))
             return;
 
         monument.Enabled = false;
         comp.FinaleActive = false;
 
-        Dirty(args.Args.Target!.Value, monument);
+        Dirty(target, monument);
         _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(monument));
     }
 }
