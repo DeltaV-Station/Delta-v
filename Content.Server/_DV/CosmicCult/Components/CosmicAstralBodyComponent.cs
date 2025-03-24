@@ -4,10 +4,6 @@ namespace Content.Server._DV.CosmicCult.Components;
 [AutoGenerateComponentPause]
 public sealed partial class CosmicAstralBodyComponent : Component
 {
-    [ViewVariables]
-    [AutoPausedField]
-    public TimeSpan EndAstralTime = default!;
-
     [DataField]
     public EntityUid OriginalBody;
 }
