@@ -4,10 +4,10 @@ namespace Content.Server._DV.CosmicCult.Components;
 [AutoGenerateComponentPause]
 public sealed partial class InVoidComponent : Component
 {
-    [ViewVariables]
+    [DataField]
     [AutoPausedField]
     public TimeSpan ExitVoidTime = default!;
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
     public EntityUid OriginalBody;
 }

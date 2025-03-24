@@ -16,10 +16,13 @@ namespace Content.Client._DV.CosmicCult;
 
 public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+
     private readonly ResPath _rsiPath = new("/Textures/_DV/CosmicCult/Effects/ability_siphonvfx.rsi");
+
     private readonly SoundSpecifier _siphonSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_siphon.ogg");
+
     public override void Initialize()
     {
         base.Initialize();
@@ -47,17 +50,16 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     private void OnSiphon(CosmicSiphonIndicatorEvent args)
     {
         var ent = GetEntity(args.Target);
-        if (TryComp<SpriteComponent>(ent, out var sprite))
-        {
-            var layer = sprite.AddLayer(new SpriteSpecifier.Rsi(_rsiPath, "vfx"));
-            sprite.LayerMapSet(CultSiphonedVisuals.Key, layer);
-            sprite.LayerSetOffset(layer, new Vector2(0, 0.8f));
-            sprite.LayerSetScale(layer, new Vector2(0.65f, 0.65f));
-            sprite.LayerSetShader(layer, "unshaded");
+        if (!TryComp<SpriteComponent>(ent, out var sprite))
+            return;
+        var layer = sprite.AddLayer(new SpriteSpecifier.Rsi(_rsiPath, "vfx"));
+        sprite.LayerMapSet(CultSiphonedVisuals.Key, layer);
+        sprite.LayerSetOffset(layer, new Vector2(0, 0.8f));
+        sprite.LayerSetScale(layer, new Vector2(0.65f, 0.65f));
+        sprite.LayerSetShader(layer, "unshaded");
 
-            Timer.Spawn(TimeSpan.FromSeconds(2), () => sprite.RemoveLayer(CultSiphonedVisuals.Key));
-            _audio.PlayLocal(_siphonSFX, ent, ent, AudioParams.Default.WithVariation(0.1f));
-        }
+        Timer.Spawn(TimeSpan.FromSeconds(2), () => sprite.RemoveLayer(CultSiphonedVisuals.Key));
+        _audio.PlayLocal(_siphonSFX, ent, ent, AudioParams.Default.WithVariation(0.1f));
     }
 
     private void OnUpdateAlert(Entity<CosmicCultComponent> ent, ref UpdateAlertSpriteEvent args)
@@ -123,31 +125,31 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     #region Layer Removals
     private void OnAscendedInfectionRemoved(Entity<RogueAscendedInfectionComponent> uid, ref ComponentShutdown args)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite) || !sprite.LayerMapTryGet(AscendedInfectionKey.Key, out var layer))
+        if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        sprite.RemoveLayer(layer);
+        sprite.RemoveLayer(AscendedInfectionKey.Key);
     }
     private void OnAscendedAuraRemoved(Entity<RogueAscendedAuraComponent> uid, ref ComponentShutdown args)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite) || !sprite.LayerMapTryGet(AscendedAuraKey.Key, out var layer))
+        if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        sprite.RemoveLayer(layer);
+        sprite.RemoveLayer(AscendedAuraKey.Key);
     }
     private void OnCosmicStarMarkRemoved(Entity<CosmicStarMarkComponent> uid, ref ComponentShutdown args)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite) || !sprite.LayerMapTryGet(CosmicRevealedKey.Key, out var layer))
+        if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        sprite.RemoveLayer(layer);
+        sprite.RemoveLayer(CosmicRevealedKey.Key);
     }
     private void OnCosmicImpositionRemoved(Entity<CosmicImposingComponent> uid, ref ComponentShutdown args)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite) || !sprite.LayerMapTryGet(CosmicImposingKey.Key, out var layer))
+        if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        sprite.RemoveLayer(layer);
+        sprite.RemoveLayer(CosmicImposingKey.Key);
     }
     #endregion
 

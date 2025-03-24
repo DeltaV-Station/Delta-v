@@ -6,6 +6,4 @@ namespace Content.Shared._DV.CosmicCult.Components.Examine;
 /// Marker component for structures and objects.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class CosmicMarkStructureComponent : Component
-{
-}
+public sealed partial class CosmicMarkStructureComponent : Component;
