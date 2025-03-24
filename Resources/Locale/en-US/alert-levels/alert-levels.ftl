@@ -38,3 +38,9 @@ alert-level-delta-instructions = Crewmembers are advised to listen to heads of s
 alert-level-epsilon = Epsilon
 alert-level-epsilon-announcement = The Epsilon alert level is now in effect. Consider all contracts terminated.
 alert-level-epsilon-instructions = Crewmembers are advised to make their way to an accessible location for efficient termination.
+
+## DeltaV - Cosmic Cult
+alert-level-octarine = Octarine
+alert-level-octarine-announcement = A cataclysmic noospheric event threatens to envelop realspace. Station crew are to contain the event if possible, or else evacuate.
+alert-level-octarine-instructions = Crewmembers are advised to listen to heads of staff for more information.
+
