@@ -1,6 +1,5 @@
 using Content.Shared._Shitmed.Humanoid.Events;
 using Content.Shared.Actions;
-using Content.Shared.Actions.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
