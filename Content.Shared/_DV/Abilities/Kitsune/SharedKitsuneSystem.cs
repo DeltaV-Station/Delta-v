@@ -70,9 +70,12 @@ public abstract class SharedKitsuneSystem : EntitySystem
     {
         if (ent.Comp.Kitsune is { } kitsune && TryComp<KitsuneComponent>(kitsune, out var kitsuneComp))
         {
+            // Stop tracking the removed fox fire
             kitsuneComp.ActiveFoxFires.Remove(ent);
-            _actions.AddCharges(kitsuneComp.FoxfireAction, 1);
 
+            // Refund the fox fire charge
+            _actions.AddCharges(kitsuneComp.FoxfireAction, 1);
+            // If charges exceeds the maximum then set charges to max
             var foxfireAction = kitsuneComp.FoxfireAction;
             if (!TryComp<InstantActionComponent>(foxfireAction, out var instantActionComp))
                 return;

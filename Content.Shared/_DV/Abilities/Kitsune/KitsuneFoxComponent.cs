@@ -1,5 +1,3 @@
-using Content.Shared.Stunnable;
-
 namespace Content.Shared._DV.Abilities.Kitsune;
 
 [RegisterComponent]
