@@ -44,10 +44,10 @@ public sealed partial class ShopVendorComponent : Component
     [DataField]
     public TimeSpan EjectDelay = TimeSpan.FromSeconds(1.2);
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextDeny;
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextEject;
 
     [DataField]

@@ -1,0 +1,25 @@
+  # original PR by MagnusCrowe at https://github.com/new-frontiers-14/frontier-station-14/pull/887
+
+- type: entity
+  parent: CaptainSabre
+  id: PlasteelArmingSword
+  name: plasteel arming sword
+  description: An ancient design manufactured with modern materials and machines for a very specific target demographic.
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Melee/armingsword.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 15
+  - type: Reflect
+    reflectProb: 0
+    spread: 90
+  - type: Item
+    sprite: _NF/Objects/Weapons/Melee/armingsword.rsi
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+    - belt

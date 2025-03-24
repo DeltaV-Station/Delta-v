@@ -1,6 +1,7 @@
 - type: guideEntry
   id: NewPlayer
   name: guide-entry-newplayer
+  priority: 0
   text: "/ServerInfo/Guidebook/NewPlayer/NewPlayer.xml"
   children:
   - Controls
@@ -16,7 +17,7 @@
 - type: guideEntry
   id: Radio
   name: guide-entry-radio
-  text: "/ServerInfo/Guidebook/NewPlayer/Controls/Radio.xml" 
+  text: "/ServerInfo/Guidebook/NewPlayer/Controls/Radio.xml"
 
 - type: guideEntry
   id: CharacterCreation
@@ -25,6 +26,7 @@
   children:
   - YourFirstCharacter
   - Species 
+  - Records # DeltaV - CD records page goes here
 
 - type: guideEntry
   id: YourFirstCharacter

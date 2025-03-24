@@ -7,11 +7,22 @@ using Robust.Shared.Console;
 using Robust.Shared.Player; // Impstation Random Announcer System
 using Robust.Shared.Prototypes; // Impstation Random Announcer System
 
-namespace Content.Server.Announcements
+namespace Content.Server.Announcements;
+
+[AdminCommand(AdminFlags.Moderator)]
+public sealed class AnnounceCommand : LocalizedEntityCommands
 {
-    [AdminCommand(AdminFlags.Moderator)]
-    public sealed class AnnounceCommand : IConsoleCommand
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IResourceManager _res = default!;
+
+    public override string Command => "announce";
+    public override string Description => Loc.GetString("cmd-announce-desc");
+    public override string Help => Loc.GetString("cmd-announce-help", ("command", Command));
+
+    public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
+
         public string Command => "announce";
         public string Description => "Send an in-game announcement.";
         public string Help => $"{Command} <sender> <message> <sound> <announcer>"; // Impstation Random Announcer System: Adds announcer
@@ -86,5 +97,27 @@ namespace Content.Server.Announcements
                     return CompletionResult.Empty; // End Impstation Random Announcer System
             }
         }
+
+        // Optional sound argument
+        if (args.Length >= 4)
+            sound = new SoundPathSpecifier(args[3]);
+
+        _chat.DispatchGlobalAnnouncement(message, sender, true, sound, color);
+        shell.WriteLine(Loc.GetString("shell-command-success"));
+    }
+
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        return args.Length switch
+        {
+            1 => CompletionResult.FromHint(Loc.GetString("cmd-announce-arg-message")),
+            2 => CompletionResult.FromHint(Loc.GetString("cmd-announce-arg-sender")),
+            3 => CompletionResult.FromHint(Loc.GetString("cmd-announce-arg-color")),
+            4 => CompletionResult.FromHintOptions(
+                CompletionHelper.AudioFilePath(args[3], _proto, _res),
+                Loc.GetString("cmd-announce-arg-sound")
+            ),
+            _ => CompletionResult.Empty
+        };
     }
 }

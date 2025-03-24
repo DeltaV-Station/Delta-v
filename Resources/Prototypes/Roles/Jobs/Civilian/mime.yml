@@ -1,11 +1,11 @@
 - type: job
   id: Mime
   name: job-name-mime
-  description: job-description-mime
+  description: job-description-mime-delta # DeltaV
   playTimeTracker: JobMime
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 7200 # DeltaV - 2 hours
+      time: 14400 #4 hrs
   startingGear: MimeGear
   icon: "JobIconMime"
   supervisors: job-supervisors-hop
@@ -19,6 +19,7 @@
     components:
     - type: Psionic # Nyano - Summary: Makes the mime psionic.
     - type: MimePowers
+      preventWriting: false # DeltaV
     - type: FrenchAccent
 
 - type: startingGear
@@ -26,9 +27,9 @@
   equipment:
     gloves: ClothingHandsGlovesColorWhite
     shoes: ClothingShoesColorWhite
-    pocket1: CrayonMime
-    pocket2: Paper
     id: MimePDA
+    pocket1: CrayonMime
+    pocket2: Paper # DeltaV
     ears: ClothingHeadsetService
   storage:
     back:
