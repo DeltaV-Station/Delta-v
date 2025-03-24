@@ -15,7 +15,7 @@ public sealed partial class CosmicGlyphConversionComponent : Component
     ///     Whether or not we ignore mindshields.
     /// </summary>
     [DataField]
-    public bool NegateProtection = false;
+    public bool NegateProtection;
 
     /// <summary>
     ///     Healing applied on conversion.

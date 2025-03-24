@@ -10,6 +10,7 @@ namespace Content.Shared._DV.CosmicCult.Components;
 [NetworkedComponent, RegisterComponent]
 public sealed partial class RogueAscendedAuraComponent : Component
 {
+    [DataField]
     public ResPath RsiPath = new("/Textures/_DV/CosmicCult/Effects/ascendantaura.rsi");
 
     public readonly string States = "vfx";

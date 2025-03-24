@@ -1,5 +1,4 @@
 using Content.Server.Antag;
-using Content.Server.Mind;
 using Content.Server.GameTicking.Rules;
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Roles;
@@ -222,14 +221,15 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             QueueDel(MonumentSlowZone); // cease exist
         }
     }
-    private static void SetWinType(Entity<CosmicCultRuleComponent> uid, WinType type)
+
+    private static void SetWinType(Entity<CosmicCultRuleComponent> ent, WinType type)
     {
-        if (uid.Comp.WinLocked)
+        if (ent.Comp.WinLocked)
             return;
-        uid.Comp.WinType = type;
+        ent.Comp.WinType = type;
 
         if (type is WinType.CultComplete or WinType.CrewComplete) //Let's lock in our WinType to prevent us from setting a worse win if a better win's been achieved.
-            uid.Comp.WinLocked = true;
+            ent.Comp.WinLocked = true;
     }
 
     private void OnRunLevelChanged(GameRunLevelChangedEvent ev)
@@ -244,7 +244,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         }
     }
 
-    private void OnMobStateChanged(Entity<CosmicCultComponent> uid, ref MobStateChangedEvent args)
+    private void OnMobStateChanged(Entity<CosmicCultComponent> ent, ref MobStateChangedEvent args)
     {
         var cultistsAlive = EntityQuery<CosmicCultComponent, MobStateComponent>(true)
             .Any(op => op.Item2.CurrentState == MobState.Alive && op.Item1.Running); //Are there cultists alive?
@@ -324,11 +324,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         args.AddLine(Loc.GetString("cosmiccult-roundend-entropy-count", ("count", EntropySiphoned)));
         args.AddLine(Loc.GetString("cosmiccult-roundend-monument-stage", ("stage", CurrentTier)));
     }
-    public void IncrementCultObjectiveEntropy(Entity<CosmicCultComponent> uid)
+
+    public void IncrementCultObjectiveEntropy(Entity<CosmicCultComponent> ent)
     {
-        EntropySiphoned += uid.Comp.CosmicSiphonQuantity;
+        EntropySiphoned += ent.Comp.CosmicSiphonQuantity;
         var query = EntityQueryEnumerator<CosmicEntropyConditionComponent>();
-        while (query.MoveNext(out var _, out var entropyComp))
+        while (query.MoveNext(out _, out var entropyComp))
         {
             entropyComp.Siphoned = EntropySiphoned;
         }
@@ -336,31 +337,31 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     #endregion
 
     #region Monument
-    public void UpdateMonumentAppearance(Entity<MonumentComponent> uid, bool tierUp) // this is kinda awful, but it works, and i've seen worse. improve it at thine leisure
+    public void UpdateMonumentAppearance(Entity<MonumentComponent> ent, bool tierUp) // this is kinda awful, but it works, and i've seen worse. improve it at thine leisure
     {
-        if (!TryComp<CosmicFinaleComponent>(uid, out var finaleComp))
+        if (!TryComp<CosmicFinaleComponent>(ent, out var finaleComp))
             return;
-        _appearance.SetData(uid, MonumentVisuals.Monument, CurrentTier);
+        _appearance.SetData(ent, MonumentVisuals.Monument, CurrentTier);
 
         switch (CurrentTier)
         {
             case 3:
-                _appearance.SetData(uid, MonumentVisuals.Tier3, true);
+                _appearance.SetData(ent, MonumentVisuals.Tier3, true);
                 break;
             case 2:
-                _appearance.SetData(uid, MonumentVisuals.Tier3, false);
+                _appearance.SetData(ent, MonumentVisuals.Tier3, false);
                 break;
         }
 
         if (tierUp)
         {
-            var transformComp = EnsureComp<MonumentTransformingComponent>(uid);
-            transformComp.EndTime = _timing.CurTime + uid.Comp.TransformTime;
-            _appearance.SetData(uid, MonumentVisuals.Transforming, true);
+            var transformComp = EnsureComp<MonumentTransformingComponent>(ent);
+            transformComp.EndTime = _timing.CurTime + ent.Comp.TransformTime;
+            _appearance.SetData(ent, MonumentVisuals.Transforming, true);
         }
 
         if (finaleComp.CurrentState != FinaleState.Unavailable)
-            _appearance.SetData(uid, MonumentVisuals.FinaleReached, true);
+            _appearance.SetData(ent, MonumentVisuals.FinaleReached, true);
     }
 
     public void UpdateCultData(Entity<MonumentComponent> uid) // This runs every time Entropy is Inserted into The Monument, and every time a Cultist is Converted or Deconverted.

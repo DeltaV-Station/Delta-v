@@ -47,17 +47,14 @@ namespace Content.Server._DV.CosmicCult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {
-    [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
-    [Dependency] private readonly CosmicGlyphSystem _cosmicGlyphs = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
@@ -345,17 +342,11 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
     private void OnRefreshMoveSpeed(EntityUid uid, InfluenceStrideComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
-        if (HasComp<InfluenceStrideComponent>(uid))
-            args.ModifySpeed(1.05f, 1.05f);
-        else
-            args.ModifySpeed(1f, 1f);
+        args.ModifySpeed(1.05f, 1.05f);
     }
     private void OnImpositionMoveSpeed(EntityUid uid, CosmicImposingComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
-        if (HasComp<CosmicImposingComponent>(uid))
-            args.ModifySpeed(0.55f, 0.55f);
-        else
-            args.ModifySpeed(1f, 1f);
+        args.ModifySpeed(0.55f, 0.55f);
     }
     #endregion
 

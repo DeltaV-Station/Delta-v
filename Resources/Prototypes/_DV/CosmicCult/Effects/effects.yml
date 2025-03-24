@@ -48,11 +48,10 @@
     - sprite: _DV/CosmicCult/Effects/tiles_spawn.rsi
       state: floorglow
       shader: unshaded
-    netsync: false
     drawdepth: Mobs
   - type: Tag
     tags:
-      - HideContextMenu
+    - HideContextMenu
 
 - type: entity
   categories: [ HideSpawnMenu ]

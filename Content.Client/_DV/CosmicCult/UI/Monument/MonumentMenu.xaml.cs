@@ -17,12 +17,13 @@ using Content.Shared._DV.CCVars;
 
 namespace Content.Client._DV.CosmicCult.UI.Monument;
 [GenerateTypedNameReferences]
+
 public sealed partial class MonumentMenu : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private readonly SpriteSystem _sprite;
 
@@ -42,13 +43,10 @@ public sealed partial class MonumentMenu : FancyWindow
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-        _sprite = _entityManager.System<SpriteSystem>();
+        _sprite = _ent.System<SpriteSystem>();
 
-        // Set the protos. These do not dynamically update so we can just store them right off the bat.
-        // If an admin adds a new one in the middle of the round. Too bad*!
-        // * You could probably just do this in UpdateState if that is necessary
-        _glyphPrototypes = _prototypeManager.EnumeratePrototypes<GlyphPrototype>();
-        _influencePrototypes = _prototypeManager.EnumeratePrototypes<InfluencePrototype>();
+        _glyphPrototypes = _proto.EnumeratePrototypes<GlyphPrototype>();
+        _influencePrototypes = _proto.EnumeratePrototypes<InfluencePrototype>();
 
         _glyphButtonGroup = new ButtonGroup();
 
@@ -89,14 +87,14 @@ public sealed partial class MonumentMenu : FancyWindow
     private void UpdateEntropy(MonumentBuiState state)
     {
         var availableEntropy = "thinking emoji"; //if you see this, problem.
-        if (_entityManager.TryGetComponent<CosmicCultComponent>(_playerManager.LocalEntity, out var cultComp))
+        if (_ent.TryGetComponent<CosmicCultComponent>(_player.LocalEntity, out var cultComp))
         {
             availableEntropy = cultComp.EntropyBudget.ToString();
         }
 
         var entropyToNextStage = Math.Max(state.TargetProgress - state.CurrentProgress, 0);
         var min = entropyToNextStage == 0 ? 0 : 1; //I have no idea what to call this. makes it so that it shows 0 crew for the final stage but at least one at all other times
-        var crewToNextStage = (int)Math.Max(Math.Round((double)entropyToNextStage / _config.GetCVar(DCCVars.CosmicCultistEntropyValue), MidpointRounding.ToPositiveInfinity), min); //force it to be at least one
+        var crewToNextStage = (int)Math.Max(Math.Round((double)entropyToNextStage / _cfg.GetCVar(DCCVars.CosmicCultistEntropyValue), MidpointRounding.ToPositiveInfinity), min); //force it to be at least one
 
         AvailableEntropy.Text = Loc.GetString("monument-interface-entropy-value", ("infused", availableEntropy));
         EntropyUntilNextStage.Text = Loc.GetString("monument-interface-entropy-value", ("infused", entropyToNextStage.ToString()));
@@ -166,7 +164,7 @@ public sealed partial class MonumentMenu : FancyWindow
 
     private InfluenceUIBox.InfluenceUIBoxState GetUIBoxStateForInfluence(InfluencePrototype influence, MonumentBuiState state)
     {
-        if (!_entityManager.TryGetComponent<CosmicCultComponent>(_playerManager.LocalEntity, out var cultComp)) //this feels wrong but seems to be the correct way to do this?
+        if (!_ent.TryGetComponent<CosmicCultComponent>(_player.LocalEntity, out var cultComp))
             return InfluenceUIBox.InfluenceUIBoxState.Locked; //early return with locked if there's somehow no cult comp
 
         var unlocked = cultComp.UnlockedInfluences.Contains(influence.ID);
@@ -174,9 +172,7 @@ public sealed partial class MonumentMenu : FancyWindow
 
         //more verbose than it needs to be, but it reads nicer
         if (owned)
-        {
             return InfluenceUIBox.InfluenceUIBoxState.Owned;
-        }
 
         if (unlocked)
         {

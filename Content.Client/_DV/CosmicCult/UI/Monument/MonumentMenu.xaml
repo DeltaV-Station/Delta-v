@@ -9,7 +9,7 @@
         <BoxContainer Margin="7 10 7 0">
             <!-- Progress bar -->
             <ProgressBar Name="CultProgressBar" SetHeight="30" MaxValue="100" HorizontalExpand="True">
-                <Label Name="ProgressBarPercentage" HorizontalAlignment="Center"></Label>
+                <Label Name="ProgressBarPercentage" HorizontalAlignment="Center"/>
             </ProgressBar>
         </BoxContainer>
         <!-- Main body -->

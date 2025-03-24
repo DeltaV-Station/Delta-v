@@ -6,6 +6,4 @@ namespace Content.Shared._DV.CosmicCult.Components.Examine;
 /// Marker component for malign echoes.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class CosmicMarkEchoComponent : Component
-{
-}
+public sealed partial class CosmicMarkEchoComponent : Component;

@@ -23,25 +23,22 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
     //most of these aren't used by this system, see MonumentPlacementPreviewOverlay for a note on why they're here
     [Dependency] private readonly IOverlayManager _overlay = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly SpriteSystem _spriteSystem = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private MonumentPlacementPreviewOverlay? _cachedOverlay = null;
-    private CancellationTokenSource? _cancellationTokenSource = null;
+    private MonumentPlacementPreviewOverlay? _cachedOverlay;
+    private CancellationTokenSource? _cancellationTokenSource;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
-
-        _cancellationTokenSource = null; //reset these to make 100% sure that they're safe
-        _cachedOverlay = null;
 
         SubscribeLocalEvent<MonumentPlacementMarkerComponent, ActionAttemptEvent>(OnAttemptMonumentPlacement);
         SubscribeLocalEvent<CosmicCultLeadComponent, EventCosmicPlaceMonument>(OnCosmicPlaceMonument);
@@ -58,7 +55,6 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
 
         _cachedOverlay.LockPlacement = true;
         _cancellationTokenSource.Cancel(); //cancel the previous timer
-        //_cancellationTokenSource.Dispose(); //I have no idea if I need to do this but memory leaks are scary. ok this was causing crashes so I probably don't need to.
 
         //remove the overlay automatically after the primeTime expires
         //no cancellation token for this one as this'll never need to get cancelled afaik
@@ -125,9 +121,7 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
         foreach (var tile in _map.GetTilesIntersecting(xform.GridUid.Value, grid, new Circle(worldPos, spaceDistance)))
         {
             if (tile.IsSpace(_tileDef))
-            {
                 return false;
-            }
         }
 
         var localTile = _map.GetTileRef(xform.GridUid.Value, grid, xform.Coordinates);
@@ -137,10 +131,8 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
         var box = new Box2(pos.Position + new Vector2(-1.4f, -0.4f), pos.Position + new Vector2(1.4f, 0.4f));
 
         //CHECK FOR ENTITY AND ENVIRONMENTAL INTERSECTIONS
-        if (_lookup.AnyLocalEntitiesIntersecting(xform.GridUid.Value, box, LookupFlags.Dynamic | LookupFlags.Static, _playerManager.LocalEntity))
-        {
+        if (_lookup.AnyLocalEntitiesIntersecting(xform.GridUid.Value, box, LookupFlags.Dynamic | LookupFlags.Static, _player.LocalEntity))
             return false;
-        }
 
         //if all of those aren't false, return true
         return true;
@@ -148,7 +140,7 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
 
     private void OnAttemptMonumentPlacement(Entity<MonumentPlacementMarkerComponent> ent, ref ActionAttemptEvent args)
     {
-        if (!TryComp<ConfirmableActionComponent>(ent, out var confirmableActionComponent))
+        if (!TryComp<ConfirmableActionComponent>(ent, out var confirmableAction))
             return; //return if the action somehow doesn't have a confirmableAction comp
 
         //if we've already got a cached overlay, reset the timers & bump alpha back up to 1.
@@ -158,10 +150,9 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
         if (_cachedOverlay != null && _cancellationTokenSource != null)
         {
             _cancellationTokenSource.Cancel();
-            //_cancellationTokenSource.Dispose(); //I have no idea if I need to do this but memory leaks are scary. ok this was causing crashes so I probably don't need to.
 
             _cancellationTokenSource = new CancellationTokenSource();
-            StartTimers(confirmableActionComponent, _cancellationTokenSource, _cachedOverlay);
+            StartTimers(confirmableAction, _cancellationTokenSource, _cachedOverlay);
 
             if (_cachedOverlay.fadingOut) //if we're fading out
             {
@@ -179,10 +170,10 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
         _cancellationTokenSource = new CancellationTokenSource();
         //it's probably inefficient to make a new one every time, but this'll be happening like four times a round maybe
         //massive ctor because iocmanager hates me
-        _cachedOverlay = new MonumentPlacementPreviewOverlay(_entityManager, _playerManager, _spriteSystem, _map, _protoMan, this, _timing, ent.Comp.Tier);
+        _cachedOverlay = new MonumentPlacementPreviewOverlay(_entityManager, _player, _sprite, _map, _proto, this, _timing, ent.Comp.Tier);
         _overlay.AddOverlay(_cachedOverlay);
 
-        StartTimers(confirmableActionComponent, _cancellationTokenSource, _cachedOverlay);
+        StartTimers(confirmableAction, _cancellationTokenSource, _cachedOverlay);
     }
 
     private void StartTimers(ConfirmableActionComponent comp, CancellationTokenSource tokenSource, MonumentPlacementPreviewOverlay overlay)

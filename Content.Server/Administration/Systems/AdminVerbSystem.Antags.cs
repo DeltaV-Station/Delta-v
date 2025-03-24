@@ -1,4 +1,4 @@
-using Content.Server._DV.CosmicCult.Components;
+using Content.Server._DV.CosmicCult.Components; // DeltaV
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
@@ -188,6 +188,7 @@ public sealed partial class AdminVerbSystem
         if (HasComp<HumanoidAppearanceComponent>(args.Target)) // only humanoids can be cloned
             args.Verbs.Add(paradox);
 
+        // Begin DeltaV Additions
         //note - the UI for the monument currently doesn't properly account for cultists added like this until it gets sent a new state - ruddygreat
         //todo figure out how to fix that
         Verb cosmiccult = new()
@@ -203,5 +204,6 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-cosmiccultist"),
         };
         args.Verbs.Add(cosmiccult);
+        // End DeltaV Additions
     }
 }
