@@ -80,3 +80,52 @@
     damage:
       types:
         Heat: 5
+
+- type: entity
+  parent: BulletEnergyGunLaser
+  id: BulletEnergyGunMediumImmolator
+  name: Medium Immolator Bolt
+  components:
+    - type: IgniteOnCollide
+      fireStacks: 1.0
+
+- type: entity
+  parent: BulletEnergyGunLaser
+  id: BulletEnergyGunHeavyImmolator
+  name: Heavy Immolator Bolt
+  components:
+    - type: IgniteOnCollide
+      fireStacks: 1.5
+    - type: Projectile
+      impactEffect: BulletImpactEffectRedDisabler
+      damage:
+        types:
+          Heat: 45
+      soundHit:
+        collection: MeatLaserImpact
+
+- type: entity
+  parent: BulletEnergyGunLaser
+  id: BulletEnergyGunLightImmolator
+  name: Light Immolator Bolt
+  components:
+    - type: IgniteOnCollide
+      fireStacks: .25
+    - type: Projectile
+      impactEffect: BulletImpactEffectRedDisabler
+      damage:
+        types:
+          Heat: 8
+      soundHit:
+        collection: MeatLaserImpact
+
+- type: entity
+  name: immolator barrage
+  id: BulletEnergyGunLightImmolatorSpread
+  categories: [ HideSpawnMenu ]
+  parent: BulletEnergyGunLaser
+  components:
+  - type: ProjectileSpread
+    proto: BulletEnergyGunLightImmolator
+    count: 6 #48 heat damage if you hit all your shots
+    spread: 20
