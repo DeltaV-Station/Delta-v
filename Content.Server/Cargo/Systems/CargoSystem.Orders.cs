@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels.Components;
 using Content.Server.Station.Components;
+using Content.Shared._DV.Traitor; // DeltaV
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.BUI;
 using Content.Shared.Cargo.Components;
@@ -22,6 +23,7 @@ namespace Content.Server.Cargo.Systems
     {
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly EmagSystem _emag = default!;
+        [Dependency] private readonly RansomSystem _ransom = default!; // DeltaV
 
         /// <summary>
         /// How much time to wait (in seconds) before increasing bank accounts balance.
@@ -357,7 +359,8 @@ namespace Content.Server.Cargo.Systems
                     GetOutstandingOrderCount(orderDatabase),
                     orderDatabase.Capacity,
                     bankAccount.Balance,
-                    orderDatabase.Orders
+                    orderDatabase.Orders,
+                    _ransom.GetRansoms() // DeltaV
                 ));
             }
         }
