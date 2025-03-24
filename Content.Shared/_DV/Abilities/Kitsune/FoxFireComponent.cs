@@ -1,7 +1,14 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Shared._DV.Abilities.Kitsune;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedKitsuneSystem))]
+[AutoGenerateComponentState]
 public sealed partial class FoxFireComponent : Component
 {
-    public new EntityUid? Owner;
+    /// <summary>
+    /// The kitsune that created this fox fire.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? Kitsune;
 }

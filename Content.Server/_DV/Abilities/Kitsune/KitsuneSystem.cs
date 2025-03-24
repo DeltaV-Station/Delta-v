@@ -16,7 +16,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 
 namespace Content.Server._DV.Abilities.Kitsune;
-public sealed class KitsuneSystem : EntitySystem
+public sealed class KitsuneSystem : SharedKitsuneSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
@@ -116,7 +116,7 @@ public sealed class KitsuneSystem : EntitySystem
         }
         var fireEnt = Spawn(component.FoxfirePrototype, Transform(uid).Coordinates);
         var fireComp = EnsureComp<FoxFireComponent>(fireEnt);
-        fireComp.Owner = uid;
+        fireComp.Kitsune = uid;
         component.ActiveFoxFires.Add(fireEnt);
 
         if (_eyeColor is not null)
@@ -126,9 +126,9 @@ public sealed class KitsuneSystem : EntitySystem
     }
     private void OnFoxFireShutdown(EntityUid uid, FoxFireComponent component, ComponentShutdown args)
     {
-        if (component.Owner is null)
+        if (component.Kitsune is null)
             return;
-        RaiseLocalEvent<FoxfireDestroyedEvent>(component.Owner.Value, new());
+        RaiseLocalEvent<FoxfireDestroyedEvent>(component.Kitsune.Value, new());
     }
     private void OnFoxFireDestroyed(EntityUid uid, KitsuneComponent component, FoxfireDestroyedEvent args)
     {

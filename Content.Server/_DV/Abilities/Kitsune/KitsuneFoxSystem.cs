@@ -20,11 +20,11 @@ public sealed class KitsuneFoxSystem : EntitySystem
         SubscribeLocalEvent<KitsuneFoxComponent, StunnedEvent>(OnStunned);
     }
 
-    private void OnStunned(EntityUid uid, KitsuneFoxComponent component, StunnedEvent e)
+    private void OnStunned(Entity<KitsuneFoxComponent> ent, ref StunnedEvent args)
     {
-        var staminaDamage = _stamina.GetStaminaDamage(uid);
-        _polymorph.Revert(uid);
-        if (!TryComp<PolymorphedEntityComponent>(uid, out var polymorphedEntity))
+        var staminaDamage = _stamina.GetStaminaDamage(ent);
+        _polymorph.Revert(ent.Owner);
+        if (!TryComp<PolymorphedEntityComponent>(ent, out var polymorphedEntity))
             return;
         _stamina.TakeStaminaDamage(polymorphedEntity.Parent, staminaDamage);
     }
