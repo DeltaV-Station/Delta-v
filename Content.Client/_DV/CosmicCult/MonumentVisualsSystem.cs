@@ -17,19 +17,19 @@ public sealed class MonumentVisualizerSystem : EntitySystem
         SubscribeLocalEvent<MonumentComponent, AppearanceChangeEvent>(OnAppearanceChanged);
     }
 
-    private void OnAppearanceChanged(EntityUid uid, MonumentComponent comp, ref AppearanceChangeEvent args)
+    private void OnAppearanceChanged(Entity<MonumentComponent> ent, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null)
             return;
         args.Sprite.LayerMapTryGet(MonumentVisualLayers.TransformLayer, out var transformLayer);
         args.Sprite.LayerMapTryGet(MonumentVisualLayers.MonumentLayer, out var baseLayer);
-        _appearance.TryGetData<bool>(uid, MonumentVisuals.Transforming, out var transforming, args.Component);
-        _appearance.TryGetData<bool>(uid, MonumentVisuals.Tier3, out var tier3, args.Component);
+        _appearance.TryGetData<bool>(ent, MonumentVisuals.Transforming, out var transforming, args.Component);
+        _appearance.TryGetData<bool>(ent, MonumentVisuals.Tier3, out var tier3, args.Component);
         if (!tier3)
             args.Sprite.LayerSetState(transformLayer, "transform-stage2");
         else
             args.Sprite.LayerSetState(transformLayer, "transform-stage3");
-        if (transforming && HasComp<MonumentTransformingComponent>(uid))
+        if (transforming && HasComp<MonumentTransformingComponent>(ent))
         {
             args.Sprite.LayerSetAnimationTime(transformLayer, 0f);
             args.Sprite.LayerSetVisible(transformLayer, true);
