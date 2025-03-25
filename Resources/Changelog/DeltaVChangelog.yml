@@ -1,18 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Merged upstream changes from the last 2 weeks.
-    type: Add
-  - message: Security borgs have baton, seclite and holoprojector modules when a chassis
-      switches to it.
-    type: Tweak
-  - message: Removed the security borg wood baton module, they get real batongs now.
-    type: Remove
-  id: 700
-  time: '2024-11-24T04:37:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2205
-- author: deltanedas
-  changes:
   - message: Fixed borgs not having names.
     type: Fix
   id: 701
@@ -3979,3 +3967,17 @@
   id: 1199
   time: '2025-03-25T16:04:29.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3307
+- author: Blackdutchie
+  changes:
+  - message: Added missing emote icons for Feroxi, IPC's, Harpies, and Vulpkanin.
+    type: Add
+  - message: Fixed Chirp, Gnash, and Squish emotes for Harpies.
+    type: Fix
+  - message: Added default human noises to reptilians for coughing, sighing, sneezing,
+      and yawning.
+    type: Add
+  - message: Added Vox gasping and death gasping emote sounds.
+    type: Add
+  id: 1200
+  time: '2025-03-25T16:52:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3302
