@@ -435,7 +435,7 @@
 - type: entity
   parent: ClothingMaskGasERT
   id: ClothingMaskGasDeathSquad
-  name: death squad gas mask
+  name: dap gas mask # DeltaV
   description: A unique gas mask for the NT's most elite squad.
   components:
   - type: Sprite
@@ -449,6 +449,8 @@
         Slash: 0.80
         Piercing: 0.90
         Heat: 0.90
+  - type: Tag  # DeltaV - Ignore Chameleon tags
+    tags: []
 
 - type: entity
   parent: ClothingMaskBase

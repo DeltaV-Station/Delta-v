@@ -743,8 +743,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHardsuitBase ]
   id: ClothingHeadHelmetHardsuitDeathsquad
-  name: deathsquad hardsuit helmet
-  description: A robust helmet for special operations.
+  name: dap hardsuit helmet
+  description: A robust helmet for special operations in Nanotrasens Department of Asset Protection. # DeltaV
   components:
   - type: BreathMask
   - type: Sprite
@@ -765,6 +765,9 @@
         Heat: 0.80
         Radiation: 0.80
         Caustic: 0.95
+  - type: Tag # DeltaV - Ignore Chameleon tags
+    tags: []
+
 
 #MISC. HARDSUITS
 #Clown Hardsuit

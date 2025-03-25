@@ -593,7 +593,7 @@
 - type: entity
   parent: IDCardStandard
   id: CentcomIDCardDeathsquad
-  name: death squad ID card
+  name: dap ID card # DeltaV
   components:
   - type: Sprite
     layers:
@@ -601,7 +601,7 @@
   - type: Item
     heldPrefix: blue
   - type: PresetIdCard
-    job: DeathSquad
+    job: DAP # DeltaV
   - type: NanoChatCard # DeltaV
     listNumber: false
 

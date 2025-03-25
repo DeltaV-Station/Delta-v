@@ -14,6 +14,7 @@ job-name-senior-researcher = Senior Researcher
 job-name-senior-engineer = Senior Engineer
 job-name-senior-officer = Senior Officer
 job-name-qm = Logistics Officer
+job-name-dap = DAP Operative
 
 # Alternate titles
 job-alt-title-tourist = Tourist
@@ -72,3 +73,4 @@ JobSecurityBorg = Security Cyborg
 JobRoboticist = Roboticist
 JobCargoAssistant = Cargo Assistant
 JobAdminAssistant = Administrative Assistant
+JobDAP = DAP Operative

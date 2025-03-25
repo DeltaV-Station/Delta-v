@@ -261,13 +261,16 @@
 - type: entity
   parent: ClothingBackpackERTSecurity
   id: ClothingBackpackDeathSquad
-  name: death squad backpack
-  description: Holds the kit of CentComm's most feared agents.
+  name: dap backpack # DeltaV
+  description: Holds the kit of CentComm's most elite agents.
   components:
     - type: Storage
       grid:
       - 0,0,7,6
+    - type: Tag # DeltaV - Ignore Chameleon tags
+      tags: []
 
+  
 #Syndicate
 - type: entity
   parent: [ClothingBackpack, BaseSyndicateContraband]
