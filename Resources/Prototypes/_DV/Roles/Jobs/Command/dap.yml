@@ -2,6 +2,7 @@
   id: DAP
   name: job-name-dap
   description: job-description-dap
+  playTimeTracker: JobDAP
   setPreference: false
   startingGear: DAPGear
   icon: "JobIconNanotrasen"
@@ -14,6 +15,15 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  requirements: # Same as Nukie Commander
+  - !type:OverallPlaytimeRequirement
+    time: 216000 
+  - !type:DepartmentTimeRequirement 
+    department: Security
+    time: 36000 
+  - !type:DepartmentTimeRequirement 
+    department: Command
+    time: 36000 #
 
 - type: startingGear
   id: DAPGear # Reminder to change sprites for DS items
