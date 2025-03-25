@@ -8,6 +8,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.ContentPack;
+using Robust.Shared.Log; // DeltaV
 using Robust.Shared.Utility;
 using static Content.Client.Changelog.ChangelogManager;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
@@ -19,6 +20,8 @@ public sealed partial class ChangelogTab : Control
 {
     [Dependency] private readonly ChangelogManager _changelog = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private readonly ILogManager _log = default!; // DeltaV
+    private ISawmill _sawmill; // DeltaV
 
     public bool AdminOnly;
 
@@ -26,6 +29,7 @@ public sealed partial class ChangelogTab : Control
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+        _sawmill = _log.GetSawmill("changelog"); // DeltaV
     }
 
     public void PopulateChangelog(ChangelogManager.Changelog changelog)
@@ -137,7 +141,18 @@ public sealed partial class ChangelogTab : Control
                 foreach (var change in groupedEntry.SelectMany(c => c.Changes))
                 {
                     var text = new RichTextLabel();
-                    text.SetMessage(FormattedMessage.FromMarkupOrThrow(change.Message));
+                    // Begin DeltaV Additions - Exception handling for malf changelogs
+                    try
+                    {
+                        text.SetMessage(FormattedMessage.FromMarkupOrThrow(change.Message));
+                    }
+                    catch (Exception e)
+                    {
+                        // fall back to no formatting if it fails to parse
+                        text.SetMessage(change.Message);
+                        _sawmill.Error($"Failed to parse changelog {change.Message}: {e}");
+                    }
+                    // End DeltaV Additions
                     ChangelogBody.AddChild(new BoxContainer
                     {
                         Orientation = LayoutOrientation.Horizontal,
