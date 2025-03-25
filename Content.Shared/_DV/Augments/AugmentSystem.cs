@@ -33,10 +33,11 @@ public sealed class AugmentSystem : EntitySystem
 
     private void OnAccessibleOverride(Entity<InstalledAugmentsComponent> augment, ref AccessibleOverrideEvent args)
     {
-        if (!TryComp<OrganComponent>(args.Target, out var organ))
+        if (!TryComp<OrganComponent>(args.Target, out var organ) || organ.Body != args.User)
             return;
 
+        // let the user interact with their installed augments
         args.Handled = true;
-        args.Accessible = organ.Body == args.User;
+        args.Accessible = true;
     }
 }

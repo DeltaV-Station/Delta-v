@@ -80,15 +80,15 @@
     startingCharge: 1000
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
+    fireCost: 25
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 50
+      fireCost: 25
       name: disable
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 100
+      fireCost: 50
       name: lethal
       state: lethal
     # - proto: BulletEnergyGunIon

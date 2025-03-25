@@ -29,6 +29,7 @@
     bibleUserOnly: true
   - type: Summonable
     specialItem: SpawnPointGhostRemilia
+  - type: RevealRevenantOnCollide # Imp
   - type: ReactionMixer
     mixMessage: "bible-mixing-success"
     reactionTypes:
@@ -54,6 +55,8 @@
     - Book
   - type: StealTarget
     stealGroup: Bible
+  - type: CollisionWake # DeltaV
+    enabled: false
 
 - type: entity
   parent: [Bible, BaseSyndicateContraband]
