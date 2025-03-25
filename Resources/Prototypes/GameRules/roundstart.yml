@@ -206,8 +206,8 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 8
-      playerRatio: 10
+      max: 12 # DeltaV - raised from 8
+      playerRatio: 8 # DeltaV - lowered from 10
       blacklist:
         components:
         - AntagImmune
