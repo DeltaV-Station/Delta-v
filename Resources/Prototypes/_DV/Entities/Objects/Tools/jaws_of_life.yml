@@ -1,7 +1,7 @@
 - type: entity
-  name: emergency jaws of life
   parent: [JawsOfLife, PowerCellSlotMediumItem]
   id: EmergencyJawsOfLife
+  name: emergency jaws of life
   description: A set of Jaws of Life. EMTs may use them to pry open powered airlocks in an emergency.
   components:
   - type: Sprite
@@ -13,7 +13,6 @@
   - type: Prying
     speedModifier: 1 # High torque low speed, Half speed of proper JoL
   - type: MultipleTool
-    statusShowBehavior: true
     entries:
     - behavior: Prying
       sprite:

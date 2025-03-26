@@ -9,6 +9,7 @@ public sealed class PryingRequiresPowerSystem : EntitySystem
 {
     [Dependency] private readonly PowerCellSystem _cell = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -17,27 +18,24 @@ public sealed class PryingRequiresPowerSystem : EntitySystem
         SubscribeLocalEvent<PryingRequiresPowerComponent, PriedEvent>(OnPried);
     }
 
-    private void OnPried(EntityUid uid, PryingRequiresPowerComponent component, PriedEvent args)
+    private void OnPried(Entity<PryingRequiresPowerComponent> ent, ref PriedEvent args)
     {
-        BatteryComponent? batteryComp;
         // Tool is a battery use its power
-        if (TryComp<BatteryComponent>(uid, out batteryComp))
-        {
-            _battery.UseCharge(uid, component.PowerCost, batteryComp);
+        if (_battery.TryUseCharge(ent, ent.Comp.PowerCost))
             return;
-        }
 
         // Tool has a battery in a power cell slot use that power
-        if (_cell.TryGetBatteryFromSlot(uid, out var batteryEnt, out batteryComp))
+        if (_cell.TryGetBatteryFromSlot(ent, out var batteryEnt, out var batteryComp)
+            && batteryEnt is { } batteryUid)
         {
-            _battery.UseCharge((EntityUid)batteryEnt, component.PowerCost, batteryComp);
+            _battery.TryUseCharge(batteryUid, ent.Comp.PowerCost, batteryComp);
             return;
         }
     }
 
-    private void OnBeforePry(EntityUid uid, PryingRequiresPowerComponent component, ref BeforePryEvent args)
+    private void OnBeforePry(Entity<PryingRequiresPowerComponent> ent, ref BeforePryEvent args)
     {
-        if (!_cell.HasCharge(uid, component.PowerCost, null, args.User))
+        if (!_cell.HasCharge(ent, ent.Comp.PowerCost, null, args.User))
             args.Cancelled = true;
     }
 }
