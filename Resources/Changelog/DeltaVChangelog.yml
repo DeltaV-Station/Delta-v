@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Yule&
-  changes:
-  - message: NukeOps are 3% less valid.
-    type: Tweak
-  id: 703
-  time: '2024-11-24T10:08:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2208
 - author: deltanedas
   changes:
   - message: Re-enabled the portable recharger Tier 3 Arsenal tech.
@@ -3986,3 +3979,10 @@
   id: 1202
   time: '2025-03-26T20:56:35.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3324
+- author: deltanedas
+  changes:
+  - message: Fixed telegnostic projections not being able to return to body.
+    type: Fix
+  id: 1203
+  time: '2025-03-26T22:02:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3325
