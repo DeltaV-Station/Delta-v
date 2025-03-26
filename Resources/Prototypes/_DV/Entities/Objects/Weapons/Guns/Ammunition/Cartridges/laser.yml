@@ -1,0 +1,19 @@
+- type: entity
+  id: CartridgeGamblagator
+  name: Gamblagator Fuse
+  parent: BaseCartridge
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - CartridgeGamblagator
+  - type: CartridgeAmmo
+    proto: GamblagatorLaser
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/gamblagator_fuses.rsi/base_spent.png
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Appearance
+  - type: SpentAmmoVisuals
