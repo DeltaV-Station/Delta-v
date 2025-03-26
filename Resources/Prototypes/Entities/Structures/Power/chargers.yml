@@ -105,6 +105,9 @@
           tags:
           - PowerCell
           - PowerCellSmall
+        blacklist: # DeltaV - prevents recharging of superweapon cartridges
+          tags:
+          - GamblagatorCartridge
 
 - type: entity
   parent: [ BaseItemRecharger, ConstructibleMachine ]
