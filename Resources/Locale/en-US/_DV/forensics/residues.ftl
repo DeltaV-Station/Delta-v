@@ -1,0 +1,1 @@
+residue-gunshot = gunshot

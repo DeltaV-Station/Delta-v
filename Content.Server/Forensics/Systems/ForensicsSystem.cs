@@ -22,7 +22,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Forensics
 {
-    public sealed class ForensicsSystem : EntitySystem
+    public sealed partial class ForensicsSystem : EntitySystem // DeltaV - Add partial
     {
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
@@ -47,6 +47,8 @@ namespace Content.Server.Forensics
             SubscribeLocalEvent<DnaComponent, TransferDnaEvent>(OnTransferDnaEvent);
             SubscribeLocalEvent<DnaSubstanceTraceComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
             SubscribeLocalEvent<CleansForensicsComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
+
+            InitializeGunForensics(); // DeltaV
         }
 
         private void OnSolutionChanged(Entity<DnaSubstanceTraceComponent> ent, ref SolutionContainerChangedEvent ev)
@@ -231,8 +233,10 @@ namespace Content.Server.Forensics
 
             var totalPrintsAndFibers = forensicsComp.Fingerprints.Count + forensicsComp.Fibers.Count;
             var hasRemovableDNA = forensicsComp.DNAs.Count > 0 && forensicsComp.CanDnaBeCleaned;
-
-            if (hasRemovableDNA || totalPrintsAndFibers > 0)
+            // Begin DeltaV additions - Allow residue cleaning
+            // Downside, cleaning with soap adds residue, you'll never know if it's "Clean" of evidence or not
+            if (hasRemovableDNA || totalPrintsAndFibers > 0 || forensicsComp.Residues.Count > 0)
+            // End DeltaV additions
             {
                 var cleanDelay = cleanForensicsEntity.Comp.CleanDelay;
                 var doAfterArgs = new DoAfterArgs(EntityManager, user, cleanDelay, new CleanForensicsDoAfterEvent(), cleanForensicsEntity, target: target, used: cleanForensicsEntity)
@@ -271,6 +275,10 @@ namespace Content.Server.Forensics
 
             if (targetComp.CanDnaBeCleaned)
                 targetComp.DNAs = new();
+
+            // Begin DeltaV additions - Enable cleaning residues
+            targetComp.Residues = new();
+            // End DeltaV additions - Enable cleaning residues
 
             // leave behind evidence it was cleaned
             if (TryComp<FiberComponent>(args.Used, out var fiber))
