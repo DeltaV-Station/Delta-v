@@ -177,18 +177,16 @@ namespace Content.Server.Abilities.Psionics
             //To unnatch the minds, do it like this.
             //Have to unnattach the minds before we reattach them via transfer. Still feels weird, but seems to work well.
             _mindSystem.TransferTo(performerMindId, null);
-            _mindSystem.TransferTo(targetMindId, null);
             // Do the transfer.
+            if (targetMind != null)
+                _mindSystem.TransferTo(targetMindId, performer, ghostCheckOverride: true, false, targetMind);
             if (performerMind != null)
                 _mindSystem.TransferTo(performerMindId, target, ghostCheckOverride: true, false, performerMind);
 
-            if (targetMind != null)
-                _mindSystem.TransferTo(targetMindId, performer, ghostCheckOverride: true, false, targetMind);
-
             if (end)
             {
-                var performerMindPowerComp = EntityManager.GetComponent<MindSwappedComponent>(performer);
-                var targetMindPowerComp = EntityManager.GetComponent<MindSwappedComponent>(target);
+                var performerMindPowerComp = Comp<MindSwappedComponent>(performer);
+                var targetMindPowerComp = Comp<MindSwappedComponent>(target);
                 _actions.RemoveAction(performer, performerMindPowerComp.MindSwapReturnActionEntity);
                 _actions.RemoveAction(target, targetMindPowerComp.MindSwapReturnActionEntity);
 

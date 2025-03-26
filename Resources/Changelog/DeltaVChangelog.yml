@@ -1,27 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Fixed borgs not having names.
-    type: Fix
-  id: 701
-  time: '2024-11-24T10:06:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2276
-- author: dotCatshark
-  changes:
-  - message: Resprited EE sprites for corpse dragging.
-    type: Tweak
-  id: 702
-  time: '2024-11-24T10:07:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2255
-- author: Yule&
-  changes:
-  - message: NukeOps are 3% less valid.
-    type: Tweak
-  id: 703
-  time: '2024-11-24T10:08:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2208
-- author: deltanedas
-  changes:
   - message: Re-enabled the portable recharger Tier 3 Arsenal tech.
     type: Add
   id: 704
@@ -3981,3 +3960,29 @@
   id: 1200
   time: '2025-03-25T16:52:34.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3302
+- author: Lyndomen
+  changes:
+  - message: Heights have been normalized a bit; default species now have a range
+      of +/- 10%
+    type: Tweak
+  - message: Felinid, Rodentia, Harpy can only go -5%/+10% height
+    type: Tweak
+  - message: Oni, Thaven can only go +5%/-10% height
+    type: Tweak
+  id: 1201
+  time: '2025-03-26T20:36:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3321
+- author: deltanedas
+  changes:
+  - message: Fixed vulpkanins getting [bold]cooked alive[/bold] in hardsuits.
+    type: Fix
+  id: 1202
+  time: '2025-03-26T20:56:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3324
+- author: deltanedas
+  changes:
+  - message: Fixed telegnostic projections not being able to return to body.
+    type: Fix
+  id: 1203
+  time: '2025-03-26T22:02:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3325
