@@ -1,18 +1,17 @@
 - type: entity
   name: Gamblagator
   parent: [BaseItem, BaseGunWieldable, BaseSecurityContraband]
-  id: WeaponGunGamblagator
+  id: WeaponSniperGamblagator
   description: A monstrously powerful laser rifle. Outfitted with a scope, it draws so much power it requires a new fuse every time it's fired.
   abstract: true
   components:
+  - type: Item
+    size: Huge
   - type: Sprite
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-  - type: Item
-    size: Huge
-  - type: Sprite
-      sprite: _DV/Objects/Weapons/Guns/Snipers/gamblagator.rsi
+    sprite: _DV/Objects/Weapons/Guns/Snipers/gamblagator.rsi
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Snipers/gamblagator.rsi
     quickEquip: false
