@@ -9,7 +9,10 @@ namespace Content.Shared.Eye
         None   = 0,
         Normal = 1 << 0,
         Ghost  = 1 << 1,
-        PsionicInvisibility = 1 << 2, //Nyano - Summary: adds Psionic Invisibility as a visibility layer. Currently does nothing.
-        TelegnosticProjection = 5, 
+        Subfloor = 1 << 3, // DeltaV - 4 is occupied by PsionicInvisibility and changing that massively fucks up stuff
+        // Begin DeltaV Additions
+        PsionicInvisibility = 1 << 2,
+        TelegnosticProjection = PsionicInvisibility | Normal
+        // End DeltaV Additions
     }
 }

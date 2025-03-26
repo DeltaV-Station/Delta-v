@@ -6,3 +6,5 @@ uplink-hardsuit-commander-syndie-desc = The premiere blood-red hardsuit, with im
 
 uplink-hardsuit-agent-syndie-name = Agent's Hardsuit
 uplink-hardsuit-agent-syndie-desc = The iconic blood-white hardsuit, painted with patterns specifically designed to make you a less appealing target. Limit of 1.
+
+uplink-hardsuit-syndieelite-delta-name = Syndicate Thermal Hardsuit
