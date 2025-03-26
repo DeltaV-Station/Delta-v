@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fixed borgs not having names.
-    type: Fix
-  id: 701
-  time: '2024-11-24T10:06:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2276
 - author: dotCatshark
   changes:
   - message: Resprited EE sprites for corpse dragging.
@@ -3981,3 +3974,15 @@
   id: 1200
   time: '2025-03-25T16:52:34.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3302
+- author: Lyndomen
+  changes:
+  - message: Heights have been normalized a bit; default species now have a range
+      of +/- 10%
+    type: Tweak
+  - message: Felinid, Rodentia, Harpy can only go -5%/+10% height
+    type: Tweak
+  - message: Oni, Thaven can only go +5%/-10% height
+    type: Tweak
+  id: 1201
+  time: '2025-03-26T20:36:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3321
