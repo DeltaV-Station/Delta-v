@@ -653,10 +653,13 @@
     maxSpawns: 5
     spawns:
     - id: PresentRandom
+      orgroup: present
       prob: 0.97 # DeltaV - was 0.95
     - id: PresentRandomUnsafe
+      orgroup: present
       prob: 0.03
 #    - id: PresentRandomInsane # DeltaV
+#      orgroup: present
 #      prob: 0.02
 
 - type: artifactEffect
@@ -773,15 +776,6 @@
     range: 5
 
 - type: artifactEffect
-  id: EffectPolyFinfin
-  targetDepth: 4
-  effectHint: artifact-effect-hint-polymorph
-  components:
-  - type: PolyOthersArtifact
-    polymorphPrototypeName: ArtifactFinfin
-    range: 5
-
-- type: artifactEffect
   id: EffectPolyBee
   targetDepth: 4
   effectHint: artifact-effect-hint-polymorph
@@ -848,10 +842,13 @@
     maxSpawns: 7
     spawns:
     - id: PresentRandom
+      orgroup: present
       prob: 0.96
     - id: PresentRandomUnsafe
+      orgroup: present
       prob: 0.03
     - id: PresentRandomInsane
+      orgroup: present
       prob: 0.01
 
 - type: artifactEffect
@@ -864,18 +861,25 @@
     spawns:
 # begin DeltaV changes - remove most spellbooks, add special books
     - id: BookRandomStory
-      prob: 0.8
+      orgroup: book
+      prob: 0.65
     - id: RandomBook
-      prob: 0.4
+      orgroup: book
+      prob: 0.3
     - id: BookSalvageEpistemics1
+      orgroup: book
       prob: 0.02
     - id: BookVulpFAQ
+      orgroup: book
       prob: 0.01
     - id: BookGorlexGirlfriends
+      orgroup: book
       prob: 0.01
     - id: Bible
+      orgroup: book
       prob: 0.01
     - id: ForceWallSpellbook
+      orgroup: book
       prob: 0.002 # ~1% chance of getting it with 5 spawns
 # end DeltaV changes
 
