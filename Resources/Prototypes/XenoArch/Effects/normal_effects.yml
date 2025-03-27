@@ -653,11 +653,11 @@
     maxSpawns: 5
     spawns:
     - id: PresentRandom
-      prob: 0.95
+      prob: 0.99 # DeltaV - was 0.95
     - id: PresentRandomUnsafe
-      prob: 0.03
-    - id: PresentRandomInsane
-      prob: 0.02
+      prob: 0.01 # DeltaV - was 0.03
+#    - id: PresentRandomInsane # DeltaV
+#      prob: 0.02
 
 - type: artifactEffect
   id: EffectBoom
@@ -760,8 +760,7 @@
     - BuzzochloricBees
     - JuiceThatMakesYouWeh
     - Lead
-    - ForeverWeed
-    - Romerol
+#    - Romerol # DeltaV - no greenshift zombies
 
 - type: artifactEffect
   id: EffectPolyClownSpider
@@ -848,40 +847,36 @@
     maxSpawns: 7
     spawns:
     - id: PresentRandom
-      prob: 0.95
+      prob: 0.96
     - id: PresentRandomUnsafe
       prob: 0.3
     - id: PresentRandomInsane
-      prob: 0.2
+      prob: 0.1
 
 - type: artifactEffect
   id: EffectBookSpawn
-  targetDepth: 4
-  artifact-effect-hint-creation
+  targetDepth: 3 # DeltaV - was 4
+  effectHint: artifact-effect-hint-creation
   components:
   - type: SpawnArtifact
-    maxSpawns: 1
+    maxSpawns: 5 # DeltaV - was 1
     spawns:
+# begin DeltaV changes - remove most spellbooks, add special books
     - id: BookRandomStory
-      prob: 0.95
-    - id: WizardsGrimoire
-      prob: 0.001
-    - id: SpawnSpellbook
+      prob: 0.8
+    - id: RandomBook
+      prob: 0.4
+    - id: BookSalvageEpistemics1
+      prob: 0.02
+    - id: BookVulpFAQ
+      prob: 0.01
+    - id: BookGorlexGirlfriends
+      prob: 0.01
+    - id: Bible
       prob: 0.01
     - id: ForceWallSpellbook
-      prob: 0.01
-    - id: BlinkBook
-      prob: 0.01
-    - id: SmiteBook
-      prob: 0.003
-    - id: KnockSpellbook
-      prob: 0.01
-    - id: FireballSpellbook
-      prob: 0.01
-    - id: SpawnSpaceGreaseSpellbook
-      prob: 0.01
-    - id: ScrollRunes
-      prob: 0.01
+      prob: 0.005 # ~2.5% chance of getting it with 5 spawns
+# end DeltaV changes
 
 - type: artifactEffect
   id: EffectSingulo
