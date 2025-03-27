@@ -260,6 +260,15 @@
     - Item
   permanentComponents:
   - type: Prayable
+  # Begin DeltaV additions
+  - type: SacrificialAltar
+  - type: Strap
+    position: Down
+    rotation: -90
+  - type: GuideHelp
+    guides:
+    - AltarsGolemancy
+  # End DeltaV additions
 
 - type: artifactEffect
   id: EffectBed
