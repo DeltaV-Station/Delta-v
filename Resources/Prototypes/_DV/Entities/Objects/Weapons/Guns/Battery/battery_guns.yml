@@ -398,12 +398,12 @@
   - type: ItemSlots
     slots:
       gun_magazine:
-      name: Magazine
-      startingItem: GamblagatorFuse
-      insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-      ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
-      whitelist:
-        tags:
+        name: Magazine
+        startingItem: GamblagatorFuse
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
           - GamblagatorCartridge
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
