@@ -413,3 +413,6 @@
   - type: SpeedModifiedOnWield
     walkModifier: 0.75
     sprintModifier: 0.75
+  - type: ContainerContainer
+    containers:
+      fuse_slot: !type:ContainerSlot
