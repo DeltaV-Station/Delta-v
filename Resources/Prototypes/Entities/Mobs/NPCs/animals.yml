@@ -125,7 +125,7 @@
     tags:
     - Bee
     - Trash
-    - MultitoolDefibrillatorTarget
+    - MultitoolDefibrillatorTarget # Imp
   - type: Bloodstream
     bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
@@ -395,7 +395,7 @@
     tags:
     - Trash
     - VimPilot
-    - MultitoolDefibrillatorTarget
+    - MultitoolDefibrillatorTarget # Imp
   - type: Destructible
     thresholds:
     - trigger:
@@ -563,7 +563,7 @@
     - CannotSuicide
     - DoorBumpOpener # DeltaV - After all, why not? Why shouldn't they be able to open doors?
     - VimPilot
-    - MultitoolDefibrillatorTarget
+    - MultitoolDefibrillatorTarget # Imp
   - type: CanEscapeInventory
   - type: NpcFactionMember
     factions:
@@ -815,14 +815,12 @@
   - type: Tag
     tags:
     - Trash
+    - MultitoolDefibrillatorTarget # Imp
   - type: Bloodstream
     bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
-  - type: Tag
-    tags:
-    - MultitoolDefibrillatorTarget
 
 - type: entity
   name: cow
@@ -1809,7 +1807,7 @@
     - ChefPilot
     - Mouse
     - Meat
-    - MultitoolDefibrillatorTarget
+    - MultitoolDefibrillatorTarget # Imp
   - type: Respirator
     damage:
       types:
@@ -2010,7 +2008,7 @@
   - type: Tag
     tags:
     - VimPilot
-    - MultitoolDefibrillatorTarget
+    - MultitoolDefibrillatorTarget # Imp
 
 
 - type: entity
@@ -2061,9 +2059,6 @@
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
     bloodMaxVolume: 50
-  - type: Tag
-    tags:
-    - MultitoolDefibrillatorTarget
 
 - type: entity
   name: frog
@@ -2124,7 +2119,7 @@
   - type: Tag
     tags:
     - VimPilot
-    - MultitoolDefibrillatorTarget
+    - MultitoolDefibrillatorTarget # Imp
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
@@ -2949,7 +2944,6 @@
   - type: Tag
     tags:
     - VimPilot
-    - MultitoolDefibrillatorTarget
 
 - type: entity
   name: cat
@@ -3190,7 +3184,6 @@
   - type: Tag
     tags:
     - VimPilot
-    - MultitoolDefibrillatorTarget
 
 - type: entity
   name: sloth
@@ -3409,7 +3402,7 @@
     - Trash
     - Hamster
     - Meat
-    - MultitoolDefibrillatorTarget
+    - MultitoolDefibrillatorTarget # Imp
   - type: Respirator
     damage:
       types:

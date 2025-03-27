@@ -21,9 +21,10 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.PowerCell;
 using Content.Shared.Timing;
 using Content.Shared.Toggleable;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
-using Content.Shared.Whitelist;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Medical;
 
@@ -193,14 +194,11 @@ public sealed class DefibrillatorSystem : EntitySystem
 
         if (component.PlayZapSound)
             _audio.PlayPvs(component.ZapSound, uid);
-        _electrocution.TryDoElectrocution(target,
-            null,
-            component.ZapDamage,
-            TimeSpan.FromSeconds(component.WritheDuration),
-            true,
-            ignoreInsulation: true);
-        component.NextZapTime = _timing.CurTime + component.ZapDelay;
-        _appearance.SetData(uid, DefibrillatorVisuals.Ready, false);
+        _electrocution.TryDoElectrocution(target, null, component.ZapDamage, TimeSpan.FromSeconds(component.WritheDuration), true, ignoreInsulation: true);
+        if (!TryComp<UseDelayComponent>(uid, out var useDelay))
+            return;
+        _useDelay.SetLength((uid, useDelay), component.ZapDelay, component.DelayId);
+        _useDelay.TryResetDelay((uid, useDelay), id: component.DelayId);
 
         ICommonSession? session = null;
 
@@ -215,7 +213,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         }
         else if (TryComp<UnrevivableComponent>(target, out var unrevivable))
         {
-            if (!component.ShowMEssages)
+            if (!component.ShowMessages)
                 _chatManager.TrySendInGameICMessage(uid, Loc.GetString(unrevivable.ReasonMessage),
                     InGameICChatType.Speak, true);
             return;
@@ -277,23 +275,6 @@ public sealed class DefibrillatorSystem : EntitySystem
                 // TODO clean up this clown show above
                 var ev = new TargetDefibrillatedEvent(user, (uid, component));
                 RaiseLocalEvent(target, ref ev);
-        }
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<DefibrillatorComponent>();
-        while (query.MoveNext(out var uid, out var defib))
-        {
-            if (defib.NextZapTime == null || _timing.CurTime < defib.NextZapTime)
-                continue;
-
-            if(defib.PlayReadySound)
-                _audio.PlayPvs(defib.ReadySound, uid);
-            _appearance.SetData(uid, DefibrillatorVisuals.Ready, true);
-            defib.NextZapTime = null;
         }
     }
 }
