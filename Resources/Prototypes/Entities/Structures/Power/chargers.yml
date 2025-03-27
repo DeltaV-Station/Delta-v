@@ -105,9 +105,6 @@
           tags:
           - PowerCell
           - PowerCellSmall
-        blacklist: # DeltaV - prevents recharging of superweapon cartridges
-          tags:
-          - GamblagatorCartridge
 
 - type: entity
   parent: [ BaseItemRecharger, ConstructibleMachine ]
@@ -146,6 +143,7 @@
         blacklist:
           tags:
           - PowerCell
+          - GamblagatorCartridge
   - type: Machine
     board: PowerCageRechargerCircuitboard
   - type: StaticPrice
@@ -170,6 +168,9 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+        blacklist: # DeltaV - prevents recharging of superweapon cartridges
+          tags:
+          - GamblagatorCartridge
 
 - type: entity
   parent: BaseItemRecharger
@@ -196,6 +197,7 @@
         blacklist:
           tags:
           - PotatoBattery
+          - GamblagatorCartridge
 
 - type: entity
   parent: BaseItemRecharger
@@ -222,6 +224,9 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+        blacklist:
+          tags:
+          - GamblagatorCartridge
 
 - type: entity
   parent: BaseRecharger
