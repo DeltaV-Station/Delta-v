@@ -65,19 +65,6 @@
         - ReagentId: Opporozidone
           Quantity: 15
 
-- type: entity
-  id: NecrosolChemistryBottle
-  parent: BaseChemistryBottleFilled
-  name: necrosol bottle
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Necrosol
-          Quantity: 30
-
 # Premium Alcohol: wait, it's just marketing?
 # TODO: different sprites would be nice.
 - type: entity

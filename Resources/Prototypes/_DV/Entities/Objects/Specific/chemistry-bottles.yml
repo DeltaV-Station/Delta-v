@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseChemistryBottleFilled
-  id: NapalmChemistryBottle
+  id: ChemistryBottleNapalm
   suffix: napalm
   components:
   - type: Label
@@ -15,7 +15,7 @@
 
 - type: entity
   parent: BaseChemistryBottleFilled
-  id: UltravasculineChemistryBottle
+  id: ChemistryBottleUltravasculine
   suffix: ultravasculine
   components:
   - type: Label
@@ -30,7 +30,7 @@
 
 - type: entity
   parent: BaseChemistryBottleFilled
-  id: ChloralHydrateChemistryBottle
+  id: ChemistryBottleChloralHydrate
   suffix: chloral hydrate
   components:
   - type: Label
