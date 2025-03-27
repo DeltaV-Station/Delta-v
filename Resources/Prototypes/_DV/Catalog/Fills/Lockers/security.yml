@@ -120,6 +120,7 @@
   id: GunSafeGamblagator
   name: Gamblagator safe
   components:
-  - type: EntityTableFill
-    contents:
-      tableId: GamblagatorTable
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: GamblagatorTable
