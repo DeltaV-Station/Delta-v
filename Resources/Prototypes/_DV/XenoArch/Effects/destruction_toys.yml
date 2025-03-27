@@ -1,0 +1,19 @@
+- type: artifactEffect
+  id: EffectSinguloToy
+  targetDepth: 10
+  effectHint: artifact-effect-hint-destruction
+  components:
+  - type: SpawnArtifact
+    maxSpawns: 1
+    spawns:
+    - id: SingularityToy
+
+- type: artifactEffect
+  id: EffectTeslaToy
+  targetDepth: 10
+  effectHint: artifact-effect-hint-destruction
+  components:
+  - type: SpawnArtifact
+    maxSpawns: 1
+    spawns:
+    - id: TeslaToy
