@@ -120,8 +120,6 @@
   id: GunSafeGamblagator
   name: Gamblagator safe
   components:
-  - type: StorageFill
+  - type: EntityTableFill
     contents:
-    - id: WeaponSniperGamblagator
-    - id: GamblagatorFuse
-      amount: 4
+      tableId: GamblagatorTable

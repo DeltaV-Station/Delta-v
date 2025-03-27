@@ -19,17 +19,15 @@
   table: !type:GroupSelector
     children:
     - !type:NestedSelector
-      children:
-        tableId: RPGTable
+      tableId: RPGTable
     - !type:NestedSelector
-      children:
-        tableId: GamblagatorTable
+      tableId: GamblagatorTable
     - id: WeaponBeamDevastator
 
 - type: entityTable
   id: RPGTable
   table: !type:AllSelector
-      children:
+    children:
       - id: WeaponLauncherRocket
       - id: CartridgeRocket
         prob: 0.2
