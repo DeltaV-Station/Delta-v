@@ -2,11 +2,12 @@ using Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
 using Content.Shared.Preferences;
 using Content.Server.Humanoid;
-using System.Linq;
-using Robust.Shared.Random;
 using Content.Shared.Humanoid;
 using Content.Shared.Forensics;
 using Content.Server.Forensics;
+using Content.Shared.Forensics.Components;
+using System.Linq;
+using Robust.Shared.Random;
 
 
 
@@ -30,10 +31,8 @@ public sealed class ScrambleDNAArtifactSystem : EntitySystem
 
     private void OnActivated(EntityUid uid, ScrambleDNAArtifactComponent component, ArtifactActivatedEvent args)
     {
-        // Get all entities in range, and the person who activated the artifact even if they are not within range
+        // Get all entities in range. # DeltaV - Only those in range are targeted.
         var ents = _lookup.GetEntitiesInRange(uid, component.Range);
-        if (args.Activator != null)
-            ents.Add(args.Activator.Value);
 
         //Extract the people who can be scrambled
         var possibleVictims = new List<EntityUid>();
@@ -42,6 +41,9 @@ public sealed class ScrambleDNAArtifactSystem : EntitySystem
             if (HasComp<HumanoidAppearanceComponent>(ent))
                 possibleVictims.Add(ent);
         }
+
+        if (possibleVictims.Count == 0) //DeltaV - don't attempt scramble if no possible victims
+            return;
 
         //Select random targets to scramble DNA
         var numScrambled = 0;
