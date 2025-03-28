@@ -613,9 +613,9 @@
   effectHint: artifact-effect-hint-release
   components:
   - type: IgniteArtifact
-    range: 7
-    minFireStack: 3
-    maxFireStack: 6
+    range: 6 # DeltaV - Was 7, changed to be more distinct from BigIgnite
+    minFireStack: 2 # DeltaV - Was 3
+    maxFireStack: 5 # DeltaV - Was 6
 
 - type: artifactEffect
   id: EffectMitosis
@@ -653,19 +653,19 @@
     maxSpawns: 5
     spawns:
     - id: PresentRandom
-      orgroup: present
+      orGroup: present
       prob: 0.97 # DeltaV - was 0.95
     - id: PresentRandomUnsafe
-      orgroup: present
+      orGroup: present
       prob: 0.03
 #    - id: PresentRandomInsane # DeltaV
-#      orgroup: present
+#      orGroup: present
 #      prob: 0.02
 
 - type: artifactEffect
   id: EffectBoom
-  targetDepth: 4
-  effectProb: 0.75
+  targetDepth: 4 # Imp
+  effectProb: 0.75 # Imp
   effectHint: artifact-effect-hint-environment
   components:
   - type: TriggerArtifact
@@ -702,7 +702,6 @@
   id: EffectFaunaSpawnDangerous
   targetDepth: 4
   effectHint: artifact-effect-hint-creation
-  effectProb: 1
   components:
   - type: SpawnArtifact
     maxSpawns: 10
@@ -711,12 +710,12 @@
       orGroup: fauna
     - id: MobAngryBee
       orGroup: fauna
-      maxAmount: 10
+      maxAmount: 5 # DeltaV
     - id: MobBearSpace
       orGroup: fauna
     - id: MobBee
       orGroup: fauna
-      maxAmount: 10
+      maxAmount: 5 # DeltaV
     - id: MobKangarooSpace
       orGroup: fauna
     - id: MobMonkeySyndicateAgent #so lucky
@@ -728,7 +727,6 @@
       maxAmount: 2
     - id: DuckDuckGooseSpawner
       orGroup: fauna
-      prob: 1
     - id: MobPurpleSnake
       orGroup: fauna
     - id: MobSpiderSpace
@@ -742,7 +740,7 @@
       prob: 0.05
     - id: MobGoliath
       orGroup: fauna
-      prob: 0.3
+      prob: 0.05
 
 - type: artifactEffect
   id: EffectBigIgnite
@@ -772,6 +770,7 @@
     - BuzzochloricBees
     - JuiceThatMakesYouWeh
     - Lead
+    - MindbreakerToxin # DeltaV
 #    - Romerol # DeltaV - no greenshift zombies
 
 - type: artifactEffect
@@ -850,14 +849,14 @@
     maxSpawns: 7
     spawns:
     - id: PresentRandom
-      orgroup: present
-      prob: 0.96
+      orGroup: present
+      prob: 0.95
     - id: PresentRandomUnsafe
-      orgroup: present
+      orGroup: present
       prob: 0.03
     - id: PresentRandomInsane
-      orgroup: present
-      prob: 0.01
+      orGroup: present
+      prob: 0.02
 
 - type: artifactEffect
   id: EffectBookSpawn
@@ -869,25 +868,25 @@
     spawns:
 # begin DeltaV changes - remove most spellbooks, add special books
     - id: BookRandomStory
-      orgroup: book
+      orGroup: book
       prob: 0.65
     - id: RandomBook
-      orgroup: book
+      orGroup: book
       prob: 0.3
     - id: BookSalvageEpistemics1
-      orgroup: book
+      orGroup: book
       prob: 0.02
     - id: BookVulpFAQ
-      orgroup: book
+      orGroup: book
       prob: 0.01
     - id: BookGorlexGirlfriends
-      orgroup: book
+      orGroup: book
       prob: 0.01
     - id: Bible
-      orgroup: book
+      orGroup: book
       prob: 0.01
     - id: ForceWallSpellbook
-      orgroup: book
+      orGroup: book
       prob: 0.002 # ~1% chance of getting it with 5 spawns
 # end DeltaV changes
 

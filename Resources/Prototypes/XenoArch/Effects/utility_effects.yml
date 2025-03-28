@@ -26,6 +26,8 @@
     - Security
     - Service
     - Supply
+    - Justice # DeltaV
+    - Prison # DeltaV
 
 - type: artifactEffect
   id: EffectRandomInstrument
@@ -260,7 +262,7 @@
     - Item
   permanentComponents:
   - type: Prayable
-  # Begin DeltaV additions
+  # Begin DeltaV additions - allow use to sacrifice psionics
   - type: SacrificialAltar
   - type: Strap
     position: Down

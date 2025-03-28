@@ -194,7 +194,7 @@
 
 - type: artifactTrigger
   id: TriggerPlasma
-  targetDepth: 3
+  targetDepth: 4 # DeltaV - swap water vapor and plasma trigger depths
   triggerHint: artifact-trigger-hint-plasma
   components:
   - type: ArtifactGasTrigger
@@ -210,7 +210,7 @@
 
 - type: artifactTrigger
   id: TriggerVape
-  targetDepth: 4
+  targetDepth: 3 # DeltaV
   triggerHint: artifact-trigger-hint-vape
   components:
   - type: ArtifactGasTrigger
