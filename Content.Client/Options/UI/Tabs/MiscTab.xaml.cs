@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using Content.Client.UserInterface.Screens;
 using Content.Shared.CCVar;
 using Content.Shared.HUD;
@@ -36,18 +36,18 @@ public sealed partial class MiscTab : Control
             layoutEntries.Add(new OptionDropDownCVar<string>.ValueOption(layout.ToString()!, Loc.GetString($"ui-options-hud-layout-{layout.ToString()!.ToLower()}")));
         }
 
-        ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-off"), 0);
-        ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-single"), 1);
-        ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-double"), 2);
-        ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-triple"), 3);
-        ChatStackOption.TrySelectId(_cfg.GetCVar(CCVars.ChatStackLastLines));
-
         // Channel can be null in replays so.
         // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
         ShowOocPatronColor.Visible = _playerManager.LocalSession?.Channel?.UserData.PatronTier is { };
 
         Control.AddOptionDropDown(CVars.InterfaceTheme, DropDownHudTheme, themeEntries);
         Control.AddOptionDropDown(CCVars.UILayout, DropDownHudLayout, layoutEntries);
+
+        ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-off"), 0);
+        ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-single"), 1);
+        ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-double"), 2);
+        ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-triple"), 3);
+        ChatStackOption.TrySelectId(CCVars.ChatStackLastLines.DefaultValue);
 
         Control.AddOptionCheckBox(CVars.DiscordEnabled, DiscordRich);
         Control.AddOptionCheckBox(CCVars.ShowOocPatronColor, ShowOocPatronColor);
