@@ -22,6 +22,8 @@ artifact-effect-hint-polymorph = Transmogrificational activity
 artifact-effect-hint-magnet = Magnetic waves
 artifact-effect-hint-visual = Visual distortions
 
+artifact-effect-hint-dna-scramble = Irreversible targeted identity loss
+
 # the triggers should be more obvious than the effects
 # gives people an idea of what to do: don't be too specific (i.e. no "welders")
 
