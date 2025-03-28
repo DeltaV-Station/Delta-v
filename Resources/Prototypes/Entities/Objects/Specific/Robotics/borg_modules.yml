@@ -739,8 +739,16 @@
     moduleId: Artifact # Frontier
     items:
     - NodeScanner
-    - BorgDropper
-    - Beaker
+    - BorgDropper # Imp
+  # DeltaV: Add droppable beaker.
+  - type: DroppableBorgModule
+    moduleId: Artifact
+    items:
+    - id: Beaker
+      whitelist:
+        tags:
+        - GlassBeaker
+  # End DeltaV: Add droppable beaker.
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: node-scanner-module }
 
