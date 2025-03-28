@@ -22,7 +22,7 @@ public sealed partial class ArtifactTriggerPrototype : IPrototype
     [DataField("targetDepth")]
     public int TargetDepth = 0;
 
-    [DataField("triggerProb")]
+    [DataField("triggerProb")] // Imp - Multitool defib
     public float TriggerProb = 1f;
 
     [DataField("triggerHint")]

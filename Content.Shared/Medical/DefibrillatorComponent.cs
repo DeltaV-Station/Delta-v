@@ -4,7 +4,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Content.Shared.Whitelist;
+using Content.Shared.Whitelist; // Imp - Multitool defib
 
 namespace Content.Shared.Medical;
 
@@ -32,7 +32,7 @@ public sealed partial class DefibrillatorComponent : Component
     /// How long the victim will be electrocuted after getting zapped.
     /// </summary>
     [DataField("writheDuration"), ViewVariables(VVAccess.ReadWrite)]
-    public float WritheDuration = 3f;
+    public float WritheDuration = 3f; // Imp - Multitool defib
 
     /// <summary>
     ///     ID of the cooldown use delay.
@@ -53,40 +53,40 @@ public sealed partial class DefibrillatorComponent : Component
     /// This is synced with the audio; do not change one but not the other.
     /// </remarks>
     [DataField("doAfterDuration"), ViewVariables(VVAccess.ReadWrite)]
-    public float DoAfterDuration = 3f;
+    public float DoAfterDuration = 3f; // Imp - Multitool defib
 
     /// <summary>
-    /// Defib only works on mobs with id in this list, or works for anything if this list is null #IMP
+    /// Defib only works on mobs with id in this list, or works for anything if this list is null # Imp - Multitool defib
     /// </summary>
     [DataField("whitelist"), ViewVariables(VVAccess.ReadWrite)]
     public EntityWhitelist? Whitelist;
 
     /// <summary>
-    /// Whether or not to have the defib pop up text, such as body composition, rot, intelligence, etc. #IMP
+    /// Whether or not to have the defib pop up text, such as body composition, rot, intelligence, etc. # Imp - Multitool defib
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("showMessages")]
     public bool ShowMessages = true;
 
     /// <summary>
-    /// Can we skip the doafter. #IMP
+    /// Can we skip the doafter. # Imp - Multitool defib
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("skipDoAfter")]
     public bool SkipDoAfter = false;
 
     /// <summary>
-    /// Can we ignore the toggle. #IMP
+    /// Can we ignore the toggle. # Imp - Multitool defib
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("ignoreToggle")]
     public bool IgnoreToggle = false;
 
     /// <summary>
-    /// Can we ignore the powercell. #IMP
+    /// Can we ignore the powercell. # Imp - Multitool defib
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("ignorePowerCell")]
     public bool IgnorePowerCell = false;
 
     /// <summary>
-    /// Can the defibbed entity skip the critical state and go straight to alive if they have low enough damage?. #IMP
+    /// Can the defibbed entity skip the critical state and go straight to alive if they have low enough damage?. # Imp - Multitool defib
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("allowSkipCrit")]
     public bool AllowSkipCrit = false;
@@ -97,7 +97,7 @@ public sealed partial class DefibrillatorComponent : Component
     [DataField]
     public bool CanDefibCrit = true;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("playZapSound")]
+    [ViewVariables(VVAccess.ReadWrite), DataField("playZapSound")] // Imp - Multitool defib
     public bool PlayZapSound = true;
 
     /// <summary>
@@ -106,25 +106,25 @@ public sealed partial class DefibrillatorComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("zapSound")]
     public SoundSpecifier? ZapSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_zap.ogg");
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("playChargeSound")]
+    [ViewVariables(VVAccess.ReadWrite), DataField("playChargeSound")] // Imp - Multitool defib
     public bool PlayChargeSound = true;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("chargeSound")]
     public SoundSpecifier? ChargeSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_charge.ogg");
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("playFailureSound")]
+    [ViewVariables(VVAccess.ReadWrite), DataField("playFailureSound")] // Imp - Multitool defib
     public bool PlayFailureSound = true;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("failureSound")]
     public SoundSpecifier? FailureSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_failed.ogg");
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("playSuccessSound")]
+    [ViewVariables(VVAccess.ReadWrite), DataField("playSuccessSound")] // Imp - Multitool defib
     public bool PlaySuccessSound = true;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("successSound")]
     public SoundSpecifier? SuccessSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_success.ogg");
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("playReadySound")]
+    [ViewVariables(VVAccess.ReadWrite), DataField("playReadySound")] // Imp - Multitool defib
     public bool PlayReadySound = true;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("readySound")]

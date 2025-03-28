@@ -91,7 +91,7 @@ public sealed partial class ArtifactSystem
         var targetTriggers = allTriggers
             .Where(x => x.TargetDepth == selectedRandomTargetDepth).ToList();
 
-        return GetTriggerIDUsingProb(targetTriggers);;
+        return GetTriggerIDUsingProb(targetTriggers);; // Imp - allow trigger probabilities
     }
 
     private string GetRandomEffect(EntityUid artifact, ref ArtifactNode node)
@@ -106,7 +106,7 @@ public sealed partial class ArtifactSystem
         var targetEffects = allEffects
             .Where(x => x.TargetDepth == selectedRandomTargetDepth).ToList();
 
-        return GetEffectIDUsingProb(targetEffects);
+        return GetEffectIDUsingProb(targetEffects); // Imp - allow trigger probabilities
     }
 
     /// <remarks>
@@ -150,6 +150,7 @@ public sealed partial class ArtifactSystem
         return _random.Pick(weights.Keys); //shouldn't happen
     }
 
+    // Imp - Begin probability weight changes
     /// <summary>
     /// Selects an effect using the probability weight
     /// </summary>
@@ -216,6 +217,7 @@ public sealed partial class ArtifactSystem
 
         return maxProbID;
     }
+    // Imp - End probability weight changes
 
     /// <summary>
     /// Enter a node: attach the relevant components

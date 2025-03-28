@@ -21,10 +21,10 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.PowerCell;
 using Content.Shared.Timing;
 using Content.Shared.Toggleable;
-using Content.Shared.Whitelist;
+using Content.Shared.Whitelist; // Imp
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
+using Robust.Shared.Timing; // Imp
 
 namespace Content.Server.Medical;
 
@@ -47,7 +47,7 @@ public sealed class DefibrillatorSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // Imp
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -97,7 +97,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        if (!_toggle.IsActivated(uid) && !component.IgnoreToggle)
+        if (!_toggle.IsActivated(uid) && !component.IgnoreToggle) // Imp - Multitool defib
         {
             if (user != null)
                 _popup.PopupEntity(Loc.GetString("defibrillator-not-on"), uid, user.Value);
@@ -110,7 +110,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!TryComp<MobStateComponent>(target, out var mobState))
             return false;
 
-        if (!_powerCell.HasActivatableCharge(uid, user: user) && !component.IgnorePowerCell)
+        if (!_powerCell.HasActivatableCharge(uid, user: user) && !component.IgnorePowerCell) // Imp - Multitool defib
             return false;
 
         if (!targetCanBeAlive && _mobState.IsAlive(target, mobState))
@@ -119,8 +119,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!targetCanBeAlive && !component.CanDefibCrit && _mobState.IsCritical(target, mobState))
             return false;
 
-        // imp
-        return _whitelist.IsWhitelistPassOrNull(component.Whitelist, target);
+        return _whitelist.IsWhitelistPassOrNull(component.Whitelist, target); // Imp - Multitool defib
     }
 
     /// <summary>
@@ -141,6 +140,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!CanZap(uid, target, user, component))
             return false;
 
+        // Imp - Begin multitool defib changes
         if (component.SkipDoAfter)
         {
             Zap(uid, target, user, component);
@@ -151,6 +151,7 @@ public sealed class DefibrillatorSystem : EntitySystem
             _audio.PlayPvs(component.ChargeSound, uid);
         return _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(component.DoAfterDuration), new DefibrillatorZapDoAfterEvent(),
             uid, target, uid)
+        // Imp - End multitool defib changes
         {
             NeedHand = true,
             BreakOnMove = !component.AllowDoAfterMovement
@@ -165,7 +166,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        if (!component.IgnorePowerCell)
+        if (!component.IgnorePowerCell) // Imp - Multitool defib
         {
             if (!_powerCell.TryUseActivatableCharge(uid, user: user))
                 return;
@@ -192,9 +193,9 @@ public sealed class DefibrillatorSystem : EntitySystem
             !TryComp<MobThresholdsComponent>(target, out var thresholds))
             return;
 
-        if (component.PlayZapSound)
+        if (component.PlayZapSound) // Imp - Multitool defib
             _audio.PlayPvs(component.ZapSound, uid);
-        _electrocution.TryDoElectrocution(target, null, component.ZapDamage, TimeSpan.FromSeconds(component.WritheDuration), true, ignoreInsulation: true);
+        _electrocution.TryDoElectrocution(target, null, component.ZapDamage, TimeSpan.FromSeconds(component.WritheDuration), true, ignoreInsulation: true); // Imp - multitool defib
         if (!TryComp<UseDelayComponent>(uid, out var useDelay))
             return;
         _useDelay.SetLength((uid, useDelay), component.ZapDelay, component.DelayId);
@@ -205,7 +206,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         var dead = true;
         if (_rotting.IsRotten(target))
         {
-            if (component.ShowMessages)
+            if (component.ShowMessages) // Imp - Multitool defib
                 return;
                 _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-rotten"),
                     InGameICChatType.Speak, true);
@@ -213,7 +214,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         }
         else if (TryComp<UnrevivableComponent>(target, out var unrevivable))
         {
-            if (!component.ShowMessages)
+            if (!component.ShowMessages) // Imp - Multitool defib
                 _chatManager.TrySendInGameICMessage(uid, Loc.GetString(unrevivable.ReasonMessage),
                     InGameICChatType.Speak, true);
             return;
@@ -227,6 +228,7 @@ public sealed class DefibrillatorSystem : EntitySystem
                 TryComp<DamageableComponent>(target, out var damageableComponent) &&
                 damageableComponent.TotalDamage < threshold)
             {
+                // Imp - Begin multitool defib changes
                 if (component.AllowSkipCrit &&
                 (!_mobThreshold.TryGetThresholdForState(target, MobState.Critical, out var critThreshold) ||
                 damageableComponent.TotalDamage < critThreshold))
@@ -237,6 +239,7 @@ public sealed class DefibrillatorSystem : EntitySystem
                     _mobState.ChangeMobState(target, MobState.Critical, mob, uid);
                     dead = false;
                 }
+                // Imp - End multitool defib changes
             }
 
             if (_mind.TryGetMind(target, out _, out var mind) &&
@@ -251,10 +254,11 @@ public sealed class DefibrillatorSystem : EntitySystem
             }
             else
             {
-                if (component.ShowMessages)
+                if (component.ShowMessages) // Imp - Multitool defib
                     _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-no-mind"),
                         InGameICChatType.Speak, true);
 
+                // Imp - Begin multitool defib changes
                 if (dead || session == null)
                 {
                     if (component.PlayFailureSound)
@@ -263,10 +267,11 @@ public sealed class DefibrillatorSystem : EntitySystem
                     if (component.PlaySuccessSound)
                         _audio.PlayPvs(component.SuccessSound, uid);
                 }
+                // Imp - End multitool defib changes
             }
 
             // if we don't have enough power left for another shot, turn it off
-            if (!component.IgnorePowerCell)
+            if (!component.IgnorePowerCell) // Imp - Multitool defib
             {
                 if (!_powerCell.HasActivatableCharge(uid) && !component.IgnoreToggle)
                     _toggle.TryDeactivate(uid);

@@ -2849,9 +2849,6 @@
     flavorKind: station-event-random-sentience-flavor-corgi
   - type: MobPrice
     price: 200
-  - type: Tag
-    tags:
-    - VimPilot
 
 - type: entity
   name: corrupted corgi
@@ -3181,9 +3178,6 @@
     thresholds:
       0: Alive
       25: Dead
-  - type: Tag
-    tags:
-    - VimPilot
 
 - type: entity
   name: sloth

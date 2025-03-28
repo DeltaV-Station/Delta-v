@@ -33,7 +33,7 @@ public sealed partial class ArtifactEffectPrototype : IPrototype
     [DataField("targetDepth")]
     public int TargetDepth = 0;
 
-    [DataField("effectProb")]
+    [DataField("effectProb")] // Imp - Multitool defib
     public float EffectProb = 1f;
 
     [DataField("effectHint")]
