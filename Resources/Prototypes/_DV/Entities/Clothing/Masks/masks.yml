@@ -8,3 +8,23 @@
     sprite: _DV/Clothing/Mask/interdynechemmask.rsi
   - type: Clothing
     sprite: _DV/Clothing/Mask/interdynechemmask.rsi
+
+- type: entity
+  parent: ClothingMaskBase
+  id: FakeWizardBeard
+  name: fake wizard beard
+  description: A plastic fake beard.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Mask/fakebeard.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Mask/fakebeard.rsi
+  - type: IdentityBlocker
+    coverage: MOUTH
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - IPCMaskWearable
