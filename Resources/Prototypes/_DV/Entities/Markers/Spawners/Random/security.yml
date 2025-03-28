@@ -28,9 +28,9 @@
   id: RPGTable
   table: !type:AllSelector
     children:
-      - id: WeaponLauncherRocket
-      - id: CartridgeRocket
-        prob: 0.2
+    - id: WeaponLauncherRocket
+    - id: CartridgeRocket
+      prob: 0.2
        
 - type: entityTable
   id: GamblagatorTable
