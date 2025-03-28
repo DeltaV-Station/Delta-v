@@ -617,7 +617,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             TryEmoteChatInput(source, action);
         SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, source, range, author);
 
-        // #IMP Send event to alert that generic emote has happened
+        // Imp - Send event to alert that generic emote has happened
         var ev = new EntityEmotedEvent(source, wrappedMessage);
         RaiseLocalEvent(source, ev);
 
@@ -987,7 +987,7 @@ public sealed class EntitySpokeEvent : EntityEventArgs
 }
 
 /// <summary>
-///     #IMP
+///     Imp
 ///     Raised on an entity when it emotes, whether through emote wheel, hotkeys, /me, @ or * in textbox, etc.
 /// </summary>
 public sealed class EntityEmotedEvent : EntityEventArgs
