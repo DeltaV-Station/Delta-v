@@ -25,6 +25,12 @@ public sealed partial class ArmorComponent : Component
     public float PriceMultiplier = 1;
 
     /// <summary>
+    /// If true, you can examine the armor to see the protection. If false, the verb won't appear.
+    /// </summary>
+    [DataField]
+    public bool ShowArmorOnExamine = true;
+
+    /// <summary>
     /// DeltaV: The incoming stamina projectile damage will get multiplied by this value.
     /// </summary>
     [DataField]

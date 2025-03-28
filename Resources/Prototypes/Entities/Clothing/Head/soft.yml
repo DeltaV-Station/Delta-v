@@ -98,7 +98,7 @@
 - type: entity
   parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatQMsoft]
   id: ClothingHeadHatQMsoftFlipped
-  name: logistics officer's cap
+  name: logistics officer's cap # DeltaV
 
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
@@ -167,7 +167,7 @@
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
   id: ClothingHeadHatMimesoft
-  name: mime cap
+  name: white cap
   description: "It's a baseball hat in a tasteless white colour."
   components:
   - type: Sprite
@@ -178,7 +178,7 @@
 - type: entity
   parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatMimesoft]
   id: ClothingHeadHatMimesoftFlipped
-  name: mime cap
+  name: white cap
 
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
