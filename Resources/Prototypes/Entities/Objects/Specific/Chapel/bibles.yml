@@ -1,8 +1,9 @@
 - type: entity
-  name: bible
+  name: holy bible # DeltaV - Slight Name change
   description: New Interstellar Version 2340.
   parent: BaseStorageItem
   id: Bible
+  suffix: "Bible" # DeltaV- Suffix to tell whats a bible book
   components:
   - type: UseDelay
     delay: 10.0
@@ -23,8 +24,10 @@
       collection: Punch
     damage:
       types:
-        Holy: 10 # DeltaV: was 25
-        Blunt: 1
+        Holy: 10  # Nyanotrasen - Bibles do Holy damage # DeltaV: was 25
+        Blunt: 3
+  - type: Reflect # DeltaV - Divine Intervention
+    reflectProb: 0.01 
   - type: Prayable
     bibleUserOnly: true
   - type: Summonable
