@@ -227,7 +227,7 @@ public sealed class SurgeryBui : BoundUserInterface
 
         _part = _entities.GetEntity(netPart);
         _isBody = _entities.HasComponent<BodyComponent>(_part);
-        var body = _entities.GetComponent<BodyPartComponent>(_part).Body!.Value; // DeltaV
+        var body = _entities.GetComponent<BodyPartComponent>(_part.Value).Body!.Value; // DeltaV
         _window.Surgeries.DisposeAllChildren();
 
         var surgeries = new List<(Entity<SurgeryComponent> Ent, EntProtoId Id, string Name)>();
