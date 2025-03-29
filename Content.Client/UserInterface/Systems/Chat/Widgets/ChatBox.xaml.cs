@@ -1,4 +1,5 @@
 using Content.Client.UserInterface.Systems.Chat.Controls;
+using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.Audio;
@@ -7,7 +8,9 @@ using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared;
 using Robust.Shared.Audio;
+using Robust.Shared.Configuration;
 using Robust.Shared.Input;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -21,14 +24,22 @@ public partial class ChatBox : UIWidget
 {
     private readonly ChatUIController _controller;
     private readonly IEntityManager _entManager;
+    private readonly IConfigurationManager _cfg;
+    private readonly ILocalizationManager _loc;
 
     public bool Main { get; set; }
 
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
+   
+    private int _chatStackAmount = 0;
+    private bool _chatStackEnabled => _chatStackAmount > 0;
+    private List<ChatStackData> _chatStackList;
+   
 
     public ChatBox()
     {
         RobustXamlLoader.Load(this);
+        _loc = IoCManager.Resolve<ILocalizationManager>();
         _entManager = IoCManager.Resolve<IEntityManager>();
 
         ChatInput.Input.OnTextEntered += OnTextEntered;
@@ -40,6 +51,22 @@ public partial class ChatBox : UIWidget
         _controller = UserInterfaceManager.GetUIController<ChatUIController>();
         _controller.MessageAdded += OnMessageAdded;
         _controller.RegisterChat(this);
+
+       
+        _cfg = IoCManager.Resolve<IConfigurationManager>();
+        //_chatStackAmount = _cfg.GetCVar(CCVars.ChatStackLastLines);
+        //if (_chatStackAmount < 0) // anti-idiot protection
+        //    _chatStackAmount = 0;
+        _chatStackList = new(_chatStackAmount);
+        _cfg.OnValueChanged(CCVars.ChatStackLastLines, UpdateChatStack, true);
+       
+    }
+
+   
+    private void UpdateChatStack(int value)
+    {
+        _chatStackAmount = value >= 0 ? value : 0;
+        Repopulate();
     }
 
     private void OnTextEntered(LineEditEventArgs args)
@@ -62,7 +89,57 @@ public partial class ChatBox : UIWidget
 
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
-        AddLine(msg.WrappedMessage, color);
+       
+        if (msg.IgnoreChatStack)
+        {
+            TrackNewMessage(msg.WrappedMessage, color, true);
+            AddLine(msg.WrappedMessage, color);
+            return;
+        }
+
+        int index = _chatStackList.FindIndex(data => data.WrappedMessage == msg.WrappedMessage && !data.IgnoresChatstack);
+
+        if (index == -1) // this also handles chatstack being disabled, since FindIndex won't find anything in an empty array
+        {
+            TrackNewMessage(msg.WrappedMessage, color);
+            AddLine(msg.WrappedMessage, color);
+            return;
+        }
+
+        UpdateRepeatingLine(index);
+    }
+
+    /// <summary>
+    /// Removing and then adding insantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake.
+    /// With rapid enough updates, the whole chat becomes unreadable.
+    /// Adding first and then removing does not produce any visual effects.
+    /// The other option is to dublicate OutputPanel functionality and everything internal to the engine it relies on.
+    /// But OutputPanel relies on directly setting Control.Position for control embedding. (which is not exposed to Content.)
+    /// Thanks robustengine, very cool.
+    /// </summary>
+    /// <remarks>
+    /// zero index is the very last line in chat, 1 is the line before the last one, 2 is the line before that, etc.
+    /// </remarks>
+    private void UpdateRepeatingLine(int index)
+    {
+        _chatStackList[index].RepeatCount++;
+        for (int i = index; i >= 0; i--)
+        {
+            var data = _chatStackList[i];
+            AddLine(data.WrappedMessage, data.ColorOverride, data.RepeatCount);
+            Contents.RemoveEntry(Index.FromEnd(index + 2));
+        }
+    }
+
+    private void TrackNewMessage(string wrappedMessage, Color colorOverride, bool ignoresChatstack = false)
+    {
+        if (!_chatStackEnabled)
+            return;
+
+        if(_chatStackList.Count == _chatStackList.Capacity)
+            _chatStackList.RemoveAt(_chatStackList.Capacity - 1);
+
+        _chatStackList.Insert(0, new ChatStackData(wrappedMessage, colorOverride, ignoresChatstack)); 
     }
 
     private void OnChannelSelect(ChatSelectChannel channel)
@@ -73,7 +150,7 @@ public partial class ChatBox : UIWidget
     public void Repopulate()
     {
         Contents.Clear();
-
+        _chatStackList = new List<ChatStackData>(_chatStackAmount);
         foreach (var message in _controller.History)
         {
             OnMessageAdded(message.Item2);
@@ -95,12 +172,21 @@ public partial class ChatBox : UIWidget
         }
     }
 
-    public void AddLine(string message, Color color)
+    public void AddLine(string message, Color color, int repeat = 0)
     {
-        var formatted = new FormattedMessage(3);
+        var formatted = new FormattedMessage(4); 
         formatted.PushColor(color);
         formatted.AddMarkupOrThrow(message);
         formatted.Pop();
+        if (repeat != 0)
+        {
+            int displayRepeat = repeat + 1;
+            int sizeIncrease = Math.Min(displayRepeat / 6, 5);
+            formatted.AddMarkup(_loc.GetString("chat-system-repeated-message-counter",
+                                ("count", displayRepeat),
+                                ("size", 8 + sizeIncrease)
+                                ));
+        }
         Contents.AddMessage(formatted);
     }
 
@@ -184,5 +270,20 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnKeyBindDown -= OnInputKeyBindDown;
         ChatInput.Input.OnTextChanged -= OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
+        _cfg.UnsubValueChanged(CCVars.ChatStackLastLines, UpdateChatStack);
+    }
+
+    private class ChatStackData
+    {
+        public string WrappedMessage;
+        public Color ColorOverride;
+        public int RepeatCount = 0;
+        public bool IgnoresChatstack;
+        public ChatStackData(string wrappedMessage, Color colorOverride, bool ignoresChatstack = false)
+        {
+            WrappedMessage = wrappedMessage;
+            ColorOverride = colorOverride;
+            IgnoresChatstack = ignoresChatstack;
+        }
     }
 }
