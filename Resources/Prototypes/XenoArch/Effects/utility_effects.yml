@@ -155,7 +155,7 @@
 
 - type: artifactEffect
   id: EffectBigIron
-  targetDepth: 3
+  targetDepth: 4 # DeltaV - was 3
   effectHint: artifact-effect-hint-gun
   whitelist:
     components:

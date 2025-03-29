@@ -7,3 +7,33 @@
   - type: MetapsionicPower
 
 # TODO: when golemization is ported, add a trigger for golemizing someone, target 7 or something
+
+- type: artifactTrigger
+  id: TriggerDeathDeep
+  targetDepth: 4
+  triggerHint: artifact-trigger-hint-death
+  components:
+  - type: ArtifactDeathTrigger
+
+- type: artifactTrigger
+  id: TriggerToxin
+  targetDepth: 4
+  triggerHint: artifact-trigger-hint-toxin
+  components:
+  - type: Reactive
+    groups:
+      Acidic: [ Touch ]
+    reactions:
+    - reagents: [ Toxin, CarpoToxin, GastroToxin, PolytrinicAcid, FerrochromicAcid, FluorosulfuricAcid, SulfuricAcid, HeartbreakerToxin, Lexorin, MindbreakerToxin, Amatoxin, Mechanotoxin ]
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+
+- type: artifactTrigger
+  id: TriggerHighPressureDeep
+  targetDepth: 4
+  triggerProb: 0.5
+  triggerHint: artifact-trigger-hint-pressure
+  components:
+  - type: ArtifactPressureTrigger
+    maxPressureThreshold: 10000 # start a plasmafire or be clever with heaters

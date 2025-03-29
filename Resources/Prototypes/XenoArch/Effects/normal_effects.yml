@@ -60,7 +60,7 @@
 - type: artifactEffect
   id: EffectJunkSpawn
   targetDepth: 0
-  effectHint: artifact-effect-hint-creation
+  effectHint: artifact-effect-hint-retrieval
   components:
   - type: SpawnArtifact
     maxSpawns: 10
@@ -220,7 +220,7 @@
 - type: artifactEffect
   id: EffectInstrumentSpawn
   targetDepth: 1
-  effectHint: artifact-effect-hint-creation
+  effectHint: artifact-effect-hint-retrieval
   components:
   - type: SpawnArtifact
     maxSpawns: 5
@@ -230,7 +230,7 @@
 - type: artifactEffect
   id: EffectMonkeySpawn
   targetDepth: 1
-  effectHint: artifact-effect-hint-creation
+  effectHint: artifact-effect-hint-retrieval
   components:
   - type: SpawnArtifact
     spawns:
@@ -349,7 +349,7 @@
 - type: artifactEffect
   id: EffectFaunaSpawn
   targetDepth: 2
-  effectHint: artifact-effect-hint-creation
+  effectHint: artifact-effect-hint-retrieval
   components:
   - type: SpawnArtifact
     maxSpawns: 5
@@ -446,7 +446,7 @@
 - type: artifactEffect
   id: EffectGas
   targetDepth: 2
-  effectHint: artifact-effect-hint-creation # DeltaV - environment -> creation
+  effectHint: artifact-effect-hint-environment
   components:
   - type: GasArtifact
     possibleGas:
@@ -563,7 +563,7 @@
 - type: artifactEffect
   id: EffectMaterialSpawn
   targetDepth: 3
-  effectHint: artifact-effect-hint-creation
+  effectHint: artifact-effect-hint-retrieval
   components:
   - type: SpawnArtifact
     maxSpawns: 5
@@ -646,7 +646,7 @@
 
 - type: artifactEffect
   id: EffectBoom
-  targetDepth: 4 # Imp
+  targetDepth: 4 # Imp - was 3
   effectProb: 0.75 # Imp
   effectHint: artifact-effect-hint-environment
   components:

@@ -16,7 +16,7 @@
 
 - type: artifactTrigger
   id: TriggerVape
-  targetDepth: 3 # DeltaV
+  targetDepth: 3 # DeltaV - was 4
   triggerHint: artifact-trigger-hint-vape
   components:
   - type: ArtifactGasTrigger
@@ -25,19 +25,10 @@
 
 - type: artifactTrigger
   id: TriggerFunnySlipStun
-  targetDepth: 4
+  targetDepth: 3 # DeltaV - was 4
   triggerHint: artifact-trigger-hint-funny
   components:
   - type: ArtifactStunTrigger
-
-- type: artifactTrigger
-  id: TriggerExpressionDeep
-  targetDepth: 4
-  triggerProb: 0.7
-  triggerHint: artifact-trigger-hint-expression
-  components:
-  - type: ArtifactExpressionTrigger
-    range: 3
 
 # Separate drinks into twenty chunks. one chunk has a total probability of 1/20, so all drinks together have same prob as normal trigger
 # Some Chunks have multiple drinks (such as the tricky drink chunk)
@@ -241,21 +232,6 @@
 # tricky drink chunk: 5 drinks add up to same probability as one of the previous drinks triggers
 
 - type: artifactTrigger
-  id: TriggerDrinkThreeMileIsland
-  targetDepth: 4
-  triggerProb: 0.01
-  triggerHint: artifact-trigger-hint-drink-three-mile-island
-  components:
-  - type: Reactive
-    groups:
-      Acidic: [ Touch ]
-    reactions:
-    - reagents: [ ThreeMileIsland ]
-      methods: [ Touch ]
-      effects:
-      - !type:ActivateArtifact
-
-- type: artifactTrigger
   id: TriggerDrinkHippiesDelight
   targetDepth: 4
   triggerProb: 0.01
@@ -409,55 +385,19 @@
       effects:
       - !type:ActivateArtifact
 
+- type: artifactTrigger
+  id: TriggerDrinkMothamphetamine
+  targetDepth: 4
+  triggerProb: 0.01
+  triggerHint: artifact-trigger-hint-mothamphetamine
+  components:
+  - type: Reactive
+    groups:
+      Acidic: [ Touch ]
+    reactions:
+    - reagents: [ Mothamphetamine ]
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+
 # End Delta-V changed drink triggers
-
-# Below exist to pad out the depth 4 triggers. Can remove some of those when we get more triggers implemented
-- type: artifactTrigger
-  id: TriggerMusicDeep
-  targetDepth: 4
-  triggerHint: artifact-trigger-hint-music
-  components:
-  - type: ArtifactMusicTrigger
-
-- type: artifactTrigger
-  id: TriggerMagnetDeep
-  targetDepth: 4
-  triggerHint: artifact-trigger-hint-magnet
-  components:
-  - type: ArtifactMagnetTrigger
-
-- type: artifactTrigger
-  id: TriggerMedicalDeep
-  targetDepth: 4
-  triggerHint: artifact-trigger-hint-medical
-  components:
-  - type: Reactive
-    groups:
-      Acidic: [ Touch ]
-    reactions:
-    - reagents: [ Dylovene, Diphenhydramine, Arithrazine, Bicaridine, Dermaline, Dexalin, DexalinPlus, Tricordrazine, Leporazine, Bruizine, Lacerinol, Puncturase, Pyrazine, Insuzine, Kelotane, Hyronalin, Inaprovaline, Epinephrine ]
-      methods: [ Touch ]
-      effects:
-      - !type:ActivateArtifact
-
-- type: artifactTrigger
-  id: TriggerBloodDeep
-  targetDepth: 4
-  triggerHint: artifact-trigger-hint-blood
-  components:
-  - type: Reactive
-    groups:
-      Acidic: [ Touch ]
-    reactions:
-    - reagents: [ Blood, CopperBlood, InsectBlood, Slime, AmmoniaBlood, ZombieBlood ]
-      methods: [ Touch ]
-      effects:
-      - !type:ActivateArtifact
-
-- type: artifactTrigger
-  id: TriggerDamageDeep
-  targetDepth: 4
-  triggerHint: artifact-trigger-hint-physical
-  components:
-  - type: ArtifactDamageTrigger
-    damageThreshold: 300
