@@ -225,7 +225,7 @@
     icon:
       sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
       state: ano01
-    useDelay: 60
+    useDelay: 1800 # DeltaV - was 60
     event: !type:ArtifactSelfActivateEvent
 
 - type: entity
@@ -348,7 +348,7 @@
   name: Toggle Paramedic Siren
   description: Toggles the paramedic siren on and off.
   components:
-  - type: InstantAction 
+  - type: InstantAction
     icon:
       sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
       state: icon-siren

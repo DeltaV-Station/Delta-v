@@ -183,27 +183,27 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
 
-# DeltaV: disabled sentience due to very rarely being good RP, and usually ending the round early
-#- type: artifactEffect
-#  id: EffectSentience
-#  targetDepth: 3
-#  effectHint: artifact-effect-hint-sentience
-#  permanentComponents:
-#  - type: GhostRole
-#    allowMovement: true
-#    allowSpeech: true
-#    makeSentient: true
-#    name: ghost-role-information-artifact-name
-#    description: ghost-role-information-artifact-description
-#    rules: ghost-role-information-freeagent-rules
-#    mindRoles:
-#    - MindRoleGhostRoleFreeAgent
-#    raffle:
-#      settings: default
-#  - type: GhostTakeoverAvailable
-#  - type: MovementSpeedModifier
-#    baseWalkSpeed: 0.25
-#    baseSprintSpeed: 0.5
+- type: artifactEffect
+  id: EffectSentience
+  targetDepth: 4 # DeltaV - was 3
+  effectHint: artifact-effect-hint-sentience
+  effectProb: 0.5
+  permanentComponents:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-artifact-name
+    description: deltav-ghost-role-information-artifact-description # DeltaV
+    rules: deltav-ghost-role-information-artifact-rules # DeltaV
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.25
+    baseSprintSpeed: 0.5
 
 - type: artifactEffect
   id: EffectMultitool
