@@ -227,6 +227,7 @@ public sealed class SurgeryBui : BoundUserInterface
 
         _part = _entities.GetEntity(netPart);
         _isBody = _entities.HasComponent<BodyComponent>(_part);
+        var body = _entities.GetComponent<BodyPartComponent>(_part).Body!.Value; // DeltaV
         _window.Surgeries.DisposeAllChildren();
 
         var surgeries = new List<(Entity<SurgeryComponent> Ent, EntProtoId Id, string Name)>();
@@ -237,6 +238,18 @@ public sealed class SurgeryBui : BoundUserInterface
             {
                 continue;
             }
+
+            // Begin DeltaV Additions - only show surgeries with completed requirements
+            if (surgeryComp.Requirement is {} reqId && _system.GetSingleton(reqId) is {} reqUid)
+            {
+                if (!_entities.TryGetComponent<SurgeryComponent>(reqUid, out var reqComp) ||
+                    !_system.PreviousStepsComplete(body, _part.Value, (reqUid, reqComp), "")) // step is unused as this is only for checking the requirement
+                {
+                    // don't show any surgeries whose requirement isn't complete
+                    continue;
+                }
+            }
+            // End DeltaV Additions
 
             var name = _entities.GetComponent<MetaDataComponent>(surgery).EntityName;
             surgeries.Add(((surgery, surgeryComp), surgeryId, name));
