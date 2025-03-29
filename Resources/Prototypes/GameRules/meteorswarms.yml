@@ -115,8 +115,8 @@
     earliestStart: 2
     minimumPlayers: 0
   - type: MeteorSwarm
-    announcement: null
-    announcementSound: null
+    #announcement: null #DeltaV: Comment this out for the new announcer system
+    #announcementSound: null #DeltaV: Comment this out for the new announcer system
     nonDirectional: true
     meteors:
       MeteorSpaceDust: 1
@@ -135,8 +135,9 @@
     weight: 22
     minimumPlayers: 0
   - type: MeteorSwarm
-    announcement: station-event-space-dust-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    startAnnouncement: true #Imp: Converted to Bool, was station-event-space-dust-start-announcement
+#    announcement: station-event-space-dust-start-announcement # DeltaV: Commented out for aforementioned booleaning
+#    announcementSound: /Audio/Announcements/attention.ogg 
     nonDirectional: true
     meteors:
       MeteorSpaceDust: 1
@@ -155,6 +156,7 @@
     weight: 18
     minimumPlayers: 15
   - type: MeteorSwarm
+    startAnnouncement: true #Imp
     meteors:
       MeteorSmall: 7
       MeteorMedium: 3
@@ -166,6 +168,7 @@
   - type: StationEvent
     weight: 10
   - type: MeteorSwarm
+    startAnnouncement: true #Imp
     meteors:
       MeteorSmall: 3
       MeteorMedium: 6
@@ -178,6 +181,7 @@
   - type: StationEvent
     weight: 5
   - type: MeteorSwarm
+    startAnnouncement: true #Imp
     meteors:
       MeteorSmall: 2
       MeteorMedium: 4
@@ -192,8 +196,9 @@
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-game-rule-urist-swarm-result-message
   - type: MeteorSwarm
-    announcement: station-event-meteor-urist-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    startAnnouncement: true #Imp: Was station-event-meteor-urist-start-announcement, changed to startannouncement & bool for announcersystem
+#    announcement: station-event-meteor-urist-start-announcement
+#    announcementSound: /Audio/Announcements/attention.ogg
     meteors:
       MeteorUrist: 1
     waves:
@@ -208,9 +213,9 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    startAnnouncement: station-event-immovable-rod-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAnnouncement: true # DeltaV: Was station-event-immovable-rod-start-announcement, changed to startannouncement & bool for announcersystem
+#    startAudio:
+#      path: /Audio/Announcements/attention.ogg
     weight: 3.5
     reoccurrenceDelay: 1
     duration: 1

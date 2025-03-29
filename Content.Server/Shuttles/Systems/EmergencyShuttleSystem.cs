@@ -38,6 +38,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server._EE.Announcements.Systems; // Impstation Random Announcer System
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -69,6 +70,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation Random Announcer System: Integrates the announcer
 
     private const float ShuttleSpawnBuffer = 1f;
 
