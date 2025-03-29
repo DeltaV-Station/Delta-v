@@ -1,0 +1,90 @@
+using Content.Shared._Shitmed.Humanoid.Events;
+using Content.Shared.Actions;
+using Content.Shared.Hands.Components;
+using Content.Shared.Humanoid;
+using Content.Shared.Popups;
+
+namespace Content.Shared._DV.Abilities.Kitsune;
+
+public abstract class SharedKitsuneSystem : EntitySystem
+{
+    [Dependency] private readonly SharedPointLightSystem _light = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+
+    protected Color? EyeColor = null;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<KitsuneComponent, CreateFoxfireActionEvent>(OnCreateFoxfire);
+        SubscribeLocalEvent<FoxFireComponent, ComponentShutdown>(OnFoxFireShutdown);
+        SubscribeLocalEvent<KitsuneComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<KitsuneComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished);
+    }
+
+    private void OnProfileLoadFinished(Entity<KitsuneComponent> ent, ref ProfileLoadFinishedEvent args)
+    {
+        if (TryComp<HumanoidAppearanceComponent>(ent, out var humanComp))
+        {
+            EyeColor = humanComp.EyeColor;
+        }
+    }
+
+    private void OnMapInit(Entity<KitsuneComponent> ent, ref MapInitEvent args)
+    {
+        // try to add kitsunemorph action to kitsune
+        if (!ent.Comp.NoAction && !HasComp<KitsuneFoxComponent>(ent))
+        {
+            _actions.AddAction(ent, ref ent.Comp.KitsuneActionEntity, ent.Comp.KitsuneAction);
+        }
+
+        ent.Comp.FoxfireAction = _actions.AddAction(ent, ent.Comp.FoxfireActionId);
+    }
+
+    private void OnCreateFoxfire(Entity<KitsuneComponent> ent, ref CreateFoxfireActionEvent args)
+    {
+        if (!TryComp<HandsComponent>(ent, out var hands) || hands.Count < 1)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("fox-no-hands"), ent, ent);
+            return;
+        }
+
+        if (_actions.GetCharges(ent.Comp.FoxfireAction) < 1)
+        {
+            QueueDel(ent.Comp.ActiveFoxFires[0]);
+            ent.Comp.ActiveFoxFires.RemoveAt(0);
+        }
+
+        var fireEnt = Spawn(ent.Comp.FoxfirePrototype, Transform(ent).Coordinates);
+        var fireComp = EnsureComp<FoxFireComponent>(fireEnt);
+        fireComp.Kitsune = ent;
+        ent.Comp.ActiveFoxFires.Add(fireEnt);
+
+        if (EyeColor is not null)
+            _light.SetColor(fireEnt, (Color)EyeColor);
+
+        args.Handled = true;
+    }
+    private void OnFoxFireShutdown(Entity<FoxFireComponent> ent, ref ComponentShutdown args)
+    {
+        if (ent.Comp.Kitsune is { } kitsune && TryComp<KitsuneComponent>(kitsune, out var kitsuneComp))
+        {
+            // Stop tracking the removed fox fire
+            kitsuneComp.ActiveFoxFires.Remove(ent);
+
+            // Refund the fox fire charge
+            _actions.AddCharges(kitsuneComp.FoxfireAction, 1);
+            // If charges exceeds the maximum then set charges to max
+            var foxfireAction = kitsuneComp.FoxfireAction;
+            if (!TryComp<InstantActionComponent>(foxfireAction, out var instantActionComp))
+                return;
+            if (_actions.GetCharges(foxfireAction) > instantActionComp.MaxCharges)
+                _actions.SetCharges(foxfireAction, instantActionComp.MaxCharges);
+
+            Dirty(ent);
+        }
+    }
+}
+
+public sealed partial class MorphIntoKitsune : InstantActionEvent;
