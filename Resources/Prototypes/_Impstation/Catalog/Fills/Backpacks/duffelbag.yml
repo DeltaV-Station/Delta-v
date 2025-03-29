@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledBR
+  name: Nemesis-11 bundle
+  description: "Precise and deadly, just as a professional should be. Bundled with three magazines."
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleNemesis
+      - id: MagazineBR
+        amount: 2

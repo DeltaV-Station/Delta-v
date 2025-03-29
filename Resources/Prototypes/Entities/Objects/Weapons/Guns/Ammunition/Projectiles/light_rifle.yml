@@ -7,7 +7,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 19
+        Piercing: 25 #DeltaV - was 19
 
 - type: entity
   id: BulletLightRiflePractice
@@ -29,8 +29,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
-        Heat: 16
+        Blunt: 6 # DeltaV - was 3
+        Heat: 19 # DeltaV - was 16
 
 - type: entity
   id: BulletLightRifleUranium
@@ -41,5 +41,5 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 9
-        Piercing: 10
+        Radiation: 12 # DeltaV - was 9
+        Piercing: 13 # DeltaV was 10
