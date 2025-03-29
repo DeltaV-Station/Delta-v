@@ -106,6 +106,7 @@
 - type: artifactEffect
   id: EffectPointLight
   targetDepth: 0
+  effectHint: artifact-effect-hint-release
   components:
   - type: PointLight
     radius: 8

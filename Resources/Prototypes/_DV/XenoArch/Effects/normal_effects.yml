@@ -17,3 +17,17 @@
     maxSpawns: 1
     spawns:
     - id: TeslaToy
+
+- type: artifactEffect
+  id: EffectStructureRepair
+  targetDepth: 3
+  effectHint: artifact-effect-hint-environment
+  components:
+  - type: DamageNearbyArtifact
+    whitelist:
+      tags:
+      - Window
+      - Wall
+    damage:
+      types:
+        Structural: -50

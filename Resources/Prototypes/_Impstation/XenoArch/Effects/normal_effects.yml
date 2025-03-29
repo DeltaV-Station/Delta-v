@@ -219,10 +219,10 @@
 # begin DeltaV changes - remove most spellbooks, add special books
     - id: BookRandomStory
       orGroup: book
-      prob: 0.65
+      prob: 0.6
     - id: RandomBook
       orGroup: book
-      prob: 0.3
+      prob: 0.35
     - id: BookSalvageEpistemics1
       orGroup: book
       prob: 0.02
