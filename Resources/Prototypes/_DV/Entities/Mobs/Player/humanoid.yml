@@ -1,0 +1,37 @@
+## DAP Operatives
+
+- type: entity
+  id: RandomHumanoidSpawnerDAP
+  name: DAP Operative
+  suffix: ERTRole, DAP
+  components:
+    - type: Sprite
+      sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+      state: icon
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+    - type: RandomHumanoidSpawner
+      settings: DAP
+
+- type: randomHumanoidSettings
+  id: DAP
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: ghost-role-information-DAP-name
+      description: ghost-role-information-DAP-description
+      rules: ghost-role-information-DAP-rules
+      raffle:
+        settings: short
+      mindRoles:
+      - MindRoleGhostRoleFamiliar
+    - type: Loadout
+      prototypes: [ DAPGear ]
+      roleLoadout: [ RoleSurvivalEVA ]
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast

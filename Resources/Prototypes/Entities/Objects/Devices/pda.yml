@@ -995,7 +995,9 @@
 - type: entity
   parent: CentcomPDA
   id: DeathsquadPDA
+  name: dap PDA # DeltaV
   suffix: Death Squad
+  description: The PDA of the elite Department of Asset Protection. # DeltaV
   components:
   - type: Pda
     id: CentcomIDCardDeathsquad
