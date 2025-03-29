@@ -143,7 +143,7 @@
         blacklist:
           tags:
           - PowerCell
-          - GamblagatorCartridge
+          - GamblagatorCartridge # DeltaV - Disallows recharging of superweapon
   - type: Machine
     board: PowerCageRechargerCircuitboard
   - type: StaticPrice
@@ -197,7 +197,7 @@
         blacklist:
           tags:
           - PotatoBattery
-          - GamblagatorCartridge
+          - GamblagatorCartridge # DeltaV - Disallows recharging of superweapon
 
 - type: entity
   parent: BaseItemRecharger
@@ -224,7 +224,7 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
-        blacklist:
+        blacklist: # DeltaV - Disallows recharging of superweapon
           tags:
           - GamblagatorCartridge
 

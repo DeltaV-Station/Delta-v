@@ -371,7 +371,7 @@
   parent: [ BaseItem, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponSniperGamblagator
   name: Gamblagator
-  description: A monstrously powerful laser rifle. Outfitted with a scope, it requires special fuses to be fired.
+  description: A monstrously powerful laser rifle. Outfitted with a scope, it requires special capacitors to be fired.
   components:
   - type: Item
     size: Huge
@@ -399,7 +399,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: GamblagatorFuse
+        startingItem: GamblagatorCapacitor
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
