@@ -2849,6 +2849,9 @@
     flavorKind: station-event-random-sentience-flavor-corgi
   - type: MobPrice
     price: 200
+  - type: Tag
+    tags:
+    - VimPilot
 
 - type: entity
   name: corrupted corgi
@@ -2938,9 +2941,6 @@
   - type: Grammar
     attributes:
       gender: epicene
-  - type: Tag
-    tags:
-    - VimPilot
 
 - type: entity
   name: cat

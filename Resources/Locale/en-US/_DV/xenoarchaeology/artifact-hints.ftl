@@ -1,7 +1,7 @@
 # effects
 
 artifact-effect-hint-noosphere = Noöspheric shift
-artifact-effect-hint-retrieval = Matter retrieval
+artifact-effect-hint-retrieval = Archive retrieval
 
 # triggers
 

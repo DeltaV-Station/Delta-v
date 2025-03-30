@@ -639,13 +639,6 @@
     - id: RandomAnomalySpawner
 
 - type: artifactEffect
-  id: EffectPortal
-  targetDepth: 3
-  effectHint: artifact-effect-hint-displacement
-  components:
-  - type: PortalArtifact
-
-- type: artifactEffect
   id: EffectBoom
   targetDepth: 4 # Imp - was 3
   effectProb: 0.75 # Imp
@@ -659,6 +652,13 @@
     totalIntensity: 500
     intensitySlope: 2.5
     maxIntensity: 50
+
+- type: artifactEffect
+  id: EffectPortal
+  targetDepth: 3
+  effectHint: artifact-effect-hint-displacement
+  components:
+  - type: PortalArtifact
 
 - type: artifactEffect
   id: EffectSingulo
