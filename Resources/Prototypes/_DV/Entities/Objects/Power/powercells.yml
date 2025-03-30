@@ -1,0 +1,22 @@
+- type: entity
+  parent: BaseItem
+  id: GamblagatorCapacitor
+  name: gamblagator fuse
+  description: A capacitor made with the positive charge of bluespace crystals, designed to power the Gamblagator rifle. Theoretically possible to recharge but a suitable recharger has not yet been developed.
+  components:
+  - type: Tag
+    tags:
+    - GamblagatorCartridge
+  - type: HitscanBatteryAmmoProvider
+    proto: GamblagatorLaser
+    fireCost: 1000
+  - type: Battery
+    maxCharge: 1000 # Shenanigan Prevention
+    startingCharge: 1000
+  - type: Item
+    storedRotation: -90
+  - type: PowerCell
+  - type: Riggable
+  - type: Sprite
+    sprite: _DV/Objects/Power/gamblagator_capacitors.rsi
+    state: capacitor

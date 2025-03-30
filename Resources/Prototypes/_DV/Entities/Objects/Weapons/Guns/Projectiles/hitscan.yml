@@ -60,3 +60,19 @@
     sprite: _DV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_laser
     
+- type: hitscan
+  id: GamblagatorLaser
+  damage:
+    types:
+      Heat: 100
+      Radiation: 20
+      Structural: 100
+  muzzleFlash:
+    sprite: _DV/Objects/Weapons/Guns/Projectiles/evil_projectile.rsi
+    state: evil_muzzle_flash
+  travelFlash:
+    sprite: _DV/Objects/Weapons/Guns/Projectiles/evil_projectile.rsi
+    state: evil_laser
+  impactFlash:
+    sprite: _DV/Objects/Weapons/Guns/Projectiles/evil_projectile.rsi
+    state: evil_impact
