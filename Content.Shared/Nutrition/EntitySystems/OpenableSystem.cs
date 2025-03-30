@@ -166,10 +166,10 @@ public sealed partial class OpenableSystem : EntitySystem
     /// Drinks that don't have OpenableComponent are automatically open, so it returns false.
     /// If user is not null a popup will be shown to them.
     /// </summary>
-    public bool IsClosed(EntityUid uid, EntityUid? user = null, OpenableComponent? comp = null)
+    public bool IsClosed(EntityUid uid, EntityUid? user = null, OpenableComponent? comp = null, bool fallback = false) // DeltaV - add fallback
     {
         if (!Resolve(uid, ref comp, false))
-            return false;
+            return fallback; // DeltaV
 
         if (comp.Opened)
             return false;
