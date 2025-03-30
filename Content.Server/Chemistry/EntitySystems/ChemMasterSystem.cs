@@ -243,8 +243,7 @@ namespace Content.Server.Chemistry.EntitySystems
         {
             outputSolution = null;
 
-            // Begin DeltaV Additions - Use bottle slot instead of buffer
-            /*
+            /* Begin DeltaV Additions - Use beaker slot instead of buffer
             if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var solution))
             {
                 return false;
@@ -256,6 +255,7 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 return false;
             }
+            // End DeltaV Additions
 
             if (solution.Volume == 0)
             {
@@ -273,8 +273,7 @@ namespace Content.Server.Chemistry.EntitySystems
             }
 
             outputSolution = solution.SplitSolution(neededVolume);
-            _solutionContainerSystem.UpdateChemicals(containerSoln.Value);
-            // End DeltaV Additions
+            _solutionContainerSystem.UpdateChemicals(containerSoln.Value); // DeltaV
             return true;
         }
 
