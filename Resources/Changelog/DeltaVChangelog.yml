@@ -1,15 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Initial Infecteds now get radio implants to communicate thanks to the
-      Syndicate.
-    type: Tweak
-  - message: Initial Infecteds now have to wait 5 minutes before they can turn, form
-      a plan!
-    type: Tweak
-  id: 709
-  time: '2024-11-26T12:23:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2194
 - author: Stop-Signs
   changes:
   - message: Omega particles are more deadly, Mystagogues beware!
@@ -3993,3 +3982,10 @@
   id: 1208
   time: '2025-03-30T04:47:00.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3338
+- author: deltanedas
+  changes:
+  - message: Fixed crates and artifact containers not blocking radiation.
+    type: Fix
+  id: 1209
+  time: '2025-03-30T19:22:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3344
