@@ -1,72 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fixed borgs not having names.
-    type: Fix
-  id: 701
-  time: '2024-11-24T10:06:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2276
-- author: dotCatshark
-  changes:
-  - message: Resprited EE sprites for corpse dragging.
-    type: Tweak
-  id: 702
-  time: '2024-11-24T10:07:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2255
-- author: Yule&
-  changes:
-  - message: NukeOps are 3% less valid.
-    type: Tweak
-  id: 703
-  time: '2024-11-24T10:08:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2208
-- author: deltanedas
-  changes:
-  - message: Re-enabled the portable recharger Tier 3 Arsenal tech.
-    type: Add
-  id: 704
-  time: '2024-11-24T10:09:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2206
-- author: moth
-  changes:
-  - message: Made moth's heat damage less insane.
-    type: Tweak
-  id: 705
-  time: '2024-11-24T10:15:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2277
-- author: Big Orthagonal
-  changes:
-  - message: Diagonal secborgs are not real and were never real.
-    type: Fix
-  id: 706
-  time: '2024-11-24T11:57:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2278
-- author: deltanedas
-  changes:
-  - message: Fixed salvage debris not having anything.
-    type: Fix
-  id: 707
-  time: '2024-11-24T20:25:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2280
-- author: DisposableCrewmember42
-  changes:
-  - message: Hungry? Stuff your face with cream from an emergency pie delivery for
-      a change!
-    type: Add
-  id: 708
-  time: '2024-11-25T05:30:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2211
-- author: deltanedas
-  changes:
-  - message: Initial Infecteds now get radio implants to communicate thanks to the
-      Syndicate.
-    type: Tweak
-  - message: Initial Infecteds now have to wait 5 minutes before they can turn, form
-      a plan!
-    type: Tweak
-  id: 709
-  time: '2024-11-26T12:23:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2194
 - author: Stop-Signs
   changes:
   - message: Omega particles are more deadly, Mystagogues beware!
@@ -3981,3 +3913,79 @@
   id: 1200
   time: '2025-03-25T16:52:34.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3302
+- author: Lyndomen
+  changes:
+  - message: Heights have been normalized a bit; default species now have a range
+      of +/- 10%
+    type: Tweak
+  - message: Felinid, Rodentia, Harpy can only go -5%/+10% height
+    type: Tweak
+  - message: Oni, Thaven can only go +5%/-10% height
+    type: Tweak
+  id: 1201
+  time: '2025-03-26T20:36:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3321
+- author: deltanedas
+  changes:
+  - message: Fixed vulpkanins getting [bold]cooked alive[/bold] in hardsuits.
+    type: Fix
+  id: 1202
+  time: '2025-03-26T20:56:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3324
+- author: deltanedas
+  changes:
+  - message: Fixed telegnostic projections not being able to return to body.
+    type: Fix
+  id: 1203
+  time: '2025-03-26T22:02:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3325
+- author: sowelipililimute
+  changes:
+  - message: Artifact extraction glimmer increase has been halved
+    type: Tweak
+  id: 1204
+  time: '2025-03-27T18:45:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3319
+- author: HTMLSystem
+  changes:
+  - message: Added a roboneuroticist jumpskirt to the syndiedrobe! Borg everyone in
+      a nice skirt now!
+    type: Add
+  - message: Resprited the syndie exosuit fabricator!
+    type: Tweak
+  - message: Fixed the inhand sprites for the roboneuroticist helmet!
+    type: Fix
+  id: 1205
+  time: '2025-03-27T19:50:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3296
+- author: Eternally-Confused
+  changes:
+  - message: Justice and prison radios can now be affected by solar flares
+    type: Fix
+  id: 1206
+  time: '2025-03-29T01:00:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3333
+- author: Stop-Signs
+  changes:
+  - message: New superweapon! The Gamblagator is a powerful laser sniper rifle that
+      uses special fuses as ammo.
+    type: Add
+  id: 1207
+  time: '2025-03-29T16:46:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3326
+- author: Radezolid
+  changes:
+  - message: Hand labelers are now available to be printed at every techfab but security's.
+    type: Tweak
+  - message: Regular 50 units beakers are available to be printed at the service techfab.
+    type: Tweak
+  id: 1208
+  time: '2025-03-30T04:47:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3338
+- author: deltanedas
+  changes:
+  - message: Fixed crates and artifact containers not blocking radiation.
+    type: Fix
+  id: 1209
+  time: '2025-03-30T19:22:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3344

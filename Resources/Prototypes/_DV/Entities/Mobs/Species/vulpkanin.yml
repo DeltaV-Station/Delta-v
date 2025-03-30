@@ -92,8 +92,6 @@
   - type: Perishable
   - type: Damageable
     damageModifierSet: Vulpkanin
-  - type: TemperatureProtection
-    coolingCoefficient: 0.1 # fur is insulating
   - type: Vocal
     sounds:
       Male: MaleVulpkanin
@@ -102,7 +100,7 @@
   - type: DogVision
   - type: Temperature
     heatDamageThreshold: 315 # 10 lower than base
-    coldDamageThreshold: 240 # 20 lower than base
+    coldDamageThreshold: 220 # 40 lower than base, very insulating fur
 
 - type: entity
   save: false
