@@ -31,3 +31,88 @@
     damage:
       types:
         Structural: -50
+
+- type: artifactEffect
+  id: EffectDirectInjectLotophagiol
+  targetDepth: 4
+  effectHint: artifact-effect-hint-biochemical
+  effectProb: 0.2
+  components:
+  - type: InjectionArtifact
+    chemicalSolution:
+      maxVol: 100
+      canReact: false
+    range: 8
+    showEffect: true
+    visualEffectPrototype: PuddleSparkle
+    entries:
+    - chemical: LotophagoiOil
+      amount: 20
+
+- type: artifactEffect
+  id: EffectDirectInjectCogChamp
+  targetDepth: 4
+  effectHint: artifact-effect-hint-biochemical
+  effectProb: 0.2
+  components:
+  - type: InjectionArtifact
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    range: 8
+    showEffect: true
+    visualEffectPrototype: PuddleSparkle
+    entries:
+    - chemical: CogChamp
+      amount: 20
+
+- type: artifactEffect
+  id: EffectDirectInjectWeh
+  targetDepth: 4
+  effectHint: artifact-effect-hint-biochemical
+  effectProb: 0.08
+  components:
+  - type: InjectionArtifact
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    range: 8
+    showEffect: true
+    visualEffectPrototype: PuddleSparkle
+    entries:
+    - chemical: JuiceThatMakesYouWeh
+      amount: 15
+
+- type: artifactEffect
+  id: EffectDirectInjectHew
+  targetDepth: 4
+  effectHint: artifact-effect-hint-biochemical
+  effectProb: 0.02
+  components:
+  - type: InjectionArtifact
+    chemicalSolution:
+      maxVol: 25
+      canReact: false
+    range: 8
+    showEffect: true
+    visualEffectPrototype: PuddleSparkle
+    entries:
+    - chemical: JuiceThatMakesYouHew
+      amount: 5
+
+- type: artifactEffect
+  id: EffectDirectInjectMuteToxin
+  targetDepth: 4
+  effectHint: artifact-effect-hint-biochemical
+  effectProb: 0.2
+  components:
+  - type: InjectionArtifact
+    chemicalSolution:
+      maxVol: 100
+      canReact: false
+    range: 8
+    showEffect: true
+    visualEffectPrototype: PuddleSparkle
+    entries:
+    - chemical: MuteToxin
+      amount: 5

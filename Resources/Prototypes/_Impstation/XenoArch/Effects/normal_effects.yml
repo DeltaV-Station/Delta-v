@@ -254,7 +254,7 @@
   id: EffectDirectInjectCryptobiolin
   targetDepth: 4
   effectHint: artifact-effect-hint-biochemical
-  effectProb: 0.4
+  effectProb: 0.2 # DeltaV - was 0.4
   components:
   - type: InjectionArtifact
     chemicalSolution:
@@ -271,7 +271,7 @@
   id: EffectDirectInjectDrunkHigh
   targetDepth: 4
   effectHint: artifact-effect-hint-biochemical
-  effectProb: 0.3
+  effectProb: 0.1 # DeltaV - was 0.3
   components:
   - type: InjectionArtifact
     chemicalSolution:
