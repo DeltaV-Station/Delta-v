@@ -15,6 +15,11 @@ namespace Content.Server.Forensics
         [DataField("residues")]
         public HashSet<string> Residues = new();
 
+        // Begin DeltaV Additions - Projectile Forensics
+        [DataField]
+        public string? Rifling = null;
+        // End DeltaV Additions - Projectile Forensics
+
         /// <summary>
         /// How close you must be to wipe the prints/blood/etc. off of this entity
         /// </summary>

@@ -70,6 +70,13 @@ namespace Content.Client.Forensics
             {
                 text.AppendLine(residue);
             }
+            // Begin DeltaV Additions - Projectile Forensics
+            text.AppendLine();
+            text.AppendLine(Loc.GetString("forensic-scanner-interface-rifling"));
+            text.AppendLine(!string.IsNullOrEmpty(msg.Rifling)
+                ? msg.Rifling
+                : Loc.GetString("forensices-scanner-interface-rifling-none"));
+            // End DeltaV Additions - Projectile Forensics
             Diagnostics.Text = text.ToString();
         }
     }
