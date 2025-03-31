@@ -1,31 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Initial Infecteds now get radio implants to communicate thanks to the
-      Syndicate.
-    type: Tweak
-  - message: Initial Infecteds now have to wait 5 minutes before they can turn, form
-      a plan!
-    type: Tweak
-  id: 709
-  time: '2024-11-26T12:23:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2194
-- author: Stop-Signs
-  changes:
-  - message: Omega particles are more deadly, Mystagogues beware!
-    type: Tweak
-  id: 710
-  time: '2024-11-26T18:19:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2292
-- author: Stop-Signs
-  changes:
-  - message: psych chems are no longer stronger nocturine
-    type: Tweak
-  id: 711
-  time: '2024-11-27T20:22:30.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2302
-- author: deltanedas
-  changes:
   - message: Fixed borgs with special lawsets fixing their emag laws when switched
       to.
     type: Fix
@@ -3993,3 +3968,17 @@
   id: 1208
   time: '2025-03-30T04:47:00.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3338
+- author: deltanedas
+  changes:
+  - message: Fixed crates and artifact containers not blocking radiation.
+    type: Fix
+  id: 1209
+  time: '2025-03-30T19:22:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3344
+- author: deltanedas
+  changes:
+  - message: Made playing wizard require a whitelist.
+    type: Tweak
+  id: 1210
+  time: '2025-03-31T01:14:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3348
