@@ -1,5 +1,6 @@
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Shared.CCVar;
+using Content.Shared._EE.CCVars;
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.Audio;
@@ -30,11 +31,12 @@ public partial class ChatBox : UIWidget
     public bool Main { get; set; }
 
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
-   
+
+    // EE - Chat stacking
     private int _chatStackAmount = 0;
     private bool _chatStackEnabled => _chatStackAmount > 0;
     private List<ChatStackData> _chatStackList;
-   
+
 
     public ChatBox()
     {
@@ -52,17 +54,14 @@ public partial class ChatBox : UIWidget
         _controller.MessageAdded += OnMessageAdded;
         _controller.RegisterChat(this);
 
-       
+        // EE - Chat stacking
         _cfg = IoCManager.Resolve<IConfigurationManager>();
-        //_chatStackAmount = _cfg.GetCVar(CCVars.ChatStackLastLines);
-        //if (_chatStackAmount < 0) // anti-idiot protection
-        //    _chatStackAmount = 0;
         _chatStackList = new(_chatStackAmount);
-        _cfg.OnValueChanged(CCVars.ChatStackLastLines, UpdateChatStack, true);
-       
+        _cfg.OnValueChanged(EECVars.ChatStackLastLines, UpdateChatStack, true);
+
     }
 
-   
+    // EE - Chat stacking
     private void UpdateChatStack(int value)
     {
         _chatStackAmount = value >= 0 ? value : 0;
@@ -89,7 +88,8 @@ public partial class ChatBox : UIWidget
 
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
-       
+
+        // EE - Chat stacking
         if (msg.IgnoreChatStack)
         {
             TrackNewMessage(msg.WrappedMessage, color, true);
@@ -113,13 +113,14 @@ public partial class ChatBox : UIWidget
     /// Removing and then adding insantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake.
     /// With rapid enough updates, the whole chat becomes unreadable.
     /// Adding first and then removing does not produce any visual effects.
-    /// The other option is to dublicate OutputPanel functionality and everything internal to the engine it relies on.
+    /// The other option is to duplicate OutputPanel functionality and everything internal to the engine it relies on.
     /// But OutputPanel relies on directly setting Control.Position for control embedding. (which is not exposed to Content.)
     /// Thanks robustengine, very cool.
     /// </summary>
     /// <remarks>
     /// zero index is the very last line in chat, 1 is the line before the last one, 2 is the line before that, etc.
     /// </remarks>
+    // EE - Chat stacking
     private void UpdateRepeatingLine(int index)
     {
         _chatStackList[index].RepeatCount++;
@@ -131,6 +132,7 @@ public partial class ChatBox : UIWidget
         }
     }
 
+    // EE - Chat stacking
     private void TrackNewMessage(string wrappedMessage, Color colorOverride, bool ignoresChatstack = false)
     {
         if (!_chatStackEnabled)
@@ -139,7 +141,7 @@ public partial class ChatBox : UIWidget
         if(_chatStackList.Count == _chatStackList.Capacity)
             _chatStackList.RemoveAt(_chatStackList.Capacity - 1);
 
-        _chatStackList.Insert(0, new ChatStackData(wrappedMessage, colorOverride, ignoresChatstack)); 
+        _chatStackList.Insert(0, new ChatStackData(wrappedMessage, colorOverride, ignoresChatstack));
     }
 
     private void OnChannelSelect(ChatSelectChannel channel)
@@ -150,7 +152,7 @@ public partial class ChatBox : UIWidget
     public void Repopulate()
     {
         Contents.Clear();
-        _chatStackList = new List<ChatStackData>(_chatStackAmount);
+        _chatStackList = new List<ChatStackData>(_chatStackAmount); // EE - Chat stacking
         foreach (var message in _controller.History)
         {
             OnMessageAdded(message.Item2);
@@ -172,12 +174,13 @@ public partial class ChatBox : UIWidget
         }
     }
 
-    public void AddLine(string message, Color color, int repeat = 0)
+    public void AddLine(string message, Color color, int repeat = 0) // EE - Chat stacking - repeat
     {
-        var formatted = new FormattedMessage(4); 
+        var formatted = new FormattedMessage(4);
         formatted.PushColor(color);
         formatted.AddMarkupOrThrow(message);
         formatted.Pop();
+        // EE - Chat stacking
         if (repeat != 0)
         {
             int displayRepeat = repeat + 1;
@@ -270,9 +273,10 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnKeyBindDown -= OnInputKeyBindDown;
         ChatInput.Input.OnTextChanged -= OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
-        _cfg.UnsubValueChanged(CCVars.ChatStackLastLines, UpdateChatStack);
+        _cfg.UnsubValueChanged(EECVars.ChatStackLastLines, UpdateChatStack); // EE - Chat stacking
     }
 
+    // EE - Chat stacking
     private class ChatStackData
     {
         public string WrappedMessage;

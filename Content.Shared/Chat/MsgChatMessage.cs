@@ -37,7 +37,7 @@ namespace Content.Shared.Chat
         public Color? MessageColorOverride;
         public string? AudioPath;
         public float AudioVolume;
-        public bool IgnoreChatStack;
+        public bool IgnoreChatStack; // EE
         [NonSerialized]
         public bool Read;
 
@@ -52,7 +52,7 @@ namespace Content.Shared.Chat
             MessageColorOverride = colorOverride;
             AudioPath = audioPath;
             AudioVolume = audioVolume;
-            IgnoreChatStack = ignoreChatStack;
+            IgnoreChatStack = ignoreChatStack; // EE
         }
     }
 
