@@ -366,3 +366,53 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 50
+
+- type: entity
+  parent: [ BaseItem, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponSniperGamblagator
+  name: Gamblagator
+  description: A monstrously powerful laser rifle. Outfitted with a scope, it requires special capacitors to be fired.
+  components:
+  - type: Item
+    size: Huge
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    sprite: _DV/Objects/Weapons/Guns/Snipers/gamblagator.rsi
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Snipers/gamblagator.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 0.3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/gamblagatorshot.ogg
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: GamblagatorCapacitor
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+          - GamblagatorCartridge
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 5
+    pvsIncrease: 0.5
+  - type: GunRequiresWield
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
