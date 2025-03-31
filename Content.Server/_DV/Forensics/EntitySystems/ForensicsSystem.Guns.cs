@@ -19,7 +19,9 @@ public sealed partial class ForensicsSystem
         }
         else
         {
-            return Loc.GetString("forensic-residue-colored", ("color", comp.ResidueColor), ("adjective", comp.ResidueAdjective));
+            return Loc.GetString("forensic-residue-colored",
+                ("color", comp.ResidueColor),
+                ("adjective", comp.ResidueAdjective));
         }
     }
 
