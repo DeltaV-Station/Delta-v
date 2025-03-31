@@ -2,6 +2,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Destructible;
 using Content.Server.Effects;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._DV.Forensics.Events; // DeltaV - Projectile Forensics
 using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Database;
@@ -108,6 +109,15 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         {
             component.ProjectileSpent = true;
         }
+
+        // Begin DeltaV Additions - Projectile Forensics
+        // Allow projectiles to be stored in target's body for forensics
+        if (modifiedDamage is not null)
+        {
+            var storageEv = new LodgeProjectileAttemptEvent(uid, component);
+            RaiseLocalEvent(target, ref storageEv);
+        }
+        // End DeltaV Additions - Projectile Forensics
 
         if (!deleted)
         {
