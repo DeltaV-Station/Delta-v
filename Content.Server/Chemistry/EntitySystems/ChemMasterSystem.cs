@@ -255,7 +255,7 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 return false;
             }
-            // End DeltaV Additions
+            // End DeltaV Addition
 
             if (solution.Volume == 0)
             {
