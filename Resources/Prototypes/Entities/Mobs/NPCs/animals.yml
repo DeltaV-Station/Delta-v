@@ -125,7 +125,6 @@
     tags:
     - Bee
     - Trash
-    - MultitoolDefibrillatorTarget # Imp
   - type: Bloodstream
     bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
@@ -395,7 +394,6 @@
     tags:
     - Trash
     - VimPilot
-    - MultitoolDefibrillatorTarget # Imp
   - type: Destructible
     thresholds:
     - trigger:
@@ -563,7 +561,6 @@
     - CannotSuicide
     - DoorBumpOpener # DeltaV - After all, why not? Why shouldn't they be able to open doors?
     - VimPilot
-    - MultitoolDefibrillatorTarget # Imp
   - type: CanEscapeInventory
   - type: NpcFactionMember
     factions:
@@ -815,7 +812,6 @@
   - type: Tag
     tags:
     - Trash
-    - MultitoolDefibrillatorTarget # Imp
   - type: Bloodstream
     bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
@@ -1807,7 +1803,6 @@
     - ChefPilot
     - Mouse
     - Meat
-    - MultitoolDefibrillatorTarget # Imp
   - type: Respirator
     damage:
       types:
@@ -2008,7 +2003,6 @@
   - type: Tag
     tags:
     - VimPilot
-    - MultitoolDefibrillatorTarget # Imp
 
 
 - type: entity
@@ -2119,7 +2113,6 @@
   - type: Tag
     tags:
     - VimPilot
-    - MultitoolDefibrillatorTarget # Imp
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
@@ -3396,7 +3389,6 @@
     - Trash
     - Hamster
     - Meat
-    - MultitoolDefibrillatorTarget # Imp
   - type: Respirator
     damage:
       types:

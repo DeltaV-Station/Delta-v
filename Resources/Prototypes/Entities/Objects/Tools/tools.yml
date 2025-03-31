@@ -213,18 +213,16 @@
         Asphyxiation: -10
     zapDamage: 0
     writheDuration: 0
+    massLimit: 16 # DeltaV
     skipDoAfter: true
     ignoreToggle: true
     ignorePowerCell: true
     allowSkipCrit: true
-    whitelist:
-      tags:
-      - MultitoolDefibrillatorTarget
     zapSound: /Audio/Effects/sparks1.ogg
-    playChargeSound: false
-    playFailureSound: false
-    playSuccessSound: false
-    playReadySound: false
+    chargeSound: null
+    failureSound: null
+    successSound: null
+    readySound: null
   - type: UseDelay
   # Imp - End additions
 

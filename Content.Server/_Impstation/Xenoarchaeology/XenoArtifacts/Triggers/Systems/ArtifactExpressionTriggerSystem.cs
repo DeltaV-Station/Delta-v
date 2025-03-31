@@ -1,5 +1,6 @@
 ﻿using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
 using Content.Server.Chat.Systems;
+using Content.Server.Chat.Events;
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 
 public sealed class ArtifacExpressionTriggerSystem : EntitySystem

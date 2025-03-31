@@ -14,6 +14,7 @@ using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Server.Chat.Events; // Imp
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -983,22 +984,6 @@ public sealed class EntitySpokeEvent : EntityEventArgs
         Message = message;
         Channel = channel;
         ObfuscatedMessage = obfuscatedMessage;
-    }
-}
-
-/// <summary>
-///     Imp
-///     Raised on an entity when it emotes, whether through emote wheel, hotkeys, /me, @ or * in textbox, etc.
-/// </summary>
-public sealed class EntityEmotedEvent : EntityEventArgs
-{
-    public readonly EntityUid Source;
-    public readonly string Message;
-
-    public EntityEmotedEvent(EntityUid source, string message)
-    {
-        Source = source;
-        Message = message;
     }
 }
 

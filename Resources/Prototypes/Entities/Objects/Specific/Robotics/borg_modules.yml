@@ -245,6 +245,7 @@
       - state: base-stripes-inhand-right
         color: "#7B0F12"
 
+
 - type: entity
   id: BaseBorgModuleSyndicateAssault
   parent: BaseBorgModule
@@ -740,15 +741,13 @@
     items:
     - NodeScanner
     - BorgDropper # Imp
-  # DeltaV: Add droppable beaker.
-  - type: DroppableBorgModule
+  - type: DroppableBorgModule # DeltaV
     moduleId: Artifact
     items:
     - id: Beaker
       whitelist:
         tags:
         - GlassBeaker
-  # End DeltaV: Add droppable beaker.
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: node-scanner-module }
 
