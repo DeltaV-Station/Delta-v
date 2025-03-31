@@ -382,6 +382,15 @@
       !type:RoleTimeRequirement
       role: JobMime
       time: 360000 # 100hr
+
+- type: loadout
+  id: wristwatch
   storage:
     back:
-    - TowelColorMime
+    - wristwatch
+
+- type: loadout
+  id: goldwatch
+  storage:
+    back:
+    - goldwatch
