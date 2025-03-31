@@ -8,6 +8,8 @@
     damage:
       types:
         Piercing: 35
+  - type: LodgeableProjectile
+    lodgeChance: 0.5
 
 - type: entity
   id: BulletMagnumPractice
