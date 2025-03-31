@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fixed borgs with special lawsets fixing their emag laws when switched
-      to.
-    type: Fix
-  id: 712
-  time: '2024-11-28T07:22:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2299
 - author: Kr8art
   changes:
   - message: Added customizable dogtags from Cosmatic Drift to the trinket loadout!
@@ -3990,3 +3982,11 @@
   id: 1211
   time: '2025-03-31T13:58:38.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3329
+- author: deltanedas
+  changes:
+  - message: Removed the chemmaster flatpack from CMO's locker as pills can be made
+      from the beaker slot.
+    type: Remove
+  id: 1212
+  time: '2025-03-31T14:01:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3351
