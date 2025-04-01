@@ -1,40 +1,23 @@
 - type: entity
-  id: CrateFunBBGun
   parent: CrateGenericSteel
+  id: CrateFunBBGun
   components:
   - type: StorageFill
     contents:
-      - id: WeaponRifleBB
-        amount: 1
-      - id: BoxCartridgeBB
-        amount: 2
+    - id: WeaponRifleBB
+    - id: BoxCartridgeBB
+      amount: 2
 
 - type: entity
+  parent: CratePlastic
+  id: CrateCapGunSet
   name: cap gun box set
   description: A box filled with fun, harmless cap guns that are sure to keep security entertained and the air smelling of sulfur.
-  id: CrateCapGunSet
-  parent: CratePlastic
   components:
   - type: StorageFill
     contents:
-      - id: RevolverCapGun
-        amount: 1
-      - id: SpeedLoaderCap
-        amount: 2
-      - id: BoxCartridgeCap
-        amount: 2
-
-- type: entity
-  name: foam toys set
-  description: Foam weapon kit to play war with the clowns.
-  id: CrateFoamWeapons
-  parent: CrateToyBox
-  components:
-  - type: StorageFill
-    contents:
-      - id: WeaponRifleFoam
-        amount: 1
-      - id: BoxDonkSoftBox
-        amount: 1
-      - id: GrenadeFoamDart
-        amount: 2
+    - id: RevolverCapGun
+    - id: SpeedLoaderCap
+      amount: 2
+    - id: BoxCartridgeCap
+      amount: 2
