@@ -181,14 +181,10 @@
 # Senior Physician
 
 - type: entity
-  parent: MedicalIDCard
+  parent: SeniorPhysicianIDCard
   id: CryogenicsSpecialistIDCard
   name: cryogenics specialist ID card
   components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idseniorphysician
   - type: IdCard
     jobTitle: job-alt-title-cryogenics-specialist
     jobIcon: JobIconSeniorPhysician
