@@ -21,12 +21,14 @@
     - state: security
     - state: icon-patrol
   - type: ItemBorgModule
+    moduleId: Patrol
     items:
     - FlashlightSecliteRecharging
+    - HoloprojectorSecurityRecharging
     - SecurityWhistle
 
 - type: entity
-  id: BorgModuleSecurityBastion # Peacekeeper Set, Available on Round Start
+  id: BorgModuleSecurityBastion # Research Locked - AdvancedRiotControl
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: bastion cyborg module
   components:
@@ -35,8 +37,11 @@
     - state: security
     - state: icon-hold
   - type: ItemBorgModule
+    moduleId: Bastion
     items:
-    - HoloprojectorSecurityRecharging
+    - FlashRecharging
+    - WeaponLauncherNonLethal
+    - SecurityWhistle
 
 - type: entity
   id: BorgModuleSecurityDeescalate # Research Locked - AdvancedRiotControl
@@ -48,14 +53,27 @@
     - state: security
     - state: icon-detain
   - type: ItemBorgModule
+    moduleId: Deescalate
     items:
     - StunbatonSelfCharging
     - FlashRecharging
-    - BorgHypoPax
+    - FlashlightSecliteRecharging
+    - SecurityWhistle
+  - type: DroppableBorgModule
+    moduleId: Deescalate
+    items:
+    - id: Handcuffs
+      whitelist:
+        components:
+        - Handcuff
+    - id: Zipties
+      whitelist:
+        components:
+        - Handcuff
 
 - type: entity
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   id: BorgModuleSecurityEscalate
-  parent: BorgModuleSecurityDeescalate
   name: escalation cyborg module
   description: Peace was never an option.
   components:
@@ -64,12 +82,15 @@
     - state: security
     - state: icon-hurt
   - type: ItemBorgModule
+    moduleId: Escalate
     items:
     - Truncheon # Anti-Fauna option to stop them being relied on the Seclite (which will be removed when the Laws menu is fixed)
-    - FlashRecharging
+    - CombatKnife # Anti-fauna for blunt resistant slimes
+    - WeaponRiotShotgunBorg
+    - SecurityWhistle
 
 - type: entity
-  id: BorgModuleSecurityChase # Research Locked - EnergyGunsAdvanced
+  id: BorgModuleSecurityChase # Research Locked - NonLethalAmmunition
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: chase cyborg module
   components:
@@ -78,8 +99,32 @@
     - state: security
     - state: icon-chase
   - type: ItemBorgModule
+    moduleId: Chase
     items:
-    - WeaponEnergyGunMiniRecharging
+    - WeaponDisablerSelfCharge
+    - FlashlightSecliteRecharging
+    - SecurityWhistle
+
+# Salvage modules
+
+- type: entity
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  id: BorgModuleFauna
+  name: fauna protection module
+  description: A borg module for protection from deadly space fauna.
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-carp
+      sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: Fauna
+    items:
+    - WeaponProtoKineticAcceleratorOneHanded
+    - WeaponCrusherDagger
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: fauna-module }
 
 # Syndicate modules
 
@@ -87,8 +132,6 @@
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
   id: BaseBorgModuleSyndie
   abstract: true
-  name: unfinished martyr cyborg module
-  description: This unfinished module has a large space for an explosive payload, with "boom" helpfully scribbled under it.
   components:
   - type: Sprite
     layers:
@@ -119,6 +162,7 @@
     - state: syndicate
     - state: icon-syndicate
   - type: ItemBorgModule
+    moduleId: RadioJammer
     items:
     - RechargingRadioJammer
 
@@ -129,6 +173,7 @@
   description: "A module that comes with enough knives to poke your eye out."
   components:
   - type: ItemBorgModule
+    moduleId: Blade
     items:
     - Cutlass
     - BarberScissors
@@ -142,6 +187,7 @@
   description: "A module that comes with an unrechargable experimental C.H.I.M.P. handcannon. Cheap and disposable."
   components:
   - type: ItemBorgModule
+    moduleId: Chimp
     items:
     - WeaponPistolCHIMPUpgraded
 
@@ -152,6 +198,7 @@
   description: "A module that comes with a syndicate handheld radio and PDA."
   components:
   - type: ItemBorgModule
+    moduleId: SyndicateRadio
     items:
     - RadioHandheldSyndicate
     - SyndiPDA
@@ -168,6 +215,7 @@
   description: "A module that comes with a crew monitor."
   components:
   - type: ItemBorgModule
+    moduleId: CrewMonitor
     items:
     - SyndiCrewMonitorRecharging
 
@@ -178,5 +226,6 @@
   description: "A module used to create a hard-light replica of any object around you."
   components:
   - type: ItemBorgModule
+    moduleId: ChameleonProjector
     items:
     - ChameleonProjector

@@ -1,4 +1,4 @@
-﻿# Generic borg
+# Generic borg
 - type: borgType
   id: generic
 
@@ -10,6 +10,7 @@
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
+    - BorgModuleScience #until sciborgs are added
 
   defaultModules:
   - BorgModuleTool
@@ -179,6 +180,7 @@
   defaultModules:
   - BorgModuleTreatment
   - BorgModuleSurgery # DeltaV
+  - BorgModuleDefibrillator # DeltaV
 
   radioChannels:
   - Science

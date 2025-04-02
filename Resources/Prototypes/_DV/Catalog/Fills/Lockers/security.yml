@@ -97,3 +97,30 @@
   - type: StorageFill
     contents:
     - id: WeaponBeamDevastator
+
+- type: entityTable
+  id: LockerFillPrisonerDeltaV
+  table: !type:AllSelector
+    children:
+    - id: ClothingUniformJumpsuitPrisoner
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: ClothingUniformJumpskirtPrisoner
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: ClothingShoesColorBlack
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: ClothingMaskMuzzle
+    - id: ClothingHeadsetPrison
+    - id: PrisonKnife # Bread cutting knife, does 4 damage total.
+
+- type: entity
+  parent: GunSafeBaseSecure
+  id: GunSafeGamblagator
+  name: Gamblagator safe
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: GamblagatorTable

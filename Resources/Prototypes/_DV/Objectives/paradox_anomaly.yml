@@ -1,19 +1,6 @@
-- type: entity
-  abstract: true
-  parent: BaseObjective
-  id: BaseParadoxAnomalyObjective
-  components:
-  - type: Objective
-    difficulty: 1
-    issuer: objective-issuer-self
-  - type: RoleRequirement
-    roles:
-      mindRoles:
-      - ParadoxAnomalyRole
-
 # not using base kill/keep alive objectives since these intentionally conflict with eachother
 - type: entity
-  parent: BaseParadoxAnomalyObjective
+  parent: BaseParadoxCloneObjective
   id: ParadoxAnomalyKillObjective
   description: This universe doesn't have room for both of us.
   components:
@@ -23,12 +10,12 @@
       state: icon
   - type: TargetObjective
     title: objective-paradox-anomaly-kill-title
-  - type: TerminatorTargetOverride
+  - type: PickSpecificPerson
   - type: KillPersonCondition
     requireDead: true
 
 - type: entity
-  parent: BaseParadoxAnomalyObjective
+  parent: BaseParadoxCloneObjective
   id: ParadoxAnomalyFriendObjective
   description: Perhaps there is room, as friends.
   components:
@@ -38,17 +25,5 @@
       state: folder-white
   - type: TargetObjective
     title: objective-paradox-anomaly-friend-title
-  - type: TerminatorTargetOverride
+  - type: PickSpecificPerson
   - type: KeepAliveCondition
-
-- type: entity
-  parent: [BaseParadoxAnomalyObjective, BaseLivingObjective]
-  id: ParadoxAnomalyEscapeObjective
-  name: Escape to centcom alive and unrestrained.
-  description: This is your universe now.
-  components:
-  - type: Objective
-    icon:
-      sprite: Structures/Furniture/chairs.rsi
-      state: shuttle
-  - type: EscapeShuttleCondition

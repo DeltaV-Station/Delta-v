@@ -8,13 +8,15 @@
   markingLimits: MobThavenMarkingLimits
   dollPrototype: MobThavenDummy
   skinColoration: Hues
-  maleFirstNames: names_thaven
-  femaleFirstNames: names_thaven
+  maleFirstNames: NamesThaven
+  femaleFirstNames: NamesThaven
   naming: First
   sexes:
   - Male
   - Female
   - Unsexed
+  baseScale: "1, 1.05" # DeltaV - make sure Thaven are still scaled w/ CD records
+  maxHeight: 1.05 # DeltaV
 
 - type: speciesBaseSprites
   id: MobThavenSprites
@@ -24,6 +26,8 @@
     Head: MobThavenHead
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobThavenTorso
     LArm: MobThavenLArm
     RArm: MobThavenRArm

@@ -12,6 +12,7 @@
     - id: MiningShuttleConsoleCircuitboard
     - id: StockTradingCartridge
     - id: LogisticsTechFabCircuitboard
+    - id: SalvageExpeditionsComputerCircuitboard
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 
@@ -69,7 +70,6 @@
     - id: ClothingShoesBootsWinterChiefMedicalOfficer
     - id: LunchboxCommandFilledRandom
       prob: 0.3
-    - id: ChemMasterFlatpack # So the chemist can make pills
     - id: MedBioFabricatorFlatpack # Replaced the shitmed board
     - id: AutoclaveFlatpack # Make sure surgeons have access to an autoclave
     - id: Multitool # Ensure the flatpacks can be used without having to beg a tool

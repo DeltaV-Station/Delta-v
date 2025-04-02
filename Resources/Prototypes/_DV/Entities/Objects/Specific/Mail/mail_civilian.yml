@@ -59,7 +59,7 @@
   components:
   - type: Mail
     contents:
-    - id: RobustHarvestChemistryBottle
+    - id: ChemistryBottleRobustHarvest
       orGroup: Chemical
       prob: 0.6
     - id: WeedSpray
@@ -75,7 +75,7 @@
     isFragile: true
     isPriority: true
     contents:
-    - id: UnstableMutagenChemistryBottle
+    - id: ChemistryBottleUnstableMutagen
 
 - type: entity
   parent: BaseMail

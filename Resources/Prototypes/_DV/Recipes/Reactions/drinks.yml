@@ -62,6 +62,8 @@
 
 - type: reaction
   id: Daiquiri
+  requiredMixerCategories:
+  - Stir
   reactants:
     DeadRum:
       amount: 5

@@ -1,0 +1,42 @@
+- type: entity
+  id: BorgModuleSurgery
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: surgery cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-surgery
+      sprite: _Shitmed/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: Surgery
+    items:
+    - Scalpel
+    - Drill
+    - Hemostat
+    - Retractor
+    - Cautery
+    - SawElectric
+    - BoneGel
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: surgery-module }
+
+- type: entity
+  id: BorgModuleAdvancedSurgery
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: advanced surgery cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-advanced-surgery
+      sprite: _Shitmed/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: AdvancedSurgery
+    items:
+    - EnergyScalpel
+    - EnergyCautery
+    - AdvancedRetractor
+    - BoneGel
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-surgery-module }

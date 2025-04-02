@@ -37,6 +37,7 @@
     - id: DragonSpawn
     #- id: KingRatMigration # DeltaV - disabled
     - id: NinjaSpawn
+    - id: ParadoxCloneSpawn
     - id: RevenantSpawn
     - id: SleeperAgents
     - id: ZombieOutbreak
@@ -138,7 +139,7 @@
   - type: StationEvent
     startAnnouncement: station-event-bureaucratic-error-announcement
     startAudio: #Delta-V: Previously unheard announcer line for DeltaV's custom announcer
-      path: /Audio/Announcements/bureaucratic_error.ogg 
+      path: /Audio/Announcements/bureaucratic_error.ogg
     minimumPlayers: 25
     weight: 5
     duration: 1
@@ -258,17 +259,54 @@
         - DeathAcidifierImplant
       - type: RandomMetadata
         nameSegments:
-        - names_ninja_title
-        - names_ninja
+        - NamesNinjaTitle
+        - NamesNinja
       mindRoles:
       - MindRoleNinja
+
+- type: entity
+  parent: BaseGameRule
+  id: ParadoxCloneSpawn
+  components:
+  - type: StationEvent
+    weight: 7 # DeltaV - was 4
+    duration: null
+    earliestStart: 25 # DeltaV - was 20
+    reoccurrenceDelay: 5 # DeltaV - was 20
+    minimumPlayers: 15
+  - type: ParadoxCloneRule
+    objectiveBlacklist:
+      tags:
+      - ParadoxCloneObjectiveBlacklist
+  - type: AntagObjectives
+    objectives:
+    - ParadoxAnomalyKillObjective # DeltaV - was ParadoxCloneKillObjective
+    - ParadoxAnomalyFriendObjective # DeltaV
+    - ParadoxCloneLivingObjective
+  - type: AntagRandomSpawn # TODO: improve spawning so they only start in maints
+  - type: AntagSelection
+    agentName: paradox-clone-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostParadoxClone
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: ParadoxCloneGear
+      roleLoadout:
+      - RoleSurvivalVoxTank # give vox something to breath in case they don't get a copy
+      briefing:
+        text: paradox-anomaly-role-greeting # DeltaV
+        color: lightblue
+        sound: /Audio/Misc/paradox_clone_greeting.ogg
+      mindRoles:
+      - MindRoleParadoxClone
 
 - type: entity
   parent: BaseGameRule
   id: RevenantSpawn
   components:
   - type: StationEvent
-    weight: 1 # DeltaV - was 7.5, lowered because of GlimmerRevenantSpawn event
+    weight: 2 # DeltaV - was 7.5, lowered because of GlimmerRevenantSpawn event
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
@@ -310,8 +348,8 @@
         - Wizard
       - type: RandomMetadata
         nameSegments:
-        - names_wizard_first
-        - names_wizard_last
+        - NamesWizardFirst
+        - NamesWizardLast
       mindRoles:
       - MindRoleWizard
 
@@ -396,6 +434,8 @@
     - Security
     - Service
     - Supply
+    - Justice # DeltaV - Add DeltaV specific channels
+    - Prison # DeltaV - Add DeltaV specific channels
     extraCount: 3 # DeltaV - was 2
     lightBreakChancePerSecond: 0.0003
     doorToggleChancePerSecond: 0.001
@@ -561,8 +601,8 @@
       - type: TargetObjectiveImmune # DeltaV - Nukies are no longer targets of kill objectives, this includes lone ops.
       - type: RandomMetadata
         nameSegments:
-        - SyndicateNamesPrefix
-        - SyndicateNamesNormal
+        - NamesSyndicatePrefix
+        - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
         - Syndicate

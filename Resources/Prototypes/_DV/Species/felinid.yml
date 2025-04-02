@@ -1,0 +1,38 @@
+- type: species
+  id: Felinid
+  name: species-name-felinid
+  roundStart: true
+  prototype: MobFelinid
+  sprites: MobHumanSprites
+  markingLimits: MobFelinidMarkingLimits
+  dollPrototype: MobFelinidDummy
+  skinColoration: Hues
+  baseScale: "0.8, 0.8"
+  minHeight: 0.95
+
+- type: markingPoints
+  id: MobFelinidMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ FelinidTailBasic ]
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ FelinidEarsBasic ]
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 6
+      required: false
+    Arms:
+      points: 6
+      required: false

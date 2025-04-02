@@ -23,7 +23,7 @@
         type: Add
       - !type:Drunk
         slurSpeech: false
-        boozePower: 20
+        boozePower: 10 # DeltaV - 20 is ridiculous
 
 - type: reagent
   id: Dylovene
@@ -133,7 +133,7 @@
           types:
             Radiation: -3
           groups:
-            Brute: 0.5
+            Brute: 0.5 # DeltaV - was 1.5, implant removal damage is disabled which is why upstream bumped it
 
 - type: reagent
   id: Bicaridine
@@ -571,14 +571,29 @@
         min: 4
   metabolisms:
     Medicine:
+      metabolismRate: 0.1
       effects:
       - !type:HealthChange
         damage:
           types:
-            Cellular: -1
-            Radiation: 1
-      - !type:ChemVomit
-        probability: 0.05
+            Cellular: -0.3
+            Radiation: 0.15
+            Caustic: 0.15
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 11
+        damage:
+          types:
+            Radiation: 0.2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Arithrazine
+          min: 1
+        damage:
+          types:
+            Caustic: 0.3
 
 - type: reagent
   id: PolypyryliumOligomers
@@ -666,7 +681,16 @@
     Drink:
       effects:
         - !type:SatiateThirst
+          conditions: # DeltaV nerf of saline for Feroxi
+          - !type:OrganType
+            type: Feroxi
+            shouldHave: false
           factor: 6
+        - !type:SatiateThirst # DeltaV nerf of saline for Feroxi
+          conditions:
+          - !type:OrganType
+            type: Feroxi
+          factor: 2
         - !type:ModifyBloodLevel
           amount: 6
 
@@ -984,6 +1008,21 @@
         - !type:ReagentThreshold
           min: 30
         probability: 0.02
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Arithrazine
+          min: 1
+        probability: 0.1
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Arithrazine
+          min: 1
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-nauseous" ]
+        probability: 0.2
 
 - type: reagent
   id: Lacerinol
@@ -1194,7 +1233,7 @@
     Medicine:
       effects:
         - !type:ReduceRotting
-          seconds: 20
+          seconds: 30 # DeltaV - buff opporozidone
           conditions:
           #Patient must be dead and in a cryo tube (or something cold)
           - !type:Temperature

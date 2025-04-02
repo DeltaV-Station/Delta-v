@@ -81,6 +81,7 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NewsReaderCartridge
       - NanoChatCartridge # DeltaV
     cartridgeSlot:
@@ -132,6 +133,7 @@
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
+    - NanoTaskCartridge
     - NewsReaderCartridge
     - CrimeAssistCartridge # DeltaV
     - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
@@ -147,6 +149,7 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NewsReaderCartridge
       - MedTekCartridge
       - NanoChatCartridge # DeltaV
@@ -514,6 +517,7 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NewsReaderCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
@@ -878,6 +882,7 @@
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
+    - NanoTaskCartridge
     - NewsReaderCartridge
     - CrimeAssistCartridge # DeltaV
     - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
@@ -948,6 +953,7 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NewsReaderCartridge
       - MedTekCartridge
       - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
@@ -974,6 +980,7 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NewsReaderCartridge
       - LogProbeCartridge
       - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
@@ -1105,6 +1112,7 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NanoChatCartridge # DeltaV
 
 - type: entity
@@ -1132,6 +1140,7 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NewsReaderCartridge
       - MedTekCartridge
       - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
@@ -1310,6 +1319,7 @@
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
+    - NanoTaskCartridge
     - NewsReaderCartridge
     - CrimeAssistCartridge # DeltaV
     - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
@@ -1339,6 +1349,7 @@
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
+    - NanoTaskCartridge
     - NewsReaderCartridge
     - CrimeAssistCartridge # DeltaV
     - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
@@ -1487,6 +1498,7 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - MedTekCartridge
       - NanoChatCartridge # DeltaV
 
@@ -1530,7 +1542,7 @@
   - type: Pda
     id: WizardIDCard
     penSlot:
-      startingItem: LuxuryPen
+      startingItem: PenWiz
       priority: -1
       whitelist:
         tags:
