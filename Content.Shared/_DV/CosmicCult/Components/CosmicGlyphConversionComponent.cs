@@ -2,6 +2,9 @@ using Content.Shared.Damage;
 
 namespace Content.Shared._DV.CosmicCult.Components;
 
+/// <summary>
+///     Indicates a glyph entity as performing conversion effects
+/// </summary>
 [RegisterComponent]
 public sealed partial class CosmicGlyphConversionComponent : Component
 {

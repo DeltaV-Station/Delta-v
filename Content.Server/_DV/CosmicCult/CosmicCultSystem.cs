@@ -4,15 +4,9 @@ using Content.Server.Actions;
 using Content.Server.AlertLevel;
 using Content.Server.Audio;
 using Content.Server.Chat.Systems;
-using Content.Server.Doors.Systems;
-using Content.Server.Flash;
 using Content.Server.GameTicking.Events;
-using Content.Server.Ghost;
-using Content.Server.Light.EntitySystems;
 using Content.Server.Pinpointer;
-using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
-using Content.Server.Stack;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Shared._DV.CosmicCult.Components;
@@ -22,7 +16,7 @@ using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Effects;
 using Content.Shared.Examine;
-using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Eye;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
@@ -31,15 +25,10 @@ using Content.Shared.Mind;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Stacks;
 using Content.Shared.StatusEffect;
-using Content.Shared.Stunnable;
-using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.EntitySerialization;
-using Robust.Shared.Map;
-using Robust.Shared.Physics.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -56,32 +45,20 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly CosmicCorruptingSystem _corrupting = default!;
     [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly DoorSystem _door = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly FlashSystem _flash = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
     [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedInteractionSystem _interact = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
@@ -125,9 +102,17 @@ public sealed partial class CosmicCultSystem : EntitySystem
         MakeSimpleExamineHandler<CosmicImposingComponent>("cosmic-examine-text-imposition");
         MakeSimpleExamineHandler<CosmicMarkGodComponent>("cosmic-examine-text-god");
 
-        SubscribeAbilities(); //Hook up the cosmic cult ability system
         SubscribeFinale(); //Hook up the cosmic cult finale system
     }
+
+    public void MalignEcho(Entity<CosmicCultComponent> uid)
+    {
+        if (_cultRule.AssociatedGamerule(uid) is not {} cult)
+            return;
+        if (cult.Comp.CurrentTier > 1 && !_random.Prob(0.5f))
+            Spawn("CosmicEchoVfx", Transform(uid).Coordinates);
+    }
+
     #region Housekeeping
 
     /// <summary>
@@ -223,7 +208,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
             var actionEnt = _actions.AddAction(uid, actionId);
             uid.Comp.ActionEntities.Add(actionEnt);
         }
-        _eye.RefreshVisibilityMask(uid);
+        _eye.RefreshVisibilityMask(uid.Owner);
         _alerts.ShowAlert(uid, uid.Comp.EntropyAlert);
     }
 

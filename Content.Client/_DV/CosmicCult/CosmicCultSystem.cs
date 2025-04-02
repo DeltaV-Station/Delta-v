@@ -79,7 +79,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(AscendedInfectionKey.Key, out _))
             return;
 
-        var layer = sprite.AddLayer(new SpriteSpecifier.Rsi(uid.Comp.RsiPath, uid.Comp.States));
+        var layer = sprite.AddLayer(uid.Comp.Sprite);
 
         sprite.LayerMapSet(AscendedInfectionKey.Key, layer);
         sprite.LayerSetShader(layer, "unshaded");
@@ -90,7 +90,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(AscendedAuraKey.Key, out _))
             return;
 
-        var layer = sprite.AddLayer(new SpriteSpecifier.Rsi(uid.Comp.RsiPath, uid.Comp.States));
+        var layer = sprite.AddLayer(uid.Comp.Sprite);
 
         sprite.LayerMapSet(AscendedAuraKey.Key, layer);
         sprite.LayerSetShader(layer, "unshaded");
@@ -100,7 +100,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(CosmicRevealedKey.Key, out _))
             return;
 
-        var layer = sprite.AddLayer(new SpriteSpecifier.Rsi(uid.Comp.RsiPath, uid.Comp.States));
+        var layer = sprite.AddLayer(uid.Comp.Sprite);
         sprite.LayerMapSet(CosmicRevealedKey.Key, layer);
         sprite.LayerSetShader(layer, "unshaded");
 
@@ -115,7 +115,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(CosmicImposingKey.Key, out _))
             return;
 
-        var layer = sprite.AddLayer(new SpriteSpecifier.Rsi(uid.Comp.RsiPath, uid.Comp.States));
+        var layer = sprite.AddLayer(uid.Comp.Sprite);
 
         sprite.LayerMapSet(CosmicImposingKey.Key, layer);
         sprite.LayerSetShader(layer, "unshaded");
