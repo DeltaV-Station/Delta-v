@@ -100,6 +100,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
         SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnStartCultist);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentInit>(OnStartCultLead);
+        SubscribeLocalEvent<CosmicCultComponent, GetVisMaskEvent>(OnGetVisMask);
+
         SubscribeLocalEvent<MonumentComponent, ComponentInit>(OnStartMonument);
         SubscribeLocalEvent<MonumentComponent, InteractUsingEvent>(OnInfuseHeldEntropy);
         SubscribeLocalEvent<MonumentComponent, ActivateInWorldEvent>(OnInfuseEntropy);
@@ -221,8 +223,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
             var actionEnt = _actions.AddAction(uid, actionId);
             uid.Comp.ActionEntities.Add(actionEnt);
         }
-        if (TryComp<EyeComponent>(uid, out var eye))
-            _eye.SetVisibilityMask(uid, eye.VisibilityMask | MonumentComponent.LayerMask);
+        _eye.RefreshVisibilityMask(uid);
         _alerts.ShowAlert(uid, uid.Comp.EntropyAlert);
     }
 
@@ -232,6 +233,11 @@ public sealed partial class CosmicCultSystem : EntitySystem
     private void OnStartCultLead(Entity<CosmicCultLeadComponent> uid, ref ComponentInit args)
     {
         _actions.AddAction(uid, ref uid.Comp.CosmicMonumentPlaceActionEntity, uid.Comp.CosmicMonumentPlaceAction, uid);
+    }
+
+    private void OnGetVisMask(Entity<CosmicCultComponent> uid, ref GetVisMaskEvent args)
+    {
+        args.VisibilityMask |= (int)VisibilityFlags.CosmicCultMonument;
     }
 
     /// <summary>

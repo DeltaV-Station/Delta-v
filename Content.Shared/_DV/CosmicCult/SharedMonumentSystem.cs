@@ -8,6 +8,7 @@ using Content.Shared.UserInterface;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.CosmicCult;
@@ -28,7 +29,18 @@ public sealed class SharedMonumentSystem : EntitySystem
         SubscribeLocalEvent<MonumentComponent, GlyphSelectedMessage>(OnGlyphSelected);
         SubscribeLocalEvent<MonumentComponent, GlyphRemovedMessage>(OnGlyphRemove);
         SubscribeLocalEvent<MonumentComponent, InfluenceSelectedMessage>(OnInfluenceSelected);
+        SubscribeLocalEvent<MonumentOnDespawnComponent, TimedDespawnEvent>(OnTimedDespawn);
         SubscribeLocalEvent<MonumentCollisionComponent, PreventCollideEvent>(OnPreventCollide);
+    }
+
+    private void OnTimedDespawn(Entity<MonumentOnDespawnComponent> ent, ref TimedDespawnEvent args)
+    {
+        if (!TryComp<TransformComponent>(ent, out var xform))
+            return;
+
+        var monument = Spawn(ent.Comp.Prototype, xform.Coordinates);
+        var evt = new CosmicCultAssociateRuleEvent(ent, monument);
+        RaiseLocalEvent(ref evt);
     }
 
     public override void Update(float frameTime)
