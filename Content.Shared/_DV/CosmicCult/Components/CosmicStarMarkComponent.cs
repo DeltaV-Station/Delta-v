@@ -10,9 +10,8 @@ namespace Content.Shared._DV.CosmicCult.Components;
 [NetworkedComponent, RegisterComponent]
 public sealed partial class CosmicStarMarkComponent : Component
 {
-    public ResPath RsiPath = new("/Textures/_DV/CosmicCult/Effects/cultrevealed.rsi");
-
-    public readonly string States = "vfx";
+    [DataField]
+    public SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new("/Textures/_DV/CosmicCult/Effects/cultrevealed.rsi"), "vfx");
 }
 
 [Serializable, NetSerializable]

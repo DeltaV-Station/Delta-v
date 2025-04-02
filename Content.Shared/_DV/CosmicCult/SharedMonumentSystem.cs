@@ -71,9 +71,7 @@ public sealed class SharedMonumentSystem : EntitySystem
             return;
 
         if (ent.Comp.Enabled && HasComp<CosmicCultComponent>(args.Actor))
-        {
             _ui.SetUiState(ent.Owner, MonumentKey.Key, new MonumentBuiState(ent.Comp));
-        }
         else
             _ui.CloseUi(ent.Owner, MonumentKey.Key); //close the UI if the monument isn't available
     }

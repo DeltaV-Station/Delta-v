@@ -11,8 +11,7 @@ namespace Content.Shared._DV.CosmicCult.Components;
 public sealed partial class CosmicImposingComponent : Component
 {
     [DataField]
-    public ResPath RsiPath = new("/Textures/_DV/CosmicCult/Effects/ability_imposition_overlay.rsi");
-    public readonly string States = "vfx";
+    public SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new("/Textures/_DV/CosmicCult/Effects/ability_imposition_overlay.rsi"), "vfx");
 }
 
 [Serializable, NetSerializable]

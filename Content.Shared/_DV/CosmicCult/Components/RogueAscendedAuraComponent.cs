@@ -11,9 +11,7 @@ namespace Content.Shared._DV.CosmicCult.Components;
 public sealed partial class RogueAscendedAuraComponent : Component
 {
     [DataField]
-    public ResPath RsiPath = new("/Textures/_DV/CosmicCult/Effects/ascendantaura.rsi");
-
-    public readonly string States = "vfx";
+    public SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new("/Textures/_DV/CosmicCult/Effects/ascendantaura.rsi"), "vfx");
 }
 
 [Serializable, NetSerializable]
