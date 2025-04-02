@@ -15,8 +15,8 @@ public sealed class AmeFuelContainerSystem : EntitySystem
     /// <summary>
     /// Gets the price for the fuel in container.
     /// </summary>
-    private void CalculateFuelPrice(EntityUid uid, AmeFuelContainerComponent component, ref PriceCalculationEvent args)
+    private void CalculateFuelPrice(Entity<AmeFuelContainerComponent> ent, ref PriceCalculationEvent args)
     {
-        args.Price += component.FuelAmount * component.PricePerFuel;
+        args.Price += ent.Comp.FuelAmount * ent.Comp.PricePerFuel;
     }
 }
