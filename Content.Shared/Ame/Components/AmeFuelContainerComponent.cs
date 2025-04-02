@@ -19,6 +19,6 @@ public sealed partial class AmeFuelContainerComponent : Component
 
     // DeltaV start
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public float PricePerFuel = 2f;
+    public float PricePerFuel = 4f;
     // DeltaV end
 }
