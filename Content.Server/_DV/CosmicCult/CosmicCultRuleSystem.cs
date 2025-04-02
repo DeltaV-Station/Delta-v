@@ -100,6 +100,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly CosmicCorruptingSystem _corrupting = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
 
+    private ISawmill _sawmill = default!;
+
     private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/antag_cosmic_briefing.ogg");
     private readonly SoundSpecifier _deconvertSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/antag_cosmic_deconvert.ogg");
     private readonly SoundSpecifier _tier3Sound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/tier3.ogg");
@@ -109,6 +111,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     public override void Initialize()
     {
         base.Initialize();
+
+        _sawmill = IoCManager.Resolve<ILogManager>().GetSawmill("cosmiccult");
 
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnRunLevelChanged);
         SubscribeLocalEvent<CosmicCultAssociateRuleEvent>(OnAssociateRule);
@@ -763,10 +767,16 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     public Entity<CosmicCultRuleComponent>? AssociatedGamerule(EntityUid uid)
     {
         if (!TryComp<CosmicCultAssociatedRuleComponent>(uid, out var associated))
+        {
+            _sawmill.Debug("{0} has no associated rule", uid);
             return null;
+        }
 
         if (!TryComp<CosmicCultRuleComponent>(associated.CultGamerule, out var cult))
+        {
+            _sawmill.Debug("Associated gamerule {0} is not a cult gamerule", associated.CultGamerule);
             return null;
+        }
 
         return (associated.CultGamerule, cult);
     }

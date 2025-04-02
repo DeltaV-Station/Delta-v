@@ -17,11 +17,6 @@ public sealed partial class MonumentComponent : Component
     public SoundSpecifier InfusionSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/insert_entropy.ogg");
 
     /// <summary>
-    /// used to hide the monument from non-cultists
-    /// </summary>
-    [NonSerialized] public const int LayerMask = 777;
-
-    /// <summary>
     /// the list of glyphs that this monument is allowed to scribe
     /// </summary>
     [DataField, AutoNetworkedField]

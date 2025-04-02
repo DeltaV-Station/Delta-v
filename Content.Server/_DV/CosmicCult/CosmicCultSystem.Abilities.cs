@@ -330,7 +330,9 @@ public sealed partial class CosmicCultSystem : EntitySystem
         _actions.RemoveAction(uid, uid.Comp.CosmicMonumentPlaceActionEntity);
 
         Spawn("MonumentCollider", pos);
-        Spawn(uid.Comp.MonumentPrototype, pos);
+        var monument = Spawn(uid.Comp.MonumentPrototype, pos);
+
+        _cultRule.TransferCultAssociation(uid, monument);
     }
 
     private void OnCosmicMoveMonument(Entity<CosmicCultLeadComponent> uid, ref EventCosmicMoveMonument args)
