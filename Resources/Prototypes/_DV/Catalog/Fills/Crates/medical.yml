@@ -30,3 +30,14 @@
     contents:
     - id: Oilpack
       amount: 5
+
+- type: entity
+  parent: CrateMedicalSecure
+  id: CrateWatchdogImplants
+  name: watchdog implant crate
+  description: Crate with three Watchdog implanters.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WatchdogImplanter
+      amount: 3
