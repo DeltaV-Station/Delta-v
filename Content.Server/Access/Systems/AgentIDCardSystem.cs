@@ -55,7 +55,7 @@ namespace Content.Server.Access.Systems
             access.Tags.UnionWith(targetAccess.Tags);
             var addedLength = access.Tags.Count - beforeLength;
 
-            // DeltaV - Copy NanoChat data if available
+            // Begin DeltaV Additions - Copy NanoChat data if available
             if (TryComp<NanoChatCardComponent>(args.Target, out var targetNanoChat) &&
                 TryComp<NanoChatCardComponent>(uid, out var agentNanoChat))
             {
@@ -81,23 +81,10 @@ namespace Content.Server.Access.Systems
                     }
                 }
             }
-            // End DeltaV
-
-            if (addedLength == 0)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("agent-id-no-new", ("card", args.Target)), args.Target.Value, args.User);
-                return;
-            }
-
-            Dirty(uid, access);
-
-            if (addedLength == 1)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("agent-id-new-1", ("card", args.Target)), args.Target.Value, args.User);
-                return;
-            }
-
+            // End DeltaV Additions
             _popupSystem.PopupEntity(Loc.GetString("agent-id-new", ("number", addedLength), ("card", args.Target)), args.Target.Value, args.User);
+            if (addedLength > 0)
+                Dirty(uid, access);
         }
 
         private void AfterUIOpen(EntityUid uid, AgentIDCardComponent component, AfterActivatableUIOpenEvent args)
