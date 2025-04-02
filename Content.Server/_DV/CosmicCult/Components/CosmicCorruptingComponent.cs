@@ -1,6 +1,7 @@
 using Content.Server._DV.CosmicCult.EntitySystems;
 using Content.Shared.Maps;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server._DV.CosmicCult.Components;
 
@@ -11,7 +12,7 @@ public sealed partial class CosmicCorruptingComponent : Component
     /// <summary>
     /// Our timer for corruption checks.
     /// </summary>
-    [ViewVariables]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField] public TimeSpan CorruptionTimer = default!;
 
     /// <summary>

@@ -154,7 +154,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
             {
                 _stun.TryStun(target, TimeSpan.FromSeconds(4f), false);
                 _damageable.TryChangeDamage(target, uid.Comp.ConversionHeal * -1);
-                _cultRule.CosmicConversion(target);
+                _cultRule.CosmicConversion(uid, target);
                 var finaleQuery = EntityQueryEnumerator<CosmicFinaleComponent>(); // Enumerator for The Monument's Finale
                 while (finaleQuery.MoveNext(out var monument, out var comp) && comp.CurrentState == FinaleState.ActiveBuffer)
                 {

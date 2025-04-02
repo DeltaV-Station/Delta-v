@@ -1,4 +1,5 @@
 using Content.Server.RoundEnd;
+using Content.Shared._DV.CosmicCult.Components;
 
 namespace Content.Server._DV.CosmicCult.Components;
 
@@ -46,6 +47,47 @@ public sealed partial class CosmicCultRuleComponent : Component
 
     [DataField]
     public WinType WinType = WinType.CrewMinor;
+
+    /// <summary>
+    ///     The cult's monument
+    /// </summary>
+    public Entity<MonumentComponent> MonumentInGame;
+
+    /// <summary>
+    ///     The slow zone of the spawned monument
+    /// </summary>
+    [DataField]
+    public EntityUid MonumentSlowZone;
+
+    /// <summary>
+    ///     Current tier of the cult
+    /// </summary>
+    [DataField]
+    public int CurrentTier;
+
+    /// <summary>
+    ///     Amount of present crew
+    /// </summary>
+    [DataField]
+    public int TotalCrew;
+
+    /// <summary>
+    ///     Amount of cultists
+    /// </summary>
+    [DataField]
+    public int TotalCult;
+
+    /// <summary>
+    ///     Percentage of crew that have been converted into cultists
+    /// </summary>
+    [DataField]
+    public double PercentConverted;
+
+    /// <summary>
+    ///     How much entropy has been siphoned by the cult
+    /// </summary>
+    [DataField]
+    public int EntropySiphoned;
 }
 
 // CosmicCultRuleComponent

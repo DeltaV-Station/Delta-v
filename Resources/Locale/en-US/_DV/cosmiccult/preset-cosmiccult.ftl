@@ -183,5 +183,5 @@ cosmiccult-announce-victory-summon = A FRACTION OF COSMIC POWER IS CALLED FORTH.
 cosmiccult-spire-entropy = A mote of entropy condenses from the surface of the spire.
 cosmiccult-entropy-inserted = You infuse {$count} entropy into The Monument.
 cosmiccult-entropy-unavailable = You can't do that right now.
-cosmiccult-astral-ascendant = {$NAME}, Ascendant
+cosmiccult-astral-ascendant = {$name}, Ascendant
 cosmiccult-gear-pickup-rejection = The {$ITEM} resists {CAPITALIZE(THE($TARGET))}'s touch!
