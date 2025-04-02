@@ -34,13 +34,13 @@
   id: ClothingHeadHelmetHardsuitJuggernautReverseEngineered
   categories: [ HideSpawnMenu ]
   name: SA-127 combat hardsuit helmet
-  description: An assault hardsuit helmet featuring tremendously thick armor plating.
+  description: An assault hardsuit helmet featuring a top-secret translucent polymer.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/ReverseEngineering/juggernaut.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/ReverseEngineering/juggernaut.rsi
-  - type: PointLight
+  - type: PointLight # DeltaV
     color: aquamarine
 
 - type: entity
