@@ -1,4 +1,4 @@
-using Content.Shared._DV.Cosmiccult;
+using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Prototypes;
 using Content.Shared.Actions;
@@ -87,6 +87,8 @@ public sealed class SharedMonumentSystem : EntitySystem
 
         var glyphEnt = Spawn(proto.Entity, _map.ToCenterCoordinates(xform.GridUid.Value, targetIndices, grid));
         ent.Comp.CurrentGlyph = glyphEnt;
+        var evt = new CosmicCultAssociateRuleEvent(ent, glyphEnt);
+        RaiseLocalEvent(ref evt);
 
         _ui.SetUiState(ent.Owner, MonumentKey.Key, new MonumentBuiState(ent.Comp));
     }

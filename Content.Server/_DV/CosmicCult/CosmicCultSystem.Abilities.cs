@@ -17,7 +17,6 @@ using System.Collections.Immutable;
 using Content.Server._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Server.Light.Components;
-using Content.Shared._DV.Cosmiccult;
 using Robust.Shared.Physics.Events;
 using Content.Shared.NPC;
 using Content.Shared.Mobs.Components;
@@ -28,6 +27,7 @@ using Content.Shared.Physics;
 using System.Linq;
 using Timer = Robust.Shared.Timing.Timer;
 using Robust.Shared.Map;
+using Content.Shared.Polymorph;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -53,7 +53,9 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
     private void MalignEcho(Entity<CosmicCultComponent> uid)
     {
-        if (_cultRule.CurrentTier > 1 && !_random.Prob(0.5f))
+        if (_cultRule.AssociatedGamerule(uid) is not {} cult)
+            return;
+        if (cult.Comp.CurrentTier > 1 && !_random.Prob(0.5f))
             Spawn("CosmicEchoVfx", Transform(uid).Coordinates);
     }
 
@@ -301,34 +303,13 @@ public sealed partial class CosmicCultSystem : EntitySystem
         var tgtpos = Transform(action.Target).Coordinates;
         Spawn(uid.Comp.LapseVFX, tgtpos);
         _popup.PopupEntity(Loc.GetString("cosmicability-lapse-success", ("target", Identity.Entity(action.Target, EntityManager))), uid, uid);
-        TryComp<HumanoidAppearanceComponent>(action.Target, out HumanoidAppearanceComponent? species);
-        switch (species!.Species) // We use a switch case for all the species polymorphs. Why? It uses wizden code, leans on YML, and it could be worse.
-        {
-            case "Human":
-                _polymorph.PolymorphEntity(action.Target, "CosmicLapseMobHuman");
-                break;
-            case "Arachnid":
-                _polymorph.PolymorphEntity(action.Target, "CosmicLapseMobArachnid");
-                break;
-            case "Diona":
-                _polymorph.PolymorphEntity(action.Target, "CosmicLapseMobDiona");
-                break;
-            case "Moth":
-                _polymorph.PolymorphEntity(action.Target, "CosmicLapseMobMoth");
-                break;
-            case "Vox":
-                _polymorph.PolymorphEntity(action.Target, "CosmicLapseMobVox");
-                break;
-            case "Gastropoid":
-                _polymorph.PolymorphEntity(action.Target, "CosmicLapseMobSnail");
-                break;
-            case "Decapoid":
-                _polymorph.PolymorphEntity(action.Target, "CosmicLapseMobDecapoid");
-                break;
-            default:
-                _polymorph.PolymorphEntity(action.Target, "CosmicLapseMobHuman");
-                break;
-        }
+        var species = Comp<HumanoidAppearanceComponent>(action.Target).Species;
+        var polymorphId = "CosmicLapseMob" + species;
+
+        if (_prototype.HasIndex<PolymorphPrototype>(polymorphId))
+            _polymorph.PolymorphEntity(action.Target, polymorphId);
+        else
+            _polymorph.PolymorphEntity(action.Target, "CosmicLapseMobHuman");
         MalignEcho(uid);
     }
     #endregion
@@ -354,6 +335,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
     private void OnCosmicMoveMonument(Entity<CosmicCultLeadComponent> uid, ref EventCosmicMoveMonument args)
     {
+        if (_cultRule.AssociatedGamerule(uid) is not {} cult)
+            return;
 
         if (!VerifyPlacement(uid, out var pos))
             return;
@@ -370,11 +353,11 @@ public sealed partial class CosmicCultSystem : EntitySystem
         //spawn the destination effect first because we only need one
         var destEnt = Spawn("MonumentCosmicCultMoveEnd", pos);
         var destComp = EnsureComp<MonumentMoveDestinationComponent>(destEnt);
-        var coords = Transform(_cultRule.MonumentInGame).Coordinates;
+        var coords = Transform(cult.Comp.MonumentInGame).Coordinates;
         Spawn("MonumentCollider", pos); //spawn a new collider
 
         Spawn("MonumentCosmicCultMoveStart", coords);
-        Spawn("MonumentCollider", Transform(_cultRule.MonumentInGame).Coordinates); //spawn a new collider
+        Spawn("MonumentCollider", Transform(cult.Comp.MonumentInGame).Coordinates); //spawn a new collider
 
         //timers!
         //move the monument to cheese world (the storage map)
@@ -383,11 +366,11 @@ public sealed partial class CosmicCultSystem : EntitySystem
             () =>
             {
                 //todo check if anything gets messed up by doing this to the monument?
-                _transform.SetParent(_cultRule.MonumentInGame, EnsureStorageMapExists());
-                destComp.Monument = _cultRule.MonumentInGame; //only get the first monument
+                _transform.SetParent(cult.Comp.MonumentInGame, EnsureStorageMapExists());
+                destComp.Monument = cult.Comp.MonumentInGame; //only get the first monument
 
-                if (_cultRule.MonumentInGame.Comp.CurrentGlyph is not null) //delete the scribed glyph as well
-                    QueueDel(_cultRule.MonumentInGame.Comp.CurrentGlyph);
+                if (cult.Comp.MonumentInGame.Comp.CurrentGlyph is not null) //delete the scribed glyph as well
+                    QueueDel(cult.Comp.MonumentInGame.Comp.CurrentGlyph);
 
                 //close the UI for everyone who has it open
                 if (TryComp<UserInterfaceComponent>(uid, out var uiComp))

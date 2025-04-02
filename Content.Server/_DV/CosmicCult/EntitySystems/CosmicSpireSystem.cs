@@ -68,7 +68,10 @@ public sealed class CosmicSpireSystem : EntitySystem
             comp.Storage.Clear();
             Spawn(comp.SpawnVFX, Transform(uid).Coordinates);
             Spawn(comp.EntropyMote, Transform(uid).Coordinates);
-            _cosmicRule.EntropySiphoned++;
+
+            if (_cosmicRule.AssociatedGamerule(uid) is not {} cult)
+                return;
+            cult.Comp.EntropySiphoned++;
         }
     }
 
