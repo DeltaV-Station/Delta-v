@@ -1,0 +1,106 @@
+using System.Collections.Immutable;
+using Content.Server._DV.CosmicCult.Components;
+using Content.Server.Bible.Components;
+using Content.Server.Popups;
+using Content.Shared._DV.CosmicCult;
+using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Components.Examine;
+using Content.Shared.DoAfter;
+using Content.Shared.Effects;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
+using Content.Shared.NPC;
+using Content.Shared.Stunnable;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
+
+namespace Content.Server._DV.CosmicCult.Abilities;
+
+public sealed class CosmicBlankSystem : EntitySystem
+{
+    [Dependency] private readonly CosmicCultSystem _cult = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+
+        private void OnCosmicBlank(Entity<CosmicCultComponent> uid, ref EventCosmicBlank args)
+    {
+        if (HasComp<CosmicCultComponent>(args.Target) || HasComp<CosmicMarkBlankComponent>(args.Target) || HasComp<BibleUserComponent>(args.Target) || HasComp<ActiveNPCComponent>(args.Target))
+        {
+            _popup.PopupEntity(Loc.GetString("cosmicability-generic-fail"), uid, uid);
+            return;
+        }
+        if (args.Handled)
+            return;
+
+        var doargs = new DoAfterArgs(EntityManager, uid, uid.Comp.CosmicBlankDelay, new EventCosmicBlankDoAfter(), uid, args.Target)
+        {
+            DistanceThreshold = 1.5f,
+            Hidden = false,
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            BreakOnDropItem = true,
+        };
+        args.Handled = true;
+        _doAfter.TryStartDoAfter(doargs);
+        _popup.PopupEntity(Loc.GetString("cosmicability-blank-begin", ("target", Identity.Entity(uid, EntityManager))), uid, args.Target);
+    }
+
+    private void OnCosmicBlankDoAfter(Entity<CosmicCultComponent> uid, ref EventCosmicBlankDoAfter args)
+    {
+        if (args.Args.Target == null)
+            return;
+        var target = args.Args.Target.Value;
+        if (args.Cancelled || args.Handled)
+            return;
+        args.Handled = true;
+
+        if (!TryComp<MindContainerComponent>(target, out var mindContainer) || !mindContainer.HasMind)
+        {
+            return;
+        }
+
+        EnsureComp<CosmicMarkBlankComponent>(target);
+        _popup.PopupEntity(Loc.GetString("cosmicability-blank-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
+        var tgtpos = Transform(target).Coordinates;
+        var mindEnt = mindContainer.Mind.Value;
+        var mind = Comp<MindComponent>(mindEnt);
+        var comp = uid.Comp;
+        mind.PreventGhosting = true;
+
+        var spawnPoints = EntityManager.GetAllComponents(typeof(CosmicVoidSpawnComponent)).ToImmutableList();
+        if (spawnPoints.IsEmpty)
+        {
+            return;
+        }
+        _audio.PlayPvs(comp.BlankSFX, uid, AudioParams.Default.WithVolume(6f));
+        Spawn(comp.BlankVFX, tgtpos);
+        var newSpawn = _random.Pick(spawnPoints);
+        var spawnTgt = Transform(newSpawn.Uid).Coordinates;
+        var mobUid = Spawn(comp.SpawnWisp, spawnTgt);
+        EnsureComp<InVoidComponent>(mobUid, out var inVoid);
+        inVoid.OriginalBody = target;
+        inVoid.ExitVoidTime = _timing.CurTime + comp.CosmicBlankDuration;
+        _mind.TransferTo(mindEnt, mobUid);
+        _stun.TryKnockdown(target, comp.CosmicBlankDuration + TimeSpan.FromSeconds(2), true);
+        _popup.PopupEntity(Loc.GetString("cosmicability-blank-transfer"), mobUid, mobUid);
+        _audio.PlayPvs(comp.BlankSFX, spawnTgt, AudioParams.Default.WithVolume(6f));
+        _color.RaiseEffect(Color.CadetBlue, new List<EntityUid>() { target }, Filter.Pvs(target, entityManager: EntityManager));
+        Spawn(comp.BlankVFX, spawnTgt);
+        _cult.MalignEcho(uid);
+    }
+}

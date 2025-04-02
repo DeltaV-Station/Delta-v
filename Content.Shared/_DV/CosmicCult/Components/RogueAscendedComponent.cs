@@ -9,25 +9,24 @@ namespace Content.Shared._DV.CosmicCult.Components;
 /// Component to designate a mob as a rogue astral ascendant.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
 public sealed partial class RogueAscendedComponent : Component
 {
     /// <summary>
     /// The duration of our slumber DoAfter.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan RogueSlumberDoAfterTime = TimeSpan.FromSeconds(1);
 
     /// <summary>
     /// The duration of our infection DoAfter.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan RogueInfectionDoAfterTime = TimeSpan.FromSeconds(8);
 
     /// <summary>
     /// The duration inflicted by Slumber Shell
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan RogueSlumberTime = TimeSpan.FromSeconds(25);
 
     [DataField]
@@ -42,7 +41,7 @@ public sealed partial class RogueAscendedComponent : Component
     [DataField]
     public EntProtoId Vfx = "CosmicGenericVFX";
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan StunTime = TimeSpan.FromSeconds(7);
 
     [DataField]

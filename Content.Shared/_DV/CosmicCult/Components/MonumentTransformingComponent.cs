@@ -4,7 +4,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared._DV.CosmicCult.Components;
 
 [RegisterComponent, NetworkedComponent]
- [AutoGenerateComponentState, AutoGenerateComponentPause]
+[AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class MonumentTransformingComponent : Component
 {
     /// <summary>

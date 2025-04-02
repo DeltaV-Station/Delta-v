@@ -10,8 +10,9 @@ namespace Content.Shared._DV.CosmicCult.Components;
 [NetworkedComponent, RegisterComponent]
 public sealed partial class RogueAscendedInfectionComponent : Component
 {
-    public ResPath RsiPath = new("/Textures/_DV/CosmicCult/Effects/ascendantinfection.rsi");
-    public readonly string States = "vfx";
+    [DataField]
+    public SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new("/Textures/_DV/CosmicCult/Effects/ascendantinfection.rsi"), "vfx");
+
     [DataField] public bool HadMoods;
 }
 

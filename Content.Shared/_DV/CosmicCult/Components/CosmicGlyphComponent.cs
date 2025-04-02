@@ -25,8 +25,3 @@ public sealed class TryActivateGlyphEvent(EntityUid user, HashSet<EntityUid> cul
     public EntityUid User = user;
     public HashSet<EntityUid> Cultists = cultists;
 }
-
-public sealed class AfterGlyphPlaced(EntityUid user)
-{
-    public EntityUid User = user;
-}

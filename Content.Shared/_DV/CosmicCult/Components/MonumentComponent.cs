@@ -4,16 +4,18 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._DV.CosmicCult.Components;
-[NetworkedComponent, RegisterComponent, AutoGenerateComponentState]
-[AutoGenerateComponentPause]
+
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class MonumentComponent : Component
 {
     /// <summary>
     /// The sound effect played when entropy is infused into The Monument.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public SoundSpecifier InfusionSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/insert_entropy.ogg");
 
     /// <summary>
@@ -73,7 +75,7 @@ public sealed partial class MonumentComponent : Component
     /// <summary>
     /// the timer used for ticking healing from vacuous vitality
     /// </summary>
-    [AutoPausedField, DataField]
+    [AutoPausedField, DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan CheckTimer = default!;
 
     /// <summary>
@@ -83,7 +85,7 @@ public sealed partial class MonumentComponent : Component
     public TimeSpan CheckWait = TimeSpan.FromSeconds(5);
 
     /// <summary>
-    /// what the monument heals
+    /// Passive healing factor for cultists w/ the ability near the monument
     /// </summary>
     [DataField]
     public DamageSpecifier MonumentHealing = new()

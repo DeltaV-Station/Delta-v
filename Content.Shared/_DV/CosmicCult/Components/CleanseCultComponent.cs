@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._DV.CosmicCult.Components;
 
@@ -9,7 +10,7 @@ namespace Content.Shared._DV.CosmicCult.Components;
 [AutoGenerateComponentPause]
 public sealed partial class CleanseCultComponent : Component
 {
-    [ViewVariables]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
     public TimeSpan CleanseTime = default!;
 
