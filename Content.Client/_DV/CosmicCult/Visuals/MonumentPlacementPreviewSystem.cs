@@ -13,6 +13,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
+using Timer = Robust.Shared.Timing.Timer;
+
 namespace Content.Client._DV.CosmicCult.Visuals;
 
 /// <summary>
@@ -21,16 +23,14 @@ namespace Content.Client._DV.CosmicCult.Visuals;
 public sealed class MonumentPlacementPreviewSystem : EntitySystem
 {
     //most of these aren't used by this system, see MonumentPlacementPreviewOverlay for a note on why they're here
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IOverlayManager _overlay = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     private MonumentPlacementPreviewOverlay? _cachedOverlay;
     private CancellationTokenSource? _cancellationTokenSource;
@@ -58,7 +58,7 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
 
         //remove the overlay automatically after the primeTime expires
         //no cancellation token for this one as this'll never need to get cancelled afaik
-        Robust.Shared.Timing.Timer.Spawn(TimeSpan.FromSeconds(3.8), //anim takes 3.8s, might want to have the ghost disappear earlier but eh todo tune this to whatever anim I end up on for the move
+        Timer.Spawn(TimeSpan.FromSeconds(3.8), //anim takes 3.8s, might want to have the ghost disappear earlier but eh todo tune this to whatever anim I end up on for the move
             () =>
             {
                 _overlay.RemoveOverlay<MonumentPlacementPreviewOverlay>();
@@ -93,7 +93,7 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
 
         //remove the overlay automatically after the primeTime expires
         //no cancellation token for this one as this'll never need to get cancelled afaik
-        Robust.Shared.Timing.Timer.Spawn(TimeSpan.FromSeconds(3.8), //anim takes 3.8s, might want to have the ghost disappear earlier but eh
+        Timer.Spawn(TimeSpan.FromSeconds(3.8), //anim takes 3.8s, might want to have the ghost disappear earlier but eh
             () =>
             {
                 _overlay.RemoveOverlay<MonumentPlacementPreviewOverlay>();
@@ -170,7 +170,7 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
         _cancellationTokenSource = new CancellationTokenSource();
         //it's probably inefficient to make a new one every time, but this'll be happening like four times a round maybe
         //massive ctor because iocmanager hates me
-        _cachedOverlay = new MonumentPlacementPreviewOverlay(_entityManager, _player, _sprite, _map, _proto, this, _timing, ent.Comp.Tier);
+        _cachedOverlay = new MonumentPlacementPreviewOverlay(EntityManager, _player, _proto, _timing, ent.Comp.Tier);
         _overlay.AddOverlay(_cachedOverlay);
 
         StartTimers(confirmableAction, _cancellationTokenSource, _cachedOverlay);
@@ -190,7 +190,7 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
         );
 
         //start a timer to start the fade out as well, with the same cancellation token
-        Robust.Shared.Timing.Timer.Spawn(comp.PrimeTime + comp.ConfirmDelay - TimeSpan.FromSeconds(overlay.fadeOutTime),
+        Timer.Spawn(comp.PrimeTime + comp.ConfirmDelay - TimeSpan.FromSeconds(overlay.fadeOutTime),
             () =>
             {
                 overlay.fadingOut = true;

@@ -49,13 +49,13 @@ public sealed class MonumentPlacementPreviewOverlay : Overlay
     //also I kinda want wrappers around the dog ass existing arbitrary rendering methods
 
     //evil huge ctor because doing iocmanager stuff was killing the client for some reason
-    public MonumentPlacementPreviewOverlay(IEntityManager entityManager, IPlayerManager playerManager, SpriteSystem spriteSystem, SharedMapSystem mapSystem, IPrototypeManager protoMan, MonumentPlacementPreviewSystem preview, IGameTiming timing, int tier)
+    public MonumentPlacementPreviewOverlay(IEntityManager entityManager, IPlayerManager playerManager, IPrototypeManager protoMan, IGameTiming timing, int tier)
     {
         _ent = entityManager;
         _player = playerManager;
-        _sprite = spriteSystem;
-        _map = mapSystem;
-        _preview = preview;
+        _sprite = _ent.System<SpriteSystem>();
+        _map = _ent.System<SharedMapSystem>();
+        _preview = _ent.System<MonumentPlacementPreviewSystem>();
         _timing = timing;
 
         _saturationShader = protoMan.Index<ShaderPrototype>("SaturationShuffle").InstanceUnique();

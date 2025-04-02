@@ -130,6 +130,11 @@ public sealed partial class CosmicCultComponent : Component
     public ProtoId<AlertPrototype> EntropyAlert = "CosmicEntropy";
     #endregion
 
+    /// <summary>
+    ///     The gamerule that this cultist is associated with
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public EntityUid CultGamerule;
 
     #region VFX & SFX
     [DataField] public EntProtoId SpawnWisp = "MobCosmicWisp";
