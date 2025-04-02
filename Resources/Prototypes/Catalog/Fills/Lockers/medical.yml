@@ -184,11 +184,16 @@
       - id: ClothingHandsGlovesLatex
       - id: ClothingHeadsetMedical
       - id: ClothingMaskSterile
-      - id: ClothingShoesBootsWinterParamedic # DeltaV - Add departmental winter boots
-      - id: BoxBodyBag # DeltaV - Give paramedics a body bag
-      - id: MedkitFilled
+      # Begin DeltaV additions
+      - id: ClothingShoesBootsWinterParamedic
+      - id: BoxBodyBag
+      - id: EmergencyRollerBedSpawnFolded
+      - id: EmergencyJawsOfLife
+      - id: HandheldCrewMonitor
+      - id: LunchboxMedicalFilledRandom
         prob: 0.3
-      - id: LunchboxMedicalFilledRandom # DeltaV - Lunchboxes!
+      # End DeltaV additions
+      - id: MedkitFilled
         prob: 0.3
 
 - type: entity
@@ -208,13 +213,15 @@
       - id: ClothingHandsGlovesLatex
       - id: ClothingHeadsetMedical
       - id: ClothingMaskSterile
-      - id: ClothingShoesBootsWinterParamedic # DeltaV - Add departmental winter boots
-      - id: BoxBodyBag # DeltaV - Give paramedics a body bag
-      - id: EmergencyRollerBedSpawnFolded # DeltaV - move paramedic loadout to locker
-      - id: EmergencyJawsOfLife # DeltaV - Add Emergency Jaws of Life
-      - id: HandheldCrewMonitor # DeltaV - Give Paramedics useful tools on spawn
+      # Begin DeltaV additions
+      - id: ClothingShoesBootsWinterParamedic
+      - id: BoxBodyBag
+      - id: EmergencyRollerBedSpawnFolded
+      - id: EmergencyJawsOfLife
+      - id: HandheldCrewMonitor
+      - id: LunchboxMedicalFilledRandom
+        prob: 0.3
+      # End DeltaV additions
       - id: HandheldGPSBasic
       - id: MedkitFilled
-        prob: 0.3
-      - id: LunchboxMedicalFilledRandom # DeltaV - Lunchboxes!
         prob: 0.3
