@@ -1,10 +1,24 @@
 - type: entity
-  parent: [ClothingShoesBootsMagBase, BaseSecurityContraband]
+  parent: [ClothingShoesMilitaryBase, ClothingShoesBootsSecFilled, BaseRestrictedContraband]
   id: ClothingShoesBootsSecurityMagboots
   name: security magboots
-  description: Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle. These ones bear security markings.
+  description: Magnetic boots, with the toggle mechanism removed in order to allow small weaponry to fit in.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Shoes/Boots/magboots-security.rsi
+    layers:
+    - state: icon
   - type: Clothing
     sprite: _DV/Clothing/Shoes/Boots/magboots-security.rsi
+    equipDelay: 1
+    unequipDelay: 1
+  - type: NoSlip
+  - type: Magboots
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.8
+  - type: StaticPrice
+    price: 450
+  - type: Tag
+    tags:
+    - WhitelistChameleon
