@@ -16,8 +16,8 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client._DV.CosmicCult.UI.Monument;
-[GenerateTypedNameReferences]
 
+[GenerateTypedNameReferences]
 public sealed partial class MonumentMenu : FancyWindow
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -28,7 +28,7 @@ public sealed partial class MonumentMenu : FancyWindow
     private readonly SpriteSystem _sprite;
 
     // All glyph prototypes
-    private readonly List<GlyphPrototype> _glyphPrototypes;
+    private readonly IEnumerable<GlyphPrototype> _glyphPrototypes;
     // All influence prototypes
     private readonly IEnumerable<InfluencePrototype> _influencePrototypes;
     private readonly ButtonGroup _glyphButtonGroup;
@@ -38,7 +38,7 @@ public sealed partial class MonumentMenu : FancyWindow
     public Action? OnRemoveGlyphButtonPressed;
 
     public Action<ProtoId<InfluencePrototype>>? OnGainButtonPressed;
-    private int _ccEntropyValue = 0;
+    private int _entropyPerCultist = 0;
 
     public MonumentMenu()
     {
@@ -46,9 +46,8 @@ public sealed partial class MonumentMenu : FancyWindow
         IoCManager.InjectDependencies(this);
         _sprite = _ent.System<SpriteSystem>();
 
-        _glyphPrototypes = _proto.EnumeratePrototypes<GlyphPrototype>().ToList();
-        _glyphPrototypes.Sort((x, y) =>
-            string.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
+        _glyphPrototypes = _proto.EnumeratePrototypes<GlyphPrototype>()
+            .OrderBy(glyph => Loc.GetString(glyph.Name));
         _influencePrototypes = _proto.EnumeratePrototypes<InfluencePrototype>();
 
         _glyphButtonGroup = new ButtonGroup();
@@ -58,7 +57,7 @@ public sealed partial class MonumentMenu : FancyWindow
 
         _cfg.OnValueChanged(DCCVars.CosmicCultistEntropyValue, entropy =>
         {
-            _ccEntropyValue = entropy;
+            _entropyPerCultist = entropy;
         },
         invokeImmediately: true);
     }
@@ -71,39 +70,40 @@ public sealed partial class MonumentMenu : FancyWindow
         CultProgressBar.BackgroundStyleBoxOverride = new StyleBoxFlat { BackgroundColor = new Color(15, 17, 30) };
         CultProgressBar.ForegroundStyleBoxOverride = new StyleBoxFlat { BackgroundColor = new Color(91, 62, 124) };
 
-        SelectGlyphButton.StyleClasses.Add("ButtonColorPurpleAndCool");
-        RemoveGlyphButton.StyleClasses.Add("ButtonColorPurpleAndCool");
-
         UpdateBar(state);
         UpdateEntropy(state);
         UpdateGlyphs();
         UpdateInfluences(state);
     }
 
-    // Update all the entropy fields
+    /// <summary>
+    ///     Updates the progress bar
+    /// </summary>
     private void UpdateBar(MonumentBuiState state)
     {
-        var percentComplete = ((float) state.CurrentProgress / (float) state.TargetProgress) * 100f; //too many parenthesis & probably unnecessary float casts but I'm not taking any chances
+        var percentComplete = 100f * ((float)state.CurrentProgress / state.TargetProgress);
 
-        percentComplete = Math.Min(percentComplete, 100);
+        percentComplete = Math.Min(percentComplete, 100f);
 
         CultProgressBar.Value = percentComplete;
 
         ProgressBarPercentage.Text = Loc.GetString("monument-interface-progress-bar", ("percentage", percentComplete.ToString("0")));
     }
 
-    // Update all the entropy fields
+    /// <summary>
+    ///     Updates the entropy fields
+    /// </summary>
     private void UpdateEntropy(MonumentBuiState state)
     {
-        var availableEntropy = "thinking emoji"; //if you see this, problem.
+        int availableEntropy = -1;
         if (_ent.TryGetComponent<CosmicCultComponent>(_player.LocalEntity, out var cultComp))
         {
-            availableEntropy = cultComp.EntropyBudget.ToString();
+            availableEntropy = cultComp.EntropyBudget;
         }
 
         var entropyToNextStage = Math.Max(state.TargetProgress - state.CurrentProgress, 0);
         var min = entropyToNextStage == 0 ? 0 : 1; //I have no idea what to call this. makes it so that it shows 0 crew for the final stage but at least one at all other times
-        var crewToNextStage = (int)Math.Max(Math.Round((double)entropyToNextStage / _ccEntropyValue, MidpointRounding.ToPositiveInfinity), min); //force it to be at least one
+        var crewToNextStage = (int)Math.Max(Math.Round((double)entropyToNextStage / _entropyPerCultist, MidpointRounding.ToPositiveInfinity), min); //force it to be at least one
 
         AvailableEntropy.Text = Loc.GetString("monument-interface-entropy-value", ("infused", availableEntropy));
         EntropyUntilNextStage.Text = Loc.GetString("monument-interface-entropy-value", ("infused", entropyToNextStage.ToString()));
@@ -135,8 +135,8 @@ public sealed partial class MonumentMenu : FancyWindow
                 TextureScale = new Vector2(2f, 2f),
                 Stretch = TextureRect.StretchMode.KeepCentered,
             };
-            boxContainer.AddChild(button);
             button.AddChild(glyphIcon);
+            boxContainer.AddChild(button);
             GlyphContainer.AddChild(boxContainer);
         }
     }
@@ -157,11 +157,7 @@ public sealed partial class MonumentMenu : FancyWindow
 
         //sort the list of UI boxes by state (locked -> owned -> not enough entropy -> enough entropy)
         //then sort alphabetically within those categories
-        influenceUIBoxes = influenceUIBoxes.OrderBy(box => box.State)
-            .ThenBy(box => box.Proto.ID)
-            .ToList();
-
-        foreach (var box in influenceUIBoxes)
+        foreach (var box in influenceUIBoxes.OrderBy(box => box.State).ThenBy(box => box.Proto.ID))
         {
             InfluencesContainer.AddChild(box);
         }
@@ -173,7 +169,7 @@ public sealed partial class MonumentMenu : FancyWindow
             return InfluenceUIBox.InfluenceUIBoxState.Locked; //early return with locked if there's somehow no cult comp
 
         var unlocked = cultComp.UnlockedInfluences.Contains(influence.ID);
-        var owned = cultComp.OwnedInfluences.Any(ownedProtoId => ownedProtoId.Id.Equals(influence.ID));
+        var owned = cultComp.OwnedInfluences.Contains(influence);
 
         //more verbose than it needs to be, but it reads nicer
         if (owned)

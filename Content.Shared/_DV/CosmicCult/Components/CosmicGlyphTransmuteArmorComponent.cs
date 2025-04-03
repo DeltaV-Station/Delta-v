@@ -13,6 +13,5 @@ public sealed partial class CosmicGlyphTransmuteArmorComponent : Component
     /// <summary>
     ///     The armor for transmuting.
     /// </summary>
-    ///
     [DataField] public EntProtoId TransmuteArmor = "ClothingOuterHardsuitCosmicCult";
 }

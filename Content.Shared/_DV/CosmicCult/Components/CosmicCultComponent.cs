@@ -42,6 +42,7 @@ public sealed partial class CosmicCultComponent : Component
         "ActionCosmicSiphon",
         "ActionCosmicGlare",
     ];
+
     public HashSet<EntityUid?> ActionEntities = [];
 
     [DataField]
@@ -150,7 +151,6 @@ public sealed partial class CosmicCultComponent : Component
     [DataField] public SoundSpecifier GlareSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_glare.ogg");
     [DataField] public SoundSpecifier NovaCastSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_nova_cast.ogg");
     [DataField] public SoundSpecifier ImpositionSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_imposition.ogg");
-
     #endregion
 }
 

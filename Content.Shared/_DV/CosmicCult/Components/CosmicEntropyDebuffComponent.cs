@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._DV.CosmicCult.Components;
 
@@ -10,7 +11,9 @@ namespace Content.Shared._DV.CosmicCult.Components;
 [AutoGenerateComponentPause]
 public sealed partial class CosmicEntropyDebuffComponent : Component
 {
-    [AutoPausedField] public TimeSpan CheckTimer = default!;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoPausedField]
+    public TimeSpan CheckTimer = default!;
 
     [DataField]
     public TimeSpan CheckWait = TimeSpan.FromSeconds(1);

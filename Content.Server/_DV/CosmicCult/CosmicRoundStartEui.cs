@@ -2,7 +2,7 @@ using Content.Server.EUI;
 
 namespace Content.Server._DV.CosmicCult;
 
-public sealed class CosmicRoundStartEui : BaseEui
-{
-    // serverside it does nothing since its just to inform the player
-}
+/// <summary>
+///     Does nothing on the server as this is an informational popup
+/// </summary>
+public sealed class CosmicRoundStartEui : BaseEui;

@@ -13,7 +13,8 @@ public sealed partial class RogueAscendedInfectionComponent : Component
     [DataField]
     public SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new("/Textures/_DV/CosmicCult/Effects/ascendantinfection.rsi"), "vfx");
 
-    [DataField] public bool HadMoods;
+    [DataField]
+    public bool HadMoods;
 }
 
 [Serializable, NetSerializable]

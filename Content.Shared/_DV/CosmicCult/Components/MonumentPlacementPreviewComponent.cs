@@ -5,7 +5,7 @@ namespace Content.Shared._DV.CosmicCult.Components;
 /// could probably have a better name but idrk.
 /// </summary>
 [RegisterComponent]
-public sealed partial class MonumentPlacementMarkerComponent : Component
+public sealed partial class MonumentPlacementPreviewComponent : Component
 {
     /// <summary>
     /// the tier of the monument that the overlay added by the event with this comp should render

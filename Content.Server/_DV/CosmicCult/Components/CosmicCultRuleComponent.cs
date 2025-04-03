@@ -42,7 +42,7 @@ public sealed partial class CosmicCultRuleComponent : Component
     public TimeSpan EvacShuttleTime = TimeSpan.FromMinutes(5);
 
     [DataField]
-    public HashSet<EntityUid> Cultists = new();
+    public HashSet<EntityUid> Cultists = [];
 
     [DataField]
     public bool WinLocked;

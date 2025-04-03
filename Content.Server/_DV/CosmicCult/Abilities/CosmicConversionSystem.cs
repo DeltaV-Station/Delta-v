@@ -42,7 +42,7 @@ public sealed class CosmicConversionSystem : EntitySystem
             return;
         }
 
-        foreach (var target in possibleTargets) // FIVE GODDAMN if-statements? Yep. I know. Why? My brain doesn't have enough juice to write something more succinct.
+        foreach (var target in possibleTargets)
         {
             if (_mobState.IsDead(target))
             {

@@ -41,7 +41,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         SubscribeLocalEvent<CosmicCultComponent, GetStatusIconsEvent>(GetCosmicCultIcon);
         SubscribeLocalEvent<CosmicCultLeadComponent, GetStatusIconsEvent>(GetCosmicCultLeadIcon);
-        SubscribeLocalEvent<CosmicMarkBlankComponent, GetStatusIconsEvent>(GetCosmicSSDIcon);
+        SubscribeLocalEvent<CosmicBlankComponent, GetStatusIconsEvent>(GetCosmicSSDIcon);
 
         SubscribeNetworkEvent<CosmicSiphonIndicatorEvent>(OnSiphon);
         SubscribeLocalEvent<CosmicCultComponent, UpdateAlertSpriteEvent>(OnUpdateAlert);
@@ -95,6 +95,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         sprite.LayerMapSet(AscendedAuraKey.Key, layer);
         sprite.LayerSetShader(layer, "unshaded");
     }
+
     private void OnCosmicStarMarkAdded(Entity<CosmicStarMarkComponent> uid, ref ComponentStartup args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(CosmicRevealedKey.Key, out _))
@@ -110,6 +111,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             sprite.LayerSetOffset(CosmicRevealedKey.Key, offset.Offset);
         }
     }
+
     private void OnCosmicImpositionAdded(Entity<CosmicImposingComponent> uid, ref ComponentStartup args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(CosmicImposingKey.Key, out _))
@@ -130,6 +132,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         sprite.RemoveLayer(AscendedInfectionKey.Key);
     }
+
     private void OnAscendedAuraRemoved(Entity<RogueAscendedAuraComponent> uid, ref ComponentShutdown args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
@@ -137,6 +140,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         sprite.RemoveLayer(AscendedAuraKey.Key);
     }
+
     private void OnCosmicStarMarkRemoved(Entity<CosmicStarMarkComponent> uid, ref ComponentShutdown args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
@@ -144,6 +148,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         sprite.RemoveLayer(CosmicRevealedKey.Key);
     }
+
     private void OnCosmicImpositionRemoved(Entity<CosmicImposingComponent> uid, ref ComponentShutdown args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
@@ -169,7 +174,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             args.StatusIcons.Add(iconPrototype);
     }
 
-    private void GetCosmicSSDIcon(Entity<CosmicMarkBlankComponent> ent, ref GetStatusIconsEvent args)
+    private void GetCosmicSSDIcon(Entity<CosmicBlankComponent> ent, ref GetStatusIconsEvent args)
     {
         if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);

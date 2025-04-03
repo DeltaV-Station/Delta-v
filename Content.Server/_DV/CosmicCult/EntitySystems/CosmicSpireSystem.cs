@@ -1,25 +1,25 @@
-using Content.Server.Atmos.Piping.Components;
 using Content.Server.Atmos.EntitySystems;
-using Robust.Server.GameObjects;
+using Content.Server.Atmos.Piping.Components;
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
-using Content.Shared.Atmos;
-using Content.Shared.Atmos.Piping.Unary.Components;
-using Content.Shared._DV.CosmicCult.Components;
 using Content.Server.Audio;
 using Content.Server.Popups;
+using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared.Atmos;
+using Content.Shared.Atmos.Piping.Unary.Components;
+using Robust.Server.GameObjects;
 
 namespace Content.Server._DV.CosmicCult.EntitySystems;
 
 public sealed class CosmicSpireSystem : EntitySystem
 {
-    [Dependency] private readonly GasVentScrubberSystem _scrub = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly AmbientSoundSystem _ambient = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly CosmicCultRuleSystem _cosmicRule = default!;
     [Dependency] private readonly SharedPointLightSystem _lights = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly CosmicCultRuleSystem _cosmicRule = default!;
+    [Dependency] private readonly GasVentScrubberSystem _scrub = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -36,11 +36,13 @@ public sealed class CosmicSpireSystem : EntitySystem
             comp.Enabled = true;
             UpdateSpireAppearance(uid, SpireStatus.On);
         }
+
         if (!args.Anchored)
         {
             comp.Enabled = false;
             UpdateSpireAppearance(uid, SpireStatus.Off);
         }
+
         _ambient.SetAmbience(uid, comp.Enabled);
         _lights.SetEnabled(uid, comp.Enabled);
     }
@@ -62,6 +64,7 @@ public sealed class CosmicSpireSystem : EntitySystem
         {
             Drain(timeDelta, comp, adjacent);
         }
+
         if (comp.Storage.TotalMoles >= comp.DrainThreshHold)
         {
             _popup.PopupCoordinates(Loc.GetString("cosmiccult-spire-entropy"), Transform(uid).Coordinates);
@@ -69,7 +72,7 @@ public sealed class CosmicSpireSystem : EntitySystem
             Spawn(comp.SpawnVFX, Transform(uid).Coordinates);
             Spawn(comp.EntropyMote, Transform(uid).Coordinates);
 
-            if (_cosmicRule.AssociatedGamerule(uid) is not {} cult)
+            if (_cosmicRule.AssociatedGamerule(uid) is not { } cult)
                 return;
             cult.Comp.EntropySiphoned++;
         }
@@ -77,7 +80,12 @@ public sealed class CosmicSpireSystem : EntitySystem
 
     private bool Drain(float timeDelta, CosmicSpireComponent comp, GasMixture? tile)
     {
-        return _scrub.Scrub(timeDelta, comp.DrainRate * _atmos.PumpSpeedup(), ScrubberPumpDirection.Scrubbing, comp.DrainGases, tile, comp.Storage);
+        return _scrub.Scrub(timeDelta,
+            comp.DrainRate * _atmos.PumpSpeedup(),
+            ScrubberPumpDirection.Scrubbing,
+            comp.DrainGases,
+            tile,
+            comp.Storage);
     }
 
     private void OnSpireAnalyzed(EntityUid uid, CosmicSpireComponent comp, GasAnalyzerScanEvent args)
@@ -89,9 +97,6 @@ public sealed class CosmicSpireSystem : EntitySystem
     private void UpdateSpireAppearance(EntityUid uid, SpireStatus status)
     {
         if (TryComp<AppearanceComponent>(uid, out var appearance))
-        {
             _appearance.SetData(uid, SpireVisuals.Status, status, appearance);
-        }
     }
-
 }

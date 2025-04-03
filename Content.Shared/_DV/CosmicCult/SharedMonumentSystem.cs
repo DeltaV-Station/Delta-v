@@ -35,7 +35,7 @@ public abstract class SharedMonumentSystem : EntitySystem
 
     private void OnTimedDespawn(Entity<MonumentOnDespawnComponent> ent, ref TimedDespawnEvent args)
     {
-        if (!TryComp<TransformComponent>(ent, out var xform))
+        if (!TryComp(ent, out TransformComponent? xform))
             return;
 
         var monument = Spawn(ent.Comp.Prototype, xform.Coordinates);

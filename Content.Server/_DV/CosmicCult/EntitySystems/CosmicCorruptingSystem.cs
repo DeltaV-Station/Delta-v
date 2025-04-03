@@ -1,37 +1,40 @@
 using System.Linq;
+using Content.Server._DV.CosmicCult.Components;
 using Content.Shared.Maps;
+using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
-using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
-using Content.Server._DV.CosmicCult.Components;
 
 namespace Content.Server._DV.CosmicCult.EntitySystems;
+
 public sealed class CosmicCorruptingSystem : EntitySystem
 {
-    [Dependency] private readonly ITileDefinitionManager _tileDefinition = default!;
     [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly TurfSystem _turfs = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
 
     private readonly HashSet<Vector2i> _neighbourPositions =
     [
-        new Vector2i(-1, 1),
-        new Vector2i(0, 1),
-        new Vector2i(1, 1),
-        new Vector2i(-1, 0),
-        new Vector2i(0,0),
-        new Vector2i(1, 0),
-        new Vector2i(-1, -1),
-        new Vector2i(0, -1),
-        new Vector2i(1, -1),
+        new(-1, 1),
+        new(0, 1),
+        new(1, 1),
+        new(-1, 0),
+        new(0, 0),
+        new(1, 0),
+        new(-1, -1),
+        new(0, -1),
+        new(1, -1),
     ];
 
+    [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefinition = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly TurfSystem _turfs = default!;
+
     /// <remarks>
-    /// this system is a mostly generic way of replacing tiles around an entity. the only hardcoded behaviour is secret walls -> malign doors, but that shouldn't be too hard to fix if this is needed for smth else later.
+    ///     this system is a mostly generic way of replacing tiles around an entity. the only hardcoded behaviour is secret
+    ///     walls -> malign doors, but that shouldn't be too hard to fix if this is needed for smth else later.
     /// </remarks>
     public override void Initialize()
     {
@@ -61,7 +64,8 @@ public sealed class CosmicCorruptingSystem : EntitySystem
                 }
 
                 if (comp.CorruptionTicks >= comp.CorruptionMaxTicks && comp.AutoDisable)
-                    comp.Enabled = false; //maybe just remComp this? atm nothing re-enables a corruptor so that should be safe to do?
+                    comp.Enabled =
+                        false; //maybe just remComp this? atm nothing re-enables a corruptor so that should be safe to do?
             }
         }
     }
@@ -77,15 +81,15 @@ public sealed class CosmicCorruptingSystem : EntitySystem
         //if this is a mobile corruptor, reset the list of corruptable tiles every attempt.
         //not a super clean solution because I didn't account for the astral nova in the first rewrite but it works well enough for our purposes.
         if (ent.Comp.Mobile)
-        {
             RecalculateStartingTiles(ent);
-        }
 
         //go over every corruptible tile
-        foreach (var pos in new HashSet<Vector2i>(ent.Comp.CorruptableTiles)) //we love avoiding ConcurrentModificationExceptions
+        foreach (var pos in
+                 new HashSet<Vector2i>(ent.Comp.CorruptableTiles)) //we love avoiding ConcurrentModificationExceptions
         {
             var tileRef = _map.GetTileRef((gridUid, mapGrid), pos);
-            if (tileRef.Tile.TypeId == convertTile.TileId || tileRef.Tile.IsEmpty) //if it's already corrupted (or space), remove it from the list and continue
+            if (tileRef.Tile.TypeId == convertTile.TileId ||
+                tileRef.Tile.IsEmpty) //if it's already corrupted (or space), remove it from the list and continue
             {
                 ent.Comp.CorruptableTiles.Remove(pos);
                 continue;
@@ -101,7 +105,8 @@ public sealed class CosmicCorruptingSystem : EntitySystem
                 foreach (var neighbourPos in _neighbourPositions)
                 {
                     var neighbourRef = _map.GetTileRef((gridUid, mapGrid), tileRef.GridIndices + neighbourPos);
-                    if (neighbourRef.Tile.TypeId == convertTile.TileId || tileRef.Tile.IsEmpty) //ignore already corrupted (or space) tiles
+                    if (neighbourRef.Tile.TypeId == convertTile.TileId ||
+                        tileRef.Tile.IsEmpty) //ignore already corrupted (or space) tiles
                         continue;
 
                     ent.Comp.CorruptableTiles.Add(neighbourRef.GridIndices);
@@ -142,11 +147,6 @@ public sealed class CosmicCorruptingSystem : EntitySystem
             RecalculateStartingTiles(ent);
     }
 
-    public void Disable(Entity<CosmicCorruptingComponent> ent)
-    {
-        ent.Comp.Enabled = false;
-    }
-
     public void RecalculateStartingTiles(Entity<CosmicCorruptingComponent> ent)
     {
         ent.Comp.CorruptableTiles.Clear();
@@ -163,11 +163,9 @@ public sealed class CosmicCorruptingSystem : EntitySystem
         {
             var convertTile = (ContentTileDefinition)_tileDefinition[ent.Comp.ConversionTile];
             var visitedTiles = new HashSet<Vector2i>();
-            var tilesToVisit = new HashSet<Vector2i>();
+            var tilesToVisit = new HashSet<Vector2i> { tile.GridIndices };
 
-            tilesToVisit.Add(tile.GridIndices);
-
-            int count = 0;
+            var count = 0;
 
             while (tilesToVisit.Count > 0)
             {

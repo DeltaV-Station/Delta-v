@@ -38,8 +38,10 @@ public sealed class CosmicGlareSystem : EntitySystem
         Spawn(uid.Comp.GlareVFX, Transform(uid).Coordinates);
         _cult.MalignEcho(uid);
         args.Handled = true;
+
         var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, uid.Comp.CosmicGlareRange);
         entities.RemoveWhere(entity => !HasComp<PoweredLightComponent>(entity));
+
         foreach (var entity in entities)
             _poweredLight.TryDestroyBulb(entity);
 
@@ -47,11 +49,14 @@ public sealed class CosmicGlareSystem : EntitySystem
         {
             if (player.AttachedEntity == null)
                 return true;
+
             var ent = player.AttachedEntity.Value;
             if (!HasComp<MobStateComponent>(ent) || !HasComp<HumanoidAppearanceComponent>(ent) || HasComp<CosmicCultComponent>(ent) || HasComp<BibleUserComponent>(ent))
                 return true;
+
             return !_interact.InRangeUnobstructed((uid, Transform(uid)), (ent, Transform(ent)), range: 0, collisionMask: CollisionGroup.Impassable);
         });
+
         var targets = new HashSet<NetEntity>(targetFilter.RemovePlayerByAttachedEntity(uid).Recipients.Select(ply => GetNetEntity(ply.AttachedEntity!.Value)));
         foreach (var target in targets)
         {

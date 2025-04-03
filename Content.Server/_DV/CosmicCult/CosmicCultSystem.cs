@@ -10,7 +10,6 @@ using Content.Server.Station.Systems;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Effects;
 using Content.Shared.Examine;
@@ -48,11 +47,9 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
@@ -98,10 +95,10 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
     #region Housekeeping
 
+    // Rogue Ascendants use this too, which are generalized MidRoundAntags, so we keep the map around. If you're porting cosmic cult, and do not want rogue ascendants, feel free to move this into selective usage akin to NukeOps base.
     /// <summary>
     /// Creates the Cosmic Void pocket dimension map.
     /// </summary>
-    // Rogue Ascendants use this too, which are generalized MidRoundAntags, so we keep the map around. If you're porting cosmic cult, and do not want rogue ascendants, feel free to move this into selective usage akin to NukeOps base.
     private void OnRoundStart(RoundStartingEvent ev)
     {
         if (_mapLoader.TryLoadMap(_mapPath, out var map, out _, new DeserializationOptions { InitializeMaps = true }))
@@ -149,7 +146,6 @@ public sealed partial class CosmicCultSystem : EntitySystem
     /// Called by Cosmic Siphon. Increments the Cult's global objective tracker.
     /// </summary>
     #endregion
-
 
     #region Equipment Pickup
     private void OnGotEquipped(Entity<CosmicEquipmentComponent> ent, ref GotEquippedEvent args)

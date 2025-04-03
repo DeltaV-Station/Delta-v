@@ -70,10 +70,10 @@ public sealed class MonumentSystem : SharedMonumentSystem
                 foreach (var entity in entities) _damageable.TryChangeDamage(entity, monuComp.MonumentHealing * -1);
                 monuComp.CheckTimer = _timing.CurTime + monuComp.CheckWait;
             }
-            if (comp.SongTimer is {} time && _timing.CurTime >= time)
+            if (comp.SongTimer is { } time && _timing.CurTime >= time)
             {
                 comp.SongTimer = null;
-                if (comp.SelectedSong is {} song)
+                if (comp.SelectedSong is { } song)
                     _sound.DispatchStationEventMusic(uid, song, StationEventMusicType.CosmicCult);
             }
 
@@ -100,7 +100,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
         var monumentQuery = EntityQueryEnumerator<MonumentComponent>();
         while (monumentQuery.MoveNext(out var uid, out var comp))
         {
-            if (comp.PhaseOutTimer is {} timer && _timing.CurTime >= timer)
+            if (comp.PhaseOutTimer is { } timer && _timing.CurTime >= timer)
             {
                 OnMonumentPhaseOut((uid, comp));
                 comp.PhaseOutTimer = null;
@@ -110,7 +110,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
         var destinationQuery = EntityQueryEnumerator<MonumentMoveDestinationComponent>();
         while (destinationQuery.MoveNext(out var uid, out var comp))
         {
-            if (comp.PhaseInTimer is {} timer && _timing.CurTime >= timer)
+            if (comp.PhaseInTimer is { } timer && _timing.CurTime >= timer)
             {
                 OnMonumentPhaseIn((uid, comp));
                 comp.PhaseInTimer = null;
@@ -167,7 +167,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
 
     public void UpdateMonumentProgress(Entity<MonumentComponent> ent, Entity<CosmicCultRuleComponent> cult)
     {
-        ent.Comp.CurrentProgress = ent.Comp.TotalEntropy + (cult.Comp.TotalCult * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+        ent.Comp.CurrentProgress = ent.Comp.TotalEntropy + cult.Comp.TotalCult * _config.GetCVar(DCCVars.CosmicCultistEntropyValue);
     }
 
     private void OnInfuseEntropy(Entity<MonumentComponent> uid, ref ActivateInWorldEvent args)
@@ -222,9 +222,9 @@ public sealed class MonumentSystem : SharedMonumentSystem
         return true;
     }
 
-        public void UpdateMonumentAppearance(Entity<MonumentComponent> ent, bool tierUp) // this is kinda awful, but it works, and i've seen worse. improve it at thine leisure
+    public void UpdateMonumentAppearance(Entity<MonumentComponent> ent, bool tierUp) // this is kinda awful, but it works, and i've seen worse. improve it at thine leisure
     {
-        if (_cosmicRule.AssociatedGamerule(ent) is not {} cult)
+        if (_cosmicRule.AssociatedGamerule(ent) is not { } cult)
             return;
         if (!TryComp<CosmicFinaleComponent>(ent, out var finaleComp))
             return;
@@ -257,24 +257,24 @@ public sealed class MonumentSystem : SharedMonumentSystem
     //and t3 -> finale needs an extra 20 entropy
     public void UpdateMonumentReqsForTier(Entity<MonumentComponent> monument, int tier)
     {
-        if (_cosmicRule.AssociatedGamerule(monument) is not {} cult)
+        if (_cosmicRule.AssociatedGamerule(monument) is not { } cult)
             return;
 
-        var tier3NumCrew = Math.Round((double)cult.Comp.TotalCrew / 100 * _config.GetCVar(DCCVars.CosmicCultTargetConversionPercent)); // 40% of current pop
+        var numberOfCrewForTier3 = Math.Round((double)cult.Comp.TotalCrew / 100 * _config.GetCVar(DCCVars.CosmicCultTargetConversionPercent)); // 40% of current pop
 
         switch (tier)
         {
             case 1:
                 monument.Comp.ProgressOffset = 0;
-                monument.Comp.TargetProgress = (int)(tier3NumCrew / 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 / 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
                 break;
             case 2:
-                monument.Comp.ProgressOffset = (int)(tier3NumCrew / 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //reset the progress offset
-                monument.Comp.TargetProgress = (int)(tier3NumCrew * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+                monument.Comp.ProgressOffset = (int)(numberOfCrewForTier3 / 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //reset the progress offset
+                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
                 break;
             case 3:
-                monument.Comp.ProgressOffset = (int)(tier3NumCrew * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
-                monument.Comp.TargetProgress = (int)(tier3NumCrew * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //removed offset; replaced with timer
+                monument.Comp.ProgressOffset = (int)(numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //removed offset; replaced with timer
                 break;
         }
     }
@@ -301,7 +301,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
 
     public void MonumentTier1(Entity<MonumentComponent> uid)
     {
-        if (_cosmicRule.AssociatedGamerule(uid) is not {} cult)
+        if (_cosmicRule.AssociatedGamerule(uid) is not { } cult)
             return;
 
         UpdateMonumentAppearance(uid, false);
@@ -333,7 +333,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
 
     public void MonumentTier2(Entity<MonumentComponent> uid)
     {
-        if (_cosmicRule.AssociatedGamerule(uid) is not {} cult)
+        if (_cosmicRule.AssociatedGamerule(uid) is not { } cult)
             return;
 
         UpdateMonumentAppearance(uid, true);
@@ -374,7 +374,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
 
     public void MonumentTier3(Entity<MonumentComponent> uid)
     {
-        if (_cosmicRule.AssociatedGamerule(uid) is not {} cult)
+        if (_cosmicRule.AssociatedGamerule(uid) is not { } cult)
             return;
 
         foreach (var glyphProto in _protoMan.EnumeratePrototypes<GlyphPrototype>().Where(proto => proto.Tier == 3))

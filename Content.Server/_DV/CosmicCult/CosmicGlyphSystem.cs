@@ -57,7 +57,9 @@ public sealed class CosmicGlyphSystem : EntitySystem
             }
         }
         else
+        {
             args.PushMarkup(Loc.GetString("cosmic-examine-text-glyphs"));
+        }
     }
 
     private void OnUseGlyph(Entity<CosmicGlyphComponent> uid, ref ActivateInWorldEvent args)
@@ -94,7 +96,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     #endregion
 
     #region Housekeeping
-    private void DealDamage(EntityUid user, DamageSpecifier? damage = null)
+    private void DealDamage(EntityUid user, DamageSpecifier? damage)
     {
         if (damage is null)
             return;
@@ -124,7 +126,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
         var possibleTargets = _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(Transform(uid).Coordinates, range);
         if (exclude != null)
             possibleTargets.RemoveWhere(exclude);
-        possibleTargets.RemoveWhere(target => HasComp<CosmicMarkBlankComponent>(target) || HasComp<CosmicMarkLapseComponent>(target)); // We never want these.
+        possibleTargets.RemoveWhere(target => HasComp<CosmicBlankComponent>(target) || HasComp<CosmicLapseComponent>(target)); // We never want these.
 
         return possibleTargets;
     }

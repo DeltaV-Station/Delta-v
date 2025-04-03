@@ -19,19 +19,44 @@ public sealed partial class CosmicFinaleComponent : Component
     [DataField]
     public bool Occupied = false;
 
-    [AutoPausedField] public TimeSpan FinaleTimer = default!;
-    [AutoPausedField] public TimeSpan BufferTimer = default!;
-    [AutoPausedField] public TimeSpan CultistsCheckTimer = default!;
-    [DataField, AutoNetworkedField] public TimeSpan BufferRemainingTime = TimeSpan.FromSeconds(300);
-    [DataField, AutoNetworkedField] public TimeSpan FinaleRemainingTime = TimeSpan.FromSeconds(126);
-    [DataField, AutoNetworkedField] public TimeSpan CheckWait = TimeSpan.FromSeconds(5);
-    [DataField] public SoundSpecifier CancelEventSound = new SoundPathSpecifier("/Audio/Misc/notice2.ogg");
-    [DataField] public TimeSpan FinaleSongLength;
-    [DataField] public TimeSpan SongLength;
-    [DataField] public SoundSpecifier? SelectedSong;
-    [DataField] public TimeSpan InteractionTime = TimeSpan.FromSeconds(8);
-    [DataField] public SoundSpecifier BufferMusic = new SoundPathSpecifier("/Audio/_DV/CosmicCult/premonition.ogg");
-    [DataField] public SoundSpecifier FinaleMusic = new SoundPathSpecifier("/Audio/_DV/CosmicCult/a_new_dawn.ogg");
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan FinaleTimer = default!;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan BufferTimer = default!;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan CultistsCheckTimer = default!;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan BufferRemainingTime = TimeSpan.FromSeconds(300);
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan FinaleRemainingTime = TimeSpan.FromSeconds(126);
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan CheckWait = TimeSpan.FromSeconds(5);
+
+    [DataField]
+    public SoundSpecifier CancelEventSound = new SoundPathSpecifier("/Audio/Misc/notice2.ogg");
+
+    [DataField]
+    public TimeSpan FinaleSongLength;
+
+    [DataField]
+    public TimeSpan SongLength;
+
+    [DataField]
+    public SoundSpecifier? SelectedSong;
+
+    [DataField]
+    public TimeSpan InteractionTime = TimeSpan.FromSeconds(8);
+
+    [DataField]
+    public SoundSpecifier BufferMusic = new SoundPathSpecifier("/Audio/_DV/CosmicCult/premonition.ogg");
+
+    [DataField]
+    public SoundSpecifier FinaleMusic = new SoundPathSpecifier("/Audio/_DV/CosmicCult/a_new_dawn.ogg");
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? SongTimer;
