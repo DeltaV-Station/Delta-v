@@ -102,6 +102,11 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     private ISawmill _sawmill = default!;
 
+    private TimeSpan _t3RevealDelay = default!;
+    private TimeSpan _t2RevealDelay = default!;
+    private TimeSpan _finaleDelay = default!;
+    private TimeSpan _voteTimer = default!;
+
     private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/antag_cosmic_briefing.ogg");
     private readonly SoundSpecifier _deconvertSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/antag_cosmic_deconvert.ogg");
     private readonly SoundSpecifier _tier3Sound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/tier3.ogg");
@@ -122,6 +127,23 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         SubscribeLocalEvent<CosmicCultComponent, ComponentShutdown>(OnComponentShutdown);
         SubscribeLocalEvent<CosmicMarkGodComponent, ComponentInit>(OnGodSpawn);
         SubscribeLocalEvent<CosmicCultComponent, MobStateChangedEvent>(OnMobStateChanged);
+
+        Subs.CVar(_config,
+            DCCVars.CosmicCultT2RevealDelaySeconds,
+            value => _t2RevealDelay = TimeSpan.FromSeconds(value),
+            true);
+        Subs.CVar(_config,
+            DCCVars.CosmicCultT3RevealDelaySeconds,
+            value => _t3RevealDelay = TimeSpan.FromSeconds(value),
+            true);
+        Subs.CVar(_config,
+            DCCVars.CosmicCultFinaleDelaySeconds,
+            value => _finaleDelay = TimeSpan.FromSeconds(value),
+            true);
+        Subs.CVar(_config,
+            DCCVars.CosmicCultStewardVoteTimer,
+            value => _voteTimer = TimeSpan.FromSeconds(value),
+            true);
     }
     #region Starting Events
     protected override void Started(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -145,7 +167,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             DisplayVotes = false,
             Title = Loc.GetString("cosmiccult-vote-steward-title"),
             InitiatorText = Loc.GetString("cosmiccult-vote-steward-initiator"),
-            Duration = TimeSpan.FromSeconds(_config.GetCVar(DCCVars.CosmicCultStewardVoteTimer)),
+            Duration = _voteTimer,
             VoterEligibility = VoteManager.VoterEligibility.CosmicCult
         };
 
@@ -335,7 +357,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     }
     #endregion
 
-    private void OnStartMonument(Entity<MonumentComponent> ent, ref ComponentInit args)
+    public void OnStartMonument(Entity<MonumentComponent> ent)
     {
         if (AssociatedGamerule(ent) is not {} cult)
             return;
@@ -374,7 +396,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                 finaleComp.FinaleDelayStarted = true; //set that we've started it
                 //do everything else
 
-                var timer = TimeSpan.FromSeconds(_config.GetCVar(DCCVars.CosmicCultFinaleDelaySeconds));
+                var timer = _finaleDelay;
                 var cultistQuery = EntityQueryEnumerator<CosmicCultComponent>();
                 while (cultistQuery.MoveNext(out var cultist, out var cultistComp))
                 {
@@ -401,11 +423,11 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             _monument.SetCanTierUp(uid, false);
 
-            var timer = TimeSpan.FromSeconds(_config.GetCVar(DCCVars.CosmicCultT3RevealDelaySeconds));
+            var timer = _t3RevealDelay;
             var cultistQuery = EntityQueryEnumerator<CosmicCultComponent>();
             while (cultistQuery.MoveNext(out var cultist, out var cultistComp))
             {
-                _antag.SendBriefing(cultist, Loc.GetString("cosmiccult-monument-stage3-briefing", ("time", _config.GetCVar(DCCVars.CosmicCultT3RevealDelaySeconds))), Color.FromHex("#4cabb3"), _monumentAlert);
+                _antag.SendBriefing(cultist, Loc.GetString("cosmiccult-monument-stage3-briefing", ("time", _t3RevealDelay.Seconds)), Color.FromHex("#4cabb3"), _monumentAlert);
             }
 
             _monument.MonumentTier3(uid);
@@ -467,14 +489,14 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             var cultistQuery = EntityQueryEnumerator<CosmicCultComponent>();
             while (cultistQuery.MoveNext(out var cultist, out var cultistComp))
             {
-                _antag.SendBriefing(cultist, Loc.GetString("cosmiccult-monument-stage2-briefing", ("time", _config.GetCVar(DCCVars.CosmicCultT2RevealDelaySeconds))), Color.FromHex("#4cabb3"), _monumentAlert);
+                _antag.SendBriefing(cultist, Loc.GetString("cosmiccult-monument-stage2-briefing", ("time", _t2RevealDelay.Seconds)), Color.FromHex("#4cabb3"), _monumentAlert);
             }
 
             _monument.MonumentTier2(uid);
             cult.Comp.CurrentTier = 2;
             _monument.UpdateMonumentReqsForTier(uid, cult.Comp.CurrentTier);
 
-            Timer.Spawn(TimeSpan.FromSeconds(_config.GetCVar(DCCVars.CosmicCultT2RevealDelaySeconds)),
+            Timer.Spawn(_t2RevealDelay,
                 () =>
                 {
                     //do spooky effects
@@ -560,6 +582,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     private void OnAssociateRule(ref CosmicCultAssociateRuleEvent args)
     {
         TransferCultAssociation(args.Originator, args.Target);
+        if (TryComp<MonumentComponent>(args.Target, out var monument))
+        {
+            OnStartMonument((args.Target, monument));
+        }
     }
 
     public void TransferCultAssociation(EntityUid from, EntityUid to)

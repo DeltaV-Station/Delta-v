@@ -1,5 +1,6 @@
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server._DV.CosmicCult.Components;
 
@@ -31,6 +32,9 @@ public sealed partial class CosmicFinaleComponent : Component
     [DataField] public TimeSpan InteractionTime = TimeSpan.FromSeconds(8);
     [DataField] public SoundSpecifier BufferMusic = new SoundPathSpecifier("/Audio/_DV/CosmicCult/premonition.ogg");
     [DataField] public SoundSpecifier FinaleMusic = new SoundPathSpecifier("/Audio/_DV/CosmicCult/a_new_dawn.ogg");
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? SongTimer;
 
     /// <summary>
     /// The degen that people suffer if they don't have mindshields, aren't a chaplain, or aren't cultists while the Finale is Available or Active. This feature is currently disabled.

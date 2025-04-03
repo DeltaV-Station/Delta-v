@@ -12,7 +12,7 @@
       - state: computer-unshaded
         shader: unshaded
   - type: CosmicCultExamine
-    cultistText: cosmic-examine-text-structures
+    cultistText: cosmic-examine-text-forthecult
   - type: Thruster
     thrusterType: Angular # These are overpowered thruster-shuttle-console-hybrids that require no power grid. As such, they cannot be anchored or meaningfully taken outside of their intended use.
     requireSpace: false
@@ -64,7 +64,7 @@
     mode: SnapgridCenter
   components:
   - type: CosmicCultExamine
-    cultistText: cosmic-examine-text-structures
+    cultistText: cosmic-examine-text-forthecult
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/cosmicchair.rsi
     state: chair
@@ -92,7 +92,7 @@
     drawdepth: Mobs
     noRot: true
   - type: CosmicCultExamine
-    cultistText: cosmic-examine-text-structures
+    cultistText: cosmic-examine-text-forthecult
   - type: SpriteFade
   - type: Fixtures
     fixtures:
@@ -120,7 +120,7 @@
   name: malign engine
   components:
   - type: CosmicCultExamine
-    cultistText: cosmic-examine-text-structures
+    cultistText: cosmic-examine-text-forthecult
   - type: Fixtures
     fixtures:
       fix1:
@@ -187,7 +187,7 @@
         collection: GlassSmash
   - type: Transform
   - type: CosmicCultExamine
-    cultistText: cosmic-examine-text-structures
+    cultistText: cosmic-examine-text-forthecult
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
@@ -245,7 +245,7 @@
     castShadows: false
     color: "#42a4ae"
   - type: CosmicCultExamine
-    cultistText: cosmic-examine-text-structures
+    cultistText: cosmic-examine-text-forthecult
   - type: CosmicMalignRift
   - type: CosmicCorrupting
     corruptionMaxTicks: 6
@@ -270,7 +270,7 @@
     joinSystem: true
   - type: CosmicSpire
   - type: CosmicCultExamine
-    cultistText: cosmic-examine-text-structures
+    cultistText: cosmic-examine-text-forthecult
   - type: SpriteFade
   - type: InteractionOutline
   - type: Fixtures
@@ -370,7 +370,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: CosmicCultExamine
-    cultistText: cosmic-examine-text-structures
+    cultistText: cosmic-examine-text-forthecult
   - type: Destructible
     thresholds:
     - trigger:

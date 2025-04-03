@@ -10,5 +10,5 @@ public sealed partial class CosmicCultExamineComponent : Component
     public LocId CultistText;
 
     [DataField]
-    public LocId OthersText = "cosmic-examine-text-forthecult";
+    public LocId OthersText = "cosmic-examine-text-structures";
 }

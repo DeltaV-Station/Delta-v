@@ -109,6 +109,9 @@ public sealed partial class MonumentComponent : Component
     /// </summary>
     [DataField]
     public bool CanTierUp = true;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? PhaseOutTimer;
 }
 
 [Serializable, NetSerializable]

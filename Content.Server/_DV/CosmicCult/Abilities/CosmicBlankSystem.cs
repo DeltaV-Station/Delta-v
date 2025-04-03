@@ -35,9 +35,12 @@ public sealed class CosmicBlankSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<CosmicCultComponent, EventCosmicBlank>(OnCosmicBlank);
+        SubscribeLocalEvent<CosmicCultComponent, EventCosmicBlankDoAfter>(OnCosmicBlankDoAfter);
     }
 
-        private void OnCosmicBlank(Entity<CosmicCultComponent> uid, ref EventCosmicBlank args)
+    private void OnCosmicBlank(Entity<CosmicCultComponent> uid, ref EventCosmicBlank args)
     {
         if (HasComp<CosmicCultComponent>(args.Target) || HasComp<CosmicMarkBlankComponent>(args.Target) || HasComp<BibleUserComponent>(args.Target) || HasComp<ActiveNPCComponent>(args.Target))
         {
