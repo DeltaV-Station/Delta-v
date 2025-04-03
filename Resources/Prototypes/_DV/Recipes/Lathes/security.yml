@@ -287,8 +287,8 @@
   id: MagazineLaser
   result: MagazineLaser
   materials:
-    Steel: 400
-    Plasma: 600
+    Steel: 300
+    Plasma: 200
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -309,3 +309,13 @@
     Glass: 1200
     Gold: 500
     Silver: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleLaser
+  result: WeaponRifleLaser
+  materials:
+    Steel: 1500
+    Glass: 1000
+    Gold: 500
+    Plasma: 500
