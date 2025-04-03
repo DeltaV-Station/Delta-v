@@ -109,7 +109,7 @@
       - id: NitrousOxideTankFilled
         prob: 0.3
       - id: ClothingMaskSterile
-      - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
+      - id: LunchboxMedicalFilledRandom # DeltaV - Lunchboxes!
         prob: 0.3
 
 - type: entity
@@ -144,7 +144,7 @@
         prob: 0.05
         orGroup: Surgshrubs
       - id: ClothingMaskSterile
-      - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
+      - id: LunchboxMedicalFilledRandom # DeltaV - Lunchboxes!
         prob: 0.3
 
 - type: entity
@@ -170,7 +170,7 @@
         prob: 0.5
 
 - type: entity
-  id: LockerParamedicFilled #Delta V - Paramedic locker without suit
+  id: LockerParamedicFilled # DeltaV - Paramedic locker without suit
   suffix: Filled
   parent: LockerParamedic
   components:
@@ -184,14 +184,20 @@
       - id: ClothingHandsGlovesLatex
       - id: ClothingHeadsetMedical
       - id: ClothingMaskSterile
-      - id: ClothingShoesBootsWinterParamedic #Delta V: Add departmental winter boots
-      - id: MedkitFilled
+      # Begin DeltaV additions
+      - id: ClothingShoesBootsWinterParamedic
+      - id: BoxBodyBag
+      - id: EmergencyRollerBedSpawnFolded
+      - id: EmergencyJawsOfLife
+      - id: HandheldCrewMonitor
+      - id: LunchboxMedicalFilledRandom
         prob: 0.3
-      - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
+      # End DeltaV additions
+      - id: MedkitFilled
         prob: 0.3
 
 - type: entity
-  id: LockerParamedicFilledHardsuit #Delta V - Paramedic locker with suit
+  id: LockerParamedicFilledHardsuit # DeltaV - Paramedic locker with suit
   suffix: Filled, Hardsuit
   parent: LockerParamedic
   components:
@@ -207,9 +213,15 @@
       - id: ClothingHandsGlovesLatex
       - id: ClothingHeadsetMedical
       - id: ClothingMaskSterile
-      - id: ClothingShoesBootsWinterParamedic #Delta V: Add departmental winter boots
+      # Begin DeltaV additions
+      - id: ClothingShoesBootsWinterParamedic
+      - id: BoxBodyBag
+      - id: EmergencyRollerBedSpawnFolded
+      - id: EmergencyJawsOfLife
+      - id: HandheldCrewMonitor
+      - id: LunchboxMedicalFilledRandom
+        prob: 0.3
+      # End DeltaV additions
       - id: HandheldGPSBasic
       - id: MedkitFilled
-        prob: 0.3
-      - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
