@@ -1,5 +1,6 @@
 using Content.Server.RoundEnd;
 using Content.Shared._DV.CosmicCult.Components;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server._DV.CosmicCult.Components;
 
@@ -7,6 +8,7 @@ namespace Content.Server._DV.CosmicCult.Components;
 /// Component for the CosmicCultRuleSystem that should store gameplay info.
 /// </summary>
 [RegisterComponent, Access(typeof(CosmicCultRuleSystem))]
+[AutoGenerateComponentPause]
 public sealed partial class CosmicCultRuleComponent : Component
 {
     /// <summary>
@@ -88,6 +90,18 @@ public sealed partial class CosmicCultRuleComponent : Component
     /// </summary>
     [DataField]
     public int EntropySiphoned;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? StewardVoteTimer;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? PrepareFinaleTimer;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? Tier3DelayTimer;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? Tier2DelayTimer;
 }
 
 // CosmicCultRuleComponent

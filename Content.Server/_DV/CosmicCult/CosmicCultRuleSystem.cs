@@ -148,7 +148,106 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     #region Starting Events
     protected override void Started(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
-        Timer.Spawn(TimeSpan.FromSeconds(10), () => { StewardVote(); });
+        component.StewardVoteTimer = _timing.CurTime + TimeSpan.FromSeconds(10);
+    }
+
+    protected override void ActiveTick(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, float frameTime)
+    {
+        if (component.StewardVoteTimer is {} voteTimer && _timing.CurTime <= voteTimer)
+        {
+            component.StewardVoteTimer = null;
+            StewardVote();
+        }
+        if (component.PrepareFinaleTimer is {} finalePrepTimer && _timing.CurTime <= finalePrepTimer)
+        {
+            component.PrepareFinaleTimer = null;
+
+            if (TryComp<CosmicFinaleComponent>(component.MonumentInGame, out var finaleComp))
+            {
+                _monument.ReadyFinale(component.MonumentInGame, finaleComp);
+                UpdateCultData(component.MonumentInGame); //duplicated work but it looks nicer than calling updateAppearance on it's own
+                return;
+            }
+        }
+        if (component.Tier3DelayTimer is {} tier3Timer && _timing.CurTime <= tier3Timer)
+        {
+            component.Tier3DelayTimer = null;
+
+            //do spooky things
+            var query = EntityQueryEnumerator<CosmicCultComponent>();
+            while (query.MoveNext(out var cultist, out var cultComp))
+            {
+                EnsureComp<CosmicStarMarkComponent>(cultist);
+            }
+
+            var sender = Loc.GetString("cosmiccult-announcement-sender");
+            var mapData = _map.GetMap(_transform.GetMapId(component.MonumentInGame.Owner.ToCoordinates()));
+            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier3-progress"), null, false, null, Color.FromHex("#4cabb3"));
+            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier3-warning"), null, false, null, Color.FromHex("#cae8e8"));
+            _audio.PlayGlobal(_tier3Sound, Filter.Broadcast(), false, AudioParams.Default);
+
+            EnsureComp<ParallaxComponent>(mapData, out var parallax);
+            parallax.Parallax = "CosmicFinaleParallax";
+            Dirty(mapData, parallax);
+
+            EnsureComp<MapLightComponent>(mapData, out var mapLight);
+            mapLight.AmbientLightColor = Color.FromHex("#210746");
+            Dirty(mapData, mapLight);
+
+            var lights = EntityQueryEnumerator<PoweredLightComponent>();
+            while (lights.MoveNext(out var light, out _))
+            {
+                if (!_rand.Prob(0.25f))
+                    continue;
+                _ghost.DoGhostBooEvent(light);
+            }
+
+            var collideQuery = EntityQueryEnumerator<MonumentCollisionComponent>();
+            while (collideQuery.MoveNext(out var collideEnt, out var collideComp))
+            {
+                collideComp.HasCollision = true;
+                Dirty(collideEnt, collideComp);
+            }
+
+            if (TryComp<VisibilityComponent>(component.MonumentInGame, out var visComp))
+                _visibility.SetLayer((component.MonumentInGame, visComp), 1);
+
+            component.MonumentSlowZone = Spawn("MonumentSlowZone", Transform(component.MonumentInGame).Coordinates); // spawn The Monument's slowing fixture entity that supresses non-cult / non-mindshielded / non-chaplain crew.
+            _monument.SetCanTierUp(component.MonumentInGame, true);
+            UpdateCultData(component.MonumentInGame); //instantly go up a tier if they manage it.
+            _ui.SetUiState(component.MonumentInGame.Owner, MonumentKey.Key, new MonumentBuiState(component.MonumentInGame.Comp)); //not sure if this is needed but I'll be safe
+        }
+        if (component.Tier2DelayTimer is {} tier2Timer && _timing.CurTime <= tier2Timer)
+        {
+            component.Tier2DelayTimer = null;
+
+            //do spooky effects
+            var sender = Loc.GetString("cosmiccult-announcement-sender");
+            var mapData = _map.GetMap(_transform.GetMapId(component.MonumentInGame.Owner.ToCoordinates()));
+            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier2-progress"), null, false, null, Color.FromHex("#4cabb3"));
+            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier2-warning"), null, false, null, Color.FromHex("#cae8e8"));
+            _audio.PlayGlobal(_tier2Sound, Filter.Broadcast(), false, AudioParams.Default);
+
+            for (var i = 0; i < Convert.ToInt16(component.TotalCrew / 4); i++) // spawn # malign rifts equal to 25% of the playercount
+            {
+                if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
+                {
+                    Spawn("CosmicMalignRift", coords);
+                }
+            }
+
+            var lights = EntityQueryEnumerator<PoweredLightComponent>();
+            while (lights.MoveNext(out var light, out _))
+            {
+                if (!_rand.Prob(0.50f))
+                    continue;
+                _ghost.DoGhostBooEvent(light);
+            }
+
+            _monument.SetCanTierUp(component.MonumentInGame, true);
+            UpdateCultData(component.MonumentInGame); //instantly go up a tier if they manage it
+            _ui.SetUiState(component.MonumentInGame.Owner, MonumentKey.Key, new MonumentBuiState(component.MonumentInGame.Comp)); //not sure if this is needed but I'll be safe
+        }
     }
 
     private void StewardVote()
@@ -409,12 +508,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                         _monumentAlert);
                 }
 
-                Timer.Spawn(timer,
-                    () =>
-                    {
-                        _monument.ReadyFinale(uid, finaleComp);
-                        UpdateCultData(uid); //duplicated work but it looks nicer than calling updateAppearance on it's own
-                    });
+                cult.Comp.PrepareFinaleTimer = _timing.CurTime + timer;
             }
         }
         else if (finaleComp.CurrentState != FinaleState.Unavailable)
@@ -434,53 +528,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             _monument.UpdateMonumentReqsForTier(uid, cult.Comp.CurrentTier);
             cult.Comp.CurrentTier = 3;
 
-            Timer.Spawn(timer,
-                () =>
-                {
-                    //do spooky things
-                    var query = EntityQueryEnumerator<CosmicCultComponent>();
-                    while (query.MoveNext(out var cultist, out var cultComp))
-                    {
-                        EnsureComp<CosmicStarMarkComponent>(cultist);
-                    }
-
-                    var sender = Loc.GetString("cosmiccult-announcement-sender");
-                    var mapData = _map.GetMap(_transform.GetMapId(cult.Comp.MonumentInGame.Owner.ToCoordinates()));
-                    _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("cosmiccult-announce-tier3-progress"), null, false, null, Color.FromHex("#4cabb3"));
-                    _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("cosmiccult-announce-tier3-warning"), null, false, null, Color.FromHex("#cae8e8"));
-                    _audio.PlayGlobal(_tier3Sound, Filter.Broadcast(), false, AudioParams.Default);
-
-                    EnsureComp<ParallaxComponent>(mapData, out var parallax);
-                    parallax.Parallax = "CosmicFinaleParallax";
-                    Dirty(mapData, parallax);
-
-                    EnsureComp<MapLightComponent>(mapData, out var mapLight);
-                    mapLight.AmbientLightColor = Color.FromHex("#210746");
-                    Dirty(mapData, mapLight);
-
-                    var lights = EntityQueryEnumerator<PoweredLightComponent>();
-                    while (lights.MoveNext(out var light, out _))
-                    {
-                        if (!_rand.Prob(0.25f))
-                            continue;
-                        _ghost.DoGhostBooEvent(light);
-                    }
-
-                    var collideQuery = EntityQueryEnumerator<MonumentCollisionComponent>();
-                    while (collideQuery.MoveNext(out var collideEnt, out var collideComp))
-                    {
-                        collideComp.HasCollision = true;
-                        Dirty(collideEnt, collideComp);
-                    }
-
-                    if (TryComp<VisibilityComponent>(uid, out var visComp))
-                        _visibility.SetLayer((uid, visComp), 1);
-
-                    cult.Comp.MonumentSlowZone = Spawn("MonumentSlowZone", Transform(uid).Coordinates); // spawn The Monument's slowing fixture entity that supresses non-cult / non-mindshielded / non-chaplain crew.
-                    _monument.SetCanTierUp(uid, true);
-                    UpdateCultData(uid); //instantly go up a tier if they manage it.
-                    _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(uid.Comp)); //not sure if this is needed but I'll be safe
-                });
+            cult.Comp.Tier3DelayTimer = _timing.CurTime + timer;
         }
         else if (uid.Comp.CurrentProgress >= uid.Comp.TargetProgress && cult.Comp.CurrentTier == 1 && uid.Comp.CanTierUp)
         {
@@ -496,37 +544,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             cult.Comp.CurrentTier = 2;
             _monument.UpdateMonumentReqsForTier(uid, cult.Comp.CurrentTier);
 
-            Timer.Spawn(_t2RevealDelay,
-                () =>
-                {
-                    //do spooky effects
-                    var sender = Loc.GetString("cosmiccult-announcement-sender");
-                    var mapData = _map.GetMap(_transform.GetMapId(cult.Comp.MonumentInGame.Owner.ToCoordinates()));
-                    _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("cosmiccult-announce-tier2-progress"), null, false, null, Color.FromHex("#4cabb3"));
-                    _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("cosmiccult-announce-tier2-warning"), null, false, null, Color.FromHex("#cae8e8"));
-                    _audio.PlayGlobal(_tier2Sound, Filter.Broadcast(), false, AudioParams.Default);
-
-                    for (var i = 0; i < Convert.ToInt16(cult.Comp.TotalCrew / 4); i++) // spawn # malign rifts equal to 25% of the playercount
-                    {
-                        if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
-                        {
-                            Spawn("CosmicMalignRift", coords);
-                        }
-                    }
-
-                    var lights = EntityQueryEnumerator<PoweredLightComponent>();
-                    while (lights.MoveNext(out var light, out _))
-                    {
-                        if (!_rand.Prob(0.50f))
-                            continue;
-                        _ghost.DoGhostBooEvent(light);
-                    }
-
-                    _monument.SetCanTierUp(uid, true);
-                    UpdateCultData(uid); //instantly go up a tier if they manage it
-                    _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(uid.Comp)); //not sure if this is needed but I'll be safe
-                });
-
+            cult.Comp.Tier2DelayTimer = _timing.CurTime + _t2RevealDelay;
         }
 
         _monument.UpdateMonumentAppearance(uid, false);
