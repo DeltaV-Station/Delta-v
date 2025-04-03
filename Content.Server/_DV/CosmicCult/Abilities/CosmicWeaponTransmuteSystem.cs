@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Kitchen.Components;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Popups;
@@ -38,11 +39,9 @@ public sealed class CosmicWeaponTransmuteSystem : EntitySystem
             args.Cancel();
             return;
         }
-        foreach (var target in possibleTargets)
-        {
-            Spawn(_random.Pick(uid.Comp.TransmuteWeapon), tgtpos);
-            QueueDel(target);
-        }
+
+        Spawn(_random.Pick(uid.Comp.TransmuteWeapon), tgtpos);
+        QueueDel(possibleTargets.First());
     }
 
     /// <summary>
