@@ -12,6 +12,10 @@
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: Clothing
     sprite: Clothing/Shoes/Boots/magboots.rsi
+    # Begin DeltaV additions - Magboots are bulkier and stiffer than shoes, it should take time
+    equipDelay: 1
+    unequipDelay: 1
+    # End DeltaV additions
   - type: ToggleClothing
     action: ActionToggleMagboots
     mustEquip: false
