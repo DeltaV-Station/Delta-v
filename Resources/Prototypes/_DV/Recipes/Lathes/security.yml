@@ -272,7 +272,7 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-<<<<<<< HEAD
+
   id: GamblagatorCapacitor
   result: GamblagatorCapacitor
   materials:
@@ -282,7 +282,9 @@
     Gold: 200
     Plasma: 500
     Bluespace: 100
-=======
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineLaser
   result: MagazineLaser
   materials:
@@ -308,4 +310,3 @@
     Glass: 1200
     Gold: 500
     Silver: 500
->>>>>>> pr/2552
