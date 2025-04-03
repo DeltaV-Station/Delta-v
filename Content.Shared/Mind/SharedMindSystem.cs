@@ -410,7 +410,7 @@ public abstract partial class SharedMindSystem : EntitySystem
         return false;
     }
 
-    // DELTA-V EDIT BEGIN | currently loadbearing for Cosmic Cult's deconversion function. Used in Deconversion.
+    // Begin DeltaV - Cosmic Cult Deconversion
     public void ClearObjectives(EntityUid mind, MindComponent? comp = null)
     {
         if (!Resolve(mind, ref comp))
@@ -423,7 +423,7 @@ public abstract partial class SharedMindSystem : EntitySystem
         comp.Objectives.Clear();
         Dirty(mind, comp);
     }
-    // DELTA-V EDIT END
+    // End DeltaV - Cosmic Cult Deconversion
 
     /// <summary>
     /// Copies objectives from one mind to another, so that they are shared between two players.
