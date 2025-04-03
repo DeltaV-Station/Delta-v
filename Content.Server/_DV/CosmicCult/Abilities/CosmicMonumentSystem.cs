@@ -20,14 +20,14 @@ public sealed class CosmicMonumentSystem : EntitySystem
     [Dependency] private readonly CosmicCorruptingSystem _corrupting = default!;
     [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
+    [Dependency] private readonly MonumentSystem _monument = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
-
-    private EntityUid? _monumentStorageMap;
 
     public override void Initialize()
     {
@@ -77,60 +77,15 @@ public sealed class CosmicMonumentSystem : EntitySystem
         //spawn the destination effect first because we only need one
         var destEnt = Spawn("MonumentCosmicCultMoveEnd", pos);
         var destComp = EnsureComp<MonumentMoveDestinationComponent>(destEnt);
+        destComp.Monument = cult.Comp.MonumentInGame;
         var coords = Transform(cult.Comp.MonumentInGame).Coordinates;
         Spawn("MonumentCollider", pos); //spawn a new collider
 
         Spawn("MonumentCosmicCultMoveStart", coords);
         Spawn("MonumentCollider", Transform(cult.Comp.MonumentInGame).Coordinates); //spawn a new collider
 
-        //timers!
-        //move the monument to cheese world (the storage map)
-        //these timers aren't amazing because they're basically magic values but eh
-        Timer.Spawn(TimeSpan.FromSeconds(0.45),
-            () =>
-            {
-                //todo check if anything gets messed up by doing this to the monument?
-                _transform.SetParent(cult.Comp.MonumentInGame, EnsureStorageMapExists());
-                destComp.Monument = cult.Comp.MonumentInGame; //only get the first monument
-
-                if (cult.Comp.MonumentInGame.Comp.CurrentGlyph is not null) //delete the scribed glyph as well
-                    QueueDel(cult.Comp.MonumentInGame.Comp.CurrentGlyph);
-
-                //close the UI for everyone who has it open
-                _ui.CloseUi(uid.Owner, MonumentKey.Key);
-
-                //retrieve the monument from cheese world
-                Timer.Spawn(TimeSpan.FromSeconds(0.75), //relative to the last timer
-                    () =>
-                    {
-                        var colliderQuery = EntityQueryEnumerator<MonumentCollisionComponent>();
-                        while (colliderQuery.MoveNext(out var collider, out _))
-                        {
-                            QueueDel(collider);
-                        }
-
-                        if (destComp.Monument is null)
-                            return;
-
-                        var xform = Transform(destEnt);
-                        _transform.SetCoordinates(destComp.Monument.Value, xform.Coordinates);
-                        _transform.AnchorEntity(destComp.Monument.Value); //no idea if this does anything but let's be safe about it
-                        Spawn("MonumentCollider", xform.Coordinates);
-
-                        if (TryComp<CosmicCorruptingComponent>(destComp.Monument.Value, out var cosmicCorruptingComp))
-                            _corrupting.RecalculateStartingTiles((destComp.Monument.Value, cosmicCorruptingComp));
-                    });
-            });
-    }
-
-    private EntityUid EnsureStorageMapExists()
-    {
-        if (_monumentStorageMap != null && Exists(_monumentStorageMap))
-            return _monumentStorageMap.Value;
-
-        _monumentStorageMap = _map.CreateMap();
-        _map.SetPaused(_monumentStorageMap.Value, true);
-        return _monumentStorageMap.Value;
+        _monument.PhaseOutMonument(cult.Comp.MonumentInGame);
+        destComp.PhaseInTimer = cult.Comp.MonumentInGame.Comp.PhaseOutTimer + TimeSpan.FromSeconds(0.75);
     }
 
     //todo this can probably be mostly moved to shared but my brain isn't cooperating w/ that rn

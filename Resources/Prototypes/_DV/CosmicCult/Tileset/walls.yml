@@ -5,7 +5,7 @@
   description: A strange-looking wall. Staring at it for too long instills a sense of discomfort.
   components:
   - type: CosmicCultExamine
-    cultistText: cosmic-examine-text-structures
+    cultistText: cosmic-examine-text-forthecult
   - type: Tag
     tags:
       - Wall
@@ -124,7 +124,7 @@
   components:
   - type: RCDDeconstructable
   - type: CosmicCultExamine
-    cultistText: cosmic-examine-text-structures
+    cultistText: cosmic-examine-text-forthecult
   - type: Sprite
     drawdepth: WallTops
     sprite: _DV/CosmicCult/Tileset/cosmicwindow_diagonal.rsi
@@ -156,7 +156,7 @@
     - Wall
   components:
   - type: CosmicCultExamine
-    cultistText: cosmic-examine-text-structures
+    cultistText: cosmic-examine-text-forthecult
   - type: Sprite
     drawdepth: WallTops
     sprite: _DV/CosmicCult/Tileset/cosmicwindow_dark_diagonal.rsi
