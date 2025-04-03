@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Atmos.Portable;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Popups;
@@ -8,7 +9,6 @@ namespace Content.Server._DV.CosmicCult.Abilities;
 public sealed class CosmicSpireTransmuteSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     private HashSet<EntityUid> _scrubbers = new();
@@ -36,11 +36,9 @@ public sealed class CosmicSpireTransmuteSystem : EntitySystem
             args.Cancel();
             return;
         }
-        foreach (var target in possibleTargets)
-        {
-            Spawn(uid.Comp.TransmuteSpire, tgtpos);
-            QueueDel(target);
-        }
+
+        Spawn(uid.Comp.TransmuteSpire, tgtpos);
+        QueueDel(possibleTargets.First());
     }
 
 

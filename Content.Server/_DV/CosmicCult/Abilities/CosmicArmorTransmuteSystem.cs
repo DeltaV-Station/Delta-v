@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Atmos.Components;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Clothing;
@@ -36,11 +37,8 @@ public sealed class CosmicArmorTransmuteSystem : EntitySystem
             return;
         }
 
-        foreach (var target in possibleTargets)
-        {
-            Spawn(uid.Comp.TransmuteArmor, tgtpos);
-            QueueDel(target);
-        }
+        Spawn(uid.Comp.TransmuteArmor, tgtpos);
+        QueueDel(possibleTargets.First());
     }
 
     /// <summary>
