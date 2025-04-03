@@ -72,10 +72,8 @@ public sealed class CosmicBlankSystem : EntitySystem
         {
             if (_timing.CurTime >= comp.ExitVoidTime)
             {
-                if (!TryComp<MindContainerComponent>(uid, out var mindContainer))
+                if (!_mind.TryGetMind(uid, out var mindEnt, out var mind))
                     continue;
-                var mindEnt = mindContainer.Mind!.Value;
-                var mind = Comp<MindComponent>(mindEnt);
                 mind.PreventGhosting = false;
                 _mind.TransferTo(mindEnt, comp.OriginalBody);
                 RemComp<CosmicMarkBlankComponent>(comp.OriginalBody);
@@ -87,9 +85,8 @@ public sealed class CosmicBlankSystem : EntitySystem
 
     private void OnCosmicBlankDoAfter(Entity<CosmicCultComponent> uid, ref EventCosmicBlankDoAfter args)
     {
-        if (args.Args.Target == null)
+        if (args.Args.Target is not {} target)
             return;
-        var target = args.Args.Target.Value;
         if (args.Cancelled || args.Handled)
             return;
         args.Handled = true;

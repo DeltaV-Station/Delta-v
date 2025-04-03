@@ -2,15 +2,15 @@ using Content.Server.Atmos.Components;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Popups;
-using Robust.Shared.Containers;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 
 public sealed class CosmicArmorTransmuteSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+
+    private HashSet<EntityUid> _pressureItems = new();
 
     public override void Initialize()
     {
@@ -35,6 +35,7 @@ public sealed class CosmicArmorTransmuteSystem : EntitySystem
             args.Cancel();
             return;
         }
+
         foreach (var target in possibleTargets)
         {
             Spawn(uid.Comp.TransmuteArmor, tgtpos);
@@ -47,8 +48,9 @@ public sealed class CosmicArmorTransmuteSystem : EntitySystem
     /// </summary>
     private HashSet<EntityUid> GatherPressureSuitItems(EntityUid uid, float range)
     {
-        var items = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, range);
-        items.RemoveWhere(item => !HasComp<ClothingSpeedModifierComponent>(item) || !HasComp<PressureProtectionComponent>(item) || _container.IsEntityInContainer(item));
-        return items;
+        _pressureItems.Clear();
+        _lookup.GetEntitiesInRange(Transform(uid).Coordinates, range, _pressureItems, LookupFlags.Uncontained);
+        _pressureItems.RemoveWhere(item => !HasComp<ClothingSpeedModifierComponent>(item) || !HasComp<PressureProtectionComponent>(item));
+        return _pressureItems;
     }
 }
