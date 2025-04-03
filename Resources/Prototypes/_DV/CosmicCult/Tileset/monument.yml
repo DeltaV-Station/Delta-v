@@ -23,7 +23,7 @@
         density: 1000
         hard: false
   - type: Visibility
-    layer: 777
+    layer: 16
   - type: SpriteFade
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/monument.rsi
@@ -105,7 +105,7 @@
   - type: WarpPoint
     location: The Monument
   - type: CosmicCultExamine
-    cultistText: cosmic-examine-text-structures
+    cultistText: cosmic-examine-text-forthecult
   - type: CosmicCorrupting
     corruptionReduction: 0.01
     enabled: false
@@ -120,7 +120,7 @@
   suffix: Spawn, DO NOT MAP
   components:
   - type: Visibility
-    layer: 777
+    layer: 16
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
@@ -177,7 +177,7 @@
   suffix: Spawn, DO NOT MAP
   components:
   - type: Visibility
-    layer: 777
+    layer: 16
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
@@ -231,7 +231,7 @@
   suffix: Spawn, DO NOT MAP
   components:
   - type: Visibility
-    layer: 777
+    layer: 16
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:

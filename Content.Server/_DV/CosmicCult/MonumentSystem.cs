@@ -40,8 +40,12 @@ public sealed class MonumentSystem : SharedMonumentSystem
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+
+    private EntityUid? _monumentStorageMap;
 
     public override void Initialize()
     {
@@ -66,6 +70,12 @@ public sealed class MonumentSystem : SharedMonumentSystem
                 foreach (var entity in entities) _damageable.TryChangeDamage(entity, monuComp.MonumentHealing * -1);
                 monuComp.CheckTimer = _timing.CurTime + monuComp.CheckWait;
             }
+            if (comp.SongTimer is {} time && _timing.CurTime >= time)
+            {
+                comp.SongTimer = null;
+                if (comp.SelectedSong is {} song)
+                    _sound.DispatchStationEventMusic(uid, song, StationEventMusicType.CosmicCult);
+            }
 
             if (comp.CurrentState == FinaleState.ActiveBuffer && _timing.CurTime >= comp.BufferTimer) // swap everything over when buffer timer runs out
             {
@@ -77,11 +87,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
                 _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
                 _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("cosmiccult-announce-finale-warning"), null, false, null, Color.FromHex("#cae8e8"));
 
-                Timer.Spawn(TimeSpan.FromSeconds(1),
-                    () =>
-                    {
-                        _sound.DispatchStationEventMusic(uid, comp.SelectedSong, StationEventMusicType.CosmicCult);
-                    });
+                comp.SongTimer = _timing.CurTime + TimeSpan.FromSeconds(1);
             }
             else if (comp.CurrentState == FinaleState.ActiveFinale && _timing.CurTime >= comp.FinaleTimer) // trigger wincondition on time runout
             {
@@ -90,6 +96,73 @@ public sealed class MonumentSystem : SharedMonumentSystem
                 comp.CurrentState = FinaleState.Victory;
             }
         }
+
+        var monumentQuery = EntityQueryEnumerator<MonumentComponent>();
+        while (monumentQuery.MoveNext(out var uid, out var comp))
+        {
+            if (comp.PhaseOutTimer is {} timer && _timing.CurTime >= timer)
+            {
+                OnMonumentPhaseOut((uid, comp));
+                comp.PhaseOutTimer = null;
+            }
+        }
+
+        var destinationQuery = EntityQueryEnumerator<MonumentMoveDestinationComponent>();
+        while (destinationQuery.MoveNext(out var uid, out var comp))
+        {
+            if (comp.PhaseInTimer is {} timer && _timing.CurTime >= timer)
+            {
+                OnMonumentPhaseIn((uid, comp));
+                comp.PhaseInTimer = null;
+            }
+        }
+    }
+
+    private void OnMonumentPhaseOut(Entity<MonumentComponent> ent)
+    {
+        //todo check if anything gets messed up by doing this to the monument?
+        _transform.SetParent(ent, EnsureStorageMapExists());
+
+        if (ent.Comp.CurrentGlyph is not null) //delete the scribed glyph as well
+            QueueDel(ent.Comp.CurrentGlyph);
+
+        //close the UI for everyone who has it open
+        _ui.CloseUi(ent.Owner, MonumentKey.Key);
+    }
+
+    private void OnMonumentPhaseIn(Entity<MonumentMoveDestinationComponent> ent)
+    {
+        var colliderQuery = EntityQueryEnumerator<MonumentCollisionComponent>();
+        while (colliderQuery.MoveNext(out var collider, out _))
+        {
+            QueueDel(collider);
+        }
+
+        if (ent.Comp.Monument is null)
+            return;
+
+        var xform = Transform(ent);
+        _transform.SetCoordinates(ent.Comp.Monument.Value, xform.Coordinates);
+        _transform.AnchorEntity(ent.Comp.Monument.Value); //no idea if this does anything but let's be safe about it
+        Spawn("MonumentCollider", xform.Coordinates);
+
+        if (TryComp<CosmicCorruptingComponent>(ent.Comp.Monument.Value, out var cosmicCorruptingComp))
+            _corrupting.RecalculateStartingTiles((ent.Comp.Monument.Value, cosmicCorruptingComp));
+    }
+
+    private EntityUid EnsureStorageMapExists()
+    {
+        if (_monumentStorageMap != null && Exists(_monumentStorageMap))
+            return _monumentStorageMap.Value;
+
+        _monumentStorageMap = _map.CreateMap();
+        _map.SetPaused(_monumentStorageMap.Value, true);
+        return _monumentStorageMap.Value;
+    }
+
+    public void PhaseOutMonument(Entity<MonumentComponent> ent)
+    {
+        ent.Comp.PhaseOutTimer = _timing.CurTime + TimeSpan.FromSeconds(0.45);
     }
 
     public void UpdateMonumentProgress(Entity<MonumentComponent> ent, Entity<CosmicCultRuleComponent> cult)
