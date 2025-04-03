@@ -55,7 +55,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  id: CosmicLapseAbilityVFX
+  id: BaseCosmicVFX
   placement:
     mode: SnapgridCenter
   components:
@@ -65,29 +65,34 @@
     noRot: true
     anchored: true
   - type: Sprite
+    netsync: false
+    drawdepth: Mobs
+    shader: unshaded
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseCosmicVFX
+  id: CosmicLapseAbilityVFX
+  components:
+  - type: Sprite
     layers:
     - sprite: _DV/CosmicCult/Effects/ability_lapsevfx.rsi
       state: vfx
       shader: unshaded
-    netsync: false
-    drawdepth: Mobs
-  - type: Tag
-    tags:
-      - HideContextMenu
 
 - type: entity
   categories: [ HideSpawnMenu ]
+  parent: BaseCosmicVFX
   id: CosmicBlankAbilityVFX
   components:
-  - type: TimedDespawn
-    lifetime: 1.75
   - type: Sprite
     layers:
     - sprite: _DV/CosmicCult/Effects/ability_blankvfx.rsi
       state: vfx
       shader: unshaded
-    netsync: false
-    drawdepth: Mobs
   - type: PointLight
     color: "#42a4ae"
     radius: 1.5
@@ -105,12 +110,10 @@
        enabled: true
        isLooped: true
        reverseWhenFinished: true
-  - type: Tag
-    tags:
-      - HideContextMenu
 
 - type: entity
   categories: [ HideSpawnMenu ]
+  parent: BaseCosmicVFX
   id: CleanseEffectVFX
   components:
   - type: TimedDespawn
@@ -120,8 +123,6 @@
     - sprite: _DV/CosmicCult/Effects/effect_cleansevfx.rsi
       state: vfx
       shader: unshaded
-    netsync: false
-    drawdepth: Mobs
   - type: PointLight
     color: "#ffd52e"
     radius: 1.5
@@ -139,12 +140,10 @@
        enabled: true
        isLooped: true
        reverseWhenFinished: true
-  - type: Tag
-    tags:
-      - HideContextMenu
 
 - type: entity
   categories: [ HideSpawnMenu ]
+  parent: BaseCosmicVFX
   id: CosmicGenericVFX
   components:
   - type: TimedDespawn
@@ -154,8 +153,6 @@
     - sprite: _DV/CosmicCult/Effects/effect_glyphvfx.rsi
       state: vfx
       shader: unshaded
-    netsync: false
-    drawdepth: Mobs
   - type: PointLight
     color: "#42a4ae"
     radius: 1.5
@@ -173,12 +170,10 @@
        enabled: true
        isLooped: true
        reverseWhenFinished: true
-  - type: Tag
-    tags:
-      - HideContextMenu
 
 - type: entity
   categories: [ HideSpawnMenu ]
+  parent: BaseCosmicVFX
   id: CosmicGlareAbilityVFX
   components:
   - type: TimedDespawn
@@ -188,8 +183,6 @@
     - sprite: _DV/CosmicCult/Effects/ability_glarevfx.rsi
       state: vfx
       shader: unshaded
-    netsync: false
-    drawdepth: Mobs
   - type: PointLight
     color: "#42a4ae"
     radius: 10
@@ -207,12 +200,10 @@
        enabled: true
        isLooped: true
        reverseWhenFinished: true
-  - type: Tag
-    tags:
-      - HideContextMenu
 
 - type: entity
   categories: [ HideSpawnMenu ]
+  parent: BaseCosmicVFX
   id: CosmicImpositionAbilityVFX
   components:
   - type: TimedDespawn
@@ -222,8 +213,6 @@
     - sprite: _DV/CosmicCult/Effects/ability_impositionvfx.rsi
       state: vfx
       shader: unshaded
-    netsync: false
-    drawdepth: Mobs
   - type: PointLight
     color: "#42a4ae"
     radius: 10
@@ -241,10 +230,6 @@
        enabled: true
        isLooped: true
        reverseWhenFinished: true
-  - type: Tag
-    tags:
-      - HideContextMenu
-
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -281,15 +266,15 @@
       - HideContextMenu
 
 - type: entity
+  parent: BaseCosmicVFX
   id: CosmicEchoVfx
   name: malign echo
   description: A trace of malign light..
-  placement:
-    mode: SnapgridCenter
   components:
   - type: TimedDespawn
     lifetime: 50
-  - type: CosmicMarkEcho
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-malignecho
   - type: InteractionOutline
   - type: Sprite
     layers:

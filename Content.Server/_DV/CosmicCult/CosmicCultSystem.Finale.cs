@@ -109,7 +109,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (TryComp<ActivatableUIComponent>(uid, out var uiComp))
             uiComp.Key = MonumentKey.Key; // wow! This is the laziest way to enable a UI ever!
 
-        monument.Enabled = true;
+        _monument.Enable((uid, monument));
         comp.FinaleActive = true;
 
         Dirty(uid, monument);
@@ -158,7 +158,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (!TryComp<MonumentComponent>(target, out var monument))
             return;
 
-        monument.Enabled = false;
+        _monument.Disable((uid, monument));
         comp.FinaleActive = false;
 
         Dirty(target, monument);

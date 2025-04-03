@@ -13,7 +13,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.CosmicCult;
 
-public sealed class SharedMonumentSystem : EntitySystem
+public abstract class SharedMonumentSystem : EntitySystem
 {
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;

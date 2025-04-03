@@ -8,7 +8,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._DV.CosmicCult.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedMonumentSystem))]
 [AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class MonumentComponent : Component
 {
@@ -63,7 +63,7 @@ public sealed partial class MonumentComponent : Component
     /// <summary>
     /// how long the monument takes to transform on a tier up
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan TransformTime = TimeSpan.FromSeconds(2.8);
 
     /// <summary>
