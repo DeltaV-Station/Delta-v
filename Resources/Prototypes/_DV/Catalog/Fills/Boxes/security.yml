@@ -16,9 +16,9 @@
     - id: TapeRecorder
 
 - type: entity
-  name: mindshield box
   parent: BoxCardboard
   id: BoxMindshield
+  name: mindshield box
   description: A box filled with mindshield implants.
   components:
   - type: StorageFill
@@ -27,9 +27,9 @@
       amount: 4
 
 - type: entity
-  name: c4 box
   parent: BoxCardboard
   id: BoxC4
+  name: c4 box
   description: A box filled with C4s.
   components:
   - type: StorageFill
