@@ -45,7 +45,6 @@ public sealed class CosmicWeaponTransmuteSystem : EntitySystem
         }
     }
 
-
     /// <summary>
     ///     Gets all sharp items near a glyph.
     /// </summary>

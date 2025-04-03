@@ -10,6 +10,8 @@ namespace Content.Shared._DV.CosmicCult.Components;
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedCosmicCultSystem))]
 public sealed partial class CosmicCultLeadComponent : Component
 {
+    public override bool SessionSpecific => true;
+
     /// <summary>
     /// The status icon corresponding to the lead cultist.
     /// </summary>
@@ -21,8 +23,6 @@ public sealed partial class CosmicCultLeadComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan StunTime = TimeSpan.FromSeconds(3);
-
-    public override bool SessionSpecific => true;
 
     [DataField]
     public EntProtoId MonumentPrototype = "MonumentCosmicCultSpawnIn";
@@ -38,7 +38,4 @@ public sealed partial class CosmicCultLeadComponent : Component
 
     [DataField]
     public EntityUid? CosmicMonumentMoveActionEntity;
-
 }
-
-// CosmicCultLeadComponent

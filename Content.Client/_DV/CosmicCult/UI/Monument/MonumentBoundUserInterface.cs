@@ -6,8 +6,8 @@ using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client._DV.CosmicCult.UI.Monument;
-[UsedImplicitly]
 
+[UsedImplicitly]
 public sealed class MonumentBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     [ViewVariables]
@@ -22,7 +22,7 @@ public sealed class MonumentBoundUserInterface(EntityUid owner, Enum uiKey) : Bo
         _menu.OnSelectGlyphButtonPressed += protoId => SendMessage(new GlyphSelectedMessage(protoId));
         _menu.OnRemoveGlyphButtonPressed += () => SendMessage(new GlyphRemovedMessage());
 
-        _menu.OnGainButtonPressed += OnIdSelected;
+        _menu.OnGainButtonPressed += OnInfluenceSelected;
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -34,7 +34,7 @@ public sealed class MonumentBoundUserInterface(EntityUid owner, Enum uiKey) : Bo
         _menu?.UpdateState(buiState);
     }
 
-    private void OnIdSelected(ProtoId<InfluencePrototype> selectedInfluence)
+    private void OnInfluenceSelected(ProtoId<InfluencePrototype> selectedInfluence)
     {
         SendMessage(new InfluenceSelectedMessage(selectedInfluence, EntMan.GetNetEntity(PlayerManager.LocalEntity)));
     }

@@ -136,7 +136,6 @@ public enum MonumentVisuals : byte
     Monument,
     Transforming,
     FinaleReached,
-    FinaleActive,
     Tier3,
 }
 

@@ -42,7 +42,7 @@ public sealed class CosmicBlankSystem : EntitySystem
 
     private void OnCosmicBlank(Entity<CosmicCultComponent> uid, ref EventCosmicBlank args)
     {
-        if (HasComp<CosmicCultComponent>(args.Target) || HasComp<CosmicMarkBlankComponent>(args.Target) || HasComp<BibleUserComponent>(args.Target) || HasComp<ActiveNPCComponent>(args.Target))
+        if (HasComp<CosmicCultComponent>(args.Target) || HasComp<CosmicBlankComponent>(args.Target) || HasComp<BibleUserComponent>(args.Target) || HasComp<ActiveNPCComponent>(args.Target))
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-generic-fail"), uid, uid);
             return;
@@ -76,7 +76,7 @@ public sealed class CosmicBlankSystem : EntitySystem
                     continue;
                 mind.PreventGhosting = false;
                 _mind.TransferTo(mindEnt, comp.OriginalBody);
-                RemComp<CosmicMarkBlankComponent>(comp.OriginalBody);
+                RemComp<CosmicBlankComponent>(comp.OriginalBody);
                 _popup.PopupEntity(Loc.GetString("cosmicability-blank-return"), comp.OriginalBody, comp.OriginalBody);
                 QueueDel(uid);
             }
@@ -96,7 +96,7 @@ public sealed class CosmicBlankSystem : EntitySystem
             return;
         }
 
-        EnsureComp<CosmicMarkBlankComponent>(target);
+        EnsureComp<CosmicBlankComponent>(target);
         var examine = EnsureComp<CosmicCultExamineComponent>(target);
         examine.CultistText = "cosmic-examine-text-abilityblank";
 

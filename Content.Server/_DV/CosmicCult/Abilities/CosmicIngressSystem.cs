@@ -26,9 +26,8 @@ public sealed class CosmicIngressSystem : EntitySystem
             return;
 
         args.Handled = true;
-        if (uid.Comp.CosmicEmpowered)
-            if (TryComp<DoorBoltComponent>(target, out var doorBolt))
-                _door.SetBoltsDown((target, doorBolt), false);
+        if (uid.Comp.CosmicEmpowered && TryComp<DoorBoltComponent>(target, out var doorBolt))
+            _door.SetBoltsDown((target, doorBolt), false);
         _door.StartOpening(target);
         _audio.PlayPvs(uid.Comp.IngressSFX, uid);
         Spawn(uid.Comp.AbsorbVFX, Transform(target).Coordinates);

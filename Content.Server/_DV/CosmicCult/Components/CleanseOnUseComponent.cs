@@ -13,6 +13,7 @@ public sealed partial class CleanseOnUseComponent : Component
     [DataField] public SoundSpecifier SizzleSound = new SoundPathSpecifier("/Audio/Effects/lightburn.ogg");
 
     [DataField] public SoundSpecifier CleanseSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/cleanse_deconversion.ogg");
+
     [DataField] public SoundSpecifier MalignSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/glyph_trigger.ogg");
 
     [DataField] public EntProtoId CleanseVFX = "CleanseEffectVFX";
@@ -24,7 +25,8 @@ public sealed partial class CleanseOnUseComponent : Component
     /// <summary>
     /// When True allows an item to purge the Cosmic Cult's Malign Rifts onInteractInHand, utilized exclusively by the CosmicRiftSystem.
     /// </summary>
-    [DataField] public bool CanPurge = false;
+    [DataField] public bool CanPurge;
+
     [DataField]
     public DamageSpecifier SelfDamage = new()
     {

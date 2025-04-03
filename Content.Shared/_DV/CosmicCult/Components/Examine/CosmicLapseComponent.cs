@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._DV.CosmicCult.Components.Examine;
 
 /// <summary>
-/// Marker component for The Unknown. We also use this to detect its spawn through CultRule!
+/// Marker component for targets under the effect of Abberant Lapse.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class CosmicMarkGodComponent : Component;
+public sealed partial class CosmicLapseComponent : Component;

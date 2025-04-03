@@ -560,7 +560,7 @@ namespace Content.Server.Voting.Managers
             Ghost, // Player needs to be a ghost
             GhostMinimumPlaytime, // Player needs to be a ghost, with a minimum playtime and deathtime as defined by votekick CCvars.
             MinimumPlaytime, //Player needs to have a minimum playtime and deathtime as defined by votekick CCvars.
-            CosmicCult // DeltaV - Player needs to be a cosmic cultist. Used by the cosmic cult gamemode.
+            CosmicCult, // DeltaV - Player needs to be a cosmic cultist. Used by the cosmic cult gamemode.
         }
 
         #endregion
