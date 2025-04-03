@@ -10,7 +10,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Jittering;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.SSDIndicator;
 using Content.Shared.Timing;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -49,7 +48,7 @@ public sealed class DeconversionSystem : EntitySystem
         var deconCultTimer = EntityQueryEnumerator<CleanseCultComponent>();
         while (deconCultTimer.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime >= comp.CleanseTime && !HasComp<CosmicMarkBlankComponent>(uid))
+            if (_timing.CurTime >= comp.CleanseTime && !HasComp<CosmicBlankComponent>(uid))
             {
                 RemComp<CleanseCultComponent>(uid);
                 DeconvertCultist(uid);

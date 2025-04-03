@@ -35,12 +35,14 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
     private MonumentPlacementPreviewOverlay? _cachedOverlay;
     private CancellationTokenSource? _cancellationTokenSource;
 
+    private const int MinimumDistanceFromSpace = 3;
+
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MonumentPlacementMarkerComponent, ActionAttemptEvent>(OnAttemptMonumentPlacement);
+        SubscribeLocalEvent<MonumentPlacementPreviewComponent, ActionAttemptEvent>(OnAttemptMonumentPlacement);
         SubscribeLocalEvent<CosmicCultLeadComponent, EventCosmicPlaceMonument>(OnCosmicPlaceMonument);
         SubscribeLocalEvent<CosmicCultLeadComponent, EventCosmicMoveMonument>(OnCosmicMoveMonument);
     }
@@ -116,9 +118,8 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
         }
 
         //CHECK IF IT'S BEING PLACED CHEESILY CLOSE TO SPACE
-        var spaceDistance = 3;
         var worldPos = _transform.GetWorldPosition(xform); //this is technically wrong but basically fine; if
-        foreach (var tile in _map.GetTilesIntersecting(xform.GridUid.Value, grid, new Circle(worldPos, spaceDistance)))
+        foreach (var tile in _map.GetTilesIntersecting(xform.GridUid.Value, grid, new Circle(worldPos, MinimumDistanceFromSpace)))
         {
             if (tile.IsSpace(_tileDef))
                 return false;
@@ -138,7 +139,7 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
         return true;
     }
 
-    private void OnAttemptMonumentPlacement(Entity<MonumentPlacementMarkerComponent> ent, ref ActionAttemptEvent args)
+    private void OnAttemptMonumentPlacement(Entity<MonumentPlacementPreviewComponent> ent, ref ActionAttemptEvent args)
     {
         if (!TryComp<ConfirmableActionComponent>(ent, out var confirmableAction))
             return; //return if the action somehow doesn't have a confirmableAction comp
@@ -179,7 +180,7 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
     private void StartTimers(ConfirmableActionComponent comp, CancellationTokenSource tokenSource, MonumentPlacementPreviewOverlay overlay)
     {
         //remove the overlay automatically after the primeTime expires
-        Robust.Shared.Timing.Timer.Spawn(comp.PrimeTime + comp.ConfirmDelay,
+        Timer.Spawn(comp.PrimeTime + comp.ConfirmDelay,
             () =>
             {
                 _overlay.RemoveOverlay<MonumentPlacementPreviewOverlay>();

@@ -1,5 +1,4 @@
 using Content.Server._DV.CosmicCult.Components;
-using Content.Server._DV.CosmicCult.EntitySystems;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
@@ -7,9 +6,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.Audio;
 using Content.Server.Bible.Components;
 using Content.Server.Chat.Systems;
-using Content.Server.CrewManifest;
 using Content.Server.EUI;
-using Content.Server.GameTicking.Events;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
@@ -46,7 +43,6 @@ using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.Stunnable;
 using Content.Shared.Temperature.Components;
-using Content.Shared.UserInterface;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -70,7 +66,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
@@ -125,7 +120,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         SubscribeLocalEvent<CosmicCultRuleComponent, AfterAntagEntitySelectedEvent>(OnAntagSelect);
 
         SubscribeLocalEvent<CosmicCultComponent, ComponentShutdown>(OnComponentShutdown);
-        SubscribeLocalEvent<CosmicMarkGodComponent, ComponentInit>(OnGodSpawn);
+        SubscribeLocalEvent<CosmicGodComponent, ComponentInit>(OnGodSpawn);
         SubscribeLocalEvent<CosmicCultComponent, MobStateChangedEvent>(OnMobStateChanged);
 
         Subs.CVar(_config,
@@ -145,6 +140,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             value => _voteTimer = TimeSpan.FromSeconds(value),
             true);
     }
+
     #region Starting Events
     protected override void Started(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -153,12 +149,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     protected override void ActiveTick(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
-        if (component.StewardVoteTimer is {} voteTimer && _timing.CurTime <= voteTimer)
+        if (component.StewardVoteTimer is { } voteTimer && _timing.CurTime <= voteTimer)
         {
             component.StewardVoteTimer = null;
             StewardVote();
         }
-        if (component.PrepareFinaleTimer is {} finalePrepTimer && _timing.CurTime <= finalePrepTimer)
+        if (component.PrepareFinaleTimer is { } finalePrepTimer && _timing.CurTime <= finalePrepTimer)
         {
             component.PrepareFinaleTimer = null;
 
@@ -169,7 +165,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                 return;
             }
         }
-        if (component.Tier3DelayTimer is {} tier3Timer && _timing.CurTime <= tier3Timer)
+        if (component.Tier3DelayTimer is { } tier3Timer && _timing.CurTime <= tier3Timer)
         {
             component.Tier3DelayTimer = null;
 
@@ -217,7 +213,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             UpdateCultData(component.MonumentInGame); //instantly go up a tier if they manage it.
             _ui.SetUiState(component.MonumentInGame.Owner, MonumentKey.Key, new MonumentBuiState(component.MonumentInGame.Comp)); //not sure if this is needed but I'll be safe
         }
-        if (component.Tier2DelayTimer is {} tier2Timer && _timing.CurTime <= tier2Timer)
+        if (component.Tier2DelayTimer is { } tier2Timer && _timing.CurTime <= tier2Timer)
         {
             component.Tier2DelayTimer = null;
 
@@ -302,7 +298,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     #region Round & Objectives
 
-    private void OnGodSpawn(Entity<CosmicMarkGodComponent> uid, ref ComponentInit args)
+    private void OnGodSpawn(Entity<CosmicGodComponent> uid, ref ComponentInit args)
     {
         var query = QueryActiveRules();
 
@@ -444,7 +440,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     public void IncrementCultObjectiveEntropy(Entity<CosmicCultComponent> ent)
     {
-        if (AssociatedGamerule(ent) is not {} cult)
+        if (AssociatedGamerule(ent) is not { } cult)
             return;
 
         cult.Comp.EntropySiphoned += ent.Comp.CosmicSiphonQuantity;
@@ -458,7 +454,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     public void OnStartMonument(Entity<MonumentComponent> ent)
     {
-        if (AssociatedGamerule(ent) is not {} cult)
+        if (AssociatedGamerule(ent) is not { } cult)
             return;
 
         cult.Comp.CurrentTier = 1;
@@ -472,7 +468,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (!TryComp<CosmicFinaleComponent>(uid, out var finaleComp))
             return;
 
-        if (AssociatedGamerule(uid) is not {} cult)
+        if (AssociatedGamerule(uid) is not { } cult)
             return;
 
         cult.Comp.TotalCrew = _playerMan.Sessions.Count(session => session.Status == SessionStatus.InGame && HasComp<HumanoidAppearanceComponent>(session.AttachedEntity));
@@ -552,7 +548,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         Dirty(uid);
         _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(uid.Comp));
     }
-
 
     #region De- & Conversion
     public void TryStartCult(EntityUid uid, Entity<CosmicCultRuleComponent> rule)
@@ -634,7 +629,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     public void CosmicConversion(EntityUid converter, EntityUid uid)
     {
-        if (AssociatedGamerule(converter) is not {} cult)
+        if (AssociatedGamerule(converter) is not { } cult)
             return;
         var cosmicGamerule = cult.Comp;
 
@@ -688,8 +683,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
         var radio = EnsureComp<ActiveRadioComponent>(uid);
-        radio.Channels = new() { "CosmicRadio" };
-        transmitter.Channels = new() { "CosmicRadio" };
+        radio.Channels = [ "CosmicRadio" ];
+        transmitter.Channels = [ "CosmicRadio" ];
 
         _mind.TryAddObjective(mindId, mind, "CosmicFinalityObjective");
         _mind.TryAddObjective(mindId, mind, "CosmicMonumentObjective");
@@ -709,7 +704,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     }
     private void OnComponentShutdown(Entity<CosmicCultComponent> uid, ref ComponentShutdown args)
     {
-        if (AssociatedGamerule(uid) is not {} cult)
+        if (AssociatedGamerule(uid) is not { } cult)
             return;
         var cosmicGamerule = cult.Comp;
 
@@ -733,7 +728,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (!_mind.TryGetMind(uid, out var mindId, out _) || !TryComp<MindComponent>(mindId, out var mindComp))
             return;
 
-        _mind.ClearObjectives(mindId, mindComp); // LOAD-BEARING #imp function to remove all of someone's objectives, courtesy of TCRGDev(Github)
+        _mind.ClearObjectives(mindId, mindComp);
         _role.MindTryRemoveRole<CosmicCultRoleComponent>(mindId);
         _role.MindTryRemoveRole<RoleBriefingComponent>(mindId);
         if (_mind.TryGetSession(mindId, out var session))

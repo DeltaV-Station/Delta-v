@@ -45,7 +45,7 @@ public sealed class CosmicSpireTransmuteSystem : EntitySystem
 
 
     /// <summary>
-    ///     Gets all portablescrubbers near a glyph.
+    ///     Gets all portable scrubbers near a glyph.
     /// </summary>
     private HashSet<EntityUid> GatherPortableScrubbers(EntityUid uid, float range)
     {

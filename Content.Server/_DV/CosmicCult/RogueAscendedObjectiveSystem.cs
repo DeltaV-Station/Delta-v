@@ -15,16 +15,7 @@ public sealed class RogueAscendedObjectiveSystem : EntitySystem
 
     private void OnGetInfectionProgress(EntityUid uid, RogueInfectionConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
-        args.Progress = InfectionProgress(comp, _number.GetTarget(uid));
-    }
-
-    private float InfectionProgress(RogueInfectionConditionComponent comp, int target)
-    {
         // prevent divide-by-zero
-        if (target == 0)
-            return 1f;
-
-        return MathF.Min(comp.MindsCorrupted / (float) target, 1f);
+        args.Progress = _number.GetTarget(uid) == 0 ? 1f : MathF.Min(comp.MindsCorrupted / (float)_number.GetTarget(uid), 1f);
     }
-
 }

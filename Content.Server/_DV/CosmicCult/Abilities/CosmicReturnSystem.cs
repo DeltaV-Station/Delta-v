@@ -28,7 +28,7 @@ public sealed class CosmicReturnSystem : EntitySystem
         var projectionEnt = Spawn(uid.Comp.SpawnProjection, Transform(uid).Coordinates);
         if (_mind.TryGetMind(args.User, out var mindId, out var _))
             _mind.TransferTo(mindId, projectionEnt);
-        EnsureComp<CosmicMarkBlankComponent>(args.User);
+        EnsureComp<CosmicBlankComponent>(args.User);
         EnsureComp<CosmicAstralBodyComponent>(projectionEnt, out var astralComp);
         var mind = Comp<MindComponent>(mindId);
         mind.PreventGhosting = true;
@@ -36,13 +36,16 @@ public sealed class CosmicReturnSystem : EntitySystem
         _stun.TryKnockdown(args.User, TimeSpan.FromSeconds(2), true);
     }
 
-    private void OnCosmicReturn(Entity<CosmicAstralBodyComponent> uid, ref EventCosmicReturn args) //This action is exclusive to the Glyph-created Astral Projection, and allows the user to return to their original body.
+    /// <summary>
+    ///     This action is exclusive to the Glyph-created Astral Projection, and allows the user to return to their original body.
+    /// </summary>
+    private void OnCosmicReturn(Entity<CosmicAstralBodyComponent> uid, ref EventCosmicReturn args)
     {
         if (_mind.TryGetMind(args.Performer, out var mindId, out var _))
             _mind.TransferTo(mindId, uid.Comp.OriginalBody);
         var mind = Comp<MindComponent>(mindId);
         mind.PreventGhosting = false;
         QueueDel(uid);
-        RemComp<CosmicMarkBlankComponent>(uid.Comp.OriginalBody);
+        RemComp<CosmicBlankComponent>(uid.Comp.OriginalBody);
     }
 }

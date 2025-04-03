@@ -11,6 +11,8 @@ public sealed partial class CosmicAstralNovaComponent : Component
 {
     [DataField]
     public bool DoStun = true;
+
+    [DataField]
     public DamageSpecifier CosmicNovaDamage = new()
     {
         DamageDict = new() {
