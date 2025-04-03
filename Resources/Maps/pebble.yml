@@ -4,7 +4,7 @@ meta:
   engineVersion: 249.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/31/2025 00:15:33
+  time: 04/03/2025 10:32:36
   entityCount: 14740
 maps:
 - 1
@@ -39511,13 +39511,11 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconArmory
   entities:
-  - uid: 12691
+  - uid: 819
     components:
     - type: Transform
       pos: 26.5,-16.5
       parent: 2
-    - type: NavMapBeacon
-      text: Armory
 - proto: DefaultStationBeaconArtifactLab
   entities:
   - uid: 10876
@@ -39555,20 +39553,11 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconBrig
   entities:
-  - uid: 9147
-    components:
-    - type: Transform
-      pos: 48.5,-27.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Perma
-  - uid: 13956
+  - uid: 1520
     components:
     - type: Transform
       pos: 31.5,-31.5
       parent: 2
-    - type: NavMapBeacon
-      text: Brig
 - proto: DefaultStationBeaconCaptainsQuarters
   entities:
   - uid: 11003
@@ -39613,22 +39602,18 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconChiefJustice
   entities:
-  - uid: 822
+  - uid: 10905
     components:
     - type: Transform
-      pos: 21.5,-15.5
+      pos: 20.5,-14.5
       parent: 2
-    - type: NavMapBeacon
-      text: CJ's Office
 - proto: DefaultStationBeaconClerk
   entities:
-  - uid: 819
+  - uid: 11012
     components:
     - type: Transform
       pos: 9.5,-11.5
       parent: 2
-    - type: NavMapBeacon
-      text: Clerk
 - proto: DefaultStationBeaconCMORoom
   entities:
   - uid: 10883
@@ -39645,22 +39630,18 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconCorpsman
   entities:
-  - uid: 11012
+  - uid: 11045
     components:
     - type: Transform
-      pos: 24.5,-31.5
+      pos: 24.5,-30.5
       parent: 2
-    - type: NavMapBeacon
-      text: Corpsman Office
 - proto: DefaultStationBeaconCourtroom
   entities:
-  - uid: 1520
+  - uid: 11166
     components:
     - type: Transform
       pos: 13.5,-16.5
       parent: 2
-    - type: NavMapBeacon
-      text: Courtroom
 - proto: DefaultStationBeaconCryonics
   entities:
   - uid: 11498
@@ -39677,13 +39658,11 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconDetectiveRoom
   entities:
-  - uid: 11045
+  - uid: 9147
     components:
     - type: Transform
-      pos: 18.5,-31.5
+      pos: 18.5,-32.5
       parent: 2
-    - type: NavMapBeacon
-      text: Detective's Office
 - proto: DefaultStationBeaconDisposals
   entities:
   - uid: 10886
@@ -39737,13 +39716,11 @@ entities:
       text: HoP Office
 - proto: DefaultStationBeaconHOSRoom
   entities:
-  - uid: 12696
+  - uid: 12691
     components:
     - type: Transform
-      pos: 11.5,-32.5
+      pos: 10.5,-32.5
       parent: 2
-    - type: NavMapBeacon
-      text: HoS's Office
 - proto: DefaultStationBeaconJanitorsCloset
   entities:
   - uid: 10889
@@ -39781,6 +39758,13 @@ entities:
     - type: Transform
       pos: -22.5,18.5
       parent: 2
+- proto: DefaultStationBeaconPermaBrig
+  entities:
+  - uid: 822
+    components:
+    - type: Transform
+      pos: 48.5,-26.5
+      parent: 2
 - proto: DefaultStationBeaconPsychologist
   entities:
   - uid: 11479
@@ -39790,13 +39774,11 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconReporter
   entities:
-  - uid: 11190
+  - uid: 12693
     components:
     - type: Transform
       pos: -18.5,-19.5
       parent: 2
-    - type: NavMapBeacon
-      text: Reporter Office
 - proto: DefaultStationBeaconSalvage
   entities:
   - uid: 10904
@@ -39806,16 +39788,14 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconSecurity
   entities:
-  - uid: 12693
+  - uid: 12696
     components:
     - type: Transform
       pos: 11.5,-24.5
       parent: 2
-    - type: NavMapBeacon
-      text: Security
 - proto: DefaultStationBeaconSecurityCheckpoint
   entities:
-  - uid: 10905
+  - uid: 11190
     components:
     - type: Transform
       pos: -18.5,-6.5
@@ -39843,13 +39823,11 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconWardensOffice
   entities:
-  - uid: 11166
+  - uid: 13956
     components:
     - type: Transform
       pos: 25.5,-24.5
       parent: 2
-    - type: NavMapBeacon
-      text: Warden's Office
 - proto: DefibrillatorCabinetFilled
   entities:
   - uid: 4556
