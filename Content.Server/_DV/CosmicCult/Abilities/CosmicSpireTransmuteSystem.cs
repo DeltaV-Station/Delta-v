@@ -11,6 +11,8 @@ public sealed class CosmicSpireTransmuteSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
+    private HashSet<EntityUid> _scrubbers = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -47,9 +49,10 @@ public sealed class CosmicSpireTransmuteSystem : EntitySystem
     /// </summary>
     private HashSet<EntityUid> GatherPortableScrubbers(EntityUid uid, float range)
     {
-        var items = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, range);
-        items.RemoveWhere(item => !HasComp<PortableScrubberComponent>(item) || _container.IsEntityInContainer(item));
-        return items;
+        _scrubbers.Clear();
+        _lookup.GetEntitiesInRange(Transform(uid).Coordinates, range, _scrubbers);
+        _scrubbers.RemoveWhere(item => !HasComp<PortableScrubberComponent>(item));
+        return _scrubbers;
     }
 }
 

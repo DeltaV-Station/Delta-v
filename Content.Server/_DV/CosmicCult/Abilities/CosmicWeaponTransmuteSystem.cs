@@ -13,6 +13,8 @@ public sealed class CosmicWeaponTransmuteSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
+    private HashSet<EntityUid> _sharpItems = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -49,8 +51,9 @@ public sealed class CosmicWeaponTransmuteSystem : EntitySystem
     /// </summary>
     private HashSet<EntityUid> GatherSharpItems(EntityUid uid, float range)
     {
-        var items = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, range);
-        items.RemoveWhere(item => !HasComp<SharpComponent>(item) || _container.IsEntityInContainer(item));
-        return items;
+        _sharpItems.Clear();
+        _lookup.GetEntitiesInRange(Transform(uid).Coordinates, range, _sharpItems, LookupFlags.Uncontained);
+        _sharpItems.RemoveWhere(item => !HasComp<SharpComponent>(item));
+        return _sharpItems;
     }
 }
