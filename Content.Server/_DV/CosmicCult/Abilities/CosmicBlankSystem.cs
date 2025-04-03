@@ -60,6 +60,28 @@ public sealed class CosmicBlankSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("cosmicability-blank-begin", ("target", Identity.Entity(uid, EntityManager))), uid, args.Target);
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var shuntQuery = EntityQueryEnumerator<InVoidComponent>();
+        while (shuntQuery.MoveNext(out var uid, out var comp))
+        {
+            if (_timing.CurTime >= comp.ExitVoidTime)
+            {
+                if (!TryComp<MindContainerComponent>(uid, out var mindContainer))
+                    continue;
+                var mindEnt = mindContainer.Mind!.Value;
+                var mind = Comp<MindComponent>(mindEnt);
+                mind.PreventGhosting = false;
+                _mind.TransferTo(mindEnt, comp.OriginalBody);
+                RemComp<CosmicMarkBlankComponent>(comp.OriginalBody);
+                _popup.PopupEntity(Loc.GetString("cosmicability-blank-return"), comp.OriginalBody, comp.OriginalBody);
+                QueueDel(uid);
+            }
+        }
+    }
+
     private void OnCosmicBlankDoAfter(Entity<CosmicCultComponent> uid, ref EventCosmicBlankDoAfter args)
     {
         if (args.Args.Target == null)
@@ -75,6 +97,9 @@ public sealed class CosmicBlankSystem : EntitySystem
         }
 
         EnsureComp<CosmicMarkBlankComponent>(target);
+        var examine = EnsureComp<CosmicCultExamineComponent>(target);
+        examine.CultistText = "cosmic-examine-text-abilityblank";
+
         _popup.PopupEntity(Loc.GetString("cosmicability-blank-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
         var tgtpos = Transform(target).Coordinates;
         var mindEnt = mindContainer.Mind.Value;

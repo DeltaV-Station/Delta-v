@@ -104,7 +104,8 @@
     - CosmicCult
   - type: WarpPoint
     location: The Monument
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-structures
   - type: CosmicCorrupting
     corruptionReduction: 0.01
     enabled: false

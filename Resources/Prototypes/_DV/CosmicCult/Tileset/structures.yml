@@ -11,7 +11,8 @@
       - state: computer
       - state: computer-unshaded
         shader: unshaded
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-structures
   - type: Thruster
     thrusterType: Angular # These are overpowered thruster-shuttle-console-hybrids that require no power grid. As such, they cannot be anchored or meaningfully taken outside of their intended use.
     requireSpace: false
@@ -62,7 +63,8 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-structures
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/cosmicchair.rsi
     state: chair
@@ -89,7 +91,8 @@
       - state: icon
     drawdepth: Mobs
     noRot: true
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-structures
   - type: SpriteFade
   - type: Fixtures
     fixtures:
@@ -116,7 +119,8 @@
   id: CosmicThruster
   name: malign engine
   components:
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-structures
   - type: Fixtures
     fixtures:
       fix1:
@@ -182,7 +186,8 @@
       Brute:
         collection: GlassSmash
   - type: Transform
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-structures
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
@@ -239,7 +244,8 @@
     energy: 1.6
     castShadows: false
     color: "#42a4ae"
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-structures
   - type: CosmicMalignRift
   - type: CosmicCorrupting
     corruptionMaxTicks: 6
@@ -263,7 +269,8 @@
   - type: AtmosDevice
     joinSystem: true
   - type: CosmicSpire
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-structures
   - type: SpriteFade
   - type: InteractionOutline
   - type: Fixtures
@@ -362,7 +369,8 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-structures
   - type: Destructible
     thresholds:
     - trigger:
