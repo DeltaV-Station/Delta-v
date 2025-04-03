@@ -24,7 +24,8 @@
 - type: entity
   id: RandomHumanoidSpawnerDeathSquad
   name: Death Squad Agent
-  suffix: Do Not Use, Use DAP # DeltaV
+  suffix: ERTRole, Death Squad
+  categories: [ HideSpawnMenu ] # DeltaV
   components:
     - type: Sprite
       sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
