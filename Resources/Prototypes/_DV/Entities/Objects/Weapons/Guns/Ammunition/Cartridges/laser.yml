@@ -1,19 +1,19 @@
 - type: entity
+  parent: BaseCartridge
   id: CartridgeLaser
   name: cartridge (laser)
-  parent: BaseCartridge
   components:
   - type: Tag
     tags:
-      - Cartridge
-      - CartridgeLaser
+    - Cartridge
+    - CartridgeLaser
   - type: CartridgeAmmo
     proto: BulletEnergyGunLaser
     deleteOnSpawn: true
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Casings/laser_casing.rsi
     layers:
-      - state: base
-        map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
   - type: Appearance
   - type: SpentAmmoVisuals

@@ -1,17 +1,17 @@
 - type: entity
+  parent: BaseItem
   id: MagazineLaser
   name: laser magazine
-  parent: BaseItem
   components:
   - type: Tag
     tags:
-      - MagazineLaser
+    - MagazineLaser
   - type: BallisticAmmoProvider
     mayTransfer: true
     proto: CartridgeLaser
     whitelist:
       tags:
-        - CartridgeLaser
+      - CartridgeLaser
     capacity: 20
   - type: Item
     size: Small

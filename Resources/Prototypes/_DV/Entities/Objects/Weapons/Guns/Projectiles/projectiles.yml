@@ -97,12 +97,9 @@
     - type: IgniteOnCollide
       fireStacks: 1.5
     - type: Projectile
-      impactEffect: BulletImpactEffectRedDisabler
       damage:
         types:
           Heat: 45
-      soundHit:
-        collection: MeatLaserImpact
 
 - type: entity
   parent: BulletEnergyGunLaser
@@ -112,20 +109,17 @@
     - type: IgniteOnCollide
       fireStacks: .25
     - type: Projectile
-      impactEffect: BulletImpactEffectRedDisabler
       damage:
         types:
           Heat: 8
-      soundHit:
-        collection: MeatLaserImpact
 
 - type: entity
-  name: immolator barrage
-  id: BulletEnergyGunLightImmolatorSpread
-  categories: [ HideSpawnMenu ]
   parent: BulletEnergyGunLaser
+  id: BulletEnergyGunLightImmolatorSpread
+  name: immolator barrage
+  categories: [ HideSpawnMenu ]
   components:
   - type: ProjectileSpread
     proto: BulletEnergyGunLightImmolator
-    count: 6 #48 heat damage if you hit all your shots
+    count: 6
     spread: 20

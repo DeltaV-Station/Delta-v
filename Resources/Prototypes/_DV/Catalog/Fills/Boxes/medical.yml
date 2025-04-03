@@ -1,28 +1,28 @@
 - type: entity
-  id: BoxBottleMedicineBasic
   parent: BoxCardboard
+  id: BoxBottleMedicineBasic
   name: basic medicine bottle box
   description: A box full of bottles with medicine.
   components:
   - type: StorageFill
     contents:
-      - id: BruizineChemistryBottle
-      - id: LacerinolChemistryBottle
-      - id: PuncturaseChemistryBottle
-      - id: DermalineChemistryBottle
-      - id: PyrazineChemistryBottle
-      - id: DiphenhydramineChemistryBottle
-      - id: OmnizineChemistryBottle
-      - id: EphedrineChemistryBottle
-        amount: 2
+    - id: ChemistryBottleBruizine
+    - id: ChemistryBottleLacerinol
+    - id: ChemistryBottlePuncturase
+    - id: ChemistryBottleDermaline
+    - id: ChemistryBottlePyrazine
+    - id: ChemistryBottleDiphenhydramine
+    - id: OmnizineChemistryBottle
+    - id: EphedrineChemistryBottle
+      amount: 2
   - type: Sprite
     layers:
-      - state: box
-      - state: bottle
+    - state: box
+    - state: bottle
 
 - type: entity
-  id: BoxBottleMedicineAdvanced
   parent: BoxBottleMedicineBasic
+  id: BoxBottleMedicineAdvanced
   name: advanced medicine bottle box
   components:
   - type: StorageFill

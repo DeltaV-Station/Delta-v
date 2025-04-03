@@ -44,97 +44,85 @@
           Quantity: 30
 
 - type: entity
-  id: BruizineChemistryBottle
-  name: bruizine bottle
-  parent: BaseChemistryEmptyBottle
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleBruizine
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Bruizine
-              Quantity: 30
-    - type: Tag
-      tags:
-        - Bottle
+  - type: Label
+    currentLabel: reagent-name-bruizine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bruizine
+          Quantity: 30
 
 - type: entity
-  id: LacerinolChemistryBottle
-  name: lacerinol bottle
-  parent: BaseChemistryEmptyBottle
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleLacerinol
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Lacerinol
-              Quantity: 30
-    - type: Tag
-      tags:
-        - Bottle
+  - type: Label
+    currentLabel: reagent-name-lacerinol
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Lacerinol
+          Quantity: 30
 
 - type: entity
-  id: PuncturaseChemistryBottle
-  name: puncturase bottle
-  parent: BaseChemistryEmptyBottle
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottlePuncturase
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Puncturase
-              Quantity: 30
-    - type: Tag
-      tags:
-        - Bottle
+  - type: Label
+    currentLabel: reagent-name-puncturase
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Puncturase
+          Quantity: 30
 
 - type: entity
-  id: DermalineChemistryBottle
-  name: dermaline bottle
-  parent: BaseChemistryEmptyBottle
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleDermaline
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Dermaline
-              Quantity: 30
-    - type: Tag
-      tags:
-        - Bottle
+  - type: Label
+    currentLabel: reagent-name-dermaline
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Dermaline
+          Quantity: 30
 
 - type: entity
-  id: PyrazineChemistryBottle
-  name: pyrazine bottle
-  parent: BaseChemistryEmptyBottle
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottlePyrazine
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Pyrazine
-              Quantity: 30
-    - type: Tag
-      tags:
-        - Bottle
+  - type: Label
+    currentLabel: reagent-name-pyrazine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Pyrazine
+          Quantity: 30
 
 - type: entity
-  id: DiphenhydramineChemistryBottle
-  name: diphenhydramine bottle
-  parent: BaseChemistryEmptyBottle
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleDiphenhydramine
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Diphenhydramine
-              Quantity: 30
-    - type: Tag
-      tags:
-        - Bottle
+  - type: Label
+    currentLabel: reagent-name-diphenhydramine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Diphenhydramine
+          Quantity: 30

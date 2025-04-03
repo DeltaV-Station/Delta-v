@@ -32,7 +32,7 @@
       - FireFight
 
 - type: entity
-  parent: [DoorRemoteDefault, BaseCommandContraband]
+  parent: [DoorRemoteDefault, BaseCentcommContraband]
   id: DoorRemoteOmni
   name: omni door remote
   components:
@@ -46,3 +46,4 @@
   - type: Access
     groups:
     - AllAccess
+    - CentralCommand
