@@ -236,18 +236,6 @@
     Gold: 150
 
 - type: latheRecipe
-  parent: BaseWeaponRecipeLong
-  id: WeaponGunLaserCarbineAutomatic
-  result: WeaponGunLaserCarbineAutomatic
-  materials:
-    Steel: 2000
-    Glass: 1000
-    Plastic: 500
-    Gold: 250
-    Silver: 100
-    Plasma: 500
-
-- type: latheRecipe
   parent: ClothingShoesBootsMagSci
   id: ClothingShoesBootsSecurityMagboots
   result: ClothingShoesBootsSecurityMagboots
@@ -284,6 +272,7 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
+<<<<<<< HEAD
   id: GamblagatorCapacitor
   result: GamblagatorCapacitor
   materials:
@@ -293,3 +282,30 @@
     Gold: 200
     Plasma: 500
     Bluespace: 100
+=======
+  id: MagazineLaser
+  result: MagazineLaser
+  materials:
+    Steel: 400
+    Plasma: 600
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponImmolator
+  result: WeaponImmolator
+  materials:
+    Steel: 1500
+    Glass: 500
+    Plastic: 250
+    Gold: 300
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponEnergyGunAdvanced
+  result: WeaponEnergyGunAdvanced
+  materials:
+    Steel: 1500
+    Glass: 1200
+    Gold: 500
+    Silver: 500
+>>>>>>> pr/2552

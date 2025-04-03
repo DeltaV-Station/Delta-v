@@ -183,7 +183,11 @@
   recipeUnlocks:
   - WeaponAdvancedLaser
   - PortableRecharger
+<<<<<<< HEAD
   - GamblagatorCapacitor # DeltaV - added for superweapon
+=======
+  - WeaponEnergyGunAdvanced #DeltaV: Advanced Energy Gun
+>>>>>>> pr/2552
 
 #- type: technology # DeltaV - Removed for only causing issues
 #  id: ExperimentalBatteryAmmo
@@ -196,6 +200,18 @@
 #  cost: 15000
 #  recipeUnlocks:
 #  - WeaponLaserSvalinn
+
+- type: technology
+  id: ExperimentalBatteryAmmo
+  name: research-technology-experimental-battery-ammo
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2 # DeltaV: moved to t2 from t3
+  cost: 15000
+  recipeUnlocks:
+  - WeaponLaserSvalinn
 
 - type: technology
   id: AdvancedShuttleWeapon
