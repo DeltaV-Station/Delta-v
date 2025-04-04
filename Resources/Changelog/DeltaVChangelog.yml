@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Kr8art
-  changes:
-  - message: Increased the healing values of Aloxadone from 3 Heat, 3 Shock and 1
-      Caustic per 0.5u to 5 Heat, 5 Shock, 5 Cold and 2 Caustic per 0.5u
-    type: Tweak
-  id: 722
-  time: '2024-11-30T06:54:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2318
 - author: Colin-Tel
   changes:
   - message: Added AI and reconfigured cameras on Micro station.
@@ -3983,3 +3975,19 @@
   id: 1221
   time: '2025-04-04T19:42:53.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3335
+- author: Stop-Signs
+  changes:
+  - message: 'Added the advanced energy gun which self-recharges and has two settings:
+      Disable and Kill. This can be unlocked from research.'
+    type: Add
+  - message: ERT now have better equipment, armor, and guns
+    type: Tweak
+  - message: Added the immolator cannon which shoots concentrated projectiles that
+      causes the target to catch on fire. This can be unlocked from research.
+    type: Add
+  - message: The IK60 is now the IK30, its still printable and has the same stats,
+      however it uses laser cartridges rather than an internal battery.
+    type: Tweak
+  id: 1222
+  time: '2025-04-04T21:34:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3365
