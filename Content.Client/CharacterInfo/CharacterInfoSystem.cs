@@ -32,7 +32,7 @@ public sealed class CharacterInfoSystem : EntitySystem
     private void OnCharacterInfoEvent(CharacterInfoEvent msg, EntitySessionEventArgs args)
     {
         // DeltaV - Refactored to use TryGetEntity instead of GetEntity because of message highlighting which requests character info too soon and I don't know how to delay it properly
-        if (!TryGetEntity(msg.NetEntity, out var entity) || entity.Value == default)
+        if (!TryGetEntity(msg.NetEntity, out var entity))
             return;
 
         var data = new CharacterData(entity.Value, msg.JobTitle, msg.Objectives, msg.Briefing, Name(entity.Value));
