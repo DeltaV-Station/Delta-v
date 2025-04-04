@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: Stop-Signs
-  changes:
-  - message: Added the new Beam Cannon for Epi to research.
-    type: Add
-  - message: The Cage Recharger can now charge lasers.
-    type: Tweak
-  id: 720
-  time: '2024-11-29T20:45:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2231
 - author: Radezolid
   changes:
   - message: The tools module now comes with a gas analyzer installed.
@@ -3985,3 +3976,10 @@
   id: 1219
   time: '2025-04-04T16:18:19.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2990
+- author: deltanedas
+  changes:
+  - message: Fixed IPCs not being able to disarm people.
+    type: Fix
+  id: 1220
+  time: '2025-04-04T16:37:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3374
