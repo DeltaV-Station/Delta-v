@@ -87,8 +87,8 @@
   name: Medium Immolator Bolt
   categories: [ HideSpawnMenu ]
   components:
-    - type: IgniteOnCollide
-      fireStacks: 1.0
+  - type: IgniteOnCollide
+    fireStacks: 1.0
 
 - type: entity
   parent: BulletEnergyGunLaser
@@ -96,12 +96,12 @@
   name: Heavy Immolator Bolt
   categories: [ HideSpawnMenu ]
   components:
-    - type: IgniteOnCollide
-      fireStacks: 1.5
-    - type: Projectile
-      damage:
-        types:
-          Heat: 45
+  - type: IgniteOnCollide
+    fireStacks: 1.5
+  - type: Projectile
+    damage:
+      types:
+        Heat: 45
 
 - type: entity
   parent: BulletEnergyGunLaser
@@ -109,12 +109,12 @@
   name: Light Immolator Bolt
   categories: [ HideSpawnMenu ]
   components:
-    - type: IgniteOnCollide
-      fireStacks: .25
-    - type: Projectile
-      damage:
-        types:
-          Heat: 8
+  - type: IgniteOnCollide
+    fireStacks: .25
+  - type: Projectile
+    damage:
+      types:
+        Heat: 8
 
 - type: entity
   parent: BulletEnergyGunLaser

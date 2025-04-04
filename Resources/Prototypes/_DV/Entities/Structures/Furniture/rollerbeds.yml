@@ -17,15 +17,6 @@
       visible: false
     - state: rollerbed_buckled
       map: ["buckledLayer"]
-      visible: false
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 80
-        mask:
-        - MobMask
   - type: StaticPrice
     price: 200
 
