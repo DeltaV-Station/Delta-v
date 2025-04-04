@@ -4,8 +4,8 @@ meta:
   engineVersion: 249.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/31/2025 14:52:56
-  entityCount: 14492
+  time: 04/04/2025 09:32:00
+  entityCount: 14493
 maps:
 - 1
 grids:
@@ -33237,11 +33237,6 @@ entities:
       parent: 2
 - proto: ClothingHeadHatCone
   entities:
-  - uid: 62
-    components:
-    - type: Transform
-      pos: -9.746208,10.777176
-      parent: 2
   - uid: 4271
     components:
     - type: Transform
@@ -33250,17 +33245,22 @@ entities:
   - uid: 4741
     components:
     - type: Transform
-      pos: -9.730583,10.308426
+      pos: -9.769807,11.68947
       parent: 2
   - uid: 7417
     components:
     - type: Transform
-      pos: -9.464958,10.542801
+      pos: -9.644807,11.392595
       parent: 2
   - uid: 7631
     components:
     - type: Transform
       pos: 45.6228,-14.432071
+      parent: 2
+  - uid: 13917
+    components:
+    - type: Transform
+      pos: -9.301057,11.580095
       parent: 2
 - proto: ClothingHeadHatFez
   entities:
@@ -34527,6 +34527,11 @@ entities:
       parent: 2
 - proto: CrateEngineeringAMEJar
   entities:
+  - uid: 62
+    components:
+    - type: Transform
+      pos: -9.5,10.5
+      parent: 2
   - uid: 306
     components:
     - type: Transform
