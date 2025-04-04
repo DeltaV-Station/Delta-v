@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 249.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 04/04/2025 09:32:00
+  entityCount: 14493
+maps:
+- 1
+grids:
+- 2
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   22: FloorArcadeBlue2
@@ -54,7 +65,6 @@ entities:
     - type: OccluderTree
     - type: Parallax
       parallax: ArenaStation
-    - type: LoadedMap
   - uid: 2
     components:
     - type: MetaData
@@ -158,7 +168,7 @@ entities:
           version: 6
         -2,-2:
           ind: -2,-2
-          tiles: AAAAAAAAAgAAAAAABAAAAAAAFAAAAAABDQAAAAABFAAAAAACDQAAAAADFAAAAAADDQAAAAADFAAAAAADDQAAAAABFAAAAAADDQAAAAABFAAAAAABgQAAAAAAFAAAAAABAAAAAAAAAAAAAAAAgQAAAAAAFAAAAAACFAAAAAADFAAAAAAAFAAAAAAAFAAAAAADFAAAAAABFAAAAAABFAAAAAACFAAAAAACFAAAAAADFAAAAAABgQAAAAAAFAAAAAABAAAAAAAAAgAAAAAABAAAAAAAFAAAAAABDQAAAAACFAAAAAAADQAAAAABFAAAAAACDQAAAAAAFAAAAAADDQAAAAADFAAAAAABDQAAAAADFAAAAAACgQAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAAFAAAAAABFAAAAAACFAAAAAABFAAAAAADFAAAAAACFAAAAAADFAAAAAACFAAAAAAAFAAAAAABFAAAAAABFAAAAAADgQAAAAAAFAAAAAADAgAAAAAAAgAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAAQAAAAAAgQAAAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAABAAAAAAAFAAAAAACFAAAAAAAFAAAAAADFAAAAAAAFAAAAAADAQAAAAAAFAAAAAAAFAAAAAAAFAAAAAACFAAAAAABFAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAABAAAAAAAFAAAAAACFAAAAAABFAAAAAABFAAAAAABFAAAAAABAQAAAAAAFAAAAAAADQAAAAACFAAAAAACDQAAAAACFAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAABAAAAAAAFAAAAAACFAAAAAACFAAAAAABFAAAAAAAFAAAAAADgQAAAAAAFAAAAAABFAAAAAAAFAAAAAADFAAAAAABFAAAAAADAgAAAAAAAgAAAAAAAgAAAAAAAgAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAADgAAAAAAHAAAAAAADgAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAADgAAAAABDgAAAAACDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAADgAAAAABHAAAAAADDgAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAADgAAAAAADgAAAAADDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAADAAAAAACDAAAAAABDAAAAAADDAAAAAADDAAAAAACDAAAAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAACwAAAAAACwAAAAABCwAAAAADCwAAAAACCwAAAAABDAAAAAADgQAAAAAA
+          tiles: AAAAAAAAAgAAAAAABAAAAAAAFAAAAAABDQAAAAABFAAAAAACDQAAAAADFAAAAAADDQAAAAADFAAAAAADDQAAAAABFAAAAAADDQAAAAABFAAAAAABgQAAAAAAFAAAAAABAAAAAAAAAAAAAAAAgQAAAAAAFAAAAAACFAAAAAADFAAAAAAAFAAAAAAAFAAAAAADFAAAAAABFAAAAAABFAAAAAACFAAAAAACFAAAAAADFAAAAAABgQAAAAAAFAAAAAABAAAAAAAAAgAAAAAABAAAAAAAFAAAAAABDQAAAAACFAAAAAAADQAAAAABFAAAAAACDQAAAAAAFAAAAAADDQAAAAADFAAAAAABDQAAAAADFAAAAAACgQAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAAFAAAAAABFAAAAAACFAAAAAABFAAAAAADFAAAAAACFAAAAAADFAAAAAACFAAAAAAAFAAAAAABFAAAAAABFAAAAAADgQAAAAAAFAAAAAADAgAAAAAAAgAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAAQAAAAAAgQAAAAAAAQAAAAAAgQAAAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAABAAAAAAAFAAAAAACFAAAAAAAFAAAAAADFAAAAAAAFAAAAAADAQAAAAAAFAAAAAAAFAAAAAAAFAAAAAACFAAAAAABFAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAABAAAAAAAFAAAAAACFAAAAAABFAAAAAABFAAAAAABFAAAAAABAQAAAAAAFAAAAAAADQAAAAACFAAAAAACDQAAAAACFAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAABAAAAAAAFAAAAAACFAAAAAACFAAAAAABFAAAAAAAFAAAAAADgQAAAAAAFAAAAAABFAAAAAAAFAAAAAADFAAAAAABFAAAAAADAgAAAAAAAgAAAAAAAgAAAAAAAgAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAADgAAAAAAHAAAAAAADgAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAADgAAAAABDgAAAAACDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAADgAAAAABHAAAAAADDgAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAADgAAAAAADgAAAAADDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAADAAAAAACDAAAAAABDAAAAAADDAAAAAADDAAAAAACDAAAAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAACwAAAAAACwAAAAABCwAAAAADCwAAAAACCwAAAAABDAAAAAADgQAAAAAA
           version: 6
         0,-3:
           ind: 0,-3
@@ -32427,6 +32437,13 @@ entities:
     - type: Transform
       pos: 7.2261977,-20.571688
       parent: 2
+- proto: ChemistryBottleUnstableMutagen
+  entities:
+  - uid: 6011
+    components:
+    - type: Transform
+      pos: 21.531887,-3.096693
+      parent: 2
 - proto: ChemistryHotplate
   entities:
   - uid: 5672
@@ -33073,10 +33090,10 @@ entities:
       parent: 2
 - proto: ClothingBeltStorageWaistbag
   entities:
-  - uid: 12672
+  - uid: 14495
     components:
     - type: Transform
-      pos: 49.27321,34.723946
+      pos: 59.53943,22.64749
       parent: 2
 - proto: ClothingEyesGlassesChemical
   entities:
@@ -33220,11 +33237,6 @@ entities:
       parent: 2
 - proto: ClothingHeadHatCone
   entities:
-  - uid: 62
-    components:
-    - type: Transform
-      pos: -9.746208,10.777176
-      parent: 2
   - uid: 4271
     components:
     - type: Transform
@@ -33233,17 +33245,22 @@ entities:
   - uid: 4741
     components:
     - type: Transform
-      pos: -9.730583,10.308426
+      pos: -9.769807,11.68947
       parent: 2
   - uid: 7417
     components:
     - type: Transform
-      pos: -9.464958,10.542801
+      pos: -9.644807,11.392595
       parent: 2
   - uid: 7631
     components:
     - type: Transform
       pos: 45.6228,-14.432071
+      parent: 2
+  - uid: 13917
+    components:
+    - type: Transform
+      pos: -9.301057,11.580095
       parent: 2
 - proto: ClothingHeadHatFez
   entities:
@@ -34510,6 +34527,11 @@ entities:
       parent: 2
 - proto: CrateEngineeringAMEJar
   entities:
+  - uid: 62
+    components:
+    - type: Transform
+      pos: -9.5,10.5
+      parent: 2
   - uid: 306
     components:
     - type: Transform
@@ -35189,218 +35211,172 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconAICore
   entities:
-  - uid: 11875
+  - uid: 13
     components:
     - type: Transform
       pos: 65.5,-14.5
       parent: 2
-    - type: NavMapBeacon
-      text: AI Core
-  - uid: 11881
-    components:
-    - type: Transform
-      pos: 52.5,-17.5
-      parent: 2
-    - type: NavMapBeacon
-      text: AI Upload
 - proto: DefaultStationBeaconAnchor
   entities:
-  - uid: 4142
+  - uid: 418
     components:
     - type: Transform
       pos: 43.5,6.5
       parent: 2
-    - type: NavMapBeacon
-      text: Anchor
 - proto: DefaultStationBeaconArmory
   entities:
-  - uid: 10667
+  - uid: 422
     components:
     - type: Transform
-      pos: 26.5,22.5
+      pos: 26.5,21.5
       parent: 2
-    - type: NavMapBeacon
-      text: Armory
 - proto: DefaultStationBeaconArrivals
-  entities:
-  - uid: 1641
-    components:
-    - type: Transform
-      pos: 3.5,28.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Arrivals
-- proto: DefaultStationBeaconArtifactLab
-  entities:
-  - uid: 11709
-    components:
-    - type: Transform
-      pos: 39.5,-7.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Artifact Lab
-- proto: DefaultStationBeaconAtmospherics
-  entities:
-  - uid: 13917
-    components:
-    - type: Transform
-      pos: -18.5,14.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Atmospherics
-- proto: DefaultStationBeaconBar
-  entities:
-  - uid: 3528
-    components:
-    - type: Transform
-      pos: 2.5,-7.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Bar
-- proto: DefaultStationBeaconBotany
-  entities:
-  - uid: 1022
-    components:
-    - type: Transform
-      pos: 21.5,-6.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Botany
-- proto: DefaultStationBeaconBoxing
-  entities:
-  - uid: 13701
-    components:
-    - type: Transform
-      pos: 46.5,-24.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Boxing Ring
-- proto: DefaultStationBeaconBrig
-  entities:
-  - uid: 791
-    components:
-    - type: Transform
-      pos: 31.5,8.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Brig
-- proto: DefaultStationBeaconCaptainsQuarters
-  entities:
-  - uid: 480
-    components:
-    - type: Transform
-      pos: 10.5,10.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Captain's Quarters
-- proto: DefaultStationBeaconCERoom
-  entities:
-  - uid: 8082
-    components:
-    - type: Transform
-      pos: -2.5,15.5
-      parent: 2
-    - type: NavMapBeacon
-      text: CE's Bedroom
-- proto: DefaultStationBeaconChapel
-  entities:
-  - uid: 10786
-    components:
-    - type: Transform
-      pos: 30.5,-18.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Chapel
-- proto: DefaultStationBeaconChemistry
-  entities:
-  - uid: 6198
-    components:
-    - type: Transform
-      pos: 5.5,-21.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Chemistry
-- proto: DefaultStationBeaconChiefJustice
-  entities:
-  - uid: 10522
-    components:
-    - type: Transform
-      pos: 11.5,37.5
-      parent: 2
-    - type: NavMapBeacon
-      text: CJ's Office
-- proto: DefaultStationBeaconClerk
   entities:
   - uid: 423
     components:
     - type: Transform
-      pos: -4.5,43.5
+      pos: 3.5,28.5
       parent: 2
-    - type: NavMapBeacon
-      text: Clerk's Office
-- proto: DefaultStationBeaconCMORoom
+- proto: DefaultStationBeaconArtifactLab
   entities:
-  - uid: 5328
+  - uid: 480
     components:
     - type: Transform
-      pos: -6.5,-21.5
+      pos: 39.5,-7.5
       parent: 2
-    - type: NavMapBeacon
-      text: CMO's Office
-- proto: DefaultStationBeaconCommand
+- proto: DefaultStationBeaconAtmospherics
   entities:
-  - uid: 13236
+  - uid: 585
+    components:
+    - type: Transform
+      pos: -18.5,14.5
+      parent: 2
+- proto: DefaultStationBeaconBar
+  entities:
+  - uid: 791
+    components:
+    - type: Transform
+      pos: 2.5,-7.5
+      parent: 2
+- proto: DefaultStationBeaconBotany
+  entities:
+  - uid: 827
+    components:
+    - type: Transform
+      pos: 21.5,-6.5
+      parent: 2
+- proto: DefaultStationBeaconBoxing
+  entities:
+  - uid: 892
+    components:
+    - type: Transform
+      pos: 46.5,-24.5
+      parent: 2
+- proto: DefaultStationBeaconBridge
+  entities:
+  - uid: 2739
     components:
     - type: Transform
       pos: 13.5,21.5
       parent: 2
-    - type: NavMapBeacon
-      text: Bridge
-- proto: DefaultStationBeaconCorpsman
+- proto: DefaultStationBeaconBrig
   entities:
-  - uid: 13349
+  - uid: 1022
     components:
     - type: Transform
-      pos: 42.5,14.5
+      pos: 31.5,8.5
       parent: 2
-    - type: NavMapBeacon
-      text: Corpsman
-- proto: DefaultStationBeaconCourtroom
+- proto: DefaultStationBeaconCaptainsQuarters
   entities:
-  - uid: 7318
+  - uid: 1556
     components:
     - type: Transform
-      pos: 4.5,42.5
+      pos: 10.5,10.5
       parent: 2
-    - type: NavMapBeacon
-      text: Courtroom
-- proto: DefaultStationBeaconCryonics
+- proto: DefaultStationBeaconCERoom
   entities:
-  - uid: 6196
+  - uid: 1570
     components:
     - type: Transform
-      pos: 1.5,-30.5
+      pos: -2.5,15.5
       parent: 2
-    - type: NavMapBeacon
-      text: Cryonics
-- proto: DefaultStationBeaconCryosleep
+- proto: DefaultStationBeaconChapel
   entities:
-  - uid: 2355
+  - uid: 1594
     components:
     - type: Transform
-      pos: -2.5,2.5
+      pos: 30.5,-18.5
       parent: 2
-    - type: NavMapBeacon
-      text: Cryosleep
-- proto: DefaultStationBeaconDisposals
+- proto: DefaultStationBeaconChemistry
+  entities:
+  - uid: 1641
+    components:
+    - type: Transform
+      pos: 5.5,-21.5
+      parent: 2
+- proto: DefaultStationBeaconChiefJustice
   entities:
   - uid: 8631
     components:
     - type: Transform
+      pos: 11.5,37.5
+      parent: 2
+- proto: DefaultStationBeaconClerk
+  entities:
+  - uid: 2355
+    components:
+    - type: Transform
+      pos: -4.5,43.5
+      parent: 2
+- proto: DefaultStationBeaconCMORoom
+  entities:
+  - uid: 2380
+    components:
+    - type: Transform
+      pos: -6.5,-21.5
+      parent: 2
+- proto: DefaultStationBeaconCorpsman
+  entities:
+  - uid: 2930
+    components:
+    - type: Transform
+      pos: 42.5,14.5
+      parent: 2
+- proto: DefaultStationBeaconCourtroom
+  entities:
+  - uid: 3509
+    components:
+    - type: Transform
+      pos: 4.5,42.5
+      parent: 2
+- proto: DefaultStationBeaconCryonics
+  entities:
+  - uid: 3528
+    components:
+    - type: Transform
+      pos: 1.5,-30.5
+      parent: 2
+- proto: DefaultStationBeaconCryosleep
+  entities:
+  - uid: 3975
+    components:
+    - type: Transform
+      pos: -2.5,2.5
+      parent: 2
+- proto: DefaultStationBeaconDetectiveRoom
+  entities:
+  - uid: 13734
+    components:
+    - type: Transform
+      pos: 27.5,2.5
+      parent: 2
+- proto: DefaultStationBeaconDisposals
+  entities:
+  - uid: 4059
+    components:
+    - type: Transform
       pos: -22.5,3.5
       parent: 2
-    - type: NavMapBeacon
-      text: Disposal
 - proto: DefaultStationBeaconDorms
   entities:
   - uid: 6298
@@ -35408,123 +35384,97 @@ entities:
     - type: Transform
       pos: 1.5,-15.5
       parent: 2
-    - type: NavMapBeacon
-      text: Dorms
 - proto: DefaultStationBeaconEngineering
   entities:
-  - uid: 2380
+  - uid: 4142
     components:
     - type: Transform
       pos: -6.5,7.5
       parent: 2
-    - type: NavMapBeacon
-      text: Engineering
 - proto: DefaultStationBeaconEvac
-  entities:
-  - uid: 5980
-    components:
-    - type: Transform
-      pos: 35.5,-26.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Evac
-- proto: DefaultStationBeaconEVAStorage
-  entities:
-  - uid: 1570
-    components:
-    - type: Transform
-      pos: 12.5,2.5
-      parent: 2
-    - type: NavMapBeacon
-      text: EVA Storage
-- proto: DefaultStationBeaconGravGen
-  entities:
-  - uid: 1720
-    components:
-    - type: Transform
-      pos: -9.5,-3.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Grav Gen
-- proto: DefaultStationBeaconHOPOffice
   entities:
   - uid: 4173
     components:
     - type: Transform
+      pos: 35.5,-26.5
+      parent: 2
+- proto: DefaultStationBeaconEVAStorage
+  entities:
+  - uid: 5328
+    components:
+    - type: Transform
+      pos: 12.5,2.5
+      parent: 2
+- proto: DefaultStationBeaconGravGen
+  entities:
+  - uid: 5626
+    components:
+    - type: Transform
+      pos: -9.5,-3.5
+      parent: 2
+- proto: DefaultStationBeaconHOPOffice
+  entities:
+  - uid: 5706
+    components:
+    - type: Transform
       pos: 4.5,12.5
       parent: 2
-    - type: NavMapBeacon
-      text: HoP's Office
 - proto: DefaultStationBeaconHOSRoom
   entities:
-  - uid: 13734
+  - uid: 5980
     components:
     - type: Transform
       pos: 33.5,15.5
       parent: 2
-    - type: NavMapBeacon
-      text: HoS's Office
 - proto: DefaultStationBeaconJanitorsCloset
   entities:
-  - uid: 1556
+  - uid: 6196
     components:
     - type: Transform
       pos: 4.5,3.5
       parent: 2
-    - type: NavMapBeacon
-      text: Janitor
 - proto: DefaultStationBeaconKitchen
   entities:
-  - uid: 13
+  - uid: 6197
     components:
     - type: Transform
       pos: 12.5,-6.5
       parent: 2
-    - type: NavMapBeacon
-      text: Kitchen
+- proto: DefaultStationBeaconLawOffice
+  entities:
+  - uid: 8082
+    components:
+    - type: Transform
+      pos: -3.5,39.5
+      parent: 2
 - proto: DefaultStationBeaconLibrary
   entities:
-  - uid: 7284
+  - uid: 6198
     components:
     - type: Transform
       pos: 11.5,-12.5
       parent: 2
-    - type: NavMapBeacon
-      text: Library
 - proto: DefaultStationBeaconMedical
   entities:
-  - uid: 3975
+  - uid: 7183
     components:
     - type: Transform
-      pos: -23.5,-31.5
+      pos: -5.5,-27.5
       parent: 2
-    - type: NavMapBeacon
-      text: Medical Dock
-  - uid: 5706
-    components:
-    - type: Transform
-      pos: -5.5,-26.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Medical Ward
 - proto: DefaultStationBeaconMetempsychosis
   entities:
-  - uid: 418
+  - uid: 7284
     components:
     - type: Transform
       pos: -24.5,-25.5
       parent: 2
-    - type: NavMapBeacon
-      text: Cloning
 - proto: DefaultStationBeaconMorgue
   entities:
-  - uid: 892
+  - uid: 7318
     components:
     - type: Transform
       pos: 13.5,-24.5
       parent: 2
-    - type: NavMapBeacon
-      text: Morgue
 - proto: DefaultStationBeaconPermaBrig
   entities:
   - uid: 12358
@@ -35534,187 +35484,135 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconProsecutor
   entities:
-  - uid: 422
-    components:
-    - type: Transform
-      pos: -3.5,39.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Attorney Office
-  - uid: 10134
+  - uid: 1720
     components:
     - type: Transform
       pos: 15.5,39.5
       parent: 2
-    - type: NavMapBeacon
-      text: Prosecutor Office
 - proto: DefaultStationBeaconPsychologist
-  entities:
-  - uid: 6197
-    components:
-    - type: Transform
-      pos: 6.5,-34.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Psychology
-- proto: DefaultStationBeaconQMRoom
-  entities:
-  - uid: 9571
-    components:
-    - type: Transform
-      pos: -15.5,-13.5
-      parent: 2
-    - type: NavMapBeacon
-      text: LO's Bedroom
-- proto: DefaultStationBeaconRDRoom
-  entities:
-  - uid: 10842
-    components:
-    - type: Transform
-      pos: 35.5,-13.5
-      parent: 2
-    - type: NavMapBeacon
-      text: MG's Bedroom
-- proto: DefaultStationBeaconReporter
-  entities:
-  - uid: 10700
-    components:
-    - type: Transform
-      pos: 21.5,-21.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Reporter Office
-- proto: DefaultStationBeaconSalvage
   entities:
   - uid: 8789
     components:
     - type: Transform
-      pos: -19.5,-1.5
+      pos: 6.5,-34.5
       parent: 2
-    - type: NavMapBeacon
-      text: Salvage
-- proto: DefaultStationBeaconScience
-  entities:
-  - uid: 2930
-    components:
-    - type: Transform
-      pos: 29.5,-4.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Epistemics
-- proto: DefaultStationBeaconSecurity
-  entities:
-  - uid: 827
-    components:
-    - type: Transform
-      pos: 21.5,7.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Security
-  - uid: 12458
-    components:
-    - type: Transform
-      pos: 49.5,16.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Guard Office
-- proto: DefaultStationBeaconService
-  entities:
-  - uid: 14342
-    components:
-    - type: Transform
-      pos: 22.5,-24.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Service Storage
-- proto: DefaultStationBeaconSolars
-  entities:
-  - uid: 585
-    components:
-    - type: Transform
-      pos: 43.5,1.5
-      parent: 2
-    - type: NavMapBeacon
-      text: East Solar
-  - uid: 7183
-    components:
-    - type: Transform
-      pos: -21.5,21.5
-      parent: 2
-    - type: NavMapBeacon
-      text: North Solar
-- proto: DefaultStationBeaconSupply
-  entities:
-  - uid: 1594
-    components:
-    - type: Transform
-      pos: -20.5,-7.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Logistics
-- proto: DefaultStationBeaconSurgery
-  entities:
-  - uid: 4059
-    components:
-    - type: Transform
-      pos: -12.5,-29.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Surgery
-- proto: DefaultStationBeaconTechVault
-  entities:
-  - uid: 3509
-    components:
-    - type: Transform
-      pos: 47.5,-9.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Tech Storage
-- proto: DefaultStationBeaconTEG
-  entities:
-  - uid: 2739
-    components:
-    - type: Transform
-      pos: -7.5,22.5
-      parent: 2
-    - type: NavMapBeacon
-      text: TEG
-- proto: DefaultStationBeaconTelecoms
-  entities:
-  - uid: 5626
-    components:
-    - type: Transform
-      pos: 54.5,-11.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Telecoms
-- proto: DefaultStationBeaconTheater
-  entities:
-  - uid: 11771
-    components:
-    - type: Transform
-      pos: 20.5,-15.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Entertainment Office
-- proto: DefaultStationBeaconToolRoom
+- proto: DefaultStationBeaconQMRoom
   entities:
   - uid: 8864
     components:
     - type: Transform
-      pos: -1.5,-4.5
+      pos: -15.5,-13.5
       parent: 2
-    - type: NavMapBeacon
-      text: Tools
-- proto: DefaultStationBeaconVault
+- proto: DefaultStationBeaconRDRoom
   entities:
   - uid: 9324
     components:
     - type: Transform
+      pos: 36.5,-14.5
+      parent: 2
+- proto: DefaultStationBeaconReporter
+  entities:
+  - uid: 9571
+    components:
+    - type: Transform
+      pos: 21.5,-21.5
+      parent: 2
+- proto: DefaultStationBeaconSalvage
+  entities:
+  - uid: 10134
+    components:
+    - type: Transform
+      pos: -19.5,-1.5
+      parent: 2
+- proto: DefaultStationBeaconScience
+  entities:
+  - uid: 10522
+    components:
+    - type: Transform
+      pos: 29.5,-4.5
+      parent: 2
+- proto: DefaultStationBeaconSecurity
+  entities:
+  - uid: 10667
+    components:
+    - type: Transform
+      pos: 21.5,7.5
+      parent: 2
+- proto: DefaultStationBeaconService
+  entities:
+  - uid: 10700
+    components:
+    - type: Transform
+      pos: 22.5,-24.5
+      parent: 2
+- proto: DefaultStationBeaconSolars
+  entities:
+  - uid: 10786
+    components:
+    - type: Transform
+      pos: 43.5,1.5
+      parent: 2
+  - uid: 10842
+    components:
+    - type: Transform
+      pos: -21.5,21.5
+      parent: 2
+- proto: DefaultStationBeaconSupply
+  entities:
+  - uid: 11709
+    components:
+    - type: Transform
+      pos: -20.5,-7.5
+      parent: 2
+- proto: DefaultStationBeaconSurgery
+  entities:
+  - uid: 11771
+    components:
+    - type: Transform
+      pos: -12.5,-29.5
+      parent: 2
+- proto: DefaultStationBeaconTechVault
+  entities:
+  - uid: 11875
+    components:
+    - type: Transform
+      pos: 47.5,-9.5
+      parent: 2
+- proto: DefaultStationBeaconTEG
+  entities:
+  - uid: 11881
+    components:
+    - type: Transform
+      pos: -7.5,22.5
+      parent: 2
+- proto: DefaultStationBeaconTelecoms
+  entities:
+  - uid: 12458
+    components:
+    - type: Transform
+      pos: 54.5,-10.5
+      parent: 2
+- proto: DefaultStationBeaconTheater
+  entities:
+  - uid: 13236
+    components:
+    - type: Transform
+      pos: 20.5,-15.5
+      parent: 2
+- proto: DefaultStationBeaconToolRoom
+  entities:
+  - uid: 13349
+    components:
+    - type: Transform
+      pos: -1.5,-4.5
+      parent: 2
+- proto: DefaultStationBeaconVault
+  entities:
+  - uid: 13701
+    components:
+    - type: Transform
       pos: 22.5,26.5
       parent: 2
-    - type: NavMapBeacon
-      text: Vault
 - proto: DefaultStationBeaconWardensOffice
   entities:
   - uid: 13733
@@ -35722,8 +35620,6 @@ entities:
     - type: Transform
       pos: 24.5,13.5
       parent: 2
-    - type: NavMapBeacon
-      text: Warden Office
 - proto: DefibrillatorCabinetFilled
   entities:
   - uid: 516
@@ -39924,6 +39820,13 @@ entities:
     components:
     - type: Transform
       pos: 6.600981,-20.529306
+      parent: 2
+- proto: DVSmartFridgeMedical
+  entities:
+  - uid: 6351
+    components:
+    - type: Transform
+      pos: -4.5,-28.5
       parent: 2
 - proto: EggySeeds
   entities:
@@ -68286,6 +68189,13 @@ entities:
     - type: Transform
       pos: 51.48182,32.56303
       parent: 2
+- proto: HydroponicsToolMiniHoe
+  entities:
+  - uid: 12672
+    components:
+    - type: Transform
+      pos: 51.295895,32.500717
+      parent: 2
 - proto: HydroponicsToolSpade
   entities:
   - uid: 6008
@@ -70037,19 +69947,17 @@ entities:
     - type: Transform
       pos: 10.5,-35.5
       parent: 2
-- proto: LockerMedicine
-  entities:
-  - uid: 11914
-    components:
-    - type: Transform
-      pos: -4.5,-28.5
-      parent: 2
 - proto: LockerMedicineFilled
   entities:
   - uid: 7461
     components:
     - type: Transform
       pos: -23.5,-28.5
+      parent: 2
+  - uid: 11914
+    components:
+    - type: Transform
+      pos: -8.5,-27.5
       parent: 2
 - proto: LockerMime
   entities:
@@ -71953,6 +71861,13 @@ entities:
     components:
     - type: Transform
       pos: 38.469902,4.760768
+      parent: 2
+- proto: PlantBag
+  entities:
+  - uid: 14496
+    components:
+    - type: Transform
+      pos: 49.34277,34.735092
       parent: 2
 - proto: PlasmaCanister
   entities:
@@ -79957,13 +79872,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -26.5,12.5
       parent: 2
-- proto: SmartFridge
-  entities:
-  - uid: 6351
-    components:
-    - type: Transform
-      pos: -8.5,-28.5
-      parent: 2
 - proto: SMESBasic
   entities:
   - uid: 2762
@@ -85726,13 +85634,6 @@ entities:
     - type: Transform
       pos: 47.530922,-21.309933
       parent: 2
-- proto: UnstableMutagenChemistryBottle
-  entities:
-  - uid: 6011
-    components:
-    - type: Transform
-      pos: 21.531887,-3.096693
-      parent: 2
 - proto: UprightPianoInstrument
   entities:
   - uid: 12396
@@ -85989,7 +85890,7 @@ entities:
   - uid: 2285
     components:
     - type: Transform
-      pos: -8.5,-27.5
+      pos: -8.5,-28.5
       parent: 2
   - uid: 13250
     components:
