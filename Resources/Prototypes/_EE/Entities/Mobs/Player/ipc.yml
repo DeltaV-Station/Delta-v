@@ -106,6 +106,8 @@
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
   - type: WeldingHealable
+  - type: CombatMode # DeltaV - let IPCs disarm
+    canDisarm: true
 
 - type: entity
   save: false
