@@ -243,7 +243,7 @@ public sealed class SurgeryBui : BoundUserInterface
             if (surgeryComp.Requirement is { } reqId && _system.GetSingleton(reqId) is { } reqUid)
             {
                 if (!_entities.TryGetComponent<SurgeryComponent>(reqUid, out var reqComp) ||
-                    !_system.PreviousStepsComplete(body, _part.Value, (reqUid, reqComp), "")) // step is unused as this is only for checking the requirement
+                    !_system.PreviousStepsComplete(body, _part.Value, (reqUid, reqComp), string.Empty)) // step is unused as this is only for checking the requirement
                 {
                     // don't show any surgeries whose requirement isn't complete
                     continue;
