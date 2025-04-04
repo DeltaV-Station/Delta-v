@@ -240,7 +240,7 @@ public sealed class SurgeryBui : BoundUserInterface
             }
 
             // Begin DeltaV Additions - only show surgeries with completed requirements
-            if (surgeryComp.Requirement is {} reqId && _system.GetSingleton(reqId) is {} reqUid)
+            if (surgeryComp.Requirement is { } reqId && _system.GetSingleton(reqId) is { } reqUid)
             {
                 if (!_entities.TryGetComponent<SurgeryComponent>(reqUid, out var reqComp) ||
                     !_system.PreviousStepsComplete(body, _part.Value, (reqUid, reqComp), "")) // step is unused as this is only for checking the requirement
