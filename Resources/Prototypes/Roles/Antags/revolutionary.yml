@@ -11,6 +11,9 @@
     department: Command
     time: 36000 # DeltaV - 10 hours
   guides: [ Revolutionaries ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 3600 # 1h
 
 - type: antag
   id: Rev
