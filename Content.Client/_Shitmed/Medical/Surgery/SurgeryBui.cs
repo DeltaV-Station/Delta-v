@@ -1,4 +1,4 @@
-using Content.Client._Shitmed.Xenonids.UI;
+using Content.Client._Shitmed.Choice.UI;
 using Content.Client.Administration.UI.CustomControls;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Body.Components;
@@ -52,10 +52,6 @@ public sealed class SurgeryBui : BoundUserInterface
 
     private void Update(SurgeryBuiState state)
     {
-        if (!_entities.TryGetComponent(_player.LocalEntity, out SurgeryTargetComponent? surgeryTargetComp)
-            || !surgeryTargetComp.CanOperate)
-            return;
-
         if (_window == null)
         {
             _window = new SurgeryWindow();
@@ -146,7 +142,7 @@ public sealed class SurgeryBui : BoundUserInterface
         {
             //var netPart = _entities.GetNetEntity(part.Owner);
             var surgeries = state.Choices[netEntity];
-            var partButton = new XenoChoiceControl();
+            var partButton = new ChoiceControl();
 
             partButton.Set(partName, null);
             partButton.Button.OnPressed += _ => OnPartPressed(netEntity, surgeries);
@@ -200,7 +196,7 @@ public sealed class SurgeryBui : BoundUserInterface
         // This apparently does not consider if theres multiple surgery requirements in one surgery. Maybe thats fine.
         if (surgery.Comp.Requirement is { } requirementId && _system.GetSingleton(requirementId) is { } requirement)
         {
-            var label = new XenoChoiceControl();
+            var label = new ChoiceControl();
             label.Button.OnPressed += _ =>
             {
                 _previousSurgeries.Add(surgeryId);
@@ -231,6 +227,7 @@ public sealed class SurgeryBui : BoundUserInterface
 
         _part = _entities.GetEntity(netPart);
         _isBody = _entities.HasComponent<BodyComponent>(_part);
+        var body = _entities.GetComponent<BodyPartComponent>(_part.Value).Body!.Value; // DeltaV
         _window.Surgeries.DisposeAllChildren();
 
         var surgeries = new List<(Entity<SurgeryComponent> Ent, EntProtoId Id, string Name)>();
@@ -241,6 +238,18 @@ public sealed class SurgeryBui : BoundUserInterface
             {
                 continue;
             }
+
+            // Begin DeltaV Additions - only show surgeries with completed requirements
+            if (surgeryComp.Requirement is { } reqId && _system.GetSingleton(reqId) is { } reqUid)
+            {
+                if (!_entities.TryGetComponent<SurgeryComponent>(reqUid, out var reqComp) ||
+                    !_system.PreviousStepsComplete(body, _part.Value, (reqUid, reqComp), string.Empty)) // step is unused as this is only for checking the requirement
+                {
+                    // don't show any surgeries whose requirement isn't complete
+                    continue;
+                }
+            }
+            // End DeltaV Additions
 
             var name = _entities.GetComponent<MetaDataComponent>(surgery).EntityName;
             surgeries.Add(((surgery, surgeryComp), surgeryId, name));
@@ -257,7 +266,7 @@ public sealed class SurgeryBui : BoundUserInterface
 
         foreach (var surgery in surgeries)
         {
-            var surgeryButton = new XenoChoiceControl();
+            var surgeryButton = new ChoiceControl();
             surgeryButton.Set(surgery.Name, null);
 
             surgeryButton.Button.OnPressed += _ => OnSurgeryPressed(surgery.Ent, netPart, surgery.Id);
