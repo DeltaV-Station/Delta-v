@@ -25,6 +25,7 @@
   id: RandomHumanoidSpawnerDeathSquad
   name: Death Squad Agent
   suffix: ERTRole, Death Squad
+  categories: [ HideSpawnMenu ] # DeltaV
   components:
     - type: Sprite
       sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
