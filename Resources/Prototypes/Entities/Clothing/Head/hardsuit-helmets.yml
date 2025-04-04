@@ -653,6 +653,17 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertchaplain.rsi
   - type: PointLight
     color: "#ffffff"
+  # Begin DeltaV Additions
+  - type: Psionic
+  - type: TinfoilHat
+    passthrough: true
+    destroyOnFry: false
+  - type: ClothingGrantPsionicPower
+    power: DispelPower
+  - type: GuideHelp
+    guides:
+    - Psionics
+  # End DeltaV Additions
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -674,6 +685,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FireProtection # DeltaV - ERT overhaul
+    reduction: 0.2
 
 #ERT Medical Hardsuit
 - type: entity

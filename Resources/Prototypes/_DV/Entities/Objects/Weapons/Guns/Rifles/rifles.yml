@@ -191,7 +191,7 @@
   components:
   - type: BallisticAmmoProvider
     whitelist:
-      tags: 
+      tags:
       - CartridgeMusket
     capacity: 1
     proto: CartridgeMusket
@@ -237,3 +237,85 @@
         whitelist:
           tags:
           - CartridgeRifle
+
+- type: entity
+  parent: BaseWeaponSubMachineGun
+  id: WeaponRifleLaser
+  name: IK-30
+  description: A bulky, single barreled rifle that uses disposable laser cartridges rather than an internal power cell.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Rifles/lasercarbine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Rifles/lasercarbine.rsi
+  - type: ChamberMagazineAmmoProvider
+    boltClosed: null
+  - type: Gun
+    fireRate: 3
+    minAngle: 1
+    maxAngle: 4
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLaser
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineLaser
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLaser
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLaser
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+
+
+- type: entity
+  parent: WeaponRifleLaser
+  id: WeaponRifleLaserERT
+  name: IK-60
+  description: A short, compact carbine like rifle, relying more on battery cartridges rather than a built in power cell. Utilized by the Nanotrasen Navy for combat operations.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Rifles/lasercarbineert.rsi
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Rifles/lasercarbineert.rsi
+  - type: Gun
+    fireRate: 4
+    selectedMode: SemiAuto
+    shotsPerBurst: 2
+    burstCooldown: 0.3
+    burstFireRate: 8
+    availableModes:
+    - SemiAuto
+    - Burst
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
