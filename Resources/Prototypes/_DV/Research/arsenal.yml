@@ -96,7 +96,19 @@
   cost: 12500
   recipeUnlocks:
   - WeaponEnergyGunPistol
-  - WeaponGunLaserCarbineAutomatic
+  - WeaponRifleLaser
+
+- type: technology
+  id: IncendiaryLaserWeapons
+  name: research-technology-incendiary-laser-weapons
+  icon:
+    sprite: _DV/Objects/Weapons/Guns/Battery/immolator.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - WeaponImmolator
 
 - type: technology
   id: AdvancedRiotControl
