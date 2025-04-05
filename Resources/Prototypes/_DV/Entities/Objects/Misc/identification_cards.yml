@@ -178,6 +178,16 @@
   - type: IdCard
     jobTitle: job-alt-title-clinician
 
+# Senior Physician
+
+- type: entity
+  parent: SeniorPhysicianIDCard
+  id: CryogenicsSpecialistIDCard
+  name: cryogenics specialist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-cryogenics-specialist
+
 # Psychologist
 
 - type: entity
