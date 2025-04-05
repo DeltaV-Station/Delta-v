@@ -70,13 +70,15 @@ namespace Content.IntegrationTests.Tests
             "Arena", // DeltaV
             "Asterisk", // DeltaV
             "Byoin", // DeltaV
+            "Chibi", // DeltaV
+            "Elegance", // DeltaV
             "Glacier", // DeltaV
             "TheHive", // DeltaV
             "Hammurabi", // DeltaV
             "Lighthouse", // DeltaV
             "Micro", // DeltaV
-            "Chibi", // DeltaV
-			"Elegance" // DeltaV
+            "Ovni", // DeltaV
+            "Chibi" // DeltaV
         };
 
         /// <summary>
