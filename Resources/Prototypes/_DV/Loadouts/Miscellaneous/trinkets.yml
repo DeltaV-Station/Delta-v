@@ -17,6 +17,17 @@
     - SilverRing
 
 - type: loadout
+  id: Rosary
+  equipment:
+    pocket1: ClothingRosary
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChaplain
+      time: 7200 #2 hours
+
+- type: loadout
   id: Cane
   storage:
     back:
