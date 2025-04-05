@@ -1,26 +1,4 @@
 ﻿Entries:
-- author: Colin-Tel
-  changes:
-  - message: Added AI and reconfigured cameras on Micro station.
-    type: Add
-  id: 723
-  time: '2024-11-30T16:27:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2181
-- author: Velcroboy
-  changes:
-  - message: Changed Arena medbay layout
-    type: Tweak
-  id: 724
-  time: '2024-11-30T16:27:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2138
-- author: Velcroboy
-  changes:
-  - message: Hammurabi's medical is SOP compliant, Roller Coaster is fixed, Rapid
-      Transit has been installed in engineering
-    type: Tweak
-  id: 725
-  time: '2024-11-30T16:28:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2311
 - author: Yule&
   changes:
   - message: Pebble has been updated, and now includes a Station AI slot
@@ -3975,7 +3953,7 @@
   id: 1221
   time: '2025-04-04T19:42:53.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3335
-- author: Stop-Signs
+- author: Tryded, Stop-Signs
   changes:
   - message: 'Added the advanced energy gun which self-recharges and has two settings:
       Disable and Kill. This can be unlocked from research.'
@@ -3991,3 +3969,27 @@
   id: 1222
   time: '2025-04-04T21:34:52.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3365
+- author: Radezolid
+  changes:
+  - message: Fixed rubber ammunition not showing up in the security techfab.
+    type: Fix
+  id: 1223
+  time: '2025-04-05T12:09:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3376
+- author: Toby222
+  changes:
+  - message: Not having message highlights set up no longer breaks radio communications
+    type: Fix
+  id: 1224
+  time: '2025-04-05T14:35:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3378
+- author: deltanedas
+  changes:
+  - message: Removed non-power wires having a chance to shock you.
+    type: Remove
+  - message: All wires are no longer randomized, it's the same behaviour as upstream
+      now.
+    type: Remove
+  id: 1225
+  time: '2025-04-05T14:47:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3373

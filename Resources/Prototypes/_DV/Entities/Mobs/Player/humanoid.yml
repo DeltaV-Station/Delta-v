@@ -101,8 +101,8 @@
     state: chaplain #needs an ERT variant once a good suit it made.
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitary
-    - NamesLastMilitary
+    - NamesMilitaryFirst
+    - NamesMilitaryLast
   - type: RandomHumanoidSpawner
     settings: ERTChaplainAmber
 
@@ -120,8 +120,8 @@
     job: ERTChaplain
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitary
-    - NamesLastMilitary
+    - NamesMilitaryFirst
+    - NamesMilitaryLast
   - type: Loadout
     prototypes: [ ERTChaplainGearAmber ]
     roleLoadout: [ RoleSurvivalExtended ]
@@ -195,8 +195,8 @@
     state: ertjanitor
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitary
-    - NamesLastMilitary
+    - NamesMilitaryFirst
+    - NamesMilitaryLast
   - type: RandomHumanoidSpawner
     settings: ERTJanitorAmber
 
@@ -213,8 +213,8 @@
     job: ERTJanitor
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitary
-    - NamesLastMilitary
+    - NamesMilitaryFirst
+    - NamesMilitaryLast
   - type: Loadout
     prototypes: [ ERTJanitorGearAmber ]
     roleLoadout: [ RoleSurvivalExtended ]
@@ -286,8 +286,8 @@
     state: ertengineer
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitary
-    - NamesLastMilitary
+    - NamesMilitaryFirst
+    - NamesMilitaryLast
   - type: RandomHumanoidSpawner
     settings: ERTEngineerAmber
 
@@ -304,8 +304,8 @@
     job: ERTEngineer
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitary
-    - NamesLastMilitary
+    - NamesMilitaryFirst
+    - NamesMilitaryLast
   - type: Loadout
     prototypes: [ ERTEngineerGearAmber ]
     roleLoadout: [ RoleSurvivalExtended ]
@@ -377,8 +377,8 @@
     state: ertsecurity
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitary
-    - NamesLastMilitary
+    - NamesMilitaryFirst
+    - NamesMilitaryLast
   - type: RandomHumanoidSpawner
     settings: ERTSecurityAmber
 
@@ -395,8 +395,8 @@
     job: ERTSecurity
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitary
-    - NamesLastMilitary
+    - NamesMilitaryFirst
+    - NamesMilitaryLast
   - type: Loadout
     prototypes: [ ERTSecurityGearAmber ]
     roleLoadout: [ RoleSurvivalExtended ]
@@ -467,8 +467,8 @@
     state: ertmedical
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitary
-    - NamesLastMilitary
+    - NamesMilitaryFirst
+    - NamesMilitaryLast
   - type: RandomHumanoidSpawner
     settings: ERTMedicalAmber
 
@@ -485,8 +485,8 @@
     job: ERTMedical
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitary
-    - NamesLastMilitary
+    - NamesMilitaryFirst
+    - NamesMilitaryLast
   - type: Loadout
     prototypes: [ ERTMedicalGearAmber ]
     roleLoadout: [ RoleSurvivalExtended ]
