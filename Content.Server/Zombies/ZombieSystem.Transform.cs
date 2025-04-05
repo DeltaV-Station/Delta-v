@@ -38,6 +38,7 @@ using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Zombies;
 
@@ -62,6 +63,8 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
+
+    private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
 
     /// <summary>
     /// Handles an entity turning into a zombie when they die or go into crit
@@ -306,6 +309,6 @@ public sealed partial class ZombieSystem
 
         //Need to prevent them from getting an item, they have no hands.
         // Also prevents them from becoming a Survivor. They're undead.
-        _tag.AddTag(target, "InvalidForGlobalSpawnSpell");
+        _tag.AddTag(target, InvalidForGlobalSpawnSpellTag);
     }
 }

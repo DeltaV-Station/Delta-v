@@ -29,6 +29,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.Map.Components;
 using Content.Shared.Whitelist;
+using Robust.Shared.Prototypes;
 using Content.Shared.Hands.Components; // Begin Imp Changes
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
@@ -60,6 +61,8 @@ public sealed partial class RevenantSystem
     [ValidatePrototypeId<StatusEffectPrototype>]
     private const string FlashedId = "Flashed"; // End Imp Changes
 
+
+    private static readonly ProtoId<TagPrototype> WindowTag = "Window";
 
     private void InitializeAbilities()
     {
@@ -332,7 +335,7 @@ public sealed partial class RevenantSystem
         foreach (var ent in lookup)
         {
             //break windows
-            if (tags.HasComponent(ent) && _tag.HasTag(ent, "Window"))
+            if (tags.HasComponent(ent) && _tag.HasTag(ent, WindowTag))
             {
                 //hardcoded damage specifiers til i die.
                 var dspec = new DamageSpecifier();

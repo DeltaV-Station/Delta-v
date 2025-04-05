@@ -62,8 +62,9 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     [ValidatePrototypeId<DamageTypePrototype>]
     private const string DamageType = "Shock";
 
-    // Yes, this is absurdly small for a reason.
-    public const float ElectrifiedDamagePerWatt = 0.0015f; // Goobstation - This information is allowed to be public, and was needed in BatteryElectrocuteChargeSystem.cs
+    private static readonly ProtoId<TagPrototype> WindowTag = "Window";
+
+    // Multiply and shift the log scale for shock damage.
     private const float RecursiveDamageMultiplier = 0.75f;
     private const float RecursiveTimeMultiplier = 0.8f;
 
@@ -140,7 +141,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             {
                 foreach (var entity in _entityLookup.GetLocalEntitiesIntersecting(tileRef.Value, flags: LookupFlags.StaticSundries))
                 {
-                    if (_tag.HasTag(entity, "Window"))
+                    if (_tag.HasTag(entity, WindowTag))
                         return false;
                 }
             }
