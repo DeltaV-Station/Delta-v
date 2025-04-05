@@ -1,0 +1,43 @@
+- type: entity
+  parent: NoosphericAcceleratorFinishedPart
+  id: NoosphericAcceleratorControlBox
+  name: PA control computer
+  description: This controls the density of the particles.
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/PA/control_box.rsi
+  - type: NoosphericAcceleratorControlBox
+  - type: ApcPowerReceiver
+    powerLoad: 250
+  - type: ExtensionCableReceiver
+  - type: Construction
+    graph: NoosphericAcceleratorControlBox
+  - type: ActivatableUI
+    key: enum.NoosphericAcceleratorControlBoxUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.NoosphericAcceleratorControlBoxUiKey.Key:
+        type: NoosphericAcceleratorBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: WiresPanel
+  - type: Wires
+    boardName: wires-board-name-pa
+    layoutId: NoosphericAccelerator
+  - type: AccessReader
+    access: [["Engineering"]]
+
+# Unfinished
+
+- type: entity
+  parent: NoosphericAcceleratorUnfinishedBase
+  id: NoosphericAcceleratorControlBoxUnfinished
+  name: PA control computer
+  suffix: Unfinished
+  description: This controls the density of the particles. It looks unfinished.
+  components:
+    - type: Sprite
+      sprite: Structures/Power/Generation/PA/control_box.rsi
+    - type: Construction
+      graph: NoosphericAcceleratorControlBox

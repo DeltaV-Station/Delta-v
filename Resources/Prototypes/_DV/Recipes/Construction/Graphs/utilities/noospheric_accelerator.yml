@@ -1,0 +1,344 @@
+- type: constructionGraph
+  id: NoosphericAcceleratorControlBox
+  start: start
+  graph:
+    - node: start
+      entity: NoosphericAcceleratorControlBoxUnfinished
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: wired
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Cable
+              doAfter: 0.5
+
+    - node: wired
+      entity: NoosphericAcceleratorControlBoxUnfinished
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: completed
+          conditions:
+            - !type:EntityAnchored {}
+          completed:
+            - !type:SnapToGrid {}
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+        - to: start
+          conditions:
+            - !type:EntityAnchored {}
+          completed:
+            - !type:SpawnPrototype
+              prototype: CableApcStack1
+          steps:
+            - tool: Cutting
+              doAfter: 0.5
+
+    - node: completed
+      entity: NoosphericAcceleratorControlBox
+      edges:
+        - to: wired
+          conditions:
+            - !type:EntityAnchored { }
+          steps:
+            - tool: Prying
+              doAfter: 0.5
+
+
+- type: constructionGraph
+  id: NoosphericAcceleratorPowerBox
+  start: start
+  graph:
+    - node: start
+      entity: NoosphericAcceleratorPowerBoxUnfinished
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: wired
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Cable
+              doAfter: 0.5
+
+    - node: wired
+      entity: NoosphericAcceleratorPowerBoxUnfinished
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: completed
+          conditions:
+            - !type:EntityAnchored {}
+          completed:
+            - !type:SnapToGrid {}
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+        - to: start
+          conditions:
+            - !type:EntityAnchored {}
+          completed:
+            - !type:SpawnPrototype
+              prototype: CableApcStack1
+          steps:
+            - tool: Cutting
+              doAfter: 0.5
+
+    - node: completed
+      entity: NoosphericAcceleratorPowerBox
+      edges:
+        - to: wired
+          conditions:
+            - !type:EntityAnchored { }
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+
+
+- type: constructionGraph
+  id: NoosphericAcceleratorFuelChamber
+  start: start
+  graph:
+    - node: start
+      entity: NoosphericAcceleratorFuelChamberUnfinished
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: wired
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Cable
+              doAfter: 0.5
+
+    - node: wired
+      entity: NoosphericAcceleratorFuelChamberUnfinished
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: completed
+          conditions:
+            - !type:EntityAnchored {}
+          completed:
+            - !type:SnapToGrid {}
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+        - to: start
+          conditions:
+            - !type:EntityAnchored {}
+          completed:
+            - !type:SpawnPrototype
+              prototype: CableApcStack1
+          steps:
+            - tool: Cutting
+              doAfter: 0.5
+
+    - node: completed
+      entity: NoosphericAcceleratorFuelChamber
+      edges:
+        - to: wired
+          conditions:
+            - !type:EntityAnchored { }
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+
+- type: constructionGraph
+  id: NoosphericAcceleratorEndCap
+  start: start
+  graph:
+    - node: start
+      entity: NoosphericAcceleratorEndCapUnfinished
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: wired
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Cable
+              doAfter: 0.5
+
+    - node: wired
+      entity: NoosphericAcceleratorEndCapUnfinished
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: completed
+          conditions:
+            - !type:EntityAnchored {}
+          completed:
+            - !type:SnapToGrid {}
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+        - to: start
+          conditions:
+            - !type:EntityAnchored {}
+          completed:
+            - !type:SpawnPrototype
+              prototype: CableApcStack1
+          steps:
+            - tool: Cutting
+              doAfter: 0.5
+
+    - node: completed
+      entity: NoosphericAcceleratorEndCap
+      edges:
+        - to: wired
+          conditions:
+            - !type:EntityAnchored { }
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+
+- type: constructionGraph
+  id: NoosphericAcceleratorEmitterPort
+  start: start
+  graph:
+    - node: start
+      entity: NoosphericAcceleratorEmitterPortUnfinished
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: wired
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Cable
+              doAfter: 0.5
+
+    - node: wired
+      entity: NoosphericAcceleratorEmitterPortUnfinished
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: completed
+          conditions:
+            - !type:EntityAnchored {}
+          completed:
+            - !type:SnapToGrid {}
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+        - to: start
+          conditions:
+            - !type:EntityAnchored {}
+          completed:
+            - !type:SpawnPrototype
+              prototype: CableApcStack1
+          steps:
+            - tool: Cutting
+              doAfter: 0.5
+
+    - node: completed
+      entity: NoosphericAcceleratorEmitterPort
+      edges:
+        - to: wired
+          conditions:
+            - !type:EntityAnchored { }
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+
+- type: constructionGraph
+  id: NoosphericAcceleratorEmitterFore
+  start: start
+  graph:
+    - node: start
+      entity: NoosphericAcceleratorEmitterForeUnfinished
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: wired
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Cable
+              doAfter: 0.5
+
+    - node: wired
+      entity: NoosphericAcceleratorEmitterForeUnfinished
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: completed
+          conditions:
+            - !type:EntityAnchored {}
+          completed:
+            - !type:SnapToGrid {}
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+        - to: start
+          conditions:
+            - !type:EntityAnchored {}
+          completed:
+            - !type:SpawnPrototype
+              prototype: CableApcStack1
+          steps:
+            - tool: Cutting
+              doAfter: 0.5
+
+    - node: completed
+      entity: NoosphericAcceleratorEmitterFore
+      edges:
+        - to: wired
+          conditions:
+            - !type:EntityAnchored { }
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+
+- type: constructionGraph
+  id: NoosphericAcceleratorEmitterStarboard
+  start: start
+  graph:
+    - node: start
+      entity: NoosphericAcceleratorEmitterStarboardUnfinished
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: wired
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Cable
+              doAfter: 0.5
+
+    - node: wired
+      entity: NoosphericAcceleratorEmitterStarboardUnfinished
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: completed
+          conditions:
+            - !type:EntityAnchored {}
+          completed:
+            - !type:SnapToGrid {}
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+        - to: start
+          conditions:
+            - !type:EntityAnchored {}
+          completed:
+            - !type:SpawnPrototype
+              prototype: CableApcStack1
+          steps:
+            - tool: Cutting
+              doAfter: 0.5
+
+    - node: completed
+      entity: NoosphericAcceleratorEmitterStarboard
+      edges:
+        - to: wired
+          conditions:
+            - !type:EntityAnchored { }
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
