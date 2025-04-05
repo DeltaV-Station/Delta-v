@@ -112,7 +112,7 @@
     groups:
       Acidic: [ Touch ]
     reactions:
-    - reagents: [ Blood, CopperBlood, InsectBlood, Slime, AmmoniaBlood, ZombieBlood ]
+    - reagents: [ Blood, CopperBlood, InsectBlood, Slime, AmmoniaBlood, ZombieBlood, DrGibbBloodRed ] # DeltaV - add Dr. Gibb Blood Red
       methods: [ Touch ]
       effects:
       - !type:ActivateArtifact
@@ -145,6 +145,7 @@
 - type: artifactTrigger
   id: TriggerDeath
   targetDepth: 2
+  triggerProb: 0.5 # DeltaV
   triggerHint: artifact-trigger-hint-death
   components:
   - type: ArtifactDeathTrigger
@@ -170,7 +171,7 @@
   triggerHint: artifact-trigger-hint-physical
   components:
   - type: ArtifactDamageTrigger
-    damageThreshold: 500 #make it go boom or w/e
+    damageThreshold: 300 # DeltaV - was 500
 
 - type: artifactTrigger
   id: TriggerRadiation
@@ -183,6 +184,16 @@
     - Radiation
     damageThreshold: 50
   - type: RadiationReceiver
+  # Imp - begin radioactive chemical changes
+  - type: Reactive
+    groups:
+      Acidic: [ Touch ]
+    reactions:
+    - reagents: [ Uranium, Tritium, Radium, UnstableMutagen, Phalanximine ]
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+  # Imp - end radioactive chemical changes
 
 - type: artifactTrigger
   id: TriggerHighPressure
@@ -194,7 +205,7 @@
 
 - type: artifactTrigger
   id: TriggerPlasma
-  targetDepth: 3
+  targetDepth: 4 # DeltaV - swap water vapor and plasma trigger depths
   triggerHint: artifact-trigger-hint-plasma
   components:
   - type: ArtifactGasTrigger

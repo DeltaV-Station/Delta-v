@@ -4,6 +4,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Content.Shared.Whitelist; // Imp - Multitool defib
 
 namespace Content.Shared.Medical;
 
@@ -53,6 +54,42 @@ public sealed partial class DefibrillatorComponent : Component
     /// </remarks>
     [DataField("doAfterDuration"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan DoAfterDuration = TimeSpan.FromSeconds(3);
+
+    /// <summary>
+    /// DeltaV: Maximum entity mass the defibrillator can revive. 0 provides no limit.
+    /// </summary>
+    [DataField("massLimit"), ViewVariables(VVAccess.ReadWrite)]
+    public float MassLimit;
+
+    /// <summary>
+    /// Imp: Whether or not to have the defib pop up text, such as body composition, rot, intelligence, etc.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("showMessages")]
+    public bool ShowMessages = true;
+
+    /// <summary>
+    /// Imp: Can we skip the doafter.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("skipDoAfter")]
+    public bool SkipDoAfter;
+
+    /// <summary>
+    /// Imp: Can we ignore the toggle.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("ignoreToggle")]
+    public bool IgnoreToggle;
+
+    /// <summary>
+    /// Imp: Can we ignore the powercell.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("ignorePowerCell")]
+    public bool IgnorePowerCell;
+
+    /// <summary>
+    /// Imp: Can the defibbed entity skip the critical state and go straight to alive if they have low enough damage?.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("allowSkipCrit")]
+    public bool AllowSkipCrit;
 
     [DataField]
     public bool AllowDoAfterMovement = true;
