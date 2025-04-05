@@ -8,6 +8,8 @@
     PebbleStation:
       stationProto: StandardNanotrasenStation
       components:
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Basu.yml
         - type: StationNameSetup
           mapNameTemplate: '{0} Pebble Station {1}'
           nameGenerator:
@@ -60,6 +62,8 @@
             SecurityOfficer: [ 2, 3 ]
             SecurityCadet: [ 1, 1 ]
             Prisoner: [ 2, 2 ]
+            Brigmedic: [ 1, 1 ]
+            PrisonGuard: [ 1, 1 ]
           #supply
             Quartermaster: [ 1, 1 ]
             Courier: [ 1, 2 ]
