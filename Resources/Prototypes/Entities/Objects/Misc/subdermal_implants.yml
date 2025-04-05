@@ -351,21 +351,12 @@
    #    - MindShield
    # End DeltaV Removals
 
-# Nukie implants
-
 - type: entity
-  parent: BaseSubdermalImplant
-  id: HostageImplant
-  name: hostage implant
-  description: Perfect for all your hostage ops needs! Allows the implanted entity to be ignored by syndicate turrets.
+  parent: DeathRattleImplant
+  id: DeathRattleImplantCentcomm
+  name: centcomm death rattle implant
+  description: This implant will inform the Centcomm radio channel should the user fall into critical condition or die.
   categories: [ HideSpawnMenu ]
   components:
-  - type: SubdermalImplant
-  - type: AddComponentsImplant
-    componentsToAdd:
-    - type: Pacified
-      disallowDisarm: true
-      disallowAllCombat: true
-  - type: AddFactionsImplant
-    factions:
-    - Hostage
+  - type: Rattle
+    radioChannel: CentCom
