@@ -1,5 +1,3 @@
-using Robust.Shared.Random;
-using Content.Server.Electrocution;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -32,24 +30,6 @@ public abstract partial class BaseWireAction : IWireAction
     [DataField("lightRequiresPower")]
     public virtual bool LightRequiresPower { get; set; } = true;
 
-    /// <summary>
-    ///     Nyanotrasen - The chance that the user is shocked when tampering with the wire: cutting, pulsing, or mending it.
-    /// </summary>
-    [DataField("shockChance")]
-    public float ShockChance = 0.55f;
-
-    /// <summary>
-    ///     Nyanotrasen - How much damage the user takes when tampering.
-    /// </summary>
-    [DataField("shockDamage")]
-    public int ShockDamage = 15;
-
-    /// <summary>
-    ///     Nyanotrasen - How long the user is stunned after a failed tamper attempt.
-    /// </summary>
-    [DataField("shockStunTime")]
-    public TimeSpan ShockStunTime = TimeSpan.FromSeconds(3f);
-
     public virtual StatusLightData? GetStatusLightData(Wire wire)
     {
         if (LightRequiresPower && !IsPowered(wire.Owner))
@@ -64,9 +44,7 @@ public abstract partial class BaseWireAction : IWireAction
     public virtual StatusLightState? GetLightState(Wire wire) => null;
 
     public IEntityManager EntityManager = default!;
-    public IRobustRandom Random = default!;
     public WiresSystem WiresSystem = default!;
-    public ElectrocutionSystem ElectrocutionSystem = default!;
 
     // not virtual so implementors are aware that they need a nullable here
     public abstract object? StatusKey { get; }
@@ -76,47 +54,14 @@ public abstract partial class BaseWireAction : IWireAction
     {
         EntityManager = IoCManager.Resolve<IEntityManager>();
         _adminLogger = IoCManager.Resolve<ISharedAdminLogManager>();
-        Random = IoCManager.Resolve<IRobustRandom>();
 
         WiresSystem = EntityManager.EntitySysManager.GetEntitySystem<WiresSystem>();
-        ElectrocutionSystem = EntityManager.EntitySysManager.GetEntitySystem<ElectrocutionSystem>();
     }
 
     public virtual bool AddWire(Wire wire, int count) => count == 1;
-    public virtual bool Cut(EntityUid user, Wire wire) => !TryShockUser(user, wire, "cutting") && Log(user, wire, "cut"); // Nyanotrasen - Tactical hacking
-    public virtual bool Mend(EntityUid user, Wire wire) => !TryShockUser(user, wire, "mending") && Log(user, wire, "mended"); // Nyanotrasen - Tactical hacking
-    public virtual void Pulse(EntityUid user, Wire wire) // Nyanotrasen - Tactical hacking
-    {
-        if (!TryShockUser(user, wire, "pulsing"))
-            Log(user, wire, "pulsed");
-    }
-
-    /// <summary>
-    /// Nyanotrasen - Returns true if the user has been shocked.
-    /// </summary>
-    private bool TryShockUser(EntityUid user, Wire wire, string verb)
-    {
-        if (!IsPowered(wire.Owner))
-            return false;
-
-        if (!Random.Prob(ShockChance))
-            return false;
-
-        var shocked = ElectrocutionSystem.TryDoElectrocution(user, wire.Owner, ShockDamage, ShockStunTime, false);
-
-        if (shocked)
-        {
-            var player = EntityManager.ToPrettyString(user);
-            var owner = EntityManager.ToPrettyString(wire.Owner);
-            var name = Loc.GetString(Name);
-            var color = wire.Color.Name();
-            var action = GetType().Name;
-
-            _adminLogger.Add(LogType.WireHacking, LogImpact.Medium, $"{player} shocked by {owner} when {verb} {color} {name} wire ({action})");
-        }
-
-        return shocked;
-    }
+    public virtual bool Cut(EntityUid user, Wire wire) => Log(user, wire, "cut");
+    public virtual bool Mend(EntityUid user, Wire wire) => Log(user, wire, "mended");
+    public virtual void Pulse(EntityUid user, Wire wire) => Log(user, wire, "pulsed");
 
     private bool Log(EntityUid user, Wire wire, string verb)
     {
