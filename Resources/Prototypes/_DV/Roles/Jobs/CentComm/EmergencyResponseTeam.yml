@@ -17,7 +17,6 @@
   storage:
     back:
     - PinpointerNuclear
-    - BoxMindshield
     - Zipties
     - Zipties
 
@@ -36,14 +35,17 @@
     belt: ClothingBeltSecurityFilled
     pocket1: WeaponEnergyGunPistol
     pocket2: FlashlightSeclite
+  inhand:
+  - WeaponPistolUniversal
   storage:
     back:
-    - BoxMindshield
     - CrowbarRed
     - DoorRemoteOmni
     - PinpointerNuclear
     - Zipties
     - Zipties
+    - MagazineUniversalMagnum
+    - MagazineUniversalMagnum
 
 - type: startingGear
   id: ERTLeaderGearGamma
@@ -62,9 +64,12 @@
     pocket2: FlashlightSeclite
   inhand:
   - WeaponPistolUniversal
+  - WeaponRifleLaserERT
   storage:
     back:
-    - BoxMindshield
+    - MagazineLaser
+    - MagazineLaser
+    - MagazineLaser
     - MagazineUniversalMagnum
     - MagazineUniversalMagnum
     - CrowbarRed
@@ -355,7 +360,6 @@
   - WeaponEnergyGun
   storage:
     back:
-    - Hypospray
     - MedkitCombatFilled
     - BoxBottleMedicineBasic
     - CrowbarRed
