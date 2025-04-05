@@ -10,6 +10,7 @@ namespace Content.Shared.Forensics
         public readonly List<string> TouchDNAs = new();
         public readonly List<string> SolutionDNAs = new();
         public readonly List<string> Residues = new();
+        public readonly string? Rifling = null; // DeltaV - Projectile Forensics
         public readonly string LastScannedName = string.Empty;
         public readonly TimeSpan PrintCooldown = TimeSpan.Zero;
         public readonly TimeSpan PrintReadyAt = TimeSpan.Zero;
@@ -20,6 +21,7 @@ namespace Content.Shared.Forensics
             List<string> touchDnas,
             List<string> solutionDnas,
             List<string> residues,
+            string? rifling, // DeltaV - Projectile Forensics
             string lastScannedName,
             TimeSpan printCooldown,
             TimeSpan printReadyAt)
@@ -29,6 +31,7 @@ namespace Content.Shared.Forensics
             TouchDNAs = touchDnas;
             SolutionDNAs = solutionDnas;
             Residues = residues;
+            Rifling = rifling; // DeltaV - Projectile Forensics
             LastScannedName = lastScannedName;
             PrintCooldown = printCooldown;
             PrintReadyAt = printReadyAt;

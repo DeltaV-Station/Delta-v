@@ -40,6 +40,14 @@ namespace Content.Server.Forensics
         [ViewVariables(VVAccess.ReadOnly), DataField("residues")]
         public List<string> Residues = new();
 
+        // Begin DeltaV Additions - Projectile Forensics
+        /// <summary>
+        /// Rifiling indicator that have been found on the projectile.
+        /// </summary>
+        [DataField]
+        public string? Rifling = null;
+        // End DeltaV Additions - Projectile Forensics
+
         /// <summary>
         /// What is the name of the entity that was scanned last?
         /// </summary>

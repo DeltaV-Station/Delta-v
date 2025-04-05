@@ -26,6 +26,10 @@
   - type: Physics
   - type: Damageable
     damageContainer: Inorganic
+  # Begin DeltaV Additions - Projectile forensics
+  - type: LodgedProjectileStorage # DeltaV
+    lodgeChanceModifier: 1 # Always lodge projectiles into targets
+  # End DeltaV Additions - Projectile forensics
   - type: Destructible
     thresholds:
     - trigger:

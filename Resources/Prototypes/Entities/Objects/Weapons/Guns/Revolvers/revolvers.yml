@@ -23,6 +23,11 @@
     - suitStorage
     - Belt
   - type: AmmoCounter
+  # Begin DeltaV additions - More forensics on guns
+  - type: RiflingForensics
+  - type: Residue
+    residueAdjective: residue-gunshot
+  # End DeltaV additions - More forensics on guns
   - type: Gun
     selectedMode: SemiAuto
     fireRate: 1.5

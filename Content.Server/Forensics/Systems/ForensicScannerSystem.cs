@@ -54,6 +54,7 @@ namespace Content.Server.Forensics
                 component.TouchDNAs,
                 component.SolutionDNAs,
                 component.Residues,
+                component.Rifling, // DeltaV - Projectile Forensics
                 component.LastScannedName,
                 component.PrintCooldown,
                 component.PrintReadyAt);
@@ -77,6 +78,7 @@ namespace Content.Server.Forensics
                     scanner.Fibers = new();
                     scanner.TouchDNAs = new();
                     scanner.Residues = new();
+                    scanner.Rifling = null; // DeltaV - Projectile Forensics
                 }
                 else
                 {
@@ -84,6 +86,7 @@ namespace Content.Server.Forensics
                     scanner.Fibers = forensics.Fibers.ToList();
                     scanner.TouchDNAs = forensics.DNAs.ToList();
                     scanner.Residues = forensics.Residues.ToList();
+                    scanner.Rifling = forensics.Rifling; // DeltaV - Projectile Forensics
                 }
 
                 if (_tag.HasTag(args.Args.Target.Value, "DNASolutionScannable"))
@@ -237,6 +240,14 @@ namespace Content.Server.Forensics
                 text.AppendLine(residue);
             }
 
+            // Begin DeltaV Additions - Projectile Forensics
+            text.AppendLine();
+            text.AppendLine(Loc.GetString("forensic-scanner-interface-rifling"));
+            text.AppendLine(!string.IsNullOrEmpty(component.Rifling)
+                ? component.Rifling
+                : Loc.GetString("forensices-scanner-interface-rifling-none"));
+            // End DeltaV Additions - Projectile Forensics
+
             _paperSystem.SetContent((printed, paperComp), text.ToString());
             _audioSystem.PlayPvs(component.SoundPrint, uid,
                 AudioParams.Default
@@ -254,6 +265,7 @@ namespace Content.Server.Forensics
             component.Fibers = new();
             component.TouchDNAs = new();
             component.SolutionDNAs = new();
+            component.Rifling = null; // DeltaV - Projectile Forensics
             component.LastScannedName = string.Empty;
 
             UpdateUserInterface(uid, component);
