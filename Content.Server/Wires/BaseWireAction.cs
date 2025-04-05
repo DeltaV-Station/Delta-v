@@ -86,6 +86,6 @@ public abstract partial class BaseWireAction : IWireAction
     /// <returns>true if powered, false otherwise</returns>
     protected bool IsPowered(EntityUid uid)
     {
-        return WiresSystem.IsPowered(uid, EntityManager);
+        return WiresSystem.HasPower(uid); // DeltaV - support APC power checks
     }
 }

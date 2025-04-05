@@ -168,7 +168,7 @@ public sealed class ApcSystem : EntitySystem
 
         var state = new ApcBoundInterfaceState(apc.MainBreakerEnabled,
             (int) MathF.Ceiling(battery.CurrentSupply), apc.LastExternalState,
-            charge);
+            charge, battery.Enabled); // DeltaV
 
         _ui.SetUiState((uid, ui), ApcUiKey.Key, state);
     }

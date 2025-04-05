@@ -112,6 +112,16 @@ namespace Content.Server.Power.Components
             set => NetworkBattery.Efficiency = value;
         }
 
+        /// <summary>
+        /// DeltaV - Disables power I/O, controlled by <c>PowerBatteryWireAction</c>.
+        /// </summary>
+        [DataField]
+        public bool PowerEnabled
+        {
+            get => NetworkBattery.Enabled;
+            set => NetworkBattery.Enabled = value;
+        }
+
         [ViewVariables]
         public PowerState.Battery NetworkBattery { get; } = new();
     }

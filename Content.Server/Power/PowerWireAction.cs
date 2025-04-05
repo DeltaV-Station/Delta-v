@@ -53,12 +53,30 @@ public sealed partial class PowerWireAction : BaseWireAction
                && cut == 0;
     }
 
+    /// <summary>
+    /// DeltaV - called by SetPower for non-receivers (APCs).
+    /// Can't be in a partial class due to datafield sourcegen.
+    /// </summary>
+    private void SetBatteryPower(EntityUid uid, bool pulsed)
+    {
+        if (!EntityManager.TryGetComponent<PowerNetworkBatteryComponent>(uid, out var comp))
+            return;
+
+        if (pulsed || AllWiresCut(uid))
+            comp.PowerEnabled = false;
+        else if (WiresSystem.TryGetData<bool>(uid, PowerWireActionKey.Pulsed, out var isPulsed) && isPulsed)
+            return;
+        else
+            comp.PowerEnabled = true;
+    }
+
     // I feel like these two should be within ApcPowerReceiverComponent at this point.
     // Getting it from a dictionary is significantly more expensive.
     private void SetPower(EntityUid owner, bool pulsed)
     {
         if (!EntityManager.TryGetComponent(owner, out ApcPowerReceiverComponent? power))
         {
+            SetBatteryPower(owner, pulsed); // DeltaV
             return;
         }
 

@@ -38,6 +38,7 @@
           conditions:
             - !type:WirePanel
               open: true
+            - !type:AllWiresCut # DeltaV - APC wires
           steps:
             - tool: Prying
               doAfter: 4
