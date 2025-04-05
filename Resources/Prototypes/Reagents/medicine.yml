@@ -1109,6 +1109,10 @@
         factor: 3
     Medicine:
       effects:
+      - !type:CleanseCult # DeltaV - Cosmic Cult
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
