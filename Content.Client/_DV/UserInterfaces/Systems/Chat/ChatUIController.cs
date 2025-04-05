@@ -85,14 +85,6 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
         UpdateHighlights();
     }
 
-    private static string EscapeHighlight(string highlight)
-    {
-        // Use `"` as layman symbol for Regex `\b`, ignore all other special sequences
-        // (Without that escape, a name like `Robert'); DROP TABLE users; --` breaks all messsages)
-        // Turn `\` into `\\` or else it'll escape the tags inside the actual chat message for reasons I can barely intuit but not explain.
-        return Regex.Escape(highlight.Replace(@"\", @"\\")).Replace("\"", "\\b");
-    }
-
     public void UpdateHighlights(string? newHighlights = null)
     {
         var configuredHighlights = _config.GetCVar(DCCVars.ChatHighlights);
@@ -122,7 +114,10 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
             {
                 if (string.IsNullOrWhiteSpace(highlight))
                     continue;
-                _highlights.Add(EscapeHighlight(highlight));
+                // Use `"` as layman symbol for Regex `\b`, ignore all other special sequences
+                // (Without that escape, a name like `Robert'); DROP TABLE users; --` breaks all messsages)
+                // Turn `\` into `\\` or else it'll escape the tags inside the actual chat message for reasons I can barely intuit but not explain.
+                _highlights.Add(Regex.Escape(highlight.Replace(@"\", @"\\")).Replace("\"", "\\b"));
             }
         }
 
