@@ -46,6 +46,9 @@
   id: BulletBB
 
 - type: Tag
+  id: CartridgeLaser
+
+- type: Tag
   id: CartridgeSpecial # For the .38 special ammo and revolver
 
 - type: Tag
@@ -92,6 +95,9 @@
 
 - type: Tag # prevents ID chips being used for an id computer privileged id
   id: IdChip
+
+- type: Tag
+  id: MagazineLaser
 
 - type: Tag
   id: MagazinePistolSpecial # For the .38 special ammo and pistol

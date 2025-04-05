@@ -181,3 +181,217 @@
     sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/hos.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatHoS
+
+#DeltaV ERT hardsuits
+#Everything Below this is RED level hardsuits except for engineer.
+#ERT Leader Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
+  id: ClothingOuterHardsuitERTLeaderBase
+  name: ERT leader's hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTLeader
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.50
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.60
+        Radiation: 0.0
+        Caustic: 0.4
+        Heat: 0.70
+    staminaDamageCoefficient: 0.3
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+
+#ERT Chaplain Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitERTLeaderBase
+  id: ClothingOuterHardsuitERTChaplainBase
+  name: ERT chaplain's hardsuit
+  description: A protective hardsuit worn by the chaplains of an Emergency Response Team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi #if you change this, please update the humanoid.yml with a better markers sprite.
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTChaplain
+
+#ERT Engineer Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitERTLeaderBase
+  id: ClothingOuterHardsuitERTEngineerBase
+  name: ERT engineer's hardsuit
+  description: A protective hardsuit worn by the engineers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
+  - type: FireProtection  #Only engineer gets fireproof
+    reduction: 0.8
+
+
+#ERT Medic Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitERTLeaderBase
+  id: ClothingOuterHardsuitERTMedicalBase
+  name: ERT medic's hardsuit
+  description: A protective hardsuit worn by the medics of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
+
+#ERT Security Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitERTLeaderBase
+  id: ClothingOuterHardsuitERTSecurityBase
+  name: ERT security's hardsuit
+  description: A protective hardsuit worn by the security officers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTSecurity
+
+#ERT Janitor Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitERTLeaderBase
+  id: ClothingOuterHardsuitERTJanitorBase
+  name: ERT janitor's hardsuit
+  description: A protective hardsuit worn by the janitors of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
+
+#Everything Below this is GAMMA level hardsuits.
+
+#ERT Leader Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
+  id: ClothingOuterHardsuitERTLeaderElite
+  name: Elite ERT Leader Hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/ERTSuits/eliteertleader.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/ERTSuits/eliteertleader.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTLeaderElite
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: FireProtection
+    reduction: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.50
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.50
+        Heat: 0.6
+        Radiation: 0
+        Caustic: 0.35
+    staminaDamageCoefficient: 0.2
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+
+#ERT Chaplain Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitERTLeaderElite
+  id: ClothingOuterHardsuitERTChaplainElite
+  name: Elite ERT chaplain's hardsuit
+  description: A protective hardsuit worn by the chaplains of an Emergency Response Team.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/ERTSuits/eliteertchaplain.rsi #if you change this, please update the humanoid.yml with a better markers sprite.
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/ERTSuits/eliteertchaplain.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTChaplainElite
+
+#ERT Engineer Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitERTLeaderElite
+  id: ClothingOuterHardsuitERTEngineerElite
+  name: Elite ERT engineer's hardsuit
+  description: A protective hardsuit worn by the engineers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/ERTSuits/eliteertengineer.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/ERTSuits/eliteertengineer.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTEngineerElite
+
+
+#ERT Medic Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitERTLeaderElite
+  id: ClothingOuterHardsuitERTMedicalElite
+  name: Elite ERT medic's hardsuit
+  description: A protective hardsuit worn by the medics of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/ERTSuits/eliteertmedical.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/ERTSuits/eliteertmedical.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTMedicalElite
+
+#ERT Security Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitERTLeaderElite
+  id: ClothingOuterHardsuitERTSecurityElite
+  name: Elite ERT security's hardsuit
+  description: A protective hardsuit worn by the security officers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/ERTSuits/eliteertsecurity.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/ERTSuits/eliteertsecurity.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTSecurityElite
+
+#ERT Janitor Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitERTLeaderElite
+  id: ClothingOuterHardsuitERTJanitorElite
+  name: Elite ERT janitor's hardsuit
+  description: A protective hardsuit worn by the janitors of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/ERTSuits/eliteertjanitor.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/ERTSuits/eliteertjanitor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTJanitorElite

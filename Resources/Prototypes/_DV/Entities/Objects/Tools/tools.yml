@@ -1,0 +1,9 @@
+- type: entity
+  parent: [ RCD, BaseCentcommContraband ]
+  id: RCDCombat
+  name: Combat RCD # ERT
+  description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. This one seems to have a higher capacity.
+  components:
+  - type: LimitedCharges
+    maxCharges: 500
+    charges: 500

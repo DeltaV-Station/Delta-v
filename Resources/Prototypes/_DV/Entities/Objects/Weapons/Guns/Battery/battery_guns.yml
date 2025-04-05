@@ -17,6 +17,10 @@
       shader: unshaded
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Battery/energygun.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
   - type: Gun
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
@@ -195,8 +199,8 @@
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+    maxCharge: 900
+    startingCharge: 900
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
@@ -229,9 +233,9 @@
     price: 750
 
 - type: entity
-  name: IK-60 energy carbine
   parent: BaseWeaponBattery
   id: WeaponGunLaserCarbineAutomatic
+  name: IK-60 energy carbine
   description: "A 30 round hybrid-fire energy carbine."
   components:
   - type: Sprite
@@ -357,6 +361,104 @@
   - type: Tag
     tags:
     - PowerCage
+
+- type: entity
+  parent: BaseWeaponBattery
+  id: WeaponEnergyGunAdvanced
+  name: advanced energy gun
+  description: A self-recharging laser weapon powered by a miniaturized uranium reactor. The firing mode can be toggled between disable and lethal.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/energygunadvanced.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletEnergyGunLaser
+    fireCost: 100
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletEnergyGunLaser
+      fireCost: 100
+    - proto: BulletDisabler
+      fireCost: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 30
+
+- type: entity
+  parent: [ BaseWeaponBattery, BaseGunWieldable ]
+  id: WeaponImmolator
+  name: immolator cannon
+  description: A modified laser gun, shooting highly concetrated beams with higher intensity that ignites the target, for the cost of draining more power per shot
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/immolator.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Gun
+    fireRate: 1.5
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletEnergyGunMediumImmolator
+    fireCost: 100
+  - type: Battery
+    maxCharge: 800
+    startingCharge: 800
+  - type: GunRequiresWield
+
+- type: entity
+  parent: [ BaseWeaponBattery, BaseGunWieldable ]
+  id: WeaponImmolatorMulti
+  name: multi lens immolator cannon
+  description: A large laser cannon, similar to the Immolator Laser, with toggleable firemodes. It is frequently used by military-like forces through Nanotrasen.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/multi_lens_immolator.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletEnergyGunHeavyImmolator
+    fireCost: 100
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletEnergyGunHeavyImmolator
+      fireCost: 100
+    - proto: BulletEnergyGunLightImmolatorSpread
+      fireCost: 100
+  - type: Battery
+    maxCharge: 800
+    startingCharge: 800
+  - type: GunRequiresWield
 
 - type: entity
   parent: WeaponDisabler
