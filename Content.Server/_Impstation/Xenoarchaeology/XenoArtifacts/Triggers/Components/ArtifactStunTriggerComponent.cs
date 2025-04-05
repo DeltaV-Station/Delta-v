@@ -9,6 +9,6 @@ public sealed partial class ArtifactStunTriggerComponent : Component
     /// <summary>
     /// How close to the stun the artifact has to be for it to trigger.
     /// </summary>
-    [DataField("range")]
+    [DataField]
     public float Range = 6f;
 }

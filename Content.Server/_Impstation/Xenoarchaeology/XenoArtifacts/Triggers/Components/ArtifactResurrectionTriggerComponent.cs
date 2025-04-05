@@ -9,6 +9,6 @@ public sealed partial class ArtifactResurrectionTriggerComponent : Component
     /// <summary>
     /// How close to the resurrection the artifact has to be for it to trigger.
     /// </summary>
-    [DataField("range")]
+    [DataField]
     public float Range = 15f;
 }

@@ -9,6 +9,6 @@ public sealed partial class ArtifactExpressionTriggerComponent : Component
     /// <summary>
     /// How close to the emote event the artifact has to be for it to trigger.
     /// </summary>
-    [DataField("range")]
+    [DataField]
     public float Range = 2f;
 }

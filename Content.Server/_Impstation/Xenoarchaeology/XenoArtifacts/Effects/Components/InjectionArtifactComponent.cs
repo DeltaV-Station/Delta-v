@@ -14,42 +14,42 @@ public sealed partial class InjectionArtifactComponent : Component
     [DataDefinition]
     public sealed partial class ChemEntry
     {
-        [DataField("chemical"), ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public string Chemical = "Water";
 
-        [DataField("amount"), ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public float Amount = 1f;
     }
 
     /// <summary>
     /// Chemicals to inject
     /// </summary>
-    [DataField("entries"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public ChemEntry[] Entries { get; private set; } = Array.Empty<ChemEntry>();
 
     /// <summary>
     /// The solution where all the chemicals are stored
     /// </summary>
-    [DataField("chemicalSolution", required: true), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public Solution ChemicalSolution = default!;
 
 
     /// <summary>
     /// Distance from the artifact where things can be injected
     /// </summary>
-    [DataField("range"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public float Range = 5f;
 
 
     /// <summary>
     /// The name of the prototype of the special effect that appears above the entities into which the injection was carried out
     /// </summary>
-    [DataField("visualEffectPrototype"), ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
     public EntProtoId VisualEffectPrototype = "PuddleSparkle";
 
     /// <summary>
     /// Allow the special effect to appear
     /// </summary>
-    [DataField("showEffect"), ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
     public bool ShowEffect = true;
 }

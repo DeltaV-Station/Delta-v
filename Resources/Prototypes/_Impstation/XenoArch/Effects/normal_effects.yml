@@ -194,9 +194,10 @@
   id: EffectPresentSpawn
   targetDepth: 4
   effectHint: artifact-effect-hint-creation
+  effectProb: 0.5 # DeltaV
   components:
   - type: SpawnArtifact
-    maxSpawns: 7
+    maxSpawns: 5 # DeltaV - was 7
     spawns:
     - id: PresentRandom
       orGroup: present
@@ -239,16 +240,6 @@
       orGroup: book
       prob: 0.002 # ~1% chance of getting it with 5 spawns
 # end DeltaV changes
-
-- type: artifactEffect
-  id: EffectScrambleSingleRare
-  targetDepth: 4
-  effectHint: artifact-effect-hint-dna-scramble # DeltaV
-  effectProb: 0.2 # DeltaV - was 0.01, weakened but made more likely
-  components:
-  - type: ScrambleDNAArtifact
-    range: 1 # DeltaV - was 4
-    count: 1
 
 - type: artifactEffect
   id: EffectDirectInjectCryptobiolin
