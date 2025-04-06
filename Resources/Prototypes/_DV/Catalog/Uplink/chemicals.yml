@@ -39,9 +39,7 @@
   categories:
   - UplinkChemicals
   conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      components:
-      - SurplusBundle
-      tags:
-      - NukeOpsUplink 
+- !type:StoreWhitelistCondition
+  blacklist:
+    components:
+    - Pda
