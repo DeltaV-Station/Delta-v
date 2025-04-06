@@ -20,7 +20,7 @@ namespace Content.Server.Construction.Commands
         public string Description => "Puts a reinforced plating tile below every window on a grid.";
         public string Help => $"Usage: {Command} <gridId> | {Command}";
 
-        public static readonly ProtoId<TagPrototype> TilePrototypeId = "FloorReinforced";
+        public static readonly ProtoId<ContentTileDefinition> TilePrototypeId = "FloorReinforced";
         public static readonly ProtoId<TagPrototype> WindowTag = "Window";
         public static readonly ProtoId<TagPrototype> DirectionalTag = "Directional";
 

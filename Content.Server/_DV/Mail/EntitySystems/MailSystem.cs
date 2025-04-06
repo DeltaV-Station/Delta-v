@@ -79,7 +79,7 @@ namespace Content.Server._DV.Mail.EntitySystems
 
         private static readonly ProtoId<TagPrototype> MailTag = "Mail";
         private static readonly ProtoId<TagPrototype> RecyclableTag = "Recyclable";
-        private static readonly ProtoId<TagPrototype> TrashTag = "Tag";
+        private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
 
         public override void Initialize()
         {
