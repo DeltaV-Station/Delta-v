@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Yule&
-  changes:
-  - message: Pebble has been updated, and now includes a Station AI slot
-    type: Add
-  id: 726
-  time: '2024-12-01T08:09:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2293
 - author: deltanedas
   changes:
   - message: Enabled AI for all stations except Chibi!
@@ -3993,3 +3986,11 @@
   id: 1225
   time: '2025-04-05T14:47:59.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3373
+- author: deltanedas
+  changes:
+  - message: APCs now have wires, notably the AI access wire which can be snipped
+      to prevent the AI from toggling APCs.
+    type: Add
+  id: 1226
+  time: '2025-04-06T02:51:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3372
