@@ -34,7 +34,7 @@ public sealed class StandingStateSystem : EntitySystem
 
     private void OnMobTargetCollide(Entity<StandingStateComponent> ent, ref AttemptMobTargetCollideEvent args)
     {
-        if (!ent.Comp.Standing)
+        if (ent.Comp.CurrentState is StandingState.Lying) // DeltaV
         {
             args.Cancelled = true;
         }
@@ -42,7 +42,7 @@ public sealed class StandingStateSystem : EntitySystem
 
     private void OnMobCollide(Entity<StandingStateComponent> ent, ref AttemptMobCollideEvent args)
     {
-        if (!ent.Comp.Standing)
+        if (ent.Comp.CurrentState is StandingState.Lying) // DeltaV
         {
             args.Cancelled = true;
         }
