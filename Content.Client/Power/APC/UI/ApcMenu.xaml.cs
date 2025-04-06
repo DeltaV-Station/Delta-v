@@ -65,6 +65,13 @@ namespace Content.Client.Power.APC.UI
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
+                // Begin DeltaV Additions - set it to Disabled when power wire is snipped
+                if (!castState.PowerEnabled)
+                {
+                    ExternalPowerStateLabel.Text = Loc.GetString("apc-menu-power-state-disabled");
+                    ExternalPowerStateLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateNone);
+                }
+                // End DeltaV Additions
             }
 
             if (ChargeBar != null)
