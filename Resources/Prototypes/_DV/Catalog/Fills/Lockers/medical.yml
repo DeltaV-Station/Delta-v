@@ -120,3 +120,71 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: SurgeonLockerFill
+
+- type: entityTable
+  id: SurgeryCapsDeltaV
+  table: !type:GroupSelector
+    children:
+    - id: ClothingHeadHatSurgcapCyan
+      weight: 0.13
+    - id: ClothingHeadHatSurgcapBlack
+      weight: 0.15
+    - id: ClothingHeadHatSurgcapPink
+      weight: 0.16
+    - id: ClothingHeadHatSurgcapRainbow
+      weight: 0.18
+    - id: ClothingHeadHatSurgcapWhite
+      weight: 0.19
+    - id: ClothingHeadHatSurgcapCybersun
+      weight: 0.02
+
+- type: entityTable
+  id: ScrubsDeltaV
+  table: !type:GroupSelector
+    children:
+    - id: UniformScrubsColorCyan
+      weight: 0.13
+    - id: UniformScrubsColorBlack
+      weight: 0.15
+    - id: UniformScrubsColorPink
+      weight: 0.16
+    - id: UniformScrubsColorRainbow
+      weight: 0.18
+    - id: UniformScrubsColorWhite
+      weight: 0.19
+    - id: UniformScrubsColorCybersun
+      weight: 0.02
+
+- type: entityTable
+  id: LockerFillMedicalDoctorDeltaV
+  table: !type:AllSelector
+    children:
+    - id: NitrousOxideTankFilled
+      prob: 0.3
+    - id: LunchboxMedicalFilledRandom
+      prob: 0.3
+
+- type: entityTable
+  id: LockerFillParamedicDeltaV
+  table: !type:AllSelector
+    children:
+    - id: ClothingShoesBootsWinterParamedic
+    - id: BoxBodyBag
+    - id: EmergencyRollerBedSpawnFolded
+    - id: EmergencyJawsOfLife
+    - id: HandheldCrewMonitor
+    - id: LunchboxMedicalFilledRandom
+      prob: 0.3
+
+- type: entity
+  parent: LockerParamedic
+  id: LockerParamedicFilledHardsuit
+  suffix: Filled, Hardsuit
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: LockerFillParamedic
+        - id: ClothingOuterHardsuitVoidParamed
