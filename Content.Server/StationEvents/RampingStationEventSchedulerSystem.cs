@@ -112,7 +112,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
         component.TimeUntilNextEvent = _random.NextFloat(240f / mod, 720f / mod);
         */
 
-        // DeltaV code
+        // Begin DeltaV Additions
         var averageTimeUntilNextEvent = 0f;
         var timeUntilNextEventDeviation = _random.NextFloat(-1f, 1f) * component.TimeDeviation;
         var roundTime = (float)_gameTicker.RoundDuration().TotalMinutes;
@@ -124,6 +124,6 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
         }
 
         component.TimeUntilNextEvent = (averageTimeUntilNextEvent + timeUntilNextEventDeviation) * 60;
-        //DeltaV edit end
+        // End DeltaV Additions
     }
 }
