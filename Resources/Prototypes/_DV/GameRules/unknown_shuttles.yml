@@ -42,6 +42,7 @@
         nameSegments:
         - NamesFakeHumanFirst
         - NamesFakeHumanLast
+        nameFormat: name-format-standard
       - type: RandomHumanoidAppearance
         randomizeName: false
       - type: NpcFactionMember
@@ -85,6 +86,7 @@
         nameSegments:
         - NamesFakeHumanFirst
         - NamesFakeHumanLast
+        nameFormat: name-format-standard
       - type: RandomHumanoidAppearance
         randomizeName: false
       - type: NpcFactionMember
@@ -126,6 +128,7 @@
         nameSegments:
         - NamesHologram
         - NamesMilitaryLast
+        nameFormat: name-format-standard
       - type: EmitSoundOnSpawn # evil sound
         sound: /Audio/Ambience/Antag/emagged_borg.ogg
       - type: RandomHumanoidAppearance
