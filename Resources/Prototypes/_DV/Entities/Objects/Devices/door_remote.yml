@@ -30,3 +30,21 @@
     - type: Access
       groups:
       - FireFight
+
+- type: entity
+  parent: [DoorRemoteDefault, BaseCentcommContraband]
+  id: DoorRemoteOmni
+  name: omni door remote
+  components:
+  - type: Sprite
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#2eba22"
+    - state: door_remotescreencolour
+      color: "#22871a"
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand

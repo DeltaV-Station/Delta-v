@@ -34,6 +34,7 @@ public sealed partial class ChannelFilterPopup : Popup
     public ChannelFilterPopup()
     {
         RobustXamlLoader.Load(this);
+        InitializeChatHighlights(); // DeltaV - Message highlighting
     }
 
     public bool IsActive(ChatChannel channel)
