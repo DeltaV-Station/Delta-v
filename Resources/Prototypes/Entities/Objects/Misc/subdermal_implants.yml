@@ -123,7 +123,7 @@
       - 1,0,1,0
       - 1,2,1,2
       - 2,1,2,2
-      - -2,0,-1,2 # DeltaV - brings it back up to 9 total, even more cursed
+      - 0,4,2,4 # DeltaV - brings it back up to 9 total, even more cursed
       blacklist: # DeltaV
         components:
         - Storage
