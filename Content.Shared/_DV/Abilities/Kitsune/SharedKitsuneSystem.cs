@@ -18,7 +18,7 @@ public abstract class SharedKitsuneSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<KitsuneComponent, CreateFoxfireActionEvent>(OnCreateFoxfire);
-        SubscribeLocalEvent<FoxFireComponent, ComponentShutdown>(OnFoxFireShutdown);
+        SubscribeLocalEvent<FoxfireComponent, ComponentShutdown>(OnFoxFireShutdown);
         SubscribeLocalEvent<KitsuneComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<KitsuneComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished);
     }
@@ -57,7 +57,7 @@ public abstract class SharedKitsuneSystem : EntitySystem
         }
 
         var fireEnt = Spawn(ent.Comp.FoxfirePrototype, Transform(ent).Coordinates);
-        var fireComp = EnsureComp<FoxFireComponent>(fireEnt);
+        var fireComp = EnsureComp<FoxfireComponent>(fireEnt);
         fireComp.Kitsune = ent;
         ent.Comp.ActiveFoxFires.Add(fireEnt);
 
@@ -66,7 +66,7 @@ public abstract class SharedKitsuneSystem : EntitySystem
 
         args.Handled = true;
     }
-    private void OnFoxFireShutdown(Entity<FoxFireComponent> ent, ref ComponentShutdown args)
+    private void OnFoxFireShutdown(Entity<FoxfireComponent> ent, ref ComponentShutdown args)
     {
         if (ent.Comp.Kitsune is { } kitsune && TryComp<KitsuneComponent>(kitsune, out var kitsuneComp))
         {
