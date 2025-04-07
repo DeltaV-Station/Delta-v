@@ -1,20 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Added the Roboticist job for building and upgrading the station's silicons!
-    type: Add
-  id: 728
-  time: '2024-12-01T08:11:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2029
-- author: deltanedas
-  changes:
-  - message: Replaced traitors' antimov board in the uplink with an overlord board.
-    type: Tweak
-  id: 729
-  time: '2024-12-01T13:28:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2329
-- author: deltanedas
-  changes:
   - message: Fixed Robotics access not being listed in ID card consoles.
     type: Fix
   id: 730
@@ -3995,3 +3981,19 @@
   id: 1227
   time: '2025-04-06T14:06:37.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3386
+- author: Radezolid
+  changes:
+  - message: Fixed the immolator and multi-lens immolator not showing at your back.
+    type: Fix
+  - message: Fixed IK-60 and IK-30 weird magazine placement and color changing.
+    type: Fix
+  id: 1228
+  time: '2025-04-07T12:58:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3390
+- author: Zephyrpak
+  changes:
+  - message: Vulpkanin now have scars whitelisted to them.
+    type: Tweak
+  id: 1229
+  time: '2025-04-07T16:50:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3396
