@@ -18,7 +18,7 @@ public abstract class SharedKitsuneSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<KitsuneComponent, CreateFoxfireActionEvent>(OnCreateFoxfire);
-        SubscribeLocalEvent<FoxfireComponent, ComponentShutdown>(OnFoxFireShutdown);
+        SubscribeLocalEvent<FoxfireComponent, ComponentShutdown>(OnFoxfireShutdown);
         SubscribeLocalEvent<KitsuneComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<KitsuneComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished);
     }
