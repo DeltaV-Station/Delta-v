@@ -10,6 +10,7 @@
     tags:
     - Trash
     - CentrifugeCompatible
+    - Vial # Delta V - vial gaming in belts
   - type: PhysicalComposition
     materialComposition:
       Glass: 25
@@ -117,8 +118,8 @@
         reagents:
         - ReagentId: Vestine
           Quantity: 30
-  - type: Tag
-    tags: []
+  # - type: Tag # Delta V - removed empty tag array so it inherits tags from the parent
+  #   tags: [] # Delta V - removed empty tag array so it inherits tags from the parent
 
 - type: entity
   id: RadiumChemistryVial
@@ -149,7 +150,7 @@
         reagents:
           - ReagentId: Chlorine
             Quantity: 5
-            
+
 - type: entity
   id: PlasmaChemistryVial
   parent: BaseChemistryEmptyVial
