@@ -30,6 +30,16 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/atmos_casual.rsi
 
+- type: entity
+  parent: ClothingUniformOveralls
+  id: ClothingUniformJumpskirtOveralls
+  name: overalls jumpskirt
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/overalls.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/overalls.rsi
+
 # Formal uniforms
 
 - type: entity
