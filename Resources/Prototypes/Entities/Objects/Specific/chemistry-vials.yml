@@ -119,7 +119,7 @@
         - ReagentId: Vestine
           Quantity: 30
   # - type: Tag # Delta V - removed empty tag array so it inherits tags from the parent
-  #   tags: [] # Delta V - removed empty tag array so it inherits tags from the parent
+  #   tags: []
 
 - type: entity
   id: RadiumChemistryVial
@@ -150,7 +150,7 @@
         reagents:
           - ReagentId: Chlorine
             Quantity: 5
-
+            
 - type: entity
   id: PlasmaChemistryVial
   parent: BaseChemistryEmptyVial
