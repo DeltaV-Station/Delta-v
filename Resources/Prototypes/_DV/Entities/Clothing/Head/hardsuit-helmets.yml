@@ -168,3 +168,118 @@
   - type: GuideHelp
     guides:
     - Psionics
+
+#Elite ERT Hardsuit Helmets
+#ERT Leader Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndieElite ]
+  id: ClothingHeadHelmetHardsuitERTLeaderElite
+  name: Elite ERT leader hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertleader.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertleader.rsi
+  - type: PointLight
+    color: "#addbff"
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+#ERT Chaplain Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitERTLeaderElite ]
+  id: ClothingHeadHelmetHardsuitERTChaplainElite
+  name: Elite ERT chaplain hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertchaplain.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertchaplain.rsi
+  - type: PointLight
+    color: "#ffffff"
+  - type: Psionic
+  - type: TinfoilHat
+    passthrough: true
+    destroyOnFry: false
+  - type: ClothingGrantPsionicPower
+    power: DispelPower
+  - type: GuideHelp
+    guides:
+    - Psionics
+
+#ERT Engineer Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitERTLeaderElite ]
+  id: ClothingHeadHelmetHardsuitERTEngineerElite
+  name: Elite ERT engineer hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertengineer.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertengineer.rsi
+  - type: PointLight
+    color: "#f4ffad"
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+#ERT Medical Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitERTLeaderElite ]
+  id: ClothingHeadHelmetHardsuitERTMedicalElite
+  name: Elite ERT medic hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertmedical.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertmedical.rsi
+  - type: PointLight
+    color: "#adffec"
+
+#ERT Security Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitERTLeaderElite ]
+  id: ClothingHeadHelmetHardsuitERTSecurityElite
+  name: Elite ERT security hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertsecurity.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertsecurity.rsi
+  - type: PointLight
+    color: "#ffadc6"
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+#ERT Janitor Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitERTLeaderElite ]
+  id: ClothingHeadHelmetHardsuitERTJanitorElite
+  name: Elite ERT janitor hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertjanitor.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertjanitor.rsi
+  - type: PointLight
+    color: "#cbadff"

@@ -18,9 +18,25 @@
   id: RandomSuperweaponTable
   table: !type:GroupSelector
     children:
-    - !type:AllSelector
-      children:
-      - id: WeaponLauncherRocket
-      - id: CartridgeRocket
-        prob: 0.2
+    - !type:NestedSelector
+      tableId: RPGTable
+    - !type:NestedSelector
+      tableId: GamblagatorTable
     - id: WeaponBeamDevastator
+
+- type: entityTable
+  id: RPGTable
+  table: !type:AllSelector
+    children:
+    - id: WeaponLauncherRocket
+    - id: CartridgeRocket
+      prob: 0.2
+       
+- type: entityTable
+  id: GamblagatorTable
+  table: !type:AllSelector
+    children:
+    - id: WeaponSniperGamblagator
+    - id: GamblagatorCapacitor
+      amount: !type:ConstantNumberSelector
+        value: 4
