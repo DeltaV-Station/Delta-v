@@ -37,6 +37,7 @@ namespace Content.Shared.Chat
         public Color? MessageColorOverride;
         public string? AudioPath;
         public float AudioVolume;
+
         [NonSerialized]
         public bool Read;
 

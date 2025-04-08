@@ -176,8 +176,8 @@ public partial class ChatBox : UIWidget
         // EE - Chat stacking
         if (repeat != 0)
         {
-            int displayRepeat = repeat + 1;
-            int sizeIncrease = Math.Min(displayRepeat / 6, 5);
+            var displayRepeat = repeat + 1;
+            var sizeIncrease = Math.Min(displayRepeat / 6, 5);
             formatted.AddMarkupOrThrow(_loc.GetString("chat-system-repeated-message-counter",
                                 ("count", displayRepeat),
                                 ("size", 8 + sizeIncrease)
@@ -277,12 +277,10 @@ public partial class ChatBox : UIWidget
         public string WrappedMessage;
         public Color ColorOverride;
         public int RepeatCount = 0;
-        public bool IgnoresChatstack;
-        public ChatStackData(string wrappedMessage, Color colorOverride, bool ignoresChatstack = false)
+        public ChatStackData(string wrappedMessage, Color colorOverride)
         {
             WrappedMessage = wrappedMessage;
             ColorOverride = colorOverride;
-            IgnoresChatstack = ignoresChatstack;
         }
     }
     // End EE - Chat stacking
