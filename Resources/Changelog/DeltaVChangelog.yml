@@ -1,46 +1,4 @@
 ﻿Entries:
-- author: Yule&
-  changes:
-  - message: Pebble has been updated, and now includes a Station AI slot
-    type: Add
-  id: 726
-  time: '2024-12-01T08:09:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2293
-- author: deltanedas
-  changes:
-  - message: Enabled AI for all stations except Chibi!
-    type: Add
-  id: 727
-  time: '2024-12-01T08:10:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2018
-- author: deltanedas
-  changes:
-  - message: Added the Roboticist job for building and upgrading the station's silicons!
-    type: Add
-  id: 728
-  time: '2024-12-01T08:11:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2029
-- author: deltanedas
-  changes:
-  - message: Replaced traitors' antimov board in the uplink with an overlord board.
-    type: Tweak
-  id: 729
-  time: '2024-12-01T13:28:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2329
-- author: deltanedas
-  changes:
-  - message: Fixed Robotics access not being listed in ID card consoles.
-    type: Fix
-  id: 730
-  time: '2024-12-01T22:04:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2335
-- author: deltanedas, Ilya246
-  changes:
-  - message: Borgs have a new law that makes them obey the AI.
-    type: Add
-  id: 731
-  time: '2024-12-01T22:48:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2337
 - author: Ilya246
   changes:
   - message: AI's default lawset is now NTDefault. This should make it more station-oriented.
@@ -3993,3 +3951,49 @@
   id: 1225
   time: '2025-04-05T14:47:59.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3373
+- author: deltanedas
+  changes:
+  - message: APCs now have wires, notably the AI access wire which can be snipped
+      to prevent the AI from toggling APCs.
+    type: Add
+  id: 1226
+  time: '2025-04-06T02:51:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3372
+- author: IAmNotGray
+  changes:
+  - message: Lady Elegance's station beacons have finally been fixed. A few rooms
+      will be without beacons for the time being.
+    type: Fix
+  id: 1227
+  time: '2025-04-06T14:06:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3386
+- author: Radezolid
+  changes:
+  - message: Fixed the immolator and multi-lens immolator not showing at your back.
+    type: Fix
+  - message: Fixed IK-60 and IK-30 weird magazine placement and color changing.
+    type: Fix
+  id: 1228
+  time: '2025-04-07T12:58:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3390
+- author: Zephyrpak
+  changes:
+  - message: Vulpkanin now have scars whitelisted to them.
+    type: Tweak
+  id: 1229
+  time: '2025-04-07T16:50:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3396
+- author: Toby222
+  changes:
+  - message: Envelopes go in mail bags
+    type: Add
+  id: 1230
+  time: '2025-04-08T10:12:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3012
+- author: ShepardToTheStars
+  changes:
+  - message: Felinids no longer have human limbs! They are distinctly felinid now!
+    type: Fix
+  id: 1231
+  time: '2025-04-08T13:30:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3404

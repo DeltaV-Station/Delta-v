@@ -107,10 +107,23 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
             : highlights.Split("\n");
 
         _highlights.Clear();
-        // Use `"` as layman symbol for Regex `\b`, ignore all other special sequences
-        // (Without that escape, a name like `Robert'); DROP TABLE users; --` breaks all messsages)
-        // Turn `\` into `\\` or else it'll escape the tags inside the actual chat message for reasons I can barely intuit but not explain.
-        _highlights.AddRange(allHighlights.Select(highlight => Regex.Escape(highlight.Replace(@"\", @"\\")).Replace("\"", "\\b")).Where(highlight => !string.IsNullOrEmpty(highlight)));
+
+        void AddHighlights(IEnumerable<string> highlights)
+        {
+            foreach (var highlight in highlights)
+            {
+                if (string.IsNullOrWhiteSpace(highlight))
+                    continue;
+                // Use `"` as layman symbol for Regex `\b`, ignore all other special sequences
+                // (Without that escape, a name like `Robert'); DROP TABLE users; --` breaks all messsages)
+                // Turn `\` into `\\` or else it'll escape the tags inside the actual chat message for reasons I can barely intuit but not explain.
+                _highlights.Add(Regex.Escape(highlight.Replace(@"\", @"\\")).Replace("\"", "\\b"));
+            }
+        }
+
+        AddHighlights(highlights.Split("\n"));
+        if (_autoFillHighlightsEnabled)
+            AddHighlights(_autoHighlights);
 
         // Arrange the list in descending order so that when highlighting,
         // the full word (eg. "Security") appears before the abbreviation (eg. "Sec").
