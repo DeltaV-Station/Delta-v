@@ -4,14 +4,14 @@
   root: torso
   slots:
     head:
-      part: HeadFelinid # Delta V - Make Felinids actually Felinids
+      part: HeadFelinid
       connections:
       - torso
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
     torso:
-      part: TorsoFelinid # Delta V
+      part: TorsoFelinid
       connections:
       - right arm
       - left arm
@@ -25,26 +25,26 @@
         liver:  OrganAnimalLiver
         kidneys: OrganHumanKidneys
     right arm:
-      part: RightArmFelinid # Delta V
+      part: RightArmFelinid
       connections:
       - right hand
     left arm:
-      part: LeftArmFelinid # Delta V
+      part: LeftArmFelinid
       connections:
       - left hand
     right hand:
-      part: RightHandFelinid # Delta V
+      part: RightHandFelinid
     left hand:
-      part: LeftHandFelinid # Delta V
+      part: LeftHandFelinid
     right leg:
-      part: RightLegFelinid # Delta V
+      part: RightLegFelinid
       connections:
       - right foot
     left leg:
-      part: LeftLegFelinid # Delta V
+      part: LeftLegFelinid
       connections:
       - left foot
     right foot:
-      part: RightFootFelinid # Delta V
+      part: RightFootFelinid
     left foot:
-      part: LeftFootFelinid # Delta V
+      part: LeftFootFelinid
