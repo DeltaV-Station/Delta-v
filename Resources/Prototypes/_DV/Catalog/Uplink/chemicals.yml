@@ -40,6 +40,6 @@
   - UplinkChemicals
   conditions:
   - !type:StoreWhitelistCondition
-  blacklist:
-    components:
-    - Pda
+    blacklist:
+      components:
+      - Pda
