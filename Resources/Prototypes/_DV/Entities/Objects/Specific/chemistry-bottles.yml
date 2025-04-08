@@ -132,3 +132,20 @@
         reagents:
         - ReagentId: Diphenhydramine
           Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleFirebugsFriend
+  suffix: firebug's friend
+  components:
+  - type: Label
+    currentLabel: Firebug's Friend
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Tritium
+          Quantity: 28
+        - ReagentId: Phlogiston
+          Quantity: 2
