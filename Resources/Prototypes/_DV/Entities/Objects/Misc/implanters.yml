@@ -41,6 +41,7 @@
 - type: entity
   parent: BaseImplantOnlyImplanter
   id: WatchdogImplanter
+  name: watchdog implanter # Needs the name for clarity on the techfab
   suffix: watchdog
   components:
   - type: Implanter
