@@ -10,6 +10,7 @@
     - Honk
     - BuzzochloricBees
     - Stimulants
+    - ExoticReagent # Funkychem
   - quantity: 5
     weight: 1
     reagents:
@@ -31,6 +32,8 @@
     - ChangelingSting
     - CogChamp
     - JuiceThatMakesYouWeh
+    - Convermol # Funkychem - decent medicine
+    - Pestiline # Funkychem - decent toxin
   - quantity: 5
     weight: 2
     reagents:
@@ -41,14 +44,14 @@
     - Pax
     - Cryoxadone
     - Ethylredoxrazine
-    - Dylovene
+    - Multiver # Funkychem - dylovene -> multiver
     - Histamine
     - Blood
     - WeldingFuel
     - Mercury
     - Silver
     - Phenol
-    - Ultravasculine
+    - PenteticAcid # Funkychem - ultravasculine -> pentetic acid
     - Carbon
     - THC
     - Nicotine
@@ -60,8 +63,14 @@
   - quantity: 10
     weight: 3
     reagents:
-    - Bicaridine
-    - Dermaline
+    # Begin Funkychem - replacements of the basics
+    - Libital
+    - Probital
+    - SalicylicAcid
+    - Aiuri
+    - Lenturi
+    - Oxandrolone
+    # End Funkychem - replacements of the basics
     - Ephedrine
     - NorepinephricAcid
     - Tricordrazine
@@ -95,7 +104,7 @@
     weight: 3.5
     reagents:
     - Vitamin
-    - Kelotane
+    - Dexalin # Funkychem - replace kelotane with dexalin, we already have burns elsewhere
     - Inaprovaline
     - Oil
     - Slime

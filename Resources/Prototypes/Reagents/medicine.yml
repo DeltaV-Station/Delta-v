@@ -28,6 +28,7 @@
 - type: reagent
   id: Dylovene
   name: reagent-name-dylovene
+  abstract: true # Funkychem - no more dylovene
   group: Medicine
   desc: reagent-desc-dylovene
   physicalDesc: reagent-physical-desc-translucent
@@ -133,17 +134,19 @@
   color: "#bd5902"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem - rebalance existing chems
       effects:
       - !type:HealthChange
         damage:
           types:
-            Radiation: -3
+            Radiation: -2 # Funkychem - rebalance existing chems
           groups:
-            Brute: 0.5 # DeltaV - was 1.5, implant removal damage is disabled which is why upstream bumped it
+            Brute: 0.2 # Funkychem - rebalance existing chems
 
 - type: reagent
   id: Bicaridine
   name: reagent-name-bicaridine
+  abstract: true # Funkychem - no more bicaridine
   group: Medicine
   desc: reagent-desc-bicaridine
   physicalDesc: reagent-physical-desc-opaque
@@ -228,6 +231,7 @@
 - type: reagent
   id: Dermaline
   name: reagent-name-dermaline
+  abstract: true # Funkychem - no more dermaline
   group: Medicine
   desc: reagent-desc-dermaline
   physicalDesc: reagent-physical-desc-translucent
@@ -267,12 +271,16 @@
   color: "#0041a8"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem - rebalance existing chems
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Asphyxiation: -1
-            Bloodloss: -0.5
+          # Funkychem - dexalin treats airloss as a whole
+          groups:
+            Airloss: -2
+          # types:
+          #   Asphyxiation: -1
+          #   Bloodloss: -0.5
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
@@ -285,6 +293,7 @@
 - type: reagent
   id: DexalinPlus
   name: reagent-name-dexalin-plus
+  abstract: true # Funkychem - no more dex+
   group: Medicine
   desc: reagent-desc-dexalin-plus
   physicalDesc: reagent-physical-desc-cloudy
@@ -325,6 +334,7 @@
   color: "#d2fffa"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem - rebalance existing chems
       effects:
       - !type:HealthChange
         conditions:
@@ -336,11 +346,11 @@
           max: 20
         damage:
           types:
-            Asphyxiation: -3
+            Asphyxiation: -2 # Funkychem - rebalance existing chems
             Poison: -0.5
           groups:
-            Brute: -0.5
-            Burn: -0.5
+            Brute: -0.3 # Funkychem - rebalance existing chems
+            Burn: -0.4 # Funkychem - rebalance existing chems
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -390,20 +400,21 @@
   color: "#4cb580"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem - rebalance existing chems
       effects:
       - !type:HealthChange
         damage:
           types:
-            Radiation: -1
+            Radiation: -0.5 # Funkychem - rebalance existing chems
       - !type:ChemVomit
         probability: 0.02
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 30
+          min: 20 # Funkychem - rebalance existing chems
         damage:
           types:
-           Heat: 2
+           Heat: 1.5 # Funkychem - rebalance existing chems
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
@@ -452,6 +463,7 @@
 - type: reagent
   id: Kelotane
   name: reagent-name-kelotane
+  abstract: true # Funkychem - no more kelotane
   group: Medicine
   desc: reagent-desc-kelotane
   physicalDesc: reagent-physical-desc-strong-smelling
@@ -492,11 +504,12 @@
   color: "#ff7db5"
   metabolisms:
     Medicine:
+      metabolismRate: 0.4 # Funkychem - rebalance existing chems
       effects:
       - !type:HealthChange
         damage:
           types:
-            Cold: -4
+            Cold: -2 # Funkychem - rebalance existing chems
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
@@ -611,13 +624,14 @@
   color: "#9423FF"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem - rebalance existing chems
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Brute: -3.5
+            Brute: -4 # Funkychem - rebalance existing chems
           types:
-            Asphyxiation: -2.5
+            Asphyxiation: -3 # Funkychem - rebalance existing chems
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -710,11 +724,12 @@
   color: "#f4dab8"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem - rebalance existing chems
       effects:
       - !type:HealthChange
         damage:
           types:
-            Caustic: -5
+            Caustic: -2 # Funkychem - rebalance existing chems
 
 - type: reagent
   id: Stellibinin
@@ -726,11 +741,12 @@
   color: "#2b2f77"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem - rebalance existing chems
       effects:
       - !type:HealthChange
         damage:
           types:
-            Poison: -4
+            Poison: -3 # Funkychem - rebalance existing chems
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -800,19 +816,21 @@
   color: "#00e5ff"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem - rebalance existing chems
       effects:
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
-          max: 50
+          max: 40 # Funkychem - rebalance existing chems
         damage:
           groups:
-            Brute: -1
+            Brute: -0.9 # Funkychem - rebalance existing chems
           types:
-            Poison: -0.5 ##Should be about what it was when it healed the toxin group
-            Heat: -0.33
-            Shock: -0.33
-            Cold: -0.33
+            # Funkychem - rebalance existing chems
+            Poison: -0.3 ##Should be about what it was when it healed the toxin group
+            Heat: -0.3
+            Shock: -0.3
+            Cold: -0.3
 
 - type: reagent
   id: Lipozine
@@ -844,10 +862,10 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -2
-            Toxin: -2
-            Airloss: -2
-            Brute: -2
+            Burn: -3.2 # Funkychem - rebalance existing chems
+            Toxin: -1.6 # Funkychem - rebalance existing chems
+            Airloss: -1.6 # Funkychem - rebalance existing chems
+            Brute: -2.4 # Funkychem - rebalance existing chems
 
 - type: reagent
   id: Ultravasculine
@@ -859,6 +877,7 @@
   color: "#520e30"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem - rebalance existing chems
       effects:
       - !type:HealthChange
         conditions:
@@ -1040,11 +1059,12 @@
   color: "#283332"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem - rebalance existing chems
       effects:
       - !type:HealthChange
         damage:
           types:
-            Slash: -3
+            Slash: -1 # Funkychem - rebalance existing chems
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -1063,11 +1083,12 @@
   color: "#b9bf93"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem - rebalance existing chems
       effects:
       - !type:HealthChange
         damage:
           types:
-            Piercing: -4
+            Piercing: -1 # Funkychem - rebalance existing chems
             Blunt: 0.1
       - !type:HealthChange
         conditions:
@@ -1075,7 +1096,7 @@
           min: 11
         damage:
           types:
-            Blunt: 5
+            Blunt: 3 # Funkychem - rebalance existing chems
 
 - type: reagent
   id: Bruizine
@@ -1087,11 +1108,12 @@
   color: "#ff3636"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem - rebalance existing chems
       effects:
       - !type:HealthChange
         damage:
           types:
-            Blunt: -3.5
+            Blunt: -1 # Funkychem - rebalance existing chems
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -1156,7 +1178,7 @@
   color: "#aa4308"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1 # slow metabolism to not be a godly combat med, its for treating burn victims efficiently
+      metabolismRate: 0.2 # Funkychem - rebalance existing chems
       effects:
       - !type:HealthChange
         damage:
@@ -1193,12 +1215,13 @@
   color: "#8147ff"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem - rebalance existing chems
       effects:
       # heals shocks and removes shock chems
       - !type:HealthChange
         damage:
           types:
-            Shock: -4
+            Shock: -2 # Funkychem - rebalance existing chems
       - !type:AdjustReagent
         reagent: Licoxide
         amount: -4
@@ -1207,7 +1230,7 @@
         amount: -4
       # makes you a little chilly when not oding
       - !type:AdjustTemperature
-        amount: -5000
+        amount: -2400 # Funkychem - rebalance existing chems
       # od makes you freeze to death
       - !type:HealthChange
         conditions:

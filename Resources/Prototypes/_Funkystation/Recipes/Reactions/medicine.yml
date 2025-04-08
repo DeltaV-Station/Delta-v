@@ -1,0 +1,205 @@
+# burn
+- type: reaction
+  id: Aiuri
+  reactants:
+    WeldingFuel:
+      amount: 1
+    Ammonia:
+      amount: 1
+    Hydrogen:
+      amount: 1
+  products:
+    Aiuri: 3
+
+- type: reaction
+  id: Lenturi
+  reactants:
+    SulfuricAcid:
+      amount: 1
+    Chlorine:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    Lenturi: 3
+
+- type: reaction
+  id: Oxandrolone
+  reactants:
+    Phenol:
+      amount: 1
+    Carbon:
+      amount: 2
+    Lenturi:
+      amount: 1
+  products:
+    Oxandrolone: 4
+
+# poison
+- type: reaction
+  id: Multiver
+  reactants:
+    TableSalt:
+      amount: 1
+    Oil:
+      amount: 1
+    Silicon:
+      amount: 1
+  products:
+    Multiver: 3
+
+- type: reaction
+  id: PenteticAcid
+  reactants:
+    Multiver:
+      amount: 1
+    Silicon:
+      amount: 1
+    Oil:
+      amount: 1
+    Plasma:
+      amount: 1
+    Ethanol:
+      amount: 1
+  products:
+    PenteticAcid: 5
+
+# brute
+- type: reaction
+  id: Libital
+  reactants:
+    Nitrogen:
+      amount: 1
+    Oil:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    Libital: 3
+
+- type: reaction
+  id: Probital
+  reactants:
+    Acetone:
+      amount: 1
+    Copper:
+      amount: 1
+    Phosphorus:
+      amount: 1
+  products:
+    Probital: 3
+
+- type: reaction
+  id: SalicylicAcid
+  reactants:
+    Phenol:
+      amount: 1
+    Probital:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+    Carbon:
+      amount: 1
+  products:
+    SalicylicAcid: 4
+
+# airloss
+- type: reaction
+  id: Granibitulari
+  reactants:
+    TableSalt:
+      amount: 1
+    Carbon:
+      amount: 1
+    Potassium:
+      amount: 1
+  products:
+    Granibitulari: 3
+
+- type: reaction
+  id: Salbutamol
+  reactants:
+    Dexalin:
+      amount: 1
+    Inaprovaline:
+      amount: 1
+    Phenol:
+      amount: 1
+    Lithium:
+      amount: 1
+  products:
+    Salbutamol: 4
+
+- type: reaction
+  id: Convermol
+  reactants:
+    Dexalin:
+      amount: 1
+    Aluminium:
+      amount: 1
+    Fluorine:
+      amount: 1
+  products:
+    Convermol: 3
+
+# misc
+- type: reaction
+  id: Pielovene
+  reactants:
+    Silicon:
+      amount: 1
+    Nitrogen:
+      amount: 1
+    LiquidPie:
+      amount: 1
+  products:
+    Pielovene: 3
+
+- type: reaction
+  id: Hypothium
+  reactants:
+    Nitrogen: # TODO: Switch to Healium
+      amount: 1
+    Omnizine:
+      amount: 1
+    Ethyloxyephedrine:
+      amount: 1
+  products:
+    Hypothium: 3
+
+# pyro
+- type: reaction
+  id: Pyroxadone
+  minTemp: 433
+  reactants:
+    Dexalin:
+      amount: 1
+    Thermite:
+      amount: 1
+    WeldingFuel:
+      amount: 1
+  products:
+    Pyroxadone: 3
+
+- type: reaction
+  id: Ardthyrnkole
+  reactants:
+    Pyroxadone:
+      amount: 1
+    Plasma:
+      amount: 1
+      catalyst: true
+    Siderlac:
+      amount: 1
+  products:
+    Ardthyrnkole: 2
+
+- type: reaction
+  id: Natusixadone
+  reactants:
+    Pyroxadone:
+      amount: 1
+    UnstableMutagen:
+      amount: 1
+  products:
+    Natusixadone: 2

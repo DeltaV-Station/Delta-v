@@ -1504,7 +1504,7 @@
         reagents:
         - ReagentId: Aloe
           Quantity: 10
-        - ReagentId: Dermaline
+        - ReagentId: Aiuri # Funkychem - we don't have dermaline anymore
           Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/aloe.rsi
@@ -1542,7 +1542,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
-        - ReagentId: Bicaridine
+        - ReagentId: SalicylicAcid # Funkychem - we don't have bicaridine anymore
           Quantity: 20
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/poppy.rsi
@@ -1574,7 +1574,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
-        - ReagentId: Bicaridine
+        - ReagentId: SalicylicAcid # Funkychem - we don't have bicaridine anymore
           Quantity: 20
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/lily.rsi
@@ -1605,7 +1605,7 @@
       food:
         maxVol: 40
         reagents:
-        - ReagentId: Ultravasculine
+        - ReagentId: PenteticAcid # Funkychem - lingzhi has pentetic acid now
           Quantity: 20
         - ReagentId: Epinephrine
           Quantity: 20
@@ -1637,9 +1637,9 @@
       food:
         maxVol: 24
         reagents:
-        - ReagentId: Bicaridine
+        - ReagentId: Probital # Funkychem - we don't have bicaridine anymore
           Quantity: 5
-        - ReagentId: Kelotane
+        - ReagentId: Lenturi # Funkychem - we don't have dermaline anymore
           Quantity: 5
         - ReagentId: Nutriment
           Quantity: 2

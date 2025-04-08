@@ -1,0 +1,68 @@
+- type: reagent
+  id: Heparin
+  name: reagent-name-heparin
+  group: Toxins
+  desc: reagent-desc-heparin
+  physicalDesc: reagent-physical-desc-shiny
+  flavor: sharp
+  color: "#f9cab3"
+  reactiveEffects:
+  metabolisms:
+    Poison:
+      metabolismRate: 2.0
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+             Bloodloss: 4
+      - !type:ModifyBleedAmount
+        amount: 6
+
+- type: reagent
+  id: Rhigoxane # Reference to the old name for Hercuri on SS13, but directly a toxin.
+  name: reagent-name-rhigoxane
+  group: Toxins
+  desc: reagent-desc-rhigoxane
+  physicalDesc: reagent-physical-desc-refreshing
+  flavor: antifreeze # warm
+  color: "#34b3c9"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cold: 1 # Chip Damage really, the chem already deals heavy damage from the cold effect
+      - !type:AdjustTemperature
+        amount: -25000 # About? a temp level down every 2 seconds pretty sure
+
+- type: reagent
+  id: Spewium # ipecac+
+  name: reagent-name-spewium
+  group: Toxins
+  desc: reagent-desc-spewium
+  physicalDesc: reagent-physical-desc-overpowering
+  flavor: horrible
+  color: "#2e4404"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:ChemVomit
+        probability: 0.5
+
+- type: reagent
+  id: Pestiline # Horseman of the Apocalypse >:3
+  name: reagent-name-pestiline
+  group: Toxins
+  desc: reagent-desc-pestiline
+  flavor: punishment
+  color: "#cf3600"
+  physicalDesc: reagent-physical-desc-sickly
+  metabolisms:
+    Poison:
+      metabolismRate: 0.02 # 20 damage after 50 seconds
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 0.4

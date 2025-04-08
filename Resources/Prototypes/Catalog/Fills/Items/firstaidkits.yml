@@ -10,6 +10,7 @@
       - id: Ointment
       - id: Gauze
       - id: PillCanisterTricordrazine
+      - id: PillCanisterGranibitulari # Funkychem - tricordrazine variant
       # see https://github.com/tgstation/blob/master/code/game/objects/items/storage/firstaid.dm for example contents
 
 - type: entity
@@ -21,8 +22,8 @@
     contents:
       - id: Ointment
         amount: 2
-      - id: PillCanisterKelotane
-      - id: PillCanisterDermaline
+      - id: PillCanisterAiuri # Funkychem - keloderm is aiuri/lenturi now
+      - id: PillCanisterLenturi # Funkychem - keloderm is aiuri/lenturi now
 
 - type: entity
   id: MedkitBruteFilled
@@ -35,7 +36,8 @@
       - id: Gauze
       - id: PillCanisterIron
       - id: PillCanisterCopper
-      - id: PillCanisterBicaridine # DeltaV
+      - id: PillCanisterLibital # Funkychem - bicaridine is libital/probital now
+      - id: PillCanisterProbital # Funkychem - bicaridine is libital/probital now
 
 - type: entity
   id: MedkitToxinFilled
@@ -47,7 +49,8 @@
       - id: SyringeIpecac
       - id: SyringeEthylredoxrazine
       - id: AntiPoisonMedipen
-      - id: PillCanisterDylovene
+        amount: 2 # Funkychem
+      - id: PillCanisterMultiver
       - id: PillCanisterCharcoal
 
 - type: entity
@@ -60,7 +63,11 @@
       - id: ClothingMaskBreathMedical
       - id: EmergencyOxygenTankFilled
       - id: EmergencyMedipen
-      - id: SyringeInaprovaline
+        amount: 2 # Funkychem - more medipens in O2 kits
+        # Funkychem - convermol for O2 kits instead of inaprovaline
+      # - id: SyringeInaprovaline
+      - id: SyringeConvermol # Funkychem - only kit to have 1 pill type, generally makes sense to have 2.
+        amount: 2
       - id: PillCanisterDexalin
 
 - type: entity
@@ -85,6 +92,8 @@
       - id: MedicatedSuture
       - id: RegenerativeMesh
       - id: Bloodpack
+        amount: 1
+      - id: SyringeSaline # Funky
         amount: 2
 
 - type: entity
@@ -96,7 +105,7 @@
     contents:
       - id: MedicatedSuture
       - id: RegenerativeMesh
-      - id: SyringeEphedrine
+      - id: SyringeRevivopine # Funkychem - revivopine is the dedicated combat chemical now
       - id: SyringeSaline
       - id: BruteAutoInjector
       - id: BurnAutoInjector

@@ -1,0 +1,136 @@
+- type: reaction
+  id: ExoticReagent
+  reactants:
+    Razorium:
+      amount: 1
+    Licoxide:
+      amount: 1
+    Pestiline:
+      amount: 1
+    UnstableMutagen:
+      amount: 1
+  products:
+    ExoticReagent: 1
+
+- type: reaction
+  id: Stasicillin
+  reactants:
+    ExoticReagent:
+      amount: 1
+    ChloralHydrate:
+      amount: 1
+    Cryoxadone:
+      amount: 1
+    Saline:
+      amount: 1
+  products:
+    Stasicillin: 1
+
+- type: reaction
+  id: Negacordrazine
+  reactants:
+    ExoticReagent:
+      amount: 1
+    Tricordrazine:
+      amount: 1
+    Granibitulari:
+      amount: 1
+  products:
+    Negacordrazine: 1
+
+- type: reaction
+  id: StabilisedStimulants
+  reactants:
+    ExoticReagent:
+      amount: 1
+    Desoxyephedrine:
+      amount: 1
+    Nicotine:
+      amount: 1
+    Coffee:
+      amount: 1
+  products:
+    StabilisedStimulants: 1
+
+- type: reaction
+  id: Revivopine
+  reactants:
+    ExoticReagent:
+      amount: 1
+    Salbutamol:
+      amount: 1
+    Convermol:
+      amount: 1
+    Epinephrine:
+      amount: 1
+  products:
+    Revivopine: 1
+
+- type: reaction
+  id: ExoticBarozine
+  reactants:
+    ExoticReagent:
+      amount: 1
+    Revivopine:
+      amount: 1
+    Leporazine:
+      amount: 1
+    SalicylicAcid:
+      amount: 1
+  products:
+    Barozine: 1
+
+- type: reaction
+  id: VestineOmnizine
+  reactants:
+    Negacordrazine:
+       amount: 1
+    Vestine:
+       amount: 1
+  products:
+    Omnizine: 1
+    
+- type: reaction
+  id: Ichor # Hardest chem Funkychem has, even surpassing that one REALLY dumb narcolepsy chem as it's 8 steps away from base elements compared to 7, and requires THREE departments
+  reactants:
+    ExoticReagent:
+      amount: 1
+    Omnizine:
+      amount: 1
+    StabilisedStimulants:
+      amount: 1
+    Stasicillin:
+      amount: 1
+    Cognizine:
+     amount: 1
+  products:
+    Ichor: 1
+
+- type: reaction
+  id: Corgium
+  reactants:
+    ExoticReagent:
+      amount: 1
+    Oxygen:
+      amount: 1
+    Carbon:
+      amount: 1
+    Blood:
+      amount: 1
+  products:
+    Corgium: 1
+
+- type: reaction
+  id: CreateCorgiPuppy
+  impact: Low
+  quantized: true
+  reactants:
+    Corgium:
+      amount: 25
+    Water:
+      amount: 5
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: MobCorgiPuppy
+
+# Exotic could make mats / explode, but the former's better a diff chem and a diff PR, and latter's better for a pyrotechnics rework. Expansion's mostly meds and toxins.

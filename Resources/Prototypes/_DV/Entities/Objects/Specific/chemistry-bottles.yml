@@ -90,17 +90,17 @@
 
 - type: entity
   parent: BaseChemistryBottleFilled
-  id: ChemistryBottleDermaline
-  suffix: dermaline
+  id: ChemistryBottleAiuri
+  suffix: aiuri
   components:
   - type: Label
-    currentLabel: reagent-name-dermaline
+    currentLabel: reagent-name-aiuri
   - type: SolutionContainerManager
     solutions:
       drink:
         maxVol: 30
         reagents:
-        - ReagentId: Dermaline
+        - ReagentId: Aiuri
           Quantity: 30
 
 - type: entity

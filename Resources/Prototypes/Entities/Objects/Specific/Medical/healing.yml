@@ -395,38 +395,39 @@
     - id: PillDexalin
       amount: 7
 
-- type: entity
-  name: pill
-  suffix: Dylovene 10u
-  parent: Pill
-  id: PillDylovene
-  components:
-  - type: Pill
-    pillType: 9
-  - type: Sprite
-    state: pill10
-  - type: Label
-    currentLabel: dylovene 10u
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Dylovene
-          Quantity: 10
+# Funkychem - no dylovene
+# - type: entity
+#   name: pill
+#   suffix: Dylovene 10u
+#   parent: Pill
+#   id: PillDylovene
+#   components:
+#   - type: Pill
+#     pillType: 9
+#   - type: Sprite
+#     state: pill10
+#   - type: Label
+#     currentLabel: dylovene 10u
+#   - type: SolutionContainerManager
+#     solutions:
+#       food:
+#         maxVol: 20
+#         reagents:
+#         - ReagentId: Dylovene
+#           Quantity: 10
 
-- type: entity
-  name: pill canister
-  parent: PillCanister
-  id: PillCanisterDylovene
-  suffix: Dylovene 10u, 5
-  components:
-  - type: Label
-    currentLabel: dylovene 10u
-  - type: StorageFill
-    contents:
-    - id: PillDylovene
-      amount: 5
+# - type: entity
+#   name: pill canister
+#   parent: PillCanister
+#   id: PillCanisterDylovene
+#   suffix: Dylovene 10u, 5
+#   components:
+#   - type: Label
+#     currentLabel: dylovene 10u
+#   - type: StorageFill
+#     contents:
+#     - id: PillDylovene
+#       amount: 5
 
 - type: entity
   name: pill
@@ -560,71 +561,73 @@
     - id: PillCopper
       amount: 5
 
-- type: entity
-  name: pill
-  suffix: Kelotane 10u
-  parent: Pill
-  id: PillKelotane
-  components:
-  - type: Pill
-    pillType: 3
-  - type: Sprite
-    state: pill4
-  - type: Label
-    currentLabel: kelotane 10u
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Kelotane
-          Quantity: 10
+# Funkychem - no kelotane
+# - type: entity
+#   name: pill
+#   suffix: Kelotane 10u
+#   parent: Pill
+#   id: PillKelotane
+#   components:
+#   - type: Pill
+#     pillType: 3
+#   - type: Sprite
+#     state: pill4
+#   - type: Label
+#     currentLabel: kelotane 10u
+#   - type: SolutionContainerManager
+#     solutions:
+#       food:
+#         maxVol: 20
+#         reagents:
+#         - ReagentId: Kelotane
+#           Quantity: 10
 
-- type: entity
-  name: pill canister
-  parent: PillCanister
-  id: PillCanisterKelotane
-  suffix: Kelotane 10u, 5
-  components:
-  - type: Label
-    currentLabel: kelotane 10u
-  - type: StorageFill
-    contents:
-    - id: PillKelotane
-      amount: 5
+# - type: entity
+#   name: pill canister
+#   parent: PillCanister
+#   id: PillCanisterKelotane
+#   suffix: Kelotane 10u, 5
+#   components:
+#   - type: Label
+#     currentLabel: kelotane 10u
+#   - type: StorageFill
+#     contents:
+#     - id: PillKelotane
+#       amount: 5
 
-- type: entity
-  name: pill
-  suffix: Dermaline 10u
-  parent: Pill
-  id: PillDermaline
-  components:
-  - type: Pill
-    pillType: 7
-  - type: Sprite
-    state: pill8
-  - type: Label
-    currentLabel: dermaline 10u
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Dermaline
-          Quantity: 10
+# Funkychem - no dermaline
+# - type: entity
+#   name: pill
+#   suffix: Dermaline 10u
+#   parent: Pill
+#   id: PillDermaline
+#   components:
+#   - type: Pill
+#     pillType: 7
+#   - type: Sprite
+#     state: pill8
+#   - type: Label
+#     currentLabel: dermaline 10u
+#   - type: SolutionContainerManager
+#     solutions:
+#       food:
+#         maxVol: 20
+#         reagents:
+#         - ReagentId: Dermaline
+#           Quantity: 10
 
-- type: entity
-  name: pill canister
-  parent: PillCanister
-  id: PillCanisterDermaline
-  suffix: Dermaline 10u, 5
-  components:
-  - type: Label
-    currentLabel: dermaline 10u
-  - type: StorageFill
-    contents:
-    - id: PillDermaline
-      amount: 5
+# - type: entity
+#   name: pill canister
+#   parent: PillCanister
+#   id: PillCanisterDermaline
+#   suffix: Dermaline 10u, 5
+#   components:
+#   - type: Label
+#     currentLabel: dermaline 10u
+#   - type: StorageFill
+#     contents:
+#     - id: PillDermaline
+#       amount: 5
 
 - type: entity
   name: space mirage
@@ -672,38 +675,40 @@
     - id: PillTricordrazine
       amount: 5
 
-- type: entity
-  name: pill
-  suffix: Bicaridine 10u
-  parent: Pill
-  id: PillBicaridine
-  components:
-  - type: Pill
-    pillType: 4
-  - type: Sprite
-    state: pill5
-  - type: Label
-    currentLabel: bicaridine 10u
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Bicaridine
-          Quantity: 10
+# Funkychem - no bicaridine
+# Funkychem
+# - type: entity
+#   name: pill
+#   suffix: Bicaridine 10u
+#   parent: Pill
+#   id: PillBicaridine
+#   components:
+#   - type: Pill
+#     pillType: 4
+#   - type: Sprite
+#     state: pill5
+#   - type: Label
+#     currentLabel: bicaridine 10u
+#   - type: SolutionContainerManager
+#     solutions:
+#       food:
+#         maxVol: 20
+#         reagents:
+#         - ReagentId: Bicaridine
+#           Quantity: 10
 
-- type: entity
-  name: pill canister
-  parent: PillCanister
-  id: PillCanisterBicaridine
-  suffix: Bicaridine 10u, 5
-  components:
-  - type: Label
-    currentLabel: bicaridine 10u
-  - type: StorageFill
-    contents:
-    - id: PillBicaridine
-      amount: 5
+# - type: entity
+#   name: pill canister
+#   parent: PillCanister
+#   id: PillCanisterBicaridine
+#   suffix: Bicaridine 10u, 5
+#   components:
+#   - type: Label
+#     currentLabel: bicaridine 10u
+#   - type: StorageFill
+#     contents:
+#     - id: PillBicaridine
+#       amount: 5
 
 - type: entity
   name: pill
@@ -824,7 +829,12 @@
       prob: 0.10
       maxAmount: 7
       orGroup: RandomPill
-    - id: PillBicaridine
+    # Funkychem - bicaridine -> libital
+    - id: PillLibital
+      prob: 0.10
+      maxAmount: 7
+      orGroup: RandomPill
+    - id: PillProbital # Funkychem - bicaridine -> probital
       prob: 0.10
       maxAmount: 7
       orGroup: RandomPill
@@ -895,35 +905,37 @@
         - ReagentId: TranexamicAcid
           Quantity: 15
 
-- type: entity
-  suffix: bicaridine
-  parent: PrefilledSyringe
-  id: SyringeBicaridine
-  components:
-  - type: Label
-    currentLabel: reagent-name-bicaridine
-  - type: SolutionContainerManager
-    solutions:
-      injector:
-        maxVol: 15
-        reagents:
-        - ReagentId: Bicaridine
-          Quantity: 15
+# Funkychem - no bicaridine/dermaline
+# Funkychem
+# - type: entity
+#   suffix: bicaridine
+#   parent: PrefilledSyringe
+#   id: SyringeBicaridine
+#   components:
+#   - type: Label
+#     currentLabel: reagent-name-bicaridine
+#   - type: SolutionContainerManager
+#     solutions:
+#       injector:
+#         maxVol: 15
+#         reagents:
+#         - ReagentId: Bicaridine
+#           Quantity: 15
 
-- type: entity
-  suffix: dermaline
-  parent: PrefilledSyringe
-  id: SyringeDermaline
-  components:
-  - type: Label
-    currentLabel: reagent-name-dermaline
-  - type: SolutionContainerManager
-    solutions:
-      injector:
-        maxVol: 15
-        reagents:
-        - ReagentId: Dermaline
-          Quantity: 15
+# - type: entity
+#   suffix: dermaline
+#   parent: PrefilledSyringe
+#   id: SyringeDermaline
+#   components:
+#   - type: Label
+#     currentLabel: reagent-name-dermaline
+#   - type: SolutionContainerManager
+#     solutions:
+#       injector:
+#         maxVol: 15
+#         reagents:
+#         - ReagentId: Dermaline
+#           Quantity: 15
 
 - type: entity
   suffix: hyronalin

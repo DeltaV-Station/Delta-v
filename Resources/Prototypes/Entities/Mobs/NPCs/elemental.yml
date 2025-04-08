@@ -463,19 +463,19 @@
 - type: entity
   id: ReagentSlimeBicaridine
   parent: ReagentSlime
-  suffix: Bicaridine
+  suffix: Salicylic Acid # FunkyChem - we don't have bicaridine anymore
   components:
   - type: Bloodstream
-    bloodReagent: Bicaridine
+    bloodReagent: SalicylicAcid # FunkyChem - we don't have bicaridine anymore
   - type: PointLight
-    color: "#ffaa00"
+    color: "#f9e0e9" # FunkyChem - we don't have bicaridine anymore
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/elemental.rsi
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alive
-        color: "#ffaa00"
+        color: "#f9e0e9" # FunkyChem - we don't have bicaridine anymore
 
 - type: entity
   id: ReagentSlimeToxin
