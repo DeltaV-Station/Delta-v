@@ -4,7 +4,7 @@
   reactants:
     WeldingFuel:
       amount: 1
-    Ammonia:
+    Phosphorus: # DeltaV - less evil basics
       amount: 1
     Hydrogen:
       amount: 1
@@ -39,9 +39,9 @@
 - type: reaction
   id: Multiver
   reactants:
-    TableSalt:
+    Sodium: # DeltaV - less evil basics
       amount: 1
-    Oil:
+    WeldingFuel: # DeltaV - less evil basics
       amount: 1
     Silicon:
       amount: 1
@@ -70,7 +70,7 @@
   reactants:
     Nitrogen:
       amount: 1
-    Oil:
+    WeldingFuel: # DeltaV - less evil basics
       amount: 1
     Oxygen:
       amount: 1
