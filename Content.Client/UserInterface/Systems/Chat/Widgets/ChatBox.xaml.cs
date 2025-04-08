@@ -88,14 +88,7 @@ public partial class ChatBox : UIWidget
 
 
         // EE - Chat stacking
-        if (msg.IgnoreChatStack)
-        {
-            TrackNewMessage(msg.WrappedMessage, color, true);
-            AddLine(msg.WrappedMessage, color);
-            return;
-        }
-
-        int index = _chatStackList.FindIndex(data => data.WrappedMessage == msg.WrappedMessage && !data.IgnoresChatstack);
+        int index = _chatStackList.FindIndex(data => data.WrappedMessage == msg.WrappedMessage);
 
         if (index == -1) // this also handles chatstack being disabled, since FindIndex won't find anything in an empty array
         {
@@ -132,7 +125,7 @@ public partial class ChatBox : UIWidget
     }
 
     // EE - Chat stacking
-    private void TrackNewMessage(string wrappedMessage, Color colorOverride, bool ignoresChatstack = false)
+    private void TrackNewMessage(string wrappedMessage, Color colorOverride)
     {
         if (!_chatStackEnabled)
             return;
@@ -140,7 +133,7 @@ public partial class ChatBox : UIWidget
         if (_chatStackList.Count == _chatStackList.Capacity)
             _chatStackList.RemoveAt(_chatStackList.Capacity - 1);
 
-        _chatStackList.Insert(0, new ChatStackData(wrappedMessage, colorOverride, ignoresChatstack));
+        _chatStackList.Insert(0, new ChatStackData(wrappedMessage, colorOverride));
     }
 
     private void OnChannelSelect(ChatSelectChannel channel)
