@@ -88,7 +88,7 @@ public partial class ChatBox : UIWidget
 
 
         // EE - Chat stacking
-        int index = _chatStackList.FindIndex(data => data.WrappedMessage == msg.WrappedMessage);
+        var index = _chatStackList.FindIndex(data => data.WrappedMessage == msg.WrappedMessage);
 
         if (index == -1) // this also handles chatstack being disabled, since FindIndex won't find anything in an empty array
         {
