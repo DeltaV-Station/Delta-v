@@ -278,7 +278,7 @@ public partial class RadiationSystem
                 continue;
             }
 
-            if (_blockerQuery.TryComp(xform.ParentUid, out var blocker) && _openable.IsClosed(xform.ParentUid)) // DeltaV - Add IsClosed check
+            if (_blockerQuery.TryComp(xform.ParentUid, out var blocker) && _openable.IsClosed(xform.ParentUid, fallback: true)) // DeltaV - Add IsClosed check
             {
                 rads -= blocker.RadResistance;
                 if (rads < 0)

@@ -1,7 +1,7 @@
 - type: entity
-  categories: [ HideSpawnMenu ]
   parent: BaseSubdermalImplant
   id: BionicVoiceMaskImplant
+  categories: [ HideSpawnMenu ]
   name: bionic voice mask implant
   description: This implant lets its user adjust their voice to whoever they can think of.
   components:
@@ -14,9 +14,9 @@
         type: VoiceMaskBoundUserInterface
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   parent: BionicVoiceMaskImplant
   id: BionicSyrinxImplant
+  categories: [ HideSpawnMenu ]
   name: bionic syrinx implant
   description: This implant lets a harpy adjust their voice to whoever they can think of.
   components:
@@ -27,9 +27,9 @@
       - HarpySinger # Ensure this is only for harpies and if this component gets renamed, CHANGE IT TO THE NEW VALUE!!!
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   parent: StorageImplant
   id: RadioImplant
+  categories: [ HideSpawnMenu ]
   name: generic radio implant
   description: This implant contains a radio augmentation with a hidden compartment for an encryption key. It allows its user to communicate on the key's channels.
   components:
@@ -43,16 +43,16 @@
       - BorgChassis # borgs have "hands", but can't pick stuff up so the implant would be useless for them
   - type: Storage
     grid:
-      - 0,0,0,1
+    - 0,0,0,1
     whitelist:
       components:
       - EncryptionKey # encryption keys only!
   - type: RadioImplant
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   parent: BaseSubdermalImplant
   id: SyndicateRadioImplant
+  categories: [ HideSpawnMenu ]
   name: syndicate radio implant
   description: This implant contains a radio augmentation that allows its user to communicate on the Syndicate channel.
   components:
@@ -61,9 +61,9 @@
     - Syndicate
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   parent: BaseSubdermalImplant
   id: RadioImplantCentcomm
+  categories: [ HideSpawnMenu ]
   name: centcomm radio implant
   description: This implant grants access to the Centcomm channel without a headset. Only authorized for Centcomm employees.
   components:
