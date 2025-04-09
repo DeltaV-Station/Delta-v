@@ -22,8 +22,8 @@
     contents:
       - id: Ointment
         amount: 2
-      - id: PillCanisterAiuri # Funkychem - keloderm is aiuri/lenturi now
-      - id: PillCanisterLenturi # Funkychem - keloderm is aiuri/lenturi now
+      - id: PillCanisterKelotane
+      - id: PillCanisterDermaline
 
 - type: entity
   id: MedkitBruteFilled
@@ -36,8 +36,7 @@
       - id: Gauze
       - id: PillCanisterIron
       - id: PillCanisterCopper
-      - id: PillCanisterLibital # Funkychem - bicaridine is libital/probital now
-      - id: PillCanisterProbital # Funkychem - bicaridine is libital/probital now
+      - id: PillCanisterBicaridine # DeltaV
 
 - type: entity
   id: MedkitToxinFilled
@@ -49,8 +48,7 @@
       - id: SyringeIpecac
       - id: SyringeEthylredoxrazine
       - id: AntiPoisonMedipen
-        amount: 2 # Funkychem
-      - id: PillCanisterMultiver
+      - id: PillCanisterDylovene
       - id: PillCanisterCharcoal
 
 - type: entity
@@ -92,8 +90,6 @@
       - id: MedicatedSuture
       - id: RegenerativeMesh
       - id: Bloodpack
-        amount: 1
-      - id: SyringeSaline # Funky
         amount: 2
 
 - type: entity

@@ -434,7 +434,7 @@
       food:
         maxVol: 25
         reagents:
-        # Funkychem - we don't have bicaridine anymore
+        # Funkychem - bicaridine -> salicylic acid
         - ReagentId: SalicylicAcid #keeping it somewhat consistent with the meat itself
           Quantity: 7
         - ReagentId: Vitamin

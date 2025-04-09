@@ -1,100 +1,23 @@
 # burn
 - type: reaction
-  id: Aiuri
-  reactants:
-    WeldingFuel:
-      amount: 1
-    Phosphorus: # DeltaV - less evil basics
-      amount: 1
-    Hydrogen:
-      amount: 1
-  products:
-    Aiuri: 3
-
-- type: reaction
-  id: Lenturi
-  reactants:
-    SulfuricAcid:
-      amount: 1
-    Chlorine:
-      amount: 1
-    Oxygen:
-      amount: 1
-  products:
-    Lenturi: 3
-
-- type: reaction
   id: Oxandrolone
   reactants:
     Phenol:
       amount: 1
     Carbon:
       amount: 2
-    Lenturi:
+    Dermaline: # DeltaV - we still have wizden basics
       amount: 1
   products:
     Oxandrolone: 4
 
-# poison
-- type: reaction
-  id: Multiver
-  reactants:
-    Sodium: # DeltaV - less evil basics
-      amount: 1
-    WeldingFuel: # DeltaV - less evil basics
-      amount: 1
-    Silicon:
-      amount: 1
-  products:
-    Multiver: 3
-
-- type: reaction
-  id: PenteticAcid
-  reactants:
-    Multiver:
-      amount: 1
-    Silicon:
-      amount: 1
-    Oil:
-      amount: 1
-    Plasma:
-      amount: 1
-    Ethanol:
-      amount: 1
-  products:
-    PenteticAcid: 5
-
 # brute
-- type: reaction
-  id: Libital
-  reactants:
-    Nitrogen:
-      amount: 1
-    WeldingFuel: # DeltaV - less evil basics
-      amount: 1
-    Oxygen:
-      amount: 1
-  products:
-    Libital: 3
-
-- type: reaction
-  id: Probital
-  reactants:
-    Acetone:
-      amount: 1
-    Copper:
-      amount: 1
-    Phosphorus:
-      amount: 1
-  products:
-    Probital: 3
-
 - type: reaction
   id: SalicylicAcid
   reactants:
     Phenol:
       amount: 1
-    Probital:
+    Bicaridine: # DeltaV - we still have wizden basics
       amount: 1
     SulfuricAcid:
       amount: 1
@@ -203,3 +126,36 @@
       amount: 1
   products:
     Natusixadone: 2
+
+- type: reaction
+  id: SalyLacerinol
+  impact: Medium
+  reactants:
+    Lacerinol:
+      amount: 1
+    SalicylicAcid:
+      amount: 1
+  products:
+    Razorium: 1
+
+- type: reaction
+  id: SalyPuncturase
+  impact: Medium
+  reactants:
+    Puncturase:
+      amount: 1
+    SalicylicAcid:
+      amount: 1
+  products:
+    Razorium: 1
+
+- type: reaction
+  id: SalyBruizine
+  impact: Medium
+  reactants:
+    Bruizine:
+      amount: 1
+    SalicylicAcid:
+      amount: 1
+  products:
+    Razorium: 1

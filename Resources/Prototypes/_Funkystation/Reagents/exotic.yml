@@ -111,7 +111,7 @@
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
-          min: 95 # Heals a bit above crit
+          min: 90 # Heals a bit above crit # DeltaV - this brings people to a bit more stable condition
         damage:
           groups: # 5 Damage every type except rad/pois
             Airloss: -10

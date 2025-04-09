@@ -30,7 +30,7 @@
   id: FoodBagelPoppy
   parent: FoodBagelBase
   name: poppy seed bagel
-  description: A delicious bagel topped with poppy seeds. # Funkychem - we don't have bicaridine anymore
+  description: A delicious bagel topped with poppy seeds. # Funkychem - bicaridine -> salicylic acid
   components:
   - type: FlavorProfile
     flavors:
@@ -43,7 +43,7 @@
       food:
         maxVol: 12
         reagents:
-        - ReagentId: SalicylicAcid # Funkychem - we don't have bicaridine anymore
+        - ReagentId: SalicylicAcid # Funkychem - bicaridine -> salicylic acid
           Quantity: 5
         - ReagentId: Nutriment
           Quantity: 5

@@ -126,8 +126,8 @@
     groups:
       Acidic: [ Touch ]
     reactions:
-      # Funkychem - oh god the merge conflicts
-    - reagents: [ Multiver, PenteticAcid, Diphenhydramine, Arithrazine, Probital, Libital, SalicylicAcid, Lenturi, Oxandrolone, Dexalin, Salbutamol, Convermol, Tricordrazine, Leporazine, Bruizine, Lacerinol, Puncturase, Pyrazine, Insuzine, Aiuri, Hyronalin, Inaprovaline, Epinephrine ]
+    # Funkychem - Oh god, the merge conflicts
+    - reagents: [ Dylovene, Diphenhydramine, Arithrazine, Bicaridine, Dermaline, Dexalin, Tricordrazine, Leporazine, Bruizine, Lacerinol, Puncturase, Pyrazine, Insuzine, Kelotane, Hyronalin, Inaprovaline, Epinephrine, SalicylicAcid, Oxandrolone, Salbutamol, Convermol ]
       methods: [ Touch ]
       effects:
       - !type:ActivateArtifact

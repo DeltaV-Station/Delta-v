@@ -141,7 +141,7 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Multiver # Funkychem - we don't have dylovene anymore
+          - ReagentId: Dylovene
             Quantity: 10
 
 - type: entity
@@ -156,7 +156,7 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Aiuri # Funkychem - aloe has aiuri
+          - ReagentId: Dermaline
             Quantity: 10
 
 - type: entity
@@ -201,7 +201,7 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: SalicylicAcid # Funkychem - we don't have bicaridine anymore
+          - ReagentId: SalicylicAcid # Funkychem - bicaridine -> salicylic acid
             Quantity: 10
 
 - type: entity

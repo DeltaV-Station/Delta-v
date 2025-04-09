@@ -36,13 +36,12 @@
         - sprite: Objects/Specific/Medical/firstaidkits.rsi
           state: firstaid
     - type: RandomSpawner
-      rarePrototypes: # Funkychem - replace wizden chems with funky pills
-        - PillCanisterLenturi
-        - PillCanisterMultiver
-        - PillCanisterLibital
-        - PillCanisterAiuri
+      rarePrototypes:
+        - PillCanisterDermaline
+        - PillCanisterDylovene
+        - PillCanisterBicaridine
+        - PillCanisterKelotane
         - PillCanisterDexalin
-        - PillCanisterProbital
         - HandheldHealthAnalyzer
         - ClothingHandsGlovesLatex
       rareChance: 0.1
