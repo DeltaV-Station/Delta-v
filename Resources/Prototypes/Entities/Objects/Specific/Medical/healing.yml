@@ -4,10 +4,10 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/medical.rsi
+    sprite: _DV/Objects/Specific/medical.rsi #delta-V Change - resprited some med items
   - type: Item
     size: Small
-    sprite: Objects/Specific/Medical/medical.rsi
+    sprite: _DV/Objects/Specific/medical.rsi #delta-V Change - resprited some med items
     heldPrefix: ointment
   # Inherited
   - type: StaticPrice
