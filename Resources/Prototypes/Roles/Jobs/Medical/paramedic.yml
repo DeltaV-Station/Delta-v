@@ -3,7 +3,7 @@
   name: job-name-paramedic
   description: job-description-paramedic
   playTimeTracker: JobParamedic
-  antagAdvantage: 5 # DeltaV - Reduced TC: External Access, JoL
+  antagAdvantage: 5 # DeltaV - Reduced TC: External Access, JoL, Crew Monitor
   requirements:
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
