@@ -70,7 +70,12 @@
     - sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
       state: cessation
     drawdepth: Puddles
-  - type: CosmicGlyphTransmuteSpire
+  - type: CosmicGlyphTransmute
+    transmutations:
+    - CosmicVacuousSpire
+    whitelist:
+      components:
+      - PortableScrubber
   - type: CosmicGlyph
     glyphName: cessation
     requiredCultists: 1
@@ -86,7 +91,13 @@
     layers:
       - state: blades
     drawdepth: Puddles
-  - type: CosmicGlyphTransmuteWeapon
+  - type: CosmicGlyphTransmute
+    transmutations:
+    - SwordCosmicCult
+    - SpearCosmicCult
+    whitelist:
+      components:
+      - Sharp
   - type: CosmicGlyph
     glyphName: blades
     requiredCultists: 2
@@ -102,7 +113,14 @@
     layers:
       - state: warding
     drawdepth: Puddles
-  - type: CosmicGlyphTransmuteArmor
+  - type: CosmicGlyphTransmute
+    transmutations:
+    - ClothingOuterHardsuitCosmicCult
+    whitelist:
+      requireAll: true
+      components:
+      - ClothingSpeedModifier
+      - PressureProtection
   - type: CosmicGlyph
     glyphName: warding
     requiredCultists: 2

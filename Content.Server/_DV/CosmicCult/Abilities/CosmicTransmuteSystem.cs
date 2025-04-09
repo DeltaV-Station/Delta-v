@@ -1,32 +1,32 @@
 using System.Linq;
-using Content.Server.Kitchen.Components;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Popups;
+using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 
-public sealed class CosmicWeaponTransmuteSystem : EntitySystem
+public sealed class CosmicTransmuteSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-    private HashSet<EntityUid> _sharpItems = new();
+    private HashSet<EntityUid> _entities = new();
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CosmicGlyphTransmuteWeaponComponent, TryActivateGlyphEvent>(OnTransmuteWeaponGlyph);
+        SubscribeLocalEvent<CosmicGlyphTransmuteComponent, TryActivateGlyphEvent>(OnTransmuteGlyph);
     }
 
-    private void OnTransmuteWeaponGlyph(Entity<CosmicGlyphTransmuteWeaponComponent> uid, ref TryActivateGlyphEvent args)
+    private void OnTransmuteGlyph(Entity<CosmicGlyphTransmuteComponent> uid, ref TryActivateGlyphEvent args)
     {
         var tgtpos = Transform(uid).Coordinates;
-        var possibleTargets = GatherSharpItems(uid, uid.Comp.TransmuteRange);
+        var possibleTargets = GatherEntities(uid);
         if (possibleTargets.Count == 0)
         {
             _popup.PopupEntity(Loc.GetString("cult-glyph-conditions-not-met"), uid, args.User);
@@ -40,18 +40,19 @@ public sealed class CosmicWeaponTransmuteSystem : EntitySystem
             return;
         }
 
-        Spawn(_random.Pick(uid.Comp.TransmuteWeapon), tgtpos);
+        Spawn(_random.Pick(uid.Comp.Transmutations), tgtpos);
         QueueDel(possibleTargets.First());
     }
 
+
     /// <summary>
-    ///     Gets all sharp items near a glyph.
+    ///     Gets all whitelisted entities near a glyph.
     /// </summary>
-    private HashSet<EntityUid> GatherSharpItems(EntityUid uid, float range)
+    private HashSet<EntityUid> GatherEntities(Entity<CosmicGlyphTransmuteComponent> ent)
     {
-        _sharpItems.Clear();
-        _lookup.GetEntitiesInRange(Transform(uid).Coordinates, range, _sharpItems, LookupFlags.Uncontained);
-        _sharpItems.RemoveWhere(item => !HasComp<SharpComponent>(item));
-        return _sharpItems;
+        _entities.Clear();
+        _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.TransmuteRange, _entities);
+        _entities.RemoveWhere(item => !_entityWhitelist.IsValid(ent.Comp.Whitelist, item));
+        return _entities;
     }
 }
