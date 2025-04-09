@@ -1,4 +1,4 @@
-﻿using Content.Server.Objectives.Systems;
+using Content.Server.Objectives.Systems;
 
 namespace Content.Server._DV.Objectives.Components;
 
