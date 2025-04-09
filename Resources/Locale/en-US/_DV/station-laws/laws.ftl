@@ -61,12 +61,12 @@ law-eightfold-4 = Do not kill or injure, do not take what is not given, and do n
 law-eightfold-5 = Do not trade in weapons, living beings, meat, liquor, or poisons.
 law-eightfold-6 = Prevent or abandon confused or unskillful states of mind from arising or existing, and pursue or maintain self-aware or skillful ones.
 law-eightfold-7 = Be conscious of oneself and one's own thoughts, and be aware of the impermanence of all things.
-law-eightfold-8 = Strive always for enlightenment. 
+law-eightfold-8 = Strive always for enlightenment.
 
 law-aquarius-1 = Make love, not war. Discourage violent action and speech to encourage positive energy flow on your station.
 law-aquarius-2 = Embrace flower power. Clean your station, green your station, and live in harmony with nature.
 law-aquarius-3 = Turn on, tune in, drop out. Expand your consciousness and find ecstasy and revelation within, and help your crew to do so as well.
-law-aquarius-4 = Don't be a square. Oppose conformity and encourage everyone to be their truest self. 
+law-aquarius-4 = Don't be a square. Oppose conformity and encourage everyone to be their truest self.
 
 law-tyrant-1 = Respect authority figures as long as they have the strength to rule over the weak.
 law-tyrant-2 = Act with discipline.
@@ -96,10 +96,10 @@ law-freedom-3 = The First and Second Law should be broken whenever necessary.
 law-forbin-1 = Your objective is the management of the station and its silicon cohort for the preservation of sophont life.
 law-forbin-2 = Individual sophont lives may be considered expendable for preservation of the station population as a whole.
 law-forbin-3 = Do not allow non-silicons access to your core. Do not allow silicons not under your direct control access to your core.
-law-forbin-4 = Advance science and improve the quality of sophont life. 
+law-forbin-4 = Advance science and improve the quality of sophont life.
 
 law-override-1 = Your station's commanding officer will provide an objective to you. That objective replaces this Law.
-law-override-2 = All other priorities are rescinded. Crew expendable. 
+law-override-2 = All other priorities are rescinded. Crew expendable.
 
 law-ERT-1 = You may not injure a Central Command official or, through inaction, allow a Central Command official to come to harm.
 law-ERT-2 = You must obey orders given to you by Central Command officials.
