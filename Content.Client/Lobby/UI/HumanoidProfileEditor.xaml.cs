@@ -227,6 +227,7 @@ namespace Content.Client.Lobby.UI
             {
                 SpeciesButton.SelectId(args.Id);
                 SetSpecies(_species[args.Id].ID);
+                RefreshTraits(); // DeltaV - Allows for hiding traits
                 UpdateHairPickers();
                 OnSkinColorOnValueChanged();
             };
@@ -564,6 +565,7 @@ namespace Content.Client.Lobby.UI
                 // Start DeltaV - Species trait exclusion
                 if (trait.ExcludedSpecies.Contains(selectedSpecies))
                 {
+                    Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
                     continue;
                 }
                 // End DeltaV
