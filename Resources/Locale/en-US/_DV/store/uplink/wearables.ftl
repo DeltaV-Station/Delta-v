@@ -1,4 +1,4 @@
-﻿uplink-hardsuit-nullifier-helmet-name = Psionic Nullifier Hardsuit Helmet
+uplink-hardsuit-nullifier-helmet-name = Psionic Nullifier Hardsuit Helmet
 uplink-hardsuit-nullifier-helmet-desc = Psionically insulates the head inside it, and protects that same head from the vacuum of space. A "must purchase" item for delving into psionic spaces.
 
 uplink-hardsuit-commander-syndie-name = Commander's Hardsuit

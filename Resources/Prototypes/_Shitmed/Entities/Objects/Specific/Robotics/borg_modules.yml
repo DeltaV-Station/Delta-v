@@ -7,6 +7,7 @@
     layers:
     - state: medical
     - state: icon-surgery
+      sprite: _Shitmed/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     moduleId: Surgery
     items:
@@ -29,6 +30,7 @@
     layers:
     - state: medical
     - state: icon-advanced-surgery
+      sprite: _Shitmed/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     moduleId: AdvancedSurgery
     items:

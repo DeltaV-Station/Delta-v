@@ -1,4 +1,4 @@
-﻿using Content.Shared.NPC.Prototypes;
+using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Implants.AddFactions;

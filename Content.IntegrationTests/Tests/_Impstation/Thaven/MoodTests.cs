@@ -59,14 +59,17 @@ public sealed class ThavenMoodTests
         var thavenSystem = entMan.System<ThavenMoodsSystem>();
         var protoMan = server.ResolveDependency<IPrototypeManager>();
 
-        var dataset = protoMan.Index<DatasetPrototype>("ThreeValueSet");
-        var moodProto = protoMan.Index<ThavenMoodPrototype>("DuplicateTest");
+        await server.WaitAssertion(() =>
+        {
+            var dataset = protoMan.Index<DatasetPrototype>("ThreeValueSet");
+            var moodProto = protoMan.Index<ThavenMoodPrototype>("DuplicateTest");
 
-        var datasetSet = dataset.Values.ToHashSet();
-        var mood = thavenSystem.RollMood(moodProto);
-        var moodVarSet = mood.MoodVars.Values.ToHashSet();
+            var datasetSet = dataset.Values.ToHashSet();
+            var mood = thavenSystem.RollMood(moodProto);
+            var moodVarSet = mood.MoodVars.Values.ToHashSet();
 
-        Assert.That(moodVarSet, Is.EquivalentTo(datasetSet));
+            Assert.That(moodVarSet, Is.EquivalentTo(datasetSet));
+        });
 
         await pair.CleanReturnAsync();
     }
@@ -82,14 +85,17 @@ public sealed class ThavenMoodTests
         var thavenSystem = entMan.System<ThavenMoodsSystem>();
         var protoMan = server.ResolveDependency<IPrototypeManager>();
 
-        var dataset = protoMan.Index<DatasetPrototype>("ThreeValueSet");
-        var moodProto = protoMan.Index<ThavenMoodPrototype>("DuplicateOverlapTest");
+        await server.WaitAssertion(() =>
+        {
+            var dataset = protoMan.Index<DatasetPrototype>("ThreeValueSet");
+            var moodProto = protoMan.Index<ThavenMoodPrototype>("DuplicateOverlapTest");
 
-        var datasetSet = dataset.Values.ToHashSet();
-        var mood = thavenSystem.RollMood(moodProto);
-        var moodVarSet = mood.MoodVars.Values.ToHashSet();
+            var datasetSet = dataset.Values.ToHashSet();
+            var mood = thavenSystem.RollMood(moodProto);
+            var moodVarSet = mood.MoodVars.Values.ToHashSet();
 
-        Assert.That(moodVarSet, Is.EquivalentTo(datasetSet));
+            Assert.That(moodVarSet, Is.EquivalentTo(datasetSet));
+        });
 
         await pair.CleanReturnAsync();
     }

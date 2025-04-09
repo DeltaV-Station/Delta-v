@@ -45,4 +45,19 @@
   - AugmentSurgeryPanelElectronics
   - AugmentPaperworkPanelElectronics
 
+- type: technology
+  id: Cloning
+  name: research-technology-cloning
+  icon:
+    sprite: Structures/Machines/cloning.rsi
+    state: pod_0
+  discipline: Biochemical
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - BiomassReclaimerMachineCircuitboard
+  - CloningConsoleComputerCircuitboard
+  - MedicalScannerMachineCircuitboard
+  - CloningPodMachineCircuitboard
+
 # Tier 3

@@ -114,3 +114,13 @@
     - id: ClothingMaskMuzzle
     - id: ClothingHeadsetPrison
     - id: PrisonKnife # Bread cutting knife, does 4 damage total.
+
+- type: entity
+  parent: GunSafeBaseSecure
+  id: GunSafeGamblagator
+  name: Gamblagator safe
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: GamblagatorTable

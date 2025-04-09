@@ -37,6 +37,7 @@
     - id: DragonSpawn
     #- id: KingRatMigration # DeltaV - disabled
     - id: NinjaSpawn
+    - id: ParadoxCloneSpawn
     - id: RevenantSpawn
     - id: SleeperAgents
     - id: ZombieOutbreak
@@ -265,6 +266,43 @@
 
 - type: entity
   parent: BaseGameRule
+  id: ParadoxCloneSpawn
+  components:
+  - type: StationEvent
+    weight: 7 # DeltaV - was 4
+    duration: null
+    earliestStart: 25 # DeltaV - was 20
+    reoccurrenceDelay: 5 # DeltaV - was 20
+    minimumPlayers: 15
+  - type: ParadoxCloneRule
+    objectiveBlacklist:
+      tags:
+      - ParadoxCloneObjectiveBlacklist
+  - type: AntagObjectives
+    objectives:
+    - ParadoxAnomalyKillObjective # DeltaV - was ParadoxCloneKillObjective
+    - ParadoxAnomalyFriendObjective # DeltaV
+    - ParadoxCloneLivingObjective
+  - type: AntagRandomSpawn # TODO: improve spawning so they only start in maints
+  - type: AntagSelection
+    agentName: paradox-clone-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostParadoxClone
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: ParadoxCloneGear
+      roleLoadout:
+      - RoleSurvivalVoxTank # give vox something to breath in case they don't get a copy
+      briefing:
+        text: paradox-anomaly-role-greeting # DeltaV
+        color: lightblue
+        sound: /Audio/Misc/paradox_clone_greeting.ogg
+      mindRoles:
+      - MindRoleParadoxClone
+
+- type: entity
+  parent: BaseGameRule
   id: RevenantSpawn
   components:
   - type: StationEvent
@@ -396,6 +434,8 @@
     - Security
     - Service
     - Supply
+    - Justice # DeltaV - Add DeltaV specific channels
+    - Prison # DeltaV - Add DeltaV specific channels
     extraCount: 3 # DeltaV - was 2
     lightBreakChancePerSecond: 0.0003
     doorToggleChancePerSecond: 0.001
