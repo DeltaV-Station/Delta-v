@@ -1,4 +1,4 @@
-﻿ghost-role-information-synthesis-name = Synthesis Specialist
+ghost-role-information-synthesis-name = Synthesis Specialist
 ghost-role-information-synthesis-description = You are a member of Interdyne Pharmaceutics! You are provided all the tools to manufacture a variety of medical cocktails. Establish your craft, peddle your poisons, and make profit.
 ghost-role-information-synthesis-rules =
     You are a [color=yellow][bold]Free-Agent[/bold][/color].  You are free to act as either an antagonist or a non-antagonist.

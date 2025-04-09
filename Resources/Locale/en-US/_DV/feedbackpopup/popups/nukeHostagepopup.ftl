@@ -1,4 +1,4 @@
-﻿# Round start nukie
+# Round start nukie
 feedbackpopup-hostage-nukie-start-name = Nukie-Hostage-START
 feedbackpopup-hostage-nukie-start-title = [bold]New Nuke-Ops objective[/bold]
 feedbackpopup-hostage-nukie-start-description-0 = You rolled the new hostage nukie objective! This is a new objective we are testing for nuke ops. This is at the very early stages of development, so any feedback is good. Expect bugs (Please report them <3)!
@@ -13,4 +13,3 @@ feedbackpopup-hostage-nukie-end-description-0 = Thanks for play testing our new 
 # Crew popup on round end.
 feedbackpopup-hostage-crew-end-name = Nukie-Hostage-CREW
 feedbackpopup-hostage-crew-end-title = [bold]Hostage objective feedback (Crew)![/bold]
-
