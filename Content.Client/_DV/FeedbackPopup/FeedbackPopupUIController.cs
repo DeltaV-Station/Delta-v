@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.FeedbackOverwatch;
+using Content.Shared._DV.FeedbackOverwatch;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Network;
 

@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Antag;
+using Content.Shared._DV.Antag;
 using Content.Shared.Random;
 using Robust.Shared.Prototypes;
 

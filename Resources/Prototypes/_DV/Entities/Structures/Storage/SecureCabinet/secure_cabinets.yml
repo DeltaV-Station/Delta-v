@@ -61,7 +61,7 @@
   - type: Construction
     graph: SecureCabinet
     node: securecabinet
-  
+
 #Empty Secure Cabinet
 - type: entity
   parent: BaseSecureCabinet
@@ -120,7 +120,7 @@
   components:
   - type: AccessReader
     access: [["Captain"]]
-    
+
 #HeadOfSecurity
 - type: entity
   parent: FilledSecureCabinet
@@ -129,7 +129,7 @@
   components:
   - type: AccessReader
     access: [["HeadOfSecurity"]]
-    
+
 #HeadOfPersonnel
 - type: entity
   parent: FilledSecureCabinet

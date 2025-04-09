@@ -13,4 +13,3 @@ public sealed partial class AugmentChargerComponent : Component;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class AugmentStationRechargeComponent : Component;
-
