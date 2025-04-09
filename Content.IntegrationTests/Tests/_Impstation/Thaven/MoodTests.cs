@@ -94,7 +94,7 @@ public sealed class ThavenMoodTests
 
         await server.WaitAssertion(() =>
         {
-            Assert.That(moodVarSet, Is.EquivalentTo(datasetSet))
+            Assert.That(moodVarSet, Is.EquivalentTo(datasetSet));
         });
 
         await pair.CleanReturnAsync();
