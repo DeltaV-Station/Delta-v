@@ -1,4 +1,4 @@
-using Content.Server._CD.Traits;
+using Content.Server._CD.Traits; // CD - synth trait
 using Content.Server.Silicons.Laws;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
