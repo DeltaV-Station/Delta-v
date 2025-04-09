@@ -108,8 +108,11 @@
 - type: latheRecipe
   parent: BaseRoboticsRecipe
   id: TorsoIPC
-  result: TorsoIPC
-  completetime: 3
+  result: MobIPCTorsoOnly # DeltaV - this prints an actual body that can have stuff inserted into
+  completetime: 15 # DeltaV - Don't let players spam beeping IPC chasses
+  icon: # DeltaV - don't false marketing what the lathe will spit out
+    sprite: _Shitmed/Mobs/Species/IPC/parts.rsi
+    state: "torso_m"
   materials:
     Steel: 3000
     Gold: 500
