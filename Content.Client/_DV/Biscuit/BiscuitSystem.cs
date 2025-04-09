@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Biscuit;
+using Content.Shared._DV.Biscuit;
 using Robust.Client.GameObjects;
 
 namespace Content.Client._DV.Biscuit;

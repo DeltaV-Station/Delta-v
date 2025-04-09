@@ -1,4 +1,4 @@
-﻿uplink-explosive-foam-grenade-name = Explosive Foam Grenade
+uplink-explosive-foam-grenade-name = Explosive Foam Grenade
 uplink-explosive-foam-grenade-desc = An explosive grenade disguised as a regular foam toy grenade.
 
 uplink-supermatter-grenade-name = Supermatter Grenade
