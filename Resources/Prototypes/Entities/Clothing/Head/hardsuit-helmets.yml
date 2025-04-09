@@ -495,11 +495,11 @@
     reduction: 0.2
   - type: Armor
     modifiers:
-      coefficients: # DeltaV - nerfed brute res values, buffed heat res
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.85
+      coefficients:
+        Blunt: 0.95 # DeltaV - was 0.9
+        Slash: 0.95 # DeltaV - was 0.9
+        Piercing: 0.95 # DeltaV - was 0.9
+        Heat: 0.85 # DeltaV - was 0.9
 
 #Syndicate Commander Hardsuit
 - type: entity
