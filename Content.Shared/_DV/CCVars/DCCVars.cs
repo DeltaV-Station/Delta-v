@@ -161,4 +161,46 @@ public sealed class DCCVars
     /// </summary>
     public static readonly CVarDef<bool> EnableBacktoBack =
         CVarDef.Create("game.disable_preset_test", false, CVar.SERVERONLY);
+
+    /// <summary>
+    /// A string containing a list of newline-separated strings to be highlighted in the chat.
+    /// </summary>
+    public static readonly CVarDef<string> ChatHighlights =
+        CVarDef.Create("deltav.chat.highlights",
+            "",
+            CVar.CLIENTONLY | CVar.ARCHIVE,
+            "A list of newline-separated strings to be highlighted in the chat.");
+
+    /// <summary>
+    /// An option to toggle the automatic filling of the highlights with the character's info, if available.
+    /// </summary>
+    public static readonly CVarDef<bool> ChatAutoFillHighlights =
+        CVarDef.Create("deltav.chat.auto_fill_highlights",
+            false,
+            CVar.CLIENTONLY | CVar.ARCHIVE,
+            "Toggles automatically filling the highlights with the character's information.");
+
+    /// <summary>
+    /// The color in which the highlights will be displayed.
+    /// </summary>
+    public static readonly CVarDef<string> ChatHighlightsColor =
+        CVarDef.Create("deltav.chat.highlights_color",
+            "#17FFC1FF",
+            CVar.CLIENTONLY | CVar.ARCHIVE,
+            "The color in which the highlights will be displayed.");
+
+    /* Laying down combat */
+
+    /// <summary>
+    /// Modifier to apply to all melee attacks when laying down.
+    /// Don't increase this above 1...
+    /// </summary>
+    public static readonly CVarDef<float> LayingDownMeleeMod =
+        CVarDef.Create("game.laying_down_melee_mod", 0.25f, CVar.REPLICATED);
+
+    /// <summary>
+    ///    Maximum number of characters in objective summaries.
+    /// </summary>
+    public static readonly CVarDef<int> MaxObjectiveSummaryLength =
+        CVarDef.Create("game.max_objective_summary_length", 256, CVar.SERVER | CVar.REPLICATED);
 }

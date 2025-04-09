@@ -1,30 +1,77 @@
-﻿- type: entity
-  name: china lake
+- type: entity
   parent: [BaseWeaponLauncher, BaseGunWieldable]
-  suffix: Robot, energy based
   id: WeaponLauncherChinaLakeBorg
+  name: china lake
+  suffix: Robot, energy based
   description: PLOOP! Contains a built in replicator to slowly make more ammo.
   components:
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
-      layers:
-        - state: icon
-          map: ["enum.GunVisualLayers.Base"]
-    - type: Clothing
-      sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
-    - type: Gun
-      fireRate: 1
-      selectedMode: SemiAuto
-      availableModes:
-        - SemiAuto
-      soundGunshot:
-        path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
-    - type: Battery
-      maxCharge: 600
-      startingCharge: 300
-    - type: ProjectileBatteryAmmoProvider
-      proto: GrenadeFrag
-      fireCost: 300
-    - type: BatterySelfRecharger
-      autoRecharge: true
-      autoRechargeRate: 2
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 300
+  - type: ProjectileBatteryAmmoProvider
+    proto: GrenadeFrag
+    fireCost: 300
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 2
+
+- type: entity
+  parent: BaseWeaponLauncher
+  id: WeaponLauncherNonLethal
+  name: nonlethal launcher
+  suffix: Robot, energy based
+  description: A Cyborg Mounted Grenade Launcher, designed to fire flashbangs, or expend all of its energy to fire an EMP. Refills its own ammo
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Launchers/nonlethal_launcher.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    sprite: _DV/Objects/Weapons/Guns/Launchers/nonlethal_launcher.rsi
+    size: Huge
+  - type: Gun
+    minAngle: 1
+    maxAngle: 2
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 200
+  - type: ProjectileBatteryAmmoProvider
+    proto: GrenadeFlash
+    fireCost: 200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 6
+  - type: GunWieldBonus
+    wieldBonusExamineMessage: null
+    minAngle: 0
+    maxAngle: 0
+  - type: UseDelay
+    delay: 0 # You can't dual wield this as a borg so no need for a delay
+  - type: AmmoCounter
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: GrenadeFlash
+      fireCost: 200
+    - proto: GrenadeEMP
+      fireCost: 600

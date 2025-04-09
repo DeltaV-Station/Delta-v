@@ -7,8 +7,9 @@
     <GuideEntityEmbed Entity="PositronicBrain" Caption="Positronic Brain"/>
   </Box>
   Like borgs, IPCs have a positronic brain as their processing source. However, unlike them, IPCs can't be assembled. "It's cheaper to create a shell that obeys you than one that doesn't! *wink*"
+
   ## Recharging an IPC
-   <Box>
+  <Box>
     <GuideEntityEmbed Entity="APCBasic" Caption="APC Terminal"/>
     <GuideEntityEmbed Entity="BorgCharger" Caption="Borg Charger"/>
     <GuideEntityEmbed Entity="PowerCellMedium" Caption="Power Cell"/>
@@ -32,15 +33,30 @@
   ## Repairing
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="WelderIndustrialAdvanced" Caption="Welder"/>
-    Welders can be used to repair [color=yellow]Brute[/color] damage.
+    Welders can be used to repair [color=yellow]Brute[/color] damage and stop [color=orange]Bleeding[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="CableApcStack" Caption="Cables (any type)"/>
-    Cables can be used to repair [color=yellow]Burns[/color].
+    Cables can be used to repair [color=yellow]Burns[/color], except for caustic.
+
+    <GuideEntityEmbed Entity="SheetSteel" Caption="Steel Sheets"/>
+    Steel can be used to repair [color=yellow]Caustic[/color] damage.
   </Box>
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="SheetGlass" Caption="Glass Sheets (any type)"/>
     Glass Sheets can be used to repair [color=yellow]Blindness[/color].
+  </Box>
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="SheetPlasma" Caption="Plasma Sheets"/>
+    Plasma Sheets can be used to repair [color=green]Radiation[/color] damage.
+  </Box>
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="SheetPlastic" Caption="Plastic Sheets"/>
+    Plastic Sheets can be used to stop [color=orange]Bleeding[/color].
+  </Box>
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="Oilpack" Caption="Oil Packs"/>
+    IPCs have no blood, but they have Oil. Oil Packs can be used to replenish [color=red]Oil[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
     In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by right-clicking).

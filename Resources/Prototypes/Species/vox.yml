@@ -8,8 +8,8 @@
   dollPrototype: MobVoxDummy
   skinColoration: VoxFeathers
   defaultSkinTone: "#6c741d"
-  maleFirstNames: names_vox
-  femaleFirstNames: names_vox
+  maleFirstNames: NamesVox
+  femaleFirstNames: NamesVox
   naming: First
   sexes:
   - Unsexed
@@ -21,8 +21,8 @@
     Snout: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking # DeltaV
-    Undershirt: MobHumanoidAnyMarking # DeltaV
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobVoxTorso
     Eyes: MobVoxEyes
     LArm: MobVoxLArm
@@ -60,14 +60,12 @@
       points: 4
       required: true
       defaultMarkings: [ VoxLLegScales, VoxRLegScales, VoxRFootScales, VoxLFootScales ]
-    # Begin DeltaV changes.
-    Underwear:
+    UndergarmentTop:
       points: 1
       required: false
-    Undershirt:
+    UndergarmentBottom:
       points: 1
       required: false
-    # End DeltaV changes.
     Chest:
       points: 1
       required: false

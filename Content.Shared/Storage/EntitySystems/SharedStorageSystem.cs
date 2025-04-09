@@ -283,7 +283,7 @@ public abstract class SharedStorageSystem : EntitySystem
 
     private void AddUiVerb(EntityUid uid, StorageComponent component, GetVerbsEvent<ActivationVerb> args)
     {
-        if (!CanInteract(args.User, (uid, component), args.CanAccess && args.CanInteract))
+        if (component.ShowVerb == false || !CanInteract(args.User, (uid, component), args.CanAccess && args.CanInteract))
             return;
 
         // Does this player currently have the storage UI open?
@@ -299,7 +299,7 @@ public abstract class SharedStorageSystem : EntitySystem
                 }
                 else
                 {
-                    OpenStorageUI(uid, args.User, component);
+                    OpenStorageUI(uid, args.User, component, false);
                 }
             }
         };
@@ -319,11 +319,33 @@ public abstract class SharedStorageSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
+    public void OpenStorageUI(EntityUid uid, EntityUid actor, StorageComponent? storageComp = null, bool silent = true)
+    {
+        // Handle recursively opening nested storages.
+        if (ContainerSystem.TryGetContainingContainer(uid, out var container) &&
+            UI.IsUiOpen(container.Owner, StorageComponent.StorageUiKey.Key, actor))
+        {
+            _nestedCheck = true;
+            HideStorageWindow(container.Owner, actor);
+            OpenStorageUIInternal(uid, actor, storageComp, silent: true);
+            _nestedCheck = false;
+        }
+        else
+        {
+            // If you need something more sophisticated for multi-UI you'll need to code some smarter
+            // interactions.
+            if (_openStorageLimit == 1)
+                UI.CloseUserUis<StorageComponent.StorageUiKey>(actor);
+
+            OpenStorageUIInternal(uid, actor, storageComp, silent: silent);
+        }
+    }
+
     /// <summary>
     ///     Opens the storage UI for an entity
     /// </summary>
     /// <param name="entity">The entity to open the UI for</param>
-    public void OpenStorageUI(EntityUid uid, EntityUid entity, StorageComponent? storageComp = null, bool silent = true)
+    private void OpenStorageUIInternal(EntityUid uid, EntityUid entity, StorageComponent? storageComp = null, bool silent = true)
     {
         if (!Resolve(uid, ref storageComp, false))
             return;
@@ -408,24 +430,7 @@ public abstract class SharedStorageSystem : EntitySystem
         }
         else
         {
-            // Handle recursively opening nested storages.
-            if (ContainerSystem.TryGetContainingContainer((args.Target, null, null), out var container) &&
-                UI.IsUiOpen(container.Owner, StorageComponent.StorageUiKey.Key, args.User))
-            {
-                _nestedCheck = true;
-                HideStorageWindow(container.Owner, args.User);
-                OpenStorageUI(uid, args.User, storageComp, silent: true);
-                _nestedCheck = false;
-            }
-            else
-            {
-                // If you need something more sophisticated for multi-UI you'll need to code some smarter
-                // interactions.
-                if (_openStorageLimit == 1)
-                    UI.CloseUserUis<StorageComponent.StorageUiKey>(args.User);
-
-                OpenStorageUI(uid, args.User, storageComp, silent: false);
-            }
+            OpenStorageUI(uid, args.User, storageComp, false);
         }
 
         args.Handled = true;
@@ -528,10 +533,9 @@ public abstract class SharedStorageSystem : EntitySystem
             {
                 var parent = transformOwner.ParentUid;
 
-                var position = EntityCoordinates.FromMap(
+                var position = TransformSystem.ToCoordinates(
                     parent.IsValid() ? parent : uid,
-                    TransformSystem.GetMapCoordinates(transformEnt),
-                    TransformSystem
+                    TransformSystem.GetMapCoordinates(transformEnt)
                 );
 
                 args.Handled = true;
@@ -581,10 +585,9 @@ public abstract class SharedStorageSystem : EntitySystem
                 continue;
             }
 
-            var position = EntityCoordinates.FromMap(
+            var position = TransformSystem.ToCoordinates(
                 xform.ParentUid.IsValid() ? xform.ParentUid : uid,
-                new MapCoordinates(TransformSystem.GetWorldPosition(targetXform), targetXform.MapID),
-                TransformSystem
+                new MapCoordinates(TransformSystem.GetWorldPosition(targetXform), targetXform.MapID)
             );
 
             var angle = targetXform.LocalRotation;

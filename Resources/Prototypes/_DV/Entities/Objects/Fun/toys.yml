@@ -85,3 +85,42 @@
   - type: Sprite
     sprite: _DV/Objects/Fun/Toys/mortyplush.rsi
     state: icon
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieIPC
+  name: ipc plushie
+  description: A massive robo-plushie. The screen might be hard plastic, but the rest of it is soft and cuddly!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/ipcplush.rsi
+    layers:
+    - state: icon
+    - state: heart
+      shader: unshaded
+    - state: screenshine
+  - type: MultiHandedItem
+  - type: Item
+    size: Ginormous
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_EE/Voice/IPC/pai_whistle.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_EE/Voice/IPC/robot-scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_EE/Voice/IPC/pai_whistle.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_EE/Voice/IPC/robot-scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/_EE/Voice/IPC/robot-scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/_EE/Voice/IPC/pai_whistle.ogg
+    delay: 5
+  - type: HeldSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.7

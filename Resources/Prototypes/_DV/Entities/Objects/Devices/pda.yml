@@ -10,11 +10,11 @@
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
+    - NanoTaskCartridge
     - NewsReaderCartridge
     - CrimeAssistCartridge
     - SecWatchCartridge
     - NanoChatCartridge
-    - SOSCartridge # Imp
     - MedTekCartridge
   - type: Pda
     id: BrigmedicIDCard
@@ -81,11 +81,11 @@
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
+    - NanoTaskCartridge
     - NewsReaderCartridge
     - CrimeAssistCartridge
     - SecWatchCartridge
     - NanoChatCartridge
-    - SOSCartridge # Imp
 
 - type: entity
   parent: BaseJusticePDA
@@ -197,10 +197,10 @@
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
+    - NanoTaskCartridge
     - NewsReaderCartridge
     - MailMetricsCartridge
     - NanoChatCartridge
-    - SOSCartridge # Imp
 
 - type: entity
   parent: CourierPDA
@@ -664,3 +664,12 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType: !type:String
         pda-hygienetechnician
+
+- type: entity
+  parent: SyndiPDA
+  id: RoboNeuroticistPDA
+  name: robo-neuroticist PDA
+  description: An elite PDA for an elite Operative. Bits of wire and grease poke from the chassis.
+  components:
+  - type: Pda
+    id: RoboNeuroticistIDCard

@@ -3,9 +3,6 @@ hostname           = "[EN][MRP] Delta-v (Ψ) | Periapsis [US East 2]"
 soft_max_players   = 50
 round_restart_time = 300
 
-[server]
-rules_file   = "DeltaVRuleset"
-
 [vote]
 preset_enabled = true
 map_enabled = true
@@ -13,6 +10,10 @@ map_enabled = true
 [whitelist]
 # TODO: make a whitelist prototype whenever this gets reenabled
 enabled     = false
+
+[shuttle]
+auto_call_time = 150 # 2.5 hours
+auto_call_extension_time = 30 # next auto call at 3h00, gamers gotta game
 
 [ooc]
 enable_during_round = true

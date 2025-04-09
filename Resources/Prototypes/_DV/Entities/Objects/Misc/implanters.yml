@@ -29,3 +29,11 @@
   components:
   - type: Implanter
     implant: SyndicateRadioImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: RadioImplanterCentcomm
+  suffix: centcomm radio
+  components:
+  - type: Implanter
+    implant: RadioImplantCentcomm

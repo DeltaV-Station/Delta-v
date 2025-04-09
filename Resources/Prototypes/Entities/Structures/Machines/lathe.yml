@@ -90,6 +90,7 @@
   parent: BaseLatheLube
   name: autolathe
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
+  suffix: DO NOT MAP # DeltaV - departamental lathes
   components:
   - type: Sprite
     sprite: Structures/Machines/autolathe.rsi
@@ -117,130 +118,26 @@
     runningState: building
     unlitIdleState: unlit
     unlitRunningState: unlit-building
-    staticRecipes:
-      - Wirecutter
-      - Igniter
-      - Signaller
-      - Screwdriver
-      - Welder
-      - Wrench
-      - CrowbarGreen
-      - Multitool
-      - NetworkConfigurator
-      - SprayPainter
-      - FlashlightLantern
-      - CableStack
-      - CableMVStack
-      - CableHVStack
-      - HandheldGPSBasic
-      - TRayScanner
-      - AirTank
-      - GasAnalyzer
-      - UtilityBelt
-      - Pickaxe
-      - ModularReceiver
-      - AppraisalTool
-      - SheetRGlass
-      - Beaker
-      - Syringe
-      - HandLabeler
-      - LightTube
-      - LedLightTube
-      - SodiumLightTube
-      - ExteriorLightTube
-      - LightBulb
-      - LedLightBulb
-      - DimLightBulb
-      - Bucket
-      - DrinkMug
-      - DrinkMugMetal
-      - DrinkGlass
-      - DrinkShotGlass
-      - DrinkGlassCoupeShaped
-      - CustomDrinkJug
-      - FoodPlate
-      - FoodPlateSmall
-      - FoodPlatePlastic
-      - FoodPlateSmallPlastic
-      - FoodBowlBig
-      - FoodPlateTin
-      - FoodPlateMuffinTin
-      - FoodKebabSkewer
-      - SprayBottle
-      - MopItem
-      - Holoprojector
-      - Mousetrap
-      - LightReplacer
-      - TrashBag
-      - PowerCellSmall
-      - PowerCellMedium
-      - RollerBedSpawnFolded
-      - CheapRollerBedSpawnFolded
-      - EmergencyRollerBedSpawnFolded
-      - MicroManipulatorStockPart
-      - MatterBinStockPart
-      - CapacitorStockPart
-      - ConveyorBeltAssembly
-      - IntercomElectronics
-      - FirelockElectronics
-      - DoorElectronics
-      - AirAlarmElectronics
-      - StationMapElectronics
-      - FireAlarmElectronics
-      - MailingUnitElectronics
-      - SignalTimerElectronics
-      - APCElectronics
-      - SMESMachineCircuitboard
-      - SubstationMachineCircuitboard
-      - WallmountSubstationElectronics
-      - CellRechargerCircuitboard
-      - WeaponCapacitorRechargerCircuitboard
-      - HandheldStationMap
-      - ClothingHeadHatWelding
-      - WetFloorSign
-      - ClothingHeadHatCone
-      - FreezerElectronics
-      # Begin Delta-V additions
-      - GoldRing
-      - SilverRing
-      - GoldRingDiamond
-      - SilverRingDiamond
-      - CassetteTape
-      - TapeRecorder
-      # End Delta-V additions
+    staticPacks:
+    # Begin DeltaV Additions
+    - RingsStatic
+    - ReportingStatic
+    # End DeltaV Additions
+    - ToolsStatic
+    - PartsStatic
+    - AtmosStatic
+    - CablesStatic
+    - CargoStatic
+    - MaterialsStatic
+    - BasicChemistryStatic
+    - RollerBedsStatic
+    - LightsStatic
+    - ServiceStatic
+    - PowerCellsStatic
+    - ElectronicsStatic
   - type: EmagLatheRecipes
-    emagStaticRecipes:
-      - BoxLethalshot
-      - BoxShotgunSlug
-      - CombatKnife
-      - MagazineBoxLightRifle
-      - MagazineBoxMagnum
-      - MagazineBoxPistol
-      - MagazineBoxRifle
-      - MagazineLightRifle
-      - MagazineLightRifleEmpty
-      - MagazinePistol
-      - MagazinePistolEmpty
-      - MagazinePistolSubMachineGun
-      - MagazinePistolSubMachineGunEmpty
-      - MagazinePistolSubMachineGunTopMounted
-      - MagazinePistolSubMachineGunTopMountedEmpty
-      - MagazineRifle
-      - MagazineRifleEmpty
-      - MagazineShotgun
-      - MagazineShotgunEmpty
-      - MagazineShotgunSlug
-      - RiotShield
-      - SpeedLoaderMagnum
-      - SpeedLoaderMagnumEmpty
-      - WeaponProtoKineticAccelerator
-      # DeltaV - .38 special ammo - Add .38 special lethals to emagged autolathe
-      - SpeedLoaderSpecial
-      - SpeedLoaderSpecialEmpty
-      - SpeedLoaderSpecialPractice
-      - MagazineBoxSpecial
-      - MagazinePistolSpecial
-      # End of modified code
+    emagStaticPacks:
+    - SecurityAmmoStatic
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -270,6 +167,7 @@
   parent: BaseLatheLube
   name: protolathe
   description: Converts raw materials into advanced items.
+  suffix: DO NOT MAP # DeltaV - departamental lathes
   components:
   - type: Sprite
     sprite: Structures/Machines/protolathe.rsi
@@ -297,161 +195,33 @@
     runningState: building
     unlitIdleState: unlit
     unlitRunningState: unlit-building
-    staticRecipes:
-    - LargeBeaker
-    - Dropper
-    - ClothingEyesGlassesChemical
-    dynamicRecipes:
-      - PowerDrill
-      - MiningDrill
-      - MiningDrillDiamond
-      - AnomalyScanner
-      - AnomalyLocator
-      - AnomalyLocatorWide
-      - Scalpel
-      - Retractor
-      - Cautery
-      - Drill
-      - WeaponParticleDecelerator
-      - HoloprojectorField
-      - Saw
-      - Hemostat
-      - CryostasisBeaker
-      - SyringeCryostasis
-      - Syringe
-      - Implanter
-      - PillCanister
-      - ChemistryEmptyBottle01
-      - AdvMopItem
-      - WeaponSprayNozzle
-      - ClothingBackpackWaterTank
-      - MegaSprayBottle
-      - TimerTrigger
-      - ChemicalPayload
-      - FlashPayload
-      - Signaller
-      - SignallerAdvanced
-      - SignalTrigger
-      - VoiceTrigger
-      - Igniter
-      - HandHeldMassScanner
-      - PowerCellMicroreactor
-      - PowerCellHigh
-      - WeaponPistolCHIMP
-      - ClothingMaskWeldingGas
-      - MineralScannerEmpty
-      - AdvancedMineralScannerEmpty
-      - WeaponGauntletGorilla
-      - SynthesizerInstrument
-      - ClothingShoesBootsMagSci
-      - ClothingShoesBootsMoon
-      - ClothingShoesBootsSpeed
-      - NodeScanner
-      - HolofanProjector
-      - BluespaceBeaker
-      - SyringeBluespace
-      #- WeaponForceGun # DeltaV
-      #- WeaponLaserSvalinn #DeltaV
-      - WeaponGrapplingGun
-      #- WeaponTetherGun # DeltaV
-      - ClothingBackpackHolding
-      - ClothingBackpackSatchelHolding
-      - ClothingBackpackDuffelHolding
-      - WelderExperimental
-      - JawsOfLife
-      - FauxTileAstroGrass
-      - FauxTileMowedAstroGrass
-      - FauxTileJungleAstroGrass
-      - FauxTileAstroIce
-      - FauxTileAstroSnow
-      - OreBagOfHolding
-      - DeviceQuantumSpinInverter
-      # Begin DeltaV additions
-      - CoreSilver # Nyanotrasen - Silver Golem core
-      - HandheldCrewMonitor
-      - PlantBagOfHolding
-      - RCDAmmo
-      - Fulton
-      - FultonBeacon
-      - PowerCellHyper
-      - FireExtinguisherBluespace
-      - SignallerDeadMans
-      # End DeltaV additions
-      - EnergyScalpel # Shitmed Change
-      - EnergyCautery # Shitmed Change
-      - AdvancedRetractor # Shitmed Change
+    staticPacks:
+    - ChemistryStatic
+    - SurgeryStatic
+    dynamicPacks:
+    - AdvancedTools
+    - ScienceEquipment
+    - ScienceExplosives
+    - ScienceClothing
+    - PowerCells
+    - ScienceWeapons
+    - Mining
+    - AtmosTools
+    - EngineeringWeapons
+    - Chemistry
+    - Janitor
+    - Instruments
+    - Equipment
+    - FauxTiles
+    - Botany # DeltaV
+    - Surgery # Shitmed change
   - type: EmagLatheRecipes
-    emagDynamicRecipes:
-      - BorgModuleFauna
-      - BoxBeanbag
-      - BoxShotgunIncendiary
-      - BoxShotgunUranium
-      - BoxShellTranquilizer
-      - ExplosivePayload
-      - GrenadeBlast
-      - GrenadeEMP
-      - GrenadeFlash
-      - HoloprojectorSecurity
-      - MagazineBoxLightRifleIncendiary
-      - MagazineBoxLightRifleUranium
-      - MagazineBoxMagnumIncendiary
-      - MagazineBoxMagnumUranium
-      - MagazineBoxPistolIncendiary
-      - MagazineBoxPistolUranium
-      - MagazineBoxRifleIncendiary
-      - MagazineBoxRifleUranium
-      - MagazineGrenadeEmpty
-      - MagazineLightRifleIncendiary
-      - MagazineLightRifleUranium
-      - MagazinePistolIncendiary
-      - MagazinePistolUranium
-      - MagazineRifleIncendiary
-      - MagazineRifleUranium
-      - MagazineShotgunBeanbag
-      - MagazineShotgunIncendiary
-      - MagazineShotgunIncendiary
-      #- PortableRecharger # DeltaV - removed for some reason
-      - PowerCageHigh
-      - PowerCageMedium
-      - PowerCageSmall
-      - SpeedLoaderMagnumIncendiary
-      - SpeedLoaderMagnumUranium
-      - TelescopicShield
-      - Truncheon
-      - WeaponAdvancedLaser
-      - WeaponLaserCannon
-      - WeaponLaserCarbine
-      - WeaponXrayCannon
-      - WeaponCrusher
-      - WeaponCrusherDagger
-      - WeaponCrusherGlaive
-      # Begin DeltaV additions
-      - BoxShellSoulbreaker # Nyanotrasen - Shotgun shell to get rid of psionics
-      - WeaponEnergyGun       # Energy Gun
-      - WeaponEnergyGunMini   # Miniature Energy Gun
-      - WeaponEnergyGunPistol # PDW-9 Energy Pistol
-      - WeaponGunLaserCarbineAutomatic # IK-60 Laser Carbine
-      - MagazinePistolRubber
-      - SpeedLoaderMagnumRubber
-      - SpeedLoaderSpecialRubber
-      - SpeedLoaderSpecialUranium
-      - MagazineRifleRubber
-      - MagazineLightRifleRubber
-      - MagazineBoxPistolRubber
-      - MagazineBoxMagnumRubber
-      - MagazineBoxLightRifleRubber
-      - MagazineBoxRifleRubber
-      - MagazineBoxSpecialRubber
-      - MagazineBoxSpecialIncendiary
-      - MagazineBoxSpecialUranium
-      - MagazineBoxSpecialHoly
-      - MagazineBoxSpecialMindbreaker
-      - AdvancedTruncheon
-      - LauncherSyringe
-      - MiniSyringe
-      - WeaponColdCannon
-      - WeaponBeamCannon
-      # End DeltaV additions
+    emagDynamicPacks:
+    - SecurityAmmo
+    - SecurityExplosives
+    - SecurityEquipment
+    - SecurityWeapons
+    - SyringeGuns # DeltaV
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -487,120 +257,25 @@
     producingSound: /Audio/Machines/circuitprinter.ogg
     idleState: icon
     runningState: building
-    staticRecipes:
-    - ProtolatheMachineCircuitboard
-    - AutolatheMachineCircuitboard
-    - CircuitImprinterMachineCircuitboard
-    - BiogeneratorMachineCircuitboard
-    - OreProcessorMachineCircuitboard
-    - ElectrolysisUnitMachineCircuitboard
-    - CentrifugeMachineCircuitboard
-    - ChemDispenserMachineCircuitboard
-    - ChemMasterMachineCircuitboard
-    - CondenserMachineCircuitBoard
-    - HotplateMachineCircuitboard
-    - UniformPrinterMachineCircuitboard
-    - FloorGreenCircuit
-    - FloorBlueCircuit
-    - FloorRedCircuit
-    - MicrowaveMachineCircuitboard
-    - ReagentGrinderMachineCircuitboard
-    - ElectricGrillMachineCircuitboard
-    - BoozeDispenserMachineCircuitboard
-    - SodaDispenserMachineCircuitboard
-    - DeepFryerMachineCircuitboard #Nyano - Summary: adds deep fryer circuit board
-    - SpaceHeaterMachineCircuitBoard
-    - CutterMachineCircuitboard
-    - SalvageMagnetMachineCircuitboard
-    - BorgChargerCircuitboard
-    - OperatingTableCircuitboard # Shitmed Change
-    dynamicRecipes:
-      - ThermomachineFreezerMachineCircuitBoard
-      - HellfireFreezerMachineCircuitBoard
-      - PortableScrubberMachineCircuitBoard
-      - CloningPodMachineCircuitboard
-      - MedicalScannerMachineCircuitboard
-      - CryoPodMachineCircuitboard
-      - VaccinatorMachineCircuitboard
-      - DiagnoserMachineCircuitboard
-      - BiomassReclaimerMachineCircuitboard
-      - BiofabricatorMachineCircuitboard
-      - SurveillanceCameraRouterCircuitboard
-      - SurveillanceCameraMonitorCircuitboard
-      - SurveillanceWirelessCameraMonitorCircuitboard
-      - SurveillanceCameraWirelessRouterCircuitboard
-      - ComputerTelevisionCircuitboard
-      - SurveillanceWirelessCameraMovableCircuitboard
-      - SurveillanceWirelessCameraAnchoredCircuitboard
-      - HydroponicsTrayMachineCircuitboard
-      - SolarControlComputerCircuitboard
-      - SolarTrackerElectronics
-      - TurboItemRechargerCircuitboard
-      - AutolatheHyperConvectionMachineCircuitboard
-      - ProtolatheHyperConvectionMachineCircuitboard
-      - CircuitImprinterHyperConvectionMachineCircuitboard
-      - FatExtractorMachineCircuitboard
-      - FlatpackerMachineCircuitboard
-      - SheetifierMachineCircuitboard
-      - ShuttleConsoleCircuitboard
-      - RadarConsoleCircuitboard
-      - TechDiskComputerCircuitboard
-      - DawInstrumentMachineCircuitboard
-      - CloningConsoleComputerCircuitboard
-      - StasisBedMachineCircuitboard
-      - AutodocCircuitboard # Shitmed
-      - OreProcessorIndustrialMachineCircuitboard
-      - CargoTelepadMachineCircuitboard
-      - RipleyCentralElectronics
-      - RipleyPeripheralsElectronics
-      - HonkerCentralElectronics
-      - HonkerPeripheralsElectronics
-      - HonkerTargetingElectronics
-      - HamtrCentralElectronics
-      - HamtrPeripheralsElectronics
-      - PortableGeneratorPacmanMachineCircuitboard
-      - PortableGeneratorSuperPacmanMachineCircuitboard
-      - PortableGeneratorJrPacmanMachineCircuitboard
-      - WallmountSubstationElectronics
-      - PowerCageRechargerCircuitboard
-      - EmitterCircuitboard
-      - ThrusterMachineCircuitboard
-      - GyroscopeMachineCircuitboard
-      - MiniGravityGeneratorCircuitboard
-      - ShuttleGunKineticCircuitboard
-      - GasRecyclerMachineCircuitboard
-      - SeedExtractorMachineCircuitboard
-      - AnalysisComputerCircuitboard
-      - ExosuitFabricatorMachineCircuitboard
-      - AnomalyVesselCircuitboard
-      - AnomalyVesselExperimentalCircuitboard
-      - AnomalySynchronizerCircuitboard
-      - APECircuitboard
-      - ArtifactAnalyzerMachineCircuitboard
-      - ArtifactCrusherMachineCircuitboard
-      - TelecomServerCircuitboard
-      - MassMediaCircuitboard
-      - ReagentGrinderIndustrialMachineCircuitboard
-      - JukeboxCircuitBoard
-      - SMESAdvancedMachineCircuitboard
-      - HolopadMachineCircuitboard
-      # Begin Nyano additions
-      - ReverseEngineeringMachineCircuitboard
-      - CrewMonitoringComputerCircuitboard
-      - MetempsychoticMachineCircuitboard
-      # End Nyano additions
-      # Begin DeltaV additions
-      - SalvageExpeditionsComputerCircuitboard
-      - ComputerMassMediaCircuitboard
-      - AlertsComputerCircuitboard
-      - AdvancedMicrowaveMachineCircuitBoard
-      # End DeltaV additions
+    staticPacks:
+    - ScienceBoardsStatic
+    - ServiceBoardsStatic
+    - CargoBoardsStatic
+    - MedicalBoardsStatic
+    - EngineeringBoardsStatic
+    - CircuitFloorsStatic
+    dynamicPacks:
+    - EngineeringBoards
+    - CargoBoards
+    - MedicalBoards
+    - ServiceBoards
+    - ScienceBoards
+    - CameraBoards
+    - MechBoards
+    - ShuttleBoards
   - type: EmagLatheRecipes
-    emagDynamicRecipes:
-      - ShuttleGunDusterCircuitboard
-      - ShuttleGunFriendshipCircuitboard
-      - ShuttleGunPerforatorCircuitboard
-      - ShuttleGunSvalinnMachineGunCircuitboard
+    emagDynamicPacks:
+    - SecurityBoards
   - type: MaterialStorage
     whitelist:
       tags:
@@ -640,88 +315,25 @@
   - type: Lathe
     idleState: fab-idle
     runningState: fab-active
-    staticRecipes:
-    - MMI
-    - PositronicBrain
-    - SciFlash
-    - BorgModuleCable
-    - BorgModuleFireExtinguisher
-    - BorgModuleRadiationDetection
-    - BorgModuleTool
-    - CyborgEndoskeleton
-    - LeftArmBorg
-    - RightArmBorg
-    - LeftLegBorg
-    - RightLegBorg
-    - LightHeadBorg
-    - TorsoBorg
-    - BorgModuleSurgery # Shitmed Change
-    # Shitmed Change
-    - BorgModuleSurgery
-    - TorsoIPC
-    - LeftArmIPC
-    - RightArmIPC
-    - LeftLegIPC
-    - RightLegIPC
-    - HeadIPC
-    - LeftHandIPC
-    - RightHandIPC
-    - LeftFootIPC
-    - RightFootIPC
-    - OrganIPCEyes
-    - OrganIPCPump
-    dynamicRecipes:
-    - ProximitySensor
-    - ClothingEyesHudDiagnostic
-    - BorgModuleAdvancedCleaning
-    - BorgModuleAdvancedTool
-    - BorgModuleGPS
-    - BorgModuleArtifact
-    - BorgModuleAnomaly
-    - BorgModuleGardening
-    - BorgModuleHarvesting
-    - BorgModuleDefibrillator
-    - BorgModuleAdvancedTreatment
-    - RipleyHarness
-    - RipleyLArm
-    - RipleyRArm
-    - RipleyLLeg
-    - RipleyRLeg
-    - MechEquipmentGrabber
-    - HonkerHarness
-    - HonkerLArm
-    - HonkerRArm
-    - HonkerLLeg
-    - HonkerRLeg
-    - MechEquipmentHorn
-    - MechEquipmentGrabberSmall
-    - HamtrHarness
-    - HamtrLArm
-    - HamtrRArm
-    - HamtrLLeg
-    - HamtrRLeg
-    - VimHarness
-  # Begin Nyano additions
-    - JetpackBlue
-    - JetpackMini
-  # End Nyano additions
-  # DeltaV Start
-    - BorgModuleSecurityChase
-    - BorgModuleSecurityEscalate
-    - JetpackVoid
-    # Shitmed Change
-    - BorgModuleAdvancedSurgery
-    - JawsOfLifeLeftArm
-    - JawsOfLifeRightArm
-    - SpeedLeftLeg
-    - SpeedRightLeg
-    - BasicCyberneticEyes
-    # Shitmed End
-  - type: EmagLatheRecipes
-    emagDynamicRecipes:
-    - ClothingOuterHardsuitJuggernautReverseEngineered
-    - ClothingOuterHardsuitSyndieReverseEngineered
-  # DeltaV End
+    staticPacks:
+    - RoboticsStatic
+    - BorgModulesStatic
+    - BorgLimbsStatic
+    dynamicPacks:
+    - Robotics
+    - BorgModules
+    - MechParts
+    - MechEquipment
+    - Cybernetics # Shitmed change
+    - PowerAugments # DeltaV - augments
+    - ToolAugments # DeltaV - augments
+  - type: EmagLatheRecipes # DeltaV
+    emagStaticPacks:
+    - RoboticsEmagStatic
+    emagDynamicPacks:
+    - SecurityCybernetics # having sechud eyes is good for evil people
+    - SecurityHardsuits
+    - BorgModulesSecurityDeltaV # DeltaV - secfab borg modules
   - type: MaterialStorage
     whitelist:
       tags:
@@ -765,19 +377,11 @@
   - type: Lathe
     idleState: icon
     runningState: building
-    staticRecipes:
-    - MonkeyCube
-    - KoboldCube
-    - CowCube
-    - GoatCube
-    - MothroachCube
-    - MouseCube
-    - CockroachCube
+    staticPacks:
+    - FriendlyCubesStatic
   - type: EmagLatheRecipes
-    emagStaticRecipes:
-    - AbominationCube
-    - SpaceCarpCube
-    - SpaceTickCube
+    emagStaticPacks:
+    - HostileCubesStatic
 
 - type: entity
   id: SecurityTechFab
@@ -803,160 +407,19 @@
   - type: Lathe
     idleState: icon
     runningState: icon
-    staticRecipes:
-      - BoxLethalshot
-      - BoxShotgunPractice
-      - BoxShotgunSlug
-      - ClothingEyesHudSecurity
-      - CombatKnife
-      - Flash
-      - ForensicPad
-      - Handcuffs
-      - MagazineBoxLightRifle
-      - MagazineBoxLightRiflePractice
-      - MagazineBoxMagnum
-      - MagazineBoxMagnumPractice
-      - MagazineBoxPistol
-      - MagazineBoxPistolPractice
-      - MagazineBoxRifle
-      - MagazineBoxRiflePractice
-      - MagazineLightRifle
-      - MagazineLightRifleEmpty
-      - MagazinePistol
-      - MagazinePistolEmpty
-      - MagazinePistolSubMachineGun
-      - MagazinePistolSubMachineGunEmpty
-      - MagazinePistolSubMachineGunTopMounted
-      - MagazinePistolSubMachineGunTopMountedEmpty
-      - MagazineRifle
-      - MagazineRifleEmpty
-      - MagazineShotgun
-      - MagazineShotgunEmpty
-      - MagazineShotgunSlug
-      - RiotShield
-      - SpeedLoaderMagnum
-      - SpeedLoaderMagnumEmpty
-      - Stunbaton
-      - TargetClown
-      - TargetHuman
-      - TargetSyndicate
-      - WeaponDisablerPractice
-      - WeaponFlareGunSecurity
-      - WeaponLaserCarbinePractice
-      - WeaponProtoKineticAccelerator
-      - Zipties
-      # Begin DeltaV additions
-      - ClothingNeckShockCollar # Nyanotrasen - Shock Collar recipe
-      - ClothingOuterArmorPlateCarrier # plate carrier body armour
-      - ClothingOuterArmorDuraVest # stabproof vest body armour
-      - MagazineBoxSpecial
-      - MagazineBoxSpecialPractice
-      - SpeedLoaderSpecial
-      - SpeedLoaderSpecialEmpty
-      - SpeedLoaderSpecialPractice
-      - MagazinePistolSpecial
-      - MagazineRifleRubber
-      - MagazinePistolRubber
-      - MagazineLightRifleRubber
-      - SpeedLoaderMagnumRubber
-      - SpeedLoaderSpecialRubber
-      - MagazineBoxPistolRubber
-      - MagazineBoxMagnumRubber
-      - MagazineBoxLightRifleRubber
-      - MagazineBoxRifleRubber
-      - MagazineBoxSpecialRubber
-      - MagazineShotgunBeanbag
-      - BoxShellTranquilizer
-      - BoxBeanbag
-      - WeaponDisabler
-      # End DeltaV additions
-    dynamicRecipes:
-      - EncryptionKeySyndie # Nyano
-      - BorgModuleFauna
-      - BoxBeanbag
-      - BoxShotgunIncendiary
-      - BoxShotgunUranium
-      - BoxShellTranquilizer
-      - ExplosivePayload
-      - FlashPayload
-      - GrenadeBlast
-      - GrenadeEMP
-      - GrenadeFlash
-      - HoloprojectorSecurity
-      - MagazineBoxLightRifleIncendiary
-      - MagazineBoxLightRifleUranium
-      - MagazineBoxMagnumIncendiary
-      - MagazineBoxMagnumUranium
-      - MagazineBoxPistolIncendiary
-      - MagazineBoxPistolUranium
-      - MagazineBoxRifleIncendiary
-      - MagazineBoxRifleUranium
-      - MagazineGrenadeEmpty
-      - MagazineLightRifleIncendiary
-      - MagazineLightRifleUranium
-      - MagazinePistolIncendiary
-      - MagazinePistolUranium
-      - MagazineRifleIncendiary
-      - MagazineRifleUranium
-      - MagazineShotgunBeanbag
-      - MagazineShotgunIncendiary
-      - PortableRecharger
-      - PowerCageHigh
-      - PowerCageMedium
-      - PowerCageSmall
-      - ShuttleGunDusterCircuitboard
-      - ShuttleGunFriendshipCircuitboard
-      - ShuttleGunPerforatorCircuitboard
-      - ShuttleGunSvalinnMachineGunCircuitboard
-      - Signaller
-      - SignalTrigger
-      - SpeedLoaderMagnumIncendiary
-      - SpeedLoaderMagnumUranium
-      - TelescopicShield
-      - TimerTrigger
-      - Truncheon
-      - VoiceTrigger
-      - WeaponAdvancedLaser
-      - WeaponDisabler
-      - WeaponDisablerSMG
-      - WeaponLaserCannon
-      - WeaponLaserCarbine
-      - WeaponXrayCannon
-      - ClothingBackpackElectropack
-      - WeaponCrusher
-      - WeaponCrusherDagger
-      - WeaponCrusherGlaive
-      # Begin DeltaV additions
-      - BoxShellSoulbreaker # Nyanotrasen - Shotgun shell to get rid of psionics
-      - ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
-      - ClothingHeadCage # Nyanotrasen - Insulative headgear
-      - WeaponEnergyGun # DeltaV - Energy Gun
-      - WeaponEnergyGunMini # Energy Gun but miniature
-      - WeaponEnergyGunPistol # Energy Gun Mini but with the power of a normal energy gun
-      - WeaponGunLaserCarbineAutomatic # New Laser Projectiles with a 20 round carbine
-      - MagazinePistolRubber
-      - SpeedLoaderMagnumRubber
-      - SpeedLoaderSpecialRubber
-      - SpeedLoaderSpecialUranium
-      - MagazineRifleRubber
-      - MagazineLightRifleRubber
-      - MagazineBoxPistolRubber
-      - MagazineBoxMagnumRubber
-      - MagazineBoxLightRifleRubber
-      - MagazineBoxRifleRubber
-      - MagazineBoxSpecialRubber
-      - MagazineBoxSpecialIncendiary
-      - MagazineBoxSpecialUranium
-      - MagazineBoxSpecialHoly
-      - MagazineBoxSpecialMindbreaker
-      - ClothingOuterHardsuitJuggernautReverseEngineered
-      - ClothingOuterHardsuitSyndieReverseEngineered
-      - ClothingShoesBootsSecurityMagboots
-      - AdvancedTruncheon
-      - WeaponColdCannon
-      - WeaponBeamCannon
-      # End DeltaV additions
-      - SecurityCyberneticEyes # Shitmed Change
+    staticPacks:
+    - SecurityEquipmentStatic
+    - SecurityPracticeStatic
+    - SecurityAmmoStatic
+    - SecurityWeaponsStatic
+    - SecurityRubberAmmoStatic # DeltaV
+    dynamicPacks:
+    - SecurityEquipment
+    - SecurityBoards
+    - SecurityExplosives
+    - SecurityAmmo
+    - SecurityWeapons
+    #- SecurityDisablers # DeltaV - made roundstart
   - type: MaterialStorage
     whitelist:
       tags:
@@ -988,29 +451,8 @@
     - type: Lathe
       idleState: icon
       runningState: icon
-      staticRecipes:
-        # DeltaV - .38 special ammo - Add lethal .38 special ammo to ammo techfab
-        - SpeedLoaderSpecial
-        - MagazineBoxSpecial
-        # End of modified code
-        - BoxLethalshot
-        - BoxShotgunSlug
-        - BoxShellTranquilizer
-        - MagazineBoxLightRifle
-        - MagazineBoxMagnum
-        - MagazineBoxPistol
-        - MagazineBoxRifle
-        - MagazineLightRifle
-        - MagazineLightRifleEmpty
-        - MagazinePistol
-        - MagazinePistolEmpty
-        - MagazineRifle
-        - MagazineRifleEmpty
-        - MagazineShotgun
-        - MagazineShotgunEmpty
-        - MagazineShotgunSlug
-        - SpeedLoaderMagnum
-        - SpeedLoaderMagnumEmpty
+      staticPacks:
+      - SecurityAmmoStatic
     - type: MaterialStorage
       whitelist:
         tags:
@@ -1020,7 +462,7 @@
 
 - type: entity
   id: MedicalTechFab
-  parent: BaseLatheLube
+  parent: BaseTechFabDepartamental # DeltaV - make sure it inherits the emag recipes
   name: medical techfab
   description: Prints equipment for use by the medbay.
   components:
@@ -1040,66 +482,19 @@
   - type: Lathe
     idleState: icon
     runningState: icon
-    staticRecipes:
-      - Brutepack
-      - Ointment
-      - Gauze
-      - HandLabeler
-      - Defibrillator
-      - HandheldHealthAnalyzer
-      - ClothingHandsGlovesLatex
-      - ClothingHandsGlovesNitrile
-      - ClothingMaskSterile
-      - DiseaseSwab
-      - Beaker
-      - LargeBeaker
-      - Dropper
-      - Jug
-      - Syringe
-      - Implanter
-      - PillCanister
-      - BodyBag
-      - ChemistryEmptyBottle01
-      - RollerBedSpawnFolded
-      - CheapRollerBedSpawnFolded
-      - EmergencyRollerBedSpawnFolded
-      - Medkit
-      - MedkitBurn
-      - MedkitToxin
-      - MedkitO2
-      - MedkitBrute
-      - MedkitAdvanced
-      - MedkitRadiation
-      - MedkitCombat
-      - Scalpel
-      - Retractor
-      - Cautery
-      - Drill
-      - Saw
-      - Hemostat
-      - ClothingEyesGlassesChemical
-      - WhiteCane
-      - AACTablet # DeltaV
-      - BoneGel # Shitmed Change
-      - TankHarness # DeltaV
-    dynamicRecipes:
-      # Begin DeltaV additions
-      - LauncherSyringe
-      - MiniSyringe
-      # End DeltaV additions
-      - ChemicalPayload
-      - CryostasisBeaker
-      - BluespaceBeaker
-      - SyringeBluespace
-      - ClothingEyesHudMedical # Nyano
-      - ChemicalPayload # Nyano
-      - SyringeCryostasis
-      # Shitmed Change
-      - EnergyScalpel
-      - EnergyCautery
-      - AdvancedRetractor
-      #- OmnimedTool # DeltaV - Removed medical multi tool as a tech.
-      - MedicalCyberneticEyes
+    staticPacks:
+    - TopicalsStatic
+    - ChemistryStatic
+    - MedicalStatic
+    - RollerBedsStatic
+    - MedicalClothingStatic
+    - EmptyMedkitsStatic
+    - SurgeryStatic
+    dynamicPacks:
+    - Chemistry
+    - CyberneticsMedical # Shitmed change
+    - Surgery # Shitmed change
+    - MedicalDeltaV # DeltaV
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
@@ -1125,248 +520,26 @@
     producingSound: /Audio/Machines/uniformprinter.ogg
     idleState: icon
     runningState: building
-    staticRecipes:
-      - ClothingUniformJumpsuitColorGrey
-      - ClothingUniformJumpskirtColorGrey
-      - ClothingUniformJumpsuitBartender
-      - ClothingUniformJumpskirtBartender
-      - ClothingHeadHatCapcap
-      - ClothingHeadHatCaptain
-      - ClothingUniformJumpsuitCaptain
-      - ClothingUniformJumpskirtCaptain
-      - ClothingUniformJumpsuitCapFormal
-      - ClothingUniformJumpskirtCapFormalDress
-      - ClothingUniformJumpsuitCargo
-      - ClothingUniformJumpskirtCargo
-      - ClothingUniformJumpsuitSalvageSpecialist
-      - ClothingHeadHatBeretEngineering
-      - ClothingUniformJumpsuitChiefEngineer
-      - ClothingUniformJumpskirtChiefEngineer
-      - ClothingUniformJumpsuitChiefEngineerTurtle
-      - ClothingUniformJumpskirtChiefEngineerTurtle
-      - ClothingUniformJumpsuitChaplain
-      - ClothingUniformJumpskirtChaplain
-      - ClothingUniformJumpsuitChef
-      - ClothingUniformJumpskirtChef
-      - ClothingUniformJumpsuitChemistry
-      - ClothingUniformJumpskirtChemistry
-      - ClothingUniformJumpsuitClown
-      - ClothingHeadHatBeretCmo
-      - ClothingUniformJumpsuitCMO
-      - ClothingUniformJumpskirtCMO
-      - ClothingUniformJumpsuitCMOTurtle
-      - ClothingUniformJumpskirtCMOTurtle
-      - ClothingUniformJumpsuitDetective
-      - ClothingUniformJumpskirtDetective
-      - ClothingUniformJumpsuitEngineering
-      - ClothingUniformJumpskirtEngineering
-      - ClothingUniformJumpsuitSeniorEngineer
-      - ClothingUniformJumpskirtSeniorEngineer
-      - ClothingHeadHatHopcap
-      - ClothingUniformJumpsuitHoP
-      - ClothingUniformJumpskirtHoP
-      - ClothingUniformJumpsuitHoPFormal # DeltaV - Was never added, appearently?
-      - ClothingUniformJumpskirtHoPFormal # DeltaV - Formal dresses
-      - ClothingHeadHatBeretHoS
-      - ClothingHeadHatHoshat
-      - ClothingUniformJumpsuitHoS
-      - ClothingUniformJumpskirtHoS
-      - ClothingUniformJumpsuitHoSBlue # DeltaV - alternate sec uniforms
-      - ClothingUniformJumpskirtHoSBlue # DeltaV - alternate sec uniforms
-      - ClothingUniformJumpsuitHoSGrey # DeltaV - alternate sec uniforms
-      - ClothingUniformJumpskirtHoSGrey # DeltaV - alternate sec uniforms
-      - ClothingUniformJumpsuitHosFormal
-      - ClothingUniformJumpskirtHosFormal
-      - ClothingUniformJumpsuitHoSAlt
-      - ClothingUniformJumpskirtHoSAlt
-      - ClothingUniformJumpsuitHoSBlue
-      - ClothingUniformJumpsuitHoSGrey
-      - ClothingUniformJumpsuitHoSParadeMale
-      - ClothingUniformJumpskirtHoSParadeMale
-      - ClothingUniformJumpsuitHydroponics
-      - ClothingUniformJumpskirtHydroponics
-      - ClothingUniformJumpsuitJanitor
-      - ClothingUniformJumpskirtJanitor
-      - ClothingUniformJumpsuitLawyerBlack
-      - ClothingUniformJumpsuitLibrarian
-      - ClothingUniformJumpskirtColorLightBrown
-      - ClothingUniformCourier # DeltaV - Courier Uniform
-      - ClothingUniformSkirtCourier # DeltaV - Courier Uniform
-      - ClothingUniformJumpsuitMantis # Nyanotrasen - Forensic Mantis
-      - ClothingUniformSkirtMantis # Nyanotrasen - Forensic Mantis
-      - ClothingHeadHatBeretSeniorPhysician
-      - ClothingUniformJumpsuitMedicalDoctor
-      - ClothingUniformJumpskirtMedicalDoctor
-      - ClothingUniformJumpsuitSeniorPhysician
-      - ClothingUniformJumpskirtSeniorPhysician
-      - ClothingUniformJumpsuitMime
-      - ClothingUniformJumpskirtMime
-      - ClothingUniformJumpsuitMusician
-      - ClothingUniformJumpsuitParamedic
-      - ClothingUniformJumpskirtParamedic
-      - ClothingUniformJumpsuitSeniorOfficer
-      - ClothingUniformJumpskirtSeniorOfficer
-      - ClothingUniformJumpsuitPrisoner
-      - ClothingUniformJumpskirtPrisoner
-      - ClothingHeadHatQMsoft
-      - ClothingHeadHatBeretQM
-      - ClothingUniformJumpsuitQM
-      - ClothingUniformJumpskirtQM
-      - ClothingUniformJumpsuitQMTurtleneck
-      - ClothingUniformJumpskirtQMTurtleneck
-      - ClothingUniformJumpsuitQMFormal
-      - ClothingUniformJumpskirtQMFormal # DeltaV - Formal dresses
-      - ClothingHeadHatBeretRND
-      - ClothingHeadHatCJToque # DeltaV - Chief Justice
-      - ClothingUniformJumpsuitChiefJustice # DeltaV - Chief Justice
-      - ClothingUniformJumpskirtChiefJustice # DeltaV - Chief Justice
-      - ClothingUniformJumpsuitChiefJusticeFormal # DeltaV - Chief Justice
-      - ClothingUniformJumpskirtCJFormal # DeltaV - Formal dresses
-      - ClothingUniformJumpsuitChiefJusticeWhite # DeltaV - Chief Justice
-      - ClothingUniformJumpsuitResearchDirector
-      - ClothingUniformJumpskirtResearchDirector
-      - ClothingUniformJumpsuitScientist
-      - ClothingUniformJumpskirtScientist
-      - ClothingUniformJumpsuitSeniorResearcher
-      - ClothingUniformJumpskirtSeniorResearcher
-      - ClothingHeadHatBeretSecurity
-      - ClothingUniformJumpsuitSec
-      - ClothingUniformJumpskirtSec
-      - ClothingUniformJumpsuitSecBlue # DeltaV - alternate sec uniforms
-      - ClothingUniformJumpskirtSecBlue # DeltaV - alternate sec uniforms
-      - ClothingUniformJumpsuitSecGrey # DeltaV - alternate sec uniforms
-      - ClothingUniformJumpskirtSecGrey # DeltaV - alternate sec uniforms
-      - ClothingHeadHatBeretBrigmedic
-      - ClothingUniformJumpsuitBrigmedic
-      - ClothingUniformJumpskirtBrigmedic
-      - ClothingHeadHatBeretWarden
-      - ClothingHeadHatWarden
-      - ClothingUniformJumpsuitWarden
-      - ClothingUniformJumpskirtWarden
-      - ClothingUniformJumpsuitWardenBlue # DeltaV - alternate sec uniforms
-      - ClothingUniformJumpskirtWardenBlue # DeltaV - alternate sec uniforms
-      - ClothingUniformJumpsuitWardenGrey # DeltaV - alternate sec uniforms
-      - ClothingUniformJumpskirtWardenGrey # DeltaV - alternate sec uniforms
-      - ClothingBeltPaperwork # DeltaV - Added the paperwork belt
-      - ClothingHeadHatParamedicsoft
-      # Winter outfits
-      - ClothingOuterWinterCap
-      - ClothingOuterWinterCE
-      - ClothingOuterWinterCMO
-      - ClothingOuterWinterHoP
-      - ClothingOuterWinterHoSUnarmored
-      - ClothingOuterWinterWardenUnarmored
-      - ClothingOuterWinterQM
-      - ClothingOuterWinterRD
-      - ClothingOuterChiefJustice # DeltaV - Chief Justice
-      - ClothingOuterStasecSweater # DeltaV - added stasec sweater to uniform printer.
-      - ClothingOuterWinterMusician
-      - ClothingOuterWinterClown
-      - ClothingOuterWinterMime
-      - ClothingOuterWinterCoat
-      - ClothingOuterWinterJani
-      - ClothingOuterWinterBar
-      - ClothingOuterWinterChef
-      - ClothingOuterWinterHydro
-      - ClothingOuterWinterAtmos
-      - ClothingOuterWinterEngi
-      - ClothingOuterWinterCargo
-      - ClothingOuterWinterMiner
-      - ClothingOuterWinterMed
-      - ClothingOuterWinterPara
-      - ClothingOuterWinterChem
-      - ClothingOuterWinterGen
-      - ClothingOuterWinterViro
-      - ClothingOuterWinterSci
-      - ClothingOuterWinterRobo
-      - ClothingOuterWinterSec
-      # Ties
-      - ClothingNeckTieRed
-      - ClothingNeckTieDet
-      - ClothingNeckTieSci
-      # Scarfs - All scarfs avaible in winterdrobe
-      - ClothingNeckScarfStripedGreen
-      - ClothingNeckScarfStripedBlue
-      - ClothingNeckScarfStripedRed
-      - ClothingNeckScarfStripedBrown
-      - ClothingNeckScarfStripedLightBlue
-      - ClothingNeckScarfStripedOrange
-      - ClothingNeckScarfStripedBlack
-      - ClothingNeckScarfStripedPurple
-      # DeltaV Ponchos
-      - ClothingNeckCWPSec
-      - ClothingNeckCWPArctic
-      # Carpets
-      - Carpet
-      - CarpetBlack
-      - CarpetPink
-      - CarpetBlue
-      - CarpetGreen
-      - CarpetOrange
-      - CarpetPurple
-      - CarpetCyan
-      - CarpetWhite
-      # Bedsheets
-      - BedsheetBlack
-      - BedsheetBlue
-      - BedsheetBrown
-      - BedsheetGreen
-      - BedsheetGrey
-      - BedsheetOrange
-      - BedsheetPurple
-      - BedsheetRed
-      - BedsheetWhite
-      - BedsheetYellow
-      - BedsheetClown
-      - BedsheetCosmos
-      - BedsheetIan
-      - BedsheetMedical
-      - BedsheetMime
-      - BedsheetNT
-      - BedsheetRainbow
-      - BedsheetBrigmedic
+    staticPacks:
+    - ClothingCivilian
+    - ClothingCargo
+    - ClothingCommand
+    - ClothingEngineering
+    - ClothingMedical
+    - ClothingScience
+    - ClothingSecurity
+    - ClothingService
+    - WinterCoats
+    - Ties
+    - Scarves
+    - Carpets
+    - Bedsheets
+    - BeltsDeltaV # DeltaV
+    - ClothingJustice # DeltaV
   - type: EmagLatheRecipes
-    emagStaticRecipes:
-      # Clothing
-      - ClothingHeadHatCentcomcap
-      - ClothingHeadHatCentcom
-      - ClothingUniformJumpsuitCentcomAgent
-      - ClothingUniformJumpsuitCentcomFormal
-      - ClothingUniformJumpskirtCentcomFormalDress
-      - ClothingUniformJumpsuitCentcomOfficer
-      - ClothingUniformJumpsuitCentcomOfficial
-      - ClothingHeadHatSyndieMAA
-      - ClothingHeadHatSyndie
-      - ClothingUniformJumpsuitOperative
-      - ClothingUniformJumpskirtOperative
-      - ClothingUniformJumpsuitSyndieFormal
-      - ClothingUniformJumpskirtSyndieFormalDress
-      - ClothingHeadPyjamaSyndicateBlack
-      - ClothingUniformJumpsuitPyjamaSyndicateBlack
-      - ClothingHeadPyjamaSyndicatePink
-      - ClothingUniformJumpsuitPyjamaSyndicatePink
-      - ClothingHeadPyjamaSyndicateRed
-      - ClothingUniformJumpsuitPyjamaSyndicateRed
-      - ClothingOuterWinterCentcom
-      - ClothingOuterWinterSyndie
-      - ClothingOuterWinterSyndieCap
-      # Bedsheets
-      - BedsheetSyndie
-      # Begin DeltaV Additions
-      - ClothingUniformInterdyneChemist
-      - UniformScrubsColorCybersun
-      - ClothingUniformCybersunAttorney
-      - ClothingHeadHatSurgcapCybersun
-      - ClothingOuterInterdyneChemistrySuit
-      - ClothingOuterCoatCybersunWindbreaker
-      - ClothingMaskInterdyneChemistry
-      - ClothingHeadHatSurgcapCybersun
-      - ClothingUniformCybersunHazard
-      - ClothingUniformCybersunCasual
-      - ClothingUniformCybersunRND
-      - ClothingOuterCybersunOvercoat
-      - ClothingBeltSyndicateUtility
-      # End DeltaV Additions
+    emagStaticPacks:
+    - ClothingCentComm
+    - ClothingSyndie
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1413,28 +586,9 @@
     reagentOutputSlotId: beaker_slot
     idleState: icon
     runningState: building
-    staticRecipes:
-    - BioGenMilk
-    - BioGenMilkSoy
-    - BioGenEthanol
-    - BioGenCream
-    - BioGenBlackpepper
-    - BioGenEnzyme
-    - BioGenFlour
-    - BioGenSugar
-    - BioGenMonkeyCube
-    - BioGenKoboldCube
-    - BioGenMaterialCloth1
-    - BioGenMaterialCardboard1
-    - BioGenPaper
-    - BioGenPaperRolling1
-    - BioGenCandle
-    - BioGenPlantBGone
-    - BioGenWeedKiller
-    - BioGenPestKiller
-    - BioGenLeft4Zed
-    - BioGenEZNutrient
-    - BioGenRobustHarvest
+    staticPacks:
+    - BioGenIngredientsStatic
+    - BioGenMaterialsStatic
 
 - type: entity
   parent: BaseLathe
@@ -1466,27 +620,17 @@
       runningState: building
       defaultProductionAmount: 10
       priceModifier: 1 # DeltaV
-      staticRecipes:
-        - BluespaceCrystal #Nyano - Summary: Bluespace Crystals can be created here.
-        - SheetSteel
-        - SheetGlass1
-        - SheetRGlassRaw
-        - SheetPlasma1
-        - SheetPGlass1
-        - SheetRPGlass1
-        - SheetUranium1
-        - IngotGold1
-        - IngotSilver1
-        - MaterialBananium1
-        - MaterialDiamond
-    - type: MaterialStorageMagnetPickup # Delta V - Summary: Adds magnet pull from Frontier
+      staticPacks:
+      - OreSmelting
+      - RGlassSmelting
+    - type: MaterialStorageMagnetPickup # DeltaV - Adds magnet pull from Frontier
       magnetEnabled: True
-      range: 0.30 # Delta V - End Magnet Pull
+      range: 0.30 # DeltaV - End Magnet Pull
     - type: MiningPoints # DeltaV - Source of mining points for miners
       transferSound:
         path: /Audio/Effects/Cargo/ping.ogg
     - type: MiningPointsLathe # DeltaV
-    - type: PlaceableSurface # DeltaV: Allow ore bags to dump into it directly
+    - type: PlaceableSurface # DeltaV - Allow ore bags to dump into it directly
       isPlaceable: false # but not place on it if you just click it with a random item
 
 - type: entity
@@ -1502,22 +646,10 @@
   - type: Lathe
     materialUseMultiplier: 0.75
     timeMultiplier: 0.5
-    staticRecipes:
-      - BluespaceCrystal # DeltaV - Bluespace Crystals can be created here.
-      - SheetSteel
-      - SheetGlass1
-      - SheetRGlassRaw
-      - SheetPlasma1
-      - SheetPGlass1
-      - SheetRPGlass1
-      - SheetPlasteel1
-      - SheetUranium1
-      - SheetUGlass1
-      - SheetRUGlass1
-      - IngotGold1
-      - IngotSilver1
-      - MaterialBananium1
-      - MaterialDiamond
+    staticPacks:
+    - OreSmelting
+    - RGlassSmelting
+    - AdvancedSmelting
 
 - type: entity
   parent: BaseLathe
@@ -1546,9 +678,8 @@
   - type: Lathe
     idleState: base_machine
     runningState: base_machine_processing
-    staticRecipes:
-    - MaterialSheetMeat
-    - SheetPaper
+    staticPacks:
+    - SheetifierStatic
 
 - type: entity
   parent: BaseLathe
@@ -1575,69 +706,8 @@
     producingSound: /Audio/Machines/cutter.ogg
     idleState: icon
     runningState: building
-    staticRecipes:
-      - FloorTileItemDark
-      - FloorTileItemDarkDiagonalMini
-      - FloorTileItemDarkDiagonal
-      - FloorTileItemDarkHerringbone
-      - FloorTileItemDarkMini
-      - FloorTileItemDarkMono
-      - FloorTileItemDarkPavement
-      - FloorTileItemDarkPavementVertical
-      - FloorTileItemDarkOffset
-      - FloorTileItemSteelCheckerDark
-      - FloorTileItemSteel
-      - FloorTileItemSteelOffset
-      - FloorTileItemSteelDiagonalMini
-      - FloorTileItemSteelDiagonal
-      - FloorTileItemSteelHerringbone
-      - FloorTileItemSteelMini
-      - FloorTileItemSteelMono
-      - FloorTileItemSteelPavement
-      - FloorTileItemSteelPavementVertical
-      - FloorTileItemWhite
-      - FloorTileItemWhiteOffset
-      - FloorTileItemWhiteDiagonalMini
-      - FloorTileItemWhiteDiagonal
-      - FloorTileItemWhiteHerringbone
-      - FloorTileItemWhiteMini
-      - FloorTileItemWhiteMono
-      - FloorTileItemWhitePavement
-      - FloorTileItemWhitePavementVertical
-      - FloorTileItemSteelCheckerLight
-      - FloorTileItemGratingMaint
-      - FloorTileItemTechmaint
-      - FloorTileItemSteelMaint
-      - FloorTileItemWood
-      - FloorTileItemWoodLarge
-      - FloorTileItemWoodPattern
-      - FloorTileItemConcrete
-      - FloorTileItemConcreteMono
-      - FloorTileItemConcreteSmooth
-      - FloorTileItemGrayConcrete
-      - FloorTileItemGrayConcreteMono
-      - FloorTileItemGrayConcreteSmooth
-      - FloorTileItemOldConcrete
-      - FloorTileItemOldConcreteMono
-      - FloorTileItemOldConcreteSmooth
-      # DeltaV: Add "recreational" / service dept. tiles
-      - FloorTileItemBar
-      - FloorTileItemFreezer
-      - FloorTileItemHydro
-      - FloorTileItemKitchen
-      - FloorTileItemLaundry
-      - FloorTileItemShowroom
-      - FloorTileItemClown
-      - FloorTileItemMime
-      - FloorTileItemArcadeBlue
-      - FloorTileItemArcadeBlue2
-      - FloorTileItemArcadeRed
-      - FloorTileItemEighties
-      - FloorTileItemBoxing
-      - FloorTileItemGym
-      - FloorTileItemCarpetClown
-      - FloorTileItemCarpetOffice
-      # End DeltaV
+    staticPacks:
+    - FloorTilesStatic
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1646,52 +716,3 @@
         - Wooden
         - RawMaterial
         - Plastic
-
-# Shitmed Change Start
-- type: entity
-  id: MedicalBiofabricator
-  parent: BaseLathe
-  name: medical biofabricator
-  description: Produces organs and other organic matter that can be surgically grafted onto patients with biomass.
-  components:
-  - type: Sprite
-    sprite: _Shitmed/Structures/Machines/limbgrower.rsi
-    snapCardinals: true
-    layers:
-    - state: limbgrower_idleoff
-      map: ["enum.LatheVisualLayers.IsRunning"]
-#    - state: limbgrower_idleoff
-#      shader: unshaded
-#      map: ["enum.PowerDeviceVisualLayers.Powered"]
-#    - state: inserting
-#      map: ["enum.MaterialStorageVisualLayers.Inserting"]
-#    - state: panel
-#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: MedicalBiofabMachineBoard
-  - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-  - type: Lathe
-    idleState: limbgrower_idleoff
-    runningState: limbgrower_idleon
-    staticRecipes:
-    - SynthLiver
-    - SynthHeart
-    - SynthLungs
-    - SynthEyes
-    - SynthLeftLeg
-    - SynthRightLeg
-    - SynthLeftFoot
-    - SynthRightFoot
-    - SynthLeftArm
-    - SynthRightArm
-    - SynthLeftHand
-    - SynthRightHand
-  - type: EmagLatheRecipes
-    emagStaticRecipes:
-      - PizzaLeftArm
-      - PizzaRightArm
-# Shitmed Change End

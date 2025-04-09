@@ -114,7 +114,7 @@ public sealed partial class PickSurgeryWindow : FancyWindow
             var protoId = new EntProtoId<SurgeryComponent>(id);
             if (_part is not BodyPartType part)
             {
-                Surgeries.AddItem(name, metadata: id);
+                Surgeries.AddItem(name, metadata: protoId);
                 continue;
             }
 
@@ -124,7 +124,7 @@ public sealed partial class PickSurgeryWindow : FancyWindow
 
             if (!_entMan.TryGetComponent<SurgeryPartConditionComponent>(ent.Value, out var comp))
             {
-                Surgeries.AddItem(name, metadata: id);
+                Surgeries.AddItem(name, metadata: protoId);
                 continue;
             }
 
@@ -134,7 +134,7 @@ public sealed partial class PickSurgeryWindow : FancyWindow
             var passesFilter = (partOk && symmetryOk) ^ comp.Inverse;
 
             if (passesFilter)
-                Surgeries.AddItem(name, metadata: id);
+                Surgeries.AddItem(name, metadata: protoId);
         }
         Surgeries.SortItemsByText();
     }

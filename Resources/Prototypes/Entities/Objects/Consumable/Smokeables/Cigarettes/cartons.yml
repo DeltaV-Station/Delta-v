@@ -16,11 +16,11 @@
     size: Normal
   - type: Storage
     grid:
-    - 0,0,4,1
+    - 0,0,5,1 # DeltaV - increased from 5x2 to 6x2
   - type: StorageFill
     contents:
       - id: CigPackGreen
-        amount: 5
+        amount: 6 # DeltaV - Increased contents to match description
   - type: Tag
     tags:
     - Trash
@@ -37,14 +37,14 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi
-    layers:
-      - state: closed
+    ##layers:
+    ##  - state: closed #DeltaV - Already inherited, causes issues.
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi
   - type: StorageFill
     contents:
       - id: CigPackRed
-        amount: 5
+        amount: 6 # DeltaV - Increased contents to match description
 
 - type: entity
   id: CigCartonBlue
@@ -54,14 +54,14 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi
-    layers:
-      - state: closed
+    ##layers:
+    ##  - state: closed #DeltaV - Already inherited, causes issues.
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi
   - type: StorageFill
     contents:
       - id: CigPackBlue
-        amount: 5
+        amount: 6 # DeltaV - Increased contents to match description
 
 - type: entity
   id: CigCartonBlack
@@ -71,14 +71,14 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi
-    layers:
-      - state: closed
+    ##layers:
+    ##  - state: closed #DeltaV - Already inherited, causes issues.
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi
   - type: StorageFill
     contents:
       - id: CigPackBlack
-        amount: 5
+        amount: 6 # DeltaV - Increased contents to match description
 
 - type: entity
   id: CigCartonMixed
@@ -88,8 +88,8 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
-    layers:
-      - state: closed
+    ##layers:
+    ##  - state: closed #DeltaV - Already inherited, causes issues.
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
   - type: StorageFill

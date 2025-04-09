@@ -12,3 +12,6 @@ roles-antag-syndicate-synthesis-objective = Sell your finest chemicals.
 
 roles-antag-syndicate-recruiter-name = Syndicate Recruiter
 roles-antag-syndicate-recruiter-objective = Find and recruit the best agents for the Syndicate.
+
+roles-antag-roboneuroticist-name = Syndicate Robo-Neuroticist
+roles-antag-roboneuroticist-objective = Conspiracy to Convert

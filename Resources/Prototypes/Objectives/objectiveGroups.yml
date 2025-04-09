@@ -13,7 +13,7 @@
   weights:
     CaptainIDStealObjective: 1
     CMOHyposprayStealObjective: 1
-    CMOCrewMonitorStealObjective: 1
+    #CMOCrewMonitorStealObjective: 1 # DeltaV - You can buy this + paramedics all have them
     RDHardsuitStealObjective: 1
     NukeDiskStealObjective: 0.25 # DeltaV - was 1
     PlutoniumCoreStealObjective: 0.5 # DeltaV
@@ -30,6 +30,7 @@
     LOLuckyBillStealObjective: 0.5 # DeltaV - LO steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
     HoPBookIanDossierStealObjective: 1 # DeltaV - HoP steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
     HoSGunStealObjective: 0.5 # DeltaV
+    BibleMystagogueStealObjective: 0.5 # DeltaV - Mysta steal objective see Resources/Prototypes/_DV/Objectives/traitor.yml
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
@@ -70,13 +71,14 @@
 - type: weightedRandom
   id: ThiefObjectiveGroupCollection
   weights:
-    HeadCloakStealCollectionObjective: 1           #command
+    HeadCloakStealCollectionObjective: 1                #command
     HeadBedsheetStealCollectionObjective: 1
     StampStealCollectionObjective: 1
     DoorRemoteStealCollectionObjective: 1
-    TechnologyDiskStealCollectionObjective: 1        #rnd
+    TechnologyDiskStealCollectionObjective: 1           #sci
+    MailStealCollectionObjective: 1                     #cargo
     IDCardsStealCollectionObjective: 1
-    LAMPStealCollectionObjective: 2 #only for moth
+    LAMPStealCollectionObjective: 2                     #only for moth
 
 - type: weightedRandom
   id: ThiefObjectiveGroupItem
@@ -116,14 +118,13 @@
   id: ThiefObjectiveGroupAnimal
   weights:
     IanStealObjective: 1
-    BingusStealObjective: 1
+    #BingusStealObjective: 1 # DeltaV - no stealing ghost roles
     McGriffStealObjective: 1
     WalterStealObjective: 1
     MortyStealObjective: 1
     RenaultStealObjective: 1
-    ShivaStealObjective: 1
+    #ShivaStealObjective: 1 # DeltaV - no stealing ghost roles
     TropicoStealObjective: 1
-    SilviaStealObjective: 1 # DeltaV - CMO steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
 
 - type: weightedRandom
   id: ThiefObjectiveGroupEscape

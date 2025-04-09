@@ -48,7 +48,7 @@
   content:
   - StorageImplanter
   - DnaScramblerImplanter
-  - EphedrineChemistryBottle
+  - ChemistryBottleEphedrine
   - SoapOmega
   - Syringe
   - DrinkShaker
@@ -56,7 +56,7 @@
 - type: thiefBackpackSet
   id: SyndieSet
   name: thief-backpack-category-syndie-name
-  description: thief-backpack-category-syndie-description
+  description: thief-backpack-category-syndie-description-deltav # DeltaV
   sprite:
     sprite: Objects/Specific/Syndicate/telecrystal.rsi
     state: telecrystal
@@ -64,6 +64,7 @@
   - RadioJammer
   - TraitorCodePaper
   - Emag
+  - Doorjack # DeltaV - replaces AccessBreaker
   - Lighter
   - CigPackSyndicate
   - Telecrystal10 #The thief cannot use them, but it may induce communication with traitors
@@ -76,8 +77,8 @@
     sprite: Objects/Tanks/anesthetic.rsi
     state: icon
   content:
-  - NocturineChemistryBottle
-  - NocturineChemistryBottle
+  - ChemistryBottleNocturine
+  - ChemistryBottleNocturine
   - HypopenBox
   - NitrousOxideTankFilled
 

@@ -14,7 +14,7 @@ public sealed partial class SurgeryContaminableComponent : Component
     ///     How much cross contamination should increase dirtiness per incompatible DNA
     /// </summary>
     [DataField]
-    public FixedPoint2 CrossContaminationDirtinessLevel = 40.0;
+    public FixedPoint2 CrossContaminationDirtinessLevel = 60.0;
 
     /// <summary>
     ///     The level of dirtiness above which toxin damage will be dealt
@@ -26,7 +26,7 @@ public sealed partial class SurgeryContaminableComponent : Component
     ///     The base amount of toxin damage to deal above the threshold
     /// </summary>
     [DataField]
-    public FixedPoint2 BaseDamage = 2.0;
+    public FixedPoint2 BaseDamage = 1.0;
 
     /// <summary>
     ///     The inverse of the coefficient to scale the toxin damage by

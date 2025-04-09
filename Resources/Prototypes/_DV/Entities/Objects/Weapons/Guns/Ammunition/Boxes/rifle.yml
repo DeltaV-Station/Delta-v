@@ -5,7 +5,7 @@
   components:
   - type: BallisticAmmoProvider
     capacity: 200
-    proto: CartridgeRiflePractice
+    proto: CartridgeRifleRubber
   - type: Sprite
     layers:
     - state: base-b
@@ -13,6 +13,7 @@
     - state: magb-1
       map: ["enum.GunVisualLayers.Mag"]
     - state: practice-b
+      sprite: Objects/Weapons/Guns/Ammunition/Boxes/rifle.rsi
   - type: MagazineVisuals
     magState: magb
 
@@ -30,3 +31,4 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - state: rubber
+      sprite: Objects/Weapons/Guns/Ammunition/Boxes/rifle.rsi

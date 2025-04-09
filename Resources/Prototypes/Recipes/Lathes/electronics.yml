@@ -3,7 +3,8 @@
 - type: latheRecipe
   abstract: true
   id: BaseElectronicsRecipe
-  category: Circuitry
+  categories:
+  - Circuitry
   completetime: 2
   materials:
     Steel: 100
@@ -204,11 +205,13 @@
   result: ProtolatheMachineCircuitboard
 
 - type: latheRecipe
+  abstract: true # DeltaV
   parent: BaseGoldCircuitboardRecipe
   id: AutolatheHyperConvectionMachineCircuitboard
   result: AutolatheHyperConvectionMachineCircuitboard
 
 - type: latheRecipe
+  abstract: true # DeltaV
   parent: BaseGoldCircuitboardRecipe
   id: ProtolatheHyperConvectionMachineCircuitboard
   result: ProtolatheHyperConvectionMachineCircuitboard
@@ -219,6 +222,7 @@
   result: CircuitImprinterMachineCircuitboard
 
 - type: latheRecipe
+  abstract: true # DeltaV
   parent: BaseGoldCircuitboardRecipe
   id: CircuitImprinterHyperConvectionMachineCircuitboard
   result: CircuitImprinterHyperConvectionMachineCircuitboard

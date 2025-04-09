@@ -159,6 +159,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
             _roundEndSystem.EndRound();
         }
+
+        _roundEndSystem.EndRound(); // DeltaV - end the round regardless of game rules
     }
 
     // DeltaV - Kidnap heads nukie objective

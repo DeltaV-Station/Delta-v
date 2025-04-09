@@ -13,6 +13,10 @@
   - Theatre # Boxer is vaguely a theatre role
   - Boxer
   # End DeltaV Additions
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: BoxingDay
+    prototype: ClothingHandsGlovesBoxingRigged
 
 - type: startingGear
   id: BoxerGear

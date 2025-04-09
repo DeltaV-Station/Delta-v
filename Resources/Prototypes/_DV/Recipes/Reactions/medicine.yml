@@ -25,3 +25,16 @@
       catalyst: true
   products:
     Cyanoxadone: 2
+
+- type: reaction
+  id: Netinadone
+  minTemp: 400
+  reactants:
+    Plasma:
+      amount: 2
+    Traumoxadone:
+      amount: 1
+    Doxarubixadone:
+      amount: 1
+  products:
+    Netinadone: 2

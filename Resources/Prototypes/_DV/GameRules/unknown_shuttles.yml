@@ -4,6 +4,7 @@
     children:
     - id: SyndicateRecruiter
     - id: SynthesisSpecialist
+    - id: RoboNeuroticist
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -39,8 +40,8 @@
       components:
       - type: RandomMetadata
         nameSegments:
-        - fake_human_first
-        - fake_human_last
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
       - type: RandomHumanoidAppearance
         randomizeName: false
       - type: NpcFactionMember
@@ -82,8 +83,8 @@
       components:
       - type: RandomMetadata
         nameSegments:
-        - fake_human_first
-        - fake_human_last
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
       - type: RandomHumanoidAppearance
         randomizeName: false
       - type: NpcFactionMember
@@ -91,3 +92,46 @@
         - Syndicate
       mindRoles:
       - MindRoleSynthesis
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: RoboNeuroticist
+  components:
+  - type: StationEvent
+    weight: 2
+    minimumPlayers: 35 #big threat, but has to have ghosts to matter
+  - type: LoadMapRule
+    preloadedGrid: RoboNeuroticistShip
+  - type: AntagSpawner
+    prototype: MobHuman
+  - type: AntagObjectives
+    objectives:
+    - RoboNeuroticistSurviveObjective
+    - RoboNeuroticistBorgObjective
+    - RoboNeuroticistKillObjective
+    - RoboNeuroticistPlutoniumCoreStealObjective
+    - RoboNeuroticistUploadAILawObjective
+  - type: AntagSelection
+    agentName: roboneuroticist-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostRoboNeuroticist
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: RoboNeuroticistGear
+      roleLoadout:
+      - RoleSurvivalStandard
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesHologram
+        - NamesMilitaryLast
+      - type: EmitSoundOnSpawn # evil sound
+        sound: /Audio/Ambience/Antag/emagged_borg.ogg
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleRoboNeuroticist

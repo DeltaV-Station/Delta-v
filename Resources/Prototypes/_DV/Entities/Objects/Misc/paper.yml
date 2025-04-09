@@ -27,6 +27,7 @@
 - type: entity
   parent: Paper
   id: PaperDyedPink
+  description: 'A piece of pink paper.'
   suffix: pink
   components:
   - type: Sprite
@@ -47,6 +48,7 @@
 - type: entity
   parent: Paper
   id: PaperDyedRed
+  description: 'A piece of red paper.'
   suffix: red
   components:
   - type: Sprite
@@ -67,6 +69,7 @@
 - type: entity
   parent: Paper
   id: PaperDyedOrange
+  description: 'A piece of orange paper.'
   suffix: orange
   components:
   - type: Sprite
@@ -87,6 +90,7 @@
 - type: entity
   parent: Paper
   id: PaperDyedYellow
+  description: 'A piece of yellow paper.'
   suffix: yellow
   components:
   - type: Sprite
@@ -107,6 +111,7 @@
 - type: entity
   parent: Paper
   id: PaperDyedGrass
+  description: 'A piece of grass green paper.'
   suffix: grass
   components:
   - type: Sprite
@@ -127,6 +132,7 @@
 - type: entity
   parent: Paper
   id: PaperDyedGreen
+  description: 'A piece of green paper.'
   suffix: green
   components:
   - type: Sprite
@@ -147,6 +153,7 @@
 - type: entity
   parent: Paper
   id: PaperDyedOcean
+  description: 'A piece of ocean blue paper.'
   suffix: ocean
   components:
   - type: Sprite
@@ -167,6 +174,7 @@
 - type: entity
   parent: Paper
   id: PaperDyedSky
+  description: 'A piece of sky blue paper.'
   suffix: sky
   components:
   - type: Sprite
@@ -187,6 +195,7 @@
 - type: entity
   parent: Paper
   id: PaperDyedPurple
+  description: 'A piece of purple paper.'
   suffix: purple
   components:
   - type: Sprite
@@ -207,6 +216,7 @@
 - type: entity
   parent: Paper
   id: PaperDyedTan
+  description: 'A piece of tan paper.'
   suffix: tan
   components:
   - type: Sprite
@@ -227,6 +237,7 @@
 - type: entity
   parent: Paper
   id: PaperDyedBrown
+  description: 'A piece of brown paper.'
   suffix: brown
   components:
   - type: Sprite
@@ -464,3 +475,32 @@
   id: TapeRecorderTranscript
   name: record transcript
   # TODO: could have a unique sprite in the future
+
+- type: entity
+  parent: BoxFolderRed
+  id: BoxFolderFakeNukeCodes
+  name: fake nuclear code folder
+  description: contains a single paper that looks like it would contain a nuke code.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: folder-colormap
+      color: "#cc2323"
+    - state: folder-base
+    - state: folder-stamp-inverse
+      color: "#1dff00"
+  - type: StorageFill
+    contents:
+    - id: FakeNukeCodePaper
+
+- type: entity
+  parent: Paper
+  id: FakeNukeCodePaper
+  suffix: Fake
+  name: nuclear authentication codes
+  components:
+  - type: Paper
+    content: |2
+      [color=red]TOP SECRET![/color]
+      nuclear fission explosive (NT-XXXXXX) code: XXXXXX

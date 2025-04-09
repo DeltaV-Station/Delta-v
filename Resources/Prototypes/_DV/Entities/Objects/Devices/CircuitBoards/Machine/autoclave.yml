@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: AutoclaveMachineCircuitboard
+  name: autoclave machine board
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: Autoclave
+    stackRequirements:
+      Capacitor: 1
+      Glass: 2
+      Cable: 2

@@ -75,6 +75,9 @@
   - type: Prayable
     sentMessage: prayer-popup-notify-syndicate-sent
     notificationPrefix: prayer-chat-notify-syndicate
+  - type: MappingCategories # DeltaV
+    categories:
+    - Syndicate
 
 - type: entity
   parent: BaseHandheldInstrument

@@ -12,7 +12,7 @@ namespace Content.Shared.Silicons.Borgs;
 /// Implements borg type switching.
 /// </summary>
 /// <seealso cref="BorgSwitchableTypeComponent"/>
-public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
+public abstract partial class SharedBorgSwitchableTypeSystem : EntitySystem // DeltaV - made partial
 {
     // TODO: Allow borgs to be reset to default configuration.
 
@@ -74,7 +74,7 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         if (ent.Comp.SelectedBorgType != null)
             return;
 
-        if (!Prototypes.HasIndex(args.Prototype))
+        if (!Prototypes.HasIndex(args.Prototype) || TrySelect(ent, args.Prototype) != null) // DeltaV - check CanSelect
             return;
 
         SelectBorgModule(ent, args.Prototype);

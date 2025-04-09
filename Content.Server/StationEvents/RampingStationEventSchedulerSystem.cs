@@ -36,7 +36,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
 
         // Worlds shittiest probability distribution
         // Got a complaint? Send them to
-        component.MaxChaos = _random.NextFloat(component.AverageChaos - component.AverageChaos / 4, component.AverageChaos + component.AverageChaos / 4);
+        component.MaxChaos = _random.NextFloat(component.AverageChaos, component.AverageChaos + component.AverageChaos / 4); // DeltaV - Survival starts a bit faster but ends the same
         // This is in minutes, so *60 for seconds (for the chaos calc)
         component.EndTime = _random.NextFloat(component.AverageEndTime - component.AverageEndTime / 4, component.AverageEndTime + component.AverageEndTime / 4) * 60f;
         component.StartingChaos = component.MaxChaos / 10;

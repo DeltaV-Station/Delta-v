@@ -1,0 +1,89 @@
+## Static
+
+- type: latheRecipePack
+  id: SecurityEquipmentStaticDeltaV
+  recipes:
+  - ClothingNeckShockCollar
+  - ClothingOuterArmorPlateCarrier # plate carrier body armour
+  - ClothingOuterArmorDuraVest # stabproof vest body armour
+  - HoloprojectorSecurity
+
+- type: latheRecipePack
+  id: SecurityPracticeStaticDeltaV
+  recipes:
+  - MagazineBoxSpecialPractice
+  - SpeedLoaderSpecialPractice
+
+- type: latheRecipePack
+  id: SecurityAmmoStaticDeltaV
+  recipes:
+  - MagazineBoxSpecial
+  - SpeedLoaderSpecial
+  - SpeedLoaderSpecialEmpty
+  - MagazinePistolSpecial
+  - BoxBeanbag
+  - BoxShellTranquilizer
+  - MagazineShotgunBeanbag
+  - MagazineLaser
+
+- type: latheRecipePack
+  id: SecurityRubberAmmoStatic
+  recipes:
+  - MagazinePistolRubber
+  - SpeedLoaderMagnumRubber
+  - SpeedLoaderSpecialRubber
+  - MagazineRifleRubber
+  - MagazineLightRifleRubber
+  - MagazineBoxPistolRubber
+  - MagazineBoxMagnumRubber
+  - MagazineBoxLightRifleRubber
+  - MagazineBoxRifleRubber
+  - MagazineBoxSpecialRubber
+
+- type: latheRecipePack
+  parent: SecurityDisablers
+  id: SecurityWeaponsStaticDeltaV
+  recipes:
+  - Truncheon
+
+## Dynamic
+
+- type: latheRecipePack
+  id: SecurityAmmoDeltaV
+  recipes:
+  - BoxShellSoulbreaker
+  - SpeedLoaderSpecialUranium
+  - MagazineBoxSpecialIncendiary
+  - MagazineBoxSpecialUranium
+  - MagazineBoxSpecialHoly
+  - MagazineBoxSpecialMindbreaker
+  - GamblagatorCapacitor
+
+- type: latheRecipePack
+  parent: SecurityHardsuits
+  id: SecurityEquipmentDeltaV
+  recipes:
+  - EncryptionKeySyndie # reverse engineered
+  - ClothingHeadHelmetInsulated
+  - ClothingHeadCage
+  - ClothingShoesBootsSecurityMagboots
+
+- type: latheRecipePack
+  parent: SalvageWeapons # crushers must be made in secfab
+  id: SecurityWeaponsDeltaV
+  recipes:
+  - WeaponEnergyGun
+  - WeaponEnergyGunMini
+  - WeaponEnergyGunPistol
+  - WeaponRifleLaser
+  - AdvancedTruncheon
+  - WeaponColdCannon
+  - WeaponBeamCannon
+  - WeaponEnergyGunAdvanced
+  - WeaponImmolator
+
+- type: latheRecipePack
+  id: SecurityHardsuits
+  recipes:
+  - ClothingOuterHardsuitJuggernautReverseEngineered
+  - ClothingOuterHardsuitSyndieReverseEngineered

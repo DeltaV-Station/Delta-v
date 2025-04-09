@@ -48,7 +48,7 @@
     startAnnouncement: station-event-unknown-shuttle-incoming
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 10 # 10 default
+    weight: 5 # DeltaV - was 10, all of these kinda suck
     reoccurrenceDelay: 30
     duration: 1
     maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml

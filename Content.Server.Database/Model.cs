@@ -57,6 +57,20 @@ namespace Content.Server.Database
                 .HasIndex(p => new {p.Slot, PrefsId = p.PreferenceId})
                 .IsUnique();
 
+            // Begin CD - CD Character Data
+            modelBuilder.Entity<CDModel.CDProfile>()
+                .HasOne(p => p.Profile)
+                .WithOne(p => p.CDProfile)
+                .HasForeignKey<CDModel.CDProfile>(p => p.ProfileId)
+                .IsRequired();
+
+            modelBuilder.Entity<CDModel.CharacterRecordEntry>()
+                .HasOne(e => e.CDProfile)
+                .WithMany(e => e.CharacterRecordEntries)
+                .HasForeignKey(e => e.CDProfileId)
+                .IsRequired();
+            // End CD - CD Character Data
+
             modelBuilder.Entity<Antag>()
                 .HasIndex(p => new {HumanoidProfileId = p.ProfileId, p.AntagName})
                 .IsUnique();
@@ -423,6 +437,8 @@ namespace Content.Server.Database
 
         public int PreferenceId { get; set; }
         public Preference Preference { get; set; } = null!;
+
+        public CDModel.CDProfile? CDProfile { get; set; } // CD - Character Records
     }
 
     public class Job
@@ -479,6 +495,12 @@ namespace Content.Server.Database
         /// The corresponding role prototype on the profile.
         /// </summary>
         public string RoleName { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Custom name of the role loadout if it supports it.
+        /// </summary>
+        [MaxLength(256)]
+        public string? EntityName { get; set; }
 
         /// <summary>
         /// Store the saved loadout groups. These may get validated and removed when loaded at runtime.
@@ -981,6 +1003,8 @@ namespace Content.Server.Database
         BabyJail = 4,
         /// Results from rejected connections with external API checking tools
         IPChecks = 5,
+        /// Results from rejected connections who are authenticated but have no modern hwid associated with them.
+        NoHwid = 6
     }
 
     public class ServerBanHit

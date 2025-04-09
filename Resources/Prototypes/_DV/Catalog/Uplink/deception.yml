@@ -1,0 +1,28 @@
+- type: listing
+  id: Observationkit
+  name: uplink-observation-kit-name
+  description: uplink-observation-kit-desc-deltav
+  icon:
+    sprite: Objects/Storage/boxicons.rsi
+    state: tracks
+  productEntity: Observationskit
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkDeception
+
+- type: listing
+  id: MultitoolAiDetector
+  name: uplink-ai-detector-name
+  description: uplink-ai-detector-desc
+  icon:
+    sprite: Objects/Tools/multitool.rsi
+    state: icon
+  productEntity: MultitoolAiDetector
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkDeception

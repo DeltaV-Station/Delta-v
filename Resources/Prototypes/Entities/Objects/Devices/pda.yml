@@ -13,7 +13,6 @@
   - type: Sprite
     sprite: _DV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
     scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
-    Scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda"
@@ -27,8 +26,6 @@
       visible: false
   - type: Icon
     sprite: _DV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
-    scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
-    Scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
     state: pda
   - type: Pda
     paiSlot:
@@ -84,9 +81,9 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NewsReaderCartridge
       - NanoChatCartridge # DeltaV
-      - SOSCartridge # Imp
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
@@ -136,11 +133,11 @@
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
+    - NanoTaskCartridge
     - NewsReaderCartridge
     - CrimeAssistCartridge # DeltaV
     - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
     - NanoChatCartridge # DeltaV
-    - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -152,10 +149,10 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NewsReaderCartridge
       - MedTekCartridge
       - NanoChatCartridge # DeltaV
-      - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -463,15 +460,14 @@
     accentVColor: "#a23e3e"
   - type: Icon
     state: pda-qm
-  - type: CartridgeLoader # DeltaV
+  - type: CartridgeLoader # DeltaV - append nanochat, mail metrics and stock trading
     preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - MailMetricsCartridge # DeltaV - MailMetrics courier tracker
-      - StockTradingCartridge # DeltaV - StockTrading
-      - NanoChatCartridge # DeltaV
-      - SOSCartridge # Imp
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge
+    - MailMetricsCartridge
+    - StockTradingCartridge
 
 - type: entity
   parent: BasePDA
@@ -497,7 +493,6 @@
     - NewsReaderCartridge
     - StockTradingCartridge # DeltaV - StockTrading
     - NanoChatCartridge # DeltaV
-    - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -522,10 +517,10 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NewsReaderCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
-      - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -838,7 +833,6 @@
       - NewsReaderCartridge
       - GlimmerMonitorCartridge
       - NanoChatCartridge # DeltaV
-      - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -865,7 +859,6 @@
       - NewsReaderCartridge
       - GlimmerMonitorCartridge
       - NanoChatCartridge # DeltaV
-      - SOSCartridge # Imp
 
 - type: entity
   parent: BaseSecurityPDA
@@ -889,12 +882,12 @@
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
+    - NanoTaskCartridge
     - NewsReaderCartridge
     - CrimeAssistCartridge # DeltaV
     - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
-    - SOSCartridge # Imp
 
 - type: entity
   parent: BaseSecurityPDA
@@ -960,13 +953,13 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NewsReaderCartridge
       - MedTekCartridge
       - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
-      - SOSCartridge # Imp
 
 - type: entity
   parent: CentcomPDA
@@ -987,6 +980,7 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NewsReaderCartridge
       - LogProbeCartridge
       - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
@@ -994,7 +988,6 @@
       - AstroNavCartridge
       - StockTradingCartridge # Delta-V
       - NanoChatCartridge # DeltaV
-      - SOSCartridge # Imp
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
@@ -1119,6 +1112,7 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NanoChatCartridge # DeltaV
 
 - type: entity
@@ -1146,13 +1140,13 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NewsReaderCartridge
       - MedTekCartridge
       - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
-      - SOSCartridge # Imp
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1266,7 +1260,6 @@
     - NewsReaderCartridge
     - StockTradingCartridge # DeltaV - StockTrading
     - NanoChatCartridge # DeltaV
-    - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -1326,12 +1319,12 @@
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
+    - NanoTaskCartridge
     - NewsReaderCartridge
     - CrimeAssistCartridge # DeltaV
     - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
-    - SOSCartridge # Imp
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1356,12 +1349,12 @@
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
+    - NanoTaskCartridge
     - NewsReaderCartridge
     - CrimeAssistCartridge # DeltaV
     - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
     - MedTekCartridge
     - NanoChatCartridge # DeltaV
-    - SOSCartridge # Imp
 
 - type: entity
   parent: ClownPDA
@@ -1372,6 +1365,13 @@
   components:
   - type: Pda
     id: CluwneIDCard
+    penSlot:
+      startingItem: CrayonGreen
+      ejectSound: /Audio/Items/bikehorn.ogg
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -1381,13 +1381,6 @@
     borderColor: "#1c8f4d"
   - type: Icon
     state: pda-cluwne
-    penSlot:
-      startingItem: CrayonGreen
-      ejectSound: /Audio/Items/bikehorn.ogg
-      priority: -1
-      whitelist:
-        tags:
-        - Write
   - type: Unremoveable
 
 - type: entity
@@ -1505,6 +1498,7 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - MedTekCartridge
       - NanoChatCartridge # DeltaV
 
@@ -1538,3 +1532,27 @@
         type: HealthAnalyzerBoundUserInterface
       enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: BasePDA
+  id: WizardPDA
+  name: wizard PDA
+  description: You hear faint whispers coming from it.
+  components:
+  - type: Pda
+    id: WizardIDCard
+    penSlot:
+      startingItem: PenWiz
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-library # DeltaV - no wizard resprite yet
+  - type: PdaBorderColor
+    borderColor: "#7F3300"
+  - type: Icon
+    state: pda-library # DeltaV - no wizard resprite yet

@@ -1,6 +1,5 @@
 using Content.Server.Cargo.Components;
 using Content.Server.DeviceLinking.Systems;
-using Content.Server.GameTicking;
 using Content.Server.Popups;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Stack;
@@ -16,8 +15,6 @@ using Content.Shared.Paper;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Configuration;
-using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
@@ -44,12 +41,7 @@ public sealed partial class CargoSystem : SharedCargoSystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
-    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly GameTicker _ticker = default!; // DeltaV - Used to make sure the trading post doens't load in the lobby :<
 
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<CargoSellBlacklistComponent> _blacklistQuery;
@@ -73,6 +65,7 @@ public sealed partial class CargoSystem : SharedCargoSystem
         InitializeShuttle();
         InitializeTelepad();
         InitializeBounty();
+        InitializeATS(); // DeltaV
     }
 
     public override void Update(float frameTime)
@@ -84,19 +77,23 @@ public sealed partial class CargoSystem : SharedCargoSystem
     }
 
     [PublicAPI]
-    public void UpdateBankAccount(EntityUid uid, StationBankAccountComponent component, int balanceAdded)
+    public void UpdateBankAccount(Entity<StationBankAccountComponent?> ent, int balanceAdded)
     {
-        component.Balance += balanceAdded;
-        var query = EntityQueryEnumerator<BankClientComponent, TransformComponent>();
+        if (!Resolve(ent, ref ent.Comp))
+            return;
 
-        var ev = new BankBalanceUpdatedEvent(uid, component.Balance);
+        ent.Comp.Balance += balanceAdded;
+
+        var ev = new BankBalanceUpdatedEvent(ent, ent.Comp.Balance);
+
+        var query = EntityQueryEnumerator<BankClientComponent, TransformComponent>();
         while (query.MoveNext(out var client, out var comp, out var xform))
         {
             var station = _station.GetOwningStation(client, xform);
-            if (station != uid)
+            if (station != ent)
                 continue;
 
-            comp.Balance = component.Balance;
+            comp.Balance = ent.Comp.Balance;
             Dirty(client, comp);
             RaiseLocalEvent(client, ref ev);
         }

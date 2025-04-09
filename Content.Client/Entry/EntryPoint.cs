@@ -122,7 +122,11 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("alertLevels");
             _prototypeManager.RegisterIgnore("nukeopsRole");
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");
-            _prototypeManager.RegisterIgnore("candyFlavor"); // Delta-V
+            // Begin DeltaV Additions
+            _prototypeManager.RegisterIgnore("candyFlavor");
+            _prototypeManager.RegisterIgnore("mappingCategory");
+            _prototypeManager.RegisterIgnore("mapCategories");
+            // End DeltaV Additions
 
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();

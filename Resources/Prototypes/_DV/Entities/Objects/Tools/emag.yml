@@ -5,13 +5,9 @@
   description: A specialized cryptographic sequencer with a distinctive battery tray, specifically designed to override station airlock access codes.
   components:
   - type: Emag
-    blacklist:
-    whitelist:
-      components:
-      - Airlock
+    emagType: Access # LockSystem has its type changed so this only affects airlocks
+    blacklist: null # allow airlocks
   - type: Sprite
     sprite: _DV/Objects/Tools/doorjack.rsi
-    state: icon
   - type: Item
     sprite: _DV/Objects/Tools/doorjack.rsi
-    storedRotation: -90

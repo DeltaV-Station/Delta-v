@@ -14,6 +14,7 @@
   components:
   - type: ShowHealthBars
   - type: ShowHealthIcons
+  - type: ShowTriageIcons # DeltaV - Medical Records
 
 - type: entity
   parent: [ ClothingEyesBase, BaseToggleClothing ] # DeltaV - Added BaseToggleClothing
@@ -41,6 +42,7 @@
     damageContainers:
     - Inorganic
     - Silicon
+    - HumanoidSilicon # DeltaV - IPCs
 
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]
@@ -57,7 +59,7 @@
     - HudMedical
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, BaseRestrictedContraband]
+  parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
   id: ClothingEyesHudSecurity
   name: security hud
   description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records.

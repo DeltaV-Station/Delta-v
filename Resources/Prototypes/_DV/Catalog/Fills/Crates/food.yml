@@ -122,3 +122,40 @@
     - id: ReagentTinPowderedJuiceApple
     - id: ReagentTinPowderedJuiceCarrot
     - id: ReagentTinPowderedJuiceTomato
+
+- type: entity
+  parent: LockerFreezerBase
+  id: LockerFreezerMRE
+  suffix: MRE, Alcohol, No Access
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillRandomAlcoholicBottle
+          rolls:  !type:ConstantNumberSelector
+            value: 3
+        - id: BoxMRE
+        - id: FoodSnackEnergyBar
+          amount: !type:RangeNumberSelector
+            range: 2, 4
+        - id: DrinkWaterBottleFull
+          amount: !type:ConstantNumberSelector
+            value: 3
+
+- type: entityTable
+  id: FillRandomAlcoholicBottle
+  table: !type:GroupSelector
+    children:
+    - id: DrinkAleBottleFullGrowler
+    - id: DrinkBeerGrowler
+    - id: DrinkCoffeeLiqueurBottleFull
+    - id: DrinkCognacBottleFull
+    - id: DrinkGinBottleFull
+    - id: DrinkRumBottleFull
+    - id: DrinkTequilaBottleFull
+    - id: DrinkVermouthBottleFull
+    - id: DrinkVodkaBottleFull
+    - id: DrinkWhiskeyBottleFull
+    - id: DrinkWineBottleFull

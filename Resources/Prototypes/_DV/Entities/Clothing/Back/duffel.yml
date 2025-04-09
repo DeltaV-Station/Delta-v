@@ -1,0 +1,18 @@
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelCentcom
+  name: central commander duffel
+  description: A large duffel bag for holding extra central commander-y goods.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Back/Duffels/centcom.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingHopDuffel
+  name: HoP's duffel bag
+  description: For those that HoPe more carry space will help them.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Back/Duffels/hop.rsi
+    state: icon

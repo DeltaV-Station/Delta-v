@@ -79,3 +79,28 @@
           type: Arachnid
           shouldHave: true
         amount: 6
+
+- type: reagent
+  id: Netinadone
+  name: reagent-name-netinadone
+  group: Medicine
+  desc: reagent-desc-netinadone
+  physicalDesc: reagent-physical-desc-sickly
+  flavor: acid
+  color: "#e3d56d"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ReduceRotting
+        seconds: 10
+        conditions:
+        - !type:HasComponent
+          bodyPart: Torso
+          explanation: reagent-explanation-netinadone-ribcage
+          components:
+          - type: RibcageOpen
+        - !type:Temperature
+          max: 150.0
+        - !type:MobStateCondition
+          mobstate: Dead

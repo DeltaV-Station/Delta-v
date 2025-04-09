@@ -181,10 +181,21 @@ public sealed class AmeNodeGroup : BaseNodeGroup
         {
             return 0f;
         }
+        
+        //more parametrized and linear AME power function https://www.desmos.com/calculator/r523dxiqna
+        float wattsPerCore = 80000f;
+        float startEfficency = 0.5f;
+        float tailPenaltyFactor = 0.9f;
+        
+        float efficency = startEfficency * fuel / (2 * cores);
+        
+        if (fuel >= 2 * cores - 1)
+            efficency += (fuel - (2 * cores - 1)) * (1 - startEfficency);
 
-        // Power generation curve assuming x is the number of cores and the injection scales linearly to always be the twice the number of cores. 
-        // https://www.wolframalpha.com/input?i=200000+*+log10%28%28x*2%29%5E1.9%29+*+%280.4+*+%28%28x*2%29+%2F+x%29%29+for+x+from+1+to+10
-        return 200000f * MathF.Log10(MathF.Pow(fuel, 1.9f)) * (0.4f * (fuel / cores));
+        if (fuel >= 2 * cores)
+            efficency -= (fuel - (2 * cores)) * (1 - startEfficency) * tailPenaltyFactor;
+
+        return efficency * wattsPerCore * cores;
         // End of DeltaV code
     }
 

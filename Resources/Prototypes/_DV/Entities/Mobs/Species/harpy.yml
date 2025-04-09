@@ -42,8 +42,8 @@
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.Underwear" ]
-      - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
       - map: [ "underpants" ]
       - map: [ "undershirt" ]
       - map: [ "socks" ]
@@ -64,8 +64,8 @@
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "belt" ]
-      - map: [ "neck" ]
       - map: [ "back" ]
+      - map: [ "neck" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
@@ -113,7 +113,7 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
-    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw', 'Squish', 'Chitter', 'Squeak', 'Click', ]
+    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw', 'HarpySquish', 'Chitter', 'Chirp', 'Squeak', 'Click', 'Gnash']
   - type: Vocal
     sounds:
       Male: SoundsHarpy
@@ -145,6 +145,7 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - AnomalyHost
   - type: FootPrints # DeltaV port from EE, blood splatter
     leftBarePrint: "footprint-left-bare-lizard" # DeltaV port from EE, blood splatter
     rightBarePrint: "footprint-right-bare-lizard" # DeltaV port from EE, blood splatter
@@ -177,8 +178,8 @@
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.Underwear" ]
-      - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
       - map: [ "underpants" ]
       - map: [ "undershirt" ]
       - map: [ "socks" ]

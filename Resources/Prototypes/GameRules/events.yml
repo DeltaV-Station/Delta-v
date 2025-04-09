@@ -37,11 +37,13 @@
     - id: DragonSpawn
     #- id: KingRatMigration # DeltaV - disabled
     - id: NinjaSpawn
+    - id: ParadoxCloneSpawn
     - id: RevenantSpawn
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
+    #- id: WizardSpawn # DeltaV - disabled until its touched up
 
 - type: entity
   id: BaseStationEvent
@@ -137,7 +139,7 @@
   - type: StationEvent
     startAnnouncement: station-event-bureaucratic-error-announcement
     startAudio: #Delta-V: Previously unheard announcer line for DeltaV's custom announcer
-      path: /Audio/Announcements/bureaucratic_error.ogg 
+      path: /Audio/Announcements/bureaucratic_error.ogg
     minimumPlayers: 25
     weight: 5
     duration: 1
@@ -178,7 +180,7 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 1 # DeltaV - was 6.5
+    weight: 2 # DeltaV - was 6.5
     earliestStart: 60 # DeltaV - was 40
     reoccurrenceDelay: 20
     minimumPlayers: 45 # DeltaV - was 20
@@ -257,17 +259,54 @@
         - DeathAcidifierImplant
       - type: RandomMetadata
         nameSegments:
-        - names_ninja_title
-        - names_ninja
+        - NamesNinjaTitle
+        - NamesNinja
       mindRoles:
       - MindRoleNinja
+
+- type: entity
+  parent: BaseGameRule
+  id: ParadoxCloneSpawn
+  components:
+  - type: StationEvent
+    weight: 7 # DeltaV - was 4
+    duration: null
+    earliestStart: 25 # DeltaV - was 20
+    reoccurrenceDelay: 5 # DeltaV - was 20
+    minimumPlayers: 15
+  - type: ParadoxCloneRule
+    objectiveBlacklist:
+      tags:
+      - ParadoxCloneObjectiveBlacklist
+  - type: AntagObjectives
+    objectives:
+    - ParadoxAnomalyKillObjective # DeltaV - was ParadoxCloneKillObjective
+    - ParadoxAnomalyFriendObjective # DeltaV
+    - ParadoxCloneLivingObjective
+  - type: AntagRandomSpawn # TODO: improve spawning so they only start in maints
+  - type: AntagSelection
+    agentName: paradox-clone-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostParadoxClone
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: ParadoxCloneGear
+      roleLoadout:
+      - RoleSurvivalVoxTank # give vox something to breath in case they don't get a copy
+      briefing:
+        text: paradox-anomaly-role-greeting # DeltaV
+        color: lightblue
+        sound: /Audio/Misc/paradox_clone_greeting.ogg
+      mindRoles:
+      - MindRoleParadoxClone
 
 - type: entity
   parent: BaseGameRule
   id: RevenantSpawn
   components:
   - type: StationEvent
-    weight: 1 # DeltaV - was 7.5, lowered because of GlimmerRevenantSpawn event
+    weight: 2 # DeltaV - was 7.5, lowered because of GlimmerRevenantSpawn event
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
@@ -276,6 +315,43 @@
   - type: RandomSpawnRule
     prototype: MobRevenant
 
+- type: entity
+  parent: BaseWizardRule
+  id: WizardSpawn
+  components:
+  - type: StationEvent
+    weight: 1 # rare
+    duration: 1
+    earliestStart: 30
+    reoccurrenceDelay: 60
+    minimumPlayers: 10
+  - type: AntagSelection
+    agentName: wizard-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostWizard
+      min: 1
+      max: 1
+      playerRatio: 1
+      pickPlayer: false
+      startingGear: WizardBlueGear
+      roleLoadout:
+      - RoleSurvivalExtended
+      briefing:
+        text: wizard-role-greeting
+        color: Turquoise
+        # TODO: Need Wizard Start sound
+        #sound: "/Audio/Ambience/Antag/wizard_start.ogg"
+      # TODO: WizardComp as needed
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+      - type: RandomMetadata
+        nameSegments:
+        - NamesWizardFirst
+        - NamesWizardLast
+      mindRoles:
+      - MindRoleWizard
 
 # disabled until event is rewritten to be more interesting
 #- type: entity
@@ -308,7 +384,7 @@
   - type: StationEvent
     earliestStart: 15
     minimumPlayers: 10 # DeltaV - Was 15
-    weight: 5 # DeltaV - was 7
+    weight: 7
     duration: 240
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-kudzu-growth-result-message
@@ -358,6 +434,8 @@
     - Security
     - Service
     - Supply
+    - Justice # DeltaV - Add DeltaV specific channels
+    - Prison # DeltaV - Add DeltaV specific channels
     extraCount: 3 # DeltaV - was 2
     lightBreakChancePerSecond: 0.0003
     doorToggleChancePerSecond: 0.001
@@ -497,7 +575,7 @@
   id: LoneOpsSpawn
   components:
   - type: StationEvent
-    earliestStart: 60 # DeltaV - was 45
+    earliestStart: 45
     weight: 3.5 # DeltaV - was 5
     minimumPlayers: 30 # DeltaV - was 20
     reoccurrenceDelay: 30
@@ -506,7 +584,7 @@
     message: psionic-power-precognition-lone-ops-spawn-result-message
   - type: RuleGrids
   - type: LoadMapRule
-    mapPath: /Maps/Shuttles/ShuttleEvent/striker.yml
+    gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
   - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: AntagSelection
@@ -523,8 +601,8 @@
       - type: TargetObjectiveImmune # DeltaV - Nukies are no longer targets of kill objectives, this includes lone ops.
       - type: RandomMetadata
         nameSegments:
-        - SyndicateNamesPrefix
-        - SyndicateNamesNormal
+        - NamesSyndicatePrefix
+        - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
         - Syndicate

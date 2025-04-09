@@ -1,0 +1,63 @@
+- type: healthIcon
+  id: TriageStatusIcon
+  abstract: true
+  priority: 4
+  locationPreference: Left
+  isShaded: true
+
+- type: healthIcon
+  id: TriageClaimIcon
+  abstract: true
+  priority: 5
+  offset: 1
+  locationPreference: Left
+  isShaded: true
+
+- type: healthIcon
+  parent: TriageStatusIcon
+  id: TriageStatusMinor
+  icon:
+    sprite: /Textures/_DV/Interface/Misc/triage_icons.rsi
+    state: minor
+
+- type: healthIcon
+  parent: TriageStatusIcon
+  id: TriageStatusDelayed
+  icon:
+    sprite: /Textures/_DV/Interface/Misc/triage_icons.rsi
+    state: delayed
+
+- type: healthIcon
+  parent: TriageStatusIcon
+  id: TriageStatusImmediate
+  icon:
+    sprite: /Textures/_DV/Interface/Misc/triage_icons.rsi
+    state: immediate
+
+- type: healthIcon
+  parent: TriageStatusIcon
+  id: TriageStatusExpectant
+  icon:
+    sprite: /Textures/_DV/Interface/Misc/triage_icons.rsi
+    state: expectant
+
+- type: healthIcon
+  parent: TriageClaimIcon
+  id: TriageUnclaimed
+  icon:
+    sprite: /Textures/_DV/Interface/Misc/triage_icons.rsi
+    state: unclaimed
+
+- type: healthIcon
+  parent: TriageClaimIcon
+  id: TriageClaimedYours
+  icon:
+    sprite: /Textures/_DV/Interface/Misc/triage_icons.rsi
+    state: claimed_yours
+
+- type: healthIcon
+  parent: TriageClaimIcon
+  id: TriageClaimedOthers
+  icon:
+    sprite: /Textures/_DV/Interface/Misc/triage_icons.rsi
+    state: claimed_others

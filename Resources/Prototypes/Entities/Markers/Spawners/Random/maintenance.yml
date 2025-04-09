@@ -105,6 +105,7 @@
         - id: ClothingNeckCloakGoliathCloak
         - id: ClothingNeckCloakAce
         - id: ClothingNeckCloakAro
+        - id: ClothingNeckCloakAroace
         - id: ClothingNeckCloakBi
         - id: ClothingNeckCloakIntersex
         - id: ClothingNeckCloakLesbian
@@ -142,8 +143,10 @@
       - !type:GroupSelector
         children:
         - id: ClothingNeckLGBTPin
+        - id: ClothingNeckAllyPin
         - id: ClothingNeckAromanticPin
         - id: ClothingNeckAsexualPin
+        - id: ClothingNeckAroacePin
         - id: ClothingNeckBisexualPin
         - id: ClothingNeckGayPin
         - id: ClothingNeckIntersexPin
@@ -151,6 +154,7 @@
         - id: ClothingNeckNonBinaryPin
         - id: ClothingNeckPansexualPin
         - id: ClothingNeckOmnisexualPin
+        - id: ClothingNeckGenderqueerPin
         - id: ClothingNeckTransPin
         - id: ClothingNeckAutismPin
         - id: ClothingNeckGoldAutismPin
@@ -203,6 +207,10 @@
         children:
         - id: NitrogenTankFilled
         - id: DoubleEmergencyNitrogenTankFilled
+      - !type:GroupSelector # DeltaV - Random water vapor tanks spawn too
+        children:
+        - id: WaterVaporTankFilled
+        - id: DoubleEmergencyWaterVaporTankFilled
       - id: EmergencyFunnyOxygenTankFilled
         weight: 0.5
       - !type:GroupSelector
@@ -282,6 +290,7 @@
     - !type:GroupSelector
       weight: 2
       children:
+      - id: Binoculars
       - id: LanternFlash
       - id: PowerCellHigh
       - id: NetProbeCartridge

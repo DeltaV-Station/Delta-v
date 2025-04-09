@@ -11,11 +11,11 @@ public sealed partial class ObjectiveUnlockCondition : ListingCondition
 {
     public override bool Condition(ListingConditionArgs args)
     {
-        var minds = args.EntityManager.System<SharedMindSystem>();
-        if (!minds.TryGetMind(args.Buyer, out _, out var mind))
+        var ent = args.EntityManager;
+        if (!ent.TryGetComponent<MindComponent>(args.Buyer, out var mind))
             return false;
 
-        var unlocker = args.EntityManager.System<StoreUnlockerSystem>();
+        var unlocker = ent.System<StoreUnlockerSystem>();
         return unlocker.IsUnlocked(mind, args.Listing.ID);
     }
 }

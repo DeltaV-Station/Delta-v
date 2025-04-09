@@ -117,7 +117,7 @@
   components:
   - type: AccessReader
     access: [["Mail"]]
-    
+
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsChiefJustice
@@ -125,7 +125,7 @@
   components:
   - type: AccessReader
     access: [["ChiefJustice"]]
-    
+
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsJustice
@@ -133,7 +133,7 @@
   components:
   - type: AccessReader
     access: [["Justice"]]
-    
+
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsProsecutor
@@ -141,7 +141,7 @@
   components:
   - type: AccessReader
     access: [["Prosecutor"]]
-    
+
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsClerk

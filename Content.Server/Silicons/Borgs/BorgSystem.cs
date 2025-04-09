@@ -53,6 +53,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!; // DeltaV
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
 

@@ -1,0 +1,11 @@
+- type: entity
+  parent: MobHumanSyndicateAgentNukeops
+  id: MobHumanSyndicateHostageWarden
+  suffix: Human, Warden, HostageOps
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesNukieFirstWarden
+    - NamesSyndicateNormal
+  - type: Loadout
+    prototypes: [SyndicateOperativeHostageWardenGear]

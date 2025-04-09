@@ -349,3 +349,18 @@
   components:
   - type: IdCard
     jobTitle: job-alt-title-hygiene-technician
+
+# Robo-Neuroticisit
+
+- type: entity
+  parent: SyndicateIDCard
+  id: RoboNeuroticistIDCard
+  name: robo-neuroticist ID card
+  components:
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+    - External
+    - Robotics
+    - Maintenance

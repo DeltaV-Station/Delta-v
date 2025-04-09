@@ -153,10 +153,14 @@ public sealed class NukeOpsTest
             Assert.That(roleSys.MindGetAllRoleInfo(mindCrew).Any(x => nukeroles.Contains(x.Prototype)), Is.False);
         }
 
+        var ruleGridComps = entMan.AllComponents<RuleGridsComponent>();
+        Assert.That(ruleGridComps, Has.Length.EqualTo(1),
+            $"Unexpected RuleGrid(s) detected! {string.Join(',', ruleGridComps.Select(e => server.EntMan.ToPrettyString(e.Uid)))}");
+
         // The game rule exists, and all the stations/shuttles/maps are properly initialized
         var rule = entMan.AllComponents<NukeopsRuleComponent>().Single();
         var ruleComp = rule.Component;
-        var gridsRule = entMan.AllComponents<RuleGridsComponent>().Single().Component;
+        var gridsRule = ruleGridComps.Single().Component;
         foreach (var grid in gridsRule.MapGrids)
         {
             Assert.That(entMan.EntityExists(grid));
@@ -225,13 +229,15 @@ public sealed class NukeOpsTest
         var totalSeconds = 30;
         var totalTicks = (int) Math.Ceiling(totalSeconds / server.Timing.TickPeriod.TotalSeconds);
         var increment = 5;
-        var resp = entMan.GetComponent<RespiratorComponent>(player);
         var damage = entMan.GetComponent<DamageableComponent>(player);
         for (var tick = 0; tick < totalTicks; tick += increment)
         {
             await pair.RunTicksSync(increment);
-            if (!entMan.HasComponent<SiliconComponent>(player)) // Goobstation
+            if (!entMan.HasComponent<SiliconComponent>(player)) // Goobstation - IPC
+            {
+                var resp = entMan.GetComponent<RespiratorComponent>(player);
                 Assert.That(resp.SuffocationCycles, Is.LessThanOrEqualTo(resp.SuffocationCycleThreshold));
+            }
             Assert.That(damage.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
         }
 

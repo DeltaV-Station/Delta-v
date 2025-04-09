@@ -21,6 +21,8 @@ using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Server._CD.Records; // CD - Character Records
+using Content.Shared._CD.Records; // CD - Character Records
 
 namespace Content.Server.Database
 {
@@ -48,6 +50,11 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
+                // Begin CD - Character Records
+                .Include(p => p.Profiles)
+                    .ThenInclude(h => h.CDProfile)
+                    .ThenInclude(cd => cd != null ? cd.CharacterRecordEntries : null)
+                // End CD - Character Records
                 .Include(p => p.Profiles)
                     .ThenInclude(h => h.Loadouts)
                     .ThenInclude(l => l.Groups)
@@ -95,6 +102,8 @@ namespace Content.Server.Database
             }
 
             var oldProfile = db.DbContext.Profile
+                .Include(p => p.CDProfile) // CD - Character Records
+                    .ThenInclude(cd => cd != null ? cd.CharacterRecordEntries : null)
                 .Include(p => p.Preference)
                 .Where(p => p.Preference.UserId == userId.UserId)
                 .Include(p => p.Jobs)
@@ -216,12 +225,18 @@ namespace Content.Server.Database
                 }
             }
 
+            // Begin CD - Chracter Records
+            var cdRecords = profile.CDProfile?.CharacterRecords != null
+                ? RecordsSerialization.Deserialize(profile.CDProfile.CharacterRecords, profile.CDProfile.CharacterRecordEntries)
+                : PlayerProvidedCharacterRecords.DefaultRecords();
+            // End CD - Character Records
             var loadouts = new Dictionary<string, RoleLoadout>();
 
             foreach (var role in profile.Loadouts)
             {
                 var loadout = new RoleLoadout(role.RoleName)
                 {
+                    EntityName = role.EntityName,
                 };
 
                 foreach (var group in role.Groups)
@@ -261,7 +276,9 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
+                loadouts,
+                profile.CDProfile?.Height ?? 1.0f, // CD - Character Records
+                cdRecords // CD - Character Records
             );
         }
 
@@ -312,6 +329,18 @@ namespace Content.Server.Database
                         .Select(t => new Trait {TraitName = t})
             );
 
+            // Begin CD - Character Records
+            profile.CDProfile ??= new CDModel.CDProfile();
+            profile.CDProfile.Height = humanoid.Height;
+            // There are JsonIgnore annotations to ensure that entries are not stored as JSON.
+            profile.CDProfile.CharacterRecords = JsonSerializer.SerializeToDocument(humanoid.CDCharacterRecords ?? PlayerProvidedCharacterRecords.DefaultRecords());
+            if (humanoid.CDCharacterRecords != null)
+            {
+                profile.CDProfile.CharacterRecordEntries.Clear();
+                profile.CDProfile.CharacterRecordEntries.AddRange(RecordsSerialization.GetEntries(humanoid.CDCharacterRecords));
+            }
+            // End CD - Character Records
+
             profile.Loadouts.Clear();
 
             foreach (var (role, loadouts) in humanoid.Loadouts)
@@ -319,6 +348,7 @@ namespace Content.Server.Database
                 var dz = new ProfileRoleLoadout()
                 {
                     RoleName = role,
+                    EntityName = loadouts.EntityName ?? string.Empty,
                 };
 
                 foreach (var (group, groupLoadouts) in loadouts.SelectedLoadouts)
@@ -1112,7 +1142,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 .SingleOrDefaultAsync());
         }
 
-        public async Task SetLastReadRules(NetUserId player, DateTimeOffset date)
+        public async Task SetLastReadRules(NetUserId player, DateTimeOffset? date)
         {
             await using var db = await GetDb();
 
@@ -1122,7 +1152,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 return;
             }
 
-            dbPlayer.LastReadRules = date.UtcDateTime;
+            dbPlayer.LastReadRules = date?.UtcDateTime;
             await db.DbContext.SaveChangesAsync();
         }
 

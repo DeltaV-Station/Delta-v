@@ -17,13 +17,13 @@
 - type: listing
   id: UplinkRevolverPython
   name: uplink-revolver-python-name
-  description: uplink-revolver-python-desc
-  productEntity: WeaponRevolverPythonAP
-  discountCategory: usualDiscounts
+  description: deltav-uplink-revolver-python-desc # DeltaV - Description changed to indicate it isn't loaded with AP by default
+  productEntity: WeaponRevolverPython # DeltaV - No longer loaded with AP by default
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2
   cost:
-    Telecrystal: 7 # Originally was 13 TC but was not used due to high cost # DeltaV changed from 8 to 7
+    Telecrystal: 4 # Originally was 13 and then 8 TC but was not used due to high cost
   categories:
   - UplinkWeaponry
 
@@ -263,17 +263,17 @@
     - UplinkExplosives
 
 - type: listing
-  id: UplinkSupermatterGrenade
-  name: uplink-supermatter-grenade-name
-  description: uplink-supermatter-grenade-desc
-  productEntity: SupermatterGrenade
+  id: UplinkSingularityGrenade
+  name: uplink-supermatter-grenade-name # DeltaV - use old name
+  description: uplink-supermatter-grenade-desc # DeltaV - use old desc
+  productEntity: SingularityGrenade
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 3 # DeltaV - was 1
   cost:
-    Telecrystal: 6
+    Telecrystal: 6 # DeltaV - was 2, this is explosive now
   categories:
-    - UplinkExplosives
+    - UplinkExplosives # DeltaV - this is explosive here
 
 - type: listing
   id: UplinkWhiteholeGrenade
@@ -284,9 +284,9 @@
   discountDownTo:
     Telecrystal: 1
   cost:
-    Telecrystal: 3
+    Telecrystal: 2
   categories:
-    - UplinkExplosives
+    - UplinkDisruption
 
 - type: listing
   id: UplinkGrenadePenguin
@@ -502,7 +502,7 @@
   id: UplinkSpeedLoaderMagnumAP
   name: uplink-speedloader-magnum-name
   description: uplink-speedloader-magnu-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
+  icon: { sprite: /Textures/_DV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: piercing-icon } # DeltaV
   productEntity: SpeedLoaderMagnumAP
   cost:
     Telecrystal: 3
@@ -618,7 +618,7 @@
   id: UplinkNocturineChemistryBottle
   name: uplink-nocturine-chemistry-bottle-name
   description: uplink-nocturine-chemistry-bottle-desc
-  productEntity: NocturineChemistryBottle
+  productEntity: ChemistryBottleNocturine
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 3
@@ -863,16 +863,30 @@
 
 # Disruption
 
+# DeltaV - replaced by doorjack
+#- type: listing
+#  id: UplinkAccessBreaker
+#  name: uplink-access-breaker-name
+#  description: uplink-access-breaker-desc
+#  productEntity: AccessBreaker
+#  discountCategory: rareDiscounts # DeltaV - was veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 2
+#  cost:
+#    Telecrystal: 4
+#  categories:
+#  - UplinkDisruption
+
 - type: listing
   id: UplinkEmag
   name: uplink-emag-name
   description: uplink-emag-desc
   productEntity: Emag
-  discountCategory: rareDiscounts # DeltaV - was very rare
+  discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 2 # DeltaV
+    Telecrystal: 2 # DeltaV - was 3
   cost:
-    Telecrystal: 4 # DeltaV - was 8, can no longer emag doors
+    Telecrystal: 4 # DeltaV - was 5
   categories:
   - UplinkDisruption
 
@@ -1003,9 +1017,9 @@
   productEntity: OverlordCircuitBoard # DeltaV: replaced antimov with overlord
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 16 # DeltaV: was 10
+    Telecrystal: 7 # DeltaV: was 10
   cost:
-    Telecrystal: 20 # DeltaV: was 14
+    Telecrystal: 10 # DeltaV: was 14
   categories:
   - UplinkDisruption
   conditions:
@@ -1150,7 +1164,7 @@
   productEntity: ReinforcementRadioSyndicateNukeops
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-nukeop }
   cost:
-    Telecrystal: 20 # DeltaV - Was 35
+    Telecrystal: 20 # DeltaV - Was 30
   categories:
   - UplinkAllies
   conditions:
@@ -1935,11 +1949,11 @@
   name: uplink-revolver-cap-gun-fake-name
   description: uplink-revolver-cap-gun-fake-desc
   productEntity: RevolverCapGunFake
-  discountCategory: usualDiscounts
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 3
   cost:
-    Telecrystal: 9
+    Telecrystal: 5
   categories:
   - UplinkJob
   conditions:
@@ -2109,8 +2123,11 @@
   description: uplink-combat-bakery-desc
   icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
   productEntity: CombatBakeryKit
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
-    Telecrystal: 6
+    Telecrystal: 4
   categories:
   - UplinkJob
   conditions:

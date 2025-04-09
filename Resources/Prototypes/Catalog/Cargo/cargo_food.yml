@@ -4,19 +4,19 @@
     sprite: Objects/Consumable/Food/Baked/pizza.rsi
     state: margherita-slice
   product: CrateFoodPizza
-  cost: 450
+  cost: 1000 # DeltaV - raised from 450
   category: cargoproduct-category-name-food
   group: market
 
-- type: cargoProduct
-  id: FoodPizzaLarge
-  icon:
-    sprite: Objects/Consumable/Food/Baked/pizza.rsi
-    state: margherita
-  product: CrateFoodPizzaLarge
-  cost: 1800
-  category: cargoproduct-category-name-food
-  group: market
+#- type: cargoProduct # DeltaV - Removed to not invalidate chef
+#  id: FoodPizzaLarge
+#  icon:
+#    sprite: Objects/Consumable/Food/Baked/pizza.rsi
+#    state: margherita
+#  product: CrateFoodPizzaLarge
+#  cost: 1800
+#  category: cargoproduct-category-name-food
+#  group: market
 
 - type: cargoProduct
   id: FoodMRE

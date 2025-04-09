@@ -13,7 +13,7 @@ jobs:
     if: github.repository == 'DeltaV-Station/Delta-v'
 
     steps:
-      - uses: actions/checkout@v3.6.0
+      - uses: actions/checkout@v4.2.2
         with:
           ref: master
 

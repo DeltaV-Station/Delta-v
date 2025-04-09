@@ -1,0 +1,101 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseIdChip
+  name: identification chip
+  description: A programmable ID chip that controls cyborg's accesses. Configure it using an ID card computer.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/id_chip.rsi
+    layers:
+    - state: icon
+    - state: unshaded
+      shader: unshaded
+  - type: Item
+    size: Tiny
+  - type: Access
+    enabled: false # no taking a borgs AA and using it directly
+  - type: IdCard
+    fullName: cyborg
+    nameLocId: borg-id-chip-owner-name-job-title-text
+    fullNameLocId: borg-id-chip-owner-full-name-job-title-text
+  - type: Tag
+    tags:
+    - IdChip
+
+# Crew ID Chips
+
+- type: entity
+  parent: BaseIdChip
+  id: IdChipBasic
+  suffix: Basic
+  components:
+  - type: Access
+    tags:
+    - Maintenance
+    - Research # need it to get to robo usually
+    - Robotics # safe place to recharge + get upgrades
+    - Borg
+
+- type: entity
+  parent: BaseIdChip
+  id: IdChipAA
+  suffix: All Access
+  components:
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - Borg
+
+- type: entity
+  parent: BaseIdChip
+  id: IdChipBorgAA
+  suffix: Borg AA, no heads
+  components:
+  - type: Access
+    groups:
+    - AllAccessBorg
+    tags:
+    - Borg
+
+# Syndicate ID Chips
+
+# like an agent ID but not chameleon
+- type: entity
+  parent: BaseIdChip
+  id: IdChipSyndie
+  name: syndicate identification chip
+  suffix: Syndie, Copying
+  description: A sinister looking ID chip for more nefarious cyborgs.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/syndie_id_chip.rsi
+  - type: Access
+    tags:
+    - SyndicateAgent
+    - NuclearOperative
+    - Borg
+  - type: AgentIDCard
+  - type: ActivatableUI
+    key: enum.AgentIDCardUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.AgentIDCardUiKey.Key:
+        type: AgentIDCardBoundUserInterface
+
+# its like its copied from the neuroticist's id card
+- type: entity
+  parent: IdChipSyndie
+  id: IdChipRoboNeuroticist
+  suffix: Robo-Neuroticist
+  components:
+  - type: Access
+    tags:
+    - SyndicateAgent
+    - NuclearOperative
+    - Borg
+    - External
+    - Robotics
+    - Maintenance

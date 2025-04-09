@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Abilities.Borgs;
+using Content.Shared._DV.Abilities.Borgs;
 using Robust.Client.GameObjects;
 
 namespace Content.Client._DV.Abilities.Borgs;

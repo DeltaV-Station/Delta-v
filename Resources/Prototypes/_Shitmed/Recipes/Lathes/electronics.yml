@@ -4,6 +4,11 @@
   result: AutodocCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: BaseCircuitboardRecipe
   id: OperatingTableCircuitboard
   result: OperatingTableCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: OperatingTableAdvancedCircuitboard
+  result: OperatingTableAdvancedCircuitboard

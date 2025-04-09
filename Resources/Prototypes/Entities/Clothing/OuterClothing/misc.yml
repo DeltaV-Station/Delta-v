@@ -168,7 +168,7 @@
 
 - type: entity
   abstract: true
-  parent: ClothingOuterEVASuitBase # DeltaV - Make real wizard clothes space proof
+  parent: [ ClothingOuterEVASuitBase, AllowSuitStorageClothingGasTanks, BaseMagicalContraband ] # DeltaV - Make real wizard clothes space proof
   id: ClothingOuterWizardBase
   components:
   - type: WizardClothes

@@ -102,11 +102,6 @@
   description: flavor-complex-greengrass
 
 - type: flavor
-  id: daiquiri
-  flavorType: Complex
-  description: flavor-complex-daiquiri
-
-- type: flavor
   id: arsonistsbrew
   flavorType: Complex
   description: flavor-complex-arsonistsbrew
@@ -176,6 +171,11 @@
   id: drgibbbloodred
   flavorType: Complex
   description: flavor-complex-drgibbbloodred
+
+- type: flavor
+  id: lemonlimebitters
+  flavorType: Complex
+  description: flavor-complex-lemon-lime-bitters
 
 # this is prefixed with "candy" to avoid clashes with potential future strawberries upstream
 - type: flavor

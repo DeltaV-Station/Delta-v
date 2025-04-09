@@ -108,7 +108,7 @@
   - type: BodyPart
     onAdd:
     - type: Prying
-      speedModifier: 1.5
+      speedModifier: 1.2 # DeltaV - change from 1.5
       pryPowered: true
 
 - type: entity
@@ -120,7 +120,7 @@
   - type: BodyPart
     onAdd:
     - type: Prying
-      speedModifier: 1.5
+      speedModifier: 1.2 # DeltaV - change from 1.5
       pryPowered: true
 
 - type: entity
@@ -134,7 +134,7 @@
     sprintSpeed: 5.625
   - type: BodyPart
     onAdd:
-    - type: NoSlip
+  #  - type: NoSlip # DeltaV - no noslip
     - type: ProtectedFromStepTriggers
 
 - type: entity
@@ -148,5 +148,5 @@
     sprintSpeed: 5.625
   - type: BodyPart
     onAdd:
-    - type: NoSlip
+    #  - type: NoSlip # DeltaV - no noslip
     - type: ProtectedFromStepTriggers

@@ -21,7 +21,7 @@ flavor-complex-corncob = like a sick joke
 flavor-complex-gunmetal = bittersweet and creamy
 flavor-complex-lemondrop = refreshingly tart
 flavor-complex-greengrass = like a holiday in the sun
-flavor-complex-daiquiri = fashionable
+flavor-complex-fashionable = fashionable
 flavor-complex-arsonistsbrew = like ash and flame
 flavor-complex-healthcodeviolation = ominous
 flavor-complex-blellow = like an impossible color
@@ -29,6 +29,7 @@ flavor-complex-candy-strawberry = like strawberries
 flavor-complex-candy-bubblegum = like bubble gum
 flavor-complex-double-ice-cream = like ice cream, twice
 flavor-complex-drgibbbloodred = like severe malpractice
+flavor-complex-lemon-lime-bitters = like an Aussie dessert
 
 ## Delta-V additional drink flavors
 flavor-complex-absinthe-deltav = like green death

@@ -7,6 +7,10 @@ role_timers = false
 contraband_examine = false # DeltaV
 secret_weight_prototype = "SecretDeltaV" # DeltaV
 role_timer_override = "DeltaV" # DeltaV
+showgreentext = false # DeltaV
+
+[events]
+enabled = false
 
 [ghost]
 role_time = 0.5
