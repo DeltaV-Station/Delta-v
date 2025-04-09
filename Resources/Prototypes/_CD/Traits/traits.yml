@@ -3,5 +3,10 @@
   id: Synthetic
   name: trait-synth-name
   description: trait-synth-desc
+  blacklist:
+    components:
+      - Silicon # The only component I could find that is exclusive to IPCs
+      - BorgChassis
+  excludedSpecies: [IPC]
   components:
     - type: Synth
