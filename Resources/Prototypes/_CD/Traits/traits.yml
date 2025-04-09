@@ -3,10 +3,13 @@
   id: Synthetic
   name: trait-synth-name
   description: trait-synth-desc
+  # Add DeltaV Additions - blacklist IPCs
   blacklist:
     components:
-      - Silicon # The only component I could find that is exclusive to IPCs
+      - Silicon
       - BorgChassis
-  excludedSpecies: [IPC]
+  excludedSpecies:
+    - IPC
+  # End DeltaV Additions - blacklist IPCs
   components:
     - type: Synth

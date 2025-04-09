@@ -1,1 +1,1 @@
-﻿station-event-ion-storm-synth = You detect an Ion Storm. Your internal systems may be tampered with or damaged as a result. 
+﻿station-event-ion-storm-synth = You detect an Ion Storm. Your internal systems may be tampered with or damaged as a result.

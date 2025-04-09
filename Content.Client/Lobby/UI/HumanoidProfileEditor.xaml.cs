@@ -538,8 +538,6 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         public void RefreshTraits()
         {
-            var selectedSpecies = (Profile?.Species).GetValueOrDefault(); // DeltaV - Required for trait species exclusion
-
             TraitsList.DisposeAllChildren();
 
             var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => Loc.GetString(t.Name)).ToList();
@@ -562,13 +560,13 @@ namespace Content.Client.Lobby.UI
 
             foreach (var trait in traits)
             {
-                // Start DeltaV - Species trait exclusion
-                if (trait.ExcludedSpecies.Contains(selectedSpecies))
+                // Begin DeltaV Additions - Species trait exclusion
+                if (Profile?.Species is { } selectedSpecies && trait.ExcludedSpecies.Contains(selectedSpecies))
                 {
                     Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
                     continue;
                 }
-                // End DeltaV
+                // End DeltaV Additions
 
                 if (trait.Category == null)
                 {
