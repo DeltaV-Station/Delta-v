@@ -66,7 +66,10 @@ public sealed class ThavenMoodTests
         var mood = thavenSystem.RollMood(moodProto);
         var moodVarSet = mood.MoodVars.Values.ToHashSet();
 
-        Assert.That(moodVarSet, Is.EquivalentTo(datasetSet));
+        await server.WaitAssertion(() =>
+        {
+            Assert.That(moodVarSet, Is.EquivalentTo(datasetSet));
+        });
 
         await pair.CleanReturnAsync();
     }
@@ -89,7 +92,10 @@ public sealed class ThavenMoodTests
         var mood = thavenSystem.RollMood(moodProto);
         var moodVarSet = mood.MoodVars.Values.ToHashSet();
 
-        Assert.That(moodVarSet, Is.EquivalentTo(datasetSet));
+        await server.WaitAssertion(() =>
+        {
+            Assert.That(moodVarSet, Is.EquivalentTo(datasetSet))
+        });
 
         await pair.CleanReturnAsync();
     }
