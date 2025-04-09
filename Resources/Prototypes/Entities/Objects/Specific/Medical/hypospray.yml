@@ -465,12 +465,12 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 30 # Funkychem
+        maxVol: 30 # Funkychem - was 40
         reagents:
         - ReagentId: Saline
-          Quantity: 15
-        - ReagentId: Salbutamol
-          Quantity: 15
+          Quantity: 15 # Funkychem - was 20
+        - ReagentId: Salbutamol # Funkychem - was dex+
+          Quantity: 15 # Funkychem - was 20
   - type: Tag
     tags: []
 

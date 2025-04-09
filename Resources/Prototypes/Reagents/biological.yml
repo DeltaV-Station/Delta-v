@@ -177,12 +177,11 @@
         amount: 3
       - !type:HealthChange
         damage:
-          # Funkychem - buff ichor as it has an insane crafting recipe now
           groups:
-            Burn: -4.8
-            Brute: -4.8
-            Toxin: -4
-            Airloss: -6
+            Burn: -5
+            Brute: -5
+            Toxin: -4 # Funkychem - was -2
+            Airloss: -6 # Funkychem - ichor does airloss now too
           types:
             Bloodloss: -5
       - !type:ModifyBleedAmount

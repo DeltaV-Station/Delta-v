@@ -62,9 +62,7 @@
       - id: EmergencyOxygenTankFilled
       - id: EmergencyMedipen
         amount: 2 # Funkychem - more medipens in O2 kits
-        # Funkychem - convermol for O2 kits instead of inaprovaline
-      # - id: SyringeInaprovaline
-      - id: SyringeConvermol # Funkychem - only kit to have 1 pill type, generally makes sense to have 2.
+      - id: SyringeConvermol # Funkychem - was inaprovaline
         amount: 2
       - id: PillCanisterDexalin
 
