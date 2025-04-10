@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fixed traitors never getting the notary stamp steal objective.
-    type: Fix
-  id: 739
-  time: '2024-12-05T04:17:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2358
 - author: JustAnOrange
   changes:
   - message: Fixed Logi and Epi departmental sign sprites.
@@ -4001,3 +3994,12 @@
   id: 1238
   time: '2025-04-10T00:20:00.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3407
+- author: Radezolid
+  changes:
+  - message: Security hardsuits are now insulated against electrical shock.
+    type: Tweak
+  - message: All magboots now have a toggle delay of 3 seconds.
+    type: Tweak
+  id: 1239
+  time: '2025-04-10T01:37:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3369
