@@ -1,68 +1,4 @@
 ﻿Entries:
-- author: Foxmin
-  changes:
-  - message: New DeltaV specific names for Station AIs, collect all 62!
-    type: Add
-  id: 734
-  time: '2024-12-02T19:43:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2345
-- author: Colin_Tel, Fox, deltanedas, DeltaV Admin Team
-  changes:
-  - message: Added silicon rules to the rules list.
-    type: Add
-  id: 735
-  time: '2024-12-02T19:46:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2344
-- author: Emily9031
-  changes:
-  - message: The Station AI can now use the Prison and Justice radio channels.
-    type: Fix
-  id: 736
-  time: '2024-12-03T06:36:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2352
-- author: BlitzTheSquishy
-  changes:
-  - message: You now have to hold a rifle with TWO hands to operate it.
-    type: Tweak
-  id: 737
-  time: '2024-12-04T12:51:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2353
-- author: deltanedas
-  changes:
-  - message: Fixed the AI getting a copy of fugitive reports on its face.
-    type: Fix
-  id: 738
-  time: '2024-12-04T23:20:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2363
-- author: deltanedas
-  changes:
-  - message: Fixed traitors never getting the notary stamp steal objective.
-    type: Fix
-  id: 739
-  time: '2024-12-05T04:17:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2358
-- author: JustAnOrange
-  changes:
-  - message: Fixed Logi and Epi departmental sign sprites.
-    type: Fix
-  id: 740
-  time: '2024-12-05T10:29:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2366
-- author: Emily9031
-  changes:
-  - message: Cyborgs are now able to slowly fly through space.
-    type: Add
-  id: 741
-  time: '2024-12-06T01:22:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2339
-- author: Avalon-Proto
-  changes:
-  - message: Syndicate Observation Kits have been adjusted, granting it a Camera bug
-      and a better cell for the monitor!
-    type: Tweak
-  id: 742
-  time: '2024-12-06T18:15:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2288
 - author: Radezolid
   changes:
   - message: Added foam sabres! They may appear in maintenance lockers and mimes can
@@ -3997,3 +3933,74 @@
   id: 1233
   time: '2025-04-08T17:26:58.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3395
+- author: deltanedas
+  changes:
+  - message: Fire alarms (the ones you manually pull to troll atmos techs) no longer
+      do anything.
+    type: Tweak
+  id: 1234
+  time: '2025-04-09T13:08:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3161
+- author: Stop-Signs
+  changes:
+  - message: Hristov no longer deals insane amounts of structural damage.
+    type: Tweak
+  id: 1235
+  time: '2025-04-09T13:08:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3406
+- author: ShepardToTheStars
+  changes:
+  - message: added an alternate Aloxadone recipe that uses siderlac, dermaline, and
+      cryoxadone.
+    type: Add
+  id: 1236
+  time: '2025-04-09T13:23:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3400
+- author: Colin-Tel
+  changes:
+  - message: Updated the Patrons tab of the credits. Thank you to everyone who helps
+      support DeltaV!
+    type: Tweak
+  id: 1237
+  time: '2025-04-09T17:32:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3408
+- author: Stop-Signs
+  changes:
+  - message: The syndicate thermal hardsuit is a side-grade once again, being cheaper
+      but with less brute resistance.
+    type: Tweak
+  id: 1238
+  time: '2025-04-10T00:20:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3407
+- author: Radezolid
+  changes:
+  - message: Security hardsuits are now insulated against electrical shock.
+    type: Tweak
+  - message: All magboots now have a toggle delay of 3 seconds.
+    type: Tweak
+  id: 1239
+  time: '2025-04-10T01:37:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3369
+- author: Radezolid
+  changes:
+  - message: Shuttle FTL changes! FTL cooldown has been reduced to 60 seconds, the
+      windup before going into FTL lasts 10 seconds while the travel itself takes
+      only 5 seconds now.
+    type: Tweak
+  id: 1240
+  time: '2025-04-10T02:09:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3309
+- author: Darklyac
+  changes:
+  - message: Added 4 new songs to the lobby and the jukebox
+    type: Add
+  id: 1241
+  time: '2025-04-10T15:26:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3385
+- author: LankLTE, ZigTag
+  changes:
+  - message: Ported the Synthetic trait from Cosmatic Drift.
+    type: Add
+  id: 1242
+  time: '2025-04-10T17:42:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3409

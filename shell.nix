@@ -43,6 +43,9 @@ let
     at-spi2-core
     cups
     python3
+
+    # DeltaV
+    pre-commit
   ];
 in pkgs.mkShell {
   name = "space-station-14-devshell";
