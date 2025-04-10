@@ -26,11 +26,11 @@ public sealed class SynthSystem : EntitySystem
     {
         if (TryComp<TypingIndicatorComponent>(uid, out var indicator))
         {
-            indicator.TypingIndicatorPrototype = RobotTypingIndicator;
+            indicator.TypingIndicatorPrototype = RobotTypingIndicator; // DeltaV - make strings static readonly
             Dirty(uid, indicator);
         }
 
         // Give them synth blood. Ion storm notif is handled in that system
-        _bloodstream.ChangeBloodReagent(uid, SynthBloodReagent);
+        _bloodstream.ChangeBloodReagent(uid, SynthBloodReagent); // DeltaV - make strings static readonly
     }
 }
