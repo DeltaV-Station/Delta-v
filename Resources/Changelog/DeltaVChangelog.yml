@@ -1,15 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: Added foam sabres! They may appear in maintenance lockers and mimes can
-      select to spawn with it in the loadout selection.
-    type: Add
-  - message: Added a sharp version of the foam sabre toy, purchasable from the syndicate
-      uplink at 6 TC with a possible discount to 4 TC.
-    type: Add
-  id: 743
-  time: '2024-12-06T19:33:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2310
 - author: Lyndomen
   changes:
   - message: Central Command got a tiny renovation
@@ -4004,3 +3993,10 @@
   id: 1242
   time: '2025-04-10T17:42:24.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3409
+- author: deltanedas
+  changes:
+  - message: Fixed not being able to heal familiars like Remilia with topicals.
+    type: Fix
+  id: 1243
+  time: '2025-04-10T17:59:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3423
