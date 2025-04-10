@@ -12,7 +12,7 @@ repos:
     # only check prototypes, maps would be too slow
     files: "^Resources/Prototypes/_DV/.*\\.yml"
     # !type:... doesn't work without somehow loading SS14, which would probably make commits take years
-    args: ["--unsafe"]
+    args: [ "--unsafe" ]
   - id: check-json
     # only need to check meta.json files
     files: "^Resources/Textures/_DV/.*meta\\.json$"
@@ -24,7 +24,11 @@ repos:
   - id: check-toml
     files: "^Resources/ConfigPresets/.*\\.toml$"
   - id: check-merge-conflict
-  # Fixers that will can change commits to PRs
+  # Fixers that can and will change commits to PRs
   - id: end-of-file-fixer
   - id: trailing-whitespace
   - id: fix-byte-order-marker
+  - id: pretty-format-json
+    # Format texture meta.json files
+    files: "^Resources/Textures/_DV/.*meta\\.json$"
+    args: [ "--autofix", "--indent", "4", "--no-ensure-ascii", "--no-sort-keys" ]
