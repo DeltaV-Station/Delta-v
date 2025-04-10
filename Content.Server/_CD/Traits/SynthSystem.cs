@@ -1,10 +1,18 @@
 using Content.Server.Body.Systems;
+using Content.Server.Database;
 using Content.Shared.Chat.TypingIndicator;
+using Content.Shared.Chemistry.Reagent;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._CD.Traits;
 
 public sealed class SynthSystem : EntitySystem
 {
+    // Begin DeltaV - make strings static readonly
+    private static readonly ProtoId<TypingIndicatorPrototype> RobotTypingIndicator = "robot";
+    private static readonly ProtoId<ReagentPrototype> SynthBloodReagent = "SynthBlood";
+    // End DeltaV
+
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
     public override void Initialize()
@@ -18,11 +26,11 @@ public sealed class SynthSystem : EntitySystem
     {
         if (TryComp<TypingIndicatorComponent>(uid, out var indicator))
         {
-            indicator.TypingIndicatorPrototype = "robot";
+            indicator.TypingIndicatorPrototype = RobotTypingIndicator;
             Dirty(uid, indicator);
         }
 
         // Give them synth blood. Ion storm notif is handled in that system
-        _bloodstream.ChangeBloodReagent(uid, "SynthBlood");
+        _bloodstream.ChangeBloodReagent(uid, SynthBloodReagent);
     }
 }

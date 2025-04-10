@@ -62,11 +62,9 @@ public sealed partial class TraitPrototype : IPrototype
     [DataField]
     public ProtoId<TraitCategoryPrototype>? Category;
 
-    // Begin DeltaV Additions - Species trait hiding
     /// <summary>
-    /// Hides traits from specific species
+    /// DeltaV - Hides traits from specific species
     /// </summary>
     [DataField]
     public HashSet<ProtoId<SpeciesPrototype>> ExcludedSpecies = new();
-    // End DeltaV Additions
 }
