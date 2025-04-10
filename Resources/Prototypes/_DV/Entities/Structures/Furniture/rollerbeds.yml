@@ -1,0 +1,32 @@
+- type: entity
+  parent: RollerBed
+  id: RollerBedHolo
+  name: holographic rollerbed
+  description: Used to carry patients around without damaging them. This one seems to be holographic.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _DV/Structures/Furniture/rollerbeds.rsi
+    noRot: true
+    layers:
+    - state: rollerbed
+      map: ["unfoldedLayer"]
+    - state: rollerbed_folded
+      map: ["foldedLayer"]
+      visible: false
+    - state: rollerbed_buckled
+      map: ["buckledLayer"]
+  - type: StaticPrice
+    price: 200
+
+
+- type: entity
+  parent: RollerBedHolo
+  id: RollerBedHoloSpawnFolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+  - type: Strap
+    enabled: False

@@ -128,7 +128,7 @@ marking-ChitinidRArmRadiant = Chitinid Right Arm (Radiant)
 marking-ChitinidChestToxic-toxic_chest = Chest
 marking-ChitinidChestToxic = Chitinid Chest (Toxic)
 
-marking-ChitinidHeadToxic-toxic_head = Head 
+marking-ChitinidHeadToxic-toxic_head = Head
 marking-ChitinidHeadToxic = Chitinid Head (Toxic)
 
 marking-ChitinidLLegToxic-toxic_l_leg = Left Leg
