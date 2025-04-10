@@ -20,5 +20,3 @@ marking-KitsuneTailsThree-foxthreetailstone2 = Kitsune Three Tails tip
 marking-KitsuneTailsTwo = Kitsune Two Tails
 marking-KitsuneTailsTwo-foxtwotailstone1 = Kitsune Two Tails
 marking-KitsuneTailsTwo-foxtwotailstone2 = Kitsune Two Tails tip
-
-
