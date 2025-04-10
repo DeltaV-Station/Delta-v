@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: JustAnOrange
-  changes:
-  - message: Fixed Logi and Epi departmental sign sprites.
-    type: Fix
-  id: 740
-  time: '2024-12-05T10:29:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2366
 - author: Emily9031
   changes:
   - message: Cyborgs are now able to slowly fly through space.
@@ -4003,3 +3996,12 @@
   id: 1239
   time: '2025-04-10T01:37:33.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3369
+- author: Radezolid
+  changes:
+  - message: Shuttle FTL changes! FTL cooldown has been reduced to 60 seconds, the
+      windup before going into FTL lasts 10 seconds while the travel itself takes
+      only 5 seconds now.
+    type: Tweak
+  id: 1240
+  time: '2025-04-10T02:09:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3309
