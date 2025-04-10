@@ -35,7 +35,6 @@ public partial class ChatBox : UIWidget
     private List<ChatStackData> _chatStackList;
     // End EE - Chat stacking
 
-
     public ChatBox()
     {
         RobustXamlLoader.Load(this);
@@ -57,7 +56,6 @@ public partial class ChatBox : UIWidget
         _chatStackList = new List<ChatStackData>(_chatStackAmount);
         _cfg.OnValueChanged(EECVars.ChatStackLastLines, UpdateChatStack, true);
         // End EE - Chat stacking
-
     }
 
     // EE - Chat stacking
