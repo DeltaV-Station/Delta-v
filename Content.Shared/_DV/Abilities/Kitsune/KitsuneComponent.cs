@@ -8,8 +8,8 @@ namespace Content.Shared._DV.Abilities.Kitsune;
 /// <summary>
 /// This component assigns the entity with a polymorph action
 /// </summary>
-
-[RegisterComponent, Access(typeof(SharedKitsuneSystem)), NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedKitsuneSystem))]
+[AutoGenerateComponentState]
 public sealed partial class KitsuneComponent : Component
 {
     [DataField] public ProtoId<PolymorphPrototype> KitsunePolymorphId = "KitsuneMorph";
@@ -31,10 +31,12 @@ public sealed partial class KitsuneComponent : Component
 
     [DataField, AutoNetworkedField] public List<EntityUid> ActiveFoxFires = [];
 
+    [DataField, AutoNetworkedField] public Color? Color;
 }
 
 [Serializable, NetSerializable]
-public enum KitsuneColor
+public enum KitsuneColorVisuals : byte
 {
     Color,
+    Layer
 }

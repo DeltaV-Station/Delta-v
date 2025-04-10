@@ -12,10 +12,9 @@
   - type: Sprite
     sprite: _DV/Mobs/Customization/kitsune/foxform.rsi
     layers:
-      - state: kitsune_fox_body
-        visible: true
-        map: [ "enum.DamageStateVisualLayers.Base" ]
-      - state: kitsune_fox_innerear
+    - state: kitsune_fox_body
+      map: ["enum.KitsuneColorVisuals.Layer"]
+    - state: kitsune_fox_innerear
   - type: MobThresholds
     thresholds:
       0: Alive

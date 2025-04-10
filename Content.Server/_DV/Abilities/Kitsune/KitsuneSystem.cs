@@ -29,7 +29,7 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
         if (_polymorph.PolymorphEntity(ent, ent.Comp.KitsunePolymorphId) is not {} fox)
             return;
 
-        _appearance.SetData(fox, KitsuneColor.Color, EyeColor ?? Color.Orange);
+        _appearance.SetData(fox, KitsuneColorVisuals.Color, ent.Comp.Color ?? Color.Orange);
 
         //Transfer Accesses
         var accessItems = _reader.FindPotentialAccessItems(ent);

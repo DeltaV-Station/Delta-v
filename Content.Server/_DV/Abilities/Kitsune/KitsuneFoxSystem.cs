@@ -11,7 +11,6 @@ public sealed class KitsuneFoxSystem : EntitySystem
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
 
-
     public override void Initialize()
     {
         base.Initialize();
@@ -21,10 +20,10 @@ public sealed class KitsuneFoxSystem : EntitySystem
 
     private void OnStunned(Entity<KitsuneFoxComponent> ent, ref StunnedEvent args)
     {
-        var staminaDamage = _stamina.GetStaminaDamage(ent);
-        _polymorph.Revert(ent.Owner);
         if (!TryComp<PolymorphedEntityComponent>(ent, out var polymorphedEntity))
             return;
+        var staminaDamage = _stamina.GetStaminaDamage(ent);
         _stamina.TakeStaminaDamage(polymorphedEntity.Parent, staminaDamage);
+        _polymorph.Revert(ent.Owner);
     }
 }

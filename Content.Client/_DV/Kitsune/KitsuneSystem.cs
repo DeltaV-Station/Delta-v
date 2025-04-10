@@ -7,25 +7,13 @@ public sealed class KitsuneSystem : VisualizerSystem<KitsuneComponent>
 {
     protected override void OnAppearanceChange(EntityUid uid, KitsuneComponent comp, ref AppearanceChangeEvent args)
     {
-        if (args.Sprite == null)
-        {
+        if (args.Sprite is not {} sprite)
             return;
-        }
 
-        if (!AppearanceSystem.TryGetData<Color>(uid, KitsuneColor.Color, out var color, args.Component))
-        {
+        if (!AppearanceSystem.TryGetData<Color>(uid, KitsuneColorVisuals.Color, out var color, args.Component))
             return;
-        }
 
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
-        {
-            return;
-        }
-
-        foreach (var spriteLayer in args.Sprite.AllLayers)
-        {
-            if (spriteLayer.RsiState.Name == "kitsune_fox_body")
-                spriteLayer.Color = color;
-        }
+        if (sprite.LayerMapTryGet(KitsuneColorVisuals.Layer, out var layer))
+            sprite.LayerSetColor(layer, color);
     }
 }

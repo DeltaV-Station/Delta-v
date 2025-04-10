@@ -10,13 +10,12 @@ public abstract class SharedKitsuneSystem : EntitySystem
 {
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-
-    protected Color? EyeColor = null;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<KitsuneComponent, CreateFoxfireActionEvent>(OnCreateFoxfire);
         SubscribeLocalEvent<FoxfireComponent, ComponentShutdown>(OnFoxfireShutdown);
         SubscribeLocalEvent<KitsuneComponent, MapInitEvent>(OnMapInit);
@@ -27,7 +26,7 @@ public abstract class SharedKitsuneSystem : EntitySystem
     {
         if (TryComp<HumanoidAppearanceComponent>(ent, out var humanComp))
         {
-            EyeColor = humanComp.EyeColor;
+            ent.Comp.Color = humanComp.EyeColor;
         }
     }
 
@@ -46,7 +45,7 @@ public abstract class SharedKitsuneSystem : EntitySystem
     {
         if (!TryComp<HandsComponent>(ent, out var hands) || hands.Count < 1)
         {
-            _popupSystem.PopupEntity(Loc.GetString("fox-no-hands"), ent, ent);
+            _popup.PopupEntity(Loc.GetString("fox-no-hands"), ent, ent);
             return;
         }
 
@@ -60,30 +59,32 @@ public abstract class SharedKitsuneSystem : EntitySystem
         var fireComp = EnsureComp<FoxfireComponent>(fireEnt);
         fireComp.Kitsune = ent;
         ent.Comp.ActiveFoxFires.Add(fireEnt);
+        Dirty(fireEnt, fireComp);
+        Dirty(ent);
 
-        if (EyeColor is not null)
-            _light.SetColor(fireEnt, (Color)EyeColor);
+        _light.SetColor(fireEnt, ent.Comp.Color ?? Color.Purple);
 
         args.Handled = true;
     }
     private void OnFoxfireShutdown(Entity<FoxfireComponent> ent, ref ComponentShutdown args)
     {
-        if (ent.Comp.Kitsune is { } kitsune && TryComp<KitsuneComponent>(kitsune, out var kitsuneComp))
-        {
-            // Stop tracking the removed fox fire
-            kitsuneComp.ActiveFoxFires.Remove(ent);
+        if (ent.Comp.Kitsune is not { } kitsune || !TryComp<KitsuneComponent>(kitsune, out var kitsuneComp))
+            return;
 
-            // Refund the fox fire charge
-            _actions.AddCharges(kitsuneComp.FoxfireAction, 1);
-            // If charges exceeds the maximum then set charges to max
-            var foxfireAction = kitsuneComp.FoxfireAction;
-            if (!TryComp<InstantActionComponent>(foxfireAction, out var instantActionComp))
-                return;
-            if (_actions.GetCharges(foxfireAction) > instantActionComp.MaxCharges)
-                _actions.SetCharges(foxfireAction, instantActionComp.MaxCharges);
+        // Stop tracking the removed fox fire
+        kitsuneComp.ActiveFoxFires.Remove(ent);
 
-            Dirty(ent);
-        }
+        // Refund the fox fire charge
+        _actions.AddCharges(kitsuneComp.FoxfireAction, 1);
+
+        // If charges exceeds the maximum then set charges to max
+        var foxfireAction = kitsuneComp.FoxfireAction;
+        if (!TryComp<InstantActionComponent>(foxfireAction, out var instantActionComp))
+            return;
+        if (_actions.GetCharges(foxfireAction) > instantActionComp.MaxCharges)
+            _actions.SetCharges(foxfireAction, instantActionComp.MaxCharges);
+
+        Dirty(kitsune, kitsuneComp);
     }
 }
 
