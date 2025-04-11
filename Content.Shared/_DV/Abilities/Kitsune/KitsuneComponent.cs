@@ -18,8 +18,6 @@ public sealed partial class KitsuneComponent : Component
 
     [DataField, AutoNetworkedField] public EntityUid? KitsuneActionEntity;
 
-    [DataField] public bool NoAction = false;
-
     /// <summary>
     /// The foxfire prototype to use.
     /// </summary>

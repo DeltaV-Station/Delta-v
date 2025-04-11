@@ -32,9 +32,6 @@ public abstract class SharedKitsuneSystem : EntitySystem
 
     private void OnMapInit(Entity<KitsuneComponent> ent, ref MapInitEvent args)
     {
-        if (ent.Comp.NoAction)
-            return;
-
         if (HasComp<KitsuneFoxComponent>(ent))
         {
             RemComp<KitsuneComponent>(ent);
