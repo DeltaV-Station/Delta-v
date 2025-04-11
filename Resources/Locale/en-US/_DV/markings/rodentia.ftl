@@ -31,7 +31,7 @@ marking-RodentiaHeadTopEarMouse-mouse = Outer ear
 marking-RodentiaHeadTopEarMouse-mouse_overlay = Inner ear
 
 marking-RodentiaHeadTopEarMouseLarge = Ears - Mouse (Large)
-marking-RodentiaHeadTopEarMouseLarge-mouse_large = Outer 
+marking-RodentiaHeadTopEarMouseLarge-mouse_large = Outer
 marking-RodentiaHeadTopEarMouseLarge-mouse_large_overlay = Inner ear
 
 marking-RodentiaHeadTopEarNone = Ears - Hidden

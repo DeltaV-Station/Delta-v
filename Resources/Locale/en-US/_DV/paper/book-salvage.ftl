@@ -52,7 +52,7 @@ book-text-vulpkanin = Vulpkanin for Dummies, an Exhaustive Guide
        Don't Underestimate Them: Vulpkanin may look cute and cuddly, but they can be fierce fighters when provoked. Treat them with respect and avoid unnecessary conflict.
 
 book-text-gorlexgirlfriend = It's the 197th version of the infamous Gorlex Girlfriends magazine. This issue includes several pictures and interviews of multiple agents working in the syndicate alongside actors who work on the Syndicate TV show "Nukies". The best part by far was about Operative November who is the star of this edition, with her picture being on the cover.
-    
+
     Most of the magazine is either Syndicate propaganda or advertisements for Syndicate-branded items like soda or merch from the show. At least there are some coupons on the back for them.
-    
+
     On the last page is an ad for the Gorlex Girlfriends dating app... and the Gorlex Girlfriends Hotline.

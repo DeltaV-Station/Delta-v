@@ -1,4 +1,4 @@
-﻿using Content.Shared.Actions.Events;
+using Content.Shared.Actions.Events;
 using Content.Shared._DV.Hologram;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;

@@ -1,4 +1,4 @@
-﻿using Content.Server.Administration.Commands;
+using Content.Server.Administration.Commands;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Preferences.Managers;
