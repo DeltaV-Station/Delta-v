@@ -4,7 +4,7 @@
   description: Silently siphon entropy from your target, dealing some damage in the process.
   components:
   - type: EntityTargetAction
-    useDelay: 1
+    useDelay: 50
     whitelist:
       components:
         - HumanoidAppearance
