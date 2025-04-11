@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Prototypes;
+﻿using Content.Shared._DV.Silicons; // DeltaV - LawElectronicsInsertionSystem
+using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
 
 namespace Content.Shared.Silicons.Laws.Components;
@@ -6,7 +7,7 @@ namespace Content.Shared.Silicons.Laws.Components;
 /// <summary>
 /// This is used for an entity which grants laws to a <see cref="SiliconLawBoundComponent"/>
 /// </summary>
-[RegisterComponent, Access(typeof(SharedSiliconLawSystem))]
+[RegisterComponent, Access(typeof(SharedSiliconLawSystem), typeof(LawElectronicsInsertionSystem))] // DeltaV - we need this other system to mutate laws too
 public sealed partial class SiliconLawProviderComponent : Component
 {
     /// <summary>

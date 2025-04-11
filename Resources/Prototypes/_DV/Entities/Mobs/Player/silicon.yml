@@ -131,3 +131,39 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: FamilyLaws
+
+- type: entity
+  id: MedicalLawCircuitBoard
+  parent: BaseElectronics
+  name: law board (Medical)
+  description: An electronics board containing the Medical lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: Medical
+
+- type: entity
+  id: JanitorLawCircuitBoard
+  parent: BaseElectronics
+  name: law board (Janitor)
+  description: An electronics board containing the Janitor lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: Janitor
+
+- type: entity
+  id: EngineerLawCircuitBoard
+  parent: BaseElectronics
+  name: law board (Engineer)
+  description: An electronics board containing the Engineer lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: Engineer

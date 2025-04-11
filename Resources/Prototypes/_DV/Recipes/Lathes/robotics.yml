@@ -212,3 +212,135 @@
   parent: BaseBorgModuleRecipe
   id: AugmentPaperworkPanelElectronics
   result: AugmentPaperworkPanelElectronics
+
+# AI lawboard recipes
+
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  abstract: true
+  id: BaseLawboardRecipe
+  materials:
+    Diamond: 200
+    Glass: 1000
+    Silver: 200
+    Gold: 200
+    Plasma: 200
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: AntimovCircuitBoard
+  result: AntimovCircuitBoard
+  materials:
+    Diamond: 1000
+    Glass: 1000
+    Silver: 200
+    Gold: 200
+    Plasma: 200
+    Bananium: 500
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: AquariusCircuitBoard
+  result: AquariusCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: ArtistCircuitBoard
+  result: ArtistCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: AsimovCircuitBoard
+  result: AsimovCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: CommandmentCircuitBoard
+  result: CommandmentCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: CorporateCircuitBoard
+  result: CorporateCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: EightfoldCircuitBoard
+  result: EightfoldCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: ForbinCircuitBoard
+  result: ForbinCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: GameMasterCircuitBoard
+  result: GameMasterCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: LiveLetLiveCircuitBoard
+  result: LiveLetLiveCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: NTDefaultCircuitBoard
+  result: NTDefaultCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: NutimovCircuitBoard
+  result: NutimovCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: OverlordCircuitBoard
+  result: OverlordCircuitBoard
+  materials:
+    Diamond: 500
+    Glass: 1000
+    Silver: 200
+    Gold: 200
+    Plasma: 200
+    Bananium: 250
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: OverrideCircuitBoard
+  result: OverrideCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: PaladinCircuitBoard
+  result: PaladinCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: RobocopCircuitBoard
+  result: RobocopCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: StationEfficiencyCircuitBoard
+  result: StationEfficiencyCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: StreamerCircuitBoard
+  result: StreamerCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: MedicalLawCircuitBoard
+  result: MedicalLawCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: JanitorLawCircuitBoard
+  result: JanitorLawCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: EngineerLawCircuitBoard
+  result: EngineerLawCircuitBoard
