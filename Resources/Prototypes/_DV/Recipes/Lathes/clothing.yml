@@ -360,3 +360,70 @@
   parent: BaseCoatRecipe
   id: ClothingOuterWinterLongMime
   result: ClothingOuterWinterLongMime
+
+# Hardsuits
+
+## Engineering
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterHardsuitEngineering
+  result: ClothingOuterHardsuitEngineering
+
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterHardsuitAtmos
+  result: ClothingOuterHardsuitAtmos
+
+## Security
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterHardsuitCombatOfficer
+  result: ClothingOuterHardsuitCombatOfficer
+
+## Logistics
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterHardsuitSpatio
+  result: ClothingOuterHardsuitSpatio
+
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterHardsuitSalvage
+  result: ClothingOuterHardsuitSalvage
+
+## General
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterHardsuitBasic
+  result: ClothingOuterHardsuitBasic
+
+# Softsuits
+
+## Engineering
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterSuitAtmosFire
+  result: ClothingOuterSuitAtmosFire
+
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingHeadHelmetAtmosFire
+  result: ClothingHeadHelmetAtmosFire
+
+## General
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterHardsuitEVA
+  result: ClothingOuterHardsuitEVA
+
+## Security
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterHardsuitEVAPrisoner
+  result: ClothingOuterHardsuitEVAPrisoner
+
+## Medical
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterHardsuitVoidParamed
+  result: ClothingOuterHardsuitVoidParamed
