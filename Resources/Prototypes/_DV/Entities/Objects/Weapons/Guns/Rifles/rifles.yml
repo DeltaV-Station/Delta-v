@@ -239,7 +239,7 @@
           - CartridgeRifle
 
 - type: entity
-  parent: BaseWeaponSubMachineGun
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
   id: WeaponRifleLaser
   name: IK-30
   description: A bulky, single barreled rifle that uses disposable laser cartridges rather than an internal power cell.

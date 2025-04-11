@@ -418,7 +418,7 @@
   - type: SolutionContainerManager # DeltaV - Nerfs the max volume to 5 (was 15)
     solutions:
       injector:
-        maxVol: 5
+        maxVol: 5 
   - type: SolutionInjectWhileEmbedded
     transferAmount: 1
     solution: injector
@@ -603,7 +603,7 @@
     areaInsertRadius: 1
     storageInsertSound: /Audio/Effects/pill_insert.ogg
     storageRemoveSound: /Audio/Effects/pill_remove.ogg
-    whitelist:
+    whitelist: 
       tags:
       - Pill
   - type: Dumpable
