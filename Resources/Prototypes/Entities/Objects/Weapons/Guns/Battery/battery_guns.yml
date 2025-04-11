@@ -482,6 +482,7 @@
     - Taser
     - Sidearm
     - ConcealCarry # DeltaV - can be stowed in military boots for now
+  - type: PacifismAllowedGun # DeltaV - allow pacifist to use the disabler
 
 - type: entity
   name: disabler
@@ -548,6 +549,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 260
+  - type: PacifismAllowedGun # DeltaV - allow pacifist to use the disabler
 
 - type: entity
   name: taser
