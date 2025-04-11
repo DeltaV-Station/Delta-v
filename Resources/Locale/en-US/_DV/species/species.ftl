@@ -1,4 +1,4 @@
-﻿## Species Names
+## Species Names
 
 species-name-oni = Oni
 species-name-felinid = Felinid

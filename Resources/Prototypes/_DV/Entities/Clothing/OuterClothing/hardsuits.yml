@@ -30,6 +30,7 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatStandard
   - type: AllowSuitStorage
+  - type: Insulated
 
 - type: entity
   parent: ClothingOuterHardsuitCombatStandard
@@ -46,7 +47,7 @@
 
 # Medical Combat Hardsuits
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ClothingOuterHardsuitCombatStandard
   id: ClothingOuterHardsuitCombatMedical
   name: medical combat hardsuit
   description: A purpose-built combat suit designed to allow its user greater mobility for superior support of friendly units in active combat zones.
@@ -75,7 +76,6 @@
     sprintModifier: 0.85
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatMedical
-  - type: AllowSuitStorage
 
 - type: entity
   parent: ClothingOuterHardsuitCombatMedical
@@ -92,7 +92,7 @@
 
 # Riot Combat Hardsuits
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ClothingOuterHardsuitCombatStandard
   id: ClothingOuterHardsuitCombatRiot
   name: riot combat hardsuit
   description: A purpose-built combat suit designed for crowd control against armed combatants in low pressure environments.
@@ -121,7 +121,6 @@
     sprintModifier: 0.60
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatRiot
-  - type: AllowSuitStorage
 
 - type: entity
   parent: ClothingOuterHardsuitCombatRiot
@@ -138,7 +137,7 @@
 
 # Advanced Combat Hardsuits
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ClothingOuterHardsuitCombatStandard
   id: ClothingOuterHardsuitCombatAdvanced
   name: advanced combat hardsuit
   description: A purpose-built combat suit of second-generation design, providing unparalleled protection against all manner of kinetic forces in low pressure environments.
@@ -167,7 +166,6 @@
     sprintModifier: 0.80
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatAdvanced
-  - type: AllowSuitStorage
 
 - type: entity
   parent: ClothingOuterHardsuitCombatAdvanced

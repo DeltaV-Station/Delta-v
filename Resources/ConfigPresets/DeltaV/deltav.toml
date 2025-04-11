@@ -80,7 +80,9 @@ space_wind = true
 
 [shuttle]
 arrivals = false
-cooldown = 90 # 80 longer than default
+cooldown = 60 # 50 longer than the default
+startup_time = 10 # 4.5 seconds longer than the default
+travel_time = 5 # 15 seconds less than the default
 emergency_dock_time = 360 # an extra 2 minutes over the default
 emergency_transit_time_min = 90
 auto_call_time = 120 # rounds are longer
