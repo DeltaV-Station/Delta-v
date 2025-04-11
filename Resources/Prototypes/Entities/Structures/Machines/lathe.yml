@@ -264,6 +264,7 @@
     - MedicalBoardsStatic
     - EngineeringBoardsStatic
     - CircuitFloorsStatic
+    - LawBoardsNTStatic # DeltaV - printable lawboards
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
@@ -274,6 +275,8 @@
     - MechBoards
     - ShuttleBoards
   - type: EmagLatheRecipes
+    emagStaticPacks:
+    - LawBoardsSyndicateStatic # DeltaV - printable lawboards
     emagDynamicPacks:
     - SecurityBoards
   - type: MaterialStorage
