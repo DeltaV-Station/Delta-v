@@ -1,4 +1,10 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Shared._DV.Abilities.Kitsune;
 
-[RegisterComponent]
-public sealed partial class KitsuneFoxComponent : Component;
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
+public sealed partial class KitsuneFoxComponent : Component
+{
+    [DataField, AutoNetworkedField] public Entity<KitsuneFoxComponent?>? Parent;
+}

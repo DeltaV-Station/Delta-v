@@ -32,12 +32,16 @@ public abstract class SharedKitsuneSystem : EntitySystem
 
     private void OnMapInit(Entity<KitsuneComponent> ent, ref MapInitEvent args)
     {
-        // try to add kitsunemorph action to kitsune
-        if (!ent.Comp.NoAction && !HasComp<KitsuneFoxComponent>(ent))
+        if (ent.Comp.NoAction)
+            return;
+
+        if (HasComp<KitsuneFoxComponent>(ent))
         {
-            _actions.AddAction(ent, ref ent.Comp.KitsuneActionEntity, ent.Comp.KitsuneAction);
+            RemComp<KitsuneComponent>(ent);
+            return;
         }
 
+        _actions.AddAction(ent, ref ent.Comp.KitsuneActionEntity, ent.Comp.KitsuneAction);
         ent.Comp.FoxfireAction = _actions.AddAction(ent, ent.Comp.FoxfireActionId);
     }
 
