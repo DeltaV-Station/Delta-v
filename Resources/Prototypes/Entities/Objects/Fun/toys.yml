@@ -58,6 +58,7 @@
       stash: !type:ContainerSlot {}
   - type: Speech
     speechVerb: Default # for pais (In the secret stash)
+    speechSounds: Plushie # Imp
   - type: SecretStash
     secretStashName: secret-stash-plushie
     blacklist:
@@ -358,7 +359,9 @@
     speechVerb: Reptilian # for pais (In the secret stash)
   - type: Tag
     tags:
-      - PlushieLizard
+    - ClothMade
+    - Payload
+    - PlushieLizard
 
 - type: entity
   parent: PlushieLizard
@@ -789,6 +792,8 @@
   components:
   - type: Sprite
     state: plushie_snake
+  - type: Item
+    heldPrefix: plushiesnake
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/Toys/rattle.ogg
@@ -812,6 +817,13 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/Items/Toys/rattle.ogg
+  - type: Clothing
+    quickEquip: false
+    equippedPrefix: plushiesnake
+    slots:
+    - NECK
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
 
 - type: entity
   parent: BasePlushie

@@ -1,0 +1,45 @@
+- type: listing
+  id: UplinkOmniPatchKit
+  name: uplink-omnipatch-kit-name
+  description: uplink-omnipatch-kit-desc
+  productEntity: OmniPatch
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkFirebugsFriend
+  name: uplink-firebugs-friend-name
+  description: uplink-firebugs-friend-desc
+  productEntity: ChemistryBottleFirebugsFriend
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkChemicals
+
+- type: listing
+  id: UplinkFirebugsFestival
+  name: uplink-firebugs-festival-name
+  description: uplink-firebugs-festival-desc
+  productEntity: BoxSyndicateFirebugsFestival
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      components:
+      - Pda

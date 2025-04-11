@@ -24,6 +24,7 @@
   - BoxBeanbag
   - BoxShellTranquilizer
   - MagazineShotgunBeanbag
+  - MagazineLaser
 
 - type: latheRecipePack
   id: SecurityRubberAmmoStatic
@@ -56,13 +57,13 @@
   - MagazineBoxSpecialUranium
   - MagazineBoxSpecialHoly
   - MagazineBoxSpecialMindbreaker
+  - GamblagatorCapacitor
 
 - type: latheRecipePack
   parent: SecurityHardsuits
   id: SecurityEquipmentDeltaV
   recipes:
   - EncryptionKeySyndie # reverse engineered
-  - BorgModuleFauna
   - ClothingHeadHelmetInsulated
   - ClothingHeadCage
   - ClothingShoesBootsSecurityMagboots
@@ -74,10 +75,12 @@
   - WeaponEnergyGun
   - WeaponEnergyGunMini
   - WeaponEnergyGunPistol
-  - WeaponGunLaserCarbineAutomatic
+  - WeaponRifleLaser
   - AdvancedTruncheon
   - WeaponColdCannon
   - WeaponBeamCannon
+  - WeaponEnergyGunAdvanced
+  - WeaponImmolator
 
 - type: latheRecipePack
   id: SecurityHardsuits

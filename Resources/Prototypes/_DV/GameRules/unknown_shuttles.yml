@@ -125,7 +125,7 @@
       - type: RandomMetadata
         nameSegments:
         - NamesHologram
-        - NamesLastMilitary
+        - NamesMilitaryLast
       - type: EmitSoundOnSpawn # evil sound
         sound: /Audio/Ambience/Antag/emagged_borg.ogg
       - type: RandomHumanoidAppearance
@@ -135,4 +135,3 @@
         - Syndicate
       mindRoles:
       - MindRoleRoboNeuroticist
-
