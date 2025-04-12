@@ -272,9 +272,9 @@ public sealed class DefibrillatorSystem : EntitySystem
                     _toggle.TryDeactivate(uid);
             }
 
-                // TODO clean up this clown show above
-                var ev = new TargetDefibrillatedEvent(user, (uid, component));
-                RaiseLocalEvent(target, ref ev);
+            // TODO clean up this clown show above
+            var ev = new TargetDefibrillatedEvent(user, (uid, component));
+            RaiseLocalEvent(target, ref ev);
         }
     }
 }
