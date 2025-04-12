@@ -47,51 +47,16 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
         SubscribeLocalEvent<CosmicCultLeadComponent, EventCosmicMoveMonument>(OnCosmicMoveMonument);
     }
 
-    private void OnCosmicMoveMonument(Entity<CosmicCultLeadComponent> ent, ref EventCosmicMoveMonument args)
+    private void DoMonumentAnimation(EntityUid performer)
     {
         if (_cachedOverlay == null || _cancellationTokenSource == null)
             return;
 
-        if (!VerifyPlacement(Transform(args.Performer), out _))
+        if (!VerifyPlacement(Transform(performer), out _))
             return;
 
         _cachedOverlay.LockPlacement = true;
         _cancellationTokenSource.Cancel(); //cancel the previous timer
-
-        //remove the overlay automatically after the primeTime expires
-        //no cancellation token for this one as this'll never need to get cancelled afaik
-        Timer.Spawn(TimeSpan.FromSeconds(3.8), //anim takes 3.8s, might want to have the ghost disappear earlier but eh todo tune this to whatever anim I end up on for the move
-            () =>
-            {
-                _overlay.RemoveOverlay<MonumentPlacementPreviewOverlay>();
-                _cachedOverlay = null;
-                _cancellationTokenSource = null;
-            }
-        );
-    }
-
-    //reasoning about this in my head
-    //from default state (both null)
-    //attempt event fires
-    //sets to both a real value
-    //starts timer
-    //after that
-    //further failed attempts get caught by cachedOverlay not being null, another timer won't stack w/ an existing one
-    //successful attempts also don't re-start the timer due to making cachedOverlay real
-    //when the monumentPlaced event fires, the old timer gets cancelled an a new one appears in it's place
-    //I'm like 90% sure that this works good but I need some of the chumps in the discord to bugtest this with hammers
-
-    private void OnCosmicPlaceMonument(Entity<CosmicCultLeadComponent> ent, ref EventCosmicPlaceMonument args)
-    {
-        if (_cachedOverlay == null || _cancellationTokenSource == null)
-            return;
-
-        if (!VerifyPlacement(Transform(args.Performer), out _))
-            return;
-
-        _cachedOverlay.LockPlacement = true;
-        _cancellationTokenSource.Cancel(); //cancel the previous timer
-        //_cancellationTokenSource.Dispose(); //I have no idea if I need to do this but memory leaks are scary. ok this was causing crashes so I probably don't need to.
 
         //remove the overlay automatically after the primeTime expires
         //no cancellation token for this one as this'll never need to get cancelled afaik
@@ -103,6 +68,16 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
                 _cancellationTokenSource = null;
             }
         );
+    }
+
+    private void OnCosmicMoveMonument(Entity<CosmicCultLeadComponent> ent, ref EventCosmicMoveMonument args)
+    {
+        DoMonumentAnimation(args.Performer);
+    }
+
+    private void OnCosmicPlaceMonument(Entity<CosmicCultLeadComponent> ent, ref EventCosmicPlaceMonument args)
+    {
+        DoMonumentAnimation(args.Performer);
     }
 
     //duplicated from the ability check, minus the station check because that can't be done clientside afaik?
@@ -155,14 +130,14 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
             _cancellationTokenSource = new CancellationTokenSource();
             StartTimers(confirmableAction, _cancellationTokenSource, _cachedOverlay);
 
-            if (_cachedOverlay.fadingOut) //if we're fading out
+            if (_cachedOverlay.FadingOut) //if we're fading out
             {
-                _cachedOverlay.fadingOut = false; //stop it
+                _cachedOverlay.FadingOut = false; //stop it
 
-                var progress = (1 - (_cachedOverlay.fadeOutProgress / _cachedOverlay.fadeOutTime)) * _cachedOverlay.fadeInTime; //set fade in progress to 1 - fade out progress (so 70% out becomes 30% in)
-                _cachedOverlay.fadeInProgress = progress;
-                _cachedOverlay.fadingIn = true; //start fading in again
-                _cachedOverlay.fadeOutProgress = 0; //stop the fadeout entirely
+                var progress = (1 - (_cachedOverlay.FadeOutProgress / _cachedOverlay.FadeOutTime)) * _cachedOverlay.FadeInTime; //set fade in progress to 1 - fade out progress (so 70% out becomes 30% in)
+                _cachedOverlay.FadeInProgress = progress;
+                _cachedOverlay.FadingIn = true; //start fading in again
+                _cachedOverlay.FadeOutProgress = 0; //stop the fadeout entirely
             } //no need for a special fade in case as well, that can go as normal
 
             return;
@@ -191,10 +166,10 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
         );
 
         //start a timer to start the fade out as well, with the same cancellation token
-        Timer.Spawn(comp.PrimeTime + comp.ConfirmDelay - TimeSpan.FromSeconds(overlay.fadeOutTime),
+        Timer.Spawn(comp.PrimeTime + comp.ConfirmDelay - TimeSpan.FromSeconds(overlay.FadeOutTime),
             () =>
             {
-                overlay.fadingOut = true;
+                overlay.FadingOut = true;
             },
             tokenSource.Token
         );

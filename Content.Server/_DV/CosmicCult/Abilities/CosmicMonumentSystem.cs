@@ -1,6 +1,4 @@
 using System.Numerics;
-using Content.Server._DV.CosmicCult.Components;
-using Content.Server._DV.CosmicCult.EntitySystems;
 using Content.Server.Actions;
 using Content.Server.Popups;
 using Content.Server.Station.Components;
@@ -10,23 +8,19 @@ using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Timing;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 
 public sealed class CosmicMonumentSystem : EntitySystem
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly CosmicCorruptingSystem _corrupting = default!;
     [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
     [Dependency] private readonly MonumentSystem _monument = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
 
     public override void Initialize()

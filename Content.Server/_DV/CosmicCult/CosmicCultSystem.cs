@@ -11,12 +11,10 @@ using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
-using Content.Shared.Effects;
 using Content.Shared.Examine;
 using Content.Shared.Eye;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
-using Content.Shared.Mind;
 using Content.Shared.Movement.Systems;
 using Content.Shared.StatusEffect;
 using Robust.Server.GameObjects;
@@ -87,7 +85,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
     public void MalignEcho(Entity<CosmicCultComponent> uid)
     {
-        if (_cultRule.AssociatedGamerule(uid) is not {} cult)
+        if (_cultRule.AssociatedGamerule(uid) is not { } cult)
             return;
         if (cult.Comp.CurrentTier > 1 && !_random.Prob(0.5f))
             Spawn("CosmicEchoVfx", Transform(uid).Coordinates);

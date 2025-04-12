@@ -2,7 +2,6 @@ using System.Linq;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Popups;
 using Content.Shared.Whitelist;
-using Robust.Shared.Containers;
 using Robust.Shared.Random;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
@@ -14,7 +13,7 @@ public sealed class CosmicTransmuteSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-    private HashSet<EntityUid> _entities = new();
+    private readonly HashSet<EntityUid> _entities = [];
 
     public override void Initialize()
     {

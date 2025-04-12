@@ -96,7 +96,6 @@ public sealed class DeconversionSystem : EntitySystem
         //TODO: This could be made more agnostic, but there's only one cult for now, and frankly, i'm so tired. This is easy to read and easy to modify code. Expand it at thine leisure.
         if (TryComp<CosmicCultComponent>(args.Target, out var comp) && comp.CosmicEmpowered)
         {
-
             Spawn(uid.Comp.MalignVFX, targetPosition);
             Spawn(uid.Comp.MalignVFX, Transform(args.User).Coordinates);
             EnsureComp<CleanseCultComponent>(target.Value, out var cleanse);

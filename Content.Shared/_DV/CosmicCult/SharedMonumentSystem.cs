@@ -15,12 +15,13 @@ namespace Content.Shared._DV.CosmicCult;
 
 public abstract class SharedMonumentSystem : EntitySystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {
@@ -143,21 +144,23 @@ public abstract class SharedMonumentSystem : EntitySystem
 
     private void UnlockPassive(EntityUid cultist, InfluencePrototype proto)
     {
-        switch (proto.PassiveName) // Yay, switch statements.
+        if (proto.Add != null)
         {
-            case "eschew":
-                RemCompDeferred<HungerComponent>(cultist);
-                RemCompDeferred<ThirstComponent>(cultist);
-                break;
-            case "step":
-                EnsureComp<MovementIgnoreGravityComponent>(cultist);
-                break;
-            case "stride":
-                EnsureComp<InfluenceStrideComponent>(cultist);
-                break;
-            case "vitality":
-                EnsureComp<InfluenceVitalityComponent>(cultist);
-                break;
+            foreach (var reg in proto.Add.Values)
+            {
+                var compType = reg.Component.GetType();
+                if (HasComp(cultist, compType))
+                    continue;
+                AddComp(cultist, _componentFactory.GetComponent(compType));
+            }
+        }
+
+        if (proto.Remove != null)
+        {
+            foreach (var reg in proto.Remove.Values)
+            {
+                RemComp(cultist, reg.Component.GetType());
+            }
         }
     }
 }

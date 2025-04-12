@@ -248,13 +248,13 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     private void StewardVote()
     {
-        var cultists = new Dictionary<string, EntityUid>();
+        var cultists = new List<(string, EntityUid)>();
 
-        var cultQuery = EntityQueryEnumerator<CosmicCultComponent>();
-        while (cultQuery.MoveNext(out var cult, out _))
+        var cultQuery = EntityQueryEnumerator<CosmicCultComponent, MetaDataComponent>();
+        while (cultQuery.MoveNext(out var cult, out _, out var metadata))
         {
-            var playerInfo = $"{Comp<MetaDataComponent>(cult).EntityName}";
-            cultists.Add(playerInfo, cult);
+            var playerInfo = metadata.EntityName;
+            cultists.Add((playerInfo, cult));
         }
 
         var options = new VoteOptions
@@ -284,7 +284,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             {
                 picked = (EntityUid)args.Winner;
             }
-            AddComp<CosmicCultLeadComponent>(picked);
+            EnsureComp<CosmicCultLeadComponent>(picked);
             _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Cult stewardship vote finished: {Identity.Entity(picked, EntityManager)} is now steward.");
             _antag.SendBriefing(picked, Loc.GetString("cosmiccult-vote-steward-briefing"), Color.FromHex("#4cabb3"), _monumentAlert);
         };
@@ -683,8 +683,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
         var radio = EnsureComp<ActiveRadioComponent>(uid);
-        radio.Channels = [ "CosmicRadio" ];
-        transmitter.Channels = [ "CosmicRadio" ];
+        radio.Channels = ["CosmicRadio"];
+        transmitter.Channels = ["CosmicRadio"];
 
         _mind.TryAddObjective(mindId, mind, "CosmicFinalityObjective");
         _mind.TryAddObjective(mindId, mind, "CosmicMonumentObjective");
@@ -702,6 +702,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         UpdateCultData(cosmicGamerule.MonumentInGame);
     }
+
     private void OnComponentShutdown(Entity<CosmicCultComponent> uid, ref ComponentShutdown args)
     {
         if (AssociatedGamerule(uid) is not { } cult)

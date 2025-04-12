@@ -39,5 +39,4 @@ public sealed class CosmicCultObjectiveSystem : EntitySystem
 
         return MathF.Min(recruited / (float)target, 1f);
     }
-
 }
