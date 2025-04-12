@@ -15,8 +15,15 @@
     state: icon
 
 - type: stealTargetGroup
-  id: CargoRequestConsoleCircuitboard
+  id: CargoRequestComputerCircuitboard
   name: steal-target-groups-cargo-request-computer-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: cpu_supply
+
+- type: stealTargetGroup
+  id: CargoBountyComputerCircuitboard
+  name: steal-target-groups-cargo-bounty-computer-circuitboard
   sprite:
     sprite: Objects/Misc/module.rsi
     state: cpu_supply
