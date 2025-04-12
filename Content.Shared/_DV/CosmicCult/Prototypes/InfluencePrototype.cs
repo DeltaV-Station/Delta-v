@@ -31,7 +31,10 @@ public sealed partial class InfluencePrototype : IPrototype
     public EntProtoId? Action;
 
     [DataField]
-    public string? PassiveName;
+    public ComponentRegistry? Add;
+
+    [DataField]
+    public ComponentRegistry? Remove;
 
     [DataField(required: true)]
     public int Tier;

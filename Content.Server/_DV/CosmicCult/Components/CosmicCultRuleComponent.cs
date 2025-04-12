@@ -21,19 +21,19 @@ public sealed partial class CosmicCultRuleComponent : Component
     /// Sender for shuttle call.
     /// </summary>
     [DataField]
-    public string RoundEndTextSender = "comms-console-announcement-title-centcom";
+    public LocId RoundEndTextSender = "comms-console-announcement-title-centcom";
 
     /// <summary>
     /// Text for shuttle call.
     /// </summary>
     [DataField]
-    public string RoundEndTextShuttleCall = "cosmiccult-elimination-shuttle-call";
+    public LocId RoundEndTextShuttleCall = "cosmiccult-elimination-shuttle-call";
 
     /// <summary>
     /// Text for announcement.
     /// </summary>
     [DataField]
-    public string RoundEndTextAnnouncement = "cosmiccult-elimination-announcement";
+    public LocId RoundEndTextAnnouncement = "cosmiccult-elimination-announcement";
 
     /// <summary>
     /// Time for emergency shuttle arrival.
@@ -103,8 +103,6 @@ public sealed partial class CosmicCultRuleComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? Tier2DelayTimer;
 }
-
-// CosmicCultRuleComponent
 
 public enum WinType : byte
 {

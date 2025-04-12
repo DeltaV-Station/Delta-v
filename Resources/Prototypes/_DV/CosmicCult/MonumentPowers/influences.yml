@@ -84,7 +84,9 @@
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: metabolism
-  passiveName: eschew
+  remove:
+  - type: Hunger
+  - type: Thirst
   tier: 1
 
 - type: influence
@@ -96,7 +98,8 @@
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: step
-  passiveName: step
+  add:
+  - type: MovementIgnoreGravity
   tier: 2
 
 - type: influence
@@ -108,7 +111,8 @@
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: stride
-  passiveName: stride
+  add:
+  - type: InfluenceStride
   tier: 3
 
 - type: influence
@@ -120,5 +124,6 @@
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: astral
-  passiveName: vitality
+  add:
+  - type: InfluenceVitality
   tier: 3

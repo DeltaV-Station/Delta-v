@@ -95,7 +95,7 @@ public sealed partial class MonumentMenu : FancyWindow
     /// </summary>
     private void UpdateEntropy(MonumentBuiState state)
     {
-        int availableEntropy = -1;
+        var availableEntropy = -1;
         if (_ent.TryGetComponent<CosmicCultComponent>(_player.LocalEntity, out var cultComp))
         {
             availableEntropy = cultComp.EntropyBudget;

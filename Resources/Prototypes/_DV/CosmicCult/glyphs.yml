@@ -20,6 +20,8 @@
   - type: Physics
   - type: Clickable
   - type: CosmicGlyph
+  - type: CosmicCultExamine
+    othersText: cosmic-examine-text-glyphs
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
     layers:
@@ -40,9 +42,10 @@
   - type: CosmicGlyphConversion
     negateProtection: true
   - type: CosmicGlyph
-    glyphName: truth
     requiredCultists: 3
     activationDamage: 80
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-truth
 
 - type: entity
   parent: CosmicGlyphBase
@@ -52,13 +55,14 @@
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
     layers:
-      - state: knowledge
+    - state: knowledge
     drawdepth: Puddles
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
-    glyphName: knowledge
     requiredCultists: 2
     activationDamage: 40
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-knowledge
 
 - type: entity
   parent: CosmicGlyphBase
@@ -77,9 +81,10 @@
       components:
       - PortableScrubber
   - type: CosmicGlyph
-    glyphName: cessation
     requiredCultists: 1
     activationDamage: 25
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-cessation
 
 - type: entity
   parent: CosmicGlyphBase
@@ -89,7 +94,7 @@
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
     layers:
-      - state: blades
+    - state: blades
     drawdepth: Puddles
   - type: CosmicGlyphTransmute
     transmutations:
@@ -99,9 +104,10 @@
       components:
       - Sharp
   - type: CosmicGlyph
-    glyphName: blades
     requiredCultists: 2
     activationDamage: 80
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-blades
 
 - type: entity
   parent: CosmicGlyphBase
@@ -111,7 +117,7 @@
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
     layers:
-      - state: warding
+    - state: warding
     drawdepth: Puddles
   - type: CosmicGlyphTransmute
     transmutations:
@@ -122,9 +128,10 @@
       - ClothingSpeedModifier
       - PressureProtection
   - type: CosmicGlyph
-    glyphName: warding
     requiredCultists: 2
     activationDamage: 80
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-warding
 
 - type: entity
   parent: CosmicGlyphBase
@@ -134,9 +141,10 @@
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
     layers:
-      - state: projection
+    - state: projection
     drawdepth: Puddles
   - type: CosmicGlyphAstralProjection
   - type: CosmicGlyph
-    glyphName: projection
     requiredCultists: 1
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-projection

@@ -33,7 +33,6 @@ public sealed class MonumentSystem : SharedMonumentSystem
     [Dependency] private readonly CosmicCorruptingSystem _corrupting = default!;
     [Dependency] private readonly CosmicCultRuleSystem _cosmicRule = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IGameTiming _timing = default!;

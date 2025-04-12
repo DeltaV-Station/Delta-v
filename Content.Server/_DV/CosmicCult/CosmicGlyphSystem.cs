@@ -34,27 +34,6 @@ public sealed class CosmicGlyphSystem : EntitySystem
         if (HasComp<CosmicCultComponent>(args.Examiner))
         {
             args.PushMarkup(Loc.GetString("cosmic-examine-glyph-cultcount", ("COUNT", uid.Comp.RequiredCultists)));
-            switch (uid.Comp.GlyphName) // This seems like the most straightforward way to do this, rather than making seperate examine events for each glyph component
-            {
-                case "knowledge":
-                    args.PushMarkup(Loc.GetString("cosmic-examine-glyph-knowledge"));
-                    break;
-                case "truth":
-                    args.PushMarkup(Loc.GetString("cosmic-examine-glyph-truth"));
-                    break;
-                case "cessation":
-                    args.PushMarkup(Loc.GetString("cosmic-examine-glyph-cessation"));
-                    break;
-                case "blades":
-                    args.PushMarkup(Loc.GetString("cosmic-examine-glyph-blades"));
-                    break;
-                case "warding":
-                    args.PushMarkup(Loc.GetString("cosmic-examine-glyph-warding"));
-                    break;
-                case "projection":
-                    args.PushMarkup(Loc.GetString("cosmic-examine-glyph-projection"));
-                    break;
-            }
         }
         else
         {

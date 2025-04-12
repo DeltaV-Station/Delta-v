@@ -6,7 +6,6 @@ namespace Content.Shared._DV.CosmicCult.Components;
 [RegisterComponent]
 public sealed partial class CosmicGlyphComponent : Component
 {
-    [DataField] public string GlyphName = "base";
     [DataField] public int RequiredCultists = 1;
     [DataField] public float ActivationRange = 1.55f;
 

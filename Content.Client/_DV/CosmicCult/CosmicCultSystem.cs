@@ -46,6 +46,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeNetworkEvent<CosmicSiphonIndicatorEvent>(OnSiphon);
         SubscribeLocalEvent<CosmicCultComponent, UpdateAlertSpriteEvent>(OnUpdateAlert);
     }
+
     #region Siphon Visuals
     private void OnSiphon(CosmicSiphonIndicatorEvent args)
     {
@@ -105,7 +106,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         sprite.LayerMapSet(CosmicRevealedKey.Key, layer);
         sprite.LayerSetShader(layer, "unshaded");
 
-        //offset the mark if the mob has an offset comp
+        //offset the mark if the mob has an offset comp, needed for taller species like Thaven
         if (TryComp<CosmicStarMarkOffsetComponent>(uid, out var offset))
         {
             sprite.LayerSetOffset(CosmicRevealedKey.Key, offset.Offset);
@@ -181,6 +182,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     }
     #endregion
 }
+
 public enum CultSiphonedVisuals : byte
 {
     Key
