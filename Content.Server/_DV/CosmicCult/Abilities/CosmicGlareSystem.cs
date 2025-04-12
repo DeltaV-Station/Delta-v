@@ -17,13 +17,13 @@ namespace Content.Server._DV.CosmicCult.Abilities;
 
 public sealed class CosmicGlareSystem : EntitySystem
 {
+    [Dependency] private readonly CosmicCultSystem _cult = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly FlashSystem _flash = default!;
+    [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly CosmicCultSystem _cult = default!;
-    [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
 
     public override void Initialize()
     {

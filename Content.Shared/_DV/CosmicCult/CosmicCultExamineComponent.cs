@@ -4,7 +4,7 @@ namespace Content.Shared._DV.CosmicCult;
 ///     Event dispatched from shared into server code where something creates another thing that should be associated with the gamerule
 /// </summary>
 [RegisterComponent]
-public sealed class CosmicCultExamineComponent : Component
+public sealed partial class CosmicCultExamineComponent : Component
 {
     [DataField(required: true)]
     public LocId CultistText;

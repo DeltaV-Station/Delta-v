@@ -1,12 +1,14 @@
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.CosmicCult.Components;
 
 [RegisterComponent]
-public sealed class CosmicGlyphAstralProjectionComponent : Component
+public sealed partial class CosmicGlyphAstralProjectionComponent : Component
 {
+    [DataField]
+    public EntProtoId SpawnProjection = "MobCosmicAstralProjection";
+
     /// <summary>
     /// The duration of the astral projection
     /// </summary>
@@ -16,11 +18,8 @@ public sealed class CosmicGlyphAstralProjectionComponent : Component
     [DataField]
     public DamageSpecifier ProjectionDamage = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2> {
-            { "Asphyxiation", 40 },
-        },
+        DamageDict = new() {
+            { "Asphyxiation", 40 }
+        }
     };
-
-    [DataField]
-    public EntProtoId SpawnProjection = "MobCosmicAstralProjection";
 }

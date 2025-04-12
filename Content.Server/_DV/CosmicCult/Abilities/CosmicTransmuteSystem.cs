@@ -8,11 +8,12 @@ namespace Content.Server._DV.CosmicCult.Abilities;
 
 public sealed class CosmicTransmuteSystem : EntitySystem
 {
-    private readonly HashSet<EntityUid> _entities = [];
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+
+    private readonly HashSet<EntityUid> _entities = [];
 
     public override void Initialize()
     {

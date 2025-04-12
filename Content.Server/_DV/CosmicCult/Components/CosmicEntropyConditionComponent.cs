@@ -7,6 +7,5 @@ public sealed partial class CosmicEntropyConditionComponent : Component
     ///     The amount of entropy this objective would like to be siphoned
     /// </summary>
     [DataField]
-    public int S
-phoned;
+    public int Siphoned;
 }

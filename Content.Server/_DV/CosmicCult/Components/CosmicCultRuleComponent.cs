@@ -11,58 +11,11 @@ namespace Content.Server._DV.CosmicCult.Components;
 [AutoGenerateComponentPause]
 public sealed partial class CosmicCultRuleComponent : Component
 {
-    [DataField]
-    public HashSet<EntityUid> Cultists = [];
-
-    /// <summary>
-    ///     Current tier of the cult
-    /// </summary>
-    [DataField]
-    public int CurrentTier;
-
-    /// <summary>
-    ///     How much entropy has been siphoned by the cult
-    /// </summary>
-    [DataField]
-    public int EntropySiphoned;
-
-    /// <summary>
-    /// Time for emergency shuttle arrival.
-    /// </summary>
-    [DataField]
-    public TimeSpan EvacShuttleTime = TimeSpan.FromMinutes(5);
-
-    /// <summary>
-    ///     The cult's monument
-    /// </summary>
-    public Entity<MonumentComponent> MonumentInGame;
-
-    /// <summary>
-    ///     The slow zone of the spawned monument
-    /// </summary>
-    [DataField]
-    public EntityUid MonumentSlowZone;
-
-    /// <summary>
-    ///     Percentage of crew that have been converted into cultists
-    /// </summary>
-    [DataField]
-    public double PercentConverted;
-
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan? PrepareFinaleTimer;
-
     /// <summary>
     /// What happens if all of the cultists die.
     /// </summary>
     [DataField]
     public RoundEndBehavior RoundEndBehavior = RoundEndBehavior.ShuttleCall;
-
-    /// <summary>
-    /// Text for announcement.
-    /// </summary>
-    [DataField]
-    public LocId RoundEndTextAnnouncement = "cosmiccult-elimination-announcement";
 
     /// <summary>
     /// Sender for shuttle call.
@@ -76,14 +29,43 @@ public sealed partial class CosmicCultRuleComponent : Component
     [DataField]
     public LocId RoundEndTextShuttleCall = "cosmiccult-elimination-shuttle-call";
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan? StewardVoteTimer;
+    /// <summary>
+    /// Text for announcement.
+    /// </summary>
+    [DataField]
+    public LocId RoundEndTextAnnouncement = "cosmiccult-elimination-announcement";
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan? Tier2DelayTimer;
+    /// <summary>
+    /// Time for emergency shuttle arrival.
+    /// </summary>
+    [DataField]
+    public TimeSpan EvacShuttleTime = TimeSpan.FromMinutes(5);
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan? Tier3DelayTimer;
+    [DataField]
+    public HashSet<EntityUid> Cultists = [];
+
+    [DataField]
+    public bool WinLocked;
+
+    [DataField]
+    public WinType WinType = WinType.CrewMinor;
+
+    /// <summary>
+    ///     The cult's monument
+    /// </summary>
+    public Entity<MonumentComponent> MonumentInGame;
+
+    /// <summary>
+    ///     The slow zone of the spawned monument
+    /// </summary>
+    [DataField]
+    public EntityUid MonumentSlowZone;
+
+    /// <summary>
+    ///     Current tier of the cult
+    /// </summary>
+    [DataField]
+    public int CurrentTier;
 
     /// <summary>
     ///     Amount of present crew
@@ -97,11 +79,29 @@ public sealed partial class CosmicCultRuleComponent : Component
     [DataField]
     public int TotalCult;
 
+    /// <summary>
+    ///     Percentage of crew that have been converted into cultists
+    /// </summary>
     [DataField]
-    public bool WinLocked;
+    public double PercentConverted;
 
+    /// <summary>
+    ///     How much entropy has been siphoned by the cult
+    /// </summary>
     [DataField]
-    public WinType WinType = WinType.CrewMinor;
+    public int EntropySiphoned;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? StewardVoteTimer;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? PrepareFinaleTimer;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? Tier3DelayTimer;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? Tier2DelayTimer;
 }
 
 public enum WinType : byte

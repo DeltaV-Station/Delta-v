@@ -4,4 +4,4 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._DV.CosmicCult;
 
 [Serializable, NetSerializable]
-public sealed class CleanseOnDoAfterEvent : SimpleDoAfterEvent;
+public sealed partial class CleanseOnDoAfterEvent : SimpleDoAfterEvent;

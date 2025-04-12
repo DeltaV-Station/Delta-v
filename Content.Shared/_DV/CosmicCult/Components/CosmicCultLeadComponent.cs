@@ -8,22 +8,9 @@ namespace Content.Shared._DV.CosmicCult.Components;
 /// Added to mind role entities to tag that they are the cosmic cult leader.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedCosmicCultSystem))]
-public sealed class CosmicCultLeadComponent : Component
+public sealed partial class CosmicCultLeadComponent : Component
 {
-    [DataField]
-    public EntProtoId CosmicMonumentMoveAction = "ActionCosmicMoveMonument";
-
-    [DataField]
-    public EntityUid? CosmicMonumentMoveActionEntity;
-
-    [DataField]
-    public EntProtoId CosmicMonumentPlaceAction = "ActionCosmicPlaceMonument";
-
-    [DataField]
-    public EntityUid? CosmicMonumentPlaceActionEntity;
-
-    [DataField]
-    public EntProtoId MonumentPrototype = "MonumentCosmicCultSpawnIn";
+    public override bool SessionSpecific => true;
 
     /// <summary>
     /// The status icon corresponding to the lead cultist.
@@ -37,5 +24,18 @@ public sealed class CosmicCultLeadComponent : Component
     [DataField]
     public TimeSpan StunTime = TimeSpan.FromSeconds(3);
 
-    public override bool SessionSpecific => true;
+    [DataField]
+    public EntProtoId MonumentPrototype = "MonumentCosmicCultSpawnIn";
+
+    [DataField]
+    public EntProtoId CosmicMonumentPlaceAction = "ActionCosmicPlaceMonument";
+
+    [DataField]
+    public EntityUid? CosmicMonumentPlaceActionEntity;
+
+    [DataField]
+    public EntProtoId CosmicMonumentMoveAction = "ActionCosmicMoveMonument";
+
+    [DataField]
+    public EntityUid? CosmicMonumentMoveActionEntity;
 }

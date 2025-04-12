@@ -14,9 +14,9 @@ namespace Content.Server._DV.CosmicCult.Abilities;
 public sealed class CosmicLapseSystem : EntitySystem
 {
     [Dependency] private readonly CosmicCultSystem _cult = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {

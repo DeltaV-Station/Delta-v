@@ -1,7 +1,7 @@
 using Content.Shared._DV.CosmicCult.Components;
-using Content.Shared.Antag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
+using Content.Shared.Antag;
 
 namespace Content.Shared._DV.CosmicCult;
 

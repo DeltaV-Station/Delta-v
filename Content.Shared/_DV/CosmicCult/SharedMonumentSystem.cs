@@ -1,6 +1,9 @@
+using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Prototypes;
 using Content.Shared.Actions;
+using Content.Shared.Movement.Components;
+using Content.Shared.Nutrition.Components;
 using Content.Shared.UserInterface;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Events;
@@ -12,12 +15,12 @@ namespace Content.Shared._DV.CosmicCult;
 
 public abstract class SharedMonumentSystem : EntitySystem
 {
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
@@ -74,30 +77,7 @@ public abstract class SharedMonumentSystem : EntitySystem
             _ui.CloseUi(ent.Owner, MonumentKey.Key); //close the UI if the monument isn't available
     }
 
-    private void UnlockPassive(EntityUid cultist, InfluencePrototype proto)
-    {
-        if (proto.Add != null)
-        {
-            foreach (var reg in proto.Add.Values)
-            {
-                var compType = reg.Component.GetType();
-                if (HasComp(cultist, compType))
-                    continue;
-                AddComp(cultist, _componentFactory.GetComponent(compType));
-            }
-        }
-
-        if (proto.Remove != null)
-        {
-            foreach (var reg in proto.Remove.Values)
-            {
-                RemComp(cultist, reg.Component.GetType());
-            }
-        }
-    }
-
     #region UI listeners
-
     private void OnGlyphSelected(Entity<MonumentComponent> ent, ref GlyphSelectedMessage args)
     {
         ent.Comp.SelectedGlyph = args.GlyphProtoId;
@@ -151,13 +131,36 @@ public abstract class SharedMonumentSystem : EntitySystem
             cultComp.ActionEntities.Add(actionEnt);
         }
         else if (proto.InfluenceType == "influence-type-passive")
+        {
             UnlockPassive(senderEnt.Value, proto); //Not unlocking an action? call the helper function to add the influence's passive effects
+        }
 
         cultComp.EntropyBudget -= proto.Cost;
         Dirty(senderEnt.Value, cultComp); //force an update to make sure that the client has the correct set of owned abilities
 
         _ui.SetUiState(ent.Owner, MonumentKey.Key, new MonumentBuiState(ent.Comp));
     }
-
     #endregion
+
+    private void UnlockPassive(EntityUid cultist, InfluencePrototype proto)
+    {
+        if (proto.Add != null)
+        {
+            foreach (var reg in proto.Add.Values)
+            {
+                var compType = reg.Component.GetType();
+                if (HasComp(cultist, compType))
+                    continue;
+                AddComp(cultist, _componentFactory.GetComponent(compType));
+            }
+        }
+
+        if (proto.Remove != null)
+        {
+            foreach (var reg in proto.Remove.Values)
+            {
+                RemComp(cultist, reg.Component.GetType());
+            }
+        }
+    }
 }

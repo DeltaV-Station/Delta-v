@@ -12,8 +12,8 @@ namespace Content.Shared._DV.CosmicCult.Components;
 public sealed partial class RogueAscendedDendriteComponent : Component
 {
     [DataField] public SoundSpecifier ActivateSfx = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_nova_impact.ogg");
+    [DataField] public EntProtoId Vfx = "CosmicGenericVFX";
+    [DataField, AutoNetworkedField] public TimeSpan StunTime = TimeSpan.FromSeconds(2);
     [DataField] public EntProtoId RogueFoodAction = "ActionRogueCosmicNova";
     [DataField] public EntityUid? RogueFoodActionEntity;
-    [DataField, AutoNetworkedField] public TimeSpan StunTime = TimeSpan.FromSeconds(2);
-    [DataField] public EntProtoId Vfx = "CosmicGenericVFX";
 }
