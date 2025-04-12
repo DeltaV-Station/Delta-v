@@ -90,6 +90,12 @@
   # TODO: make it valid
   suffix: Syndie
   components:
+  # Begin DeltaV Additions
+  - type: Sprite
+    sprite: _DV/Structures/Machines/syndie_autodoc.rsi
+  - type: Autodoc
+    requireSleeping: false
+  # End DeltaV Additions
   - type: Machine
     board: AutodocSyndieCircuitboard
   - type: SurgerySpeedModifier

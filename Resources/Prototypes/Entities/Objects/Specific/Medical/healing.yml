@@ -30,6 +30,7 @@
   - type: Healing
     damageContainers:
       - Biological
+      - BiologicalMetaphysical # DeltaV
     damage:
       types:
         Heat: -5
@@ -81,6 +82,7 @@
   - type: Healing
     damageContainers:
       - Biological
+      - BiologicalMetaphysical # DeltaV
     damage:
       types:
         Heat: -10
@@ -118,9 +120,12 @@
     - Brutepack
   - type: Sprite
     state: brutepack
+  - type: Item
+    heldPrefix: brutepack
   - type: Healing
     damageContainers:
       - Biological
+      - BiologicalMetaphysical # DeltaV
     damage:
       groups:
         Brute: -15 # 5 for each type in the group
@@ -170,6 +175,7 @@
   - type: Healing
     damageContainers:
       - Biological
+      - BiologicalMetaphysical # DeltaV
     damage:
       groups:
         Brute: -30 # 10 for each type in the group
@@ -200,6 +206,8 @@
   id: Bloodpack
   suffix: Full
   components:
+  - type: Item
+    heldPrefix: bloodpack
   - type: Tag
     tags:
     - Bloodpack
@@ -208,6 +216,7 @@
   - type: Healing
     damageContainers:
       - Biological
+      - BiologicalMetaphysical # DeltaV
     damage:
       types:
         Bloodloss: -0.5 #lowers bloodloss damage
@@ -241,9 +250,12 @@
         - SecBeltEquip
     - type: Sprite
       state: tourniquet
+    - type: Item
+      heldPrefix: tourniquet
     - type: Healing
       damageContainers:
         - Biological
+        - BiologicalMetaphysical # DeltaV
       damage:
         groups:
           Brute: 5 # Tourniquets HURT!
@@ -268,12 +280,15 @@
     - Gauze
   - type: Sprite
     state: gauze
+  - type: Item
+    heldPrefix: gauze
   - type: Construction
     graph: Gauze
     node: gauze
   - type: Healing
     damageContainers:
       - Biological
+      - BiologicalMetaphysical # DeltaV
     damage:
       types:
         Slash: -5

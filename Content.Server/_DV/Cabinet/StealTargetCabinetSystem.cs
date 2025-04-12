@@ -1,4 +1,4 @@
-using Content.Server.Objectives.Components.Targets;
+using Content.Shared.Objectives.Components;
 using Robust.Shared.Containers;
 
 namespace Content.Server._DV.Cabinet;

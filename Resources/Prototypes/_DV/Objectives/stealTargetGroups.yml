@@ -52,7 +52,6 @@
     state: cpu_command
 
 ## Unique items from heads
-
 - type: stealTargetGroup
   id: SpaceCashLuckyBill
   name: steal-target-groups-lucky-bill
@@ -66,6 +65,13 @@
   sprite:
     sprite: _DV/Objects/Misc/bureaucracy.rsi
     state: folder-hop-ian
+
+- type: stealTargetGroup
+  id: BookSecretDocuments
+  name: steal-target-groups-secret-documents
+  sprite:
+    sprite: Objects/Misc/bureaucracy.rsi
+    state: folder-sec-doc
 
 - type: stealTargetGroup
   id: WeaponEnergyGunMultiphase

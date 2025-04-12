@@ -1,4 +1,4 @@
-﻿# these come from examples of specific (overlapping) scottish-english and irish-english (not necessarily irish (gaelic)) language
+# these come from examples of specific (overlapping) scottish-english and irish-english (not necessarily irish (gaelic)) language
 # https://www.sara-sees.com/the-ultimate-guide-to-irish-slang-irish-vs-american-terms/
 # https://tandem.net/blog/irish-slang-words-phrases
 # https://inirish.bitesize.irish/how-to-say/

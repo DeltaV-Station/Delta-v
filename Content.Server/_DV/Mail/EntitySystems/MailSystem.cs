@@ -32,6 +32,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Objectives.Components;
 using Content.Shared.PDA;
 using Content.Shared.Radio; // ImpStation - for radio notifications of new mail
 using Content.Shared.Roles;
@@ -75,6 +76,10 @@ namespace Content.Server._DV.Mail.EntitySystems
         [Dependency] private readonly RadioSystem _radioSystem = default!; // ImpStation - for radio notifications of new mail
 
         private ISawmill _sawmill = default!;
+
+        private static readonly ProtoId<TagPrototype> MailTag = "Mail";
+        private static readonly ProtoId<TagPrototype> RecyclableTag = "Recyclable";
+        private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
 
         public override void Initialize()
         {
@@ -175,6 +180,8 @@ namespace Content.Server._DV.Mail.EntitySystems
             // The examination code depends on this being false to not show
             // the priority tape description anymore.
             component.IsPriority = false;
+
+            RemComp<StealTargetComponent>(uid);
         }
 
         /// <summary>
@@ -242,7 +249,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount(station, account, component.Bounty);
+                _cargoSystem.UpdateBankAccount((station, account), component.Bounty);
             }
         }
 
@@ -299,7 +306,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount(station, account, component.Penalty);
+                _cargoSystem.UpdateBankAccount((station, account), component.Penalty);
                 return;
             }
         }
@@ -654,7 +661,7 @@ namespace Content.Server._DV.Mail.EntitySystems
 
             if (candidateList.Count <= 0)
             {
-                _sawmill.Error("List of mail candidates was empty!");
+                _sawmill.Warning("List of mail candidates was empty!");
                 return;
             }
 
@@ -712,7 +719,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 var mail = EntityManager.SpawnEntity(chosenParcel, coordinates);
                 SetupMail(mail, component, candidate);
 
-                _tagSystem.AddTag(mail, "Mail"); // Frontier
+                _tagSystem.AddTag(mail, MailTag); // Frontier
             }
 
             if (_containerSystem.TryGetContainer(uid, "queued", out var queued))
@@ -755,8 +762,8 @@ namespace Content.Server._DV.Mail.EntitySystems
                 _handsSystem.PickupOrDrop(user, entity);
             }
 
-            _tagSystem.AddTag(uid, "Trash");
-            _tagSystem.AddTag(uid, "Recyclable");
+            _tagSystem.AddTag(uid, TrashTag);
+            _tagSystem.AddTag(uid, RecyclableTag);
             component.IsEnabled = false;
             UpdateMailTrashState(uid, true);
         }

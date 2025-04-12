@@ -33,12 +33,16 @@
   recipes:
   - ClothingEyesHudDiagnostic
 
+#- type: latheRecipePack
+#  id: BorgModulesDeltaV
+
 - type: latheRecipePack
-  id: BorgModulesDeltaV
+  id: BorgModulesSecurityDeltaV
   recipes:
   - BorgModuleSecurityChase
   - BorgModuleSecurityEscalate
   - BorgModuleSecurityBastion
+  - BorgModuleFauna
 
 - type: latheRecipePack
   id: PowerAugments

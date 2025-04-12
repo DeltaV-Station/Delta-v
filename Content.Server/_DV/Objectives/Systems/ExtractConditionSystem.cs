@@ -1,5 +1,4 @@
 using Content.Server._DV.Objectives.Components;
-using Content.Server.Objectives.Components.Targets;
 using Content.Server.Objectives.Systems;
 using Content.Shared._DV.Traitor;
 using Content.Shared.Mind;

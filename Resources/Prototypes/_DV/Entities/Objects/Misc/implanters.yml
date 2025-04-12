@@ -37,3 +37,15 @@
   components:
   - type: Implanter
     implant: RadioImplantCentcomm
+
+# Nukie implants
+
+- type: entity
+  id: HostageImplanter
+  suffix: hostage
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: HostageImplant
+    implantTime: 20
+    drawTime: 15

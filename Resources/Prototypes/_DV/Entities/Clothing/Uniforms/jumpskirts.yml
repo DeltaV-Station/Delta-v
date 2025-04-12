@@ -360,3 +360,16 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/cargotechromper.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/cargotechromper.rsi
+
+# Robo-neuroticist uniform
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtRoboNeuroticist
+  name: robo-neuroticist's jumpskirt
+  description: A jumpskirt fit with dozens of cybernetic gadgets.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/roboneuroticistpurple.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/roboneuroticistpurple.rsi

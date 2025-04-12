@@ -96,7 +96,7 @@ public sealed partial class CargoSystem
         _adminLogger.Add(LogType.Action, LogImpact.Low,
             $"{ToPrettyString(user):user} paid the ransom of ${cost} for {ToPrettyString(uid)} with balance at {bank.Balance}");
 
-        UpdateBankAccount(station, bank, -cost);
+        UpdateBankAccount((station, bank), -cost);
 
         // announce it so everyone knows
         var msg = Loc.GetString("syndicate-ransom-return-announcement", ("station", trade));

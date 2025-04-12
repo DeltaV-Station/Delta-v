@@ -95,7 +95,7 @@ public sealed class NukeDiskSystem : EntitySystem
         var query = EntityQueryEnumerator<NukeopsRuleComponent, AntagSelectionComponent>();
         while (query.MoveNext(out _, out _, out var comp))
         {
-            foreach (var (mindId, _) in comp.SelectedMinds)
+            foreach (var (mindId, _) in comp.AssignedMinds)
             {
                 if (TryComp<MindComponent>(mindId, out var mind) &&
                     GetEntity(mind.OriginalOwnedEntity) is {} mob &&
