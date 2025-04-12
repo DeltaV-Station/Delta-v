@@ -32,19 +32,15 @@ public abstract class SharedKitsuneSystem : EntitySystem
 
     private void OnMapInit(Entity<KitsuneComponent> ent, ref MapInitEvent args)
     {
-        if (HasComp<KitsuneFoxComponent>(ent))
-        {
-            RemComp<KitsuneComponent>(ent);
-            return;
-        }
-
-        _actions.AddAction(ent, ref ent.Comp.KitsuneActionEntity, ent.Comp.KitsuneAction);
+        if (!HasComp<KitsuneFoxComponent>(ent))
+            _actions.AddAction(ent, ref ent.Comp.KitsuneActionEntity, ent.Comp.KitsuneAction);
         ent.Comp.FoxfireAction = _actions.AddAction(ent, ent.Comp.FoxfireActionId);
     }
 
     private void OnCreateFoxfire(Entity<KitsuneComponent> ent, ref CreateFoxfireActionEvent args)
     {
-        if (!TryComp<HandsComponent>(ent, out var hands) || hands.Count < 1)
+        // Kitsune fox can make fox fires from their mouth otherwise they need hands.
+        if ((!TryComp<HandsComponent>(ent, out var hands) || hands.Count < 1) && !HasComp<KitsuneFoxComponent>(ent))
         {
             _popup.PopupEntity(Loc.GetString("fox-no-hands"), ent, ent);
             return;

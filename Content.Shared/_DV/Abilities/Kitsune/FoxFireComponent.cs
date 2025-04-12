@@ -2,7 +2,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared._DV.Abilities.Kitsune;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedKitsuneSystem))]
+[RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
 public sealed partial class FoxfireComponent : Component
 {

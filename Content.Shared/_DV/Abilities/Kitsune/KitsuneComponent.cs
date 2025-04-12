@@ -8,7 +8,7 @@ namespace Content.Shared._DV.Abilities.Kitsune;
 /// <summary>
 /// This component assigns the entity with a polymorph action
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedKitsuneSystem))]
+[RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
 public sealed partial class KitsuneComponent : Component
 {
