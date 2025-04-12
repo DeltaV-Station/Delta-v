@@ -45,6 +45,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._DV.CosmicCult.EntitySystems;
 
+// TODO: enable once cosmic cult is rolled out more
 public sealed class RogueAscendedSystem : EntitySystem
 {
     // [Dependency] private readonly ActionsSystem _actions = default!;
