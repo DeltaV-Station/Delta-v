@@ -4,6 +4,5 @@ namespace Content.Server.Objectives.Components;
 public sealed partial class CosmicVictoryConditionComponent : Component
 {
     [DataField]
-    public int
-ictory;
+    public int Victory;
 }

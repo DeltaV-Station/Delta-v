@@ -8,17 +8,17 @@ namespace Content.Shared._DV.CosmicCult.Components;
 /// Component for revealing cosmic cultists to the crew.
 /// </summary>
 [NetworkedComponent, RegisterComponent]
-public sealed class RogueAscendedInfectionComponent : Component
+public sealed partial class RogueAscendedInfectionComponent : Component
 {
     [DataField]
-    public bool HadMoods;
+    public SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new("/Textures/_DV/CosmicCult/Effects/ascendantinfection.rsi"), "vfx");
 
     [DataField]
-    public SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new ResPath("/Textures/_DV/CosmicCult/Effects/ascendantinfection.rsi"), "vfx");
+    public bool HadMoods;
 }
 
 [Serializable, NetSerializable]
 public enum AscendedInfectionKey
 {
-    Key,
+    Key
 }

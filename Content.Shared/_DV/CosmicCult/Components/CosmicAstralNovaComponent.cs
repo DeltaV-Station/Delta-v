@@ -1,5 +1,4 @@
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._DV.CosmicCult.Components;
@@ -11,13 +10,13 @@ namespace Content.Shared._DV.CosmicCult.Components;
 public sealed partial class CosmicAstralNovaComponent : Component
 {
     [DataField]
-    public DamageSpecifier CosmicNovaDamage = new()
-    {
-        DamageDict = new Dictionary<string, FixedPoint2> {
-            { "Asphyxiation", 13 },
-        },
-    };
+    public bool DoStun = true;
 
     [DataField]
-    public bool DoStun = true;
+    public DamageSpecifier CosmicNovaDamage = new()
+    {
+        DamageDict = new() {
+            { "Asphyxiation", 13 }
+        }
+    };
 }

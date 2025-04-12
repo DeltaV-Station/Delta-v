@@ -8,11 +8,11 @@ namespace Content.Shared._DV.CosmicCult.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentPause]
-public sealed class CleanseCultComponent : Component
+public sealed partial class CleanseCultComponent : Component
 {
-    [DataField] public TimeSpan CleanseDuration = TimeSpan.FromSeconds(25);
-
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
-    public TimeSpan CleanseTime;
+    public TimeSpan CleanseTime = default!;
+
+    [DataField] public TimeSpan CleanseDuration = TimeSpan.FromSeconds(25);
 }
