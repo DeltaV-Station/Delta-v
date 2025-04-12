@@ -38,7 +38,6 @@ public sealed partial class BurnBodyBehavior : IThresholdBehavior
         else
         {
             sharedPopupSystem.PopupCoordinates(Loc.GetString("bodyburn-text-others", ("name", bodyIdentity)), transformSystem.GetMoverCoordinates(bodyId), PopupType.LargeCaution);
-            system.EntityManager.QueueDeleteEntity(bodyId);
         }
         // End Shitmed Changes
 
