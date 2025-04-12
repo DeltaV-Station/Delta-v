@@ -491,10 +491,9 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 1
+    fireRate: 0.7
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -517,8 +516,8 @@
     pvsIncrease: 0.5
   - type: GunRequiresWield
   - type: SpeedModifiedOnWield
-    walkModifier: 0.75
-    sprintModifier: 0.75
+    walkModifier: 0.3
+    sprintModifier: 0.3
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
