@@ -29,18 +29,18 @@ public sealed class MonumentSystem : SharedMonumentSystem
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly CosmicCorruptingSystem _corrupting = default!;
     [Dependency] private readonly CosmicCultRuleSystem _cosmicRule = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
@@ -66,7 +66,11 @@ public sealed class MonumentSystem : SharedMonumentSystem
             {
                 var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 10);
                 entities.RemoveWhere(entity => !HasComp<InfluenceVitalityComponent>(entity));
-                foreach (var entity in entities) _damage.TryChangeDamage(entity, monuComp.MonumentHealing * -1);
+                foreach (var entity in entities)
+                {
+                    _damage.TryChangeDamage(entity, monuComp.MonumentHealing * -1);
+                }
+
                 monuComp.CheckTimer = _timing.CurTime + monuComp.CheckWait;
             }
             if (comp.SongTimer is { } time && _timing.CurTime >= time)
@@ -174,9 +178,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
         if (!args.Complex)
             return;
         if (TryComp<CosmicCultComponent>(args.User, out var cultComp) && cultComp.EntropyStored > 0)
-        {
             args.Handled = AddEntropy(uid, (args.User, cultComp));
-        }
     }
 
     private void OnInfuseHeldEntropy(Entity<MonumentComponent> uid, ref InteractUsingEvent args)
@@ -384,7 +386,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
         UpdateMonumentAppearance(uid, true);
 
         var objectiveQuery = EntityQueryEnumerator<CosmicTierConditionComponent>();
-        while (objectiveQuery.MoveNext(out var _, out var objectiveComp))
+        while (objectiveQuery.MoveNext(out _, out var objectiveComp))
         {
             objectiveComp.Tier = 3;
         }
@@ -425,9 +427,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
         if (TryComp<ActivatableUIComponent>(uid, out var uiComp))
         {
             if (TryComp<UserInterfaceComponent>(uid, out var uiComp2)) //close the UI for everyone who has it open
-            {
                 _ui.CloseUi((uid.Owner, uiComp2), MonumentKey.Key);
-            }
 
             uiComp.Key = null; //kazne called this the laziest way to disable a UI ever
         }

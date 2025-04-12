@@ -7,8 +7,8 @@ using Content.Server.GameTicking.Events;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Server.Station.Systems;
-using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
+using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -19,8 +19,8 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.StatusEffect;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -33,26 +33,26 @@ public sealed partial class CosmicCultSystem : EntitySystem
     [Dependency] private readonly AlertLevelSystem _alert = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly CosmicCorruptingSystem _corrupting = default!;
     [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+
+    private readonly ResPath _mapPath = new("Maps/_DV/Nonstations/cosmicvoid.yml");
     [Dependency] private readonly MonumentSystem _monument = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-
-    private readonly ResPath _mapPath = new("Maps/_DV/Nonstations/cosmicvoid.yml");
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
     public int CultistCount;
 
@@ -110,9 +110,11 @@ public sealed partial class CosmicCultSystem : EntitySystem
         else
             args.PushMarkup(Loc.GetString(ent.Comp.OthersText));
     }
+
     #endregion
 
     #region Init Cult
+
     /// <summary>
     /// Add the starting powers to the cultist.
     /// </summary>
@@ -157,6 +159,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (!HasComp<CosmicCultComponent>(args.Equipee))
             _statusEffects.TryRemoveStatusEffect(args.Equipee, "EntropicDegen");
     }
+
     private void OnGotHeld(Entity<CosmicEquipmentComponent> ent, ref GotEquippedHandEvent args)
     {
         if (!HasComp<CosmicCultComponent>(args.User))
@@ -168,22 +171,27 @@ public sealed partial class CosmicCultSystem : EntitySystem
         if (!HasComp<CosmicCultComponent>(args.User))
             _statusEffects.TryRemoveStatusEffect(args.User, "EntropicDegen");
     }
+
     #endregion
 
     #region Movespeed
+
     private void OnStartInfluenceStride(Entity<InfluenceStrideComponent> uid, ref ComponentInit args) // i wish movespeed was easier to work with
     {
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
     }
+
     private void OnEndInfluenceStride(Entity<InfluenceStrideComponent> uid, ref ComponentRemove args) // that movespeed applies more-or-less correctly
     {
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
     }
+
     private void OnStartImposition(Entity<CosmicImposingComponent> uid, ref ComponentInit args) // these functions just make sure
     {
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
         EnsureComp<CosmicCultExamineComponent>(uid).CultistText = "cosmic-examine-text-malignecho";
     }
+
     private void OnEndImposition(Entity<CosmicImposingComponent> uid, ref ComponentRemove args) // as various cosmic cult effects get added and removed
     {
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
@@ -194,10 +202,11 @@ public sealed partial class CosmicCultSystem : EntitySystem
     {
         args.ModifySpeed(1.05f, 1.05f);
     }
+
     private void OnImpositionMoveSpeed(EntityUid uid, CosmicImposingComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
         args.ModifySpeed(0.55f, 0.55f);
     }
-    #endregion
 
+    #endregion
 }

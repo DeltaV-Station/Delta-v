@@ -12,7 +12,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Client._DV.CosmicCult.Visuals;
@@ -22,20 +21,20 @@ namespace Content.Client._DV.CosmicCult.Visuals;
 /// </summary>
 public sealed class MonumentPlacementPreviewSystem : EntitySystem
 {
+    private const int MinimumDistanceFromSpace = 3;
+
     //most of these aren't used by this system, see MonumentPlacementPreviewOverlay for a note on why they're here
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IOverlayManager _overlay = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
     private MonumentPlacementPreviewOverlay? _cachedOverlay;
     private CancellationTokenSource? _cancellationTokenSource;
-
-    private const int MinimumDistanceFromSpace = 3;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -88,9 +87,7 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
 
         //MAKE SURE WE'RE STANDING ON A GRID
         if (!TryComp(xform.GridUid, out MapGridComponent? grid))
-        {
             return false;
-        }
 
         //CHECK IF IT'S BEING PLACED CHEESILY CLOSE TO SPACE
         var worldPos = _transform.GetWorldPosition(xform); //this is technically wrong but basically fine; if
@@ -134,7 +131,7 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
             {
                 _cachedOverlay.FadingOut = false; //stop it
 
-                var progress = (1 - (_cachedOverlay.FadeOutProgress / _cachedOverlay.FadeOutTime)) * _cachedOverlay.FadeInTime; //set fade in progress to 1 - fade out progress (so 70% out becomes 30% in)
+                var progress = (1 - _cachedOverlay.FadeOutProgress / _cachedOverlay.FadeOutTime) * _cachedOverlay.FadeInTime; //set fade in progress to 1 - fade out progress (so 70% out becomes 30% in)
                 _cachedOverlay.FadeInProgress = progress;
                 _cachedOverlay.FadingIn = true; //start fading in again
                 _cachedOverlay.FadeOutProgress = 0; //stop the fadeout entirely

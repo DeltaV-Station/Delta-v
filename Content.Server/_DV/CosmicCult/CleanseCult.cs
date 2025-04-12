@@ -1,4 +1,3 @@
-using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 

@@ -11,44 +11,26 @@ namespace Content.Server._DV.CosmicCult.Components;
 [AutoGenerateComponentPause]
 public sealed partial class CosmicCultRuleComponent : Component
 {
-    /// <summary>
-    /// What happens if all of the cultists die.
-    /// </summary>
     [DataField]
-    public RoundEndBehavior RoundEndBehavior = RoundEndBehavior.ShuttleCall;
+    public HashSet<EntityUid> Cultists = [];
 
     /// <summary>
-    /// Sender for shuttle call.
+    ///     Current tier of the cult
     /// </summary>
     [DataField]
-    public LocId RoundEndTextSender = "comms-console-announcement-title-centcom";
+    public int CurrentTier;
 
     /// <summary>
-    /// Text for shuttle call.
+    ///     How much entropy has been siphoned by the cult
     /// </summary>
     [DataField]
-    public LocId RoundEndTextShuttleCall = "cosmiccult-elimination-shuttle-call";
-
-    /// <summary>
-    /// Text for announcement.
-    /// </summary>
-    [DataField]
-    public LocId RoundEndTextAnnouncement = "cosmiccult-elimination-announcement";
+    public int EntropySiphoned;
 
     /// <summary>
     /// Time for emergency shuttle arrival.
     /// </summary>
     [DataField]
     public TimeSpan EvacShuttleTime = TimeSpan.FromMinutes(5);
-
-    [DataField]
-    public HashSet<EntityUid> Cultists = [];
-
-    [DataField]
-    public bool WinLocked;
-
-    [DataField]
-    public WinType WinType = WinType.CrewMinor;
 
     /// <summary>
     ///     The cult's monument
@@ -62,10 +44,46 @@ public sealed partial class CosmicCultRuleComponent : Component
     public EntityUid MonumentSlowZone;
 
     /// <summary>
-    ///     Current tier of the cult
+    ///     Percentage of crew that have been converted into cultists
     /// </summary>
     [DataField]
-    public int CurrentTier;
+    public double PercentConverted;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? PrepareFinaleTimer;
+
+    /// <summary>
+    /// What happens if all of the cultists die.
+    /// </summary>
+    [DataField]
+    public RoundEndBehavior RoundEndBehavior = RoundEndBehavior.ShuttleCall;
+
+    /// <summary>
+    /// Text for announcement.
+    /// </summary>
+    [DataField]
+    public LocId RoundEndTextAnnouncement = "cosmiccult-elimination-announcement";
+
+    /// <summary>
+    /// Sender for shuttle call.
+    /// </summary>
+    [DataField]
+    public LocId RoundEndTextSender = "comms-console-announcement-title-centcom";
+
+    /// <summary>
+    /// Text for shuttle call.
+    /// </summary>
+    [DataField]
+    public LocId RoundEndTextShuttleCall = "cosmiccult-elimination-shuttle-call";
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? StewardVoteTimer;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? Tier2DelayTimer;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? Tier3DelayTimer;
 
     /// <summary>
     ///     Amount of present crew
@@ -79,29 +97,11 @@ public sealed partial class CosmicCultRuleComponent : Component
     [DataField]
     public int TotalCult;
 
-    /// <summary>
-    ///     Percentage of crew that have been converted into cultists
-    /// </summary>
     [DataField]
-    public double PercentConverted;
+    public bool WinLocked;
 
-    /// <summary>
-    ///     How much entropy has been siphoned by the cult
-    /// </summary>
     [DataField]
-    public int EntropySiphoned;
-
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan? StewardVoteTimer;
-
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan? PrepareFinaleTimer;
-
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan? Tier3DelayTimer;
-
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan? Tier2DelayTimer;
+    public WinType WinType = WinType.CrewMinor;
 }
 
 public enum WinType : byte

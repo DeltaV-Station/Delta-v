@@ -9,9 +9,9 @@ namespace Content.Server._DV.CosmicCult.Abilities;
 
 public sealed class CosmicImpositionSystem : EntitySystem
 {
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly CosmicCultSystem _cult = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

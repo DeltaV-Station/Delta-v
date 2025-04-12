@@ -1,20 +1,20 @@
-using Content.Shared._DV.CosmicCult.Components;
-using Content.Shared._DV.CosmicCult;
-using Content.Shared.StatusIcon.Components;
-using Robust.Shared.Prototypes;
-using Robust.Client.GameObjects;
-using Robust.Shared.Utility;
-using Content.Shared._DV.CosmicCult.Components.Examine;
 using System.Numerics;
-using Timer = Robust.Shared.Timing.Timer;
-using Robust.Client.Audio;
-using Robust.Shared.Audio;
 using Content.Client.Alerts;
 using Content.Client.UserInterface.Systems.Alerts.Controls;
+using Content.Shared._DV.CosmicCult;
+using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Components.Examine;
+using Content.Shared.StatusIcon.Components;
+using Robust.Client.Audio;
+using Robust.Client.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Client._DV.CosmicCult;
 
-public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
+public sealed class CosmicCultSystem : SharedCosmicCultSystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
@@ -48,6 +48,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     }
 
     #region Siphon Visuals
+
     private void OnSiphon(CosmicSiphonIndicatorEvent args)
     {
         var ent = GetEntity(args.Target);
@@ -72,9 +73,11 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         sprite.LayerSetState(AlertVisualLayers.Base, $"base{entropy}");
         sprite.LayerSetState(CultAlertVisualLayers.Counter, $"num{entropy}");
     }
+
     #endregion
 
     #region Layer Additions
+
     private void OnAscendedInfectionAdded(Entity<RogueAscendedInfectionComponent> uid, ref ComponentStartup args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(AscendedInfectionKey.Key, out _))
@@ -108,9 +111,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         //offset the mark if the mob has an offset comp, needed for taller species like Thaven
         if (TryComp<CosmicStarMarkOffsetComponent>(uid, out var offset))
-        {
             sprite.LayerSetOffset(CosmicRevealedKey.Key, offset.Offset);
-        }
     }
 
     private void OnCosmicImpositionAdded(Entity<CosmicImposingComponent> uid, ref ComponentStartup args)
@@ -123,9 +124,11 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         sprite.LayerMapSet(CosmicImposingKey.Key, layer);
         sprite.LayerSetShader(layer, "unshaded");
     }
+
     #endregion
 
     #region Layer Removals
+
     private void OnAscendedInfectionRemoved(Entity<RogueAscendedInfectionComponent> uid, ref ComponentShutdown args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
@@ -157,9 +160,11 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         sprite.RemoveLayer(CosmicImposingKey.Key);
     }
+
     #endregion
 
     #region Icons
+
     private void GetCosmicCultIcon(Entity<CosmicCultComponent> ent, ref GetStatusIconsEvent args)
     {
         if (HasComp<CosmicCultLeadComponent>(ent))
@@ -180,10 +185,11 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }
+
     #endregion
 }
 
 public enum CultSiphonedVisuals : byte
 {
-    Key
+    Key,
 }

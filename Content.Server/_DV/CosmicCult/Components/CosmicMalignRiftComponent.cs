@@ -7,16 +7,7 @@ namespace Content.Server._DV.CosmicCult.Components;
 public sealed partial class CosmicMalignRiftComponent : Component
 {
     [DataField]
-    public bool Used;
-
-    [DataField]
-    public bool Occupied;
-
-    [DataField]
-    public EntProtoId PurgeVFX = "CleanseEffectVFX";
-
-    [DataField]
-    public SoundSpecifier PurgeSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/cleanse_deconversion.ogg");
+    public TimeSpan AbsorbTime = TimeSpan.FromSeconds(35);
 
     // [DataField]
     // public EntProtoId GrailID = "NullRodGrail"; // Not implemented at this time
@@ -28,5 +19,14 @@ public sealed partial class CosmicMalignRiftComponent : Component
     public TimeSpan ChaplainTime = TimeSpan.FromSeconds(20);
 
     [DataField]
-    public TimeSpan AbsorbTime = TimeSpan.FromSeconds(35);
+    public bool Occupied;
+
+    [DataField]
+    public SoundSpecifier PurgeSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/cleanse_deconversion.ogg");
+
+    [DataField]
+    public EntProtoId PurgeVFX = "CleanseEffectVFX";
+
+    [DataField]
+    public bool Used;
 }

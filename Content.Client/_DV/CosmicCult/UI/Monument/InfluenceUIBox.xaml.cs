@@ -11,13 +11,6 @@ namespace Content.Client._DV.CosmicCult.UI.Monument;
 [GenerateTypedNameReferences]
 public sealed partial class InfluenceUIBox : BoxContainer
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-
-    private readonly SpriteSystem _sprite;
-
-    public Action? OnGainButtonPressed;
-
     public enum InfluenceUIBoxState
     {
         UnlockedAndEnoughEntropy = 0,
@@ -26,8 +19,15 @@ public sealed partial class InfluenceUIBox : BoxContainer
         Locked = 3,
     }
 
-    public readonly InfluenceUIBoxState State;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+
+    private readonly SpriteSystem _sprite;
     public readonly InfluencePrototype Proto;
+
+    public readonly InfluenceUIBoxState State;
+
+    public Action? OnGainButtonPressed;
 
     public InfluenceUIBox(InfluencePrototype influenceProto, InfluenceUIBoxState state)
     {
@@ -44,9 +44,7 @@ public sealed partial class InfluenceUIBox : BoxContainer
 
         var availableEntropy = 0;
         if (_entityManager.TryGetComponent<CosmicCultComponent>(_playerManager.LocalEntity, out var cultComp))
-        {
             availableEntropy = cultComp.EntropyBudget;
-        }
 
         switch (state)
         {

@@ -14,12 +14,12 @@ namespace Content.Server._DV.CosmicCult;
 
 public sealed class CosmicGlyphSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -32,18 +32,14 @@ public sealed class CosmicGlyphSystem : EntitySystem
     private void OnExamine(Entity<CosmicGlyphComponent> uid, ref ExaminedEvent args)
     {
         if (HasComp<CosmicCultComponent>(args.Examiner))
-        {
             args.PushMarkup(Loc.GetString("cosmic-examine-glyph-cultcount", ("COUNT", uid.Comp.RequiredCultists)));
-        }
         else
-        {
             args.PushMarkup(Loc.GetString("cosmic-examine-text-glyphs"));
-        }
     }
 
     private void OnUseGlyph(Entity<CosmicGlyphComponent> uid, ref ActivateInWorldEvent args)
     {
-        Log.Debug($"Glyph event triggered!");
+        Log.Debug("Glyph event triggered!");
         var tgtpos = Transform(uid).Coordinates;
         var userCoords = Transform(args.User).Coordinates;
         if (args.Handled || !userCoords.TryDistance(EntityManager, tgtpos, out var distance) || distance > uid.Comp.ActivationRange || !HasComp<CosmicCultComponent>(args.User))
@@ -72,9 +68,11 @@ public sealed class CosmicGlyphSystem : EntitySystem
         Spawn(uid.Comp.GylphVFX, tgtpos);
         QueueDel(uid);
     }
+
     #endregion
 
     #region Housekeeping
+
     private void DealDamage(EntityUid user, DamageSpecifier? damage)
     {
         if (damage is null)
@@ -109,5 +107,6 @@ public sealed class CosmicGlyphSystem : EntitySystem
 
         return possibleTargets;
     }
+
     #endregion
 }

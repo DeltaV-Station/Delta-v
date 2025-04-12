@@ -1,12 +1,13 @@
 using Content.Shared._DV.CosmicCult.Prototypes;
 using Content.Shared.Damage;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._DV.CosmicCult.Components;
+icCult.Components;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedMonumentSystem))]
 [AutoGenerateComponentState, AutoGenerateComponentPause]
@@ -115,14 +116,16 @@ public sealed partial class MonumentComponent : Component
 }
 
 [Serializable, NetSerializable]
-public sealed class InfluenceSelectedMessage(ProtoId<InfluencePrototype> influenceProtoId, NetEntity? sender) : BoundUserInterfaceMessage
+public sealed class InfluenceSelectedMessage(ProtoId<InfluencePrototype> influencePro
+ oId, NetEntity? sender) : BoundUserInterfaceMessage
 {
     public ProtoId<InfluencePrototype> InfluenceProtoId = influenceProtoId;
     public NetEntity? Sender = sender;
 }
 
 [Serializable, NetSerializable]
-public sealed class GlyphSelectedMessage(ProtoId<GlyphPrototype> glyphProtoId) : BoundUserInterfaceMessage
+public sealed class GlyphSelectedMessage(ProtoId<GlyphPrototype> glyphProtoId) : BoundUser
+nterfaceMessage
 {
     public ProtoId<GlyphPrototype> GlyphProtoId = glyphProtoId;
 }
@@ -130,7 +133,8 @@ public sealed class GlyphSelectedMessage(ProtoId<GlyphPrototype> glyphProtoId) :
 [Serializable, NetSerializable]
 public sealed class GlyphRemovedMessage : BoundUserInterfaceMessage;
 
-[Serializable, NetSerializable]
+[Serializable, NetSer
+alizable]
 public enum MonumentVisuals : byte
 {
     Monument,

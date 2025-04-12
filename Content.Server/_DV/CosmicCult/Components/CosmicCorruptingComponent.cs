@@ -7,13 +7,25 @@ namespace Content.Server._DV.CosmicCult.Components;
 
 [RegisterComponent, Access(typeof(CosmicCorruptingSystem))]
 [AutoGenerateComponentPause]
-public sealed partial class CosmicCorruptingComponent : Component
+public sealed class CosmicCorruptingComponent : Component
 {
     /// <summary>
-    /// Our timer for corruption checks.
+    /// Wether or not the CosmicCorruptingSystem should ignore this component when it reaches max growth. Saves performance.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    [AutoPausedField] public TimeSpan CorruptionTimer = default!;
+    [DataField]
+    public bool AutoDisable = true;
+
+    /// <summary>
+    /// the door we spawn when replacing a secret door
+    /// </summary>
+    [DataField]
+    public EntProtoId ConversionDoor = "DoorCosmicCult";
+
+    /// <summary>
+    /// The tile we spawn when replacing a normal tile.
+    /// </summary>
+    [DataField] //not a dict like the entity conversion below because there's too many fucking tiles
+    public ProtoId<ContentTileDefinition> ConversionTile = "FloorCosmicCorruption";
 
     /// <summary>
     /// the list of tiles that can be corrupted by this corruptor.
@@ -22,23 +34,10 @@ public sealed partial class CosmicCorruptingComponent : Component
     public HashSet<Vector2i> CorruptableTiles = [];
 
     /// <summary>
-    /// If this corruption source can move. if true, only corrupt the immediate area around it.
-    /// Slightly hacky but works for our purposes.
+    /// The chance that a tile and/or wall is replaced.
     /// </summary>
     [DataField]
-    public bool Mobile;
-
-    /// <summary>
-    /// if this corruption source should floodfill through all corruptible tiles to initialise its corruptible tile set on activation.
-    /// </summary>
-    [DataField]
-    public bool FloodFillStarting;
-
-    /// <summary>
-    /// How many times has this corruption source ticked?
-    /// </summary>
-    [DataField]
-    public int CorruptionTicks;
+    public float CorruptionChance = 0.51f;
 
     /// <summary>
     /// The maximum amount of ticks this source can do.
@@ -47,34 +46,10 @@ public sealed partial class CosmicCorruptingComponent : Component
     public int CorruptionMaxTicks = 50;
 
     /// <summary>
-    /// The chance that a tile and/or wall is replaced.
-    /// </summary>
-    [DataField]
-    public float CorruptionChance = 0.51f;
-
-    /// <summary>
     /// The reduction applied to corruption chance every tick.
     /// </summary>
     [DataField]
     public float CorruptionReduction;
-
-    /// <summary>
-    /// Wether or not the CosmicCorruptingSystem should be running on this entity. use CosmicCorruptingSystem.Enable() instead of directly interacting with this variable.
-    /// </summary>
-    [DataField]
-    public bool Enabled = true;
-
-    /// <summary>
-    /// Wether or not the CosmicCorruptingSystem should spawn VFX when converting tiles and walls.
-    /// </summary>
-    [DataField]
-    public bool UseVFX = true;
-
-    /// <summary>
-    /// Wether or not the CosmicCorruptingSystem should ignore this component when it reaches max growth. Saves performance.
-    /// </summary>
-    [DataField]
-    public bool AutoDisable = true;
 
     /// <summary>
     /// How much time between tile corruptions.
@@ -83,10 +58,22 @@ public sealed partial class CosmicCorruptingComponent : Component
     public TimeSpan CorruptionSpeed = TimeSpan.FromSeconds(6);
 
     /// <summary>
-    /// The tile we spawn when replacing a normal tile.
+    /// How many times has this corruption source ticked?
     /// </summary>
-    [DataField] //not a dict like the entity conversion below because there's too many fucking tiles
-    public ProtoId<ContentTileDefinition> ConversionTile = "FloorCosmicCorruption";
+    [DataField]
+    public int CorruptionTicks;
+
+    /// <summary>
+    /// Our timer for corruption checks.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoPausedField] public TimeSpan CorruptionTimer;
+
+    /// <summary>
+    /// Wether or not the CosmicCorruptingSystem should be running on this entity. use CosmicCorruptingSystem.Enable() instead of directly interacting with this variable.
+    /// </summary>
+    [DataField]
+    public bool Enabled = true;
 
     /// <remarks>
     /// this data entry brought to you by UNKILLABLE ANGEL - Ada Rook
@@ -96,7 +83,7 @@ public sealed partial class CosmicCorruptingComponent : Component
     /// absolutely fucking massive so that multiple things don't need to re-specify it in yamlland
     /// </summary>
     [DataField]
-    public Dictionary<EntProtoId, EntProtoId> EntityConversionDict = new Dictionary<EntProtoId, EntProtoId>()
+    public Dictionary<EntProtoId, EntProtoId> EntityConversionDict = new()
     {
         //walls
         {"WallSolid", "WallCosmicCult"},
@@ -183,10 +170,17 @@ public sealed partial class CosmicCorruptingComponent : Component
     };
 
     /// <summary>
-    /// the door we spawn when replacing a secret door
+    /// if this corruption source should floodfill through all corruptible tiles to initialise its corruptible tile set on activation.
     /// </summary>
     [DataField]
-    public EntProtoId ConversionDoor = "DoorCosmicCult";
+    public bool FloodFillStarting;
+
+    /// <summary>
+    /// If this corruption source can move. if true, only corrupt the immediate area around it.
+    /// Slightly hacky but works for our purposes.
+    /// </summary>
+    [DataField]
+    public bool Mobile;
 
     /// <summary>
     /// The VFX entity we spawn when corruption occurs.
@@ -200,4 +194,9 @@ public sealed partial class CosmicCorruptingComponent : Component
     [DataField]
     public EntProtoId TileDisintegrateVFX = "CosmicGenericVFX";
 
+    /// <summary>
+    /// Wether or not the CosmicCorruptingSystem should spawn VFX when converting tiles and walls.
+    /// </summary>
+    [DataField]
+    public bool UseVFX = true;
 }

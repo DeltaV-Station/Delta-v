@@ -8,14 +8,14 @@ namespace Content.Shared._DV.CosmicCult.Components;
 /// Component for revealing cosmic cultists to the crew.
 /// </summary>
 [NetworkedComponent, RegisterComponent]
-public sealed partial class RogueAscendedAuraComponent : Component
+public sealed class RogueAscendedAuraComponent : Component
 {
     [DataField]
-    public SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new("/Textures/_DV/CosmicCult/Effects/ascendantaura.rsi"), "vfx");
+    public SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new ResPath("/Textures/_DV/CosmicCult/Effects/ascendantaura.rsi"), "vfx");
 }
 
 [Serializable, NetSerializable]
 public enum AscendedAuraKey
 {
-    Key
+    Key,
 }
