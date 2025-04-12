@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._DV.CosmicCult.Components;
@@ -10,17 +10,17 @@ namespace Content.Shared._DV.CosmicCult.Components;
 /// </summary>
 [NetworkedComponent, RegisterComponent]
 [AutoGenerateComponentPause]
-public sealed partial class CosmicImposingComponent : Component
+public sealed class CosmicImposingComponent : Component
 {
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan Expiry;
 
     [DataField]
-    public SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new("/Textures/_DV/CosmicCult/Effects/ability_imposition_overlay.rsi"), "vfx");
+    public SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new ResPath("/Textures/_DV/CosmicCult/Effects/ability_imposition_overlay.rsi"), "vfx");
 }
 
 [Serializable, NetSerializable]
 public enum CosmicImposingKey
 {
-    Key
+    Key,
 }

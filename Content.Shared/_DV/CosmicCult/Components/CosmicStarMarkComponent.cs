@@ -8,14 +8,14 @@ namespace Content.Shared._DV.CosmicCult.Components;
 /// Component for revealing cosmic cultists to the crew.
 /// </summary>
 [NetworkedComponent, RegisterComponent]
-public sealed partial class CosmicStarMarkComponent : Component
+public sealed class CosmicStarMarkComponent : Component
 {
     [DataField]
-    public SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new("/Textures/_DV/CosmicCult/Effects/cultrevealed.rsi"), "vfx");
+    public SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new ResPath("/Textures/_DV/CosmicCult/Effects/cultrevealed.rsi"), "vfx");
 }
 
 [Serializable, NetSerializable]
 public enum CosmicRevealedKey
 {
-    Key
+    Key,
 }

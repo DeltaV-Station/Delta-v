@@ -8,7 +8,7 @@ namespace Content.Shared._DV.CosmicCult.Components.Examine;
 /// Marker component for targets under the effect of Shunt Subjectivity or Astral Projection.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class CosmicBlankComponent : Component
+public sealed class CosmicBlankComponent : Component
 {
     /// <summary>
     /// The status icon corresponding to the effect.

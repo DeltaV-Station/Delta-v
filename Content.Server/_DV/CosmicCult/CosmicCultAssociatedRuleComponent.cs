@@ -4,7 +4,7 @@ namespace Content.Server._DV.CosmicCult;
 ///     Associates an entity with a specific cosmic cult gamerule
 /// </summary>
 [RegisterComponent]
-public sealed partial class CosmicCultAssociatedRuleComponent : Component
+public sealed class CosmicCultAssociatedRuleComponent : Component
 {
     /// <summary>
     ///     The gamerule that this entity is associated with

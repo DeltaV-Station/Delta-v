@@ -22,5 +22,6 @@ public sealed partial class GlyphPrototype : IPrototype
     public EntProtoId Entity;
 
     [DataField(required: true)]
-    public int Tier;
+    public i
+t Tier;
 }

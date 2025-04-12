@@ -14,35 +14,34 @@ namespace Content.Client._DV.CosmicCult.Visuals;
 public sealed class MonumentPlacementPreviewOverlay : Overlay
 {
     private readonly IEntityManager _ent;
-    private readonly IPlayerManager _player;
-    private readonly SpriteSystem _sprite;
+
+    private readonly SpriteSpecifier _mainTex;
     private readonly SharedMapSystem _map;
+    private readonly SpriteSpecifier _outlineTex;
+    private readonly IPlayerManager _player;
     private readonly MonumentPlacementPreviewSystem _preview;
-    private readonly IGameTiming _timing;
-    public override OverlaySpace Space => OverlaySpace.WorldSpaceEntities;
 
     private readonly ShaderInstance _saturationShader;
-    private readonly ShaderInstance _unshadedShader;
+    private readonly SpriteSystem _sprite;
     private readonly ShaderInstance _starsShader;
-
-    public bool LockPlacement = false;
+    private readonly SpriteSpecifier _starTex;
+    private readonly IGameTiming _timing;
+    private readonly ShaderInstance _unshadedShader;
     private EntityCoordinates _lastPos = new();
+
+    public float Alpha;
 
     //for a slight fade in / out
     //ss14's formatting settings can take my needlessly public variables away from my cold, dead hands
-    public float FadeInProgress = 0;
+    public float FadeInProgress;
     public float FadeInTime = 0.25f;
-    public bool FadingIn = true;
 
-    public float FadeOutProgress = 0;
+    public float FadeOutProgress;
     public float FadeOutTime = 0.25f;
-    public bool FadingOut = false;
+    public bool FadingIn = true;
+    public bool FadingOut;
 
-    public float Alpha = 0;
-
-    private readonly SpriteSpecifier _mainTex;
-    private readonly SpriteSpecifier _outlineTex;
-    private readonly SpriteSpecifier _starTex;
+    public bool LockPlacement = false;
 
     //todo arbitrary sprite drawing overlay at some point
     //I don't want to have to make a new overlay for every "draw a sprite at x" thing
@@ -74,6 +73,8 @@ public sealed class MonumentPlacementPreviewOverlay : Overlay
         _outlineTex = new SpriteSpecifier.Rsi(new ResPath("_DV/CosmicCult/Tileset/monument.rsi"), $"stage{tier}-placement-ghost-1");
         _starTex = new SpriteSpecifier.Rsi(new ResPath("_DV/CosmicCult/Tileset/monument.rsi"), $"stage{tier}-placement-ghost-2");
     }
+
+    public override OverlaySpace Space => OverlaySpace.WorldSpaceEntities;
 
     //this might get wierd if the player managed to leave the grid they put the monument on? theoretically not a concern because it can't be placed too close to space.
     //shouldn't crash due to the comp checks, though.

@@ -1,5 +1,5 @@
-using Robust.Client.GameObjects;
 using Content.Shared._DV.CosmicCult.Components;
+using Robust.Client.GameObjects;
 
 namespace Content.Client._DV.CosmicCult;
 

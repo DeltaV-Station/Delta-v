@@ -37,5 +37,6 @@ public sealed partial class InfluencePrototype : IPrototype
     public ComponentRegistry? Remove;
 
     [DataField(required: true)]
-    public int Tier;
+    public int T
+er;
 }

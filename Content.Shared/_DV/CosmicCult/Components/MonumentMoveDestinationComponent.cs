@@ -7,7 +7,7 @@ namespace Content.Shared._DV.CosmicCult.Components;
 /// </summary>
 [RegisterComponent]
 [AutoGenerateComponentPause]
-public sealed partial class MonumentMoveDestinationComponent : Component
+public sealed class MonumentMoveDestinationComponent : Component
 {
     public EntityUid? Monument;
 

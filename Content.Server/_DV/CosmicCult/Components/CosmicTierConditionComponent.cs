@@ -4,5 +4,6 @@ namespace Content.Server.Objectives.Components;
 public sealed partial class CosmicTierConditionComponent : Component
 {
     [DataField]
-    public int Tier;
+    public i
+t Tier;
 }
