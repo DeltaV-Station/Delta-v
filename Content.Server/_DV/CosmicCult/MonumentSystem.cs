@@ -66,7 +66,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
             {
                 var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 10);
                 entities.RemoveWhere(entity => !HasComp<InfluenceVitalityComponent>(entity));
-                foreach (var entity in entities) _damageable.TryChangeDamage(entity, monuComp.MonumentHealing * -1);
+                foreach (var entity in entities) _damage.TryChangeDamage(entity, monuComp.MonumentHealing * -1);
                 monuComp.CheckTimer = _timing.CurTime + monuComp.CheckWait;
             }
             if (comp.SongTimer is { } time && _timing.CurTime >= time)
