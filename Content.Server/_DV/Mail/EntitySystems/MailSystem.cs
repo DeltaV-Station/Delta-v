@@ -32,6 +32,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Objectives.Components;
 using Content.Shared.PDA;
 using Content.Shared.Radio; // ImpStation - for radio notifications of new mail
 using Content.Shared.Roles;
@@ -175,6 +176,8 @@ namespace Content.Server._DV.Mail.EntitySystems
             // The examination code depends on this being false to not show
             // the priority tape description anymore.
             component.IsPriority = false;
+
+            RemComp<StealTargetComponent>(uid);
         }
 
         /// <summary>
@@ -242,7 +245,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount(station, account, component.Bounty);
+                _cargoSystem.UpdateBankAccount((station, account), component.Bounty);
             }
         }
 
@@ -299,7 +302,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount(station, account, component.Penalty);
+                _cargoSystem.UpdateBankAccount((station, account), component.Penalty);
                 return;
             }
         }
@@ -654,7 +657,7 @@ namespace Content.Server._DV.Mail.EntitySystems
 
             if (candidateList.Count <= 0)
             {
-                _sawmill.Error("List of mail candidates was empty!");
+                _sawmill.Warning("List of mail candidates was empty!");
                 return;
             }
 

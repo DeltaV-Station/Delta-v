@@ -22,6 +22,11 @@
     speechSounds: Tenor
     speechVerb: Feroxi
     allowedEmotes: [ "Gnash" ]
+  - type: Vocal
+    sounds:
+      Male: MaleFeroxi
+      Female: FemaleFeroxi
+      Unsexed: MaleFeroxi
   - type: Sprite
     netsync: false
     noRot: true

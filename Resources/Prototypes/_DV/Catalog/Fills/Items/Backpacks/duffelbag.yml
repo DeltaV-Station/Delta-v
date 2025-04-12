@@ -15,3 +15,17 @@
     - id: WeaponProtoKineticAccelerator
     - id: SurvivalKnife
     - id: FlashlightSeclite
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateMedicalBundle
+  id: ClothingBackpackDuffelSyndicateFilledAutodoc
+  name: syndicate autodoc bundle
+  description: A large duffel bag containing parts for a sinister-looking Mk. XIV Autodoc.
+  components:
+  - type: StorageFill
+    contents:
+    - id: AutodocSyndieFlatpack
+    - id: OperatingTableFlatpack
+    - id: Multitool
+    - id: ChemistryBottleChloralHydrate # stronger than n2o as you can be awake during safe operation
+    - id: Syringe

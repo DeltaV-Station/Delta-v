@@ -325,12 +325,15 @@
     - MechParts
     - MechEquipment
     - Cybernetics # Shitmed change
+    - PowerAugments # DeltaV - augments
+    - ToolAugments # DeltaV - augments
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
     emagDynamicPacks:
     - SecurityCybernetics # having sechud eyes is good for evil people
     - SecurityHardsuits
+    - BorgModulesSecurityDeltaV # DeltaV - secfab borg modules
   - type: MaterialStorage
     whitelist:
       tags:
@@ -409,6 +412,7 @@
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
+    - SecurityRubberAmmoStatic # DeltaV
     dynamicPacks:
     - SecurityEquipment
     - SecurityBoards

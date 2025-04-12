@@ -6,7 +6,9 @@
   - type: ContainerFill
     containers:
       borg_brain:
-      - MMIFilled
+      - PositronicBrain
+      borg_id_chip:
+      - IdChipBorgAA
   - type: ItemSlots
     slots:
       cell_slot:
@@ -23,7 +25,9 @@
   - type: ContainerFill
     containers:
       borg_brain:
-      - MMIFilled
+      - PositronicBrain
+      borg_id_chip:
+      - IdChipBorgAA
   - type: ItemSlots
     slots:
       cell_slot:

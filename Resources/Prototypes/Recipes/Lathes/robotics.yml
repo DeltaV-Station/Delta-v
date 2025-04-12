@@ -185,6 +185,7 @@
   result: BorgModuleAdvancedTreatment
 
 - type: latheRecipe
+  abstract: true # DeltaV - made roundstart
   parent: BaseGoldBorgModuleRecipe
   id: BorgModuleDefibrillator
   result: BorgModuleDefibrillator

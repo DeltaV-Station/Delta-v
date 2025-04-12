@@ -1,48 +1,48 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from YogStation at commit https://github.com/yogstation13/Yogstation/commit/fa832b902f5130c41b21973e7e8b60b4d7a795b4 and modified by Velcroboy",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "icon"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from YogStation at commit https://github.com/yogstation13/Yogstation/commit/fa832b902f5130c41b21973e7e8b60b4d7a795b4 and modified by Velcroboy",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "base"
-    },
-    {
-      "name": "closed"
-    },
-    {
-      "name": "open"
-    },
-    {
-      "name": "welded"
-    },
-    {
-      "name": "sparking",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
-    },
-    {
-      "name": "locked"
-    },
-    {
-      "name": "unlocked"
-    },
-    {
-        "name": "DamageOverlay_75"
-    }
-  ]
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "base"
+        },
+        {
+            "name": "closed"
+        },
+        {
+            "name": "open"
+        },
+        {
+            "name": "welded"
+        },
+        {
+            "name": "sparking",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "locked"
+        },
+        {
+            "name": "unlocked"
+        },
+        {
+            "name": "DamageOverlay_75"
+        }
+    ]
 }
