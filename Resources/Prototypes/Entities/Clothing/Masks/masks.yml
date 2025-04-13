@@ -139,8 +139,10 @@
     - WhitelistChameleon
   - type: PhysicalComposition # DeltaV
     materialComposition:
-      Steel: 100
+      Steel: 50
       Plastic: 100
+  - type: StaticPrice # DeltaV
+    price: 30
 
 - type: entity
   parent: ClothingMaskBreathMedical
