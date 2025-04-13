@@ -5,7 +5,6 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Wires;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -13,7 +12,6 @@ namespace Content.Shared._DV.Silicons;
 
 public sealed class LawElectronicsInsertionSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedSiliconLawSystem _siliconLaw = default!;
@@ -21,33 +19,32 @@ public sealed class LawElectronicsInsertionSystem : EntitySystem
 
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<SiliconLawProviderComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<SiliconLawProviderComponent, LawboardInsertionDoAfterEvent>(OnLawboardInsertionDoAfter);
     }
 
     private void OnAfterInteract(Entity<SiliconLawProviderComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach || args.Target == null)
+        if (args.Handled || !args.CanReach || args.Target is not {} target)
             return;
 
-        if (!HasComp<BorgChassisComponent>(args.Target))
+        if (!HasComp<BorgChassisComponent>(target))
             return;
 
-        if (!TryComp<WiresPanelComponent>(args.Target, out var panel) || !panel.Open)
+        if (!TryComp<WiresPanelComponent>(target, out var panel) || !panel.Open)
         {
-            if (_net.IsServer)
-            {
-                _popup.PopupCursor(Loc.GetString("lawboard-insertion-needs-panel-open",
-                        ("this", ent),
-                        ("user", args.User),
-                        ("target", args.Target)),
-                    args.User);
-            }
+            _popup.PopupClient(Loc.GetString("lawboard-insertion-needs-panel-open",
+                    ("this", ent),
+                    ("user", args.User),
+                    ("target", target)),
+                args.User);
 
             return;
         }
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 10f, new LawboardInsertionDoAfterEvent(), ent, target: args.Target, used: ent)
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 10f, new LawboardInsertionDoAfterEvent(), ent, target: target, used: ent)
         {
             NeedHand = true,
             BreakOnDamage = true,
@@ -59,8 +56,8 @@ public sealed class LawElectronicsInsertionSystem : EntitySystem
             return;
 
         _popup.PopupPredicted(
-            Loc.GetString("lawboard-insertion-start-actor-message", ("board", ent), ("target", args.Target)),
-            Loc.GetString("lawboard-insertion-start-other-message", ("board", ent), ("target", args.Target), ("actor", args.User)),
+            Loc.GetString("lawboard-insertion-start-actor-message", ("board", ent), ("target", target)),
+            Loc.GetString("lawboard-insertion-start-other-message", ("board", ent), ("target", target), ("actor", args.User)),
             args.Target.Value,
             args.User);
     }
