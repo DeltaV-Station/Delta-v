@@ -329,7 +329,6 @@
   result: ClothingUniformJumpskirtScientistFormal
 
 # Utilty
-
 - type: latheRecipe
   id: ClothingBeltPaperwork
   result: ClothingBeltPaperwork
@@ -348,3 +347,46 @@
   parent: BaseCoatRecipe
   id: ClothingOuterWinterLongMime
   result: ClothingOuterWinterLongMime
+
+# Atmos
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitAtmos
+  result: ClothingUniformJumpsuitAtmos
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtAtmos
+  result: ClothingUniformJumpskirtAtmos
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitAtmosCasual
+  result: ClothingUniformJumpsuitAtmosCasual
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtAtmosCasual
+  result: ClothingUniformJumpskirtAtmosCasual
+
+# Botanist
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformOveralls
+  result: ClothingUniformOveralls
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtOveralls
+  result: ClothingUniformJumpskirtOveralls
+
+# Bartender
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSeniorBartender
+  result: ClothingUniformSeniorBartender
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSeniorBartenderSkirt
+  result: ClothingUniformSeniorBartenderSkirt

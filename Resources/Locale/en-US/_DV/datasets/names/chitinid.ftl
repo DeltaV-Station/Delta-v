@@ -65,4 +65,3 @@ names-chitinid-first-female-dataset-28 = Vish'ra
 names-chitinid-first-female-dataset-29 = Zan'ova
 names-chitinid-first-female-dataset-30 = Zen'ofi
 names-chitinid-first-female-dataset-31 = Zzer'ak
-
