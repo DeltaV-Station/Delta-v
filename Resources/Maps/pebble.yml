@@ -4,8 +4,8 @@ meta:
   engineVersion: 249.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/13/2025 02:38:13
-  entityCount: 14750
+  time: 04/13/2025 03:13:59
+  entityCount: 14751
 maps:
 - 1
 grids:
@@ -37015,11 +37015,6 @@ entities:
     - type: Transform
       pos: -17.5,33.5
       parent: 2
-  - uid: 4401
-    components:
-    - type: Transform
-      pos: 27.5,3.5
-      parent: 2
   - uid: 4402
     components:
     - type: Transform
@@ -37282,6 +37277,19 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -34.5,-25.5
+      parent: 2
+  - uid: 14751
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 26.5,3.5
+      parent: 2
+- proto: ClosetWallEmergencyN2FilledRandom
+  entities:
+  - uid: 4401
+    components:
+    - type: Transform
+      pos: 27.5,4.5
       parent: 2
 - proto: ClosetWallFireFilledRandom
   entities:
@@ -38629,6 +38637,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 30.5,-1.5
       parent: 2
+  - uid: 4608
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 10.5,-2.5
+      parent: 2
   - uid: 4609
     components:
     - type: Transform
@@ -38714,12 +38728,6 @@ entities:
       pos: 29.5,-1.5
       parent: 2
   - uid: 4627
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 10.5,-2.5
-      parent: 2
-  - uid: 4628
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -69879,11 +69887,6 @@ entities:
       parent: 2
 - proto: PlasticFlapsAirtightClear
   entities:
-  - uid: 4608
-    components:
-    - type: Transform
-      pos: 10.5,-2.5
-      parent: 2
   - uid: 4613
     components:
     - type: Transform
@@ -69898,6 +69901,11 @@ entities:
     components:
     - type: Transform
       pos: 21.5,2.5
+      parent: 2
+  - uid: 4628
+    components:
+    - type: Transform
+      pos: 10.5,-2.5
       parent: 2
   - uid: 4629
     components:
@@ -82782,11 +82790,11 @@ entities:
         - Left: Reverse
         - Right: Forward
         - Middle: Off
-        4627:
+        4608:
         - Left: Reverse
         - Right: Forward
         - Middle: Off
-        4628:
+        4627:
         - Left: Reverse
         - Right: Forward
         - Middle: Off
