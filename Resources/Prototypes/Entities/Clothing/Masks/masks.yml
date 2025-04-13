@@ -137,6 +137,10 @@
     tags:
     - PetWearable
     - WhitelistChameleon
+  - type: PhysicalComposition # DeltaV
+    materialComposition:
+      Steel: 100
+      Plastic: 100
 
 - type: entity
   parent: ClothingMaskBreathMedical

@@ -58,11 +58,12 @@
 
 - type: latheRecipePack
   id: MedicalClothingStatic
+  parent:
+  - MedicalClothingStaticDeltaV # DeltaV
   recipes:
   - ClothingHandsGlovesLatex
   - ClothingHandsGlovesNitrile
   - ClothingMaskSterile
-  - ClothingMaskBreathMedical # DeltaV
 
 # These are all empty
 - type: latheRecipePack
