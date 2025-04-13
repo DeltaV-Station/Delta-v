@@ -90,6 +90,12 @@ public sealed class MonumentSystem : SharedMonumentSystem
             }
             else if (comp.CurrentState == FinaleState.ActiveFinale && _timing.CurTime >= comp.FinaleTimer) // trigger wincondition on time runout
             {
+                var victoryQuery = EntityQueryEnumerator<CosmicVictoryConditionComponent>();
+                while (victoryQuery.MoveNext(out _, out var victoryComp))
+                {
+                    victoryComp.Victory = true;
+                }
+
                 _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
                 Spawn("MobCosmicGodSpawn", Transform(uid).Coordinates);
                 comp.CurrentState = FinaleState.Victory;

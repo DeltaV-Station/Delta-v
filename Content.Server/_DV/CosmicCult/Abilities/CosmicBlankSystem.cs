@@ -85,7 +85,7 @@ public sealed class CosmicBlankSystem : EntitySystem
 
     private void OnCosmicBlankDoAfter(Entity<CosmicCultComponent> uid, ref EventCosmicBlankDoAfter args)
     {
-        if (args.Args.Target is not {} target)
+        if (args.Args.Target is not { } target)
             return;
         if (args.Cancelled || args.Handled)
             return;

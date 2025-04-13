@@ -28,7 +28,7 @@ public sealed class CosmicCultObjectiveSystem : EntitySystem
 
     private void OnGetVictoryProgress(Entity<CosmicVictoryConditionComponent> ent, ref ObjectiveGetProgressEvent args)
     {
-        args.Progress = Progress(ent.Comp.Victory, _number.GetTarget(ent.Owner));
+        args.Progress = ent.Comp.Victory ? 1f : 0f;
     }
 
     private static float Progress(int recruited, int target)
