@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: MilonPL
   changes:
-  - message: Reduced the price of all items printed from the lathes by 60%
-    type: Tweak
-  id: 753
-  time: '2024-12-10T04:16:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2406
-- author: MilonPL
-  changes:
   - message: Fixed diona's movement speed being default
     type: Fix
   id: 754
@@ -4004,3 +3997,10 @@
   id: 1252
   time: '2025-04-13T10:27:42.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3418
+- author: Toby222
+  changes:
+  - message: Disabled mob pushing for the time being
+    type: Remove
+  id: 1253
+  time: '2025-04-13T15:00:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3443
