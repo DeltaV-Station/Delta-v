@@ -12,6 +12,7 @@
     nameSegments:
     - NamesMilitaryFirstLeader
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: RandomHumanoidSpawner
     settings: ERTLeaderAmber
 
@@ -34,6 +35,7 @@
     nameSegments:
     - NamesMilitaryFirstLeader
     - NamesMilitaryLast
+    nameFormat: name-format-ert
 
 - type: entity
   parent: RandomHumanoidSpawnerERTLeaderAmber
@@ -103,6 +105,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: RandomHumanoidSpawner
     settings: ERTChaplainAmber
 
@@ -122,6 +125,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: Loadout
     prototypes: [ ERTChaplainGearAmber ]
     roleLoadout: [ RoleSurvivalExtended ]
@@ -197,6 +201,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: RandomHumanoidSpawner
     settings: ERTJanitorAmber
 
@@ -215,6 +220,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: Loadout
     prototypes: [ ERTJanitorGearAmber ]
     roleLoadout: [ RoleSurvivalExtended ]
@@ -288,6 +294,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: RandomHumanoidSpawner
     settings: ERTEngineerAmber
 
@@ -306,6 +313,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: Loadout
     prototypes: [ ERTEngineerGearAmber ]
     roleLoadout: [ RoleSurvivalExtended ]
@@ -379,6 +387,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: RandomHumanoidSpawner
     settings: ERTSecurityAmber
 
@@ -397,6 +406,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: Loadout
     prototypes: [ ERTSecurityGearAmber ]
     roleLoadout: [ RoleSurvivalExtended ]
@@ -469,6 +479,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: RandomHumanoidSpawner
     settings: ERTMedicalAmber
 
@@ -487,6 +498,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: Loadout
     prototypes: [ ERTMedicalGearAmber ]
     roleLoadout: [ RoleSurvivalExtended ]
