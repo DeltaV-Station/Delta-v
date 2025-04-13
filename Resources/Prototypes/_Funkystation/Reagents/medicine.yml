@@ -13,8 +13,8 @@
       effects:
       - !type:HealthChange
         conditions:
-          - !type:TotalDamage
-            max: 30
+        - !type:TotalDamage
+          max: 30
         damage:
           types:
             Heat: -0.2
@@ -22,8 +22,8 @@
             Cold: -0.2
       - !type:HealthChange
         conditions:
-          - !type:TotalDamage
-            min: 30
+        - !type:TotalDamage
+          min: 30
         damage:
           types:
             Heat: -0.8
