@@ -249,7 +249,10 @@ namespace Content.Server._DV.Mail.EntitySystems
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount((station, account), component.Bounty);
+                _cargoSystem.UpdateBankAccount(
+                    (station, account),
+                    component.Bounty,
+                    _cargoSystem.CreateAccountDistribution(account.PrimaryAccount, account, account.PrimaryCut));
             }
         }
 
@@ -306,7 +309,10 @@ namespace Content.Server._DV.Mail.EntitySystems
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount((station, account), component.Penalty);
+                _cargoSystem.UpdateBankAccount(
+                    (station, account),
+                    component.Penalty,
+                    _cargoSystem.CreateAccountDistribution(account.PrimaryAccount, account, account.PrimaryCut));
                 return;
             }
         }
