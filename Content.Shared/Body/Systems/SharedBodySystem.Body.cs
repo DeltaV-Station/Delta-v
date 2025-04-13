@@ -126,7 +126,7 @@ public partial class SharedBodySystem
         MapInitBody(ent, prototype);
     }
 
-    private void MapInitBody(EntityUid bodyEntity, BodyPrototype prototype)
+    private void MapInitBody(Entity<BodyComponent> bodyEntity, BodyPrototype prototype) // DeltaV - don't drop the component, we need it for below
     {
         var protoRoot = prototype.Slots[prototype.Root];
         if (protoRoot.Part is null)
@@ -141,6 +141,7 @@ public partial class SharedBodySystem
         // Setup the rest of the body entities.
         SetupOrgans((rootPartUid, rootPart), protoRoot.Organs);
         MapInitParts(rootPartUid, rootPart, prototype); // Shitmed Change
+        MapInitAppearance(bodyEntity); // DeltaV - some bodies don't spawn with all their parts
     }
 
     private void OnBodyCanDrag(Entity<BodyComponent> ent, ref CanDragEvent args)

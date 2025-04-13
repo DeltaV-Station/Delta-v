@@ -6,8 +6,8 @@
   objective: roles-antag-syndicate-agent-objective
   guides: [ Traitors ]
   requirements:
-  - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
-    time: 86400 # DeltaV - 24 hours
+  - !type:OverallPlaytimeRequirement
+    time: 86400 # DeltaV - 24 hours, was 3600
 
 - type: antag
   id: TraitorSleeper
@@ -16,9 +16,9 @@
   setPreference: true
   objective: roles-antag-syndicate-agent-sleeper-objective
   guides: [ Traitors ]
-  requirements: # DeltaV - Playtime requirement
-  - !type:OverallPlaytimeRequirement 
-    time: 86400 # DeltaV - 24 hours
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 86400 # DeltaV - 24 hours, was 3600
 
 # Syndicate Operative Outfit - Monkey
 - type: startingGear

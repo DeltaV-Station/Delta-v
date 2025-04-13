@@ -8,6 +8,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Construction.Commands
 {
@@ -19,9 +20,9 @@ namespace Content.Server.Construction.Commands
         public string Description => "Puts a reinforced plating tile below every window on a grid.";
         public string Help => $"Usage: {Command} <gridId> | {Command}";
 
-        public const string TilePrototypeId = "FloorReinforced";
-        public const string WindowTag = "Window";
-        public const string DirectionalTag = "Directional";
+        public static readonly ProtoId<ContentTileDefinition> TilePrototypeId = "FloorReinforced";
+        public static readonly ProtoId<TagPrototype> WindowTag = "Window";
+        public static readonly ProtoId<TagPrototype> DirectionalTag = "Directional";
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {

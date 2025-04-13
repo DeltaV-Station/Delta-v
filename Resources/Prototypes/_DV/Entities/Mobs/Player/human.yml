@@ -5,7 +5,7 @@
   components:
   - type: RandomMetadata
     nameSegments:
-    - NamesNukieFirstWarden
     - NamesSyndicateNormal
+    nameFormat: name-format-nukie-warden
   - type: Loadout
     prototypes: [SyndicateOperativeHostageWardenGear]
