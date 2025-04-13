@@ -10,6 +10,40 @@
     Glass: 500
     Plastic: 400
 
+- type: latheRecipe
+  abstract: true
+  parent: BaseHardsuitRecipe
+  id: BaseHardsuitArmoredRecipe
+  materials:
+    Durathread: 600
+    Steel: 1500
+    Glass: 800
+    Plastic: 400
+
+- type: latheRecipe
+  abstract: true
+  id: BaseSoftsuitRecipe
+  categories:
+  - Softsuits
+  completetime: 7 # Softsuit less beeg
+  materials:
+    Durathread: 700
+    Steel: 500
+    Glass: 200
+    Plastic: 400
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseSoftsuitRecipe
+  id: BaseSoftsuitHelmetRecipe
+  categories:
+  completetime: 4 # Helmet is smaller
+  materials:
+    Durathread: 200
+    Steel: 100
+    Glass: 100
+    Plastic: 100
+
 # Jumpsuits - Security
 
 - type: latheRecipe
@@ -373,23 +407,35 @@
   parent: BaseHardsuitRecipe
   id: ClothingOuterHardsuitAtmos
   result: ClothingOuterHardsuitAtmos
+  materials:
+    Durathread: 500
+    Steel: 1000
+    Glass: 500
+    Plastic: 400
+    Plasma: 600
 
 ## Security
 - type: latheRecipe
-  parent: BaseHardsuitRecipe
+  parent: BaseHardsuitArmoredRecipe
   id: ClothingOuterHardsuitCombatOfficer
   result: ClothingOuterHardsuitCombatOfficer
 
 ## Logistics
 - type: latheRecipe
-  parent: BaseHardsuitRecipe
+  parent: BaseHardsuitArmoredRecipe
   id: ClothingOuterHardsuitSpatio
   result: ClothingOuterHardsuitSpatio
 
 - type: latheRecipe
-  parent: BaseHardsuitRecipe
+  parent: BaseHardsuitArmoredRecipe
   id: ClothingOuterHardsuitSalvage
   result: ClothingOuterHardsuitSalvage
+
+## Medical
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterHardsuitVoidParamed
+  result: ClothingOuterHardsuitVoidParamed
 
 ## General
 - type: latheRecipe
@@ -401,29 +447,45 @@
 
 ## Engineering
 - type: latheRecipe
-  parent: BaseHardsuitRecipe
+  parent: BaseSoftsuitRecipe
   id: ClothingOuterSuitAtmosFire
   result: ClothingOuterSuitAtmosFire
+  materials:
+    Durathread: 600
+    Steel: 1500
+    Glass: 800
+    Plastic: 400
+    Plasma: 600
 
 - type: latheRecipe
-  parent: BaseHardsuitRecipe
+  parent: BaseSoftsuitHelmetRecipe
   id: ClothingHeadHelmetAtmosFire
   result: ClothingHeadHelmetAtmosFire
+  materials:
+    Durathread: 200
+    Steel: 100
+    Glass: 100
+    Plastic: 100
+    Plasma: 300
 
 ## General
 - type: latheRecipe
-  parent: BaseHardsuitRecipe
+  parent: BaseSoftsuitRecipe
   id: ClothingOuterHardsuitEVA
   result: ClothingOuterHardsuitEVA
 
+- type: latheRecipe
+  parent: BaseSoftsuitHelmetRecipe
+  id: ClothingHeadHelmetEVA
+  result: ClothingHeadHelmetEVA
+
 ## Security
 - type: latheRecipe
-  parent: BaseHardsuitRecipe
+  parent: BaseSoftsuitRecipe
   id: ClothingOuterHardsuitEVAPrisoner
   result: ClothingOuterHardsuitEVAPrisoner
 
-## Medical
 - type: latheRecipe
-  parent: BaseHardsuitRecipe
-  id: ClothingOuterHardsuitVoidParamed
-  result: ClothingOuterHardsuitVoidParamed
+  parent: BaseSoftsuitHelmetRecipe
+  id: ClothingHeadHelmetEVALarge
+  result: ClothingHeadHelmetEVALarge
