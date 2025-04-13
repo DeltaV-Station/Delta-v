@@ -24,4 +24,3 @@ research-technology-advance-laser = Advanced Laser Manipulation
 research-technology-ionized-cryogenic-emission-equipment = Ionized Cryogenic Emission Equipment
 research-technology-robust-melee = Robust Melee
 research-technology-incendiary-laser-weapons = Incendiary Laser Weapons
-research-technology-watchdog-implant = Watchdog Implant
