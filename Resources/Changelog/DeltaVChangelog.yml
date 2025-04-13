@@ -1,15 +1,4 @@
 ﻿Entries:
-- author: SolStar
-  changes:
-  - message: Command will now be automatically notified to elect an ACO when no captain
-      is present.
-    type: Tweak
-  - message: 'Periapsis and Horizon only: AA will be command locked 5 minutes after
-      an ACO vote is requested.'
-    type: Tweak
-  id: 752
-  time: '2024-12-09T17:05:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2351
 - author: MilonPL
   changes:
   - message: Reduced the price of all items printed from the lathes by 60%
@@ -4004,3 +3993,14 @@
   id: 1251
   time: '2025-04-13T02:09:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3399
+- author: sowelipililimute
+  changes:
+  - message: Robotics can now print IPC chasses that can receive a brain and limbs
+    type: Add
+  - message: IPCs do not feel pain in surgery anymore
+    type: Add
+  - message: MMIs can now be inserted into IPC chasses
+    type: Add
+  id: 1252
+  time: '2025-04-13T10:27:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3418
