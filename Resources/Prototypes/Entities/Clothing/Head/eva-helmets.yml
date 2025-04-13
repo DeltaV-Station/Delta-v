@@ -9,6 +9,11 @@
     sprite: Clothing/Head/Helmets/eva.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/eva.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: Tag
     tags:
     - HelmetEVA
@@ -25,6 +30,11 @@
     sprite: Clothing/Head/Helmets/eva_large.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/eva_large.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
 
 #Syndicate EVA Helmet
 - type: entity
@@ -37,6 +47,11 @@
     sprite: Clothing/Head/Helmets/eva_syndicate.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/eva_syndicate.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
 
 #Cosmonaut Helmet
 - type: entity
@@ -61,6 +76,11 @@
     sprite: Clothing/Head/Helmets/ancientvoidsuit.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ancientvoidsuit.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
 
 #Paramedic Void Helmet
 - type: entity
@@ -81,12 +101,25 @@
       - state: equipped-head-light
       head-vox:
       - state: equipped-head-light-vox
+      # Begin DeltaV species helmets
+      head-vulpkanin:
+      - state: equipped-head-light-vulpkanin
+      head-feroxi:
+      - state: equipped-head-light-vulpkanin
+      # End DeltaV species helmets
   - type: Clothing
     clothingVisuals:
       head:
       - state: equipped-head
       head-vox:
       - state: equipped-head-vox
+      # Begin DeltaV species helmets
+      head-vulpkanin:
+      - state: equipped-head-vulpkanin
+      head-feroxi:
+      - state: equipped-head-vulpkanin
+      # End DeltaV species helmets
+
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1

@@ -9,6 +9,15 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/standard.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/standard.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -31,6 +40,15 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
 
 # Medical Combat Hardsuits
 - type: entity
@@ -43,6 +61,15 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/medical.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/medical.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#00FFFF"
   - type: PressureProtection
@@ -65,6 +92,15 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/corpsman.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/corpsman.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
 
 # Riot Combat Hardsuits
 - type: entity
@@ -77,6 +113,15 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/riot.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/riot.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -99,6 +144,15 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/warden.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/warden.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
 
 # Advanced Combat Hardsuits
 - type: entity
@@ -111,6 +165,15 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/advanced.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/advanced.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -135,6 +198,15 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/hos.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/hos.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
 
 #Roboneuroticist Helmet
 - type: entity
@@ -181,6 +253,15 @@
     sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertleader.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertleader.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#addbff"
   - type: Armor
@@ -202,6 +283,15 @@
     sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertchaplain.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertchaplain.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#ffffff"
   - type: Psionic
@@ -225,6 +315,15 @@
     sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertengineer.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertengineer.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#f4ffad"
   - type: Armor
@@ -246,6 +345,15 @@
     sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertmedical.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertmedical.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#adffec"
 
@@ -260,6 +368,15 @@
     sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertsecurity.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertsecurity.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#ffadc6"
   - type: Armor
@@ -281,5 +398,14 @@
     sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertjanitor.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertjanitor.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#cbadff"
