@@ -4,10 +4,10 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/medical.rsi
+    sprite: _DV/Objects/Specific/medical.rsi # DeltaV - Resprited some medical items
   - type: Item
     size: Small
-    sprite: Objects/Specific/Medical/medical.rsi
+    sprite: _DV/Objects/Specific/medical.rsi # DeltaV - Resprited some medical items
     heldPrefix: ointment
   # Inherited
   - type: StaticPrice
@@ -30,6 +30,7 @@
   - type: Healing
     damageContainers:
       - Biological
+      - BiologicalMetaphysical # DeltaV
     damage:
       types:
         Heat: -5
@@ -81,6 +82,7 @@
   - type: Healing
     damageContainers:
       - Biological
+      - BiologicalMetaphysical # DeltaV
     damage:
       types:
         Heat: -10
@@ -123,6 +125,7 @@
   - type: Healing
     damageContainers:
       - Biological
+      - BiologicalMetaphysical # DeltaV
     damage:
       groups:
         Brute: -15 # 5 for each type in the group
@@ -172,6 +175,7 @@
   - type: Healing
     damageContainers:
       - Biological
+      - BiologicalMetaphysical # DeltaV
     damage:
       groups:
         Brute: -30 # 10 for each type in the group
@@ -212,6 +216,7 @@
   - type: Healing
     damageContainers:
       - Biological
+      - BiologicalMetaphysical # DeltaV
     damage:
       types:
         Bloodloss: -0.5 #lowers bloodloss damage
@@ -250,6 +255,7 @@
     - type: Healing
       damageContainers:
         - Biological
+        - BiologicalMetaphysical # DeltaV
       damage:
         groups:
           Brute: 5 # Tourniquets HURT!
@@ -282,6 +288,7 @@
   - type: Healing
     damageContainers:
       - Biological
+      - BiologicalMetaphysical # DeltaV
     damage:
       types:
         Slash: -5
