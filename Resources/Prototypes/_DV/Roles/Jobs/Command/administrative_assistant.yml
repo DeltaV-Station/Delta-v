@@ -6,6 +6,10 @@
   requirements:
   - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
     time: 90000 # 25 hours
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 54000 #15 hrs
+    inverted: true # no playing this after 15 hours of it
   startingGear: AdminAssistantGear
   icon: "JobIconAdminAssitant"
   supervisors: job-supervisors-command
