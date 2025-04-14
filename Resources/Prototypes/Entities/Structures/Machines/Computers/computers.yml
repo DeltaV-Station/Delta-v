@@ -1195,7 +1195,7 @@
     key: enum.FundingAllocationConsoleUiKey.Key
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["Funding"]] # DeltaV - separate funding access
   - type: UserInterface
     interfaces:
       enum.FundingAllocationConsoleUiKey.Key:

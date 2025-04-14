@@ -35,6 +35,7 @@ public sealed partial class StationBankAccountComponent : Component
         { "Science",     1000 },
         { "Security",    1000 },
         { "Service",     1000 },
+        { "Justice",     1000 }, // DeltaV - Justice
     };
 
     /// <summary>
@@ -47,8 +48,9 @@ public sealed partial class StationBankAccountComponent : Component
         { "Engineering", 0.25 },
         { "Medical",     0.30 },
         { "Science",     0.15 },
-        { "Security",    0.20 },
+        { "Security",    0.15 }, // DeltaV - was 0.20, we took a cut for Justice
         { "Service",     0.10 },
+        { "Justice",     0.05 }, // DeltaV - Justice
     };
 
     /// <summary>

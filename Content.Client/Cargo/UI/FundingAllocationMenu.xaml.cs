@@ -57,7 +57,7 @@ public sealed partial class FundingAllocationMenu : FancyWindow
     {
         if (!_entityManager.TryGetComponent<StationBankAccountComponent>(_station, out var bank))
             return;
-        HelpLabel.Text = Loc.GetString("cargo-funding-alloc-console-label-help",
+        HelpLabel.Text = Loc.GetString("cargo-funding-alloc-console-label-help-dv", // DeltaV - it's logistics and also that is an unhelpful string
             ("percent", (int) (bank.PrimaryCut * 100)));
 
         foreach (var ctrl in _addedControls)
