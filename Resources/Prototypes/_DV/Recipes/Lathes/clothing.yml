@@ -36,7 +36,6 @@
   abstract: true
   parent: BaseSoftsuitRecipe
   id: BaseSoftsuitHelmetRecipe
-  categories:
   completetime: 4 # Helmet is smaller
   materials:
     Durathread: 200
@@ -473,7 +472,7 @@
 
 ## Logistics
 - type: latheRecipe
-  parent: BaseHardsuitArmoredRecipe
+  parent: BaseHardsuitRecipe
   id: ClothingOuterHardsuitSpatio
   result: ClothingOuterHardsuitSpatio
 
