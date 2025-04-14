@@ -32,8 +32,8 @@ public sealed partial class RampingStationEventSchedulerComponent : Component
     */
 
     /// <summary>
-    ///     DeltaV - Key points which determine after which minute will event period be called on average.
-    ///     X is round time in minutes, Y is time until next event in minutes.
+    ///     DeltaV - Key points which determine during what period will events last on average.
+    ///     X is duration of the setting in minutes. Y is time until next event in minutes.
     /// </summary>
     [DataField(required: true)]
     public List<Vector2> TimeKeyPoints = new()
