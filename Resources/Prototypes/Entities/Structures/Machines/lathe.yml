@@ -407,8 +407,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
-    unlitIdleState: unlit
-    unlitRunningState: unlit-building
+    unlitIdleState: unlit # DeltaV - added animation sprite layers
+    unlitRunningState: unlit-building # DeltaV - added animation sprite layers
     staticPacks:
     - SecurityEquipmentStatic
     - SecurityPracticeStatic
@@ -456,8 +456,8 @@
     - type: Lathe
       idleState: icon
       runningState: icon
-      unlitIdleState: unlit #DeltaV - added animation sprite layers
-      unlitRunningState: unlit-building #DeltaV - added animation sprite layers
+      unlitIdleState: unlit # DeltaV - added animation sprite layers
+      unlitRunningState: unlit-building # DeltaV - added animation sprite layers
       staticPacks:
       - SecurityAmmoStatic
     - type: MaterialStorage
@@ -489,8 +489,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
-    unlitIdleState: unlit #DeltaV - added animation sprite layers
-    unlitRunningState: unlit-building #DeltaV - added animation sprite layers
+    unlitIdleState: unlit # DeltaV - added animation sprite layers
+    unlitRunningState: unlit-building # DeltaV - added animation sprite layers
     staticPacks:
     - TopicalsStatic
     - ChemistryStatic
