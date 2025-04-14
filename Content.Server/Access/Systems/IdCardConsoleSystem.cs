@@ -99,9 +99,9 @@ public sealed partial class IdCardConsoleSystem : SharedIdCardConsoleSystem // D
             var targetIdComponent = EntityManager.GetComponent<IdCardComponent>(targetId);
             var targetAccessComponent = EntityManager.GetComponent<AccessComponent>(targetId);
 
-            var jobProto = new ProtoId<AccessLevelPrototype>(string.Empty);
+            var jobProto = targetIdComponent.JobPrototype ?? new ProtoId<AccessLevelPrototype>(string.Empty);
             if (TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
-                && keyStorage.Key is {} key
+                && keyStorage.Key is { } key
                 && _record.TryGetRecord<GeneralStationRecord>(key, out var record))
             {
                 jobProto = record.JobPrototype;
@@ -152,8 +152,15 @@ public sealed partial class IdCardConsoleSystem : SharedIdCardConsoleSystem // D
         }
 
         UpdateStationRecord(uid, targetId, newFullName, newJobTitle, job);
-        return; // DeltaV - use custom access toggle message, stop here
+        if ((!TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
+            || keyStorage.Key is not { } key
+            || !_record.TryGetRecord<GeneralStationRecord>(key, out _))
+            && newJobProto != string.Empty)
+        {
+            Comp<IdCardComponent>(targetId).JobPrototype = newJobProto;
+        }
 
+        return; // DeltaV - use custom access toggle message, stop here
         if (!newAccessList.TrueForAll(x => component.AccessLevels.Contains(x)))
         {
             _sawmill.Warning($"User {ToPrettyString(uid)} tried to write unknown access tag.");
