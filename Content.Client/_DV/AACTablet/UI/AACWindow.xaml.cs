@@ -26,6 +26,7 @@ public sealed partial class AACWindow : FancyWindow
         (int)((ParentWidth - SpaceWidth * 2) / ColumnCount - SpaceWidth * ((ColumnCount - 1f) / ColumnCount));
 
     private readonly List<ProtoId<QuickPhrasePrototype>> _phraseBuffer = [];
+    private readonly List<ProtoId<QuickPhrasePrototype>> _phraseSingle = [];
 
     public AACWindow()
     {
@@ -221,7 +222,9 @@ public sealed partial class AACWindow : FancyWindow
         }
         else
         {
-            PhraseButtonPressed?.Invoke(new List<ProtoId<QuickPhrasePrototype>> {phraseId});
+            _phraseSingle.Clear();
+            _phraseSingle.Add(phraseId);
+            PhraseButtonPressed?.Invoke(_phraseSingle);
         }
     }
 }

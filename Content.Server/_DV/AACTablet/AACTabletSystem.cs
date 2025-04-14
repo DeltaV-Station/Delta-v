@@ -13,6 +13,8 @@ public sealed class AACTabletSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
+    private readonly List<string> _localisedPhrases = [];
+
     public override void Initialize()
     {
         base.Initialize();
@@ -29,25 +31,23 @@ public sealed class AACTabletSystem : EntitySystem
             ("speaker", Name(ent)),
             ("originalName", senderName));
 
-        var localisedList = new List<string>();
+        _localisedPhrases.Clear();
         foreach (var phraseProto in message.PhraseIds)
         {
             if (_prototype.TryIndex(phraseProto, out var phrase))
             {
                 // Ensures each phrase is capitalised to maintain common AAC styling
-                localisedList.Add(_chat.SanitizeMessageCapital(Loc.GetString(phrase.Text)));
+                _localisedPhrases.Add(_chat.SanitizeMessageCapital(Loc.GetString(phrase.Text)));
             }
         }
 
-        if (localisedList.Count <= 0)
-        {
+        if (_localisedPhrases.Count <= 0)
             return;
-        }
 
         EnsureComp<VoiceOverrideComponent>(ent).NameOverride = speakerName;
 
         _chat.TrySendInGameICMessage(ent,
-            string.Join(" ", localisedList),
+            string.Join(" ", _localisedPhrases),
             InGameICChatType.Speak,
             hideChat: false,
             nameOverride: speakerName);
