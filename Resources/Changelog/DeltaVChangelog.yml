@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: LO now also requires time as a cargo technician.
-    type: Tweak
-  id: 762
-  time: '2024-12-12T16:30:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2399
 - author: Stop-Signs
   changes:
   - message: Reverse engineering machines now function much faster!
@@ -4004,3 +3997,11 @@
   id: 1261
   time: '2025-04-14T22:29:29.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3464
+- author: deltanedas
+  changes:
+  - message: Fixed borg selection button still saying locked after picking a different
+      type.
+    type: Fix
+  id: 1262
+  time: '2025-04-14T23:02:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3465
