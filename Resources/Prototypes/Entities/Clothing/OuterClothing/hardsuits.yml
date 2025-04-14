@@ -660,8 +660,8 @@
         Cold: 0.8 # DeltaV - Cold res
     staminaDamageCoefficient: 0.2 # DeltaV
   - type: ClothingSpeedModifier
-    walkModifier: 1.0
-    sprintModifier: 1.0
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommander
