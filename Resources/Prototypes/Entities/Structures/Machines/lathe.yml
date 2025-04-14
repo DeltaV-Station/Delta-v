@@ -419,6 +419,7 @@
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
     # Being DeltaV Additions
+    - ReportingStatic
     - SecurityRubberAmmoStatic
     - PrisonerSoftsuits
     - EVASuit
@@ -502,7 +503,10 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
-    - EVASuit # DeltaV
+    # Being DeltaV Additions
+    - ReportingStatic
+    - EVASuit
+    # End DeltaV Additions
     dynamicPacks:
     - Chemistry
     - CyberneticsMedical # Shitmed change
