@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 250.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 04/14/2025 14:27:43
+  entityCount: 20030
+maps:
+- 1
+grids:
+- 2
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   1: FloorArcadeBlue
@@ -87,7 +98,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
   - uid: 2
     components:
     - type: MetaData
@@ -6353,8 +6363,8 @@ entities:
         - volume: 2500
           temperature: 235
           moles:
-          - 21.824879
-          - 82.10312
+          - 27.225372
+          - 102.419266
           - 0
           - 0
           - 0
@@ -11876,30 +11886,6 @@ entities:
     components:
     - type: Transform
       pos: 28.5,-8.5
-      parent: 2
-- proto: Autolathe
-  entities:
-  - uid: 583
-    components:
-    - type: Transform
-      pos: -6.5,-16.5
-      parent: 2
-  - uid: 585
-    components:
-    - type: Transform
-      pos: 4.5,-11.5
-      parent: 2
-  - uid: 13304
-    components:
-    - type: Transform
-      pos: 22.5,-14.5
-      parent: 2
-- proto: AutolatheMachineCircuitboard
-  entities:
-  - uid: 586
-    components:
-    - type: Transform
-      pos: -14.2691345,-30.29063
       parent: 2
 - proto: BannerEngineering
   entities:
@@ -44276,6 +44262,25 @@ entities:
     - type: Transform
       pos: 17.5,11.5
       parent: 2
+- proto: ChemistryBottleEpinephrine
+  entities:
+  - uid: 10379
+    components:
+    - type: Transform
+      pos: 19.532877,6.666855
+      parent: 2
+- proto: ChemistryBottleUnstableMutagen
+  entities:
+  - uid: 12816
+    components:
+    - type: Transform
+      pos: -19.65488,7.353116
+      parent: 2
+  - uid: 14195
+    components:
+    - type: Transform
+      pos: -19.540297,7.269783
+      parent: 2
 - proto: ChemistryHotplate
   entities:
   - uid: 6048
@@ -44439,6 +44444,11 @@ entities:
     components:
     - type: Transform
       pos: -36.5,29.5
+      parent: 2
+  - uid: 12662
+    components:
+    - type: Transform
+      pos: -6.5,-17.5
       parent: 2
 - proto: CircuitImprinterMachineCircuitboard
   entities:
@@ -53602,12 +53612,19 @@ entities:
       parent: 7260
     - type: Physics
       canCollide: False
-- proto: EpinephrineChemistryBottle
+- proto: EngineeringTechFab
   entities:
-  - uid: 10379
+  - uid: 583
     components:
     - type: Transform
-      pos: 19.532877,6.666855
+      pos: -6.5,-16.5
+      parent: 2
+- proto: EpistemicsTechFab
+  entities:
+  - uid: 12661
+    components:
+    - type: Transform
+      pos: -37.5,29.5
       parent: 2
 - proto: ExosuitFabricator
   entities:
@@ -55937,6 +55954,16 @@ entities:
     - type: Transform
       pos: 37.53948,12.423228
       parent: 2
+- proto: FoodBakedGrilledCheeseSandwich
+  entities:
+  - uid: 19150
+    components:
+    - type: MetaData
+      desc: Hey you bastard! I was gonna eat that!
+      name: London's Missing Grilled Cheese
+    - type: Transform
+      pos: -36.34087,-53.520042
+      parent: 2
 - proto: FoodBakedWaffleSoy
   entities:
   - uid: 7601
@@ -56027,16 +56054,6 @@ entities:
     components:
     - type: Transform
       pos: -8.591682,19.777552
-      parent: 2
-- proto: FoodMealGrilledCheese
-  entities:
-  - uid: 19150
-    components:
-    - type: MetaData
-      desc: Hey you bastard! I was gonna eat that!
-      name: London's Missing Grilled Cheese
-    - type: Transform
-      pos: -36.34087,-53.520042
       parent: 2
 - proto: FoodMealRibs
   entities:
@@ -88331,6 +88348,13 @@ entities:
     - type: Transform
       pos: -36.5,-1.5
       parent: 2
+- proto: LogisticsTechFab
+  entities:
+  - uid: 585
+    components:
+    - type: Transform
+      pos: 4.5,-11.5
+      parent: 2
 - proto: LootSpawnerArmoryGunsOnly
   entities:
   - uid: 15663
@@ -94179,20 +94203,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -19.5,-51.5
       parent: 2
-- proto: Protolathe
-  entities:
-  - uid: 12661
-    components:
-    - type: Transform
-      pos: -37.5,29.5
-      parent: 2
-- proto: ProtolatheMachineCircuitboard
-  entities:
-  - uid: 12662
-    components:
-    - type: Transform
-      pos: -14.6441345,-30.384445
-      parent: 2
 - proto: ProximitySensor
   entities:
   - uid: 17832
@@ -99398,6 +99408,13 @@ entities:
     components:
     - type: Transform
       pos: -52.5,5.5
+      parent: 2
+- proto: ServiceTechFab
+  entities:
+  - uid: 586
+    components:
+    - type: Transform
+      pos: 22.5,-14.5
       parent: 2
 - proto: ShardGlass
   entities:
@@ -108399,18 +108416,6 @@ entities:
     components:
     - type: Transform
       pos: -3.5,36.5
-      parent: 2
-- proto: UnstableMutagenChemistryBottle
-  entities:
-  - uid: 12816
-    components:
-    - type: Transform
-      pos: -19.65488,7.353116
-      parent: 2
-  - uid: 14195
-    components:
-    - type: Transform
-      pos: -19.540297,7.269783
       parent: 2
 - proto: Vaccinator
   entities:
