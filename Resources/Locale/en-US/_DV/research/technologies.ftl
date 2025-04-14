@@ -3,12 +3,16 @@ research-discipline-biochemical = Biochemical
 # Industrial
 research-technology-aerial-extraction = Aerial Extraction
 research-technology-matter-energy-conversion = Matter-Energy Conversion
+research-technology-atmos-eva = EVA Atmospherics Suits
+research-technology-engineering-eva = EVA PPE Suits
 
 # Experimental
 research-technology-cloning = Cloning
 
 # Civilian
 research-technology-civilian-mechs = Civilian Mechs
+research-technology-eva = Extra Vehicular Activity Suits
+research-technology-paramedic-eva = Emergency Services EVA suits
 
 # Biochemical
 research-technology-syringe-gun = Syringe Gun
@@ -24,3 +28,6 @@ research-technology-advance-laser = Advanced Laser Manipulation
 research-technology-ionized-cryogenic-emission-equipment = Ionized Cryogenic Emission Equipment
 research-technology-robust-melee = Robust Melee
 research-technology-incendiary-laser-weapons = Incendiary Laser Weapons
+research-technology-security-eva = EVA Armored Suits
+research-technology-salvage-eva = EVA Xeno-fighting Suits
+research-technology-mining-eva = EVA Mining Adapted Hardsuit
