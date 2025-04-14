@@ -38,6 +38,14 @@
   - type: Implanter
     implant: RadioImplantCentcomm
 
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: WatchdogImplanter
+  suffix: watchdog
+  components:
+  - type: Implanter
+    implant: WatchdogImplant
+
 # Nukie implants
 
 - type: entity
