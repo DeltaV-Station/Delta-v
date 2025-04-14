@@ -1,116 +1,83 @@
-- type: entity
-  id: LockerMedicineFilled
-  suffix: Filled
-  parent: LockerMedicine
-  components:
-  - type: StorageFill
-    contents:
-      - id: BoxSyringe
-      - id: ChemistryBottleEpinephrine
-        amount: 1
-      - id: Brutepack
-        amount: 2
-      - id: Ointment
-        amount: 2
-      - id: Bloodpack
-        amount: 2
-      - id: Gauze
+- type: entityTable
+  id: LockerFillMedicine
+  table: !type:AllSelector
+    children:
+    - id: BoxSyringe
+    - id: ChemistryBottleEpinephrine
+    - id: Brutepack
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: Ointment
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: Bloodpack
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: Gauze
 
 - type: entity
+  parent: LockerMedicine
+  id: LockerMedicineFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillMedicine
+
+- type: entity
+  parent: LockerWallMedical
   id: LockerWallMedicalFilled
   name: medicine wall locker
   suffix: Filled
-  parent: LockerWallMedical
   components:
-  - type: StorageFill
-    contents:
-      - id: BoxSyringe
-      - id: ChemistryBottleEpinephrine
-        amount: 1
-      - id: Brutepack
-        amount: 2
-      - id: Ointment
-        amount: 2
-      - id: Bloodpack
-        amount: 2
-      - id: Gauze
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillMedicine
 
+- type: entityTable
+  id: LockerFillMedicalDoctor
+  table: !type:AllSelector
+    children:
+    - id: HandheldHealthAnalyzer
+      prob: 0.6
+    - id: ClothingHeadMirror
+      prob: 0.1
+    - id: ClothingHandsGlovesLatex
+    - id: ClothingHeadsetMedical
+    - id: ClothingEyesHudMedical
+    - !type:GroupSelector
+      children:
+      - !type:NestedSelector # DeltaV - Add our surgery caps. See Resources/Prototypes/_DV/Catalog/Fills/Lockers/medical.yml
+        tableId: SurgeryCapsDeltaV
+      - id: ClothingHeadHatSurgcapGreen
+        weight: 0.1
+      - id: ClothingHeadHatSurgcapPurple
+        weight: 0.05
+      - id: ClothingHeadHatSurgcapBlue
+        weight: 0.90
+    - !type:GroupSelector
+      children:
+      - !type:NestedSelector # DeltaV - Add our scrubs. See Resources/Prototypes/_DV/Catalog/Fills/Lockers/medical.yml
+        tableId: ScrubsDeltaV
+      - id: UniformScrubsColorBlue
+        weight: 0.5
+      - id: UniformScrubsColorGreen
+        weight: 0.1
+      - id: UniformScrubsColorPurple
+        weight: 0.05
+    - id: ClothingMaskSterile
 
 - type: entity
+  parent: LockerMedical
   id: LockerMedicalFilled
   suffix: Filled
-  parent: LockerMedical
   components:
-  - type: StorageFill
-    contents:
-      - id: HandheldHealthAnalyzer
-        prob: 0.6
-      - id: ClothingHeadMirror
-        prob: 0.1
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
-      - id: ClothingEyesHudMedical
-#Yea. Those probs are fucked. Nothing I can do about orGroup behavior. Everything below this line is DeltaV.
-#If Wizden ever adds new Probs, throw their probs out, but keep new items if added
-      - id: ClothingHeadHatSurgcapGreen
-        prob: 0.1
-        orGroup: Surgcaps
-      - id: ClothingHeadHatSurgcapPurple
-        prob: 0.11
-        orGroup: Surgcaps
-      - id: ClothingHeadHatSurgcapBlue
-        prob: 0.12
-        orGroup: Surgcaps
-      - id: ClothingHeadHatSurgcapCyan
-        prob: 0.13
-        orGroup: Surgcaps
-      - id: ClothingHeadHatSurgcapBlack
-        prob: 0.15
-        orGroup: Surgcaps
-      - id: ClothingHeadHatSurgcapPink
-        prob: 0.16
-        orGroup: Surgcaps
-      - id: ClothingHeadHatSurgcapRainbow
-        prob: 0.18
-        orGroup: Surgcaps
-      - id: ClothingHeadHatSurgcapWhite
-        prob: 0.19
-        orGroup: Surgcaps
-      - id: ClothingHeadHatSurgcapCybersun
-        prob: 0.02
-        orGroup: Surgcaps
-      - id: UniformScrubsColorBlue
-        prob: 0.1
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorGreen
-        prob: 0.11
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorPurple
-        prob: 0.12
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorCyan
-        prob: 0.13
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorBlack
-        prob: 0.15
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorPink
-        prob: 0.16
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorRainbow
-        prob: 0.18
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorWhite
-        prob: 0.19
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorCybersun
-        prob: 0.02
-        orGroup: Surgshrubs
-      - id: NitrousOxideTankFilled
-        prob: 0.3
-      - id: ClothingMaskSterile
-      - id: LunchboxMedicalFilledRandom # DeltaV - Lunchboxes!
-        prob: 0.3
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillMedicalDoctor
 
 - type: entity
   parent: LockerWallMedical
@@ -118,110 +85,66 @@
   name: medical doctor's wall locker
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: HandheldHealthAnalyzer
-        prob: 0.6
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
-      - id: ClothingEyesHudMedical
-      - id: ClothingHeadHatSurgcapGreen
-        prob: 0.1
-        orGroup: Surgcaps
-      - id: ClothingHeadHatSurgcapPurple
-        prob: 0.05
-        orGroup: Surgcaps
-      - id: ClothingHeadHatSurgcapBlue
-        prob: 0.90
-        orGroup: Surgcaps
-      - id: UniformScrubsColorBlue
-        prob: 0.5
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorGreen
-        prob: 0.1
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorPurple
-        prob: 0.05
-        orGroup: Surgshrubs
-      - id: ClothingMaskSterile
-      - id: LunchboxMedicalFilledRandom # DeltaV - Lunchboxes!
-        prob: 0.3
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillMedicalDoctor
+
+- type: entityTable
+  id: LockerFillChemistry
+  table: !type:AllSelector
+    children:
+    - id: BoxSyringe
+    - id: BoxBeaker
+    - id: BoxBeaker
+      prob: 0.3
+    - id: BoxPillCanister
+    - id: BoxBottle
+    - id: BoxVial
+    - id: PlasmaChemistryVial
+    - id: ChemBag
+    - id: ClothingHandsGlovesLatex
+    - id: ClothingHeadsetMedical
+    - id: ClothingMaskSterile
+    - id: HandLabeler
+      prob: 0.5
 
 - type: entity
+  parent: LockerChemistry
   id: LockerChemistryFilled
   suffix: Filled
-  parent: LockerChemistry
   components:
-  - type: StorageFill
-    contents:
-      - id: BoxSyringe
-      - id: BoxBeaker
-      - id: BoxBeaker
-        prob: 0.3
-      - id: BoxPillCanister
-      - id: BoxBottle
-      - id: BoxVial
-      - id: PlasmaChemistryVial
-      - id: ChemBag
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
-      - id: ClothingMaskSterile
-      - id: HandLabeler
-        prob: 0.5
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillChemistry
+
+- type: entityTable
+  id: LockerFillParamedic
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector # DeltaV - Adds our modifications. See Resources/Prototypes/_DV/Catalog/Fills/Lockers/medical.yml
+      tableId: LockerFillParamedicDeltaV
+    #- id: ClothingOuterHardsuitVoidParamed # DeltaV - Removed to allow a locker without hardsuits.
+    - id: ClothingOuterCoatParamedicWB
+    - id: ClothingHeadHatParamedicsoft
+    - id: ClothingOuterWinterPara
+    - id: ClothingUniformJumpsuitParamedic
+    - id: ClothingUniformJumpskirtParamedic
+    - id: ClothingEyesHudMedical
+    - id: ClothingHandsGlovesLatex
+    - id: ClothingHeadsetMedical
+    - id: ClothingMaskSterile
+    - id: HandheldGPSBasic
+    - id: MedkitFilled
+      prob: 0.3
 
 - type: entity
-  id: LockerParamedicFilled # DeltaV - Paramedic locker without suit
+  parent: LockerParamedic
+  id: LockerParamedicFilled
   suffix: Filled
-  parent: LockerParamedic
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterCoatParamedicWB
-      - id: ClothingHeadHatParamedicsoft
-      - id: ClothingUniformJumpsuitParamedic
-      - id: ClothingUniformJumpskirtParamedic
-      - id: ClothingEyesHudMedical
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
-      - id: ClothingMaskSterile
-      # Begin DeltaV additions
-      - id: ClothingShoesBootsWinterParamedic
-      - id: BoxBodyBag
-      - id: EmergencyRollerBedSpawnFolded
-      - id: EmergencyJawsOfLife
-      - id: HandheldCrewMonitor
-      - id: LunchboxMedicalFilledRandom
-        prob: 0.3
-      # End DeltaV additions
-      - id: MedkitFilled
-        prob: 0.3
-
-- type: entity
-  id: LockerParamedicFilledHardsuit # DeltaV - Paramedic locker with suit
-  suffix: Filled, Hardsuit
-  parent: LockerParamedic
-  components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterHardsuitVoidParamed
-      - id: ClothingOuterCoatParamedicWB
-      - id: ClothingHeadHatParamedicsoft
-      - id: ClothingOuterWinterPara
-      - id: ClothingUniformJumpsuitParamedic
-      - id: ClothingUniformJumpskirtParamedic
-      - id: ClothingEyesHudMedical
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
-      - id: ClothingMaskSterile
-      # Begin DeltaV additions
-      - id: ClothingShoesBootsWinterParamedic
-      - id: BoxBodyBag
-      - id: EmergencyRollerBedSpawnFolded
-      - id: EmergencyJawsOfLife
-      - id: HandheldCrewMonitor
-      - id: LunchboxMedicalFilledRandom
-        prob: 0.3
-      # End DeltaV additions
-      - id: HandheldGPSBasic
-      - id: MedkitFilled
-        prob: 0.3
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillParamedic

@@ -77,6 +77,10 @@ namespace Content.Server._DV.Mail.EntitySystems
 
         private ISawmill _sawmill = default!;
 
+        private static readonly ProtoId<TagPrototype> MailTag = "Mail";
+        private static readonly ProtoId<TagPrototype> RecyclableTag = "Recyclable";
+        private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
+
         public override void Initialize()
         {
             base.Initialize();
@@ -715,7 +719,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 var mail = EntityManager.SpawnEntity(chosenParcel, coordinates);
                 SetupMail(mail, component, candidate);
 
-                _tagSystem.AddTag(mail, "Mail"); // Frontier
+                _tagSystem.AddTag(mail, MailTag); // Frontier
             }
 
             if (_containerSystem.TryGetContainer(uid, "queued", out var queued))
@@ -758,8 +762,8 @@ namespace Content.Server._DV.Mail.EntitySystems
                 _handsSystem.PickupOrDrop(user, entity);
             }
 
-            _tagSystem.AddTag(uid, "Trash");
-            _tagSystem.AddTag(uid, "Recyclable");
+            _tagSystem.AddTag(uid, TrashTag);
+            _tagSystem.AddTag(uid, RecyclableTag);
             component.IsEnabled = false;
             UpdateMailTrashState(uid, true);
         }
