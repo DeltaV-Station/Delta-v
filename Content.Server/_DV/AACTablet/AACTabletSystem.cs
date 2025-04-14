@@ -29,13 +29,25 @@ public sealed class AACTabletSystem : EntitySystem
             ("speaker", Name(ent)),
             ("originalName", senderName));
 
-        if (!_prototype.TryIndex(message.PhraseId, out var phrase))
+        var localisedList = new List<string>();
+        foreach (var phraseProto in message.PhraseIds)
+        {
+            if (_prototype.TryIndex(phraseProto, out var phrase))
+            {
+                // Ensures each phrase is capitalised to maintain common AAC styling
+                localisedList.Add(_chat.SanitizeMessageCapital(Loc.GetString(phrase.Text)));
+            }
+        }
+
+        if (localisedList.Count <= 0)
+        {
             return;
+        }
 
         EnsureComp<VoiceOverrideComponent>(ent).NameOverride = speakerName;
 
         _chat.TrySendInGameICMessage(ent,
-            Loc.GetString(phrase.Text),
+            string.Join(" ", localisedList),
             InGameICChatType.Speak,
             hideChat: false,
             nameOverride: speakerName);
