@@ -69,7 +69,7 @@
     fireRate: 2
   - type: RevolverAmmoProvider
     capacity: 5
-    chambers: [ True, True, True, True, True ]
+    chambers: [ False, False, False, False, False ]
     ammoSlots: [ null, null, null, null, null ]
   - type: MagazineVisuals
     magState: mag

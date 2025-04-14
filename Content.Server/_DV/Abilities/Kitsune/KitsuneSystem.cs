@@ -30,6 +30,9 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
 
     private void OnPolymorphed(Entity<KitsuneComponent> ent, ref PolymorphedEvent args)
     {
+        _appearance.SetData(args.NewEntity, KitsuneColorVisuals.Color, ent.Comp.Color ?? Color.Orange);
+
+        // Ensure that the fox fire action state is transferred properly.
         if (!TryComp<KitsuneComponent>(args.NewEntity, out var newKitsune)
             || !TryComp<KitsuneComponent>(ent, out var oldKitsune))
             return;
@@ -43,31 +46,29 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
                 continue;
             foxfire.Kitsune = args.NewEntity;
         }
+
+        //Transfer Accesses
+        var accessItems = _reader.FindPotentialAccessItems(ent);
+        var accesses = _reader.FindAccessTags(ent, accessItems);
+        EnsureComp<AccessComponent>(args.NewEntity);
+        _access.TrySetTags(args.NewEntity, accesses);
+
+        //Transfer factions
+        if (TryComp<NpcFactionMemberComponent>(ent, out var factions))
+        {
+            EnsureComp<NpcFactionMemberComponent>(args.NewEntity);
+            _faction.AddFactions(args.NewEntity, factions.Factions);
+        }
+
+        _popup.PopupEntity(Loc.GetString("kitsune-popup-morph-message-others", ("entity", args.NewEntity)), args.NewEntity, Filter.PvsExcept(args.NewEntity), true);
+        _popup.PopupEntity(Loc.GetString("kitsune-popup-morph-message-user"), args.NewEntity, args.NewEntity);
+
     }
 
     private void OnMorphIntoKitsune(Entity<KitsuneComponent> ent, ref MorphIntoKitsune args)
     {
         if (_polymorph.PolymorphEntity(ent, ent.Comp.KitsunePolymorphId) is not {} fox)
             return;
-
-        _appearance.SetData(fox, KitsuneColorVisuals.Color, ent.Comp.Color ?? Color.Orange);
-
-        //Transfer Accesses
-        var accessItems = _reader.FindPotentialAccessItems(ent);
-        var accesses = _reader.FindAccessTags(ent, accessItems);
-        EnsureComp<AccessComponent>(fox);
-        _access.TrySetTags(fox, accesses);
-
-        //Transfer factions
-        if (TryComp<NpcFactionMemberComponent>(ent, out var factions))
-        {
-            EnsureComp<NpcFactionMemberComponent>(fox);
-            _faction.AddFactions(fox, factions.Factions);
-        }
-
-        _popup.PopupEntity(Loc.GetString("kitsune-popup-morph-message-others", ("entity", fox)), fox, Filter.PvsExcept(fox), true);
-        _popup.PopupEntity(Loc.GetString("kitsune-popup-morph-message-user"), fox, fox);
-
         args.Handled = true;
     }
 }

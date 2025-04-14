@@ -24,6 +24,7 @@ public abstract class SharedKitsuneSystem : EntitySystem
 
     private void OnProfileLoadFinished(Entity<KitsuneComponent> ent, ref ProfileLoadFinishedEvent args)
     {
+        // Eye color is stored on component to be used for fox fire/fox form color.
         if (TryComp<HumanoidAppearanceComponent>(ent, out var humanComp))
         {
             ent.Comp.Color = humanComp.EyeColor;
@@ -32,6 +33,7 @@ public abstract class SharedKitsuneSystem : EntitySystem
 
     private void OnMapInit(Entity<KitsuneComponent> ent, ref MapInitEvent args)
     {
+        // Kitsune Fox form should not have action to transform into fox form.
         if (!HasComp<KitsuneFoxComponent>(ent))
             _actions.AddAction(ent, ref ent.Comp.KitsuneActionEntity, ent.Comp.KitsuneAction);
         ent.Comp.FoxfireAction = _actions.AddAction(ent, ent.Comp.FoxfireActionId);
@@ -46,6 +48,7 @@ public abstract class SharedKitsuneSystem : EntitySystem
             return;
         }
 
+        // This caps the amount of fox fire summons at a time to the charge count, deleting the oldest fire when exceeded.
         if (_actions.GetCharges(ent.Comp.FoxfireAction) < 1)
         {
             QueueDel(ent.Comp.ActiveFoxFires[0]);

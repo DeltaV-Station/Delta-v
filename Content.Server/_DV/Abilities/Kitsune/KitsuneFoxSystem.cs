@@ -25,6 +25,7 @@ public sealed class KitsuneFoxSystem : EntitySystem
 
     private void OnPolymorphed(Entity<KitsuneFoxComponent> ent, ref PolymorphedEvent args)
     {
+        // Ensure that the fox fire action state is transferred properly.
         if (!TryComp<KitsuneComponent>(args.NewEntity, out var newKitsune)
             || !TryComp<KitsuneComponent>(ent, out var oldKitsune))
             return;
