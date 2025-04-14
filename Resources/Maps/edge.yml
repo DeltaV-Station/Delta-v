@@ -4,8 +4,8 @@ meta:
   engineVersion: 250.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/14/2025 14:27:43
-  entityCount: 20030
+  time: 04/14/2025 18:34:49
+  entityCount: 20039
 maps:
 - 1
 grids:
@@ -10566,6 +10566,13 @@ entities:
     - type: Transform
       pos: 4.5,-22.5
       parent: 2
+- proto: AmmoTechFab
+  entities:
+  - uid: 11437
+    components:
+    - type: Transform
+      pos: -40.5,1.5
+      parent: 2
 - proto: AnomalyScanner
   entities:
   - uid: 463
@@ -10939,6 +10946,37 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 9.5,-50.5
+      parent: 2
+  - uid: 20036
+    components:
+    - type: MetaData
+      name: IPC charging APC
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -41.5,-17.5
+      parent: 2
+  - uid: 20037
+    components:
+    - type: MetaData
+      name: IPC charging APC
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -33.5,-17.5
+      parent: 2
+  - uid: 20038
+    components:
+    - type: MetaData
+      name: IPC charging APC
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -32.5,-16.5
+      parent: 2
+  - uid: 20039
+    components:
+    - type: MetaData
+      name: IPC charging APC
+    - type: Transform
+      pos: -54.5,-5.5
       parent: 2
 - proto: APCHighCapacity
   entities:
@@ -11886,6 +11924,13 @@ entities:
     components:
     - type: Transform
       pos: 28.5,-8.5
+      parent: 2
+- proto: Autoclave
+  entities:
+  - uid: 1372
+    components:
+    - type: Transform
+      pos: 18.5,26.5
       parent: 2
 - proto: BannerEngineering
   entities:
@@ -13026,7 +13071,7 @@ entities:
   - uid: 20013
     components:
     - type: Transform
-      pos: 18.472534,26.584526
+      pos: 18.70552,25.54393
       parent: 2
 - proto: BoxLightMixed
   entities:
@@ -37721,6 +37766,26 @@ entities:
     components:
     - type: Transform
       pos: -66.5,2.5
+      parent: 2
+  - uid: 20032
+    components:
+    - type: Transform
+      pos: -54.5,-5.5
+      parent: 2
+  - uid: 20033
+    components:
+    - type: Transform
+      pos: -41.5,-17.5
+      parent: 2
+  - uid: 20034
+    components:
+    - type: Transform
+      pos: -33.5,-17.5
+      parent: 2
+  - uid: 20035
+    components:
+    - type: Transform
+      pos: -32.5,-16.5
       parent: 2
 - proto: CableMVStack
   entities:
@@ -86487,6 +86552,13 @@ entities:
     - type: Transform
       pos: -39.5,-0.5
       parent: 2
+- proto: GunSafeSubMachineGunDrozd
+  entities:
+  - uid: 13304
+    components:
+    - type: Transform
+      pos: -42.5,1.5
+      parent: 2
 - proto: HandheldGPSBasic
   entities:
   - uid: 19218
@@ -89236,11 +89308,6 @@ entities:
       parent: 2
 - proto: NitrousOxideCanister
   entities:
-  - uid: 1372
-    components:
-    - type: Transform
-      pos: -40.5,1.5
-      parent: 2
   - uid: 10916
     components:
     - type: Transform
@@ -99029,11 +99096,6 @@ entities:
     components:
     - type: Transform
       pos: -39.5,1.5
-      parent: 2
-  - uid: 11437
-    components:
-    - type: Transform
-      pos: -42.5,1.5
       parent: 2
   - uid: 11771
     components:
