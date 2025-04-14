@@ -1633,14 +1633,14 @@
 - type: listing
   id: UplinkHardsuitSyndieElite
   name: uplink-hardsuit-syndieelite-delta-name # DeltaV change elite to thermal
-  description: uplink-hardsuit-syndieelite-desc
+  description: uplink-hardsuit-syndieelite-desc-deltav # DeltaV - changed description
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   discountCategory: rareDiscounts
   discountDownTo:
     Telecrystal: 7
   cost:
-    Telecrystal: 12
+    Telecrystal: 10 # DeltaV - was 12
   categories:
   - UplinkWearables
 

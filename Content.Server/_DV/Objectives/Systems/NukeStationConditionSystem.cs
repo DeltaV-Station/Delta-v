@@ -1,4 +1,4 @@
-﻿using Content.Server._DV.Objectives.Components;
+using Content.Server._DV.Objectives.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Nuke;
 using Content.Server.Objectives.Systems;

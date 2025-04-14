@@ -80,3 +80,49 @@
     damage:
       types:
         Heat: 5
+
+- type: entity
+  parent: BulletEnergyGunLaser
+  id: BulletEnergyGunMediumImmolator
+  name: Medium Immolator Bolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.0
+
+- type: entity
+  parent: BulletEnergyGunLaser
+  id: BulletEnergyGunHeavyImmolator
+  name: Heavy Immolator Bolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.5
+  - type: Projectile
+    damage:
+      types:
+        Heat: 45
+
+- type: entity
+  parent: BulletEnergyGunLaser
+  id: BulletEnergyGunLightImmolator
+  name: Light Immolator Bolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: .25
+  - type: Projectile
+    damage:
+      types:
+        Heat: 8
+
+- type: entity
+  parent: BulletEnergyGunLaser
+  id: BulletEnergyGunLightImmolatorSpread
+  name: immolator barrage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileSpread
+    proto: BulletEnergyGunLightImmolator
+    count: 6
+    spread: 20

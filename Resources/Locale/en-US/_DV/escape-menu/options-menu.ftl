@@ -1,4 +1,4 @@
-﻿ui-options-tab-deltav = DeltaV
+ui-options-tab-deltav = DeltaV
 ui-options-general-forknotice = Note: These settings are fork-specific and might not apply on other servers.
 
 ui-options-no-filters = Disable species vision filters
@@ -13,3 +13,8 @@ ui-options-function-nano-chat-navigate-down-unread = Navigate down to next unrea
 
 ## DeltaV staff chats
 ui-options-function-open-staff-chats-deltav = Open admin help and curator chat
+
+## DeltaV implementation of message highlights
+ui-options-auto-fill-highlights = Auto-fill the highlights with the character's information
+ui-options-highlights-color = Highlights color:
+ui-options-highlights-color-example = This is an highlighted text.

@@ -2,7 +2,7 @@
   id: ScarEyeRight
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni, Rodentia, Feroxi]  # Delta V - Felinid, Oni, Harpy, Rodentia, Feroxi
+  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni, Rodentia, Feroxi, Vulpkanin]  # DeltaV - Felinid-Vulpkanin
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -12,7 +12,7 @@
   id: ScarEyeLeft
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni, Rodentia, Feroxi] # Delta V - Felinid, Oni, Harpy, Rodentia, Feroxi
+  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni, Rodentia, Feroxi, Vulpkanin] # DeltaV - Felinid-Vulpkanin
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -22,7 +22,7 @@
   id: ScarTopSurgeryShort
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi] #Einstein Engines - Felinid, Oni - DeltaV - Feroxi
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi, Vulpkanin] # DeltaV - Felinid-Vulpkanin
   sexRestriction: [Male]
   followSkinColor: true
   sprites:
@@ -33,7 +33,7 @@
   id: ScarTopSurgeryLong
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid,  Oni, Feroxi] #Einstein Engines - Felinid, Oni - DeltaV - Feroxi
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi, Vulpkanin] # DeltaV - Felinid-Vulpkanin
   sexRestriction: [Male]
   followSkinColor: true
   sprites:
@@ -44,8 +44,7 @@
   id: ScarChest
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi] #Einstein Engines - Felinid, Oni - DeltaV - Feroxi
-  sexRestriction: [Male] # DeltaV: Splitting the scars and tattoos
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi, Vulpkanin] # DeltaV - Felinid-Vulpkanin
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -55,7 +54,7 @@
   id: ScarNeck
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi] # DeltaV - added felinid-feroxi
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi, Vulpkanin] # DeltaV - Felinid-Vulpkanin
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -65,7 +64,7 @@
   id: ScarChestBullets
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi] # DeltaV - added felinid-feroxi
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi, Vulpkanin] # DeltaV - Felinid-Vulpkanin
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -75,7 +74,7 @@
   id: ScarStomachBullets
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi] # DeltaV - added felinid-feroxi
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi, Vulpkanin] # DeltaV - Felinid-Vulpkanin
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -85,7 +84,7 @@
   id: ScarFace1
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi] # DeltaV - added felinid-feroxi
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi, Vulpkanin] # DeltaV - Felinid-Vulpkanin
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -95,7 +94,7 @@
   id: ScarFace2
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi] # DeltaV - added felinid-feroxi
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi, Vulpkanin] # DeltaV - Felinid-Vulpkanin
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi

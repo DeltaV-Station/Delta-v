@@ -90,6 +90,7 @@
   - type: CargoOrderConsole
   - type: BankClient
   - type: CrewMonitoringConsole
+    alertsEnabled: false # DeltaV - crew monitors beeping is specific to deltaV, and we don't want it for aghost.
   - type: GeneralStationRecordConsole
     canDeleteEntries: true
   # Begin CD - Character Records

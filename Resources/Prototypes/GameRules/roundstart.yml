@@ -132,7 +132,7 @@
       - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-commander
+        - NamesNukieFirstCommander
         - NamesSyndicateElite
       - type: NpcFactionMember
         factions:
@@ -150,7 +150,7 @@
       - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-agent
+        - NamesNukieFirstAgent
         - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
@@ -170,7 +170,7 @@
       - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-operator
+        - NamesNukieFirstOperator
         - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
