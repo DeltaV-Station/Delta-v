@@ -1,100 +1,4 @@
 ﻿Entries:
-- author: Colin-Tel
-  changes:
-  - message: Asterisk Station has had additional meteor shielding constructed.
-    type: Tweak
-  id: 745
-  time: '2024-12-07T18:10:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2377
-- author: rosieposieeee
-  changes:
-  - message: Added wooden and grey modern railings.
-    type: Add
-  id: 746
-  time: '2024-12-07T23:33:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2379
-- author: rosieposieeee
-  changes:
-  - message: Added reinforced directional tinted walls.
-    type: Add
-  id: 747
-  time: '2024-12-07T23:35:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2376
-- author: deltanedas
-  changes:
-  - message: Ninja objectives are now more random and they can be asked to steal things
-      or kill people!
-    type: Tweak
-  id: 748
-  time: '2024-12-08T15:11:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2359
-- author: Monotheonist
-  changes:
-  - message: Fugitives are no longer clones of people on station.
-    type: Tweak
-  id: 749
-  time: '2024-12-09T01:02:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2383
-- author: Lyndomen
-  changes:
-  - message: Diona are substantially more tanky to physical damage, and ignite less
-      frequently.
-    type: Tweak
-  - message: Diona are much slower, but cannot slip while walking.
-    type: Tweak
-  id: 750
-  time: '2024-12-09T05:44:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2204
-- author: Colin-Tel
-  changes:
-  - message: Micro Station has been removed from the regular map rotation.
-    type: Remove
-  id: 751
-  time: '2024-12-09T15:26:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2402
-- author: SolStar
-  changes:
-  - message: Command will now be automatically notified to elect an ACO when no captain
-      is present.
-    type: Tweak
-  - message: 'Periapsis and Horizon only: AA will be command locked 5 minutes after
-      an ACO vote is requested.'
-    type: Tweak
-  id: 752
-  time: '2024-12-09T17:05:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2351
-- author: MilonPL
-  changes:
-  - message: Reduced the price of all items printed from the lathes by 60%
-    type: Tweak
-  id: 753
-  time: '2024-12-10T04:16:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2406
-- author: MilonPL
-  changes:
-  - message: Fixed diona's movement speed being default
-    type: Fix
-  id: 754
-  time: '2024-12-10T17:47:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2413
-- author: deltanedas
-  changes:
-  - message: Added Lavaland, coming soon to a station near you!
-    type: Add
-  - message: Removed the random reclaimer wrecks.
-    type: Remove
-  - message: Fixed not being able to build catwalks over lava.
-    type: Fix
-  id: 755
-  time: '2024-12-10T18:37:43.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2380
-- author: MilonPL
-  changes:
-  - message: Added PDA messaging!
-    type: Add
-  id: 756
-  time: '2024-12-10T20:33:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2362
 - author: Radezolid
   changes:
   - message: Shadow cats are now ghost roles, go pet your local shadow cat whenever
@@ -4000,3 +3904,101 @@
   id: 1244
   time: '2025-04-10T20:39:15.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3430
+- author: Quanteey
+  changes:
+  - message: Pacifists can now use disablers
+    type: Tweak
+  id: 1245
+  time: '2025-04-11T13:02:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3432
+- author: ewokswagger
+  changes:
+  - message: Paramedics will now start with 15tc (down from 16)
+    type: Tweak
+  id: 1246
+  time: '2025-04-12T02:24:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3416
+- author: boogiebogus
+  changes:
+  - message: Revised juggernaut suit sprites, as well as its reverse engineered counterpart.
+    type: Tweak
+  id: 1247
+  time: '2025-04-12T02:42:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3364
+- author: erhardsteinhauer
+  changes:
+  - message: The Vulcan, Energy Gun, Ceremonial rifle and the Jackdaw now have proper
+      sprites when in the back.
+    type: Fix
+  - message: The Vulcan and Jackdaw now have wielded sprites.
+    type: Fix
+  id: 1248
+  time: '2025-04-12T02:45:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3405
+- author: deltanedas
+  changes:
+  - message: Merged last 2 weeks changes from upstream.
+    type: Add
+  id: 1249
+  time: '2025-04-12T14:46:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3394
+- author: deltanedas
+  changes:
+  - message: Fixed operating on animals not making surgical tools dirty.
+    type: Fix
+  - message: Fixed held non-surgical items becoming dirty during surgery.
+    type: Fix
+  id: 1250
+  time: '2025-04-12T14:52:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3424
+- author: HTMLSystem
+  changes:
+  - message: Added jumpskirt versions of the casual atmos jumpsuit and botanist overalls.
+      Find them in the uniform printer and loadouts!
+    type: Add
+  - message: Added recipes for the senior bartender outfits in the uniform printer!
+    type: Add
+  id: 1251
+  time: '2025-04-13T02:09:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3399
+- author: sowelipililimute
+  changes:
+  - message: Robotics can now print IPC chasses that can receive a brain and limbs
+    type: Add
+  - message: IPCs do not feel pain in surgery anymore
+    type: Add
+  - message: MMIs can now be inserted into IPC chasses
+    type: Add
+  id: 1252
+  time: '2025-04-13T10:27:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3418
+- author: Toby222
+  changes:
+  - message: Disabled mob pushing for the time being
+    type: Remove
+  id: 1253
+  time: '2025-04-13T15:00:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3443
+- author: Quanteey
+  changes:
+  - message: Medical masks can now be found in surgeon lockers and made in the medical
+      techfab!
+    type: Tweak
+  id: 1254
+  time: '2025-04-13T22:47:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3391
+- author: Solaris7518
+  changes:
+  - message: Resprited a variety of objects that are commonly used by medical! Medical
+      mains rejoice!
+    type: Add
+  id: 1255
+  time: '2025-04-13T22:55:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3420
+- author: Field Command
+  changes:
+  - message: Reworked security on Pebble, alongside some other changes.
+    type: Tweak
+  id: 1256
+  time: '2025-04-13T23:51:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3440

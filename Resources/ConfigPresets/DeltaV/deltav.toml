@@ -8,6 +8,9 @@ secret_weight_prototype = "SecretDeltaV"
 role_timer_override = "DeltaV"
 showgreentext = false # focus more on telling a story
 
+[movement]
+mob_pushing = false
+
 # New players can't join a server without admins
 [game.panic_bunker]
 enabled = true
