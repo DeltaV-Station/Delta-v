@@ -32,6 +32,10 @@ public sealed class ChargeHolosignSystem : EntitySystem
 
     private void OnInit(Entity<ChargeHolosignProjectorComponent> ent, ref ComponentInit args)
     {
+        // its required, funny test is still funny
+        if (string.IsNullOrEmpty(ent.Comp.SignComponentName))
+            return;
+
         ent.Comp.Container = _container.EnsureContainer<Container>(ent, ent.Comp.ContainerId);
         ent.Comp.SignComponent = EntityManager.ComponentFactory.GetRegistration(ent.Comp.SignComponentName).Type;
     }
