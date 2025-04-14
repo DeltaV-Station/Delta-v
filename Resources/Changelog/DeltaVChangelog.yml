@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: Now all jetpacks fit in the suit storage slot, salvage rejoice!
-    type: Tweak
-  id: 759
-  time: '2024-12-12T00:22:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2400
 - author: Velcroboy
   changes:
   - message: Hammurabi medical also has a rapid transit tube now!
@@ -4001,3 +3994,14 @@
   id: 1258
   time: '2025-04-14T13:45:10.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3456
+- author: Radezolid
+  changes:
+  - message: Added the watchdog implant, it functions as a rattle but for the security
+      channel. You can buy them at cargo for 18k per crate.
+    type: Add
+  - message: Tracking implants no longer broadcasts your position when going into
+      critical state.
+    type: Tweak
+  id: 1259
+  time: '2025-04-14T18:49:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3342
