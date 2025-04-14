@@ -330,10 +330,15 @@
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
+    # Being DeltaV Additions
     emagDynamicPacks:
     - SecurityCybernetics # having sechud eyes is good for evil people
     - SecurityHardsuits
-    - BorgModulesSecurityDeltaV # DeltaV - secfab borg modules
+    - BorgModulesSecurityDeltaV
+    - SalvageHardsuits
+    - EVASuit
+    - ParamedicHardsuit
+    # End DeltaV Additions
   - type: MaterialStorage
     whitelist:
       tags:
@@ -421,7 +426,11 @@
     - SecurityExplosives
     - SecurityAmmo
     - SecurityWeapons
+    # Being DeltaV Changes
     #- SecurityDisablers # DeltaV - made roundstart
+    - SalvageHardsuits
+    - EVASuit
+    # Being DeltaV Changes
   - type: MaterialStorage
     whitelist:
       tags:
@@ -496,7 +505,11 @@
     - Chemistry
     - CyberneticsMedical # Shitmed change
     - Surgery # Shitmed change
-    - MedicalDeltaV # DeltaV
+    # Being DeltaV Additions
+    - MedicalDeltaV
+    - EVASuit
+    - ParamedicHardsuit
+    # End DeltaV Additions
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
