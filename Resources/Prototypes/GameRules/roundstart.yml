@@ -424,11 +424,11 @@
   - type: NextEvent # DeltaV: Queue Event for precognition
   - type: RampingStationEventScheduler
     timeKeyPoints: # DeltaV
-    - 0, 15
-    - 15, 8
-    - 40, 4
+    - 0, 16
+    - 16, 8
+    - 48, 4
     - 80, 2
-    - 90, 8
+    - 88, 8
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
 

@@ -88,11 +88,11 @@
   - type: GameRule
   - type: RampingStationEventScheduler
     timeKeyPoints: # DeltaV
-    - 0, 15
-    - 30, 10
-    - 60, 7
-    - 90, 5
-    - 120, 3
+    - 0, 16
+    - 16, 8
+    - 48, 6
+    - 80, 4
+    - 88, 12
     scheduledGameRules: !type:NestedSelector
       tableId: BasicMeteorSwarmEventsTable
 
