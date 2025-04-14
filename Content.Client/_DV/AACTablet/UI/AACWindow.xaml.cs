@@ -43,9 +43,8 @@ public sealed partial class AACWindow : FancyWindow
     private void BackspaceBuffer(BaseButton.ButtonEventArgs obj)
     {
         if (_phraseBuffer.Count == 0)
-        {
             return;
-        }
+
         _phraseBuffer.RemoveAt(_phraseBuffer.Count - 1);
         UpdateBufferText();
     }
