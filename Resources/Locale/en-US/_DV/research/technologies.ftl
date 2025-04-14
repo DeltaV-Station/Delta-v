@@ -11,7 +11,6 @@ research-technology-cloning = Cloning
 
 # Civilian
 research-technology-civilian-mechs = Civilian Mechs
-research-technology-eva = Extra Vehicular Activity Suits
 research-technology-paramedic-eva = Emergency Services EVA suits
 
 # Biochemical

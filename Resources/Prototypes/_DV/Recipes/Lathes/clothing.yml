@@ -5,6 +5,7 @@
   - Hardsuits
   completetime: 10 # Hardsuit beeg
   materials:
+    Plasteel: 500
     Durathread: 500
     Steel: 1000
     Glass: 500
@@ -15,6 +16,7 @@
   parent: BaseHardsuitRecipe
   id: BaseHardsuitArmoredRecipe
   materials:
+    Plasteel: 1000
     Durathread: 600
     Steel: 1500
     Glass: 800
@@ -458,6 +460,7 @@
   id: ClothingOuterHardsuitAtmos
   result: ClothingOuterHardsuitAtmos
   materials:
+    Plasteel: 500
     Durathread: 500
     Steel: 1000
     Glass: 500
@@ -528,6 +531,17 @@
   parent: BaseSoftsuitHelmetRecipe
   id: ClothingHeadHelmetEVA
   result: ClothingHeadHelmetEVA
+
+- type: latheRecipe
+  parent: BaseSoftsuitRecipe
+  id: ClothingOuterSuitEmergency
+  result: ClothingOuterSuitEmergency
+  completetime: 4 # Less materials and less protection
+  materials:
+    Durathread: 200
+    Steel: 150
+    Glass: 100
+    Plastic: 150
 
 ## Security
 - type: latheRecipe

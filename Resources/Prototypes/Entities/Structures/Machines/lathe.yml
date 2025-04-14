@@ -418,7 +418,11 @@
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
-    - SecurityRubberAmmoStatic # DeltaV
+    # Being DeltaV Additions
+    - SecurityRubberAmmoStatic
+    - PrisonerSoftsuits
+    - EVASuit
+    # End DeltaV Additions
     dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons
@@ -430,7 +434,6 @@
     # Being DeltaV Changes
     #- SecurityDisablers # DeltaV - made roundstart
     - SalvageHardsuits
-    - EVASuit
     # Being DeltaV Changes
   - type: MaterialStorage
     whitelist:
@@ -502,13 +505,13 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
+    - EVASuit # DeltaV
     dynamicPacks:
     - Chemistry
     - CyberneticsMedical # Shitmed change
     - Surgery # Shitmed change
     # Being DeltaV Additions
     - MedicalDeltaV
-    - EVASuit
     - ParamedicHardsuit
     # End DeltaV Additions
   - type: Machine
