@@ -97,6 +97,7 @@
     nameSegments:
     - NamesOperationPrefix
     - NamesOperationSuffix
+    nameFormat: name-format-nuclear-operation
   - type: NukeopsRule
   - type: RuleGrids
   - type: AntagSelection
@@ -132,8 +133,8 @@
       - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
-        - NamesNukieFirstCommander
         - NamesSyndicateElite
+        nameFormat: name-format-nukie-commander
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -150,8 +151,8 @@
       - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
-        - NamesNukieFirstAgent
         - NamesSyndicateNormal
+        nameFormat: name-format-nukie-agent
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -170,8 +171,8 @@
       - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
-        - NamesNukieFirstOperator
         - NamesSyndicateNormal
+        nameFormat: name-format-nukie-operator
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -312,6 +313,7 @@
         nameSegments:
         - NamesWizardFirst
         - NamesWizardLast
+        nameFormat: name-format-wizard
       mindRoles:
       - MindRoleWizard
 
@@ -473,3 +475,5 @@
     - id: BloodbathPuddleMessVariationPass
       prob: 0.01
       orGroup: puddleMess
+    - id: SmugglerStashVariationPass
+      prob: 0.90
