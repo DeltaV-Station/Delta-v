@@ -6,7 +6,7 @@ namespace Content.Server.StationEvents.Components;
 [RegisterComponent, Access(typeof(RampingStationEventSchedulerSystem))]
 public sealed partial class RampingStationEventSchedulerComponent : Component
 {
-    /*
+    /* DeltaV
     /// <summary>
     ///     Average ending chaos modifier for the ramping event scheduler. Higher means faster.
     ///     Max chaos chosen for a round will deviate from this

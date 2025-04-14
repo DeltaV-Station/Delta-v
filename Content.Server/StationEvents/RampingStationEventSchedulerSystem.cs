@@ -18,13 +18,13 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly NextEventSystem _next = default!; // DeltaV
 
-    /*
+    /* DeltaV
     /// <summary>
     /// Returns the ChaosModifier which increases as round time increases to a point.
     /// </summary>
     public float GetChaosModifier(EntityUid uid, RampingStationEventSchedulerComponent component)
     {
-        var roundTime = (float)_gameTicker.RoundDuration().TotalSeconds;
+        var roundTime = (float) _gameTicker.RoundDuration().TotalSeconds;
         if (roundTime > component.EndTime)
             return component.MaxChaos;
 
@@ -36,7 +36,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
     {
         base.Started(uid, component, gameRule, args);
 
-        /*
+        /* DeltaV
         // Worlds shittiest probability distribution
         // Got a complaint? Send them to
         component.MaxChaos = _random.NextFloat(component.AverageChaos, component.AverageChaos + component.AverageChaos / 4); // DeltaV - Survival starts a bit faster but ends the same
@@ -105,7 +105,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
     /// </summary>
     private void PickNextEventTime(EntityUid uid, RampingStationEventSchedulerComponent component)
     {
-        /*
+        /* DeltaV
         var mod = GetChaosModifier(uid, component);
 
         // 4-12 minutes baseline. Will get faster over time as the chaos mod increases.
