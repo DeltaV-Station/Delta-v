@@ -55,10 +55,8 @@ public sealed partial class AACWindow : FancyWindow
         BufferedString.Text = string.Empty;
         foreach (var phraseId in _phraseBuffer)
         {
-            if (_prototype.TryIndex(phraseId, out var phrase))
-            {
-                BufferedString.Text += Loc.GetString(phrase.Text) + " ";
-            }
+            var phrase = _prototype.Index(phraseId);
+            BufferedString.Text += Loc.GetString(phrase.Text) + " ";
         }
     }
 
