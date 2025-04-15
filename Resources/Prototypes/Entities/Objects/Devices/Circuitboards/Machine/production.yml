@@ -1,9 +1,9 @@
 ﻿- type: entity
+  categories: [ HideSpawnMenu ] # DeltaV - departmental lathes
   id: AutolatheMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: autolathe machine board
   description: A machine printed circuit board for an autolathe.
-  suffix: DO NOT MAP # DeltaV - departamental lathes
   components:
     - type: MachineBoard
       prototype: Autolathe
@@ -13,6 +13,7 @@
         Glass: 1
 
 - type: entity
+  abstract: true # DeltaV - departmental lathes
   parent: BaseMachineCircuitboard
   id: AutolatheHyperConvectionMachineCircuitboard
   name: hyper convection autolathe machine board
@@ -29,11 +30,11 @@
         defaultPrototype: Igniter
 
 - type: entity
+  categories: [ HideSpawnMenu ] # DeltaV - departmental lathes
   id: ProtolatheMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: protolathe machine board
   description: A machine printed circuit board for a protolathe.
-  suffix: DO NOT MAP # DeltaV - departamental lathes
   components:
   - type: Sprite
     state: science
@@ -48,6 +49,7 @@
         defaultPrototype: Beaker
 
 - type: entity
+  abstract: true # DeltaV - departmental lathes
   parent: BaseMachineCircuitboard
   id: ProtolatheHyperConvectionMachineCircuitboard
   name: hyper convection protolathe machine board

@@ -86,11 +86,11 @@
       SpaceGlue: 5 # no change from normal lathe, overheat!!!
 
 - type: entity
+  categories: [ HideSpawnMenu ] # DeltaV - departmental lathes
   id: Autolathe
   parent: BaseLatheLube
   name: autolathe
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
-  suffix: DO NOT MAP # DeltaV - departamental lathes
   components:
   - type: Sprite
     sprite: Structures/Machines/autolathe.rsi
@@ -152,6 +152,7 @@
     - blueprint
 
 - type: entity
+  abstract: true # DeltaV - departmental lathes
   id: AutolatheHyperConvection
   parent: [Autolathe, BaseHyperlathe]
   name: hyper convection autolathe
@@ -163,11 +164,11 @@
     board: AutolatheHyperConvectionMachineCircuitboard
 
 - type: entity
+  categories: [ HideSpawnMenu ] # DeltaV - departmental lathes
   id: Protolathe
   parent: BaseLatheLube
   name: protolathe
   description: Converts raw materials into advanced items.
-  suffix: DO NOT MAP # DeltaV - departamental lathes
   components:
   - type: Sprite
     sprite: Structures/Machines/protolathe.rsi
@@ -224,6 +225,7 @@
     - SyringeGuns # DeltaV
 
 - type: entity
+  abstract: true # DeltaV - departmental lathes
   id: ProtolatheHyperConvection
   parent: [Protolathe, BaseHyperlathe]
   name: hyper convection protolathe
