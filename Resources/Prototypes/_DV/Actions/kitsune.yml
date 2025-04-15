@@ -15,8 +15,6 @@
   description: Shift into your fox form
   components:
   - type: InstantAction
-    icon:
-      sprite: Mobs/Animals/fox.rsi
-      state: fox
+    icon: { sprite: Mobs/Animals/fox.rsi, state: fox }
     useDelay: 2
     event: !type:MorphIntoKitsune
