@@ -20,25 +20,6 @@ public sealed class KitsuneFoxSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<KitsuneFoxComponent, StunnedEvent>(OnStunned);
-        SubscribeLocalEvent<KitsuneFoxComponent, PolymorphedEvent>(OnPolymorphed);
-    }
-
-    private void OnPolymorphed(Entity<KitsuneFoxComponent> ent, ref PolymorphedEvent args)
-    {
-        // Ensure that the fox fire action state is transferred properly.
-        if (!TryComp<KitsuneComponent>(args.NewEntity, out var newKitsune)
-            || !TryComp<KitsuneComponent>(ent, out var oldKitsune))
-            return;
-        newKitsune.ActiveFoxFires = oldKitsune.ActiveFoxFires;
-
-        _actions.SetCharges(newKitsune.FoxfireAction, _actions.GetCharges(oldKitsune.FoxfireAction));
-
-        foreach (var foxFire in newKitsune.ActiveFoxFires)
-        {
-            if(!TryComp<FoxfireComponent>(foxFire, out var foxfire))
-                continue;
-            foxfire.Kitsune = args.NewEntity;
-        }
     }
 
     private void OnStunned(Entity<KitsuneFoxComponent> ent, ref StunnedEvent args)

@@ -66,6 +66,7 @@ public abstract class SharedKitsuneSystem : EntitySystem
 
         args.Handled = true;
     }
+
     private void OnFoxfireShutdown(Entity<FoxfireComponent> ent, ref ComponentShutdown args)
     {
         if (ent.Comp.Kitsune is not { } kitsune || !TryComp<KitsuneComponent>(kitsune, out var kitsuneComp))
