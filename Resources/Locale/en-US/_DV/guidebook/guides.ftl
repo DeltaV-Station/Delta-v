@@ -31,6 +31,8 @@ guide-entry-glimmer-creatures = Glimmer Creatures
 
 guide-entry-trade-station = Trade Station
 
+guide-entry-frequently-used-chemicals = Frequently Used Chemicals
+
 guide-entry-contracts = Syndicate Contracts
 guide-entry-assisting = Assisting Traitors
 guide-entry-extraction = Extraction

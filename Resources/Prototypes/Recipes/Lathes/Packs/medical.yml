@@ -57,6 +57,8 @@
   - EmergencyRollerBedSpawnFolded
 
 - type: latheRecipePack
+  parent:
+  - MedicalClothingStaticDeltaV # DeltaV
   id: MedicalClothingStatic
   recipes:
   - ClothingHandsGlovesLatex

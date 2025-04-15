@@ -1,121 +1,4 @@
 ﻿Entries:
-- author: Colin-Tel
-  changes:
-  - message: Micro Station has been removed from the regular map rotation.
-    type: Remove
-  id: 751
-  time: '2024-12-09T15:26:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2402
-- author: SolStar
-  changes:
-  - message: Command will now be automatically notified to elect an ACO when no captain
-      is present.
-    type: Tweak
-  - message: 'Periapsis and Horizon only: AA will be command locked 5 minutes after
-      an ACO vote is requested.'
-    type: Tweak
-  id: 752
-  time: '2024-12-09T17:05:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2351
-- author: MilonPL
-  changes:
-  - message: Reduced the price of all items printed from the lathes by 60%
-    type: Tweak
-  id: 753
-  time: '2024-12-10T04:16:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2406
-- author: MilonPL
-  changes:
-  - message: Fixed diona's movement speed being default
-    type: Fix
-  id: 754
-  time: '2024-12-10T17:47:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2413
-- author: deltanedas
-  changes:
-  - message: Added Lavaland, coming soon to a station near you!
-    type: Add
-  - message: Removed the random reclaimer wrecks.
-    type: Remove
-  - message: Fixed not being able to build catwalks over lava.
-    type: Fix
-  id: 755
-  time: '2024-12-10T18:37:43.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2380
-- author: MilonPL
-  changes:
-  - message: Added PDA messaging!
-    type: Add
-  id: 756
-  time: '2024-12-10T20:33:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2362
-- author: Radezolid
-  changes:
-  - message: Shadow cats are now ghost roles, go pet your local shadow cat whenever
-      EPI is working a shadow anomaly!
-    type: Tweak
-  id: 757
-  time: '2024-12-11T13:09:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2417
-- author: MilonPL
-  changes:
-  - message: The Teach Person a Lesson objective will now register properly when your
-      target dies.
-    type: Fix
-  id: 758
-  time: '2024-12-12T00:18:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2412
-- author: Radezolid
-  changes:
-  - message: Now all jetpacks fit in the suit storage slot, salvage rejoice!
-    type: Tweak
-  id: 759
-  time: '2024-12-12T00:22:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2400
-- author: Velcroboy
-  changes:
-  - message: Hammurabi medical also has a rapid transit tube now!
-    type: Add
-  id: 760
-  time: '2024-12-12T02:41:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2357
-- author: Radezolid
-  changes:
-  - message: The blushing mime mask and the purple clown mask can now be obtained
-      at an autodrobe.
-    type: Tweak
-  id: 761
-  time: '2024-12-12T15:57:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2346
-- author: Radezolid
-  changes:
-  - message: LO now also requires time as a cargo technician.
-    type: Tweak
-  id: 762
-  time: '2024-12-12T16:30:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2399
-- author: Stop-Signs
-  changes:
-  - message: Reverse engineering machines now function much faster!
-    type: Tweak
-  id: 763
-  time: '2024-12-13T09:11:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2394
-- author: deltanedas
-  changes:
-  - message: Fixed lavaland for real this time.
-    type: Fix
-  id: 764
-  time: '2024-12-13T13:32:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2434
-- author: deltanedas
-  changes:
-  - message: You can now visit the surface of Glacier's planet, get a cargo tech to
-      fly you down at arrivals!
-    type: Add
-  id: 765
-  time: '2024-12-13T18:38:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2414
 - author: Radezolid
   changes:
   - message: Now ruins are a dirtier and a bit more broken.
@@ -4001,3 +3884,158 @@
   id: 1250
   time: '2025-04-12T14:52:21.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3424
+- author: HTMLSystem
+  changes:
+  - message: Added jumpskirt versions of the casual atmos jumpsuit and botanist overalls.
+      Find them in the uniform printer and loadouts!
+    type: Add
+  - message: Added recipes for the senior bartender outfits in the uniform printer!
+    type: Add
+  id: 1251
+  time: '2025-04-13T02:09:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3399
+- author: sowelipililimute
+  changes:
+  - message: Robotics can now print IPC chasses that can receive a brain and limbs
+    type: Add
+  - message: IPCs do not feel pain in surgery anymore
+    type: Add
+  - message: MMIs can now be inserted into IPC chasses
+    type: Add
+  id: 1252
+  time: '2025-04-13T10:27:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3418
+- author: Toby222
+  changes:
+  - message: Disabled mob pushing for the time being
+    type: Remove
+  id: 1253
+  time: '2025-04-13T15:00:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3443
+- author: Quanteey
+  changes:
+  - message: Medical masks can now be found in surgeon lockers and made in the medical
+      techfab!
+    type: Tweak
+  id: 1254
+  time: '2025-04-13T22:47:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3391
+- author: Solaris7518
+  changes:
+  - message: Resprited a variety of objects that are commonly used by medical! Medical
+      mains rejoice!
+    type: Add
+  id: 1255
+  time: '2025-04-13T22:55:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3420
+- author: Field Command
+  changes:
+  - message: Reworked security on Pebble, alongside some other changes.
+    type: Tweak
+  id: 1256
+  time: '2025-04-13T23:51:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3440
+- author: Radezolid
+  changes:
+  - message: Now the tape recorder is able to be printed at every departamental TechFab.
+    type: Tweak
+  id: 1257
+  time: '2025-04-14T12:08:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3454
+- author: Blackdutchie
+  changes:
+  - message: Slimes can now digest and metabolize food, drinks, medicine, and other
+      reagents.
+    type: Fix
+  id: 1258
+  time: '2025-04-14T13:45:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3456
+- author: Radezolid
+  changes:
+  - message: Added the watchdog implant, it functions as a rattle but for the security
+      channel. You can buy them at cargo for 18k per crate.
+    type: Add
+  - message: Tracking implants no longer broadcasts your position when going into
+      critical state.
+    type: Tweak
+  id: 1259
+  time: '2025-04-14T18:49:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3342
+- author: nkokic
+  changes:
+  - message: Game can now drop or rise in difficulty based on settings
+    type: Tweak
+  id: 1260
+  time: '2025-04-14T18:52:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3277
+- author: deltanedas
+  changes:
+  - message: Fixed weh slippers not being bouncy...
+    type: Fix
+  id: 1261
+  time: '2025-04-14T22:29:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3464
+- author: deltanedas
+  changes:
+  - message: Fixed borg selection button still saying locked after picking a different
+      type.
+    type: Fix
+  id: 1262
+  time: '2025-04-14T23:02:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3465
+- author: deltanedas
+  changes:
+  - message: The autolathe and protolathe have been removed, as all maps have departmental
+      techfabs now.
+    type: Remove
+  id: 1263
+  time: '2025-04-15T02:40:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3079
+- author: Radezolid
+  changes:
+  - message: Cold weather ponchos can now be selected in the security officer's and
+      detective's neck loadout.
+    type: Add
+  id: 1264
+  time: '2025-04-15T02:41:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3442
+- author: TooSillyFennec, correspond, sowelipililimute
+  changes:
+  - message: Added six new exotic chemicals, listed in their own guidebook tab. Ported
+      from Funkystation
+    type: Add
+  - message: Added four new toxins, Heparin, Rhigoxan, Spewium, and Pestiline. Ported
+      from Funkystation.
+    type: Add
+  - message: Added three new pyrogenic chemicals. Ported from Funkystation
+    type: Add
+  - message: Granibitual has been added, a slow acting catch all chemical. Ported
+      from Funkystation.
+    type: Add
+  - message: Salicylic Acid from Funkystation has been added, replacing its Floofstation
+      counterpart as a midtier brute chemical.
+    type: Add
+  - message: Dexalin Plus is removed, replaced by Convermol and Salbutaoml. Ported
+      from Funkystation.
+    type: Remove
+  - message: 'Two new airloss chemicals have been added: Salbutamol and Convermol.
+      Ported from Funkystation.'
+    type: Add
+  - message: Advanced burn chemicals now mix into Licoxide. Ported from Funkystation.
+    type: Tweak
+  - message: Species can metabolise 3 chemicals as a baseline now, have fun making
+      mixes! Ported from Funkystation.
+    type: Tweak
+  - message: Chemical Dispensers now have welding fuel. Ported from Funkystation.
+    type: Tweak
+  - message: ChemVends now have Welding Fuel, bottle boxes, beaker boxes, more jugs,
+      and more Hydrogen. Ported from Funkystation.
+    type: Tweak
+  - message: The ratios for oil and acetone production have been adjusted, producing
+      more oil and acetone. Ported from Funkystation.
+    type: Tweak
+  - message: Added a guidebook page for chemists detailing frequently used chemicals
+    type: Add
+  id: 1265
+  time: '2025-04-15T17:14:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3403

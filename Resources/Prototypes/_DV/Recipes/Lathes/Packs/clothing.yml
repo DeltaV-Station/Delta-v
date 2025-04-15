@@ -88,6 +88,25 @@
   - ClothingHeadPrisonGuard
 
 - type: latheRecipePack
+  id: ClothingEngineeringDeltaV
+  recipes:
+  # Atmos
+  - ClothingUniformJumpsuitAtmos
+  - ClothingUniformJumpskirtAtmos
+  - ClothingUniformJumpsuitAtmosCasual
+  - ClothingUniformJumpskirtAtmosCasual
+
+- type: latheRecipePack
+  id: ClothingServiceDeltaV
+  recipes:
+  # Botanist
+  - ClothingUniformOveralls
+  - ClothingUniformJumpskirtOveralls
+  # Bartender
+  - ClothingUniformSeniorBartender
+  - ClothingUniformSeniorBartenderSkirt
+
+- type: latheRecipePack
   id: WinterCoatsDeltaV
   recipes:
   # Coats
