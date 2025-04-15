@@ -8,7 +8,6 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.ContentPack;
-using Robust.Shared.Log; // DeltaV
 using Robust.Shared.Utility;
 using static Content.Client.Changelog.ChangelogManager;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
@@ -20,8 +19,6 @@ public sealed partial class ChangelogTab : Control
 {
     [Dependency] private readonly ChangelogManager _changelog = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
-    [Dependency] private readonly ILogManager _log = default!; // DeltaV
-    private ISawmill _sawmill; // DeltaV
 
     public bool AdminOnly;
 
@@ -29,7 +26,6 @@ public sealed partial class ChangelogTab : Control
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-        _sawmill = _log.GetSawmill("changelog"); // DeltaV
     }
 
     public void PopulateChangelog(ChangelogManager.Changelog changelog)
@@ -39,14 +35,14 @@ public sealed partial class ChangelogTab : Control
             .OrderByDescending(c => c.Key);
 
         var hasRead = changelog.Name != MainChangelogName ||
-                      _changelog.MaxTime <= _changelog.LastReadTime;
+                      _changelog.MaxId <= _changelog.LastReadId;
 
         foreach (var dayEntries in byDay)
         {
             var day = dayEntries.Key;
 
             var groupedEntries = dayEntries
-                .GroupBy(c => (c.Author, Read: c.Time <= _changelog.LastReadTime))
+                .GroupBy(c => (c.Author, Read: c.Id <= _changelog.LastReadId))
                 .OrderBy(c => c.Key.Read)
                 .ThenBy(c => c.Key.Author);
 
@@ -135,24 +131,13 @@ public sealed partial class ChangelogTab : Control
                     Margin = new Thickness(6, 0, 0, 0),
                 };
                 authorLabel.SetMessage(
-                    FormattedMessage.FromMarkupOrThrow(Loc.GetString("changelog-author-changed", ("author", author))));
+                    FormattedMessage.FromMarkupOrThrow(Loc.GetString("changelog-author-changed", ("author", FormattedMessage.EscapeText(author)))));
                 ChangelogBody.AddChild(authorLabel);
 
                 foreach (var change in groupedEntry.SelectMany(c => c.Changes))
                 {
                     var text = new RichTextLabel();
-                    // Begin DeltaV Additions - Exception handling for malf changelogs
-                    try
-                    {
-                        text.SetMessage(FormattedMessage.FromMarkupOrThrow(change.Message));
-                    }
-                    catch (Exception e)
-                    {
-                        // fall back to no formatting if it fails to parse
-                        text.SetMessage(change.Message);
-                        _sawmill.Error($"Failed to parse changelog {change.Message}: {e}");
-                    }
-                    // End DeltaV Additions
+                    text.SetMessage(FormattedMessage.FromUnformatted(change.Message));
                     ChangelogBody.AddChild(new BoxContainer
                     {
                         Orientation = LayoutOrientation.Horizontal,

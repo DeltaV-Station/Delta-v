@@ -49,21 +49,13 @@ public sealed class SurgeryCleanSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
+    // no separate examine for DNAs as they are both cleaned at the same time.
     private void OnDirtyExamined(Entity<SurgeryDirtinessComponent> ent, ref ExaminedEvent args)
     {
         var stage = (int)Math.Ceiling(ent.Comp.Dirtiness.Double() / 20.0);
 
-        // no separate examine for DNAs as they are both cleaned at the same time.
-        var description = stage switch {
-            0 => "surgery-cleanliness-0",
-            1 => "surgery-cleanliness-1",
-            2 => "surgery-cleanliness-2",
-            3 => "surgery-cleanliness-3",
-            4 => "surgery-cleanliness-4",
-            _ => "surgery-cleanliness-5",
-        };
-
-        args.PushMarkup(Loc.GetString(description));
+        // dirtiness -> stage ranges from 0.0 -> 0 to 100.0 -> 5
+        args.PushMarkup(Loc.GetString($"surgery-cleanliness-{stage}"));
     }
 
     public bool RequiresCleaning(EntityUid target)

@@ -14,7 +14,7 @@
       Glass: 25
   - type: SpaceGarbage
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/bottle.rsi
+    sprite: _DV/Objects/Specific/Chemistry/bottle.rsi # DeltaV - Resprited some medical items
     layers:
     - state: bottle-1
     - state: bottle-1-1
@@ -50,7 +50,7 @@
         type: TransferAmountBoundUserInterface
   - type: Item
     size: Tiny
-    sprite: Objects/Specific/Chemistry/beaker.rsi
+    sprite: _DV/Objects/Specific/Chemistry/beaker.rsi # DeltaV - Resprited some medical items
   - type: Spillable
     solution: drink
   - type: MeleeWeapon
