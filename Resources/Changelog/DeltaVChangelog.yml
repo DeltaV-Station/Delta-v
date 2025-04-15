@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Stop-Signs
-  changes:
-  - message: Reverse engineering machines now function much faster!
-    type: Tweak
-  id: 763
-  time: '2024-12-13T09:11:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2394
 - author: deltanedas
   changes:
   - message: Fixed lavaland for real this time.
@@ -4005,3 +3998,11 @@
   id: 1262
   time: '2025-04-14T23:02:39.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3465
+- author: deltanedas
+  changes:
+  - message: The autolathe and protolathe have been removed, as all maps have departmental
+      techfabs now.
+    type: Remove
+  id: 1263
+  time: '2025-04-15T02:40:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3079
