@@ -46,7 +46,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
             return;
 
         var containers = Comp<ContainerManagerComponent>(ent);
-        for (int i = 0; i < charges.MaxCharges; i++)
+        for (var i = 0; i < charges.MaxCharges; i++)
         {
             if (!TrySpawnInContainer(ent.Comp.SignProto, ent, ent.Comp.ContainerId, out _))
             {
