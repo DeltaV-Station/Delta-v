@@ -40,11 +40,12 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
 
         _actions.SetCharges(newKitsune.FoxfireAction, _actions.GetCharges(oldKitsune.FoxfireAction));
 
-        foreach (var foxFire in newKitsune.ActiveFoxFires)
+        foreach (var fireUid in newKitsune.ActiveFoxFires)
         {
-            if(!TryComp<FoxfireComponent>(foxFire, out var foxfire))
+            if(!TryComp<FoxfireComponent>(fireUid, out var foxfire))
                 continue;
             foxfire.Kitsune = args.NewEntity;
+            Dirty(fireUid, foxfire);
         }
 
         //Transfer Accesses
@@ -62,12 +63,11 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
 
         _popup.PopupEntity(Loc.GetString("kitsune-popup-morph-message-others", ("entity", args.NewEntity)), args.NewEntity, Filter.PvsExcept(args.NewEntity), true);
         _popup.PopupEntity(Loc.GetString("kitsune-popup-morph-message-user"), args.NewEntity, args.NewEntity);
-
     }
 
     private void OnMorphIntoKitsune(Entity<KitsuneComponent> ent, ref MorphIntoKitsune args)
     {
-        if (_polymorph.PolymorphEntity(ent, ent.Comp.KitsunePolymorphId) is not {} fox)
+        if (_polymorph.PolymorphEntity(ent, ent.Comp.KitsunePolymorphId) == null)
             return;
         args.Handled = true;
     }
