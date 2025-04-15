@@ -158,6 +158,7 @@ loadout-group-martial-artist-shoes = Martial Artist shoes
 
 loadout-group-gladiator-jumpsuit = Gladiator jumpsuit
 loadout-group-gladiator-outerclothing = Gladiator outer clothing
+loadout-group-gladiator-shoes = Gladiator shoes
 
 # Species
 loadout-group-humanoid-silicon = Silicon-friendly survival box
