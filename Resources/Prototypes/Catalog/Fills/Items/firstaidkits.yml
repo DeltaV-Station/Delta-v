@@ -10,6 +10,7 @@
       - id: Ointment
       - id: Gauze
       - id: PillCanisterTricordrazine
+      - id: PillCanisterGranibitulari # Funkychem - tricordrazine variant
       # see https://github.com/tgstation/blob/master/code/game/objects/items/storage/firstaid.dm for example contents
 
 - type: entity
@@ -60,7 +61,9 @@
       - id: ClothingMaskBreathMedical
       - id: EmergencyOxygenTankFilled
       - id: EmergencyMedipen
-      - id: SyringeInaprovaline
+        amount: 2 # Funkychem - more medipens in O2 kits
+      - id: SyringeConvermol # Funkychem - was inaprovaline
+        amount: 2
       - id: PillCanisterDexalin
 
 - type: entity
@@ -96,7 +99,7 @@
     contents:
       - id: MedicatedSuture
       - id: RegenerativeMesh
-      - id: SyringeEphedrine
+      - id: SyringeRevivopine # Funkychem - revivopine is the dedicated combat chemical now
       - id: SyringeSaline
       - id: BruteAutoInjector
       - id: BurnAutoInjector

@@ -1,6 +1,3 @@
-reagent-name-salicylicacid = salicylic acid
-reagent-desc-salicylicacid = A powdery substance used for dermatological treatments.
-
 reagent-name-traumoxadone = traumoxadone
 reagent-desc-traumoxadone = A cryogenics chemical. Used to treat severe trauma via regeneration of the damaged tissue. Works regardless of the patient being alive or dead.
 

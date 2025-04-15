@@ -1,0 +1,14 @@
+- type: reagent
+  id: LiquidPie
+  name: reagent-name-liquidpie
+  group: Foods
+  desc: reagent-desc-liquidpie
+  physicalDesc: reagent-physical-desc-sticky
+  flavor: sweet
+  color: "#c4ae70"
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustReagent
+        reagent: Sugar
+        amount: 0.5

@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: You can now visit the surface of Glacier's planet, get a cargo tech to
-      fly you down at arrivals!
-    type: Add
-  id: 765
-  time: '2024-12-13T18:38:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2414
 - author: Radezolid
   changes:
   - message: Now ruins are a dirtier and a bit more broken.
@@ -4007,3 +3999,43 @@
   id: 1264
   time: '2025-04-15T02:41:56.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3442
+- author: TooSillyFennec, correspond, sowelipililimute
+  changes:
+  - message: Added six new exotic chemicals, listed in their own guidebook tab. Ported
+      from Funkystation
+    type: Add
+  - message: Added four new toxins, Heparin, Rhigoxan, Spewium, and Pestiline. Ported
+      from Funkystation.
+    type: Add
+  - message: Added three new pyrogenic chemicals. Ported from Funkystation
+    type: Add
+  - message: Granibitual has been added, a slow acting catch all chemical. Ported
+      from Funkystation.
+    type: Add
+  - message: Salicylic Acid from Funkystation has been added, replacing its Floofstation
+      counterpart as a midtier brute chemical.
+    type: Add
+  - message: Dexalin Plus is removed, replaced by Convermol and Salbutaoml. Ported
+      from Funkystation.
+    type: Remove
+  - message: 'Two new airloss chemicals have been added: Salbutamol and Convermol.
+      Ported from Funkystation.'
+    type: Add
+  - message: Advanced burn chemicals now mix into Licoxide. Ported from Funkystation.
+    type: Tweak
+  - message: Species can metabolise 3 chemicals as a baseline now, have fun making
+      mixes! Ported from Funkystation.
+    type: Tweak
+  - message: Chemical Dispensers now have welding fuel. Ported from Funkystation.
+    type: Tweak
+  - message: ChemVends now have Welding Fuel, bottle boxes, beaker boxes, more jugs,
+      and more Hydrogen. Ported from Funkystation.
+    type: Tweak
+  - message: The ratios for oil and acetone production have been adjusted, producing
+      more oil and acetone. Ported from Funkystation.
+    type: Tweak
+  - message: Added a guidebook page for chemists detailing frequently used chemicals
+    type: Add
+  id: 1265
+  time: '2025-04-15T17:14:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3403

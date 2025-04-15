@@ -103,7 +103,7 @@
     heldPrefix: heart
   - type: Metabolizer
     updateInterval: 1.5
-    maxReagents: 2
+    maxReagents: 3 # Funkychem - species metabolise 3 chems as a baseline
     metabolizerTypes: [Arachnid]
     groups:
     - id: Medicine
