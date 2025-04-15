@@ -29,4 +29,3 @@ research-technology-robust-melee = Robust Melee
 research-technology-incendiary-laser-weapons = Incendiary Laser Weapons
 research-technology-security-eva = EVA Armored Suits
 research-technology-salvage-eva = EVA Xeno-fighting Suits
-research-technology-mining-eva = EVA Mining Adapted Hardsuit

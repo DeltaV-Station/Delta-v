@@ -77,9 +77,10 @@
     state: icon
   discipline: Arsenal
   tier: 2
-  cost: 7000
+  cost: 10000
   recipeUnlocks:
   - ClothingOuterHardsuitSpatio
+  - ClothingOuterHardsuitSalvage
 
 - type: technology
   id: SecurityHardsuits
@@ -162,15 +163,3 @@
   cost: 10000
   recipeUnlocks:
   - WeaponColdCannon
-
-- type: technology
-  id: MiningHardsuits
-  name: research-technology-mining-eva
-  icon:
-    sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 3
-  cost: 13000
-  recipeUnlocks:
-  - ClothingOuterHardsuitSalvage
