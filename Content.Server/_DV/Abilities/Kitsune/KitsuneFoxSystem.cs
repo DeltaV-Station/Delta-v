@@ -1,9 +1,7 @@
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared._DV.Abilities.Kitsune;
-using Content.Shared.Actions;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Polymorph;
 using Content.Shared.Stunnable;
 
 namespace Content.Server._DV.Abilities.Kitsune;
