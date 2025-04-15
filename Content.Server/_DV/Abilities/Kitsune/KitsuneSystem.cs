@@ -42,7 +42,7 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
 
         foreach (var fireUid in newKitsune.ActiveFoxFires)
         {
-            if(!TryComp<FoxfireComponent>(fireUid, out var foxfire))
+            if (!TryComp<FoxfireComponent>(fireUid, out var foxfire))
                 continue;
             foxfire.Kitsune = args.NewEntity;
             Dirty(fireUid, foxfire);
