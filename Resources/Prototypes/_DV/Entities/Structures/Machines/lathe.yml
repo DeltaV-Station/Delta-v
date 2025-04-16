@@ -72,6 +72,8 @@
     board: EngineeringTechFabCircuitboard
   - type: StealTarget
     stealGroup: EngineeringTechFabCircuitboard
+  - type: LatheAnnouncing
+    channels: [Engineering]
 
 - type: entity
   parent: BaseTechFabDepartamental
@@ -106,6 +108,8 @@
     board: LogisticsTechFabCircuitboard
   - type: StealTarget
     stealGroup: LogisticsTechFabCircuitboard
+  - type: LatheAnnouncing
+    channels: [Supply]
 
 - type: entity
   parent: BaseTechFabDepartamental
@@ -141,6 +145,8 @@
     board: ServiceTechFabCircuitboard
   - type: StealTarget
     stealGroup: ServiceTechFabCircuitboard
+  - type: LatheAnnouncing
+    channels: [Service]
 
 - type: entity
   parent: BaseTechFabDepartamental
