@@ -8,7 +8,7 @@
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
             <CheckBox Name="ShouldBuffer" Text="Combine"/>
             <LineEdit Name="BufferedString" Editable="False" HorizontalExpand="True"/>
-            <Button Name="ClearButton" Text="Oopsie daisy" TextAlign="Center"/>
+            <Button Name="ClearButton" Text="Backspace" TextAlign="Center"/>
             <Button Name="SendButton" Text="Send" TextAlign="Center"/>
         </BoxContainer>
         <TabContainer Name="WindowBody" TabTitle="Search" VerticalExpand="True" MouseFilter="Pass">
