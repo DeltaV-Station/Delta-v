@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Lyndomen
-  changes:
-  - message: Clarifies that Sec/Command/Justice are required to follow IC documents
-      in good faith
-    type: Tweak
-  id: 770
-  time: '2024-12-14T21:18:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2442
 - author: deltanedas
   changes:
   - message: Fixed Vox gladiators not spawning with nitrogen tanks.
@@ -4042,3 +4034,16 @@
   id: 1269
   time: '2025-04-16T15:55:24.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3461
+- author: EmoGarbage404
+  changes:
+  - message: Adds departmental economy! All departments now have custom request consoles
+      where they can order from cargo and make money transfers.
+    type: Add
+  - message: Added lock boxes. These are access-locked crates that allow a department
+      to earn sole income when they are sold. Order more from cargo.
+    type: Add
+  - message: Slightly increased passive station income.
+    type: Tweak
+  id: 1270
+  time: '2025-04-16T22:05:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3458
