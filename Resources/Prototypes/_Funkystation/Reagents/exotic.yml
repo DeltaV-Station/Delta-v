@@ -129,8 +129,29 @@
   metabolisms:
     Poison:
       effects:
+      - !type:CreateEntityReactionEffect # DeltaV - was polymorph, just have a chance to spawn a corgi instead
+        entity: MobCorgiPuppy
+        probability: 0.25
+        conditions:
+        - !type:OrganType
+          type: Animal
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 25 # DeltaV - need more corgium for that to happen
+
+- type: reagent
+  id: Muigroc
+  name: reagent-name-muigroc
+  group: Exotic
+  desc: reagent-desc-muigroc
+  physicalDesc: reagent-physical-desc-fluffy
+  flavor: medicine
+  color: "#ffaa00"
+  metabolisms:
+    Poison:
+      effects:
       - !type:Polymorph
-        prototype: CorgiMorph # PERMANENT. There's a reason this chem's an exotic chem, not a low-mid level chem. Exotic's primary toxin.
+        prototype: CorgiMorphTemp # DeltaV - sorry perma corgi is too evil
         conditions:
         - !type:ReagentThreshold
-          min: 20
+          min: 25 # DeltaV - make it tighter if you can actually corgi someone

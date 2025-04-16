@@ -1,10 +1,11 @@
 - type: polymorph
-  id: CorgiMorph
+  id: CorgiMorphTemp
   configuration:
     entity: MobCorgi
     forced: true
-    inventory: None
     transferName: true
-    transferDamage: true
-    revertOnCrit: false
-    revertOnDeath: false
+    transferHumanoidAppearance: true
+    inventory: None
+    revertOnDeath: true
+    revertOnCrit: true
+    duration: 30
