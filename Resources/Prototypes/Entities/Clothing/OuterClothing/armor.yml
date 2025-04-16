@@ -100,14 +100,12 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
-        Heat: 0.65 # DeltaV - changed from 60% resistant to 35%
-  # Begin DeltaV removals
-  #- type: Reflect
-  #  reflectProb: 1
-  #  reflects:
-  #    - Energy
-  #  reflectingInHands: false
-  # End DeltaV removals
+        Heat: 0.75 # DeltaV - changed from 60% resistant to 25%
+  - type: Reflect
+    reflectProb: 0.75 # DeltaV - changed from 100% reflect to 75%
+    reflects:
+      - Energy
+    reflectingInHands: false
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseSyndicateContraband ]
