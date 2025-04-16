@@ -81,14 +81,14 @@
 - type: reaction
   id: Hypothium
   reactants:
-    Nitrogen: # TODO: Switch to Healium
+    Frezon: # TODO: Switch to Healium # DeltaV - we don't have healium, make it frezon instead
       amount: 1
     Omnizine:
       amount: 1
     Ethyloxyephedrine:
       amount: 1
   products:
-    Hypothium: 3
+    Hypothium: 1 # DeltaV - 5u=100damage is REALLY good, make it a reduction
 
 # pyro
 - type: reaction
