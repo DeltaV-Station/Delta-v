@@ -712,14 +712,20 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
-  - type: ReverseEngineering # Nyano
+  - type: Tag
+    tags:
+    - MonkeyWearable
+    - WhitelistChameleon # DeltaV - gamer forgor
+  # Begin DeltaV Additions
+  - type: ReverseEngineering # DeltaV
     difficulty: 5
     newItem: ClothingOuterHardsuitJuggernautReverseEngineered
     recipes:
-      - ClothingOuterHardsuitJuggernautReverseEngineered
-  - type: MappingCategories # DeltaV
+    - ClothingOuterHardsuitJuggernautReverseEngineered
+  - type: MappingCategories
     categories:
     - Syndicate
+  # End DeltaV Additions
 
 #Wizard Hardsuit
 - type: entity
