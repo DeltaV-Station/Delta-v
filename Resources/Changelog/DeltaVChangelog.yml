@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Panic bunker is now automatically turned on for new players when there
-      are no admins.
-    type: Remove
-  id: 768
-  time: '2024-12-14T00:09:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2437
 - author: Radezolid
   changes:
   - message: Now cargo technicians can approve orders.
@@ -4042,3 +4034,11 @@
   id: 1267
   time: '2025-04-16T02:56:10.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3435
+- author: sowelipililimute
+  changes:
+  - message: Licoxide now flushes out of your system faster & is less likely to stun
+      you, but deals shock damage and may induce screaming
+    type: Tweak
+  id: 1268
+  time: '2025-04-16T03:48:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3475
