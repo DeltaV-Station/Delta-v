@@ -8,6 +8,23 @@
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/flags.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/poster_broken.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialCloth:
+            min: 5
+            max: 5
+        offset: 0
 
 - type: entity
   parent: BaseFlag
@@ -44,7 +61,10 @@
   components:
   - type: Sprite
     state: lgbtq_flag
-    
+  - type: Construction
+    graph: Flags
+    node: LGBTQFlag
+
 - type: entity
   parent: BaseFlag
   id: PirateFlag
