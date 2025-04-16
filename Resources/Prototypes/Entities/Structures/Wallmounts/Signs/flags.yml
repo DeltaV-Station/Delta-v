@@ -8,7 +8,7 @@
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/flags.rsi
-  - type: Destructible
+  - type: Destructible # DeltaV - Craftable Pride Flags
     thresholds:
     - trigger:
         !type:DamageTrigger
@@ -52,7 +52,7 @@
   components:
   - type: Sprite
     state: syndie_flag
-    
+
 - type: entity
   parent: BaseFlag
   id: LGBTQFlag
@@ -61,7 +61,7 @@
   components:
   - type: Sprite
     state: lgbtq_flag
-  - type: Construction
+  - type: Construction # DeltaV - Craftable Pride Flags
     graph: Flags
     node: LGBTQFlag
 
