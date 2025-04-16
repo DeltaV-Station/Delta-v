@@ -15,7 +15,7 @@ public sealed class AACTabletSystem : EntitySystem
 
     private readonly List<string> _localisedPhrases = [];
 
-    public const MaxPhrases = 10; // no writing novels
+    public const int MaxPhrases = 10; // no writing novels
 
     public override void Initialize()
     {
