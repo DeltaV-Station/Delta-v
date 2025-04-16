@@ -186,17 +186,18 @@
   - GamblagatorCapacitor # DeltaV - added for superweapon
   - WeaponEnergyGunAdvanced # DeltaV - Advanced Energy Gun
 
-#- type: technology # DeltaV - Removed for only causing issues
-#  id: ExperimentalBatteryAmmo
-#  name: research-technology-experimental-battery-ammo
-#  icon:
-#    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
-#    state: icon
-#  discipline: Arsenal
-#  tier: 3
-#  cost: 15000
-#  recipeUnlocks:
-#  - WeaponLaserSvalinn
+- type: technology
+  id: ThermalWeaponry
+  name: research-technology-thermal-weaponry
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/temp_gun.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - WeaponTemperatureGun
+  - WeaponColdCannon # DeltaV
 
 - type: technology
   id: AdvancedShuttleWeapon
