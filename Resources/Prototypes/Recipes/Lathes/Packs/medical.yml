@@ -9,6 +9,8 @@
 
 - type: latheRecipePack
   id: BasicChemistryStatic
+  parent:
+  - BasicChemistryStaticDeltaV # DeltaV
   recipes:
   - Beaker
   - LargeBeaker

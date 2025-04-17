@@ -1,0 +1,49 @@
+- type: entity
+  name: skimmer
+  parent: BaseItem
+  description: Used to skim off the small impurities from solutions
+  id: Skimmer
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Chemistry/skimmer.rsi
+    layers:
+      - state: skimmer
+      - state: skimmer1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 5
+  - type: Injector
+    injectOnly: false
+    ignoreMobs: true
+    ignoreClosed: false
+    targetSmallest: true
+    minTransferAmount: 5
+    maxTransferAmount: 5
+    transferAmount: 5
+    toggleState: 1 # draw
+  - type: ExaminableSolution
+    solution: dropper
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: Spillable
+    solution: injector
+  - type: Item
+    sprite: _DV/Objects/Specific/Chemistry/skimmer.rsi
+    size: Tiny
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: skimmer
+    inHandsMaxFillLevels: 5
+    inHandsFillBaseName: -fill-
+  - type: StaticPrice
+    price: 40
+  - type: DnaSubstanceTrace
+  - type: Tag
+    tags:
+    - Dropper
