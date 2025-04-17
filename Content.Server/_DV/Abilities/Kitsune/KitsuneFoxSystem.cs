@@ -10,6 +10,7 @@ public sealed class KitsuneFoxSystem : EntitySystem
 {
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
+
     public override void Initialize()
     {
         base.Initialize();

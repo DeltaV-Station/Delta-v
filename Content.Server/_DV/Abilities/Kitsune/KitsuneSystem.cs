@@ -11,6 +11,7 @@ using Content.Shared.Polymorph;
 using Robust.Shared.Player;
 
 namespace Content.Server._DV.Abilities.Kitsune;
+
 public sealed class KitsuneSystem : SharedKitsuneSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
