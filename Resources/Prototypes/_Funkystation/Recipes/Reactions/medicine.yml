@@ -78,18 +78,6 @@
   products:
     Pielovene: 3
 
-- type: reaction
-  id: Hypothium
-  reactants:
-    Frezon: # TODO: Switch to Healium # DeltaV - we don't have healium, make it frezon instead
-      amount: 1
-    Omnizine:
-      amount: 1
-    Ethyloxyephedrine:
-      amount: 1
-  products:
-    Hypothium: 1 # DeltaV - 5u=100damage is REALLY good, make it a reduction
-
 # pyro
 - type: reaction
   id: Pyroxadone
