@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "made by EmoGarbage, ammo state made by AjexRose and modified by Emo garbage",
+  "copyright": "made by EmoGarbage, ammo state made by AjexRose and modified by Emo garbage | Additional building and unlit building animations by SubspaceEmber",
   "size": {
     "x": 32,
     "y": 32
@@ -36,6 +36,48 @@
     },
     {
       "name": "unlit"
+    },
+    {
+      "name": "building",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "unlit-building",
+        "delays": [
+         [
+           0.1,
+           0.1,
+           0.1,
+           0.1,
+           0.1,
+           0.1,
+           0.1,
+           0.1,
+           0.1,
+           0.1,
+           0.1,
+           0.1,
+           0.1,
+           0.1
+         ]
+      ]
     },
     {
       "name": "inserting",
