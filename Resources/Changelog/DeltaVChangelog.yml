@@ -1,78 +1,4 @@
 ﻿Entries:
-- author: Delta V Mapping Team
-  changes:
-  - message: Happy Holidays!
-    type: Add
-  id: 767
-  time: '2024-12-13T20:47:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2433
-- author: deltanedas
-  changes:
-  - message: Panic bunker is now automatically turned on for new players when there
-      are no admins.
-    type: Remove
-  id: 768
-  time: '2024-12-14T00:09:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2437
-- author: Radezolid
-  changes:
-  - message: Now cargo technicians can approve orders.
-    type: Tweak
-  id: 769
-  time: '2024-12-14T02:01:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2356
-- author: Lyndomen
-  changes:
-  - message: Clarifies that Sec/Command/Justice are required to follow IC documents
-      in good faith
-    type: Tweak
-  id: 770
-  time: '2024-12-14T21:18:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2442
-- author: deltanedas
-  changes:
-  - message: Fixed Vox gladiators not spawning with nitrogen tanks.
-    type: Fix
-  id: 771
-  time: '2024-12-15T03:03:43.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2446
-- author: Radezolid
-  changes:
-  - message: Added a new janitorial job title, select it from your loadout.!
-    type: Add
-  id: 772
-  time: '2024-12-15T10:51:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2448
-- author: Eternally-Confused
-  changes:
-  - message: Security jetpacks no longer start empty
-    type: Tweak
-  id: 773
-  time: '2024-12-15T10:57:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2449
-- author: Radezolid
-  changes:
-  - message: Clowns and Mimes now also have basic service access, no more broken windows
-      to get to the lathe!
-    type: Tweak
-  id: 774
-  time: '2024-12-15T10:58:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2388
-- author: Radezolid
-  changes:
-  - message: Bounty skipping is now tied to the Order access.
-    type: Tweak
-  id: 775
-  time: '2024-12-16T00:48:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2454
-- author: Emily9031
-  changes:
-  - message: Centcom now has an empty AI core that you can upload the station's AI
-      to!
-    type: Add
-  id: 776
-  time: '2024-12-17T02:56:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2428
 - author: Radezolid
   changes:
   - message: The stocks cartridge now requires Logistic Officer access.
@@ -4042,3 +3968,81 @@
   id: 1266
   time: '2025-04-15T18:28:24.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3462
+- author: leonardo-dabepis
+  changes:
+  - message: Finally added a proper sprite for telegnostic projection
+    type: Add
+  id: 1267
+  time: '2025-04-16T02:56:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3435
+- author: sowelipililimute
+  changes:
+  - message: Licoxide now flushes out of your system faster & is less likely to stun
+      you, but deals shock damage and may induce screaming
+    type: Tweak
+  id: 1268
+  time: '2025-04-16T03:48:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3475
+- author: Oxdeception
+  changes:
+  - message: The AAC Tablet can now combine phrases into a single message!
+    type: Add
+  id: 1269
+  time: '2025-04-16T15:55:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3461
+- author: EmoGarbage404
+  changes:
+  - message: Adds departmental economy! All departments now have custom request consoles
+      where they can order from cargo and make money transfers.
+    type: Add
+  - message: Added lock boxes. These are access-locked crates that allow a department
+      to earn sole income when they are sold. Order more from cargo.
+    type: Add
+  - message: Slightly increased passive station income.
+    type: Tweak
+  id: 1270
+  time: '2025-04-16T22:05:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3458
+- author: whatston3, foxcurl
+  changes:
+  - message: Harpies can no longer have their instruments changed by other people.
+    type: Fix
+  id: 1271
+  time: '2025-04-16T22:13:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3485
+- author: Citrus, ZigTag
+  changes:
+  - message: Redid paramedic void suit vulp helmet
+    type: Tweak
+  id: 1272
+  time: '2025-04-17T02:52:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3468
+- author: KZhProgram
+  changes:
+  - message: Tons more stuff to ClothesMate, Autodrobe, WinterDrobe, SecDrobe, Monkin'
+      Donuts Vending Machine, Sustenance Vendor, and SecTech. Check the PR for specifics.
+    type: Add
+  id: 1273
+  time: '2025-04-17T03:01:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3455
+- author: AppleSmithWorks
+  changes:
+  - message: Dedicated Administrative Assistants can get a fancy hat.
+    type: Add
+  id: 1274
+  time: '2025-04-17T03:10:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3436
+- author: SubspaceEmber
+  changes:
+  - message: Added animated sprites for departmental techfabs
+    type: Tweak
+  id: 1275
+  time: '2025-04-17T03:19:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3452
+- author: SolStar
+  changes:
+  - message: Fixed an edge case where items could be lost in nullspace.
+    type: Fix
+  id: 1276
+  time: '2025-04-17T10:08:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3492

@@ -16,7 +16,7 @@ public sealed partial class AACWindow : FancyWindow
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     private readonly List<QuickPhrasePrototype> _phrases;
     private readonly Dictionary<string, List<QuickPhrasePrototype>> _filteredPhrases = new();
-    public event Action<ProtoId<QuickPhrasePrototype>>? PhraseButtonPressed;
+    public event Action<List<ProtoId<QuickPhrasePrototype>>>? PhraseButtonPressed;
 
     private const float SpaceWidth = 10f;
     private const float ParentWidth = 540f;
@@ -25,15 +25,49 @@ public sealed partial class AACWindow : FancyWindow
     private const int ButtonWidth =
         (int)((ParentWidth - SpaceWidth * 2) / ColumnCount - SpaceWidth * ((ColumnCount - 1f) / ColumnCount));
 
+    public const int MaxPhrases = 10; // no writing novels
+
+    private readonly List<ProtoId<QuickPhrasePrototype>> _phraseBuffer = [];
+    private readonly List<ProtoId<QuickPhrasePrototype>> _phraseSingle = [];
+
     public AACWindow()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+
         _phrases = _prototype.EnumeratePrototypes<QuickPhrasePrototype>().ToList();
         _phrases.Sort((a, b) => string.CompareOrdinal(a.Group, b.Group));
         SearchBar.OnTextChanged += FilterSearch;
+        SendButton.OnPressed += SendBuffer;
+        ClearButton.OnPressed += BackspaceBuffer;
         PopulateGui();
         FilterSearch(null);
+    }
+
+    private void BackspaceBuffer(BaseButton.ButtonEventArgs obj)
+    {
+        if (_phraseBuffer.Count == 0)
+            return;
+
+        _phraseBuffer.RemoveAt(_phraseBuffer.Count - 1);
+        UpdateBufferText();
+    }
+
+    private void UpdateBufferText()
+    {
+        BufferedString.Text = string.Empty;
+        foreach (var phraseId in _phraseBuffer)
+        {
+            var phrase = _prototype.Index(phraseId);
+            BufferedString.Text += Loc.GetString(phrase.Text) + " ";
+        }
+    }
+
+    private void SendBuffer(BaseButton.ButtonEventArgs obj)
+    {
+        PhraseButtonPressed?.Invoke(_phraseBuffer);
+        _phraseBuffer.Clear();
+        BufferedString.Text = string.Empty;
     }
 
     private void FilterSearch(LineEdit.LineEditEventArgs? obj)
@@ -184,6 +218,20 @@ public sealed partial class AACWindow : FancyWindow
 
     private void OnPhraseButtonPressed(ProtoId<QuickPhrasePrototype> phraseId)
     {
-        PhraseButtonPressed?.Invoke(phraseId);
+        if (ShouldBuffer.Pressed)
+        {
+            // there's no user feedback but you shouldn't be writing novels anyway
+            if (_phraseBuffer.Count >= MaxPhrases)
+                return;
+
+            _phraseBuffer.Add(phraseId);
+            UpdateBufferText();
+        }
+        else
+        {
+            _phraseSingle.Clear();
+            _phraseSingle.Add(phraseId);
+            PhraseButtonPressed?.Invoke(_phraseSingle);
+        }
     }
 }

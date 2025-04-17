@@ -146,3 +146,33 @@
       - entity_storage
   - type: StaticPrice
     price: 800
+
+- type: entity
+  id: CrateLockBoxJustice
+  parent: CrateBaseLockBox
+  name: justice lock box
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#7e0e5b"
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: overlay-closed
+      color: "#7e0e5b"
+      map: [ lid_overlay ]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.46875,0.03125"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: OverrideSell
+    overrideAccount: Justice
+  - type: AccessReader
+    access: [["Justice"]]
