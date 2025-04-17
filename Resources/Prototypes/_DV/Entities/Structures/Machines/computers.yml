@@ -5,7 +5,6 @@
   description: Used to purchase and sell shuttles
   components:
   - type: ShipyardConsole
-  - type: BankClient
   - type: AccessReader
     access: [[ Captain ]]
   - type: ActivatableUI
@@ -94,3 +93,36 @@
     access:
     - [ Cargo ]
   # lets hope nobody deconstructs it to reset the name + access...
+
+- type: entity
+  id: ComputerCargoOrdersJustice
+  parent: ComputerCargoOrders
+  name: justice request computer
+  description: Used by the justice department to order supplies.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      sprite: _DV/Structures/Machines/computers.rsi
+      state: request-jst
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: CargoOrderConsole
+    account: Justice
+    announcementChannel: Justice
+    removeLimitAccess: [ "ChiefJustice" ]
+  - type: ActiveRadio
+    channels:
+    - Justice
+  - type: Computer
+    board: CargoRequestJusticeComputerCircuitboard
+  - type: PointLight
+    color: "#641327"
+  - type: AccessReader
+    access: [["Justice"]]
