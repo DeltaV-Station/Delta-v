@@ -53,6 +53,8 @@
   - type: VendingMachineRestock
     canRestock:
     - BoozeOMatInventory
+    - BoozeOMatUnlockedInventory # DeltaV - Make maint booz-o-mat refillable
+    - BoozeOMatCommandInventory # DeltaV - Make command booz-o-mat refillable
   - type: Sprite
     layers:
     - state: base
