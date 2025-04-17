@@ -67,6 +67,7 @@
       - id: BarSpoon
       - id: DrinkShaker
       - id: Envelope
+      - id: PaperSlip
       #Smokes
       - !type:GroupSelector
         children:
@@ -74,8 +75,8 @@
         - id: CigPackRed
         - id: CigPackBlue
         - id: CigPackBlack
-        - id: CigPackPurple #Delta V
-        - id: CigPackCandy #Delta V
+        - id: CigPackPurple
+        - id: CigPackCandy
         - id: PackPaperRolling
         - id: Cigar
         - id: SmokingPipe
@@ -280,6 +281,8 @@
           - id: ClothingEyesGlassesThermal
           - id: ClothingEyesEyepatch
           - id: ClothingEyesBlindfold
+          - id: ClothingEyesGlassesChemist
+          - id: ClothingEyesGlassesGarMeson
         #Gloves
         - !type:GroupSelector
           children:
@@ -291,6 +294,15 @@
           children:
           - id: ClothingNeckHeadphones
           - id: ClothingNeckStethoscope
+          - id: CDDogtags
+          - !type:GroupSelector
+            children:
+            - id: ClothingNeckTieWhite
+            - id: ClothingNeckTieBlack
+            - id: ClothingNeckTieBrown
+            - id: ClothingNeckTieBlue
+            - id: ClothingNeckTieGreen
+            - id: ClothingNeckTieChem
         #Outer
         - !type:GroupSelector
           children:
@@ -302,6 +314,8 @@
           - id: ClothingOuterCoatGentle
           - id: ClothingOuterCoatJensen
           - id: ClothingOuterCoatLab
+          - id: ClothingOuterApronChemist
+          - id: ClothingOuterDenimJacket
         #Feet
         - !type:GroupSelector
           children:
@@ -309,6 +323,11 @@
           - id: ClothingShoesTourist
           - id: ClothingUnderSocksBee
           - id: ClothingUnderSocksCoder
+        #Belt
+        - !type:GroupSelector
+          children:
+          - id: ClothingBeltFoamSheath
+          - id: ClothingBeltPaperwork
     #Rare
     - !type:GroupSelector
       children:
@@ -340,6 +359,8 @@
       - id: PresentRandom
       - id: ArabianLamp
         weight: 0.01
+      - id: FoamSabre
+      - id: RubberStampHatePaperwork
       #Smokes
       - !type:GroupSelector
         children:
@@ -347,8 +368,8 @@
         - id: CigCartonRed
         - id: CigCartonBlue
         - id: CigCartonBlack
-        - id: CigCartonPurple # DeltaV
-        - id: CigCartonCandy # DeltaV
+        - id: CigCartonPurple
+        - id: CigCartonCandy
         - id: Joint
         - id: Blunt
         - id: SmokingPipeFilledTobacco
@@ -414,6 +435,9 @@
           amount: !type:RangeNumberSelector
             range: 1, 5
         - id: MaterialGunpowder
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: MaterialChitinSharkminnow
           amount: !type:RangeNumberSelector
             range: 1, 5
       #Cubes
@@ -522,7 +546,10 @@
         - !type:GroupSelector
           children:
           - id: ClothingOuterStraightjacket
+          - id: ClothingOuterCoatOvercoat
+          - id: ClothingOuterCoatLeatherJacket
         #Feet
         - !type:GroupSelector
           children:
           - id: ClothingShoesGaloshes
+          - id: ClothingShoesSharkminnow

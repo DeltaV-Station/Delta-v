@@ -28,7 +28,6 @@
       - FoodMealRibs
       - FoodMealEggsbenedict
       - FoodMealOmelette
-      - FoodMealScrambledEggs # DeltaV
       - FoodMealFriedegg
       - FoodMealQueso
       - FoodMealSashimi
@@ -98,6 +97,12 @@
       # End Nyanotrasen additions
       - FoodMealCornInButter
       - FoodSoupStew
+      # Begin DeltaV additions
+      - FoodMealScrambledEggs
+      - GrilledCheese
+      - FoodSoupTomatoBlue
+      - FoodSoupTomatoPurple
+      # End DeltaV additions
     chance: 0.8
     offset: 0.0
     #rare
@@ -122,4 +127,7 @@
       - FoodSoupElectron
       - FoodMothBakedCheesePlatter # Nyanotrasen - Moth Recipes
       - FoodNoodlesCopy
+      # Begin DeltaV additions
+      - FoodCamelSoup
+      # End DeltaV additions
     rareChance: 0.05

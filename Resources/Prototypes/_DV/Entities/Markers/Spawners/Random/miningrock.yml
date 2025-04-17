@@ -64,6 +64,11 @@
       - WallRockUranium
       - WallRockBananium
       - WallRockArtifactFragment
+      - WallRockCoal
+    rarePrototypes:
+      - WallRockDiamond
+      - WallRockSalt
+    rareChance: 0.10
 
 - type: entity
   name: Basalt Rock Spawner
@@ -84,6 +89,11 @@
       - WallRockBasaltTin
       - WallRockBasaltUranium
       - WallRockBasaltArtifactFragment
+      - WallRockBasaltCoal
+    rarePrototypes:
+      - WallRockBasaltDiamond
+      - WallRockBasaltSalt
+    rareChance: 0.10
 
 - type: entity
   id: RandomWoodenStructure

@@ -69,11 +69,13 @@
         - id: BoxLightMixed
         - id: BoxColoredLighttube
         - id: BoxMaintenanceLightbulb
+        - id: BoxWarmLightbulb
       #Survival boxes
       - !type:GroupSelector
         children:
         - id: BoxSurvival
         - id: BoxSurvivalNitrogen
+        - id: BoxSurvivalWaterVapor
           weight: 0.25
       #Medical
       - !type:GroupSelector
@@ -102,6 +104,8 @@
       - id: BoxHolyWater
       - id: MysteryFigureBox
       - id: BoxCleanerGrenades
+      - id: BoxAgrichem
+      - id: BoxTapeRecorder
       #Security
       - !type:GroupSelector
         children:

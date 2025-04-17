@@ -167,6 +167,8 @@
         - id: MobIronCrab
         - id: MobUraniumCrab
         - id: MobSilverCrab
+        - id: MobCoalCrab
+        - id: MobGoldCrab
         - !type:GroupSelector
           weight: 0.5
           children:
@@ -180,6 +182,12 @@
             amount: !type:ConstantNumberSelector
               value: 2
           - id: MobSilverCrab
+            amount: !type:ConstantNumberSelector
+              value: 2
+          - id: MobCoalCrab
+            amount: !type:ConstantNumberSelector
+              value: 2
+          - id: MobGoldCrab
             amount: !type:ConstantNumberSelector
               value: 2
       - !type:GroupSelector

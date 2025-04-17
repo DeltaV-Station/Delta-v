@@ -34,6 +34,8 @@
         - id: BorgChargerCircuitboard
         - id: SpaceHeaterMachineCircuitBoard
         - id: StationMapCircuitboard
+        - id: JukeboxCircuitBoard
+        - id: CutterMachineCircuitboard
         #Cameras
         - !type:GroupSelector
           children:
@@ -62,6 +64,8 @@
           - id: BoozeDispenserMachineCircuitboard
           - id: SodaDispenserMachineCircuitboard
           - id: ElectricGrillMachineCircuitboard
+          - id: BiogeneratorMachineCircuitboard
+          - id: FreezerElectronics
         #Power
         - !type:GroupSelector
           children:
@@ -104,12 +108,23 @@
         - id: Igniter
         - id: StationBeaconPart
         - id: HandheldStationMap
+        - id: Wristwatch
+        - id: AACTablet
+        - id: TapeRecorder
+        - id: CassetteTape
         #Flatpacks
         - !type:GroupSelector
           children:
           - id: RadiationCollectorFlatpack
           - id: ContainmentFieldGeneratorFlatpack
           - id: SolarAssemblyFlatpack
+          - id: GyroscopeFlatpack
+          - id: ThrusterFlatpack
+          - id: SpaceHeaterFlatpack
+          - id: FaxMachineFlatpack
+          - id: StationBeaconPart
+          - id: ChemMasterFlatpack
+          - id: OperatingTableFlatpack
         #Trigger
         - !type:GroupSelector
           children:
@@ -135,6 +150,13 @@
         - id: TelecomServerCircuitboard
         - id: TurboItemRechargerCircuitboard
         - id: PowerCageRechargerCircuitboard
+        - id: HolopadMachineCircuitboard
+        - id: CircuitImprinterHyperConvectionMachineCircuitboard
+        - id: SMESAdvancedMachineCircuitboard
+        - id: ThrusterMachineCircuitboard
+        - id: GyroscopeMachineCircuitboard
+        - id: SyndicateMicrowaveMachineCircuitboard
+        - id: ReagentGrinderIndustrialMachineCircuitboard
         #Medical
         - !type:GroupSelector
           children:
@@ -145,6 +167,7 @@
           - id: CloningConsoleComputerCircuitboard
           - id: BodyScannerComputerCircuitboard
           - id: BiomassReclaimerMachineCircuitboard
+          - id: MedicalBiofabMachineBoard
         #Chem/Science
         - !type:GroupSelector
           children:
@@ -155,6 +178,8 @@
           - id: BiofabricatorMachineCircuitboard
           - id: AnomalyVesselExperimentalCircuitboard
           - id: ReverseEngineeringMachineCircuitboard
+          - id: AnomalySynchronizerCircuitboard
+          - id: APECircuitboard
         #Logi
         - !type:GroupSelector
           children:
@@ -176,6 +201,10 @@
           - id: SheetifierMachineCircuitboard
           - id: HellfireHeaterMachineCircuitBoard
           - id: HellfireFreezerMachineCircuitBoard
+        #Service
+        - !type:GroupSelector
+          children:
+          - id: AdvancedMicrowaveMachineCircuitBoard
       #Electronics
       - !type:GroupSelector
         children:
@@ -201,6 +230,8 @@
         - id: DeviceQuantumSpinInverter
           amount: !type:RangeNumberSelector
             range: 1, 2
+        - id: TapeRecorderFilled
+        - id: CassetteTapeInterview
         #Projectors
         - !type:GroupSelector
           children:
@@ -214,3 +245,9 @@
           - id: CrewManifestCartridge
           - id: GlimmerMonitorCartridge
           - id: LogProbeCartridge
+          - id: NotekeeperCartridge
+          - id: NanoTaskCartridge
+          - id: NewsReaderCartridge
+          - id: MedTekCartridge
+          - id: AstroNavCartridge
+          - id: NanoChatCartridge

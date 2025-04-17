@@ -64,7 +64,7 @@
   - type: ConditionalSpawner
     prototypes:
     - MobCarpLegal
-    
+
 - type: entity
   name: Silvia Spawner
   id: SpawnMobCMOPetSilvia
@@ -77,4 +77,18 @@
         sprite: _DV/Mobs/Pets/silvia.rsi
   - type: ConditionalSpawner
     prototypes:
-      - MobCobraSilvia      
+      - MobCobraSilvia
+
+- type: entity
+  name: Poppy Spawner
+  id: SpawnMobEngiPossumPoppy
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: poppy
+        sprite: Mobs/Animals/possum.rsi
+  - type: ConditionalSpawner
+    prototypes:
+      - MobPossumPoppy

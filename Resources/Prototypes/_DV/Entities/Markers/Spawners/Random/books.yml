@@ -1,0 +1,98 @@
+- type: entity
+  parent: MarkerBase
+  id: RandomBook
+  name: random book spawner
+  placement:
+    mode: PlaceFree # want to be able to free place books for stacks, etc.
+  components:
+  - type: Transform
+    anchored: false
+  - type: Sprite
+    layers:
+      - sprite: Objects/Misc/books.rsi
+        state: cover_base
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomBookTable
+      prob: 0.90
+
+#Tables
+- type: entityTable
+  id: RandomBookTable
+  table: !type:GroupSelector
+    children:
+    #Author Books
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - id: BookNarsieLegend
+      - id: BookTruth
+      - id: BookWorld
+      - id: BookIanAntarctica
+      - id: BookSlothClownSSS
+      - id: BookSlothClownPranks
+      - id: BookSlothClownMMD
+      - id: BookStruck
+      - id: BookSun
+      - id: BookPossum
+      - id: BookCafe
+      - id: BookFeather
+      - id: BookIanLostWolfPup
+      - id: BookIanRanch
+      - id: BookIanOcean
+      - id: BookIanMountain
+      - id: BookIanCity
+      - id: BookIanArctic
+      - id: BookIanDesert
+      - id: BookNames
+      - id: BookEarth
+      - id: BookTemple
+      - id: BookAurora
+      - id: BookWatched
+      - id: BookMedicalOfficer
+      - id: BookMorgue
+      - id: BookRufus
+      - id: BookMap
+      - id: BookJourney
+      - id: BookInspiration
+      - id: BookJanitorTale
+    #Guidebooks
+    - !type:GroupSelector
+      children:
+      - id: BookSpaceEncyclopedia
+      - id: BookTheBookOfControl
+      - id: BookBartendersManual
+      - id: BookHowToCookForFortySpaceman
+      - id: BookLeafLoversSecret
+      - id: BookEngineersHandbook
+      - id: BookScientistsGuidebook
+      - id: BookSecurity
+#      - id: BookSpaceLaw # Remove comment when DV version of book is added.
+      - id: BookHowToKeepStationClean
+      - id: BookHowToRockAndStone
+      - id: BookMedicalReferenceBook
+      - id: BookHowToSurvive
+      - id: BookChemicalCompendium
+      - id: BookAtmosDistro
+      - id: BookAtmosWaste
+      - id: BookAtmosAirAlarms
+      - id: BookAtmosVentsMore
+      - id: BookLogistics
+    #Other Books
+    - !type:GroupSelector
+      children:
+      - id: BookRandom # The empty random book because why not
+      - id: BookRandomStory
+    #Rare Books
+    - !type:GroupSelector
+      weight: 0.25
+      children:
+#      - id: BookChemistryInsane
+#      - id: BookBotanicalTextbook
+#      - id: BookGnominomicon
+#      - id: BookFishing
+      - id: BookFishops
+#      - id: BookDetective
+#      - id: BookSalvageEpistemics1 # Nyanotrasen - Epistemic Lore Book
+      - id: BookVulpFAQ
+      - id: BookGorlexGirlfriends
