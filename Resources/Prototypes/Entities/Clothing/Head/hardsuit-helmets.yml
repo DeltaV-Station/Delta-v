@@ -16,6 +16,11 @@
     sprite: Clothing/Head/Hardsuits/basic.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/basic.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: HideLayerClothing
     slots:
     - Hair
@@ -97,6 +102,15 @@
     sprite: Clothing/Head/Hardsuits/engineering.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/engineering.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#ffdbad"
   - type: PressureProtection
@@ -167,6 +181,15 @@
     sprite: Clothing/Head/Hardsuits/salvage.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/salvage.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
@@ -249,6 +272,15 @@
     sprite: Clothing/Head/Hardsuits/security.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/security.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -299,6 +331,15 @@
     sprite: Clothing/Head/Hardsuits/security-warden.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/security-warden.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -323,6 +364,15 @@
     sprite: Clothing/Head/Hardsuits/capspace.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/capspace.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -338,6 +388,15 @@
     sprite: Clothing/Head/Hardsuits/engineering-white.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/engineering-white.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#daffad"
   - type: PressureProtection
@@ -357,6 +416,15 @@
     sprite: Clothing/Head/Hardsuits/medical.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/medical.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#adf1ff"
   - type: PressureProtection
@@ -374,6 +442,15 @@
     sprite: Clothing/Head/Hardsuits/rd.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/rd.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#d6adff"
   - type: PressureProtection
@@ -391,6 +468,15 @@
     sprite: Clothing/Head/Hardsuits/security-red.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/security-red.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -416,6 +502,15 @@
     sprite: Clothing/Head/Hardsuits/luxury.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/luxury.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
@@ -435,6 +530,15 @@
     sprite: Clothing/Head/Hardsuits/syndicate.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/syndicate.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -483,6 +587,15 @@
     sprite: Clothing/Head/Hardsuits/syndieelite.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/syndieelite.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: red
   - type: PressureProtection
@@ -512,6 +625,15 @@
     sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -560,6 +682,15 @@
     sprite: Clothing/Head/Hardsuits/wizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/wizard.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#ffadfb"
   - type: PressureProtection
@@ -632,6 +763,15 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#addbff"
   - type: Armor
@@ -678,6 +818,15 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#f4ffad"
   - type: Armor
@@ -701,6 +850,15 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#adffec"
 
@@ -715,6 +873,15 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#ffadc6"
   - type: Armor
@@ -736,6 +903,15 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head-feroxi:
+      - state: on-equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PointLight
     color: "#cbadff"
 
@@ -790,6 +966,11 @@
     sprite: Clothing/Head/Hardsuits/deathsquad.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/deathsquad.rsi
+    # Begin DeltaV species helmets
+    clothingVisuals:
+      head-feroxi:
+      - state: equipped-HELMET-vulpkanin
+    # End DeltaV species helmets
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
