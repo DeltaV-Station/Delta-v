@@ -22,6 +22,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
@@ -59,6 +61,7 @@
     - ElectronicsStatic
     - LightsStatic
     - MaterialsStatic
+    - ReportingStatic
     dynamicPacks:
     - AdvancedTools
     - PowerCells
@@ -96,6 +99,7 @@
     - PartsStatic
     - LVCablesStatic
     - CargoStatic
+    - ReportingStatic
     dynamicPacks:
     - Equipment
     - Mining
@@ -130,6 +134,7 @@
     - LVCablesStatic
     - LightsStatic
     - ServiceStatic
+    - PartsStaticDeltaV # Add Beaker and Hand Labeler to the service techfab
     dynamicPacks:
     - Janitor
     - Instruments
@@ -166,6 +171,7 @@
     - BasicChemistryStatic
     - ChemistryStatic
     - PowerCellsStatic
+    - ReportingStatic
     dynamicPacks:
     - ScienceEquipment
     - ScienceClothing

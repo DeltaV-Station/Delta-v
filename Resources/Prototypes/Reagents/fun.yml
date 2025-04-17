@@ -162,9 +162,17 @@
   color: "#FDD023"
   metabolisms:
     Poison:
+      metabolismRate: 3.00 # DeltaV - licoxide is cheaper now, so adjust it accordingly
       effects:
+      - !type:Emote # DeltaV - licoxide makes you scream now
+        emote: Scream
+        probability: 0.3
+      - !type:HealthChange # DeltaV - licoxide has consequences now
+        damage:
+          types:
+            Shock: 4
       - !type:Electrocute
-        probability: 0.35
+        probability: 0.15 # DeltaV - was 0.35, this should not be guaranteed for a cheaper chem
 
 - type: reagent
   id: Razorium

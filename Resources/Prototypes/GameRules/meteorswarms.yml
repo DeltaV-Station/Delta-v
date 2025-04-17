@@ -87,6 +87,12 @@
   - type: NextEvent # DeltaV: Queue Event
   - type: GameRule
   - type: RampingStationEventScheduler
+    timeKeyPoints: # DeltaV
+    - 14, 16
+    - 32, 8
+    - 32, 6
+    - 8, 4
+    - 32, 12
     scheduledGameRules: !type:NestedSelector
       tableId: BasicMeteorSwarmEventsTable
 

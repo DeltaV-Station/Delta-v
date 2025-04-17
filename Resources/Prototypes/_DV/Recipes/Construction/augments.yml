@@ -1,0 +1,90 @@
+- type: construction
+  name: augment power cell slot
+  description: Can be implanted into a body to provide power to other implants.
+  id: AugmentPowerCellSlot
+  graph: CreatePowerCellAugment
+  startNode: start
+  targetNode: augment
+  category: construction-category-utilities
+  canBuildInImpassable: false
+  icon:
+    sprite: _DV/Objects/Augments/power.rsi
+    state: cell
+
+- type: construction
+  name: augment apc recharger
+  description: Allows the implantee to recharge their power cell via APCs.
+  id: AugmentRechargerAPC
+  graph: CreatePowerCellChargerAugment
+  startNode: start
+  targetNode: apc
+  category: construction-category-utilities
+  canBuildInImpassable: false
+  icon:
+    sprite: _DV/Objects/Augments/power.rsi
+    state: apc
+
+- type: construction
+  name: augment station recharger
+  description: Allows the implantee to recharge their power cell via cyborg recharging stations.
+  id: AugmentRechargerStation
+  graph: CreatePowerCellChargerAugment
+  startNode: start
+  targetNode: station
+  category: construction-category-utilities
+  canBuildInImpassable: false
+  icon:
+    sprite: _DV/Objects/Augments/power.rsi
+    state: station
+
+- type: construction
+  name: tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold tools.
+  id: AugmentToolsPanel
+  graph: CreateToolsPanel
+  startNode: start
+  targetNode: "utility tools panel"
+  category: construction-category-utilities
+  canBuildInImpassable: false
+  icon:
+    sprite: _DV/Objects/Augments/arm.rsi
+    state: engineering
+
+- type: construction
+  name: botanical tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold botanical tools.
+  id: AugmentBotanyPanel
+  graph: CreateToolsPanel
+  startNode: start
+  targetNode: "botany tools panel"
+  category: construction-category-utilities
+  canBuildInImpassable: false
+  icon:
+    sprite: _DV/Objects/Augments/arm.rsi
+    state: botany
+
+- type: construction
+  name: paperwork tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold paperwork tools.
+  id: AugmentPaperworkPanel
+  graph: CreateToolsPanel
+  startNode: start
+  targetNode: "paperwork tools panel"
+  category: construction-category-utilities
+  canBuildInImpassable: false
+  icon:
+    sprite: _DV/Objects/Augments/arm.rsi
+    state: paperwork
+
+- type: construction
+  name: surgical tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold surgical tools.
+  id: AugmentSurgicalPanel
+  graph: CreateToolsPanel
+  startNode: start
+  targetNode: "surgery tools panel"
+  category: construction-category-utilities
+  canBuildInImpassable: false
+  icon:
+    sprite: _DV/Objects/Augments/arm.rsi
+    state: surgical

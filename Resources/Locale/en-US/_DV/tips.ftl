@@ -1,4 +1,3 @@
-tips-dataset-138 = Psionic insulation prevents you from using or being targeted by psionic abilities. Look for insulative headgear or cryptobiolin pills.
 tips-dataset-139 = Lotophagoi oil from the oracle will drug you up for a long time, but is one of the most reliable sources of psionics.
 tips-dataset-140 = Turn off glimmer probers when glimmer approaches cautious levels.
 tips-dataset-141 = Glimmer probers power themselves when glimmer gets too high.
@@ -11,3 +10,4 @@ tips-dataset-147 = Glimmer wisps will only attack you if they detect you are psi
 tips-dataset-148 = Bibles, holy water, and the anti-psychic knife can deal holy damage, which has strong effects against some creatures."
 tips-dataset-149 = Ectoplasm is used in the recipe for normality crystals.
 tips-dataset-150 = As a Security Officer, if you're not sure how to determine the severity of a crime or the appropriate punishment, take a look at the Crime Assist application in your PDA!
+tips-dataset-151 = Psionic insulation prevents you from using or being targeted by psionic abilities. Look for insulative headgear or cryptobiolin pills.

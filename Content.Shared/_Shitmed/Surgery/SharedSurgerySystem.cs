@@ -43,7 +43,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] protected readonly MobStateSystem _mobState = default!; // DeltaV - made protected
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly RotateToFaceSystem _rotateToFace = default!;
@@ -79,6 +79,8 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         SubscribeLocalEvent<SurgeryOrganConditionComponent, SurgeryValidEvent>(OnOrganConditionValid);
         SubscribeLocalEvent<SurgeryWoundedConditionComponent, SurgeryValidEvent>(OnWoundedValid);
         SubscribeLocalEvent<SurgeryPartRemovedConditionComponent, SurgeryValidEvent>(OnPartRemovedConditionValid);
+        SubscribeLocalEvent<SurgeryBodyConditionComponent, SurgeryValidEvent>(OnBodyConditionValid);
+        SubscribeLocalEvent<SurgeryOrganSlotConditionComponent, SurgeryValidEvent>(OnOrganSlotConditionValid);
         SubscribeLocalEvent<SurgeryPartPresentConditionComponent, SurgeryValidEvent>(OnPartPresentConditionValid);
         SubscribeLocalEvent<SurgeryMarkingConditionComponent, SurgeryValidEvent>(OnMarkingPresentValid);
         SubscribeLocalEvent<SurgeryBodyComponentConditionComponent, SurgeryValidEvent>(OnBodyComponentConditionValid);
@@ -276,6 +278,17 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             else if (!ent.Comp.Inverse)
                 args.Cancelled = true;
         }
+    }
+
+    private void OnBodyConditionValid(Entity<SurgeryBodyConditionComponent> ent, ref SurgeryValidEvent args)
+    {
+        if (TryComp<BodyComponent>(args.Body, out var body) && body.Prototype is {} bodyId)
+            args.Cancelled |= ent.Comp.Accepted.Contains(bodyId) ^ !ent.Comp.Inverse;
+    }
+
+    private void OnOrganSlotConditionValid(Entity<SurgeryOrganSlotConditionComponent> ent, ref SurgeryValidEvent args)
+    {
+        args.Cancelled |= _body.CanInsertOrgan(args.Part, ent.Comp.OrganSlot) ^ !ent.Comp.Inverse;
     }
 
     private void OnPartRemovedConditionValid(Entity<SurgeryPartRemovedConditionComponent> ent, ref SurgeryValidEvent args)

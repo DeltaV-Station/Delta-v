@@ -302,7 +302,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Bicaridine
+        - ReagentId: SalicylicAcid # Funkychem - bicaridine -> salicylic acid
           Quantity: 20
   - type: StaticPrice
     price: 750
@@ -664,6 +664,9 @@
     - Meat
   - type: Sprite
     state: meatball
+  - type: Construction
+    graph: MeatMeatballCooked
+    node: start
 
 - type: entity
   name: slimeball
@@ -1178,6 +1181,9 @@
     entries:
       Burger: MeatBall
       Taco: MeatBall
+  - type: Construction
+    graph: MeatMeatballCooked
+    node: meatball cooked
 
 - type: entity
   name: boiled snail

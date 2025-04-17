@@ -19,7 +19,7 @@
 
 - type: technology
   id: CritterMechs
-  name: research-technology-critter-mechs
+  name: research-technology-civilian-mechs # DeltaV
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: hamtr
@@ -36,6 +36,17 @@
   - HamtrPeripheralsElectronics
   - MechEquipmentGrabberSmall
   - VimHarness
+  # Begin DeltaV Additions - moved from HONK tech
+  - HonkerHarness
+  - HonkerLArm
+  - HonkerRArm
+  - HonkerLLeg
+  - HonkerRLeg
+  - HonkerCentralElectronics
+  - HonkerPeripheralsElectronics
+  - HonkerTargetingElectronics
+  - MechEquipmentHorn
+  # End DeltaV Additions
 
 - type: technology
   id: AudioVisualCommunication
@@ -124,14 +135,27 @@
   icon:
     sprite: Structures/Machines/stasis_bed.rsi
     state: icon
-  discipline: CivilianServices
-  tier: 2
+  discipline: Biochemical # DeltaV
+  tier: 1 # DeltaV - was 2
   cost: 7500
   recipeUnlocks:
   - StasisBedMachineCircuitboard
   - CryoPodMachineCircuitboard
   - CryostasisBeaker
   - SyringeCryostasis
+
+- type: technology
+  id: MechanizedTreatment
+  name: research-technology-mechanized-treatment
+  icon:
+    sprite: Mobs/Silicon/chassis.rsi
+    state: medical
+  discipline: Biochemical
+  tier: 1 # DeltaV - was 2
+  cost: 5000
+  recipeUnlocks:
+  - BorgModuleAdvancedTreatment
+  #- BorgModuleDefibrillator # DeltaV - made roundstart
 
 - type: technology
   id: AdvancedCleaning
@@ -146,25 +170,27 @@
   - AdvMopItem
   - MegaSprayBottle
 
-- type: technology
-  id: HONKMech
-  name: research-technology-honk-mech
-  icon:
-    sprite: Objects/Specific/Mech/mecha.rsi
-    state: honker
-  discipline: CivilianServices
-  tier: 2
-  cost: 7500
-  recipeUnlocks:
-  - HonkerHarness
-  - HonkerLArm
-  - HonkerRArm
-  - HonkerLLeg
-  - HonkerRLeg
-  - HonkerCentralElectronics
-  - HonkerPeripheralsElectronics
-  - HonkerTargetingElectronics
-  - MechEquipmentHorn
+# Begin DeltaV Removals - waste of points nobody makes, moved into civilian mechs
+#- type: technology
+#  id: HONKMech
+#  name: research-technology-honk-mech
+#  icon:
+#    sprite: Objects/Specific/Mech/mecha.rsi
+#    state: honker
+#  discipline: CivilianServices
+#  tier: 2
+#  cost: 7500
+#  recipeUnlocks:
+#  - HonkerHarness
+#  - HonkerLArm
+#  - HonkerRArm
+#  - HonkerLLeg
+#  - HonkerRLeg
+#  - HonkerCentralElectronics
+#  - HonkerPeripheralsElectronics
+#  - HonkerTargetingElectronics
+#  - MechEquipmentHorn
+# End DeltaV Removals
 
 - type: technology
   id: AdvancedSpray
@@ -211,7 +237,7 @@
   icon:
     sprite: Objects/Specific/Chemistry/beaker_bluespace.rsi
     state: beakerbluespace
-  discipline: CivilianServices
+  discipline: Biochemical # DeltaV
   tier: 3
   cost: 10000
   recipeUnlocks:

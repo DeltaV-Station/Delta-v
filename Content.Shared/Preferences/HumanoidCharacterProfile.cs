@@ -266,7 +266,7 @@ namespace Content.Shared.Preferences
             {
                 sex = random.Pick(speciesPrototype.Sexes);
                 age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
-                height = MathF.Round(random.NextFloat(speciesPrototype.MinHeight, speciesPrototype.MaxHeight), 2); // CD - Character Records
+                // height = MathF.Round(random.NextFloat(speciesPrototype.MinHeight, speciesPrototype.MaxHeight), 2); // CD - Character Records // DeltaV - don't generate random heights
             }
 
             var gender = Gender.Epicene;

@@ -165,7 +165,7 @@
       - id: DrinkMREFlask
       - id: FoodSnackNutribrick
       - id: FoodSnackMREBrownie
-      - id: FoodCondimentPacketKetchup
+      - id: FoodTinMRE # DeltaV - Replaced FoodCondimentPacketKetchup with this (tinned meat)
   - type: Sprite
     layers:
       - state: box_olive
@@ -209,6 +209,7 @@
     contents:
       - id: ClothingShoesBootsPerformer
       - id: ClothingUniformJumpskirtPerformer
+      - id: ClothingHeadPerformerWig
       - id: FoodMealMemoryleek
         amount: 2
 

@@ -59,6 +59,7 @@
   - CDDogtags # taken from Cosmatic Drift
   - TapeRecorder
   - ClothingHeadHatUshanka
+  - Wristwatch
   # End DeltaV Additions
 
 - type: loadoutGroup
@@ -91,6 +92,7 @@
   - EmergencyIPCBox # DeltaV
   - EmergencyWaterVapor # DeltaV
 
+# nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
   id: GroupEVATank
   name: loadout-group-EVA-tank
@@ -99,6 +101,14 @@
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
   - LoadoutSpeciesEVAWaterVapor # DeltaV
+
+# vox get a nitrogen tank, other species get nothing
+- type: loadoutGroup
+  id: GroupEVATankVox
+  name: loadout-group-vox-tank
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
   id: GroupPocketTankDouble
@@ -190,9 +200,9 @@
   # - CommonBackpack
   # - CommonSatchel
   # - CommonDuffel
-  - BackpackHoP 
-  - SatchelHoP 
-  - HopDuffel 
+  - BackpackHoP
+  - SatchelHoP
+  - HopDuffel
   # End of DeltaV changes
   - HoPBackpackIan
 
@@ -478,6 +488,7 @@
   - BotanistJumpsuit
   - BotanistJumpskirt
   - BotanistOveralls
+  - BotanistJumpskirtOveralls # DeltaV
 
 - type: loadoutGroup
   id: BotanistBackpack
@@ -869,7 +880,7 @@
   # Begin DeltaV additions
   - ElectricianPDA
   - MechanicPDA
-  # Begin DeltaV additions
+  # End DeltaV additions
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -878,6 +889,7 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianJumpskirt
   - AtmosphericTechnicianJumpsuitCasual
+  - AtmosphericTechnicianJumpskirtCasual # DeltaV
 
 - type: loadoutGroup
   id: AtmosphericTechnicianOuterClothing
@@ -1079,6 +1091,7 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   - ScarfRed # DeltaV
+  - SecurityPoncho # DeltaV
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -1210,6 +1223,7 @@
   loadouts:
   - DetectiveTie
   - ScarfRed # DeltaV
+  - SecurityPoncho # DeltaV
 
 - type: loadoutGroup
   id: DetectiveJumpsuit

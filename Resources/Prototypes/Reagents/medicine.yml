@@ -23,7 +23,7 @@
         type: Add
       - !type:Drunk
         slurSpeech: false
-        boozePower: 20
+        boozePower: 10 # DeltaV - 20 is ridiculous
 
 - type: reagent
   id: Dylovene
@@ -92,6 +92,12 @@
         key: Jitter
         time: 3.0
         type: Remove
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        time: 1.5
+        type: Add
+        refresh: false
       - !type:HealthChange
         damage:
           types:
@@ -279,6 +285,7 @@
 - type: reagent
   id: DexalinPlus
   name: reagent-name-dexalin-plus
+  abstract: true # Funkychem - no more dex+
   group: Medicine
   desc: reagent-desc-dexalin-plus
   physicalDesc: reagent-physical-desc-cloudy

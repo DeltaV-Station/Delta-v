@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 247.2.0
+  engineVersion: 248.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/04/2025 18:40:52
-  entityCount: 7224
+  time: 03/14/2025 12:04:04
+  entityCount: 7225
 maps: []
 grids:
 - 1668
@@ -17124,6 +17124,14 @@ entities:
     - type: Transform
       pos: -16.521366,8.567018
       parent: 1668
+- proto: CentcommComputerComms
+  entities:
+  - uid: 652
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-1.5
+      parent: 1668
 - proto: CentcomPDA
   entities:
   - uid: 6617
@@ -19001,12 +19009,6 @@ entities:
         - MedicalScannerSender: MedicalScannerReceiver
 - proto: ComputerComms
   entities:
-  - uid: 652
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,-1.5
-      parent: 1668
   - uid: 3447
     components:
     - type: Transform
@@ -27952,6 +27954,15 @@ entities:
     - type: Transform
       pos: -15.5,-32.5
       parent: 1668
+- proto: HolopadBluespace
+  entities:
+  - uid: 1406
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1668
+    - type: Label
+      currentLabel: CentComm
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 3422

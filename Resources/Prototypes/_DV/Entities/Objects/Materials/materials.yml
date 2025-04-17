@@ -1,0 +1,37 @@
+- type: entity
+  parent: MaterialBase
+  id: MaterialChitinSharkminnow
+  name: sharkminnow chitin
+  description: Thick, tough, and strangely lightweight. Might make good armor.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Materials/Mob/sharkchitin.rsi
+    layers:
+    - state: chitin
+      map: [ "base" ]
+  - type: Item
+    sprite: _DV/Objects/Materials/Mob/sharkchitin.rsi
+    size: Normal
+  - type: Appearance
+  - type: Stack
+    stackType: SharkminnowChitin
+    count: 30
+    baseLayer: base
+    layerStates:
+    - chitin
+    - chitin_2
+    - chitin_3
+  - type: StackPrice
+    price: 125
+  - type: Tag
+    tags:
+    - ChitinSharkminnow
+
+- type: entity
+  parent: MaterialChitinSharkminnow
+  id: MaterialChitinSharkminnow1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1

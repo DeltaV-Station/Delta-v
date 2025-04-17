@@ -1,3 +1,4 @@
+using Content.Shared._DV.MedicalRecords; // DeltaV - Medical Records
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Robust.Shared.Serialization;
 
@@ -17,8 +18,9 @@ public sealed class HealthAnalyzerScannedUserMessage : BoundUserInterfaceMessage
     public bool? Unrevivable;
     public Dictionary<TargetBodyPart, TargetIntegrity>? Body; // Shitmed Change
     public NetEntity? Part; // Shitmed Change
+    public MedicalRecord? MedicalRecord; // DeltaV - Medical Records
 
-    public HealthAnalyzerScannedUserMessage(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, Dictionary<TargetBodyPart, TargetIntegrity>? body, NetEntity? part = null) // Shitmed Change
+    public HealthAnalyzerScannedUserMessage(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, Dictionary<TargetBodyPart, TargetIntegrity>? body, MedicalRecord? medicalRecord = null, NetEntity? part = null) // Shitmed Change // DeltaV - Medical Records
     {
         TargetEntity = targetEntity;
         Temperature = temperature;
@@ -28,6 +30,7 @@ public sealed class HealthAnalyzerScannedUserMessage : BoundUserInterfaceMessage
         Unrevivable = unrevivable;
         Body = body; // Shitmed Change
         Part = part; // Shitmed Change
+        MedicalRecord = medicalRecord; // DeltaV - Medical Records
     }
 }
 

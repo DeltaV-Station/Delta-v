@@ -105,3 +105,20 @@
     contents:
     - id: Stunbaton
     - id: WeaponDisabler
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxSyndicateFirebugsFestival
+  name: firebug's festival box
+  description: A box containing bottles of Firebug's Favorite. The front of it shows a chitinid operative in a thermal suit giving a thumbs up
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: writing_of_doom
+  - type: StorageFill
+    contents:
+    - id: ChemistryBottleFirebugsFriend
+      amount: 8
+    - id: SyndicateFlippo
+      amount: 1
