@@ -1,4 +1,4 @@
-﻿using Content.Server._DV.Objectives.Components;
+using Content.Server._DV.Objectives.Components;
 using Content.Shared._DV.FeedbackOverwatch;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;

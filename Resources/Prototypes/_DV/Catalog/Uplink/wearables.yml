@@ -1,0 +1,54 @@
+- type: listing
+  id: UplinkHardsuitNullifierHelmet
+  name: uplink-hardsuit-nullifier-helmet-name
+  description: uplink-hardsuit-nullifier-helmet-desc
+  icon: { sprite: _DV/Clothing/Head/Helmets/psionicnullifier.rsi, state: icon }
+  productEntity: ClothingHeadHelmetSyndicateNullifier
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkHardsuitCommanderSyndie
+  name: uplink-hardsuit-commander-syndie-name
+  description: uplink-hardsuit-commander-syndie-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi, state: icon }
+  productEntity: ClothingOuterHardsuitSyndieCommander
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - CommanderUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkHardsuitAgentSyndie
+  name: uplink-hardsuit-agent-syndie-name
+  description: uplink-hardsuit-agent-syndie-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiemedic.rsi, state: icon }
+  productEntity: ClothingOuterHardsuitSyndieMedic
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - AgentUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

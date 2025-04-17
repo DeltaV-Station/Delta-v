@@ -40,7 +40,7 @@
 
 - type: latheRecipePack
   parent:
-  - BorgModulesDeltaV # DeltaV
+  #- BorgModulesDeltaV # DeltaV
   - BorgModulesShitmed # Shitmed change
   id: BorgModules
   recipes:
@@ -51,7 +51,7 @@
   - BorgModuleAnomaly
   - BorgModuleGardening
   - BorgModuleHarvesting
-  - BorgModuleDefibrillator
+  #- BorgModuleDefibrillator # DeltaV - made a default module
   - BorgModuleAdvancedTreatment
 
 - type: latheRecipePack

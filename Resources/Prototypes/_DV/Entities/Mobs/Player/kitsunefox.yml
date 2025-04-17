@@ -1,0 +1,58 @@
+- type: entity
+  name: Kitsune
+  parent: [SimpleMobBase, StripableInventoryBase, BaseMobKitsune]
+  id: MobKitsuneFox
+  description: A Kitsune's fox from
+  components:
+  - type: KitsuneFox
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 6
+  - type: Sprite
+    sprite: _DV/Mobs/Customization/kitsune/foxform.rsi
+    layers:
+    - state: kitsune_fox_body
+      map: ["enum.KitsuneColorVisuals.Layer"]
+    - state: kitsune_fox_innerear
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Damageable
+    damageContainer: BiologicalMetaphysical
+    damageModifierSet: KitsuneFox
+  - type: Inventory
+    speciesId: fox
+    templateId: pet
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: fox
+      Critical:
+        Base: fox_dead
+      Dead:
+        Base: fox_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: Bloodstream
+    bloodMaxVolume: 100
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Heat: 8
+  - type: Tag
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: MindContainer
+    showExamineInfo: true

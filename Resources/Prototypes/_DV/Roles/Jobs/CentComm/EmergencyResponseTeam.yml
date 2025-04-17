@@ -1,0 +1,342 @@
+# Leader
+- type: startingGear
+  id: ERTLeaderGearAmber
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTLeader
+    back: ClothingBackpackERTLeader
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetERTLeader
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTLeaderPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: WeaponEnergyGun
+    pocket1: CrowbarRed
+    pocket2: FlashlightSeclite
+  storage:
+    back:
+    - PinpointerNuclear
+    - Zipties
+    - Zipties
+
+- type: startingGear
+  parent: ERTLeaderGearAmber
+  id: ERTLeaderGearRed
+  equipment:
+    shoes: ClothingShoesBootsMag
+    mask: ClothingMaskGasERT
+    outerClothing: ClothingOuterHardsuitERTLeaderBase
+    belt: ClothingBeltSecurityFilled
+    pocket1: WeaponEnergyGunPistol
+  storage:
+    back:
+    - CrowbarRed
+    - DoorRemoteOmni
+    - PinpointerNuclear
+    - MagazineUniversalMagnum
+    - MagazineUniversalMagnum
+    - WeaponPistolUniversal
+    belt:
+    - Zipties
+    - Zipties
+
+- type: startingGear
+  parent: ERTLeaderGearRed
+  id: ERTLeaderGearGamma
+  equipment:
+    shoes: ClothingShoesBootsMagAdv
+    outerClothing: ClothingOuterHardsuitERTLeaderElite
+    pocket2: WeaponPistolUniversal
+  inhand:
+  - WeaponRifleLaserERT
+  storage:
+    back:
+    - MagazineLaser
+    - MagazineLaser
+    - MagazineLaser
+    - MagazineUniversalMagnum
+    - MagazineUniversalMagnum
+    - CrowbarRed
+    - PinpointerNuclear
+    - DoorRemoteOmni
+    - FlashlightSeclite
+
+# Chaplain
+
+- type: startingGear
+  id: ERTChaplainGearAmber
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTChaplain
+    back: ClothingBackpackERTChaplain
+    shoes: ClothingShoesLeather
+    head: ClothingHeadHatFez
+    eyes: ClothingEyesGlassesSecurity
+    neck: ClothingNeckStoleChaplain
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTChaplainPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: FlashlightSeclite
+    pocket2: DrinkWaterBottleFull
+  storage:
+    back:
+    - BoxBodyBag
+    - Lantern
+    - Bible
+    - CrowbarRed
+    - WeaponDisabler
+    belt:
+    - Zipties
+    - Zipties
+
+- type: startingGear
+  parent: ERTChaplainGearAmber
+  id: ERTChaplainGearRed
+  equipment:
+    shoes: ClothingShoesBootsMag
+    mask: ClothingMaskGasERT
+    outerClothing: ClothingOuterHardsuitERTChaplainBase
+  inhand:
+  - WeaponEnergyGun
+
+- type: startingGear
+  parent: ERTChaplainGearAmber # Doesn't inherit from Red due to energy gun.
+  id: ERTChaplainGearGamma
+  equipment:
+    shoes: ClothingShoesBootsMagAdv
+    mask: ClothingMaskGasERT
+    outerClothing: ClothingOuterHardsuitERTChaplainElite
+  inhand:
+  - WeaponEnergyGunAdvanced
+
+# Engineer
+
+- type: startingGear
+  id: ERTEngineerGearAmber
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTEngineer
+    back: ClothingBackpackERTEngineer
+    shoes: ClothingShoesBootsMag
+    eyes: ClothingEyesGlassesMeson
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTEngineerBase
+    id: ERTEngineerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltChiefEngineerFilled
+    pocket1: WeaponEnergyGunMini
+    pocket2: FlashlightSeclite
+  storage:
+    back:
+    - CableMVStack
+    - CableHVStack
+    - CableApcStack
+    - SheetPlasteel
+    - SheetSteel
+    belt:
+    - RCDRecharging
+
+- type: startingGear
+  parent: ERTEngineerGearAmber
+  id: ERTEngineerGearRed
+  equipment:
+    shoes: ClothingShoesBootsMagAdv
+    mask: ClothingMaskGasERT
+  storage:
+    back:
+    - CableMVStack
+    - CableHVStack
+    - CableApcStack
+    - Flare # Without this flare the survival box gets dropped onto the ground. I love startingGear.
+    - SheetPlasteel
+    - SheetSteel
+    - WeaponEnergyGun
+
+- type: startingGear
+  parent: ERTEngineerGearRed
+  id: ERTEngineerGearGamma
+  equipment:
+    outerClothing: ClothingOuterHardsuitERTEngineerElite
+    pocket1: WeaponEnergyGunPistol
+  storage:
+    back:
+    - CableMVStack
+    - CableHVStack
+    - CableApcStack
+    - SheetPlasteel
+    - SheetSteel
+    belt:
+    - RCDCombat
+
+# Security
+
+- type: startingGear
+  id: ERTSecurityGearAmber
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurity
+    back: ClothingBackpackERTSecurity
+    shoes: ClothingShoesBootsJackFilled
+    head: ClothingHeadHelmetERTSecurity
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: WeaponDisabler
+    pocket2: FlashlightSeclite
+  storage:
+    back:
+    - CrowbarRed
+    - BoxFlashbang
+    - WeaponLaserCarbine
+    belt:
+    - Zipties
+    - Zipties
+
+- type: startingGear
+  parent: ERTSecurityGearAmber
+  id: ERTSecurityGearRed
+  equipment:
+    shoes: ClothingShoesBootsSecurityMagboots
+    mask: ClothingMaskGasERT
+    outerClothing: ClothingOuterHardsuitERTSecurityBase
+    pocket1: WeaponEnergyGunPistol
+  storage:
+    back:
+    - CrowbarRed
+    - MagazineLaser
+    - MagazineLaser
+    - WeaponRifleLaserERT
+
+- type: startingGear
+  parent: ERTSecurityGearRed
+  id: ERTSecurityGearGamma
+  equipment:
+    shoes: ClothingShoesBootsMagAdv
+    outerClothing: ClothingOuterHardsuitERTSecurityElite
+    pocket1: CrowbarRed
+  inhand:
+  - WeaponImmolatorMulti
+  storage:
+    back:
+    - WeaponEnergyGunAdvanced
+    - FireExtinguisherMini
+    - BoxC4
+
+# Medical
+
+- type: startingGear
+  id: ERTMedicalGearAmber
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTMedic
+    back: ClothingBackpackERTMedical
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetERTMedic
+    eyes: ClothingEyesHudMedical
+    gloves: ClothingHandsGlovesNitrile
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTMedicPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltMedicalFilled
+    pocket1: Hypospray
+    pocket2: FlashlightSeclite
+  storage:
+    back:
+    - WeaponEnergyGunMini
+    - MedkitCombatFilled
+    - CrowbarRed
+    - ChemistryBottleEpinephrine
+    belt:
+    - Portafib
+    - ChemistryBottleEpinephrine
+
+- type: startingGear
+  parent: ERTMedicalGearAmber
+  id: ERTMedicalGearRed
+  equipment:
+    shoes: ClothingShoesBootsMag
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesCorpsman
+    outerClothing: ClothingOuterHardsuitERTMedicalBase
+  inhand:
+  - WeaponEnergyGun
+  storage:
+    back:
+    - MedkitCombatFilled
+    - BoxBottleMedicineBasic
+    - CrowbarRed
+    - ChemistryBottleEpinephrine
+    - RollerBedHoloSpawnFolded
+    belt:
+    - DefibrillatorCompact
+    - ChemistryBottleEpinephrine
+
+- type: startingGear
+  parent: ERTMedicalGearRed
+  id: ERTMedicalGearGamma
+  equipment:
+    shoes: ClothingShoesBootsMagAdv
+    outerClothing: ClothingOuterHardsuitERTMedicalElite
+  inhand:
+  - WeaponEnergyGunPistol
+  storage:
+    back:
+    - MedkitCombatFilled
+    - BoxBottleMedicineBasic
+    - BoxBottleMedicineAdvanced
+    - CrowbarRed
+    - ChemistryBottleEpinephrine
+    - ChemistryBottleEpinephrine
+    - RollerBedHoloSpawnFolded
+    - FireExtinguisherMini
+
+# Janitor
+
+- type: startingGear
+  id: ERTJanitorGearAmber
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTJanitor
+    back: ClothingBackpackERTJanitor
+    shoes: ClothingShoesGaloshes
+    head: ClothingHeadHelmetERTJanitor
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTJanitorPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltJanitorFilled
+    pocket1: WeaponDisabler
+    pocket2: FlashlightSeclite
+  storage:
+    back:
+    - CrowbarRed
+    - BoxCleanerGrenades
+    - AdvMopItem
+    belt:
+    - TrashBag
+
+- type: startingGear
+  parent: ERTJanitorGearAmber
+  id: ERTJanitorGearRed
+  equipment:
+    shoes: ClothingShoesBootsMag
+    mask: ClothingMaskGasERT
+    outerClothing: ClothingOuterHardsuitERTJanitorBase
+    pocket1: WeaponEnergyGunMini
+
+- type: startingGear
+  parent: ERTJanitorGearRed
+  id: ERTJanitorGearGamma
+  equipment:
+    shoes: ClothingShoesBootsMagAdv
+    outerClothing: ClothingOuterHardsuitERTJanitorElite
+  inhand:
+  - AdvMopItem
+  - BagOfSummoningGarbage
+  storage:
+    back:
+    - CrowbarRed
+    - BoxCleanerGrenades
+    - WeaponEnergyGun

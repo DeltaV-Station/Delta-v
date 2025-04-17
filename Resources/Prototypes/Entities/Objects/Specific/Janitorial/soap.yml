@@ -138,6 +138,8 @@
       - punishment
   - type: CleansForensics
     cleanDelay: 8.0
+  - type: SurgeryCleansDirt # DeltaV - evil soap is fast
+    cleanDelay: 2
   - type: Residue
     residueAdjective: residue-slippery
     residueColor: residue-red
@@ -230,6 +232,8 @@
         reagents:
         - ReagentId: SoapReagent
           Quantity: 240
+  - type: SurgeryCleansDirt # DeltaV - omega soap is fast
+    cleanDelay: 2
   - type: Residue
     residueAdjective: residue-slippery
     residueColor: residue-blue

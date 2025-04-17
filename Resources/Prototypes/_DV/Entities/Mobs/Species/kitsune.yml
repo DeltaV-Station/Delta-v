@@ -1,0 +1,63 @@
+- type: entity
+  save: false
+  id: BaseMobKitsune
+  name: Urist McKitsune
+  abstract: true
+  components:
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Body
+    prototype: Kitsune
+  - type: Damageable
+    damageContainer: BiologicalMetaphysical
+    damageModifierSet: Kitsune
+  - type: Speech
+    speechSounds: Alto
+    allowedEmotes: ['Growl', 'Squeak']
+  - type: Vocal
+    sounds:
+      Male: MaleKitsune
+      Female: FemaleKitsune
+      Unsexed: MaleKitsune
+  - type: Carriable
+  - type: TypingIndicator
+    proto: kitsune
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-soft-floofy-kitsune
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/fox_squeak.ogg
+  - type: Kitsune
+  - type: PsionicBonusChance
+    flatBonus: 1
+  - type: LightweightDrunk
+    boozeStrengthMultiplier: 3
+  - type: PseudoItem
+    storedOffset: "0,17"
+    shape:
+      - 0,0,1,4
+      - 0,2,3,4
+      - 4,0,5,4
+
+- type: entity
+  save: false
+  parent: MobHumanDummy
+  id: MobKitsuneDummy
+  categories: [ HideSpawnMenu ]
+  name: Urist McHands
+  description: A dummy kitsune meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Kitsune

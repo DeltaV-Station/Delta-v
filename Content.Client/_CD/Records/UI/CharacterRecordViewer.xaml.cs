@@ -301,10 +301,11 @@ public sealed partial class CharacterRecordViewer : FancyWindow
         RecordContainerStatus.Visible = false;
         RecordContainer.Visible = true;
 
+        // DeltaV - that's not the case
         // Do not needlessly reload the record if not needed. This is mainly done to prevent a bug in the admin record viewer.
-        if (state.SelectedIndex == _openRecordKey)
-            return;
-        _openRecordKey = state.SelectedIndex;
+        // if (state.SelectedIndex == _openRecordKey)
+        //     return;
+        // _openRecordKey = state.SelectedIndex;
 
         var record = state.SelectedRecord!;
         var cr = record.PRecords;

@@ -104,6 +104,16 @@
       collection: Weh
     Hew:
       collection: Hew
+    # Begin DeltaV Additions
+    Cough:
+      collection: MaleCoughs
+    Sneeze:
+      collection: MaleSneezes
+    Sigh:
+      collection: MaleSigh
+    Yawn:
+      collection: MaleYawn
+    # End DeltaV Additions
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -130,6 +140,16 @@
       collection: Weh
     Hew:
       collection: Hew
+    # Begin DeltaV Additions
+    Cough:
+      collection: FemaleCoughs
+    Sneeze:
+      collection: FemaleSneezes
+    Sigh:
+      collection: FemaleSigh
+    Yawn:
+      collection: FemaleYawn 
+    # End DeltaV Additions
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -236,6 +256,12 @@
       collection: Weh
     Hew:
       collection: Hew
+    # Begin DeltaV Additions
+    Gasp: 
+      collection: VoxGasp
+    DefaultDeathgasp:
+      path: /Audio/_DV/Effects/Gasp/vox_deathgasp_1.ogg
+    # End DeltaV Additions
   params:
     variation: 0.125
     # We need vox sounds for the other emotes

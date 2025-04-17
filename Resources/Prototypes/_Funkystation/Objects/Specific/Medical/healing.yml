@@ -1,0 +1,62 @@
+- type: entity
+  suffix: convermol
+  parent: PrefilledSyringe
+  id: SyringeConvermol
+  components:
+  - type: Label
+    currentLabel: convermol
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Convermol
+          Quantity: 15
+
+- type: entity
+  suffix: revivopine
+  parent: PrefilledSyringe
+  id: SyringeRevivopine
+  components:
+  - type: Label
+    currentLabel: revivopine
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Revivopine
+          Quantity: 15
+
+- type: entity
+  name: pill
+  suffix: Granibitulari 20u # Takes like 5 minutes to fully heal at 15, 20 makes sense - Funkychem
+  parent: Pill
+  id: PillGranibitulari
+  components:
+  - type: Pill
+    pillType: 9
+  - type: Sprite
+    state: pill3
+  - type: Label
+    currentLabel: granibitulari 20u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Granibitulari
+          Quantity: 20
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterGranibitulari
+  suffix: Granibitulari 15u
+  components:
+  - type: Label
+    currentLabel: granibitulari 15u
+  - type: StorageFill
+    contents:
+    - id: PillGranibitulari
+      amount: 8

@@ -30,6 +30,8 @@ namespace Content.Client.Access.UI
         // The job that will be picked if the ID doesn't have a job on the station.
         private static ProtoId<JobPrototype> _defaultJob = "Passenger";
 
+        public event Action<ProtoId<AccessLevelPrototype>>? OnToggleAccess; // DeltaV
+
         public IdCardConsoleWindow(IdCardConsoleBoundUserInterface owner, IPrototypeManager prototypeManager,
             List<ProtoId<AccessLevelPrototype>> accessLevels)
         {
@@ -73,7 +75,8 @@ namespace Content.Client.Access.UI
 
             foreach (var (id, button) in _accessButtons.ButtonsList)
             {
-                button.OnPressed += _ => SubmitData();
+                var copied = id; // DeltaV
+                button.OnPressed += _ => OnToggleAccess?.Invoke(id);
             }
         }
 
@@ -198,7 +201,7 @@ namespace Content.Client.Access.UI
                 FullNameLineEdit.Text,
                 JobTitleLineEdit.Text,
                 // Iterate over the buttons dictionary, filter by `Pressed`, only get key from the key/value pair
-                _accessButtons.ButtonsList.Where(x => x.Value.Pressed).Select(x => x.Key).ToList(),
+                [], // DeltaV - don't send list of accesses
                 jobProtoDirty ? _jobPrototypeIds[JobPresetOptionButton.SelectedId] : string.Empty);
         }
     }

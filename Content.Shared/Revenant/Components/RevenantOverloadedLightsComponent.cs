@@ -18,7 +18,7 @@ public sealed partial class RevenantOverloadedLightsComponent : Component
     public float Accumulator = 0;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public float ZapDelay = 3f;
+    public float ZapDelay = 2f; // DeltaV
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float ZapRange = 4f;

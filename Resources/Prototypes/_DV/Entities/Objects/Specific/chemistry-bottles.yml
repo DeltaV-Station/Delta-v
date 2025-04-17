@@ -1,31 +1,151 @@
 - type: entity
-  id: NapalmChemistryBottle
-  name: napalm bottle
-  parent: BaseChemistryEmptyBottle
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleNapalm
+  suffix: napalm
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Napalm
-              Quantity: 30
-    - type: Tag
-      tags:
-        - Bottle
+  - type: Label
+    currentLabel: reagent-name-napalm
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Napalm
+          Quantity: 30
 
 - type: entity
-  id: UltravasculineChemistryBottle
-  name: ultravasculine bottle
-  parent: BaseChemistryEmptyBottle
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleUltravasculine
+  suffix: ultravasculine
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Ultravasculine
-              Quantity: 30
-    - type: Tag
-      tags:
-        - Bottle
+  - type: Label
+    currentLabel: reagent-name-ultravasculine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Ultravasculine
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleChloralHydrate
+  suffix: chloral hydrate
+  components:
+  - type: Label
+    currentLabel: reagent-name-chloral-hydrate
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ChloralHydrate
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleBruizine
+  suffix: bruizine
+  components:
+  - type: Label
+    currentLabel: reagent-name-bruizine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bruizine
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleLacerinol
+  suffix: lacerinol
+  components:
+  - type: Label
+    currentLabel: reagent-name-lacerinol
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Lacerinol
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottlePuncturase
+  suffix: puncturase
+  components:
+  - type: Label
+    currentLabel: reagent-name-puncturase
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Puncturase
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleDermaline
+  suffix: dermaline
+  components:
+  - type: Label
+    currentLabel: reagent-name-dermaline
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Dermaline
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottlePyrazine
+  suffix: pyrazine
+  components:
+  - type: Label
+    currentLabel: reagent-name-pyrazine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Pyrazine
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleDiphenhydramine
+  suffix: diphenhydramine
+  components:
+  - type: Label
+    currentLabel: reagent-name-diphenhydramine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Diphenhydramine
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleFirebugsFriend
+  suffix: firebug's friend
+  components:
+  - type: Label
+    currentLabel: Firebug's Friend
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Tritium
+          Quantity: 28
+        - ReagentId: Phlogiston
+          Quantity: 2

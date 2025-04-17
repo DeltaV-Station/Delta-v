@@ -16,8 +16,8 @@
     - HamsterWearable
     - WhitelistChameleon
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: Mask
     hideOnToggle: true
 
 - type: entity
@@ -137,6 +137,12 @@
     tags:
     - PetWearable
     - WhitelistChameleon
+  - type: PhysicalComposition # DeltaV
+    materialComposition:
+      Steel: 50
+      Plastic: 100
+  - type: StaticPrice # DeltaV
+    price: 30
 
 - type: entity
   parent: ClothingMaskBreathMedical

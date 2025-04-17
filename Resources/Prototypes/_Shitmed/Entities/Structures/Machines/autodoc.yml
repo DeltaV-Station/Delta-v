@@ -67,7 +67,8 @@
     key: enum.AutodocUiKey.Key
   - type: ActivatableUIRequiresPower
   - type: Autodoc
-  - type: Sanitized
+  - type: Sanitized # DeltaV
+  - type: SurgerySelfDirty # DeltaV
   - type: DoAfter # Required for it to do surgery
   - type: TypingIndicator
     proto: robot
@@ -79,7 +80,7 @@
     grid:
     - 0,0,3,3
   - type: SurgerySpeedModifier
-    speedModifier: 0.5 # on par with a surgeon using normal tools
+    speedModifier: 1
   - type: GuideHelp
     guides: [ Autodoc ]
 
@@ -89,6 +90,12 @@
   # TODO: make it valid
   suffix: Syndie
   components:
+  # Begin DeltaV Additions
+  - type: Sprite
+    sprite: _DV/Structures/Machines/syndie_autodoc.rsi
+  - type: Autodoc
+    requireSleeping: false
+  # End DeltaV Additions
   - type: Machine
     board: AutodocSyndieCircuitboard
   - type: SurgerySpeedModifier

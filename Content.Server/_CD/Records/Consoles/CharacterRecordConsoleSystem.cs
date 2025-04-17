@@ -1,7 +1,9 @@
+using Content.Server.CriminalRecords.Systems; // DeltaV - i hate this, forward to criminal records console
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords.Systems;
 using Content.Server.StationRecords;
 using Content.Shared.CriminalRecords;
+using Content.Shared.CriminalRecords.Components; // DeltaV - i hate this, forward to criminal records console
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
 using Content.Shared._CD.Records;
@@ -12,6 +14,7 @@ namespace Content.Server._CD.Records.Consoles;
 public sealed class CharacterRecordConsoleSystem : EntitySystem
 {
     [Dependency] private readonly CharacterRecordsSystem _characterRecords = default!;
+    [Dependency] private readonly CriminalRecordsConsoleSystem _criminalRecordsConsole = default!; // DeltaV - i hate this, forward to criminal records console
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly StationRecordsSystem _records = default!;
     [Dependency] private readonly StationSystem _station = default!;
@@ -30,6 +33,10 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
                 subr.Event<BoundUIOpenedEvent>((uid, component, _) => UpdateUi(uid, component));
                 subr.Event<CharacterRecordConsoleSelectMsg>(OnKeySelect);
                 subr.Event<CharacterRecordsConsoleFilterMsg>(OnFilterApplied);
+                // Begin DeltaV - i hate this, forward to criminal records console
+                subr.Event<SelectStationRecord>(OnSelectStationRecord);
+                subr.Event<CriminalRecordChangeStatus>(OnCriminalRecordChangeStatus);
+                // End DeltaV - i hate this, forward to criminal records console
             });
     }
 
@@ -44,6 +51,26 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
         ent.Comp.SelectedIndex = msg.CharacterRecordKey;
         UpdateUi(ent);
     }
+
+    // Begin DeltaV - i hate this, forward to criminal records console
+    private void OnSelectStationRecord(Entity<CharacterRecordConsoleComponent> ent, ref SelectStationRecord msg)
+    {
+        if (!TryComp<CriminalRecordsConsoleComponent>(ent, out var console))
+            return;
+
+        _criminalRecordsConsole.OnKeySelected((ent.Owner, console), ref msg);
+        UpdateUi(ent);
+    }
+
+    private void OnCriminalRecordChangeStatus(Entity<CharacterRecordConsoleComponent> ent, ref CriminalRecordChangeStatus msg)
+    {
+        if (!TryComp<CriminalRecordsConsoleComponent>(ent, out var console))
+            return;
+
+        _criminalRecordsConsole.OnChangeStatus((ent.Owner, console), ref msg);
+        UpdateUi(ent);
+    }
+    // End DeltaV - i hate this, forward to criminal records console
 
     private void UpdateUi(EntityUid entity, CharacterRecordConsoleComponent? console = null)
     {
