@@ -6,6 +6,8 @@
     transferName: true
     transferHumanoidAppearance: true
     inventory: None
-    revertOnDeath: true
-    revertOnCrit: true
-    duration: 30
+    # Begin DeltaV - spicier temporary morph as this is an antag chem
+    revertOnDeath: false
+    revertOnCrit: false
+    duration: 300
+    # End DeltaV - spicier temporary morph as this is an antag chem
