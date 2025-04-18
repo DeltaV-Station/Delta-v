@@ -1,16 +1,15 @@
 using System.Linq;
-using Content.Server.Polymorph.Systems;
+using Content.Shared._DV.Polymorph;
 using Content.Shared.Mind.Components;
-using Robust.Server.Containers;
-using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 
-namespace Content.Server._DV.Containers;
+namespace Content.Shared._DV.Containers;
 
 public sealed class ContentContainerSystem : EntitySystem
 {
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<ContainerManagerComponent, BeforePolymorphedEvent>(OnBeforePolymorphed);

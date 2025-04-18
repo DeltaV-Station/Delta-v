@@ -1,9 +1,9 @@
-using System.Linq; // DeltaV
 using Content.Server.Actions;
 using Content.Server.Humanoid;
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
 using Content.Server.Polymorph.Components;
+using Content.Shared._DV.Polymorph; // DeltaV
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
 using Content.Shared.Damage;
@@ -11,7 +11,6 @@ using Content.Shared.Destructible;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
-using Content.Shared.Mind.Components; // DeltaV
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition;
@@ -20,7 +19,6 @@ using Content.Shared.Popups;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
-using Robust.Shared.Containers; // DeltaV
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -412,17 +410,4 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (target.Comp.PolymorphActions.TryGetValue(id, out var val))
             _actions.RemoveAction(target, val);
     }
-}
-
-/// <summary>
-/// Raised directed on an entity before polymorphing it.
-/// Cancel to stop the entity from being polymorphed.
-/// </summary>
-/// <param name="Target">The entity that is being polymorphed into.</param>
-[ByRefEvent]
-public record struct BeforePolymorphedEvent(Entity<PolymorphedEntityComponent?> Target)
-{
-    public readonly Entity<PolymorphedEntityComponent?> Target = Target;
-
-    public bool Canceled;
 }
