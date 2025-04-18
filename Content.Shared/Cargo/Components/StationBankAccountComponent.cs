@@ -52,11 +52,11 @@ public sealed partial class StationBankAccountComponent : Component
     {
         { "Cargo",       0.00 },
         { "Engineering", 0.25 },
-        { "Medical",     0.30 },
+        { "Medical",     0.25 },
         { "Science",     0.15 },
         { "Security",    0.15 }, // DeltaV - was 0.20, we took a cut for Justice
-        { "Service",     0.10 },
         { "Justice",     0.05 }, // DeltaV - Justice
+        { "Service",     0.15 },
     };
 
     /// <summary>
