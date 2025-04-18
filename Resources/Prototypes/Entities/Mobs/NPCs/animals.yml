@@ -3004,6 +3004,9 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
   - type: HTN # DeltaV - make all cats eat mice
     rootTask:
       task: SimpleHostileCompound
