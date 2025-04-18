@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Humanoid;
 using Content.Server.Inventory;
@@ -10,14 +11,17 @@ using Content.Shared.Destructible;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
+using Content.Shared.StationRecords;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
+using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -232,6 +236,14 @@ public sealed partial class PolymorphSystem : EntitySystem
             _damageable.SetDamage(child, damageParent, damage);
         }
 
+        RemoveCreatures(uid);
+
+        foreach (var held in _hands.EnumerateHeld(uid))
+        {
+            if(HasComp<MindContainerComponent>(held))
+                _hands.TryDrop(uid, held);
+        }
+
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
         {
             _inventory.TransferEntityInventories(uid, child);
@@ -278,6 +290,35 @@ public sealed partial class PolymorphSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
 
         return child;
+    }
+
+    private void RemoveCreatures(EntityUid uid)
+    {
+        var stack = new Stack<EntityUid>();
+        stack.Push(uid);
+
+        while (stack.Count > 0)
+        {
+            var currentUid = stack.Pop();
+
+            if (!HasComp<ContainerManagerComponent>(currentUid))
+                continue;
+
+            foreach (var container in _container.GetAllContainers(currentUid).ToList())
+            {
+                foreach (var entity in container.ContainedEntities.ToList())
+                {
+                    if (HasComp<MindContainerComponent>(entity))
+                    {
+                        _transform.AttachToGridOrMap(entity);
+                        continue;
+                    }
+
+                    if (stack.Count < 1000) // Unlikely to have over 1000 nested entities unless there is an infinite loop.
+                        stack.Push(entity); // Process this entity's containers next
+                }
+            }
+        }
     }
 
     /// <summary>
