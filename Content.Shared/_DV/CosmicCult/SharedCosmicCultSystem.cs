@@ -63,7 +63,7 @@ public abstract class SharedCosmicCultSystem : EntitySystem
         if (player?.AttachedEntity is not { } uid)
             return true;
 
-        if (EntitySeesCult(uid) || HasComp<CosmicCultComponent>(uid) || HasComp<CosmicCultLeadComponent>(uid))
+        if (EntitySeesCult(uid) || HasComp<CosmicCultLeadComponent>(uid))
             return true;
 
         return HasComp<ShowAntagIconsComponent>(uid);
