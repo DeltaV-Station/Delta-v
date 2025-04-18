@@ -4,8 +4,8 @@ meta:
   engineVersion: 250.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/18/2025 15:32:42
-  entityCount: 18837
+  time: 04/18/2025 15:41:50
+  entityCount: 18838
 maps:
 - 1
 grids:
@@ -83848,6 +83848,13 @@ entities:
         13197:
         - Pressed: Toggle
         - Pressed: AutoClose
+- proto: LockerAdministrativeAssistantFilled
+  entities:
+  - uid: 18838
+    components:
+    - type: Transform
+      pos: 30.5,41.5
+      parent: 2
 - proto: LockerAtmosphericsFilled
   entities:
   - uid: 6209
