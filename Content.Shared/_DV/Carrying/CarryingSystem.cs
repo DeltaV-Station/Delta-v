@@ -31,7 +31,7 @@ using Content.Shared.Mind.Components;
 
 namespace Content.Shared._DV.Carrying;
 
-public abstract class CarryingSystem : EntitySystem
+public sealed class CarryingSystem : EntitySystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly CarryingSlowdownSystem _slowdown = default!;
