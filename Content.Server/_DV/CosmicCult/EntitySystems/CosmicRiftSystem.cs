@@ -129,7 +129,7 @@ public sealed class CosmicRiftSystem : EntitySystem
         comp.CosmicEmpowered = true;
         comp.CosmicSiphonQuantity = 2;
         comp.CosmicGlareRange = 10;
-        comp.CosmicGlareDuration = 10 * 1000f;
+        comp.CosmicGlareDuration = TimeSpan.FromSeconds(10);
         comp.CosmicGlareStun = TimeSpan.FromSeconds(1);
         comp.CosmicImpositionDuration = TimeSpan.FromSeconds(7.2);
         comp.Respiration = false;
