@@ -27,7 +27,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._DV.CosmicCult;
 
-public sealed partial class CosmicCultSystem : EntitySystem
+public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AlertLevelSystem _alert = default!;
@@ -105,7 +105,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
     private void OnCosmicCultExamined(Entity<CosmicCultExamineComponent> ent, ref ExaminedEvent args)
     {
-        if (HasComp<CosmicCultComponent>(args.Examiner))
+        if (EntitySeesCult(args.Examiner))
             args.PushMarkup(Loc.GetString(ent.Comp.CultistText));
         else
             args.PushMarkup(Loc.GetString(ent.Comp.OthersText));
@@ -148,24 +148,24 @@ public sealed partial class CosmicCultSystem : EntitySystem
     #region Equipment Pickup
     private void OnGotEquipped(Entity<CosmicEquipmentComponent> ent, ref GotEquippedEvent args)
     {
-        if (!HasComp<CosmicCultComponent>(args.Equipee))
+        if (!EntityIsCultist(args.Equipee))
             _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.Equipee, "EntropicDegen", TimeSpan.FromSeconds(99), true);
     }
 
     private void OnGotUnequipped(Entity<CosmicEquipmentComponent> ent, ref GotUnequippedEvent args)
     {
-        if (!HasComp<CosmicCultComponent>(args.Equipee))
+        if (!EntityIsCultist(args.Equipee))
             _statusEffects.TryRemoveStatusEffect(args.Equipee, "EntropicDegen");
     }
     private void OnGotHeld(Entity<CosmicEquipmentComponent> ent, ref GotEquippedHandEvent args)
     {
-        if (!HasComp<CosmicCultComponent>(args.User))
+        if (!EntityIsCultist(args.User))
             _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.User, "EntropicDegen", TimeSpan.FromSeconds(99), true);
     }
 
     private void OnGotUnheld(Entity<CosmicEquipmentComponent> ent, ref GotUnequippedHandEvent args)
     {
-        if (!HasComp<CosmicCultComponent>(args.User))
+        if (!EntityIsCultist(args.User))
             _statusEffects.TryRemoveStatusEffect(args.User, "EntropicDegen");
     }
     #endregion

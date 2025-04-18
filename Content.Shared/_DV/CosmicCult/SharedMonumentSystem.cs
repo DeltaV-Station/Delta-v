@@ -20,6 +20,7 @@ public abstract class SharedMonumentSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
@@ -62,7 +63,7 @@ public abstract class SharedMonumentSystem : EntitySystem
     /// </summary>
     private void OnPreventCollide(EntityUid uid, MonumentCollisionComponent comp, ref PreventCollideEvent args)
     {
-        if (!HasComp<CosmicCultComponent>(args.OtherEntity) && !comp.HasCollision)
+        if (!_cosmicCult.EntitySeesCult(args.OtherEntity) && !comp.HasCollision)
             args.Cancelled = true;
     }
 
@@ -71,7 +72,7 @@ public abstract class SharedMonumentSystem : EntitySystem
         if (!_ui.IsUiOpen(ent.Owner, MonumentKey.Key))
             return;
 
-        if (ent.Comp.Enabled && HasComp<CosmicCultComponent>(args.Actor))
+        if (ent.Comp.Enabled && _cosmicCult.EntityIsCultist(args.Actor))
             _ui.SetUiState(ent.Owner, MonumentKey.Key, new MonumentBuiState(ent.Comp));
         else
             _ui.CloseUi(ent.Owner, MonumentKey.Key); //close the UI if the monument isn't available

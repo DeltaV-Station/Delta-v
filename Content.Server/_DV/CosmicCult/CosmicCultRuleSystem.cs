@@ -24,6 +24,7 @@ using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Prototypes;
 using Content.Shared._DV.CosmicCult;
+using Content.Shared._DV.Roles;
 using Content.Shared.Alert;
 using Content.Shared.Audio;
 using Content.Shared.Body.Systems;

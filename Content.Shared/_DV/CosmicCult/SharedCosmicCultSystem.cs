@@ -1,12 +1,19 @@
 using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared.Antag;
+using Content.Shared.Ghost;
+using Content.Shared.Mind;
+using Content.Shared.Roles;
+using Content.Shared._DV.Roles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
-using Content.Shared.Antag;
 
 namespace Content.Shared._DV.CosmicCult;
 
 public abstract class SharedCosmicCultSystem : EntitySystem
 {
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -15,6 +22,19 @@ public abstract class SharedCosmicCultSystem : EntitySystem
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentGetStateAttemptEvent>(OnCosmicCultCompGetStateAttempt);
         SubscribeLocalEvent<CosmicCultComponent, ComponentStartup>(DirtyCosmicCultComps);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentStartup>(DirtyCosmicCultComps);
+    }
+
+    public bool EntityIsCultist(EntityUid user)
+    {
+        if (!_mind.TryGetMind(user, out var mind, out _))
+            return false;
+
+        return HasComp<CosmicCultComponent>(user) || _role.MindHasRole<CosmicCultRoleComponent>(mind);
+    }
+
+    public bool EntitySeesCult(EntityUid user)
+    {
+        return EntityIsCultist(user) || HasComp<GhostComponent>(user);
     }
 
     /// <summary>
@@ -43,7 +63,7 @@ public abstract class SharedCosmicCultSystem : EntitySystem
         if (player?.AttachedEntity is not { } uid)
             return true;
 
-        if (HasComp<CosmicCultComponent>(uid) || HasComp<CosmicCultLeadComponent>(uid))
+        if (EntitySeesCult(uid) || HasComp<CosmicCultComponent>(uid) || HasComp<CosmicCultLeadComponent>(uid))
             return true;
 
         return HasComp<ShowAntagIconsComponent>(uid);

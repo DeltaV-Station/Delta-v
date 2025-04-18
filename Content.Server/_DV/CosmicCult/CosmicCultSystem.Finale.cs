@@ -10,7 +10,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._DV.CosmicCult;
 
-public sealed partial class CosmicCultSystem : EntitySystem
+public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 {
     /// <summary>
     ///     Used to calculate when the finale song should start playing
@@ -26,7 +26,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
     {
         if (!HasComp<HumanoidAppearanceComponent>(args.User))
             return; // humanoids only!
-        if (!HasComp<CosmicCultComponent>(args.User) && !args.Handled && ent.Comp.FinaleActive)
+        if (!EntityIsCultist(args.User) && !args.Handled && ent.Comp.FinaleActive)
         {
             ent.Comp.Occupied = true;
             var doargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.InteractionTime, new CancelFinaleDoAfterEvent(), ent, ent)
@@ -37,7 +37,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
             _doAfter.TryStartDoAfter(doargs);
             args.Handled = true;
         }
-        else if (HasComp<CosmicCultComponent>(args.User) && !args.Handled && !ent.Comp.FinaleActive && ent.Comp.CurrentState != FinaleState.Unavailable)
+        else if (EntityIsCultist(args.User) && !args.Handled && !ent.Comp.FinaleActive && ent.Comp.CurrentState != FinaleState.Unavailable)
         {
             ent.Comp.Occupied = true;
             var doargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.InteractionTime, new StartFinaleDoAfterEvent(), ent, ent)

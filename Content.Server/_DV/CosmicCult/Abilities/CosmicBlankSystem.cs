@@ -28,6 +28,7 @@ public sealed class CosmicBlankSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
@@ -42,7 +43,7 @@ public sealed class CosmicBlankSystem : EntitySystem
 
     private void OnCosmicBlank(Entity<CosmicCultComponent> uid, ref EventCosmicBlank args)
     {
-        if (HasComp<CosmicCultComponent>(args.Target) || HasComp<CosmicBlankComponent>(args.Target) || HasComp<BibleUserComponent>(args.Target) || HasComp<ActiveNPCComponent>(args.Target))
+        if (_cosmicCult.EntityIsCultist(args.Target) || HasComp<CosmicBlankComponent>(args.Target) || HasComp<BibleUserComponent>(args.Target) || HasComp<ActiveNPCComponent>(args.Target))
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-generic-fail"), uid, uid);
             return;

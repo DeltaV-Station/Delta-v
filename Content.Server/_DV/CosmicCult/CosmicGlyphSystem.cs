@@ -1,6 +1,7 @@
 using Content.Server.Popups;
-using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Components.Examine;
+using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
@@ -20,6 +21,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
 
     public override void Initialize()
     {
@@ -31,7 +33,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
 
     private void OnExamine(Entity<CosmicGlyphComponent> uid, ref ExaminedEvent args)
     {
-        if (HasComp<CosmicCultComponent>(args.Examiner))
+        if (_cosmicCult.EntityIsCultist(args.Examiner))
         {
             args.PushMarkup(Loc.GetString("cosmic-examine-glyph-cultcount", ("COUNT", uid.Comp.RequiredCultists)));
         }
@@ -46,7 +48,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
         Log.Debug($"Glyph event triggered!");
         var tgtpos = Transform(uid).Coordinates;
         var userCoords = Transform(args.User).Coordinates;
-        if (args.Handled || !userCoords.TryDistance(EntityManager, tgtpos, out var distance) || distance > uid.Comp.ActivationRange || !HasComp<CosmicCultComponent>(args.User))
+        if (args.Handled || !userCoords.TryDistance(EntityManager, tgtpos, out var distance) || distance > uid.Comp.ActivationRange || !_cosmicCult.EntityIsCultist(args.User))
             return;
         var cultists = GatherCultists(uid, uid.Comp.ActivationRange);
         if (cultists.Count < uid.Comp.RequiredCultists)
@@ -90,7 +92,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     public HashSet<EntityUid> GatherCultists(EntityUid uid, float range)
     {
         var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, range);
-        entities.RemoveWhere(entity => !HasComp<CosmicCultComponent>(entity) || !_mobState.IsAlive(entity) || _container.IsEntityInContainer(entity));
+        entities.RemoveWhere(entity => !_cosmicCult.EntityIsCultist(entity) || !_mobState.IsAlive(entity) || _container.IsEntityInContainer(entity));
         return entities;
     }
 
