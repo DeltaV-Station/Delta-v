@@ -240,7 +240,7 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         foreach (var held in _hands.EnumerateHeld(uid))
         {
-            if(HasComp<MindContainerComponent>(held))
+            if (HasComp<MindContainerComponent>(held))
                 _hands.TryDrop(uid, held);
         }
         // End DeltaV - Drop MindContainer entities on polymorph
