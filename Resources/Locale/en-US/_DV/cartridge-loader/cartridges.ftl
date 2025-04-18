@@ -7,6 +7,7 @@ crime-assist-no-button = No
 crime-assist-crimetype-innocent = Innocent
 crime-assist-crimetype-misdemeanour = Misdemeanour
 crime-assist-crimetype-felony = Felony
+crime-assist-crimetype-grandfelony = Grand Felony
 crime-assist-crimetype-capital = Capital
 crime-assist-crime-innocent = No crime was committed
 crime-assist-mainmenu = Welcome to Crime Assist!
