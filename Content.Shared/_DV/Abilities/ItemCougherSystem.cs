@@ -81,15 +81,14 @@ public sealed class ItemCougherSystem : EntitySystem
     }
 
     /// <summary>
-    /// Adds a charge to the coughing action.
-    /// Other systems have to call this.
+    /// Enables the coughing action.
+    /// Other systems have to call this, this is not used internally.
     /// </summary>
     public void EnableAction(Entity<ItemCougherComponent?> ent)
     {
         if (!_query.Resolve(ent, ref ent.Comp) || ent.Comp.ActionEntity is not {} action)
             return;
 
-        _actions.SetCharges(action, 1);
         _actions.SetEnabled(action, true);
     }
 }
