@@ -4,8 +4,8 @@ meta:
   engineVersion: 250.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/14/2025 18:34:49
-  entityCount: 20039
+  time: 04/18/2025 02:59:20
+  entityCount: 20045
 maps:
 - 1
 grids:
@@ -43377,11 +43377,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 20.5,3.5
       parent: 2
-  - uid: 11622
-    components:
-    - type: Transform
-      pos: -28.5,44.5
-      parent: 2
   - uid: 11985
     components:
     - type: Transform
@@ -45911,6 +45906,51 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 11.5,-8.5
       parent: 2
+- proto: ComputerCargoOrdersEngineering
+  entities:
+  - uid: 20040
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -6.5,-28.5
+      parent: 2
+- proto: ComputerCargoOrdersJustice
+  entities:
+  - uid: 17585
+    components:
+    - type: Transform
+      pos: -29.5,44.5
+      parent: 2
+- proto: ComputerCargoOrdersMedical
+  entities:
+  - uid: 20042
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,11.5
+      parent: 2
+- proto: ComputerCargoOrdersScience
+  entities:
+  - uid: 20041
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -42.5,27.5
+      parent: 2
+- proto: ComputerCargoOrdersSecurity
+  entities:
+  - uid: 17850
+    components:
+    - type: Transform
+      pos: -21.5,-11.5
+      parent: 2
+- proto: ComputerCargoOrdersService
+  entities:
+  - uid: 12140
+    components:
+    - type: Transform
+      pos: 22.5,-11.5
+      parent: 2
 - proto: ComputerComms
   entities:
   - uid: 6139
@@ -46847,6 +46887,11 @@ entities:
     components:
     - type: Transform
       pos: -39.5,-2.5
+      parent: 2
+  - uid: 11614
+    components:
+    - type: Transform
+      pos: -39.5,-4.5
       parent: 2
 - proto: CrateServiceBoozeDispenser
   entities:
@@ -91071,11 +91116,6 @@ entities:
     - type: Transform
       pos: -18.5,34.5
       parent: 2
-  - uid: 12140
-    components:
-    - type: Transform
-      pos: -23.5,37.5
-      parent: 2
   - uid: 12142
     components:
     - type: Transform
@@ -101199,6 +101239,13 @@ entities:
     - type: Transform
       pos: -29.5,-7.5
       parent: 2
+- proto: SignLawyer
+  entities:
+  - uid: 5612
+    components:
+    - type: Transform
+      pos: -23.5,37.5
+      parent: 2
 - proto: SignLibrary
   entities:
   - uid: 13721
@@ -104642,15 +104689,15 @@ entities:
     - type: Transform
       pos: -25.5,-15.5
       parent: 2
-  - uid: 5612
-    components:
-    - type: Transform
-      pos: -39.5,-4.5
-      parent: 2
   - uid: 8983
     components:
     - type: Transform
       pos: -40.5,-4.5
+      parent: 2
+  - uid: 11956
+    components:
+    - type: Transform
+      pos: -24.5,-15.5
       parent: 2
 - proto: SuitStorageWarden
   entities:
@@ -106187,10 +106234,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 8.5,12.5
       parent: 2
-  - uid: 11614
+  - uid: 11622
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 7.5,12.5
       parent: 2
   - uid: 12840
@@ -107043,11 +107089,6 @@ entities:
     - type: Transform
       pos: 15.5,13.5
       parent: 2
-  - uid: 11956
-    components:
-    - type: Transform
-      pos: 22.5,-11.5
-      parent: 2
   - uid: 12165
     components:
     - type: Transform
@@ -107652,11 +107693,6 @@ entities:
       parent: 2
 - proto: TargetClown
   entities:
-  - uid: 749
-    components:
-    - type: Transform
-      pos: -24.5,-15.5
-      parent: 2
   - uid: 4303
     components:
     - type: Transform
@@ -108092,11 +108128,6 @@ entities:
     - type: Transform
       pos: -43.079597,-23.106947
       parent: 2
-  - uid: 11947
-    components:
-    - type: Transform
-      pos: 22.39023,-11.323637
-      parent: 2
   - uid: 13396
     components:
     - type: Transform
@@ -108121,6 +108152,11 @@ entities:
     components:
     - type: Transform
       pos: 32.611298,35.29552
+      parent: 2
+  - uid: 20043
+    components:
+    - type: Transform
+      pos: 20.7487,-11.227362
       parent: 2
 - proto: ToolboxSyndicateFilled
   entities:
@@ -108220,10 +108256,10 @@ entities:
       parent: 2
 - proto: ToyFigurineGreytider
   entities:
-  - uid: 17850
+  - uid: 11947
     components:
     - type: Transform
-      pos: 21.941154,-11.4334955
+      pos: 21.116755,-11.407917
       parent: 2
   - uid: 17998
     components:
@@ -121466,15 +121502,15 @@ entities:
     - type: Transform
       pos: -25.5,-5.5
       parent: 2
-  - uid: 17585
-    components:
-    - type: Transform
-      pos: -29.5,44.5
-      parent: 2
   - uid: 18333
     components:
     - type: Transform
       pos: 30.5,16.5
+      parent: 2
+  - uid: 20045
+    components:
+    - type: Transform
+      pos: -28.5,44.5
       parent: 2
 - proto: WaterTank
   entities:
@@ -122035,6 +122071,12 @@ entities:
     components:
     - type: Transform
       pos: -24.5,40.5
+      parent: 2
+  - uid: 20044
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -28.5,43.5
       parent: 2
 - proto: WindoorSecureMailLocked
   entities:
@@ -122766,6 +122808,12 @@ entities:
     components:
     - type: Transform
       pos: -27.5,53.5
+      parent: 2
+  - uid: 749
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -28.5,44.5
       parent: 2
   - uid: 1192
     components:
