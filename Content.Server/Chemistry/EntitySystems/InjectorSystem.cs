@@ -355,7 +355,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
             }
             temporarilyRemovedSolution = applicableTargetSolution.SplitSolutionWithout(applicableTargetSolution.Volume, reagentPrototypeWhitelistArray);
         }
-        // Begin DeltaV - skimmer functionality
+        // Begin DeltaV Additions - skimmer functionality
         else if (injector.Comp.TargetSmallest)
         {
             if (applicableTargetSolution.Count() > 0 && applicableTargetSolution.MinBy(soln => soln.Quantity) is {} smallest)
