@@ -1,4 +1,4 @@
-using System.Linq;
+using System.Linq; // DeltaV
 using Content.Server.Actions;
 using Content.Server.Humanoid;
 using Content.Server.Inventory;
@@ -11,7 +11,7 @@ using Content.Shared.Destructible;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
+using Content.Shared.Mind.Components; // DeltaV
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition;
@@ -20,7 +20,7 @@ using Content.Shared.Popups;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
-using Robust.Shared.Containers;
+using Robust.Shared.Containers; // DeltaV
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -235,6 +235,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             _damageable.SetDamage(child, damageParent, damage);
         }
 
+        // Begin DeltaV - Drop MindContainer entities on polymorph
         RemoveCreatures(uid);
 
         foreach (var held in _hands.EnumerateHeld(uid))
@@ -242,6 +243,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             if(HasComp<MindContainerComponent>(held))
                 _hands.TryDrop(uid, held);
         }
+        // End DeltaV - Drop MindContainer entities on polymorph
 
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
         {
@@ -291,6 +293,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         return child;
     }
 
+    /// <summary>
+    /// DeltaV - Drop all entities with MindContainerComponent in any container on the entity recursively.
+    /// </summary>
+    /// <param name="uid">The root entity to search in.</param>
     private void RemoveCreatures(EntityUid uid)
     {
         var stack = new Stack<EntityUid>();
