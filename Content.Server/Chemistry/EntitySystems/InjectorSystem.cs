@@ -363,7 +363,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
                 temporarilyRemovedSolution = applicableTargetSolution.SplitSolutionWithout(applicableTargetSolution.Volume, new string[] { smallest.Reagent.Prototype });
             }
         }
-        // End DeltaV - skimmer functionality
+        // End DeltaV Additions - skimmer functionality
 
         // Get transfer amount. May be smaller than _transferAmount if not enough room, also make sure there's room in the injector
         var realTransferAmount = FixedPoint2.Min(injector.Comp.TransferAmount, applicableTargetSolution.Volume,

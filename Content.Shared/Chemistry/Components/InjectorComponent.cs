@@ -107,9 +107,8 @@ public sealed partial class InjectorComponent : Component
     [DataField]
     public List<ProtoId<ReagentPrototype>>? ReagentWhitelist = null;
 
-    // DeltaV - skimmer changes
     /// <summary>
-    /// If set to true, this injector will only target the smallest reagent in the solution.
+    /// DeltaV - If set to true, this injector will only target the smallest reagent in the solution.
     /// Incompatible with ReagentWhitelist.
     /// </summary>
     [DataField]

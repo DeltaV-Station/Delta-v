@@ -1,16 +1,16 @@
 - type: entity
-  name: skimmer
   parent: BaseItem
-  description: Used to skim off the small impurities from solutions
   id: Skimmer
+  name: skimmer
+  description: Used to skim off the small impurities from solutions
   components:
   - type: Sprite
     sprite: _DV/Objects/Specific/Chemistry/skimmer.rsi
     layers:
-      - state: skimmer
-      - state: skimmer1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
+    - state: skimmer
+    - state: skimmer1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
   - type: SolutionContainerManager
     solutions:
       injector:
