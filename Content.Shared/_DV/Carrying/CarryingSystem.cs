@@ -29,7 +29,7 @@ using System.Numerics;
 
 namespace Content.Shared._DV.Carrying;
 
-public sealed class CarryingSystem : EntitySystem
+public abstract class SharedCarryingSystem : EntitySystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly CarryingSlowdownSystem _slowdown = default!;

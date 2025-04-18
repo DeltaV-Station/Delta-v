@@ -235,15 +235,9 @@ public sealed partial class PolymorphSystem : EntitySystem
             _damageable.SetDamage(child, damageParent, damage);
         }
 
-        // Begin DeltaV - Drop MindContainer entities on polymorph
-        RemoveCreatures(uid);
-
-        foreach (var held in _hands.EnumerateHeld(uid))
-        {
-            if(HasComp<MindContainerComponent>(held))
-                _hands.TryDrop(uid, held);
-        }
-        // End DeltaV - Drop MindContainer entities on polymorph
+        // DeltaV - Drop MindContainer entities on polymorph
+        var beforePolymorphedEv = new BeforePolymorphedEvent(child);
+        RaiseLocalEvent(uid, ref beforePolymorphedEv);
 
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
         {
@@ -291,39 +285,6 @@ public sealed partial class PolymorphSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
 
         return child;
-    }
-
-    /// <summary>
-    /// DeltaV - Drop all entities with MindContainerComponent in any container on the entity recursively.
-    /// </summary>
-    /// <param name="uid">The root entity to search in.</param>
-    private void RemoveCreatures(EntityUid uid)
-    {
-        var stack = new Stack<EntityUid>();
-        stack.Push(uid);
-
-        while (stack.Count > 0)
-        {
-            var currentUid = stack.Pop();
-
-            if (!HasComp<ContainerManagerComponent>(currentUid))
-                continue;
-
-            foreach (var container in _container.GetAllContainers(currentUid).ToList())
-            {
-                foreach (var entity in container.ContainedEntities.ToList())
-                {
-                    if (HasComp<MindContainerComponent>(entity))
-                    {
-                        _transform.AttachToGridOrMap(entity);
-                        continue;
-                    }
-
-                    if (stack.Count < 1000) // Unlikely to have over 1000 nested entities unless there is an infinite loop.
-                        stack.Push(entity); // Process this entity's containers next
-                }
-            }
-        }
     }
 
     /// <summary>
@@ -451,4 +412,17 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (target.Comp.PolymorphActions.TryGetValue(id, out var val))
             _actions.RemoveAction(target, val);
     }
+}
+
+/// <summary>
+/// Raised directed on an entity before polymorphing it.
+/// Cancel to stop the entity from being polymorphed.
+/// </summary>
+/// <param name="Target">The entity that is being polymorphed into.</param>
+[ByRefEvent]
+public record struct BeforePolymorphedEvent(Entity<PolymorphedEntityComponent?> Target)
+{
+    public readonly Entity<PolymorphedEntityComponent?> Target = Target;
+
+    public bool Canceled;
 }

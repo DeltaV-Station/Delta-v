@@ -5,7 +5,7 @@ namespace Content.Shared._DV.Carrying;
 /// <summary>
 /// Stores the carrier of an entity being carried.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(CarryingSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedCarryingSystem))]
 [AutoGenerateComponentState]
 public sealed partial class BeingCarriedComponent : Component
 {
