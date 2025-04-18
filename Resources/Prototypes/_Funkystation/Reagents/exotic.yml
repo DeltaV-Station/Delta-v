@@ -151,7 +151,7 @@
     Poison:
       effects:
       - !type:Polymorph
-        prototype: CorgiMorphTemp # DeltaV - sorry perma corgi is too evil
+        prototype: CorgiMorphPerm
         conditions:
         - !type:ReagentThreshold
           min: 25 # DeltaV - make it tighter if you can actually corgi someone
