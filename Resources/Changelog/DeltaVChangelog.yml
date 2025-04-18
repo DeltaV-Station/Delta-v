@@ -1,41 +1,4 @@
 ﻿Entries:
-- author: Emily9031
-  changes:
-  - message: Centcom now has an empty AI core that you can upload the station's AI
-      to!
-    type: Add
-  id: 776
-  time: '2024-12-17T02:56:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2428
-- author: Radezolid
-  changes:
-  - message: The stocks cartridge now requires Logistic Officer access.
-    type: Tweak
-  id: 777
-  time: '2024-12-17T03:52:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2456
-- author: deltanedas
-  changes:
-  - message: Merged mid november-december changes from upstream.
-    type: Add
-  id: 778
-  time: '2024-12-17T04:45:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2389
-- author: BarryNorfolk
-  changes:
-  - message: Added atmospherics computer board to t1 research and enabled fabrication
-    type: Tweak
-  id: 779
-  time: '2024-12-17T08:49:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2452
-- author: JustAnOrange, Radezolid
-  changes:
-  - message: Added Interdyne chemistry clothes, obtain them at your nearest hacked
-      ChemDrobe!
-    type: Add
-  id: 780
-  time: '2024-12-17T12:41:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2355
 - author: rosieposieeee
   changes:
   - message: Added flower bushes.
@@ -4047,3 +4010,41 @@
   id: 1275
   time: '2025-04-17T03:19:45.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3452
+- author: SolStar
+  changes:
+  - message: Fixed an edge case where items could be lost in nullspace.
+    type: Fix
+  id: 1276
+  time: '2025-04-17T10:08:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3492
+- author: sowelipililimute
+  changes:
+  - message: ATS sale palettes work now
+    type: Fix
+  id: 1277
+  time: '2025-04-17T14:53:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3494
+- author: deltanedas
+  changes:
+  - message: Fixed glacier only getting vent critters in the AI satellite.
+    type: Fix
+  id: 1278
+  time: '2025-04-17T19:46:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3495
+- author: Aera Aulin, SolStar
+  changes:
+  - message: Added Kitsune, the mysterious psionic shapeshifters
+    type: Add
+  id: 1279
+  time: '2025-04-17T20:14:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3175
+- author: Radezolid
+  changes:
+  - message: General service's windoors now properly follow the wires layout properly.
+    type: Fix
+  - message: Corpsman's airlock and windoor no longer uses the command wire layout,
+      it uses the security one instead.
+    type: Tweak
+  id: 1280
+  time: '2025-04-17T20:31:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3499

@@ -71,7 +71,7 @@ public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
 
         // finally gib the targets old body
         if (TryComp<BodyComponent>(target, out var body))
-            _body.GibBody(target, gibOrgans: true, body, launchGibs: true);
+            _body.GibBody(target, acidify: true, body, launchGibs: true);
         else
             QueueDel(target);
     }
