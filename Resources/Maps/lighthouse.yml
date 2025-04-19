@@ -4,7 +4,7 @@ meta:
   engineVersion: 250.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/18/2025 15:38:09
+  time: 04/19/2025 13:02:26
   entityCount: 22078
 maps:
 - 1313
@@ -5891,7 +5891,7 @@ entities:
             1: 7
           8,12:
             0: 30708
-            7: 32768
+            3: 32768
           8,13:
             0: 247
             1: 61440
@@ -6037,7 +6037,7 @@ entities:
             0: 65535
           -7,-13:
             0: 45155
-            3: 12
+            4: 12
           -6,-12:
             0: 65335
           -6,-11:
@@ -6461,24 +6461,24 @@ entities:
             0: 65535
           -3,-15:
             0: 13104
-            3: 128
-            4: 32768
+            4: 128
+            5: 32768
           -3,-14:
             0: 13107
-            5: 128
-            6: 32768
+            6: 128
+            7: 32768
           -3,-17:
             0: 61457
             1: 238
           -2,-16:
             0: 64447
           -2,-15:
-            3: 48
-            4: 12288
+            4: 48
+            5: 12288
             0: 34952
           -2,-14:
-            5: 48
-            6: 12288
+            6: 48
+            7: 12288
             0: 32904
           -2,-17:
             0: 47308
@@ -6748,7 +6748,7 @@ entities:
             1: 57856
           9,12:
             0: 238
-            7: 61440
+            3: 61440
           10,10:
             1: 15
             0: 47872
@@ -6759,7 +6759,7 @@ entities:
             1: 8192
           10,12:
             0: 102
-            7: 4096
+            3: 4096
             1: 49152
           10,8:
             0: 32768
@@ -6875,17 +6875,17 @@ entities:
           -7,-15:
             0: 16
             1: 4352
-            3: 52416
+            4: 52416
           -7,-14:
             1: 1
             0: 12544
-            3: 17612
+            4: 17612
           -6,-16:
             0: 65520
           -6,-15:
-            3: 30576
+            4: 30576
           -6,-14:
-            3: 119
+            4: 119
             0: 61440
           -6,-17:
             1: 4096
@@ -7004,7 +7004,7 @@ entities:
             0: 63280
           9,13:
             1: 28672
-            7: 238
+            3: 238
           9,14:
             1: 18146
             0: 8192
@@ -7014,7 +7014,7 @@ entities:
             1: 7715
             0: 8192
           10,13:
-            7: 17
+            3: 17
             1: 9728
           10,14:
             1: 242
@@ -7303,67 +7303,67 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
           - 103.92799
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -46685,6 +46685,16 @@ entities:
     - type: Transform
       pos: -5.5518966,-49.218838
       parent: 100
+  - uid: 2062
+    components:
+    - type: MetaData
+      desc: These gloves are well worn, their protection from shocks is dubious at best.
+      name: unsulated gloves
+    - type: Transform
+      pos: -45.619347,-18.401585
+      parent: 100
+    missingComponents:
+    - Insulated
   - uid: 2765
     components:
     - type: Transform
@@ -46717,13 +46727,6 @@ entities:
     components:
     - type: Transform
       pos: 20.01587,-14.425987
-      parent: 100
-- proto: ClothingHandsGlovesColorYellowUnsulated
-  entities:
-  - uid: 2062
-    components:
-    - type: Transform
-      pos: -45.415783,-18.302032
       parent: 100
 - proto: ClothingHandsGlovesFingerless
   entities:
