@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fixed not being able to throw felenids...
-    type: Fix
-  id: 788
-  time: '2024-12-18T11:22:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2466
 - author: Hell_Cat, deltanedas
   changes:
   - message: Ore bag magnet can now be turned on without being worn as a belt. Mining
@@ -4055,3 +4048,11 @@
   id: 1287
   time: '2025-04-19T08:02:21.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3459
+- author: SolStar
+  changes:
+  - message: Polymorphing will drop creatures instead of sending them to the shadow
+      realm
+    type: Fix
+  id: 1288
+  time: '2025-04-19T12:23:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3505
