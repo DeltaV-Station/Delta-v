@@ -90,9 +90,10 @@
     - BorgModuleCargo
 
   defaultModules:
-  - BorgModuleGrapplingGun
   - BorgModuleMining
+  - BorgModuleGrapplingGun
   - BorgModuleAppraisal
+  - BorgModuleTool
 
   job: SalvageSpecialist # DeltaV - borg job requirements
   addComponents: # DeltaV - fibers, departmental access
