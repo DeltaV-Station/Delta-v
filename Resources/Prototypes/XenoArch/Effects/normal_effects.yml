@@ -60,7 +60,7 @@
 - type: artifactEffect
   id: EffectJunkSpawn
   targetDepth: 0
-  effectHint: artifact-effect-hint-creation
+  effectHint: artifact-effect-hint-retrieval # DeltaV - was hint-creation
   components:
   - type: SpawnArtifact
     maxSpawns: 10
@@ -106,6 +106,7 @@
 - type: artifactEffect
   id: EffectPointLight
   targetDepth: 0
+  effectHint: artifact-effect-hint-release # DeltaV
   components:
   - type: PointLight
     radius: 8
@@ -220,7 +221,7 @@
 - type: artifactEffect
   id: EffectInstrumentSpawn
   targetDepth: 1
-  effectHint: artifact-effect-hint-creation
+  effectHint: artifact-effect-hint-retrieval # DeltaV - was hint-creation
   components:
   - type: SpawnArtifact
     maxSpawns: 5
@@ -230,7 +231,7 @@
 - type: artifactEffect
   id: EffectMonkeySpawn
   targetDepth: 1
-  effectHint: artifact-effect-hint-creation
+  effectHint: artifact-effect-hint-retrieval # DeltaV - was hint-creation
   components:
   - type: SpawnArtifact
     spawns:
@@ -349,7 +350,7 @@
 - type: artifactEffect
   id: EffectFaunaSpawn
   targetDepth: 2
-  effectHint: artifact-effect-hint-creation
+  effectHint: artifact-effect-hint-retrieval # DeltaV - was hint-creation
   components:
   - type: SpawnArtifact
     maxSpawns: 5
@@ -613,9 +614,9 @@
   effectHint: artifact-effect-hint-release
   components:
   - type: IgniteArtifact
-    range: 7
-    minFireStack: 3
-    maxFireStack: 6
+    range: 6 # DeltaV - Was 7, changed to be more distinct from BigIgnite
+    minFireStack: 2 # DeltaV - Was 3
+    maxFireStack: 5 # DeltaV - Was 6
 
 - type: artifactEffect
   id: EffectMitosis
@@ -639,7 +640,8 @@
 
 - type: artifactEffect
   id: EffectBoom
-  targetDepth: 3
+  targetDepth: 4 # Imp - was 3
+  effectProb: 0.75 # Imp
   effectHint: artifact-effect-hint-environment
   components:
   - type: TriggerArtifact
@@ -661,19 +663,21 @@
 - type: artifactEffect
   id: EffectSingulo
   targetDepth: 10
+  effectProb: 0.005 # DeltaV - make very rare
   effectHint: artifact-effect-hint-destruction
   components:
   - type: SpawnArtifact
     maxSpawns: 1
     spawns:
-    - id: SingularityToy # DeltaV - no singuloose
+    - id: Singularity
 
 - type: artifactEffect
   id: EffectTesla
   targetDepth: 10
+  effectProb: 0.005 # DeltaV - make very rare
   effectHint: artifact-effect-hint-destruction
   components:
   - type: SpawnArtifact
     maxSpawns: 1
     spawns:
-    - id: TeslaToy # DeltaV - no teslaloose
+    - id: TeslaEnergyBall

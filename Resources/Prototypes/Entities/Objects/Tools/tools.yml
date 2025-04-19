@@ -205,6 +205,26 @@
     - WirePanels
     - Airlocks
     - InspectingPower
+  # Imp - Begin additions
+  - type: Defibrillator
+    zapDelay: 1
+    zapHeal:
+      types:
+        Asphyxiation: -10
+    zapDamage: 0
+    writheDuration: 0
+    massLimit: 16 # DeltaV
+    skipDoAfter: true
+    ignoreToggle: true
+    ignorePowerCell: true
+    allowSkipCrit: true
+    zapSound: /Audio/Effects/sparks1.ogg
+    chargeSound: null
+    failureSound: null
+    successSound: null
+    readySound: null
+  - type: UseDelay
+  # Imp - End additions
 
 - type: entity
   name: network configurator
