@@ -165,6 +165,13 @@ namespace Content.Shared.Chemistry.Reaction
             var solution = comp.Solution;
 
             var energy = reaction.ConserveEnergy ? solution.GetThermalEnergy(_prototypeManager) : 0;
+            // DeltaV: allow reactions to preserve data
+            var datas = reaction.Reactants.SelectMany(reactant =>
+                solution.Contents
+                    .Where(reagent => reagent.Reagent.Prototype == reactant.Key)
+                    .Where(reagent => reagent.Reagent.Data is not null)
+                    .SelectMany(reagent => reagent.Reagent.Data!)).ToList();
+            // End DeltaV
 
             //Remove reactants
             foreach (var reactant in reaction.Reactants)
@@ -181,7 +188,7 @@ namespace Content.Shared.Chemistry.Reaction
             foreach (var product in reaction.Products)
             {
                 products.Add(product.Key);
-                solution.AddReagent(product.Key, product.Value * unitReactions);
+                solution.AddReagent(new ReagentId(product.Key, reaction.ConserveData ? datas : null), product.Value * unitReactions); // DeltaV: allow reactions to preserve data
             }
 
             if (reaction.ConserveEnergy)
