@@ -63,6 +63,14 @@ public sealed partial class HealthAnalyzerComponent : Component
     [DataField]
     public SoundSpecifier ScanningEndSound = new SoundPathSpecifier("/Audio/Items/Medical/healthscanner.ogg");
 
+    // Begin DeltaV - Analyzer Reactivation
+    /// <summary>
+    /// If the last state of the health analyzer was active.
+    /// </summary>
+    [DataField]
+    public bool IsAnalyzerActive = false;
+    // End DeltaV - Analyzer Reactivation
+
     /// <summary>
     /// Whether to show up the popup
     /// </summary>
