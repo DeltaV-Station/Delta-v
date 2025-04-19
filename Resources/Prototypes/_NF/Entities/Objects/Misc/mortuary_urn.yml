@@ -1,0 +1,40 @@
+- type: entity
+  name: mortuary urn
+  parent: Urn # DeltaV - Changed parent to Urn and "Ash storage" stuff
+  id: UrnMortuary
+  description: Keeps your beloved friend's ashes not scattered in your pocket.
+  components:
+  - type: Sprite
+    state: icon
+    sprite: _NF/Objects/Misc/mortuary_urn.rsi
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - ObjectOfSpiritualSignificance
+  - type: StaticPrice
+    price: 20
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+      paper_label: !type:ContainerSlot
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PaperLabelVisuals.HasLabel:
+        enum.PaperLabelVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PaperLabelVisuals.LabelType:
+        enum.PaperLabelVisuals.Layer:
+          Paper: { state: paper }
+          Bounty: { state: paper }
+          CaptainsPaper: { state: paper }
+          Invoice: { state: paper }
+  - type: PaperLabel
+    labelSlot:
+      insertVerbText: Attach Label
+      ejectVerbText: Remove Label
+      whitelist:
+        components:
+        - Paper
