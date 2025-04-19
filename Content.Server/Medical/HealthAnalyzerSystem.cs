@@ -100,7 +100,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             {
                 //Range too far, disable updates
                 //StopAnalyzingEntity((uid, component), patient);
-                PauseAnalyzingEntity((uid, component), patient); // Delta V - Analyzer Reactivation
+                PauseAnalyzingEntity((uid, component), patient, component.CurrentBodyPart); // Delta V - Analyzer Reactivation
                 continue;
             }
 
@@ -219,12 +219,12 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// </summary>
     /// <param name="healthAnalyzer">The health analyzer that's receiving the updates</param>
     /// <param name="target">The entity to analyze</param>
-    private void PauseAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target)
+    private void PauseAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target, EntityUid? part = null)
     {
         if (!healthAnalyzer.Comp.IsAnalyzerActive)
             return;
 
-        UpdateScannedUser(healthAnalyzer, target, false);
+        UpdateScannedUser(healthAnalyzer, target, false, part);
         healthAnalyzer.Comp.IsAnalyzerActive = false;
     }
     // End Delta V - Analyzer Reactivation
