@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPilot
+  name: pilot jumpsuit
+  description: You too think there should be a pocket for your fav smokes?
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/pilot.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/pilot.rsi

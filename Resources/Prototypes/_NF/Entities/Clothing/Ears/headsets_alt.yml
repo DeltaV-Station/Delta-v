@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingHeadsetAlt # DeltaV - Removed ClothingHeadsetCommon
+  id: ClothingHeadsetAltPilot
+  name: pilot over-ear headset
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Ears/Headsets/pilot.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Ears/Headsets/pilot.rsi
+  - type: ContainerFill # DeltaV
+    containers:
+      key_slots:
+      - EncryptionKeyCommon # DeltaV
+      - EncryptionKeyTraffic # DeltaV - Gives it a use rather than a "cool looking headset"

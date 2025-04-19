@@ -1,0 +1,8 @@
+- type: entity
+  parent: ClothingBackpackDuffel # DeltaV - was NFClothingDuffel
+  id: ClothingBackpackDuffelPilot
+  name: pilot duffel
+  description: A duffelbag produced for a True Ace.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Back/Duffels/pilot.rsi

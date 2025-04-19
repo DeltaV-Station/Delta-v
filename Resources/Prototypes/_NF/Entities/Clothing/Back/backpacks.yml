@@ -9,3 +9,12 @@
   - type: Storage
     storageOpenSound:
       collection: CatMeows
+
+- type: entity
+  parent: ClothingBackpack # DeltaV - NFClothingBackpack > ClothingBackpack
+  id: ClothingBackpackPilot
+  name: pilot backpack
+  description: A backpack for a True Ace.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Back/Backpacks/pilot.rsi
