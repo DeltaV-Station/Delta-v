@@ -74,6 +74,16 @@
       - material: Cloth
         amount: 5
         doAfter: 2
+    - to: TransRoyalShrimpFlag
+      completed:
+      - !type:SnapToGrid
+      steps:
+      - material: Cloth
+        amount: 5
+        doAfter: 2
+      - material: Gold
+        amount: 5
+        doAfter: 2
   - node: LGBTQFlag
     entity: LGBTQFlag
   - node: TransFlag
@@ -94,3 +104,5 @@
     entity: PanFlag
   - node: AceFlag
     entity: AceFlag
+  - node: TransRoyalShrimpFlag
+    entity: TransRoyalShrimpFlag

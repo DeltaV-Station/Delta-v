@@ -1,116 +1,119 @@
 - type: entity
   parent: BaseFlag
+  id: BaseFlagDV
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/flags.rsi
+  - type: Construction
+    graph: Flags
+
+- type: entity
+  parent: BaseFlagDV
   id: AceFlag
   name: asexual flag
   description: '"Be ace do crime" flag.'
   components:
   - type: Sprite
-    sprite: _DV/Structures/Wallmounts/flags.rsi
     state: ace_flag
   - type: Construction
-    graph: Flags
     node: AceFlag
 
 - type: entity
-  parent: BaseFlag
+  parent: BaseFlagDV
   id: AroFlag
   name: aromantic flag
   description: '"Be aro do crime" flag.'
   components:
   - type: Sprite
-    sprite: _DV/Structures/Wallmounts/flags.rsi
     state: aro_flag
   - type: Construction
-    graph: Flags
     node: AroFlag
 
 - type: entity
-  parent: BaseFlag
+  parent: BaseFlagDV
   id: BiFlag
   name: bisexual flag
   description: '"Be bi do crime" flag.'
   components:
   - type: Sprite
-    sprite: _DV/Structures/Wallmounts/flags.rsi
     state: bi_flag
   - type: Construction
-    graph: Flags
     node: BiFlag
 
 - type: entity
-  parent: BaseFlag
+  parent: BaseFlagDV
   id: EnbyFlag
   name: nonbinary flag
   description: "01100010 01100101 00100000 01100101 01101110 01100010 01111001 00100000 01100100 01101111 00100000 01100011 01110010 01101001 01101101 01100101"
   components:
   - type: Sprite
-    sprite: _DV/Structures/Wallmounts/flags.rsi
     state: enby_flag
   - type: Construction
-    graph: Flags
     node: EnbyFlag
 
 - type: entity
-  parent: BaseFlag
+  parent: BaseFlagDV
   id: GayFlag
   name: gay flag
   description: '"Be gay do crime" flag.'
   components:
   - type: Sprite
-    sprite: _DV/Structures/Wallmounts/flags.rsi
     state: gay_flag
   - type: Construction
-    graph: Flags
     node: GayFlag
 
 - type: entity
-  parent: BaseFlag
+  parent: BaseFlagDV
   id: IntersexFlag
   name: intersex flag
   description: '"Be intersex do crime" flag.'
   components:
   - type: Sprite
-    sprite: _DV/Structures/Wallmounts/flags.rsi
     state: intersex_flag
   - type: Construction
-    graph: Flags
     node: IntersexFlag
 
 - type: entity
-  parent: BaseFlag
+  parent: BaseFlagDV
   id: LesbianFlag
   name: lesbian flag
   description: "Bacon flag."
   components:
   - type: Sprite
-    sprite: _DV/Structures/Wallmounts/flags.rsi
     state: les_flag
   - type: Construction
-    graph: Flags
     node: LesFlag
 
 - type: entity
-  parent: BaseFlag
+  parent: BaseFlagDV
   id: PanFlag
   name: pansexual flag
   description: '"Be pan do crime" flag.'
   components:
   - type: Sprite
-    sprite: _DV/Structures/Wallmounts/flags.rsi
     state: pan_flag
   - type: Construction
-    graph: Flags
     node: panFlag
 
 - type: entity
-  parent: BaseFlag
+  parent: BaseFlagDV
   id: TransFlag
   name: transgender flag
   description: '"Be trans do crime" flag.'
   components:
   - type: Sprite
-    sprite: _DV/Structures/Wallmounts/flags.rsi
     state: trans_flag
   - type: Construction
-    graph: Flags
     node: TransFlag
+
+- type: entity
+  parent: BaseFlagDV
+  id: TransRoyalShrimpFlag
+  name: trans royal shrimp flag
+  description: '"you tellin me a shrimp transed this gender?"'
+  components:
+  - type: Sprite
+    state: trans_royal_shrimp_flag
+  - type: Construction
+    node: TransRoyalShrimpFlag

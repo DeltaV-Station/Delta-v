@@ -147,3 +147,18 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+
+- type: construction
+  id: TransRoyalShrimpFlag
+  name: trans royal shrimp flag
+  description: '"you tellin me a shrimp transed this gender?"'
+  graph: Flags
+  startNode: start
+  targetNode: TransRoyalShrimpFlag
+  category: construction-category-flags
+  icon:
+    sprite: _DV/Structures/Wallmounts/flags.rsi
+    state: trans_royal_shrimp_flag
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
