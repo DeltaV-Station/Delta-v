@@ -111,6 +111,8 @@
         acts: [ "Destruction" ]
   - type: StaticPrice
     price: 66
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WindowCosmicCult
 
 - type: entity
   parent: ReinforcedPlasmaWindow
