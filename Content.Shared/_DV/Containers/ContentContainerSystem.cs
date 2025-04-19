@@ -14,9 +14,9 @@ public sealed class ContentContainerSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<ContainerManagerComponent, BeforePolymorphedEvent>(OnBeforePolymorphed);
-
         base.Initialize();
+
+        SubscribeLocalEvent<ContainerManagerComponent, BeforePolymorphedEvent>(OnBeforePolymorphed);
     }
 
     private void OnBeforePolymorphed(Entity<ContainerManagerComponent> ent, ref BeforePolymorphedEvent args)

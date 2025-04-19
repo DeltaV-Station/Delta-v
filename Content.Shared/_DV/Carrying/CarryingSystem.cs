@@ -7,6 +7,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
@@ -27,7 +28,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using System.Numerics;
 using Content.Shared._DV.Polymorph;
-using Content.Shared.Mind.Components;
 
 namespace Content.Shared._DV.Carrying;
 
@@ -60,7 +60,7 @@ public sealed class CarryingSystem : EntitySystem
         SubscribeLocalEvent<CarryingComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<CarryingComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<CarryingComponent, DownedEvent>(OnDowned);
-        SubscribeLocalEvent<CarryingComponent, BeforePolymorphedEvent>(OnbeforePolymorphed);
+        SubscribeLocalEvent<CarryingComponent, BeforePolymorphedEvent>(OnBeforePolymorphed);
         SubscribeLocalEvent<BeingCarriedComponent, InteractionAttemptEvent>(OnInteractionAttempt);
         SubscribeLocalEvent<BeingCarriedComponent, UpdateCanMoveEvent>(OnMoveAttempt);
         SubscribeLocalEvent<BeingCarriedComponent, StandAttemptEvent>(OnStandAttempt);
@@ -168,7 +168,7 @@ public sealed class CarryingSystem : EntitySystem
         DropCarried(ent, ent.Comp.Carried);
     }
 
-    private void OnbeforePolymorphed(Entity<CarryingComponent> ent, ref BeforePolymorphedEvent args)
+    private void OnBeforePolymorphed(Entity<CarryingComponent> ent, ref BeforePolymorphedEvent args)
     {
         if (HasComp<MindContainerComponent>(ent.Comp.Carried))
             DropCarried(ent, ent.Comp.Carried);
