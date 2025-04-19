@@ -31,8 +31,6 @@ entities:
     - type: MetaData
       name: grid
     - type: Transform
-      pos: -2.1180556,1.4770674
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -366,8 +364,6 @@ entities:
       pos: 4.5,-14.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 53
   - uid: 543
@@ -1983,8 +1979,6 @@ entities:
       pos: 4.5,-13.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 53
     - type: AtmosPipeColor
@@ -1996,8 +1990,6 @@ entities:
       pos: 4.5,-19.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 53
     - type: AtmosPipeColor
@@ -2022,8 +2014,6 @@ entities:
       pos: 4.5,-20.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 53
     - type: AtmosPipeColor
@@ -2035,8 +2025,6 @@ entities:
       pos: 4.5,-15.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 53
     - type: AtmosPipeColor
