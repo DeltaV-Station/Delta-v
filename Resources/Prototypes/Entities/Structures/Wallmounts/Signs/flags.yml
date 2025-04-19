@@ -11,6 +11,11 @@
   - type: Destructible # DeltaV - Craftable Pride Flags
     thresholds:
     - trigger: !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger: !type:DamageTrigger
         damage: 25
       behaviors:
       - !type:PlaySoundBehavior
@@ -24,11 +29,6 @@
             min: 5
             max: 5
         offset: 0
-    - trigger: !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
 
 - type: entity
   parent: BaseFlag
