@@ -31,6 +31,7 @@ job-alt-title-resident = Resident
 
 job-alt-title-senior-physician = Senior Physician
 job-alt-title-clinician = Clinician
+job-alt-title-cryogenics-specialist = Cryogenics Specialist
 
 job-alt-title-life-support = Life Support Technician
 job-alt-title-plasma-scientist = Plasma Scientist
