@@ -9,3 +9,12 @@
   id: Stethoscope
   equipment:
     neck: ClothingNeckStethoscope
+
+# Senior Physician alt title
+- type: loadout
+  id: CryogenicsSpecialistPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysician
+  equipment:
+    id: CryogenicsSpecialistPDA
