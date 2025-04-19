@@ -10,6 +10,14 @@
   components:
     - type: StationBankAccount
     - type: StationCargoOrderDatabase
+      orders:
+        Cargo: [ ]
+        Engineering: [ ]
+        Medical: [ ]
+        Science: [ ]
+        Security: [ ]
+        Service: [ ]
+        Justice: [ ] # DeltaV - Justice
     - type: StationCargoBountyDatabase
 
 - type: entity
