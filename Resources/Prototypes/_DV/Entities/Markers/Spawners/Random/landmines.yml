@@ -9,10 +9,10 @@
     - state: landmine
   - type: EntityTableSpawner
     offset: 0
-    prob: 0.90
     table: !type:GroupSelector
+      prob: 0.90
       children:
-      - id: ProjectileGrenade
+      - id: LandMineShrapnel
         weight: 10
       - id: LandMineHE
         weight: 2
