@@ -1,0 +1,10 @@
+- type: weightedRandom
+  id: ReputationOfferings
+  weights:
+    TraitorObjectiveGroupStealMinor: 0.5
+    TraitorObjectiveGroupSteal: 1
+    TraitorObjectiveGroupKill: 1
+    # no state as taking a contract to escape is basically paid eorg
+    TraitorObjectiveGroupAssist: 0.5
+    TraitorObjectiveGroupSpecial: 0.2
+    TraitorObjectiveGroupRansom: 1

@@ -1,0 +1,11 @@
+<BoxContainer xmlns="https://spacestation14.io"
+        xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+        xmlns:rep="clr-namespace:Content.Client._DV.Reputation.UI"
+        Orientation="Vertical"
+        HorizontalExpand="true"
+        Align="Center"
+        MinHeight="64"
+        Margin="5">
+    <Label Text="{Loc 'contract-slot-empty'}" HorizontalExpand="True"/>
+    <rep:UnlockLabel Name="UnlockLabel"/>
+</BoxContainer>
