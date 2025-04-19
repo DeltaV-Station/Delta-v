@@ -234,7 +234,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         }
 
         // DeltaV - Drop MindContainer entities on polymorph
-        var beforePolymorphedEv = new BeforePolymorphedEvent(child);
+        var beforePolymorphedEv = new BeforePolymorphedEvent();
         RaiseLocalEvent(uid, ref beforePolymorphedEv);
 
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
