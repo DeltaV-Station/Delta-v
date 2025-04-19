@@ -189,3 +189,12 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsPsychologist ]
+
+- type: entity
+  parent: WindoorSecureServiceLocked
+  id: WindoorSecureHydroponicsLocked
+  suffix: Hydroponics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsHydroponics ]
