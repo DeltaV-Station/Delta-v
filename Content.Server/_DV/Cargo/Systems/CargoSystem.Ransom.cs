@@ -77,7 +77,8 @@ public sealed partial class CargoSystem
         }
 
         var cost = ransom.Ransom;
-        if (cost > bank.Balance)
+        var balance = bank.Accounts[bank.PrimaryAccount];
+        if (cost > balance)
         {
             ConsolePopup(user, Loc.GetString("cargo-console-insufficient-funds", ("cost", cost)));
             PlayDenySound(ent, ent);
@@ -92,11 +93,11 @@ public sealed partial class CargoSystem
             return;
         }
 
-        _audio.PlayPvs(ent.Comp.ConfirmSound, ent);
-        _adminLogger.Add(LogType.Action, LogImpact.Low,
-            $"{ToPrettyString(user):user} paid the ransom of ${cost} for {ToPrettyString(uid)} with balance at {bank.Balance}");
+        _audio.PlayPvs(ApproveSound, ent);
+        _adminLogger.Add(LogType.Action, LogImpact.Medium,
+            $"{ToPrettyString(user):user} paid the ransom of ${cost} for {ToPrettyString(uid)} with balance at {balance}");
 
-        UpdateBankAccount((station, bank), -cost);
+        UpdateBankAccount((station, bank), -cost, CreateAccountDistribution(bank.PrimaryAccount, bank));
 
         // announce it so everyone knows
         var msg = Loc.GetString("syndicate-ransom-return-announcement", ("station", trade));

@@ -238,7 +238,6 @@ namespace Content.Client.Cargo.UI
             }
         }
 
-<<<<<<< HEAD
         /// <summary>
         /// DeltaV: Forwards new ransom data to the ransom container.
         /// </summary>
@@ -247,10 +246,7 @@ namespace Content.Client.Cargo.UI
             RansomContainer.UpdateRansoms(ransoms, balance);
         }
 
-        public void UpdateCargoCapacity(int count, int capacity)
-=======
         public void PopulateAccountActions()
->>>>>>> 4d6d706556266c42c191d7d4439dd5e7800f5bf5
         {
             if (!_entityManager.TryGetComponent<StationBankAccountComponent>(_station, out var bank) ||
                 !_entityManager.TryGetComponent<CargoOrderConsoleComponent>(_owner, out var console))
@@ -275,12 +271,8 @@ namespace Content.Client.Cargo.UI
 
         public void UpdateStation(EntityUid station)
         {
-<<<<<<< HEAD
-            AccountNameLabel.Text = name;
-            PointsLabel.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", points.ToString()));
-            RansomContainer.UpdateBalance(points); // DeltaV
-=======
             _station = station;
+            RansomContainer.UpdateStation(_station); // DeltaV
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
@@ -302,7 +294,6 @@ namespace Content.Client.Cargo.UI
             AccountActionButton.Disabled = TransferSpinBox.Value <= 0 ||
                                            TransferSpinBox.Value > bankAccount.Accounts[orderConsole.Account] * orderConsole.TransferLimit ||
                                            _timing.CurTime < orderConsole.NextAccountActionTime;
->>>>>>> 4d6d706556266c42c191d7d4439dd5e7800f5bf5
         }
     }
 }
