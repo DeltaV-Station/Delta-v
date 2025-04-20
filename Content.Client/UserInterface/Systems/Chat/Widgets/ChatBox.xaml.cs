@@ -126,7 +126,7 @@ public partial class ChatBox : UIWidget
     // EE - Chat stacking
     private void TrackNewMessage(string wrappedMessage, Color colorOverride)
     {
-        if (!_chatStackEnabled)
+        if (!ChatStackEnabled)
             return;
 
         if (_chatStackList.Count == _chatStackList.Capacity)
