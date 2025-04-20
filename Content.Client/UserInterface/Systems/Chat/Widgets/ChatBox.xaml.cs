@@ -31,7 +31,7 @@ public partial class ChatBox : UIWidget
 
     // EE - Chat stacking
     private int _chatStackAmount = 0;
-    private bool _chatStackEnabled => _chatStackAmount > 0;
+    private bool ChatStackEnabled => _chatStackAmount > 0;
     private List<ChatStackData> _chatStackList;
     // End EE - Chat stacking
 
