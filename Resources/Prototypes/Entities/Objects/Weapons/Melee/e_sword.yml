@@ -50,8 +50,8 @@
         variation: 0.125
     activatedDamage:
       types:
-        Slash: 15
-        Heat: 15
+        Slash: 25 # Delta V: Moved around damage values
+        Heat: 5 # Delta V: Moved around damage values
         Structural: 20
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -124,8 +124,8 @@
         variation: 0.250
     activatedDamage:
         types:
-            Slash: 10
-            Heat: 10
+            Slash: 15 # Delta V: Moved around damage values
+            Heat: 5 # Delta V: Moved around damage values
     deactivatedSecret: true
   - type: ItemToggleActiveSound
     activeSound:
@@ -261,8 +261,8 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
         types:
-            Slash: 10
-            Heat: 12
+            Slash: 17 # Delta V: Moved around damage values
+            Heat: 5 # Delta V: Moved around damage values
     deactivatedSecret: true
   - type: Sprite
     sprite: _DV/Objects/Weapons/Melee/e_cutlass.rsi # DeltaV
@@ -309,8 +309,8 @@
         variation: 0.250
     activatedDamage:
         types:
-            Slash: 12
-            Heat: 12
+            Slash: 19 # Delta V: Moved around damage values
+            Heat: 5 # Delta V: Moved around damage values
             Structural: 15
   - type: ItemToggleActiveSound
     activeSound:
@@ -376,8 +376,8 @@
         variation: 0.250
     activatedDamage:
       types:
-        Slash: 20
-        Heat: 20
+        Slash: 30 # Delta V: Moved around damage values
+        Heat: 10 # Delta V: Moved around damage values
         Structural: 20
   - type: MeleeRequiresWield
   - type: HeldSpeedModifier #slowdown is what balances this compared to a dsword
