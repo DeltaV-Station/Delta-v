@@ -7,7 +7,6 @@ using Content.Shared._DV.Abilities.Kitsune;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Clothing;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Movement.Components;
@@ -28,7 +27,6 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
