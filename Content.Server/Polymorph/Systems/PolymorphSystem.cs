@@ -328,8 +328,6 @@ public sealed partial class PolymorphSystem : EntitySystem
             // DeltaV - Transfer Stamina Damage
             var staminaDamage = _stamina.GetStaminaDamage(uid);
             _stamina.TakeStaminaDamage(parent, staminaDamage);
-
-
         }
 
         if (component.Configuration.Inventory == PolymorphInventoryChange.Transfer)
