@@ -1,6 +1,7 @@
 - type: vendingMachineInventory
   id: SecTechInventory
   startingInventory:
+    HoloprojectorSecurity: 3 # DeltaV - added holobarrier to SecTech
     SecurityWhistle: 5
     Handcuffs: 8
     GrenadeFlashBang: 4
@@ -14,6 +15,7 @@
     ClothingEyesHudSecurity: 2
     ClothingEyesEyepatchHudSecurity: 2
     ClothingBeltSecurityWebbing: 5
+    ClothingBeltSecurity: 5 # DeltaV - added security belt to SecTech
     CombatKnife: 3
     Zipties: 12
     RiotShield: 2
@@ -24,6 +26,7 @@
     ClothingHeadCage: 2 # Nyanotrasen - Insulative headgear
     ClothingOuterArmorPlateCarrier: 2 # DeltaV - moved body armour from SecDrobe to SecTech
     ClothingOuterArmorDuraVest: 2
+    ClothingOuterArmorReflective: 2 # DeltaV - added reflective vest to sectech
     ClothingHeadHelmetBasic: 2 # DeltaV - added helmets to the SecTech. Another line of defense between the tide and your grey matter.
     BreachingCharge: 8 # DeltaV - added breaching charges
   # security officers need to follow a diet regimen!
