@@ -60,13 +60,6 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
             Dirty(fireUid, foxfire);
         }
 
-        // Transfer factions
-        if (TryComp<NpcFactionMemberComponent>(oldEntity, out var factions))
-        {
-            EnsureComp<NpcFactionMemberComponent>(newEntity);
-            _faction.AddFactions(newEntity, factions.Factions);
-        }
-
         // Code after this point will not run when reverting to human form.
         if(HasComp<KitsuneFoxComponent>(oldEntity))
             return;
@@ -76,6 +69,13 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
         var accesses = _reader.FindAccessTags(oldEntity, accessItems);
         EnsureComp<AccessComponent>(newEntity);
         _access.TrySetTags(newEntity, accesses);
+
+        // Transfer factions
+        if (TryComp<NpcFactionMemberComponent>(oldEntity, out var factions))
+        {
+            EnsureComp<NpcFactionMemberComponent>(newEntity);
+            _faction.AddFactions(newEntity, factions.Factions);
+        }
 
         // Transfer equipped item speed modifiers
         if (TryComp<MovementSpeedModifierComponent>(newEntity, out var movementComp))
