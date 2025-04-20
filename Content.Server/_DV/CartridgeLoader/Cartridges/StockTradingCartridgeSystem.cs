@@ -22,10 +22,10 @@ public sealed class StockTradingCartridgeSystem : EntitySystem
         SubscribeLocalEvent<StockTradingCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<StockMarketUpdatedEvent>(OnStockMarketUpdated);
         SubscribeLocalEvent<StationStockMarketComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<BankBalanceUpdatedEvent>(OnBalanceUpdated);
+        SubscribeLocalEvent<StockTradingCartridgeComponent, BankBalanceUpdatedEvent>(OnBalanceUpdated);
     }
 
-    private void OnBalanceUpdated(ref BankBalanceUpdatedEvent args)
+    private void OnBalanceUpdated(Entity<StockTradingCartridgeComponent> ent, ref BankBalanceUpdatedEvent args)
     {
         UpdateAllCartridges(args.Station);
     }
@@ -85,7 +85,7 @@ public sealed class StockTradingCartridgeSystem : EntitySystem
         var state = new StockTradingUiState(
             entries: stockMarket.Companies,
             ownedStocks: stockMarket.StockOwnership,
-            balance: bankAccount.Accounts[bankAccount.PrimaryAccount]
+            balance: bankAccount.Balance
         );
 
         _cartridgeLoader.UpdateCartridgeUiState(loader, state);

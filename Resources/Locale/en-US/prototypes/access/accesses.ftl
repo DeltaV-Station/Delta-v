@@ -27,8 +27,6 @@ id-card-access-level-quartermaster = Logistics Officer
 id-card-access-level-cargo = Logistics
 id-card-access-level-salvage = Salvage
 
-id-card-access-level-funding = Funding
-
 id-card-access-level-bar = Bar
 id-card-access-level-boxer = Boxer
 id-card-access-level-clown = Clown

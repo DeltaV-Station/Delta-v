@@ -19,7 +19,6 @@ using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Access;
-using Content.Shared.Cargo.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared._DV.Mail;
@@ -250,10 +249,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount(
-                    (station, account),
-                    component.Bounty,
-                    _cargoSystem.CreateAccountDistribution(account.PrimaryAccount, account, account.PrimaryCut));
+                _cargoSystem.UpdateBankAccount((station, account), component.Bounty);
             }
         }
 
@@ -310,10 +306,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount(
-                    (station, account),
-                    component.Penalty,
-                    _cargoSystem.CreateAccountDistribution(account.PrimaryAccount, account, account.PrimaryCut));
+                _cargoSystem.UpdateBankAccount((station, account), component.Penalty);
                 return;
             }
         }

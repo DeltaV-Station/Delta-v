@@ -135,8 +135,6 @@
     - id: DoorRemoteService
     - id: HoPIDCard
     - id: IDComputerCircuitboard
-    # - id: FundingAllocationComputerCircuitboard # DeltaV - HoP doesn't get funding allocation
-    - id: CargoRequestServiceComputerCircuitboard
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampHop
@@ -169,7 +167,6 @@
     - id: ClothingHandsGlovesColorYellow
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
-    - id: CargoRequestEngineeringComputerCircuitboard
     - id: RCD
     - id: RCDAmmo
     - id: RubberStampCE
@@ -230,7 +227,6 @@
     - id: HandheldCrewMonitor
     - id: Hypospray
     - id: MedicalTechFabCircuitboard
-    - id: CargoRequestMedicalComputerCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
     - id: MedTekCartridge
@@ -288,7 +284,6 @@
     - id: HandTeleporter
     #- id: ProtolatheMachineCircuitboard # DeltaV
     - id: ResearchComputerCircuitboard
-    - id: CargoRequestScienceComputerCircuitboard
     - id: RubberStampRd
     - id: BibleMystagogue  # DeltaV - steal objective and source of abilities
 
@@ -350,7 +345,6 @@
     - id: HoloprojectorSecurity
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
-    - id: CargoRequestSecurityComputerCircuitboard
     - id: WeaponDisabler
     #- id: WantedListCartridge # DeltaV - replaced by secwatch
     - id: DrinkHosFlask
