@@ -78,7 +78,7 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
         }
 
         // Transfer equipped item speed modifiers
-        if (TryComp<MovementSpeedModifierComponent>(newEntity, out var movementComp))
+        if (EnsureComp<MovementSpeedModifierComponent>(newEntity, out var movementComp))
         {
             var slots = _inventory.GetSlotEnumerator(oldEntity.Owner);
             while (slots.MoveNext(out var slot))
@@ -86,8 +86,8 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
                 if (TryComp<ClothingSpeedModifierComponent>(slot.ContainedEntity, out var clothingComp))
                 {
                     _speed.ChangeBaseSpeed(newEntity,
-                        movementComp.BaseWalkSpeed*clothingComp.WalkModifier,
-                        movementComp.BaseSprintSpeed*clothingComp.SprintModifier,
+                        movementComp.BaseWalkSpeed * clothingComp.WalkModifier,
+                        movementComp.BaseSprintSpeed * clothingComp.SprintModifier,
                         movementComp.Acceleration);
                 }
             }
@@ -97,8 +97,8 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
                 if (TryComp<HeldSpeedModifierComponent>(held, out var heldComp))
                 {
                     _speed.ChangeBaseSpeed(newEntity,
-                        movementComp.BaseWalkSpeed*heldComp.WalkModifier,
-                        movementComp.BaseSprintSpeed*heldComp.SprintModifier,
+                        movementComp.BaseWalkSpeed * heldComp.WalkModifier,
+                        movementComp.BaseSprintSpeed * heldComp.SprintModifier,
                         movementComp.Acceleration);
                 }
             }
