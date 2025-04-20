@@ -45856,51 +45856,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 11.5,-8.5
       parent: 2
-- proto: ComputerCargoOrdersEngineering
-  entities:
-  - uid: 20040
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -6.5,-28.5
-      parent: 2
-- proto: ComputerCargoOrdersJustice
-  entities:
-  - uid: 17585
-    components:
-    - type: Transform
-      pos: -29.5,44.5
-      parent: 2
-- proto: ComputerCargoOrdersMedical
-  entities:
-  - uid: 20042
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 21.5,11.5
-      parent: 2
-- proto: ComputerCargoOrdersScience
-  entities:
-  - uid: 20041
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -42.5,27.5
-      parent: 2
-- proto: ComputerCargoOrdersSecurity
-  entities:
-  - uid: 17850
-    components:
-    - type: Transform
-      pos: -21.5,-11.5
-      parent: 2
-- proto: ComputerCargoOrdersService
-  entities:
-  - uid: 12140
-    components:
-    - type: Transform
-      pos: 22.5,-11.5
-      parent: 2
 - proto: ComputerComms
   entities:
   - uid: 6139
@@ -45963,14 +45918,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -23.5,-7.5
-      parent: 2
-- proto: ComputerFundingAllocation
-  entities:
-  - uid: 6269
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -13.5,41.5
       parent: 2
 - proto: ComputerId
   entities:

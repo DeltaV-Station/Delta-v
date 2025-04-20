@@ -47908,52 +47908,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -38.5,0.5
       parent: 100
-- proto: ComputerCargoOrdersEngineering
-  entities:
-  - uid: 22043
-    components:
-    - type: Transform
-      pos: 8.5,-44.5
-      parent: 100
-- proto: ComputerCargoOrdersJustice
-  entities:
-  - uid: 19805
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 23.5,21.5
-      parent: 100
-- proto: ComputerCargoOrdersMedical
-  entities:
-  - uid: 22042
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -21.5,38.5
-      parent: 100
-- proto: ComputerCargoOrdersScience
-  entities:
-  - uid: 22044
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -21.5,-6.5
-      parent: 100
-- proto: ComputerCargoOrdersSecurity
-  entities:
-  - uid: 19876
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 12.5,35.5
-      parent: 100
-- proto: ComputerCargoOrdersService
-  entities:
-  - uid: 12456
-    components:
-    - type: Transform
-      pos: -1.5,7.5
-      parent: 100
 - proto: ComputerComms
   entities:
   - uid: 4504
@@ -48062,13 +48016,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 12.5,-34.5
-      parent: 100
-- proto: ComputerFundingAllocation
-  entities:
-  - uid: 3879
-    components:
-    - type: Transform
-      pos: -22.5,71.5
       parent: 100
 - proto: ComputerId
   entities:
@@ -60458,13 +60405,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -20.5,33.5
-      parent: 100
-- proto: FundingAllocationComputerCircuitboard
-  entities:
-  - uid: 22074
-    components:
-    - type: Transform
-      pos: 9.4901705,-52.694366
       parent: 100
 - proto: GasAnalyzer
   entities:

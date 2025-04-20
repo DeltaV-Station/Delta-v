@@ -34029,50 +34029,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -14.5,-8.5
       parent: 2
-- proto: ComputerCargoOrdersEngineering
-  entities:
-  - uid: 14500
-    components:
-    - type: Transform
-      pos: -3.5,8.5
-      parent: 2
-- proto: ComputerCargoOrdersJustice
-  entities:
-  - uid: 13574
-    components:
-    - type: Transform
-      pos: 10.5,45.5
-      parent: 2
-- proto: ComputerCargoOrdersMedical
-  entities:
-  - uid: 11981
-    components:
-    - type: Transform
-      pos: -0.5,-20.5
-      parent: 2
-- proto: ComputerCargoOrdersScience
-  entities:
-  - uid: 12855
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 30.5,-3.5
-      parent: 2
-- proto: ComputerCargoOrdersSecurity
-  entities:
-  - uid: 6573
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 22.5,2.5
-      parent: 2
-- proto: ComputerCargoOrdersService
-  entities:
-  - uid: 12271
-    components:
-    - type: Transform
-      pos: 21.5,-23.5
-      parent: 2
 - proto: ComputerComms
   entities:
   - uid: 12255
@@ -34128,14 +34084,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -9.5,41.5
-      parent: 2
-- proto: ComputerFundingAllocation
-  entities:
-  - uid: 9610
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 7.5,20.5
       parent: 2
 - proto: ComputerId
   entities:
@@ -34839,48 +34787,6 @@ entities:
     components:
     - type: Transform
       pos: 19.5,-12.5
-      parent: 2
-- proto: CrateLockBoxEngineering
-  entities:
-  - uid: 6995
-    components:
-    - type: Transform
-      pos: -17.5,10.5
-      parent: 2
-- proto: CrateLockBoxJustice
-  entities:
-  - uid: 4872
-    components:
-    - type: Transform
-      pos: 20.5,42.5
-      parent: 2
-- proto: CrateLockBoxMedical
-  entities:
-  - uid: 14511
-    components:
-    - type: Transform
-      pos: 12.5,-32.5
-      parent: 2
-- proto: CrateLockBoxScience
-  entities:
-  - uid: 14509
-    components:
-    - type: Transform
-      pos: 33.5,-12.5
-      parent: 2
-- proto: CrateLockBoxSecurity
-  entities:
-  - uid: 5016
-    components:
-    - type: Transform
-      pos: 20.5,8.5
-      parent: 2
-- proto: CrateLockBoxService
-  entities:
-  - uid: 6716
-    components:
-    - type: Transform
-      pos: 22.5,-23.5
       parent: 2
 - proto: CrateMedicalSecure
   entities:
