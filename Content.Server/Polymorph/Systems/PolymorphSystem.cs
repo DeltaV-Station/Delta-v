@@ -7,6 +7,7 @@ using Content.Shared._DV.Polymorph; // DeltaV
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -35,6 +36,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
+    [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
@@ -231,6 +233,10 @@ public sealed partial class PolymorphSystem : EntitySystem
             damage != null)
         {
             _damageable.SetDamage(child, damageParent, damage);
+
+            // DeltaV - Transfer Stamina Damage
+            var staminaDamage = _stamina.GetStaminaDamage(uid);
+            _stamina.TakeStaminaDamage(child, staminaDamage);
         }
 
         // DeltaV - Drop MindContainer entities on polymorph
@@ -318,6 +324,12 @@ public sealed partial class PolymorphSystem : EntitySystem
             damage != null)
         {
             _damageable.SetDamage(parent, damageParent, damage);
+
+            // DeltaV - Transfer Stamina Damage
+            var staminaDamage = _stamina.GetStaminaDamage(uid);
+            _stamina.TakeStaminaDamage(parent, staminaDamage);
+
+
         }
 
         if (component.Configuration.Inventory == PolymorphInventoryChange.Transfer)
