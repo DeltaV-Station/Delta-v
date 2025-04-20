@@ -53,14 +53,14 @@
         Slash: 25 # DeltaV - Was 10
         Heat: 5 # DeltaV - Was 20
         Structural: 20
-    clickPartDamageMultiplier: 1.5 #DeltaV - Good When Clicking
-    heavyPartDamageMultiplier: .25 #DeltaV - Not when swinging
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 1
     damage:
       types:
         Blunt: 4.5
+    clickPartDamageMultiplier: 1.5 #DeltaV - Good When Clicking
+    heavyPartDamageMultiplier: .25 #DeltaV - Not when swinging
   - type: Item
     size: Small
   - type: UseDelay
@@ -128,8 +128,6 @@
         types:
             Slash: 15 # DeltaV - Was 10
             Heat: 5 # DeltaV - Was 10
-    clickPartDamageMultiplier: 1.5 #DeltaV - Good When Clicking
-    heavyPartDamageMultiplier: .25 #DeltaV - Not when swinging
     deactivatedSecret: true
   - type: ItemToggleActiveSound
     activeSound:
@@ -267,8 +265,6 @@
         types:
             Slash: 17 # DeltaV - Was 12
             Heat: 5 # DeltaV - Was 10
-    clickPartDamageMultiplier: 1.5 #DeltaV - Good When Clicking
-    heavyPartDamageMultiplier: .25 #DeltaV - Not when swinging
     deactivatedSecret: true
   - type: Sprite
     sprite: _DV/Objects/Weapons/Melee/e_cutlass.rsi # DeltaV
@@ -318,8 +314,6 @@
             Slash: 19 # DeltaV - Was 12
             Heat: 5 # DeltaV - Was 12
             Structural: 15
-    clickPartDamageMultiplier: 1.5 #DeltaV - Good When Clicking
-    heavyPartDamageMultiplier: .25 #DeltaV - Not when swinging
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -387,8 +381,6 @@
         Slash: 30 # DeltaV - Was 20
         Heat: 10 # DeltaV - Was 20
         Structural: 20
-    clickPartDamageMultiplier: 1.5 #DeltaV - Good When Clicking
-    heavyPartDamageMultiplier: .25 #DeltaV - Not when swinging
   - type: MeleeRequiresWield
   - type: HeldSpeedModifier #slowdown is what balances this compared to a dsword
     walkModifier: 0.6
