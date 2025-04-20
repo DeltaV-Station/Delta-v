@@ -8,9 +8,10 @@
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/flags.rsi
-  - type: StaticPrice # DeltaV - Craftable Pride Flags
+    # Begin DeltaV additions - Craftable Pride Flags
+  - type: StaticPrice
     price: 25
-  - type: Destructible # DeltaV - Craftable Pride Flags
+  - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
         damage: 50
@@ -31,6 +32,7 @@
             min: 5
             max: 5
         offset: 0
+    # End DeltaV additions
 
 - type: entity
   parent: BaseFlag
