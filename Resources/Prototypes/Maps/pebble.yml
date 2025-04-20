@@ -8,6 +8,8 @@
     PebbleStation:
       stationProto: StandardNanotrasenStation
       components:
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Basu.yml
         - type: StationNameSetup
           mapNameTemplate: '{0} Pebble Station {1}'
           nameGenerator:
@@ -21,21 +23,21 @@
             AdministrativeAssistant: [ 1, 1 ]
           #service
             HeadOfPersonnel: [ 1, 1 ]
-            Bartender: [ 1, 2 ]
-            Botanist: [ 2, 2 ]
+            Bartender: [ 1, 1 ]
+            Botanist: [ 1, 1 ]
             Boxer: [ 2, 2 ]
-            Chef: [ 2 , 2 ]
+            Chef: [ 1 , 1 ]
             Clown: [ 1, 1 ]
             Musician: [ 1, 1 ]
-            Janitor: [ 1, 2 ]
+            Janitor: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Reporter: [ 1, 1 ]
             Librarian: [ 1, 1 ]
           #engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 1, 2 ]
+            AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 2, 3 ]
-            TechnicalAssistant: [ 2, 2 ]
+            TechnicalAssistant: [ 1, 1 ]
           #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 1, 1 ]
@@ -60,9 +62,11 @@
             SecurityOfficer: [ 2, 3 ]
             SecurityCadet: [ 1, 1 ]
             Prisoner: [ 2, 2 ]
+            Brigmedic: [ 1, 1 ]
+            PrisonGuard: [ 1, 1 ]
           #supply
             Quartermaster: [ 1, 1 ]
-            Courier: [ 1, 2 ]
+            Courier: [ 1, 1 ]
             SalvageSpecialist: [ 2, 2 ]
             CargoTechnician: [ 2, 2 ]
             CargoAssistant: [ 1, 2 ]

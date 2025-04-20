@@ -100,6 +100,7 @@
     - id: ClothingEyesHudMedical
     - id: ClothingBackpackDuffelSurgeryFilled
     - id: ClothingOuterVestTank
+    - id: ClothingMaskBreathMedical
     - id: NitrousOxideTankFilled
     - id: SoapNT
     - id: LunchboxMedicalFilledRandom
@@ -175,6 +176,12 @@
     - id: HandheldCrewMonitor
     - id: LunchboxMedicalFilledRandom
       prob: 0.3
+
+- type: entityTable
+  id: LockerFillChemistryDeltaV
+  table: !type:AllSelector
+    children:
+    - id: Skimmer
 
 - type: entity
   parent: LockerParamedic

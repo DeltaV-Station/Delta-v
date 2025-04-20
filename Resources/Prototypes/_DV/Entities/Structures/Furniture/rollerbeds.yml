@@ -10,12 +10,12 @@
     sprite: _DV/Structures/Furniture/rollerbeds.rsi
     noRot: true
     layers:
-    - state: rollerbed
+    - state: holographic_rollerbed
       map: ["unfoldedLayer"]
-    - state: rollerbed_folded
+    - state: holographic_rollerbed_folded
       map: ["foldedLayer"]
       visible: false
-    - state: rollerbed_buckled
+    - state: holographic_rollerbed_buckled
       map: ["buckledLayer"]
   - type: StaticPrice
     price: 200

@@ -200,9 +200,9 @@
   # - CommonBackpack
   # - CommonSatchel
   # - CommonDuffel
-  - BackpackHoP 
-  - SatchelHoP 
-  - HopDuffel 
+  - BackpackHoP
+  - SatchelHoP
+  - HopDuffel
   # End of DeltaV changes
   - HoPBackpackIan
 
@@ -488,6 +488,7 @@
   - BotanistJumpsuit
   - BotanistJumpskirt
   - BotanistOveralls
+  - BotanistJumpskirtOveralls # DeltaV
 
 - type: loadoutGroup
   id: BotanistBackpack
@@ -879,7 +880,7 @@
   # Begin DeltaV additions
   - ElectricianPDA
   - MechanicPDA
-  # Begin DeltaV additions
+  # End DeltaV additions
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -888,6 +889,7 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianJumpskirt
   - AtmosphericTechnicianJumpsuitCasual
+  - AtmosphericTechnicianJumpskirtCasual # DeltaV
 
 - type: loadoutGroup
   id: AtmosphericTechnicianOuterClothing
@@ -1089,6 +1091,7 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   - ScarfRed # DeltaV
+  - SecurityPoncho # DeltaV
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -1220,6 +1223,7 @@
   loadouts:
   - DetectiveTie
   - ScarfRed # DeltaV
+  - SecurityPoncho # DeltaV
 
 - type: loadoutGroup
   id: DetectiveJumpsuit
@@ -1363,6 +1367,7 @@
   - MedicalDoctorPDA
   - SeniorPhysicianPDA
   - ClinicianPDA # DeltaV
+  - CryogenicsSpecialistPDA # DeltaV
 
 - type: loadoutGroup
   id: MedicalGloves

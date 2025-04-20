@@ -1,6 +1,12 @@
 ## Static
 
 - type: latheRecipePack
+  id: BasicChemistryStaticDeltaV
+  recipes:
+  - Dropper
+  - Skimmer
+
+- type: latheRecipePack
   id: MedicalStaticDeltaV
   recipes:
   - AACTablet
@@ -8,6 +14,11 @@
   - ClothingEyesHudMedical
   - Oilpack
   - BaseChemistryEmptyVial
+
+- type: latheRecipePack
+  id: MedicalClothingStaticDeltaV
+  recipes:
+  - ClothingMaskBreathMedical
 
 ## Dynamic
 
