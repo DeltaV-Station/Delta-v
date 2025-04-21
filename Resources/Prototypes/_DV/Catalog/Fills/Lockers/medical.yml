@@ -177,6 +177,12 @@
     - id: LunchboxMedicalFilledRandom
       prob: 0.3
 
+- type: entityTable
+  id: LockerFillChemistryDeltaV
+  table: !type:AllSelector
+    children:
+    - id: Skimmer
+
 - type: entity
   parent: LockerParamedic
   id: LockerParamedicFilledHardsuit
