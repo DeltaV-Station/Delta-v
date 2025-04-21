@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: makyo
-  changes:
-  - message: round restart time
-    type: Tweak
-  id: 799
-  time: '2024-12-20T05:31:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2229
 - author: deltanedas
   changes:
   - message: Removed vent fauna (spiders, slimes, snakes) events pending rework.
@@ -4064,3 +4057,13 @@
   id: 1298
   time: '2025-04-21T13:09:36.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3529
+- author: Radezolid
+  changes:
+  - message: Basic power cells have been added to every TechFab except the Ammo one.
+    type: Add
+  - message: Simple electronics have been added to the logistics, service and epistemics
+      TechFabs.
+    type: Add
+  id: 1299
+  time: '2025-04-21T13:24:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3530
