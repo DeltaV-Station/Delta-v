@@ -194,9 +194,11 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - BiologicalMetaphysical # DeltaV - Kitsune
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+    - BiologicalMetaphysical # DeltaV - Kitsune
   - type: FabricateCandy # DeltaV - The medical cyborg can generate candies filled with medicine.
     actions:
     - ActionFabricateLollipop
