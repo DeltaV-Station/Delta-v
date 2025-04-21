@@ -7,6 +7,10 @@ using Content.Shared._DV.Polymorph; // DeltaV
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
 using Content.Shared.Damage;
+// Begin DeltaV additions
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
+// End DeltaV additions
 using Content.Shared.Destructible;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -46,6 +50,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly StaminaSystem _stamina = default!; // DeltaV
 
     private const string RevertPolymorphId = "ActionRevertPolymorph";
 
@@ -224,14 +229,23 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (_container.TryGetContainingContainer((uid, targetTransformComp, null), out var cont))
             _container.Insert(child, cont);
 
-        //Transfers all damage from the original to the new one
-        if (configuration.TransferDamage &&
-            TryComp<DamageableComponent>(child, out var damageParent) &&
-            _mobThreshold.GetScaledDamage(uid, child, out var damage) &&
-            damage != null)
+        // Begin Delta V - Propagate Stamina Damage
+        if (configuration.TransferDamage)
         {
-            _damageable.SetDamage(child, damageParent, damage);
+            // Transfer all damage from the original to the new one
+            if (TryComp<DamageableComponent>(child, out var damageParent) &&
+                _mobThreshold.GetScaledDamage(uid, child, out var damage) &&
+                damage != null)
+            {
+                _damageable.SetDamage(child, damageParent, damage);
+            }
+
+            if (TryComp<StaminaComponent>(uid, out var staminaParent))
+            {
+                _stamina.TryTakeStamina(child, staminaParent.StaminaDamage);
+            }
         }
+        // End Delta V - Propagate Stamina Damage
 
         // DeltaV - Drop MindContainer entities on polymorph
         var beforePolymorphedEv = new BeforePolymorphedEvent();
