@@ -1,4 +1,8 @@
 - type: wireLayout
+  parent: Airlock
+  id: AirlockJustice
+
+- type: wireLayout
   id: FireLock
   wires:
   - !type:PowerWireAction

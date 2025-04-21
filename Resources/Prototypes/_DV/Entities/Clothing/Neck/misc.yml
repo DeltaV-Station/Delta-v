@@ -41,3 +41,24 @@
     sprite: _DV/Clothing/Neck/Misc/cwparctic.rsi
   - type: Clothing
     sprite: _DV/Clothing/Neck/Misc/cwparctic.rsi
+
+- type: entity
+  parent: ClothingNeckCWPSec
+  id: ClothingNeckCWPGorlex
+  name: gorlex cold weather poncho
+  description: A stylish red and black poncho made of heavy, cut-proof weave. Protects the wearer from the harshest weather conditions (and more!)
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/Misc/cwpgorlex.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/Misc/cwpgorlex.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.80
+        Cold: 0.40
+        Heat: 0.90
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 0.95

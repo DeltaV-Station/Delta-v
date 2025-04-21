@@ -1,0 +1,44 @@
+- type: entity
+  parent: BaseStructureDynamic
+  id: Foxfire
+  name: foxfire
+  description: An oddly cool wisp of flame giving off a comfortable glow.
+  components:
+  - type: Foxfire
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    sprite: _DV/Structures/Specific/Species/Kitsune/foxfire.rsi
+    state: foxfire
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#ffffff87"
+    castShadows: false
+  - type: Transform
+    anchored: false
+  - type: Physics
+    canCollide: False
+    bodyType: Static
+    bodyStatus: InAir
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: KitsuneFox
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: InteractionOutline
