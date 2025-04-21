@@ -78,29 +78,27 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
         }
 
         // Transfer equipped item speed modifiers
-        if (EnsureComp<MovementSpeedModifierComponent>(newEntity, out var movementComp))
+        var movementComp = EnsureComp<MovementSpeedModifierComponent>(newEntity);
+        var slots = _inventory.GetSlotEnumerator(oldEntity.Owner);
+        while (slots.MoveNext(out var slot))
         {
-            var slots = _inventory.GetSlotEnumerator(oldEntity.Owner);
-            while (slots.MoveNext(out var slot))
+            if (TryComp<ClothingSpeedModifierComponent>(slot.ContainedEntity, out var clothingComp))
             {
-                if (TryComp<ClothingSpeedModifierComponent>(slot.ContainedEntity, out var clothingComp))
-                {
-                    _speed.ChangeBaseSpeed(newEntity,
-                        movementComp.BaseWalkSpeed * clothingComp.WalkModifier,
-                        movementComp.BaseSprintSpeed * clothingComp.SprintModifier,
-                        movementComp.Acceleration);
-                }
+                _speed.ChangeBaseSpeed(newEntity,
+                    movementComp.BaseWalkSpeed * clothingComp.WalkModifier,
+                    movementComp.BaseSprintSpeed * clothingComp.SprintModifier,
+                    movementComp.Acceleration);
             }
+        }
 
-            foreach (var held in _hands.EnumerateHeld(oldEntity))
+        foreach (var held in _hands.EnumerateHeld(oldEntity))
+        {
+            if (TryComp<HeldSpeedModifierComponent>(held, out var heldComp))
             {
-                if (TryComp<HeldSpeedModifierComponent>(held, out var heldComp))
-                {
-                    _speed.ChangeBaseSpeed(newEntity,
-                        movementComp.BaseWalkSpeed * heldComp.WalkModifier,
-                        movementComp.BaseSprintSpeed * heldComp.SprintModifier,
-                        movementComp.Acceleration);
-                }
+                _speed.ChangeBaseSpeed(newEntity,
+                    movementComp.BaseWalkSpeed * heldComp.WalkModifier,
+                    movementComp.BaseSprintSpeed * heldComp.SprintModifier,
+                    movementComp.Acceleration);
             }
         }
 
