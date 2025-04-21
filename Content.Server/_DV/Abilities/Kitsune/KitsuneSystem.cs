@@ -23,13 +23,13 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
     [Dependency] private readonly AccessReaderSystem _reader = default!;
     [Dependency] private readonly AccessSystem _access = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
 
     public override void Initialize()
     {
@@ -61,7 +61,7 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
         }
 
         // Code after this point will not run when reverting to human form.
-        if(HasComp<KitsuneFoxComponent>(oldEntity))
+        if (HasComp<KitsuneFoxComponent>(oldEntity))
             return;
 
         // Transfer Accesses
