@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Stop-Signs
-  changes:
-  - message: I.C.E.E, a laser that deals cold, is now available for epi to research
-    type: Add
-  id: 794
-  time: '2024-12-19T03:34:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2170
 - author: deltanedas
   changes:
   - message: Psionic discharges now trigger metapsionic artifacts.
@@ -4055,3 +4048,21 @@
   id: 1293
   time: '2025-04-21T02:46:19.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3519
+- author: corresp0nd, sowelipililimute
+  changes:
+  - message: Muigroc has been added, a vestine-derived chemical used to temporarily
+      corgify someone
+    type: Add
+  - message: Corgium now causes corgis to spawn when metabolised
+    type: Tweak
+  - message: Corgium no longer works on animals
+    type: Tweak
+  - message: Salicylic Acid now has its Floofstation recipe as a variant
+    type: Tweak
+  - message: Hyronalin now has its Wizard's Den recipe as a variant
+    type: Tweak
+  - message: Hypothium has been removed
+    type: Remove
+  id: 1294
+  time: '2025-04-21T02:49:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3481
