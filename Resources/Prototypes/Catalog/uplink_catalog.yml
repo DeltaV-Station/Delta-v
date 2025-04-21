@@ -59,7 +59,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword.rsi, state: icon }
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 6
+    Telecrystal: 6 # DeltaV - was 4
   productEntity: EnergySword
   cost:
     Telecrystal: 8
@@ -1265,8 +1265,11 @@
   description: uplink-syndicate-pai-desc
   icon: { sprite: /Textures/Objects/Fun/pai.rsi, state: syndicate-icon-pai-off }
   productEntity: SyndicatePersonalAI
+  discountCategory: usualDiscounts  # Begin DeltaV
+  discountDownTo:
+    Telecrystal: 0 # End DeltaV
   cost:
-    Telecrystal: 0 # DeltaV - was 1
+    Telecrystal: 1
   categories:
     - UplinkAllies
   conditions:
@@ -1478,7 +1481,8 @@
   name: uplink-voice-mask-name
   description: uplink-voice-mask-desc
   productEntity: ClothingMaskGasVoiceChameleon
-  # discountCategory: usualDiscounts      DeltaV - no discount
+  # DeltaV - no discount
+  # discountCategory: usualDiscounts
   # discountDownTo:
   #   Telecrystal: 1
   cost:
@@ -1578,7 +1582,8 @@
   description: uplink-eva-syndie-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Suits/eva_syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEVABundle
-  # discountCategory: rareDiscounts     # DeltaV - no discount
+  # DeltaV - no discount
+  # discountCategory: rareDiscounts
   # discountDownTo:
   #  Telecrystal: 1
   cost:
@@ -1733,7 +1738,8 @@
   name: uplink-syndicate-stamp-name
   description: uplink-syndicate-stamp-desc
   productEntity: RubberStampSyndicate
-  # discountCategory: rareDiscounts     # DeltaV - no discount
+  # DeltaV - no discount
+  # discountCategory: rareDiscounts
   # discountDownTo:
   #  Telecrystal: 1
   cost:
@@ -1797,10 +1803,10 @@
   description: uplink-operative-suit-desc
   productEntity: ClothingUniformJumpsuitOperative
   cost:
-    Telecrystal: 0
+    Telecrystal: 0 # DeltaV - was 1
   categories:
   - UplinkPointless
-  - conditions:  # DeltaV - free so limited stock
+  - conditions: # DeltaV - free so limited stock
     - !type:ListingLimitedStockCondition
       stock: 1
 
@@ -1810,10 +1816,10 @@
   description: uplink-operative-skirt-desc
   productEntity: ClothingUniformJumpskirtOperative
   cost:
-    Telecrystal: 0
+    Telecrystal: 0 # DeltaV - was 1
   categories:
   - UplinkPointless
-  - conditions:  # DeltaV - free so limited stock
+  - conditions: # DeltaV - free so limited stock
     - !type:ListingLimitedStockCondition
       stock: 1
 
