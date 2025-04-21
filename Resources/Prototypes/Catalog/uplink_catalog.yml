@@ -1806,9 +1806,9 @@
     Telecrystal: 0 # DeltaV - was 1
   categories:
   - UplinkPointless
-  - conditions: # DeltaV - free so limited stock
-    - !type:ListingLimitedStockCondition
-      stock: 1
+  conditions: # DeltaV - free so limited stock
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 - type: listing
   id: UplinkOperativeSkirt
@@ -1819,9 +1819,9 @@
     Telecrystal: 0 # DeltaV - was 1
   categories:
   - UplinkPointless
-  - conditions: # DeltaV - free so limited stock
-    - !type:ListingLimitedStockCondition
-      stock: 1
+  conditions: # DeltaV - free so limited stock
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 - type: listing
   id: UplinkBalloon
