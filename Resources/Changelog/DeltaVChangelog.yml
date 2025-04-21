@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Removed vent fauna (spiders, slimes, snakes) events pending rework.
-    type: Remove
-  id: 800
-  time: '2024-12-20T05:34:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2474
-- author: deltanedas
-  changes:
   - message: Changed Salvage Weapons to be a tier 2 tech, Experimental Salvage Weaponry.
     type: Tweak
   - message: Crusher weapons are researchable again, PKA is roundstart.
@@ -4067,3 +4060,11 @@
   id: 1299
   time: '2025-04-21T13:24:41.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3530
+- author: ShepardToTheStars
+  changes:
+  - message: Health analyzers will now become active again if you move back into range
+      of your patient!
+    type: Tweak
+  id: 1300
+  time: '2025-04-21T14:18:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3521
