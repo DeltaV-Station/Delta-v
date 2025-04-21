@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared._DV.Polymorph;
+using Content.Shared.Intellicard;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Containers;
 
@@ -40,6 +41,13 @@ public sealed class ContentContainerSystem : EntitySystem
                 {
                     if (HasComp<MindContainerComponent>(entity))
                     {
+                        _found.Add(entity);
+                        continue;
+                    }
+
+                    if (HasComp<IntellicardComponent>(entity))
+                    {
+                        // Dump out the WHOLE intellicard rather than just the entities contained inside.
                         _found.Add(entity);
                         continue;
                     }
