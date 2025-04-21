@@ -1,15 +1,4 @@
 ﻿Entries:
-- author: alterae
-  changes:
-  - message: Added coats, hats, scarves, and shoes to the Psychologist's loadout options.
-    type: Add
-  - message: Added three new Psychologist job titles.
-    type: Add
-  - message: Psychologist now spawns with a folder.
-    type: Tweak
-  id: 803
-  time: '2024-12-20T18:49:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2459
 - author: Lyndomen
   changes:
   - message: Vent critters are back, thanks for your feedback!
@@ -4063,3 +4052,10 @@
   id: 1302
   time: '2025-04-21T21:09:47.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3545
+- author: Radezolid
+  changes:
+  - message: Fixed departamental TechFabs not being able to accept blueprints.
+    type: Fix
+  id: 1303
+  time: '2025-04-21T21:14:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3546
