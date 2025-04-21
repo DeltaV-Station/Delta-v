@@ -3,7 +3,7 @@
   mapName: 'Byōin'
   mapPath: /Maps/byoin.yml
   minPlayers: 0
-  maxPlayers: 25
+  maxPlayers: 35
   stations:
     Byoin:
       stationProto: StandardNanotrasenStation
@@ -49,7 +49,7 @@
             Psychologist: [ 1, 1 ]
             Paramedic: [ 1, 1 ]
             Surgeon: [ 1, 1 ]
-            MedicalDoctor: [ 2, 2 ]
+            MedicalDoctor: [ 2, 3 ]
             MedicalIntern: [ 1, 1 ]
           #science
             Roboticist: [ 1, 1 ]
@@ -63,7 +63,7 @@
           #security
             Warden: [ 1, 1 ]
             Detective: [ 1, 1 ]
-            SecurityOfficer: [ 2, 2 ]
+            SecurityOfficer: [ 2, 3 ]
             SecurityCadet: [ 1, 1 ]
             Brigmedic: [ 1, 1 ]
             Prisoner: [ 2, 2 ]

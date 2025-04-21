@@ -59,6 +59,16 @@
                   max: 2
     - type: StaticPrice
       price: 100
+    # Begin DeltaV additions
+    - type: MeleeWeapon
+      canWideSwing: false
+      damage:
+        types:
+          Blunt: 3
+      soundHit:
+        collection: MetalThud
+      bluntStaminaDamageFactor: 1.5
+    # End DeltaV additions
 
 #Security Shields
 

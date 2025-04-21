@@ -113,17 +113,18 @@
   products:
     Dexalin: 3
 
-- type: reaction
-  id: DexalinPlus
-  reactants:
-    Dexalin:
-      amount: 1
-    Carbon:
-      amount: 1
-    Iron:
-      amount: 1
-  products:
-    DexalinPlus: 3
+# Funkychem - no more dex+
+# - type: reaction
+#   id: DexalinPlus
+#   reactants:
+#     Dexalin:
+#       amount: 1
+#     Carbon:
+#       amount: 1
+#     Iron:
+#       amount: 1
+#   products:
+#     DexalinPlus: 3
 
 - type: reaction
   id: Hyronalin
@@ -253,7 +254,7 @@
 - type: reaction
   id: HeartbreakerToxin
   reactants:
-    DexalinPlus:
+    Salbutamol: # Funkychem - no more dex+
       amount: 1
     MindbreakerToxin:
       amount: 1

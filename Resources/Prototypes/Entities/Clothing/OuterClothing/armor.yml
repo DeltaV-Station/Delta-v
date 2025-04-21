@@ -100,9 +100,9 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
-        Heat: 0.4 # this technically means it protects against fires pretty well? -heat is just for lasers and stuff, not atmos temperature
+        Heat: 0.75 # DeltaV - changed from 60% resistant to 25%
   - type: Reflect
-    reflectProb: 1
+    reflectProb: 0.75 # DeltaV - changed from 100% reflect to 75%
     reflects:
       - Energy
     reflectingInHands: false

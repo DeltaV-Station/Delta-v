@@ -1,9 +1,9 @@
 - type: marking
-  id: ScarChestFemale # DeltaV: Splitting the scars and tattoos
+  id: ScarChestFemale
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi] #Einstein Engines - Felinid, Oni
-  sexRestriction: [Female] # DeltaV: Splitting the scars and tattoos
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi, Kitsune]
+  sexRestriction: [Female]
   followSkinColor: true
   sprites:
   - sprite: _DV/Mobs/Customization/scars.rsi
