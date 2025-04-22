@@ -32,6 +32,18 @@
     - SecurityExplosives
     - SecurityEquipment
     - SecurityWeapons
+  - type: BlueprintReceiver
+    whitelist:
+      tags:
+      - BlueprintAutolathe
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - blueprint
 
 - type: entity
   parent: BaseTechFabDepartamental
@@ -97,9 +109,11 @@
     staticPacks:
     - ToolsStatic
     - PartsStatic
+    - PowerCellsStatic
     - LVCablesStatic
     - CargoStatic
     - ReportingStatic
+    - SimpleElectronicsStatic
     dynamicPacks:
     - Equipment
     - Mining
@@ -132,9 +146,11 @@
     - RingsStatic
     - ReportingStatic
     - LVCablesStatic
+    - PowerCellsStatic
     - LightsStatic
     - ServiceStatic
     - PartsStaticDeltaV # Add Beaker and Hand Labeler to the service techfab
+    - SimpleElectronicsStatic
     dynamicPacks:
     - Janitor
     - Instruments
@@ -172,6 +188,7 @@
     - ChemistryStatic
     - PowerCellsStatic
     - ReportingStatic
+    - SimpleElectronicsStatic
     dynamicPacks:
     - ScienceEquipment
     - ScienceClothing
