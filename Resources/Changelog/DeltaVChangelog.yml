@@ -1,16 +1,4 @@
 ﻿Entries:
-- author: BombasterDS, deltanedas
-  changes:
-  - message: Tape recorders and cassettes can now be crafted in autolathes for recording
-      crew speech.
-    type: Add
-  - message: Reporters, detectives start with a tape recorder and cassettes.
-    type: Add
-  - message: Added tape recorders to loadout trinkets.
-    type: Add
-  id: 810
-  time: '2024-12-22T20:04:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2498
 - author: Santa
   changes:
   - message: Merged the Christmas cheer from upstream. Ho ho ho!
@@ -4063,3 +4051,18 @@
   id: 1309
   time: '2025-04-22T19:23:40.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3555
+- author: SolStar
+  changes:
+  - message: Stamina damage now transfers on polymorph.
+    type: Fix
+  - message: Innate accesses no longer transfers to kitsune human form.
+    type: Fix
+  - message: Kitsune human form no longer gains fox factions on polymorph.
+    type: Fix
+  - message: Equipment slowdown penalties now apply to Kitsune's polymorph.
+    type: Tweak
+  - message: Kitsune fox form base speed buffed sligtly
+    type: Tweak
+  id: 1310
+  time: '2025-04-22T23:17:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3528
