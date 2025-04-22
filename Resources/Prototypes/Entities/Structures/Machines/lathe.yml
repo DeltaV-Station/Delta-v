@@ -433,6 +433,8 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: LatheAnnouncing
+    channels: [Security]
 
 - type: entity
   id: AmmoTechFab
@@ -502,6 +504,7 @@
     - EmptyMedkitsStatic
     - SurgeryStatic
     - ReportingStatic # DeltaV
+    - PowerCellsStatic # DeltaV
     dynamicPacks:
     - Chemistry
     - CyberneticsMedical # Shitmed change
@@ -511,6 +514,8 @@
     board: MedicalTechFabCircuitboard
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
+  - type: LatheAnnouncing
+    channels: [Medical]
 
 - type: entity
   parent: BaseLathe

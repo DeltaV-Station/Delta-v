@@ -1,0 +1,19 @@
+- type: entity
+  parent: MarkerBase
+  id: LandmineSpawner
+  name: Landmine Random Spawner
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/landmine.rsi
+    layers:
+    - state: landmine
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      prob: 0.90
+      children:
+      - id: LandMineShrapnel
+        weight: 10
+      - id: LandMineHE
+        weight: 2
+      - id: LandMineExplosive
