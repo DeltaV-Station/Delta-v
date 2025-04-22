@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: The syndicate R&D team managed to disguise regular grenades into foam
-      dart grenades, get them at your local illegal arms dealer/uplink.
-    type: Add
-  id: 809
-  time: '2024-12-22T16:14:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2486
 - author: BombasterDS, deltanedas
   changes:
   - message: Tape recorders and cassettes can now be crafted in autolathes for recording
@@ -4060,3 +4052,14 @@
   id: 1308
   time: '2025-04-22T18:51:42.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3486
+- author: sowelipililimute
+  changes:
+  - message: The Funding Allocation Computer can now adjust the cut Cargo takes from
+      lockbox sales
+    type: Add
+  - message: The Funding Allocation Computer doesn't show Cargo separately from its
+      75% cut
+    type: Tweak
+  id: 1309
+  time: '2025-04-22T19:23:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3555
