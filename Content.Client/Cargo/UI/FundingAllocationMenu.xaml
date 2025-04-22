@@ -7,9 +7,9 @@
                   HorizontalExpand="True"
                   Margin="10 5 10 10">
         <controls:TableContainer Columns="2" HorizontalExpand="True" VerticalExpand="True">
-            <RichTextLabel Name="PrimaryCutLabel" Text="{Loc 'cargo-funding-alloc-console-label-primary-cut'}"/>
+            <RichTextLabel Name="PrimaryCutLabel" Text="{Loc 'cargo-funding-alloc-console-label-primary-cut-dv'}"/> <!-- DeltaV: it's called Logistics -->
             <SpinBox Name="PrimaryCut"/>
-            <RichTextLabel Name="LockboxCutLabel" Text="{Loc 'cargo-funding-alloc-console-label-lockbox-cut'}"/>
+            <RichTextLabel Name="LockboxCutLabel" Text="{Loc 'cargo-funding-alloc-console-label-lockbox-cut-dv'}"/> <!-- DeltaV: it's called Logistics -->
             <SpinBox Name="LockboxCut"/>
         </controls:TableContainer>
         <Label Name="HelpLabel" HorizontalAlignment="Center" StyleClasses="LabelSubText" Margin="0 10"/>
