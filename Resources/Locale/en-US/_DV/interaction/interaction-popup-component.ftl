@@ -7,3 +7,6 @@ petting-failure-nukie-mouse = You reach out to pet {THE($target)}, but {SUBJECT(
 
 petting-success-security-cyborg = You pet {THE($target)} on {POSS-ADJ($target)} bald, robust head.
 petting-failure-security-cyborg = You reach out to pet {THE($target)}, but {POSS_ADJ($target)} baton lights up!
+
+petting-success-supplybot = You pet {THE($target)} on {POSS-ADJ($target)} smooth metal head.
+petting-failure-supplybot = You reach out to pet {THE($target)}, but {SUBJECT($target)} doesn't seem to notice.
