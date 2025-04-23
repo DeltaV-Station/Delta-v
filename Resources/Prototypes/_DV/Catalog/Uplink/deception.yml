@@ -35,10 +35,8 @@
     sprite: Objects/Devices/tablets.rsi
     state: icon
   productEntity: HandheldStationMapRecordsTablet
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 0
-  cost:
-    Telecrystal: 1
   categories:
   - UplinkDeception
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
