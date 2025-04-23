@@ -44,6 +44,9 @@ public sealed class MonumentSystem : SharedMonumentSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
+    private static readonly EntProtoId CosmicGod = "MobCosmicGodSpawn";
+    private static readonly EntProtoId MonumentCollider = "MonumentCollider";
+
     private EntityUid? _monumentStorageMap;
 
     public override void Initialize()
@@ -97,7 +100,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
                 }
 
                 _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
-                Spawn("MobCosmicGodSpawn", Transform(uid).Coordinates);
+                Spawn(CosmicGod, Transform(uid).Coordinates);
                 comp.CurrentState = FinaleState.Victory;
             }
         }
@@ -149,7 +152,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
         var xform = Transform(ent);
         _transform.SetCoordinates(ent.Comp.Monument.Value, xform.Coordinates);
         _transform.AnchorEntity(ent.Comp.Monument.Value); //no idea if this does anything but let's be safe about it
-        Spawn("MonumentCollider", xform.Coordinates);
+        Spawn(MonumentCollider, xform.Coordinates);
 
         if (TryComp<CosmicCorruptingComponent>(ent.Comp.Monument.Value, out var cosmicCorruptingComp))
             _corrupting.RecalculateStartingTiles((ent.Comp.Monument.Value, cosmicCorruptingComp));

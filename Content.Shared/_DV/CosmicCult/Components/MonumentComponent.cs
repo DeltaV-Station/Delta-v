@@ -115,10 +115,9 @@ public sealed partial class MonumentComponent : Component
 }
 
 [Serializable, NetSerializable]
-public sealed class InfluenceSelectedMessage(ProtoId<InfluencePrototype> influenceProtoId, NetEntity? sender) : BoundUserInterfaceMessage
+public sealed class InfluenceSelectedMessage(ProtoId<InfluencePrototype> influenceProtoId) : BoundUserInterfaceMessage
 {
     public ProtoId<InfluencePrototype> InfluenceProtoId = influenceProtoId;
-    public NetEntity? Sender = sender;
 }
 
 [Serializable, NetSerializable]

@@ -101,12 +101,6 @@ public sealed partial class CosmicCorruptingComponent : Component
     };
 
     /// <summary>
-    /// the door we spawn when replacing a secret door
-    /// </summary>
-    [DataField]
-    public EntProtoId ConversionDoor = "DoorCosmicCult";
-
-    /// <summary>
     /// The VFX entity we spawn when corruption occurs.
     /// </summary>
     [DataField]

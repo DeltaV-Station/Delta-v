@@ -29,74 +29,73 @@ public sealed class CosmicSpireSystem : EntitySystem
         SubscribeLocalEvent<CosmicSpireComponent, GasAnalyzerScanEvent>(OnSpireAnalyzed);
     }
 
-    private void OnAnchorChanged(EntityUid uid, CosmicSpireComponent comp, ref AnchorStateChangedEvent args)
+    private void OnAnchorChanged(Entity<CosmicSpireComponent> ent, ref AnchorStateChangedEvent args)
     {
         if (args.Anchored)
         {
-            comp.Enabled = true;
-            UpdateSpireAppearance(uid, SpireStatus.On);
+            ent.Comp.Enabled = true;
+            UpdateSpireAppearance(ent, SpireStatus.On);
         }
 
         if (!args.Anchored)
         {
-            comp.Enabled = false;
-            UpdateSpireAppearance(uid, SpireStatus.Off);
+            ent.Comp.Enabled = false;
+            UpdateSpireAppearance(ent, SpireStatus.Off);
         }
 
-        _ambient.SetAmbience(uid, comp.Enabled);
-        _lights.SetEnabled(uid, comp.Enabled);
+        _ambient.SetAmbience(ent, ent.Comp.Enabled);
+        _lights.SetEnabled(ent, ent.Comp.Enabled);
     }
 
-    private void OnDeviceUpdated(EntityUid uid, CosmicSpireComponent comp, ref AtmosDeviceUpdateEvent args)
+    private void OnDeviceUpdated(Entity<CosmicSpireComponent> ent, ref AtmosDeviceUpdateEvent args)
     {
-        if (!comp.Enabled)
+        if (!ent.Comp.Enabled)
             return;
         if (args.Grid is not { } grid)
             return;
         var timeDelta = args.dt;
-        var position = _transform.GetGridTilePositionOrDefault(uid);
+        var position = _transform.GetGridTilePositionOrDefault(ent.Owner);
         var environment = _atmos.GetTileMixture(grid, args.Map, position, true);
-        var running = Drain(timeDelta, comp, environment);
+        var running = Drain(timeDelta, ent, environment);
         if (!running)
             return;
         var enumerator = _atmos.GetAdjacentTileMixtures(grid, position, false, true);
         while (enumerator.MoveNext(out var adjacent))
         {
-            Drain(timeDelta, comp, adjacent);
+            Drain(timeDelta, ent, adjacent);
         }
 
-        if (comp.Storage.TotalMoles >= comp.DrainThreshHold)
+        if (ent.Comp.Storage.TotalMoles >= ent.Comp.DrainThreshHold)
         {
-            _popup.PopupCoordinates(Loc.GetString("cosmiccult-spire-entropy"), Transform(uid).Coordinates);
-            comp.Storage.Clear();
-            Spawn(comp.SpawnVFX, Transform(uid).Coordinates);
-            Spawn(comp.EntropyMote, Transform(uid).Coordinates);
+            _popup.PopupCoordinates(Loc.GetString("cosmiccult-spire-entropy"), Transform(ent).Coordinates);
+            ent.Comp.Storage.Clear();
+            Spawn(ent.Comp.SpawnVFX, Transform(ent).Coordinates);
+            Spawn(ent.Comp.EntropyMote, Transform(ent).Coordinates);
 
-            if (_cosmicRule.AssociatedGamerule(uid) is not { } cult)
+            if (_cosmicRule.AssociatedGamerule(ent) is not { } cult)
                 return;
             cult.Comp.EntropySiphoned++;
         }
     }
 
-    private bool Drain(float timeDelta, CosmicSpireComponent comp, GasMixture? tile)
+    private bool Drain(float timeDelta, Entity<CosmicSpireComponent> ent, GasMixture? tile)
     {
         return _scrub.Scrub(timeDelta,
-            comp.DrainRate * _atmos.PumpSpeedup(),
+            ent.Comp.DrainRate * _atmos.PumpSpeedup(),
             ScrubberPumpDirection.Scrubbing,
-            comp.DrainGases,
+            ent.Comp.DrainGases,
             tile,
-            comp.Storage);
+            ent.Comp.Storage);
     }
 
-    private void OnSpireAnalyzed(EntityUid uid, CosmicSpireComponent comp, GasAnalyzerScanEvent args)
+    private void OnSpireAnalyzed(Entity<CosmicSpireComponent> ent, ref GasAnalyzerScanEvent args)
     {
         args.GasMixtures ??= [];
-        args.GasMixtures.Add((Name(uid), comp.Storage));
+        args.GasMixtures.Add((Name(ent), ent.Comp.Storage));
     }
 
     private void UpdateSpireAppearance(EntityUid uid, SpireStatus status)
     {
-        if (TryComp<AppearanceComponent>(uid, out var appearance))
-            _appearance.SetData(uid, SpireVisuals.Status, status, appearance);
+        _appearance.SetData(uid, SpireVisuals.Status, status);
     }
 }

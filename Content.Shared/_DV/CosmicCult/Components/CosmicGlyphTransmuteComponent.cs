@@ -15,11 +15,11 @@ public sealed partial class CosmicGlyphTransmuteComponent : Component
     ///     A pool of entities that we pick from when transmuting.
     /// </summary>
     [DataField(required: true)]
-    public HashSet<EntProtoId> Transmutations;
+    public HashSet<EntProtoId> Transmutations = [];
 
     /// <summary>
     ///     Permissible entities for the transmutation
     /// </summary>
     [DataField(required: true)]
-    public EntityWhitelist Whitelist;
+    public EntityWhitelist Whitelist = new();
 }

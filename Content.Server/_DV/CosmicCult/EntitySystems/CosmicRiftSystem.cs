@@ -115,7 +115,7 @@ public sealed class CosmicRiftSystem : EntitySystem
     private void OnAbsorbDoAfter(Entity<CosmicCultComponent> uid, ref EventAbsorbRiftDoAfter args)
     {
         var comp = uid.Comp;
-        if (args.Args.Target == null || args.Cancelled || args.Handled)
+        if (args.Args.Target is not { } target || args.Cancelled || args.Handled)
         {
             if (TryComp<CosmicMalignRiftComponent>(args.Args.Target, out var rift))
                 rift.Occupied = false;
@@ -123,8 +123,7 @@ public sealed class CosmicRiftSystem : EntitySystem
         }
 
         args.Handled = true;
-        var tgtpos = Transform(args.Args.Target.Value).Coordinates;
-        var target = args.Args.Target.Value;
+        var tgtpos = Transform(target).Coordinates;
         Spawn(uid.Comp.AbsorbVFX, tgtpos);
         comp.CosmicEmpowered = true;
         comp.CosmicSiphonQuantity = 2;

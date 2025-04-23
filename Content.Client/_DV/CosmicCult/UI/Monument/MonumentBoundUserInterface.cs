@@ -36,6 +36,6 @@ public sealed class MonumentBoundUserInterface(EntityUid owner, Enum uiKey) : Bo
 
     private void OnInfluenceSelected(ProtoId<InfluencePrototype> selectedInfluence)
     {
-        SendMessage(new InfluenceSelectedMessage(selectedInfluence, EntMan.GetNetEntity(PlayerManager.LocalEntity)));
+        SendMessage(new InfluenceSelectedMessage(selectedInfluence));
     }
 }

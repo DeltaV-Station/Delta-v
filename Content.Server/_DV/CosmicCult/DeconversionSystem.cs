@@ -19,14 +19,15 @@ namespace Content.Server._DV.CosmicCult;
 
 public sealed class DeconversionSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedJitteringSystem _jittering = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -37,7 +38,7 @@ public sealed class DeconversionSystem : EntitySystem
 
     private void OnCompInit(Entity<CleanseCultComponent> uid, ref ComponentInit args)
     {
-        _entityManager.System<SharedJitteringSystem>().DoJitter(uid.Owner, uid.Comp.CleanseDuration, true, 5, 20);
+        _jittering.DoJitter(uid.Owner, uid.Comp.CleanseDuration, true, 5, 20);
         uid.Comp.CleanseTime = _timing.CurTime + uid.Comp.CleanseDuration;
     }
 

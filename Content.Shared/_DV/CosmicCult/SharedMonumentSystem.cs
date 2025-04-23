@@ -115,29 +115,26 @@ public abstract class SharedMonumentSystem : EntitySystem
 
     private void OnInfluenceSelected(Entity<MonumentComponent> ent, ref InfluenceSelectedMessage args)
     {
-
-        var senderEnt = GetEntity(args.Sender);
-
-        if (!_prototype.TryIndex(args.InfluenceProtoId, out var proto) || !TryComp<ActivatableUIComponent>(ent, out var uiComp) || !TryComp<CosmicCultComponent>(senderEnt, out var cultComp))
+        if (!_prototype.TryIndex(args.InfluenceProtoId, out var proto) || !TryComp<ActivatableUIComponent>(ent, out var uiComp) || !TryComp<CosmicCultComponent>(args.Actor, out var cultComp))
             return;
 
-        if (cultComp.EntropyBudget < proto.Cost || cultComp.OwnedInfluences.Contains(proto) || args.Sender == null)
+        if (cultComp.EntropyBudget < proto.Cost || cultComp.OwnedInfluences.Contains(proto) || args.Actor == null)
             return;
 
         cultComp.OwnedInfluences.Add(proto);
 
         if (proto.InfluenceType == "influence-type-active")
         {
-            var actionEnt = _actions.AddAction(senderEnt.Value, proto.Action);
+            var actionEnt = _actions.AddAction(args.Actor, proto.Action);
             cultComp.ActionEntities.Add(actionEnt);
         }
         else if (proto.InfluenceType == "influence-type-passive")
         {
-            UnlockPassive(senderEnt.Value, proto); //Not unlocking an action? call the helper function to add the influence's passive effects
+            UnlockPassive(args.Actor, proto); //Not unlocking an action? call the helper function to add the influence's passive effects
         }
 
         cultComp.EntropyBudget -= proto.Cost;
-        Dirty(senderEnt.Value, cultComp); //force an update to make sure that the client has the correct set of owned abilities
+        Dirty(args.Actor, cultComp); //force an update to make sure that the client has the correct set of owned abilities
 
         _ui.SetUiState(ent.Owner, MonumentKey.Key, new MonumentBuiState(ent.Comp));
     }

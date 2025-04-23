@@ -26,6 +26,9 @@ public sealed class CosmicSiphonSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly CosmicCultSystem _cosmicCult = default!;
+
+    private readonly HashSet<Entity<PoweredLightComponent>> _lights = [];
 
     public override void Initialize()
     {
@@ -65,9 +68,8 @@ public sealed class CosmicSiphonSystem : EntitySystem
 
     private void OnCosmicSiphonDoAfter(Entity<CosmicCultComponent> uid, ref EventCosmicSiphonDoAfter args)
     {
-        if (args.Args.Target == null)
+        if (args.Args.Target is not { } target)
             return;
-        var target = args.Args.Target.Value;
         if (args.Cancelled || args.Handled)
             return;
         args.Handled = true;
@@ -80,17 +82,23 @@ public sealed class CosmicSiphonSystem : EntitySystem
         Dirty(uid, uid.Comp);
 
         _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(target, "EntropicDegen", TimeSpan.FromSeconds(21), true);
-        _popup.PopupEntity(Loc.GetString("cosmicability-siphon-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
-        _alerts.ShowAlert(uid, uid.Comp.EntropyAlert);
-        _cultRule.IncrementCultObjectiveEntropy(uid);
+        if (_cosmicCult.EntityIsCultist(target))
+        {
+            _popup.PopupEntity(Loc.GetString("cosmicability-siphon-cultist-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
+        }
+        else
+        {
+            _popup.PopupEntity(Loc.GetString("cosmicability-siphon-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
+            _alerts.ShowAlert(uid, uid.Comp.EntropyAlert);
+            _cultRule.IncrementCultObjectiveEntropy(uid);
+        }
 
         if (uid.Comp.CosmicEmpowered) // if you're empowered there's a 50% chance to flicker lights on siphon
         {
-            var lights = GetEntityQuery<PoweredLightComponent>();
-            foreach (var light in _lookup.GetEntitiesInRange(uid, 5, LookupFlags.StaticSundries)) // static range of 5. because.
+            _lights.Clear();
+            _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(uid).Coordinates, 5, _lights, LookupFlags.StaticSundries);
+            foreach (var light in _lights) // static range of 5. because.
             {
-                if (!lights.HasComponent(light))
-                    continue;
                 if (!_random.Prob(0.5f))
                     continue;
                 _ghost.DoGhostBooEvent(light);

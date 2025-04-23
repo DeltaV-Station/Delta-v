@@ -1,17 +1,18 @@
 using System.Numerics;
 using Content.Server.Bible.Components;
-using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult;
 using Content.Shared.Damage;
 using Content.Shared.Effects;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Systems;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Audio;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 
@@ -26,6 +27,8 @@ public sealed class CosmicNovaSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+
+    private static readonly EntProtoId Projectile = "ProjectileCosmicNova";
 
     public override void Initialize()
     {
@@ -49,7 +52,7 @@ public sealed class CosmicNovaSystem : EntitySystem
             delta = new(.01f, 0);
 
         args.Handled = true;
-        var ent = Spawn("ProjectileCosmicNova", startPos);
+        var ent = Spawn(Projectile, startPos);
         _gun.ShootProjectile(ent, delta, userVelocity, args.Performer, args.Performer, 5f);
         _audio.PlayPvs(uid.Comp.NovaCastSFX, uid, AudioParams.Default.WithVariation(0.1f));
         _cult.MalignEcho(uid);

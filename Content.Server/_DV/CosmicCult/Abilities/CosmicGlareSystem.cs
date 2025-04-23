@@ -26,6 +26,8 @@ public sealed class CosmicGlareSystem : EntitySystem
     [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
 
+    private HashSet<Entity<PoweredLightComponent>> _lights = [];
+
     public override void Initialize()
     {
         base.Initialize();
@@ -40,10 +42,10 @@ public sealed class CosmicGlareSystem : EntitySystem
         _cult.MalignEcho(uid);
         args.Handled = true;
 
-        var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, uid.Comp.CosmicGlareRange);
-        entities.RemoveWhere(entity => !HasComp<PoweredLightComponent>(entity));
+        _lights.Clear();
+        _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(uid).Coordinates, uid.Comp.CosmicGlareRange, _lights);
 
-        foreach (var entity in entities)
+        foreach (var entity in _lights)
             _poweredLight.TryDestroyBulb(entity);
 
         var targetFilter = Filter.Pvs(uid).RemoveWhere(player =>

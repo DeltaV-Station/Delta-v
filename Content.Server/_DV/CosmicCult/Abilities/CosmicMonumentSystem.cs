@@ -3,11 +3,12 @@ using Content.Server.Actions;
 using Content.Server.Popups;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult;
 using Content.Shared.Maps;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 
@@ -22,6 +23,10 @@ public sealed class CosmicMonumentSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StationSystem _station = default!;
+
+    private static readonly EntProtoId MonumentCollider = "MonumentCollider";
+    private static readonly EntProtoId MonumentCosmicCultMoveEnd = "MonumentCosmicCultMoveEnd";
+    private static readonly EntProtoId MonumentCosmicCultMoveStart = "MonumentCosmicCultMoveStart";
 
     public override void Initialize()
     {
@@ -45,7 +50,7 @@ public sealed class CosmicMonumentSystem : EntitySystem
 
         _actions.RemoveAction(uid, uid.Comp.CosmicMonumentPlaceActionEntity);
 
-        Spawn("MonumentCollider", pos);
+        Spawn(MonumentCollider, pos);
         var monument = Spawn(uid.Comp.MonumentPrototype, pos);
 
         _cultRule.TransferCultAssociation(uid, monument);
@@ -69,14 +74,14 @@ public sealed class CosmicMonumentSystem : EntitySystem
         }
 
         //spawn the destination effect first because we only need one
-        var destEnt = Spawn("MonumentCosmicCultMoveEnd", pos);
+        var destEnt = Spawn(MonumentCosmicCultMoveEnd, pos);
         var destComp = EnsureComp<MonumentMoveDestinationComponent>(destEnt);
         destComp.Monument = cult.Comp.MonumentInGame;
         var coords = Transform(cult.Comp.MonumentInGame).Coordinates;
-        Spawn("MonumentCollider", pos); //spawn a new collider
+        Spawn(MonumentCollider, pos); //spawn a new collider
 
-        Spawn("MonumentCosmicCultMoveStart", coords);
-        Spawn("MonumentCollider", Transform(cult.Comp.MonumentInGame).Coordinates); //spawn a new collider
+        Spawn(MonumentCosmicCultMoveStart, coords);
+        Spawn(MonumentCollider, Transform(cult.Comp.MonumentInGame).Coordinates); //spawn a new collider
 
         _monument.PhaseOutMonument(cult.Comp.MonumentInGame);
         destComp.PhaseInTimer = cult.Comp.MonumentInGame.Comp.PhaseOutTimer + TimeSpan.FromSeconds(0.75);

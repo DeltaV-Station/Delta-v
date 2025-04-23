@@ -9,6 +9,6 @@ public sealed partial class CosmicCultAssociatedRuleComponent : Component
     /// <summary>
     ///     The gamerule that this entity is associated with
     /// </summary>
-    [DataField(serverOnly: true)]
+    [DataField]
     public EntityUid CultGamerule;
 }

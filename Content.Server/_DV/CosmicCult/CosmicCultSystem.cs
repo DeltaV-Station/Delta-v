@@ -21,6 +21,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.EntitySerialization;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -54,7 +55,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private readonly ResPath _mapPath = new("Maps/_DV/Nonstations/cosmicvoid.yml");
 
-    public int CultistCount;
+    private static readonly EntProtoId CosmicEchoVfx = "CosmicEchoVfx";
+    private static readonly ProtoId<StatusEffectPrototype> EntropicDegen = "EntropicDegen";
 
     public override void Initialize()
     {
@@ -88,7 +90,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         if (_cultRule.AssociatedGamerule(uid) is not { } cult)
             return;
         if (cult.Comp.CurrentTier > 1 && !_random.Prob(0.5f))
-            Spawn("CosmicEchoVfx", Transform(uid).Coordinates);
+            Spawn(CosmicEchoVfx, Transform(uid).Coordinates);
     }
 
     #region Housekeeping
@@ -105,10 +107,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private void OnCosmicCultExamined(Entity<CosmicCultExamineComponent> ent, ref ExaminedEvent args)
     {
-        if (EntitySeesCult(args.Examiner))
-            args.PushMarkup(Loc.GetString(ent.Comp.CultistText));
-        else
-            args.PushMarkup(Loc.GetString(ent.Comp.OthersText));
+        args.PushMarkup(Loc.GetString(EntitySeesCult(args.Examiner) ? ent.Comp.CultistText : ent.Comp.OthersText));
     }
     #endregion
 
@@ -149,24 +148,24 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     private void OnGotEquipped(Entity<CosmicEquipmentComponent> ent, ref GotEquippedEvent args)
     {
         if (!EntityIsCultist(args.Equipee))
-            _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.Equipee, "EntropicDegen", TimeSpan.FromSeconds(99), true);
+            _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.Equipee, EntropicDegen, TimeSpan.MaxValue, true);
     }
 
     private void OnGotUnequipped(Entity<CosmicEquipmentComponent> ent, ref GotUnequippedEvent args)
     {
         if (!EntityIsCultist(args.Equipee))
-            _statusEffects.TryRemoveStatusEffect(args.Equipee, "EntropicDegen");
+            _statusEffects.TryRemoveStatusEffect(args.Equipee, EntropicDegen);
     }
     private void OnGotHeld(Entity<CosmicEquipmentComponent> ent, ref GotEquippedHandEvent args)
     {
         if (!EntityIsCultist(args.User))
-            _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.User, "EntropicDegen", TimeSpan.FromSeconds(99), true);
+            _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.User, EntropicDegen, TimeSpan.MaxValue, true);
     }
 
     private void OnGotUnheld(Entity<CosmicEquipmentComponent> ent, ref GotUnequippedHandEvent args)
     {
         if (!EntityIsCultist(args.User))
-            _statusEffects.TryRemoveStatusEffect(args.User, "EntropicDegen");
+            _statusEffects.TryRemoveStatusEffect(args.User, EntropicDegen);
     }
     #endregion
 
