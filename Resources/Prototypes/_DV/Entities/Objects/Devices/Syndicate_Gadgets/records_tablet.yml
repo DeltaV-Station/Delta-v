@@ -14,7 +14,7 @@
     - state: generic
       shader: unshaded
   - type: ActivatableUI
-    inHandsOnly: true
+    inHandsOnly: false
     singleUser: true
     key: enum.CharacterRecordConsoleKey.Key
   - type: UserInterface
