@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Santa
-  changes:
-  - message: Merged the Christmas cheer from upstream. Ho ho ho!
-    type: Add
-  id: 811
-  time: '2024-12-22T20:05:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2496
 - author: juniwoofs
   changes:
   - message: a Morty Plushie (Sprite courtesy of a dog! code courtesy of me :3)
@@ -4066,3 +4059,17 @@
   id: 1310
   time: '2025-04-22T23:17:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3528
+- author: KZhProgram
+  changes:
+  - message: Made Security Winter Boots, HoS Winter Boots, and Combat Boots behave
+      the same as jackboots
+    type: Tweak
+  - message: Reflective vests can now be printed in sec techfabs for 5 steel, 12.5
+      plastic, and 2.5 glass
+    type: Add
+  - message: Cell Rechargers charge twice as fast compared to regular Rechargers (40W
+      compared to 20W)
+    type: Tweak
+  id: 1311
+  time: '2025-04-23T03:32:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3491
