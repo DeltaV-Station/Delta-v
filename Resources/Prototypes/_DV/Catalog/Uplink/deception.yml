@@ -26,3 +26,19 @@
     Telecrystal: 1
   categories:
   - UplinkDeception
+
+- type: listing
+  id: HandheldStationMapRecordsTablet
+  name: uplink-records-tablet-name
+  description: uplink-records-tablet-desc
+  icon:
+    sprite: Objects/Devices/tablets.rsi
+    state: icon
+  productEntity: HandheldStationMapRecordsTablet
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 0
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkDeception

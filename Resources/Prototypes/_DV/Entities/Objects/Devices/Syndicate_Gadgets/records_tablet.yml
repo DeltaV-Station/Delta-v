@@ -1,12 +1,12 @@
 - type: entity
   parent: BaseItem
-  id: HandheldRecordsComputer
-  name: records tablet
-  description: Allows access to records for the entire crew.
+  id: HandheldStationMapRecordsTablet
+  name: station map
+  description: Displays a readout of the current station.
   components:
     - type: CriminalRecordsConsole
     - type: CharacterRecordConsole
-      consoleType: Admin
+      consoleType: Syndicate
     - type: Sprite
       sprite: Objects/Devices/tablets.rsi
       layers:
@@ -17,16 +17,6 @@
       inHandsOnly: true
       singleUser: true
       key: enum.CharacterRecordConsoleKey.Key
-    - type: Damageable
-      damageContainer: Inorganic
-    - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 100
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
     - type: UserInterface
       interfaces:
         enum.CharacterRecordConsoleKey.Key:
