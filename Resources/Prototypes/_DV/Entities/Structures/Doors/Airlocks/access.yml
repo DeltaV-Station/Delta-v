@@ -125,7 +125,7 @@
 
 # Maintenance
 - type: entity
-  parent: AirlockMaint
+  parent: AirlockMaintCommandLocked
   id: AirlockMaintChiefJusticeLocked
   suffix: ChiefJustice, Locked
   components:
@@ -141,9 +141,11 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsJustice ]
+  - type: Wires
+    layoutId: AirlockJustice
 
 - type: entity
-  parent: AirlockMaint
+  parent: AirlockMaintJusticeLocked
   id: AirlockMaintProsecutorLocked
   suffix: Prosecutor, Locked
   components:
@@ -152,7 +154,7 @@
       board: [ DoorElectronicsProsecutor ]
 
 - type: entity
-  parent: AirlockMaint
+  parent: AirlockMaintJusticeLocked
   id: AirlockMaintClerkLocked
   suffix: Clerk, Locked
   components:
@@ -168,8 +170,6 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCorpsman ]
-  - type: Wires
-    layoutId: AirlockCommand
 
 - type: entity
   parent: AirlockMedical
@@ -197,7 +197,7 @@
     containers:
       board: [ DoorElectronicsRobotics ]
 
-#Add airlocks from upstream roles
+# Add airlocks from upstream roles
 - type: entity
   parent: AirlockServiceLocked
   id: AirlockBoxerLocked
@@ -476,8 +476,6 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCorpsman ]
-  - type: Wires
-    layoutId: AirlockCommand
 
 - type: entity
   parent: AirlockMaintMedLocked

@@ -409,6 +409,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    unlitIdleState: unlit # DeltaV - added animation sprite layers
+    unlitRunningState: unlit-building # DeltaV - added animation sprite layers
     staticPacks:
     - SecurityEquipmentStatic
     - SecurityPracticeStatic
@@ -431,6 +433,8 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: LatheAnnouncing
+    channels: [Security]
 
 - type: entity
   id: AmmoTechFab
@@ -456,6 +460,8 @@
     - type: Lathe
       idleState: icon
       runningState: icon
+      unlitIdleState: unlit # DeltaV - added animation sprite layers
+      unlitRunningState: unlit-building # DeltaV - added animation sprite layers
       staticPacks:
       - SecurityAmmoStatic
     - type: MaterialStorage
@@ -487,6 +493,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    unlitIdleState: unlit # DeltaV - added animation sprite layers
+    unlitRunningState: unlit-building # DeltaV - added animation sprite layers
     staticPacks:
     - TopicalsStatic
     - ChemistryStatic
@@ -496,6 +504,7 @@
     - EmptyMedkitsStatic
     - SurgeryStatic
     - ReportingStatic # DeltaV
+    - PowerCellsStatic # DeltaV
     dynamicPacks:
     - Chemistry
     - CyberneticsMedical # Shitmed change
@@ -505,6 +514,8 @@
     board: MedicalTechFabCircuitboard
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
+  - type: LatheAnnouncing
+    channels: [Medical]
 
 - type: entity
   parent: BaseLathe

@@ -78,18 +78,6 @@
   products:
     Pielovene: 3
 
-- type: reaction
-  id: Hypothium
-  reactants:
-    Nitrogen: # TODO: Switch to Healium
-      amount: 1
-    Omnizine:
-      amount: 1
-    Ethyloxyephedrine:
-      amount: 1
-  products:
-    Hypothium: 3
-
 # pyro
 - type: reaction
   id: Pyroxadone
@@ -159,3 +147,13 @@
       amount: 1
   products:
     Razorium: 1
+
+- type: reaction
+  id: HyronalinFunky
+  reactants:
+    Radium:
+      amount: 1
+    PotassiumIodide:
+      amount: 1
+  products:
+    Hyronalin: 2
