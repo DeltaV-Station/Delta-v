@@ -1,0 +1,21 @@
+- type: entity
+  parent: FlaskBase
+  id: DrinkOniGourd
+  name: Sake Gourd
+  description: A traditional drinking vessel used by oni. It is said to be filled with the finest sake.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/mreflask.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Sake
+          Quantity: 50
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: Sake
+        Quantity: 1
+    duration: 10

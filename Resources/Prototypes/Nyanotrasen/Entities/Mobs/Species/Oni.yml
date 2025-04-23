@@ -20,12 +20,14 @@
   - type: BonusMeleeDamage
     damageModifierSet:
       coefficients:
-        Blunt: 1.35
-        Slash: 1.2
-        Piercing: 1.2
-        Asphyxiation: 1.35
+        Blunt: 1.25
+        Slash: 1.25
+        Piercing: 1.25
+        Asphyxiation: 1.25
+        Structural: 1.25
   - type: Damageable
     damageModifierSet: Oni
+    damageContainer: BiologicalMetaphysical
   - type: Body
     prototype: Human
   - type: Fixtures
