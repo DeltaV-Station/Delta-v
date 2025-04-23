@@ -171,10 +171,10 @@
                     </PanelContainer>
                     <TextureRect Name="NoDataTex"
                                  Access="Public"
-                                 SetSize="64 64"
+                                 SetSize="96 96"
                                  Visible="false"
                                  Stretch="KeepAspectCentered"
-                                 TexturePath="/Textures/Interface/Misc/health_analyzer_out_of_range.png"/>
+                                 TexturePath="/Textures/Interface/Misc/health_analyzer_out_of_range.png"/> <!-- DeltaV - Size changed to 96 96 to be consistent with shitmed -->
                     <BoxContainer Margin="5 0 0 0"
                                   Orientation="Vertical"
                                   VerticalAlignment="Top">
