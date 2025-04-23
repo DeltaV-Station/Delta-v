@@ -43,7 +43,9 @@
     negateProtection: true
   - type: CosmicGlyph
     requiredCultists: 3
-    activationDamage: 80
+    activationDamage:
+      types:
+        Asphyxiation: 80
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-truth
 
@@ -60,7 +62,9 @@
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
     requiredCultists: 2
-    activationDamage: 40
+    activationDamage:
+      types:
+        Asphyxiation: 40
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-knowledge
 
@@ -82,7 +86,9 @@
       - PortableScrubber
   - type: CosmicGlyph
     requiredCultists: 1
-    activationDamage: 25
+    activationDamage:
+      types:
+        Asphyxiation: 25
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-cessation
 
@@ -105,7 +111,9 @@
       - Sharp
   - type: CosmicGlyph
     requiredCultists: 2
-    activationDamage: 80
+    activationDamage:
+      types:
+        Asphyxiation: 80
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-blades
 
@@ -129,7 +137,9 @@
       - PressureProtection
   - type: CosmicGlyph
     requiredCultists: 2
-    activationDamage: 80
+    activationDamage:
+      types:
+        Asphyxiation: 80
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-warding
 
