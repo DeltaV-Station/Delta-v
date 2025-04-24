@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Reworked vent critters, now after a 30 second delay all the mobs spawn
-      from 1 vent from the announcement.
-    type: Tweak
-  id: 813
-  time: '2024-12-23T10:45:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2495
 - author: ewokswagger
   changes:
   - message: Fixed Precognition results not appearing when power is used.
@@ -4073,3 +4065,14 @@
   id: 1312
   time: '2025-04-24T01:30:32.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3553
+- author: sowelipililimute
+  changes:
+  - message: The Funding Allocation Computer no longer redundantly displays Logistics
+      separately from their role as the primary station acconut
+    type: Tweak
+  - message: The Funding Allocation Computer is now the responsibility of the Logistics
+      Officer
+    type: Tweak
+  id: 1313
+  time: '2025-04-24T01:33:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3526
