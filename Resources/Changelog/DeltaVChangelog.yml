@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: SirSmith148
-  changes:
-  - message: Research Digi-Board
-    type: Add
-  - message: Added Research Digi-Board to Steal Objectives
-    type: Tweak
-  id: 817
-  time: '2024-12-26T16:19:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2508
 - author: deltanedas
   changes:
   - message: Salvage magnet asteroid listings no longer include ore types as they
@@ -4075,3 +4066,12 @@
   id: 1316
   time: '2025-04-24T08:12:36.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3478
+- author: SolStar
+  changes:
+  - message: Equipment slowdown penalties no longer apply to Kitsune's polymorph.
+    type: Remove
+  - message: Fox fire color now uses the correct color when in fox form.
+    type: Fix
+  id: 1317
+  time: '2025-04-24T10:18:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3562
