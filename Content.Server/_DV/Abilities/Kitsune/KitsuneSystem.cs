@@ -1,16 +1,10 @@
 using Content.Server.Access.Systems;
 using Content.Server.Actions;
-using Content.Server.Hands.Systems;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Shared._DV.Abilities.Kitsune;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
-using Content.Shared.Clothing;
-using Content.Shared.Inventory;
-using Content.Shared.Item;
-using Content.Shared.Movement.Components;
-using Content.Shared.Movement.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Polymorph;
@@ -23,9 +17,6 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
     [Dependency] private readonly AccessReaderSystem _reader = default!;
     [Dependency] private readonly AccessSystem _access = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
