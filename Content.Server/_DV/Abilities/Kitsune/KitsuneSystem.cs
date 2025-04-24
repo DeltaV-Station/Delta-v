@@ -41,13 +41,14 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
     private void OnPolymorphed(Entity<KitsuneComponent> oldEntity, ref PolymorphedEvent args)
     {
         var newEntity = args.NewEntity;
-
-        _appearance.SetData(newEntity, KitsuneColorVisuals.Color, oldEntity.Comp.Color ?? Color.Orange);
-
-        // Ensure that the fox fire action state is transferred properly.
         if (!TryComp<KitsuneComponent>(newEntity, out var newKitsune)
             || !TryComp<KitsuneComponent>(oldEntity, out var oldKitsune))
             return;
+
+        newKitsune.Color = oldKitsune.Color;
+        _appearance.SetData(newEntity, KitsuneColorVisuals.Color, newKitsune.Color ?? Color.Orange);
+
+        // Ensure that the fox fire action state is transferred properly.
         newKitsune.ActiveFoxFires = oldKitsune.ActiveFoxFires;
 
         _actions.SetCharges(newKitsune.FoxfireAction, _actions.GetCharges(oldKitsune.FoxfireAction));
