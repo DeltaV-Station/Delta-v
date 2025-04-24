@@ -2,6 +2,7 @@
   parent: BaseWallCloset
   id: BaseWallClosetDeltaV
   components:
+  - type: Appearance
   - type: Sprite
     sprite: _DV/Structures/Storage/wall_locker.rsi
 
@@ -9,6 +10,7 @@
   parent: BaseWallLocker
   id: BaseWallLockerDeltaV
   components:
+  - type: Appearance
   - type: Sprite
     sprite: _DV/Structures/Storage/wall_locker.rsi
 
@@ -17,7 +19,6 @@
   id: WallClosetTools
   name: tool wall closet
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: engi_generic
     stateDoorClosed: engi_tools_door
@@ -28,7 +29,6 @@
   id: WallClosetRadiationSuit
   name: radiation suit wall closet
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: engi_generic
     stateDoorClosed: engi_rad_door
@@ -39,7 +39,6 @@
   id: WallClosetL3
   name: level 3 biohazard wall closet
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: bio
     stateDoorClosed: bio_door
@@ -50,7 +49,6 @@
   id: WallClosetL3Janitor
   name: level 3 biohazard wall closet
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: bio_jani
     stateDoorClosed: bio_jani_door
@@ -61,7 +59,6 @@
   id: WallClosetL3Security
   name: level 3 biohazard wall closet
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: bio_sec
     stateDoorClosed: bio_sec_door
@@ -72,7 +69,6 @@
   id: WallClosetL3Virology
   name: level 3 biohazard wall closet
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: bio_viro
     stateDoorClosed: bio_viro_door
@@ -83,7 +79,6 @@
   id: WallLockerAtmos
   name: atmospherics wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: atmos
     stateDoorClosed: atmos_door
@@ -96,7 +91,6 @@
   id: WallLockerEngi
   name: engineering wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: engi
     stateDoorClosed: engi_door
@@ -109,7 +103,6 @@
   id: WallLockerElectrical
   name: electrical wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: engi_generic
     stateDoorClosed: engi_electrical_door
@@ -122,7 +115,6 @@
   id: WallLockerWelding
   name: welding tools wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: engi_generic
     stateDoorClosed: engi_welding_door
@@ -136,7 +128,6 @@
   id: WallLockerBotany
   name: botanist wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: botany
     stateDoorClosed: botany_door
@@ -149,7 +140,6 @@
   id: WallLockerSalvage
   name: salvage wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: salv
     stateDoorClosed: salv_door
@@ -162,7 +152,6 @@
   id: WallLockerLogistics
   name: logistics wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: logi
     stateDoorClosed: logi_door
@@ -175,7 +164,6 @@
   id: WallLockerJanitor
   name: janitor wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: jani
     stateDoorClosed: jani_door
@@ -188,7 +176,6 @@
   id: WallLockerEpistemics
   name: epistemics wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: epi
     stateDoorClosed: epi_door
@@ -201,7 +188,6 @@
   id: WallLockerSecurity
   name: security wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: sec
     stateDoorClosed: sec_door
@@ -214,7 +200,6 @@
   id: WallLockerKitchen
   name: kitchen wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: chef
     stateDoorClosed: chef_door
@@ -227,7 +212,6 @@
   id: WallLockerJustice
   name: justice wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: justice
     stateDoorClosed: justice_door
