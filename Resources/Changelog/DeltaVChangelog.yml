@@ -1,33 +1,4 @@
 ﻿Entries:
-- author: juniwoofs
-  changes:
-  - message: a Morty Plushie (Sprite courtesy of a dog! code courtesy of me :3)
-    type: Add
-  id: 812
-  time: '2024-12-22T20:30:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2506
-- author: deltanedas
-  changes:
-  - message: Reworked vent critters, now after a 30 second delay all the mobs spawn
-      from 1 vent from the announcement.
-    type: Tweak
-  id: 813
-  time: '2024-12-23T10:45:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2495
-- author: ewokswagger
-  changes:
-  - message: Fixed Precognition results not appearing when power is used.
-    type: Fix
-  id: 814
-  time: '2024-12-23T21:58:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2519
-- author: juniwoofs
-  changes:
-  - message: added Morty Plushie to a few loot tables!
-    type: Tweak
-  id: 815
-  time: '2024-12-23T22:08:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2516
 - author: Colin-Tel
   changes:
   - message: Added a recipe for a box of chicken nuggets. Requires protein, egg, flour,
@@ -4073,3 +4044,35 @@
   id: 1311
   time: '2025-04-23T03:32:22.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3491
+- author: foxcurl
+  changes:
+  - message: Supplybots can be pet, and all bots can do animated and borg emotes.
+    type: Tweak
+  id: 1312
+  time: '2025-04-24T01:30:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3553
+- author: sowelipililimute
+  changes:
+  - message: The Funding Allocation Computer no longer redundantly displays Logistics
+      separately from their role as the primary station acconut
+    type: Tweak
+  - message: The Funding Allocation Computer is now the responsibility of the Logistics
+      Officer
+    type: Tweak
+  id: 1313
+  time: '2025-04-24T01:33:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3526
+- author: Oxdeception
+  changes:
+  - message: Epistemics, Logistics, and Reporter PDAs should now have NanoTask pre-installed
+    type: Fix
+  id: 1314
+  time: '2025-04-24T01:36:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3559
+- author: Stop-Signs
+  changes:
+  - message: Lobby time between rounds has been increased from 4 to 7 minutes
+    type: Tweak
+  id: 1315
+  time: '2025-04-24T01:44:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3543
