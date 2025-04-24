@@ -77,31 +77,6 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
             _faction.AddFactions(newEntity, factions.Factions);
         }
 
-        // Transfer equipped item speed modifiers
-        var movementComp = EnsureComp<MovementSpeedModifierComponent>(newEntity);
-        var slots = _inventory.GetSlotEnumerator(oldEntity.Owner);
-        while (slots.MoveNext(out var slot))
-        {
-            if (TryComp<ClothingSpeedModifierComponent>(slot.ContainedEntity, out var clothingComp))
-            {
-                _speed.ChangeBaseSpeed(newEntity,
-                    movementComp.BaseWalkSpeed * clothingComp.WalkModifier,
-                    movementComp.BaseSprintSpeed * clothingComp.SprintModifier,
-                    movementComp.Acceleration);
-            }
-        }
-
-        foreach (var held in _hands.EnumerateHeld(oldEntity))
-        {
-            if (TryComp<HeldSpeedModifierComponent>(held, out var heldComp))
-            {
-                _speed.ChangeBaseSpeed(newEntity,
-                    movementComp.BaseWalkSpeed * heldComp.WalkModifier,
-                    movementComp.BaseSprintSpeed * heldComp.SprintModifier,
-                    movementComp.Acceleration);
-            }
-        }
-
         _popup.PopupEntity(Loc.GetString("kitsune-popup-morph-message-others", ("entity", args.NewEntity)), args.NewEntity, Filter.PvsExcept(args.NewEntity), true);
         _popup.PopupEntity(Loc.GetString("kitsune-popup-morph-message-user"), args.NewEntity, args.NewEntity);
     }
