@@ -4,8 +4,8 @@ meta:
   engineVersion: 250.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/25/2025 11:30:59
-  entityCount: 19988
+  time: 04/25/2025 16:45:19
+  entityCount: 19995
 maps:
 - 1
 grids:
@@ -37719,11 +37719,6 @@ entities:
     - type: Transform
       pos: -32.5,-4.5
       parent: 2
-  - uid: 712
-    components:
-    - type: Transform
-      pos: -33.5,-4.5
-      parent: 2
   - uid: 3392
     components:
     - type: Transform
@@ -37920,6 +37915,12 @@ entities:
     components:
     - type: Transform
       pos: -40.5,22.5
+      parent: 2
+  - uid: 19537
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -33.5,-4.5
       parent: 2
 - proto: CarpetBlack
   entities:
@@ -44994,13 +44995,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -48.5,-16.5
       parent: 2
-- proto: ClothingBackpackDuffelSecurity
-  entities:
-  - uid: 19831
-    components:
-    - type: Transform
-      pos: -48.487427,-10.290701
-      parent: 2
 - proto: ClothingBackpackDuffelSurgeryFilled
   entities:
   - uid: 6041
@@ -46723,10 +46717,10 @@ entities:
       parent: 2
 - proto: CrateFoodMRE
   entities:
-  - uid: 19837
+  - uid: 15663
     components:
     - type: Transform
-      pos: -49.5,-10.5
+      pos: -47.5,-6.5
       parent: 2
 - proto: CrateFreezer
   entities:
@@ -88239,9 +88233,9 @@ entities:
     - type: Transform
       pos: 17.5,-6.5
       parent: 2
-- proto: LockerHeadOfSecurityFilled
+- proto: LockerHeadOfSecurityFilledHardsuit
   entities:
-  - uid: 5026
+  - uid: 11393
     components:
     - type: Transform
       pos: -47.5,-14.5
@@ -88426,9 +88420,9 @@ entities:
     - type: Transform
       pos: 16.5,26.5
       parent: 2
-- proto: LockerWardenFilled
+- proto: LockerWardenFilledHardsuit
   entities:
-  - uid: 11393
+  - uid: 12210
     components:
     - type: Transform
       pos: -32.5,-4.5
@@ -88556,6 +88550,13 @@ entities:
     components:
     - type: Transform
       pos: -44.484467,0.65815544
+      parent: 2
+- proto: MagazineLightRifle
+  entities:
+  - uid: 19577
+    components:
+    - type: Transform
+      pos: -33.228268,-4.5421863
       parent: 2
 - proto: MailTeleporter
   entities:
@@ -89328,11 +89329,6 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-35.5
-      parent: 2
-  - uid: 12210
-    components:
-    - type: Transform
-      pos: -45.5,-10.5
       parent: 2
   - uid: 19538
     components:
@@ -91463,6 +91459,11 @@ entities:
     components:
     - type: Transform
       pos: 45.5,7.5
+      parent: 2
+  - uid: 19657
+    components:
+    - type: Transform
+      pos: -46.5,-10.5
       parent: 2
 - proto: PottedPlantRandomPlastic
   entities:
@@ -94746,12 +94747,6 @@ entities:
     components:
     - type: Transform
       pos: -14.5,-81.5
-      parent: 2
-  - uid: 19832
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -48.5,-10.5
       parent: 2
 - proto: RadioHandheld
   entities:
@@ -104495,6 +104490,28 @@ entities:
     - type: Transform
       pos: 9.5,-40.5
       parent: 2
+- proto: SuitStorageEVAPrisoner
+  entities:
+  - uid: 4232
+    components:
+    - type: Transform
+      pos: -48.5,-10.5
+      parent: 2
+  - uid: 5026
+    components:
+    - type: Transform
+      pos: -49.5,-10.5
+      parent: 2
+  - uid: 14256
+    components:
+    - type: Transform
+      pos: -45.5,-10.5
+      parent: 2
+  - uid: 19579
+    components:
+    - type: Transform
+      pos: -47.5,-10.5
+      parent: 2
 - proto: SuitStorageParamedic
   entities:
   - uid: 639
@@ -104528,13 +104545,6 @@ entities:
     components:
     - type: Transform
       pos: -24.5,-15.5
-      parent: 2
-- proto: SuitStorageWarden
-  entities:
-  - uid: 4232
-    components:
-    - type: Transform
-      pos: -33.5,-4.5
       parent: 2
 - proto: SuperweaponSafeSpawner
   entities:
@@ -105364,17 +105374,6 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: perma kitchen
-  - uid: 14256
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -27.5,-4.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraSecurity
-      nameSet: True
-      id: interrogation
   - uid: 14521
     components:
     - type: Transform
@@ -105393,6 +105392,55 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Justice Hallway
+  - uid: 19658
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -44.5,-3.5
+      parent: 2
+  - uid: 19659
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -40.5,-2.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: T2 Armory
+  - uid: 19660
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -36.5,-5.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: T1 Armory
+  - uid: 19692
+    components:
+    - type: Transform
+      pos: -44.5,-0.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: T3 Armory
+  - uid: 19694
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -27.5,-3.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: interrogation
 - proto: SurveillanceCameraService
   entities:
   - uid: 14261
@@ -107176,6 +107224,12 @@ entities:
       parent: 2
 - proto: TableWood
   entities:
+  - uid: 712
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -33.5,-4.5
+      parent: 2
   - uid: 1064
     components:
     - type: Transform
@@ -121582,12 +121636,12 @@ entities:
       parent: 2
 - proto: WeaponRifleVulcan
   entities:
-  - uid: 15663
+  - uid: 19693
     components:
     - type: MetaData
       name: SIG PE-Stgw. 57
     - type: Transform
-      pos: -34.49938,-4.1558156
+      pos: -33.53978,-4.2407994
       parent: 2
 - proto: WeaponShotgunHandmade
   entities:
