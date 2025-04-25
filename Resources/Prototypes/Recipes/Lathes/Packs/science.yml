@@ -55,9 +55,14 @@
   id: ScienceWeapons
   recipes:
   - WeaponPistolCHIMP
-  #- WeaponForceGun # DeltaV
-  - WeaponProtoKineticAccelerator
-  #- WeaponTetherGun # DeltaV
+  # Begin DeltaV Removals - lrp/moved to logi techfab
+  #- WeaponForceGun
+  #- WeaponProtoKineticAccelerator
+  #- PKAUpgradeDamage
+  #- PKAUpgradeRange
+  #- PKAUpgradeFireRate
+  #- WeaponTetherGun
+  # End DeltaV Removals
   - WeaponGauntletGorilla
 
 - type: latheRecipePack
