@@ -382,7 +382,7 @@
   - type: Item
     heldPrefix: green
   - type: IdCard
-    jobTitle: Overwriting
+    jobTitle: job-title-admeme-overwriting
     jobIcon: JobIconAdmin
   - type: Tag #  Ignore Chameleon tags
     tags:
@@ -402,6 +402,8 @@
   components:
   - type: ReverseAgentIDCard
     overwrite: false
+  - type: IdCard
+    jobTitle: job-title-admeme-adding
 
 - type: entity
   parent: IDCardStandard
