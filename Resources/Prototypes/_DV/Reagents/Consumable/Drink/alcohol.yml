@@ -22,7 +22,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-beastblood
   physicalDesc: reagent-physical-desc-maddening
-  flavor: flavor-comples-beast-blood
+  flavor: flavor-complex-beast-blood
   color: "#6e0f19"
   recognizable: false
   metabolisms:
@@ -84,5 +84,3 @@
           factor: 1
         - !type:SatiateThirst
           factor: 1
-        - !type:HealthChange
-          conditions:
