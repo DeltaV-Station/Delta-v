@@ -15,7 +15,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Server.Body.Components;
 using System.Linq;
 using Robust.Server.Audio;
-using Content.Goobstation.Shared.Chemistry.Hypospray; // Goobstation
+using Content.Shared._Goobstation.Chemistry.Hypospray; // Goobstation
 
 namespace Content.Server.Chemistry.EntitySystems;
 
