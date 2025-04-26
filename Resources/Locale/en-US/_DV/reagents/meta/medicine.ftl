@@ -14,3 +14,6 @@ reagent-desc-umbroxol = An ominous chemical. Used to treat holy damage from thos
 
 reagent-name-unholy-water = unholy water
 reagent-desc-unholy-water = Water treated with blood and sulfur. Just looking at it chills you to the bone.
+
+reagent-name-anodynafil = anodynafil
+reagent-desc-anodynafil = An effective short-lasting anesthetic that doesn't interfere with consciousness, but results in prolonged pain suppression.
