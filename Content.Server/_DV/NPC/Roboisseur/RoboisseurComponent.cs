@@ -116,7 +116,7 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodSoupNettle",
             "FoodMealEnchiladas",
             "FoodBurgerBaseball",
-            "RecipeNachosCheesy",
+            "FoodNachosCheesy",
             "FoodSoupChiliHot",
             "FoodMothCapreseSalad",
         };
