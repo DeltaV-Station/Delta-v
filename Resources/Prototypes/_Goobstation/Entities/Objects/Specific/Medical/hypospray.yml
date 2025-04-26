@@ -150,7 +150,7 @@
 - type: entity
   name: brute autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 4u of bicaridine, 3u of bozaide, 2u of salicylic acid and 1u of tranexamic acid, used in a cartridge autoinjector.
+  description: Contains 7u of bicaridine, 2u of salicylic acid and 1u of tranexamic acid, used in a cartridge autoinjector. # DeltaV - Replace Bozaide with more Bicaridine
   id: CartridgeBicaridine
   components:
   - type: Sprite
@@ -163,10 +163,8 @@
     solution:
       maxVol: 10
       reagents:
-      - ReagentId: Bicaridine
-        Quantity: 4
-      - ReagentId: Bozaide
-        Quantity: 3
+      - ReagentId: Bicaridine # DeltaV - Replace Bozaide with more Bicaridine
+        Quantity: 7
       - ReagentId: SalicylicAcid
         Quantity: 2
       - ReagentId: TranexamicAcid
@@ -198,25 +196,6 @@
       - ReagentId: Sigynate
         Quantity: 1
   # Finely tuned mix, heals up to 114 total burn split between 4 types, twice as good for heat/cold/shock than for caustic, equivalent of 3.25 ointments
-
-- type: entity
-  name: emergency autoinjector cartridge
-  parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 10u of atropine, used in a cartridge autoinjector.
-  id: CartridgeAtropine
-  components:
-  - type: Sprite
-    layers:
-    - state: base
-    - state: filling
-      color: "#572757"
-  - type: SolutionCartridge
-    targetSolution: hypospray
-    solution:
-      maxVol: 10
-      reagents:
-      - ReagentId: Atropine
-        Quantity: 10
 
 - type: entity
   name: piercing autoinjector cartridge
