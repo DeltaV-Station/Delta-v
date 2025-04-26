@@ -5,7 +5,8 @@
   description: A traditional drinking vessel used by oni. It is said to be filled with the finest sake.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/mreflask.rsi
+    state: icon
+    sprite: _DV/Objects/Specific/Species/Oni/gourd.rsi
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -19,3 +20,25 @@
       - ReagentId: Sake
         Quantity: 1
     duration: 10
+
+- type: entity
+  parent: FlaskBase
+  id: BeastBloodGourd
+  name: Beast's Blood Gourd
+  description: A modified drinking gourd by cybersun, this one produces a potent blend of stims and booze known as beast's blood.
+  components:
+  - type: Sprite
+    state: icon
+    sprite: _DV/Objects/Specific/Species/Oni/cybergourd.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: BeastBlood
+          Quantity: 50
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: BeastBlood
+        Quantity: 1
+    duration: 15
