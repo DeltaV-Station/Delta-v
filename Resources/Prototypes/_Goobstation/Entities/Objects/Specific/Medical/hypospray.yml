@@ -129,7 +129,7 @@
 - type: entity
   name: airloss autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 7u of saline and 3u of dexalin plus, used in a cartridge autoinjector.
+  description: Contains 7u of saline and 3u of convermol, used in a cartridge autoinjector. # DeltaV - DexalinPlus to Convermol
   id: CartridgeSaline
   components:
   - type: Sprite
@@ -144,7 +144,7 @@
       reagents:
       - ReagentId: Saline
         Quantity: 7
-      - ReagentId: DexalinPlus
+      - ReagentId: Convermol # DeltaV - DexalinPlus to Convermol
         Quantity: 3
 
 - type: entity
