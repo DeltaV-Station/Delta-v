@@ -242,6 +242,15 @@ public sealed partial class CharacterRecordViewer : FancyWindow
 
                 Title = Loc.GetString("cd-character-records-viewer-title-med");
                 break;
+            // Begin DeltaV - Syndicate Record Tablet
+            case RecordConsoleType.Generic:
+                RecordFilterType.Visible = false;
+                RecordFilterType.SelectId((int)StationRecordFilterType.Name);
+                RecordEntryViewType.Visible = true;
+
+                Title = Loc.GetString("cd-character-records-viewer-title-generic");
+                break;
+            // End DeltaV - Syndicate Record Tablet
             case RecordConsoleType.Security:
                 RecordFilterType.Visible = true;
 
@@ -334,6 +343,24 @@ public sealed partial class CharacterRecordViewer : FancyWindow
                 SetEntries(cr.MedicalEntries);
                 UpdateRecordBoxMedical(record);
                 break;
+            // Begin DeltaV - Syndicate Record Tablet
+            case RecordConsoleType.Generic:
+                UpdateRecordBoxEmployment(record);
+                UpdateRecordBoxMedical(record);
+                switch ((RecordConsoleType) RecordEntryViewType.SelectedId)
+                {
+                    case RecordConsoleType.Employment:
+                        SetEntries(cr.EmploymentEntries, true);
+                        break;
+                    case RecordConsoleType.Medical:
+                        SetEntries(cr.MedicalEntries, true);
+                        break;
+                    case RecordConsoleType.Security:
+                        SetEntries(cr.SecurityEntries, true);
+                        break;
+                }
+                break;
+            // End DeltaV - Syndicate Record Tablet
             case RecordConsoleType.Security:
                 SetEntries(cr.SecurityEntries);
                 UpdateRecordBoxSecurity(record, state.SelectedSecurityStatus);
