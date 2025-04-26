@@ -4,8 +4,8 @@ meta:
   engineVersion: 250.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/25/2025 16:45:19
-  entityCount: 19995
+  time: 04/26/2025 00:23:10
+  entityCount: 19994
 maps:
 - 1
 grids:
@@ -10941,6 +10941,8 @@ entities:
       parent: 2
   - uid: 15017
     components:
+    - type: MetaData
+      name: Armory APC
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -45.5,-3.5
@@ -53885,6 +53887,8 @@ entities:
     - type: Transform
       pos: -50.5,-0.5
       parent: 2
+    - type: FaxMachine
+      name: Permanent confinement
   - uid: 13318
     components:
     - type: Transform
@@ -105297,7 +105301,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraSecurity
       nameSet: True
-      id: Visitation area
+      id: Visitation Crew-side
   - uid: 11875
     components:
     - type: Transform
@@ -105318,7 +105322,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraSecurity
       nameSet: True
-      id: perma botany
+      id: Perma Botany
   - uid: 14247
     components:
     - type: Transform
@@ -105329,7 +105333,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraSecurity
       nameSet: True
-      id: perma visiting
+      id: Visitation Prison-side
   - uid: 14248
     components:
     - type: Transform
@@ -105340,7 +105344,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraSecurity
       nameSet: True
-      id: perma dorms
+      id: Perma Cells
   - uid: 14250
     components:
     - type: Transform
@@ -105356,13 +105360,13 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -20.5,-13.5
+      pos: -20.5,-14.5
       parent: 2
     - type: SurveillanceCamera
       setupAvailableNetworks:
       - SurveillanceCameraSecurity
       nameSet: True
-      id: lockers
+      id: Locker Room
   - uid: 14252
     components:
     - type: Transform
@@ -105373,14 +105377,17 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraSecurity
       nameSet: True
-      id: perma kitchen
+      id: Perma Kitchen
   - uid: 14521
     components:
     - type: Transform
       pos: -38.5,-15.5
       parent: 2
     - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
       nameSet: True
+      id: Brig South
   - uid: 19628
     components:
     - type: Transform
@@ -105395,9 +105402,14 @@ entities:
   - uid: 19658
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -44.5,-3.5
+      rot: 3.141592653589793 rad
+      pos: -27.5,-3.5
       parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Interrogation
   - uid: 19659
     components:
     - type: Transform
@@ -105430,17 +105442,6 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: T3 Armory
-  - uid: 19694
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -27.5,-3.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraSecurity
-      nameSet: True
-      id: interrogation
 - proto: SurveillanceCameraService
   entities:
   - uid: 14261
