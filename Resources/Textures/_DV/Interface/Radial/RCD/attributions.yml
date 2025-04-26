@@ -1,11 +1,16 @@
-# Delta-V RCD sprites for the interaction wheel
+#DeltaV RCD menu wheel resprites
 
-- files: ["airlock.png","airlocks.png","directional.png","directional_reinforced.png","glass_airlock.png","window.png","window_reinforced.png"]
+- files: ["airlock.png, glass_airlock.png"]
   license: "CC-BY-SA-3.0"
-  copyright: "Created by SubspaceEmber for Delta-V"
+  copyright: "RCD wheel sprites made for DeltaV by https://github.com/SubspaceEmber. based on ported sprites standard/basic.rsi and glass/basic.rsi from https://github.com/tgstation."
   source: "https://github.com/subspaceember"
-
-- files: ["windows_and_grilles.png"]
+  
+- files: ["deconstruct.png, directional.png, directional_reinforced.png, window.png, window_reinforced.png"]
   license: "CC-BY-SA-3.0"
-  copyright: "Modified existing grille sprite from upstream with new window from SubspaceEmber"
+  copyright: "RCD wheel sprites made for DeltaV by https://github.com/SubspaceEmber. based on ported sprites external.rsi, window.rsi, directional.rsi, reinforced_window.rsi, reinforced_directional.rsi from https://github.com/ParadiseSS13/Paradise/."
+  source: "https://github.com/subspaceember"
+  
+- files: ["airlocks.png, windows_and_grilles.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "RCD wheel sprites made for DeltaV by https://github.com/SubspaceEmber. Modified from sprites airlocks.png and windows_and_grilles.png from https://github.com/space-wizards/space-station-14."
   source: "https://github.com/subspaceember"
