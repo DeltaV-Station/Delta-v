@@ -107,6 +107,20 @@
     Ichor: 1
 
 - type: reaction
+  id: Corgium
+  reactants:
+    ExoticReagent:
+      amount: 1
+    Oxygen:
+      amount: 1
+    Carbon:
+      amount: 1
+    Blood:
+      amount: 1
+  products:
+    Corgium: 1
+
+- type: reaction
   id: CreateCorgiPuppy
   impact: Low
   quantized: true
