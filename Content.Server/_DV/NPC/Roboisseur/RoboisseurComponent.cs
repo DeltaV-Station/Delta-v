@@ -116,7 +116,7 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodSoupNettle",
             "FoodMealEnchiladas",
             "FoodBurgerBaseball",
-            "FoodNachosCheesy",
+            "FoodMealNachosCheesy",
             "FoodSoupChiliHot",
             "FoodMothCapreseSalad",
         };
@@ -167,7 +167,7 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodTartPearCheese",
             "FoodMeatSnailCooked",
             "FoodSoupEscargot",
-            "RecipeNachosCuban",
+            "FoodMealNachosCuban",
             "FoodSaladHerb",
             "FoodSaladColeslaw",
             "FoodSaladCaesar",
