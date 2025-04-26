@@ -180,3 +180,134 @@
   - type: Vocal
     sounds:
       Unsexed: MobDog
+
+- type: entity
+  name: scrimpering whimperlet
+  parent: SimpleMobBase
+  id: MobWhimperlet
+  description: A pitiful creature, it loses a lot of salt through its tears.
+  components:
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-whimperlet-name
+    description: ghost-role-information-whimperlet-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: Speech
+    speechVerb: SmallMob
+    speechSounds: Squeak
+    allowedEmotes: ['Whine', 'Mew']
+  - type: Vocal
+    sounds:
+      Male: WhimperletSounds
+      Female: WhimperletSounds
+      Unsexed: WhimperletSounds
+  - type: TypingIndicator
+    proto: slime
+  - type: ReplacementAccent
+    accent: mouse
+  - type: Sprite
+    sprite: _DV/Mobs/Animals/whimperlet/whimperlet.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: whimperlet
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: whimperlet-moving
+    noMovementLayers:
+      movement:
+        state: whimperlet-whimpering
+  - type: Item
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    sprite: _DV/Mobs/Animals/whimperlet/whimperlet.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: whimperlet-whimpering
+      Critical:
+        Base: whimperlet-dead
+      Dead:
+        Base: whimperlet-dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      30: Critical # Whimpier than mothroaches (40/60)
+      50: Dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
+  - type: SolutionContainerManager # Ready for implementing desired behaviour
+    solutions:
+      tearducts:
+        reagents:
+        - ReagentId: Saline
+          Quantity: 16
+        maxVol: 16
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4
+    weightlessAcceleration: 1.5
+    weightlessFriction: 1
+    weightlessModifier: 1
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.5
+    damageRecovery:
+      types:
+        Asphyxiation: -0.5
+  - type: MobPrice
+    price: 150
+  - type: Tag
+    tags:
+    - Trash
+    - CannotSuicide
+    - DoorBumpOpener
+    - VimPilot
+  - type: CanEscapeInventory
+  - type: NpcFactionMember
+    factions:
+    - Mouse
+  - type: SurgeryTarget # Shitmed
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Mouse_burning
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key: # Shitmed
+        type: SurgeryBui
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 0.5 #very minimal damage, 'mostly harmless'.
+
