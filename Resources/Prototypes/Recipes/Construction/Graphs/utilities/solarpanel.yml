@@ -71,6 +71,19 @@
     - node: solarpanelplasma
       entity: SolarPanelPlasma
       edges:
+        # Begin DeltaV additions - Easy upgradeable solars
+        - to: solarpaneluranium
+          conditions:
+          - !type:EntityAnchored
+          completed:
+          - !type:SpawnPrototype
+            prototype: SheetPlasma1
+            amount: 2
+          steps:
+          - material: Uranium
+            amount: 2
+            doAfter: 0.5
+        # End DeltaV additions - Easy upgradeable solars
         - to: solarassembly
           completed:
             - !type:SnapToGrid
@@ -105,6 +118,22 @@
     - node: solarpanel
       entity: SolarPanel
       edges:
+        # Begin DeltaV additions - Easy upgradeable solars
+        - to: solarpaneluranium
+          conditions:
+          - !type:EntityAnchored
+          steps:
+          - material: Uranium
+            amount: 2
+            doAfter: 0.5
+        - to: solarpanelplasma
+          conditions:
+          - !type:EntityAnchored
+          steps:
+          - material: Plasma
+            amount: 2
+            doAfter: 0.5
+        # End DeltaV additions - Easy upgradeable solars
         - to: solarassembly
           completed:
             - !type:SnapToGrid
