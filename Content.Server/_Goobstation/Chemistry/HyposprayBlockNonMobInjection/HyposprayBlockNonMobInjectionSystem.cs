@@ -10,6 +10,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared._Goobstation.Chemistry.HyposprayBlockNonMobInjection;
 
 namespace Content.Server._Goobstation.Chemistry.HyposprayBlockNonMobInjection;
 
