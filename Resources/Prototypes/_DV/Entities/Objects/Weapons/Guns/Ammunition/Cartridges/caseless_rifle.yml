@@ -1,7 +1,8 @@
 - type: entity
+  parent: BaseCartridgeCaselessRifle
   id: CartridgeCaselessRifleRubber
   name: cartridge (.25 caseless rubber)
-  parent: BaseCartridgeCaselessRifle
+  description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. Rubber ammunition excels at less-lethal takedown of noncompliant suspects.
   components:
   - type: CartridgeAmmo
     proto: BulletCaselessRifleRubber
