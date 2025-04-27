@@ -99,7 +99,7 @@
     sprite: _DV/Clothing/Shoes/Boots/winterbootshop.rsi
 
 - type: entity
-  parent: ClothingShoesBaseWinterBoots
+  parent: [ClothingShoesBaseWinterBoots, ClothingShoesMilitaryBase, BaseSecurityContraband] # DeltaV - added ClothingShoesMilitaryBase, BaseSecurityContraband to parents
   id: ClothingShoesBootsWinterHeadOfSecurity
   name: HoS's winter boots
   components:
@@ -107,6 +107,10 @@
     sprite: _DV/Clothing/Shoes/Boots/winterbootshos.rsi
   - type: Clothing
     sprite: _DV/Clothing/Shoes/Boots/winterbootshos.rsi
+  # Begin DeltaV additions
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  # End DeltaV additions
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots
