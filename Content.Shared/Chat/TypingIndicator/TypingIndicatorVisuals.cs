@@ -5,7 +5,8 @@ namespace Content.Shared.Chat.TypingIndicator;
 [Serializable, NetSerializable]
 public enum TypingIndicatorVisuals : byte
 {
-    IsTyping
+    IsTyping,
+    OverrideProto, // DeltaV: Indicator Override
 }
 
 [Serializable]

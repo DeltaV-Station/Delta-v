@@ -18,6 +18,15 @@ public sealed class TypingChangedEvent : EntityEventArgs
     {
         IsTyping = isTyping;
     }
+
+    // DeltaV: Begin Indicator Override
+    public readonly ProtoId<TypingIndicatorPrototype>? OverrideIndicator;
+    public TypingChangedEvent(bool isTyping, ProtoId<TypingIndicatorPrototype>? proto)
+    {
+        IsTyping = isTyping;
+        OverrideIndicator = proto;
+    }
+    // DeltaV: End Indicator Override
 }
 
 /// <summary>
