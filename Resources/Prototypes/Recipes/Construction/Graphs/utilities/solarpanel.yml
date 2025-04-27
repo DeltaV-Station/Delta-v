@@ -82,7 +82,7 @@
           steps:
           - material: Uranium
             amount: 2
-            doAfter: 0.5
+            doAfter: 1.5
         # End DeltaV additions - Easy upgradeable solars
         - to: solarassembly
           completed:
@@ -125,14 +125,14 @@
           steps:
           - material: Uranium
             amount: 2
-            doAfter: 0.5
+            doAfter: 1.5
         - to: solarpanelplasma
           conditions:
           - !type:EntityAnchored
           steps:
           - material: Plasma
             amount: 2
-            doAfter: 0.5
+            doAfter: 1.5
         # End DeltaV additions - Easy upgradeable solars
         - to: solarassembly
           completed:
