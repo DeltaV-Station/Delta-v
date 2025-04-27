@@ -14,6 +14,8 @@ public sealed class AACBoundUserInterface : BoundUserInterface
 
     private static readonly ProtoId<TypingIndicatorPrototype> AACTypingIndicator = "aac";
 
+    private TypingIndicatorSystem? _typing;
+
     public AACBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
@@ -35,17 +37,13 @@ public sealed class AACBoundUserInterface : BoundUserInterface
 
     private void OnTyping()
     {
-        if (!EntMan.TrySystem(out TypingIndicatorSystem? typingIndicatorSystem))
-            return;
-
-        typingIndicatorSystem.ClientAlternateTyping(AACTypingIndicator);
+        _typing ??= EntMan.System<TypingIndicatorSystem>();
+        _typing?.ClientAlternateTyping(AACTypingIndicator);
     }
 
     private void OnSubmit()
     {
-        if (!EntMan.TrySystem(out TypingIndicatorSystem? typingIndicatorSystem))
-            return;
-
-        typingIndicatorSystem.ClientSubmittedChatText();
+        _typing ??= EntMan.System<TypingIndicatorSystem>();
+        _typing?.ClientSubmittedChatText();
     }
 }
