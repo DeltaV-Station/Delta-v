@@ -2,13 +2,12 @@ using Content.Shared.CCVar;
 using Content.Shared.Chat.TypingIndicator;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
-using Robust.Shared.Prototypes; // DeltaV
 using Robust.Shared.Timing;
 
 namespace Content.Client.Chat.TypingIndicator;
 
 // Client-side typing system tracks user input in chat box
-public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
+public sealed partial class TypingIndicatorSystem : SharedTypingIndicatorSystem // DeltaV - Made partial
 {
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -82,22 +81,5 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         {
             ClientUpdateTyping(false);
         }
-    }
-
-    /// <summary>
-    /// DeltaV: Client can type with alternate indicators
-    /// </summary>
-    /// <param name="protoId">The TypingIndicator to show in place of the normal TypingIndicator</param>
-    public void ClientAlternateTyping(ProtoId<TypingIndicatorPrototype> protoId)
-    {
-        if (!_cfg.GetCVar(CCVars.ChatShowTypingIndicator))
-            return;
-
-        if (_playerManager.LocalEntity == null)
-            return;
-
-        _isClientTyping = true;
-        _lastTextChange = _time.CurTime;
-        RaisePredictiveEvent(new TypingChangedEvent(true, protoId));
     }
 }
