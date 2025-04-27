@@ -266,6 +266,10 @@ binds:
 - function: OpenAHelp
   type: State
   key: F1
+- function: OpenAHelpCuratorChat # DeltaV
+  type: State
+  key: F1
+  mod1: Shift
 - function: OpenInventoryMenu
   type: State
   key: I

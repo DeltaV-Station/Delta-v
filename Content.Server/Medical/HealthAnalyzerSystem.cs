@@ -25,6 +25,10 @@ using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Targeting;
 using System.Linq;
 
+// DeltaV - Medical Records
+using Content.Server._DV.MedicalRecords;
+using Content.Shared._DV.MedicalRecords;
+
 namespace Content.Server.Medical;
 
 public sealed class HealthAnalyzerSystem : EntitySystem
@@ -39,6 +43,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly MedicalRecordsSystem _medicalRecords = default!;
 
     public override void Initialize()
     {
@@ -51,6 +56,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         Subs.BuiEvents<HealthAnalyzerComponent>(HealthAnalyzerUiKey.Key, subs =>
         {
             subs.Event<HealthAnalyzerPartMessage>(OnHealthAnalyzerPartSelected);
+            subs.Event<HealthAnalyzerTriageStatusMessage>(OnHealthAnalyzerTriageStatusSelected);
+            subs.Event<HealthAnalyzerTriageClaimMessage>(OnHealthAnalyzerTriageClaimSelected);
         });
         // Shitmed Change End
     }
@@ -87,14 +94,16 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             component.NextUpdate = _timing.CurTime + component.UpdateInterval;
 
             //Get distance between health analyzer and the scanned entity
+            //null is infinite range
             var patientCoordinates = Transform(patient).Coordinates;
-            if (!_transformSystem.InRange(patientCoordinates, transform.Coordinates, component.MaxScanRange))
+            if (component.MaxScanRange != null && !_transformSystem.InRange(patientCoordinates, transform.Coordinates, component.MaxScanRange.Value))
             {
                 //Range too far, disable updates
-                StopAnalyzingEntity((uid, component), patient);
+                PauseAnalyzingEntity((uid, component), patient, component.CurrentBodyPart); // DeltaV - Analyzer Reactivation
                 continue;
             }
 
+            component.IsAnalyzerActive = true; // DeltaV - Analyzer Reactivation
             UpdateScannedUser(uid, patient, true, component.CurrentBodyPart); // Shitmed Change
         }
     }
@@ -132,6 +141,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         OpenUserInterface(args.User, uid);
         BeginAnalyzingEntity(uid, args.Target.Value);
+        uid.Comp.StationRecordKey = _medicalRecords.GetMedicalRecordsKey(args.Target.Value); // DeltaV - Medical Records
         args.Handled = true;
     }
 
@@ -202,6 +212,20 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         UpdateScannedUser(healthAnalyzer, target, false);
     }
 
+    /// <summary>
+    /// DeltaV - If the scanner is active, sends one last update and sets it to inactive.
+    /// </summary>
+    /// <param name="healthAnalyzer">The health analyzer that's receiving the updates</param>
+    /// <param name="target">The entity to analyze</param>
+    private void PauseAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target, EntityUid? part = null)
+    {
+        if (!healthAnalyzer.Comp.IsAnalyzerActive)
+            return;
+
+        UpdateScannedUser(healthAnalyzer, target, false, part);
+        healthAnalyzer.Comp.IsAnalyzerActive = false;
+    }
+
     // Shitmed Change Start
     /// <summary>
     /// Shitmed Change: Handle the selection of a body part on the health analyzer
@@ -225,6 +249,24 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         }
     }
     // Shitmed Change End
+
+    // Begin DeltaV - Medical Records
+    private void OnHealthAnalyzerTriageStatusSelected(Entity<HealthAnalyzerComponent> healthAnalyzer, ref HealthAnalyzerTriageStatusMessage args)
+    {
+        if (healthAnalyzer.Comp.StationRecordKey is not {} key)
+            return;
+
+        _medicalRecords.SetPatientStatus(key, args.TriageStatus);
+    }
+
+    private void OnHealthAnalyzerTriageClaimSelected(Entity<HealthAnalyzerComponent> healthAnalyzer, ref HealthAnalyzerTriageClaimMessage args)
+    {
+        if (healthAnalyzer.Comp.StationRecordKey is not {} key)
+            return;
+
+        _medicalRecords.ClaimPatient(key, args.Actor);
+    }
+    // End DeltaV - Medical Records
 
     /// <summary>
     /// Send an update for the target to the healthAnalyzer
@@ -276,6 +318,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             unrevivable,
             // Shitmed Change
             body,
+            _medicalRecords.GetMedicalRecords(target), // DeltaV - Medical Records
             part != null ? GetNetEntity(part) : null
         ));
     }

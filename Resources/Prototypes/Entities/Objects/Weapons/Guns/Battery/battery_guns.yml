@@ -5,7 +5,7 @@
   components:
   - type: Sprite
   - type: Item
-    size: Huge
+    size: Large # DeltaV - was Huge
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
     quickEquip: false
@@ -383,6 +383,9 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
     fireCost: 100
+  - type: Tag
+    tags:
+    - TurretCompatibleWeapon
 
 - type: entity
   name: portable particle decelerator
@@ -482,6 +485,7 @@
     - Taser
     - Sidearm
     - ConcealCarry # DeltaV - can be stowed in military boots for now
+  - type: PacifismAllowedGun # DeltaV - allow pacifist to use the disabler
 
 - type: entity
   name: disabler
@@ -548,6 +552,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 260
+  - type: PacifismAllowedGun # DeltaV - allow pacifist to use the disabler
 
 - type: entity
   name: taser

@@ -33,6 +33,11 @@ using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
+// Begin CD - Character Records
+using System.Globalization;
+using Content.Client._CD.Records.UI;
+using Content.Shared._CD.Records;
+// End CD - Character Records
 
 namespace Content.Client.Lobby.UI
 {
@@ -95,6 +100,12 @@ namespace Content.Client.Lobby.UI
         private ColorSelectorSliders _rgbSkinColorSelector;
 
         private bool _isDirty;
+
+        // Begin CD - Station Records
+        private float _defaultHeight = 1f;
+
+        private readonly RecordEditorGui _recordsTab;
+        // End CD - Station Records
 
         [ValidatePrototypeId<GuideEntryPrototype>]
         private const string DefaultSpeciesGuidebook = "Species";
@@ -216,9 +227,47 @@ namespace Content.Client.Lobby.UI
             {
                 SpeciesButton.SelectId(args.Id);
                 SetSpecies(_species[args.Id].ID);
+                RefreshTraits(); // DeltaV - Allows for hiding traits
                 UpdateHairPickers();
                 OnSkinColorOnValueChanged();
             };
+
+            // Begin CD - Character Records
+            #region CDHeight
+
+            CDHeight.OnTextChanged += args =>
+            {
+                if (Profile is null || !float.TryParse(args.Text, out var newHeight))
+                    return;
+
+                var prototype = _prototypeManager.Index<SpeciesPrototype>(Profile.Species);
+                newHeight = MathF.Round(Math.Clamp(newHeight, prototype.MinHeight, prototype.MaxHeight), 2);
+
+                // The percentage between the start and end numbers, aka "inverse lerp"
+                var sliderPercent = (newHeight - prototype.MinHeight) /
+                                    (prototype.MaxHeight - prototype.MinHeight);
+                CDHeightSlider.Value = sliderPercent;
+
+                SetProfileHeight(newHeight);
+            };
+
+            CDHeightReset.OnPressed += _ =>
+            {
+                CDHeight.SetText(_defaultHeight.ToString(CultureInfo.InvariantCulture), true);
+            };
+
+            CDHeightSlider.OnValueChanged += _ =>
+            {
+                if (Profile is null)
+                    return;
+                var prototype = _prototypeManager.Index<SpeciesPrototype>(Profile.Species);
+                var newHeight = MathF.Round(MathHelper.Lerp(prototype.MinHeight, prototype.MaxHeight, CDHeightSlider.Value), 2);
+                CDHeight.Text = newHeight.ToString(CultureInfo.InvariantCulture);
+                SetProfileHeight(newHeight);
+            };
+
+            #endregion CDHeight
+            // End CD - Character Records
 
             #region Skin
 
@@ -413,6 +462,16 @@ namespace Content.Client.Lobby.UI
 
             #endregion Markings
 
+            // Begin CD - Character Records
+            #region CosmaticRecords
+
+            _recordsTab = new RecordEditorGui(UpdateProfileRecords);
+            TabContainer.AddChild(_recordsTab);
+            TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-cd-records-tab"));
+
+            #endregion CosmaticRecords
+            // End CD - Character Records
+
             RefreshFlavorText();
 
             #region Dummy
@@ -501,6 +560,14 @@ namespace Content.Client.Lobby.UI
 
             foreach (var trait in traits)
             {
+                // Begin DeltaV Additions - Species trait exclusion
+                if (Profile?.Species is { } selectedSpecies && trait.ExcludedSpecies.Contains(selectedSpecies))
+                {
+                    Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
+                    continue;
+                }
+                // End DeltaV Additions
+
                 if (trait.Category == null)
                 {
                     defaultTraits.Add(trait.ID);
@@ -753,6 +820,11 @@ namespace Content.Client.Lobby.UI
             UpdateHairPickers();
             UpdateCMarkingsHair();
             UpdateCMarkingsFacialHair();
+
+            // Begin CD - Character Records
+            UpdateHeightControls();
+            _recordsTab.Update(profile);
+            // End CD - Character Records
 
             RefreshAntags();
             RefreshJobs();
@@ -1050,6 +1122,16 @@ namespace Content.Client.Lobby.UI
             UpdateJobPriorities();
         }
 
+        // Start CD - Character Records
+        private void UpdateProfileRecords(PlayerProvidedCharacterRecords records)
+        {
+            if (Profile is null)
+                return;
+            Profile = Profile.WithCDCharacterRecords(records);
+            IsDirty = true;
+        }
+        // End CD - Character Records
+
         private void OnFlavorTextChange(string content)
         {
             if (Profile is null)
@@ -1230,6 +1312,15 @@ namespace Content.Client.Lobby.UI
 
             _entManager.System<MetaDataSystem>().SetEntityName(PreviewDummy, newName);
         }
+
+        // Begin CD - Character Records
+        private void SetProfileHeight(float height)
+        {
+            Profile = Profile?.WithHeight(height);
+            SetDirty();
+            ReloadProfilePreview();
+        }
+        // End CD - Character Records
 
         private void SetSpawnPriority(SpawnPriorityPreference newSpawnPriority)
         {
@@ -1416,6 +1507,26 @@ namespace Content.Client.Lobby.UI
             PronounsButton.SelectId((int) Profile.Gender);
         }
 
+        // Begin CD - Character Records
+        private void UpdateHeightControls()
+        {
+            if (Profile == null)
+            {
+                return;
+            }
+
+            var species = _species.Find(x => x.ID == Profile.Species);
+            if (species != null)
+                _defaultHeight = species.DefaultHeight;
+
+            var prototype = _prototypeManager.Index<SpeciesPrototype>(Profile.Species);
+            var sliderPercent = (Profile.Height - prototype.MinHeight) /
+                                (prototype.MaxHeight - prototype.MinHeight);
+            CDHeightSlider.Value = sliderPercent;
+            CDHeight.Text = Profile.Height.ToString(CultureInfo.InvariantCulture);
+        }
+        // End CD - Character Records
+
         private void UpdateSpawnPriorityControls()
         {
             if (Profile == null)
@@ -1558,6 +1669,8 @@ namespace Content.Client.Lobby.UI
             var name = HumanoidCharacterProfile.GetName(Profile.Species, Profile.Gender);
             SetName(name);
             UpdateNameEdit();
+
+            _recordsTab.Update(Profile); // CD - Character Records
         }
 
         private async void ExportImage()

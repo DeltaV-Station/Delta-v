@@ -8,6 +8,8 @@
   - Gauze
 
 - type: latheRecipePack
+  parent:
+  - BasicChemistryStaticDeltaV # DeltaV
   id: BasicChemistryStatic
   recipes:
   - Beaker
@@ -57,6 +59,8 @@
   - EmergencyRollerBedSpawnFolded
 
 - type: latheRecipePack
+  parent:
+  - MedicalClothingStaticDeltaV # DeltaV
   id: MedicalClothingStatic
   recipes:
   - ClothingHandsGlovesLatex

@@ -27,6 +27,8 @@ id-card-access-level-quartermaster = Logistics Officer
 id-card-access-level-cargo = Logistics
 id-card-access-level-salvage = Salvage
 
+id-card-access-level-funding = Funding
+
 id-card-access-level-bar = Bar
 id-card-access-level-boxer = Boxer
 id-card-access-level-clown = Clown
@@ -55,3 +57,7 @@ id-card-access-level-unused = You shouldn't see this
 id-card-access-level-central-command = Central Command
 
 id-card-access-level-wizard = Wizard
+
+id-card-access-level-station-ai = Artifical Intelligence
+id-card-access-level-borg = Cyborg
+id-card-access-level-basic-silicon = Robot

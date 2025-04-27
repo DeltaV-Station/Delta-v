@@ -35,14 +35,14 @@ public sealed partial class ChangelogTab : Control
             .OrderByDescending(c => c.Key);
 
         var hasRead = changelog.Name != MainChangelogName ||
-                      _changelog.MaxTime <= _changelog.LastReadTime;
+                      _changelog.MaxId <= _changelog.LastReadId;
 
         foreach (var dayEntries in byDay)
         {
             var day = dayEntries.Key;
 
             var groupedEntries = dayEntries
-                .GroupBy(c => (c.Author, Read: c.Time <= _changelog.LastReadTime))
+                .GroupBy(c => (c.Author, Read: c.Id <= _changelog.LastReadId))
                 .OrderBy(c => c.Key.Read)
                 .ThenBy(c => c.Key.Author);
 
@@ -131,13 +131,13 @@ public sealed partial class ChangelogTab : Control
                     Margin = new Thickness(6, 0, 0, 0),
                 };
                 authorLabel.SetMessage(
-                    FormattedMessage.FromMarkupOrThrow(Loc.GetString("changelog-author-changed", ("author", author))));
+                    FormattedMessage.FromMarkupOrThrow(Loc.GetString("changelog-author-changed", ("author", FormattedMessage.EscapeText(author)))));
                 ChangelogBody.AddChild(authorLabel);
 
                 foreach (var change in groupedEntry.SelectMany(c => c.Changes))
                 {
                     var text = new RichTextLabel();
-                    text.SetMessage(FormattedMessage.FromMarkupOrThrow(change.Message));
+                    text.SetMessage(FormattedMessage.FromUnformatted(change.Message));
                     ChangelogBody.AddChild(new BoxContainer
                     {
                         Orientation = LayoutOrientation.Horizontal,

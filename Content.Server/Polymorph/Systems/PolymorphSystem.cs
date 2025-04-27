@@ -3,9 +3,11 @@ using Content.Server.Humanoid;
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
 using Content.Server.Polymorph.Components;
+using Content.Shared._DV.Polymorph; // DeltaV
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems; // DeltaV
 using Content.Shared.Destructible;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -34,6 +36,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
+    [Dependency] private readonly StaminaSystem _stamina = default!; // DeltaV
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
@@ -60,8 +63,8 @@ public sealed partial class PolymorphSystem : EntitySystem
         SubscribeLocalEvent<PolymorphedEntityComponent, BeforeFullySlicedEvent>(OnBeforeFullySliced);
         SubscribeLocalEvent<PolymorphedEntityComponent, DestructionEventArgs>(OnDestruction);
 
-        InitializeCollide();
         InitializeMap();
+        InitializeTrigger();
     }
 
     public override void Update(float frameTime)
@@ -89,7 +92,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             }
         }
 
-        UpdateCollide();
+        UpdateTrigger();
     }
 
     private void OnComponentStartup(Entity<PolymorphableComponent> ent, ref ComponentStartup args)
@@ -204,6 +207,12 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         var child = Spawn(configuration.Entity, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
 
+        if (configuration.PolymorphPopup != null)
+            _popup.PopupEntity(Loc.GetString(configuration.PolymorphPopup,
+                ("parent", Identity.Entity(uid, EntityManager)),
+                ("child", Identity.Entity(child, EntityManager))),
+                child);
+
         MakeSentientCommand.MakeSentient(child, EntityManager);
 
         var polymorphedComp = _compFact.GetComponent<PolymorphedEntityComponent>();
@@ -224,7 +233,15 @@ public sealed partial class PolymorphSystem : EntitySystem
             damage != null)
         {
             _damageable.SetDamage(child, damageParent, damage);
+
+            // DeltaV - Transfer Stamina Damage
+            var staminaDamage = _stamina.GetStaminaDamage(uid);
+            _stamina.TakeStaminaDamage(child, staminaDamage);
         }
+
+        // DeltaV - Drop MindContainer entities on polymorph
+        var beforePolymorphedEv = new BeforePolymorphedEvent();
+        RaiseLocalEvent(uid, ref beforePolymorphedEv);
 
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
         {
@@ -307,6 +324,10 @@ public sealed partial class PolymorphSystem : EntitySystem
             damage != null)
         {
             _damageable.SetDamage(parent, damageParent, damage);
+
+            // DeltaV - Transfer Stamina Damage
+            var staminaDamage = _stamina.GetStaminaDamage(uid);
+            _stamina.TakeStaminaDamage(parent, staminaDamage);
         }
 
         if (component.Configuration.Inventory == PolymorphInventoryChange.Transfer)
@@ -347,10 +368,11 @@ public sealed partial class PolymorphSystem : EntitySystem
         var ev = new PolymorphedEvent(uid, parent, true);
         RaiseLocalEvent(uid, ref ev);
 
-        _popup.PopupEntity(Loc.GetString("polymorph-revert-popup-generic",
+        if (component.Configuration.ExitPolymorphPopup != null)
+            _popup.PopupEntity(Loc.GetString(component.Configuration.ExitPolymorphPopup,
                 ("parent", Identity.Entity(uid, EntityManager)),
                 ("child", Identity.Entity(parent, EntityManager))),
-            parent);
+                parent);
         QueueDel(uid);
 
         return parent;

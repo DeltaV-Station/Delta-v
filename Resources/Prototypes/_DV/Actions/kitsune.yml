@@ -1,0 +1,20 @@
+- type: entity
+  id: ActionFoxfire
+  name: Create Foxfire
+  description: Form a cool, gently glowing wisp of flame
+  components:
+  - type: InstantAction
+    charges: 3
+    disableWhenEmpty: false
+    icon: { sprite: _DV/Structures/Specific/Species/Kitsune/foxfire.rsi, state: icon }
+    event: !type:CreateFoxfireActionEvent
+
+- type: entity
+  id: ActionKitsuneMorph
+  name: Kitsune Shapeshift
+  description: Shift into your fox form
+  components:
+  - type: InstantAction
+    icon: { sprite: Mobs/Animals/fox.rsi, state: fox }
+    useDelay: 2
+    event: !type:MorphIntoKitsune

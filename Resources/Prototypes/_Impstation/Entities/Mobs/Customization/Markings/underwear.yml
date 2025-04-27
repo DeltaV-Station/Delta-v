@@ -1,36 +1,8 @@
 - type: marking
-  id: UnderwearDefault
-  bodyPart: Underwear
-  markingCategory: Underwear
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Vulpkanin, Rodentia, Harpy, Felinid, Vox, Oni, Chitinid] # Delta V - Chitinid, 
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/underwear.rsi
-    state: boxers
-
-- type: marking
-  id: UnderwearBriefs
-  bodyPart: Underwear
-  markingCategory: Underwear
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Vulpkanin, Rodentia, Harpy, Felinid, Vox, Oni, Chitinid] # Delta V - Chitinid, 
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/underwear.rsi
-    state: briefs
-
-- type: marking
   id: UnderwearLowriders
-  bodyPart: Underwear
-  markingCategory: Underwear
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Vulpkanin, Rodentia, Harpy, Felinid, Vox, Oni, Chitinid] # Delta V - Chitinid, 
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type:
@@ -41,24 +13,10 @@
     state: lowriders
 
 - type: marking
-  id: UnderwearSatin
-  bodyPart: Underwear
-  markingCategory: Underwear
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Vulpkanin, Rodentia, Harpy, Felinid, Vox, Oni, Chitinid] # Delta V - Chitinid, 
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/underwear.rsi
-    state: satin
-
-- type: marking
   id: UnderwearTanga
-  bodyPart: Underwear
-  markingCategory: Underwear
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Vulpkanin, Rodentia, Harpy, Felinid, Vox, Oni, Chitinid] # Delta V - Chitinid, 
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type:

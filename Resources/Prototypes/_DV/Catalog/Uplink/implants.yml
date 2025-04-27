@@ -1,0 +1,71 @@
+- type: listing
+  id: UplinkBionicSyrinxImplanter
+  name: uplink-bionic-syrinx-implanter-name
+  description: uplink-bionic-syrinx-implanter-desc
+  productEntity: BionicSyrinxImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Harpy
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkSyndicateRadioImplanter
+  name: uplink-syndicate-radio-implanter-name
+  description: uplink-syndicate-radio-implanter-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  productEntity: SyndicateRadioImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkSyndicateRadioImplanterBundle
+  name: uplink-syndicate-radio-implanter-bundle-name
+  description: uplink-syndicate-radio-implanter-bundle-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  productEntity: BoxSyndicateRadioImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkHostageImplanter
+  name: uplink-syndicate-hostage-implanter-bundle-name
+  description: uplink-syndicate-hostage-implanter-bundle-desc
+  icon: { sprite: Objects/Misc/handcuffs.rsi, state: handcuff }
+  productEntity: BoxSyndicateHostageImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink

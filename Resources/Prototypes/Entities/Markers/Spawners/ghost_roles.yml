@@ -203,6 +203,28 @@
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
+  id: SpawnPointGhostParadoxClone
+  components:
+  - type: GhostRole
+    # Begin DeltaV Changes
+    name: ghost-role-information-paradox-anomaly-name
+    description: ghost-role-information-paradox-anomaly-description
+    rules: ghost-role-information-paradox-anomaly-rules
+    mindRoles:
+    - MindRoleParadoxClone
+    # End DeltaV Changes
+    raffle:
+      settings: default
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - sprite: Mobs/Aliens/paradox_clone.rsi
+      state: preview
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
   id: SpawnPointGhostDerelictCyborg
   components:
   - type: GhostRole

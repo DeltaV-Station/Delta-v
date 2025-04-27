@@ -13,6 +13,8 @@ using Content.Shared.Movement.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
 using System.Numerics;
+using Content.Server.Polymorph.Components;
+using Content.Server.Polymorph.Systems;
 
 // Shitmed Change
 using System.Linq;
@@ -30,6 +32,7 @@ public sealed class BodySystem : SharedBodySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!; // Shitmed Change
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
 
     public override void Initialize()
     {
@@ -73,15 +76,11 @@ public sealed class BodySystem : SharedBodySystem
         // TODO: Predict this probably.
         base.AddPart(bodyEnt, partEnt, slotId);
 
-        if (TryComp<HumanoidAppearanceComponent>(bodyEnt, out var humanoid))
+        var layer = partEnt.Comp.ToHumanoidLayers();
+        if (layer != null)
         {
-            var layer = partEnt.Comp.ToHumanoidLayers();
-            if (layer != null)
-            {
-                var layers = HumanoidVisualLayersExtension.Sublayers(layer.Value);
-                _humanoidSystem.SetLayersVisibility(
-                    bodyEnt, new[] { layer.Value }, visible: true, permanent: true, humanoid); // Shitmed Change
-            }
+            var layers = HumanoidVisualLayersExtension.Sublayers(layer.Value);
+            _humanoidSystem.SetLayersVisibility(bodyEnt.Owner, layers, visible: true);
         }
     }
 
@@ -101,14 +100,13 @@ public sealed class BodySystem : SharedBodySystem
             return;
 
         var layers = HumanoidVisualLayersExtension.Sublayers(layer.Value);
-        _humanoidSystem.SetLayersVisibility(
-            bodyEnt, layers, visible: false, permanent: true, humanoid);
+        _humanoidSystem.SetLayersVisibility((bodyEnt, humanoid), layers, visible: false);
         _appearance.SetData(bodyEnt, layer, true); // Shitmed Change
     }
 
     public override HashSet<EntityUid> GibBody(
         EntityUid bodyId,
-        bool gibOrgans = false,
+        bool acidify = false,
         BodyComponent? body = null,
         bool launchGibs = true,
         Vector2? splatDirection = null,
@@ -126,11 +124,23 @@ public sealed class BodySystem : SharedBodySystem
             return new HashSet<EntityUid>();
         }
 
+        // If a polymorph configured to revert on death is gibbed without dying,
+        // revert it then gib so the parent is gibbed instead of the polymorph.
+        if (TryComp<PolymorphedEntityComponent>(bodyId, out var polymorph)
+            && polymorph.Configuration.RevertOnDeath)
+        {
+            _polymorph.Revert(bodyId);
+            if (polymorph.Configuration.TransferDamage)
+                GibBody(polymorph.Parent, acidify, null, launchGibs: launchGibs, splatDirection: splatDirection,
+                splatModifier: splatModifier, splatCone:splatCone);
+            return new HashSet<EntityUid>();
+        }
+
         var xform = Transform(bodyId);
         if (xform.MapUid is null)
             return new HashSet<EntityUid>();
 
-        var gibs = base.GibBody(bodyId, gibOrgans, body, launchGibs: launchGibs,
+        var gibs = base.GibBody(bodyId, acidify, body, launchGibs: launchGibs,
             splatDirection: splatDirection, splatModifier: splatModifier, splatCone: splatCone,
             gib: gib, contents: contents); // Shitmed Change
 

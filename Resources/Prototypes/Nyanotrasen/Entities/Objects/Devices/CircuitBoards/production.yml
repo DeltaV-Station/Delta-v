@@ -7,24 +7,8 @@
     difficulty: 3
     recipes:
     - CloningConsoleComputerCircuitboard
-    - MetempsychoticMachineCircuitboard
+    - CloningPodMachineCircuitboard
     - MedicalScannerMachineCircuitboard
-
-- type: entity
-  id: MetempsychoticMachineCircuitboard
-  parent: [ BaseMachineCircuitboard, BaseCloningBoard ]
-  name: metempsychotic machine machine board
-  description: A machine printed circuit board for a cloning pod
-  components:
-  - type: Sprite
-    state: medical
-  - type: MachineBoard
-    prototype: MetempsychoticMachine
-    stackRequirements:
-      Glass: 1
-      Cable: 1
-      Capacitor: 2
-      Manipulator: 2
 
 - type: entity
   id: ReverseEngineeringMachineCircuitboard

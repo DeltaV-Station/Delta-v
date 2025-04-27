@@ -1,0 +1,34 @@
+# Delta-V's pre-commit.com config
+# You don't have to install it yourself, CI applies fixes to PRs automatically.
+
+# don't touch upstream files, DeltaV is only for allowing ConfigPresets
+files: "(_DV|DeltaV)/"
+repos:
+- repo: "https://github.com/pre-commit/pre-commit-hooks"
+  rev: "v5.0.0"
+  hooks:
+  # File checkers
+  - id: check-yaml
+    # only check prototypes, maps would be too slow
+    files: "^Resources/Prototypes/_DV/.*\\.yml"
+    # !type:... doesn't work without somehow loading SS14, which would probably make commits take years
+    args: [ "--unsafe" ]
+  - id: check-json
+    # only need to check meta.json files
+    files: "^Resources/Textures/_DV/.*meta\\.json$"
+  - id: check-xml
+    # Check all ui XAML files
+    # Can't check guidebook "xml" as it is a monster
+    files: "^Content.Client/_DV/.*\\.xaml$"
+    types: ["text"]
+  - id: check-toml
+    files: "^Resources/ConfigPresets/.*\\.toml$"
+  - id: check-merge-conflict
+  # Fixers that can and will change commits to PRs
+  - id: end-of-file-fixer
+  - id: trailing-whitespace
+  - id: fix-byte-order-marker
+  - id: pretty-format-json
+    # Format texture meta.json files
+    files: "^Resources/Textures/_DV/.*meta\\.json$"
+    args: [ "--autofix", "--indent", "4", "--no-ensure-ascii", "--no-sort-keys" ]

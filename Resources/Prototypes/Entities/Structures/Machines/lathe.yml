@@ -86,11 +86,11 @@
       SpaceGlue: 5 # no change from normal lathe, overheat!!!
 
 - type: entity
+  categories: [ HideSpawnMenu ] # DeltaV - departmental lathes
   id: Autolathe
   parent: BaseLatheLube
   name: autolathe
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
-  suffix: DO NOT MAP # DeltaV - departamental lathes
   components:
   - type: Sprite
     sprite: Structures/Machines/autolathe.rsi
@@ -152,6 +152,7 @@
     - blueprint
 
 - type: entity
+  abstract: true # DeltaV - departmental lathes
   id: AutolatheHyperConvection
   parent: [Autolathe, BaseHyperlathe]
   name: hyper convection autolathe
@@ -163,11 +164,11 @@
     board: AutolatheHyperConvectionMachineCircuitboard
 
 - type: entity
+  categories: [ HideSpawnMenu ] # DeltaV - departmental lathes
   id: Protolathe
   parent: BaseLatheLube
   name: protolathe
   description: Converts raw materials into advanced items.
-  suffix: DO NOT MAP # DeltaV - departamental lathes
   components:
   - type: Sprite
     sprite: Structures/Machines/protolathe.rsi
@@ -224,6 +225,7 @@
     - SyringeGuns # DeltaV
 
 - type: entity
+  abstract: true # DeltaV - departmental lathes
   id: ProtolatheHyperConvection
   parent: [Protolathe, BaseHyperlathe]
   name: hyper convection protolathe
@@ -325,10 +327,15 @@
     - MechParts
     - MechEquipment
     - Cybernetics # Shitmed change
+    - PowerAugments # DeltaV - augments
+    - ToolAugments # DeltaV - augments
   - type: EmagLatheRecipes # DeltaV
+    emagStaticPacks:
+    - RoboticsEmagStatic
     emagDynamicPacks:
     - SecurityCybernetics # having sechud eyes is good for evil people
     - SecurityHardsuits
+    - BorgModulesSecurityDeltaV # DeltaV - secfab borg modules
   - type: MaterialStorage
     whitelist:
       tags:
@@ -402,12 +409,18 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    unlitIdleState: unlit # DeltaV - added animation sprite layers
+    unlitRunningState: unlit-building # DeltaV - added animation sprite layers
     staticPacks:
     - SecurityEquipmentStatic
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
+    - SecurityRubberAmmoStatic # DeltaV
+    - ReportingStatic # DeltaV
     dynamicPacks:
+    - SalvageSecurityBoards
+    - SalvageSecurityWeapons
     - SecurityEquipment
     - SecurityBoards
     - SecurityExplosives
@@ -420,6 +433,8 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: LatheAnnouncing
+    channels: [Security]
 
 - type: entity
   id: AmmoTechFab
@@ -445,6 +460,8 @@
     - type: Lathe
       idleState: icon
       runningState: icon
+      unlitIdleState: unlit # DeltaV - added animation sprite layers
+      unlitRunningState: unlit-building # DeltaV - added animation sprite layers
       staticPacks:
       - SecurityAmmoStatic
     - type: MaterialStorage
@@ -456,7 +473,7 @@
 
 - type: entity
   id: MedicalTechFab
-  parent: BaseLatheLube
+  parent: BaseTechFabDepartamental # DeltaV - make sure it inherits the emag recipes
   name: medical techfab
   description: Prints equipment for use by the medbay.
   components:
@@ -476,6 +493,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    unlitIdleState: unlit # DeltaV - added animation sprite layers
+    unlitRunningState: unlit-building # DeltaV - added animation sprite layers
     staticPacks:
     - TopicalsStatic
     - ChemistryStatic
@@ -484,6 +503,8 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
+    - ReportingStatic # DeltaV
+    - PowerCellsStatic # DeltaV
     dynamicPacks:
     - Chemistry
     - CyberneticsMedical # Shitmed change
@@ -493,6 +514,8 @@
     board: MedicalTechFabCircuitboard
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
+  - type: LatheAnnouncing
+    channels: [Medical]
 
 - type: entity
   parent: BaseLathe

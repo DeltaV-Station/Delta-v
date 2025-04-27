@@ -1,4 +1,8 @@
 - type: wireLayout
+  parent: Airlock
+  id: AirlockJustice
+
+- type: wireLayout
   id: FireLock
   wires:
   - !type:PowerWireAction
@@ -15,3 +19,13 @@
   - !type:PowerWireAction
   - !type:AccessWireAction
   - !type:LogWireAction
+
+- type: wireLayout
+  id: APC
+  wires:
+  - !type:PowerWireAction
+    pulseTimeout: 60 # double the times of airlock wires so it's more useful
+  - !type:PowerWireAction
+    pulseTimeout: 30
+  - !type:AiInteractWireAction
+  - !type:AccessWireAction

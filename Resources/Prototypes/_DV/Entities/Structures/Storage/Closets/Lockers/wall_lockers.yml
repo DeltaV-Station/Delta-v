@@ -2,6 +2,7 @@
   parent: BaseWallCloset
   id: BaseWallClosetDeltaV
   components:
+  - type: Appearance
   - type: Sprite
     sprite: _DV/Structures/Storage/wall_locker.rsi
 
@@ -9,6 +10,7 @@
   parent: BaseWallLocker
   id: BaseWallLockerDeltaV
   components:
+  - type: Appearance
   - type: Sprite
     sprite: _DV/Structures/Storage/wall_locker.rsi
 
@@ -251,3 +253,13 @@
     - id: RubberStampTrader
     - id: RubberStampWarden
     - id: RubberStampGreytide # a disturbance in the rising grey water.
+
+- type: entity
+  parent: ClosetWallOrange
+  id: ClosetWallOrangeFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillPrisonerDeltaV

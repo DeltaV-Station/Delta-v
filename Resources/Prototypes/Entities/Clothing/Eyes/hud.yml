@@ -12,8 +12,17 @@
   abstract: true
   categories: [ HideSpawnMenu ]
   components:
+    # Begin DeltaV Changes - Kitsune
   - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - BiologicalMetaphysical
   - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+    - BiologicalMetaphysical
+    # End DeltaV Changes - Kitsune
+  - type: ShowTriageIcons # DeltaV - Medical Records
 
 - type: entity
   parent: [ ClothingEyesBase, BaseToggleClothing ] # DeltaV - Added BaseToggleClothing

@@ -1,14 +1,8 @@
-[events]
-# Annoying
-enabled = false
-
-[game]
+[game] # DeltaV
 # Easier testing
 request_aco_delay_minutes = 1
 auto_unlock_aa_delay_minutes = 1
 auto_unlock_aa_enabled = true
-secret_weight_prototype = "SecretDeltaV" # DeltaV
-role_timer_override = "DeltaV" # DeltaV
-
-[shuttle]
-auto_call_time = 0
+secret_weight_prototype = "SecretDeltaV"
+role_timer_override = "DeltaV"
+showgreentext = false

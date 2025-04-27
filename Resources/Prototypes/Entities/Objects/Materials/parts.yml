@@ -71,6 +71,10 @@
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
+  - type: Tag # DeltaV
+    tags:
+    # no RodMetal 1 because ???
+    - BorgMaterial
 
 - type: entity
   parent: PartRodMetal
@@ -81,6 +85,7 @@
   - type: Tag
     tags:
     - RodMetal1
+    - BorgMaterial # DeltaV
   - type: Sprite
     state: rods
   - type: Stack
@@ -95,6 +100,7 @@
   - type: Tag
     tags:
     - RodMetal1
+    - BorgMaterial # DeltaV
   - type: Sprite
     state: rods
   - type: Stack

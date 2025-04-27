@@ -78,6 +78,8 @@ public sealed partial class LatheMenu : DefaultWindow
             {
                 ServerListButton.Visible = false;
             }
+
+            AmountLineEdit.SetText(latheComponent.DefaultProductionAmount.ToString());
         }
 
         // Begin DeltaV Additions: Mining points UI
@@ -103,16 +105,6 @@ public sealed partial class LatheMenu : DefaultWindow
 
         _lastMiningPoints = points;
         MiningPointsLabel.Text = Loc.GetString("lathe-menu-mining-points", ("points", points));
-    }
-
-    protected override void Opened()
-    {
-        base.Opened();
-
-        if (_entityManager.TryGetComponent<LatheComponent>(Entity, out var latheComp))
-        {
-            AmountLineEdit.SetText(latheComp.DefaultProductionAmount.ToString());
-        }
     }
 
     /// <summary>
@@ -162,6 +154,8 @@ public sealed partial class LatheMenu : DefaultWindow
 
         if (!int.TryParse(AmountLineEdit.Text, out var quantity) || quantity <= 0)
             quantity = 1;
+
+        RecipeCount.Text = Loc.GetString("lathe-menu-recipe-count", ("count", recipesToShow.Count));
 
         var sortedRecipesToShow = recipesToShow.OrderBy(_lathe.GetRecipeName);
         RecipeList.Children.Clear();

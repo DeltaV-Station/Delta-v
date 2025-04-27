@@ -1,12 +1,24 @@
 ## Static
 
 - type: latheRecipePack
+  id: BasicChemistryStaticDeltaV
+  recipes:
+  - Dropper
+  - Skimmer
+
+- type: latheRecipePack
   id: MedicalStaticDeltaV
   recipes:
   - AACTablet
   - TankHarness
   - ClothingEyesHudMedical
   - Oilpack
+  - BaseChemistryEmptyVial
+
+- type: latheRecipePack
+  id: MedicalClothingStaticDeltaV
+  recipes:
+  - ClothingMaskBreathMedical
 
 ## Dynamic
 
@@ -29,5 +41,4 @@
   - CrewMonitoringComputerCircuitboard
   - CloningConsoleComputerCircuitboard
   - MedicalScannerMachineCircuitboard
-  - MetempsychoticMachineCircuitboard
-  - CloningPodMachineCircuitboard # RE
+  - CloningPodMachineCircuitboard

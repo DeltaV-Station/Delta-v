@@ -77,6 +77,11 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
                 tooltip.SetMessage(msg);
                 ConfirmTypeButton.TooltipSupplier = _ => tooltip;
             }
+            else
+            {
+                ConfirmTypeButton.Text = Loc.GetString("borg-select-type-menu-confirm");
+                ConfirmTypeButton.TooltipSupplier = null;
+            }
         }
         // End DeltaV Changes
 

@@ -170,7 +170,7 @@
       effects:
       - !type:SatiateThirst
         factor: 1.5
-    # Dragon doesn't require airloss healing, so omnizine is still best for humans.
+    # Dragon doesn't require airloss healing, so omnizine is still best for humans. - Funkychem changes this, as chem if they have literal hours can make it. VERY hard.
     Medicine:
       effects:
       - !type:ModifyBloodLevel
@@ -180,7 +180,8 @@
           groups:
             Burn: -5
             Brute: -5
-            Toxin: -2
+            Toxin: -4 # Funkychem - was -2
+            Airloss: -6 # Funkychem - ichor does airloss now too
           types:
             Bloodloss: -5
       - !type:ModifyBleedAmount

@@ -439,6 +439,7 @@
   - type: Access
     groups:
     - AllAccess
+    - Silicon
   - type: Eye
     drawFov: false
   - type: Examiner
@@ -478,6 +479,7 @@
     - state: ai_camera
       shader: unshaded
       map: ["base"]
+  - type: AiDetectable # DeltaV - AI detector
 
 # The holographic representation of the AI that is projected from a holopad.
 - type: entity
@@ -510,6 +512,8 @@
     containers:
       borg_brain:
       - PositronicBrain
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipBorgAA
   - type: ItemSlots
     slots:
       cell_slot:
@@ -533,6 +537,8 @@
         - BorgModuleOperative
         - BorgModuleL6C
         - BorgModuleEsword
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipSyndie
   - type: ItemSlots
     slots:
       cell_slot:
@@ -566,6 +572,8 @@
         - BorgModuleTool
         - BorgModuleOperative
         - BorgModuleSyndicateWeapon
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipSyndie
   - type: ItemSlots
     slots:
       cell_slot:
@@ -614,13 +622,15 @@
         - BorgModuleTool
         - BorgModuleFireExtinguisher
         - BorgModuleGPS
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipAA
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
   - type: RandomMetadata
-    nameSegments: [names_borg]
+    nameSegments: [NamesBorg]
 
 - type: entity
   id: PlayerBorgDerelictGhostRole

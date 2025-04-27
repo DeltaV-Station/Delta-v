@@ -66,19 +66,6 @@
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
-  id: SpawnPointGhostParadoxAnomaly
-  name: paradox anomaly spawn point
-  components:
-  - type: GhostRole
-    name: ghost-role-information-paradox-anomaly-name
-    description: ghost-role-information-paradox-anomaly-description
-    rules: ghost-role-information-paradox-anomaly-rules
-    mindRoles:
-    - MindRoleParadoxAnomaly
-
-- type: entity
-  categories: [ HideSpawnMenu, Spawner ]
-  parent: BaseAntagSpawner
   id: SpawnPointGhostFugitive
   name: fugitive spawn point
   components:
