@@ -26,7 +26,7 @@
     sprite: _DV/Clothing/Shoes/Specific/moffers.rsi
   - type: FootstepModifier
     footstepSoundCollection:
-      path: /Audio/Voice/Moth/moth_scream.ogg
+      collection: Moffers
       params:
         variation: 0.1
-        volume: -10 # don't destroy ears
+        volume: -12 # don't destroy ears
