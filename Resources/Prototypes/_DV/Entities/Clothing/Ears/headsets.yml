@@ -113,9 +113,8 @@
     equippedPrefix: alt
 
 - type: entity
-  parent: ClothingHeadset
+  parent: ClothingHeadsetGrey
   id: ClothingHeadsetGreySyndicate
-  name: passenger headset
   suffix: Recruiter
   components:
   - type: ContainerFill
@@ -124,5 +123,3 @@
       - EncryptionKeyTraffic
       # - EncryptionKeySyndie # Taken out until remodeling of recruiter is done.
       - EncryptionKeyCommon
-  - type: Sprite
-    sprite: Clothing/Ears/Headsets/base.rsi
