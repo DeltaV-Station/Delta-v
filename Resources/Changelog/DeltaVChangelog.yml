@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Lyndomen
-  changes:
-  - message: Speedboots consume more energy, are faster, and are powered by bluespace
-    type: Tweak
-  id: 828
-  time: '2024-12-29T07:31:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2550
 - author: leonardo-dabepis
   changes:
   - message: made the rest of the CJ clothes usable/visible in game (this means more
@@ -4075,3 +4068,17 @@
   id: 1327
   time: '2025-04-27T01:32:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3463
+- author: Radezolid
+  changes:
+  - message: Hardsuits are now printable at their respective TechFab, unlock them
+      via research.
+    type: Add
+  - message: EVA Suits are now able to be printed at every departamental TechFab,
+      and the prisoner variant at the security TechFab.
+    type: Add
+  - message: Every departamental hardsuit can be printed at an emagged ExoSuit Fab
+      provided they were researched.
+    type: Add
+  id: 1328
+  time: '2025-04-27T01:52:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3453
