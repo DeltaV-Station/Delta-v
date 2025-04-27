@@ -16,7 +16,8 @@
         Slash: 0.6
         Piercing: 0.3
         Heat: 0.9
-    staminaDamageCoefficient: 0.8 # DeltaV
+  - type: StaminaResistance # DeltaV
+    damageCoefficient: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.9
 

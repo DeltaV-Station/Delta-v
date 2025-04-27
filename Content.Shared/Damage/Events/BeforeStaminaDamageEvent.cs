@@ -6,7 +6,8 @@ namespace Content.Shared.Damage.Events;
 /// Raised before stamina damage is dealt to allow other systems to cancel or modify it.
 /// </summary>
 [ByRefEvent]
-public record struct BeforeStaminaDamageEvent(float Value, bool Cancelled = false) : IInventoryRelayEvent
+// DeltaV - added FromMelee
+public record struct BeforeStaminaDamageEvent(float Value, bool FromMelee, bool Cancelled = false) : IInventoryRelayEvent
 {
     SlotFlags IInventoryRelayEvent.TargetSlots =>  ~SlotFlags.POCKET;
 }

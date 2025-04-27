@@ -3,7 +3,7 @@ using Content.Shared.Examine;
 using Content.Shared.Labels.Components;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Paper;
-using Content.Shared.Tags; // DeltaV
+using Content.Shared.Tag; // DeltaV
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes; // DeltaV
 using Robust.Shared.Utility;

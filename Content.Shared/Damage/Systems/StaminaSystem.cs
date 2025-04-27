@@ -14,6 +14,7 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Rounding;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Content.Shared.Weapons.Melee.Components; // DeltaV
 using Content.Shared.Weapons.Melee.Events;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
@@ -51,6 +52,7 @@ public sealed partial class StaminaSystem : EntitySystem
 
         InitializeModifier();
         InitializeResistance();
+        InitializeMeleeResistance(); // DeltaV
 
         SubscribeLocalEvent<StaminaComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<StaminaComponent, ComponentShutdown>(OnShutdown);
@@ -254,7 +256,7 @@ public sealed partial class StaminaSystem : EntitySystem
             return;
 
         var ev = new BeforeStaminaDamageEvent(value);
-        RaiseLocalEvent(uid, ref ev);
+        RaiseLocalEvent(uid, HasComp<MeleeWeaponComponent>(source), ref ev); // DeltaV - check if the source is a melee weapon
         if (ev.Cancelled)
             return;
 
