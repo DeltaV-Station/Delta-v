@@ -10,8 +10,10 @@
       - id: ClothingEyesGlassesPilot
       - id: ClothingNeckScarfPilot
       - id: ClothingMaskPilot
-      - id: ClothingHandsGlovesPilot # DeltaV Addition to add full pilot outfit to locker
-      - id: ClothingShoesBootsPilot # DeltaV Addition
-      - id: ClothingUniformJumpsuitPilot # DeltaV Addition
-      - id: ClothingHeadHatPilot # DeltaV Addition
-      - id: ClothingBackpackPilot # DeltaV Addition
+      # Begin DeltaV Additions - add full pilot outfit to locker
+      - id: ClothingHandsGlovesPilot 
+      - id: ClothingShoesBootsPilot
+      - id: ClothingUniformJumpsuitPilot
+      - id: ClothingHeadHatPilot
+      - id: ClothingBackpackPilot
+      # End DeltaV Additions
