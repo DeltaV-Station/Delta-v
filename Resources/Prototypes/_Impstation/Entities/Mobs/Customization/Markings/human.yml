@@ -1,0 +1,1476 @@
+﻿# if it's whitelisted for humans, it goes here, regardless of how species-agnostic its meant to be
+
+# Chest
+
+- type: marking
+  id: BodyhairHumanFemale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Dwarf, Human ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/bodyhair.rsi
+    state: human_bodyhair_female
+
+- type: marking
+  id: BodyhairHumanMale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Dwarf, Human ]
+  sexRestriction: [ Male ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/bodyhair.rsi
+    state: human_bodyhair_male
+
+- type: marking
+  id: BodyhairHumanUnsexed
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Dwarf, Human ]
+  sexRestriction: [ Unsexed ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/bodyhair.rsi
+    state: human_bodyhair_male
+
+- type: marking
+  id: ChestBackstabbed
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: chest_backstabbed
+
+- type: marking
+  id: ChestCutHere
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: chest_cuthere
+
+- type: marking
+  id: ChestHeavyTattoos
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: chest_heavy1
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: chest_heavy2
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: chest_heavy3
+
+- type: marking
+  id: ChestNecklace
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: chest_necklace
+
+- type: marking
+  id: ChestStar
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Gray, Thaven, Arachnid]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: chest_star
+
+- type: marking
+  id: ChestTwistingLeft
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: chest_l_twisting
+
+- type: marking
+  id: ChestTwistingRight
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: chest_r_twisting
+
+- type: marking
+  id: HumanoidAbs
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Human, Dwarf, Arachnid, Reptilian, SlimePerson ]
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
+    state: muscular
+
+- type: marking
+  id: TorsoIncision
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: torso_incision
+
+
+- type: marking
+  id: VitiligoChestF
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligochestf
+
+- type: marking
+  id: VitiligoChestSpots
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligochestspots
+
+# Head
+
+- type: marking
+  id: EyebrowsBig
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Human, Dwarf ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
+    state: eyebrowsthick
+
+- type: marking
+  id: EyebrowsBigger
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Human, Dwarf ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
+    state: eyebrowsultra
+
+- type: marking
+  id: EyebrowsUnibrow
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Human, Dwarf ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
+    state: eyebrowsunibrow
+
+- type: marking
+  id: HeadHeavyTattoos
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: head_heavy1
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: head_heavy2
+
+- type: marking
+  id: HeadTwisting
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Human, Dwarf, SlimePerson]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: head_twisting
+
+- type: marking
+  id: HeadTwistingFlipped
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Human, Dwarf, SlimePerson]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: head_twisting_flipped
+
+- type: marking
+  id: HumanoidEyebags
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Human, SlimePerson, Reptilian, Dwarf ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
+    state: eyebags
+
+- type: marking
+  id: SmileScars
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Human, Dwarf, SlimePerson]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: head_smile
+
+- type: marking
+  id: VitiligoHeadJaw
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligoheadjaw
+
+- type: marking
+  id: VitiligoHeadL
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Human,  Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligoheadl
+
+- type: marking
+  id: VitiligoHeadR
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligoheadr
+
+# Snout
+
+- type: marking
+  id: HeadSeptum
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Human, Dwarf]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: head_septum
+
+# Eyes
+
+# RArm
+
+- type: marking
+  id: ArmDollJointsTattooRight
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: r_arm_doll
+
+- type: marking
+  id: ArmHeavyTattoosRight
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: r_arm_heavy1
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: r_arm_heavy2
+
+- type: marking
+  id: ArmProstheticRight
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: arm_r_prosthetic
+
+- type: marking
+  id: ArmTwistingRight
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: arm_r_twisting
+
+- type: marking
+  id: VitiligoArmR
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligoarmr
+
+# LArm
+
+- type: marking
+  id: ArmDollJointsTattooLeft
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: l_arm_doll
+
+- type: marking
+  id: ArmHeavyTattoosLeft
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: l_arm_heavy1
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: l_arm_heavy2
+
+- type: marking
+  id: ArmProstheticLeft
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: arm_l_prosthetic
+
+- type: marking
+  id: ArmTwistingLeft
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: arm_l_twisting
+
+- type: marking
+  id: VitiligoArmL
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligoarml
+
+# RLeg
+
+- type: marking
+  id: LegDollJointsTattooRight
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: r_leg_doll
+
+- type: marking
+  id: LegHeavyTattoosRight
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: r_leg_heavy1
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: r_leg_heavy2
+
+- type: marking
+  id: LegProstheticRight
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, SlimePerson, Thaven, Arachnid]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: leg_r_prosthetic
+
+- type: marking
+  id: LegTwistingRight
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: leg_r_twisting
+
+- type: marking
+  id: VitiligoLegR
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligolegr
+
+# LLeg
+
+- type: marking
+  id: LegDollJointsTattooLeft
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: l_leg_doll
+
+- type: marking
+  id: LegHeavyTattoosLeft
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: l_leg_heavy1
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: l_leg_heavy2
+
+- type: marking
+  id: LegProstheticLeft
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, SlimePerson, Thaven, Arachnid]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: leg_l_prosthetic
+
+- type: marking
+  id: LegTwistingLeft
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: leg_l_twisting
+
+- type: marking
+  id: VitiligoLegL
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligolegl
+
+# UndergarmentBottom
+
+- type: marking
+  id: UnderwearLowriders
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Dwarf, Human, Arachnid, SlimePerson, Diona, Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: lowriders
+
+- type: marking
+  id: UnderwearTanga
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Dwarf, Human, Arachnid, SlimePerson, Diona, Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: tanga
+
+# UndergarmentTop
+
+- type: marking
+  id: UndergarmentTopBinderF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  sexRestriction: [Female]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: binder_f
+
+- type: marking
+  id: UndergarmentTopBinderU
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  sexRestriction: [Unsexed]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: binder_f
+
+- type: marking
+  id: UndergarmentTopTanktopF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  sexRestriction: [Female]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: tanktop_f
+
+- type: marking
+  id: UndergarmentTopTanktopU
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  sexRestriction: [Unsexed]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi #imp
+    state: tanktop_f
+
+- type: marking
+  id: UndershirtBraSportsF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Female]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: sports_f
+
+- type: marking
+  id: UndershirtBraSportsU
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Unsexed]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: sports
+
+- type: marking
+  id: UndershirtBraStrapless
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Male]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: strapless
+
+- type: marking
+  id: UndershirtBraStraplessF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Female]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: strapless_f
+
+- type: marking
+  id: UndershirtBraStraplessU
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Unsexed]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: strapless
+
+- type: marking
+  id: UndershirtDefault
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Male]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: undershirt
+
+- type: marking
+  id: UndershirtDefaultF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Female]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: undershirt_f
+
+- type: marking
+  id: UndershirtDefaultU
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Unsexed]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: undershirt
+
+- type: marking
+  id: UndershirtGrossSleeveless
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Male]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: gross_sleeveless
+
+- type: marking
+  id: UndershirtGrossSleevelessF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Female]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: gross_sleeveless_f
+
+- type: marking
+  id: UndershirtGrossSleevelessU
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Unsexed]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: gross_sleeveless
+
+- type: marking
+  id: UndershirtNanotrasen
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Male]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: nanotrasen
+
+- type: marking
+  id: UndershirtNanotrasenF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Female]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: nanotrasen_f
+
+- type: marking
+  id: UndershirtNanotrasenU
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Unsexed]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: nanotrasen
+
+- type: marking
+  id: UndershirtRolled
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Male]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: rolled_undershirt
+
+- type: marking
+  id: UndershirtRolledF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Female]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: rolled_undershirt_f
+
+- type: marking
+  id: UndershirtRolledU
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
+  sexRestriction: [Unsexed]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+    state: rolled_undershirt
+
+# LFoot
+
+- type: marking
+  id: FootDollJointsTattooLeft
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: l_foot_doll
+
+- type: marking
+  id: FootHeavyTattoosLeft
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: l_foot_heavy1
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: l_foot_heavy2
+
+- type: marking
+  id: FootProstheticLeft
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, SlimePerson, Thaven, Arachnid]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: foot_l_prosthetic
+
+# RFoot
+
+- type: marking
+  id: FootDollJointsTattooRight
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: r_foot_doll
+
+- type: marking
+  id: FootHeavyTattoosRight
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: r_foot_heavy1
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: r_foot_heavy2
+
+- type: marking
+  id: FootProstheticRight
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, SlimePerson, Thaven, Arachnid]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: foot_r_prosthetic
+
+# LHand
+
+- type: marking
+  id: HandBraceletLeft
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: l_hand_bracelet
+
+- type: marking
+  id: HandDollJointsTattooLeft
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: l_hand_doll
+
+- type: marking
+  id: HandHeavyTattoosLeft
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: l_hand_heavy1
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: l_hand_heavy2
+
+- type: marking
+  id: HandProstheticLeft
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: hand_l_prosthetic
+
+- type: marking
+  id: HandRingsLeft
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: l_hand_rings1
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: l_hand_rings2
+
+- type: marking
+  id: HandTwistingLeft
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: hand_l_twisting
+
+- type: marking
+  id: VitiligoHandL
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligohandl
+
+# RHand
+
+- type: marking
+  id: HandBraceletRight
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: r_hand_bracelet
+
+- type: marking
+  id: HandDollJointsTattooRight
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: r_hand_doll
+
+- type: marking
+  id: HandHeavyTattoosRight
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: r_hand_heavy1
+  - sprite: _Impstation/Mobs/Customization/tattoos.rsi
+    state: r_hand_heavy2
+
+- type: marking
+  id: HandProstheticRight
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: hand_r_prosthetic
+
+- type: marking
+  id: HandRingsRight
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: r_hand_rings1
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: r_hand_rings2
+
+- type: marking
+  id: HandTwistingRight
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/scars.rsi
+    state: hand_r_twisting
+
+- type: marking
+  id: VitiligoHandR
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligohandr
+
+# FacialHair
+
+# Hair
+
+- type: marking
+  id: BurqaSolid
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, SlimePerson]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: burqasolid
+
+- type: marking
+  id: HijabFashionable
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, SlimePerson]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: hijabchic
+
+- type: marking
+  id: HijabSimple
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, SlimePerson]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: hijabsimple
+
+- type: marking
+  id: HumanHairFrenchBraid
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/human_hair.rsi
+    state: frenchbraid
+
+- type: marking
+  id: HumanHairGatheredlow
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/human_hair.rsi
+    state: gatheredlow
+
+- type: marking
+  id: HumanHairHalfUpShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/human_hair.rsi
+    state: halfup_short
+
+- type: marking
+  id: HumanHairHalfUpLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/human_hair.rsi
+    state: halfup_long
+
+- type: marking
+  id: HumanHairHalfUpUndercut
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/human_hair.rsi
+    state: halfup_undercut
+
+- type: marking
+  id: HumanHairLowpigtails
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/human_hair.rsi
+    state: lowpigtails
+
+- type: marking
+  id: HumanHairMidPartLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/human_hair.rsi
+    state: midpart_long
+
+- type: marking
+  id: HumanHairMidPartLonger
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/human_hair.rsi
+    state: midpart_longer
+
+- type: marking
+  id: HumanHairMullet
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/human_hair.rsi
+    state: mullet
+
+- type: marking
+  id: HumanHairMulletSideshave
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/human_hair.rsi
+    state: mullet_sideshave
+
+- type: marking
+  id: HumanHairSideshaveCurly
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/human_hair.rsi
+    state: sideshave_curly
+
+- type: marking
+  id: HumanHairUndercutCurly
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/human_hair.rsi
+    state: undercut_curly
+
+- type: marking
+  id: MessyPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
+    state: messyponytail
+
+- type: marking
+  id: Niqab
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, SlimePerson]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: niqab
+
+- type: marking
+  id: TichelFashionable
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, SlimePerson]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: tichelfashionable
+
+# HeadSide
+
+# HeadTop
+
+- type: marking
+  id: HeadEarrings
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Human, Dwarf, SlimePerson]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: head_earrings1
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: head_earrings2
+
+- type: marking
+  id: HeadEarringsDrop
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Human, Dwarf, SlimePerson]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: head_earrings_drop1
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: head_earrings_drop2
+
+- type: marking
+  id: HeadEarringsWeights
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Human, Dwarf, SlimePerson]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: head_earrings_weights1
+  - sprite: _Impstation/Mobs/Customization/jewelry.rsi
+    state: head_earrings_weights2
+
+# Tail
+
+# RArmExtension
+
+# Overlay
