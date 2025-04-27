@@ -12,23 +12,6 @@
       - EncryptionKeyCommon
 
 - type: entity
-  parent: ClothingHeadsetAltSyndicate
-  id: ClothingHeadsetAltSyndicateListening
-  name: blood-red over-ear interception headset
-  description: An advanced, modular syndicate interception intercom that fits over the head.
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeySyndie
-      - EncryptionKeyStationMaster
-      - EncryptionKeyBinarySyndicate
-  - type: Sprite
-    sprite: _DV/Clothing/Ears/Headsets/syndicate_listening.rsi
-  - type: Clothing
-    sprite: _DV/Clothing/Ears/Headsets/syndicate_listening.rsi
-
-- type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetJustice
   name: justice headset
