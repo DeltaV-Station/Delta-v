@@ -1,63 +1,4 @@
 ﻿Entries:
-- author: dvir001
-  changes:
-  - message: Diona are now immune to the force of an FTL jump.
-    type: Add
-  id: 821
-  time: '2024-12-28T05:35:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2543
-- author: Monotheonist
-  changes:
-  - message: Tweaks Community Rule 2 to prevent flaming in LOOC.
-    type: Tweak
-  id: 822
-  time: '2024-12-28T06:25:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2534
-- author: Radezolid
-  changes:
-  - message: Added a new pistol, a modified Viper meant to look like a regular appraisal
-      tool, it shoots slightly slower than a regular Viper and it's only available
-      to logistics traitors.
-    type: Add
-  id: 823
-  time: '2024-12-28T14:29:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2548
-- author: Smugman
-  changes:
-  - message: Added more recipes to the Emagged Uniform Printer, print those valids!
-    type: Add
-  id: 824
-  time: '2024-12-28T14:36:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2538
-- author: FieldCommand
-  changes:
-  - message: Secure Cabinets
-    type: Add
-  id: 825
-  time: '2024-12-28T23:32:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2544
-- author: Lyndomen
-  changes:
-  - message: Warden requires whitelist again
-    type: Tweak
-  id: 826
-  time: '2024-12-29T01:26:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2482
-- author: deltanedas
-  changes:
-  - message: Added mining vouchers for salvage to get a loadout that can be redeemed
-      at the salvage vendor.
-    type: Add
-  id: 827
-  time: '2024-12-29T03:38:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2512
-- author: Lyndomen
-  changes:
-  - message: Speedboots consume more energy, are faster, and are powered by bluespace
-    type: Tweak
-  id: 828
-  time: '2024-12-29T07:31:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2550
 - author: leonardo-dabepis
   changes:
   - message: made the rest of the CJ clothes usable/visible in game (this means more
@@ -4072,3 +4013,72 @@
   id: 1320
   time: '2025-04-25T01:58:17.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3556
+- author: Stop-Signs
+  changes:
+  - message: Muigroc is no longer acquirable
+    type: Remove
+  id: 1321
+  time: '2025-04-26T01:56:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3576
+- author: Stop-Signs
+  changes:
+  - message: Updated butlertron payouts and blacklist to include new food items
+    type: Fix
+  id: 1322
+  time: '2025-04-26T10:15:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3579
+- author: sowelipililimute
+  changes:
+  - message: Anodynafil now exists, an anesthetic that doesn't interfere with consciousness
+      but causes prolonged inability to sense pain
+    type: Add
+  id: 1323
+  time: '2025-04-26T15:23:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3581
+- author: Radezolid
+  changes:
+  - message: Edge's armory has gotten a re-work making it more secure.
+    type: Tweak
+  - message: Edge's AI satelite has two new sentries.
+    type: Tweak
+  - message: Edge's EPI had their machines moved around.
+    type: Tweak
+  id: 1324
+  time: '2025-04-26T15:26:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3567
+- author: Honkmother
+  changes:
+  - message: Fully remade waddling, clowns will be much better.
+    type: Fix
+  id: 1325
+  time: '2025-04-27T01:15:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3588
+- author: Emily9031
+  changes:
+  - message: Added 10 craftable pride flags for you to decorate your department with!
+      Plus a secret shrimp flag.
+    type: Add
+  id: 1326
+  time: '2025-04-27T01:16:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3479
+- author: ValuedEmployee, deltanedas
+  changes:
+  - message: Added moffers to hacked autodrobes.
+    type: Add
+  id: 1327
+  time: '2025-04-27T01:32:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3463
+- author: Radezolid
+  changes:
+  - message: Hardsuits are now printable at their respective TechFab, unlock them
+      via research.
+    type: Add
+  - message: EVA Suits are now able to be printed at every departamental TechFab,
+      and the prisoner variant at the security TechFab.
+    type: Add
+  - message: Every departamental hardsuit can be printed at an emagged ExoSuit Fab
+      provided they were researched.
+    type: Add
+  id: 1328
+  time: '2025-04-27T01:52:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3453
