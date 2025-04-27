@@ -1,44 +1,120 @@
+# Chest
+
+marking-ArachnidOverlayFluffy = Fluffy
+marking-ArachnidOverlayFluffy-fluffy = Fluff
+
+marking-ArachnidTorsoSegments = Segmented Chest
+marking-ArachnidTorsoSegments-segments1 = Chest
+marking-ArachnidTorsoSegments-segments2 = Stomach
+
+marking-SpiderMirror = Mirror
+marking-SpiderMirror-mirror = Mirror
+
+# Head
+
+marking-ArachnidHeadSegments = Segmented Head
+marking-ArachnidHeadSegments-segments1 = Head
+marking-ArachnidHeadSegments-segments2 = Stripe
+
+# Snout
+
+# Eyes
+
 marking-ArachnidEyesDefault = Eyes
 marking-ArachnidEyesDefault-eyes = Eyes
 
+marking-ArachnidEyesJumper = Jumper Eyes
+marking-ArachnidEyesJumper-jumper1 = Outer Right
+marking-ArachnidEyesJumper-jumper2 = Inner Right
+marking-ArachnidEyesJumper-jumper3 = Inner Left
+marking-ArachnidEyesJumper-jumper4 = Outer Left
+
+marking-ArachnidEyesJumperGlowing = Jumper Glowing Eyes
+marking-ArachnidEyesJumperGlowing-jumper1 = Outer Right
+marking-ArachnidEyesJumperGlowing-jumper2 = Inner Right
+marking-ArachnidEyesJumperGlowing-jumper3 = Inner Left
+marking-ArachnidEyesJumperGlowing-jumper4 = Outer Left
+
 marking-ArachnidEyesRound = Round Eyes
-marking-ArachnidEyesRound-eyes_round1 = Inner
-marking-ArachnidEyesRound-eyes_round2 = Upper
-marking-ArachnidEyesRound-eyes_round3 = Outer
-marking-ArachnidEyesRound-eyes_round4 = Sides
+marking-ArachnidEyesRound-round1 = Inner
+marking-ArachnidEyesRound-round2 = Upper
+marking-ArachnidEyesRound-round3 = Outer
+marking-ArachnidEyesRound-round4 = Sides
 
 marking-ArachnidEyesRoundGlowing = Round Glowing Eyes
-marking-ArachnidEyesRoundGlowing-eyes_round1 = Inner
-marking-ArachnidEyesRoundGlowing-eyes_round2 = Upper
-marking-ArachnidEyesRoundGlowing-eyes_round3 = Outer
-marking-ArachnidEyesRoundGlowing-eyes_round4 = Sides
+marking-ArachnidEyesRoundGlowing-round1 = Inner
+marking-ArachnidEyesRoundGlowing-round2 = Upper
+marking-ArachnidEyesRoundGlowing-round3 = Outer
+marking-ArachnidEyesRoundGlowing-round4 = Sides
 
-marking-ArachnidHeadSegments = Segmented Head
-marking-ArachnidHeadSegments-head_segments1 = Head
-marking-ArachnidHeadSegments-head_segments2 = Stripe
+marking-SpiderEyesMulti = Multicolor Eyes
+marking-SpiderEyesMulti-multi1 = Top
+marking-SpiderEyesMulti-multi2 = Middle Top
+marking-SpiderEyesMulti-multi3 = Middle Bottom
+marking-SpiderEyesMulti-multi4 = Bottom
+
+marking-SpiderGlowEyes = Glowing Eyes
+marking-SpiderGlowEyes-glow = Glowing Eyes
+
+# RArm
+
+marking-ArachnidRArmSegments = Segmented Arm (Right)
+marking-ArachnidRArmSegments-segments1 = Upper Arm
+marking-ArachnidRArmSegments-segments2 = Forearm
+
+# LArm
+
+marking-ArachnidLArmSegments = Segmented Arm (Left)
+marking-ArachnidLArmSegments-segments1 = Upper Arm
+marking-ArachnidLArmSegments-segments2 = Forearm
+
+# RLeg
+
+marking-ArachnidRLegSegments = Segmented Leg (Right)
+marking-ArachnidRLegSegments-segments1 = Thigh
+marking-ArachnidRLegSegments-segments2 = Shin
+
+# LLeg
+
+marking-ArachnidLLegSegments = Segmented Leg (Left)
+marking-ArachnidLLegSegments-segments1 = Thigh
+marking-ArachnidLLegSegments-segments2 = Shin
+
+# UndergarmentBottom
+
+# UndergarmentTop
+
+# LFoot
+
+# RFoot
+
+# LHand
+
+# RHand
+
+# FacialHair
+
+# Hair
+
+# HeadSide
 
 marking-ArachnidCheliceraeSmall = Chelicerae (Small)
 marking-ArachnidCheliceraeSmall-small = Chelicerae
 
-marking-ArachnidTorsoSegments = Segmented Chest
-marking-ArachnidTorsoSegments-chest_segments1 = Chest
-marking-ArachnidTorsoSegments-chest_segments2 = Stomach
+# HeadTop
 
-marking-ArachnidLArmSegments = Segmented Arm (Left)
-marking-ArachnidLArmSegments-arm_l_segments1 = Upper Arm
-marking-ArachnidLArmSegments-arm_l_segments2 = Forearm
+# Tail
 
-marking-ArachnidRArmSegments = Segmented Arm (Right)
-marking-ArachnidRArmSegments-arm_r_segments1 = Upper Arm
-marking-ArachnidRArmSegments-arm_r_segments2 = Forearm
+marking-AbdomenBasic = Abdomen (Basic)
+marking-AbdomenBasic-abdomenbasic1 = Legs
+marking-AbdomenBasic-abdomenbasic2 = Abdomen
 
-marking-ArachnidLLegSegments = Segmented Leg (Left)
-marking-ArachnidLLegSegments-leg_l_segments1 = Thigh
-marking-ArachnidLLegSegments-leg_l_segments2 = Shin
 
-marking-ArachnidRLegSegments = Segmented Leg (Right)
-marking-ArachnidRLegSegments-leg_r_segments1 = Thigh
-marking-ArachnidRLegSegments-leg_r_segments2 = Shin
+marking-AbdomenWidow = Abdomen (Widow)
+marking-AbdomenWidow-widow1 = Abdomen and Arms
+marking-AbdomenWidow-widow2 = Marking
 
-marking-ArachnidOverlayFluffy = Fluffy
-marking-ArachnidOverlayFluffy-fluffy = Fluff
+marking-CreepyArms = Creepy Arms
+marking-CreepyArms-creepy = Creepy Arms
+
+# RArmExtension
