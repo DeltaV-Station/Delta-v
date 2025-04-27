@@ -4,6 +4,7 @@ using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Explosion.Components;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
