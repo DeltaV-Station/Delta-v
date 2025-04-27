@@ -46,7 +46,7 @@ public sealed class SurgeryToolConditionsSystem : EntitySystem
 
     private void OnMatchUsed(Entity<MatchstickComponent> ent, ref SurgeryToolUsedEvent args)
     {
-        var state = ent.Comp.CurrentState;
+        var state = ent.Comp.State;
         if (state == SmokableState.Lit)
             return;
 

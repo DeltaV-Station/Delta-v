@@ -322,6 +322,7 @@
     - state: generic
     - state: icon-fire-extinguisher
   - type: ItemBorgModule
+    moduleId: FireExtinguisher # Frontier
     items:
     #- FireExtinguisher # Frontier
     - BorgHandheldGPSBasic
@@ -421,11 +422,21 @@
     - state: cargo
     - state: icon-mining-adv
   - type: ItemBorgModule
+    moduleId: AdvancedMining
     items:
     - MiningDrillDiamond
     - Shovel
     - AdvancedMineralScannerUnpowered
-    - OreBagOfHolding
+    #- OreBagOfHolding # DeltaV
+  # Begin DeltaV Additions
+  - type: DroppableBorgModule
+    moduleId: AdvancedMining
+    items:
+    - id: OreBagOfHolding
+      whitelist:
+        components:
+        - NFOreBag
+  # End DeltaV Additions
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-mining-module }
 
@@ -737,6 +748,7 @@
     - state: medical
     - state: icon-chem
   - type: ItemBorgModule
+    moduleId: Chemistry # DeltaV
     items:
     - HandheldHealthAnalyzerUnpowered
     - Syringe

@@ -86,15 +86,12 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai #couldn't decide if this should be borg or pai sounds so I flipped a coin.
-  - type: Vocal # DeltaV - Allow bots to emote
-    sounds:
-      Unsexed: UnisexSilicon
-    screamAction: null
   - type: TypingIndicator
     proto: robot
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
+    screamAction: null # DeltaV - i have no mouth
   - type: Emoting
   - type: ZombieImmune
   - type: ProtectedFromStepTriggers

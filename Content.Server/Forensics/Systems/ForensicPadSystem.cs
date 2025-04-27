@@ -21,7 +21,6 @@ namespace Content.Server.Forensics
         [Dependency] private readonly MetaDataSystem _metaData = default!;
         [Dependency] private readonly ForensicsSystem _forensics = default!;
         [Dependency] private readonly LabelSystem _label = default!;
-        [Dependency] private readonly ForensicsSystem _forensics = default!;
 
         public override void Initialize()
         {

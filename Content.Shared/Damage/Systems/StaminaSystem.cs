@@ -14,7 +14,7 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Rounding;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
-using Content.Shared.Weapons.Melee.Components; // DeltaV
+using Content.Shared.Weapons.Melee; // DeltaV
 using Content.Shared.Weapons.Melee.Events;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
@@ -183,8 +183,7 @@ public sealed partial class StaminaSystem : EntitySystem
 
         foreach (var (ent, comp) in toHit)
         {
-            // DeltaV - Stamina damage coefficient
-            TakeMeleeStaminaDamage(ent, damage, comp, source: args.User, with: args.Weapon, sound: component.Sound);
+            TakeStaminaDamage(ent, damage / toHit.Count, comp, source: args.User, with: args.Weapon, sound: component.Sound);
         }
     }
 
@@ -218,8 +217,7 @@ public sealed partial class StaminaSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
-        // DeltaV - Stamina damage coefficient
-        TakeProjectileStaminaDamage(target, component.Damage, source: uid, sound: component.Sound);
+        TakeStaminaDamage(target, component.Damage, source: uid, sound: component.Sound);
     }
 
     private void SetStaminaAlert(EntityUid uid, StaminaComponent? component = null)
@@ -255,8 +253,8 @@ public sealed partial class StaminaSystem : EntitySystem
         if (!Resolve(uid, ref component, false))
             return;
 
-        var ev = new BeforeStaminaDamageEvent(value);
-        RaiseLocalEvent(uid, HasComp<MeleeWeaponComponent>(source), ref ev); // DeltaV - check if the source is a melee weapon
+        var ev = new BeforeStaminaDamageEvent(value, HasComp<MeleeWeaponComponent>(source)); // DeltaV - check if the source is a melee weapon
+        RaiseLocalEvent(uid, ref ev);
         if (ev.Cancelled)
             return;
 

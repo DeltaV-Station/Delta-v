@@ -239,7 +239,7 @@ public sealed partial class CargoSystem
             Dictionary<ProtoId<CargoAccountPrototype>, double> distribution;
             if (sellComponent != null)
             {
-                var cut = _lockboxCutEnabled ? bankAccount.LockboxCut : sellComponent.OverrideCut;
+                var cut = _lockboxCutEnabled ? bankAccount.LockboxCut : bankAccount.PrimaryCut;
                 distribution = new Dictionary<ProtoId<CargoAccountPrototype>, double>
                 {
                     { sellComponent.OverrideAccount, cut },
