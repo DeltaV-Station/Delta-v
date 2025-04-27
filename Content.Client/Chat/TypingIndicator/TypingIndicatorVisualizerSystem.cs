@@ -29,12 +29,12 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
         if (overrideIndicator != null)
             currentTypingIndicator = overrideIndicator.Value;
 
-        // DeltaV: Begin AAC TypingIndicator Override
+        // Begin DeltaV Additions - AAC TypingIndicator Override
         if (AppearanceSystem.TryGetData<ProtoId<TypingIndicatorPrototype>>(uid, TypingIndicatorVisuals.OverrideProto, out var protoOverride))
         {
             currentTypingIndicator = protoOverride;
         }
-        // DeltaV: End AAC TypingIndicator Override
+        // End DeltaV Additions
 
         if (!_prototypeManager.TryIndex(currentTypingIndicator, out var proto))
         {
