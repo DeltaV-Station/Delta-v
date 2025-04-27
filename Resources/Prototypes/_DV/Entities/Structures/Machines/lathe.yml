@@ -74,6 +74,7 @@
     - LightsStatic
     - MaterialsStatic
     - ReportingStatic
+    - EVASuit
     dynamicPacks:
     - AdvancedTools
     - PowerCells
@@ -82,6 +83,7 @@
     - FauxTiles
     - Equipment
     - UpgradeKits
+    - EngineeringHardsuits
   - type: Machine
     board: EngineeringTechFabCircuitboard
   - type: StealTarget
@@ -116,10 +118,12 @@
     - CargoStatic
     - ReportingStatic
     - SimpleElectronicsStatic
+    - EVASuit
     dynamicPacks:
     - Equipment
     - Mining
     - SalvageWeapons
+    - SalvageHardsuits
   - type: Machine
     board: LogisticsTechFabCircuitboard
   - type: StealTarget
@@ -155,6 +159,7 @@
     - ServiceStatic
     - PartsStaticDeltaV # Add Beaker and Hand Labeler to the service techfab
     - SimpleElectronicsStatic
+    - EVASuit
     dynamicPacks:
     - Janitor
     - Instruments
@@ -195,6 +200,7 @@
     - PowerCellsStatic
     - ReportingStatic
     - SimpleElectronicsStatic
+    - EVASuit
     dynamicPacks:
     - ScienceEquipment
     - ScienceClothing
