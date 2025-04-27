@@ -129,7 +129,7 @@
 - type: entity
   name: airloss autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 7u of saline and 3u of convermol, used in a cartridge autoinjector. # DeltaV - DexalinPlus to Convermol
+  description: Contains 7u of saline and 3u of dexalin plus, used in a cartridge autoinjector.
   id: CartridgeSaline
   components:
   - type: Sprite
@@ -150,7 +150,7 @@
 - type: entity
   name: brute autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 7u of bicaridine, 2u of salicylic acid and 1u of tranexamic acid, used in a cartridge autoinjector. # DeltaV - Replace Bozaide with more Bicaridine
+  description: Contains 4u of bicaridine, 3u of bozaide, 2u of salicylic acid and 1u of tranexamic acid, used in a cartridge autoinjector.
   id: CartridgeBicaridine
   components:
   - type: Sprite
