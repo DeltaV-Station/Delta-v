@@ -1,4 +1,3 @@
-# DeltaV - recipe for uranium directional window
 - type: construction
   name: directional uranium window
   id: UraniumWindowDirectional
@@ -9,15 +8,14 @@
   canBuildInImpassable: true
   description: Clear and even tougher, with added RadAbsorb to protect you from deadly radiation.
   conditions:
-    - !type:EmptyOrWindowValidInTile
-    - !type:NoWindowsInTile
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
   icon:
     sprite: _DV/Structures/Windows/directional.rsi
     state: uranium_window
   objectType: Structure
   placementMode: SnapgridCenter
 
-  # DeltaV - recipe for uranium directional reinforced window
 - type: construction
   name: directional reinforced uranium window
   id: UraniumReinforcedWindowDirectional
@@ -28,8 +26,8 @@
   canBuildInImpassable: true
   description: Clear and even tougher, with added RadAbsorb to protect you from deadly radiation.
   conditions:
-    - !type:EmptyOrWindowValidInTile
-    - !type:NoWindowsInTile
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
   icon:
     sprite: _DV/Structures/Windows/directional.rsi
     state: uranium_reinforced_window
