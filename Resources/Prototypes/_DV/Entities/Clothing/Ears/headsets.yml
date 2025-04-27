@@ -47,24 +47,6 @@
     sprite: _DV/Clothing/Ears/Headsets/justice.rsi
 
 - type: entity
-  parent: ClothingHeadsetJustice
-  id: ClothingHeadsetAltJustice
-  name: chief justice's over-ear headset
-  description: The headset used by the chief justice.
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyJustice
-      - EncryptionKeySecurity
-      - EncryptionKeyCommon
-      - EncryptionKeyCommand
-  - type: Sprite
-    state: icon_alt
-  - type: Clothing
-    equippedPrefix: alt
-
-- type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetPrison
   name: prison headset
@@ -101,16 +83,6 @@
     sprite: _DV/Clothing/Ears/Headsets/adminassistant.rsi
   - type: Clothing
     sprite: _DV/Clothing/Ears/Headsets/adminassistant.rsi
-
-- type: entity
-  parent: ClothingHeadsetAdminAssistant
-  id: ClothingHeadsetAltAdminAssistant
-  name: adminstrative assistant over-ear headset
-  components:
-  - type: Sprite
-    state: icon_alt
-  - type: Clothing
-    equippedPrefix: alt
 
 - type: entity
   parent: ClothingHeadsetGrey
