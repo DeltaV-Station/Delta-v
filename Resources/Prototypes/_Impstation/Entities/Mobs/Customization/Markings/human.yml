@@ -6,7 +6,7 @@
   id: BodyhairHumanFemale
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Dwarf, Human ]
+  speciesRestriction: [ Human, Dwarf ]
   sexRestriction: [ Female ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/bodyhair.rsi
@@ -16,7 +16,7 @@
   id: BodyhairHumanMale
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Dwarf, Human ]
+  speciesRestriction: [ Human, Dwarf ]
   sexRestriction: [ Male ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/bodyhair.rsi
@@ -26,7 +26,7 @@
   id: BodyhairHumanUnsexed
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Dwarf, Human ]
+  speciesRestriction: [ Human, Dwarf ]
   sexRestriction: [ Unsexed ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/bodyhair.rsi
@@ -36,7 +36,7 @@
   id: ChestBackstabbed
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven]
+  speciesRestriction: [ Human, Dwarf, Reptilian, SlimePerson, Thaven ]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -46,7 +46,7 @@
   id: ChestCutHere
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   coloring:
     default:
       type:
@@ -60,7 +60,7 @@
   id: ChestHeavyTattoos
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   coloring:
     default:
       type:
@@ -78,7 +78,7 @@
   id: ChestNecklace
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   forcedColoring: false
   followSkinColor: false
   coloring:
@@ -94,7 +94,7 @@
   id: ChestStar
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Gray, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Gray, Reptilian, SlimePerson, Thaven ]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -104,7 +104,7 @@
   id: ChestTwistingLeft
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven]
+  speciesRestriction: [ Human, Dwarf, Reptilian, SlimePerson, Thaven ]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -114,7 +114,7 @@
   id: ChestTwistingRight
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven]
+  speciesRestriction: [ Human, Dwarf, Reptilian, SlimePerson, Thaven ]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -124,7 +124,7 @@
   id: HumanoidAbs
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Arachnid, Reptilian, SlimePerson ]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
@@ -134,7 +134,7 @@
   id: TorsoIncision
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -204,7 +204,7 @@
   id: HeadHeavyTattoos
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   coloring:
     default:
       type:
@@ -220,7 +220,7 @@
   id: HeadTwisting
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, SlimePerson]
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -230,7 +230,7 @@
   id: HeadTwistingFlipped
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, SlimePerson]
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -240,7 +240,7 @@
   id: HumanoidEyebags
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, SlimePerson, Reptilian, Dwarf ]
+  speciesRestriction: [ Human, Dwarf, Reptilian, SlimePerson ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
     state: eyebags
@@ -249,7 +249,7 @@
   id: SmileScars
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, SlimePerson]
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -274,7 +274,7 @@
   id: VitiligoHeadL
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human,  Dwarf ]
+  speciesRestriction: [ Human, Dwarf ]
   forcedColoring: true
   coloring:
     default:
@@ -306,7 +306,7 @@
   id: HeadSeptum
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [Human, Dwarf]
+  speciesRestriction: [ Human, Dwarf ]
   forcedColoring: false
   followSkinColor: false
   coloring:
@@ -326,7 +326,7 @@
   id: ArmDollJointsTattooRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   coloring:
     default:
       type:
@@ -340,7 +340,7 @@
   id: ArmHeavyTattoosRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   coloring:
     default:
       type:
@@ -356,7 +356,7 @@
   id: ArmProstheticRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
   followSkinColor: false
   coloring:
     default:
@@ -371,7 +371,7 @@
   id: ArmTwistingRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -398,7 +398,7 @@
   id: ArmDollJointsTattooLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   coloring:
     default:
       type:
@@ -412,7 +412,7 @@
   id: ArmHeavyTattoosLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   coloring:
     default:
       type:
@@ -428,7 +428,7 @@
   id: ArmProstheticLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
   followSkinColor: false
   coloring:
     default:
@@ -443,7 +443,7 @@
   id: ArmTwistingLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -470,7 +470,7 @@
   id: LegDollJointsTattooRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   coloring:
     default:
       type:
@@ -484,7 +484,7 @@
   id: LegHeavyTattoosRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   coloring:
     default:
       type:
@@ -500,7 +500,7 @@
   id: LegProstheticRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, SlimePerson, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson, Thaven ]
   followSkinColor: false
   coloring:
     default:
@@ -515,7 +515,7 @@
   id: LegTwistingRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -542,7 +542,7 @@
   id: LegDollJointsTattooLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   coloring:
     default:
       type:
@@ -556,7 +556,7 @@
   id: LegHeavyTattoosLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   coloring:
     default:
       type:
@@ -572,7 +572,7 @@
   id: LegProstheticLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, SlimePerson, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson, Thaven ]
   followSkinColor: false
   coloring:
     default:
@@ -587,7 +587,7 @@
   id: LegTwistingLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -614,7 +614,7 @@
   id: UnderwearLowriders
   bodyPart: UndergarmentBottom
   markingCategory: UndergarmentBottom
-  speciesRestriction: [Dwarf, Human, Arachnid, SlimePerson, Diona, Moth]
+  speciesRestriction: [ Human, Arachnid, Diona, Dwarf, Moth, SlimePerson ]
   coloring:
     default:
       type:
@@ -628,7 +628,7 @@
   id: UnderwearTanga
   bodyPart: UndergarmentBottom
   markingCategory: UndergarmentBottom
-  speciesRestriction: [Dwarf, Human, Arachnid, SlimePerson, Diona, Moth]
+  speciesRestriction: [ Human, Arachnid, Diona, Dwarf, Moth, SlimePerson ]
   coloring:
     default:
       type:
@@ -644,8 +644,8 @@
   id: UndergarmentTopBinderF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
-  sexRestriction: [Female]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Female ]
   coloring:
     default:
       type: null
@@ -658,8 +658,8 @@
   id: UndergarmentTopBinderU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
-  sexRestriction: [Unsexed]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Unsexed ]
   coloring:
     default:
       type: null
@@ -672,8 +672,8 @@
   id: UndergarmentTopTanktopF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
-  sexRestriction: [Female]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Female ]
   coloring:
     default:
       type: null
@@ -686,22 +686,22 @@
   id: UndergarmentTopTanktopU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
-  sexRestriction: [Unsexed]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Unsexed ]
   coloring:
     default:
       type: null
       fallbackColor: '#FFFFFF'
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.rsi #imp
+  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
     state: tanktop_f
 
 - type: marking
   id: UndershirtBraSportsF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Female]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Female ]
   coloring:
     default:
       type:
@@ -715,8 +715,8 @@
   id: UndershirtBraSportsU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Unsexed]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Unsexed ]
   coloring:
     default:
       type:
@@ -730,8 +730,8 @@
   id: UndershirtBraStrapless
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Male]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Male ]
   coloring:
     default:
       type:
@@ -745,8 +745,8 @@
   id: UndershirtBraStraplessF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Female]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Female ]
   coloring:
     default:
       type:
@@ -760,8 +760,8 @@
   id: UndershirtBraStraplessU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Unsexed]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Unsexed ]
   coloring:
     default:
       type:
@@ -775,8 +775,8 @@
   id: UndershirtDefault
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Male]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Male ]
   coloring:
     default:
       type:
@@ -790,8 +790,8 @@
   id: UndershirtDefaultF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Female]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Female ]
   coloring:
     default:
       type:
@@ -805,8 +805,8 @@
   id: UndershirtDefaultU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Unsexed]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Unsexed ]
   coloring:
     default:
       type:
@@ -820,8 +820,8 @@
   id: UndershirtGrossSleeveless
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Male]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Male ]
   coloring:
     default:
       type:
@@ -835,8 +835,8 @@
   id: UndershirtGrossSleevelessF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Female]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Female ]
   coloring:
     default:
       type:
@@ -850,8 +850,8 @@
   id: UndershirtGrossSleevelessU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Unsexed]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Unsexed ]
   coloring:
     default:
       type:
@@ -865,8 +865,8 @@
   id: UndershirtNanotrasen
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Male]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Male ]
   coloring:
     default:
       type:
@@ -880,8 +880,8 @@
   id: UndershirtNanotrasenF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Female]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Female ]
   coloring:
     default:
       type:
@@ -895,8 +895,8 @@
   id: UndershirtNanotrasenU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Unsexed]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Unsexed ]
   coloring:
     default:
       type:
@@ -910,8 +910,8 @@
   id: UndershirtRolled
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Male]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Male ]
   coloring:
     default:
       type:
@@ -925,8 +925,8 @@
   id: UndershirtRolledF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Female]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Female ]
   coloring:
     default:
       type:
@@ -940,8 +940,8 @@
   id: UndershirtRolledU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Diona, Moth]
-  sexRestriction: [Unsexed]
+  speciesRestriction: [ Human, Diona, Dwarf, Moth, Reptilian, SlimePerson ]
+  sexRestriction: [ Unsexed ]
   coloring:
     default:
       type:
@@ -957,7 +957,7 @@
   id: FootDollJointsTattooLeft
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson]
+  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson ]
   coloring:
     default:
       type:
@@ -971,7 +971,7 @@
   id: FootHeavyTattoosLeft
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson]
+  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson ]
   coloring:
     default:
       type:
@@ -987,7 +987,7 @@
   id: FootProstheticLeft
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, SlimePerson, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson, Thaven ]
   followSkinColor: false
   coloring:
     default:
@@ -1004,7 +1004,7 @@
   id: FootDollJointsTattooRight
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson]
+  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson ]
   coloring:
     default:
       type:
@@ -1018,7 +1018,7 @@
   id: FootHeavyTattoosRight
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson]
+  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson ]
   coloring:
     default:
       type:
@@ -1034,7 +1034,7 @@
   id: FootProstheticRight
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, SlimePerson, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson, Thaven ]
   followSkinColor: false
   coloring:
     default:
@@ -1051,7 +1051,7 @@
   id: HandBraceletLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   forcedColoring: false
   followSkinColor: false
   coloring:
@@ -1067,7 +1067,7 @@
   id: HandDollJointsTattooLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   coloring:
     default:
       type:
@@ -1081,7 +1081,7 @@
   id: HandHeavyTattoosLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   coloring:
     default:
       type:
@@ -1097,7 +1097,7 @@
   id: HandProstheticLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
   followSkinColor: false
   coloring:
     default:
@@ -1112,7 +1112,7 @@
   id: HandRingsLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   forcedColoring: false
   followSkinColor: false
   coloring:
@@ -1130,7 +1130,7 @@
   id: HandTwistingLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -1157,7 +1157,7 @@
   id: HandBraceletRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   forcedColoring: false
   followSkinColor: false
   coloring:
@@ -1173,7 +1173,7 @@
   id: HandDollJointsTattooRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   coloring:
     default:
       type:
@@ -1187,7 +1187,7 @@
   id: HandHeavyTattoosRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   coloring:
     default:
       type:
@@ -1203,7 +1203,7 @@
   id: HandProstheticRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
   followSkinColor: false
   coloring:
     default:
@@ -1218,7 +1218,7 @@
   id: HandRingsRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
   forcedColoring: false
   followSkinColor: false
   coloring:
@@ -1236,7 +1236,7 @@
   id: HandTwistingRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Thaven, Arachnid]
+  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -1265,7 +1265,7 @@
   id: BurqaSolid
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, SlimePerson]
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/headcovers.rsi
     state: burqasolid
@@ -1274,7 +1274,7 @@
   id: HijabFashionable
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, SlimePerson]
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/headcovers.rsi
     state: hijabchic
@@ -1283,7 +1283,7 @@
   id: HijabSimple
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, SlimePerson]
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/headcovers.rsi
     state: hijabsimple
@@ -1397,7 +1397,7 @@
   id: Niqab
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, SlimePerson]
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/headcovers.rsi
     state: niqab
@@ -1406,7 +1406,7 @@
   id: TichelFashionable
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, SlimePerson]
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/headcovers.rsi
     state: tichelfashionable
@@ -1419,7 +1419,7 @@
   id: HeadEarrings
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Human, Dwarf, SlimePerson]
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
   forcedColoring: false
   followSkinColor: false
   coloring:
@@ -1437,7 +1437,7 @@
   id: HeadEarringsDrop
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Human, Dwarf, SlimePerson]
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
   forcedColoring: false
   followSkinColor: false
   coloring:
@@ -1455,7 +1455,7 @@
   id: HeadEarringsWeights
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Human, Dwarf, SlimePerson]
+  speciesRestriction: [ Human, Dwarf, SlimePerson ]
   forcedColoring: false
   followSkinColor: false
   coloring:
