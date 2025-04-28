@@ -233,7 +233,6 @@
     Gold: 500
 
 - type: latheRecipe
-  abstract: true # DeltaV - removed svalinn
   parent: BaseWeaponRecipeLong
   id: WeaponXrayCannon
   result: WeaponXrayCannon
@@ -273,6 +272,7 @@
     Plastic: 500
 
 - type: latheRecipe
+  abstract: true # DeltaV - removed svalinn
   parent: BaseWeaponRecipeSidearm
   id: WeaponLaserSvalinn
   result: WeaponLaserSvalinn
