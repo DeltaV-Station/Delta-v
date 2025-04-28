@@ -349,6 +349,8 @@ marking-HumanHairUndercutCurly = Undercut (Curly)
 
 marking-HumanHairSideshaveCurly = Sideshave (Curly)
 
+marking-MessyPonytail = Messy Ponytail
+
 marking-Niqab = Niqab
 
 marking-TichelFashionable = Tichel (Fashionable)

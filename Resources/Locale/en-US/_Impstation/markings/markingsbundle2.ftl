@@ -1,11 +1,3 @@
-# general
-marking-MessyPonytail = Messy Ponytail
-
-# moth
-marking-LunaWings = Wings (Luna Moth)
-marking-LunaWings-luna1 = Wings
-marking-LunaWings-luna2 = Spots
-
 # reptilian
 marking-ScarTalons = Scar (Talonmark)
 marking-ScarTalons-lizardtalonscar = Scar (Talonmark)

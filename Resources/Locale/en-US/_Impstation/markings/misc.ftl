@@ -1,5 +1,6 @@
 # this file is subject to getting its shit moved to other files at a later date#
 
+<<<<<<< HEAD
 # arachnids
 marking-SpiderMirror = Mirror
 marking-SpiderMirror-spidermirror = Mirror
@@ -52,6 +53,8 @@ marking-MothRhinoBeetle-rhinobeetle1 = Outline
 marking-MothRhinoBeetle-rhinobeetle2 = Shine
 marking-MothRhinoBeetle-rhinobeetle3 = Wings
 
+=======
+>>>>>>> 3fd16dd58a3 (moths)
 # slimes
 marking-fizz = Fizz
 marking-fizz-fizz = Fizz
