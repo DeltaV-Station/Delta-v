@@ -12,17 +12,8 @@ marking-SpiderEyesMulti-spidereyesmulti3 = Middle Bottom
 marking-SpiderEyesMulti-spidereyesmulti4 = Bottom
 
 # humans
-marking-VitiligoHeadL = Vitiligo (Left Eye)
-marking-VitiligoHeadR = Vitiligo (Right Eye)
-marking-VitiligoHeadJaw = Vitiligo (Jawline)
-marking-VitiligoHandR = Vitiligo (Right Hand)
-marking-VitiligoArmR = Vitiligo (Right Arm)
-marking-VitiligoLegR = Vitiligo (Right)
-marking-VitiligoHandL = Vitiligo (Left Hand)
-marking-VitiligoArmL = Vitiligo (Left Arm)
-marking-VitiligoLegL = Vitiligo (Left)
-marking-VitiligoChestF = Vitiligo Spread
-marking-VitiligoChestSpots = Vitiligo Spots
+
+
 
 # moths
 marking-MothTrueButterfly = Rainbow Wings

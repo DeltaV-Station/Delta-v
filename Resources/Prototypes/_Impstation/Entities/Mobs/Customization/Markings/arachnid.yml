@@ -250,7 +250,7 @@
       type: null
       fallbackColor: '#FFFFFF'
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+  - sprite: _Impstation/Mobs/Customization/Humanoid/undergarmenttop.rsi
     state: binder
 
 - type: marking
@@ -263,7 +263,7 @@
       type: null
       fallbackColor: '#FFFFFF'
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.rsi #imp
+  - sprite: _Impstation/Mobs/Customization/Humanoid/undergarmenttop.rsi
     state: tanktop
 
 - type: marking
@@ -277,7 +277,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+  - sprite: _Impstation/Mobs/Customization/Humanoid/undergarmenttop.rsi
     state: sports
 
 - type: marking
@@ -291,7 +291,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+  - sprite: _Impstation/Mobs/Customization/Humanoid/undergarmenttop.rsi
     state: strapless
 
 - type: marking
@@ -305,7 +305,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+  - sprite: _Impstation/Mobs/Customization/Humanoid/undergarmenttop.rsi
     state: undershirt
 
 - type: marking
@@ -319,8 +319,8 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
-    state: gross_sleeveless
+  - sprite: _Impstation/Mobs/Customization/Humanoid/undergarmenttop.rsi
+    state: grosssleeveless
 
 - type: marking
   id: UndershirtNanotrasenA
@@ -333,7 +333,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
+  - sprite: _Impstation/Mobs/Customization/Humanoid/undergarmenttop.rsi
     state: nanotrasen
 
 - type: marking
@@ -347,8 +347,8 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
-    state: rolled_undershirt
+  - sprite: _Impstation/Mobs/Customization/Humanoid/undergarmenttop.rsi
+    state: rolledundershirt
 
 # LFoot
 
