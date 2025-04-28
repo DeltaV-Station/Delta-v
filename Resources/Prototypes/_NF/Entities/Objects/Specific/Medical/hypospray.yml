@@ -4,6 +4,9 @@
   description: A commercial hypospray designed by Nanotrasen Chemical Supply. It has two built in safety features for the consumer market, a small chemical reservoir and an injection delay.
   id: HypoMini
   components:
+  - type: Tag
+    tags:
+    - HypoMini
   - type: Sprite
     sprite: _NF/Objects/Specific/Medical/hypomini.rsi
     state: hypo
