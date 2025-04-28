@@ -1,0 +1,27 @@
+- type: entity
+  id: OrganOniStomach
+  parent: OrganHumanStomach
+  name: oni stomach
+  description: Ew, this is hard to stomach. Larger than normal
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - ReptilianFood
+      - Meat
+      - Pill
+      - Crayon
+      - Paper
+      - Food
+  - type: solutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 80 # Bigger Body = Bigger Stomach
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Metabolizer
+    maxreagents: 3
+    metabolizerTypes: [ Oni, Animal ]
