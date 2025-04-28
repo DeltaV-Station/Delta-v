@@ -77,10 +77,21 @@
           - !type:EntityAnchored
           completed:
           - !type:SpawnPrototype
-            prototype: SheetPlasma1
+            prototype: SheetPGlass1
             amount: 2
           steps:
-          - material: Uranium
+          - material: UraniumGlass
+            amount: 2
+            doAfter: 1.5
+        - to: solarpanel
+          conditions:
+          - !type:EntityAnchored
+          completed:
+          - !type:SpawnPrototype
+            prototype: SheetPGlass1
+            amount: 2
+          steps:
+          - material: Glass
             amount: 2
             doAfter: 1.5
         # End DeltaV additions - Easy upgradeable solars
@@ -101,6 +112,30 @@
     - node: solarpaneluranium
       entity: SolarPanelUranium
       edges:
+        # Begin DeltaV additions - Easy upgradeable solars
+        - to: solarpanelplasma
+          conditions:
+          - !type:EntityAnchored
+          completed:
+          - !type:SpawnPrototype
+            prototype: SheetUGlass1
+            amount: 2
+          steps:
+          - material: PlasmaGlass
+            amount: 2
+            doAfter: 1.5
+        - to: solarpanel
+          conditions:
+          - !type:EntityAnchored
+          completed:
+          - !type:SpawnPrototype
+            prototype: SheetUGlass1
+            amount: 2
+          steps:
+          - material: Glass
+            amount: 2
+            doAfter: 1.5
+        # End DeltaV additions - Easy upgradeable solars
         - to: solarassembly
           completed:
             - !type:SnapToGrid
@@ -122,15 +157,23 @@
         - to: solarpaneluranium
           conditions:
           - !type:EntityAnchored
+          completed:
+          - !type:SpawnPrototype
+            prototype: SheetGlass1
+            amount: 2
           steps:
-          - material: Uranium
+          - material: UraniumGlass
             amount: 2
             doAfter: 1.5
         - to: solarpanelplasma
           conditions:
           - !type:EntityAnchored
+          completed:
+          - !type:SpawnPrototype
+            prototype: SheetGlass1
+            amount: 2
           steps:
-          - material: Plasma
+          - material: PlasmaGlass
             amount: 2
             doAfter: 1.5
         # End DeltaV additions - Easy upgradeable solars
