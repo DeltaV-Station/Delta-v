@@ -40,7 +40,7 @@
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
-            min: 40 #Don't down it all at once
+            min: 40 # Don't down it all at once
         damage:
           types:
             Poison: 1

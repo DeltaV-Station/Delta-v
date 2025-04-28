@@ -83,3 +83,11 @@
     Bloodloss: 0.0
     Cellular: 0.0
     Caustic: 0.0
+
+- type: damageModifierSet
+  id: Oni
+  coefficients:
+    Blunt: 0.8  
+    Slash: 0.8
+    Piercing: 0.8
+    Holy: 1.0 #Oni are demons by the mythos, so they take a bit more than kitsune
