@@ -24,11 +24,14 @@
     containers:
       bodypart: !type:Container
         ents: []
+      internally_embedded_projectiles: !type:Container # DeltaV - foreign bodies
+        ents: []
   - type: StaticPrice
     price: 100
   - type: Tag
     tags:
     - Trash
+  - type: BodyPartForeignBodyContainer # DeltaV - foreign bodies
 
 - type: entity
   abstract: true

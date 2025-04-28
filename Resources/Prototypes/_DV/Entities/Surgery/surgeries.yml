@@ -168,3 +168,16 @@
   - type: SurgeryOrganCondition
     organ:
     - type: AugmentArm
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryRemoveForeignBody
+  name: Remove Foreign Body
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepClampInternalBleeders
+    - SurgeryStepRemoveForeignBody
+  - type: SurgeryForeignBodyCondition

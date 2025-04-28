@@ -12,3 +12,27 @@
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertAugmentArm
   name: Add arm augment
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepRemoveForeignBody
+  name: Remove foreign body
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Tweezers
+    duration: 4
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    state: hemostat
+  - type: SurgeryRemoveForeignBodyStep
+  - type: SurgeryRepeatableStep
+  - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect
+    sleepModifier: 0.15
+    damage:
+      types:
+        Slash: 20
+  - type: SurgeryStepDirtiness
+    toolDirtiness: 2.5
+    gloveDirtiness: 2.5
