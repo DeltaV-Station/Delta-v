@@ -48,3 +48,14 @@
   - CloningPodMachineCircuitboard
 
 # Tier 3
+- type: technology
+  id: Hyposprays
+  name: research-technology-hyposprays
+  icon:
+    sprite: _NF/Objects/Specific/Medical/hypomini.rsi
+    state: hypo
+  discipline: Biochemical
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - BaseHypoMini
