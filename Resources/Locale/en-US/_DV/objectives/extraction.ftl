@@ -7,7 +7,7 @@ extraction-fulton-remove-first = Remove the fulton first!
 
 syndicate-ransom-announcement-sender = Automated Systems
 syndicate-ransom-announcement =
-    Transmissions received from the Syndicate. They have taken [bold]{$hostage}[/bold] as a ransomed hostage.
+    Transmissions received from the Syndicate. They have taken {$hostage} as a ransomed hostage.
     They are requesting {$ransom} spesos. Entry automatically added to the Cargo Request Computer.
     Threat of taking too much time: HIGH.
 
