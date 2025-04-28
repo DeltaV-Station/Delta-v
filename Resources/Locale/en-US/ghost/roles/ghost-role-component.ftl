@@ -44,9 +44,6 @@ ghost-role-information-snailspeed-description = A little snail with snailborn th
 ghost-role-information-snoth-name = Snoth
 ghost-role-information-snoth-description = A little snoth who doesn't mind a bit of space. Just stay on grid!
 
-ghost-role-information-whimperlet-name = Scrimpering Whimperlet
-ghost-role-information-whimperlet-description = A pitiful and cowardly critter. Avoid danger!
-
 ghost-role-information-giant-spider-name = Giant Spider
 ghost-role-information-giant-spider-description = This station's inhabitants look mighty tasty, and your sticky web is perfect to catch them!
 ghost-role-information-giant-spider-rules = You are a [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color] with all other giant spiders.
