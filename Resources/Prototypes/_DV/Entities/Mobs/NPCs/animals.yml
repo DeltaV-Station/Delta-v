@@ -259,7 +259,7 @@
     spawned:
     - id: FoodMeat
       amount: 1
-  - type: SolutionContainerManager # Ready for implementing desired behaviour
+  - type: SolutionContainerManager # Ready for implementing planned desired behaviour
     solutions:
       tearducts:
         reagents:
@@ -295,11 +295,8 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
-  - type: Strippable
   - type: UserInterface
     interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
       enum.SurgeryUIKey.Key: # Shitmed
         type: SurgeryBui
   - type: MeleeWeapon
