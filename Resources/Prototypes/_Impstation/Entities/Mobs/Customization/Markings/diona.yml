@@ -8,8 +8,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dionafirefly
+  - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
+    state: firefly
   shader: unshaded
 
 - type: marking
@@ -18,8 +18,8 @@
   markingCategory: Chest
   speciesRestriction: [ Diona ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dionalivingnymph
+  - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
+    state: livingnymph
 
 - type: marking
   id: DionaMossChest
@@ -29,8 +29,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: dionamosschest
+  - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
+    state: moss
 
 # Head
 
@@ -42,8 +42,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dionabigfirefly
+  - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
+    state: bigfirefly
   shader: unshaded
 
 - type: marking
@@ -54,8 +54,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dionapollendust
+  - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
+    state: pollendust
 
 # Snout
 
@@ -97,8 +97,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: dionamoonbloom
+  - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
+    state: moonbloom
   shader: unshaded
 
 # Tail

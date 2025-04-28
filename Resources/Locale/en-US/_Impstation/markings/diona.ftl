@@ -1,3 +1,22 @@
+# Chest
+
+marking-DionaFirefly = Fireflies
+marking-DionaFirefly-firefly = Fireflies
+
+marking-DionaLivingNymph = Living Nymphs
+marking-DionaLivingNymph-livingnymph = Living Nymphs
+
+marking-DionaMossChest = Moss Drape
+marking-DionaMossChest-moss = Moss Drape
+
+# Head
+
+marking-DionaBigFirefly = Big Fireflies
+marking-DionaBigFirefly-bigfirefly = Big Fireflies
+
+marking-DionaPollenDust = Pollen Cloud
+marking-DionaPollenDust-pollendust = Pollen Cloud
+
 marking-DionaFlowersHead-flowers_head_primary = Stems
 marking-DionaFlowersHead-flowers_head_secondary = Flowers
 
@@ -51,3 +70,39 @@ marking-DionaWildflowerHead-wildflower_flowers1 = Flowers 1
 marking-DionaWildflowerHead-wildflower_flowers2 = Flowers 2
 marking-DionaWildflowerHead-wildflower_flowers3 = Flowers 3
 marking-DionaWildflowerHead-wildflower_flowers4 = Flowers 4
+
+# Snout
+
+# Eyes
+
+# RArm
+
+# LArm
+
+# RLeg
+
+# LLeg
+
+# UndergarmentBottom
+
+# UndergarmentTop
+
+# LFoot
+
+# RFoot
+
+# LHand
+
+# RHand
+
+# FacialHair
+
+# Hair
+
+# HeadSide
+
+# HeadTop
+
+# Tail
+
+# RArmExtension

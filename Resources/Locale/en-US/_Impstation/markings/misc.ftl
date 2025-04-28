@@ -12,18 +12,8 @@ marking-SpiderEyesMulti-spidereyesmulti3 = Middle Bottom
 marking-SpiderEyesMulti-spidereyesmulti4 = Bottom
 
 # diona
-marking-DionaLivingNymph = Living Nymphs
-marking-DionaLivingNymph-dionalivingnymph = Living Nymphs
-marking-DionaMossChest = Moss Drape
-marking-DionaMossChest-dionamosschest = Moss Drape
 marking-DionaMoonBloom = Moon Bloom
 marking-DionaMoonBloom-dionamoonbloom = Moon Bloom
-marking-DionaBigFirefly = Big Fireflies
-marking-DionaBigFirefly-dionabigfirefly = Big Fireflies
-marking-DionaFirefly = Fireflies
-marking-DionaFirefly-dionafirefly = Fireflies
-marking-DionaPollenDust = Pollen Cloud
-marking-DionaPollenDust-dionapollendust = Pollen Cloud
 
 # humans
 marking-VitiligoHeadL = Vitiligo (Left Eye)
