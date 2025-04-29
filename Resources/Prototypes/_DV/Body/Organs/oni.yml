@@ -12,7 +12,6 @@
       - Pill
       - Crayon
       - Paper
-      - Food
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -23,7 +22,6 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
   - type: Metabolizer
-    maxreagents: 3
     metabolizerTypes: [ Oni, Animal ]
 
 - type: entity
