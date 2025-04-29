@@ -8,7 +8,7 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/chest.rsi
     state: bubble
 
 - type: marking
@@ -19,9 +19,9 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/chest.rsi
     state: fishbowl1
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/chest.rsi
     state: fishbowl2
 
 - type: marking
@@ -36,8 +36,8 @@
         !type:SimpleColoring
         color: "#F8F8F8"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
-    state: bonechest
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/chest.rsi
+    state: bone
 
 - type: marking
   id: SlimeCore
@@ -46,7 +46,7 @@
   speciesRestriction: [ SlimePerson ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/chest.rsi
     state: core
 
 - type: marking
@@ -56,7 +56,7 @@
   speciesRestriction: [ SlimePerson ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/chest.rsi
     state: lungs
 
 # Head
@@ -69,11 +69,11 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/head.rsi
     state: fadingstars1
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/head.rsi
     state: fadingstars2
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/head.rsi
     state: fadingstars3
   shader: unshaded
 
@@ -85,7 +85,7 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/head.rsi
     state: fizz
 
 - type: marking
@@ -100,8 +100,8 @@
         !type:SimpleColoring
         color: "#F8F8F8"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
-    state: bonehead
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/head.rsi
+    state: bone
 
 - type: marking
   id: SlimeNose
@@ -111,7 +111,7 @@
   forcedColoring: true
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/head.rsi
     state: nose
 
 - type: marking
@@ -121,7 +121,7 @@
   speciesRestriction: [ SlimePerson ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/head.rsi
     state: mouth
 
 - type: marking
@@ -131,7 +131,7 @@
   speciesRestriction: [ SlimePerson ]
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/head.rsi
     state: brain
 
 # Snout
@@ -149,8 +149,8 @@
         !type:EyeColoring
         negative: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
-    state: eyeglow
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/eyes.rsi
+    state: glow
   shader: unshaded
 
 # RArm
@@ -167,8 +167,8 @@
         !type:SimpleColoring
         color: "#F8F8F8"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
-    state: bonearmright
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/rarm.rsi
+    state: bone
 
 # LArm
 
@@ -184,8 +184,8 @@
         !type:SimpleColoring
         color: "#F8F8F8"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
-    state: bonearmleft
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/larm.rsi
+    state: bone
 
 # RLeg
 
@@ -201,8 +201,8 @@
         !type:SimpleColoring
         color: "#F8F8F8"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
-    state: bonelegright
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/rleg.rsi
+    state: bone
 
 # LLeg
 
@@ -218,8 +218,8 @@
         !type:SimpleColoring
         color: "#F8F8F8"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
-    state: bonelegleft
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/lleg.rsi
+    state: bone
 
 # UndergarmentBottom
 
@@ -239,8 +239,8 @@
         !type:SimpleColoring
         color: "#F8F8F8"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
-    state: bonefootleft
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/lfoot.rsi
+    state: bone
 
 # RFoot
 
@@ -256,8 +256,8 @@
         !type:SimpleColoring
         color: "#F8F8F8"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
-    state: bonefootright
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/rfoot.rsi
+    state: bone
 
 # LHand
 
@@ -273,8 +273,8 @@
         !type:SimpleColoring
         color: "#F8F8F8"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
-    state: bonehandleft
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/land.rsi
+    state: bone
 
 # RHand
 
@@ -290,8 +290,8 @@
         !type:SimpleColoring
         color: "#F8F8F8"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
-    state: bonehandright
+  - sprite: _Impstation/Mobs/Customization/SlimePerson/rhand.rsi
+    state: bone
 
 # FacialHair
 
