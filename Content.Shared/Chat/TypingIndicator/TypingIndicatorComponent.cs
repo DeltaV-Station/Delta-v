@@ -21,5 +21,5 @@ public sealed partial class TypingIndicatorComponent : Component
     ///  DeltaV - Allow the indicator to be temporarily overriden
     /// </summary>
     [DataField, AutoNetworkedField]
-    public ProtoId<TypingIndicatorPrototype>? TypingIndicatorOverridePrototype = default;
+    public ProtoId<TypingIndicatorPrototype>? TypingIndicatorOverridePrototype;
 }
