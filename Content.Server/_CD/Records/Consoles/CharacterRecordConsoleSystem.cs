@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Content.Server.CriminalRecords.Systems; // DeltaV - i hate this, forward to criminal records console
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords.Systems;
