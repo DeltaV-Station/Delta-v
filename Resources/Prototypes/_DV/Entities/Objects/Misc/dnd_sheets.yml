@@ -1,0 +1,168 @@
+﻿- type: entity
+  name: CNC Character Sheet
+  parent: Paper
+  id: PaperCNCSheet # legally gray zone of using "D&D" and "DND"
+  description: 'A sheet for your Carps and Crypts characters.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-cnc-sheet
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+
+- type: entity
+  id: CNCPremadeFolder
+  parent: BoxFolderBase
+  name: CNC Pregenerated Characters
+  description: For starting your C&C Adventures quickly!
+  suffix: Forms
+  components:
+  - type: Sprite
+    layers:
+    - state: folder-white
+    - state: folder-base
+  - type: StorageFill
+    contents:
+    - id: PaperCNCSheetFighterPremade
+    - id: PaperCNCSheetWizardPremade
+    - id: PaperCNCSheetBardPremade
+    - id: PaperCNCSheetRoguePremade
+    #- id: PaperCNCSheetClericPremade
+    #- id: PaperCNCSheetBarbarianPremade
+    #- id: PaperCNCSheetDruidPremade
+    #- id: PaperCNCSheetMonkPremade
+    #- id: PaperCNCSheetPaladinPremade
+    #- id: PaperCNCSheetRangerPremade
+    #- id: PaperCNCSheetSorcererPremade
+    #- id: PaperCNCSheetWarlockPremade
+  - type: StaticPrice
+    price: 100
+    vendPrice: 500
+
+- type: entity
+  name: CNC fighter premade character sheet
+  parent: Paper
+  id: PaperCNCSheetFighterPremade
+  description: 'A sheet for your Carps and Crypts characters.' #TODO: fill in this description
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-cnc-sheet-fighter-premade
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+
+- type: entity
+  name: CNC wizard premade character sheet
+  parent: Paper
+  id: PaperCNCSheetWizardPremade
+  description: 'A sheet for your Carps and Crypts characters.' #TODO: fill in this description
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-cnc-sheet-wizard-premade
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+
+- type: entity
+  name: CNC bard premade character sheet
+  parent: Paper
+  id: PaperCNCSheetBardPremade
+  description: 'A sheet for your Carps and Crypts characters.' #TODO: fill in this description
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-cnc-sheet-bard-premade #TODO: make premade in book-dnd.ftl
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+
+- type: entity
+  name: CNC rogue premade character sheet
+  parent: Paper
+  id: PaperCNCSheetRoguePremade
+  description: 'A sheet for your Carps and Crypts characters.' #TODO: fill in this description
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-cnc-sheet-rogue-premade #TODO: make premade in book-dnd.ftl
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
