@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Content.Server.CriminalRecords.Systems; // DeltaV - i hate this, forward to criminal records console
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords.Systems;
@@ -77,13 +78,22 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
         if (!Resolve(entity, ref console))
             return;
 
-        var station = _station.GetOwningStation(entity);
-        if (!HasComp<StationRecordsComponent>(station) ||
-            !HasComp<CharacterRecordsComponent>(station))
+        // Begin DeltaV - lpo record tablet requires finding right station without GetOwningStation
+        EntityUid? station = null;
+        foreach (var stationId in _station.GetStations())
+        {
+            if (HasComp<StationRecordsComponent>(stationId) && HasComp<CharacterRecordsComponent>(stationId))
+            {
+                station = stationId;
+                break;
+            }
+        }
+        if (station == null)
         {
             SendState(entity, new CharacterRecordConsoleState { ConsoleType = console.ConsoleType });
             return;
         }
+        // End DeltaV - lpo record tablet requires finding right station without GetOwningStation
 
         var characterRecords = _characterRecords.QueryRecords(station.Value);
         // Get the name and station records key display from the list of records
