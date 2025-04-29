@@ -63,6 +63,9 @@ job-alt-title-psychiatrist = Psychiatrist
 job-alt-title-social-worker = Social Worker
 job-alt-title-therapist = Therapist
 
+job-title-admeme-overwriting = Overwriting
+job-title-admeme-adding = Adding
+
 # Role timers
 JobMedicalBorg = Medical Cyborg
 JobCourier = Courier
