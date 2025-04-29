@@ -52,6 +52,10 @@ marking-UnderwearLowridersR-lowriders = Underwear
 marking-UnderwearTangaR = Tanga
 marking-UnderwearTangaR-tanga = Underwear
 
+marking-UndergarmentBottomBoxersReptilian-boxers_reptilian = Underwear
+marking-UndergarmentBottomBriefsReptilian-briefs_reptilian = Underwear
+marking-UndergarmentBottomSatinReptilian-satin_reptilian = Underwear
+
 # UndergarmentTop
 
 # LFoot

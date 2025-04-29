@@ -1,13 +1,12 @@
-marking-BurqaSolidThaven = Burqa
 marking-HijabFashionableVox = Hijab (Fashionable)
 marking-HijabFashionableVox-hijabchicvox = Hijab (Fashionable)
-marking-HijabFashionableThaven = Hijab (Fashionable)
+
 marking-HijabSimpleVox = Hijab (Simple)
 marking-HijabSimpleVox-hijabsimplevox = Hijab (Simple)
-marking-HijabSimpleThaven = Hijab (Simple)
+
 marking-NiqabThaven = Niqab
 marking-TichelFashionableVox = Tichel (Fashionable)
 marking-TichelFashionableVox-tichelfashionablevox = Tichel (Fashionable)
-marking-TichelFashionableThaven = Tichel (Fashionable)
+
 marking-TichelSimpleVox = Tichel (Simple)
 marking-TichelSimpleVox-tichelsimplevox = Tichel (Simple)

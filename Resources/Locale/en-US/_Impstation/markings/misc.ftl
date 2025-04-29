@@ -70,6 +70,7 @@ marking-FadingStars-fadingstars2 = Middling
 marking-FadingStars-fadingstars3 = Darkest
 =======
 # thaven
+<<<<<<< HEAD
 marking-Gills = Gills
 marking-Gills-thavenchestgills = Gills
 marking-ThavenChestScales = Scales
@@ -122,6 +123,10 @@ marking-ThavenHeadCap = Dappled Crown
 marking-ThavenHeadCap-thavenheadcap1 = Crown
 marking-ThavenHeadCap-thavenheadcap2 = Dapples
 >>>>>>> cc2b511a64b (sleeple)
+=======
+
+
+>>>>>>> b8dce41ed59 (:withered:)
 
 # vox
 marking-VoxCocktail = Cocktail
