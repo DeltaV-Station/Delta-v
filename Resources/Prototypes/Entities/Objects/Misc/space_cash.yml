@@ -25,15 +25,15 @@
     - cash_100
     - cash_500
     - cash_1000
-    - cash_5000 # Frontier: larger denominations
-    - cash_10000 # Frontier: larger denominations
-    - cash_25000 # Frontier: larger denominations
-    - cash_50000 # Frontier: larger denominations
-    - cash_100000 # Frontier: larger denominations
-    - cash_250000 # Frontier: larger denominations (cash_1000000<cash_250000)
-    layerFunction: Threshold # Frontier: multicolour cash
-  - type: StackLayerThreshold # Frontier
-    thresholds: [10, 100, 500, 1000, 5000, 10000, 25000, 50000, 100000, 250000] # Frontier
+    - cash_5000
+    - cash_10000
+    - cash_25000
+    - cash_50000
+    - cash_100000
+    - cash_1000000
+    layerFunction: Threshold
+  - type: StackLayerThreshold
+    thresholds: [10, 100, 500, 1000, 5000, 10000, 25000, 50000, 100000, 1000000]
   - type: Sprite
     sprite: _NF/Objects/Economy/cash.rsi # Frontier: larger denominations
     state: cash
@@ -129,8 +129,8 @@
   suffix: 5000
   components:
   - type: Icon
-    sprite: _NF/Objects/Economy/cash.rsi # Frontier: use Frontier sprite set
-    state: cash_5000 # Frontier: cash_1000<cash_5000
+    sprite: Objects/Economy/cash.rsi
+    state: cash_5000
   - type: Stack
     count: 5000
 
@@ -140,8 +140,8 @@
   suffix: 10000
   components:
   - type: Icon
-    sprite: _NF/Objects/Economy/cash.rsi # Frontier: use Frontier sprite set
-    state: cash_10000 # Frontier: cash_1000<cash_10000
+    sprite: Objects/Economy/cash.rsi
+    state: cash_10000
   - type: Stack
     count: 10000
 
@@ -151,8 +151,8 @@
   suffix: 20000
   components:
   - type: Icon
-    sprite: _NF/Objects/Economy/cash.rsi # Frontier: use Frontier sprite set
-    state: cash_10000 # Frontier: cash_1000<cash_10000
+    sprite: Objects/Economy/cash.rsi
+    state: cash_10000
   - type: Stack
     count: 20000
 
@@ -162,8 +162,8 @@
   suffix: 30000
   components:
   - type: Icon
-    sprite: _NF/Objects/Economy/cash.rsi # Frontier: use Frontier sprite set
-    state: cash_25000 # Frontier: cash_1000<cash_25000
+    sprite: Objects/Economy/cash.rsi
+    state: cash_25000
   - type: Stack
     count: 30000
 
