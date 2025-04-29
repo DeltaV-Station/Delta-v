@@ -1,0 +1,341 @@
+﻿- type: entity
+  name: CF 2E Character Sheet
+  parent: Paper
+  id: PaperCFSheet # legally gray zone of using "PF2E"
+  description: 'A sheet for your Carpfinder 2E Adventures.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-CF-sheet
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+
+- type: entity
+  id: CFPremadeFolder
+  parent: BoxFolderBase
+  name: CF2E Pregenerated Characters
+  description: For starting your CF2E Adventures quickly!
+  suffix: Forms
+  components:
+  - type: Sprite
+    layers:
+    - state: folder-white
+    - state: folder-base
+  - type: StorageFill
+    contents:
+    - id: PaperCFSheetFighterPremade
+    - id: PaperCFSheetWizardPremade
+    - id: PaperCFSheetBardPremade
+    - id: PaperCFSheetRoguePremade
+    - id: PaperCFSheetClericPremade
+    - id: PaperCFSheetDruidPremade
+    - id: PaperCFSheetDruidFamiliarPremade
+    - id: PaperCFSheetWitchPremade
+    - id: PaperCFSheetRangerPremade
+    - id: PaperCFSheetAlchemistPremade
+    #- id: PaperCFSheetBarbarianPremade
+    #- id: PaperCFSheetChampionPremade
+    #- id: PaperCFSheetInvestigatorPremade
+    #- id: PaperCFSheetMonkPremade
+    #- id: PaperCFSheetOraclePremade
+    #- id: PaperCFSheetSorcererPremade
+    #- id: PaperCFSheetSwashbucklerPremade
+  - type: StaticPrice
+    price: 100
+    vendPrice: 500
+
+- type: entity
+  name: CF fighter premade character sheet
+  parent: Paper
+  id: PaperCFSheetFighterPremade
+  description: 'YOu are an undisputed master of weaponry and martial techniques, capable of deflecting attacks, striking down foes, and controlling the flow of combat.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-CF-sheet-fighter-premade
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+
+- type: entity
+  name: CF Wizard premade character sheet
+  parent: Paper
+  id: PaperCFSheetWizardPremade
+  description: 'You are a powerful spellcaster whos magical might comes from intense study and research into the arcane underpinnings of the universe.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-cf-sheet-wizard-premade
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+
+- type: entity
+  name: CF Bard premade character sheet
+  parent: Paper
+  id: PaperCFSheetBardPremade
+  description: 'You are a master of artistry, a scholar of hidden secrets, and a captivating persuader. Using powerful performances, you influence minds and elevate souls to new levels of heroics'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-cf-sheet-bard-premade
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+
+- type: entity
+  name: CF Rogue premade character sheet
+  parent: Paper
+  id: PaperCFSheetRoguePremade
+  description: 'You are a skilled and opportunistic adventurer, adept at sneaking, fast-talking, vaulting over obstacles, disabling traps, and striking unaware enemies.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-cf-sheet-rogue-premade
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+
+- type: entity
+  name: CF Cleric premade character sheet
+  parent: Paper
+  id: PaperCFSheetClericPremade
+  description: 'You are the stalwart mortal servant of a deity. Blessed with divine magic, you can protect and heal your allies and lay waste to your foes.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-cf-sheet-cleric-premade
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+
+- type: entity
+  name: CF Druid premade character sheet
+  parent: Paper
+  id: PaperCFSheetDruidPremade
+  description: 'You are one who gives yourself over to the service of nature, channeling the primal forces of the natural world to defeat your enemies and  strengthen your allies.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-cf-sheet-druid-premade
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+
+- type: entity
+  name: CF Druid Familiar premade character sheet
+  parent: Paper
+  id: PaperCFSheetDruidFamiliarPremade
+  description: 'To be used with the Druid Premade sheet'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-cf-sheet-druid-premade-familiar
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+
+- type: entity
+  name: CF Witch premade character sheet
+  parent: Paper
+  id: PaperCFSheetWitchPremade
+  description: 'You command the forces of magic through a pact with a mysterious patron that likely has its own agenda, receiving spells via an otherworldly familiar.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-cf-sheet-witch-premade
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+
+- type: entity
+  name: CF ranger premade character sheet
+  parent: Paper
+  id: PaperCFSheetRangerPremade
+  description: 'You command the forces of magic through a pact with a mysterious patron that likely has its own agenda, receiving spells via an otherworldly familiar.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-cf-sheet-ranger-premade
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+
+- type: entity
+  name: CF alchemist premade character sheet
+  parent: Paper
+  id: PaperCFSheetAlchemistPremade
+  description: 'You are an inventor, tinkerer, and even saboteur, capable of augmenting your allies with potent elixirs and destroying your enemies with bombs'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: book-cf-sheet-alchemist-premade
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #aaaaaaaaaaaaaaaaaaaaaaa
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
