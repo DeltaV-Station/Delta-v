@@ -40,12 +40,6 @@ marking-UnderwearSatinT = Satin
 marking-UnderwearTangaT-tanga = Underwear
 marking-UnderwearTangaT = Tanga
 
-marking-UnderwearLowridersR-lowriders_reptilian = Underwear
-marking-UnderwearLowridersR = Lowriders
-
-marking-UnderwearTangaR-tanga_reptilian = Underwear
-marking-UnderwearTangaR = Tanga
-
 marking-UnderwearLowridersV-lowriders_vox = Underwear
 marking-UnderwearLowridersV = Lowriders
 

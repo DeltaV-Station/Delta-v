@@ -6,8 +6,8 @@
   markingCategory: Chest
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: badmoltchest
+  - sprite: _Impstation/Mobs/Customization/Reptilian/chest.rsi
+    state: badmolt
 
 # Head
 
@@ -17,8 +17,8 @@
   markingCategory: Head
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: badmolthead
+  - sprite: _Impstation/Mobs/Customization/Reptilian/head.rsi
+    state: badmolt
 
 - type: marking
   id: ScarSlash
@@ -26,8 +26,8 @@
   markingCategory: Head
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: lizardsnoutscar
+  - sprite: _Impstation/Mobs/Customization/Reptilian/head.rsi
+    state: snoutscar
 
 - type: marking
   id: ScarTalons
@@ -35,8 +35,8 @@
   markingCategory: Head
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: lizardtalonscar
+  - sprite: _Impstation/Mobs/Customization/Reptilian/head.rsi
+    state: talonscar
 
 # Snout
 
@@ -51,7 +51,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
+  - sprite: _Impstation/Mobs/Customization/Reptilian/snout.rsi
     state: fangs
 
 - type: marking
@@ -60,7 +60,7 @@
   markingCategory: Overlay
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
+  - sprite: _Impstation/Mobs/Customization/Reptilian/snout.rsi
     state: beard
 
 - type: marking
@@ -75,7 +75,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
+  - sprite: _Impstation/Mobs/Customization/Reptilian/snout.rsi
     state: piercings1
 
 - type: marking
@@ -85,8 +85,8 @@
   markingCategory: Snout
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
-    state: snout_tall
+  - sprite: _Impstation/Mobs/Customization/Reptilian/snout.rsi
+    state: tall
 
 # Eyes
 
@@ -98,8 +98,8 @@
   markingCategory: Arms
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: badmoltrarm
+  - sprite: _Impstation/Mobs/Customization/Reptilian/rarm.rsi
+    state: badmolt
 
 # LArm
 
@@ -109,8 +109,8 @@
   markingCategory: Arms
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: badmoltlarm
+  - sprite: _Impstation/Mobs/Customization/Reptilian/larm.rsi
+    state: badmolt
 
 # RLeg
 
@@ -129,8 +129,8 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
-    state: lowriders_reptilian
+  - sprite: _Impstation/Mobs/Customization/Reptilian/undergarmentbottom.rsi
+    state: lowriders
 
 - type: marking
   id: UnderwearTangaR
@@ -143,8 +143,8 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _Impstation/Mobs/Customization/undergarments.rsi
-    state: tanga_reptilian
+  - sprite: _Impstation/Mobs/Customization/Reptilian/undergarmentbottom.rsi
+    state: tanga
 
 # UndergarmentTop
 
@@ -168,8 +168,8 @@
   markingCategory: HeadSide
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
-    state: burqalizard
+  - sprite: _Impstation/Mobs/Customization/Reptilian/headside.rsi
+    state: burqa
 
 - type: marking
   id: HijabFashionableLizard
@@ -177,7 +177,7 @@
   markingCategory: HeadSide
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+  - sprite: _Impstation/Mobs/Customization/Reptilian/headside.rsi
     state: hijabchic
 
 - type: marking
@@ -186,7 +186,7 @@
   markingCategory: HeadSide
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+  - sprite: _Impstation/Mobs/Customization/Reptilian/headside.rsi
     state: hijabsimple
 
 - type: marking
@@ -195,8 +195,8 @@
   markingCategory: HeadSide
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
-    state: niqablizard
+  - sprite: _Impstation/Mobs/Customization/Reptilian/headside.rsi
+    state: niqab
 
 - type: marking
   id: TichelSimpleLizard
@@ -204,7 +204,7 @@
   markingCategory: HeadSide
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+  - sprite: _Impstation/Mobs/Customization/Reptilian/headside.rsi
     state: tichelsimple
 
 - type: marking
@@ -213,7 +213,7 @@
   markingCategory: HeadSide
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+  - sprite: _Impstation/Mobs/Customization/Reptilian/headside.rsi
     state: tichelfashionable
 
 # HeadTop
@@ -224,8 +224,8 @@
   markingCategory: HeadTop
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
-    state: head_flat
+  - sprite: _Impstation/Mobs/Customization/Reptilian/headtop.rsi
+    state: flat
 
 - type: marking
   id: LizardHornsKoboldEarspiercings
@@ -233,10 +233,10 @@
   markingCategory: HeadTop
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
-    state: horns_kobold_ears
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
-    state: horns_kobold_ears_piercings
+  - sprite: _Impstation/Mobs/Customization/Reptilian/headtop.rsi
+    state: koboldears
+  - sprite: _Impstation/Mobs/Customization/Reptilian/headtop.rsi
+    state: koboldearspiercings
 
 - type: marking
   id: LizardHornsNubby
@@ -244,8 +244,8 @@
   markingCategory: HeadTop
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
-    state: horns_nubby
+  - sprite: _Impstation/Mobs/Customization/Reptilian/headtop.rsi
+    state: nubby
 
 # Tail
 
@@ -255,17 +255,17 @@
   markingCategory: Tail
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: tail_dropped
+  - sprite: _Impstation/Mobs/Customization/Reptilian/tail.rsi
+    state: dropped
 
 - type: marking
   id: TailDroppedAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: []
+  speciesRestriction: [ ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: tail_dropped_wagging
+  - sprite: _Impstation/Mobs/Customization/Reptilian/tail.rsi
+    state: droppedwagging
 
 - type: marking
   id: TailGecko
@@ -273,10 +273,10 @@
   markingCategory: Tail
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: tail_gecko1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: tail_gecko2
+  - sprite: _Impstation/Mobs/Customization/Reptilian/tail.rsi
+    state: gecko1
+  - sprite: _Impstation/Mobs/Customization/Reptilian/tail.rsi
+    state: gecko2
 
 - type: marking
   id: TailSnailLizard
@@ -284,11 +284,11 @@
   markingCategory: Tail
   speciesRestriction: [ Reptilian ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: tail_snizard1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: tail_snizard2
-  - sprite: _Impstation/Mobs/Customization/markingsbundle2.rsi
-    state: tail_snizard3
+  - sprite: _Impstation/Mobs/Customization/Reptilian/tail.rsi
+    state: snizard1
+  - sprite: _Impstation/Mobs/Customization/Reptilian/tail.rsi
+    state: snizard2
+  - sprite: _Impstation/Mobs/Customization/Reptilian/tail.rsi
+    state: snizard3
 
 # RArmExtension

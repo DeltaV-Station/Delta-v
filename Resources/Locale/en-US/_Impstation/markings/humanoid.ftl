@@ -355,6 +355,8 @@ marking-Niqab = Niqab
 
 marking-TichelFashionable = Tichel (Fashionable)
 
+marking-TichelSimple = Tichel (Simple)
+
 # HeadSide
 
 # HeadTop
