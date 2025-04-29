@@ -105,12 +105,17 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai #couldn't decide if this should be borg or pai sounds so I flipped a coin.
+  - type: Vocal # DeltaV - Allow bots to emote
+    sounds:
+      Unsexed: UnisexSilicon
+    screamAction: null
   - type: TypingIndicator
     proto: robot
   - type: ZombieImmune
   - type: ProtectedFromStepTriggers
   - type: NoSlip
   - type: Insulated
+  - type: AnimatedEmotes # DeltaV - Allow bots to emote
 
 - type: entity
   parent: MobSiliconBase
@@ -430,6 +435,11 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
+  - type: InteractionPopup # DeltaV - Make supplybots pettable
+    interactSuccessString: petting-success-supplybot
+    interactFailureString: petting-failure-supplybot
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: Construction
     graph: SupplyBot
     node: bot
@@ -438,6 +448,7 @@
     - Cargo
     - Maintenance
     - Salvage
+    - Mail # DeltaV - Add mail access
   - type: Dumpable
   - type: Storage
     maxItemSize: Huge
