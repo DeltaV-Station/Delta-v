@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 248.0.0
+  engineVersion: 250.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/14/2025 12:04:04
+  time: 04/29/2025 02:02:29
   entityCount: 7225
 maps: []
 grids:
@@ -2682,7 +2682,7 @@ entities:
           1,6:
             1: 26366
           1,7:
-            1: 24679
+            1: 57447
           1,8:
             1: 6
           2,5:
@@ -2690,7 +2690,7 @@ entities:
           2,6:
             1: 28927
           2,7:
-            1: 30583
+            1: 63351
           2,8:
             1: 7
           3,5:
@@ -3189,6 +3189,16 @@ entities:
       parent: 1668
 - proto: AirlockCentralCommandGlassLocked
   entities:
+  - uid: 1461
+    components:
+    - type: Transform
+      pos: 7.5,31.5
+      parent: 1668
+  - uid: 2897
+    components:
+    - type: Transform
+      pos: 11.5,31.5
+      parent: 1668
   - uid: 3572
     components:
     - type: Transform
@@ -4218,13 +4228,6 @@ entities:
     - type: Transform
       pos: 20.5,-29.5
       parent: 1668
-- proto: Autolathe
-  entities:
-  - uid: 5310
-    components:
-    - type: Transform
-      pos: 19.5,-22.5
-      parent: 1668
 - proto: BarSignTheLooseGoose
   entities:
   - uid: 4345
@@ -4403,26 +4406,6 @@ entities:
     components:
     - type: Transform
       pos: -14.5,24.5
-      parent: 1668
-  - uid: 2790
-    components:
-    - type: Transform
-      pos: 11.5,31.5
-      parent: 1668
-  - uid: 2886
-    components:
-    - type: Transform
-      pos: 14.5,31.5
-      parent: 1668
-  - uid: 2925
-    components:
-    - type: Transform
-      pos: 7.5,31.5
-      parent: 1668
-  - uid: 2926
-    components:
-    - type: Transform
-      pos: 4.5,31.5
       parent: 1668
   - uid: 3787
     components:
@@ -17973,6 +17956,18 @@ entities:
     - type: Transform
       pos: 3.5,-13.5
       parent: 1668
+- proto: ChemistryBottleEpinephrine
+  entities:
+  - uid: 1462
+    components:
+    - type: Transform
+      pos: 13.808971,-12.626007
+      parent: 1668
+  - uid: 1463
+    components:
+    - type: Transform
+      pos: 13.818524,-12.297882
+      parent: 1668
 - proto: ChemistryHotplate
   entities:
   - uid: 254
@@ -18164,6 +18159,11 @@ entities:
       parent: 1668
 - proto: ClothingBackpackERTSecurity
   entities:
+  - uid: 579
+    components:
+    - type: Transform
+      pos: 2.6155586,32.43516
+      parent: 1668
   - uid: 2901
     components:
     - type: Transform
@@ -18173,11 +18173,6 @@ entities:
     components:
     - type: Transform
       pos: 16.439487,32.566547
-      parent: 1668
-  - uid: 2903
-    components:
-    - type: Transform
-      pos: 2.6113625,32.457172
       parent: 1668
   - uid: 2904
     components:
@@ -18316,30 +18311,30 @@ entities:
       parent: 1668
 - proto: ClothingHandsGlovesCombat
   entities:
-  - uid: 255
-    components:
-    - type: Transform
-      pos: 2.4165058,30.959938
-      parent: 1668
-  - uid: 297
-    components:
-    - type: Transform
-      pos: 2.6508808,30.850563
-      parent: 1668
-  - uid: 823
-    components:
-    - type: Transform
-      pos: 16.41518,30.975563
-      parent: 1668
-  - uid: 833
-    components:
-    - type: Transform
-      pos: 16.57143,30.913063
-      parent: 1668
   - uid: 3724
     components:
     - type: Transform
       pos: -16.552616,8.708888
+      parent: 1668
+  - uid: 6531
+    components:
+    - type: Transform
+      pos: 2.4346514,30.466412
+      parent: 1668
+  - uid: 6532
+    components:
+    - type: Transform
+      pos: 2.6534014,30.294537
+      parent: 1668
+  - uid: 6533
+    components:
+    - type: Transform
+      pos: 16.4442,30.482037
+      parent: 1668
+  - uid: 6611
+    components:
+    - type: Transform
+      pos: 16.522326,30.372662
       parent: 1668
 - proto: ClothingHeadHatPwig
   entities:
@@ -18411,28 +18406,6 @@ entities:
     - type: Transform
       pos: 21.493792,-17.470217
       parent: 1668
-- proto: ClothingMaskGasDeathSquad
-  entities:
-  - uid: 299
-    components:
-    - type: Transform
-      pos: 16.360958,32.006813
-      parent: 1668
-  - uid: 821
-    components:
-    - type: Transform
-      pos: 2.59024,31.975563
-      parent: 1668
-  - uid: 822
-    components:
-    - type: Transform
-      pos: 2.34024,32.022438
-      parent: 1668
-  - uid: 1434
-    components:
-    - type: Transform
-      pos: 16.595333,31.897438
-      parent: 1668
 - proto: ClothingNeckBronzeheart
   entities:
   - uid: 4377
@@ -18488,84 +18461,28 @@ entities:
     - type: Transform
       pos: -12.455681,6.5291095
       parent: 1668
-- proto: ClothingOuterHardsuitDeathsquad
+- proto: ClothingOuterHardsuitERTSecurityBase
   entities:
-  - uid: 2897
+  - uid: 1436
     components:
     - type: Transform
-      pos: 3.403695,32.551796
+      pos: 3.3301525,32.748886
       parent: 1668
-  - uid: 2898
+  - uid: 2912
     components:
     - type: Transform
-      pos: 3.653695,32.69242
+      pos: 15.6426525,32.76451
       parent: 1668
-  - uid: 2899
+  - uid: 2925
     components:
     - type: Transform
-      pos: 15.372445,32.53617
+      pos: 3.5332775,32.63951
       parent: 1668
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: >-
-            It provides the following protection:
-
-            - [color=yellow]Blunt[/color] damage reduced by [color=lightblue]80%[/color].
-
-            - [color=yellow]Slash[/color] damage reduced by [color=lightblue]80%[/color].
-
-            - [color=yellow]Piercing[/color] damage reduced by [color=lightblue]80%[/color].
-
-            - [color=yellow]Heat[/color] damage reduced by [color=lightblue]80%[/color].
-
-            - [color=yellow]Radiation[/color] damage reduced by [color=lightblue]90%[/color].
-
-            - [color=yellow]Caustic[/color] damage reduced by [color=lightblue]80%[/color].
-
-            - [color=orange]Explosion[/color] damage reduced by [color=lightblue]80%[/color].
-          priority: 0
-          component: Armor
-        title: null
-  - uid: 2900
+  - uid: 4723
     components:
     - type: Transform
-      pos: 15.653695,32.676796
+      pos: 15.4707775,32.63951
       parent: 1668
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: >-
-            It provides the following protection:
-
-            - [color=yellow]Blunt[/color] damage reduced by [color=lightblue]80%[/color].
-
-            - [color=yellow]Slash[/color] damage reduced by [color=lightblue]80%[/color].
-
-            - [color=yellow]Piercing[/color] damage reduced by [color=lightblue]80%[/color].
-
-            - [color=yellow]Heat[/color] damage reduced by [color=lightblue]80%[/color].
-
-            - [color=yellow]Radiation[/color] damage reduced by [color=lightblue]90%[/color].
-
-            - [color=yellow]Caustic[/color] damage reduced by [color=lightblue]80%[/color].
-
-            - [color=orange]Explosion[/color] damage reduced by [color=lightblue]80%[/color].
-          priority: 0
-          component: Armor
-        title: null
 - proto: ClothingShoesBootsLaceup
   entities:
   - uid: 3722
@@ -18588,27 +18505,27 @@ entities:
     - type: Transform
       pos: -27.518688,-8.610331
       parent: 1668
-- proto: ClothingShoesBootsMagAdv
+- proto: ClothingShoesBootsSecurityMagboots
   entities:
-  - uid: 2909
+  - uid: 2495
     components:
     - type: Transform
-      pos: 3.4296377,30.58716
+      pos: 15.3770275,30.686386
       parent: 1668
-  - uid: 2910
+  - uid: 2722
     components:
     - type: Transform
-      pos: 3.6171377,30.446535
+      pos: 15.5332775,30.483261
       parent: 1668
-  - uid: 2911
+  - uid: 2790
     components:
     - type: Transform
-      pos: 15.407025,30.634035
+      pos: 3.5489025,30.373886
       parent: 1668
-  - uid: 2912
+  - uid: 2886
     components:
     - type: Transform
-      pos: 15.6414,30.415285
+      pos: 3.3145275,30.655136
       parent: 1668
 - proto: ClothingShoesLeather
   entities:
@@ -18617,27 +18534,27 @@ entities:
     - type: Transform
       pos: -10.574664,4.498021
       parent: 1668
-- proto: ClothingUniformJumpsuitDeathSquad
+- proto: ClothingUniformJumpsuitERTSecurity
   entities:
-  - uid: 2206
+  - uid: 255
     components:
     - type: Transform
-      pos: 15.35466,32.444313
+      pos: 3.2989025,32.373886
       parent: 1668
-  - uid: 2722
+  - uid: 297
     components:
     - type: Transform
-      pos: 3.637115,32.584938
+      pos: 3.1895275,32.530136
+      parent: 1668
+  - uid: 298
+    components:
+    - type: Transform
+      pos: 15.5645275,32.405136
       parent: 1668
   - uid: 4398
     components:
     - type: Transform
-      pos: 3.40274,32.428688
-      parent: 1668
-  - uid: 4723
-    components:
-    - type: Transform
-      pos: 15.651535,32.600563
+      pos: 15.7989025,32.561386
       parent: 1668
 - proto: ClothingUniformJumpsuitNanotrasen
   entities:
@@ -19005,8 +18922,10 @@ entities:
       linkedPorts:
         722:
         - CloningPodSender: CloningPodReceiver
+        - MedicalScannerSender: CloningPodReceiver
         723:
         - MedicalScannerSender: MedicalScannerReceiver
+        - CloningPodSender: MedicalScannerReceiver
 - proto: ComputerComms
   entities:
   - uid: 3447
@@ -19293,27 +19212,6 @@ entities:
     - type: Transform
       pos: 19.359194,8.797944
       parent: 1668
-- proto: CrateArmoryLaser
-  entities:
-  - uid: 6533
-    components:
-    - type: Transform
-      pos: -7.5,22.5
-      parent: 1668
-- proto: CrateArmoryShotgun
-  entities:
-  - uid: 6532
-    components:
-    - type: Transform
-      pos: -9.5,24.5
-      parent: 1668
-- proto: CrateArmorySMG
-  entities:
-  - uid: 6531
-    components:
-    - type: Transform
-      pos: -6.5,26.5
-      parent: 1668
 - proto: CrateEmergencyRadiation
   entities:
   - uid: 5379
@@ -19355,6 +19253,23 @@ entities:
     components:
     - type: Transform
       pos: 22.5,-13.5
+      parent: 1668
+- proto: CrateFilledSpawner
+  entities:
+  - uid: 2903
+    components:
+    - type: Transform
+      pos: -8.5,24.5
+      parent: 1668
+  - uid: 2909
+    components:
+    - type: Transform
+      pos: -6.5,24.5
+      parent: 1668
+  - uid: 2910
+    components:
+    - type: Transform
+      pos: -7.5,22.5
       parent: 1668
 - proto: CrateFoodPizza
   entities:
@@ -19446,28 +19361,6 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-4.5
-      parent: 1668
-- proto: DeathsquadPDA
-  entities:
-  - uid: 298
-    components:
-    - type: Transform
-      pos: 2.579019,31.366188
-      parent: 1668
-  - uid: 579
-    components:
-    - type: Transform
-      pos: 16.399555,31.459938
-      parent: 1668
-  - uid: 820
-    components:
-    - type: Transform
-      pos: 16.587055,31.366188
-      parent: 1668
-  - uid: 834
-    components:
-    - type: Transform
-      pos: 2.407144,31.491188
       parent: 1668
 - proto: DefaultStationBeacon
   entities:
@@ -21091,18 +20984,6 @@ entities:
     - type: PointLight
       enabled: True
     - type: ActiveEmergencyLight
-- proto: EpinephrineChemistryBottle
-  entities:
-  - uid: 1462
-    components:
-    - type: Transform
-      pos: 13.808971,-12.626007
-      parent: 1668
-  - uid: 1463
-    components:
-    - type: Transform
-      pos: 13.818524,-12.297882
-      parent: 1668
 - proto: ExtinguisherCabinet
   entities:
   - uid: 535
@@ -27857,13 +27738,6 @@ entities:
     - type: Transform
       pos: -25.604141,8.625723
       parent: 1668
-- proto: HandheldCrewMonitor
-  entities:
-  - uid: 1461
-    components:
-    - type: Transform
-      pos: 13.504195,-12.438507
-      parent: 1668
 - proto: HandLabeler
   entities:
   - uid: 2228
@@ -27900,6 +27774,16 @@ entities:
       parent: 1668
 - proto: HighSecCentralCommandLocked
   entities:
+  - uid: 820
+    components:
+    - type: Transform
+      pos: 4.5,31.5
+      parent: 1668
+  - uid: 823
+    components:
+    - type: Transform
+      pos: 14.5,31.5
+      parent: 1668
   - uid: 3791
     components:
     - type: Transform
@@ -28329,6 +28213,18 @@ entities:
     - type: Transform
       pos: 6.5,-9.5
       parent: 1668
+- proto: MachineFrameDestroyed
+  entities:
+  - uid: 5310
+    components:
+    - type: Transform
+      pos: 19.5,-22.5
+      parent: 1668
+  - uid: 5311
+    components:
+    - type: Transform
+      pos: 24.5,-26.5
+      parent: 1668
 - proto: MagazinePistolSubMachineGunTopMounted
   entities:
   - uid: 3896
@@ -28336,12 +28232,49 @@ entities:
     - type: Transform
       pos: -13.453807,-3.1600308
       parent: 1668
-- proto: MaterialBiomass
+- proto: MagazineUniversalMagnum
   entities:
-  - uid: 2495
+  - uid: 821
     components:
     - type: Transform
-      pos: 13.210049,-12.580112
+      pos: 2.4971514,31.107037
+      parent: 1668
+  - uid: 822
+    components:
+    - type: Transform
+      pos: 16.731525,31.060162
+      parent: 1668
+  - uid: 2206
+    components:
+    - type: Transform
+      pos: 2.6690264,31.075787
+      parent: 1668
+  - uid: 2900
+    components:
+    - type: Transform
+      pos: 16.575275,31.138287
+      parent: 1668
+- proto: MaterialBiomass
+  entities:
+  - uid: 299
+    components:
+    - type: Transform
+      pos: 13.421224,-12.692297
+      parent: 1668
+  - uid: 833
+    components:
+    - type: Transform
+      pos: 13.202474,-12.676672
+      parent: 1668
+  - uid: 2927
+    components:
+    - type: Transform
+      pos: 13.468099,-12.442297
+      parent: 1668
+  - uid: 2928
+    components:
+    - type: Transform
+      pos: 13.202474,-12.411047
       parent: 1668
 - proto: MedalCase
   entities:
@@ -31235,13 +31168,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 27.5,27.5
       parent: 1668
-- proto: Protolathe
-  entities:
-  - uid: 5311
-    components:
-    - type: Transform
-      pos: 24.5,-26.5
-      parent: 1668
 - proto: Rack
   entities:
   - uid: 1662
@@ -33718,32 +33644,6 @@ entities:
         3788:
         - Pressed: Toggle
         3787:
-        - Pressed: Toggle
-  - uid: 2927
-    components:
-    - type: MetaData
-      name: le funny admin button
-    - type: Transform
-      pos: 4.5,32.5
-      parent: 1668
-    - type: DeviceLinkSource
-      linkedPorts:
-        2926:
-        - Pressed: Toggle
-        2925:
-        - Pressed: Toggle
-  - uid: 2928
-    components:
-    - type: MetaData
-      name: le funny admin button
-    - type: Transform
-      pos: 14.5,32.5
-      parent: 1668
-    - type: DeviceLinkSource
-      linkedPorts:
-        2886:
-        - Pressed: Toggle
-        2790:
         - Pressed: Toggle
   - uid: 5242
     components:
@@ -42750,6 +42650,28 @@ entities:
     - type: Transform
       pos: 20.88646,-10.507892
       parent: 1668
+- proto: WeaponImmolatorMulti
+  entities:
+  - uid: 1456
+    components:
+    - type: Transform
+      pos: 16.311823,31.997662
+      parent: 1668
+  - uid: 2898
+    components:
+    - type: Transform
+      pos: 16.546198,31.763287
+      parent: 1668
+  - uid: 2911
+    components:
+    - type: Transform
+      pos: 2.5999336,31.872662
+      parent: 1668
+  - uid: 2926
+    components:
+    - type: Transform
+      pos: 2.3655586,32.107037
+      parent: 1668
 - proto: WeaponPistolN1984
   entities:
   - uid: 3774
@@ -42761,6 +42683,28 @@ entities:
     components:
     - type: Transform
       pos: -12.346658,4.475792
+      parent: 1668
+- proto: WeaponPistolUniversal
+  entities:
+  - uid: 834
+    components:
+    - type: Transform
+      pos: 16.591213,31.310162
+      parent: 1668
+  - uid: 1434
+    components:
+    - type: Transform
+      pos: 16.450588,31.450787
+      parent: 1668
+  - uid: 1445
+    components:
+    - type: Transform
+      pos: 2.4037123,31.482037
+      parent: 1668
+  - uid: 2899
+    components:
+    - type: Transform
+      pos: 2.5912123,31.372662
       parent: 1668
 - proto: WeaponPulseCarbine
   entities:
@@ -42805,28 +42749,6 @@ entities:
     components:
     - type: Transform
       pos: 13.481927,32.663063
-      parent: 1668
-- proto: WeaponRevolverMateba
-  entities:
-  - uid: 1436
-    components:
-    - type: Transform
-      pos: 2.4898672,30.350563
-      parent: 1668
-  - uid: 1445
-    components:
-    - type: Transform
-      pos: 2.6461172,30.288063
-      parent: 1668
-  - uid: 1456
-    components:
-    - type: Transform
-      pos: 16.456459,30.319313
-      parent: 1668
-  - uid: 6611
-    components:
-    - type: Transform
-      pos: 16.628334,30.272438
       parent: 1668
 - proto: WeaponSniperHristov
   entities:
