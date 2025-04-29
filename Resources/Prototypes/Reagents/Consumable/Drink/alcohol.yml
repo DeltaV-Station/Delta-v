@@ -171,6 +171,15 @@
         damage:
           groups:
             Brute: -1
+        # Begin Delta V Addtion - Oni heal decent brute from booze
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Oni
+        damage:
+          groups:
+            Brute: -3
+      # End Delta V Addtion
       - !type:ChemVomit
         probability: 0.04
         conditions:
@@ -180,6 +189,9 @@
         # dwarves immune to vomiting from alcohol
         - !type:OrganType
           type: Dwarf
+          shouldHave: false
+        - !type:OrganType # Delta V - Oni Dont puke either
+          type: Oni
           shouldHave: false
       - !type:Drunk
         boozePower: 2

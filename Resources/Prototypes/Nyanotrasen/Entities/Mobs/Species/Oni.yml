@@ -29,7 +29,9 @@
     damageModifierSet: Oni
     damageContainer: BiologicalMetaphysical
   - type: Body
-    prototype: Human
+    prototype: Oni
+  - type: LightweightDrunk
+    boozeStrengthMultiplier: .5 # REAL hard for oni to get drunk
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:

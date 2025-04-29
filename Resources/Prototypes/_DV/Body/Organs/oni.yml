@@ -13,7 +13,7 @@
       - Crayon
       - Paper
       - Food
-  - type: solutionContainerManager
+  - type: SolutionContainerManager
     solutions:
       stomach:
         maxVol: 80 # Bigger Body = Bigger Stomach
@@ -25,3 +25,12 @@
   - type: Metabolizer
     maxreagents: 3
     metabolizerTypes: [ Oni, Animal ]
+
+- type: entity
+  id: OrganOniLiver
+  parent: OrganHumanLiver
+  name: oni liver
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [Oni]
+
