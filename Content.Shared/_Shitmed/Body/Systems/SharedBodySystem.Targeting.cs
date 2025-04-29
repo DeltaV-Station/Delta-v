@@ -244,7 +244,7 @@ public partial class SharedBodySystem
     /// Torso if the result is 9 or more. The higher torsoWeight is, the higher chance to return it.
     /// By default, the chance to return Torso is 50%.
     /// </summary>
-    private static TargetBodyPart GetRandomPartSpread(IRobustRandom random, ushort torsoWeight = 9)
+    public static TargetBodyPart GetRandomPartSpread(IRobustRandom random, ushort torsoWeight = 9) // DeltaV - we need access to this method in SurgeryForeignBodySystem
     {
         const int targetPartsAmount = 9;
         // 5 = amount of target parts except Torso

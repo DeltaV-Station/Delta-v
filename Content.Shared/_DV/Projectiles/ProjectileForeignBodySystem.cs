@@ -1,12 +1,12 @@
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Armor;
+using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using Content.Shared.Inventory;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Projectiles;
 using Robust.Shared.Containers;
@@ -32,12 +32,8 @@ public sealed class ProjectileForeignBodySystem : EntitySystem
 
         SubscribeLocalEvent<ProjectileForeignBodyComponent, ProjectileHitEvent>(OnEmbedProjectileHit);
 
-        SubscribeLocalEvent<SimpleForeignBodyContainerComponent, ComponentInit>(OnSimpleInit);
-        SubscribeLocalEvent<SimpleForeignBodyContainerComponent, ProjectileForeignBodyAttemptEvent>(OnSimpleEmbed);
-        SubscribeLocalEvent<SimpleForeignBodyContainerComponent, ForeignBodyEffectsEvent>(OnSimpleEffect);
-
         SubscribeLocalEvent<BodyPartForeignBodyContainerComponent, ComponentInit>(OnBodyPartInit);
-        SubscribeLocalEvent<BodyForeignBodyContainerComponent, ProjectileForeignBodyAttemptEvent>(OnBodyEmbed);
+        SubscribeLocalEvent<BodyComponent, ProjectileForeignBodyAttemptEvent>(OnBodyEmbed);
         SubscribeLocalEvent<BodyPartForeignBodyContainerComponent, ForeignBodyEffectsEvent>(OnBodyPartEffect);
     }
 
@@ -57,34 +53,23 @@ public sealed class ProjectileForeignBodySystem : EntitySystem
         RaiseLocalEvent(args.Target, ref ev);
     }
 
-    private void OnSimpleInit(Entity<SimpleForeignBodyContainerComponent> ent, ref ComponentInit args)
-    {
-        _container.EnsureContainer<Container>(ent, ent.Comp.ContainerName);
-    }
-
-    private void OnSimpleEmbed(Entity<SimpleForeignBodyContainerComponent> ent, ref ProjectileForeignBodyAttemptEvent args)
-    {
-        if (_net.IsClient) // i yearn for predicted spawning
-            return;
-
-        if (!TrySpawnInContainer(args.Embedded.Comp.ForeignBody, ent, ent.Comp.ContainerName, out var spawned))
-            return;
-
-        var active = EnsureComp<ForeignBodyActivelyEmbeddedComponent>(spawned.Value);
-        active.ActiveAfter = _timing.CurTime + args.Embedded.Comp.EffectsBeginAfter;
-    }
-
-    private void OnSimpleEffect(Entity<SimpleForeignBodyContainerComponent> ent, ref ForeignBodyEffectsEvent args)
-    {
-        ApplyBodyPartEffects(ent, ent, args.Embedded);
-    }
-
-    private void OnBodyEmbed(Entity<BodyForeignBodyContainerComponent> ent, ref ProjectileForeignBodyAttemptEvent args)
+    private void OnBodyEmbed(Entity<BodyComponent> ent, ref ProjectileForeignBodyAttemptEvent args)
     {
         if (_net.IsClient) // i yearn for predicted spawning
             return;
 
         var targetPart = _body.GetRandomBodyPart(args.Shooter) ?? TargetBodyPart.Torso;
+
+        if (TryComp<TargetingComponent>(args.Shooter, out var targeting))
+        {
+            targetPart = targeting.Target;
+            if (targetPart == TargetBodyPart.Torso)
+            {
+                var otherPart = SharedBodySystem.GetRandomPartSpread(_random, 10);
+                targetPart = otherPart;
+            }
+
+        }
 
         var (targetType, targetSymmetry) = _body.ConvertTargetBodyPart(targetPart);
         foreach (var part in _body.GetBodyChildrenOfType(ent, targetType, symmetry: targetSymmetry))
@@ -104,16 +89,13 @@ public sealed class ProjectileForeignBodySystem : EntitySystem
 
     private void OnBodyPartInit(Entity<BodyPartForeignBodyContainerComponent> ent, ref ComponentInit args)
     {
-        _container.EnsureContainer<Container>(ent, ent.Comp.ContainerName);
+        ent.Comp.Container = _container.EnsureContainer<Container>(ent, ent.Comp.ContainerName);
     }
 
     private void ApplyBodyPartEffects(EntityUid? body, EntityUid applyTo, Entity<ForeignBodyEffectsComponent> embedded)
     {
-        if (TryComp<MobStateComponent>(body, out var state))
-        {
-            if (!embedded.Comp.WorksOnTheDead && _mobState.IsDead(body!.Value, state))
-                return;
-        }
+        if (!embedded.Comp.WorksOnTheDead && _mobState.IsDead(body!.Value))
+            return;
 
         var effectArgs = new EntityEffectBaseArgs(applyTo, EntityManager);
 

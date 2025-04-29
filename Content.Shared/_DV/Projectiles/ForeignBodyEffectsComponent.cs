@@ -7,13 +7,13 @@ namespace Content.Shared._DV.Projectiles;
 /// <summary>
 /// While this entity is ActivelyEmbedded, it will run the given Effects on its containing entity
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, Access(typeof(ProjectileForeignBodySystem))]
 public sealed partial class ForeignBodyEffectsComponent : Component
 {
     [DataField]
     public bool WorksOnTheDead;
 
-    [DataField("effects", required: true, serverOnly: true)]
+    [DataField(required: true, serverOnly: true)]
     public EntityEffect[] Effects = [];
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
@@ -26,7 +26,7 @@ public sealed partial class ForeignBodyEffectsComponent : Component
 /// <summary>
 /// Marker component for when a foreign body is actively embedded
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, Access(typeof(ProjectileForeignBodySystem), typeof(SurgeryForeignBodySystem))]
 public sealed partial class ForeignBodyActivelyEmbeddedComponent : Component
 {
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]

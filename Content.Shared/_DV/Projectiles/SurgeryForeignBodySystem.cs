@@ -19,29 +19,30 @@ public sealed class SurgeryForeignBodySystem : EntitySystem
         SubscribeLocalEvent<SurgeryRemoveForeignBodyStepComponent, SurgeryStepCompleteCheckEvent>(OnForeignBodyCheck);
     }
 
+    private Container? GetContainer(EntityUid uid)
+    {
+        if (!TryComp<BodyPartForeignBodyContainerComponent>(uid, out var part))
+            return null;
+
+        return part.Container;
+    }
+
+    private bool HasForeignBodies(EntityUid uid)
+    {
+        if (GetContainer(uid) is not {} contents)
+            return false;
+
+        return contents.ContainedEntities.Count > 0;
+    }
+
     private void OnForeignBodySurgeryValid(Entity<SurgeryForeignBodyConditionComponent> ent, ref SurgeryValidEvent args)
     {
-        if (!TryComp<BodyPartForeignBodyContainerComponent>(args.Part, out var part))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        if (!_container.TryGetContainer(args.Part, part.ContainerName, out var contents))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        args.Cancelled = contents.ContainedEntities.Count == 0;
+        args.Cancelled = !HasForeignBodies(args.Part);
     }
 
     private void OnForeignBodyStep(Entity<SurgeryRemoveForeignBodyStepComponent> ent, ref SurgeryStepEvent args)
     {
-        if (!TryComp<BodyPartForeignBodyContainerComponent>(args.Part, out var part))
-            return;
-
-        if (!_container.TryGetContainer(args.Part, part.ContainerName, out var contents))
+        if (GetContainer(args.Part) is not {} contents)
             return;
 
         if (contents.ContainedEntities.Count == 0)
@@ -53,18 +54,6 @@ public sealed class SurgeryForeignBodySystem : EntitySystem
 
     private void OnForeignBodyCheck(Entity<SurgeryRemoveForeignBodyStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
     {
-        if (!TryComp<BodyPartForeignBodyContainerComponent>(args.Part, out var part))
-        {
-            args.Cancelled = false;
-            return;
-        }
-
-        if (!_container.TryGetContainer(args.Part, part.ContainerName, out var contents))
-        {
-            args.Cancelled = false;
-            return;
-        }
-
-        args.Cancelled = contents.ContainedEntities.Count != 0;
+        args.Cancelled = HasForeignBodies(args.Part);
     }
 }
