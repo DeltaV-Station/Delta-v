@@ -1,6 +1,3 @@
-using Content.Shared._DV.Antag;
-using Robust.Shared.Analyzers;
-
 namespace Content.Server._DV.Antag;
 
 [RegisterComponent, Access(typeof(NukieOperationSystem)), AutoGenerateComponentPause]
