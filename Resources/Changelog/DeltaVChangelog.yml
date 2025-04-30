@@ -1,35 +1,4 @@
 ﻿Entries:
-- author: JustAnOrange
-  changes:
-  - message: intercoms rotate according to direction they are facing now.
-    type: Tweak
-  id: 831
-  time: '2025-01-01T13:46:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2367
-- author: Radezolid
-  changes:
-  - message: Wardens got their HOS headset back into their locker.
-    type: Tweak
-  id: 832
-  time: '2025-01-01T13:21:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2572
-- author: Kr8art
-  changes:
-  - message: The foxear sprite available to Vulpkanin and Felinids now has a separate
-      inner layer. If you use this option, make sure to revisit your character customization,
-      as this change will **likely reset your current tint colour!**
-    type: Tweak
-  id: 833
-  time: '2025-01-01T14:32:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2539
-- author: Stop-Signs
-  changes:
-  - message: Security warden suit has been made tankier but slower to differentiate
-      it from the HOS
-    type: Tweak
-  id: 834
-  time: '2025-01-01T14:36:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2397
 - author: HTMLSystem
   changes:
   - message: Added formal dresses for the LO, HoP, and CJ! Find them in their dressers,
@@ -4080,3 +4049,35 @@
   id: 1330
   time: '2025-04-27T22:22:44.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3597
+- author: SubspaceEmber
+  changes:
+  - message: Added ability to build directional and directional reinforced uranium
+      windows.
+    type: Add
+  id: 1331
+  time: '2025-04-28T07:53:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3565
+- author: Radezolid
+  changes:
+  - message: Solar panels now can be upgraded by using the upgrade material glass
+      directly on it. You can also go back to a previous state by applying a different
+      glass on it.
+    type: Add
+  id: 1332
+  time: '2025-04-28T23:23:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3587
+- author: AveriV2
+  changes:
+  - message: fixed a minor typo in kitsune fox form
+    type: Fix
+  id: 1333
+  time: '2025-04-29T09:40:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3602
+- author: Radezolid
+  changes:
+  - message: CC's cloning pod is now fully linked for ease of use, also some extra
+      biomass is next to it.
+    type: Tweak
+  id: 1334
+  time: '2025-04-29T09:48:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3601
