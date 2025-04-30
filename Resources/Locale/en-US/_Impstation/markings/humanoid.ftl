@@ -57,8 +57,8 @@ marking-EyebrowsUnibrow = Eyebrows (Unibrow)
 marking-EyebrowsUnibrow-eyebrowsunibrow = Eyebrows (Unibrow)
 
 marking-HeadHeavyTattoos = Heavy Neck Tattoos
-marking-HeadHeavyTattoos-head_heavy1 = Heavy Neck Tattoos (Lower)
-marking-HeadHeavyTattoos-head_heavy2 = Heavy Neck Tattoos (Upper)
+marking-HeadHeavyTattoos-heavy1 = Heavy Neck Tattoos (Lower)
+marking-HeadHeavyTattoos-heavy2 = Heavy Neck Tattoos (Upper)
 
 marking-HeadTwisting = Twisted Scar
 marking-HeadTwisting-twisting = Twisted Scar
