@@ -273,7 +273,6 @@
     - MedicalBoardsStatic
     - EngineeringBoardsStatic
     - CircuitFloorsStatic
-    - LawBoardsNTStatic # DeltaV - printable lawboards
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
@@ -284,8 +283,9 @@
     - MechBoards
     - ShuttleBoards
   - type: EmagLatheRecipes
-    emagStaticPacks:
-    - LawBoardsSyndicateStatic # DeltaV - printable lawboards
+    emagStaticPacks: # DeltaV - printable lawboards
+    - LawBoardsNTStatic
+    - LawBoardsSyndicateStatic
     emagDynamicPacks:
     - SecurityBoards
   - type: MaterialStorage
@@ -332,6 +332,7 @@
     - RoboticsStatic
     - BorgModulesStatic
     - BorgLimbsStatic
+    - LawBoardsNTStatic # DeltaV - printable lawboards
     dynamicPacks:
     - Robotics
     - BorgModules
@@ -343,8 +344,10 @@
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
-    # Being DeltaV Additions
+    # Begin DeltaV Additions
     - EVASuit
+    - LawBoardsSyndicateStatic
+    # End DeltaV Additions
     emagDynamicPacks:
     - SecurityCybernetics # having sechud eyes is good for evil people
     - SecurityHardsuits

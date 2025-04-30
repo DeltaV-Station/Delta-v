@@ -216,8 +216,8 @@
 # AI lawboard recipes
 
 - type: latheRecipe
-  parent: BaseRoboticsRecipe
   abstract: true
+  parent: BaseRoboticsRecipe
   id: BaseLawboardRecipe
   materials:
     Diamond: 200
@@ -230,13 +230,6 @@
   parent: BaseLawboardRecipe
   id: AntimovCircuitBoard
   result: AntimovCircuitBoard
-  materials:
-    Diamond: 1000
-    Glass: 1000
-    Silver: 200
-    Gold: 200
-    Plasma: 200
-    Bananium: 500
 
 - type: latheRecipe
   parent: BaseLawboardRecipe
@@ -297,13 +290,6 @@
   parent: BaseLawboardRecipe
   id: OverlordCircuitBoard
   result: OverlordCircuitBoard
-  materials:
-    Diamond: 500
-    Glass: 1000
-    Silver: 200
-    Gold: 200
-    Plasma: 200
-    Bananium: 250
 
 - type: latheRecipe
   parent: BaseLawboardRecipe
@@ -329,6 +315,11 @@
   parent: BaseLawboardRecipe
   id: StreamerCircuitBoard
   result: StreamerCircuitBoard
+
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: SyndicateCircuitBoard
+  result: SyndicateCircuitBoard
 
 - type: latheRecipe
   parent: BaseLawboardRecipe
