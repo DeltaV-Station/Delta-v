@@ -10,6 +10,13 @@
         Slash: 100
     - types:
         Blunt: 100
+    integrityThresholds:
+      CriticallyWounded: 90
+      HeavilyWounded: 75
+      ModeratelyWounded: 60
+      SomewhatWounded: 40
+      LightlyWounded: 20
+      Healthy: 10
 
 - type: entity
   abstract: true
@@ -23,6 +30,13 @@
         Slash: 40
     - types:
         Blunt: 90
+    integrityThresholds:
+      CriticallyWounded: 35
+      HeavilyWounded: 30
+      ModeratelyWounded: 25
+      SomewhatWounded: 20
+      LightlyWounded: 15
+      Healthy: 10
 
 - type: entity
   abstract: true
@@ -36,6 +50,13 @@
         Slash: 25
     - types:
         Blunt: 90
+    integrityThresholds:
+      CriticallyWounded: 25
+      HeavilyWounded: 20
+      ModeratelyWounded: 15
+      SomewhatWounded: 10
+      LightlyWounded: 5
+      Healthy: 0
 
 - type: entity
   abstract: true
@@ -49,6 +70,13 @@
         Slash: 80
     - types:
         Blunt: 90
+    integrityThresholds:
+      CriticallyWounded: 70
+      HeavilyWounded: 60
+      ModeratelyWounded: 50
+      SomewhatWounded: 40
+      LightlyWounded: 20
+      Healthy: 10
 
 - type: entity
   abstract: true
@@ -62,3 +90,10 @@
         Slash: 40
     - types:
         Blunt: 90
+    integrityThresholds:
+      CriticallyWounded: 35
+      HeavilyWounded: 30
+      ModeratelyWounded: 25
+      SomewhatWounded: 20
+      LightlyWounded: 15
+      Healthy: 10

@@ -211,6 +211,19 @@ public partial class SharedBodySystem
         return landed;
     }
 
+    private bool CheckDamageThreshold(DamageSpecifier thresholds, DamageSpecifier testing)
+    {
+        foreach (var (kind, amount) in thresholds.DamageDict)
+        {
+            if (!testing.DamageDict.TryGetValue(kind, out var testAmount))
+                return false;
+
+            if (testAmount < amount)
+                return false;
+        }
+        return true;
+    }
+
     private void OnDamageChanged(Entity<BodyPartComponent> partEnt, ref DamageChangedEvent args)
     {
         if (!TryComp<DamageableComponent>(partEnt, out var damageable) || _timing.ApplyingState) // DeltaV: Don't try to predict limb severing
@@ -226,7 +239,7 @@ public partial class SharedBodySystem
             && delta != null
             && !HasComp<BodyPartReattachedComponent>(partEnt)
             && !partEnt.Comp.Enabled
-            && partEnt.Comp.SeverThresholds.Any(threshold => (damageable.Damage - threshold).AnyPositive()))
+            && partEnt.Comp.SeverThresholds.Any(threshold => CheckDamageThreshold(threshold, damageable.Damage)))
             severed = true;
 
         CheckBodyPart(partEnt, GetTargetBodyPart(partEnt), severed, damageable);
