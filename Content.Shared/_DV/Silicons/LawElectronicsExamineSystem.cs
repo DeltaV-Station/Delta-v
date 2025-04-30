@@ -20,7 +20,7 @@ public sealed class LawElectronicsExamineSystem : EntitySystem
         if (!HasComp<ElectronicsComponent>(ent))
             return;
 
-        if (ent.Comp.Lawset is {} lawset)
+        if (ent.Comp.Lawset is { } lawset)
         {
             foreach (var law in lawset.Laws)
             {
