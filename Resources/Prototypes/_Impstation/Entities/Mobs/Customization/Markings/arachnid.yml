@@ -14,7 +14,6 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Arachnid ]
-  forcedColoring: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/chest.rsi
     state: segments1
@@ -26,8 +25,6 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Arachnid ]
-  forcedColoring: false
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/chest.rsi
     state: mirror
@@ -40,7 +37,6 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Arachnid ]
-  forcedColoring: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/head.rsi
     state: segments1
@@ -148,8 +144,6 @@
   bodyPart: Eyes
   markingCategory: Eyes
   speciesRestriction: [ Arachnid ]
-  forcedColoring: false
-  followSkinColor: false
   coloring:
     default:
       type:
@@ -170,7 +164,6 @@
   markingCategory: Eyes
   speciesRestriction: [ Arachnid ]
   forcedColoring: true
-  followSkinColor: false
   coloring:
     default:
       type:
@@ -187,7 +180,6 @@
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [ Arachnid ]
-  forcedColoring: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/rarm.rsi
     state: segments1
@@ -201,7 +193,6 @@
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [ Arachnid ]
-  forcedColoring: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/larm.rsi
     state: segments1
@@ -215,7 +206,6 @@
   bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [ Arachnid ]
-  forcedColoring: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/rleg.rsi
     state: segments1
@@ -229,7 +219,6 @@
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [ Arachnid ]
-  forcedColoring: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/lleg.rsi
     state: segments1
@@ -369,7 +358,6 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Arachnid ]
-  forcedColoring: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/headside.rsi
     state: small
