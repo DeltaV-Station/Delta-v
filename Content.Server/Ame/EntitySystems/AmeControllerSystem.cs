@@ -77,6 +77,34 @@ public sealed class AmeControllerSystem : EntitySystem
         UpdateUi(uid, component);
     }
 
+    // Begin Nyano-code: low fuel alert.
+    private void CheckForLowFuel(EntityUid uid, AmeControllerComponent controller, AmeFuelContainerComponent fuelJar)
+    {
+        var fuelRatio = (float) fuelJar.FuelAmount / (float) fuelJar.FuelCapacity;
+        if (fuelRatio > controller.FuelAlertLevel)
+        {
+            // Fuel's sufficient; exit early.
+            controller.FuelAlertCountdown = controller.FuelAlertFrequency;
+            return;
+        }
+
+        // Fuel's low; count down.
+        --controller.FuelAlertCountdown;
+
+        if (controller.FuelAlertCountdown > 0)
+            return;
+
+        // Countdown's at zero; reset it.
+        controller.FuelAlertCountdown = controller.FuelAlertFrequency;
+
+        // Raise an alert.
+        _radioSystem.SendRadioMessage(uid,
+            Loc.GetString("ame-controller-component-low-fuel-warning",
+                ("percentage", Math.Round(fuelRatio * 100f))),
+            _prototypeManager.Index<RadioChannelPrototype>(controller.AlertChannel), uid);
+    }
+    // End Nyano-code.
+
     private void UpdateController(EntityUid uid, TimeSpan curTime, AmeControllerComponent? controller = null, NodeContainerComponent? nodes = null)
     {
         if (!Resolve(uid, ref controller))
@@ -111,6 +139,8 @@ public sealed class AmeControllerSystem : EntitySystem
                 if (availableInject > 0)
                     _audioSystem.PlayPvs(controller.InjectSound, uid, AudioParams.Default.WithVolume(overloading ? 10f : 0f));
                 UpdateUi(uid, controller);
+
+                CheckForLowFuel(uid, controller, fuelJar); // Nyano-code: low fuel alert.
             }
         }
 

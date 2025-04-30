@@ -98,4 +98,34 @@ public sealed partial class AmeControllerComponent : SharedAmeControllerComponen
     /// </summary>
     [DataField]
     public TimeSpan CooldownDuration = TimeSpan.FromSeconds(10f);
+
+    // Begin Nyano-code: low fuel alert.
+    [DataField("alertChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public string AlertChannel = "Engineering";
+
+    /// <summary>
+    /// The percentage at which the AME fuel jar has to pass in order for the alert countdown to begin.
+    /// </summary>
+    [DataField("fuelAlertLevel")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float FuelAlertLevel = 0.1f;
+
+    /// <summary>
+    /// The number of injections left before an alert is raised.
+    /// </summary>
+    /// <remarks>
+    /// This is reset any time the fuel is over FuelAlertLevel.
+    /// </remarks>
+    [DataField("fuelAlertCountdown")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int FuelAlertCountdown;
+
+    /// <summary>
+    /// How many injections between radio reports.
+    /// </summary>
+    [DataField("fuelAlertFrequency")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int FuelAlertFrequency = 3;
+    // End Nyano-code.
 }
