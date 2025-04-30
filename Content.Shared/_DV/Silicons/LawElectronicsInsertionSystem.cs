@@ -1,4 +1,5 @@
 using Content.Shared.DoAfter;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Borgs.Components;
@@ -36,9 +37,8 @@ public sealed class LawElectronicsInsertionSystem : EntitySystem
         if (!TryComp<WiresPanelComponent>(target, out var panel) || !panel.Open)
         {
             _popup.PopupClient(Loc.GetString("lawboard-insertion-needs-panel-open",
-                    ("this", ent),
-                    ("user", args.User),
-                    ("target", target)),
+                    ("target", target),
+                    ("targetName", Identity.Name(target, EntityManager))),
                 args.User);
 
             return;
@@ -56,8 +56,8 @@ public sealed class LawElectronicsInsertionSystem : EntitySystem
             return;
 
         _popup.PopupPredicted(
-            Loc.GetString("lawboard-insertion-start-actor-message", ("board", ent), ("target", target)),
-            Loc.GetString("lawboard-insertion-start-other-message", ("board", ent), ("target", target), ("actor", args.User)),
+            Loc.GetString("lawboard-insertion-start-actor-message", ("board", ent), ("target", Identity.Name(target, EntityManager))),
+            Loc.GetString("lawboard-insertion-start-other-message", ("board", ent), ("target", Identity.Name(target, EntityManager)), ("actor", Identity.Name(args.User, EntityManager))),
             args.Target.Value,
             args.User);
     }
@@ -83,7 +83,7 @@ public sealed class LawElectronicsInsertionSystem : EntitySystem
         if (args.Handled || args.Cancelled || args.Args.Target is not {} target)
             return;
 
-        var newLaws = GetLawset(ent.Comp.Laws).Laws;
+        var newLaws = GetLawset(ent.Comp.Laws);
 
         if (!TryComp<SiliconLawProviderComponent>(target, out var targetComp))
             return;
@@ -91,7 +91,8 @@ public sealed class LawElectronicsInsertionSystem : EntitySystem
         if (targetComp.Lawset == null)
             targetComp.Lawset = new SiliconLawset();
 
-        targetComp.Lawset.Laws = newLaws;
+        targetComp.Lawset.Laws = newLaws.Laws;
+        targetComp.Lawset.ObeysTo = newLaws.ObeysTo;
         _siliconLaw.NotifyLawsChanged(target);
     }
 }
