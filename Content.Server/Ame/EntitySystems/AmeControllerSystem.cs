@@ -6,16 +6,19 @@ using Content.Server.Ame.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.NodeContainer;
 using Content.Server.Power.Components;
+using Content.Server.Radio.EntitySystems;
 using Content.Shared.Ame.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.Mind.Components;
 using Content.Shared.Power;
+using Content.Shared.Radio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Ame.EntitySystems;
@@ -28,6 +31,8 @@ public sealed class AmeControllerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly RadioSystem _radioSystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()
     {
@@ -140,7 +145,7 @@ public sealed class AmeControllerSystem : EntitySystem
                     _audioSystem.PlayPvs(controller.InjectSound, uid, AudioParams.Default.WithVolume(overloading ? 10f : 0f));
                 UpdateUi(uid, controller);
 
-                CheckForLowFuel(uid, controller, fuelJar); // Nyano-code: low fuel alert.
+                CheckForLowFuel(uid, controller, fuelContainer); // Nyano-code: low fuel alert.
             }
         }
 
