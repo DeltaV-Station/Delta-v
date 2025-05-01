@@ -2,12 +2,14 @@ using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Light.Components;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.Silicons;
 
 public abstract class SharedStationAiShopSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
@@ -37,9 +39,7 @@ public abstract class SharedStationAiShopSystem : EntitySystem
 
     private void OnRgbLighting(Entity<StationAiShopComponent> ent, ref StationAiRgbLightingActionEvent args)
     {
-        if (HasComp<RgbLightControllerComponent>(args.Target))
-            RemComp<RgbLightControllerComponent>(args.Target);
-        else
+        if (!RemComp<RgbLightControllerComponent>(args.Target))
             AddComp<RgbLightControllerComponent>(args.Target);
 
         args.Handled = true;
@@ -53,12 +53,15 @@ public abstract class SharedStationAiShopSystem : EntitySystem
 
     private void OnHealthChange(Entity<StationAiShopComponent> ent, ref StationAiHealthChangeActionEvent args)
     {
-        _damage.TryChangeDamage(args.Target, args.Damage);
+        _damage.TryChangeDamage(args.Target, args.Damage, source: ent);
         args.Handled = true;
     }
 
     private void OnHolopointer(Entity<StationAiShopComponent> ent, ref StationAiSpawnEntityActionEvent args)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         Spawn(args.Entity, args.Target);
         args.Handled = true;
     }
