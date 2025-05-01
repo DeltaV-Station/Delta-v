@@ -15,9 +15,10 @@
         mask:
         - TabletopMachineMask
         layer:
-        - Impassable
-        - MidImpassable
-        - LowImpassable
+        # - Impassable # DeltaV - Changed to match other similar machines
+        # - MidImpassable # DeltaV - Changed to match other similar machines
+        # - LowImpassable # DeltaV - Changed to match other similar machines 
+        - TabletopMachineLayer # DeltaV - Fixed so can be anchored on tables
         hard: false
   - type: ApcPowerReceiver
     powerLoad: 300
