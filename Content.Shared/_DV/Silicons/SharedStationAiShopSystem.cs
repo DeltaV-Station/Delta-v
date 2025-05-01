@@ -53,7 +53,7 @@ public abstract class SharedStationAiShopSystem : EntitySystem
 
     private void OnHealthChange(Entity<StationAiShopComponent> ent, ref StationAiHealthChangeActionEvent args)
     {
-        _damage.TryChangeDamage(args.Target, args.Damage, source: ent);
+        _damage.TryChangeDamage(args.Target, args.Damage, origin: ent);
         args.Handled = true;
     }
 
