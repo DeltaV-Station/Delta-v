@@ -403,6 +403,7 @@
   - StasecWinterCoatDet
   - PlateCarrier
   - DuraVest
+  - DetPlatedCoat
 
 # Medical
 ## Psychologist
@@ -701,6 +702,13 @@
   loadouts:
   - AdminAssistantJumpsuit
   - AdminAssistantJumpskirt
+
+- type: loadoutGroup
+  id: AdminAssistantHead
+  name: loadout-group-admin-assistant-head
+  minLimit: 0
+  loadouts:
+  - AdminAssistanthat
 
 - type: loadoutGroup
   id: AdminAssistantShoes

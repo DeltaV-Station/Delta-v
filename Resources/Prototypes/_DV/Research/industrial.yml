@@ -13,6 +13,20 @@
   - Fulton
   - FultonBeacon
 
+# Tier 2
+
+- type: technology
+  id: EngineerHardsuit
+  name: research-technology-engineering-eva
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - ClothingOuterHardsuitEngineering
+
 # Tier 3
 
 - type: technology
@@ -26,3 +40,17 @@
   cost: 15000
   recipeUnlocks:
   - RCDRecharging
+
+- type: technology
+  id: AtmosHardsuit
+  name: research-technology-atmos-eva
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/atmospherics.rsi
+    state: icon
+  discipline: Industrial
+  tier: 3
+  cost: 10000
+  recipeUnlocks:
+  - ClothingOuterHardsuitAtmos
+  - ClothingOuterSuitAtmosFire
+  - ClothingHeadHelmetAtmosFire
