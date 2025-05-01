@@ -96,7 +96,7 @@ public sealed class FultonSystem : SharedFultonSystem
         UpdateAppearance(uid, component);
     }
 
-    protected override void UpdateAppearance(EntityUid uid, FultonedComponent component)
+    public override void UpdateAppearance(EntityUid uid, FultonedComponent component) // DeltaV - made public
     {
         if (!component.Effect.IsValid())
             return;

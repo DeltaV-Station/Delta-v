@@ -21,7 +21,7 @@ public sealed class TraitorRuleTest
     private const string TraitorGameRuleProtoId = "Traitor";
     private const string TraitorAntagRoleName = "Traitor";
 
-    [Test]
+    //[Test] // DeltaV - test is useless with reputation
     public async Task TestTraitorObjectives()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings()

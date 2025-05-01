@@ -1,4 +1,5 @@
 using Content.Client.CartridgeLoader;
+using Content.Shared._DV.Reputation; // DeltaV
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.PDA;
@@ -71,6 +72,8 @@ namespace Content.Client.PDA
             {
                 SendMessage(new PdaLockUplinkMessage());
             };
+
+            _menu.ContractsButton.OnPressed += _ => SendMessage(new PdaShowContractsMessage()); // DeltaV
 
             _menu.OnProgramItemPressed += ActivateCartridge;
             _menu.OnInstallButtonPressed += InstallCartridge;

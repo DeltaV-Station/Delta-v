@@ -14,6 +14,8 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Oni
+  - !type:ReputationCondition
+    reputation: 30 # Melee Weapons
 
 - type: listing
   id: UplinkRickenbacker
@@ -31,6 +33,8 @@
   - !type:BuyerJobCondition
     whitelist:
     - Musician
+  - !type:ReputationCondition
+    reputation: 20 # Melee Weapons
 
 - type: listing
   id: UplinkSamurai
@@ -52,3 +56,5 @@
     blacklist:
       components:
       - SurplusBundle
+  - !type:ReputationCondition
+    reputation: 15 # Armour

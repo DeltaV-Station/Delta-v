@@ -69,6 +69,7 @@ public sealed partial class CargoSystem : SharedCargoSystem
         InitializeBounty();
         InitializeFunds();
         InitializeATS(); // DeltaV
+        InitializeRansom(); // DeltaV
     }
 
     public override void Update(float frameTime)

@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels.Components;
 using Content.Server.Station.Components;
+using Content.Shared._DV.Traitor; // DeltaV
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.BUI;
 using Content.Shared.Cargo.Components;
@@ -23,6 +24,7 @@ namespace Content.Server.Cargo.Systems
     {
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly EmagSystem _emag = default!;
+        [Dependency] private readonly RansomSystem _ransom = default!; // DeltaV
 
         private void InitializeConsole()
         {
@@ -327,7 +329,8 @@ namespace Content.Server.Cargo.Systems
                     GetOutstandingOrderCount(orderDatabase, console.Account),
                     orderDatabase.Capacity,
                     GetNetEntity(station.Value),
-                    orderDatabase.Orders[console.Account]
+                    orderDatabase.Orders[console.Account],
+                    _ransom.GetRansoms() // DeltaV
                 ));
             }
         }
