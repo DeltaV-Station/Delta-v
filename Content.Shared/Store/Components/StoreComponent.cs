@@ -74,7 +74,7 @@ public sealed partial class StoreComponent : Component
     public bool RefundAllowed;
 
     /// <summary>
-    ///     DeltaV: Should the store grant actions to the mind?
+    /// DeltaV: Should the store grant actions to the mind?
     /// </summary>
     [DataField]
     public bool GrantActionsToMind = true;

@@ -27,6 +27,7 @@ public abstract class SharedStationAiShopSystem : EntitySystem
     private void OnMapInit(Entity<StationAiShopComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent, ref ent.Comp.ShopAction, ent.Comp.ShopActionId);
+        Dirty(ent);
     }
 
     private void OnShutdown(Entity<StationAiShopComponent> ent, ref ComponentShutdown args)

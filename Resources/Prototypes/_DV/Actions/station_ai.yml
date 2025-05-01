@@ -37,7 +37,7 @@
   components:
   - type: EntityTargetAction
     whitelist:
-      components:
+      tags:
       - LightFixture
     itemIconStyle: BigAction
     icon:
@@ -47,8 +47,7 @@
     checkCanAccess: false
     checkCanInteract: false
     useDelay: 300
-    event:
-      !type:StationAiLightSynthesizerActionEvent
+    event: !type:StationAiLightSynthesizerActionEvent
       bulbPrototype: LightTube
 
 - type: entity
@@ -68,8 +67,7 @@
     checkCanAccess: false
     checkCanInteract: false
     useDelay: 60
-    event:
-      !type:StationAiPlaySoundActionEvent
+    event: !type:StationAiPlaySoundActionEvent
       sound:
         collection: BikeHorn
         params:
@@ -89,8 +87,7 @@
     checkCanAccess: false
     checkCanInteract: false
     useDelay: 15
-    event:
-      !type:StationAiSpawnEntityActionEvent
+    event: !type:StationAiSpawnEntityActionEvent
       entity: StationAiHolopointer
 
 - type: entity
@@ -131,8 +128,7 @@
     checkCanAccess: false
     checkCanInteract: false
     useDelay: 120
-    event:
-      !type:StationAiHealthChangeActionEvent
+    event: !type:StationAiHealthChangeActionEvent
       damage:
         groups:
           Burn: -20
@@ -152,8 +148,7 @@
     checkCanAccess: false
     checkCanInteract: false
     useDelay: 300
-    event:
-      !type:StationAiSmokeActionEvent
+    event: !type:StationAiSmokeActionEvent
       duration: 10
       spreadAmount: 8
       smokePrototype: AluminiumMetalFoam
