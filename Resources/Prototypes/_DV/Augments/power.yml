@@ -49,7 +49,8 @@
     state: cell
   - type: Organ
     slotId: powerCell
-    onAdd:
+  - type: MechanismEffect
+    added:
     - type: HasAugmentPowerCellSlot
   - type: AugmentPowerCellSlot
   - type: Construction
