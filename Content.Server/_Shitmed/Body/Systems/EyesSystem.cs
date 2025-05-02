@@ -1,6 +1,7 @@
 using Content.Server.Body.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
+using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
@@ -17,8 +18,8 @@ namespace Content.Server.Body.Systems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<EyesComponent, OrganEnabledEvent>(OnOrganEnabled);
-            SubscribeLocalEvent<EyesComponent, OrganDisabledEvent>(OnOrganDisabled);
+            SubscribeLocalEvent<EyesComponent, MechanismEnabledEvent>(OnEnabled);
+            SubscribeLocalEvent<EyesComponent, MechanismDisabledEvent>(OnDisabled);
         }
 
         private void HandleSight(EntityUid newEntity, EntityUid oldEntity)
@@ -64,24 +65,22 @@ namespace Content.Server.Body.Systems
 
         }
 
-        private void OnOrganEnabled(EntityUid uid, EyesComponent component, OrganEnabledEvent args)
+        private void OnEnabled(Entity<EyesComponent> ent, ref MechanismEnabledEvent args)
         {
-            if (TerminatingOrDeleted(uid)
-            || args.Organ.Comp.Body is not { Valid: true } body)
+            if (TerminatingOrDeleted(ent))
                 return;
 
-            RemComp<TemporaryBlindnessComponent>(body);
-            HandleSight(uid, body);
+            RemComp<TemporaryBlindnessComponent>(args.Body);
+            HandleSight(ent, args.Body);
         }
 
-        private void OnOrganDisabled(EntityUid uid, EyesComponent component, OrganDisabledEvent args)
+        private void OnDisabled(Entity<EyesComponent> ent, ref MechanismDisabledEvent args)
         {
-            if (TerminatingOrDeleted(uid)
-            || args.Organ.Comp.Body is not { Valid: true } body)
+            if (TerminatingOrDeleted(ent))
                 return;
 
-            EnsureComp<TemporaryBlindnessComponent>(body);
-            HandleSight(body, uid);
+            EnsureComp<TemporaryBlindnessComponent>(args.Body); // FIXME: because no refcounting you can wear+take off blindfold to bypass this
+            HandleSight(args.Body, ent);
         }
     }
 }

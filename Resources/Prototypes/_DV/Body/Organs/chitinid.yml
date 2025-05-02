@@ -39,8 +39,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ
-    slotId: liver # Shitmed
-    onAdd:
+    slotId: liver
+  - type: MechanismEffect
+    added:
     - type: UnpoweredFlashlight
     - type: PointLight
       enabled: false

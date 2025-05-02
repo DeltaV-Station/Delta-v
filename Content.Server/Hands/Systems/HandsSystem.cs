@@ -139,9 +139,9 @@ namespace Content.Server.Hands.Systems
                 _ => throw new ArgumentOutOfRangeException(nameof(part.Comp.Symmetry))
             };
 
-            if (part.Comp.Enabled
-                && _bodySystem.TryGetParentBodyPart(part, out var _, out var parentPartComp)
-                && parentPartComp.Enabled)
+            if (_bodySystem.IsEnabled(part.Owner)
+                && _bodySystem.TryGetParentBodyPart(part, out var parentPart, out _)
+                && _bodySystem.IsEnabled(parentPart.Value))
                 AddHand(uid, slot, location);
         }
 

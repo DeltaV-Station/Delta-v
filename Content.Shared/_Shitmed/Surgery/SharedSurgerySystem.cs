@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
 using Content.Shared._Shitmed.Medical.Surgery.Effects.Complete;
 using Content.Shared.Body.Systems;
@@ -198,7 +199,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             return;
         }
 
-        var organSlotIdToOrgan = _body.GetPartOrgans(args.Part, part).ToDictionary(o => o.Item2.SlotId, o => o.Item2);
+        var organSlotIdToOrgan = _body.GetPartOrgans(args.Part, part).ToDictionary(o => o.Item2.SlotId, o => o.Item1);
 
         var allOnAddFound = true;
         var zeroOnAddFound = true;
@@ -208,7 +209,10 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organ))
                 continue;
 
-            if (organ.OnAdd == null)
+            if (!TryComp<MechanismEffectComponent>(organ, out var effect))
+                continue;
+
+            if (effect.Added == null)
             {
                 allOnAddFound = false;
                 continue;
@@ -216,7 +220,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
 
             foreach (var key in components.Keys)
             {
-                if (!organ.OnAdd.ContainsKey(key))
+                if (!effect.Added.ContainsKey(key))
                     allOnAddFound = false;
                 else
                     zeroOnAddFound = false;
