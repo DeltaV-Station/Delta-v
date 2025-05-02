@@ -37,13 +37,10 @@
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
       - id: MobMouse
-        weight: 0.33 # DeltaV - Added weights
       - id: MobMouse1
-        weight: 0.33  # DeltaV - Added weights
       - id: MobMouse2
-        weight: 0.33  # DeltaV - Added weights
-      - id: MobWhimperlet # DeltaV - added Whimperlet and weights for all children
-        weight: 0.01
+      - id: MobWhimperlet # DeltaV - added Whimperlet
+        weight: 0.03
       #- id: MobMouseCancer # DeltaV - no
 # Events always spawn a critter regardless of Probability https://github.com/space-wizards/space-station-14/issues/28480 I added the Rat King to their own event with a player cap.
 
@@ -94,7 +91,7 @@
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
       - id: MobCockroach
-        weight: 0.77 # DeltaV - minus two percentage point weight to make room for whimperlet
+        weight: 0.79
       - id: MobMothroach
         weight: 0.21
       - id: MobWhimperlet # DeltaV - Added Whimperlet and its weight

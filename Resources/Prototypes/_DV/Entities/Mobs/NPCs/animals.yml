@@ -1,7 +1,7 @@
 - type: entity
-  name: arctic fox
   parent: SimpleMobBase
   id: MobArcticFox
+  name: arctic fox
   description: Wears a regal coat of snowy elegance, belying its cold and resourceful nature.
   components:
   - type: Sprite
@@ -14,8 +14,7 @@
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeCircle
+        shape: !type:PhysShapeCircle
           radius: 0.35
         density: 50 #They actually are pretty light, I looked it up
         mask:
@@ -68,9 +67,9 @@
     - VimPilot
 
 - type: entity
-  name: security dog
   parent: SimpleMobBase
   id: MobSecDog
+  name: security dog
   description: Funnily enough, this pig is actually a dog.
   components:
   - type: GhostRole
@@ -104,8 +103,7 @@
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeCircle
+        shape: !type:PhysShapeCircle
           radius: 0.35
         density: 120 # BIG DOG :3
         mask:
@@ -182,35 +180,17 @@
       Unsexed: MobDog
 
 - type: entity
-  name: scrimpering whimperlet
-  parent: SimpleMobBase
+  parent: MobMouse
   id: MobWhimperlet
+  name: scrimpering whimperlet
   description: A pitiful creature, it loses a lot of salt through its tears.
   components:
-  - type: GhostTakeoverAvailable
+  - type: Body
+    prototype: Animal
   - type: GhostRole
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
     name: ghost-role-information-whimperlet-name
     description: ghost-role-information-whimperlet-description
-    rules: ghost-role-information-freeagent-rules
-    mindRoles:
-    - MindRoleGhostRoleFreeAgentHarmless
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.2
-        density: 100
-        mask:
-        - SmallMobMask
-        layer:
-        - SmallMobLayer
   - type: Speech
-    speechVerb: SmallMob
-    speechSounds: Squeak
     allowedEmotes: ['Whine', 'Mew']
   - type: Vocal
     sounds:
@@ -219,8 +199,6 @@
       Unsexed: WhimperletSounds
   - type: TypingIndicator
     proto: slime
-  - type: ReplacementAccent
-    accent: mouse
   - type: Sprite
     sprite: _DV/Mobs/Animals/whimperlet/whimperlet.rsi
     layers:
@@ -241,6 +219,8 @@
     equippedPrefix: 0
     slots:
     - HEAD
+  - type: FaxableObject
+    insertingState: inserting
   - type: Appearance
   - type: DamageStateVisuals
     states:
@@ -255,6 +235,8 @@
       0: Alive
       30: Critical # Whimpier than mothroaches (40/60)
       50: Dead
+  - type: Hunger
+    baseDecayRate: 0.15 # slower than mouse (0.5), even if they will act similarly
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -267,11 +249,8 @@
           Quantity: 16
         maxVol: 16
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.5
-    baseSprintSpeed : 4
-    weightlessAcceleration: 1.5
-    weightlessFriction: 1
-    weightlessModifier: 1
+    baseWalkSpeed : 1.7
+    baseSprintSpeed : 4.5
   - type: Respirator
     damage:
       types:
@@ -285,20 +264,7 @@
     tags:
     - Trash
     - CannotSuicide
-    - DoorBumpOpener
     - VimPilot
-  - type: CanEscapeInventory
-  - type: NpcFactionMember
-    factions:
-    - Mouse
-  - type: SurgeryTarget # Shitmed
-  - type: FireVisuals
-    sprite: Mobs/Effects/onfire.rsi
-    normalState: Mouse_burning
-  - type: UserInterface
-    interfaces:
-      enum.SurgeryUIKey.Key: # Shitmed
-        type: SurgeryBui
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
