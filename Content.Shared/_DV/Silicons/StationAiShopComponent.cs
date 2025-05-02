@@ -82,7 +82,7 @@ public sealed partial class StationAiSmokeActionEvent : WorldTargetActionEvent
     /// Defaults to smoke but you can use foam if you want.
     /// </summary>
     [DataField]
-    public EntProtoId SmokePrototype = "Smoke";
+    public EntProtoId<SmokeComponent> SmokePrototype = "Smoke";
 
     /// <summary>
     /// Solution to add to each smoke cloud.

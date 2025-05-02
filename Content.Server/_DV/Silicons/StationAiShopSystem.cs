@@ -65,14 +65,7 @@ public sealed class StationAiShopSystem : SharedStationAiShopSystem
 
         var coords = grid.MapToGrid(mapCoords);
         var uid = Spawn(args.SmokePrototype, coords.SnapToGrid());
-        if (!TryComp<SmokeComponent>(uid, out var smoke))
-        {
-            Log.Error($"Smoke prototype {args.SmokePrototype} was missing SmokeComponent");
-            Del(uid);
-            return;
-        }
-
-        _smoke.StartSmoke(uid, args.Solution, args.Duration, args.SpreadAmount, smoke);
+        _smoke.StartSmoke(uid, args.Solution, args.Duration, args.SpreadAmount);
         args.Handled = true;
     }
 }
