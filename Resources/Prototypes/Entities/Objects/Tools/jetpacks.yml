@@ -35,6 +35,10 @@
       interfaces:
         enum.SharedGasTankUiKey.Key:
           type: GasTankBoundUserInterface
+    - type: UseDelay
+      delays:
+        gasTank:
+          length: 1.0
     - type: Clothing
       sprite: _DV/Objects/Tanks/Jetpacks/blue.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
       quickEquip: false
