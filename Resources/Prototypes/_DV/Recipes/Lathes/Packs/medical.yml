@@ -1,6 +1,12 @@
 ## Static
 
 - type: latheRecipePack
+  id: BasicChemistryStaticDeltaV
+  recipes:
+  - Dropper
+  - Skimmer
+
+- type: latheRecipePack
   id: MedicalStaticDeltaV
   recipes:
   - AACTablet
@@ -36,3 +42,8 @@
   - CloningConsoleComputerCircuitboard
   - MedicalScannerMachineCircuitboard
   - CloningPodMachineCircuitboard
+
+- type: latheRecipePack
+  id: ParamedicHardsuit
+  recipes:
+  - ClothingOuterHardsuitVoidParamed

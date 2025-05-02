@@ -1,0 +1,39 @@
+- type: vendingMachineInventory
+  id: BoozeOMatCommandInventory
+  startingInventory:
+    DrinkGlass: 10 #Kept glasses at top for ease to differentiate from booze.
+    DrinkShotGlass: 5
+    DrinkGlassCoupeShaped: 5
+    DrinkVacuumFlask: 2
+    DrinkFlaskBar: 2
+    DrinkShaker: 2
+    DrinkJigger: 1
+    DrinkIceBucket: 1
+    BarSpoon: 1
+    CustomDrinkJug: 1 #to allow for custom drinks in the soda/booze dispensers
+    DrinkAbsintheBottleFull: 1
+    DrinkBlueCuracaoBottleFull: 1
+    DrinkCognacBottleFull: 2
+    DrinkCoconutWaterCarton: 1
+    DrinkMilkCarton: 1
+    DrinkCreamCarton: 2
+    DrinkGinBottleFull: 2
+    DrinkGildlagerBottleFull: 1 #if champagne gets less because its premium, then gildlager should match this and have two
+    DrinkGrenadineBottleFull: 1
+    DrinkJuiceLimeCarton: 2
+    DrinkJuiceLemonCarton: 2
+    DrinkJuiceOrangeCarton: 2
+    DrinkJuiceTomatoCarton: 1
+    DrinkCoffeeLiqueurBottleFull: 1
+    DrinkMelonLiquorBottleFull: 2
+    DrinkPatronBottleFull: 1
+    DrinkRumBottleFull: 2
+    DrinkSodaWaterCan: 4
+    DrinkTequilaBottleFull: 1
+    DrinkTonicWaterCan: 4
+    DrinkVermouthBottleFull: 1
+    DrinkVodkaBottleFull: 1
+    DrinkWhiskeyBottleFull: 2
+    DrinkWineBottleFull: 3
+    DrinkChampagneBottleFull: 1 #because the premium drink
+    DrinkAngobittersBottleFull: 1 #Angostura Bitters Bottle

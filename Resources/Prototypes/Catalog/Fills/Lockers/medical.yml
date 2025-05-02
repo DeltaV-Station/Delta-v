@@ -94,6 +94,8 @@
   id: LockerFillChemistry
   table: !type:AllSelector
     children:
+    - !type:NestedSelector # DeltaV - Adds our modifications. See Resources/Prototypes/_DV/Catalog/Fills/Lockers/medical.yml
+      tableId: LockerFillChemistryDeltaV
     - id: BoxSyringe
     - id: BoxBeaker
     - id: BoxBeaker

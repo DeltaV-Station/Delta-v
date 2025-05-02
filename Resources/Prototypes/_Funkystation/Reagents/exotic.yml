@@ -1,0 +1,157 @@
+# add "group: Exotic" to put new exotic chemicals in the guidebook's tab
+# For new chems: Exotic should only be strong gimmick / strong inverted chems / parts of said chems.
+
+- type: reagent
+  id: ExoticReagent
+  name: reagent-name-exotic
+  group: Exotic
+  desc: reagent-desc-exotic
+  physicalDesc: reagent-physical-desc-exotic-smelling
+  flavor: nothing
+  color: "#d111fc"
+
+- type: reagent
+  id: Stasicillin
+  name: reagent-name-stasicillin
+  group: Exotic
+  desc: reagent-desc-stasicillin
+  physicalDesc: reagent-physical-desc-crystalline
+  flavor: medicine
+  color: "#5c11fc"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 11
+        damage:
+          groups:
+            Airloss: -6
+            Toxin: -4
+            Brute: -4.5
+            Burn: -6
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 11
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
+
+- type: reagent
+  id: Negacordrazine
+  name: reagent-name-negacordrazine
+  group: Exotic
+  desc: reagent-desc-negacordrazine
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#d34b26"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:TotalDamage
+          min: 30
+        damage:
+          groups:
+            Airloss: -2
+            Brute: -1.2
+            Burn: -1.6
+            Toxin: -2
+
+- type: reagent
+  id: StabilisedStimulants
+  name: reagent-name-stabilisedstimulants
+  group: Exotic
+  desc: reagent-desc-stabilisedstimulants
+  physicalDesc: reagent-physical-desc-opaque
+  flavor: bitter
+  color: "#e1e1e1"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.2
+      effects:
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.35
+        sprintSpeedModifier: 1.35
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Haloperidol
+          max: 0.01
+        key: Drowsiness
+        time: 10
+        type: Remove
+
+- type: reagent
+  id: Revivopine
+  name: reagent-name-revivopine
+  group: Exotic
+  desc: reagent-desc-revivopine
+  physicalDesc: reagent-physical-desc-exhilarating
+  flavor: medicine
+  color: "#04ea9a"
+  metabolisms:
+    Medicine:
+      metabolismRate: 2.0
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:TotalDamage
+          min: 90 # Heals a bit above crit # DeltaV - this brings people to a bit more stable condition
+        damage:
+          groups: # 5 Damage every type except rad/pois
+            Airloss: -10
+            Brute: -15
+            Burn: -20
+
+- type: reagent
+  id: Corgium
+  name: reagent-name-corgium
+  group: Exotic
+  desc: reagent-desc-corgium
+  physicalDesc: reagent-physical-desc-fluffy
+  flavor: medicine
+  color: "#ffaa00"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:CreateEntityReactionEffect # DeltaV - was polymorph, just have a chance to spawn a corgi instead
+        entity: MobCorgiPuppy
+        probability: 0.25
+        conditions:
+        - !type:OrganType
+          type: Animal
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 25 # DeltaV - need more corgium for that to happen, was 20
+
+- type: reagent
+  id: Muigroc
+  name: reagent-name-muigroc
+  group: Exotic
+  desc: reagent-desc-muigroc
+  physicalDesc: reagent-physical-desc-fluffy
+  flavor: medicine
+  color: "#ffaa00"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:Polymorph
+        prototype: CorgiMorphPerm
+        conditions:
+        - !type:ReagentThreshold
+          min: 25 # DeltaV - make it tighter if you can actually corgi someone

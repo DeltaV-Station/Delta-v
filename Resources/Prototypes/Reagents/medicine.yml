@@ -285,6 +285,7 @@
 - type: reagent
   id: DexalinPlus
   name: reagent-name-dexalin-plus
+  abstract: true # Funkychem - no more dex+
   group: Medicine
   desc: reagent-desc-dexalin-plus
   physicalDesc: reagent-physical-desc-cloudy
@@ -1115,6 +1116,10 @@
         factor: 3
     Medicine:
       effects:
+      - !type:CleanseCult # DeltaV - Cosmic Cult
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
