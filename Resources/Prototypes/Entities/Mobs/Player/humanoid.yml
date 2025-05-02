@@ -16,7 +16,6 @@
 - type: randomHumanoidSettings
   id: EventHumanoidMindShielded
   parent: EventHumanoid
-  randomizeName: true # DeltaV - WHY WOULD YOU NOT
   components:
     - type: MindShield
     - type: AntagImmune
@@ -24,6 +23,7 @@
 - type: randomHumanoidSettings
   id: EventHumanoidCentcomm
   parent: EventHumanoidMindShielded
+  randomizeName: false
   components:
   - type: AutoImplant
     implants:
@@ -609,7 +609,7 @@
     - type: RandomHumanoidAppearance
       randomizeName: false
     - type: NukeOperative
-    - type: PsionicBonusChance #Nyano - Summary: makes more likely to be psionic. 
+    - type: PsionicBonusChance #Nyano - Summary: makes more likely to be psionic.
       multiplier: 7
       warn: false
 
