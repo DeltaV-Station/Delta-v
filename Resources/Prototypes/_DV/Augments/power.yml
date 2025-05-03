@@ -130,8 +130,8 @@
   components:
   - type: Sprite
     state: station
-  - type: Organ
-    onAdd:
+  - type: MechanismEffect
+    added:
     - type: AugmentStationRecharge
   - type: Construction
     graph: CreatePowerCellChargerAugment
