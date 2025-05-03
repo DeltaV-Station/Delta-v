@@ -141,10 +141,32 @@ public abstract partial class SharedSurgerySystem
                 {
                     effect.Added[key] = compToAdd;
                 }
-                Dirty(organ, effect);
 
                 // make it apply the added components now
                 _body.UpdateMechanism(organ, args.Body);
+            }
+        }
+
+        if (ent.Comp.RemoveOrganOnAdd != null)
+        {
+            var organSlotIdToOrgan = _body.GetPartOrgans(args.Part).ToDictionary(o => o.Item2.SlotId, o => o.Item1);
+
+            foreach (var (organSlotId, compsToRemove) in ent.Comp.RemoveOrganOnAdd)
+            {
+                if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organ))
+                    continue;
+
+                if (!TryComp<MechanismEffectComponent>(organ, out var effect))
+                    continue;
+
+                foreach (var key in compsToRemove.Keys)
+                {
+                    effect.Added.Remove(key);
+                }
+
+                // make it apply the removed components now
+                if (_body.IsEnabled(organ))
+                    EntityManager.AddComponents(compsToRemove);
             }
         }
 
@@ -225,10 +247,27 @@ public abstract partial class SharedSurgerySystem
                 if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organ))
                     continue;
 
-                if (!TryComp<MechanismEffectComponent>(organ, out var effect))
+                if (!TryComp<MechanismEffectComponent>(organ, out var effect) ||
+                    effect.Added == null ||
+                    compsToAdd.Keys.Any(key => !effect.Added.ContainsKey(key)))
+                {
+                    args.Cancelled = true;
+                    return;
+                }
+            }
+        }
+
+        if (ent.Comp.RemoveOrganOnAdd != null)
+        {
+            var organSlotIdToOrgan = _body.GetPartOrgans(args.Part).ToDictionary(o => o.Item2.SlotId, o => o.Item1);
+            foreach (var (organSlotId, compsToRemove) in ent.Comp.RemoveOrganOnAdd)
+            {
+                if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organ))
                     continue;
 
-                if (effect.Added == null || compsToAdd.Keys.Any(key => !effect.Added.ContainsKey(key)))
+                if (!TryComp<MechanismEffectComponent>(organ, out var effect) ||
+                    effect.Added == null ||
+                    compsToRemove.Keys.Any(key => effect.Added.ContainsKey(key)))
                 {
                     args.Cancelled = true;
                     return;

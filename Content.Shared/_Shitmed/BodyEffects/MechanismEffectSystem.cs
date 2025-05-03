@@ -18,8 +18,8 @@ public partial class MechanismEffectSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MechanismEffectComponent, MechanismAddedEvent>(OnAdded);
-        SubscribeLocalEvent<MechanismEffectComponent, MechanismRemovedEvent>(OnRemoved);
+        SubscribeLocalEvent<MechanismEffectComponent, MechanismEnabledEvent>(OnEnabled);
+        SubscribeLocalEvent<MechanismEffectComponent, MechanismDisabledEvent>(OnDisabled);
     }
 
     // While I would love to kill this function, problem is that if we happen to have two parts that add the same
@@ -44,7 +44,7 @@ public partial class MechanismEffectSystem : EntitySystem
         }
     }
 
-    private void OnAdded(Entity<MechanismEffectComponent> ent, ref MechanismAddedEvent args)
+    private void OnEnabled(Entity<MechanismEffectComponent> ent, ref MechanismEnabledEvent args)
     {
         if (ent.Comp.Added is {} add)
             AddComponents(args.Body, ent, add);
@@ -52,7 +52,7 @@ public partial class MechanismEffectSystem : EntitySystem
             RemoveComponents(args.Body, ent, remove);
     }
 
-    private void OnRemoved(Entity<MechanismEffectComponent> ent, ref MechanismRemovedEvent args)
+    private void OnDisabled(Entity<MechanismEffectComponent> ent, ref MechanismDisabledEvent args)
     {
         if (ent.Comp.Added is {} add)
             RemoveComponents(args.Body, ent, add);

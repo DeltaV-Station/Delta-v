@@ -14,7 +14,7 @@ public partial class SharedBodySystem
 
     public bool TryEnableMechanism(Entity<BodyMechanismComponent?> ent)
     {
-        if (!_mechanismQuery.Resolve(ent, ref ent.Comp) || ent.Comp.Enabled || ent.Comp.Body is not {} body)
+        if (!_mechanismQuery.Resolve(ent, ref ent.Comp, false) || ent.Comp.Enabled || ent.Comp.Body is not {} body)
             return false;
 
         var attemptEv = new MechanismEnableAttemptEvent(body);
@@ -32,7 +32,7 @@ public partial class SharedBodySystem
 
     public bool TryDisableMechanism(Entity<BodyMechanismComponent?> ent)
     {
-        if (!_mechanismQuery.Resolve(ent, ref ent.Comp) || !ent.Comp.Enabled || ent.Comp.Body is not {} body)
+        if (!_mechanismQuery.Resolve(ent, ref ent.Comp, false) || !ent.Comp.Enabled || ent.Comp.Body is not {} body)
             return false;
 
         var attemptEv = new MechanismDisableAttemptEvent(body);
@@ -53,7 +53,7 @@ public partial class SharedBodySystem
     /// </summary>
     public void SetBody(Entity<BodyMechanismComponent?> ent, EntityUid? body)
     {
-        if (!_mechanismQuery.Resolve(ent, ref ent.Comp) || body == ent.Comp.Body)
+        if (!_mechanismQuery.Resolve(ent, ref ent.Comp, false) || body == ent.Comp.Body)
             return;
 
         // have to set it to null first, can't just "teleport" it into a different body

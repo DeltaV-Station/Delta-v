@@ -209,10 +209,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organ))
                 continue;
 
-            if (!TryComp<MechanismEffectComponent>(organ, out var effect))
-                continue;
-
-            if (effect.Added == null)
+            if (!TryComp<MechanismEffectComponent>(organ, out var effect) || effect.Added == null)
             {
                 allOnAddFound = false;
                 continue;

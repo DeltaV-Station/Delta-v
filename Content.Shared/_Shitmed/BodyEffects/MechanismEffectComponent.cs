@@ -9,15 +9,15 @@ namespace Content.Shared._Shitmed.BodyEffects;
 public sealed partial class MechanismEffectComponent : Component
 {
     /// <summary>
-    /// Components added to a body when this mechanism is added.
-    /// Gets removed when the mechanism is removed after.
+    /// Components added to a body when this mechanism is enabled.
+    /// Gets removed when the mechanism is disabled after.
     /// </summary>
     [DataField, AlwaysPushInheritance]
     public ComponentRegistry? Added;
 
     /// <summary>
-    /// Components removed from a body when this mechanism is added.
-    /// Gets added back with these values when this mechanism is removed, not the previous values.
+    /// Components removed from a body when this mechanism is disabled.
+    /// Gets added back with these values when this mechanism is enabled, not the previous values.
     /// </summary>
     [DataField, AlwaysPushInheritance]
     public ComponentRegistry? Removed;
