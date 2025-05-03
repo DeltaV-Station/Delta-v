@@ -148,7 +148,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     private void OnGotEquipped(Entity<CosmicEquipmentComponent> ent, ref GotEquippedEvent args)
     {
         if (!EntityIsCultist(args.Equipee))
-            _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.Equipee, EntropicDegen, TimeSpan.MaxValue, true);
+            _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.Equipee, EntropicDegen, TimeSpan.FromDays(1), true); // TimeSpan.MaxValue causes a crash here, so we use FromDays(1) instead.
     }
 
     private void OnGotUnequipped(Entity<CosmicEquipmentComponent> ent, ref GotUnequippedEvent args)
@@ -159,7 +159,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     private void OnGotHeld(Entity<CosmicEquipmentComponent> ent, ref GotEquippedHandEvent args)
     {
         if (!EntityIsCultist(args.User))
-            _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.User, EntropicDegen, TimeSpan.MaxValue, true);
+            _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.User, EntropicDegen, TimeSpan.FromDays(1), true);
     }
 
     private void OnGotUnheld(Entity<CosmicEquipmentComponent> ent, ref GotUnequippedHandEvent args)
