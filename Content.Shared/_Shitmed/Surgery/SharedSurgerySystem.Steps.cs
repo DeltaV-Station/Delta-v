@@ -156,7 +156,7 @@ public abstract partial class SharedSurgerySystem
                 if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organ))
                     continue;
 
-                if (!TryComp<MechanismEffectComponent>(organ, out var effect))
+                if (!TryComp<MechanismEffectComponent>(organ, out var effect) || effect.Added == null)
                     continue;
 
                 foreach (var key in compsToRemove.Keys)

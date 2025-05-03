@@ -40,7 +40,7 @@ public partial class MechanismEffectSystem : EntitySystem
                 continue;
 
             comp.NextUpdate = now + comp.Delay;
-            AddComponents(body, uid, comp.Active);
+            AddComponents(body, (uid, comp), comp.Active);
         }
     }
 
