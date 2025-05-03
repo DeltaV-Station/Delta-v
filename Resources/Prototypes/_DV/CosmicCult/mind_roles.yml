@@ -5,9 +5,12 @@
   components:
   - type: MindRole
     antagPrototype: CosmicAntagCultist
+    subtype: role-subtype-cultist
     exclusiveAntag: true
     roleType: TeamAntagonist
   - type: CosmicCultRole
+  - type: RoleBriefing
+    briefing: objective-cosmiccult-charactermenu
 
 # Ascendant Event
 - type: entity
@@ -17,6 +20,7 @@
   components:
   - type: MindRole
     antagPrototype: RogueAscended
+    subtype: role-subtype-rogue-ascended
     roleType: TeamAntagonist
     exclusiveAntag: true
   - type: RogueAscendedRole
