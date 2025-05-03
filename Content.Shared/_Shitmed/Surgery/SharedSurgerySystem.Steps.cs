@@ -166,7 +166,7 @@ public abstract partial class SharedSurgerySystem
 
                 // make it apply the removed components now
                 if (_body.IsEnabled(organ))
-                    EntityManager.AddComponents(compsToRemove);
+                    EntityManager.AddComponents(args.Body, compsToRemove);
             }
         }
 
