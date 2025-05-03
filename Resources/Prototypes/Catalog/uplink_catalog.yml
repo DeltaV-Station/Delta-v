@@ -1693,16 +1693,17 @@
   categories:
   - UplinkWearables
 
+# TODO: Revert back to normal thieving gloves when clothes dyeing is added
 - type: listing
   id: UplinkgClothingThievingGloves
-  name: uplink-clothing-thieving-gloves-name
-  description: uplink-clothing-thieving-gloves-desc
-  productEntity: ThievingGloves
+  name: uplink-clothing-chameleon-thieving-gloves-name
+  description: uplink-clothing-chameleon-thieving-gloves-desc
+  productEntity: ClothingHandsChameleonThief
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 4 # DeltaV - was 2
+    Telecrystal: 4 # DeltaV - was 3
   cost:
-    Telecrystal: 7 # DeltaV - Was 4, 4TC was too cheap for the items power
+    Telecrystal: 7 # DeltaV - Was 5, 5TC was too cheap for the items power
   categories:
   - UplinkWearables
   conditions: # DeltaV - They're very strong, shouldn't have it roundstart
