@@ -3,6 +3,7 @@ using Content.Server.Actions;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Shared._DV.Abilities.Kitsune;
+using Content.Shared.Damage.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.NPC.Components;
@@ -75,6 +76,12 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
 
     private void OnMorphIntoKitsune(Entity<KitsuneComponent> ent, ref MorphIntoKitsune args)
     {
+        // Ensure the fox form isn't going to be instantly stunned and reverted, causing RR
+        if (TryComp<StaminaComponent>(ent, out var stamina) && stamina.Critical)
+        {
+            _popup.PopupEntity(Loc.GetString("kitsune-popup-cant-morph-stamina"), ent, ent);
+            return;
+        }
         if (_polymorph.PolymorphEntity(ent, ent.Comp.KitsunePolymorphId) == null)
             return;
         args.Handled = true;
