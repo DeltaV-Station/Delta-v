@@ -174,9 +174,15 @@
     - id: EmergencyRollerBedSpawnFolded
     - id: EmergencyJawsOfLife
     - id: HandheldCrewMonitor
-    - id: HypoMini
     - id: LunchboxMedicalFilledRandom
       prob: 0.3
+    - !type:GroupSelector
+      children:
+      - id: HypoMini
+        weight: 0.95
+      - id: HypoMiniLimitedEdition # Funsies! (No functional difference)
+        weight: 0.05
+
 
 - type: entityTable
   id: LockerFillChemistryDeltaV
