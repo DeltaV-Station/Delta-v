@@ -161,7 +161,7 @@
     - prefRoles: [ Nukeops ]
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
-      max: 3
+      max: 1 # DeltaV
       playerRatio: 12 # DeltaV
       startingGear: SyndicateOperativeGearFull
       roleLoadout:
