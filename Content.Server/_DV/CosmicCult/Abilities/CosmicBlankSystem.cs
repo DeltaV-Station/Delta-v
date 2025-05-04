@@ -78,6 +78,7 @@ public sealed class CosmicBlankSystem : EntitySystem
                 mind.PreventGhosting = false;
                 _mind.TransferTo(mindEnt, comp.OriginalBody);
                 RemComp<CosmicBlankComponent>(comp.OriginalBody);
+                RemComp<CosmicCultExamineComponent>(comp.OriginalBody);
                 _popup.PopupEntity(Loc.GetString("cosmicability-blank-return"), comp.OriginalBody, comp.OriginalBody);
                 QueueDel(uid);
             }
