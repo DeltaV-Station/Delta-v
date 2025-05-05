@@ -1,0 +1,37 @@
+- type: tool
+  id: Censer
+  name: tool-quality-censer-name
+  toolName: tool-quality-censer-tool-name
+  spawn: CosmicCenser
+  icon: { sprite: Objects/Tools/welder.rsi, state: icon }
+
+- type: entity
+  parent: BaseItem
+  id: CosmicCenser
+  name: censer
+  description: Deconverts cultists
+  components:
+  - type: Item
+    size: Small
+    sprite: Objects/Tools/welder.rsi
+  - type: Sprite
+    sprite: Objects/Tools/welder.rsi
+    layers:
+    - state: icon
+  - type: ItemToggle
+    predictable: false
+  - type: CosmicCenser
+  - type: Tool
+    qualities: Censer
+  - type: Welder
+    fuelSolutionName: Censer
+    fuelReagent: Holywater
+  - type: RefillableSolution
+    solution: Censer
+  - type: SolutionContainerManager
+    solutions:
+      Censer:
+        reagents:
+        - ReagentId: Holywater
+          Quantity: 100
+        maxVol: 100
