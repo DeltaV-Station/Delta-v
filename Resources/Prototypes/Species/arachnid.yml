@@ -19,6 +19,7 @@
   sprites:
     Head: MobArachnidHead
     Snout: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking # imp, arachnid hair arachnid hair!
     UndergarmentTop: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobArachnidTorso
@@ -50,7 +51,7 @@
       required: true
       defaultMarkings: [ ArachnidEyesDefault ]
     Hair:
-      points: 0
+      points: 1
       required: false
     FacialHair:
       points: 0
