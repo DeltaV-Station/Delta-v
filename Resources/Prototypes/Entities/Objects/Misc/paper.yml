@@ -471,6 +471,19 @@
     - state: folder-centcom
     - state: folder-base
 
+# begin DeltaV additions
+- type: entity
+  id: BoxFolderSecret
+  name: emergency security orders
+  parent: BoxFolderBase
+  categories: [ DoNotMap ]
+  description: TOP SECRET. These documents specify the Emergency Orders that the HoS must carry out when ordered by Central Command.
+  components:
+  - type: Sprite
+    layers:
+    - state: folder-sec-doc
+# end DeltaV additions
+
 - type: entity
   id: BoxFolderClipboard
   parent: BoxFolderBase
