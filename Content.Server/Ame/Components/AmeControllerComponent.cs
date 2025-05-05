@@ -118,7 +118,7 @@ public sealed partial class AmeControllerComponent : SharedAmeControllerComponen
     /// How many times should an alert be raised before shut down.
     /// </summary>
     /// <remarks>
-    /// It doesn't include the alert at 10%. Actual total alerts would be N + 1.
+    /// Sometimes fires one more than it should because of rounding.
     /// </remarks>
     [DataField]
     public int FuelAlertFrequency = 4;
