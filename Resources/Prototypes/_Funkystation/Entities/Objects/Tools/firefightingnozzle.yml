@@ -48,3 +48,22 @@
     providerWhitelist:
       tags:
       - AtmosBackTank
+
+- type: entity
+  parent: [ BaseCivilianContraband, SmokeGrenade ]
+  categories: [ HideSpawnMenu ]
+  id: AtmosResin
+  name: atmos resin
+  description: Special grenade for atmosians.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Grenades/frozen-smoke-capsule.rsi
+    state: icon
+  - type: SmokeOnTrigger
+    isResin: true
+    duration: 5
+    spreadAmount: 1000
+    smokePrototype: Resin
+  - type: ActiveTimerTrigger
+    timeRemaining: 0.3
+  - type: DeleteOnTrigger
