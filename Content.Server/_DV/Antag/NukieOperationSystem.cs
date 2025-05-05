@@ -31,6 +31,7 @@ public sealed class NukieOperationSystem : EntitySystem
         SubscribeLocalEvent<NukieOperationComponent, AfterAntagEntitySelectedEvent>(OnAntagSelected);
         SubscribeLocalEvent<GetNukeCodePaperWriting>(OnNukeCodePaperWritingEvent);
     }
+
     /// <summary>
     /// This runs the automatic war declaration, distributes TC, and makes sure it only happens when it's not hostage ops.
     /// </summary>
