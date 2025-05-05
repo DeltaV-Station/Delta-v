@@ -9,7 +9,7 @@
   collisionMask: FullTileMask
   rotation: Camera
   fx: EffectRCDConstruct4
-  
+
 - type: rcd
   id: PostLight
   category: Lighting
@@ -20,7 +20,7 @@
   delay: 1
   rotation: User
   fx: EffectRCDConstruct1
-  
+
   #Experimental RCD
 - type: rcd
   id: WallReinforced
@@ -33,7 +33,7 @@
   collisionMask: FullTileMask
   rotation: Fixed
   fx: EffectRCDConstruct2
-  
+
 - type: rcd
   id: PlasmaWindow
   category: WindowsAndGrilles
@@ -47,7 +47,7 @@
     - IsWindow
   rotation: Fixed
   fx: EffectRCDConstruct2
-  
+
 - type: rcd
   id: ReinforcedPlasmaWindow
   category: WindowsAndGrilles
@@ -61,7 +61,7 @@
     - IsWindow
   rotation: Fixed
   fx: EffectRCDConstruct2
-  
+
 - type: rcd
   id: PlasmaWindowDirectional
   category: WindowsAndGrilles
@@ -89,7 +89,7 @@
     - IsWindow
   rotation: Fixed
   fx: EffectRCDConstruct2
-  
+
 - type: rcd
   id: AirlockExternal
   category: Airlocks
@@ -101,7 +101,7 @@
   collisionMask: FullTileMask
   rotation: Camera
   fx: EffectRCDConstruct4
-  
+
 - type: rcd
   id: AirlockExternalGlass
   category: Airlocks
@@ -113,4 +113,4 @@
   collisionMask: FullTileMask
   rotation: Camera
   fx: EffectRCDConstruct4
-  
+
