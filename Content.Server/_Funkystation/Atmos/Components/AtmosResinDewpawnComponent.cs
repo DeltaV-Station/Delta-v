@@ -1,6 +1,6 @@
-using Content.Server.Atmos.EntitySystems;
+using Content.Server._Funkystation.Atmos.EntitySystems;
 
-namespace Content.Server.Atmos.Components;
+namespace Content.Server._Funkystation.Atmos.Components;
 
 /// <summary>
 /// ATMOS - Extinguisher Nozzle

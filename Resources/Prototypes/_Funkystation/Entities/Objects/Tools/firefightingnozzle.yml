@@ -10,12 +10,12 @@
   - type: Item
     sprite: _Funkystation/Objects/Weapons/Guns/Basic/extinguishernozzle.rsi
     size: Normal
-  - type: FirefightingNozzle
+  - type: FirefighterTankRefillable
     externalContainer: true
     targetSlot: BACK
     providerWhitelist:
       tags:
-      - AtmosBackTank
+      - Nozzle
   - type: Tag
     tags:
     - AtmosBackTank
@@ -50,6 +50,7 @@
       path: /Audio/Items/hiss.ogg
     clumsyProof: true
   - type: ClothingSlotAmmoProvider
+    checkHands: true
     targetSlot: BACK
     providerWhitelist:
       tags:
@@ -66,7 +67,7 @@
     sprite: _Funkystation/Objects/Weapons/Grenades/frozen-smoke-capsule.rsi
     state: icon
   - type: SmokeOnTrigger
-    duration: 12
+    duration: 8
     spreadAmount: 1000
     smokePrototype: Resin
   - type: ActiveTimerTrigger

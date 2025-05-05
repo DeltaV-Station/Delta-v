@@ -17,6 +17,7 @@ using System.Numerics;
 using Robust.Shared.Map;
 using Content.Shared.Inventory; //  DeltaV - ATMOS Extinguisher Nozzle
 using Content.Shared.Whitelist; //  DeltaV - ATMOS Extinguisher Nozzle
+using Content.Shared.Hands.EntitySystems; // DeltaV - ATMOS Extinguisher Nozzle
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -34,6 +35,7 @@ public sealed class SpraySystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly InventorySystem _inventory = default!; //  DeltaV - ATMOS Extinguisher Nozzle
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; //  DeltaV - ATMOS Extinguisher Nozzle
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!; // DeltaV - ATMOS Extinguisher Nozzle
 
     public override void Initialize()
     {
@@ -75,13 +77,40 @@ public sealed class SpraySystem : EntitySystem
 
         if (entity.Comp.ExternalContainer == true)
         {
-            if (!_inventory.TryGetContainerSlotEnumerator(user, out var enumerator, entity.Comp.TargetSlot)) return;
-            while (enumerator.NextItem(out var item))
+            bool foundContainer = false;
+
+            // Check held items (exclude nozzle)
+            foreach (var item in _handsSystem.EnumerateHeld(user))
             {
-                if (_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item)) continue;
-                sprayOwner = item;
-                solutionName = SprayComponent.TankSolutionName;
+                if (item == entity.Owner)
+                {
+                    continue;
+                }
+
+                if (!_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item) &&
+                    _solutionContainer.TryGetSolution(item, SprayComponent.TankSolutionName, out _, out _))
+                {
+                    sprayOwner = item;
+                    solutionName = SprayComponent.TankSolutionName;
+                    foundContainer = true;
+                    break;
+                }
             }
+                // Fall back to target slot
+                if (!foundContainer && _inventory.TryGetContainerSlotEnumerator(user, out var enumerator, entity.Comp.TargetSlot))
+                {
+                while (enumerator.NextItem(out var item))
+                    {
+                    if (!_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item) &&
+                        _solutionContainer.TryGetSolution(item, SprayComponent.TankSolutionName, out _, out _))
+                        {
+                        sprayOwner = item;
+                        solutionName = SprayComponent.TankSolutionName;
+                        foundContainer = true;
+                        break;
+                        }
+                    }
+                }
         }
 
         if (!_solutionContainer.TryGetSolution(sprayOwner, solutionName, out var soln, out var solution)) return;
