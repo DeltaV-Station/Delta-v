@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/discordia-space/CEV-Eris/blob/81b3a082ccdfb425f36bbed6e5bc1f0faed346ec/icons/effects/effects.dmi, foam_directionals by brainfood1183 (github) ; Ported to DeltaV by zelezniciar1",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "resin"
+        },
+        {
+            "name": "resin-west"
+        },
+        {
+            "name": "resin-east"
+        },
+        {
+            "name": "resin-north"
+        },
+        {
+            "name": "resin-south"
+        },
+        {
+            "name": "resin-dissolve",
+            "directions": 1,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        }
+    ]
+}

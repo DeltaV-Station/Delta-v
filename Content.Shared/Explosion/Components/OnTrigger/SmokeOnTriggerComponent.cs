@@ -39,4 +39,10 @@ public sealed partial class SmokeOnTriggerComponent : Component
     /// </remarks>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public Solution Solution = new();
+
+    /// <remarks>
+    /// Delta V - ATMOS Extinguisher Nozzle.
+    /// </remarks>
+    [DataField]
+    public bool IsResin = false;
 }
