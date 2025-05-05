@@ -53,3 +53,4 @@ public sealed class SmokeOnTriggerSystem : SharedSmokeOnTriggerSystem
         _smoke.StartSmoke(ent, comp.Solution, comp.Duration, comp.SpreadAmount, comp.IsResin, smoke); // DeltaV - ATMOS Extinguisher Nozzle
         //_smoke.StartSmoke(ent, comp.Solution, comp.Duration, comp.SpreadAmount, smoke);    }
 }
+}
