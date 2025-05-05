@@ -4,7 +4,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Radio; // DeltaV
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype; // DeltaV
+using Robust.Shared.Prototypes; // DeltaV
 
 namespace Content.Server.Ame.Components;
 
@@ -102,7 +102,7 @@ public sealed partial class AmeControllerComponent : SharedAmeControllerComponen
     public TimeSpan CooldownDuration = TimeSpan.FromSeconds(10f);
 
     // Begin DeltaV
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
+    [DataField(customTypeSerializer: typeof(ProtoId<RadioChannelPrototype>))]
     public string AlertChannel = "Engineering";
 
     [DataField]

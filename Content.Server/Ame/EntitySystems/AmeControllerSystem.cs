@@ -6,24 +6,21 @@ using Content.Server.Ame.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.NodeContainer;
 using Content.Server.Power.Components;
-using Content.Server.Radio.EntitySystems; // DeltaV
 using Content.Shared.Ame.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.Mind.Components;
 using Content.Shared.Power;
-using Content.Shared.Radio; // DeltaV
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes; // DeltaV
 using Robust.Shared.Timing;
 
 namespace Content.Server.Ame.EntitySystems;
 
-public sealed class AmeControllerSystem : EntitySystem
+public sealed partial class AmeControllerSystem : EntitySystem // DeltaV - made partial
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
@@ -31,8 +28,6 @@ public sealed class AmeControllerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly RadioSystem _radioSystem = default!; // DeltaV
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // DeltaV
 
     public override void Initialize()
     {
@@ -81,30 +76,6 @@ public sealed class AmeControllerSystem : EntitySystem
 
         UpdateUi(uid, component);
     }
-
-    // Begin DeltaV
-    private void AlertLowFuel(EntityUid uid, AmeControllerComponent controller, AmeFuelContainerComponent fuelJar)
-    {
-        if (fuelJar.FuelAmount > controller.FuelAlertLevel)
-        {
-            controller.FuelAlertCountdown = 0; // In case of refueling, this sets the countdown to immidiately trigger on next alert.
-            return;
-        }
-
-        controller.FuelAlertCountdown -= controller.InjectionAmount;
-
-        if (controller.FuelAlertCountdown > 0)
-            return;
-
-        controller.FuelAlertCountdown = controller.FuelAlertLevel / controller.FuelAlertFrequency;
-
-        var fuelRatio = fuelJar.FuelAmount / (float)fuelJar.FuelCapacity;
-        _radioSystem.SendRadioMessage(uid,
-            Loc.GetString("ame-controller-component-low-fuel-warning",
-                ("percentage", Math.Round(fuelRatio * 100f))),
-            _prototypeManager.Index<RadioChannelPrototype>(controller.AlertChannel), uid);
-    }
-    // End DeltaV
 
     private void UpdateController(EntityUid uid, TimeSpan curTime, AmeControllerComponent? controller = null, NodeContainerComponent? nodes = null)
     {
