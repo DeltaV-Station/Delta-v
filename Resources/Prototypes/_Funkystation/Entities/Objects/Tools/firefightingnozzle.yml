@@ -60,8 +60,7 @@
     sprite: _Funkystation/Objects/Weapons/Grenades/frozen-smoke-capsule.rsi
     state: icon
   - type: SmokeOnTrigger
-    isResin: true
-    duration: 5
+    duration: 12
     spreadAmount: 1000
     smokePrototype: Resin
   - type: ActiveTimerTrigger

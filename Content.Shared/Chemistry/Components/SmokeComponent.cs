@@ -38,10 +38,4 @@ public sealed partial class SmokeComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float Duration = 10;
 
-
-    /// <summary>
-    /// DeltaV - ATMOS Extinguisher Nozzle. 
-    /// </summary>
-    [DataField]
-    public bool IsResin = false;
 }
