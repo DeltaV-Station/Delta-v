@@ -83,7 +83,7 @@ public sealed class AmeControllerSystem : EntitySystem
     }
 
     // Begin DeltaV
-    private void CheckForLowFuel(EntityUid uid, AmeControllerComponent controller, AmeFuelContainerComponent fuelJar)
+    private void AlertLowFuel(EntityUid uid, AmeControllerComponent controller, AmeFuelContainerComponent fuelJar)
     {
         if (fuelJar.FuelAmount > controller.FuelAlertLevel)
         {
@@ -141,7 +141,7 @@ public sealed class AmeControllerSystem : EntitySystem
                     _audioSystem.PlayPvs(controller.InjectSound, uid, AudioParams.Default.WithVolume(overloading ? 10f : 0f));
                 UpdateUi(uid, controller);
 
-                CheckForLowFuel(uid, controller, fuelContainer); // Nyano-code: low fuel alert.
+                AlertLowFuel(uid, controller, fuelContainer); // DeltaV
             }
         }
 
