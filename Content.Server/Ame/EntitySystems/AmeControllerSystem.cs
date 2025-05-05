@@ -82,33 +82,29 @@ public sealed class AmeControllerSystem : EntitySystem
         UpdateUi(uid, component);
     }
 
-    // Begin Nyano-code: low fuel alert.
+    // Begin DeltaV
     private void CheckForLowFuel(EntityUid uid, AmeControllerComponent controller, AmeFuelContainerComponent fuelJar)
     {
-        var fuelRatio = (float) fuelJar.FuelAmount / (float) fuelJar.FuelCapacity;
-        if (fuelRatio > controller.FuelAlertLevel)
+        if (fuelJar.FuelAmount > controller.FuelAlertLevel)
         {
-            // Fuel's sufficient; exit early.
-            controller.FuelAlertCountdown = controller.FuelAlertFrequency;
+            controller.FuelAlertCountdown = 0; // In case of refueling, this sets the countdown to immidiately trigger on next alert.
             return;
         }
 
-        // Fuel's low; count down.
-        --controller.FuelAlertCountdown;
+        controller.FuelAlertCountdown -= controller.InjectionAmount;
 
         if (controller.FuelAlertCountdown > 0)
             return;
 
-        // Countdown's at zero; reset it.
-        controller.FuelAlertCountdown = controller.FuelAlertFrequency;
+        controller.FuelAlertCountdown = controller.FuelAlertLevel / controller.FuelAlertFrequency;
 
-        // Raise an alert.
+        var fuelRatio = fuelJar.FuelAmount / (float)fuelJar.FuelCapacity;
         _radioSystem.SendRadioMessage(uid,
             Loc.GetString("ame-controller-component-low-fuel-warning",
                 ("percentage", Math.Round(fuelRatio * 100f))),
             _prototypeManager.Index<RadioChannelPrototype>(controller.AlertChannel), uid);
     }
-    // End Nyano-code.
+    // End DeltaV
 
     private void UpdateController(EntityUid uid, TimeSpan curTime, AmeControllerComponent? controller = null, NodeContainerComponent? nodes = null)
     {

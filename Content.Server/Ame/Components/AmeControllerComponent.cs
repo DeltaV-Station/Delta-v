@@ -101,33 +101,26 @@ public sealed partial class AmeControllerComponent : SharedAmeControllerComponen
     [DataField]
     public TimeSpan CooldownDuration = TimeSpan.FromSeconds(10f);
 
-    // Begin Nyano-code: low fuel alert.
-    [DataField("alertChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
-    [ViewVariables(VVAccess.ReadWrite)]
+    // Begin DeltaV
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
     public string AlertChannel = "Engineering";
 
-    /// <summary>
-    /// The percentage at which the AME fuel jar has to pass in order for the alert countdown to begin.
-    /// </summary>
-    [DataField("fuelAlertLevel")]
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float FuelAlertLevel = 0.1f;
+    [DataField]
+    public int FuelAlertLevel = 50;
 
     /// <summary>
     /// The number of injections left before an alert is raised.
     /// </summary>
-    /// <remarks>
-    /// This is reset any time the fuel is over FuelAlertLevel.
-    /// </remarks>
-    [DataField("fuelAlertCountdown")]
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int FuelAlertCountdown;
+    [DataField]
+    public int FuelAlertCountdown = 0;
 
     /// <summary>
-    /// How many injections between radio reports.
+    /// How many times should an alert be raised before shut down.
     /// </summary>
-    [DataField("fuelAlertFrequency")]
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int FuelAlertFrequency = 3;
-    // End Nyano-code.
+    /// <remarks>
+    /// It doesn't include the alert at 10%. Actual total alerts would be N + 1.
+    /// </remarks>
+    [DataField]
+    public int FuelAlertFrequency = 4;
+    // End DeltaV
 }
