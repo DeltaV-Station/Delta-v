@@ -49,7 +49,7 @@ public sealed class CaptainStateSystem : EntitySystem
         {
             if (captainState.IsACORequestActive)
             {
-                Log.Error($"{ToPrettyString(station)} IsACORequestActive true before ACO request time.");
+                Log.Warning($"{ToPrettyString(station)} IsACORequestActive true before ACO request time.");
                 captainState.IsACORequestActive = false;
             }
 
