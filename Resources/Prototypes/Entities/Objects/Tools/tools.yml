@@ -370,7 +370,7 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RcdUiKey.Key
-    
+
 - type: entity
   id: RCDEmpty
   parent: RCD
@@ -391,7 +391,7 @@
     charges: 20
   - type: AutoRecharge
     rechargeDuration: 10
-    # DeltaV - Begin additions. Added extra items that can be made with the experimental RCD and new sprites
+# DeltaV - Begin additions. Added extra items that can be made with the experimental RCD and new sprites
   - type: RCD
     availablePrototypes:
       - WallSolid
@@ -424,8 +424,7 @@
       - ReinforcedPlasmaWindow
   - type: Sprite
     sprite: _DV/Objects/Tools/RCD_experimental.rsi
-    state: icon
-    # DeltaV - End additions
+# End DeltaV additions
 
 
 - type: entity
@@ -437,11 +436,10 @@
   components:
   - type: AutoRecharge
     rechargeDuration: 1
-    # additions here
+# DeltaV - begin additions. New experimental RCD sprite
   - type: Sprite
     sprite: _DV/Objects/Tools/RCD_experimental.rsi
-    state: icon
-
+# End DeltaV additions
 
 - type: entity
   name: compressed matter
