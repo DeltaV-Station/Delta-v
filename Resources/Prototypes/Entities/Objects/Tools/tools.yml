@@ -342,11 +342,13 @@
     - HVCable
     - CableTerminal
     - Deconstruct
+    - Windoor # DeltaV - Added base RCD windoors
+    - PostLight # DeltaV - added base RCD postlight
   - type: LimitedCharges
     maxCharges: 30
     charges: 30
   - type: Sprite
-    sprite: Objects/Tools/rcd.rsi
+    sprite: _DV/Objects/Tools/RCD.rsi # DeltaV - RCD inhand resprite
     state: icon
   - type: Item
     size: Normal
@@ -368,7 +370,7 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RcdUiKey.Key
-
+    
 - type: entity
   id: RCDEmpty
   parent: RCD
@@ -389,6 +391,42 @@
     charges: 20
   - type: AutoRecharge
     rechargeDuration: 10
+    # DeltaV - Begin additions. Added extra items that can be made with the experimental RCD and new sprites
+  - type: RCD
+    availablePrototypes:
+      - WallSolid
+      - FloorSteel
+      - Plating
+      - Catwalk
+      - Grille
+      - Window
+      - WindowDirectional
+      - WindowReinforcedDirectional
+      - ReinforcedWindow
+      - Airlock
+      - AirlockGlass
+      - Firelock
+      - TubeLight
+      - BulbLight
+      - LVCable
+      - MVCable
+      - HVCable
+      - CableTerminal
+      - Deconstruct
+      - Windoor
+      - PostLight
+      - WallReinforced
+      - PlasmaWindow
+      - ReinforcedPlasmaWindow
+      - PlasmaWindowDirectional
+      - PlasmaReinforcedWindowDirectional
+      - AirlockExternal
+      - AirlockExternalGlass
+  - type: Sprite
+    sprite: _DV/Objects/Tools/RCD_experimental.rsi
+    state: icon
+    # DeltaV - End additions
+
 
 - type: entity
   id: RCDExperimental
@@ -399,6 +437,11 @@
   components:
   - type: AutoRecharge
     rechargeDuration: 1
+    # additions here
+  - type: Sprite
+    sprite: _DV/Objects/Tools/RCD_experimental.rsi
+    state: icon
+
 
 - type: entity
   name: compressed matter
