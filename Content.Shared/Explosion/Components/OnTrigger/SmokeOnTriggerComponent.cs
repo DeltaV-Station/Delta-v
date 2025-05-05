@@ -39,5 +39,4 @@ public sealed partial class SmokeOnTriggerComponent : Component
     /// </remarks>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public Solution Solution = new();
-    
 }

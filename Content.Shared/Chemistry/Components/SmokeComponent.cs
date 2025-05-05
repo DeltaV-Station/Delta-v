@@ -37,5 +37,4 @@ public sealed partial class SmokeComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float Duration = 10;
-
 }
