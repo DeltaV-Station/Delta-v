@@ -1,6 +1,6 @@
 - type: entity
-  id: OrganOniStomach
   parent: OrganHumanStomach
+  id: OrganOniStomach
   name: oni stomach
   description: Ew, this is hard to stomach. Larger than normal
   components:
@@ -25,8 +25,8 @@
     metabolizerTypes: [Oni, Animal]
 
 - type: entity
-  id: OrganOniLiver
   parent: OrganHumanLiver
+  id: OrganOniLiver
   name: oni liver
   components:
   - type: Metabolizer
