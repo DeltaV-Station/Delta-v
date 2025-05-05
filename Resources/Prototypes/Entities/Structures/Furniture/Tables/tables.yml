@@ -245,6 +245,8 @@
       types:
         Blunt: 8
     bonkTime: 3
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableGlass
@@ -299,6 +301,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableReinforcedGlass
@@ -356,6 +360,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TablePlasmaGlass
@@ -413,6 +419,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableBrass
@@ -456,6 +464,8 @@
   - type: Construction
     graph: Table
     node: TableBrass
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableWood
@@ -505,6 +515,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepWood
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableCarpet
@@ -548,6 +560,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableStone
@@ -575,6 +589,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepFloor
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableWeb
@@ -609,6 +625,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 # Fancy tables
 
@@ -648,6 +666,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableFancyBlue
