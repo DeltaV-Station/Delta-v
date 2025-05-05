@@ -391,7 +391,7 @@
     charges: 20
   - type: AutoRecharge
     rechargeDuration: 10
-# DeltaV - Begin additions. Added extra items that can be made with the experimental RCD and new sprites
+# Begin DeltaV additions. Added extra items that can be made with the experimental RCD and new sprites
   - type: RCD
     availablePrototypes:
       - WallSolid
@@ -436,7 +436,7 @@
   components:
   - type: AutoRecharge
     rechargeDuration: 1
-# DeltaV - begin additions. New experimental RCD sprite
+# Begin DeltaV additions. New experimental RCD sprite
   - type: Sprite
     sprite: _DV/Objects/Tools/RCD_experimental.rsi
 # End DeltaV additions
