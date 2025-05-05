@@ -6,19 +6,19 @@ using Content.Server.Ame.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.NodeContainer;
 using Content.Server.Power.Components;
-using Content.Server.Radio.EntitySystems;
+using Content.Server.Radio.EntitySystems; // DeltaV
 using Content.Shared.Ame.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.Mind.Components;
 using Content.Shared.Power;
-using Content.Shared.Radio;
+using Content.Shared.Radio; // DeltaV
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Prototypes; // DeltaV
 using Robust.Shared.Timing;
 
 namespace Content.Server.Ame.EntitySystems;
@@ -32,7 +32,7 @@ public sealed class AmeControllerSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly RadioSystem _radioSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // DeltaV
 
     public override void Initialize()
     {
