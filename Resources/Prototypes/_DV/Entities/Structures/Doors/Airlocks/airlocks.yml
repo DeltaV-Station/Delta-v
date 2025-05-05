@@ -18,6 +18,14 @@
   - type: Sprite
     sprite: _DV/Structures/Doors/Airlocks/Standard/roboticist.rsi
 
+- type: entity
+  parent: AirlockCargo
+  id: AirlockSalvage
+  suffix: Salvage
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Doors/Airlocks/Standard/salvage.rsi
+
 # Glass
 
 - type: entity
@@ -39,3 +47,11 @@
   components:
   - type: Sprite
     sprite: _DV/Structures/Doors/Airlocks/Glass/roboticist.rsi
+
+- type: entity
+  parent: AirlockCargoGlass
+  id: AirlockSalvageGlass
+  suffix: Salvage
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Doors/Airlocks/Glass/salvage.rsi
