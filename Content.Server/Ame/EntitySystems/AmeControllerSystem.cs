@@ -31,7 +31,7 @@ public sealed class AmeControllerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly RadioSystem _radioSystem = default!;
+    [Dependency] private readonly RadioSystem _radioSystem = default!; // DeltaV
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // DeltaV
 
     public override void Initialize()
