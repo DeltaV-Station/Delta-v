@@ -65,14 +65,16 @@ public sealed class CosmicGlareSystem : EntitySystem
         var targets = new HashSet<NetEntity>(targetFilter.RemovePlayerByAttachedEntity(uid).Recipients.Select(ply => GetNetEntity(ply.AttachedEntity!.Value)));
         foreach (var target in targets)
         {
-            _flash.Flash(GetEntity(target), uid, args.Action, (float)uid.Comp.CosmicGlareDuration.TotalMilliseconds, uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun);
+            var targetEnt = GetEntity(target);
 
-            if (HasComp<WeldingHealableComponent>(GetEntity(target))) //This component is used exclusively by IPCs and borgs, so we use it here to target 'em specifically.
+            _flash.Flash(targetEnt, uid, args.Action, (float)uid.Comp.CosmicGlareDuration.TotalMilliseconds, uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun);
+
+            if (HasComp<WeldingHealableComponent>(targetEnt)) //This component is used exclusively by IPCs and borgs, so we use it here to target 'em specifically.
             {
-                _stun.TryParalyze(GetEntity(target), uid.Comp.CosmicGlareDuration / 2, true);
+                _stun.TryParalyze(targetEnt, uid.Comp.CosmicGlareDuration / 2, true);
             }
 
-            _color.RaiseEffect(Color.CadetBlue, new List<EntityUid>() { GetEntity(target) }, Filter.Pvs(GetEntity(target), entityManager: EntityManager));
+            _color.RaiseEffect(Color.CadetBlue, new List<EntityUid>() { targetEnt }, Filter.Pvs(targetEnt, entityManager: EntityManager));
         }
     }
 }
