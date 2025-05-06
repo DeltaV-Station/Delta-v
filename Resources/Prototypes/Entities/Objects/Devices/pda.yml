@@ -1560,7 +1560,7 @@
         type: ChameleonBoundUserInterface
 
 - type: entity
-  parent: BaseWidePDA
+  parent: BasePDA # DeltaV
   id: WizardPDA
   name: wizard PDA
   description: You hear faint whispers coming from it.
@@ -1577,8 +1577,8 @@
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
        !type:String
-       pda-library # DeltaV - no wizard resprite yet
+       pda-wizard # DeltaV
   - type: PdaBorderColor
-    borderColor: "#7F3300"
+    borderColor: "#b5b196" # DeltaV
   - type: Icon
-    state: pda-library # DeltaV - no wizard resprite yet
+    state: pda-wizard # DeltaV

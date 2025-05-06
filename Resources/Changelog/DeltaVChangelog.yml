@@ -1,78 +1,4 @@
 ﻿Entries:
-- author: jtbill123
-  changes:
-  - message: Added a recipe for Dead Rum. MORE DRINKS!
-    type: Add
-  id: 845
-  time: '2025-01-02T22:27:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2202
-- author: zHonys
-  changes:
-  - message: Fixed Airlocks and Firelocks not being able to be closed when de powered.
-    type: Fix
-  id: 846
-  time: '2025-01-03T07:35:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2591
-- author: Lyndomen
-  changes:
-  - message: Syndicate Cargo Technicians now get 17TC alloted to them
-    type: Tweak
-  id: 847
-  time: '2025-01-03T17:33:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2605
-- author: makyo
-  changes:
-  - message: Added traumoxadone and stelloxadone.
-    type: Add
-  - message: Doxarubixadone works on the dead now.
-    type: Tweak
-  id: 848
-  time: '2025-01-03T17:34:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2588
-- author: DisposableCrewmember42
-  changes:
-  - message: Glimmer probers now explode when unanchored using an RCD
-    type: Fix
-  id: 849
-  time: '2025-01-03T18:06:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2606
-- author: deltanedas
-  changes:
-  - message: Fixed cats being weird.
-    type: Fix
-  id: 850
-  time: '2025-01-03T18:24:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2607
-- author: deltanedas
-  changes:
-  - message: Fixed loneops, ninja, etc spawning way too early in the round.
-    type: Fix
-  id: 851
-  time: '2025-01-03T18:59:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2608
-- author: Stop-Signs
-  changes:
-  - message: Added salt, pepper, and cocoa containers to the chefvend
-    type: Add
-  id: 852
-  time: '2025-01-03T19:18:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2504
-- author: sleepyyapril
-  changes:
-  - message: Added the ability to reply to AHelps from discord.
-    type: Add
-  id: 853
-  time: '2025-01-04T00:31:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2315
-- author: Field Command
-  changes:
-  - message: Byoin station, with soft population cap of 4.
-    type: Add
-  - message: NTES Evac Basu shuttle
-    type: Add
-  id: 854
-  time: '2025-01-04T07:14:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1965
 - author: Lyndomen
   changes:
   - message: Storage Implant is now 4 TC but cannot store steal objectives, or anything
@@ -4084,3 +4010,82 @@
   id: 1344
   time: '2025-05-03T13:08:11.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3624
+- author: Oxdeception
+  changes:
+  - message: The AAC tablet now has its own typing indicator.
+    type: Add
+  id: 1345
+  time: '2025-05-03T22:36:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3595
+- author: sowelipililimute
+  changes:
+  - message: Cosmic cultist conversion now converts non-cultists instead of cultists
+    type: Fix
+  - message: Cosmic cultist projection & blanking no longer leaves the examine text
+      lingering
+    type: Fix
+  - message: Ghosts can now see The Monument
+    type: Tweak
+  id: 1346
+  time: '2025-05-04T08:08:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3627
+- author: deltanedas
+  changes:
+  - message: Fixed cosmic cultists not being able to use glyphs.
+    type: Fix
+  id: 1347
+  time: '2025-05-05T03:24:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3635
+- author: deltanedas
+  changes:
+  - message: Fixed Robo-Neuroticist being rarer than it should be.
+    type: Fix
+  id: 1348
+  time: '2025-05-06T01:25:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3644
+- author: nkokic
+  changes:
+  - message: Added AME's low fuel alert system. Fires 4 times until shut down.
+    type: Add
+  id: 1349
+  time: '2025-05-06T12:28:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3639
+- author: Spielern
+  changes:
+  - message: IPCs no longer bleed when taking Cold damage.
+    type: Tweak
+  id: 1350
+  time: '2025-05-06T14:06:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3646
+- author: AveriV2
+  changes:
+  - message: Made the breaching hammer hit harder but swing slower!
+    type: Tweak
+  id: 1351
+  time: '2025-05-06T15:49:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3632
+- author: Lyndomen
+  changes:
+  - message: Uplink catalog has been tuned a bit! Expect consumable and utility items
+      to be much cheaper, with more expensive guns.
+    type: Tweak
+  id: 1352
+  time: '2025-05-06T15:51:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3509
+- author: AftrLite
+  changes:
+  - message: Cosmic Cult prerelease balance pass!
+    type: Tweak
+  id: 1353
+  time: '2025-05-06T15:58:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3649
+- author: sowelipililimute
+  changes:
+  - message: Cosmic cultists are now deconverted via censer instead of by metabolising
+      holy water, and trying to deconvert a non-cultist has consequences
+    type: Tweak
+  - message: Cosmic cultist deconversion popup now shows up
+    type: Fix
+  id: 1354
+  time: '2025-05-06T19:28:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3636

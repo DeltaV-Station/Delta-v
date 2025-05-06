@@ -11,16 +11,3 @@
   - type: CosmicCultRole
   - type: RoleBriefing
     briefing: objective-cosmiccult-charactermenu
-
-# Ascendant Event
-- type: entity
-  parent: BaseMindRoleAntag
-  id: MindRoleCosmicAscended
-  name: Rogue Ascended Role
-  components:
-  - type: MindRole
-    antagPrototype: RogueAscended
-    subtype: role-subtype-rogue-ascended
-    roleType: TeamAntagonist
-    exclusiveAntag: true
-  - type: RogueAscendedRole

@@ -12,29 +12,29 @@
   action: ActionCosmicLapse
   tier: 1
 
-# - type: influence
-#   id: InfluenceNullGlare
-#   name: influence-name-glare
-#   influenceType: influence-type-active
-#   cost: 10
-#   description: influence-description-glare
-#   icon:
-#     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
-#     state: glare
-#   action: ActionCosmicGlare
-#   tier: 1
-
 - type: influence
-  id: InfluenceShuntSubjectivity
-  name: influence-name-shunt
+  id: InfluenceNullGlare
+  name: influence-name-glare
   influenceType: influence-type-active
-  cost: 10
-  description: influence-description-shunt
+  cost: 12
+  description: influence-description-glare
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
-    state: blank
-  action: ActionCosmicBlank
+    state: glare
+  action: ActionCosmicGlare
   tier: 1
+
+# - type: influence
+#   id: InfluenceShuntSubjectivity
+#   name: influence-name-shunt
+#   influenceType: influence-type-active
+#   cost: 10
+#   description: influence-description-shunt
+#   icon:
+#     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+#     state: blank
+#   action: ActionCosmicBlank
+#   tier: 1
 
 - type: influence
   id: InfluenceForceIngress
@@ -79,7 +79,7 @@
   id: InfluenceEschewMetabolism
   name: influence-name-eschew
   influenceType: influence-type-passive
-  cost: 10
+  cost: 8
   description: influence-description-eschew
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -106,7 +106,7 @@
   id: InfluenceAstralStride
   name: influence-name-stride
   influenceType: influence-type-passive
-  cost: 20
+  cost: 18
   description: influence-description-stride
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
