@@ -23,7 +23,7 @@ public sealed class CaptainStateSystem : EntitySystem
     private bool _aaEnabled;
     private bool _acoOnDeparture;
     private TimeSpan _aaDelay;
-    private TimeSpan _acoDelay;
+    private TimeSpan _acoDelay = TimeSpan.FromMinutes(15); // just to prevent weird behaviour in tests
 
     public override void Initialize()
     {
@@ -43,12 +43,13 @@ public sealed class CaptainStateSystem : EntitySystem
         var currentTime = _ticker.RoundDuration(); // Caching to reduce redundant calls
         if (currentTime < _acoDelay) // Avoid timing issues. No need to run before _acoDelay is reached anyways.
             return;
+
         var query = EntityQueryEnumerator<CaptainStateComponent>();
         while (query.MoveNext(out var station, out var captainState))
         {
-            if (currentTime < _acoDelay && captainState.IsACORequestActive == true) // Avoid timing issues. No need to run before _acoDelay is reached anyways.
+            if (captainState.IsACORequestActive)
             {
-                Log.Error($"{captainState} IsACORequestActive true before ACO request time.");
+                Log.Warning($"{ToPrettyString(station)} IsACORequestActive true before ACO request time.");
                 captainState.IsACORequestActive = false;
             }
 
