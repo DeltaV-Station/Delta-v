@@ -12,6 +12,7 @@
   - type: Tag
     tags:
     - Sheet
+    - BorgMaterial # DeltaV
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -117,6 +118,7 @@
   - type: Tag
     tags:
     - Sheet
+    - BorgMaterial # DeltaV
 
 - type: entity
   parent: SheetPlasma

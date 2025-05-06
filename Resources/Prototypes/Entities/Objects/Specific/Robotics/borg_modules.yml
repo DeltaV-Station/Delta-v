@@ -472,6 +472,7 @@
     - RemoteSignaller
     - GasAnalyzer
     - GeigerCounter
+    - HolofanProjector # DeltaV - borgs can have holofans
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-tools-module }
 
@@ -513,6 +514,18 @@
       whitelist:
         components:
         - FloorTile
+    - id: CapacitorStockPart
+      whitelist:
+        tags:
+        - BorgStockPart
+    - id: MicroManipulatorStockPart
+      whitelist:
+        tags:
+        - BorgStockPart
+    - id: MatterBinStockPart
+      whitelist:
+        tags:
+        - BorgStockPart
     # End DeltaV Additions
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: construction-module }
