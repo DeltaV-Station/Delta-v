@@ -197,15 +197,6 @@
     containers:
       board: [ DoorElectronicsRobotics ]
 
-- type: entity
-  parent: AirlockSalvage
-  id: AirlockSalvageLocked
-  suffix: Salvage, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsSalvage ]
-
 # Add airlocks from upstream roles
 - type: entity
   parent: AirlockServiceLocked
@@ -466,15 +457,6 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsRobotics ]
-
-- type: entity
-  parent: AirlockSalvageGlass
-  id: AirlockSalvageGlassLocked
-  suffix: Salvage, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsSalvage ]
 
 # Maintenance Hatches
 - type: entity

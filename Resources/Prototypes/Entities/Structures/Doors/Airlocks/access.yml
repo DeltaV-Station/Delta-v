@@ -224,12 +224,14 @@
 
 - type: entity
   parent: AirlockCargo
-  id: AirlockSalvageLockedSprite # DeltaV
+  id: AirlockSalvageLocked
   suffix: Salvage, Locked
   components:
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSalvage ]
+  - type: Sprite
+    sprite: _DV/Structures/Doors/Airlocks/Standard/salvage.rsi # DeltaV
 
 - type: entity
   parent: AirlockMining
@@ -619,12 +621,14 @@
 
 - type: entity
   parent: AirlockCargoGlass
-  id: AirlockSalvageLockedGlassSprite # DeltaV
+  id: AirlockSalvageLockedGlass
   suffix: Salvage, Locked
   components:
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSalvage ]
+  - type: Sprite
+    sprite: _DV/Structures/Doors/Airlocks/Glass/salvage.rsi # DeltaV
 
 - type: entity
   parent: AirlockMiningGlass
