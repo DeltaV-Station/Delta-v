@@ -454,21 +454,41 @@ Rooms included but not limited to:
 * TEG rooms
 * Artifact chambers
 * Maintenance tunnles
-
-===Pressure In Pipe Networks===
-It is recommended to set target pressure in source and transport pipe networks below maximum of 202.65 kPa.
-Waste networks are to be at minimal pressure to avoid any build up of hazardous gases.
-
-Pipe networks designated for storage do not need to abide to pressure recommendation.
-
-Pipe networks designated for scientific research or enegetics do not need to abide to recommendations.
-However, they are not to be deployed in habitable rooms.
-
-Disconnecting pipes with pressure significantly above 202.65 kPa or containing hazardous gases above 1 mol, requires total disposal of hazardous gases and lowering pressure to 101.325 kPa or less.
-Disconnecting pipes with temperature significantly outside of habitable temperatures are mandatory to be emptied.
 ===Burn Chamber===
 Room specified for conducting burns. They are required to have the following:
 * Release mechanism to let any object or gases out into the free space, without endangering the station or its crew.
 * Barrier equal to or stronger than 1 meter of reinforced glass.
 * All windows must have 1 meter of free space towards the station's habitable or maintenance rooms.
 * No airlocks directly leading to the station's habitable or maintenance rooms.
+
+===Pressure In Pipe Networks===
+It is recommended to set target pressure in source and transport pipe networks below maximum of 202.65 kPa.
+Waste networks are to be kept at minimal pressure. Avoid any build up of hazardous gases.
+
+Pipe networks designated for storage do not need to abide to pressure recommendation.
+
+Pipe networks designated for scientific research or enegetics do not need to abide to recommendations.
+However, they are not to be deployed in habitable rooms.
+
+===Pipe Removal Proceedure===
+Disconnecting pipes is often very dangerous. Before disconnecting a pipe in habitable or maintenance room, check for the following hazards:
+* Pressure significantly above 202.65 kPa.
+* Presence of hazardous gases above 0.5 mol.
+* Temperature significantly outside maintenance room temperature interval.
+
+If any hazard in the pipe is present, proceed with the following guide:
+# Empty the pipe with network with it's pumps.
+# If no pump can empty the pipe:
+## The perimeter has to be evacuated
+## The perimeter has to be atmospherically secured
+## Equip necessary PPE with internals
+## Expose the perimeter to free space
+## Disconnect the pipe
+## Seal and return the prerimeter to normal
+# If perimeter cannot be secured:
+## The whole room has to be evacuated
+## All airlocks have to bolted to prevent crew harm
+## Equip necessary PPE with internals
+## Expose the room to free space
+## Disconnect the pipe
+## Seal and return the room to normal
