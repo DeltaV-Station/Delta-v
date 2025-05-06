@@ -50,6 +50,7 @@
         - FaxableObject #used to be PaperComponent - brainfood1183
       blacklist:
         tags:
+        - CargoSlip
         - PaperSlip # DeltaV - Prevent the faxing of paper slips.
   - type: GenericVisualizer
     visuals:
