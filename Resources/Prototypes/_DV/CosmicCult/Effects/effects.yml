@@ -56,14 +56,12 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: BaseCosmicVFX
-  placement:
-    mode: SnapgridCenter
   components:
   - type: TimedDespawn
     lifetime: 1.75
   - type: Transform
     noRot: true
-    anchored: true
+    anchored: false
   - type: Sprite
     netsync: false
     drawdepth: Mobs
