@@ -17,6 +17,7 @@ research-technology-paramedic-eva = Emergency Services EVA suits
 research-technology-syringe-gun = Syringe Gun
 research-technology-basic-augmentation = Basic Augmentation
 research-technology-implanted-tools = Implanted Tools
+research-technology-hyposprays = Low-Capacity Hyposprays
 
 # Arsenal
 research-technology-exotic-ammunition = Exotic Ammunition
