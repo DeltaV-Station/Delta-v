@@ -128,7 +128,7 @@
   name: headset box
   parent: BoxCardboard
   id: BoxHeadset
-  description: A box of spare assistant headsets. # DeltaV - rename passenger to assistant
+  description: A box of spare passenger headsets.
   components:
   - type: StorageFill
     contents:
@@ -251,7 +251,7 @@
       - state: trashbag
 
 - type: entity
-  name: assistant encryption key box # DeltaV - rename passenger to assistant
+  name: passenger encryption key box
   parent: BoxCardboard
   id: BoxEncryptionKeyPassenger
   description: A box of spare encryption keys.

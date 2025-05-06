@@ -34,7 +34,7 @@ job-name-janitor = Janitor
 job-name-chaplain = Chaplain
 job-name-botanist = Botanist
 job-name-bartender = Bartender
-# DeltaV - Changes Passenger to Assistant
+# DeltaV - Changes Passenger to Assistant. job-name-passenger is used in a dozen other places as the default job so we dont want to change that overly much.
 job-name-passenger = Assistant
 job-name-salvagespec = Salvage Specialist
 job-name-station-ai = Station AI
