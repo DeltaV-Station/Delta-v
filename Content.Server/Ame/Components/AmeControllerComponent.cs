@@ -102,8 +102,8 @@ public sealed partial class AmeControllerComponent : SharedAmeControllerComponen
     public TimeSpan CooldownDuration = TimeSpan.FromSeconds(10f);
 
     // Begin DeltaV
-    [DataField(customTypeSerializer: typeof(ProtoId<RadioChannelPrototype>))]
-    public string AlertChannel = "Engineering";
+    [DataField]
+    public ProtoId<RadioChannelPrototype> AlertChannel = "Engineering";
 
     [DataField]
     public int FuelAlertLevel = 50;
