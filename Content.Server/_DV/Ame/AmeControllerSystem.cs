@@ -1,6 +1,5 @@
 using Content.Server.Ame.Components;
 using Content.Shared.Ame.Components;
-using Content.Shared.Radio;
 using Content.Server.Radio.EntitySystems;
 using Robust.Shared.Prototypes;
 
