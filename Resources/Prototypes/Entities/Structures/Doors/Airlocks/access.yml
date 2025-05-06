@@ -223,6 +223,15 @@
       board: [ DoorElectronicsCargo ]
 
 - type: entity
+  parent: AirlockCargo
+  id: AirlockSalvageLockedSprite # DeltaV
+  suffix: Salvage, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSalvage ]
+
+- type: entity
   parent: AirlockMining
   id: AirlockMiningLocked
   suffix: Mining(Salvage), Locked
@@ -607,6 +616,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCargo ]
+
+- type: entity
+  parent: AirlockCargoGlass
+  id: AirlockSalvageLockedGlassSprite # DeltaV
+  suffix: Salvage, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSalvage ]
 
 - type: entity
   parent: AirlockMiningGlass
