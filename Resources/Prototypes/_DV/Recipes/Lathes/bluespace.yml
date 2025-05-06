@@ -16,7 +16,8 @@
     sprite: Nyanotrasen/Objects/Materials/materials.rsi
     state: bluespace
   result: MaterialBluespace1
+  applyMaterialDiscount: false # since its only available on industrial oreproc, avoid funny multiplication
   completetime: 0
-  miningPoints: 50 # DeltaV
+  miningPoints: 50
   materials:
     RawBluespace: 100
