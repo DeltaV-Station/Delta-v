@@ -433,10 +433,27 @@ Avoid short circuiting SMES output and input. SMES array with a terminal should 
 Rooms with purpose of supporting organic life require the following:
 * Air pressure around 101.325 kPa
 * Air temperature between 15° and 35° Celsius.
-* Barrier equal to or thicker than 1 meter.
+* Barrier equal to or thicker than 1 meter towards free space.
 * Barrier equal to or stronger than reinfoced glass.
 * Air mixture supporting majority of station's crew.
 * Presence of hazardous gases below 0.2 mols.
+* Ventilation connected to operational air distribution network.
+* Scrubbers connected to operational waste network.
+===Maintenance Rooms===
+Rooms which for practical reasons cannot be deemed as habitable, but are connected to habitable rooms.
+They require the following:
+* Air pressure between 50.8 kPa and 101.325 kPa.
+* Air temperature between 5° and 38° Celsius.
+* Presence of hazardous gases below 0.5 mols.
+* Airlock access restricted to relevant crew only.
+* Any present crew to wear their mandatory PPE.
+
+Maintenance room status is given to various rooms at discretion of station's chief engineer.
+Rooms included but not limited to:
+* Atmospheric technician rooms
+* TEG rooms
+* Artifact chambers
+* Maintenance tunnles
 
 ===Pressure In Pipe Networks===
 It is recommended to set target pressure in source and transport pipe networks below maximum of 202.65 kPa.
@@ -455,5 +472,5 @@ Burn chamber specified for holding flamable gases and conducting their burn are 
 * Barrier equal to or stronger than 2 meters of reinforced glass.
 
 All burn chambers must not have the following:
-* Airlocks directly leading to station's habitable rooms.
-* Any windows as barriers to station's habitable rooms.
+* Airlocks directly leading to station's habitable or maintenance rooms.
+* Any windows as barriers to station's habitable or maintenance rooms.
