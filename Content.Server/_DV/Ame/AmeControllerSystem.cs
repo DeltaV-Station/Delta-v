@@ -30,6 +30,6 @@ public sealed partial class AmeControllerSystem
         _radio.SendRadioMessage(uid,
             Loc.GetString("ame-controller-component-low-fuel-warning",
                 ("percentage", Math.Round(fuelRatio * 100f))),
-            _proto.Index<RadioChannelPrototype>(controller.AlertChannel), uid);
+            _proto.Index(controller.AlertChannel), uid);
     }
 }
