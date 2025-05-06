@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: Field Command
-  changes:
-  - message: Byoin station, with soft population cap of 4.
-    type: Add
-  - message: NTES Evac Basu shuttle
-    type: Add
-  id: 854
-  time: '2025-01-04T07:14:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1965
 - author: Lyndomen
   changes:
   - message: Storage Implant is now 4 TC but cannot store steal objectives, or anything
@@ -4088,3 +4079,13 @@
   id: 1353
   time: '2025-05-06T15:58:39.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3649
+- author: sowelipililimute
+  changes:
+  - message: Cosmic cultists are now deconverted via censer instead of by metabolising
+      holy water, and trying to deconvert a non-cultist has consequences
+    type: Tweak
+  - message: Cosmic cultist deconversion popup now shows up
+    type: Fix
+  id: 1354
+  time: '2025-05-06T19:28:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3636
