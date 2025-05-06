@@ -425,24 +425,28 @@ Medical staff are afforded the right to quarantine individuals that currently su
 All wiring must be concealed from public for their safety.
 In non public areas, catwalk is recommended to be placed for safety and mobility of workers.
 
-Wiring is to be held straight and tidy, without unnecessary looping, to avoid clumping, short circuiting and trpping hazard for the crew.
+Wiring is to be held straight and tidy, to avoid clumping and tripping hazard for the crew.
+
+Avoid short circuiting SMES output and input. SMES array with a terminal should separate station's HV network from generator's HV network.
 ==Atmospheric Regulations==
 ===Habitable Rooms===
 Rooms with purpose of supporting organic life require the following:
-* Air pressure around 1 atmosphere (101.325 kPa)
+* Air pressure around 101.325 kPa
 * Air temperature between 15° and 35° Celsius.
-* Barrier made of 2 meters (3.28 ft) of reinforced glass or stronger from non habitable space.
+* Barrier made of 2 meters of reinforced glass or stronger from non habitable space.
 * Air mixture supporting majority of station's crew.
-* Presence of hazardous gasses below 1 mol.
+* Presence of hazardous gases below 1 mol.
 
 ===Pressure In Pipe Networks===
-It is recommended to set taget pressure in any pipe network double than one atmosphere (202.65 kPa).
+It is recommended to set target pressure in source and transport pipe networks at maximum 202.65 kPa.
+Disposal pipe networks should be on minimal target pressure with constant removal of gases.
 
-Disconnetcing pipes with pressure way above 2 atmospheres or containing hazardous gases above 1 mol, requires total disposal of hazardous gases and lowering pressure to 1 atmosphere or less.
+Disconnecting pipes with pressure significantly above 202.65 kPa or containing hazardous gases above 1 mol, requires total disposal of hazardous gases and lowering pressure to 101.325 kPa or less.
+Disconnecting pipes with temperature significantly outside of habitable temperatures are mandatory to be emptied.
 ===Burn Chamber===
 Burn chamber specified for holding flamable gases and conducting their burn are required to have the following:
-* Release mechanism to let any object or gasses out into the environment, without endangering the station or its crew.
-* Barrier equal to or stronger than 2 meters (3.28 ft) of reinforced glass.
+* Release mechanism to let any object or gases out into the environment, without endangering the station or its crew.
+* Barrier equal to or stronger than 2 meters of reinforced glass.
 
 All burn chambers must not have the following:
 * Airlocks directly leading to station's habitable rooms.
