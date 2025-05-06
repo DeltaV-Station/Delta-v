@@ -10,6 +10,9 @@
   description: "An always powered light."
   suffix: Always powered
   components:
+  - type: Tag # DeltaV - we need this for an action whitelist
+    tags:
+    - LightFixture
   - type: MeleeSound
     soundGroups:
       Brute:
