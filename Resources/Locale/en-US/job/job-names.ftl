@@ -34,7 +34,8 @@ job-name-janitor = Janitor
 job-name-chaplain = Chaplain
 job-name-botanist = Botanist
 job-name-bartender = Bartender
-job-name-passenger = Passenger
+# DeltaV - Changes Passenger to Assistant
+job-name-passenger = Assistant
 job-name-salvagespec = Salvage Specialist
 job-name-station-ai = Station AI
 # DeltaV - Hopefully makes LO maintaining easier
