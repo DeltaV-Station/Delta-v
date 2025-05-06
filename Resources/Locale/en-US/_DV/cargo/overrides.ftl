@@ -8,3 +8,9 @@ ent-CargoRequestScienceComputerCircuitboard = epistemics request computer board
 
 ent-ComputerCargoOrdersScience = epistemics request computer
     .desc = Used by the epistemics department to order supplies.
+
+ent-PaperAcquisitionSlipScience =
+    .suffix = Epistemics
+
+ent-PaperAcquisitionSlipCargo =
+    .suffix = Logistics

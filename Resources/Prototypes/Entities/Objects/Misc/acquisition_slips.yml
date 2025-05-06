@@ -60,7 +60,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperVisuals
-    headerImagePath: "/Textures/Interface/Paper/AcquisitionSlips/science.svg.192dpi.png"
+    headerImagePath: "/Textures/_DV/Interface/Paper/AcquisitionSlips/epistemics.svg.192dpi.png" # DeltaV - it's epistemics not science
 
 - type: entity
   parent: PaperAcquisitionSlip
@@ -117,7 +117,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperVisuals
-    headerImagePath: "/Textures/Interface/Paper/AcquisitionSlips/cargo.svg.192dpi.png"
+    headerImagePath: "/Textures/_DV/Interface/Paper/AcquisitionSlips/logistics.svg.192dpi.png" # DeltaV - it's logistics not cargo
 
 - type: entity
   parent: PaperAcquisitionSlip
