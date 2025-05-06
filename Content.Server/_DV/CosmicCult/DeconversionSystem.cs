@@ -33,6 +33,8 @@ public sealed class DeconversionSystem : EntitySystem
 
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<CosmicCenserComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<CosmicCenserTargetComponent, CleanseOnDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<CleanseCultComponent, ComponentInit>(OnCompInit);
