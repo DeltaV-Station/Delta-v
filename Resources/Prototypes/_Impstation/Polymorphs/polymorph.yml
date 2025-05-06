@@ -1,0 +1,23 @@
+- type: polymorph
+  id: ArtifactBee
+  configuration:
+    entity: MobBee
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: true
+    inventory: None
+    revertOnDeath: true
+    revertOnCrit: true
+    duration: 25
+
+- type: polymorph
+  id: ArtifactClownSpider
+  configuration:
+    entity: MobClownSpider
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: true
+    inventory: None
+    revertOnDeath: true
+    revertOnCrit: true
+    duration: 25

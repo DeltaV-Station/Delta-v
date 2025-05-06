@@ -740,6 +740,14 @@
     moduleId: Artifact # Frontier
     items:
     - NodeScanner
+    - BorgDropper # Imp
+  - type: DroppableBorgModule # DeltaV
+    moduleId: Artifact
+    items:
+    - id: Beaker
+      whitelist:
+        tags:
+        - GlassBeaker
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: node-scanner-module }
 

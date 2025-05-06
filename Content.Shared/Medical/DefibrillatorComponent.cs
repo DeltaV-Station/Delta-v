@@ -54,6 +54,42 @@ public sealed partial class DefibrillatorComponent : Component
     [DataField("doAfterDuration"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan DoAfterDuration = TimeSpan.FromSeconds(3);
 
+    /// <summary>
+    /// DeltaV: Maximum entity mass the defibrillator can revive. 0 provides no limit.
+    /// </summary>
+    [DataField]
+    public float MassLimit;
+
+    /// <summary>
+    /// Imp: Whether or not to have the defib pop up text, such as body composition, rot, intelligence, etc.
+    /// </summary>
+    [DataField]
+    public bool ShowMessages = true;
+
+    /// <summary>
+    /// Imp: Can we skip the doafter.
+    /// </summary>
+    [DataField]
+    public bool SkipDoAfter;
+
+    /// <summary>
+    /// Imp: Can we ignore the toggle.
+    /// </summary>
+    [DataField]
+    public bool IgnoreToggle;
+
+    /// <summary>
+    /// Imp: Can we ignore the powercell.
+    /// </summary>
+    [DataField]
+    public bool IgnorePowerCell;
+
+    /// <summary>
+    /// Imp: Can the defibbed entity skip the critical state and go straight to alive if they have low enough damage?.
+    /// </summary>
+    [DataField]
+    public bool AllowSkipCrit;
+
     [DataField]
     public bool AllowDoAfterMovement = true;
 

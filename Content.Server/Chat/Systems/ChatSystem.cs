@@ -14,6 +14,7 @@ using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Server.Chat.Events; // Imp
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -616,6 +617,11 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (checkEmote)
             TryEmoteChatInput(source, action);
         SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, source, range, author);
+
+        // Imp - Send event to alert that generic emote has happened
+        var ev = new EntityEmotedEvent(source, wrappedMessage);
+        RaiseLocalEvent(source, ev);
+
         if (!hideLog)
             if (name != Name(source))
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {ToPrettyString(source):user} as {name}: {action}");
