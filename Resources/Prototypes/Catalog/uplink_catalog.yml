@@ -1265,9 +1265,9 @@
   description: uplink-syndicate-pai-desc
   icon: { sprite: /Textures/Objects/Fun/pai.rsi, state: syndicate-icon-pai-off }
   productEntity: SyndicatePersonalAI
-  discountCategory: usualDiscounts  # Begin DeltaV
-  discountDownTo:
-    Telecrystal: 0 # End DeltaV
+  discountCategory: usualDiscounts  # DeltaV
+  discountDownTo: # DeltaV
+    Telecrystal: 0
   cost:
     Telecrystal: 1
   categories:
@@ -1481,10 +1481,11 @@
   name: uplink-voice-mask-name
   description: uplink-voice-mask-desc
   productEntity: ClothingMaskGasVoiceChameleon
-  # DeltaV - no discount
+  # Begin DeltaV Removals
   # discountCategory: usualDiscounts
   # discountDownTo:
   #   Telecrystal: 1
+  # End DeltaV Removals
   cost:
     Telecrystal: 1  # DeltaV - was 2
   categories:
@@ -1738,10 +1739,11 @@
   name: uplink-syndicate-stamp-name
   description: uplink-syndicate-stamp-desc
   productEntity: RubberStampSyndicate
-  # DeltaV - no discount
+  # Begin DeltaV Removals
   # discountCategory: rareDiscounts
   # discountDownTo:
   #  Telecrystal: 1
+  # End DeltaV Removals
   cost:
     Telecrystal: 1 # DeltaV - was 2
   categories:
