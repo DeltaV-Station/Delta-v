@@ -140,6 +140,7 @@
       - ClothMade
       - Gauze
       - RawMaterial
+      - BorgMaterial # DeltaV
   - type: Construction
     graph: WebObjects # not sure if I should either keep this here or just make another prototype. Will keep it here just in case.
     node: cloth
@@ -205,6 +206,7 @@
     tags:
       - ClothMade
       - RawMaterial
+      - BorgMaterial # DeltaV
   - type: Item
     heldPrefix: durathread
 
@@ -254,6 +256,7 @@
     tags:
     - Wooden
     - RawMaterial
+    - BorgMaterial # DeltaV
   - type: Extractable
     grindableSolutionName: wood
   - type: SolutionContainerManager
