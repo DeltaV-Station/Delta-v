@@ -84,6 +84,17 @@
   - type: Rattle
     radioChannel: Security
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: AntagImmuneImplant
+  name: antag immune implant
+  description: This implant makes you immune to any evil thoughts!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    addedComponents:
+     - type: AntagImmune
+
 # Nukie implants
 
 - type: entity
