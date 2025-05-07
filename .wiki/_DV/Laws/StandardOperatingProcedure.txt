@@ -431,8 +431,8 @@ Avoid short-circuiting SMES output and input. An SMES array with a terminal shou
 ==Atmospheric Regulations==
 ===Habitable Rooms===
 Rooms with the purpose of supporting life require the following:
-* Air pressure around 101.325 kPa.
-* Air temperature between 15° and 35° Celsius.
+* Air pressure at 101.325 kPa with ±10% tolerance.
+* Air temperature at 20° Celsius with ±10° tolerance.
 * Barrier equal to or thicker than 1 meter towards free space.
 * Barrier equal to or stronger than reinforced glass.
 * Air mixture for intended life forms.
@@ -442,8 +442,8 @@ Rooms with the purpose of supporting life require the following:
 ===Maintenance Rooms===
 Rooms that, for practical reasons, cannot be deemed as habitable but are connected to other habitable rooms.
 They require the following:
-* Air pressure between 50.8 kPa and 101.325 kPa.
-* Air temperature between 5° and 38° Celsius.
+* Air pressure at 101.325 kPa with ±50% tolerance.
+* Air temperature at 20° Celsius with ±18° tolerance.
 * Presence of hazardous gases below 0.5 mols.
 * Airlock access restricted to maintenance or relevant department access.
 * Any present crew to wear their mandatory PPE.
