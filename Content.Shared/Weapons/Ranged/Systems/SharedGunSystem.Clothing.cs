@@ -38,24 +38,10 @@ public partial class SharedGunSystem
             return false;
         var user = container.Owner;
 
-        // DeltaV - ATMOS extinguisher nozzle changes start here
-        if (component.CheckHands)
-        {
-            foreach (var item in _handsSystem.EnumerateHeld(user))
-            {
-                if (item == uid)
-                    continue;
-
-                if (!_whitelistSystem.IsWhitelistFailOrNull(component.ProviderWhitelist, item))
-                {
-                    slotEntity = item;
-                    return true;
-                }
-            }
-        }
-        // ATMOS changes end
-
-
+        // Begin DeltaV Additions - ATMOS Extinguisher Nozzle
+        if (TryGetHandsSlotEntity(uid, component, user, out slotEntity))
+            return true;
+        // End DeltaV Additions
 
         if (!_inventory.TryGetContainerSlotEnumerator(user, out var enumerator, component.TargetSlot))
             return false;
