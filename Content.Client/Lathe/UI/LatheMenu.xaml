@@ -136,13 +136,13 @@
                     VerticalExpand="True"
                     HorizontalExpand="True">
                     <ui:MaterialStorageControl Name="MaterialsList" SizeFlagsStretchRatio="8"/>
+                    <!-- Begin DeltaV Additions - Mining points -->
+                    <BoxContainer Orientation="Horizontal" Name="MiningPointsContainer" Visible="False">
+                        <Label Name="MiningPointsLabel" HorizontalExpand="True"/>
+                        <Button Name="MiningPointsClaimButton" Text="{Loc 'lathe-menu-mining-points-claim-button'}"/>
+                    </BoxContainer>
+                    <!-- End DeltaV Additions -->
                 </BoxContainer>
-                <!-- Begin DeltaV Additions - Mining points -->
-                <BoxContainer Orientation="Horizontal" Name="MiningPointsContainer" Visible="False">
-                    <Label Name="MiningPointsLabel" HorizontalExpand="True"/>
-                    <Button Name="MiningPointsClaimButton" Text="{Loc 'lathe-menu-mining-points-claim-button'}"/>
-                </BoxContainer>
-                <!-- End DeltaV Additions -->
             </PanelContainer>
         </BoxContainer>
         </BoxContainer>
