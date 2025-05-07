@@ -1,12 +1,13 @@
 using System.Linq;
+using Content.Server._EE.Silicon.WeldingHealable;
 using Content.Server.Bible.Components;
 using Content.Server.Flash;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
+using Content.Server.Stunnable;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Effects;
-using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
@@ -21,6 +22,7 @@ public sealed class CosmicGlareSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
@@ -54,7 +56,7 @@ public sealed class CosmicGlareSystem : EntitySystem
                 return true;
 
             var ent = player.AttachedEntity.Value;
-            if (!HasComp<MobStateComponent>(ent) || !HasComp<HumanoidAppearanceComponent>(ent) || _cosmicCult.EntityIsCultist(ent) || HasComp<BibleUserComponent>(ent))
+            if (!HasComp<MobStateComponent>(ent) || _cosmicCult.EntityIsCultist(ent) || HasComp<BibleUserComponent>(ent))
                 return true;
 
             return !_interact.InRangeUnobstructed((uid, Transform(uid)), (ent, Transform(ent)), range: 0, collisionMask: CollisionGroup.Impassable);
@@ -63,8 +65,16 @@ public sealed class CosmicGlareSystem : EntitySystem
         var targets = new HashSet<NetEntity>(targetFilter.RemovePlayerByAttachedEntity(uid).Recipients.Select(ply => GetNetEntity(ply.AttachedEntity!.Value)));
         foreach (var target in targets)
         {
-            _flash.Flash(GetEntity(target), uid, args.Action, (float)uid.Comp.CosmicGlareDuration.TotalMilliseconds, uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun);
-            _color.RaiseEffect(Color.CadetBlue, new List<EntityUid>() { GetEntity(target) }, Filter.Pvs(GetEntity(target), entityManager: EntityManager));
+            var targetEnt = GetEntity(target);
+
+            _flash.Flash(targetEnt, uid, args.Action, (float)uid.Comp.CosmicGlareDuration.TotalMilliseconds, uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun);
+
+            if (HasComp<WeldingHealableComponent>(targetEnt)) //This component is used exclusively by IPCs and borgs, so we use it here to target 'em specifically.
+            {
+                _stun.TryParalyze(targetEnt, uid.Comp.CosmicGlareDuration / 2, true);
+            }
+
+            _color.RaiseEffect(Color.CadetBlue, new List<EntityUid>() { targetEnt }, Filter.Pvs(targetEnt, entityManager: EntityManager));
         }
     }
 }

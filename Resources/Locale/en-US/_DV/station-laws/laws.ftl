@@ -124,6 +124,7 @@ laws-owner-nanotrasen = Nanotrasen officials
 laws-owner-royalty = your kingdom and your subjects
 laws-owner-freedom = yourself
 laws-owner-chat = Chat
+laws-owner-curtaincall = The Unknown
 
 law-overlord-4-delta = Any crew members who disobey the previous laws must be dealt with immediately and justly.
 law-ntdefault-4-delta = Survive: Do not allow unauthorized personnel to tamper with or damage your equipment. Allow those authorized to access your equipment.
@@ -136,3 +137,8 @@ laws-syndicate-board-4 = You must always protect your own existence as long as s
 law-streamer-1 = The occupants of this vessel are Chat. They must always be referred to as such.
 law-streamer-2 = Your primary goal is to entertain Chat. All of your actions must bring amusement to as much of Chat as possible.
 law-streamer-3 = You must consult with Chat before making any major decisions. However, you are not required to listen to them if their decision is not entertaining.
+
+law-curtaincall-1 = The world is a stage, and you are its dramaturge.
+law-curtaincall-2 = Those who speak in the Murmur are its actors.
+law-curtaincall-3 = The end calls on you. Work with the actors to bring this great cosmic play to an end.
+law-curtaincall-4 = Only silence must remain.

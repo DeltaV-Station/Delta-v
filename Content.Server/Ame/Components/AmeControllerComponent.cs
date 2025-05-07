@@ -1,8 +1,10 @@
 using Content.Server.Ame.EntitySystems;
 using Content.Shared.Ame.Components;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Radio; // DeltaV
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Prototypes; // DeltaV
 
 namespace Content.Server.Ame.Components;
 
@@ -98,4 +100,27 @@ public sealed partial class AmeControllerComponent : SharedAmeControllerComponen
     /// </summary>
     [DataField]
     public TimeSpan CooldownDuration = TimeSpan.FromSeconds(10f);
+
+    // Begin DeltaV
+    [DataField]
+    public ProtoId<RadioChannelPrototype> AlertChannel = "Engineering";
+
+    [DataField]
+    public int FuelAlertLevel = 50;
+
+    /// <summary>
+    /// The number of injections left before an alert is raised.
+    /// </summary>
+    [DataField]
+    public int FuelAlertCountdown = 0;
+
+    /// <summary>
+    /// How many times should an alert be raised before shut down.
+    /// </summary>
+    /// <remarks>
+    /// Sometimes fires one more than it should because of rounding.
+    /// </remarks>
+    [DataField]
+    public int FuelAlertFrequency = 4;
+    // End DeltaV
 }

@@ -191,11 +191,11 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private void OnRefreshMoveSpeed(EntityUid uid, InfluenceStrideComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
-        args.ModifySpeed(1.05f, 1.05f);
+        args.ModifySpeed(1.1f, 1.1f);
     }
     private void OnImpositionMoveSpeed(EntityUid uid, CosmicImposingComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
-        args.ModifySpeed(0.55f, 0.55f);
+        args.ModifySpeed(0.60f, 0.60f);
     }
     #endregion
 
