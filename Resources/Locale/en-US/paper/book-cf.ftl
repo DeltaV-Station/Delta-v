@@ -33,19 +33,19 @@
     ===
     Section 4: Combat
     ===
-    Maximum HP:
-    Current HP:
-    Temporary HP:
+    Maximum HP: 0
+    Current HP: 0
+    Temporary HP: 0
 
-    Dying:
-    Wounded:
+    Dying: 0
+    Wounded: 0
 
     Resistances and Immunities:
     Conditions:
 
-    Speed:
+    Speed: 25 FT
 
-    Perception: (T) 0
+    Perception: (U) 0
     Senses and Notes:
 
     Strikes:
@@ -53,7 +53,7 @@
 
     Ranged Strikes:
 
-    Class DC:
+    Class DC: 17
 
     ===
     Section 5: Skills
@@ -76,33 +76,31 @@
     (U)Thievery: 0
 
     Lores:
-    (T)Lore: 0
+    (U)Lore: 0
+
 
     ===
     Section 6: Feats
     ===
-    Background Skill Feat:
-    Class Features:
 
-    Ancestry Feat:
-    Class Feats:
-    Skill feats:
-    General Feats:
+    ANCESTRY ABILITIES:
+    CLASS FEATS:
+    GENERAL FEATS:
+    SKILL FEATS:
+    CLASS ABILITIES:
 
     ===
     Section 7: Inventory
     ===
-    Worn Items:
-    Stowed Items:
-    Bulk:
-    Wealth:
+
+    BULK Current: Maximum:
+    WORN
+    STOWED
+    WEALTH 15 gp
 
     ===
     Section 8: Spellcasting
     ===
-    Tradition and Type:
-
-    Spell Statistics:
     Spell attack:
     Spell DC:
 
@@ -112,6 +110,7 @@
     Cantrips:
 
     Spell Slots:
+
 
 book-cf-sheet-fighter-premade = Carpfinder 2E Character Sheet
     ===
@@ -1809,3 +1808,1216 @@ book-cf-sheet-alchemist-premade = Carpfinder 2E Character Sheet
 
     PERSISTENT DAMAGE
     Persistent damage comes from effects like acid, being on fire, or many other situations. It appears as “X persistent [type] damage,” where “X” is the amount of damage dealt and “[type]” is the damage type. Instead of taking persistent damage immediately, you take it at the end of each of your turns as long as you have the condition, rolling any damage dice anew each time. After you take persistent damage, roll a DC 15 flat check to see if you recover from the persistent damage. If you succeed, the condition ends.
+
+book-cf-sheet-barbarian-premade = Carpfinder 2E Character Sheet
+    ===
+    Section 1: Basics
+    ===
+    Name: Amiri
+    Ancestry: Human
+    Heritage: Versatile
+    Size: Medium
+    Background: Hunter
+    Class: Barbarian
+    Languages: Common, Hallit
+
+    ===
+    Section 2: Attributes
+    ===
+    Strength: +4
+    Dexterity: +2
+    Constitution: +2
+    Intelligence: +0
+    Wisdom: +0
+    Charisma: +1
+
+    ===
+    Section 3: Defenses
+    ===
+    Armor Class: 18 (-1 when weilding the large bastard sword)
+    Shield:
+
+    (T)Fortitude: 7
+    (T)Reflex: 5
+    (T)Will: 5
+
+    ===
+    Section 4: Combat
+    ===
+    Maximum HP: 22
+    Current HP: 22
+    Temporary HP: 0
+
+    Dying: 0
+    Wounded: 0
+
+    Resistances and Immunities:
+    Conditions:
+
+    Speed: 25 ft
+
+    Perception: (E) 5
+    Senses and Notes:
+
+    Strikes:
+    Melee Strikes:
+    \[one-action] Large bastard sword +7 [+2/-3] (clumsy 1 while using; two-hand d12), 1d8+4 slashing (1d8+10 when raging)
+
+    Ranged Strikes:
+    \[one-action] javelin +5 [+0/-5] (thrown 30 feet), 1d6+4 piercing
+
+    Class DC: 17
+
+    ===
+    Section 5: Skills
+    ===
+    (T)Acrobatics: 5
+    (U)Arcana: 0
+    (T)Athletics: 7
+    (U)Crafting: 0
+    (U)Deception: 1
+    (U)Diplomacy: 1
+    (T)Intimidation: 4
+    (U)Medicine: 0
+    (T)Nature: 3
+    (U)Occultism: 0
+    (U)Performance: 1
+    (U)Religion: 0
+    (U)Society: 0
+    (U)Stealth: 2
+    (T)Survival: 3
+    (U)Thievery: 2
+
+    Lores:
+    (T)Tanning Lore: 3
+
+    ===
+    Section 6: Feats
+    ===
+    ANCESTRY ABILITIES Natural Ambition* (Raging Intimidation)
+    CLASS FEATS Raging Intimidation, Sudden Charge
+    GENERAL FEATS Diehard
+    SKILL FEATS Intimidating Glare, Survey Wildlife
+    CLASS ABILITIES giant instinct, Quick-Tempered, Rage
+
+    ===
+    Section 7: Inventory
+    ===
+    BULK Current: 5, 7 L; Maximum: 9 Bulk
+    WORN backpack, Large bastard sword, minor elixir of life (2), hide armor, javelin (4)
+    STOWED bedroll, chalk (10 pieces), flint and steel, grappling hook, rations (2 weeks), rope (50 feet) soap, torch (5), waterskin
+    WEALTH 6 gp, 5 sp
+
+    ===
+    Section 8: Spellcasting
+    ===
+    Tradition and Type:
+
+    Spell Statistics:
+    Spell attack:
+    Spell DC:
+
+    Focus Spells:
+    Focus Points:
+
+    Cantrips:
+
+    Spell Slots:
+
+    ===
+    Section 9: Reference
+    ===
+
+    Equipment:
+    The following rules apply to Amiri’s equipment.
+
+    Backpack A backpack can hold up to 4 Bulk worth of items. If you’re carrying or stowing the pack rather than wearing it on your back, its Bulk is light instead of negligible. The first 2 Bulk of items stowed in your backpack do not count against your Bulk limits (and are not included in your worn Bulk).
+
+    Clumsy 1 (condition) You take a –1 status penalty to Dexterity-based checks and DCs, such as AC, Reflex saves, ranged attack rolls, and skill checks using Acrobatics, Stealth, and Thievery. You are clumsy 1 while you wield your Large bastard sword (this is not reflected in your AC, skills, or saves).
+
+    □□Elixir of Life, Minor (alchemical, consumable, elixir, healing) Activate [one-action] (manipulate); Effect Upon drinking this elixir, you regain 1d6 Hit Points and gain a +1 item bonus to saving throws against diseases and poisons for 10 minutes.
+
+    Grappling Hook You can throw a grappling hook with a rope tied to it to make a climb easier. To anchor a grappling hook, make a secret attack roll against a DC depending on the target (typically 20). On a success, your hook has a firm hold, but on a critical failure, the hook seems like it will hold but actually falls when you’re partway through.
+
+    Thrown (trait) You can throw this weapon as a ranged attack. A thrown weapon adds your Strength modifier to damage just like a melee weapon does. When this trait appears on a melee weapon, it also includes the range increment in feet.
+
+    Two-Hand (trait) This weapon can be wielded with two hands, changing its weapon damage die to the indicated value
+
+    Feats and Abilities:
+    Amiri’s feats and abilities are described below.
+    Demoralize [one-action] (auditory, concentrate, emotion, fear, mental, rage) You attempt to frighten a creature within 30 feet of you who you’re aware of. Attempt an Intimidation check against the target’s Will DC. If the target doesn’t understand the language you are speaking, or you’re not speaking a language, you take a –4 circumstance penalty to the check. No matter the result, the target is temporarily immune to your attempts to Demoralize it for 10 minutes.
+    Critical Success The target becomes frightened 2.
+    Success The target becomes frightened 1.
+
+    Diehard You are harder to kill than most. You die from the dying condition at dying 5, rather than dying 4.
+
+    Giant Instinct Your rage gives you the raw power of a giant. You can use a weapon that is built for a Large creature, though you gain the clumsy 1 condition while you do so because of the weapon’s unwieldy size.
+
+    Intimidating Glare You can Demoralize with a mere glare. When you do, Demoralize loses the auditory trait and gains the visual trait, and you doesn’t take a penalty if the creature doesn’t understand your language.
+
+    Quick-Tempered [free-action] Trigger You roll initiative; Requirements You are not encumbered or wearing heavy armor; Effect So long as you are able to move freely, your fury is instinctive and instantaneous. You Rage.
+
+    Rage [one-action] (barbarian, concentrate, emotion, mental) Requirements You are not fatigued or raging; Effect You tap into your inner fury and begin raging. You gain 3 temporary hit points. Your Rage lasts for 1 minute, until you fall unconscious, or until the encounter ends, whichever comes first. You can’t voluntarily stop raging. When you stop raging, you lose any remaining temporary Hit Points from Rage, and can’t gain temporary Hit Points from using the Rage action again for 1 minute. While you are raging, you:
+    • Deal 2 additional points of damage on melee Strikes (halved if your weapon or unarmed attack is agile; instead deal 6 additional damage with your Large bastard sword).
+    • Can’t use actions that have the concentrate trait unless they also have the rage trait. You can Seek while raging.
+
+    Raging Intimidation You can use the Demoralize action while raging and gain Intimidating Glare as an additional skill feat.
+
+    Sudden Charge [two-actions] (flourish) You dash up to a foe and swing. Stride twice. If you end your movement within melee reach of at least one enemy, you can make a melee Strike against that enemy. You can use Sudden Charge while Burrowing, Climbing, Flying, or Swimming instead of Striding if you have the corresponding movement type. Because Sudden Charge has the flourish trait, you can only use Sudden Charge if you haven’t used an action with the flourish trait yet this turn.
+
+    Survey Wildlife You can spend 10 minutes assessing the area around you to find out what creatures are nearby based on nests, scat, and marks on vegetation. Attempt a Survival check against a DC determined by the GM based on how obvious the signs are. On a success, you can attempt a Recall Knowledge check with a –2 penalty to learn more about the creatures just from these signs.
+
+book-cf-sheet-champion-premade = Carpfinder 2E Character Sheet
+    ===
+    Section 1: Basics
+    ===
+    Name: Seelah
+    Ancestry: Human
+    Heritage: Skilled
+    Size: Medium
+    Background: Street Urchin
+    Class: Champion
+    Languages: Common, Osiriani
+
+    ===
+    Section 2: Attributes
+    ===
+    Strength: +3
+    Dexterity: +1
+    Constitution: +2
+    Intelligence: +0
+    Wisdom: +0
+    Charisma: +3
+
+    ===
+    Section 3: Defenses
+    ===
+    Armor Class: 17
+    Shield: 19
+
+    (T)Fortitude: 7
+    (T)Reflex: 4
+    (T)Will: 5
+
+    ===
+    Section 4: Combat
+    ===
+    Maximum HP: 20
+    Current HP: 20
+    Temporary HP: 0
+
+    Dying:
+    Wounded:
+
+    Resistances and Immunities:
+    Conditions:
+
+    Speed: 25
+
+    Perception: (T) 3
+    Senses and Notes:
+
+    Strikes:
+    Melee Strikes:
+    \[one-action] longsword +6 [+1/-4] (holy, versatile P), 1d8+3 slashing
+
+    Ranged Strikes:
+    \[one-action] shortbow +4 [-1/-6] (deadly d10, holy, range increment 60 feet), 1d6 piercing
+
+    Class DC: 17
+
+    ===
+    Section 5: Skills
+    ===
+    (U)Acrobatics: 1
+    (U)Arcana: 0
+    (T)Athletics: 6
+    (T)Crafting: 3
+    (U)Deception: 3
+    (T)Diplomacy: 6
+    (T)Intimidation: 6
+    (U)Medicine: 0
+    (U)Nature: 0
+    (U)Occultism: 0
+    (U)Performance: 3
+    (T)Religion: 3
+    (T)Society: 3
+    (U)Stealth: 4
+    (U)Survival: 0
+    (T)Thievery: 4
+
+    Lores:
+    (T)Absolom lore: 3
+
+    ===
+    Section 6: Feats
+    ===
+    ANCESTRY ABILITIES Natural Skill*
+    CLASS FEATS Nimble Reprisal
+    GENERAL FEATS Shield Block
+    SKILL FEATS Pickpocket
+    CLASS ABILITIES champion’s aura, champion’s cause (justice), deity (Iomedae), devotion spells (lay on hands), sanctification (holy)*, Retributive Strike
+
+    ===
+    Section 7: Inventory
+    ===
+    BULK Current: 7, 4 L; Maximum: 8 Bulk
+    WORN backpack, minor elixir of life, longsword, scale mail, shortbow (20 arrows), steel shield (Hardness 5, HP 20, BT 10)
+    STOWED bedroll, chalk (10 pieces), flint and steel, rations (2 weeks), repair toolkit, rope (50 feet), soap, thieves’ toolkit, torch (5), waterskin
+    WEALTH 2 gp, 3 sp
+
+    ===
+    Section 8: Spellcasting
+    ===
+    Tradition and Type:
+
+    Spell Statistics:
+    Spell attack:
+    Spell DC:
+
+    Focus Spells:
+    Focus Points:
+
+    Cantrips:
+
+    Spell Slots:
+
+    ===
+    Section 9: Reference
+    ===
+
+    Equipment:
+    The following rules apply to Seelah’s equipment.
+    Backpack A backpack can hold up to 4 Bulk worth of items. If you’re carrying or stowing the pack rather than wearing it on your back, its Bulk is light instead of negligible. The first 2 Bulk of items stowed in your backpack do not count against your Bulk limits (and are not included in your worn Bulk).
+
+    Deadly (trait) On a critical hit, the weapon adds a weapon damage die of the listed size; this is added after doubling the weapon’s damage.
+
+    □ Elixir of Life, Minor (alchemical, consumable, elixir, healing) Activate [one-action] (Interact); Effect Upon drinking this elixir, you regain 1d6 Hit Points and gain a +1 item bonus to saving throws against diseases and poisons for 10 minutes.
+
+    Holy (trait) Strikes with this trait may have additional effects against unholy creatures.
+
+    Repair Toolkit A repair kit is required to Repair items with the Crafting skill.
+
+    Thieves’ Toolkit You need a thieves’ toolkit to Pick Locks or Disable Devices (of some types) using the Thievery skill. If your thieves’ toolkit is broken, you can repair it by replacing the lock picks with replacement picks appropriate to your toolkit; this doesn’t require using the Repair action. If you wear your thieves’ toolkit, you can draw and replace it as part of the action that uses it.
+
+    Versatile (trait) A versatile weapon can be used to deal an alternate damage type listed. For instance, a slashing weapon that has “versatile P” can be used to deal piercing or slashing damage. Choose the damage type each time you make an attack.
+
+    Shield Actions:
+    While she has a shield equipped, Seelah can use the following actions.
+
+    Raise Shield [one-action] While wielding a shield, you position it to protect yourself until the beginning of your next turn. This grants you a +2 circumstance bonus to AC, and you can use the Shield Block reaction.
+
+    Shield Block [reaction] Trigger You would be damaged by a physical attack while your shield is raised; Effect You interpose your shield between yourself and the attack, reducing the damage by 5. You and your shield each take any remaining damage, possibly breaking or destroying the shield (the shield gains the broken condition after taking 10 or more damage and is destroyed once it’s taken 20 damage).
+
+    Edicts and Anathema:
+    As a paladin of Iomedae, you care deeply about the edicts and anathema you take from your deity, sanctification, and cause. These are a tool for roleplaying between you, the GM, and the other players at the table—you’re still playing a nuanced character, not strictly following a script.
+    Acts fundamentally opposed to your deity’s ideals are anathema to your faith. Learning or casting spells, committing acts, and using items that are anathema to your deity remove you from your deity’s good graces. Similarly, using items, spells, or actions that are anathema to the tenets or goals of your faith could interfere with your connection to your deity.
+    If you perform enough acts that are anathema to your deity, you lose the magical abilities that come from your connection to your deity. Seelah’s edicts and anathema are as follows:
+    EDICTS
+    • be temperate, fight for justice and honor, hold valor in your heart
+    • do not knowingly harm innocents or fail to prevent harm to an innocent if your direct intervention could save them
+    • follow the law, respect legitimate authorities or leadership
+    ANATHEMA
+    • abandon a companion in need, dishonor yourself, refuse a challenge from an equal
+    • commit murder
+    • take advantage of another, cheat
+
+    Feats and Abilities
+    Seelah’s feats and abilities are described below.
+
+    Champion’s Aura You’re surrounded by an aura in a 15-foot emanation. It has the aura and divine traits. Any follower of your deity within the aura immediately knows you’re a champion of your deity. This aura is used as the range for your champion’s reaction and for various other effects. You can suppress or resume the aura as a single action, which has the concentrate trait, and it ends if you fall unconscious.
+
+    Nimble Reprisal You can use a ranged weapon to make a ranged Strike instead of a melee Strike for Retributive Strike. The enemy needs to be in range, but not in reach, and it must still be in your champion’s aura.
+    You can also make melee Strikes against enemies a bit farther away. If the enemy that triggered your reaction is outside your reach but is within 5 feet of your reach, as part of your reaction you can Step to put the enemy in your reach before making a melee Retributive Strike
+
+    Pickpocket You can Steal or Palm an Object that’s closely guarded, such as in a pocket, without taking the –5 penalty (outright theft may violate your code, but using these abilities to thwart or trick the forces of evil is well within your purview). You can’t steal objects that would be extremely noticeable or time consuming to remove (such as a worn suit of armor).
+
+    Retributive Strike [reaction] (divine) Trigger An enemy damages your ally, and both are in your champion’s aura; Effect You protect your ally and strike your enemy. The ally gains resistance 3 to all damage against the triggering damage. If the enemy is within reach, make a melee Strike against it.
+
+    ⃞ Focus Points You gain a pool of Focus Points that allow you to cast your devotion spell: lay on hands. Each use of this spell uses 1 Focus Point and Seelah currently has a total focus pool of 1.
+
+    Lay On Hands [one-action] (uncommon, champion, focus, healing, manipulate, vitality) Range touch; Targets 1 willing living creature or 1 undead creature; Effect You restore 6 Hit Points to a willing, living target; if the target is one of your allies, they also gain a +2 status bonus to AC for 1 round. Against an undead target, you deal 1d6 vitality damage with a basic Fortitude save (DC 17); if it fails, it also takes a –2 status penalty to AC for 1 round.
+
+book-cf-sheet-investigator-premade = Carpfinder 2E Character Sheet
+    ===
+    Section 1: Basics
+    ===
+    Name: Quinn
+    Ancestry: Human
+    Heritage: Skilled
+    Size: Medium
+    Background: Barrister
+    Class: Investigator
+    Languages: COMMON, KELISH, MWANGI, OSIRIANI, VARISIAN, VUDRANI
+
+    ===
+    Section 2: Attributes
+    ===
+    Strength: +2
+    Dexterity: +1
+    Constitution: +0
+    Intelligence: +4
+    Wisdom: +1
+    Charisma: +1
+
+    ===
+    Section 3: Defenses
+    ===
+    Armor Class:16
+    Shield:x
+
+    (T)Fortitude: 3
+    (T)Reflex: 6
+    (T)Will: 6
+
+    ===
+    Section 4: Combat
+    ===
+    Maximum HP:16
+    Current HP:16
+    Temporary HP:0
+
+    Dying:
+    Wounded:
+
+    Resistances and Immunities:
+    Conditions:
+
+    Speed:25
+
+    Perception: (T) 6
+    Senses and Notes:
+
+    Strikes:
+    Melee Strikes:
+    \[one-action] sword cane +5 [+1/-3] (agile, concealable, finesse), 1d6+2 piercing
+
+    Ranged Strikes:
+    \[one-action] bomb +4 [-1/-6] (thrown 20 feet), see equipment
+    \[one-action] crossbow +4 [-1/-6] (range increment 120 feet, reload 1), 1d8 piercing
+
+    Class DC: 17
+
+    ===
+    Section 5: Skills
+    ===
+    (U)Acrobatics: 1
+    (T)Arcana: 7
+    (U)Athletics: 2
+    (T)Crafting: 7
+    (T)Deception: 4
+    (T)Diplomacy: 4
+    (U)Intimidation: 1
+    (T)Medicine: 4
+    (T)Nature: 4
+    (T)Occultism: 7
+    (T)Performance: 4
+    (T)Religion: 4
+    (T)Society: 7
+    (T)Stealth: 4
+    (U)Survival: 1
+    (T)Thievery: 4
+
+    Lores:
+    (T)Legal Lore: 7
+
+    ===
+    Section 6: Feats
+    ===
+    ANCESTRY ABILITIES Cooperative Nature
+    CLASS FEATS Known Weaknesses, That’s Odd
+    SKILL FEATS Group Impression
+    CLASS ABILITIES Clue In, Devise a Stratagem, Expeditious Investigation, methodology (empiricism), Pursue a Lead
+
+    ===
+    Section 7: Inventory
+    ===
+    BULK Current: 4, 3 L; Maximum: 7 Bulk
+    WORN lesser acid flask (2), backpack, crossbow (10 bolts), studded leather armor, sword cane
+    STOWED bedroll, chalk (10 pieces), flint and steel, rations (2 weeks), rope (50 feet), soap, torch (5), waterskin
+    WEALTH 3 sp
+
+    ===
+    Section 8: Spellcasting
+    ===
+    Tradition and Type:
+
+    Spell Statistics:
+    Spell attack:
+    Spell DC:
+
+    Focus Spells:
+    Focus Points:
+
+    Cantrips:
+
+    Spell Slots:
+
+    ===
+    Section 9: Reference
+    ===
+
+    Equipment:
+    The following rules apply to Quinn’s equipment.
+    Agile (trait) The multiple attack penalty you take on the second attack each round with this weapon is –4 instead of –5, and –8 instead of –10 on the third and any further attacks in the round.
+
+    Backpack A backpack can hold up to 4 Bulk worth of items. If you’re carrying or stowing the pack rather than wearing it on your back, its Bulk is light instead of negligible. The first 2 Bulk of items stowed in your backpack do not count against your Bulk limits (and are not included in your worn Bulk).
+
+    Concealable (trait) You gain a +2 circumstance bonus to Stealth checks and DCs to hide or conceal a weapon with this trait.
+
+    Finesse (trait) You can use your Dexterity instead of Strength to calculate your attack bonus (but not damage rolls) with this melee weapon.
+
+    ⃞⃞⃞⃞ Lesser Acid Flask (acid, alchemical, bomb, consumable, splash) Level 1; Usage held in 1 hand; Bulk L; Activate [one-action] (Strike); Effect This flask deals 1 acid damage, 1d6 persistent acid damage, and 1 acid splash damage.
+    Splash (trait) If an attack with a splash weapon fails, succeeds, or critically succeeds, all creatures within 5 feet of the target (including the target) take the listed splash damage. On a failure (but not a critical failure), the target of  the attack still takes the splash damage. Add splash damage together with the initial damage against the target before applying the target’s weaknesses or resistances. You don’t multiply splash damage on a critical hit.
+
+    Reload (trait) This weapon requires you to use 1 Interact action to reload before it can be fired again.
+
+    Feats and Abilities:
+    Quinn’s feats and abilities are described below.
+
+    Cooperative Nature The short human life span lends perspective and has taught you from a young age to set aside differences and work with others to achieve greatness. You gain a +4 circumstance bonus to checks to Aid.
+
+    Group Impression When you Make an Impression, you can compare your Diplomacy check result to the Will DCs of up to 10 targets you conversed with, with no penalty.
+
+    Pursue a Lead (concentrate, exploration) You name one detail you’ve identified that you think is part of a larger mystery, then spend 1 minute examining it. The detail is typically either obvious or something you’ve already discovered using Recall Knowledge, Sense Motive, Gather Information, or a similar action. After the minute passes, the GM either confirms there’s a larger mystery or tells you there’s nothing more to learn (the detail is inconsequential or you know all the information already). If there is in fact a larger mystery at play, you can’t Pursue a Lead again for 10 minutes, but you can choose to open an investigation. To do so, define the question at the heart of the mystery, such as “Where has the priceless work of art that was supposed to hang here been taken?” or “Who or what killed this priest?”
+    Investigation Bonus Whenever you attempt a Perception check or skill check to attempt to get closer to answering the question at the heart of an active investigation, you gain a +1 circumstance bonus to the check. The exact checks this applies to depend on the actions you use to investigate and are determined by the GM, but checks to investigate are typically Perception checks or skill checks that use Intelligence, Wisdom, or Charisma.
+    Active Investigations You can maintain two active investigations at a time. If you Pursue another Lead after that, the case must be different from any of your current investigations (as far as you are aware), and you give up on a current investigation of your choice. Once you’ve given up pursuit of an investigation, you can’t Pursue a Lead into it again until after the next time you make your daily preparations.
+    Solving an Investigation If you answer the question at the heart of your investigation, the GM tells you that you’ve done so. You don’t lose the bonus or other benefits until you choose to close the investigation by Pursuing a Lead again or voluntarily Dismissing it. If what you discover points to an even larger mystery, you can work with the GM to adapt the question to the new information.
+
+    Clue In [reaction] (concentrate) Frequency once per 10 minutes; Trigger Another creature attempts a check that could help get you closer to answering the question at the heart of one of your active investigations.; Effect You share information with the triggering creature. They gain a +1 circumstance bonus to their check. The GM can add any relevant traits to this reaction depending on the situation, such as auditory and linguistic if you’re conveying information verbally.
+
+    Devise a Stratagem [one-action] or [free-action] (concentrate, fortune) Frequency once per round; Effect You assess a foe’s weaknesses in combat and use them to formulate a plan of attack against your enemy. Choose a creature you can see. You can Devise a Stratagem as a free action if you’re aware that creature could help answer the question at the heart of one of your active investigations. Roll a d20, then decide on an attack stratagem or skill stratagem.
+    Attack Stratagem If you Strike the chosen creature before the start of your next turn, you must use the result of the d20 roll from Devise a Strategem for your Strike’s attack roll instead of rolling. You make this substitution only for the first Strike you make against the creature this round, not any subsequent ones. When you make this substitution, you can add your Intelligence modifier to your attack roll instead of your Strength or Dexterity modifier, provided you Strike with your sword cane, fist, crossbow or thrown bomb.
+    Skill Stratagem You can’t attempt to Strike the target until the start of your next turn. You gain a +1 circumstance bonus to your next Intelligence-, Wisdom-, or Charisma-based skill check or Perception check involving the target before the start of your next turn. If you would gain your Pursue a Lead investigation bonus to such a check, that bonus increases by 1 instead of you gaining the +1 bonus listed.
+
+    Known Weaknesses Whenever you Devise a Stratagem, you can also attempt a check to Recall Knowledge as part of that action before rolling the d20. If you critically succeed at the Recall Knowledge check, you notice a weakness and can convey the information to allies to grant each of them a +1 circumstance bonus to their next attack roll against the subject, as long as their attack is made before the beginning of your next turn. If you choose an attack stratagem, this bonus applies to that attack roll too.
+
+    Expeditious Inspection [free-action] Frequency once per 10 minutes; Effect You observe and assess your surroundings with great speed. You Recall Knowledge, Seek, or Sense Motive.
+
+    That’s Odd When you enter a new location, the GM should give you a hint about any hidden passageways (such as scuff marks near a bookcase that’s actually a swinging door), creatures or hazards (such as drippage on the floor from an unseen fungus growing on the rafters), or valuables (such as bunched carpet over a secret compartment in the floor that contains a bag of coins) in the ;ocation. The GM doesn’t need to provide clues for rooms that have no significant secret or hidden features. If you wish, you can Pursue a Lead concerning this detail even if you have Pursed a Lead less than 10 minutes ago. You learn only that an area or object is suspicious, but not why it’s suspicious. That’s Odd doesn’t reveal whether creatures are suspicious. You don’t typically get any benefit when you leave and come back to a place, though if a major change has happened there and time has passed, the GM might determine that you do.
+
+book-cf-sheet-monk-premade = Carpfinder 2E Character Sheet
+    ===
+    Section 1: Basics
+    ===
+    Name: Sajan
+    Ancestry: Human
+    Heritage: Versatile
+    Size: Medium
+    Background: Martial Disciple
+    Class: Monk
+    Languages: Common, Vudrani
+
+    ===
+    Section 2: Attributes
+    ===
+    Strength: +2
+    Dexterity: +4
+    Constitution: +1
+    Intelligence: +0
+    Wisdom: +2
+    Charisma: +0
+
+    ===
+    Section 3: Defenses
+    ===
+    Armor Class:19
+    Shield:x
+
+    (T)Fortitude: 6
+    (T)Reflex: 9
+    (T)Will: 7
+
+    ===
+    Section 4: Combat
+    ===
+    Maximum HP:19
+    Current HP:19
+    Temporary HP:0
+
+    Dying:0
+    Wounded:0
+
+    Resistances and Immunities:
+    Conditions:
+
+    Speed: 25
+
+    Perception: (T) 5
+    Senses and Notes:
+
+    Strikes:
+    Melee Strikes:
+    \[one-action] temple sword +5 [+0/-5] (monk, trip), 1d8+2 slashing
+    \[one-action] tiger claw +7 [+3/-1] (agile, finesse, nonlethal, unarmed), 1d8+2 slashing
+    \[one-action] fist +7 (agile, finesse, nonlethal, unarmed), 1d6+2 bludgeoning
+
+    Ranged Strikes:
+    \[one-action] dart +7 [+3/-1] (agile, thrown, range increment 20 feet), 1d4+2 piercing
+    \[one-action] bomb +7 [+2/-3] (thrown 20 feet), see equipment
+
+    Class DC: 17
+
+    ===
+    Section 5: Skills
+    ===
+    (T)Acrobatics: 7
+    (U)Arcana: 0
+    (T)Athletics: 5
+    (U)Crafting: 0
+    (U)Deception: 0
+    (T)Diplomacy: 3
+    (U)Intimidation: 0
+    (U)Medicine: 2
+    (U)Nature: 2
+    (U)Occultism: 0
+    (U)Performance: 0
+    (T)Religion: 5
+    (U)Society: 0
+    (T)Stealth: 7
+    (U)Survival: 2
+    (U)Thievery: 4
+
+    Lores:
+    (T)Warfare Lore: 3
+
+    ===
+    Section 6: Feats
+    ===
+    ANCESTRY ABILITIES Natural Ambition* (Tiger Stance)
+    CLASS FEATS Qi Spells (qi rush), Tiger Stance
+    GENERAL FEATS Weapon Proficiency (martial)
+    SKILL FEATS Cat Fall
+    CLASS ABILITIES Flurry of Blows, Powerful Fist
+
+    ===
+    Section 7: Inventory
+    ===
+    BULK Current: 3, 3 L; Maximum: 7 Bulk
+    WORN backpack, lesser bottled lightning (2), explorer’s clothing, dart (8), minor elixir of life (2), grappling hook, temple sword
+    STOWED bedroll, chalk (10 pieces), crowbar, flint and steel, rations (2 weeks), rope (50 feet), soap, torch (5), waterskin WEALTH 2 gp, 4 sp, 2 cp
+
+    ===
+    Section 8: Spellcasting
+    ===
+    Tradition and Type:
+
+    Spell Statistics:
+    Spell attack:
+    Spell DC:
+
+    Focus Spells:
+    Focus Points:
+
+    Cantrips:
+
+    Spell Slots:
+
+    ===
+    Section 9: Reference
+    ===
+
+    Equipment:
+    The following rules apply to Sajan’s equipment.
+    Agile (trait) The multiple attack penalty you take on the second attack each round with this weapon is –4 instead of –5, and –8 instead of –10 on the third and any further attacks in the round.
+
+    Backpack A backpack can hold up to 4 Bulk worth of items. If you’re carrying or stowing the pack rather than wearing it on your back, its Bulk is light instead of negligible. The first 2 Bulk of items stowed in your backpack do not count against your Bulk limits (and are not included in your worn Bulk).
+
+    □□ Bottled Lightning, Lesser (alchemical, bomb, consumable, electricity, splash) Activate [one-action] (Strike); Effect A thrown bottled lightning deals 1d6 electricity damage and 1 electricity splash damage, and makes the target off-guard on a successful attack.
+
+    □□ Elixir of Life, Minor (alchemical, consumable, elixir, healing) Activate [one-action] (manipulate); Effect Upon drinking this elixir, you regain 1d6 Hit Points and gain a +1 item bonus to saving throws against diseases and poisons for 10 minutes.
+
+    Finesse (trait) You can choose to use Dexterity instead of Strength on attack rolls with this melee weapon.
+
+    Grappling Hook You can throw a grappling hook with a rope tied to it to make a climb easier. To anchor a grappling hook, make a secret attack roll against a DC depending on the target (typically 20). On a success, your hook has a firm hold, but on a critical failure, the hook seems like it will hold but actually falls when you’re partway through the climb.
+
+    Nonlethal (trait) Attacks with this weapon can be nonlethal and can be used to knock creatures unconscious instead of killing them.
+
+    Splash (trait) If an attack with a splash weapon fails, succeeds, or critically succeeds, all creatures within 5 feet of the target (including the target) take the listed splash damage. On a failure (but not a critical failure), the target of the attack still takes the splash damage. Add splash damage together with the initial damage against the target before applying the target’s weaknesses or resistances. You don’t multiply splash damage on a critical hit.
+
+    Thrown (trait) You can throw this weapon as a ranged attack. A thrown weapon adds your Strength modifier to damage just like a melee weapon does. When this trait appears on a melee weapon, it also includes the range increment in feet.
+
+    Trip (trait) You can use this weapon to Trip with the Athletics skill even if you don’t have a free hand. If you critically fail a check to Trip using the weapon, you can drop the weapon to take the effect of a failure instead of a critical failure.
+
+    Unarmed (trait) An unarmed attack uses a part of your body. It doesn’t take up a hand and can’t be Disarmed.
+
+    Feats and Abilities:
+    Sajan’s feats and abilities are described below.
+    Cat Fall Your catlike acrobatics allow you to soften the impact of your falls. Treat falls as 10 feet shorter.
+
+    Flurry of Blows [one-action] (flourish) Make two unarmed strikes. If both hit the same creature, combine their damage for the purpose of resistances and weaknesses. Apply your multiple attack penalty to the Strikes normally. Flurry of Blows has the flourish trait and can be used only once per turn.
+
+    Powerful Fist Your training as a monk increases your unarmed attack damage to 1d6 and allows you to make lethal unarmed attacks without penalty.
+
+    Tiger Stance [one-action] (stance) Requirements you are unarmored; Effect You enter the stance of a tiger and can make tiger claw attacks. These deal 1d8 slashing damage; are in the brawling group; and have the agile, finesse, nonlethal, and unarmed traits. On a critical success with your tiger claws, if you deal damage, the target takes 1d4 persistent bleed damage. As long as your Speed is at least 20 feet while in Tiger Stance, you can Step 10 feet. Once you enter tiger stance, it lasts until you are knocked out, until you put on armor, or until the encounter ends, whichever comes first.
+
+    Weapon Proficiency (martial) You are trained with all martial weapons, including the temple sword.
+
+    □ Focus Points You gain a pool of Focus Points that allow you to cast your qi spell: qi rush. Each use of this spell uses 1 Focus Point, and you currently have a total Focus Point pool of 1.
+
+    Qi Rush [one-action] (uncommon, concentrate, divine, focus, monk) Accelerated by your qi, you move with such speed you become a blur. Move two times: two Strides, two Steps, or one Stride and one Step (in either order). You gain the concealed condition during this movement and until the start of your next turn
+
+book-cf-sheet-oracle-premade = Carpfinder 2E Character Sheet
+    ===
+    Section 1: Basics
+    ===
+    Name: Korakai
+    Ancestry: Tengu
+    Heritage: Skyborn Tengu
+    Size: Medium
+    Background: Cook
+    Class: Oracle
+    Languages: Common, Tengu
+
+    ===
+    Section 2: Attributes
+    ===
+    Strength: +1
+    Dexterity: +2
+    Constitution: +1
+    Intelligence: +0
+    Wisdom: +1
+    Charisma: +4
+
+    ===
+    Section 3: Defenses
+    ===
+    Armor Class:17
+    Shield:Shield Spell (AC +1, Hardness 5)
+
+    (T)Fortitude: 4
+    (T)Reflex: 5
+    (T)Will: 6
+
+    ===
+    Section 4: Combat
+    ===
+    Maximum HP: 15
+    Current HP: 15
+    Temporary HP: 0
+
+    Dying: 0
+    Wounded: 0
+
+    Resistances and Immunities:
+    Weakness: Electricity 2 when Cursebound 1
+
+    Conditions:
+    Cursebound: 0
+
+    Speed: 25
+
+    Perception: (T) 4
+    Senses and Notes: Low light vision
+
+    Strikes:
+    Melee Strikes:
+    \[one-action] beak +5 [+0/-5] (finesse), 1d6+1 piercing
+    \[one-action] khakkara +4 [-1/-6] (shove, two-hand d10, versatile P), 1d6+1 bludgeoning
+
+    Ranged Strikes:
+    \[one-action] sling +5 [+0/-5] (range increment 50 feet, reload 1), 1d6 bludgeoning
+
+    Class DC: 17
+
+    ===
+    Section 5: Skills
+    ===
+    (U)Acrobatics: 2
+    (U)Arcana: 0
+    (T)Athletics: 4
+    (T)Crafting: 3
+    (U)Deception: 4
+    (T)Diplomacy: 7
+    (U)Intimidation: 4
+    (U)Medicine: 1
+    (T)Nature: 4
+    (U)Occultism: 4
+    (U)Performance: 4
+    (T)Religion: 4
+    (U)Society: 0
+    (U)Stealth: 2
+    (T)Survival: 4
+    (U)Thievery: 2
+
+    Lores:
+    (T)Cooking Lore: 3
+
+    ===
+    Section 6: Feats
+    ===
+    ANCESTRY ABILITIES skyborn tengu, Tengu Weapon Familiarity*
+    CLASS FEATS Foretell Harm
+    SKILL FEATS Seasoned
+    CLASS ABILITIES curse of inclement headwinds, oracle spellcasting, tempest mystery, revelation spells (tempest touch)
+
+    ===
+    Section 7: Inventory
+    ===
+    BULK Current: 3, 4 L; Maximum: 6 Bulk
+    WORN backpack, chain shirt, khakkara, minor elixir of life, scroll of runic weapon, sling (10 bullets)
+    STOWED bedroll, chalk (10 pieces), flint and steel, rations (2 weeks), rope (50 feet), salt and pepper, soap, torch (5), waterskin
+    WEALTH 2 sp, 9 cp
+
+    ===
+    Section 8: Spellcasting
+    ===
+    Spell Attack: 7
+    Spell DC: 17
+
+    CANTRIPS (AT WILL) detect magic, electric arc, guidance, light, shield, vitality lash
+    □□□ 1ST RANK heal, fear, thunderstrike
+
+    Focus Spells:
+    □ Tempest Touch (+1 Cursebound on use)
+
+    ===
+    Section 9: Reference
+    ===
+    Equipment:
+    The following rules apply to Korakai’s equipment.
+    Backpack A backpack can hold up to 4 Bulk worth of items. If you’re carrying or stowing the pack rather than wearing it on your back, its Bulk is light instead of negligible. The first 2 Bulk of items stowed in your backpack do not count against your Bulk limits (and are not included in your worn Bulk).
+
+    □ Elixir of Life, Minor (alchemical, consumable, elixir, healing) Activate [one-action] (Interact); Effect Upon drinking this elixir, you regain 1d6 Hit Points and gain a +1 item bonus to saving throws against diseases and poisons for 10 minutes.
+
+    Finesse (trait) You can use your Dexterity instead of Strength to calculate your attack bonus (but not damage rolls) with this melee weapon.
+
+    Reload (trait) This weapon requires you to use 1 Interact action to reload before it can be fired again.
+
+    □ Scroll of Runic Weapon When holding this scroll, you can cast runic weapon (see Spells on next page). After you Cast the Spell, the scroll is destroyed.
+
+    Shove (trait) You can use this weapon to Shove with the Athletics skill even if you don’t have a free hand. This uses the weapon’s reach (if different from your own) and adds the weapon’s item bonus to attack rolls as an item bonus to the Athletics check. If you critically fail a check to Shove using the weapon, you can drop the weapon to take the effects of a failure instead of a critical failure.
+
+    Two-Hand (trait) This weapon can be wielded with two hands. Doing so changes its weapon damage die to the indicated value.
+
+    Versatile (trait) A versatile weapon can be used to deal an alternate damage type listed. For instance, a piercing weapon that has “versatile S” can be used to deal piercing or slashing damage. Choose the damage type each time you make an attack
+
+    Feats and Abilities:
+    Korakai’s feats and abilities are described below.
+    Foretell Harm [free-action] (cursebound, divine) Frequency once per round; Requirements Your previous action was to Cast a non-cantrip Spell that dealt damage; Effect Your magic echoes ominously as you glimpse injury in the target’s future. At the beginning of your target’s next turn, it takes damage equal to twice the triggering spell’s rank as a seemingly random and minor misfortune finds it. The damage and type of misfortune is of a type matching the spell; for instance, if you dealt fire damage, a flame might spontaneous ignite on them or they might burn a hand on their torch. The target is then temporarily immune to Foretell Harm for 24 hours.
+
+    Oracle Spellcasting Your connection to the powers of wind, rain, and lightning grants you the ability to wield divine magic. You can cast divine spells using the Cast a Spell activity. See the Spells section below for details on the spells you can cast. The tempest mystery also lets you cast electric arc as a divine spell.
+
+    Low-Light Vision You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light.
+
+    Oracle Spellcasting Your connection to the powers of wind, rain, and lightning grants you the ability to wield divine magic. You can cast divine spells using the Cast a Spell activity. See the Spells section below for details on the spells you can cast. The tempest mystery also lets you cast electric arc as a divine spell.
+
+    Skyborn Tengu Your connection to the spirits of wind and sky mean you take no damage from falling, regardless of the distance you fall.
+
+    Seasoned You’ve mastered the preparation of many types of food and drink. You gain a +1 circumstance bonus to checks to Craft food and drink, including potions
+
+    Revelation Spells and Curse:
+    □ Revelation Spells Your oracular mystery grants you the tempest touch revelation spell, which you can cast by spending 1 Focus Point from your focus pool of 1. When you cast a revelation spell, it causes your oracular curse to progress (see Oracular Curse below).
+
+    Tempest Touch [one-action] (uncommon, cold, cursebound, focus, manipulate, oracle, water) Range touch; Targets 1 creature; Defense Fortitude; Effect Your touch calls forth a churning mass of icy water that clings to your target, dealing 1d4 bludgeoning damage and 1d4 cold damage. The target must attempt a Fortitude save.
+    Critical Success The target is unaffected.
+    Success The target takes half damage and a –5-foot circumstance penalty to its Speeds until the end of your next turn.
+    Failure The target takes full damage and a –10-foot circumstance penalty to its Speeds until the end of your next turn.
+    Critical Failure As failure, but the target takes double damage.
+
+    ORACULAR CURSE
+    As an oracle, you can tap into the pure and unmitigated divine power of creation to supplement your spellcasting via cursebound abilities. These abilities grant you special benefits, but the backlash of letting this power into your mortal body manifests as an oracular curse. The more cursebound abilities you use, the more your curse worsens, but you might gain divine benefits even as it tightens its grip on your soul.
+    Your oracular curse is expressed using the cursebound condition, a unique condition that affects only oracles. Immediately after the first time you use a cursebound ability, you become cursebound 1, and if you use a cursebound ability while you are already cursebound, you increase the value of your cursebound condition by 1 after the ability resolves. You can tolerate only a modest amount of divine power, and your cursebound condition can’t increase beyond cursebound 2. Once saturated in divine power, your soul can’t absorb any more, and so you can’t use a cursebound ability if you are already at your maximum cursebound condition.
+    You remain cursebound until you Refocus, which reduces your cursebound condition by 1 in addition to restoring a Focus Point. As your curse is a direct result of divine power, you cannot mitigate, reduce, or remove the effects of your curse or any ability with the cursebound trait by any means other than Refocusing. For example, if a cursebound effect makes creatures concealed from you, you can’t negate that concealed condition through a magic item or spell, such as sure strike (though you would still benefit from the other effects of that item or spell). Likewise, cleanse affliction and similar abilities don’t affect your curse at all.
+
+    Curse of Inclement Headwinds
+    The weather seems to always oppose you in ways large and small. Even when you are calm and at rest, your hair and clothing are inconveniently blown about by gentle winds, you are slightly damp from the faintest drizzle, and your touch often comes with a static shock. When you have the cursebound condition, you are opposed by the elements, with the following effects.
+    Cursebound 1 Lightning is drawn to you. You gain electricity weakness 2 and electricity spells or effects that have additional effects for a creature wearing or holding metal treat you as though you were wearing metal. Any immunity or resistance you have to such spells and effects is suppressed.
+    Cursebound 2 Blowing winds impose a -2 circumstance penalty to ranged attack rolls you make.
+
+    Spells:
+    Korakai can cast the following spells. He can cast his 1st-rank spells three times per day in any combination, and he has an additional 1st- rank spell on a scroll.
+
+    Cantrips
+    Detect Magic [two-actions] (cantrip, concentrate, detection, manipulate) Area 30-foot emanation; Effect You send out a pulse that registers the presence of magic. You receive no information beyond the presence or absence of magic. You can choose to ignore magic you’re fully aware of, such as the magic items and ongoing spells of you and your allies. You detect illusion magic only if that magic’s effect has a lower rank than the rank of your detect magic spell, though items that have an illusion aura but aren’t deceptive in appearance (such as an invisibility potion) are typically detected normally.
+
+    Electric Arc [two-actions] (cantrip, concentrate, electricity, manipulate) Range 30 feet; Targets 1 or 2 creatures; Defense basic Reflex; Effect An arc of lightning leaps from one target to another. Each target takes 2d4 electricity damage with a basic Reflex save.
+
+    Guidance [one-action] (cantrip, concentrate) Range 30 feet; Targets 1 creature; Duration until the start of your next turn; Effect You ask for the guidance of supernatural entities, granting the target a +1 status bonus to one attack roll, Perception check, saving throw, or skill check the target attempts before the duration ends. The target chooses which roll to use the bonus on before rolling. If the target uses the bonus, the spell ends. Either way, the target is then temporarily immune for 1 hour.
+
+    Light [two-actions] (cantrip, concentrate, light, manipulate) Range 120 feet; Duration until your next daily preparations; Effect You create an orb of light that sheds bright light in a 20-foot radius (and dim light for the next 20 feet) in a color you choose. If you create the light in the same space as a willing creature, you can attach the light to the creature, causing it to float near that creature as it moves. You can Sustain the spell to move the light up to 60 feet; you can attach or detach it from a creature as part of this movement.
+    You can Dismiss the spell. If you Cast the Spell while you already have four light spells active, you must choose one of the existing spells to end.
+
+    Shield [one-action] (cantrip, concentrate, force) Duration until the start of your next turn; Effect You raise a magical shield of force. This counts as using the Raise a Shield action (Player Core 419), giving you a +1 circumstance bonus to AC until the start of your next turn, but it doesn’t require a hand to use.
+    While the spell is in effect, you can use the Shield Block reaction (page 262) with your magic shield. The shield has Hardness 5. You can use the spell’s reaction to reduce damage from any spell or magical effect, even if it doesn’t deal physical damage. After you use Shield Block, the spell ends and you can’t cast it again for 10 minutes.
+
+    Shield Block [reaction] Trigger You would be damaged by a physical attack while your shield is conjured; Effect You interpose your magical  shield between yourself and the attack, reducing the damage by 5. You take any remaining damage.
+
+    Vitality Lash [two-actions] (cantrip, concentrate, manipulate, vitality) Range 30 feet; Targets 1 creature that is undead or otherwise has void healing; Defense Fortitude; Effect You demolish the target’s corrupted essence with energy from Creation’s Forge. You deal 2d6 vitality damage with a basic Fortitude save. If the creature critically fails the save, it is also enfeebled 1 until the start of your next turn.
+
+    1st
+    Heal [one-action] to [three-actions] (healing, manipulate, vitality) Range varies; Targets 1 willing living creature or 1 undead creature; Effect You channel vital energy to heal the living or damage the undead. If the target is a willing living creature, you restore 1d8 Hit Points. If the target is undead, you deal that amount of vitality damage to it, and it gets a basic Fortitude save. The number of actions you spend when Casting this Spell determines its targets, range, area, and other parameters.
+    \[one-action] The spell has a range of touch.
+    \[two-actions] (concentrate): The spell has a range of 30 feet. If you’re healing a living creature, increase the Hit Points restored by 8.
+    \[three-actions] (concentrate): You disperse vital energy in a 30-foot emanation, targeting all living and undead creatures in the area (this does not include the additional healing from the 2-action option).
+
+    Fear [two-actions] (concentrate, emotion, fear, manipulate, mental) Range 30 feet; Targets 1 creature; Defense Will; Duration varies; Effect You plant fear in the target; it must attempt a Will save.
+    Critical Success The target is unaffected.
+    Success The target is frightened 1.
+    Failure The target is frightened 2.
+    Critical Failure The target is frightened 3 and fleeing for 1 round.
+    □ Runic Weapon [two-actions] (concentrate, manipulate) Range touch; Targets 1 non-magical weapon that is unattended or wielded by a willing creature; Duration 1 minute; Effect The weapon glimmers with magic as temporary runes carve down its length. The target becomes a +1 striking weapon, gaining a +1 item bonus to attack rolls and increasing the number of weapon damage dice to two
+
+    Thunderstrike [two-actions] (concentrate, electricity, manipulate, sonic) Range 120 feet; Targets 1 creature; Defense basic reflex; Effect You call down a tendril of lightning that cracks with thunder, dealing 1d12 electricity damage and 1d4 sonic damage to the target with a basic Reflex save. A target wearing metal armor or made of metal takes a –1 circumstance bonus to its save, and if damaged by the spell is clumsy 1 for 1 round.
+
+book-cf-sheet-sorcerer-premade = Carpfinder 2E Character Sheet
+    ===
+    Section 1: Basics
+    ===
+    Name: Seoni
+    Ancestry: Human
+    Heritage: Skilled
+    Size: Medium
+    Background: Nomad
+    Class: Sorcerer
+    Languages: Common, draconic, varisian
+
+    ===
+    Section 2: Attributes
+    ===
+    Strength: +0
+    Dexterity: +2
+    Constitution: +1
+    Intelligence: +1
+    Wisdom: +1
+    Charisma: +4
+
+    ===
+    Section 3: Defenses
+    ===
+    Armor Class: 15
+    Shield: Shield Spell (+1 AC, hardness 5)
+
+    (T)Fortitude: 4
+    (T)Reflex: 5
+    (T)Will: 6
+
+    ===
+    Section 4: Combat
+    ===
+    Maximum HP:15
+    Current HP: 15
+    Temporary HP: 0
+
+    Dying:0
+    Wounded:0
+
+    Resistances and Immunities:
+    Conditions:
+
+    Speed: 25
+
+    Perception: (T) 4
+    Senses and Notes:
+
+    Strikes:
+    Melee Strikes:
+    \[one-action] staff +3 [-2/-7] (two-hand 1d8), 1d4 bludgeoning
+
+    Ranged Strikes:
+    \[one-action] crossbow +5 [+0/-7] (range increment 120 feet, reload 1), 1d8 piercing
+
+    Class DC: 17
+
+    ===
+    Section 5: Skills
+    ===
+    (U)Acrobatics: 2
+    (T)Arcana: 4
+    (U)Athletics: 0
+    (T)Crafting: 4
+    (U)Deception: 7
+    (T)Diplomacy: 7
+    (T)Intimidation: 7
+    (U)Medicine: 1
+    (U)Nature: 1
+    (U)Occultism: 1
+    (U)Performance: 4
+    (U)Religion: 1
+    (T)Society: 4
+    (U)Stealth: 2
+    (T)Survival: 4
+    (U)Thievery: 2
+
+    Lores:
+    (T)Hills Lore: 4
+
+    ===
+    Section 6: Feats
+    ===
+    ANCESTRY ABILITIES Adapted Cantrip
+    SKILL FEATS Assurance (Survival)
+    CLASS ABILITIES blood magic, bloodline (imperial), sorcerer spellcasting, sorcerous potency
+
+    ===
+    Section 7: Inventory
+    ===
+    BULK Current: 3, 1 L; Maximum: 5 Bulk
+    WORN lesser antidote, backpack, explorer’s clothing, crossbow (10 bolts), minor elixir of life (3), staff
+    STOWED bedroll, candle (10), flint and steel, rations (3 weeks), waterskin, writing set
+    WEALTH 3 sp, 8 cp
+
+    ===
+    Section 8: Spellcasting
+    ===
+    Spell attack: +7
+    Spell DC: 17
+
+    CANTRIPS (AT WILL): caustic blast, detect magic, forbidding ward, frostbite, shield
+
+    □□□ 1ST RANK: dizzying colors, force barrage, grim tendrils
+
+    □ Focus Spells: Ancestral memories
+
+    ===
+    Section 9: Reference
+    ===
+
+    Equipment:
+    The following rules apply to Seoni’s equipment.
+    □ Antidote, Lesser (alchemical, consumable, elixir) Activate [one-action] (Interact) Effect Upon drinking this elixir, you gain a +2 item bonus on Fortitude saving throws against poison for 6 hours.
+
+    Backpack A backpack can hold up to 4 Bulk worth of items. If you’re carrying or stowing the pack rather than wearing it on your back, its Bulk is light instead of negligible. The first 2 Bulk of items stowed in your backpack do not count against your Bulk limits (and are not included in your worn Bulk).
+
+    □□□ Elixir of Life, Minor (alchemical, consumable, elixir, healing) Activate [one-action] (Interact); Effect Upon drinking this elixir, you regain 1d6 Hit Points and gain a +1 item bonus to saving throws against diseases and poisons for 10 minutes.
+
+    Reload (trait) This weapon takes 1 Interact action to reload before it can be fired again.
+
+    Two-Hand (trait) This weapon can be wielded with two hands. Doing so changes its weapon damage die to the indicated value
+
+    Feats and Abilities:
+    Seoni’s feats and abilities are described below.
+
+    Adapted Cantrip You can cast forbidding ward as an arcane spell (included in Seoni’s cantrips).
+
+    Assurance - Survival (fortune) Even in the worst circumstances, you can perform basic tasks with the Survival skill. You can forego rolling a skill check for your chosen skill to instead receive a total check result of 13 (do not apply any modifiers to this result).
+
+    Bloodline (Imperial) Your bloodline defines the source of your magical power; for you this is your connection to ancient spellcasters who had mastered magic, and their power manifests in you.
+
+    Blood Magic Whenever you cast ancestral memories, or force barrage using one of your spell slots, you gain your choice of a +1 status bonus to either AC or saving throws.
+
+    Sorcerer Spellcasting You can cast arcane spells using the Cast a Spell activity. See the Spells section below for details on the spells you can cast.
+
+    Sorcerous Potency When you Cast a Spell from your spell slots that either deals damage or restores Hit Points, you gain a status bonus to that spell’s damage or healing equal to the spell’s rank. This applies only to the initial damage or healing the spell deals when cast. An individual creature takes this damage or benefits from this healing only once per spell, even if the spell would damage or heal that creature multiple times. This bonus has already been noted on Seoni’s 1st-rank spells.
+
+    ⃞ Focus Points You gain a pool of Focus Points that allow you to cast your bloodline spell: ancestral memories. Each use of this spell uses 1 Focus Point and you currently have a total focus pool of 1.
+
+    Ancestral Memories [one-action] (uncommon, concentrate, focus, sorcerer) The memories of long-dead spellcasters grant you their knowledge, making your spells more formidable. You gain either a +1 status bonus to the next spell attack roll you attempt before the end of your turn or an enemy within 60 feet takes a –1 status penalty to the next saving throw they attempt against a spell you cast before the end of your turn.
+
+    Spells:
+    Seoni can cast the following spells. She can cast her 1st-rank spells three times per day in any combination.
+
+
+    CANTRIPS
+    Caustic Blast [two-actions] (acid, cantrip, concentrate, manipulate) Range 30 feet; Area 5-foot burst; Defense basic Reflex; Effect You fling a large glob of acid that immediately detonates, spraying nearby creatures. Creatures in the area take 1d8 acid damage with a basic Reflex save; on a critical failure, the creature also takes 1 persistent acid damage.
+
+    Detect Magic [two-actions] (cantrip, detection, manipulate) Area 30-foot emanation; Effect You send out a pulse that registers the presence of magic. You receive no information beyond the presence or absence of magic. You can choose to ignore magic you’re fully aware of, such as the magic items and ongoing spells of you and your allies. You detect illusion magic only if that magic’s effect has a lower rank than the rank of your detect magic spell, though items that have an illusion aura but aren’t deceptive in appearance (such as an invisibility potion) are typically detected normally.
+
+    Forbidding Ward [two-actions] (cantrip, concentrate, manipulate) Range 30 feet; Targets 1 ally and 1 enemy; Duration sustained up to 1 minute; Effect You ward an ally against the attacks and hostile spells from the target enemy. The target ally gains a +1 status bonus to Armor Class and saving throws against the target enemy’s attacks, spells, and other effects.
+
+    Frostbite [two-actions] (cantrip, cold, concentrate, manipulate) Range 60 feet; Targets 1 creature; Defense Fortitude; Effect An orb of biting cold coalesces around your target, freezing its body. The target takes 2d4 cold damage with a basic Fortitude save. On a critical failure, the target also gains weakness 1 to bludgeoning until the start of your next turn.
+
+    Shield [one-action] (cantrip, concentrate, force) Duration until the start of your next turn; Effect You raise a magical shield of force. This counts as using the Raise a Shield action (Player Core 419), giving you a +1 circumstance bonus to AC until the start of your next turn, but it doesn’t require a hand to use.
+    While the spell is in effect, you can use the Shield Block reaction (page 262) with your magic shield. The shield has Hardness 5. You can use the spell’s reaction to reduce damage from any spell or magical effect, even if it doesn’t deal physical damage. After you use Shield Block, the spell ends and you can’t cast it again for 10 minutes.
+    Shield Block [reaction] Trigger You would be damaged by a physical attack while your shield is conjured. Effect You interpose your magical shield between you and the attack, reducing the damage by 5. You take any remaining damage.
+
+    1ST
+    Dizzying Colors [two-actions] (concentrate, illusion, incapacitation, manipulate, visual) Area 15-foot cone; Defense Will; Duration 1 or more rounds; Effect You unleash a swirling multitude of colors that overwhelms creatures based on their Will saves.
+    Critical Success The creature is unaffected.
+    Success The creature is dazzled for 1 round.
+    Failure The creature is stunned 1, blinded for 1 round, and dazzled for 1 minute.
+    Critical Failure The creature is stunned for 1 round and blinded for 1 minute.
+
+    Force Barrage [one-action] to [three-actions] (concentrate, force, manipulate) Range 120 feet; Targets 1 creature; Effect You fire a shard of solidified magic toward a creature that you can see. It automatically hits and deals 1d4+2 force damage. For each additional action you use when Casting the Spell, increase the number of shards you shoot by one, to a maximum of three shards for 3 actions. You choose the target for each shard individually. If you shoot more than one shard at the same target, combine the damage before applying bonuses or penalties to damage, resistances, weaknesses, and so forth.
+    Grim Tendrils [two-actions] (concentrate, manipulate, void) Area 30 foot line; Defense Fortitude; Effect You unleash a wave of dark tendrils, dealing 2d4+1 void damage and 1 persistent bleed damage to living creatures in the line. Each living creature in the line must attempt a Fortitude save.
+    Critical Success The creature is unaffected.
+    Success The creature takes half the void damage and no persistent bleed damage.
+    Failure The creature takes full damage.
+    Critical Failure The creature takes double void damage and double persistent bleed damage.
+
+book-cf-sheet-swashbuckler-premade = Carpfinder 2E Character Sheet
+    ===
+    Section 1: Basics
+    ===
+    Name: Jirelle
+    Ancestry: Human
+    Heritage: Half-elf
+    Size: Medium
+    Background: Sailor
+    Class: Swashbuckler
+    Languages: Common, Mwangi
+
+    ===
+    Section 2: Attributes
+    ===
+    Strength: +1
+    Dexterity: +4
+    Constitution: +1
+    Intelligence: +0
+    Wisdom: +1
+    Charisma: +2
+
+    ===
+    Section 3: Defenses
+    ===
+    Armor Class:18
+    Shield:
+    Buckler (+1 AC)
+    Dueling Cape (+1 AC, +1 Deception Checks to Feint)
+
+    (T)Fortitude: 4
+    (T)Reflex: 9
+    (T)Will: 6
+
+    ===
+    Section 4: Combat
+    ===
+    Maximum HP: 19
+    Current HP: 19
+    Temporary HP: 0
+
+    Dying: 0
+    Wounded: 0
+
+    Resistances and Immunities:
+    Conditions:
+
+    Speed: 30 (35 with Panache)
+
+    Perception: (E) 6
+    Senses and Notes: Low Light Vision
+
+    Strikes:
+    Melee Strikes:
+    \[one-action] rapier +7 [+2/-3] (deadly d8, disarm, finesse), 1d6+3 piercing
+    \[one-action] main-gauche +7 [+3/-1] (agile, disarm, finesse, parry, versatile S), 1d4+3 piercing
+    \[one-action] dagger +7 [+3/-1] (agile, finesse, versatile S), 1d4+3 piercing
+
+    Ranged Strikes:
+    \[one-action] dagger+7 [+3/-1] (agile, finesse, thrown 10 feet, versatile S), 1d4+1 piercing
+
+    Class DC: 17
+
+    ===
+    Section 5: Skills
+    ===
+    (T)Acrobatics: 7
+    (U)Arcana: 0
+    (T)Athletics: 4
+    (U)Crafting: 0
+    (T)Deception: 5
+    (T)Diplomacy: 5
+    (U)Intimidation: 2
+    (U)Medicine: 1
+    (U)Nature: 1
+    (U)Occultism: 0
+    (U)Performance: 2
+    (U)Religion: 1
+    (T)Society: 3
+    (T)Stealth: 7
+    (U)Survival: 1
+    (T)Thievery: 7
+
+    Lores:
+    (T)Sailing Lore: 3
+
+    ===
+    Section 6: Feats
+    ===
+    ANCESTRY ABILITIES Nimble Elf
+    CLASS FEATS Goading Feint
+    SKILL FEATS Underwater Marauder
+    CLASS ABILITIES Confident Finisher, panache, precise strike (+2 or +2d6), swashbuckler’s style (fencer)
+
+    ===
+    Section 7: Inventory
+    ===
+    BULK Current: 4, 1 L; Maximum: 6 Bulk
+    WORN backpack, buckler, dagger (5), dueling cape, fine clothing, minor healing potion, leather armor, main-gauche, rapier, thieves’ toolkit
+    STOWED bedroll, chalk (10 pieces), flint and steel, rations (2 weeks), rope (50 feet), soap, torch (5), waterskin
+    WEALTH 3 sp
+
+    ===
+    Section 8: Spellcasting
+    ===
+    Tradition and Type:
+
+    Spell Statistics:
+    Spell attack:
+    Spell DC:
+
+    Focus Spells:
+    Focus Points:
+
+    Cantrips:
+
+    Spell Slots:
+
+    ===
+    Section 9: Reference
+    ===
+
+    Equipment:
+    The following rules apply to Jirelle’s equipment.
+    Agile (trait) The multiple attack penalty you take on the second attack each round with this weapon is –4 instead of –5, and –8 instead of –10 on the third and any further attacks in the round.
+
+    Backpack A backpack can hold up to 4 Bulk worth of items. If you’re carrying or stowing the pack rather than wearing it on your back, its Bulk is light instead of negligible. The first 2 Bulk of items stowed in your backpack don’t count against your Bulk limits (and are not included in your worn Bulk).
+
+    Buckler You can Raise a Shield with your buckler as long as you have that hand free or are holding a light object that's not a weapon in that hand.
+
+    Deadly (trait) On a critical hit, the weapon adds a weapon damage die of the listed size; this is added after doubling the weapon’s damage.
+
+    Disarm (trait) You can use this weapon to Disarm with the Athletics skill even if you don’t have a free hand. This uses the weapon’s reach (if different from your own) and adds the weapon’s item bonus to attack rolls (if any) as an item bonus to the Athletics check. If you critically fail a check to Disarm using the weapon, you can drop the weapon to take the effects of a failure instead of a critical failure. On a critical success, you still need a free hand if you want to take the item.
+
+    Finesse (trait) You can use your Dexterity instead of Strength to calculate your attack bonus (but not damage rolls) with this melee weapon.
+
+    □ Healing Potion, Minor (consumable, healing, magical, vitality): Upon drinking this potion, you regain 1d8 Hit Points.
+
+    Parry (trait) This weapon can be used defensively to block attacks. While wielding this weapon, if your proficiency with it is trained or better, you can spend an Interact action to position your weapon defensively, gaining a +1 circumstance bonus to AC until the start of your next turn.
+
+    Thieves’ Toolkit You need a thieves’ toolkit to Pick Locks or Disable Devices (of some types) using the Thievery skill. If your thieves’ toolkit is broken, you can repair it by replacing the lock picks with replacement picks appropriate to your toolkit; this doesn’t require using the Repair action. If you wear your thieves’ toolkit, you can draw and replace it as part of the action that uses it.
+
+    Thrown (trait) You can throw this weapon as a ranged attack. A thrown weapon adds your Strength modifier to damage just like a melee weapon does. When this trait appears on a melee weapon, it also includes the range increment in feet.
+
+    Versatile (trait) A versatile weapon can be used to deal an alternatedamage type listed. For instance, a piercing weapon that has “versatile S” can be used to deal piercing or slashing damage. Choose the damage type each time you make an attack.
+
+    Off-Hand Actions:
+    Jirelle can wield another weapon, her dueling cape, or her buckler in her off hand, though she can wield only one of these three options at a time.
+
+    Dueling Cape You can pull a dueling cape you’re wearing from your shoulder and wrap it around your arm with an Interact action. While wielding the dueling cape this way, the cape uses that arm and hand, and you can’t hold anything else in that hand. While you do so, you can spend an action to hold it in a protective position, giving you a +1 circumstance bonus to AC and to Deception checks to Feint until the start of your next turn.
+
+    Raise Shield [one-action] While wielding a shield, you position it to protect yourself until the beginning of your next turn. This grants you a +1 circumstance bonus to AC, and you can use the Shield Block reaction.
+
+    Feats and Abilities:
+    Jirelle’s feats and abilities are described below.
+
+    Panache You can enter a state of flair, called panache, by performing stylish actions in combat. As a swashbuckler with the fencer style,you gain panache by performing actions that have the bravado trait. Create a Diversion, Feint and Tumble Through gain the bravado trait when you use them. The GM might determine that a check to perform a particularly daring action, such as swinging on a chandelier or sliding down a drapery, can gain the bravado trait. These checks typically involve at least a single action and a non- trivial DC. You gain a +1 circumstance bonus to skill checks with the bravado trait while in a combat encounter. While you have panache, you gain a +5-foot status bonus to your Speeds. You can use powerful finisher actions while you have panache; after using one, you lose your panache.
+
+    Finisher (trait) Finishers are spectacular finishing moves. You can use a finisher only if you have panache, and you lose your panache immediately after performing a finisher. Once you use a finisher, you can’t use actions that have the attack trait for the rest of your turn. Some finisher actions also grant an effect on a failure. If your finisher succeeds, you can choose to apply the failure effect instead.
+
+    Precise Strike You strike with flair. When you make a melee Strike with any of your listed weapons, you deal 2 additional precision damage. If the strike is part of a finisher, the additional damage is 2d6 precision damage instead.
+
+    Confident Finisher [one-action] (finisher, swashbuckler) You make a graceful attack, piercing your foe’s defenses. Make a Strike with the following failure effect.
+    Failure You deal half your precise strike damage to the target. This damage type is that of the weapon or unarmed attack you used for the Strike.
+
+    Create a Diversion [one-action] (bravado, mental) With a gesture, a trick, or some distracting words, you can create a diversion that draws creatures’ attention elsewhere. If you use a gesture or trick, this action gains the manipulate trait. If you use distracting words, it gains the auditory and linguistic traits.
+    Attempt a single Deception check and compare it to the Perception DCs of the creatures whose attention you’re trying to divert. Whether or not you succeed, creatures you attempt to divert gain a +4 circumstance bonus to their Perception DCs against your attempts to Create a Diversion for 1 minute.
+    Success You become hidden to each creature whose Perception DC is less than or equal to your result. (The hidden condition allows you to Sneak away.) This lasts until the end of your turn or until you do anything except Step or use the Stealth skill to Hide or Sneak. If you Strike a creature, the creature remains off-guard against that attack, and you then become observed. If you do anything else, you become observed just before you act unless the GM determines otherwise.
+    Failure You don’t divert the attention of any creatures whose Perception DC exceeds your result, and those creatures are aware. you were trying to trick them.
+
+    Feint [one-action] (bravado, mental); Requirements You are within melee reach of the opponent you attempt to Feint; Effect With a misleading flourish, you leave an opponent unprepared for your real attack. Attempt a Deception check against that opponent’s Perception DC.
+    Critical Success You throw your enemy’s defenses against you entirely off. The target is off-guard against melee attacks that you attempt against it until the end of your next turn.
+    Success Your foe is fooled only momentarily. The target is off-guard against the next melee attack that you attempt against it before the end of your current turn.
+    Critical Failure Your feint backfires. You are off-guard against melee attacks the target attempts against you until the end of your next turn.
+
+    Goading Feint When you trick a foe, you can goad them into overextending their next attack. On a Feint, you can use the following success and critical success effects instead of any other effects you would gain when you Feint; if you do, other abilities that adjust the normal effects of your Feint no longer apply. You can choose whether to use the Goading Feint benefits or the normal benefits.
+    Critical Success The target takes a –2 circumstance penalty to all attack rolls against you before the end of its next turn.
+    Success The target takes a –2 circumstance penalty to its next attack roll against you before the end of its next turn
+
+    Tumble Through [one-action] (bravado, move) You Stride up to your Speed. During this movement, you can try to move through the space of one enemy. Attempt an Acrobatics check against the enemy’s Reflex DC as soon as you try to enter its space. You can Tumble Through using Climb, Fly, Swim, or another action instead of Stride in the appropriate environment.
+    Success You move through the enemy’s space, treating the squares in its space as difficult terrain (every 5 feet costs 10 feet of movement). If you don’t have enough Speed to move all the way through its space, you get the same effect as a failure.
+    Failure Your movement ends, and you trigger reactions as if you had moved out of the square you started in.
+
+    Low-Light Vision You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light.
+
+    Underwater Marauder You’ve learned to fight underwater. You are not off-guard while in water, and you don’t take the usual penalties for using a bludgeoning or slashing melee weapon in water.
