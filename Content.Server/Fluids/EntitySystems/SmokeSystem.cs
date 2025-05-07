@@ -44,7 +44,7 @@ public sealed class SmokeSystem : EntitySystem
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-  
+
     private EntityQuery<SmokeComponent> _smokeQuery;
     private EntityQuery<SmokeAffectedComponent> _smokeAffectedQuery;
 
@@ -150,7 +150,7 @@ public sealed class SmokeSystem : EntitySystem
             entity.Comp.SpreadAmount -= args.NeighborFreeTiles.Count;
 
             StartSmoke(ent, solution.Clone(), timer?.Lifetime ?? entity.Comp.Duration, spreadAmount);
-            
+
             if (entity.Comp.SpreadAmount == 0)
             {
                 RemCompDeferred<ActiveEdgeSpreaderComponent>(entity);
@@ -347,6 +347,4 @@ public sealed class SmokeSystem : EntitySystem
         var color = solution.GetColor(_prototype);
         _appearance.SetData(smoke.Owner, SmokeVisuals.Color, color, smoke.Comp2);
     }
-
-
 }

@@ -28,6 +28,6 @@ public sealed partial class ClothingSlotAmmoProviderComponent : AmmoProviderComp
     /// DeltaV - ATMOS Extinguisher Nozzle
     /// If the hands are considered a valid ammo provider slot.
     /// </summary>
-    [DataField("checkHands")]
-    public bool CheckHands = false;
+    [DataField]
+    public bool CheckHands;
 }
