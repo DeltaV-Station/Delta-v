@@ -3,8 +3,9 @@
   name: Create Foxfire
   description: Form a cool, gently glowing wisp of flame
   components:
+  - type: LimitedCharges
+    maxCharges: 3
   - type: InstantAction
-    charges: 3
     disableWhenEmpty: false
     icon: { sprite: _DV/Structures/Specific/Species/Kitsune/foxfire.rsi, state: icon }
     event: !type:CreateFoxfireActionEvent

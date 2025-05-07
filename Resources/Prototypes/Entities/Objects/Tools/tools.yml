@@ -346,7 +346,6 @@
     - PostLight # DeltaV - added base RCD postlight
   - type: LimitedCharges
     maxCharges: 30
-    charges: 30
   - type: Sprite
     sprite: _DV/Objects/Tools/RCD.rsi # DeltaV - RCD inhand resprite
     state: icon
@@ -377,18 +376,17 @@
   suffix: Empty
   components:
   - type: LimitedCharges
-    charges: 0
+    lastCharges: -1
 
 - type: entity
   id: RCDRecharging
   parent: RCD
   name: experimental RCD
-  description: A bluespace-enhanced rapid construction device that passively generates its own compressed matter.
+  description: Cyborg-mounted Rapid Construction Device which creates compressed matter on the fly using an internal fabricator.
   suffix: AutoRecharge
   components:
   - type: LimitedCharges
     maxCharges: 20
-    charges: 20
   - type: AutoRecharge
     rechargeDuration: 10
 # Begin DeltaV additions. Added extra items that can be made with the experimental RCD and new sprites
