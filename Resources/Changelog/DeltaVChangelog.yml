@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: You can no longer use headsets when cuffed, maints kidnappers rejoice!
-      (This is a test of this feature, please leave feedback on discord.gg/deltav)
-    type: Tweak
-  id: 859
-  time: '2025-01-05T05:44:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2610
 - author: Radezolid
   changes:
   - message: Mantis now can store their sidearm, headcages and folders in their belts.
@@ -4063,3 +4055,10 @@
   id: 1358
   time: '2025-05-07T19:16:08.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3668
+- author: deltanedas
+  changes:
+  - message: Fixed bluespace shelter capsules not checking for blockages.
+    type: Fix
+  id: 1359
+  time: '2025-05-07T21:15:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3674
