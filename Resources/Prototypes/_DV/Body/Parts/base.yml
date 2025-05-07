@@ -27,13 +27,13 @@
     - types:
         Piercing: 90
     - types:
-        Slash: 40
+        Slash: 55
     - types:
         Blunt: 90
     integrityThresholds:
-      CriticallyWounded: 35
-      HeavilyWounded: 30
-      ModeratelyWounded: 25
+      CriticallyWounded: 50
+      HeavilyWounded: 40
+      ModeratelyWounded: 30
       SomewhatWounded: 20
       LightlyWounded: 15
       Healthy: 10
@@ -47,16 +47,16 @@
     - types:
         Piercing: 90
     - types:
-        Slash: 25
+        Slash: 40
     - types:
         Blunt: 90
     integrityThresholds:
-      CriticallyWounded: 25
-      HeavilyWounded: 20
-      ModeratelyWounded: 15
-      SomewhatWounded: 10
-      LightlyWounded: 5
-      Healthy: 0
+      CriticallyWounded: 35
+      HeavilyWounded: 30
+      ModeratelyWounded: 25
+      SomewhatWounded: 20
+      LightlyWounded: 15
+      Healthy: 10
 
 - type: entity
   abstract: true
