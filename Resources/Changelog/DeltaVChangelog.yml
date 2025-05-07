@@ -1,128 +1,4 @@
 ﻿Entries:
-- author: makyo
-  changes:
-  - message: Added traumoxadone and stelloxadone.
-    type: Add
-  - message: Doxarubixadone works on the dead now.
-    type: Tweak
-  id: 848
-  time: '2025-01-03T17:34:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2588
-- author: DisposableCrewmember42
-  changes:
-  - message: Glimmer probers now explode when unanchored using an RCD
-    type: Fix
-  id: 849
-  time: '2025-01-03T18:06:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2606
-- author: deltanedas
-  changes:
-  - message: Fixed cats being weird.
-    type: Fix
-  id: 850
-  time: '2025-01-03T18:24:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2607
-- author: deltanedas
-  changes:
-  - message: Fixed loneops, ninja, etc spawning way too early in the round.
-    type: Fix
-  id: 851
-  time: '2025-01-03T18:59:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2608
-- author: Stop-Signs
-  changes:
-  - message: Added salt, pepper, and cocoa containers to the chefvend
-    type: Add
-  id: 852
-  time: '2025-01-03T19:18:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2504
-- author: sleepyyapril
-  changes:
-  - message: Added the ability to reply to AHelps from discord.
-    type: Add
-  id: 853
-  time: '2025-01-04T00:31:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2315
-- author: Field Command
-  changes:
-  - message: Byoin station, with soft population cap of 4.
-    type: Add
-  - message: NTES Evac Basu shuttle
-    type: Add
-  id: 854
-  time: '2025-01-04T07:14:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1965
-- author: Lyndomen
-  changes:
-  - message: Storage Implant is now 4 TC but cannot store steal objectives, or anything
-      that has storage in it.
-    type: Tweak
-  id: 855
-  time: '2025-01-05T02:42:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2286
-- author: Lyndomen
-  changes:
-  - message: AI have a slightly updated law 4, ensure authorized personnel may access
-      your core in an emergency!
-    type: Tweak
-  id: 856
-  time: '2025-01-05T02:55:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2620
-- author: Stop-Signs
-  changes:
-  - message: The perforator does significantly more damage
-    type: Tweak
-  id: 857
-  time: '2025-01-05T02:56:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2615
-- author: yuitop, TheBean, pontaoski, BIGZi0348, deltanedas, ArZarLordOfMango, themias,
-    Blackern5000
-  changes:
-  - message: Fingerless gloves no longer block taking fingerprints.
-    type: Tweak
-  - message: Animal cubes can now be examined to determine if they are soaked in the
-      wrong reagent.
-    type: Add
-  - message: Animal cubes can now be dried in a microwave to remove reagents.
-    type: Add
-  - message: Removed Discard mode from ChemMaster
-    type: Remove
-  - message: Reflective vest now reflects lasers only while equipped.
-    type: Tweak
-  - message: Energy katana now reflects lasers and projectiles only while in hands.
-    type: Tweak
-  - message: Dragons and Carp can no longer hurt eachother.
-    type: Tweak
-  - message: LogProbe's access logs can now be printed out.
-    type: Tweak
-  - message: Added camera mod to diagnostic hud. Allows displays camera view ranges.
-    type: Add
-  - message: Forensics are now applied to bullets when loading using an ammo box.
-    type: Fix
-  - message: Inaprovaline now heals slower, but lingers in the bloodstream for much
-      longer, making it much more useful for stabilizing critical patients for an
-      extended duration rather than outright treating damage.
-    type: Tweak
-  id: 858
-  time: '2025-01-05T03:55:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2614
-- author: deltanedas
-  changes:
-  - message: You can no longer use headsets when cuffed, maints kidnappers rejoice!
-      (This is a test of this feature, please leave feedback on discord.gg/deltav)
-    type: Tweak
-  id: 859
-  time: '2025-01-05T05:44:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2610
-- author: Radezolid
-  changes:
-  - message: Mantis now can store their sidearm, headcages and folders in their belts.
-    type: Tweak
-  - message: Fixed the anti-psychic knife showing up as a combat knife when stored.
-    type: Fix
-  id: 860
-  time: '2025-01-05T05:44:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2586
 - author: deltanedas
   changes:
   - message: Updated the tesla guidebook to say how teslas are changed on Delta-V.
@@ -4089,3 +3965,98 @@
   id: 1347
   time: '2025-05-05T03:24:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3635
+- author: deltanedas
+  changes:
+  - message: Fixed Robo-Neuroticist being rarer than it should be.
+    type: Fix
+  id: 1348
+  time: '2025-05-06T01:25:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3644
+- author: nkokic
+  changes:
+  - message: Added AME's low fuel alert system. Fires 4 times until shut down.
+    type: Add
+  id: 1349
+  time: '2025-05-06T12:28:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3639
+- author: Spielern
+  changes:
+  - message: IPCs no longer bleed when taking Cold damage.
+    type: Tweak
+  id: 1350
+  time: '2025-05-06T14:06:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3646
+- author: AveriV2
+  changes:
+  - message: Made the breaching hammer hit harder but swing slower!
+    type: Tweak
+  id: 1351
+  time: '2025-05-06T15:49:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3632
+- author: Lyndomen
+  changes:
+  - message: Uplink catalog has been tuned a bit! Expect consumable and utility items
+      to be much cheaper, with more expensive guns.
+    type: Tweak
+  id: 1352
+  time: '2025-05-06T15:51:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3509
+- author: AftrLite
+  changes:
+  - message: Cosmic Cult prerelease balance pass!
+    type: Tweak
+  id: 1353
+  time: '2025-05-06T15:58:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3649
+- author: sowelipililimute
+  changes:
+  - message: Cosmic cultists are now deconverted via censer instead of by metabolising
+      holy water, and trying to deconvert a non-cultist has consequences
+    type: Tweak
+  - message: Cosmic cultist deconversion popup now shows up
+    type: Fix
+  id: 1354
+  time: '2025-05-06T19:28:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3636
+- author: sowelipililimute
+  changes:
+  - message: Malign rifts now corrupt everything they were intended to
+    type: Fix
+  id: 1355
+  time: '2025-05-07T11:10:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3657
+- author: deltanedas
+  changes:
+  - message: Merged most of April's changes from upstream.
+    type: Add
+  id: 1356
+  time: '2025-05-06T23:35:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3596
+- author: deltanedas
+  changes:
+  - message: No free AA
+    type: Fix
+  id: 1357
+  time: '2025-05-07T11:52:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3662
+- author: Radezolid
+  changes:
+  - message: Fixed Sugar Rush candy cigarettes showing an error sprite.
+    type: Fix
+  id: 1358
+  time: '2025-05-07T19:16:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3668
+- author: deltanedas
+  changes:
+  - message: Fixed bluespace shelter capsules not checking for blockages.
+    type: Fix
+  id: 1359
+  time: '2025-05-07T21:15:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3674
+- author: deltanedas
+  changes:
+  - message: Fixed being able to instantly deconstruct malign walls with an RCD.
+    type: Fix
+  id: 1360
+  time: '2025-05-07T22:19:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3677

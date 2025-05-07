@@ -109,6 +109,11 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     private readonly SoundSpecifier _tier2Sound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/tier2.ogg");
     private readonly SoundSpecifier _monumentAlert = new SoundPathSpecifier("/Audio/_DV/CosmicCult/tier_up.ogg");
 
+    /// <summary>
+    /// Mind role to add to cultists.
+    /// </summary>
+    public static readonly EntProtoId MindRole = "MindRoleCosmicCult";
+
     public override void Initialize()
     {
         base.Initialize();
@@ -561,14 +566,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         associatedComp.CultGamerule = rule;
 
-        _role.MindAddRole(mindId, "MindRoleCosmicCult", mind, true);
-        _role.MindHasRole<CosmicCultRoleComponent>(mindId, out var cosmicRole);
-
-        if (cosmicRole is not null)
-        {
-            EnsureComp<RoleBriefingComponent>(cosmicRole.Value.Owner);
-            Comp<RoleBriefingComponent>(cosmicRole.Value.Owner).Briefing = Loc.GetString("objective-cosmiccult-charactermenu");
-        }
+        _role.MindAddRole(mindId, MindRole, mind, true);
 
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-roundstart-fluff"), Color.FromHex("#4cabb3"), _briefingSound);
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
@@ -578,7 +576,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         radio.Channels.Add("CosmicRadio");
         transmitter.Channels.Add("CosmicRadio");
 
-        if (_mind.TryGetSession(mindId, out var session))
+        if (_playerMan.TryGetSessionById(mind.UserId, out var session))
         {
             _euiMan.OpenEui(new CosmicRoundStartEui(), session);
         }
@@ -631,21 +629,14 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     {
         if (AssociatedGamerule(converter) is not { } cult)
             return;
-        var cosmicGamerule = cult.Comp;
 
-        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
+        if (!_mind.TryGetMind(uid, out var mindId, out var mind) ||
+            !_playerMan.TryGetSessionById(mind.UserId, out var session))
             return;
 
-        _role.MindAddRole(mindId, "MindRoleCosmicCult", mind, true);
-        _role.MindHasRole<CosmicCultRoleComponent>(mindId, out var cosmicRole);
+        _role.MindAddRole(mindId, MindRole, mind, true);
 
-        if (cosmicRole is not null)
-        {
-            EnsureComp<RoleBriefingComponent>(cosmicRole.Value.Owner);
-            Comp<RoleBriefingComponent>(cosmicRole.Value.Owner).Briefing = Loc.GetString("objective-cosmiccult-charactermenu");
-        }
-
-        _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-conversion-fluff"), Color.FromHex("#4cabb3"), _briefingSound);
+        _antag.SendBriefing(session, Loc.GetString("cosmiccult-role-conversion-fluff"), Color.FromHex("#4cabb3"), _briefingSound);
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
 
         var cultComp = EnsureComp<CosmicCultComponent>(uid);
@@ -654,7 +645,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         EnsureComp<IntrinsicRadioReceiverComponent>(uid);
         TransferCultAssociation(converter, uid);
 
-        if (cosmicGamerule.CurrentTier == 3)
+        if (cult.Comp.CurrentTier == 3)
         {
             _damage.SetDamageContainerID(uid, "BiologicalMetaphysical");
             cultComp.EntropyBudget = 48; // pity balance
@@ -669,7 +660,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             EnsureComp<PressureImmunityComponent>(uid);
             EnsureComp<TemperatureImmunityComponent>(uid);
         }
-        else if (cosmicGamerule.CurrentTier == 2)
+        else if (cult.Comp.CurrentTier == 2)
         {
             cultComp.EntropyBudget = 26; // pity balance
 
@@ -690,17 +681,14 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         _mind.TryAddObjective(mindId, mind, "CosmicMonumentObjective");
         _mind.TryAddObjective(mindId, mind, "CosmicEntropyObjective");
 
-        if (_mind.TryGetSession(mindId, out var session))
-        {
-            _euiMan.OpenEui(new CosmicConvertedEui(), session);
-        }
+        _euiMan.OpenEui(new CosmicConvertedEui(), session);
 
         RemComp<BibleUserComponent>(uid);
 
-        cosmicGamerule.TotalCult++;
-        cosmicGamerule.Cultists.Add(uid);
+        cult.Comp.TotalCult++;
+        cult.Comp.Cultists.Add(uid);
 
-        UpdateCultData(cosmicGamerule.MonumentInGame);
+        UpdateCultData(cult.Comp.MonumentInGame);
     }
 
     private void OnComponentShutdown(Entity<CosmicCultComponent> uid, ref ComponentShutdown args)
@@ -726,13 +714,13 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-fluff"), Color.FromHex("#4cabb3"), _deconvertSound);
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), null);
 
-        if (!_mind.TryGetMind(uid, out var mindId, out _) || !TryComp<MindComponent>(mindId, out var mindComp))
+        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
             return;
 
-        _mind.ClearObjectives(mindId, mindComp);
+        _mind.ClearObjectives(mindId, mind);
         _role.MindTryRemoveRole<CosmicCultRoleComponent>(mindId);
         _role.MindTryRemoveRole<RoleBriefingComponent>(mindId);
-        if (_mind.TryGetSession(mindId, out var session))
+        if (_playerMan.TryGetSessionById(mind.UserId, out var session))
         {
             _euiMan.OpenEui(new CosmicDeconvertedEui(), session);
         }
