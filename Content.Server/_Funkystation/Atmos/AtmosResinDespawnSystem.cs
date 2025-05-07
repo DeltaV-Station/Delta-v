@@ -2,6 +2,7 @@ using Content.Server._Funkystation.Atmos.Components;
 using Robust.Shared.Spawners;
 using Content.Shared.Atmos;
 using Content.Server.Atmos.EntitySystems;
+using System.Linq;
 
 namespace Content.Server._Funkystation.Atmos.EntitySystems;
 
@@ -14,9 +15,17 @@ public sealed class AtmosResinDespawnSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmo = default!;
     [Dependency] private readonly GasTileOverlaySystem _gasOverlaySystem = default!;
+    
+    private Gas[] _gasesToRemove = Array.Empty<Gas>();
+
     public override void Initialize()
     {
         base.Initialize();
+
+        _gasesToRemove = Enum.GetValues(typeof(Gas))
+            .Cast<Gas>()
+            .Where(gas => gas != Gas.Oxygen && gas != Gas.Nitrogen)
+            .ToArray();
 
         SubscribeLocalEvent<AtmosResinDespawnComponent, TimedDespawnEvent>(OnDespawn);
     }
@@ -30,29 +39,9 @@ public sealed class AtmosResinDespawnSystem : EntitySystem
         GasMixture tempMix = new();
         if (mix is null) return;
 
-        var gasesToRemove = new[]
-        {
-            Gas.CarbonDioxide,
-            Gas.Plasma,
-            Gas.Tritium,
-            Gas.Ammonia,
-            Gas.NitrousOxide,
-            Gas.Frezon,
-            ///Gas.BZ,
-            ///Gas.Healium,
-            ///Gas.Nitrium,
-            ///Gas.Hydrogen,
-            ///Gas.HyperNoblium,
-            ///Gas.ProtoNitrate,
-            ///Gas.Zauker,
-            ///Gas.Halon,
-            ///Gas.Helium,
-            ///Gas.AntiNoblium
-        };
-
         float totalMolesRemoved = 0f;
 
-        foreach (var gas in gasesToRemove)
+        foreach (var gas in _gasesToRemove)
         {
             float moles = mix.GetMoles(gas);
             if (moles > 0)
