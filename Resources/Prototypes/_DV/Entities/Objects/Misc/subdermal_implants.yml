@@ -86,14 +86,15 @@
 
 - type: entity
   parent: BaseSubdermalImplant
-  id: AntagImmuneImplant
-  name: antag immune implant
-  description: This implant makes you immune to any evil thoughts!
+  id: CentCommImplant
+  name: centcomm implant
+  description: This implant includes a MindShield and something labeled as "antag immune"? Whatever that is.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
     addedComponents:
     - type: AntagImmune
+    - type: MindShield
 
 # Nukie implants
 
