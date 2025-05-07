@@ -21,7 +21,7 @@ using Content.Shared.Hands.EntitySystems; // DeltaV - ATMOS Extinguisher Nozzle
 
 namespace Content.Server.Fluids.EntitySystems;
 
-public sealed class SpraySystem : EntitySystem
+public sealed partial class SpraySystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly GravitySystem _gravity = default!;
@@ -71,50 +71,11 @@ public sealed class SpraySystem : EntitySystem
 
     public void Spray(Entity<SprayComponent> entity, EntityUid user, MapCoordinates mapcoord)
     {
-        // DeltaV - ATMOS Extinguisher Nozzle
-        var sprayOwner = entity.Owner;
-        var solutionName = SprayComponent.SolutionName;
-
-        if (entity.Comp.ExternalContainer == true)
-        {
-            bool foundContainer = false;
-
-            // Check held items (exclude nozzle)
-            foreach (var item in _handsSystem.EnumerateHeld(user))
-            {
-                if (item == entity.Owner)
-                {
-                    continue;
-                }
-
-                if (!_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item) &&
-                    _solutionContainer.TryGetSolution(item, SprayComponent.TankSolutionName, out _, out _))
-                {
-                    sprayOwner = item;
-                    solutionName = SprayComponent.TankSolutionName;
-                    foundContainer = true;
-                    break;
-                }
-            }
-                // Fall back to target slot
-                if (!foundContainer && _inventory.TryGetContainerSlotEnumerator(user, out var enumerator, entity.Comp.TargetSlot))
-                {
-                while (enumerator.NextItem(out var item))
-                    {
-                    if (!_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item) &&
-                        _solutionContainer.TryGetSolution(item, SprayComponent.TankSolutionName, out _, out _))
-                        {
-                        sprayOwner = item;
-                        solutionName = SprayComponent.TankSolutionName;
-                        foundContainer = true;
-                        break;
-                        }
-                    }
-                }
-        }
+        // Begin DeltaV Additions - ATMOS Extinguisher Nozzle
+        var (sprayOwner, solutionName) = AtmosNozzleSpray(entity, user);
 
         if (!_solutionContainer.TryGetSolution(sprayOwner, solutionName, out var soln, out var solution)) return;
-        // End of ATMOS changes
+        // End DeltaV Additions
         //if (!_solutionContainer.TryGetSolution(entity.Owner, SprayComponent.SolutionName, out var soln, out var solution)) return;
 
         var ev = new SprayAttemptEvent(user);

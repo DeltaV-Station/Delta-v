@@ -43,15 +43,15 @@ public sealed partial class SprayComponent : Component
     public SoundSpecifier SpraySound { get; private set; } = default!;
 
     /// <remarks>
-    /// DeltaV - ATMOS Extinguisher Nozzle
+    /// Begin DeltaV Additions - ATMOS Extinguisher Nozzle 
     /// </remarks>
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField]
     public SlotFlags TargetSlot;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField]
     public EntityWhitelist? ProviderWhitelist;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField]
-    public bool ExternalContainer = false;
-    /// End ATMOS
+    [DataField]
+    public bool ExternalContainer;
+    // End DeltaV Additions
 }
