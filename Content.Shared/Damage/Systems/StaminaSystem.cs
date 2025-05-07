@@ -14,6 +14,7 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Rounding;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Content.Shared.Weapons.Melee; // DeltaV
 using Content.Shared.Weapons.Melee.Events;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
@@ -50,6 +51,8 @@ public sealed partial class StaminaSystem : EntitySystem
         base.Initialize();
 
         InitializeModifier();
+        InitializeResistance();
+        InitializeMeleeResistance(); // DeltaV
 
         SubscribeLocalEvent<StaminaComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<StaminaComponent, ComponentShutdown>(OnShutdown);
@@ -118,7 +121,7 @@ public sealed partial class StaminaSystem : EntitySystem
         Dirty(uid, component);
     }
 
-    private void OnDisarmed(EntityUid uid, StaminaComponent component, DisarmedEvent args)
+    private void OnDisarmed(EntityUid uid, StaminaComponent component, ref DisarmedEvent args)
     {
         if (args.Handled)
             return;
@@ -180,8 +183,7 @@ public sealed partial class StaminaSystem : EntitySystem
 
         foreach (var (ent, comp) in toHit)
         {
-            // DeltaV - Stamina damage coefficient
-            TakeMeleeStaminaDamage(ent, damage, comp, source: args.User, with: args.Weapon, sound: component.Sound);
+            TakeStaminaDamage(ent, damage / toHit.Count, comp, source: args.User, with: args.Weapon, sound: component.Sound);
         }
     }
 
@@ -215,8 +217,7 @@ public sealed partial class StaminaSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
-        // DeltaV - Stamina damage coefficient
-        TakeProjectileStaminaDamage(target, component.Damage, source: uid, sound: component.Sound);
+        TakeStaminaDamage(target, component.Damage, source: uid, sound: component.Sound);
     }
 
     private void SetStaminaAlert(EntityUid uid, StaminaComponent? component = null)
@@ -247,15 +248,21 @@ public sealed partial class StaminaSystem : EntitySystem
     }
 
     public void TakeStaminaDamage(EntityUid uid, float value, StaminaComponent? component = null,
-        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null)
+        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool ignoreResist = false)
     {
         if (!Resolve(uid, ref component, false))
             return;
 
-        var ev = new BeforeStaminaDamageEvent(value);
+        var ev = new BeforeStaminaDamageEvent(value, HasComp<MeleeWeaponComponent>(source)); // DeltaV - check if the source is a melee weapon
         RaiseLocalEvent(uid, ref ev);
         if (ev.Cancelled)
             return;
+
+        // Allow stamina resistance to be applied.
+        if (!ignoreResist)
+        {
+            value = ev.Value;
+        }
 
         value = UniversalStaminaDamageModifier * value;
 
@@ -406,9 +413,3 @@ public sealed partial class StaminaSystem : EntitySystem
         _adminLogger.Add(LogType.Stamina, LogImpact.Low, $"{ToPrettyString(uid):user} recovered from stamina crit");
     }
 }
-
-/// <summary>
-///     Raised before stamina damage is dealt to allow other systems to cancel it.
-/// </summary>
-[ByRefEvent]
-public record struct BeforeStaminaDamageEvent(float Value, bool Cancelled = false);

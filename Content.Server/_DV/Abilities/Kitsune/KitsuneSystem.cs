@@ -17,7 +17,6 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
 {
     [Dependency] private readonly AccessReaderSystem _reader = default!;
     [Dependency] private readonly AccessSystem _access = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -43,7 +42,8 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
         // Ensure that the fox fire action state is transferred properly.
         newKitsune.ActiveFoxFires = oldKitsune.ActiveFoxFires;
 
-        _actions.SetCharges(newKitsune.FoxfireAction, _actions.GetCharges(oldKitsune.FoxfireAction));
+        if (oldKitsune.FoxfireAction is {} oldAction && newKitsune.FoxfireAction is {} newAction)
+            _charges.SetCharges(newAction, _charges.GetCurrentCharges(newAction));
 
         foreach (var fireUid in newKitsune.ActiveFoxFires)
         {

@@ -24,14 +24,6 @@
     Steel: 50
 
 - type: latheRecipe
-  id: TankHarness
-  result: ClothingOuterVestTank
-  completetime: 2
-  materials:
-    Plastic: 300
-    Steel: 100
-
-- type: latheRecipe
   id: Oilpack
   result: Oilpack1
   completetime: 1
@@ -49,10 +41,3 @@
     Glass: 1200
     Steel: 1000
     Plastic: 1400
-
-- type: latheRecipe
-  id: BaseChemistryEmptyVial
-  result: BaseChemistryEmptyVial
-  completetime: 2
-  materials:
-    Glass: 50
