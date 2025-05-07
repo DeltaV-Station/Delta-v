@@ -320,8 +320,6 @@
     sprite: Structures/Storage/Crates/command.rsi
   - type: AccessReader
     access: [["Command"]]
-  - type: AntiTamper # DeltaV - port impstation's anti-tamper
-    containers: [ entity_storage ]
 
 - type: entity
   parent: CrateGeneric
