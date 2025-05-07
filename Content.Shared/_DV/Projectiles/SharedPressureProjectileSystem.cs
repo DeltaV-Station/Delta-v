@@ -17,6 +17,19 @@ public abstract class SharedPressureProjectileSystem : EntitySystem
             args.Damage *= ent.Comp.Modifier;
     }
 
+    /// <summary>
+    /// Multiply the modifier by some factor.
+    /// </summary>
+    public void MultiplyModifier(Entity<PressureProjectileComponent?> ent, float factor)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return;
+
+        ent.Comp.Modifier *= factor;
+        // no dirty since shooting is almost guaranteed to happen in pvs range, mispredict is nearly impossible
+        // (and projectile hit event isnt predicted anyway)
+    }
+
     // client assumes it to be in a vacuum to correctly predict for the intended use case of lavaland/space.
     // it also means it would mispredict targets staying alive rather than falsely falling over which is far more annoying.
     protected virtual float GetPressure(EntityUid uid) => 0f;
