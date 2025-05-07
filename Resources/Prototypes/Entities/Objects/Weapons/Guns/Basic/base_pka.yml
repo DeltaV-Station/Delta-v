@@ -7,9 +7,9 @@
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
   - type: Item
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
-    size: Large
+    size: Normal # DeltaV - back to 2x2
     shape:
-    - 0,0,2,1
+    - 0,0,1,1 # DeltaV - back to 2x2
   - type: GunWieldBonus
     minAngle: -43
     maxAngle: -43
