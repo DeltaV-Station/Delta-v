@@ -36,7 +36,7 @@ public sealed class CaptainStateSystem : EntitySystem
         base.Initialize();
     }
 
-    public override void Update(float frameTime)
+    /*public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
@@ -58,7 +58,7 @@ public sealed class CaptainStateSystem : EntitySystem
             else
                 HandleNoCaptain(station, captainState, currentTime);
         }
-    }
+    }*/
 
     private void OnPlayerJobAdded(Entity<CaptainStateComponent> ent, ref PlayerJobAddedEvent args)
     {
