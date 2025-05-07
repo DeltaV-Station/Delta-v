@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: Mantis now can store their sidearm, headcages and folders in their belts.
-    type: Tweak
-  - message: Fixed the anti-psychic knife showing up as a combat knife when stored.
-    type: Fix
-  id: 860
-  time: '2025-01-05T05:44:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2586
 - author: deltanedas
   changes:
   - message: Updated the tesla guidebook to say how teslas are changed on Delta-V.
@@ -4062,3 +4053,10 @@
   id: 1359
   time: '2025-05-07T21:15:59.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3674
+- author: deltanedas
+  changes:
+  - message: Fixed being able to instantly deconstruct malign walls with an RCD.
+    type: Fix
+  id: 1360
+  time: '2025-05-07T22:19:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3677
