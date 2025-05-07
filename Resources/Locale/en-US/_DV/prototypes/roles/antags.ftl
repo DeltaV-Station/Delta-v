@@ -15,3 +15,6 @@ roles-antag-syndicate-recruiter-objective = Find and recruit the best agents for
 
 roles-antag-roboneuroticist-name = Syndicate Robo-Neuroticist
 roles-antag-roboneuroticist-objective = Conspiracy to Convert
+
+roles-antag-closet-skeleton-name = Closet Skeleton
+roles-antag-closet-skeleton-objective = Rattle 'Em

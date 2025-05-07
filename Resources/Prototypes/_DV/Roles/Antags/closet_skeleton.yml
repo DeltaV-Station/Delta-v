@@ -1,0 +1,9 @@
+- type: antag
+  id: ClosetSkeleton
+  name: roles-antag-closet-skeleton-name
+  objective: roles-antag-closet-skeleton-objective
+  antagonist: true
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 172800 # 48 hours overall
+

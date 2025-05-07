@@ -58,3 +58,16 @@
   - type: RoboNeuroticistRole
   - type: RoleBriefing
     briefing: roboneuroticist-role-briefing
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleClosetSkeleton
+  name: Closet Skeleton Role
+  components:
+  - type: MindRole
+    roleType: FreeAgent
+    antagPrototype: ClosetSkeleton
+    exclusiveAntag: true
+  - type: ClosetSkeletonRole
+  - type: RoleBriefing
+    briefing: skeleton-role-briefing

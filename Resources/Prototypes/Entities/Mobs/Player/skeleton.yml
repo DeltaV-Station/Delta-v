@@ -53,10 +53,10 @@
   components:
   - type: GhostRole
     name: ghost-role-information-closet-skeleton-name
-    description: ghost-role-information-closet-skeleton-description
-    rules: ghost-role-information-closet-skeleton-rules # DeltaV - No longer free agent, now a non-antag (Some leeway given).
+    description: ghost-role-information-closet-skeleton-description-dv # DeltaV - Steal the milk
+    rules: ghost-role-information-closet-skeleton-rules # DeltaV - Steal the milk
     mindRoles:
-    - MindRoleGhostRoleNeutral # DeltaV - neutral ghost role instead of free agent
+    - MindRoleClosetSkeleton # DeltaV - adds objectives and stuff so new mind role
     raffle:
       settings: default
     requirements: # DeltaV

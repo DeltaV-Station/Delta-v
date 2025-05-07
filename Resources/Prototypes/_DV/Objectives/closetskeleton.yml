@@ -1,0 +1,75 @@
+﻿- type: weightedRandom
+  id: SkeletonObjectiveGroup
+  weights:
+    SkeletonMilkObjective: 1
+    SkeletonHauntObjective: 1
+    SkeletonFrameObjective: 1
+    SkeletonBoneObjective: 1
+
+- type: entity
+  abstract: true
+  parent: BaseSurviveObjective
+  id: SkeletonBaseObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-skeleton
+    icon:
+      sprite: Objects/Consumable/Drinks/milk.rsi
+      state: icon
+    difficulty: 0 # difficulty is unused\
+  - type: RoleRequirement
+    roles:
+      mindRoles:
+      - ClosetSkeletonRole
+
+- type: entity
+  parent: SkeletonBaseObjective
+  id: SkeletonMilkObjective
+  name: Milk Them Dry
+  description: You need milk to stay alive and fix up your bones. Get as much of it as you can!
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Consumable/Drinks/milk.rsi
+      state: icon
+
+- type: entity
+  parent: SkeletonBaseObjective
+  id: SkeletonHauntObjective
+  name: Rattle and Haunt
+  description: You're a spooky scary skeleton, scare the daylights out of them!
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Species/Skeleton/parts.rsi
+      state: skull_icon
+  - type: TargetObjective
+    title: objective-skeleton-haunt-title
+  - type: PickRandomPerson
+    onlyChoosableJobs: true
+
+- type: entity
+  parent: SkeletonBaseObjective
+  id: SkeletonFrameObjective
+  name: Frame for Entombment
+  description: You believe you've narrowed down someone who might have been responsible for your entombment. Frame them for a crime.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/handcuffs.rsi
+      state: handcuff
+  - type: TargetObjective
+    title: objective-skeleton-frame-title
+  - type: PickRandomPerson
+    onlyChoosableJobs: true
+
+- type: entity
+  parent: SkeletonBaseObjective
+  id: SkeletonBoneObjective
+  name: Bonevelent Ruler
+  description: You believe you were previous the undisputed ruler of this station. Establish your claim and sway the station under your eternal rule.
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Head/Misc/fancycrown.rsi
+      state: icon
