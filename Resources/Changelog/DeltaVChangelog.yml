@@ -1,20 +1,4 @@
 ﻿Entries:
-- author: Lyndomen
-  changes:
-  - message: Storage Implant is now 4 TC but cannot store steal objectives, or anything
-      that has storage in it.
-    type: Tweak
-  id: 855
-  time: '2025-01-05T02:42:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2286
-- author: Lyndomen
-  changes:
-  - message: AI have a slightly updated law 4, ensure authorized personnel may access
-      your core in an emergency!
-    type: Tweak
-  id: 856
-  time: '2025-01-05T02:55:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2620
 - author: Stop-Signs
   changes:
   - message: The perforator does significantly more damage
@@ -4089,3 +4073,17 @@
   id: 1354
   time: '2025-05-06T19:28:42.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3636
+- author: sowelipililimute
+  changes:
+  - message: Malign rifts now corrupt everything they were intended to
+    type: Fix
+  id: 1355
+  time: '2025-05-07T11:10:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3657
+- author: deltanedas
+  changes:
+  - message: Merged most of April's changes from upstream.
+    type: Add
+  id: 1356
+  time: '2025-05-06T23:35:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3596
