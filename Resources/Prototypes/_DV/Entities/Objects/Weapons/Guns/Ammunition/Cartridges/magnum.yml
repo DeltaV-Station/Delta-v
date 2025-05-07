@@ -1,14 +1,15 @@
 - type: entity
+  parent: BaseCartridgeMagnum
   id: CartridgeMagnumRubber
   name: cartridge (.45 magnum rubber)
-  parent: BaseCartridgeMagnum
+  description: Heavy magnum cartridge mostly used by revolvers. Rubber ammunition excels at less-lethal takedown of noncompliant suspects.
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumRubber
   - type: Sprite
     layers:
-      - state: base
-        map: [ "enum.AmmoVisualLayers.Base" ]
-      - state: tip
-        map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#43c4f7"
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#43c4f7"

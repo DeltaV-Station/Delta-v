@@ -12,12 +12,12 @@
   - CyborgEndoskeleton
 
 - type: latheRecipePack
+  parent:
+  - BorgModulesStaticShitmed # Shitmed Change
   id: BorgModulesStatic
   recipes:
-  - BorgModuleCable
-  - BorgModuleFireExtinguisher
-  - BorgModuleRadiationDetection
   - BorgModuleTool
+  - BorgModuleFireExtinguisher
 
 - type: latheRecipePack
   id: BorgLimbsStatic
@@ -40,19 +40,13 @@
 
 - type: latheRecipePack
   parent:
-  #- BorgModulesDeltaV # DeltaV
   - BorgModulesShitmed # Shitmed change
   id: BorgModules
   recipes:
   - BorgModuleAdvancedCleaning
   - BorgModuleAdvancedTool
-  - BorgModuleGPS
-  - BorgModuleArtifact
-  - BorgModuleAnomaly
-  - BorgModuleGardening
-  - BorgModuleHarvesting
-  #- BorgModuleDefibrillator # DeltaV - made a default module
-  - BorgModuleAdvancedTreatment
+  - BorgModuleAdvancedChemical
+  - BorgModuleAdvancedMining
 
 - type: latheRecipePack
   id: MechParts

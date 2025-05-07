@@ -33,3 +33,21 @@
     state: uranium_reinforced_window
   objectType: Structure
   placementMode: SnapgridCenter
+
+- type: construction
+  name: interior shuttle wall
+  id: InteriorShuttleWall
+  graph: Girder
+  startNode: start
+  targetNode: shuttleInteriorWall
+  category: construction-category-structures
+  description: Keeps the air in and the greytide out.
+  icon:
+    sprite: _DV/Structures/Walls/shuttleinterior.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

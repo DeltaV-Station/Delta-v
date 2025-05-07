@@ -31,7 +31,7 @@ public sealed partial class CosmicCultComponent : Component
     public HashSet<ProtoId<InfluencePrototype>> UnlockedInfluences =
     [
         "InfluenceAberrantLapse",
-        "InfluenceShuntSubjectivity",
+        "InfluenceNullGlare",
         "InfluenceEschewMetabolism",
     ];
 
@@ -40,7 +40,7 @@ public sealed partial class CosmicCultComponent : Component
     public HashSet<EntProtoId> CosmicCultActions =
     [
         "ActionCosmicSiphon",
-        "ActionCosmicGlare",
+        "ActionCosmicBlank",
     ];
 
     public HashSet<EntityUid?> ActionEntities = [];
@@ -72,7 +72,7 @@ public sealed partial class CosmicCultComponent : Component
     /// <summary>
     /// The duration of Null Glare's flash/disorientation.
     /// </summary>
-    [DataField] public TimeSpan CosmicGlareDuration = TimeSpan.FromSeconds(8);
+    [DataField] public TimeSpan CosmicGlareDuration = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// The range of Null Glare.

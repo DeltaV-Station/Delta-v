@@ -137,10 +137,10 @@
     tags:
     - PetWearable
     - WhitelistChameleon
-  - type: PhysicalComposition # DeltaV
+  - type: PhysicalComposition
     materialComposition:
       Steel: 50
-      Plastic: 100
+      Plastic: 100 # DeltaV - was 50
   - type: StaticPrice # DeltaV
     price: 30
 

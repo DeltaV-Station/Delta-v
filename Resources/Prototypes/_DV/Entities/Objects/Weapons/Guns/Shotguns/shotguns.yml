@@ -13,44 +13,31 @@
   - type: GunRequiresWield
   - type: Gun
     fireRate: 1.5
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
-    soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticAmmoProvider
-#    autoCycle: true
-    whitelist:
-      tags:
-      - ShellShotgun
     capacity: 6
-    proto: ShellShotgun
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
 
 - type: entity
-  name: Kammerer
-  parent: [BaseWeaponShotgun, BaseGunWieldable]
-  id: WeaponShotgunKammererNonLethal #Legacy name
-  description: When an old Remington design meets modern materials, this is the result. A favourite weapon of militia forces throughout many worlds. Uses .50 shotgun shells.
+  parent: WeaponShotgunKammerer
+  id: WeaponShotgunKammererNonLethal
   suffix: Beanbag
   components:
-  - type: Sprite
-    sprite: _DV/Objects/Weapons/Guns/Shotguns/pump.rsi # Delta-V
-  - type: Clothing
-    sprite: _DV/Objects/Weapons/Guns/Shotguns/pump.rsi # Delta-V
   - type: BallisticAmmoProvider
-    capacity: 4
     proto: ShellShotgunBeanbag
 
 - type: entity
-  parent: WeaponLightMachineGunL6Borg
+  parent: BaseItem
   id: WeaponRiotShotgunBorg
   name: borg riot shotgun
   description: A heavily modified shotgun for borgs, firing off beanbag rounds. Ammo replicates over time.
   components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Appearance
+  - type: Item
+    size: Huge
   - type: Gun
     minAngle: 0
     maxAngle: 10
@@ -59,17 +46,18 @@
     fireRate: 1.5
     selectedMode: SemiAuto
     availableModes:
-      - SemiAuto
+    - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
     soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: Battery
     maxCharge: 400
     startingCharge: 200
   - type: ProjectileBatteryAmmoProvider
     proto: PelletShotgunBeanbag
     fireCost: 100
+  - type: AmmoCounter
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 20
