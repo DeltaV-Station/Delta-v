@@ -228,7 +228,7 @@
   id: VoidPocket
   configuration:
     entity: DesynchronizedPocket
-    transferName: false
+    transferName: true # DeltaV - needed for player panel
     inventory: None
     forced: false
     revertOnDeath: true

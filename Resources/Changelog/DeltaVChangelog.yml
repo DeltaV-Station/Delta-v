@@ -1,74 +1,4 @@
 ﻿Entries:
-- author: yuitop, TheBean, pontaoski, BIGZi0348, deltanedas, ArZarLordOfMango, themias,
-    Blackern5000
-  changes:
-  - message: Fingerless gloves no longer block taking fingerprints.
-    type: Tweak
-  - message: Animal cubes can now be examined to determine if they are soaked in the
-      wrong reagent.
-    type: Add
-  - message: Animal cubes can now be dried in a microwave to remove reagents.
-    type: Add
-  - message: Removed Discard mode from ChemMaster
-    type: Remove
-  - message: Reflective vest now reflects lasers only while equipped.
-    type: Tweak
-  - message: Energy katana now reflects lasers and projectiles only while in hands.
-    type: Tweak
-  - message: Dragons and Carp can no longer hurt eachother.
-    type: Tweak
-  - message: LogProbe's access logs can now be printed out.
-    type: Tweak
-  - message: Added camera mod to diagnostic hud. Allows displays camera view ranges.
-    type: Add
-  - message: Forensics are now applied to bullets when loading using an ammo box.
-    type: Fix
-  - message: Inaprovaline now heals slower, but lingers in the bloodstream for much
-      longer, making it much more useful for stabilizing critical patients for an
-      extended duration rather than outright treating damage.
-    type: Tweak
-  id: 858
-  time: '2025-01-05T03:55:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2614
-- author: deltanedas
-  changes:
-  - message: You can no longer use headsets when cuffed, maints kidnappers rejoice!
-      (This is a test of this feature, please leave feedback on discord.gg/deltav)
-    type: Tweak
-  id: 859
-  time: '2025-01-05T05:44:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2610
-- author: Radezolid
-  changes:
-  - message: Mantis now can store their sidearm, headcages and folders in their belts.
-    type: Tweak
-  - message: Fixed the anti-psychic knife showing up as a combat knife when stored.
-    type: Fix
-  id: 860
-  time: '2025-01-05T05:44:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2586
-- author: deltanedas
-  changes:
-  - message: Updated the tesla guidebook to say how teslas are changed on Delta-V.
-    type: Tweak
-  id: 861
-  time: '2025-01-05T06:09:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2596
-- author: Stop-Signs
-  changes:
-  - message: In response to Nanotrasen's new cryogenic firearms, the syndicate has
-      updated their armor to resist them better
-    type: Tweak
-  id: 862
-  time: '2025-01-05T06:11:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2546
-- author: Stop-Signs
-  changes:
-  - message: shadow cats are no longer free agents
-    type: Tweak
-  id: 863
-  time: '2025-01-05T19:14:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2625
 - author: Radezolid
   changes:
   - message: Removed the station AI overlay from the diagnostic HUD as it gave you
@@ -4087,3 +4017,60 @@
   id: 1357
   time: '2025-05-07T11:52:15.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3662
+- author: Radezolid
+  changes:
+  - message: Fixed Sugar Rush candy cigarettes showing an error sprite.
+    type: Fix
+  id: 1358
+  time: '2025-05-07T19:16:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3668
+- author: deltanedas
+  changes:
+  - message: Fixed bluespace shelter capsules not checking for blockages.
+    type: Fix
+  id: 1359
+  time: '2025-05-07T21:15:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3674
+- author: deltanedas
+  changes:
+  - message: Fixed being able to instantly deconstruct malign walls with an RCD.
+    type: Fix
+  id: 1360
+  time: '2025-05-07T22:19:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3677
+- author: KZhProgram
+  changes:
+  - message: Flare shell boxes can now be printed in Sec Techfabs! This is a default
+      technology.
+    type: Add
+  - message: 3 Metal Foam Grenades are now available in your local Engi-Vend! The
+      restock price got BRUTALLY hiked a result..
+    type: Add
+  - message: Admeme emergency secret orders are now a thing. You might find some real
+      orders in those folders now...
+    type: Add
+  id: 1361
+  time: '2025-05-08T00:38:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3634
+- author: foxcurl
+  changes:
+  - message: Engineering holoprojectors, similar to the janitor's, are now printable
+      in Engineering's lathe.
+    type: Add
+  - message: Oil packs have been moved from the Medical lathe to Engineering's, and
+      are still printable in the exosuit fabricator.
+    type: Tweak
+  id: 1362
+  time: '2025-05-08T07:23:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3679
+- author: AftrLite
+  changes:
+  - message: Mystagogue now starts with a Censer.
+    type: Add
+  - message: A strange new figurine now has a chance of appearing.
+    type: Add
+  - message: Further balance changes to Cosmic Cult.
+    type: Tweak
+  id: 1363
+  time: '2025-05-08T09:55:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3681
