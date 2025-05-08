@@ -63,7 +63,7 @@ public sealed class DeconversionSystem : EntitySystem
 
     private void OnAfterInteract(Entity<CosmicCenserComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled || args.Target is not {} target || !HasComp<CosmicCenserTargetComponent>(target) || _mobState.IsDead(target))
+        if (args.Handled || args.Target is not {} target || !HasComp<CosmicCenserTargetComponent>(target) || _mobState.IsIncapacitated(target))
             return;
 
         args.Handled = _tools.UseTool(
@@ -79,7 +79,7 @@ public sealed class DeconversionSystem : EntitySystem
     private void OnDoAfter(Entity<CosmicCenserTargetComponent> uid, ref CleanseOnDoAfterEvent args)
     {
         var target = args.Args.Target;
-        if (args.Cancelled || args.Handled || target == null || _mobState.IsDead(target.Value))
+        if (args.Cancelled || args.Handled || target == null || _mobState.IsIncapacitated(target.Value))
             return;
 
         if (args.Args.Used is not {} used || !TryComp<CosmicCenserComponent>(used, out var censer))
