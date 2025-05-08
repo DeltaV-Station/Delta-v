@@ -15,3 +15,13 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
         locked: true
+
+- type: entity # DeltaV
+  parent: HoloprojectorEngineering
+  id: HoloprojectorEngineeringEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
