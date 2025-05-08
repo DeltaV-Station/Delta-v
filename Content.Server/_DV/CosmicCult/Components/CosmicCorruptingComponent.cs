@@ -98,6 +98,7 @@ public sealed partial class CosmicCorruptingComponent : Component
         {"Window", "WindowCosmicCult"},
         {"Table", "CosmicTable"},
         {"Chair", "CosmicChair"},
+        {"LiquidSurface", "FloorCosmicDecay"},
     };
 
     /// <summary>
