@@ -1,14 +1,6 @@
 ﻿Entries:
 - author: Stop-Signs
   changes:
-  - message: In response to Nanotrasen's new cryogenic firearms, the syndicate has
-      updated their armor to resist them better
-    type: Tweak
-  id: 862
-  time: '2025-01-05T06:11:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2546
-- author: Stop-Signs
-  changes:
   - message: shadow cats are no longer free agents
     type: Tweak
   id: 863
@@ -4067,3 +4059,14 @@
   id: 1361
   time: '2025-05-08T00:38:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3634
+- author: foxcurl
+  changes:
+  - message: Engineering holoprojectors, similar to the janitor's, are now printable
+      in Engineering's lathe.
+    type: Add
+  - message: Oil packs have been moved from the Medical lathe to Engineering's, and
+      are still printable in the exosuit fabricator.
+    type: Tweak
+  id: 1362
+  time: '2025-05-08T07:23:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3679
