@@ -74,10 +74,10 @@ namespace Content.Client.Paper.UI
             // We can't configure the RichTextLabel contents from xaml, so do it here:
             BlankPaperIndicator.SetMessage(Loc.GetString("paper-ui-blank-page-message"), null, DefaultTextColor);
 
-            // Hook up the close button:
+            // Hook up the close button: // DeltaV - added SubmitPressed invoke
             CloseButton.OnPressed += _ =>
             {
-                SubmitPressed?.Invoke(); // DeltaV
+                SubmitPressed?.Invoke();
                 Close();
             };
 

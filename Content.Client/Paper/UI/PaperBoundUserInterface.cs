@@ -8,7 +8,7 @@ using static Content.Shared.Paper.PaperComponent;
 namespace Content.Client.Paper.UI;
 
 [UsedImplicitly]
-public sealed partial class PaperBoundUserInterface : BoundUserInterface
+public sealed partial class PaperBoundUserInterface : BoundUserInterface // DeltaV - made partial
 {
     [ViewVariables]
     private PaperWindow? _window;
