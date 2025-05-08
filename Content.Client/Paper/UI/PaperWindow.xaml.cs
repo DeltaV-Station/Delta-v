@@ -49,6 +49,8 @@ namespace Content.Client.Paper.UI
         };
 
         public event Action<string>? OnSaved;
+        public event Action? Typing;
+        public event Action? SubmitPressed;
 
         private int _MaxInputLength = -1;
         public int MaxInputLength
@@ -91,11 +93,13 @@ namespace Content.Client.Paper.UI
 
             Input.OnTextChanged += args =>
             {
+                Typing?.Invoke();
                 UpdateFillState();
             };
 
             SaveButton.OnPressed += _ =>
             {
+                SubmitPressed?.Invoke();
                 RunOnSaved();
             };
 
