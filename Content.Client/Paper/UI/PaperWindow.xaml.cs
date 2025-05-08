@@ -75,16 +75,22 @@ namespace Content.Client.Paper.UI
             BlankPaperIndicator.SetMessage(Loc.GetString("paper-ui-blank-page-message"), null, DefaultTextColor);
 
             // Hook up the close button:
-            CloseButton.OnPressed += _ => Close();
+            CloseButton.OnPressed += _ =>
+            {
+                SubmitPressed?.Invoke();
+                Close();
+            };
 
             Input.OnKeyBindDown += args => // Solution while TextEdit don't have events
             {
+                Typing?.Invoke();
                 if (args.Function == EngineKeyFunctions.MultilineTextSubmit)
                 {
                     // SaveButton is disabled when we hit the max input limit. Just check
                     // that flag instead of trying to calculate the input length again
                     if (!SaveButton.Disabled)
                     {
+                        SubmitPressed?.Invoke();
                         RunOnSaved();
                         args.Handle();
                     }
@@ -93,13 +99,11 @@ namespace Content.Client.Paper.UI
 
             Input.OnTextChanged += args =>
             {
-                Typing?.Invoke();
                 UpdateFillState();
             };
 
             SaveButton.OnPressed += _ =>
             {
-                SubmitPressed?.Invoke();
                 RunOnSaved();
             };
 
