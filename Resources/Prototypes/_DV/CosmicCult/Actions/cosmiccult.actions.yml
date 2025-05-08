@@ -138,7 +138,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    useDelay: 40
+    useDelay: 25
     whitelist:
       components:
         - Door
@@ -169,7 +169,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
-    useDelay: 30
+    useDelay: 45
     raiseOnUser: true
     range: 60
     itemIconStyle: NoItem
