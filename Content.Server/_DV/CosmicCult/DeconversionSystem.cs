@@ -63,7 +63,7 @@ public sealed class DeconversionSystem : EntitySystem
 
     private void OnAfterInteract(Entity<CosmicCenserComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled || args.Target is not {} target || !HasComp<CosmicCenserTargetComponent>(target) || _mobState.IsDead(target))
+        if (args.Handled || args.Target is not {} target || !HasComp<CosmicCenserTargetComponent>(target) || _mobState.IsIncapacitated(target))
             return;
 
         args.Handled = _tools.UseTool(
@@ -79,18 +79,19 @@ public sealed class DeconversionSystem : EntitySystem
     private void OnDoAfter(Entity<CosmicCenserTargetComponent> uid, ref CleanseOnDoAfterEvent args)
     {
         var target = args.Args.Target;
-        if (args.Cancelled || args.Handled || target == null || _mobState.IsDead(target.Value))
+        if (args.Cancelled || args.Handled || target == null || _mobState.IsIncapacitated(target.Value))
             return;
 
         if (args.Args.Used is not {} used || !TryComp<CosmicCenserComponent>(used, out var censer))
             return;
 
         var targetPosition = Transform(target.Value).Coordinates;
+        var userPosition = Transform(args.User).Coordinates;
         //TODO: This could be made more agnostic, but there's only one cult for now, and frankly, i'm so tired. This is easy to read and easy to modify code. Expand it at thine leisure.
         if (TryComp<CosmicCultComponent>(args.Target, out var comp) && comp.CosmicEmpowered)
         {
             Spawn(censer.MalignVFX, targetPosition);
-            Spawn(censer.MalignVFX, Transform(args.User).Coordinates);
+            Spawn(censer.MalignVFX, userPosition);
             EnsureComp<CleanseCultComponent>(target.Value, out var cleanse);
             cleanse.CleanseDuration = TimeSpan.FromSeconds(1);
             _audio.PlayPvs(censer.MalignSound, targetPosition, AudioParams.Default.WithVolume(2f));
@@ -113,9 +114,13 @@ public sealed class DeconversionSystem : EntitySystem
         }
         else
         {
+            Spawn(censer.ReboundVFX, userPosition);
+            Spawn(censer.ReboundVFX, targetPosition);
             _audio.PlayPvs(censer.SizzleSound, targetPosition);
             _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-notcorrupted", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
+            _popup.PopupCoordinates(Loc.GetString("cleanse-deconvert-attempt-rebound"), targetPosition, PopupType.MediumCaution);
             _damageable.TryChangeDamage(args.User, censer.FailedDeconversionDamage, true);
+            _damageable.TryChangeDamage(args.Target, censer.FailedDeconversionDamage, true);
         }
         args.Handled = true;
     }

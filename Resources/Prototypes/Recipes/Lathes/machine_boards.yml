@@ -428,7 +428,7 @@
 
 # Cell chargers
 - type: latheRecipe
-  parent: [ BaseCheapElectronicsRecipe, BaseGeneralMachineRecipeCategory ]
+  parent: [ BaseCircuitboardRecipe, BaseGeneralMachineRecipeCategory ] # DeltaV - Circuitboard, was CheapElectronics
   id: BorgChargerCircuitboard
   result: BorgChargerCircuitboard
 

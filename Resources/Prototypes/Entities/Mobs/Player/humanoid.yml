@@ -9,14 +9,14 @@
   # end-backmen: species
   components:
     - type: RandomHumanoidAppearance
-      randomizeName: false
+      randomizeName: true # DeltaV - WHY WOULD YOU NOT
     - type: GhostTakeoverAvailable
     - type: IdBind
 
 - type: randomHumanoidSettings
   id: EventHumanoidMindShielded
   parent: EventHumanoid
-  randomizeName: false
+  randomizeName: true # DeltaV - WHY WOULD YOU NOT
   components:
     - type: MindShield
     - type: AntagImmune
