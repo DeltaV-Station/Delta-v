@@ -23,21 +23,171 @@
   id: StudentPDA
   equipment:
     id: StudentPDA
+# Head
+
+# Masks
+## Black Bandana
+
+## Blue Bandana
+
+## Gold Bandana
+
+## Green Bandana
+
+## Grey Bandana
+
+## Red Bandana
+
+## Skull Bandana
+
+## Brown Bandana
 
 # Jumpsuit
-# Rose Hoodie w/ Skirt
+## Black Jumpsuit
+- type: loadout
+  id: BlackJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+
+- type: loadout
+  id: BlackJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorBlack
+
+## Blue Jumpsuit
+- type: loadout
+  id: BlueJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlue
+
+- type: loadout
+  id: BlueJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorBlue
+
+## Dark Blue Jumpsuit
+- type: loadout
+  id: DarkBlueJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorDarkBlue
+
+- type: loadout
+  id: DarkBlueJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorDarkBlue
+
+## Teal Jumpsuit
+- type: loadout
+  id: TealJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorTeal
+
+- type: loadout
+  id: TealJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorTeal
+
+## Green Jumpsuit
+- type: loadout
+  id: GreenJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGreen
+
+- type: loadout
+  id: GreenJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorGreen
+
+## Dark Green Jumpsuit
+- type: loadout
+  id: DarkGreenJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorDarkGreen
+
+- type: loadout
+  id: DarkGreenJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorDarkGreen
+
+## Orange Jumpsuit
+- type: loadout
+  id: OrangeJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorOrange
+
+- type: loadout
+  id: OrangeJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorOrange
+
+## Pink Jumpsuit
+- type: loadout
+  id: PinkJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorPink
+
+- type: loadout
+  id: PinkJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorPink
+
+## Purple Jumpsuit
+- type: loadout
+  id: PurpleJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorPurple
+
+- type: loadout
+  id: PurpleJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorPurple
+
+## Light Brown Jumpsuit
+- type: loadout
+  id: LightBrownJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorLightBrown
+
+- type: loadout
+  id: LightBrownJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorLightBrown
+
+## Brown Jumpsuit
+- type: loadout
+  id: BrownJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBrown
+
+- type: loadout
+  id: BrownJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorBrown
+
+## Maroon Jumpsuit
+- type: loadout
+  id: MaroonJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorMaroon
+
+- type: loadout
+  id: MaroonJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorMaroon
+
+## Rose Hoodie w/ Skirt
 - type: loadout
   id: MioSkirt
   equipment:
     jumpsuit: ClothingCostumeMioSkirt
 
-# Turqoise Hoodie w/ Shorts
+## Turqoise Hoodie w/ Shorts
 - type: loadout
   id: NaotaHoodie
   equipment:
     jumpsuit: ClothingCostumeNaota
 
-# Casual Red
+## Casual Red
 - type: loadout
   id: CasualRedSkirt
   equipment:
@@ -48,7 +198,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitCasualRed
 
-# Casual Blue
+## Casual Blue
 - type: loadout
   id: CasualBlueSkirt
   equipment:
@@ -59,7 +209,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitCasualBlue
 
-# Casual Purple
+## Casual Purple
 - type: loadout
   id: CasualPurpleSkirt
   equipment:
@@ -69,3 +219,106 @@
   id: CasualPurpleSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCasualPurple
+
+# Elegant dresses
+## Black elegant dress
+- type: loadout
+  id: BlackElegantDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlackElegantDress
+
+## Red Elegant Dress
+- type: loadout
+  id: RedElegantDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRedElegantDress
+
+## Green Elegant Dress
+- type: loadout
+  id: GreenElegantDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGreenElegantDress
+
+## Blue Elegant Dress
+- type: loadout
+  id: BlueElegantDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlueElegantDress
+
+## Purple Elegant Dress
+- type: loadout
+  id: PurpleElegantDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPurpleElegantDress
+
+# Striped Dresses
+## Cyan Striped Dress
+- type: loadout
+  id: CyanStripedDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCyanStripedDress
+
+## Red Striped Dress
+- type: loadout
+  id: RedStripedDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRedStripedDress
+
+## Green Striped Dress
+- type: loadout
+  id: GreenStripedDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGreenStripedDress
+
+## Pink Striped Dress
+- type: loadout
+  id: PinkStripedDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPinkStripedDress
+
+## Orange Striped Dress
+- type: loadout
+  id: OrangeStripedDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtOrangeStripedDress
+
+# Turtleneck Dresses
+## Purple Turtleneck Dress
+- type: loadout
+  id: PurpleTurtleneckDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPurpleTurtleneckDress
+
+## Red Turtleneck Dress
+- type: loadout
+  id: RedTurtleneckDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRedTurtleneckDress
+
+## Green Turtleneck Dress
+- type: loadout
+  id: GreenTurtleneckDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGreenTurtleneckDress
+
+## Blue Turtleneck Dress
+- type: loadout
+  id: BlueTurtleneckDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlueTurtleneckDress
+
+## Yellow Turtleneck Dress
+- type: loadout
+  id: YellowTurtleneckDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtYellowTurtleneckDress
+
+## Yellow Old Dress
+- type: loadout
+  id: OldYellowDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtYellowOldDress
+
+# Gloves
+
+# Shoes
