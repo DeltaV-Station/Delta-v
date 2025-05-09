@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: The doorjack now costs 4 TC instead of 6.
-    type: Tweak
-  id: 868
-  time: '2025-01-06T05:35:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2305
-- author: deltanedas
-  changes:
   - message: Fixed holopads not letting the AI hear anything.
     type: Fix
   id: 869
@@ -4072,3 +4065,14 @@
   id: 1367
   time: '2025-05-09T14:01:53.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3680
+- author: sowelipililimute
+  changes:
+  - message: 'Engineering borgs hold more construction materials in their construction
+      module: paper, wood, plasma, uranium, gold, silver, and stock machine parts.'
+    type: Tweak
+  - message: Engineering borgs have two more slots for tiles in their construction
+      module.
+    type: Tweak
+  id: 1368
+  time: '2025-05-09T14:04:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3659
