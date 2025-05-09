@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fixed holopads not letting the AI hear anything.
-    type: Fix
-  id: 869
-  time: '2025-01-06T17:14:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2631
 - author: FieldCommand
   changes:
   - message: Minor tweaks to Byoin
@@ -4076,3 +4069,11 @@
   id: 1368
   time: '2025-05-09T14:04:49.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3659
+- author: deltanedas
+  changes:
+  - message: Code blue and red no longer give security permission to search anyone
+      they like. Follow probable cause from now on!
+    type: Remove
+  id: 1369
+  time: '2025-05-09T14:05:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3655
