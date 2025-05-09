@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: beck-thompson
-  changes:
-  - message: Removed keep fellow traitor alive traitor objective.
-    type: Remove
-  id: 873
-  time: '2025-01-07T17:04:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2598
 - author: Field Command
   changes:
   - message: Byoin Maintenance Expansions and other tweaks
@@ -4086,3 +4079,11 @@
   id: 1372
   time: '2025-05-09T15:58:49.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3689
+- author: sowelipililimute
+  changes:
+  - message: Departmental cargo request computers now print slips that can be given
+      to Logistics for final approval, rather than directly approving the orders themselves
+    type: Tweak
+  id: 1373
+  time: '2025-05-09T22:16:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3658
