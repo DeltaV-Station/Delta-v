@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: FieldCommand
-  changes:
-  - message: Minor tweaks to Byoin
-    type: Tweak
-  id: 870
-  time: '2025-01-06T18:18:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2624
 - author: Radezolid
   changes:
   - message: Now listening post operatives will spawn with a binary key in their headset.
@@ -4077,3 +4070,18 @@
   id: 1369
   time: '2025-05-09T14:05:05.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3655
+- author: deltanedas
+  changes:
+  - message: Added PKA modkits to the salvage points vendor.
+    type: Add
+  - message: Reworked PKA modkits to be cost-based, you can have multiple of the same
+      one now.
+    type: Tweak
+  - message: PKA only does 25% damage when indoors.
+    type: Tweak
+  - message: Added PKA indoors modkit for salvage traitors which counters indoor damage
+      reduction.
+    type: Add
+  id: 1370
+  time: '2025-05-09T15:53:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3671
