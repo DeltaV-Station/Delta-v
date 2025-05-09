@@ -63,18 +63,6 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     public bool CanSever = true;
 
     /// <summary>
-    ///     Shitmed Change: Whether this body part is enabled or not.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool Enabled = true;
-
-    /// <summary>
-    ///     Shitmed Change: Whether this body part can be enabled or not. Used for non-functional prosthetics.
-    /// </summary>
-    [DataField]
-    public bool CanEnable = true;
-
-    /// <summary>
     /// Whether this body part can attach children or not.
     /// </summary>
     [DataField]
@@ -161,19 +149,6 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
 
     [DataField, AutoNetworkedField]
     public BodyPartSymmetry Symmetry = BodyPartSymmetry.None;
-
-    /// <summary>
-    ///     When attached, the part will ensure these components on the entity, and delete them on removal.
-    /// </summary>
-    [DataField, AlwaysPushInheritance]
-    public ComponentRegistry? OnAdd;
-
-    /// <summary>
-    ///     When removed, the part will ensure these components on the entity, and add them on removal.
-    /// </summary>
-    [DataField, AlwaysPushInheritance]
-    public ComponentRegistry? OnRemove;
-
     // Shitmed Change End
 
     /// <summary>

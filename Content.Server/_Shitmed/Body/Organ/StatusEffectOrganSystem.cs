@@ -1,4 +1,4 @@
-using Content.Shared.Body.Organ;
+using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Timing;
 
@@ -13,11 +13,11 @@ public sealed class StatusEffectOrganSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<StatusEffectOrganComponent, OrganComponent>();
+        var query = EntityQueryEnumerator<StatusEffectOrganComponent, BodyMechanismComponent>();
         var now = _timing.CurTime;
-        while (query.MoveNext(out var uid, out var comp, out var organ))
+        while (query.MoveNext(out var uid, out var comp, out var mechanism))
         {
-            if (now < comp.NextUpdate || organ.Body is not {} body)
+            if (now < comp.NextUpdate || !mechanism.Enabled || mechanism.Body is not {} body)
                 continue;
 
             comp.NextUpdate = now + comp.Delay;

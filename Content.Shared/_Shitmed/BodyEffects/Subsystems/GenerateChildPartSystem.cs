@@ -13,43 +13,33 @@ public sealed class GenerateChildPartSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<GenerateChildPartComponent, BodyPartComponentsModifyEvent>(OnPartComponentsModify);
+        SubscribeLocalEvent<GenerateChildPartComponent, MechanismAddedEvent>(OnAdded);
     }
 
-    private void OnPartComponentsModify(EntityUid uid, GenerateChildPartComponent component, ref BodyPartComponentsModifyEvent args)
+    private void OnAdded(Entity<GenerateChildPartComponent> ent, ref MechanismAddedEvent args)
     {
-        if (args.Add)
-            CreatePart(uid, component);
-        //else
-            //DeletePart(uid, component);
-    }
-
-    private void CreatePart(EntityUid uid, GenerateChildPartComponent component)
-    {
-        if (!TryComp(uid, out BodyPartComponent? partComp)
-            || partComp.Body is null
-            || component.Active)
+        if (ent.Comp.Active || !TryComp<BodyPartComponent>(ent, out var partComp))
             return;
 
         // I pinky swear to also move this to the server side properly next update :)
-        if (_net.IsServer)
-        {
-            var childPart = Spawn(component.Id, new EntityCoordinates(partComp.Body.Value, Vector2.Zero));
+        if (_net.IsClient)
+            return;
 
-            if (!TryComp(childPart, out BodyPartComponent? childPartComp))
-                return;
+        var childPart = Spawn(ent.Comp.Id, new EntityCoordinates(args.Body, Vector2.Zero));
+        if (!TryComp(childPart, out BodyPartComponent? childPartComp))
+            return;
 
-            var slotName = _bodySystem.GetSlotFromBodyPart(childPartComp);
-            _bodySystem.TryCreatePartSlot(uid, slotName, childPartComp.PartType, out var _);
-            _bodySystem.AttachPart(uid, slotName, childPart, partComp, childPartComp);
-            component.ChildPart = childPart;
-            component.Active = true;
-            Dirty(childPart, childPartComp);
-        }
+        var slotName = _bodySystem.GetSlotFromBodyPart(childPartComp);
+        _bodySystem.TryCreatePartSlot(ent.Owner, slotName, childPartComp.PartType, out var _);
+        _bodySystem.AttachPart(ent.Owner, slotName, childPart, partComp, childPartComp);
+        ent.Comp.ChildPart = childPart;
+        ent.Comp.Active = true;
+        Dirty(ent);
     }
 
     // Still unusued, gotta figure out what I want to do with this function outside of fuckery with mantis blades.

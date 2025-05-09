@@ -3,8 +3,8 @@
   id: OrganSpaceAnimalLungs
   name: space animal lungs
   components:
-  - type: Organ
-    onAdd:
+  - type: MechanismEffect
+    added:
     - type: BreathingImmunity
 
 - type: entity
@@ -12,8 +12,8 @@
   id: OrganSpaceAnimalHeart
   name: space animal heart
   components:
-  - type: Organ
-    onAdd:
+  - type: MechanismEffect
+    added:
     - type: PressureImmunity
 
 - type: entity
@@ -21,8 +21,8 @@
   id: OrganGoliathHeart
   name: goliath heart
   components:
-  - type: Organ
-    onAdd:
+  - type: MechanismEffect
+    added:
     - type: GoliathTentacle
   - type: Sprite
     sprite: _Shitmed/Mobs/Species/Space/Goliath/organs.rsi
@@ -33,8 +33,8 @@
   id: OrganDragonLungs
   name: dragon lungs
   components:
-  - type: Organ
-    onAdd:
+  - type: MechanismEffect
+    added:
     - type: ActionGun
       action: ActionDragonsBreath
       gunProto: DragonsBreathGun
@@ -44,8 +44,8 @@
   id: OrganLaserEyes
   name: laser raptor eyes
   components:
-  - type: Organ
-    onAdd:
+  - type: MechanismEffect
+    added:
     - type: HitscanBatteryAmmoProvider
       proto: RedLightLaser
       fireCost: 50
@@ -68,8 +68,8 @@
   id: OrganCobraHeart
   name: cobra gland
   components:
-  - type: Organ
-    onAdd:
+  - type: MechanismEffect
+    added:
     - type: Stealth
       enabledOnDeath: false
       maxVisibility: 1.2

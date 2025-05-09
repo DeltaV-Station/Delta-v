@@ -128,43 +128,47 @@ public abstract partial class SharedSurgerySystem
         // Dude this fucking function is so bloated now what the fuck.
         if (ent.Comp.AddOrganOnAdd != null)
         {
-            var organSlotIdToOrgan = _body.GetPartOrgans(args.Part).ToDictionary(o => o.Item2.SlotId, o => o);
+            var organSlotIdToOrgan = _body.GetPartOrgans(args.Part).ToDictionary(o => o.Item2.SlotId, o => o.Item1);
 
             foreach (var (organSlotId, compsToAdd) in ent.Comp.AddOrganOnAdd)
             {
-                if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organValue))
+                if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organ))
                     continue;
-                var (organId, organ) = organValue;
 
-                organ.OnAdd ??= new();
-
+                var effect = EnsureComp<MechanismEffectComponent>(organ);
+                effect.Added ??= new();
                 foreach (var (key, compToAdd) in compsToAdd)
-                    organ.OnAdd[key] = compToAdd;
+                {
+                    effect.Added[key] = compToAdd;
+                }
 
-                EnsureComp<OrganEffectComponent>(organId);
-                RaiseLocalEvent(organId, new OrganComponentsModifyEvent(args.Body, true));
+                // make it apply the added components now
+                _body.UpdateMechanism(organ, args.Body);
             }
         }
 
         if (ent.Comp.RemoveOrganOnAdd != null)
         {
-            var organSlotIdToOrgan = _body.GetPartOrgans(args.Part).ToDictionary(o => o.Item2.SlotId, o => o);
+            var organSlotIdToOrgan = _body.GetPartOrgans(args.Part).ToDictionary(o => o.Item2.SlotId, o => o.Item1);
 
             foreach (var (organSlotId, compsToRemove) in ent.Comp.RemoveOrganOnAdd)
             {
-                if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organValue) ||
-                    organValue.Item2.OnAdd == null)
+                if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organ))
                     continue;
-                var (organId, organ) = organValue;
 
-                // Need to raise this event first before removing the component entries so
-                // OrganEffectSystem still knows which components on the body to remove
-                RaiseLocalEvent(organId, new OrganComponentsModifyEvent(args.Body, false));
+                if (!TryComp<MechanismEffectComponent>(organ, out var effect) || effect.Added == null)
+                    continue;
+
                 foreach (var key in compsToRemove.Keys)
-                    organ.OnAdd.Remove(key);
+                {
+                    effect.Added.Remove(key);
+                }
+
+                // make it apply the removed components now
+                if (_body.IsEnabled(organ))
+                    EntityManager.AddComponents(args.Body, compsToRemove);
             }
         }
-
 
         //if (!HasComp<ForcedSleepingComponent>(args.Body))
         //    //RaiseLocalEvent(args.Body, new MoodEffectEvent("SurgeryPain"));
@@ -237,13 +241,15 @@ public abstract partial class SharedSurgerySystem
 
         if (ent.Comp.AddOrganOnAdd != null)
         {
-            var organSlotIdToOrgan = _body.GetPartOrgans(args.Part).ToDictionary(o => o.Item2.SlotId, o => o.Item2);
+            var organSlotIdToOrgan = _body.GetPartOrgans(args.Part).ToDictionary(o => o.Item2.SlotId, o => o.Item1);
             foreach (var (organSlotId, compsToAdd) in ent.Comp.AddOrganOnAdd)
             {
                 if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organ))
                     continue;
 
-                if (organ.OnAdd == null || compsToAdd.Keys.Any(key => !organ.OnAdd.ContainsKey(key)))
+                if (!TryComp<MechanismEffectComponent>(organ, out var effect) ||
+                    effect.Added == null ||
+                    compsToAdd.Keys.Any(key => !effect.Added.ContainsKey(key)))
                 {
                     args.Cancelled = true;
                     return;
@@ -253,13 +259,15 @@ public abstract partial class SharedSurgerySystem
 
         if (ent.Comp.RemoveOrganOnAdd != null)
         {
-            var organSlotIdToOrgan = _body.GetPartOrgans(args.Part).ToDictionary(o => o.Item2.SlotId, o => o.Item2);
+            var organSlotIdToOrgan = _body.GetPartOrgans(args.Part).ToDictionary(o => o.Item2.SlotId, o => o.Item1);
             foreach (var (organSlotId, compsToRemove) in ent.Comp.RemoveOrganOnAdd)
             {
-                if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organ) || organ.OnAdd == null)
+                if (!organSlotIdToOrgan.TryGetValue(organSlotId, out var organ))
                     continue;
 
-                if (compsToRemove.Keys.Any(key => organ.OnAdd.ContainsKey(key)))
+                if (!TryComp<MechanismEffectComponent>(organ, out var effect) ||
+                    effect.Added == null ||
+                    compsToRemove.Keys.Any(key => effect.Added.ContainsKey(key)))
                 {
                     args.Cancelled = true;
                     return;
@@ -475,9 +483,7 @@ public abstract partial class SharedSurgerySystem
 
         if (targetPart != default)
         {
-            // We reward players for properly affixing the parts by healing a little bit of damage, and enabling the part temporarily.
-            var ev = new BodyPartEnableChangedEvent(true);
-            RaiseLocalEvent(targetPart.Id, ref ev);
+            // We reward players for properly affixing the parts by healing a little bit of damage
             _damageable.TryChangeDamage(args.Body,
                 _body.GetHealingSpecifier(targetPart.Component) * 2,
                 canSever: false, // Just in case we heal a brute damage specifier and the logic gets fucky lol

@@ -44,36 +44,11 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool? Used { get; set; }
-
-
-    /// <summary>
-    ///     When attached, the organ will ensure these components on the entity, and delete them on removal.
-    /// </summary>
-    [DataField]
-    public ComponentRegistry? OnAdd;
+    // Shitmed Change End
 
     /// <summary>
-    ///     When removed, the organ will ensure these components on the entity, and delete them on insertion.
-    /// </summary>
-    [DataField]
-    public ComponentRegistry? OnRemove;
-
-    /// <summary>
-    ///     Is this organ working or not?
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool Enabled = true;
-
-    /// <summary>
-    ///     Can this organ be enabled or disabled? Used mostly for prop, damaged or useless organs.
-    /// </summary>
-    [DataField]
-    public bool CanEnable = true;
-
-    /// <summary>
-    ///     DeltaV - Can this organ be removed? Used to be able to make organs unremovable by setting it to false.
+    /// DeltaV - Can this organ be removed? Used to be able to make organs unremovable by setting it to false.
     /// </summary>
     [DataField]
     public bool Removable = true;
-    // Shitmed Change End
 }

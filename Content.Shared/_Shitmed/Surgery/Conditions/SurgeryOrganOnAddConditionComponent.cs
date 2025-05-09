@@ -4,11 +4,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Conditions;
 
-// <summary>
-//   What components are necessary in the part's organs' OnAdd fields for the surgery to be valid.
-//
-//   Not all components need to be present (or missing for Inverse = true). At least one component matching (or missing) can make the surgery valid.
-// </summary>
+/// <summary>
+/// What components are necessary in the part's organs' Added fields for the surgery to be valid.
+///
+/// Not all components need to be present (or missing for Inverse = true). At least one component matching (or missing) can make the surgery valid.
+/// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SurgeryOrganOnAddConditionComponent : Component
 {

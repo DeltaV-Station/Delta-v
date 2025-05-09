@@ -11,6 +11,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Utility;
 
 // Shitmed Change Start
+using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.BodyEffects;
@@ -38,11 +39,13 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyPartComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BodyPartComponent, ComponentRemove>(OnBodyPartRemove);
         SubscribeLocalEvent<BodyPartComponent, AmputateAttemptEvent>(OnAmputateAttempt);
-        SubscribeLocalEvent<BodyPartComponent, BodyPartEnableChangedEvent>(OnPartEnableChanged);
+        SubscribeLocalEvent<BodyPartComponent, MechanismEnabledEvent>(OnPartEnabled);
+        SubscribeLocalEvent<BodyPartComponent, MechanismDisabledEvent>(OnPartDisabled);
     }
 
     private void OnMapInit(Entity<BodyPartComponent> ent, ref MapInitEvent args)
     {
+        EnsureComp<BodyMechanismComponent>(ent);
         if (ent.Comp.PartType == BodyPartType.Torso)
         {
             // For whatever reason this slot is initialized properly on the server, but not on the client.
@@ -51,9 +54,6 @@ public partial class SharedBodySystem
             _slots.AddItemSlot(ent, ent.Comp.ContainerName, ent.Comp.ItemInsertionSlot);
             Dirty(ent, ent.Comp);
         }
-
-        if (ent.Comp.OnAdd is not null || ent.Comp.OnRemove is not null)
-            EnsureComp<BodyPartEffectComponent>(ent);
 
         foreach (var connection in ent.Comp.Children.Keys)
         {
@@ -72,52 +72,57 @@ public partial class SharedBodySystem
             _slots.RemoveItemSlot(ent, ent.Comp.ItemInsertionSlot);
     }
 
-    private void OnPartEnableChanged(Entity<BodyPartComponent> partEnt, ref BodyPartEnableChangedEvent args)
+    /// <summary>
+    /// Shitmed: Hardcoded shit bodyparts have to do when enabled.
+    /// </summary>
+    private void OnPartEnabled(Entity<BodyPartComponent> partEnt, ref MechanismEnabledEvent args)
     {
-        if (!partEnt.Comp.CanEnable && args.Enabled)
-            return;
-
-        partEnt.Comp.Enabled = args.Enabled;
-
-        if (args.Enabled)
-        {
-            EnablePart(partEnt);
-            if (partEnt.Comp.Body is { Valid: true } bodyEnt)
-                RaiseLocalEvent(partEnt, new BodyPartComponentsModifyEvent(bodyEnt, true));
-        }
-        else
-        {
-            DisablePart(partEnt);
-            if (partEnt.Comp.Body is { Valid: true } bodyEnt)
-                RaiseLocalEvent(partEnt, new BodyPartComponentsModifyEvent(bodyEnt, false));
-        }
-
-        Dirty(partEnt, partEnt.Comp);
-    }
-
-    private void EnablePart(Entity<BodyPartComponent> partEnt)
-    {
-        if (!TryComp(partEnt.Comp.Body, out BodyComponent? body))
-            return;
+        var body = args.Body;
 
         // I hate having to hardcode these checks so much.
         if (partEnt.Comp.PartType == BodyPartType.Leg)
-            AddLeg(partEnt, (partEnt.Comp.Body.Value, body));
+            AddLeg(partEnt, body);
 
         if (partEnt.Comp.PartType == BodyPartType.Arm)
         {
-            var hand = GetBodyChildrenOfType(partEnt.Comp.Body.Value, BodyPartType.Hand, symmetry: partEnt.Comp.Symmetry).FirstOrDefault();
+            var hand = GetBodyChildrenOfType(body, BodyPartType.Hand, symmetry: partEnt.Comp.Symmetry).FirstOrDefault();
             if (hand != default)
             {
                 var ev = new BodyPartEnabledEvent(hand);
-                RaiseLocalEvent(partEnt.Comp.Body.Value, ref ev);
+                RaiseLocalEvent(body, ref ev);
             }
         }
 
         if (partEnt.Comp.PartType == BodyPartType.Hand)
         {
             var ev = new BodyPartEnabledEvent(partEnt);
-            RaiseLocalEvent(partEnt.Comp.Body.Value, ref ev);
+            RaiseLocalEvent(body, ref ev);
+        }
+    }
+
+    /// <summary>
+    /// Shitmed: Hardcoded shit bodyparts have to do when disabled.
+    /// </summary>
+    private void OnPartDisabled(Entity<BodyPartComponent> partEnt, ref MechanismDisabledEvent args)
+    {
+        var body = args.Body;
+        if (partEnt.Comp.PartType == BodyPartType.Leg)
+            RemoveLeg(partEnt, body);
+
+        if (partEnt.Comp.PartType == BodyPartType.Arm)
+        {
+            var hand = GetBodyChildrenOfType(body, BodyPartType.Hand, symmetry: partEnt.Comp.Symmetry).FirstOrDefault();
+            if (hand != default)
+            {
+                var ev = new BodyPartDisabledEvent(hand);
+                RaiseLocalEvent(body, ref ev);
+            }
+        }
+
+        if (partEnt.Comp.PartType == BodyPartType.Hand)
+        {
+            var ev = new BodyPartDisabledEvent(partEnt);
+            RaiseLocalEvent(body, ref ev);
         }
     }
 
@@ -129,37 +134,11 @@ public partial class SharedBodySystem
     {
         if (partEnt.Comp.Body is not null
             && TryComp<InventoryComponent>(partEnt.Comp.Body, out var inventory) // Prevent error for non-humanoids
-            && GetBodyPartCount(partEnt.Comp.Body.Value, partEnt.Comp.PartType) == 1
+            && GetBodyPartCount(partEnt.Comp.Body.Value, partEnt.Comp.PartType) == 0
             && TryGetPartSlotContainerName(partEnt.Comp.PartType, out var containerNames))
         {
             foreach (var containerName in containerNames)
                 _inventorySystem.DropSlotContents(partEnt.Comp.Body.Value, containerName, inventory);
-        }
-
-    }
-
-    private void DisablePart(Entity<BodyPartComponent> partEnt)
-    {
-        if (!TryComp(partEnt.Comp.Body, out BodyComponent? body))
-            return;
-
-        if (partEnt.Comp.PartType == BodyPartType.Leg)
-            RemoveLeg(partEnt, (partEnt.Comp.Body.Value, body));
-
-        if (partEnt.Comp.PartType == BodyPartType.Arm)
-        {
-            var hand = GetBodyChildrenOfType(partEnt.Comp.Body.Value, BodyPartType.Hand, symmetry: partEnt.Comp.Symmetry).FirstOrDefault();
-            if (hand != default)
-            {
-                var ev = new BodyPartDisabledEvent(hand);
-                RaiseLocalEvent(partEnt.Comp.Body.Value, ref ev);
-            }
-        }
-
-        if (partEnt.Comp.PartType == BodyPartType.Hand)
-        {
-            var ev = new BodyPartDisabledEvent(partEnt);
-            RaiseLocalEvent(partEnt.Comp.Body.Value, ref ev);
         }
     }
 
@@ -187,8 +166,6 @@ public partial class SharedBodySystem
                     slot.ContainedEntity is { } childEntity &&
                     TryComp(childEntity, out BodyPartComponent? childPart))
                 {
-                    var ev = new BodyPartEnableChangedEvent(false);
-                    RaiseLocalEvent(childEntity, ref ev);
                     DropPart((childEntity, childPart));
                 }
             }
@@ -205,8 +182,7 @@ public partial class SharedBodySystem
         var body = partEnt.Comp.Body.GetValueOrDefault();
         if (TryComp(partEnt, out TransformComponent? transform) && _gameTiming.IsFirstTimePredicted)
         {
-            var enableEvent = new BodyPartEnableChangedEvent(false);
-            RaiseLocalEvent(partEnt, ref enableEvent);
+            SetBody(partEnt.Owner, null);
             var droppedEvent = new BodyPartDroppedEvent(partEnt);
             RaiseLocalEvent(body, ref droppedEvent);
             SharedTransform.AttachToGridOrMap(partEnt, transform);
@@ -330,8 +306,7 @@ public partial class SharedBodySystem
         Dirty(partEnt, partEnt.Comp);
         partEnt.Comp.Body = bodyEnt;
 
-        if (partEnt.Comp.Enabled && partEnt.Comp.Body is { Valid: true } body) // Shitmed Change
-            RaiseLocalEvent(partEnt, new BodyPartComponentsModifyEvent(body, true));
+        SetBody(partEnt.Owner, bodyEnt); // Shitmed Change
 
         var ev = new BodyPartAddedEvent(slotId, partEnt);
         RaiseLocalEvent(bodyEnt, ref ev);
@@ -348,8 +323,7 @@ public partial class SharedBodySystem
         Dirty(partEnt, partEnt.Comp);
 
         // Shitmed Change Start
-        if (partEnt.Comp.Body is { Valid: true } body)
-            RaiseLocalEvent(partEnt, new BodyPartComponentsModifyEvent(body, false));
+        SetBody(partEnt.Owner, null);
         partEnt.Comp.ParentSlot = null;
         // Shitmed Change End
 

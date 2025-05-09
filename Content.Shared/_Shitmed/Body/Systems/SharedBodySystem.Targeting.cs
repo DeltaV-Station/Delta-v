@@ -69,6 +69,7 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyComponent, DamageModifyEvent>(OnBodyDamageModify);
         SubscribeLocalEvent<BodyPartComponent, DamageModifyEvent>(OnPartDamageModify);
         SubscribeLocalEvent<BodyPartComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<BodyPartComponent, MechanismEnableAttemptEvent>(OnPartEnableAttempt);
     }
 
     private void ProcessIntegrityTick(Entity<BodyPartComponent> entity)
@@ -226,7 +227,6 @@ public partial class SharedBodySystem
             && partIdSlot is not null
             && delta != null
             && !HasComp<BodyPartReattachedComponent>(partEnt)
-            && !partEnt.Comp.Enabled
             && damageable.TotalDamage >= partEnt.Comp.SeverIntegrity
             && _severingDamageTypes.Any(damageType => delta.DamageDict.TryGetValue(damageType, out var value) && value > 0))
             severed = true;
@@ -237,6 +237,18 @@ public partial class SharedBodySystem
             DropPart(partEnt);
 
         Dirty(partEnt, partEnt.Comp);
+    }
+
+    private void OnPartEnableAttempt(Entity<BodyPartComponent> ent, ref MechanismEnableAttemptEvent args)
+    {
+        if (!TryComp<DamageableComponent>(ent, out var damageable))
+            return;
+
+        // can't enable limbs if they are too damaged
+        // prevents exploit of using emp to heal cybernetics
+        var damage = damageable.TotalDamage;
+        if (damage > ent.Comp.IntegrityThresholds[ent.Comp.EnableIntegrity])
+            args.Cancelled = true;
     }
 
     /// <summary>
@@ -296,23 +308,17 @@ public partial class SharedBodySystem
         var integrity = damageable.TotalDamage;
 
         // KILL the body part
-        if (partEnt.Comp.Enabled && integrity >= partEnt.Comp.IntegrityThresholds[TargetIntegrity.CriticallyWounded])
-        {
-            var ev = new BodyPartEnableChangedEvent(false);
-            RaiseLocalEvent(partEnt, ref ev);
-        }
+        if (integrity >= partEnt.Comp.IntegrityThresholds[TargetIntegrity.CriticallyWounded])
+            TryDisableMechanism(partEnt.Owner);
 
-        // LIVE the body part
-        if (!partEnt.Comp.Enabled && integrity <= partEnt.Comp.IntegrityThresholds[partEnt.Comp.EnableIntegrity] && !severed)
-        {
-            var ev = new BodyPartEnableChangedEvent(true);
-            RaiseLocalEvent(partEnt, ref ev);
-        }
+        // LIVE the body part, if its below the enable damage threshold
+        if (!severed)
+            TryEnableMechanism(partEnt.Owner);
 
         if (_queryTargeting.TryComp(partEnt.Comp.Body, out var targeting)
             && HasComp<MobStateComponent>(partEnt.Comp.Body))
         {
-            var newIntegrity = GetIntegrityThreshold(partEnt.Comp, integrity.Float(), severed);
+            var newIntegrity = GetIntegrityThreshold(partEnt, integrity.Float(), severed);
             // We need to check if the part is dead to prevent the UI from showing dead parts as alive.
             if (targetPart is not null &&
                 targeting.BodyStatus.ContainsKey(targetPart.Value) &&
@@ -351,7 +357,7 @@ public partial class SharedBodySystem
             var targetBodyPart = GetTargetBodyPart(partComponent.Component.PartType, partComponent.Component.Symmetry);
 
             if (targetBodyPart != null && TryComp<DamageableComponent>(partComponent.Id, out var damageable))
-                result[targetBodyPart.Value] = GetIntegrityThreshold(partComponent.Component, damageable.TotalDamage.Float(), false);
+                result[targetBodyPart.Value] = GetIntegrityThreshold((partComponent.Id, partComponent.Component), damageable.TotalDamage.Float(), false);
         }
 
         // Hardcoded shitcode for Groin :)
@@ -447,15 +453,15 @@ public partial class SharedBodySystem
     /// <summary>
     /// Fetches the TargetIntegrity equivalent of the current integrity value for the body part.
     /// </summary>
-    public static TargetIntegrity GetIntegrityThreshold(BodyPartComponent component, float integrity, bool severed)
+    public TargetIntegrity GetIntegrityThreshold(Entity<BodyPartComponent> ent, float integrity, bool severed)
     {
         if (severed)
             return TargetIntegrity.Severed;
-        else if (!component.Enabled)
+        else if (!IsEnabled(ent))
             return TargetIntegrity.Disabled;
 
         var targetIntegrity = TargetIntegrity.Healthy;
-        foreach (var threshold in component.IntegrityThresholds)
+        foreach (var threshold in ent.Comp.IntegrityThresholds)
         {
             if (integrity <= threshold.Value)
                 targetIntegrity = threshold.Key;
