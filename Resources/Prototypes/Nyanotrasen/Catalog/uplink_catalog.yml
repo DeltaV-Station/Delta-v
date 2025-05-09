@@ -10,10 +10,6 @@
     Telecrystal: 10
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:BuyerSpeciesCondition
-    whitelist:
-    - Oni
 
 - type: listing
   id: UplinkRickenbacker
@@ -22,9 +18,9 @@
   productEntity: Rickenbacker4001Instrument
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
-    Telecrystal: 10
+    Telecrystal: 5
   categories:
   - UplinkJob
   conditions:
@@ -37,17 +33,10 @@
   name: uplink-samurai-crate-name
   description: uplink-samurai-crate-desc
   productEntity: CrateSyndicateSamurai
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 3
   cost:
-    Telecrystal: 6
+    Telecrystal: 2
   categories:
   - UplinkWearables
-  conditions:
-  - !type:BuyerSpeciesCondition
-    whitelist:
-    - Oni
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
