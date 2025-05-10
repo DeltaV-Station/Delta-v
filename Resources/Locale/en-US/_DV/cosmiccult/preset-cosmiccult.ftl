@@ -18,6 +18,9 @@ cosmiccult-vote-steward-briefing =
     Ensure that The Monument is placed in a secure location, and organize the cult to ensure your collective victory.
     You are not permitted to instruct cultists on how to use or spend their Entropy.
 
+cosmiccult-chantry-location = A dangerous increase in Λ-CDM has been detected {$location}! Intercept and intervene immediately.
+cosmiccult-chantry-powerup = The vacuous chantry flares to life!
+
 cosmiccult-finale-autocall-briefing = The Monument activates {$minutesandseconds}! Gather yourselves, and prepare for the end.
 cosmiccult-finale-ready = A terrifying light surges forth from The Monument!
 cosmiccult-finale-speedup = The beckoning quickens! Energy surges through the surroundings...

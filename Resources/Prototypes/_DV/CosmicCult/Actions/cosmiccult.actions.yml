@@ -85,6 +85,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     itemIconStyle: NoItem
     useDelay: 0
     icon:
@@ -125,6 +126,7 @@
     primeTime: 5 #increased to give you more time to figure out where you want to put it
   - type: InstantAction
     useDelay: 60
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -156,6 +158,7 @@
   components:
   - type: InstantAction
     useDelay: 160
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -177,3 +180,23 @@
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: nova
     event: !type:EventCosmicNova {}
+
+- type: entity
+  id: ActionCosmicFragmentation
+  name: Malign Fragmentation
+  description: Transfer your malign empowerment into a digital system, such as an AI Upload Console, corrupting it in the process. Doing so will expend your empowerment.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: LimitedCharges
+    maxCharges: 1
+  - type: EntityTargetAction
+    useDelay: 25
+    whitelist:
+      components:
+        # - EmagSiliconLaw // Commented out for now
+        - SiliconLawUpdater
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: corruption
+    event: !type:EventCosmicFragmentation {}
