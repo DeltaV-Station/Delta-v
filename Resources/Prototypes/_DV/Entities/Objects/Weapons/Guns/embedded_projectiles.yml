@@ -1,0 +1,46 @@
+- type: entity
+  parent: BaseItem
+  id: BaseEmbeddedBullet
+  name: stray bullet
+  description: Extracted from a body, good thing you got it out.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Boxes/bbgun.rsi
+    layers:
+    - state: bbbullet
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage
+  - type: ForeignBodyEffects
+    effects:
+    - !type:HealthChange
+      damage:
+        types:
+          Poison: 0.05
+
+- type: entity
+  parent: BaseEmbeddedBullet
+  id: BaseEmbeddedBulletIncendiary
+  name: stray incendiary bullet
+  components:
+  - type: ForeignBodyEffects
+    effects:
+    - !type:HealthChange
+      damage:
+        types:
+          Burn: 0.05
+
+- type: entity
+  parent: BaseEmbeddedBullet
+  id: BaseEmbeddedBulletUranium
+  name: stray uranium bullet
+  components:
+  - type: ForeignBodyEffects
+    effects:
+    - !type:HealthChange
+      damage:
+        types:
+          Radiation: 0.05

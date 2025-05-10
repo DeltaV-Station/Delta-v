@@ -93,6 +93,8 @@
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
   - type: TimedDespawn
     lifetime: 10
+  - type: ProjectileForeignBody # DeltaV - foreign bodies
+    foreignBody: BaseEmbeddedBullet
 
 - type: entity
   id: BaseBulletTrigger # Trigger-on-collide bullets
@@ -116,6 +118,8 @@
         - Impassable
         - BulletImpassable
       fly-by: *flybyfixture
+  - type: ProjectileForeignBody # DeltaV - foreign bodies
+    baseChance: 0
 
 - type: entity
   id: BaseBulletPractice
@@ -149,6 +153,8 @@
     energy: 7.0
   - type: IgniteOnCollide
     fireStacks: 0.25
+  - type: ProjectileForeignBody # DeltaV - foreign bodies
+    foreignBody: BaseEmbeddedBulletIncendiary
 
 - type: entity
   id: BaseBulletAP
@@ -165,6 +171,8 @@
       types:
         Piercing: 11 # 20% decrease
     ignoreResistances: true
+  - type: ProjectileForeignBody # DeltaV - foreign bodies
+    baseChance: 0.75
 
 - type: entity
   id: BaseBulletUranium
@@ -180,6 +188,8 @@
     damage:
       types:
         Radiation: 11
+  - type: ProjectileForeignBody # DeltaV - foreign bodies
+    foreignBody: BaseEmbeddedBulletUranium
 
 # Energy projectiles
 - type: entity
