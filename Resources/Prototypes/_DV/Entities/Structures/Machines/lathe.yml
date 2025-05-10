@@ -41,6 +41,7 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       blueprint: !type:Container
+  - type: OreSiloClient
   - type: EmptyOnMachineDeconstruct
     containers:
     - blueprint
