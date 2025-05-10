@@ -160,6 +160,8 @@
     - id: RubberStampHatePaperwork
       prob: 0.05
     # End DeltaV - More folders & colored paper reams in the bureaucracy crate, low chance of paperwork hater stamp
+    - id: RubberStampApproved # DeltaV - added APPROVED stamp
+    - id: RubberStampDenied # DeltaV - added DENIED stamp
 
 - type: entity
   id: CrateServiceFaxMachine
