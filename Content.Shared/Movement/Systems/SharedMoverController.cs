@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._DV.Movement; // DeltaV
 using Content.Shared.Bed.Sleep;
 using Content.Shared.CCVar;
 using Content.Shared.Friction;
@@ -46,6 +47,7 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly SharedGravitySystem _gravity = default!;
     [Dependency] private   readonly SharedTransformSystem _transform = default!;
     [Dependency] private   readonly TagSystem _tags = default!;
+    [Dependency] private   readonly TileMovementSystem _tileMovement = default!; // DeltaV
 
     protected EntityQuery<InputMoverComponent> MoverQuery;
     protected EntityQuery<MobMoverComponent> MobMoverQuery;
@@ -202,6 +204,11 @@ public abstract partial class SharedMoverController : VirtualController
         {
             tileDef = (ContentTileDefinition) _tileDefinitionManager[tile.Tile.TypeId];
         }
+
+        // Begin DeltaV Additions - handle tile movement
+        if (_tileMovement.TryTick((uid, mover, relayTarget), (physicsUid, physicsComponent, xform), tileDef, weightless, frameTime))
+            return;
+        // End DeltaV Additions
 
         // Regular movement.
         // Target velocity.
@@ -425,7 +432,7 @@ public abstract partial class SharedMoverController : VirtualController
 
     protected abstract bool CanSound();
 
-    private bool TryGetSound(
+    public bool TryGetSound( // DeltaV - made public
         bool weightless,
         EntityUid uid,
         InputMoverComponent mover,
