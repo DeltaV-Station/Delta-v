@@ -1,0 +1,71 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Character concept by Roomwithavoid at https://roomwithavoid.tumblr.com/post/779397792075530240/this-thing, translated to sprite by Blackdutchie",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "whimperlet"
+        },
+        {
+            "name": "whimperlet-whimpering",
+            "directions": 4
+        },
+        {
+            "name": "whimperlet-scrimpering",
+            "directions": 4
+        },
+        {
+            "name": "whimperlet-moving",
+            "directions": 4,
+            "delays": [
+                [
+                    0.08,
+                    0.08,
+                    0.08,
+                    0.08
+                ],
+                [
+                    0.08,
+                    0.08,
+                    0.08,
+                    0.08
+                ],
+                [
+                    0.08,
+                    0.08,
+                    0.08,
+                    0.08
+                ],
+                [
+                    0.08,
+                    0.08,
+                    0.08,
+                    0.08
+                ]
+            ]
+        },
+        {
+            "name": "whimperlet-dead",
+            "directions": 4
+        },
+        {
+            "name": "0-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "0-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "0-equipped-HELMET",
+            "directions": 4
+        }
+    ]
+}
