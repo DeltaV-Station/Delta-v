@@ -1,3 +1,4 @@
+using Content.Server._DV.Antag; // DeltaV
 using Content.Server.RoundEnd;
 using Content.Shared.Dataset;
 using Content.Shared.NPC.Prototypes;
@@ -8,7 +9,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.GameTicking.Rules.Components;
 
-[RegisterComponent, Access(typeof(NukeopsRuleSystem))]
+[RegisterComponent, Access(typeof(NukeopsRuleSystem), typeof(NukieOperationSystem))] // DeltaV - Auto war declare
 public sealed partial class NukeopsRuleComponent : Component
 {
     /// <summary>
