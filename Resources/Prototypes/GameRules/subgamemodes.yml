@@ -27,8 +27,12 @@
       allowNonHumans: true
       multiAntagSetting: NotExclusive
       startingGear: ThiefGear
-      #components: # DeltaV - forced pacifism is lame
-      #- type: Pacified
+      components:
+      - type: Clumsy # DeltaV - replaced pacifism with guns exploding in your face
+        clumsyDefaultCheck: 0.8
+        clumsyHypo: false
+        clumsyDefib: false
+        clumsyVaulting: false
       mindRoles:
       - MindRoleThief
       briefing:
