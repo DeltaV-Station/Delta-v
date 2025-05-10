@@ -36,8 +36,12 @@
   components:
   - type: InjectableSolution
     solution: food
-  - type: RefillableSolution
-    solution: food
+  # Begin Delta-V FoodBase Changes
+  # This is inteded to add the ability to draw from food/produce however current gamestate doesnt allow it
+  # Has side-effect of allowing food/produce to be draged into machines such as chemmaster
+  #- type: RefillableSolution
+  #  solution: food
+  # End Delta-V FoodBase Changes
 
 # usable by any food that can be opened
 # handles appearance with states "icon" and "icon-open"
