@@ -49,4 +49,10 @@ public sealed partial class TileMovementComponent : Component
     /// </summary>
     [AutoNetworkedField]
     public bool WasWeightlessLastTick;
+
+    /// <summary>
+    /// Used to remove TileMovement after pulling stops.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Temporary;
 }

@@ -125,7 +125,7 @@ public abstract partial class SharedMoverController : VirtualController
     /// <summary>
     ///     Movement while considering actionblockers, weightlessness, etc.
     /// </summary>
-    protected void HandleMobMovement(
+    public void HandleMobMovement( // DeltaV - made public
         EntityUid uid,
         InputMoverComponent mover,
         EntityUid physicsUid,
@@ -163,7 +163,8 @@ public abstract partial class SharedMoverController : VirtualController
 
         if (!canMove
             || physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid)
-            || PullableQuery.TryGetComponent(uid, out var pullable) && pullable.BeingPulled)
+            // DeltaV - still process mobs pulled by TileMovement players
+            || PullableQuery.TryGetComponent(uid, out var pullable) && pullable.BeingPulled && !_tileMovement.HasTileMovement(pullable.Puller))
         {
             UsedMobMovement[uid] = false;
             return;
