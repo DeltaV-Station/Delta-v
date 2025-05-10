@@ -139,6 +139,12 @@ public sealed partial class CosmicCultComponent : Component
     [DataField(serverOnly: true)]
     public EntityUid CultGamerule;
 
+    [DataField]
+    public EntProtoId BorgChantry = "CosmicBorgChantry";
+
+    [DataField]
+    public EntProtoId MalignLawboard = "CosmicCultLawBoard";
+
     #region VFX & SFX
     [DataField] public EntProtoId SpawnWisp = "MobCosmicWisp";
     [DataField] public EntProtoId LapseVFX = "CosmicLapseAbilityVFX";
