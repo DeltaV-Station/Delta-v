@@ -11,9 +11,10 @@ public sealed partial class AugmentComponent : Component;
 /// <summary>
 ///     Component that tracks which augments are installed on this body
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, Access(typeof(AugmentSystem))]
+[AutoGenerateComponentState]
 public sealed partial class InstalledAugmentsComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public HashSet<NetEntity> InstalledAugments = new();
 }
