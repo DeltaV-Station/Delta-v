@@ -10,6 +10,14 @@
   components:
     - type: StationBankAccount
     - type: StationCargoOrderDatabase
+      orders:
+        Cargo: [ ]
+        Engineering: [ ]
+        Medical: [ ]
+        Science: [ ]
+        Security: [ ]
+        Service: [ ]
+        Justice: [ ] # DeltaV - Justice
     - type: StationCargoBountyDatabase
 
 - type: entity
@@ -66,6 +74,7 @@
           - /Maps/_DV/Ruins/derelict.yml # DeltaV - Move to DV folder
           - /Maps/_DV/Ruins/djstation.yml # DeltaV - Move to DV folder
           #- /Maps/Ruins/empty_flagship.yml # TODO
+          - /Maps/Ruins/hydro_outpost.yml
           - /Maps/_DV/Ruins/old_ai_sat.yml # DeltaV - Move to DV folder
           - /Maps/_DV/Ruins/relaystation.yml # DeltaV - upstream removed
           #- /Maps/Ruins/ruined_prison_ship.yml # TODO

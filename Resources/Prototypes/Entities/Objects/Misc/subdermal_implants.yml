@@ -79,7 +79,7 @@
   parent: BaseSubdermalImplant
   id: TrackingImplant
   name: tracking implant
-  description: This implant has a tracking device attached to the suit sensor network, as well as a condition monitor for the Security radio channel.
+  description: This implant has a tracking device attached to the suit sensor network.
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -97,11 +97,6 @@
     - type: StationLimitedNetwork
     - type: WirelessNetworkConnection
       range: 500
-    - type: TriggerOnMobstateChange
-      mobState:
-      - Critical
-    - type: Rattle
-      radioChannel: "Security"
 
 #Traitor implants
 
@@ -344,14 +339,7 @@
   categories: [ HideSpawnMenu ]
   components:
    - type: SubdermalImplant
-     addedComponents: # DeltaV - replaces mindshield tag logic
-     - type: MindShield
-   # Begin DeltaV Removals - bad implementation replaced with comp reg
-   #- type: MindShieldImplant
-   #- type: Tag
-   #  tags:
-   #    - MindShield
-   # End DeltaV Removals
+   - type: MindShieldImplant
 
 - type: entity
   parent: DeathRattleImplant

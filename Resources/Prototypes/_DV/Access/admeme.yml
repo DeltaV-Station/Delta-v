@@ -1,0 +1,18 @@
+- type: accessLevel
+  id: Admeme1
+  name: Admeme1
+
+- type: accessLevel
+  id: Admeme2
+  name: Admeme2
+
+- type: accessLevel
+  id: Admeme3
+  name: Admeme3
+
+- type: accessGroup
+  id: Admemes
+  tags:
+  - Admeme1
+  - Admeme2
+  - Admeme3

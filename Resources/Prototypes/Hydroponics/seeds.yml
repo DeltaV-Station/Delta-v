@@ -932,8 +932,8 @@
   idealHeat: 298
   chemicals:
     Egg:
-      Min: 1
-      Max: 10
+      Min: 4
+      Max: 12
       PotencyDivisor: 10
 
 - type: seed
@@ -1178,7 +1178,7 @@
       Min: 1
       Max: 2
       PotencyDivisor: 50
-    Bicaridine:
+    SalicylicAcid: # Funkychem - bicaridine -> salicylic acid
       Min: 1
       Max: 20
       PotencyDivisor: 5
@@ -1232,7 +1232,7 @@
       Min: 1
       Max: 2
       PotencyDivisor: 50
-    Bicaridine:
+    SalicylicAcid: # Funkychem - bicaridine -> salicylic acid
       Min: 1
       Max: 20
       PotencyDivisor: 5

@@ -1,3 +1,4 @@
+using System.Linq; // DeltaV
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared._DV.Chemistry.Components; // DeltaV
@@ -354,6 +355,15 @@ public sealed class InjectorSystem : SharedInjectorSystem
             }
             temporarilyRemovedSolution = applicableTargetSolution.SplitSolutionWithout(applicableTargetSolution.Volume, reagentPrototypeWhitelistArray);
         }
+        // Begin DeltaV Additions - skimmer functionality
+        else if (injector.Comp.TargetSmallest)
+        {
+            if (applicableTargetSolution.Count() > 0 && applicableTargetSolution.MinBy(soln => soln.Quantity) is {} smallest)
+            {
+                temporarilyRemovedSolution = applicableTargetSolution.SplitSolutionWithout(applicableTargetSolution.Volume, new string[] { smallest.Reagent.Prototype });
+            }
+        }
+        // End DeltaV Additions - skimmer functionality
 
         // Get transfer amount. May be smaller than _transferAmount if not enough room, also make sure there's room in the injector
         var realTransferAmount = FixedPoint2.Min(injector.Comp.TransferAmount, applicableTargetSolution.Volume,
@@ -379,7 +389,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
         var removedSolution = SolutionContainers.Draw(target.Owner, targetSolution, realTransferAmount);
 
         // Add back non-whitelisted reagents to the target solution
-        applicableTargetSolution.AddSolution(temporarilyRemovedSolution, null);
+        SolutionContainers.TryAddSolution(targetSolution, temporarilyRemovedSolution); // DeltaV - fix bug with visualization for skimmers
 
         if (!SolutionContainers.TryAddSolution(soln.Value, removedSolution))
         {

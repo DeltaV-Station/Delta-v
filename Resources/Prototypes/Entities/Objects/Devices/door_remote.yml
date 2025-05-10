@@ -93,6 +93,7 @@
   - type: Access
     groups:
     - Research
+    - Epistemics # DeltaV - Add our access
 
 - type: entity
   parent: [DoorRemoteDefault, BaseCommandContraband]
@@ -162,3 +163,5 @@
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent
+    - Wizard
+    - Xenoborg

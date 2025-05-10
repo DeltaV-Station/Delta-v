@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 248.0.0
+  engineVersion: 250.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/25/2025 23:55:51
-  entityCount: 12520
+  time: 04/17/2025 01:28:36
+  entityCount: 12519
 maps:
 - 1
 grids:
@@ -2342,7 +2342,8 @@ entities:
           11,1:
             0: 16135
           11,2:
-            0: 10239
+            0: 9215
+            6: 1024
           11,3:
             0: 36607
           11,4:
@@ -2686,7 +2687,8 @@ entities:
             2: 1
             0: 65216
           13,2:
-            0: 52479
+            0: 52463
+            6: 16
             2: 4096
           13,3:
             2: 17
@@ -7259,11 +7261,6 @@ entities:
       parent: 2
 - proto: BoxFolderClipboard
   entities:
-  - uid: 605
-    components:
-    - type: Transform
-      pos: -0.13773876,-10.453866
-      parent: 2
   - uid: 606
     components:
     - type: Transform
@@ -27883,6 +27880,50 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 24.5,7.5
       parent: 2
+- proto: ComputerCargoOrdersEngineering
+  entities:
+  - uid: 8913
+    components:
+    - type: Transform
+      pos: -20.5,-7.5
+      parent: 2
+- proto: ComputerCargoOrdersJustice
+  entities:
+  - uid: 9854
+    components:
+    - type: Transform
+      pos: 0.5,-10.5
+      parent: 2
+- proto: ComputerCargoOrdersMedical
+  entities:
+  - uid: 10435
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -33.5,20.5
+      parent: 2
+- proto: ComputerCargoOrdersScience
+  entities:
+  - uid: 9198
+    components:
+    - type: Transform
+      pos: -10.5,38.5
+      parent: 2
+- proto: ComputerCargoOrdersSecurity
+  entities:
+  - uid: 5598
+    components:
+    - type: Transform
+      pos: 41.5,0.5
+      parent: 2
+- proto: ComputerCargoOrdersService
+  entities:
+  - uid: 8786
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 33.5,-12.5
+      parent: 2
 - proto: ComputerComms
   entities:
   - uid: 4655
@@ -27931,6 +27972,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -26.5,26.5
+      parent: 2
+- proto: ComputerFundingAllocation
+  entities:
+  - uid: 9808
+    components:
+    - type: Transform
+      pos: 6.5,2.5
       parent: 2
 - proto: ComputerId
   entities:
@@ -33486,11 +33534,6 @@ entities:
     components:
     - type: Transform
       pos: 23.5,23.5
-      parent: 2
-  - uid: 5598
-    components:
-    - type: Transform
-      pos: 41.5,0.5
       parent: 2
   - uid: 5599
     components:
@@ -57469,11 +57512,6 @@ entities:
     - type: Transform
       pos: -6.5,5.5
       parent: 2
-  - uid: 8786
-    components:
-    - type: Transform
-      pos: 33.5,-12.5
-      parent: 2
 - proto: MopItem
   entities:
   - uid: 8787
@@ -57490,11 +57528,6 @@ entities:
     components:
     - type: Transform
       pos: -5.321189,5.3903604
-      parent: 2
-  - uid: 8790
-    components:
-    - type: Transform
-      pos: 33.869144,-12.469599
       parent: 2
 - proto: Morgue
   entities:
@@ -58255,11 +58288,6 @@ entities:
     - type: Transform
       pos: 43.5,-7.5
       parent: 2
-  - uid: 8913
-    components:
-    - type: Transform
-      pos: -20.5,-7.5
-      parent: 2
   - uid: 8914
     components:
     - type: Transform
@@ -58279,6 +58307,11 @@ entities:
     components:
     - type: Transform
       pos: -29.5,-2.5
+      parent: 2
+  - uid: 9805
+    components:
+    - type: Transform
+      pos: -23.5,-7.5
       parent: 2
 - proto: PoweredDimSmallLight
   entities:
@@ -59876,11 +59909,6 @@ entities:
     - type: Transform
       pos: -25.5,-6.5
       parent: 2
-  - uid: 9198
-    components:
-    - type: Transform
-      pos: -20.5,-7.5
-      parent: 2
   - uid: 9199
     components:
     - type: Transform
@@ -59945,11 +59973,6 @@ entities:
     components:
     - type: Transform
       pos: 3.5,16.5
-      parent: 2
-  - uid: 9212
-    components:
-    - type: Transform
-      pos: -10.5,38.5
       parent: 2
   - uid: 9213
     components:
@@ -60095,6 +60118,11 @@ entities:
     components:
     - type: Transform
       pos: 49.5,32.5
+      parent: 2
+  - uid: 10527
+    components:
+    - type: Transform
+      pos: -23.5,-7.5
       parent: 2
 - proto: RadiationCollectorFullTank
   entities:
@@ -63005,15 +63033,15 @@ entities:
       parent: 2
 - proto: RubberStampApproved
   entities:
+  - uid: 605
+    components:
+    - type: Transform
+      pos: -0.36301523,-10.219405
+      parent: 2
   - uid: 9804
     components:
     - type: Transform
       pos: 23.913246,8.823084
-      parent: 2
-  - uid: 9805
-    components:
-    - type: Transform
-      pos: 0.48149946,-10.220134
       parent: 2
   - uid: 9806
     components:
@@ -63022,15 +63050,15 @@ entities:
       parent: 2
 - proto: RubberStampDenied
   entities:
+  - uid: 8790
+    components:
+    - type: Transform
+      pos: -0.29009855,-10.407036
+      parent: 2
   - uid: 9807
     components:
     - type: Transform
       pos: 24.107882,8.712475
-      parent: 2
-  - uid: 9808
-    components:
-    - type: Transform
-      pos: 0.6794162,-10.3764925
       parent: 2
   - uid: 9809
     components:
@@ -63328,15 +63356,15 @@ entities:
       parent: 2
 - proto: SheetPlastic10
   entities:
+  - uid: 9212
+    components:
+    - type: Transform
+      pos: -8.335313,38.657955
+      parent: 2
   - uid: 9853
     components:
     - type: Transform
       pos: -32.4114,9.568954
-      parent: 2
-  - uid: 9854
-    components:
-    - type: Transform
-      pos: -10.5,38.5
       parent: 2
 - proto: SheetSteel
   entities:
@@ -67516,11 +67544,6 @@ entities:
     - type: Transform
       pos: -12.5,-5.5
       parent: 2
-  - uid: 10435
-    components:
-    - type: Transform
-      pos: 6.5,2.5
-      parent: 2
   - uid: 10436
     components:
     - type: Transform
@@ -67696,6 +67719,11 @@ entities:
     components:
     - type: Transform
       pos: -42.5,-11.5
+      parent: 2
+  - uid: 10584
+    components:
+    - type: Transform
+      pos: 6.5,0.5
       parent: 2
 - proto: TableBrass
   entities:
@@ -67986,11 +68014,6 @@ entities:
     components:
     - type: Transform
       pos: -1.5,-10.5
-      parent: 2
-  - uid: 10527
-    components:
-    - type: Transform
-      pos: 0.5,-10.5
       parent: 2
   - uid: 10528
     components:
@@ -68284,12 +68307,6 @@ entities:
     components:
     - type: Transform
       pos: -36.5,28.5
-      parent: 2
-  - uid: 10584
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -33.5,20.5
       parent: 2
   - uid: 10585
     components:
@@ -69345,13 +69362,6 @@ entities:
     components:
     - type: Transform
       pos: 52.5,7.5
-      parent: 2
-- proto: VendingMachineSovietSoda
-  entities:
-  - uid: 10747
-    components:
-    - type: Transform
-      pos: -23.5,-7.5
       parent: 2
 - proto: VendingMachineTankDispenserEngineering
   entities:
@@ -77305,20 +77315,38 @@ entities:
     - type: Transform
       pos: 46.5,10.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
-          - 4614
           - 4615
-          - 4620
-          - 4616
-          - 4621
-          - 4617
-          - 4618
           - 4619
+          - 4618
+          - 4617
+          - 4621
+          - 4616
+          - 4620
+          - 4614
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -77618,6 +77646,11 @@ entities:
       parent: 2
 - proto: WeaponCapacitorRecharger
   entities:
+  - uid: 10747
+    components:
+    - type: Transform
+      pos: 6.5,0.5
+      parent: 2
   - uid: 12356
     components:
     - type: Transform
@@ -77637,12 +77670,6 @@ entities:
     components:
     - type: Transform
       pos: 46.5,-3.5
-      parent: 2
-  - uid: 12360
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 6.5,2.5
       parent: 2
   - uid: 12361
     components:

@@ -6,14 +6,23 @@
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
   - type: ShowCriminalRecordIcons
+  - type: ShowContrabandDetails
 
 - type: entity
   id: ShowMedicalIcons
   abstract: true
   categories: [ HideSpawnMenu ]
   components:
+    # Begin DeltaV Changes - Kitsune
   - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - BiologicalMetaphysical
   - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+    - BiologicalMetaphysical
+    # End DeltaV Changes - Kitsune
   - type: ShowTriageIcons # DeltaV - Medical Records
 
 - type: entity
@@ -227,8 +236,8 @@
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSyndicateContraband]
   id: ClothingEyesHudSyndicateAgent
-  name: syndicate agent visor
-  description: The Syndicate Agent's professional heads-up display, designed for quick diagnosis of their team's status.
+  name: syndicate medical visor
+  description: The Syndicate Corpsman's professional heads-up display, designed for quick diagnosis of their team's status.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Hud/syndagent.rsi

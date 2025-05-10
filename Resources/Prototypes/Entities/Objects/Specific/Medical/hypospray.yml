@@ -6,7 +6,12 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/hypospray.rsi
-    state: hypo
+    layers:
+      - state: hypo
+        map: ["enum.SolutionContainerLayers.Base"]
+      - state: hypo_fill1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
   - type: Item
     sprite: Objects/Specific/Medical/hypospray.rsi
   - type: SolutionContainerManager
@@ -28,6 +33,11 @@
     - HighRiskItem
   - type: StealTarget
     stealGroup: Hypospray
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: hypo_fill
+    solutionName: hypospray
 
 - type: entity
   name: gorlex hypospray
@@ -37,7 +47,12 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/syndihypo.rsi
-    state: hypo
+    layers:
+      - state: hypo
+        map: ["enum.SolutionContainerLayers.Base"]
+      - state: hypo_fill1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
   - type: Item
     sprite: Objects/Specific/Medical/syndihypo.rsi
   - type: SolutionContainerManager
@@ -52,6 +67,11 @@
     onlyAffectsMobs: false
   - type: UseDelay
     delay: 0.5
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: hypo_fill
+    solutionName: hypospray
 
 - type: entity
   name: borghypo
@@ -434,7 +454,7 @@
   name: airloss auto-injector
   parent: ChemicalMedipen
   id: AirlossAutoInjector
-  description: A rapid dose of saline and dexalin plus, intended to get someone up quickly.
+  description: A rapid dose of saline and salbutamol, intended to get someone up quickly. # Funkychem - dex+ -> salbutamol
   components:
   - type: Item
     inhandVisuals:
@@ -465,12 +485,12 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 40
+        maxVol: 30 # Funkychem - was 40
         reagents:
         - ReagentId: Saline
-          Quantity: 20
-        - ReagentId: DexalinPlus
-          Quantity: 20
+          Quantity: 15 # Funkychem - was 20
+        - ReagentId: Salbutamol # Funkychem - was dex+
+          Quantity: 15 # Funkychem - was 20
   - type: Tag
     tags: []
 

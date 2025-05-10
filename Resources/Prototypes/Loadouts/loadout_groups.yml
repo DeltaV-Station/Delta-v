@@ -29,8 +29,10 @@
   - ClothingNeckLesbianPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
+  - ClothingNeckPluralPin
   - ClothingNeckOmnisexualPin
   - ClothingNeckGenderqueerPin
+  - ClothingNeckGenderfluidPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
@@ -1091,6 +1093,7 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   - ScarfRed # DeltaV
+  - SecurityPoncho # DeltaV
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -1222,6 +1225,7 @@
   loadouts:
   - DetectiveTie
   - ScarfRed # DeltaV
+  - SecurityPoncho # DeltaV
 
 - type: loadoutGroup
   id: DetectiveJumpsuit
@@ -1365,6 +1369,7 @@
   - MedicalDoctorPDA
   - SeniorPhysicianPDA
   - ClinicianPDA # DeltaV
+  - CryogenicsSpecialistPDA # DeltaV
 
 - type: loadoutGroup
   id: MedicalGloves
@@ -1443,8 +1448,20 @@
   name: loadout-group-paramedic-shoes
   loadouts:
   - BlueShoes
+  - WhiteShoes
   - MedicalWinterBoots
   - ParamedicWinterBoots # DeltaV
+
+- type: loadoutGroup
+  id: MedicalEyewear
+  name: loadout-group-medical-glasses
+  minLimit: 0
+  loadouts:
+  - MedicalHud
+  - MedicalEyePatchHud
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
 
 - type: loadoutGroup
   id: SurvivalMedical

@@ -41,7 +41,7 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: Structures/Piping/Atmospherics/vent.rsi
+      sprite: _DV/Structures/Piping/Atmospherics/vent.rsi # DeltaV
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeHalf
@@ -92,7 +92,7 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: Structures/Piping/Atmospherics/vent.rsi
+      sprite: _DV/Structures/Piping/Atmospherics/vent.rsi # DeltaV
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeHalf
@@ -132,7 +132,7 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: Structures/Piping/Atmospherics/scrubber.rsi
+      sprite: _DV/Structures/Piping/Atmospherics/scrubber.rsi # DeltaV
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeHalf
@@ -164,6 +164,7 @@
     - type: Weldable
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentScrubber
+    - type: VentCritterSpawnLocation # DeltaV
     - type: GuideHelp
       guides:
       - AirScrubber

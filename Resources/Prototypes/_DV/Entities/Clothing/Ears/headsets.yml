@@ -12,35 +12,6 @@
       - EncryptionKeyCommon
 
 - type: entity
-  parent: ClothingHeadsetHoP
-  id: ClothingHeadsetAltService
-  name: head of personnel's over-ear headset
-  components:
-  - type: Sprite
-    sprite: _DV/Clothing/Ears/Headsets/service.rsi
-    state: icon_alt
-  - type: Clothing
-    sprite: _DV/Clothing/Ears/Headsets/service.rsi
-    equippedPrefix: alt
-
-- type: entity
-  parent: ClothingHeadsetAltSyndicate
-  id: ClothingHeadsetAltSyndicateListening
-  name: blood-red over-ear interception headset
-  description: An advanced, modular syndicate interception intercom that fits over the head.
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeySyndie
-      - EncryptionKeyStationMaster
-      - EncryptionKeyBinarySyndicate
-  - type: Sprite
-    sprite: _DV/Clothing/Ears/Headsets/syndicate_listening.rsi
-  - type: Clothing
-    sprite: _DV/Clothing/Ears/Headsets/syndicate_listening.rsi
-
-- type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetJustice
   name: justice headset
@@ -57,24 +28,6 @@
     state: icon
   - type: Clothing
     sprite: _DV/Clothing/Ears/Headsets/justice.rsi
-
-- type: entity
-  parent: ClothingHeadsetJustice
-  id: ClothingHeadsetAltJustice
-  name: chief justice's over-ear headset
-  description: The headset used by the chief justice.
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyJustice
-      - EncryptionKeySecurity
-      - EncryptionKeyCommon
-      - EncryptionKeyCommand
-  - type: Sprite
-    state: icon_alt
-  - type: Clothing
-    equippedPrefix: alt
 
 - type: entity
   parent: ClothingHeadset
@@ -115,11 +68,13 @@
     sprite: _DV/Clothing/Ears/Headsets/adminassistant.rsi
 
 - type: entity
-  parent: ClothingHeadsetAdminAssistant
-  id: ClothingHeadsetAltAdminAssistant
-  name: adminstrative assistant over-ear headset
+  parent: ClothingHeadsetGrey
+  id: ClothingHeadsetGreySyndicate
+  suffix: Recruiter
   components:
-  - type: Sprite
-    state: icon_alt
-  - type: Clothing
-    equippedPrefix: alt
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyTraffic
+      # - EncryptionKeySyndie # Taken out until remodeling of recruiter is done.
+      - EncryptionKeyCommon

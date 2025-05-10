@@ -87,6 +87,12 @@
       count: 15
       minGroupSize: 1
       maxGroupSize: 2
+    - !type:OreDunGen # DeltaV
+      replacement: IronRock
+      entity: IronRockDiamond
+      count: 10
+      minGroupSize: 1
+      maxGroupSize: 3
 
 # Configs
 - type: dungeonConfig

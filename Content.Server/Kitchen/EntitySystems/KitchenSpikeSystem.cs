@@ -75,10 +75,13 @@ namespace Content.Server.Kitchen.EntitySystems
                 return;
 
             _suicide.ApplyLethalDamage((args.Victim, damageableComponent), "Piercing");
-            var othersMessage = Loc.GetString("comp-kitchen-spike-suicide-other", ("victim", args.Victim));
+            var othersMessage = Loc.GetString("comp-kitchen-spike-suicide-other",
+                                                ("victim", Identity.Entity(args.Victim, EntityManager)),
+                                                ("this", entity));
             _popupSystem.PopupEntity(othersMessage, args.Victim, Filter.PvsExcept(args.Victim), true);
 
-            var selfMessage = Loc.GetString("comp-kitchen-spike-suicide-self");
+            var selfMessage = Loc.GetString("comp-kitchen-spike-suicide-self",
+                                            ("this", entity));
             _popupSystem.PopupEntity(selfMessage, args.Victim, args.Victim);
             args.Handled = true;
         }
@@ -161,12 +164,16 @@ namespace Content.Server.Kitchen.EntitySystems
 
             UpdateAppearance(uid, null, component);
 
-            _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-kill", ("user", Identity.Entity(userUid, EntityManager)), ("victim", victimUid)), uid, PopupType.LargeCaution);
+            _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-kill",
+                                                    ("user", Identity.Entity(userUid, EntityManager)),
+                                                    ("victim", Identity.Entity(victimUid, EntityManager)),
+                                                    ("this", uid)),
+                                    uid, PopupType.LargeCaution);
 
             _transform.SetCoordinates(victimUid, Transform(uid).Coordinates);
             // THE WHAT?
             // TODO: Need to be able to leave them on the spike to do DoT, see ss13.
-            var gibs = _bodySystem.GibBody(victimUid, gibOrgans: true); // DeltaV: spawn organs
+            var gibs = _bodySystem.GibBody(victimUid, acidify: true); // DeltaV: spawn organs
             foreach (var gib in gibs) {
                 // Begin DeltaV changes: Only delete limbs instead of organs
                 if (HasComp<BodyPartComponent>(gib))

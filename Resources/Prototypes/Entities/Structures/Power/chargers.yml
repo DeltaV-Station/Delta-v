@@ -86,6 +86,10 @@
       visible: false
   - type: Machine
     board: CellRechargerCircuitboard
+  # Begin DeltaV additions
+  - type: Charger
+    chargeRate: 40
+  # End DeltaV additions
   - type: WiresPanel
   - type: GenericVisualizer
     visuals:
