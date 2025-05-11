@@ -1,16 +1,22 @@
 - type: entity
-  parent: [ BasePart ]
   abstract: true
+  parent: BasePart
   id: PartFeroxiBase
-  name: feroxi body part
   components:
-    - type: Sprite
-      sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+  - type: Icon
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
 
 - type: entity
-  parent: [ PartFeroxiBase, BaseTorso ]
-  id: TorsoFeroxi
-  name: feroxi torso
+  parent: [ PartFeroxiBase, BaseChest ]
+  id: ChestFeroxi
+  name: feroxi chest
+
+- type: entity
+  parent: [ PartFeroxiBase, BaseGroin ]
+  id: GroinFeroxi
+  name: feroxi groin
 
 - type: entity
   parent: [ PartFeroxiBase, BaseHead ]

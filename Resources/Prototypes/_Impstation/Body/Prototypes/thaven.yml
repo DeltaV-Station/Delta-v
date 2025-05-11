@@ -1,26 +1,31 @@
 - type: body
   id: Thaven
-  name: "thaven"
-  root: torso
+  name: species-name-thaven
+  root: chest
   slots:
     head:
       part: HeadThaven
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganThavenBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoThaven
+    chest:
+      part: ChestThaven
       connections:
+      - groin
       - right arm
       - left arm
-      - right leg
-      - left leg
-      - head # Shitmed Change
+      - head
       organs:
         heart: OrganHumanHeart
         lungs: OrganHumanLungs
+    groin:
+      part: GroinThaven
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganHumanStomach
         liver: OrganHumanLiver
         kidneys: OrganHumanKidneys

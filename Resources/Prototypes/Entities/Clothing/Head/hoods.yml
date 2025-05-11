@@ -162,8 +162,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Heat: 0.95
-        Radiation: 0.65
+        Heat: 0.7
+        Radiation: 0.005 # DeltaV - old combined values for each piece
   - type: IdentityBlocker
   - type: BreathMask
   - type: HideLayerClothing

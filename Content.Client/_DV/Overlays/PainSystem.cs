@@ -1,4 +1,4 @@
-using Content.Shared._DV.Pain;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Robust.Client.Graphics;
 using Robust.Shared.Player;
 
@@ -15,51 +15,33 @@ public sealed partial class PainSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PainComponent, ComponentInit>(OnPainInit);
-        SubscribeLocalEvent<PainComponent, ComponentShutdown>(OnPainShutdown);
-        SubscribeLocalEvent<PainComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
-        SubscribeLocalEvent<PainComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
+        SubscribeLocalEvent<NerveSystemComponent, ComponentInit>(OnPainInit);
+        SubscribeLocalEvent<NerveSystemComponent, ComponentShutdown>(OnPainShutdown);
+        SubscribeLocalEvent<NerveSystemComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<NerveSystemComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
 
         _overlay = new();
     }
 
-    private void OnPainInit(Entity<PainComponent> ent, ref ComponentInit args)
+    private void OnPainInit(Entity<NerveSystemComponent> ent, ref ComponentInit args)
     {
-        if (ent.Owner == _playerMan.LocalEntity && !ent.Comp.Suppressed)
+        if (ent.Owner == _playerMan.LocalEntity)
             _overlayMan.AddOverlay(_overlay);
     }
 
-    private void OnPainShutdown(Entity<PainComponent> ent, ref ComponentShutdown args)
+    private void OnPainShutdown(Entity<NerveSystemComponent> ent, ref ComponentShutdown args)
     {
         if (ent.Owner == _playerMan.LocalEntity)
             _overlayMan.RemoveOverlay(_overlay);
     }
 
-    private void OnPlayerAttached(Entity<PainComponent> ent, ref LocalPlayerAttachedEvent args)
+    private void OnPlayerAttached(Entity<NerveSystemComponent> ent, ref LocalPlayerAttachedEvent args)
     {
-        if (!ent.Comp.Suppressed)
-            _overlayMan.AddOverlay(_overlay);
+        _overlayMan.AddOverlay(_overlay);
     }
 
-    private void OnPlayerDetached(Entity<PainComponent> ent, ref LocalPlayerDetachedEvent args)
+    private void OnPlayerDetached(Entity<NerveSystemComponent> ent, ref LocalPlayerDetachedEvent args)
     {
         _overlayMan.RemoveOverlay(_overlay);
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        // Handle showing/hiding overlay based on suppression status
-        if (_playerMan.LocalEntity is not { } player)
-            return;
-
-        if (!TryComp<PainComponent>(player, out var comp))
-            return;
-
-        if (comp.Suppressed && _overlayMan.HasOverlay<PainOverlay>())
-            _overlayMan.RemoveOverlay(_overlay);
-        else if (!comp.Suppressed && !_overlayMan.HasOverlay<PainOverlay>())
-            _overlayMan.AddOverlay(_overlay);
     }
 }

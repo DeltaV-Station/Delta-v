@@ -72,9 +72,10 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
-  - type: Tag
+  - type: Tag # DeltaV
     tags:
-      - HidesHarpyWings
+    - WhitelistChameleon
+    - HidesHarpyWings
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -107,9 +108,10 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
-  - type: Tag
+  - type: Tag # DeltaV
     tags:
-      - HidesHarpyWings
+    - WhitelistChameleon
+    - HidesHarpyWings
 
 - type: entity
   parent: [ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing]
@@ -123,7 +125,7 @@
     modifiers:
       coefficients:
         Heat: 0.90
-        Radiation: 0.01
+        Radiation: 0.005 # DeltaV - old combined values for each piece
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/rad.rsi
   - type: GroupExamine
@@ -135,9 +137,10 @@
       toggleable-clothing: !type:ContainerSlot {}
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
-  - type: Tag
+  - type: Tag # DeltaV
     tags:
-      - HidesHarpyWings
+    - WhitelistChameleon
+    - HidesHarpyWings
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseToggleClothing, BaseMajorContraband]
@@ -292,8 +295,9 @@
     sprite: Clothing/OuterClothing/Suits/carpsuit.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodCarp
-  - type: Tag
+  - type: Tag # DeltaV
     tags:
+    - WhitelistChameleon
     - HidesHarpyWings
   - type: ContainerContainer
     containers:
@@ -313,3 +317,8 @@
     coolingCoefficient: 0.01
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCarp
+  - type: MappingCategories # DeltaV
+    categories: [ Syndicate ]
+  - type: Tag # DeltaV - remove duplicate chameleon
+    tags:
+    - HidesHarpyWings

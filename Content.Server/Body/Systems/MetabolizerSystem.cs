@@ -164,7 +164,7 @@ namespace Content.Server.Body.Systems
                 }
 
                 // we're done here entirely if this is true
-                if (reagents >= ent.Comp1.MaxReagentsProcessable)
+                if (reagents >= ent.Comp1.MaxPoisonsProcessable && proto.Metabolisms.ContainsKey("Poison")) // Shitmed Change
                     return;
 
 
@@ -224,7 +224,8 @@ namespace Content.Server.Body.Systems
                     solution.RemoveReagent(reagent, mostToRemove);
 
                     // We have processed a reagant, so count it towards the cap
-                    reagents += 1;
+                    if (proto.Metabolisms.ContainsKey("Poison")) // Shitmed Change
+                        reagents++;
                 }
             }
 

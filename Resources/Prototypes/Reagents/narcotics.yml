@@ -108,6 +108,9 @@
         messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
         type: Local
         probability: 0.05
+      - !type:SuppressPain # Shitmed Change
+        amount: 1.2
+        time: 10 # it accumulated 1.2*quantity and then exists for 30 seconds.
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -171,6 +174,9 @@
         key: Drowsiness
         time: 10
         type: Remove
+      - !type:SuppressPain # Shitmed Change
+        amount: 1.2
+        time: 30 # it accumulated 1.2*quantity and then exists for 30 seconds.
     Medicine:
       metabolismRate: 1.0
       effects:

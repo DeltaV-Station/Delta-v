@@ -15,6 +15,7 @@ using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components; // Shitmed Change
 
 namespace Content.IntegrationTests.Tests.Commands;
 
@@ -79,12 +80,14 @@ public sealed class SuicideCommandTests
 
         MindComponent mindComponent = default;
         MobStateComponent mobStateComp = default;
+        DamageableComponent damageableComp = default;
         await server.WaitPost(() =>
         {
             if (mind != null)
                 mindComponent = entManager.GetComponent<MindComponent>(mind.Value);
 
             mobStateComp = entManager.GetComponent<MobStateComponent>(player);
+            damageableComp = entManager.GetComponent<DamageableComponent>(player);
         });
 
 
@@ -145,7 +148,7 @@ public sealed class SuicideCommandTests
             damageableComp = entManager.GetComponent<DamageableComponent>(player);
 
             if (protoMan.TryIndex<DamageTypePrototype>("Slash", out var slashProto))
-                damageableSystem.TryChangeDamage(player, new DamageSpecifier(slashProto, FixedPoint2.New(46.5)));
+                damageableSystem.TryChangeDamage(player, new DamageSpecifier(slashProto, FixedPoint2.New(47)));
         });
 
         // Check that running the suicide command kills the player
@@ -210,7 +213,7 @@ public sealed class SuicideCommandTests
             consoleHost.GetSessionShell(playerMan.Sessions.First()).ExecuteCommand("suicide");
             Assert.Multiple(() =>
             {
-                //Assert.That(mobStateSystem.IsAlive(player, mobStateComp)); // DeltaV: 
+                //Assert.That(mobStateSystem.IsAlive(player, mobStateComp)); // DeltaV
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
             });

@@ -1,9 +1,9 @@
 - type: entity
-  id: OrganVulpkaninStomach
-  parent: OrganAnimalStomach
   categories: [ HideSpawnMenu ]
+  parent: OrganAnimalStomach
+  id: OrganVulpkaninStomach
+  suffix: 50u capacity
   components:
-  - type: Stomach
   - type: SolutionContainerManager
     solutions:
       stomach:

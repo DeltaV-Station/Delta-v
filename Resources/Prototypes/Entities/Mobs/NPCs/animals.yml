@@ -1337,6 +1337,7 @@
     layers:
   # Shitmed Change Start
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Groin" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
@@ -1449,7 +1450,10 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
-
+  - type: LayingDown # Goobstation
+  - type: Consciousness # Shitmed Change
+    threshold: 70
+    cap: 140
 
 
 - type: entity

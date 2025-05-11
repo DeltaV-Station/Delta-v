@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 namespace Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
@@ -7,7 +8,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
 public sealed partial class SurgeryTendWoundsEffectComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public string MainGroup = "Brute";
+    public ProtoId<DamageGroupPrototype> MainGroup = "Brute";
 
     [DataField, AutoNetworkedField]
     public bool IsAutoRepeatable = true;

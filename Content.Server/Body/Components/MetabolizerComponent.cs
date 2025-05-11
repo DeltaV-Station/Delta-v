@@ -59,8 +59,8 @@ namespace Content.Server.Body.Components
         ///     Used to nerf 'stacked poisons' where having 5+ different poisons in a syringe, even at low
         ///     quantity, would be muuuuch better than just one poison acting.
         /// </summary>
-        [DataField("maxReagents")]
-        public int MaxReagentsProcessable = 3;
+        [DataField]
+        public int MaxPoisonsProcessable = 3; // Shitmed Change
 
         /// <summary>
         ///     A list of metabolism groups that this metabolizer will act on, in order of precedence.

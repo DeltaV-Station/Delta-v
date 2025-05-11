@@ -10,7 +10,7 @@
     - SurgeryStepInsertAugmentPowerCellSlot
     - SurgeryStepSealOrganWound
   - type: SurgeryPartCondition
-    part: Torso
+    part: Chest
   - type: SurgeryOrganCondition
     organ:
     - type: AugmentPowerCellSlot
@@ -31,7 +31,7 @@
     - SurgeryStepOpenOrganSlot
     - SurgeryStepSealOrganWound
   - type: SurgeryPartCondition
-    part: Torso
+    part: Chest
   - type: SurgeryOrganSlotCondition
     organSlot: powerCell
     inverse: true
@@ -51,7 +51,7 @@
     - SurgeryStepClampInternalBleeders
     - SurgeryStepRemoveOrgan
   - type: SurgeryPartCondition
-    part: Torso
+    part: Chest
   - type: SurgeryOrganCondition
     organ:
     - type: AugmentPowerCellSlot
@@ -68,7 +68,7 @@
     - SurgeryStepInsertAugmentPowerCellCharger
     - SurgeryStepSealOrganWound
   - type: SurgeryPartCondition
-    part: Torso
+    part: Chest
   - type: SurgeryOrganCondition
     organ:
     - type: AugmentCharger
@@ -89,7 +89,7 @@
     - SurgeryStepOpenOrganSlot
     - SurgeryStepSealOrganWound
   - type: SurgeryPartCondition
-    part: Torso
+    part: Chest
   - type: SurgeryOrganSlotCondition
     organSlot: charger
     inverse: true
@@ -109,7 +109,7 @@
     - SurgeryStepClampInternalBleeders
     - SurgeryStepRemoveOrgan
   - type: SurgeryPartCondition
-    part: Torso
+    part: Chest
   - type: SurgeryOrganCondition
     organ:
     - type: AugmentCharger

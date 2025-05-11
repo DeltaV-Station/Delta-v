@@ -23,7 +23,7 @@ public sealed class DamageOverlay : Overlay
     public MobState State = MobState.Alive;
 
     /// <summary>
-    /// Handles the red pulsing overlay
+    /// Shitmed Change: Handles the red pulsing overlay
     /// </summary>
     public float PainLevel = 0f;
 

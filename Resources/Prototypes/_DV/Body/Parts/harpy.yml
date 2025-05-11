@@ -11,9 +11,14 @@
     species: Harpy
 
 - type: entity
-  parent: [ PartHarpyBase, BaseTorso ]
-  id: TorsoHarpy
-  name: "harpy torso"
+  parent: [ PartHarpyBase, BaseChest ]
+  id: ChestHarpy
+  name: "harpy chest"
+
+- type: entity
+  parent: [ PartHarpyBase, BaseGroin ]
+  id: GroinHarpy
+  name: "harpy groin"
 
 - type: entity
   parent: [ PartHarpyBase, BaseHead ]

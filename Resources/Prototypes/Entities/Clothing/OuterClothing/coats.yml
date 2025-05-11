@@ -64,13 +64,17 @@
   id: ClothingOuterArmorHoS
   components:
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
         Blunt: 0.65
         Slash: 0.65
-        Piercing: 0.6
-        Heat: 0.7
-        Caustic: 0.75 # not the full 90% from ss13 because of the head
+        Piercing: 0.65
+        Heat: 0.65
+        Caustic: 0.1 # the full 90% from ss13
   - type: ExplosionResistance
     damageCoefficient: 0.9
 
@@ -80,6 +84,10 @@
   id: ClothingOuterArmorWarden
   components:
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
         Blunt: 0.65
@@ -139,9 +147,13 @@
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
-        Slash: 0.95
+        Slash: 0.9 # Shitmed Change - was 0.95
   - type: Food
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
@@ -163,9 +175,14 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
+    - Arm
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65 # Shitmed Change - was 0.75
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLab]
@@ -183,9 +200,14 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_chem.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
+    - Arm
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65 # Shitmed Change - was 0.75
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabChem]
@@ -203,9 +225,14 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_viro.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
+    - Arm
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65 # Shitmed Change - was 0.75
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabViro]
@@ -223,9 +250,14 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_gene.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
+    - Arm
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65 # Shitmed Change - was 0.75
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabGene]
@@ -243,11 +275,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_cmo.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
+    - Arm
     modifiers:
-      coefficients:
-        Slash: 0.95
-        Heat: 0.95
-        Caustic: 0.65
+      coefficients: # Shitmed Change - increased protection to account for coverage
+        Slash: 0.84
+        Heat: 0.84
+        Caustic: 0.4
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabCmo]
@@ -265,9 +302,14 @@
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/Coats/epicoat.rsi # DeltaV - Epistemic lab coat
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
+    - Arm
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65 # Shitmed Change - was 0.75
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRnd]
@@ -285,9 +327,13 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_robo.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65 # Shitmed Change - was 0.75
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRobo]
@@ -305,10 +351,15 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_rd.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
+    - Arm
     modifiers:
       coefficients:
-        Caustic: 0.75
-        Radiation: 0.9
+        Caustic: 0.6 # Shitmed Change - was 0.75
+        Radiation: 0.7 # Shitmed Change - was 0.9
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRD]
@@ -370,11 +421,15 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/dogi.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
     modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.65
-        Piercing: 0.85
+      coefficients: # Shitmed Change - decreased coefficients by 0.2
+        Blunt: 0.6
+        Slash: 0.45
+        Piercing: 0.65
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -419,7 +474,12 @@
     sprite: Clothing/OuterClothing/Coats/brigmedic.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/brigmedic.rsi
-  - type: Armor # DeltaV - tweak for Velta armour
+  - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
+    - Arm
     modifiers:
       coefficients:
         Blunt: 0.85
@@ -439,9 +499,14 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_senior_researcher.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
+    - Arm
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65 # Shitmed Change - was 0.75
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabSeniorResearcher]
@@ -459,9 +524,14 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_senior_physician.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
+    - Arm
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65 # Shitmed Change - was 0.75
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabSeniorPhysician]

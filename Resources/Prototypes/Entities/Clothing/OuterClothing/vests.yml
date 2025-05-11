@@ -10,12 +10,15 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/webvest.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
     modifiers:
-      coefficients:
-        Blunt: 0.6 #ballistic plates = better protection
-        Slash: 0.6
+      coefficients: # Shitmed Change - reduced coefficients by 0.1
+        Blunt: 0.5 #ballistic plates = better protection
+        Slash: 0.5
         Piercing: 0.3
-        Heat: 0.9
+        Heat: 0.8
   - type: StaminaResistance # DeltaV
     damageCoefficient: 0.8
   - type: ExplosionResistance
@@ -63,10 +66,13 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/mercwebvest.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
     modifiers:
       coefficients:
         Blunt: 0.7 #slightly better overall protection but slightly worse than bulletproof armor against bullets seems sensible
-        Slash: 0.7
+        Slash: 0.45
         Piercing: 0.5
         Heat: 0.9
   - type: ExplosionResistance

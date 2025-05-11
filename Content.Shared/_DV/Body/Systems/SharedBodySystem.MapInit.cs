@@ -10,7 +10,8 @@ public partial class SharedBodySystem
     private static readonly BodyPartType[] _asymmetric =
     [
         BodyPartType.Other,
-        BodyPartType.Torso,
+        BodyPartType.Chest,
+        BodyPartType.Groin,
         BodyPartType.Tail,
         BodyPartType.Head,
     ];

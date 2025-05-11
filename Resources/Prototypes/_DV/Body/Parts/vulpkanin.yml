@@ -11,9 +11,14 @@
     species: Vulpkanin
 
 - type: entity
-  parent: [ PartVulpkaninBase, BaseTorso ]
-  id: TorsoVulpkanin
-  name: "vulpkanin torso"
+  parent: [ PartVulpkaninBase, BaseChest ]
+  id: ChestVulpkanin
+  name: "vulpkanin chest"
+
+- type: entity
+  parent: [ PartVulpkaninBase, BaseGroin ]
+  id: GroinVulpkanin
+  name: "vulpkanin groin"
 
 - type: entity
   parent: [ PartVulpkaninBase, BaseHead ]

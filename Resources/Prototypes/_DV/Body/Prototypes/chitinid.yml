@@ -1,28 +1,34 @@
 - type: body
   id: Chitinid
-  name: "chitinid"
-  root: torso
+  name: species-name-chitinid
+  root: chest
   slots:
     head:
       part: HeadChitinid
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoChitinid
+    chest:
+      part: ChestChitinid
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head
       organs:
         heart: OrganHumanHeart
         lungs: OrganHumanLungs
+    groin:
+      part: GroinChitinid
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganChitinidStomach
         liver: OrganChitinidLiver
         kidneys: OrganHumanKidneys
-      connections:
-      - right arm
-      - left arm
-      - right leg
-      - left leg
     right arm:
       part: RightArmChitinid
       connections:

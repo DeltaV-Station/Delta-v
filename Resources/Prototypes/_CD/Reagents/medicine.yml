@@ -459,7 +459,8 @@
       metabolismRate : 0.02
       effects:
       - !type:SuppressPain
-        suppressionLevel: Mild
+        amount: 1.5
+        time: 12
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -514,7 +515,8 @@
       metabolismRate : 0.01
       effects:
       - !type:SuppressPain
-        suppressionLevel: Normal
+        amount: 3.5
+        time: 15
       - !type:SuppressAddiction
       - !type:PopupMessage
         type: Local
@@ -579,7 +581,8 @@
       metabolismRate : 0.01
       effects:
       - !type:SuppressPain
-        suppressionLevel: Strong
+        amount: 8
+        time: 20
       - !type:SuppressAddiction
       - !type:PopupMessage
         type: Local

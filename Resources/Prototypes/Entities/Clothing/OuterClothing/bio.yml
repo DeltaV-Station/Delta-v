@@ -10,6 +10,14 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/general.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Head
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Caustic: 0.75
@@ -71,12 +79,14 @@
     sprite: Clothing/OuterClothing/Bio/security.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/security.rsi
-  - type: Armor
+  - type: Armor # Shitmed Change - Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
     modifiers:
       coefficients:
-        Caustic: 0.8
-        Slash: 0.6
-        Piercing: 0.8
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.70
+        Heat: 0.80
+        Caustic: 0.2
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
 
