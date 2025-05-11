@@ -1,4 +1,4 @@
-﻿book-cf-sheet = Carpfinder 2E Character Sheet
+book-cf-sheet = Carpfinder 2E Character Sheet
     ===
     Section 1: Basics
     ===
