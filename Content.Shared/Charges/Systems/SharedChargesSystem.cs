@@ -50,7 +50,7 @@ public abstract class SharedChargesSystem : EntitySystem
 
     private void OnChargesAttempt(Entity<LimitedChargesComponent> ent, ref ActionAttemptEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled || !ent.Comp.DisableWhenEmpty) // DeltaV
             return;
 
         var charges = GetCurrentCharges((ent.Owner, ent.Comp, null));

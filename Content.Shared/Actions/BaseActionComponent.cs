@@ -87,11 +87,6 @@ public abstract partial class BaseActionComponent : Component
     [DataField("useDelay")] public TimeSpan? UseDelay;
 
     /// <summary>
-    /// DeltaV - If disabled the action will not disable when no charges remain. Use if you want to handle no charges differently.
-    /// </summary>
-    [DataField] public bool DisableWhenEmpty = true;
-
-    /// <summary>
     /// The entity that contains this action. If the action is innate, this may be the user themselves.
     /// This should almost always be non-null.
     /// </summary>
