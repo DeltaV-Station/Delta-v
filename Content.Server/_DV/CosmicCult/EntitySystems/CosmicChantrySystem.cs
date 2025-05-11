@@ -75,6 +75,9 @@ public sealed class CosmicChantrySystem : EntitySystem
     }
     private void OnChantryDestroyed(Entity<CosmicChantryComponent> ent, ref ComponentShutdown args)
     {
+        if (!_mind.TryGetMind(ent.Comp.PolyVictim, out _, out var mind) || !_polymorph.TryGetNetEntity(ent.Comp.PolyVictim, out _))
+            return;
+        mind.PreventGhosting = false;
         _polymorph.Revert(ent.Comp.PolyVictim);
     }
 }
