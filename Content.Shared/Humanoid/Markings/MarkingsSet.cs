@@ -278,13 +278,13 @@ public sealed partial class MarkingSet
 
         foreach (var (category, points) in Points)
         {
-            if (points.Points <= 0 && index < points.DefaultMarkings.Count) // DeltaV - don't throw
+            if (points.Points <= 0 || points.DefaultMarkings.Count <= 0)
             {
                 continue;
             }
 
             var index = 0;
-            while (points.Points > 0 || index < points.DefaultMarkings.Count)
+            while (points.Points > 0 && index < points.DefaultMarkings.Count) // DeltaV - don't throw
             {
                 if (markingManager.Markings.TryGetValue(points.DefaultMarkings[index], out var prototype))
                 {
