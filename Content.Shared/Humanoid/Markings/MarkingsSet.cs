@@ -278,7 +278,7 @@ public sealed partial class MarkingSet
 
         foreach (var (category, points) in Points)
         {
-            if (points.Points <= 0 || points.DefaultMarkings.Count <= 0)
+            if (points.Points <= 0 && index < points.DefaultMarkings.Count) // DeltaV - don't throw
             {
                 continue;
             }
