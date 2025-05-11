@@ -27,6 +27,8 @@
         - FlyingMobMask
         layer:
         - FlyingMobLayer
+  - type: WarpPoint
+    follow: true
   - type: Body
     prototype: Animal
   - type: Speech
