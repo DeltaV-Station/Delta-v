@@ -29,7 +29,7 @@ loadout-group-mime-neck = Mime neck
 
 loadout-group-musician-neck = Musician neck
 
-loadout-group-passenger-id-delta = Passenger PDA
+loadout-group-passenger-id-delta = Assistant PDA
 loadout-group-bartender-id-delta = Bartender PDA
 loadout-group-chef-id-delta = Chef PDA
 loadout-group-clown-id-delta = Clown PDA

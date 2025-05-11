@@ -67,29 +67,22 @@ public sealed class DCCVars
      */
 
     /// <summary>
-    /// How long with no captain before requesting an ACO be elected.
+    /// How long after the announcement before the spare ID is unlocked
     /// </summary>
-    public static readonly CVarDef<float> RequestAcoDelay =
-        CVarDef.Create("game.request_aco_delay_minutes", 15f, CVar.SERVERONLY | CVar.ARCHIVE);
+    public static readonly CVarDef<TimeSpan> SpareIdUnlockDelay =
+        CVarDef.Create("game.spare_id.unlock_delay", TimeSpan.FromMinutes(5), CVar.SERVERONLY | CVar.ARCHIVE);
 
     /// <summary>
-    /// Determines whether an ACO should be requested when the captain leaves during the round,
-    /// in addition to cases where there are no captains at round start.
+    /// How long to wait before checking for a captain after roundstart
     /// </summary>
-    public static readonly CVarDef<bool> RequestAcoOnCaptainDeparture =
-        CVarDef.Create("game.request_aco_on_captain_departure", true, CVar.SERVERONLY | CVar.ARCHIVE);
+    public static readonly CVarDef<TimeSpan> SpareIdAlertDelay =
+        CVarDef.Create("game.spare_id.alert_delay", TimeSpan.FromMinutes(15), CVar.SERVERONLY | CVar.ARCHIVE);
 
     /// <summary>
-    /// Determines whether All Access (AA) should be automatically unlocked if no captain is present.
+    /// Determines if the automatic spare ID process should automatically unlock the cabinet
     /// </summary>
-    public static readonly CVarDef<bool> AutoUnlockAllAccessEnabled =
-        CVarDef.Create("game.auto_unlock_aa_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// How long after an ACO request announcement is made before All Access (AA) should be unlocked.
-    /// </summary>
-    public static readonly CVarDef<float> AutoUnlockAllAccessDelay =
-        CVarDef.Create("game.auto_unlock_aa_delay_minutes", 5f, CVar.SERVERONLY | CVar.ARCHIVE);
+    public static readonly CVarDef<bool> SpareIdAutoUnlock =
+        CVarDef.Create("game.spare_id.auto_unlock", true, CVar.SERVERONLY | CVar.ARCHIVE);
 
     /*
      * Misc.
