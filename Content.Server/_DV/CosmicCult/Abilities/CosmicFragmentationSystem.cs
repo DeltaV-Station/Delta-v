@@ -1,21 +1,23 @@
+using Content.Server._DV.Objectives.Events;
+using Content.Server.Antag;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Radio.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.Silicons;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC;
 using Content.Shared.Silicons.Laws.Components;
-using Content.Shared.Silicons.StationAi;
-using Content.Shared.StationAi;
 using Robust.Shared.Containers;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 
 public sealed class CosmicFragmentationSystem : EntitySystem
 {
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly CosmicCultSystem _cult = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
@@ -25,6 +27,8 @@ public sealed class CosmicFragmentationSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<AILawUpdatedEvent>(OnLawInserted);
 
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicFragmentation>(OnCosmicFragmentation);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicChantryDoAfter>(OnCosmicChantryDoAfter);
@@ -113,14 +117,32 @@ public sealed class CosmicFragmentationSystem : EntitySystem
             return;
         _container.EmptyContainer(container, true);
         _container.Insert(lawboard, container, Transform(target), true);
+    }
 
-        var query = EntityQueryEnumerator<StationAiHeldComponent, StationAiVisionComponent>();
-        while (query.MoveNext(out var targetAi, out _, out _))
+    private void OnLawInserted(AILawUpdatedEvent args)
+    {
+        if (args.Lawset.Id == "CosmicCultLaws")
         {
-            var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(targetAi);
-            var radio = EnsureComp<ActiveRadioComponent>(targetAi);
-            radio.Channels.Add("CosmicRadio");
-            transmitter.Channels.Add("CosmicRadio");
+            var query = EntityQueryEnumerator<StationAiShopComponent>();
+            while (query.MoveNext(out var targetAi, out _))
+            {
+                var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(targetAi);
+                var radio = EnsureComp<ActiveRadioComponent>(targetAi);
+                radio.Channels.Add("CosmicRadio");
+                transmitter.Channels.Add("CosmicRadio");
+            }
+            _antag.SendBriefing(args.Target, Loc.GetString("cosmiccult-ai-subverted-briefing"), Color.FromHex("#4cabb3"), null);
+        }
+        else
+        {
+            var query = EntityQueryEnumerator<StationAiShopComponent>();
+            while (query.MoveNext(out var targetAi, out _))
+            {
+                var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(targetAi);
+                var radio = EnsureComp<ActiveRadioComponent>(targetAi);
+                radio.Channels.Remove("CosmicRadio");
+                transmitter.Channels.Remove("CosmicRadio");
+            }
         }
     }
 }
