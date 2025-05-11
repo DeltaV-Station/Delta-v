@@ -5,8 +5,8 @@
   components:
   - type: LimitedCharges
     maxCharges: 3
-  - type: InstantAction
     disableWhenEmpty: false
+  - type: InstantAction
     icon: { sprite: _DV/Structures/Specific/Species/Kitsune/foxfire.rsi, state: icon }
     event: !type:CreateFoxfireActionEvent
 
