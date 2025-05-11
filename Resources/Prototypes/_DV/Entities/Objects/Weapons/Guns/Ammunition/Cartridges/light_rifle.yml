@@ -1,14 +1,15 @@
 - type: entity
+  parent: BaseCartridgeLightRifle
   id: CartridgeLightRifleRubber
   name: cartridge (.30 rifle rubber)
-  parent: BaseCartridgeLightRifle
+  description: A classic intermediate cartridge used by many combat rifles and LMGs. Rubber ammunition excels at less-lethal takedown of noncompliant suspects.
   components:
   - type: CartridgeAmmo
     proto: BulletLightRifleRubber
   - type: Sprite
     layers:
-      - state: base
-        map: [ "enum.AmmoVisualLayers.Base" ]
-      - state: tip
-        map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#43c4f7"
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#43c4f7"

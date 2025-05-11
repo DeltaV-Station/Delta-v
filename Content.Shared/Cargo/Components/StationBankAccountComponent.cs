@@ -21,7 +21,7 @@ public sealed partial class StationBankAccountComponent : Component
     /// When giving funds to a particular account, the proportion of funds they should receive compared to remaining accounts.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public double PrimaryCut = 0.75;
+    public double PrimaryCut = 0.50;
 
     /// <summary>
     /// When giving funds to a particular account from an override sell, the proportion of funds they should receive compared to remaining accounts.
@@ -51,12 +51,12 @@ public sealed partial class StationBankAccountComponent : Component
     public Dictionary<ProtoId<CargoAccountPrototype>, double> RevenueDistribution = new()
     {
         { "Cargo",       0.00 },
-        { "Engineering", 0.25 },
-        { "Medical",     0.30 },
-        { "Science",     0.15 },
+        { "Engineering", 0.25 }, // DeltaV - was 0.20
+        { "Medical",     0.25 }, // DeltaV - was 0.20
+        { "Science",     0.15 }, // DeltaV - was 0.20
         { "Security",    0.15 }, // DeltaV - was 0.20, we took a cut for Justice
-        { "Service",     0.10 },
         { "Justice",     0.05 }, // DeltaV - Justice
+        { "Service",     0.15 }, // DeltaV - was 0.20
     };
 
     /// <summary>

@@ -323,6 +323,17 @@
     - 0,0,5,1
     - 0,3,5,4
     maxItemSize: Normal
+    # Begin DeltaV Removals - whitelisted storage bad
+    #whitelist:
+    #  tags:
+    #    - DrinkGlass
+    #    - DrinkBottle
+    #    - DrinkCan
+    #    - Beer
+    #    - Wine
+    #  components:
+    #    - ReactionMixer
+    # End DeltaV Removals
   - type: Construction
     graph: Shelf
     node: ShelfBar
@@ -371,6 +382,35 @@
     - 0,0,5,1
     - 0,3,5,4
     maxItemSize: Normal
+    # Begin DeltaV Removals - whitelisted storage bad
+    #whitelist:
+    #  tags:
+    #    - DrinkBottle
+    #    - DrinkCan
+    #    - DrinkCup
+    #    - DrinkGlass
+    #    - BoxCardboard
+    #    - MonkeyCube
+    #    - Enzyme
+    #    - Mayo
+    #    - Packet
+    #    - Cleaver
+    #    - Knife
+    #    - KitchenKnife
+    #    - RollingPin
+    #    - Ingredient
+    #    - Trash
+    #    - Plastic
+    #    - SaltShaker
+    #    - PepperShaker
+    #    - Ketchup
+    #    - Hotsauce
+    #    - Coldsauce
+    #    - BBQsauce
+    #  components:
+    #    - Utensil
+    #    - Bin
+    # End DeltaV Removals
   - type: Construction
     graph: Shelf
     node: ShelfKitchen
@@ -425,6 +465,18 @@
     - 0,0,5,1
     - 0,3,5,4
     maxItemSize: Normal
+    # Begin DeltaV Removals - whitelisted storage bad
+    #whitelist:
+    #  tags:
+    #    - ChemDispensable
+    #    - GlassBeaker
+    #    - Bottle
+    #    - Medkit
+    #    - CentrifugeCompatible
+    #    - PillCanister
+    #    - Syringe
+    #    - Spray
+    # End DeltaV Removals
   - type: Construction
     graph: Shelf
     node: ShelfChemistry

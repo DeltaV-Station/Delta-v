@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._DV.Movement; // DeltaV
 using Content.Shared.Bed.Sleep;
 using Content.Shared.CCVar;
 using Content.Shared.Friction;
@@ -36,7 +37,6 @@ public abstract partial class SharedMoverController : VirtualController
 {
     [Dependency] private   readonly IConfigurationManager _configManager = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private   readonly IMapManager _mapManager = default!;
     [Dependency] private   readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private   readonly EntityLookupSystem _lookup = default!;
     [Dependency] private   readonly InventorySystem _inventory = default!;
@@ -47,6 +47,7 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly SharedGravitySystem _gravity = default!;
     [Dependency] private   readonly SharedTransformSystem _transform = default!;
     [Dependency] private   readonly TagSystem _tags = default!;
+    [Dependency] private   readonly TileMovementSystem _tileMovement = default!; // DeltaV
 
     protected EntityQuery<InputMoverComponent> MoverQuery;
     protected EntityQuery<MobMoverComponent> MobMoverQuery;
@@ -124,7 +125,7 @@ public abstract partial class SharedMoverController : VirtualController
     /// <summary>
     ///     Movement while considering actionblockers, weightlessness, etc.
     /// </summary>
-    protected void HandleMobMovement(
+    public void HandleMobMovement( // DeltaV - made public
         EntityUid uid,
         InputMoverComponent mover,
         EntityUid physicsUid,
@@ -162,7 +163,8 @@ public abstract partial class SharedMoverController : VirtualController
 
         if (!canMove
             || physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid)
-            || PullableQuery.TryGetComponent(uid, out var pullable) && pullable.BeingPulled)
+            // DeltaV - still process mobs pulled by TileMovement players
+            || PullableQuery.TryGetComponent(uid, out var pullable) && pullable.BeingPulled && !_tileMovement.HasTileMovement(pullable.Puller))
         {
             UsedMobMovement[uid] = false;
             return;
@@ -203,6 +205,11 @@ public abstract partial class SharedMoverController : VirtualController
         {
             tileDef = (ContentTileDefinition) _tileDefinitionManager[tile.Tile.TypeId];
         }
+
+        // Begin DeltaV Additions - handle tile movement
+        if (_tileMovement.TryTick((uid, mover, relayTarget), (physicsUid, physicsComponent, xform), tileDef, weightless, frameTime))
+            return;
+        // End DeltaV Additions
 
         // Regular movement.
         // Target velocity.
@@ -426,7 +433,7 @@ public abstract partial class SharedMoverController : VirtualController
 
     protected abstract bool CanSound();
 
-    private bool TryGetSound(
+    public bool TryGetSound( // DeltaV - made public
         bool weightless,
         EntityUid uid,
         InputMoverComponent mover,
