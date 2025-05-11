@@ -1724,10 +1724,10 @@
   parent: BaseItem
   id: ToySword
   name: toy sword
-  description: New Sandy-Cat plastic sword! Comes with realistic sound and full color! Looks almost like the real thing!
+  description: New Sandy-Cat plastic sword! Comes with squeaky sound and full color! Looks almost like the real thing! # DeltaV - toy sword makes squeaky sounds
   components:
     - type: EnergySword
-      colorOptions:
+      colorOptions: # DeltaV - revert toy sword appearance
         - DodgerBlue
     - type: ItemToggle
       soundActivate:
@@ -1779,11 +1779,11 @@
           Blunt: 0
     - type: ItemToggleMeleeWeapon
       activatedSoundOnHit:
-        collection: RubberHammer
+        collection: RubberHammer # DeltaV - toy sword makes squeaky sounds
         params:
           variation: 0.250
       activatedSoundOnHitNoDamage:
-        collection: RubberHammer
+        collection: RubberHammer # DeltaV - toy sword makes squeaky sounds
         params:
           variation: 0.250
       activatedSoundOnSwing:
