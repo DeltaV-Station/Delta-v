@@ -13,6 +13,7 @@ public abstract class SharedKitsuneSystem : EntitySystem
     [Dependency] protected readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -50,11 +51,17 @@ public abstract class SharedKitsuneSystem : EntitySystem
             return;
         }
 
-        // This caps the amount of fox fire summons at a time to the charge count, deleting the oldest fire when exceeded.
+        args.Handled = true;
+
+        // This caps the amount of fox fire summons at a time to the charge count, cycling the oldest fire when exceeded.
         if (ent.Comp.FoxfireAction is not {} action || _charges.IsEmpty(action))
         {
-            QueueDel(ent.Comp.ActiveFoxFires[0]);
+            var existing = ent.Comp.ActiveFoxFires[0];
             ent.Comp.ActiveFoxFires.RemoveAt(0);
+            ent.Comp.ActiveFoxFires.Add(existing);
+            Dirty(ent);
+            _transform.SetCoordinates(existing, Transform(ent).Coordinates);
+            return;
         }
 
         var fireEnt = Spawn(ent.Comp.FoxfirePrototype, Transform(ent).Coordinates);
@@ -65,8 +72,6 @@ public abstract class SharedKitsuneSystem : EntitySystem
         Dirty(ent);
 
         _light.SetColor(fireEnt, ent.Comp.Color ?? Color.Purple);
-
-        args.Handled = true;
     }
 
     private void OnFoxfireShutdown(Entity<FoxfireComponent> ent, ref ComponentShutdown args)

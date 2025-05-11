@@ -43,7 +43,7 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
         newKitsune.ActiveFoxFires = oldKitsune.ActiveFoxFires;
 
         if (oldKitsune.FoxfireAction is {} oldAction && newKitsune.FoxfireAction is {} newAction)
-            _charges.SetCharges(newAction, _charges.GetCurrentCharges(newAction));
+            _charges.SetCharges(newAction, _charges.GetCurrentCharges(oldAction));
 
         foreach (var fireUid in newKitsune.ActiveFoxFires)
         {
