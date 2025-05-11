@@ -16,9 +16,40 @@
         Slash: 0.6
         Piercing: 0.3
         Heat: 0.9
-    staminaDamageCoefficient: 0.8 # DeltaV
+  - type: StaminaResistance # DeltaV
+    damageCoefficient: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.9
+
+#Elite web vest
+- type: entity
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSyndicateContraband]
+  id: ClothingOuterVestWebElite
+  name: elite web vest
+  description: A synthetic armor vest. This one has added webbing and heat resistant fibers.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Vests/elitevest.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Vests/elitevest.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.7
+        Heat: 0.3
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: StaminaResistance # DeltaV
+    damageCoefficient: 0.6 # twice as good as web vest
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: FireProtection
+    reduction: 0.85
 
 #Mercenary web vest
 - type: entity
@@ -100,7 +131,11 @@
     sprite: Clothing/OuterClothing/Vests/tankharness.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/tankharness.rsi
-  - type: Tag # DeltaV: tank harnesses can be used for surgery
+  - type: Item
+    size: Normal # Make smaller than typical outer clothing
+    shape:
+    - 0, 0, 0, 1
+  - type: Tag # DeltaV - tank harnesses can be used for surgery
     tags:
     - PermissibleForSurgery
     - WhitelistChameleon

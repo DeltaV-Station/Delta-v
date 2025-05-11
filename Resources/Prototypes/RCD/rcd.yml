@@ -6,8 +6,8 @@
 - type: rcd
   id: Deconstruct
   name: rcd-component-deconstruct
-  category: WallsAndFlooring
-  sprite: /Textures/Interface/Radial/RCD/deconstruct.png
+  category: Main
+  sprite: /Textures/_DV/Interface/Radial/RCD/deconstruct.png # DeltaV - Changed to reflect airlock resprites
   mode: Deconstruct
   prototype: EffectRCDDeconstructPreview
   rotation: Camera
@@ -103,7 +103,7 @@
 - type: rcd
   id: Window
   category: WindowsAndGrilles
-  sprite: /Textures/Interface/Radial/RCD/window.png
+  sprite: /Textures/_DV/Interface/Radial/RCD/window.png # DeltaV - Changed to reflect window resprites
   mode: ConstructObject
   prototype: Window
   cost: 3
@@ -117,7 +117,7 @@
 - type: rcd
   id: WindowDirectional
   category: WindowsAndGrilles
-  sprite: /Textures/Interface/Radial/RCD/directional.png
+  sprite: /Textures/_DV/Interface/Radial/RCD/directional.png # DeltaV - Changed to reflect window resprites
   mode: ConstructObject
   prototype: WindowDirectional
   cost: 2
@@ -132,7 +132,7 @@
 - type: rcd
   id: ReinforcedWindow
   category: WindowsAndGrilles
-  sprite: /Textures/Interface/Radial/RCD/window_reinforced.png
+  sprite: /Textures/_DV/Interface/Radial/RCD/window_reinforced.png # DeltaV - Changed to reflect window resprites
   mode: ConstructObject
   prototype: ReinforcedWindow
   cost: 4
@@ -146,7 +146,7 @@
 - type: rcd
   id: WindowReinforcedDirectional
   category: WindowsAndGrilles
-  sprite: /Textures/Interface/Radial/RCD/directional_reinforced.png
+  sprite: /Textures/_DV/Interface/Radial/RCD/directional_reinforced.png # DeltaV - Changed to reflect window resprites
   mode: ConstructObject
   prototype: WindowReinforcedDirectional
   cost: 3
@@ -162,7 +162,7 @@
 - type: rcd
   id: Airlock
   category: Airlocks
-  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  sprite: /Textures/_DV/Interface/Radial/RCD/airlock.png # DeltaV - Changed to reflect airlock resprites
   mode: ConstructObject
   prototype: Airlock
   cost: 4
@@ -174,7 +174,7 @@
 - type: rcd
   id: AirlockGlass
   category: Airlocks
-  sprite: /Textures/Interface/Radial/RCD/glass_airlock.png
+  sprite: /Textures/_DV/Interface/Radial/RCD/glass_airlock.png # DeltaV - Changed to reflect airlock resprites
   mode: ConstructObject
   prototype: AirlockGlass
   cost: 4

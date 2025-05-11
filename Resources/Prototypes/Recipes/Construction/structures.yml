@@ -233,24 +233,6 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: interior shuttle wall
-  id: InteriorShuttleWall
-  graph: Girder
-  startNode: start
-  targetNode: shuttleInteriorWall
-  category: construction-category-structures
-  description: Keeps the air in and the greytide out.
-  icon:
-    sprite: Structures/Walls/shuttleinterior.rsi
-    state: full
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: false
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-
-- type: construction
   name: diagonal shuttle wall
   id: DiagonalShuttleWall
   graph: Girder
@@ -387,7 +369,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/window.rsi
+    sprite: _DV/Structures/Windows/window.rsi # DeltaV - Resprite windows
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
@@ -406,7 +388,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/window_diagonal.rsi
+    sprite: _DV/Structures/Windows/window_diagonal.rsi # DeltaV - Resprite windows
     state: state1
   objectType: Structure
   placementMode: SnapgridCenter
@@ -424,7 +406,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/reinforced_window.rsi
+    sprite: _DV/Structures/Windows/reinforced_window.rsi # DeltaV - Resprite windows
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
@@ -443,7 +425,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/reinforced_window_diagonal.rsi
+    sprite: _DV/Structures/Windows/reinforced_window_diagonal.rsi # DeltaV - Resprite windows
     state: state1
   objectType: Structure
   placementMode: SnapgridCenter
@@ -461,7 +443,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/tinted_window.rsi
+    sprite: _DV/Structures/Windows/tinted_window.rsi # DeltaV - Resprite windows
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
@@ -517,7 +499,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/plasma_window.rsi
+    sprite: _DV/Structures/Windows/plasma_window.rsi # DeltaV - Resprite windows
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
@@ -536,7 +518,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/reinforced_plasma_window.rsi
+    sprite: _DV/Structures/Windows/reinforced_plasma_window.rsi # DeltaV - Resprite windows
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
@@ -574,7 +556,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/plasma_diagonal.rsi
+    sprite: _DV/Structures/Windows/plasma_diagonal.rsi # DeltaV - Resprite windows
     state: state1
   objectType: Structure
   placementMode: SnapgridCenter
@@ -592,7 +574,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/reinforced_plasma_diagonal.rsi
+    sprite: _DV/Structures/Windows/reinforced_plasma_diagonal.rsi # DeltaV - Resprite windows
     state: state1
   objectType: Structure
   placementMode: SnapgridCenter
@@ -610,7 +592,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi # DeltaV - Resprite windows
     state: window
   objectType: Structure
   placementMode: SnapgridCenter
@@ -628,7 +610,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi # DeltaV - Resprite windows
     state: reinforced_window
   objectType: Structure
   placementMode: SnapgridCenter
@@ -664,7 +646,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi # DeltaV - Resprite windows
     state: plasma_window
   objectType: Structure
   placementMode: SnapgridCenter
@@ -682,7 +664,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi # DeltaV - Resprite windows
     state: plasma_reinforced_window
   objectType: Structure
   placementMode: SnapgridCenter
@@ -700,7 +682,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/uranium_window.rsi
+    sprite: _DV/Structures/Windows/uranium_window.rsi # DeltaV - Resprite windows
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
@@ -719,7 +701,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/reinforced_uranium_window.rsi
+    sprite: _DV/Structures/Windows/reinforced_uranium_window.rsi # DeltaV - Resprite windows
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
@@ -738,7 +720,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/uranium_window_diagonal.rsi
+    sprite: _DV/Structures/Windows/uranium_window_diagonal.rsi # DeltaV - Resprite windows
     state: state1
   objectType: Structure
   placementMode: SnapgridCenter
@@ -756,7 +738,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/reinforced_uranium_diagonal.rsi
+    sprite: _DV/Structures/Windows/reinforced_uranium_diagonal.rsi # DeltaV - Resprite windows
     state: state1
   objectType: Structure
   placementMode: SnapgridCenter
@@ -813,6 +795,23 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  name: turnstile
+  id: Turnstile
+  graph: Turnstile
+  startNode: start
+  targetNode: turnstile
+  category: construction-category-structures
+  description: A mechanical door that permits one-way access and prevents tailgating.
+  icon:
+    sprite: Structures/Doors/turnstile.rsi
+    state: turnstile
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
 
 - type: construction
   name: shutter
@@ -1271,7 +1270,7 @@
   category: construction-category-structures
   description: It opens, it closes, and maybe crushes you.
   icon:
-    sprite: Structures/Doors/Airlocks/Standard/basic.rsi
+    sprite: _DV/Structures/Doors/Airlocks/Standard/basic.rsi # DeltaV - Changed to match DeltaV specific door sprite
     state: assembly
   objectType: Structure
   placementMode: SnapgridCenter
@@ -1288,7 +1287,7 @@
   category: construction-category-structures
   description: It opens, it closes, and maybe crushes you.
   icon:
-    sprite: Structures/Doors/Airlocks/Glass/glass.rsi
+    sprite: _DV/Structures/Doors/Airlocks/Glass/glass.rsi # DeltaV - Changed to match DeltaV specific door sprite
     state: assembly
   objectType: Structure
   placementMode: SnapgridCenter

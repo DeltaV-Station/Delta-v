@@ -357,6 +357,11 @@ public partial class SharedBodySystem
         var bodyTransform = Transform(bodyId);
         _audioSystem.PlayPredicted(gibSoundOverride, bodyTransform.Coordinates, null);
 
+        // Begin DeltaV Additions
+        var ev = new BodyGibbedEvent(gibs);
+        RaiseLocalEvent(bodyId, ref ev);
+        // End DeltaV Additions
+
         if (acidify)
             return gibs;
 

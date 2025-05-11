@@ -5,7 +5,6 @@ using Content.Server.Stunnable.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
-using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
@@ -15,7 +14,6 @@ namespace Content.Server.Stunnable.Systems
 {
     public sealed class StunbatonSystem : SharedStunbatonSystem
     {
-        [Dependency] private readonly SharedItemSystem _item = default!;
         [Dependency] private readonly RiggableSystem _riggableSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly BatterySystem _battery = default!;
@@ -29,7 +27,6 @@ namespace Content.Server.Stunnable.Systems
             SubscribeLocalEvent<StunbatonComponent, SolutionContainerChangedEvent>(OnSolutionChange);
             SubscribeLocalEvent<StunbatonComponent, StaminaDamageOnHitAttemptEvent>(OnStaminaHitAttempt);
             SubscribeLocalEvent<StunbatonComponent, ItemToggleActivateAttemptEvent>(TryTurnOn);
-            SubscribeLocalEvent<StunbatonComponent, ItemToggledEvent>(ToggleDone);
             SubscribeLocalEvent<StunbatonComponent, ChargeChangedEvent>(OnChargeChanged);
         }
 
@@ -54,11 +51,6 @@ namespace Content.Server.Stunnable.Systems
                 var count = (int) (battery.CurrentCharge / entity.Comp.EnergyPerUse);
                 args.PushMarkup(Loc.GetString("melee-battery-examine", ("color", "yellow"), ("count", count)));
             }
-        }
-
-        private void ToggleDone(Entity<StunbatonComponent> entity, ref ItemToggledEvent args)
-        {
-            _item.SetHeldPrefix(entity.Owner, args.Activated ? "on" : "off");
         }
 
         private void TryTurnOn(Entity<StunbatonComponent> entity, ref ItemToggleActivateAttemptEvent args)
