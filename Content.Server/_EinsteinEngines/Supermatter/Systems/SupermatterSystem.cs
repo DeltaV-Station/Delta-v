@@ -1,19 +1,21 @@
+using Content.Server._Impstation.Thaven;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
-using Content.Server.DoAfter;
 using Content.Server.Examine;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.GameTicking;
 using Content.Server.Lightning;
 using Content.Server.Popups;
 using Content.Server.Radio.EntitySystems;
+using Content.Server.Silicons.Laws;
 using Content.Server.Singularity.Components;
 using Content.Server.Singularity.EntitySystems;
 using Content.Server.Traits.Assorted;
-using Content.Shared._EinsteinEngines.CCVar;
-using Content.Shared._EinsteinEngines.Supermatter.Components;
+using Content.Shared._EE.CCVar;
+using Content.Shared._EE.Supermatter.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Damage.Components;
@@ -35,26 +37,29 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Server._EinsteinEngines.Supermatter.Systems;
+namespace Content.Server._EE.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly ExamineSystem _examine = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly GravityWellSystem _gravityWell = default!;
+    [Dependency] private readonly IonStormSystem _ionStorm = default!;
     [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly ParacusiaSystem _paracusia = default!;
     [Dependency] private readonly PointLightSystem _light = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly ThavenMoodsSystem _moods = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -64,6 +69,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
@@ -94,7 +100,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     private void OnMapInit(EntityUid uid, SupermatterComponent sm, MapInitEvent args)
     {
         // Set the yell timer
-        sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(EinsteinCCVars.SupermatterYellTimer));
+        sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(EECCVars.SupermatterYellTimer));
 
         // Set the sound
         _ambient.SetAmbience(uid, true);
@@ -111,7 +117,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     public void OnSupermatterUpdated(EntityUid uid, SupermatterComponent sm, AtmosDeviceUpdateEvent args)
     {
-        ProcessAtmos(uid, sm);
+        ProcessAtmos(uid, sm, args.dt);
         HandleDamage(uid, sm);
 
         if (sm.Damage >= sm.DamageDelaminationPoint || sm.Delamming)
@@ -123,7 +129,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         HandleSoundLoop(uid, sm);
         HandleAccent(uid, sm);
 
-        if (sm.Power > _config.GetCVar(EinsteinCCVars.SupermatterPowerPenaltyThreshold) || sm.Damage > sm.DamagePenaltyPoint)
+        if (sm.Power > _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold) || sm.Damage > sm.DamagePenaltyPoint)
         {
             SupermatterZap(uid, sm);
             GenerateAnomalies(uid, sm);
@@ -283,7 +289,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (!sm.HasBeenPowered)
             LogFirstPower(uid, sm, target);
 
-        if (!TryComp<ProjectileComponent>(target, out var projectile))
+        if (!HasComp<ProjectileComponent>(target))
         {
             var popup = "supermatter-collide";
 
@@ -312,7 +318,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         if (TryComp<SupermatterFoodComponent>(target, out var food))
             sm.Power += food.Energy;
-        else if (projectile != null)
+        else if (TryComp<ProjectileComponent>(target, out var projectile))
             sm.Power += (float)projectile.Damage.GetTotal();
         else
             sm.Power++;
@@ -353,7 +359,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (sm.Damage >= sm.DamageWarningThreshold)
             return SupermatterStatusType.Warning;
 
-        if (mix.Temperature > Atmospherics.T0C + _config.GetCVar(EinsteinCCVars.SupermatterHeatPenaltyThreshold) * 0.8)
+        if (mix.Temperature > Atmospherics.T0C + _config.GetCVar(EECCVars.SupermatterHeatPenaltyThreshold) * 0.8)
             return SupermatterStatusType.Caution;
 
         if (sm.Power > 5)
