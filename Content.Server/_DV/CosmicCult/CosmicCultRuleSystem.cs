@@ -162,7 +162,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         }
         if (component.ExtraRiftTimer is { } riftTimer && _timing.CurTime >= riftTimer)
         {
-            component.ExtraRiftTimer = _timing.CurTime + TimeSpan.FromSeconds(_rand.Next(230, 360)); //3min50 to 6min between new rifts. Seconds instead of minutes for granularity.
+            component.ExtraRiftTimer = _timing.CurTime + _rand.Next(TimeSpan.FromSeconds(230), TimeSpan.FromSeconds(360)); //3min50 to 6min between new rifts. Seconds instead of minutes for granularity.
             if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
             {
                 Spawn("CosmicMalignRift", coords);
