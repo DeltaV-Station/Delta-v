@@ -85,7 +85,7 @@
   - NTDefault4
   obeysTo: laws-owner-crew
 
-#Drone
+#Imp addition begin - Drone
 - type: siliconLaw
   id: Drone1
   order: 1
@@ -108,7 +108,8 @@
   - Drone1
   - Drone2
   - Drone3
-  obeysTo: laws-owner-beings
+  obeysTo: laws-owner-station-ai
+# Imp additions end
 
 # Syndicate
 - type: siliconLaw
