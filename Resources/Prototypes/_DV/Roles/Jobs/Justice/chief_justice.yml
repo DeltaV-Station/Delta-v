@@ -18,10 +18,11 @@
   weight: 20
   startingGear: CJGear
   icon: "JobIconChiefJustice"
+  ransomModifier: 3
   requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
-  whitelisted: true # DeltaV: whitelist requirement because I don't want any dingus judges
+  whitelisted: true # whitelist requirement because I don't want any dingus judges
   access:
   - Command
   - ChiefJustice

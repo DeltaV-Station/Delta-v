@@ -72,6 +72,8 @@
       state: cpu_security
     - type: ComputerBoard
       prototype: ComputerCriminalRecords
+    - type: StealTarget # DeltaV
+      stealGroup: CriminalRecordsComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -96,6 +98,8 @@
       prototype: ComputerCargoOrders
     - type: StaticPrice
       price: 750
+    - type: StealTarget # DeltaV
+      stealGroup: CargoRequestComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -197,6 +201,8 @@
   - type: ComputerBoard
     prototype: ComputerCargoBounty
   - type: StaticPrice
+  - type: StealTarget # DeltaV
+    stealGroup: CargoBountyComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -271,6 +277,8 @@
       state: cpu_science
     - type: ComputerBoard
       prototype: ComputerResearchAndDevelopment
+    - type: StealTarget # DeltaV
+      stealGroup: ResearchComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -324,6 +332,8 @@
     - type: Tag
       tags:
       - HighRiskItem
+    - type: StealTarget # DeltaV
+      stealGroup: IDComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -346,6 +356,8 @@
       state: cpu_command
     - type: ComputerBoard
       prototype: ComputerComms
+    - type: StealTarget # DeltaV
+      stealGroup: CommsComputerCircuitboard
 
 - type: entity
   parent: [ BaseComputerCircuitboard, BaseSyndicateContraband ]
