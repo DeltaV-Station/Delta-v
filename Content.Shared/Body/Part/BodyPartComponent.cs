@@ -117,11 +117,11 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     public string Species { get; set; } = "";
 
     /// <summary>
-    ///     Shitmed Change: The total damage that has to be dealt to a body part
-    ///     to make possible severing it.
+    ///     Shitmed Change: Any of these damage specifiers being present on the part
+    ///     will result in it severing
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float SeverIntegrity = 90;
+    public List<DamageSpecifier> SeverThresholds = [];
 
     /// <summary>
     ///     Shitmed Change: The ID of the base layer for this body part.

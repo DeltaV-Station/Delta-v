@@ -531,6 +531,9 @@
     whitelist:
       components:
       - HitscanBatteryAmmoProvider
+    blacklist:
+      components:
+      - PowerCell
 
 - type: cargoBounty
   id: BountyFood
@@ -563,6 +566,8 @@
       - Cake
       - Pie
       - Bread
+      - Pistachios
+      - Creamsicle
 
 - type: cargoBounty
   id: BountyVegetable

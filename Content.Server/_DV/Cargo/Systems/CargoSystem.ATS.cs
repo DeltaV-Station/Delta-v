@@ -26,7 +26,6 @@ public sealed partial class CargoSystem
 {
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
 

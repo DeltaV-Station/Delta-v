@@ -115,7 +115,10 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodMealQueso",
             "FoodSoupNettle",
             "FoodMealEnchiladas",
-            "FoodBurgerBaseball"
+            "FoodBurgerBaseball",
+            "FoodMealNachosCheesy",
+            "FoodSoupChiliHot",
+            "FoodMothCapreseSalad",
         };
 
         [DataField]
@@ -162,6 +165,13 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodMealPoachedPears",
             "FoodMealPearsBelleHelene",
             "FoodTartPearCheese",
+            "FoodMeatSnailCooked",
+            "FoodSoupEscargot",
+            "FoodMealNachosCuban",
+            "FoodSaladHerb",
+            "FoodSaladColeslaw",
+            "FoodSaladCaesar",
+            "FoodSaladFruit",
         };
 
         [DataField]
@@ -307,6 +317,8 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodCakeBrain",
             "FoodBurgerBrain",
             "FoodMeatAnomaly",
+            "FoodMothBeanStew",
+            "FoodPizzaWorldpeas",
         };
     }
 }

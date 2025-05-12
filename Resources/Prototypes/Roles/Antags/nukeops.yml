@@ -20,10 +20,10 @@
 
 - type: antag
   id: NukeopsMedic
-  name: roles-antag-nuclear-operative-agent-name
+  name: roles-antag-nuclear-operative-corpsman-name # DeltaV
   antagonist: true
   setPreference: true
-  objective: roles-antag-nuclear-operative-agent-objective
+  objective: roles-antag-nuclear-operative-corpsman-objective # DeltaV
   guides: [ NuclearOperatives ]
   requirements:
   - !type:OverallPlaytimeRequirement

@@ -6,6 +6,7 @@
   - ClothingNeckShockCollar
   - ClothingOuterArmorPlateCarrier # plate carrier body armour
   - ClothingOuterArmorDuraVest # stabproof vest body armour
+  - ClothingOuterArmorReflective
   - HoloprojectorSecurity
 
 - type: latheRecipePack
@@ -87,3 +88,10 @@
   recipes:
   - ClothingOuterHardsuitJuggernautReverseEngineered
   - ClothingOuterHardsuitSyndieReverseEngineered
+  - ClothingOuterHardsuitCombatOfficer
+
+- type: latheRecipePack
+  id: PrisonerSoftsuits
+  recipes:
+  - ClothingOuterHardsuitEVAPrisoner
+  - ClothingHeadHelmetEVALarge

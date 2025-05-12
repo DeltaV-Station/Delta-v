@@ -464,12 +464,12 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
-    sprite: Structures/Piping/Atmospherics/vent.rsi
+    sprite: _DV/Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
   layers:
   - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeHalf
-  - sprite: Structures/Piping/Atmospherics/vent.rsi
+  - sprite: _DV/Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
   conditions:
     - !type:NoUnstackableInTile
@@ -485,12 +485,12 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
-    sprite: Structures/Piping/Atmospherics/vent.rsi
+    sprite: _DV/Structures/Piping/Atmospherics/vent.rsi
     state: vent_passive
   layers:
   - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeHalf
-  - sprite: Structures/Piping/Atmospherics/vent.rsi
+  - sprite: _DV/Structures/Piping/Atmospherics/vent.rsi
     state: vent_passive
   conditions:
     - !type:NoUnstackableInTile
@@ -506,12 +506,12 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
-    sprite: Structures/Piping/Atmospherics/scrubber.rsi
+    sprite: _DV/Structures/Piping/Atmospherics/scrubber.rsi
     state: scrub_off
   layers:
   - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeHalf
-  - sprite: Structures/Piping/Atmospherics/scrubber.rsi
+  - sprite: _DV/Structures/Piping/Atmospherics/scrubber.rsi
     state: scrub_off
   conditions:
     - !type:NoUnstackableInTile
@@ -675,12 +675,12 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
-    sprite: Structures/Piping/Atmospherics/vent.rsi
+    sprite: _DV/Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
   layers:
   - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeStraight
-  - sprite: Structures/Piping/Atmospherics/vent.rsi
+  - sprite: _DV/Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
 
 - type: construction

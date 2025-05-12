@@ -2,6 +2,7 @@
   parent: BaseWallCloset
   id: BaseWallClosetDeltaV
   components:
+  - type: Appearance
   - type: Sprite
     sprite: _DV/Structures/Storage/wall_locker.rsi
 
@@ -9,6 +10,7 @@
   parent: BaseWallLocker
   id: BaseWallLockerDeltaV
   components:
+  - type: Appearance
   - type: Sprite
     sprite: _DV/Structures/Storage/wall_locker.rsi
 

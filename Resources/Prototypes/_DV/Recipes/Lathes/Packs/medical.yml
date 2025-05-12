@@ -10,10 +10,8 @@
   id: MedicalStaticDeltaV
   recipes:
   - AACTablet
-  - TankHarness
+  - ClothingOuterVestTank
   - ClothingEyesHudMedical
-  - Oilpack
-  - BaseChemistryEmptyVial
 
 - type: latheRecipePack
   id: MedicalClothingStaticDeltaV
@@ -42,3 +40,8 @@
   - CloningConsoleComputerCircuitboard
   - MedicalScannerMachineCircuitboard
   - CloningPodMachineCircuitboard
+
+- type: latheRecipePack
+  id: ParamedicHardsuit
+  recipes:
+  - ClothingOuterHardsuitVoidParamed

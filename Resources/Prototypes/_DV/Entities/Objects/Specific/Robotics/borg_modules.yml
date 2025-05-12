@@ -149,8 +149,15 @@
     items:
     - WeaponProtoKineticAcceleratorOneHanded
     - WeaponCrusherDagger
+  - type: DroppableBorgModule
+    moduleId: Fauna
+    items:
+    - id: PKAUpgradeRange # free upgrade but also lets you use any pka upgrade
+      whitelist:
+        tags:
+        - PKAUpgrade
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: fauna-module }
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: fauna-module }
 
 # Syndicate modules
 
@@ -251,6 +258,7 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+    - BiologicalMetaphysical # DeltaV - Kitsune
 
 - type: entity
   parent: BaseBorgModuleSyndie

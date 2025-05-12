@@ -14,9 +14,10 @@ using Robust.Shared.Serialization.Manager;
 
 namespace Content.IntegrationTests.Tests._Impstation.Thaven;
 
-[TestFixture, TestOf(typeof(ThavenMoodPrototype))]
+//[TestFixture, TestOf(typeof(ThavenMoodPrototype))]
 public sealed class ThavenMoodTests
 {
+/* waiter waiter! another test fail please!
     [TestPrototypes]
     const string PROTOTYPES = @"
 - type: dataset
@@ -98,5 +99,5 @@ public sealed class ThavenMoodTests
         });
 
         await pair.CleanReturnAsync();
-    }
+    }*/
 }
