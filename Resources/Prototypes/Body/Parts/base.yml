@@ -78,6 +78,7 @@
 
 - type: entity
   abstract: true
+  parent: BaseHeadDV # DeltaV - adjusted damages
   id: BaseHead
   name: "head"
   components:
@@ -102,6 +103,7 @@
 
 - type: entity
   abstract: true
+  parent: BaseArmDV # DeltaV - adjusted damages
   id: BaseLeftArm
   name: "left arm"
   components:
@@ -120,6 +122,7 @@
 
 - type: entity
   abstract: true
+  parent: BaseArmDV # DeltaV - adjusted damages
   id: BaseRightArm
   name: "right arm"
   components:
@@ -138,6 +141,7 @@
 
 - type: entity
   abstract: true
+  parent: BaseHandDV # DeltaV - adjusted damages
   id: BaseLeftHand
   name: "left hand"
   components:
@@ -152,6 +156,7 @@
 
 - type: entity
   abstract: true
+  parent: BaseHandDV # DeltaV - adjusted damages
   id: BaseRightHand
   name: "right hand"
   components:
@@ -166,6 +171,7 @@
 
 - type: entity
   abstract: true
+  parent: BaseLegDV # DeltaV - adjusted damages
   id: BaseLeftLeg
   name: "left leg"
   components:
@@ -185,6 +191,7 @@
 
 - type: entity
   abstract: true
+  parent: BaseLegDV # DeltaV - adjusted damages
   id: BaseRightLeg
   name: "right leg"
   components:
@@ -204,6 +211,7 @@
 
 - type: entity
   abstract: true
+  parent: BaseFootDV # DeltaV - adjusted damages
   id: BaseLeftFoot
   name: "left foot"
   components:
@@ -218,6 +226,7 @@
 
 - type: entity
   abstract: true
+  parent: BaseFootDV # DeltaV - adjusted damages
   id: BaseRightFoot
   name: "right foot"
   components:

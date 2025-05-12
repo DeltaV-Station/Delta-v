@@ -1,3 +1,83 @@
+# For prisoner job, not to be confused with genpop prisoner ids
+- type: entity
+  parent: IDCardStandard
+  id: PrisonerJobIDCard
+  name: prisoner ID card
+  suffix: Job
+  components:
+  - type: Sprite
+    layers:
+    - state: orange
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: nyanoprisoner
+  - type: PresetIdCard
+    job: Prisoner
+
+- type: entity
+  parent: IDCardStandard
+  id: GladiatorIDCard
+  name: gladiator ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: orange
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: nyanogladiator
+  - type: PresetIdCard
+    job: Gladiator
+
+- type: entity
+  parent: IDCardStandard
+  id: PrisonGuardIDCard
+  name: prison guard ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: nyanoprisonguard
+  - type: PresetIdCard
+    job: PrisonGuard
+
+- type: entity
+  parent: CourierIDCard
+  id: MailCarrierIDCard
+  name: mail carrier ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: nyanomailcarrier
+  - type: IdCard
+    jobTitle: job-alt-title-mail-carrier
+
+- type: entity
+  parent: IDCardStandard
+  id: MartialArtistIDCard
+  name: martial artist ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: nyanomartialartist
+  - type: PresetIdCard
+    job: MartialArtist
+
+- type: entity
+  parent: IDCardStandard
+  id: ForensicMantisIDCard
+  name: psionic mantis ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: nyanomantis
+  - type: PresetIdCard
+    job: ForensicMantis
+
 - type: entity
   parent: IDCardStandard
   id: ChiefJusticeIDCard
@@ -177,6 +257,16 @@
   components:
   - type: IdCard
     jobTitle: job-alt-title-clinician
+
+# Senior Physician
+
+- type: entity
+  parent: SeniorPhysicianIDCard
+  id: CryogenicsSpecialistIDCard
+  name: cryogenics specialist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-cryogenics-specialist
 
 # Psychologist
 
@@ -364,3 +454,68 @@
     - External
     - Robotics
     - Maintenance
+
+- type: entity
+  parent: IDCardStandard
+  id: ReverseAgentIDOverwiting
+  name: overwriting reverse agent ID card
+  suffix: Admin
+  description: An ID card that can replace the accesses of what it touches with the ones on the card
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: admin
+    - state: idwizard
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: green
+  - type: IdCard
+    jobTitle: job-title-admeme-overwriting
+    jobIcon: JobIconAdmin
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener
+  - type: ReverseAgentIDCard
+    overwrite: true
+  - type: MappingCategories
+    categories:
+    - Debug
+
+- type: entity
+  parent: ReverseAgentIDOverwiting
+  id: ReverseAgentIDAdding
+  name: adding reverse agent ID card
+  suffix: Admin
+  description: An ID card that can add to the accesses of what it touches with the ones on the card
+  components:
+  - type: ReverseAgentIDCard
+    overwrite: false
+  - type: IdCard
+    jobTitle: job-title-admeme-adding
+
+- type: entity
+  parent: IDCardStandard
+  id: ReverseAgentIDAccessConfigurator
+  name: access configurator reverse agent ID card
+  suffix: Admin
+  description: An ID card that can be configured as an access reader and copy its accesses to the target
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: admin
+    - state: idpassenger
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: green
+  - type: AccessReader
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener
+  - type: ReverseAgentAccessConfigurator
+  - type: MappingCategories
+    categories:
+    - Debug

@@ -1,0 +1,24 @@
+- type: entity
+  parent: Dropper
+  id: Skimmer
+  name: skimmer
+  description: Used to skim off the small impurities from solutions
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Chemistry/skimmer.rsi
+    layers:
+    - state: skimmer
+    - state: skimmer1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Injector
+    targetSmallest: true
+    minTransferAmount: 5
+    transferAmount: 5
+  - type: Item
+    sprite: _DV/Objects/Specific/Chemistry/skimmer.rsi
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: skimmer
+    inHandsMaxFillLevels: 5
+    inHandsFillBaseName: -fill-

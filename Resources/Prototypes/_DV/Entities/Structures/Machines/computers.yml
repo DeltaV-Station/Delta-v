@@ -5,7 +5,6 @@
   description: Used to purchase and sell shuttles
   components:
   - type: ShipyardConsole
-  - type: BankClient
   - type: AccessReader
     access: [[ Captain ]]
   - type: ActivatableUI
@@ -94,3 +93,108 @@
     access:
     - [ Cargo ]
   # lets hope nobody deconstructs it to reset the name + access...
+
+- type: entity
+  id: ComputerCargoOrdersJustice
+  parent: ComputerCargoOrders
+  name: justice request computer
+  description: Used by the justice department to order supplies.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      sprite: _DV/Structures/Machines/computers.rsi
+      state: request-jst
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: CargoOrderConsole
+    account: Justice
+    announcementChannel: Justice
+    removeLimitAccess: [ "ChiefJustice" ]
+    slipPrinter: true
+  - type: ActiveRadio
+    channels:
+    - Justice
+  - type: Computer
+    board: CargoRequestJusticeComputerCircuitboard
+  - type: PointLight
+    color: "#641327"
+  - type: AccessReader
+    access: [["Justice"]]
+
+- type: entity
+  parent: ComputerId
+  id: ComputerIdAdmeme
+  name: Universal ID card computer
+  suffix: Admeme
+  components:
+  - type: IdCardConsole
+    accessLevels:
+    - Admeme1
+    - Admeme2
+    - Admeme3
+    - Armory
+    - Atmospherics
+    - Bar
+    - BasicSilicon
+    - Borg
+    - Boxer
+    - Captain
+    - Cargo
+    - CentralCommand
+    - Chapel
+    - Chemistry
+    - ChiefEngineer
+    - ChiefJustice
+    - ChiefMedicalOfficer
+    - Clerk
+    - Clown
+    - Command
+    - Corpsman
+    - Cryogenics
+    - Detective
+    - DV-SpareSafe
+    - EmergencyShuttleRepealAll
+    - Engineering
+    - External
+    - HeadOfPersonnel
+    - HeadOfSecurity
+    - Hydroponics
+    - Janitor
+    - Justice
+    - Kitchen
+    - Lawyer
+    - Library
+    - Mail
+    - Maintenance
+    - Mantis
+    - Medical
+    - Mime
+    - Musician
+    - NuclearOperative
+    - Paramedic
+    - Prosecutor
+    - Psychologist
+    - Quartermaster
+    - Reporter
+    - Research
+    - ResearchDirector
+    - Robotics
+    - Salvage
+    - Security
+    - Service
+    - StationAi
+    - Surgery
+    - SyndicateAgent
+    - Theatre
+    - Wizard
+    - Zookeeper
+  - type: MappingCategories
+    categories:
+    - Debug
