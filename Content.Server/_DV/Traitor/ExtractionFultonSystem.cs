@@ -56,7 +56,7 @@ public sealed class ExtractionFultonSystem : SharedExtractionFultonSystem
             return;
         }
 
-        if (_charges.IsEmpty(ent))
+        if (_charges.IsEmpty(ent.Owner))
         {
             Popup.PopupEntity(Loc.GetString("emag-no-charges"), ent, user);
             return;
