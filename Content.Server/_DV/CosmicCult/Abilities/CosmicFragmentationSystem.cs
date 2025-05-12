@@ -9,6 +9,7 @@ using Content.Shared._DV.Silicons;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws.Components;
@@ -20,6 +21,7 @@ public sealed class CosmicFragmentationSystem : EntitySystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly CosmicCultSystem _cult = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -54,7 +56,7 @@ public sealed class CosmicFragmentationSystem : EntitySystem
 
     private void OnCosmicFragmentation(Entity<CosmicCultComponent> ent, ref EventCosmicFragmentation args)
     {
-        if (args.Handled || HasComp<ActiveNPCComponent>(args.Target) || TryComp<MobStateComponent>(args.Target, out var state) && state.CurrentState != MobState.Alive)
+        if (args.Handled || HasComp<ActiveNPCComponent>(args.Target) || _mobStateSystem.IsIncapacitated(args.Target))
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-generic-fail"), ent, ent);
             return;
@@ -89,12 +91,11 @@ public sealed class CosmicFragmentationSystem : EntitySystem
 
     private void OnFragmentBorg(Entity<BorgChassisComponent> ent, ref MalignFragmentationEvent args)
     {
-        var chantry = Spawn("CosmicBorgChantry", Transform(args.Target).Coordinates);
-        var polyVictim = _polymorph.PolymorphEntity(args.Target, "CosmicFragmentationWisp");
-        if (polyVictim == null) // this really shouldn't ever be null but whatever
+        if (_polymorph.PolymorphEntity(args.Target, "CosmicFragmentationWisp") is not {} polyVictim)
             return;
+        var chantry = Spawn("CosmicBorgChantry", Transform(args.Target).Coordinates);
         EnsureComp<CosmicChantryComponent>(chantry, out var chantryComponent);
-        chantryComponent.PolyVictim = polyVictim.Value;
+        chantryComponent.PolyVictim = polyVictim;
         chantryComponent.Victim = args.Target;
     }
 
