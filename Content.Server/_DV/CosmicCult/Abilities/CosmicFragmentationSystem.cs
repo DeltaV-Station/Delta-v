@@ -10,6 +10,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Robust.Shared.Containers;
 
@@ -30,21 +31,25 @@ public sealed class CosmicFragmentationSystem : EntitySystem
 
         SubscribeLocalEvent<AILawUpdatedEvent>(OnLawInserted);
 
+        SubscribeLocalEvent<BorgChassisComponent, MalignFragmentationEvent>(OnFragmentBorg);
+        SubscribeLocalEvent<SiliconLawUpdaterComponent, MalignFragmentationEvent>(OnFragmentAi);
+
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicFragmentation>(OnCosmicFragmentation);
-        SubscribeLocalEvent<CosmicCultComponent, EventCosmicChantryDoAfter>(OnCosmicChantryDoAfter);
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicFragmentationDoAfter>(OnCosmicFragmentationDoAfter);
     }
 
     private void UnEmpower(Entity<CosmicCultComponent> ent)
     {
-        ent.Comp.CosmicEmpowered = false; // empowerment spent! Now we set all the values back to their default.
-        ent.Comp.CosmicSiphonQuantity = 1;
-        ent.Comp.CosmicGlareRange = 8;
-        ent.Comp.CosmicGlareDuration = TimeSpan.FromSeconds(5);
-        ent.Comp.CosmicGlareStun = TimeSpan.FromSeconds(0);
-        ent.Comp.CosmicImpositionDuration = TimeSpan.FromSeconds(5.8);
-        ent.Comp.CosmicBlankDuration = TimeSpan.FromSeconds(22);
-        ent.Comp.CosmicBlankDelay = TimeSpan.FromSeconds(0.6);
+        var comp = ent.Comp;
+        comp.WasEmpowered = true; // empowerment spent! Now we set all the values back to their default.
+        comp.CosmicEmpowered = false;
+        comp.CosmicSiphonQuantity = CosmicCultComponent.DefaultCosmicSiphonQuantity;
+        comp.CosmicGlareRange = CosmicCultComponent.DefaultCosmicGlareRange;
+        comp.CosmicGlareDuration = CosmicCultComponent.DefaultCosmicGlareDuration;
+        comp.CosmicGlareStun = CosmicCultComponent.DefaultCosmicGlareStun;
+        comp.CosmicImpositionDuration = CosmicCultComponent.DefaultCosmicImpositionDuration;
+        comp.CosmicBlankDuration = CosmicCultComponent.DefaultCosmicBlankDuration;
+        comp.CosmicBlankDelay = CosmicCultComponent.DefaultCosmicBlankDelay;
     }
 
     private void OnCosmicFragmentation(Entity<CosmicCultComponent> ent, ref EventCosmicFragmentation args)
@@ -54,54 +59,22 @@ public sealed class CosmicFragmentationSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("cosmicability-generic-fail"), ent, ent);
             return;
         }
-        if (HasComp<EmagSiliconLawComponent>(args.Target))
-        {
-            var doargs = new DoAfterArgs(EntityManager, ent, ent.Comp.CosmicSiphonDelay, new EventCosmicChantryDoAfter(), ent, args.Target)
-            {
-                DistanceThreshold = 2f,
-                Hidden = false,
-                BreakOnHandChange = true,
-                BreakOnDamage = true,
-                BreakOnMove = true,
-                BreakOnDropItem = true,
-            };
-            args.Handled = true;
-            _doAfter.TryStartDoAfter(doargs);
-        }
-        else if (HasComp<SiliconLawUpdaterComponent>(args.Target))
-        {
-            var doargs = new DoAfterArgs(EntityManager, ent, ent.Comp.CosmicSiphonDelay, new EventCosmicFragmentationDoAfter(), ent, args.Target)
-            {
-                DistanceThreshold = 2f,
-                Hidden = false,
-                BreakOnHandChange = true,
-                BreakOnDamage = true,
-                BreakOnMove = true,
-                BreakOnDropItem = true,
-            };
-            args.Handled = true;
-            _doAfter.TryStartDoAfter(doargs);
-        }
 
-        _cult.MalignEcho(ent);
-    }
-    private void OnCosmicChantryDoAfter(Entity<CosmicCultComponent> ent, ref EventCosmicChantryDoAfter args)
-    {
-        if (args.Args.Target is not { } target)
-            return;
-        if (args.Cancelled || args.Handled)
-            return;
+        var doargs = new DoAfterArgs(EntityManager, ent, ent.Comp.CosmicSiphonDelay, new EventCosmicFragmentationDoAfter(), ent, args.Target)
+        {
+            DistanceThreshold = 2f,
+            Hidden = false,
+            BreakOnHandChange = true,
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            BreakOnDropItem = true,
+        };
         args.Handled = true;
+        _doAfter.TryStartDoAfter(doargs);
+        _cult.MalignEcho(ent);
         UnEmpower(ent);
-
-        var chantry = Spawn(ent.Comp.BorgChantry, Transform(target).Coordinates);
-        var polyVictim = _polymorph.PolymorphEntity(target, "CosmicFragmentationWisp");
-        if (polyVictim == null) // this really shouldn't ever be null but whatever
-            return;
-        EnsureComp<CosmicChantryComponent>(chantry, out var chantryComponent);
-        chantryComponent.PolyVictim = polyVictim.Value;
-        chantryComponent.Victim = target;
     }
+
     private void OnCosmicFragmentationDoAfter(Entity<CosmicCultComponent> ent, ref EventCosmicFragmentationDoAfter args)
     {
         if (args.Args.Target is not { } target)
@@ -109,40 +82,51 @@ public sealed class CosmicFragmentationSystem : EntitySystem
         if (args.Cancelled || args.Handled)
             return;
         args.Handled = true;
-        UnEmpower(ent);
 
-        var lawboard = Spawn(ent.Comp.MalignLawboard, Transform(target).Coordinates);
-        _container.TryGetContainer(target, "circuit_holder", out var container);
+        var evt = new MalignFragmentationEvent(ent, target);
+        RaiseLocalEvent(target, ref evt);
+    }
+
+    private void OnFragmentBorg(Entity<BorgChassisComponent> ent, ref MalignFragmentationEvent args)
+    {
+        var chantry = Spawn("CosmicBorgChantry", Transform(args.Target).Coordinates);
+        var polyVictim = _polymorph.PolymorphEntity(args.Target, "CosmicFragmentationWisp");
+        if (polyVictim == null) // this really shouldn't ever be null but whatever
+            return;
+        EnsureComp<CosmicChantryComponent>(chantry, out var chantryComponent);
+        chantryComponent.PolyVictim = polyVictim.Value;
+        chantryComponent.Victim = args.Target;
+    }
+
+    private void OnFragmentAi(Entity<SiliconLawUpdaterComponent> ent, ref MalignFragmentationEvent args)
+    {
+        var lawboard = Spawn("CosmicCultLawBoard", Transform(args.Target).Coordinates);
+        _container.TryGetContainer(args.Target, "circuit_holder", out var container);
         if (container == null)
             return;
         _container.EmptyContainer(container, true);
-        _container.Insert(lawboard, container, Transform(target), true);
+        _container.Insert(lawboard, container, Transform(args.Target), true);
     }
 
     private void OnLawInserted(AILawUpdatedEvent args)
     {
-        if (args.Lawset.Id == "CosmicCultLaws")
+        var query = EntityQueryEnumerator<StationAiShopComponent, IntrinsicRadioTransmitterComponent, ActiveRadioComponent>();
+        while (query.MoveNext(out _, out _, out var radio, out var transmitter))
         {
-            var query = EntityQueryEnumerator<StationAiShopComponent>();
-            while (query.MoveNext(out var targetAi, out _))
+            if (args.Lawset.Id == "CosmicCultLaws")
             {
-                var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(targetAi);
-                var radio = EnsureComp<ActiveRadioComponent>(targetAi);
                 radio.Channels.Add("CosmicRadio");
                 transmitter.Channels.Add("CosmicRadio");
+                _antag.SendBriefing(args.Target, Loc.GetString("cosmiccult-ai-subverted-briefing"), Color.FromHex("#4cabb3"), null);
             }
-            _antag.SendBriefing(args.Target, Loc.GetString("cosmiccult-ai-subverted-briefing"), Color.FromHex("#4cabb3"), null);
-        }
-        else
-        {
-            var query = EntityQueryEnumerator<StationAiShopComponent>();
-            while (query.MoveNext(out var targetAi, out _))
+            else
             {
-                var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(targetAi);
-                var radio = EnsureComp<ActiveRadioComponent>(targetAi);
                 radio.Channels.Remove("CosmicRadio");
                 transmitter.Channels.Remove("CosmicRadio");
             }
         }
     }
 }
+
+[ByRefEvent]
+public record struct MalignFragmentationEvent(Entity<CosmicCultComponent> User, EntityUid Target);

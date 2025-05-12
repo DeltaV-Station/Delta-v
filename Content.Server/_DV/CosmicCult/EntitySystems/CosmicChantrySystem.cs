@@ -22,6 +22,7 @@ public sealed class CosmicChantrySystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -29,6 +30,7 @@ public sealed class CosmicChantrySystem : EntitySystem
         SubscribeLocalEvent<CosmicChantryComponent, ComponentInit>(OnChantryStarted);
         SubscribeLocalEvent<CosmicChantryComponent, ComponentShutdown>(OnChantryDestroyed);
     }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -73,6 +75,7 @@ public sealed class CosmicChantrySystem : EntitySystem
         if (_mind.TryGetMind(ent.Comp.PolyVictim, out _, out var mind))
             mind.PreventGhosting = true;
     }
+
     private void OnChantryDestroyed(Entity<CosmicChantryComponent> ent, ref ComponentShutdown args)
     {
         if (!_mind.TryGetMind(ent.Comp.PolyVictim, out _, out var mind) || !_polymorph.TryGetNetEntity(ent.Comp.PolyVictim, out _))
