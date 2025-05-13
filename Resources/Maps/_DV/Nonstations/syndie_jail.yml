@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/13/2025 20:17:44
-  entityCount: 944
+  time: 05/13/2025 21:21:58
+  entityCount: 951
 maps: []
 grids:
 - 1
@@ -40,6 +40,7 @@ entities:
     - type: MetaData
       name: Syndie Jail
     - type: Transform
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -246,7 +247,8 @@ entities:
           1,2:
             0: 58606
           1,4:
-            0: 8431
+            0: 239
+            3: 8192
           1,1:
             0: 17476
           1,-1:
@@ -306,7 +308,7 @@ entities:
             0: 30576
           0,-2:
             0: 16241
-            3: 16384
+            4: 16384
           1,-3:
             1: 36736
           1,-2:
@@ -347,6 +349,21 @@ entities:
           moles:
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14948
+          moles:
+          - 18.472576
+          - 69.49208
           - 0
           - 0
           - 0
@@ -633,8 +650,22 @@ entities:
       powered: True
     - type: DoorBolt
       powered: True
+  - uid: 946
+    components:
+    - type: MetaData
+      name: Arrivals
+    - type: Transform
+      pos: 0.5,10.5
+      parent: 1
 - proto: AirlockSyndicateGlassLocked
   entities:
+  - uid: 2
+    components:
+    - type: MetaData
+      name: Control Room
+    - type: Transform
+      pos: 0.5,-7.5
+      parent: 1
   - uid: 12
     components:
     - type: MetaData
@@ -714,17 +745,6 @@ entities:
       parent: 1
 - proto: AirlockSyndicateLocked
   entities:
-  - uid: 19
-    components:
-    - type: MetaData
-      name: Control Room
-    - type: Transform
-      pos: 0.5,-7.5
-      parent: 1
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
   - uid: 20
     components:
     - type: MetaData
@@ -1000,6 +1020,11 @@ entities:
     components:
     - type: Transform
       pos: 7.5,0.5
+      parent: 1
+  - uid: 951
+    components:
+    - type: Transform
+      pos: 4.5,8.5
       parent: 1
 - proto: BoozeDispenser
   entities:
@@ -1957,6 +1982,35 @@ entities:
     - type: Transform
       pos: 5.5,19.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 5
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: ClothingBackpackDuffelSyndicatePyjamaBundle
   entities:
   - uid: 214
@@ -2002,6 +2056,11 @@ entities:
     components:
     - type: Transform
       pos: -2.5742662,7.6634407
+      parent: 1
+  - uid: 950
+    components:
+    - type: Transform
+      pos: -2.5662684,7.573868
       parent: 1
 - proto: ClothingMaskGasSyndicate
   entities:
@@ -2102,6 +2161,36 @@ entities:
     - type: Transform
       pos: 6.5,14.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.1462
+        moles:
+        - 1.606311
+        - 6.042789
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 19
+          - 945
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: DefibrillatorCabinet
   entities:
   - uid: 768
@@ -2123,6 +2212,15 @@ entities:
       parent: 768
     - type: Physics
       canCollide: False
+- proto: FoodBowlBig
+  entities:
+  - uid: 5
+    components:
+    - type: Transform
+      parent: 213
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: FoodMealBearsteak
   entities:
   - uid: 226
@@ -4453,6 +4551,13 @@ entities:
       parent: 1
     - type: Physics
       canCollide: False
+- proto: HydroponicsToolSpade
+  entities:
+  - uid: 948
+    components:
+    - type: Transform
+      pos: -1.421875,22.57471
+      parent: 1
 - proto: KitchenReagentGrinder
   entities:
   - uid: 728
@@ -4555,6 +4660,15 @@ entities:
     - type: Transform
       pos: 8.5,11.5
       parent: 1
+- proto: MedkitBurnFilled
+  entities:
+  - uid: 19
+    components:
+    - type: Transform
+      parent: 901
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: MedkitCombatFilled
   entities:
   - uid: 417
@@ -4564,6 +4678,15 @@ entities:
       parent: 1
     - type: Physics
       canCollide: False
+- proto: MedkitToxinFilled
+  entities:
+  - uid: 945
+    components:
+    - type: Transform
+      parent: 901
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: N14ChairArmchair
   entities:
   - uid: 418
@@ -4596,6 +4719,11 @@ entities:
         actions: !type:Container
           ents:
           - 900
+  - uid: 949
+    components:
+    - type: Transform
+      pos: -2.258247,7.289199
+      parent: 1
 - proto: Ointment
   entities:
   - uid: 421
@@ -5165,6 +5293,22 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 5.5,5.5
       parent: 1
+    - type: SignalTimer
+      label: HOLE
+    - type: DeviceLinkSource
+      linkedPorts:
+        44:
+        - - Start
+          - Close
+        - - Timer
+          - Open
+        426:
+        - - Start
+          - Close
+        - - Timer
+          - Open
+        - - Timer
+          - AutoClose
 - proto: SeedExtractor
   entities:
   - uid: 504
@@ -5254,6 +5398,9 @@ entities:
         - - Pressed
           - Toggle
         57:
+        - - Pressed
+          - Toggle
+        951:
         - - Pressed
           - Toggle
 - proto: SignalButtonDirectional
@@ -5550,13 +5697,12 @@ entities:
     - type: Transform
       pos: -0.5,14.5
       parent: 1
-- proto: Turnstile
+- proto: ToolboxMechanicalFilled
   entities:
-  - uid: 5
+  - uid: 947
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,10.5
+      pos: 12.676202,0.2709541
       parent: 1
 - proto: VendingMachineBoozeSyndicate
   entities:
@@ -6707,13 +6853,6 @@ entities:
     components:
     - type: Transform
       pos: 7.5,-10.5
-      parent: 1
-- proto: Wrench
-  entities:
-  - uid: 2
-    components:
-    - type: Transform
-      pos: 12.978518,0.22369361
       parent: 1
 - proto: Zipties
   entities:
