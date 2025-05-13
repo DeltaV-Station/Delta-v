@@ -457,13 +457,12 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 40 # DeltaV - ss13 parity
+        Blunt: 30 # DeltaV - was 40, changed to 30 so damage is max 45
         #Structural: 30 # DeltaV - ss13 parity
   # Short lifespan
   - type: TimedDespawn
-    lifetime: 0.22 # roughly 5.5 tiles
+    lifetime: 0.4 # DeltaV - Revert to Prebase stats
   - type: GatheringProjectile
-  - type: PressureProjectile # DeltaV
 
 - type: entity
   id: BulletKineticShuttle
@@ -1178,7 +1177,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-       # - Impassable 
+       # - Impassable
        # - BulletImpassable
         - Opaque # Delta-V changed from impassable so that they can go through windows
       fly-by: *flybyfixture
