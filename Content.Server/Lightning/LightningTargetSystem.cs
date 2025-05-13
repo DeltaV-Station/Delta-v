@@ -29,7 +29,7 @@ public sealed class LightningTargetSystem : EntitySystem
         damage.DamageDict.Add("Structural", uid.Comp.DamageFromLightning);
         _damageable.ChangeDamage(uid.Owner, damage, true);
 
-        if (uid.Comp.LightningExplode)
+        if (uid.Comp.LightningExplode && args.CanExplode) // imp - added CanExplode
         {
             _explosionSystem.QueueExplosion(
                 _transform.GetMapCoordinates(uid),
