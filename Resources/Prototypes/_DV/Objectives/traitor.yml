@@ -254,6 +254,11 @@
   - type: CodeCondition
   - type: AILawsUpdatedRequirement
     lawset: SyndicateLawset
+  - type: ReputationCondition
+    reputation: 80
+  - type: ContractObjective
+    reputation: 20 # bring you to 100
+    payment: 6
   - type: ObjectiveLimit
     limit: 1
 
