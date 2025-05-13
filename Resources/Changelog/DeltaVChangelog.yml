@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Tomce795
-  changes:
-  - message: Ported a Lizard hissing emote from Imp. Added it for Reptilians, Kobolds
-      and Lizards. Lizards now have a kobold accent.
-    type: Add
-  id: 894
-  time: '2025-01-10T19:57:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2689
 - author: MintyTheBinty, Radezolid
   changes:
   - message: Added suits from imp-station, check your loadouts and your local BarDrobe,
@@ -4096,3 +4088,11 @@
   id: 1393
   time: '2025-05-13T22:08:24.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3741
+- author: deltanedas
+  changes:
+  - message: Fixed the subvert AI objective being available immediately and having
+      no payment.
+    type: Tweak
+  id: 1394
+  time: '2025-05-13T22:38:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3742
