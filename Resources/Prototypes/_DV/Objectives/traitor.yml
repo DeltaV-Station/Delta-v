@@ -165,6 +165,7 @@
   - type: PickRandomTraitor
     minContracts: 1
   - type: CodeCondition
+  - type: SocialObjective # actually need this
   - type: AssistRandomContract
     blacklist:
       components:
