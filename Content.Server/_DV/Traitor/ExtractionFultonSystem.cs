@@ -11,6 +11,7 @@ using Content.Shared.Objectives.Components;
 using Content.Shared.Popups;
 using Content.Shared.Salvage.Fulton;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
 namespace Content.Server._DV.Traitor;
@@ -23,6 +24,7 @@ public sealed class ExtractionFultonSystem : SharedExtractionFultonSystem
     [Dependency] private readonly RansomConditionSystem _ransomCondition = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedFultonSystem _fulton = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -112,6 +114,12 @@ public sealed class ExtractionFultonSystem : SharedExtractionFultonSystem
         if (Transform(target).Anchored)
         {
             Popup.PopupEntity(Loc.GetString("extraction-fulton-anchored"), target, user);
+            return false;
+        }
+
+        if (_container.IsEntityInContainer(uid))
+        {
+            Popup.PopupEntity(Loc.GetString("extraction-fulton-inside-container"), target, user);
             return false;
         }
 

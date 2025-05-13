@@ -4,6 +4,7 @@ extraction-fulton-no-destination = No destination found!
 extraction-fulton-anchored = It needs to be unanchored first.
 extraction-fulton-verb-text = Attach Fulton
 extraction-fulton-remove-first = Remove the fulton first!
+extraction-fulton-inside-container = Remove it from the container first.
 
 syndicate-ransom-announcement-sender = Automated Systems
 syndicate-ransom-announcement =
