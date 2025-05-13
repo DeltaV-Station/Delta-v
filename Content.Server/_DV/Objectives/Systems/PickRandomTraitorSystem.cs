@@ -25,6 +25,7 @@ public sealed class PickRandomTraitorSystem : EntitySystem
     private void OnRandomTraitorAssigned(Entity<PickRandomTraitorComponent> ent, ref ObjectiveAssignedEvent args)
     {
         _pickTarget.AssignRandomTarget(ent, ref args, mindId =>
-            _role.MindHasRole<TraitorRoleComponent>(mindId));
+            _role.MindHasRole<TraitorRoleComponent>(mindId),
+            fallbackToAny: false); // bruh
     }
 }
