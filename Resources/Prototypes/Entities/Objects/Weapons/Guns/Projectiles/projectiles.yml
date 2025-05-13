@@ -457,7 +457,7 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 30 # DeltaV - was 40, changed to 30 so damage is max 45
+        Blunt: 15 # DeltaV - was 40, changed to 30 so damage is max 45
         #Structural: 30 # DeltaV - ss13 parity
   # Short lifespan
   - type: TimedDespawn

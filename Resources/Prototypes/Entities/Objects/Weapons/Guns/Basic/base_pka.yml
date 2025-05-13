@@ -15,7 +15,7 @@
     maxAngle: -43
   - type: Wieldable
   - type: Gun
-    fireRate: 0.75 # DeltaV - Revert back to prebase feel
+    fireRate: 1.5 # DeltaV - Revert back to prebase feel
     selectedMode: SemiAuto
     angleDecay: 45
     minAngle: 44
@@ -34,7 +34,7 @@
           False: { visible: True }
         #todo: add other 'empty' animations
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.75 # DeltaV
+    rechargeCooldown: .5 # DeltaV
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
