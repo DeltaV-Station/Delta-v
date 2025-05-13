@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: Removed the medical cybernetic eyes from the security techfab
-    type: Tweak
-  id: 892
-  time: '2025-01-10T19:48:09.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2682
 - author: pontaoski
   changes:
   - message: Tank harnesses and hospital gowns don't block surgery steps
@@ -4094,3 +4087,12 @@
   id: 1391
   time: '2025-05-13T12:46:50.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3731
+- author: deltanedas
+  changes:
+  - message: Fixed getting objectives to assist non-traitors...
+    type: Fix
+  - message: Fixed getting an objective to assist someone with assisting someone else.
+    type: Fix
+  id: 1392
+  time: '2025-05-13T20:46:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3738
