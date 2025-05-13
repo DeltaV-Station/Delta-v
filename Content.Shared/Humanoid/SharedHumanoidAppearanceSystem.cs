@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._DV.Humanoid; // DeltaV
 using Content.Shared.CCVar;
 using Content.Shared.Decals;
 using Content.Shared.Examine;
@@ -161,6 +162,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         targetHumanoid.Gender = sourceHumanoid.Gender;
         if (TryComp<GrammarComponent>(target, out var grammar))
             grammar.Gender = sourceHumanoid.Gender;
+
+        var appearanceEv = new AppearanceLoadedEvent(); // DeltaV
+        RaiseLocalEvent(target, ref appearanceEv);
 
         Dirty(target, targetHumanoid);
     }
@@ -446,6 +450,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         humanoid.Age = profile.Age;
         humanoid.Height = profile.Height; // CD - Character Records
+
+        var appearanceEv = new AppearanceLoadedEvent(); // DeltaV
+        RaiseLocalEvent(uid, ref appearanceEv);
 
         RaiseLocalEvent(uid, new ProfileLoadFinishedEvent()); // Shitmed Change
         Dirty(uid, humanoid);
