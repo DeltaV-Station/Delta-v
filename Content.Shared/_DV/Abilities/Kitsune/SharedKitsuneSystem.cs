@@ -1,4 +1,4 @@
-using Content.Shared._Shitmed.Humanoid.Events;
+using Content.Shared._DV.Humanoid;
 using Content.Shared.Actions;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Hands.Components;
@@ -22,10 +22,10 @@ public abstract class SharedKitsuneSystem : EntitySystem
         SubscribeLocalEvent<KitsuneComponent, CreateFoxfireActionEvent>(OnCreateFoxfire);
         SubscribeLocalEvent<FoxfireComponent, ComponentShutdown>(OnFoxfireShutdown);
         SubscribeLocalEvent<KitsuneComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<KitsuneComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished);
+        SubscribeLocalEvent<KitsuneComponent, AppearanceLoadedEvent>(OnProfileLoadFinished);
     }
 
-    private void OnProfileLoadFinished(Entity<KitsuneComponent> ent, ref ProfileLoadFinishedEvent args)
+    private void OnProfileLoadFinished(Entity<KitsuneComponent> ent, ref AppearanceLoadedEvent args)
     {
         // Eye color is stored on component to be used for fox fire/fox form color.
         if (TryComp<HumanoidAppearanceComponent>(ent, out var humanComp))
