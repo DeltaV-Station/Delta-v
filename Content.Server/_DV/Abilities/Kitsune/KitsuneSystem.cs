@@ -39,6 +39,7 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
             return;
 
         newKitsune.Color = oldKitsune.Color;
+        newKitsune.ColorLight = oldKitsune.ColorLight;
         _appearance.SetData(newEntity, KitsuneColorVisuals.Color, newKitsune.Color ?? Color.Orange);
 
         // Ensure that the fox fire action state is transferred properly.
