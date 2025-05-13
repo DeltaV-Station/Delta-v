@@ -117,7 +117,7 @@ public sealed class ExtractionFultonSystem : SharedExtractionFultonSystem
             return false;
         }
 
-        if (_container.IsEntityInContainer(uid))
+        if (_container.IsEntityInContainer(target))
         {
             Popup.PopupEntity(Loc.GetString("extraction-fulton-inside-container"), target, user);
             return false;
