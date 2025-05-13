@@ -132,9 +132,10 @@ public sealed class CosmicRiftSystem : EntitySystem
 
         args.Handled = true;
         var tgtpos = Transform(target).Coordinates;
-        var actionEnt = _actions.AddAction(uid, "ActionCosmicFragmentation");
+        var actionEnt = _actions.AddAction(uid, uid.Comp.CosmicFragmentationAction);
         Spawn(uid.Comp.AbsorbVFX, tgtpos);
         comp.ActionEntities.Add(actionEnt);
+        comp.WasEmpowered = true;
         comp.CosmicEmpowered = true;
         comp.CosmicSiphonQuantity = 2;
         comp.CosmicGlareRange = 10;

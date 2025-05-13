@@ -14,7 +14,7 @@
     - BasicRoundstartVariation
     # - BasicStationEventScheduler //temporarily replaced with Ramping.
     - RampingStationEventScheduler
-    - GlimmerEventScheduler # DeltaV
+    - GlimmerEventScheduler
 
 - type: gamePreset #Runs Cosmic Cult but shows "Secret" in lobby.
   id: SecretCosmicCult
@@ -31,4 +31,4 @@
     - BasicRoundstartVariation
     # - BasicStationEventScheduler //temporarily replaced with Ramping.
     - RampingStationEventScheduler
-    - GlimmerEventScheduler # DeltaV
+    - GlimmerEventScheduler

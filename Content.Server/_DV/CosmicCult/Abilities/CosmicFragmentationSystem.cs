@@ -11,9 +11,11 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
+using Content.Shared.Radio;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 
@@ -26,6 +28,8 @@ public sealed class CosmicFragmentationSystem : EntitySystem
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+
+    private ProtoId<RadioChannelPrototype> _cultRadio = "CosmicRadio";
 
     public override void Initialize()
     {
@@ -43,8 +47,7 @@ public sealed class CosmicFragmentationSystem : EntitySystem
     private void UnEmpower(Entity<CosmicCultComponent> ent)
     {
         var comp = ent.Comp;
-        comp.WasEmpowered = true; // empowerment spent! Now we set all the values back to their default.
-        comp.CosmicEmpowered = false;
+        comp.CosmicEmpowered = false; // empowerment spent! Now we set all the values back to their default.
         comp.CosmicSiphonQuantity = CosmicCultComponent.DefaultCosmicSiphonQuantity;
         comp.CosmicGlareRange = CosmicCultComponent.DefaultCosmicGlareRange;
         comp.CosmicGlareDuration = CosmicCultComponent.DefaultCosmicGlareDuration;
@@ -91,7 +94,7 @@ public sealed class CosmicFragmentationSystem : EntitySystem
 
     private void OnFragmentBorg(Entity<BorgChassisComponent> ent, ref MalignFragmentationEvent args)
     {
-        if (_polymorph.PolymorphEntity(args.Target, "CosmicFragmentationWisp") is not {} polyVictim)
+        if (_polymorph.PolymorphEntity(args.Target, "CosmicFragmentationWisp") is not { } polyVictim)
             return;
         var chantry = Spawn("CosmicBorgChantry", Transform(args.Target).Coordinates);
         EnsureComp<CosmicChantryComponent>(chantry, out var chantryComponent);
@@ -111,20 +114,18 @@ public sealed class CosmicFragmentationSystem : EntitySystem
 
     private void OnLawInserted(AILawUpdatedEvent args)
     {
-        var query = EntityQueryEnumerator<StationAiShopComponent, IntrinsicRadioTransmitterComponent, ActiveRadioComponent>();
-        while (query.MoveNext(out _, out _, out var radio, out var transmitter))
+        if (!TryComp<IntrinsicRadioTransmitterComponent>(args.Target, out var radio) || !TryComp<ActiveRadioComponent>(args.Target, out var transmitter))
+            return;
+        if (args.Lawset.Id == "CosmicCultLaws")
         {
-            if (args.Lawset.Id == "CosmicCultLaws")
-            {
-                radio.Channels.Add("CosmicRadio");
-                transmitter.Channels.Add("CosmicRadio");
-                _antag.SendBriefing(args.Target, Loc.GetString("cosmiccult-ai-subverted-briefing"), Color.FromHex("#4cabb3"), null);
-            }
-            else
-            {
-                radio.Channels.Remove("CosmicRadio");
-                transmitter.Channels.Remove("CosmicRadio");
-            }
+            radio.Channels.Add(_cultRadio);
+            transmitter.Channels.Add(_cultRadio);
+            _antag.SendBriefing(args.Target, Loc.GetString("cosmiccult-ai-subverted-briefing"), Color.FromHex("#4cabb3"), null);
+        }
+        else
+        {
+            radio.Channels.Remove(_cultRadio);
+            transmitter.Channels.Remove(_cultRadio);
         }
     }
 }

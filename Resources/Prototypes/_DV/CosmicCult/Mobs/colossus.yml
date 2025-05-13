@@ -1,7 +1,7 @@
 - type: entity
-  name: entropic colossus
   parent: [ BaseSimpleMob, FlyingMobBase ]
   id: MobCosmicColossus
+  name: entropic colossus
   components:
   - type: CosmicColossus
   - type: AntagImmune
@@ -65,22 +65,22 @@
       500: Dead
   - type: PointLight
     color: "#42a4ae"
-    radius: 2
-    energy: 3
+    radius: 4
+    energy: 4
     softness: 1
     castShadows: false
   - type: LightBehaviour
     behaviours:
-     - !type:FadeBehaviour
-       interpolate: Linear
-       minDuration: 5.5
-       maxDuration: 5.5
-       startValue: 1
-       endValue: 3
-       property: Energy
-       enabled: true
-       isLooped: true
-       reverseWhenFinished: true
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 5.5
+      maxDuration: 5.5
+      startValue: 1
+      endValue: 4
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
   - type: ComplexInteraction
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
