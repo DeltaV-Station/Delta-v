@@ -21,7 +21,7 @@
           tags:
           - WeaponShotgunKammerer
   - type: AccessReader
-    access: [["Security"], ["Command"]]
+    access: [["Security"], ["Vault"]] # DeltaV - Vault, was Command
 
 - type: entity
   parent: ShotGunCabinet

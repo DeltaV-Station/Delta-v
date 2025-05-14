@@ -33,8 +33,11 @@
   #- Service # DeltaV - Sec isn't service
   - External
   - Detective
-  - Corpsman # DeltaV - added Corpsman access
   - Cryogenics
+  # Begin DeltaV Additions
+  - Corpsman
+  - Vault
+  # End DeltaV Additions
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

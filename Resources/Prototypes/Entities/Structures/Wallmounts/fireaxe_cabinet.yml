@@ -53,7 +53,7 @@
           - FireAxe
   - type: Lock
   - type: AccessReader
-    access: [["Atmospherics"], ["Command"]]
+    access: [["Atmospherics"], ["Vault"]] # DeltaV - Vault, was Command
 
 - type: entity
   parent: FireAxeCabinet

@@ -317,4 +317,4 @@
   suffix: Vault, Locked
   components:
   - type: AccessReader
-    access: [["Security"], ["Command"]]
+    access: [["Security"], ["Vault"]] # DeltaV - Vault, was Command

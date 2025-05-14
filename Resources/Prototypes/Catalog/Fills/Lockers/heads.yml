@@ -397,7 +397,7 @@
   parent: LockerFreezerBase
   components:
   - type: AccessReader
-    access: [ [ "Command" ] ]
+    access: [ [ "Vault" ] ] # DeltaV - Vault, was Command
   - type: StorageFill
     contents:
     - id: WeaponRevolverDeckard
