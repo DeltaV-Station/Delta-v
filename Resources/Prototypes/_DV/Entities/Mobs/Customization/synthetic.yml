@@ -1,0 +1,19 @@
+﻿# Head Shapes
+- type: marking
+  id: SyntheticMammalHeadM
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _DV/Mobs/Customization/SyntheticIPC/head_markings.rsi
+    state: synth_mammal_head_m
+
+- type: marking
+  id: SyntheticIPCEyes
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: Mobs/Customization/eyes.rsi
+    state: eyes
+

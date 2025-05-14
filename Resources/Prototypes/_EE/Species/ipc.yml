@@ -31,7 +31,10 @@
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
-    Hair: MobHumanoidMarkingMatchSkin
+    # DeltaV - Adds new layer types for markings-sake
+    Eyes: MobHumanoidEyes
+    Hair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
     Chest: MobIPCTorso
     LArm: MobIPCLArm
     RArm: MobIPCRArm
@@ -46,11 +49,20 @@
   id: MobIPCMarkingLimits
   points:
     Hair:
-      points: 0
+      points: 1
       required: false
     FacialHair:
-      points: 0
+      points: 1
       required: false
+    # DeltaV - Adds ability to use more marking types
+    Tail:
+      points: 1
+      required: false
+    # DeltaV - Moves screen to the eyes layer
+    Eyes:
+      points: 1
+      required: true
+      defaultMarkings: [ MobIPCEyesDefault ]
     Head:
       points: 1
       required: true
@@ -67,6 +79,10 @@
       points: 4
       required: true
       defaultMarkings: [ MobIPCLArmDefault, MobIPCLHandDefault, MobIPCRArmDefault, MobIPCRHandDefault ]
+    # DeltaV - Adds ability to use more marking types
+    Snout:
+        points: 1
+        required: false
     HeadSide:
       points: 1
       required: false
@@ -98,6 +114,16 @@
   sprites:
   - sprite: _Shitmed/Mobs/Species/IPC/parts.rsi
     state: head_m
+
+# DeltaV - Moves screen to the eyes layer
+- type: marking
+  id: MobIPCEyesDefault
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: []
+  sprites:
+  - sprite: Mobs/Customization/eyes.rsi
+    state: no_eyes
 
 # Torso
 
