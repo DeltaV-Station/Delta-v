@@ -5,6 +5,7 @@
   components:
   - type: MindRole
     roleType: TeamAntagonist
+    subtype: role-subtype-lpo
     antagPrototype: ListeningPost
     exclusiveAntag: true
   - type: ListeningPostRole
@@ -15,7 +16,7 @@
   name: Fugitive Role
   components:
   - type: MindRole
-    roleType: SoloAntagonist
+    subtype: role-subtype-fugitive
     antagPrototype: Fugitive
     exclusiveAntag: true
   - type: FugitiveRole
@@ -26,7 +27,7 @@
   name: Recruiter Role
   components:
   - type: MindRole
-    roleType: SoloAntagonist
+    subtype: role-subtype-recruiter
     antagPrototype: Recruiter
     exclusiveAntag: true
   - type: RecruiterRole
@@ -40,6 +41,7 @@
   components:
   - type: MindRole
     roleType: FreeAgent
+    subtype: role-subtype-synthesis
     antagPrototype: SynthesisSpecialist
     exclusiveAntag: true
   - type: SynthesisRole
@@ -52,7 +54,7 @@
   name: Robo-Neuroticist Role
   components:
   - type: MindRole
-    roleType: SoloAntagonist
+    subtype: role-subtype-roboneuro
     antagPrototype:  RoboNeuroticist
     exclusiveAntag: true
   - type: RoboNeuroticistRole

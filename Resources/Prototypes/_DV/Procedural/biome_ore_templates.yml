@@ -1,3 +1,19 @@
+# Bluespace
+
+- type: biomeMarkerLayer
+  id: OreBluespace
+  entityMask:
+    AsteroidRock: AsteroidRockBluespace
+    WallRock: WallRockBluespace
+    WallRockBasalt: WallRockBasaltBluespace
+    WallRockChromite: WallRockChromiteBluespace
+    WallRockSand: WallRockSandBluespace
+    WallRockSnow: WallRockSnowBluespace
+  maxCount: 6
+  minGroupSize: 1
+  maxGroupSize: 3
+  radius: 4
+
 # these have higher group size so more ores spawns
 
 # Plasma

@@ -6,10 +6,14 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
+      time: 18000 #5 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
       time: 36000 #10 hrs
   weight: 5
   startingGear: WardenGear
   icon: "JobIconWarden"
+  ransomModifier: 2.5 # DeltaV - between sec and a head
   requireAdminNotify: true # DeltaV
   supervisors: job-supervisors-hos
   canBeAntag: false

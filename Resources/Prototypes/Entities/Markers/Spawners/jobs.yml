@@ -81,7 +81,7 @@
 - type: entity
   id: SpawnPointPassenger
   parent: SpawnPointJobBase
-  name: passenger
+  name: assistant # DeltaV - rename passenger to assistant
   components:
   - type: SpawnPoint
     job_id: Passenger

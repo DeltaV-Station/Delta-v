@@ -4,11 +4,12 @@
   description: job-description-detective
   playTimeTracker: JobDetective
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 54000 # 15 hours
+  - !type:RoleTimeRequirement
+    role: JobSecurityOfficer
+    time: 18000 #5 hrs
   startingGear: DetectiveGear
   icon: "JobIconDetective"
+  ransomModifier: 2 # DeltaV - Sec is less than heads
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:

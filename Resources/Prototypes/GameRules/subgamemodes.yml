@@ -2,6 +2,8 @@
   parent: BaseGameRule
   id: Thief
   components:
+  - type: GameRule # DeltaV - thieves need players to be fun against
+    minPlayers: 30
   - type: ThiefRule
   - type: AntagObjectives
     objectives:
@@ -22,7 +24,7 @@
     definitions:
     - prefRoles: [ Thief ]
       max: 3
-      playerRatio: 15
+      playerRatio: 25 # DeltaV - Thieves are higher impact so more people necessery
       lateJoinAdditional: true
       allowNonHumans: true
       multiAntagSetting: NotExclusive

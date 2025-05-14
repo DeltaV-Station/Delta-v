@@ -404,7 +404,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         return WarConditionStatus.YesWar;
     }
 
-    private void DistributeExtraTc(Entity<NukeopsRuleComponent> nukieRule)
+    public void DistributeExtraTc(Entity<NukeopsRuleComponent> nukieRule) // DeltaV - Public so our war can work
     {
         var enumerator = EntityQueryEnumerator<StoreComponent>();
         while (enumerator.MoveNext(out var uid, out var component))

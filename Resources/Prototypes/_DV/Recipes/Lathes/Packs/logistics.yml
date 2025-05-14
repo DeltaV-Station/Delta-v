@@ -1,6 +1,11 @@
 ## Dynamic
 
 - type: latheRecipePack
+  id: LogisticsBoards
+  recipes:
+  - SalvageExpeditionsComputerCircuitboard
+
+- type: latheRecipePack
   id: MiningDeltaV
   recipes:
   - Fulton
@@ -12,6 +17,10 @@
   - WeaponCrusher
   - WeaponCrusherDagger
   - WeaponCrusherGlaive
+  - WeaponProtoKineticAccelerator
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate
 
 - type: latheRecipePack
   id: SalvageHardsuits

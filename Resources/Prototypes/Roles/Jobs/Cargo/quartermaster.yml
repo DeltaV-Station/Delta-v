@@ -7,18 +7,17 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobCargoTechnician
-      time: 21600 #6 hrs
+      time: 18000 #5 hrs
     - !type:RoleTimeRequirement
       role: JobSalvageSpecialist
-      time: 10800 #3 hrs
+      time: 9000 #2.5 hrs
     - !type:DepartmentTimeRequirement
       department: Logistics # DeltaV - Logistics department replacing Cargo
       time: 36000 #10 hours
-    - !type:OverallPlaytimeRequirement
-      time: 144000 #40 hrs
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
+  ransomModifier: 2 # DeltaV - less than other heads since if you lose LO its probably harder to get money
   requireAdminNotify: true # DeltaV
   supervisors: job-supervisors-captain
   canBeAntag: false

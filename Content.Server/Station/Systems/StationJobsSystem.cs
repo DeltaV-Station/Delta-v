@@ -110,7 +110,7 @@ public sealed partial class StationJobsSystem : EntitySystem
         if (!TryAdjustJobSlot(station, jobPrototypeId, -1, false, false, stationJobs))
             return false;
         var playerJobAdded = new PlayerJobAddedEvent(netUserId, jobPrototypeId);
-        RaiseLocalEvent(station, ref playerJobAdded, false); // DeltaV added AddedPlayerJobsEvent for CaptainStateSystem
+        RaiseLocalEvent(station, ref playerJobAdded, false); // DeltaV added AddedPlayerJobsEvent for AutomaticSpareIdSystem
         stationJobs.PlayerJobs.TryAdd(netUserId, new());
         stationJobs.PlayerJobs[netUserId].Add(jobPrototypeId);
         return true;
@@ -208,7 +208,7 @@ public sealed partial class StationJobsSystem : EntitySystem
     {
         if (!Resolve(station, ref jobsComponent, false))
             return false;
-        // DeltaV added RemovedPlayerJobsEvent for CaptainStateSystem
+        // DeltaV added RemovedPlayerJobsEvent for AutomaticSpareIdSystem
         if (jobsComponent.PlayerJobs.Remove(userId, out var playerJobsEntry))
         {
             var playerJobRemovedEvent = new PlayerJobsRemovedEvent(userId, playerJobsEntry);
@@ -216,7 +216,7 @@ public sealed partial class StationJobsSystem : EntitySystem
             return true;
         }
         return false;
-        // DeltaV end added RemovedPlayerJobsEvent for CaptainStateSystem
+        // DeltaV end added RemovedPlayerJobsEvent for AutomaticSpareIdSystem
     }
 
     /// <inheritdoc cref="TrySetJobSlot(Robust.Shared.GameObjects.EntityUid,string,int,bool,Content.Server.Station.Components.StationJobsComponent?)"/>
