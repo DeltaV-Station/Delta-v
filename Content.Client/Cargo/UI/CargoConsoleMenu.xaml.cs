@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Client.Cargo.Systems;
 using Content.Client.UserInterface.Controls;
+using Content.Shared._DV.Traitor; // DeltaV
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
@@ -32,6 +33,7 @@ namespace Content.Client.Cargo.UI
         public event Action<ButtonEventArgs>? OnItemSelected;
         public event Action<ButtonEventArgs>? OnOrderApproved;
         public event Action<ButtonEventArgs>? OnOrderCanceled;
+        public event Action<NetEntity>? OnRansomPurchase; // DeltaV
 
         public event Action<ProtoId<CargoAccountPrototype>?, int>? OnAccountAction;
 
@@ -57,6 +59,7 @@ namespace Content.Client.Cargo.UI
 
             SearchBar.OnTextChanged += OnSearchBarTextChanged;
             Categories.OnItemSelected += OnCategoryItemSelected;
+            RansomContainer.OnPurchase += ent => OnRansomPurchase?.Invoke(ent); // DeltaV
 
             if (entMan.TryGetComponent<CargoOrderConsoleComponent>(owner, out var orderConsole))
             {
@@ -208,6 +211,7 @@ namespace Content.Client.Cargo.UI
 
                 var product = _protoManager.Index<EntityPrototype>(order.ProductId);
                 var productName = product.Name;
+                var account = _protoManager.Index(order.Account);
 
                 var row = new CargoOrderRow
                 {
@@ -219,7 +223,9 @@ namespace Content.Client.Cargo.UI
                             "cargo-console-menu-populate-orders-cargo-order-row-product-name-text",
                             ("productName", productName),
                             ("orderAmount", order.OrderQuantity),
-                            ("orderRequester", order.Requester))
+                            ("orderRequester", order.Requester),
+                            ("accountColor", account.Color),
+                            ("account", Loc.GetString(account.Code)))
                     },
                     Description =
                     {
@@ -233,6 +239,14 @@ namespace Content.Client.Cargo.UI
                 row.Approve.OnPressed += (args) => { OnOrderApproved?.Invoke(args); };
                 Requests.AddChild(row);
             }
+        }
+
+        /// <summary>
+        /// DeltaV: Forwards new ransom data to the ransom container.
+        /// </summary>
+        public void UpdateRansoms(List<RansomData> ransoms, int balance)
+        {
+            RansomContainer.UpdateRansoms(ransoms, balance);
         }
 
         public void PopulateAccountActions()
@@ -261,6 +275,7 @@ namespace Content.Client.Cargo.UI
         public void UpdateStation(EntityUid station)
         {
             _station = station;
+            RansomContainer.UpdateStation(_station); // DeltaV
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
@@ -282,6 +297,9 @@ namespace Content.Client.Cargo.UI
             AccountActionButton.Disabled = TransferSpinBox.Value <= 0 ||
                                            TransferSpinBox.Value > bankAccount.Accounts[orderConsole.Account] * orderConsole.TransferLimit ||
                                            _timing.CurTime < orderConsole.NextAccountActionTime;
+
+            OrdersSpacer.Visible = !orderConsole.SlipPrinter;
+            Orders.Visible = !orderConsole.SlipPrinter;
         }
     }
 }

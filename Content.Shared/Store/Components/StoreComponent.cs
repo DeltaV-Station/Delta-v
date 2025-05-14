@@ -74,6 +74,12 @@ public sealed partial class StoreComponent : Component
     public bool RefundAllowed;
 
     /// <summary>
+    /// DeltaV: Should the store grant actions to the mind?
+    /// </summary>
+    [DataField]
+    public bool GrantActionsToMind = true;
+
+    /// <summary>
     ///     Checks if store can be opened by the account owner only.
     ///     Not meant to be used with uplinks.
     /// </summary>

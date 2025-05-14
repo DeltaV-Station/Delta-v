@@ -15,3 +15,6 @@ reagent-desc-revivopine = An extremely effective medicine for combat purposes of
 
 reagent-name-corgium = corgium
 reagent-desc-corgium = A strange chemical imbued with the power to create life, specifically the cutest!
+
+reagent-name-muigroc = muigroc
+reagent-desc-muigroc = For very, very evil people who love corgis very, very much.

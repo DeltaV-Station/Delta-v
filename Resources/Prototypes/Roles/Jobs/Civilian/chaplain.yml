@@ -7,6 +7,7 @@
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
   supervisors: job-supervisors-rd # DeltaV - Change supervisor to mystagogue
+  canBeAntag: false # DeltaV - Can't be antag in case of Cultist antag presence. Remove this flag when antagselection is granularized.
   access:
   - Chapel
   - Research # DeltaV - Move Chaplain into Epistemics
@@ -28,3 +29,4 @@
     back:
     - Bible
     - RubberStampChaplain
+    - CosmicCenser # DeltaV - Cosmic Cult

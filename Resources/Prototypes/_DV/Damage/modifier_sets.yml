@@ -51,11 +51,11 @@
   id: Kitsune
   coefficients:
     Blunt: 1.2
-    Slash: 1.05
-    Piercing: 1.05
+    Slash: 1.1
+    Piercing: 1.1
     Radiation: 1.5
-    Heat: 0.75
-    Cold: 0.75
+    Heat: 0.85
+    Cold: 0.85
     Holy: 0.5
 
 - type: damageModifierSet
@@ -77,6 +77,7 @@
     Piercing: 0.2
     Shock: 0.0
     Heat: -0.5 # heat damage cauterizes wounds, but will still hurt obviously.
+    Cold: 0.0
     Poison: 0.0
     Radiation: 0.0
     Asphyxiation: 0.0

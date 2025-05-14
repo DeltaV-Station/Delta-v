@@ -8,9 +8,9 @@
   productEntity: Observationskit
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2
   cost:
-    Telecrystal: 6
+    Telecrystal: 4
   categories:
   - UplinkDeception
 
@@ -26,3 +26,17 @@
     Telecrystal: 1
   categories:
   - UplinkDeception
+
+- type: listing
+  id: HandheldStationMapRecordsTablet
+  name: uplink-records-tablet-name
+  description: uplink-records-tablet-desc
+  icon:
+    sprite: _DV/Objects/Devices/tablets.rsi
+    state: icon
+  productEntity: HandheldStationMapRecordsTablet
+  categories:
+  - UplinkDeception
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

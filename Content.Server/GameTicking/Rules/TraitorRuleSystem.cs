@@ -6,6 +6,7 @@ using Content.Server.Objectives;
 using Content.Server.PDA.Ringer;
 using Content.Server.Roles;
 using Content.Server.Traitor.Uplink;
+using Content.Shared._DV.Reputation; // DeltaV
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking.Components;
@@ -34,6 +35,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ReputationSystem _reputation = default!; // DeltaV
     [Dependency] private readonly SharedRoleCodewordSystem _roleCodewordSystem = default!;
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
@@ -184,13 +186,20 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is PDA");
             // Codes are only generated if the uplink is a PDA
-            code = EnsureComp<RingerUplinkComponent>(pda.Value).Code;
+            var ev = new GenerateUplinkCodeEvent();
+            RaiseLocalEvent(pda.Value, ref ev);
+            _reputation.AddContracts(traitor, pda.Value); // DeltaV
 
-            // If giveUplink is false the uplink code part is omitted
-            briefing = string.Format("{0}\n{1}",
-                briefing,
-                Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
-            return (code, briefing);
+            if (ev.Code is { } generatedCode)
+            {
+                code = generatedCode;
+
+                // If giveUplink is false the uplink code part is omitted
+                briefing = string.Format("{0}\n{1}",
+                    briefing,
+                    Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
+                return (code, briefing);
+            }
         }
         else if (pda is null && uplinked)
         {

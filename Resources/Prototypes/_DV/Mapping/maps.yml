@@ -43,6 +43,12 @@
   allowed:
   - Syndicate
 
+- type: mapCategories
+  id: SyndieJail
+  map: /Maps/_DV/Nonstations/syndie_jail.yml
+  allowed:
+  - Syndicate
+
 # Shuttles
 
 - type: mapCategories
@@ -93,6 +99,12 @@
   map: /Maps/Shuttles/wizard.yml
   allowed:
   - Wizard
+
+- type: mapCategories
+  id: TraderShip
+  map: /Maps/_DV/Shuttles/trader.yml
+  allowed:
+  - Stamps # Trader stamp
 
 # Ruins
 

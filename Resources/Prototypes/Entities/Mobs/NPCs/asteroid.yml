@@ -34,14 +34,14 @@
 
 - type: entity
   id: MobGoliath
-  parent: BaseMobAsteroid
+  parent: [ BaseMobAsteroid, MobBloodstream ]
   name: goliath
   description: A massive beast that uses long tentacles to ensnare its prey, threatening them is not advised under any conditions.
   components:
   - type: Body # Shitmed Change
     prototype: Goliath
   - type: Sprite
-    sprite: Mobs/Aliens/Asteroid/goliath.rsi
+    sprite: _DV/Mobs/Aliens/Asteroid/goliath.rsi # DeltaV - upstream uses ancient goliath sprites for some reason
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: goliath
@@ -54,6 +54,9 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.00
     baseSprintSpeed : 2.00
+  - type: Bloodstream
+    bloodMaxVolume: 350
+    chemicalMaxVolume: 0
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -68,10 +71,12 @@
       types:
         Slash: 10
         Piercing: 10
+    range: 1.12 # Goob - Allows kinetic crushers to fight them without taking guaranteed damage.
   - type: NpcFactionMember
     factions:
     - SimpleHostile
   - type: HTN
+    constantlyReplan: false
     rootTask:
       task: GoliathCompound
     blackboard:

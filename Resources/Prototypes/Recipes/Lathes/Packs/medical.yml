@@ -8,6 +8,8 @@
   - Gauze
 
 - type: latheRecipePack
+  parent:
+  - BasicChemistryStaticDeltaV # DeltaV
   id: BasicChemistryStatic
   recipes:
   - Beaker
@@ -15,6 +17,7 @@
   - Syringe
   - PillCanister
   - HandLabeler
+  - BaseChemistryEmptyVial
 
 - type: latheRecipePack
   parent:
