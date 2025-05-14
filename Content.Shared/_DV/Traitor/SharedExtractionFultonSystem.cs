@@ -31,7 +31,7 @@ public abstract class SharedExtractionFultonSystem : EntitySystem
         {
             Act = () => AttachFulton(ent, target, user),
             Text = Loc.GetString("extraction-fulton-verb-text"),
-            Disabled = FindBeacon(ent, target) != null
+            Disabled = FindBeacon(ent, target) == null
         });
     }
 
