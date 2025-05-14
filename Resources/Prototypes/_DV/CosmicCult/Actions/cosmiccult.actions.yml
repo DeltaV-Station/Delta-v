@@ -7,7 +7,7 @@
     useDelay: 50
     whitelist:
       components:
-        - HumanoidAppearance
+      - HumanoidAppearance
     blacklist:
       components:
       - CosmicCult
@@ -22,14 +22,13 @@
   id: ActionCosmicBlank
   name: Shunt Subjectivity
   description: Shunt your target's mind out of their body and unto the cosmic dark, temporarily rendering their body mindless.
-  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     canTargetSelf: true
     useDelay: 120
     whitelist:
       components:
-        - HumanoidAppearance
+      - HumanoidAppearance
     blacklist:
       components:
       - CosmicCult
@@ -44,7 +43,6 @@
   id: ActionCosmicPlaceMonument
   name: Beckon The Monument
   description: Call forth The Monument into realspace. Keep it hidden and safe from non-cultists!
-  categories: [ HideSpawnMenu ]
   components:
   - type: ConfirmableAction
     popup: cosmicability-monument-spawn-confirm
@@ -63,7 +61,6 @@
   id: ActionCosmicMoveMonument
   name: Relocate The Monument
   description: Your work is imperative, and the end is inevitable. Ensure that it is completed under your watch.
-  categories: [ HideSpawnMenu ]
   components:
   - type: ConfirmableAction
     popup: cosmicability-monument-move-confirm
@@ -82,9 +79,9 @@
   id: ActionCosmicReturn
   name: Return
   description: Dissipate your astral projection and return to your body.
-  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     itemIconStyle: NoItem
     useDelay: 0
     icon:
@@ -96,14 +93,13 @@
   id: ActionCosmicLapse
   name: Abberant Lapse
   description: Lapse your target's corporeal form, temporarily rendering it immutable, impassible, and frozen in place.
-  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     canTargetSelf: true
     useDelay: 45
     whitelist:
       components:
-        - HumanoidAppearance
+      - HumanoidAppearance
     blacklist:
       components:
       - BibleUser
@@ -117,7 +113,6 @@
   id: ActionCosmicGlare
   name: Null Glare
   description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you.
-  categories: [ HideSpawnMenu ]
   components:
   - type: ConfirmableAction
     popup: cosmicability-glare-confirm
@@ -125,6 +120,7 @@
     primeTime: 5 #increased to give you more time to figure out where you want to put it
   - type: InstantAction
     useDelay: 60
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -135,7 +131,6 @@
   id: ActionCosmicIngress
   name: Force Ingress
   description: Use a concentrated blast of power to force a secure doorway open.
-  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     useDelay: 25
@@ -152,10 +147,10 @@
   id: ActionCosmicImposition
   name: Vacuous Imposition
   description: You negate any incoming damage for a short time.
-  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     useDelay: 160
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -166,7 +161,6 @@
   id: ActionCosmicNova
   name: Astral Nova
   description: Hurl a large and disruptive blast of astral energy.
-  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     useDelay: 45
@@ -177,3 +171,22 @@
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: nova
     event: !type:EventCosmicNova {}
+
+- type: entity
+  id: ActionCosmicFragmentation
+  name: Malign Fragmentation
+  description: Transfer your malign empowerment into a digital system, such as an AI Upload Console, corrupting it in the process. Doing so will expend your empowerment.
+  components:
+  - type: LimitedCharges
+    maxCharges: 1
+  - type: EntityTargetAction
+    useDelay: 25
+    whitelist:
+      components:
+      # - BorgChassisComponent // Commented out for now
+      - SiliconLawUpdater
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: corruption
+    event: !type:EventCosmicFragmentation {}
