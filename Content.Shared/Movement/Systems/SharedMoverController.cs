@@ -53,18 +53,19 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly TagSystem _tags = default!;
     [Dependency] private   readonly TileMovementSystem _tileMovement = default!; // DeltaV
 
+    protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
+    protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
     protected EntityQuery<InputMoverComponent> MoverQuery;
+    protected EntityQuery<MapComponent> MapQuery;
+    protected EntityQuery<MapGridComponent> MapGridQuery;
     protected EntityQuery<MobMoverComponent> MobMoverQuery;
     protected EntityQuery<MovementRelayTargetComponent> RelayTargetQuery;
     protected EntityQuery<MovementSpeedModifierComponent> ModifierQuery;
+    protected EntityQuery<NoRotateOnMoveComponent> NoRotateQuery;
     protected EntityQuery<PhysicsComponent> PhysicsQuery;
     protected EntityQuery<RelayInputMoverComponent> RelayQuery;
     protected EntityQuery<PullableComponent> PullableQuery;
     protected EntityQuery<TransformComponent> XformQuery;
-    protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
-    protected EntityQuery<NoRotateOnMoveComponent> NoRotateQuery;
-    protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
-    protected EntityQuery<MapGridComponent> MapGridQuery;
     protected EntityQuery<NoShoesSilentFootstepsComponent> NoShoesSilentQuery; // DeltaV - NoShoesSilentFootstepsComponent
 
     private static readonly ProtoId<TagPrototype> FootstepSoundTag = "FootstepSound";
@@ -96,6 +97,7 @@ public abstract partial class SharedMoverController : VirtualController
         FootstepModifierQuery = GetEntityQuery<FootstepModifierComponent>();
         MapGridQuery = GetEntityQuery<MapGridComponent>();
         NoShoesSilentQuery = GetEntityQuery<NoShoesSilentFootstepsComponent>(); // DeltaV - NoShoesSilentFootstepsComponent
+        MapQuery = GetEntityQuery<MapComponent>();
 
         SubscribeLocalEvent<MovementSpeedModifierComponent, TileFrictionEvent>(OnTileFriction);
 
