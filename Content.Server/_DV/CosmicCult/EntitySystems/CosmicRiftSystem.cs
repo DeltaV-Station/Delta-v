@@ -141,7 +141,7 @@ public sealed class CosmicRiftSystem : EntitySystem
         comp.CosmicGlareRange = 10;
         comp.CosmicGlareDuration = TimeSpan.FromSeconds(10);
         comp.CosmicGlareStun = TimeSpan.FromSeconds(1);
-        comp.CosmicImpositionDuration = TimeSpan.FromSeconds(7.2);
+        comp.CosmicImpositionDuration = TimeSpan.FromSeconds(7.4);
         comp.CosmicBlankDuration = TimeSpan.FromSeconds(26);
         comp.CosmicBlankDelay = TimeSpan.FromSeconds(0.4);
         comp.Respiration = false;

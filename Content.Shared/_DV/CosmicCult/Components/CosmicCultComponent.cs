@@ -73,8 +73,8 @@ public sealed partial class CosmicCultComponent : Component
     /// <summary>
     /// The duration of Vacuous Imposition's shield.
     /// </summary>
-    [DataField] public TimeSpan CosmicImpositionDuration = TimeSpan.FromSeconds(5.8);
-    public static readonly TimeSpan DefaultCosmicImpositionDuration = TimeSpan.FromSeconds(5.8);
+    [DataField] public TimeSpan CosmicImpositionDuration = TimeSpan.FromSeconds(5.9);
+    public static readonly TimeSpan DefaultCosmicImpositionDuration = TimeSpan.FromSeconds(5.9);
 
     /// <summary>
     /// The duration of Null Glare's flash/disorientation.
