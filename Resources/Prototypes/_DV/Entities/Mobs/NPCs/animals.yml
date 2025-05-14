@@ -267,9 +267,9 @@
     - VimPilot
   - type: MeleeWeapon
     soundHit:
-        path: /Audio/Effects/bite.ogg
+      path: /Audio/Effects/bite.ogg
     angle: 0
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 0.5 #very minimal damage, 'mostly harmless'.
+        Piercing: 0.5 # Minimal damage, 'mostly harmless'.
