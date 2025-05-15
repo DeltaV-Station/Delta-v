@@ -9,7 +9,7 @@
   # end-backmen: species
   components:
     - type: RandomHumanoidAppearance
-      randomizeName: true # DeltaV - WHY WOULD YOU NOT
+      randomizeName: false
     - type: GhostTakeoverAvailable
     - type: IdBind
 
