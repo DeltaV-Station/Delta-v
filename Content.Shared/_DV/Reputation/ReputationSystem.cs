@@ -210,6 +210,7 @@ public sealed class ReputationSystem : EntitySystem
                     NextUnlock = _timing.CurTime + ent.Comp.AcceptDelay
                 };
                 Dirty(ent);
+                UpdateUI(ent);
                 continue;
             }
 
@@ -219,9 +220,8 @@ public sealed class ReputationSystem : EntitySystem
                 Title = _contract.ContractName(objective)
             };
             Dirty(ent);
+            UpdateUI(ent);
         }
-
-        UpdateUI(ent);
     }
 
     /// <summary>
