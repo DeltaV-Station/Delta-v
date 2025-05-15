@@ -183,13 +183,13 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink add");
         var uplinked = _uplink.AddUplink(traitor, startingBalance, pda, true);
 
+        _reputation.AddContracts(traitor, pda); // DeltaV
         if (pda is not null && uplinked)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is PDA");
             // Codes are only generated if the uplink is a PDA
             var ev = new GenerateUplinkCodeEvent();
             RaiseLocalEvent(pda.Value, ref ev);
-            _reputation.AddContracts(traitor, pda.Value); // DeltaV
 
             if (ev.Code is { } generatedCode)
             {

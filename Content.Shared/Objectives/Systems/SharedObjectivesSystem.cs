@@ -49,7 +49,7 @@ public abstract class SharedObjectivesSystem : EntitySystem
                     return false;
             }
             // Begin DeltaV Additions - check available contracts too
-            if (_reputation.GetMindContracts(mindId) is {} contracts)
+            if (_reputation.GetContracts(mindId) is {} contracts)
             {
                 foreach (var objective in contracts.Comp.Offerings)
                 {
