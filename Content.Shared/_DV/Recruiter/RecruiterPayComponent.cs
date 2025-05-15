@@ -12,6 +12,7 @@ namespace Content.Shared._DV.Recruiter;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RecruiterPayComponent : Component
 {
+
 }
 /// <summary>
 /// Raised on an entity when it is successfully recruited by a recruiter pen

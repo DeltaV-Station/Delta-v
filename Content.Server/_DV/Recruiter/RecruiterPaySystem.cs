@@ -14,9 +14,9 @@ namespace Content.Server._DV.Recruiter;
 /// <summary>
 /// Handles Recruiter Payment
 /// </summary>
+public sealed class RecruiterPaySystem : EntitySystem
 {
-    public sealed class RecruiterPaySystem : EntitySystem
-    {
+
     [Dependency] private readonly SharedJobSystem _jobs = default!;
     private PayoutEvent user;
 
@@ -28,8 +28,6 @@ namespace Content.Server._DV.Recruiter;
 
     private void Payout(Entity<RecruiterPayComponent> ent, ref PayoutEvent args)
     {
-        args = user;
-        _jobs.MindTryGetJobName(user);
-    }
+        return;
     }
 }
