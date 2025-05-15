@@ -1,4 +1,4 @@
-using Content.Shared._Shitmed.Humanoid.Events;
+using Content.Shared._DV.Humanoid;
 using Content.Shared.Actions;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Hands.Components;
@@ -22,15 +22,31 @@ public abstract class SharedKitsuneSystem : EntitySystem
         SubscribeLocalEvent<KitsuneComponent, CreateFoxfireActionEvent>(OnCreateFoxfire);
         SubscribeLocalEvent<FoxfireComponent, ComponentShutdown>(OnFoxfireShutdown);
         SubscribeLocalEvent<KitsuneComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<KitsuneComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished);
+        SubscribeLocalEvent<KitsuneComponent, AppearanceLoadedEvent>(OnProfileLoadFinished);
     }
 
-    private void OnProfileLoadFinished(Entity<KitsuneComponent> ent, ref ProfileLoadFinishedEvent args)
+    private void OnProfileLoadFinished(Entity<KitsuneComponent> ent, ref AppearanceLoadedEvent args)
     {
         // Eye color is stored on component to be used for fox fire/fox form color.
         if (TryComp<HumanoidAppearanceComponent>(ent, out var humanComp))
         {
             ent.Comp.Color = humanComp.EyeColor;
+
+            var lightColor = ent.Comp.Color.Value;
+            var max = MathF.Max(lightColor.R, MathF.Max(lightColor.G, lightColor.B));
+            // Don't let it divide by 0
+            if (max == 0)
+            {
+                lightColor = new Color(1, 1, 1, lightColor.A);
+            }
+            else
+            {
+                var factor = 1 / max;
+                lightColor.R *= factor;
+                lightColor.G *= factor;
+                lightColor.B *= factor;
+            }
+            ent.Comp.ColorLight = lightColor;
         }
     }
 
@@ -71,7 +87,7 @@ public abstract class SharedKitsuneSystem : EntitySystem
         Dirty(fireEnt, fireComp);
         Dirty(ent);
 
-        _light.SetColor(fireEnt, ent.Comp.Color ?? Color.Purple);
+        _light.SetColor(fireEnt, ent.Comp.ColorLight ?? Color.Purple);
     }
 
     private void OnFoxfireShutdown(Entity<FoxfireComponent> ent, ref ComponentShutdown args)

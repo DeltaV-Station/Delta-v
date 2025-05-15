@@ -148,7 +148,7 @@
     - id: NewtonCradle
     - id: BoxEnvelope
     - id: BrbSign
-    # Begin DeltaV - More folders & colored paper reams in the bureaucracy crate, low chance of paperwork hater stamp
+    # Begin DeltaV - More folders & colored paper reams in the bureaucracy crate + denied/approved stamp, low chance of paperwork hater stamp
     - id: BoxFolderBlack
       amount: 2
     - id: BoxFolderGrey
@@ -159,7 +159,9 @@
     - id: BoxReamBright
     - id: RubberStampHatePaperwork
       prob: 0.05
-    # End DeltaV - More folders & colored paper reams in the bureaucracy crate, low chance of paperwork hater stamp
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    # End DeltaV - More folders & colored paper reams in the bureaucracy crate + denied/approved stamp, low chance of paperwork hater stamp
 
 - type: entity
   id: CrateServiceFaxMachine

@@ -1,0 +1,37 @@
+# requires that the player extract an item using syndicate fultons
+- type: entity
+  abstract: true
+  parent: BaseLivingObjective
+  id: BaseExtractObjective
+  components:
+  - type: ExtractCondition
+    objectiveNoOwnerText: objective-condition-extract-title-no-owner
+    objectiveText: objective-condition-extract-title
+    descriptionText: objective-condition-extract-description
+  - type: CodeCondition
+  - type: StoreUnlocker
+    listings:
+    - SyndieFulton
+
+# requires that the player ransom another player using syndicate fultons (and batong)
+- type: entity
+  abstract: true
+  parent: BaseTargetObjective
+  id: BaseRansomObjective
+  components:
+  - type: CodeCondition
+  - type: RansomCondition
+
+# requires that the player kill a target once
+- type: entity
+  abstract: true
+  parent: BaseTargetObjective
+  id: BaseTeachLessonObjective
+  components:
+  - type: Objective
+    unique: false
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      state: icon
+  - type: TeachLessonCondition
+  - type: CodeCondition

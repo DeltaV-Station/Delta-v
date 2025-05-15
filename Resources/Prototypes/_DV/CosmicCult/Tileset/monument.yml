@@ -15,7 +15,7 @@
       MonumentCollider:
         shape:
           !type:PhysShapeAabb
-          bounds: "-1.1,-0.2,1.1,0.7"
+          bounds: "-1.5,-0.5,1.5,0.6"
         mask:
         - LargeMobMask
         layer:
@@ -24,7 +24,7 @@
         hard: false
   - type: Visibility
     layer: 16
-  - type: SpriteFade
+  # - type: SpriteFade
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
