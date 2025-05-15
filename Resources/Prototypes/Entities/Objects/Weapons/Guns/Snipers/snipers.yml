@@ -46,7 +46,7 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
-  - type: GunRequiresWield # DeltaV - Firing a bolt action is.. incredibly unweildy with one hand.
+  - type: GunRequiresWield
 
 - type: entity
   name: Hristov
@@ -117,7 +117,7 @@
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-  - type: GunRequiresWield # DeltaV - Firing a muzzle loader is.. incredibly unweildy with one hand.
+  - type: GunRequiresWield
 
 - type: entity
   name: flintlock pistol
