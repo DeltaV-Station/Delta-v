@@ -2,95 +2,19 @@
   parent: CrateGenericSteel
   id: CrateFurnitureDecorativePlants
   name: potted plants
-  description: Spruce up your place with a little foliage. Contains four pre-potted plants.
+  description: Spruce up your place with a little foliage. Contains four pre-seeded plant pots.
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage: !type:AllSelector
+      entity_storage: !type:GroupSelector
         children:
-        - !type:GroupSelector
-          children:
-          - id: PottedPlant0
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant1
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant2
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant3
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant4
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant5
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant6
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant7
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant8
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlantBioluminscent
-            prob: 0.10
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant10
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant11
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant12
-            amount: !type:ConstantNumberSelector
-              value: 2
-        - !type:GroupSelector
-          children:
-          - id: PottedPlant13
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant14
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant15
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant16
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant17
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant18
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant19
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant10
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant21
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant22
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant23
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant24
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant26
-            amount: !type:ConstantNumberSelector
-              value: 2
+        - id: PlantPotPreSeeded
+          weight: 10
+          amount: !type:ConstantNumberSelector
+            value: 4
+        - id: PlantPotPreSeededBioluminscent
+          amount: !type:ConstantNumberSelector
+            value: 4
 
 - type: entity
   parent: CrateGenericSteel
@@ -102,19 +26,6 @@
     containers:
       entity_storage: !type:AllSelector
         children:
-        - !type:GroupSelector
-          children:
-          - id: PottedPlant27
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant28
-            amount: !type:ConstantNumberSelector
-              value: 2
-        - !type:GroupSelector
-          children:
-          - id: PottedPlant29
-            amount: !type:ConstantNumberSelector
-              value: 2
-          - id: PottedPlant30
-            amount: !type:ConstantNumberSelector
-              value: 2
+        - id: PlantPotPreSeededPlastic
+          amount: !type:ConstantNumberSelector
+            value: 4
