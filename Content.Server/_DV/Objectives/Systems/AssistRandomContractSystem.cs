@@ -35,7 +35,7 @@ public sealed class AssistRandomContractSystem : EntitySystem
         if (!_target.GetTarget(ent, out var target))
             return;
 
-        if (_reputation.GetMindContracts(target.Value) is not {} contracts)
+        if (_reputation.GetContracts(target) is not {} contracts)
             return;
 
         _available.Clear();
