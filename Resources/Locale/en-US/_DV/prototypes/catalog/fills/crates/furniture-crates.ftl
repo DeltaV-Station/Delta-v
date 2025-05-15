@@ -1,4 +1,4 @@
 ent-CrateFurnitureDecorativePlants = potted plants crate
     .desc = Spruce up your place with a little foliage. Contains four pre-potted plants.
-ent-CrateFurnitureDecorativePlantsPlastic = potted plastic plants
+ent-CrateFurnitureDecorativePlantsPlastic = potted plastic plants crate
     .desc = Spruce up your place with a little foliage. Contains four pre-potted plastic plants.
