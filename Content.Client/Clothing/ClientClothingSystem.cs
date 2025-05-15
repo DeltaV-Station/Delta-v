@@ -8,6 +8,7 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
@@ -105,8 +106,18 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         List<PrototypeLayerData>? layers = null;
 
+        // Begin DeltaV Additions - IPC snouts
+        if (inventory.TemplateId == "ipc" && args.Slot is "head" or "mask" &&
+            TryComp(args.Equipee, out HumanoidAppearanceComponent? humanoidAppearance) &&
+            humanoidAppearance.ClientOldMarkings.Markings.TryGetValue(MarkingCategories.Snout, out var data) &&
+            data.Count > 0)
+
+        {
+            item.ClothingVisuals.TryGetValue($"{args.Slot}-vulpkanin", out layers);
+        }
+
         // first attempt to get species specific data.
-        if (inventory.SpeciesId != null)
+        if (layers == null && inventory.SpeciesId != null) // End DeltaV Additions
             item.ClothingVisuals.TryGetValue($"{args.Slot}-{inventory.SpeciesId}", out layers);
 
         // if that returned nothing, attempt to find generic data
