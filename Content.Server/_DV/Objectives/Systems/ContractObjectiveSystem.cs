@@ -85,7 +85,7 @@ public sealed class ContractObjectiveSystem : SharedContractObjectiveSystem
         var coords = Transform(mob).Coordinates;
         var amountRemaining = ent.Comp.Payment;
         var proto = _proto.Index(ent.Comp.Currency);
-        foreach (var value in proto.Cash.Keys.OrderByDescending(x => x))
+        foreach (var value in proto.Cash!.Keys.OrderByDescending(x => x))
         {
             var cashId = proto.Cash[value];
             var amountToSpawn = (int) MathF.Floor((float) (amountRemaining / value));
