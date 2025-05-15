@@ -75,14 +75,6 @@ namespace Content.Shared.Communications
     {
     }
 
-    // Begin DeltaV - Exfiltration Shuttle
-    [Serializable, NetSerializable]
-    public sealed class CommunicationsConsoleCallExfiltrationShuttleMessage : BoundUserInterfaceMessage;
-
-    [Serializable, NetSerializable]
-    public sealed class CommunicationsConsoleRecallExfiltrationShuttleMessage : BoundUserInterfaceMessage;
-    // End DeltaV - Exfiltration Shuttle
-
     [Serializable, NetSerializable]
     public enum CommunicationsConsoleUiKey
     {

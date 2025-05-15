@@ -1,6 +1,7 @@
 ﻿using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Communications;
+using Content.Shared._DV.Communications; // DeltaV - Exfiltration shuttle
 using Robust.Client.UserInterface;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
@@ -50,20 +51,7 @@ namespace Content.Client.Communications.UI
         // Begin DeltaV - Exfiltration Shuttle
         public void ExfiltrationShuttleButtonPressed()
         {
-            if (_menu!.CountdownStarted)
-                RecallExfiltration();
-            else
-                CallExfiltration();
-        }
-
-        public void CallExfiltration()
-        {
-            SendMessage(new CommunicationsConsoleCallExfiltrationShuttleMessage());
-        }
-
-        public void RecallExfiltration()
-        {
-            SendMessage(new CommunicationsConsoleRecallExfiltrationShuttleMessage());
+            SendMessage(new CommunicationsConsoleExfiltrationShuttleMessage(!_menu!.CountdownStarted));
         }
         // End DeltaV - Exfiltration Shuttle
 
