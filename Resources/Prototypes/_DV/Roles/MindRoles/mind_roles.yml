@@ -61,13 +61,13 @@
 
 - type: entity
   parent: BaseMindRoleAntag
-  id: MindRoleClosetSkeleton
-  name: Closet Skeleton Role
+  id: MindRoleMenaceSkeleton
+  name: Menace Skeleton Role
   components:
   - type: MindRole
     roleType: FreeAgent
-    antagPrototype: ClosetSkeleton
+    antagPrototype: MenaceSkeleton
     exclusiveAntag: true
-  - type: ClosetSkeletonRole
+  - type: MenaceSkeletonRole
   - type: RoleBriefing
     briefing: skeleton-role-briefing

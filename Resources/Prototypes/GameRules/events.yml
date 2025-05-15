@@ -33,7 +33,7 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: BasicAntagEventsTableDeltaV
-    - id: ClosetSkeleton
+    #- id: ClosetSkeleton # DeltaV - replaced with MenaceSkeleton
     - id: DragonSpawn
     #- id: KingRatMigration # DeltaV - disabled
     - id: NinjaSpawn

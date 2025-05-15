@@ -3,4 +3,4 @@ using Content.Shared.Roles;
 namespace Content.Shared._DV.Roles;
 
 [RegisterComponent]
-public sealed partial class ClosetSkeletonRoleComponent : BaseMindRoleComponent;
+public sealed partial class MenaceSkeletonRoleComponent : BaseMindRoleComponent;
