@@ -74,14 +74,10 @@ public sealed class StationExfiltrationSystem : EntitySystem
     private bool PrepareShuttle(Entity<StationExfiltrationComponent> ent)
     {
         if (ent.Comp.SpawnedShuttle is not null)
-        {
             return true;
-        }
 
         if (!TryComp<StationCentcommComponent>(ent, out var centcomm) || !TryComp<MapComponent>(centcomm.MapEntity, out var centcommMap))
-        {
             return false;
-        }
 
         if (!_loader.TryLoadGrid(centcommMap.MapId,
             ent.Comp.ShuttlePath,

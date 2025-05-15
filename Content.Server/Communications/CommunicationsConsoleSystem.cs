@@ -339,7 +339,6 @@ namespace Content.Server.Communications
             _roundEndSystem.CancelRoundEndCountdown(uid);
             _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(message.Actor):player} has recalled the shuttle.");
         }
-
     }
 
     /// <summary>
