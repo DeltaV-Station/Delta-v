@@ -17,6 +17,7 @@ namespace Content.Shared.Humanoid
         Snout,
         HeadSide, // side parts (i.e., frills)
         HeadTop,  // top parts (i.e., ears)
+        NeckFluff, // for fluff on necks #Den port
         Eyes,
         RArm,
         LArm,

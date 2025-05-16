@@ -1,0 +1,46 @@
+- type: emote
+  id: CowMoo
+  name: chat-emote-name-cowmoo
+  category: Vocal
+  icon: Interface/Emotes/caw.png
+  whitelist:
+    tags:
+    - HarpyEmotes
+    - SiliconEmotes
+    - OniEmotes
+    - HumanEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [ moos ]
+  chatTriggers:
+    - moos
+    - moo
+
+# Ovinia
+- type: emote
+  id: Baa
+  name: chat-emote-name-baa
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/caw.png
+  whitelist:
+    tags:
+    - HarpyEmotes
+    - OviniaEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [ baas ]
+  chatTriggers:
+    - baas
+    - baa
+    - baahs
+    - baah
+    - baahed
+    - baah'd
+    - baahing
+    - bah
+    - bahs
+    - bahed
+    - bah'd

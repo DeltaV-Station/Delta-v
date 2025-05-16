@@ -1,0 +1,32 @@
+- type: entity
+  save: false
+  name: Urist McSheepy
+  parent: MobOviniaBase
+  id: MobOvinia
+  components:
+    - type: CombatMode
+    - type: MindContainer
+      showExamineInfo: true
+    - type: Input
+      context: "human"
+    - type: Speech
+      speechVerb: Ovinia
+    - type: MobMover
+    - type: InputMover
+    - type: Respirator
+      damage:
+        types:
+          Asphyxiation: 1.0
+      damageRecovery:
+        types:
+          Asphyxiation: -1.0
+    - type: Alerts
+    - type: Actions
+    - type: Eye
+    - type: CameraRecoil
+    - type: Examiner
+    - type: CanHostGuardian
+    - type: NpcFactionMember
+      factions:
+        - NanoTrasen
+        - AnimalFriend
