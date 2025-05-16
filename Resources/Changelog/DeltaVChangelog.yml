@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Dirius77
-  changes:
-  - message: Made the Tesla much slower to fade after power loss.
-    type: Tweak
-  id: 902
-  time: '2025-01-12T23:16:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2710
 - author: Radezolid
   changes:
   - message: CMO's lockers now spawn with a ChemMaster flatpack inside to aid the
@@ -4103,3 +4096,11 @@
   id: 1401
   time: '2025-05-16T01:51:13.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3747
+- author: sowelipililimute
+  changes:
+  - message: The station can now call a GALPOL exfiltration shuttle to exfiltrate
+      anyone it cannot contain itself
+    type: Add
+  id: 1402
+  time: '2025-05-16T19:27:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3722
