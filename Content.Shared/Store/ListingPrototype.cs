@@ -38,6 +38,7 @@ public partial class ListingData : IEquatable<ListingData>
         other.ID,
         other.Categories,
         other.OriginalCost,
+        other.Reputation, // DeltaV
         other.RestockTime,
         other.DiscountDownTo,
         other.DisableRefund
@@ -63,6 +64,7 @@ public partial class ListingData : IEquatable<ListingData>
         string id,
         HashSet<ProtoId<StoreCategoryPrototype>> categories,
         IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2> originalCost,
+        int? reputation, // DeltaV
         TimeSpan restockTime,
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo,
         bool disableRefund
@@ -84,6 +86,7 @@ public partial class ListingData : IEquatable<ListingData>
         ID = id;
         Categories = categories.ToHashSet();
         OriginalCost = originalCost;
+        Reputation = reputation; // DeltaV
         RestockTime = restockTime;
         DiscountDownTo = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>(dataDiscountDownTo);
         DisableRefund = disableRefund;
@@ -186,6 +189,13 @@ public partial class ListingData : IEquatable<ListingData>
     public int PurchaseAmount;
 
     /// <summary>
+    /// DeltaV - Reputation required for traitors to purchase this.
+    /// This is ignored for non-traitor stores.
+    /// </summary>
+    [DataField]
+    public int? Reputation;
+
+    /// <summary>
     /// Used to delay purchase of some items.
     /// </summary>
     [DataField]
@@ -215,6 +225,7 @@ public partial class ListingData : IEquatable<ListingData>
             ProductEntity != listing.ProductEntity ||
             ProductAction != listing.ProductAction ||
             ProductEvent?.GetType() != listing.ProductEvent?.GetType() ||
+            Reputation != listing.Reputation || // DeltaV
             RestockTime != listing.RestockTime)
             return false;
 
@@ -295,6 +306,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.ID,
             listingData.Categories,
             listingData.OriginalCost,
+            listingData.Reputation, // DeltaV
             listingData.RestockTime,
             listingData.DiscountDownTo,
             listingData.DisableRefund

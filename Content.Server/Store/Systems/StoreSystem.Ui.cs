@@ -3,6 +3,7 @@ using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
+using Content.Shared._DV.Reputation; // DeltaV
 using Content.Shared.Actions;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
@@ -26,6 +27,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly ActionUpgradeSystem _actionUpgrade = default!;
+    [Dependency] private readonly ReputationSystem _reputation = default!; // DeltaV
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StackSystem _stack = default!;
@@ -142,6 +144,11 @@ public sealed partial class StoreSystem
         //verify that we can actually buy this listing and it wasn't added
         if (!ListingHasCategory(listing, component.Categories))
             return;
+
+        // Begin DeltaV Additions - Check rep incase of malf clients
+        if (!_reputation.CanStorePurchase(uid, listing.Reputation))
+            return;
+        // End DeltaV Additions
 
         //condition checking because why not
         if (listing.Conditions != null)

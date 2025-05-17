@@ -10,12 +10,11 @@
     Telecrystal: 10
   categories:
   - UplinkWeaponry
+  reputation: 30 # Melee Weapons
   conditions:
   - !type:BuyerSpeciesCondition
     whitelist:
     - Oni
-  - !type:ReputationCondition
-    reputation: 30 # Melee Weapons
 
 - type: listing
   id: UplinkRickenbacker
@@ -29,12 +28,11 @@
     Telecrystal: 10
   categories:
   - UplinkJob
+  reputation: 20 # Melee Weapons
   conditions:
   - !type:BuyerJobCondition
     whitelist:
     - Musician
-  - !type:ReputationCondition
-    reputation: 20 # Melee Weapons
 
 - type: listing
   id: UplinkSamurai
@@ -48,6 +46,7 @@
     Telecrystal: 6
   categories:
   - UplinkWearables
+  reputation: 15 # Armour
   conditions:
   - !type:BuyerSpeciesCondition
     whitelist:
@@ -56,5 +55,3 @@
     blacklist:
       components:
       - SurplusBundle
-  - !type:ReputationCondition
-    reputation: 15 # Armour
