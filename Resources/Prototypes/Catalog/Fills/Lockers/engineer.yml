@@ -118,7 +118,7 @@
       - id: DoorRemoteFirefight # DeltaV - Re-added fire-fighting remote.
       - id: RCD
       - id: RCDAmmo
-      - id: LunchboxEngineeringFilledRandom # Delta-V Lunchboxes!
+      - id: LunchboxEngineeringFilledRandom # DeltaV - Lunchboxes!
         prob: 0.3
 
 - type: entity
@@ -138,7 +138,7 @@
       - id: DoorRemoteFirefight # DeltaV - Re-added fire-fighting remote.
       - id: RCD
       - id: RCDAmmo
-      - id: LunchboxEngineeringFilledRandom # Delta-V Lunchboxes!
+      - id: LunchboxEngineeringFilledRandom # DeltaV - Lunchboxes!
         prob: 0.3
 
 - type: entity
@@ -154,8 +154,9 @@
       - id: ClothingShoesBootsMag
       - id: RCD
       - id: RCDAmmo
-      - id: LunchboxEngineeringFilledRandom # Delta-V Lunchboxes!
+      - id: LunchboxEngineeringFilledRandom # DeltaV - Lunchboxes!
         prob: 0.3
+      - id: MetalFoamGrenade
 
 - type: entity
   id: LockerEngineerFilled
@@ -169,8 +170,9 @@
       - id: trayScanner
       - id: RCD
       - id: RCDAmmo
-      - id: LunchboxEngineeringFilledRandom # Delta-V Lunchboxes!
+      - id: LunchboxEngineeringFilledRandom # DeltaV - Lunchboxes!
         prob: 0.3
+      - id: MetalFoamGrenade
 
 - type: entity
   id: ClosetRadiationSuitFilled
