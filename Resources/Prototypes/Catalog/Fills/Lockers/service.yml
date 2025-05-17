@@ -32,7 +32,7 @@
 - type: entity
   id: ClosetChefFilled
   suffix: Filled
-  parent: ClosetChef
+  parent: LockerKitchen # Delta V - Use DV secure lockers/sprites
   components:
   - type: StorageFill
     contents:
@@ -62,7 +62,7 @@
 - type: entity
   id: ClosetJanitorFilled
   suffix: Filled
-  parent: ClosetJanitor
+  parent: LockerJanitor # Delta V - Use DV secure lockers/sprites
   components:
   - type: StorageFill
     contents:
