@@ -23,6 +23,14 @@
 
 - type: latheRecipe
   parent: BaseToolRecipe
+  id: RadioHandheld
+  result: RadioHandheld
+  materials:
+    Steel: 200
+    Plastic: 200
+
+- type: latheRecipe
+  parent: BaseToolRecipe
   id: HoloprojectorEngineering
   result: HoloprojectorEngineeringEmpty
   completetime: 8
