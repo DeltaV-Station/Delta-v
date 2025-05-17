@@ -30,6 +30,8 @@
     - id: FoodMeatCorgi
       amount: 2
     - id: MaterialHideCorgi
+    - id: Telecrystal5 # DeltaV - Ian is valid
+      amount: 1
   - type: Tag
     tags:
     - CannotSuicide
@@ -705,6 +707,13 @@
     - FootstepSound
   - type: StealTarget
     stealGroup: AnimalSecurity # DeltaV - Adjusts because we have multiple possible sec animals
+  - type: Butcherable # DeltaV - Shiva is valid
+    spawned:
+    - id: FoodMeatSpider
+      amount: 2
+    - id: Telecrystal5 # DeltaV - Ian is valid
+      amount: 1
+    
 
 - type: entity
   name: Willow
