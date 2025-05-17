@@ -275,8 +275,8 @@
       - !type:DepartmentTimeRequirement
         department: Security
         time: 18000 #5 hrs
-      - !type:DepartmentTimeRequirement
-        department: Civilian
+      - !type:RoleTimeRequirement
+        role: JobJanitor
         time: 18000 #5 hrs
       # End DeltaV additions
       raffle:
