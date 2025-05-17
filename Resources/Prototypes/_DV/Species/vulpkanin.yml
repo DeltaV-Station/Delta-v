@@ -21,7 +21,8 @@
     Snout: MobHumanoidAnyMarking
     UndergarmentTop: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
-    Chest: MobVulpkaninTorso
+    Chest: MobVulpkaninChest
+    Groin: MobVulpkaninGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -84,22 +85,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobVulpkaninTorso
+  id: MobVulpkaninChest
   baseSprite:
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobVulpkaninTorsoMale
+  id: MobVulpkaninChestMale
   baseSprite:
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobVulpkaninTorsoFemale
+  id: MobVulpkaninChestFemale
   baseSprite:
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobVulpkaninGroin
+  baseSprite:
+    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobVulpkaninGroinMale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobVulpkaninGroinFemale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLLeg

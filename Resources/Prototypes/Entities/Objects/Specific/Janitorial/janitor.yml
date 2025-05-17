@@ -124,6 +124,9 @@
     sprite: Objects/Specific/Janitorial/wet_floor_sign.rsi
     size: Normal
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
     modifiers:
       coefficients:
         Blunt: 0.95

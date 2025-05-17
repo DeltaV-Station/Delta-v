@@ -152,6 +152,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain # Shitmed Change
+        amount: 1.2
+        time: 30 # it accumulated 1.2 * quantity and then exists for 30 seconds.
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        amount: 0.04
       - !type:HealthChange
         damage:
           groups:
@@ -174,6 +182,15 @@
         - !type:ReagentThreshold
           min: 15
       - !type:Drunk
+      - !type:AdjustConsciousness # Shitmed Change
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -1.2
+        time: 12
 
 - type: reagent
   id: Cryoxadone
@@ -236,6 +253,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain # Shitmed Change
+        amount: 2
+        time: 7
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        amount: 0.01
       - !type:HealthChange
         damage:
           types:
@@ -268,6 +293,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain # Shitmed Change
+        amount: 2.4
+        time: 12
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        amount: 0.04
       - !type:HealthChange
         damage:
           types:
@@ -281,6 +314,12 @@
           types:
             Asphyxiation: 3
             Cold: 1
+      - !type:AdjustConsciousness # Shitmed Change
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 3.4
+        time: 12
 
 - type: reagent
   id: DexalinPlus
@@ -294,6 +333,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain # Shitmed Change
+        amount: 3.7
+        time: 12
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        amount: 0.1
       - !type:HealthChange
         damage:
           types:
@@ -314,6 +361,18 @@
           types:
             Asphyxiation: 5
             Cold: 3
+      - !type:AdjustConsciousness # Shitmed Change
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 6
+        time: 12
+      - !type:AdjustConsciousness # Shitmed Change
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -5
+        time: 12
 
 # this ones a doozy
 - type: reagent
@@ -327,6 +386,21 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain # Shitmed Change
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        amount: 5
+        time: 10 # very little because it's supposed to suppress pain while you're in crit
+      - !type:AdjustConsciousness # Shitmed Change
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 5 # Does not let the entity suffocate while the pain is suppressed
+        time: 10
       - !type:HealthChange
         conditions:
           # they gotta be in crit first
@@ -380,6 +454,15 @@
         key: Adrenaline # Guess what epinephrine is...
         component: IgnoreSlowOnDamage
         time: 5 # lingers less than hivemind reagent to give it a niche
+      - !type:AdjustConsciousness # Shitmed Change
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -2.4
+        time: 12
 
 - type: reagent
   id: Hyronalin
@@ -449,6 +532,12 @@
             Asphyxiation: -2
       - !type:ModifyBleedAmount
         amount: -0.25
+      - !type:AdjustConsciousness # Shitmed Change
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 8
+        time: 20
 
 - type: reagent
   id: Kelotane
@@ -628,6 +717,21 @@
             Asphyxiation: 3.5
       - !type:ModifyBleedAmount
         amount: -0.25
+      - !type:AdjustConsciousness # Shitmed Change
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 6
+        time: 12
+      - !type:AdjustConsciousness # Shitmed Change
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 6
+        time: 12
 
 - type: reagent
   id: Ambuzol
@@ -712,6 +816,8 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:AdjustPainFeels
+        amount: 0.05 # heheheh
       - !type:HealthChange
         damage:
           types:
@@ -842,6 +948,9 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain # Shitmed Change
+        amount: 2
+        time: 14
       - !type:HealthChange
         damage:
           groups:
@@ -1159,6 +1268,9 @@
     Medicine:
       metabolismRate: 0.1 # slow metabolism to not be a godly combat med, its for treating burn victims efficiently
       effects:
+      - !type:SuppressPain # Shitmed Change
+        amount: 4 # To prevent people from dying while being healed
+        time: 7
       - !type:HealthChange
         damage:
           types:

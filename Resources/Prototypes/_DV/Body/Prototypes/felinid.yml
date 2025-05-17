@@ -1,28 +1,33 @@
 - type: body
   id: Felinid
-  name: "felinid"
-  root: torso
+  name: species-name-felinid
+  root: chest
   slots:
     head:
       part: HeadFelinid
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoFelinid
+    chest:
+      part: ChestFelinid
       connections:
+      - groin
       - right arm
       - left arm
-      - right leg
-      - left leg
-      - head # Shitmed Change
+      - head
       organs:
         heart: OrganAnimalHeart
         lungs: OrganHumanLungs
+    groin:
+      part: GroinFelinid
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganVulpkaninStomach
-        liver:  OrganAnimalLiver
+        liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys
     right arm:
       part: RightArmFelinid

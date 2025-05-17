@@ -1,27 +1,34 @@
-﻿using Content.Shared.Damage;
 using Content.Shared.Inventory;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
+
+// Shitmed Change
+using Content.Shared._Shitmed.Medical.Surgery.Traumas;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
+using Content.Shared.Body.Part;
+using Content.Shared.Damage;
+using Content.Shared.FixedPoint;
 
 namespace Content.Shared.Armor;
 
 /// <summary>
 /// Used for clothing that reduces damage when worn.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedArmorSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedArmorSystem), typeof(TraumaSystem))] // Shitmed Change
 public sealed partial class ArmorComponent : Component
 {
     /// <summary>
     /// The damage reduction
     /// </summary>
-    [DataField(required: true)]
+    [DataField(required: true), AutoNetworkedField]
     public DamageModifierSet Modifiers = default!;
 
     /// <summary>
-    /// A multiplier applied to the calculated point value
+    /// Shitmed Change: A multiplier applied to the calculated point value
     /// to determine the monetary value of the armor
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float PriceMultiplier = 1;
 
     /// <summary>
@@ -35,6 +42,37 @@ public sealed partial class ArmorComponent : Component
     /// </summary>
     [ViewVariables]
     public float StaminaMeleeDamageCoefficient => Modifiers.Coefficients.GetValueOrDefault("Blunt", 1.0f);
+
+    /// <summary>
+    /// Shitmed Change: If true, the coverage won't show.
+    /// </summary>
+    [DataField("coverageHidden")]
+    public bool ArmourCoverageHidden = false;
+
+    /// <summary>
+    /// Shitmed Change: If true, the modifiers won't show.
+    /// </summary>
+    [DataField("modifiersHidden")]
+    public bool ArmourModifiersHidden = false;
+
+    /// <summary>
+    /// Shitmed Change: thankfully all the armor in the game is symmetrical.
+    /// </summary>
+    [DataField("coverage")]
+    public List<BodyPartType> ArmorCoverage = new();
+
+    /// <summary>
+    /// Shitmed Change: The amount of dismemberment chance deduction.
+    /// </summary>
+    [DataField]
+    public Dictionary<TraumaType, FixedPoint2> TraumaDeductions = new()
+    {
+        { TraumaType.Dismemberment, 0 },
+        { TraumaType.BoneDamage, 0 },
+        { TraumaType.OrganDamage, 0 },
+        { TraumaType.VeinsDamage, 0 },
+        { TraumaType.NerveDamage, 0 },
+    };
 }
 
 /// <summary>

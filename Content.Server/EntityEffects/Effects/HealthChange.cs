@@ -4,6 +4,8 @@ using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Content.Shared.Localizations;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
+using Content.Server.Temperature.Components; // Shitmed Change
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems; // Shitmed Change
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using System.Linq;
@@ -14,6 +16,8 @@ namespace Content.Server.EntityEffects.Effects
     /// <summary>
     /// Default metabolism used for medicine reagents.
     /// </summary>
+
+
     [UsedImplicitly]
     public sealed partial class HealthChange : EntityEffect
     {
@@ -37,6 +41,14 @@ namespace Content.Server.EntityEffects.Effects
         [JsonPropertyName("ignoreResistances")]
         public bool IgnoreResistances = true;
 
+        [DataField]
+        [JsonPropertyName("healingDamageMultiplier")]
+        public float HealingDamageMultiplier = 11f; // Shitmed Change
+
+        [DataField]
+        [JsonPropertyName("damageMultiplier")]
+        public float DamageMultiplier = 1f; // Shitmed Change
+
         protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         {
             var damages = new List<string>();
@@ -54,11 +66,11 @@ namespace Content.Server.EntityEffects.Effects
                 {
                     if (val < 0f)
                     {
-                        damageSpec.DamageDict[type] = val * universalReagentHealModifier;
+                        damageSpec.DamageDict[type] = val * universalReagentHealModifier * HealingDamageMultiplier;
                     }
                     if (val > 0f)
                     {
-                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
+                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier * DamageMultiplier;
                     }
                 }
             }
@@ -150,27 +162,21 @@ namespace Content.Server.EntityEffects.Effects
                 foreach (var (type, val) in damageSpec.DamageDict)
                 {
                     if (val < 0f)
-                    {
-                        damageSpec.DamageDict[type] = val * universalReagentHealModifier;
-                    }
+                        damageSpec.DamageDict[type] = val * universalReagentHealModifier * HealingDamageMultiplier;
+
                     if (val > 0f)
-                    {
-                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
-                    }
+                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier * DamageMultiplier;
                 }
             }
 
             args.EntityManager.System<DamageableSystem>()
                 .TryChangeDamage(
                     args.TargetEntity,
-                    damageSpec * scale,
+                    damageSpec * scale, // 8 represents the average number of parts on a humanoid.
                     IgnoreResistances,
                     interruptsDoAfters: false,
-                    // Shitmed Change Start
                     targetPart: TargetBodyPart.All,
-                    partMultiplier: 0.5f,
-                    canSever: false);
-                    // Shitmed Change End
+                    ignoreBlockers: true); // Shitmed Change
         }
     }
 }

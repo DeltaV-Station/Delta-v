@@ -9,6 +9,7 @@ namespace Content.Shared.Humanoid
         {
             return layer switch
             {
+                HumanoidVisualLayers.Groin => true,
                 HumanoidVisualLayers.Chest => true,
                 HumanoidVisualLayers.Head => true,
                 _ => false
@@ -62,8 +63,13 @@ namespace Content.Shared.Humanoid
                 case HumanoidVisualLayers.Chest:
                     yield return HumanoidVisualLayers.Chest;
                     yield return HumanoidVisualLayers.Tail;
-                    break;
                 // Shitmed Change Start
+                    yield return HumanoidVisualLayers.Groin;
+                    break;
+                case HumanoidVisualLayers.Groin:
+                    yield return HumanoidVisualLayers.Groin;
+                    yield return HumanoidVisualLayers.Tail;
+                    break;
                 case HumanoidVisualLayers.LHand:
                     yield return HumanoidVisualLayers.LHand;
                     break;
@@ -94,8 +100,10 @@ namespace Content.Shared.Humanoid
             {
                 case BodyPartType.Other:
                     break;
-                case BodyPartType.Torso:
+                case BodyPartType.Chest:
                     return HumanoidVisualLayers.Chest;
+                case BodyPartType.Groin:
+                    return HumanoidVisualLayers.Groin;
                 case BodyPartType.Tail:
                     return HumanoidVisualLayers.Tail;
                 case BodyPartType.Head:

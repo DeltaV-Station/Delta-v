@@ -1,4 +1,4 @@
-﻿using Content.Shared.Database;
+using Content.Shared.Database;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared._Shitmed.Body.Organ; // Shitmed change
@@ -116,7 +116,19 @@ public partial class MobStateSystem
         var ev = new MobStateChangedEvent(target, component, oldState, newState, origin);
         OnStateChanged(target, component, oldState, newState);
         RaiseLocalEvent(target, ev, true);
-        if (origin != null && HasComp<ActorComponent>(origin) && HasComp<ActorComponent>(target) && oldState < newState)
+
+        if (_consciousness.TryGetNerveSystem(target, out var nerveSys))
+        {
+            var ev1 = new MobStateChangedEvent(target, component, oldState, newState, origin);
+            RaiseLocalEvent(nerveSys.Value, ev1, true);
+
+            // to handle consciousness related stuff. sorry
+        }
+
+        if (origin != null
+            && HasComp<ActorComponent>(origin)
+            && HasComp<ActorComponent>(target)
+            && oldState < newState)
             _adminLogger.Add(LogType.Damaged, LogImpact.High, $"{ToPrettyString(origin):player} caused {ToPrettyString(target):player} state to change from {oldState} to {newState}");
         else
             _adminLogger.Add(LogType.Damaged, oldState == MobState.Alive ? LogImpact.Low : LogImpact.Medium, $"{ToPrettyString(target):user} state changed from {oldState} to {newState}");

@@ -11,8 +11,13 @@
     species: Felinid
 
 - type: entity
-  parent: [ PartFelinidBase, BaseTorso ]
-  id: TorsoFelinid
+  parent: [ PartFelinidBase, BaseChest ]
+  id: ChestFelinid
+  name: "felinid torso"
+
+- type: entity
+  parent: [ PartFelinidBase, BaseGroin ]
+  id: GroinFelinid
   name: "felinid torso"
 
 - type: entity

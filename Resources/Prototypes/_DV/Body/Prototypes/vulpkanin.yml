@@ -1,29 +1,34 @@
 - type: body
-  name: "vulpkanin"
   id: Vulpkanin
-  root: torso
+  name: species-name-vulpkanin
+  root: chest
   slots:
     head:
       part: HeadVulpkanin
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoVulpkanin
+    chest:
+      part: ChestVulpkanin
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head
       organs:
         heart: OrganAnimalHeart
         lungs: OrganHumanLungs
+    groin:
+      part: GroinVulpkanin
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganVulpkaninStomach
         liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys
-      connections:
-      - right arm
-      - left arm
-      - right leg
-      - left leg
-      - head # Shitmed Change
     right arm:
       part: RightArmVulpkanin
       connections:

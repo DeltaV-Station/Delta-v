@@ -6,14 +6,15 @@
   components:
   - type: Addicted
 
-- type: trait
-  id: InPain
-  name: trait-inpain-name
-  description: trait-inpain-desc
-  traitGear: PillCanisterSoretizone
-  category: Disabilities
-  components:
-  - type: Pain
+# TODO: rework to be a permanent "wound" on spine or something
+#- type: trait
+#  id: InPain
+#  name: trait-inpain-name
+#  description: trait-inpain-desc
+#  traitGear: PillCanisterSoretizone
+#  category: Disabilities
+#  components:
+#  - type: Pain
 
 - type: trait
   id: Unborgable

@@ -1,7 +1,11 @@
 - type: body
   id: IPCTorsoOnly
-  name: "ipc"
-  root: torso
+  name: species-name-ipc
+  root: chest
   slots:
-    torso:
-      part: TorsoIPC
+    chest:
+      part: ChestIPC
+      connections:
+      - groin
+    groin:
+      part: GroinIPC

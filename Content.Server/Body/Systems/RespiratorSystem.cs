@@ -1,8 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
-using Content.Shared._Shitmed.Body.Components; // Shitmed Change
-using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Server.Chat.Systems;
 using Content.Server.EntityEffects.EffectConditions;
 using Content.Server.EntityEffects.Effects;
@@ -22,6 +20,12 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared._DV.CosmicCult.Components; // DeltaV
 
+// Shitmed Change
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared._Shitmed.Body.Components;
+using Content.Shared._Shitmed.Body.Organ;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 
 namespace Content.Server.Body.Systems;
 
@@ -39,6 +43,7 @@ public sealed class RespiratorSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly ConsciousnessSystem _consciousness = default!; // Shitmed Change
 
     private static readonly ProtoId<MetabolismGroupPrototype> GasId = new("Gas");
 
@@ -309,7 +314,31 @@ public sealed class RespiratorSystem : EntitySystem
             }
         }
 
-        _damageableSys.TryChangeDamage(ent, HasComp<DebrainedComponent>(ent) ? ent.Comp.Damage * 4.5f : ent.Comp.Damage, interruptsDoAfters: false);
+        // Shitmed Change Start
+        if (_consciousness.TryGetNerveSystem(ent, out var nerveSys))
+        {
+            if (!_consciousness.TryGetConsciousnessModifier(ent, nerveSys.Value, out var modifier, "Suffocation"))
+            {
+                _consciousness.AddConsciousnessModifier(
+                    ent,
+                    nerveSys.Value,
+                    -ent.Comp.Damage.GetTotal(),
+                    identifier: "Suffocation",
+                    type: ConsciousnessModType.Pain);
+            }
+            else
+            {
+                _consciousness.SetConsciousnessModifier(
+                    ent,
+                    nerveSys.Value,
+                    modifier.Value.Change - ent.Comp.Damage.GetTotal(),
+                    identifier: "Suffocation",
+                    type: ConsciousnessModType.Pain);
+            }
+        }
+
+        _damageableSys.TryChangeDamage(ent, HasComp<DebrainedComponent>(ent) ? ent.Comp.Damage * 4.5f : ent.Comp.Damage, targetPart: TargetBodyPart.All, interruptsDoAfters: false);
+        // Shitmed Change End
     }
 
     private void StopSuffocation(Entity<RespiratorComponent> ent)
@@ -324,7 +353,28 @@ public sealed class RespiratorSystem : EntitySystem
             _alertsSystem.ClearAlert(ent, entity.Comp1.Alert);
         }
 
-        _damageableSys.TryChangeDamage(ent, ent.Comp.DamageRecovery);
+        // Shitmed Change Start
+        if (_consciousness.TryGetNerveSystem(ent, out var nerveSys)
+            && _consciousness.TryGetConsciousnessModifier(ent, nerveSys.Value, out var modifier, "Suffocation"))
+        {
+            if (modifier.Value.Change < ent.Comp.DamageRecovery.GetTotal())
+            {
+                _consciousness.RemoveConsciousnessModifier(ent, nerveSys.Value, "Suffocation");
+            }
+            else
+            {
+                _consciousness.SetConsciousnessModifier(
+                    ent,
+                    nerveSys.Value,
+                    modifier.Value.Change + ent.Comp.DamageRecovery.GetTotal(),
+                    identifier: "Suffocation",
+                    type: ConsciousnessModType.Pain);
+            }
+        }
+
+        _damageableSys.TryChangeDamage(ent, ent.Comp.DamageRecovery, partMultiplier: 8f, targetPart: TargetBodyPart.All, ignoreBlockers: true);
+        // The 8f multiplier is an arbitrary number chosen to make the damage not absolute shit when considering that its split across usually 11 body parts.
+        // Shitmed Change End
     }
 
     public void UpdateSaturation(EntityUid uid, float amount,
