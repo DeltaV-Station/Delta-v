@@ -1,0 +1,19 @@
+- type: cargoProduct
+  id: FurniturePlants
+  icon:
+    sprite: Structures/Furniture/potted_plants.rsi
+    state: plant-08
+  product: CrateFurnitureDecorativePlants
+  cost: 200
+  category: cargoproduct-category-name-furniture
+  group: market
+
+- type: cargoProduct
+  id: FurniturePlantsPotted
+  icon:
+    sprite: Structures/Furniture/potted_plants.rsi
+    state: plant-27
+  product: CrateFurnitureDecorativePlantsPlastic
+  cost: 100
+  category: cargoproduct-category-name-furniture
+  group: market

@@ -1,0 +1,31 @@
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateFurnitureDecorativePlants
+  name: potted plants
+  description: Spruce up your place with a little foliage. Contains four pre-seeded plant pots.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:GroupSelector
+        children:
+        - id: PlantPotPreSeeded
+          weight: 10
+          amount: !type:ConstantNumberSelector
+            value: 4
+        - id: PlantPotPreSeededBioluminscent
+          amount: !type:ConstantNumberSelector
+            value: 4
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateFurnitureDecorativePlantsPlastic
+  name: potted plastic plants
+  description: Spruce up your place with a little foliage. Contains four pre-potted plastic plants.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: PlantPotPreSeededPlastic
+          amount: !type:ConstantNumberSelector
+            value: 4
