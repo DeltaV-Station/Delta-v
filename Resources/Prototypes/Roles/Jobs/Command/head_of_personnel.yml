@@ -56,7 +56,7 @@
   #- Atmospherics
   #- Medical
   # End DeltaV Removals
-  # Begin DeltaV Additions - fine-grained service accesses
+  # Begin DeltaV Additions - fine-grained service accesses and vault
   - Boxer
   - Clown
   - Library
@@ -64,6 +64,7 @@
   - Musician
   - Reporter
   - Zookeeper
+  - Vault
   # End DeltaV Additions
   special:
   - !type:AddImplantSpecial

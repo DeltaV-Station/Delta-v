@@ -7,3 +7,4 @@ id-card-access-level-justice = Justice
 id-card-access-level-corpsman = Corpsman
 id-card-access-level-robotics = Robotics
 id-card-access-level-surgery = Surgery
+id-card-access-level-vault = Vault

@@ -594,3 +594,13 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSecurity ]
+
+# High-Security Doors
+- type: entity
+  parent: HighSecDoor
+  id: HighSecVaultLocked
+  suffix: Vault, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsVault ]
