@@ -17,10 +17,13 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 using Robust.Shared.Map;
+using Content.Shared.Inventory; //  DeltaV - ATMOS Extinguisher Nozzle
+using Content.Shared.Whitelist; //  DeltaV - ATMOS Extinguisher Nozzle
+using Content.Shared.Hands.EntitySystems; // DeltaV - ATMOS Extinguisher Nozzle
 
 namespace Content.Server.Fluids.EntitySystems;
 
-public sealed class SpraySystem : EntitySystem
+public sealed partial class SpraySystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly GravitySystem _gravity = default!;
@@ -33,7 +36,10 @@ public sealed class SpraySystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-
+    [Dependency] private readonly InventorySystem _inventory = default!; //  DeltaV - ATMOS Extinguisher Nozzle
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; //  DeltaV - ATMOS Extinguisher Nozzle
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!; // DeltaV - ATMOS Extinguisher Nozzle
+ 
     private float _gridImpulseMultiplier;
 
     public override void Initialize()
@@ -76,8 +82,12 @@ public sealed class SpraySystem : EntitySystem
 
     public void Spray(Entity<SprayComponent> entity, EntityUid user, MapCoordinates mapcoord)
     {
-        if (!_solutionContainer.TryGetSolution(entity.Owner, SprayComponent.SolutionName, out var soln, out var solution))
-            return;
+        // Begin DeltaV Additions - ATMOS Extinguisher Nozzle
+        var (sprayOwner, solutionName) = AtmosNozzleSpray(entity, user);
+
+        if (!_solutionContainer.TryGetSolution(sprayOwner, solutionName, out var soln, out var solution)) return;
+        // End DeltaV Additions
+        //if (!_solutionContainer.TryGetSolution(entity.Owner, SprayComponent.SolutionName, out var soln, out var solution)) return;
 
         var ev = new SprayAttemptEvent(user);
         RaiseLocalEvent(entity, ref ev);
