@@ -1,0 +1,68 @@
+﻿# ERT roles: Leader, Chaplain, Janitor, Engineer, Security, Medic
+
+- type: ertRole
+  id: ERTLeader
+  name: ert-role-name-leader
+
+- type: ertRole
+  id: ERTSecurity
+  name: ert-role-name-security
+
+- type: ertRole
+  id: ERTMedical
+  name: ert-role-name-medical
+
+- type: ertRole
+  id: ERTEngineer
+  name: ert-role-name-engineer
+
+- type: ertRole
+  id: ERTChaplain
+  name: ert-role-name-chaplain
+
+- type: ertRole
+  id: ERTJanitor
+  name: ert-role-name-janitor
+
+- type: ertRole
+  id: CBURNAgent
+  name: ert-role-name-cburn
+
+- type: ertTeam
+  id: AmberTeam
+  name: ert-team-name-amber
+  roles:
+    ERTLeader: RandomHumanoidSpawnerERTLeaderAmber
+    ERTChaplain: RandomHumanoidSpawnerERTChaplainAmber
+    ERTSecurity: RandomHumanoidSpawnerERTSecurityAmber
+    ERTMedical: RandomHumanoidSpawnerERTMedicalAmber
+    ERTEngineer: RandomHumanoidSpawnerERTEngineerAmber
+    ERTJanitor: RandomHumanoidSpawnerERTJanitorAmber
+
+- type: ertTeam
+  id: RedTeam
+  name: ert-team-name-red
+  roles:
+    ERTLeader: RandomHumanoidSpawnerERTLeaderRed
+    ERTChaplain: RandomHumanoidSpawnerERTChaplainRed
+    ERTSecurity: RandomHumanoidSpawnerERTSecurityRed
+    ERTMedical: RandomHumanoidSpawnerERTMedicalRed
+    ERTEngineer: RandomHumanoidSpawnerERTEngineerRed
+    ERTJanitor: RandomHumanoidSpawnerERTJanitorRed
+
+- type: ertTeam
+  id: GammaTeam
+  name: ert-team-name-gamma
+  roles:
+    ERTLeader: RandomHumanoidSpawnerERTLeaderGamma
+    ERTChaplain: RandomHumanoidSpawnerERTChaplainGamma
+    ERTSecurity: RandomHumanoidSpawnerERTSecurityGamma
+    ERTMedical: RandomHumanoidSpawnerERTMedicalGamma
+    ERTEngineer: RandomHumanoidSpawnerERTEngineerGamma
+    ERTJanitor: RandomHumanoidSpawnerERTJanitorGamma
+
+- type: ertTeam
+  id: CBURNTeam
+  name: ert-team-name-cburn
+  roles:
+    CBURNAgent: RandomHumanoidSpawnerCBURNUnit

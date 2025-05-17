@@ -6,8 +6,9 @@ namespace Content.Shared.Mining;
 /// <summary>
 /// This is a prototype for defining ores that generate in rock
 /// </summary>
-[Prototype]
-public sealed partial class OrePrototype : IPrototype
+[Prototype] // registers this for YAML
+public sealed partial class OrePrototype : IPrototype // and we need the class to implement IPrototype
+// partial is for code generation
 {
     /// <inheritdoc/>
     [IdDataField]

@@ -1,3 +1,5 @@
+# tldr we're defining a BaseStationERT with the StationERT component that we defined
+
 - type: entity
   id: BaseStationStockMarket
   abstract: true
@@ -42,3 +44,9 @@
   - type: StationPlanetSpawner
     planet: Lavaland
     gridPath: /Maps/_DV/Nonstations/lavaland_mining_base.yml
+
+- type: entity
+  id: BaseStationERT
+  abstract: true
+  components:
+  - type: StationERT

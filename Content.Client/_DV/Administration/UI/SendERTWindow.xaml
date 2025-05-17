@@ -1,0 +1,15 @@
+﻿<DefaultWindow
+    SetSize="300 400"
+    Title="{Loc admin-ert-window-title}"
+    xmlns="https://spacestation14.io">
+
+    <BoxContainer Orientation="Vertical">
+        <OptionButton Name="ERTTeamOption" HorizontalExpand="True"/>
+
+        <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+            <BoxContainer Orientation="Vertical" Name="RoleList"/>
+        </ScrollContainer>
+
+        <Button Name="SendButton" Text="{Loc admin-ert-window-send}" HorizontalExpand="True"/>
+    </BoxContainer>
+</DefaultWindow>
