@@ -43,9 +43,8 @@ public sealed partial class ContractObjectiveComponent : Component
     public ProtoId<CurrencyPrototype> Currency = "Telecrystal";
 
     /// <summary>
-    /// The PDA used to take this contract.
-    /// Might not always exist.
+    /// The mind with <c>Contracts</c> this contract belongs to.
     /// </summary>
     [DataField]
-    public EntityUid? Pda;
+    public EntityUid? Contracts;
 }

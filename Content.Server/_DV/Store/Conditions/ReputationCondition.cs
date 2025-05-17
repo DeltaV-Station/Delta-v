@@ -18,9 +18,12 @@ public sealed partial class ReputationCondition : ListingCondition
 
     public override bool Condition(ListingConditionArgs args)
     {
-        var reputation = args.EntityManager.System<ReputationSystem>();
-        if (args.StoreEntity is not {} pda || reputation.GetReputation(pda) is not {} rep)
+        if (!args.EntityManager.TryGetComponent<StoreContractsComponent>(args.StoreEntity, out var store))
             return true; // nukie uplink or a surplus
+
+        var reputation = args.EntityManager.System<ReputationSystem>();
+        if (reputation.GetMindReputation(store.Mind) is not {} rep)
+            return false; // uplink implant in non-traitor, no epic goodies allowed
 
         return rep >= Reputation;
     }

@@ -1,71 +1,4 @@
 ﻿Entries:
-- author: pontaoski
-  changes:
-  - message: Surgery now requires anesthesia rather than forced sleep
-    type: Tweak
-  - message: Chloral hydrate, nitrous oxide, and nocturine now serve as anesthesia
-    type: Tweak
-  id: 898
-  time: '2025-01-11T06:44:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2684
-- author: TadJohnson00
-  changes:
-  - message: Cold weather ponchos are now available for Security in their vendor,
-      or from a uniform printer.
-    type: Add
-  id: 899
-  time: '2025-01-11T13:43:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2688
-- author: TadJohnson00
-  changes:
-  - message: Turtleneck jumpsuits and jumpskirts are now available for Station Security's
-      more experienced officers.
-    type: Add
-  - message: Due to poor quality control and stitching, those that wear regular-pattern
-      Senior Officer jumpskirts may feel a breeze.
-    type: Tweak
-  id: 900
-  time: '2025-01-11T17:30:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2692
-- author: rosieposieeee
-  changes:
-  - message: Rebalanced the prices of the eshield, china-lake, and juggernaut suit.
-    type: Tweak
-  id: 901
-  time: '2025-01-12T15:48:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2658
-- author: Dirius77
-  changes:
-  - message: Made the Tesla much slower to fade after power loss.
-    type: Tweak
-  id: 902
-  time: '2025-01-12T23:16:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2710
-- author: Radezolid
-  changes:
-  - message: CMO's lockers now spawn with a ChemMaster flatpack inside to aid the
-      chemist with pill making.
-    type: Tweak
-  id: 903
-  time: '2025-01-13T18:25:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2683
-- author: Lyndomen
-  changes:
-  - message: Ports pacifism tweaks from Harmony, allowing some violence at CC. Don't
-      grief, but continue to roleplay! Thank you youtissoum.
-    type: Add
-  id: 904
-  time: '2025-01-13T20:21:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2642
-- author: Stop-Signs
-  changes:
-  - message: Energy guns got an overall buff!
-    type: Tweak
-  - message: IK-60 carbine can now toggle between semi and full auto
-    type: Tweak
-  id: 905
-  time: '2025-01-13T21:16:09.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2623
 - author: Avalon-Proto
   changes:
   - message: Snipers rejoice, the Hristov is back on the menu
@@ -4110,3 +4043,61 @@
   id: 1397
   time: '2025-05-14T02:25:44.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3698
+- author: deltanedas
+  changes:
+  - message: Limbs are harder to get disabled by poisons, etc.
+    type: Tweak
+  id: 1398
+  time: '2025-05-15T14:47:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3759
+- author: deltanedas
+  changes:
+  - message: All jobs now get the same starting TC.
+    type: Tweak
+  id: 1399
+  time: '2025-05-15T15:59:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3750
+- author: deltanedas
+  changes:
+  - message: Uplink implants can now use contracts and reputation-locked items.
+    type: Add
+  id: 1400
+  time: '2025-05-15T16:43:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3761
+- author: AftrLite
+  changes:
+  - message: the Entropic Decay status effect no longer has an indicator popup.
+    type: Remove
+  id: 1401
+  time: '2025-05-16T01:51:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3747
+- author: sowelipililimute
+  changes:
+  - message: The station can now call a GALPOL exfiltration shuttle to exfiltrate
+      anyone it cannot contain itself
+    type: Add
+  id: 1402
+  time: '2025-05-16T19:27:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3722
+- author: sowelipililimute
+  changes:
+  - message: The server now calls an OOC vote for the routine crew change shuttle
+    type: Add
+  id: 1403
+  time: '2025-05-16T20:50:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3766
+- author: deltanedas
+  changes:
+  - message: Fixed AI detectors sometimes not working.
+    type: Fix
+  id: 1404
+  time: '2025-05-16T22:13:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3774
+- author: Lonestar827
+  changes:
+  - message: Minor formatting fixes to the thief and minor antagonist pages in the
+      guidebook
+    type: Fix
+  id: 1405
+  time: '2025-05-17T01:01:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3775

@@ -288,7 +288,7 @@ namespace Content.Server.PDA
                 return;
 
             // check if its locked again to prevent malicious clients opening locked uplinks
-            if (HasComp<ContractsComponent>(uid) && IsUnlocked(uid))
+            if (HasComp<StoreContractsComponent>(uid) && IsUnlocked(uid))
                 _reputation.ToggleUI(msg.Actor, uid);
         }
         // End DeltaV Additions

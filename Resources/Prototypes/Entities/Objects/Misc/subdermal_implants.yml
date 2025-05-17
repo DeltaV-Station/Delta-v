@@ -164,7 +164,7 @@
   - type: Store
     balance:
       Telecrystal: 0
-  - type: Contracts # DeltaV - Forced 0 reputation to prevent buying bloodreds etc on it
+  - type: StoreContracts # DeltaV - can't buy bloodred with uplink implant
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
