@@ -1,4 +1,4 @@
-﻿# locale for admin panel ERT spawning
+# locale for admin panel ERT spawning
 ert-role-name-leader = Leader
 ert-role-name-security = Security
 ert-role-name-medical = Medic

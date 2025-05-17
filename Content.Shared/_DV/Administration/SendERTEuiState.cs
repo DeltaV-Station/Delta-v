@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.ERT;
+using Content.Shared._DV.ERT;
 using Content.Shared.Eui;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;

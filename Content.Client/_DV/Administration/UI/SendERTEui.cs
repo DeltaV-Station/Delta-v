@@ -1,4 +1,4 @@
-﻿using Content.Client.Eui;
+using Content.Client.Eui;
 using Content.Shared.Eui;
 using Content.Shared._DV.Administration;
 using Content.Shared._DV.ERT;
