@@ -1,11 +1,12 @@
 ## Static
 
 - type: latheRecipePack
+  parent:
+  - CargoStaticDeltaV # DeltaV
   id: CargoStatic
   recipes:
   - AppraisalTool
   - Pickaxe
-  - RadioHandheld
 
 - type: latheRecipePack
   id: CargoBoardsStatic
