@@ -1,7 +1,6 @@
 using Content.Server._DV.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Shared.Anomaly.Components;
-using Content.Shared.Objectives.Components;
 
 namespace Content.Server._DV.Objectives.Systems;
 
