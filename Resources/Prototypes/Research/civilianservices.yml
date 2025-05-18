@@ -248,9 +248,9 @@
   icon:
     sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
     state: syringe_gun
-  discipline: CivilianServices
-  tier: 3
-  cost: 15000
+  discipline: Biochemical # DeltaV
+  tier: 1 # DeltaV - was 3
+  cost: 10000 # DeltaV - was 15000
   recipeUnlocks:
   - LauncherSyringe
   - MiniSyringe

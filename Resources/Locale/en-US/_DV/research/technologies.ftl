@@ -14,7 +14,6 @@ research-technology-civilian-mechs = Civilian Mechs
 research-technology-paramedic-eva = Emergency Services EVA suits
 
 # Biochemical
-research-technology-syringe-gun = Syringe Gun
 research-technology-basic-augmentation = Basic Augmentation
 research-technology-implanted-tools = Implanted Tools
 
