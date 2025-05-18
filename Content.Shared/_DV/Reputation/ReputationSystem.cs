@@ -361,13 +361,13 @@ public sealed class ReputationSystem : EntitySystem
     /// </summary>
     public bool CanStorePurchase(EntityUid uid, int? needed)
     {
-        if (needed is not {} rep)
+        if (needed is not { } rep)
             return true; // listing doesn't want reputation
 
         if (!TryComp<StoreContractsComponent>(uid, out var comp))
             return true; // nukie uplink or surplus
 
-        if (GetStoreReputation((uid, comp)) is not {} reputation)
+        if (GetStoreReputation((uid, comp)) is not { } reputation)
             return false; // uplink implant in non-traitor, no epic gamer loot
 
         return reputation >= rep;
