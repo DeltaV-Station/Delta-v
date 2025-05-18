@@ -1292,6 +1292,7 @@
     - state: xenoborg_generic
     - state: icon-xenoborg-basic
   - type: ItemBorgModule
+    moduleId: XenoborgBasic # DeltaV
     items:
     - MaterialBag
     - PinpointerMothership
@@ -1310,6 +1311,7 @@
     - state: xenoborg_generic
     - state: icon-xenoborg-tools
   - type: ItemBorgModule
+    moduleId: XenoborgTool # DeltaV
     items:
     - Crowbar
     - Wrench
@@ -1331,8 +1333,10 @@
     - state: xenoborg_engi
     - state: icon-xenoborg-access-breaker
   - type: ItemBorgModule
+    moduleId: XenoborgAccessBreaker # DeltaV
     items:
-    - AccessBreaker
+    - Doorjack # DeltaV - replaces AccessBreaker
+    - Emag # DeltaV - for lockers/etc
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-access-breaker-module }
 
@@ -1347,6 +1351,7 @@
     - state: xenoborg_engi
     - state: icon-xenoborg-fire-extinguisher
   - type: ItemBorgModule
+    moduleId: XenoborgFireExtinguisher # DeltaV
     items:
     - SelfRechargingFireExtinguisher
   - type: BorgModuleIcon
@@ -1363,6 +1368,7 @@
     - state: xenoborg_heavy
     - state: icon-xenoborg-jammer
   - type: ItemBorgModule
+    moduleId: XenoborgJammer # DeltaV
     items:
     - XenoborgRadioJammer
   - type: BorgModuleIcon
@@ -1379,6 +1385,7 @@
     - state: xenoborg_heavy
     - state: icon-xenoborg-laser
   - type: ItemBorgModule
+    moduleId: XenoborgLaser # DeltaV
     items:
     - XenoborgLaserGun
   - type: BorgModuleIcon
@@ -1395,6 +1402,7 @@
     - state: xenoborg_heavy
     - state: icon-xenoborg-laser2
   - type: ItemBorgModule
+    moduleId: XenoborgHeavyLaser # DeltaV
     items:
     - XenoborgHeavyLaserGun
   - type: BorgModuleIcon
@@ -1411,6 +1419,7 @@
     - state: xenoborg_scout
     - state: icon-xenoborg-space-movement
   - type: ItemBorgModule
+    moduleId: XenoborgSpaceMovement # DeltaV
     items:
     - HandheldGPSBasic
     - HandHeldMassScannerBorg
@@ -1431,6 +1440,7 @@
     - state: xenoborg_scout
     - state: icon-xenoborg-sword
   - type: ItemBorgModule
+    moduleId: XenoborgSword # DeltaV
     items:
     - KukriKnife
     - JetpackXenoborg
@@ -1448,6 +1458,7 @@
     - state: xenoborg_scout
     - state: icon-xenoborg-sword2
   - type: ItemBorgModule
+    moduleId: XenoborgEnergySword # DeltaV
     items:
     - EnergyDaggerLoudBlue
     - JetpackXenoborg
@@ -1465,6 +1476,7 @@
     - state: xenoborg_stealth
     - state: icon-xenoborg-hypo
   - type: ItemBorgModule
+    moduleId: XenoborgHypo # DeltaV
     items:
     - NocturineHypo
   - type: BorgModuleIcon
@@ -1481,6 +1493,7 @@
     - state: xenoborg_stealth
     - state: icon-xenoborg-projector
   - type: ItemBorgModule
+    moduleId: XenoborgChameleonProjector # DeltaV
     items:
     - ChameleonProjector
   - type: BorgModuleIcon
@@ -1497,6 +1510,7 @@
     - state: xenoborg_stealth
     - state: icon-xenoborg-cloak
   - type: ItemBorgModule
+    moduleId: XenoborgCloakDevice # DeltaV
     items:
     - CloakingDevice
   - type: BorgModuleIcon

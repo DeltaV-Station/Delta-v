@@ -2,12 +2,14 @@ using Content.Shared.Armor;
 using Content.Shared.Damage.Events;
 using Content.Shared.Inventory;
 
-namespace Content.Shared.Damage.Systems;
+namespace Content.Shared._DV.Damage;
 
-public sealed partial class StaminaSystem
+public sealed class StaminaMeleeResistanceSystem : EntitySystem
 {
-    private void InitializeMeleeResistance()
+    public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<BeforeStaminaDamageEvent>>(OnGetMeleeResistance);
     }
 

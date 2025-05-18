@@ -230,7 +230,7 @@ public abstract partial class SharedMoverController : VirtualController
         ContentTileDefinition? tileDef = null;
 
         // Begin DeltaV Additions - handle tile movement
-        if (_tileMovement.TryTick((uid, mover, relayTarget), (physicsUid, physicsComponent, xform), tileDef, weightless, frameTime))
+        if (_tileMovement.TryTick((uid, mover, physicsComponent, xform), relaySource, tileDef, weightless, frameTime))
             return;
         // End DeltaV Additions
 
