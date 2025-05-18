@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Radio.EntitySystems;
+using Content.Shared._DV.Shuttles.Components; // DeltaV
 using Content.Shared.Access.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Research.Components;
@@ -102,6 +103,18 @@ namespace Content.Server.Research.Systems
             var clientXform = Transform(client);
             if (clientXform.GridUid is not { } grid)
                 return ClientLookup;
+
+            // Begin DeltaV Additions - use legacy behaviour if the grid has GlobalResearchGridComponent
+            if (HasComp<GlobalResearchGridComponent>(grid))
+            {
+                var query = EntityQueryEnumerator<ResearchServerComponent>();
+                while (query.MoveNext(out var uid, out var comp))
+                {
+                    ClientLookup.Add((uid, comp));
+                }
+                return ClientLookup;
+            }
+            // End DeltaV Additions
 
             _lookup.GetGridEntities(grid, ClientLookup);
             return ClientLookup;
