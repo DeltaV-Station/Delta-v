@@ -13,11 +13,4 @@ public sealed partial class PickRandomTraitorComponent : Component
     /// </summary>
     [DataField]
     public int MinReputation;
-
-    /// <summary>
-    /// Minimum number of active contracts a traitor needs to have.
-    /// By necessity requires a traitor to have a PDA that isn't deleted.
-    /// </summary>
-    [DataField]
-    public int MinContracts;
 }
