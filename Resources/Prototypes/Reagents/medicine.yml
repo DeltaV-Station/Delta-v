@@ -1293,30 +1293,10 @@
           max: 213.0
         damage:
           types:
-            Heat: -5.0 # DeltaV - Increased from -3.0 to -5.0
-            Shock: -5.0 # DeltaV - Increased from -3.0 to -5.0
-            Cold: -5.0 # DeltaV - Added Cold healing to match Heat/Shock
-            Caustic: -2.0 # DeltaV - Increased from -1.0 to -2.0
-
-- type: reagent
-  id: Traumoxadone
-  name: reagent-name-traumoxadone
-  group: Medicine
-  desc: reagent-desc-traumoxadone
-  physicalDesc: reagent-physical-desc-cloudy
-  flavor: medicine
-  color: "#69304D"
-  worksOnTheDead: true
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:Temperature
-          max: 213.0
-        damage:
-          groups:
-            Brute: -6
+            Cold: -5 # DeltaV - was -4
+            Heat: -5 # DeltaV - was -4
+            Shock: -5 # DeltaV - was -4
+            Caustic: -2 # DeltaV - was -1.5
 
 - type: reagent
   id: Traumoxadone
