@@ -1,0 +1,29 @@
+- type: gameMap
+  id: MiriamMap
+  mapName: 'Miriam'
+  mapPath: /Maps/_DV/miriammap.yml
+  minPlayers: 0
+  stations:
+    MapRenderer:
+      stationProto: StandardNanotrasenStation
+      components: []
+
+- type: gameMap
+  id: OritMap
+  mapName: 'Orit'
+  mapPath: /Maps/_DV/oritmap.yml
+  minPlayers: 0
+  stations:
+    MapRenderer:
+      stationProto: StandardNanotrasenStation
+      components: []
+
+- type: gameMap
+  id: EdenMap
+  mapName: 'Eden'
+  mapPath: /Maps/_DV/edenmap.yml
+  minPlayers: 0
+  stations:
+    MapRenderer:
+      stationProto: StandardNanotrasenStation
+      components: []
