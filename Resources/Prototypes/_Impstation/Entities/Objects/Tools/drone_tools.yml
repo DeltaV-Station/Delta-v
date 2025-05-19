@@ -1,0 +1,15 @@
+- type: entity
+  parent: Omnitool
+  id: OmnitoolUnremoveable
+  suffix: Unremoveable
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: WelderExperimental
+  id: WelderExperimentalUnremoveable
+  suffix: Unremoveable
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Unremoveable
