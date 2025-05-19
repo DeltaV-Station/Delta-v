@@ -83,7 +83,7 @@ If you want to make changes to a map, get in touch with its maintainer to make s
 
 Conflicts with maps make PRs mutually exclusive so either your work or the maintainer's work will be lost, communicate to avoid this!
 
-Please make a detailed list of **all** changes(even minor changes) with locations when submitting a PR. This helps reviewers hone in on them withot having to search an entire map for differences. Ex: [Map Edits](https://github.com/DeltaV-Station/Delta-v/pull/3165)
+Please make a detailed list of **all** changes(even minor changes) with locations when submitting a PR. This helps reviewers hone in on them without having to search an entire map for differences. Ex: [Map Edits](https://github.com/DeltaV-Station/Delta-v/pull/3165)
 
 Please limit changelogs on map PRs to **significant** map alterations or additions. Minor map edits do not need changelogs. Limit changelogs to one per PR.
 
