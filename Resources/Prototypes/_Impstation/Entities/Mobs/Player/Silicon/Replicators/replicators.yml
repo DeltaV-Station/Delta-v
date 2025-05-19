@@ -51,10 +51,6 @@
     sounds:
       Unsexed: UnisexSilicon
   - type: DamagedSiliconAccent
-  - type: Monotonous
-  - type: NoContractionsAccent
-  - type: ProperPunctuation
-  - type: ProperCapitalization
   - type: ReplacementAccent
     accent: silicon
   - type: IntrinsicRadioReceiver
@@ -136,9 +132,6 @@
       groups:
         Brute: -0.5
         Burn: -0.5
-  - type: ThermalVision
-    lightRadius: 7
-    color: "#d70aa0"
   - type: FlashImmunity
   - type: Puller
     needsHands: false
