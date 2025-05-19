@@ -33,6 +33,7 @@ public sealed class AssistRandomContractSystem : EntitySystem
 
         SubscribeLocalEvent<AssistedContractComponent, ContractCompletedEvent>(OnCompleted);
         SubscribeLocalEvent<AssistedContractComponent, ContractFailedEvent>(OnFailed);
+        SubscribeLocalEvent<AssistedContractComponent, ComponentShutdown>(OnShutdown);
     }
 
     private void OnAssigned(Entity<AssistRandomContractComponent> ent, ref ObjectiveAssignedEvent args)
@@ -105,10 +106,21 @@ public sealed class AssistRandomContractSystem : EntitySystem
 
     private void OnFailed(Entity<AssistedContractComponent> ent, ref ContractFailedEvent args)
     {
+        FailAssisting(ent);
+    }
+
+    private void OnShutdown(Entity<AssistedContractComponent> ent, ref ComponentShutdown args)
+    {
+        FailAssisting(ent);
+    }
+
+    public void FailAssisting(Entity<AssistedContractComponent> ent)
+    {
         foreach (var uid in ent.Comp.Assisting)
         {
             _contractObjective.TryFailContract(uid);
         }
+        ent.Comp.Assisting.Clear();
     }
 
     public void StartAssisting(EntityUid contract, EntityUid assisting)
