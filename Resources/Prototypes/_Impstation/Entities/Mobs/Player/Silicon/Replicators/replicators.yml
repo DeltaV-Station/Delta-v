@@ -60,7 +60,6 @@
   - type: ActiveRadio
     channels:
     - Binary
-  - type: CombatMode
   - type: Actions
   - type: ProtectedFromStepTriggers
   - type: InputMover
@@ -167,6 +166,9 @@
   parent: BaseMobReplicator
   categories: [HideSpawnMenu] # I don't want admins spawning a replicator that's unlinked to a nest
   components:
+  - type: CombatMode
+  - type: Puller
+    needsHands: false
   - type: StaminaDamageOnHit
     damage: 20
     sound: /Audio/Weapons/egloves.ogg
@@ -223,6 +225,8 @@
   components:
   - type: Replicator
     upgradeStage: 1
+  - type: Puller
+    needsHands: false
   - type: MovementSpeedModifier
     baseWalkSpeed: 2 # same as slime
     baseSprintSpeed: 4
@@ -268,8 +272,11 @@
   description: Oh boy.
   suffix: Level 3
   components:
+  - type: CombatMode
   - type: Replicator
     upgradeStage: 2
+  - type: Puller
+    needsHands: false
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.5 # these fellas are the tanks, they rely on the smaller guys stunning things for them.
     baseSprintSpeed: 4
