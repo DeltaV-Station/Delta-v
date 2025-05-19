@@ -1,12 +1,12 @@
 - type: listing
-  id: UplinkExGrenadeFoam
+  id: UplinkGrenadeShrapnelFoam
   name: uplink-explosive-foam-grenade-name
   description: uplink-explosive-foam-grenade-desc
-  productEntity: ExGrenadeFoam
+  productEntity: GrenadeShrapnelFoam
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 3 # 1 TC more expensive than regular due to disguise.
+    Telecrystal: 4 # 1 TC more expensive than regular due to disguise.
   categories:
   - UplinkExplosives

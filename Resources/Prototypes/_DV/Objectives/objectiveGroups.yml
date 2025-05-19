@@ -22,6 +22,12 @@
   weights:
     RandomTraitorAssistObjective: 1
 
+# Sabotage
+- type: weightedRandom
+  id: TraitorObjectiveGroupSabotage
+  weights:
+    TraitorCritAnomalyObjective: 1
+
 ## Ninja
 # Hacking things
 - type: weightedRandom

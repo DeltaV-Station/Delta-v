@@ -30,6 +30,14 @@
   - type: Implanter
     implant: WatchdogImplant
 
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: CentCommImplanter
+  name: centcomm implanter
+  components:
+  - type: Implanter
+    implant: CentCommImplant
+
 # Nukie implants
 
 - type: entity

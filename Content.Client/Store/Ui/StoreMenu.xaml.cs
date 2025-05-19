@@ -30,6 +30,7 @@ public sealed partial class StoreMenu : DefaultWindow
 
     public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> Balance = new();
     public string CurrentCategory = string.Empty;
+    public EntityUid Owner; // DeltaV
 
     private List<ListingDataWithCostModifiers> _cachedListings = new();
 
@@ -151,7 +152,7 @@ public sealed partial class StoreMenu : DefaultWindow
         var listingInStock = GetListingPriceString(listing);
         var discount = GetDiscountString(listing);
 
-        var newListing = new StoreListingControl(listing, listingInStock, discount, hasBalance, texture);
+        var newListing = new StoreListingControl(listing, listingInStock, discount, hasBalance, Owner, texture); // DeltaV - pass owner
         newListing.StoreItemBuyButton.OnButtonDown += args
             => OnListingButtonPressed?.Invoke(args, listing);
 
