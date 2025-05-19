@@ -109,6 +109,9 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:TriggerBehavior
+  - type: Gatherable # DeltaV - prevent mining gibtonite
+    toolWhitelist:
+      tags: []
 
 # Ore veins
 - type: entity

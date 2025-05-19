@@ -1,3 +1,4 @@
+# why is this commented
 # - type: reaction
 #  id: LotophagoiOil
 #  reactants:
@@ -18,15 +19,15 @@
   minTemp: 400
   reactants:
     Ash:
-      amount: 5 # DeltaV - Change from 10 to 5 to fit the guidebook recipe
+      amount: 5
     Water:
-      amount: 5 # DeltaV - Change from 10 to 5 to fit the guidebook recipe
+      amount: 5
     Blood:
-      amount: 5 # DeltaV - Change from 10 to 5 to fit the guidebook recipe
+      amount: 5
     Ectoplasm:
-      amount: 5 # DeltaV - Make Normality Crystals need only 5 Ectoplasm, was 10.
+      amount: 5
     Plasma:
-      amount: 5 # DeltaV - Change from 10 to 5 to fit the guidebook recipe
+      amount: 5
       catalyst: true
   effects:
     - !type:CreateEntityReactionEffect
