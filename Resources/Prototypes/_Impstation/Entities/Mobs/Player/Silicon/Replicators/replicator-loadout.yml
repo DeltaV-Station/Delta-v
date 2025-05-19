@@ -104,13 +104,14 @@
   - type: Sprite
     sprite: Objects/Devices/pinpointer.rsi
     layers:
-    - sprite: _Impstation/Objects/Devices/pinpointer_replicator.rsi
-      state: pinpointer-replicator
-      map: ["enum.PinpointerLayers.Base"]
     - state: pinonnull
       map: ["enum.PinpointerLayers.Screen"]
       shader: unshaded
       visible: false
+    - sprite: _Impstation/Objects/Devices/pinpointer_replicator.rsi
+      state: pinpointer-replicator
+      map: ["enum.PinpointerLayers.Base"]
+
   - type: Icon
     sprite: _Impstation/Objects/Devices/pinpointer_replicator.rsi
     state: pinpointer-replicator
