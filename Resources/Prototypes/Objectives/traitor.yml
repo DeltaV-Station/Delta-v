@@ -267,7 +267,7 @@
   components:
   - type: NotJobRequirement
     job: Quartermaster
-  - type: StealCondition
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
     stealGroup: ClothingHandsKnuckleDustersQM
     owner: job-name-qm
 
