@@ -1,9 +1,15 @@
 using Content.Server._DV.Objectives.Components;
 using Content.Server.Objectives.Systems;
+using Content.Server.Stack;
 using Content.Server.Store.Systems;
 using Content.Shared._DV.Objectives.Systems;
 using Content.Shared._DV.Reputation;
 using Content.Shared.FixedPoint;
+using Content.Shared.Ghost;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Mind;
+using Robust.Shared.Prototypes;
+using System.Linq;
 
 namespace Content.Server._DV.Objectives.Systems;
 
@@ -13,7 +19,10 @@ namespace Content.Server._DV.Objectives.Systems;
 public sealed class ContractObjectiveSystem : SharedContractObjectiveSystem
 {
     [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ReputationSystem _reputation = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly StoreSystem _store = default!;
 
     private Dictionary<string, FixedPoint2> _currency = new();
@@ -28,24 +37,63 @@ public sealed class ContractObjectiveSystem : SharedContractObjectiveSystem
 
     private void OnTaken(Entity<ContractObjectiveComponent> ent, ref ContractTakenEvent args)
     {
-        ent.Comp.Pda = args.Pda;
-
+        ent.Comp.Contracts = args.Contracts;
         if (ent.Comp.Prepaid)
-            Pay(ent, args.Pda);
+            Pay(ent);
     }
 
     private void OnCompleted(Entity<ContractObjectiveComponent> ent, ref ContractCompletedEvent args)
     {
-        _reputation.GiveReputation(args.Pda, ent.Comp.Reputation);
+        _reputation.GiveReputation(args.Contracts, ent.Comp.Reputation);
         if (!ent.Comp.Prepaid)
-            Pay(ent, args.Pda);
+            Pay(ent);
     }
 
-    private void Pay(Entity<ContractObjectiveComponent> ent, EntityUid pda)
+    private void Pay(Entity<ContractObjectiveComponent> ent)
     {
-        _currency.Clear();
-        _currency[ent.Comp.Currency] = ent.Comp.Payment;
-        _store.TryAddCurrency(_currency, pda);
+        if (_reputation.GetContracts(ent.Comp.Contracts) is not {} contracts)
+            return;
+
+        if (contracts.Comp.Store is {} store)
+        {
+            _currency.Clear();
+            _currency[ent.Comp.Currency] = ent.Comp.Payment;
+            _store.TryAddCurrency(_currency, store);
+            return;
+        }
+
+        // try give them TC item there's no store
+        var mind = Comp<MindComponent>(contracts);
+        // no mob unlucky
+        if (mind.OwnedEntity is not {} mob)
+            return;
+
+        // don't spawn tc under ghosts, give the dead body TC instead
+        if (HasComp<GhostComponent>(mob))
+        {
+            // cremated, no TC for you!
+            if (GetEntity(mind.OriginalOwnedEntity) is not {} original)
+                return;
+
+            mob = original;
+        }
+
+        if (!Exists(mob))
+            return;
+
+        // this is copy pasted from store system because it has no API for spawning cash entities
+        var coords = Transform(mob).Coordinates;
+        var amountRemaining = ent.Comp.Payment;
+        var proto = _proto.Index(ent.Comp.Currency);
+        foreach (var value in proto.Cash!.Keys.OrderByDescending(x => x))
+        {
+            var cashId = proto.Cash[value];
+            var amountToSpawn = (int) MathF.Floor((float) (amountRemaining / value));
+            var ents = _stack.SpawnMultiple(cashId, amountToSpawn, coords);
+            if (ents.FirstOrDefault() is {} cash)
+                _hands.PickupOrDrop(mob, cash);
+            amountRemaining -= value * amountToSpawn;
+        }
     }
 
     /// <summary>
@@ -59,8 +107,8 @@ public sealed class ContractObjectiveSystem : SharedContractObjectiveSystem
             if (_codeCondition.IsCompleted(uid) || !pred((uid, comp)))
                 continue;
 
-            if (contract.Pda is {} pda && TryComp<ContractsComponent>(pda, out var contracts))
-                _reputation.TryFailContract((pda, contracts), uid);
+            if (_reputation.GetContracts(contract.Contracts) is {} contracts)
+                _reputation.TryFailContract(contracts, uid);
         }
     }
 
@@ -70,9 +118,8 @@ public sealed class ContractObjectiveSystem : SharedContractObjectiveSystem
     public bool TryFailContract(Entity<ContractObjectiveComponent?> objective)
     {
         return Resolve(objective, ref objective.Comp) &&
-            objective.Comp.Pda is {} pda &&
-            TryComp<ContractsComponent>(pda, out var comp) &&
-            _reputation.TryFailContract((pda, comp), objective);
+            _reputation.GetContracts(objective.Comp.Contracts) is {} contracts &&
+            _reputation.TryFailContract(contracts, objective);
     }
 
     public override string ContractName(EntityUid objective)

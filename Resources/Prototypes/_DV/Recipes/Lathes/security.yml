@@ -100,6 +100,15 @@
     Bluespace: 200
     Glass: 100
 
+# Tools
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: RadioHandheldSecurity
+  result: RadioHandheldSecurity
+  materials:
+    Plastic: 200
+    Steel: 200
+
 # Rubber ammo, removed from upstream
 
 - type: latheRecipe

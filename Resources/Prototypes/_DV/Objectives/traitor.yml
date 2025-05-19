@@ -23,9 +23,9 @@
   - type: TargetObjective
     title: objective-condition-ransom-title
   - type: ReputationCondition
-    reputation: 60
+    reputation: 30
   - type: ContractObjective
-    reputation: 10
+    reputation: 15
     payment: 4
   - type: StoreUnlocker
     listings:
@@ -152,6 +152,27 @@
     stealGroup: BibleMystagogue
     owner: job-name-rd
 
+- type: entity
+  parent: BaseTraitorObjective
+  id: TraitorCritAnomalyObjective
+  name: Force an anomaly to go super-critical
+  description: Hijack Epistemics' equipment to overload an anomaly and make it explode.
+  components:
+  - type: Objective
+    difficulty: 1.5
+    icon:
+      sprite: Structures/Specific/anomaly.rsi
+      state: anom2-pulse
+  - type: NotDepartmentRequirement
+    department: Epistemics
+  - type: CodeCondition
+  - type: CritAnomalyCondition
+  - type: ReputationCondition
+    reputation: 30 # its not that hard but don't want it happening IMMEDIATELY
+  - type: ContractObjective
+    reputation: 10
+    payment: 4
+
 # Assist traitor
 
 - type: entity
@@ -162,8 +183,6 @@
     difficulty: 2.5
   - type: TargetObjective
     title: objective-condition-assist-traitor-title
-  - type: PickRandomTraitor
-    minContracts: 1
   - type: CodeCondition
   - type: SocialObjective # actually need this
   - type: AssistRandomContract

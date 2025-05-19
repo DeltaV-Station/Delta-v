@@ -7,7 +7,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared._DV.Reputation;
 
 /// <summary>
-/// Component added to traitor PDAs to store contract data.
+/// Component added to traitor minds to store contract data.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(ReputationSystem))]
 [AutoGenerateComponentState(true)]
@@ -20,10 +20,17 @@ public sealed partial class ContractsComponent : Component
     public int Reputation;
 
     /// <summary>
-    /// The mind of the traitor.
+    /// The stores assigned to this mind.
+    /// Usually only ever contains a PDA and maybe an uplink implant.
     /// </summary>
     [DataField]
-    public EntityUid? Mind;
+    public List<EntityUid> Stores = new();
+
+    /// <summary>
+    /// The most recently assigned store.
+    /// </summary>
+    [ViewVariables]
+    public EntityUid? Store => Stores.Count == 0 ? null : Stores[Stores.Count - 1];
 
     /// <summary>
     /// The current reputation level, updated when it changes.

@@ -2,6 +2,7 @@ using Content.Shared._DV.Objectives.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Objectives.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -10,6 +11,7 @@ namespace Content.Shared._DV.Reputation;
 public sealed class ReputationSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedContractObjectiveSystem _contract = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -23,13 +25,15 @@ public sealed class ReputationSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ContractsComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<StoreContractsComponent, ComponentInit>(OnStoreInit);
+        SubscribeLocalEvent<StoreContractsComponent, ComponentShutdown>(OnStoreShutdown);
+
         SubscribeLocalEvent<ContractsComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<ContractsComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<ContractsComponent, EntityUnpausedEvent>(OnUnpaused);
         SubscribeLocalEvent<ContractsComponent, AfterAutoHandleStateEvent>(OnHandleState);
-        Subs.BuiEvents<ContractsComponent>(ContractsUiKey.Key, subs =>
+        Subs.BuiEvents<StoreContractsComponent>(ContractsUiKey.Key, subs =>
         {
+            subs.Event<BoundUIOpenedEvent>(OnUIOpened);
             subs.Event<ContractsAcceptMessage>(OnAcceptMessage);
             subs.Event<ContractsCompleteMessage>(OnCompleteMessage);
             subs.Event<ContractsRejectMessage>(OnRejectMessage);
@@ -44,6 +48,9 @@ public sealed class ReputationSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        if (_net.IsClient) // only server does the rng
+            return;
+
         var query = EntityQueryEnumerator<ContractsComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
@@ -53,9 +60,30 @@ public sealed class ReputationSystem : EntitySystem
 
     #region Event Handlers
 
-    private void OnInit(Entity<ContractsComponent> ent, ref ComponentInit args)
+    private void OnStoreInit(Entity<StoreContractsComponent> ent, ref ComponentInit args)
     {
         _ui.SetUi(ent.Owner, ContractsUiKey.Key, new InterfaceData("ContractsBUI"));
+    }
+
+    private void OnStoreShutdown(Entity<StoreContractsComponent> ent, ref ComponentShutdown args)
+    {
+        if (GetContracts(ent.Comp.Mind) is not {} contracts)
+            return;
+
+        // if the PDA is cremated or eaten by a singulo or something,
+        // delete all the offerings and fail the active contracts
+        foreach (var uid in contracts.Comp.Offerings)
+        {
+            Del(uid);
+        }
+
+        foreach (var obj in contracts.Comp.Objectives)
+        {
+            ContractFailed(contracts, obj);
+        }
+
+        // don't try to pay TC to this store now that it's deleted
+        contracts.Comp.Stores.Remove(ent.Owner);
     }
 
     private void OnMapInit(Entity<ContractsComponent> ent, ref MapInitEvent args)
@@ -63,25 +91,6 @@ public sealed class ReputationSystem : EntitySystem
         // creates the slots for fresh pdas
         UpdateLevel(ent);
         PickOfferings(ent);
-    }
-
-    private void OnShutdown(Entity<ContractsComponent> ent, ref ComponentShutdown args)
-    {
-        // if the PDA is cremated or thrown in a singulo or something,
-        // delete all the offerings and fail the active contracts
-        foreach (var uid in ent.Comp.Offerings)
-        {
-            Del(uid);
-        }
-
-        foreach (var obj in ent.Comp.Objectives)
-        {
-            ContractFailed(ent, obj);
-        }
-
-        // unlink it from the mind
-        if (TryComp<MindReputationComponent>(ent.Comp.Mind, out var mind))
-            mind.Pda = null;
     }
 
     private void OnUnpaused(Entity<ContractsComponent> ent, ref EntityUnpausedEvent args)
@@ -109,30 +118,27 @@ public sealed class ReputationSystem : EntitySystem
         UpdateUI(ent);
     }
 
-    private void OnAcceptMessage(Entity<ContractsComponent> ent, ref ContractsAcceptMessage args)
+    private void OnUIOpened(Entity<StoreContractsComponent> ent, ref BoundUIOpenedEvent args)
     {
-        var i = args.Index;
-        if (i < 0 || i >= ent.Comp.Offerings.Count)
-            return;
-
-        if (ent.Comp.Offerings[i] is not {} objective || !TryTakeContract(ent, objective))
-            return;
-
-        ent.Comp.Offerings[i] = null;
-        ent.Comp.OfferingSlots[i] = new OfferingSlot
-        {
-            NextUnlock = _timing.CurTime + ent.Comp.AcceptDelay
-        };
+        UpdateStoreUI(ent);
     }
 
-    private void OnCompleteMessage(Entity<ContractsComponent> ent, ref ContractsCompleteMessage args)
+    private void OnAcceptMessage(Entity<StoreContractsComponent> ent, ref ContractsAcceptMessage args)
     {
-        TryCompleteContract(ent, args.Index);
+        if (GetContracts(ent.Comp.Mind) is {} contracts)
+            TryAcceptContract(contracts, args.Index);
     }
 
-    private void OnRejectMessage(Entity<ContractsComponent> ent, ref ContractsRejectMessage args)
+    private void OnCompleteMessage(Entity<StoreContractsComponent> ent, ref ContractsCompleteMessage args)
     {
-        TryRejectOffering(ent, args.Index);
+        if (GetContracts(ent.Comp.Mind) is {} contracts)
+            TryCompleteContract(contracts, args.Index);
+    }
+
+    private void OnRejectMessage(Entity<StoreContractsComponent> ent, ref ContractsRejectMessage args)
+    {
+        if (GetContracts(ent.Comp.Mind) is {} contracts)
+            TryRejectOffering(contracts, args.Index);
     }
 
     #endregion
@@ -140,31 +146,41 @@ public sealed class ReputationSystem : EntitySystem
     #region Public API
 
     /// <summary>
-    /// Add contracts to a traitor's PDA.
+    /// Add contracts to a traitor's mind and PDA.
     /// Throws if you call this multiple times on the same mind or pda.
     /// </summary>
-    public void AddContracts(EntityUid mob, EntityUid pda)
+    public void AddContracts(EntityUid mob, EntityUid? pda)
     {
         if (_mind.GetMind(mob) is not {} mindId)
             return;
 
         // AddComp so it will throw if you are trying to bulldoze a used mind or pda
-        var contracts = AddComp<ContractsComponent>(pda);
-        var mind = AddComp<MindReputationComponent>(mindId);
-        contracts.Mind = mindId;
-        mind.Pda = pda;
-        PickOfferings((pda, contracts));
+        var contracts = AddComp<ContractsComponent>(mindId);
+        PickOfferings((mindId, contracts));
+
+        if (pda is not {} uid)
+            return;
+
+        var store = AddComp<StoreContractsComponent>(uid);
+        SetStoreMind((uid, store), mindId);
     }
 
-    public void ToggleUI(EntityUid user, EntityUid uid)
+    public void ToggleUI(EntityUid user, EntityUid store)
     {
-        UpdateUI(uid);
-        _ui.TryToggleUi(uid, ContractsUiKey.Key, user);
+        _ui.TryToggleUi(store, ContractsUiKey.Key, user);
     }
 
-    private void UpdateUI(EntityUid uid)
+    private void UpdateStoreUI(EntityUid uid)
     {
         _ui.SetUiState(uid, ContractsUiKey.Key, new ContractsState());
+    }
+
+    private void UpdateUI(Entity<ContractsComponent> ent)
+    {
+        foreach (var store in ent.Comp.Stores)
+        {
+            UpdateStoreUI(store);
+        }
     }
 
     /// <summary>
@@ -172,7 +188,10 @@ public sealed class ReputationSystem : EntitySystem
     /// </summary>
     public void PickOfferings(Entity<ContractsComponent> ent)
     {
-        if (GetMind(ent) is not {} mind || ent.Comp.CurrentLevel is not {} level)
+        if (!TryComp<MindComponent>(ent, out var mind))
+            return;
+
+        if (ent.Comp.CurrentLevel is not {} level)
             return;
 
         var difficulty = level.MaxDifficulty;
@@ -183,7 +202,7 @@ public sealed class ReputationSystem : EntitySystem
             if (ent.Comp.Offerings[i] != null || IsLocked(ent.Comp.OfferingSlots[i].NextUnlock))
                 continue;
 
-            if (_objectives.GetRandomObjective(mind, mind, groups, difficulty) is not {} objective)
+            if (_objectives.GetRandomObjective(ent.Owner, mind, groups, difficulty) is not {} objective)
             {
                 // prevent spinlock
                 ent.Comp.OfferingSlots[i] = new OfferingSlot
@@ -191,6 +210,7 @@ public sealed class ReputationSystem : EntitySystem
                     NextUnlock = _timing.CurTime + ent.Comp.AcceptDelay
                 };
                 Dirty(ent);
+                UpdateUI(ent);
                 continue;
             }
 
@@ -200,6 +220,7 @@ public sealed class ReputationSystem : EntitySystem
                 Title = _contract.ContractName(objective)
             };
             Dirty(ent);
+            UpdateUI(ent);
         }
     }
 
@@ -208,13 +229,13 @@ public sealed class ReputationSystem : EntitySystem
     /// </summary>
     public bool TryTakeContract(Entity<ContractsComponent> ent, EntityUid objective)
     {
-        if (GetMind(ent) is not {} mind ||
+        if (!TryComp<MindComponent>(ent, out var mind) ||
             FindOpenSlot(ent) is not {} index)
         {
             return false;
         }
 
-        _mind.AddObjective(mind, mind, objective);
+        _mind.AddObjective(ent.Owner, mind, objective);
 
         ent.Comp.Objectives[index] = objective;
         var slot = ent.Comp.Slots[index];
@@ -222,10 +243,29 @@ public sealed class ReputationSystem : EntitySystem
         ent.Comp.Slots[index] = slot;
         Dirty(ent);
 
-        var ev = new ContractTakenEvent(ent, mind);
+        var ev = new ContractTakenEvent(ent, (ent.Owner, mind));
         RaiseLocalEvent(objective, ref ev);
         return true;
     }
+
+    public bool TryAcceptContract(Entity<ContractsComponent> ent, int i)
+    {
+        if (i < 0 || i >= ent.Comp.Offerings.Count)
+            return false;
+
+        if (ent.Comp.Offerings[i] is not {} objective || !TryTakeContract(ent, objective))
+            return false;
+
+        ent.Comp.Offerings[i] = null;
+        ent.Comp.OfferingSlots[i] = new OfferingSlot
+        {
+            NextUnlock = _timing.CurTime + ent.Comp.AcceptDelay
+        };
+        Dirty(ent);
+        UpdateUI(ent);
+        return true;
+    }
+
 
     /// <summary>
     /// If a contract's objective is complete, pays out etc and removes it.
@@ -235,8 +275,8 @@ public sealed class ReputationSystem : EntitySystem
         if (index < 0 ||
             index >= ent.Comp.Slots.Count ||
             ent.Comp.Objectives[index] is not {} objective ||
-            GetMind(ent) is not {} mind ||
-            !_objectives.IsCompleted(objective, mind))
+            !TryComp<MindComponent>(ent, out var mind) ||
+            !_objectives.IsCompleted(objective, (ent.Owner, mind)))
         {
             return false;
         }
@@ -264,6 +304,7 @@ public sealed class ReputationSystem : EntitySystem
             NextUnlock = _timing.CurTime + ent.Comp.RejectDelay
         };
         Dirty(ent);
+        UpdateUI(ent);
         Del(objective);
         return true;
     }
@@ -283,59 +324,74 @@ public sealed class ReputationSystem : EntitySystem
     }
 
     /// <summary>
-    /// Get the mind that belongs to a contracts PDA.
+    /// Get the contracts for a mind, if it exists.
     /// </summary>
-    public Entity<MindComponent>? GetMind(Entity<ContractsComponent> ent)
+    public Entity<ContractsComponent>? GetContracts(EntityUid? mindId)
     {
-        if (ent.Comp.Mind is not {} mindId)
+        if (mindId is not {} mind)
             return null;
 
-        if (!TryComp<MindComponent>(mindId, out var mind))
+        if (!TryComp<ContractsComponent>(mind, out var comp))
             return null;
 
-        return (mindId, mind);
-    }
-
-    /// <summary>
-    /// Get the contracts pda for a mind, if it exists.
-    /// </summary>
-    public Entity<ContractsComponent>? GetMindContracts(EntityUid mindId)
-    {
-        if (CompOrNull<MindReputationComponent>(mindId)?.Pda is not {} pda)
-            return null;
-
-        if (!TryComp<ContractsComponent>(pda, out var comp))
-            return null;
-
-        return (pda, comp);
+        return (mind, comp);
     }
 
     /// <summary>
     /// Gets the reputation for a mind, null if it had no <see cref="ContractsComponent"/>.
     /// </summary>
-    public int? GetMindReputation(EntityUid mindId)
+    public int? GetMindReputation(EntityUid? mindId)
     {
-        if (CompOrNull<MindReputationComponent>(mindId)?.Pda is not {} pda)
-            return null;
-
-        return GetReputation(pda);
+        return GetContracts(mindId)?.Comp.Reputation;
     }
 
     /// <summary>
-    /// Gets the reputation for a PDA, null if it had no <see cref="ContractsComponent"/>.
+    /// Gets the reputation for a store, null if it had no <see cref="StoreContractsComponent"/>.
     /// </summary>
-    public int? GetReputation(Entity<ContractsComponent?> ent)
+    public int? GetStoreReputation(Entity<StoreContractsComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp, false))
             return null;
 
-        return ent.Comp.Reputation;
+        return GetMindReputation(ent.Comp.Mind);
+    }
+
+    /// <summary>
+    /// Returns true if a store is allowed to purchase an item with some reputation requirement.
+    /// </summary>
+    public bool CanStorePurchase(EntityUid uid, int? needed)
+    {
+        if (needed is not { } rep)
+            return true; // listing doesn't want reputation
+
+        if (!TryComp<StoreContractsComponent>(uid, out var comp))
+            return true; // nukie uplink or surplus
+
+        if (GetStoreReputation((uid, comp)) is not { } reputation)
+            return false; // uplink implant in non-traitor, no epic gamer loot
+
+        return reputation >= rep;
+    }
+
+    public void SetStoreMind(Entity<StoreContractsComponent> ent, EntityUid? mind)
+    {
+        if (ent.Comp.Mind == mind)
+            return;
+
+        if (GetContracts(ent.Comp.Mind) is {} oldContracts)
+            oldContracts.Comp.Stores.Remove(ent.Owner);
+
+        ent.Comp.Mind = mind;
+        Dirty(ent);
+
+        if (GetContracts(mind) is {} contracts)
+            contracts.Comp.Stores.Add(ent.Owner);
     }
 
     public bool GiveMindReputation(EntityUid mindId, int amount)
     {
         return amount != 0 &&
-            GetMindContracts(mindId) is {} contracts &&
+            GetContracts(mindId) is {} contracts &&
             GiveReputation(contracts, amount);
     }
 
@@ -346,8 +402,6 @@ public sealed class ReputationSystem : EntitySystem
 
         ent.Comp.Reputation = Math.Clamp(ent.Comp.Reputation + amount, 0, 100);
         Dirty(ent);
-        if (TryComp<MindReputationComponent>(ent.Comp.Mind, out var mind))
-            mind.Reputation = ent.Comp.Reputation;
         UpdateLevel(ent);
         return true;
     }
@@ -409,6 +463,7 @@ public sealed class ReputationSystem : EntitySystem
             NextUnlock = _timing.CurTime + delay
         };
         Dirty(ent);
+        UpdateUI(ent);
     }
 
     private void UpdateLevel(Entity<ContractsComponent> ent)
@@ -448,6 +503,7 @@ public sealed class ReputationSystem : EntitySystem
             }
         }
         Dirty(ent);
+        UpdateUI(ent);
     }
 
     private void UpdateOfferingSlots(Entity<ContractsComponent> ent)
@@ -479,19 +535,20 @@ public sealed class ReputationSystem : EntitySystem
             }
         }
         Dirty(ent);
+        UpdateUI(ent);
     }
 
     private void ContractFailed(Entity<ContractsComponent> ent, EntityUid? uid)
     {
-        if (GetMind(ent) is not {} mind)
+        if (uid is not {} objective)
             return;
 
-        if (uid is not {} objective)
+        if (!TryComp<MindComponent>(ent, out var mind))
             return;
 
         var ev = new ContractFailedEvent(ent);
         RaiseLocalEvent(objective, ref ev);
-        _mind.TryRemoveObjective(mind, objective);
+        _mind.TryRemoveObjective((ent.Owner, mind), objective);
     }
 
     private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)

@@ -1,7 +1,9 @@
 using Content.Server._DV.Objectives.Components;
 using Content.Server.Objectives.Systems;
+using Content.Server.Roles;
 using Content.Shared._DV.Reputation;
 using Content.Shared.Objectives.Components;
+using Content.Shared.Roles;
 using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 
@@ -14,7 +16,9 @@ public sealed class AssistRandomContractSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly PickObjectiveTargetSystem _pickTarget = default!;
     [Dependency] private readonly ReputationSystem _reputation = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
 
     private List<EntityUid> _available = new();
@@ -23,6 +27,7 @@ public sealed class AssistRandomContractSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<AssistRandomContractComponent, ObjectiveAssignedEvent>(OnAssigned);
         SubscribeLocalEvent<AssistRandomContractComponent, ObjectiveAfterAssignEvent>(OnAfterAssign);
         SubscribeLocalEvent<AssistRandomContractComponent, ComponentShutdown>(OnShutdown);
 
@@ -30,12 +35,35 @@ public sealed class AssistRandomContractSystem : EntitySystem
         SubscribeLocalEvent<AssistedContractComponent, ContractFailedEvent>(OnFailed);
     }
 
+    private void OnAssigned(Entity<AssistRandomContractComponent> ent, ref ObjectiveAssignedEvent args)
+    {
+        // have to check contracts against the blacklist
+        _pickTarget.AssignRandomTarget(ent, ref args, mindId =>
+        {
+            // only assist traitor contracts
+            if (!_role.MindHasRole<TraitorRoleComponent>(mindId))
+                return false;
+
+            // only assist traitors that use contracts
+            if (_reputation.GetContracts(mindId) is not {} contracts)
+                return false;
+
+            foreach (var obj in contracts.Comp.Objectives)
+            {
+                if (obj is {} uid && _whitelist.IsBlacklistFailOrNull(ent.Comp.Blacklist, uid))
+                    return true; // has at least 1 objective to pick
+            }
+
+            return false; // no objectives...
+        }, fallbackToAny: false); // don't fallback to non traitors obviously
+    }
+
     private void OnAfterAssign(Entity<AssistRandomContractComponent> ent, ref ObjectiveAfterAssignEvent args)
     {
         if (!_target.GetTarget(ent, out var target))
             return;
 
-        if (_reputation.GetMindContracts(target.Value) is not {} contracts)
+        if (_reputation.GetContracts(target) is not {} contracts)
             return;
 
         _available.Clear();
@@ -43,6 +71,13 @@ public sealed class AssistRandomContractSystem : EntitySystem
         {
             if (obj is {} uid && _whitelist.IsBlacklistFailOrNull(ent.Comp.Blacklist, uid))
                 _available.Add(uid);
+        }
+
+        // just incase the target selection fails
+        if (_available.Count == 0)
+        {
+            Log.Error($"Objective {ToPrettyString(ent)} had no available contracts to pick from for {ToPrettyString(target)}!");
+            return;
         }
 
         var contract = _random.Pick(_available);

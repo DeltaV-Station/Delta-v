@@ -111,13 +111,14 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink start");
             // Calculate the amount of currency on the uplink.
             var startingBalance = component.StartingBalance;
+            /* DeltaV - everyone gets the same amount of TC
             if (_jobs.MindTryGetJob(mindId, out var prototype))
             {
                 if (startingBalance < prototype.AntagAdvantage) // Can't use Math functions on FixedPoint2
                     startingBalance = 0;
                 else
                     startingBalance = startingBalance - prototype.AntagAdvantage;
-            }
+            }*/
 
             // Choose and generate an Uplink, and return the uplink code if applicable
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink request start");
@@ -182,13 +183,13 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink add");
         var uplinked = _uplink.AddUplink(traitor, startingBalance, pda, true);
 
+        _reputation.AddContracts(traitor, pda); // DeltaV
         if (pda is not null && uplinked)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is PDA");
             // Codes are only generated if the uplink is a PDA
             var ev = new GenerateUplinkCodeEvent();
             RaiseLocalEvent(pda.Value, ref ev);
-            _reputation.AddContracts(traitor, pda.Value); // DeltaV
 
             if (ev.Code is { } generatedCode)
             {
