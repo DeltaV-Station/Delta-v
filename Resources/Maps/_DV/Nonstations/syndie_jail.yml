@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/20/2025 11:43:57
-  entityCount: 1131
+  time: 05/20/2025 12:33:35
+  entityCount: 1134
 maps: []
 grids:
 - 1
@@ -6796,6 +6796,30 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -3.5,9.5
       parent: 1
+- proto: SignRedOne
+  entities:
+  - uid: 1132
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,15.5
+      parent: 1
+- proto: SignRedThree
+  entities:
+  - uid: 1134
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,18.5
+      parent: 1
+- proto: SignRedTwo
+  entities:
+  - uid: 1133
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,18.5
+      parent: 1
 - proto: SignShock
   entities:
   - uid: 875
@@ -6899,48 +6923,6 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -1.5,1.5
-      parent: 1
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraSecurity
-      nameSet: True
-      id: Treasure Room
-  - uid: 520
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -2.5,15.5
-      parent: 1
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraSecurity
-      nameSet: True
-      id: Prison
-  - uid: 521
-    components:
-    - type: Transform
-      pos: -2.5,20.5
-      parent: 1
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraSecurity
-      nameSet: True
-      id: Farm
-  - uid: 522
-    components:
-    - type: Transform
-      pos: 4.5,20.5
-      parent: 1
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraSecurity
-      nameSet: True
-      id: Mess Room
-  - uid: 523
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
       pos: 6.5,14.5
       parent: 1
     - type: SurveillanceCamera
@@ -6948,7 +6930,24 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Sickbay
-  - uid: 524
+  - uid: 520
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,1.5
+      parent: 1
+  - uid: 521
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,1.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Engineering Room
+  - uid: 522
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -6959,41 +6958,71 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Solitary
-  - uid: 525
+  - uid: 523
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 10.5,1.5
+      pos: -1.5,9.5
       parent: 1
     - type: SurveillanceCamera
       setupAvailableNetworks:
       - SurveillanceCameraSecurity
       nameSet: True
-      id: Power Room
+      id: Arrivals
+  - uid: 524
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-4.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Control Room
+  - uid: 525
+    components:
+    - type: Transform
+      pos: -2.5,20.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Hydroponics
   - uid: 980
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -2.5,9.5
+      pos: -2.5,15.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Mess hall
   - uid: 1000
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 2.5,-4.5
+      rot: -1.5707963267948966 rad
+      pos: 1.5,21.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Kitchen
   - uid: 1071
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -5.5,-2.5
       parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Marshal's office
     - type: DeviceNetwork
       configurators:
       - invalid
