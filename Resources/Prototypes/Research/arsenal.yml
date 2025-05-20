@@ -92,7 +92,7 @@
   name: research-technology-explosive-technology
   icon:
     sprite: Objects/Devices/payload.rsi
-    state: payload-explosive-armed
+    state: payload-flash-armed # DeltaV - was payload-explosive-armed
   discipline: Arsenal
   tier: 1
   cost: 10000
@@ -102,7 +102,7 @@
   - VoiceTrigger
   - TimerTrigger
   - FlashPayload
-  - ExplosivePayload
+  #- ExplosivePayload # DeltaV - Removed
   - ChemicalPayload
   - SignallerDeadMans # DeltaV - Dead Man's Signaller
 
