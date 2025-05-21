@@ -96,7 +96,7 @@ public sealed class CosmicFragmentationSystem : EntitySystem
     {
         if (_polymorph.PolymorphEntity(args.Target, "CosmicFragmentationWisp") is not { } polyVictim)
             return;
-        var chantry = Spawn("CosmicBorgChantry", Transform(args.Target).Coordinates);
+        var chantry = Spawn("CosmicBorgChantry", Transform(polyVictim).Coordinates);
         EnsureComp<CosmicChantryComponent>(chantry, out var chantryComponent);
         chantryComponent.PolyVictim = polyVictim;
         chantryComponent.Victim = args.Target;
