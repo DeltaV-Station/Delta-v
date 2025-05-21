@@ -2,50 +2,50 @@
   id: PrescriptionMedHud
   start: start
   graph:
-    - node: start
-      edges:
-        - to: prescmedhud
-          steps:
-            - tag: HudMedical
-              name: medical hud
-              icon:
-                sprite: Clothing/Eyes/Hud/med.rsi
-                state: icon
-              doAfter: 5
-            - component: VisionCorrection
-              name: glasses
-              icon:
-                sprite: Clothing/Eyes/Glasses/glasses.rsi
-                state: icon
-              doAfter: 5
-            - material: Cable
-              amount: 5
-              doAfter: 5
-    - node: prescmedhud
-      entity: ClothingEyesPrescriptionMedHud
+  - node: start
+    edges:
+    - to: prescmedhud
+      steps:
+      - tag: HudMedical
+        name: construction-graph-tag-medhud
+        icon:
+          sprite: Clothing/Eyes/Hud/med.rsi
+          state: icon
+        doAfter: 5
+      - component: VisionCorrection
+        name: construction-graph-tag-glasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/glasses.rsi
+          state: icon
+        doAfter: 5
+      - material: Cable
+        amount: 5
+        doAfter: 5
+  - node: prescmedhud
+    entity: ClothingEyesPrescriptionMedHud
 
 - type: constructionGraph
   id: PrescriptionSecHud
   start: start
   graph:
-    - node: start
-      edges:
-        - to: prescsechud
-          steps:
-            - tag: HudSecurity
-              name: security hud
-              icon:
-                sprite: Clothing/Eyes/Hud/sec.rsi
-                state: icon
-              doAfter: 5
-            - component: VisionCorrection
-              name: glasses
-              icon:
-                sprite: Clothing/Eyes/Glasses/glasses.rsi
-                state: icon
-              doAfter: 5
-            - material: Cable
-              amount: 5
-              doAfter: 5
-    - node: prescsechud
-      entity: ClothingEyesPrescriptionHudSecurity
+  - node: start
+    edges:
+    - to: prescsechud
+      steps:
+      - tag: HudSecurity
+        name: construction-graph-tag-sechud
+        icon:
+          sprite: Clothing/Eyes/Hud/sec.rsi
+          state: icon
+        doAfter: 5
+      - component: VisionCorrection
+        name: construction-graph-tag-glasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/glasses.rsi
+          state: icon
+        doAfter: 5
+      - material: Cable
+        amount: 5
+        doAfter: 5
+  - node: prescsechud
+    entity: ClothingEyesPrescriptionHudSecurity

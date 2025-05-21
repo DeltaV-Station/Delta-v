@@ -140,6 +140,11 @@ namespace Content.Client.Cargo.BUI
 
             AccountName = cState.Name;
 
+            if (_menu == null)
+                return;
+
+            _menu.ProductCatalogue = cState.Products;
+
             _menu?.UpdateStation(station);
             Populate(cState.Orders);
             _menu?.UpdateRansoms(cState.Ransoms, BankBalance); // DeltaV
