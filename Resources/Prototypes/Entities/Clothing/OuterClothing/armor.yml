@@ -14,6 +14,15 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/security.rsi
   - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    traumaDeductions: # Shitmed Change
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.70
@@ -54,6 +63,12 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/riot.rsi
   - type: Armor
+    traumaDeductions: # Shitmed Change
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.4
@@ -76,6 +91,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/bulletproof.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
+    traumaDeductions: # Shitmed Change
+      Dismemberment: 0.07
+      OrganDamage: 0.07
+      BoneDamage: 0.07
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.9
@@ -96,11 +121,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/armor_reflec.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
+    # Does not give dismemberment deduction because of reflection. yeah do with it somehow
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
+      coefficients: # Shitmed Change - reduced coefficients by 0.1
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
         Heat: 0.75 # DeltaV - changed from 60% resistant to 25%
   - type: Reflect
     reflectProb: 0.75 # DeltaV - changed from 100% reflect to 75%
@@ -124,6 +154,12 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/syndie-raid.rsi
   - type: Armor
+    traumaDeductions: # Shitmed Change
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.35
@@ -200,6 +236,12 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/cult_armour.rsi
   - type: Armor
+    traumaDeductions: # Shitmed Change
+      Dismemberment: 0.33
+      OrganDamage: 0.33
+      BoneDamage: 0.33
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -219,6 +261,12 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/heavy.rsi
   - type: Armor
+    traumaDeductions: # Shitmed Change - prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
     modifiers:
       coefficients:
         Blunt: 0.2
@@ -288,6 +336,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/captain_carapace.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Tail
+    traumaDeductions: # Shitmed Change
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -316,6 +374,22 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/lingarmor.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Head
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    traumaDeductions: # Shitmed Change
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -344,6 +418,21 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/bone_armor.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    traumaDeductions: # Shitmed Change
+      Dismemberment: -1
+      OrganDamage: -1
+      BoneDamage: 1 # this is bones dude
+      VeinsDamage: -1
+      NerveDamage: -1
     modifiers:
       coefficients:
         Blunt: 0.6
@@ -372,6 +461,21 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/podwars_armor.rsi
   - type: Armor
+    coverage: # Shitmed Change
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    traumaDeductions: # Shitmed Change
+      Dismemberment: 0.27
+      OrganDamage: 0.27
+      BoneDamage: 0.27
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.5

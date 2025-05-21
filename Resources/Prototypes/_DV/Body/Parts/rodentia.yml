@@ -11,9 +11,14 @@
     species: Rodentia
 
 - type: entity
-  parent: [ PartRodentiaBase, BaseTorso ]
-  id: TorsoRodentia
-  name: "rodentia torso"
+  parent: [ PartRodentiaBase, BaseChest ]
+  id: ChestRodentia
+  name: "rodentia chest"
+
+- type: entity
+  parent: [ PartRodentiaBase, BaseGroin ]
+  id: GroinRodentia
+  name: "rodentia groin"
 
 - type: entity
   parent: [ PartRodentiaBase, BaseHead ]

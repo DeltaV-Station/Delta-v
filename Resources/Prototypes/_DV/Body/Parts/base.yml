@@ -54,6 +54,15 @@
   abstract: true
   id: BaseFootDV
   components:
+  - type: Woundable
+    integrity: 100
+    integrityCap: 100
+    thresholds:
+      Minor: 90
+      Moderate: 75
+      Severe: 70
+      Critical: 60
+      Loss: 40
   - type: BodyPart
     severThresholds:
     - types:

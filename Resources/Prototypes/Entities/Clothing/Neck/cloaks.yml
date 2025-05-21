@@ -157,6 +157,16 @@
     requiredSlot:
     - neck
     slot: head
+  - type: Armor # Shitmed Change
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}

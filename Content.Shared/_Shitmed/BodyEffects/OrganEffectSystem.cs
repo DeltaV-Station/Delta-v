@@ -61,9 +61,9 @@ public partial class OrganEffectSystem : EntitySystem
         if (organEnt.Comp.OnRemove != null)
         {
             if (ev.Add)
-                AddComponents(ev.Body, organEnt, organEnt.Comp.OnRemove);
-            else
                 RemoveComponents(ev.Body, organEnt, organEnt.Comp.OnRemove);
+            else
+                AddComponents(ev.Body, organEnt, organEnt.Comp.OnRemove);
         }
     }
 
