@@ -1,0 +1,17 @@
+- type: entity
+  name: cleanade grenade box
+  parent: BoxCardboard
+  id: CleanadeGrenadeBox
+  description: A box of hydra launcher ammo. Contains 10 cleanade grenades.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,4,3
+  - type: StorageFill
+    contents:
+      - id: GrenadeCleanade
+        amount: 10
+  - type: Sprite
+    layers:
+      - state: box
+      - state: flashbang
