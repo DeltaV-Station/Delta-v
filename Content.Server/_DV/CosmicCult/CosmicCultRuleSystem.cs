@@ -728,8 +728,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             return;
 
         _mind.ClearObjectives(mindId, mind);
-        _role.MindTryRemoveRole<CosmicCultRoleComponent>(mindId);
-        _role.MindTryRemoveRole<RoleBriefingComponent>(mindId);
+        _role.MindRemoveRole<CosmicCultRoleComponent>(mindId);
+        _role.MindRemoveRole<RoleBriefingComponent>(mindId);
         if (_playerMan.TryGetSessionById(mind.UserId, out var session))
         {
             _euiMan.OpenEui(new CosmicDeconvertedEui(), session);

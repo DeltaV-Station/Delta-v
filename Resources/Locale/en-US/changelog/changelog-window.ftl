@@ -13,4 +13,4 @@ changelog-button-new-entries = Changelog (new!)
 
 changelog-tab-title-Changelog = Upstream
 changelog-tab-title-Admin = Admin
-changelog-tab-title-DeltaV = Delta-V
+changelog-tab-title-Maps = Maps
