@@ -66,8 +66,8 @@ public sealed partial class CargoSystem
         if (GetEntity(args.Entity) is not { Valid: true } uid ||
             // got released already
             !TryComp<RansomComponent>(uid, out var ransom) ||
-            // not on a station
-            _station.GetOwningStation(uid) is not {} station ||
+            // console is not on a station
+            _station.GetOwningStation(ent.Owner) is not {} station ||
             !TryComp<StationBankAccountComponent>(station, out var bank) ||
             !TryComp<StationDataComponent>(station, out var stationData))
         {
