@@ -124,8 +124,6 @@
   name: malign custodian
   description: Twisted beyond recognition.
   components:
-  - type: Puller
-    needsHands: true
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 3
@@ -143,8 +141,6 @@
   name: malign oracle
   description: Twisted beyond recognition.
   components:
-  - type: Puller
-    needsHands: true
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 3
