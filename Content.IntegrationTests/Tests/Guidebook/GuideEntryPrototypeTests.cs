@@ -34,7 +34,7 @@ public sealed class GuideEntryPrototypeTests
             });
 
             // Avoid styleguide update limit
-            await client.WaitRunTicks(1);
+            await client.WaitRunTicks(10); // DeltaV - didn't avoid hard enough
         }
 
         await pair.CleanReturnAsync();
