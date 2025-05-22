@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Rodentia crawling is now fully predicted and less buggy.
-    type: Tweak
-  id: 924
-  time: '2025-01-16T15:28:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2754
-- author: rosieposieeee
-  changes:
-  - message: Detective now starts with forensic gloves.
-    type: Tweak
-  id: 925
-  time: '2025-01-16T17:55:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2749
 - author: BarryNorfolk
   changes:
   - message: Improved bounty history console screen
@@ -4093,3 +4079,19 @@
   id: 1423
   time: '2025-05-21T18:28:01.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3812
+- author: Radezolid
+  changes:
+  - message: Fixed maintenance airlocks having the upstream sprite.
+    type: Fix
+  id: 1424
+  time: '2025-05-22T01:58:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3820
+- author: deltanedas
+  changes:
+  - message: Merged upstream changes from the past 3 weeks.
+    type: Add
+  - message: Removed cyanoxadone/hemoxadone as they were replaced by cryoxadone.
+    type: Remove
+  id: 1425
+  time: '2025-05-21T19:14:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3787
