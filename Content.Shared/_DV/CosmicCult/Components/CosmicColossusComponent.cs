@@ -17,7 +17,7 @@ public sealed partial class CosmicColossusComponent : Component
     [AutoPausedField, DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan AttackHoldTimer = default!;
 
-    [DataField] public SoundSpecifier DeathSfx = new SoundPathSpecifier("/Audio/Animals/space_dragon_roar.ogg");
+    [DataField] public SoundSpecifier DeathSfx = new SoundPathSpecifier("/Audio/_DV/CosmicCult/colossus_death.ogg");
 
     [DataField] public SoundSpecifier IngressSfx = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_ingress.ogg");
 
