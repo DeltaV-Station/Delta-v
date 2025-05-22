@@ -7,8 +7,7 @@
     issuer: objective-issuer-syndicate
   - type: RoleRequirement
     roles:
-      mindRoles:
-      - TraitorRole
+    - TraitorRole
 
 - type: entity
   abstract: true
@@ -17,21 +16,24 @@
   components:
   - type: Objective
     icon:
-      sprite: Objects/Misc/bureaucracy.rsi
+      sprite: Objects/Misc/folders.rsi
       state: folder-white
   - type: MultipleTraitorsRequirement
 
 - type: entity
   abstract: true
-  parent: [BaseTraitorObjective, BaseStealObjective]
+  parent: [BaseTraitorObjective, BaseExtractObjective] # DeltaV - Extract replacing Steal
   id: BaseTraitorStealObjective
   components:
-  - type: StealCondition
-    verifyMapExistence: false
   - type: Objective
     difficulty: 2.75
   - type: ObjectiveLimit
     limit: 2 # there is usually only 1 of each steal objective, have 2 max for drama
+  - type: ReputationCondition # DeltaV
+    reputation: 20
+  - type: ContractObjective # DeltaV
+    reputation: 10
+    payment: 4
 
 # state
 
@@ -67,8 +69,14 @@
   - type: DieCondition
   # The game turns into a massive suicide pact if enough of the traitors have it. Not fun for traitors or security!
   # Giving it a limit keeps the objective unique and interesting without being overdone.
-  - type: ObjectiveLimit # Delta-V
-    limit: 1 # Delta-V
+  - type: ObjectiveLimit # DeltaV
+    limit: 1
+  - type: ContractObjective # DeltaV
+    reputation: 40
+    payment: 20 # Go wild
+    prepaid: true
+  - type: ReputationCondition # DeltaV - DAGD is endgame
+    reputation: 90
 
 #- type: entity
 #  parent: [BaseTraitorObjective, BaseLivingObjective]
@@ -85,23 +93,32 @@
 
 # kill
 
+# DeltaV - TODO: replace with MMI objective
 - type: entity
   parent: [BaseTraitorObjective, BaseKillObjective]
   id: KillRandomPersonObjective
-  description: Do it however you like, just make sure they don't make it to centcomm.
+  description: Do it however you like, just make sure they don't get off the station.
   components:
   - type: Objective
     difficulty: 1.75
     unique: false
   - type: TargetObjective
-    title: objective-condition-kill-person-title
+    title: objective-condition-maroon-person-title
   - type: PickRandomPerson
     onlyChoosableJobs: true # DeltaV
+  - type: ContractObjective # DeltaV
+    reputation: 15
+    payment: 6
+  - type: ReputationCondition # DeltaV
+    reputation: 80
+  - type: KillPersonCondition
+    requireMaroon: true
 
+# DeltaV - TODO: replace with head MMI objective
 - type: entity
   parent: [BaseTraitorObjective, BaseKillObjective]
   id: KillRandomHeadObjective
-  description: We need this head gone and you probably know why. Good luck, agent.
+  description: We need this head gone and you probably know why. Make sure they don't make it to CentComm, even if they're dead. Good luck, agent.
   components:
   - type: Objective
     # technically its still possible for KillRandomPersonObjective to roll a head but this is guaranteed, so higher difficulty
@@ -109,12 +126,18 @@
     # killing 1 head is enough
     unique: true
   - type: TargetObjective
-    title: objective-condition-kill-head-title
+    title: objective-condition-kill-maroon-title
   - type: PickRandomHead
   - type: KillPersonCondition
     # don't count missing evac as killing as heads are higher profile, so you really need to do the dirty work
     # if ce flies a shittle to centcom you better find a way onto it
     requireDead: true
+    requireMaroon: true
+  - type: ContractObjective # DeltaV
+    reputation: 20
+    payment: 10
+  - type: ReputationCondition # DeltaV
+    reputation: 80
 
 # social
 
@@ -151,21 +174,21 @@
   components:
   - type: NotJobRequirement
     job: ChiefMedicalOfficer
-  - type: StealCondition
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
     owner: job-name-cmo
 
 - type: entity
   parent: BaseCMOStealObjective
   id: CMOHyposprayStealObjective
   components:
-  - type: StealCondition
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
     stealGroup: Hypospray
 
 - type: entity
   parent: BaseCMOStealObjective
   id: CMOCrewMonitorStealObjective
   components:
-  - type: StealCondition
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
     stealGroup: HandheldCrewMonitor
 
 ## rd
@@ -177,14 +200,14 @@
   components:
   - type: NotJobRequirement
     job: ResearchDirector
-  - type: StealCondition
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
     owner: job-name-rd
 
 - type: entity
   parent: BaseRDStealObjective
   id: RDHardsuitStealObjective
   components:
-  - type: StealCondition
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
     stealGroup: ClothingOuterHardsuitRd
   - type: Objective
     # This item must be worn or stored in a slowing duffelbag, very hard to hide.
@@ -194,7 +217,7 @@
   parent: BaseRDStealObjective
   id: HandTeleporterStealObjective
   components:
-  - type: StealCondition
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
     stealGroup: HandTeleporter
 
 ## hos
@@ -208,9 +231,11 @@
     difficulty: 3
   - type: NotJobRequirement
     job: HeadOfSecurity
-  - type: StealCondition
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
     stealGroup: WeaponEnergyShotgun
     owner: job-name-hos
+  - type: ReputationCondition # DeltaV
+    reputation: 60
 
 ## ce
 
@@ -220,7 +245,7 @@
   components:
   - type: NotJobRequirement
     job: ChiefEngineer
-  - type: StealCondition
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
     stealGroup: ClothingShoesBootsMagAdv
     owner: job-name-ce
 
@@ -232,8 +257,18 @@
   components:
   - type: NotJobRequirement
     job: Quartermaster
-  - type: StealCondition
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
     stealGroup: BoxFolderQmClipboard
+    owner: job-name-qm
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: KnuckleDustersStealObjective
+  components:
+  - type: NotJobRequirement
+    job: Quartermaster
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
+    stealGroup: ClothingHandsKnuckleDustersQM
     owner: job-name-qm
 
 ## hop
@@ -246,7 +281,7 @@
     job: HeadOfPersonnel
   - type: ObjectiveLimit
     limit: 3 # ian only has 2 slices, 3 obj for drama
-  - type: StealCondition
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
     stealGroup: FoodMeatCorgi
     owner: objective-condition-steal-Ian
 
@@ -262,26 +297,28 @@
     difficulty: 3.5
   - type: NotJobRequirement
     job: Captain
+  - type: ReputationCondition # DeltaV
+    reputation: 60
 
 - type: entity
   parent: BaseCaptainObjective
   id: CaptainIDStealObjective
   components:
-  - type: StealCondition
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
     stealGroup: CaptainIDCard
 
 - type: entity
   parent: BaseCaptainObjective
   id: CaptainJetpackStealObjective
   components:
-  - type: StealCondition
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
     stealGroup: JetpackCaptainFilled
 
 - type: entity
   parent: BaseCaptainObjective
   id: CaptainGunStealObjective
   components:
-  - type: StealCondition
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
     stealGroup: WeaponAntiqueLaser
     owner: job-name-captain
 
@@ -295,6 +332,8 @@
     # it's close to being a stealth loneop
     difficulty: 4
   - type: NotCommandRequirement
-  - type: StealCondition
+  - type: ExtractCondition # DeltaV - Extract replacing Steal
     stealGroup: NukeDisk
     owner: objective-condition-steal-station
+  - type: ReputationCondition # DeltaV
+    reputation: 75

@@ -6,6 +6,7 @@
   setPreference: false
   startingGear: CentcomGear
   icon: "JobIconNanotrasen"
+  ransomModifier: 10 # DeltaV - wow
   supervisors: job-supervisors-hos
   canBeAntag: false
   accessGroups:
@@ -24,7 +25,7 @@
     head: ClothingHeadHatCentcom
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesColorBlack
-    outerClothing: ClothingOuterArmorBasic
+    outerClothing: ClothingOuterArmorCentcommCarapace
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
     belt: WeaponPistolN1984

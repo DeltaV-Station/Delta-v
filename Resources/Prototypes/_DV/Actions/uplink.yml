@@ -1,0 +1,8 @@
+- type: entity
+  parent: ActionOpenUplinkImplant
+  id: ActionOpenContractsImplant
+  name: Open Contract Hub
+  components:
+  - type: InstantAction
+    event: !type:OpenUiActionEvent
+      key: enum.ContractsUiKey.Key

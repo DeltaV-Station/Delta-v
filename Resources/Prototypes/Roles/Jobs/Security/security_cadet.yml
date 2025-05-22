@@ -8,10 +8,11 @@
       time: 36000 #10 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 54000 #15 hrs
+      time: 18000 #5 hrs
       inverted: true # stop playing intern if you're good at security!
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
+  ransomModifier: 2 # DeltaV - Sec is less than heads
   supervisors: job-supervisors-security
   canBeAntag: false
   access:

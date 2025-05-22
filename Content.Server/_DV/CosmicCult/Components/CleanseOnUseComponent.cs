@@ -16,8 +16,8 @@ public sealed partial class CleanseOnUseComponent : Component
 
     [DataField] public SoundSpecifier MalignSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/glyph_trigger.ogg");
 
-    [DataField] public EntProtoId CleanseVFX = "CleanseEffectVFX";
-
+    [DataField] public EntProtoId CleanseVFX = "NoosphericVFX2";
+    [DataField] public EntProtoId ReboundVFX = "NoosphericVFX1";
     [DataField] public EntProtoId MalignVFX = "CosmicGenericVFX";
 
     [DataField] public bool Enabled = true;

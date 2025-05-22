@@ -6,9 +6,10 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 #10 hrs
+      time: 9000 #2.5 hrs
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
+  ransomModifier: 2 # DeltaV - Sec is less than heads
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:

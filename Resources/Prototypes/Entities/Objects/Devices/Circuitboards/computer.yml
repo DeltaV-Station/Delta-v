@@ -72,6 +72,8 @@
       state: cpu_security
     - type: ComputerBoard
       prototype: ComputerCriminalRecords
+    - type: StealTarget # DeltaV
+      stealGroup: CriminalRecordsComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -96,6 +98,8 @@
       prototype: ComputerCargoOrders
     - type: StaticPrice
       price: 750
+    - type: StealTarget # DeltaV
+      stealGroup: CargoRequestComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -197,17 +201,19 @@
   - type: ComputerBoard
     prototype: ComputerCargoBounty
   - type: StaticPrice
+  - type: StealTarget # DeltaV
+    stealGroup: CargoBountyComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
-  id: CargoShuttleComputerCircuitboard
-  name: cargo shuttle computer board
-  description: A computer printed circuit board for a cargo shuttle computer.
+  id: SalvageJobBoardComputerCircuitboard
+  name: salvage job board computer board
+  description: A computer printed circuit board for a salvage job board computer.
   components:
-    - type: Sprite
-      state: cpu_supply
-    - type: ComputerBoard
-      prototype: ComputerCargoShuttle
+  - type: Sprite
+    state: cpu_supply
+  - type: ComputerBoard
+    prototype: ComputerSalvageJobBoard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -282,6 +288,8 @@
       state: cpu_science
     - type: ComputerBoard
       prototype: ComputerResearchAndDevelopment
+    - type: StealTarget # DeltaV
+      stealGroup: ResearchComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -321,7 +329,7 @@
     - CrewMonitoringComputerCircuitboard
 
 - type: entity
-  parent: [BaseComputerCircuitboard, BaseGrandTheftContraband]
+  parent: [BaseComputerCircuitboard, BaseCommandContraband]
   id: IDComputerCircuitboard
   name: ID card computer board
   description: A computer printed circuit board for an ID card console.
@@ -335,6 +343,8 @@
     - type: Tag
       tags:
       - HighRiskItem
+    - type: StealTarget # DeltaV
+      stealGroup: IDComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -348,7 +358,7 @@
       prototype: computerBodyScanner
 
 - type: entity
-  parent: [ BaseComputerCircuitboard, BaseGrandTheftContraband ]
+  parent: [ BaseComputerCircuitboard, BaseCommandContraband ]
   id: CommsComputerCircuitboard
   name: communications computer board
   description: A computer printed circuit board for a communications console.
@@ -357,6 +367,8 @@
       state: cpu_command
     - type: ComputerBoard
       prototype: ComputerComms
+    - type: StealTarget # DeltaV
+      stealGroup: CommsComputerCircuitboard
 
 - type: entity
   parent: [ BaseComputerCircuitboard, BaseSyndicateContraband ]
@@ -456,7 +468,7 @@
     prototype: ComputerShuttle
 
 - type: entity
-  parent: BaseComputerCircuitboard
+  parent: [ BaseComputerCircuitboard, BaseSyndicateContraband ]
   id: SyndicateShuttleConsoleCircuitboard
   name: syndicate shuttle console board
   description: A computer printed circuit board for a syndicate shuttle console.
@@ -489,7 +501,7 @@
       prototype: ComputerIFF
 
 - type: entity
-  parent: BaseComputerCircuitboard
+  parent: [ BaseComputerCircuitboard, BaseSyndicateContraband ]
   id: ComputerIFFSyndicateCircuitboard
   name: syndicate IFF console board
   description: Allows you to control the IFF and stealth characteristics of this vessel.
