@@ -251,14 +251,14 @@
   id:  MenaceSkeleton
   components:
   - type: StationEvent
-    weight: 6 # DeltaV - was 10
+    weight: 6
     duration: 1
-    minimumPlayers: 10
-  - type: PrecognitionResult # DeltaV - Precogniton
+    minimumPlayers: 30
+  - type: PrecognitionResult
     message: psionic-power-precognition-closet-skeleton-result-message
   - type: AntagSpawner
     prototype: MobMenaceSkeleton
-  - type: AntagRandomObjectives # DeltaV - add objectives
+  - type: AntagRandomObjectives
     sets:
     - groups: SkeletonObjectiveGroup
       maxPicks: 2 # only pick 2 of 4
