@@ -59,7 +59,6 @@ using Robust.Shared.Timing;
 using System.Collections.Immutable;
 using System.Linq;
 
-
 namespace Content.Server._DV.CosmicCult;
 
 /// <summary>

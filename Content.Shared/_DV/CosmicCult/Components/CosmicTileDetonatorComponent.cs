@@ -24,5 +24,4 @@ public sealed partial class CosmicTileDetonatorComponent : Component
     [DataField] public Vector2 MaxSize = new Vector2(8, 8);
 
     [DataField] public Vector2 Size = new Vector2(0, 0);
-
 }
