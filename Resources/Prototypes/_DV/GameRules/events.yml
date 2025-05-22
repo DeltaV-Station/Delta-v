@@ -12,6 +12,7 @@
     - id: Fugitive
     - id: ListeningPost
     - id: RoboNeuroticist
+    - id: MenaceSkeleton
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -246,7 +247,7 @@
       - MindRoleRoboNeuroticist
 
 - type: entity
-  parent: BaseGameRule
+  parent: BaseMidRoundAntag
   id:  MenaceSkeleton
   components:
   - type: StationEvent
@@ -255,8 +256,8 @@
     minimumPlayers: 10
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-closet-skeleton-result-message
-  - type: RandomSpawnRule
-    prototype: MobSkeletonCloset
+  - type: AntagSpawner
+    prototype: MobMenaceSkeleton
   - type: AntagRandomObjectives # DeltaV - add objectives
     sets:
     - groups: SkeletonObjectiveGroup

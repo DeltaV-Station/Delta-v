@@ -1,11 +1,4 @@
-﻿- type: weightedRandom
-  id: SkeletonObjectiveGroup
-  weights:
-    SkeletonMilkObjective: 1
-    SkeletonHauntObjective: 1
-    SkeletonFrameObjective: 1
-    SkeletonBoneObjective: 0.5
-    SkeletonDripObjective: 1
+﻿
 
 - type: entity
   abstract: true
@@ -17,11 +10,11 @@
     icon:
       sprite: Objects/Consumable/Drinks/milk.rsi
       state: icon
-    difficulty: 1 # difficulty is unused\
+    difficulty: 1 # difficulty is unused
   - type: RoleRequirement
     roles:
       mindRoles:
-      - ClosetSkeletonRole
+      - MenaceSkeletonRole
 
 - type: entity
   parent: SkeletonBaseObjective
