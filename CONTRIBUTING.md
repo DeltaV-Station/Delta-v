@@ -85,7 +85,19 @@ Conflicts with maps make PRs mutually exclusive so either your work or the maint
 
 Please make a detailed list of **all** changes(even minor changes) with locations when submitting a PR. This helps reviewers hone in on them without having to search an entire map for differences. Ex: [Map Edits](https://github.com/DeltaV-Station/Delta-v/pull/3165)
 
-Please limit changelogs on map PRs to **significant** map alterations or additions. Minor map edits do not need changelogs. Limit changelogs to one per PR.
+
+**Submitting a map PR**
+
+Please limit changelogs on map PRs to **significant** map alterations or additions. Minor map edits do not need changelogs.
+Format for map PRs looks like:
+```
+:cl: Yourname
+MAPS: Mapname
+- add: Added fun!
+- remove: Removed fun!
+- tweak: Changed fun!
+- fix: Fixed fun!
+``` 
 
 # Before you submit
 
