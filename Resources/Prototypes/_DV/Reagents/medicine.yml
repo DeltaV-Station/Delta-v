@@ -85,3 +85,40 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 0.5
         sprintSpeedModifier: 0.5
+
+- type: reagent
+  id: Synthoxadone
+  name: reagent-name-synthoxadone
+  group: Medicine
+  desc: reagent-desc-synthoxadone
+  physicalDesc: reagent-physical-desc-synthetic
+  flavor: medicine
+  color: "#4f3670"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.35
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:Temperature
+          max: 213.0
+        - !type:MultiMobStateConditionDv
+          states: [ Alive, Critical ]
+        damage:
+          groups:
+            Brute: -4
+            Burn: -6
+            Toxin: -4
+      - !type:EvenHealthChange
+        conditions:
+        - !type:Temperature
+          max: 213.0
+        - !type:MobStateCondition
+          mobstate: Dead
+        - !type:TotalDamage
+          min: 210
+          max: 350
+        damage:
+          Brute: -2
+          Burn: -2
