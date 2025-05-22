@@ -15,14 +15,9 @@ public sealed partial class CosmicTileDetonatorComponent : Component
     [AutoPausedField, DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan DetonationTimer = default!;
 
-    [AutoPausedField, DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan DespawnTimer = default!;
-
     [DataField] public EntProtoId TileDetonation = "MobTileDamageArea";
 
     [DataField] public TimeSpan DetonateWait = TimeSpan.FromSeconds(0.525);
-
-    [DataField] public TimeSpan DespawnWait = TimeSpan.FromSeconds(8);
 
     [DataField] public Vector2i DetonationCenter;
 

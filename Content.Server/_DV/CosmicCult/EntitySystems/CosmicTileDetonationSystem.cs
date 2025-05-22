@@ -48,10 +48,6 @@ public sealed class CosmicTileDetonationSystem : EntitySystem
                 comp.Size.X += 2f;
                 comp.Size.Y += 2f;
             }
-            if (_timing.CurTime >= comp.DespawnTimer)
-            {
-                QueueDel(ent);
-            }
         }
     }
 }

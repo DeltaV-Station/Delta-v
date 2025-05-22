@@ -115,7 +115,6 @@ public sealed class CosmicColossusSystem : EntitySystem
 
         var detonator = Spawn(comp.TileDetonations, args.Target);
         EnsureComp<CosmicTileDetonatorComponent>(detonator, out var detonateComp);
-        detonateComp.DespawnTimer = _timing.CurTime + detonateComp.DespawnWait;
         detonateComp.DetonationTimer = _timing.CurTime;
     }
 }

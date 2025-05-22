@@ -193,6 +193,8 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/_DV/CosmicCult/tile_detonate.ogg
+  - type: TimedDespawn
+    lifetime: 8
 
 - type: entity
   categories: [ HideSpawnMenu ]
