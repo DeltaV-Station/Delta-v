@@ -182,6 +182,20 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
+  id: MobTileDamageZone
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_DV/CosmicCult/tile_detonate.ogg
+
+- type: entity
+  categories: [ HideSpawnMenu ]
   id: MobTileDamageArea
   placement:
     mode: SnapgridCenter

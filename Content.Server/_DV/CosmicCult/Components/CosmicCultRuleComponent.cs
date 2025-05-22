@@ -37,11 +37,21 @@ public sealed partial class CosmicCultRuleComponent : Component
     [DataField]
     public LocId RoundEndTextAnnouncement = "cosmiccult-elimination-announcement";
 
-    public HashSet<EntProtoId> CosmicMobs =
+    /// <summary>
+    /// List of entities non-cultists are turned into at the end of the round.
+    /// </summary>
+    [DataField]
+    public List<EntProtoId> CosmicMobs =
     [
         "MobCosmicCustodian",
         "MobCosmicOracle",
     ];
+
+    /// <summary>
+    /// The entity cultists are turned into at the end of the round.
+    /// </summary>
+    [DataField]
+    public EntProtoId CosmicAscended = "MobCosmicAstralAscended";
 
     /// <summary>
     /// Time for emergency shuttle arrival.

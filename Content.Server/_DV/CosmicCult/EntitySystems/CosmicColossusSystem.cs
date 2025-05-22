@@ -7,32 +7,26 @@ using Content.Shared.Audio;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
 using Content.Shared.Mobs;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server._DV.CosmicCult.EntitySystems;
 
 public sealed class CosmicColossusSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly DoorSystem _door = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _move = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-
-    private readonly EntProtoId _tileDetonation = "MobTileDamageArea";
 
     public override void Initialize()
     {
@@ -43,25 +37,38 @@ public sealed class CosmicColossusSystem : EntitySystem
         SubscribeLocalEvent<CosmicColossusComponent, EventCosmicColossusIngress>(OnColossusIngress);
         SubscribeLocalEvent<CosmicColossusComponent, EventCosmicColossusIngressDoAfter>(OnColossusIngressDoAfter);
         SubscribeLocalEvent<CosmicColossusComponent, EventCosmicColossusSunder>(OnColossusSunder);
+    }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var colossusQuery = EntityQueryEnumerator<CosmicColossusComponent>();
+        while (colossusQuery.MoveNext(out var ent, out var comp))
+        {
+            if (_timing.CurTime >= comp.AttackHoldTimer && comp.Attacking)
+            {
+                _appearance.SetData(ent, ColossusVisuals.Status, ColossusStatus.Alive); _transform.Unanchor(ent);
+                comp.Attacking = false;
+            }
+        }
     }
 
     private void OnMobStateChanged(Entity<CosmicColossusComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState is not MobState.Alive)
-        {
-            if (!TryComp<PhysicsComponent>(ent, out var physComp))
-                return;
-            _appearance.SetData(ent, ColossusVisuals.Status, ColossusStatus.Dead);
-            _ambientSound.SetAmbience(ent, false);
-            _audio.PlayPvs(ent.Comp.DeathSFX, ent);
-            _physics.SetBodyStatus(ent, physComp, BodyStatus.OnGround, true);
-            _popup.PopupCoordinates(
-                Loc.GetString("cosmiccult-colossus-death"),
-                Transform(ent).Coordinates,
-                PopupType.Large);
-            RemComp<PointLightComponent>(ent);
-        }
+        if (args.NewMobState == MobState.Alive)
+            return;
+        if (!TryComp<PhysicsComponent>(ent, out var physComp))
+            return;
+        _appearance.SetData(ent, ColossusVisuals.Status, ColossusStatus.Dead);
+        _ambientSound.SetAmbience(ent, false);
+        _audio.PlayPvs(ent.Comp.DeathSfx, ent);
+        _physics.SetBodyStatus(ent, physComp, BodyStatus.OnGround, true);
+        _popup.PopupCoordinates(
+            Loc.GetString("cosmiccult-colossus-death"),
+            Transform(ent).Coordinates,
+            PopupType.Large);
+        RemComp<PointLightComponent>(ent);
     }
 
     private void OnColossusIngress(Entity<CosmicColossusComponent> ent, ref EventCosmicColossusIngress args)
@@ -73,7 +80,7 @@ public sealed class CosmicColossusSystem : EntitySystem
             BreakOnMove = true,
         };
         args.Handled = true;
-        _audio.PlayPvs(ent.Comp.DoAfterSFX, ent);
+        _audio.PlayPvs(ent.Comp.DoAfterSfx, ent);
         _doAfter.TryStartDoAfter(doargs);
     }
 
@@ -89,51 +96,24 @@ public sealed class CosmicColossusSystem : EntitySystem
         if (TryComp<DoorBoltComponent>(target, out var doorBolt))
             _door.SetBoltsDown((target, doorBolt), false);
         _door.StartOpening(target);
-        _audio.PlayPvs(comp.IngressSFX, ent);
-        Spawn(comp.CultVFX, Transform(target).Coordinates);
+        _audio.PlayPvs(comp.IngressSfx, ent);
+        Spawn(comp.CultVfx, Transform(target).Coordinates);
     }
 
     private void OnColossusSunder(Entity<CosmicColossusComponent> ent, ref EventCosmicColossusSunder args)
     {
+        var comp = ent.Comp;
         _appearance.SetData(ent, ColossusVisuals.Status, ColossusStatus.Attacking);
         _transform.SetCoordinates(ent, args.Target);
         _transform.AnchorEntity(ent);
-        _audio.PlayPvs(ent.Comp.TileSFX, ent);
 
-        args.Handled = true;
+        comp.Attacking = true;
+        comp.AttackHoldTimer = comp.AttackWait + _timing.CurTime;
+        Spawn(comp.Attack1Vfx, args.Target);
 
-        Spawn("CosmicColossusAttack1Vfx", args.Target);
-        Timer.Spawn(ent.Comp.ReleaseDelay, () => { _appearance.SetData(ent, ColossusVisuals.Status, ColossusStatus.Alive); _transform.Unanchor(ent); });
-
-        var area = Spawn(null, _transform.ToMapCoordinates(args.Target), null, default);
-        for (var size = 1; size <= 5; size++)
-        {
-            var range = size;
-            Timer.Spawn(TimeSpan.FromSeconds(size * 0.5), () => { DetonateTiles(area, range); });
-        }
-        Timer.Spawn(ent.Comp.Cleanup, () => { QueueDel(area); });
-    }
-
-    public void DetonateTiles(EntityUid ent, int range = 0)
-    {
-        var xform = Transform(ent);
-        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
-            return;
-
-        var gridEnt = ((EntityUid)xform.GridUid, grid);
-        if (!_transform.TryGetGridTilePosition(ent, out var tilePos))
-            return;
-
-        var pos = _map.TileCenterToVector(gridEnt, tilePos);
-        var bounds = new Box2(pos, pos).Enlarged(range);
-        var boundsMod = new Box2(pos, pos).Enlarged(Math.Max(range - 1, 0));
-        var zone = _map.GetLocalTilesIntersecting(ent, grid, bounds).ToList();
-        var zoneMod = _map.GetLocalTilesIntersecting(ent, grid, boundsMod).ToList();
-
-        zone = zone.Where(b => !zoneMod.Contains(b)).ToList();
-        foreach (var tile in zone)
-        {
-            Spawn(_tileDetonation, _map.GridTileToWorld((EntityUid)xform.GridUid, grid, tile.GridIndices));
-        }
+        var detonator = Spawn(comp.TileDetonations, args.Target);
+        EnsureComp<CosmicTileDetonatorComponent>(detonator, out var detonateComp);
+        detonateComp.DespawnTimer = _timing.CurTime + detonateComp.DespawnWait;
+        detonateComp.DetonationTimer = _timing.CurTime;
     }
 }

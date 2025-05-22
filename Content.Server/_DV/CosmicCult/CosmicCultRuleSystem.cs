@@ -41,7 +41,6 @@ using Content.Shared.Mobs;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Parallax;
 using Content.Shared.Popups;
-using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Stunnable;
 using Content.Shared.Temperature.Components;
@@ -351,7 +350,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             return;
         if (cultRule.Cultists.Contains(player))
         {
-            var mob = Spawn("MobCosmicAstralAscended", spawnTgt);
+            var mob = Spawn(cultRule.CosmicAscended, spawnTgt);
             _mind.TransferTo(mind, mob);
             _metaData.SetEntityName(mob, Loc.GetString("cosmiccult-astral-ascendant", ("name", player))); //Renames cultists' ascendant forms to "[CharacterName], Ascendant"
         }

@@ -30,16 +30,6 @@
             "args": [],
             "console": "integratedTerminal",
             "stopAtEntry": false
-        },
-        {
-            "name": "YAML Linter",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build-yaml-linter",
-            "program": "${workspaceFolder}/bin/Content.YAMLLinter/Content.YAMLLinter.dll",
-            "cwd": "${workspaceFolder}/Content.YAMLLinter",
-            "console": "internalConsole",
-            "stopAtEntry": false
         }
     ],
     "compounds": [

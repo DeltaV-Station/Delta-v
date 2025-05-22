@@ -183,7 +183,7 @@
     useDelay: 25
     whitelist:
       components:
-      - BorgChassis # Commented out for now
+      - BorgChassis
       - SiliconLawUpdater
     itemIconStyle: NoItem
     icon:
@@ -199,13 +199,13 @@
   description: Warp to the target location and unleash a cascading detonation of malign energy.
   components:
   - type: WorldTargetAction
-    useDelay: 35
+    useDelay: 30
     range: 7
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: sunder
-    event: !type:EventCosmicColossusSunder {}
+    event: !type:EventCosmicColossusSunder
 
 - type: entity
   id: ActionCosmicColossusIngress
@@ -222,4 +222,4 @@
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: ingress
-    event: !type:EventCosmicColossusIngress {}
+    event: !type:EventCosmicColossusIngress

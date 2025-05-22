@@ -1,8 +1,9 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._DV.CosmicCult.Components;
 
@@ -10,22 +11,29 @@ namespace Content.Shared._DV.CosmicCult.Components;
 /// Component for Cosmic Cult's entropic colossus.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentPause]
 public sealed partial class CosmicColossusComponent : Component
 {
-    [DataField] public SoundSpecifier DeathSFX = new SoundPathSpecifier("/Audio/Animals/space_dragon_roar.ogg");
+    [AutoPausedField, DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan AttackHoldTimer = default!;
 
-    [DataField] public SoundSpecifier TileSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/tile_detonate.ogg");
+    [DataField] public SoundSpecifier DeathSfx = new SoundPathSpecifier("/Audio/Animals/space_dragon_roar.ogg");
 
-    [DataField] public SoundSpecifier IngressSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_ingress.ogg");
+    [DataField] public SoundSpecifier IngressSfx = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_ingress.ogg");
 
-    [DataField] public SoundSpecifier DoAfterSFX = new SoundPathSpecifier("/Audio/Machines/airlock_creaking.ogg");
+    [DataField] public SoundSpecifier DoAfterSfx = new SoundPathSpecifier("/Audio/Machines/airlock_creaking.ogg");
 
-    [DataField] public EntProtoId CultVFX = "CosmicGenericVFX";
+    [DataField] public EntProtoId CultVfx = "CosmicGenericVFX";
+
+    [DataField] public EntProtoId Attack1Vfx = "CosmicColossusAttack1Vfx";
+
+    [DataField] public EntProtoId TileDetonations = "MobTileDamageZone";
 
     [DataField] public TimeSpan IngressDoAfter = TimeSpan.FromSeconds(7);
 
-    [DataField] public TimeSpan ReleaseDelay = TimeSpan.FromSeconds(1.5);
-    [DataField] public TimeSpan Cleanup = TimeSpan.FromSeconds(5);
+    [DataField] public TimeSpan AttackWait = TimeSpan.FromSeconds(1.5);
+
+    [DataField] public bool Attacking;
 }
 
 [Serializable, NetSerializable]

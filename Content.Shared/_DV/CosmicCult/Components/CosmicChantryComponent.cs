@@ -20,6 +20,7 @@ public sealed partial class CosmicChantryComponent : Component
     public TimeSpan CountdownTimer = default!;
 
     [DataField] public TimeSpan SpawningTime = TimeSpan.FromSeconds(2.4);
+
     [DataField] public TimeSpan EventTime = TimeSpan.FromSeconds(150);
 
     [DataField] public bool Spawned;
