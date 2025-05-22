@@ -167,18 +167,13 @@
   id: ClosetSkeleton
   components:
   - type: StationEvent
-    weight: 6 # DeltaV - was 10
+    weight: 10
     duration: 1
     minimumPlayers: 10
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-closet-skeleton-result-message
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
-  - type: AntagRandomObjectives # DeltaV - add objectives
-    sets:
-    - groups: SkeletonObjectiveGroup
-      maxPicks: 2 # only pick 2 of 4
-    maxDifficulty: 100 # ignore difficulty, use maxPicks instead
 
 - type: entity
   parent: BaseGameRule
