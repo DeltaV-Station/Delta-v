@@ -102,6 +102,8 @@ public sealed class CosmicColossusSystem : EntitySystem
 
     private void OnColossusSunder(Entity<CosmicColossusComponent> ent, ref EventCosmicColossusSunder args)
     {
+        args.Handled = true;
+
         var comp = ent.Comp;
         _appearance.SetData(ent, ColossusVisuals.Status, ColossusStatus.Attacking);
         _transform.SetCoordinates(ent, args.Target);
