@@ -10,7 +10,6 @@
     Telecrystal: 10
   categories:
   - UplinkWeaponry
-  reputation: 30 # Melee Weapons
   conditions:
   - !type:BuyerSpeciesCondition
     whitelist:
@@ -28,7 +27,6 @@
     Telecrystal: 10
   categories:
   - UplinkJob
-  reputation: 20 # Melee Weapons
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -46,7 +44,6 @@
     Telecrystal: 6
   categories:
   - UplinkWearables
-  reputation: 15 # Armour
   conditions:
   - !type:BuyerSpeciesCondition
     whitelist:
