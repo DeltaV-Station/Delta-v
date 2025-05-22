@@ -8,7 +8,7 @@
     - to: live
       steps:
       - tag: ExplosivePayload
-        name: explosive payload
+        name: construction-graph-tag-explosive-payload
       - tool: Screwing
         doAfter: 2
   - node: live
