@@ -164,13 +164,10 @@
   - type: Store
     balance:
       Telecrystal: 0
-  - type: StoreContracts # DeltaV - can't buy bloodred with uplink implant
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.ContractsUiKey.Key: # DeltaV
-        type: ContractsBUI
 
 - type: entity
   parent: BaseSubdermalImplant
