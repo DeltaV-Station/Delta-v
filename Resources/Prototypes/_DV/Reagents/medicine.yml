@@ -103,7 +103,7 @@
         conditions:
         - !type:Temperature
           max: 213.0
-        - !type:MultiMobStateConditionDv
+        - !type:MultiMobStateCondition
           states: [ Alive, Critical ]
         damage:
           groups:
