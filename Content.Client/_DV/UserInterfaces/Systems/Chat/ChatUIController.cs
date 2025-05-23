@@ -15,6 +15,7 @@ namespace Content.Client.UserInterface.Systems.Chat;
 
 public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSystem>
 {
+    private ChatSelectChannel _currentChannel = ChatSelectChannel.None;
     private static readonly ProtoId<TypingIndicatorPrototype> WhisperID = "whisper";
     private static readonly ProtoId<TypingIndicatorPrototype> EmoteID = "emote";
     private static readonly ProtoId<TypingIndicatorPrototype> OocID = "ooc";
@@ -142,8 +143,12 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
     /// <summary>
     ///     Notifies and sets what type of typing indicator should be put.
     /// </summary>
-    public void NotifySpecificChatTextChange(ChatSelectChannel channel)
+    public void NotifySpecificChatTextChange(ChatSelectChannel selectedChannel)
     {
+        ChatSelectChannel channel = _currentChannel;
+        if (_currentChannel == ChatSelectChannel.None)
+            channel = selectedChannel;
+
         switch (channel)
         {
             case ChatSelectChannel.Whisper:
