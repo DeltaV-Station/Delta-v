@@ -233,10 +233,10 @@ public partial class SharedBodySystem
         var partIdSlot = GetParentPartAndSlotOrNull(partEnt)?.Slot;
         var delta = args.DamageDelta;
 
-        // DeltaV: Start of modification: fix delayed severing bug
+        // Begin DeltaV additions: fix delayed severing bug
         bool wouldBecomeDisabledByThisDamage = partEnt.Comp.Enabled &&
             damageable.TotalDamage >= partEnt.Comp.IntegrityThresholds[TargetIntegrity.CriticallyWounded];
-        // DeltaV: End of modification
+        // End DeltaV additions
 
         if (args.CanSever
             && partEnt.Comp.CanSever
