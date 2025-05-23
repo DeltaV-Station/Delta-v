@@ -99,7 +99,6 @@
     - NamesOperationSuffix
     nameFormat: name-format-nuclear-operation
   - type: NukeopsRule
-  - type: TeleportDiskRule # DeltaV - syndie fulton disk interaction
   - type: RuleGrids
   - type: AntagSelection
   - type: AntagLoadProfileRule
@@ -188,10 +187,10 @@
   - type: TraitorRule
   # TODO: codewords in yml
   # TODO: uplink in yml
-  #- type: AntagRandomObjectives # DeltaV - replaced by contracts system
-  #  sets:
-  #  - groups: TraitorObjectiveGroups
-  #  maxDifficulty: 5
+  - type: AntagRandomObjectives
+    sets:
+    - groups: TraitorObjectiveGroups
+    maxDifficulty: 5
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
 
@@ -204,8 +203,6 @@
     delay:
       min: 240
       max: 420
-  - type: TraitorRule # DeltaV - roundstart traitors have less TC as they have time to complete more contracts
-    startingBalance: 10
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
