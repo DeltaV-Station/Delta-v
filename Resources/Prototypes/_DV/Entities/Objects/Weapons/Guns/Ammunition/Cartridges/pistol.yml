@@ -1,14 +1,15 @@
 - type: entity
+  parent: BaseCartridgePistol
   id: CartridgePistolRubber
   name: cartridge (.35 auto rubber)
-  parent: BaseCartridgePistol
+  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Rubber ammunition excels at less-lethal takedown of noncompliant suspects.
   components:
   - type: CartridgeAmmo
     proto: BulletPistolRubber
   - type: Sprite
     layers:
-      - state: base
-        map: [ "enum.AmmoVisualLayers.Base" ]
-      - state: tip
-        map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#43c4f7"
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#43c4f7"

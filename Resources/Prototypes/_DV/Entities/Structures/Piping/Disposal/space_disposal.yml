@@ -1,17 +1,17 @@
 - type: entity
-  id: SpaceDisposalUnit
   parent: DisposalUnit
+  id: SpaceDisposalUnit
   name: space disposal unit
   description: A pneumatic waste disposal unit with warning signs telling you that it leads to space and that NT is not responsible for any injury.
   components:
   - type: Sprite
-    sprite: _DV/Structures/Piping/disposal.rsi
-    snapCardinals: true
     layers:
     - state: condisposal
       map: [ "enum.DisposalUnitVisualLayers.Unanchored" ]
     - state: disposal
       map: [ "enum.DisposalUnitVisualLayers.Base" ]
+    - state: disposal-charging
+      map: [ "enum.DisposalUnitVisualLayers.BaseCharging" ]
     - state: disposal-flush
       map: [ "enum.DisposalUnitVisualLayers.OverlayFlush" ]
     - state: dispover-charge

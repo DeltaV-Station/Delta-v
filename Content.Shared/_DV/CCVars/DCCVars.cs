@@ -67,29 +67,22 @@ public sealed class DCCVars
      */
 
     /// <summary>
-    /// How long with no captain before requesting an ACO be elected.
+    /// How long after the announcement before the spare ID is unlocked
     /// </summary>
-    public static readonly CVarDef<float> RequestAcoDelay =
-        CVarDef.Create("game.request_aco_delay_minutes", 15f, CVar.SERVERONLY | CVar.ARCHIVE);
+    public static readonly CVarDef<TimeSpan> SpareIdUnlockDelay =
+        CVarDef.Create("game.spare_id.unlock_delay", TimeSpan.FromMinutes(5), CVar.SERVERONLY | CVar.ARCHIVE);
 
     /// <summary>
-    /// Determines whether an ACO should be requested when the captain leaves during the round,
-    /// in addition to cases where there are no captains at round start.
+    /// How long to wait before checking for a captain after roundstart
     /// </summary>
-    public static readonly CVarDef<bool> RequestAcoOnCaptainDeparture =
-        CVarDef.Create("game.request_aco_on_captain_departure", true, CVar.SERVERONLY | CVar.ARCHIVE);
+    public static readonly CVarDef<TimeSpan> SpareIdAlertDelay =
+        CVarDef.Create("game.spare_id.alert_delay", TimeSpan.FromMinutes(15), CVar.SERVERONLY | CVar.ARCHIVE);
 
     /// <summary>
-    /// Determines whether All Access (AA) should be automatically unlocked if no captain is present.
+    /// Determines if the automatic spare ID process should automatically unlock the cabinet
     /// </summary>
-    public static readonly CVarDef<bool> AutoUnlockAllAccessEnabled =
-        CVarDef.Create("game.auto_unlock_aa_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// How long after an ACO request announcement is made before All Access (AA) should be unlocked.
-    /// </summary>
-    public static readonly CVarDef<float> AutoUnlockAllAccessDelay =
-        CVarDef.Create("game.auto_unlock_aa_delay_minutes", 5f, CVar.SERVERONLY | CVar.ARCHIVE);
+    public static readonly CVarDef<bool> SpareIdAutoUnlock =
+        CVarDef.Create("game.spare_id.auto_unlock", true, CVar.SERVERONLY | CVar.ARCHIVE);
 
     /*
      * Misc.
@@ -162,6 +155,33 @@ public sealed class DCCVars
     public static readonly CVarDef<bool> EnableBacktoBack =
         CVarDef.Create("game.disable_preset_test", false, CVar.SERVERONLY);
 
+    /// <summary>
+    /// A string containing a list of newline-separated strings to be highlighted in the chat.
+    /// </summary>
+    public static readonly CVarDef<string> ChatHighlights =
+        CVarDef.Create("deltav.chat.highlights",
+            "",
+            CVar.CLIENTONLY | CVar.ARCHIVE,
+            "A list of newline-separated strings to be highlighted in the chat.");
+
+    /// <summary>
+    /// An option to toggle the automatic filling of the highlights with the character's info, if available.
+    /// </summary>
+    public static readonly CVarDef<bool> ChatAutoFillHighlights =
+        CVarDef.Create("deltav.chat.auto_fill_highlights",
+            false,
+            CVar.CLIENTONLY | CVar.ARCHIVE,
+            "Toggles automatically filling the highlights with the character's information.");
+
+    /// <summary>
+    /// The color in which the highlights will be displayed.
+    /// </summary>
+    public static readonly CVarDef<string> ChatHighlightsColor =
+        CVarDef.Create("deltav.chat.highlights_color",
+            "#17FFC1FF",
+            CVar.CLIENTONLY | CVar.ARCHIVE,
+            "The color in which the highlights will be displayed.");
+
     /* Laying down combat */
 
     /// <summary>
@@ -176,4 +196,51 @@ public sealed class DCCVars
     /// </summary>
     public static readonly CVarDef<int> MaxObjectiveSummaryLength =
         CVarDef.Create("game.max_objective_summary_length", 256, CVar.SERVER | CVar.REPLICATED);
+
+    /* OOC shuttle vote */
+
+    /// <summary>
+    /// How long players should have to vote on the round end shuttle being sent
+    /// </summary>
+    public static readonly CVarDef<TimeSpan> EmergencyShuttleVoteTime =
+        CVarDef.Create("shuttle.vote_time", TimeSpan.FromMinutes(1), CVar.SERVER);
+
+    /*
+     * Cosmic Cult
+     */
+    /// <summary>
+    /// How much entropy a convert is worth towards the next monument tier.
+    /// </summary>
+    public static readonly CVarDef<int> CosmicCultistEntropyValue =
+        CVarDef.Create("cosmiccult.cultist_entropy_value", 7, CVar.SERVER);
+
+    /// <summary>
+    /// How much of the crew the cult is aiming to convert for a tier 3 monument.
+    /// </summary>
+    public static readonly CVarDef<int> CosmicCultTargetConversionPercent =
+        CVarDef.Create("cosmiccult.target_conversion_percent", 40, CVar.SERVER);
+
+    /// <summary>
+    /// How long the timer for the cult's stewardship vote lasts.
+    /// </summary>
+    public static readonly CVarDef<int> CosmicCultStewardVoteTimer =
+        CVarDef.Create("cosmiccult.steward_vote_timer", 40, CVar.SERVER);
+
+    /// <summary>
+    /// The delay between the monument getting upgraded to tier 2 and the crew learning of that fact. the monument cannot be upgraded again in this time.
+    /// </summary>
+    public static readonly CVarDef<int> CosmicCultT2RevealDelaySeconds =
+        CVarDef.Create("cosmiccult.t2_reveal_delay_seconds", 120, CVar.SERVER);
+
+    /// <summary>
+    /// The delay between the monument getting upgraded to tier 3 and the crew learning of that fact. the monument cannot be upgraded again in this time.
+    /// </summary>
+    public static readonly CVarDef<int> CosmicCultT3RevealDelaySeconds =
+        CVarDef.Create("cosmiccult.t3_reveal_delay_seconds", 60, CVar.SERVER);
+
+    /// <summary>
+    /// The delay between the monument getting upgraded to tier 3 and the finale starting.
+    /// </summary>
+    public static readonly CVarDef<int> CosmicCultFinaleDelaySeconds =
+        CVarDef.Create("cosmiccult.extra_entropy_for_finale", 150, CVar.SERVER);
 }

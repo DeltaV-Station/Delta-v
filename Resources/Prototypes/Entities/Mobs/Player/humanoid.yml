@@ -11,6 +11,7 @@
     - type: RandomHumanoidAppearance
       randomizeName: false
     - type: GhostTakeoverAvailable
+    - type: IdBind
 
 - type: randomHumanoidSettings
   id: EventHumanoidMindShielded
@@ -18,6 +19,15 @@
   components:
     - type: MindShield
     - type: AntagImmune
+
+- type: randomHumanoidSettings
+  id: EventHumanoidCentcomm
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: AutoImplant
+    implants:
+    - DeathRattleImplantCentcomm
 
 ## Death Squad
 
@@ -34,13 +44,13 @@
       nameSegments:
         - NamesMilitaryFirstLeader
         - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: DeathSquad
 
 - type: randomHumanoidSettings
   id: DeathSquad
-  parent: EventHumanoidMindShielded
-  randomizeName: false
+  parent: EventHumanoidCentcomm
   components:
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
@@ -57,6 +67,7 @@
       nameSegments:
         - NamesMilitaryFirstLeader
         - NamesMilitaryLast
+      nameFormat: name-format-ert
 
 
 ## ERT Leader
@@ -73,18 +84,27 @@
       nameSegments:
       - NamesMilitaryFirstLeader
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTLeader
 
 - type: randomHumanoidSettings
   id: ERTLeader
-  parent: EventHumanoidMindShielded
-  randomizeName: false
+  parent: EventHumanoidCentcomm
   components:
     - type: GhostRole
       name: ghost-role-information-ert-leader-name
       description: ghost-role-information-ert-leader-description
       rules: ghost-role-information-nonantagonist-rules
+      # Begin DeltaV additions
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 54000 #15 hrs
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 14400 #4 hrs
+      # End DeltaV additions
       raffle:
         settings: short
       job: ERTLeader
@@ -95,6 +115,7 @@
       nameSegments:
       - NamesMilitaryFirstLeader
       - NamesMilitaryLast
+      nameFormat: name-format-ert
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVA
@@ -161,6 +182,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTChaplain
 
@@ -173,6 +195,15 @@
       name: ghost-role-information-ert-chaplain-name
       description: ghost-role-information-ert-chaplain-description
       rules: ghost-role-information-nonantagonist-rules
+      # Begin DeltaV additions
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 #5 hrs
+      - !type:DepartmentTimeRequirement
+        department: Epistemics
+        time: 36000 #10 hrs
+      # End DeltaV additions
       raffle:
         settings: short
       job: ERTChaplain
@@ -180,6 +211,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: Loadout
       prototypes: [ ERTChaplainGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -227,6 +259,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTJanitor
 
@@ -238,6 +271,15 @@
       name: ghost-role-information-ert-janitor-name
       description: ghost-role-information-ert-janitor-description
       rules: ghost-role-information-nonantagonist-rules
+      # Begin DeltaV additions
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 #5 hrs
+      - !type:RoleTimeRequirement
+        role: JobJanitor
+        time: 18000 #5 hrs
+      # End DeltaV additions
       raffle:
         settings: short
       job: ERTJanitor
@@ -245,6 +287,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: Loadout
       prototypes: [ ERTJanitorGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -291,6 +334,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTEngineer
 
@@ -302,6 +346,15 @@
       name: ghost-role-information-ert-engineer-name
       description: ghost-role-information-ert-engineer-description
       rules: ghost-role-information-nonantagonist-rules
+      # Begin DeltaV additions
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 #5 hrs
+      - !type:DepartmentTimeRequirement
+        department: Engineering
+        time: 36000 #10 hrs
+      # End DeltaV additions
       raffle:
         settings: short
       job: ERTEngineer
@@ -309,6 +362,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: Loadout
       prototypes: [ ERTEngineerGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -355,6 +409,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTSecurity
 
@@ -366,6 +421,12 @@
       name: ghost-role-information-ert-security-name
       description: ghost-role-information-ert-security-description
       rules: ghost-role-information-nonantagonist-rules
+      # Begin DeltaV additions
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 54000 #15 hrs
+      # End DeltaV additions
       raffle:
         settings: short
       job: ERTSecurity
@@ -373,6 +434,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: Loadout
       prototypes: [ ERTSecurityGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -442,6 +504,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTMedical
 
@@ -453,6 +516,15 @@
       name: ghost-role-information-ert-medical-name
       description: ghost-role-information-ert-medical-description
       rules: ghost-role-information-nonantagonist-rules
+      # Begin DeltaV additions
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 #5 hrs
+      - !type:DepartmentTimeRequirement
+        department: Medical
+        time: 36000 #10 hrs
+      # End DeltaV additions
       raffle:
         settings: short
       job: ERTMedical
@@ -460,6 +532,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: Loadout
       prototypes: [ ERTMedicalGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -506,7 +579,7 @@
 
 - type: randomHumanoidSettings
   id: CBURNAgent
-  parent: EventHumanoidMindShielded
+  parent: EventHumanoidCentcomm
   components:
     - type: Loadout
       prototypes: [CBURNGear]
@@ -515,12 +588,22 @@
       name: ghost-role-information-cburn-agent-name
       description: ghost-role-information-cburn-agent-description
       rules: ghost-role-information-nonantagonist-rules
+      # Begin DeltaV additions
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 #10 hrs
+      - !type:DepartmentTimeRequirement
+        department: Medical
+        time: 18000 #5 hrs
+      # End DeltaV additions
       raffle:
         settings: short
     - type: RandomMetadata
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
 
 ## Central Command
 
@@ -536,7 +619,7 @@
 
 - type: randomHumanoidSettings
   id: CentcomOfficial
-  parent: EventHumanoidMindShielded
+  parent: EventHumanoidCentcomm
   components:
     - type: GhostRole
       name: ghost-role-information-centcom-official-name
@@ -587,7 +670,7 @@
     - type: RandomHumanoidAppearance
       randomizeName: false
     - type: NukeOperative
-    - type: PsionicBonusChance #Nyano - Summary: makes more likely to be psionic. 
+    - type: PsionicBonusChance #Nyano - Summary: makes more likely to be psionic.
       multiplier: 7
       warn: false
 
@@ -605,6 +688,7 @@
       nameSegments:
       - NamesFirst
       - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: Cluwne

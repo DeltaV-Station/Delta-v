@@ -162,15 +162,24 @@
   color: "#FDD023"
   metabolisms:
     Poison:
+      metabolismRate: 3.00 # DeltaV - licoxide is cheaper now, so adjust it accordingly
       effects:
+      - !type:Emote # DeltaV - licoxide makes you scream now
+        emote: Scream
+        probability: 0.3
+      - !type:HealthChange # DeltaV - licoxide has consequences now
+        damage:
+          types:
+            Shock: 4
       - !type:Electrocute
-        probability: 0.35
+        probability: 0.15 # DeltaV - was 0.35, this should not be guaranteed for a cheaper chem
 
 - type: reagent
   id: Razorium
   name: reagent-name-razorium
   group: Toxins
-  slippery: true
+  slipData:
+    requiredSlipSpeed: 3.5
   desc: reagent-desc-razorium
   physicalDesc: reagent-physical-desc-reflective
   flavor: sharp
@@ -209,7 +218,8 @@
   id: Fresium
   name: reagent-name-fresium
   group: Toxins
-  slippery: true
+  slipData:
+    requiredSlipSpeed: 3.5
   desc: reagent-desc-fresium
   physicalDesc: reagent-physical-desc-frosty
   flavor: cold
@@ -305,7 +315,8 @@
   physicalDesc: reagent-physical-desc-funny
   flavor: funny
   color: "#FF4DD2"
-  slippery: true #clown juice gotta slip
+  slipData:
+    requiredSlipSpeed: 3.5 #clown juice gotta slip
   metabolisms:
     Medicine:
       effects:

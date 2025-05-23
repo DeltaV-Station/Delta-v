@@ -19,6 +19,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Access;
+using Content.Shared.Cargo.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared._DV.Mail;
@@ -76,6 +77,10 @@ namespace Content.Server._DV.Mail.EntitySystems
         [Dependency] private readonly RadioSystem _radioSystem = default!; // ImpStation - for radio notifications of new mail
 
         private ISawmill _sawmill = default!;
+
+        private static readonly ProtoId<TagPrototype> MailTag = "Mail";
+        private static readonly ProtoId<TagPrototype> RecyclableTag = "Recyclable";
+        private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
 
         public override void Initialize()
         {
@@ -245,7 +250,10 @@ namespace Content.Server._DV.Mail.EntitySystems
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount((station, account), component.Bounty);
+                _cargoSystem.UpdateBankAccount(
+                    (station, account),
+                    component.Bounty,
+                    _cargoSystem.CreateAccountDistribution((station, account)));
             }
         }
 
@@ -302,7 +310,10 @@ namespace Content.Server._DV.Mail.EntitySystems
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount((station, account), component.Penalty);
+                _cargoSystem.UpdateBankAccount(
+                    (station, account),
+                    component.Penalty,
+                    _cargoSystem.CreateAccountDistribution((station, account)));
                 return;
             }
         }
@@ -715,7 +726,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 var mail = EntityManager.SpawnEntity(chosenParcel, coordinates);
                 SetupMail(mail, component, candidate);
 
-                _tagSystem.AddTag(mail, "Mail"); // Frontier
+                _tagSystem.AddTag(mail, MailTag); // Frontier
             }
 
             if (_containerSystem.TryGetContainer(uid, "queued", out var queued))
@@ -758,8 +769,8 @@ namespace Content.Server._DV.Mail.EntitySystems
                 _handsSystem.PickupOrDrop(user, entity);
             }
 
-            _tagSystem.AddTag(uid, "Trash");
-            _tagSystem.AddTag(uid, "Recyclable");
+            _tagSystem.AddTag(uid, TrashTag);
+            _tagSystem.AddTag(uid, RecyclableTag);
             component.IsEnabled = false;
             UpdateMailTrashState(uid, true);
         }

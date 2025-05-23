@@ -21,11 +21,9 @@ public sealed partial class ArtifactAnalyzerComponent : Component
 
     // Nyano - Summary - Begin modified code block: tie artifacts to glimmer.
     /// <summary>
-    /// Ratio of research points to glimmer.
-    /// Each is 150 and added to this, so
-    /// 550 / 700 / 850 / 1000
+    /// The ratio of research points per one glimmer.
     /// </summary>
-    public int ExtractRatio = 400;
+    public int ExtractRatio = 750;
     // Nyano - End modified code block.
 
     /// <summary>

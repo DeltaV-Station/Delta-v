@@ -10,3 +10,4 @@ job-description-cargo-assistant = Learn the basics of the logistics department, 
 job-description-admin-assistant = Assist command in their day-to-day activities, grab the captain a coffee, answer faxes in the bridge.
 job-description-mime-delta = Entertain the crew while remaining silent, and engage with light rivalry with the clown.
 job-description-dap = If you're here, the station is beyond savable. Recover important assets of Nanotrasen and eliminate threats.
+job-description-assistant = Get your space legs, assist people, ask a Command member to give you a job.

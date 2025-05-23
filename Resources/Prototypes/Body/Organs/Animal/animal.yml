@@ -146,7 +146,7 @@
   - type: Organ
     slotId: heart # Shitmed
   - type: Metabolizer
-    maxReagents: 2
+    maxReagents: 3 # Funkychem - species metabolise 3 chems as a baseline
     metabolizerTypes: [ Animal ]
     groups:
     - id: Medicine

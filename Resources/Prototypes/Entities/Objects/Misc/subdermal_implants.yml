@@ -79,7 +79,7 @@
   parent: BaseSubdermalImplant
   id: TrackingImplant
   name: tracking implant
-  description: This implant has a tracking device attached to the suit sensor network, as well as a condition monitor for the Security radio channel.
+  description: This implant has a tracking device attached to the suit sensor network.
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -97,11 +97,6 @@
     - type: StationLimitedNetwork
     - type: WirelessNetworkConnection
       range: 500
-    - type: TriggerOnMobstateChange
-      mobState:
-      - Critical
-    - type: Rattle
-      radioChannel: "Security"
 
 #Traitor implants
 
@@ -119,7 +114,13 @@
         - Hands # no use giving a mouse a storage implant, but a monkey is another story...
     - type: Storage
       grid:
-      - 0,0,2,2
+      # Begin DeltaV Removals - changed to a 3x3
+      #- 0,0,0,1
+      #- 1,0,1,0
+      #- 1,2,1,2
+      #- 2,1,2,2
+      # End DeltaV Removals
+      - 0,0,2,2 # DeltaV - 3x3
       blacklist: # DeltaV
         components:
         - Storage
@@ -338,30 +339,14 @@
   categories: [ HideSpawnMenu ]
   components:
    - type: SubdermalImplant
-     addedComponents: # DeltaV - replaces mindshield tag logic
-     - type: MindShield
-   # Begin DeltaV Removals - bad implementation replaced with comp reg
-   #- type: MindShieldImplant
-   #- type: Tag
-   #  tags:
-   #    - MindShield
-   # End DeltaV Removals
-
-# Nukie implants
+   - type: MindShieldImplant
 
 - type: entity
-  parent: BaseSubdermalImplant
-  id: HostageImplant
-  name: hostage implant
-  description: Perfect for all your hostage ops needs! Allows the implanted entity to be ignored by syndicate turrets.
+  parent: DeathRattleImplant
+  id: DeathRattleImplantCentcomm
+  name: centcomm death rattle implant
+  description: This implant will inform the Centcomm radio channel should the user fall into critical condition or die.
   categories: [ HideSpawnMenu ]
   components:
-  - type: SubdermalImplant
-  - type: AddComponentsImplant
-    componentsToAdd:
-    - type: Pacified
-      disallowDisarm: true
-      disallowAllCombat: true
-  - type: AddFactionsImplant
-    factions:
-    - Hostage
+  - type: Rattle
+    radioChannel: CentCom

@@ -39,8 +39,15 @@
   - ClothingHeadHatHopcap
   - ClothingUniformJumpsuitHoP
   - ClothingUniformJumpskirtHoP
+  # Generic
+  - ClothingHeadHatBeretCommand
+  - ClothingHeadHatCommandSoft
+  - ClothingUniformJumpskirtCommandGeneric
+  - ClothingUniformJumpsuitCommandGeneric
 
 - type: latheRecipePack
+  parent:
+  - ClothingEngineeringDeltaV # DeltaV
   id: ClothingEngineering
   recipes:
   - ClothingHeadHatBeretEngineering
@@ -122,6 +129,8 @@
   - ClothingUniformJumpskirtWarden
 
 - type: latheRecipePack
+  parent:
+  - ClothingServiceDeltaV # DeltaV
   id: ClothingService
   recipes:
   - ClothingUniformJumpsuitBartender

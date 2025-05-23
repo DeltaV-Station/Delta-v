@@ -86,11 +86,11 @@
       SpaceGlue: 5 # no change from normal lathe, overheat!!!
 
 - type: entity
+  categories: [ HideSpawnMenu ] # DeltaV - departmental lathes
   id: Autolathe
   parent: BaseLatheLube
   name: autolathe
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
-  suffix: DO NOT MAP # DeltaV - departamental lathes
   components:
   - type: Sprite
     sprite: Structures/Machines/autolathe.rsi
@@ -113,6 +113,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -152,6 +153,7 @@
     - blueprint
 
 - type: entity
+  abstract: true # DeltaV - departmental lathes
   id: AutolatheHyperConvection
   parent: [Autolathe, BaseHyperlathe]
   name: hyper convection autolathe
@@ -163,11 +165,11 @@
     board: AutolatheHyperConvectionMachineCircuitboard
 
 - type: entity
+  categories: [ HideSpawnMenu ] # DeltaV - departmental lathes
   id: Protolathe
   parent: BaseLatheLube
   name: protolathe
   description: Converts raw materials into advanced items.
-  suffix: DO NOT MAP # DeltaV - departamental lathes
   components:
   - type: Sprite
     sprite: Structures/Machines/protolathe.rsi
@@ -190,6 +192,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -221,9 +224,9 @@
     - SecurityExplosives
     - SecurityEquipment
     - SecurityWeapons
-    - SyringeGuns # DeltaV
 
 - type: entity
+  abstract: true # DeltaV - departmental lathes
   id: ProtolatheHyperConvection
   parent: [Protolathe, BaseHyperlathe]
   name: hyper convection protolathe
@@ -282,6 +285,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
   - type: RequireProjectileTarget
 
 - type: entity
@@ -330,16 +334,23 @@
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
+    # Being DeltaV Additions
+    - EVASuit
     emagDynamicPacks:
     - SecurityCybernetics # having sechud eyes is good for evil people
     - SecurityHardsuits
-    - BorgModulesSecurityDeltaV # DeltaV - secfab borg modules
+    - BorgModulesSecurityDeltaV
+    - SalvageHardsuits
+    - ParamedicHardsuit
+    - EngineeringHardsuits
+    # End DeltaV Additions
   - type: MaterialStorage
     whitelist:
       tags:
       - Sheet
       - RawMaterial
       - Ingot
+  - type: OreSiloClient
   - type: GuideHelp
     guides:
     - Robotics
@@ -407,12 +418,22 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    unlitIdleState: unlit # DeltaV - added animation sprite layers
+    unlitRunningState: unlit-building # DeltaV - added animation sprite layers
     staticPacks:
     - SecurityEquipmentStatic
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
+    # Being DeltaV Additions
+    - ReportingStatic
+    - SecurityRubberAmmoStatic
+    - PrisonerSoftsuits
+    - EVASuit
+    # End DeltaV Additions
     dynamicPacks:
+    - SalvageSecurityBoards
+    - SalvageSecurityWeapons
     - SecurityEquipment
     - SecurityBoards
     - SecurityExplosives
@@ -425,6 +446,9 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Security]
 
 - type: entity
   id: AmmoTechFab
@@ -450,6 +474,8 @@
     - type: Lathe
       idleState: icon
       runningState: icon
+      unlitIdleState: unlit # DeltaV - added animation sprite layers
+      unlitRunningState: unlit-building # DeltaV - added animation sprite layers
       staticPacks:
       - SecurityAmmoStatic
     - type: MaterialStorage
@@ -458,6 +484,7 @@
           - Sheet
           - RawMaterial
           - Ingot
+    - type: OreSiloClient
 
 - type: entity
   id: MedicalTechFab
@@ -481,6 +508,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    unlitIdleState: unlit # DeltaV - added animation sprite layers
+    unlitRunningState: unlit-building # DeltaV - added animation sprite layers
     staticPacks:
     - TopicalsStatic
     - ChemistryStatic
@@ -489,15 +518,26 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
+    # Being DeltaV Additions
+    - ReportingStatic
+    - EVASuit
+    - PowerCellsStatic
+    # End DeltaV Additions
     dynamicPacks:
     - Chemistry
     - CyberneticsMedical # Shitmed change
     - Surgery # Shitmed change
-    - MedicalDeltaV # DeltaV
+    # Being DeltaV Additions
+    - MedicalDeltaV
+    - ParamedicHardsuit
+    # End DeltaV Additions
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Medical]
 
 - type: entity
   parent: BaseLathe
@@ -545,6 +585,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
 
 - type: entity
   id: Biogenerator
@@ -674,6 +715,7 @@
       tags:
       - Raw
       - Wooden
+      - Boll
   - type: Lathe
     idleState: base_machine
     runningState: base_machine_processing
@@ -715,3 +757,4 @@
         - Wooden
         - RawMaterial
         - Plastic
+  - type: OreSiloClient

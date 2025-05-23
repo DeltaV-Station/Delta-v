@@ -46,7 +46,7 @@
   table: !type:AllSelector
     children:
     - id: Stunbaton
-    - id: GrenadeFlashBang # DeltaV: revert upstream #32291
+    - id: GrenadeFlashBang # DeltaV - revert upstream #32291
     - id: TearGasGrenade # DeltaV
     - id: Handcuffs
     - id: Handcuffs
@@ -114,6 +114,7 @@
       - id: Ointment
       - id: Bloodpack
       - id: Gauze
+      - id: Portafib # DeltaV - Add PortaFib to EMT belt
       - id: EmergencyMedipen #You never know what people are going to latejoin into
         amount: 3
 

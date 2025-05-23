@@ -4,7 +4,6 @@
     children:
     - id: SyndicateRecruiter
     - id: SynthesisSpecialist
-    - id: RoboNeuroticist
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -42,6 +41,7 @@
         nameSegments:
         - NamesFakeHumanFirst
         - NamesFakeHumanLast
+        nameFormat: name-format-standard
       - type: RandomHumanoidAppearance
         randomizeName: false
       - type: NpcFactionMember
@@ -85,6 +85,7 @@
         nameSegments:
         - NamesFakeHumanFirst
         - NamesFakeHumanLast
+        nameFormat: name-format-standard
       - type: RandomHumanoidAppearance
         randomizeName: false
       - type: NpcFactionMember
@@ -92,47 +93,3 @@
         - Syndicate
       mindRoles:
       - MindRoleSynthesis
-
-- type: entity
-  parent: BaseUnknownShuttleRule
-  id: RoboNeuroticist
-  components:
-  - type: StationEvent
-    weight: 2
-    minimumPlayers: 35 #big threat, but has to have ghosts to matter
-  - type: LoadMapRule
-    preloadedGrid: RoboNeuroticistShip
-  - type: AntagSpawner
-    prototype: MobHuman
-  - type: AntagObjectives
-    objectives:
-    - RoboNeuroticistSurviveObjective
-    - RoboNeuroticistBorgObjective
-    - RoboNeuroticistKillObjective
-    - RoboNeuroticistPlutoniumCoreStealObjective
-    - RoboNeuroticistUploadAILawObjective
-  - type: AntagSelection
-    agentName: roboneuroticist-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostRoboNeuroticist
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: RoboNeuroticistGear
-      roleLoadout:
-      - RoleSurvivalStandard
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesHologram
-        - NamesMilitaryLast
-      - type: EmitSoundOnSpawn # evil sound
-        sound: /Audio/Ambience/Antag/emagged_borg.ogg
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleRoboNeuroticist
-

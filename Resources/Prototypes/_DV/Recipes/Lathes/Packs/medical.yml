@@ -1,24 +1,26 @@
 ## Static
 
 - type: latheRecipePack
+  id: BasicChemistryStaticDeltaV
+  recipes:
+  - Dropper
+  - Skimmer
+
+- type: latheRecipePack
   id: MedicalStaticDeltaV
   recipes:
   - AACTablet
-  - TankHarness
+  - ClothingOuterVestTank
   - ClothingEyesHudMedical
-  - Oilpack
+
+- type: latheRecipePack
+  id: MedicalClothingStaticDeltaV
+  recipes:
+  - ClothingMaskBreathMedical
 
 ## Dynamic
 
-# available in medfab and emagged protolathe
 - type: latheRecipePack
-  id: SyringeGuns
-  recipes:
-  - LauncherSyringe
-  - MiniSyringe
-
-- type: latheRecipePack
-  parent: SyringeGuns
   id: MedicalDeltaV
   recipes:
   - HandheldCrewMonitor # RE
@@ -30,3 +32,8 @@
   - CloningConsoleComputerCircuitboard
   - MedicalScannerMachineCircuitboard
   - CloningPodMachineCircuitboard
+
+- type: latheRecipePack
+  id: ParamedicHardsuit
+  recipes:
+  - ClothingOuterHardsuitVoidParamed

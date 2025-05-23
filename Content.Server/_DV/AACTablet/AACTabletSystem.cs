@@ -13,6 +13,10 @@ public sealed class AACTabletSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
+    private readonly List<string> _localisedPhrases = [];
+
+    public const int MaxPhrases = 10; // no writing novels
+
     public override void Initialize()
     {
         base.Initialize();
@@ -21,7 +25,7 @@ public sealed class AACTabletSystem : EntitySystem
 
     private void OnSendPhrase(Entity<AACTabletComponent> ent, ref AACTabletSendPhraseMessage message)
     {
-        if (ent.Comp.NextPhrase > _timing.CurTime)
+        if (ent.Comp.NextPhrase > _timing.CurTime || message.PhraseIds.Count > MaxPhrases)
             return;
 
         var senderName = Identity.Entity(message.Actor, EntityManager);
@@ -29,13 +33,23 @@ public sealed class AACTabletSystem : EntitySystem
             ("speaker", Name(ent)),
             ("originalName", senderName));
 
-        if (!_prototype.TryIndex(message.PhraseId, out var phrase))
+        _localisedPhrases.Clear();
+        foreach (var phraseProto in message.PhraseIds)
+        {
+            if (_prototype.TryIndex(phraseProto, out var phrase))
+            {
+                // Ensures each phrase is capitalised to maintain common AAC styling
+                _localisedPhrases.Add(_chat.SanitizeMessageCapital(Loc.GetString(phrase.Text)));
+            }
+        }
+
+        if (_localisedPhrases.Count <= 0)
             return;
 
         EnsureComp<VoiceOverrideComponent>(ent).NameOverride = speakerName;
 
         _chat.TrySendInGameICMessage(ent,
-            Loc.GetString(phrase.Text),
+            string.Join(" ", _localisedPhrases),
             InGameICChatType.Speak,
             hideChat: false,
             nameOverride: speakerName);

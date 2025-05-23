@@ -10,6 +10,10 @@
   - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
+  # Begin DeltaV Additions
+  - PlushieExperiment
+  - PlushieBee
+  # End DeltaV Additions
   - ThreeCandles
   - Lighter
   - CigPackGreen
@@ -29,8 +33,10 @@
   - ClothingNeckLesbianPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
+  - ClothingNeckPluralPin
   - ClothingNeckOmnisexualPin
   - ClothingNeckGenderqueerPin
+  - ClothingNeckGenderfluidPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
@@ -59,6 +65,7 @@
   - CDDogtags # taken from Cosmatic Drift
   - TapeRecorder
   - ClothingHeadHatUshanka
+  - Wristwatch
   # End DeltaV Additions
 
 - type: loadoutGroup
@@ -199,9 +206,9 @@
   # - CommonBackpack
   # - CommonSatchel
   # - CommonDuffel
-  - BackpackHoP 
-  - SatchelHoP 
-  - HopDuffel 
+  - BackpackHoP
+  - SatchelHoP
+  - HopDuffel
   # End of DeltaV changes
   - HoPBackpackIan
 
@@ -236,6 +243,7 @@
   # Begin DeltaV additions
   - AncientJumpsuit
   - RainbowJumpsuit
+  - RainbowJumpskirt
 
 - type: loadoutGroup
   id: PassengerFace
@@ -487,6 +495,7 @@
   - BotanistJumpsuit
   - BotanistJumpskirt
   - BotanistOveralls
+  - BotanistJumpskirtOveralls # DeltaV
 
 - type: loadoutGroup
   id: BotanistBackpack
@@ -611,6 +620,7 @@
   loadouts:
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
+  - EmergencySpeciesMothMime
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
   - EmergencyWaterVaporMime # DeltaV
@@ -724,11 +734,11 @@
   id: CargoTechnicianJumpsuit
   name: loadout-group-cargo-technician-jumpsuit
   loadouts:
- #- CargoTechnicianJumpsuit
- #- CargoTechnicianJumpskirt
   - ClothingUniformJumpsuitCargoTechPants # DeltaV
   - ClothingUniformJumpsuitCargoTechOveralls # DeltaV
   - ClothingUniformJumpskirtCargoTechRomper # DeltaV
+  - CargoTechnicianJumpsuit
+  - CargoTechnicianJumpskirt
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -878,7 +888,7 @@
   # Begin DeltaV additions
   - ElectricianPDA
   - MechanicPDA
-  # Begin DeltaV additions
+  # End DeltaV additions
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -887,6 +897,7 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianJumpskirt
   - AtmosphericTechnicianJumpsuitCasual
+  - AtmosphericTechnicianJumpskirtCasual # DeltaV
 
 - type: loadoutGroup
   id: AtmosphericTechnicianOuterClothing
@@ -1088,6 +1099,7 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   - ScarfRed # DeltaV
+  - SecurityPoncho # DeltaV
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -1219,6 +1231,7 @@
   loadouts:
   - DetectiveTie
   - ScarfRed # DeltaV
+  - SecurityPoncho # DeltaV
 
 - type: loadoutGroup
   id: DetectiveJumpsuit
@@ -1362,6 +1375,7 @@
   - MedicalDoctorPDA
   - SeniorPhysicianPDA
   - ClinicianPDA # DeltaV
+  - CryogenicsSpecialistPDA # DeltaV
 
 - type: loadoutGroup
   id: MedicalGloves
@@ -1440,8 +1454,20 @@
   name: loadout-group-paramedic-shoes
   loadouts:
   - BlueShoes
+  - WhiteShoes
   - MedicalWinterBoots
   - ParamedicWinterBoots # DeltaV
+
+- type: loadoutGroup
+  id: MedicalEyewear
+  name: loadout-group-medical-glasses
+  minLimit: 0
+  loadouts:
+  - MedicalHud
+  - MedicalEyePatchHud
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
 
 - type: loadoutGroup
   id: SurvivalMedical

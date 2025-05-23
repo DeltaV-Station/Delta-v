@@ -1,4 +1,4 @@
-﻿- type: listing
+- type: listing
   id: UplinkHardsuitNullifierHelmet
   name: uplink-hardsuit-nullifier-helmet-name
   description: uplink-hardsuit-nullifier-helmet-desc
@@ -52,3 +52,14 @@
     blacklist:
       components:
       - SurplusBundle
+
+- type: listing
+  id: UplinkCWPGorlex
+  name: uplink-cwpgorlex-name
+  description: uplink-cwpgorlex-desc
+  icon: { sprite: _DV/Clothing/Neck/Misc/cwpgorlex.rsi, state: icon }
+  productEntity: ClothingNeckCWPGorlex
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWearables

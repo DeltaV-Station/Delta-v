@@ -6,15 +6,14 @@
     edges:
     - to: sharkminnowShoes
       steps:
-        - material: SharkminnowChitin
-          amount: 15
-          doAfter: 8
-        - tag: Magboots
-          name: magboots
-          icon:
-            sprite: Clothing/Shoes/Boots/magboots.rsi
-            state: icon
-          doAfter: 1
+      - material: SharkminnowChitin
+        amount: 15
+        doAfter: 8
+      - tag: Magboots
+        name: construction-graph-tag-magboots
+        icon:
+          sprite: Clothing/Shoes/Boots/magboots.rsi
+          state: icon
+        doAfter: 1
   - node: sharkminnowShoes
     entity: ClothingShoesSharkminnow
-    

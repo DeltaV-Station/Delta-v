@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server.Nutrition.Components;
 using Content.Shared._DV.Abilities.Borgs;
 using Content.Shared.Nutrition;

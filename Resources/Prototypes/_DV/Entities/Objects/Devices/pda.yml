@@ -35,7 +35,7 @@
   description: Clear, so you can make sure there's nothing being smuggled inside.
   components:
   - type: Pda
-    id: PrisonerIDCard
+    id: PrisonerJobIDCard
 
 - type: entity
   parent: PrisonerPDA
@@ -412,6 +412,25 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType: !type:String
         pda-phys
+
+# Senior Physician
+
+- type: entity
+  parent: MedicalPDA
+  id: CryogenicsSpecialistPDA
+  name: cryogenics specialist PDA
+  description: Cold to the touch, it seems to have a thin layer of frost on it.
+  components:
+  - type: Pda
+    id: CryogenicsSpecialistIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-cryospecialist
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#447987"
+    accentVColor: "#85c2e6"
 
 # Psychologist
 

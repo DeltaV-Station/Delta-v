@@ -1,7 +1,7 @@
 - type: entity
   abstract: true
   parent: BaseStructure
-  id: BaseWall
+  id: BaseStructureWall
   name: basewall
   description: Keeps the air in and the greytide out.
   placement:
@@ -44,7 +44,6 @@
         layer:
         - WallLayer
         density: 1000
-  - type: Occluder
   - type: Airtight
   - type: StaticPrice #was DynamicPrice
     price: 75
@@ -52,6 +51,46 @@
     resistance: 2
   - type: BlockWeather
   - type: SunShadowCast
+
+- type: entity
+  abstract: true
+  parent: BaseStructureWall
+  id: BaseWall
+  components:
+  - type: Occluder # Breaks on diagonal walls
+
+- type: entity
+  abstract: true
+  parent: BaseStructureWall
+  id: WallDiagonalBase
+  suffix: Diagonal
+  components:
+  - type: Tag
+    tags:
+    - Wall
+    - Diagonal
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+    - South
+    - East
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PolygonShape
+            vertices:
+            - "-0.5,-0.5"
+            - "0.5,0.5"
+            - "0.5,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
 
 - type: entity
   parent: BaseWall
@@ -79,19 +118,17 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-
   - type: IconSmooth
     key: walls
     base: brick
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
   id: WallClock
   name: clock wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/clock.rsi
   - type: Icon
@@ -115,15 +152,14 @@
   - type: IconSmooth
     key: walls
     base: clock
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
   id: WallClown
   name: bananium wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/clown.rsi
   - type: Icon
@@ -151,6 +187,19 @@
   - type: IconSmooth
     key: walls
     base: clown
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 8000 # really good ramming wall, bananium is rare so it's probably fine
 
 - type: entity
   parent: BaseWall
@@ -191,9 +240,6 @@
   id: WallCult
   name: cult wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/cult.rsi
   - type: Icon
@@ -251,9 +297,6 @@
   id: WallDiamond
   name: diamond wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/diamond.rsi
   - type: Icon
@@ -278,15 +321,14 @@
   - type: IconSmooth
     key: walls
     base: diamond
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
   id: WallGold
   name: gold wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/gold.rsi
   - type: Icon
@@ -320,18 +362,28 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 4000
   - type: IconSmooth
     key: walls
     base: gold
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
   id: WallIce
   name: ice wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/ice.rsi
   - type: Icon
@@ -352,15 +404,14 @@
   - type: IconSmooth
     key: walls
     base: ice
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
   id: WallPlasma
   name: plasma wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/plasma.rsi
   - type: Icon
@@ -399,15 +450,14 @@
     base: plasma
   - type: RadiationBlocker
     resistance: 5
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
   id: WallPlastic
   name: plastic wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/plastic.rsi
   - type: Icon
@@ -444,6 +494,8 @@
   - type: IconSmooth
     key: walls
     base: plastic
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -451,9 +503,6 @@
   name: plastitanium wall
   suffix: indestructible
   components:
-    - type: Tag
-      tags:
-        - Wall
     - type: Sprite
       sprite: Structures/Walls/plastitanium.rsi
     - type: Icon
@@ -461,6 +510,22 @@
     - type: IconSmooth
       key: walls
       base: plastitanium
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          mask:
+          - FullTileMask
+          layer:
+          - WallLayer
+          density: 4000
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: StructuralMetallicStrong
+    - type: RadiationBlocker
+      resistance: 5
 
 - type: entity
   parent: WallPlastitaniumIndestructible
@@ -468,9 +533,6 @@
   name: plastitanium wall
   suffix: ""
   components:
-    - type: Tag
-      tags:
-        - Wall
     - type: Destructible
       thresholds:
         - trigger:
@@ -486,23 +548,34 @@
               acts: [ "Destruction" ]
 
 - type: entity
-  parent: WallShuttleDiagonal
-  id: WallPlastitaniumDiagonal
+  parent: WallDiagonalBase
+  id: WallPlastitaniumDiagonalIndestructible
   name: plastitanium wall
-  suffix: diagonal
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wall
+  suffix: diagonal, indestructible
   components:
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
+  - type: Icon
+    sprite: Structures/Walls/plastitanium_diagonal.rsi
+    state: state0
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: RadiationBlocker
+    resistance: 5
+
+- type: entity
+  parent: WallPlastitaniumDiagonalIndestructible
+  id: WallPlastitaniumDiagonal
+  name: plastitanium wall
+  suffix: diagonal
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: Structures/Walls/plastitanium_diagonal.rsi
+    state: state0
   - type: Icon
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
@@ -510,73 +583,18 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2000
+        damage: 1000
       behaviors:
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            Girder:
+              min: 1
+              max: 1
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
         - !type:PlaySoundBehavior
           sound:
             collection: MetalSlam
-    - trigger:
-        !type:DamageTrigger
-        damage: 1000
-      behaviors:
-      - !type:ChangeConstructionNodeBehavior
-        node: girder
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-
-- type: entity
-  id: WallPlastitaniumDiagonalIndestructible
-  name: plastitanium wall
-  suffix: diagonal, indestructible
-  description: Keeps the air in and the greytide out.
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wall
-  components:
-  - type: Transform
-    anchored: true
-  - type: Clickable
-  - type: Tag
-    tags:
-    - Wall
-    - Diagonal
-  - type: Sprite
-    drawdepth: Walls
-    sprite: Structures/Walls/plastitanium_diagonal.rsi
-    state: state0
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
-  - type: Icon
-    sprite: Structures/Walls/plastitanium_diagonal.rsi
-    state: state0
-  - type: Physics
-    bodyType: Static
-  - type: Airtight
-    noAirWhenFullyAirBlocked: false
-    airBlockedDirection:
-    - South
-    - East
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PolygonShape
-            vertices:
-            - "-0.5,-0.5"
-            - "0.5,0.5"
-            - "0.5,-0.5"
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
 
 - type: entity
   parent: BaseWall
@@ -639,6 +657,19 @@
     price: 250
   - type: RadiationBlocker
     resistance: 5
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000
 
 - type: entity
   parent: WallReinforced
@@ -678,32 +709,48 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
-
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
-  parent: WallShuttleDiagonal
+  parent: WallDiagonalBase
   id: WallReinforcedDiagonal
   name: reinforced wall
-  suffix: diagonal
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wall
   components:
-  - type: Tag
-    tags:
-    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
   - type: Icon
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: RadiationBlocker
+    resistance: 5
 
 # Riveting
 - type: entity
@@ -711,9 +758,6 @@
   id: WallRiveted
   name: riveted wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/riveted.rsi
   - type: Icon
@@ -745,9 +789,6 @@
   id: WallSandstone
   name: sandstone wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/sandstone.rsi
   - type: Icon
@@ -778,9 +819,6 @@
   id: WallSilver
   name: silver wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/silver.rsi
   - type: Icon
@@ -817,40 +855,21 @@
   - type: IconSmooth
     key: walls
     base: silver
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
+  parent: WallDiagonalBase
   id: WallShuttleDiagonal
   name: shuttle wall
-  suffix: diagonal
-  description: Keeps the air in and the greytide out.
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wall
   components:
-  - type: Transform
-    anchored: true
-  - type: Clickable
-  - type: Tag
-    tags:
-    - Wall
-    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
   - type: Icon
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
-  - type: Physics
-    bodyType: Static
   - type: Reflect
     reflectProb: 1
   - type: Pullable
@@ -872,6 +891,10 @@
         - FullTileMask
         layer:
         - WallLayer
+        density: 2000
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
   - type: Destructible
     thresholds:
     - trigger:
@@ -900,11 +923,16 @@
   - type: Construction
     graph: Girder
     node: diagonalshuttleWall
+  - type: RadiationBlocker
+    resistance: 5
+  - type: StaticPrice
+    price: 200
 
 - type: entity
   parent: BaseWall
   id: WallShuttle
   name: shuttle wall
+  suffix: Reinforced, Exterior # DeltaV - distinguish it from interior
   components:
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -960,60 +988,25 @@
           5: { state: shuttle_construct-5, visible: true}
   - type: Reflect
     reflectProb: 1
-
-- type: entity
-  parent: BaseWall
-  id: WallShuttleInterior
-  name: shuttle wall
-  suffix: Interior
-  components:
-  - type: RCDDeconstructable
-    cost: 6
-    delay: 8
-    fx: EffectRCDDeconstruct8
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 400
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-      - !type:ChangeConstructionNodeBehavior
-        node: girder
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: Sprite
-    sprite: Structures/Walls/shuttleinterior.rsi
-  - type: Icon
-    sprite: Structures/Walls/shuttleinterior.rsi
-  - type: Construction
-    graph: Girder
-    node: shuttleInteriorWall
-  - type: IconSmooth
-    key: walls
-    base: state
-  - type: Reflect
-    reflectProb: 1
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000
 
 - type: entity
   parent: BaseWall
   id: WallSolid
   name: solid wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: _DV/Structures/Walls/solid.rsi #Delta V - Resprite walls
   - type: WallReplacementMarker
@@ -1051,28 +1044,43 @@
   - type: IconSmooth
     key: walls
     base: solid
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
-  parent: WallShuttleDiagonal
+  parent: WallDiagonalBase
   id: WallSolidDiagonal
   name: solid wall
-  suffix: diagonal
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wall
   components:
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/solid_diagonal.rsi
     state: state0
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
   - type: Icon
     sprite: Structures/Walls/solid_diagonal.rsi
     state: state0
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
 
 - type: entity
   parent: WallSolid
@@ -1112,6 +1120,8 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -1147,11 +1157,24 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 6000
   - type: IconSmooth
     key: walls
     base: uranium
   - type: RadiationBlocker
     resistance: 6
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -1191,6 +1214,8 @@
   - type: IconSmooth
     key: woods
     base: wood
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -1198,7 +1223,6 @@
   name: web wall
   description: Keeps the spiders in and the greytide out.
   components:
-  - type: Clickable
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -1206,9 +1230,6 @@
           "/Audio/Weapons/slash.ogg"
   - type: Damageable
     damageModifierSet: Web
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/web.rsi
   - type: Icon
@@ -1244,9 +1265,6 @@
   id: WallNecropolis
   name: stone wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/necropolis.rsi
   - type: Icon
@@ -1262,15 +1280,14 @@
   - type: IconSmooth
     key: walls
     base: necropolis
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
   id: WallMining
   name: mining wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/mining.rsi
   - type: Icon
@@ -1291,28 +1308,49 @@
     - mining
     - miningB
   - type: Appearance
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
-  parent: WallShuttleDiagonal
+  parent: WallDiagonalBase
   id: WallMiningDiagonal
   name: mining wall
-  suffix: diagonal
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wall
   components:
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/mining_diagonal.rsi
     state: state0
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
   - type: Icon
     sprite: Structures/Walls/mining_diagonal.rsi
     state: state0
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Girder:
+            min: 1
+            max: 1
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
 
 
 # Vault Walls
@@ -1337,6 +1375,8 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: WallVaultAlien
@@ -1424,9 +1464,6 @@
   name: cobblestone brick wall
   description: Stone by stone, perfectly fitted together to form a wall.
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/cobblebrick.rsi
   - type: Icon
@@ -1446,6 +1483,8 @@
   - type: IconSmooth
     key: cobblebricks
     base: cobblebrick
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: WallCobblebrick

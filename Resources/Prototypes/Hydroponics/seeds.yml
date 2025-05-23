@@ -666,6 +666,7 @@
   production: 6
   yield: 2
   potency: 20
+  growthStages: 3
   idealLight: 9
   idealHeat: 298
   chemicals:
@@ -931,8 +932,8 @@
   idealHeat: 298
   chemicals:
     Egg:
-      Min: 1
-      Max: 10
+      Min: 4
+      Max: 12
       PotencyDivisor: 10
 
 - type: seed
@@ -1177,7 +1178,7 @@
       Min: 1
       Max: 2
       PotencyDivisor: 50
-    Bicaridine:
+    SalicylicAcid: # Funkychem - bicaridine -> salicylic acid
       Min: 1
       Max: 20
       PotencyDivisor: 5
@@ -1231,7 +1232,7 @@
       Min: 1
       Max: 2
       PotencyDivisor: 50
-    Bicaridine:
+    SalicylicAcid: # Funkychem - bicaridine -> salicylic acid
       Min: 1
       Max: 20
       PotencyDivisor: 5
@@ -1402,8 +1403,8 @@
   chemicals:
     Amatoxin:
       Min: 1
-      Max: 25
-      PotencyDivisor: 4
+      Max: 10
+      PotencyDivisor: 12
     Nutriment: ## yumby :)
       Min: 1
       Max: 5

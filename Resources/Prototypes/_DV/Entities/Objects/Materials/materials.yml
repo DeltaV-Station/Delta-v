@@ -1,5 +1,95 @@
 - type: entity
   parent: MaterialBase
+  id: MaterialBluespace
+  name: bluespace crystal
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Materials/materials.rsi
+    layers:
+    - state: bluespace_3
+      map: ["base"]
+  - type: Appearance
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Bluespace: 100
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - BluespaceCrystal
+    - RawMaterial
+  - type: Stack
+    stackType: Bluespace
+    baseLayer: base
+    layerStates:
+    - bluespace
+    - bluespace_2
+    - bluespace_3
+    count: 5
+
+- type: entity
+  parent: MaterialBluespace
+  id: MaterialBluespace1
+  suffix: 1
+  components:
+  - type: Sprite
+    layers:
+    - state: bluespace
+      map: ["base"]
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialBluespace
+  id: CrystalNormality # this is 1 not full because other stuff may assume its single
+  name: normality crystal
+  suffix: 1
+  description: It looks... normal.
+  components:
+  - type: Sprite
+    layers:
+    - state: bluespace
+      map: ["base"]
+    color: gray
+  - type: PhysicalComposition
+    materialComposition:
+      NormalityCrystal: 100
+  - type: Stack
+    stackType: NormalityCrystal
+    count: 1
+  - type: Tag
+    tags:
+    - NormalityCrystal
+
+- type: entity
+  parent: CrystalNormality
+  id: CrystalNormality5
+  suffix: 5
+  components:
+  - type: Sprite
+    layers:
+    - state: bluespace_3
+      map: ["base"]
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: BaseItem
+  id: HideMothroach
+  name: mothroach hide
+  description: A thin layer of mothroach hide.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Materials/mothroach.rsi
+    state: mothroachhide
+  - type: Tag
+    tags:
+    - MothroachHide
+
+- type: entity
+  parent: MaterialBase
   id: MaterialChitinSharkminnow
   name: sharkminnow chitin
   description: Thick, tough, and strangely lightweight. Might make good armor.
@@ -27,7 +117,7 @@
   - type: Tag
     tags:
     - ChitinSharkminnow
-    
+
 - type: entity
   parent: MaterialChitinSharkminnow
   id: MaterialChitinSharkminnow1

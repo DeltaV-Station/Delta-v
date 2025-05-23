@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseImplantOnlyImplanterSyndi
   id: BionicVoiceMaskImplanter
-  suffix: bionic voice mask
+  name: bionic voice mask implanter
   components:
   - type: Implanter
     implant: BionicVoiceMaskImplant
@@ -9,7 +9,7 @@
 - type: entity
   parent: BionicVoiceMaskImplanter
   id: BionicSyrinxImplanter
-  suffix: bionic syrinx
+  name: bionic syrinx implanter
   components:
   - type: Implanter
     implant: BionicSyrinxImplant
@@ -17,23 +17,35 @@
 - type: entity
   parent: BaseImplantOnlyImplanter
   id: GenericRadioImplanter
-  suffix: generic radio
+  name: generic radio implanter
   components:
   - type: Implanter
     implant: RadioImplant
 
 - type: entity
-  parent: BaseImplantOnlyImplanterSyndi
-  id: SyndicateRadioImplanter
-  suffix: syndicate radio
+  parent: BaseImplantOnlyImplanter
+  id: WatchdogImplanter
+  name: watchdog implanter
   components:
   - type: Implanter
-    implant: SyndicateRadioImplant
+    implant: WatchdogImplant
 
 - type: entity
   parent: BaseImplantOnlyImplanter
-  id: RadioImplanterCentcomm
-  suffix: centcomm radio
+  id: CentCommImplanter
+  name: centcomm implanter
   components:
   - type: Implanter
-    implant: RadioImplantCentcomm
+    implant: CentCommImplant
+
+# Nukie implants
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: HostageImplanter
+  name: hostage implanter
+  components:
+  - type: Implanter
+    implant: HostageImplant
+    implantTime: 20
+    drawTime: 15

@@ -18,6 +18,10 @@
   - type: ComponentToggler
     components:
     - type: NoSlip
+  - type: ItemTogglePrefix
+    prefixOn: on
+  - type: ToggleClothingPrefix
+    prefixOn: on
   - type: Magboots
   - type: ClothingSpeedModifier
     walkModifier: 0.85
@@ -119,3 +123,4 @@
   - type: InstantAction
     itemIconStyle: BigItem
     event: !type:ToggleActionEvent
+    useDelay: 3 # DeltaV - Add delay to avoid spamming magboots to avoid lube puddles.

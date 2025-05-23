@@ -24,3 +24,12 @@
     path: /Audio/Voice/Talk/speak_1_ask.ogg
   exclaimSound:
     path: /Audio/Voice/Talk/speak_1_exclaim.ogg
+
+- type: speechSounds
+  id: RubberChicken
+  saySound:
+    collection: RubberChicken
+  askSound:
+    collection: RubberChicken
+  exclaimSound:
+    collection: RubberChicken

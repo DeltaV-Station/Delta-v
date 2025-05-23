@@ -1,9 +1,10 @@
 - type: reagent
   id: Quartzite
-  name: reagent-name-Quartzite
+  name: reagent-name-quartzite
   group: Toxins
-  slippery: true
-  desc: reagent-desc-Quartzite
+  slipData:
+    requiredSlipSpeed: 3
+  desc: reagent-desc-quartzite
   physicalDesc: reagent-physical-desc-reflective
   flavor: sharp
   color: "#ffffff"

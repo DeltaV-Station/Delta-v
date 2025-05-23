@@ -15,6 +15,9 @@ public sealed class FingerprintMaskSystem : EntitySystem
 
     private void OnTryAccessFingerprint(Entity<FingerprintMaskComponent> ent, ref InventoryRelayedEvent<TryAccessFingerprintEvent> args)
     {
+        if (args.Args.Cancelled)
+            return;
+
         args.Args.Blocker = ent;
         args.Args.Cancel();
     }
