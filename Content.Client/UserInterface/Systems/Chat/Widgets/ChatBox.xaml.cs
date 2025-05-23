@@ -256,7 +256,8 @@ public partial class ChatBox : UIWidget
         _controller.UpdateSelectedChannel(this);
 
         // Warn typing indicator about change
-        _controller.NotifyChatTextChange();
+        // _controller.NotifyChatTextChange(); // DeltaV
+        _controller.NotifySpecificChatTextChange(_controller.GetPreferredChannel()); // DeltaV
     }
 
     private void OnFocusEnter(LineEditEventArgs args)
