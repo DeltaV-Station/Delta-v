@@ -17,13 +17,13 @@
     implants: [ MindShieldImplant ]
   requirements: # Same as Nukie Commander
   - !type:OverallPlaytimeRequirement
-    time: 216000 
-  - !type:DepartmentTimeRequirement 
+    time: 216000
+  - !type:DepartmentTimeRequirement
     department: Security
-    time: 36000 
-  - !type:DepartmentTimeRequirement 
+    time: 36000
+  - !type:DepartmentTimeRequirement
     department: Command
-    time: 36000 
+    time: 36000
 
 - type: startingGear
   id: DAPGear # Reminder to change sprites for DS items
@@ -50,7 +50,7 @@
     - Omnitool
     - WelderExperimental
     - Hypospray
-    - DeathAcidifierImplanter 
+    - DeathAcidifierImplanter
     - FreedomImplanter
     - ScramImplanter
   inhand:
