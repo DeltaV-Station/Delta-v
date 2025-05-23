@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: boogiebogus
-  changes:
-  - message: Added several new lockers and wall lockers for mapping usage
-    type: Add
-  - message: replaced sci/research markings on the epistemics crate and locker, respectively
-    type: Tweak
-  id: 928
-  time: '2025-01-16T23:47:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2636
 - author: HTMLSystem
   changes:
   - message: Added the DeltaV scrubs to the surgeon loadout, hooray!
@@ -4092,3 +4083,12 @@
   id: 1427
   time: '2025-05-23T12:55:03.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3826
+- author: ArtisticRoomba
+  changes:
+  - message: The TEG's efficiency in extracting power from gasses has been tweaked
+      to promote dual-loop designs that recycle the waste heat of gasses, and punish
+      "meta" single loop designs.
+    type: Tweak
+  id: 1428
+  time: '2025-05-23T15:19:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3835
