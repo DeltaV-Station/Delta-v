@@ -20,25 +20,24 @@ public sealed class RandomArtifactSpriteSystem : VisualizerSystem<RandomArtifact
         var spritePrefix = isActivated ? "_on" : "";
 
         // layered artifact sprite
-        if (args.Sprite.LayerMapTryGet(ArtifactsVisualLayers.Effect, out var layer))
+        if (SpriteSystem.LayerMapTryGet((uid, args.Sprite), ArtifactsVisualLayers.Effect, out var layer, false))
         {
             var spriteState = "ano" + spriteIndexStr;
-            args.Sprite.LayerSetState(ArtifactsVisualLayers.Base, spriteState);
-            args.Sprite.LayerSetState(layer, spriteState + "_on");
-            args.Sprite.LayerSetVisible(layer, isActivated);
+            SpriteSystem.LayerSetRsiState((uid, args.Sprite), ArtifactsVisualLayers.Base, spriteState);
+            SpriteSystem.LayerSetRsiState((uid, args.Sprite), layer, spriteState + "_on");
+            SpriteSystem.LayerSetVisible((uid, args.Sprite), layer, isActivated);
         }
         // non-layered
         else
         {
             var spriteState = "ano" + spriteIndexStr + spritePrefix;
-            args.Sprite.LayerSetState(ArtifactsVisualLayers.Base, spriteState);
+            SpriteSystem.LayerSetRsiState((uid, args.Sprite), ArtifactsVisualLayers.Base, spriteState);
         }
-
     }
 }
 
 public enum ArtifactsVisualLayers : byte
 {
     Base,
-    Effect // doesn't have to use this
+    Effect
 }
