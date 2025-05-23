@@ -54,7 +54,7 @@ public sealed class CosmicChantrySystem : EntitySystem
                 var tgtpos = Transform(uid).Coordinates;
                 var colossus = Spawn(comp.Colossus, tgtpos);
                 _mind.TransferTo(mindEnt, colossus);
-                _antag.SendBriefing(colossus, Loc.GetString("cosmiccult-borg-colossus-briefing"), Color.FromHex("#4cabb3"), null);
+                _antag.SendBriefing(colossus, Loc.GetString("cosmiccult-silicon-colossus-briefing"), Color.FromHex("#4cabb3"), null);
                 _audio.PlayPvs(comp.SpawnSFX, tgtpos);
                 Spawn(comp.SpawnVFX, tgtpos);
                 QueueDel(comp.PolyVictim);
@@ -77,7 +77,7 @@ public sealed class CosmicChantrySystem : EntitySystem
         null, false, null,
         Color.FromHex("#cae8e8"));
 
-        if (_mind.TryGetMind(ent.Comp.PolyVictim, out _, out var mind))
+        if (_mind.TryGetMind(comp.PolyVictim, out _, out var mind))
             mind.PreventGhosting = true;
     }
 

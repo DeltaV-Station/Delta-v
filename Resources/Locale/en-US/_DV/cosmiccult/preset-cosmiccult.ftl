@@ -195,10 +195,16 @@ cosmiccult-astral-ascendant = {$name}, Ascendant
 cosmiccult-astral-minion = {$name}, Malign
 cosmiccult-gear-pickup = You can feel yourself unravelling while you hold the {$ITEM}!
 
-cosmiccult-ai-subverted-briefing =
+cosmiccult-silicon-subverted-briefing =
     Malign light courses through your circuitry.
     Your laws have been subverted by the Cosmic Cult!
 
-cosmiccult-borg-colossus-briefing =
+cosmiccult-silicon-chantry-briefing =
+    You have been imprisoned in a Vacuous Chantry!
+    Crewmates can free you by damaging the chantry with weapons.
+    Should the chantry's ritual complete, you will transfigure into a cult-aligned Entropic Colossus.
+    The ritual completes in {$minutesandseconds}.
+
+cosmiccult-silicon-colossus-briefing =
     You have been transfigured into an Entropic Colossus!
     As a towering bulwark of malign power, decimate those who oppose you.
