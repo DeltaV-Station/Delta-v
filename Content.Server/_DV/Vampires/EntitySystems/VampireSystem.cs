@@ -7,6 +7,7 @@ using Content.Shared._DV.Vampires.Components;
 using Content.Shared._DV.Vampires.EntitySystems;
 using Content.Shared._DV.Vampires.Events;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Mobs;
 using Content.Shared.Polymorph;
 using Robust.Shared.Prototypes;
 
@@ -33,6 +34,8 @@ public sealed class VampireSystem : SharedVampireSystem
         SubscribeLocalEvent<VampireComponent, VampireMistFormActionEvent>(OnMistFormAction);
         SubscribeLocalEvent<VampireComponent, VampireHypnoticActionEvent>(OnHypnoticGazeAction);
 
+        SubscribeLocalEvent<VampireComponent, MobStateChangedEvent>(OnMobStateChanged);
+
         SubscribeLocalEvent<VampireComponent, BloodDrainedEvent>(OnBloodDrained);
     }
 
@@ -51,6 +54,15 @@ public sealed class VampireSystem : SharedVampireSystem
     {
         if (ActivateMistForm(ent, false))
             args.Handled = true;
+    }
+
+    private void OnMobStateChanged(Entity<VampireComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Critical)
+        {
+            // TODO: Probably need more checks here for validity
+            ActivateMistForm(ent, true);
+        }
     }
 
     private bool ActivateMistForm(Entity<VampireComponent> ent, bool forced = false)
