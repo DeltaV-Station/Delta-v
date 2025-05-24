@@ -1,0 +1,24 @@
+- type: entity
+  id: Vampire
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 20 # TODO: Direction pass
+    delay:
+      min: 600
+      max: 900
+  - type: VampireRule
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Vampire ]
+      max: 6
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+      components:
+      - type: Vampire
+      - type: BloodDrainer
+      mindRoles:
+      - MindRoleVampire

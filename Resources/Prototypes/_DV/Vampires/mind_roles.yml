@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleVampire
+  name: Vampire Role
+  components:
+  - type: MindRole
+    antagPrototype: VampireAntag
+    exclusiveAntag: true
+    roleType: TeamAntagonist
+  - type: RoleBriefing
+    briefing: objective-vampire-charactermenu
