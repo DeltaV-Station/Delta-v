@@ -5,6 +5,7 @@
   description: A foggy mist, or a misty fog?
   components:
   - type: BreathingImmunity
+  - type: Vampire # Will receive resistances from the original vampire body
   - type: Damageable
     damageContainer: BiologicalMetaphysical
     damageModifierSet: Vampire

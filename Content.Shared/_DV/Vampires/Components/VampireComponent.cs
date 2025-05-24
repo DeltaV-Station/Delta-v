@@ -33,6 +33,12 @@ public sealed partial class VampireComponent : Component
     public bool IsLesserVampire = false;
 
     /// <summary>
+    /// Whether this vampire has been forced into mist form or not.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public bool IsForcedMistForm = false;
+
+    /// <summary>
     /// The base amount of stamina damage the victim will take from the hypnotic gaze ability.
     /// </summary>
     [DataField]

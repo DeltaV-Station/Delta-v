@@ -3,6 +3,7 @@ using Content.Server.Damage.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
+using Content.Server.Storage.EntitySystems;
 using Content.Shared._DV.BloodDraining.Events;
 using Content.Shared._DV.Vampires.Components;
 using Content.Shared._DV.Vampires.EntitySystems;
@@ -11,6 +12,7 @@ using Content.Shared.Damage;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Polymorph;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 
 
@@ -19,6 +21,7 @@ namespace Content.Server._DV.Vampires.EntitySystems;
 public sealed class VampireSystem : SharedVampireSystem
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly EntityStorageSystem _entityStorageSystem = default!;
     [Dependency] private readonly HandsSystem _handsSystem = default!;
     [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
     [Dependency] private readonly StaminaSystem _staminaSystem = default!;
@@ -42,6 +45,8 @@ public sealed class VampireSystem : SharedVampireSystem
         SubscribeLocalEvent<VampireComponent, BloodDrainedEvent>(OnBloodDrained);
 
         SubscribeLocalEvent<VampireComponent, DamageModifyEvent>(OnDamageModified);
+
+        SubscribeLocalEvent<VampireCoffinComponent, StartCollideEvent>(OnCoffinCollide);
     }
 
     private void OnMapInit(Entity<VampireComponent> ent, ref MapInitEvent args)
@@ -75,8 +80,15 @@ public sealed class VampireSystem : SharedVampireSystem
         _handsSystem.TryDrop(ent.Owner);
 
         var proto = forced ? _mistFormForcedPolymorphId : _mistFormPolymorphId;
-        if (_polymorphSystem.PolymorphEntity(ent, proto) == null)
+        var mistEnt = _polymorphSystem.PolymorphEntity(ent, proto);
+        if (!mistEnt.HasValue)
             return false;
+
+        // Propagate bonus resistances and other important info
+        var mistVampire = EnsureComp<VampireComponent>(mistEnt.Value);
+        mistVampire.BonusResistances = ent.Comp.BonusResistances;
+        mistVampire.IsLesserVampire = ent.Comp.IsLesserVampire;
+        mistVampire.IsForcedMistForm = forced;
 
         return true;
     }
@@ -137,5 +149,22 @@ public sealed class VampireSystem : SharedVampireSystem
     private void OnDamageModified(Entity<VampireComponent> ent, ref DamageModifyEvent args)
     {
         args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, ent.Comp.BonusResistances);
+    }
+
+    private void OnCoffinCollide(Entity<VampireCoffinComponent> ent, ref StartCollideEvent args)
+    {
+        if (!TryComp<VampireComponent>(args.OtherEntity, out var vampire) || !vampire.IsForcedMistForm)
+            return; // Not a vampire, or isn't currently forced into mist form
+
+        // This vampire is in a critical state and has been forced into a mist, shut the coffin and regenerate the vampire.
+        var original = _polymorphSystem.Revert(args.OtherEntity);
+        if (!original.HasValue)
+            return; // Failed to polymorph back
+
+        _entityStorageSystem.CloseStorage(ent);
+        _entityStorageSystem.Insert(original.Value, ent);
+
+        // TODO: Heal the vampire slightly to get them OUT of crit.
+        // TODO: Or put a slight heal for any vampire inside a coffin.
     }
 }
