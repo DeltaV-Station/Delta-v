@@ -4,6 +4,7 @@
   id: VampireMistForm
   description: A foggy mist, or a misty fog?
   components:
+  - type: BreathingImmunity
   - type: Damageable
     damageContainer: BiologicalMetaphysical
     damageModifierSet: Vampire
