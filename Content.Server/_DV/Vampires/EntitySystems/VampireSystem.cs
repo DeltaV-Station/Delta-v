@@ -6,6 +6,7 @@ using Content.Shared._DV.BloodDraining.Events;
 using Content.Shared._DV.Vampires.Components;
 using Content.Shared._DV.Vampires.EntitySystems;
 using Content.Shared._DV.Vampires.Events;
+using Content.Shared.Damage;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Polymorph;
@@ -37,6 +38,8 @@ public sealed class VampireSystem : SharedVampireSystem
         SubscribeLocalEvent<VampireComponent, MobStateChangedEvent>(OnMobStateChanged);
 
         SubscribeLocalEvent<VampireComponent, BloodDrainedEvent>(OnBloodDrained);
+
+        SubscribeLocalEvent<VampireComponent, DamageModifyEvent>(OnDamageModified);
     }
 
     private void OnMapInit(Entity<VampireComponent> ent, ref MapInitEvent args)
@@ -116,6 +119,19 @@ public sealed class VampireSystem : SharedVampireSystem
 
     private void OnNewUniqueVictim(Entity<VampireComponent> ent)
     {
-        // TODO: Update bonuses
+        var bonusResists = ent.Comp.BonusResistancesPerUnique * ent.Comp.UniqueVictims.Count;
+        if (bonusResists > ent.Comp.MaximumBonusResists)
+        {
+            bonusResists = ent.Comp.MaximumBonusResists;
+        }
+
+        ent.Comp.BonusResistances.Coefficients["Blunt"] = 1 - bonusResists;
+        ent.Comp.BonusResistances.Coefficients["Slash"] = 1 - bonusResists;
+        ent.Comp.BonusResistances.Coefficients["Pierce"] = 1 - bonusResists;
+    }
+
+    private void OnDamageModified(Entity<VampireComponent> ent, ref DamageModifyEvent args)
+    {
+        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, ent.Comp.BonusResistances);
     }
 }

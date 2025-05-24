@@ -1,4 +1,5 @@
 using Content.Shared._DV.Vampires.EntitySystems;
+using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._DV.Vampires.Components;
@@ -43,4 +44,29 @@ public sealed partial class VampireComponent : Component
     /// </summary>
     [DataField]
     public float BonusHypnoticDamageScale = 5;
+
+    /// <summary>
+    /// Bonus resistances for brute damage (Blunt, Slash, Pierce) per unique victim.
+    /// </summary>
+    [DataField]
+    public float BonusResistancesPerUnique = 0.01f;
+
+    /// <summary>
+    /// Maximum bonus resists from unique victims.
+    /// </summary>
+    [DataField]
+    public float MaximumBonusResists = 0.30f;
+
+    /// <summary>
+    /// The current bonus resistances from unique victims.
+    /// </summary>
+    [ViewVariables]
+    public DamageModifierSet BonusResistances = new()
+    {
+        Coefficients = {
+            { "Blunt", 1f },
+            { "Slash", 1f },
+            { "Pierce", 1f },
+        }
+    };
 }
