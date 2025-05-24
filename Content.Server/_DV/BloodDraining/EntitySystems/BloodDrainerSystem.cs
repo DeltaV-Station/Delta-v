@@ -24,6 +24,9 @@ using Content.Shared._Shitmed.Body.Organ;
 
 namespace Content.Server._DV.BloodDraining.EntitySystems;
 
+/// <summary>
+/// Server side system for blood draining
+/// </summary>
 public sealed class BloodDrainerSystem : SharedBloodDrainerSystem
 {
     [Dependency] private readonly PuddleSystem _puddleSystem = default!;
@@ -50,6 +53,12 @@ public sealed class BloodDrainerSystem : SharedBloodDrainerSystem
         SubscribeLocalEvent<BloodDrainerComponent, BloodDrainDoAfterEvent>(OnDrainDoAfter);
     }
 
+    /// <summary>
+    /// Handles when the blood drainer component starts on an entity.
+    /// Used to set metabolizer types of internal organs so they can process blood properly.
+    /// </summary>
+    /// <param name="drainer">Entity which has become a blood drainer.</param>
+    /// <param name="args">Args for the event.</param>
     private void OnComponentStart(Entity<BloodDrainerComponent> drainer, ref ComponentStartup args)
     {
         if (_bodySystem.TryGetBodyOrganEntityComps<StomachComponent>(drainer.Owner, out var stomachs))
@@ -63,6 +72,12 @@ public sealed class BloodDrainerSystem : SharedBloodDrainerSystem
         }
     }
 
+    /// <summary>
+    /// Handles when verbs are requested for any blood drainer entities.
+    /// Checks for validity of the interaction before adding the drain verb.
+    /// </summary>
+    /// <param name="drainer">Entity which has requested verbs.</param>
+    /// <param name="args">Args for the event.</param>
     private void AddDrainVerb(Entity<BloodDrainerComponent> drainer, ref GetVerbsEvent<InnateVerb> args)
     {
         var victim = args.Target;
@@ -85,6 +100,12 @@ public sealed class BloodDrainerSystem : SharedBloodDrainerSystem
         args.Verbs.Add(verb);
     }
 
+    /// <summary>
+    /// Handles attempting a DoAfter to drain a victim's blood.
+    /// Performs some validation to ensure the interaction is valid.
+    /// </summary>
+    /// <param name="drainer">Entity attempting to drain blood.</param>
+    /// <param name="victim">Entity which may have their blood drained.</param>
     private void TryStartDrain(Entity<BloodDrainerComponent> drainer, EntityUid victim)
     {
         if (!_interactionSystem.InRangeUnobstructed(drainer.Owner, victim, drainer.Comp.Distance))
@@ -136,6 +157,13 @@ public sealed class BloodDrainerSystem : SharedBloodDrainerSystem
         _doAfter.TryStartDoAfter(args);
     }
 
+    /// <summary>
+    /// Handles checking whether head or mask items worn will block an entity from draining
+    /// a victim's blood.
+    /// </summary>
+    /// <param name="drainer">Entity attempting to drain blood.</param>
+    /// <param name="victim">Entity which may have their blood drained.</param>
+    /// <returns>True if there are no items in the way of draining, false otherwise.</returns>
     private bool ValidateDrainVictim(Entity<BloodDrainerComponent> drainer, EntityUid victim)
     {
         // Disallow if the victim is wearing a pressurised helmet
@@ -174,12 +202,17 @@ public sealed class BloodDrainerSystem : SharedBloodDrainerSystem
         return true;
     }
 
+    /// <summary>
+    /// Handles when the DoAfter for draining blood has finished.
+    /// </summary>
+    /// <param name="ent">Entity which has completed their DoAfter event.</param>
+    /// <param name="args">Args for the event, notably the target.</param>
     private void OnDrainDoAfter(Entity<BloodDrainerComponent> ent, ref BloodDrainDoAfterEvent args)
     {
         if (args.Cancelled || args.Handled || args.Args.Target == null)
             return;
 
-        var success = CompleteBloodDrain(ent, args.Args.Target.Value);
+        var success = TryDrainBlood(ent, args.Args.Target.Value);
         if (ent.Comp.Repeatable)
         {
             // Only repeat in successful drain attempts.
@@ -187,7 +220,15 @@ public sealed class BloodDrainerSystem : SharedBloodDrainerSystem
         }
     }
 
-    private bool CompleteBloodDrain(Entity<BloodDrainerComponent> drainer, EntityUid victim)
+    /// <summary>
+    /// Attempts to drain the blood of a victim into the stomach of the drainer.
+    /// Will validate whether helmets/masks are in the way, and whether the victim
+    /// has any blood remaining.
+    /// </summary>
+    /// <param name="drainer">Entity draining the blood.</param>
+    /// <param name="victim">Entity which may have their blood drained.</param>
+    /// <returns>True if blood was drained successfully, false otherwise.</returns>
+    private bool TryDrainBlood(Entity<BloodDrainerComponent> drainer, EntityUid victim)
     {
         // Re-validate to see if a mask/helm has been added during the DoAfter
         if (!ValidateDrainVictim(drainer, victim))
