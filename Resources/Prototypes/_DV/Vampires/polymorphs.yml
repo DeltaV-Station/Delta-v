@@ -1,21 +1,49 @@
+- type: entity
+  name: Mist form
+  parent: [ SimpleMobBase, FlyingMobBase ]
+  id: VampireMistForm
+  description: A foggy mist, or a misty fog?
+  components:
+  - type: Damageable
+    damageContainer: BiologicalMetaphysical
+    damageModifierSet: Vampire
+  - type: Sprite
+    drawdepth: Mobs
+    scale: 0.4, 0.4
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: chemsmoke
+      sprite: Effects/chemsmoke.rsi
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 7
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 30
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+
 - type: polymorph
   id: VampireMistForm
   configuration:
-    entity: MobKitsuneFox # TODO: Mist form entity
+    entity: VampireMistForm
     inventory: Drop
-    cooldown: 90
     transferDamage: true
     revertOnCrit: false
     revertOnDeath: false
 
 - type: polymorph
   id: VampireMistFormForced
-  parent: VampireMistForm
   configuration:
     forced: true
-    entity: MobKitsuneFox # TODO: Mist form entity
+    entity: VampireMistForm
     inventory: Drop
-    cooldown: 90
-    transferDamage: true
+    transferDamage: false # Forced form means they're already crit
     revertOnCrit: false
     revertOnDeath: false
