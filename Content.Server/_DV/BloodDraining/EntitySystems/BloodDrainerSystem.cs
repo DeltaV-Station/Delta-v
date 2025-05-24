@@ -70,38 +70,8 @@ public sealed class BloodDrainerSystem : SharedBloodDrainerSystem
         if (!_interactionSystem.InRangeUnobstructed(drainer.Owner, victim, drainer.Comp.Distance))
             return;
 
-        // Disallow if the victim is wearing a pressurised helmet
-        if (_inventorySystem.TryGetSlotEntity(victim, "head", out var victimHeadUid) &&
-            HasComp<PressureProtectionComponent>(victimHeadUid))
-        {
-            _popups.PopupEntity(Loc.GetString("blooddraining-fail-helmet-victim", ("helmet", victimHeadUid)),
-                victim,
-                drainer,
-                PopupType.Medium);
+        if (!ValidateDrainVictim(drainer, victim))
             return;
-        }
-
-        // Disallow if the drainer is wearing a pressurised helmet or a mask
-        if (_inventorySystem.TryGetSlotEntity(drainer, "head", out var drainerHeadUid) &&
-            HasComp<PressureProtectionComponent>(drainerHeadUid))
-        {
-            _popups.PopupEntity(Loc.GetString("blooddraining-fail-helmet", ("helmet", drainerHeadUid)),
-                victim,
-                drainer,
-                PopupType.Medium);
-            return;
-        }
-
-        if (_inventorySystem.TryGetSlotEntity(drainer, "mask", out var maskUid) &&
-            EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
-            blocker.Enabled)
-        {
-            _popups.PopupEntity(Loc.GetString("blooddraining-fail-mask", ("mask", maskUid)),
-                victim,
-                drainer,
-                PopupType.Medium);
-            return;
-        }
 
         // Check if this victim even HAS blood to begin with
         if (TryComp<BloodstreamComponent>(victim, out var stream) && stream.BloodReagent != "Blood")
@@ -146,6 +116,44 @@ public sealed class BloodDrainerSystem : SharedBloodDrainerSystem
         _doAfter.TryStartDoAfter(args);
     }
 
+    private bool ValidateDrainVictim(Entity<BloodDrainerComponent> drainer, EntityUid victim)
+    {
+        // Disallow if the victim is wearing a pressurised helmet
+        if (_inventorySystem.TryGetSlotEntity(victim, "head", out var victimHeadUid) &&
+            HasComp<PressureProtectionComponent>(victimHeadUid))
+        {
+            _popups.PopupEntity(Loc.GetString("blooddraining-fail-helmet-victim", ("helmet", victimHeadUid)),
+                victim,
+                drainer,
+                PopupType.Medium);
+            return false;
+        }
+
+        // Disallow if the drainer is wearing a pressurised helmet or a mask
+        if (_inventorySystem.TryGetSlotEntity(drainer, "head", out var drainerHeadUid) &&
+            HasComp<PressureProtectionComponent>(drainerHeadUid))
+        {
+            _popups.PopupEntity(Loc.GetString("blooddraining-fail-helmet", ("helmet", drainerHeadUid)),
+                victim,
+                drainer,
+                PopupType.Medium);
+            return false;
+        }
+
+        if (_inventorySystem.TryGetSlotEntity(drainer, "mask", out var maskUid) &&
+            EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
+            blocker.Enabled)
+        {
+            _popups.PopupEntity(Loc.GetString("blooddraining-fail-mask", ("mask", maskUid)),
+                victim,
+                drainer,
+                PopupType.Medium);
+            return false;
+        }
+
+        return true;
+    }
+
     private void OnDrainDoAfter(Entity<BloodDrainerComponent> ent, ref BloodDrainDoAfterEvent args)
     {
         if (args.Cancelled || args.Handled || args.Args.Target == null)
@@ -161,6 +169,10 @@ public sealed class BloodDrainerSystem : SharedBloodDrainerSystem
 
     private bool CompleteBloodDrain(Entity<BloodDrainerComponent> drainer, EntityUid victim)
     {
+        // Re-validate to see if a mask/helm has been added during the DoAfter
+        if (!ValidateDrainVictim(drainer, victim))
+            return false;
+
         if (!_bodySystem.TryGetBodyOrganEntityComps<StomachComponent>(drainer.Owner, out var organs))
             return false;
 
