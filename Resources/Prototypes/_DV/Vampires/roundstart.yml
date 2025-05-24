@@ -20,5 +20,8 @@
       components:
       - type: Vampire
       - type: BloodDrainer
+      - type: Damageable
+        damageContainer: Biological
+        damageModifierSet: Vampire
       mindRoles:
       - MindRoleVampire
