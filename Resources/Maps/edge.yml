@@ -4,7 +4,7 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 05/24/2025 20:59:38
+  time: 05/24/2025 21:35:29
   entityCount: 20074
 maps:
 - 1
@@ -3645,23 +3645,17 @@ entities:
             2043: -11,-17
             2044: -11,-16
         - node:
-            color: '#FFFFFFFF'
-            id: LoadingArea
-          decals:
-            1890: 22,-32
-        - node:
             angle: 3.141592653589793 rad
             color: '#FFFFFFFF'
             id: LoadingArea
           decals:
             2605: 15,-5
+            2964: 22,-32
         - node:
-            cleanable: True
-            angle: -3.141592653589793 rad
             color: '#FFFFFFFF'
             id: LoadingAreaGreyscale
           decals:
-            1919: 18,-31
+            2963: 18,-31
         - node:
             angle: 3.141592653589793 rad
             color: '#FFFFFFFF'
@@ -8322,7 +8316,7 @@ entities:
       pos: -18.5,-26.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3187.8262
+      secondsUntilStateChange: -3544.148
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12942,26 +12936,6 @@ entities:
       parent: 2
 - proto: BlastDoor
   entities:
-  - uid: 674
-    components:
-    - type: Transform
-      pos: 18.5,-33.5
-      parent: 2
-  - uid: 676
-    components:
-    - type: Transform
-      pos: 18.5,-35.5
-      parent: 2
-  - uid: 677
-    components:
-    - type: Transform
-      pos: 22.5,-35.5
-      parent: 2
-  - uid: 678
-    components:
-    - type: Transform
-      pos: 22.5,-33.5
-      parent: 2
   - uid: 679
     components:
     - type: Transform
@@ -12972,6 +12946,34 @@ entities:
     - type: Transform
       pos: -9.5,-49.5
       parent: 2
+  - uid: 7046
+    components:
+    - type: Transform
+      pos: 18.5,-33.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+  - uid: 12079
+    components:
+    - type: Transform
+      pos: 18.5,-35.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+  - uid: 12080
+    components:
+    - type: Transform
+      pos: 22.5,-35.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+  - uid: 12082
+    components:
+    - type: Transform
+      pos: 22.5,-33.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 16104
     components:
     - type: Transform
@@ -46465,6 +46467,16 @@ entities:
       parent: 2
 - proto: ConveyorBelt
   entities:
+  - uid: 677
+    components:
+    - type: Transform
+      pos: 18.5,-31.5
+      parent: 2
+  - uid: 678
+    components:
+    - type: Transform
+      pos: 18.5,-34.5
+      parent: 2
   - uid: 6020
     components:
     - type: Transform
@@ -46523,7 +46535,7 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 18.5,-31.5
+      pos: 22.5,-35.5
       parent: 2
   - uid: 6197
     components:
@@ -46554,12 +46566,6 @@ entities:
     - type: Transform
       pos: 11.5,-25.5
       parent: 2
-  - uid: 6202
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 18.5,-35.5
-      parent: 2
   - uid: 6203
     components:
     - type: Transform
@@ -46573,18 +46579,19 @@ entities:
   - uid: 6205
     components:
     - type: Transform
-      pos: 22.5,-33.5
+      rot: 3.141592653589793 rad
+      pos: 22.5,-34.5
       parent: 2
   - uid: 6206
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 18.5,-32.5
+      pos: 22.5,-33.5
       parent: 2
   - uid: 6207
     components:
     - type: Transform
-      pos: 22.5,-34.5
+      pos: 18.5,-32.5
       parent: 2
   - uid: 6208
     components:
@@ -46594,7 +46601,7 @@ entities:
   - uid: 6209
     components:
     - type: Transform
-      pos: 22.5,-35.5
+      pos: 18.5,-35.5
       parent: 2
   - uid: 6210
     components:
@@ -46619,7 +46626,6 @@ entities:
   - uid: 6214
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 18.5,-33.5
       parent: 2
   - uid: 6215
@@ -46627,16 +46633,11 @@ entities:
     - type: Transform
       pos: 11.5,-24.5
       parent: 2
-  - uid: 6216
-    components:
-    - type: Transform
-      pos: 22.5,-32.5
-      parent: 2
-  - uid: 6217
+  - uid: 11202
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 18.5,-34.5
+      pos: 22.5,-32.5
       parent: 2
   - uid: 14707
     components:
@@ -89101,7 +89102,7 @@ entities:
       parent: 2
 - proto: MachineMaterialSilo
   entities:
-  - uid: 7046
+  - uid: 6216
     components:
     - type: Transform
       pos: -6.5,-19.5
@@ -91272,12 +91273,22 @@ entities:
       parent: 2
 - proto: PlasticFlapsAirtightClear
   entities:
-  - uid: 12079
+  - uid: 674
+    components:
+    - type: Transform
+      pos: 22.5,-33.5
+      parent: 2
+  - uid: 676
     components:
     - type: Transform
       pos: 22.5,-35.5
       parent: 2
-  - uid: 12080
+  - uid: 6202
+    components:
+    - type: Transform
+      pos: 18.5,-33.5
+      parent: 2
+  - uid: 6217
     components:
     - type: Transform
       pos: 18.5,-35.5
@@ -91286,16 +91297,6 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-18.5
-      parent: 2
-  - uid: 12082
-    components:
-    - type: Transform
-      pos: 22.5,-33.5
-      parent: 2
-  - uid: 12083
-    components:
-    - type: Transform
-      pos: 18.5,-33.5
       parent: 2
   - uid: 13520
     components:
@@ -100905,71 +100906,63 @@ entities:
       parent: 2
     - type: DeviceLinkSource
       linkedPorts:
-        6195:
-        - - On
-          - Forward
-        - - Off
-          - Off
-        6206:
-        - - On
-          - Forward
-        - - Off
-          - Off
         6214:
-        - - On
-          - Forward
-        - - Off
-          - Off
-        674:
-        - - On
-          - Open
-        - - Off
-          - Close
-        6217:
-        - - On
-          - Forward
-        - - Off
-          - Off
-        676:
-        - - On
-          - Open
-        - - Off
-          - Close
-        6202:
-        - - On
-          - Forward
-        - - Off
-          - Off
-        6216:
-        - - On
-          - Forward
-        - - Off
-          - Off
-        678:
-        - - On
-          - Open
-        - - Off
-          - Close
-        6205:
-        - - On
-          - Forward
-        - - Off
-          - Off
-        6207:
         - - On
           - Forward
         - - Off
           - Off
         677:
         - - On
-          - Open
+          - Forward
         - - Off
-          - Close
+          - Off
+        6207:
+        - - Off
+          - Off
+        - - On
+          - Forward
+        12079:
+        - - Status
+          - Toggle
+        678:
+        - - Off
+          - Off
+        - - On
+          - Forward
+        12080:
+        - - Status
+          - Toggle
         6209:
         - - On
           - Forward
         - - Off
           - Off
+        11202:
+        - - On
+          - Forward
+        - - Off
+          - Off
+        12082:
+        - - Status
+          - Toggle
+        6206:
+        - - On
+          - Forward
+        - - Off
+          - Off
+        6205:
+        - - On
+          - Forward
+        - - Off
+          - Off
+        7046:
+        - - Status
+          - Toggle
+        6195:
+        - - Off
+          - Off
+        - - On
+          - Forward
 - proto: SignAnomaly
   entities:
   - uid: 13579
