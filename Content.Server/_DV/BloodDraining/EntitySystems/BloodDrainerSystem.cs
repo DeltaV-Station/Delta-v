@@ -18,6 +18,9 @@ using System.Linq;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Interaction;
 using Content.Shared._DV.BloodDraining.EntitySystems;
+using Robust.Shared.Prototypes;
+using Content.Shared.Body.Prototypes;
+using Content.Shared._Shitmed.Body.Organ;
 
 namespace Content.Server._DV.BloodDraining.EntitySystems;
 
@@ -34,13 +37,30 @@ public sealed class BloodDrainerSystem : SharedBloodDrainerSystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly InteractionSystem _interactionSystem = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private readonly MetabolizerSystem _metabolizerSystem = default!;
+    private readonly ProtoId<MetabolizerTypePrototype> _bloodsuckerMetabolizer = "Bloodsucker"; // Enable healing from blood
+    private readonly ProtoId<MetabolizerTypePrototype> _animalMetabolizer = "Animal"; // Don't give toxins when digesting blood
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<BloodDrainerComponent, ComponentStartup>(OnComponentStart);
         SubscribeLocalEvent<BloodDrainerComponent, GetVerbsEvent<InnateVerb>>(AddDrainVerb);
         SubscribeLocalEvent<BloodDrainerComponent, BloodDrainDoAfterEvent>(OnDrainDoAfter);
+    }
+
+    private void OnComponentStart(Entity<BloodDrainerComponent> drainer, ref ComponentStartup args)
+    {
+        if (_bodySystem.TryGetBodyOrganEntityComps<StomachComponent>(drainer.Owner, out var stomachs))
+        {
+            _metabolizerSystem.AddMetabolizerTypes(stomachs.First().Owner, [_bloodsuckerMetabolizer, _animalMetabolizer]);
+        }
+
+        if (_bodySystem.TryGetBodyOrganEntityComps<HeartComponent>(drainer.Owner, out var hearts))
+        {
+            _metabolizerSystem.AddMetabolizerType(hearts.First().Owner, _bloodsuckerMetabolizer);
+        }
     }
 
     private void AddDrainVerb(Entity<BloodDrainerComponent> drainer, ref GetVerbsEvent<InnateVerb> args)
