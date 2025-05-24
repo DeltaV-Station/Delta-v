@@ -1,5 +1,6 @@
 using Content.Server.Actions;
 using Content.Server.Damage.Systems;
+using Content.Server.Hands.Systems;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared._DV.BloodDraining.Events;
@@ -18,6 +19,7 @@ namespace Content.Server._DV.Vampires.EntitySystems;
 public sealed class VampireSystem : SharedVampireSystem
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly HandsSystem _handsSystem = default!;
     [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
     [Dependency] private readonly StaminaSystem _staminaSystem = default!;
 
@@ -70,6 +72,8 @@ public sealed class VampireSystem : SharedVampireSystem
 
     private bool ActivateMistForm(Entity<VampireComponent> ent, bool forced = false)
     {
+        _handsSystem.TryDrop(ent.Owner);
+
         var proto = forced ? _mistFormForcedPolymorphId : _mistFormPolymorphId;
         if (_polymorphSystem.PolymorphEntity(ent, proto) == null)
             return false;

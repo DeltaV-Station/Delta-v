@@ -34,7 +34,7 @@
   id: VampireMistForm
   configuration:
     entity: VampireMistForm
-    inventory: Drop
+    inventory: None
     transferDamage: true
     revertOnCrit: false
     revertOnDeath: false
@@ -44,7 +44,7 @@
   configuration:
     forced: true
     entity: VampireMistForm
-    inventory: Drop
+    inventory: None
     transferDamage: false # Forced form means they're already crit
     revertOnCrit: false
     revertOnDeath: false
