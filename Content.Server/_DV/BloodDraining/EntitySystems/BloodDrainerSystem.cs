@@ -234,6 +234,13 @@ public sealed class BloodDrainerSystem : SharedBloodDrainerSystem
         if (!ValidateDrainVictim(drainer, victim))
             return false;
 
+        // Regardless of whether the blood is taken or not, the drainer has successfully
+        // bitten the victim and should do damage.
+        if (drainer.Comp.DamageOnDrain != null)
+        {
+            _damageableSystem.TryChangeDamage(victim, drainer.Comp.DamageOnDrain, true);
+        }
+
         if (!_bodySystem.TryGetBodyOrganEntityComps<StomachComponent>(drainer.Owner, out var organs))
             return false;
 
@@ -276,11 +283,6 @@ public sealed class BloodDrainerSystem : SharedBloodDrainerSystem
             drainer,
             PopupType.Medium);
         EnsureComp<BloodDrainedComponent>(victim);
-
-        if (drainer.Comp.DamageOnDrain != null)
-        {
-            _damageableSystem.TryChangeDamage(victim, drainer.Comp.DamageOnDrain, true);
-        }
 
         var drainedEvent = new BloodDrainedEvent(victim, extractedBlood.Volume);
         RaiseLocalEvent(drainer, ref drainedEvent);
