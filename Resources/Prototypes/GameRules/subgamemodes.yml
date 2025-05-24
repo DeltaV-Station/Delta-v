@@ -2,8 +2,6 @@
   parent: BaseGameRule
   id: Thief
   components:
-  - type: GameRule # DeltaV - thieves need players to be fun against
-    minPlayers: 30
   - type: ThiefRule
   - type: AntagObjectives
     objectives:

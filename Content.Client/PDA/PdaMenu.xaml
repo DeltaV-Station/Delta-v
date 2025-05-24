@@ -80,13 +80,6 @@
                                        Visible="False"
                                        Text="{Loc 'pda-bound-user-interface-lock-uplink-title'}"
                                        Description="{Loc 'pda-bound-user-interface-lock-uplink-description'}"/>
-                <!-- Begin DeltaV Additions -->
-                <pda:PdaSettingsButton Name="ContractsButton"
-                                       Access="Public"
-                                       Visible="False"
-                                       Text="{Loc 'pda-bound-user-interface-contracts-title'}"
-                                       Description="{Loc 'pda-bound-user-interface-contracts-description'}"/>
-                <!-- End DeltaV Additions -->
             </BoxContainer>
         </ScrollContainer>
         <BoxContainer Orientation="Vertical"

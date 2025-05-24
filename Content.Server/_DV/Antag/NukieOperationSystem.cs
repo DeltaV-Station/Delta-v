@@ -1,58 +1,26 @@
 using Content.Server.Antag;
-using Content.Server.Chat.Systems;
-using Content.Server.GameTicking.Rules;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Objectives;
 using Content.Shared._DV.FeedbackOverwatch;
 using Content.Shared.Mind;
 using Content.Shared.Random.Helpers;
-using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server._DV.Antag;
 
 public sealed class NukieOperationSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IGameTiming _time = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly NukeopsRuleSystem _nukeops = default!;
-    [Dependency] private readonly ObjectivesSystem _objectives = default!;
-    [Dependency] private readonly SharedFeedbackOverwatchSystem _feedback = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-
+    [Dependency] private readonly ObjectivesSystem _objectives = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedFeedbackOverwatchSystem _feedback = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<NukieOperationComponent, AfterAntagEntitySelectedEvent>(OnAntagSelected);
         SubscribeLocalEvent<GetNukeCodePaperWriting>(OnNukeCodePaperWritingEvent);
-    }
-
-    /// <summary>
-    /// This runs the automatic war declaration, distributes TC, and makes sure it only happens when it's not hostage ops.
-    /// </summary>
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<NukieAutoWarComponent>();
-        while (query.MoveNext(out var uid, out var comp))
-        {
-            if (_time.CurTime < comp.AutoWarCallTime)
-                continue;
-
-            RemCompDeferred<NukieAutoWarComponent>(uid);
-            var nukeops = Comp<NukeopsRuleComponent>(uid);
-            nukeops.WarDeclaredTime = _time.CurTime;
-            _nukeops.DistributeExtraTc((uid, nukeops));
-            _chat.DispatchGlobalAnnouncement(Loc.GetString("nuke-ops-auto-war-message"),
-                Loc.GetString("chat-manager-sender-announcement"),
-                true, new SoundPathSpecifier("/Audio/Announcements/war.ogg"), Color.DarkRed);
-        }
     }
 
     private void OnAntagSelected(Entity<NukieOperationComponent> ent, ref AfterAntagEntitySelectedEvent args)
@@ -85,11 +53,6 @@ public sealed class NukieOperationSystem : EntitySystem
             // TODO: Remove once enough feedback has been received!
             if (objectiveProto.Id == "KidnapHeadsObjective")
                 _feedback.SendPopupMind(mindId, "NukieHostageRoundStartPopup");
-        }
-        if (chosenOp.AutoWarAfter is { } duration)
-        {
-            var autoWar = EnsureComp<NukieAutoWarComponent>(ent);
-            autoWar.AutoWarCallTime = _time.CurTime + duration;
         }
     }
 

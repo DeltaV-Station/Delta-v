@@ -92,7 +92,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
     /// DeltaV - Common code deduplicated from above functions.
     /// Filters all alive humans and picks a target from them.
     /// </summary>
-    public void AssignRandomTarget(EntityUid uid, ref ObjectiveAssignedEvent args, Predicate<EntityUid> filter, bool fallbackToAny = true)
+    private void AssignRandomTarget(EntityUid uid, ref ObjectiveAssignedEvent args, Predicate<EntityUid> filter, bool fallbackToAny = true)
     {
         // invalid prototype
         if (!TryComp<TargetObjectiveComponent>(uid, out var target))
@@ -123,20 +123,6 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
                 allHumans.RemoveAll(x => x.Owner == kill.Target);
             }
         }
-
-        // Begin DeltaV Additions - no being asked to kill someone at centcom or whatever
-        if (args.Mind.OwnedEntity is {} mob)
-        {
-            var map = Transform(mob).MapID;
-            allHumans.RemoveAll(mindId =>
-            {
-                if (Comp<MindComponent>(mindId).OwnedEntity is {} otherMob)
-                    return Transform(otherMob).MapID != map;
-
-                return false;
-            });
-        }
-        // End DeltaV Additions
 
         // Filter out targets based on the filter
         var filteredHumans = allHumans.Where(mind => filter(mind)).ToList();
