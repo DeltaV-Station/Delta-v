@@ -1,0 +1,21 @@
+- type: polymorph
+  id: VampireMistForm
+  configuration:
+    entity: MobKitsuneFox # TODO: Mist form entity
+    inventory: Drop
+    cooldown: 90
+    transferDamage: true
+    revertOnCrit: false
+    revertOnDeath: false
+
+- type: polymorph
+  id: VampireMistFormForced
+  parent: VampireMistForm
+  configuration:
+    forced: true
+    entity: MobKitsuneFox # TODO: Mist form entity
+    inventory: Drop
+    cooldown: 90
+    transferDamage: true
+    revertOnCrit: false
+    revertOnDeath: false

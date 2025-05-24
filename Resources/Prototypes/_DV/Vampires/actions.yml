@@ -1,0 +1,22 @@
+- type: entity
+  id: ActionMistForm
+  name: Mist Form
+  description: Dissolve into a mist
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Interface/Actions/carp_rift.rsi # TODO: new sprite
+      state: icon
+    event: !type:VampireMistFormActionEvent
+    priority: 1
+
+- type: entity
+  id: ActionHypnoticGaze
+  name: Hypnotic Gaze
+  description: Drain a target's stamina with a hypnotic gaze
+  components:
+  - type: EntityTargetAction
+    icon: { sprite : Interface/Actions/devour.rsi, state: icon } # TODO: New sprite
+    iconOn: { sprite : Interface/Actions/devour.rsi, state: icon-on } # TODO: New sprite
+    event: !type:VampireHypnoticActionEvent
+    priority: 1

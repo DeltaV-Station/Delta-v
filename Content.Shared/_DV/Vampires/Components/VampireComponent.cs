@@ -24,4 +24,23 @@ public sealed partial class VampireComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan DrainVisibleDuration = TimeSpan.FromSeconds(10);
+
+    /// <summary>
+    /// Whether this is a progenitor vampire, or one of their lesser spawn.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public bool IsLesserVampire = false;
+
+    /// <summary>
+    /// The base amount of stamina damage the victim will take from the hypnotic gaze ability.
+    /// </summary>
+    [DataField]
+    public float BaseHypnoticDamage = 20;
+
+    /// <summary>
+    /// The additional amount of stamina damage a victim will take, which scales with unique
+    /// victims the vampire has drained.
+    /// </summary>
+    [DataField]
+    public float BonusHypnoticDamageScale = 5;
 }
