@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Shared.EntityEffects;
 using Content.Shared.Localizations;
 using Content.Shared.Mobs;
@@ -29,7 +28,11 @@ public sealed partial class MultiMobStateCondition : EntityEffectCondition
 
     public override string GuidebookExplanation(IPrototypeManager prototype)
     {
-        var stateStrings = States.Select(s => s.ToString().ToLower()).ToList();
+        var stateStrings = new List<string>(States.Count);
+        foreach (var state in States)
+        {
+            stateStrings.Add(state.ToString().ToLower());
+        }
         var formattedStates = ContentLocalizationManager.FormatListToOr(stateStrings);
 
         return Loc.GetString("reagent-effect-condition-guidebook-mob-state-condition", ("state", formattedStates));
