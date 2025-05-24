@@ -33,6 +33,12 @@ public sealed partial class VampireComponent : Component
     public bool IsLesserVampire = false;
 
     /// <summary>
+    /// The chance that any humanoids drained by a progenitor will become lesser vampires.
+    /// </summary>
+    [DataField]
+    public float LesserSpawnChance = 0.4f;
+
+    /// <summary>
     /// Whether this vampire has been forced into mist form or not.
     /// </summary>
     [ViewVariables, AutoNetworkedField]

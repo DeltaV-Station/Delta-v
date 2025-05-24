@@ -1,8 +1,8 @@
-using Content.Server.Actions;
 using Content.Server.Damage.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
+using Content.Server.Popups;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared._DV.BloodDraining.Events;
 using Content.Shared._DV.Vampires.Components;
@@ -12,30 +12,30 @@ using Content.Shared.Damage;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Polymorph;
+using Content.Shared.Popups;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 
 namespace Content.Server._DV.Vampires.EntitySystems;
 
 public sealed class VampireSystem : SharedVampireSystem
 {
-    [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly EntityStorageSystem _entityStorageSystem = default!;
     [Dependency] private readonly HandsSystem _handsSystem = default!;
     [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StaminaSystem _staminaSystem = default!;
+    [Dependency] private readonly VampireRuleSystem _vampireRule = default!;
 
-    private readonly EntProtoId _mistFormAction = "ActionMistForm";
-    private readonly EntProtoId _hypnoticAction = "ActionHypnoticGaze";
     private readonly ProtoId<PolymorphPrototype> _mistFormPolymorphId = "VampireMistForm";
     private readonly ProtoId<PolymorphPrototype> _mistFormForcedPolymorphId = "VampireMistFormForced";
 
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<VampireComponent, MapInitEvent>(OnMapInit);
 
         SubscribeLocalEvent<VampireComponent, VampireMistFormActionEvent>(OnMistFormAction);
         SubscribeLocalEvent<VampireComponent, VampireHypnoticActionEvent>(OnHypnoticGazeAction);
@@ -47,17 +47,6 @@ public sealed class VampireSystem : SharedVampireSystem
         SubscribeLocalEvent<VampireComponent, DamageModifyEvent>(OnDamageModified);
 
         SubscribeLocalEvent<VampireCoffinComponent, StartCollideEvent>(OnCoffinCollide);
-    }
-
-    private void OnMapInit(Entity<VampireComponent> ent, ref MapInitEvent args)
-    {
-        _actions.AddAction(ent, _mistFormAction);
-        if (!ent.Comp.IsLesserVampire)
-        {
-            // Only progenitors get the hypnotic gaze ability
-            // TODO: What if someone diabolerizes their progenitor?
-            _actions.AddAction(ent, _hypnoticAction);
-        }
     }
 
     private void OnMistFormAction(Entity<VampireComponent> ent, ref VampireMistFormActionEvent args)
@@ -126,6 +115,21 @@ public sealed class VampireSystem : SharedVampireSystem
             OnNewUniqueVictim(ent);
 
         ent.Comp.LastDrainedTime = GameTiming.CurTime;
+
+        // Only progenitors can create new vampires
+        if (!ent.Comp.IsLesserVampire && _random.NextFloat() <= ent.Comp.LesserSpawnChance)
+        {
+            // This entity has become a lesser vampire
+            _vampireRule.ConvertToLesserSpawn(ent, victim);
+            EnsureComp<VampireComponent>(victim, out var spawn);
+
+            spawn.IsLesserVampire = true;
+
+            _popupSystem.PopupEntity(Loc.GetString("vampire-converted-lesser-spawn", ("target", victim)),
+                victim,
+                ent,
+                PopupType.MediumCaution);
+        }
 
         // TODO: Heal the drainer as they metabolize the Blood?? Done via other events?
         // TODO: Attempt to steal any Psionic abilities
