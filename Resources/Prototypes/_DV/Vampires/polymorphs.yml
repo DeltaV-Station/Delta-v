@@ -37,7 +37,7 @@
     inventory: None
     transferDamage: true
     revertOnCrit: false
-    revertOnDeath: false
+    revertOnDeath: true
 
 - type: polymorph
   id: VampireMistFormForced
@@ -47,4 +47,4 @@
     inventory: None
     transferDamage: false # Forced form means they're already crit
     revertOnCrit: false
-    revertOnDeath: false
+    revertOnDeath: true
