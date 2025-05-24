@@ -218,6 +218,10 @@ public sealed class BloodDrainerSystem : SharedBloodDrainerSystem
             // Spill the entire contents onto the floor in a puddle.
             var drainerXform = Transform(drainer);
             _puddleSystem.TrySpillAt(drainerXform.Coordinates, extractedBlood, out _);
+            _popups.PopupEntity(Loc.GetString("blooddraining-fail-too-full"),
+                drainer,
+                drainer,
+                PopupType.Medium);
             return false;
         }
 
