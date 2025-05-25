@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: BarryNorfolk
-  changes:
-  - message: Fixed borgs being permanently prone even after repairs are done.
-    type: Fix
-  - message: Entities without the correct number of legs cannot stand up anymore.
-    type: Fix
-  id: 932
-  time: '2025-01-18T01:54:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2761
 - author: Colin-Tel
   changes:
   - message: Added Surgical equipment to Chibi Station.
@@ -4108,3 +4099,11 @@
   id: 1431
   time: '2025-05-24T16:39:57.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3811
+- author: Radezolid
+  changes:
+  - message: Change to SOP, Captains now have to publicly announce the change they
+      made to SOP for better accountability.
+    type: Tweak
+  id: 1432
+  time: '2025-05-25T00:06:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3794
