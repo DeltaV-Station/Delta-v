@@ -64,22 +64,22 @@
         collection: BikeHorn
 
 - type: entity
-  parent: [ClothingBackpackDuffel, BaseRestrictedContraband]
+  parent: [ClothingBackpackDuffel, BaseSecurityContraband]
   id: ClothingBackpackDuffelSecurity
   name: security duffel bag
   description: A large duffel bag for holding extra security related goods.
   components:
     - type: Sprite
-      sprite: Clothing/Back/Duffels/security.rsi
+      sprite: _DV/Clothing/Back/Duffels/security.rsi # DeltaV - resprite security duffel bags
 
 - type: entity
-  parent: [ClothingBackpackDuffel, BaseRestrictedContraband]
+  parent: [ClothingBackpackDuffel, BaseSecurityContraband]
   id: ClothingBackpackDuffelBrigmedic
   name: corpsman duffel bag # DeltaV - rename brigmedic to corpsman
   description: A large duffel bag for holding extra medical related goods.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Back/Duffels/brigmedic.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Back/Duffels/brigmedic.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -170,6 +170,12 @@
   - type: Storage
     grid:
     - 0,0,8,4
+  - type: ReverseEngineering # DeltaV: can RE any valid bag for BoH
+    difficulty: 4
+    recipes:
+    - ClothingBackpackHolding
+    - ClothingBackpackDuffelHolding
+    - ClothingBackpackSatchelHolding
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicate
@@ -182,7 +188,6 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicate
   id: ClothingBackpackDuffelSyndicateAmmo
-  name: syndicate duffel bag
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/syndicate.rsi
@@ -203,7 +208,6 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicate
   id: ClothingBackpackDuffelSyndicateMedical
-  name: syndicate duffel bag
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/syndicate.rsi
@@ -245,7 +249,7 @@
   - type: HeldSpeedModifier
 
 - type: entity
-  parent: ClothingBackpackDuffel
+  parent: [ ClothingBackpackDuffel, BaseCentcommContraband ]
   id: ClothingBackpackDuffelCBURN
   name: CBURN duffel bag
   description: A duffel bag containing a variety of biological containment equipment.

@@ -1,0 +1,52 @@
+- type: constructionGraph
+  id:   N14Seat
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: N14ChairArmchair
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+            - material: Cloth
+              amount: 1
+        - to: N14ChairOfficeErgonomic
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+            - material: Cloth
+              amount: 1
+
+    - node: N14ChairArmchair
+      entity: N14ChairArmchair
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+
+    - node: N14ChairOfficeErgonomic
+      entity: N14ChairOfficeErgonomic
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1

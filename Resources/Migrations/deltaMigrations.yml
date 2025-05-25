@@ -10,12 +10,8 @@ PosterLegitSMEpi: PosterLegitSafetyMothEpi
 PosterLegitSMPills: PosterLegitSafetyMothPills
 PosterLegitSMAnomalies: PosterLegitSafetyMothDelam
 PosterLegitSMGlimmer: PosterLegitSafetyMothGlimmer
-EngineeringTechFab: Autolathe
-EngineeringTechFabCircuitboard: AutolatheMachineCircuitboard
-ScienceTechFab: Protolathe
-ScienceTechFabCircuitboard: ProtolatheMachineCircuitboard
-ServiceTechFab: Autolathe
-ServiceTechFabCircuitboard: AutolatheMachineCircuitboard
+ScienceTechFab: EpistemicsTechFab
+ScienceTechFabCircuitboard: EpistemicsTechFabCircuitboard
 
 # 2023-10-05
 FoodMothTomatoSauce: null
@@ -111,14 +107,69 @@ SpawnPointMailCarrier: SpawnPointCourier
 # 2024-07-01
 shuttle_manipulator: ShuttleManipulator
 
-# 2024-07-25 Remove when these are added
-MagazinePistolSubMachineGunEmpty: null
-MagazinePistolSubMachineGunTopMountedEmpty: null
-MagazineShotgunEmpty: null
-
 # 2024-08-16
 ShockCollar: ClothingNeckShockCollar
 FoodMealSoftTaco: FoodTacoShell
 
 # 2024-08-18
 BoxMagazinePistolSubMachineGunRubber: MagazineBoxPistolRubber
+
+# 2024-09-21
+VendingMachineAutomatrobe: null
+
+# 2024-11-08
+SuitStorageSec: SuitStorageSecDeltaV
+
+# 2024-12-17
+LightBulbMaintenanceRed: DimLightBulb
+PoweredSmallLightMaintenanceRed: PoweredDimSmallLight
+AlwaysPoweredSmallLightMaintenanceRed: PoweredDimSmallLight
+
+# 2024-12-22
+VendingMachineRestockSalvageEquipment: null
+
+# 2025-01-11
+SpawnMobSmile: SentientSmileCore
+
+#2025-01-12
+ForensicMantisPDA: PsionicMantisPDA
+
+#2025-02-10
+MagazineBoxCaselessRifleBigRubber: null
+MagazineBoxCaselessRifleRubber: null
+MagazineMagnumSubMachineGunRubber: null
+
+# 2025-03-01
+FoodMealGrilledCheese: FoodBakedGrilledCheeseSandwich
+BarSignWhiskeyEcho: BarSignWhiskeyEchoes
+
+# 2025-03-10
+MetempsychoticMachine: null
+MetempsychoticMachineCircuitboard: null
+
+# 2025-03-12
+SmartFridge: DVSmartFridgeMedical
+
+# 2025-03-23
+DrinkDaiquiriGlass: DrinkDaiquiri
+
+# 2025-03-25
+Autolathe: MachineFrameDestroyed
+AutolatheHyperConvection: MachineFrameDestroyed
+Protolathe: MachineFrameDestroyed
+ProtolatheHyperConvection: MachineFrameDestroyed
+AutolatheMachineCircuitboard: null
+AutolatheHyperConvectionMachineCircuitboard: null
+ProtolatheMachineCircuitboard: null
+ProtolatheHyperConvectionMachineCircuitboard: null
+
+# 2025-05-03
+SignCansScience: SignCans
+BorgModuleGrapplingGun: BorgModuleTraversal
+
+# 2025-05-21
+SpawnMobDrone: null
+SignBath: null
+# these were never ported
+SpawnMobReindeerBuck: null
+SpawnMobReindeerDoe: null

@@ -34,6 +34,8 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -74,6 +76,8 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -88,6 +92,8 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
+    Hiss:
+      collection: ReptillianHiss # Impstation
     Honk:
       collection: BikeHorn
     Whistle:
@@ -96,6 +102,18 @@
       collection: MaleCry
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
+    # Begin DeltaV Additions
+    Cough:
+      collection: MaleCoughs
+    Sneeze:
+      collection: MaleSneezes
+    Sigh:
+      collection: MaleSigh
+    Yawn:
+      collection: MaleYawn
+    # End DeltaV Additions
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -110,6 +128,8 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
+    Hiss:
+      collection: ReptillianHiss # Impstation
     Honk:
       collection: BikeHorn
     Whistle:
@@ -118,6 +138,18 @@
       collection: FemaleCry
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
+    # Begin DeltaV Additions
+    Cough:
+      collection: FemaleCoughs
+    Sneeze:
+      collection: FemaleSneezes
+    Sigh:
+      collection: FemaleSigh
+    Yawn:
+      collection: FemaleYawn 
+    # End DeltaV Additions
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -158,6 +190,8 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -200,6 +234,8 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -214,6 +250,18 @@
       path: /Audio/Voice/Vox/shriek1.ogg
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
+    Honk:
+      collection: BikeHorn
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    # Begin DeltaV Additions
+    Gasp: 
+      collection: VoxGasp
+    DefaultDeathgasp:
+      path: /Audio/_DV/Effects/Gasp/vox_deathgasp_1.ogg
+    # End DeltaV Additions
   params:
     variation: 0.125
     # We need vox sounds for the other emotes
@@ -225,10 +273,14 @@
       path: /Audio/Voice/Diona/diona_scream.ogg
     Laugh:
       collection: DionaLaugh
+    Chirp:
+      path: /Audio/Animals/nymph_chirp.ogg
     Honk:
       collection: BikeHorn
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -249,8 +301,14 @@
       path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
     Click:
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
+    Hiss:
+      path: /Audio/Animals/snake_hiss.ogg # DeltaV
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
+    Honk:
+      collection: BikeHorn
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -289,6 +347,8 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -330,6 +390,8 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -355,6 +417,10 @@
       path: /Audio/Voice/Moth/moth_squeak.ogg
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
+    Honk:
+      collection: BikeHorn
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -398,12 +464,34 @@
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
 
+- type: emoteSounds
+  id: UnisexSiliconXenoborg
+  params:
+    variation: 0.05
+  sounds:
+    Laugh:
+      collection: XenoborgLaugh
+    Beep:
+      collection: XenoborgBeep
+    Chime:
+      collection: XenoborgChime
+    Buzz:
+      collection: XenoborgBuzz
+    Buzz-Two:
+      collection: XenoborgBuzzTwo
+    Honk:
+      collection: XenoborgBikeHorn
+    Ping:
+      collection: XenoborgPing
+
 # body emotes
 - type: emoteSounds
   id: GeneralBodyEmotes
   sounds:
     Clap:
       collection: Claps
+    ClapSingle:
+      collection: ClapSingle
     Snap:
       collection: Snaps
       params:
@@ -416,6 +504,9 @@
   sounds:
     Clap:
       path: /Audio/Voice/Diona/diona_clap.ogg
+    # TODO: Replace this with a similar wood themed single clap
+    ClapSingle:
+      collection: ClapSingle
     Snap:
       path: /Audio/Voice/Diona/diona_snap.ogg
       params:
@@ -424,6 +515,24 @@
       path: /Audio/Voice/Diona/diona_salute.ogg
       params:
        volume: -5
+
+- type: emoteSounds
+  id: ReptilianBodyEmotes
+  sounds:
+    Thump:
+      path: /Audio/Voice/Reptilian/reptilian_tailthump.ogg
+      params:
+        variation: 0.125
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -6
+    Salute:
+      collection: Salutes
 
 # mobs
 - type: emoteSounds
@@ -485,5 +594,12 @@
   id: Parrot
   sound:
     path: /Audio/Animals/parrot_raught.ogg
+    params:
+      variation: 0.125
+
+- type: emoteSounds
+  id: Goat
+  sound:
+    path: /Audio/Animals/goat_bah.ogg
     params:
       variation: 0.125

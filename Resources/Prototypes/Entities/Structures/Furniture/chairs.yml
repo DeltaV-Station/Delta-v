@@ -6,6 +6,7 @@
   placement:
     mode: PlaceFree
   components:
+  - type: Animateable
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
@@ -116,6 +117,8 @@
   components:
   - type: Sprite
     state: chair-greyscale
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
 
 - type: entity
   name: stool
@@ -150,6 +153,8 @@
   - type: Construction
     graph: Seat
     node: chairBrass
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
 
 - type: entity
   name: white office chair
@@ -184,6 +189,8 @@
   - type: Construction
     graph: Seat
     node: chairComfy
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
 
 - type: entity
   name: pilot seat
@@ -196,6 +203,8 @@
   - type: Construction
     graph: Seat
     node: chairPilotSeat
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
 
 - type: entity
   name: wooden chair

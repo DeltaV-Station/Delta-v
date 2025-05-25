@@ -45,7 +45,7 @@
       map: ["base"]
   - type: Item
     size: Normal
-#    heldPrefix: rods
+    heldPrefix: rods
   - type: Construction
     graph: MetalRod
     node: MetalRod
@@ -68,6 +68,13 @@
           Quantity: 4.5
         - ReagentId: Carbon
           Quantity: 0.5
+  - type: GuideHelp
+    guides:
+    - ExpandingRepairingStation
+  - type: Tag # DeltaV
+    tags:
+    # no RodMetal 1 because ???
+    - BorgMaterial
 
 - type: entity
   parent: PartRodMetal
@@ -78,6 +85,7 @@
   - type: Tag
     tags:
     - RodMetal1
+    - BorgMaterial # DeltaV
   - type: Sprite
     state: rods
   - type: Stack
@@ -92,6 +100,7 @@
   - type: Tag
     tags:
     - RodMetal1
+    - BorgMaterial # DeltaV
   - type: Sprite
     state: rods
   - type: Stack
@@ -109,6 +118,24 @@
 - type: entity
   parent: FloorTileItemSteel
   id: FloorTileItemSteelLingering0
+  suffix: Lingering, 0
+  components:
+  - type: Stack
+    lingering: true
+    count: 0
+
+- type: entity
+  parent: FloorTileItemWhite
+  id: FloorTileItemWhiteLingering0
+  suffix: Lingering, 0
+  components:
+  - type: Stack
+    lingering: true
+    count: 0
+
+- type: entity
+  parent: FloorTileItemDark
+  id: FloorTileItemDarkLingering0
   suffix: Lingering, 0
   components:
   - type: Stack

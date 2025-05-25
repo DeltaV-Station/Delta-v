@@ -1,5 +1,7 @@
+using System.Linq; // DeltaV
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Shared._DV.Chemistry.Components; // DeltaV
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -13,6 +15,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Stacks;
+using Content.Shared.Nutrition.EntitySystems;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -20,6 +23,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
 {
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
+    [Dependency] private readonly OpenableSystem _openable = default!;
 
     public override void Initialize()
     {
@@ -31,13 +35,14 @@ public sealed class InjectorSystem : SharedInjectorSystem
 
     private bool TryUseInjector(Entity<InjectorComponent> injector, EntityUid target, EntityUid user)
     {
+        var isOpenOrIgnored = injector.Comp.IgnoreClosed || !_openable.IsClosed(target);
         // Handle injecting/drawing for solutions
         if (injector.Comp.ToggleState == InjectorToggleMode.Inject)
         {
-            if (SolutionContainers.TryGetInjectableSolution(target, out var injectableSolution, out _))
+            if (isOpenOrIgnored && SolutionContainers.TryGetInjectableSolution(target, out var injectableSolution, out _))
                 return TryInject(injector, target, injectableSolution.Value, user, false);
 
-            if (SolutionContainers.TryGetRefillableSolution(target, out var refillableSolution, out _))
+            if (isOpenOrIgnored && SolutionContainers.TryGetRefillableSolution(target, out var refillableSolution, out _))
                 return TryInject(injector, target, refillableSolution.Value, user, true);
 
             if (TryComp<BloodstreamComponent>(target, out var bloodstream))
@@ -58,7 +63,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
             }
 
             // Draw from an object (food, beaker, etc)
-            if (SolutionContainers.TryGetDrawableSolution(target, out var drawableSolution, out _))
+            if (isOpenOrIgnored && SolutionContainers.TryGetDrawableSolution(target, out var drawableSolution, out _))
                 return TryDraw(injector, target, drawableSolution.Value, user);
 
             Popup.PopupEntity(Loc.GetString("injector-component-cannot-draw-message",
@@ -105,6 +110,12 @@ public sealed class InjectorSystem : SharedInjectorSystem
     /// </summary>
     private void InjectDoAfter(Entity<InjectorComponent> injector, EntityUid target, EntityUid user)
     {
+        if (HasComp<BlockInjectionComponent>(target)) // DeltaV
+        {
+            Popup.PopupEntity(Loc.GetString("injector-component-deny-user"), target, user);
+            return;
+        }
+
         // Create a pop-up for the user
         if (injector.Comp.ToggleState == InjectorToggleMode.Draw)
         {
@@ -250,6 +261,9 @@ public sealed class InjectorSystem : SharedInjectorSystem
     private bool TryInject(Entity<InjectorComponent> injector, EntityUid targetEntity,
         Entity<SolutionComponent> targetSolution, EntityUid user, bool asRefill)
     {
+        if (HasComp<BlockInjectionComponent>(targetEntity))  // DeltaV
+            return false;
+
         if (!SolutionContainers.TryGetSolution(injector.Owner, injector.Comp.SolutionName, out var soln,
                 out var solution) || solution.Volume == 0)
             return false;
@@ -327,8 +341,32 @@ public sealed class InjectorSystem : SharedInjectorSystem
             return false;
         }
 
+        var applicableTargetSolution = targetSolution.Comp.Solution;
+        // If a whitelist exists, remove all non-whitelisted reagents from the target solution temporarily
+        var temporarilyRemovedSolution = new Solution();
+        if (injector.Comp.ReagentWhitelist is { } reagentWhitelist)
+        {
+            string[] reagentPrototypeWhitelistArray = new string[reagentWhitelist.Count];
+            var i = 0;
+            foreach (var reagent in reagentWhitelist)
+            {
+                reagentPrototypeWhitelistArray[i] = reagent;
+                ++i;
+            }
+            temporarilyRemovedSolution = applicableTargetSolution.SplitSolutionWithout(applicableTargetSolution.Volume, reagentPrototypeWhitelistArray);
+        }
+        // Begin DeltaV Additions - skimmer functionality
+        else if (injector.Comp.TargetSmallest)
+        {
+            if (applicableTargetSolution.Count() > 0 && applicableTargetSolution.MinBy(soln => soln.Quantity) is {} smallest)
+            {
+                temporarilyRemovedSolution = applicableTargetSolution.SplitSolutionWithout(applicableTargetSolution.Volume, new string[] { smallest.Reagent.Prototype });
+            }
+        }
+        // End DeltaV Additions - skimmer functionality
+
         // Get transfer amount. May be smaller than _transferAmount if not enough room, also make sure there's room in the injector
-        var realTransferAmount = FixedPoint2.Min(injector.Comp.TransferAmount, targetSolution.Comp.Solution.Volume,
+        var realTransferAmount = FixedPoint2.Min(injector.Comp.TransferAmount, applicableTargetSolution.Volume,
             solution.AvailableVolume);
 
         if (realTransferAmount <= 0)
@@ -349,6 +387,9 @@ public sealed class InjectorSystem : SharedInjectorSystem
 
         // Move units from attackSolution to targetSolution
         var removedSolution = SolutionContainers.Draw(target.Owner, targetSolution, realTransferAmount);
+
+        // Add back non-whitelisted reagents to the target solution
+        SolutionContainers.TryAddSolution(targetSolution, temporarilyRemovedSolution); // DeltaV - fix bug with visualization for skimmers
 
         if (!SolutionContainers.TryAddSolution(soln.Value, removedSolution))
         {

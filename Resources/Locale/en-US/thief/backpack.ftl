@@ -1,4 +1,4 @@
-thief-backpack-window-title = thief toolbox
+thief-backpack-window-title = thieving kit
 
 thief-backpack-window-description =
     Inside are your tools of the trade, which will dissolve when you're ready.
@@ -23,10 +23,11 @@ thief-backpack-category-chameleon-description =
     Disguise as anyone and anything.
 
 thief-backpack-category-tools-name = breacher kit
+# Delta V: C4 replaced with breaching charges and description changed
 thief-backpack-category-tools-description =
-    What's that sound? A lil' C4 knockin' at their door.
+    What's that sound? A few stolen breachin' charges knockin' at their door. 
     No obstacle can stop you!
-    Includes: Two C4, a multitool, remote signaller, jaws of life,
+    Includes: Three breaching charges, a multitool, remote signaller, jaws of life,
     advanced welder, engineering goggles, and insulated gloves.
 
 thief-backpack-category-chemistry-name = anatomy kit
@@ -39,7 +40,7 @@ thief-backpack-category-syndie-name = syndie kit
 thief-backpack-category-syndie-description =
     Trinkets from a disavowed past, or stolen from a careless agent?
     You've made some connections. Whiskey, echo...
-    Includes: An Emag, Interdyne cigs, a Syndicate codeword,
+    Includes: An Emag, Access Breaker, Interdyne cigs, a Syndicate codeword,
     a Radio Jammer, a lighter and some strange red crystals.
 
 thief-backpack-category-sleeper-name = sleeper kit

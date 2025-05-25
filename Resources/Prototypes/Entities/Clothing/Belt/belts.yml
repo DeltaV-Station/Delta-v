@@ -33,6 +33,7 @@
         - GPS
         - WeldingMask
       components:
+        - StationMap
         - SprayPainter
         - NetworkConfigurator
         - RCD
@@ -112,6 +113,7 @@
         - Multitool
         - AppraisalTool
       components:
+        - StationMap
         - SprayPainter
         - NetworkConfigurator
         - RCD
@@ -270,11 +272,14 @@
         - DiscreteHealthAnalyzer
         - SurgeryTool
         - Dropper
+        - Vial # DeltaV - vial gaming
       components:
+        - Defibrillator # DeltaV - Add PortaFib to EMT belt
         - Hypospray
         - Injector
         - Pill
         - HandLabeler
+        - SurgeryTool # Shitmed Change
   - type: ItemMapper
     mapLayers:
       bottle:
@@ -308,6 +313,21 @@
           tags:
           - Wrench
     sprite: Clothing/Belt/belt_overlay.rsi
+  # DeltaV - Add medkit slot to medical belts
+  - type: ItemSlots
+    slots:
+      medkit:
+        name: clothing-belt-medkit
+        whitelist:
+          tags:
+          - Medkit
+        insertOnInteract: false
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      medkit: !type:ContainerSlot {}
+  # End of DeltaV - Add medkit slot to medical belts.
   - type: Appearance
 
 - type: entity
@@ -456,15 +476,25 @@
   - type: Appearance
 
 - type: entity
-  parent: [ClothingBeltStorageBase, BaseRestrictedContraband]
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSecurityContraband, ClothingSlotBase] # DeltaV - add parent ClothingSlotBase
   id: ClothingBeltSecurity
   name: security belt
   description: Can hold security gear like handcuffs and flashes.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/security.rsi
+    sprite: _DV/Clothing/Belt/security.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Belt/security.rsi
+    sprite: _DV/Clothing/Belt/security.rsi # DeltaV - resprite
+  - type: ItemSlots # DeltaV - add sidearm slot
+    slots:
+      holster:
+        name: clothing-belt-sidearm
+        whitelist:
+          tags:
+          - Sidearm
+        insertOnInteract: false
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
   - type: Storage
     whitelist:
       tags:
@@ -477,6 +507,7 @@
         - MagazineMagnum
         - CombatKnife
         - Truncheon
+        - HandGrenade
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -487,23 +518,27 @@
         - CartridgeAmmo
         - DoorRemote
         - Whistle
-        - HolosignProjector
         - BalloonPopper
-  - type: ItemMapper
+  - type: ItemMapper # DeltaV - adjust for DeltaV sprites.
     mapLayers:
-      flashbang:
-        whitelist:
-          components:
-          - FlashOnTrigger
-      stunbaton:
+      baton:
         whitelist:
           components:
           - Stunbaton
-      tear_gas_grenade:
+      gasgrenade:
         whitelist:
-          components:
-          - SmokeOnTrigger
-    sprite: Clothing/Belt/belt_overlay.rsi
+          tags:
+          - HandGrenade
+      slp:
+        whitelist:
+          tags:
+          - Sidearm
+    sprite: _DV/Clothing/Belt/belt_overlay.rsi
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      holster: !type:ContainerSlot {}
   - type: Appearance
 
 - type: entity
@@ -541,7 +576,7 @@
 # Belts without visualizers
 
 - type: entity
-  parent: [ClothingBeltAmmoProviderBase, BaseRestrictedContraband]
+  parent: [ClothingBeltAmmoProviderBase, BaseSecurityBartenderContraband]
   id: ClothingBeltBandolier
   name: bandolier
   description: A bandolier for holding shotgun ammunition.
@@ -610,22 +645,43 @@
         - CartridgeAmmo
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ClothingBeltStorageBase, ClothingSlotBase] # DeltaV - add parent ClothingSlotBase
   id: ClothingBeltSecurityWebbing
-  name: security carrier
+  name: security chest rig # DeltaV - rename from "security carrier" due to already existing plate carrier
   description: Unique and versatile chest rig, can hold security gear.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/securitywebbing.rsi
+    sprite: _DV/Clothing/Belt/securitywebbing.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Belt/securitywebbing.rsi
-  - type: Storage # Delta-V - Split Inventory
+    sprite: _DV/Clothing/Belt/securitywebbing.rsi # DeltaV - resprite
+  - type: ItemSlots # DeltaV - add sidearm slot
+    slots:
+      holster:
+        name: clothing-belt-sidearm
+        whitelist:
+          tags:
+          - Sidearm
+        insertOnInteract: false
+  - type: Storage # DeltaV - Split Inventory
     grid:
     - 0,0,2,1
     - 4,0,7,1
+  - type: ItemMapper # DeltaV - add holstered sidearm sprite
+    mapLayers:
+      slp:
+        whitelist:
+          tags:
+          - Sidearm
+    sprite: _DV/Clothing/Belt/belt_overlay.rsi
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      holster: !type:ContainerSlot {}
+  - type: Appearance # DeltaV
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ ClothingBeltStorageBase, BaseSecurityCargoContraband ]
   id: ClothingBeltMercWebbing
   name: mercenary webbing
   description: Ideal for storing everything from ammo to weapons and combat essentials.
@@ -634,7 +690,7 @@
     sprite: Clothing/Belt/mercwebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/mercwebbing.rsi
-  - type: Storage # Delta-V - Split Inventory
+  - type: Storage # DeltaV - Split Inventory
     grid:
     - 0,0,2,1
     - 4,0,7,1
@@ -649,10 +705,10 @@
     sprite: Clothing/Belt/salvagewebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/salvagewebbing.rsi
-  - type: Storage # Delta-V - Split Inventory
+  - type: Storage # DeltaV - Split Inventory, but same total size
     grid:
-    - 0,0,2,1
-    - 4,0,7,1
+    - 0,0,3,1
+    - 5,0,8,1
 
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband]
@@ -665,8 +721,8 @@
   - type: Clothing
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: ExplosionResistance
-    damageCoefficient: 0.5
-  - type: Storage # Delta-V - Split Inventory
+    damageCoefficient: 0.1
+  - type: Storage # DeltaV - Split Inventory
     grid:
     - 0,0,2,1
     - 4,0,7,1
@@ -685,7 +741,7 @@
     size: Huge
   - type: ExplosionResistance
     damageCoefficient: 0.1
-  - type: Storage # Delta-V - Split Inventory
+  - type: Storage # DeltaV - Split Inventory
     grid:
     - 0,0,2,1
     - 4,0,7,1
@@ -717,7 +773,7 @@
     sprite: Clothing/Belt/suspenders_black.rsi
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ ClothingBeltStorageBase, BaseMagicalContraband ]
   id: ClothingBeltWand
   name: wand belt
   description: A belt designed to hold various rods of power. A veritable fanny pack of exotic magic.

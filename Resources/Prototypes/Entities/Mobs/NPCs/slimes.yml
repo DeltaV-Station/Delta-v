@@ -11,7 +11,7 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: blue_adult_slime
-  - type: Carriable #DeltaV 
+  - type: Carriable # DeltaV 
   - type: Fixtures
     fixtures:
       fix1:
@@ -32,9 +32,7 @@
     baseSprintSpeed: 4
   - type: FootstepModifier
     footstepSoundCollection:
-      path: /Audio/Effects/Footsteps/slime1.ogg
-      params:
-        volume: 3
+      collection: FootstepSlime
   - type: Tag
     tags:
     - FootstepSound
@@ -93,6 +91,11 @@
   - type: Body
     prototype: Slimes
     requiredLegs: 1
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
@@ -128,7 +131,7 @@
     makeSentient: true
     name: ghost-role-information-slimes-name
     description: ghost-role-information-slimes-description
-    rules: deltav-ghost-role-information-softantag-rules #DeltaV
+    rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: short
   - type: Speech
@@ -165,10 +168,13 @@
     - type: NpcFactionMember
       factions:
         - SimpleHostile
-#    - type: GhostRole #DeltaV - all slimes neutral when ghost role
-#      description: ghost-role-information-angry-slimes-description
-#      raffle:
-#        settings: short
+    - type: GhostRole
+      description: ghost-role-information-angry-slimes-description
+      rules: ghost-role-information-angry-slimes-rules
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+      raffle:
+        settings: short
 
 - type: entity
   name: green slime
@@ -202,10 +208,13 @@
     - type: NpcFactionMember
       factions:
         - SimpleHostile
-#    - type: GhostRole #DeltaV - all slimes neutral when ghost role
-#      description: ghost-role-information-angry-slimes-description
-#      raffle:
-#        settings: short
+    - type: GhostRole
+      description: ghost-role-information-angry-slimes-description
+      rules: ghost-role-information-angry-slimes-rules
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+      raffle:
+        settings: short
 
 - type: entity
   name: yellow slime
@@ -227,8 +236,7 @@
         types:
           Blunt: 6
           Structural: 4
-          Caustic: 1
-          Cellular: 3
+          Caustic: 4
 
 - type: entity
   name: yellow slime
@@ -239,7 +247,10 @@
     - type: NpcFactionMember
       factions:
         - SimpleHostile
-#    - type: GhostRole #DeltaV - all slimes neutral when ghost role
-#      description: ghost-role-information-angry-slimes-description
-#      raffle:
-#        settings: short
+    - type: GhostRole
+      description: ghost-role-information-angry-slimes-description
+      rules: ghost-role-information-angry-slimes-rules
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+      raffle:
+        settings: short

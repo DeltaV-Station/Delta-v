@@ -1,0 +1,12 @@
+#bureaucracy
+- type: construction
+  id: SecureCabinet
+  graph: SecureCabinet
+  startNode: start
+  targetNode: securecabinet
+  category: construction-category-storage
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

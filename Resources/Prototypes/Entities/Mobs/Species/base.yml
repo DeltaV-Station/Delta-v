@@ -19,6 +19,8 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -27,12 +29,12 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
-    - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
-    - map: [ "neck" ]
+    - map: [ "outerClothing" ]
     - map: [ "back" ]
+    - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -135,8 +137,15 @@
     - Flashed
     - RadiationProtection
     - Drowsiness
+    - Adrenaline
     - PsionicsDisabled #Nyano - Summary: PCs can have psionics disabled.
     - PsionicallyInsulated #Nyano - Summary: PCs can be made insulated from psionic powers.
+    - Addicted # DeltaV - Psych med addictions system
+    - SuppressAddiction # DeltaV - Psych med addictions system
+    - InPain # DeltaV - Pain system
+    - SuppressPain # DeltaV - Pain system
+    - Anesthesia # DeltaV - Anesthesia
+    - PainNumbness # DeltaV - Pain numbness status effect
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -184,12 +193,13 @@
   - type: Stripping
   - type: UserInterface
     interfaces:
-      enum.VoiceMaskUIKey.Key:
-        type: VoiceMaskBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      # Shitmed
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -214,7 +224,13 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - AnomalyHost
   - type: PotentialPsionic # DeltaV - organic species can all be psionic
+  - type: FootPrints # DeltaV port from EE, blood splatter
+  - type: LayingDown # WD EDIT
+  - type: Targeting # Shitmed Change
+  - type: SurgeryTarget # Shitmed Change
+  - type: CosmicCenserTarget # DeltaV - Cosmic Cult
 
 - type: entity
   save: false
@@ -267,7 +283,7 @@
     sweatHeatRegulation: 2000
     shiveringHeatRegulation: 2000
     normalBodyTemperature: 310.15
-    thermalRegulationTemperatureThreshold: 25
+    thermalRegulationTemperatureThreshold: 2
   - type: Perishable
   - type: Butcherable
     butcheringType: Spike # TODO human.
@@ -283,6 +299,7 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
+  - type: LayingDown # WD EDIT
 
 - type: entity
   save: false
@@ -309,6 +326,8 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -322,12 +341,12 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
-    - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
-    - map: [ "neck" ]
+    - map: [ "outerClothing" ]
     - map: [ "back" ]
+    - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]

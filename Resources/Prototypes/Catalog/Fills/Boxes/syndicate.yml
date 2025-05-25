@@ -15,7 +15,7 @@
   parent: [BoxVial, BaseSyndicateContraband]
   id: ChemicalSynthesisKit
   name: chemical synthesis kit
-  description: A starter kit for the aspiring chemist, includes toxin and vestine for all your criminal needs!
+  description: A starter kit for the aspiring chemist, includes two vials of vestine for all your criminal needs!
   components:
   - type: Storage
     grid:
@@ -42,11 +42,11 @@
       contents:
         - id: SyndiCrewMonitorEmpty
           amount: 1
-        - id: PowerCellHigh
+        - id: PowerCellHigh # DeltaV - Reverted to high with removal of the monitor's power drain
           amount: 1
         - id: ClothingEyesGlassesHiddenSecurity
           amount: 1
-        - id: SurveillanceCameraMonitorCircuitboard
+        - id: CameraBug # DeltaV - Way better than that board
           amount: 1
 
 
@@ -101,3 +101,5 @@
       - id: WeaponCroissant
         amount: 2
       - id: WeaponBaguette
+      - id: SyndicateMicrowaveMachineCircuitboard
+      - id: PaperWrittenCombatBakeryKit

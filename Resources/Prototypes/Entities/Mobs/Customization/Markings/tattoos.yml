@@ -2,7 +2,8 @@
   id: TattooHiveChest
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Oni, Kitsune] # DeltaV - SlimePerson-Kitsune
+  sexRestriction: [Male] # DeltaV: Splitting the scars and tattoos
   coloring:
     default:
       type:
@@ -16,21 +17,22 @@
   id: TattooNightlingChest
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Oni, Kitsune] # DeltaV - SlimePerson-Kitsune
+  sexRestriction: [Male] # DeltaV: Splitting the scars and tattoos
   coloring:
     default:
       type:
         !type:TattooColoring
       fallbackColor: "#666666"
   sprites:
-  - sprite: Mobs/Customization/tattoos.rsi
+  - sprite: _DV/Mobs/Customization/tattoos.rsi # DeltaV: Splitting the scars and tattoos
     state: tattoo_nightling
 
 - type: marking
   id: TattooSilverburghLeftLeg
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -44,7 +46,7 @@
   id: TattooSilverburghRightLeg
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -58,7 +60,7 @@
   id: TattooCampbellLeftArm
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -72,7 +74,7 @@
   id: TattooCampbellRightArm
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -86,7 +88,7 @@
   id: TattooCampbellLeftLeg
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -100,7 +102,7 @@
   id: TattooCampbellRightLeg
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -114,7 +116,7 @@
   id: TattooEyeRight
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Vulpkanin, Oni, Harpy] # Delta V - Felinid, Vulpkanin, Oni, Harpy
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Vulpkanin, Oni, Harpy, Rodentia, Feroxi, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -128,7 +130,7 @@
   id: TattooEyeLeft
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Vulpkanin, Oni, Harpy] # Delta V - Felinid, Vulpkanin, Oni, Harpy
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Vulpkanin, Oni, Harpy, Rodentia, Feroxi, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -137,3 +139,31 @@
   sprites:
   - sprite: Mobs/Customization/tattoos.rsi
     state: tattoo_eye_l
+
+- type: marking
+  id: TattooEyeMothRight
+  bodyPart: Eyes
+  markingCategory: Overlay
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_moth_r
+
+- type: marking
+  id: TattooEyeMothLeft
+  bodyPart: Eyes
+  markingCategory: Overlay
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_moth_l

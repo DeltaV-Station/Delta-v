@@ -2,6 +2,7 @@
   id: OrganMothStomach
   parent: [OrganAnimalStomach, OrganHumanStomach]
   categories: [ HideSpawnMenu ]
+  name: moth stomach # Shitmed
   components:
   - type: Stomach
     specialDigestible:
@@ -9,6 +10,7 @@
       - ClothMade
       - Fruit # DeltaV - Moth can eat fruits.
       - Paper
+      - Pill
   - type: SolutionContainerManager
     solutions:
       stomach:

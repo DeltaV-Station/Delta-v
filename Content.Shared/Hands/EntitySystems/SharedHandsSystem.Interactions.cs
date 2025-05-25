@@ -31,6 +31,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
             .Bind(ContentKeyFunctions.UseItemInHand, InputCmdHandler.FromDelegate(HandleUseItem, handle: false, outsidePrediction: false))
             .Bind(ContentKeyFunctions.AltUseItemInHand, InputCmdHandler.FromDelegate(HandleAltUseInHand, handle: false, outsidePrediction: false))
             .Bind(ContentKeyFunctions.SwapHands, InputCmdHandler.FromDelegate(SwapHandsPressed, handle: false, outsidePrediction: false))
+            .Bind(ContentKeyFunctions.SwapHandsReversed, InputCmdHandler.FromDelegate(SwapHandsReversedPressed, handle: false, outsidePrediction: false)) // DeltaV - Swap Hands Reversed
             .Bind(ContentKeyFunctions.Drop, new PointerInputCmdHandler(DropPressed))
             .Register<SharedHandsSystem>();
     }
@@ -78,22 +79,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
             TryUseItemInHand(args.SenderSession.AttachedEntity.Value, true, handName: msg.HandName);
     }
 
-    private void SwapHandsPressed(ICommonSession? session)
-    {
-        if (!TryComp(session?.AttachedEntity, out HandsComponent? component))
-            return;
-
-        if (!_actionBlocker.CanInteract(session.AttachedEntity.Value, null))
-            return;
-
-        if (component.ActiveHand == null || component.Hands.Count < 2)
-            return;
-
-        var newActiveIndex = component.SortedHands.IndexOf(component.ActiveHand.Name) + 1;
-        var nextHand = component.SortedHands[newActiveIndex % component.Hands.Count];
-
-        TrySetActiveHand(session.AttachedEntity.Value, nextHand, component);
-    }
+    // Delta-V - SwapHandsPressed moved to Content.Shared._DV.Hands.EntitySystems.SharedHandsSystem
 
     private bool DropPressed(ICommonSession? session, EntityCoordinates coords, EntityUid netEntity)
     {
@@ -178,8 +164,8 @@ public abstract partial class SharedHandsSystem : EntitySystem
         if (!CanPickupToHand(uid, entity, handsComp.ActiveHand, checkActionBlocker, handsComp))
             return false;
 
-        DoDrop(uid, hand, false, handsComp);
-        DoPickup(uid, handsComp.ActiveHand, entity, handsComp);
+        DoDrop(uid, hand, false, handsComp, log:false);
+        DoPickup(uid, handsComp.ActiveHand, entity, handsComp, log: false);
         return true;
     }
 
@@ -188,11 +174,13 @@ public abstract partial class SharedHandsSystem : EntitySystem
         if (args.Handled)
             return;
 
-        // TODO: this pattern is super uncommon, but it might be worth changing GetUsedEntityEvent to be recursive.
-        if (TryComp<VirtualItemComponent>(component.ActiveHandEntity, out var virtualItem))
-            args.Used = virtualItem.BlockingEntity;
-        else
-            args.Used = component.ActiveHandEntity;
+        if (component.ActiveHandEntity.HasValue)
+        {
+            // allow for the item to return a different entity, e.g. virtual items
+            RaiseLocalEvent(component.ActiveHandEntity.Value, ref args);
+        }
+
+        args.Used ??= component.ActiveHandEntity;
     }
 
     //TODO: Actually shows all items/clothing/etc.

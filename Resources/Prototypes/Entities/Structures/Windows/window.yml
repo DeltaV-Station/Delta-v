@@ -20,9 +20,9 @@
       - Window
   - type: Sprite
     drawdepth: WallTops
-    sprite: DeltaV/Structures/Windows/window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/window.rsi #Delta V - Resprite windows
   - type: Icon
-    sprite: DeltaV/Structures/Windows/window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/window.rsi #Delta V - Resprite windows
     state: full
   - type: Physics
     bodyType: Static
@@ -84,14 +84,35 @@
     node: window
   - type: Appearance
   - type: DamageVisuals
-    thresholds: [4, 8, 12]
-    damageDivisor: 3.333
+    thresholds: [5, 10, 20]
+    damageDivisor: 2
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
     price: 100
   - type: BlockWeather
+
+- type: entity
+  parent: Window
+  id: TintedWindow
+  name: tinted window
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _DV/Structures/Windows/tinted_window.rsi #Delta V - Resprite windows
+  - type: Icon
+    sprite: _DV/Structures/Windows/tinted_window.rsi #Delta V - Resprite windows
+  - type: IconSmooth
+    base: twindow
+  - type: Construction
+    graph: Window
+    node: tintedWindow
+  - type: Occluder
+  - type: StaticPrice
+    price: 70
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WindowCosmicCult
 
 - type: entity
   id: WindowRCDResistant
@@ -123,10 +144,10 @@
         collection: GlassSmack
   - type: Sprite
     drawdepth: Mobs
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: window
   - type: Icon
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: window
   - type: InteractionPopup
     interactSuccessString: comp-window-knock
@@ -139,7 +160,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,0.49,-0.36"
+          bounds: "-0.5,-0.5,0.5,-0.28125"
         density: 1500
         mask:
         - FullTileMask
@@ -147,7 +168,7 @@
         - GlassLayer
   - type: Repairable
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Glass
   - type: ExaminableDamage
     messages: WindowMessages
@@ -159,7 +180,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150 #excess damage (nuke?). avoid computational cost of spawning entities.
+        damage: 50 #excess damage (nuke?). avoid computational cost of spawning entities.
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -189,8 +210,7 @@
     node: windowDirectional
   - type: Appearance
   - type: DamageVisuals
-    thresholds: [4, 8, 12]
-    damageDivisor: 3.333
+    thresholds: [5, 10, 20]
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
@@ -216,11 +236,13 @@
     - Window
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: frosted_window
   - type: Icon
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: frosted_window
+  - type: StaticPrice
+    price: 35
 
 - type: entity
   parent: Window
@@ -233,14 +255,17 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: DeltaV/Structures/Windows/window_diagonal.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/window_diagonal.rsi #Delta V - Resprite windows
     state: state0
+  - type: Tag
+    tags:
+    - Diagonal
   - type: IconSmooth
     mode: Diagonal
     key: windows
     base: state
   - type: Icon
-    sprite: DeltaV/Structures/Windows/window_diagonal.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/window_diagonal.rsi #Delta V - Resprite windows
     state: state0
   - type: Fixtures
     fixtures:

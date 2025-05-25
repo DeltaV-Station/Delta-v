@@ -5,17 +5,17 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: DeltaV/Structures/Windows/plasma_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/plasma_window.rsi #Delta V - Resprite windows
   - type: Icon
-    sprite: DeltaV/Structures/Windows/plasma_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/plasma_window.rsi #Delta V - Resprite windows
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: RGlass
+    damageModifierSet: Glass
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 150
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -24,7 +24,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 60
+        damage: 75
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -43,8 +43,8 @@
     node: plasmaWindow
   - type: Appearance
   - type: DamageVisuals
-    thresholds: [4, 8, 12]
-    damageDivisor: 3.333
+    thresholds: [5, 10, 20]
+    damageDivisor: 3
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
@@ -52,6 +52,8 @@
     price: 100
   - type: RadiationBlocker
     resistance: 2
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WindowCosmicCult
 
 - type: entity
   id: PlasmaWindowDirectional
@@ -64,18 +66,18 @@
     - Window
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: plasma_window
   - type: Icon
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: plasma_window
   - type: Construction
     graph: WindowDirectional
     node: plasmaWindowDirectional
   - type: Appearance
   - type: DamageVisuals
-    thresholds: [4, 8, 12]
-    damageDivisor: 3.333
+    thresholds: [5, 10, 20]
+    damageDivisor: 1.5
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
@@ -83,7 +85,16 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+    - trigger:
+        !type:DamageTrigger
+        damage: 37
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -97,6 +108,8 @@
         acts: [ "Destruction" ]
   - type: StaticPrice
     price: 50
+  - type: RadiationBlocker
+    resistance: 1
 
 - type: entity
   parent: PlasmaWindow
@@ -111,6 +124,9 @@
     drawdepth: WallTops
     sprite: Structures/Windows/plasma_diagonal.rsi
     state: state0
+  - type: Tag
+    tags:
+    - Diagonal
   - type: IconSmooth
     mode: Diagonal
     key: windows

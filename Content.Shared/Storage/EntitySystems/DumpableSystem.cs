@@ -1,11 +1,15 @@
 using System.Linq;
+using Content.Shared._DV.SmartFridge; // DeltaV - ough why do you not use events for this
 using Content.Shared.Disposal;
+using Content.Shared.Disposal.Components;
+using Content.Shared.Disposal.Unit;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Placeable;
 using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
+using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -22,6 +26,7 @@ public sealed class DumpableSystem : EntitySystem
     [Dependency] private readonly SharedDisposalUnitSystem _disposalUnitSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!; // DeltaV - ough why do you not use events for this
 
     private EntityQuery<ItemComponent> _itemQuery;
 
@@ -40,7 +45,7 @@ public sealed class DumpableSystem : EntitySystem
         if (!args.CanReach || args.Handled)
             return;
 
-        if (!_disposalUnitSystem.HasDisposals(args.Target) && !HasComp<PlaceableSurfaceComponent>(args.Target))
+        if (!HasComp<DisposalUnitComponent>(args.Target) && !HasComp<PlaceableSurfaceComponent>(args.Target))
             return;
 
         if (!TryComp<StorageComponent>(uid, out var storage))
@@ -81,7 +86,7 @@ public sealed class DumpableSystem : EntitySystem
         if (!TryComp<StorageComponent>(uid, out var storage) || !storage.Container.ContainedEntities.Any())
             return;
 
-        if (_disposalUnitSystem.HasDisposals(args.Target))
+        if (HasComp<DisposalUnitComponent>(args.Target) || HasComp<SmartFridgeComponent>(args.Target)) // DeltaV - add fridge check
         {
             UtilityVerb verb = new()
             {
@@ -139,33 +144,61 @@ public sealed class DumpableSystem : EntitySystem
 
     private void OnDoAfter(EntityUid uid, DumpableComponent component, DumpableDoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled || !TryComp<StorageComponent>(uid, out var storage) || storage.Container.ContainedEntities.Count == 0)
+        if (args.Handled || args.Cancelled)
+            return;
+
+        DumpContents(uid, args.Args.Target, args.Args.User, component);
+    }
+
+    // DeltaV: Refactor to allow dumping that doesn't require a verb
+    [PublicAPI]
+    public void DumpContents(EntityUid uid, EntityUid? target, EntityUid user, DumpableComponent? component = null)
+    {
+        if (!TryComp<StorageComponent>(uid, out var storage)
+            || !Resolve(uid, ref component))
+            return;
+
+        if (storage.Container.ContainedEntities.Count == 0)
             return;
 
         var dumpQueue = new Queue<EntityUid>(storage.Container.ContainedEntities);
 
         var dumped = false;
 
-        if (_disposalUnitSystem.HasDisposals(args.Args.Target))
+        if (HasComp<DisposalUnitComponent>(target))
         {
             dumped = true;
 
             foreach (var entity in dumpQueue)
             {
-                _disposalUnitSystem.DoInsertDisposalUnit(args.Args.Target.Value, entity, args.Args.User);
+                _disposalUnitSystem.DoInsertDisposalUnit(target.Value, entity, user);
             }
         }
-        else if (HasComp<PlaceableSurfaceComponent>(args.Args.Target))
+        else if (HasComp<PlaceableSurfaceComponent>(target))
         {
             dumped = true;
 
-            var (targetPos, targetRot) = _transformSystem.GetWorldPositionRotation(args.Args.Target.Value);
+            var (targetPos, targetRot) = _transformSystem.GetWorldPositionRotation(target.Value);
 
             foreach (var entity in dumpQueue)
             {
                 _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, targetRot);
             }
         }
+        // Begin DeltaV - ough why do you not use events for this
+        else if (TryComp<SmartFridgeComponent>(target, out var fridge))
+        {
+            dumped = true;
+            if (_container.TryGetContainer(target!.Value, fridge.Container, out var container))
+            {
+                foreach (var entity in dumpQueue)
+                {
+                    _container.Insert(entity, container);
+                }
+            }
+
+        }
+        // End DeltaV - ough why do you not use events for this
         else
         {
             var targetPos = _transformSystem.GetWorldPosition(uid);
@@ -179,7 +212,7 @@ public sealed class DumpableSystem : EntitySystem
 
         if (dumped)
         {
-            _audio.PlayPredicted(component.DumpSound, uid, args.User);
+            _audio.PlayPredicted(component.DumpSound, uid, user);
         }
     }
 }

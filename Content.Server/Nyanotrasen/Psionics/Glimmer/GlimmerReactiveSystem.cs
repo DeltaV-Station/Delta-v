@@ -22,7 +22,7 @@ using Content.Shared.Power;
 using Content.Shared.Weapons.Melee.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
@@ -44,8 +44,7 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly SharedDestructibleSystem _destructibleSystem = default!;
         [Dependency] private readonly GhostSystem _ghostSystem = default!;
         [Dependency] private readonly RevenantSystem _revenantSystem = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
-        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+        [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly SharedPointLightSystem _pointLightSystem = default!;
 
         public float Accumulator = 0;
@@ -66,6 +65,7 @@ namespace Content.Server.Psionics.Glimmer
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, DestructionEventArgs>(OnDestroyed);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
+            SubscribeLocalEvent<SharedGlimmerReactiveComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, AttemptMeleeThrowOnHitEvent>(OnMeleeThrowOnHitAttempt);
         }
 
@@ -231,18 +231,27 @@ namespace Content.Server.Psionics.Glimmer
             }
         }
 
+        private void OnAnchorStateChanged(EntityUid uid, SharedGlimmerReactiveComponent component, AnchorStateChangedEvent args)
+        {
+            if (!args.Anchored && _glimmerSystem.GetGlimmerTier() >= GlimmerTier.Dangerous)
+            {
+                AnchorOrExplode(uid);
+            }
+        }
+
         public void BeamRandomNearProber(EntityUid prober, int targets, float range = 10f)
         {
             List<EntityUid> targetList = new();
-            foreach (var target in _entityLookupSystem.GetComponentsInRange<StatusEffectsComponent>(_transformSystem.GetMapCoordinates(prober), range))
+            var coords = _transform.GetMapCoordinates(prober);
+            foreach (var target in _entityLookupSystem.GetEntitiesInRange<StatusEffectsComponent>(coords, range))
             {
-                if (target.AllowedEffects.Contains("Electrocution"))
-                    targetList.Add(target.Owner);
+                if (target.Comp.AllowedEffects.Contains("Electrocution"))
+                    targetList.Add(target);
             }
 
-            foreach(var reactive in _entityLookupSystem.GetComponentsInRange<SharedGlimmerReactiveComponent>(_transformSystem.GetMapCoordinates(prober), range))
+            foreach(var reactive in _entityLookupSystem.GetEntitiesInRange<SharedGlimmerReactiveComponent>(coords, range))
             {
-                targetList.Add(reactive.Owner);
+                targetList.Add(reactive);
             }
 
             _random.Shuffle(targetList);
@@ -304,12 +313,12 @@ namespace Content.Server.Psionics.Glimmer
             var coordinates = xform.Coordinates;
             var gridUid = xform.GridUid;
 
-            if (_mapManager.TryGetGrid(gridUid, out var grid))
+            if (TryComp<MapGridComponent>(gridUid, out var grid))
             {
                 var tileIndices = grid.TileIndicesFor(coordinates);
 
                 if (_anchorableSystem.TileFree(grid, tileIndices, physics.CollisionLayer, physics.CollisionMask) &&
-                    _transformSystem.AnchorEntity(uid, xform))
+                    _transform.AnchorEntity(uid, xform))
                 {
                     return;
                 }
@@ -332,9 +341,8 @@ namespace Content.Server.Psionics.Glimmer
             _lightning.ShootRandomLightnings(uid, 10, 2, "SuperchargedLightning", 2, false);
 
             // Check if the parent of the user is alive, which will be the case if the user is an item and is being held.
-            var zapTarget = _transformSystem.GetParentUid(args.User);
-            if (TryComp<MindContainerComponent>(zapTarget, out _))
-                _electrocutionSystem.TryDoElectrocution(zapTarget, uid, 5, TimeSpan.FromSeconds(3), true,
+            if (args.User is {} user && HasComp<MindContainerComponent>(args.User))
+                _electrocutionSystem.TryDoElectrocution(user, uid, 5, TimeSpan.FromSeconds(3), true,
                     ignoreInsulation: true);
         }
 
@@ -400,7 +408,7 @@ namespace Content.Server.Psionics.Glimmer
     /// <see cref="GlimmerSystem.GetGlimmerTier"/> has the exact
     /// values corresponding to tiers.
     /// </summary>
-    public class GlimmerTierChangedEvent : EntityEventArgs
+    public sealed class GlimmerTierChangedEvent : EntityEventArgs
     {
         /// <summary>
         /// What was the last glimmer tier before this event fired?
@@ -425,4 +433,3 @@ namespace Content.Server.Psionics.Glimmer
         }
     }
 }
-

@@ -25,9 +25,12 @@
     layers:
     - state: crypt_gray
     - state: common_label
+  - type: Tag
+    tags:
+    - EncryptionCommon
 
 - type: entity
-  parent: EncryptionKey
+  parent: [ EncryptionKey, BaseCargoContraband ]
   id: EncryptionKeyCargo
   name: logistics encryption key # DeltaV - Logistics Department replacing Cargo
   description: An encryption key used by supply employees.
@@ -40,9 +43,12 @@
     layers:
     - state: crypt_gray
     - state: cargo_label
+  - type: Tag
+    tags:
+    - EncryptionCargo
 
 - type: entity
-  parent: EncryptionKey
+  parent: [ EncryptionKey, BaseCentcommContraband ]
   id: EncryptionKeyCentCom
   name: central command encryption key
   description: An encryption key used by captain's bosses.
@@ -57,7 +63,7 @@
     - state: nano_label
 
 - type: entity
-  parent: EncryptionKey
+  parent: [ EncryptionKey, BaseCentcommCommandContraband ]
   id: EncryptionKeyStationMaster
   name: station master encryption key
   description: An encryption key used by station's bosses.
@@ -73,7 +79,8 @@
     - Security
     - Service
     - Supply
-    - Prison #DeltaV
+    - Prison # DeltaV
+    - Traffic # DeltaV
     defaultChannel: Command
   - type: Sprite
     layers:
@@ -81,7 +88,7 @@
     - state: cap_label
 
 - type: entity
-  parent: EncryptionKey
+  parent: [ EncryptionKey, BaseCommandContraband ]
   id: EncryptionKeyCommand
   name: command encryption key
   description: An encryption key used by crew's bosses.
@@ -94,9 +101,12 @@
     layers:
     - state: crypt_silver
     - state: com_label
+  - type: Tag
+    tags:
+    - EncryptionCommand
 
 - type: entity
-  parent: EncryptionKey
+  parent: [ EncryptionKey, BaseEngineeringContraband ]
   id: EncryptionKeyEngineering
   name: engineering encryption key
   description: An encryption key used by the engineers.
@@ -109,9 +119,12 @@
     layers:
     - state: crypt_gray
     - state: eng_label
+  - type: Tag
+    tags:
+    - EncryptionEngineering
 
 - type: entity
-  parent: EncryptionKey
+  parent: [ EncryptionKey, BaseMedicalContraband ]
   id: EncryptionKeyMedical
   name: medical encryption key
   description: An encryption key used by those who save lives.
@@ -124,9 +137,12 @@
     layers:
     - state: crypt_gray
     - state: med_label
+  - type: Tag
+    tags:
+    - EncryptionMedical
 
 - type: entity
-  parent: EncryptionKey
+  parent: [ EncryptionKey, BaseMedicalScienceContraband ]
   id: EncryptionKeyMedicalScience
   name: med-epi encryption key # DeltaV - Epistemics Department replacing Science
   description: An encryption key used by someone who hasn't decided which side to take.
@@ -142,7 +158,7 @@
     - state: medsci_label
 
 - type: entity
-  parent: EncryptionKey
+  parent: [ EncryptionKey, BaseScienceContraband ]
   id: EncryptionKeyScience
   name: epistemics encryption key # DeltaV - Epistemics Department replacing Science
   description: An encryption key used by scientists. Maybe it is plasmaproof?
@@ -155,9 +171,12 @@
     layers:
     - state: crypt_gray
     - state: sci_label
+  - type: Tag
+    tags:
+    - EncryptionScience
 
 - type: entity
-  parent: EncryptionKey
+  parent: [ EncryptionKey, BaseScienceContraband ]
   id: EncryptionKeyRobo
   name: robotech encryption key
   description: An encryption key used by robototech engineers. Maybe it has a LAH-6000 on it?
@@ -172,7 +191,7 @@
     - state: robotics_label
 
 - type: entity
-  parent: EncryptionKey
+  parent: [ EncryptionKey, BaseSecurityLawyerContraband ]
   id: EncryptionKeySecurity
   name: security encryption key
   description: An encryption key used by security.
@@ -186,9 +205,12 @@
     layers:
     - state: crypt_gray
     - state: sec_label
+  - type: Tag
+    tags:
+    - EncryptionSecurity
 
 - type: entity
-  parent: EncryptionKey
+  parent: [ EncryptionKey, BaseCivilianContraband ]
   id: EncryptionKeyService
   name: service encryption key
   description: An encryption key used by the service staff, tasked with keeping the station full, happy and clean.
@@ -201,9 +223,12 @@
     layers:
     - state: crypt_gray
     - state: service_label
+  - type: Tag
+    tags:
+    - EncryptionService
 
 - type: entity
-  parent: [EncryptionKey, BaseRestrictedContraband]
+  parent: [ EncryptionKey, BaseSyndicateContraband ]
   id: EncryptionKeySyndie
   name: blood-red encryption key
   description: An encryption key used by... wait... Who is the owner of this chip?
@@ -222,7 +247,7 @@
       - EncryptionKeySyndie
 
 - type: entity
-  parent: [ EncryptionKey, BaseScienceContraband ]
+  parent: [ EncryptionKey, BaseSiliconScienceContraband ]
   id: EncryptionKeyBinary
   name: binary translator key
   description: An encryption key that translates binary signals used by silicons.
@@ -234,7 +259,22 @@
   - type: Sprite
     layers:
     - state: crypt_silver
-    - state: rd_label
+    - state: ai_label
+
+- type: entity
+  parent: [ EncryptionKey, BaseSyndicateContraband ]
+  id: EncryptionKeyBinarySyndicate
+  name: binary translator key
+  description: A syndicate encryption key that translates binary signals used by silicons.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Binary
+    defaultChannel: Binary
+  - type: Sprite
+    layers:
+    - state: crypt_red
+    - state: ai_label
 
 - type: entity
   parent: EncryptionKey

@@ -1,0 +1,45 @@
+# Head
+- type: loadout
+  id: CourierHead
+  equipment:
+      head: ClothingHeadCourier
+
+# Jumpsuit
+- type: loadout
+  id: CourierJumpsuit
+  equipment:
+      jumpsuit: ClothingUniformCourier
+
+- type: loadout
+  id: CourierJumpskirt
+  equipment:
+      jumpsuit: ClothingUniformSkirtCourier
+
+# Backpack
+- type: loadout
+  id: ClothingBackpackClippy
+  equipment:
+      back: ClothingBackpackClippy
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCourier
+      time: 54000 #15 hrs
+
+# Shoes
+- type: loadout
+  id: RollerSkates
+  equipment:
+      shoes: ClothingShoesSkates
+
+# PDA
+- type: loadout
+  id: CourierPDA
+  equipment:
+      id: CourierPDA
+
+- type: loadout
+  id: MailCarrierPDA
+  equipment:
+      id: MailCarrierPDA

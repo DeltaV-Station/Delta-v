@@ -1,0 +1,128 @@
+# Because Hitscan lasers aren't fun to shoot in my opinion, we give the HoS pistol a special lethal laser that moves
+- type: entity
+  parent: BaseBullet
+  id: BulletEnergyGunLaser
+  name: energy bolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: red
+  - type: Ammo
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Opaque
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+  - type: Projectile
+    impactEffect: BulletImpactEffectRedDisabler
+    damage:
+      types:
+        Heat: 24 # these will hurt but not quite a 4 shot
+    soundHit:
+      collection: MeatLaserImpact
+
+- type: entity
+  abstract: true
+  parent: BaseBullet
+  id: BaseBulletRubber
+  name: base bullet rubber
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: rubber
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/snap.ogg
+  - type: StaminaDamageOnCollide
+    damage: 22 # 5 hits to stun sounds reasonable
+
+- type: entity
+  parent: BulletPistolIncendiary
+  id: BulletLighterIncendiary
+  name: welding fuel bullet
+  description: a superheated jet of welding fuel, coming right at you.
+  components:
+  - type: PointLight
+    enabled: true
+    color: green
+    radius: 2.0
+    energy: 7.0
+  - type: Projectile
+    damage:
+      types:
+        Heat: 5
+
+- type: entity
+  parent: BulletEnergyGunLaser
+  id: BulletEnergyGunMediumImmolator
+  name: Medium Immolator Bolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.0
+
+- type: entity
+  parent: BulletEnergyGunLaser
+  id: BulletEnergyGunHeavyImmolator
+  name: Heavy Immolator Bolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.5
+  - type: Projectile
+    damage:
+      types:
+        Heat: 45
+
+- type: entity
+  parent: BulletEnergyGunLaser
+  id: BulletEnergyGunLightImmolator
+  name: Light Immolator Bolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: .25
+  - type: Projectile
+    damage:
+      types:
+        Heat: 8
+
+- type: entity
+  parent: BulletEnergyGunLaser
+  id: BulletEnergyGunLightImmolatorSpread
+  name: immolator barrage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileSpread
+    proto: BulletEnergyGunLightImmolator
+    count: 6
+    spread: 20

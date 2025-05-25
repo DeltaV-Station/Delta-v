@@ -23,6 +23,9 @@ public sealed partial class OracleComponent : Component
     [DataField("barkTime")]
     public TimeSpan BarkTime = TimeSpan.FromMinutes(1);
 
+    [DataField]
+    public OracleBarkType BarkType = OracleBarkType.Never;
+
     [DataField("rejectAccumulator")]
     public float RejectAccumulator;
 
@@ -84,4 +87,10 @@ public sealed partial class OracleComponent : Component
         "InsulativeHeadcage",
         "CrystalNormality",
     };
+}
+
+public enum OracleBarkType: byte {
+    Timed,
+    NewDemand,
+    Never
 }

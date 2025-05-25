@@ -49,4 +49,7 @@ trait-cowboy-name = Cowboy accent
 trait-cowboy-desc = You speak with a distinct cowboy accent!
 
 trait-italian-name = Italian accent
-trait-italian-desc = Mamma mia! You seem to have lived in space italy!
+trait-italian-desc = Mamma mia! You seem to have lived in space Italy!
+
+trait-painnumbness-name = Numb
+trait-painnumbness-desc = You lack any sense of feeling pain, being unaware of how hurt you may be.

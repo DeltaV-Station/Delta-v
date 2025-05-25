@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseMagazineBoxPistol
+  id: MagazineBoxPistolRubber
+  name: ammunition box (.35 auto rubber)
+  description: A cardboard box of .35 auto rounds. Intended to hold less-lethal rubber ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolRubber
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: rubber
+      sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi

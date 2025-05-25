@@ -1,0 +1,121 @@
+- type: listing
+  id: UplinkCoreExtractionToolbox
+  name: uplink-core-extraction-toolbox-name
+  description: uplink-core-extraction-toolbox-desc
+  icon:
+    sprite: _DV/Objects/Misc/nuke_core_container.rsi
+    state: closed
+  productEntity: ToolboxSyndicateFilledCoreExtraction
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkAntimovObjectiveBoard
+  name: uplink-objective-syndicate-board-name
+  description: uplink-objective-syndicate-board-desc
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: generic
+  productEntity: SyndicateCircuitBoard
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkHandcuffBundle
+  name: uplink-syndicate-handcuff-bundle-name
+  description: uplink-syndicate-handcuff-bundle-desc
+  icon: { sprite: Objects/Misc/handcuffs.rsi, state: handcuff }
+  productEntity: BoxSyndicateHandcuffBundle
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkBodyBagBox
+  name: uplink-syndicate-bodybag-name
+  description: uplink-syndicate-bodybag-desc
+  icon: { sprite: Objects/Specific/Medical/Morgue/bodybags.rsi, state: bag }
+  productEntity: BoxBodyBag
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+# Free bundle for hostage ops
+- type: listing
+  id: UplinkStunBundleNukie
+  name: uplink-syndicate-stun-bundle-name
+  description: uplink-syndicate-stun-bundle-desc
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box_of_doom }
+  productEntity: BoxSyndicateStunBundle
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkHostageImplanterNukieFree
+  name: uplink-syndicate-hostage-implanter-bundle-name
+  description: uplink-syndicate-hostage-implanter-bundle-desc
+  icon: { sprite: Objects/Misc/handcuffs.rsi, state: handcuff }
+  productEntity: BoxSyndicateHostageImplanter
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink

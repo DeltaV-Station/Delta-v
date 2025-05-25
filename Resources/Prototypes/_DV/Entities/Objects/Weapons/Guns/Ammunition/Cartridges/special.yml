@@ -1,0 +1,131 @@
+- type: entity
+  abstract: true
+  parent: BaseCartridge
+  id: BaseCartridgeSpecial
+  name: cartridge (.38 special)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeSpecial
+  - type: CartridgeAmmo
+    proto: BulletSpecial
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  parent: BaseCartridgeSpecial
+  id: CartridgeSpecial
+  description: A compact revolver cartridge lighter than its magnum cousin. Standard kinetic ammunition is common and useful in most situations.
+
+- type: entity
+  parent: BaseCartridgeSpecial
+  id: CartridgeSpecialPractice
+  name: cartridge (.38 special practice)
+  description: A compact revolver cartridge lighter than its magnum cousin. Chalk ammunition is generally non-harmful, used for practice.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSpecialPractice
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#dbdbdb"
+
+- type: entity
+  parent: BaseCartridgeSpecial
+  id: CartridgeSpecialRubber
+  name: cartridge (.38 special rubber)
+  description: A compact revolver cartridge lighter than its magnum cousin. Rubber ammunition excels at less-lethal takedown of noncompliant suspects.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSpecialRubber
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#43c4f7"
+
+- type: entity
+  parent: BaseCartridgeSpecial
+  id: CartridgeSpecialIncendiary
+  name: cartridge (.38 special incendiary)
+  description: A compact revolver cartridge lighter than its magnum cousin. Incendiary ammunition contains a self-igniting compound that sets the target ablaze.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSpecialIncendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#ff6e52"
+
+- type: entity
+  parent: BaseCartridgeSpecial
+  id: CartridgeSpecialUranium
+  name: cartridge (.38 special uranium)
+  description: A compact revolver cartridge lighter than its magnum cousin. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating the target from the inside.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSpecialUranium
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#65fe08"
+
+- type: entity
+  parent: BaseCartridgeSpecial
+  id: CartridgeSpecialHoly
+  name: cartridge (.38 special holy)
+  description: A compact revolver cartridge lighter than its magnum cousin. Silver-tipped rounds lean into superstition for the takedown of paranormal threats.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSpecialHoly
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#fff600"
+
+- type: entity
+  parent: BaseCartridgeSpecial
+  id: CartridgeSpecialMindbreaker
+  name: cartridge (.38 special mindbreaker)
+  description: A compact revolver cartridge lighter than its magnum cousin. Mindbreaker-soaked rounds forcibly rid targets of psionic abilities.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSpecialMindbreaker
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#950ea9"
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: MindbreakerToxin
+          Quantity: 9
+  - type: SolutionTransfer
+    maxTransferAmount: 9

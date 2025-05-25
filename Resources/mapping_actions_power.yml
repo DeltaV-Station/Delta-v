@@ -1,0 +1,139 @@
+- action: !type:InstantActionComponent
+    icon:
+      entity: APCBasic
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: APCBasic
+  assignments:
+  - 0: 1
+  name: APC Basic
+- action: !type:InstantActionComponent
+    icon:
+      entity: CableApcExtension
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: CableApcExtension
+  assignments:
+  - 0: 2
+  name: Cable ApcExtension
+- action: !type:InstantActionComponent
+    icon:
+      entity: CableMV
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: CableMV
+  assignments:
+  - 0: 3
+  name: Cable MV
+- action: !type:InstantActionComponent
+    icon:
+      entity: CableHV
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: CableHV
+  assignments:
+  - 0: 4
+  name: Cable HV
+- action: !type:InstantActionComponent
+    icon:
+      entity: SubstationBasic
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: SubstationBasic
+  assignments:
+  - 0: 5
+  name: Substation Basic
+- action: !type:InstantActionComponent
+    icon:
+      entity: SMESBasic
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: SMESBasic
+  assignments:
+  - 0: 6
+  name: SMES Basic
+- action: !type:InstantActionComponent
+    icon:
+      entity: CableTerminal
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: CableTerminal
+  assignments:
+  - 0: 7
+  name: Cable Terminal
+- action: !type:InstantActionComponent
+    icon:
+      entity: Poweredlight
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: Poweredlight
+  assignments:
+  - 0: 8
+  name: Powered light
+- action: !type:InstantActionComponent
+    icon:
+      entity: PoweredSmallLightMaintenance
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: PoweredSmallLightMaintenance
+  assignments:
+  - 0: 9
+  name: Small Light Maintenance
+- action: !type:InstantActionComponent
+    icon: Interface/VerbIcons/delete.svg.192dpi.png
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      eraser: True
+  assignments:
+  - 0: 0
+  name: action-name-mapping-erase
+...

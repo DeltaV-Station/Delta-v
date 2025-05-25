@@ -43,6 +43,7 @@
   - type: Sprite
     state: brain
   - type: Organ
+    slotId: brain # Shitmed Change
   - type: Input
     context: "ghost"
   - type: Brain
@@ -50,6 +51,8 @@
   - type: Examiner
   - type: BlockMovement
   - type: BadFood
+  - type: Food # DeltaV: Prevent eating brains as borgs don't remember what happened to them
+    requiredStomachs: 20
   - type: Tag
     tags:
       - Meat
@@ -68,14 +71,12 @@
     flavors:
       - people
   - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: brain
     entries:
-      burger:
-        name: food-sequence-content-brain
-      taco:
-        name: food-sequence-content-brain
+      Burger: Brain
+      Taco: Brain
+  - type: Item
+    size: Small
+    heldPrefix: brain
   
 - type: entity
   id: OrganHumanEyes
@@ -83,10 +84,16 @@
   name: eyes
   description: "I see you!"
   components:
+  - type: Organ # Shitmed Change
+    slotId: eyes # Shitmed Change
+  - type: Eyes # Shitmed Change
   - type: Sprite
     layers:
       - state: eyeball-l
       - state: eyeball-r
+  - type: Item
+    size: Small
+    heldPrefix: eyeballs
 
 - type: entity
   id: OrganHumanTongue
@@ -96,15 +103,6 @@
   components:
   - type: Sprite
     state: tongue
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: tongue
-    entries:
-      burger:
-        name: food-sequence-content-tongue
-      taco:
-        name: food-sequence-content-tongue
 
 - type: entity
   id: OrganHumanAppendix
@@ -125,15 +123,7 @@
   components:
   - type: Sprite
     state: ears
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: ears
-    entries:
-      burger:
-        name: food-sequence-content-ears
-      taco:
-        name: food-sequence-content-ears
+  - type: Ears # Shitmed Change
 
 - type: entity
   id: OrganHumanLungs
@@ -141,10 +131,15 @@
   name: lungs
   description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
   components:
+  - type: Organ # Shitmed Change
+    slotId: lungs # Shitmed Change
   - type: Sprite
     layers:
       - state: lung-l
       - state: lung-r
+  - type: Item
+    size: Small
+    heldPrefix: lungs
   - type: Lung
   - type: Metabolizer
     removeEmpty: true
@@ -175,18 +170,24 @@
   name: heart
   description: "I feel bad for the heartless bastard who lost this."
   components:
+  - type: Heart # Shitmed Change
+  - type: Organ # Shitmed Change
+    slotId: heart # Shitmed Change
   - type: Sprite
     state: heart-on
   # The heart 'metabolizes' medicines and poisons that aren't filtered out by other organs.
   # This is done because these chemicals need to have some effect even if they aren't being filtered out of your body.
   # You're technically 'immune to poison' without a heart, but.. uhh, you'll have bigger problems on your hands.
   - type: Metabolizer
-    maxReagents: 2
+    maxReagents: 3 # Funkychem - species metabolise 3 chems as a baseline
     metabolizerTypes: [Human]
     groups:
     - id: Medicine
     - id: Poison
     - id: Narcotic
+  - type: Item
+    size: Small
+    heldPrefix: heart
 
 - type: entity
   id: OrganHumanStomach
@@ -194,8 +195,13 @@
   name: stomach
   description: "Gross. This is hard to stomach."
   components:
+  - type: Organ # Shitmed Change
+    slotId: stomach # Shitmed Change
   - type: Sprite
     state: stomach
+  - type: Item
+    size: Small
+    heldPrefix: stomach
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -216,15 +222,6 @@
     groups:
     - id: Food
     - id: Drink
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: stomach
-    entries:
-      burger:
-        name: food-sequence-content-stomach
-      taco:
-        name: food-sequence-content-stomach
 
 - type: entity
   id: OrganHumanLiver
@@ -232,23 +229,20 @@
   name: liver
   description: "Pairing suggestion: chianti and fava beans."
   components:
+  - type: Liver # Shitmed Change
+  - type: Organ # Shitmed Change
+    slotId: liver # Shitmed Change
   - type: Sprite
     state: liver
+  - type: Item
+    size: Small
+    heldPrefix: liver
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
     maxReagents: 1
     metabolizerTypes: [Human]
     groups:
     - id: Alcohol
       rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: liver
-    entries:
-      burger:
-        name: food-sequence-content-liver
-      taco:
-        name: food-sequence-content-liver
 
 - type: entity
   id: OrganHumanKidneys
@@ -256,10 +250,15 @@
   name: kidneys
   description: "Filters toxins from the bloodstream."
   components:
+  - type: Organ # Shitmed
+    slotId: kidneys
   - type: Sprite
     layers:
       - state: kidney-l
       - state: kidney-r
+  - type: Item
+    size: Small
+    heldPrefix: kidneys
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
   - type: Metabolizer
     maxReagents: 5

@@ -5,9 +5,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: DeltaV/Structures/Windows/reinforced_uranium_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_uranium_window.rsi #Delta V - Resprite windows
   - type: Icon
-    sprite: DeltaV/Structures/Windows/reinforced_uranium_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_uranium_window.rsi #Delta V - Resprite windows
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
@@ -15,13 +15,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 300
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 150
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -43,7 +43,7 @@
     node: reinforcedUraniumWindow
   - type: Appearance
   - type: DamageVisuals
-    thresholds: [4, 8, 12]
+    thresholds: [5, 10, 20]
     damageDivisor: 6
     trackAllDamage: true
     damageOverlay:
@@ -52,6 +52,8 @@
     price: 215
   - type: RadiationBlocker
     resistance: 5
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WindowCosmicCult
 
 - type: entity
   id: UraniumReinforcedWindowDirectional
@@ -64,18 +66,18 @@
     - Window
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: uranium_reinforced_window
   - type: Icon
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: uranium_reinforced_window
   - type: Construction
     graph: WindowDirectional
     node: uraniumReinforcedWindowDirectional
   - type: Appearance
   - type: DamageVisuals
-    thresholds: [4, 8, 12]
-    damageDivisor: 3.333
+    thresholds: [5, 10, 20]
+    damageDivisor: 3
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
@@ -83,7 +85,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -93,13 +101,15 @@
           ShardGlassUranium:
             min: 1
             max: 2
-          PartRodMetal1:
+          PartRodMetal:
             min: 1
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: StaticPrice
     price: 110
+  - type: RadiationBlocker
+    resistance: 2.5
 
 - type: entity
   parent: ReinforcedUraniumWindow
@@ -112,14 +122,17 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: DeltaV/Structures/Windows/reinforced_uranium_diagonal.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_uranium_diagonal.rsi #Delta V - Resprite windows
     state: state0
+  - type: Tag
+    tags:
+    - Diagonal
   - type: IconSmooth
     mode: Diagonal
     key: windows
     base: state
   - type: Icon
-    sprite: DeltaV/Structures/Windows/reinforced_uranium_diagonal.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_uranium_diagonal.rsi #Delta V - Resprite windows
     state: state0
   - type: Fixtures
     fixtures:

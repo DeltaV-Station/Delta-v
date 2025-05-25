@@ -67,6 +67,15 @@
                                     <Control HorizontalExpand="True"/>
                                     <LineEdit Name="AgeEdit" MinSize="40 0" HorizontalAlignment="Right" />
                                 </BoxContainer>
+                                <!-- Begin CD - Character Records -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-height-label'}" />
+                                    <Control HorizontalExpand="True" />
+                                    <Slider Name="CDHeightSlider" HorizontalAlignment="Right" SetWidth="300" MinValue="0.0" MaxValue="1.0"/>
+                                    <LineEdit HorizontalAlignment="Right" Name="CDHeight" MinSize="60 0" Text="1.0" />
+                                    <Button Name="CDHeightReset" Text="{Loc 'humanoid-profile-editor-reset-height-button'}" HorizontalAlignment="Right"/>
+                                </BoxContainer>
+                                <!-- End CD - Character Records -->
                                 <!-- Sex -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-sex-label'}" />
@@ -140,7 +149,7 @@
         </BoxContainer>
         <!-- Right side -->
         <BoxContainer Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Center">
-            <SpriteView Name="SpriteView" Scale="8 8" SizeFlagsStretchRatio="1" />
+            <SpriteView Name="SpriteView" Scale="8 8" Margin="4" SizeFlagsStretchRatio="1" />
             <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5">
                 <Button Name="SpriteRotateLeft" Text="◀" StyleClasses="OpenRight" />
                 <cc:VSeparator Margin="2 0 3 0" />

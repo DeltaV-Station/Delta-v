@@ -21,7 +21,7 @@
         amount: 2
       - id: RagItem
         amount: 2
-      - id: LunchboxServiceFilledRandom # Delta-V Lunchboxes!
+      - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
         prob: 0.3
 
 #- type: entity
@@ -32,17 +32,18 @@
 - type: entity
   id: ClosetChefFilled
   suffix: Filled
-  parent: ClosetChef
+  parent: LockerKitchen # DeltaV - Use DV secure lockers/sprites
   components:
   - type: StorageFill
     contents:
-      - id: CrowbarRed
       - id: VariantCubeBox
       - id: BoxMousetrap
         amount: 2
       - id: SprayBottleWater
       - id: ReagentContainerFlour
         amount: 2
+      - id: FoodBoxCloth
+        amount: 1
       - id: ReagentContainerSugar
       - id: FoodCondimentPacketSalt
         amount: 3
@@ -54,13 +55,13 @@
       - id: DrinkMilkCarton
         amount: 2
       - id: DrinkSoyMilkCarton
-      - id: LunchboxServiceFilledRandom # Delta-V Lunchboxes!
+      - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
         prob: 0.3
 
 - type: entity
   id: ClosetJanitorFilled
   suffix: Filled
-  parent: ClosetJanitor
+  parent: LockerJanitor # DeltaV - Use DV secure lockers/sprites
   components:
   - type: StorageFill
     contents:
@@ -81,7 +82,7 @@
         amount: 2
       - id: Plunger
         amount: 2
-      - id: LunchboxServiceFilledRandom # Delta-V Lunchboxes!
+      - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
         prob: 0.3
 
 - type: entity
@@ -105,7 +106,7 @@
       - id: ClothingHandsGlovesLeather
       - id: ClothingOuterApronBotanist
       - id: ClothingHeadBandBotany
-      - id: RobustHarvestChemistryBottle
+      - id: ChemistryBottleRobustHarvest
         prob: 0.3
       - id: ClothingBeltPlant
       - id: PlantBag ##Some maps don't have nutrivend
@@ -115,7 +116,7 @@
       - id: ClothingUniformOveralls
       - id: ClothingHeadHatTrucker
         prob: 0.1
-      - id: LunchboxServiceFilledRandom # Delta-V Lunchboxes!
+      - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
         prob: 0.3
 
 - type: entity
@@ -139,6 +140,7 @@
   id: ClosetJanitorBombFilled
   parent: ClosetJanitorBomb
   suffix: DO NOT MAP, Filled
+  categories: [ DoNotMap ]
   components:
   - type: StorageFill
     contents:

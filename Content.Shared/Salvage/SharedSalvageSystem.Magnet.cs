@@ -14,11 +14,11 @@ public abstract partial class SharedSalvageSystem
 {
     private readonly List<SalvageMapPrototype> _salvageMaps = new();
 
-    private Dictionary<ISalvageMagnetOffering, float> _offeringWeights = new()
+    private readonly Dictionary<ISalvageMagnetOffering, float> _offeringWeights = new()
     {
-        { new AsteroidOffering(), 3.0f },
-        { new DebrisOffering(), 4.0f },
-        { new SalvageOffering(), 1.0f }
+        { new AsteroidOffering(), 4.5f },
+        { new DebrisOffering(), 3.5f },
+        { new SalvageOffering(), 2.0f },
     };
 
     private readonly List<ProtoId<DungeonConfigPrototype>> _asteroidConfigs = new()
@@ -50,12 +50,8 @@ public abstract partial class SharedSalvageSystem
                 var configProto =_proto.Index(configId);
                 var layers = new Dictionary<string, int>();
 
-                var data = new DungeonData();
-                data.Apply(configProto.Data);
-
                 var config = new DungeonConfig
                 {
-                    Data = data,
                     Layers = new(configProto.Layers),
                     MaxCount = configProto.MaxCount,
                     MaxOffset = configProto.MaxOffset,

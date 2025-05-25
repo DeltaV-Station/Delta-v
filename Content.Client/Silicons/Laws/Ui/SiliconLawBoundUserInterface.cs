@@ -30,7 +30,8 @@ public sealed class SiliconLawBoundUserInterface : BoundUserInterface
     {
         base.UpdateState(state);
 
-        if (state is not SiliconLawBuiState msg)
+        // DeltaV: add _menu is null check because apparently state gets sent before UI opens
+        if (_menu is null || state is not SiliconLawBuiState msg)
             return;
 
         if (_laws != null && _laws.Count == msg.Laws.Count)

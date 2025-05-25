@@ -55,6 +55,7 @@
   physicalDesc: reagent-physical-desc-nondescript
   metabolisms:
     Poison:
+      metabolismRate: 0.25 # DeltaV: chloral hydrate should last longer for surgery
       effects:
       - !type:Emote
         emote: Yawn
@@ -69,6 +70,16 @@
         time: 4
         type: Add
         refresh: false
+      - !type:GenericStatusEffect # DeltaV: anesthesia
+        conditions:
+        - !type:ReagentThreshold
+          reagent: ChloralHydrate
+          min: 10
+        key: Anesthesia
+        component: Anesthesia
+        refresh: false
+        time: 4.0
+        type: Add
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -171,7 +182,6 @@
   flavor: sour
   color: "#48b3b8"
   physicalDesc: reagent-physical-desc-ferrous
-  slippery: false
   metabolisms:
     Drink:
       effects:
@@ -403,24 +413,23 @@
   boilingPoint: 554 # I'm not a chemist, but it boils at 295, lower than melting point, idk how it works so I gave it higher value
   metabolisms:
     Poison:
-      metabolismRate: 0.05
+      metabolismRate: 0.04 # DeltaV - Slowed to allow coffee/etc to build up theobromine
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
-          min: 1
         - !type:OrganType
           type: Animal # Applying damage to the mobs with lower metabolism capabilities
         damage:
           types:
-            Poison: 0.4
+            Poison: 0.3 # DeltaV - slightly reduced to account for slowed metabolism rate
       - !type:ChemVomit
-        probability: 0.04 #Scaled for time, not metabolismrate.
+        probability: 0.1 #Scaled for time, not metabolismrate. # DeltaV - Increased from .04 Vomit more when there is a lot of it
         conditions:
-          - !type:ReagentThreshold
-            min: 3
           - !type:OrganType
             type: Animal
+          - !type:ReagentThreshold # DeltaV - Readded this. No longer causes vomitting at the lightest whiff of coffee
+            reagent: Theobromine
+            min: 0.5
 
 - type: reagent
   id: Amatoxin
@@ -487,6 +496,9 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -497,10 +509,16 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:OrganType
           type: Animal
+          shouldHave: false
+        - !type:OrganType
+          type: Vox
           shouldHave: false
         damage:
           types:
@@ -509,9 +527,14 @@
         conditions:
         - !type:OrganType
           type: Animal
-          shouldHave: true
         reagent: Protein
         amount: 0.5
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Vox
+        reagent: Protein
+        amount: 0.25
 
 - type: reagent
   id: Allicin
@@ -711,3 +734,19 @@
           shouldHave: false
         walkSpeedModifier: 0.4
         sprintSpeedModifier: 0.4
+
+- type: reagent
+  id: ToxinTrash
+  name: reagent-name-toxintrash
+  group: Toxins
+  desc: reagent-desc-toxintrash
+  flavor: trashy
+  physicalDesc: reagent-physical-desc-nondescript
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        factor: 1
+        conditions:
+        - !type:OrganType
+          type: Vox

@@ -6,6 +6,8 @@
   description: A flying leviathan, loosely related to space carps.
   abstract: true
   components:
+  - type: Body # Shitmed
+    prototype: SpaceDragon
   - type: Bloodstream
     bloodMaxVolume: 650
   - type: GhostRole
@@ -13,7 +15,10 @@
     allowSpeech: true
     makeSentient: true
     name: ghost-role-information-space-dragon-name
-    description: ghost-role-information-space-dragon-description
+    description: deltav-ghost-role-information-space-dragon-description # DeltaV - Dragons despawn in 10 minutes
+    rules: ghost-role-information-space-dragon-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -38,7 +43,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 5
-    weightlessModifier: 1.5
+    baseWeightlessModifier: 1.5
   - type: RandomSprite
     available:
     - enum.DamageStateVisualLayers.Base:
@@ -105,6 +110,7 @@
     - Pacified
     - RadiationProtection
     - Drowsiness
+    - Adrenaline
   - type: Temperature
     heatDamageThreshold: 800
   - type: Metabolizer
@@ -137,7 +143,7 @@
     foodPreference: Humanoid
     shouldStoreDevoured: true
     chemical: Ichor
-    healRate: 15.0
+    healRate: 7.5
     whitelist:
       components:
       - MobState
@@ -148,14 +154,31 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
+  - type: Puller
+    needsHands: false
+  - type: RandomMetadata
+    nameSegments:
+    - NamesDragon
+    - NamesDragonTitle
+    nameFormat: name-format-dragon
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2.5 # fast because dragon strong
+    useSound:
+      path: /Audio/Items/crowbar.ogg
 
 - type: entity
   parent: BaseMobDragon
   id: MobDragon
-  suffix: No role or objectives
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
+    maxAccumulator: 600 # DeltaV - Double the normal time
+    weakenedDuration: 60 # DeltaV - Half the normal time
+  - type: GhostRole
+    mindRoles:
+    - MindRoleDragon
   - type: ActionGun
     action: ActionDragonsBreath
     gunProto: DragonsBreathGun
@@ -190,6 +213,7 @@
   components:
   - type: GhostRole
     description: ghost-role-information-space-dragon-dungeon-description
+    rules: ghost-role-information-space-dragon-dungeon-rules
     raffle:
       settings: default
   - type: SlowOnDamage
@@ -245,3 +269,4 @@
     priority: 2
     checkCanAccess: false
     range: 0
+    itemIconStyle: BigAction

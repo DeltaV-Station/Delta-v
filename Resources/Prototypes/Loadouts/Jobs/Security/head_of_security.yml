@@ -12,12 +12,12 @@
 - type: loadout
   id: HeadofSecurityTurtleneck
   equipment:
-    jumpsuit: ClothingUniformJumpsuitHoSAlt
+    jumpsuit: ClothingUniformJumpsuitHoSTurtle # DeltaV - replace ClothingUniformJumpsuitHoSAlt
 
 - type: loadout
   id: HeadofSecurityTurtleneckSkirt
   equipment:
-    jumpsuit: ClothingUniformJumpskirtHoSAlt
+    jumpsuit: ClothingUniformJumpskirtHoSTurtle # DeltaV - replace ClothingUniformJumpsuitHoSAlt
 
 - type: loadout
   id: HeadofSecurityFormalSuit
@@ -28,16 +28,6 @@
   id: HeadofSecurityFormalSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHosFormal
-
-- type: loadout # DeltaV
-  id: HeadofSecurityParadeSuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitHoSParadeMale
-
-- type: loadout # DeltaV
-  id: HeadofSecurityParadeSkirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtHoSParadeMale
 
 # Head
 - type: loadout
@@ -71,9 +61,3 @@
   id: HeadofSecurityWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterHoS
-
-# Shoes - DeltaV
-- type: loadout # DeltaV
-  id: HeadOfSecurityWinterBoots
-  equipment:
-    shoes: ClothingShoesBootsWinterHeadOfSecurity

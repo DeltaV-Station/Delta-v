@@ -34,11 +34,19 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.RotateStoredItem);
             common.AddFunction(ContentKeyFunctions.SaveItemLocation);
             common.AddFunction(ContentKeyFunctions.Point);
+            common.AddFunction(ContentKeyFunctions.ToggleStanding); // WD EDIT
             common.AddFunction(ContentKeyFunctions.ZoomOut);
             common.AddFunction(ContentKeyFunctions.ZoomIn);
             common.AddFunction(ContentKeyFunctions.ResetZoom);
             common.AddFunction(ContentKeyFunctions.InspectEntity);
             common.AddFunction(ContentKeyFunctions.ToggleRoundEndSummaryWindow);
+            // Begin DeltaV Additions
+            common.AddFunction(ContentKeyFunctions.OpenAHelpCuratorChat);
+            common.AddFunction(ContentKeyFunctions.NanoChatNavigateUp);
+            common.AddFunction(ContentKeyFunctions.NanoChatNavigateDown);
+            common.AddFunction(ContentKeyFunctions.NanoChatNavigateUpUnread);
+            common.AddFunction(ContentKeyFunctions.NanoChatNavigateDownUnread);
+            // End DeltaV Additions
 
             // Not in engine, because engine cannot check for sanbox/admin status before starting placement.
             common.AddFunction(ContentKeyFunctions.EditorCopyObject);
@@ -84,6 +92,18 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.Arcade1);
             human.AddFunction(ContentKeyFunctions.Arcade2);
             human.AddFunction(ContentKeyFunctions.Arcade3);
+            // Shitmed Change Start - TODO: Add hands, feet and groin targeting.
+            human.AddFunction(ContentKeyFunctions.TargetHead);
+            human.AddFunction(ContentKeyFunctions.TargetTorso);
+            human.AddFunction(ContentKeyFunctions.TargetLeftArm);
+            human.AddFunction(ContentKeyFunctions.TargetLeftHand);
+            human.AddFunction(ContentKeyFunctions.TargetRightArm);
+            human.AddFunction(ContentKeyFunctions.TargetRightHand);
+            human.AddFunction(ContentKeyFunctions.TargetLeftLeg);
+            human.AddFunction(ContentKeyFunctions.TargetLeftFoot);
+            human.AddFunction(ContentKeyFunctions.TargetRightLeg);
+            human.AddFunction(ContentKeyFunctions.TargetRightFoot);
+            // Shitmed Change End
 
             // actions should be common (for ghosts, mobs, etc)
             common.AddFunction(ContentKeyFunctions.OpenActionsMenu);
@@ -123,6 +143,11 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.OpenDecalSpawnWindow);
             common.AddFunction(ContentKeyFunctions.OpenAdminMenu);
             common.AddFunction(ContentKeyFunctions.OpenGuidebook);
+
+            // DeltaV - Swap Hands Reversed Start
+            human.AddFunction(ContentKeyFunctions.SwapHandsReversed);
+            aghost.AddFunction(ContentKeyFunctions.SwapHandsReversed);
+            // DeltaV - Swap Hands Reversed End
         }
     }
 }

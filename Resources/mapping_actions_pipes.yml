@@ -1,0 +1,139 @@
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasPipeStraight
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasPipeStraight
+  assignments:
+  - 0: 1
+  name: Gas Pipe Straight
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasPipeBend
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasPipeBend
+  assignments:
+  - 0: 2
+  name: Gas Pipe Bend
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasPipeTJunction
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasPipeTJunction
+  assignments:
+  - 0: 3
+  name: Gas Pipe T-Junction
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasPipeFourway
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasPipeFourway
+  assignments:
+  - 0: 4
+  name: Gas Pipe Fourway
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasVentScrubber
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasVentScrubber
+  assignments:
+  - 0: 5
+  name: Gas Vent Scrubber
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasVentPump
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasVentPump
+  assignments:
+  - 0: 6
+  name: Gas Vent Pump
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasVolumePump
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasVolumePump
+  assignments:
+  - 0: 7
+  name: Gas Volume Pump
+- action: !type:InstantActionComponent
+    EntityIcon:
+      entity: GasPort
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasPort
+  assignments:
+  - 0: 8
+  name: Gas Port
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasPressurePump
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasPressurePump
+  assignments:
+  - 0: 9
+  name: Gas Pressure Pump
+- action: !type:InstantActionComponent
+    icon: Interface/VerbIcons/delete.svg.192dpi.png
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      eraser: True
+  assignments:
+  - 0: 0
+  name: action-name-mapping-erase
+...

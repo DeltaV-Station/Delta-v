@@ -35,11 +35,6 @@
   equipment:
     head: ClothingHeadHatBeretQM
 
-- type: loadout # DeltaV
-  id: LogiOfficerBeret
-  equipment:
-    head: ClothingHeadHatBeretLogi
-
 # Neck
 - type: loadout
   id: QuartermasterCloak
@@ -56,9 +51,3 @@
   id: QuartermasterWintercoat
   equipment:
     outerClothing: ClothingOuterWinterQM
-
-# Shoes - DeltaV
-- type: loadout
-  id: QuartermasterWinterBoots
-  equipment:
-    shoes: ClothingShoesBootsWinterLogisticsOfficer

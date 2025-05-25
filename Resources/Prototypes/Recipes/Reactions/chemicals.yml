@@ -50,7 +50,7 @@
     Oxygen:
       amount: 1
   products:
-    Acetone: 2
+    Acetone: 3 # Funkychem - was 2
 
 - type: reaction
   id: FoamingAgent
@@ -81,7 +81,7 @@
       amount: 1
     Sulfur:
       amount: 1
-    Oxygen: 
+    Oxygen:
       amount: 2
   products:
     SulfuricAcid: 3
@@ -206,6 +206,20 @@
       duration: 15
 
 - type: reaction
+  id: Flash
+  impact: High
+  priority: 20
+  reactants:
+    Aluminium:
+      amount: 1
+    Potassium:
+      amount: 1
+    Sulfur:
+      amount: 1
+  effects:
+    - !type:FlashReactionEffect
+
+- type: reaction
   id: TableSalt
   minTemp: 370
   reactants:
@@ -263,7 +277,7 @@
     Carbon:
       amount: 1
   products:
-    Oil: 3
+    Oil: 4 # Funkychem - should hopefully offset hydrogen use, was 3
 
 - type: reaction
   id: Fluorosurfactant
@@ -348,7 +362,7 @@
     Water:
       amount: 1
   products:
-    ChloralHydrate: 1
+    ChloralHydrate: 3 # DeltaV: make chloral hydrate less outrageously expensive
 
 - type: reaction
   id: Pax

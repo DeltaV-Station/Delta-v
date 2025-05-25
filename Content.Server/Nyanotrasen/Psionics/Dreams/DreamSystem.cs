@@ -51,7 +51,7 @@ namespace Content.Server.Psionics.Dreams
                     ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")), ("message", msg));
 
                 _chatManager.ChatMessageToOne(Shared.Chat.ChatChannel.Telepathic,
-                msg, messageWrap, sleeper.Owner, false, actor.PlayerSession.ConnectedClient, Color.PaleVioletRed);
+                msg, messageWrap, sleeper.Owner, false, actor.PlayerSession.Channel, Color.PaleVioletRed);
             }
         }
     }

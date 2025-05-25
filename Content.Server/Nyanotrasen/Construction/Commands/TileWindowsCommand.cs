@@ -5,8 +5,10 @@ using Content.Shared.Tag;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Construction.Commands
 {
@@ -18,9 +20,9 @@ namespace Content.Server.Construction.Commands
         public string Description => "Puts a reinforced plating tile below every window on a grid.";
         public string Help => $"Usage: {Command} <gridId> | {Command}";
 
-        public const string TilePrototypeId = "FloorReinforced";
-        public const string WindowTag = "Window";
-        public const string DirectionalTag = "Directional";
+        public static readonly ProtoId<ContentTileDefinition> TilePrototypeId = "FloorReinforced";
+        public static readonly ProtoId<TagPrototype> WindowTag = "Window";
+        public static readonly ProtoId<TagPrototype> DirectionalTag = "Directional";
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
@@ -53,8 +55,7 @@ namespace Content.Server.Construction.Commands
                     return;
             }
 
-            var mapManager = IoCManager.Resolve<IMapManager>();
-            if (!mapManager.TryGetGrid(gridId, out var grid))
+            if (!entityManager.TryGetComponent<MapGridComponent>(gridId, out var grid))
             {
                 shell.WriteLine($"No grid exists with id {gridId}");
                 return;
@@ -71,7 +72,8 @@ namespace Content.Server.Construction.Commands
             var underplating = tileDefinitionManager[TilePrototypeId];
             var underplatingTile = new Tile(underplating.TileId);
             var changed = 0;
-            foreach (var child in entityManager.GetComponent<TransformComponent>(grid.Owner).ChildEntities)
+            var children = entityManager.GetComponent<TransformComponent>(grid.Owner).ChildEnumerator;
+            while (children.MoveNext(out var child))
             {
                 if (!entityManager.EntityExists(child))
                 {

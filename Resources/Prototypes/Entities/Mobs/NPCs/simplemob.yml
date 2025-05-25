@@ -4,7 +4,6 @@
   - BaseMob
   - MobDamageable
   - MobPolymorphable
-  - MobAtmosExposed
   id: BaseSimpleMob
   suffix: AI
   abstract: true
@@ -29,6 +28,8 @@
     - Flashed
     - RadiationProtection
     - Drowsiness
+    - Adrenaline
+    - Anesthesia # DeltaV - Anesthesia
   - type: Buckle
   - type: StandingState
   - type: Tag
@@ -39,6 +40,7 @@
   abstract: true
   parent:
   - BaseSimpleMob
+  - MobAtmosExposed
   - MobCombat
   - MobBloodstream
   - MobFlammable
@@ -106,6 +108,8 @@
     - Flashed
     - RadiationProtection
     - Drowsiness
+    - Adrenaline
+    - Anesthesia # DeltaV - Anesthesia
   - type: Bloodstream
     bloodMaxVolume: 150
   - type: MobPrice

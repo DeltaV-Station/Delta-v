@@ -35,14 +35,14 @@
   description: Sound of it make you feel fear.
   components:
   - type: Sprite
-    state: sec
+    state: whistle # DeltaV - replace sec with whistle
   - type: Clothing
-    equippedPrefix: sec
+    equippedPrefix: whistle # DeltaV - replace sec with whistle
   - type: Whistle
     distance: 5
 
 - type: entity
-  parent: BaseWhistle
+  parent: [BaseWhistle, BaseMinorContraband]
   id: SyndicateWhistle
   name: trench whistle
   description: A whistle used by Syndicate commanders to draw attention. Avanti!

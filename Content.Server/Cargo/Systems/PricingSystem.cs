@@ -1,7 +1,7 @@
 ﻿using Content.Server.Administration;
 using Content.Server.Body.Systems;
 using Content.Server.Cargo.Components;
-using Content.Server.Chemistry.Containers.EntitySystems;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Administration;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -23,14 +23,14 @@ namespace Content.Server.Cargo.Systems;
 /// <summary>
 /// This handles calculating the price of items, and implements two basic methods of pricing materials.
 /// </summary>
-public sealed class PricingSystem : EntitySystem
+public sealed partial class PricingSystem : EntitySystem // DeltaV - Made partial
 {
     [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IConsoleHost _consoleHost = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -208,7 +208,7 @@ public sealed class PricingSystem : EntitySystem
 
         // TODO: Proper container support.
 
-        return price;
+        return ApplyPrototypePriceModifier(prototype, price); // DeltaV
     }
 
     /// <summary>
@@ -254,7 +254,7 @@ public sealed class PricingSystem : EntitySystem
             }
         }
 
-        return price;
+        return ApplyPriceModifier(uid, price); // DeltaV
     }
 
     private double GetMaterialsPrice(EntityUid uid)
@@ -424,7 +424,7 @@ public record struct PriceCalculationEvent()
 [ByRefEvent]
 public record struct EstimatedPriceCalculationEvent()
 {
-    public EntityPrototype Prototype;
+    public required EntityPrototype Prototype;
 
     /// <summary>
     /// The total price of the entity.

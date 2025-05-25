@@ -10,9 +10,6 @@ namespace Content.Shared.Access.Components;
 [Access(typeof(SharedIdCardConsoleSystem))]
 public sealed partial class IdCardConsoleComponent : Component
 {
-    public const int MaxFullNameLength = 30;
-    public const int MaxJobTitleLength = 30;
-
     public static string PrivilegedIdCardSlotId = "IdCardConsole-privilegedId";
     public static string TargetIdCardSlotId = "IdCardConsole-targetId";
 
@@ -83,14 +80,17 @@ public sealed partial class IdCardConsoleComponent : Component
         "Security",
         "Service",
         "Theatre",
-        "Orders", // DeltaV - Orders, see Resources/Prototypes/DeltaV/Access/cargo.yml
+        "Orders", // DeltaV - Orders, see Resources/Prototypes/_DV/Access/cargo.yml
         "Mail", // Nyanotrasen - Mail, see Resources/Prototypes/Nyanotrasen/Access/cargo.yml
-        "Mantis", // DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
+        "Mantis", // DeltaV - Psionic Mantis, see Resources/Prototypes/_DV/Access/epistemics.yml
         "Zookeeper",  // DeltaV - Add Zookeeper access
         "ChiefJustice",  // DeltaV - Add Chief Justice access
         "Justice",  // DeltaV - Add Justice access
         "Prosecutor", // Delta V - Add Prosecutor access
+        "Robotics", // DeltaV
         "Clerk", // Delta V - Add Clerk access
+        "Surgery", // Delta V - Add Surgery access
+        "Funding", // DeltaV - Add Funding access
     };
 
     [Serializable, NetSerializable]

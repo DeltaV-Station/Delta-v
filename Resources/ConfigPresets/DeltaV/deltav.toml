@@ -3,17 +3,33 @@ desc               = "A medium roleplay fork based around the mysterious Noösph
 lobbyenabled       = true
 lobbyduration      = 240
 round_end_pacifist = true
+round_restart_time = 300
 contraband_examine = false # Doubtful that it's desired at all, and would require going over every item in accordance with SOP
+secret_weight_prototype = "SecretDeltaV"
+role_timer_override = "DeltaV"
+showgreentext = false # focus more on telling a story
+
+[movement]
+mob_pushing = false
+
+# New players can't join a server without admins
+[game.panic_bunker]
+enabled = true
+min_overall_minutes = 240
+disable_with_admins = true
+enable_without_admins = true
+show_reason = true
+custom_reason = "You have not played on Delta-V long enough to connect to this server. Due to administrative reasons, new accounts cannot join a server with no game admins."
 
 [infolinks]
-discord    = "https://go.delta-v.org/sxzqj"
+discord    = "https://discord.gg/deltav"
 github     = "https://github.com/DeltaV-Station/Delta-v"
-website    = "https://www.delta-v.org/"
-wiki       = "https://wiki.delta-v.org/view/Main_Page"
-patreon    = "https://www.patreon.com/Delta_v"
+website    = "https://www.deltav.gay/"
+wiki       = "https://wiki.deltav.gay/view/Main_Page"
+patreon    = "https://www.patreon.com/c/DeltaVSS14"
 bug_report = "https://github.com/DeltaV-Station/Delta-v/issues/new/choose"
-forum      = "https://forum.delta-v.org/"
-appeal     = "https://go.delta-v.org/appeal"
+#forum      = "https://forum.deltav.gay/"
+appeal     = "https://discord.gg/deltav"
 
 [net]
 max_connections = 1024
@@ -21,6 +37,7 @@ tickrate = 30
 
 [vote]
 restart_required_ratio = 0.7
+preset_enabled = false
 
 [netres]
 limit    = 10.0
@@ -28,21 +45,63 @@ limit    = 10.0
 [admin]
 see_own_notes   = true
 deadmin_on_join = true
-alert.min_players_sharing_connection = 2
+allow_multi_server_play = false
+[admin.alert]
+min_players_sharing_connection = 2
 
 [server]
 id         = "deltav"
 rules_file = "DeltaVRuleset"
+uptime_restart_minutes = 2880 # 48h
 
 [discord]
 rich_main_icon_id = "deltav"
 
+# general mrp stuff
 [ic]
 flavor_text = true
+punctuation = true
 
+# Disabled because it causes giga lag
 #[worldgen]
 #enabled = true
+
+[rules]
+time = 60
 
 [ahelp]
 admin_prefix = false
 admin_prefix_webhook = false
+
+[votekick]
+enabled = false # only enabled on periapsis
+eligible_number = 5
+initiator_ghost_requirement = false
+voter_ghost_requirement = false
+
+[atmos]
+space_wind = true
+
+[shuttle]
+arrivals = false
+cooldown = 60 # 50 longer than the default
+startup_time = 10 # 4.5 seconds longer than the default
+travel_time = 5 # 15 seconds less than the default
+emergency_dock_time = 360 # an extra 2 minutes over the default
+emergency_transit_time_min = 90
+auto_call_time = 120 # rounds are longer
+auto_call_extension_time = 30 # next auto call at 2h30
+emergency_early_launch_allowed = true # MRP server command ban time
+recall_turning_point = 0.33
+
+[biomass]
+easy_mode = false # reclaimer can work on soul-ful bodies, mrp server
+
+[surgery]
+can_operate_on_self = false # mrp...
+
+[rmc]
+mentor_help_sound = "/Audio/_DV/Effects/Admin/chord2.ogg" # we get our own sound
+
+[control]
+storage_limit = 2

@@ -7,16 +7,18 @@
   defaultSkinTone: "#ffda93"
   markingLimits: MobMothMarkingLimits
   dollPrototype: MobMothDummy
-  skinColoration: TintedHuesSkin # DeltaV - No rgb moths, literally 1849
-  maleFirstNames: names_moth_first_male
-  femaleFirstNames: names_moth_first_female
-  lastNames: names_moth_last
+  skinColoration: Hues
+  maleFirstNames: NamesMothFirstMale
+  femaleFirstNames: NamesMothFirstFemale
+  lastNames: NamesMothLast
 
 - type: speciesBaseSprites
   id: MobMothSprites
   sprites:
     Head: MobMothHead
     Snout: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobMothTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -64,14 +66,20 @@
     Head:
       points: 1
       required: false
-    Chest:
+    UndergarmentTop:
       points: 1
       required: false
-    Legs:
+    UndergarmentBottom:
+      points: 1
+      required: false
+    Chest:
       points: 2
       required: false
+    Legs:
+      points: 6
+      required: false
     Arms:
-      points: 2
+      points: 6
       required: false
 
 - type: humanoidBaseSprite

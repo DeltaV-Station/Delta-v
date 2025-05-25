@@ -1,24 +1,13 @@
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadMailCarrier
-  name: mail carrier's hat
-  description: Smells like a good pension.
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Clothing/Head/Hats/mailman.rsi
-  - type: Clothing
-    sprite: Nyanotrasen/Clothing/Head/Hats/mailman.rsi
-
-- type: entity
-  parent: ClothingHeadBase
   id: ClothingHeadHoodMysta
   name: mystagogue's muffin cap # Delta V - Mystagogue new hat
   description: Contrary to its silly name, it's actually a symbol of great academic achievement.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Hats/mysta.rsi
+    sprite: _DV/Clothing/Head/Hats/mysta.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Hats/mysta.rsi
+    sprite: _DV/Clothing/Head/Hats/mysta.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -93,13 +82,19 @@
   parent: ClothingHeadTinfoil
   id: ClothingHeadCage
   name: insulative headcage
+  suffix: SelfUnremovable
   description: Psionically insulates whoevers head is inside it. It takes time to resist out of.
   components:
   - type: Sprite
     sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
   - type: Clothing
+    stripDelay: 10
+    equipDelay: 5
     sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
-  - type: HeadCage
+  - type: SelfUnremovableClothing
+  - type: Tag
+    tags:
+    - ForensicBeltEquip
 
 - type: entity
   parent: ClothingHeadTinfoil
@@ -172,7 +167,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretCentcomm
-  name: CentCom beret
+  name: CentComm beret
   description: A green beret with an admiral's rank emblem.
   components:
   - type: Sprite

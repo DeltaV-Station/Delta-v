@@ -152,8 +152,9 @@
     - type: Clickable
     - type: InteractionOutline
     - type: Sprite
-      drawdepth: FloorObjects
+      drawdepth: HighFloorObjects
       sprite: Structures/conveyor.rsi
+      noRot: true
       layers:
         - state: switch-off
           map: ["enabled", "enum.TwoWayLeverState.Middle"]

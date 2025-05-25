@@ -53,6 +53,8 @@
   - type: VendingMachineRestock
     canRestock:
     - BoozeOMatInventory
+    - BoozeOMatUnlockedInventory # DeltaV - Make maint booz-o-mat refillable
+    - BoozeOMatCommandInventory # DeltaV - Make command booz-o-mat refillable
   - type: Sprite
     layers:
     - state: base
@@ -122,6 +124,7 @@
     - CargoDrobeInventory
     - ChefDrobeInventory
     - ChemDrobeInventory
+    - CourierDrobeInventory # DeltaV - Make CourierDrobe refillable
     - DetDrobeInventory
     - EngiDrobeInventory
     - GeneDrobeInventory
@@ -336,6 +339,7 @@
     - SpaceUpInventory
     - SodaInventory
     - DrGibbInventory
+    - SmiteInventory 
   - type: Sprite
     layers:
     - state: base
@@ -360,6 +364,7 @@
     - state: refill_sec
 
 - type: entity
+  abstract: true # DeltaV: Salvage vendor doesn't have stock anymore
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockSalvageEquipment
   name: Salvage Vendor restock box
@@ -481,6 +486,7 @@
   - type: VendingMachineRestock
     canRestock:
     - ChemVendInventory
+    - ChemVendInventorySyndicate # DeltaV: Let it restock synthesis/nukie vendor
   - type: Sprite
     layers:
     - state: base

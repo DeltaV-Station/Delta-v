@@ -56,6 +56,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
         SubscribeLocalEvent<AnomalyComponent, StartCollideEvent>(OnStartCollide);
 
         InitializePsionics(); //Nyano - Summary: stats up psionic related behavior.
+
         InitializeGenerator();
         InitializeScanner();
         InitializeVessel();
@@ -87,7 +88,10 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
 
     private void OnShutdown(Entity<AnomalyComponent> anomaly, ref ComponentShutdown args)
     {
-        EndAnomaly(anomaly);
+        if (anomaly.Comp.CurrentBehavior is not null)
+            RemoveBehavior(anomaly, anomaly.Comp.CurrentBehavior.Value);
+
+        EndAnomaly(anomaly, spawnCore: false);
     }
 
     private void OnStartCollide(Entity<AnomalyComponent> anomaly, ref StartCollideEvent args)

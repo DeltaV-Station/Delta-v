@@ -1,6 +1,7 @@
 using Content.Server.Damage.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
+using Content.Shared.Abilities;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Mousetrap;
@@ -27,6 +28,9 @@ public sealed class MousetrapSystem : EntitySystem
 
     private void OnUseInHand(EntityUid uid, MousetrapComponent component, UseInHandEvent args)
     {
+        if (args.Handled)
+            return;
+
         component.IsActive = !component.IsActive;
         _popupSystem.PopupEntity(component.IsActive
             ? Loc.GetString("mousetrap-on-activate")
@@ -35,10 +39,16 @@ public sealed class MousetrapSystem : EntitySystem
             args.User);
 
         UpdateVisuals(uid);
+
+        args.Handled = true;
     }
 
     private void OnStepTriggerAttempt(EntityUid uid, MousetrapComponent component, ref StepTriggerAttemptEvent args)
     {
+        // DeltaV: Entities with this component always trigger mouse traps, even if wearing shoes
+        if (HasComp<AlwaysTriggerMousetrapComponent>(args.Tripper))
+            args.Cancelled = false;
+
         args.Continue |= component.IsActive;
     }
 

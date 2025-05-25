@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Client.Actions.UI;
 using Content.Client.Cooldown;
 using Content.Shared.Alert;
@@ -12,6 +12,8 @@ namespace Content.Client.UserInterface.Systems.Alerts.Controls
 {
     public sealed class AlertControl : BaseButton
     {
+        [Dependency] private readonly IEntityManager _entityManager = default!;
+
         public AlertPrototype Alert { get; }
 
         /// <summary>
@@ -33,8 +35,7 @@ namespace Content.Client.UserInterface.Systems.Alerts.Controls
         private (TimeSpan Start, TimeSpan End)? _cooldown;
 
         private short? _severity;
-        private readonly IGameTiming _gameTiming;
-        private readonly IEntityManager _entityManager;
+
         private readonly SpriteView _icon;
         private readonly CooldownGraphic _cooldownGraphic;
 
@@ -47,8 +48,10 @@ namespace Content.Client.UserInterface.Systems.Alerts.Controls
         /// <param name="severity">severity of alert, null if alert doesn't have severity levels</param>
         public AlertControl(AlertPrototype alert, short? severity)
         {
-            _gameTiming = IoCManager.Resolve<IGameTiming>();
-            _entityManager = IoCManager.Resolve<IEntityManager>();
+            // Alerts will handle this.
+            MuteSounds = true;
+
+            IoCManager.InjectDependencies(this);
             TooltipSupplier = SupplyTooltip;
             Alert = alert;
             _severity = severity;
@@ -69,8 +72,8 @@ namespace Content.Client.UserInterface.Systems.Alerts.Controls
 
         private Control SupplyTooltip(Control? sender)
         {
-            var msg = FormattedMessage.FromMarkup(Loc.GetString(Alert.Name));
-            var desc = FormattedMessage.FromMarkup(Loc.GetString(Alert.Description));
+            var msg = FormattedMessage.FromMarkupOrThrow(Loc.GetString(Alert.Name));
+            var desc = FormattedMessage.FromMarkupOrThrow(Loc.GetString(Alert.Description));
             return new ActionAlertTooltip(msg, desc) {Cooldown = Cooldown};
         }
 

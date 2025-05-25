@@ -8,9 +8,12 @@ using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Maps;
+using Content.Shared._DV.CosmicCult.Components; // DeltaV - Cosmic Cult
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
+using Content.Shared.Ghost;
+using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Voting;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -21,7 +24,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-
 
 namespace Content.Server.Voting.Managers
 {
@@ -38,6 +40,7 @@ namespace Content.Server.Voting.Managers
         [Dependency] private readonly IGameMapManager _gameMapManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly ISharedPlaytimeManager _playtimeManager = default!;
 
         private int _nextVoteId = 1;
 
@@ -63,7 +66,7 @@ namespace Content.Server.Voting.Managers
                 DirtyCanCallVoteAll();
             });
 
-            foreach (var kvp in _voteTypesToEnableCVars)
+            foreach (var kvp in VoteTypesToEnableCVars)
             {
                 _cfg.OnValueChanged(kvp.Value, _ =>
                 {
@@ -209,7 +212,7 @@ namespace Content.Server.Voting.Managers
             var start = _timing.RealTime;
             var end = start + options.Duration;
             var reg = new VoteReg(id, entries, options.Title, options.InitiatorText,
-                options.InitiatorPlayer, start, end);
+                options.InitiatorPlayer, start, end, options.VoterEligibility, options.DisplayVotes, options.TargetEntity);
 
             var handle = new VoteHandle(this, reg);
 
@@ -245,12 +248,24 @@ namespace Content.Server.Voting.Managers
             msg.VoteId = v.Id;
             msg.VoteActive = !v.Finished;
 
+            if (!CheckVoterEligibility(player, v.VoterEligibility))
+            {
+                msg.VoteActive = false;
+                player.Channel.SendMessage(msg);
+                return;
+            }
+
             if (!v.Finished)
             {
                 msg.VoteTitle = v.Title;
                 msg.VoteInitiator = v.InitiatorText;
                 msg.StartTime = v.StartTime;
                 msg.EndTime = v.EndTime;
+
+                if (v.TargetEntity != null)
+                {
+                    msg.TargetEntity = v.TargetEntity.Value.Id;
+                }
             }
 
             if (v.CastVotes.TryGetValue(player, out var cast))
@@ -266,11 +281,17 @@ namespace Content.Server.Voting.Managers
                 }
             }
 
+            // Admin always see the vote count, even if the vote is set to hide it.
+            if (v.DisplayVotes || _adminMgr.HasAdminFlag(player, AdminFlags.Moderator))
+            {
+                msg.DisplayVotes = true;
+            }
+
             msg.Options = new (ushort votes, string name)[v.Entries.Length];
             for (var i = 0; i < msg.Options.Length; i++)
             {
                 ref var entry = ref v.Entries[i];
-                msg.Options[i] = ((ushort) entry.Votes, entry.Text);
+                msg.Options[i] = (msg.DisplayVotes ? (ushort) entry.Votes : (ushort) 0, entry.Text);
             }
 
             player.Channel.SendMessage(msg);
@@ -326,7 +347,7 @@ namespace Content.Server.Voting.Managers
             if (!_cfg.GetCVar(CCVars.VoteEnabled))
                 return false;
             // Specific standard vote types can be disabled with cvars.
-            if (voteType != null && _voteTypesToEnableCVars.TryGetValue(voteType.Value, out var cvar) && !_cfg.GetCVar(cvar))
+            if (voteType != null && VoteTypesToEnableCVars.TryGetValue(voteType.Value, out var cvar) && !_cfg.GetCVar(cvar))
                 return false;
 
             // Cannot start vote if vote is already active (as non-admin).
@@ -362,6 +383,16 @@ namespace Content.Server.Voting.Managers
                 return;
             }
 
+            // Remove ineligible votes that somehow slipped through
+            foreach (var playerVote in v.CastVotes)
+            {
+                if (!CheckVoterEligibility(playerVote.Key, v.VoterEligibility))
+                {
+                    v.Entries[playerVote.Value].Votes -= 1;
+                    v.CastVotes.Remove(playerVote.Key);
+                }
+            }
+
             // Find winner or stalemate.
             var winners = v.Entries
                 .GroupBy(e => e.Votes)
@@ -393,6 +424,45 @@ namespace Content.Server.Voting.Managers
             v.Dirty = true;
             v.OnCancelled?.Invoke(_voteHandles[v.Id]);
             DirtyCanCallVoteAll();
+        }
+
+        public bool CheckVoterEligibility(ICommonSession player, VoterEligibility eligibility)
+        {
+            if (eligibility == VoterEligibility.All)
+                return true;
+
+            if (eligibility == VoterEligibility.Ghost || eligibility == VoterEligibility.GhostMinimumPlaytime)
+            {
+                if (!_entityManager.TryGetComponent(player.AttachedEntity, out GhostComponent? ghostComp))
+                    return false;
+
+                if (eligibility == VoterEligibility.GhostMinimumPlaytime)
+                {
+                    var playtime = _playtimeManager.GetPlayTimes(player);
+                    if (!playtime.TryGetValue(PlayTimeTrackingShared.TrackerOverall, out TimeSpan overallTime) || overallTime < TimeSpan.FromHours(_cfg.GetCVar(CCVars.VotekickEligibleVoterPlaytime)))
+                        return false;
+
+                    if ((int)_timing.RealTime.Subtract(ghostComp.TimeOfDeath).TotalSeconds < _cfg.GetCVar(CCVars.VotekickEligibleVoterDeathtime))
+                        return false;
+                }
+            }
+
+            if (eligibility == VoterEligibility.MinimumPlaytime)
+            {
+                var playtime = _playtimeManager.GetPlayTimes(player);
+                if (!playtime.TryGetValue(PlayTimeTrackingShared.TrackerOverall, out TimeSpan overallTime) || overallTime < TimeSpan.FromHours(_cfg.GetCVar(CCVars.VotekickEligibleVoterPlaytime)))
+                    return false;
+            }
+
+            // Begin DeltaV - Cosmic Cult
+            if (eligibility == VoterEligibility.CosmicCult)
+            {
+                if (!_entityManager.HasComponent<CosmicCultComponent>(player.AttachedEntity))
+                    return false;
+            }
+            // End DeltaV - Cosmic Cult
+
+            return true;
         }
 
         public IEnumerable<IVoteHandle> ActiveVotes => _voteHandles.Values;
@@ -442,6 +512,9 @@ namespace Content.Server.Voting.Managers
             public readonly TimeSpan StartTime;
             public readonly TimeSpan EndTime;
             public readonly HashSet<ICommonSession> VotesDirty = new();
+            public readonly VoterEligibility VoterEligibility;
+            public readonly bool DisplayVotes;
+            public readonly NetEntity? TargetEntity;
 
             public bool Cancelled;
             public bool Finished;
@@ -452,7 +525,7 @@ namespace Content.Server.Voting.Managers
             public ICommonSession? Initiator { get; }
 
             public VoteReg(int id, VoteEntry[] entries, string title, string initiatorText,
-                ICommonSession? initiator, TimeSpan start, TimeSpan end)
+                ICommonSession? initiator, TimeSpan start, TimeSpan end, VoterEligibility voterEligibility, bool displayVotes, NetEntity? targetEntity)
             {
                 Id = id;
                 Entries = entries;
@@ -461,6 +534,9 @@ namespace Content.Server.Voting.Managers
                 Initiator = initiator;
                 StartTime = start;
                 EndTime = end;
+                VoterEligibility = voterEligibility;
+                DisplayVotes = displayVotes;
+                TargetEntity = targetEntity;
             }
         }
 
@@ -478,6 +554,15 @@ namespace Content.Server.Voting.Managers
             }
         }
 
+        public enum VoterEligibility
+        {
+            All,
+            Ghost, // Player needs to be a ghost
+            GhostMinimumPlaytime, // Player needs to be a ghost, with a minimum playtime and deathtime as defined by votekick CCvars.
+            MinimumPlaytime, //Player needs to have a minimum playtime and deathtime as defined by votekick CCvars.
+            CosmicCult, // DeltaV - Player needs to be a cosmic cultist. Used by the cosmic cult gamemode.
+        }
+
         #endregion
 
         #region IVoteHandle API surface
@@ -492,6 +577,7 @@ namespace Content.Server.Voting.Managers
             public string InitiatorText => _reg.InitiatorText;
             public bool Finished => _reg.Finished;
             public bool Cancelled => _reg.Cancelled;
+            public IReadOnlyDictionary<ICommonSession, int> CastVotes => _reg.CastVotes;
 
             public IReadOnlyDictionary<object, int> VotesPerOption { get; }
 

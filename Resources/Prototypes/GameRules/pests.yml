@@ -1,0 +1,146 @@
+# tables
+
+- type: entityTable
+  id: CalmPestEventsTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: SnailMigrationLowPop
+    - id: CockroachMigration
+    - id: MouseMigration
+
+- type: entityTable
+  id: SpicyPestEventsTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    #- id: KingRatMigration # DeltaV - disable rat king
+    - id: SnailMigration
+
+# events
+
+- type: entity
+  id: MouseMigration
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 6
+    duration: 30 # DeltaV: was 50, used as a delay now
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-mouse-migration-result-message
+  - type: VentCrittersRule
+    min: 10 # DeltaV
+    max: 15 # DeltaV
+    playerRatio: 55 # DeltaV: Higher base values, less player scaling
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobMouse
+      - id: MobMouse1
+      - id: MobMouse2
+      - id: MobWhimperlet # DeltaV - added Whimperlet
+        weight: 0.03
+      #- id: MobMouseCancer # DeltaV - no
+# Events always spawn a critter regardless of Probability https://github.com/space-wizards/space-station-14/issues/28480 I added the Rat King to their own event with a player cap.
+
+- type: entity
+  id: KingRatMigration
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 6
+    duration: 30 # DeltaV: was 50, used as a delay now
+    minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-king-rat-migration-result-message
+  - type: VentCrittersRule
+    min: 10 # DeltaV
+    max: 20 # DeltaV
+    playerRatio: 70 # DeltaV: Mostly ignore player scaling
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobMouse
+      - id: MobMouse1
+      - id: MobMouse2
+      #- id: MobMouseCancer # DeltaV - no
+    specialEntries:
+    - id: SpawnPointGhostRatKing
+      prob: 0.001
+
+- type: entity
+  id: CockroachMigration
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 6
+    duration: 30 # DeltaV: was 50, used as a delay now
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-cockroach-migration-result-message
+  - type: VentCrittersRule
+    min: 8 # DeltaV
+    max: 20 # DeltaV
+    playerRatio: 80 # DeltaV: Mostly ignore player scaling
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobCockroach
+        weight: 0.79
+      - id: MobMothroach
+        weight: 0.21
+      - id: MobWhimperlet # DeltaV - Added Whimperlet and its weight
+        weight: 0.02
+
+- type: entity
+  id: SnailMigrationLowPop
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 6
+    duration: 30 # DeltaV: was 50, used as a delay now
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-snail-migration-result-message
+  - type: VentCrittersRule
+    min: 4 # DeltaV
+    max: 8 # DeltaV
+    playerRatio: 60 # DeltaV: Somewhat ignore player scaling
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobSnail
+      - id: MobSnailSpeed
+      - id: MobSnailMoth
+
+- type: entity
+  id: SnailMigration
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 6
+    duration: 30 # DeltaV: was 50, used as a delay now
+    minimumPlayers: 30
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-snail-migration-result-message
+  - type: VentCrittersRule
+    playerRatio: 20 # DeltaV: Snails aren't dangerous, but they should be more special
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobSnail
+        weight: 0.84
+      - id: MobSnailSpeed
+        weight: 0.08
+      - id: MobSnailMoth
+        weight: 0.08
+      #- id: MobSnailInstantDeath # DeltaV - no

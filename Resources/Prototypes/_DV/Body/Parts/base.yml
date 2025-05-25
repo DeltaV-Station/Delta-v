@@ -1,0 +1,64 @@
+- type: entity
+  abstract: true
+  id: BaseHeadDV
+  components:
+  - type: BodyPart
+    severThresholds:
+    - types:
+        Piercing: 100
+    - types:
+        Slash: 100
+    - types:
+        Blunt: 100
+
+- type: entity
+  abstract: true
+  id: BaseArmDV
+  components:
+  - type: BodyPart
+    severThresholds:
+    - types:
+        Piercing: 90
+    - types:
+        Slash: 55
+    - types:
+        Blunt: 90
+
+- type: entity
+  abstract: true
+  id: BaseHandDV
+  components:
+  - type: BodyPart
+    severThresholds:
+    - types:
+        Piercing: 90
+    - types:
+        Slash: 40
+    - types:
+        Blunt: 90
+
+- type: entity
+  abstract: true
+  id: BaseLegDV
+  components:
+  - type: BodyPart
+    severThresholds:
+    - types:
+        Piercing: 90
+    - types:
+        Slash: 80
+    - types:
+        Blunt: 90
+
+- type: entity
+  abstract: true
+  id: BaseFootDV
+  components:
+  - type: BodyPart
+    severThresholds:
+    - types:
+        Piercing: 90
+    - types:
+        Slash: 40
+    - types:
+        Blunt: 90

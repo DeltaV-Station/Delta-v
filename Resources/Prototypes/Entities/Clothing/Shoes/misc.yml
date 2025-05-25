@@ -35,8 +35,7 @@
   parent: ClothingShoesBaseButcherable
   id: ClothingShoeSlippersDuck
   name: ducky slippers
-  # description: You wish these made quacking sounds as you walked.
-  description: Comfy, yet haunted by the ghosts of ducks you fed bread to as a child.
+  description: You wish these made quacking sounds as you walked. It's a good thing they don't, though.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Misc/duck-slippers.rsi
@@ -44,14 +43,49 @@
     sprite: Clothing/Shoes/Misc/duck-slippers.rsi
   - type: FootstepModifier
     footstepSoundCollection:
-      collection: FootstepDuck
+      collection: FootstepCarpet
       params:
         variation: 0.07
-  - type: WaddleWhenWorn
+  - type: WaddleWhenWorn # DeltaV - upstream removed waddling
     tumbleIntensity: 10 # smaller than clown shoes
   - type: Construction
     graph: ClothingShoeSlippersDuck
     node: shoes
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoeSlippersLizard
+  name: lizard plushie slippers
+  description: An adorable pair of slippers that resemble a lizardperson. Combine this with some other green clothing and you'll be the coolest crewmember on the station!
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Misc/lizard-slippers.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Misc/lizard-slippers.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCarpet
+      params:
+        variation: 0.02
+  - type: WaddleWhenWorn # DeltaV - upstream removed waddling
+    tumbleIntensity: 10 # smaller than clown shoes
+  - type: Construction
+    graph: ClothingShoeSlippersLizard
+    node: shoes
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 60
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 20
+        - ReagentId: JuiceThatMakesYouWeh
+          Quantity: 20
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -91,7 +125,7 @@
   parent: [ClothingShoesBase, PowerCellSlotSmallItem, BaseToggleClothing]
   id: ClothingShoesBootsSpeed
   name: speed boots
-  description: High-tech boots woven with quantum fibers, able to convert electricity into pure speed!
+  description: High-tech boots with interwoven bluespace fibers, able to convert electricity into pure speed! # DeltaV illegal ops
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/speedboots.rsi
@@ -103,8 +137,8 @@
   - type: ToggleClothing
     action: ActionToggleSpeedBoots
   - type: ClothingSpeedModifier
-    walkModifier: 1.5
-    sprintModifier: 1.5
+    walkModifier: 1.7 # DeltaV
+    sprintModifier: 1.7 # DeltaV
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -115,7 +149,7 @@
   - type: StaticPrice
     price: 500
   - type: PowerCellDraw
-    drawRate: 4
+    drawRate: 30 # DeltaV 4>30, you have to turn off micro reactor at somepoint
   - type: ToggleCellDraw
   - type: ItemSlots
     slots:
@@ -123,10 +157,10 @@
         name: power-cell-slot-component-slot-name-default
   - type: Tag
     tags: []
-  - type: ReverseEngineering # delta
+  - type: ReverseEngineering # DeltaV
     difficulty: 4
     recipes:
-      - ClothingShoesBootsSpeed
+    - ClothingShoesBootsSpeed
 
 - type: entity
   id: ActionToggleSpeedBoots
@@ -154,3 +188,7 @@
     price: 75
   - type: Tag
     tags: [ ]
+  - type: ReverseEngineering # DeltaV: upgrade moonboots T1 to speedboots T3
+    difficulty: 5
+    recipes:
+    - ClothingShoesBootsSpeed

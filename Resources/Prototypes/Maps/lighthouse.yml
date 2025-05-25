@@ -2,14 +2,16 @@
   id: Lighthouse
   mapName: Lighthouse
   mapPath: /Maps/lighthouse.yml
-  minPlayers: 15
-  maxPlayers: 80
+  maxRandomOffset: 0
+  randomRotation: false
+  minPlayers: 20
+  maxPlayers: 65
   stations:
     Lighthouse:
       stationProto: StandardNanotrasenStation
       components:
       - type: StationEmergencyShuttle
-        emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_BC20.yml
+        emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_BC20.yml
       - type: StationNameSetup
         mapNameTemplate: '{0} Lighthouse {1}'
         nameGenerator:
@@ -17,7 +19,10 @@
           prefixCreator: '14'
       - type: StationJobs
         availableJobs:
+        #command
           Captain: [ 1, 1 ]
+          AdministrativeAssistant: [ 1, 1 ]
+          StationAi: [ 1, 1 ]
         #service
           HeadOfPersonnel: [ 1, 1 ]
           Bartender: [ 2, 4 ]
@@ -46,12 +51,14 @@
           Chemist: [ 1, 2 ]
           Paramedic: [ 1, 2 ]
           Psychologist: [ 1, 1 ]
-          MedicalDoctor: [ 3, 4 ]
+          MedicalDoctor: [ 3, 3 ]
           MedicalIntern: [ 2, 3 ]
+          Surgeon: [ 1, 2 ]
         #science
           ResearchDirector: [ 1, 1 ]
           Chaplain: [ 1, 1 ]
           ForensicMantis: [ 1, 1 ]
+          Roboticist: [ 1, 1 ]
           Scientist: [ 3, 4 ]
           ResearchAssistant: [ 2, 3 ]
           Borg: [ 1, 2 ]
@@ -67,7 +74,8 @@
           Quartermaster: [ 1, 1 ]
           Courier: [ 2, 2 ]
           SalvageSpecialist: [ 4, 4 ]
-          CargoTechnician: [ 2, 4 ]
+          CargoTechnician: [ 2, 3 ]
+          CargoAssistant: [ 2, 2 ]
         #civilian
           Passenger: [ -1, -1 ]
 

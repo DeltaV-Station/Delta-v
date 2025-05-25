@@ -18,7 +18,7 @@
     requiredLegs: 2
     gibSound: /Audio/Effects/bone_rattle.ogg
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: BiologicalMetaphysical # DeltaV
     damageModifierSet: Skeleton
   - type: DamageVisuals
     damageOverlayGroups:
@@ -40,7 +40,8 @@
         !type:DamageTrigger
         damage: 150
       behaviors:
-      - !type:GibBehavior { }
+      - !type:GibBehavior # Shitmed Change
+        gibContents: Skip # Shitmed Change
   - type: SlowOnDamage #modified speeds because they're so weak
     speedModifierThresholds:
       60: 0.9

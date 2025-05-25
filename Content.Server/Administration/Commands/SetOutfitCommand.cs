@@ -4,14 +4,20 @@ using Content.Server.Hands.Systems;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Access.Components;
 using Content.Shared.Administration;
+using Content.Shared.Clothing;
 using Content.Shared.Hands.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
+using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
+using Content.Shared.Station;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared._DV.Silicon.IPC; // DeltaV
+using Content.Shared.Radio.Components; // Goobstation
 
 namespace Content.Server.Administration.Commands
 {
@@ -82,9 +88,11 @@ namespace Content.Server.Administration.Commands
                 return false;
 
             HumanoidCharacterProfile? profile = null;
+            ICommonSession? session = null;
             // Check if we are setting the outfit of a player to respect the preferences
             if (entityManager.TryGetComponent(target, out ActorComponent? actorComponent))
             {
+                session = actorComponent.PlayerSession;
                 var userId = actorComponent.PlayerSession.UserId;
                 var preferencesManager = IoCManager.Resolve<IServerPreferencesManager>();
                 var prefs = preferencesManager.GetPreferences(userId);
@@ -128,6 +136,43 @@ namespace Content.Server.Administration.Commands
                 }
             }
 
+            // See if this starting gear is associated with a job
+            var jobs = prototypeManager.EnumeratePrototypes<JobPrototype>();
+            foreach (var job in jobs)
+            {
+                if (job.StartingGear != gear)
+                    continue;
+
+                var jobProtoId = LoadoutSystem.GetJobPrototype(job.ID);
+                if (!prototypeManager.TryIndex<RoleLoadoutPrototype>(jobProtoId, out var jobProto))
+                    break;
+
+                // Don't require a player, so this works on Urists
+                profile ??= entityManager.TryGetComponent<HumanoidAppearanceComponent>(target, out var comp)
+                    ? HumanoidCharacterProfile.DefaultWithSpecies(comp.Species)
+                    : new HumanoidCharacterProfile();
+                // Try to get the user's existing loadout for the role
+                profile.Loadouts.TryGetValue(jobProtoId, out var roleLoadout);
+
+                if (roleLoadout == null)
+                {
+                    // If they don't have a loadout for the role, make a default one
+                    roleLoadout = new RoleLoadout(jobProtoId);
+                    roleLoadout.SetDefault(profile, session, prototypeManager);
+                }
+
+                // Equip the target with the job loadout
+                var stationSpawning = entityManager.System<SharedStationSpawningSystem>();
+                stationSpawning.EquipRoleLoadout(target, roleLoadout, jobProto);
+            }
+
+            // Begin DeltaV/Goob Additions
+            if (entityManager.HasComponent<EncryptionKeyHolderComponent>(target))
+            {
+                var encryption = entityManager.System<InternalEncryptionKeySpawner>();
+                encryption.TryInsertEncryptionKey(target, startingGear);
+            }
+            // End DeltaV/Goob Additions
             return true;
         }
     }

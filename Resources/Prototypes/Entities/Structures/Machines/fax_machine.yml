@@ -34,6 +34,7 @@
     interfaces:
       enum.FaxUiKey.Key:
         type: FaxBoundUi
+  - type: StationAiWhitelist
   - type: ApcPowerReceiver
     powerLoad: 250
   - type: Faxecute
@@ -48,6 +49,8 @@
         components:
         - FaxableObject #used to be PaperComponent - brainfood1183
       blacklist:
+        components:
+        - CargoSlip
         tags:
         - PaperSlip # DeltaV - Prevent the faxing of paper slips.
   - type: GenericVisualizer
@@ -103,6 +106,7 @@
     responsePings: false
     notifyAdmins: true
   - type: Emagged
+    emagType: Interaction
 
 - type: entity
   parent: FaxMachineBase

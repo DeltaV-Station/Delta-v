@@ -1,0 +1,170 @@
+#Command
+- type: entity
+  parent: DefaultStationBeaconCommand
+  id: DefaultStationBeaconConferenceRoom
+  suffix: Conference Room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-conference-room
+
+#Medical
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconVirology
+  suffix: Virology
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-virology
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconMetempsychosis
+  suffix: Cloning #Metempsychosis
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-cloning
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconExam
+  suffix: Exam
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-exam
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconMedicalOutpost
+  suffix: Medical Outpost
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-med-outpost
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconPsychologist
+  suffix: Psych
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-psych
+
+#Epistemics
+- type: entity
+  parent: DefaultStationBeaconScience
+  id: DefaultStationBeaconProber
+  suffix: Prober
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-glimmer-prober
+
+- type: entity
+  parent: DefaultStationBeaconScience
+  id: DefaultStationBeaconMantis
+  suffix: Mantis
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-forensic-mantis
+
+#Logistics
+- type: entity
+  parent: DefaultStationBeaconSupply
+  id: DefaultStationBeaconMailroom
+  suffix: Mailroom
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-mailroom
+
+#Engineering
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconEngiOutpost
+  suffix: Engi Outpost
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-engi-outpost
+
+#Service
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconJanitorsOffice
+  suffix: Janitor's Office
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-janitor-office
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconReporter
+  suffix: Reporter
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-reporter
+
+#Surveilance
+- type: entity
+  parent: DefaultStationBeaconAI
+  id: DefaultStationBeaconCameraServerRoom
+  suffix: Camera Servers
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-camera-servers
+
+#General
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconBoxing
+  suffix: Boxing Ring
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-boxing-ring
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconPark
+  suffix: Park
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-park
+
+#Security
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconCorpsman
+  suffix: Corpsman
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-corpsman
+
+#Justice
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconJustice
+  suffix: Justice
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-justice
+    color: "#6b2833"
+
+- type: entity
+  parent: DefaultStationBeaconJustice
+  id: DefaultStationBeaconChiefJustice
+  suffix: Chief Justice
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-chiefjustice
+
+- type: entity
+  parent: DefaultStationBeaconJustice
+  id: DefaultStationBeaconProsecutor
+  suffix: Prosecutor
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-prosecutor
+
+- type: entity
+  parent: DefaultStationBeaconJustice
+  id: DefaultStationBeaconClerk
+  suffix: Clerk
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-clerk

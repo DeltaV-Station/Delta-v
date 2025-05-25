@@ -1,0 +1,32 @@
+- type: artifactEffect
+  id: EffectRaiseGlimmer
+  targetDepth: 2
+  effectHint: artifact-effect-hint-noosphere
+  components:
+  - type: GlimmerArtifact
+    range:
+      min: 0
+      max: 450 # cant instantly get ended by a looping artifact
+    change: 30
+
+- type: artifactEffect
+  id: EffectRaiseGlimmerLarge
+  targetDepth: 4
+  effectHint: artifact-effect-hint-noosphere
+  components:
+  - type: GlimmerArtifact
+    range:
+      min: 0
+      max: 700 # cant get to 1000 from a looping artifact
+    change: 70
+
+- type: artifactEffect
+  id: EffectLowerGlimmer
+  targetDepth: 4
+  effectHint: artifact-effect-hint-noosphere
+  components:
+  - type: GlimmerArtifact
+    range:
+      min: 400 # for recovering from serious glimmer emergencies, not a full drain replacement
+      max: 1000
+    change: -50

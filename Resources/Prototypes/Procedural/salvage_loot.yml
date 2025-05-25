@@ -9,8 +9,8 @@
           prob: 0.5
         - proto: AmmoTechFabCircuitboard
           cost: 2
-        - proto: AutolatheMachineCircuitboard
-          cost: 2
+        # - proto: AutolatheMachineCircuitboard # DeltaV - departamental lathes
+        #   cost: 2
         - proto: BiomassReclaimerMachineCircuitboard
           cost: 2
         - proto: BluespaceBeaker
@@ -26,7 +26,7 @@
           cost: 2
         - proto: CloningPodMachineCircuitboard
           cost: 2
-        - proto: CognizineChemistryBottle
+        - proto: ChemistryBottleCognizine
         - proto: FoodBoxDonkpocketCarp
           prob: 0.5
         - proto: CrateSalvageEquipment
@@ -45,7 +45,7 @@
           cost: 2
         - proto: NuclearBombKeg
           cost: 5
-        - proto: OmnizineChemistryBottle
+        - proto: ChemistryBottleOmnizine
           prob: 0.5
         - proto: PortableGeneratorPacman
           cost: 2
@@ -54,7 +54,7 @@
         - proto: PowerCellAntiqueProto
           cost: 5
           prob: 0.5
-        - proto: ProtolatheMachineCircuitboard
+        # - proto: ProtolatheMachineCircuitboard # DeltaV - departamental lathes
         - proto: RandomArtifactSpawner
           cost: 2
         - proto: RandomCargoCorpseSpawner
@@ -139,7 +139,7 @@
   guaranteed: true
   loots:
     - !type:BiomeMarkerLoot
-      proto: OreSalt
+      proto: OreCoal # DeltaV: replace salt with coal
 
 # - Medium value
 - type: salvageLoot

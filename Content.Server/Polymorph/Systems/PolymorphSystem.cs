@@ -2,17 +2,20 @@ using Content.Server.Actions;
 using Content.Server.Humanoid;
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
-using Content.Server.Nutrition;
 using Content.Server.Polymorph.Components;
+using Content.Shared._DV.Polymorph; // DeltaV
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
+using Content.Shared.Coordinates;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems; // DeltaV
 using Content.Shared.Destructible;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Nutrition;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Robust.Server.Audio;
@@ -28,12 +31,13 @@ namespace Content.Server.Polymorph.Systems;
 public sealed partial class PolymorphSystem : EntitySystem
 {
     [Dependency] private readonly IComponentFactory _compFact = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!; // DeltaV
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
@@ -60,8 +64,8 @@ public sealed partial class PolymorphSystem : EntitySystem
         SubscribeLocalEvent<PolymorphedEntityComponent, BeforeFullySlicedEvent>(OnBeforeFullySliced);
         SubscribeLocalEvent<PolymorphedEntityComponent, DestructionEventArgs>(OnDestruction);
 
-        InitializeCollide();
         InitializeMap();
+        InitializeTrigger();
     }
 
     public override void Update(float frameTime)
@@ -89,7 +93,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             }
         }
 
-        UpdateCollide();
+        UpdateTrigger();
     }
 
     private void OnComponentStartup(Entity<PolymorphableComponent> ent, ref ComponentStartup args)
@@ -199,7 +203,16 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         var targetTransformComp = Transform(uid);
 
+        if (configuration.PolymorphSound != null)
+            _audio.PlayPvs(configuration.PolymorphSound, targetTransformComp.Coordinates);
+
         var child = Spawn(configuration.Entity, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
+
+        if (configuration.PolymorphPopup != null)
+            _popup.PopupEntity(Loc.GetString(configuration.PolymorphPopup,
+                ("parent", Identity.Entity(uid, EntityManager)),
+                ("child", Identity.Entity(child, EntityManager))),
+                child);
 
         MakeSentientCommand.MakeSentient(child, EntityManager);
 
@@ -221,7 +234,15 @@ public sealed partial class PolymorphSystem : EntitySystem
             damage != null)
         {
             _damageable.SetDamage(child, damageParent, damage);
+
+            // DeltaV - Transfer Stamina Damage
+            var staminaDamage = _stamina.GetStaminaDamage(uid);
+            _stamina.TakeStaminaDamage(child, staminaDamage);
         }
+
+        // DeltaV - Drop MindContainer entities on polymorph
+        var beforePolymorphedEv = new BeforePolymorphedEvent();
+        RaiseLocalEvent(uid, ref beforePolymorphedEv);
 
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
         {
@@ -264,6 +285,14 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (PausedMap != null)
             _transform.SetParent(uid, targetTransformComp, PausedMap.Value);
 
+        // Raise an event to inform anything that wants to know about the entity swap
+        var ev = new PolymorphedEvent(uid, child, false);
+        RaiseLocalEvent(uid, ref ev);
+
+        // visual effect spawn
+        if (configuration.EffectProto != null)
+            SpawnAttachedTo(configuration.EffectProto, child.ToCoordinates());
+
         return child;
     }
 
@@ -288,6 +317,9 @@ public sealed partial class PolymorphSystem : EntitySystem
         var uidXform = Transform(uid);
         var parentXform = Transform(parent);
 
+        if (component.Configuration.ExitPolymorphSound != null)
+            _audio.PlayPvs(component.Configuration.ExitPolymorphSound, uidXform.Coordinates);
+
         _transform.SetParent(parent, parentXform, uidXform.ParentUid);
         _transform.SetCoordinates(parent, parentXform, uidXform.Coordinates, uidXform.LocalRotation);
 
@@ -297,6 +329,10 @@ public sealed partial class PolymorphSystem : EntitySystem
             damage != null)
         {
             _damageable.SetDamage(parent, damageParent, damage);
+
+            // DeltaV - Transfer Stamina Damage
+            var staminaDamage = _stamina.GetStaminaDamage(uid);
+            _stamina.TakeStaminaDamage(parent, staminaDamage);
         }
 
         if (component.Configuration.Inventory == PolymorphInventoryChange.Transfer)
@@ -333,10 +369,19 @@ public sealed partial class PolymorphSystem : EntitySystem
         // if an item polymorph was picked up, put it back down after reverting
         _transform.AttachToGridOrMap(parent, parentXform);
 
-        _popup.PopupEntity(Loc.GetString("polymorph-revert-popup-generic",
+        // Raise an event to inform anything that wants to know about the entity swap
+        var ev = new PolymorphedEvent(uid, parent, true);
+        RaiseLocalEvent(uid, ref ev);
+
+        // visual effect spawn
+        if (component.Configuration.EffectProto != null)
+            SpawnAttachedTo(component.Configuration.EffectProto, parent.ToCoordinates());
+
+        if (component.Configuration.ExitPolymorphPopup != null)
+            _popup.PopupEntity(Loc.GetString(component.Configuration.ExitPolymorphPopup,
                 ("parent", Identity.Entity(uid, EntityManager)),
                 ("child", Identity.Entity(parent, EntityManager))),
-            parent);
+                parent);
         QueueDel(uid);
 
         return parent;

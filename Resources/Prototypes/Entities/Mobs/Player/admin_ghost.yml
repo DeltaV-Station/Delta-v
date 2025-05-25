@@ -1,5 +1,5 @@
 - type: entity
-  parent: [MobObserver, InventoryBase]
+  parent: [MobObserverBase, InventoryBase]
   id: AdminObserver
   name: admin observer
   categories: [ HideSpawnMenu ]
@@ -10,6 +10,7 @@
       - PsionicInvisibility
       - Ghost
       - Normal
+      - CosmicCultMonument # DeltaV - Cosmic Cult
   - type: ContentEye
     maxZoom: 8.916104, 8.916104
   - type: Tag
@@ -18,6 +19,10 @@
     - CanPilot
     - BypassInteractionRangeChecks
     - BypassDropChecks
+    - NoConsoleSound
+    - SilentStorageUser
+    - PreventAccessLogging
+    - AllowBiomeLoading
   - type: Input
     context: "aghost"
   - type: Ghost
@@ -26,6 +31,7 @@
   - type: Hands
   - type: ComplexInteraction
   - type: Puller
+    needsHands: false
   - type: CombatMode
   - type: Physics
     ignorePaused: true
@@ -35,6 +41,7 @@
   - type: Access
     groups:
     - AllAccess
+    - Silicon
     tags:
     - NuclearOperative
     - SyndicateAgent
@@ -51,6 +58,10 @@
         type: CargoOrderConsoleBoundUserInterface
       enum.CrewMonitoringUIKey.Key:
         type: CrewMonitoringBoundUserInterface
+      # Begin CD - Character Records
+      enum.CharacterRecordConsoleKey.Key:
+        type: CharacterRecordConsoleBoundUserInterface
+      # End CD - Character Records
       enum.GeneralStationRecordConsoleKey.Key:
       # who the fuck named this bruh
         type: GeneralStationRecordConsoleBoundUserInterface
@@ -68,20 +79,33 @@
         toggleAction: ActionAGhostShowCrewMonitoring
       enum.GeneralStationRecordConsoleKey.Key:
         toggleAction: ActionAGhostShowStationRecords
+      # Begin CD - Character Records
+      enum.CharacterRecordConsoleKey.Key:
+        toggleAction: ActionAGhostShowCharacterRecords
+      # End CD - Character Records
   - type: SolarControlConsole # look ma i AM the computer!
   - type: CommunicationsConsole
     title: comms-console-announcement-title-centcom
-    color: "#228b22"
+    color: "#1d8bad"
+    delay: 10
+    initialDelay: 0
+    global: true
   - type: RadarConsole
     followEntity: true
   - type: CargoOrderConsole
-  - type: BankClient
   - type: CrewMonitoringConsole
+    alertsEnabled: false # DeltaV - crew monitors beeping is specific to deltaV, and we don't want it for aghost.
   - type: GeneralStationRecordConsole
     canDeleteEntries: true
+  # Begin CD - Character Records
+  - type: CharacterRecordConsole
+    consoleType: Admin
+  - type: CriminalRecordsConsole
+  # End CD - Character Records
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor
+    transmitFrequencyId: ShuttleTimer
   - type: WirelessNetworkConnection
     range: 500
   - type: StationLimitedNetwork
@@ -92,6 +116,7 @@
   - type: SolutionScanner
   - type: IgnoreUIRange
   - type: ShowAntagIcons
+  - type: ShowContrabandDetails
   - type: Inventory
     templateId: aghost
   - type: Loadout
@@ -101,7 +126,7 @@
 - type: entity
   id: ActionAGhostShowSolar
   name: Solar Control Interface
-  description: View a solar control interface.
+  description: View a Solar Control Interface.
   components:
   - type: InstantAction
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
@@ -113,31 +138,31 @@
 - type: entity
   id: ActionAGhostShowCommunications
   name: Communications Interface
-  description: View a communications interface.
+  description: View a Communications Interface.
   components:
   - type: InstantAction
-    icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
-    iconOn: Structures/Machines/parts.rsi/box_2.png
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
+    iconOn: Interface/Actions/actions_ai.rsi/comms_console.png
     keywords: [ "AI", "console", "interface" ]
-    priority: -10
+    priority: -4
     event: !type:ToggleIntrinsicUIEvent { key: enum.CommunicationsConsoleUiKey.Key }
 
 - type: entity
   id: ActionAGhostShowRadar
   name: Mass Scanner Interface
-  description: View a mass scanner interface.
+  description: View a Mass Scanner Interface.
   components:
   - type: InstantAction
-    icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
-    iconOn: Structures/Machines/parts.rsi/box_2.png
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
+    iconOn: Interface/Actions/actions_ai.rsi/mass_scanner.png
     keywords: [ "AI", "console", "interface" ]
-    priority: -10
+    priority: -6
     event: !type:ToggleIntrinsicUIEvent { key: enum.RadarConsoleUiKey.Key }
 
 - type: entity
   id: ActionAGhostShowCargo
   name: Cargo Ordering Interface
-  description: View a cargo ordering interface.
+  description: View a Cargo Ordering Interface.
   components:
   - type: InstantAction
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
@@ -149,23 +174,38 @@
 - type: entity
   id: ActionAGhostShowCrewMonitoring
   name: Crew Monitoring Interface
-  description: View a crew monitoring interface.
+  description: View a Crew Monitoring Interface.
   components:
   - type: InstantAction
-    icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
-    iconOn: Structures/Machines/parts.rsi/box_2.png
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: crew_monitor }
+    iconOn: Interface/Actions/actions_ai.rsi/crew_monitor.png
     keywords: [ "AI", "console", "interface" ]
-    priority: -10
+    priority: -8
     event: !type:ToggleIntrinsicUIEvent { key: enum.CrewMonitoringUIKey.Key }
 
 - type: entity
   id: ActionAGhostShowStationRecords
   name: Station Records Interface
-  description: View a station records Interface.
+  description: View a Station Records Interface.
+  components:
+  - type: InstantAction
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: station_records }
+    iconOn: Interface/Actions/actions_ai.rsi/station_records.png
+    keywords: [ "AI", "console", "interface" ]
+    priority: -7
+    event: !type:ToggleIntrinsicUIEvent { key: enum.GeneralStationRecordConsoleKey.Key }
+
+# Begin CD - Character Records
+- type: entity
+  id: ActionAGhostShowCharacterRecords
+  name: Character Records Interface
+  description: View all of the character records
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
     iconOn: Structures/Machines/parts.rsi/box_2.png
     keywords: [ "AI", "console", "interface" ]
     priority: -10
-    event: !type:ToggleIntrinsicUIEvent { key: enum.GeneralStationRecordConsoleKey.Key }
+    event: !type:ToggleIntrinsicUIEvent { key: enum.CharacterRecordConsoleKey.Key }
+# Edn CD - Character Records

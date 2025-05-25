@@ -15,6 +15,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared._CD.Records; // CD - Character Records
 
 namespace Content.Shared.Preferences
 {
@@ -25,8 +26,7 @@ namespace Content.Shared.Preferences
     [Serializable, NetSerializable]
     public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     {
-        private static readonly Regex RestrictedNameRegex = new("[^\\u0030-\\u0039,\\u0041-\\u005A,\\u0061-\\u007A,\\u00C0-\\u00D6,\\u00D8-\\u00F6,\\u00F8-\\u00FF,\\u0100-\\u017F, '.,-]");
-        /*
+        /* DeltaV: Completely redid the regex:
          * 0030-0039  Basic Latin: ASCII Digits
          * 0041-005A  Basic Latin: Uppercase Latin Alphabet
          * 0061-007A  Basic Latin: Lowercase Latin Alphabet
@@ -35,10 +35,8 @@ namespace Content.Shared.Preferences
          * 00F8-00FF  Latin-1 Supplement: Letters III
          * 0100-017F  Latin Extended A: European Latin
          */
+        private static readonly Regex RestrictedNameRegex = new("[^\\u0030-\\u0039,\\u0041-\\u005A,\\u0061-\\u007A,\\u00C0-\\u00D6,\\u00D8-\\u00F6,\\u00F8-\\u00FF,\\u0100-\\u017F, '.,-]");
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
-
-        public const int MaxNameLength = 32;
-        public const int MaxDescLength = 512;
 
         /// <summary>
         /// Job preferences for initial spawn.
@@ -134,6 +132,14 @@ namespace Content.Shared.Preferences
         public PreferenceUnavailableMode PreferenceUnavailable { get; private set; } =
             PreferenceUnavailableMode.SpawnAsOverflow;
 
+        // Begin CD - Character records
+        [DataField("cosmaticDriftCharacterHeight")]
+        public float Height = 1f;
+
+        [DataField("cosmaticDriftCharacterRecords")]
+        public PlayerProvidedCharacterRecords? CDCharacterRecords;
+        // End CD - Character records
+
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
@@ -147,7 +153,12 @@ namespace Content.Shared.Preferences
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
-            Dictionary<string, RoleLoadout> loadouts)
+            Dictionary<string, RoleLoadout> loadouts,
+            // Begin CD - Character Records
+            float height,
+            PlayerProvidedCharacterRecords? cdCharacterRecords
+            // End CD - Character Records
+        )
         {
             Name = name;
             FlavorText = flavortext;
@@ -162,6 +173,10 @@ namespace Content.Shared.Preferences
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
+            // Begin CD - Character Records
+            Height = height;
+            CDCharacterRecords = cdCharacterRecords;
+            // End CD - Character Records
 
             var hasHighPrority = false;
             foreach (var (key, value) in _jobPriorities)
@@ -192,7 +207,9 @@ namespace Content.Shared.Preferences
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
-                new Dictionary<string, RoleLoadout>(other.Loadouts))
+                new Dictionary<string, RoleLoadout>(other.Loadouts),
+                other.Height, // CD - Character Records
+                other.CDCharacterRecords) // CD - Character Records
         {
         }
 
@@ -240,10 +257,12 @@ namespace Content.Shared.Preferences
 
             var sex = Sex.Unsexed;
             var age = 18;
+            var height = 1f; // CD - Character Records
             if (prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
             {
                 sex = random.Pick(speciesPrototype.Sexes);
                 age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
+                // height = MathF.Round(random.NextFloat(speciesPrototype.MinHeight, speciesPrototype.MaxHeight), 2); // CD - Character Records // DeltaV - don't generate random heights
             }
 
             var gender = Gender.Epicene;
@@ -268,6 +287,7 @@ namespace Content.Shared.Preferences
                 Gender = gender,
                 Species = species,
                 Appearance = HumanoidCharacterAppearance.Random(species, sex),
+                Height = height,
             };
         }
 
@@ -311,6 +331,18 @@ namespace Content.Shared.Preferences
         {
             return new(this) { SpawnPriority = spawnPriority };
         }
+
+        // Begin CD - Character Records
+        public HumanoidCharacterProfile WithHeight(float height)
+        {
+            return new(this) { Height = height };
+        }
+
+        public HumanoidCharacterProfile WithCDCharacterRecords(PlayerProvidedCharacterRecords records)
+        {
+            return new HumanoidCharacterProfile(this) { CDCharacterRecords = records };
+        }
+        // End CD - Character Records
 
         public HumanoidCharacterProfile WithJobPriorities(IEnumerable<KeyValuePair<ProtoId<JobPrototype>, JobPriority>> jobPriorities)
         {
@@ -478,6 +510,9 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
+            if (Height != other.Height) return false; // CD
+            if (CDCharacterRecords != null && other.CDCharacterRecords != null && // CD
+               !CDCharacterRecords.MemberwiseEquals(other.CDCharacterRecords)) return false; // CD
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -516,13 +551,14 @@ namespace Content.Shared.Preferences
             };
 
             string name;
+            var maxNameLength = configManager.GetCVar(CCVars.MaxNameLength);
             if (string.IsNullOrEmpty(Name))
             {
                 name = GetName(Species, gender);
             }
-            else if (Name.Length > MaxNameLength)
+            else if (Name.Length > maxNameLength)
             {
-                name = Name[..MaxNameLength];
+                name = Name[..maxNameLength];
             }
             else
             {
@@ -548,14 +584,21 @@ namespace Content.Shared.Preferences
             }
 
             string flavortext;
-            if (FlavorText.Length > MaxDescLength)
+            var maxFlavorTextLength = configManager.GetCVar(CCVars.MaxFlavorTextLength);
+            if (FlavorText.Length > maxFlavorTextLength)
             {
-                flavortext = FormattedMessage.RemoveMarkup(FlavorText)[..MaxDescLength];
+                flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText)[..maxFlavorTextLength];
             }
             else
             {
-                flavortext = FormattedMessage.RemoveMarkup(FlavorText);
+                flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText);
             }
+
+            // Begin CD - Character Records
+            var height = Height;
+            if (speciesPrototype != null)
+                height = Math.Clamp(MathF.Round(Height, 2), speciesPrototype.MinHeight, speciesPrototype.MaxHeight);
+            // End CD - Character Records
 
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
 
@@ -625,6 +668,18 @@ namespace Content.Shared.Preferences
 
             _traitPreferences.Clear();
             _traitPreferences.UnionWith(GetValidTraits(traits, prototypeManager));
+
+            // Begin CD - Character Records
+            Height = height;
+            if (CDCharacterRecords == null)
+            {
+                CDCharacterRecords = PlayerProvidedCharacterRecords.DefaultRecords();
+            }
+            else
+            {
+                CDCharacterRecords!.EnsureValid();
+            }
+            // End CD - Character Records
 
             // Checks prototypes exist for all loadouts and dump / set to default if not.
             var toRemove = new ValueList<string>();
@@ -721,6 +776,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(Appearance);
             hashCode.Add((int)SpawnPriority);
             hashCode.Add((int)PreferenceUnavailable);
+            hashCode.Add(Height); // CD - Character Records
             return hashCode.ToHashCode();
         }
 

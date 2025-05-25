@@ -5,7 +5,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Shared.Abilities.Psionics
 {
-    [RegisterComponent]
+    [RegisterComponent, Access(typeof(SharedTelegnosisPowerSystem))]
     public sealed partial class TelegnosisPowerComponent : Component
     {
         [DataField("prototype")]

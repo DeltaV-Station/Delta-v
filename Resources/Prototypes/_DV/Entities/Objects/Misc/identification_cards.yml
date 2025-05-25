@@ -1,0 +1,521 @@
+# For prisoner job, not to be confused with genpop prisoner ids
+- type: entity
+  parent: IDCardStandard
+  id: PrisonerJobIDCard
+  name: prisoner ID card
+  suffix: Job
+  components:
+  - type: Sprite
+    layers:
+    - state: orange
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: nyanoprisoner
+  - type: PresetIdCard
+    job: Prisoner
+
+- type: entity
+  parent: IDCardStandard
+  id: GladiatorIDCard
+  name: gladiator ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: orange
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: nyanogladiator
+  - type: PresetIdCard
+    job: Gladiator
+
+- type: entity
+  parent: IDCardStandard
+  id: PrisonGuardIDCard
+  name: prison guard ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: nyanoprisonguard
+  - type: PresetIdCard
+    job: PrisonGuard
+
+- type: entity
+  parent: CourierIDCard
+  id: MailCarrierIDCard
+  name: mail carrier ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: nyanomailcarrier
+  - type: IdCard
+    jobTitle: job-alt-title-mail-carrier
+
+- type: entity
+  parent: IDCardStandard
+  id: MartialArtistIDCard
+  name: martial artist ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: nyanomartialartist
+  - type: PresetIdCard
+    job: MartialArtist
+
+- type: entity
+  parent: IDCardStandard
+  id: ForensicMantisIDCard
+  name: psionic mantis ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: nyanomantis
+  - type: PresetIdCard
+    job: ForensicMantis
+
+- type: entity
+  parent: IDCardStandard
+  id: ChiefJusticeIDCard
+  name: chief justice ID card
+  components:
+  - type: PresetIdCard
+    job: ChiefJustice
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: idchiefjustice
+
+- type: entity
+  parent: IDCardStandard
+  id: ClerkIDCard
+  name: clerk ID card
+  components:
+  - type: PresetIdCard
+    job: Clerk
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: idclerk
+
+- type: entity
+  parent: IDCardStandard
+  id: ProsecutorIDCard
+  name: presecutor ID card
+  components:
+  - type: PresetIdCard
+    job: Prosecutor
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: idprosecutor
+
+- type: entity
+  parent: IDCardStandard
+  id: CourierIDCard
+  name: courier ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: nyanomailcarrier
+  - type: PresetIdCard
+    job: Courier
+
+- type: entity
+  parent: IDCardStandard
+  id: CargoAssistantIDCard
+  name: cargo assistant ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: idcargoassistant
+  - type: PresetIdCard
+    job: CargoAssistant
+
+- type: entity
+  parent: IDCardStandard
+  id: AdminAssistantIDCard
+  name: administrative assistant ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: idadminassistant
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: AdministrativeAssistant
+
+## Alternate Job Titles
+
+# Passenger
+
+- type: entity
+  parent: PassengerIDCard
+  id: VisitorIDCardLoadout
+  name: visitor ID card
+  components:
+  - type: IdCard
+    jobTitle: job-title-visitor
+
+- type: entity
+  parent: PassengerIDCard
+  id: TouristIDCard
+  name: tourist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-tourist
+
+- type: entity
+  parent: PassengerIDCard
+  id: OffDutyCrewIDCard
+  name: off-duty crew ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-off-duty-crew
+
+- type: entity
+  parent: PassengerIDCard
+  id: StudentIDCard
+  name: student ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-student
+
+# Bartender
+
+- type: entity
+  parent: BartenderIDCard
+  id: MixologistIDCard
+  name: mixologist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-mixologist
+
+# Chef
+
+- type: entity
+  parent: ChefIDCard
+  id: BakerIDCard
+  name: baker ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-baker
+
+- type: entity
+  parent: ChefIDCard
+  id: ButcherIDCard
+  name: butcher ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-butcher
+
+- type: entity
+  parent: ChefIDCard
+  id: PizzaioloIDCard
+  name: pizzaiolo ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-pizzaiolo
+
+# Medical Intern
+
+- type: entity
+  parent: MedicalInternIDCard
+  id: PracticalNurseIDCard
+  name: practical nurse ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-practical-nurse
+
+- type: entity
+  parent: MedicalInternIDCard
+  id: ResidentIDCard
+  name: resident ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-resident
+
+# Medical Doctor
+
+- type: entity
+  parent: MedicalIDCard
+  id: ClinicianIDCard
+  name: clinician ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-clinician
+
+# Senior Physician
+
+- type: entity
+  parent: SeniorPhysicianIDCard
+  id: CryogenicsSpecialistIDCard
+  name: cryogenics specialist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-cryogenics-specialist
+
+# Psychologist
+
+- type: entity
+  parent: PsychologistIDCard
+  id: PsychiatristIDCard
+  name: psychiatrist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-psychiatrist
+
+- type: entity
+  parent: PsychologistIDCard
+  id: TherapistIDCard
+  name: therapist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-therapist
+
+- type: entity
+  parent: PsychologistIDCard
+  id: SocialWorkerIDCard
+  name: social worker ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-social-worker
+
+# Surgeon
+
+- type: entity
+  parent: MedicalIDCard
+  id: SurgeonIDCard
+  name: Surgeon ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: idsurgeon
+  - type: IdCard
+    jobTitle: job-name-surgeon
+    jobIcon: JobIconSurgeon
+
+# Atmospheric Technician
+
+- type: entity
+  parent: AtmosIDCard
+  id: LifeSupportTechIDCard
+  name: life support technician ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-life-support
+
+- type: entity
+  parent: AtmosIDCard
+  id: PlasmaScientistIDCard
+  name: plasma scientist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-plasma-scientist
+
+# Station Engineer
+
+- type: entity
+  parent: EngineeringIDCard
+  id: ElectricianIDCard
+  name: electrician ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-electrician
+
+- type: entity
+  parent: EngineeringIDCard
+  id: MechanicIDCard
+  name: mechanic ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-mechanic
+
+# Cargo Technician
+
+- type: entity
+  parent: CargoIDCard
+  id: DeckWorkerIDCard
+  name: deck worker ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-deck-worker
+
+- type: entity
+  parent: CargoIDCard
+  id: InventoryAssociateIDCard
+  name: inventory associate ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-inventory-associate
+
+# Salvage Specialist
+
+- type: entity
+  parent: SalvageIDCard
+  id: ProspectorIDCard
+  name: prospector ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-prospector
+
+- type: entity
+  parent: SalvageIDCard
+  id: ExcavatorIDCard
+  name: excavator ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-excavator
+
+# Scientist
+
+- type: entity
+  parent: ResearchIDCard
+  id: LabTechIDCard
+  name: lab technician ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-lab-technician
+
+- type: entity
+  parent: ResearchIDCard
+  id: XenoarchIDCard
+  name: xenoarchaeologist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-xenoarch
+
+- type: entity
+  parent: ResearchIDCard
+  id: RoboticistIDCard
+  name: roboticist ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idroboticist
+  - type: PresetIdCard
+    job: Roboticist
+
+# Clown
+
+- type: entity
+  parent: ClownIDCard
+  id: JesterIDCard
+  name: jester ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-jester
+
+- type: entity
+  parent: ClownIDCard
+  id: FoolIDCard
+  name: fool ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-fool
+
+# Janitor
+
+- type: entity
+  parent: JanitorIDCard
+  id: HygieneTechnicianIDCard
+  name: hygiene technician ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-hygiene-technician
+
+# Robo-Neuroticisit
+
+- type: entity
+  parent: SyndicateIDCard
+  id: RoboNeuroticistIDCard
+  name: robo-neuroticist ID card
+  components:
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+    - External
+    - Robotics
+    - Maintenance
+
+- type: entity
+  parent: IDCardStandard
+  id: ReverseAgentIDOverwiting
+  name: overwriting reverse agent ID card
+  suffix: Admin
+  description: An ID card that can replace the accesses of what it touches with the ones on the card
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: admin
+    - state: idwizard
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: green
+  - type: IdCard
+    jobTitle: job-title-admeme-overwriting
+    jobIcon: JobIconAdmin
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener
+  - type: ReverseAgentIDCard
+    overwrite: true
+  - type: MappingCategories
+    categories:
+    - Debug
+
+- type: entity
+  parent: ReverseAgentIDOverwiting
+  id: ReverseAgentIDAdding
+  name: adding reverse agent ID card
+  suffix: Admin
+  description: An ID card that can add to the accesses of what it touches with the ones on the card
+  components:
+  - type: ReverseAgentIDCard
+    overwrite: false
+  - type: IdCard
+    jobTitle: job-title-admeme-adding
+
+- type: entity
+  parent: IDCardStandard
+  id: ReverseAgentIDAccessConfigurator
+  name: access configurator reverse agent ID card
+  suffix: Admin
+  description: An ID card that can be configured as an access reader and copy its accesses to the target
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: admin
+    - state: idpassenger
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: green
+  - type: AccessReader
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener
+  - type: ReverseAgentAccessConfigurator
+  - type: MappingCategories
+    categories:
+    - Debug

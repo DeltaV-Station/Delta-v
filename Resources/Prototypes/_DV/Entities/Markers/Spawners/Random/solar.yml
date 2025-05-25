@@ -1,0 +1,15 @@
+- type: entity
+  parent: MarkerBase
+  id: RandomSolarPanelState
+  name: Random solar panel
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _DV/Structures/Power/Generation/solar_panel.rsi
+        state: random_solar
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+      - SolarPanel
+      - SolarPanelBroken
+    chance: 0.83

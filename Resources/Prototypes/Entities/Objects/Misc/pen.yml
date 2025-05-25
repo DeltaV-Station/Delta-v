@@ -42,6 +42,13 @@
     damage:
       types:
         Piercing: 3
+  - type: Tending # Shitmed
+    speed: 0.55
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
 
 #TODO: I want the luxury pen to write a cool font like Merriweather in the future.
 
@@ -59,6 +66,7 @@
 - type: entity
   id: BaseAdvancedPen
   parent: PenEmbeddable
+  abstract: true
   components:
   - type: Tag
     tags:
@@ -92,7 +100,7 @@
 
 - type: entity
   name: CentComm pen
-  parent: [BaseAdvancedPen, BaseCommandContraband]
+  parent: [BaseAdvancedPen, BaseCentcommContraband]
   id: PenCentcom
   description: In an attempt to keep up with the "power" of the cybersun bureaucracy, NT made a replica of cyber pen, in their corporate style.
   components:
@@ -118,3 +126,17 @@
   components:
   - type: Sprite
     state: pen_hop
+
+- type: entity
+  name: wizard's magical pen
+  parent: [ PenEmbeddable, BaseMagicalContraband ]
+  id: PenWiz
+  description: A luxurious fountain pen. Seems to have a magical crystal eraser.
+  components:
+  - type: Sprite
+    state: pen_wizard
+  - type: Tag
+    tags:
+    - WriteIgnoreStamps
+    - Write
+    - Pen

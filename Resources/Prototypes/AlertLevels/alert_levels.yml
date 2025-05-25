@@ -60,7 +60,7 @@
       color: DarkRed
       emergencyLightColor: Orange
       forceEnableEmergencyLights: true
-      shuttleTime: 1200
+      shuttleTime: 600 # DeltaV - let people leave
     epsilon:
       announcement: alert-level-epsilon-announcement
       selectable: false
@@ -70,3 +70,12 @@
       emergencyLightColor: DarkViolet
       forceEnableEmergencyLights: true
       shuttleTime: 1200
+    octarine: # DeltaV - Cosmic Cult
+      announcement: alert-level-octarine-announcement
+      selectable: false
+      sound: /Audio/Announcements/Alerts/code_octarine.ogg
+      disableSelection: true
+      color: CadetBlue
+      emergencyLightColor: CadetBlue
+      forceEnableEmergencyLights: true
+      shuttleTime: 600

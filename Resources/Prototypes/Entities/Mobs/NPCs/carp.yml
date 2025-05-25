@@ -13,6 +13,7 @@
       blackboard:
         NavSmash: !type:Bool
           true
+    - type: NoFriendlyFire # don't let fish hurt their dragon, and dont let sentient fish bypass FactionClothing
     - type: NpcFactionMember
       factions:
       - Dragon
@@ -22,7 +23,7 @@
       layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alive
-    - type: Carriable #DeltaV - this is for you, deltanedas o7
+    - type: Carriable # DeltaV - this is for you, deltanedas o7
     - type: CombatMode
     - type: Physics
     - type: Fixtures
@@ -40,7 +41,10 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        50: Dead
+        50: Dead # DeltaV, was 40
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2.5
+      baseSprintSpeed: 3.5
     - type: Stamina
       critThreshold: 100
     - type: DamageStateVisuals
@@ -66,8 +70,8 @@
         path: /Audio/Effects/bite.ogg
       damage:
         types:
-          Piercing: 5
-          Slash: 10
+          Piercing: 5 # DeltaV, was blunt
+          Slash: 10 # DeltaV, was 7
     - type: TypingIndicator
       proto: alien
     - type: Tag
@@ -83,6 +87,13 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
+    - type: Body # Shitmed: Special carp organs
+      prototype: Carp
+    - type: SurgeryTarget # Shitmed
+    - type: UserInterface # Shitmed
+      interfaces:
+        enum.SurgeryUIKey.Key:
+          type: SurgeryBui
 
 - type: entity
   parent: BaseMobCarp
@@ -154,6 +165,20 @@
   suffix: "Salvage Ruleset"
   components:
     - type: SalvageMobRestrictions
+    # Begin DeltaV additions: components moved from BaseMobCarp
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        50: Dead
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2.5
+      baseSprintSpeed: 3.5
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 5
+          Slash: 7
+    # End DeltaV additions
 
 - type: entity
   name: space carp
@@ -167,8 +192,10 @@
       makeSentient: true
       name: ghost-role-information-sentient-carp-name
       description: ghost-role-information-sentient-carp-description
-      raffle:
-        settings: short
+      rules: ghost-role-information-space-dragon-summoned-carp-rules
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonistFlock
+      raffle: null # DeltaV - disable raffle for fish
     - type: GhostTakeoverAvailable
     - type: HTN
       rootTask:
@@ -219,7 +246,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        180: Dead
+        150: Dead
     - type: Stamina
       critThreshold: 150
     - type: DamageStateVisuals
@@ -233,17 +260,24 @@
     - type: Body
       prototype: Bloodsucker
       requiredLegs: 1
+    - type: SurgeryTarget # Shitmed
+    - type: UserInterface # Shitmed
+      interfaces:
+        enum.SurgeryUIKey.Key:
+          type: SurgeryBui
     - type: Butcherable
       spawned:
         - id: FoodMeatFish
           amount: 4
         - id: MaterialToothSharkminnow1
+          amount: 3
+        - id: MaterialChitinSharkminnow1 # DeltaV
           amount: 1
-          maxAmount: 3
+          maxAmount: 4
     - type: MeleeWeapon
       damage:
         types:
-          Slash: 12
+          Slash: 10
           Bloodloss: 5
 
 - type: entity

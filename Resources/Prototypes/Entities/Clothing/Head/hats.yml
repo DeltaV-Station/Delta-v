@@ -22,6 +22,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -35,11 +36,12 @@
     sprite: Clothing/Head/Hats/beret_french.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_french.rsi
-  - type: AddAccentClothing
-    accent: FrenchAccent
+#  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#    accent: FrenchAccent
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable    
     - WhitelistChameleon
 
 - type: entity
@@ -49,12 +51,13 @@
   description: A stylish clothing option for security officers.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Hats/beret_security.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/beret_security.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Hats/beret_security.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/beret_security.rsi # DeltaV - resprite
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -82,6 +85,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -98,6 +102,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -116,6 +121,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -126,12 +132,13 @@
   description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Hats/beret_hos.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/beret_hos.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Hats/beret_hos.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/beret_hos.rsi # DeltaV - resprite
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -142,9 +149,9 @@
   description: A black beret with a warden's rank emblem. For officers that are more inclined towards style than safety. # DeltaV - changed description to match sprite
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Hats/beret_warden.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/beret_warden.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Hats/beret_warden.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/beret_warden.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingHeadBase
@@ -169,7 +176,7 @@
     sprite: Clothing/Head/Hats/beret_brigmedic.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ ClothingHeadBase ]
   id: ClothingHeadHatBeretMerc
   name: mercenary beret
   description: Olive beret, the badge depicts a jackal on a rock.
@@ -178,6 +185,22 @@
     sprite: Clothing/Head/Hats/beret_merc.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_merc.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretCommand
+  name: command beret
+  description: A beret with a Command insignia emblazoned on it. It has an aura of authority.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_command.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_command.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadBase
@@ -203,6 +226,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -222,7 +246,7 @@
   - type: IngestionBlocker
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ ClothingHeadBase, BaseCentcommContraband ]
   id: ClothingHeadHatCentcom
   name: CentComm brand hat
   description: "It's good to be the emperor."
@@ -259,6 +283,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -275,6 +300,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -307,12 +333,13 @@
   description: A grand, stylish head of personnel's cap.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Hats/hopcap.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/hopcap.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Hats/hopcap.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/hopcap.rsi # DeltaV - resprite
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -323,12 +350,13 @@
   description: "There's a new sheriff in station."
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Hats/hoshat.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/hoshat.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Hats/hoshat.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/hoshat.rsi # DeltaV - resprite
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -390,11 +418,12 @@
     tags:
     - WhitelistChameleon
     - ClothMade
+    - Recyclable
   - type: HideLayerClothing
-    slots:
-    - Hair
-    - HeadTop
-    - HeadSide
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
 
 - type: entity
   parent: ClothingHeadHatWizardBase
@@ -406,22 +435,37 @@
     sprite: Clothing/Head/Hats/redwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/redwizard.rsi
-  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
-    highPressureMultiplier: 0.6
-    lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    coefficient: 0.2
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ClothingHeadBase, BaseFoldable]
   id: ClothingHeadHatSantahat
   name: santa hat
-  description: A festive hat worn by Santa Claus.
+  description: A festive hat worn by Santa Claus. Now with a foldable beard.
   components:
-  - type: Sprite
-    sprite: Clothing/Head/Hats/santahat.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/santahat.rsi
+  - type: Appearance
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
+    slots: []
+  - type: Foldable
+    canFoldInsideContainer: true
+  - type: FoldableClothing
+    foldedEquippedPrefix: nobeard
+    foldedHeldPrefix: nobeard
+  - type: Sprite
+    sprite: Clothing/Head/Hats/santahat.rsi
+    layers:
+    - state: icon
+      map: ["unfoldedLayer"]
+    - state: icon-nobeard
+      map: [ "foldedLayer" ]
+      visible: true
+  
+    
 
 - type: entity
   parent: ClothingHeadBase
@@ -433,8 +477,8 @@
     sprite: Clothing/Head/Hats/sombrero.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/sombrero.rsi
-  - type: AddAccentClothing
-    accent: SpanishAccent
+#  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#    accent: SpanishAccent
 
 - type: entity
   parent: ClothingHeadBase
@@ -449,8 +493,14 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
 
 - type: entity
   parent: ClothingHeadBase
@@ -462,6 +512,11 @@
     sprite: Clothing/Head/Hats/surgcap_green.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/surgcap_green.rsi
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
 
 - type: entity
   parent: ClothingHeadBase
@@ -473,6 +528,12 @@
     sprite: Clothing/Head/Hats/surgcap_purple.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/surgcap_purple.rsi
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
+
 
 - type: entity
   parent: ClothingHeadBase
@@ -487,6 +548,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -499,8 +561,8 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/ushanka.rsi
   - type: Appearance
-  - type: AddAccentClothing
-    accent: RussianAccent
+#  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#    accent: RussianAccent
   - type: Foldable
     canFoldInsideContainer: true
   - type: FoldableClothing
@@ -515,6 +577,43 @@
       map: ["foldedLayer"]
       visible: false
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCanadaBeanie
+  name: beanie
+  description: Red, white and snug. It radiates a homely feeling, if your home happens to be chilly and filled with coffeehouses.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beanie.rsi
+    layers:
+    - state: body-icon
+    - state: cuffcrown-icon
+      color: "#a60b0b"
+    - state: pompom-icon
+      color: "#a60b0b"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: body-inhand-left
+      - state: cuffcrown-inhand-left
+        color: "#a60b0b"
+      - state: pompom-inhand-left
+        color: "#a60b0b"
+      right:
+      - state: body-inhand-right
+      - state: cuffcrown-inhand-right
+        color: "#a60b0b"
+      - state: pompom-inhand-right
+        color: "#a60b0b"
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beanie.rsi
+    clothingVisuals:
+      head:
+      - state: body-equipped-HELMET
+      - state: cuffcrown-equipped-HELMET
+        color: "#a60b0b"
+      - state: pompom-equipped-HELMET
+        color: "#a60b0b"
 
 - type: entity
   parent: ClothingHeadHatWizardBase
@@ -526,11 +625,6 @@
     sprite: Clothing/Head/Hats/violetwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/violetwizard.rsi
-  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
-    highPressureMultiplier: 0.6
-    lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    coefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
@@ -539,9 +633,9 @@
   description: The responsibility weighs heavy, like a barbed crown. # DeltaV - changed description to remove THE LAW
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Hats/warden.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/warden.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Hats/warden.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/warden.rsi # DeltaV - resprite
   - type: StealTarget
     stealGroup: ClothingHeadHatWarden
 
@@ -560,6 +654,7 @@
     tags:
     - WhitelistChameleon
     - ClothMade
+    - Recyclable
   - type: HideLayerClothing
     slots:
     - Hair
@@ -574,13 +669,23 @@
     sprite: Clothing/Head/Hats/wizard_fake.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/wizard_fake.rsi
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
 
 - type: entity
   abstract: true
-  parent: ClothingHeadBase
+  parent: [ ClothingHeadBase, BaseMagicalContraband ]
   id: ClothingHeadHatWizardBase
   components:
   - type: WizardClothes
+  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection # DeltaV
+    coolingCoefficient: 0.2
 
 - type: entity
   parent: ClothingHeadHatWizardBase
@@ -595,13 +700,9 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
-  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
-    highPressureMultiplier: 0.6
-    lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    coefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
@@ -635,6 +736,11 @@
     sprite: Clothing/Head/Hats/pyjamasyndicateblack.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/pyjamasyndicateblack.rsi
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
 
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
@@ -646,6 +752,11 @@
     sprite: Clothing/Head/Hats/pyjamasyndicatepink.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/pyjamasyndicatepink.rsi
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
 
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
@@ -657,6 +768,11 @@
     sprite: Clothing/Head/Hats/pyjamasyndicatered.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/pyjamasyndicatered.rsi
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
 
 - type: entity
   parent: ClothingHeadBase
@@ -669,6 +785,11 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/papersack.rsi
   - type: IdentityBlocker
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
 
 - type: entity
   parent: ClothingHeadBase
@@ -681,6 +802,11 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/papersacksmile.rsi
   - type: IdentityBlocker
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
 
 - type: entity
   parent: ClothingHeadBase
@@ -695,6 +821,17 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadWehcellentCap
+  name: wehcellent cap
+  description: It was a net hat! Tiders wear them all the time! It's got airholes in the back to keep a cross-breeze going and everything!
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/wehcellentcap.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/wehcellentcap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadNurseHat
   name: nurse hat
   description: Somehow I feel I'm not supposed to leave this place.
@@ -706,6 +843,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -719,6 +857,11 @@
     sprite: Clothing/Head/Hats/rasta.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/rasta.rsi
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
 
 - type: entity
   parent: ClothingHeadBase
@@ -750,6 +893,11 @@
       sprite: Clothing/Head/Hats/jester2.rsi
     - type: Clothing
       sprite: Clothing/Head/Hats/jester2.rsi
+    - type: HideLayerClothing
+      layers:
+        Hair: HEAD
+        HeadTop : HEAD
+        HeadSide : HEAD
 
 - type: entity
   parent: [ClothingHeadBase, BaseCommandContraband]
@@ -764,6 +912,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -792,6 +941,21 @@
     modifiers:
       coefficients:
         Blunt: 0.95
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHolyWatermelon
+  name: watermelon halo
+  description: Holy moly.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/holyhatmelon.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/holyhatmelon.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.95
 
 - type: entity
   parent: [ClothingHeadBase, BaseSyndicateContraband]
@@ -881,9 +1045,12 @@
     sprite: Clothing/Head/Hats/capcap.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/capcap.rsi
+  - type: Item
+    sprite: Clothing/Head/Hats/capcap.rsi
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - WhitelistChameleon
     - HamsterWearable
   - type: SentienceTarget
@@ -892,7 +1059,7 @@
   - type: BlockMovement
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ ClothingHeadBase, BaseCentcommContraband ]
   id: ClothingHeadHatCentcomcap
   name: CentComm cap
   description: An extravagant, fancy Central Commander cap.
@@ -901,9 +1068,12 @@
     sprite: Clothing/Head/Hats/comcap.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/comcap.rsi
+  - type: Item
+    sprite: Clothing/Head/Hats/comcap.rsi
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - WhitelistChameleon
     - HamsterWearable
 
@@ -917,6 +1087,11 @@
     sprite: Clothing/Head/Hats/gladiator.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/gladiator.rsi
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
 
 - type: entity
   parent: ClothingHeadBase
@@ -1012,9 +1187,9 @@
       sprite: Clothing/Head/Hats/cowboyhatbrown.rsi
     - type: Clothing
       sprite: Clothing/Head/Hats/cowboyhatbrown.rsi
-    - type: AddAccentClothing
-      accent: ReplacementAccent
-      replacement: cowboy
+#    - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#      accent: ReplacementAccent
+#      replacement: cowboy
 
 - type: entity
   parent: ClothingHeadHatCowboyBrown
@@ -1120,3 +1295,14 @@
     sprite: Clothing/Head/Hats/beret_medic.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_medic.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSolidHeadband
+  name: solid headband
+  description: "You'll feel like you're Invisible while wearing this! (DISCLAIMER: DOES NOT ACTUALLY MAKE THE WEARER INVISIBLE)"
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/solidheadband.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/solidheadband.rsi

@@ -16,6 +16,7 @@
   parent: MobRatvarBase
   id: MobRatvarSpawn
   suffix: Spawn
+  categories: [ HideSpawnMenu ] # DeltaV
   components:
   - type: Sprite
     layers:
@@ -29,6 +30,7 @@
 - type: entity
   parent: [MobRatvarBase, BaseMob]
   id: MobRatvar
+  categories: [ HideSpawnMenu ] # DeltaV
   components:
   - type: AnnounceOnSpawn
     message: ratvar-has-risen
@@ -89,6 +91,12 @@
   - type: GravityWell
     baseRadialAcceleration: 6
     maxRange: 8
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
     location: Ratvar
+    blacklist:
+      tags:
+      - GhostOnlyWarp

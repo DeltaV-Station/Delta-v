@@ -4,6 +4,7 @@ using Content.Server.Power.NodeGroups;
 using Content.Server.Tools;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
+using Content.Shared.NodeContainer;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
@@ -31,7 +32,7 @@ namespace Content.Server.Power.EntitySystems
             if (args.Handled || args.Target == null || !args.CanReach || !_toolSystem.HasQuality(args.Used, SharedToolSystem.PulseQuality))
                 return;
 
-            var markup = FormattedMessage.FromMarkup(GenerateCableMarkup(uid));
+            var markup = FormattedMessage.FromMarkupOrThrow(GenerateCableMarkup(uid));
             _examineSystem.SendExamineTooltip(args.User, uid, markup, false, false);
             args.Handled = true;
         }
@@ -56,7 +57,7 @@ namespace Content.Server.Power.EntitySystems
                     Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/zap.svg.192dpi.png")),
                     Act = () =>
                     {
-                        var markup = FormattedMessage.FromMarkup(GenerateCableMarkup(uid));
+                        var markup = FormattedMessage.FromMarkupOrThrow(GenerateCableMarkup(uid));
                         _examineSystem.SendExamineTooltip(args.User, uid, markup, false, false);
                     }
                 };

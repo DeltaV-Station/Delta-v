@@ -1,0 +1,9 @@
+- type: entity
+  parent: OrganAnimalLungs
+  id: OrganAshWalkerLungs
+  name: ashwalker lungs
+  description: These lungs are adapted from isolation in lavaland, capable of withstanding the low oxygen content and ash storms.
+  components:
+  - type: Lung
+    saturationLoss: 0.5
+  # TODO SHITMED: add AshStormImmune when transplanted

@@ -3,11 +3,11 @@
 - type: entity
   id: DelayedSmoke
   parent: BaseItem
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: delayed smoke
   suffix: "(10s)"
   components:
-  - type: Sprite #DeltaV: Apparently these want sprites, probably because they're baseitems
+  - type: Sprite # DeltaV: Apparently these want sprites, probably because they're baseitems
     sprite: /Textures/Objects/Fun/goldbikehorn.rsi
     visible: false
     state: icon
@@ -16,7 +16,7 @@
 
 - type: entity
   id: AdminInstantEffectEMP7
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   suffix: EMP, 7 meters
   parent: AdminInstantEffectBase
   components:
@@ -27,10 +27,10 @@
 - type: entity
   id: DelayedEMP
   parent: BaseItem
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: delayed EMP (7 meters)
   components:
-  - type: Sprite #DeltaV: Apparently these want sprites, probably because they're baseitems
+  - type: Sprite # DeltaV: Apparently these want sprites, probably because they're baseitems
     sprite: /Textures/Objects/Fun/goldbikehorn.rsi
     visible: false
     state: icon
@@ -64,19 +64,6 @@
         reagents:
         - ReagentId: Opporozidone
           Quantity: 15
-
-- type: entity
-  id: NecrosolChemistryBottle
-  parent: BaseChemistryBottleFilled
-  name: necrosol bottle
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Necrosol
-          Quantity: 30
 
 # Premium Alcohol: wait, it's just marketing?
 # TODO: different sprites would be nice.

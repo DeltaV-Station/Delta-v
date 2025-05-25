@@ -5,10 +5,11 @@
   icon:
     sprite: Interface/Misc/research_disciplines.rsi
     state: industrial
+  lockoutTier: 4 # DeltaV: Lockout occurs at t4
   tierPrerequisites:
     1: 0
-    2: 0.75
-    3: 0.75
+    2: 1 # DeltaV: raised to 1
+    3: 1 # DeltaV: raised to 1
 
 - type: techDiscipline
   id: Arsenal
@@ -17,10 +18,11 @@
   icon:
     sprite: Interface/Misc/research_disciplines.rsi
     state: arsenal
+  lockoutTier: 4 # DeltaV: Lockout occurs at t4
   tierPrerequisites:
     1: 0
-    2: 0.75
-    3: 0.75
+    2: 1 # DeltaV: raised to 1
+    3: 1 # DeltaV: raised to 1
 
 - type: techDiscipline
   id: Experimental
@@ -29,10 +31,11 @@
   icon:
     sprite: Interface/Misc/research_disciplines.rsi
     state: experimental
+  lockoutTier: 4 # DeltaV: Lockout occurs at t4
   tierPrerequisites:
     1: 0
-    2: 0.75
-    3: 0.75
+    2: 1 # DeltaV: raised to 1
+    3: 1 # DeltaV: raised to 1
 
 - type: techDiscipline
   id: CivilianServices
@@ -41,7 +44,8 @@
   icon:
     sprite: Interface/Misc/research_disciplines.rsi
     state: civilianservices
+  lockoutTier: 4 # DeltaV: Lockout occurs at t4
   tierPrerequisites:
     1: 0
-    2: 0.75
-    3: 0.75
+    2: 1 # DeltaV: raised to 1
+    3: 1 # DeltaV: raised to 1

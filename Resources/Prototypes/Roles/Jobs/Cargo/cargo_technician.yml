@@ -3,15 +3,20 @@
   name: job-name-cargotech
   description: job-description-cargotech
   playTimeTracker: JobCargoTechnician
+  antagAdvantage: 2 # DeltaV - Reduced TC: free shuttle, ez salvage shit, semi-free guns
   startingGear: CargoTechGear
   icon: "JobIconCargoTechnician"
   supervisors: job-supervisors-qm
   access:
   - Cargo
   - Maintenance
+  - Orders # DeltaV - Add Orders access to cargo techs.
   extendedAccess:
   - Salvage
-  - Orders # DeltaV - Orders, see Resources/Prototypes/DeltaV/Access/cargo.yml
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: BoxingDay
+    prototype: BoxCardboard
 
 - type: startingGear
   id: CargoTechGear

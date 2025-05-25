@@ -3,13 +3,11 @@
   mapName: 'Chibi'
   mapPath: /Maps/chibi.yml
   minPlayers: 0
-  maxPlayers: 10
+  maxPlayers: 4
   stations:
     Chibi:
       stationProto: StandardNanotrasenStation
       components:
-        - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Right.yml
         - type: StationNameSetup
           mapNameTemplate: '{0} Chibi Station {1}'
           nameGenerator:
@@ -30,6 +28,7 @@
             Chemist: [ 1, 1 ]
             MedicalDoctor: [ 1, 1 ]
             MedicalIntern: [ 1, 1 ]
+            Surgeon: [ 1, 1 ]
           #science
             ResearchAssistant: [ 1, 1 ]
             Scientist: [ 1, 1 ]
@@ -40,6 +39,7 @@
             Warden: [ 1, 1 ]
           #supply
             CargoTechnician: [ 1, 1 ]
+            CargoAssistant: [ 1, 1 ]
             SalvageSpecialist: [ 1, 1 ]
           #civilian
             Passenger: [ -1, -1 ]

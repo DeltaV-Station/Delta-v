@@ -6,16 +6,9 @@
     sprite: /Textures/Clothing/OuterClothing/Misc/black_hoodie.rsi
     state: icon
   content:
-  - ClothingUniformJumpsuitChameleon
-  - ClothingOuterChameleon
-  - ClothingNeckChameleon
-  - ClothingMaskGasChameleon
-  - ClothingHeadHatChameleon
-  - ClothingEyesChameleon
-  - ClothingHeadsetChameleon
-  - ClothingShoesChameleon
-  - BarberScissors
+  - ClothingBackpackChameleonFill
   - ChameleonProjector
+  - FakeMindShieldImplanter
   - AgentIDCard
 
 - type: thiefBackpackSet
@@ -32,8 +25,9 @@
   - JawsOfLife
   - RemoteSignaller
   - Multitool
-  - C4
-  - C4
+  - BreachingCharge # DeltaV (From C4 to Breaching Charge [Prevent Pacifist Implant Bypass])
+  - BreachingCharge # DeltaV (From C4 to Breaching Charge [Prevent Pacifist Implant Bypass])
+  - BreachingCharge # DeltaV (From C4 to Breaching Charge [Prevent Pacifist Implant Bypass])
 
 - type: thiefBackpackSet
   id: ChemistrySet
@@ -45,7 +39,7 @@
   content:
   - StorageImplanter
   - DnaScramblerImplanter
-  - EphedrineChemistryBottle
+  - ChemistryBottleEphedrine
   - SoapOmega
   - Syringe
   - DrinkShaker
@@ -53,7 +47,7 @@
 - type: thiefBackpackSet
   id: SyndieSet
   name: thief-backpack-category-syndie-name
-  description: thief-backpack-category-syndie-description
+  description: thief-backpack-category-syndie-description-deltav # DeltaV
   sprite:
     sprite: Objects/Specific/Syndicate/telecrystal.rsi
     state: telecrystal
@@ -61,6 +55,7 @@
   - RadioJammer
   - TraitorCodePaper
   - Emag
+  - Doorjack # DeltaV - replaces AccessBreaker
   - Lighter
   - CigPackSyndicate
   - Telecrystal10 #The thief cannot use them, but it may induce communication with traitors
@@ -73,8 +68,8 @@
     sprite: Objects/Tanks/anesthetic.rsi
     state: icon
   content:
-  - NocturineChemistryBottle
-  - NocturineChemistryBottle
+  - ChemistryBottleNocturine
+  - ChemistryBottleNocturine
   - HypopenBox
   - NitrousOxideTankFilled
 

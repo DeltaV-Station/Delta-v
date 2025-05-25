@@ -10,7 +10,9 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 28
+        Piercing: 40
+        Structural: 15
+
 
 - type: entity
   id: PelletShotgunBeanbag
@@ -26,7 +28,7 @@
       types:
         Blunt: 10
   - type: StaminaDamageOnCollide
-    damage: 40 # 3 hits to stun
+    damage: 55 # DeltaV - Modified the beanbag stamina damage, was 40.
 
 - type: entity
   id: PelletShotgun
@@ -41,6 +43,8 @@
     damage:
       types:
         Piercing: 10
+        Structural: 15
+
 
 - type: entity
   id: PelletShotgunSpread

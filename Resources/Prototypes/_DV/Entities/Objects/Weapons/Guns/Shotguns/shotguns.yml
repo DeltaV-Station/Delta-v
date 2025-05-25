@@ -1,0 +1,63 @@
+- type: entity
+  name: adjutant
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
+  id: WeaponShotgunAdjutant
+  description: Sold as a "riot" shotgun, this shotgun has a special gas-operated mechanism that makes it highly effective for CQC and suppressive fire.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
+  - type: Item
+    size: Large
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 1.5
+  - type: BallisticAmmoProvider
+    capacity: 6
+
+- type: entity
+  parent: WeaponShotgunKammerer
+  id: WeaponShotgunKammererNonLethal
+  suffix: Beanbag
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunBeanbag
+
+- type: entity
+  parent: BaseItem
+  id: WeaponRiotShotgunBorg
+  name: borg riot shotgun
+  description: A heavily modified shotgun for borgs, firing off beanbag rounds. Ammo replicates over time.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Appearance
+  - type: Item
+    size: Huge
+  - type: Gun
+    minAngle: 0
+    maxAngle: 10
+    angleIncrease: 1
+    angleDecay: 16
+    fireRate: 1.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: Battery
+    maxCharge: 400
+    startingCharge: 200
+  - type: ProjectileBatteryAmmoProvider
+    proto: PelletShotgunBeanbag
+    fireCost: 100
+  - type: AmmoCounter
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20

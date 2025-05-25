@@ -44,6 +44,9 @@ binds:
 - function: Walk
   type: State
   key: Shift
+- function: ToggleStanding
+  type: State
+  key: R
 # Shuttle
 - function: ShuttleStrafeUp
   type: State
@@ -66,7 +69,6 @@ binds:
 - function: ShuttleBrake
   type: State
   key: Space
-# Camera
 - function: CameraRotateLeft
   type: State
   key: NumpadNum7
@@ -163,6 +165,30 @@ binds:
 - function: SwapHands
   type: State
   key: X
+  # DeltaV - Begin custom keybinds
+- function: SwapHandsReversed
+  type: State
+  key: X
+  mod1: Shift
+- function: NanoChatNavigateUp
+  type: State
+  key: Up
+  mod1: Alt
+- function: NanoChatNavigateDown
+  type: State
+  key: Down
+  mod1: Alt
+- function: NanoChatNavigateUpUnread
+  type: State
+  key: Up
+  mod1: Alt
+  mod2: Shift
+- function: NanoChatNavigateDownUnread
+  type: State
+  key: Down
+  mod1: Alt
+  mod2: Shift
+  # DeltaV - End custom keybinds
 - function: MoveStoredItem
   type: State
   key: MouseLeft
@@ -240,6 +266,10 @@ binds:
 - function: OpenAHelp
   type: State
   key: F1
+- function: OpenAHelpCuratorChat # DeltaV
+  type: State
+  key: F1
+  mod1: Shift
 - function: OpenInventoryMenu
   type: State
   key: I
@@ -554,3 +584,73 @@ binds:
 - function: Hotbar9
   type: State
   key: Num9
+- function: HotbarShift0
+  type: State
+  key: Num0
+  mod1: Shift
+- function: HotbarShift1
+  type: State
+  key: Num1
+  mod1: Shift
+- function: HotbarShift2
+  type: State
+  key: Num2
+  mod1: Shift
+- function: HotbarShift3
+  type: State
+  key: Num3
+  mod1: Shift
+- function: HotbarShift4
+  type: State
+  key: Num4
+  mod1: Shift
+- function: HotbarShift5
+  type: State
+  key: Num5
+  mod1: Shift
+- function: HotbarShift6
+  type: State
+  key: Num6
+  mod1: Shift
+- function: HotbarShift7
+  type: State
+  key: Num7
+  mod1: Shift
+- function: HotbarShift8
+  type: State
+  key: Num8
+  mod1: Shift
+- function: HotbarShift9
+  type: State
+  key: Num9
+  mod1: Shift
+- function: MappingUnselect
+  type: State
+  key: MouseRight
+  canFocus: true
+- function: SaveMap
+  type: State
+  key: S
+  mod1: Control
+- function: MappingEnablePick
+  type: State
+  key: Num5
+- function: MappingEnableDelete
+  type: State
+  key: Num6
+- function: MappingPick
+  type: State
+  key: MouseLeft
+  canFocus: true
+- function: MappingRemoveDecal
+  type: State
+  key: MouseLeft
+  canFocus: true
+- function: MappingCancelEraseDecal
+  type: State
+  key: MouseRight
+  canFocus: true
+- function: MappingOpenContextMenu
+  type: State
+  key: MouseRight
+  canFocus: true

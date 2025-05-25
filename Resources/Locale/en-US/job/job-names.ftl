@@ -21,6 +21,8 @@ job-name-hop = Head of Personnel
 job-name-captain = Captain
 job-name-serviceworker = Service Worker
 job-name-centcomoff = CentComm Official
+job-name-cburn = Centcomm Quarantine Officer
+job-name-deathsquad = Centcomm Agent
 job-name-reporter = Reporter
 job-name-musician = Musician
 job-name-librarian = Librarian
@@ -32,7 +34,8 @@ job-name-janitor = Janitor
 job-name-chaplain = Chaplain
 job-name-botanist = Botanist
 job-name-bartender = Bartender
-job-name-passenger = Passenger
+# DeltaV - Changes Passenger to Assistant. job-name-passenger is used in a dozen other places as the default job so we dont want to change that overly much.
+job-name-passenger = Assistant
 job-name-salvagespec = Salvage Specialist
 job-name-station-ai = Station AI
 # DeltaV - Hopefully makes LO maintaining easier
@@ -61,6 +64,11 @@ job-name-syndicate = Syndicate
 job-name-unknown = Unknown
 job-name-virologist = Virologist
 job-name-zombie = Zombie
+
+# Job titles
+job-title-visitor = Visitor
+job-title-cluwne = Cluwne
+job-title-universal = Universal
 
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = Atmospheric Technician

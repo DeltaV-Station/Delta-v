@@ -23,6 +23,10 @@
     - Harpy
     - Oni
     - Vulpkanin
+    - Rodentia
+    - Chitinid
+    - Thaven
+    - Kitsune
     # End DeltaV additions
 
 - type: loadoutEffectGroup
@@ -71,11 +75,29 @@
     - BoxHugNitrogen
 
 # Mime
+- type: loadoutEffectGroup
+  id: OxygenBreatherMime
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Arachnid
+    - Diona
+    - Dwarf
+    - Human
+    - Reptilian
+
+- type: loadoutEffectGroup
+  id: OxygenBreatherMimeMoth
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Moth
+
 - type: loadout
   id: EmergencyOxygenMime
   effects:
   - !type:GroupLoadoutEffect
-    proto: OxygenBreather
+    proto: OxygenBreatherMime
   storage:
     back:
     - BoxMime
@@ -89,6 +111,14 @@
     back:
     - BoxMimeNitrogen
 
+- type: loadout
+  id: EmergencySpeciesMothMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreatherMimeMoth
+  storage:
+    back:
+    - BoxMimeMoth
 
 # Engineering / Extended
 - type: loadout
@@ -193,6 +223,23 @@
     proto: OxygenBreather
   equipment:
     suitstorage: OxygenTankFilled
+
+# Species-appropriate Double Emergency Tank in Pocket 1
+- type: loadout
+  id: LoadoutSpeciesPocketDoubleNitrogen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NitrogenBreather
+  equipment:
+    pocket1: DoubleEmergencyNitrogenTankFilled
+
+- type: loadout
+  id: LoadoutSpeciesPocketDoubleOxygen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreather
+  equipment:
+    pocket1: DoubleEmergencyOxygenTankFilled
 
 # Tank Harness
 - type: loadout

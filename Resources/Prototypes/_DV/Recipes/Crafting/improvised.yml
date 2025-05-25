@@ -1,0 +1,63 @@
+- type: construction
+  id: WeaponRifleMusket
+  graph: WeaponRifleMusketGraph
+  startNode: start
+  targetNode: musket
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ModularBreech
+  graph: ModularBreechGraph
+  startNode: start
+  targetNode: modularbreech
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ModularTrigger
+  graph: ModularTriggerGraph
+  startNode: start
+  targetNode: modulartrigger
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: Bayonet
+  graph: BayonetGraph
+  startNode: start
+  targetNode: bayonet
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: CartridgeMusket
+  graph: CartridgeMusketGraph
+  startNode: start
+  targetNode: musketcartridge
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: WeaponPistolFlintlockCrafted
+  graph: WeaponPistolFlintlockCraftedGraph
+  startNode: start
+  targetNode: flintlock
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: tinfoilhat
+  graph: TinfoilHat
+  startNode: start
+  targetNode: tinfoilhat
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: fishlabeler
+  graph: fishlabeler
+  startNode: start
+  targetNode: fishlabeler
+  category: construction-category-misc
+  objectType: Item

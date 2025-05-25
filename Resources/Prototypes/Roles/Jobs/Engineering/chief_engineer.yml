@@ -6,21 +6,17 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 36000 # DeltaV - 10 hours
-#    - !type:RoleTimeRequirement # DeltaV - No Station Engineer time requirement
-#      role: JobStationEngineer
-#      time: 21600 #6 hrs
+      time: 9000 #2.5 hrs
+    - !type:RoleTimeRequirement
+      role: JobStationEngineer
+      time: 18000 #5 hrs
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 90000 # DeltaV - 25 hours, was 10
-#    - !type:OverallPlaytimeRequirement
-#      time: 144000 # DeltaV - was 40 hours upstream
-    - !type:AgeRequirement
-      requiredAge: 21
+      time: 36000 #10 hrs
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
-  requireAdminNotify: true
+  requireAdminNotify: true # DeltaV
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
@@ -30,6 +26,7 @@
   - External
   - ChiefEngineer
   - Atmospherics
+  #- Brig # DeltaV - Removed brig access
   - Cryogenics
   special:
   - !type:AddImplantSpecial
@@ -37,10 +34,8 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-  - !type:AddComponentSpecial
-    components:
-    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
-      flatBonus: 0.025
+      - type: PsionicBonusChance # DeltaV - makes it more likely to become psionic.
+        flatBonus: 0.025
 
 - type: startingGear
   id: ChiefEngineerGear

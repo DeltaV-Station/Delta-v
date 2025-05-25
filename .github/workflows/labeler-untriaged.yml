@@ -11,4 +11,4 @@ jobs:
     - uses: actions-ecosystem/action-add-labels@v1
       if: join(github.event.issue.labels) == ''
       with:
-        labels: "Status: Untriaged"
+        labels: "S: Untriaged"

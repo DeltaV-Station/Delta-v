@@ -20,13 +20,10 @@
     - net_watchent
     - devwindow
     - fill
-    - dumpentities
     - ">"
     - gcf
     - gc
     - gc_mode
-    - resetent
-    - resetallents
     - cvar
     - midipanic
     - replay_recording_start
@@ -40,6 +37,7 @@
     - replay_stop
     - replay_load
     - saveconfig
+    - chatwindow
 
 - Flags: DEBUG
   Commands:
@@ -53,6 +51,8 @@
     - hidemechanisms
     - showmechanisms
     - menuvis
+    - resetent
+    - resetallents
     - showhealthbars
     - toggledecals
     - nodevis
@@ -65,14 +65,14 @@
     - showemergencyshuttle
     - zoom
     - showsubfloor
-    - showsubfloorforever
     - showmarkers
     - nodevis
     - nodevisfilter
     - detachent
     - localdelete
     - fullstatereset
-    - fuckrules
+    - dumpentities
+    - fuckrules # DeltaV: move fuckrules to DEBUG
 
 - Flags: MAPPING
   Commands:
@@ -85,3 +85,7 @@
     - uploadfile
     - loadprototype
     - uploadfolder
+
+- Flags: ADMINCHAT
+  Commands:
+    - achatwindow

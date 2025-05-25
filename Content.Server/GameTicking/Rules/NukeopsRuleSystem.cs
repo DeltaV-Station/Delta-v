@@ -1,3 +1,5 @@
+using Content.Server._DV.Objectives.Components; // DeltaV
+using Content.Server._DV.Objectives.Systems; // DeltaV
 using Content.Server.Antag;
 using Content.Server.Communications;
 using Content.Server.GameTicking.Rules.Components;
@@ -9,7 +11,6 @@ using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
-using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs;
@@ -31,13 +32,15 @@ namespace Content.Server.GameTicking.Rules;
 
 public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 {
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly KidnapHeadsConditionSystem _kidnap = default!; // DeltaV
+    [Dependency] private readonly SharedMapSystem _map = default!; // DeltaV
 
     [ValidatePrototypeId<CurrencyPrototype>]
     private const string TelecrystalCurrencyPrototype = "Telecrystal";
@@ -45,17 +48,21 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [ValidatePrototypeId<TagPrototype>]
     private const string NukeOpsUplinkTagPrototype = "NukeOpsUplink";
 
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<NukeExplodedEvent>(OnNukeExploded);
+        SubscribeLocalEvent<NukeOpsShuttleComponent, FTLCompletedEvent>(OnFTLCompleted); // DeltaV - Kidnap heads objective
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnRunLevelChanged);
         SubscribeLocalEvent<NukeDisarmSuccessEvent>(OnNukeDisarm);
 
         SubscribeLocalEvent<NukeOperativeComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<NukeOperativeComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<NukeOperativeComponent, EntityZombifiedEvent>(OnOperativeZombified);
+
+        SubscribeLocalEvent<NukeopsRoleComponent, GetBriefingEvent>(OnGetBriefing);
 
         SubscribeLocalEvent<ConsoleFTLAttemptEvent>(OnShuttleFTLAttempt);
         SubscribeLocalEvent<WarDeclaredEvent>(OnWarDeclared);
@@ -65,7 +72,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         SubscribeLocalEvent<NukeopsRuleComponent, RuleLoadedGridsEvent>(OnRuleLoadedGrids);
     }
 
-    protected override void Started(EntityUid uid, NukeopsRuleComponent component, GameRuleComponent gameRule,
+    protected override void Started(EntityUid uid,
+        NukeopsRuleComponent component,
+        GameRuleComponent gameRule,
         GameRuleStartedEvent args)
     {
         var eligible = new List<Entity<StationEventEligibleComponent, NpcFactionMemberComponent>>();
@@ -85,7 +94,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     }
 
     #region Event Handlers
-    protected override void AppendRoundEndText(EntityUid uid, NukeopsRuleComponent component, GameRuleComponent gameRule,
+    protected override void AppendRoundEndText(EntityUid uid,
+        NukeopsRuleComponent component,
+        GameRuleComponent gameRule,
         ref RoundEndTextAppendEvent args)
     {
         var winText = Loc.GetString($"nukeops-{component.WinType.ToString().ToLower()}");
@@ -99,7 +110,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         args.AddLine(Loc.GetString("nukeops-list-start"));
 
-        var antags =_antag.GetAntagIdentifiers(uid);
+        var antags = _antag.GetAntagIdentifiers(uid);
 
         foreach (var (_, sessionData, name) in antags)
         {
@@ -117,7 +128,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 if (ev.OwningStation == GetOutpost(uid))
                 {
                     nukeops.WinConditions.Add(WinCondition.NukeExplodedOnNukieOutpost);
-                    SetWinType((uid, nukeops), WinType.CrewMajor);
+                    SetWinType((uid, nukeops), WinType.CrewMajor, GameTicker.IsGameRuleActive("Nukeops")); // End the round ONLY if the actual gamemode is NukeOps.
+                    if (!GameTicker.IsGameRuleActive("Nukeops")) // End the rule if the LoneOp shuttle got nuked, because that particular LoneOp clearly failed, and should not be considered a Syndie victory even if a future LoneOp wins.
+                        GameTicker.EndGameRule(uid);
                     continue;
                 }
 
@@ -147,7 +160,57 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 nukeops.WinConditions.Add(WinCondition.NukeExplodedOnIncorrectLocation);
             }
 
-            _roundEndSystem.EndRound();
+            if (GameTicker.IsGameRuleActive("Nukeops")) // If it's Nukeops then end the round on any detonation
+            {
+                _roundEndSystem.EndRound();
+            }
+            else
+            { // It's a LoneOp. Only end the round if the station was destroyed
+                var handled = false;
+                foreach (var cond in nukeops.WinConditions)
+                {
+                    if (cond.ToString().ToLower() == "NukeExplodedOnCorrectStation") // If this is true, then the nuke destroyed the station! It's likely everyone is very dead so keeping the round going is pointless.
+                    {
+                        _roundEndSystem.EndRound(); // end the round!
+                        handled = true;
+                        break;
+                    }
+                }
+                if (!handled) // The round didn't end, so end the rule so it doesn't get overridden by future LoneOps.
+                {
+                    GameTicker.EndGameRule(uid);
+                }
+            }
+        }
+
+        _roundEndSystem.EndRound(); // DeltaV - end the round regardless of game rules
+    }
+
+    // DeltaV - Kidnap heads nukie objective
+    private void OnFTLCompleted(Entity<NukeOpsShuttleComponent> ent, ref FTLCompletedEvent args)
+    {
+        var query = QueryActiveRules();
+        while (query.MoveNext(out var uid, out _, out var nukeops, out _))
+        {
+            // Get the nukie outpost map.
+            if (!TryComp<RuleGridsComponent>(uid, out var ruleGridsComp) || ruleGridsComp.Map == null)
+                return;
+
+            // Make sure your on the same map as the nukie outposts map.
+            if (args.MapUid == _map.GetMap(ruleGridsComp.Map.Value))
+            {
+                // Now check of the kidnap heads objective is complete... (Yes this is suspect)
+                var objectives = EntityQueryEnumerator<KidnapHeadsConditionComponent>();
+                if (!objectives.MoveNext(out var objUid, out var kidnapHeads)) // No kidnap head objectives
+                    return;
+
+                if (!_kidnap.IsCompleted((objUid, kidnapHeads)))
+                    return;
+
+                nukeops.WinConditions.Add(WinCondition.NukiesKidnappedHeads);
+                SetWinType((uid, nukeops), WinType.OpsMajor);
+                _roundEndSystem.EndRound();
+            }
         }
     }
 
@@ -227,7 +290,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         // If the disk is currently at Central Command, the crew wins - just slightly.
         // This also implies that some nuclear operatives have died.
-        SetWinType(ent, diskAtCentCom
+        SetWinType(ent,
+            diskAtCentCom
             ? WinType.CrewMinor
             : WinType.OpsMinor);
         ent.Comp.WinConditions.Add(diskAtCentCom
@@ -306,7 +370,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             {
                 // Nukies must wait some time after declaration of war to get on the station
                 var warTime = Timing.CurTime.Subtract(nukeops.WarDeclaredTime.Value);
-                if (warTime < nukeops.WarNukieArriveDelay)
+                if (warTime < nukeops.WarEvacShuttleDisabled)
                 {
                     ev.Cancelled = true;
                     ev.Reason = Loc.GetString("war-ops-shuttle-call-unavailable");
@@ -405,9 +469,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     {
         var nukeops = ent.Comp;
 
-        if (nukeops.RoundEndBehavior == RoundEndBehavior.Nothing || nukeops.WinType == WinType.CrewMajor || nukeops.WinType == WinType.OpsMajor)
+        if (nukeops.WinType == WinType.CrewMajor || nukeops.WinType == WinType.OpsMajor) // Skip this if the round's victor has already been decided.
             return;
-
 
         // If there are any nuclear bombs that are active, immediately return. We're not over yet.
         foreach (var nuke in EntityQuery<NukeComponent>())
@@ -456,8 +519,16 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             : WinCondition.AllNukiesDead);
 
         SetWinType(ent, WinType.CrewMajor, false);
-        _roundEndSystem.DoRoundEndBehavior(
-            nukeops.RoundEndBehavior, nukeops.EvacShuttleTime, nukeops.RoundEndTextSender, nukeops.RoundEndTextShuttleCall, nukeops.RoundEndTextAnnouncement);
+
+        if (nukeops.RoundEndBehavior == RoundEndBehavior.Nothing) // It's still worth checking if operatives have all died, even if the round-end behaviour is nothing. 
+            return; // Shouldn't actually try to end the round in the case of nothing though.
+
+        _roundEndSystem.DoRoundEndBehavior(nukeops.RoundEndBehavior,
+        nukeops.EvacShuttleTime,
+        nukeops.RoundEndTextSender,
+        nukeops.RoundEndTextShuttleCall,
+        nukeops.RoundEndTextAnnouncement);
+
 
         // prevent it called multiple times
         nukeops.RoundEndBehavior = RoundEndBehavior.Nothing;
@@ -465,14 +536,20 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
     private void OnAfterAntagEntSelected(Entity<NukeopsRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
-        if (ent.Comp.TargetStation is not { } station)
-            return;
+        var target = (ent.Comp.TargetStation is not null) ? Name(ent.Comp.TargetStation.Value) : "the target";
 
-        _antag.SendBriefing(args.Session, Loc.GetString("nukeops-welcome",
-                ("station", station),
+        _antag.SendBriefing(args.Session,
+            Loc.GetString("nukeops-welcome",
+                ("station", target),
                 ("name", Name(ent))),
             Color.Red,
             ent.Comp.GreetSoundNotification);
+    }
+
+    private void OnGetBriefing(Entity<NukeopsRoleComponent> role, ref GetBriefingEvent args)
+    {
+        // TODO Different character screen briefing for the 3 nukie types
+        // args.Append(Loc.GetString("nukeops-briefing")); Delta-V - Nukie operations take care of this.
     }
 
     /// <remarks>

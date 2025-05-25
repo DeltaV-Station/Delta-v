@@ -12,14 +12,17 @@
     - id: ClericalError
     - id: CockroachMigration
     - id: GasLeak
+    - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
     - id: KudzuGrowth
     - id: MassHallucinations
     #- id: MimicVendorRule # DeltaV - disabled, see below
     - id: MouseMigration
     - id: PowerGridCheck
+    #- id: RandomSentience # DeltaV - replaced with RandomSentienceGlimmer
     - id: SlimesSpawn
     - id: SolarFlare
+    - id: SnakeSpawn
     - id: SpiderClownSpawn
     - id: SpiderSpawn
     - id: VentClog
@@ -34,40 +37,43 @@
     - id: DragonSpawn
     #- id: KingRatMigration # DeltaV - disabled
     - id: NinjaSpawn
+    - id: ParadoxCloneSpawn
     - id: RevenantSpawn
     - id: SleeperAgents
     - id: ZombieOutbreak
-
+    - id: LoneOpsSpawn
+    - id: DerelictCyborgSpawn
+    #- id: WizardSpawn # DeltaV - disabled until its touched up
 
 - type: entity
   id: BaseStationEvent
   parent: BaseGameRule
   abstract: true
   components:
-    - type: GameRule
-      delay:
-        min:  10
-        max:  20
+  - type: GameRule
+    delay:
+      min:  10
+      max:  20
 
 - type: entity
   id: BaseStationEventShortDelay
   parent: BaseGameRule
   abstract: true
   components:
-    - type: GameRule
-      delay:
-        min:  10
-        max:  20
+  - type: GameRule
+    delay:
+      min:  10
+      max:  20
 
 - type: entity
   id: BaseStationEventLongDelay
   parent: BaseGameRule
   abstract: true
   components:
-    - type: GameRule
-      delay:
-        min:  40
-        max:  60
+  - type: GameRule
+    delay:
+      min:  40
+      max:  60
 
 - type: entity
   id: AnomalySpawn
@@ -79,6 +85,8 @@
       path: /Audio/Announcements/announce.ogg
     weight: 12 # DeltaV - was 8
     duration: 35
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-anomaly-spawn-result-message
   - type: AnomalySpawnRule
 
 - type: entity
@@ -95,6 +103,8 @@
       path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-bluespace-artifact-result-message
   - type: BluespaceArtifactRule
 
 - type: entity
@@ -106,6 +116,8 @@
     reoccurrenceDelay: 5
     earliestStart: 1
     duration: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-bluespace-locker-result-message
   - type: BluespaceLockerRule
 
 - type: entity
@@ -116,6 +128,8 @@
     weight: 10
     duration: 1
     minimumPlayers: 15
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-breaker-flip-result-message
   - type: BreakerFlipRule
 
 - type: entity
@@ -124,10 +138,16 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-bureaucratic-error-announcement
+    startAudio: #Delta-V: Previously unheard announcer line for DeltaV's custom announcer
+      path: /Audio/Announcements/bureaucratic_error.ogg
     minimumPlayers: 25
     weight: 5
     duration: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-bureaucratic-error-result-message
   - type: BureaucraticErrorRule
+    ignoredJobs:
+    - StationAi
 
 - type: entity
   id: ClericalError
@@ -138,6 +158,8 @@
     minimumPlayers: 15
     weight: 5
     duration: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-clerical-error-result-message
   - type: ClericalErrorRule
 
 - type: entity
@@ -148,6 +170,8 @@
     weight: 8 # DeltaV - was 10
     duration: 1
     minimumPlayers: 10
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-closet-skeleton-result-message
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -156,13 +180,18 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 1 # DeltaV - was 6.5
+    weight: 2 # DeltaV - was 6.5
     earliestStart: 60 # DeltaV - was 40
     reoccurrenceDelay: 20
     minimumPlayers: 45 # DeltaV - was 20
-  - type: AntagRandomSpawn
+    duration: null
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-dragon-spawn-result-message
+  - type: SpaceSpawnRule
+    spawnDistance: 0
   - type: AntagSpawner
     prototype: MobDragon
+  - type: DragonRule
   - type: AntagObjectives
     objectives:
     - CarpRiftsObjective
@@ -174,11 +203,8 @@
       min: 1
       max: 1
       pickPlayer: false
-      mindComponents:
-      - type: DragonRole
-        prototype: Dragon
-      - type: RoleBriefing
-        briefing: dragon-role-briefing
+      mindRoles:
+      - MindRoleDragon
 
 - type: entity
   parent: BaseGameRule
@@ -190,16 +216,25 @@
     earliestStart: 30
     reoccurrenceDelay: 60 # DeltaV - was 20
     minimumPlayers: 40 # DeltaV - was 30
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-ninja-spawn-result-message
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
   - type: AntagObjectives
     objectives:
-    - StealResearchObjective
+    #- StealResearchObjective # DeltaV: Moved to random objectives
     - DoorjackObjective
     - SpiderChargeObjective
-    - TerrorObjective
-    - MassArrestObjective
+    #- TerrorObjective # DeltaV: Moved to random objectives
+    #- MassArrestObjective # DeltaV: Moved to random objectives
     - NinjaSurviveObjective
+  - type: AntagRandomObjectives # DeltaV: Random objectives for hacking and killing
+    sets:
+    - groups: NinjaHackingObjectiveGroups
+      maxPicks: 2 # only pick 2 of 3 of them to reduce metagaming
+    - groups: NinjaBonusObjectiveGroups
+      maxPicks: 2 # 2 kill or steal objectives max
+    maxDifficulty: 100 # ignore difficulty, use maxPicks instead
   - type: AntagSelection
     agentName: ninja-round-end-agent-name
     definitions:
@@ -224,24 +259,101 @@
         - DeathAcidifierImplant
       - type: RandomMetadata
         nameSegments:
-        - names_ninja_title
-        - names_ninja
-      mindComponents:
-      - type: NinjaRole
-        prototype: SpaceNinja
+        - NamesNinjaTitle
+        - NamesNinja
+        nameFormat: name-format-ninja
+      mindRoles:
+      - MindRoleNinja
+
+- type: entity
+  parent: BaseGameRule
+  id: ParadoxCloneSpawn
+  components:
+  - type: StationEvent
+    weight: 7 # DeltaV - was 4
+    duration: null
+    earliestStart: 25 # DeltaV - was 20
+    reoccurrenceDelay: 5 # DeltaV - was 20
+    minimumPlayers: 15
+  - type: ParadoxCloneRule
+    objectiveBlacklist:
+      tags:
+      - ParadoxCloneObjectiveBlacklist
+  - type: AntagObjectives
+    objectives:
+    - ParadoxAnomalyKillObjective # DeltaV - was ParadoxCloneKillObjective
+    - ParadoxAnomalyFriendObjective # DeltaV
+    - ParadoxCloneLivingObjective
+  - type: AntagRandomSpawn # TODO: improve spawning so they only start in maints
+  - type: AntagSelection
+    agentName: paradox-clone-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostParadoxClone
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: ParadoxCloneGear
+      roleLoadout:
+      - RoleSurvivalVoxTank # give vox something to breath in case they don't get a copy
+      briefing:
+        text: paradox-anomaly-role-greeting # DeltaV
+        color: lightblue
+        sound: /Audio/Misc/paradox_clone_greeting.ogg
+      mindRoles:
+      - MindRoleParadoxClone
 
 - type: entity
   parent: BaseGameRule
   id: RevenantSpawn
   components:
   - type: StationEvent
-    weight: 1 # DeltaV - was 7.5, lowered because of GlimmerRevenantSpawn event
+    weight: 2 # DeltaV - was 7.5, lowered because of GlimmerRevenantSpawn event
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-revenant-spawn-result-message
   - type: RandomSpawnRule
     prototype: MobRevenant
 
+- type: entity
+  parent: BaseWizardRule
+  id: WizardSpawn
+  components:
+  - type: StationEvent
+    weight: 1 # rare
+    duration: 1
+    earliestStart: 30
+    reoccurrenceDelay: 60
+    minimumPlayers: 10
+  - type: AntagSelection
+    agentName: wizard-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostWizard
+      min: 1
+      max: 1
+      playerRatio: 1
+      pickPlayer: false
+      startingGear: WizardBlueGear
+      roleLoadout:
+      - RoleSurvivalExtended
+      briefing:
+        text: wizard-role-greeting
+        color: Turquoise
+        # TODO: Need Wizard Start sound
+        #sound: "/Audio/Ambience/Antag/wizard_start.ogg"
+      # TODO: WizardComp as needed
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+      - type: RandomMetadata
+        nameSegments:
+        - NamesWizardFirst
+        - NamesWizardLast
+        nameFormat: name-format-wizard
+      mindRoles:
+      - MindRoleWizard
 
 # disabled until event is rewritten to be more interesting
 #- type: entity
@@ -263,6 +375,8 @@
       path: /Audio/Announcements/gas_leak.ogg # DeltaV - custom announcer
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 10 # DeltaV - was 8
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-gas-leak-result-message
   - type: GasLeakRule
 
 - type: entity
@@ -272,76 +386,11 @@
   - type: StationEvent
     earliestStart: 15
     minimumPlayers: 10 # DeltaV - Was 15
-    weight: 5 # DeltaV - was 7
+    weight: 7
     duration: 240
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-kudzu-growth-result-message
   - type: KudzuGrowthRule
-
-- type: entity
-  id: MouseMigration
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    earliestStart: 20 #DeltaV - was 15
-    weight: 5 # DeltaV - was 6
-    duration: 50
-  - type: VentCrittersRule
-    entries:
-    - id: MobMouse
-      prob: 0.02
-    - id: MobMouse1
-      prob: 0.02
-    - id: MobMouse2
-      prob: 0.02
-    #- id: MobMouseCancer
-    #  prob: 0.001
-# Events always spawn a critter regardless of Probability https://github.com/space-wizards/space-station-14/issues/28480 I added the Rat King to their own event with a player cap.
-
-# DeltaV - Rat King spawns under MidRoundAntag - Comment out Rat King from spawning with MouseMigration gamerule
-#- type: entity
-#  id: KingRatMigration
-#  parent: BaseStationEventShortDelay
-#  components:
-#  - type: StationEvent
-#    startAnnouncement: station-event-vent-creatures-start-announcement
-#    startAudio:
-#      path: /Audio/Announcements/attention.ogg
-#    earliestStart: 15
-#    weight: 6
-#    duration: 50
-#    minimumPlayers: 15 # Hopefully this is enough for the Rat King's potential Army
-#  - type: VentCrittersRule
-#    entries:
-#    - id: MobMouse
-#      prob: 0.02
-#    - id: MobMouse1
-#      prob: 0.02
-#    - id: MobMouse2
-#      prob: 0.02
-#    - id: MobMouseCancer
-#      prob: 0.001
-#    specialEntries:
-#    - id: SpawnPointGhostRatKing
-#      prob: 0.001
-
-- type: entity
-  id: CockroachMigration
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    weight: 5 # DeltaV - was 6
-    duration: 50
-  - type: VentCrittersRule
-    entries:
-    - id: MobCockroach
-      prob: 0.03
-    - id: MobMothroach
-      prob: 0.008
 
 - type: entity
   id: PowerGridCheck
@@ -354,9 +403,11 @@
     startAudio:
       path: /Audio/Announcements/power_off.ogg
       params:
-       volume: -4
+        volume: -4
     duration: 60
     maxDuration: 120
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-power-grid-check-result-message
   - type: PowerGridCheckRule
 
 - type: entity
@@ -371,6 +422,8 @@
       path: /Audio/Announcements/attention.ogg
     duration: 120
     maxDuration: 240
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-solar-flare-result-message
   - type: SolarFlareRule
     onlyJamHeadsets: true
     affectedChannels:
@@ -383,6 +436,8 @@
     - Security
     - Service
     - Supply
+    - Justice # DeltaV - Add DeltaV specific channels
+    - Prison # DeltaV - Add DeltaV specific channels
     extraCount: 3 # DeltaV - was 2
     lightBreakChancePerSecond: 0.0003
     doorToggleChancePerSecond: 0.001
@@ -399,6 +454,8 @@
     minimumPlayers: 15
     weight: 7.5 # DeltaV - was 5
     duration: 60
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-vent-clog-result-message
   - type: VentClogRule
 
 - type: entity
@@ -412,15 +469,36 @@
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
-    duration: 60
+    duration: 30 # DeltaV: was 60, used as a delay now
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-slimes-spawn-result-message
   - type: VentCrittersRule
-    entries:
-    - id: MobAdultSlimesBlueAngry
-      prob: 0.02
-    - id: MobAdultSlimesGreenAngry
-      prob: 0.02
-    - id: MobAdultSlimesYellowAngry
-      prob: 0.02
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobAdultSlimesBlueAngry
+      - id: MobAdultSlimesGreenAngry
+      - id: MobAdultSlimesYellowAngry
+
+- type: entity
+  id: SnakeSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 20
+    minimumPlayers: 15
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-snake-spawn-result-message
+  - type: VentCrittersRule
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobPurpleSnake
+      - id: MobSmallPurpleSnake
+      - id: MobCobraSpace
 
 - type: entity
   id: SpiderSpawn
@@ -433,11 +511,12 @@
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
-    duration: 60
+    duration: 30 # DeltaV: was 60, used as a delay now
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-spider-spawn-result-message
   - type: VentCrittersRule
-    entries:
-    - id: MobGiantSpiderAngry
-      prob: 0.05
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobGiantSpiderAngry
 
 - type: entity
   id: SpiderClownSpawn
@@ -450,11 +529,13 @@
     earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
-    duration: 60
+    duration: 30 # DeltaV: was 60, used as a delay now
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-spider-clown-spawn-result-message
   - type: VentCrittersRule
-    entries:
-    - id: MobClownSpider
-      prob: 0.03 # DeltaV - was 0.05
+    playerRatio: 35 # DeltaV: Clown spiders are very robust
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobClownSpider
 
 - type: entity
   id: ZombieOutbreak
@@ -462,9 +543,11 @@
   components:
   - type: StationEvent
     earliestStart: 90 # DeltaV - was 50
-    minimumPlayers: 15
-    weight: 2.5 # DeltaV - was 5
+    minimumPlayers: 40
+    weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-zombie-outbreak-result-message
   - type: ZombieRule
   - type: AntagSelection
     definitions:
@@ -486,23 +569,24 @@
       - type: ZombifyOnDeath
       - type: IncurableZombie
       - type: InitialInfected
-      mindComponents:
-      - type: InitialInfectedRole
-        prototype: InitialInfected
+      mindRoles:
+      - MindRoleInitialInfected
 
 - type: entity
   parent: BaseNukeopsRule
   id: LoneOpsSpawn
   components:
   - type: StationEvent
-    earliestStart: 60 # DeltaV - was 45
-    weight: 3.5 # DeltaV - was 5
+    earliestStart: 45 # DeltaV - was 35
+    weight: 3.5 # DeltaV - was 5.5
     minimumPlayers: 30 # DeltaV - was 20
-    reoccurrenceDelay: 30
-    duration: 1
+    reoccurrenceDelay: 30 # DeltaV
+    duration: null # LoneOpsSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end scrreen (not always "Neutral outcome!") and... ending the game if the station is nuked.
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-lone-ops-spawn-result-message
   - type: RuleGrids
   - type: LoadMapRule
-    preloadedGrid: ShuttleStriker
+    gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
   - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: AntagSelection
@@ -512,18 +596,21 @@
       max: 1
       pickPlayer: false
       startingGear: SyndicateLoneOperativeGearFull
+      roleLoadout:
+      - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Nukies are no longer targets of kill objectives, this includes lone ops.
       - type: RandomMetadata
         nameSegments:
-        - SyndicateNamesPrefix
-        - SyndicateNamesNormal
+        - NamesSyndicatePrefix
+        - NamesSyndicateNormal
+        nameFormat: name-format-nukie-generic
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: NukeopsRole
-        prototype: Nukeops
+      mindRoles:
+      - MindRoleNukeops
 
 - type: entity
   parent: BaseTraitorRule
@@ -539,6 +626,8 @@
       path: /Audio/Announcements/attention.ogg # DeltaV - Use the generic announcement sound
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-sleeper-agents-result-message
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     definitions:
@@ -549,10 +638,10 @@
       playerRatio: 10
       blacklist:
         components:
+        - MindShield # DeltaV - Mind Shielded people are immune to becoming syndicate
         - AntagImmune
-      mindComponents:
-      - type: TraitorRole
-        prototype: TraitorSleeper
+      mindRoles:
+      - MindRoleTraitorSleeper
 
 - type: entity
   id: MassHallucinations
@@ -562,6 +651,8 @@
     weight: 10
     duration: 150
     maxDuration: 300
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-mass-hallucinations-result-message
   - type: MassHallucinationsRule
     minTimeBetweenIncidents: 30 # DeltaV - was 0.1
     maxTimeBetweenIncidents: 300
@@ -575,8 +666,10 @@
   components:
   - type: StationEvent
     weight: 10
-    reoccurrenceDelay: 30 #DeltaV - Was 20 #20 mins feels too short, and can scramble borgs way too much
+    reoccurrenceDelay: 30 # DeltaV - Was 20 #20 mins feels too short, and can scramble borgs way too much
     duration: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-ion-storm-result-message
   - type: IonStormRule
 
 # DeltaV - Disable Mimic event. It causes a ton of heisentests, and does practially nothing in game
@@ -590,3 +683,58 @@
 #      maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
 #      weight: 5
 #    - type: MobReplacementRule
+
+- type: entity
+  id: GreytideVirus
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 5
+    minimumPlayers: 25
+    reoccurrenceDelay: 20
+  - type: GreytideVirusRule
+    accessGroups:
+    - Cargo
+    - Command
+    - Engineering
+    - Research
+    - Security
+    - Service
+    blacklist:
+    - External # don't space everything
+
+- type: entity
+  parent: BaseGameRule
+  id: SmugglerStashVariationPass
+  components:
+  - type: StationEvent
+    earliestStart: 0
+    duration: 1
+    minimumPlayers: 1
+    maxOccurrences: 2
+    weight: 10
+  - type: RandomSpawnRule
+    prototype: RandomSatchelSpawner
+
+- type: entity
+  parent: BaseGameRule
+  id: DerelictCyborgSpawn
+  components:
+  - type: StationEvent
+    weight: 5
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 4
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: PlayerBorgDerelict
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictCyborg
+      min: 1
+      max: 1
+      pickPlayer: false

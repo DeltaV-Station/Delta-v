@@ -6,6 +6,9 @@
   components:
     - type: SurplusBundle
       totalPrice: 50
+    - type: MappingCategories # DeltaV
+      categories:
+      - Syndicate
 
 - type: entity
   id: CrateCybersunJuggernautBundle
@@ -21,6 +24,9 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+  - type: MappingCategories # DeltaV
+    categories:
+    - Syndicate
 
 - type: entity
   id: CrateSyndicateSuperSurplusBundle
@@ -30,3 +36,6 @@
   components:
     - type: SurplusBundle
       totalPrice: 125
+    - type: MappingCategories # DeltaV
+      categories:
+      - Syndicate

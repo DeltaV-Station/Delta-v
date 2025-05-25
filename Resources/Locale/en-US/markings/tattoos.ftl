@@ -1,7 +1,7 @@
 marking-TattooHiveChest-tattoo_hive_chest = Back Tattoo (Hive)
 marking-TattooHiveChest = Back Tattoo (Hive)
 
-marking-TattooNightlingChest-tattoo_nightling = Chest Tattoo (nightling)
+marking-TattooNightlingChest-tattoo_nightling = Chest Tattoo (Nightling)
 marking-TattooNightlingChest = Chest Tattoo (Nightling)
 
 marking-TattooSilverburghLeftLeg-tattoo_silverburgh_l_leg = Left Leg Tattoo (Silverburg)
@@ -27,3 +27,9 @@ marking-TattooEyeRight = Right Eye
 
 marking-TattooEyeLeft-tattoo_eye_l = Left Eye
 marking-TattooEyeLeft = Left Eye
+
+marking-TattooEyeMothRight-tattoo_eye_moth_r = Right Eye
+marking-TattooEyeMothRight = Right Eye
+
+marking-TattooEyeMothLeft-tattoo_eye_moth_l = Left Eye
+marking-TattooEyeMothLeft = Left Eye

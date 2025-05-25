@@ -2,12 +2,13 @@ using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
+using Content.Shared.Paper;
 using static Content.Shared.Paper.PaperComponent;
 
 namespace Content.Client.Paper.UI;
 
 [UsedImplicitly]
-public sealed class PaperBoundUserInterface : BoundUserInterface
+public sealed partial class PaperBoundUserInterface : BoundUserInterface // DeltaV - made partial
 {
     [ViewVariables]
     private PaperWindow? _window;
@@ -22,7 +23,14 @@ public sealed class PaperBoundUserInterface : BoundUserInterface
 
         _window = this.CreateWindow<PaperWindow>();
         _window.OnSaved += InputOnTextEntered;
+        _window.Typing += OnTyping; // DeltaV
+        _window.SubmitPressed += OnSubmit; // DeltaV
+        _window.OnClose += OnSubmit; // DeltaV
 
+        if (EntMan.TryGetComponent<PaperComponent>(Owner, out var paper))
+        {
+            _window.MaxInputLength = paper.ContentSize;
+        }
         if (EntMan.TryGetComponent<PaperVisualsComponent>(Owner, out var visuals))
         {
             _window.InitVisuals(Owner, visuals);

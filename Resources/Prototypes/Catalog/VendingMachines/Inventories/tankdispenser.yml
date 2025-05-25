@@ -3,9 +3,12 @@
   startingInventory:
     OxygenTankFilled: 10
     NitrogenTankFilled: 10
+    WaterVaporTankFilled: 10 # DeltaV - Added water vapor tanks
 
 - type: vendingMachineInventory
   id: TankDispenserEngineeringInventory
   startingInventory:
     PlasmaTankFilled: 10
+    NitrogenTankFilled: 10
     OxygenTankFilled: 10
+    WaterVaporTankFilled: 10 # DeltaV - Added water vapor tanks

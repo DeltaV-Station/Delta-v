@@ -60,6 +60,11 @@
   - type: Body
     prototype: Rat
     requiredLegs: 1 # TODO: More than 1 leg
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -90,7 +95,9 @@
     makeSentient: true
     name: ghost-role-information-rat-king-name
     description: ghost-role-information-rat-king-description
-    rules: ghost-role-information-rat-king-rules
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -102,6 +109,7 @@
   - type: RatKing
     hungerPerArmyUse: 25
     hungerPerDomainUse: 50
+  - type: Rummager # DeltaV: Make rummaging a generic component
   - type: MobsterAccent
   - type: Speech
     speechVerb: SmallMob
@@ -113,14 +121,16 @@
     price: 2500 # rat wealth
   - type: RandomMetadata
     nameSegments:
-    - RegalRatNameKingdom
-    - RegalRatNameTitle
+    - NamesRegalratKingdom
+    - NamesRegalratTitle
+    nameFormat: name-format-regal-rat
   - type: GuideHelp
     guides:
     - MinorAntagonists
   - type: Grammar
     attributes:
       gender: male
+  - type: Sharp
   - type: PotentialPsionic # Nyano
 
 - type: entity
@@ -167,7 +177,7 @@
   description: He's da mini rat. He don't make da roolz.
   categories: [ HideSpawnMenu ] #Must be configured to a King or the AI breaks.
   components:
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
     freeHandsRequired: 1
   - type: CombatMode
   - type: MovementSpeedModifier
@@ -228,6 +238,15 @@
       0: Alive
       15: Critical
       30: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 60
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
   - type: Stamina
     critThreshold: 60
   - type: MeleeWeapon
@@ -242,6 +261,11 @@
   - type: Body
     prototype: Rat
     requiredLegs: 1 # TODO: More than 1 leg
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -301,10 +325,11 @@
 
 - type: weightedRandomEntity
   id: RatKingLoot
-  weights:
-    RandomSpawner100: 66 #garbage
-    FoodCheese: 28 #food
-    IngotGold1: 5 #loot
+  weights: # DeltaV: Rebalanced for Rodentia rummaging because we don't have Rat King
+    RandomSpawner100: 70 #garbage
+    FoodCheeseSlice: 15 #food
+    RandomSnacks: 10
+    RandomFoodSingle: 5
 
 - type: entity
   id: ActionRatKingRaiseArmy
