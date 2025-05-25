@@ -13,7 +13,6 @@
     Telecrystal: 4 # DeltaV - was 3
   categories:
   - UplinkWeaponry
-  reputation: 40 # DeltaV - Sidearm reputation
 
 - type: listing
   id: UplinkRevolverPython
@@ -27,7 +26,6 @@
     Telecrystal: 6 # DeltaV - was 4
   categories:
   - UplinkWeaponry
-  reputation: 40 # DeltaV - Sidearm reputation
 
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
@@ -42,7 +40,6 @@
     Telecrystal: 6 # DeltaV - was 4
   categories:
   - UplinkWeaponry
-  reputation: 45 # DeltaV - Sidearm reputation
 
 # Poor accuracy, slow to fire, cheap option
 - type: listing
@@ -68,7 +65,6 @@
     Telecrystal: 8
   categories:
   - UplinkWeaponry
-  reputation: 30 # DeltaV - Melee weapons reputation
 
 - type: listing
   id: UplinkEnergyDagger
@@ -83,7 +79,6 @@
     Telecrystal: 2
   categories:
   - UplinkWeaponry
-  reputation: 10 # DeltaV - Melee weapons reputation, smaller
 
 - type: listing
   id: UplinkThrowingKnivesKit
@@ -98,7 +93,6 @@
     Telecrystal: 4 # DeltaV - was 6
   categories:
     - UplinkWeaponry
-  reputation: 20 # DeltaV - Melee weapons reputation
 
 - type: listing
   id: UplinkGlovesNorthStar
@@ -112,7 +106,6 @@
     Telecrystal: 8
   categories:
   - UplinkWeaponry
-  reputation: 30 # DeltaV - Melee weapons reputation
 
 - type: listing
   id: UplinkGlovesKnuckleDusters
@@ -140,7 +133,6 @@
     Telecrystal: 6
   categories:
   - UplinkWeaponry
-  reputation: 40 # DeltaV - Sidearms(???) reputation
   conditions:
     - !type:StoreWhitelistCondition
       blacklist:
@@ -160,7 +152,6 @@
     Telecrystal: 16 # DeltaV - Was 8
   categories:
   - UplinkWeaponry
-  reputation: 40 # DeltaV - Sidearms(?????) reputation
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -175,12 +166,11 @@
   productEntity: BriefcaseSyndieSniperBundleFilled
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 6
+    Telecrystal: 5 # DeltaV - was 6
   cost:
-    Telecrystal: 12
+    Telecrystal: 10 # DeltaV - was 12 changed because the Hristov is REALLY bad
   categories:
   - UplinkWeaponry
-  reputation: 60 # DeltaV - Long Arms reputation
 
 - type: listing
   id: UplinkC20RBundle
@@ -195,7 +185,6 @@
     Telecrystal: 20 # DeltaV - was 17
   categories:
   - UplinkWeaponry
-  reputation: 60 # DeltaV - Long Arms reputation
 
 - type: listing
   id: UplinkBulldogBundle
@@ -210,7 +199,6 @@
     Telecrystal: 22 # DeltaV - was 20
   categories:
   - UplinkWeaponry
-  reputation: 60 # DeltaV - Long Arms reputation
 
 - type: listing
   id: UplinkGrenadeLauncherBundle
@@ -225,7 +213,6 @@
     Telecrystal: 40 # DeltaV - Was 25
   categories:
   - UplinkWeaponry
-  reputation: 95 # DeltaV - High Power Weapons reputation
 
 - type: listing
   id: UplinkL6SawBundle
@@ -240,7 +227,6 @@
     Telecrystal: 28 # DeltaV - Was 12
   categories:
   - UplinkWeaponry
-  reputation: 80 # DeltaV - High Power Weapons reputation
 
 # Explosives
 
@@ -256,7 +242,6 @@
     Telecrystal: 2 # DeltaV - was 4
   categories:
   - UplinkExplosives
-  reputation: 40 # DeltaV - Explosives reputation
 
 - type: listing
   id: UplinkExplosiveGrenadeFlash
@@ -290,7 +275,6 @@
     Telecrystal: 6
   categories:
     - UplinkExplosives
-  reputation: 50 # DeltaV - Explosives reputation
 
 - type: listing
   id: UplinkSingularityGrenade
@@ -304,7 +288,6 @@
     Telecrystal: 6 # DeltaV - was 2, this is explosive now
   categories:
     - UplinkExplosives # DeltaV - this is explosive here
-  reputation: 55 # DeltaV - Explosives reputation
 
 - type: listing
   id: UplinkWhiteholeGrenade
@@ -318,7 +301,6 @@
     Telecrystal: 2
   categories:
     - UplinkDisruption
-  reputation: 40 # DeltaV - Explosives reputation
 
 - type: listing
   id: UplinkGrenadePenguin
@@ -332,7 +314,6 @@
     Telecrystal: 6 # DeltaV - was 5
   categories:
     - UplinkExplosives
-  reputation: 40 # DeltaV - Explosives reputation
   conditions:
   - !type:BuyerWhitelistCondition
     blacklist:
@@ -351,7 +332,6 @@
     Telecrystal: 2
   categories:
   - UplinkExplosives
-  reputation: 20 # DeltaV - Explosives reputation, less so you can sabotage things
 
 - type: listing
   id: UplinkGrenadierRig
@@ -383,7 +363,6 @@
     Telecrystal: 12 #you're buying bulk so its a 25% discount, so no additional random discount over it
   categories:
   - UplinkExplosives
-  reputation: 65 # DeltaV - More Powerful Explosions reputation
 
 - type: listing
   id: UplinkEmpGrenade
@@ -397,7 +376,6 @@
     Telecrystal: 2
   categories:
   - UplinkExplosives
-  reputation: 10 # DeltaV
 
 - type: listing
   id: UplinkExplodingPen
@@ -412,7 +390,6 @@
     Telecrystal: 3 # DeltaV - was 4
   categories:
   - UplinkExplosives
-  reputation: 40 # DeltaV - Explosives reputation
 
 - type: listing
   id: UplinkSyndicateBomb
@@ -424,7 +401,6 @@
   categories:
     - UplinkExplosives
   restockTime: 1800
-  reputation: 75 # DeltaV - More Powerful Explosions reputation
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
@@ -458,7 +434,6 @@
     Telecrystal: 6 # DeltaV - was 8
   categories:
   - UplinkExplosives
-  reputation: 45 # DeltaV - Explosives reputation
 
 - type: listing
   id: UplinkGrenadeShrapnel
@@ -472,7 +447,6 @@
     Telecrystal: 3 # DeltaV - was 4
   categories:
   - UplinkExplosives
-  reputation: 45 # DeltaV - Explosives reputation
 
 - type: listing
   id: UplinkGrenadeIncendiary
@@ -486,7 +460,6 @@
     Telecrystal: 4
   categories:
   - UplinkExplosives
-  reputation: 45 # DeltaV - Explosives reputation
 
 - type: listing
   id: UplinkEmpKit
@@ -498,7 +471,6 @@
     Telecrystal: 3 # DeltaV - was 4
   cost:
     Telecrystal: 5 # DeltaV - was 6
-  reputation: 40 # DeltaV - Explosives reputation
   categories:
     - UplinkExplosives
 
@@ -607,7 +579,6 @@
     Telecrystal: 8 # DeltaV - was 6
   categories:
   - UplinkChemicals
-  reputation: 25 # DeltaV - Chemicals reputation
 
 - type: listing
   id: UplinkHypoDart
@@ -622,7 +593,6 @@
     Telecrystal: 1 # DeltaV - was 2
   categories:
   - UplinkChemicals
-  reputation: 20 # DeltaV - Chemicals reputation
 
 - type: listing
   id: UplinkChemistryKitBundle
@@ -637,7 +607,6 @@
     Telecrystal: 4
   categories:
   - UplinkChemicals
-  reputation: 20 # DeltaV - Chemicals reputation
 
 - type: listing
   id: UplinkZombieBundle
@@ -671,7 +640,6 @@
     Telecrystal: 6
   categories:
   - UplinkChemicals
-  reputation: 25 # DeltaV - Chemicals reputation
 
 - type: listing
   id: UplinkCombatMedkit
@@ -685,7 +653,6 @@
     Telecrystal: 5
   categories:
   - UplinkChemicals
-  reputation: 20 # DeltaV - Chemicals reputation
 
 - type: listing
   id: UplinkCombatMedipen
@@ -699,7 +666,6 @@
     Telecrystal: 3 # DeltaV - was 4
   categories:
   - UplinkChemicals
-  reputation: 20 # DeltaV - Chemicals reputation
 
 - type: listing
   id: UplinkStimpack
@@ -713,7 +679,6 @@
     Telecrystal: 3 # DeltaV - was 4
   categories:
   - UplinkChemicals
-  reputation: 20 # DeltaV - Chemicals reputation
 
 - type: listing
   id: UplinkStimkit
@@ -727,7 +692,6 @@
     Telecrystal: 10 # DeltaV - was 12
   categories:
   - UplinkChemicals
-  reputation: 35 # DeltaV - Chemicals reputation
 
 - type: listing
   id: UplinkCigarettes
@@ -802,7 +766,7 @@
   categories:
   - UplinkDeception
 
-# DeltaV - replaced by syndicate radio implant
+# Delta-V: replaced by syndicate radio implant
 #- type: listing
 #  id: UplinkHeadsetEncryptionKey
 #  name: uplink-encryption-key-name
@@ -834,7 +798,6 @@
     Telecrystal: 1
   categories:
   - UplinkDeception
-  reputation: 5 # DeltaV - Melee weapon but also its a damn pen
 
 - type: listing
   id: UplinkDecoyDisk
@@ -871,7 +834,6 @@
     Telecrystal: 4
   categories:
     - UplinkDeception
-  reputation: 15 # DeltaV - Money is expensive? no bribing fresh out of cryo
 
 # - type: listing
 #   id: UplinkGigacancerScanner
@@ -909,7 +871,6 @@
     Telecrystal: 3 # DeltaV - was 4
   categories:
   - UplinkDeception
-  reputation: 40 # DeltaV - Explosives, to not have fake syndie bombs 5 minutes into the round
 
 # Disruption
 
@@ -939,7 +900,6 @@
     Telecrystal: 4 # DeltaV - was 5
   categories:
   - UplinkDisruption
-  reputation: 10 # DeltaV - it's iconic...
 
 - type: listing
   id: UplinkRadioJammer
@@ -966,7 +926,6 @@
     Telecrystal: 5
   categories:
   - UplinkDisruption
-  reputation: 40 # DeltaV - Side Arms reputation
 
 - type: listing
   id: UplinkSyndicateMartyrModule
@@ -981,7 +940,6 @@
     Telecrystal: 4
   categories:
     - UplinkDisruption
-  reputation: 60 # DeltaV - More Powerful Explosions reputation
 
 - type: listing
   id: UplinkSoapSyndie
@@ -1005,7 +963,6 @@
     Telecrystal: 2
   categories:
   - UplinkDisruption
-  reputation: 5 # DeltaV - do 1 task before you get super soap
 
 - type: listing
   id: UplinkToolbox
@@ -1059,7 +1016,6 @@
     Telecrystal: 5 # DeltaV - was 8
   categories:
   - UplinkDisruption
-  reputation: 50 # DeltaV - Explosives reputation
   conditions:
   - !type:BuyerWhitelistCondition
       blacklist:
@@ -1078,7 +1034,6 @@
     Telecrystal: 7 # DeltaV: was 14
   categories:
   - UplinkDisruption
-  reputation: 80 # DeltaV - Station Destructive Items reputation
   conditions:
   - !type:StoreWhitelistCondition
      blacklist:
@@ -1168,12 +1123,20 @@
   productEntity: SingularityBeacon
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 10 # DeltaV - was 4
+    Telecrystal: 4
   cost:
-    Telecrystal: 16 # DeltaV - was 12
+    Telecrystal: 12
   categories:
     - UplinkDisruption
-  reputation: 85 # DeltaV - Station Destructive Items reputation
+  conditions: # DeltaV - Blacklists from traitor uplink and removes from surplus bundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 # DeltaV: disabled in favour of observation kit
 #- type: listing
@@ -1206,7 +1169,6 @@
     blacklist:
       tags:
       - NukeOpsUplink
-  reputation: 50 # DeltaV - Allies reputation
 
 - type: listing
   id: UplinkReinforcementRadioSyndicate
@@ -1221,7 +1183,6 @@
     Telecrystal: 10 # DeltaV - was 14
   categories:
   - UplinkAllies
-  reputation: 45 # DeltaV - Allies reputation
   conditions:
     - !type:StoreWhitelistCondition
       blacklist:
@@ -1273,7 +1234,6 @@
     Telecrystal: 6
   categories:
   - UplinkAllies
-  reputation: 30 # DeltaV - Allies reputation, but it's a monkey so less
   conditions:
     - !type:StoreWhitelistCondition
       blacklist:
@@ -1330,7 +1290,6 @@
 #    Telecrystal: 6
 #  categories:
 #    - UplinkAllies
-#  reputation: 40 # DeltaV - Allies reputation
 
 - type: listing
   id: UplinkSyndicatePersonalAI
@@ -1411,7 +1370,6 @@
     Telecrystal: 5
   categories:
     - UplinkImplants
-  reputation: 25 # DeltaV - You don't need this for stealing shoes...
 
 - type: listing
   id: UplinkEmpImplanter
@@ -1426,7 +1384,6 @@
     Telecrystal: 2
   categories:
     - UplinkImplants
-  reputation: 25 # DeltaV - Melee Weapons reputation, its melee range
 
 - type: listing
   id: UplinkMicroBombImplanter
@@ -1478,12 +1435,11 @@
     Telecrystal: 3 # DeltaV- Was 4
   categories:
     - UplinkImplants
-  reputation: 20 # DeltaV - Chemicals reputation
-  #conditions: # DeltaV - Allows Death Acidfier for our Syndibros
-  #  - !type:StoreWhitelistCondition
-  #    whitelist:
-  #      tags:
-  #        - NukeOpsUplink
+ # conditions: # DeltaV- Allows Death Acidifer for our Syndibros
+ #   - !type:StoreWhitelistCondition
+ #     whitelist:
+ #       tags:
+ #         - NukeOpsUplink
 
 - type: listing
   id: UplinkUplinkImplanter # uplink uplink real
@@ -1627,7 +1583,6 @@
     Telecrystal: 7 # DeltaV - Was 5, 5TC was too cheap for the items power
   categories:
   - UplinkWearables
-  reputation: 20 # DeltaV - They're very strong, shouldn't have it roundstart
 
 - type: listing
   id: UplinkClothingOuterVestWeb
@@ -1641,7 +1596,6 @@
     Telecrystal: 3
   categories:
   - UplinkWearables
-  reputation: 15 # DeltaV - Armour
 
 - type: listing
   id: UplinkClothingOuterVestWebElite
@@ -1655,7 +1609,6 @@
     Telecrystal: 5
   categories:
   - UplinkWearables
-  reputation: 40 # DeltaV - Armour
 
 - type: listing
   id: UplinkClothingShoesBootsMagSyndie
@@ -1698,7 +1651,6 @@
     Telecrystal: 3 # DeltaV - was 4
   categories:
   - UplinkWearables
-  reputation: 15 # DeltaV - Funny EVA suit
 
 - type: listing
   id: UplinkHardsuitSyndie
@@ -1713,7 +1665,6 @@
     Telecrystal: 8
   categories:
   - UplinkWearables
-  reputation: 65 # DeltaV - Hardsuits reputation
 
 - type: listing
   id: UplinkClothingOuterArmorRaid
@@ -1851,16 +1802,15 @@
   categories:
   - UplinkPointless
 
-- type: listing
-  id: UplinkCatEars
-  name: uplink-cat-ears-name
-  description: uplink-cat-ears-desc
-  productEntity: ClothingHeadHatCatEars
-  cost:
-    Telecrystal: 26
-  categories:
-  - UplinkPointless
-  reputation: 100 # DeltaV - Station Destructive Items...
+#- type: listing # DeltaV - Remove cat ears
+#  id: UplinkCatEars
+#  name: uplink-cat-ears-name
+#  description: uplink-cat-ears-desc
+#  productEntity: ClothingHeadHatCatEars
+#  cost:
+#    Telecrystal: 26
+#  categories:
+#  - UplinkPointless
 
 - type: listing
   id: UplinkOutlawHat
@@ -1937,7 +1887,6 @@
     Telecrystal: 1 # DeltaV - was 20
   categories:
   - UplinkPointless
-  reputation: 50 # DeltaV
 
 - type: listing
   id: UplinkScarfSyndieRed
@@ -1984,7 +1933,6 @@
     Telecrystal: 5 # DeltaV - Was 6
   categories:
   - UplinkJob
-  reputation: 30 # DeltaV - Less than Sidearms as you have to actually grow it
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -2003,7 +1951,6 @@
     Telecrystal: 6
   categories:
     - UplinkJob
-  reputation: 20 # DeltaV - Melee Weapons reputation
   conditions:
     - !type:BuyerJobCondition
       whitelist:
@@ -2021,7 +1968,6 @@
     Telecrystal: 4
   categories:
     - UplinkJob
-  reputation: 5 # DeltaV - Melee Weapons reputation, boxer can get it earlier
   conditions:
     - !type:BuyerJobCondition
       whitelist:
@@ -2039,7 +1985,6 @@
     Telecrystal: 4
   categories:
   - UplinkJob
-  reputation: 40 # DeltaV - Allies reputation
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -2061,7 +2006,6 @@
     Telecrystal: 20
   categories:
   - UplinkJob
-  reputation: 70 # DeltaV - Power Powerful Explosives
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -2079,7 +2023,6 @@
     Telecrystal: 5
   categories:
   - UplinkJob
-  reputation: 40 # DeltaV - Sidearms reputation
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -2093,7 +2036,6 @@
   icon: { sprite: Objects/Specific/Hydroponics/banana.rsi, state: peel }
   productEntity: TrashBananaPeelExplosiveUnarmed
   discountCategory: rareDiscounts
-  reputation: 20 # DeltaV - Explosives, but honk
   discountDownTo:
     Telecrystal: 1
   cost:
@@ -2117,7 +2059,6 @@
     Telecrystal: 4 # DeltaV - was 6
   categories:
   - UplinkJob
-  reputation: 45 # DeltaV - Explosives reputation
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -2136,7 +2077,6 @@
     Telecrystal: 12
   categories:
   - UplinkJob
-  reputation: 45 # DeltaV - Allies reputation
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -2154,7 +2094,6 @@
     Telecrystal: 2 # DeltaV - was 4
   categories:
   - UplinkJob
-  reputation: 20 # DeltaV - Explosives reputation, but its not that useful
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -2176,7 +2115,6 @@
     Telecrystal: 3 # DeltaV - was 4
   categories:
   - UplinkJob
-  reputation: 40 # DeltaV - Sidearms reputation
   conditions:
     - !type:BuyerDepartmentCondition
       whitelist:
@@ -2194,7 +2132,6 @@
     Telecrystal: 5 # was 4, with my buff made it 5 to be closer to minibomb -panzer
   categories:
   - UplinkJob
-  reputation: 45 # DeltaV - Explosives reputation
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -2238,7 +2175,6 @@
     Telecrystal: 4 # DeltaV - was 5
   categories:
   - UplinkJob
-  reputation: 20 # DeltaV - Melee Weapons reputation
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -2261,7 +2197,6 @@
     Telecrystal: 4
   categories:
   - UplinkJob
-  reputation: 20 # DeltaV - Melee Weapons reputation
   conditions:
   - !type:BuyerJobCondition
     whitelist:

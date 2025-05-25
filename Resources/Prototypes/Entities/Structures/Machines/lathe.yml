@@ -49,6 +49,12 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
+    supportedDisciplines: # DeltaV - don't add it to every map
+    - Industrial
+    - Biochemical
+    - Arsenal
+    - Experimental
+    - CivilianServices
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
