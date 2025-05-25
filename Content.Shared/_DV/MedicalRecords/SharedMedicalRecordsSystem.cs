@@ -14,16 +14,9 @@ public abstract class SharedMedicalRecordsSystem : EntitySystem
             if (!Identity.Name(uid, EntityManager).Equals(name))
                 continue;
 
-            if (status.Status == TriageStatus.None)
-            {
-                RemComp<MedicalRecordComponent>(uid);
-            }
-            else
-            {
-                EnsureComp<MedicalRecordComponent>(uid, out var record);
-                record.Record = status;
-                Dirty(uid, record);
-            }
+            EnsureComp<MedicalRecordComponent>(uid, out var record);
+            record.Record = status;
+            Dirty(uid, record);
         }
     }
 }

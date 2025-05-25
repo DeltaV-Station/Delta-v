@@ -16,10 +16,10 @@ public sealed class ShowTriageIconsSystem : EquipmentHudSystem<ShowTriageIconsCo
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
-    private static ProtoId<HealthIconPrototype> Minor = "TriageStatusMinor";
-    private static ProtoId<HealthIconPrototype> Delayed = "TriageStatusDelayed";
-    private static ProtoId<HealthIconPrototype> Immediate = "TriageStatusImmediate";
-    private static ProtoId<HealthIconPrototype> Expectant = "TriageStatusExpectant";
+    private static ProtoId<HealthIconPrototype> Dnr = "TriageStatusMinor";
+    private static ProtoId<HealthIconPrototype> Low = "TriageStatusDelayed";
+    private static ProtoId<HealthIconPrototype> High = "TriageStatusImmediate";
+    //private static ProtoId<HealthIconPrototype> Expectant = "TriageStatusExpectant"; TODO purge this
 
     public override void Initialize()
     {
@@ -34,16 +34,17 @@ public sealed class ShowTriageIconsSystem : EquipmentHudSystem<ShowTriageIconsCo
             return;
 
         var triageStatusIcon = ent.Comp.Record.Status switch {
-            TriageStatus.None => null,
-            TriageStatus.Minor => _prototype.Index(Minor),
-            TriageStatus.Delayed => _prototype.Index(Delayed),
-            TriageStatus.Immediate => _prototype.Index(Immediate),
-            TriageStatus.Expectant => _prototype.Index(Expectant),
+            TriageStatus.Normal => null,
+            TriageStatus.Dnr => _prototype.Index(Dnr),
+            TriageStatus.Low => _prototype.Index(Low),
+            TriageStatus.High => _prototype.Index(High),
+            //TriageStatus.Expectant => _prototype.Index(Expectant), TODO purge this
         };
-        if (triageStatusIcon is not {} statusPrototype)
-            return;
 
-        ev.StatusIcons.Add(statusPrototype);
+        if (triageStatusIcon is {} statusPrototype)
+        {
+            ev.StatusIcons.Add(statusPrototype);
+        }
 
         if (ent.Comp.Record.ClaimedName is {} claimedName)
         {
@@ -55,10 +56,6 @@ public sealed class ShowTriageIconsSystem : EquipmentHudSystem<ShowTriageIconsCo
             {
                 ev.StatusIcons.Add(_prototype.Index<HealthIconPrototype>("TriageClaimedOthers"));
             }
-        }
-        else
-        {
-            ev.StatusIcons.Add(_prototype.Index<HealthIconPrototype>("TriageUnclaimed"));
         }
     }
 }

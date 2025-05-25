@@ -68,13 +68,15 @@ public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
 
     public void SetPatientStatus(StationRecordKey patient, TriageStatus status)
     {
-        if (_records.TryGetRecord<MedicalRecord>(patient, out var record) && status != TriageStatus.None)
+        if (_records.TryGetRecord<MedicalRecord>(patient, out var record))
         {
+            // Triage status exists, update it.
             SetStatus(patient, record with { Status = status });
         }
         else
         {
-            SetStatus(patient, new MedicalRecord());
+            // Triage status doesn't exist, create it.
+            SetStatus(patient, new MedicalRecord { Status = status });
         }
     }
 
@@ -87,11 +89,30 @@ public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
             if (name == string.Empty)
                 continue;
 
-            if (!_records.TryGetRecord<MedicalRecord>(patient, out var record) || record.ClaimedName == name)
-                continue;
+            if (_records.TryGetRecord<MedicalRecord>(patient, out var record))
+            {
+                if (record.ClaimedName == name)
+                    continue;
 
-            SetStatus(patient, record with { ClaimedName = name });
+                // Update the status
+                SetStatus(patient, record with { ClaimedName = name });
+            }
+            else
+            {
+                // Create the status
+                SetStatus(patient, new MedicalRecord { ClaimedName = name });
+            }
             break;
+        }
+    }
+
+    // todo placeholder
+    public void UnclaimPatient(StationRecordKey patient)
+    {
+        if (_records.TryGetRecord<MedicalRecord>(patient, out var record))
+        {
+            // Update the status
+            SetStatus(patient, record with { ClaimedName = null });
         }
     }
 }

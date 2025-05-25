@@ -10,3 +10,6 @@ public sealed class HealthAnalyzerTriageStatusMessage(TriageStatus triageStatus)
 
 [Serializable, NetSerializable]
 public sealed class HealthAnalyzerTriageClaimMessage : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public sealed class HealthAnalyzerTriageUnclaimMessage : BoundUserInterfaceMessage;

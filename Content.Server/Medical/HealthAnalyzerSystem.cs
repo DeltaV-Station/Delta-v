@@ -58,6 +58,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             subs.Event<HealthAnalyzerPartMessage>(OnHealthAnalyzerPartSelected);
             subs.Event<HealthAnalyzerTriageStatusMessage>(OnHealthAnalyzerTriageStatusSelected);
             subs.Event<HealthAnalyzerTriageClaimMessage>(OnHealthAnalyzerTriageClaimSelected);
+            subs.Event<HealthAnalyzerTriageUnclaimMessage>(OnHealthAnalyzerTriageUnclaimSelected);
         });
         // Shitmed Change End
     }
@@ -265,6 +266,14 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             return;
 
         _medicalRecords.ClaimPatient(key, args.Actor);
+    }
+
+    private void OnHealthAnalyzerTriageUnclaimSelected(Entity<HealthAnalyzerComponent> healthAnalyzer, ref HealthAnalyzerTriageUnclaimMessage args)
+    {
+        if (healthAnalyzer.Comp.StationRecordKey is not {} key)
+            return;
+
+        _medicalRecords.UnclaimPatient(key);
     }
     // End DeltaV - Medical Records
 

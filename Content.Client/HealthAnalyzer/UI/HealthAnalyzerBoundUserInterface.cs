@@ -24,6 +24,7 @@ namespace Content.Client.HealthAnalyzer.UI
             _window.OnBodyPartSelected += SendBodyPartMessage; // Shitmed Change
             _window.OnTriageStatusChanged += SendTriageStatusMessage; // DeltaV - Medical Records
             _window.OnClaimPatient += SendTriageClaimMessage; // DeltaV - Medical Records
+            _window.OnUnclaimPatient += SendTriageUnclaimMessage; // DeltaV - Medical Records
             _window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
         }
 
@@ -49,6 +50,9 @@ namespace Content.Client.HealthAnalyzer.UI
 
             if (_window != null)
                 _window.OnBodyPartSelected -= SendBodyPartMessage;
+            
+            if (_window != null) // todo i'll fix this later
+                _window.OnUnclaimPatient -= SendTriageUnclaimMessage;
 
             _window?.Dispose();
         }
@@ -61,6 +65,9 @@ namespace Content.Client.HealthAnalyzer.UI
 
         private void SendTriageClaimMessage()
             => SendMessage(new HealthAnalyzerTriageClaimMessage());
+
+        private void SendTriageUnclaimMessage()
+            => SendMessage(new HealthAnalyzerTriageUnclaimMessage());
         // End DeltaV - Medical Records
     }
 }

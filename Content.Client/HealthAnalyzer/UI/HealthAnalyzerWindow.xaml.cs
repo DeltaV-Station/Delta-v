@@ -57,6 +57,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
         public event Action<TriageStatus>? OnTriageStatusChanged;
         public event Action? OnClaimPatient;
+        public event Action? OnUnclaimPatient;
         // End DeltaV - Medical Records
 
         public HealthAnalyzerWindow()
@@ -111,6 +112,7 @@ namespace Content.Client.HealthAnalyzer.UI
             StatusBox.Children.Last().AddStyleClass("OpenLeft");
             StatusBox.Children.Last().RemoveStyleClass("ButtonSquare");
             ClaimButton.OnPressed += _ => OnClaimPatient?.Invoke();
+            UnclaimButton.OnPressed += _ => OnUnclaimPatient?.Invoke();
             // End DeltaV - Medical Records
         }
 
