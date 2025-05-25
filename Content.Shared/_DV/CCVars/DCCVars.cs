@@ -155,8 +155,6 @@ public sealed class DCCVars
     public static readonly CVarDef<bool> EnableBacktoBack =
         CVarDef.Create("game.disable_preset_test", false, CVar.SERVERONLY);
 
-    /* Chat highlighting */
-
     /// <summary>
     /// A string containing a list of newline-separated strings to be highlighted in the chat.
     /// </summary>
@@ -184,33 +182,6 @@ public sealed class DCCVars
             CVar.CLIENTONLY | CVar.ARCHIVE,
             "The color in which the highlights will be displayed.");
 
-    /* Traitors */
-
-    /// <summary>
-    /// Base ransom for a non-humanoid mob, like shiva.
-    /// </summary>
-    public static readonly CVarDef<float> MobRansom =
-        CVarDef.Create("game.ransom.mob_base", 5000f, CVar.REPLICATED);
-
-    /// <summary>
-    /// Base ransom for a humanoid.
-    /// </summary>
-    public static readonly CVarDef<float> HumanoidRansom =
-        CVarDef.Create("game.ransom.humanoid_base", 10000f, CVar.REPLICATED);
-
-    /// <summary>
-    /// Ransom modifier for critical mobs.
-    /// </summary>
-    public static readonly CVarDef<float> RansomCritModifier =
-        CVarDef.Create("game.ransom.critical_modifier", 0.5f, CVar.REPLICATED);
-
-    /// <summary>
-    /// Ransom modifier for dead mobs.
-    /// The ransomer will also fail their objective.
-    /// </summary>
-    public static readonly CVarDef<float> RansomDeadModifier =
-        CVarDef.Create("game.ransom.dead_modifier", 0.2f, CVar.REPLICATED);
-
     /* Laying down combat */
 
     /// <summary>
@@ -225,6 +196,14 @@ public sealed class DCCVars
     /// </summary>
     public static readonly CVarDef<int> MaxObjectiveSummaryLength =
         CVarDef.Create("game.max_objective_summary_length", 256, CVar.SERVER | CVar.REPLICATED);
+
+    /* OOC shuttle vote */
+
+    /// <summary>
+    /// How long players should have to vote on the round end shuttle being sent
+    /// </summary>
+    public static readonly CVarDef<TimeSpan> EmergencyShuttleVoteTime =
+        CVarDef.Create("shuttle.vote_time", TimeSpan.FromMinutes(1), CVar.SERVER);
 
     /*
      * Cosmic Cult
@@ -251,17 +230,17 @@ public sealed class DCCVars
     /// The delay between the monument getting upgraded to tier 2 and the crew learning of that fact. the monument cannot be upgraded again in this time.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultT2RevealDelaySeconds =
-        CVarDef.Create("cosmiccult.t2_reveal_delay_seconds", 120, CVar.SERVER);
+        CVarDef.Create("cosmiccult.t2_reveal_delay_seconds", 180, CVar.SERVER);
 
     /// <summary>
     /// The delay between the monument getting upgraded to tier 3 and the crew learning of that fact. the monument cannot be upgraded again in this time.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultT3RevealDelaySeconds =
-        CVarDef.Create("cosmiccult.t3_reveal_delay_seconds", 60, CVar.SERVER);
+        CVarDef.Create("cosmiccult.t3_reveal_delay_seconds", 100, CVar.SERVER);
 
     /// <summary>
     /// The delay between the monument getting upgraded to tier 3 and the finale starting.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultFinaleDelaySeconds =
-        CVarDef.Create("cosmiccult.extra_entropy_for_finale", 150, CVar.SERVER);
+        CVarDef.Create("cosmiccult.extra_entropy_for_finale", 120, CVar.SERVER);
 }

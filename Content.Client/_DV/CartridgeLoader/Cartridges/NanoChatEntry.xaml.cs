@@ -14,9 +14,16 @@ public sealed partial class NanoChatEntry : BoxContainer
     private uint _number;
     private Action<EventArgs>? _pressHandler;
 
-    public NanoChatEntry()
+    private int _maxNameLength;
+    private int _maxIdJobLength;
+
+    public NanoChatEntry(int maxNameLength, int maxIdJobLength)
     {
         RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this);
+
+        _maxNameLength = maxNameLength;
+        _maxIdJobLength = maxIdJobLength;
     }
 
     public void SetRecipient(NanoChatRecipient recipient, uint number, bool isSelected)
@@ -31,8 +38,8 @@ public sealed partial class NanoChatEntry : BoxContainer
         _pressHandler = _ => OnPressed?.Invoke(_number);
         ChatButton.OnPressed += _pressHandler;
 
-        NameLabel.Text = SharedNanoChatSystem.Truncate(recipient.Name, IdCardConsoleComponent.MaxFullNameLength);
-        JobLabel.Text = SharedNanoChatSystem.Truncate(recipient.JobTitle ?? "", IdCardConsoleComponent.MaxJobTitleLength);
+        NameLabel.Text = SharedNanoChatSystem.Truncate(recipient.Name, _maxNameLength);
+        JobLabel.Text = SharedNanoChatSystem.Truncate(recipient.JobTitle ?? "", _maxIdJobLength);
         JobLabel.Visible = !string.IsNullOrEmpty(recipient.JobTitle);
         UnreadIndicator.Visible = recipient.HasUnread;
 
