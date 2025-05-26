@@ -12,10 +12,10 @@
       - id: CartridgeBazookaExp
         amount: 3
   - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
     layers:
-      - state: syndicaterocketbox
-
+    - state: box_of_doom
+    - state: writing_of_doom
+  
 - type: entity
   parent: LeviathanExplosiveRocketBox
   id: LeviathanIncendiaryRocketBox
@@ -27,9 +27,9 @@
       - id: CartridgeBazookaInc
         amount: 3
   - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
     layers:
-      - state: syndicaterocketbox
+    - state: box_of_doom
+    - state: writing_of_doom
 
 - type: entity
   parent: LeviathanExplosiveRocketBox
@@ -42,9 +42,9 @@
       - id: CartridgeBazookaCon
         amount: 3
   - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
     layers:
-      - state: syndicaterocketbox
+    - state: box_of_doom
+    - state: writing_of_doom
 
 - type: entity
   parent: [BoxCardboard, BaseSyndicateContraband]
@@ -61,6 +61,6 @@
       - id: EchionCannister
         amount: 2
   - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
     layers:
-      - state: syndicategunbox
+    - state: box_of_doom
+    - state: writing_of_doom
