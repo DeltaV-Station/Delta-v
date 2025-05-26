@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC0-1.0",
-    "copyright": "claimed_others, claimed_yours by Janet Blackquill <uhhadd@gmail.com> 2025. dnr, high, low placeholder assets modified from assets made by Janet Blackquill.",
+    "copyright": "claimed_others, claimed_yours by Janet Blackquill <uhhadd@gmail.com> 2025. dnr, high, low placeholder assets modified from assets made by Janet Blackquill. command_overlay placeholder by Quanteey.",
     "size": {
         "x": 8,
         "y": 8
@@ -21,6 +21,15 @@
         },
         {
             "name": "high"
+        },
+        {
+            "name": "command_overlay",
+            "delays": [
+                [
+                    1.0,
+                    1.0
+                ]
+            ]
         }
     ]
 }

@@ -47,3 +47,13 @@
   icon:
     sprite: /Textures/_DV/Interface/Misc/triage_icons.rsi
     state: claimed_others
+
+- type: healthIcon
+  id: TriageCommandIcon
+  priority: 5
+  locationPreference: Left
+  layer: Mod
+  isShaded: true
+  icon:
+    sprite: /Textures/_DV/Interface/Misc/triage_icons.rsi
+    state: command_overlay

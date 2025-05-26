@@ -258,7 +258,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         EntityUid? patient = healthAnalyzer.Comp.ScannedEntity;
         if (patient.HasValue)
         {
-            _medicalRecords.SetPatientStatus(patient.Value, args.TriageStatus);
+            _medicalRecords.SetPatientStatus(patient.Value, args.Actor, args.TriageStatus);
         }
     }
 

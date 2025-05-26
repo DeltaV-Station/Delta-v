@@ -7,6 +7,7 @@ namespace Content.Server._DV.MedicalRecords;
 
 public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
 {
+    [Dependency] private readonly SharedIdCardSystem _idCard = default!;
     [Dependency] private readonly StationRecordsSystem _records = default!;
     [Dependency] private readonly AccessReaderSystem _access = default!;
 
@@ -21,10 +22,18 @@ public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
         return comp.Record;
     }
 
-    public void SetPatientStatus(EntityUid patient, TriageStatus newStatus)
+    public void SetPatientStatus(EntityUid patient, EntityUid actor, TriageStatus newStatus)
     {
+        var canSetCommandLevelTriage = CanSetCommandLevelTriage(actor);
         EnsureComp<MedicalRecordComponent>(patient, out var comp);
+
+        if (comp.Record.IsCommandLevelTriage && !canSetCommandLevelTriage)
+        {
+            // actor is not permitted to override command level triage
+            return;
+        }
         comp.Record.Status = newStatus;
+        comp.Record.IsCommandLevelTriage = canSetCommandLevelTriage;
         Dirty(patient, comp);
     }
 
@@ -51,5 +60,16 @@ public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
         EnsureComp<MedicalRecordComponent>(patient, out var comp);
         comp.Record.ClaimedName = null;
         Dirty(patient, comp);
+    }
+
+    private bool CanSetCommandLevelTriage(EntityUid actor)
+    {
+        if (_idCard.TryFindIdCard(actor, out var card))
+        {
+            var tags = _access.FindAccessTags(actor);
+            return tags.Contains("ChiefMedicalOfficer") || tags.Contains("Captain");
+        }
+
+        return false;
     }
 }

@@ -30,6 +30,12 @@ public sealed partial record MedicalRecord
     public TriageStatus Status = TriageStatus.Normal;
 
     /// <summary>
+    /// If true, the triage status can only be changed by people who can give command level triage instructions
+    /// (Usually, the CMO)
+    /// </summary>
+    public bool IsCommandLevelTriage = false;
+
+    /// <summary>
     /// The name of the doctor who has claimed care of this patient
     /// </summary>
     public string? ClaimedName;

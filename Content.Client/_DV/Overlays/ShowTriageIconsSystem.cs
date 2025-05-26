@@ -19,6 +19,7 @@ public sealed class ShowTriageIconsSystem : EquipmentHudSystem<ShowTriageIconsCo
     private static ProtoId<HealthIconPrototype> Dnr = "TriageStatusDnr";
     private static ProtoId<HealthIconPrototype> Low = "TriageStatusLow";
     private static ProtoId<HealthIconPrototype> High = "TriageStatusHigh";
+    private static ProtoId<HealthIconPrototype> CommandLevel = "TriageCommandIcon";
 
     public override void Initialize()
     {
@@ -42,6 +43,10 @@ public sealed class ShowTriageIconsSystem : EquipmentHudSystem<ShowTriageIconsCo
         if (triageStatusIcon is {} statusPrototype)
         {
             ev.StatusIcons.Add(statusPrototype);
+            if (ent.Comp.Record.IsCommandLevelTriage)
+            {
+                ev.StatusIcons.Add(_prototype.Index(CommandLevel));
+            }
         }
 
         if (ent.Comp.Record.ClaimedName is {} claimedName)
