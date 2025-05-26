@@ -16,10 +16,9 @@ public sealed class ShowTriageIconsSystem : EquipmentHudSystem<ShowTriageIconsCo
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
-    private static ProtoId<HealthIconPrototype> Dnr = "TriageStatusMinor";
-    private static ProtoId<HealthIconPrototype> Low = "TriageStatusDelayed";
-    private static ProtoId<HealthIconPrototype> High = "TriageStatusImmediate";
-    //private static ProtoId<HealthIconPrototype> Expectant = "TriageStatusExpectant"; TODO purge this
+    private static ProtoId<HealthIconPrototype> Dnr = "TriageStatusDnr";
+    private static ProtoId<HealthIconPrototype> Low = "TriageStatusLow";
+    private static ProtoId<HealthIconPrototype> High = "TriageStatusHigh";
 
     public override void Initialize()
     {
@@ -38,7 +37,6 @@ public sealed class ShowTriageIconsSystem : EquipmentHudSystem<ShowTriageIconsCo
             TriageStatus.Dnr => _prototype.Index(Dnr),
             TriageStatus.Low => _prototype.Index(Low),
             TriageStatus.High => _prototype.Index(High),
-            //TriageStatus.Expectant => _prototype.Index(Expectant), TODO purge this
         };
 
         if (triageStatusIcon is {} statusPrototype)

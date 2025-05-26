@@ -15,38 +15,24 @@
 
 - type: healthIcon
   parent: TriageStatusIcon
-  id: TriageStatusMinor
+  id: TriageStatusDnr
   icon:
     sprite: /Textures/_DV/Interface/Misc/triage_icons.rsi
-    state: minor
+    state: dnr
 
 - type: healthIcon
   parent: TriageStatusIcon
-  id: TriageStatusDelayed
+  id: TriageStatusLow
   icon:
     sprite: /Textures/_DV/Interface/Misc/triage_icons.rsi
-    state: delayed
+    state: low
 
 - type: healthIcon
   parent: TriageStatusIcon
-  id: TriageStatusImmediate
+  id: TriageStatusHigh
   icon:
     sprite: /Textures/_DV/Interface/Misc/triage_icons.rsi
-    state: immediate
-
-- type: healthIcon
-  parent: TriageStatusIcon
-  id: TriageStatusExpectant
-  icon:
-    sprite: /Textures/_DV/Interface/Misc/triage_icons.rsi
-    state: expectant
-
-- type: healthIcon
-  parent: TriageClaimIcon
-  id: TriageUnclaimed
-  icon:
-    sprite: /Textures/_DV/Interface/Misc/triage_icons.rsi
-    state: unclaimed
+    state: high
 
 - type: healthIcon
   parent: TriageClaimIcon
