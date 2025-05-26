@@ -7,5 +7,5 @@ namespace Content.Shared._DV.MedicalRecords;
 public sealed partial class MedicalRecordComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public MedicalRecord Record;
+    public MedicalRecord Record = new MedicalRecord();
 }

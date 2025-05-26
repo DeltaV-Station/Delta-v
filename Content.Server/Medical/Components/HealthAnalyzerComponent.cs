@@ -74,12 +74,4 @@ public sealed partial class HealthAnalyzerComponent : Component
     /// </summary>
     [DataField]
     public bool Silent;
-
-    // Begin DeltaV - Medical Records
-    /// <summary>
-    /// The station records key of the scanned individual, if they have one
-    /// </summary>
-    [DataField]
-    public StationRecordKey? StationRecordKey;
-    // End DeltaV - Medical Records
 }

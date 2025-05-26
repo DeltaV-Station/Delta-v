@@ -5,18 +5,5 @@ namespace Content.Shared._DV.MedicalRecords;
 
 public abstract class SharedMedicalRecordsSystem : EntitySystem
 {
-    public void UpdateMedicalRecords(string name, MedicalRecord status)
-    {
-        var query = EntityQueryEnumerator<IdentityComponent>();
-
-        while (query.MoveNext(out var uid, out var identity))
-        {
-            if (!Identity.Name(uid, EntityManager).Equals(name))
-                continue;
-
-            EnsureComp<MedicalRecordComponent>(uid, out var record);
-            record.Record = status;
-            Dirty(uid, record);
-        }
-    }
+    // Empty for now, todo
 }

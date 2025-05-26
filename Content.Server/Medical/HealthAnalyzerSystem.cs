@@ -1,3 +1,4 @@
+using System.ComponentModel.Design;
 using Content.Server.Body.Components;
 using Content.Server.Medical.Components;
 using Content.Server.PowerCell;
@@ -142,7 +143,6 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         OpenUserInterface(args.User, uid);
         BeginAnalyzingEntity(uid, args.Target.Value);
-        uid.Comp.StationRecordKey = _medicalRecords.GetMedicalRecordsKey(args.Target.Value); // DeltaV - Medical Records
         args.Handled = true;
     }
 
@@ -254,26 +254,31 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     // Begin DeltaV - Medical Records
     private void OnHealthAnalyzerTriageStatusSelected(Entity<HealthAnalyzerComponent> healthAnalyzer, ref HealthAnalyzerTriageStatusMessage args)
     {
-        if (healthAnalyzer.Comp.StationRecordKey is not {} key)
-            return;
-
-        _medicalRecords.SetPatientStatus(key, args.TriageStatus);
+        // todo add checks here
+        EntityUid? patient = healthAnalyzer.Comp.ScannedEntity;
+        if (patient.HasValue)
+        {
+            _medicalRecords.SetPatientStatus(patient.Value, args.TriageStatus);
+        }
     }
 
     private void OnHealthAnalyzerTriageClaimSelected(Entity<HealthAnalyzerComponent> healthAnalyzer, ref HealthAnalyzerTriageClaimMessage args)
     {
-        if (healthAnalyzer.Comp.StationRecordKey is not {} key)
-            return;
-
-        _medicalRecords.ClaimPatient(key, args.Actor);
+        EntityUid? patient = healthAnalyzer.Comp.ScannedEntity;
+        if (patient.HasValue)
+        {
+            _medicalRecords.ClaimPatient(patient.Value, args.Actor);
+        }
     }
 
     private void OnHealthAnalyzerTriageUnclaimSelected(Entity<HealthAnalyzerComponent> healthAnalyzer, ref HealthAnalyzerTriageUnclaimMessage args)
     {
-        if (healthAnalyzer.Comp.StationRecordKey is not {} key)
-            return;
+        EntityUid? patient = healthAnalyzer.Comp.ScannedEntity;
+        if (patient.HasValue)
+        {
+            _medicalRecords.UnclaimPatient(patient.Value);
+        }
 
-        _medicalRecords.UnclaimPatient(key);
     }
     // End DeltaV - Medical Records
 
