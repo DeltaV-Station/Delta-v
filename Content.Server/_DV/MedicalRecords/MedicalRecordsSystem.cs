@@ -1,7 +1,10 @@
 using Content.Shared._DV.MedicalRecords;
 using Content.Shared.Access.Systems;
-using Content.Shared.StationRecords;
 using Content.Server.StationRecords.Systems;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Body.Systems;
+using Content.Shared.Damage;
+using Robust.Shared.Timing;
 
 namespace Content.Server._DV.MedicalRecords;
 
@@ -10,10 +13,46 @@ public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
     [Dependency] private readonly SharedIdCardSystem _idCard = default!;
     [Dependency] private readonly StationRecordsSystem _records = default!;
     [Dependency] private readonly AccessReaderSystem _access = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+    }
+
+    public override void Update(float frameTime)
+    {
+        // Auto clear triage status for healed patients
+        var query = EntityQueryEnumerator<MedicalRecordComponent, DamageableComponent>();
+        while (query.MoveNext(out var uid, out var record, out var damageable))
+        {
+            // When first assigning a status to a patient, give some indication that it works
+            // before it autoclears. For now, we just delay removing it by 5 seconds
+            if (record.NextUpdate == TimeSpan.Zero)
+            {
+                record.NextUpdate = _timing.CurTime + TimeSpan.FromSeconds(5);
+                continue;
+            }
+
+            if (_timing.CurTime < record.NextUpdate)
+                continue;
+
+            record.NextUpdate = _timing.CurTime + TimeSpan.FromSeconds(7);
+
+            // DNR never auto-clears
+            if (record.Record.Status == TriageStatus.Dnr)
+                continue;
+
+            if (damageable.TotalDamage > 10)
+                continue;
+
+            if (!AreLimbsHealedEnough(uid))
+                continue;
+
+            // Good to go
+            RemComp<MedicalRecordComponent>(uid);
+        }
     }
 
     /// <summary>
@@ -104,5 +143,20 @@ public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// Are the limbs of the target healed enough to clear the triage status?
+    /// </summary>
+    private bool AreLimbsHealedEnough(EntityUid target)
+    {
+        var status = _body.GetBodyPartStatus(target);
+
+        foreach (var (limb, integrity) in status)
+        {
+            if (integrity != TargetIntegrity.Healthy)
+                return false;
+        }
+        return true;
     }
 }
