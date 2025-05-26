@@ -1,0 +1,48 @@
+- type: entity
+  parent: BaseItem
+  id: EchionCannister
+  name: Echion Cannister
+  description: A special, disposable containment device designed for quickly refueling Echion plasma weapons.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Special/echioncannister.rsi
+    layers:
+      - state: cannister
+        map: ["enum.GunVisualLayers.Base"]
+      - state: cannister-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        shader: unshaded
+  - type: Appearance
+  - type: Item
+    size: Small
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: cannister-
+  - type: ExaminableSolution
+    solution: tank
+  - type: ReagentTank
+    tankType: Fuel
+    fuelWhitelist: 
+      tags:
+        - EchionGun
+    fuelBlacklist: 
+      tags:
+        - WeldingTool
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: Echion
+          Quantity: 75
+        maxVol: 75
+  - type: DrainableSolution
+    solution: tank
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100

@@ -275,6 +275,10 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+  - type: DamageOnShootProtection # Impstation - Delta V Port
+    damageProtection: 
+      flatReductions:
+        Blunt: 4   
 
 # can't parent combat gloves since they are butcherable
 - type: entity
@@ -290,6 +294,10 @@
   - type: Insulated
   - type: Fiber
     fiberColor: fibers-black
+  - type: DamageOnShootProtection # Impstation - Delta V Port - These are just reskinned combat gloves
+    damageProtection: 
+      flatReductions:
+        Blunt: 4   
 
 - type: entity
   parent: [ BaseSecurityCargoContraband, ClothingHandsGlovesCombat ]
@@ -308,6 +316,10 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-olive
+  - type: DamageOnShootProtection # Impstation - Delta V Port
+    damageProtection: 
+      flatReductions:
+        Blunt: 4   
 
 - type: entity
   parent: ClothingHandsButcherable

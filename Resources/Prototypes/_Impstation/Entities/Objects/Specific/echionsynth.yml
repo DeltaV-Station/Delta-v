@@ -1,0 +1,90 @@
+- type: entity
+  parent: BaseItem
+  id: EchionSynth
+  name: Echion Synthesizer
+  description: An exotic catalyst conveniently contained in a portable container. Fluctuates space-time on a microscopic scale when powered to generate Echion.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Syndicate/echionsynth.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: cap-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        shader: unshaded
+        visible: false
+      - state: core
+        shader: unshaded
+        visible: false
+        map: ["enum.ToggleVisuals.Layer"]
+  - type: Appearance
+  - type: Item
+    size: Large
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: cap-
+  - type: ExaminableSolution
+    solution: tank
+  - type: ReagentTank
+    tankType: Fuel
+    fuelWhitelist: 
+      tags:
+        - EchionGun
+    fuelBlacklist: 
+      tags:
+        - WeldingTool
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: Echion
+          Quantity: 150
+        maxVol: 150
+  - type: DrainableSolution
+    solution: tank
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/_Impstation/Machines/echion_on.ogg
+      params:
+        volume: -5
+    soundDeactivate:
+      path: /Audio/_Impstation/Machines/echion_off.ogg
+      params:
+        volume: -5
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Impstation/Machines/echion.ogg
+      params:
+        volume: -4
+  - type: PowerCellDraw
+    drawRate: 6
+    useRate: 0
+  - type: ToggleCellDraw
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: ComponentToggler
+    components:
+    - type: SolutionRegeneration
+      solution: tank
+      generated:
+          reagents:
+          - ReagentId: Echion
+            Quantity: 2.5
+    - type: PointLight
+      radius: 1.5
+      energy: 1.5
+      color: "#83db2b"
