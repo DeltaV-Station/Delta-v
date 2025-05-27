@@ -1,3 +1,4 @@
+using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Pointing;
@@ -31,3 +32,12 @@ public readonly record struct AfterPointedAtEvent(EntityUid Pointed);
 /// <param name="Pointer"></param>
 [ByRefEvent]
 public readonly record struct AfterGotPointedAtEvent(EntityUid Pointer);
+
+// Begin DeltaV Additions - Interactions with tile pointing
+/// <summary>
+/// Raised on the entity who is pointing after they point at at a tile.
+/// </summary>
+/// <param name="Pointed">MapCoordinates pointed at by the entity.</param>
+[ByRefEvent]
+public readonly record struct AfterPointedAtTileEvent(MapCoordinates Pointed);
+// End DeltaV Additions - Interactions with tile pointing
