@@ -130,7 +130,7 @@
         Whitelist = 1 << 25,
 
         /// <summary>
-        ///     DeltaV - Lets you use the Curator Chat
+        ///     DeltaV - Lets you use the Curator Help
         /// </summary>
         CuratorChat = 1 << 30,
 
