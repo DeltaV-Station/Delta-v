@@ -40,10 +40,10 @@
     - UplinkWeaponry
 
 - type: listing
-  id: uplinkOuroboros
-  name: uplink-ouroboros-name
-  description: uplink-ouroboros-desc
-  productEntity: WeaponSpecialOuroboros
+  id: uplinkBasalisk
+  name: uplink-basalisk-name
+  description: uplink-basalisk-desc
+  productEntity: WeaponSpecialBasalisk
   discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 10
@@ -124,11 +124,6 @@
     Telecrystal: 5
   categories:
     - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      components:
-      - Pda
 
 - type: listing
   id: UplinkIncendiaryRocketBundle
@@ -141,10 +136,6 @@
   categories:
     - UplinkAmmo
   conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      components:
-      - Pda
 
 - type: listing
   id: UplinkConcussiveRocketBundle
@@ -156,18 +147,4 @@
     Telecrystal: 5
   categories:
     - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      components:
-      - Pda
 
-- type: listing
-  id: uplinkEchionCell
-  name: uplink-echioncell-name
-  description: uplink-echioncell-desc
-  productEntity: PowerCellEchion
-  cost:
-    Telecrystal: 2
-  categories:
-    - UplinkAmmo

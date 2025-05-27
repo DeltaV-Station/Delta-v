@@ -1,11 +1,11 @@
 - type: entity
-  name: Ouroboros
+  name: Basalisk
   parent: [BaseItem, BaseGunWieldable]
-  id: WeaponSpecialOuroboros
-  description: A specially engineered organism is contained within this combination air gun/incubator. If you want to continue to use its weaponized offspring, be sure to keep them well fed.
+  id: WeaponSpecialBasalisk
+  description: This odd weapon fires off bursts of pure radiation, using echion as fuel.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Special/ouroboros.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Special/basalisk.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -13,13 +13,13 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Special/ouroboros.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Special/basalisk.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Special/ouroboros.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Special/basalisk.rsi
     size: Huge
   - type: GunRequiresWield
   - type: Gun
@@ -34,13 +34,21 @@
     solutions:
       chamber:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 32
-        maxVol: 24 #8 shots
+        - ReagentId: Echion
+          Quantity: 75
+        maxVol: 75 #10 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
-    proto: BulletOuroboros
-    fireCost: 3
+    proto: BulletRadiationBasalisk
+    fireCost: 7.5
+  - type: Welder
+    fuelSolutionName: chamber
+    fuelReagent: Echion
+  - type: ExaminableSolution
+    solution: chamber
+  - type: Tag
+    tags:
+    - EchionGun
   - type: MagazineVisuals
     magState: mag
     steps: 7

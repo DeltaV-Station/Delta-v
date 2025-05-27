@@ -7,8 +7,8 @@ uplink-akurra-desc = Fearsome as it is advanced, the venerable Akurra bundled wi
 uplink-flamethrower-name = FG13 Xiuhcoatl flamethrower
 uplink-flamethrower-desc = Invite Nanotrasen to the cookout with this portable incendiary weapon.
 
-uplink-ouroboros-name = Ouroboros
-uplink-ouroboros-desc = A combination incubator/air-gun. Houses a deadly living hive, bio-engineered to be friendly towards Syndicate agents.
+uplink-basalisk-name = basalisk
+uplink-basalisk-desc = An experimental weapon that fires bolts of pure radiation, perfect for frying a target's insides.
 
 uplink-anaconda-name = Anaconda
 uplink-anaconda-desc = Waffle Corp. is not responsible for any injuries sustained while operating this weapon. Comes with 2 3-round speedloaders, and an appropriate uniform.
@@ -16,8 +16,8 @@ uplink-anaconda-desc = Waffle Corp. is not responsible for any injuries sustaine
 uplink-leviathan-name = Leviathan
 uplink-leviathan-desc = Sometimes, it really is the size that matters.
 
-uplink-magazine-echion-name = Echion cannister
-uplink-magazine-echion-desc = A special refueling cannister containing 75 units of Echion. Compatible with the Adder and Akurra.
+uplink-magazine-echion-name = Echion canister
+uplink-magazine-echion-desc = A special refueling canister containing 75 units of Echion. Compatible with the Adder, Akurra, and Basalisk
 
 uplink-echion-synth-name = Echion synthesizer
 uplink-echion-synth-desc = An advanced catalyser that produces Echion at a steady rate while powered. Compatible with the Adder and Akurra.
@@ -34,5 +34,3 @@ uplink-rocketinc-desc = A box containing 3 incendiary rockets compatible with th
 uplink-rocketcon-name = Leviathan concussion rocket bundle
 uplink-rocketcon-desc = A box containing 3 concussion rockets compatible with the Leviathan.
 
-uplink-echioncell-name = Echion power cell
-uplink-echioncell-desc = A special power cell made with Echion. While not the most efficient as a battery, it's especially useful when used with weapons.
