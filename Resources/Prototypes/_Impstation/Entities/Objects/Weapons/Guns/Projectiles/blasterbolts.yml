@@ -37,3 +37,21 @@
       types:
         Heat: 7.5
         Piercing: 7.5
+
+- type: entity
+  parent: BulletLaser
+  name: basalisk radiation bolt
+  id: BulletRadiationBasalisk
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: heavypurp
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectPurpLaser
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 25
