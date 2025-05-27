@@ -4,7 +4,7 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 05/27/2025 13:12:17
+  time: 05/27/2025 23:35:09
   entityCount: 15307
 maps:
 - 1
@@ -6855,6 +6855,8 @@ entities:
       - 8003
   - uid: 15179
     components:
+    - type: MetaData
+      name: 'Air Alarm: South Solar'
     - type: Transform
       pos: 56.5,-19.5
       parent: 2
@@ -9995,6 +9997,8 @@ entities:
       parent: 2
   - uid: 4621
     components:
+    - type: MetaData
+      name: 'APC: South Solar'
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 54.5,-22.5
@@ -44556,6 +44560,8 @@ entities:
       - 15020
   - uid: 15218
     components:
+    - type: MetaData
+      name: 'Fire Alarm: South Solar'
     - type: Transform
       pos: 57.5,-19.5
       parent: 2
