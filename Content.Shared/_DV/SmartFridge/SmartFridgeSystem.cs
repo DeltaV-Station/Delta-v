@@ -31,6 +31,7 @@ public sealed class SmartFridgeSystem : EntitySystem
             sub =>
             {
                 sub.Event<SmartFridgeDispenseItemMessage>(OnDispenseItem);
+                sub.Event<SmartFridgeRemoveEntryMessage>(OnRemoveEntry);
             });
     }
 
@@ -107,5 +108,26 @@ public sealed class SmartFridgeSystem : EntitySystem
 
         _audio.PlayPredicted(ent.Comp.SoundDeny, ent, args.Actor);
         _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-out-of-stock"), ent, args.Actor);
+    }
+
+    private void OnRemoveEntry(Entity<SmartFridgeComponent> ent, ref SmartFridgeRemoveEntryMessage args)
+    {
+        if (!Allowed(ent, args.Actor))
+            return;
+
+        if (!_container.TryGetContainer(ent, ent.Comp.Container, out var container))
+            return;
+
+        if (ent.Comp.ContainedEntries.TryGetValue(args.Entry, out var contained)
+            && contained.Count > 0
+            || !ent.Comp.Entries.Contains(args.Entry))
+        {
+            _audio.PlayPredicted(ent.Comp.SoundDeny, ent, args.Actor);
+            _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-unknown-entry"), ent, args.Actor);
+            return;
+        }
+
+        ent.Comp.Entries.Remove(args.Entry);
+        Dirty(ent);
     }
 }
