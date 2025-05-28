@@ -158,32 +158,6 @@ namespace Content.Client._DV.Curation.UI.Cwoink
                 return bch.LastMessage.CompareTo(ach.LastMessage);
             };
 
-
-            Bans.OnPressed += _ =>
-            {
-                if (_currentPlayer is not null)
-                    _console.ExecuteCommand($"banlist \"{_currentPlayer.SessionId}\"");
-            };
-
-            Notes.OnPressed += _ =>
-            {
-                if (_currentPlayer is not null)
-                    _console.ExecuteCommand($"adminnotes \"{_currentPlayer.SessionId}\"");
-            };
-
-            Ban.OnPressed += _ =>
-            {
-                if (_currentPlayer is not null)
-                    _console.ExecuteCommand($"banpanel \"{_currentPlayer.SessionId}\"");
-            };
-
-            Kick.OnPressed += _ =>
-            {
-                // TODO: Reason field
-                if (_currentPlayer is not null)
-                    _console.ExecuteCommand($"kick \"{_currentPlayer.Username}\"");
-            };
-
             Follow.OnPressed += _ =>
             {
                 if (_currentPlayer is not null)
@@ -228,18 +202,6 @@ namespace Content.Client._DV.Curation.UI.Cwoink
         public void UpdateButtons()
         {
             var disabled = _currentPlayer == null;
-
-            Bans.Visible = _adminManager.HasFlag(AdminFlags.Ban);
-            Bans.Disabled = !Bans.Visible || disabled;
-
-            Notes.Visible = _adminManager.HasFlag(AdminFlags.ViewNotes);
-            Notes.Disabled = !Notes.Visible || disabled;
-
-            Ban.Visible = _adminManager.HasFlag(AdminFlags.Ban);
-            Ban.Disabled = !Ban.Visible || disabled;
-
-            Kick.Visible = _adminManager.CanCommand("kick");
-            Kick.Disabled = !Kick.Visible || disabled;
 
             Respawn.Visible = _adminManager.CanCommand("respawn");
             Respawn.Disabled = !Respawn.Visible || disabled;
