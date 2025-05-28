@@ -154,14 +154,14 @@ public sealed class CHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
 
     public void EnsureUIHelper()
     {
-        var isAdmin = _adminManager.HasFlag(AdminFlags.Adminhelp);
+        var isCurator = _adminManager.HasFlag(AdminFlags.CuratorHelp);
 
-        if (UIHelper != null && UIHelper.IsAdmin == isAdmin)
+        if (UIHelper != null && UIHelper.IsCurator == isCurator)
             return;
 
         UIHelper?.Dispose();
         var ownerUserId = _playerManager.LocalUser!.Value;
-        UIHelper = isAdmin ? new CuratorCHelpUIHandler(ownerUserId) : new UserCHelpUIHandler(ownerUserId);
+        UIHelper = isCurator ? new CuratorCHelpUIHandler(ownerUserId) : new UserCHelpUIHandler(ownerUserId);
         UIHelper.DiscordRelayChanged(_discordRelayActive);
 
         UIHelper.SendMessageAction = (userId, textMessage, playSound, adminOnly) => _bwoinkSystem?.Send(userId, textMessage, playSound, adminOnly);
@@ -187,7 +187,7 @@ public sealed class CHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
     public void Open(NetUserId userId)
     {
         EnsureUIHelper();
-        if (!UIHelper!.IsAdmin)
+        if (!UIHelper!.IsCurator)
             return;
         UIHelper?.Open(userId, _discordRelayActive);
     }
@@ -284,7 +284,7 @@ public sealed class CHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
 // please kill all this indirection
 public interface ICHelpUIHandler : IDisposable
 {
-    public bool IsAdmin { get; }
+    public bool IsCurator { get; }
     public bool IsOpen { get; }
     public void Receive(SharedBwoinkSystem.BwoinkTextMessage message);
     public void Close();
@@ -305,7 +305,7 @@ public sealed class CuratorCHelpUIHandler : ICHelpUIHandler
         _ownerId = owner;
     }
     private readonly Dictionary<NetUserId, BwoinkPanel> _activePanelMap = new();
-    public bool IsAdmin => true;
+    public bool IsCurator => true;
     public bool IsOpen => Window is { Disposed: false, IsOpen: true } || ClydeWindow is { IsDisposed: false };
     public bool EverOpened;
 
@@ -465,7 +465,7 @@ public sealed class UserCHelpUIHandler : ICHelpUIHandler
     {
         _ownerId = owner;
     }
-    public bool IsAdmin => false;
+    public bool IsCurator => false;
     public bool IsOpen => _window is { Disposed: false, IsOpen: true };
     private DefaultWindow? _window;
     private BwoinkPanel? _chatPanel;
