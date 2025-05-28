@@ -243,4 +243,10 @@ public sealed class DCCVars
     /// </summary>
     public static readonly CVarDef<int> CosmicCultFinaleDelaySeconds =
         CVarDef.Create("cosmiccult.extra_entropy_for_finale", 120, CVar.SERVER);
+
+    /*
+     * Curator Chat
+     */
+    public static readonly CVarDef<string> CHelpSound =
+        CVarDef.Create("audio.chelp_sound", "/Audio/_RMC14/Effects/Admin/mhelp.ogg", CVar.ARCHIVE | CVar.CLIENTONLY);
 }
