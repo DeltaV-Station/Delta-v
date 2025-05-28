@@ -46,6 +46,11 @@
     - id: PlushiePenguin
     - id: PlushieMort # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
     - id: PlushieIPC # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
+    # imp ports start
+    - id: PlushieThaven
+    - id: PlushieThavenWeird
+      weight: 0.1
+    # imp ports end
 
 - type: entity
   id: CrateFunPlushie

@@ -1,0 +1,44 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushieThaven
+  name: thaven plushie
+  description: It is rude to not give this plushie hugs and kisses.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_thaven
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieThavenWeird
+  name: normal thaven plushie
+  description: It looks a bit odds.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_thavenweird
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Impstation/Thaven/moods_changed.ogg # DELTA: moods_changed_mono.ogg -> moods_changed.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Impstation/Thaven/moods_changed.ogg # DELTA: moods_changed_mono.ogg -> moods_changed.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/desecration-03.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/desecration-03.ogg
+  - type: UseDelay
+    delay: 15.0
+  - type: Spillable
+    solution: absorbed
+  - type: Absorbent
+    pickupAmount: 15
+  - type: SolutionContainerManager
+    solutions:
+      absorbed:
+        maxVol: 15
+        reagents:
+        - ReagentId: Milk
+          Quantity: 15
