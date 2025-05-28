@@ -71,7 +71,7 @@ namespace Content.Client._DV.Curation.UI.Cwoink
 
             var text = PeopleTyping.Count == 0
                 ? string.Empty
-                : Loc.GetString("cwoink-system-typing-indicator",
+                : Loc.GetString("bwoink-system-typing-indicator",
                     ("players", string.Join(", ", PeopleTyping)),
                     ("count", PeopleTyping.Count));
 

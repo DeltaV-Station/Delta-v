@@ -1,0 +1,19 @@
+cwoink-user-title = Curator Message
+
+cwoink-system-starmute-message-no-other-users = *System: Nobody is available to receive your message. Try pinging Event Management on Discord.
+
+cwoink-system-messages-being-relayed-to-discord =
+    All messages are relayed to game Curators via Discord.
+
+cwoink-system-introductory-message = hey stinky
+
+curator-chelp-curator-only = Curator Only
+curator-chelp-curator-only-tooltip = If checked, then the message won't be visible for the player,
+    but will be visible for other Curators and still will be Discord relayed.
+
+curator-cwoink-play-sound = Cwoink?
+
+cwoink-title-none-selected = None selected
+
+cwoink-message-curator-only = (Curator Only)
+cwoink-message-silent = (S)
