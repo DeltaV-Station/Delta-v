@@ -17,7 +17,7 @@
   components:
   - type: AccessReader
     access: [ [ "SyndicateAgent" ] ]
-    breakOnEmag: true
+    BreakOnAccessBreaker: true
   - type: Storage
     maxItemSize: Huge
     grid:
@@ -28,7 +28,7 @@
       amount: 1
   - type: Lock
     lockOnClick: false
-    breakOnEmag: true
+    BreakOnAccessBreaker: true
   - type: ActivatableUIRequiresLock
     requireLocked: false
   - type: ActivatableUI
