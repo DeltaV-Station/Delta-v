@@ -70,6 +70,31 @@
   - BorgModuleSecurityChase
 
 - type: technology
+  id: SalvageHardsuits
+  name: research-technology-salvage-eva
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ClothingOuterHardsuitSpatio
+  - ClothingOuterHardsuitSalvage
+
+- type: technology
+  id: SecurityHardsuits
+  name: research-technology-security-eva
+  icon:
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/officer.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 8000
+  recipeUnlocks:
+  - ClothingOuterHardsuitCombatOfficer
+
+- type: technology
   id: ExperimentalSalvageWeaponry
   name: research-technology-experimental-salvage-weaponry
   icon:
@@ -96,7 +121,19 @@
   cost: 12500
   recipeUnlocks:
   - WeaponEnergyGunPistol
-  - WeaponGunLaserCarbineAutomatic
+  - WeaponRifleLaser
+
+- type: technology
+  id: IncendiaryLaserWeapons
+  name: research-technology-incendiary-laser-weapons
+  icon:
+    sprite: _DV/Objects/Weapons/Guns/Battery/immolator.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - WeaponImmolator
 
 - type: technology
   id: AdvancedRiotControl
@@ -112,17 +149,3 @@
   - TelescopicShield
   - BorgModuleSecurityEscalate
   - BorgModuleSecurityBastion
-
-# Tier 3
-
-- type: technology
-  id: IonizedCryogenicEmissionEquiplment
-  name: research-technology-ionized-cryogenic-emission-equipment
-  icon:
-    sprite: _DV/Objects/Weapons/Guns/Battery/cold_cannon.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 3
-  cost: 10000
-  recipeUnlocks:
-  - WeaponColdCannon

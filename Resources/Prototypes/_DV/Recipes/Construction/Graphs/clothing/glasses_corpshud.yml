@@ -2,24 +2,24 @@
   id: GlassesCorpsHUD
   start: start
   graph:
-    - node: start
-      edges:
-        - to: glassesCorps
-          steps:
-            - tag: Sunglasses
-              name: sun glasses
-              icon:
-                sprite: Clothing/Eyes/Glasses/sunglasses.rsi
-                state: icon
-              doAfter: 5
-            - tag: HudMedical
-              name: med hud
-              icon:
-                sprite: Clothing/Eyes/Hud/med.rsi
-                state: icon
-              doAfter: 5
-            - material: Cable
-              amount: 5
-              doAfter: 5
-    - node: glassesCorps
-      entity: ClothingEyesGlassesCorpsman
+  - node: start
+    edges:
+    - to: glassesCorps
+      steps:
+      - tag: Sunglasses
+        name: construction-graph-tag-sun-glasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+          state: icon
+        doAfter: 5
+      - tag: HudMedical
+        name: construction-graph-tag-medhud
+        icon:
+          sprite: Clothing/Eyes/Hud/med.rsi
+          state: icon
+        doAfter: 5
+      - material: Cable
+        amount: 5
+        doAfter: 5
+  - node: glassesCorps
+    entity: ClothingEyesGlassesCorpsman

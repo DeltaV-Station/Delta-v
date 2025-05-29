@@ -1,0 +1,74 @@
+- type: entity
+  parent: BaseFlatpack
+  id: ChemMasterFlatpack
+  name: chemmaster 4000 flatpack
+  description: A flatpack used for constructing a ChemMaster 4000.
+  components:
+  - type: Flatpack
+    entity: ChemMaster
+
+- type: entity
+  parent: BaseFlatpack
+  id: MedBioFabricatorFlatpack
+  name: medical biofabricator flatpack
+  description: A flatpack used for constructing a medical biofabricator.
+  components:
+  - type: Flatpack
+    entity: MedicalBiofabricator
+
+- type: entity
+  parent: BaseFlatpack
+  id: AutoclaveFlatpack
+  name: autoclave flatpack
+  description: A flatpack used for constructing an Autoclave.
+  components:
+  - type: Flatpack
+    entity: Autoclave
+
+- type: entity
+  parent: BaseFlatpack
+  id: CirculatorFlatpack
+  name: Circulator flatpack
+  description: A flatpack used for constructing a circulator of the thermoelectric generator.
+  components:
+  - type: Flatpack
+    entity: TegCirculator
+  - type: StaticPrice
+    price: 2000
+  - type: GuideHelp
+    guides:
+    - TEG
+    - Power
+
+- type: entity
+  parent: BaseFlatpack
+  id: TegFlatpack
+  name: TEG flatpack
+  description: A flatpack used for constructing a thermoelectric generator.
+  components:
+  - type: Flatpack
+    entity: TegCenter
+  - type: StaticPrice
+    price: 6000
+  - type: GuideHelp
+    guides:
+    - TEG
+    - Power
+
+- type: entity
+  parent: BaseFlatpack
+  id: AutodocSyndieFlatpack
+  name: syndie autodoc flatpack
+  description: A flatpack used for constructing a syndicate Autodoc.
+  components:
+  - type: Flatpack
+    entity: AutodocSyndie
+
+- type: entity
+  parent: BaseFlatpack
+  id: OperatingTableFlatpack
+  name: operating table flatpack
+  description: A flatpack used for constructing an operating table.
+  components:
+  - type: Flatpack
+    entity: OperatingTable

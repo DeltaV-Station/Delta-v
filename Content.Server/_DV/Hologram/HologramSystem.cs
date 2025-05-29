@@ -1,4 +1,4 @@
-﻿using Content.Shared.Actions.Events;
+using Content.Shared.Actions.Events;
 using Content.Shared._DV.Hologram;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
@@ -25,19 +25,17 @@ public sealed class HologramSystem : SharedHologramSystem
 
     private void OnDisarmAttempt(EntityUid uid, HologramComponent component, DisarmAttemptEvent args)
     {
-        if (component.PreventDisarm)
-        {
-            args.Cancel();
+        if (!component.PreventDisarm)
+            return;
+        args.Cancelled = true;
 
-            var filterOther = Filter.PvsExcept(args.DisarmerUid, entityManager: EntityManager);
-            var messageUser = Loc.GetString("hologram-disarm-blocked",
-                ("target", Identity.Entity(args.TargetUid, EntityManager)));
-            var messageOther = Loc.GetString("hologram-disarm-blocked-other",
-                ("target", Identity.Entity(args.TargetUid, EntityManager)), ("performerName", args.DisarmerUid));
+        var filterOther = Filter.PvsExcept(args.DisarmerUid, entityManager: EntityManager);
+        var messageUser = Loc.GetString("hologram-disarm-blocked",
+            ("target", Identity.Entity(args.TargetUid, EntityManager)));
+        var messageOther = Loc.GetString("hologram-disarm-blocked-other",
+            ("target", Identity.Entity(args.TargetUid, EntityManager)), ("performerName", args.DisarmerUid));
 
-            _popup.PopupEntity(messageOther, args.DisarmerUid, filterOther, true);
-            _popup.PopupEntity(messageUser, args.TargetUid, args.DisarmerUid);
-        }
-
+        _popup.PopupEntity(messageOther, args.DisarmerUid, filterOther, true);
+        _popup.PopupEntity(messageUser, args.TargetUid, args.DisarmerUid);
     }
 }

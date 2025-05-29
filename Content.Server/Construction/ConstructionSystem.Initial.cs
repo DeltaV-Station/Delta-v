@@ -295,6 +295,14 @@ namespace Content.Server.Construction
                 }
             }
 
+            // Begin Impstation Changes
+            // Inform consumed items that they have been consumed
+            foreach (var entity in container.ContainedEntities.ToArray())
+            {
+                RaiseLocalEvent(entity, new ConstructionConsumedObjectEvent(entity, newEntity));
+            }
+            // End Impstation Changes
+
             // We now get rid of all them.
             ShutdownContainers();
 
@@ -478,7 +486,7 @@ namespace Content.Server.Construction
                 return;
             }
 
-            var mapPos = location.ToMap(EntityManager, _transformSystem);
+            var mapPos = _transformSystem.ToMapCoordinates(location);
             var predicate = GetPredicate(constructionPrototype.CanBuildInImpassable, mapPos);
 
             if (!_interactionSystem.InRangeUnobstructed(user, mapPos, predicate: predicate))

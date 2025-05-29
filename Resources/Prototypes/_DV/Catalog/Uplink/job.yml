@@ -1,0 +1,37 @@
+- type: listing
+  id: UplinkViperAppraisal
+  name: uplink-appraisal-tool-gun-name
+  description: uplink-appraisal-tool-gun-desc
+  productEntity: WeaponPistolViperAppraisal
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Logistics
+
+- type: listing
+  id: UplinkModkitIndoors
+  description: uplink-modkit-indoors-desc
+  productEntity: PKAUpgradeIndoors
+  icon:
+    sprite: _DV/Objects/Tools/upgrade.rsi
+    state: evil
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  # costs 5 TC in TG but that's quite expensive compared to spacing everything,
+  # being fairly cheap makes wanton spacing less attractive
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - SalvageSpecialist

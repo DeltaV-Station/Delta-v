@@ -36,6 +36,7 @@
   recipes:
   - BoxLethalshot
   - BoxShotgunSlug
+  - BoxShotgunFlare # DeltaV - added
   - MagazineBoxLightRifle
   - MagazineBoxMagnum
   - MagazineBoxPistol
@@ -71,6 +72,7 @@
 - type: latheRecipePack
   parent:
   - SecurityEquipmentDeltaV # DeltaV
+  - BorgModulesSecurityDeltaV # DeltaV
   - SecurityCybernetics # Shitmed change
   id: SecurityEquipment
   recipes:
@@ -142,6 +144,7 @@
   - WeaponLaserCannon
   - WeaponLaserCarbine
   - WeaponXrayCannon
+  - WeaponTemperatureGun
 
 - type: latheRecipePack
   id: SecurityDisablers

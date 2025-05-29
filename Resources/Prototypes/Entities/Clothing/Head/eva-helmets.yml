@@ -81,12 +81,18 @@
       - state: equipped-head-light
       head-vox:
       - state: equipped-head-light-vox
+      head-vulpkanin: # DeltaV - add modified vulp helmet
+      - state: equipped-head-vulpkanin
+        sprite: _DV/Clothing/Head/Hardsuits/paramedhelm.rsi
   - type: Clothing
     clothingVisuals:
       head:
       - state: equipped-head
       head-vox:
       - state: equipped-head-vox
+      head-vulpkanin: # DeltaV - add modified vulp helmet
+      - state: equipped-head-vulpkanin
+        sprite: _DV/Clothing/Head/Hardsuits/paramedhelm.rsi
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1

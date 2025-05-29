@@ -1,5 +1,4 @@
 using Content.Server.Chemistry.Components;
-using Content.Server.Labels;
 using Content.Server.Popups;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Administration.Logs;
@@ -10,6 +9,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
+using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Storage;
 using JetBrains.Annotations;
 using Robust.Server.Audio;
@@ -243,10 +243,20 @@ namespace Content.Server.Chemistry.EntitySystems
         {
             outputSolution = null;
 
+            /* DeltaV - use beaker slot instead of buffer
             if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var solution))
             {
                 return false;
             }
+            */
+            // Begin DeltaV Additions - Use beaker slot instead of buffer
+            var container = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.InputSlotName);
+            if (container is null ||
+                !_solutionContainerSystem.TryGetFitsInDispenser(container.Value, out var containerSoln, out var solution))
+            {
+                return false;
+            }
+            // End DeltaV Additions
 
             if (solution.Volume == 0)
             {
@@ -264,6 +274,7 @@ namespace Content.Server.Chemistry.EntitySystems
             }
 
             outputSolution = solution.SplitSolution(neededVolume);
+            _solutionContainerSystem.UpdateChemicals(containerSoln.Value); // DeltaV
             return true;
         }
 

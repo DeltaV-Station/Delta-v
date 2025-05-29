@@ -6,18 +6,19 @@
   <Box>
     <GuideEntityEmbed Entity="PositronicBrain" Caption="Positronic Brain"/>
   </Box>
-  Like borgs, IPCs have a positronic brain as their processing source. However, unlike them, IPCs can't be assembled. "It's cheaper to create a shell that obeys you than one that doesn't! *wink*"
+  Like borgs, IPCs have a positronic brain as their processing source. Their chassis can be printed at an exosuit fabricator, and any newly made IPCs must have a positronic brain or MMI surgically installed to function.
+
   ## Recharging an IPC
-   <Box>
+  <Box>
     <GuideEntityEmbed Entity="APCBasic" Caption="APC Terminal"/>
     <GuideEntityEmbed Entity="BorgCharger" Caption="Borg Charger"/>
     <GuideEntityEmbed Entity="PowerCellMedium" Caption="Power Cell"/>
   </Box>
   IPCs can be recharged in three different ways:
 
-  APC Terminal: IPCs can use APC terminals to recharge. Press [color=yellow]Alt + left click[/color] on a terminal as many times as needed to fully recharge.
+  APC Terminal: IPCs can use APC terminals to recharge. Press [color=yellow]Alt + left click[/color] on a terminal to recharge.
 
-  Borg Rechargers: IPCs can use borg rechargers to recharge. Always prioritize the ones outside of the Sci area to avoid headaches.
+  Borg Rechargers: IPCs can use borg rechargers to recharge. Always prioritize the ones outside of Epistemics to avoid headaches.
 
   Power Cell: IPCs have an internal power cell that serves as their battery. They can simply swap it out by opening the hatch and manually replacing it.
 
@@ -37,7 +38,8 @@
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="CableApcStack" Caption="Cables (any type)"/>
     Cables can be used to repair [color=yellow]Burns[/color], except for caustic.
-
+  </Box>
+  <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="SheetSteel" Caption="Steel Sheets"/>
     Steel can be used to repair [color=yellow]Caustic[/color] damage.
   </Box>
@@ -55,12 +57,10 @@
   </Box>
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="Oilpack" Caption="Oil Packs"/>
-    IPCs have no blood, but they have Oil. Oil Packs can be used to replenish [color=red]Oil[/color].
+    IPCs have no blood, but instead have [color=orange]Oil[/color]. Oil packs, which replenish their oil levels, can be ordered by Logistics and printed by Robotics or Engineering.
   </Box>
-  <Box HorizontalAlignment="Stretch">
-    In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by right-clicking).
+  In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by right-clicking).
 
-    [color=red]NEVER ELECTROCUTE AN IPC with a defibrillator or in any other way while it is dead, as this will cause the battery to discharge energy rays outward![/color]
-  </Box>
+  [color=red]NEVER ELECTROCUTE AN IPC with a defibrillator or in any other way while it is dead, as this will cause the battery to discharge energy rays outward![/color]
 
 </Document>

@@ -19,3 +19,17 @@
     state: cpu_supply
   - type: ComputerBoard
     prototype: ComputerShuttleMining
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: CargoRequestJusticeComputerCircuitboard
+  name: justice request computer board
+  description: A computer printed circuit board for a justice request computer.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/module.rsi
+    state: cpu_justice
+  - type: ComputerBoard
+    prototype: ComputerCargoOrdersJustice
+  - type: StaticPrice
+    price: 750

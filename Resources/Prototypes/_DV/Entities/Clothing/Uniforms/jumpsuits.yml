@@ -196,6 +196,17 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/courier.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformLittleGuyOveralls
+  name: little guy overalls
+  description: I'm just a little guy!
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/littleguy_overalls.rsi # DeltaV - Little-Guy-Ops
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/littleguy_overalls.rsi
+
 # Formal uniforms
 
 - type: entity

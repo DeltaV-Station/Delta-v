@@ -1,0 +1,302 @@
+# burn
+- type: reagent
+  id: Oxandrolone
+  name: reagent-name-oxandrolone
+  group: Medicine
+  desc: reagent-desc-oxandrolone
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#e6e600"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:TotalDamage
+          max: 30
+        damage:
+          types:
+            Heat: -0.2
+            Shock: -0.2
+            Cold: -0.2
+      - !type:HealthChange
+        conditions:
+        - !type:TotalDamage
+          min: 30
+        damage:
+          types:
+            Heat: -0.8
+            Shock: -0.8
+            Cold: -0.8
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15.5
+        damage:
+          types: # ODing should heal burn but cause other damage
+            Heat: -0.8
+            Shock: -0.8
+            Cold: -0.8
+            Blunt: 2
+            Piercing: 0.5
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 15.5
+
+# brute
+- type: reagent
+  id: SalicylicAcid
+  name: reagent-name-salicylicacid
+  group: Medicine
+  desc: reagent-desc-salicylicacid
+  physicalDesc: reagent-physical-desc-mucus-like
+  flavor: medicine
+  color: "#f9e0e9"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:TotalDamage
+          max: 30
+        damage:
+          groups:
+            Brute: -0.6
+      - !type:HealthChange
+        conditions:
+        - !type:TotalDamage
+          min: 30
+        damage:
+          groups:
+            Brute: -2.4
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15.5
+        damage: # ODing causes damage but heals brute
+          groups:
+            Burn: 2 # will cause minor caustic damage
+            Brute: -2.4
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 15.5
+
+# airloss
+- type: reagent
+  id: Salbutamol
+  name: reagent-name-salbutamol
+  group: Medicine
+  desc: reagent-desc-salbutamol
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: medicine
+  color: "#99ffff"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+          - !type:TotalDamage
+            min: 30
+        damage:
+          groups:
+            Airloss: -6
+      - !type:HealthChange
+        conditions:
+          - !type:TotalDamage
+            max: 30
+        damage:
+           groups:
+            Airloss: -1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15.5
+        damage:
+          groups: # ODing heals airloss but causes damage
+            Airloss: -6
+          types: # DeltaV - genetic is too evil
+            Caustic: 0.2
+
+- type: reagent
+  id: Convermol
+  name: reagent-name-convermol
+  group: Medicine
+  desc: reagent-desc-convermol
+  physicalDesc: reagent-physical-desc-abrasive
+  flavor: medicine
+  color: "#e80d7e"
+  metabolisms:
+    Medicine:
+      metabolismRate: 1.0
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: -10
+            Bloodloss: -4 # DeltaV - we want this to handle some bloodloss too
+            Blunt: 4 # After organ damage gets added, add lung damage and reduce to 2.
+      - !type:Jitter
+
+- type: reagent
+  id: Granibitulari
+  name: reagent-name-granibitulari
+  group: Medicine
+  desc: reagent-desc-granibitulari
+  physicalDesc: reagent-physical-desc-gloopy
+  flavor: medicine
+  color: "#c7e4e8"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -0.3
+          types:
+            Poison: -0.1
+            Heat: -0.1
+            Shock: -0.1
+            Cold: -0.1
+
+# misc
+- type: reagent
+  id: Pielovene
+  name: reagent-name-pielovene
+  group: Exotic
+  desc: reagent-desc-pielovene
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: banana
+  color: "#f5d069"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:JobCondition
+          job:
+          - Clown
+        damage:
+          groups:
+            Brute: -1
+            Burn: -1
+            Airloss: -1
+            Toxin: -1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        - !type:JobCondition
+            job:
+            - Mime
+        damage:
+          groups:
+            Brute: 2
+            Airloss: 2
+            Toxin: 2
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        - !type:JobCondition
+            job:
+            - Mime
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        - !type:JobCondition
+            job:
+            - Mime
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-nauseous" ]
+        probability: 0.2
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        - !type:JobCondition
+            job:
+            - Mime
+        probability: 0.02
+      - !type:Drunk
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        - !type:JobCondition
+            job:
+            - Mime
+
+# pyro
+- type: reagent
+  id: Pyroxadone
+  name: reagent-name-pyroxadone
+  group: Medicine
+  desc: reagent-desc-pyroxadone
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: spicy
+  color: "#f8c8ba"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:Temperature
+          min: 337.3 # completely arbitrary
+        damage:
+          groups: # same as cryox
+            Airloss: -6
+            Brute: -4
+            Burn: -6
+            Toxin: -4
+          types:
+            Heat: -3
+
+- type: reagent
+  id: Ardthyrnkole
+  name: reagent-name-ardthyrnkole
+  group: Medicine
+  desc: reagent-desc-ardthyrnkole
+  physicalDesc: reagent-physical-desc-blazing
+  flavor: sour
+  color: "#894379"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:Temperature
+          min: 343.3
+        damage:
+          types:
+            Cold: -5
+            Heat: -3 # offsets heat damage from the pod
+            Shock: -3
+
+- type: reagent
+  id: Natusixadone
+  name: reagent-name-natusixadone
+  group: Medicine
+  desc: reagent-desc-natusixadone
+  physicalDesc: reagent-physical-desc-bubbling
+  flavor: medicine
+  color: "#acbb27"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:Temperature
+          min: 343.3
+        damage:
+          types:
+            Cellular: -4
+            Heat: -3

@@ -36,6 +36,8 @@
     state: full
   - type: IconSmooth
     key: floor
+    additionalKeys:
+    - walls
     base: lava
   - type: Physics
     bodyType: Static
@@ -54,3 +56,5 @@
   - type: Tag
     tags:
       - HideContextMenu
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: FloorCosmicDecay

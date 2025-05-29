@@ -31,9 +31,9 @@
   atmosphere:
     volume: 2500
     temperature: 353.15 # 80C
-    moles: # 120kPa, 14% O2 (unbreathable)
-    - 14.38346
-    - 88.35554
+    moles: # 43kPa, 31% O2 (unbreathable)
+    - 11.6214
+    - 24.903
   biomeMarkerLayers:
   - OreIron
   - OreQuartz
@@ -43,7 +43,9 @@
   - OrePlasma3
   - OreUranium
   - OreDiamond2
+  - OreBluespace
   - OreArtifactFragment
+  - LavalandGibtonite
 
 - type: planet
   id: GlacierSurface
@@ -70,4 +72,6 @@
   - OrePlasma3
   - OreUranium2
   - OreDiamond
+  - OreBluespace
   - OreArtifactFragment
+  - GlacierGibtonite

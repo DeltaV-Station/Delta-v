@@ -49,6 +49,7 @@ public abstract partial class SharedBodySystem : EntitySystem
         InitializeIntegrityQueue();
         InitializePartAppearances();
         // Shitmed Change End
+        InitializeGibDirtying(); // DeltaV
     }
 
     /// <summary>

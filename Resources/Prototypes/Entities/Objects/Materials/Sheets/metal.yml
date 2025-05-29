@@ -68,9 +68,6 @@
   - type: Item
     heldPrefix: steel
   - type: Appearance
-  - type: FloorTile
-    outputs:
-    - Plating
   - type: Extractable
     grindableSolutionName: steel
   - type: SolutionContainerManager
@@ -134,6 +131,7 @@
     - brass_2
     - brass_3
   - type: Sprite
+    sprite: _DV/Objects/Materials/Sheets/metal.rsi # DeltaV - new brass textures
     state: brass_3
     layers:
     - state: brass_3
@@ -241,3 +239,12 @@
   - type: Stack
     stackType: Plasteel
     count: 1
+
+- type: entity
+  parent: SheetPlasteel
+  id: SheetPlasteelLingering0
+  suffix: Lingering, 0
+  components:
+  - type: Stack
+    lingering: true
+    count: 0

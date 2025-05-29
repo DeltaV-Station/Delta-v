@@ -16,7 +16,7 @@ public sealed class AutoclaveSystem : EntitySystem
     [Dependency] private readonly PowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedEntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly SharedSurgeryCleanSystem _surgeryClean = default!;
+    [Dependency] private readonly SurgeryCleanSystem _surgeryClean = default!;
 
     public override void Initialize()
     {
@@ -52,7 +52,7 @@ public sealed class AutoclaveSystem : EntitySystem
 
             foreach (var containedEntity in storageComponent.Contents.ContainedEntities)
             {
-                _surgeryClean.DoClean(new(uid, cleansDirt), containedEntity);
+                _surgeryClean.DoClean((uid, cleansDirt), containedEntity);
             }
 
             UpdateVisuals(uid, true, true);

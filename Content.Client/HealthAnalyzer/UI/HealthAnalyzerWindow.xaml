@@ -171,10 +171,10 @@
                     </PanelContainer>
                     <TextureRect Name="NoDataTex"
                                  Access="Public"
-                                 SetSize="64 64"
+                                 SetSize="96 96"
                                  Visible="false"
                                  Stretch="KeepAspectCentered"
-                                 TexturePath="/Textures/Interface/Misc/health_analyzer_out_of_range.png"/>
+                                 TexturePath="/Textures/Interface/Misc/health_analyzer_out_of_range.png"/> <!-- DeltaV - Size changed to 96 96 to be consistent with shitmed -->
                     <BoxContainer Margin="5 0 0 0"
                                   Orientation="Vertical"
                                   VerticalAlignment="Top">
@@ -197,6 +197,22 @@
                 </BoxContainer>
 
                 <PanelContainer StyleClasses="LowDivider"/>
+
+                <!-- Begin DeltaV - Medical Records -->
+                <BoxContainer Name="TriageControls" Orientation="Vertical">
+                    <BoxContainer Name="StatusBox"
+                                  Orientation="Horizontal"
+                                  HorizontalAlignment="Center"
+                                  Margin="0 8 0 0">
+                    </BoxContainer>
+
+                    <Button Name="ClaimButton"
+                            Text="{Loc 'health-analyzer-window-triage-claim'}"
+                            MinSize="60 0" />
+
+                    <PanelContainer StyleClasses="LowDivider" Margin="0 8 0 0"/>
+                </BoxContainer>
+                <!-- End DeltaV - Medical Records -->
 
                 <GridContainer Margin="0 5 0 0"
                                Columns="2">

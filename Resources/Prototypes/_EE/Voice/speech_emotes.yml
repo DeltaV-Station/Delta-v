@@ -7,10 +7,11 @@
 - type: emote
   id: Boop
   name: chat-emote-name-boop
+  icon: _DV/Interface/Emotes/ecg.png # DeltaV - Added icon
   category: Vocal
   whitelist:
-    components:
-    - Silicon
+    tags: # DeltaV - let bots use it too
+    - SiliconEmotes
   chatMessages: [ boops ]
   chatTriggers:
     - boops
@@ -18,8 +19,8 @@
 - type: emote
   id: Whirr # uncategorized as it is generic
   whitelist:
-    components:
-    - Silicon
+    tags: # DeltaV - let bots use it too
+    - SiliconEmotes
   name: chat-emote-name-whirr
   chatMessages: [ whirrs ]
   chatTriggers:

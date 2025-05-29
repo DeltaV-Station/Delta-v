@@ -1,0 +1,77 @@
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetAltService
+  name: head of personnel's over-ear headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyService
+      - EncryptionKeyCommand
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: _DV/Clothing/Ears/Headsets/service.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Ears/Headsets/service.rsi
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetAltJustice
+  name: chief justice's headset
+  description: The headset used by the chief justice.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyJustice
+      - EncryptionKeySecurity
+      - EncryptionKeyCommon
+      - EncryptionKeyCommand
+  - type: Sprite
+    sprite: _DV/Clothing/Ears/Headsets/justice.rsi
+    state: icon_alt
+  - type: Clothing
+    sprite: _DV/Clothing/Ears/Headsets/justice.rsi
+
+- type: entity
+  parent: ClothingHeadsetAdminAssistant
+  id: ClothingHeadsetAltAdminAssistant
+  name: adminstrative assistant over-ear headset
+  components:
+  - type: Sprite
+    state: icon_alt
+  - type: Clothing
+    equippedPrefix: alt
+
+- type: entity
+  parent: ClothingHeadsetAltSyndicate
+  id: ClothingHeadsetAltSyndicateListening
+  name: blood-red over-ear interception headset
+  description: An advanced, modular syndicate interception intercom that fits over the head.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySyndie
+      - EncryptionKeyStationMaster
+      - EncryptionKeyBinarySyndicate
+  - type: Sprite
+    sprite: _DV/Clothing/Ears/Headsets/syndicate_listening.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Ears/Headsets/syndicate_listening.rsi
+
+- type: entity
+  parent: ClothingHeadsetAltSyndicate
+  id: ClothingHeadsetAltSyndicateInterdyne
+  name: blood-red over-ear piloting headset
+  description: An advanced, modular syndicate intercom that fits over the head.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySyndie
+      - EncryptionKeyTraffic
+  - type: Sprite
+    sprite: _DV/Clothing/Ears/Headsets/syndicate_listening.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Ears/Headsets/syndicate_listening.rsi

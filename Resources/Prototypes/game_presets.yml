@@ -43,6 +43,8 @@
     - Traitor
     - Revolutionary
     - Zombie
+    - Wizard
+    - CosmicCult # DeltaV
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
@@ -64,6 +66,7 @@
     - Traitor
     - Revolutionary
     - Zombie
+    - Wizard
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
     - MeteorSwarmMildScheduler
@@ -160,13 +163,14 @@
   cooldown: 2 # Imp - Can't occur thrice
   showInVote: false
   rules:
-    - Traitor
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - GlimmerEventScheduler # DeltaV
+  - DummyNonAntagChance
+  - Traitor
+  - SubGamemodesRule
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: Deathmatch
@@ -190,13 +194,14 @@
   showInVote: false
   cooldown: 2 # Imp - Can't occur thrice
   rules:
-    - Nukeops
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - GlimmerEventScheduler # DeltaV
+  - Nukeops
+  - DummyNonAntagChance
+  - SubGamemodesRule
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: Revolutionary
@@ -208,13 +213,14 @@
   description: rev-description
   showInVote: false
   rules:
-    - Revolutionary
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - GlimmerEventScheduler # DeltaV
+  - DummyNonAntagChance
+  - Revolutionary
+  - SubGamemodesRule
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: Wizard
@@ -225,6 +231,7 @@
   showInVote: false
   rules:
   - Wizard
+  - DummyNonAntagChance
   - SubGamemodesRuleNoWizard #No Dual Wizards at the start, midround is fine
   - BasicStationEventScheduler
   - MeteorSwarmScheduler

@@ -18,6 +18,17 @@
       - EncryptionKey
 
 - type: entity
+  parent: BoxEncryptionKeyPassenger
+  id: BoxEncryptionKeyTraffic
+  name: traffic encryption key box
+  description: A box of spare encryption keys.
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeyTraffic
+      amount: 4
+
+- type: entity
   name: justice encryption key box
   parent: BoxEncryptionKeyPassenger
   id: BoxEncryptionKeyJustice
@@ -110,8 +121,7 @@
   parent: BoxCardboard
   id: BoxSyndicateFigurines
   name: syndicate figurines box
-  description: A box of a full set of syndicate figurines!
-  components:
+    components:
   - type: Sprite
     layers:
     - state: box_of_doom
@@ -126,6 +136,7 @@
     - id: ToyFigurineNukieElite
     - id: ToyFigurineNukieCommander
     - id: ToyFigurineFootsoldier
+  description: A box of a full set of syndicate figurines!
 
 - type: entity
   parent: BoxCardboard
@@ -188,3 +199,19 @@
     - id: HolosecretaryInjector
     - id: BoxFolderClipboard
     - id: LuxuryPen
+    
+- type: entity
+  id: BoxSyndicateFirebugsFestival
+  name: firebug's festival box
+  description: A box containing bottles of Firebug's Favorite. The front of it shows a chitinid operative in a thermal suit giving a thumbs up
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: writing_of_doom
+  - type: StorageFill
+    contents:
+    - id: ChemistryBottleFirebugsFriend
+      amount: 8
+    - id: SyndicateFlippo
+      amount: 1

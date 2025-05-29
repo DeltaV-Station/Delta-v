@@ -1,32 +1,4 @@
 - type: reaction
-  id: Hemoxadone
-  minTemp: 370
-  reactants:
-    Iron:
-      amount: 2
-    Traumoxadone:
-      amount: 1
-    Blood:
-      amount: 1
-      catalyst: true
-  products:
-    Hemoxadone: 2
-
-- type: reaction
-  id: Cyanoxadone
-  minTemp: 370
-  reactants:
-    Copper:
-      amount: 2
-    Traumoxadone:
-      amount: 1
-    CopperBlood:
-      amount: 1
-      catalyst: true
-  products:
-    Cyanoxadone: 2
-
-- type: reaction
   id: Netinadone
   minTemp: 400
   reactants:
@@ -38,3 +10,40 @@
       amount: 1
   products:
     Netinadone: 2
+
+- type: reaction
+  id: Umbroxol
+  reactants:
+    UnholyWater:
+      amount: 2
+    TableSalt:
+      amount: 1
+    Mercury:
+      amount: 1
+  products:
+    Umbroxol: 2
+
+- type: reaction
+  id: UnholyWater
+  reactants:
+    Blood:
+      amount: 1
+    Sulfur:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    UnholyWater: 3
+
+- type: reaction
+  id: Anodynafil
+  minTemp: 400
+  reactants:
+    SalicylicAcid:
+      amount: 1
+    Ethanol:
+      amount: 1
+    Iodine:
+      amount: 1
+  products:
+    Anodynafil: 4

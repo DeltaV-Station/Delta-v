@@ -1,4 +1,4 @@
-﻿# Generic borg
+# Generic borg
 - type: borgType
   id: generic
 
@@ -10,10 +10,12 @@
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
+    - BorgModuleScience #until sciborgs are added
 
   defaultModules:
   - BorgModuleTool
-
+  - BorgModuleArtifact
+  - BorgModuleAnomaly
   radioChannels:
   - Science
 
@@ -89,8 +91,9 @@
     - BorgModuleCargo
 
   defaultModules:
-  - BorgModuleGrapplingGun
+  - BorgModuleTool
   - BorgModuleMining
+  - BorgModuleTraversal
   - BorgModuleAppraisal
 
   job: SalvageSpecialist # DeltaV - borg job requirements
@@ -133,8 +136,9 @@
     - BorgModuleJanitor
 
   defaultModules:
-  - BorgModuleLightReplacer
+  - BorgModuleTool
   - BorgModuleCleaning
+  - BorgModuleCustodial
 
   lawset: Janitor # DeltaV - Custom lawset
   job: Janitor # DeltaV - borg job requirements
@@ -177,8 +181,10 @@
     - BorgModuleMedical
 
   defaultModules:
-  - BorgModuleTreatment
-  - BorgModuleSurgery # DeltaV
+  - BorgModuleTool
+  - BorgModuleChemical
+  - BorgModuleTopicals
+  - BorgModuleRescue
 
   radioChannels:
   - Science
@@ -192,9 +198,11 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - BiologicalMetaphysical # DeltaV - Kitsune
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+    - BiologicalMetaphysical # DeltaV - Kitsune
   - type: FabricateCandy # DeltaV - The medical cyborg can generate candies filled with medicine.
     actions:
     - ActionFabricateLollipop
@@ -239,10 +247,12 @@
     - BorgModuleService
 
   defaultModules:
+  - BorgModuleTool
   - BorgModuleMusique
   - BorgModuleService
   - BorgModuleClowning
-
+  - BorgModuleGardening
+  - BorgModuleHarvesting
   radioChannels:
   - Science
   - Service

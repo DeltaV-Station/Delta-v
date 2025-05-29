@@ -10,33 +10,33 @@
         icon:
           sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeStraight
-        name: pipe
+        name: construction-graph-tag-pipe
       - tag: ModularBreech
         icon:
           sprite: _DV/Objects/Misc/modular_breech.rsi
           state: base
-        name: modular breech
+        name: construction-graph-tag-modular-breech
       - tag: ModularTrigger
         icon:
           sprite: _DV/Objects/Misc/modular_trigger.rsi
           state: base
-        name: modular trigger
+        name: construction-graph-tag-modular-trigger
       - tag: RifleStock
         icon:
           sprite: Objects/Misc/rifle_stock.rsi
           state: icon
-        name: rifle stock
+        name: construction-graph-tag-rifle-stock
       - tag: Bayonet
         icon:
           sprite: _DV/Objects/Misc/bayonet.rsi
           state: base
-        name: bayonet
+        name: construction-graph-tag-bayonet
       - material: WoodPlank
         amount: 3
         doAfter: 10
   - node: musket
     entity: WeaponRifleMusket
-    
+
 - type: constructionGraph
   id: WeaponPistolFlintlockCraftedGraph
   start: start
@@ -49,27 +49,27 @@
         icon:
           sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeHalf
-        name: half pipe
+        name: construction-graph-tag-half-pipe
       - tag: ModularBreech
         icon:
           sprite: _DV/Objects/Misc/modular_breech.rsi
           state: base
-        name: modular breech
+        name: construction-graph-tag-modular-breech
       - tag: ModularTrigger
         icon:
           sprite: _DV/Objects/Misc/modular_trigger.rsi
           state: base
-        name: modular trigger
-      - tag: RifleStock
+        name: construction-graph-tag-modular-trigger
+      - tag: RifleStock # why the hell does a pistol need a rifle stock??
         icon:
           sprite: Objects/Misc/rifle_stock.rsi
           state: icon
-        name: rifle stock
+        name: construction-graph-tag-rifle-stock
       - tag: Bayonet
         icon:
           sprite: _DV/Objects/Misc/bayonet.rsi
           state: base
-        name: bayonet
+        name: construction-graph-tag-bayonet
       - material: WoodPlank
         amount: 2
         doAfter: 10

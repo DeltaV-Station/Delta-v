@@ -50,7 +50,7 @@
     Oxygen:
       amount: 1
   products:
-    Acetone: 2
+    Acetone: 3 # Funkychem - was 2
 
 - type: reaction
   id: FoamingAgent
@@ -277,7 +277,7 @@
     Carbon:
       amount: 1
   products:
-    Oil: 3
+    Oil: 4 # Funkychem - should hopefully offset hydrogen use, was 3
 
 - type: reaction
   id: Fluorosurfactant
@@ -515,4 +515,3 @@
       amount: 1
   products:
     Tazinide: 1
-

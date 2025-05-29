@@ -4,13 +4,13 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-rev-head-objective
+  guides: [ Revolutionaries ]
   requirements:
-  - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
-    time: 172800 # DeltaV - 48 hours
+  - !type:OverallPlaytimeRequirement
+    time: 172800 # DeltaV - was 3600, 48 hours
   - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
     department: Command
-    time: 36000 # DeltaV - 10 hours
-  guides: [ Revolutionaries ]
+    time: 36000 # 10 hours
 
 - type: antag
   id: Rev
