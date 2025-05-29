@@ -62,6 +62,19 @@
     handDisabling: SingleRandom
     grapplingPart: grapple-part-jaws
   - type: DogWhistleReciever
+    canUnderstand: true
+  - type: HTN
+    rootTask:
+      task: k9Compound
+    blackboard:
+      CatchRange: !type:Single
+        0.3 # NPCs must be this close to grapple
+      IdleRange: !type:Single
+        0.5 # Trained doggo stays in the right place
+      FollowCloseRange: !type:Single
+        1.5
+      FollowRange: !type:Single
+        2.0
 
 - type: entity
   parent: MobCarp

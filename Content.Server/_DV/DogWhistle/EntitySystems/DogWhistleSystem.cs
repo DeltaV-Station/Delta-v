@@ -1,11 +1,12 @@
+using Content.Server.Mind;
+using Content.Server.NPC.HTN;
+using Content.Server.NPC.Systems;
 using Content.Shared._DV.DogWhistle.Components;
 using Content.Shared._DV.DogWhistle.EntitySystems;
 using Content.Shared._DV.DogWhistle.Events;
 using Content.Shared.Pointing;
-using Content.Shared.Popups;
 using Content.Shared.Timing;
 using Robust.Server.Audio;
-using Robust.Shared.Audio;
 using Robust.Shared.Random;
 
 namespace Content.Server._DV.DogWhistle.EntitySystems;
@@ -13,9 +14,12 @@ namespace Content.Server._DV.DogWhistle.EntitySystems;
 /// <summary>
 /// Server side handling of Dog Whistles.
 /// </summary>
-public sealed class DogWhistleSystem : SharedDogWhistleSystem
+public sealed partial class DogWhistleSystem : SharedDogWhistleSystem
 {
     [Dependency] private readonly AudioSystem _audioSystem = default!;
+    [Dependency] private readonly HTNSystem _htnSystem = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
+    [Dependency] private readonly NPCSystem _npcSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly UseDelaySystem _useDelaySystem = default!;
 
@@ -101,70 +105,5 @@ public sealed class DogWhistleSystem : SharedDogWhistleSystem
     private bool CanSendOrder(Entity<DogWhistleComponent> whistle)
     {
         return !_useDelaySystem.IsDelayed(whistle.Owner);
-    }
-
-    /// <summary>
-    /// Handles when a catch order is sent via a whistle.
-    /// </summary>
-    /// <param name="ent">Entity recieving the order.</param>
-    /// <param name="args">Args for the event, notably sound and origin.</param>
-    private void OnCatchOrder(Entity<DogWhistleRecieverComponent> ent, ref DogWhistleCatchOrderEvent args)
-    {
-        HandleOrder(ent, args.Sound, args.Origin, ent.Comp.CatchOrder);
-    }
-
-    /// <summary>
-    /// Handles when a sit order is sent via a whistle.
-    /// </summary>
-    /// <param name="ent">Entity recieving the order.</param>
-    /// <param name="args">Args for the event, notably sound and origin.</param>
-    private void OnSitOrder(Entity<DogWhistleRecieverComponent> ent, ref DogWhistleSitOrderEvent args)
-    {
-        HandleOrder(ent, args.Sound, args.Origin, ent.Comp.SitOrder);
-    }
-
-    /// <summary>
-    /// Handles when a come back order is sent via a whistle.
-    /// </summary>
-    /// <param name="ent">Entity recieving the order.</param>
-    /// <param name="args">Args for the event, notably sound and origin.</param>
-    private void OnComebackOrder(Entity<DogWhistleRecieverComponent> ent, ref DogWhistleComebackOrderEvent args)
-    {
-        HandleOrder(ent, args.Sound, args.Origin, ent.Comp.ComebackOrder);
-    }
-
-    /// <summary>
-    /// Actually handles the order that's been sent.
-    /// Schedules sounds to be played and any popups that might need to be sent.
-    /// </summary>
-    /// <param name="ent">Entity recieving this order.</param>
-    /// <param name="sound">The sound to play.</param>
-    /// <param name="origin">The origin of the whistle that sent this order.</param>
-    /// <param name="orderString">The localisation string to use for this order.</param>
-    private void HandleOrder(Entity<DogWhistleRecieverComponent> ent,
-        SoundSpecifier sound,
-        EntityUid origin,
-        LocId orderString)
-    {
-        var audioParams = new AudioParams
-        {
-            MaxDistance = 300f, // Long distance, TODO: Configurable?
-            RolloffFactor = 0f // Hearable at the same volume across the station
-        };
-
-        string message;
-        if (ent.Comp.CanUnderstand)
-        {
-            message = Loc.GetString(orderString);
-        }
-        else
-        {
-            audioParams.Volume =
-                -10f; // Lower the volume by a bunch so we don't overwhelm players that don't need to understand this
-            message = Loc.GetString(_random.Pick(ent.Comp.Screeches));
-        }
-
-        _audioSystem.PlayEntity(_audioSystem.ResolveSound(sound), ent, origin, audioParams);
-        PopupSystem.PopupEntity(message, ent, ent, PopupType.Medium);
     }
 }

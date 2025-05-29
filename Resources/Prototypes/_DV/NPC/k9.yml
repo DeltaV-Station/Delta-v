@@ -1,0 +1,43 @@
+- type: htnCompound
+  id: k9Compound
+  branches:
+    - preconditions:
+        - !type:HasOrdersPrecondition
+          orders: enum.DogWhistleOrderType.Catch
+      tasks:
+        - !type:HTNCompoundTask
+          task: K9GrappleCompound
+    - preconditions:
+        - !type:HasOrdersPrecondition
+          orders: enum.DogWhistleOrderType.Sit
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: true
+            targetKey: MovementTarget
+            RangeKey: IdleRange
+        - !type:HTNCompoundTask
+          task: IdleCompound
+    - preconditions:
+        - !type:HasOrdersPrecondition
+          orders: enum.DogWhistleOrderType.Comeback
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:DropCatchOrderOperator
+        - !type:HTNCompoundTask
+          task: FollowCompound
+
+- type: htnCompound
+  id: K9GrappleCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            shutdownState: PlanFinished
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: MeleeRange
+        - !type:HTNPrimitiveTask
+          operator: !type:CatchOrderOperator
