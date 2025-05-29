@@ -395,19 +395,6 @@
     stock: 5
 
 - type: listing
-  id: UplinkRecruiterHolosecretary
-  name: uplink-recruiter-holosecretary-name
-  description: uplink-recruiter-holosecretary-desc
-  productEntity: BoxHolosecretary
-  cost:
-    TreatCoin: 25
-  categories:
-  - RecruiterTreasure
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 2
-
-- type: listing
   id: UplinkRecruiterNukiePlush
   name: uplink-recruiter-nukieplush-name
   description: uplink-recruiter-nukieplush-desc

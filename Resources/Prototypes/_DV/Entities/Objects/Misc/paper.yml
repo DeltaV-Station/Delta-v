@@ -494,43 +494,6 @@
       You have been given an initial budget of 50"TC", spend it wisely.
       To insert more, make sure the briefcase is locked before inserting the TC.
 
-      Its mostly all junk in here, so anything "good" is going to sincerely cost you.
-      We also have some listings here that we dont bother to give to our operatives, theyre not useful but very shiny.
-
-      While the Uplink is DNA-locked to you, please avoid losing it.
-
-- type: entity
-  parent: HoloparasiteInfo
-  id: HolosecretaryInfo
-  name: "holosecretary terms and conditions"
-  description: A tiny volumetric display for documents, makes one wonder if Cybersun's legal budget is way too high.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/guardian_info.rsi
-    state: guardian_info
-  - type: ActivatableUI
-    key: enum.PaperUiKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.PaperUiKey.Key:
-        type: PaperBoundUserInterface
-  - type: Paper
-    content: |2
-
-      Thanks for choosing our holosecretary package!
-      At cybersun, we pride ourselves on cutting-edge military and industrial technology, and greatly appreciate your contribution to our establishment!
-      Guardians are helpful and intelligent beings which nest within your body, completely immune to common hazards such as pressure, temperature and even bullets!
-      You have purchased the holosecretary package, which contains a holosecretary activator, an instruction booklet, and a complimentary clipboard.
-      Instructions for use:
-      1. Activate the holosecretary injector (preferably in a secluded area).
-      2. Wait for the tingling and/or painful metaphysical sensation.
-      3. Check your holosecretary for the ability to communicate and cooperate, and capacity to understand your orders.
-      4. Use your recall-manifest ability to summon or recall the holosecretary back into your body.
-      5. Keep the holosecretary within a short distance from yourself, otherwise it will be recalled by force!
-      WARNING: Guardians are metaphysical beings, but draw from your HEALTH in order to exist. Direct damage done to secretaries will be partially transferred to you!
-
-      Cybersun inc. is not responsible for complete annihilation following the misuse of Holoparasite technology.
-
 - type: entity
   parent: BoxFolderRed
   id: BoxFolderFakeNukeCodes

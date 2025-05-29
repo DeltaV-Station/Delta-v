@@ -15,7 +15,7 @@ uplink-recruiter-toolbox-name = Suspicious toolbox
 uplink-recruiter-toolbox-desc = a black and red toolbox with extra space that packs quite a punch. does NOT come pre-filled.
 
 uplink-recruiter-banner-name = Syndicate banner
-uplink-recruiter-banner-desc = a black and red banner scientitifcally PROVEN to cause hatred for NT.
+uplink-recruiter-banner-desc = a black and red banner scientitifcally proven to cause hatred for NT.
 
 uplink-recruiter-utilitybelt-name = Syndicate utility belt
 uplink-recruiter-utilitybelt-desc = a sleek black toolbelt designed to hold your tools while looking stylish. Comes Empty.
@@ -51,7 +51,7 @@ uplink-recruiter-cyberpen-name = Cybersun Pen
 uplink-recruiter-cyberpen-desc = Cybersun's legal department pen with a hard-light tip. Can forge documents, act as a scredriver or emergency weapon. Pricy.
 
 uplink-recruiter-ggf-name = Gorlex Girlfriends issue 197
-uplink-recruiter-ggf-desc = Our most successful propadanga campaign yet, too successful, we have only three magazines left to give to you, so theyre expensive.
+uplink-recruiter-ggf-desc = Our most successful propadanga campaign yet, we only have three magazines left to give to you.
 
 uplink-recruiter-randomdonk-name = Donk pocket grab bag
 uplink-recruiter-randomdonk-desc = We throw a random box of Donk pockets at you, could be limited edition, could be berry.
@@ -70,9 +70,6 @@ uplink-recruiter-lingsting-desc = a Stylish soda with an inconsistent appearance
 
 uplink-recruiter-bribe5k-name = 5000 Spesos
 uplink-recruiter-bribe5k-desc = A 5000 Speso dividend, for use in bribing security or as a tempting sign on bonus. Were only giving you up to 5 of these.
-
-uplink-recruiter-holosecretary-name = Holosecretary Kit
-uplink-recruiter-holosecretary-desc = The pride and joy of Cybersun, now demoted into your secretary! The holosecretary is nearly identical to an ordinary holoparasite, but is unable to hurt anyone or anything. In exchange, it has Hands. Were not giving out more than two of these.
 
 uplink-recruiter-nukieplush-name = Nuclear Operative Plush
 uplink-recruiter-nukieplush-desc = a Plushie depicting a 100% fictitious "nuclear operative" in their equally fictional Blood-red hardsuit.

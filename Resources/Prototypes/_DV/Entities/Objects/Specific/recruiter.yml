@@ -18,6 +18,8 @@
       - MindShield
     factionBlacklist:
     - Syndicate # no silly goose
+    currency: #currency type it spawns, count is handeled directly via pen system
+      Treatcoin5
   - type: SolutionContainerManager
     solutions:
       blood:
@@ -35,7 +37,6 @@
     stealGroup: RecruiterPen # not stolen, its for keeping it safe objective
   - type: EmitSoundOnUse
     handle: false # need to handle the event for pricking
-  - type: RecruiterPayComponent
 
 
 - type: entity

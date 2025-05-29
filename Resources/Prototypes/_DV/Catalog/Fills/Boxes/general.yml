@@ -180,27 +180,6 @@
       prob: 0.1
 
 - type: entity
-  parent: BoxHoloparasite
-  id: BoxHolosecretary
-  name: holosecretary box
-  description: A box containing a holosecretary injector
-  components:
-  - type: Sprite
-    layers:
-    - state: box_of_doom
-    - state: holo
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-    - 0,0,3,1
-  - type: StorageFill
-    contents:
-    - id: HolosecretaryInfo
-    - id: HolosecretaryInjector
-    - id: BoxFolderClipboard
-    - id: LuxuryPen
-    
-- type: entity
   id: BoxSyndicateFirebugsFestival
   name: firebug's festival box
   description: A box containing bottles of Firebug's Favorite. The front of it shows a chitinid operative in a thermal suit giving a thumbs up

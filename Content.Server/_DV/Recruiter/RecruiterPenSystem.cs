@@ -5,9 +5,6 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared._DV.Recruiter;
 using Content.Shared.Popups;
-using Content.Server.Mind;
-using Content.Shared.Roles.Jobs;
-using Content.Server.EntityEffects.Effects;
 
 
 namespace Content.Server._DV.Recruiter;
@@ -19,12 +16,11 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
 {
     [Dependency] private readonly ForensicsSystem _forensics = default!;
     [Dependency] private readonly SolutionTransferSystem _transfer = default!;
-    [Dependency] private readonly SharedJobSystem _jobs = default!;
 
     protected override void DrawBlood(EntityUid uid, Entity<SolutionComponent> dest, EntityUid user)
     {
         // how did you even use this mr plushie...
-        if (CompOrNull<BloodstreamComponent>(user)?.BloodSolution is not {} blood)
+        if (CompOrNull<BloodstreamComponent>(user)?.BloodSolution is not { } blood)
             return;
 
         var desired = dest.Comp.Solution.AvailableVolume;
@@ -50,12 +46,18 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
         if (!ent.Comp.Recruited.Add(user))
             return;
 
-        if (ent.Comp.RecruiterMind is {} mindId &&
+        if (ent.Comp.RecruiterMind is { } mindId &&
             Mind.TryGetObjectiveComp<RecruitingConditionComponent>(mindId, out var obj, null))
         {
             obj.Recruited++;
-            var ev = new PayoutEvent(user);
-            RaiseLocalEvent(ref ev);
+            Reward(ent, user);
         }
+    }
+
+    protected void Reward(Entity<RecruiterPenComponent> ent, EntityUid user)
+    {
+        var coords = Transform(user).Coordinates;
+        var pay = ent.Comp.Currency;
+        Spawn(pay, coords);
     }
 }
