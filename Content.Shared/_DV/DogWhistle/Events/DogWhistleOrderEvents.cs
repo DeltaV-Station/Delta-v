@@ -11,7 +11,8 @@ namespace Content.Shared._DV.DogWhistle.Events;
 public abstract class BaseDogWhistleOrderEvent(EntityUid origin, SoundSpecifier sound)
 {
     /// <summary>
-    /// The entity this whistle activation originated from
+    /// The entity this whistle activation originated from.
+    /// I.e. Who/What blew the whistle.
     /// </summary>
     public EntityUid Origin = origin;
 
