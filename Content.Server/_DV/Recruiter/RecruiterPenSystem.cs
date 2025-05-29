@@ -54,7 +54,7 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
         }
     }
 
-    protected void Reward(Entity<RecruiterPenComponent> ent, EntityUid user)
+    public void Reward(Entity<RecruiterPenComponent> ent, EntityUid user)
     {
         var coords = Transform(user).Coordinates;
         var pay = ent.Comp.Currency;

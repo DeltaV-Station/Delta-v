@@ -692,3 +692,13 @@
   components:
   - type: Pda
     id: RoboNeuroticistIDCard
+
+# Recruiter
+
+- type: entity
+  parent: PassengerPDA
+  id: RecruiterPDA
+  suffix: Recruiter
+  components:
+  - type: Pda
+    id: RecruiterIDCard

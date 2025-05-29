@@ -519,3 +519,23 @@
   - type: MappingCategories
     categories:
     - Debug
+
+#Recruiter
+- type: entity
+  parent: SyndicateIDCard
+  id: RecruiterIDCard
+  suffix: Recruiter
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idpassenger
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+    - External
+    - Maintenance
+  - type: IdCard
+    jobTitle: job-name-passenger
+    jobIcon: JobIconPassenger
