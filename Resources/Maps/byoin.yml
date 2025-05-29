@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 05/27/2025 23:35:09
-  entityCount: 15307
+  time: 05/29/2025 07:07:17
+  entityCount: 15309
 maps:
 - 1
 grids:
@@ -7600,15 +7600,12 @@ entities:
       pos: -23.5,-0.5
       parent: 2
     - type: DeviceLinkSink
-      invokeCounter: 4
+      invokeCounter: 1
     - type: DeviceLinkSource
       linkedPorts:
-        9037:
+        15309:
         - - DoorStatus
-          - DoorBolt
-        9038:
-        - - DoorStatus
-          - DoorBolt
+          - InputA
   - uid: 8986
     components:
     - type: MetaData
@@ -7617,15 +7614,12 @@ entities:
       pos: -23.5,-1.5
       parent: 2
     - type: DeviceLinkSink
-      invokeCounter: 4
+      invokeCounter: 1
     - type: DeviceLinkSource
       linkedPorts:
-        9038:
+        15309:
         - - DoorStatus
-          - DoorBolt
-        9037:
-        - - DoorStatus
-          - DoorBolt
+          - InputB
   - uid: 9037
     components:
     - type: MetaData
@@ -7634,15 +7628,12 @@ entities:
       pos: -27.5,-0.5
       parent: 2
     - type: DeviceLinkSink
-      invokeCounter: 4
+      invokeCounter: 1
     - type: DeviceLinkSource
       linkedPorts:
-        7146:
+        15308:
         - - DoorStatus
-          - DoorBolt
-        8986:
-        - - DoorStatus
-          - DoorBolt
+          - InputA
   - uid: 9038
     components:
     - type: MetaData
@@ -7651,15 +7642,12 @@ entities:
       pos: -27.5,-1.5
       parent: 2
     - type: DeviceLinkSink
-      invokeCounter: 4
+      invokeCounter: 1
     - type: DeviceLinkSource
       linkedPorts:
-        7146:
+        15308:
         - - DoorStatus
-          - DoorBolt
-        8986:
-        - - DoorStatus
-          - DoorBolt
+          - InputB
 - proto: AirlockExternalGlassSecurityLocked
   entities:
   - uid: 8424
@@ -10022,7 +10010,7 @@ entities:
   - uid: 5549
     components:
     - type: MetaData
-      name: 'APC: Chemistry & Psycology'
+      name: 'APC: Chemistry & Psychology'
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 7.5,-27.5
@@ -10162,6 +10150,8 @@ entities:
       parent: 2
   - uid: 12383
     components:
+    - type: MetaData
+      name: 'APC: Salvage'
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -15.5,-2.5
@@ -74053,6 +74043,47 @@ entities:
     - type: Transform
       pos: 26.5,18.5
       parent: 2
+- proto: LogicGateOr
+  entities:
+  - uid: 15308
+    components:
+    - type: Transform
+      anchored: True
+      pos: -25.5,-0.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        7146:
+        - - Output
+          - DoorBolt
+        8986:
+        - - Output
+          - DoorBolt
+    - type: Physics
+      canCollide: False
+      bodyType: Static
+  - uid: 15309
+    components:
+    - type: Transform
+      anchored: True
+      rot: 3.141592653589793 rad
+      pos: -25.5,-1.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        9037:
+        - - Output
+          - DoorBolt
+        9038:
+        - - Output
+          - DoorBolt
+    - type: Physics
+      canCollide: False
+      bodyType: Static
 - proto: LogisticsTechFab
   entities:
   - uid: 3135
