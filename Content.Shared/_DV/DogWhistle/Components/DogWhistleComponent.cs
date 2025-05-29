@@ -2,6 +2,7 @@ using Content.Shared._DV.DogWhistle.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._DV.DogWhistle.Components;
 
@@ -29,4 +30,12 @@ public sealed partial class DogWhistleComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? ToggleActionEntid = null;
+}
+
+[Serializable, NetSerializable]
+public enum DogWhistleOrderType : byte
+{
+    Catch,
+    Sit,
+    Comeback,
 }
