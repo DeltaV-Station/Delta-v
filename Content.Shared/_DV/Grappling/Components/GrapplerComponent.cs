@@ -48,6 +48,18 @@ public sealed partial class GrapplerComponent : Component
     [ViewVariables]
     [AutoNetworkedField]
     public EntityUid? ActiveVictim = null;
+
+    /// <summary>
+    /// Cooldown for grappling to apply at the moment the grapple is broken.
+    /// </summary>
+    [DataField]
+    public TimeSpan Cooldown = TimeSpan.FromSeconds(5);
+
+    /// <summary>
+    /// Time when the cooldown for the grapple will be over.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan CooldownEnd;
 }
 
 /// <summary>
