@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server._DV.Objectives.Events;
 using Content.Server.Antag;
 using Content.Server.Polymorph.Systems;
@@ -94,13 +95,21 @@ public sealed class CosmicFragmentationSystem : EntitySystem
 
     private void OnFragmentBorg(Entity<BorgChassisComponent> ent, ref MalignFragmentationEvent args)
     {
-        if (_polymorph.PolymorphEntity(args.Target, "CosmicFragmentationWisp") is not { } polyVictim)
+        var subject = args.Target;
+        if (HasComp<BorgBrainComponent>(ent.Comp.BrainContainer.ContainedEntity))
+        {
+            var mmiTarget = _container.EmptyContainer(ent.Comp.BrainContainer).First();
+            _container.TryGetContainer(mmiTarget, "brain_slot", out var brainTarget);
+            subject = _container.EmptyContainer(brainTarget!).First();
+        } // is there a better way to do this?
+
+        if (_polymorph.PolymorphEntity(subject, "CosmicFragmentationWisp") is not { } polyVictim)
             return;
 
         var chantry = Spawn("CosmicBorgChantry", Transform(polyVictim).Coordinates);
         EnsureComp<CosmicChantryComponent>(chantry, out var chantryComponent);
         chantryComponent.PolyVictim = polyVictim;
-        chantryComponent.Victim = args.Target;
+        chantryComponent.Victim = subject;
 
         var mins = chantryComponent.EventTime.Minutes;
         var secs = chantryComponent.EventTime.Seconds;
