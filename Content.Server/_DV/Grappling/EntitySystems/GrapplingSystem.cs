@@ -1,5 +1,6 @@
 using Content.Server.DoAfter;
 using Content.Server.Hands.Systems;
+using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Shared._DV.Grappling.Components;
 using Content.Shared._DV.Grappling.EntitySystems;
@@ -9,13 +10,16 @@ using Content.Shared.CombatMode;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Events;
+using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
+using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server._DV.Grappling.EntitySystems;
 
@@ -24,11 +28,14 @@ namespace Content.Server._DV.Grappling.EntitySystems;
 /// </summary>
 public sealed partial class GrapplingSystem : SharedGrapplingSystem
 {
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] private readonly AudioSystem _audioSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly InteractionSystem _interactionSystem = default!;
     [Dependency] private readonly HandsSystem _handsSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StandingStateSystem _standingStateSystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
@@ -48,19 +55,103 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     }
 
     /// <summary>
-    /// Begins grappling a victim, rendering them unable to move and possibly
-    /// removing their ability to use their hands.
+    /// Validates whether a grappler can actually grapple the victim.
     /// </summary>
-    /// <param name="grappler">Grappler entity to begin begin grappling</param>
-    /// <param name="victim">Entity to be grappled.</param>
-    public void StartGrapple(Entity<GrapplerComponent?> grappler, EntityUid victim)
+    /// <param name="grappler">Entity performing the grapple.</param>
+    /// <param name="victim">Intended victim of the grapple.</param>
+    /// <returns>True if the grapple could start, false otherwise.</returns>
+    public bool CanGrapple(Entity<GrapplerComponent?> grappler, EntityUid victim)
     {
         if (!Resolve(grappler, ref grappler.Comp))
-            return;
+            return false;
+
+        if (grappler.Comp.ActiveVictim.HasValue)
+            return false; // Can't grapple a second person
+
+        if (_gameTiming.CurTime < grappler.Comp.CooldownEnd)
+            return false; // Cooldown on the grapple is not over yet
 
         if (!_actionBlockerSystem.CanInteract(grappler, victim))
-            return;
+            return false;
 
+        if (!TryComp<TagComponent>(victim, out var tagComp) ||
+            !_tagSystem.HasTag(tagComp, _grappleTargetId))
+            return false; // Not a valid target
+
+        return true;
+    }
+
+    /// <summary>
+    /// Returns whether a grapple is currently active on a victim.
+    /// </summary>
+    /// <param name="grappler">The grappler to check.</param>
+    /// <returns>True if there is an ongoing grapple, false otherwise.</returns>
+    public bool IsGrappling(Entity<GrapplerComponent?> grappler)
+    {
+        if (!Resolve(grappler, ref grappler.Comp))
+            return false; // Isn't a grappler, so nothing to do.
+
+        return grappler.Comp.ActiveVictim.HasValue;
+    }
+
+    /// <summary>
+    /// Attempts to start grappling a victim, rendering them unable to move and possibly
+    /// removing their ability to use their hands.
+    /// </summary>
+    /// <param name="grappler">Entity attempting to begin a grapple</param>
+    /// <param name="victim">Entity to be grappled.</param>
+    /// <returns>True if the grapple started, false otherwise.</returns>
+    public bool TryStartGrapple(Entity<GrapplerComponent?> grappler, EntityUid victim)
+    {
+        if (!Resolve(grappler, ref grappler.Comp))
+            return false;
+
+        if (!CanGrapple(grappler, victim))
+            return false;
+
+        if (!_interactionSystem.InRangeUnobstructed(grappler.Owner, victim))
+            return false;
+
+        StartGrapple((grappler, grappler.Comp), victim, startPulling: true);
+        return true;
+    }
+
+    /// <summary>
+    /// Releases a victim from a grapple allowing them to move again and returning any
+    /// hands that were disabled.
+    /// </summary>
+    /// <param name="grappler">Entity, which was performing the grapple.</param>
+    /// <param name="manualRelease">Whether this release is considered by the grappler, or by the grappled.</param>
+    /// <returns>True if the grapple was released, false otherwise.</returns>
+    public bool ReleaseGrapple(Entity<GrapplerComponent?> grappler, bool manualRelease = false)
+    {
+        if (!Resolve(grappler, ref grappler.Comp))
+            return false;
+
+        var victim = grappler.Comp.ActiveVictim;
+        if (!victim.HasValue)
+            return false; // Not grappling anything
+
+        if (!TryComp<GrappledComponent>(victim, out var victimComp))
+            return false; // Somehow not a grappled target
+
+        ReleaseGrapple((grappler, grappler.Comp),
+            (victim.Value, victimComp),
+            manualRelease: manualRelease,
+            cleanupPulling: true);
+
+        return true;
+    }
+
+    /// <summary>
+    /// Handles applying the effects of grappling.
+    /// Optionally starts a pulling action.
+    /// </summary>
+    /// <param name="grappler">Entity starting the grapple.</param>
+    /// <param name="victim">Entity to be grappled.</param>
+    /// <param name="startPulling">Whether this grapple should start a pulling joint.</param>
+    private void StartGrapple(Entity<GrapplerComponent> grappler, EntityUid victim, bool startPulling = false)
+    {
         // Throw the victim prone
         _standingStateSystem.Down(victim);
 
@@ -80,6 +171,11 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         _actionBlockerSystem.UpdateCanMove(grappler);
         _actionBlockerSystem.UpdateCanMove(victim);
 
+        // Optionally try and start pulling the target so both the grappler and the victim can't be
+        // tugged away from one another.
+        if (startPulling)
+            _pullingSystem.TryStartPull(grappler, victim);
+
         _popupSystem.PopupEntity(
             Loc.GetString("grapple-start", ("part", grappler.Comp.GrapplingPart), ("victim", victim)),
             victim,
@@ -95,24 +191,6 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     }
 
     /// <summary>
-    /// Releases a victim from a grapple allowing them to move again and returning any
-    /// hands that were disabled.
-    /// </summary>
-    /// <param name="grappler">Entity, which was performing the grapple.</param>
-    /// <param name="manualRelease">Whether this release is considered by the grappler, or by the grappled.</param>
-    public void ReleaseGrapple(Entity<GrapplerComponent> ent, bool manualRelease = false)
-    {
-        var victim = ent.Comp.ActiveVictim;
-        if (!victim.HasValue)
-            return; // Not grappling anything
-
-        if (!TryComp<GrappledComponent>(victim, out var victimComp))
-            return; // Somehow not a grappled target
-
-        ReleaseGrapple(ent, (victim.Value, victimComp), manualRelease: manualRelease);
-    }
-
-    /// <summary>
     /// Handles when a grappler starts to pull an entity, and attempts to start a grapple
     /// if they are in harm-mode.
     /// Validates the entity is valid for grappling.
@@ -125,15 +203,12 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
             !combatMode.IsInCombatMode)
             return; // Not in harm mode, this is just a regular pull
 
-        if (grappler.Comp.ActiveVictim.HasValue)
-            return; // Can't grapple a second person
+        // We rely on the pulling system to handle the joints for us, which means when we
+        // start a grapple and request a pull, we end up here.
+        if (grappler.Comp.ActiveVictim == args.PulledUid)
+            return;
 
-        var victim = args.PulledUid;
-        if (!TryComp<TagComponent>(victim, out var tagComp) ||
-            !_tagSystem.HasTag(tagComp, _grappleTargetId))
-            return; // Not a valid target
-
-        StartGrapple(grappler.AsNullable(), victim);
+        TryStartGrapple(grappler.AsNullable(), args.PulledUid);
     }
 
     /// <summary>
@@ -147,7 +222,12 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         if (!grappler.Comp.ActiveVictim.HasValue)
             return; // No one to release from the grapple
 
-        ReleaseGrapple(grappler, true);
+        // We rely on the pulling system to handle the joints for us, which means when we
+        // stop a grapple and clean up the grapple, we can end up here.
+        if (grappler.Comp.ActiveVictim == args.PulledUid)
+            return;
+
+        ReleaseGrapple(grappler.AsNullable(), manualRelease: true);
     }
 
     /// <summary>
@@ -267,7 +347,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         if (!TryComp<GrapplerComponent>(grappled.Comp.Grappler, out var grappler))
             return; // Somehow not a grappler for this entity?
 
-        ReleaseGrapple((grappled.Comp.Grappler, grappler), grappled);
+        ReleaseGrapple((grappled.Comp.Grappler, grappler), grappled, manualRelease: false, cleanupPulling: true);
     }
 
     /// <summary>
@@ -277,10 +357,16 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     /// <param name="victim">Victim who has escaped or been released from the grapple</param>
     private void ReleaseGrapple(Entity<GrapplerComponent> grappler,
         Entity<GrappledComponent> victim,
-        bool manualRelease = false)
+        bool manualRelease = false,
+        bool cleanupPulling = false)
     {
-        // Inform the grappler that their victim is now free and they can move
+        // Ensure any pulling is cleaned up
+        if (cleanupPulling && TryComp<PullableComponent>(victim, out var pulledComp))
+            _pullingSystem.TryStopPull(victim, pulledComp);
+
+        // Inform the grappler that their victim is now free and they can move, updating the cooldown as well.
         grappler.Comp.ActiveVictim = null;
+        grappler.Comp.CooldownEnd = _gameTiming.CurTime + grappler.Comp.Cooldown;
         Dirty(grappler);
         _actionBlockerSystem.UpdateCanMove(grappler);
 
