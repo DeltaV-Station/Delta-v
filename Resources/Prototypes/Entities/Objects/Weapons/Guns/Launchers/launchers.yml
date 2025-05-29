@@ -81,9 +81,9 @@
     containers:
       revolver-ammo: !type:Container
   - type: RevolverAmmoProvider
-    whitelist:
+    whitelist: # DeltaV - Changing ammo tag
       tags:
-      - Grenade
+      - CleaningGrenade
     proto: GrenadeCleanade
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
