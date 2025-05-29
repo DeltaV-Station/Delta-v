@@ -4,6 +4,8 @@ using Content.Server.NPC.Systems;
 using Content.Shared._DV.DogWhistle.Components;
 using Content.Shared._DV.DogWhistle.EntitySystems;
 using Content.Shared._DV.DogWhistle.Events;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Pointing;
 using Content.Shared.Timing;
 using Robust.Server.Audio;
@@ -27,12 +29,32 @@ public sealed partial class DogWhistleSystem : SharedDogWhistleSystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<DogWhistleComponent, GotEquippedEvent>(OnWhistleEquipped);
+
         SubscribeLocalEvent<DogWhistleHolderComponent, AfterPointedAtEvent>(OnPointedAtEntity);
         SubscribeLocalEvent<DogWhistleHolderComponent, AfterPointedAtTileEvent>(OnPointedAtTile);
 
         SubscribeLocalEvent<DogWhistleRecieverComponent, DogWhistleCatchOrderEvent>(OnCatchOrder);
         SubscribeLocalEvent<DogWhistleRecieverComponent, DogWhistleSitOrderEvent>(OnSitOrder);
         SubscribeLocalEvent<DogWhistleRecieverComponent, DogWhistleComebackOrderEvent>(OnComebackOrder);
+    }
+
+    /// <summary>
+    /// Handles when a whistle is equipped during map init of an parent entity and attempts to bind
+    /// the whistle to that entity.
+    /// </summary>
+    /// <param name="whistle">The whistle being equipped.</param>
+    /// <param name="args">Args for the event, notably the equipee.</param>
+    private void OnWhistleEquipped(Entity<DogWhistleComponent> whistle, ref GotEquippedEvent args)
+    {
+        if (MetaData(args.Equipee).EntityLifeStage == EntityLifeStage.MapInitialized)
+        {
+            if (HasComp<DogWhistleRecieverComponent>(args.Equipee))
+            {
+                whistle.Comp.BoundNPC = args.Equipee;
+                Dirty(whistle);
+            }
+        }
     }
 
     /// <summary>
@@ -51,12 +73,12 @@ public sealed partial class DogWhistleSystem : SharedDogWhistleSystem
 
         if (holder.Owner == args.Pointed)
         {
-            var ev = new DogWhistleComebackOrderEvent(holder, whistleComp.Sound);
+            var ev = new DogWhistleComebackOrderEvent(holder, whistleComp.Sound, whistleComp.BoundNPC);
             SendOrderToRecievers(whistle, ref ev);
         }
         else
         {
-            var ev = new DogWhistleCatchOrderEvent(holder, whistleComp.Sound, args.Pointed);
+            var ev = new DogWhistleCatchOrderEvent(holder, whistleComp.Sound, whistleComp.BoundNPC, args.Pointed);
             SendOrderToRecievers(whistle, ref ev);
         }
     }
@@ -75,7 +97,7 @@ public sealed partial class DogWhistleSystem : SharedDogWhistleSystem
         if (!CanSendOrder(whistle))
             return;
 
-        var ev = new DogWhistleSitOrderEvent(holder, whistleComp.Sound, args.Pointed);
+        var ev = new DogWhistleSitOrderEvent(holder, whistleComp.Sound, whistleComp.BoundNPC, args.Pointed);
         SendOrderToRecievers(whistle, ref ev);
     }
 

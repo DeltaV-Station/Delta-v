@@ -30,6 +30,12 @@ public sealed partial class DogWhistleComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? ToggleActionEntid = null;
+
+    /// <summary>
+    /// The NPC this whistle is bound to, for handling orders.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? BoundNPC = null;
 }
 
 [Serializable, NetSerializable]
