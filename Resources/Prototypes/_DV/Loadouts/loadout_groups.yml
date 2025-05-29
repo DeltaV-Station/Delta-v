@@ -221,6 +221,7 @@
   loadouts:
   - ScarfRed
   - ScarfBlue
+  - SecurityPoncho
 
 - type: loadoutGroup
   id: BrigMedicJumpsuit
@@ -352,6 +353,7 @@
   minLimit: 0
   loadouts:
   - ScarfRed
+  - SecurityPoncho
 
 - type: loadoutGroup
   id: SecurityOuterClothingDeltaV
@@ -401,6 +403,7 @@
   - StasecWinterCoatDet
   - PlateCarrier
   - DuraVest
+  - DetPlatedCoat
 
 # Medical
 ## Psychologist
@@ -701,6 +704,13 @@
   - AdminAssistantJumpskirt
 
 - type: loadoutGroup
+  id: AdminAssistantHead
+  name: loadout-group-admin-assistant-head
+  minLimit: 0
+  loadouts:
+  - AdminAssistanthat
+
+- type: loadoutGroup
   id: AdminAssistantShoes
   name: loadout-group-admin-assistant-shoes
   loadouts:
@@ -768,9 +778,9 @@
   loadouts:
   - PassengerPDA
   - VisitorPDA
-  - TouristPDA
+  # - TouristPDA
   - OffDutyCrewPDA
-  - StudentPDA
+  # - StudentPDA
 
 - type: loadoutGroup
   id: BartenderPDADelta

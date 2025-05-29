@@ -2,25 +2,25 @@
 - type: rcd
   id: Invalid   # Hidden prototype - do not add to RCDs
   mode: Invalid
-  
+
 - type: rcd
   id: Deconstruct
   name: rcd-component-deconstruct
   category: Main
-  sprite: /Textures/Interface/Radial/RCD/deconstruct.png
+  sprite: /Textures/_DV/Interface/Radial/RCD/deconstruct.png # DeltaV - Changed to reflect airlock resprites
   mode: Deconstruct
   prototype: EffectRCDDeconstructPreview
   rotation: Camera
 
 - type: rcd
-  id: DeconstructLattice   # Hidden prototype - do not add to RCDs  
+  id: DeconstructLattice   # Hidden prototype - do not add to RCDs
   name: rcd-component-deconstruct
   mode: Deconstruct
   cost: 2
   delay: 0
   rotation: Camera
   fx: EffectRCDConstruct0
-    
+
 - type: rcd
   id: DeconstructTile      # Hidden prototype - do not add to RCDs
   name: rcd-component-deconstruct
@@ -30,7 +30,7 @@
   rotation: Camera
   fx: EffectRCDDeconstruct4
 
-# Flooring 
+# Flooring
 - type: rcd
   id: Plating
   name: rcd-component-plating
@@ -44,7 +44,7 @@
   rules:
     - CanBuildOnEmptyTile
   fx: EffectRCDConstruct1
-  
+
 - type: rcd
   id: FloorSteel
   name: rcd-component-floor-steel
@@ -80,7 +80,7 @@
   category: WallsAndFlooring
   sprite: /Textures/Interface/Radial/RCD/solid_wall.png
   mode: ConstructObject
-  prototype: WallSolid 
+  prototype: WallSolid
   cost: 4
   delay: 2
   collisionMask: FullTileMask
@@ -103,7 +103,7 @@
 - type: rcd
   id: Window
   category: WindowsAndGrilles
-  sprite: /Textures/Interface/Radial/RCD/window.png
+  sprite: /Textures/_DV/Interface/Radial/RCD/window.png # DeltaV - Changed to reflect window resprites
   mode: ConstructObject
   prototype: Window
   cost: 3
@@ -113,11 +113,11 @@
     - IsWindow
   rotation: Fixed
   fx: EffectRCDConstruct2
-  
+
 - type: rcd
   id: WindowDirectional
   category: WindowsAndGrilles
-  sprite: /Textures/Interface/Radial/RCD/directional.png
+  sprite: /Textures/_DV/Interface/Radial/RCD/directional.png # DeltaV - Changed to reflect window resprites
   mode: ConstructObject
   prototype: WindowDirectional
   cost: 2
@@ -128,11 +128,11 @@
     - IsWindow
   rotation: User
   fx: EffectRCDConstruct1
-  
+
 - type: rcd
   id: ReinforcedWindow
   category: WindowsAndGrilles
-  sprite: /Textures/Interface/Radial/RCD/window_reinforced.png
+  sprite: /Textures/_DV/Interface/Radial/RCD/window_reinforced.png # DeltaV - Changed to reflect window resprites
   mode: ConstructObject
   prototype: ReinforcedWindow
   cost: 4
@@ -142,11 +142,11 @@
     - IsWindow
   rotation: User
   fx: EffectRCDConstruct3
-    
+
 - type: rcd
   id: WindowReinforcedDirectional
   category: WindowsAndGrilles
-  sprite: /Textures/Interface/Radial/RCD/directional_reinforced.png
+  sprite: /Textures/_DV/Interface/Radial/RCD/directional_reinforced.png # DeltaV - Changed to reflect window resprites
   mode: ConstructObject
   prototype: WindowReinforcedDirectional
   cost: 3
@@ -162,7 +162,7 @@
 - type: rcd
   id: Airlock
   category: Airlocks
-  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  sprite: /Textures/_DV/Interface/Radial/RCD/airlock.png # DeltaV - Changed to reflect airlock resprites
   mode: ConstructObject
   prototype: Airlock
   cost: 4
@@ -170,11 +170,11 @@
   collisionMask: FullTileMask
   rotation: Camera
   fx: EffectRCDConstruct4
-  
+
 - type: rcd
   id: AirlockGlass
   category: Airlocks
-  sprite: /Textures/Interface/Radial/RCD/glass_airlock.png
+  sprite: /Textures/_DV/Interface/Radial/RCD/glass_airlock.png # DeltaV - Changed to reflect airlock resprites
   mode: ConstructObject
   prototype: AirlockGlass
   cost: 4
@@ -182,7 +182,7 @@
   collisionMask: FullTileMask
   rotation: Camera
   fx: EffectRCDConstruct4
-  
+
 - type: rcd
   id: Firelock
   category: Airlocks
@@ -208,7 +208,7 @@
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
   fx: EffectRCDConstruct1
-  
+
 - type: rcd
   id: BulbLight
   category: Lighting
@@ -235,7 +235,7 @@
   - MustBuildOnSubfloor
   rotation: Fixed
   fx: EffectRCDConstruct0
-    
+
 - type: rcd
   id: MVCable
   category: Electrical
@@ -248,7 +248,7 @@
   - MustBuildOnSubfloor
   rotation: Fixed
   fx: EffectRCDConstruct0
-    
+
 - type: rcd
   id: HVCable
   category: Electrical
@@ -261,7 +261,7 @@
   - MustBuildOnSubfloor
   rotation: Fixed
   fx: EffectRCDConstruct0
-    
+
 - type: rcd
   id: CableTerminal
   category: Electrical

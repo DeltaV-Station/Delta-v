@@ -3,8 +3,8 @@
 - type: latheRecipePack
   id: ScienceBoardsStatic
   recipes:
-  - ProtolatheMachineCircuitboard
-  - AutolatheMachineCircuitboard
+  #- ProtolatheMachineCircuitboard # DeltaV - departmental lathes
+  #- AutolatheMachineCircuitboard # DeltaV - departmental lathes
   - CircuitImprinterMachineCircuitboard
   - ExosuitFabricatorMachineCircuitboard
   - CutterMachineCircuitboard
@@ -31,6 +31,7 @@
   - HoloprojectorField
   - SignallerAdvanced
   - DeviceQuantumSpinInverter
+  - DeviceDesynchronizer
 
 - type: latheRecipePack
   id: ScienceClothing
@@ -54,10 +55,14 @@
   id: ScienceWeapons
   recipes:
   - WeaponPistolCHIMP
-  #- WeaponForceGun # DeltaV
-  #- WeaponLaserSvalinn # DeltaV
-  - WeaponProtoKineticAccelerator
-  #- WeaponTetherGun # DeltaV
+  # Begin DeltaV Removals - lrp/moved to logi techfab
+  #- WeaponForceGun
+  #- WeaponProtoKineticAccelerator
+  #- PKAUpgradeDamage
+  #- PKAUpgradeRange
+  #- PKAUpgradeFireRate
+  #- WeaponTetherGun
+  # End DeltaV Removals
   - WeaponGauntletGorilla
 
 - type: latheRecipePack

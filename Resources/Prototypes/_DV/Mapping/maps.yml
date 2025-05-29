@@ -94,6 +94,12 @@
   allowed:
   - Wizard
 
+- type: mapCategories
+  id: TraderShip
+  map: /Maps/_DV/Shuttles/trader.yml
+  allowed:
+  - Stamps # Trader stamp
+
 # Ruins
 
 - type: mapCategories
@@ -107,3 +113,23 @@
   map: /Maps/_DV/Ruins/old_ai_sat.yml
   allowed:
   - Centcomm # CC officer's jumpsuit
+
+- type: mapCategories
+  id: DisplacedTelesci
+  map: /Maps/Ruins/displaced_telescience.yml
+  allowed:
+  - Centcomm # CC pen gamer loot
+
+# Lavaland ruins
+
+- type: mapCategories
+  id: CrashedSloop
+  map: /Maps/Lavaland/crashedsloop.yml
+  allowed:
+  - Pirate # pirate eva and pirate captain hardsuit
+
+- type: mapCategories
+  id: CrashedInstigator
+  map: /Maps/Lavaland/crashedinstigator.yml
+  allowed:
+  - Syndicate # blood-red hardsuit...

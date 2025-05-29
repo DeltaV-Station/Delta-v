@@ -51,7 +51,7 @@ public abstract class SharedArmorSystem : EntitySystem
 
     private void OnArmorVerbExamine(EntityUid uid, ArmorComponent component, GetVerbsEvent<ExamineVerb> args)
     {
-        if (!args.CanInteract || !args.CanAccess)
+        if (!args.CanInteract || !args.CanAccess || !component.ShowArmorOnExamine)
             return;
 
         var examineMarkup = GetArmorExamine(component); // DeltaV - Changed argument type to ArmorComponent
@@ -92,16 +92,7 @@ public abstract class SharedArmorSystem : EntitySystem
             ));
         }
 
-        // DeltaV - Add stamina resistance information if it differs from default
-        if (!MathHelper.CloseTo(component.StaminaDamageCoefficient, 1.0f))
-        {
-            msg.PushNewline();
-            var reduction = (1 - component.StaminaDamageCoefficient) * 100;
-            msg.AddMarkupOrThrow(Loc.GetString("armor-stamina-projectile-coefficient-value",
-                ("value", MathF.Round(reduction, 1))
-            ));
-        }
-
+        // Begin DeltaV Additions - Add melee stamina resistance information if it has any
         if (!MathHelper.CloseTo(component.StaminaMeleeDamageCoefficient, 1.0f))
         {
             msg.PushNewline();

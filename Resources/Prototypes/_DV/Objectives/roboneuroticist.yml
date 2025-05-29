@@ -7,8 +7,7 @@
     difficulty: 0 # difficulty is unused
   - type: RoleRequirement
     roles:
-      mindRoles:
-      - RoboNeuroticistRole
+    - RoboNeuroticistRole
 
 - type: entity
   parent: [ BaseRoboNeuroticistObjective, BaseSurviveObjective ]
@@ -73,4 +72,3 @@
   - type: CodeCondition
   - type: AILawsUpdatedRequirement
     lawset: SyndicateLawset
-

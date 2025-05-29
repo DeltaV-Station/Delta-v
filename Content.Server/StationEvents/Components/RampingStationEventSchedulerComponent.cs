@@ -1,10 +1,12 @@
 using Content.Shared.EntityTable.EntitySelectors;
+using System.Numerics; // DeltaV
 
 namespace Content.Server.StationEvents.Components;
 
 [RegisterComponent, Access(typeof(RampingStationEventSchedulerSystem))]
 public sealed partial class RampingStationEventSchedulerComponent : Component
 {
+    /* DeltaV
     /// <summary>
     ///     Average ending chaos modifier for the ramping event scheduler. Higher means faster.
     ///     Max chaos chosen for a round will deviate from this
@@ -27,6 +29,23 @@ public sealed partial class RampingStationEventSchedulerComponent : Component
 
     [DataField]
     public float StartingChaos;
+    */
+
+    /// <summary>
+    ///     DeltaV - Key points which determine during what period will events last on average.
+    ///     X is duration of the setting in minutes. Y is time until next event in minutes.
+    /// </summary>
+    [DataField(required: true)]
+    public List<Vector2> TimeKeyPoints = new()
+    {
+        new Vector2(0f, 1f)
+    };
+
+    /// <summary>
+    ///     DeltaV - Maximum possible error when randomly offsetting time until next event.
+    /// </summary>
+    [DataField]
+    public float TimeDeviation = 1;
 
     [DataField]
     public float TimeUntilNextEvent;

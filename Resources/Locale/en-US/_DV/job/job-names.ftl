@@ -31,6 +31,7 @@ job-alt-title-resident = Resident
 
 job-alt-title-senior-physician = Senior Physician
 job-alt-title-clinician = Clinician
+job-alt-title-cryogenics-specialist = Cryogenics Specialist
 
 job-alt-title-life-support = Life Support Technician
 job-alt-title-plasma-scientist = Plasma Scientist
@@ -61,6 +62,9 @@ job-alt-title-hygiene-technician = Hygiene Technician
 job-alt-title-psychiatrist = Psychiatrist
 job-alt-title-social-worker = Social Worker
 job-alt-title-therapist = Therapist
+
+job-title-admeme-overwriting = Overwriting
+job-title-admeme-adding = Adding
 
 # Role timers
 JobMedicalBorg = Medical Cyborg

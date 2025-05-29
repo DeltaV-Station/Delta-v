@@ -5,6 +5,7 @@ using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Paper;
 
@@ -15,6 +16,8 @@ public sealed class SignatureSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PaperSystem _paper = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+
+    public static readonly ProtoId<TagPrototype> WriteTag = "Write";
 
     // The sprite used to visualize "signatures" on paper entities.
     private const string SignatureStampState = "paper_stamp-signature";
@@ -29,7 +32,7 @@ public sealed class SignatureSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract)
             return;
 
-        if (args.Using is not {} pen || !_tag.HasTag(pen, "Write"))
+        if (args.Using is not {} pen || !_tag.HasTag(pen, WriteTag))
             return;
 
         var user = args.User;

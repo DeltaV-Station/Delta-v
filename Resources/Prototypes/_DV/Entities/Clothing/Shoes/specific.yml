@@ -12,3 +12,21 @@
     modifiers:
       coefficients:
         Caustic: 0.95
+
+- type: entity
+  parent: ClothingShoesClownBase
+  id: ClothingShoesClownMoffers
+  name: moffers
+  description: No moths were harmed in the making of these slippers. # big lie
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Shoes/Specific/moffers.rsi
+    state: icon
+  - type: Clothing
+    sprite: _DV/Clothing/Shoes/Specific/moffers.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: Moffers
+      params:
+        variation: 0.1
+        volume: -12 # don't destroy ears

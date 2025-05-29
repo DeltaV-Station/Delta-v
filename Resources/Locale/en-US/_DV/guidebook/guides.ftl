@@ -30,3 +30,5 @@ guide-entry-justice = Justice
 guide-entry-glimmer-creatures = Glimmer Creatures
 
 guide-entry-trade-station = Trade Station
+
+guide-entry-frequently-used-chemicals = Frequently Used Chemicals

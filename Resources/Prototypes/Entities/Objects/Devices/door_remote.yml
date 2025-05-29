@@ -93,6 +93,7 @@
   - type: Access
     groups:
     - Research
+    - Epistemics # DeltaV - Add our access
 
 - type: entity
   parent: [DoorRemoteDefault, BaseCommandContraband]
@@ -162,3 +163,21 @@
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent
+    - Wizard
+    - Xenoborg
+
+- type: entity
+  parent: [ DoorRemoteDefault, BaseXenoborgContraband ]
+  id: DoorRemoteXenoborg
+  name: xenoborg door remote
+  components:
+  - type: Sprite
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#2eba22"
+    - state: door_remotescreencolour
+      color: "#22871a"
+  - type: Access
+    tags:
+    - Xenoborg

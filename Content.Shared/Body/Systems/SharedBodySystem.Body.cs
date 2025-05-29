@@ -126,7 +126,7 @@ public partial class SharedBodySystem
         MapInitBody(ent, prototype);
     }
 
-    private void MapInitBody(EntityUid bodyEntity, BodyPrototype prototype)
+    private void MapInitBody(Entity<BodyComponent> bodyEntity, BodyPrototype prototype) // DeltaV - don't drop the component, we need it for below
     {
         var protoRoot = prototype.Slots[prototype.Root];
         if (protoRoot.Part is null)
@@ -141,6 +141,7 @@ public partial class SharedBodySystem
         // Setup the rest of the body entities.
         SetupOrgans((rootPartUid, rootPart), protoRoot.Organs);
         MapInitParts(rootPartUid, rootPart, prototype); // Shitmed Change
+        MapInitAppearance(bodyEntity); // DeltaV - some bodies don't spawn with all their parts
     }
 
     private void OnBodyCanDrag(Entity<BodyComponent> ent, ref CanDragEvent args)
@@ -312,7 +313,7 @@ public partial class SharedBodySystem
 
     public virtual HashSet<EntityUid> GibBody(
         EntityUid bodyId,
-        bool gibOrgans = false,
+        bool acidify = false,
         BodyComponent? body = null,
         bool launchGibs = true,
         Vector2? splatDirection = null,
@@ -342,7 +343,7 @@ public partial class SharedBodySystem
                 playAudio: false, launchGibs: true, launchDirection: splatDirection, launchImpulse: GibletLaunchImpulse * splatModifier,
                 launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone);
 
-            if (!gibOrgans)
+            if (!acidify)
                 continue;
 
             foreach (var organ in GetPartOrgans(part.Id, part.Component))
@@ -354,6 +355,16 @@ public partial class SharedBodySystem
         }
 
         var bodyTransform = Transform(bodyId);
+        _audioSystem.PlayPredicted(gibSoundOverride, bodyTransform.Coordinates, null);
+
+        // Begin DeltaV Additions
+        var ev = new BodyGibbedEvent(gibs);
+        RaiseLocalEvent(bodyId, ref ev);
+        // End DeltaV Additions
+
+        if (acidify)
+            return gibs;
+
         if (TryComp<InventoryComponent>(bodyId, out var inventory))
         {
             foreach (var item in _inventory.GetHandOrInventoryEntities(bodyId))
@@ -362,7 +373,6 @@ public partial class SharedBodySystem
                 gibs.Add(item);
             }
         }
-        _audioSystem.PlayPredicted(gibSoundOverride, bodyTransform.Coordinates, null);
         return gibs;
     }
 

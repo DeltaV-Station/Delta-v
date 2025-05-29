@@ -4,14 +4,14 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-initial-infected-objective
+  guides: [ Zombies ]
   requirements:
-  - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
-    time: 43200 # DeltaV - 12 hours
-  - !type:SpeciesRequirement
+  - !type:OverallPlaytimeRequirement
+    time: 43200 # DeltaV - was 3600, 12 hours
+  - !type:SpeciesRequirement # DeltaV
     inverted: true
     species:
     - IPC
-  guides: [ Zombies ]
 
 - type: antag
   id: Zombie

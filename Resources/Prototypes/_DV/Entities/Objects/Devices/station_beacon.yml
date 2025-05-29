@@ -134,7 +134,7 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-corpsman
-    
+
 #Justice
 - type: entity
   parent: DefaultStationBeacon
@@ -143,7 +143,7 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-justice
-    color: "#6b2833" 
+    color: "#6b2833"
 
 - type: entity
   parent: DefaultStationBeaconJustice
@@ -160,7 +160,7 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-prosecutor
-    
+
 - type: entity
   parent: DefaultStationBeaconJustice
   id: DefaultStationBeaconClerk

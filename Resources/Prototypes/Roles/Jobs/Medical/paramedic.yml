@@ -3,13 +3,11 @@
   name: job-name-paramedic
   description: job-description-paramedic
   playTimeTracker: JobParamedic
-  antagAdvantage: 2 # DeltaV - Reduced TC: External Access
+  antagAdvantage: 5 # DeltaV - Reduced TC: External Access, JoL, Crew Monitor
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobMedicalDoctor
-      time: 14400 #4 hrs
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15 hrs
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 9000 #2.5 hrs
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo
@@ -32,12 +30,6 @@
     id: ParamedicPDA
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalEMTFilled
-    pocket1: HandheldGPSBasic # DeltaV - Give Paramedics useful tools on spawn
-    pocket2: HandheldCrewMonitor # DeltaV - Give Paramedics useful tools on spawn
   storage:
     back:
-    - EmergencyRollerBedSpawnFolded
-    # Begin DeltaV additions
-    - BodyBagFolded
-    - Portafib
-    # End DeltaV additions
+#    - EmergencyRollerBedSpawnFolded # DeltaV - move paramedic loadout to locker

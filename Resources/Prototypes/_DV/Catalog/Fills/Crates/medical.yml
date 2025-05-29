@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: CrateGenericRadioImplants
   parent: CrateMedical
   name: radio implant crate
@@ -19,14 +19,3 @@
     contents:
     - id: PillCanisterStubantazine
       amount: 3
-
-- type: entity
-  id: CrateOilPack
-  parent: CrateMedical
-  name: oil pack crate
-  description: Pristine oil bagged in bulk.
-  components:
-  - type: StorageFill
-    contents:
-    - id: Oilpack
-      amount: 5

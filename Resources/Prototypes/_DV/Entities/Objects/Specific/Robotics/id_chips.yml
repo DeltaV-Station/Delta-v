@@ -9,8 +9,6 @@
     sprite: _DV/Objects/Specific/Robotics/id_chip.rsi
     layers:
     - state: icon
-    - state: unshaded
-      shader: unshaded
   - type: Item
     size: Tiny
   - type: Access
@@ -99,3 +97,13 @@
     - External
     - Robotics
     - Maintenance
+
+- type: entity
+  parent: BaseIdChip
+  id: IdChipXenoborg
+  suffix: Xenoborg
+  components:
+  - type: Access
+    tags:
+    - Xenoborg
+  # TODO: cool sprite

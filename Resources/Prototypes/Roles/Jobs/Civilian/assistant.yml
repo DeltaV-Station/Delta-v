@@ -1,7 +1,7 @@
 - type: job
   id: Passenger
-  name: job-name-passenger
-  description: job-description-passenger
+  name: job-name-passenger # DeltaV - This is used everywhere for fallbacks so I didnt want to change it, but it says Assistant now
+  description: job-description-assistant # DeltaV - Passenger to Assistant
   playTimeTracker: JobPassenger
   startingGear: PassengerGear
   icon: "JobIconPassenger"

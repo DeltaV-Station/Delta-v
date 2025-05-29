@@ -22,7 +22,10 @@
             - ReagentId: Necrosol
               Quantity: 10
             - ReagentId: Ectoplasm
-              Quantity: 30        
+              Quantity: 30
     - type: GuideHelp
       guides:
       - MinorAntagonists
+    - type: StatusEffects
+      allowed:
+      - Stasis
