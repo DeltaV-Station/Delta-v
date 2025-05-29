@@ -27,8 +27,11 @@ public sealed partial class DogWhistleSystem : SharedDogWhistleSystem
     /// <param name="args">Args for the event, notably sound and origin.</param>
     private void OnCatchOrder(Entity<DogWhistleRecieverComponent> ent, ref DogWhistleCatchOrderEvent args)
     {
-        if (IsNPC(ent) && ent.Comp.CanUnderstand)
+        if (IsNPC(ent))
         {
+            if (!CanNPCHandleOrder(ent, args.BoundNPC))
+                return;
+
             var target = args.Target;
             UpdateNPCOrders(ent,
                 DogWhistleOrderType.Catch,
@@ -52,8 +55,11 @@ public sealed partial class DogWhistleSystem : SharedDogWhistleSystem
     /// <param name="args">Args for the event, notably sound and origin.</param>
     private void OnSitOrder(Entity<DogWhistleRecieverComponent> ent, ref DogWhistleSitOrderEvent args)
     {
-        if (IsNPC(ent) && ent.Comp.CanUnderstand)
+        if (IsNPC(ent))
         {
+            if (!CanNPCHandleOrder(ent, args.BoundNPC))
+                return;
+
             var location = _transformSystem.ToCoordinates(args.Origin, args.Location);
             UpdateNPCOrders(ent,
                 DogWhistleOrderType.Sit,
@@ -76,8 +82,11 @@ public sealed partial class DogWhistleSystem : SharedDogWhistleSystem
     /// <param name="args">Args for the event, notably sound and origin.</param>
     private void OnComebackOrder(Entity<DogWhistleRecieverComponent> ent, ref DogWhistleComebackOrderEvent args)
     {
-        if (IsNPC(ent) && ent.Comp.CanUnderstand)
+        if (IsNPC(ent))
         {
+            if (!CanNPCHandleOrder(ent, args.BoundNPC))
+                return;
+
             var origin = args.Origin;
             UpdateNPCOrders(ent,
                 DogWhistleOrderType.Comeback,
@@ -103,6 +112,24 @@ public sealed partial class DogWhistleSystem : SharedDogWhistleSystem
     private bool IsNPC(EntityUid ent)
     {
         return !_mindSystem.TryGetMind(ent, out _, out _);
+    }
+
+    /// <summary>
+    /// Checks whether this entity can understand this NPC order, either by understanding or
+    /// whether this order is meant for a specific entity.
+    /// </summary>
+    /// <param name="ent">NPC entity to check for.</param>
+    /// <param name="boundNPC">Entity this order is bound to.</param>
+    /// <returns>True if the NPC can understand the order, false otherwise.</returns>
+    private bool CanNPCHandleOrder(Entity<DogWhistleRecieverComponent> ent, EntityUid? boundNPC)
+    {
+        if (!ent.Comp.CanUnderstand)
+            return false; // Cannot understand this order, even as an NPC
+
+        if (boundNPC.HasValue && ent.Owner != boundNPC)
+            return false; // This order is not for this NPC
+
+        return true;
     }
 
     /// <summary>
