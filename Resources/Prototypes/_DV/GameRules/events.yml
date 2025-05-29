@@ -11,7 +11,7 @@
     children:
     - id: Fugitive
     - id: ListeningPost
-    #- id: RatKingSpawn
+    - id: RoboNeuroticist
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -179,6 +179,7 @@
         nameSegments:
         - NamesFakeHumanFirst
         - NamesFakeHumanLast
+        nameFormat: name-format-standard
       - type: RandomHumanoidAppearance
         randomizeName: false
       - type: EmitSoundOnSpawn # fell out of the ceiling
@@ -195,3 +196,51 @@
     glimmerBurnLower: 30
     glimmerBurnUpper: 70
   - type: ThavenMoodUpsetRule
+
+- type: entity
+  parent: BaseGameRule
+  id: RoboNeuroticist
+  components:
+  - type: StationEvent
+    weight: 2
+    minimumPlayers: 35 #big threat, but has to have ghosts to matter
+    reoccurrenceDelay: 30
+    duration: null # so it shows up in round end
+    maxOccurrences: 1
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/_DV/Shuttles/roboneuroticist_ship.yml
+  - type: AntagSpawner
+    prototype: MobHuman
+  - type: AntagObjectives
+    objectives:
+    - RoboNeuroticistSurviveObjective
+    - RoboNeuroticistBorgObjective
+    - RoboNeuroticistKillObjective
+    - RoboNeuroticistPlutoniumCoreStealObjective
+    - RoboNeuroticistUploadAILawObjective
+  - type: AntagSelection
+    agentName: roboneuroticist-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostRoboNeuroticist
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: RoboNeuroticistGear
+      roleLoadout:
+      - RoleSurvivalStandard
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesHologram
+        - NamesMilitaryLast
+        nameFormat: name-format-standard
+      - type: EmitSoundOnSpawn # evil sound
+        sound: /Audio/Ambience/Antag/emagged_borg.ogg
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleRoboNeuroticist

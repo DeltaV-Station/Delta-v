@@ -5,14 +5,14 @@
   setPreference: true
   objective: roles-antag-thief-objective
   guides: [ Thieves ]
-  requirements: # DeltaV - Playtime requirement
-  - !type:OverallPlaytimeRequirement 
-    time: 86400 # DeltaV - 24 hours
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 84600 # DeltaV - was 3600, 24 hours
 
 - type: startingGear
   id: ThiefGear
   storage:
     back:
-    - ThiefBeacon
-    - ToolboxThief
+    #- ThiefBeacon # DeltaV - no more objectives
+    - SatchelThief
     - ClothingHandsChameleonThief

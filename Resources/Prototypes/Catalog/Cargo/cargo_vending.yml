@@ -18,7 +18,6 @@
 
 - type: cargoProduct
   id: CrateVendingMachineRestockChefvend
-  name: ChefVend restock crate
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
@@ -33,7 +32,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockClothesFilled
-  cost: 3650 # DeltaV
+  cost: 3900 # DeltaV
   category: cargoproduct-category-name-service
   group: market
 
@@ -43,7 +42,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockAutoDrobeFilled
-  cost: 2250 # DeltaV
+  cost: 2450 # DeltaV
   category: cargoproduct-category-name-service
   group: market
 
@@ -59,7 +58,6 @@
 
 - type: cargoProduct
   id: CrateVendingMachineRestockCondimentStation
-  name: condiment station restock crate
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
@@ -74,7 +72,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockEngineeringFilled
-  cost: 3200
+  cost: 4250 # DeltaV - changed from 3200 to 4250
   category: cargoproduct-category-name-engineering
   group: market
 
@@ -214,7 +212,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockTankDispenserFilled
-  cost: 1000
+  cost: 1300 # DeltaV - Was 1000
   category: cargoproduct-category-name-atmospherics
   group: market
 

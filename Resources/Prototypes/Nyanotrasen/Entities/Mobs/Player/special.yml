@@ -6,11 +6,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/bowl.rsi
-    state: eyeball
+    sprite: _DV/Mobs/Ghosts/telegnosis.rsi
     color: "#90EE90"
     layers:
-      - state: eyeball
+      - state: telegnosis
         shader: unshaded
   - type: Psionic
   - type: Physics

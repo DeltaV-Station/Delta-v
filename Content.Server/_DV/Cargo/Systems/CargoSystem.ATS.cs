@@ -6,6 +6,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.Cargo.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Shuttles.Components;
+using Content.Shared.Station.Components;
 using Content.Shared.Tiles;
 using Content.Shared.Whitelist;
 using Robust.Shared.Configuration;
@@ -25,7 +26,6 @@ public sealed partial class CargoSystem
 {
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
 
@@ -46,7 +46,7 @@ public sealed partial class CargoSystem
             return;
 
         if (_gridFillEnabled)
-            SetupTradePost();
+            SetupTradePost(args);
     }
 
     private void SetGridFill(bool enabled)
@@ -54,11 +54,11 @@ public sealed partial class CargoSystem
         _gridFillEnabled = enabled;
         if (enabled && _ticker.RunLevel != GameRunLevel.PreRoundLobby) // Ensure run level is in game
         {
-            SetupTradePost();
+            SetupTradePost(null);
         }
     }
 
-    private void SetupTradePost()
+    private void SetupTradePost(StationInitializedEvent? args)
     {
         if (Exists(CargoMap))
             return;
@@ -78,10 +78,10 @@ public sealed partial class CargoSystem
         var gridUid = grid.Value;
         EnsureComp<ProtectedGridComponent>(gridUid);
         EnsureComp<TradeStationComponent>(gridUid);
-
-        var shuttleComp = EnsureComp<ShuttleComponent>(gridUid);
-        shuttleComp.AngularDamping = 10000;
-        shuttleComp.LinearDamping = 10000;
+        if (args is { } arg)
+        {
+            EnsureComp<StationMemberComponent>(gridUid).Station = arg.Station;
+        }
 
         var ftl = EnsureComp<FTLDestinationComponent>(mapUid);
         ftl.Whitelist = new EntityWhitelist()

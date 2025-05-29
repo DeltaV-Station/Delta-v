@@ -7,6 +7,8 @@
     sprite: _DV/Structures/Doors/Airlocks/Standard/justice.rsi
   - type: PaintableAirlock
     department: Justice
+  - type: Wires
+    layoutId: AirlockJustice
 
 - type: entity
   parent: AirlockScience
@@ -27,6 +29,8 @@
     sprite: _DV/Structures/Doors/Airlocks/Glass/justice.rsi
   - type: PaintableAirlock
     department: Justice
+  - type: Wires
+    layoutId: AirlockJustice
 
 - type: entity
   parent: AirlockScienceGlass

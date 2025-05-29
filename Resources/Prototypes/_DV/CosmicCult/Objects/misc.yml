@@ -1,0 +1,13 @@
+- type: entity
+  id: CosmicCultLawBoard
+  parent: BaseElectronics
+  name: malign law board
+  description: An eerie circuit board, suited for slotting into an AI law upload console. Its circuitry is interwoven with phantasmal dendritic strands that twitch of their own accord.
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Objects/lawboard.rsi
+    state: icon
+  - type: SiliconLawProvider
+    lawUploadSound: /Audio/_DV/CosmicCult/antag_cosmic_AI_briefing.ogg
+    subverted: true
+    laws: CosmicCultLaws

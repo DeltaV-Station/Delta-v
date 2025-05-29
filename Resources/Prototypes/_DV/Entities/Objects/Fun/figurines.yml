@@ -172,3 +172,17 @@
     state: neuroticist
   - type: SpeakOnTrigger
     pack: FigurinesNeuroticist
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurineCosmicCultist
+  name: cosmic cultist figure
+  description: A figurine depicting an iridescent, alien looking hardsuit. You can feel the gaze of the abyss in its lack-of-a-face.
+  components:
+  - type: Sprite
+    layers:
+      - state: cosmiccultist
+      - state: cosmiccultist_unshaded
+        shader: unshaded
+  - type: SpeakOnTrigger
+    pack: FigurinesCosmicCultist

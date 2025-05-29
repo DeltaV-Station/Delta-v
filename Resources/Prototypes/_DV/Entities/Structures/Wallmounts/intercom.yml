@@ -1,0 +1,27 @@
+- type: entity
+  parent: BaseIntercomSecure
+  id: IntercomJustice
+  suffix: Justice
+  description: An intercom. It's been reinforced with metal.
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyJustice
+
+- type: entity
+  parent: BaseIntercomSecure
+  id: IntercomTraffic
+  suffix: Traffic
+  description: An intercom. It's been reinforced with metal.
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyTraffic

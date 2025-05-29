@@ -12,6 +12,7 @@
     nameSegments:
     - NamesMilitaryFirstLeader
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: RandomHumanoidSpawner
     settings: ERTLeaderAmber
 
@@ -26,6 +27,13 @@
     rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: short
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 54000 #15 hrs
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 14400 #4 hrs
     job: ERTLeader
   - type: Loadout
     prototypes: [ ERTLeaderGearAmber ]
@@ -34,6 +42,7 @@
     nameSegments:
     - NamesMilitaryFirstLeader
     - NamesMilitaryLast
+    nameFormat: name-format-ert
 
 - type: entity
   parent: RandomHumanoidSpawnerERTLeaderAmber
@@ -55,6 +64,13 @@
     name: ghost-role-information-ert-leader-name
     description: ghost-role-information-ert-leader-description
     rules: ghost-role-information-nonantagonist-rules
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 54000 #15 hrs
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 14400 #4 hrs
     raffle:
       settings: short
     job: ERTLeader
@@ -103,6 +119,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: RandomHumanoidSpawner
     settings: ERTChaplainAmber
 
@@ -115,6 +132,13 @@
     name: ghost-role-information-ert-chaplain-name
     description: ghost-role-information-ert-chaplain-description
     rules: ghost-role-information-nonantagonist-rules
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000 #5 hrs
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 36000 #10 hrs
     raffle:
       settings: short
     job: ERTChaplain
@@ -122,6 +146,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: Loadout
     prototypes: [ ERTChaplainGearAmber ]
     roleLoadout: [ RoleSurvivalExtended ]
@@ -197,6 +222,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: RandomHumanoidSpawner
     settings: ERTJanitorAmber
 
@@ -208,6 +234,13 @@
     name: ghost-role-information-ert-janitor-name
     description: ghost-role-information-ert-janitor-description
     rules: ghost-role-information-nonantagonist-rules
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000 #5 hrs
+    - !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 18000 #5 hrs
     raffle:
       settings: short
     job: ERTJanitor
@@ -215,6 +248,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: Loadout
     prototypes: [ ERTJanitorGearAmber ]
     roleLoadout: [ RoleSurvivalExtended ]
@@ -288,6 +322,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: RandomHumanoidSpawner
     settings: ERTEngineerAmber
 
@@ -299,6 +334,13 @@
     name: ghost-role-information-ert-engineer-name
     description: ghost-role-information-ert-engineer-description
     rules: ghost-role-information-nonantagonist-rules
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000 #5 hrs
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 36000 #10 hrs
     raffle:
       settings: short
     job: ERTEngineer
@@ -306,6 +348,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: Loadout
     prototypes: [ ERTEngineerGearAmber ]
     roleLoadout: [ RoleSurvivalExtended ]
@@ -379,6 +422,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: RandomHumanoidSpawner
     settings: ERTSecurityAmber
 
@@ -390,6 +434,10 @@
     name: ghost-role-information-ert-security-name
     description: ghost-role-information-ert-security-description
     rules: ghost-role-information-nonantagonist-rules
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 54000 #15 hrs
     raffle:
       settings: short
     job: ERTSecurity
@@ -397,6 +445,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: Loadout
     prototypes: [ ERTSecurityGearAmber ]
     roleLoadout: [ RoleSurvivalExtended ]
@@ -469,6 +518,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: RandomHumanoidSpawner
     settings: ERTMedicalAmber
 
@@ -480,6 +530,13 @@
     name: ghost-role-information-ert-medical-name
     description: ghost-role-information-ert-medical-description
     rules: ghost-role-information-nonantagonist-rules
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000 #5 hrs
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 36000 #10 hrs
     raffle:
       settings: short
     job: ERTMedical
@@ -487,6 +544,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-ert
   - type: Loadout
     prototypes: [ ERTMedicalGearAmber ]
     roleLoadout: [ RoleSurvivalExtended ]

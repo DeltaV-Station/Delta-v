@@ -70,3 +70,47 @@
   - type: RadioImplant
     channels:
     - CentCom
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: WatchdogImplant
+  categories: [ HideSpawnMenu ]
+  name: watchdog implant
+  description: This implant transmits a message on the security channel in case the user goes into critical state.
+  components:
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Critical
+  - type: Rattle
+    radioChannel: Security
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: CentCommImplant
+  name: centcomm implant
+  description: This implant includes a MindShield and something labeled as "antag immune"? Whatever that is.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: AntagImmune
+    - type: MindShield
+
+# Nukie implants
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: HostageImplant
+  name: hostage implant
+  description: Perfect for all your hostage ops needs! Allows the implanted entity to be ignored by syndicate turrets.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: Pacified
+      disallowDisarm: true
+      disallowAllCombat: true
+  - type: AddFactionsImplant
+    factions:
+    - Hostage

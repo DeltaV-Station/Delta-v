@@ -6,6 +6,13 @@
   - SignallerDeadMans
   - JetpackVoid # RE
 
+- type: latheRecipePack
+  id: EVASuit
+  recipes:
+  - ClothingOuterHardsuitEVA
+  - ClothingHeadHelmetEVA
+  - ClothingOuterSuitEmergency
+
 ## Static
 
 - type: latheRecipePack
@@ -18,3 +25,20 @@
   recipes:
   - Beaker
   - HandLabeler
+
+- type: latheRecipePack
+  id: ReportingStatic
+  recipes:
+  - CassetteTape
+  - TapeRecorder
+
+- type: latheRecipePack
+  id: SimpleElectronicsStatic
+  recipes:
+  - DoorElectronics
+  - StationMapElectronics
+  - MailingUnitElectronics
+  - APCElectronics
+  - CellRechargerCircuitboard
+  - WeaponCapacitorRechargerCircuitboard
+  - FreezerElectronics

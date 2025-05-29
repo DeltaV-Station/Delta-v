@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleCosmicCult
+  name: Cosmic Cult Role
+  components:
+  - type: MindRole
+    antagPrototype: CosmicAntagCultist
+    subtype: role-subtype-cultist
+    exclusiveAntag: true
+    roleType: TeamAntagonist
+  - type: CosmicCultRole
+  - type: RoleBriefing
+    briefing: objective-cosmiccult-charactermenu

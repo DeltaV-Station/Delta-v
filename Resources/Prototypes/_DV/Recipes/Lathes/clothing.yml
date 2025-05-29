@@ -59,6 +59,11 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitPrisonGuard
+  result: ClothingUniformJumpsuitPrisonGuard
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtPrisonGuard
   result: ClothingUniformJumpskirtPrisonGuard
 
@@ -157,6 +162,30 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtProsecutor
   result: ClothingUniformJumpskirtProsecutor
+
+# Mantis
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitMantis
+  result: ClothingUniformJumpsuitMantis
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSkirtMantis
+  result: ClothingUniformSkirtMantis
+
+# Courier
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformCourier
+  result: ClothingUniformCourier
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSkirtCourier
+  result: ClothingUniformSkirtCourier
 
 # Salvage Specialist
 
@@ -329,7 +358,6 @@
   result: ClothingUniformJumpskirtScientistFormal
 
 # Utilty
-
 - type: latheRecipe
   id: ClothingBeltPaperwork
   result: ClothingBeltPaperwork
@@ -348,3 +376,156 @@
   parent: BaseCoatRecipe
   id: ClothingOuterWinterLongMime
   result: ClothingOuterWinterLongMime
+
+# Atmos
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitAtmos
+  result: ClothingUniformJumpsuitAtmos
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtAtmos
+  result: ClothingUniformJumpskirtAtmos
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitAtmosCasual
+  result: ClothingUniformJumpsuitAtmosCasual
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtAtmosCasual
+  result: ClothingUniformJumpskirtAtmosCasual
+
+# Botanist
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformOveralls
+  result: ClothingUniformOveralls
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtOveralls
+  result: ClothingUniformJumpskirtOveralls
+
+# Bartender
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSeniorBartender
+  result: ClothingUniformSeniorBartender
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSeniorBartenderSkirt
+  result: ClothingUniformSeniorBartenderSkirt
+
+# General
+
+- type: latheRecipe
+  id: ClothingMaskBreathMedical
+  result: ClothingMaskBreathMedical
+  materials:
+    Steel: 150
+    Plastic: 200
+
+# Hardsuits
+
+## Engineering
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterHardsuitEngineering
+  result: ClothingOuterHardsuitEngineering
+
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterHardsuitAtmos
+  result: ClothingOuterHardsuitAtmos
+  materials:
+    Plasteel: 500
+    Durathread: 500
+    Steel: 1000
+    Glass: 500
+    Plastic: 400
+    Plasma: 600
+
+## Security
+- type: latheRecipe
+  parent: BaseHardsuitArmoredRecipe
+  id: ClothingOuterHardsuitCombatOfficer
+  result: ClothingOuterHardsuitCombatOfficer
+
+## Logistics
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterHardsuitSpatio
+  result: ClothingOuterHardsuitSpatio
+
+- type: latheRecipe
+  parent: BaseHardsuitArmoredRecipe
+  id: ClothingOuterHardsuitSalvage
+  result: ClothingOuterHardsuitSalvage
+
+## Medical
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterHardsuitVoidParamed
+  result: ClothingOuterHardsuitVoidParamed
+
+# Softsuits
+
+## Engineering
+- type: latheRecipe
+  parent: BaseSoftsuitRecipe
+  id: ClothingOuterSuitAtmosFire
+  result: ClothingOuterSuitAtmosFire
+  materials:
+    Durathread: 600
+    Steel: 1500
+    Glass: 800
+    Plastic: 400
+    Plasma: 600
+
+- type: latheRecipe
+  parent: BaseSoftsuitHelmetRecipe
+  id: ClothingHeadHelmetAtmosFire
+  result: ClothingHeadHelmetAtmosFire
+  materials:
+    Durathread: 200
+    Steel: 100
+    Glass: 100
+    Plastic: 100
+    Plasma: 300
+
+## General
+- type: latheRecipe
+  parent: BaseSoftsuitRecipe
+  id: ClothingOuterHardsuitEVA
+  result: ClothingOuterHardsuitEVA
+
+- type: latheRecipe
+  parent: BaseSoftsuitHelmetRecipe
+  id: ClothingHeadHelmetEVA
+  result: ClothingHeadHelmetEVA
+
+- type: latheRecipe
+  parent: BaseSoftsuitRecipe
+  id: ClothingOuterSuitEmergency
+  result: ClothingOuterSuitEmergency
+  completetime: 4 # Less materials and less protection
+  materials:
+    Durathread: 200
+    Steel: 150
+    Glass: 100
+    Plastic: 150
+
+## Security
+- type: latheRecipe
+  parent: BaseSoftsuitRecipe
+  id: ClothingOuterHardsuitEVAPrisoner
+  result: ClothingOuterHardsuitEVAPrisoner
+
+- type: latheRecipe
+  parent: BaseSoftsuitHelmetRecipe
+  id: ClothingHeadHelmetEVALarge
+  result: ClothingHeadHelmetEVALarge

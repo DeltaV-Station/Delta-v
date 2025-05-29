@@ -194,6 +194,7 @@
         - CanPilot
         - FootstepSound
         - DoorBumpOpener
+        - SiliconEmotes # DeltaV
     - type: Hands
     - type: Inventory
       templateId: human
@@ -317,3 +318,4 @@
     - type: LayingDown
     - type: Fiber # DeltaV - IPCs leave fibers instead of prints
       fiberMaterial: fibers-steel
+    - type: Anesthesia # DeltaV - IPCs can be operated on without anesthesia

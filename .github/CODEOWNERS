@@ -7,14 +7,14 @@
 /Resources/ @DeltaV-Station/maintainers
 
 # Server config files
-/Resources/ConfigPresets/ @MilonPL
+/Resources/ConfigPresets/ @deltanedas
 
 # YML files
 /Resources/*.yml @DeltaV-Station/yaml-maintainers
 /Resources/**/*.yml @DeltaV-Station/yaml-maintainers
 
-# Sprites
-/Resources/Textures/ @DeltaV-Station/direction
+# Sprites - Art Director
+/Resources/Textures/ @AftrLite
 
 # Lobby art and music - automatically direction issues since its immediately visible to players
 /Resources/Audio/Lobby/ @DeltaV-Station/direction
@@ -29,10 +29,10 @@
 /Resources/ServerInfo/Guidebook/DeltaV/Rules/ @DeltaV-Station/head-administrators
 
 # Tools and scripts
-/Tools/ @deltanedas @MilonPL
+/Tools/ @deltanedas
 
 # Workflows, codeowners, templates, etc.
-/.github/ @deltanedas @MilonPL
+/.github/ @deltanedas
 
 # Standalone files in the root repo
 /* @deltanedas

@@ -56,6 +56,10 @@
     sprite: Clothing/Shoes/Boots/combatboots.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/combatboots.rsi
+  # Begin DeltaV additions
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  # End DeltaV additions
 
 - type: entity
   parent: ClothingShoesMilitaryBase
@@ -75,6 +79,7 @@
     footstepSoundCollection:
       collection: FootstepHighHeels
       params:
+        volume: -6
         variation: 0.09
 
 - type: entity
@@ -158,6 +163,10 @@
     sprite: _DV/Clothing/Shoes/Boots/winterbootssec.rsi # DeltaV - resprite boots to meet standards
   - type: Clothing
     sprite: _DV/Clothing/Shoes/Boots/winterbootssec.rsi # DeltaV - resprite boots to meet standards
+  # Begin DeltaV additions
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  # End DeltaV additions
 
 - type: entity
   parent: [ClothingShoesBaseWinterBoots, BaseSyndicateContraband]
@@ -215,6 +224,7 @@
       collection: FootstepSpurs
       params:
         variation: 0.09
+        volume: -6
 
 - type: entity
   parent: ClothingShoesBootsCowboyBrown

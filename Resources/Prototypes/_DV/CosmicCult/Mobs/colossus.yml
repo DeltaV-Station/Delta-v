@@ -1,0 +1,281 @@
+- type: entity
+  parent: [ BaseSimpleMob, FlyingMobBase ]
+  id: MobCosmicColossus
+  name: entropic colossus
+  description: A colossal monstrosity of malign plating and dendritic infestation.
+  components:
+  - type: FTLSmashImmune
+  - type: BodyEmotes
+  - type: RandomMetadata
+    nameSegments:
+    - ColossusNames
+    - ColossusTitlesBase
+    nameFormat: name-format-colossus
+  - type: CosmicColossus
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-cultentity
+    othersText: cosmic-examine-text-entities
+  - type: AntagImmune
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/CosmicCult/Mobs/colossus.rsi
+    layers:
+    - state: unshaded_bg
+      shader: unshaded
+      map: ["underlay"]
+    - state: colossus
+      map: ["base"]
+    - state: dead
+      visible: false
+      map: ["corpse"]
+    - state: unshaded_fg
+      shader: unshaded
+      map: ["overlay"]
+    - state: attacking
+      shader: unshaded
+      visible: false
+      map: ["attack"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ColossusVisuals.Status:
+        underlay:
+          Alive: { visible: true }
+          Dead: { visible: false }
+          Attacking: { visible: false }
+        base:
+          Alive: { visible: true }
+          Dead: { visible: false }
+          Attacking: { visible: false }
+        corpse:
+          Alive: { visible: false }
+          Dead: { visible: true }
+          Attacking: { visible: false }
+        overlay:
+          Alive: { visible: true }
+          Dead: { visible: false }
+          Attacking: { visible: false }
+        attack:
+          Alive: { visible: false }
+          Dead: { visible: false }
+          Attacking: { visible: true }
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 2500
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: WarpPoint
+    follow: true
+  - type: Body
+    prototype: Animal
+  - type: Speech
+    speechSounds: Bass
+    speechVerb: Robotic
+    allowedEmotes: []
+  - type: TypingIndicator
+    proto: robot
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: epicene
+  - type: ProtectedFromStepTriggers
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3
+  - type: AmbientSound
+    volume: +8
+    range: 18
+    sound:
+      path: /Audio/_DV/CosmicCult/colossus_ambience.ogg
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - Unimplantable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      500: Dead
+  - type: PointLight
+    color: "#42a4ae"
+    radius: 4
+    energy: 4
+    softness: 1
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 5.5
+      maxDuration: 5.5
+      startValue: 1
+      endValue: 4
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
+  - type: StatusEffects
+    allowed:
+    - Stutter
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Science
+    - CosmicRadio
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Science
+    - CosmicRadio
+  - type: ZombieImmune
+  - type: UserInterface
+    interfaces:
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
+        requireInputValidation: false
+  - type: SiliconLawBound
+  - type: ActionGrant
+    actions:
+    - ActionViewLaws
+    - ActionCosmicColossusSunder
+    - ActionCosmicColossusIngress
+  - type: SiliconLawProvider
+    laws: CosmicCultLaws
+  - type: NoSlip
+  - type: Puller
+    needsHands: false
+  - type: CombatMode
+  - type: MeleeWeapon
+    altDisarm: false
+    animation: WeaponArcCosmic
+    attackRate: 0.425
+    range: 2
+    damage:
+      types:
+        Blunt: 25
+        Asphyxiation: 5
+        Cold: 5
+        Structural: 60
+    soundHit:
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
+      params:
+        variation: 0.2
+        volume: 1
+    soundSwing:
+      path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
+      params:
+        variation: 0.125
+        volume: -4
+  - type: MeleeThrowOnHit
+    speed: 8
+    distance: 7
+  - type: Reflect
+    reflectProb: .15
+    spread: 120
+    soundOnReflect:
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
+      params:
+        variation: 0.2
+        volume: -6
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: MobTileDamageZone
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_DV/CosmicCult/tile_detonate.ogg
+  - type: TimedDespawn
+    lifetime: 8
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: MobTileDamageArea
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: TimedDespawn
+    lifetime: 0.6
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: _DV/CosmicCult/Effects/tile_attacks.rsi
+    offset: 0,0.27
+    layers:
+    - state: tiledamage_start
+      shader: unshaded
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: SpawnOnDespawn
+    prototype: MobTileDamageIssuer
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: MobTileDamageIssuer
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Effects/tile_attacks.rsi
+    offset: 0,0.27
+    layers:
+    - state: tiledamage_end
+      shader: unshaded
+  - type: Transform
+    anchored: true
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 2500
+        hard: false
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+    ignoreWeightless: true
+    blacklist:
+      components:
+        - CosmicCult
+      tags:
+        - Catwalk
+  - type: TileEntityEffect
+    effects:
+    - !type:HealthChange
+      damage:
+        types:
+          Cold: 10

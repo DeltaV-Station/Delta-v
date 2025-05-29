@@ -8,6 +8,8 @@
       sprite: Mobs/Species/Slime/organs.rsi
       state: brain-slime
     - type: Stomach
+    - type: Organ # DeltaV - added organ type, allowing slimes to metabolize and digest.
+      slotId: core
     - type: Metabolizer
       maxReagents: 3
       metabolizerTypes: [ Slime ]

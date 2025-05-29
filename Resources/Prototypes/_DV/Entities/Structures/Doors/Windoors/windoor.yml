@@ -1,5 +1,5 @@
 - type: entity
-  parent: Windoor
+  parent: WindoorCargoLocked
   id: WindoorMailLocked
   suffix: Mail, Locked
   components:
@@ -8,7 +8,7 @@
       board: [ DoorElectronicsMail ]
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureCargoLocked
   id: WindoorSecureMailLocked
   suffix: Mail, Locked
   components:
@@ -17,7 +17,7 @@
       board: [ DoorElectronicsMail ]
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureMedicalLocked
   id: WindoorSecureParamedicLocked
   suffix: Paramedic, Locked
   components:
@@ -26,16 +26,18 @@
       board: [ DoorElectronicsParamedic ]
 
 - type: entity
-  parent: WindoorSecure
-  id: WindoorSecureChiefJusticeLocked
-  suffix: Chief Justice, Locked
+  parent: Windoor
+  id: WindoorJusticeLocked
+  suffix: Justice, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsChiefJustice ]
+      board: [ DoorElectronicsJustice ]
+  - type: Wires
+    layoutId: AirlockJustice
 
 - type: entity
-  parent: WindoorSecure
+  parent: [ WindoorSecure, WindoorJusticeLocked ]
   id: WindoorSecureJusticeLocked
   suffix: Justice, Locked
   components:
@@ -44,7 +46,16 @@
       board: [ DoorElectronicsJustice ]
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureCommandLocked
+  id: WindoorSecureChiefJusticeLocked
+  suffix: Chief Justice, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChiefJustice ]
+
+- type: entity
+  parent: WindoorSecureJusticeLocked
   id: WindoorSecureProsecutorLocked
   suffix: Prosecutor, Locked
   components:
@@ -53,7 +64,7 @@
       board: [ DoorElectronicsProsecutor ]
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureJusticeLocked
   id: WindoorSecureClerkLocked
   suffix: Clerk, Locked
   components:
@@ -62,7 +73,7 @@
       board: [ DoorElectronicsClerk ]
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureJusticeLocked
   id: WindoorSecureLawyerLocked
   suffix: Lawyer, Locked
   components:
@@ -71,7 +82,7 @@
       board: [ DoorElectronicsLawyer ]
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureScienceLocked
   id: WindoorSecureMantisLocked
   suffix: Mantis, Locked
   components:
@@ -80,7 +91,7 @@
       board: [ DoorElectronicsMantis ]
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureScienceLocked
   id: WindoorSecureRoboticsLocked
   suffix: Robotics, Locked
   components:
@@ -89,7 +100,7 @@
       board: [ DoorElectronicsRobotics ]
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureMedicalLocked
   id: WindoorSecureSurgeryLocked
   suffix: Surgery, Locked
   components:
@@ -99,7 +110,7 @@
 
 #Add windoors from upstream roles
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureServiceLocked
   id: WindoorSecureBoxerLocked
   suffix: Boxer, Locked
   components:
@@ -108,7 +119,7 @@
       board: [ DoorElectronicsBoxer ]
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureServiceLocked
   id: WindoorSecureClownLocked
   suffix: Clown, Locked
   components:
@@ -117,7 +128,7 @@
       board: [ DoorElectronicsClown ]
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureServiceLocked
   id: WindoorSecureMimeLocked
   suffix: Mime, Locked
   components:
@@ -126,7 +137,7 @@
       board: [ DoorElectronicsMime ]
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureServiceLocked
   id: WindoorSecureMusicianLocked
   suffix: Musician, Locked
   components:
@@ -135,7 +146,7 @@
       board: [ DoorElectronicsMusician ]
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureServiceLocked
   id: WindoorSecureReporterLocked
   suffix: Reporter, Locked
   components:
@@ -144,7 +155,7 @@
       board: [ DoorElectronicsReporter ]
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureServiceLocked
   id: WindoorSecureLibraryLocked
   suffix: Library, Locked
   components:
@@ -153,7 +164,7 @@
       board: [ DoorElectronicsLibrary ]
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureServiceLocked
   id: WindoorSecureZookeeperLocked
   suffix: Zookeeper, Locked
   components:
@@ -162,21 +173,28 @@
       board: [ DoorElectronicsZookeeper ]
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureSecurityLocked
   id: WindoorSecureCorpsmanLocked
   suffix: Corpsman, Locked
   components:
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCorpsman ]
-  - type: Wires
-    layoutId: AirlockCommand
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureMedicalLocked
   id: WindoorSecurePsychologistLocked
   suffix: Psychologist, Locked
   components:
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsPsychologist ]
+
+- type: entity
+  parent: WindoorSecureServiceLocked
+  id: WindoorSecureHydroponicsLocked
+  suffix: Hydroponics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsHydroponics ]

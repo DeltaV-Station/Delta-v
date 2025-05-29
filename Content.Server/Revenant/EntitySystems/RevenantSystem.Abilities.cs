@@ -29,6 +29,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.Map.Components;
 using Content.Shared.Whitelist;
+using Robust.Shared.Prototypes;
 using Content.Shared.Hands.Components; // Begin Imp Changes
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
@@ -60,6 +61,8 @@ public sealed partial class RevenantSystem
     [ValidatePrototypeId<StatusEffectPrototype>]
     private const string FlashedId = "Flashed"; // End Imp Changes
 
+
+    private static readonly ProtoId<TagPrototype> WindowTag = "Window";
 
     private void InitializeAbilities()
     {
@@ -283,8 +286,8 @@ public sealed partial class RevenantSystem
             component: new RevenantRegenModifierComponent(witnesses, newHaunts)
         ))
         {
-            if (_mind.TryGetMind(uid, out var _, out var mind) && mind.Session != null)
-                RaiseNetworkEvent(new RevenantHauntWitnessEvent(witnesses), mind.Session);
+            if (TryComp<ActorComponent>(uid, out var actor))
+                RaiseNetworkEvent(new RevenantHauntWitnessEvent(witnesses), actor.PlayerSession);
 
             _store.TryAddCurrency(new Dictionary<string, FixedPoint2>
             { {comp.StolenEssenceCurrencyPrototype, comp.HauntStolenEssencePerWitness * newHaunts} }, uid);
@@ -332,7 +335,7 @@ public sealed partial class RevenantSystem
         foreach (var ent in lookup)
         {
             //break windows
-            if (tags.HasComponent(ent) && _tag.HasTag(ent, "Window"))
+            if (tags.HasComponent(ent) && _tag.HasTag(ent, WindowTag))
             {
                 //hardcoded damage specifiers til i die.
                 var dspec = new DamageSpecifier();

@@ -22,6 +22,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
@@ -30,6 +32,19 @@
     - SecurityExplosives
     - SecurityEquipment
     - SecurityWeapons
+  - type: BlueprintReceiver
+    whitelist:
+      tags:
+      - BlueprintAutolathe
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: OreSiloClient
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - blueprint
 
 - type: entity
   parent: BaseTechFabDepartamental
@@ -59,6 +74,9 @@
     - ElectronicsStatic
     - LightsStatic
     - MaterialsStatic
+    - ReportingStatic
+    - EVASuit
+    - EngineeringStaticDeltaV
     dynamicPacks:
     - AdvancedTools
     - PowerCells
@@ -67,10 +85,13 @@
     - FauxTiles
     - Equipment
     - UpgradeKits
+    - EngineeringHardsuits
   - type: Machine
     board: EngineeringTechFabCircuitboard
   - type: StealTarget
     stealGroup: EngineeringTechFabCircuitboard
+  - type: LatheAnnouncing
+    channels: [Engineering]
 
 - type: entity
   parent: BaseTechFabDepartamental
@@ -94,16 +115,23 @@
     staticPacks:
     - ToolsStatic
     - PartsStatic
+    - PowerCellsStatic
     - LVCablesStatic
     - CargoStatic
+    - ReportingStatic
+    - SimpleElectronicsStatic
+    - EVASuit
     dynamicPacks:
     - Equipment
     - Mining
     - SalvageWeapons
+    - SalvageHardsuits
   - type: Machine
     board: LogisticsTechFabCircuitboard
   - type: StealTarget
     stealGroup: LogisticsTechFabCircuitboard
+  - type: LatheAnnouncing
+    channels: [Supply]
 
 - type: entity
   parent: BaseTechFabDepartamental
@@ -128,9 +156,12 @@
     - RingsStatic
     - ReportingStatic
     - LVCablesStatic
+    - PowerCellsStatic
     - LightsStatic
     - ServiceStatic
     - PartsStaticDeltaV # Add Beaker and Hand Labeler to the service techfab
+    - SimpleElectronicsStatic
+    - EVASuit
     dynamicPacks:
     - Janitor
     - Instruments
@@ -139,6 +170,8 @@
     board: ServiceTechFabCircuitboard
   - type: StealTarget
     stealGroup: ServiceTechFabCircuitboard
+  - type: LatheAnnouncing
+    channels: [Service]
 
 - type: entity
   parent: BaseTechFabDepartamental
@@ -167,6 +200,9 @@
     - BasicChemistryStatic
     - ChemistryStatic
     - PowerCellsStatic
+    - ReportingStatic
+    - SimpleElectronicsStatic
+    - EVASuit
     dynamicPacks:
     - ScienceEquipment
     - ScienceClothing

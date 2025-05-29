@@ -20,6 +20,26 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/courier.rsi
 
+- type: entity
+  parent: ClothingUniformJumpsuitAtmosCasual
+  id: ClothingUniformJumpskirtAtmosCasual
+  name: atmospheric technician's casual jumpskirt
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/atmos_casual.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/atmos_casual.rsi
+
+- type: entity
+  parent: ClothingUniformOveralls
+  id: ClothingUniformJumpskirtOveralls
+  name: overalls jumpskirt
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/overalls.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/overalls.rsi
+
 # Formal uniforms
 
 - type: entity

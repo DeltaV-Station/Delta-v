@@ -261,6 +261,7 @@
         nameSegments:
         - NamesNinjaTitle
         - NamesNinja
+        nameFormat: name-format-ninja
       mindRoles:
       - MindRoleNinja
 
@@ -350,6 +351,7 @@
         nameSegments:
         - NamesWizardFirst
         - NamesWizardLast
+        nameFormat: name-format-wizard
       mindRoles:
       - MindRoleWizard
 
@@ -575,11 +577,11 @@
   id: LoneOpsSpawn
   components:
   - type: StationEvent
-    earliestStart: 45
-    weight: 3.5 # DeltaV - was 5
+    earliestStart: 45 # DeltaV - was 35
+    weight: 3.5 # DeltaV - was 5.5
     minimumPlayers: 30 # DeltaV - was 20
-    reoccurrenceDelay: 30
-    duration: 1
+    reoccurrenceDelay: 30 # DeltaV
+    duration: null # LoneOpsSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end scrreen (not always "Neutral outcome!") and... ending the game if the station is nuked.
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-lone-ops-spawn-result-message
   - type: RuleGrids
@@ -603,6 +605,7 @@
         nameSegments:
         - NamesSyndicatePrefix
         - NamesSyndicateNormal
+        nameFormat: name-format-nukie-generic
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -701,6 +704,19 @@
     - Service
     blacklist:
     - External # don't space everything
+
+- type: entity
+  parent: BaseGameRule
+  id: SmugglerStashVariationPass
+  components:
+  - type: StationEvent
+    earliestStart: 0
+    duration: 1
+    minimumPlayers: 1
+    maxOccurrences: 2
+    weight: 10
+  - type: RandomSpawnRule
+    prototype: RandomSatchelSpawner
 
 - type: entity
   parent: BaseGameRule
