@@ -218,7 +218,7 @@ public sealed class CHelpUIController: UIController, IOnSystemChanged<CwoinkSyst
         helper.ClydeWindow = _clyde.CreateWindow(new WindowCreateParameters
         {
             Maximized = false,
-            Title = "Admin Help",
+            Title = "Curator Help",
             Monitor = monitor,
             Width = 900,
             Height = 500
@@ -431,7 +431,7 @@ public sealed class CuratorCHelpUIHandler : ICHelpUIHandler
         if (_activePanelMap.TryGetValue(channelId, out var existingPanel))
             return existingPanel;
 
-        _activePanelMap[channelId] = existingPanel = new CwoinkPanel(text => SendMessageAction?.Invoke(channelId, text, Window?.Cwoink.PlaySound.Pressed ?? true, Window?.Cwoink.AdminOnly.Pressed ?? false));
+        _activePanelMap[channelId] = existingPanel = new CwoinkPanel(text => SendMessageAction?.Invoke(channelId, text, Window?.Cwoink.PlaySound.Pressed ?? true, Window?.Cwoink.CuratorOnly.Pressed ?? false));
         existingPanel.InputTextChanged += text => InputTextChanged?.Invoke(channelId, text);
         existingPanel.Visible = false;
         if (!Control!.CwoinkArea.Children.Contains(existingPanel))

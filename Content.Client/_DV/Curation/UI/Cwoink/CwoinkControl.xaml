@@ -11,7 +11,7 @@
                 </BoxContainer>
             </SplitContainer>
             <BoxContainer Orientation="Horizontal" SetHeight="30" >
-                <CheckBox Name="AdminOnly" Access="Public" Text="{Loc 'curator-chelp-curator-only'}" ToolTip="{Loc 'curator-chelp-curator-only-tooltip'}" />
+                <CheckBox Name="CuratorOnly" Access="Public" Text="{Loc 'curator-chelp-curator-only'}" ToolTip="{Loc 'curator-chelp-curator-only-tooltip'}" />
                 <Control HorizontalExpand="True" MinWidth="5" />
                 <CheckBox Name="PlaySound" Access="Public" Text="{Loc 'curator-cwoink-play-sound'}" Pressed="True" />
                 <Control HorizontalExpand="True" MinWidth="5" />
