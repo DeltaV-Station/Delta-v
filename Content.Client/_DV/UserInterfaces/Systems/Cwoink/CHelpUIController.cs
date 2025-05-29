@@ -536,7 +536,7 @@ public sealed class UserCHelpUIHandler : ICHelpUIHandler
         _window = new DefaultWindow()
         {
             TitleClass="windowTitleAlert",
-            HeaderClass="windowHeaderAlert",
+            HeaderClass="windowHeaderCurator",
             Title=Loc.GetString("cwoink-user-title"),
             MinSize = new Vector2(500, 300),
         };

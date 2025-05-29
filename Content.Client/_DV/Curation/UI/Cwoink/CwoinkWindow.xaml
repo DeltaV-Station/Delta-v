@@ -1,7 +1,7 @@
 ﻿<DefaultWindow xmlns="https://spacestation14.io"
             xmlns:cc="clr-namespace:Content.Client._DV.Curation.UI.Cwoink"
             SetSize="900 500"
-            HeaderClass="windowHeaderAlert"
+            HeaderClass="windowHeaderCurator"
             TitleClass="windowTitleAlert"
             Title="{Loc 'cwoink-user-title'}" >
     <cc:CwoinkControl Name="Cwoink" Access="Public"/>
