@@ -6,7 +6,7 @@ public sealed partial class FireOnLandComponent : Component
     /// <summary>
     /// Chance to trigger.
     /// </summary>
-    // [DataField("Chance", required: true)]
-    // [ViewVariables(VVAccess.ReadWrite)]
-    // public float Chance = 0.1f;
+    [DataField("Probability")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float Probability = 0.125f;
 }
