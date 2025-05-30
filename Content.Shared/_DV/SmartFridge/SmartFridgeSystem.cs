@@ -8,11 +8,13 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.SmartFridge;
 
 public sealed class SmartFridgeSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -33,6 +35,21 @@ public sealed class SmartFridgeSystem : EntitySystem
                 sub.Event<SmartFridgeDispenseItemMessage>(OnDispenseItem);
                 sub.Event<SmartFridgeRemoveEntryMessage>(OnRemoveEntry);
             });
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<SmartFridgeComponent>();
+
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (!comp.Ejecting || _timing.CurTime <= comp.EjectEnd)
+                continue;
+            comp.EjectEnd = null;
+            Dirty(uid, comp);
+        }
     }
 
     private void OnInteractUsing(Entity<SmartFridgeComponent> ent, ref InteractUsingEvent args)
@@ -85,7 +102,7 @@ public sealed class SmartFridgeSystem : EntitySystem
 
     private void OnDispenseItem(Entity<SmartFridgeComponent> ent, ref SmartFridgeDispenseItemMessage args)
     {
-        if (!Allowed(ent, args.Actor))
+        if (!Allowed(ent, args.Actor) || ent.Comp.Ejecting)
             return;
 
         if (!ent.Comp.ContainedEntries.TryGetValue(args.Entry, out var contained))
@@ -102,6 +119,7 @@ public sealed class SmartFridgeSystem : EntitySystem
 
             _audio.PlayPredicted(ent.Comp.SoundVend, ent, args.Actor);
             contained.Remove(item);
+            ent.Comp.EjectEnd = _timing.CurTime + ent.Comp.EjectCooldown;
             Dirty(ent);
             return;
         }

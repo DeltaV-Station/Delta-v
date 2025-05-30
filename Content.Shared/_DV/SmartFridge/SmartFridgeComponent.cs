@@ -8,7 +8,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._DV.SmartFridge;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), AutoGenerateComponentPause]
 public sealed partial class SmartFridgeComponent : Component
 {
     [DataField]
@@ -28,6 +28,15 @@ public sealed partial class SmartFridgeComponent : Component
 
     [DataField, AutoNetworkedField]
     public Dictionary<SmartFridgeEntry, List<NetEntity>> ContainedEntries = new();
+
+    [DataField]
+    public TimeSpan EjectCooldown = TimeSpan.FromSeconds(1.2);
+
+    [ViewVariables]
+    public bool Ejecting => EjectEnd != null;
+
+    [DataField, AutoPausedField]
+    public TimeSpan? EjectEnd;
 
     /// <summary>
     ///     Sound that plays when ejecting an item
