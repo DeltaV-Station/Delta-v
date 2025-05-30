@@ -8,5 +8,5 @@ public sealed partial class FireOnLandComponent : Component
     /// </summary>
     [DataField("Probability")]
     [ViewVariables(VVAccess.ReadWrite)]
-    public float Probability = 0.125f;
+    public float Probability = 0.1f;
 }
