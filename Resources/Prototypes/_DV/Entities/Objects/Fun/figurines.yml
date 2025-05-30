@@ -7,7 +7,7 @@
   components:
   - type: Sprite
     sprite: _DV/Objects/Fun/figurines.rsi
-    
+
 - type: entity
   parent: BaseFigurine
   id: BaseBorgFigurineDeltaV
@@ -193,7 +193,7 @@
         shader: unshaded
   - type: SpeakOnTrigger
     pack: FigurinesCosmicCultist
-    
+
 - type: entity
   parent: BaseBorgFigurineDeltaV
   id: ToyFigurineBorgEngineering
@@ -221,7 +221,7 @@
           shader: unshaded
     - type: SpeakOnTrigger
       pack: FigurinesBorgGeneric
-    
+
 - type: entity
   parent: BaseBorgFigurineDeltaV
   id: ToyFigurineBorgJanitor
@@ -235,7 +235,7 @@
           shader: unshaded
     - type: SpeakOnTrigger
       pack: FigurinesBorgJanitor
-      
+
 - type: entity
   parent: BaseBorgFigurineDeltaV
   id: ToyFigurineBorgMedical
@@ -249,7 +249,7 @@
           shader: unshaded
     - type: SpeakOnTrigger
       pack: FigurinesBorgMedical
-      
+
 - type: entity
   parent: BaseBorgFigurineDeltaV
   id: ToyFigurineBorgSalvage
@@ -263,7 +263,7 @@
           shader: unshaded
     - type: SpeakOnTrigger
       pack: FigurinesBorgSalvage
-      
+
 - type: entity
   parent: BaseBorgFigurineDeltaV
   id: ToyFigurineBorgSecurity
