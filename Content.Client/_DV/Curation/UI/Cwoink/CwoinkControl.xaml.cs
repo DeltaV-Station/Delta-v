@@ -157,6 +157,12 @@ namespace Content.Client._DV.Curation.UI.Cwoink
                 return bch.LastMessage.CompareTo(ach.LastMessage);
             };
 
+            ViewVariables.OnPressed += _ =>
+            {
+                if (_currentPlayer is not null)
+                    _console.ExecuteCommand($"vv \"{_currentPlayer.NetEntity}\"");
+            };
+
             Follow.OnPressed += _ =>
             {
                 if (_currentPlayer is not null)
@@ -201,6 +207,9 @@ namespace Content.Client._DV.Curation.UI.Cwoink
         public void UpdateButtons()
         {
             var disabled = _currentPlayer == null;
+
+            ViewVariables.Visible = _adminManager.CanCommand("vv");
+            ViewVariables.Disabled = !ViewVariables.Visible || disabled;
 
             Respawn.Visible = _adminManager.CanCommand("respawn");
             Respawn.Disabled = !Respawn.Visible || disabled;

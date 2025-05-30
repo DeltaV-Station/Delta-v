@@ -299,7 +299,7 @@ public sealed class DCCVars
     ///     The color of the names of curators. This is the fallback color for curators.
     /// </summary>
     public static readonly CVarDef<string> CuratorCwoinkColor =
-        CVarDef.Create("admin.curator_cwoink_color", "purple", CVar.SERVERONLY);
+        CVarDef.Create("admin.curator_cwoink_color", "#9552cc", CVar.SERVERONLY);
 
     /// <summary>
     ///     The color of the names of curators who reply from discord. Leave empty to disable.

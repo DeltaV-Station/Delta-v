@@ -99,11 +99,11 @@ namespace Content.Server._DV.Curation.Systems
         private readonly Dictionary<NetUserId, DateTime> _activeConversations = new();
 
         // AHelp config settings
-        private bool _useAdminOOCColorInBwoinks = false; // Delta-v
+        private bool _useAdminOOCColorInBwoinks = true; // Delta-v
         private bool _useDiscordRoleColor = false; // Delta-v
         private bool _useDiscordRoleName = false; // Delta-v
         private string _discordReplyPrefix = "(DISCORD) "; // Delta-v
-        private string _adminBwoinkColor = "purple"; // Delta-v
+        private string _adminBwoinkColor = "#9552cc"; // Delta-v
         private string _discordReplyColor = string.Empty; // Delta-v
 
         public override void Initialize()
@@ -788,7 +788,7 @@ namespace Content.Server._DV.Curation.Systems
                         string overrideMsgText;
 
                         if (senderAdmin is not null && senderAdmin.HasFlag(AdminFlags.CuratorHelp))
-                            overrideMsgText = $"[color=purple]{adminPrefixWebhook}{_overrideClientName}[/color]";
+                            overrideMsgText = $"[color={_adminBwoinkColor}]{adminPrefixWebhook}{_overrideClientName}[/color]";
                         else
                             overrideMsgText = $"{senderName}"; // Not an admin, name is not overridden.
 
