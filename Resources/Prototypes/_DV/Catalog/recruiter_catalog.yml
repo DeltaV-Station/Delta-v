@@ -4,13 +4,16 @@
   name: uplink-recruiter-soda-name
   description: uplink-recruiter-soda-desc
   productEntity: DrinkCanPackBloodRed
-  icon: { sprite: Objects/Consumable/Drinks/robustnukie.rsi }
+  icon: { sprite: Objects/Consumable/Drinks/robustnukie.rsi, state: icon }
   cost:
     TreatCoin: 5
   categories:
   - RecruiterJunk
   conditions:
-
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 - type: listing
   id: UplinkRecruiterSnackbox
@@ -22,7 +25,10 @@
   categories:
   - RecruiterJunk
   conditions:
-
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 - type: listing
   id: UplinkRecruiterRevolverCapGun
@@ -140,7 +146,7 @@
   name: uplink-recruiter-toysword-name
   description: uplink-recruiter-toysword-desc
   productEntity: ToySword
-  icon: { sprite: Objects/Weapons/Melee/e_sword.rsi }
+  icon: { sprite: Objects/Weapons/Melee/e_sword.rsi, state: icon }
   cost:
     TreatCoin: 6
   categories:
@@ -294,7 +300,7 @@
   name: uplink-recruiter-maid-name
   description: uplink-recruiter-maid-desc
   productEntity: LunchboxRecruiterMaid
-  icon: { sprite: Clothing/Hands/Gloves/tacticalmaidgloves.rsi }
+  icon: { sprite: Clothing/Hands/Gloves/tacticalmaidgloves.rsi, state: icon }
   cost:
     TreatCoin: 10
   categories:
