@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 using Content.Shared._DV.Curation;
 using Content.Shared.Administration;
 using JetBrains.Annotations;
