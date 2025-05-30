@@ -113,9 +113,6 @@
   components:
   - type: CartridgeAmmo
     proto: BulletGrenadeFrag
-  - type: Tag # DeltaV - Changing Whitelist Tag
-    tags:
-    - CleaningGrenade
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
     layers:
@@ -142,6 +139,9 @@
   - type: SpentAmmoVisuals
     state: frag
     suffix: false
+  - type: Tag # DeltaV - Changing Whitelist Tag
+    tags:
+    - CleaningGrenade
 
 - type: entity
   id: GrenadeEMP
