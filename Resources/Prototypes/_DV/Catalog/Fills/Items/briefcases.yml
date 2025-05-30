@@ -1,25 +1,25 @@
 - type: entity
+  parent: CybersunBriefcase
   id: BriefcaseRecruiterLawyerkit
-  parent: CybersunBriefcase # DeltaV
   suffix: Cybersun, Lawyer
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesGlassesCheapSunglasses
-      - id: LuxuryPen
-      - id: ClothingOuterCybersunOvercoat
-      - id: ClothingUniformCybersunAttorney
-      - id: ClothingMaskNeckGaiter
-      - id: SyndieHandyFlag
+    - id: ClothingEyesGlassesCheapSunglasses
+    - id: LuxuryPen
+    - id: ClothingOuterCybersunOvercoat
+    - id: ClothingUniformCybersunAttorney
+    - id: ClothingMaskNeckGaiter
+    - id: SyndieHandyFlag
 
 - type: entity
+  parent: CybersunBriefcase
   id: BriefcaseRecruiterSurgeonKit
-  parent: CybersunBriefcase # DeltaV
   suffix: Cybersun, Surgeon
   components:
   - type: StorageFill
     contents:
-      - id: ClothingHeadHatSurgcapCybersun
-      - id: UniformScrubsColorCybersun
-      - id: ClothingOuterCoatCybersunWindbreaker
-      - id: ClothingMaskNeckGaiter
+    - id: ClothingHeadHatSurgcapCybersun
+    - id: UniformScrubsColorCybersun
+    - id: ClothingOuterCoatCybersunWindbreaker
+    - id: ClothingMaskNeckGaiter

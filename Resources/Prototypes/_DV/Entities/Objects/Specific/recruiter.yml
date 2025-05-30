@@ -38,11 +38,10 @@
   - type: EmitSoundOnUse
     handle: false # need to handle the event for pricking
 
-
 - type: entity
-  name: TreatCoin
   parent: [BaseItem, BaseSyndicateContraband]
   id: TreatCoin
+  name: TreatCoin
   suffix: 20 TC
   description: It seems to be a cheap plastic carnival token with a T stamped into it. What did you expect?
   components:
