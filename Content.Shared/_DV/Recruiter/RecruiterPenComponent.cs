@@ -56,5 +56,5 @@ public sealed partial class RecruiterPenComponent : Component
     /// Payout on successful sign.
     /// </summary>
     [DataField("currency", required: true)]
-    public EntProtoId Currency;
+    public EntityUid Currency;
 }
