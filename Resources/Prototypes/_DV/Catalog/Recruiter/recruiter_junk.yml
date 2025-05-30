@@ -1,4 +1,3 @@
-#Recruiter Junk
 - type: listing
   id: UplinkRecruiterSoda
   name: uplink-recruiter-soda-name
@@ -48,26 +47,6 @@
     TreatCoin: 6
   categories:
   - RecruiterJunk
-
-- type: listing
-  id: UplinkRecruiterOperativeSkirt
-  name: uplink-operative-skirt-name
-  description: uplink-operative-skirt-desc
-  productEntity: ClothingUniformJumpskirtOperative
-  cost:
-    TreatCoin: 2
-  categories:
-  - RecruiterUniforms
-
-- type: listing
-  id: UplinkRecruiterOperativeSuit
-  name: uplink-operative-suit-name
-  description: uplink-operative-suit-desc
-  productEntity: ClothingUniformJumpsuitOperative
-  cost:
-    TreatCoin: 2
-  categories:
-  - RecruiterUniforms
 
 - type: listing
   id: UplinkRecruiterBalloon
@@ -171,16 +150,6 @@
   - RecruiterJunk
 
 - type: listing
-  id: UplinkRecruiterCigarettes
-  name: uplink-cigarettes-name
-  description: uplink-cigarettes-desc
-  productEntity: CigPackSyndicate
-  cost:
-    TreatCoin: 4
-  categories:
-  - RecruiterTreasure
-
-- type: listing
   id: UplinkRecruiterBanner
   name: uplink-recruiter-banner-name
   description: uplink-recruiter-banner-desc
@@ -211,113 +180,6 @@
   - RecruiterJunk
 
 - type: listing
-  id: UplinkRecruiterCybersunrnd
-  name: uplink-recruiter-cybersunrnd-name
-  description: uplink-recruiter-cybersunrnd-desc
-  productEntity: ClothingUniformCybersunRND
-  cost:
-    TreatCoin: 2
-  categories:
-  - RecruiterUniforms
-
-- type: listing
-  id: UplinkRecruiterCybersunCasual
-  name: uplink-recruiter-cybersuncasual-name
-  description: uplink-recruiter-cybersuncasual-desc
-  productEntity: ClothingUniformCybersunCasual
-  cost:
-    TreatCoin: 2
-  categories:
-  - RecruiterUniforms
-
-- type: listing
-  id: UplinkRecruiterCybersunHazard
-  name: uplink-recruiter-cybersunhazard-name
-  description: uplink-recruiter-cybersunhazard-desc
-  productEntity: ClothingUniformCybersunHazard
-  cost:
-    TreatCoin: 2
-  categories:
-  - RecruiterUniforms
-
-- type: listing
-  id: UplinkRecruiterCybersunSurgeon
-  name: uplink-recruiter-cybersunsurgeon-name
-  description: uplink-recruiter-cybersunsurgeon-desc
-  productEntity: BriefcaseRecruiterSurgeonKit
-  cost:
-    TreatCoin: 6
-  categories:
-  - RecruiterUniforms
-  - RecruiterKits
-
-- type: listing
-  id: UplinkRecruiterCybersunLawyer
-  name: uplink-recruiter-cybersunlawyer-name
-  description: uplink-recruiter-cybersunlawyer-desc
-  productEntity: BriefcaseRecruiterLawyerkit
-  cost:
-    TreatCoin: 8
-  categories:
-  - RecruiterUniforms
-  - RecruiterKits
-
-- type: listing
-  id: UplinkRecruiterInterdynechem
-  name: uplink-recruiter-interdynechem-name
-  description: uplink-recruiter-interdynechem-desc
-  productEntity: ClothingBackpackDuffelRecruiterInterdyne
-  cost:
-    TreatCoin: 8
-  categories:
-  - RecruiterUniforms
-  - RecruiterKits
-
-- type: listing
-  id: UplinkRecruiterRealcapfruit
-  name: uplink-recruiter-realcapfruit-name
-  description: uplink-recruiter-realcapfruit-desc
-  productEntity: RealCapfruitSeeds
-  cost:
-    TreatCoin: 8
-  categories:
-  - RecruiterTreasure
-
-- type: listing
-  id: UplinkRecruiterMaid
-  name: uplink-recruiter-maid-name
-  description: uplink-recruiter-maid-desc
-  productEntity: LunchboxRecruiterMaid
-  cost:
-    TreatCoin: 10
-  categories:
-  - RecruiterTreasure
-  - RecruiterKits
-
-- type: listing
-  id: UplinkRecruiterCyberpen
-  name: uplink-recruiter-cyberpen-name
-  description: uplink-recruiter-cyberpen-desc
-  productEntity: CyberPen
-  cost:
-    TreatCoin: 10
-  categories:
-  - RecruiterTreasure
-
-- type: listing
-  id: UplinkRecruiterGGF
-  name: uplink-recruiter-ggf-name
-  description: uplink-recruiter-ggf-desc
-  productEntity: BookGorlexGirlfriends
-  cost:
-    TreatCoin: 20
-  categories:
-  - RecruiterJunk
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 3
-
-- type: listing
   id: UplinkRecruiterRandomdonk
   name: uplink-recruiter-randomdonk-name
   description: uplink-recruiter-randomdonk-desc
@@ -327,16 +189,6 @@
     TreatCoin: 4
   categories:
   - RecruiterJunk
-
-- type: listing
-  id: UplinkRecruiterMicrowave
-  name: uplink-recruiter-microwave-name
-  description: uplink-recruiter-microwave-desc
-  productEntity: SyndicateMicrowave
-  cost:
-    TreatCoin: 10
-  categories:
-  - RecruiterTreasure
 
 - type: listing
   id: UplinkRecruiterWintercoat
@@ -367,19 +219,6 @@
     TreatCoin: 2
   categories:
   - RecruiterJunk
-
-- type: listing
-  id: UplinkRecruiterBribe5k
-  name: uplink-recruiter-bribe5k-name
-  description: uplink-recruiter-bribe5k-desc
-  productEntity: SpaceCash5000
-  cost:
-    TreatCoin: 10
-  categories:
-  - RecruiterTreasure
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 5
 
 - type: listing
   id: UplinkRecruiterNukiePlush
