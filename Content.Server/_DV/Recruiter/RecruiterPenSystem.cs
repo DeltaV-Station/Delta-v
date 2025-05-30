@@ -57,6 +57,7 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
 
     public void Reward(Entity<RecruiterPenComponent> ent, EntityUid user)
     {
-        _hands.PickupOrDrop(user, ent.Comp.Currency);
+        var pay = Spawn(ent.Comp.Currency);
+        _hands.PickupOrDrop(user, pay);
     }
 }
