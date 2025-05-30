@@ -9,10 +9,10 @@ public sealed class UncloneableSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<UncloneableDVComponent, CloningAttemptEvent>(OnCloningAttempt);
+        SubscribeLocalEvent<UncloneableComponent, CloningAttemptEvent>(OnCloningAttempt);
     }
 
-    private void OnCloningAttempt(Entity<UncloneableDVComponent> ent, ref CloningAttemptEvent args)
+    private void OnCloningAttempt(Entity<UncloneableComponent> ent, ref CloningAttemptEvent args)
     {
         if (!ent.Comp.Cloneable)
             args.Cancelled = true;

@@ -305,7 +305,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             unrevivable = true;
 
         // DeltaV - Unclonable Trait added Start
-        if (TryComp<UncloneableDVComponent>(target, out var uncloneableComp) && uncloneableComp.Analyzable)
+        if (TryComp<UncloneableComponent>(target, out var uncloneableComp) && uncloneableComp.Analyzable)
             uncloneable = true;
         // DeltaV - Unclonable Trait added End
 

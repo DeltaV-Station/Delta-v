@@ -6,7 +6,7 @@ namespace Content.Shared.Traits.Assorted;
 /// This is used for the unrevivable trait as well as generally preventing revival.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class UncloneableDVComponent : Component
+public sealed partial class UncloneableComponent : Component
 {
     /// <summary>
     /// A field to define if we should display the "Genetic incompatibility" warning on health analysers
