@@ -76,16 +76,6 @@
     duration: 12
     polymorphSound: /Audio/_DV/CosmicCult/ability_lapse.ogg
 
-- type: polymorph
-  id: CosmicFragmentationWisp
-  configuration:
-    entity: CosmicPolymorphEntChantryWisp
-    forced: true
-    inventory: None
-    transferName: true
-    transferDamage: false
-    duration: 999
-
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseStructure
