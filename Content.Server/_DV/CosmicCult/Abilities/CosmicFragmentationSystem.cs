@@ -1,15 +1,11 @@
-using System.Linq;
 using Content.Server._DV.Objectives.Events;
 using Content.Server.Antag;
-using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Radio.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
-using Content.Shared._DV.Silicons;
 using Content.Shared.DoAfter;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
 using Content.Shared.Radio;
@@ -24,11 +20,12 @@ public sealed class CosmicFragmentationSystem : EntitySystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly CosmicCultSystem _cult = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
 
     private ProtoId<RadioChannelPrototype> _cultRadio = "CosmicRadio";
 
@@ -95,25 +92,19 @@ public sealed class CosmicFragmentationSystem : EntitySystem
 
     private void OnFragmentBorg(Entity<BorgChassisComponent> ent, ref MalignFragmentationEvent args)
     {
-        var subject = args.Target;
-        if (HasComp<BorgBrainComponent>(ent.Comp.BrainContainer.ContainedEntity))
-        {
-            var mmiTarget = _container.EmptyContainer(ent.Comp.BrainContainer).First();
-            _container.TryGetContainer(mmiTarget, "brain_slot", out var brainTarget);
-            subject = _container.EmptyContainer(brainTarget!).First();
-        } // is there a better way to do this?
-
-        if (_polymorph.PolymorphEntity(subject, "CosmicFragmentationWisp") is not { } polyVictim)
+        if (!_mind.TryGetMind(ent, out var mindId, out var mind))
             return;
-
-        var chantry = Spawn("CosmicBorgChantry", Transform(polyVictim).Coordinates);
+        var wisp = Spawn("CosmicChantryWisp", Transform(ent).Coordinates);
+        var chantry = Spawn("CosmicBorgChantry", Transform(ent).Coordinates);
         EnsureComp<CosmicChantryComponent>(chantry, out var chantryComponent);
-        chantryComponent.PolyVictim = polyVictim;
-        chantryComponent.Victim = subject;
+        chantryComponent.InternalVictim = wisp;
+        chantryComponent.VictimBody = ent;
+        _metaData.SetEntityName(wisp, $"{ent}");
+        _mind.TransferTo(mindId, wisp, mind: mind);
 
         var mins = chantryComponent.EventTime.Minutes;
         var secs = chantryComponent.EventTime.Seconds;
-        _antag.SendBriefing(polyVictim, Loc.GetString("cosmiccult-silicon-chantry-briefing", ("minutesandseconds", $"{mins} minutes and {secs} seconds")), Color.FromHex("#4cabb3"), null);
+        _antag.SendBriefing(wisp, Loc.GetString("cosmiccult-silicon-chantry-briefing", ("minutesandseconds", $"{mins} minutes and {secs} seconds")), Color.FromHex("#4cabb3"), null);
     }
 
     private void OnFragmentAi(Entity<SiliconLawUpdaterComponent> ent, ref MalignFragmentationEvent args)
