@@ -38,3 +38,13 @@
   category: Disabilities
   components:
   - type: BlockWriting
+
+
+- type: trait  # DeltaV - Unclonable Trait added
+  id: Uncloneable
+  name: trait-uncloneable-name
+  description: trait-uncloneable-desc
+  category: Disabilities
+  components:
+    - type: Uncloneable
+      cloneable: false

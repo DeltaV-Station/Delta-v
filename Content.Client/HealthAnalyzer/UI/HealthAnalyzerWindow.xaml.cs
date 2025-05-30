@@ -217,7 +217,7 @@ namespace Content.Client.HealthAnalyzer.UI
             // Alerts
 
             var unborgable = _unborgable.IsUnborgable(_target.Value); // DeltaV
-            var showAlerts = msg.Unrevivable == true || msg.Bleeding == true || unborgable;
+            var showAlerts = msg.Unrevivable == true || msg.Uncloneable == true || msg.Bleeding == true || unborgable; // DeltaV - Unclonable Trait added
 
             AlertsDivider.Visible = showAlerts;
             AlertsContainer.Visible = showAlerts;
@@ -248,6 +248,15 @@ namespace Content.Client.HealthAnalyzer.UI
                     Margin = new Thickness(0, 4),
                     MaxWidth = 300
                 });
+            // DeltaV - Unclonable Trait added Start
+            if (msg.Uncloneable == true) 
+                AlertsContainer.AddChild(new RichTextLabel
+                {
+                    Text = Loc.GetString("health-analyzer-window-entity-uncloneable-text"),
+                    Margin = new Thickness(0, 4),
+                    MaxWidth = 300
+                });
+            // DeltaV - Unclonable Trait added End
 
             // Damage Groups
 
