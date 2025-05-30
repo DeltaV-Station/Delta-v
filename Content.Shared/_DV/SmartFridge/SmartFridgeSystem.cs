@@ -42,7 +42,6 @@ public sealed class SmartFridgeSystem : EntitySystem
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<SmartFridgeComponent>();
-
         while (query.MoveNext(out var uid, out var comp))
         {
             if (!comp.Ejecting || _timing.CurTime <= comp.EjectEnd)
@@ -102,7 +101,7 @@ public sealed class SmartFridgeSystem : EntitySystem
 
     private void OnDispenseItem(Entity<SmartFridgeComponent> ent, ref SmartFridgeDispenseItemMessage args)
     {
-        if (!Allowed(ent, args.Actor) || ent.Comp.Ejecting)
+        if (!_timing.IsFirstTimePredicted || ent.Comp.Ejecting || !Allowed(ent, args.Actor))
             return;
 
         if (!ent.Comp.ContainedEntries.TryGetValue(args.Entry, out var contained))
@@ -130,20 +129,13 @@ public sealed class SmartFridgeSystem : EntitySystem
 
     private void OnRemoveEntry(Entity<SmartFridgeComponent> ent, ref SmartFridgeRemoveEntryMessage args)
     {
-        if (!Allowed(ent, args.Actor))
-            return;
-
-        if (!_container.TryGetContainer(ent, ent.Comp.Container, out var container))
+        if (!_timing.IsFirstTimePredicted || !Allowed(ent, args.Actor))
             return;
 
         if (ent.Comp.ContainedEntries.TryGetValue(args.Entry, out var contained)
             && contained.Count > 0
             || !ent.Comp.Entries.Contains(args.Entry))
-        {
-            _audio.PlayPredicted(ent.Comp.SoundDeny, ent, args.Actor);
-            _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-unknown-entry"), ent, args.Actor);
             return;
-        }
 
         ent.Comp.Entries.Remove(args.Entry);
         Dirty(ent);

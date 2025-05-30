@@ -16,10 +16,7 @@ public sealed partial class SmartFridgeItem : BoxContainer
 
         EntityView.SetEntity(uid);
         NameLabel.Text = text;
-        RemoveButton.OnPressed += _ =>
-        {
-            RemoveButtonPressed?.Invoke();
-        };
+        RemoveButton.OnPressed += _ => RemoveButtonPressed?.Invoke();
 
         if (uid.IsValid())
             RemoveButton.Visible = false;

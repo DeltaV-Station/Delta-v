@@ -5,6 +5,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._DV.SmartFridge;
 
@@ -35,7 +36,7 @@ public sealed partial class SmartFridgeComponent : Component
     [ViewVariables]
     public bool Ejecting => EjectEnd != null;
 
-    [DataField, AutoPausedField]
+    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? EjectEnd;
 
     /// <summary>
