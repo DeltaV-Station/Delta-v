@@ -61,9 +61,6 @@ namespace Content.Server._DV.Curation.Systems
         private string _webhookUrl = string.Empty;
         private WebhookData? _webhookData;
 
-        private string _onCallUrl = string.Empty;
-        private WebhookData? _onCallData;
-
         private ISawmill _sawmill = default!;
         private readonly HttpClient _httpClient = new();
 
@@ -106,30 +103,30 @@ namespace Content.Server._DV.Curation.Systems
         private bool _useDiscordRoleColor = false; // Delta-v
         private bool _useDiscordRoleName = false; // Delta-v
         private string _discordReplyPrefix = "(DISCORD) "; // Delta-v
-        private string _adminBwoinkColor = "red"; // Delta-v
+        private string _adminBwoinkColor = "purple"; // Delta-v
         private string _discordReplyColor = string.Empty; // Delta-v
 
         public override void Initialize()
         {
             base.Initialize();
 
-            Subs.CVar(_config, CCVars.DiscordOnCallWebhook, OnCallChanged, true);
-            Subs.CVar(_config, CCVars.DiscordAHelpWebhook, OnWebhookChanged, true);
-            Subs.CVar(_config, CCVars.DiscordAHelpFooterIcon, OnFooterIconChanged, true);
-            Subs.CVar(_config, CCVars.DiscordAHelpAvatar, OnAvatarChanged, true);
             Subs.CVar(_config, CVars.GameHostName, OnServerNameChanged, true);
-            Subs.CVar(_config, CCVars.AdminAhelpOverrideClientName, OnOverrideChanged, true);
 
-            Subs.CVar(_config, DCCVars.UseAdminOOCColorInBwoinks, OnUseAdminOOCColorInBwoinksChanged, true);
-            Subs.CVar(_config, DCCVars.UseDiscordRoleColor, OnUseDiscordRoleColorChanged, true);
-            Subs.CVar(_config, DCCVars.UseDiscordRoleName, OnUseDiscordRoleNameChanged, true);
-            Subs.CVar(_config, DCCVars.DiscordReplyPrefix, OnDiscordReplyPrefixChanged, true);
-            Subs.CVar(_config, DCCVars.AdminBwoinkColor, OnAdminBwoinkColorChanged, true);
-            Subs.CVar(_config, DCCVars.DiscordReplyColor, OnDiscordReplyColorChanged, true);
+            Subs.CVar(_config, DCCVars.DiscordCHelpWebhook, OnWebhookChanged, true);
+            Subs.CVar(_config, DCCVars.DiscordCHelpFooterIcon, OnFooterIconChanged, true);
+            Subs.CVar(_config, DCCVars.DiscordCHelpAvatar, OnAvatarChanged, true);
 
-            _sawmill = IoCManager.Resolve<ILogManager>().GetSawmill("AHELP");
+            Subs.CVar(_config, DCCVars.CuratorChelpOverrideClientName, OnOverrideChanged, true);
+            Subs.CVar(_config, DCCVars.UseAdminOOCColorInCwoinks, OnUseAdminOOCColorInBwoinksChanged, true);
+            Subs.CVar(_config, DCCVars.UseDiscordRoleColorInCwoinks, OnUseDiscordRoleColorChanged, true);
+            Subs.CVar(_config, DCCVars.UseDiscordRoleNameInCwoinks, OnUseDiscordRoleNameChanged, true);
+            Subs.CVar(_config, DCCVars.DiscordCwoinkReplyPrefix, OnDiscordReplyPrefixChanged, true);
+            Subs.CVar(_config, DCCVars.CuratorCwoinkColor, OnAdminBwoinkColorChanged, true);
+            Subs.CVar(_config, DCCVars.DiscordCwoinkReplyColor, OnDiscordReplyColorChanged, true);
 
-            var defaultParams = new AHelpMessageParams(
+            _sawmill = IoCManager.Resolve<ILogManager>().GetSawmill("CHELP");
+
+            var defaultParams = new CHelpMessageParams(
                 string.Empty,
                 string.Empty,
                 true,
@@ -164,7 +161,7 @@ namespace Content.Server._DV.Curation.Systems
 
         private void OnDiscordReplyPrefixChanged(string newValue)
         {
-            var defaultParams = new AHelpMessageParams(
+            var defaultParams = new CHelpMessageParams(
                 string.Empty,
                 string.Empty,
                 true,
@@ -190,33 +187,6 @@ namespace Content.Server._DV.Curation.Systems
         private void OnUseAdminOOCColorInBwoinksChanged(bool newValue)
         {
             _useAdminOOCColorInBwoinks = newValue;
-        }
-
-        private async void OnCallChanged(string url)
-        {
-            _onCallUrl = url;
-
-            if (url == string.Empty)
-                return;
-
-            var match = DiscordRegex().Match(url);
-
-            if (!match.Success)
-            {
-                Log.Error("On call URL does not appear to be valid.");
-                return;
-            }
-
-            if (match.Groups.Count <= 2)
-            {
-                Log.Error("Could not get webhook ID or token for on call URL.");
-                return;
-            }
-
-            var webhookId = match.Groups[1].Value;
-            var webhookToken = match.Groups[2].Value;
-
-            _onCallData = await GetWebhookData(url); // Frontier: support other urls
         }
 
         private void PlayerRateLimitedAction(ICommonSession obj)
@@ -249,8 +219,6 @@ namespace Content.Server._DV.Curation.Systems
                 var ban = await _dbManager.GetServerBanAsync(null, e.Session.UserId, null, null);
                 if (ban != null)
                 {
-                    var banMessage = Loc.GetString("bwoink-system-player-banned", ("banReason", ban.Reason));
-                    NotifyAdmins(e.Session, banMessage, PlayerStatusType.Banned);
                     _activeConversations.Remove(e.Session.UserId);
                     return;
                 }
@@ -295,12 +263,12 @@ namespace Content.Server._DV.Curation.Systems
             {
                 PlayerStatusType.Connected => ":green_circle:",
                 PlayerStatusType.Disconnected => ":red_circle:",
-                PlayerStatusType.Banned => ":no_entry:",
+                PlayerStatusType.Banned => ":red_circle:",
                 _ => ":question:"
             };
 
             // Create the message parameters for Discord
-            var messageParams = new AHelpMessageParams(
+            var messageParams = new CHelpMessageParams(
                 session.Name,
                 message,
                 true,
@@ -315,7 +283,7 @@ namespace Content.Server._DV.Curation.Systems
             {
                 PlayerStatusType.Connected => Color.Green.ToHex(),
                 PlayerStatusType.Disconnected => Color.Yellow.ToHex(),
-                PlayerStatusType.Banned => Color.Orange.ToHex(),
+                PlayerStatusType.Banned => Color.Yellow.ToHex(),
                 _ => Color.Gray.ToHex(),
             };
             var inGameMessage = $"[color={color}]{session.Name} {message}[/color]";
@@ -531,11 +499,6 @@ namespace Content.Server._DV.Curation.Systems
                 existingEmbed.LastRunLevel = _gameTicker.RunLevel;
             }
 
-            // If last message of the new batch is SOS then relay it to on-call.
-            // ... as long as it hasn't been relayed already.
-            var discordMention = messages.Last();
-            var onCallRelay = !discordMention.Receivers && !existingEmbed.OnCall;
-
             // Add available messages to the embed description
             while (messages.TryDequeue(out var message))
             {
@@ -598,43 +561,6 @@ namespace Content.Server._DV.Curation.Systems
             }
 
             _relayMessages[userId] = existingEmbed;
-
-            // Actually do the on call relay last, we just need to grab it before we dequeue every message above.
-            if (onCallRelay &&
-                _onCallData != null)
-            {
-                existingEmbed.OnCall = true;
-                var roleMention = _config.GetCVar(CCVars.DiscordAhelpMention);
-
-                if (!string.IsNullOrEmpty(roleMention))
-                {
-                    var message = new StringBuilder();
-                    message.AppendLine($"<@&{roleMention}>");
-                    message.AppendLine("Unanswered SOS");
-
-                    // Need webhook data to get the correct link for that channel rather than on-call data.
-                    if (_webhookData is { GuildId: { } guildId, ChannelId: { } channelId })
-                    {
-                        message.AppendLine(
-                            $"**[Go to ahelp](https://discord.com/channels/{guildId}/{channelId}/{existingEmbed.Id})**");
-                    }
-
-                    payload = GeneratePayload(message.ToString(), existingEmbed.Username, userId, existingEmbed.CharacterName); // Frontier
-
-                    var request = await _httpClient.PostAsync($"{_onCallUrl}?wait=true",
-                        new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
-
-                    var content = await request.Content.ReadAsStringAsync();
-                    if (!request.IsSuccessStatusCode)
-                    {
-                        _sawmill.Log(LogLevel.Error, $"Discord returned bad status code when posting relay message (perhaps the message is too long?): {request.StatusCode}\nResponse: {content}");
-                    }
-                }
-            }
-            else
-            {
-                existingEmbed.OnCall = false;
-            }
 
             _processingChannels.Remove(userId);
         }
@@ -816,13 +742,10 @@ namespace Content.Server._DV.Curation.Systems
             if (_useDiscordRoleColor && roleColor is not null)
                 adminColor = roleColor;
 
-            if (senderAdmin is not null)
+            if (senderAdmin is not null && (fromWebhook || senderAdmin.HasFlag(AdminFlags.CuratorHelp) || senderAdmin.HasFlag(AdminFlags.Adminhelp)))
             {
-                if (senderAdmin.Flags ==
-                    AdminFlags.CuratorHelp) // Mentor. Not full admin. That's why it's colored differently.
-                    cwoinkText = $"[color=purple]{adminPrefix}{senderName}[/color]";
-                else if (fromWebhook || senderAdmin.HasFlag(AdminFlags.CuratorHelp)) // Frontier: anything sent via webhooks are from an admin.
-                    cwoinkText = $"[color={adminColor}]{adminPrefix}{senderName}[/color]";
+                // Frontier: anything sent via webhooks are from an admin.
+                cwoinkText = $"[color={adminColor}]{adminPrefix}{senderName}[/color]";
             }
 
             if (fromWebhook) // DeltaV
@@ -863,13 +786,9 @@ namespace Content.Server._DV.Curation.Systems
                     if (_overrideClientName != string.Empty)
                     {
                         string overrideMsgText;
-                        // Doing the same thing as above, but with the override name. Theres probably a better way to do this.
-                        if (senderAdmin is not null &&
-                            senderAdmin.Flags ==
-                            AdminFlags.CuratorHelp) // Mentor. Not full admin. That's why it's colored differently.
+
+                        if (senderAdmin is not null && senderAdmin.HasFlag(AdminFlags.CuratorHelp))
                             overrideMsgText = $"[color=purple]{adminPrefixWebhook}{_overrideClientName}[/color]";
-                        else if (senderAdmin is not null && senderAdmin.HasFlag(AdminFlags.CuratorHelp))
-                            overrideMsgText = $"[color=red]{adminPrefixWebhook}{_overrideClientName}[/color]";
                         else
                             overrideMsgText = $"{senderName}"; // Not an admin, name is not overridden.
 
@@ -904,7 +823,7 @@ namespace Content.Server._DV.Curation.Systems
                 }
 
                 var nonAfkAdmins = GetNonAfkAdmins();
-                var messageParams = new AHelpMessageParams(
+                var messageParams = new CHelpMessageParams(
                     senderName,
                     str,
                     senderId != message.UserId,
@@ -912,7 +831,7 @@ namespace Content.Server._DV.Curation.Systems
                     _gameTicker.RunLevel,
                     playedSound: playSound,
                     isDiscord: fromWebhook, // DeltaV
-                    adminOnly: message.AdminOnly,
+                    curatorOnly: message.AdminOnly,
                     noReceivers: nonAfkAdmins.Count == 0
                 );
                 _messageQueues[msg.UserId].Enqueue(GenerateAHelpMessage(messageParams, _discordReplyPrefix));
@@ -948,23 +867,23 @@ namespace Content.Server._DV.Curation.Systems
                 .ToList();
         }
 
-        private DiscordRelayedData GenerateAHelpMessage(AHelpMessageParams parameters, string? discordReplyPrefix = "(DISCORD)") // DeltaV - added reply prefix
+        private DiscordRelayedData GenerateAHelpMessage(CHelpMessageParams parameters, string? discordReplyPrefix = "(DISCORD)") // DeltaV - added reply prefix
         {
             var stringbuilder = new StringBuilder();
 
             if (parameters.Icon != null)
                 stringbuilder.Append(parameters.Icon);
-            else if (parameters.IsAdmin)
+            else if (parameters.IsCurator)
                 stringbuilder.Append(":outbox_tray:");
             else if (parameters.NoReceivers)
-                stringbuilder.Append(":sos:");
+                stringbuilder.Append(":sleeping:");
             else
                 stringbuilder.Append(":inbox_tray:");
 
             if (parameters.RoundTime != string.Empty && parameters.RoundState == GameRunLevel.InRound)
                 stringbuilder.Append($" **{parameters.RoundTime}**");
             if (!parameters.PlayedSound)
-                stringbuilder.Append($" **{(parameters.AdminOnly ? Loc.GetString("cwoink-message-admin-only") : Loc.GetString("cwoink-message-silent"))}**");
+                stringbuilder.Append($" **{(parameters.CuratorOnly ? Loc.GetString("cwoink-message-admin-only") : Loc.GetString("cwoink-message-silent"))}**");
 
             if (parameters.IsDiscord) // Frontier - Discord Indicator
                 stringbuilder.Append($" **{discordReplyPrefix}**");
@@ -1015,11 +934,6 @@ namespace Content.Server._DV.Curation.Systems
             /// Run level of the last interaction. If different we'll link to the last Id.
             /// </summary>
             public GameRunLevel LastRunLevel;
-
-            /// <summary>
-            /// Did we relay this interaction to OnCall previously.
-            /// </summary>
-            public bool OnCall;
         }
 
         // Begin Starlight Changes
@@ -1060,39 +974,39 @@ namespace Content.Server._DV.Curation.Systems
         // End Starlight Changes
     }
 
-    public sealed class AHelpMessageParams
+    public sealed class CHelpMessageParams
     {
         public string Username { get; set; }
         public string Message { get; set; }
-        public bool IsAdmin { get; set; }
+        public bool IsCurator { get; set; }
         public string RoundTime { get; set; }
         public GameRunLevel RoundState { get; set; }
         public bool PlayedSound { get; set; }
-        public readonly bool AdminOnly;
+        public readonly bool CuratorOnly;
         public bool NoReceivers { get; set; }
         public bool IsDiscord { get; set; } // Frontier
         public string? Icon { get; set; }
 
-        public AHelpMessageParams(
+        public CHelpMessageParams(
             string username,
             string message,
-            bool isAdmin,
+            bool isCurator,
             string roundTime,
             GameRunLevel roundState,
             bool playedSound,
             bool isDiscord = false, // Frontier
-            bool adminOnly = false,
+            bool curatorOnly = false,
             bool noReceivers = false,
             string? icon = null)
         {
             Username = username;
             Message = message;
-            IsAdmin = isAdmin;
+            IsCurator = isCurator;
             RoundTime = roundTime;
             RoundState = roundState;
             IsDiscord = isDiscord; // Frontier
             PlayedSound = playedSound;
-            AdminOnly = adminOnly;
+            CuratorOnly = curatorOnly;
             NoReceivers = noReceivers;
             Icon = icon;
         }
