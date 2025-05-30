@@ -40,7 +40,7 @@ namespace Content.Server._DV.Curation.Systems
     [UsedImplicitly]
     public sealed partial class CwoinkSystem : SharedCwoinkSystem
     {
-        private const string RateLimitKey = "AdminHelp";
+        private const string RateLimitKey = "CuratorHelp";
 
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
@@ -144,13 +144,12 @@ namespace Content.Server._DV.Curation.Systems
             SubscribeNetworkEvent<CwoinkClientTypingUpdated>(OnClientTypingUpdated);
             SubscribeLocalEvent<RoundRestartCleanupEvent>(_ => _activeConversations.Clear());
 
-            // TODO: add rate limit for chelp
-        	/*_rateLimit.Register(
+        	_rateLimit.Register(
                 RateLimitKey,
                 new RateLimitRegistration(CCVars.AhelpRateLimitPeriod,
                     CCVars.AhelpRateLimitCount,
                     PlayerRateLimitedAction)
-                );*/
+                );
         }
 
         private void OnDiscordReplyColorChanged(string newValue)
@@ -392,7 +391,7 @@ namespace Content.Server._DV.Curation.Systems
             _typingUpdateTimestamps[args.SenderSession.UserId] = (_timing.RealTime, msg.Typing);
 
             // Non-admins can only ever type on their own ahelp, guard against fake messages
-            var isAdmin = _adminManager.GetAdminData(args.SenderSession)?.HasFlag(AdminFlags.Adminhelp) ?? false;
+            var isAdmin = _adminManager.GetAdminData(args.SenderSession)?.HasFlag(AdminFlags.CuratorHelp) ?? false;
             var channel = isAdmin ? msg.Channel : args.SenderSession.UserId;
             var update = new CwoinkPlayerTypingUpdated(channel, args.SenderSession.Name, msg.Typing);
 
@@ -734,7 +733,7 @@ namespace Content.Server._DV.Curation.Systems
             // Confirm that this person is actually allowed to send a message here.
             var personalChannel = senderSession.UserId == message.UserId;
             var senderAdmin = _adminManager.GetAdminData(senderSession);
-            var senderAHelpAdmin = senderAdmin?.HasFlag(AdminFlags.Adminhelp) ?? false;
+            var senderAHelpAdmin = senderAdmin?.HasFlag(AdminFlags.CuratorHelp) ?? false;
             var authorized = personalChannel && !message.AdminOnly || senderAHelpAdmin;
             if (!authorized)
             {
@@ -820,9 +819,9 @@ namespace Content.Server._DV.Curation.Systems
             if (senderAdmin is not null)
             {
                 if (senderAdmin.Flags ==
-                    AdminFlags.Adminhelp) // Mentor. Not full admin. That's why it's colored differently.
+                    AdminFlags.CuratorHelp) // Mentor. Not full admin. That's why it's colored differently.
                     cwoinkText = $"[color=purple]{adminPrefix}{senderName}[/color]";
-                else if (fromWebhook || senderAdmin.HasFlag(AdminFlags.Adminhelp)) // Frontier: anything sent via webhooks are from an admin.
+                else if (fromWebhook || senderAdmin.HasFlag(AdminFlags.CuratorHelp)) // Frontier: anything sent via webhooks are from an admin.
                     cwoinkText = $"[color={adminColor}]{adminPrefix}{senderName}[/color]";
             }
 
@@ -867,9 +866,9 @@ namespace Content.Server._DV.Curation.Systems
                         // Doing the same thing as above, but with the override name. Theres probably a better way to do this.
                         if (senderAdmin is not null &&
                             senderAdmin.Flags ==
-                            AdminFlags.Adminhelp) // Mentor. Not full admin. That's why it's colored differently.
+                            AdminFlags.CuratorHelp) // Mentor. Not full admin. That's why it's colored differently.
                             overrideMsgText = $"[color=purple]{adminPrefixWebhook}{_overrideClientName}[/color]";
-                        else if (senderAdmin is not null && senderAdmin.HasFlag(AdminFlags.Adminhelp))
+                        else if (senderAdmin is not null && senderAdmin.HasFlag(AdminFlags.CuratorHelp))
                             overrideMsgText = $"[color=red]{adminPrefixWebhook}{_overrideClientName}[/color]";
                         else
                             overrideMsgText = $"{senderName}"; // Not an admin, name is not overridden.
@@ -935,7 +934,7 @@ namespace Content.Server._DV.Curation.Systems
         private IList<INetChannel> GetNonAfkAdmins()
         {
             return _adminManager.ActiveAdmins
-                .Where(p => (_adminManager.GetAdminData(p)?.HasFlag(AdminFlags.Adminhelp) ?? false) &&
+                .Where(p => (_adminManager.GetAdminData(p)?.HasFlag(AdminFlags.CuratorHelp) ?? false) &&
                             !_afkManager.IsAfk(p))
                 .Select(p => p.Channel)
                 .ToList();
@@ -944,7 +943,7 @@ namespace Content.Server._DV.Curation.Systems
         private IList<INetChannel> GetTargetAdmins()
         {
             return _adminManager.ActiveAdmins
-                .Where(p => _adminManager.GetAdminData(p)?.HasFlag(AdminFlags.Adminhelp) ?? false)
+                .Where(p => _adminManager.GetAdminData(p)?.HasFlag(AdminFlags.CuratorHelp) ?? false)
                 .Select(p => p.Channel)
                 .ToList();
         }
