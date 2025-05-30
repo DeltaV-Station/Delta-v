@@ -2,7 +2,6 @@ using System.Numerics;
 using Content.Server._DV.Weapons.Ranged.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Throwing;
-using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
