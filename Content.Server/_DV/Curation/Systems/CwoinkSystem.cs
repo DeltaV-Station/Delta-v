@@ -751,7 +751,7 @@ namespace Content.Server._DV.Curation.Systems
             if (fromWebhook) // DeltaV
                 cwoinkText = $"{_discordReplyPrefix}{cwoinkText}";
 
-            cwoinkText = $"{(message.AdminOnly ? Loc.GetString("cwoink-message-admin-only") : !message.PlaySound ? Loc.GetString("cwoink-message-silent") : "")} {cwoinkText}: {escapedText}";
+            cwoinkText = $"{(message.AdminOnly ? Loc.GetString("cwoink-message-curator-only") : !message.PlaySound ? Loc.GetString("cwoink-message-silent") : "")} {cwoinkText}: {escapedText}";
 
             // If it's not an admin / admin chooses to keep the sound and message is not an admin only message, then play it.
             var playSound = (senderAdmin == null || message.PlaySound) && !message.AdminOnly;
