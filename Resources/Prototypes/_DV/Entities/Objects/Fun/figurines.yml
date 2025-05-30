@@ -7,6 +7,13 @@
   components:
   - type: Sprite
     sprite: _DV/Objects/Fun/figurines.rsi
+    
+- type: entity
+  parent: BaseFigurine
+  id: BaseBorgFigurineDeltaV
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/borg_figurines.rsi
 
 - type: entity
   parent: BaseFigurineDeltaV
@@ -186,3 +193,101 @@
         shader: unshaded
   - type: SpeakOnTrigger
     pack: FigurinesCosmicCultist
+    
+- type: entity
+  parent: BaseBorgFigurineDeltaV
+  id: ToyFigurineBorgEngineering
+  name: engineering borg figure
+  description: A figurine depicting an engineering cyborg. Beep!
+  components:
+    - type: Sprite
+      layers:
+        - state: engineering
+        - state: engineering_unshaded
+          shader: unshaded
+    - type: SpeakOnTrigger
+      pack: FigurinesBorgEngineering
+
+- type: entity
+  parent: BaseBorgFigurineDeltaV
+  id: ToyFigurineBorgGeneric
+  name: generic borg figure
+  description: A figurine depicting an generic cyborg. Boop!
+  components:
+    - type: Sprite
+      layers:
+        - state: generic
+        - state: generic_unshaded
+          shader: unshaded
+    - type: SpeakOnTrigger
+      pack: FigurinesBorgGeneric
+    
+- type: entity
+  parent: BaseBorgFigurineDeltaV
+  id: ToyFigurineBorgJanitor
+  name: janitor borg figure
+  description: A figurine depicting an janitorial cyborg. Buzz!
+  components:
+    - type: Sprite
+      layers:
+        - state: janitor
+        - state: janitor_unshaded
+          shader: unshaded
+    - type: SpeakOnTrigger
+      pack: FigurinesBorgJanitor
+      
+- type: entity
+  parent: BaseBorgFigurineDeltaV
+  id: ToyFigurineBorgMedical
+  name: medical borg figure
+  description: A figurine depicting an medical cyborg. Ping!
+  components:
+    - type: Sprite
+      layers:
+        - state: medical
+        - state: medical_unshaded
+          shader: unshaded
+    - type: SpeakOnTrigger
+      pack: FigurinesBorgMedical
+      
+- type: entity
+  parent: BaseBorgFigurineDeltaV
+  id: ToyFigurineBorgSalvage
+  name: salvage borg figure
+  description: A figurine depicting an salvage cyborg. Whirr!
+  components:
+    - type: Sprite
+      layers:
+        - state: salvage
+        - state: salvage_unshaded
+          shader: unshaded
+    - type: SpeakOnTrigger
+      pack: FigurinesBorgSalvage
+      
+- type: entity
+  parent: BaseBorgFigurineDeltaV
+  id: ToyFigurineBorgSecurity
+  name: security borg figure
+  description: A figurine depicting an security cyborg. Beep!
+  components:
+    - type: Sprite
+      layers:
+        - state: security
+        - state: security_unshaded
+          shader: unshaded
+    - type: SpeakOnTrigger
+      pack: FigurinesBorgSecurity
+
+- type: entity
+  parent: BaseBorgFigurineDeltaV
+  id: ToyFigurineBorgService
+  name: service borg figure
+  description: A figurine depicting an service cyborg. Boop!
+  components:
+    - type: Sprite
+      layers:
+        - state: service
+        - state: service_unshaded
+          shader: unshaded
+    - type: SpeakOnTrigger
+      pack: FigurinesBorgService

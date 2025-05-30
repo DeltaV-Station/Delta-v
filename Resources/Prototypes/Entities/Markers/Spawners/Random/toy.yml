@@ -103,7 +103,16 @@
       rarePrototypes:
       - ToyFigurineNukieElite
       - ToyFigurineNukieCommander
-      - ToyFigurineCosmicCultist # DeltaV Figurine, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
+      # Begin DeltaV additions - see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
+      - ToyFigurineCosmicCultist
+      - ToyFigurineBorgEngineering
+      - ToyFigurineBorgGeneric
+      - ToyFigurineBorgJanitor
+      - ToyFigurineBorgMedical
+      - ToyFigurineBorgSalvage
+      - ToyFigurineBorgSecurity
+      - ToyFigurineBorgService
+      # End DeltaV additions
       rareChance: 0.05
       prototypes:
       - ToyFigurinePassenger

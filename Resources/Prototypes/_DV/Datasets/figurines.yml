@@ -56,7 +56,7 @@
   id: FigurinesRoboticist
   values:
     prefix: figurines-roboticist-
-    count: 2
+    count: 4
 
 - type: localizedDataset
   id: FigurinesSlimechem
@@ -93,3 +93,45 @@
   values:
     prefix: figurines-cosmiccultist-
     count: 8
+
+- type: localizedDataset
+  id: FigurinesBorgEngineering
+  values:
+    prefix: figurines-borgengineering-
+    count: 8
+
+- type: localizedDataset
+  id: FigurinesBorgGeneric
+  values:
+    prefix: figurines-borggeneric-
+    count: 6
+    
+- type: localizedDataset
+  id: FigurinesBorgJanitor
+  values:
+    prefix: figurines-borgjanitor-
+    count: 8
+
+- type: localizedDataset
+  id: FigurinesBorgMedical
+  values:
+    prefix: figurines-borgmedical-
+    count: 8
+    
+- type: localizedDataset
+  id: FigurinesBorgSalvage
+  values:
+    prefix: figurines-borgsalvage-
+    count: 6
+    
+- type: localizedDataset
+  id: FigurinesBorgSecurity
+  values:
+    prefix: figurines-borgsecurity-
+    count: 8
+    
+- type: localizedDataset
+  id: FigurinesBorgService
+  values:
+    prefix: figurines-borgservice-
+    count: 6
