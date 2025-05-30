@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Client.Cargo.Systems;
 using Content.Client.UserInterface.Controls;
-using Content.Shared._DV.Traitor; // DeltaV
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
@@ -33,7 +32,6 @@ namespace Content.Client.Cargo.UI
         public event Action<ButtonEventArgs>? OnItemSelected;
         public event Action<ButtonEventArgs>? OnOrderApproved;
         public event Action<ButtonEventArgs>? OnOrderCanceled;
-        public event Action<NetEntity>? OnRansomPurchase; // DeltaV
 
         public event Action<ProtoId<CargoAccountPrototype>?, int>? OnAccountAction;
 
@@ -61,7 +59,6 @@ namespace Content.Client.Cargo.UI
 
             SearchBar.OnTextChanged += OnSearchBarTextChanged;
             Categories.OnItemSelected += OnCategoryItemSelected;
-            RansomContainer.OnPurchase += ent => OnRansomPurchase?.Invoke(ent); // DeltaV
 
             if (entMan.TryGetComponent<CargoOrderConsoleComponent>(owner, out var orderConsole))
             {
@@ -245,14 +242,6 @@ namespace Content.Client.Cargo.UI
             }
         }
 
-        /// <summary>
-        /// DeltaV: Forwards new ransom data to the ransom container.
-        /// </summary>
-        public void UpdateRansoms(List<RansomData> ransoms, int balance)
-        {
-            RansomContainer.UpdateRansoms(ransoms, balance);
-        }
-
         public void PopulateAccountActions()
         {
             if (!_entityManager.TryGetComponent<StationBankAccountComponent>(_station, out var bank) ||
@@ -279,7 +268,6 @@ namespace Content.Client.Cargo.UI
         public void UpdateStation(EntityUid station)
         {
             _station = station;
-            RansomContainer.UpdateStation(_station); // DeltaV
         }
 
         protected override void FrameUpdate(FrameEventArgs args)

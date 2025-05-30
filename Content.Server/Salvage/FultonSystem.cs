@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Shared._DV.Traitor; // DeltaV
 using Content.Shared.Salvage.Fulton;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -75,10 +74,6 @@ public sealed class FultonSystem : SharedFultonSystem
                 Coordinates = GetNetCoordinates(oldCoords),
             });
         }
-        // Begin DeltaV Additions: Event for syndicate fultons to use
-        var ev = new FultonedEvent();
-        RaiseLocalEvent(uid, ref ev);
-        // End DeltaV Additions
 
         Audio.PlayPvs(component.Sound, uid);
         RemCompDeferred<FultonedComponent>(uid);
