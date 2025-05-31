@@ -5,112 +5,111 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Client._DV.Curation.UI.Cwoink
+namespace Content.Client._DV.Curation.UI.Cwoink;
+
+[GenerateTypedNameReferences]
+public sealed partial class CwoinkPanel : BoxContainer
 {
-    [GenerateTypedNameReferences]
-    public sealed partial class CwoinkPanel : BoxContainer
+    private readonly Action<string> _messageSender;
+
+    public int Unread { get; private set; } = 0;
+    public DateTime LastMessage { get; private set; } = DateTime.MinValue;
+    private List<string> PeopleTyping { get; set; } = new();
+    public event Action<string>? InputTextChanged;
+
+    public CwoinkPanel(Action<string> messageSender)
     {
-        private readonly Action<string> _messageSender;
+        RobustXamlLoader.Load(this);
 
-        public int Unread { get; private set; } = 0;
-        public DateTime LastMessage { get; private set; } = DateTime.MinValue;
-        private List<string> PeopleTyping { get; set; } = new();
-        public event Action<string>? InputTextChanged;
+        var msg = new FormattedMessage();
+        msg.PushColor(Color.LightGray);
+        msg.AddText(Loc.GetString("cwoink-system-messages-being-relayed-to-discord"));
+        msg.Pop();
+        RelayedToDiscordLabel.SetMessage(msg);
 
-        public CwoinkPanel(Action<string> messageSender)
+        _messageSender = messageSender;
+
+        OnVisibilityChanged += c =>
         {
-            RobustXamlLoader.Load(this);
+            if (c.Visible)
+                Unread = 0;
+        };
+        SenderLineEdit.OnTextEntered += Input_OnTextEntered;
+        SenderLineEdit.OnTextChanged += Input_OnTextChanged;
+        UpdateTypingIndicator();
+    }
 
-            var msg = new FormattedMessage();
-            msg.PushColor(Color.LightGray);
-            msg.AddText(Loc.GetString("cwoink-system-messages-being-relayed-to-discord"));
-            msg.Pop();
-            RelayedToDiscordLabel.SetMessage(msg);
+    private void Input_OnTextEntered(LineEdit.LineEditEventArgs args)
+    {
+        if (string.IsNullOrWhiteSpace(args.Text))
+            return;
 
-            _messageSender = messageSender;
+        _messageSender.Invoke(args.Text);
+        SenderLineEdit.Clear();
+    }
 
-            OnVisibilityChanged += c =>
-            {
-                if (c.Visible)
-                    Unread = 0;
-            };
-            SenderLineEdit.OnTextEntered += Input_OnTextEntered;
-            SenderLineEdit.OnTextChanged += Input_OnTextChanged;
-            UpdateTypingIndicator();
-        }
+    private void Input_OnTextChanged(LineEdit.LineEditEventArgs args)
+    {
+        InputTextChanged?.Invoke(args.Text);
+    }
 
-        private void Input_OnTextEntered(LineEdit.LineEditEventArgs args)
+    public void ReceiveLine(SharedCwoinkSystem.CwoinkTextMessage message)
+    {
+        if (!Visible)
+            Unread++;
+
+        var formatted = new FormattedMessage(1);
+        formatted.AddMarkupOrThrow($"[color=gray]{message.SentAt.ToShortTimeString()}[/color] {message.Text}");
+        TextOutput.AddMessage(formatted);
+        LastMessage = message.SentAt;
+    }
+
+    private void UpdateTypingIndicator()
+    {
+        var msg = new FormattedMessage();
+        msg.PushColor(Color.LightGray);
+
+        var text = PeopleTyping.Count == 0
+            ? string.Empty
+            : Loc.GetString("bwoink-system-typing-indicator",
+                ("players", string.Join(", ", PeopleTyping)),
+                ("count", PeopleTyping.Count));
+
+        msg.AddText(text);
+        msg.Pop();
+
+        TypingIndicator.SetMessage(msg);
+    }
+
+    public void UpdatePlayerTyping(string name, bool typing)
+    {
+        if (typing)
         {
-            if (string.IsNullOrWhiteSpace(args.Text))
+            if (PeopleTyping.Contains(name))
                 return;
 
-            _messageSender.Invoke(args.Text);
-            SenderLineEdit.Clear();
-        }
-
-        private void Input_OnTextChanged(LineEdit.LineEditEventArgs args)
-        {
-            InputTextChanged?.Invoke(args.Text);
-        }
-
-        public void ReceiveLine(SharedCwoinkSystem.CwoinkTextMessage message)
-        {
-            if (!Visible)
-                Unread++;
-
-            var formatted = new FormattedMessage(1);
-            formatted.AddMarkupOrThrow($"[color=gray]{message.SentAt.ToShortTimeString()}[/color] {message.Text}");
-            TextOutput.AddMessage(formatted);
-            LastMessage = message.SentAt;
-        }
-
-        private void UpdateTypingIndicator()
-        {
-            var msg = new FormattedMessage();
-            msg.PushColor(Color.LightGray);
-
-            var text = PeopleTyping.Count == 0
-                ? string.Empty
-                : Loc.GetString("bwoink-system-typing-indicator",
-                    ("players", string.Join(", ", PeopleTyping)),
-                    ("count", PeopleTyping.Count));
-
-            msg.AddText(text);
-            msg.Pop();
-
-            TypingIndicator.SetMessage(msg);
-        }
-
-        public void UpdatePlayerTyping(string name, bool typing)
-        {
-            if (typing)
+            PeopleTyping.Add(name);
+            Timer.Spawn(TimeSpan.FromSeconds(10), () =>
             {
-                if (PeopleTyping.Contains(name))
+                if (Disposed)
                     return;
 
-                PeopleTyping.Add(name);
-                Timer.Spawn(TimeSpan.FromSeconds(10), () =>
-                {
-                    if (Disposed)
-                        return;
-
-                    PeopleTyping.Remove(name);
-                    UpdateTypingIndicator();
-                });
-            }
-            else
-            {
                 PeopleTyping.Remove(name);
-            }
-
-            UpdateTypingIndicator();
+                UpdateTypingIndicator();
+            });
         }
-
-        protected override void Dispose(bool disposing)
+        else
         {
-            base.Dispose(disposing);
-
-            InputTextChanged = null;
+            PeopleTyping.Remove(name);
         }
+
+        UpdateTypingIndicator();
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+
+        InputTextChanged = null;
     }
 }
