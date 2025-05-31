@@ -100,6 +100,14 @@ public sealed partial class ClothingComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan StripDelay = TimeSpan.Zero;
+
+    // Begin DeltaV Additions - Hiding clothes on crit
+    /// <summary>
+    /// Controls whether entering crit/death should hide clothes.
+    /// </summary>
+    [DataField]
+    public bool HideOnCrit = false;
+    // End DeltaV Additions - Hiding clothes on crit
 }
 
 [Serializable, NetSerializable]
