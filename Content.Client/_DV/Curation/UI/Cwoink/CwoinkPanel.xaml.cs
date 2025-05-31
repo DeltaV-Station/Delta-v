@@ -53,7 +53,7 @@ public sealed partial class CwoinkPanel : BoxContainer
         InputTextChanged?.Invoke(args.Text);
     }
 
-    public void ReceiveLine(SharedCwoinkSystem.CwoinkTextMessage message)
+    public void ReceiveLine(CwoinkTextMessage message)
     {
         if (!Visible)
             Unread++;

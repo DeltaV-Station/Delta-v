@@ -115,7 +115,7 @@ public sealed class CHelpUIController: UIController, IOnSystemChanged<CwoinkSyst
         UnreadCHelpRead();
     }
 
-    private void ReceivedCwoink(object? sender, SharedCwoinkSystem.CwoinkTextMessage message)
+    private void ReceivedCwoink(object? sender, CwoinkTextMessage message)
     {
         Logger.InfoS("c.s.go.es.cwoink", $"@{message.UserId}: {message.Text}");
         var localPlayer = _playerManager.LocalSession;
@@ -285,7 +285,7 @@ public interface ICHelpUIHandler : IDisposable
 {
     public bool IsCurator { get; }
     public bool IsOpen { get; }
-    public void Receive(SharedCwoinkSystem.CwoinkTextMessage message);
+    public void Receive(CwoinkTextMessage message);
     public void Close();
     public void Open(NetUserId netUserId, bool relayActive);
     public void ToggleWindow();
@@ -313,7 +313,7 @@ public sealed class CuratorCHelpUIHandler : ICHelpUIHandler
     public IClydeWindow? ClydeWindow;
     public CwoinkControl? Control;
 
-    public void Receive(SharedCwoinkSystem.CwoinkTextMessage message)
+    public void Receive(CwoinkTextMessage message)
     {
         var panel = EnsurePanel(message.UserId);
         panel.ReceiveLine(message);
@@ -470,7 +470,7 @@ public sealed class UserCHelpUIHandler : ICHelpUIHandler
     private CwoinkPanel? _chatPanel;
     private bool _discordRelayActive;
 
-    public void Receive(SharedCwoinkSystem.CwoinkTextMessage message)
+    public void Receive(CwoinkTextMessage message)
     {
         DebugTools.Assert(message.UserId == _ownerId);
         EnsureInit(_discordRelayActive);
@@ -545,7 +545,7 @@ public sealed class UserCHelpUIHandler : ICHelpUIHandler
         _window.Contents.AddChild(_chatPanel);
 
         var introText = Loc.GetString("cwoink-system-introductory-message");
-        var introMessage = new SharedCwoinkSystem.CwoinkTextMessage( _ownerId, SharedCwoinkSystem.SystemUserId, introText);
+        var introMessage = new CwoinkTextMessage( _ownerId, SharedCwoinkSystem.SystemUserId, introText);
         Receive(introMessage);
     }
 

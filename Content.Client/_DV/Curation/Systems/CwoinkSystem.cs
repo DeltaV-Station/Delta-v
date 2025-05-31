@@ -11,10 +11,10 @@ public sealed class CwoinkSystem : SharedCwoinkSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    public event EventHandler<SharedCwoinkSystem.CwoinkTextMessage>? OnCwoinkTextMessageRecieved;
+    public event EventHandler<CwoinkTextMessage>? OnCwoinkTextMessageRecieved;
     private (TimeSpan Timestamp, bool Typing) _lastTypingUpdateSent;
 
-    protected override void OnCwoinkTextMessage(SharedCwoinkSystem.CwoinkTextMessage message, EntitySessionEventArgs eventArgs)
+    protected override void OnCwoinkTextMessage(CwoinkTextMessage message, EntitySessionEventArgs eventArgs)
     {
         OnCwoinkTextMessageRecieved?.Invoke(this, message);
     }
@@ -23,7 +23,7 @@ public sealed class CwoinkSystem : SharedCwoinkSystem
     {
         // Reuse the channel ID as the 'true sender'.
         // Server will ignore this and if someone makes it not ignore this (which is bad, allows impersonation!!!), that will help.
-        RaiseNetworkEvent(new SharedCwoinkSystem.CwoinkTextMessage(channelId, channelId, text, playSound: playSound, adminOnly: adminOnly));
+        RaiseNetworkEvent(new CwoinkTextMessage(channelId, channelId, text, playSound: playSound, adminOnly: adminOnly));
         SendInputTextUpdated(channelId, false);
     }
 

@@ -17,7 +17,7 @@ public sealed class CwoinkActionBody
 
 public sealed class CwoinkParams
 {
-    public SharedCwoinkSystem.CwoinkTextMessage Message { get; set; }
+    public CwoinkTextMessage Message { get; set; }
     public NetUserId SenderId { get; set; }
     public AdminData? SenderAdmin { get; set; }
     public string SenderName { get; set; }
@@ -29,7 +29,7 @@ public sealed class CwoinkParams
     public string? RoleColor { get; set; }
 
     public CwoinkParams(
-        SharedCwoinkSystem.CwoinkTextMessage message,
+        CwoinkTextMessage message,
         NetUserId senderId,
         AdminData? senderAdmin,
         string senderName,

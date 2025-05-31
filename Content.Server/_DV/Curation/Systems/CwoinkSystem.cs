@@ -186,7 +186,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
     private void PlayerRateLimitedAction(ICommonSession obj)
     {
         RaiseNetworkEvent(
-            new SharedCwoinkSystem.CwoinkTextMessage(obj.UserId, default, Loc.GetString("bwoink-system-rate-limited"), playSound: false),
+            new CwoinkTextMessage(obj.UserId, default, Loc.GetString("bwoink-system-rate-limited"), playSound: false),
             obj.Channel);
     }
 
@@ -282,7 +282,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
         };
         var inGameMessage = $"[color={color}]{session.Name} {message}[/color]";
 
-        var cwoinkMessage = new SharedCwoinkSystem.CwoinkTextMessage(
+        var cwoinkMessage = new CwoinkTextMessage(
             userId: session.UserId,
             trueSender: SystemUserId,
             text: inGameMessage,
@@ -624,7 +624,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
     }
 
     // Frontier: webhook text messages
-    public void OnWebhookCwoinkTextMessage(SharedCwoinkSystem.CwoinkTextMessage message, CwoinkActionBody body)
+    public void OnWebhookCwoinkTextMessage(CwoinkTextMessage message, CwoinkActionBody body)
     {
         // Note for forks:
         AdminData webhookAdminData = new();
@@ -643,7 +643,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
         OnCwoinkInternal(cwoinkParams);
     }
 
-    protected override void OnCwoinkTextMessage(SharedCwoinkSystem.CwoinkTextMessage message, EntitySessionEventArgs eventArgs)
+    protected override void OnCwoinkTextMessage(CwoinkTextMessage message, EntitySessionEventArgs eventArgs)
     {
         base.OnCwoinkTextMessage(message, eventArgs);
 
@@ -748,7 +748,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
 
         // If it's not an admin / admin chooses to keep the sound and message is not an admin only message, then play it.
         var playSound = (senderAdmin == null || message.PlaySound) && !message.AdminOnly;
-        var msg = new SharedCwoinkSystem.CwoinkTextMessage(message.UserId, senderId, cwoinkText, playSound: playSound, adminOnly: message.AdminOnly);
+        var msg = new CwoinkTextMessage(message.UserId, senderId, cwoinkText, playSound: playSound, adminOnly: message.AdminOnly);
 
         LogCwoink(msg);
 
@@ -790,7 +790,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
 
                     overrideMsgText = $"{(message.PlaySound ? "" : "(S) ")}{overrideMsgText}: {escapedText}";
 
-                    RaiseNetworkEvent(new SharedCwoinkSystem.CwoinkTextMessage(message.UserId,
+                    RaiseNetworkEvent(new CwoinkTextMessage(message.UserId,
                             senderId,
                             overrideMsgText,
                             playSound: playSound),
@@ -837,7 +837,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
         if (senderChannel != null)
         {
             var systemText = Loc.GetString("cwoink-system-starmute-message-no-other-users");
-            var starMuteMsg = new SharedCwoinkSystem.CwoinkTextMessage(message.UserId, SystemUserId, systemText);
+            var starMuteMsg = new CwoinkTextMessage(message.UserId, SystemUserId, systemText);
             RaiseNetworkEvent(starMuteMsg, senderChannel);
         }
     }
