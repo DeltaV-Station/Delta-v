@@ -9,6 +9,7 @@ using Content.Server._NF.Administration;
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Afk;
+using Content.Server.Afk.Events;
 using Content.Server.Database;
 using Content.Server.Discord;
 using Content.Server.GameTicking;
@@ -92,13 +93,17 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
     private int _maxAdditionalChars;
     private readonly Dictionary<NetUserId, DateTime> _activeConversations = new();
 
-    // AHelp config settings
+    // CHelp config settings
     private bool _useAdminOOCColorInBwoinks = true;
     private bool _useDiscordRoleColor = false;
     private bool _useDiscordRoleName = false;
     private string _discordReplyPrefix = "(DISCORD) ";
     private string _adminBwoinkColor = "#9552cc";
     private string _discordReplyColor = string.Empty;
+
+    // CHelp admin cache
+    private readonly HashSet<INetChannel> _activeCurators = new();
+    private readonly HashSet<INetChannel> _nonAfkCurators = new();
 
     public override void Initialize()
     {
@@ -134,6 +139,10 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameRunLevelChanged);
         SubscribeNetworkEvent<CwoinkClientTypingUpdated>(OnClientTypingUpdated);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(_ => _activeConversations.Clear());
+        SubscribeLocalEvent<AFKEvent>(OnAFK);
+        SubscribeLocalEvent<UnAFKEvent>(OnUnAFK);
+
+        _adminManager.OnPermsChanged += OnAdminPermsChanged;
 
         _rateLimit.Register(
             RateLimitKey,
@@ -141,6 +150,49 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
                 CCVars.AhelpRateLimitCount,
                 PlayerRateLimitedAction)
         );
+
+        ResetCache();
+    }
+
+    private void ResetCache()
+    {
+        _activeCurators.Clear();
+        _nonAfkCurators.Clear();
+
+        foreach (var admin in _adminManager.ActiveAdmins)
+        {
+            if (!(_adminManager.GetAdminData(admin)?.HasFlag(AdminFlags.CuratorHelp) ?? false))
+                continue;
+
+            _activeCurators.Add(admin.Channel);
+
+            if (_afkManager.IsAfk(admin))
+                continue;
+
+            _nonAfkCurators.Add(admin.Channel);
+        }
+    }
+
+    private void OnAFK(ref AFKEvent ev)
+    {
+        _nonAfkCurators.Remove(ev.Session.Channel);
+    }
+
+    private void OnUnAFK(ref UnAFKEvent ev)
+    {
+        if (_activeCurators.Contains(ev.Session.Channel))
+            _nonAfkCurators.Add(ev.Session.Channel);
+    }
+
+    private void OnAdminPermsChanged(AdminPermsChangedEventArgs args)
+    {
+        if ((args.Flags & AdminFlags.CuratorHelp) != 0)
+            _activeCurators.Add(args.Player.Channel);
+        else
+        {
+            _activeCurators.Remove(args.Player.Channel);
+            _nonAfkCurators.Remove(args.Player.Channel);
+        }
     }
 
     private void OnDiscordReplyColorChanged(string newValue)
@@ -290,7 +342,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
             playSound: false
         );
 
-        var admins = GetTargetAdmins();
+        var admins = _activeCurators;
         foreach (var admin in admins)
         {
             RaiseNetworkEvent(cwoinkMessage, admin);
@@ -357,7 +409,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
         var channel = isAdmin ? msg.Channel : args.SenderSession.UserId;
         var update = new CwoinkPlayerTypingUpdated(channel, args.SenderSession.Name, msg.Typing);
 
-        foreach (var admin in GetTargetAdmins())
+        foreach (var admin in _activeCurators)
         {
             if (admin.UserId == args.SenderSession.UserId)
                 continue;
@@ -566,7 +618,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
             username += $" ({characterName})";
 
         // If no admins are online, set embed color to red. Otherwise green
-        var color = GetNonAfkAdmins().Count > 0 ? 0x41F097 : 0xFF0000;
+        var color = _nonAfkCurators.Count > 0 ? 0x41F097 : 0xFF0000;
 
         // Limit server name to 1500 characters, in case someone tries to be a little funny
         var serverName = _serverName[..Math.Min(_serverName.Length, 1500)];
@@ -752,7 +804,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
 
         LogCwoink(msg);
 
-        var admins = GetTargetAdmins();
+        var admins = _activeCurators;
 
         // Notify all admins
         if (!userOnly)
@@ -815,7 +867,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
                 str = str[..(DescriptionMax - _maxAdditionalChars - unameLength)];
             }
 
-            var nonAfkAdmins = GetNonAfkAdmins();
+            var nonAfkAdmins = _nonAfkCurators;
             var messageParams = new CHelpMessageParams(
                 senderName,
                 str,
@@ -840,23 +892,6 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
             var starMuteMsg = new CwoinkTextMessage(message.UserId, SystemUserId, systemText);
             RaiseNetworkEvent(starMuteMsg, senderChannel);
         }
-    }
-
-    private IList<INetChannel> GetNonAfkAdmins()
-    {
-        return _adminManager.ActiveAdmins
-            .Where(p => (_adminManager.GetAdminData(p)?.HasFlag(AdminFlags.CuratorHelp) ?? false) &&
-                        !_afkManager.IsAfk(p))
-            .Select(p => p.Channel)
-            .ToList();
-    }
-
-    private IList<INetChannel> GetTargetAdmins()
-    {
-        return _adminManager.ActiveAdmins
-            .Where(p => _adminManager.GetAdminData(p)?.HasFlag(AdminFlags.CuratorHelp) ?? false)
-            .Select(p => p.Channel)
-            .ToList();
     }
 
     private DiscordRelayedData GenerateAHelpMessage(CHelpMessageParams parameters, string? discordReplyPrefix = "(DISCORD)") // DeltaV - added reply prefix
