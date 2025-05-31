@@ -17,6 +17,15 @@
   - sprite: _DV/Mobs/Customization/SynthLizIPC/head_markings.rsi
     state: synth_lizard_head_f
 
+- type: marking
+  id: SyntheticVulpkaninHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _DV/Mobs/Customization/SynthLizIPC/head_markings.rsi
+    state: vulp_head
+
 # Torsos
 - type: marking
   id: SyntheticLizardChestM
@@ -91,6 +100,24 @@
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/body_markings.rsi
     state: synth_lizard_l_leg
+
+- type: marking
+  id: SyntheticLizardRFoot
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _DV/Mobs/Customization/SynthLizIPC/body_markings.rsi
+    state: synth_lizard_r_foot
+
+- type: marking
+  id: SyntheticLizardLFoot
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _DV/Mobs/Customization/SynthLizIPC/body_markings.rsi
+    state: synth_lizard_l_foot
 
 #- type: marking
 #  id: SyntheticLizardRLegDigi
