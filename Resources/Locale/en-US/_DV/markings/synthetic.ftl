@@ -103,7 +103,7 @@ marking-SyntheticVulpkaninHead-vulp_head = Primary
 marking-ProtogenEyes = Protogen Screen
 marking-ProtogenEyes-protogen_eyes = Primary
 
-marking-SyntheticIPCEyes = Simple Eyes
+marking-SyntheticIPCEyes = Anthropomorphic Eyes
 marking-SyntheticIPCEyes-eyes = Primary
 
 # Torsos
