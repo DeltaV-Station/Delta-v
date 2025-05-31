@@ -86,3 +86,18 @@
   - type: Tag
     tags:
       - K9Armor
+
+# K9 Durathread
+
+- type: entity
+  parent: ClothingOuterArmorDuraVest
+  id: ClothingOuterArmorDuraVestK9
+  name: K9 durathread vest
+  description: A tight-fitting and sturdy armor vest for canines, reinforced with durathread weave to protect against sharp objects and blunt force trauma.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Armor/duravest.rsi
+    states: icon-secdog
+  - type: Tag
+    tags:
+      - K9Armor
