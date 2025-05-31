@@ -1,4 +1,7 @@
 ﻿# Antennae
+marking-SynthAntennaBasic = Synth Antenna Basic
+marking-SynthAntennaBasic-synth_antenna_basic = Primary
+
 marking-SynthAntennaCobra = Synth Cobra with Ears
 marking-SynthAntennaCobra-synth_antenna_cobra_1 = Outer hood
 marking-SynthAntennaCobra-synth_antenna_cobra_2 = Inner hood
