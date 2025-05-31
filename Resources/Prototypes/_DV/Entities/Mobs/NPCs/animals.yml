@@ -152,6 +152,11 @@
         Base: secdog_crit
       Dead:
         Base: secdog_dead
+    toHide:
+      Critical:
+        - tail
+      Dead:
+        - tail
   - type: Butcherable
     spawned:
     - id: FoodMeat
