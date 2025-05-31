@@ -107,6 +107,8 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         List<PrototypeLayerData>? layers = null;
 
+        var shimVulpkanin = false;
+
         // Begin DeltaV Additions - IPC snouts
         if (inventory.TemplateId == "ipc" && args.Slot is "head" or "mask" &&
             TryComp(args.Equipee, out HumanoidAppearanceComponent? humanoidAppearance) &&
@@ -115,19 +117,21 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         {
             item.ClothingVisuals.TryGetValue($"{args.Slot}-vulpkanin", out layers);
+            shimVulpkanin = true;
         }
 
         // first attempt to get species specific data.
-        if (layers == null && inventory.SpeciesId != null) // End DeltaV Additions
+        if (layers == null && inventory.SpeciesId != null)
             item.ClothingVisuals.TryGetValue($"{args.Slot}-{inventory.SpeciesId}", out layers);
 
         // if that returned nothing, attempt to find generic data
         if (layers == null && !item.ClothingVisuals.TryGetValue(args.Slot, out layers))
         {
             // No generic data either. Attempt to generate defaults from the item's RSI & item-prefixes
-            if (!TryGetDefaultVisuals(uid, item, args.Slot, inventory.SpeciesId, out layers))
+            if (!TryGetDefaultVisuals(uid, item, args.Slot, inventory.SpeciesId, shimVulpkanin, out layers))
                 return;
         }
+        // End DeltaV Additions
 
         // add each layer to the visuals
         var i = 0;
@@ -152,9 +156,16 @@ public sealed class ClientClothingSystem : ClothingSystem
     /// <remarks>
     ///     Useful for lazily adding clothing sprites without modifying yaml. And for backwards compatibility.
     /// </remarks>
-    private bool TryGetDefaultVisuals(EntityUid uid, ClothingComponent clothing, string slot, string? speciesId,
+    private bool TryGetDefaultVisuals(EntityUid uid, ClothingComponent clothing, string slot, string? speciesId, bool shimVulpkanin, // DeltaV - Add shimVulpkanin
         [NotNullWhen(true)] out List<PrototypeLayerData>? layers)
     {
+        // Begin DeltaV Additions - IPC snouts
+        if (shimVulpkanin)
+        {
+            speciesId = "vulpkanin";
+        }
+        // End DeltaV Additions
+
         layers = null;
 
         RSI? rsi = null;
