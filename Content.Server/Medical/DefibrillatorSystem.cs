@@ -23,6 +23,8 @@ using Content.Shared.Timing;
 using Content.Shared.Toggleable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
+using Content.Server._DV.Medical; // DeltaV
+using Robust.Shared.Random; // DeltaV
 
 namespace Content.Server.Medical;
 
@@ -46,6 +48,7 @@ public sealed class DefibrillatorSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private readonly IRobustRandom _random = default!; // DeltaV
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -208,6 +211,12 @@ public sealed class DefibrillatorSystem : EntitySystem
                 TryComp<DamageableComponent>(target, out var damageableComponent) &&
                 damageableComponent.TotalDamage < threshold)
             {
+                // Begin DeltaV changes - defibs might fail
+                if (HandleZapFailing(uid, target, component))
+                {
+                    return;
+                }
+                // End DeltaV changes
                 _mobState.ChangeMobState(target, MobState.Critical, mob, uid);
                 dead = false;
             }
@@ -242,4 +251,58 @@ public sealed class DefibrillatorSystem : EntitySystem
         var ev = new TargetDefibrillatedEvent(user, (uid, component));
         RaiseLocalEvent(target, ref ev);
     }
+
+    // Begin DeltaV changes
+    private void RollDefibPermanentFailChances(EntityUid target, DefibrillatorComponent component)
+    {
+        if (HasComp<DefibrillatorReviveBlockComponent>(target))
+        {
+            // There is already a revive block component, do nothing
+            return;
+        }
+
+        // No component blocking the defib, roll for chance
+        var chance = Math.Min(component.DefibFailChance, 1);
+        if (_random.Prob(chance))
+        {
+            EnsureComp<DefibrillatorReviveBlockComponent>(target, out var blockComponent);
+            blockComponent.ZapsNeeded = _random.Next(minValue: 1, maxValue: 3);
+        }
+    }
+
+    private bool HandleZapFailing(EntityUid uid, EntityUid target, DefibrillatorComponent component)
+    {
+        // First, check if the zap can even be successful
+        if (_random.Prob(component.DefibRetryNeededChance))
+        {
+            _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-retry-needed"),
+                InGameICChatType.Speak, true);
+            return true;
+        }
+
+        // Then, roll for permanent fail if needed
+        RollDefibPermanentFailChances(target, component);
+
+        // Finally, handle the IC chat messages if is permanently failing (remember, the entity might have
+        // a DefibrillatorReviveBlockComponent from a previous zap!)
+        if (TryComp<DefibrillatorReviveBlockComponent>(target, out var defibBlock))
+        {
+            defibBlock.ZapsNeeded -= 1;
+
+            // Determine if we need to show the retry message, or if we show the final cannot be revived message.
+            var message = "defibrillator-retry-needed";
+            if (defibBlock.ZapsNeeded <= 0)
+            {
+                message = "defibrillator-cannot-be-revived";
+            }
+            _chatManager.TrySendInGameICMessage(uid, Loc.GetString(message),
+                InGameICChatType.Speak, true);
+
+            return true;
+        }
+
+        // Nothing blocks from reviving!
+        return false;
+    }
+    // End DeltaV changes
 }

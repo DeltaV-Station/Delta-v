@@ -60,6 +60,20 @@ public sealed partial class DefibrillatorComponent : Component
     [DataField]
     public bool CanDefibCrit = true;
 
+    // Begin DeltaV modifications
+    /// <summary>
+    /// The chance of the defib permanently failing to revive a patient
+    /// </summary>
+    [DataField]
+    public float DefibFailChance = 0.05f;
+
+    /// <summary>
+    /// The chance of a defib failing to revive a patient in a given zap (can be retried)
+    /// </summary>
+    [DataField]
+    public float DefibRetryNeededChance = 0.1f;
+    // End DeltaV modifications
+
     /// <summary>
     /// The sound when someone is zapped.
     /// </summary>
