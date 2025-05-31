@@ -9,6 +9,7 @@
     sprite: _DV/Objects/Fun/figurines.rsi
 
 - type: entity
+  abstract: true
   parent: BaseFigurine
   id: BaseBorgFigurineDeltaV
   components:
@@ -202,9 +203,9 @@
   components:
     - type: Sprite
       layers:
-        - state: engineering
-        - state: engineering_unshaded
-          shader: unshaded
+      - state: engineering
+      - state: engineering_unshaded
+        shader: unshaded
     - type: SpeakOnTrigger
       pack: FigurinesBorgEngineering
 
@@ -216,9 +217,9 @@
   components:
     - type: Sprite
       layers:
-        - state: generic
-        - state: generic_unshaded
-          shader: unshaded
+      - state: generic
+      - state: generic_unshaded
+        shader: unshaded
     - type: SpeakOnTrigger
       pack: FigurinesBorgGeneric
 
@@ -230,9 +231,9 @@
   components:
     - type: Sprite
       layers:
-        - state: janitor
-        - state: janitor_unshaded
-          shader: unshaded
+      - state: janitor
+      - state: janitor_unshaded
+        shader: unshaded
     - type: SpeakOnTrigger
       pack: FigurinesBorgJanitor
 
@@ -244,9 +245,9 @@
   components:
     - type: Sprite
       layers:
-        - state: medical
-        - state: medical_unshaded
-          shader: unshaded
+      - state: medical
+      - state: medical_unshaded
+        shader: unshaded
     - type: SpeakOnTrigger
       pack: FigurinesBorgMedical
 
@@ -258,9 +259,9 @@
   components:
     - type: Sprite
       layers:
-        - state: salvage
-        - state: salvage_unshaded
-          shader: unshaded
+      - state: salvage
+      - state: salvage_unshaded
+        shader: unshaded
     - type: SpeakOnTrigger
       pack: FigurinesBorgSalvage
 
@@ -272,9 +273,9 @@
   components:
     - type: Sprite
       layers:
-        - state: security
-        - state: security_unshaded
-          shader: unshaded
+      - state: security
+      - state: security_unshaded
+        shader: unshaded
     - type: SpeakOnTrigger
       pack: FigurinesBorgSecurity
 
@@ -286,8 +287,8 @@
   components:
     - type: Sprite
       layers:
-        - state: service
-        - state: service_unshaded
-          shader: unshaded
+      - state: service
+      - state: service_unshaded
+        shader: unshaded
     - type: SpeakOnTrigger
       pack: FigurinesBorgService
