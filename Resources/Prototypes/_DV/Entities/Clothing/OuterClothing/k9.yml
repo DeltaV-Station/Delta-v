@@ -1,6 +1,15 @@
+- type: entity
+  abstract: true
+  id: K9ClothingBase
+  components:
+  - type: SpecialisedClothing
+    whitelist:
+      tags:
+        - K9
+
 # K9 Combat suit
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ K9ClothingBase, ClothingOuterHardsuitBase ]
   id: ClothingOuterHardsuitCombatK9
   name: k9 combat hardsuit
   description: A canine-built combat suit designed to protect its against all manner of enemy combatants in low pressure environments. This one has station security markings.
@@ -38,7 +47,7 @@
       - K9Armor
 
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ K9ClothingBase, ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitCombatK9
   name: k9 combat hardsuit helmet
   components:
@@ -75,7 +84,7 @@
     clothingPrototype: ClothingOuterHardsuitCombatRiotK9Helmet
 
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ K9ClothingBase, ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingOuterHardsuitCombatRiotK9Helmet
   name: K9 riot helmet
   components:
@@ -90,7 +99,7 @@
 # K9 Durathread
 
 - type: entity
-  parent: ClothingOuterArmorDuraVest
+  parent: [ K9ClothingBase, ClothingOuterArmorDuraVest ]
   id: ClothingOuterArmorDuraVestK9
   name: K9 durathread vest
   description: A tight-fitting and sturdy armor vest for canines, reinforced with durathread weave to protect against sharp objects and blunt force trauma.
