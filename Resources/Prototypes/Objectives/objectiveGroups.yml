@@ -52,7 +52,7 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial
   weights:
-    # RandomTraitorAliveObjective: 1 DeltaV removed for being a less fun version of progress objective.
+#    RandomTraitorAliveObjective: 1 - Removed because the objective was boring and didn't progress the round.
     RandomTraitorProgressObjective: 1
 
 #Thief groups
