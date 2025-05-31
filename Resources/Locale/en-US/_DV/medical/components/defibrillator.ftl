@@ -1,2 +1,2 @@
-defibrillator-cannot-be-revived = Resuscitation unsuccessful. Further attempts likely futile.
-defibrillator-retry-needed = Resusication unsuccessful. Please retry.
+defibrillator-cannot-be-revived = Resuscitation unsuccessful. Further attempts are likely futile
+defibrillator-retry-needed = Resuscitation unsuccessful. Please retry.
