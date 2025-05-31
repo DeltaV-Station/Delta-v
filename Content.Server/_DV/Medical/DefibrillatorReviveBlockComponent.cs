@@ -10,5 +10,5 @@ public sealed partial class DefibrillatorReviveBlockComponent: Component
     /// How many zaps are needed to receive the final "patient cannot be revived" message
     /// </summary>
     [ViewVariables]
-    public int ZapsNeeded = 1;
+    public int ZapsNeeded = 2;
 }

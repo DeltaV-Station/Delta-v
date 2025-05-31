@@ -266,7 +266,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (_random.Prob(chance))
         {
             EnsureComp<DefibrillatorReviveBlockComponent>(target, out var blockComponent);
-            blockComponent.ZapsNeeded = _random.Next(minValue: 1, maxValue: 3);
+            blockComponent.ZapsNeeded = _random.Next(minValue: 2, maxValue: 3);
         }
     }
 
