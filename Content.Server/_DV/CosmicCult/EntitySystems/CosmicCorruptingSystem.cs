@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using Content.Server._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Maps;
@@ -27,11 +28,13 @@ public sealed class CosmicCorruptingSystem : EntitySystem
         new(1, -1),
     ];
 
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinition = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly TurfSystem _turfs = default!;
+    [Dependency] private readonly TransformSystem _xform = default!;
 
     /// <remarks>
     ///     this system is a mostly generic way of replacing tiles around an entity. the only hardcoded behaviour is secret
@@ -113,20 +116,11 @@ public sealed class CosmicCorruptingSystem : EntitySystem
                     ent.Comp.CorruptableTiles.Add(neighbourRef.GridIndices);
                 }
 
-                //corrupt anything that can be corrupted
-                foreach (var convertedEnt in _map.GetAnchoredEntities((gridUid, mapGrid), pos).ToList())
+                //corrupt all entities on tile
+                var coords = new EntityCoordinates(gridUid, pos + new Vector2(0.5f, 0.5f));
+                foreach (var convertedEnt in _lookup.GetEntitiesInRange(coords, .49f).ToList())
                 {
-                    var proto = Prototype(convertedEnt);
-                    if (ent.Comp.EntityConversionDict.TryGetValue(proto?.ID!, out var conversion))
-                    {
-                        Spawn(conversion, Transform(convertedEnt).Coordinates);
-                        QueueDel(convertedEnt);
-                    }
-                    else if (TryComp<CosmicCorruptibleComponent>(convertedEnt, out var corruptible))
-                    {
-                        Spawn(corruptible.ConvertTo, Transform(convertedEnt).Coordinates);
-                        QueueDel(convertedEnt);
-                    }
+                    ConvertEntity(convertedEnt, ent);
                 }
 
                 //spawn the vfx if we should
@@ -218,6 +212,24 @@ public sealed class CosmicCorruptingSystem : EntitySystem
                 ent.Comp.CorruptableTiles.Add(neighbourRef.GridIndices);
             }
         }
+    }
+
+    public bool ConvertEntity(EntityUid convertedEnt, CosmicCorruptingComponent comp)
+    {
+        var proto = Prototype(convertedEnt);
+        if (comp.EntityConversionDict.TryGetValue(proto?.ID!, out var conversion))
+        {
+            Spawn(conversion, Transform(convertedEnt).Coordinates);
+            QueueDel(convertedEnt);
+            return true;
+        }
+        if (TryComp<CosmicCorruptibleComponent>(convertedEnt, out var corruptible))
+        {
+            Spawn(corruptible.ConvertTo, Transform(convertedEnt).Coordinates);
+            QueueDel(convertedEnt);
+            return true;
+        }
+        return false;
     }
 
     #endregion
