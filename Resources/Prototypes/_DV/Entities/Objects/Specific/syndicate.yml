@@ -1,20 +1,20 @@
 #this uplink MUST be used for nukeops, as it has the tag for filtering the listing.
 - type: entity
-  parent: BaseUplinkRadio40TC
+  parent: BaseUplinkRadio50TC
   id: BaseUplinkRadio45TC
-  suffix: 45 TC, NukeOps
+  suffix: 50 TC, NukeOps
   components:
   - type: Store
     balance:
-      Telecrystal: 47 # Not 45 but I don't want to update the prototype every time we adjust nukie TC
+      Telecrystal: 50
   - type: Tag
     tags:
     - NukeOpsUplink
 
 - type: entity
-  parent: BaseUplinkRadio45TC
-  id: CommanderUplinkRadio45TC
-  suffix: 45 TC, NukeOps, Commander
+  parent: BaseUplinkRadio50TC
+  id: CommanderUplinkRadio50TC
+  suffix: 50 TC, NukeOps, Commander
   components:
   - type: Tag
     tags:
@@ -22,8 +22,8 @@
     - CommanderUplink
 
 - type: entity
-  parent: BaseUplinkRadio45TC
-  id: AgentUplinkRadio45TC
+  parent: BaseUplinkRadio50TC
+  id: AgentUplinkRadio50TC
   suffix: 45 TC, NukeOps, Agent
 
   components:
@@ -35,8 +35,8 @@
 - type: entity
   parent: BaseUplinkRadio60TC
   id: BaseUplinkRadio65TC
-  suffix: 65 TC, LoneOps
+  suffix: 70 TC, LoneOps
   components:
     - type: Store
       balance:
-        Telecrystal: 67 # not 65 but this is for nukies.
+        Telecrystal: 70
