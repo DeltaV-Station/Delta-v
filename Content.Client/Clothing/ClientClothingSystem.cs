@@ -107,9 +107,9 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         List<PrototypeLayerData>? layers = null;
 
+        // Begin DeltaV Additions - IPC snouts
         var shimVulpkanin = false;
 
-        // Begin DeltaV Additions - IPC snouts
         if (inventory.TemplateId == "ipc" && args.Slot is "head" or "mask" &&
             TryComp(args.Equipee, out HumanoidAppearanceComponent? humanoidAppearance) &&
             humanoidAppearance.ClientOldMarkings.Markings.TryGetValue(MarkingCategories.Snout, out var data) &&
