@@ -34,9 +34,9 @@ using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Mind.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Parallax;
@@ -50,11 +50,13 @@ using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using System.Collections.Immutable;
 using System.Linq;
 
 namespace Content.Server._DV.CosmicCult;
@@ -81,6 +83,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly IVoteManager _votes = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly MonumentSystem _monument = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -97,7 +100,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly VisibilitySystem _visibility = default!;
 
     private ISawmill _sawmill = default!;
-
     private TimeSpan _t3RevealDelay = default!;
     private TimeSpan _t2RevealDelay = default!;
     private TimeSpan _finaleDelay = default!;
@@ -317,27 +319,50 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     private void OnGodSpawn(Entity<CosmicGodComponent> uid, ref ComponentInit args)
     {
         var query = QueryActiveRules();
-
         while (query.MoveNext(out var ruleUid, out _, out var cultRule, out _))
         {
             SetWinType((ruleUid, cultRule), WinType.CultComplete); //here's no coming back from this. Cult wins this round
-            _roundEnd.EndRound(); //Woo game over yeaaaah
-            foreach (var cultist in cultRule.Cultists)
-            {
-                if (TryComp<MobStateComponent>(cultist, out var state) && state.CurrentState != MobState.Dead)
-                {
-                    if (!TryComp<MindContainerComponent>(cultist, out var mindContainer) || !mindContainer.HasMind)
-                        return;
-
-                    var ascendant = Spawn("MobCosmicAstralAscended", Transform(cultist).Coordinates);
-                    _mind.TransferTo(mindContainer.Mind.Value, ascendant);
-                    _metaData.SetEntityName(ascendant, Loc.GetString("cosmiccult-astral-ascendant", ("name", cultist))); //Renames cultists' ascendant forms to "[CharacterName], Ascendant"
-                    _body.GibBody(cultist); // you don't need that body anymore
-                }
-            }
             QueueDel(cultRule.MonumentInGame); // The monument doesn't need to stick around postround! Into the bin with you.
             QueueDel(cultRule.MonumentSlowZone); // cease exist
+
+            _roundEnd.EndRound(); //Woo game over yeaaaah
+
+            var spawnPoints = EntityManager.GetAllComponents(typeof(CosmicVoidSpawnComponent)).ToImmutableList();
+            if (spawnPoints.IsEmpty)
+            {
+                return;
+            }
+
+            var endQuery = EntityQueryEnumerator<HumanoidAppearanceComponent, MobStateComponent>();
+            while (endQuery.MoveNext(out var player, out _, out _))
+            {
+                var newSpawn = _rand.Pick(spawnPoints);
+                var spawnTgt = Transform(newSpawn.Uid).Coordinates;
+                Timer.Spawn(_rand.Next(TimeSpan.FromSeconds(4), TimeSpan.FromSeconds(25)), () => { EndRoundVoid(player, spawnTgt, cultRule); });
+            }
         }
+    }
+
+    private void EndRoundVoid(EntityUid player, EntityCoordinates spawnTgt, CosmicCultRuleComponent cultRule)
+    {
+        if (!_mind.TryGetMind(player, out var mind, out _) || _mobStateSystem.IsDead(player))
+            return;
+        if (cultRule.Cultists.Contains(player))
+        {
+            var mob = Spawn(cultRule.CosmicAscended, spawnTgt);
+            _mind.TransferTo(mind, mob);
+            _metaData.SetEntityName(mob, Loc.GetString("cosmiccult-astral-ascendant", ("name", player))); //Renames cultists' ascendant forms to "[CharacterName], Ascendant"
+        }
+        else
+        {
+            var mob = Spawn(_rand.Pick(cultRule.CosmicMobs), spawnTgt);
+            _mind.TransferTo(mind, mob);
+            _metaData.SetEntityName(mob, Loc.GetString("cosmiccult-astral-minion", ("name", player))); //Renames non-cultists to "[CharacterName], Malign"
+        }
+        Spawn(cultRule.WarpVFX, spawnTgt);
+        Spawn(cultRule.WarpVFX, Transform(player).Coordinates);
+        _audio.PlayPvs(cultRule.WarpSFX, spawnTgt, AudioParams.Default.WithVolume(3f));
+        _body.GibBody(player); // you don't need that body anymore
     }
 
     private static void SetWinType(Entity<CosmicCultRuleComponent> ent, WinType type)

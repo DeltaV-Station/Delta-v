@@ -1,0 +1,9 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushieThaven
+  name: thaven plushie
+  description: It is rude to not give this plushie hugs and kisses.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_thaven
