@@ -5,10 +5,11 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._DV.SmartFridge;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), AutoGenerateComponentPause]
 public sealed partial class SmartFridgeComponent : Component
 {
     [DataField]
@@ -28,6 +29,15 @@ public sealed partial class SmartFridgeComponent : Component
 
     [DataField, AutoNetworkedField]
     public Dictionary<SmartFridgeEntry, List<NetEntity>> ContainedEntries = new();
+
+    [DataField]
+    public TimeSpan EjectCooldown = TimeSpan.FromSeconds(1.2);
+
+    [ViewVariables]
+    public bool Ejecting => EjectEnd != null;
+
+    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? EjectEnd;
 
     /// <summary>
     ///     Sound that plays when ejecting an item
@@ -68,6 +78,12 @@ public enum SmartFridgeUiKey
 
 [Serializable, NetSerializable]
 public sealed class SmartFridgeDispenseItemMessage(SmartFridgeEntry entry) : BoundUserInterfaceMessage
+{
+    public SmartFridgeEntry Entry = entry;
+}
+
+[Serializable, NetSerializable]
+public sealed class SmartFridgeRemoveEntryMessage(SmartFridgeEntry entry) : BoundUserInterfaceMessage
 {
     public SmartFridgeEntry Entry = entry;
 }
