@@ -1,64 +1,4 @@
 ﻿Entries:
-- author: rosieposieeee
-  changes:
-  - message: Security can now print non-lethal ammunition roundstart.
-    type: Tweak
-  id: 931
-  time: '2025-01-17T20:22:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2758
-- author: BarryNorfolk
-  changes:
-  - message: Fixed borgs being permanently prone even after repairs are done.
-    type: Fix
-  - message: Entities without the correct number of legs cannot stand up anymore.
-    type: Fix
-  id: 932
-  time: '2025-01-18T01:54:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2761
-- author: Colin-Tel
-  changes:
-  - message: Added Surgical equipment to Chibi Station.
-    type: Add
-  id: 933
-  time: '2025-01-18T08:52:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2764
-- author: Fox
-  changes:
-  - message: Edge's Armory has been expanded and made more secure, and the bar has
-      been rebuilt!
-    type: Tweak
-  id: 934
-  time: '2025-01-18T09:33:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2662
-- author: Unkn0wnGh0st333
-  changes:
-  - message: Shoukou now has a certified surgeon position and an admin assistant.
-    type: Tweak
-  id: 935
-  time: '2025-01-18T09:35:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2725
-- author: alterae
-  changes:
-  - message: Ported the ability to tie (some) jumpsuit jackets around your waist from
-      Impstation. Jumpskirts not included
-    type: Add
-  id: 936
-  time: '2025-01-18T11:56:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2742
-- author: dvir001
-  changes:
-  - message: EMP Pulse got a new visual look.
-    type: Tweak
-  id: 937
-  time: '2025-01-18T11:56:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2762
-- author: whateverusername0, AirFryerBuyOneGetOneFree, Darkmajia, hivehum, crocodilecarousel
-  changes:
-  - message: 'Added two new animated emotes from Impstation: jump and spin.'
-    type: Add
-  id: 938
-  time: '2025-01-18T23:50:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2746
 - author: TGRCDev, Lyndomen
   changes:
   - message: Gamemodes now have cooldowns to prevent back-to-back modes. Modes that
@@ -4101,3 +4041,77 @@
   id: 1430
   time: '2025-05-23T16:51:54.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3791
+- author: AftrLite
+  changes:
+  - message: NEW GAMEMODE - Get ready to cult, the Cosmic Cult is now in rotation!
+    type: Add
+  - message: The Cosmic Cult can now transfigure Cyborgs into Entropic Colossi.
+    type: Add
+  - message: The Cosmic Cult's victory is less underwhelming now.
+    type: Add
+  - message: Miscellaneous fixes and polish to cosmic cult features, including changes
+      based on community feedback!
+    type: Fix
+  id: 1431
+  time: '2025-05-24T16:39:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3811
+- author: Radezolid
+  changes:
+  - message: Change to SOP, Captains now have to publicly announce the change they
+      made to SOP for better accountability.
+    type: Tweak
+  id: 1432
+  time: '2025-05-25T00:06:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3794
+- author: This_Is_Gray
+  changes:
+  - message: The conveyor belts have been made actually decent. No more eternally
+      rotating books in disposals.
+    type: Fix
+  - message: There's now a unique background specific to Elegance.
+    type: Add
+  id: 1433
+  time: '2025-05-27T17:04:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3828
+- author: AftrLite
+  changes:
+  - message: Entropic Colossi now have randomly-generated names!
+    type: Add
+  - message: Cosmic Cult r1.01. Various tweaks and polish.
+    type: Tweak
+  - message: The Cosmic Void pocket dimension is now larger. Less overcrowding in
+      postround!
+    type: Fix
+  id: 1434
+  time: '2025-05-28T04:40:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3851
+- author: Eternally-Confused
+  changes:
+  - message: Chief Justices now have Cryosleep access
+    type: Tweak
+  id: 1435
+  time: '2025-05-29T13:40:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3859
+- author: portfiend
+  changes:
+  - message: 'New plushies: Felinid, Oni, Harpy, Rodentia, Feroxi, Chitinid, Kitsune.'
+    type: Add
+  - message: Ported Thaven plushie from Impstation, courtesy of ATDoop.
+    type: Add
+  id: 1436
+  time: '2025-05-29T14:05:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3850
+- author: Quanteey
+  changes:
+  - message: Added Trinoxadone, a broad spectrum cryo medicine.
+    type: Add
+  id: 1437
+  time: '2025-05-29T23:20:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3824
+- author: AftrLite
+  changes:
+  - message: Fixed a bug with Vacuous Chantries were MMI Borgs would break everything.
+    type: Fix
+  id: 1438
+  time: '2025-05-30T13:35:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3866
