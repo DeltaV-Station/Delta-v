@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Network;
+using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._DV.Curation;
