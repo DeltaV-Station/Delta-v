@@ -8,7 +8,7 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
+using Content.Shared.Humanoid.Markings; // DeltaV - IPC Snouts
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
