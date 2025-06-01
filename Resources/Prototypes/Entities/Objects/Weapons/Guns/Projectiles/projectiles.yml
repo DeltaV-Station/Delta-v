@@ -3,20 +3,20 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
-    lifetime: 0.2 # Impstation - Delta V Port
+    lifetime: 0.2 # imp
   - type: Sprite
     drawdepth: BelowMobs
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
-      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi # Impstation - Delta V Port
-      state: kinetic # Impstation - Delta V Port
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi # imp
+      state: kinetic # imp
   - type: EffectVisuals
   - type: PointLight
     enabled: true
-    color: "#ffa223" # Impstation - Delta V Port
-    radius: 1.4 # Impstation - Delta V Port
-    energy: 5.0 # Impstation - Delta V Port
+    color: "#ffa223" # imp
+    radius: 1.4 # imp
+    energy: 5.0 # imp
   - type: Tag
     tags:
       - HideContextMenu
@@ -29,17 +29,17 @@
   components:
   - type: PointLight
     enabled: true
-    color: "#0ab8c4" # Impstation - Delta V Port
-    radius: 1.4 # Impstation - Delta V Port
-    energy: 5.0 # Impstation - Delta V Port
+    color: "#0ab8c4" # imp
+    radius: 1.4 # imp
+    energy: 5.0 # imp
   - type: Sprite
     drawdepth: BelowMobs
     offset: 0.15, 0
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
-      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi # Impstation - Delta V Port
-      state: energystun # Impstation - Delta V Port
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi # imp
+      state: energystun # imp
 
 - type: entity
   parent: MuzzleFlashEffect
@@ -48,17 +48,17 @@
   components:
   - type: PointLight
     enabled: true
-    color: "#d63b28" # Impstation - Delta V Port
-    radius: 1.4 # Impstation - Delta V Port
-    energy: 5.0 # Impstation - Delta V Port
+    color: "#d63b28" # imp
+    radius: 1.4 # imp
+    energy: 5.0 # imp
   - type: Sprite
     drawdepth: BelowMobs
     offset: 0.15, 0
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
-      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi # Impstation - Delta V Port
-      state: energy # Impstation - Delta V Port
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi # imp
+      state: energy # imp
 
 # One bullet to bring them all into the darkness and bind them
 - type: entity
@@ -161,7 +161,7 @@
   - type: PointLight
     enabled: true
     color: "#ff4300"
-    radius: 1.4 # Impstation - Delta V Port
+    radius: 1.4 # imp
     energy: 7.0
   - type: IgniteOnCollide
     fireStacks: 0.25
@@ -210,9 +210,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # Impstation - Delta V Port
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: lightgold # Impstation - Delta V Port
+    - state: lightgold # imp
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -253,9 +253,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # Impstation - Delta V Port
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: mediumstun # Impstation - Delta V Port
+    - state: mediumstun # imp
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -270,7 +270,7 @@
         - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
-    muzzleFlash: MuzzleFlashEffectOmnilaser # Impstation - Delta V Port
+    muzzleFlash: MuzzleFlashEffectOmnilaser # imp
   - type: StaminaDamageOnCollide
     damage: 30
   - type: Projectile
@@ -294,9 +294,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # Impstation - Delta V Port
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: mediumstun # Impstation - Delta V Port
+    - state: mediumstun # imp
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -311,7 +311,7 @@
         - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
-    muzzleFlash: MuzzleFlashEffectOmnilaser # Impstation - Delta V Port
+    muzzleFlash: MuzzleFlashEffectOmnilaser # imp
   - type: StaminaDamageOnCollide
     damage: 1
   - type: Projectile
@@ -330,12 +330,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # Impstation - Delta V Port
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: mediumsynd # Impstation - Delta V Port
+    - state: mediumsynd # imp
       shader: unshaded
   - type: Ammo
-    muzzleFlash: MuzzleFlashEffectSyndLaser # Impstation - Delta V Port
+    muzzleFlash: MuzzleFlashEffectSyndLaser # imp
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -835,35 +835,6 @@
     intensitySlope: 5
     maxIntensity: 10
 
-- type: entity
-  parent: BaseBulletTrigger
-  id: BulletGrenadeCleanade
-  name: cleanade grenade round
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    layers:
-    - state: cleanade
-  - type: ActiveTimerTrigger
-    timeRemaining: 0.3
-  - type: SmokeOnTrigger
-    duration: 3.5
-    spreadAmount: 30
-    smokePrototype: Foam
-    solution:
-      reagents:
-      - ReagentId: SpaceCleaner
-        Quantity: 30
-  - type: SoundOnTrigger
-    sound: /Audio/Items/smoke_grenade_smoke.ogg
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    totalIntensity: 0.01 # a little pop
-    intensitySlope: 1
-    maxIntensity: 0.01
-    tileBreakScale: 0.01
 
 - type: entity
   id: BulletGrenadeFlash
@@ -900,6 +871,36 @@
     totalIntensity: 175 # about a ~6 tile radius
     intensitySlope: 1
     maxIntensity: 10
+
+- type: entity
+  parent: BaseBulletTrigger
+  id: BulletGrenadeCleanade
+  name: cleanade grenade round
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: cleanade
+  - type: ActiveTimerTrigger
+    timeRemaining: 0.3
+  - type: SmokeOnTrigger
+    duration: 3.5
+    spreadAmount: 30
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: SpaceCleaner
+        Quantity: 30
+  - type: SoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 0.01 # a little pop
+    intensitySlope: 1
+    maxIntensity: 0.01
+    tileBreakScale: 0.01
 
 - type: entity
   id: BulletGrenadeEMP
@@ -1081,9 +1082,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # Impstation - Delta V Port
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: lightstun # Impstation - Delta V Port
+    - state: lightstun # imp
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -1098,7 +1099,7 @@
         - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
-    muzzleFlash: MuzzleFlashEffectOmnilaser # Impstation - Delta V Port
+    muzzleFlash: MuzzleFlashEffectOmnilaser # imp
   - type: StaminaDamageOnCollide
     damage: 15
   - type: Projectile
@@ -1125,9 +1126,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # Impstation - Delta V Port
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: medium # Impstation - Delta V Port
+    - state: medium # imp
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -1151,9 +1152,9 @@
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectHeavyLaser
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # Impstation - Delta V Port
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: medium # Impstation - Delta V Port
+    - state: medium # imp
       shader: unshaded
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
@@ -1170,9 +1171,9 @@
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectOmnilaser
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # Impstation - Delta V Port
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: mediumstun # Impstation - Delta V Port
+    - state: mediumstun # imp
       shader: unshaded
   - type: StaminaDamageOnCollide
     damage: 30
@@ -1233,9 +1234,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # Impstation - Delta V Port
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: light # Impstation - Delta V Port
+    - state: light # imp
       shader: unshaded
   - type: Physics
   - type: Fixtures

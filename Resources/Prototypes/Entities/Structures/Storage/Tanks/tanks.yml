@@ -24,10 +24,10 @@
     solution: tank
   - type: ReagentTank
     tankType: Fuel
-    fuelWhitelist:
+    fuelWhitelist: #imp
       tags:
         - WeldingTool
-    fuelBlacklist: 
+    fuelBlacklist:
       tags:
         - EchionGun
   - type: DamageOnToolInteract

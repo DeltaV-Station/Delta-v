@@ -1,5 +1,5 @@
 using Content.Shared.FixedPoint;
-using Content.Shared.Whitelist; // Impstation Port - Delta V
+using Content.Shared.Whitelist; // imp
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -14,13 +14,13 @@ public sealed partial class ReagentTankComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ReagentTankType TankType { get; set; } = ReagentTankType.Unspecified;
 
-    // Impstation Port Start
+    // imp start
     [DataField]
     public EntityWhitelist? FuelWhitelist;
 
     [DataField]
     public EntityWhitelist? FuelBlacklist;
-    // Impstation Port End
+    // imp end
 }
 
 [Serializable, NetSerializable]
