@@ -1,16 +1,22 @@
 using Content.Shared._DV.Silicon.IPC;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
-using Robust.Client.GameObjects;
 
 namespace Content.Client._DV.Silicon.IPC;
 
-public sealed class SnoutHelmetSystem : VisualizerSystem<SnoutHelmetComponent>
+public sealed class SnoutHelmetSystem : EntitySystem
 {
     private const MarkingCategories MarkingToQuery = MarkingCategories.Snout;
     private const int MaximumMarkingCount = 0;
 
-    protected override void OnAppearanceChange(EntityUid uid, SnoutHelmetComponent component, ref AppearanceChangeEvent args)
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<SnoutHelmetComponent, ComponentStartup>(OnComponentStartup);
+    }
+
+    private void OnComponentStartup(EntityUid uid, SnoutHelmetComponent component, ComponentStartup args)
     {
         if (TryComp(uid, out HumanoidAppearanceComponent? humanoidAppearanceComponent) &&
             humanoidAppearanceComponent.ClientOldMarkings.Markings.TryGetValue(MarkingToQuery, out var markings) &&
