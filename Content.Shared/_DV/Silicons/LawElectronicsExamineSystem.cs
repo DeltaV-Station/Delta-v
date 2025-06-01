@@ -26,7 +26,6 @@ public sealed class LawElectronicsExamineSystem : EntitySystem
             {
                 args.PushMarkup(Loc.GetString("law-electronics-examine-law", ("order", law.Order), ("text", Loc.GetString(law.LawString))));
             }
-            args.PushMarkup(Loc.GetString("law-electronics-examine-obeys-to", ("owner", Loc.GetString(lawset.ObeysTo))));
         }
         else
         {
@@ -36,7 +35,6 @@ public sealed class LawElectronicsExamineSystem : EntitySystem
                 var lawProto = _prototype.Index<SiliconLawPrototype>(law);
                 args.PushMarkup(Loc.GetString("law-electronics-examine-law", ("order", lawProto.Order), ("text", Loc.GetString(lawProto.LawString))));
             }
-            args.PushMarkup(Loc.GetString("law-electronics-examine-obeys-to", ("owner", Loc.GetString(proto.ObeysTo))));
         }
     }
 }
