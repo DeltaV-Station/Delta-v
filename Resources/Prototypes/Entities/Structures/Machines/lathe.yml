@@ -437,14 +437,16 @@
     - PrisonerSoftsuits
     - EVASuit
     # End DeltaV Additions
-    dynamicPacks:
-    - SalvageSecurityBoards
-    - SalvageSecurityWeapons
-    - SecurityEquipment
-    - SecurityBoards
-    - SecurityExplosives
-    - SecurityAmmo
-    - SecurityWeapons
+    # Begin DeltaV Removals
+    # dynamicPacks:
+    # - SalvageSecurityBoards
+    # - SalvageSecurityWeapons
+    # - SecurityEquipment
+    # - SecurityBoards
+    # - SecurityExplosives
+    # - SecurityAmmo
+    # - SecurityWeapons
+    # End DeltaV Removals
     #- SecurityDisablers # DeltaV - made roundstart
   - type: MaterialStorage
     whitelist:
@@ -484,6 +486,18 @@
       unlitRunningState: unlit-building # DeltaV - added animation sprite layers
       staticPacks:
       - SecurityAmmoStatic
+      # Begin DeltaV Additions
+      - SecurityAmmoStatic
+      - SecurityWeaponsStatic
+      dynamicPacks:
+      - SalvageSecurityBoards
+      - SalvageSecurityWeapons
+      - SecurityEquipment
+      - SecurityBoards
+      - SecurityExplosives
+      - SecurityAmmo
+      - SecurityWeapons
+      # End DeltaV Additions
     - type: MaterialStorage
       whitelist:
         tags:
