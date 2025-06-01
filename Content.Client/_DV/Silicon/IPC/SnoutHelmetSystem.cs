@@ -7,14 +7,7 @@ namespace Content.Client._DV.Silicon.IPC;
 
 public sealed class SnoutHelmetSystem : VisualizerSystem<SnoutHelmetComponent>
 {
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<SnoutHelmetComponent, ComponentStartup>(OnComponentStartup);
-    }
-
-    public void OnComponentStartup(EntityUid uid, SnoutHelmetComponent component, ComponentStartup args)
+    protected override void OnAppearanceChange(EntityUid uid, SnoutHelmetComponent component, ref AppearanceChangeEvent args)
     {
         if (TryComp(uid, out HumanoidAppearanceComponent? humanoidAppearanceComponent) &&
             humanoidAppearanceComponent.ClientOldMarkings.Markings.TryGetValue(MarkingCategories.Snout, out var data) &&
