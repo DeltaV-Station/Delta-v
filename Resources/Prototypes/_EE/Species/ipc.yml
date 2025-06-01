@@ -50,17 +50,15 @@
   id: MobIPCMarkingLimits
   points:
     Hair:
-      points: 1
+      points: 1 # DeltaV - Fixes hair not displaying
       required: false
     FacialHair:
+      points: 1 # DeltaV - Fixes hair not displaying
+      required: false
+    Tail: # DeltaV - Adds ability to use more marking types
       points: 1
       required: false
-    # DeltaV - Adds ability to use more marking types
-    Tail:
-      points: 1
-      required: false
-    # DeltaV - Moves screen to the eyes layer
-    Eyes:
+    Eyes: # DeltaV - Moves screen to the eyes layer
       points: 1
       required: true
       defaultMarkings: [ MobIPCEyesDefault ]
@@ -115,16 +113,6 @@
   sprites:
   - sprite: _Shitmed/Mobs/Species/IPC/parts.rsi
     state: head_m
-
-# DeltaV - Moves screen to the eyes layer
-- type: marking
-  id: MobIPCEyesDefault
-  bodyPart: Eyes
-  markingCategory: Eyes
-  speciesRestriction: []
-  sprites:
-  - sprite: Mobs/Customization/eyes.rsi
-    state: no_eyes
 
 # Torso
 
