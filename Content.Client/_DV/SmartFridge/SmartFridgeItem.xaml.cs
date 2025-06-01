@@ -8,11 +8,17 @@ namespace Content.Client._DV.SmartFridge;
 [GenerateTypedNameReferences]
 public sealed partial class SmartFridgeItem : BoxContainer
 {
+    public Action? RemoveButtonPressed;
+
     public SmartFridgeItem(EntityUid uid, string text)
     {
         RobustXamlLoader.Load(this);
 
         EntityView.SetEntity(uid);
         NameLabel.Text = text;
+        RemoveButton.OnPressed += _ => RemoveButtonPressed?.Invoke();
+
+        if (uid.IsValid())
+            RemoveButton.Visible = false;
     }
 }
