@@ -1,0 +1,10 @@
+# only scrubs tritium and won't set air alarms to warning/danger
+- type: entity
+  parent: [ BaseUnsetSensor, GasVentScrubber ]
+  id: GasVentScrubberTritium
+  suffix: Tritium
+  components:
+  - type: GasVentScrubber
+    wideNet: true
+    filterGases:
+    - Tritium
