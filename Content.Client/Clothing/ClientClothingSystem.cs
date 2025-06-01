@@ -3,12 +3,12 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.DisplacementMap;
 using Content.Client.Inventory;
+using Content.Shared._DV.Silicon.IPC; // DeltaV - IPC Snouts
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings; // DeltaV - IPC Snouts
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
@@ -108,27 +108,20 @@ public sealed class ClientClothingSystem : ClothingSystem
         List<PrototypeLayerData>? layers = null;
 
         // Begin DeltaV Additions - IPC snouts
-        var shimVulpkanin = false;
+        var speciesId = inventory.SpeciesId;
 
-        if (inventory.TemplateId == "ipc" && args.Slot is "head" or "mask" &&
-            TryComp(args.Equipee, out HumanoidAppearanceComponent? humanoidAppearance) &&
-            humanoidAppearance.ClientOldMarkings.Markings.TryGetValue(MarkingCategories.Snout, out var data) &&
-            data.Count > 0)
-
-        {
-            item.ClothingVisuals.TryGetValue($"{args.Slot}-vulpkanin", out layers);
-            shimVulpkanin = true;
-        }
+        if (TryComp(args.Equipee, out SnoutHelmetComponent? helmetComponent) && helmetComponent.EnableAlternateHelmet == true) // (== true is required for nullable bool)
+            speciesId = helmetComponent.ReplacementRace;
 
         // first attempt to get species specific data.
-        if (layers == null && inventory.SpeciesId != null)
-            item.ClothingVisuals.TryGetValue($"{args.Slot}-{inventory.SpeciesId}", out layers);
+        if (speciesId != null)
+            item.ClothingVisuals.TryGetValue($"{args.Slot}-{speciesId}", out layers);
 
         // if that returned nothing, attempt to find generic data
         if (layers == null && !item.ClothingVisuals.TryGetValue(args.Slot, out layers))
         {
             // No generic data either. Attempt to generate defaults from the item's RSI & item-prefixes
-            if (!TryGetDefaultVisuals(uid, item, args.Slot, inventory.SpeciesId, shimVulpkanin, out layers))
+            if (!TryGetDefaultVisuals(uid, item, args.Slot, speciesId, out layers))
                 return;
         }
         // End DeltaV Additions
@@ -156,16 +149,9 @@ public sealed class ClientClothingSystem : ClothingSystem
     /// <remarks>
     ///     Useful for lazily adding clothing sprites without modifying yaml. And for backwards compatibility.
     /// </remarks>
-    private bool TryGetDefaultVisuals(EntityUid uid, ClothingComponent clothing, string slot, string? speciesId, bool shimVulpkanin, // DeltaV - Add shimVulpkanin
+    private bool TryGetDefaultVisuals(EntityUid uid, ClothingComponent clothing, string slot, string? speciesId,
         [NotNullWhen(true)] out List<PrototypeLayerData>? layers)
     {
-        // Begin DeltaV Additions - IPC snouts
-        if (shimVulpkanin)
-        {
-            speciesId = "vulpkanin";
-        }
-        // End DeltaV Additions
-
         layers = null;
 
         RSI? rsi = null;
