@@ -166,14 +166,6 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
-  - type: Healing # DeltaV - plastic repairs stop bleeding
-    delay: 3.0
-    damageContainers:
-    - HumanoidSilicon
-    damage:
-      groups:
-        Brute: 0 # funny
-    bloodlossModifier: -20
   - type: Stack
     stackType: Plastic
     baseLayer: base

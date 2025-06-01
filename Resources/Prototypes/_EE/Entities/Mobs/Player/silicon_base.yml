@@ -64,12 +64,12 @@
         0: 0.00
     - type: Temperature
       heatDamageThreshold: 1800 # GoobStation: Roughly the melting point of mild steels
-      coldDamageThreshold: 100 # DeltaV - has to be very cold
+      coldDamageThreshold: 0 # Quantum-Blue: No cold damage (but I wanted to leave the code in case it broke things :P)
       currentTemperature: 310.15
       specificHeat: 42
       coldDamage:
         types:
-          Cold: 0.1 #per second, scales with temperature & other constants
+          Cold: 0.0 #per second, scales with temperature & other constants (Q-B change: no cold damage)
       heatDamage:
         types:
           Heat: 2 # DeltaV - was 3
@@ -153,22 +153,22 @@
     - type: CanEnterCryostorage # Goobstation
     - type: StatusIcon # Goobstation
       bounds: -0.5,-0.5,0.5,0.5
-    - type: Bloodstream # begin DeltaV - uncommented
-      damageBleedModifiers: BloodlossIPC
-      bloodReagent: Oil
-      bleedReductionAmount: 0
-      bloodMaxVolume: 100
-      chemicalMaxVolume: 0
-      bleedPuddleThreshold: 3
-      bloodRefreshAmount: 0
-      bloodlossThreshold: 0.8
-      maxBleedAmount: 2 # not a lot, but its hard to stop
-      bloodlossDamage:
-        types:
-          Blunt: 0.1 # lubricant is running low
-      bloodlossHealDamage:
-        types:
-          Burn: 0 # end DeltaV
+    #- type: Bloodstream # Quantum-Blue: Recommented from Delta-V. Bots don't bleed!
+    #  damageBleedModifiers: BloodlossIPC
+    #  bloodReagent: Oil
+    #  bleedReductionAmount: 0
+    #  bloodMaxVolume: 100
+    #  chemicalMaxVolume: 0
+    #  bleedPuddleThreshold: 3
+    #  bloodRefreshAmount: 0
+    #  bloodlossThreshold: 0.8
+    #  maxBleedAmount: 2 # not a lot, but its hard to stop
+    #  bloodlossDamage:
+    #    types:
+    #      Blunt: 0.1 # lubricant is running low
+    #  bloodlossHealDamage:
+    #    types:
+    #      Burn: 0
     - type: Flammable
       fireSpread: true
       canResistFire: true

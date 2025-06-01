@@ -20,7 +20,6 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly BloodstreamSystem _bloodstream = default!; // DeltaV
 
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     public override void Initialize()
@@ -46,12 +45,6 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
 
         _solutionContainer.RemoveReagent(solution.Value, welder.FuelReagent, component.FuelCost);
 
-        // Begin DeltaV Additions - stop bleeding on weld
-        if (component.bleedingModifier != 0)
-        {
-            _bloodstream.TryModifyBleedAmount(uid, component.bleedingModifier);
-        }
-        // End DeltaV Additions
 
         var str = Loc.GetString("comp-repairable-repair",
             ("target", uid),
