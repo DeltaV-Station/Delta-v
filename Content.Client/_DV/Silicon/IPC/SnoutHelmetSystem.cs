@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Silicon.IPC;
+using Content.Shared._DV.Silicon.IPC;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Robust.Client.GameObjects;

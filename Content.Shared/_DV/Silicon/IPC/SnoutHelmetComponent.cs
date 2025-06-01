@@ -1,4 +1,4 @@
-﻿namespace Content.Shared._DV.Silicon.IPC;
+namespace Content.Shared._DV.Silicon.IPC;
 
 [RegisterComponent]
 public sealed partial class SnoutHelmetComponent : Component
