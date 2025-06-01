@@ -28,6 +28,8 @@ public sealed class CosmicCorruptingSystem : EntitySystem
         new(1, -1),
     ];
 
+    private HashSet<EntityUid> _entsOnTile = new();
+
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly TileSystem _tile = default!;
@@ -118,7 +120,9 @@ public sealed class CosmicCorruptingSystem : EntitySystem
 
                 //corrupt all entities on tile
                 var coords = new EntityCoordinates(gridUid, pos + new Vector2(0.5f, 0.5f));
-                foreach (var convertedEnt in _lookup.GetEntitiesInRange(coords, .49f).ToList())
+                _entsOnTile.Clear();
+                _entsOnTile = _lookup.GetEntitiesInRange(coords, .49f).ToHashSet();
+                foreach (var convertedEnt in _entsOnTile)
                 {
                     ConvertEntity(convertedEnt, ent);
                 }
