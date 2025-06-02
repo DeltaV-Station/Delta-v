@@ -67,7 +67,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: SheetGlass1
               amount: 2
             - !type:DeleteEntity {}
@@ -107,10 +107,10 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: SheetGlass1
               amount: 2
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: SheetPlastic1
               amount: 2
             - !type:DeleteEntity {}
@@ -125,7 +125,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: SheetPGlass1
               amount: 2
             - !type:DeleteEntity {}
@@ -149,7 +149,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: SheetUGlass1
               amount: 2
             - !type:DeleteEntity {}
@@ -173,7 +173,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: SheetClockworkGlass1
               amount: 2
             - !type:DeleteEntity {}
@@ -196,7 +196,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: SheetRGlass1
               amount: 2
             - !type:DeleteEntity {}
@@ -229,7 +229,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: SheetRPGlass1
               amount: 2
             - !type:DeleteEntity {}
@@ -252,7 +252,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: SheetRUGlass1
               amount: 2
             - !type:DeleteEntity {}
@@ -269,16 +269,16 @@
               doAfter: 2
             - tool: Anchoring
               doAfter: 3
-    
+
     - node: shuttleWindow
       entity: ShuttleWindow
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: SheetRGlass1
               amount: 2
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: SheetPlasteel1
               amount: 2
             - !type:DeleteEntity {}
