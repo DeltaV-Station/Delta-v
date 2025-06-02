@@ -4,8 +4,8 @@ namespace Content.Shared._DV.Silicon.IPC;
 public sealed partial class SnoutHelmetComponent : Component
 {
     [DataField]
-    public bool? EnableAlternateHelmet = false;
+    public bool EnableAlternateHelmet;
 
-    [DataField(readOnly: true, required: true)]
-    public string ReplacementRace;
+    [DataField(readOnly: true)]
+    public string? ReplacementRace;
 }

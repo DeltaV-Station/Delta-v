@@ -110,7 +110,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         // Begin DeltaV Additions - IPC snouts
         var speciesId = inventory.SpeciesId;
 
-        if (TryComp(args.Equipee, out SnoutHelmetComponent? helmetComponent) && helmetComponent.EnableAlternateHelmet == true) // (== true is required for nullable bool)
+        if (TryComp(args.Equipee, out SnoutHelmetComponent? helmetComponent) && helmetComponent.EnableAlternateHelmet)
             speciesId = helmetComponent.ReplacementRace;
 
         // first attempt to get species specific data.
