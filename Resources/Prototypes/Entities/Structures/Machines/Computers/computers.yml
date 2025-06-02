@@ -510,6 +510,12 @@
     channels:
     - Science
   - type: TechnologyDatabase
+    supportedDisciplines: # DeltaV - don't change it in maps
+    - Industrial
+    - Biochemical
+    - Arsenal
+    - Experimental
+    - CivilianServices
   - type: ActivatableUI
     key: enum.ResearchConsoleUiKey.Key
   - type: UserInterface

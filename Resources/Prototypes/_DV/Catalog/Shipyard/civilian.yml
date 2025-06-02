@@ -33,6 +33,39 @@
   - Medical
 
 - type: vessel
+  id: Eden
+  name: USSPS Eden
+  description: A modestly sized botanical garden with a chemistry lab for pushing the bounds of hydroponics.
+  price: 73500
+  path: /Maps/_DV/Shuttles/USSPS_Eden.yml
+  categories:
+  - Civilian
+  - Medium
+  - Medical
+
+- type: vessel
+  id: Orit
+  name: USSPS Orit
+  description: A small medical vessel designed for the fast search and retrieval of patients in deep space.
+  price: 33000
+  path: /Maps/_DV/Shuttles/USSPS_Orit.yml
+  categories:
+  - Civilian
+  - Small
+  - Medical
+
+- type: vessel
+  id: Miriam
+  name: USSPS Miriam
+  description: A modestly sized medical vessel with all the equipment to operate a cryogenics laboratory.
+  price: 59500
+  path: /Maps/_DV/Shuttles/USSPS_Miriam.yml
+  categories:
+  - Civilian
+  - Medium
+  - Medical
+
+- type: vessel
   id: Prospector
   name: NT-7 Prospector
   description: A small mining vessel designed to assist salvage operations.
