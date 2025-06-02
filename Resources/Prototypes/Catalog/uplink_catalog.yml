@@ -320,18 +320,19 @@
       components:
       - SurplusBundle
 
-- type: listing
-  id: UplinkC4
-  name: uplink-c4-name
-  description: uplink-c4-desc
-  productEntity: C4
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkExplosives
+# DeltaV - Removed in favor of diamond tipped drill
+#- type: listing
+#  id: UplinkC4
+#  name: uplink-c4-name
+#  description: uplink-c4-desc
+#  productEntity: C4
+#  discountCategory: veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 1
+#  cost:
+#    Telecrystal: 2
+#  categories:
+#  - UplinkExplosives
 
 - type: listing
   id: UplinkGrenadierRig
@@ -351,18 +352,19 @@
       tags:
       - NukeOpsUplink
 
-- type: listing
-  id: UplinkC4Bundle
-  name: uplink-c4-bundle-name
-  description: uplink-c4-bundle-desc
-  productEntity: ClothingBackpackDuffelSyndicateC4tBundle
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 8
-  cost:
-    Telecrystal: 12 #you're buying bulk so its a 25% discount, so no additional random discount over it
-  categories:
-  - UplinkExplosives
+# DeltaV - removed in favor of diamond tipped drill
+#- type: listing
+#  id: UplinkC4Bundle
+#  name: uplink-c4-bundle-name
+#  description: uplink-c4-bundle-desc
+#  productEntity: ClothingBackpackDuffelSyndicateC4tBundle
+#  discountCategory: veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 8
+#  cost:
+#    Telecrystal: 12 #you're buying bulk so its a 25% discount, so no additional random discount over it
+#  categories:
+#  - UplinkExplosives
 
 - type: listing
   id: UplinkEmpGrenade
@@ -887,6 +889,20 @@
 #    Telecrystal: 4
 #  categories:
 #  - UplinkDisruption
+
+# DeltaV - Replaced C4 with diamond drill
+- type: listing
+  id: UplinkDrill
+  name: uplink-drill-name
+  description: uplink-drill-desc
+  productEntity: MiningDrillDiamond
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDisruption
 
 - type: listing
   id: UplinkEmag
