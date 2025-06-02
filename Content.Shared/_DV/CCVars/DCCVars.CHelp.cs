@@ -6,7 +6,9 @@ public sealed partial class DCCVars
 {
      /*
      * Curator Help
-     */
+    /*
+    * Curator Help
+    */
     public static readonly CVarDef<string> CHelpSound =
         CVarDef.Create("audio.chelp_sound", "/Audio/_RMC14/Effects/Admin/mhelp.ogg", CVar.ARCHIVE | CVar.CLIENTONLY);
 
