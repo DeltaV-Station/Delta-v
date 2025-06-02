@@ -7,8 +7,8 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Tools.Components;
-
 using Content.Shared.Whitelist; // imp
+
 namespace Content.Shared.Tools.Systems;
 
 public abstract partial class SharedToolSystem
