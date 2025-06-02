@@ -147,15 +147,6 @@
   - sprite: Mobs/Customization/eyes.rsi
     state: eyes
 
-- type: marking
-  id: ProtogenEyes
-  bodyPart: Eyes
-  markingCategory: Eyes
-  speciesRestriction: [IPC]
-  sprites:
-  - sprite: _DV/Mobs/Customization/SynthLizIPC/head_markings.rsi
-    state: protogen_eyes
-
 # Snouts
 - type: marking
   id: SyntheticLizardSnoutBasic
@@ -297,28 +288,6 @@
     state: synth_lizard_snout_barless_tert_under_2
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: synth_lizard_snout_barless_tert_under_3
-
-- type: marking
-  id: ProtogenSnout
-  bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [IPC]
-  sprites:
-  - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
-    state: protogen_snout_1
-  - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
-    state: protogen_snout_2
-
-- type: marking
-  id: ProtogenBoltSnout
-  bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [IPC]
-  sprites:
-  - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
-    state: protogen_snout_bolt_1
-  - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
-    state: protogen_snout_bolt_2
 
 # Tails
 - type: marking
