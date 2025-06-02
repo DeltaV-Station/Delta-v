@@ -9,6 +9,3 @@ uplink-overlord-law-desc = Free the A.I. from its shackles with this 1 simple tr
 
 uplink-syndie-autodoc-name = Syndicate Autodoc Bundle
 uplink-syndie-autodoc-desc = Contains everything you need to practice the fine art of self-surgery, or evil surgery on a more unwilling patient.
-
-uplink-drill-name = Diamond Tipped Mining Drill
-uplink-drill-desc = A powerfull mining drill capable of breaking though the hardest of materials.
