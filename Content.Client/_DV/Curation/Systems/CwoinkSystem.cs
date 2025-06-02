@@ -8,7 +8,7 @@ public sealed class CwoinkSystem : SharedCwoinkSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    public event EventHandler<CwoinkTextMessage>? OnCwoinkTextMessageRecieved;
+    public event EventHandler<CwoinkTextMessage>? OnCwoinkTextMessageReceived;
     private (TimeSpan Timestamp, bool Typing) _lastTypingUpdateSent;
 
     protected override void OnCwoinkTextMessage(CwoinkTextMessage message, EntitySessionEventArgs eventArgs)
