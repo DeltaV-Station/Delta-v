@@ -20,23 +20,19 @@ public sealed class OpenCHelpCommand : LocalizedCommands
         if (args.Length >= 2)
         {
             shell.WriteLine(Help);
-            return;
         }
-        if (args.Length == 0)
+        else if (args.Length == 0)
         {
             _userInterfaceManager.GetUIController<CHelpUIController>().Open();
         }
+        else if (Guid.TryParse(args[0], out var guid))
+        {
+            var targetUser = new NetUserId(guid);
+            _userInterfaceManager.GetUIController<CHelpUIController>().Open(targetUser);
+        }
         else
         {
-            if (Guid.TryParse(args[0], out var guid))
-            {
-                var targetUser = new NetUserId(guid);
-                _userInterfaceManager.GetUIController<CHelpUIController>().Open(targetUser);
-            }
-            else
-            {
-                shell.WriteError(LocalizationManager.GetString($"cmd-{Command}-error"));
-            }
+            shell.WriteError(LocalizationManager.GetString($"cmd-{Command}-error"));
         }
     }
 }
