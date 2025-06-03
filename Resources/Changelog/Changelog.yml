@@ -1,26 +1,4 @@
 ﻿Entries:
-- author: SlamBamActionman
-  changes:
-  - message: Added playtest cvars for mob and stamina damage. Can be changed via changecvar
-      with VVEDIT perms.
-    type: Add
-  id: 8095
-  time: '2025-03-20T23:01:35.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/35599
-- author: K-Dynamic
-  changes:
-  - message: Dragons and carps now fight NT pets, xenos and zombies.
-    type: Fix
-  id: 8096
-  time: '2025-03-21T00:13:01.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/35578
-- author: Moomoobeef
-  changes:
-  - message: New sprite for Singularity Generator.
-    type: Tweak
-  id: 8097
-  time: '2025-03-21T08:48:07.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/31500
 - author: ArtisticRoomba
   changes:
   - message: Fixed organic thermoregulation. Humans, arachnids, moths, etc. will maintain
@@ -3820,6 +3798,16 @@
   id: 8594
   time: '2025-05-31T02:09:17.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/37945
+- author: ScarKy0
+  changes:
+  - message: Priority mail now grants slightly more spesos if delivered on time, and
+      slightly less if done otherwise.
+    type: Tweak
+  - message: Bomb mail now explodes way after and deals slightly more damage.
+    type: Tweak
+  id: 8595
+  time: '2025-06-01T04:28:13.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37986
 - author: TheFlyingSentry
   changes:
   - message: Added a new disability called Monochromacy, total colorblindness.
@@ -3912,3 +3900,11 @@
   id: 8606
   time: '2025-06-02T21:20:40.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/36353
+- author: TheFlyingSentry
+  changes:
+  - message: Electropacks now shock people regardless of if they have insulated gloves
+      or not
+    type: Tweak
+  id: 8609
+  time: '2025-06-03T17:38:07.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38011
