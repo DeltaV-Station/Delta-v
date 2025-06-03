@@ -174,9 +174,7 @@ public sealed class CHelpUIController: UIController, IOnSystemChanged<CwoinkSyst
     {
         var localUser = _playerManager.LocalUser;
         if (localUser == null)
-        {
             return;
-        }
         EnsureUIHelper();
         if (UIHelper!.IsOpen)
             return;
