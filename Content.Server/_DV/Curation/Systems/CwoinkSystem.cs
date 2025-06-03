@@ -89,7 +89,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
     private const string TooLongText = "... **(too long)**";
 
     private int _maxAdditionalChars;
-    private readonly Dictionary<NetUserId, DateTime> _activeConversations = new();
+    private readonly Dictionary<NetUserId, DateTime> _activeConversations = [];
 
     // CHelp config settings
     private bool _useAdminOOCColorInBwoinks = true;
