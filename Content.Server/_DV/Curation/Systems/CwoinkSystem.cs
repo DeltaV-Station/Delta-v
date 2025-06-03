@@ -638,7 +638,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
             UserID = userId, // Frontier, this is used to identify the players in the webhook
             AvatarUrl = string.IsNullOrWhiteSpace(_avatarUrl) ? null : _avatarUrl,
             Embeds = new List<WebhookEmbed>
-            {
+            Embeds = [
                 new()
                 {
                     Description = messages,
@@ -649,7 +649,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
                         IconUrl = string.IsNullOrWhiteSpace(_footerIconUrl) ? null : _footerIconUrl
                     },
                 },
-            },
+            ],
         };
     }
 
