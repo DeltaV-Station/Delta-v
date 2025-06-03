@@ -303,7 +303,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
         var roundTime = _gameTicker.RoundDuration().ToString("hh\\:mm\\:ss");
 
         // Determine the icon based on the status type
-        string icon = statusType switch
+        var icon = statusType switch
         {
             PlayerStatusType.Connected => ":green_circle:",
             PlayerStatusType.Disconnected => ":red_circle:",
