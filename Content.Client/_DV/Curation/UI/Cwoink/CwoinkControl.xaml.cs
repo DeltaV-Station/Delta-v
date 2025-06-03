@@ -183,7 +183,7 @@ public sealed partial class CwoinkControl : Control
         };
     }
 
-    public void OnCwoink(NetUserId channel)
+    public void OnCwoink()
     {
         ChannelSelector.PopulateList();
     }
@@ -218,37 +218,6 @@ public sealed partial class CwoinkControl : Control
 
         Follow.Visible = _adminManager.CanCommand("follow");
         Follow.Disabled = !Follow.Visible || disabled;
-    }
-
-    private string FormatTabTitle(ItemList.Item li, PlayerInfo? pl = default)
-    {
-        pl ??= (PlayerInfo) li.Metadata!;
-        var sb = new StringBuilder();
-        sb.Append(pl.Connected ? '●' : '○');
-        sb.Append(' ');
-        if (CHelpHelper.TryGetChannel(pl.SessionId, out var panel) && panel.Unread > 0)
-        {
-            if (panel.Unread < 11)
-                sb.Append(new Rune('➀' + (panel.Unread-1)));
-            else
-                sb.Append(new Rune(0x2639)); // ☹
-            sb.Append(' ');
-        }
-
-        if (pl.Antag)
-            sb.Append(new Rune(0x1F5E1)); // 🗡
-
-        if (pl.OverallPlaytime <= TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.NewPlayerThreshold)))
-            sb.Append(new Rune(0x23F2)); // ⏲
-
-        sb.AppendFormat("\"{0}\"", pl.CharacterName);
-
-        if (pl.IdentityName != pl.CharacterName && pl.IdentityName != string.Empty)
-            sb.Append(' ').AppendFormat("[{0}]", pl.IdentityName);
-
-        sb.Append(' ').Append(pl.Username);
-
-        return sb.ToString();
     }
 
     private void SwitchToChannel(NetUserId? ch)

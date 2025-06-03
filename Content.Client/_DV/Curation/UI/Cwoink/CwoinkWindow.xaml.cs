@@ -25,12 +25,15 @@ public sealed partial class CwoinkWindow : DefaultWindow
             Title = $"{sel.CharacterName} / {sel.Username} | {Loc.GetString("generic-playtime-title")}: ";
 
             Title = $"{sel.CharacterName} / {sel.Username} | {Loc.GetString("generic-playtime-title")}: "
-                + sel.OverallPlaytime != null ? sel.PlaytimeString : Loc.GetString("generic-unknown-title");
+                + sel.OverallPlaytime != null
+                    ? sel.PlaytimeString
+                    : Loc.GetString("generic-unknown-title");
 
-        OnOpen += () =>
-        {
-            Cwoink.ChannelSelector.StopFiltering();
-            Cwoink.PopulateList();
+            OnOpen += () =>
+            {
+                Cwoink.ChannelSelector.StopFiltering();
+                Cwoink.PopulateList();
+            };
         };
     }
 }

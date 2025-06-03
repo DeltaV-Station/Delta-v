@@ -87,7 +87,7 @@ public sealed class CHelpUIController: UIController, IOnSystemChanged<CwoinkSyst
     public void OnSystemLoaded(CwoinkSystem system)
     {
         _cwoinkSystem = system;
-        _cwoinkSystem.OnCwoinkTextMessageRecieved += ReceivedCwoink;
+        _cwoinkSystem.OnCwoinkTextMessageReceived += ReceivedCwoink;
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.OpenCHelp,
@@ -100,7 +100,7 @@ public sealed class CHelpUIController: UIController, IOnSystemChanged<CwoinkSyst
         CommandBinds.Unregister<CHelpUIController>();
 
         DebugTools.Assert(_cwoinkSystem != null);
-        _cwoinkSystem!.OnCwoinkTextMessageRecieved -= ReceivedCwoink;
+        _cwoinkSystem!.OnCwoinkTextMessageReceived -= ReceivedCwoink;
         _cwoinkSystem = null;
     }
 
@@ -293,17 +293,6 @@ public interface ICHelpUIHandler : IDisposable
     public event Action OnClose;
     public event Action OnOpen;
     public Action<NetUserId, string, bool, bool>? SendMessageAction { get; set; }
-    bool IsCurator { get; }
-    bool IsOpen { get; }
-    void Receive(CwoinkTextMessage message);
-    void Close();
-    void Open(NetUserId netUserId, bool relayActive);
-    void ToggleWindow();
-    void DiscordRelayChanged(bool active);
-    void PeopleTypingUpdated(CwoinkPlayerTypingUpdated args);
-    event Action OnClose;
-    event Action OnOpen;
-    Action<NetUserId, string, bool, bool>? SendMessageAction { get; set; }
     event Action<NetUserId, string>? InputTextChanged;
 }
 
@@ -328,7 +317,7 @@ public sealed class CuratorCHelpUIHandler : ICHelpUIHandler
     {
         var panel = EnsurePanel(message.UserId);
         panel.ReceiveLine(message);
-        Control?.OnCwoink(message.UserId);
+        Control?.OnCwoink();
     }
 
     private void OpenWindow()
@@ -549,8 +538,6 @@ public sealed class UserCHelpUIHandler : ICHelpUIHandler
         {
             TitleClass="windowTitleAlert",
             HeaderClass="windowHeaderCurator",
-            TitleClass = "windowTitleAlert",
-            HeaderClass = "windowHeaderCurator",
             Title = Loc.GetString("cwoink-user-title"),
             MinSize = new Vector2(450, 400),
         };

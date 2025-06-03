@@ -349,15 +349,6 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
         // Enqueue the message for Discord relay
         if (_webhookUrl != string.Empty)
         {
-            // if (!_messageQueues.ContainsKey(session.UserId))
-            //     _messageQueues[session.UserId] = new Queue<string>();
-            //
-            // var escapedText = FormattedMessage.EscapeText(message);
-            // messageParams.Message = escapedText;
-            //
-            // var discordMessage = GenerateAHelpMessage(messageParams);
-            // _messageQueues[session.UserId].Enqueue(discordMessage);
-
             var queue = _messageQueues.GetOrNew(session.UserId);
             var escapedText = FormattedMessage.EscapeText(message);
             messageParams.Message = escapedText;
@@ -637,8 +628,8 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
             Username = username,
             UserID = userId, // Frontier, this is used to identify the players in the webhook
             AvatarUrl = string.IsNullOrWhiteSpace(_avatarUrl) ? null : _avatarUrl,
-            Embeds = new List<WebhookEmbed>
-            Embeds = [
+            Embeds =
+            [
                 new()
                 {
                     Description = messages,
@@ -648,8 +639,8 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
                         Text = $"{serverName} ({round})",
                         IconUrl = string.IsNullOrWhiteSpace(_footerIconUrl) ? null : _footerIconUrl
                     },
-                },
-            ],
+                }
+            ]
         };
     }
 
@@ -977,42 +968,28 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
     }
 }
 
-public sealed class CHelpMessageParams
+public struct CHelpMessageParams(
+    string username,
+    string message,
+    bool isCurator,
+    string roundTime,
+    GameRunLevel roundState,
+    bool playedSound,
+    bool isDiscord = false,
+    bool curatorOnly = false,
+    bool noReceivers = false,
+    string? icon = null)
 {
-    public string Username { get; set; }
-    public string Message { get; set; }
-    public bool IsCurator { get; set; }
-    public string RoundTime { get; set; }
-    public GameRunLevel RoundState { get; set; }
-    public bool PlayedSound { get; set; }
-    public readonly bool CuratorOnly;
-    public bool NoReceivers { get; set; }
-    public bool IsDiscord { get; set; }
-    public string? Icon { get; set; }
-
-    public CHelpMessageParams(
-        string username,
-        string message,
-        bool isCurator,
-        string roundTime,
-        GameRunLevel roundState,
-        bool playedSound,
-        bool isDiscord = false,
-        bool curatorOnly = false,
-        bool noReceivers = false,
-        string? icon = null)
-    {
-        Username = username;
-        Message = message;
-        IsCurator = isCurator;
-        RoundTime = roundTime;
-        RoundState = roundState;
-        IsDiscord = isDiscord;
-        PlayedSound = playedSound;
-        CuratorOnly = curatorOnly;
-        NoReceivers = noReceivers;
-        Icon = icon;
-    }
+    public string Username { get; set; } = username;
+    public string Message { get; set; } = message;
+    public bool IsCurator { get; set; } = isCurator;
+    public string RoundTime { get; set; } = roundTime;
+    public GameRunLevel RoundState { get; set; } = roundState;
+    public bool PlayedSound { get; set; } = playedSound;
+    public readonly bool CuratorOnly = curatorOnly;
+    public bool NoReceivers { get; set; } = noReceivers;
+    public bool IsDiscord { get; set; } = isDiscord;
+    public string? Icon { get; set; } = icon;
 }
 
 public enum PlayerStatusType

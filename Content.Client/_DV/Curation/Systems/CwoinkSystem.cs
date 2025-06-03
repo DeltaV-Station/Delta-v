@@ -13,7 +13,7 @@ public sealed class CwoinkSystem : SharedCwoinkSystem
 
     protected override void OnCwoinkTextMessage(CwoinkTextMessage message, EntitySessionEventArgs eventArgs)
     {
-        OnCwoinkTextMessageRecieved?.Invoke(this, message);
+        OnCwoinkTextMessageReceived?.Invoke(this, message);
     }
 
     public void Send(NetUserId channelId, string text, bool playSound, bool adminOnly)
