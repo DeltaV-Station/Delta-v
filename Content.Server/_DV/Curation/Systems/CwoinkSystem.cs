@@ -100,8 +100,8 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
     private string _discordReplyColor = string.Empty;
 
     // CHelp admin cache
-    private readonly HashSet<INetChannel> _activeCurators = new();
-    private readonly HashSet<INetChannel> _nonAfkCurators = new();
+    private readonly HashSet<INetChannel> _activeCurators = [];
+    private readonly HashSet<INetChannel> _nonAfkCurators = [];
 
     public override void Initialize()
     {
