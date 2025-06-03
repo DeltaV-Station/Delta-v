@@ -100,8 +100,8 @@ public sealed partial class CwoinkControl : Control
             if (newPlayerThreshold <= 0 || info.OverallPlaytime is null && !info.Connected)
                 return false;
 
-            return (info.OverallPlaytime is null
-                    || info.OverallPlaytime < TimeSpan.FromMinutes(newPlayerThreshold));
+            return info.OverallPlaytime is null
+                    || info.OverallPlaytime < TimeSpan.FromMinutes(newPlayerThreshold);
         }
 
         ChannelSelector.Comparison = (a, b) =>
