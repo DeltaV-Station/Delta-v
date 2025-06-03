@@ -793,7 +793,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
             }
         }
 
-        string adminPrefixWebhook = "";
+        var adminPrefixWebhook = string.Empty;
 
         if (_config.GetCVar(CCVars.AhelpAdminPrefixWebhook) && senderAdmin is not null && senderAdmin.Title is not null)
         {
