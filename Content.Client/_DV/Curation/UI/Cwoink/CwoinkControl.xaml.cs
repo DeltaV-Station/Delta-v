@@ -149,11 +149,8 @@ public sealed partial class CwoinkControl : Control
             }
 
             // Sort disconnected players by participation in the round
-            if (!a.Connected && !b.Connected)
-            {
-                if (a.ActiveThisRound != b.ActiveThisRound)
-                    return a.ActiveThisRound ? -1 : 1;
-            }
+            if (a.ActiveThisRound != b.ActiveThisRound)
+                return a.ActiveThisRound ? -1 : 1;
 
             // Finally, sort by the most recent message.
             return bch.LastMessage.CompareTo(ach.LastMessage);
