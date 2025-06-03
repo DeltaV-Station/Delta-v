@@ -450,6 +450,7 @@ public sealed class CuratorCHelpUIHandler : ICHelpUIHandler
 
         return existingPanel;
     }
+
     public bool TryGetChannel(NetUserId ch, [NotNullWhen(true)] out CwoinkPanel? bp) => _activePanelMap.TryGetValue(ch, out bp);
 
     private void SelectChannel(NetUserId uid)
