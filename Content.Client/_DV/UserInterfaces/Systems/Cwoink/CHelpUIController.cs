@@ -549,7 +549,9 @@ public sealed class UserCHelpUIHandler : ICHelpUIHandler
         {
             TitleClass="windowTitleAlert",
             HeaderClass="windowHeaderCurator",
-            Title=Loc.GetString("cwoink-user-title"),
+            TitleClass = "windowTitleAlert",
+            HeaderClass = "windowHeaderCurator",
+            Title = Loc.GetString("cwoink-user-title"),
             MinSize = new Vector2(450, 400),
         };
         _window.OnClose += () => { OnClose?.Invoke(); };
