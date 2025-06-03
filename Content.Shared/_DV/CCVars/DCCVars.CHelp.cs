@@ -1,16 +1,15 @@
+using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 
 namespace Content.Shared._DV.CCVars;
 
 public sealed partial class DCCVars
 {
-     /*
-     * Curator Help
     /*
     * Curator Help
     */
-    public static readonly CVarDef<string> CHelpSound =
-        CVarDef.Create("audio.chelp_sound", "/Audio/_RMC14/Effects/Admin/mhelp.ogg", CVar.ARCHIVE | CVar.CLIENTONLY);
+    public static readonly CVarDef<SoundPathSpecifier> CHelpSound =
+        CVarDef.Create("audio.chelp_sound", new SoundPathSpecifier("/Audio/_RMC14/Effects/Admin/mhelp.ogg"), CVar.ARCHIVE | CVar.CLIENTONLY);
 
     /// <summary>
     ///     URL of the Discord webhook which will relay all chelp messages.

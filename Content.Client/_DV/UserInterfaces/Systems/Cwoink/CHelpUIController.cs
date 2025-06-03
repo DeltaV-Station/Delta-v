@@ -21,6 +21,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
+using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Network;
@@ -45,7 +46,7 @@ public sealed class CHelpUIController: UIController, IOnSystemChanged<CwoinkSyst
     private bool _discordRelayActive;
     private bool _hasUnreadCHelp;
     private bool _cwoinkSoundEnabled;
-    private string? _cHelpSound;
+    private SoundPathSpecifier? _cHelpSound;
 
     public override void Initialize()
     {
