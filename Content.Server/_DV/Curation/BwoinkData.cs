@@ -4,17 +4,6 @@ using Robust.Shared.Network;
 
 namespace Content.Server._DV.Curation;
 
-public sealed class CwoinkActionBody
-{
-    public required string Text { get; init; }
-    public required string Username { get; init; }
-    public required Guid Guid { get; init; }
-    public bool UserOnly { get; init; }
-    public required bool WebhookUpdate { get; init; }
-    public required string RoleName { get; init; }
-    public required string RoleColor { get; init; }
-}
-
 public sealed class CwoinkParams
 {
     public CwoinkTextMessage Message { get; set; }

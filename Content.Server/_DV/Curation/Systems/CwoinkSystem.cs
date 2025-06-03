@@ -675,26 +675,6 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
         }
     }
 
-    // Frontier: webhook text messages
-    public void OnWebhookCwoinkTextMessage(CwoinkTextMessage message, CwoinkActionBody body)
-    {
-        // Note for forks:
-        AdminData webhookAdminData = new();
-
-        var cwoinkParams = new CwoinkParams(
-            message,
-            SystemUserId,
-            webhookAdminData,
-            body.Username,
-            null,
-            body.UserOnly,
-            body.WebhookUpdate,
-            true,
-            body.RoleName,
-            body.RoleColor);
-        OnCwoinkInternal(cwoinkParams);
-    }
-
     protected override void OnCwoinkTextMessage(CwoinkTextMessage message, EntitySessionEventArgs eventArgs)
     {
         base.OnCwoinkTextMessage(message, eventArgs);
