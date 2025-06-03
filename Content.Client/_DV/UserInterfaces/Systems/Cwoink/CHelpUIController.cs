@@ -293,7 +293,18 @@ public interface ICHelpUIHandler : IDisposable
     public event Action OnClose;
     public event Action OnOpen;
     public Action<NetUserId, string, bool, bool>? SendMessageAction { get; set; }
-    public event Action<NetUserId, string>? InputTextChanged;
+    bool IsCurator { get; }
+    bool IsOpen { get; }
+    void Receive(CwoinkTextMessage message);
+    void Close();
+    void Open(NetUserId netUserId, bool relayActive);
+    void ToggleWindow();
+    void DiscordRelayChanged(bool active);
+    void PeopleTypingUpdated(CwoinkPlayerTypingUpdated args);
+    event Action OnClose;
+    event Action OnOpen;
+    Action<NetUserId, string, bool, bool>? SendMessageAction { get; set; }
+    event Action<NetUserId, string>? InputTextChanged;
 }
 
 public sealed class CuratorCHelpUIHandler : ICHelpUIHandler
