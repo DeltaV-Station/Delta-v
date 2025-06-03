@@ -559,7 +559,7 @@ public sealed class UserCHelpUIHandler : ICHelpUIHandler
         _window.Contents.AddChild(_chatPanel);
 
         var introText = Loc.GetString("cwoink-system-introductory-message");
-        var introMessage = new CwoinkTextMessage( _ownerId, SharedCwoinkSystem.SystemUserId, introText);
+        var introMessage = new CwoinkTextMessage(_ownerId, SharedCwoinkSystem.SystemUserId, introText);
         Receive(introMessage);
     }
 
