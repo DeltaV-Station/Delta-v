@@ -63,12 +63,12 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
     private string _avatarUrl = string.Empty;
     private string _serverName = string.Empty;
 
-    private readonly Dictionary<NetUserId, DiscordRelayInteraction> _relayMessages = new();
+    private readonly Dictionary<NetUserId, DiscordRelayInteraction> _relayMessages = [];
 
-    private Dictionary<NetUserId, string> _oldMessageIds = new();
-    private readonly Dictionary<NetUserId, Queue<DiscordRelayedData>> _messageQueues = new();
-    private readonly HashSet<NetUserId> _processingChannels = new();
-    private readonly Dictionary<NetUserId, (TimeSpan Timestamp, bool Typing)> _typingUpdateTimestamps = new();
+    private Dictionary<NetUserId, string> _oldMessageIds = [];
+    private readonly Dictionary<NetUserId, Queue<DiscordRelayedData>> _messageQueues = [];
+    private readonly HashSet<NetUserId> _processingChannels = [];
+    private readonly Dictionary<NetUserId, (TimeSpan Timestamp, bool Typing)> _typingUpdateTimestamps = [];
     private string _overrideClientName = string.Empty;
 
     // Max embed description length is 4096, according to https://discord.com/developers/docs/resources/channel#embed-object-embed-limits
