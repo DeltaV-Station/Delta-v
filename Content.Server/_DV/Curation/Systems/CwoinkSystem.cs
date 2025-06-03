@@ -395,7 +395,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
     {
         if (_typingUpdateTimestamps.TryGetValue(args.SenderSession.UserId, out var tuple) &&
             tuple.Typing == msg.Typing &&
-            tuple.Timestamp + TimeSpan.FromSeconds(1) > _timing.RealTime)
+            _timing.RealTime - tuple.Timestamp < TimeSpan.FromSeconds(1))
         {
             return;
         }
