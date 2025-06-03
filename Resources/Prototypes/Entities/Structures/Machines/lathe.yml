@@ -49,6 +49,12 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
+    supportedDisciplines: # DeltaV - don't add it to every map
+    - Industrial
+    - Biochemical
+    - Arsenal
+    - Experimental
+    - CivilianServices
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -224,7 +230,6 @@
     - SecurityExplosives
     - SecurityEquipment
     - SecurityWeapons
-    - SyringeGuns # DeltaV
 
 - type: entity
   abstract: true # DeltaV - departmental lathes
@@ -586,6 +591,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
 
 - type: entity
   id: Biogenerator
@@ -757,3 +763,4 @@
         - Wooden
         - RawMaterial
         - Plastic
+  - type: OreSiloClient
