@@ -459,13 +459,8 @@ public sealed class CuratorCHelpUIHandler : ICHelpUIHandler
     }
 }
 
-public sealed class UserCHelpUIHandler : ICHelpUIHandler
+public sealed class UserCHelpUIHandler(NetUserId owner) : ICHelpUIHandler
 {
-    private readonly NetUserId _ownerId;
-    public UserCHelpUIHandler(NetUserId owner)
-    {
-        _ownerId = owner;
-    }
     public bool IsCurator => false;
     public bool IsOpen => _window is { Disposed: false, IsOpen: true };
     private DefaultWindow? _window;
@@ -474,7 +469,7 @@ public sealed class UserCHelpUIHandler : ICHelpUIHandler
 
     public void Receive(CwoinkTextMessage message)
     {
-        DebugTools.Assert(message.UserId == _ownerId);
+        DebugTools.Assert(message.UserId == owner);
         EnsureInit(_discordRelayActive);
         _chatPanel!.ReceiveLine(message);
         _window!.OpenCentered();
@@ -532,8 +527,8 @@ public sealed class UserCHelpUIHandler : ICHelpUIHandler
     {
         if (_window is { Disposed: false })
             return;
-        _chatPanel = new CwoinkPanel(text => SendMessageAction?.Invoke(_ownerId, text, true, false));
-        _chatPanel.InputTextChanged += text => InputTextChanged?.Invoke(_ownerId, text);
+        _chatPanel = new CwoinkPanel(text => SendMessageAction?.Invoke(owner, text, true, false));
+        _chatPanel.InputTextChanged += text => InputTextChanged?.Invoke(owner, text);
         _chatPanel.RelayedToDiscordLabel.Visible = relayActive;
         _window = new DefaultWindow()
         {
@@ -547,7 +542,7 @@ public sealed class UserCHelpUIHandler : ICHelpUIHandler
         _window.Contents.AddChild(_chatPanel);
 
         var introText = Loc.GetString("cwoink-system-introductory-message");
-        var introMessage = new CwoinkTextMessage(_ownerId, SharedCwoinkSystem.SystemUserId, introText);
+        var introMessage = new CwoinkTextMessage(owner, SharedCwoinkSystem.SystemUserId, introText);
         Receive(introMessage);
     }
 
