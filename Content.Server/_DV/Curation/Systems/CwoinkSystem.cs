@@ -378,7 +378,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
         }
 
         // Store the Discord message IDs of the previous round
-        _oldMessageIds = new Dictionary<NetUserId, string>();
+        _oldMessageIds.Clear();
         foreach (var (user, interaction) in _relayMessages)
         {
             var id = interaction.Id;
