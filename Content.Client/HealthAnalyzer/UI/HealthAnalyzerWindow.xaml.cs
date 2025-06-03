@@ -241,6 +241,14 @@ namespace Content.Client.HealthAnalyzer.UI
                     MaxWidth = 300
                 });
 
+            if (msg.Uncloneable == true) // DeltaV - Unclonable
+                AlertsContainer.AddChild(new RichTextLabel
+                {
+                    Text = Loc.GetString("health-analyzer-window-entity-uncloneable-text"),
+                    Margin = new Thickness(0, 4),
+                    MaxWidth = 300
+                });
+
             if (unborgable) // DeltaV
                 AlertsContainer.AddChild(new RichTextLabel
                 {
@@ -248,15 +256,6 @@ namespace Content.Client.HealthAnalyzer.UI
                     Margin = new Thickness(0, 4),
                     MaxWidth = 300
                 });
-            // DeltaV - Unclonable Trait added Start
-            if (msg.Uncloneable == true) 
-                AlertsContainer.AddChild(new RichTextLabel
-                {
-                    Text = Loc.GetString("health-analyzer-window-entity-uncloneable-text"),
-                    Margin = new Thickness(0, 4),
-                    MaxWidth = 300
-                });
-            // DeltaV - Unclonable Trait added End
 
             // Damage Groups
 
