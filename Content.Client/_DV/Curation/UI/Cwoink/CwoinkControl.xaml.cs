@@ -70,7 +70,7 @@ public sealed partial class CwoinkControl : Control
             if (CHelpHelper.TryGetChannel(info.SessionId, out var panel) && panel.Unread > 0)
             {
                 if (panel.Unread < 11)
-                    sb.Append(new Rune('➀' + (panel.Unread-1)));
+                    sb.Append(new Rune('➀' + (panel.Unread - 1)));
                 else
                     sb.Append(new Rune(0x2639)); // ☹
                 sb.Append(' ');
