@@ -197,7 +197,7 @@ public sealed partial class CwoinkControl : Control
         // clear filter if we're trying to select a channel for a player that isn't currently filtered
         // i.e. through the message verb.
         var data = new PlayerListData(info);
-        if (!Enumerable.Contains<ListData>(ChannelSelector.PlayerListContainer.Data, data))
+        if (!Enumerable.Contains(ChannelSelector.PlayerListContainer.Data, data))
         {
             ChannelSelector.StopFiltering();
         }
