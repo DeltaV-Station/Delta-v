@@ -108,7 +108,6 @@
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
   - type: TimedDespawn
     lifetime: 10
-  - type: Engraveable # imp
 
 - type: entity
   id: BaseBulletTrigger # Trigger-on-collide bullets
@@ -834,7 +833,6 @@
     totalIntensity: 150 # a ~2 tile radius
     intensitySlope: 5
     maxIntensity: 10
-
 
 - type: entity
   id: BulletGrenadeFlash

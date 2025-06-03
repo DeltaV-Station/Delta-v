@@ -1,11 +1,11 @@
 - type: entity
-  name: Basalisk
+  name: Basilisk
   parent: [BaseItem, BaseGunWieldable]
-  id: WeaponSpecialBasalisk
+  id: WeaponSpecialBasilisk
   description: This odd weapon fires off bursts of pure radiation, using echion as fuel.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Special/basalisk.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Special/Basilisk.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -13,13 +13,13 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Special/basalisk.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Special/basilisk.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Special/basalisk.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Special/basilisk.rsi
     size: Huge
   - type: GunRequiresWield
   - type: Gun
@@ -39,7 +39,7 @@
         maxVol: 75 #10 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
-    proto: BulletRadiationBasalisk
+    proto: BulletRadiationBasilisk
     fireCost: 7.5
   - type: Welder
     fuelSolutionName: chamber
