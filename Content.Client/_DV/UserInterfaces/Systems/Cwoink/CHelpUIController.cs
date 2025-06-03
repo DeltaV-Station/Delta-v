@@ -295,6 +295,7 @@ public interface ICHelpUIHandler : IDisposable
     public Action<NetUserId, string, bool, bool>? SendMessageAction { get; set; }
     public event Action<NetUserId, string>? InputTextChanged;
 }
+
 public sealed class CuratorCHelpUIHandler : ICHelpUIHandler
 {
     private readonly NetUserId _ownerId;
