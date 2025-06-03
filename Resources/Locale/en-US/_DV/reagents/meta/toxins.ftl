@@ -1,0 +1,1 @@
+reagent-desc-heartbreaker-toxin-deltav = A hallucinogenic compound derived from mindbreaker toxin. it blocks neurological signals to the respiratory system, causing asphyxiation. Epinephrine will filter it out, however.
