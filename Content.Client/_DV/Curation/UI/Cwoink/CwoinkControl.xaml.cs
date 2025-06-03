@@ -84,7 +84,9 @@ public sealed partial class CwoinkControl : Control
             if (IsNewPlayer(info))
                 sb.Append(new Rune(0x23F2)); // ⏲
 
-            sb.AppendFormat((string)"\"{0}\"", (object?)text);
+            sb.Append('"');
+            sb.Append(text);
+            sb.Append('"');
 
             return sb.ToString();
         };
