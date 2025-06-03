@@ -17,3 +17,5 @@ reagent-desc-unholy-water = Water treated with blood and sulfur. Just looking at
 
 reagent-name-anodynafil = anodynafil
 reagent-desc-anodynafil = An effective short-lasting anesthetic that doesn't interfere with consciousness, but results in prolonged pain suppression.
+
+reagent-desc-dexalin-deltav = Used for treating minor oxygen deprivation and bloodloss. A required reagent for salbutamol and convermol.
