@@ -27,7 +27,7 @@ public sealed class CwoinkSystem : SharedCwoinkSystem
     public void SendInputTextUpdated(NetUserId channel, bool typing)
     {
         if (_lastTypingUpdateSent.Typing == typing &&
-            _lastTypingUpdateSent.Timestamp + TimeSpan.FromSeconds(1) > _timing.RealTime)
+            _timing.RealTime - _lastTypingUpdateSent.Timestamp < TimeSpan.FromSeconds(1))
         {
             return;
         }
