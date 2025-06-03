@@ -926,7 +926,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
     {
         public string? Id;
 
-        public string Username = String.Empty;
+        public string Username = string.Empty;
 
         public string? CharacterName;
 
