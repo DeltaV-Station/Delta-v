@@ -191,7 +191,7 @@ public sealed partial class CwoinkControl : Control
 
     public void SelectChannel(NetUserId channel)
     {
-        if (!Extensions.TryFirstOrDefault<PlayerInfo>(ChannelSelector.PlayerInfo, i => i.SessionId == channel, out var info))
+        if (!Extensions.TryFirstOrDefault(ChannelSelector.PlayerInfo, i => i.SessionId == channel, out var info))
             return;
 
         // clear filter if we're trying to select a channel for a player that isn't currently filtered
