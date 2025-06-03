@@ -6,7 +6,6 @@
     TraitorObjectiveGroupKill: 1
     TraitorObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
     TraitorObjectiveGroupSocial: 0.5 # DeltaV #Involves helping/harming others without killing them or stealing their stuff
-    TraitorObjectiveGroupSabotage: 1 # DeltaV
     TraitorObjectiveGroupSpecial: .2 # DeltaV
 
 - type: weightedRandom
@@ -17,29 +16,29 @@
     #CMOCrewMonitorStealObjective: 1 # DeltaV - You can buy this + paramedics all have them
     RDHardsuitStealObjective: 1
     NukeDiskStealObjective: 0.25 # DeltaV - was 1
+    PlutoniumCoreStealObjective: 0.5 # DeltaV
     MagbootsStealObjective: 1
     # CorgiMeatStealObjective: 1 # DeltaV - Disable the horrible murder of Ian as an objective
     MantisKnifeStealObjective: 1 # Nyanotrasen - ForensicMantis steal objective, see Resources/Prototypes/Nyanotrasen/Objectives/traitor.yml
     ClipboardStealObjective: 1
+    RdClipboardStealObjective: 1 # DeltaV - Mysta steal Objective see Resources/Prototypes/_DV/Objectives/traitor.yml
     CaptainGunStealObjective: 0.5
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
     #EnergyShotgunStealObjective: 0.5 # DeltaV - replaced by X-01 objective
-    # Begin DeltaV Additions
-    LOLuckyBillStealObjective: 0.5
-    HoPBookIanDossierStealObjective: 1
-    RdClipboardStealObjective: 1
-    BibleMystagogueStealObjective: 0.5
-    HoSGunStealObjective: 0.5
-    PlutoniumCoreStealObjective: 0.5
-    # End DeltaV Additions
+    ClerkNotaryStealObjective: 0.5 # DeltaV
+    LOLuckyBillStealObjective: 0.5 # DeltaV - LO steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
+    HoPBookIanDossierStealObjective: 1 # DeltaV - HoP steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
+    HoSGunStealObjective: 0.5 # DeltaV
+    BibleMystagogueStealObjective: 0.5 # DeltaV - Mysta steal objective see Resources/Prototypes/_DV/Objectives/traitor.yml
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
   weights:
-    TeachLessonRandomPersonObjective: 1 # DeltaV - replaced kill
-    TeachLessonRandomHeadObjective: 0.25 # DeltaV - replaced kill
-    TeachLessonRandomTraitorObjective: 0.2 # DeltaV
+    # KillRandomPersonObjective: 1 # DeltaV Replaced for Teach Lesson
+    TeachLessonRandomPersonObjective: 1
+    KillRandomHeadObjective: 0.25
+    KillRandomTraitorObjective: 0.2 # DeltaV
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState
@@ -53,7 +52,7 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial
   weights:
-    RandomTraitorAliveObjective: 1
+    # RandomTraitorAliveObjective: 1 DeltaV removed for being a less fun version of progress objective.
     RandomTraitorProgressObjective: 1
 
 #Thief groups

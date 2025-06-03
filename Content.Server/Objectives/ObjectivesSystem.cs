@@ -252,8 +252,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         }
     }
 
-    // DeltaV - override shared method
-    public override EntityUid? GetRandomObjective(EntityUid mindId, MindComponent mind, ProtoId<WeightedRandomPrototype> objectiveGroupProto, float maxDifficulty)
+    public EntityUid? GetRandomObjective(EntityUid mindId, MindComponent mind, ProtoId<WeightedRandomPrototype> objectiveGroupProto, float maxDifficulty)
     {
         if (!_prototypeManager.TryIndex(objectiveGroupProto, out var groupsProto))
         {
