@@ -117,7 +117,7 @@ public sealed class CHelpUIController: UIController, IOnSystemChanged<CwoinkSyst
 
     private void ReceivedCwoink(object? sender, CwoinkTextMessage message)
     {
-        Logger.InfoS("c.s.go.es.cwoink", $"@{message.UserId}: {message.Text}");
+        Logger.GetSawmill("c.s.go.es.cwoink").Info($"@{message.UserId}: {message.Text}");
         var localPlayer = _playerManager.LocalSession;
         if (localPlayer == null)
         {
