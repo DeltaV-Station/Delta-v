@@ -238,16 +238,15 @@
     stealGroup: BoxFolderQmClipboard
     owner: job-name-qm
 
-# DeltaV - Removed the knuckledusters from the locker.
-#- type: entity
-#  parent: BaseTraitorStealObjective
-#  id: KnuckleDustersStealObjective
-#  components:
-#  - type: NotJobRequirement
-#    job: Quartermaster
-#  - type: StealCondition
-#    stealGroup: ClothingHandsKnuckleDustersQM
-#    owner: job-name-qm
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: KnuckleDustersStealObjective
+  components:
+  - type: NotJobRequirement
+    job: Quartermaster
+  - type: StealCondition
+    stealGroup: ClothingHandsKnuckleDustersQM
+    owner: job-name-qm
 
 ## hop
 
