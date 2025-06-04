@@ -56,7 +56,6 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
     private string _webhookUrl = string.Empty;
     private WebhookData? _webhookData;
 
-    private ISawmill _sawmill = default!;
     private readonly HttpClient _httpClient = new();
 
     private string _footerIconUrl = string.Empty;

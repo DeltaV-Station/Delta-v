@@ -127,15 +127,15 @@ public sealed partial class CwoinkControl : Control
             if (a.Connected != b.Connected)
                 return a.Connected ? -1 : 1;
 
+            // Sort disconnected players by participation in the round
+            if (a.ActiveThisRound != b.ActiveThisRound)
+                return a.ActiveThisRound ? -1 : 1;
+
             // Sort connected players by whether they have joined the round, then by New Player status, then by Antag status
             if (a.Connected && b.Connected)
             {
                 var aNewPlayer = IsNewPlayer(a);
                 var bNewPlayer = IsNewPlayer(b);
-
-                //  Players who have joined the round will be listed before players in the lobby
-                if (a.ActiveThisRound != b.ActiveThisRound)
-                    return a.ActiveThisRound ? -1 : 1;
 
                 //  Within both the joined group and lobby group, new players will be grouped and listed first
                 if (aNewPlayer != bNewPlayer)
@@ -145,10 +145,6 @@ public sealed partial class CwoinkControl : Control
                 if (a.Antag != b.Antag)
                     return a.Antag ? -1 : 1;
             }
-
-            // Sort disconnected players by participation in the round
-            if (a.ActiveThisRound != b.ActiveThisRound)
-                return a.ActiveThisRound ? -1 : 1;
 
             // Finally, sort by the most recent message.
             return bch.LastMessage.CompareTo(ach.LastMessage);
