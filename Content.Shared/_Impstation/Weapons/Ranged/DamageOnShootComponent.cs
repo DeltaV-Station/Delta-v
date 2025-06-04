@@ -72,5 +72,5 @@ public sealed partial class DamageOnShootComponent : Component
     /// Duration, in seconds, of the stun applied to the user when they interact with the entity and took damage
     /// </summary>
     [DataField]
-    public float StunSeconds = 0.0f;
+    public TimeSpan StunSeconds = 0.0f;
 }
