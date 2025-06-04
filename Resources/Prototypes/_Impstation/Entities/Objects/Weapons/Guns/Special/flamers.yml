@@ -45,7 +45,9 @@
     solutionId: chamber
     proto: BulletFlamethrower
     fireCost: 5
-  - type: Welder
+  - type: SolutionItemStatus
+    solution: chamber
+  - type: SolutionRefuel
     fuelSolutionName: chamber
     fuelReagent: WeldingFuel
   - type: Tag

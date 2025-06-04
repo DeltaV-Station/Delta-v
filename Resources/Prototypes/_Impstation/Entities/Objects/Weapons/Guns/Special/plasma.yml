@@ -49,7 +49,9 @@
     solutionId: chamber
     proto: BulletPlasmaAdder
     fireCost: 6.25
-  - type: Welder
+  - type: SolutionItemStatus
+    solution: chamber
+  - type: SolutionRefuel
     fuelSolutionName: chamber
     fuelReagent: Echion
   - type: ExaminableSolution
