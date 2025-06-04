@@ -532,8 +532,8 @@ public sealed class UserCHelpUIHandler(NetUserId owner) : ICHelpUIHandler
         _chatPanel.RelayedToDiscordLabel.Visible = relayActive;
         _window = new DefaultWindow()
         {
-            TitleClass="windowTitleAlert",
-            HeaderClass="windowHeaderCurator",
+            TitleClass = "windowTitleAlert",
+            HeaderClass = "windowHeaderCurator",
             Title = Loc.GetString("cwoink-user-title"),
             MinSize = new Vector2(450, 400),
         };
