@@ -83,7 +83,6 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
 
     private readonly Queue<(NetUserId Channel, string Text, TimeSpan Timestamp)> _recentMessages = new();
     private const int MaxRecentMessages = 10;
-    private const int SpamCheckMessageCount = 3;
 
     // Text to be used to cut off messages that are too long. Should be shorter than MessageLengthCap
     private const string TooLongText = "... **(too long)**";

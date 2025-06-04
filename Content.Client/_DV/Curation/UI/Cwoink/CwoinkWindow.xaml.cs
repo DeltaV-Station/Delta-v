@@ -22,12 +22,11 @@ public sealed partial class CwoinkWindow : DefaultWindow
                 return;
             }
 
-            Title = $"{sel.CharacterName} / {sel.Username} | {Loc.GetString("generic-playtime-title")}: ";
 
             Title = $"{sel.CharacterName} / {sel.Username} | {Loc.GetString("generic-playtime-title")}: "
-                + sel.OverallPlaytime != null
+                + (sel.OverallPlaytime != null
                     ? sel.PlaytimeString
-                    : Loc.GetString("generic-unknown-title");
+                    : Loc.GetString("generic-unknown-title"));
 
             OnOpen += () =>
             {
