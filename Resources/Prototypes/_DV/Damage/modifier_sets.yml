@@ -84,3 +84,59 @@
     Bloodloss: 0.0
     Cellular: 0.0
     Caustic: 0.0
+
+# Cyborg Damage Modifier Sets
+
+- type: damageModifierSet
+  id: NTBorgLight
+  coefficients:
+    Blunt: .8
+    Slash: .8
+    Piercing: .75
+    Shock: 1.5
+    Heat: .80
+
+- type: damageModifierSet
+  id: NTBorgMedium
+  coefficients:
+    Blunt: .7
+    Slash: .7
+    Piercing: .6
+    Shock: 1.5
+    Heat: .70
+
+- type: damageModifierSet
+  id: NTBorgHeavy
+  coefficients:
+    Blunt: .5
+    Slash: .5
+    Piercing: .5
+    Shock: 1.5
+    Heat: .5
+
+- type: damageModifierSet
+  id: SyndicateBorgLight
+  coefficients:
+    Blunt: .75
+    Slash: .75
+    Piercing: .70
+    Shock: 1.5
+    Heat: .75
+
+- type: damageModifierSet
+  id: SyndicateBorgMedium
+  coefficients:
+    Blunt: .65
+    Slash: .65
+    Piercing: .55
+    Shock: 1.5
+    Heat: .60
+
+- type: damageModifierSet
+  id: SyndicateBorgHeavy
+  coefficients:
+    Blunt: .40
+    Slash: .40
+    Piercing: .40
+    Shock: 1.5
+    Heat: .40

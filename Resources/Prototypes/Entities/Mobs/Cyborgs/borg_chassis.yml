@@ -40,6 +40,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: generic
+  - type: Damageable # DeltaV
+    damageModifierSet: NTBorgLight
 
 - type: entity
   id: BorgChassisMining
@@ -48,6 +50,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: mining
+  - type: Damageable # DeltaV
+    damageModifierSet: NTBorgMedium
 
 - type: entity
   id: BorgChassisEngineer
@@ -56,6 +60,10 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: engineering
+  - type: Damageable # DeltaV
+    damageModifierSet: NTBorgMedium
+  - type: ExplosionResistance # DeltaV - Most likely to encounter mines+Gibtonite
+    damageCoefficient: .60
 
 - type: entity
   id: BorgChassisJanitor
@@ -64,6 +72,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: janitor
+  - type: Damageable # DeltaV
+    damageModifierSet: NTBorgMedium
 
 - type: entity
   id: BorgChassisMedical
@@ -72,6 +82,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: medical
+  - type: Damageable # DeltaV
+    damageModifierSet: NTBorgLight
 
 - type: entity
   id: BorgChassisService
@@ -80,6 +92,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: service
+  - type: Damageable # DeltaV
+    damageModifierSet: NTBorgLight
 
 - type: entity
   id: BorgChassisSyndicateAssault
@@ -112,6 +126,10 @@
       interactFailureString: petting-failure-syndicate-cyborg
       interactSuccessSound:
         path: /Audio/Ambience/Objects/periodic_beep.ogg
+    - type: Damageable # DeltaV
+      damageModifierSet: SyndicateBorgHeavy
+    - type: ExplosionResistance # DeltaV - Might be saved from the RPG
+      damageCoefficent: .5
 
 - type: entity
   id: BorgChassisSyndicateMedical
@@ -151,6 +169,8 @@
         collection: FootstepHoverBorg
         params:
           volume: -6
+    - type: Damageable # DeltaV
+      damageModifierSet: SyndicateBorgLight
 
 - type: entity
   id: BorgChassisSyndicateSaboteur
@@ -187,6 +207,8 @@
       interactFailureString: petting-failure-syndicate-cyborg
       interactSuccessSound:
         path: /Audio/Ambience/Objects/periodic_beep.ogg
+    - type: Damageable # DeltaV
+      damageModifierSet: SyndicateBorgMedium
 
 - type: entity
   id: BorgChassisDerelict
@@ -219,3 +241,5 @@
     interactFailureString: petting-failure-derelict-cyborg
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Damageable # DeltaV
+    damageModifierSet: NTBorgLight
