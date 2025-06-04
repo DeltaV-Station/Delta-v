@@ -25,6 +25,8 @@
   id: MobSecDogLaika
   description: Much like her namesake, Laika is a specimen of indeterminate breed, fresh off the streets and ready to tussle.
   components:
+  - type: Body
+    prototype: K9
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -76,6 +78,11 @@
         1.5
       FollowRange: !type:Single
         2.0
+  - type: SurgeryTarget
+  - type: UserInterface
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
 
 - type: entity
   parent: MobCarp

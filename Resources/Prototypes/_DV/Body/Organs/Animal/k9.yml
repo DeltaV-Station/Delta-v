@@ -1,0 +1,15 @@
+- type: entity
+  id: OrganK9ShockJaws
+  parent: BaseAugment
+  name: k9 shock jaws
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/jaws.rsi
+    state: jaws
+  - type: AugmentJaws
+  - type: Organ
+    slotId: headImplant
+  - type: Tag
+    tags:
+    - Organ
+

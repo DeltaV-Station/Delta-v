@@ -168,3 +168,45 @@
   - type: SurgeryOrganCondition
     organ:
     - type: AugmentArm
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryOpenHeadAugment
+  name: Open cavity for head implant
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepOpenOrganSlot
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Head
+  - type: SurgeryOrganSlotCondition
+    organSlot: headImplant
+    inverse: true
+  - type: SurgeryBodyCondition
+    accepted: [ K9 ]
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryInsertK9Jaws
+  name: Insert K9 Shock Jaws
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepInsertK9ShockJaws
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Head
+  - type: SurgeryOrganCondition
+    organ:
+    - type: AugmentJaws
+    inverse: true
+    reattaching: true
+  - type: SurgeryOrganSlotCondition
+    organSlot: headImplant
+  - type: SurgeryBodyCondition
+    accepted: [ K9 ]

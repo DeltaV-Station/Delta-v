@@ -1,0 +1,17 @@
+- type: entity
+  parent: [ BasePart, BaseHead ]
+  id: HeadK9
+  name: "K9 head"
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Pets/secdog.rsi
+    state: head
+  - type: Damageable
+    damageContainer: Biological
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
