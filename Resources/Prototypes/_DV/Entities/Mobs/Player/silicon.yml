@@ -119,3 +119,15 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: StreamerLaws
+
+- type: entity
+  id: FamilyCircuitBoard
+  parent: BaseElectronics
+  name: law board (Family)
+  description: An electronics board containing the Nanotrasen Family lawset from experimental stations designed to ensure that the crew is cared for.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: FamilyLaws
