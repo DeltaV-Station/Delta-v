@@ -4,8 +4,19 @@
   name: basic medicine bottle box
   description: A box full of bottles with medicine.
   components:
-  - type: StorageFill
-    contents:
+  - type: Sprite
+    layers:
+    - state: box
+    - state: bottle
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxBottleMedicineBasic
+
+- type: entityTable
+  id: FillBoxBottleMedicineBasic
+  table: !type:AllSelector
+    children:
     - id: ChemistryBottleBruizine
     - id: ChemistryBottleLacerinol
     - id: ChemistryBottlePuncturase
@@ -14,20 +25,26 @@
     - id: ChemistryBottleDiphenhydramine
     - id: ChemistryBottleOmnizine
     - id: ChemistryBottleEphedrine
-      amount: 2
-  - type: Sprite
-    layers:
-    - state: box
-    - state: bottle
+      amount: !type:ConstantNumberSelector
+        value: 2
 
 - type: entity
   parent: BoxBottleMedicineBasic
   id: BoxBottleMedicineAdvanced
   name: advanced medicine bottle box
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxBottleMedicineAdvanced
+
+- type: entityTable
+  id: FillBoxBottleMedicineAdvanced
+  table: !type:AllSelector
+    children:
     - id: ChemistryBottleOmnizine
-      amount: 7
+      amount: !type:ConstantNumberSelector
+        value: 7
     - id: ChemistryBottleEphedrine
-      amount: 2
+      amount: !type:ConstantNumberSelector
+        value: 2

@@ -4,12 +4,19 @@
   id: BoxPDASecurity
   description: A box of spare PDA microcomputers for the security department.
   components:
-  - type: StorageFill
-    contents:
-      - id: SecurityPDA
-      - id: DetectivePDA
-      - id: WardenPDA
-      - id: SeniorOfficerPDA
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxPDASecurity
+
+- type: entityTable
+  id: FillBoxPDASecurity
+  table: !type:AllSelector
+    children:
+    - id: SecurityPDA
+    - id: DetectivePDA
+    - id: WardenPDA
+    - id: SeniorOfficerPDA
 
 - type: entity
   name: prisoner PDA box
@@ -17,10 +24,18 @@
   id: BoxPDAPrisoner
   description: A box of spare PDA microcomputers for the warden to use for prisoners.
   components:
-  - type: StorageFill
-    contents:
-      - id: PrisonerPDA
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxPDAPrisoner
+
+- type: entityTable
+  id: FillBoxPDAPrisoner
+  table: !type:AllSelector
+    children:
+    - id: PrisonerPDA
+      amount: !type:ConstantNumberSelector
+        value: 4
 
 - type: entity
   name: medical PDA box
@@ -28,12 +43,19 @@
   id: BoxPDAMedical
   description: A box of spare PDA microcomputers for the medical department.
   components:
-  - type: StorageFill
-    contents:
-      - id: MedicalPDA
-      - id: ChemistryPDA
-      - id: ParamedicPDA
-      - id: SeniorPhysicianPDA
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxPDAMedical
+
+- type: entityTable
+  id: FillBoxPDAMedical
+  table: !type:AllSelector
+    children:
+    - id: MedicalPDA
+    - id: ChemistryPDA
+    - id: ParamedicPDA
+    - id: SeniorPhysicianPDA
 
 - type: entity
   name: epistemics PDA box
@@ -41,12 +63,19 @@
   id: BoxPDAScience
   description: A box of spare PDA microcomputers for the epistemics department.
   components:
-  - type: StorageFill
-    contents:
-      - id: SciencePDA
-      - id: PsionicMantisPDA
-      - id: ChaplainPDA
-      - id: SeniorResearcherPDA
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxPDAScience
+
+- type: entityTable
+  id: FillBoxPDAScience
+  table: !type:AllSelector
+    children:
+    - id: SciencePDA
+    - id: PsionicMantisPDA
+    - id: ChaplainPDA
+    - id: SeniorResearcherPDA
 
 - type: entity
   name: engineering PDA box
@@ -54,12 +83,19 @@
   id: BoxPDAEngineering
   description: A box of spare PDA microcomputers for the engineering department.
   components:
-  - type: StorageFill
-    contents:
-      - id: EngineerPDA
-      - id: AtmosPDA
-      - id: SeniorEngineerPDA
-      - id: TechnicalAssistantPDA
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxPDAEngineering
+
+- type: entityTable
+  id: FillBoxPDAEngineering
+  table: !type:AllSelector
+    children:
+    - id: EngineerPDA
+    - id: AtmosPDA
+    - id: SeniorEngineerPDA
+    - id: TechnicalAssistantPDA
 
 - type: entity
   name: logistics PDA box
@@ -67,13 +103,22 @@
   id: BoxPDACargo
   description: A box of spare PDA microcomputers for the logistics department.
   components:
-  - type: StorageFill
-    contents:
-      - id: CargoPDA
-        amount: 2
-      - id: SalvagePDA
-      - id: MailCarrierPDA
-        amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxPDACargo
+
+- type: entityTable
+  id: FillBoxPDACargo
+  table: !type:AllSelector
+    children:
+    - id: CargoPDA
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: SalvagePDA
+    - id: MailCarrierPDA
+      amount: !type:ConstantNumberSelector
+        value: 1
 
 - type: entity
   name: justice PDA box
@@ -81,9 +126,17 @@
   id: BoxPDAJustice
   description: A box of spare PDA microcomputers for the justice department.
   components:
-  - type: StorageFill
-    contents:
-      - id: LawyerPDA
-        amount: 2
-      - id: ProsecutorPDA
-      - id: ClerkPDA
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxPDAJustice
+
+- type: entityTable
+  id: FillBoxPDAJustice
+  table: !type:AllSelector
+    children:
+    - id: LawyerPDA
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: ProsecutorPDA
+    - id: ClerkPDA
