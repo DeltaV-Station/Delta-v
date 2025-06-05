@@ -1,4 +1,5 @@
 using Content.Shared._DV.Grappling.EntitySystems;
+using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
 using Robust.Shared.GameStates;
@@ -44,3 +45,8 @@ public sealed partial class GrappledComponent : Component
 /// <param name="Name">Name of the hand.</param>
 /// <param name="Location">Location of the hand.</param>
 public sealed record DisabledHand(string Name, HandLocation Location);
+
+/// <summary>
+/// Raised when a player manually clicks the grappled icon to begin attempting to escape.
+/// </summary>
+public sealed partial class EscapeGrappleAlertEvent : BaseAlertEvent;
