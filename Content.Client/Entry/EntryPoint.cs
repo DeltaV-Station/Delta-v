@@ -124,6 +124,8 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("alertLevels");
             _prototypeManager.RegisterIgnore("nukeopsRole");
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");
+            _prototypeManager.RegisterIgnore("codewordGenerator");
+            _prototypeManager.RegisterIgnore("codewordFaction");
             // Begin DeltaV Additions
             _prototypeManager.RegisterIgnore("candyFlavor");
             _prototypeManager.RegisterIgnore("mappingCategory");
