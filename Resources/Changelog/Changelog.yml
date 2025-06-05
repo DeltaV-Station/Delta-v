@@ -1,22 +1,6 @@
 ﻿Entries:
 - author: slarticodefast
   changes:
-  - message: Ghosts of paradox clones now have a name modifier so they can be distinguished
-      by other ghosts.
-    type: Tweak
-  id: 8108
-  time: '2025-03-26T15:30:14.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/35940
-- author: slarticodefast
-  changes:
-  - message: Paradox clones of nuclear operatives and head revolutionaries now have
-      the corresponding faction icon and need to be killed for a crew major victory.
-    type: Fix
-  id: 8109
-  time: '2025-03-26T15:34:19.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/35910
-- author: slarticodefast
-  changes:
   - message: Further improved item copying for paradox clones.
     type: Tweak
   id: 8110
@@ -3826,6 +3810,25 @@
   id: 8606
   time: '2025-06-02T21:20:40.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/36353
+- author: ScarKy0
+  changes:
+  - message: Directional reinforced plasma and uranium windows are now correctly more
+      durable than regular directional reinforced windows.
+    type: Fix
+  - message: Directional uranium windows can no longer be deconstructed with an RCD.
+    type: Fix
+  id: 8607
+  time: '2025-06-03T11:49:57.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38038
+- author: Hitlinemoss
+  changes:
+  - message: Most cargo food orders are now more expensive.
+    type: Tweak
+  - message: Disaster pizza deliveries and softdrinks bulk crates have been removed.
+    type: Remove
+  id: 8608
+  time: '2025-06-03T16:01:07.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38006
 - author: TheFlyingSentry
   changes:
   - message: Electropacks now shock people regardless of if they have insulated gloves
@@ -3841,6 +3844,14 @@
   id: 8610
   time: '2025-06-03T18:13:00.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/37979
+- author: ScarKy0
+  changes:
+  - message: Increased the health of uranium windows, making them a reasonable upgrade
+      over regular plasma.
+    type: Tweak
+  id: 8611
+  time: '2025-06-03T18:20:09.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38040
 - author: Moomoobeef
   changes:
   - message: Nanotask printouts now look much nicer!
@@ -3848,6 +3859,13 @@
   id: 8612
   time: '2025-06-04T08:16:15.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/37805
+- author: TheCactus, ilovehans10
+  changes:
+  - message: Added text highlighting.
+    type: Add
+  id: 8613
+  time: '2025-06-04T10:12:37.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/31442
 - author: SlamBamActionman
   changes:
   - message: Diona can now root, keeping them from slipping but absorbing fluids from
@@ -3892,3 +3910,17 @@
   id: 8619
   time: '2025-06-05T23:19:41.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/37928
+- author: Gentleman-Bird
+  changes:
+  - message: Fixed the "create soap" recipe so it can actually be made
+    type: Fix
+  id: 8620
+  time: '2025-06-05T23:20:44.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37923
+- author: Hitlinemoss
+  changes:
+  - message: The security mime mask has been added to the SecDrobe's manager inventory.
+    type: Add
+  id: 8621
+  time: '2025-06-05T23:23:14.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37890
