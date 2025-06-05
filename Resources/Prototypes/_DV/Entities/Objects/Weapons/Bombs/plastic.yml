@@ -22,7 +22,7 @@
     canToggleStartOnStick: true
   - type: Explosive
     explosionType: DemolitionCharge
-    totalIntensity: 10
+    totalIntensity: 5 # Enough to get though a reinforced wall but not the girder
     intensitySlope: 10
-    maxIntensity: 10
+    maxIntensity: 5
     canCreateVacuum: false
