@@ -3,8 +3,15 @@
   id: LockerChiefJusticeFilled
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerChiefJustice
+
+- type: entityTable
+  id: FillLockerChiefJustice
+  table: !type:AllSelector
+    children:
     - id: ClothingHeadsetAltJustice
     - id: ClothingNeckCloakCJ
     - id: ClothingNeckMantleCJ
@@ -13,7 +20,8 @@
     - id: ClothingUniformJumpskirtCJFormal
     - id: ClothingUniformJumpsuitChiefJusticeWhite
     - id: PaperStationWarrant
-      amount: 10
+      amount: !type:ConstantNumberSelector
+        value: 10
     - id: BoxPDAJustice
     - id: BoxEncryptionKeyJustice
     - id: ChiefJusticeIDCard
@@ -21,7 +29,7 @@
     - id: Gavel
     - id: RubberStampChiefJustice
     - id: CargoRequestJusticeComputerCircuitboard
-    - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
+    - id: LunchboxCommandFilledRandom
       prob: 0.3
     - id: RubberStampApproved
     - id: RubberStampDenied

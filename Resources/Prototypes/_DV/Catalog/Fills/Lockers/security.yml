@@ -3,56 +3,99 @@
   id: GunSafePistolUniversal
   name: mk32 safe
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillGunSafePistolUniversal
+
+- type: entityTable
+  id: FillGunSafePistolUniversal
+  table: !type:AllSelector
+    children:
     - id: WeaponPistolUniversal
-      amount: 2
+      amount: !type:ConstantNumberSelector
+        value: 2
     - id: MagazineUniversalMagnum
-      amount: 4
+      amount: !type:ConstantNumberSelector
+        value: 4
 
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeSniperGrand
   name: mark 1 rifle safe
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillGunSafeSniperGrand
+
+- type: entityTable
+  id: FillGunSafeSniperGrand
+  table: !type:AllSelector
+    children:
     - id: WeaponSniperGrand
-      amount: 2
+      amount: !type:ConstantNumberSelector
+        value: 2
     - id: SpeedLoaderLightRifle
-      amount: 4
+      amount: !type:ConstantNumberSelector
+        value: 4
 
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeVulcanRifle
   name: vulcan safe
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillGunSafeVulcanRifle
+
+- type: entityTable
+  id: FillGunSafeVulcanRifle
+  table: !type:AllSelector
+    children:
     - id: WeaponRifleVulcan
-      amount: 2
+      amount: !type:ConstantNumberSelector
+        value: 2
     - id: MagazineLightRifle
-      amount: 4
+      amount: !type:ConstantNumberSelector
+        value: 4
 
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeAdjutantShotgun
   name: adjutant safe
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillGunSafeAdjutantShotgun
+
+- type: entityTable
+  id: FillGunSafeAdjutantShotgun
+  table: !type:AllSelector
+    children:
     - id: WeaponShotgunAdjutant
-      amount: 2
+      amount: !type:ConstantNumberSelector
+        value: 2
     - id: MagazineShotgun
-      amount: 4
+      amount: !type:ConstantNumberSelector
+        value: 4
 
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeEnergyGun
   name: energy gun safe
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillGunSafeEnergyGun
+
+- type: entityTable
+  id: FillGunSafeEnergyGun
+  table: !type:AllSelector
+    children:
     - id: WeaponEnergyGun
       amount: 3
 
@@ -61,8 +104,15 @@
   id: GunSafeEnergyGunMini
   name: miniature energy gun safe
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillGunSafeEnergyGunMini
+
+- type: entityTable
+  id: FillGunSafeEnergyGunMini
+  table: !type:AllSelector
+    children:
     - id: WeaponEnergyGunMini
       amount: 3
 
@@ -71,20 +121,36 @@
   id: GunSafeM90Rifle
   name: M-90 rifle safe
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillGunSafeM90Rifle
+
+- type: entityTable
+  id: FillGunSafeM90Rifle
+  table: !type:AllSelector
+    children:
     - id: WeaponRifleM90
-      amount: 2
+      amount: !type:ConstantNumberSelector
+        value: 2
     - id: MagazineRifle
-      amount: 4
+      amount: !type:ConstantNumberSelector
+        value: 4
 
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeRocketLauncher
   name: RPG safe
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: RPGTable
+
+- type: entityTable
+  id: RPGTable
+  table: !type:AllSelector
+    children:
     - id: WeaponLauncherRocket
     - id: CartridgeRocket
       prob: 0.2
@@ -94,8 +160,15 @@
   id: GunSafeBeamDevastator
   name: Devastator safe
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: BeamDevastatorTable
+
+- type: entityTable
+  id: BeamDevastatorTable
+  table: !type:AllSelector
+    children:
     - id: WeaponBeamDevastator
 
 - type: entityTable
@@ -124,3 +197,12 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: GamblagatorTable
+
+- type: entityTable
+  id: GamblagatorTable
+  table: !type:AllSelector
+    children:
+    - id: WeaponSniperGamblagator
+    - id: GamblagatorCapacitor
+      amount: !type:ConstantNumberSelector
+        value: 4

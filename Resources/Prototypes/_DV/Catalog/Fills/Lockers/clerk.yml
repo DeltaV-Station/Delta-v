@@ -3,8 +3,15 @@
   id: LockerClerkFilled
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerClerk
+
+- type: entityTable
+  id: FillLockerClerk
+  table: !type:AllSelector
+    children:
     - id: ClothingOuterClerkVest
     - id: PaperStationWarrant
       amount: 10
