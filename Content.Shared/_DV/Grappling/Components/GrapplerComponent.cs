@@ -1,6 +1,8 @@
 using Content.Shared._DV.Grappling.EntitySystems;
+using Content.Shared.Alert;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Grappling.Components;
 
@@ -60,6 +62,12 @@ public sealed partial class GrapplerComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan CooldownEnd;
+
+    /// <summary>
+    /// Which alert to show when a victim is grappled.
+    /// </summary>
+    [DataField]
+    public ProtoId<AlertPrototype> GrappledAlert = "Grappled";
 }
 
 /// <summary>

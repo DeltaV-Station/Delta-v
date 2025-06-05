@@ -6,6 +6,7 @@ using Content.Shared._DV.Grappling.Components;
 using Content.Shared._DV.Grappling.EntitySystems;
 using Content.Shared._DV.Grappling.Events;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Alert;
 using Content.Shared.CombatMode;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
@@ -29,6 +30,7 @@ namespace Content.Server._DV.Grappling.EntitySystems;
 public sealed partial class GrapplingSystem : SharedGrapplingSystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly AudioSystem _audioSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
@@ -48,10 +50,12 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
 
         SubscribeLocalEvent<GrapplerComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<GrapplerComponent, PullStoppedMessage>(OnPullStopped);
+        SubscribeLocalEvent<GrapplerComponent, EscapeGrappleAlertEvent>(OnEscapeGrapplerAlert);
 
         SubscribeLocalEvent<GrappledComponent, ComponentShutdown>(OnGrappledShutdown);
         SubscribeLocalEvent<GrappledComponent, MoveInputEvent>(OnGrappledMove);
         SubscribeLocalEvent<GrappledComponent, GrappledEscapeDoAfter>(OnEscapeDoAfter);
+        SubscribeLocalEvent<GrappledComponent, EscapeGrappleAlertEvent>(OnEscapeGrappledAlert);
     }
 
     /// <summary>
@@ -188,6 +192,9 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
             PopupType.MediumCaution);
 
         _audioSystem.PlayPvs(grappler.Comp.GrappleSound, victim);
+
+        _alerts.ShowAlert(grappler, grappler.Comp.GrappledAlert);
+        _alerts.ShowAlert(victim, grappler.Comp.GrappledAlert);
     }
 
     /// <summary>
@@ -304,6 +311,15 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         if (!args.HasDirectionalMovement)
             return;
 
+        BeginEscapeAttempt(grappled);
+    }
+
+    /// <summary>
+    /// Handles starting an escape attempt.
+    /// </summary>
+    /// <param name="grappled">Entity beginning the escape.</param>
+    private void BeginEscapeAttempt(Entity<GrappledComponent> grappled)
+    {
         if (!TryComp<GrapplerComponent>(grappled.Comp.Grappler, out var grappler))
             return; // Somehow grappled by a non-grappler?
 
@@ -348,6 +364,26 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
             return; // Somehow not a grappler for this entity?
 
         ReleaseGrapple((grappled.Comp.Grappler, grappler), grappled, manualRelease: false, cleanupPulling: true);
+    }
+
+    /// <summary>
+    /// Handles when a grappled player clicks the grappled alert, beginning an escape attempt.
+    /// </summary>
+    /// <param name="grappled">Grappled player entity which triggered the escape attempt.</param>
+    /// <param name="args">Args for the event.</param>
+    private void OnEscapeGrappledAlert(Entity<GrappledComponent> grappled, ref EscapeGrappleAlertEvent args)
+    {
+        BeginEscapeAttempt(grappled);
+    }
+
+    /// <summary>
+    /// Handles when a grappler player clicks the grappled alert, beginning an escape attempt.
+    /// </summary>
+    /// <param name="grappled">Grappler player entity which has stopped grappling.</param>
+    /// <param name="args">Args for the event.</param>
+    private void OnEscapeGrapplerAlert(Entity<GrapplerComponent> grappler, ref EscapeGrappleAlertEvent args)
+    {
+        ReleaseGrapple(grappler.AsNullable(), manualRelease: true);
     }
 
     /// <summary>
@@ -408,5 +444,8 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         // Cleanup the grappling on the victim
         RemComp<GrappledComponent>(victim);
         _actionBlockerSystem.UpdateCanMove(victim); // Must be done AFTER the component is removed.
+
+        _alerts.ClearAlert(grappler, grappler.Comp.GrappledAlert);
+        _alerts.ClearAlert(victim, grappler.Comp.GrappledAlert);
     }
 }
