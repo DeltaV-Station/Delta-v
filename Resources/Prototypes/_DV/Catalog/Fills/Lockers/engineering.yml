@@ -1,0 +1,21 @@
+- type: entityTable
+  id: FillLockerEngineerDeltaV
+  table: !type:AllSelector
+    children:
+    - id: LunchboxEngineeringFilledRandom
+      prob: 0.3
+
+- type: entityTable
+  id: FillLockerAtmosphericsDeltaV
+  table: !type:AllSelector
+    children:
+    - id: ClothingHandsGlovesColorYellow
+    - id: DoorRemoteFirefight
+    - id: LunchboxEngineeringFilledRandom
+      prob: 0.3
+
+- type: entityTable
+  id: FillAtmosphericsHardsuitDeltaV
+  table: !type:AllSelector
+    children:
+    - id: ClothingShoesBootsMag

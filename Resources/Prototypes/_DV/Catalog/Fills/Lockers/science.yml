@@ -1,0 +1,6 @@
+- type: entityTable
+  id: FillLockerScientistDeltaV
+  table: !type:AllSelector
+    children:
+    - id: LunchboxEpistemicsFilledRandom
+      prob: 0.3

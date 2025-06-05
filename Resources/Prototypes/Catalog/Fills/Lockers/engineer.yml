@@ -150,6 +150,8 @@
   id: FillLockerAtmospherics
   table: !type:AllSelector
     children:
+    - !type:NestedSelector # DeltaV - Our additions
+      tableId: FillLockerAtmosphericsDeltaV
     - id: ClothingMaskGasAtmos
     - id: ClothingOuterSuitAtmosFire
     - id: ClothingHeadHelmetAtmosFire
@@ -164,6 +166,8 @@
   id: FillAtmosphericsHardsuit
   table: !type:AllSelector
     children:
+    - !type:NestedSelector # DeltaV - Our additions
+      tableId: FillAtmosphericsHardsuitDeltaV
     - id: ClothingOuterHardsuitAtmos
     - id: OxygenTankFilled
     - id: ClothingMaskBreath

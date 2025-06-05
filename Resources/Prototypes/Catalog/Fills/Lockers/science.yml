@@ -12,6 +12,8 @@
   id: FillLockerScientist
   table: !type:AllSelector
     children:
+    - !type:NestedSelector # DeltaV - Our additions
+      tableId: FillLockerScientistDeltaV
     - id: ClothingHandsGlovesLatex
     - id: ClothingHeadsetScience
     - id: ClothingMaskSterile
