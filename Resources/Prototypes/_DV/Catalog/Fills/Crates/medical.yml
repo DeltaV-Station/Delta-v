@@ -4,10 +4,18 @@
   name: radio implant crate
   description: Communicate without having a pesky headset on your ear.
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillCrateGenericRadioImplants
+
+- type: entityTable
+  id: FillCrateGenericRadioImplants
+  table: !type:AllSelector
+    children:
     - id: GenericRadioImplanter
-      amount: 3
+      amount: !type:ConstantNumberSelector
+        value: 3
 
 - type: entity
   id: CratePainkillerBottles
@@ -15,7 +23,15 @@
   name: painkiller crate
   description: Running out of these is not an option.
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillCratePainkillerBottles
+
+- type: entityTable
+  id: FillCratePainkillerBottles
+  table: !type:AllSelector
+    children:
     - id: PillCanisterStubantazine
-      amount: 3
+      amount: !type:ConstantNumberSelector
+        value: 3
