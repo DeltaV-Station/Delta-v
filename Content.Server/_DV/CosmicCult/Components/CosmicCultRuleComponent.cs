@@ -66,6 +66,9 @@ public sealed partial class CosmicCultRuleComponent : Component
     public bool WinLocked;
 
     [DataField]
+    public bool RiftStop;
+
+    [DataField]
     public WinType WinType = WinType.CrewMinor;
 
     /// <summary>

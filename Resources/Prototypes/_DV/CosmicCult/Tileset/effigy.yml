@@ -1,0 +1,64 @@
+##################### PILLAR
+- type: entity
+  parent: BaseStructure
+  id: CosmicEffigy
+  name: effigy of entropy
+  description: lorem ipsum
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Tileset/cosmiceffigy.rsi
+    offset: 0, 0.5
+    layers:
+    - state: unshaded_bg
+      shader: unshaded
+    - state: base
+    - state: unshaded_fg
+      shader: unshaded
+    drawdepth: Mobs
+    noRot: true
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-forthecult
+  - type: CosmicCorrupting
+    corruptionReduction: 0.02
+    enabled: true
+    floodFillStarting: true
+    corruptionMaxTicks: 12
+    corruptionSpeed: 1.25
+  - type: InteractionOutline
+  - type: SpriteFade
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.1,0.2,0.375"
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PointLight
+    color: "#42a4ae"
+    radius: 4
+    energy: 4
+    castShadows: true
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 2.25
+      maxDuration: 2.25
+      startValue: 2
+      endValue: 5
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
+
