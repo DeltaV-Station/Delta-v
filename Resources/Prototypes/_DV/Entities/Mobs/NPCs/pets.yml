@@ -81,6 +81,8 @@
   - type: SurgeryTarget
   - type: UserInterface
     interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
 
