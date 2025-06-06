@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 06/06/2025 15:05:43
-  entityCount: 8734
+  time: 06/06/2025 16:40:26
+  entityCount: 8765
 maps: []
 grids:
 - 1
@@ -3907,8 +3907,8 @@ entities:
             0: 65293
           5,4:
             0: 6
-            3: 8704
-            4: 34816
+            2: 8704
+            3: 34816
           6,0:
             0: 4095
           6,1:
@@ -3916,11 +3916,11 @@ entities:
           6,2:
             0: 26374
           6,3:
-            2: 65520
+            4: 65520
           6,-1:
             0: 65295
           6,4:
-            2: 15
+            4: 15
             0: 8736
           7,0:
             0: 255
@@ -4055,7 +4055,7 @@ entities:
           -7,-5:
             0: 46011
           -7,-3:
-            2: 32
+            4: 32
             0: 57480
           -7,-2:
             0: 61166
@@ -4123,14 +4123,14 @@ entities:
             0: 61713
           11,1:
             0: 497
-            2: 49152
+            4: 49152
           11,-1:
             0: 4593
           10,-2:
             0: 65280
           11,-2:
             0: 61696
-            2: 192
+            4: 192
           0,9:
             0: 13107
           -1,9:
@@ -4301,6 +4301,36 @@ entities:
           - 0
           - 0
         - volume: 2500
+          temperature: 293.15
+          moles:
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
           immutable: True
           moles:
           - 0
@@ -4315,40 +4345,11 @@ entities:
           - 0
           - 0
           - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
+    - type: NavMap
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 6549
@@ -5510,7 +5511,6 @@ entities:
     - type: MetaData
       name: Engineering Exterior Airlock
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 25.5,17.5
       parent: 1
     - type: DeviceLinkSink
@@ -5525,12 +5525,8 @@ entities:
     - type: MetaData
       name: Engineering Interior Airlock
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 25.5,20.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -23577.229
-      state: Opening
     - type: DeviceLinkSink
       invokeCounter: 1
     - type: DeviceLinkSource
@@ -5538,8 +5534,6 @@ entities:
         5198:
         - - DoorStatus
           - DoorBolt
-      lastSignals:
-        DoorStatus: True
 - proto: AirlockExternalGlassShuttleEmergencyLocked
   entities:
   - uid: 461
@@ -12759,6 +12753,41 @@ entities:
     components:
     - type: Transform
       pos: 19.5,23.5
+      parent: 1
+  - uid: 8759
+    components:
+    - type: Transform
+      pos: 7.5,-9.5
+      parent: 1
+  - uid: 8760
+    components:
+    - type: Transform
+      pos: 6.5,-9.5
+      parent: 1
+  - uid: 8761
+    components:
+    - type: Transform
+      pos: 5.5,-9.5
+      parent: 1
+  - uid: 8762
+    components:
+    - type: Transform
+      pos: 4.5,-9.5
+      parent: 1
+  - uid: 8763
+    components:
+    - type: Transform
+      pos: 3.5,-9.5
+      parent: 1
+  - uid: 8764
+    components:
+    - type: Transform
+      pos: 2.5,-9.5
+      parent: 1
+  - uid: 8765
+    components:
+    - type: Transform
+      pos: 1.5,-9.5
       parent: 1
 - proto: CableApcStack
   entities:
@@ -22105,6 +22134,174 @@ entities:
     components:
     - type: Transform
       pos: -11.5,-5.5
+      parent: 1
+- proto: DefaultStationBeaconAICore
+  entities:
+  - uid: 8735
+    components:
+    - type: Transform
+      pos: -4.5,21.5
+      parent: 1
+- proto: DefaultStationBeaconAnchor
+  entities:
+  - uid: 8736
+    components:
+    - type: Transform
+      pos: 17.5,28.5
+      parent: 1
+- proto: DefaultStationBeaconArrivals
+  entities:
+  - uid: 8737
+    components:
+    - type: Transform
+      pos: 42.5,0.5
+      parent: 1
+- proto: DefaultStationBeaconAtmospherics
+  entities:
+  - uid: 8743
+    components:
+    - type: Transform
+      pos: 22.5,22.5
+      parent: 1
+- proto: DefaultStationBeaconBar
+  entities:
+  - uid: 8739
+    components:
+    - type: Transform
+      pos: -24.5,19.5
+      parent: 1
+- proto: DefaultStationBeaconBoxing
+  entities:
+  - uid: 8740
+    components:
+    - type: Transform
+      pos: -15.5,-30.5
+      parent: 1
+- proto: DefaultStationBeaconBrig
+  entities:
+  - uid: 8741
+    components:
+    - type: Transform
+      pos: 17.5,8.5
+      parent: 1
+- proto: DefaultStationBeaconCargoBay
+  entities:
+  - uid: 8738
+    components:
+    - type: Transform
+      pos: 25.5,-22.5
+      parent: 1
+- proto: DefaultStationBeaconChemistry
+  entities:
+  - uid: 8744
+    components:
+    - type: Transform
+      pos: 11.5,-6.5
+      parent: 1
+- proto: DefaultStationBeaconCommand
+  entities:
+  - uid: 8758
+    components:
+    - type: Transform
+      pos: 5.5,11.5
+      parent: 1
+- proto: DefaultStationBeaconCryonics
+  entities:
+  - uid: 8746
+    components:
+    - type: Transform
+      pos: 11.5,-14.5
+      parent: 1
+- proto: DefaultStationBeaconCryosleep
+  entities:
+  - uid: 8747
+    components:
+    - type: Transform
+      pos: -24.5,-6.5
+      parent: 1
+- proto: DefaultStationBeaconDorms
+  entities:
+  - uid: 8748
+    components:
+    - type: Transform
+      pos: -17.5,-17.5
+      parent: 1
+- proto: DefaultStationBeaconEngineering
+  entities:
+  - uid: 8749
+    components:
+    - type: Transform
+      pos: 8.5,23.5
+      parent: 1
+- proto: DefaultStationBeaconGravGen
+  entities:
+  - uid: 8751
+    components:
+    - type: Transform
+      pos: -5.5,10.5
+      parent: 1
+- proto: DefaultStationBeaconJanitorsCloset
+  entities:
+  - uid: 8757
+    components:
+    - type: Transform
+      pos: 7.5,16.5
+      parent: 1
+- proto: DefaultStationBeaconKitchen
+  entities:
+  - uid: 8752
+    components:
+    - type: Transform
+      pos: -13.5,16.5
+      parent: 1
+- proto: DefaultStationBeaconMedbay
+  entities:
+  - uid: 8754
+    components:
+    - type: Transform
+      pos: 22.5,-13.5
+      parent: 1
+- proto: DefaultStationBeaconMetempsychosis
+  entities:
+  - uid: 8745
+    components:
+    - type: Transform
+      pos: 24.5,-8.5
+      parent: 1
+- proto: DefaultStationBeaconPowerBank
+  entities:
+  - uid: 8755
+    components:
+    - type: Transform
+      pos: 23.5,29.5
+      parent: 1
+- proto: DefaultStationBeaconScience
+  entities:
+  - uid: 8750
+    components:
+    - type: Transform
+      pos: -8.5,26.5
+      parent: 1
+- proto: DefaultStationBeaconSecurityCheckpoint
+  entities:
+  - uid: 8756
+    components:
+    - type: Transform
+      pos: 0.5,0.5
+      parent: 1
+- proto: DefaultStationBeaconSupply
+  entities:
+  - uid: 8753
+    components:
+    - type: Transform
+      pos: 11.5,-21.5
+      parent: 1
+- proto: DefaultStationBeaconTelecoms
+  entities:
+  - uid: 8742
+    components:
+    - type: Transform
+      pos: 18.5,18.5
       parent: 1
 - proto: DefibrillatorCabinetFilled
   entities:
@@ -48274,7 +48471,7 @@ entities:
     components:
     - type: MetaData
       desc: They have worked hard and tiresomely to keep the stations clean and well organized.
-      name: 'Worker of the Year: Quay Lude'
+      name: 'Worker of the Year: Quinley Lockwood'
     - type: Transform
       pos: -20.5,18.5
       parent: 1
