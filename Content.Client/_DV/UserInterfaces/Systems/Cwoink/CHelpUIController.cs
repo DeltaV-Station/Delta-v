@@ -297,13 +297,9 @@ public interface ICHelpUIHandler : IDisposable
     event Action<NetUserId, string>? InputTextChanged;
 }
 
-public sealed class CuratorCHelpUIHandler : ICHelpUIHandler
+public sealed class CuratorCHelpUIHandler(NetUserId owner) : ICHelpUIHandler
 {
-    private readonly NetUserId _ownerId;
-    public CuratorCHelpUIHandler(NetUserId owner)
-    {
-        _ownerId = owner;
-    }
+    private readonly NetUserId _ownerId = owner;
     private readonly Dictionary<NetUserId, CwoinkPanel> _activePanelMap = new();
     public bool IsCurator => true;
     public bool IsOpen => Window is { Disposed: false, IsOpen: true } || ClydeWindow is { IsDisposed: false };
@@ -491,11 +487,6 @@ public sealed class UserCHelpUIHandler(NetUserId owner) : ICHelpUIHandler
         {
             _window.OpenCentered();
         }
-    }
-
-    // user can't pop out their window.
-    public void PopOut()
-    {
     }
 
     public void DiscordRelayChanged(bool active)
