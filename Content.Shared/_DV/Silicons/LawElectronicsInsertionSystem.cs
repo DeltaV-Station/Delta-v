@@ -1,4 +1,5 @@
 using Content.Shared.DoAfter;
+using Content.Shared.Emag.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -88,11 +89,11 @@ public sealed class LawElectronicsInsertionSystem : EntitySystem
         if (!TryComp<SiliconLawProviderComponent>(target, out var targetComp))
             return;
 
-        if (targetComp.Lawset == null)
-            targetComp.Lawset = new SiliconLawset();
+        targetComp.Lawset ??= new SiliconLawset();
 
         targetComp.Lawset.Laws = newLaws.Laws;
         targetComp.Lawset.ObeysTo = newLaws.ObeysTo;
+        RemComp<EmaggedComponent>(target);
         _siliconLaw.NotifyLawsChanged(target);
     }
 }
