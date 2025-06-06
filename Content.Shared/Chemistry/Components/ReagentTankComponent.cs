@@ -1,4 +1,4 @@
-﻿using Content.Shared.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Whitelist; // imp
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -17,9 +17,6 @@ public sealed partial class ReagentTankComponent : Component
     // imp start
     [DataField]
     public EntityWhitelist? FuelWhitelist;
-
-    [DataField]
-    public EntityWhitelist? FuelBlacklist;
     // imp end
 }
 

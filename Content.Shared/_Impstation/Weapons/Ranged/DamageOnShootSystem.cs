@@ -82,13 +82,4 @@ public sealed class DamageOnShootSystem : EntitySystem
                 _stun.TryParalyze(args.User, entity.Comp.StunSeconds, true);
         }
     }
-
-    public void SetIsDamageActiveTo(Entity<DamageOnShootComponent> entity, bool mode)
-    {
-        if (entity.Comp.IsDamageActive == mode)
-            return;
-
-        entity.Comp.IsDamageActive = mode;
-        Dirty(entity);
-    }
 }
