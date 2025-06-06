@@ -31,7 +31,7 @@ using Robust.Shared.Utility;
 namespace Content.Client._DV.UserInterfaces.Systems.Cwoink;
 
 [UsedImplicitly]
-public sealed class CHelpUIController: UIController, IOnSystemChanged<CwoinkSystem>, IOnStateChanged<GameplayState>, IOnStateChanged<LobbyState>
+public sealed class CHelpUIController : UIController, IOnSystemChanged<CwoinkSystem>, IOnStateChanged<GameplayState>, IOnStateChanged<LobbyState>
 {
     [Dependency] private readonly IClientAdminManager _adminManager = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
