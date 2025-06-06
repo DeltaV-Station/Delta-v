@@ -7,8 +7,8 @@ grapple-start-escaping-victim = You start trying to escape from their {LOC($part
 grapple-manual-release = You gently release {$victim} from your {LOC($part)}.
 grapple-manual-release-victim = {THE($grappler)} releases you from their {LOC($part)}.
 
-grapple-finished-escaping = {$victim} has escaped from your {$part}!
-grapple-finished-escaping-victim = You escape from their {$part}!
+grapple-finished-escaping = {$victim} has escaped from your {LOC($part)}!
+grapple-finished-escaping-victim = You escape from their {LOC($part)}!
 
 grapple-part-hands = hands
 grapple-part-jaws = jaws
