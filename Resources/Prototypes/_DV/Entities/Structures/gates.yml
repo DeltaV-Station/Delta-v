@@ -5,6 +5,8 @@
   components:
   - type: Transform
     anchored: true
+  - type: Physics
+    bodyType: Static
 
 - type: entity
   parent: LogicGateAnd
@@ -13,6 +15,8 @@
   components:
   - type: Transform
     anchored: true
+  - type: Physics
+    bodyType: Static
 
 - type: entity
   parent: LogicGateXor
@@ -21,6 +25,8 @@
   components:
   - type: Transform
     anchored: true
+  - type: Physics
+    bodyType: Static
 
 - type: entity
   parent: LogicGateNor
@@ -29,6 +35,8 @@
   components:
   - type: Transform
     anchored: true
+  - type: Physics
+    bodyType: Static
 
 - type: entity
   parent: LogicGateNand
@@ -37,6 +45,8 @@
   components:
   - type: Transform
     anchored: true
+  - type: Physics
+    bodyType: Static
 
 - type: entity
   parent: LogicGateXnor
@@ -45,3 +55,5 @@
   components:
   - type: Transform
     anchored: true
+  - type: Physics
+    bodyType: Static
