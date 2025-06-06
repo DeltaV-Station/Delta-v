@@ -3,7 +3,6 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Damage.Components;
 
-
 /// <summary>
 /// This component is added to entities to protect them from being damaged
 /// when shooting guns with the <see cref="DamageOnShootComponent"/>
