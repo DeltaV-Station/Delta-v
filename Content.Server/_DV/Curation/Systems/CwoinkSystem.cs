@@ -445,7 +445,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
         var content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
-            Log.Log(LogLevel.Error,
+            Log.Error(
                 $"Discord returned bad status code when trying to get webhook data (perhaps the webhook URL is invalid?): {response.StatusCode}\nResponse: {content}");
             return null;
         }
@@ -479,7 +479,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
 
             if (lookup == null)
             {
-                Log.Log(LogLevel.Error,
+                Log.Error(
                     $"Unable to find player for NetUserId {userId} when sending discord webhook.");
                 _relayMessages.Remove(userId);
                 return;
@@ -559,7 +559,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
             var content = await request.Content.ReadAsStringAsync();
             if (!request.IsSuccessStatusCode)
             {
-                Log.Log(LogLevel.Error,
+                Log.Error(
                     $"Discord returned bad status code when posting message (perhaps the message is too long?): {request.StatusCode}\nResponse: {content}");
                 _relayMessages.Remove(userId);
                 return;
@@ -568,7 +568,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
             var id = JsonNode.Parse(content)?["id"];
             if (id == null)
             {
-                Log.Log(LogLevel.Error,
+                Log.Error(
                     $"Could not find id in json-content returned from discord webhook: {content}");
                 _relayMessages.Remove(userId);
                 return;
@@ -584,7 +584,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
             if (!request.IsSuccessStatusCode)
             {
                 var content = await request.Content.ReadAsStringAsync();
-                Log.Log(LogLevel.Error,
+                Log.Error(
                     $"Discord returned bad status code when patching message (perhaps the message is too long?): {request.StatusCode}\nResponse: {content}");
                 _relayMessages.Remove(userId);
                 return;
