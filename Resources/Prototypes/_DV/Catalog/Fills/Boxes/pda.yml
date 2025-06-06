@@ -1,6 +1,17 @@
+# This abstract should be killed and replaced for upstream's once they move to EntityTableContainerFill.
+- type: entity
+  abstract: true
+  parent: BoxCardboard
+  id: BoxPDADeltaV # Avoiding StorageFill
+  components:
+  - type: Sprite
+    layers:
+    - state: box
+    - state: pda
+
 - type: entity
   name: security PDA box
-  parent: BoxPDA
+  parent: BoxPDADeltaV
   id: BoxPDASecurity
   description: A box of spare PDA microcomputers for the security department.
   components:
@@ -20,7 +31,7 @@
 
 - type: entity
   name: prisoner PDA box
-  parent: BoxPDA
+  parent: BoxPDADeltaV
   id: BoxPDAPrisoner
   description: A box of spare PDA microcomputers for the warden to use for prisoners.
   components:
@@ -39,7 +50,7 @@
 
 - type: entity
   name: medical PDA box
-  parent: BoxPDA
+  parent: BoxPDADeltaV
   id: BoxPDAMedical
   description: A box of spare PDA microcomputers for the medical department.
   components:
@@ -59,7 +70,7 @@
 
 - type: entity
   name: epistemics PDA box
-  parent: BoxPDA
+  parent: BoxPDADeltaV
   id: BoxPDAScience
   description: A box of spare PDA microcomputers for the epistemics department.
   components:
@@ -79,7 +90,7 @@
 
 - type: entity
   name: engineering PDA box
-  parent: BoxPDA
+  parent: BoxPDADeltaV
   id: BoxPDAEngineering
   description: A box of spare PDA microcomputers for the engineering department.
   components:
@@ -99,7 +110,7 @@
 
 - type: entity
   name: logistics PDA box
-  parent: BoxPDA
+  parent: BoxPDADeltaV
   id: BoxPDACargo
   description: A box of spare PDA microcomputers for the logistics department.
   components:
@@ -122,7 +133,7 @@
 
 - type: entity
   name: justice PDA box
-  parent: BoxPDA
+  parent: BoxPDADeltaV
   id: BoxPDAJustice
   description: A box of spare PDA microcomputers for the justice department.
   components:

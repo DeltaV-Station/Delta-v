@@ -1,21 +1,29 @@
+# This abstract should be killed and replaced for upstream's once they move to EntityTableContainerFill.
+- type: entity
+  abstract: true
+  parent: BoxCardboard
+  id: BoxEncryptionKeyDeltaV # Avoiding StorageFill
+  name: passenger encryption key box
+  description: A box of spare encryption keys.
+  components:
+  - type: Sprite
+    layers:
+    - state: box
+    - state: encryptokey
+  - type: Storage
+    whitelist:
+      components:
+      - EncryptionKey
+
 - type: entity
   name: Prisoner encryption key box
-  parent: BoxCardboard
+  parent: BoxEncryptionKeyDeltaV
   id: BoxEncryptionKeyPrisoner
-  description: A box of spare encryption keys.
   components:
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:NestedSelector
         tableId: FillBoxEncryptionKeyPrisoner
-  - type: Sprite
-    layers:
-      - state: box
-      - state: encryptokey
-  - type: Storage
-    whitelist:
-      components:
-      - EncryptionKey
 
 - type: entityTable
   id: FillBoxEncryptionKeyPrisoner
@@ -26,10 +34,9 @@
         value: 4
 
 - type: entity
-  parent: BoxEncryptionKeyPassenger
+  parent: BoxEncryptionKeyDeltaV
   id: BoxEncryptionKeyTraffic
   name: traffic encryption key box
-  description: A box of spare encryption keys.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -46,9 +53,8 @@
 
 - type: entity
   name: justice encryption key box
-  parent: BoxEncryptionKeyPassenger
+  parent: BoxEncryptionKeyDeltaV
   id: BoxEncryptionKeyJustice
-  description: A box of spare encryption keys.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -67,7 +73,6 @@
   name: syndicate radio implanter box
   parent: BoxCardboard
   id: BoxSyndicateRadioImplanter
-  description: Contains cranial radio implants favored by Syndicate agents.
   components:
   - type: Sprite
     layers:
