@@ -4,7 +4,7 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 06/03/2025 15:36:00
+  time: 06/06/2025 17:24:48
   entityCount: 20146
 maps:
 - 1
@@ -11371,6 +11371,8 @@ entities:
       parent: 2
   - uid: 1762
     components:
+    - type: MetaData
+      name: APC (Med, Reception)
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 9.5,5.5
@@ -89641,6 +89643,7 @@ entities:
   - uid: 6454
     components:
     - type: Transform
+      anchored: True
       rot: 1.5707963267948966 rad
       pos: 3.5,-53.5
       parent: 2
@@ -89659,6 +89662,7 @@ entities:
   - uid: 6369
     components:
     - type: Transform
+      anchored: True
       rot: 1.5707963267948966 rad
       pos: -16.5,-49.5
       parent: 2
@@ -89675,6 +89679,7 @@ entities:
   - uid: 6402
     components:
     - type: Transform
+      anchored: True
       rot: 1.5707963267948966 rad
       pos: 1.5,-53.5
       parent: 2
@@ -89688,6 +89693,7 @@ entities:
   - uid: 20127
     components:
     - type: Transform
+      anchored: True
       rot: 1.5707963267948966 rad
       pos: -16.5,-48.5
       parent: 2
@@ -89704,6 +89710,7 @@ entities:
   - uid: 20128
     components:
     - type: Transform
+      anchored: True
       rot: 1.5707963267948966 rad
       pos: 11.5,-43.5
       parent: 2
@@ -89720,6 +89727,7 @@ entities:
   - uid: 20129
     components:
     - type: Transform
+      anchored: True
       rot: 1.5707963267948966 rad
       pos: 11.5,-42.5
       parent: 2
@@ -97262,7 +97270,7 @@ entities:
   - uid: 12924
     components:
     - type: Transform
-      pos: 9.5,12.5
+      pos: 9.5,15.5
       parent: 2
   - uid: 13162
     components:
@@ -97288,7 +97296,7 @@ entities:
   - uid: 15083
     components:
     - type: Transform
-      pos: 20.5,13.5
+      pos: 14.5,14.5
       parent: 2
   - uid: 17438
     components:
