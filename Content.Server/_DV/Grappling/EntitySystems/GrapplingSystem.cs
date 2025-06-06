@@ -11,13 +11,12 @@ using Content.Shared.CombatMode;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Events;
-using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Movement.Pulling.Events;
-using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Pulling.Events;
 using Content.Shared.Standing;
 using Content.Shared.Tag;
 using Robust.Server.Audio;
+using Robust.Server.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -35,9 +34,9 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly InteractionSystem _interactionSystem = default!;
+    [Dependency] private readonly JointSystem _jointSystem = default!;
     [Dependency] private readonly HandsSystem _handsSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StandingStateSystem _standingStateSystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
@@ -48,8 +47,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<GrapplerComponent, PullStartedMessage>(OnPullStarted);
-        SubscribeLocalEvent<GrapplerComponent, PullStoppedMessage>(OnPullStopped);
+        SubscribeLocalEvent<GrapplerComponent, StartPullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<GrapplerComponent, EscapeGrappleAlertEvent>(OnEscapeGrapplerAlert);
 
         SubscribeLocalEvent<GrappledComponent, ComponentShutdown>(OnGrappledShutdown);
@@ -116,7 +114,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         if (!_interactionSystem.InRangeUnobstructed(grappler.Owner, victim))
             return false;
 
-        StartGrapple((grappler, grappler.Comp), victim, startPulling: true);
+        StartGrapple((grappler, grappler.Comp), victim);
         return true;
     }
 
@@ -141,8 +139,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
 
         ReleaseGrapple((grappler, grappler.Comp),
             (victim.Value, victimComp),
-            manualRelease: manualRelease,
-            cleanupPulling: true);
+            manualRelease: manualRelease);
 
         return true;
     }
@@ -153,8 +150,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     /// </summary>
     /// <param name="grappler">Entity starting the grapple.</param>
     /// <param name="victim">Entity to be grappled.</param>
-    /// <param name="startPulling">Whether this grapple should start a pulling joint.</param>
-    private void StartGrapple(Entity<GrapplerComponent> grappler, EntityUid victim, bool startPulling = false)
+    private void StartGrapple(Entity<GrapplerComponent> grappler, EntityUid victim)
     {
         // Throw the victim prone
         _standingStateSystem.Down(victim);
@@ -169,16 +165,15 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
 
         // Update the grappler's victim
         grappler.Comp.ActiveVictim = victim;
+        grappler.Comp.PullJointId = $"grapple-joint-{GetNetEntity(victim)}";
         Dirty(grappler);
 
         // Update any movement blocks that the grappler/grappled now have
         _actionBlockerSystem.UpdateCanMove(grappler);
         _actionBlockerSystem.UpdateCanMove(victim);
 
-        // Optionally try and start pulling the target so both the grappler and the victim can't be
-        // tugged away from one another.
-        if (startPulling)
-            _pullingSystem.TryStartPull(grappler, victim);
+        // Joint the two together so both the grappler and the victim can't be tugged away from one another.
+        _jointSystem.CreateDistanceJoint(grappler, victim, id: grappler.Comp.PullJointId);
 
         _popupSystem.PopupEntity(
             Loc.GetString("grapple-start", ("part", grappler.Comp.GrapplingPart), ("victim", victim)),
@@ -198,43 +193,29 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     }
 
     /// <summary>
-    /// Handles when a grappler starts to pull an entity, and attempts to start a grapple
-    /// if they are in harm-mode.
-    /// Validates the entity is valid for grappling.
+    /// Handles when a grappler attempts to start pulling an entity.
+    /// If they have an existing target, they will drop them.
+    /// If they do NOT have a target then they will attempt to grapple them if they are in combat mode.
+    /// Will stop the pull attempt if this system handles it via a grapple.
     /// </summary>
     /// <param name="grappler">Entity attempting to start pulling.</param>
     /// <param name="args">Args for the event, notably the entity being pulled.</param>
-    private void OnPullStarted(Entity<GrapplerComponent> grappler, ref PullStartedMessage args)
+    private void OnPullAttempt(Entity<GrapplerComponent> grappler, ref StartPullAttemptEvent args)
     {
-        if (!TryComp<CombatModeComponent>(grappler, out var combatMode) ||
-            !combatMode.IsInCombatMode)
-            return; // Not in harm mode, this is just a regular pull
+        if (grappler.Comp.ActiveVictim.HasValue)
+        {
+            if (ReleaseGrapple(grappler.AsNullable(), manualRelease: true))
+                args.Cancel();
+        }
+        else
+        {
+            if (!TryComp<CombatModeComponent>(grappler, out var combatMode) ||
+                    !combatMode.IsInCombatMode)
+                return; // Not in harm mode, this is just a regular pull
 
-        // We rely on the pulling system to handle the joints for us, which means when we
-        // start a grapple and request a pull, we end up here.
-        if (grappler.Comp.ActiveVictim == args.PulledUid)
-            return;
-
-        TryStartGrapple(grappler.AsNullable(), args.PulledUid);
-    }
-
-    /// <summary>
-    /// Handles when a grappler stops pulling an entity.
-    /// If they have an active victim, they will be dropped.
-    /// </summary>
-    /// <param name="grappler">Grappler attempting to stop pulling an entity.</param>
-    /// <param name="args">Args for the event.</param>
-    private void OnPullStopped(Entity<GrapplerComponent> grappler, ref PullStoppedMessage args)
-    {
-        if (!grappler.Comp.ActiveVictim.HasValue)
-            return; // No one to release from the grapple
-
-        // We rely on the pulling system to handle the joints for us, which means when we
-        // stop a grapple and clean up the grapple, we can end up here.
-        if (grappler.Comp.ActiveVictim == args.PulledUid)
-            return;
-
-        ReleaseGrapple(grappler.AsNullable(), manualRelease: true);
+            if (TryStartGrapple(grappler.AsNullable(), args.Pulled))
+                args.Cancel(); // We've handled it.
+        }
     }
 
     /// <summary>
@@ -363,7 +344,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         if (!TryComp<GrapplerComponent>(grappled.Comp.Grappler, out var grappler))
             return; // Somehow not a grappler for this entity?
 
-        ReleaseGrapple((grappled.Comp.Grappler, grappler), grappled, manualRelease: false, cleanupPulling: true);
+        ReleaseGrapple((grappled.Comp.Grappler, grappler), grappled, manualRelease: false);
     }
 
     /// <summary>
@@ -393,12 +374,14 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     /// <param name="victim">Victim who has escaped or been released from the grapple</param>
     private void ReleaseGrapple(Entity<GrapplerComponent> grappler,
         Entity<GrappledComponent> victim,
-        bool manualRelease = false,
-        bool cleanupPulling = false)
+        bool manualRelease = false)
     {
-        // Ensure any pulling is cleaned up
-        if (cleanupPulling && TryComp<PullableComponent>(victim, out var pulledComp))
-            _pullingSystem.TryStopPull(victim, pulledComp);
+        // Ensure any jointing is cleaned up
+        if (grappler.Comp.PullJointId != null)
+        {
+            _jointSystem.RemoveJoint(grappler, grappler.Comp.PullJointId);
+            grappler.Comp.PullJointId = null;
+        }
 
         // Inform the grappler that their victim is now free and they can move, updating the cooldown as well.
         grappler.Comp.ActiveVictim = null;
