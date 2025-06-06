@@ -1,59 +1,52 @@
 - type: entity
-  parent: LogicGateOr
+  abstract: true
+  parent: BaseLogicItem
+  id: BaseLogicItemAnchored
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    canCollide: false
+    bodyType: Static
+
+- type: entity
+  parent:
+  - LogicGateOr
+  - BaseLogicItemAnchored
   id: LogicGateOrAnchored
   suffix: Or, Anchored
-  components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
 
 - type: entity
-  parent: LogicGateAnd
+  parent:
+  - LogicGateAnd
+  - BaseLogicItemAnchored
   id: LogicGateAndAnchored
   suffix: And, Anchored
-  components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
 
 - type: entity
-  parent: LogicGateXor
+  parent:
+  - LogicGateXor
+  - BaseLogicItemAnchored
   id: LogicGateXorAnchored
   suffix: Xor, Anchored
-  components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
 
 - type: entity
-  parent: LogicGateNor
+  parent:
+  - LogicGateNor
+  - BaseLogicItemAnchored
   id: LogicGateNorAnchored
   suffix: Nor, Anchored
-  components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
 
 - type: entity
-  parent: LogicGateNand
+  parent:
+  - LogicGateNand
+  - BaseLogicItemAnchored
   id: LogicGateNandAnchored
   suffix: Nand, Anchored
-  components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
 
 - type: entity
-  parent: LogicGateXnor
+  parent:
+  - LogicGateXnor
+  - BaseLogicItemAnchored
   id: LogicGateXnorAnchored
   suffix: Xnor, Anchored
-  components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
