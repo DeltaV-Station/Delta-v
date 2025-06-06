@@ -283,17 +283,17 @@ public sealed class CHelpUIController: UIController, IOnSystemChanged<CwoinkSyst
 // please kill all this indirection
 public interface ICHelpUIHandler : IDisposable
 {
-    public bool IsCurator { get; }
-    public bool IsOpen { get; }
-    public void Receive(CwoinkTextMessage message);
-    public void Close();
-    public void Open(NetUserId netUserId, bool relayActive);
-    public void ToggleWindow();
-    public void DiscordRelayChanged(bool active);
-    public void PeopleTypingUpdated(CwoinkPlayerTypingUpdated args);
-    public event Action OnClose;
-    public event Action OnOpen;
-    public Action<NetUserId, string, bool, bool>? SendMessageAction { get; set; }
+    bool IsCurator { get; }
+    bool IsOpen { get; }
+    void Receive(CwoinkTextMessage message);
+    void Close();
+    void Open(NetUserId netUserId, bool relayActive);
+    void ToggleWindow();
+    void DiscordRelayChanged(bool active);
+    void PeopleTypingUpdated(CwoinkPlayerTypingUpdated args);
+    event Action OnClose;
+    event Action OnOpen;
+    Action<NetUserId, string, bool, bool>? SendMessageAction { get; set; }
     event Action<NetUserId, string>? InputTextChanged;
 }
 
