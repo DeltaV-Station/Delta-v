@@ -68,6 +68,12 @@ public sealed partial class GrapplerComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<AlertPrototype> GrappledAlert = "Grappled";
+
+    /// <summary>
+    /// The joint ID used between the grappler and victim.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string? PullJointId = null;
 }
 
 /// <summary>
