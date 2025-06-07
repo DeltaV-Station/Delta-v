@@ -14,4 +14,3 @@ steal-target-groups-logistics-techfab-circuitboard = logistics techfab's circuit
 steal-target-groups-service-techfab-circuitboard = service techfab's circuitboard
 steal-target-groups-epistemics-techfab-circuitboard = epistemics techfab's circuitboard
 steal-target-groups-hardsuit-rhino = logistics officer's rhino hardsuit
-
