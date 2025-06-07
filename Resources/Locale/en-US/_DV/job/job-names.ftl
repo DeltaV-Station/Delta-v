@@ -7,7 +7,6 @@ job-name-lawyer = Attorney
 job-name-courier = Courier
 job-name-cargo-assistant = Cargo Assistant
 job-name-security-borg = Security Cyborg
-job-name-admin-assistant = Administrative Assistant
 # Used by the Agent ID
 job-name-senior-physician = Senior Physician
 job-name-senior-researcher = Senior Researcher
@@ -75,4 +74,3 @@ JobProsecutor = Prosecutor
 JobSecurityBorg = Security Cyborg
 JobRoboticist = Roboticist
 JobCargoAssistant = Cargo Assistant
-JobAdminAssistant = Administrative Assistant
