@@ -283,6 +283,9 @@
     - MechBoards
     - ShuttleBoards
   - type: EmagLatheRecipes
+    emagStaticPacks: # DeltaV - printable lawboards
+    - LawBoardsNTStatic
+    - LawBoardsSyndicateStatic
     emagDynamicPacks:
     - SecurityBoards
   - type: MaterialStorage
@@ -329,6 +332,7 @@
     - RoboticsStatic
     - BorgModulesStatic
     - BorgLimbsStatic
+    - LawBoardsNTStatic # DeltaV - printable lawboards
     dynamicPacks:
     - Robotics
     - BorgModules
@@ -340,8 +344,9 @@
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
-    # Being DeltaV Additions
+    # Begin DeltaV Additions
     - EVASuit
+    - LawBoardsSyndicateStatic
     emagDynamicPacks:
     - SecurityCybernetics # having sechud eyes is good for evil people
     - SecurityHardsuits
