@@ -400,7 +400,7 @@
 
 #LO Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseJetpack, BaseCargoContraband]
+  parent: [ClothingOuterHardsuitSalvage, BaseJetpack, BaseCargoContraband]
   id: ClothingOuterHardsuitRhino
   name: rhino industrial hardsuit
   description: A hardsuit adorned with purple fabric and gold metal. Made specifically for Nanotrasen for their Logistics Officers, this hardsuit boasts better protection than most salvage suits and has an internal jetpack.
@@ -409,13 +409,8 @@
     sprite: _DV/Clothing/OuterClothing/Hardsuits/rhinosuit.rsi
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/Hardsuits/rhinosuit.rsi
-  - type: item
+  - type: Item
     sprite: _DV/Clothing/OuterClothing/Hardsuits/rhinosuit.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.5
-    lowPressureMultiplier: 1000
-  - type: ExplosionResistance
-    damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -428,9 +423,6 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
-  - type: HeldSpeedModifier
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitSalvage
   - type: GasTank
     outputPressure: 42.6
     air:
@@ -439,3 +431,5 @@
       moles:
       - 0.153853429 # oxygen
       - 0.153853429 # nitrogen
+  - type: StealTarget
+    stealGroup: HardsuitRhino
