@@ -1,7 +1,6 @@
 using Content.Shared._DV.Grappling.EntitySystems;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
-using Content.Shared.Hands.Components;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._DV.Grappling.Components;
@@ -26,25 +25,19 @@ public sealed partial class GrappledComponent : Component
     public TimeSpan EscapeTime = TimeSpan.FromSeconds(15);
 
     /// <summary>
-    /// A list of any hands, if any, that have been disabled by the grappler.
-    /// </summary>
-    [ViewVariables]
-    public List<DisabledHand>? DisabledHands = null;
-
-    /// <summary>
     /// The in-progress DoAfter, if any.
     /// Used to cancel the doAfter if the grappler manually releases their victim.
     /// </summary>
     [ViewVariables]
     public DoAfterId? DoAfterId = null;
-}
 
-/// <summary>
-/// Simple record covering information on hands disabled by the grappler.
-/// </summary>
-/// <param name="Name">Name of the hand.</param>
-/// <param name="Location">Location of the hand.</param>
-public sealed record DisabledHand(string Name, HandLocation Location);
+    /// <summary>
+    /// A list of all hands, if any, that have been disabled as part of the grapple
+    /// via a virtual item.
+    /// </summary>
+    [DataField]
+    public List<string> DisabledHands = new();
+}
 
 /// <summary>
 /// Raised when a player manually clicks the grappled icon to begin attempting to escape.
