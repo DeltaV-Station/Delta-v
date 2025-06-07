@@ -2,6 +2,8 @@ delete-verb-get-data-text = Delete
 edit-solutions-verb-get-data-text = Edit Solutions
 explode-verb-get-data-text = Explode
 ahelp-verb-get-data-text = Message
+# DetlaV - add chelp verb
+chelp-verb-get-data-text = Cwoink
 admin-verbs-admin-logs-entity = Entity Logs
 admin-verbs-teleport-to = Teleport To
 admin-verbs-teleport-here = Teleport Here

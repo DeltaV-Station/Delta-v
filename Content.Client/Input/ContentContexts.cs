@@ -41,7 +41,7 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.InspectEntity);
             common.AddFunction(ContentKeyFunctions.ToggleRoundEndSummaryWindow);
             // Begin DeltaV Additions
-            common.AddFunction(ContentKeyFunctions.OpenAHelpCuratorChat);
+            common.AddFunction(ContentKeyFunctions.OpenCHelp);
             common.AddFunction(ContentKeyFunctions.NanoChatNavigateUp);
             common.AddFunction(ContentKeyFunctions.NanoChatNavigateDown);
             common.AddFunction(ContentKeyFunctions.NanoChatNavigateUpUnread);
