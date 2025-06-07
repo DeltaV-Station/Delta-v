@@ -72,6 +72,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
                 foreach (var entity in entities) _damage.TryChangeDamage(entity, monuComp.MonumentHealing * -1);
                 monuComp.CheckTimer = _timing.CurTime + monuComp.CheckWait;
             }
+
             if (comp.SongTimer is { } time && _timing.CurTime >= time)
             {
                 comp.SongTimer = null;
@@ -79,19 +80,14 @@ public sealed class MonumentSystem : SharedMonumentSystem
                     _sound.DispatchStationEventMusic(uid, song, StationEventMusicType.CosmicCult);
             }
 
-            if (comp.CurrentState == FinaleState.ActiveBuffer && _timing.CurTime >= comp.BufferTimer) // swap everything over when buffer timer runs out
+            if (comp.CurrentState == FinaleState.ActiveFinale && comp.FinaleFresh && comp.FinaleTimer - _timing.CurTime < comp.VisualsThreshHold)
             {
-                comp.CurrentState = FinaleState.ActiveFinale;
-                comp.FinaleTimer = _timing.CurTime + comp.FinaleRemainingTime;
-                comp.SelectedSong = comp.FinaleMusic;
-
-                _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
                 _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
                 _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("cosmiccult-announce-finale-warning"), null, false, null, Color.FromHex("#cae8e8"));
-
-                comp.SongTimer = _timing.CurTime + TimeSpan.FromSeconds(1);
+                comp.FinaleFresh = false;
             }
-            else if (comp.CurrentState == FinaleState.ActiveFinale && _timing.CurTime >= comp.FinaleTimer) // trigger wincondition on time runout
+
+            if (comp.CurrentState == FinaleState.ActiveFinale && _timing.CurTime >= comp.FinaleTimer) // trigger wincondition on time runout
             {
                 var victoryQuery = EntityQueryEnumerator<CosmicVictoryConditionComponent>();
                 while (victoryQuery.MoveNext(out _, out var victoryComp))
@@ -99,7 +95,6 @@ public sealed class MonumentSystem : SharedMonumentSystem
                     victoryComp.Victory = true;
                 }
 
-                _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
                 Spawn(CosmicGod, Transform(uid).Coordinates);
                 comp.CurrentState = FinaleState.Victory;
             }
@@ -441,7 +436,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
             uiComp.Key = null; //kazne called this the laziest way to disable a UI ever
         }
 
-        finaleComp.CurrentState = FinaleState.ReadyBuffer;
+        finaleComp.CurrentState = FinaleState.ReadyFinale;
         uid.Comp.Enabled = false;
         uid.Comp.TargetProgress = uid.Comp.CurrentProgress;
 

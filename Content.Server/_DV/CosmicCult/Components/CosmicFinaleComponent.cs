@@ -17,6 +17,9 @@ public sealed partial class CosmicFinaleComponent : Component
     public bool FinaleActive = false;
 
     [DataField]
+    public bool FinaleFresh = false;
+
+    [DataField]
     public bool Occupied = false;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
@@ -29,13 +32,10 @@ public sealed partial class CosmicFinaleComponent : Component
     public TimeSpan CultistsCheckTimer = default!;
 
     [DataField, AutoNetworkedField]
-    public TimeSpan BufferRemainingTime = TimeSpan.FromSeconds(360);
+    public TimeSpan FinaleRemainingTime = TimeSpan.FromSeconds(362);
 
     [DataField, AutoNetworkedField]
-    public TimeSpan FinaleRemainingTime = TimeSpan.FromSeconds(126);
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan ConversionSpeedup = TimeSpan.FromSeconds(20);
+    public TimeSpan VisualsThreshHold = TimeSpan.FromSeconds(240);
 
     [DataField, AutoNetworkedField]
     public TimeSpan CheckWait = TimeSpan.FromSeconds(5);
@@ -53,13 +53,10 @@ public sealed partial class CosmicFinaleComponent : Component
     public SoundSpecifier? SelectedSong;
 
     [DataField]
-    public TimeSpan InteractionTime = TimeSpan.FromSeconds(14);
+    public TimeSpan InteractionTime = TimeSpan.FromSeconds(30);
 
     [DataField]
-    public SoundSpecifier BufferMusic = new SoundPathSpecifier("/Audio/_DV/CosmicCult/premonition.ogg");
-
-    [DataField]
-    public SoundSpecifier FinaleMusic = new SoundPathSpecifier("/Audio/_DV/CosmicCult/a_new_dawn.ogg");
+    public SoundSpecifier FinaleMusic = new SoundPathSpecifier("/Audio/_DV/CosmicCult/finale.ogg");
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? SongTimer;
@@ -84,9 +81,7 @@ public sealed partial class CosmicFinaleComponent : Component
 public enum FinaleState : byte
 {
     Unavailable,
-    ReadyBuffer,
     ReadyFinale,
-    ActiveBuffer,
     ActiveFinale,
     Victory,
 }
