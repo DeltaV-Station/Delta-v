@@ -8,6 +8,7 @@ namespace Content.Shared.Humanoid
     {
         Special, // for the cat ears
         Tail,
+        Wings, // for IPC wings ported from SimpleStation
         Hair,
         FacialHair,
         UndergarmentTop,

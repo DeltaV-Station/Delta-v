@@ -16,6 +16,7 @@ namespace Content.Shared.Humanoid.Markings
         Chest,
         UndergarmentTop,
         UndergarmentBottom,
+        Wings, // For IPC wings porting from SimpleStation
         Arms,
         Legs,
         Tail,
@@ -44,6 +45,7 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.RHand => MarkingCategories.Arms,
                 HumanoidVisualLayers.LHand => MarkingCategories.Arms,
                 HumanoidVisualLayers.LLeg => MarkingCategories.Legs,
+                HumanoidVisualLayers.Wings => MarkingCategories.Wings, //For IPC wings porting from SimpleStation
                 HumanoidVisualLayers.RLeg => MarkingCategories.Legs,
                 HumanoidVisualLayers.LFoot => MarkingCategories.Legs,
                 HumanoidVisualLayers.RFoot => MarkingCategories.Legs,
