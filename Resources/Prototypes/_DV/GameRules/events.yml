@@ -34,6 +34,20 @@
   - type: MeteorSwarmRule
 
 - type: entity
+  id: Epsilon
+  parent: BaseStationEvent
+  components:
+  - type: StationEvent
+    weight: 0
+    duration: 12
+    maxDuration: 12
+    startAudio:
+      path: /Audio/_DV/Misc/sound_effects_powerloss.ogg
+      params:
+        volume: 1
+  - type: EpsilonEventRule
+
+- type: entity
   id: XenoVents
   parent: BaseGameRule
   components:
