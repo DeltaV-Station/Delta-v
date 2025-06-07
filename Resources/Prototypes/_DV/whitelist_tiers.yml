@@ -1,21 +1,23 @@
+# this shit is all pending so it probably doesnt match the actual job stuff but thats something ill fix later.
+
 - type: whitelistTier
-  id: GreyTier
-  name: Grey Tier
+  id: SeniorRoleTier
+  name: Senior Role Tier
   color: "#c3c3c3"
   jobs:
+    - Detective
+    - Brigmedic
+    - Atmospheric Technician
+    - Psionic Mantis
     - SalvageSpecialist
-    - SecurityCadet
-    - ForensicMantis
+    - Chemist
+    - Surgeon
     - Prisoner
-    - Gladiator
-    - Lawyer
-    - Prosecutor
-    - Clerk
     - Borg
 
 - type: whitelistTier
-  id: BlueTier
-  name: Blue Tier
+  id: CommandTier
+  name: Command Tier
   color: "#3498db"
   jobs:
     - CentralCommandOfficial
@@ -25,31 +27,45 @@
     - ChiefMedicalOfficer
     - ResearchDirector
     - ChiefJustice
+    # they want me to add admin assistant but that job is fake so it can die
 
 
 - type: whitelistTier
-  id: RedTier
-  name: Red Tier
+  id: SecurityTier
+  name: Security Tier
   color: "#e74c3c"
   jobs:
     - SecurityOfficer
     - Warden
-    - Detective
+    - Detective # how does this work with it also being in senior? who knows
     - Brigmedic
     - PrisonGuard
     - SecurityBorg
+    - Clerk
+    - Lawyer
+    - Prosecutor
+    # they want me to add Clerk but I wont because clerk is fake
 
 - type: whitelistTier
-  id: PurpleTier
-  name: Purple Tier
-  color: "#c000e6"
-  jobs:
-    - HeadOfSecurity
-
-- type: whitelistTier
-  id: Gold Tier
-  name: Gold Tier
+  id: BossOfThisGymTier
+  name: Boss Of This Gym Tier # nobody but deltanedas reads these so i might get away with calling this tier this
   color: "#e6c200"
   jobs:
     - Captain
     - StationAi
+    - HeadOfSecurity
+    - Boxer
+    # they wanted me to add chief justice but i wont because i am going to remove justice (prosecutor is okay i guess)
+
+- type: whitelistTier
+  id: AntagTier
+  name: Antag Tier
+  color: "#730202"
+  jobs:
+  - ParadoxAnomaly
+  - Fugitive
+  - AncientPirateGuys
+  - Nukies
+  - Ninja
+  - Roboguy
+  - EverythingElse # todo find a parent and just add that to this because damn every antag is a lot of bullshit
