@@ -83,5 +83,6 @@ public enum HandDisabling
 {
     None, // No hands to be disabled.
     SingleRandom, // A single hand is disabled at random from available hands.
+    SingleActive, // The active hand is disabled.
     All, // All hands are disabled.
 }

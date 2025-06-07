@@ -8,8 +8,11 @@ using Content.Shared._DV.Grappling.Events;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.CombatMode;
+using Content.Shared.Cuffs.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Content.Shared.Pulling.Events;
@@ -17,6 +20,7 @@ using Content.Shared.Standing;
 using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Robust.Server.Physics;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -40,6 +44,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StandingStateSystem _standingStateSystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
 
     private ProtoId<TagPrototype> _grappleTargetId = "GrappleTarget";
 
@@ -50,10 +55,10 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         SubscribeLocalEvent<GrapplerComponent, StartPullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<GrapplerComponent, EscapeGrappleAlertEvent>(OnEscapeGrapplerAlert);
 
-        SubscribeLocalEvent<GrappledComponent, ComponentShutdown>(OnGrappledShutdown);
         SubscribeLocalEvent<GrappledComponent, MoveInputEvent>(OnGrappledMove);
         SubscribeLocalEvent<GrappledComponent, GrappledEscapeDoAfter>(OnEscapeDoAfter);
         SubscribeLocalEvent<GrappledComponent, EscapeGrappleAlertEvent>(OnEscapeGrappledAlert);
+        SubscribeLocalEvent<GrappledComponent, EntInsertedIntoContainerMessage>(OnCuffsInsertedIntoContainer);
     }
 
     /// <summary>
@@ -161,7 +166,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         grappled.EscapeTime = grappler.Comp.EscapeTime;
 
         // Disable hands if requested
-        TryDisableHands(grappler!, (victim, grappled));
+        DisableHands(grappler!, (victim, grappled));
 
         // Update the grappler's victim
         grappler.Comp.ActiveVictim = victim;
@@ -222,9 +227,9 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     /// Attempts to disable hands as requested by the Grappler's component.
     /// Disabled hands are stored on the GrappledComponent and will be re-enabled.
     /// </summary>
-    /// <param name="grappler">Entity which has become grappled.</param>
+    /// <param name="grappler">Entity performing the grapple.</param>
     /// <param name="victim">Victim which has become grappled.</param>
-    private void TryDisableHands(Entity<GrapplerComponent> grappler, Entity<GrappledComponent> victim)
+    private void DisableHands(Entity<GrapplerComponent> grappler, Entity<GrappledComponent> victim)
     {
         if (!TryComp<HandsComponent>(victim, out var hands))
             return; // This victim has no hands
@@ -232,7 +237,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         if (grappler.Comp.HandDisabling == HandDisabling.None)
             return; // Nothing left to do
 
-        List<DisabledHand> toDisable = [];
+        var toBlock = new List<Hand>();
         switch (grappler.Comp.HandDisabling)
         {
             case HandDisabling.None:
@@ -241,42 +246,60 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
                 var randomHand = _random.Next(0, hands.Count);
                 var handName = hands.SortedHands[randomHand];
                 var handComp = hands.Hands[handName];
-                toDisable.Add(new DisabledHand(handName, handComp.Location));
+                toBlock.Add(handComp);
+                break;
+            case HandDisabling.SingleActive:
+                var activeHand = _handsSystem.GetActiveHand((victim, hands));
+                if (activeHand != null)
+                    toBlock.Add(activeHand!);
                 break;
             case HandDisabling.All:
                 foreach (var hand in _handsSystem.EnumerateHands(victim, hands))
                 {
-                    toDisable.Add(new DisabledHand(hand.Name, hand.Location));
+                    toBlock.Add(hand);
                 }
-
                 break;
         }
 
-        // Store and remove the hand from the victim
-        foreach (var disabledHand in toDisable)
+        foreach (var hand in toBlock)
         {
-            _handsSystem.RemoveHand(victim, disabledHand.Name, hands);
+            if (_virtual.TrySpawnVirtualItemInHand(grappler, victim, out var virtItem, dropOthers: true, hand))
+            {
+                EnsureComp<UnremoveableComponent>(virtItem.Value);
+                victim.Comp.DisabledHands.Add(hand.Name);
+            }
         }
-
-        victim.Comp.DisabledHands = toDisable;
     }
 
+
     /// <summary>
-    /// Handles when the Grappled component is removed from an entity.
-    /// Re-enables the hand, but does not update their movement.
-    /// This must be done by a separate call AFTER this component is removed.
+    /// Attempts to enable hands that were previously disabled,
+    /// as requested by the Grappler's component.
     /// </summary>
-    /// <param name="grappled">Entity which is no longer grappled.</param>
-    /// <param name="args">Args for the event.</param>
-    private void OnGrappledShutdown(Entity<GrappledComponent> grappled, ref ComponentShutdown args)
+    /// <param name="grappler">Entity which was performing grapple.</param>
+    /// <param name="victim">Victim which had become grappled.</param>
+    private void EnableHands(Entity<GrapplerComponent> grappler, Entity<GrappledComponent> victim)
     {
-        if (grappled.Comp.DisabledHands != null)
+        if (!TryComp<HandsComponent>(victim, out var hands))
+            return; // This victim has no hands
+
+        if (grappler.Comp.HandDisabling == HandDisabling.None)
+            return; // Nothing left to do
+
+        _virtual.DeleteInHandsMatching(victim, grappler);
+
+        // Because the virtual items are queued for deletion, but not actually removed from hands yet,
+        // we remove the component that makes them "unremovable", so that other systems like cuffs
+        // can add virtual items immediately.
+        foreach (var handName in victim.Comp.DisabledHands)
         {
-            // Re-enable the hands and put it back on the correct location
-            foreach (var hand in grappled.Comp.DisabledHands)
-            {
-                _handsSystem.AddHand(grappled, hand.Name, hand.Location);
-            }
+            if (!_handsSystem.TryGetHand(victim, handName, out var hand, hands))
+                continue;
+
+            if (!hand.HeldEntity.HasValue)
+                continue;
+
+            RemComp<UnremoveableComponent>(hand.HeldEntity.Value);
         }
     }
 
@@ -358,6 +381,24 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     }
 
     /// <summary>
+    /// Handles when an entity is inserted into a container on the grappled entity.
+    /// Specifically checks for cuffs being added, which will cause a release of the grapple.
+    /// </summary>
+    /// <param name="grappled">Entity which has had an item inserted into a container.</param>
+    /// <param name="args">Args for the event.</param>
+    private void OnCuffsInsertedIntoContainer(Entity<GrappledComponent> grappled, ref EntInsertedIntoContainerMessage args)
+    {
+        if (!TryComp<CuffableComponent>(grappled, out var cuffable))
+            return; // Isn't cuffable so don't need to worry
+
+        if (args.Container.ID != cuffable.Container?.ID)
+            return; // Wasn't inserted into the cuff container
+
+        // This entity is being cuffed, release the grapple and let hands be cuffed properly.
+        ReleaseGrapple(grappled.Comp.Grappler);
+    }
+
+    /// <summary>
     /// Handles when a grappler player clicks the grappled alert, beginning an escape attempt.
     /// </summary>
     /// <param name="grappled">Grappler player entity which has stopped grappling.</param>
@@ -388,6 +429,9 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         grappler.Comp.CooldownEnd = _gameTiming.CurTime + grappler.Comp.Cooldown;
         Dirty(grappler);
         _actionBlockerSystem.UpdateCanMove(grappler);
+
+        // Clean up the hold on their hands we have
+        EnableHands(grappler, victim);
 
         // If this was a manul release by the grappler, we should cancel the doafter they have in progress, if any.
         if (manualRelease)
