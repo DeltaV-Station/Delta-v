@@ -1,58 +1,95 @@
+# This abstract should be killed and replaced for upstream's once they move to EntityTableContainerFill.
 - type: entity
-  name: Prisoner encryption key box
+  abstract: true
   parent: BoxCardboard
-  id: BoxEncryptionKeyPrisoner
+  id: BoxEncryptionKeyDeltaV # Avoiding StorageFill
+  name: passenger encryption key box
   description: A box of spare encryption keys.
   components:
-  - type: StorageFill
-    contents:
-      - id: EncryptionKeyPrison
-        amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: encryptokey
+    - state: box
+    - state: encryptokey
   - type: Storage
     whitelist:
       components:
       - EncryptionKey
 
 - type: entity
-  parent: BoxEncryptionKeyPassenger
+  name: Prisoner encryption key box
+  parent: BoxEncryptionKeyDeltaV
+  id: BoxEncryptionKeyPrisoner
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxEncryptionKeyPrisoner
+
+- type: entityTable
+  id: FillBoxEncryptionKeyPrisoner
+  table: !type:AllSelector
+    children:
+    - id: EncryptionKeyPrison
+      amount: !type:ConstantNumberSelector
+        value: 4
+
+- type: entity
+  parent: BoxEncryptionKeyDeltaV
   id: BoxEncryptionKeyTraffic
   name: traffic encryption key box
-  description: A box of spare encryption keys.
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxEncryptionKeyTraffic
+
+- type: entityTable
+  id: FillBoxEncryptionKeyTraffic
+  table: !type:AllSelector
+    children:
     - id: EncryptionKeyTraffic
-      amount: 4
+      amount: !type:ConstantNumberSelector
+        value: 4
 
 - type: entity
   name: justice encryption key box
-  parent: BoxEncryptionKeyPassenger
+  parent: BoxEncryptionKeyDeltaV
   id: BoxEncryptionKeyJustice
-  description: A box of spare encryption keys.
   components:
-  - type: StorageFill
-    contents:
-      - id: EncryptionKeyJustice
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxEncryptionKeyJustice
+
+- type: entityTable
+  id: FillBoxEncryptionKeyJustice
+  table: !type:AllSelector
+    children:
+    - id: EncryptionKeyJustice
+      amount: !type:ConstantNumberSelector
+        value: 4
 
 - type: entity
   name: syndicate radio implanter box
   parent: BoxCardboard
   id: BoxSyndicateRadioImplanter
-  description: Contains cranial radio implants favored by Syndicate agents.
   components:
   - type: Sprite
     layers:
     - state: box_of_doom
     - state: implant
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxSyndicateRadioImplanter
+
+- type: entityTable
+  id: FillBoxSyndicateRadioImplanter
+  table: !type:AllSelector
+    children:
     - id: SyndicateRadioImplanter
-      amount: 2
+      amount: !type:ConstantNumberSelector
+        value: 2
 
 - type: entity
   name: syndicate hostage implanter box
@@ -71,10 +108,18 @@
     whitelist:
       components:
       - Implanter
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxSyndicateHostageImplanter
+
+- type: entityTable
+  id: FillBoxSyndicateHostageImplanter
+  table: !type:AllSelector
+    children:
     - id: HostageImplanter
-      amount: 6
+      amount: !type:ConstantNumberSelector
+        value: 6
 
 - type: entity
   name: syndicate handcuff box
@@ -93,10 +138,18 @@
     whitelist:
       components:
       - Handcuff
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxSyndicateHandcuffBundle
+
+- type: entityTable
+  id: FillBoxSyndicateHandcuffBundle
+  table: !type:AllSelector
+    children:
     - id: Handcuffs
-      amount: 10
+      amount: !type:ConstantNumberSelector
+        value: 10
 
 - type: entity
   parent: BoxCardboard
@@ -112,8 +165,15 @@
     maxItemSize: Normal
     grid:
     - 0,0,3,1
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxSyndicateStunBundle
+
+- type: entityTable
+  id: FillBoxSyndicateStunBundle
+  table: !type:AllSelector
+    children:
     - id: Stunbaton
     - id: WeaponDisabler
 
@@ -127,9 +187,18 @@
     layers:
     - state: box_of_doom
     - state: writing_of_doom
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBoxSyndicateFirebugsFestival
+
+- type: entityTable
+  id: FillBoxSyndicateFirebugsFestival
+  table: !type:AllSelector
+    children:
     - id: ChemistryBottleFirebugsFriend
-      amount: 8
+      amount: !type:ConstantNumberSelector
+        value: 8
     - id: SyndicateFlippo
-      amount: 1
+      amount: !type:ConstantNumberSelector
+        value: 1
