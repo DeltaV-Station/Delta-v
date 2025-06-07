@@ -1,6 +1,7 @@
 using Content.Server._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CustomObjectiveSummary;
 using Content.Shared.Audio;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
@@ -26,7 +27,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     {
         if (!HasComp<HumanoidAppearanceComponent>(args.User))
             return; // humanoids only!
-        if (!EntityIsCultist(args.User) && !args.Handled && ent.Comp.FinaleActive)
+        if (!EntityIsCultist(args.User) && !args.Handled && !ent.Comp.Occupied && ent.Comp.FinaleActive)
         {
             ent.Comp.Occupied = true;
             var doargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.InteractionTime, new CancelFinaleDoAfterEvent(), ent, ent)
@@ -37,7 +38,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             _doAfter.TryStartDoAfter(doargs);
             args.Handled = true;
         }
-        else if (EntityIsCultist(args.User) && !args.Handled && !ent.Comp.FinaleActive && ent.Comp.CurrentState != FinaleState.Unavailable)
+        else if (EntityIsCultist(args.User) && !args.Handled && !ent.Comp.Occupied && !ent.Comp.FinaleActive && ent.Comp.CurrentState != FinaleState.Unavailable)
         {
             ent.Comp.Occupied = true;
             var doargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.InteractionTime, new StartFinaleDoAfterEvent(), ent, ent)
