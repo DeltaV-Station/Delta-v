@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Emily9031
-  changes:
-  - message: Added a dead man's signaller that will activate when dropped. Find it
-      in the uplink and research! Make sure you arm it!
-    type: Add
-  id: 947
-  time: '2025-01-25T04:09:54.540837+00:00'
-  url: null
 - author: ElusiveCoin
   changes:
   - message: Updated Chitinid Resistances to make them more tank like while still
@@ -4120,3 +4112,13 @@
   id: 1446
   time: '2025-06-05T19:09:23.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3875
+- author: SolStar2
+  changes:
+  - message: 'Apoapsis: reduced the time at CC to 30 seconds pending changes to the
+      CC map.'
+    type: Tweak
+  - message: Evac shuttle transit time changed to 15 seconds.
+    type: Tweak
+  id: 1447
+  time: '2025-06-07T02:59:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3886
