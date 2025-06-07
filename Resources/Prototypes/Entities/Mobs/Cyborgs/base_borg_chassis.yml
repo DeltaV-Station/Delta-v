@@ -103,13 +103,9 @@
     - Common
     - Science
   - type: ZombieImmune
-  # Begin DeltaV Changes - use IPC healing instead of 1 weld to heal everything
-  #- type: Repairable
-  #  doAfterDelay: 10
-  #  allowSelfRepair: false
-  - type: WeldingHealable
-    allowSelfHeal: false
-  # End DeltaV Changes
+  - type: Repairable
+    doAfterDelay: 30 # Delta V - Bring back 1 weld  heal, but makes it take 3x Longer
+    allowSelfRepair: false
   - type: BorgChassis
   - type: SurgerySelfDirty # DeltaV: borgs get dirty from doing surgery
   - type: Fiber # DeltaV - borgs leave metal fibers
