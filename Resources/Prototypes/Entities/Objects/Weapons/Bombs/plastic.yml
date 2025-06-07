@@ -67,9 +67,9 @@
     - Trigger # DeltaV: replace Timer with Trigger for TriggerOnSignal
   - type: Explosive # Powerful explosion in a very small radius. Doesn't break underplating.
     explosionType: DemolitionCharge
-    totalIntensity: 60
+    totalIntensity: 30 # DeltaV: down from 60
     intensitySlope: 5
-    maxIntensity: 30
+    maxIntensity: 10 # DeltaV: down from 30 just enough to punch though a plastitanium wall but not the girder
     canCreateVacuum: false
   - type: ExplodeOnTrigger
   - type: HolidayVisuals
