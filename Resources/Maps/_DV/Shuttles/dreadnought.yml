@@ -31,7 +31,6 @@ entities:
       name: GLX-225-DREADNOUGHT
     - type: Transform
       pos: -2.0520835,2.2466989
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -3227,8 +3226,6 @@ entities:
       pos: 5.5,20.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 113
   - uid: 1301
@@ -3246,8 +3243,6 @@ entities:
       pos: 6.5,20.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 113
   - uid: 1303
