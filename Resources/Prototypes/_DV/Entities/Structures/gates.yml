@@ -1,0 +1,51 @@
+- type: entity
+  abstract: true
+  id: BaseLogicItemAnchored
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    canCollide: false
+    bodyType: Static
+
+- type: entity
+  parent:
+  - BaseLogicItemAnchored
+  - LogicGateOr
+  id: LogicGateOrAnchored
+  suffix: Or, Anchored
+
+- type: entity
+  parent:
+  - BaseLogicItemAnchored
+  - LogicGateAnd
+  id: LogicGateAndAnchored
+  suffix: And, Anchored
+
+- type: entity
+  parent:
+  - BaseLogicItemAnchored
+  - LogicGateXor
+  id: LogicGateXorAnchored
+  suffix: Xor, Anchored
+
+- type: entity
+  parent:
+  - BaseLogicItemAnchored
+  - LogicGateNor
+  id: LogicGateNorAnchored
+  suffix: Nor, Anchored
+
+- type: entity
+  parent:
+  - BaseLogicItemAnchored
+  - LogicGateNand
+  id: LogicGateNandAnchored
+  suffix: Nand, Anchored
+
+- type: entity
+  parent:
+  - BaseLogicItemAnchored
+  - LogicGateXnor
+  id: LogicGateXnorAnchored
+  suffix: Xnor, Anchored
