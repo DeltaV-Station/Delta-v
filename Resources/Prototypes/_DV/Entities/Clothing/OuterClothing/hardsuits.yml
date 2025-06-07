@@ -400,7 +400,7 @@
 
 #LO Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
+  parent: [ClothingOuterHardsuitBase, BaseJetpack, BaseCargoContraband]
   id: ClothingOuterHardsuitRhino
   name: Rhino industrial hardsuit
   description: A hardsuit adorned with purple fabric and gold metal. Made specifically for Nanotrasen by Rhino Industries. Typically given to station Logistics Officers, this hardsuit boasts better protection than most salvagers get.
@@ -429,3 +429,11 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      volume: 0.75
+      temperature: 293.15
+      moles:
+      - 0.153853429 # oxygen
+      - 0.153853429 # nitrogen
