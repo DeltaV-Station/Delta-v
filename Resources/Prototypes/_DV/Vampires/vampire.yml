@@ -1,0 +1,10 @@
+- type: antag
+  id: VampireAntag
+  name: roles-antag-vampire-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-vampire-description
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 43200 # 12h TODO: Direction pass
+  guides: [ Vampires ]
