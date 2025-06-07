@@ -4,3 +4,4 @@ stack-normality-crystal = normality crystal
 stack-entropy = mote of entropy
 
 stack-rough-bluespace = rough bluespace
+stack-treatcoin = treatcoin
