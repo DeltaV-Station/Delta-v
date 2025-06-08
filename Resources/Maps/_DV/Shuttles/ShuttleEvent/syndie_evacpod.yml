@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 06/08/2025 00:51:37
-  entityCount: 197
+  time: 06/08/2025 01:39:41
+  entityCount: 208
 maps: []
 grids:
 - 1
@@ -28,6 +28,8 @@ entities:
     - type: MetaData
       desc: Evacuation pod
       name: Evacuation pod
+    - type: Transform
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -367,6 +369,66 @@ entities:
     components:
     - type: Transform
       pos: 0.5,1.5
+      parent: 1
+  - uid: 104
+    components:
+    - type: Transform
+      pos: -3.5,1.5
+      parent: 1
+  - uid: 163
+    components:
+    - type: Transform
+      pos: -3.5,3.5
+      parent: 1
+  - uid: 199
+    components:
+    - type: Transform
+      pos: -3.5,4.5
+      parent: 1
+  - uid: 200
+    components:
+    - type: Transform
+      pos: -3.5,5.5
+      parent: 1
+  - uid: 201
+    components:
+    - type: Transform
+      pos: -3.5,6.5
+      parent: 1
+  - uid: 202
+    components:
+    - type: Transform
+      pos: -3.5,2.5
+      parent: 1
+  - uid: 203
+    components:
+    - type: Transform
+      pos: 4.5,1.5
+      parent: 1
+  - uid: 204
+    components:
+    - type: Transform
+      pos: 4.5,2.5
+      parent: 1
+  - uid: 205
+    components:
+    - type: Transform
+      pos: 4.5,3.5
+      parent: 1
+  - uid: 206
+    components:
+    - type: Transform
+      pos: 4.5,4.5
+      parent: 1
+  - uid: 207
+    components:
+    - type: Transform
+      pos: 4.5,5.5
+      parent: 1
+  - uid: 208
+    components:
+    - type: Transform
+      pos: 4.5,6.5
       parent: 1
 - proto: CableHV
   entities:
@@ -1182,12 +1244,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-3.5
-      parent: 1
-  - uid: 104
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,-3.5
       parent: 1
   - uid: 105
     components:
