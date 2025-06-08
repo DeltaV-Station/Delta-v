@@ -48,3 +48,32 @@
     modifiers:
       coefficients:
         Caustic: 0.95
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsConcussiveGauntlets
+  name: concussive gauntlets
+  description: A pair of gauntlets designed for mining usage, delivering shocks to shatter rocks, even if they arent effective weapons
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Hands/Gloves/concussive_gauntlets.rsi
+    state: icon
+  - type: Clothing
+    sprite: _DV/Clothing/Hands/Gloves/concussive_gauntlets.rsi
+    state: equipped-HAND
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 2.5
+    damage:
+      types:
+        Structural: 40
+    soundHit:
+      collection: ExplosionSmall
+    mustBeEquippedToUse: true
+  - type: MeleeThrowOnHit
+    speed: 25
+    distance: 30
+  - type: Fiber
+    fiberMaterial: fibers-steel
+    fiberColor: fibers-black
+
