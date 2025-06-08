@@ -209,6 +209,8 @@ public sealed class SiliconChargeSystem : EntitySystem
     // TheDen - IPC Dynamic Power draw
     private float SiliconMovementEffects(EntityUid silicon, SiliconComponent siliconComp)
     {
+        const float maxReductionAmount = 0.7f;
+
         // Calculate dynamic power draw.
         if (!TryComp(silicon, out MovementSpeedModifierComponent? movement) ||
             !TryComp(silicon, out PhysicsComponent? physics) || !TryComp(silicon, out InputMoverComponent? input))
@@ -216,13 +218,13 @@ public sealed class SiliconChargeSystem : EntitySystem
 
         if (input.HeldMoveButtons == 0x0) // If nothing is being held
         {
-            return siliconComp.DrainPerSecond * 0.9f; // Reduces draw by 90%
+            return siliconComp.DrainPerSecond * maxReductionAmount; // Reduces draw by 90%
         }
 
         // LinearVelocity is relative to the parent
         return Math.Clamp(
             siliconComp.DrainPerSecond * (1 - (physics.LinearVelocity.Length() / movement.CurrentSprintSpeed)), // Power draw changes as a percentage of the movement
             0f, // Maximum is 100% Power Draw
-            siliconComp.DrainPerSecond * 0.9f); // Should be a minimum of 90% of reduction
+            siliconComp.DrainPerSecond * maxReductionAmount); // Should be a minimum of 90% of reduction
     }
 }
