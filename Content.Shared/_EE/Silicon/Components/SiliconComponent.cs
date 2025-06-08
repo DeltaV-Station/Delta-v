@@ -69,6 +69,17 @@ public sealed partial class SiliconComponent : Component
     [DataField]
     public float DrainPerSecond = 50f;
 
+    // TheDen - Dynamic IPC Power Draw
+    /// <summary>
+    ///     How much less power is used while being idle.
+    /// </summary>
+    /// <remarks>
+    ///     Relative to the DrainPerSecond.
+    ///     0 is no reduction. 1 is 100% reduction. 0.5 is 50% reduction.
+    ///     Currently, 90% reduction is as high as we can go without changing code in C#
+    /// </remarks>
+    [DataField]
+    public float IdleDrainReduction = 0.6f;
 
     /// <summary>
     ///     The percentages at which the silicon will enter each state.
