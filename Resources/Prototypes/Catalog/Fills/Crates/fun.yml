@@ -10,6 +10,7 @@
     - id: PlushieNuke
     - id: PlushieSlime
     - id: PlushieSnake
+    - id: PlushieExperiment
     - !type:GroupSelector
       children:
       - id: PlushieLizard
@@ -43,8 +44,18 @@
     - id: PlushieMothRandom # Nyano - random moth plushies
     - id: PlushieArachind
     - id: PlushiePenguin
-    - id: PlushieMort # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
-    - id: PlushieIPC # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
+    # Begin DeltaV,- see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
+    - id: PlushieMort
+    - id: PlushieIPC
+    - id: PlushieFelinid
+    - id: PlushieOni
+    - id: PlushieHarpy
+    - id: PlushieRodentia
+    - id: PlushieFeroxi
+    - id: PlushieChitinid
+    - id: PlushieKitsune
+    # End DeltaV
+    - id: PlushieThaven # IMP port
 
 - type: entity
   id: CrateFunPlushie
@@ -75,6 +86,26 @@
         - id: PlushieSpaceLizard
           amount: !type:ConstantNumberSelector
             value: 3
+
+- type: entity
+  id: CrateFunSharkPlushieBulk
+  parent: CrateGenericSteel
+  name: bulk soft toy shark crate
+  description: A crate filled with a variety of everyone's favorite finned friend. Rawr!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: PlushieSharkBlue
+          amount: !type:ConstantNumberSelector
+            value: 2
+        - id: PlushieSharkPink
+          amount: !type:ConstantNumberSelector
+            value: 2
+        - id: PlushieSharkGrey
+          amount: !type:ConstantNumberSelector
+            value: 2
 
 - type: entity
   id: CrateFunInstrumentsVariety

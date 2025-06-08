@@ -30,8 +30,6 @@ entities:
     - type: MetaData
       name: Kizame
     - type: Transform
-      pos: -0.46875128,0.5997219
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -339,6 +337,7 @@ entities:
           - 0
         chunkSize: 4
     - type: GasTileOverlay
+    - type: GlobalResearchGrid
 - proto: ActionToggleInternals
   entities:
   - uid: 29

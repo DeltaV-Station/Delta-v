@@ -1,0 +1,68 @@
+- type: latheRecipe
+  abstract: true
+  id: BaseHardsuitRecipe
+  categories:
+  - Hardsuits
+  completetime: 10 # Hardsuit beeg
+  materials:
+    Plasteel: 500
+    Durathread: 500
+    Steel: 1000
+    Glass: 500
+    Plastic: 400
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseHardsuitRecipe
+  id: BaseHardsuitArmoredRecipe
+  materials:
+    Plasteel: 1000
+    Durathread: 600
+    Steel: 1500
+    Glass: 800
+    Plastic: 400
+
+- type: latheRecipe
+  abstract: true
+  id: BaseSoftsuitRecipe
+  categories:
+  - Softsuits
+  completetime: 7 # Softsuit less beeg
+  materials:
+    Durathread: 700
+    Steel: 500
+    Glass: 200
+    Plastic: 400
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseSoftsuitRecipe
+  id: BaseSoftsuitHelmetRecipe
+  completetime: 4 # Helmet is smaller
+  materials:
+    Durathread: 200
+    Steel: 100
+    Glass: 100
+    Plastic: 100
+
+- type: latheRecipe
+  id: ClothingOuterHardsuitSyndieReverseEngineered
+  result: ClothingOuterHardsuitSyndieReverseEngineered
+  completetime: 25
+  materials:
+    Steel: 6000
+    Glass: 1500
+    Uranium: 100
+    Plastic: 100
+    Gold: 200
+
+- type: latheRecipe
+  id: ClothingOuterHardsuitJuggernautReverseEngineered
+  result: ClothingOuterHardsuitJuggernautReverseEngineered
+  completetime: 25
+  materials:
+    Steel: 12000
+    Glass: 3000
+    Uranium: 500
+    Plastic: 500
+    Gold: 250

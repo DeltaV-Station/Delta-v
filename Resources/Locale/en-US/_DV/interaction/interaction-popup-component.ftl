@@ -10,3 +10,6 @@ petting-failure-security-cyborg = You reach out to pet {THE($target)}, but {POSS
 
 petting-success-supplybot = You pet {THE($target)} on {POSS-ADJ($target)} smooth metal head.
 petting-failure-supplybot = You reach out to pet {THE($target)}, but {SUBJECT($target)} doesn't seem to notice.
+
+petting-success-whimperlet = You pet {THE($target)} on {POSS-ADJ($target)} pathetic little head.
+petting-failure-whimperlet = You reach out to pet {THE($target)}, but {SUBJECT($target)} shrinks back from you.

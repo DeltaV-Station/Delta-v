@@ -7,13 +7,15 @@
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
   - type: Item
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
-    size: Normal
+    size: Normal # DeltaV - back to 2x2
+    shape:
+    - 0,0,1,1 # DeltaV - back to 2x2
   - type: GunWieldBonus
     minAngle: -43
     maxAngle: -43
   - type: Wieldable
   - type: Gun
-    fireRate: 0.5
+    fireRate: 0.8 # DeltaV - 1.25s recharge time, less than ss13's 1.6 seconds to compensate for no dual wielding
     selectedMode: SemiAuto
     angleDecay: 45
     minAngle: 44
@@ -32,7 +34,7 @@
           False: { visible: True }
         #todo: add other 'empty' animations
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.75
+    rechargeCooldown: 0.5 # DeltaV
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider

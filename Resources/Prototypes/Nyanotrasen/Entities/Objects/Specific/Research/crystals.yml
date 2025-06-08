@@ -1,17 +1,3 @@
-- type: entity
-  parent: BaseItem
-  id: CrystalNormality
-  name: normality crystal
-  description: It looks... normal.
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Objects/Materials/materials.rsi
-    state: bluespace
-    color: gray
-  - type: Tag
-    tags:
-      - NormalityCrystal
-
 # - type: entity
 #   parent: BaseItem
 #   id: CrystalSoul

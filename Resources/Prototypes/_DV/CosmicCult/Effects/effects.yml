@@ -19,15 +19,15 @@
       castShadows: false
     - type: LightBehaviour
       behaviours:
-        - !type:FadeBehaviour
-          interpolate: Linear
-          minDuration: 0.64
-          maxDuration: 0.65
-          startValue: 0.1
-          endValue: 6
-          property: Energy
-          enabled: true
-          reverseWhenFinished: true
+      - !type:FadeBehaviour
+        interpolate: Linear
+        minDuration: 0.64
+        maxDuration: 0.65
+        startValue: 0.1
+        endValue: 6
+        property: Energy
+        enabled: true
+        reverseWhenFinished: true
     - type: Tag
       tags:
       - HideContextMenu
@@ -45,7 +45,7 @@
     anchored: true
   - type: Sprite
     layers:
-    - sprite: _DV/CosmicCult/Effects/tiles_spawn.rsi
+    - sprite: _DV/CosmicCult/Effects/tile_spawn.rsi
       state: floorglow
       shader: unshaded
     drawdepth: Mobs
@@ -56,14 +56,12 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: BaseCosmicVFX
-  placement:
-    mode: SnapgridCenter
   components:
   - type: TimedDespawn
     lifetime: 1.75
   - type: Transform
     noRot: true
-    anchored: true
+    anchored: false
   - type: Sprite
     netsync: false
     drawdepth: Mobs
@@ -100,16 +98,16 @@
     castShadows: false
   - type: LightBehaviour
     behaviours:
-     - !type:FadeBehaviour
-       interpolate: Linear
-       minDuration: 1.75
-       maxDuration: 1.75
-       startValue: 0.1
-       endValue: 4
-       property: Energy
-       enabled: true
-       isLooped: true
-       reverseWhenFinished: true
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 1.75
+      maxDuration: 1.75
+      startValue: 0.1
+      endValue: 4
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -130,16 +128,76 @@
     castShadows: false
   - type: LightBehaviour
     behaviours:
-     - !type:FadeBehaviour
-       interpolate: Linear
-       minDuration: 2.025
-       maxDuration: 2.025
-       startValue: 0.1
-       endValue: 2
-       property: Energy
-       enabled: true
-       isLooped: true
-       reverseWhenFinished: true
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 2.025
+      maxDuration: 2.025
+      startValue: 0.1
+      endValue: 2
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseCosmicVFX
+  id: NoosphericVFX2
+  components:
+  - type: TimedDespawn
+    lifetime: 2.025
+  - type: Sprite
+    layers:
+    - sprite: _DV/CosmicCult/Effects/effect_ns_flarevfx.rsi
+      state: vfx
+      shader: unshaded
+  - type: PointLight
+    color: "#a35d7b"
+    radius: 1.5
+    energy: 2.5
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 1.575
+      maxDuration: 1.575
+      startValue: 0.1
+      endValue: 2
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseCosmicVFX
+  id: NoosphericVFX1
+  components:
+  - type: TimedDespawn
+    lifetime: 2.025
+  - type: Sprite
+    layers:
+    - sprite: _DV/CosmicCult/Effects/effect_ns_reboundvfx.rsi
+      state: vfx
+      shader: unshaded
+  - type: PointLight
+    color: "#a35d7b"
+    radius: 1.5
+    energy: 2.5
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 1.125
+      maxDuration: 1.125
+      startValue: 0.1
+      endValue: 2
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -160,16 +218,16 @@
     castShadows: false
   - type: LightBehaviour
     behaviours:
-     - !type:FadeBehaviour
-       interpolate: Linear
-       minDuration: 2.025
-       maxDuration: 2.025
-       startValue: 0.1
-       endValue: 2
-       property: Energy
-       enabled: true
-       isLooped: true
-       reverseWhenFinished: true
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 2.025
+      maxDuration: 2.025
+      startValue: 0.1
+      endValue: 2
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -190,16 +248,16 @@
     castShadows: true
   - type: LightBehaviour
     behaviours:
-     - !type:FadeBehaviour
-       interpolate: Linear
-       minDuration: 1.1
-       maxDuration: 1.1
-       startValue: 0.1
-       endValue: 10
-       property: Energy
-       enabled: true
-       isLooped: true
-       reverseWhenFinished: true
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 1.1
+      maxDuration: 1.1
+      startValue: 0.1
+      endValue: 10
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -220,16 +278,16 @@
     castShadows: true
   - type: LightBehaviour
     behaviours:
-     - !type:FadeBehaviour
-       interpolate: Linear
-       minDuration: 1.92
-       maxDuration: 1.92
-       startValue: 0.1
-       endValue: 6
-       property: Energy
-       enabled: true
-       isLooped: true
-       reverseWhenFinished: true
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 1.92
+      maxDuration: 1.92
+      startValue: 0.1
+      endValue: 6
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -251,16 +309,16 @@
     castShadows: true
   - type: LightBehaviour
     behaviours:
-     - !type:FadeBehaviour
-       interpolate: Linear
-       minDuration: 1.1
-       maxDuration: 1.1
-       startValue: 0.1
-       endValue: 6
-       property: Energy
-       enabled: true
-       isLooped: true
-       reverseWhenFinished: true
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 1.1
+      maxDuration: 1.1
+      startValue: 0.1
+      endValue: 6
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
   - type: Tag
     tags:
       - HideContextMenu
@@ -287,3 +345,39 @@
     energy: 1.6
     castShadows: false
     color: "#42a4ae"
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseCosmicVFX
+  id: CosmicColossusAttack1Vfx
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: TimedDespawn
+    lifetime: 1.5
+  - type: Sprite
+    layers:
+    - sprite: _DV/CosmicCult/Effects/colossus_attack.rsi
+      state: attack1
+      shader: unshaded
+  - type: PointLight
+    color: "#42a4ae"
+    radius: 5
+    energy: 5
+    castShadows: true
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 1.5
+      maxDuration: 1.5
+      startValue: 0.1
+      endValue: 5
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
