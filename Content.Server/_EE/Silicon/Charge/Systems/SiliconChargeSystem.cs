@@ -40,6 +40,7 @@ public sealed class SiliconChargeSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly SharedJetpackSystem _jetpack = default!; // TheDen - - IPC Dynamic Power draw
     public override void Initialize()
     {
         base.Initialize();
@@ -209,22 +210,22 @@ public sealed class SiliconChargeSystem : EntitySystem
     // TheDen - IPC Dynamic Power draw
     private float SiliconMovementEffects(EntityUid silicon, SiliconComponent siliconComp)
     {
-        const float maxReductionAmount = 0.7f;
+        const float maxReductionAmount = 0.6f;
 
         // Calculate dynamic power draw.
         if (!TryComp(silicon, out MovementSpeedModifierComponent? movement) ||
             !TryComp(silicon, out PhysicsComponent? physics) || !TryComp(silicon, out InputMoverComponent? input))
             return 0;
 
-        if (input.HeldMoveButtons == 0x0) // If nothing is being held
+        if (input.HeldMoveButtons == 0x0 || _jetpack.IsUserFlying(silicon)) // If nothing is being held or jet packing
         {
-            return siliconComp.DrainPerSecond * maxReductionAmount; // Reduces draw by 90%
+            return siliconComp.DrainPerSecond * maxReductionAmount; // Reduces draw by max reduction amount
         }
 
         // LinearVelocity is relative to the parent
         return Math.Clamp(
             siliconComp.DrainPerSecond * (1 - (physics.LinearVelocity.Length() / movement.CurrentSprintSpeed)), // Power draw changes as a percentage of the movement
-            0f, // Maximum is 100% Power Draw
-            siliconComp.DrainPerSecond * maxReductionAmount); // Should be a minimum of 90% of reduction
+            0f, // Minimum is no change to power draw
+            siliconComp.DrainPerSecond * maxReductionAmount); // Should be a maximum of the max reduction amount
     }
 }
