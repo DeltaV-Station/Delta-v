@@ -54,7 +54,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: StructuralInorganic
+    damageContainer: Inorganic
     damageModifierSet: Metallic
 
 
@@ -80,7 +80,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: StructuralInorganic
+    damageContainer: Inorganic
     damageModifierSet: Metallic
 
 ##################### PILLAR
@@ -119,7 +119,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: StructuralInorganic
+    damageContainer: Inorganic
     damageModifierSet: Metallic
 
 ##################### THRUSTER
@@ -183,7 +183,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: StructuralInorganic
+    damageContainer: Inorganic
     damageModifierSet: Metallic
 
 ##################### LAMP
@@ -222,9 +222,6 @@
     damageModifierSet: Metallic
   - type: RCDDeconstructable
     deconstructable: false
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -384,7 +381,7 @@
     sprite: _DV/CosmicCult/Tileset/cosmictable.rsi
     state: full
   - type: Damageable
-    damageContainer: StructuralInorganic
+    damageContainer: Inorganic
     damageModifierSet: Metallic
   - type: CosmicCultExamine
     cultistText: cosmic-examine-text-forthecult
