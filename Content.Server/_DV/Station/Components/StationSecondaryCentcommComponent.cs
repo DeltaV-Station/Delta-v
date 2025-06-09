@@ -1,5 +1,4 @@
 using Content.Server._DV.Station.Systems;
-using Robust.Shared.Map;
 using Robust.Shared.Utility;
 
 namespace Content.Server._DV.Station.Components;
@@ -14,7 +13,7 @@ public sealed partial class StationSecondaryCentcommComponent : Component
     /// The grid to load as secondary Central Command
     /// </summary>
     [DataField]
-    public ResPath Path = new ResPath("/Maps/_DV/centcomm.yml");
+    public ResPath Path = new("/Maps/_DV/centcomm.yml");
 
     /// <summary>
     /// Minimum distance to load the grid at.
