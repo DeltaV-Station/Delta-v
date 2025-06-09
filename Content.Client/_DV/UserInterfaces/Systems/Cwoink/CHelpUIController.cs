@@ -166,7 +166,6 @@ public sealed class CHelpUIController : UIController, IOnSystemChanged<CwoinkSys
 
         UIHelper.SendMessageAction = (userId, textMessage, playSound, adminOnly) => _cwoinkSystem?.Send(userId, textMessage, playSound, adminOnly);
         UIHelper.InputTextChanged += (channel, text) => _cwoinkSystem?.SendInputTextUpdated(channel, text.Length > 0);
-        UIHelper.OnClose += () => { SetCHelpPressed(false); };
         UIHelper.OnClose += () => SetCHelpPressed(false);
         UIHelper.OnOpen += () => SetCHelpPressed(true);
         SetCHelpPressed(UIHelper.IsOpen);
