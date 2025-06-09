@@ -17,6 +17,9 @@ public sealed partial class ReagentTankComponent : Component
     // imp start
     [DataField]
     public EntityWhitelist? FuelWhitelist;
+
+    [DataField]
+    public EntityWhitelist? FuelBlacklist;
     // imp end
 }
 
