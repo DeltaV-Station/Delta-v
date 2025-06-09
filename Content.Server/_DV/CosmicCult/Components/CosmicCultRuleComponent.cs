@@ -45,6 +45,7 @@ public sealed partial class CosmicCultRuleComponent : Component
     [
         "MobCosmicCustodian",
         "MobCosmicOracle",
+        "MobCosmicLodestar",
     ];
 
     /// <summary>

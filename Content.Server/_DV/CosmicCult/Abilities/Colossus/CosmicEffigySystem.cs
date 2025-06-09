@@ -46,7 +46,6 @@ public sealed class CosmicEffigySystem : EntitySystem
         _codeCondition.SetCompleted(ent.Owner, ent.Comp.EffigyObjective);
         Spawn(ent.Comp.EffigyPrototype, pos);
         ent.Comp.Timed = false;
-        args.Handled = true;
     }
 
     private bool VerifyPlacement(Entity<CosmicColossusComponent> ent, out EntityCoordinates outPos)
@@ -62,13 +61,13 @@ public sealed class CosmicEffigySystem : EntitySystem
         }
 
         var localTile = _map.GetTileRef(xform.GridUid.Value, grid, xform.Coordinates);
-        var targetIndices = localTile.GridIndices + new Vector2i(0, 1);
+        var targetIndices = localTile.GridIndices + new Vector2i(0, 2);
         var pos = _map.ToCenterCoordinates(xform.GridUid.Value, targetIndices, grid);
         outPos = pos;
         var box = new Box2(pos.Position + new Vector2(-1.4f, -0.4f), pos.Position + new Vector2(1.4f, 0.4f));
 
         // CHECK IF IT'S BEING PLACED CHEESILY CLOSE TO SPACE
-        var spaceDistance = 3;
+        var spaceDistance = 2;
         var worldPos = _transform.GetWorldPosition(xform);
         foreach (var tile in _map.GetTilesIntersecting(xform.GridUid.Value, grid, new Circle(worldPos, spaceDistance)))
         {

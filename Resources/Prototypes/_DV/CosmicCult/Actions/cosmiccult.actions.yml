@@ -245,9 +245,6 @@
   name: Beckon an Effigy
   description: Draw out an Effigy of Entropy into realspace.
   components:
-  - type: ConfirmableAction
-    popup: ghost-role-colossus-effigy-confirm
-    primeTime: 10
   - type: InstantAction
     useDelay: 999
     itemIconStyle: NoItem
@@ -255,5 +252,3 @@
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: nova
     event: !type:EventCosmicColossusEffigy {}
-  - type: MonumentPlacementPreview # let's reuse the monument system here because it serves our needs and we don't have a unified placement preview to use. Maybe make  one later.
-    tier: 0

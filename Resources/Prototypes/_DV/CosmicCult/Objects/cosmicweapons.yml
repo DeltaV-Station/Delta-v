@@ -187,7 +187,7 @@
       groups:
         Brute: -10
   - type: Gun
-    projectileSpeed: 14
+    projectileSpeed: 15
     soundGunshot: /Audio/_DV/CosmicCult/projectile_razor.ogg
     soundEmpty: null
     fireRate: 1
@@ -196,6 +196,8 @@
     rechargeCooldown: 1.8
     rechargeSound:
       path: /Audio/_DV/CosmicCult/projectile_razor_reload.ogg
+      params:
+        variation: 0.08
   - type: BasicEntityAmmoProvider
     proto: ProjectileCosmicRazor
     capacity: 1

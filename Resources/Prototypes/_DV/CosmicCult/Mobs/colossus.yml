@@ -135,6 +135,9 @@
         Bloodloss:
           0
   - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
   - type: Butcherable
     butcherDelay: 16
     spawned:
@@ -236,6 +239,9 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
+  - type: GuideHelp
+    guides:
+    - CosmicColossus
 
 - type: entity
   parent: [ MobCosmicColossusBase ]
