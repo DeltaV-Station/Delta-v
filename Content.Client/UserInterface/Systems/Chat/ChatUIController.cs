@@ -714,6 +714,9 @@ public sealed partial class ChatUIController : UIController
         else
             box.ChatInput.ChannelSelector.UpdateChannelSelectButton(prefixChannel, radioChannel);
 
+        if (_currentChannel != prefixChannel)
+            _typingIndicator?.ClientSubmittedChatText(); // DeltaV - refresh indicator change
+
         _currentChannel = prefixChannel; // DeltaV
     }
 
