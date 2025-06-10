@@ -19,7 +19,9 @@
     shape:
     - 0,0,3,0
     - 0,1,0,1
-    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/anacondax64.rsi
+    storedSprite:
+      state: storage
+      sprite: _Impstation/Objects/Weapons/Guns/Revolvers/anacondax64.rsi #Done in 64x64 because it looks way too puny in 32x32
   - type: Gun
     fireRate: 1.0
     minAngle: 1
