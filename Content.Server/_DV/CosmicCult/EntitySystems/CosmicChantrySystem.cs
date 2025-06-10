@@ -65,7 +65,6 @@ public sealed class CosmicChantrySystem : EntitySystem
                 Spawn(comp.SpawnVFX, tgtpos);
                 QueueDel(comp.InternalVictim);
                 QueueDel(uid);
-                EnsureComp<CosmicColossusComponent>(colossus);
             }
         }
     }
