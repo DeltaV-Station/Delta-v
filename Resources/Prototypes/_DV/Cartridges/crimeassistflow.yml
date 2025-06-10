@@ -43,8 +43,8 @@
 - type: crimeAssistPage
   id: "questionIsVictimUnrevivable"
   locKey: "crime-assist-question-isvictimunrevivable"
-  onYes: "resultMurder"
-  onNo: "resultDecorporealisation"
+  onYes: "resultDecorporealisation"
+  onNo: "resultMurder"
 
 - type: crimeAssistPage
   id: "questionIsItBullying"
