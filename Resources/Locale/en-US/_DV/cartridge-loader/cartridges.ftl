@@ -78,7 +78,7 @@ crime-assist-question-tocommandstaff = Did the suspect overthrow or compromise a
 crime-assist-question-wasitcommanditself = Was a command staff or department head abusing authority over another sophont?
 
 # Crime details
-crime-assist-crimedetail-innocent = Crime could not be determined. Use your best judgement to resolve the situation.
+crime-assist-crimedetail-innocent = Crime could not be determined. Use your best judgement or consult a superior to resolve the situation.
 crime-assist-crimedetail-animalcruelty = To inflict unnecessary suffering on a sapient being with malicious intent.
 crime-assist-crimedetail-harrassment = To verbally demean, humiliate, or harass an entity with malice; or maliciously spread false information amongst a population.
 crime-assist-crimedetail-vigilantism = To perform the responsibility and duty of a law enforcement official without approval or due cause to act.
@@ -108,6 +108,7 @@ crime-assist-crimedetail-terrorism = To maliciously commit an act or take hostag
 crime-assist-crimedetail-grandsabotage = To maliciously commit an act that, directly or indirectly, renders a vessel or its part uninhabitable or inoperable; or, to commit an act that causes irreversible damage to High Security Areas and/or systems of a vessel.
 crime-assist-crimedetail-decorporealisation = To commit an act that prevents the revival of a sophont by standard medical care following their death.
 crime-assist-crimedetail-sedition = To act to overthrow a lawfully established Chain of Command or governing body without lawful or legitimate cause.
+crime-assist-crimedetail-breachofcustody = To escape the custody of law enforcement while serving a legal sentence, or awaiting trial for a capital offense.
 
 # Punishments
 crime-assist-crimepunishment-innocent = No punishment may be necessary
