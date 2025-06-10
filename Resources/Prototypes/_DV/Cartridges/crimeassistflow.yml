@@ -3,13 +3,13 @@
   locKey: "crime-assist-mainmenu"
   onStart: "questionIsItTerrorism"
 
-# Branch 1 - Levels of harm
 - type: crimeAssistPage
   id: "questionIsItTerrorism"
   locKey: "crime-assist-question-isitterrorism"
   onYes: "resultTerrorism"
   onNo: "questionWasSomeoneAttacked"
 
+# Branch 1 - Levels of harm
 - type: crimeAssistPage
   id: "questionWasSomeoneAttacked"
   locKey: "crime-assist-question-wassomeoneattacked"
@@ -31,20 +31,20 @@
 - type: crimeAssistPage
   id: "questionDidVictimDie"
   locKey: "crime-assist-question-didvictimdie"
-  onYes: "questionIsVictimUnrevivable"
+  onYes: "questionWasDeathIntentional"
   onNo: "resultAssault"
-
-- type: crimeAssistPage
-  id: "questionIsVictimUnrevivable"
-  locKey: "crime-assist-question-isvictimunrevivable"
-  onYes: "resultDecorporealisation"
-  onNo: "questionWasDeathIntentional"
 
 - type: crimeAssistPage
   id: "questionWasDeathIntentional"
   locKey: "crime-assist-question-wasdeathintentional"
-  onYes: "resultMurder"
+  onYes: "questionIsVictimUnrevivable"
   onNo: "resultManslaughter"
+
+- type: crimeAssistPage
+  id: "questionIsVictimUnrevivable"
+  locKey: "crime-assist-question-isvictimunrevivable"
+  onYes: "resultMurder"
+  onNo: "resultDecorporealisation"
 
 - type: crimeAssistPage
   id: "questionIsItBullying"
@@ -93,24 +93,30 @@
 - type: crimeAssistPage
   id: "questionDidSuspectBreakSomething"
   locKey: "crime-assist-question-didsuspectbreaksomething"
-  onYes: "questionWereThereManySuspects"
+  onYes: "questionWasDamageSmall"
   onNo: "questionWasSuspectInARestrictedLocation"
+
+- type: crimeAssistPage
+  id: "questionWasDamageSmall"
+  locKey: "crime-assist-question-wasdamagesmall"
+  onYes: "questionWereThereManySuspects"
+  onNo: "questionIsLargePartOfStationDestroyed"
 
 - type: crimeAssistPage
   id: "questionWereThereManySuspects"
   locKey: "crime-assist-question-weretheremanysuspects"
   onYes: "resultRioting"
-  onNo: "questionWasDamageSmall"
-
-- type: crimeAssistPage
-  id: "questionWasDamageSmall"
-  locKey: "crime-assist-question-wasdamagesmall"
-  onYes: "resultVandalism"
-  onNo: "questionIsLargePartOfStationDestroyed"
+  onNo: "resultVandalism"
 
 - type: crimeAssistPage
   id: "questionIsLargePartOfStationDestroyed"
   locKey: "crime-assist-question-islargepartofstationdestroyed"
+  onYes: "resultGrandSabotage"
+  onNo: "questionDidIrreversablyDamageHSA"
+
+- type: crimeAssistPage
+  id: "questionDidIrreversablyDamageHSA"
+  locKey: "crime-assist-question-didirreversablydamageHSA"
   onYes: "resultGrandSabotage"
   onNo: "resultSabotage"
 
@@ -119,7 +125,7 @@
   id: "questionWasSuspectInARestrictedLocation"
   locKey: "crime-assist-question-wassuspectinarestrictedlocation"
   onYes: "questionWasEntranceLocked"
-  onNo: "questionWasSuspectANuisance"
+  onNo: "questionWasGenerallyDisruptive"
 
 - type: crimeAssistPage
   id: "questionWasEntranceLocked"
@@ -133,10 +139,10 @@
   onYes: "resultBreakingAndEntering"
   onNo: "resultTrespass"
 
-# Branch 5- Being a Nuisance
+# Branch 5 - Being generally Disruptive
 - type: crimeAssistPage
-  id: "questionWasSuspectANuisance"
-  locKey: "crime-assist-question-wassuspectanuisance"
+  id: "questionWasGenerallyDisruptive"
+  locKey: "crime-assist-question-wasgenerallydisruptive"
   onYes: "questionWereThereManySuspectsNuisance"
   onNo: "questionEscapedSecurity"
 
@@ -168,13 +174,7 @@
   id: "questionWasItCommandItself"
   locKey: "crime-assist-question-wasitcommanditself"
   onYes: "resultAbuseOfPower"
-  onNo: "questionWasGenerallyDisruptive"
-
-- type: crimeAssistPage
-  id: "questionWasGenerallyDisruptive"
-  locKey: "crime-assist-question-wasgenerallydisruptive"
-  onYes: "resultHooliganism"
-  onNo: "resultInnocent"
+  onNo: "resultHooliganism"
 
 # Branch 6 - Miscellaneous
 - type: crimeAssistPage
@@ -187,6 +187,12 @@
   id: "questionForcedMindbreakerToxin"
   locKey: "crime-assist-question-forcedmindbreakertoxin"
   onYes: "resultMindbreaking"
+  onNo: "questionWasItVigilantismTwo"
+
+- type: crimeAssistPage
+  id: "questionWasItVigilantismTwo" # A second check, for if the suspect was a vigilante without harming someone
+  locKey: "crime-assist-question-wasitvigilantism"
+  onYes: "resultVigilantism"
   onNo: "questionDidTheyImpersonate"
 
 - type: crimeAssistPage
