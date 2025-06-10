@@ -40,7 +40,7 @@
         reagents:
         - ReagentId: WeldingFuel
           Quantity: 400
-    maxVol: 400 #10 seconds of flaming
+        maxVol: 400 #10 seconds of flaming
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletFlamethrower

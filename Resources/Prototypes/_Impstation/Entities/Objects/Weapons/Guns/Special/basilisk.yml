@@ -61,7 +61,7 @@
     attackRate: 0.5
     damage:
       types:
-      Blunt: 9
+        Blunt: 9
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
     soundSwing:
@@ -72,7 +72,7 @@
   - type: DamageOtherOnHit #for throwing
     damage:
       types:
-      Blunt: 12
+        Blunt: 12
   - type: StaminaDamageOnHit
     damage: 10 #slight stagger, but still like 10 hits to stun completely
   - type: MeleeRequiresWield
