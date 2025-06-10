@@ -7,17 +7,17 @@
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Special/adder.rsi
     layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-unshaded-4
-        map: ["enum.GunVisualLayers.MagUnshaded"]
-        shader: unshaded
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Special/adder.rsi
     quickEquip: false
     slots:
-      - suitStorage
-      - Belt
+    - suitStorage
+    - Belt
   - type: Appearance
   - type: AmmoCounter
   - type: MagazineVisuals
@@ -25,7 +25,6 @@
     steps: 5
     zeroVisible: true
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Special/adder.rsi
     size: Small
     shape:
     - 0,0,1,1
@@ -37,14 +36,14 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/akurra.ogg
+    path: /Audio/_Impstation/Weapons/Guns/Gunshots/akurra.ogg
   - type: SolutionContainerManager
     solutions:
-      chamber:
-        reagents:
-        - ReagentId: Echion
-          Quantity: 75
-        maxVol: 75 #12 shots
+    chamber:
+    reagents:
+    - ReagentId: Echion
+      Quantity: 75
+      maxVol: 75 #12 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletPlasmaAdder
@@ -71,20 +70,19 @@
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Special/akurra.rsi
     layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-unshaded-4
-        map: ["enum.GunVisualLayers.MagUnshaded"]
-        shader: unshaded
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Special/akurra.rsi
     quickEquip: false
     slots:
-      - suitStorage
-      - Belt
+    - suitStorage
+    - Belt
   - type: Appearance
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Special/akurra.rsi
     size: Large
   - type: Gun
     clumsyProof: false
@@ -102,11 +100,11 @@
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/adder.ogg
   - type: SolutionContainerManager
     solutions:
-      chamber:
-        reagents:
-        - ReagentId: Echion
-          Quantity: 150
-        maxVol: 150 #30 shots
+    chamber:
+    reagents:
+    - ReagentId: Echion
+      Quantity: 150
+      maxVol: 150 #30 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletPlasmaAkurra

@@ -41,9 +41,10 @@
 
 - type: listing
   id: uplinkBasilisk
-  name: uplink-Basilisk-name
-  description: uplink-Basilisk-desc
-  productEntity: WeaponSpecialBasilisk
+  name: uplink-basilisk-name
+  description: uplink-basilisk-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Special/basilisk.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledBasilisk
   discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 10

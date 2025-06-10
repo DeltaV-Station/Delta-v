@@ -7,11 +7,11 @@
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Special/basilisk.rsi
     layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-unshaded-1
-        map: ["enum.GunVisualLayers.MagUnshaded"]
-        shader: unshaded
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-1
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Special/basilisk.rsi
     quickEquip: false
@@ -27,16 +27,16 @@
     fireRate: 4
     selectedMode: SemiAuto
     availableModes:
-      - SemiAuto
+    - SemiAuto
     soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/beecannon2.ogg
+    path: /Audio/_Impstation/Weapons/Guns/Gunshots/beecannon2.ogg
   - type: SolutionContainerManager
     solutions:
-      chamber:
-        reagents:
-        - ReagentId: Echion
-          Quantity: 75
-        maxVol: 75 #10 shots
+    chamber:
+    reagents:
+    - ReagentId: Echion
+      Quantity: 75
+      maxVol: 75 #10 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletRadiationBasilisk
@@ -61,7 +61,7 @@
     attackRate: 0.5
     damage:
       types:
-        Blunt: 9
+      Blunt: 9
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
     soundSwing:
@@ -72,7 +72,7 @@
   - type: DamageOtherOnHit #for throwing
     damage:
       types:
-        Blunt: 12
+      Blunt: 12
   - type: StaminaDamageOnHit
     damage: 10 #slight stagger, but still like 10 hits to stun completely
   - type: MeleeRequiresWield

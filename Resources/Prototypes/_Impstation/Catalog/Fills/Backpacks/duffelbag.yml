@@ -6,6 +6,18 @@
   components:
   - type: StorageFill
     contents:
-      - id: WeaponPlasmaAkurra
-      - id: EchionCanister
-        amount: 4
+    - id: WeaponPlasmaAkurra
+    - id: EchionCanister
+      amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledBasilisk
+  name: Basilisk bundle
+  description: "An exotic liquid-ammo radiation cannon, bundled with 2 cannisters of its proprietary fuel. Melt their insides"
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSpecialBasilisk
+    - id: EchionCanister
+      amount: 2

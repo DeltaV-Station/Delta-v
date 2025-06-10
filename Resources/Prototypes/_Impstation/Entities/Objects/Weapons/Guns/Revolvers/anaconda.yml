@@ -7,8 +7,8 @@
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Revolvers/anaconda.rsi
     layers:
-      - state: icon
-        map: ["enum.GunVisualLayers.Base"]
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Revolvers/anaconda.rsi
     slots:
@@ -30,9 +30,9 @@
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/anaconda.ogg
   - type: RevolverAmmoProvider
     whitelist:
-      tags:
-        - CartridgeAntiMateriel
-        - SpeedLoaderAM
+    tags:
+    - CartridgeAntiMateriel
+    - SpeedLoaderAM
     proto: CartridgeAntiMateriel
     capacity: 3
     chambers: [ True, True, True ]
