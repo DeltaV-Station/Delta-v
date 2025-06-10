@@ -86,7 +86,7 @@
 - type: crimeAssistPage
   id: "questionIsItemExtremelyDangerousPossession"
   locKey: "crime-assist-question-isitemextremelydangerous"
-  onYes: "resultGrandPossession
+  onYes: "resultGrandPossession"
   onNo: "resultPossession"
 
 # Branch 3 - Breaking Things
@@ -223,14 +223,14 @@
   crimeSeverity: Misdemeanour
   locKeyPunishment: "crime-assist-crimepunishment-animalcruelty"
 
-- type: crimeAssitPage
+- type: crimeAssistPage
   id: "resultHarrassment"
   locKeyTitle: "crime-assist-crime-harrassment"
   locKeyDescription: "crime-assist-crimedetail-harrassment"
   crimeSeverity: Misdemeanour
   locKeyPunishment: "crime-assist-crimepunishment-harrassment"
 
-- type: crimeAssitPage
+- type: crimeAssistPage
   id: "resultVigilantism"
   locKeyTitle: "crime-assist-crime-vigilantism"
   locKeyDescription: "crime-assist-crimedetail-vigilantism"
