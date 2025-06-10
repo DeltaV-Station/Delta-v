@@ -1,4 +1,3 @@
-using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -7,7 +6,6 @@ using Content.Shared.Popups;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.SmartFridge;
@@ -71,25 +69,21 @@ public sealed class SmartFridgeSystem : EntitySystem
         if (container == null && !_container.TryGetContainer(ent, ent.Comp.Container, out container))
             return false;
 
-        if (_whitelist.IsWhitelistFail(ent.Comp.Whitelist, item) || _whitelist.IsBlacklistPass(ent.Comp.Blacklist, item))
+        if (!_whitelist.CheckBoth(item, ent.Comp.Blacklist, ent.Comp.Whitelist))
             return false;
 
         if (user != null && !Allowed((ent, ent.Comp), user.Value))
             return false;
 
-        Entity<SmartFridgeComponent> ent1 = (ent, ent.Comp);
         _container.Insert(item, container);
         var key = new SmartFridgeEntry(Identity.Name(item, EntityManager));
 
-        if (!ent1.Comp.Entries.Contains(key))
-            ent1.Comp.Entries.Add(key);
+        ent.Comp.Entries.Add(key);
 
-        ent1.Comp.ContainedEntries.TryAdd(key, []);
-        var entries = ent1.Comp.ContainedEntries[key];
-        if (!entries.Contains(GetNetEntity(item)))
-            entries.Add(GetNetEntity(item));
+        ent.Comp.ContainedEntries.TryAdd(key, []);
+        ent.Comp.ContainedEntries[key].Add(GetNetEntity(item));
 
-        Dirty(ent1);
+        Dirty(ent, ent.Comp);
         return true;
     }
 

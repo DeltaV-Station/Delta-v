@@ -25,10 +25,10 @@ public sealed partial class SmartFridgeComponent : Component
     public SoundSpecifier? InsertSound = new SoundPathSpecifier("/Audio/Weapons/Guns/MagIn/revolver_magin.ogg");
 
     [DataField, AutoNetworkedField]
-    public List<SmartFridgeEntry> Entries = new();
+    public HashSet<SmartFridgeEntry> Entries = new();
 
     [DataField, AutoNetworkedField]
-    public Dictionary<SmartFridgeEntry, List<NetEntity>> ContainedEntries = new();
+    public Dictionary<SmartFridgeEntry, HashSet<NetEntity>> ContainedEntries = new();
 
     [DataField]
     public TimeSpan EjectCooldown = TimeSpan.FromSeconds(1.2);
