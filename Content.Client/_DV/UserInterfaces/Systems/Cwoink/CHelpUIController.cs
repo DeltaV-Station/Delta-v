@@ -1,15 +1,15 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Client._DV.Curation.Systems;
+using Content.Client._DV.Curation.UI.Cwoink;
 using Content.Client.Administration.Managers;
-using Content.Client.Administration.Systems;
-using Content.Client.Administration.UI.Bwoink;
 using Content.Client.Gameplay;
 using Content.Client.Lobby;
-using Content.Client.Lobby.UI;
-using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.MenuBar.Widgets;
+using Content.Shared._DV.CCVars;
+using Content.Shared._DV.Curation;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Input;
@@ -21,16 +21,17 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
+using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
-namespace Content.Client.UserInterface.Systems.Bwoink;
+namespace Content.Client._DV.UserInterfaces.Systems.Cwoink;
 
 [UsedImplicitly]
-public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSystem>, IOnStateChanged<GameplayState>, IOnStateChanged<LobbyState>
+public sealed class CHelpUIController : UIController, IOnSystemChanged<CwoinkSystem>, IOnStateChanged<GameplayState>, IOnStateChanged<LobbyState>
 {
     [Dependency] private readonly IClientAdminManager _adminManager = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
@@ -39,43 +40,36 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
     [UISystemDependency] private readonly AudioSystem _audio = default!;
 
-    private BwoinkSystem? _bwoinkSystem;
-    private MenuButton? GameAHelpButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.AHelpButton;
-    private Button? LobbyAHelpButton => (UIManager.ActiveScreen as LobbyGui)?.AHelpButton;
-    public IAHelpUIHandler? UIHelper;
+    private CwoinkSystem? _cwoinkSystem;
+    private MenuButton? GameCHelpButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.CHelpButton;
+    public ICHelpUIHandler? UIHelper;
     private bool _discordRelayActive;
-    private bool _hasUnreadAHelp;
-    private bool _bwoinkSoundEnabled;
-    private string? _aHelpSound;
+    private bool _hasUnreadCHelp;
+    private bool _cwoinkSoundEnabled;
+    private SoundPathSpecifier? _cHelpSound;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeNetworkEvent<BwoinkDiscordRelayUpdated>(DiscordRelayUpdated);
-        SubscribeNetworkEvent<BwoinkPlayerTypingUpdated>(PeopleTypingUpdated);
+        SubscribeNetworkEvent<CwoinkDiscordRelayUpdated>(DiscordRelayUpdated);
+        SubscribeNetworkEvent<CwoinkPlayerTypingUpdated>(PeopleTypingUpdated);
 
         _adminManager.AdminStatusUpdated += OnAdminStatusUpdated;
-        _config.OnValueChanged(CCVars.AHelpSound, v => _aHelpSound = v, true);
-        _config.OnValueChanged(CCVars.BwoinkSoundEnabled, v => _bwoinkSoundEnabled = v, true);
+        _config.OnValueChanged(DCCVars.CHelpSound, v => _cHelpSound = v, true);
+        _config.OnValueChanged(CCVars.BwoinkSoundEnabled, v => _cwoinkSoundEnabled = v, true);
     }
 
     public void UnloadButton()
     {
-        if (GameAHelpButton != null)
-            GameAHelpButton.OnPressed -= AHelpButtonPressed;
-
-        if (LobbyAHelpButton != null)
-            LobbyAHelpButton.OnPressed -= AHelpButtonPressed;
+        if (GameCHelpButton != null)
+            GameCHelpButton.OnPressed -= CHelpButtonPressed;
     }
 
     public void LoadButton()
     {
-        if (GameAHelpButton != null)
-            GameAHelpButton.OnPressed += AHelpButtonPressed;
-
-        if (LobbyAHelpButton != null)
-            LobbyAHelpButton.OnPressed += AHelpButtonPressed;
+        if (GameCHelpButton != null)
+            GameCHelpButton.OnPressed += CHelpButtonPressed;
     }
 
     private void OnAdminStatusUpdated()
@@ -85,51 +79,46 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         EnsureUIHelper();
     }
 
-    private void AHelpButtonPressed(BaseButton.ButtonEventArgs obj)
+    private void CHelpButtonPressed(BaseButton.ButtonEventArgs obj)
     {
         EnsureUIHelper();
         UIHelper!.ToggleWindow();
     }
 
-    public void OnSystemLoaded(BwoinkSystem system)
+    public void OnSystemLoaded(CwoinkSystem system)
     {
-        _bwoinkSystem = system;
-        _bwoinkSystem.OnBwoinkTextMessageRecieved += ReceivedBwoink;
+        _cwoinkSystem = system;
+        _cwoinkSystem.OnCwoinkTextMessageReceived += ReceivedCwoink;
 
         CommandBinds.Builder
-            .Bind(ContentKeyFunctions.OpenAHelp,
+            .Bind(ContentKeyFunctions.OpenCHelp,
                 InputCmdHandler.FromDelegate(_ => ToggleWindow()))
-            .Register<AHelpUIController>();
+            .Register<CHelpUIController>();
     }
 
-    public void OnSystemUnloaded(BwoinkSystem system)
+    public void OnSystemUnloaded(CwoinkSystem system)
     {
-        CommandBinds.Unregister<AHelpUIController>();
+        CommandBinds.Unregister<CHelpUIController>();
 
-        DebugTools.Assert(_bwoinkSystem != null);
-        _bwoinkSystem!.OnBwoinkTextMessageRecieved -= ReceivedBwoink;
-        _bwoinkSystem = null;
+        DebugTools.Assert(_cwoinkSystem != null);
+        _cwoinkSystem!.OnCwoinkTextMessageReceived -= ReceivedCwoink;
+        _cwoinkSystem = null;
     }
 
-    private void SetAHelpPressed(bool pressed)
+    private void SetCHelpPressed(bool pressed)
     {
-        if (GameAHelpButton != null)
+        if (GameCHelpButton != null)
         {
-            GameAHelpButton.Pressed = pressed;
-        }
-
-        if (LobbyAHelpButton != null)
-        {
-            LobbyAHelpButton.Pressed = pressed;
+            GameCHelpButton.Pressed = pressed;
         }
 
         UIManager.ClickSound();
-        UnreadAHelpRead();
+        UnreadCHelpRead();
     }
 
-    private void ReceivedBwoink(object? sender, SharedBwoinkSystem.BwoinkTextMessage message)
+    private void ReceivedCwoink(object? sender, CwoinkTextMessage message)
     {
-        Logger.InfoS("c.s.go.es.bwoink", $"@{message.UserId}: {message.Text}");
+        Logger.GetSawmill("c.s.go.es.cwoink").Info($"@{message.UserId}: {message.Text}");
         var localPlayer = _playerManager.LocalSession;
         if (localPlayer == null)
         {
@@ -137,8 +126,8 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         }
         if (message.PlaySound && localPlayer.UserId != message.TrueSender)
         {
-            if (_aHelpSound != null && (_bwoinkSoundEnabled || !_adminManager.IsActive()))
-                _audio.PlayGlobal(_aHelpSound, Filter.Local(), false);
+            if (_cHelpSound != null && (_cwoinkSoundEnabled || !_adminManager.IsActive()))
+                _audio.PlayGlobal(_cHelpSound, Filter.Local(), false);
             _clyde.RequestWindowAttention();
         }
 
@@ -146,49 +135,47 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
 
         if (!UIHelper!.IsOpen)
         {
-            UnreadAHelpReceived();
+            UnreadCHelpReceived();
         }
 
         UIHelper!.Receive(message);
     }
 
-    private void DiscordRelayUpdated(BwoinkDiscordRelayUpdated args, EntitySessionEventArgs session)
+    private void DiscordRelayUpdated(CwoinkDiscordRelayUpdated args, EntitySessionEventArgs session)
     {
         _discordRelayActive = args.DiscordRelayEnabled;
         UIHelper?.DiscordRelayChanged(_discordRelayActive);
     }
 
-    private void PeopleTypingUpdated(BwoinkPlayerTypingUpdated args, EntitySessionEventArgs session)
+    private void PeopleTypingUpdated(CwoinkPlayerTypingUpdated args, EntitySessionEventArgs session)
     {
         UIHelper?.PeopleTypingUpdated(args);
     }
 
     public void EnsureUIHelper()
     {
-        var isAdmin = _adminManager.HasFlag(AdminFlags.Adminhelp);
+        var isCurator = _adminManager.HasFlag(AdminFlags.CuratorHelp);
 
-        if (UIHelper != null && UIHelper.IsAdmin == isAdmin)
+        if (UIHelper != null && UIHelper.IsCurator == isCurator)
             return;
 
         UIHelper?.Dispose();
         var ownerUserId = _playerManager.LocalUser!.Value;
-        UIHelper = isAdmin ? new AdminAHelpUIHandler(ownerUserId) : new UserAHelpUIHandler(ownerUserId);
+        UIHelper = isCurator ? new CuratorCHelpUIHandler(ownerUserId) : new UserCHelpUIHandler(ownerUserId);
         UIHelper.DiscordRelayChanged(_discordRelayActive);
 
-        UIHelper.SendMessageAction = (userId, textMessage, playSound, adminOnly) => _bwoinkSystem?.Send(userId, textMessage, playSound, adminOnly);
-        UIHelper.InputTextChanged += (channel, text) => _bwoinkSystem?.SendInputTextUpdated(channel, text.Length > 0);
-        UIHelper.OnClose += () => { SetAHelpPressed(false); };
-        UIHelper.OnOpen +=  () => { SetAHelpPressed(true); };
-        SetAHelpPressed(UIHelper.IsOpen);
+        UIHelper.SendMessageAction = (userId, textMessage, playSound, adminOnly) => _cwoinkSystem?.Send(userId, textMessage, playSound, adminOnly);
+        UIHelper.InputTextChanged += (channel, text) => _cwoinkSystem?.SendInputTextUpdated(channel, text.Length > 0);
+        UIHelper.OnClose += () => SetCHelpPressed(false);
+        UIHelper.OnOpen += () => SetCHelpPressed(true);
+        SetCHelpPressed(UIHelper.IsOpen);
     }
 
     public void Open()
     {
         var localUser = _playerManager.LocalUser;
         if (localUser == null)
-        {
             return;
-        }
         EnsureUIHelper();
         if (UIHelper!.IsOpen)
             return;
@@ -198,7 +185,7 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
     public void Open(NetUserId userId)
     {
         EnsureUIHelper();
-        if (!UIHelper!.IsAdmin)
+        if (!UIHelper!.IsCurator)
             return;
         UIHelper?.Open(userId, _discordRelayActive);
     }
@@ -212,7 +199,7 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
     public void PopOut()
     {
         EnsureUIHelper();
-        if (UIHelper is not AdminAHelpUIHandler helper)
+        if (UIHelper is not CuratorCHelpUIHandler helper)
             return;
 
         if (helper.Window == null || helper.Control == null)
@@ -230,7 +217,7 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         helper.ClydeWindow = _clyde.CreateWindow(new WindowCreateParameters
         {
             Maximized = false,
-            Title = "Admin Help",
+            Title = "Curator Help",
             Monitor = monitor,
             Width = 900,
             Height = 500
@@ -246,109 +233,87 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         helper.Control.PopOut.Visible = false;
     }
 
-    private void UnreadAHelpReceived()
+    private void UnreadCHelpReceived()
     {
-        GameAHelpButton?.StyleClasses.Add(MenuButton.StyleClassRedTopButton);
-        LobbyAHelpButton?.StyleClasses.Add(StyleNano.StyleClassButtonColorRed);
-        _hasUnreadAHelp = true;
+        GameCHelpButton?.StyleClasses.Add(MenuButton.StyleClassRedTopButton);
+        _hasUnreadCHelp = true;
     }
 
-    private void UnreadAHelpRead()
+    private void UnreadCHelpRead()
     {
-        GameAHelpButton?.StyleClasses.Remove(MenuButton.StyleClassRedTopButton);
-        LobbyAHelpButton?.StyleClasses.Remove(StyleNano.StyleClassButtonColorRed);
-        _hasUnreadAHelp = false;
+        GameCHelpButton?.StyleClasses.Remove(MenuButton.StyleClassRedTopButton);
+        _hasUnreadCHelp = false;
     }
 
     public void OnStateEntered(GameplayState state)
     {
-        if (GameAHelpButton != null)
+        if (GameCHelpButton != null)
         {
-            GameAHelpButton.OnPressed -= AHelpButtonPressed;
-            GameAHelpButton.OnPressed += AHelpButtonPressed;
-            GameAHelpButton.Pressed = UIHelper?.IsOpen ?? false;
+            GameCHelpButton.OnPressed -= CHelpButtonPressed;
+            GameCHelpButton.OnPressed += CHelpButtonPressed;
+            GameCHelpButton.Pressed = UIHelper?.IsOpen ?? false;
 
-            if (_hasUnreadAHelp)
+            if (_hasUnreadCHelp)
             {
-                UnreadAHelpReceived();
+                UnreadCHelpReceived();
             }
             else
             {
-                UnreadAHelpRead();
+                UnreadCHelpRead();
             }
         }
     }
 
     public void OnStateExited(GameplayState state)
     {
-        if (GameAHelpButton != null)
-            GameAHelpButton.OnPressed -= AHelpButtonPressed;
+        if (GameCHelpButton != null)
+            GameCHelpButton.OnPressed -= CHelpButtonPressed;
     }
 
     public void OnStateEntered(LobbyState state)
     {
-        if (LobbyAHelpButton != null)
-        {
-            LobbyAHelpButton.OnPressed -= AHelpButtonPressed;
-            LobbyAHelpButton.OnPressed += AHelpButtonPressed;
-            LobbyAHelpButton.Pressed = UIHelper?.IsOpen ?? false;
-
-            if (_hasUnreadAHelp)
-            {
-                UnreadAHelpReceived();
-            }
-            else
-            {
-                UnreadAHelpRead();
-            }
-        }
     }
 
     public void OnStateExited(LobbyState state)
     {
-        if (LobbyAHelpButton != null)
-            LobbyAHelpButton.OnPressed -= AHelpButtonPressed;
     }
 }
 
 // please kill all this indirection
-public interface IAHelpUIHandler : IDisposable
+public interface ICHelpUIHandler : IDisposable
 {
-    public bool IsAdmin { get; }
-    public bool IsOpen { get; }
-    public void Receive(SharedBwoinkSystem.BwoinkTextMessage message);
-    public void Close();
-    public void Open(NetUserId netUserId, bool relayActive);
-    public void ToggleWindow();
-    public void DiscordRelayChanged(bool active);
-    public void PeopleTypingUpdated(BwoinkPlayerTypingUpdated args);
-    public event Action OnClose;
-    public event Action OnOpen;
-    public Action<NetUserId, string, bool, bool>? SendMessageAction { get; set; }
-    public event Action<NetUserId, string>? InputTextChanged;
+    bool IsCurator { get; }
+    bool IsOpen { get; }
+    void Receive(CwoinkTextMessage message);
+    void Close();
+    void Open(NetUserId netUserId, bool relayActive);
+    void ToggleWindow();
+    void DiscordRelayChanged(bool active);
+    void PeopleTypingUpdated(CwoinkPlayerTypingUpdated args);
+    event Action OnClose;
+    event Action OnOpen;
+    Action<NetUserId, string, bool, bool>? SendMessageAction { get; set; }
+    event Action<NetUserId, string>? InputTextChanged;
 }
-public sealed class AdminAHelpUIHandler : IAHelpUIHandler
+
+public sealed class CuratorCHelpUIHandler(NetUserId owner) : ICHelpUIHandler
 {
-    private readonly NetUserId _ownerId;
-    public AdminAHelpUIHandler(NetUserId owner)
-    {
-        _ownerId = owner;
-    }
-    private readonly Dictionary<NetUserId, BwoinkPanel> _activePanelMap = new();
-    public bool IsAdmin => true;
+    private readonly NetUserId _ownerId = owner;
+    private readonly Dictionary<NetUserId, CwoinkPanel> _activePanelMap = new();
+    public bool IsCurator => true;
     public bool IsOpen => Window is { Disposed: false, IsOpen: true } || ClydeWindow is { IsDisposed: false };
     public bool EverOpened;
 
-    public BwoinkWindow? Window;
+    public CwoinkWindow? Window;
     public WindowRoot? WindowRoot;
     public IClydeWindow? ClydeWindow;
-    public BwoinkControl? Control;
+    public CwoinkControl? Control;
 
-    public void Receive(SharedBwoinkSystem.BwoinkTextMessage message)
+    public void Receive(CwoinkTextMessage message)
     {
         var panel = EnsurePanel(message.UserId);
         panel.ReceiveLine(message);
-        Control?.OnBwoink(message.UserId);
+        Control?.OnCwoink();
     }
 
     private void OpenWindow()
@@ -400,7 +365,7 @@ public sealed class AdminAHelpUIHandler : IAHelpUIHandler
     {
     }
 
-    public void PeopleTypingUpdated(BwoinkPlayerTypingUpdated args)
+    public void PeopleTypingUpdated(CwoinkPlayerTypingUpdated args)
     {
         if (_activePanelMap.TryGetValue(args.Channel, out var panel))
             panel.UpdatePlayerTyping(args.PlayerName, args.Typing);
@@ -427,8 +392,8 @@ public sealed class AdminAHelpUIHandler : IAHelpUIHandler
         if (Control is { Disposed: false })
             return;
 
-        Window = new BwoinkWindow();
-        Control = Window.Bwoink;
+        Window = new CwoinkWindow();
+        Control = Window.Cwoink;
         Window.OnClose += () => { OnClose?.Invoke(); };
         Window.OnOpen += () =>
         {
@@ -439,9 +404,9 @@ public sealed class AdminAHelpUIHandler : IAHelpUIHandler
         // need to readd any unattached panels..
         foreach (var (_, panel) in _activePanelMap)
         {
-            if (!Control!.BwoinkArea.Children.Contains(panel))
+            if (!Control!.CwoinkArea.Children.Contains(panel))
             {
-                Control!.BwoinkArea.AddChild(panel);
+                Control!.CwoinkArea.AddChild(panel);
             }
             panel.Visible = false;
         }
@@ -455,22 +420,23 @@ public sealed class AdminAHelpUIHandler : IAHelpUIHandler
         }
     }
 
-    public BwoinkPanel EnsurePanel(NetUserId channelId)
+    public CwoinkPanel EnsurePanel(NetUserId channelId)
     {
         EnsureControl();
 
         if (_activePanelMap.TryGetValue(channelId, out var existingPanel))
             return existingPanel;
 
-        _activePanelMap[channelId] = existingPanel = new BwoinkPanel(text => SendMessageAction?.Invoke(channelId, text, Window?.Bwoink.PlaySound.Pressed ?? true, Window?.Bwoink.AdminOnly.Pressed ?? false));
+        _activePanelMap[channelId] = existingPanel = new CwoinkPanel(text => SendMessageAction?.Invoke(channelId, text, Window?.Cwoink.PlaySound.Pressed ?? true, Window?.Cwoink.CuratorOnly.Pressed ?? false));
         existingPanel.InputTextChanged += text => InputTextChanged?.Invoke(channelId, text);
         existingPanel.Visible = false;
-        if (!Control!.BwoinkArea.Children.Contains(existingPanel))
-            Control.BwoinkArea.AddChild(existingPanel);
+        if (!Control!.CwoinkArea.Children.Contains(existingPanel))
+            Control.CwoinkArea.AddChild(existingPanel);
 
         return existingPanel;
     }
-    public bool TryGetChannel(NetUserId ch, [NotNullWhen(true)] out BwoinkPanel? bp) => _activePanelMap.TryGetValue(ch, out bp);
+
+    public bool TryGetChannel(NetUserId ch, [NotNullWhen(true)] out CwoinkPanel? bp) => _activePanelMap.TryGetValue(ch, out bp);
 
     private void SelectChannel(NetUserId uid)
     {
@@ -488,22 +454,17 @@ public sealed class AdminAHelpUIHandler : IAHelpUIHandler
     }
 }
 
-public sealed class UserAHelpUIHandler : IAHelpUIHandler
+public sealed class UserCHelpUIHandler(NetUserId owner) : ICHelpUIHandler
 {
-    private readonly NetUserId _ownerId;
-    public UserAHelpUIHandler(NetUserId owner)
-    {
-        _ownerId = owner;
-    }
-    public bool IsAdmin => false;
+    public bool IsCurator => false;
     public bool IsOpen => _window is { Disposed: false, IsOpen: true };
     private DefaultWindow? _window;
-    private BwoinkPanel? _chatPanel;
+    private CwoinkPanel? _chatPanel;
     private bool _discordRelayActive;
 
-    public void Receive(SharedBwoinkSystem.BwoinkTextMessage message)
+    public void Receive(CwoinkTextMessage message)
     {
-        DebugTools.Assert(message.UserId == _ownerId);
+        DebugTools.Assert(message.UserId == owner);
         EnsureInit(_discordRelayActive);
         _chatPanel!.ReceiveLine(message);
         _window!.OpenCentered();
@@ -527,11 +488,6 @@ public sealed class UserAHelpUIHandler : IAHelpUIHandler
         }
     }
 
-    // user can't pop out their window.
-    public void PopOut()
-    {
-    }
-
     public void DiscordRelayChanged(bool active)
     {
         _discordRelayActive = active;
@@ -542,7 +498,7 @@ public sealed class UserAHelpUIHandler : IAHelpUIHandler
         }
     }
 
-    public void PeopleTypingUpdated(BwoinkPlayerTypingUpdated args)
+    public void PeopleTypingUpdated(CwoinkPlayerTypingUpdated args)
     {
     }
 
@@ -561,22 +517,22 @@ public sealed class UserAHelpUIHandler : IAHelpUIHandler
     {
         if (_window is { Disposed: false })
             return;
-        _chatPanel = new BwoinkPanel(text => SendMessageAction?.Invoke(_ownerId, text, true, false));
-        _chatPanel.InputTextChanged += text => InputTextChanged?.Invoke(_ownerId, text);
+        _chatPanel = new CwoinkPanel(text => SendMessageAction?.Invoke(owner, text, true, false));
+        _chatPanel.InputTextChanged += text => InputTextChanged?.Invoke(owner, text);
         _chatPanel.RelayedToDiscordLabel.Visible = relayActive;
         _window = new DefaultWindow()
         {
-            TitleClass="windowTitleAlert",
-            HeaderClass="windowHeaderAlert",
-            Title=Loc.GetString("bwoink-user-title"),
-            MinSize = new Vector2(500, 300),
+            TitleClass = "windowTitleAlert",
+            HeaderClass = "windowHeaderCurator",
+            Title = Loc.GetString("cwoink-user-title"),
+            MinSize = new Vector2(450, 400),
         };
         _window.OnClose += () => { OnClose?.Invoke(); };
         _window.OnOpen += () => { OnOpen?.Invoke(); };
         _window.Contents.AddChild(_chatPanel);
 
-        var introText = Loc.GetString("bwoink-system-introductory-message");
-        var introMessage = new SharedBwoinkSystem.BwoinkTextMessage( _ownerId, SharedBwoinkSystem.SystemUserId, introText);
+        var introText = Loc.GetString("cwoink-system-introductory-message");
+        var introMessage = new CwoinkTextMessage(owner, SharedCwoinkSystem.SystemUserId, introText);
         Receive(introMessage);
     }
 
