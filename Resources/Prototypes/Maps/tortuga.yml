@@ -14,6 +14,8 @@
             prefixCreator: 'NY'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Seal.yml
+        - type: StationCargoShuttle
+          path: /Maps/_DV/Shuttles/cargo_model_B.yml
         - type: StationJobs
           availableJobs:
           #civilian

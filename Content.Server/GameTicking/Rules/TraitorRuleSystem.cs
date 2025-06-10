@@ -6,7 +6,6 @@ using Content.Server.Objectives;
 using Content.Server.PDA.Ringer;
 using Content.Server.Roles;
 using Content.Server.Traitor.Uplink;
-using Content.Shared._DV.Reputation; // DeltaV
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking.Components;
@@ -35,7 +34,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ReputationSystem _reputation = default!; // DeltaV
     [Dependency] private readonly SharedRoleCodewordSystem _roleCodewordSystem = default!;
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
@@ -111,14 +109,13 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink start");
             // Calculate the amount of currency on the uplink.
             var startingBalance = component.StartingBalance;
-            /* DeltaV - everyone gets the same amount of TC
             if (_jobs.MindTryGetJob(mindId, out var prototype))
             {
                 if (startingBalance < prototype.AntagAdvantage) // Can't use Math functions on FixedPoint2
                     startingBalance = 0;
                 else
                     startingBalance = startingBalance - prototype.AntagAdvantage;
-            }*/
+            }
 
             // Choose and generate an Uplink, and return the uplink code if applicable
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink request start");
@@ -183,7 +180,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink add");
         var uplinked = _uplink.AddUplink(traitor, startingBalance, pda, true);
 
-        _reputation.AddContracts(traitor, pda); // DeltaV
         if (pda is not null && uplinked)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is PDA");

@@ -196,7 +196,6 @@ namespace Content.Client.PDA
             ActivateMusicButton.Visible = state.CanPlayMusic;
             ShowUplinkButton.Visible = state.HasUplink;
             LockUplinkButton.Visible = state.HasUplink;
-            ContractsButton.Visible = state.HasUplink; // DeltaV
         }
 
         public void UpdateAvailablePrograms(List<(EntityUid, CartridgeComponent)> programs)
