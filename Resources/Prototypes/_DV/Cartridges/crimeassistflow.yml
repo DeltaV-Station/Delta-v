@@ -3,6 +3,7 @@
   locKey: "crime-assist-mainmenu"
   onStart: "questionIsItTerrorism"
 
+# Branch 1 - Levels of harm
 - type: crimeAssistPage
   id: "questionIsItTerrorism"
   locKey: "crime-assist-question-isitterrorism"
@@ -13,23 +14,29 @@
   id: "questionWasSomeoneAttacked"
   locKey: "crime-assist-question-wassomeoneattacked"
   onYes: "questionWasItSophont"
-  onNo: "questionForcedMindbreakerToxin"
+  onNo: "questionIsItBullying"
 
 - type: crimeAssistPage
   id: "questionWasItSophont"
   locKey: "crime-assist-question-wasitsophont"
-  onYes: "questionDidVictimDie"
+  onYes: "questionWasItVigilantism"
   onNo: "resultAnimalCruelty"
+
+- type: crimeAssistPage
+  id: "questionWasItVigilantism"
+  locKey: "crime-assist-question-wasitvigilantism"
+  onYes: "questionDidVictimDie"
+  onNo: "resultVigilantism"
 
 - type: crimeAssistPage
   id: "questionDidVictimDie"
   locKey: "crime-assist-question-didvictimdie"
-  onYes: "questionIsVictimRemovedFromBody"
+  onYes: "questionIsVictimUnrevivable"
   onNo: "resultAssault"
 
 - type: crimeAssistPage
-  id: "questionIsVictimRemovedFromBody"
-  locKey: "crime-assist-question-isvictimremovedfrombody"
+  id: "questionIsVictimUnrevivable"
+  locKey: "crime-assist-question-isvictimunrevivable"
   onYes: "resultDecorporealisation"
   onNo: "questionWasDeathIntentional"
 
@@ -40,16 +47,17 @@
   onNo: "resultManslaughter"
 
 - type: crimeAssistPage
-  id: "questionForcedMindbreakerToxin"
-  locKey: "crime-assist-question-forcedmindbreakertoxin"
-  onYes: "resultMindbreaking"
+  id: "questionIsItBullying"
+  locKey: "crime-assist-question-isitbullying"
+  onYes: "resultHarrassment"
   onNo: "questionHadRestrictedItem"
 
+# Branch 2 - Restricted items & theft
 - type: crimeAssistPage
   id: "questionHadRestrictedItem"
   locKey: "crime-assist-question-hadillicititem"
   onYes: "questionWasItAPerson"
-  onNo: "questionWasSuspectInARestrictedLocation"
+  onNo: "questionDidSuspectBreakSomething"
 
 - type: crimeAssistPage
   id: "questionWasItAPerson"
@@ -66,32 +74,27 @@
 - type: crimeAssistPage
   id: "questionWasSuspectSeenTaking"
   locKey: "crime-assist-question-wassuspectseentaking"
-  onYes: "questionIsItemExtremelyDangerous"
-  onNo: "resultPossession"
+  onYes: "questionIsItemExtremelyDangerousTheft"
+  onNo: "questionIsItemExtremelyDangerousPossession"
 
 - type: crimeAssistPage
-  id: "questionIsItemExtremelyDangerous"
+  id: "questionIsItemExtremelyDangerousTheft"
   locKey: "crime-assist-question-isitemextremelydangerous"
   onYes: "resultGrandTheft"
   onNo: "resultTheft"
 
 - type: crimeAssistPage
-  id: "questionWasSuspectInARestrictedLocation"
-  locKey: "crime-assist-question-wassuspectinarestrictedlocation"
-  onYes: "questionWasEntranceLocked"
-  onNo: "questionDidSuspectBreakSomething"
+  id: "questionIsItemExtremelyDangerousPossession"
+  locKey: "crime-assist-question-isitemextremelydangerous"
+  onYes: "resultGrandPossession
+  onNo: "resultPossession"
 
-- type: crimeAssistPage
-  id: "questionWasEntranceLocked"
-  locKey: "crime-assist-question-wasentrancelocked"
-  onYes: "resultBreakingAndEntering"
-  onNo: "resultTrespass"
-
+# Branch 3 - Breaking Things
 - type: crimeAssistPage
   id: "questionDidSuspectBreakSomething"
   locKey: "crime-assist-question-didsuspectbreaksomething"
   onYes: "questionWereThereManySuspects"
-  onNo: "questionWasCrimeSexualInNature"
+  onNo: "questionWasSuspectInARestrictedLocation"
 
 - type: crimeAssistPage
   id: "questionWereThereManySuspects"
@@ -103,13 +106,7 @@
   id: "questionWasDamageSmall"
   locKey: "crime-assist-question-wasdamagesmall"
   onYes: "resultVandalism"
-  onNo: "questionWasDestroyedItemImportantToStation"
-
-- type: crimeAssistPage
-  id: "questionWasDestroyedItemImportantToStation"
-  locKey: "crime-assist-question-wasdestroyeditemimportanttostation"
-  onYes: "questionIsLargePartOfStationDestroyed"
-  onNo: "resultEndangerment"
+  onNo: "questionIsLargePartOfStationDestroyed"
 
 - type: crimeAssistPage
   id: "questionIsLargePartOfStationDestroyed"
@@ -117,17 +114,37 @@
   onYes: "resultGrandSabotage"
   onNo: "resultSabotage"
 
+# Branch 4 - Types of Tresspass
 - type: crimeAssistPage
-  id: "questionWasCrimeSexualInNature"
-  locKey: "crime-assist-question-wascrimesexualinnature"
-  onYes: "resultSexualHarassment"
+  id: "questionWasSuspectInARestrictedLocation"
+  locKey: "crime-assist-question-wassuspectinarestrictedlocation"
+  onYes: "questionWasEntranceLocked"
   onNo: "questionWasSuspectANuisance"
 
 - type: crimeAssistPage
+  id: "questionWasEntranceLocked"
+  locKey: "crime-assist-question-wasentrancelocked"
+  onYes: "questionWasItHighSecArea"
+  onNo: "resultTrespass"
+
+- type: crimeAssistPage
+  id: "questionWasItHighSecArea"
+  locKey: "crime-assist-question-questionwasithighsec"
+  onYes: "resultBreakingAndEntering"
+  onNo: "resultTrespass"
+
+# Branch 5- Being a Nuisance
+- type: crimeAssistPage
   id: "questionWasSuspectANuisance"
   locKey: "crime-assist-question-wassuspectanuisance"
-  onYes: "questionFalselyReportingToSecurity"
-  onNo: "resultInnocent"
+  onYes: "questionWereThereManySuspectsNuisance"
+  onNo: "questionEscapedSecurity"
+
+- type: crimeAssistPage
+  id: "questionWereThereManySuspectsNuisance"
+  locKey: "crime-assist-question-weretheremanysuspects"
+  onYes: "resultRioting"
+  onNo: "questionFalselyReportingToSecurity"
 
 - type: crimeAssistPage
   id: "questionFalselyReportingToSecurity"
@@ -145,19 +162,50 @@
   id: "questionDuringActiveInvestigation"
   locKey: "crime-assist-question-duringactiveinvestigation"
   onYes: "resultObstructionOfJustice"
-  onNo: "questionToCommandStaff"
-
-- type: crimeAssistPage
-  id: "questionToCommandStaff"
-  locKey: "crime-assist-question-tocommandstaff"
-  onYes: "resultSedition"
   onNo: "questionWasItCommandItself"
 
 - type: crimeAssistPage
   id: "questionWasItCommandItself"
   locKey: "crime-assist-question-wasitcommanditself"
   onYes: "resultAbuseOfPower"
-  onNo: "resultHooliganism"
+  onNo: "questionWasGenerallyDisruptive"
+
+- type: crimeAssistPage
+  id: "questionWasGenerallyDisruptive"
+  locKey: "crime-assist-question-wasgenerallydisruptive"
+  onYes: "resultHooliganism"
+  onNo: "resultInnocent"
+
+# Branch 6 - Miscellaneous
+- type: crimeAssistPage
+  id: "questionEscapedSecurity"
+  locKey: "crime-assist-question-escapedsecurity"
+  onYes: "resultBreachOfCustody"
+  onNo: "questionForcedMindbreakerToxin"
+
+- type: crimeAssistPage
+  id: "questionForcedMindbreakerToxin"
+  locKey: "crime-assist-question-forcedmindbreakertoxin"
+  onYes: "resultMindbreaking"
+  onNo: "questionDidTheyImpersonate"
+
+- type: crimeAssistPage
+  id: "questionDidTheyImpersonate"
+  locKey: "crime-assist-question-didtheyimpersonate"
+  onYes: "resultIdentityTheft"
+  onNo: "questionToCommandStaff"
+
+- type: crimeAssistPage
+  id: "questionToCommandStaff"
+  locKey: "crime-assist-question-tocommandstaff"
+  onYes: "resultSedition"
+  onNo: "questionWasNegligent"
+
+- type: crimeAssistPage
+  id: "questionWasNegligent"
+  locKey: "crime-assist-question-wasnegligent"
+  onYes: "resultEndangerment"
+  onNo: "resultInnocent"
 
 # Result Pages
 - type: crimeAssistPage
@@ -338,7 +386,7 @@
   crimeSeverity: GrandFelony
   locKeyPunishment: "crime-assist-crimepunishment-blackmarketeering"
 
-#Capital Crimes
+# Capital Crimes
 - type: crimeAssistPage
   id: "resultMurder"
   locKeyTitle: "crime-assist-crime-murder"

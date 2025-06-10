@@ -50,12 +50,15 @@ crime-assist-crime-sedition = Code 405: Sedition
 crime-assist-crime-breachofcustody = Code 406: Breach of Custody
 
 # Questions
-crime-assist-question-isitterrorism = Did the suspect hold hostages, cause many deaths or major destruction to force compliance from the crew?
+crime-assist-question-isitterrorism = Did the suspect hold hostages, cause many deaths, or cause major destruction to force compliance from the crew?
 crime-assist-question-wassomeoneattacked = Was an entity attacked?
 crime-assist-question-wasitsophont = Was the victim in question a sophont?
+crime-assist-question-wasitvigilantism = Did they attack, detain, or arrest an adversary without being security personel?
 crime-assist-question-didvictimdie = Did the victim die as a result to the attack?
+crime-assist-question-isvictimunrevivable = Did the supect deliberately take actions to prevent the victim's revival through medical care?
 crime-assist-question-isvictimremovedfrombody = Is the victim alive, but intentionally and permanently removed from the body?
 crime-assist-question-wasdeathintentional = Did the suspect attack the victim with intent to kill?
+crime-assist-question-isitbullying = Did they demean, harrass, humiliate, or spread false information about another entity?
 crime-assist-question-forcedmindbreakertoxin = Was the victim forced to take Mindbreaker Toxin?
 crime-assist-question-hadillicititem = Did the suspect have an illicit or controlled item, substance or entity?
 crime-assist-question-wasitaperson = Did the suspect hold another sophont against its will?
@@ -64,18 +67,22 @@ crime-assist-question-wassuspectseentaking = Can it be proven that the suspect t
 crime-assist-question-isitemextremelydangerous = Is the item in question dangerous to other sophonts or the station as a whole?
 crime-assist-question-wassuspectinarestrictedlocation = Was the suspect in a restricted location, or anywhere the suspect did not have legal access to?
 crime-assist-question-wasentrancelocked = Did the suspect force through a locked access point to get to the location?
+crime-assist-question-questionwasithighsec = Was the relevant area essential to the functioning of the station? (e.g. Bridge, Vault, Armory, Life support, AI etc)
 crime-assist-question-didsuspectbreaksomething = Did the suspect break something?
 crime-assist-question-weretheremanysuspects = Were there many suspects in a group causing a disturbance?
 crime-assist-question-wasdamagesmall = Was the damage minor, or easily undone?
 crime-assist-question-wasdestroyeditemimportanttostation = Was the damaged or destroyed item important to the functioning of the station?
 crime-assist-question-islargepartofstationdestroyed = Was a large part of the station destroyed or made uninhabitable?
-crime-assist-question-wascrimesexualinnature = Was the crime sexual in nature?
 crime-assist-question-wassuspectanuisance = Was the suspect being a nuisance to other sophonts?
 crime-assist-question-falselyreportingtosecurity = Has the suspect made a report, in person or through radio channels, to security that was proven to be intentionally false?
 crime-assist-question-happenincourt = Was the suspect a nuisance in court?
 crime-assist-question-duringactiveinvestigation = Was the suspect a nuisance during an active investigation, and hindered the investigation as a result?
 crime-assist-question-tocommandstaff = Did the suspect overthrow or compromise a lawfully established Chain of Command, or attempt to do so?
-crime-assist-question-wasitcommanditself = Was a command staff or department head abusing authority over another sophont?
+crime-assist-question-wasitcommanditself = Was the suspect a member of command staff, security, or other position of power who abused their authority over another sophont?
+crime-assist-question-wasgenerallydisruptive = Was the suspect intentionally and maliciously disruptive to the station, its crew, or its continued functioning?
+crime-assist-question-escapedsecurity = Did the suspect escape security custody while serving a sentence or awaiting trial?
+crime-assist-question-didtheyimpersonate = Did the suspect attempt to impersonate another entity? (e.g. Command Staff, Security, Central Command)
+crime-assist-question-wasnegligent = Did the suspect fail to ensure the wellbeing of other entities or the station through negligence?
 
 # Crime details
 crime-assist-crimedetail-innocent = Crime could not be determined. Use your best judgement or consult a superior to resolve the situation.
