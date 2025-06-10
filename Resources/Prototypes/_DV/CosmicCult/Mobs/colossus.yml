@@ -243,7 +243,8 @@
     - CosmicColossus
 
 - type: entity
-  parent: [ MobCosmicColossusBase, HideSpawnMenu ]
+  parent: [ MobCosmicColossusBase ]
+  categories: [ HideSpawnMenu ]
   id: MobCosmicColossusLone
   suffix: MidRoundAntag
   description: An ancient monstrosity of malign plating and dendritic infestation.
