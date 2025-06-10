@@ -9,12 +9,13 @@
     - 0,0,3,1
   - type: StorageFill
     contents:
-      - id: CartridgeBazookaExp
-        amount: 3
+    - id: CartridgeBazookaExp
+      amount: 3
   - type: Sprite
     layers:
     - state: box_of_doom
     - state: writing_of_doom
+  
 - type: entity
   parent: LeviathanExplosiveRocketBox
   id: LeviathanIncendiaryRocketBox
