@@ -120,8 +120,8 @@ crime-assist-crimedetail-breachofcustody = To escape the custody of law enforcem
 # Punishments
 crime-assist-crimepunishment-innocent = No punishment may be necessary
 crime-assist-crimepunishment-animalcruelty = Punishment: 5 minutes
-crime-assist-crimepunishment-harrassment = Punishment:5 minutes
-crime-assist-crimepunishment-vigilantism = Punishment:4 minutes
+crime-assist-crimepunishment-harrassment = Punishment: 5 minutes
+crime-assist-crimepunishment-vigilantism = Punishment: 4 minutes
 crime-assist-crimepunishment-theft = Punishment: 4 minutes
 crime-assist-crimepunishment-trespass = Punishment: 3 minutes
 crime-assist-crimepunishment-vandalism = Punishment: 3 minutes
