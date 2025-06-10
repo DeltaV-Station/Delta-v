@@ -36,14 +36,14 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-    path: /Audio/_Impstation/Weapons/Guns/Gunshots/akurra.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/akurra.ogg
   - type: SolutionContainerManager
     solutions:
-    chamber:
-    reagents:
-    - ReagentId: Echion
-      Quantity: 75
-      maxVol: 75 #12 shots
+      chamber:
+        reagents:
+        - ReagentId: Echion
+          Quantity: 75
+        maxVol: 75 #12 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletPlasmaAdder
@@ -57,7 +57,7 @@
     solution: chamber
   - type: Tag
     tags:
-    - EchionGun
+     - EchionGun
   - type: StaticPrice
     price: 100
 
@@ -100,17 +100,17 @@
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/adder.ogg
   - type: SolutionContainerManager
     solutions:
-    chamber:
-    reagents:
-    - ReagentId: Echion
-      Quantity: 150
-      maxVol: 150 #30 shots
+      chamber:
+        reagents:
+        - ReagentId: Echion
+          Quantity: 150
+        maxVol: 150 #30 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletPlasmaAkurra
     fireCost: 5
   - type: Tag
     tags:
-    - EchionGun
+      - EchionGun
   - type: StaticPrice
     price: 100

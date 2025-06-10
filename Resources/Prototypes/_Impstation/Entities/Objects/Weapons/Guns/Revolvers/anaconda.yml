@@ -30,9 +30,9 @@
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/anaconda.ogg
   - type: RevolverAmmoProvider
     whitelist:
-    tags:
-    - CartridgeAntiMateriel
-    - SpeedLoaderAM
+     tags:
+     - CartridgeAntiMateriel
+     - SpeedLoaderAM
     proto: CartridgeAntiMateriel
     capacity: 3
     chambers: [ True, True, True ]

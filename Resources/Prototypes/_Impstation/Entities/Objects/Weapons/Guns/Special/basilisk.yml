@@ -29,14 +29,14 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-    path: /Audio/_Impstation/Weapons/Guns/Gunshots/beecannon2.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/beecannon2.ogg
   - type: SolutionContainerManager
     solutions:
-    chamber:
-    reagents:
-    - ReagentId: Echion
-      Quantity: 75
-      maxVol: 75 #10 shots
+      chamber:
+        reagents:
+        - ReagentId: Echion
+          Quantity: 75
+        maxVol: 75 #10 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletRadiationBasilisk
@@ -50,7 +50,7 @@
     solution: chamber
   - type: Tag
     tags:
-    - EchionGun
+     - EchionGun
   - type: MagazineVisuals
     magState: mag
     steps: 7
