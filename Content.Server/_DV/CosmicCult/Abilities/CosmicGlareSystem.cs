@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Server._EE.Silicon.WeldingHealable;
 using Content.Server.Bible.Components;
 using Content.Server.Flash;
 using Content.Server.Light.Components;
