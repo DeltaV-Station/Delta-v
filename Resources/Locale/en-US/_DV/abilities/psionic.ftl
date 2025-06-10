@@ -17,6 +17,7 @@ psionic-power-precognition-bureaucratic-error-result-message = You see a vision 
 psionic-power-precognition-clerical-error-result-message = You see faces you once knew being obscured in a fog of static, identities lost.
 psionic-power-precognition-closet-skeleton-result-message = You hear a crackling laugh echo and clinking bones in the dusty recesses of the station.
 psionic-power-precognition-dragon-spawn-result-message = Reality around you bulges and breaks as a great beast cries for war. The smell of salty sea and blood fills the air.
+psionic-power-precognition-colossus-spawn-result-message = You see the vast shadow of a monstrosity so large that it casts all beneath it into darkness. The noösphere shifts precariously in its wake.
 psionic-power-precognition-ninja-spawn-result-message = You see a vision of shadows brought to life, hounds of war howling their cries as they chase it through dark corners of the station.
 psionic-power-precognition-revenant-spawn-result-message = The shadows around you grow threefold taller and threefold darker. Something lurks within them, a predator stalking you in the darkness.
 psionic-power-precognition-gas-leak-result-message = For but a moment, it feels as if you cannot breathe. With a blink, everything returns to normal.

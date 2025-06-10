@@ -16,8 +16,11 @@ public sealed partial class CosmicFinaleComponent : Component
     [DataField]
     public bool FinaleActive = false;
 
+    /// <summary>
+    /// Bool used for the final announcement message at the finale's 2 minutes remaining mark.
+    /// </summary>
     [DataField]
-    public bool FinaleFresh = false;
+    public bool FinaleAnnounceCheck = false;
 
     [DataField]
     public bool Occupied = false;

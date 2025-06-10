@@ -1,7 +1,6 @@
 using Content.Server._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
-using Content.Shared._DV.CustomObjectiveSummary;
 using Content.Shared.Audio;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
@@ -94,7 +93,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         _monument.Enable((uid, monument));
         comp.FinaleActive = true;
-        comp.FinaleFresh = true;
+        comp.FinaleAnnounceCheck = true;
 
         Dirty(uid, monument);
         _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(monument));
@@ -135,7 +134,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         _monument.Disable((uid, monument));
         comp.FinaleActive = false;
-        comp.FinaleFresh = false;
+        comp.FinaleAnnounceCheck = false;
 
         Dirty(target, monument);
         _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(monument));

@@ -38,6 +38,7 @@ public sealed class CosmicIngressSystem : EntitySystem
         Spawn(uid.Comp.AbsorbVFX, Transform(target).Coordinates);
         _cult.MalignEcho(uid);
     }
+
     private void OnColossusIngress(Entity<CosmicColossusComponent> ent, ref EventCosmicColossusIngress args)
     {
         var doargs = new DoAfterArgs(EntityManager, ent, ent.Comp.IngressDoAfter, new EventCosmicColossusIngressDoAfter(), ent, args.Target)

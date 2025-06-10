@@ -1,12 +1,10 @@
 using System.Numerics;
-using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Actions;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
-using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Shared.Damage;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
@@ -21,13 +19,11 @@ public sealed class CosmicEffigySystem : EntitySystem
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()

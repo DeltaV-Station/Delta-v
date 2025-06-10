@@ -63,9 +63,15 @@ public sealed partial class CosmicCultRuleComponent : Component
     [DataField]
     public HashSet<EntityUid> Cultists = [];
 
+    /// <summary>
+    /// When true, prevents the wincondition state of Cosmic Cult from being changed.
+    /// </summary>
     [DataField]
     public bool WinLocked;
 
+    /// <summary>
+    /// When true, Malign Rifts are unable to spawn.
+    /// </summary>
     [DataField]
     public bool RiftStop;
 
@@ -115,6 +121,9 @@ public sealed partial class CosmicCultRuleComponent : Component
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? StewardVoteTimer;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? StewardVoteDelayTimer;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? PrepareFinaleTimer;

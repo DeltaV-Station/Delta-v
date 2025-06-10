@@ -147,12 +147,16 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             DCCVars.CosmicCultStewardVoteTimer,
             value => _voteTimer = TimeSpan.FromSeconds(value),
             true);
+        Subs.CVar(_config,
+            DCCVars.CosmicCultStewardVoteDelayTimer,
+            value => _voteTimer = TimeSpan.FromSeconds(value),
+            true);
     }
 
     #region Starting Events
     protected override void Started(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
-        component.StewardVoteTimer = _timing.CurTime + TimeSpan.FromSeconds(25);
+        component.StewardVoteTimer = _timing.CurTime + component.StewardVoteDelayTimer;
     }
 
     protected override void ActiveTick(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, float frameTime)

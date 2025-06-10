@@ -82,11 +82,11 @@ public sealed class MonumentSystem : SharedMonumentSystem
                     _sound.DispatchStationEventMusic(uid, song, StationEventMusicType.CosmicCult);
             }
 
-            if (comp.CurrentState == FinaleState.ActiveFinale && comp.FinaleFresh && comp.FinaleTimer - _timing.CurTime < comp.VisualsThreshHold)
+            if (comp.CurrentState == FinaleState.ActiveFinale && comp.FinaleAnnounceCheck && comp.FinaleTimer - _timing.CurTime < comp.VisualsThreshHold)
             {
                 _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
                 _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("cosmiccult-announce-finale-warning"), null, false, null, Color.FromHex("#cae8e8"));
-                comp.FinaleFresh = false;
+                comp.FinaleAnnounceCheck = false;
             }
 
             if (comp.CurrentState == FinaleState.ActiveFinale && _timing.CurTime >= comp.FinaleTimer) // trigger wincondition on time runout
@@ -123,7 +123,10 @@ public sealed class MonumentSystem : SharedMonumentSystem
         }
     }
 
-    private void OnShuttleEvac(EvacShuttleLeftEvent args) // on shuttle evac, disable the monument's UI, disable it from being activateable, and stop the finale music if it was playing
+    /// <summary>
+    /// on shuttle evac, disable the monument's UI, disable it from being activated, and stop the finale music if it was playing
+    /// </summary>
+    private void OnShuttleEvac(EvacShuttleLeftEvent args)
     {
         var evacQuery = EntityQueryEnumerator<MonumentComponent, CosmicFinaleComponent>();
         while (evacQuery.MoveNext(out var ent, out var monuComp, out var finaleComp))

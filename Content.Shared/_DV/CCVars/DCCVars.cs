@@ -227,6 +227,12 @@ public sealed class DCCVars
         CVarDef.Create("cosmiccult.steward_vote_timer", 80, CVar.SERVER);
 
     /// <summary>
+    /// How long we wait before starting the stewardship vote.
+    /// </summary>
+    public static readonly CVarDef<int> CosmicCultStewardVoteDelayTimer =
+        CVarDef.Create("cosmiccult.steward_vote_delay", 25, CVar.SERVER);
+
+    /// <summary>
     /// The delay between the monument getting upgraded to tier 2 and the crew learning of that fact. the monument cannot be upgraded again in this time.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultT2RevealDelaySeconds =
