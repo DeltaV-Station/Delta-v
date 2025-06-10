@@ -18,7 +18,7 @@ curator-chelp-curator-only-tooltip = If checked, then the message won't be visib
 
 curator-cwoink-play-sound = Cwoink?
 
-admin-player-actions-view-variables = Veiw Variables
+admin-player-actions-view-variables = View Variables
 
 cwoink-title-none-selected = None selected
 
