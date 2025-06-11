@@ -156,13 +156,13 @@
     - type: Bloodstream # begin DeltaV - uncommented
       damageBleedModifiers: BloodlossIPC
       bloodReagent: Oil
-      bleedReductionAmount: 0
-      bloodMaxVolume: 100
+      bleedReductionAmount: 0.2
+      bloodMaxVolume: 150
       chemicalMaxVolume: 0
       bleedPuddleThreshold: 3
-      bloodRefreshAmount: 0
-      bloodlossThreshold: 0.8
-      maxBleedAmount: 2 # not a lot, but its hard to stop
+      bloodRefreshAmount: 0.05
+      bloodlossThreshold: 0.6
+      maxBleedAmount: 5 # not a lot, but its hard to stop
       bloodlossDamage:
         types:
           Blunt: 0.1 # lubricant is running low
