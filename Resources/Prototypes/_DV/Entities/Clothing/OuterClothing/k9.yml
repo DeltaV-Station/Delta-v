@@ -2,6 +2,21 @@
   abstract: true
   id: K9ClothingBase
   components:
+  - type: BatteryProvider
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: false
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellSmall
+        whitelist:
+          tags:
+            - PowerCell
   - type: SpecialisedClothing
     whitelist:
       tags:
