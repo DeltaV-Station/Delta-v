@@ -125,7 +125,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             if (!siliconComp.EntityType.Equals(SiliconType.Npc)) // Don't bother checking heat if it's an NPC. It's a waste of time, and it'd be delayed due to the update time.
             {
                 drainRateFinalAddi += SiliconHeatEffects(silicon, siliconComp, frameTime) - 1; // This will need to be changed at some point if we allow external batteries, since the heat of the Silicon might not be applicable.
-                drainRateFinalAddi -= SiliconMovementEffects(silicon, siliconComp); // TheDen - IPC Dynamic Power draw // Removes between 90% and 0% of the total power draw.
+                drainRateFinalAddi += SiliconMovementEffects(silicon, siliconComp); // TheDen - IPC Dynamic Power draw // Removes between 90% and 0% of the total power draw.
             }
 
             // Ensures that the drain rate is at least 10% of normal,
@@ -212,18 +212,19 @@ public sealed class SiliconChargeSystem : EntitySystem
     {
         // Calculate dynamic power draw.
         if (!TryComp(silicon, out MovementSpeedModifierComponent? movement) ||
-            !TryComp(silicon, out PhysicsComponent? physics) || !TryComp(silicon, out InputMoverComponent? input))
+            !TryComp(silicon, out PhysicsComponent? physics) ||
+            !TryComp(silicon, out InputMoverComponent? input))
             return 0;
 
-        if (input.HeldMoveButtons == 0x0 || _jetpack.IsUserFlying(silicon)) // If nothing is being held or jet packing
+        if (input.HeldMoveButtons == MoveButtons.None || _jetpack.IsUserFlying(silicon)) // If nothing is being held or jet packing
         {
-            return siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction; // Reduces draw by idle drain reduction
+            return siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * (-1); // Reduces draw by idle drain reduction
         }
 
         // LinearVelocity is relative to the parent
         return Math.Clamp(
-            siliconComp.DrainPerSecond * (1 - (physics.LinearVelocity.Length() / movement.CurrentSprintSpeed)), // Power draw changes as a percentage of the movement
-            0f, // Minimum is no change to power draw
-            siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction); // Should be a maximum of the idle drain reduction
+            siliconComp.DrainPerSecond * ((physics.LinearVelocity.Length() / movement.CurrentSprintSpeed) - 1), // Power draw changes as a percentage of the movement
+            siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * (-1), // Should be a maximum of the idle drain reduction
+            0f); // Minimum is no change to power draw
     }
 }
