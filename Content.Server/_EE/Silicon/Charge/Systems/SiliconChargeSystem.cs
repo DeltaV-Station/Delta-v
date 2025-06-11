@@ -223,8 +223,8 @@ public sealed class SiliconChargeSystem : EntitySystem
 
         // LinearVelocity is relative to the parent
         return Math.Clamp(
-            siliconComp.DrainPerSecond * ((physics.LinearVelocity.Length() / movement.CurrentSprintSpeed) - 1), // Power draw changes as a percentage of the movement
-            siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * (-1), // Should be a maximum of the idle drain reduction
-            0f); // Minimum is no change to power draw
+            siliconComp.DrainPerSecond * ((physics.LinearVelocity.Length() / movement.CurrentSprintSpeed) - 1), // Power draw changes as a negative percentage of the movement
+            siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * (-1), // Should be a maximum of the idle drain reduction (negative)
+            0f); // Minimum reduction is no change to power draw
     }
 }
