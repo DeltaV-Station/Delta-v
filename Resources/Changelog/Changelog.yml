@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: Beck Thompson
-  changes:
-  - message: Inflatable barrier disassembly is not not laggy anymore.
-    type: Fix
-  id: 8144
-  time: '2025-04-10T10:39:14.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/32420
-- author: RedBookcase
-  changes:
-  - message: Fixed empty handheld mass scanners being 2x2.
-    type: Fix
-  id: 8145
-  time: '2025-04-10T10:44:07.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/36340
 - author: ArtisticRoomba
   changes:
   - message: Fixed power cells and power cages counting for laser gun cargo bounties.
@@ -3856,6 +3842,14 @@
   id: 8649
   time: '2025-06-10T04:47:36.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38093
+- author: BramvanZijp
+  changes:
+  - message: Added Stamina Damage resistance to the raid/hard-suits used by Nuclear
+      Operatives and Emergency Response Teams. [TEST MERGE]
+    type: Tweak
+  id: 8650
+  time: '2025-06-10T19:31:45.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37040
 - author: themias
   changes:
   - message: Returned the cooldown for bike horn implants
@@ -3899,3 +3893,11 @@
   id: 8656
   time: '2025-06-11T18:32:48.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38083
+- author: Princess-Cheeseballs
+  changes:
+  - message: Basilisk projectile speed and movement speed has been reduced and is
+      slightly weaker
+    type: Tweak
+  id: 8658
+  time: '2025-06-11T20:20:48.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38089
