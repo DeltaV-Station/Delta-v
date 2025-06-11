@@ -10,6 +10,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Power;
+using Content.Shared.Tools;
 using Content.Shared.Tools.Components;
 using Content.Shared.Wires;
 using Robust.Server.GameObjects;
@@ -28,6 +29,9 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ConstructionSystem _construction = default!;
+
+    private static readonly ProtoId<ToolQualityPrototype> CuttingQuality = "Cutting";
+    private static readonly ProtoId<ToolQualityPrototype> PulsingQuality = "Pulsing";
 
     // This is where all the wire layouts are stored.
     [ViewVariables] private readonly Dictionary<string, WireLayout> _layouts = new();
@@ -445,8 +449,8 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
         if (!IsPanelOpen(uid))
             return;
 
-        if (Tool.HasQuality(args.Used, "Cutting", tool) ||
-            Tool.HasQuality(args.Used, "Pulsing", tool))
+        if (Tool.HasQuality(args.Used, CuttingQuality, tool) ||
+            Tool.HasQuality(args.Used, PulsingQuality, tool))
         {
             if (TryComp(args.User, out ActorComponent? actor))
             {
@@ -625,7 +629,7 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
         switch (action)
         {
             case WiresAction.Cut:
-                if (!Tool.HasQuality(toolEntity, "Cutting", tool))
+                if (!Tool.HasQuality(toolEntity, CuttingQuality, tool))
                 {
                     _popupSystem.PopupCursor(Loc.GetString("wires-component-ui-on-receive-message-need-wirecutters"), user);
                     return;
@@ -639,7 +643,7 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
 
                 break;
             case WiresAction.Mend:
-                if (!Tool.HasQuality(toolEntity, "Cutting", tool))
+                if (!Tool.HasQuality(toolEntity, CuttingQuality, tool))
                 {
                     _popupSystem.PopupCursor(Loc.GetString("wires-component-ui-on-receive-message-need-wirecutters"), user);
                     return;
@@ -653,7 +657,7 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
 
                 break;
             case WiresAction.Pulse:
-                if (!Tool.HasQuality(toolEntity, "Pulsing", tool))
+                if (!Tool.HasQuality(toolEntity, PulsingQuality, tool))
                 {
                     _popupSystem.PopupCursor(Loc.GetString("wires-component-ui-on-receive-message-need-multitool"), user);
                     return;
@@ -712,7 +716,7 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
         switch (action)
         {
             case WiresAction.Cut:
-                if (!Tool.HasQuality(toolEntity, "Cutting", tool))
+                if (!Tool.HasQuality(toolEntity, CuttingQuality, tool))
                 {
                     _popupSystem.PopupCursor(Loc.GetString("wires-component-ui-on-receive-message-need-wirecutters"), user);
                     break;
@@ -733,7 +737,7 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
                 UpdateUserInterface(used);
                 break;
             case WiresAction.Mend:
-                if (!Tool.HasQuality(toolEntity, "Cutting", tool))
+                if (!Tool.HasQuality(toolEntity, CuttingQuality, tool))
                 {
                     _popupSystem.PopupCursor(Loc.GetString("wires-component-ui-on-receive-message-need-wirecutters"), user);
                     break;
@@ -754,7 +758,7 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
                 UpdateUserInterface(used);
                 break;
             case WiresAction.Pulse:
-                if (!Tool.HasQuality(toolEntity, "Pulsing", tool))
+                if (!Tool.HasQuality(toolEntity, PulsingQuality, tool))
                 {
                     _popupSystem.PopupCursor(Loc.GetString("wires-component-ui-on-receive-message-need-multitool"), user);
                     break;
