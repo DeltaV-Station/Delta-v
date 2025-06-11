@@ -22,7 +22,7 @@
   discountDownTo:
     Telecrystal: 7
   cost:
-    Telecrystal: 10
+    Telecrystal: 15
   categories:
     - UplinkWeaponry
 
@@ -36,34 +36,6 @@
     Telecrystal: 12
   cost:
     Telecrystal: 15
-  categories:
-    - UplinkWeaponry
-
-- type: listing
-  id: uplinkBasilisk
-  name: uplink-basilisk-name
-  description: uplink-basilisk-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Special/basilisk.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledBasilisk
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 10
-  cost:
-    Telecrystal: 12
-  categories:
-    - UplinkWeaponry
-
-- type: listing
-  id: uplinkAnaconda
-  name: uplink-anaconda-name
-  description: uplink-anaconda-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Revolvers/anaconda.rsi, state: icon }
-  productEntity: BriefcaseSyndieAnacondaBundleFilled
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 6
-  cost:
-    Telecrystal: 8
   categories:
     - UplinkWeaponry
 
@@ -101,17 +73,6 @@
   productEntity: EchionSynth
   cost:
     Telecrystal: 5
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkSpeedLoaderAnaconda
-  name: uplink-speedloader-sniper-name
-  description: uplink-speedloader-sniper-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammuntion/Magazine/Speedloaders/Magnum/sniper.rsi, state: icon }
-  productEntity: SpeedLoaderAnaconda
-  cost:
-    Telecrystal: 1
   categories:
   - UplinkAmmo
 

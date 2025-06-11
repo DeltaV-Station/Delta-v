@@ -1,7 +1,7 @@
 - type: entity
   name: adder plasma bolt
   id: BulletPlasmaAdder
-  parent: BulletLaser
+  parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -37,22 +37,3 @@
       types:
         Heat: 7.5
         Piercing: 7.5
-
-- type: entity
-  parent: BulletLaser
-  name: Basilisk radiation bolt
-  id: BulletRadiationBasilisk
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
-    layers:
-    - state: heavypurp
-      shader: unshaded
-  - type: Ammo
-    muzzleFlash: MuzzleFlashEffectPurpLaser
-  - type: Projectile
-    impactEffect: BulletImpactEffectPurple
-    damage:
-      types:
-        Radiation: 25
