@@ -15,13 +15,14 @@
             prefixCreator: 'NY'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_UCLB.yml
+        - type: StationCargoShuttle
+          path: /Maps/_DV/Shuttles/NTCS_Duster.yml
         - type: StationJobs
           availableJobs:
           #civilian
             Passenger: [ -1, -1 ]
             Librarian: [ 1, 1 ]
           #command
-            AdministrativeAssistant: [ 1, 1 ]
             Captain: [ 1, 1 ]
             StationAi: [ 1, 1 ]
           #engineering

@@ -8,11 +8,13 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.SmartFridge;
 
 public sealed class SmartFridgeSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -31,7 +33,22 @@ public sealed class SmartFridgeSystem : EntitySystem
             sub =>
             {
                 sub.Event<SmartFridgeDispenseItemMessage>(OnDispenseItem);
+                sub.Event<SmartFridgeRemoveEntryMessage>(OnRemoveEntry);
             });
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<SmartFridgeComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (!comp.Ejecting || _timing.CurTime <= comp.EjectEnd)
+                continue;
+            comp.EjectEnd = null;
+            Dirty(uid, comp);
+        }
     }
 
     private void OnInteractUsing(Entity<SmartFridgeComponent> ent, ref InteractUsingEvent args)
@@ -84,7 +101,7 @@ public sealed class SmartFridgeSystem : EntitySystem
 
     private void OnDispenseItem(Entity<SmartFridgeComponent> ent, ref SmartFridgeDispenseItemMessage args)
     {
-        if (!Allowed(ent, args.Actor))
+        if (!_timing.IsFirstTimePredicted || ent.Comp.Ejecting || !Allowed(ent, args.Actor))
             return;
 
         if (!ent.Comp.ContainedEntries.TryGetValue(args.Entry, out var contained))
@@ -101,11 +118,26 @@ public sealed class SmartFridgeSystem : EntitySystem
 
             _audio.PlayPredicted(ent.Comp.SoundVend, ent, args.Actor);
             contained.Remove(item);
+            ent.Comp.EjectEnd = _timing.CurTime + ent.Comp.EjectCooldown;
             Dirty(ent);
             return;
         }
 
         _audio.PlayPredicted(ent.Comp.SoundDeny, ent, args.Actor);
         _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-out-of-stock"), ent, args.Actor);
+    }
+
+    private void OnRemoveEntry(Entity<SmartFridgeComponent> ent, ref SmartFridgeRemoveEntryMessage args)
+    {
+        if (!_timing.IsFirstTimePredicted || !Allowed(ent, args.Actor))
+            return;
+
+        if (ent.Comp.ContainedEntries.TryGetValue(args.Entry, out var contained)
+            && contained.Count > 0
+            || !ent.Comp.Entries.Contains(args.Entry))
+            return;
+
+        ent.Comp.Entries.Remove(args.Entry);
+        Dirty(ent);
     }
 }
