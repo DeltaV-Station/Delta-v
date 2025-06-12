@@ -27,7 +27,8 @@
   - type: Item
     size: Small
     shape:
-    - 0,0,1,1
+    - 0,0,1,0
+    - 0,1,0,1
   - type: Gun
     clumsyProof: false
     cameraRecoilScalar: 1
@@ -36,7 +37,7 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/akurra.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/adder.ogg
   - type: SolutionContainerManager
     solutions:
       chamber:
@@ -84,6 +85,9 @@
   - type: Appearance
   - type: Item
     size: Large
+    shape:
+    - 0,0,3,0
+    - 0,1,3,1
   - type: Gun
     clumsyProof: false
     cameraRecoilScalar: 1
@@ -97,7 +101,7 @@
     angleIncrease: 2
     angleDecay: 18
     soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/adder.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/akurra.ogg
   - type: SolutionContainerManager
     solutions:
       chamber:

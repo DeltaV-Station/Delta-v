@@ -66,15 +66,43 @@
   - UplinkAmmo
 
 - type: listing
-  id: UplinkEchionSynth
+  id: UplinkEchionSynthNukie
   name: uplink-echion-synth-name
   description: uplink-echion-synth-desc
   icon: { sprite: /Textures/_Impstation/Objects/Specific/Syndicate/echionsynth.rsi, state: icon }
   productEntity: EchionSynth
   cost:
-    Telecrystal: 5
+    Telecrystal: 10
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkEchionSynthSyndie
+  name: uplink-echion-synth-name
+  description: uplink-echion-synth-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Specific/Syndicate/echionsynth.rsi, state: icon }
+  productEntity: EchionSynth
+  cost:
+    Telecrystal: 8
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkExplosiveRocketBundle
