@@ -1,82 +1,4 @@
 ﻿Entries:
-- author: Emily9031
-  changes:
-  - message: Added a dead man's signaller that will activate when dropped. Find it
-      in the uplink and research! Make sure you arm it!
-    type: Add
-  id: 947
-  time: '2025-01-25T04:09:54.540837+00:00'
-  url: null
-- author: ElusiveCoin
-  changes:
-  - message: Updated Chitinid Resistances to make them more tank like while still
-      being harder to heal in the midst of a battle.
-    type: Tweak
-  - message: Fixed a bug where anomalies that gave the player a point light would
-      remove the Chitinid's bio light if cured.
-    type: Fix
-  - message: Updated Guidebook text of the Chitinid species.
-    type: Tweak
-  id: 948
-  time: '2025-01-25T19:55:31.266176+00:00'
-  url: null
-- author: Smugman
-  changes:
-  - message: Emagged Uniform Printers can now Print even more Syndicate Uniforms and
-      a new, sleek toolbelt. Sprites by JustAnOrange
-    type: Add
-  - message: Sci-, Engi- and Lawdrobes have been "accidentally" Stocked with Cybersun
-      Uniforms, locked behind the MNGR Wire.
-    type: Add
-  - message: Syndicate Recruiters and Synthesis specialists have been given updated
-      Loadouts.
-    type: Add
-  id: 949
-  time: '2025-01-26T21:33:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2789
-- author: TadJohnson00
-  changes:
-  - message: Adjusted crawling speed to half its original value. Break a leg.
-    type: Tweak
-  id: 950
-  time: '2025-01-27T05:39:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2807
-- author: rosieposieeee
-  changes:
-  - message: Ported a metric fuckton of props from N14.
-    type: Add
-  id: 951
-  time: '2025-01-27T05:40:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2760
-- author: Stop-Signs
-  changes:
-  - message: Firelocks have less health
-    type: Tweak
-  id: 952
-  time: '2025-01-27T18:28:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2804
-- author: SolStar
-  changes:
-  - message: Mindshield implants will now make people immune to becoming sleeper agents.
-    type: Tweak
-  id: 953
-  time: '2025-01-28T08:47:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2803
-- author: rosieposieeee
-  changes:
-  - message: Added some meat decorations.
-    type: Add
-  id: 954
-  time: '2025-01-28T12:32:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2427
-- author: sowelipililimute
-  changes:
-  - message: Prescription departamental glasses and HUDs no longer require glue to
-      obtain
-    type: Tweak
-  id: 955
-  time: '2025-01-28T12:36:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2629
 - author: hivehum, crocodilecarousel
   changes:
   - message: "From Impstation: government regulatory agencies don\u2019t want you\
@@ -4120,3 +4042,75 @@
   id: 1446
   time: '2025-06-05T19:09:23.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3875
+- author: SolStar2
+  changes:
+  - message: 'Apoapsis: reduced the time at CC to 30 seconds pending changes to the
+      CC map.'
+    type: Tweak
+  - message: Evac shuttle transit time changed to 15 seconds.
+    type: Tweak
+  id: 1447
+  time: '2025-06-07T02:59:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3886
+- author: HTMLSystem, whatston3
+  changes:
+  - message: Barrels now have a sprite when you put paper on them.
+    type: Fix
+  id: 1448
+  time: '2025-06-07T07:41:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3907
+- author: AftrLite
+  changes:
+  - message: Shuttle travel time re-lengthened.
+    type: Tweak
+  id: 1449
+  time: '2025-06-08T04:49:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3915
+- author: Avalon-Proto
+  changes:
+  - message: The Homerun Bat has been modified by top syndicate operatives, and is
+      now far more effect. Knock em outta the park slugger!
+    type: Tweak
+  id: 1450
+  time: '2025-06-09T14:28:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3896
+- author: BlitzTheSquishy
+  changes:
+  - message: Unique helmets for Feroxi added
+    type: Add
+  id: 1451
+  time: '2025-06-10T08:10:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3822
+- author: SolStar2
+  changes:
+  - message: Revamped Curator Help (CHelp) with a new (purple) coat of paint!
+    type: Tweak
+  id: 1452
+  time: '2025-06-10T10:56:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3870
+- author: Radezolid
+  changes:
+  - message: Removed the administrative assistant.
+    type: Remove
+  - message: The administrative assistant clothes have been renamed into secretary
+      ones, find them at a clothesvend.
+    type: Tweak
+  id: 1453
+  time: '2025-06-10T20:53:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3857
+- author: Radezolid
+  changes:
+  - message: Lobotomies are no longer a surgery option.
+    type: Remove
+  id: 1454
+  time: '2025-06-11T03:36:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3926
+- author: Avalon-Proto
+  changes:
+  - message: Cybersun has developed several new weapons for the cause. The Adder,
+      Akurra, and Xiucoatl, and for Gorlex the Leviathan Missile launcher. Also in
+      surplus crates
+    type: Add
+  id: 1455
+  time: '2025-06-12T18:55:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3845

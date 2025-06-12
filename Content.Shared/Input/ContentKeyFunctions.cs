@@ -25,7 +25,7 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction CycleChatChannelBackward = "CycleChatChannelBackward";
         public static readonly BoundKeyFunction EscapeContext = "EscapeContext";
         // Begin DeltaV Additions
-        public static readonly BoundKeyFunction OpenAHelpCuratorChat = "OpenAHelpCuratorChat";
+        public static readonly BoundKeyFunction OpenCHelp = "OpenAHelpCuratorChat";
         public static readonly BoundKeyFunction NanoChatNavigateUp = "NanoChatNavigateUp";
         public static readonly BoundKeyFunction NanoChatNavigateDown = "NanoChatNavigateDown";
         public static readonly BoundKeyFunction NanoChatNavigateUpUnread = "NanoChatNavigateUpUnread";
