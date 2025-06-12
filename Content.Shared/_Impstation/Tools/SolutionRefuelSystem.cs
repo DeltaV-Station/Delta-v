@@ -72,7 +72,7 @@ public abstract partial class SharedToolSystem
             }
             else if (welderSolution.AvailableVolume <= 0)
             {
-                _popup.PopupClient(Loc.GetString("welder-component-already-full"), entity, args.User);
+                _popup.PopupClient(Loc.GetString("solution-refuel-component-already-full", ("target", entity)), entity, args.User);
             }
             else
             {
