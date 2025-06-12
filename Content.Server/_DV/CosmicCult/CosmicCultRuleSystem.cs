@@ -103,6 +103,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     private TimeSpan _t3RevealDelay = default!;
     private TimeSpan _t2RevealDelay = default!;
     private TimeSpan _finaleDelay = default!;
+    private TimeSpan _voteDelay = default!;
     private TimeSpan _voteTimer = default!;
 
     private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/antag_cosmic_briefing.ogg");
@@ -149,14 +150,14 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             true);
         Subs.CVar(_config,
             DCCVars.CosmicCultStewardVoteDelayTimer,
-            value => _voteTimer = TimeSpan.FromSeconds(value),
+            value => _voteDelay = TimeSpan.FromSeconds(value),
             true);
     }
 
     #region Starting Events
     protected override void Started(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
-        component.StewardVoteTimer = _timing.CurTime + component.StewardVoteDelayTimer;
+        component.StewardVoteTimer = _timing.CurTime + _voteDelay;
     }
 
     protected override void ActiveTick(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, float frameTime)

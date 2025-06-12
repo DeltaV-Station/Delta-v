@@ -35,12 +35,12 @@ objective-condition-effigy = Beckon an Effigy near "{$location}".
 
 ghost-role-mindsink-installed = Whispers hum from its surface!
 ghost-role-mindsink-off = It lies dormant.
-ghost-role-mindsink-still-searching = It is drawing upon the noosphere...
-ghost-role-mindsink-searching = It has started drawing upon the noosphere...
+ghost-role-mindsink-still-searching = It is drawing upon the noösphere...
+ghost-role-mindsink-searching = It has started drawing upon the noösphere...
 ghost-role-mindsink-role-name = Malign Mindsink
 ghost-role-mindsink-role-description = Serve the station crew, despite your unusual origins.
 ghost-role-mindsink-wipe-device-verb-text = Erase Mind
 ghost-role-mindsink-wiped-device = The mind was snuffed out.
 ghost-role-mindsink-stop-searching-verb-text = Stop Seeking
-ghost-role-mindsink-stopped-searching = Noospheric resonance halted.
+ghost-role-mindsink-stopped-searching = Noöspheric resonance halted.
 ghost-role-mindsink-slot-component-slot-name-brain = Brain
