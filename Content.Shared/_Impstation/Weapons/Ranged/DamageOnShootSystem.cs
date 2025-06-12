@@ -4,7 +4,6 @@ using Content.Shared.Database;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Robust.Shared.Random;
-using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 using Content.Shared.Stunnable;
