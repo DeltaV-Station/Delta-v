@@ -227,7 +227,7 @@
     moduleId: Blade
     items:
     - Cutlass
-    - PlasteelArmingSword
+    - EnergyCutlass
 
 - type: entity
   parent: BaseBorgModuleSyndie
@@ -250,6 +250,7 @@
     moduleId: SyndicateRadio
     items:
     - RadioHandheldSyndicate
+    - RoboneuroticistPointer 
   - type: ShowSyndicateIcons
   - type: ShowJobIcons
   - type: ShowHealthIcons
@@ -279,3 +280,39 @@
     moduleId: ChameleonProjector
     items:
     - ChameleonProjector
+
+- type: entity
+  parent: BaseBorgModuleSyndie
+  id: BorgModuleCannon # locked behind Syndie exofab
+  name: cannon cyborg module
+  description: "A special module for pirating, come with a cannon with 3 types of shot"
+  components:
+  - type: ItemBorgModule
+    moduleId: Cannon
+    items:
+    - WeaponLauncherPirateCannonBorg
+
+- type: entity
+  parent: BaseBorgModuleSyndie
+  id: BorgModuleBuccaneer # locked behind Syndie exofab
+  name: buccaneer cyborg module
+  description: "A moduel containing a grappling hook, material bag, a cutlass, and a pirate's sidearm"
+  components:
+  - type: ItemBorgModule
+    moduleId: Bucaneer
+    items:
+    - WeaponGrapplingGun
+    - MaterialBag
+    - Cutlass
+    - WeaponBorgBuccaneersRevolver
+
+- type: entity
+  parent: BaseBorgModuleSyndie
+  id: BorgModuleSleeper
+  name: sleeper module
+  description: "A module with a sleep hypo, for silently abducting victims"
+  components:
+  - type: ItemBorgModule
+    moduleId: Sleeper
+    items:
+    - SyndicateNocturineHypo
