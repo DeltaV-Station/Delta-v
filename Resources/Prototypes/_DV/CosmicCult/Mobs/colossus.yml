@@ -83,14 +83,11 @@
     follow: true
   - type: Body
     requiredLegs: 0
-  - type: BodyEmotes
+  - type: Emoting
   - type: Speech
     speechSounds: ColossusSpeech
     speechVerb: Robotic
     allowedEmotes: []
-  - type: Vocal
-    sounds:
-      Unsexed: ColossusEmotes
   - type: TypingIndicator
     proto: CosmicTyping
   - type: Grammar
@@ -286,14 +283,6 @@
     path: /Audio/_DV/CosmicCult/colossus_ask.ogg
   exclaimSound:
     path: /Audio/_DV/CosmicCult/colossus_exclaim.ogg
-
-- type: emoteSounds
-  id: ColossusEmotes
-  params:
-    variation: 0.125
-  sounds:
-    Scream:
-      path: /Audio/_DV/CosmicCult/colossus_scream.ogg
 
 - type: entity
   categories: [ HideSpawnMenu ]
