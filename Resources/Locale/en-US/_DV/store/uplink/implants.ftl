@@ -8,3 +8,6 @@ uplink-syndicate-radio-implanter-bundle-name = Syndicate Radio Implanter Bundle
 uplink-syndicate-radio-implanter-bundle-desc = Two implanters for the price of one and a half! Share one with your Syndicate friend.
 
 uplink-storage-implanter-delta-desc = Hide goodies inside of yourself with new bluespace technology! Budget cuts have resulted in it NOT STORING High Value or storage items.
+
+nukeops-uplink-uplink-implanter-name = Nuclear Operative Uplink Implanter
+nukeops-uplink-uplink-implanter-desc = Stealthily order equipment without the need to carry an uplink. Swallow telecrystals to top up the uplink.
