@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 06/12/2025 20:51:57
-  entityCount: 9547
+  time: 06/13/2025 17:38:47
+  entityCount: 9564
 maps: []
 grids:
 - 1
@@ -4382,8 +4382,8 @@ entities:
             0: 65293
           5,4:
             0: 6
-            2: 8704
-            3: 34816
+            3: 8704
+            4: 34816
           6,0:
             0: 4095
           6,1:
@@ -4391,11 +4391,11 @@ entities:
           6,2:
             0: 26374
           6,3:
-            4: 65520
+            2: 65520
           6,-1:
             0: 65295
           6,4:
-            4: 15
+            2: 15
             0: 8736
           7,0:
             0: 61183
@@ -4542,7 +4542,7 @@ entities:
           -7,-5:
             0: 46011
           -7,-3:
-            4: 32
+            2: 32
             0: 57480
           -7,-2:
             0: 61166
@@ -4620,7 +4620,7 @@ entities:
             0: 61713
           11,1:
             0: 4593
-            4: 49152
+            2: 49152
           11,2:
             0: 61713
           11,3:
@@ -4643,7 +4643,7 @@ entities:
             0: 4593
           11,-2:
             0: 61713
-            4: 192
+            2: 192
           0,9:
             0: 13107
           -1,9:
@@ -4832,40 +4832,40 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.15
-          moles:
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
           immutable: True
           moles:
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -6687,7 +6687,7 @@ entities:
       pos: -34.5,-3.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -9976.436
+      secondsUntilStateChange: -13280.833
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8156,6 +8156,26 @@ entities:
     components:
     - type: Transform
       pos: 30.5,-20.5
+      parent: 1
+- proto: BlockGameArcade
+  entities:
+  - uid: 6113
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,7.5
+      parent: 1
+  - uid: 7018
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -16.5,-19.5
+      parent: 1
+  - uid: 9555
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -22.5,12.5
       parent: 1
 - proto: BoardGameSpawner
   entities:
@@ -21085,11 +21105,6 @@ entities:
     - type: Transform
       pos: 6.5,12.5
       parent: 1
-  - uid: 4156
-    components:
-    - type: Transform
-      pos: 5.5,10.5
-      parent: 1
   - uid: 4157
     components:
     - type: Transform
@@ -21134,6 +21149,11 @@ entities:
     components:
     - type: Transform
       pos: -11.5,-5.5
+      parent: 1
+  - uid: 9550
+    components:
+    - type: Transform
+      pos: 5.5,10.5
       parent: 1
 - proto: CarpetCyan
   entities:
@@ -22304,6 +22324,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -29.381441,-8.699541
       parent: 1
+  - uid: 9556
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 25.633362,-22.413149
+      parent: 1
 - proto: ChairOfficeLight
   entities:
   - uid: 1514
@@ -22792,30 +22818,20 @@ entities:
       parent: 1
 - proto: ClosetMaintenanceFilledRandom
   entities:
-  - uid: 6810
-    components:
-    - type: Transform
-      pos: -5.5,-8.5
-      parent: 1
-  - uid: 6811
+  - uid: 4139
     components:
     - type: Transform
       pos: -3.5,-14.5
       parent: 1
-  - uid: 6812
+  - uid: 4156
     components:
     - type: Transform
       pos: -3.5,-15.5
       parent: 1
-  - uid: 6910
+  - uid: 6810
     components:
     - type: Transform
-      pos: -12.5,7.5
-      parent: 1
-  - uid: 6911
-    components:
-    - type: Transform
-      pos: -12.5,8.5
+      pos: -5.5,-8.5
       parent: 1
   - uid: 6912
     components:
@@ -23204,10 +23220,10 @@ entities:
       parent: 1
 - proto: ClothingHeadHatBeretCap
   entities:
-  - uid: 4139
+  - uid: 9548
     components:
     - type: Transform
-      pos: 6.9005733,9.596871
+      pos: 7.5743084,10.145276
       parent: 1
 - proto: ClothingHeadHatBowlerHat
   entities:
@@ -27453,7 +27469,7 @@ entities:
   - uid: 2486
     components:
     - type: Transform
-      pos: 6.5724483,9.815621
+      pos: 7.750594,11.173532
       parent: 1
 - proto: DrinkCognacBottleFull
   entities:
@@ -27660,10 +27676,10 @@ entities:
     - type: Transform
       pos: -24.646292,-26.288546
       parent: 1
-  - uid: 7018
+  - uid: 9563
     components:
     - type: Transform
-      pos: -24.577497,21.72235
+      pos: -24.63676,21.749977
       parent: 1
 - proto: DrinkSingulo
   entities:
@@ -28349,6 +28365,15 @@ entities:
     - type: Transform
       pos: -13.5,-7.5
       parent: 1
+- proto: FaxMachineBase
+  entities:
+  - uid: 6811
+    components:
+    - type: Transform
+      pos: 6.5,9.5
+      parent: 1
+    - type: FaxMachine
+      name: Midpoint
 - proto: filingCabinetDrawerRandom
   entities:
   - uid: 8004
@@ -44522,6 +44547,123 @@ entities:
     - type: Transform
       pos: 10.501957,26.074297
       parent: 1
+- proto: HolopadCargoBayLongRange
+  entities:
+  - uid: 9561
+    components:
+    - type: Transform
+      pos: 24.5,-22.5
+      parent: 1
+    - type: Label
+      currentLabel: Midpoint - Cargo (Long-range)
+- proto: HolopadCargoFront
+  entities:
+  - uid: 9557
+    components:
+    - type: Transform
+      pos: 7.5,-20.5
+      parent: 1
+    - type: Label
+      currentLabel: Midpoint - Logistics
+- proto: HolopadCommandBridgeLongRange
+  entities:
+  - uid: 9560
+    components:
+    - type: Transform
+      pos: 4.5,10.5
+      parent: 1
+    - type: Label
+      currentLabel: Midpoint - Commander Office (Long-range)
+- proto: HolopadCommandLounge
+  entities:
+  - uid: 9558
+    components:
+    - type: Transform
+      pos: -31.5,17.5
+      parent: 1
+    - type: Label
+      currentLabel: Midpoint - Command Lounge
+- proto: HolopadEngineeringFront
+  entities:
+  - uid: 9554
+    components:
+    - type: Transform
+      pos: 6.5,23.5
+      parent: 1
+    - type: Label
+      currentLabel: Midpoint - Engineering
+- proto: HolopadGeneralArrivals
+  entities:
+  - uid: 6812
+    components:
+    - type: Transform
+      pos: 42.5,0.5
+      parent: 1
+    - type: Label
+      currentLabel: Midpoint - Arrivals
+- proto: HolopadMedicalMedbay
+  entities:
+  - uid: 9562
+    components:
+    - type: Transform
+      pos: 21.5,-13.5
+      parent: 1
+    - type: Label
+      currentLabel: Midpoint - Medical
+- proto: HolopadScienceFront
+  entities:
+  - uid: 6910
+    components:
+    - type: Transform
+      pos: -7.5,24.5
+      parent: 1
+    - type: Label
+      currentLabel: Midpoint - Epistemics
+- proto: HolopadSecurityArrivalsCheckpoint
+  entities:
+  - uid: 9549
+    components:
+    - type: Transform
+      pos: 0.5,0.5
+      parent: 1
+    - type: Label
+      currentLabel: Midpoint - Security Checkpoint
+- proto: HolopadSecurityBrig
+  entities:
+  - uid: 9551
+    components:
+    - type: Transform
+      pos: 17.5,12.5
+      parent: 1
+    - type: Label
+      currentLabel: Midpoint - Brig
+- proto: HolopadServiceBar
+  entities:
+  - uid: 9553
+    components:
+    - type: Transform
+      pos: -20.5,16.5
+      parent: 1
+    - type: Label
+      currentLabel: Midpoint - Bar
+- proto: HolopadServiceBoxer
+  entities:
+  - uid: 9552
+    components:
+    - type: Transform
+      pos: -15.5,-27.5
+      parent: 1
+    - type: Label
+      currentLabel: Midpoint - Boxing Ring
+- proto: HolopadServiceJanitor
+  entities:
+  - uid: 9559
+    components:
+    - type: Transform
+      pos: 7.5,16.5
+      parent: 1
+    - type: Label
+      currentLabel: Midpoint - Janitor
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 1361
@@ -47233,11 +47375,6 @@ entities:
     - type: Transform
       pos: -19.5,-12.5
       parent: 1
-  - uid: 6113
-    components:
-    - type: Transform
-      pos: -16.5,-19.5
-      parent: 1
   - uid: 6114
     components:
     - type: Transform
@@ -47252,11 +47389,6 @@ entities:
     components:
     - type: Transform
       pos: -16.5,-13.5
-      parent: 1
-  - uid: 6117
-    components:
-    - type: Transform
-      pos: -16.5,-16.5
       parent: 1
   - uid: 6370
     components:
@@ -53102,6 +53234,26 @@ entities:
     components:
     - type: Transform
       pos: 12.5,19.5
+      parent: 1
+- proto: SpaceVillainArcadeFilled
+  entities:
+  - uid: 6117
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,8.5
+      parent: 1
+  - uid: 6911
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -16.5,-16.5
+      parent: 1
+  - uid: 9564
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -22.5,11.5
       parent: 1
 - proto: SpawnMechRipley
   entities:
