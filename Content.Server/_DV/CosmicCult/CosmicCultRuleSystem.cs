@@ -170,7 +170,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (component.ExtraRiftTimer is { } riftTimer && _timing.CurTime >= riftTimer && !component.RiftStop)
         {
             component.ExtraRiftTimer = _timing.CurTime + _rand.Next(TimeSpan.FromSeconds(230), TimeSpan.FromSeconds(360)); //3min50 to 6min between new rifts. Seconds instead of minutes for granularity.
-            SpawnRifts();
+            SpawnRift();
         }
         if (component.PrepareFinaleTimer is { } finalePrepTimer && _timing.CurTime >= finalePrepTimer)
         {
@@ -246,7 +246,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
             for (var i = 0; i < Convert.ToInt16(component.TotalCrew / 6); i++) // spawn # malign rifts equal to 16.67% of the playercount
             {
-                SpawnRifts();
+                SpawnRift();
             }
 
             var lights = EntityQueryEnumerator<PoweredLightComponent>();
@@ -306,7 +306,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         };
     }
 
-    private void SpawnRifts()
+    private void SpawnRift()
     {
         if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
         {

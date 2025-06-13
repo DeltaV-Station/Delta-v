@@ -123,9 +123,6 @@ public sealed partial class CosmicCultRuleComponent : Component
     public TimeSpan? StewardVoteTimer;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan? StewardVoteDelayTimer;
-
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? PrepareFinaleTimer;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
