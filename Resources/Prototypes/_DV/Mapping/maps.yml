@@ -46,6 +46,12 @@
 # Shuttles
 
 - type: mapCategories
+  id: Dreadnought
+  map: /Maps/_DV/Shuttles/dreadnought.yml
+  allowed:
+  - Syndicate
+
+- type: mapCategories
   id: Dart
   map: /Maps/Shuttles/dart.yml
   allowed:
