@@ -17,6 +17,8 @@
   - type: Tag
     tags:
     - Figurine
+  - type: CosmicCorruptible # DeltaV - corrupt figurines
+    convertTo: ToyFigurineCosmicCultist
   - type: UseDelay
     delay: 5
   - type: TriggerOnActivate
