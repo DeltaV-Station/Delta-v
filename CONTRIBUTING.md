@@ -1,24 +1,14 @@
-# Delta-V Contributing Guidelines
+# All-Access Contributing Guidelines
 
-Generally we follow [upstream's PR guidelines](https://docs.spacestation14.com/en/general-development/codebase-info/pull-request-guidelines.html) for code quality and such.
-
-Importantly do not make webedits, copied verbatim from above:
-> Do not use GitHub's web editor to create PRs. PRs submitted through the web editor may be closed without review.
-
-Upstream is the [space-wizards/space-station-14](https://github.com/space-wizards/space-station-14) repository that wizden runs on.
+Speak directly with Lilith or Rox on this, right? This document
 
 # Content specific to Delta-V
 
-In general anything you create from scratch (not modifying something that exists from upstream) should go in a DeltaV subfolder, `_DV`.
+In general anything you create from scratch (not modifying something that exists from upstream) should go in a All Access subfolder, `_AA`.
 
 Examples:
-- `Content.Server/_DV/Chapel/SacrificialAltarSystem.cs`
-- `Resources/Prototypes/_DV/ai_factions.yml`
-- `Resources/Audio/_DV/Items/gavel.ogg`
-- `Resources/Textures/_DV/Icons/cri.rsi`
-- `Resources/Locale/en-US/_DV/shipyard/shipyard-console.ftl`
-- `Resources/ServerInfo/Guidebook/_DV/AlertProcedure.xml`
-  Note that guidebooks go in `ServerInfo/Guidebook/_DV` and not `ServerInfo/_DV`!
+- `Content.Server/_AA/wedonthaveanyexamplesyetlol`
+  Note that guidebooks go in `ServerInfo/Guidebook/_AA` and not `ServerInfo/_AA`!
 
 # Changes to upstream files
 
@@ -40,27 +30,27 @@ A single line comment on a changed yml field:
 ```yml
 - type: entity
   parent: BasePDA
-  id: SciencePDA
-  name: epistemics PDA # DeltaV - Epistemics Department replacing Science
+  id: SecurityPDA
+  name: HR PDA # All Access - HR Department replacing Security
 ```
 
-A pair of comments enclosing a list of added items to starting gear:
+A pair of comments enclosing a list of added items to starting gear (GET BETTER EXAMPLE LATER PLEASE):
 ```yml
   storage:
     back:
-    - EmergencyRollerBedSpawnFolded
-    # Begin DeltaV additions
-    - BodyBagFolded
-    - Portafib
-    # End DeltaV additions
+    - OldItem
+    # Begin All Access additions
+    - NewItem1
+    - NewItem2
+    # End All Access additions
 ```
 
 A comment on a new imported namespace:
 ```cs
-using Content.Server.Psionics.Glimmer; // DeltaV
+using Content.Server.Tension.Liability; // All Access
 ```
 
-A pair of comments enclosing a block of added code:
+A pair of comments enclosing a block of added code (THIS IS A DELTA V EXAMPLE. I DID NOT COME UP WITH AN ALL ACCESS EXAMPLE YET SINCE WE DON'T HAVE ADDITIONS YET. PLZ):
 ```cs
 private EntityUid Slice(...)
 {
@@ -68,10 +58,10 @@ private EntityUid Slice(...)
 
     _transform.SetLocalRotation(sliceUid, 0);
 
-    // DeltaV - start of deep frier stuff
+    // All Acces - start of deep frier stuff
     var slicedEv = new FoodSlicedEvent(user, uid, sliceUid);
     RaiseLocalEvent(uid, ref slicedEv);
-    // DeltaV - end of deep frier stuff
+    // All Access - end of deep frier stuff
 
     ...
 }
@@ -83,7 +73,7 @@ If you want to make changes to a map, get in touch with its maintainer to make s
 
 Conflicts with maps make PRs mutually exclusive so either your work or the maintainer's work will be lost, communicate to avoid this!
 
-Please make a detailed list of **all** changes(even minor changes) with locations when submitting a PR. This helps reviewers hone in on them without having to search an entire map for differences. Ex: [Map Edits](https://github.com/DeltaV-Station/Delta-v/pull/3165)
+Please make a detailed list of **all** changes(even minor changes) with locations when submitting a PR. This helps reviewers hone in on them without having to search an entire map for differences. Ex: [Map Edits](https://github.com/AllAccess-Station/All-Access/pull/8675)
 
 
 **Submitting a map PR**
@@ -118,4 +108,4 @@ If you are new to contributing to SS14 in general, have a look at the [SS14 docs
 ## AI-Generated Content
 Code, sprites and any other AI-generated content is not allowed to be submitted to the repository.
 
-Trying to PR AI-generated content may result in you being banned from contributing.
+Trying to PR AI-generated content may result in you being mocked relentlessly. Like seriously? Give it a minute and try making something yourself next time.
