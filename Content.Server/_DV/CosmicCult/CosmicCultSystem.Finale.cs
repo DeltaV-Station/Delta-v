@@ -52,11 +52,9 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private void OnFinaleStartDoAfter(Entity<CosmicFinaleComponent> uid, ref StartFinaleDoAfterEvent args)
     {
+        uid.Comp.Occupied = false;
         if (args.Args.Target == null || args.Cancelled || args.Handled)
-        {
-            uid.Comp.Occupied = false;
             return;
-        }
 
         _popup.PopupEntity(Loc.GetString("cosmiccult-finale-beckon-success"), args.Args.User, args.Args.User);
         StartFinale(uid);
@@ -101,12 +99,10 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private void OnFinaleCancelDoAfter(Entity<CosmicFinaleComponent> uid, ref CancelFinaleDoAfterEvent args)
     {
+        uid.Comp.Occupied = false;
         var comp = uid.Comp;
         if (args.Args.Target is not {} target || args.Cancelled || args.Handled)
-        {
-            uid.Comp.Occupied = false;
             return;
-        }
 
         var stationUid = _station.GetOwningStation(uid);
 
