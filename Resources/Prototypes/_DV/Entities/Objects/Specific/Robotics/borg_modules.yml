@@ -221,7 +221,7 @@
   parent: BaseBorgModuleSyndie
   id: BorgModuleBlades # locked behind Syndie exofab
   name: blade cyborg module
-  description: "A module that comes with enough knives to poke your eye out."
+  description: "A module loaded with an assortment of blades"
   components:
   - type: ItemBorgModule
     moduleId: Blade
@@ -244,7 +244,7 @@
   parent: [ BaseBorgModuleSyndie, ClothingEyesHudSyndicate]
   id: BorgModuleSyndicateRadio # locked behind Syndie exofab
   name: syndicate radio cyborg module
-  description: "A module that comes with a syndicate handheld radio and PDA."
+  description: "A module that comes with a syndicate handheld radio and pinpointer to the shuttle"
   components:
   - type: ItemBorgModule
     moduleId: SyndicateRadio
