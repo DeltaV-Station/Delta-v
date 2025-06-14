@@ -84,7 +84,7 @@ Format for map PRs looks like:
 :cl: Yourname
 MAPS: Mapname
 - add: Added fun!
-- remove: Removed fun!
+- remove: Removed fun! (ain't that right) 
 - tweak: Changed fun!
 - fix: Fixed fun!
 ``` 
