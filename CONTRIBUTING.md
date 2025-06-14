@@ -1,6 +1,6 @@
 # All-Access Contributing Guidelines
 
-Speak directly with Lilith or Rox on this, right? This document
+Speak directly with Lilith or Rox on this, right? This document's been modified a bit but like. We ain't got examples lmao
 
 # Content specific to Delta-V
 
