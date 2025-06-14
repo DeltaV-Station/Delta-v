@@ -18,11 +18,13 @@
     damage:
       types:
         Blunt: 0
-        Heat: 3
+        Heat: 4
     soundHit:
       path: /Audio/Effects/lightburn.ogg
     forceSound: true
   - type: IgniteOnCollide
-    fireStacks: 0.12
+    fireStacks: 0.40
   - type: IgnitionSource
     temperature: 700
+  - type: ChangeTemperatureOnCollide
+    heat: 100
