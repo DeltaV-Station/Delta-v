@@ -49,9 +49,9 @@
   description: A suit that helps protect against hazardous temperatures.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/fire.rsi
+    sprite: _DV/Clothing/OuterClothing/Suits/fire.rsi # DeltaV
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/fire.rsi
+    sprite: _DV/Clothing/OuterClothing/Suits/fire.rsi # DeltaV
   - type: PressureProtection
     highPressureMultiplier: 0.04
   - type: TemperatureProtection
