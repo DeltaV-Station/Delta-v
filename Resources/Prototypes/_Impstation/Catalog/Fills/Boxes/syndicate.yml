@@ -2,7 +2,7 @@
   parent: BoxCardboard
   id: LeviathanExplosiveRocketBox
   name: Leviathan rocket box (explosive)
-  description: 3 highly destructive rockets stored in a concerningly fragile container.
+  description: 4 highly destructive rockets stored in a concerningly fragile container.
   components:
   - type: Storage
     grid:
@@ -10,7 +10,7 @@
   - type: StorageFill
     contents:
     - id: CartridgeBazookaExp
-      amount: 3
+      amount: 4
   - type: Sprite
     layers:
     - state: box_of_doom
@@ -20,12 +20,12 @@
   parent: LeviathanExplosiveRocketBox
   id: LeviathanIncendiaryRocketBox
   name: Leviathan rocket box (incendiary)
-  description: 3 rockets filled with highly flammable fuel stored in a concerningly fragile container.
+  description: 4 rockets filled with highly flammable fuel stored in a concerningly fragile container.
   components:
   - type: StorageFill
     contents:
     - id: CartridgeBazookaInc
-      amount: 3
+      amount: 4
   - type: Sprite
     layers:
     - state: box_of_doom
@@ -35,12 +35,12 @@
   parent: LeviathanExplosiveRocketBox
   id: LeviathanConcussionRocketBox
   name: Leviathan rocket box (concussive)
-  description: 3 tungsten projectiles stored in a flimsy container. It feels as if they'll tear out through the bottom.
+  description: 4 tungsten projectiles stored in a flimsy container. It feels as if they'll tear out through the bottom.
   components:
   - type: StorageFill
     contents:
     - id: CartridgeBazookaCon
-      amount: 3
+      amount: 4
   - type: Sprite
     layers:
     - state: box_of_doom

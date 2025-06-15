@@ -10,3 +10,16 @@
     - id: EchionCanister
       amount: 4
 
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateLeviathan
+  name: Leviathan bundle
+  description: "A massive, heavy-duty bazooka, bundled with 3 explosive rockets, and 2 incendiary rockets."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponLauncherBazooka
+    - id: CartridgeBazookaExp
+      amount: 3
+    - id: CartridgeBazookaInc
+      amount: 2
