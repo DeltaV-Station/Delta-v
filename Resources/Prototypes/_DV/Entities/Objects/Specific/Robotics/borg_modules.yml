@@ -219,18 +219,6 @@
 
 - type: entity
   parent: BaseBorgModuleSyndie
-  id: BorgModuleBlades # locked behind Syndie exofab
-  name: blade cyborg module
-  description: "A module loaded with an assortment of blades"
-  components:
-  - type: ItemBorgModule
-    moduleId: Blade
-    items:
-    - Cutlass
-    - EnergyCutlass
-
-- type: entity
-  parent: BaseBorgModuleSyndie
   id: BorgModuleCHIMP # locked behind Syndie exofab
   name: Experimental C.H.I.M.P. cyborg module
   description: "A module that comes with an unrechargable experimental C.H.I.M.P. handcannon. Cheap and disposable."

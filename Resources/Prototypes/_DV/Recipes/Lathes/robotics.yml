@@ -49,7 +49,7 @@
     Gold: 500
     Silver: 500
     Plastic: 1000
-    Uranium: 1000
+    Uranium: 500
     Plasma: 1000
 
 - type: latheRecipe
@@ -76,18 +76,6 @@
     Glass: 1000
     Plastic: 1000
     Silver: 500
-
-- type: latheRecipe
-  id: BorgModuleBlades
-  result: BorgModuleBlades
-  categories:
-  - Robotics
-  completetime: 5
-  materials:
-    Steel: 2000
-    Glass: 500
-    Plastic: 500
-    Plasma: 500
 
 - type: latheRecipe
   id: BorgModuleCHIMP
@@ -160,7 +148,7 @@
     Steel: 1200
     Glass: 1000
     Gold: 1000
-    Plastic: 2000
+    Plastic: 1000
     Uranium: 1000
 
 - type: latheRecipe
