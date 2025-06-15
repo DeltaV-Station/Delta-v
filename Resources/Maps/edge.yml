@@ -4,7 +4,7 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 06/14/2025 21:07:21
+  time: 06/14/2025 21:24:10
   entityCount: 20136
 maps:
 - 1
@@ -461,13 +461,9 @@ entities:
             id: Bot
           decals:
             71: 18,-2
-            2775: -43,1
-        - node:
-            color: '#FFFFFFFF'
-            id: Bot
-          decals:
             1924: 21,-25
             1925: 22,-25
+            2775: -43,1
         - node:
             color: '#FFFF00FF'
             id: BotGreyscale
@@ -543,11 +539,6 @@ entities:
           decals:
             1027: -52,-9
             1032: -52,-10
-            2353: -32,-39
-        - node:
-            color: '#FFFFFFFF'
-            id: Box
-          decals:
             1832: 5,-26
             1833: 4,-26
             1834: 3,-26
@@ -558,6 +549,7 @@ entities:
             1839: 3,-28
             1840: 4,-28
             1841: 5,-28
+            2353: -32,-39
         - node:
             angle: 3.141592653589793 rad
             color: '#FFFFFFFF'
@@ -1131,6 +1123,8 @@ entities:
             222: -13,39
             223: -7,39
             224: -6,39
+            969: -8,39
+            970: -9,39
             1021: -12,39
             1022: -11,39
             1023: -10,39
@@ -1138,12 +1132,6 @@ entities:
             1571: -10,36
             2643: -17,41
             2651: -15,39
-        - node:
-            color: '#334E6DC8'
-            id: BrickTileWhiteLineN
-          decals:
-            969: -8,39
-            970: -9,39
         - node:
             color: '#3C44AAFF'
             id: BrickTileWhiteLineN
@@ -1216,15 +1204,11 @@ entities:
             246: -8,38
             247: -13,38
             248: -14,38
+            960: -5,33
             1017: -11,39
             1018: -10,39
             1569: -8,41
             2647: -17,38
-        - node:
-            color: '#334E6DC8'
-            id: BrickTileWhiteLineS
-          decals:
-            960: -5,33
         - node:
             color: '#3C44AAFF'
             id: BrickTileWhiteLineS
@@ -1251,16 +1235,12 @@ entities:
             518: 27,18
             519: 28,18
             520: 29,18
+            1810: 17,15
             2613: 20,8
             2883: 15,15
             2885: 19,15
             2886: 20,15
             2912: 16,15
-        - node:
-            color: '#52B4E996'
-            id: BrickTileWhiteLineS
-          decals:
-            1810: 17,15
         - node:
             color: '#A4610696'
             id: BrickTileWhiteLineS
@@ -1561,10 +1541,6 @@ entities:
             676: -13,-12
             677: -32,24
             686: -15,-2
-        - node:
-            color: '#FFFFFFFF'
-            id: Bushn1
-          decals:
             1847: -20,3
         - node:
             angle: 1.5707963267948966 rad
@@ -1792,17 +1768,13 @@ entities:
             1885: 21,-30
             1886: 21,-31
             1887: 22,-31
+            1891: 13,-18
+            1922: 22,-29
+            1923: 21,-29
             2600: -54,41
             2732: -37,-6
             2733: -38,-6
             3006: 13,-17
-        - node:
-            color: '#FFFFFFFF'
-            id: Delivery
-          decals:
-            1891: 13,-18
-            1922: 22,-29
-            1923: 21,-29
         - node:
             color: '#EFB34196'
             id: DeliveryGreyscale
@@ -1828,12 +1800,6 @@ entities:
             341: -45,34
             1888: 17,-30
             1889: 18,-30
-            2730: -38,-8
-            2731: -37,-8
-        - node:
-            color: '#FFFFFFFF'
-            id: DeliveryGreyscale
-          decals:
             1893: 14,-18
             1894: 14,-17
             1895: 15,-17
@@ -1842,6 +1808,8 @@ entities:
             1918: 17,-29
             1926: 16,-30
             1927: 16,-29
+            2730: -38,-8
+            2731: -37,-8
         - node:
             color: '#52B4E996'
             id: DiagonalCheckerBOverlay
@@ -3154,12 +3122,8 @@ entities:
           decals:
             678: -28,24
             679: -17,32
-            2532: -53.282486,10.030818
-        - node:
-            color: '#FFFFFFFF'
-            id: FlowersBROne
-          decals:
             1848: -20,4
+            2532: -53.282486,10.030818
         - node:
             color: '#FFFFFFFF'
             id: FlowersBRTwo
@@ -3232,12 +3196,8 @@ entities:
             680: -17,27
             691: 34,-23
             692: 33,-23
-            2475: -18,3
-        - node:
-            color: '#FFFFFFFF'
-            id: Flowersy3
-          decals:
             1849: -19,4
+            2475: -18,3
         - node:
             color: '#52B4E996'
             id: FullTileOverlayGreyscale
@@ -3306,10 +3266,6 @@ entities:
             id: Grassd2
           decals:
             1016: -62.77488,-9.999852
-        - node:
-            color: '#FFFFFFFF'
-            id: Grassd2
-          decals:
             1845: -21,3
         - node:
             color: '#FFFFFFFF'
@@ -4050,6 +4006,9 @@ entities:
             color: '#FFFFFFFF'
             id: WarnFull
           decals:
+            1915: 18,-35
+            1916: 22,-35
+            1921: 18,-33
             2563: -13,-23
             2997: 12,-25
             2998: 12,-24
@@ -4059,13 +4018,6 @@ entities:
             3002: 12,-20
             3003: 12,-19
             3004: 12,-18
-        - node:
-            color: '#FFFFFFFF'
-            id: WarnFull
-          decals:
-            1915: 18,-35
-            1916: 22,-35
-            1921: 18,-33
         - node:
             color: '#FFFFFFFF'
             id: WarnLineE
@@ -4270,11 +4222,6 @@ entities:
             id: burnt2
           decals:
             2824: -43,-36
-        - node:
-            cleanable: True
-            color: '#FFFFFFFF'
-            id: burnt2
-          decals:
             2956: 30,14
             2962: 29,15
         - node:
@@ -8356,7 +8303,7 @@ entities:
       pos: -18.5,-26.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -58916.027
+      secondsUntilStateChange: -58942.62
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -123349,12 +123296,26 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 27.5,-5.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        14573:
+        - - DoorStatus
+          - DoorBolt
   - uid: 14573
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 27.5,-5.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        7748:
+        - - DoorStatus
+          - DoorBolt
   - uid: 16936
     components:
     - type: Transform
