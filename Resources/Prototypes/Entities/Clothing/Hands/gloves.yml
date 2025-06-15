@@ -243,6 +243,7 @@
     - components:
       - type: BatteryDrainer
       - type: StunProvider
+        cooldown: 6 # DeltaV - Made it have a 6 seconds cooldown.
         noPowerPopup: ninja-no-power
         whitelist:
           components:
