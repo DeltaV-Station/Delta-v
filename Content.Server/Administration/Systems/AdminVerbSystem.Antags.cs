@@ -1,4 +1,7 @@
-using Content.Server._DV.CosmicCult.Components; // DeltaV
+// Begin DeltaV Additions
+using Content.Server._DV.CosmicCult.Components;
+using Content.Server._DV.Vampires.Components;
+// End DeltaV Additions
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
@@ -203,6 +206,21 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", cosmicCultName, Loc.GetString("admin-verb-make-cosmiccultist")),
         };
         args.Verbs.Add(cosmiccult);
+
+        var vampireName = Loc.GetString("admin-verb-text-make-vampire");
+        Verb vampire = new()
+        {
+            Text = vampireName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_DV/Vampires/Icons/antag_icons.rsi"), "Vampire"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<VampireRuleComponent>(targetPlayer, "Vampire");
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", vampireName, Loc.GetString("admin-verb-make-vampire")),
+        };
+        args.Verbs.Add(vampire);
         // End DeltaV Additions
     }
 }
