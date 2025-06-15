@@ -124,7 +124,7 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfPersonnelDeltaV
-    #- id: AccessConfigurator # DeltaV - They don't really need it, moved to the administrative assistant starting gear.
+    - id: AccessConfigurator
     - id: BoxEncryptionKeyPassenger
     - id: BoxEncryptionKeyService
     - id: BoxHeadset
