@@ -15,13 +15,20 @@
   parent: ClothingBeltCorpsmanWebbing
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: MedicatedSuture
-      - id: RegenerativeMesh
-      - id: Bloodpack
-      - id: SyringeEphedrine
-      - id: EmergencyMedipen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillCorpsmanWebbing
+
+- type: entityTable
+  id: FillCorpsmanWebbing
+  table: !type:AllSelector
+    children:
+    - id: MedicatedSuture
+    - id: RegenerativeMesh
+    - id: Bloodpack
+    - id: SyringeEphedrine
+    - id: EmergencyMedipen
 
 - type: entity
   id: ClothingBeltFoamSheathFilled
@@ -48,8 +55,15 @@
   id: ClothingBeltPaperworkFilled
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltPaperwork
+
+- type: entityTable
+  id: BeltPaperwork
+  table: !type:AllSelector
+    children:
     - id: BoxFolderBase
     - id: BoxFolderBlack
     - id: BoxFolderClipboard
@@ -60,8 +74,15 @@
   id: ClothingBeltSurgeonFilled
   suffix: Filled, Surgical
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FillBeltSurgeon
+
+- type: entityTable
+  id: FillBeltSurgeon
+  table: !type:AllSelector
+    children:
     - id: Cautery
     - id: ScalpelAdvanced
     - id: Retractor

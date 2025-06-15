@@ -2,11 +2,19 @@
   parent: CrateGenericSteel
   id: CrateFunBBGun
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillCrateFunBBGun
+
+- type: entityTable
+  id: FillCrateFunBBGun
+  table: !type:AllSelector
+    children:
     - id: WeaponRifleBB
     - id: BoxCartridgeBB
-      amount: 2
+      amount: !type:ConstantNumberSelector
+        value: 2
 
 - type: entity
   parent: CratePlastic
@@ -14,10 +22,19 @@
   name: cap gun box set
   description: A box filled with fun, harmless cap guns that are sure to keep security entertained and the air smelling of sulfur.
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillCrateCapGunSet
+
+- type: entityTable
+  id: FillCrateCapGunSet
+  table: !type:AllSelector
+    children:
     - id: RevolverCapGun
     - id: SpeedLoaderCap
-      amount: 2
+      amount: !type:ConstantNumberSelector
+        value: 2
     - id: BoxCartridgeCap
-      amount: 2
+      amount: !type:ConstantNumberSelector
+        value: 2
