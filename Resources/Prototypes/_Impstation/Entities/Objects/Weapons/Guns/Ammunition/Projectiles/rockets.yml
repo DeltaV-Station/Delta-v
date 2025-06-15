@@ -15,9 +15,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 20
-    intensitySlope: 1
-    totalIntensity: 200
+    maxIntensity: 50
+    intensitySlope: 5
+    totalIntensity: 500
     maxTileBreak: 1
   - type: PointLight
     radius: 3.5
@@ -41,6 +41,7 @@
         Piercing: 0
         Blunt: 125
         Structural: 300
+    ignoreresistances: true
     penetrationThreshold: 500
     penetrationDamageTypeRequirement:
     - Structural
@@ -71,8 +72,8 @@
   - type: Explosive
     explosionType: FireBomb
     totalIntensity: 300
-    intensitySlope: 5
-    maxIntensity: 10
+    intensitySlope: 1
+    maxIntensity: 200
     canCreateVacuum: false
   - type: PointLight
     radius: 3.5
