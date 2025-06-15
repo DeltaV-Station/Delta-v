@@ -1,0 +1,25 @@
+- type: entity
+  parent: CybersunBriefcase
+  id: BriefcaseRecruiterLawyerkit
+  suffix: Cybersun, Lawyer
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingEyesGlassesCheapSunglasses
+    - id: LuxuryPen
+    - id: ClothingOuterCybersunOvercoat
+    - id: ClothingUniformCybersunAttorney
+    - id: ClothingMaskNeckGaiter
+    - id: SyndieHandyFlag
+
+- type: entity
+  parent: CybersunBriefcase
+  id: BriefcaseRecruiterSurgeonKit
+  suffix: Cybersun, Surgeon
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHeadHatSurgcapCybersun
+    - id: UniformScrubsColorCybersun
+    - id: ClothingOuterCoatCybersunWindbreaker
+    - id: ClothingMaskNeckGaiter
