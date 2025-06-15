@@ -91,10 +91,8 @@ entities:
       bodyStatus: InAir
       angularDamping: 0.05
       linearDamping: 0.05
-      fixedRotation: False
+      fixedRotation: false
       bodyType: Dynamic
-    - type: Fixtures
-      fixtures: {}
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
@@ -7708,9 +7706,6 @@ entities:
     - type: Transform
       pos: -4.5,-15.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -1510.8938
-      state: Closing
 - proto: KitchenMicrowave
   entities:
   - uid: 816
@@ -7865,8 +7860,6 @@ entities:
     - type: Transform
       pos: 16.5,-5.5
       parent: 1
-    - type: Fixtures
-      fixtures: {}
 - proto: Paper
   entities:
   - uid: 981
@@ -9167,7 +9160,7 @@ entities:
       pos: -12.5,-17.5
       parent: 1
     - type: WiresPanel
-      open: True
+      open: true
 - proto: TelecomServerFilled
   entities:
   - uid: 681
