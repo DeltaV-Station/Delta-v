@@ -40,8 +40,8 @@
   parent: PinpointerSyndicateNuclear
   id: RoboneuroticistPointer
   name: shuttle pointer
-  description: Always points back the the Robotocist's trusty exofab
+  description: Always points back the the Robotocist's trusty robotics console
   components:
   - type: Pinpointer
-    component: Machine
-    targetName: syndicate exosuit fabricator
+    component: RoboticsConsole
+    targetName: robotics control console
