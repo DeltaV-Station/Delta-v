@@ -555,17 +555,6 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
     fireCost: 50
-  - type: EnergyGun
-    fireModes:
-    - proto: BulletDisablerPractice
-      fireCost: 50
-      name: disable
-      state: disabler
-  - type: GenericVisualizer
-    visuals:
-      enum.EnergyGunFireModeVisuals.State:
-        Firemode:
-          Disabler: { state: mode-disabler }
   - type: Tag
     tags:
     - Taser
@@ -577,8 +566,6 @@
 - type: entity
   parent: WeaponLaserTagGun
   id: WeaponRiggedLaserTagGun
-  name: laser tag gun
-  description: A somewhat bulky toy laser gun used in laser tag that shoots a mostly harmless laser.
   suffix: Rigged
   components:
   - type: Sprite
@@ -590,27 +577,8 @@
       map: [ "Firemode" ]
       shader: unshaded
     - state: rmag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
+      map: [ "enum.GunVisualLayers.MagUnshaded" ]
       shader: unshaded
-  - type: Clothing
-    sprite: _DV/Objects/Weapons/Guns/Battery/laser_tag_gun.rsi
-    quickEquip: false
-    slots:
-    - Belt
-  - type: Appearance
-  - type: MagazineVisuals
-    magState: rmag
-    steps: 5
-    zeroVisible: true
-  - type: Gun
-    fireRate: 2.5
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-    soundEmpty:
-      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisablerPractice
-    fireCost: 50
   - type: EnergyGun
     fireModes:
     - proto: BulletDisablerPractice
@@ -627,7 +595,3 @@
         Firemode:
           Disabler: { state: mode-disabler }
           Lethal: { state: mode-lethal }
-  - type: Tag
-    tags:
-    - Taser
-    - Sidearm
