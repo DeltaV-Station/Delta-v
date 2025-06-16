@@ -93,14 +93,26 @@
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
         />
+    <!-- DeltaV - Add CHelp -->
+    <ui:MenuButton
+        Name="CHelpButton"
+        Access="Internal"
+        Icon="{xe:Tex '/Textures/_DV/Interface/curator2.svg.192dpi.png'}"
+        BoundKey = "{x:Static is:ContentKeyFunctions.OpenCHelp}"
+        ToolTip="{Loc 'ui-options-function-open-c-help'}"
+        MinSize="42 64"
+        HorizontalExpand="True"
+        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        />
+    <!-- End DeltaV - Add CHelp -->
     <ui:MenuButton
         Name="AHelpButton"
         Access="Internal"
         Icon="{xe:Tex '/Textures/Interface/info.svg.192dpi.png'}"
         BoundKey = "{x:Static is:ContentKeyFunctions.OpenAHelp}"
-        ToolTip="{Loc 'ui-options-function-open-staff-chats-deltav'}"
+        ToolTip="{Loc 'ui-options-function-open-a-help'}"
         MinSize="42 64"
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonOpenLeft}"
-        /> <!-- DeltaV - Changed tooltip -->
+        />
 </widgets:GameTopMenuBar>

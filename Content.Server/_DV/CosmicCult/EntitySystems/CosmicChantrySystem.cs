@@ -2,11 +2,12 @@ using Content.Server.Antag;
 using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.Pinpointer;
-using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Mind;
+using Content.Shared.Roles;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -17,14 +18,18 @@ public sealed class CosmicChantrySystem : EntitySystem
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
 
+    /// <summary>
+    /// Mind role to add to colossi.
+    /// </summary>
+    public static readonly EntProtoId MindRole = "MindRoleCosmicColossus";
     public override void Initialize()
     {
         base.Initialize();
@@ -48,16 +53,17 @@ public sealed class CosmicChantrySystem : EntitySystem
             }
             if (_timing.CurTime >= comp.CountdownTimer)
             {
-                if (!_mind.TryGetMind(comp.PolyVictim, out var mindEnt, out var mind))
+                if (!_mind.TryGetMind(comp.InternalVictim, out var mindEnt, out var mind))
                     return;
                 mind.PreventGhosting = false;
                 var tgtpos = Transform(uid).Coordinates;
                 var colossus = Spawn(comp.Colossus, tgtpos);
                 _mind.TransferTo(mindEnt, colossus);
+                _mind.TryAddObjective(mindEnt, mind, "CosmicFinalityObjective");
+                _role.MindAddRole(mindEnt, MindRole, mind, true);
                 _antag.SendBriefing(colossus, Loc.GetString("cosmiccult-silicon-colossus-briefing"), Color.FromHex("#4cabb3"), null);
-                _audio.PlayPvs(comp.SpawnSFX, tgtpos);
                 Spawn(comp.SpawnVFX, tgtpos);
-                QueueDel(comp.PolyVictim);
+                QueueDel(comp.InternalVictim);
                 QueueDel(uid);
             }
         }
@@ -77,15 +83,18 @@ public sealed class CosmicChantrySystem : EntitySystem
         null, false, null,
         Color.FromHex("#cae8e8"));
 
-        if (_mind.TryGetMind(comp.PolyVictim, out _, out var mind))
+        if (_mind.TryGetMind(comp.InternalVictim, out _, out var mind))
             mind.PreventGhosting = true;
     }
 
     private void OnChantryDestroyed(Entity<CosmicChantryComponent> ent, ref ComponentShutdown args)
     {
-        if (!_mind.TryGetMind(ent.Comp.PolyVictim, out _, out var mind) || !_polymorph.TryGetNetEntity(ent.Comp.PolyVictim, out _))
+        var comp = ent.Comp;
+        if (!_mind.TryGetMind(comp.InternalVictim, out var mindId, out var mind))
             return;
+
         mind.PreventGhosting = false;
-        _polymorph.Revert(ent.Comp.PolyVictim);
+        _mind.TransferTo(mindId, comp.VictimBody);
+        QueueDel(comp.InternalVictim);
     }
 }

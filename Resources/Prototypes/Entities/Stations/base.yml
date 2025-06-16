@@ -120,6 +120,7 @@
   abstract: true
   components:
     - type: StationCentcomm
+    - type: StationSecondaryCentcomm # DeltaV - midpoint station
 
 - type: entity
   id: BaseStationEvacuation
