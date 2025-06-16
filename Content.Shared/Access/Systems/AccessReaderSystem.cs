@@ -1,6 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Access.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Hands.EntitySystems;
@@ -358,6 +360,20 @@ public sealed class AccessReaderSystem : EntitySystem
         {
             items.Add(idUid.Value);
         }
+
+        // Begin DeltaV - check chest cavity
+        if (TryComp(uid, out BodyComponent? body) && body.RootContainer.ContainedEntity is { } root)
+        {
+            if (TryComp(root, out ItemSlotsComponent? itemSlots))
+            {
+                foreach (var slot in itemSlots.Slots.Values)
+                {
+                    if (slot.ContainerSlot?.ContainedEntity is { } item)
+                        items.Add(item);
+                }
+            }
+        }
+        // End DeltaV - check chest cavity
 
         return items.Any();
     }
