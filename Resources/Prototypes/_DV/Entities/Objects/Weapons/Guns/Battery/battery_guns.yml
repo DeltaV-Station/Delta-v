@@ -523,13 +523,13 @@
       gun_magazine: !type:ContainerSlot
 
 - type: entity
-  name: laser tag gun
   parent: BaseWeaponBatterySmall
   id: WeaponLaserTagGun
+  name: laser tag gun
   description: A somewhat bulky toy laser gun used in laser tag that shoots a mostly harmless laser.
   components:
   - type: Sprite
-    sprite: _DV\Objects\Weapons\Guns\Battery\laser_tag_gun.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/laser_tag_gun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -537,7 +537,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: _DV\Objects\Weapons\Guns\Battery\laser_tag_gun.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/laser_tag_gun.rsi
     quickEquip: false
     slots:
     - Belt
@@ -553,11 +553,11 @@
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
+    proto: BulletDisablerPractice
     fireCost: 50
   - type: EnergyGun
     fireModes:
-    - proto: BulletDisabler
+    - proto: BulletDisablerPractice
       fireCost: 50
       name: disable
       state: disabler
@@ -575,31 +575,31 @@
     price: 50
 
 - type: entity
-  name: laser tag gun
-  parent: BaseWeaponBatterySmall
+  parent: WeaponLaserTagGun
   id: WeaponRiggedLaserTagGun
-  suffix: Rigged
+  name: laser tag gun
   description: A somewhat bulky toy laser gun used in laser tag that shoots a mostly harmless laser.
+  suffix: Rigged
   components:
   - type: Sprite
-    sprite: _DV\Objects\Weapons\Guns\Battery\laser_tag_gun.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/laser_tag_gun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mode-disabler
-      shader: unshaded
       map: [ "Firemode" ]
-    - state: mag-unshaded-4
+      shader: unshaded
+    - state: rmag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: _DV\Objects\Weapons\Guns\Battery\laser_tag_gun.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/laser_tag_gun.rsi
     quickEquip: false
     slots:
     - Belt
   - type: Appearance
   - type: MagazineVisuals
-    magState: mag
+    magState: rmag
     steps: 5
     zeroVisible: true
   - type: Gun
@@ -631,5 +631,3 @@
     tags:
     - Taser
     - Sidearm
-  - type: StaticPrice
-    price: 500
