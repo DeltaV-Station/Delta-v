@@ -28,7 +28,7 @@ public abstract class SharedAutodocSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!; // DeltaV
     [Dependency] private readonly LabelSystem _label = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
@@ -200,6 +200,7 @@ public abstract class SharedAutodocSystem : EntitySystem
         return _surgery.AllSurgeries.Contains(id);
     }
 
+    // DeltaV - use Entity<T>
     public EntityUid? FindItem(Entity<AutodocComponent> ent, string name)
     {
         var storage = Comp<StorageComponent>(ent);
@@ -209,6 +210,7 @@ public abstract class SharedAutodocSystem : EntitySystem
                 return item;
         }
 
+        // DeltaV - autodoc augment support
         if (_itemSlots.GetItemOrNull(ent, ent.Comp.AugmentSlot) is {} slotItem
             && Name(slotItem) == name)
             return slotItem;
@@ -216,6 +218,7 @@ public abstract class SharedAutodocSystem : EntitySystem
         return null;
     }
 
+    // DeltaV - use Entity<T>
     public EntityUid? FindItem(Entity<AutodocComponent> ent, EntityWhitelist? whitelist)
     {
         var storage = Comp<StorageComponent>(ent);
@@ -225,6 +228,7 @@ public abstract class SharedAutodocSystem : EntitySystem
                 return item;
         }
 
+        // DeltaV - autodoc augment support
         if (_itemSlots.GetItemOrNull(ent, ent.Comp.AugmentSlot) is { } slotItem
             && _whitelist.IsWhitelistPassOrNull(whitelist, slotItem))
             return slotItem;
@@ -235,7 +239,8 @@ public abstract class SharedAutodocSystem : EntitySystem
     public bool GrabItem(Entity<AutodocComponent, HandsComponent> ent, EntityUid item)
     {
         return _hands.TryPickup(ent, item, ent.Comp1.ItemSlot, animate: false, handsComp: ent.Comp2)
-            || _hands.TryPickup(ent, item, ent.Comp1.AugmentSlot, animate: false, handsComp: ent.Comp2);
+               // DeltaV - autodoc augment support
+               || _hands.TryPickup(ent, item, ent.Comp1.AugmentSlot, animate: false, handsComp: ent.Comp2);
     }
 
     public void GrabItemOrThrow(Entity<AutodocComponent, HandsComponent> ent, EntityUid item)
@@ -248,6 +253,7 @@ public abstract class SharedAutodocSystem : EntitySystem
     {
         var item = GetHeldOrThrow(ent);
         if (!_storage.Insert(ent, item, out _)
+            // DeltaV - autodoc augment support
             && !_itemSlots.TryInsert(ent, ent.Comp1.AugmentSlot, item, ent))
             throw new AutodocError("storage-full");
     }

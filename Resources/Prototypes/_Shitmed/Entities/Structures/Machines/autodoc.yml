@@ -46,6 +46,7 @@
         showEnts: False
         occludes: True
         ents: []
+      surgery_augment_slot: !type:ContainerSlot # DeltaV - autodoc augment support
   - type: ApcPowerReceiver
     powerLoad: 10000
   - type: DeviceList
@@ -77,10 +78,10 @@
     speechSounds: Pai
   - type: Storage
     clickInsert: false # incredibly annoying
-    openOnActivate: false
+    openOnActivate: false # DeltaV
     grid:
     - 0,0,3,3
-  - type: ItemSlots
+  - type: ItemSlots # DeltaV - autodoc augment support
     slots:
       surgery_augment_slot:
         name: Augment Holder
