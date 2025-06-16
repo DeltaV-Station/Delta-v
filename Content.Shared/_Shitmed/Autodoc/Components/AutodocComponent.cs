@@ -41,6 +41,13 @@ public sealed partial class AutodocComponent : Component
     public string ItemSlot = "surgery_specific";
 
     /// <summary>
+    /// The name of the ItemSlot used to store large items like arm augments.
+    /// The ItemSlot field is unrelated to this.
+    /// </summary>
+    [DataField]
+    public string AugmentSlot = "surgery_augment_slot";
+
+    /// <summary>
     /// How long to wait between processing program steps while active.
     /// </summary>
     [DataField]

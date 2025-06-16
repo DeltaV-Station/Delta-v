@@ -77,8 +77,18 @@
     speechSounds: Pai
   - type: Storage
     clickInsert: false # incredibly annoying
+    openOnActivate: false
     grid:
     - 0,0,3,3
+  - type: ItemSlots
+    slots:
+      surgery_augment_slot:
+        name: Augment Holder
+        insertOnInteract: false
+        ejectOnBreak: true
+        whitelist:
+          components:
+          - AugmentArm
   - type: SurgerySpeedModifier
     speedModifier: 1
   - type: GuideHelp
