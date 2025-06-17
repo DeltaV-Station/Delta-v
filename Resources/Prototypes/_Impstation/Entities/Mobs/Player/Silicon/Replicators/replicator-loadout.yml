@@ -46,7 +46,7 @@
     state: t1weapon
   - type: Appearance
   - type: Gun
-    fireRate: 1
+    fireRate: 0.3
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/stunprojector.ogg
   - type: HitscanBatteryAmmoProvider
@@ -108,7 +108,7 @@
     attackRate: 1.2
     wideAnimationRotation: 180
     soundHit:
-      path: "/Audio/Effects/snap.ogg"
+      collection: MetalThud
     animation: WeaponArcSlash
     damage:
       types:
@@ -184,11 +184,7 @@
 
 - type: hitscan
   id: HitscanReplicator
-  staminaDamage: 12.5
-  damage:
-    types:
-      Heat: 4
-      Shock: 3
+  staminaDamage: 25
   muzzleFlash:
     sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
     state: muzzle_repli
