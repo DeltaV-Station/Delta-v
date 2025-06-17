@@ -1,8 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Access.Components;
-using Content.Shared.Body.Components;
-using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Body.Components; // DeltaV
+using Content.Shared.Containers.ItemSlots; // DeltaV
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Hands.EntitySystems;
@@ -25,6 +25,7 @@ public sealed class AccessReaderSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!; // DeltaV
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly TagSystem _tag = default!;
@@ -364,13 +365,9 @@ public sealed class AccessReaderSystem : EntitySystem
         // Begin DeltaV - check chest cavity
         if (TryComp(uid, out BodyComponent? body) && body.RootContainer.ContainedEntity is { } root)
         {
-            if (TryComp(root, out ItemSlotsComponent? itemSlots))
+            if (_itemSlotsSystem.GetItemOrNull(root, "torso_slot") is { } chestItem)
             {
-                foreach (var slot in itemSlots.Slots.Values)
-                {
-                    if (slot.ContainerSlot?.ContainedEntity is { } item)
-                        items.Add(item);
-                }
+                items.Add(chestItem);
             }
         }
         // End DeltaV - check chest cavity
