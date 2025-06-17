@@ -238,7 +238,7 @@
     moduleId: SyndicateRadio
     items:
     - RadioHandheldSyndicate
-    - RoboneuroticistPointer
+    - RoboNeuroticistPointer
   - type: ShowSyndicateIcons
   - type: ShowJobIcons
   - type: ShowHealthIcons
@@ -284,10 +284,10 @@
   parent: BaseBorgModuleSyndie
   id: BorgModuleBuccaneer # locked behind Syndie exofab
   name: buccaneer cyborg module
-  description: "A moduel containing a grappling hook, material bag, a cutlass, and a pirate's sidearm"
+  description: "A module containing a grappling hook, material bag, a cutlass, and a pirate's sidearm"
   components:
   - type: ItemBorgModule
-    moduleId: Bucaneer
+    moduleId: Buccaneer
     items:
     - WeaponGrapplingGun
     - MaterialBag
