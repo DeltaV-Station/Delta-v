@@ -226,14 +226,7 @@
   - type: Tag
     tags:
     - BorgModuleSyndicate
-# Begin DeltaV Additions - Allows any borg to have evil modules installed if somehow acquired
-    - BorgModuleCargo
-    - BorgModuleEngineering
-    - BorgModuleJanitor
-    - BorgModuleMedical
-    - BorgModuleScience
-    - BorgModuleService
-# End DeltaV Additions
+    - BorgModuleGeneric # DeltaV - Allows any borg to have an evil module if found
   - type: Item
     inhandVisuals:
       left:
@@ -262,14 +255,7 @@
   - type: Tag
     tags:
     - BorgModuleSyndicateAssault
-# Begin DeltaV Additions - Allows any borg to have evil moduels installed if somehow acquired
-    - BorgModuleCargo
-    - BorgModuleEngineering
-    - BorgModuleJanitor
-    - BorgModuleMedical
-    - BorgModuleScience
-    - BorgModuleService
-# End DeltaV Additions
+    - BorgModuleGeneric # DeltaV - Allows any borg to have an evil module
   - type: Item
     inhandVisuals:
       left:
