@@ -40,12 +40,13 @@
     - UplinkWeaponry
 
 - type: listing
-  id: uplinkLeviathan
+  id: uplinkLeviathanBundle
   name: uplink-leviathan-name
   description: uplink-leviathan-desc
-  productEntity: WeaponLauncherBazooka
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Launchers/leviathan.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateLeviathan
   cost:
-    Telecrystal: 30
+    Telecrystal: 35
   categories:
     - UplinkWeaponry
   conditions:
