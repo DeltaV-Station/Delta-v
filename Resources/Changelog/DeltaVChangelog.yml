@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: beck-thompson
-  changes:
-  - message: Thieves can now roll in survival.
-    type: Add
-  - message: Survival gamemode weight -5%, traitor gamemode weight +5%
-    type: Add
-  id: 968
-  time: '2025-02-01T06:55:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2823
 - author: deltanedas
   changes:
   - message: Made uranium far less radioactive.
@@ -4122,3 +4113,16 @@
   id: 1467
   time: '2025-06-17T06:19:44.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3973
+- author: AlgisAlphonse
+  changes:
+  - message: Buffs materials output from recycling scrap significantly, especially
+      in terms of plastic.
+    type: Tweak
+  - message: Nerfs materials output for ore somewhat, especially for gold and plasma.
+    type: Tweak
+  - message: Buffs spesos gain from selling coins and harddrives found on debris and
+      wrecks.
+    type: Tweak
+  id: 1468
+  time: '2025-06-17T08:22:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3924
