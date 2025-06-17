@@ -20,5 +20,8 @@ public record struct BatteryProviderEquippedEvent(
 /// Raised when a piece of equipment with the BatteryProvider component is
 /// unequipped by a wearer.
 /// </summary>
+/// <param name="Item">Item that was providing access to a battery.</param>
 [ByRefEvent]
-public record struct BatteryProviderUnequippedEvent();
+public record struct BatteryProviderUnequippedEvent(
+    EntityUid Item
+);

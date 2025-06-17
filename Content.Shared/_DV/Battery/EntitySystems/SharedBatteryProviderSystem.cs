@@ -136,7 +136,7 @@ public abstract partial class SharedBatteryProviderSystem : EntitySystem
             return; // Somehow weren't being worn, or got an event for someone else?
 
         // Inform equipment that the provider is gone.
-        var ev = new BatteryProviderUnequippedEvent();
+        var ev = new BatteryProviderUnequippedEvent(provider);
         foreach (var equipment in provider.Comp.ConnectedEquipment)
         {
             RaiseLocalEvent(equipment, ref ev);
