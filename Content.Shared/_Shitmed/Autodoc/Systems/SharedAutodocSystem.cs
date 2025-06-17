@@ -1,5 +1,4 @@
-using System.Linq;
-using Content.Shared._DV.Surgery;
+using Content.Shared._Shitmed.Autodoc;
 using Content.Shared._Shitmed.Autodoc.Components;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
@@ -8,8 +7,8 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Buckle.Components;
-using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
+using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -20,6 +19,7 @@ using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Shared._Shitmed.Autodoc.Systems;
 
@@ -28,7 +28,6 @@ public abstract class SharedAutodocSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!; // DeltaV
     [Dependency] private readonly LabelSystem _label = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
@@ -200,47 +199,33 @@ public abstract class SharedAutodocSystem : EntitySystem
         return _surgery.AllSurgeries.Contains(id);
     }
 
-    // DeltaV - use Entity<T>
-    public EntityUid? FindItem(Entity<AutodocComponent> ent, string name)
+    public EntityUid? FindItem(EntityUid uid, string name)
     {
-        var storage = Comp<StorageComponent>(ent);
+        var storage = Comp<StorageComponent>(uid);
         foreach (var item in storage.Container.ContainedEntities)
         {
             if (Name(item) == name)
                 return item;
         }
 
-        // DeltaV - autodoc augment support
-        if (_itemSlots.GetItemOrNull(ent, ent.Comp.AugmentSlot) is {} slotItem
-            && Name(slotItem) == name)
-            return slotItem;
-
         return null;
     }
 
-    // DeltaV - use Entity<T>
-    public EntityUid? FindItem(Entity<AutodocComponent> ent, EntityWhitelist? whitelist)
+    public EntityUid? FindItem(EntityUid uid, EntityWhitelist? whitelist)
     {
-        var storage = Comp<StorageComponent>(ent);
+        var storage = Comp<StorageComponent>(uid);
         foreach (var item in storage.Container.ContainedEntities)
         {
             if (_whitelist.IsWhitelistPassOrNull(whitelist, item))
                 return item;
         }
 
-        // DeltaV - autodoc augment support
-        if (_itemSlots.GetItemOrNull(ent, ent.Comp.AugmentSlot) is { } slotItem
-            && _whitelist.IsWhitelistPassOrNull(whitelist, slotItem))
-            return slotItem;
-
         return null;
     }
 
     public bool GrabItem(Entity<AutodocComponent, HandsComponent> ent, EntityUid item)
     {
-        return _hands.TryPickup(ent, item, ent.Comp1.ItemSlot, animate: false, handsComp: ent.Comp2)
-               // DeltaV - autodoc augment support
-               || _hands.TryPickup(ent, item, ent.Comp1.AugmentSlot, animate: false, handsComp: ent.Comp2);
+        return _hands.TryPickup(ent, item, ent.Comp1.ItemSlot, animate: false, handsComp: ent.Comp2);
     }
 
     public void GrabItemOrThrow(Entity<AutodocComponent, HandsComponent> ent, EntityUid item)
@@ -252,9 +237,7 @@ public abstract class SharedAutodocSystem : EntitySystem
     public void StoreItemOrThrow(Entity<AutodocComponent, HandsComponent> ent)
     {
         var item = GetHeldOrThrow(ent);
-        if (!_storage.Insert(ent, item, out _)
-            // DeltaV - autodoc augment support
-            && !_itemSlots.TryInsert(ent, ent.Comp1.AugmentSlot, item, ent))
+        if (!_storage.Insert(ent, item, out _))
             throw new AutodocError("storage-full");
     }
 
@@ -340,7 +323,7 @@ public abstract class SharedAutodocSystem : EntitySystem
 
     public bool IsAwake(EntityUid uid)
     {
-        return _mobState.IsAlive(uid) && !(HasComp<SleepingComponent>(uid) || HasComp<AnesthesiaComponent>(uid)); // DeltaV: allow autodoc to proceed with only anesthesia
+        return _mobState.IsAlive(uid) && !(HasComp<SleepingComponent>(uid) || HasComp<Content.Shared._DV.Surgery.AnesthesiaComponent>(uid)); // DeltaV: allow autodoc to proceed with only anesthesia
     }
 
     /// <summary>
