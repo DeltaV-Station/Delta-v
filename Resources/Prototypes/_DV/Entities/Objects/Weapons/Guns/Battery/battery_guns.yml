@@ -536,6 +536,8 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+    - state: mode-disabler
+      shader: unshaded
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Battery/laser_tag_gun.rsi
     quickEquip: false
@@ -576,7 +578,7 @@
     - state: mode-disabler
       map: [ "Firemode" ]
       shader: unshaded
-    - state: rmag-unshaded-4
+    - state: mag-unshaded-4
       map: [ "enum.GunVisualLayers.MagUnshaded" ]
       shader: unshaded
   - type: EnergyGun
