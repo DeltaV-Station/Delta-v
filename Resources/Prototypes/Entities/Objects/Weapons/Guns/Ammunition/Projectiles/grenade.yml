@@ -5,13 +5,16 @@
   parent: BaseBullet
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # DeltaV - Swappign sprites, removing blunt part
+    layers:
+    - state: lightstun # DeltaV
+      shaders: unshaded
   - type: Projectile
     deleteOnCollide: false
     damage:
       types:
-        Blunt: 4
+        Blunt: 0
+    impactEffect: BulletImpactEffectDisabler # DeltaV - Pretty impacts
   - type: StaminaDamageOnCollide
     damage: 55
   - type: TimedDespawn
