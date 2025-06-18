@@ -1,0 +1,25 @@
+- type: entity
+  parent: BasePlushie
+  id: BaseShadekinPlushie
+  abstract: true
+  components:
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Starlight/Voice/Shadekin/mar.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Starlight/Voice/Shadekin/mar.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Starlight/Voice/Shadekin/mar.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Starlight/Voice/Shadekin/mar.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_Starlight/Voice/Shadekin/wurble.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+    useSound:
+      collection: FelionoidScreams

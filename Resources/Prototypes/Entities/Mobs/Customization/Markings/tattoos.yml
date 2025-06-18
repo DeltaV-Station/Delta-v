@@ -1,7 +1,7 @@
 - type: marking
   id: TattooHiveChest
   bodyPart: Chest
-  groupWhitelist: [Human, Slime, Felinid, Oni, Kitsune, Avali] # DeltaV - SlimePerson-Avali
+  groupWhitelist: [Human, Slime, Felinid, Oni, Kitsune, Avali, Shadekin] # DeltaV - SlimePerson-Avali
   sexRestriction: [Male] # DeltaV: Splitting the scars and tattoos
   coloring:
     default:
@@ -15,7 +15,7 @@
 - type: marking
   id: TattooNightlingChest
   bodyPart: Chest
-  groupWhitelist: [Human, Slime, Felinid, Oni, Kitsune, Avali] # DeltaV - SlimePerson-Avali
+  groupWhitelist: [Human, Slime, Felinid, Oni, Kitsune, Avali, Shadekin] # DeltaV - SlimePerson-Avali
   sexRestriction: [Male] # DeltaV: Splitting the scars and tattoos
   coloring:
     default:
@@ -29,7 +29,7 @@
 - type: marking
   id: TattooSilverburghLeftLeg
   bodyPart: LLeg
-  groupWhitelist: [Human, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Felinid, Oni, Kitsune, Shadekin] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -42,7 +42,7 @@
 - type: marking
   id: TattooSilverburghRightLeg
   bodyPart: RLeg
-  groupWhitelist: [Human, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Felinid, Oni, Kitsune, Shadekin] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -55,7 +55,7 @@
 - type: marking
   id: TattooCampbellLeftArm
   bodyPart: LArm
-  groupWhitelist: [Human, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Felinid, Oni, Kitsune, Shadekin] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -68,7 +68,7 @@
 - type: marking
   id: TattooCampbellRightArm
   bodyPart: RArm
-  groupWhitelist: [Human, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Felinid, Oni, Kitsune, Shadekin] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -81,7 +81,7 @@
 - type: marking
   id: TattooCampbellLeftLeg
   bodyPart: LLeg
-  groupWhitelist: [Human, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Felinid, Oni, Kitsune, Shadekin] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -94,7 +94,7 @@
 - type: marking
   id: TattooCampbellRightLeg
   bodyPart: RLeg
-  groupWhitelist: [Human, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Felinid, Oni, Kitsune, Shadekin] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
