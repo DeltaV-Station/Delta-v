@@ -31,7 +31,7 @@ roboneuroticist-set-clown-description =
 roboneuroticist-set-pirate-name = Synthetic Scallywags
 roboneuroticist-set-pirate-description =
     You are a pirate, and you will take what you want.
-    Comes with a Cannon Module, 2 Bucaneer Modules, A Pirate Capn's Hardsuit, and a pile of pirate hats.
+    Comes with a Cannon Module, 2 Buccaneer Modules, A Pirate Capn's Hardsuit, and a pile of pirate hats.
 
 roboneurotocist-set-malpractice-name = Medical Malpractictioner
 roboneurotocist-set-malpractice-description =
