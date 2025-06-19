@@ -523,6 +523,29 @@
       gun_magazine: !type:ContainerSlot
 
 - type: entity
+  parent: BaseWeaponBattery
+  id: WeaponBorgBuccaneersRevolver
+  name: buccaneer's revolver
+  description: A basic sidearm used by synthetic raiders, with low capacity but higher power
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
+    state: icon
+  - type: Gun
+    fireRate: 1.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletBuccaneer
+    fireCost: 100
+  - type: Battery
+    maxCharge: 400
+    startingCharge: 400
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+
+- type: entity
   parent: BaseWeaponBatterySmall
   id: WeaponLaserTagGun
   name: laser tag gun
