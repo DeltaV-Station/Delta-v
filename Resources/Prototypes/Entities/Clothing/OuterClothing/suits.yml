@@ -109,7 +109,12 @@
     slots: WITHOUT_POCKET
   - type: Tag
     tags:
+<<<<<<< HEAD
       - HidesHarpyWings
+=======
+    - CorgiWearable
+    - WhitelistChameleon
+>>>>>>> af23939dbe (Adds dog-shaped sprite variants for the most common hardsuits (#36875))
 
 - type: entity
   parent: [ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing]
@@ -276,6 +281,10 @@
     node: suit
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingOuterBase
