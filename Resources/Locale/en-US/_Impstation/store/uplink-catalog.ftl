@@ -7,8 +7,8 @@ uplink-akurra-desc = Fearsome as it is advanced, the venerable Akurra bundled wi
 uplink-flamethrower-name = FG13 Xiuhcoatl flamethrower
 uplink-flamethrower-desc = Invite Nanotrasen to the cookout with this portable incendiary weapon.
 
-uplink-leviathan-name = Leviathan
-uplink-leviathan-desc = Sometimes, it really is the size that matters.
+uplink-leviathan-name = Leviathan Bundle
+uplink-leviathan-desc = Sometimes, it really is the size that matters. Comes with a Leviathan, 3 explosive rockets, and 2 incendiary rockets.
 
 uplink-magazine-echion-name = Echion canister
 uplink-magazine-echion-desc = A special refueling canister containing 75 units of Echion. Compatible with the Adder and Akurra
