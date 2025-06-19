@@ -3,18 +3,30 @@
   parent: SuitStorageSec
   suffix: Security, DeltaV
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillSuitStorageSecDeltaV
+
+- type: entityTable
+  id: FillSuitStorageSecDeltaV # This should be properly added to upstream fill whenever they move to entity tables.
+  table: !type:AllSelector
+    children:
     - id: OxygenTankFilled
-      amount: 2
+      amount: !type:ConstantNumberSelector
+        value: 2
     - id: ClothingOuterHardsuitCombatOfficer
-      amount: 2
+      amount: !type:ConstantNumberSelector
+        value: 2
     - id: ClothingMaskGasSecurity
-      amount: 2
+      amount: !type:ConstantNumberSelector
+        value: 2
     - id: ClothingShoesBootsSecurityMagboots
-      amount: 2
+      amount: !type:ConstantNumberSelector
+        value: 2
     - id: JetpackSecurityFilled
-      amount: 2
+      amount: !type:ConstantNumberSelector
+        value: 2
 
 #Paramedic hardsuit
 - type: entityTable

@@ -4,7 +4,15 @@
   name: oil pack crate
   description: Pristine oil bagged in bulk.
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillCrateOilPack
+
+- type: entityTable
+  id: FillCrateOilPack
+  table: !type:AllSelector
+    children:
     - id: Oilpack
-      amount: 5
+      amount: !type:ConstantNumberSelector
+        value: 5
