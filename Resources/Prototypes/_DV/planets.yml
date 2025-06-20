@@ -60,9 +60,9 @@
   atmosphere:
     volume: 2500
     temperature: 180 # -93, extreme cold
-    moles: # 119kPa, 21% O2
-    - 42
-    - 158
+    moles: # 43kPa, equivalent O2 of 21% at STP
+    - 21.8249
+    - 50
   biomeMarkerLayers:
   - OreIron
   - OreQuartz
