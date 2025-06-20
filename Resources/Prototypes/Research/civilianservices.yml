@@ -10,8 +10,6 @@
   tier: 1
   cost: 7500 # Delta Price. 5000 is pre-adjustment.
   recipeUnlocks:
-  - BorgModuleGardening
-  - BorgModuleHarvesting
   - PlantBagOfHolding # DeltaV
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard
@@ -19,7 +17,7 @@
 
 - type: technology
   id: CritterMechs
-  name: research-technology-critter-mechs
+  name: research-technology-civilian-mechs # DeltaV
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: hamtr
@@ -36,6 +34,17 @@
   - HamtrPeripheralsElectronics
   - MechEquipmentGrabberSmall
   - VimHarness
+  # Begin DeltaV Additions - moved from HONK tech
+  - HonkerHarness
+  - HonkerLArm
+  - HonkerRArm
+  - HonkerLLeg
+  - HonkerRLeg
+  - HonkerCentralElectronics
+  - HonkerPeripheralsElectronics
+  - HonkerTargetingElectronics
+  - MechEquipmentHorn
+  # End DeltaV Additions
 
 - type: technology
   id: AudioVisualCommunication
@@ -54,6 +63,7 @@
   - SurveillanceCameraMonitorCircuitboard
   - SurveillanceWirelessCameraMonitorCircuitboard
   - TelecomServerCircuitboard
+  - HolopadMachineCircuitboard
 
 - type: technology
   id: AdvancedEntertainment
@@ -72,18 +82,6 @@
     - JukeboxCircuitBoard
 
 - type: technology
-  id: RoboticCleanliness
-  name: research-technology-robotic-cleanliness
-  icon:
-    sprite: Mobs/Silicon/chassis.rsi
-    state: janitor
-  discipline: CivilianServices
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - BorgModuleAdvancedCleaning
-
-- type: technology
   id: MeatManipulation
   name: research-technology-meat-manipulation
   icon:
@@ -96,6 +94,7 @@
   - FatExtractorMachineCircuitboard
   - BiofabricatorMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
+  - AdvancedMicrowaveMachineCircuitBoard # DeltaV
 
 # Tier 2
 
@@ -114,6 +113,7 @@
   - FauxTileJungleAstroGrass
   - FauxTileAstroIce
   - FauxTileAstroSnow
+  - FauxTileAstroAsteroidSand
 
 - type: technology
   id: BiochemicalStasis
@@ -121,8 +121,8 @@
   icon:
     sprite: Structures/Machines/stasis_bed.rsi
     state: icon
-  discipline: CivilianServices
-  tier: 2
+  discipline: Biochemical # DeltaV
+  tier: 1 # DeltaV - was 2
   cost: 7500
   recipeUnlocks:
   - StasisBedMachineCircuitboard
@@ -130,18 +130,17 @@
   - CryostasisBeaker
   - SyringeCryostasis
 
-- type: technology
+- type: technology # Merge with other T2 medical research if possible!
   id: MechanizedTreatment
   name: research-technology-mechanized-treatment
   icon:
     sprite: Mobs/Silicon/chassis.rsi
     state: medical
-  discipline: CivilianServices
-  tier: 2
+  discipline: Biochemical
+  tier: 1 # DeltaV - was 2
   cost: 5000
   recipeUnlocks:
-  - BorgModuleAdvancedTreatment
-  - BorgModuleDefibrillator
+  - BorgModuleAdvancedChemical
 
 - type: technology
   id: AdvancedCleaning
@@ -155,26 +154,29 @@
   recipeUnlocks:
   - AdvMopItem
   - MegaSprayBottle
+  - BorgModuleAdvancedCleaning
 
-- type: technology
-  id: HONKMech
-  name: research-technology-honk-mech
-  icon:
-    sprite: Objects/Specific/Mech/mecha.rsi
-    state: honker
-  discipline: CivilianServices
-  tier: 2
-  cost: 7500
-  recipeUnlocks:
-  - HonkerHarness
-  - HonkerLArm
-  - HonkerRArm
-  - HonkerLLeg
-  - HonkerRLeg
-  - HonkerCentralElectronics
-  - HonkerPeripheralsElectronics
-  - HonkerTargetingElectronics
-  - MechEquipmentHorn
+# Begin DeltaV Removals - waste of points nobody makes, moved into civilian mechs
+#- type: technology
+#  id: HONKMech
+#  name: research-technology-honk-mech
+#  icon:
+#    sprite: Objects/Specific/Mech/mecha.rsi
+#    state: honker
+#  discipline: CivilianServices
+#  tier: 2
+#  cost: 7500
+#  recipeUnlocks:
+#  - HonkerHarness
+#  - HonkerLArm
+#  - HonkerRArm
+#  - HonkerLLeg
+#  - HonkerRLeg
+#  - HonkerCentralElectronics
+#  - HonkerPeripheralsElectronics
+#  - HonkerTargetingElectronics
+#  - MechEquipmentHorn
+# End DeltaV Removals
 
 - type: technology
   id: AdvancedSpray
@@ -201,6 +203,18 @@
   recipeUnlocks:
   - CargoTelepadMachineCircuitboard
 
+- type: technology
+  id: PushHorn
+  name: research-technology-clowning-utilities
+  icon:
+    sprite: Objects/Fun/push_horn.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 4000
+  recipeUnlocks:
+  - PushHorn
+
 # Tier 3
 
 - type: technology
@@ -221,9 +235,22 @@
   icon:
     sprite: Objects/Specific/Chemistry/beaker_bluespace.rsi
     state: beakerbluespace
-  discipline: CivilianServices
+  discipline: Biochemical # DeltaV
   tier: 3
   cost: 10000
   recipeUnlocks:
   - BluespaceBeaker
   - SyringeBluespace
+
+- type: technology
+  id: LauncherSyringe
+  name: research-technology-launcher-syringe
+  icon:
+    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    state: syringe_gun
+  discipline: Biochemical # DeltaV
+  tier: 1 # DeltaV - was 3
+  cost: 10000 # DeltaV - was 15000
+  recipeUnlocks:
+  - LauncherSyringe
+  - MiniSyringe

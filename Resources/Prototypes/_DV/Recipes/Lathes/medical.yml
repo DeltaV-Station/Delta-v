@@ -7,18 +7,21 @@
     Glass: 100
 
 - type: latheRecipe
-  id: LauncherSyringe
-  result: LauncherSyringe
-  completetime: 3
+  id: HandheldCrewMonitor
+  result: HandheldCrewMonitorEmpty
+  categories:
+  - Tools
+  completetime: 2
   materials:
+    Glass: 1200
     Steel: 1000
-    Glass: 500
-    Plastic: 500
+    Plastic: 1400
 
 - type: latheRecipe
-  id: MiniSyringe
-  result: MiniSyringe
-  completetime: 1
+  id: ClothingEyesHudMedical
+  result: ClothingEyesHudMedical
+  completetime: 4
   materials:
-    Plastic: 150
-    Steel: 50
+    Steel: 100
+    Glass: 300
+    Plasma: 200

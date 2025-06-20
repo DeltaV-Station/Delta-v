@@ -2,7 +2,7 @@
   name: breaching hammer
   parent: BaseItem
   id: SecBreachingHammer
-  description: A large, heavy hammer with a long handle, used for breaking stones or other heavy material such as the skulls of violent criminals, also perfect for forcing your way trough airlocks.
+  description: A large, heavy hammer with a long handle, used for breaking stones or other heavy material such as the skulls of violent criminals, also perfect for forcing your way through airlocks.
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Weapons/Melee/breaching_hammer.rsi
@@ -10,7 +10,7 @@
   - type: Item
     size: Huge
   - type: MeleeWeapon
-    attackRate: 0.75
+    attackRate: 0.4
     range: 1.70
     damage:
       types:
@@ -27,9 +27,9 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 5
+        Blunt: 20
         Piercing: 2
-        Structural: 25
+        Structural: 20
   - type: Tool
     qualities:
       - Prying

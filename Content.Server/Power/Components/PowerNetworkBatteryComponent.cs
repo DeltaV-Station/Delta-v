@@ -1,4 +1,5 @@
 ﻿using Content.Server.Power.Pow3r;
+using Content.Shared.Guidebook;
 
 namespace Content.Server.Power.Components
 {
@@ -24,6 +25,7 @@ namespace Content.Server.Power.Components
 
         [DataField("maxSupply")]
         [ViewVariables(VVAccess.ReadWrite)]
+        [GuidebookData]
         public float MaxSupply
         {
             get => NetworkBattery.MaxSupply;
@@ -108,6 +110,16 @@ namespace Content.Server.Power.Components
         {
             get => NetworkBattery.Efficiency;
             set => NetworkBattery.Efficiency = value;
+        }
+
+        /// <summary>
+        /// DeltaV - Disables power I/O, controlled by <c>PowerBatteryWireAction</c>.
+        /// </summary>
+        [DataField]
+        public bool PowerEnabled
+        {
+            get => NetworkBattery.Enabled;
+            set => NetworkBattery.Enabled = value;
         }
 
         [ViewVariables]

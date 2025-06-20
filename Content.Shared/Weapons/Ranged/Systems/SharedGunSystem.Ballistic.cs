@@ -14,6 +14,7 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 public abstract partial class SharedGunSystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
 
 
     protected virtual void InitializeBallistic()
@@ -79,7 +80,7 @@ public abstract partial class SharedGunSystem
         // Continuous loading
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, component.FillDelay, new AmmoFillDoAfterEvent(), used: uid, target: args.Target, eventTarget: uid)
         {
-            BreakOnMove = true,
+            BreakOnMove = false, // DeltaV - reload while moving
             BreakOnDamage = false,
             NeedHand = true,
         });
@@ -117,8 +118,8 @@ public abstract partial class SharedGunSystem
 
         void SimulateInsertAmmo(EntityUid ammo, EntityUid ammoProvider, EntityCoordinates coordinates)
         {
-            var evInsert = new InteractUsingEvent(args.User, ammo, ammoProvider, coordinates);
-            RaiseLocalEvent(ammoProvider, evInsert);
+            // We call SharedInteractionSystem to raise contact events. Checks are already done by this point.
+            _interaction.InteractUsing(args.User, ammo, ammoProvider, coordinates, checkCanInteract: false, checkCanUse: false);
         }
 
         List<(EntityUid? Entity, IShootable Shootable)> ammo = new();

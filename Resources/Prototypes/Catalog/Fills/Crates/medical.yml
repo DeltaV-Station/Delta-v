@@ -31,6 +31,8 @@
         amount: 2
       - id: BoxBottle
         amount: 2
+      - id: Skimmer # DeltaV - Add skimmers
+        amount: 2
 
 - type: entity
   id: CrateChemistryVials
@@ -65,9 +67,13 @@
       - id: Retractor
       - id: Cautery
       - id: Drill
-      - id: Saw
+      - id: SawElectric # Shitmed Change
       - id: Hemostat
       - id: ClothingMaskSterile
+      # Shitmed Change
+      - id: BoneGel
+      - id: BoxLatexGloves
+      - id: BoxSterileMask
 
 - type: entity
   id: CrateMedicalScrubs

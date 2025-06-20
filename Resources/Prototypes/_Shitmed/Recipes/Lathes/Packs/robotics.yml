@@ -1,0 +1,39 @@
+## Static
+
+- type: latheRecipePack
+  id: IPCPartsStatic
+  recipes:
+  - TorsoIPC
+  - LeftArmIPC
+  - RightArmIPC
+  - LeftLegIPC
+  - RightLegIPC
+  - HeadIPC
+  - LeftHandIPC
+  - RightHandIPC
+  - LeftFootIPC
+  - RightFootIPC
+  - OrganIPCEyes
+  - OrganIPCPump
+
+- type: latheRecipePack
+  id: BorgModulesStaticShitmed
+  recipes:
+  - BorgModuleSurgery
+
+## Dynamic
+
+- type: latheRecipePack
+  id: BorgModulesShitmed
+  recipes:
+  - BorgModuleAdvancedSurgery
+
+- type: latheRecipePack
+  id: Cybernetics
+  recipes:
+  - JawsOfLifeLeftArm
+  - JawsOfLifeRightArm
+  - SpeedLeftLeg
+  - SpeedRightLeg
+  - BasicCyberneticEyes
+  - ClothingHandsGlovesMechanicalSurgical

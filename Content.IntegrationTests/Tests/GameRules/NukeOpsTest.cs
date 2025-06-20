@@ -23,6 +23,7 @@ using Content.Shared.Station.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map.Components;
+using Content.Shared._EE.Silicon.Components; // Goobstation
 
 namespace Content.IntegrationTests.Tests.GameRules;
 
@@ -155,7 +156,7 @@ public sealed class NukeOpsTest
         // The game rule exists, and all the stations/shuttles/maps are properly initialized
         var rule = entMan.AllComponents<NukeopsRuleComponent>().Single();
         var ruleComp = rule.Component;
-        var gridsRule = entMan.AllComponents<RuleGridsComponent>().Single().Component;
+        var gridsRule = entMan.GetComponent<RuleGridsComponent>(rule.Uid);
         foreach (var grid in gridsRule.MapGrids)
         {
             Assert.That(entMan.EntityExists(grid));
@@ -181,7 +182,7 @@ public sealed class NukeOpsTest
         }
 
         Assert.That(!entMan.EntityExists(nukieStationEnt)); // its not supposed to be a station!
-        Assert.That(server.MapMan.MapExists(gridsRule.Map));
+        Assert.That(mapSys.MapExists(gridsRule.Map));
         var nukieMap = mapSys.GetMap(gridsRule.Map!.Value);
 
         var targetStation = entMan.GetComponent<StationDataComponent>(ruleComp.TargetStation!.Value);
@@ -224,12 +225,15 @@ public sealed class NukeOpsTest
         var totalSeconds = 30;
         var totalTicks = (int) Math.Ceiling(totalSeconds / server.Timing.TickPeriod.TotalSeconds);
         var increment = 5;
-        var resp = entMan.GetComponent<RespiratorComponent>(player);
         var damage = entMan.GetComponent<DamageableComponent>(player);
         for (var tick = 0; tick < totalTicks; tick += increment)
         {
             await pair.RunTicksSync(increment);
-            Assert.That(resp.SuffocationCycles, Is.LessThanOrEqualTo(resp.SuffocationCycleThreshold));
+            if (!entMan.HasComponent<SiliconComponent>(player)) // Goobstation - IPC
+            {
+                var resp = entMan.GetComponent<RespiratorComponent>(player);
+                Assert.That(resp.SuffocationCycles, Is.LessThanOrEqualTo(resp.SuffocationCycleThreshold));
+            }
             Assert.That(damage.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
         }
 

@@ -2,7 +2,7 @@
   id: Tortuga
   mapName: 'Tortuga'
   mapPath: /Maps/tortuga.yml
-  minPlayers: 50
+  minPlayers: 40
   stations:
     Tortuga:
       stationProto: StandardNanotrasenStation
@@ -14,6 +14,8 @@
             prefixCreator: 'NY'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Seal.yml
+        - type: StationCargoShuttle
+          path: /Maps/_DV/Shuttles/cargo_model_B.yml
         - type: StationJobs
           availableJobs:
           #civilian
@@ -35,10 +37,11 @@
           #medical
             Chemist: [ 2, 2 ]
             ChiefMedicalOfficer: [ 1, 1 ]
-            MedicalDoctor: [ 7, 9 ]
+            MedicalDoctor: [ 6, 8 ]
             MedicalIntern: [ 2, 4 ]
             Paramedic: [ 1, 2 ]
             Psychologist: [ 1, 1 ]
+            Surgeon: [ 1, 2 ]
           #security
             Brigmedic: [ 1, 1 ]
             Detective: [ 1, 1 ]

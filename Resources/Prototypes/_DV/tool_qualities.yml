@@ -4,3 +4,11 @@
   toolName: tool-quality-axing-tool-name
   spawn: FireAxe
   icon: { sprite: Objects/Weapons/Melee/fireaxe.rsi, state: icon }
+
+# do not give this to normal tools, it's for nuke deconstruction
+- type: tool
+  id: FineScrewing
+  name: tool-quality-fine-screwing-name
+  toolName: tool-quality-fine-screwing-tool-name
+  spawn: ThinTippedScrewdriver
+  icon: { sprite: Objects/Tools/screwdriver.rsi, state: screwdriver-map }

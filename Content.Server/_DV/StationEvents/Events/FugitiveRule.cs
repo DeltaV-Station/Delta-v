@@ -8,6 +8,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Inventory;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;

@@ -10,6 +10,7 @@
       - PsionicInvisibility
       - Ghost
       - Normal
+      - CosmicCultMonument # DeltaV - Cosmic Cult
   - type: ContentEye
     maxZoom: 8.916104, 8.916104
   - type: Tag
@@ -19,6 +20,9 @@
     - BypassInteractionRangeChecks
     - BypassDropChecks
     - NoConsoleSound
+    - SilentStorageUser
+    - PreventAccessLogging
+    - AllowBiomeLoading
   - type: Input
     context: "aghost"
   - type: Ghost
@@ -27,6 +31,7 @@
   - type: Hands
   - type: ComplexInteraction
   - type: Puller
+    needsHands: false
   - type: CombatMode
   - type: Physics
     ignorePaused: true
@@ -36,6 +41,7 @@
   - type: Access
     groups:
     - AllAccess
+    - Silicon
     tags:
     - NuclearOperative
     - SyndicateAgent
@@ -52,6 +58,10 @@
         type: CargoOrderConsoleBoundUserInterface
       enum.CrewMonitoringUIKey.Key:
         type: CrewMonitoringBoundUserInterface
+      # Begin CD - Character Records
+      enum.CharacterRecordConsoleKey.Key:
+        type: CharacterRecordConsoleBoundUserInterface
+      # End CD - Character Records
       enum.GeneralStationRecordConsoleKey.Key:
       # who the fuck named this bruh
         type: GeneralStationRecordConsoleBoundUserInterface
@@ -69,17 +79,29 @@
         toggleAction: ActionAGhostShowCrewMonitoring
       enum.GeneralStationRecordConsoleKey.Key:
         toggleAction: ActionAGhostShowStationRecords
+      # Begin CD - Character Records
+      enum.CharacterRecordConsoleKey.Key:
+        toggleAction: ActionAGhostShowCharacterRecords
+      # End CD - Character Records
   - type: SolarControlConsole # look ma i AM the computer!
   - type: CommunicationsConsole
     title: comms-console-announcement-title-centcom
-    color: "#228b22"
+    color: "#1d8bad"
+    delay: 10
+    initialDelay: 0
+    global: true
   - type: RadarConsole
     followEntity: true
   - type: CargoOrderConsole
-  - type: BankClient
   - type: CrewMonitoringConsole
+    alertsEnabled: false # DeltaV - crew monitors beeping is specific to deltaV, and we don't want it for aghost.
   - type: GeneralStationRecordConsole
     canDeleteEntries: true
+  # Begin CD - Character Records
+  - type: CharacterRecordConsole
+    consoleType: Admin
+  - type: CriminalRecordsConsole
+  # End CD - Character Records
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor
@@ -94,6 +116,7 @@
   - type: SolutionScanner
   - type: IgnoreUIRange
   - type: ShowAntagIcons
+  - type: ShowContrabandDetails
   - type: Inventory
     templateId: aghost
   - type: Loadout
@@ -171,3 +194,18 @@
     keywords: [ "AI", "console", "interface" ]
     priority: -7
     event: !type:ToggleIntrinsicUIEvent { key: enum.GeneralStationRecordConsoleKey.Key }
+
+# Begin CD - Character Records
+- type: entity
+  id: ActionAGhostShowCharacterRecords
+  name: Character Records Interface
+  description: View all of the character records
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
+    iconOn: Structures/Machines/parts.rsi/box_2.png
+    keywords: [ "AI", "console", "interface" ]
+    priority: -10
+    event: !type:ToggleIntrinsicUIEvent { key: enum.CharacterRecordConsoleKey.Key }
+# Edn CD - Character Records

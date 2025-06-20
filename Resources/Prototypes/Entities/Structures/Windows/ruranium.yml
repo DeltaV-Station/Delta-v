@@ -52,6 +52,8 @@
     price: 215
   - type: RadiationBlocker
     resistance: 5
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WindowCosmicCult
 
 - type: entity
   id: UraniumReinforcedWindowDirectional
@@ -122,6 +124,9 @@
     drawdepth: WallTops
     sprite: _DV/Structures/Windows/reinforced_uranium_diagonal.rsi #Delta V - Resprite windows
     state: state0
+  - type: Tag
+    tags:
+    - Diagonal
   - type: IconSmooth
     mode: Diagonal
     key: windows

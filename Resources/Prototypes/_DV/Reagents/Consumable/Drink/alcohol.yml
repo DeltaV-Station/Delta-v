@@ -1,0 +1,17 @@
+- type: reagent
+  id: Angobitters
+  name: reagent-name-angobitters
+  parent: BaseAlcohol
+  desc: reagent-desc-angobitters
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#331002"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 1
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.3

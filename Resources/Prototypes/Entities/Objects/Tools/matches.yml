@@ -32,6 +32,12 @@
     duration: 10
     igniteSound:
       path: /Audio/Items/match_strike.ogg
+      params:
+        volume: -0.125
+        variation: 0.125
+  - type: IgnitionSource
+    ignited: false
+    temperature: 400.0
   - type: PointLight
     enabled: false
     radius: 1.1
@@ -41,6 +47,13 @@
     unlitIcon: match_unlit
     litIcon: match_lit
     burntIcon: match_burnt
+  - type: Cautery # Shitmed
+    speed: 0.2
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+    endSound:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
 
 - type: entity
   parent: Matchstick

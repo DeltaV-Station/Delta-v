@@ -22,8 +22,7 @@
       - Armory
       - Atmospherics
       - Bar
-      #- Brig #Delta V: Removed Brig Access
-      - Boxer #Delta V: Add Boxer Access
+      #- Brig # DeltaV - Removed Brig Access
       - Detective
       - Captain
       - Cargo
@@ -31,8 +30,6 @@
       - Chemistry
       - ChiefEngineer
       - ChiefMedicalOfficer
-      - Clown #Delta V: Add Clown Access
-      - Corpsman # DeltaV: Add Corpsman access
       - Command
       - Engineering
       - External
@@ -42,29 +39,35 @@
       - Janitor
       - Kitchen
       - Lawyer
-      - Library #Delta V: Add Library Access
-      - Mail #Nyanotrasen: Add Mail Access
       - Maintenance
-      - Mantis #Nyanotrasen: Add Mantis Access
       - Medical
-      - Mime #Delta V: Add Mime Access
-      - Musician #Delta V: Add Musician Access
-      - Paramedic # Delta V - adds Paramedic access
-      - Psychologist #Delta V: Add Psychologist Access
       - Quartermaster
-      - Reporter #Delta V: Add Reporter Access
       - Research
       - ResearchDirector
-      - Robotics # DeltaV: Robotics access
       - Salvage
       - Security
       - Service
       - Theatre
-      - Zookeeper #Delta V: Add Zookeeper Access
-      - ChiefJustice  #Delta V: Add Chief Justice Access
-      - Prosecutor  #Delta V: Add Prosecutor Access
-      - Justice  #Delta V: Add Justice Access
-      - Clerk  #Delta V: Add Clerk Access
+      # Begin DeltaV Additions
+      - Boxer
+      - ChiefJustice
+      - Clerk
+      - Clown
+      - Corpsman
+      - Justice
+      - Library
+      - Mail
+      - Mantis
+      - Mime
+      - Musician
+      - Paramedic
+      - Prosecutor
+      - Psychologist
+      - Reporter
+      - Robotics
+      - Surgery
+      - Zookeeper
+      # End DeltaV Additions
       privilegedIdSlot:
         name: id-card-console-privileged-id
         ejectSound: /Audio/Machines/id_swipe.ogg
@@ -74,6 +77,9 @@
         whitelist:
           components:
           - IdCard
+        blacklist: # DeltaV - prevent removing access using borg id chips
+          tags:
+          - IdChip
       denialSound:
         path: /Audio/Machines/custom_deny.ogg
       doAfter: 0.5
@@ -86,6 +92,7 @@
       requiresComplex: true
       requireActiveHand: false
       singleUser: true
+      inHandsOnly: true
     - type: ItemSlots
     - type: ContainerContainer
       containers:
@@ -104,10 +111,36 @@
     sprite: Objects/Tools/universal_access_configurator.rsi
   - type: AccessOverrider
     accessLevels:
+    # Begin DeltaV Additions
+    - Boxer
+    - ChiefJustice
+    - Clerk
+    - Clown
+    - Corpsman
+    - DV-SpareSafe
+    - Justice
+    - Library
+    - Mail
+    - Mantis
+    - Mime
+    - Musician
+    - Paramedic
+    - Prosecutor
+    - Psychologist
+    - Reporter
+    - Robotics
+    - Surgery
+    - Zookeeper
+    - Admeme1 # admeme-only access levels
+    - Admeme2
+    - Admeme3
+    # End DeltaV Additions
     - Armory
     - Atmospherics
     - Bar
-    #- Brig
+    - BasicSilicon
+    - Borg
+    #- Brig # DeltaV
     - Detective
     - Captain
     - Cargo
@@ -116,6 +149,8 @@
     - ChiefEngineer
     - ChiefMedicalOfficer
     - Command
+    - Cryogenics
+    - EmergencyShuttleRepealAll
     - Engineering
     - External
     - HeadOfPersonnel
@@ -132,15 +167,18 @@
     - Salvage
     - Security
     - Service
+    - StationAi
     - Theatre
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent
     - Wizard
-    - DV-SpareSafe # DeltaV
-    - Orders # DeltaV
+    - Xenoborg
+    - GenpopEnter
+    - GenpopLeave
     privilegedIdSlot:
       name: id-card-console-privileged-id
+      startingItem: UniversalIDCard
       ejectSound: /Audio/Machines/id_swipe.ogg
       insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
       ejectOnBreak: true

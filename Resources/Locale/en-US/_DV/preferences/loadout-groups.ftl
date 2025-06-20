@@ -9,13 +9,6 @@ loadout-group-captain-shoes = Captain shoes
 loadout-group-hop-gloves = Head of Personnel gloves
 loadout-group-hop-shoes = Head of Personnel shoes
 
-loadout-group-admin-assistant-head = Administrative Assistant head
-loadout-group-admin-assistant-jumpsuit = Administrative Assistant jumpsuit
-loadout-group-admin-assistant-outerclothing = Administrative Assistant outer clothing
-loadout-group-admin-assistant-headset = Administrative Assistant headset
-loadout-group-admin-assistant-shoes = Administrative Assistant shoes
-loadout-group-admin-assistant-gloves = Administrative Assistant gloves
-
 # Civilian
 loadout-group-librarian-neck = Librarian neck
 
@@ -30,7 +23,7 @@ loadout-group-mime-neck = Mime neck
 
 loadout-group-musician-neck = Musician neck
 
-loadout-group-passenger-id-delta = Passenger PDA
+loadout-group-passenger-id-delta = Assistant PDA
 loadout-group-bartender-id-delta = Bartender PDA
 loadout-group-chef-id-delta = Chef PDA
 loadout-group-clown-id-delta = Clown PDA
@@ -64,6 +57,7 @@ loadout-group-cargo-assistant-outerclothing = Cargo Assistant outer clothing
 loadout-group-cargo-assistant-shoes = Cargo Assistant shoes
 
 loadout-group-salvage-specialist-neck = Salvage Specialist neck
+loadout-group-salvage-specialist-jumpsuit = Salvage Specialist jumpsuit
 
 loadout-group-salvage-id-delta = Salvage Specialist PDA
 
@@ -80,6 +74,12 @@ loadout-group-psychologist-head = Psychologist head
 loadout-group-psychologist-outerclothing = Psychologist outer clothing
 loadout-group-psychologist-shoes = Psychologist shoes
 loadout-group-psychologist-id-delta = Psychologist PDA
+
+loadout-group-surgeon-head = Surgeon head
+loadout-group-surgeon-mask = Surgeon mask
+loadout-group-surgeon-scrubs = Surgeon scrubs
+loadout-group-surgeon-gloves = Surgeon gloves
+loadout-group-surgeon-id = Surgeon PDA
 
 # Miscellaneous
 loadout-group-scarfs = Scarf
@@ -152,3 +152,6 @@ loadout-group-martial-artist-shoes = Martial Artist shoes
 
 loadout-group-gladiator-jumpsuit = Gladiator jumpsuit
 loadout-group-gladiator-outerclothing = Gladiator outer clothing
+
+# Species
+loadout-group-humanoid-silicon = Silicon-friendly survival box

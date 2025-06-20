@@ -1,4 +1,4 @@
-﻿using Content.Server.Discord;
+using Content.Server.Discord;
 using Content.Shared._DV.CCVars;
 using Content.Shared._DV.FeedbackOverwatch;
 using Robust.Shared.Configuration;
@@ -45,6 +45,10 @@ public sealed class FeedbackPopupManager
         _ticker ??= _entity.System<SharedGameTicker>();
 
         if (string.IsNullOrWhiteSpace(_webhookUrl))
+            return;
+
+        // If they didn't write anything in feedback form, don't send it.
+        if (string.IsNullOrWhiteSpace(message.FeedbackMessage))
             return;
 
         SendDiscordWebhookMessage(CreateMessage(message.FeedbackName, message.FeedbackMessage, _ticker.RoundId, message.MsgChannel.UserName));

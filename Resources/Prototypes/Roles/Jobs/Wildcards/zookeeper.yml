@@ -3,9 +3,6 @@
   name: job-name-zookeeper
   description: job-description-zookeeper
   playTimeTracker: JobZookeeper
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 7200 # DeltaV 2 hours
   startingGear: ZookeeperGear
   icon: "JobIconZookeeper"
   supervisors: job-supervisors-hop
@@ -13,6 +10,10 @@
   - Service
   - Maintenance
   - Zookeeper # DeltaV - Add Zookeeper access
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: MonkeyDay
+    prototype: MonkeyCubeBox
 
 - type: startingGear
   id: ZookeeperGear

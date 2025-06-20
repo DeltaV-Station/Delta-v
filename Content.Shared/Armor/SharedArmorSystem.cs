@@ -19,9 +19,23 @@ public abstract class SharedArmorSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<CoefficientQueryEvent>>(OnCoefficientQuery);
         SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<DamageModifyEvent>>(OnDamageModify);
         SubscribeLocalEvent<ArmorComponent, BorgModuleRelayedEvent<DamageModifyEvent>>(OnBorgDamageModify);
         SubscribeLocalEvent<ArmorComponent, GetVerbsEvent<ExamineVerb>>(OnArmorVerbExamine);
+    }
+
+    /// <summary>
+    /// Get the total Damage reduction value of all equipment caught by the relay.
+    /// </summary>
+    /// <param name="ent">The item that's being relayed to</param>
+    /// <param name="args">The event, contains the running count of armor percentage as a coefficient</param>
+    private void OnCoefficientQuery(Entity<ArmorComponent> ent, ref InventoryRelayedEvent<CoefficientQueryEvent> args)
+    {
+        foreach (var armorCoefficient in ent.Comp.Modifiers.Coefficients)
+        {
+            args.Args.DamageModifiers.Coefficients[armorCoefficient.Key] = args.Args.DamageModifiers.Coefficients.TryGetValue(armorCoefficient.Key, out var coefficient) ? coefficient * armorCoefficient.Value : armorCoefficient.Value;
+        }
     }
 
     private void OnDamageModify(EntityUid uid, ArmorComponent component, InventoryRelayedEvent<DamageModifyEvent> args)
@@ -37,7 +51,7 @@ public abstract class SharedArmorSystem : EntitySystem
 
     private void OnArmorVerbExamine(EntityUid uid, ArmorComponent component, GetVerbsEvent<ExamineVerb> args)
     {
-        if (!args.CanInteract || !args.CanAccess)
+        if (!args.CanInteract || !args.CanAccess || !component.ShowArmorOnExamine)
             return;
 
         var examineMarkup = GetArmorExamine(component); // DeltaV - Changed argument type to ArmorComponent
@@ -78,16 +92,7 @@ public abstract class SharedArmorSystem : EntitySystem
             ));
         }
 
-        // DeltaV - Add stamina resistance information if it differs from default
-        if (!MathHelper.CloseTo(component.StaminaDamageCoefficient, 1.0f))
-        {
-            msg.PushNewline();
-            var reduction = (1 - component.StaminaDamageCoefficient) * 100;
-            msg.AddMarkupOrThrow(Loc.GetString("armor-stamina-projectile-coefficient-value",
-                ("value", MathF.Round(reduction, 1))
-            ));
-        }
-
+        // Begin DeltaV Additions - Add melee stamina resistance information if it has any
         if (!MathHelper.CloseTo(component.StaminaMeleeDamageCoefficient, 1.0f))
         {
             msg.PushNewline();

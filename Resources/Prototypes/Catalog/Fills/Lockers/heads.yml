@@ -9,9 +9,9 @@
     - id: CargoBountyComputerCircuitboard
     - id: CargoRequestComputerCircuitboard
     - id: CargoSaleComputerCircuitboard
-    #- id: CargoShuttleComputerCircuitboard # DeltaV: hasn't been used in years
     - id: CargoShuttleConsoleCircuitboard
     - id: SalvageMagnetMachineCircuitboard
+    #- id: SalvageJobBoardComputerCircuitboard # DeltaV - unneeded mechanic with mining points vendor
     - id: CigPackGreen
       prob: 0.50
     - id: ClothingHeadsetAltCargo
@@ -20,6 +20,8 @@
     - id: RubberStampDenied
     - id: RubberStampQm
     - id: AstroNavCartridge
+    #- id: ClothingHandsKnuckleDustersQM # DeltaV - No weaponry for LO.
+    #- id: MailTeleporterMachineCircuitboard # DeltaV - upstream deliveries not ported yet
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -55,6 +57,10 @@
     - id: SpaceCash1000
     - id: WeaponDisabler
     - id: ClothingEyesGlassesCommand
+    - id: HeadSkeleton # A skull to accompany your skeleton crew
+      conditions:
+      - !type:PlayerCountCondition
+        max: 15
 
 # No laser table + Laser table
 - type: entityTable
@@ -118,7 +124,7 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfPersonnelDeltaV
-    #- id: AccessConfigurator # DeltaV - They don't really need it, moved to the administrative assistant starting gear.
+    - id: AccessConfigurator
     - id: BoxEncryptionKeyPassenger
     - id: BoxEncryptionKeyService
     - id: BoxHeadset
@@ -135,6 +141,8 @@
     - id: DoorRemoteService
     - id: HoPIDCard
     - id: IDComputerCircuitboard
+    # - id: FundingAllocationComputerCircuitboard # DeltaV - HoP doesn't get funding allocation
+    - id: CargoRequestServiceComputerCircuitboard
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampHop
@@ -167,16 +175,18 @@
     - id: ClothingHandsGlovesColorYellow
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
+    - id: CargoRequestEngineeringComputerCircuitboard
     - id: RCD
     - id: RCDAmmo
     - id: RubberStampCE
+    - id: MetalFoamGrenade
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingMaskBreath
+    - id: ClothingMaskGasAtmos
     - id: ClothingOuterHardsuitEngineeringWhite
     - id: ClothingShoesBootsMagAdv
     - id: JetpackVoidFilled
@@ -227,9 +237,12 @@
     - id: HandheldCrewMonitor
     - id: Hypospray
     - id: MedicalTechFabCircuitboard
+    - id: CargoRequestMedicalComputerCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
     - id: MedTekCartridge
+    # Shitmed
+    #- id: MedicalBiofabMachineBoard #DeltaV - Replaced with a flatpack at Prototypes/_DV/Catalog/Fills/Lockers/heads.yml
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -275,14 +288,16 @@
       tableId: LockerFillResearchDirectorDeltaV
     - id: Intellicard
     - id: BoxEncryptionKeyScience
-    - id: CircuitImprinterMachineCircuitboard
+    #- id: CircuitImprinterMachineCircuitboard # DeltaV
     - id: ClothingBeltUtilityFilled
     - id: ClothingHeadsetAltScience
     - id: DoorRemoteResearch
     - id: HandTeleporter
-    - id: ProtolatheMachineCircuitboard
+    #- id: ProtolatheMachineCircuitboard # DeltaV
     - id: ResearchComputerCircuitboard
+    - id: CargoRequestScienceComputerCircuitboard
     - id: RubberStampRd
+    - id: BibleMystagogue  # DeltaV - steal objective and source of abilities
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -342,7 +357,10 @@
     - id: HoloprojectorSecurity
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
+    - id: CargoRequestSecurityComputerCircuitboard
     - id: WeaponDisabler
+    #- id: WantedListCartridge # DeltaV - replaced by secwatch
+    - id: DrinkHosFlask
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -391,7 +409,6 @@
   - type: StorageFill
     contents:
     - id: WeaponRevolverDeckard
-    - id: ClothingOuterHardsuitBasic
     - id: JetpackBlue
     - id: SpaceCash1000
     - id: BeachBall

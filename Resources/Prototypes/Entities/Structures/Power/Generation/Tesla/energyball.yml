@@ -89,9 +89,15 @@
   - type: ChaoticJump
     jumpMinInterval: 8
     jumpMaxInterval: 15
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
     location: tesla ball
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: Sprite
     drawdepth: Effects
     sprite: Structures/Power/Generation/Tesla/energy_ball.rsi
@@ -111,6 +117,11 @@
   - type: RandomWalk # DeltaV - The tesla here has random pathfinding and dies out as it goes on
     maxSpeed: 2
     minSpeed: 1
+  - type: GuideHelp # For the curious among the brave.
+    guides:
+    - TeslaEngine
+    - SingularityTeslaEngine
+    - Power
 
 - type: entity
   id: TeslaMiniEnergyBall

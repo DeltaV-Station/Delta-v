@@ -23,7 +23,6 @@
       - type: StationJobs
         availableJobs:
           Captain: [ 1, 1 ]
-          AdministrativeAssistant: [ 1, 1 ]
           StationAi: [ 1, 1 ]
         #service
           HeadOfPersonnel: [ 1, 1 ]
@@ -56,6 +55,7 @@
           MedicalDoctor: [ 2, 3 ]
           MedicalIntern: [ 2, 2 ]
           MedicalBorg: [ 1, 2 ]
+          Surgeon: [ 1, 2 ]
         #science
           ResearchDirector: [ 1, 1 ]
           Chaplain: [ 1, 1 ]

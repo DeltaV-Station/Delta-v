@@ -3,17 +3,16 @@
   name: job-name-reporter
   description: job-description-reporter
   playTimeTracker: JobReporter
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 7200 # DeltaV 2 hours
   startingGear: ReporterGear
   icon: "JobIconReporter"
   supervisors: job-supervisors-hop
   access:
   - Service
   - Maintenance
-  - Theatre # DeltaV - Add Theatre access
-  - Reporter # DeltaV - Add Reporter access
+  # Begin DeltaV Additions
+  - Theatre # Reporter is valuely a threatre role
+  - Reporter
+  # End DeltaV Additions
 
 - type: startingGear
   id: ReporterGear

@@ -15,7 +15,7 @@ namespace Content.Server.Database.Migrations.Sqlite
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
+            modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
@@ -27,6 +27,14 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<int?>("AdminRankId")
                         .HasColumnType("INTEGER")
                         .HasColumnName("admin_rank_id");
+
+                    b.Property<bool>("Deadminned")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("deadminned");
+
+                    b.Property<bool>("Suspended")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("suspended");
 
                     b.Property<string>("Title")
                         .HasColumnType("TEXT")
@@ -256,8 +264,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("expiration_time");
 
-                    b.Property<DateTime?>("LastEditedAt")
-                        .IsRequired()
+                    b.Property<DateTime>("LastEditedAt")
                         .HasColumnType("TEXT")
                         .HasColumnName("last_edited_at");
 
@@ -385,8 +392,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("expiration_time");
 
-                    b.Property<DateTime?>("LastEditedAt")
-                        .IsRequired()
+                    b.Property<DateTime>("LastEditedAt")
                         .HasColumnType("TEXT")
                         .HasColumnName("last_edited_at");
 
@@ -539,6 +545,76 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("blacklist", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.CDModel+CDProfile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("cdprofile_id");
+
+                    b.Property<byte[]>("CharacterRecords")
+                        .HasColumnType("jsonb")
+                        .HasColumnName("character_records");
+
+                    b.Property<float>("Height")
+                        .HasColumnType("REAL")
+                        .HasColumnName("height");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_cdprofile");
+
+                    b.HasIndex("ProfileId")
+                        .IsUnique();
+
+                    b.ToTable("cdprofile", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.CDModel+CharacterRecordEntry", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("cd_character_record_entries_id");
+
+                    b.Property<int>("CDProfileId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("cdprofile_id");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("description");
+
+                    b.Property<string>("Involved")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("involved");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("title");
+
+                    b.Property<byte>("Type")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("type");
+
+                    b.HasKey("Id")
+                        .HasName("PK_cd_character_record_entries");
+
+                    b.HasIndex("CDProfileId")
+                        .HasDatabaseName("IX_cd_character_record_entries_cdprofile_id");
+
+                    b.HasIndex("Id")
+                        .HasDatabaseName("IX_cd_character_record_entries_cd_character_record_entries_id");
+
+                    b.ToTable("cd_character_record_entries", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.Property<int>("Id")
@@ -589,6 +665,35 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.HasIndex("UserId");
 
                     b.ToTable("connection_log", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("ipintel_cache_id");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("address");
+
+                    b.Property<float>("Score")
+                        .HasColumnType("REAL")
+                        .HasColumnName("score");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("time");
+
+                    b.HasKey("Id")
+                        .HasName("PK_ipintel_cache");
+
+                    b.HasIndex("Address")
+                        .IsUnique();
+
+                    b.ToTable("ipintel_cache", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.Job", b =>
@@ -713,6 +818,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("admin_ooc_color");
+
+                    b.PrimitiveCollection<string>("ConstructionFavorites")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("construction_favorites");
 
                     b.Property<int>("SelectedCharacterSlot")
                         .HasColumnType("INTEGER")
@@ -883,6 +993,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER")
                         .HasColumnName("profile_role_loadout_id");
+
+                    b.Property<string>("EntityName")
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("entity_name");
 
                     b.Property<int>("ProfileId")
                         .HasColumnType("INTEGER")
@@ -1538,6 +1653,30 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Profile");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.CDModel+CDProfile", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithOne("CDProfile")
+                        .HasForeignKey("Content.Server.Database.CDModel+CDProfile", "ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_cdprofile_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.CDModel+CharacterRecordEntry", b =>
+                {
+                    b.HasOne("Content.Server.Database.CDModel+CDProfile", "CDProfile")
+                        .WithMany("CharacterRecordEntries")
+                        .HasForeignKey("CDProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_cd_character_record_entries_cdprofile_cdprofile_id");
+
+                    b.Navigation("CDProfile");
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.HasOne("Content.Server.Database.Server", "Server")
@@ -1897,6 +2036,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Flags");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.CDModel+CDProfile", b =>
+                {
+                    b.Navigation("CharacterRecordEntries");
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.Navigation("BanHits");
@@ -1949,6 +2093,8 @@ namespace Content.Server.Database.Migrations.Sqlite
             modelBuilder.Entity("Content.Server.Database.Profile", b =>
                 {
                     b.Navigation("Antags");
+
+                    b.Navigation("CDProfile");
 
                     b.Navigation("Jobs");
 

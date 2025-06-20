@@ -1,0 +1,39 @@
+- type: construction
+  id: N14ChairArmchair
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairArmchair
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  id: N14ChairOfficeErgonomic
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairOfficeErgonomic
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  id: N14TableMetalGrate
+  graph: N14TableMetalGrateRecipes
+  startNode: start
+  targetNode: TableMetalGrate
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  canRotate: true
+  conditions:
+    - !type:TileNotBlocked

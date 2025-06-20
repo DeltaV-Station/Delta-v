@@ -92,6 +92,9 @@
     equipDelay: 5
     sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
   - type: SelfUnremovableClothing
+  - type: Tag
+    tags:
+    - ForensicBeltEquip
 
 - type: entity
   parent: ClothingHeadTinfoil
@@ -164,7 +167,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretCentcomm
-  name: CentCom beret
+  name: CentComm beret
   description: A green beret with an admiral's rank emblem.
   components:
   - type: Sprite

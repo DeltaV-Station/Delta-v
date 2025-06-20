@@ -24,11 +24,6 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMFormal
 
-- type: loadout #DeltaV
-  id: QuartermasterFormalDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtQMFormal
-
 # Head
 - type: loadout
   id: QuartermasterHead
@@ -39,11 +34,6 @@
   id: QuartermasterBeret
   equipment:
     head: ClothingHeadHatBeretQM
-
-- type: loadout # DeltaV
-  id: LogiOfficerBeret
-  equipment:
-    head: ClothingHeadHatBeretLogi
 
 # Neck
 - type: loadout
@@ -61,9 +51,3 @@
   id: QuartermasterWintercoat
   equipment:
     outerClothing: ClothingOuterWinterQM
-
-# Shoes - DeltaV
-- type: loadout
-  id: QuartermasterWinterBoots
-  equipment:
-    shoes: ClothingShoesBootsWinterLogisticsOfficer

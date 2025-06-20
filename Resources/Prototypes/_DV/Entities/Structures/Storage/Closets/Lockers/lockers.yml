@@ -10,8 +10,24 @@
   id: LockerBaseSecureDeltaV
 
 - type: entity
-  id: LockerChiefJustice
   parent: LockerBaseSecureDeltaV
+  id: CommandLockerBaseSecureDeltaV
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: CommandLockerBaseSecureDeltaV
+  id: LockerChiefJustice
   name: chief justice's locker
   components:
   - type: Appearance
@@ -23,8 +39,8 @@
     access: [["ChiefJustice"]]
 
 - type: entity
-  id: LockerClerk
   parent: LockerBaseSecureDeltaV
+  id: LockerClerk
   name: clerk's locker
   components:
   - type: Appearance
@@ -49,12 +65,88 @@
 
 - type: entity
   parent: LockerBaseSecureDeltaV
-  id: LockerAdministrativeAssistant
-  name: administrative assistant's locker
+  id: LockerSurgeon
+  name: surgeon's locker
   components:
   - type: EntityStorageVisuals
-    stateBaseClosed: admin_assist
-    stateDoorOpen: admin_assist_open
-    stateDoorClosed: admin_assist_door
+    stateBaseClosed: surgeon
+    stateDoorOpen: surgeon_open
+    stateDoorClosed: surgeon_door
   - type: AccessReader
-    access: [["Command"]]
+    access: [ [ "Surgery" ] ]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerKitchen
+  name: kitchen locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: chef
+    stateDoorOpen: chef_open
+    stateDoorClosed: chef_door
+  - type: AccessReader
+    access: [["Kitchen"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerJanitor
+  name: janitor's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: jani
+    stateDoorOpen: jani_open
+    stateDoorClosed: jani_door
+  - type: AccessReader
+    access: [["Janitor"]]
+
+- type: entity
+  parent: LockerBaseSecure
+  id: LockerLogistics # Wizden has sprites for this but doesn't have an entity that uses them?
+  name: logistics locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: cargo
+    stateDoorOpen: cargo_open
+    stateDoorClosed: cargo_door
+  - type: AccessReader
+    access: [["Cargo"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerArmoryStorage
+  name: armory storage locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: armory
+    stateDoorOpen: armory_open
+    stateDoorClosed: armory_door
+  - type: AccessReader
+    access: [["Armory"]]
+
+- type: entity
+  parent: LockerBooze
+  id: LockerForensicMantis
+  name: psionic mantis' cabinet
+  suffix: Empty
+  description: You'll never know what's inside until you collapse the quantum superposition of all possible mysteries.
+  components:
+  - type: AccessReader
+    access: [["Mantis"]]
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+          MaterialWoodPlank1:
+            min: 1
+            max: 2

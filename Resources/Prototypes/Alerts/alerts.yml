@@ -17,6 +17,7 @@
     - category: Piloting
     - alertType: Corporeal
     - alertType: Stun
+    - alertType: Stasis # Imp
     - category: Breathing # Vox gang not calling this oxygen
     - category: Pressure
     - alertType: Bleed
@@ -375,14 +376,14 @@
   icons: [ /Textures/Interface/Alerts/Abilities/silenced.png ]
   name: alerts-vow-silence-name
   clickEvent: !type:BreakVowAlertEvent
-  description: alerts-vow-silence-desc
+  description: alerts-vow-silence-desc-delta # DeltaV
 
 - type: alert
   id: VowBroken
   icons: [ /Textures/Interface/Actions/scream.png ]
   name: alerts-vow-broken-name
   clickEvent: !type:RetakeVowAlertEvent
-  description: alerts-vow-broken-desc
+  description: alerts-vow-broken-desc-delta # DeltaV
 
 - type: alert
   id: Pulled

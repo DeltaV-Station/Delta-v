@@ -102,8 +102,8 @@ internal sealed class NoosphericFryRule : StationEventSystem<NoosphericFryRuleCo
         var queryReactive = EntityQueryEnumerator<SharedGlimmerReactiveComponent, TransformComponent, PhysicsComponent>();
         while (queryReactive.MoveNext(out var reactive, out _, out var xform, out var physics))
         {
-            // shoot out three bolts of lighting...
-            _glimmerReactiveSystem.BeamRandomNearProber(reactive, 3, 12);
+            // shoot out one bolt of lighting...
+            _glimmerReactiveSystem.BeamRandomNearProber(reactive, 1, 12);
 
             // try to anchor if we can
             if (!xform.Anchored)

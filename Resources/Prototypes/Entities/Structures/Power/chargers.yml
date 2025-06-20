@@ -86,6 +86,10 @@
       visible: false
   - type: Machine
     board: CellRechargerCircuitboard
+  # Begin DeltaV additions
+  - type: Charger
+    chargeRate: 40
+  # End DeltaV additions
   - type: WiresPanel
   - type: GenericVisualizer
     visuals:
@@ -143,6 +147,7 @@
         blacklist:
           tags:
           - PowerCell
+          - GamblagatorCartridge # DeltaV - Disallows recharging of superweapon
   - type: Machine
     board: PowerCageRechargerCircuitboard
   - type: StaticPrice
@@ -167,6 +172,9 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+        blacklist: # DeltaV - prevents recharging of superweapon cartridges
+          tags:
+          - GamblagatorCartridge
 
 - type: entity
   parent: BaseItemRecharger
@@ -193,6 +201,7 @@
         blacklist:
           tags:
           - PotatoBattery
+          - GamblagatorCartridge # DeltaV - Disallows recharging of superweapon
 
 - type: entity
   parent: BaseItemRecharger
@@ -219,6 +228,9 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+        blacklist: # DeltaV - Disallows recharging of superweapon
+          tags:
+          - GamblagatorCartridge
 
 - type: entity
   parent: BaseRecharger
@@ -247,6 +259,8 @@
     whitelist:
       components:
       - BorgChassis
+      - Silicon # EE IPCs
+      - AugmentStationRecharge # DeltaV augment power cells
   - type: Construction
     containers:
     - machine_parts
@@ -290,6 +304,8 @@
     whitelist:
       components:
       - BorgChassis
+      - Silicon # EE IPCs
+      - AugmentStationRecharge # DeltaV augment power cells
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container

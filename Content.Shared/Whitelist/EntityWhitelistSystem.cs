@@ -1,7 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
-using System.Linq; // DeltaV
 using Content.Shared.Item;
-using Content.Shared.Roles;
 using Content.Shared.Tag;
 
 namespace Content.Shared.Whitelist;
@@ -9,7 +7,6 @@ namespace Content.Shared.Whitelist;
 public sealed class EntityWhitelistSystem : EntitySystem
 {
     [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
     private EntityQuery<ItemComponent> _itemQuery;
@@ -58,22 +55,6 @@ public sealed class EntityWhitelistSystem : EntitySystem
             }
         }
 
-        if (list.MindRoles != null)
-        {
-            var regs = StringsToRegs(list.MindRoles);
-
-            foreach (var role in regs)
-            {
-                if ( _roles.MindHasRole(uid, role.Type, out _))
-                {
-                    if (!list.RequireAll)
-                        return true;
-                }
-                else if (list.RequireAll)
-                    return false;
-            }
-        }
-
         if (list.Registrations != null && list.Registrations.Count > 0)
         {
             foreach (var reg in list.Registrations)
@@ -115,19 +96,6 @@ public sealed class EntityWhitelistSystem : EntitySystem
     {
         if (whitelist == null)
             return false;
-
-        // Begin DeltaV
-        var isValid = IsValid(whitelist, uid);
-        Log.Debug($"Whitelist validation result for entity {ToPrettyString(uid)}: {isValid}");
-
-        if (whitelist.RequireAll)
-        {
-            Log.Debug($"Whitelist requires all conditions - Components: {string.Join(", ", whitelist.Components ?? Array.Empty<string>())}, " +
-                           $"Tags: {(whitelist.Tags != null ? string.Join(", ", whitelist.Tags.Select(t => t.ToString())) : "none")}");
-        }
-
-        return isValid;
-        // EndDeltaV
 
         return IsValid(whitelist, uid);
     }

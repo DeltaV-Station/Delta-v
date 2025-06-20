@@ -12,23 +12,8 @@
   recipeUnlocks:
   - ClothingHeadHelmetInsulated
   - ClothingHeadCage
-  # - ShellSoulbreaker # DeltaV - Placing it under Exotic Ammunition because that's what it is.
-
-- type: technology
-  id: Metempsychosis
-  name: research-technology-metempsychosis
-  icon:
-    sprite: Nyanotrasen/Structures/Machines/metempsychotic.rsi
-    state: pod_0
-  discipline: Experimental
-  tier: 2
-  cost: 15000
-  recipeUnlocks:
-    - BiomassReclaimerMachineCircuitboard
-    - CloningConsoleComputerCircuitboard
-    - MedicalScannerMachineCircuitboard
-    - MetempsychoticMachineCircuitboard
-
+  - MagazineBoxSpecialMindbreaker
+  - BoxShellSoulbreaker
 
 # Tier 3
 

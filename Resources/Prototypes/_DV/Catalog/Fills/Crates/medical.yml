@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: CrateGenericRadioImplants
   parent: CrateMedical
   name: radio implant crate
@@ -7,4 +7,15 @@
   - type: StorageFill
     contents:
     - id: GenericRadioImplanter
+      amount: 3
+
+- type: entity
+  id: CratePainkillerBottles
+  parent: CrateMedical
+  name: painkiller crate
+  description: Running out of these is not an option.
+  components:
+  - type: StorageFill
+    contents:
+    - id: PillCanisterStubantazine
       amount: 3

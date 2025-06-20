@@ -21,7 +21,7 @@ flavor-complex-corncob = like a sick joke
 flavor-complex-gunmetal = bittersweet and creamy
 flavor-complex-lemondrop = refreshingly tart
 flavor-complex-greengrass = like a holiday in the sun
-flavor-complex-daiquiri = fashionable
+flavor-complex-fashionable = fashionable
 flavor-complex-arsonistsbrew = like ash and flame
 flavor-complex-healthcodeviolation = ominous
 flavor-complex-blellow = like an impossible color
@@ -29,6 +29,7 @@ flavor-complex-candy-strawberry = like strawberries
 flavor-complex-candy-bubblegum = like bubble gum
 flavor-complex-double-ice-cream = like ice cream, twice
 flavor-complex-drgibbbloodred = like severe malpractice
+flavor-complex-lemon-lime-bitters = like an Aussie dessert
 
 ## Delta-V additional drink flavors
 flavor-complex-absinthe-deltav = like green death
@@ -75,6 +76,7 @@ flavor-complex-vodka-martini-deltav = shaken, not stirred
 flavor-complex-vodka-tonic-deltav = like depression in denial
 flavor-complex-kvass-deltav = like bread tossed into a blender
 flavor-complex-mothamphetamine-deltav = like there are buzzing wings in your mouth
+flavor-complex-unholy-water = like something cold and wrong
 
 candy-flavor-profile = This one is supposed to taste {$flavor}.
 candy-flavor-profile-multiple = This one is supposed to taste {$flavors} and {$lastFlavor}.

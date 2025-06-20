@@ -14,9 +14,11 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - BiologicalMetaphysical # DeltaV - Kitsune
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+    - BiologicalMetaphysical # DeltaV - Kitsune
   - type: Tag
     tags:
     - HudMedical
@@ -41,3 +43,18 @@
     - HudSecurity
   - type: VisionCorrection
     correctionPower: 1.75 # The hud part decreases efficiency
+
+- type: entity
+  parent: ClothingEyesHudDiagnostic
+  id: RoboNeuroticistVisor
+  name: robo-neuroticist visor
+  description: The Robo-Neuroticist's advanced heads-up display, designed for quick diagnosis of their Neurolings.
+  components:
+  - type: EyeProtection
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Sprite
+    sprite: Clothing/Eyes/Hud/syndagent.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Hud/syndagent.rsi
+  - type: ShowSyndicateIcons

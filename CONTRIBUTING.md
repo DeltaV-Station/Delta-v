@@ -81,7 +81,23 @@ private EntityUid Slice(...)
 
 If you want to make changes to a map, get in touch with its maintainer to make sure you don't both make changes at the same time.
 
-Conflicts with maps make PRs mutually exclusive so either your work on the maintainer's work will be lost, communicate to avoid this!
+Conflicts with maps make PRs mutually exclusive so either your work or the maintainer's work will be lost, communicate to avoid this!
+
+Please make a detailed list of **all** changes(even minor changes) with locations when submitting a PR. This helps reviewers hone in on them without having to search an entire map for differences. Ex: [Map Edits](https://github.com/DeltaV-Station/Delta-v/pull/3165)
+
+
+**Submitting a map PR**
+
+Please limit changelogs on map PRs to **significant** map alterations or additions. Minor map edits do not need changelogs.
+Format for map PRs looks like:
+```
+:cl: Yourname
+MAPS: Mapname
+- add: Added fun!
+- remove: Removed fun!
+- tweak: Changed fun!
+- fix: Fixed fun!
+``` 
 
 # Before you submit
 
@@ -97,4 +113,9 @@ Do not use `ADMIN:` as **it will mangle** the upstream admin changelog!
 
 # Additional resources
 
-If you are new to contributing to SS14 in general, have a look at the [SS14 docs](https://docs.spacestation14.io/) or ask for help in `#contribution-help` on [Discord](https://go.delta-v.org/AtDxv)!
+If you are new to contributing to SS14 in general, have a look at the [SS14 docs](https://docs.spacestation14.io/) or ask for help in `#contribution-help` on [Discord](https://discord.gg/deltav)!
+
+## AI-Generated Content
+Code, sprites and any other AI-generated content is not allowed to be submitted to the repository.
+
+Trying to PR AI-generated content may result in you being banned from contributing.

@@ -46,8 +46,19 @@
         enum.ToggleVisuals.Layer:
           True: { state: icon_on }
           False: { state: icon }
-  # End DeltaV Additions
-  - type: ReverseEngineering # DeltaV
+  - type: ReverseEngineering
     difficulty: 2
     recipes:
     - OreBagOfHolding
+  # End DeltaV Additions
+  - type: NFOreBag # Frontier
+
+- type: entity
+  parent: OreBag
+  id: BorgOreBag
+  name: integrated ore bag
+  description: A large ore bag built into the frame of a mining cyborg.
+  components:
+    - type: Storage
+      grid:
+      - 0,0,9,5

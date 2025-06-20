@@ -15,6 +15,8 @@
   - type: Input
     context: human
   - type: MMI
+  - type: Organ # DeltaV - mmis also count as positronic brains for IPC chasses
+    slotId: posbrain
   - type: BorgBrain
   - type: BlockMovement
   - type: Examiner
@@ -41,6 +43,9 @@
         whitelist:
           components:
           - Brain
+        blacklist: # DeltaV
+          components:
+          - Unborgable
   - type: ContainerContainer
     containers:
       brain_slot: !type:ContainerSlot
@@ -89,11 +94,16 @@
       roleName: positronic-brain-role-name
       roleDescription: positronic-brain-role-description
       roleRules: ghost-role-information-silicon-rules
+      mindRoles:
+      - MindRoleGhostRoleSilicon
       wipeVerbText: positronic-brain-wipe-device-verb-text
       wipeVerbPopup: positronic-brain-wiped-device
       stopSearchVerbText: positronic-brain-stop-searching-verb-text
       stopSearchVerbPopup: positronic-brain-stopped-searching
       job: Borg
+    - type: Organ
+      slotId: posbrain
+    - type: Brain
     - type: BlockMovement
     - type: Examiner
     - type: BorgBrain

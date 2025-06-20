@@ -14,7 +14,11 @@ namespace Content.Client._DV.AACTablet.UI;
 public sealed partial class AACWindow : FancyWindow
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
-    public event Action<ProtoId<QuickPhrasePrototype>>? PhraseButtonPressed;
+    private readonly List<QuickPhrasePrototype> _phrases;
+    private readonly Dictionary<string, List<QuickPhrasePrototype>> _filteredPhrases = new();
+    public event Action<List<ProtoId<QuickPhrasePrototype>>>? PhraseButtonPressed;
+    public event Action? Typing;
+    public event Action? SubmitPressed;
 
     private const float SpaceWidth = 10f;
     private const float ParentWidth = 540f;
@@ -23,19 +27,92 @@ public sealed partial class AACWindow : FancyWindow
     private const int ButtonWidth =
         (int)((ParentWidth - SpaceWidth * 2) / ColumnCount - SpaceWidth * ((ColumnCount - 1f) / ColumnCount));
 
+    public const int MaxPhrases = 10; // no writing novels
+
+    private readonly List<ProtoId<QuickPhrasePrototype>> _phraseBuffer = [];
+    private readonly List<ProtoId<QuickPhrasePrototype>> _phraseSingle = [];
+
     public AACWindow()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+
+        _phrases = _prototype.EnumeratePrototypes<QuickPhrasePrototype>().ToList();
+        _phrases.Sort((a, b) => string.CompareOrdinal(a.Group, b.Group));
+        SearchBar.OnTextChanged += FilterSearch;
+        SendButton.OnPressed += SendBuffer;
+        ClearButton.OnPressed += BackspaceBuffer;
         PopulateGui();
+        FilterSearch(null);
+    }
+
+    private void BackspaceBuffer(BaseButton.ButtonEventArgs obj)
+    {
+        if (_phraseBuffer.Count == 0)
+            return;
+
+        _phraseBuffer.RemoveAt(_phraseBuffer.Count - 1);
+        UpdateBufferText();
+        Typing?.Invoke();
+    }
+
+    private void UpdateBufferText()
+    {
+        BufferedString.Text = string.Empty;
+        foreach (var phraseId in _phraseBuffer)
+        {
+            var phrase = _prototype.Index(phraseId);
+            BufferedString.Text += Loc.GetString(phrase.Text) + " ";
+        }
+    }
+
+    private void SendBuffer(BaseButton.ButtonEventArgs obj)
+    {
+        PhraseButtonPressed?.Invoke(_phraseBuffer);
+        _phraseBuffer.Clear();
+        BufferedString.Text = string.Empty;
+        SubmitPressed?.Invoke();
+    }
+
+    private void FilterSearch(LineEdit.LineEditEventArgs? obj)
+    {
+        SearchResults.DisposeAllChildren();
+        _filteredPhrases.Clear();
+
+        var emptySearch = string.IsNullOrEmpty(SearchBar.Text);
+        foreach (var phrase in _phrases)
+        {
+            if (!emptySearch && !Loc.GetString(phrase.Text).Contains(SearchBar.Text, StringComparison.CurrentCultureIgnoreCase))
+            {
+                continue;
+            }
+
+            if (_filteredPhrases.TryGetValue(phrase.Group, out var group))
+            {
+                group.Add(phrase);
+            }
+            else
+            {
+                _filteredPhrases.Add(phrase.Group, new List<QuickPhrasePrototype> { phrase });
+            }
+        }
+
+        foreach (var phraseList in _filteredPhrases.Values)
+        {
+            phraseList.Sort((a, b) =>
+                string.Compare(Loc.GetString(a.Text),
+                    Loc.GetString(b.Text),
+                    StringComparison.CurrentCultureIgnoreCase));
+        }
+
+        var boxContainer = CreateBoxContainerForTab(_filteredPhrases);
+        SearchResults.AddChild(boxContainer);
     }
 
     private void PopulateGui()
     {
-        var phrases = _prototype.EnumeratePrototypes<QuickPhrasePrototype>().ToList();
-
         // take ALL phrases and turn them into tabs and groups, so the buttons are sorted and tabbed
-        var sortedTabs = phrases
+        var sortedTabs = _phrases
             .GroupBy(p => p.Tab)
             .OrderBy(g => g.Key)
             .ToDictionary(
@@ -48,23 +125,21 @@ public sealed partial class AACWindow : FancyWindow
                     )
             );
 
-        var tabContainer = CreateTabContainer(sortedTabs);
-        WindowBody.AddChild(tabContainer);
+        CreateTabContainer(sortedTabs);
     }
 
-    private TabContainer CreateTabContainer(Dictionary<string, Dictionary<string, List<QuickPhrasePrototype>>> sortedTabs)
+    private void CreateTabContainer(Dictionary<string, Dictionary<string, List<QuickPhrasePrototype>>> sortedTabs)
     {
-        var tabContainer = new TabContainer();
-
         foreach (var tab in sortedTabs)
         {
             var tabName = Loc.GetString(tab.Key);
             var boxContainer = CreateBoxContainerForTab(tab.Value);
-            tabContainer.AddChild(boxContainer);
-            tabContainer.SetTabTitle(tabContainer.ChildCount - 1, tabName);
+            var scroll = new ScrollContainer();
+            scroll.HScrollEnabled = false;
+            scroll.AddChild(boxContainer);
+            WindowBody.AddChild(scroll);
+            WindowBody.SetTabTitle(WindowBody.ChildCount - 1, tabName);
         }
-
-        return tabContainer;
     }
 
     private BoxContainer CreateBoxContainerForTab(Dictionary<string, List<QuickPhrasePrototype>> groups)
@@ -117,7 +192,7 @@ public sealed partial class AACWindow : FancyWindow
         var buttonContainer = new GridContainer
         {
             Margin = new Thickness(10),
-            Columns = 4
+            Columns = ColumnCount
         };
 
         return buttonContainer;
@@ -147,6 +222,22 @@ public sealed partial class AACWindow : FancyWindow
 
     private void OnPhraseButtonPressed(ProtoId<QuickPhrasePrototype> phraseId)
     {
-        PhraseButtonPressed?.Invoke(phraseId);
+        if (ShouldBuffer.Pressed)
+        {
+            // there's no user feedback but you shouldn't be writing novels anyway
+            if (_phraseBuffer.Count >= MaxPhrases)
+                return;
+
+            _phraseBuffer.Add(phraseId);
+            UpdateBufferText();
+            Typing?.Invoke();
+        }
+        else
+        {
+            _phraseSingle.Clear();
+            _phraseSingle.Add(phraseId);
+            PhraseButtonPressed?.Invoke(_phraseSingle);
+            SubmitPressed?.Invoke();
+        }
     }
 }

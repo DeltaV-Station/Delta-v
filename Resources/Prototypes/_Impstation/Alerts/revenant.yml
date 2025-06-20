@@ -1,0 +1,15 @@
+﻿- type: alert
+  id: EssenceRegen
+  name: alerts-revenant-essence-regen
+  description: alerts-revenant-essence-regen
+  icons:
+  - sprite: /Textures/Mobs/Ghosts/revenant.rsi
+    state: icon
+
+- type: alert
+  id: Stasis
+  icons:
+  - sprite: Mobs/Ghosts/revenant.rsi
+    state: ectoplasm
+  name: alerts-revenant-stasis-name
+  description: alerts-revenant-stasis-desc

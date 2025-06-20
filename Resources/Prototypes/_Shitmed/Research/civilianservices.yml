@@ -1,0 +1,81 @@
+# Tier 1
+
+# Tier 2
+
+- type: technology
+  id: AdvancedTreatment
+  name: research-technology-advanced-treatment
+  icon:
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
+    state: e-scalpel-on
+  discipline: Biochemical # DeltaV
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  # Begin DeltaV Removals - moved back to its original tech / made default module
+  #- BorgModuleAdvancedTreatment
+  #- BorgModuleDefibrillator
+  # End DeltaV Removals
+  - EnergyScalpel
+  - EnergyCautery
+  - AdvancedRetractor
+  - BorgModuleAdvancedSurgery
+
+- type: technology
+  id: MinuteActuators
+  name: research-technology-minute-actuators
+  icon:
+    sprite: _Shitmed/Clothing/Hands/Gloves/mechanical_surgery_gloves.rsi
+    state: icon
+  discipline: Biochemical # DeltaV
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ClothingHandsGlovesMechanicalSurgical
+  - OperatingTableAdvancedCircuitboard
+
+- type: technology
+  id: CyberneticEnhancements
+  name: research-technology-cybernetic-enhancements
+  icon:
+    sprite: _Shitmed/Mobs/Species/IPC/organs.rsi
+    state: eyes
+  discipline: Biochemical # DeltaV
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - JawsOfLifeLeftArm
+  - JawsOfLifeRightArm
+  - SpeedLeftLeg
+  - SpeedRightLeg
+  - BasicCyberneticEyes
+  - SecurityCyberneticEyes
+  - MedicalCyberneticEyes
+
+- type: technology
+  id: Autodoc
+  name: research-technology-autodoc
+  icon:
+    sprite: _Shitmed/Structures/Machines/autodoc.rsi
+    state: idle
+  discipline: Biochemical # DeltaV
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - AutodocCircuitboard
+
+# Tier 3
+
+# Start DeltaV changes - Removed the medical multitool.
+#- type: technology
+#  id: HighEndSurgery
+#  name: research-technology-high-end-surgery
+#  icon:
+#    sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
+#    state: omnimed
+#  discipline: Biochemical # DeltaV
+#  tier: 3
+#  cost: 10000
+#  recipeUnlocks:
+#  - OmnimedTool
+# End of DeltaV changes

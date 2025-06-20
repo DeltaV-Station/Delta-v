@@ -1,0 +1,39 @@
+## Static
+
+- type: latheRecipePack
+  id: BasicChemistryStaticDeltaV
+  recipes:
+  - Dropper
+  - Skimmer
+
+- type: latheRecipePack
+  id: MedicalStaticDeltaV
+  recipes:
+  - AACTablet
+  - ClothingOuterVestTank
+  - ClothingEyesHudMedical
+
+- type: latheRecipePack
+  id: MedicalClothingStaticDeltaV
+  recipes:
+  - ClothingMaskBreathMedical
+
+## Dynamic
+
+- type: latheRecipePack
+  id: MedicalDeltaV
+  recipes:
+  - HandheldCrewMonitor # RE
+
+- type: latheRecipePack
+  id: MedicalBoardsDeltaV
+  recipes:
+  - CrewMonitoringComputerCircuitboard
+  - CloningConsoleComputerCircuitboard
+  - MedicalScannerMachineCircuitboard
+  - CloningPodMachineCircuitboard
+
+- type: latheRecipePack
+  id: ParamedicHardsuit
+  recipes:
+  - ClothingOuterHardsuitVoidParamed

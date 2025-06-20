@@ -7,3 +7,24 @@
   cost: 3500
   category: Livestock
   group: market
+
+#Move to armory if we ever do access-specific purchasing
+- type: cargoProduct
+  id: LivestockArenaMobSmall
+  icon:
+    sprite: Mobs/Aliens/Carps/space.rsi
+    state: icon
+  product: CrateArenaMobSmall
+  cost: 4000
+  category: cargoproduct-category-name-livestock
+  group: market
+
+- type: cargoProduct
+  id: LivestockArenaMobLarge
+  icon:
+    sprite: Mobs/Aliens/Xenos/queen.rsi
+    state: running
+  product: CrateArenaMobLarge
+  cost: 6000
+  category: cargoproduct-category-name-livestock
+  group: market

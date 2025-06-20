@@ -7,6 +7,8 @@
   markingLimits: MobHarpyMarkingLimits
   dollPrototype: MobHarpyDummy
   skinColoration: HumanToned
+  baseScale: "0.9, 0.9"
+  minHeight: 0.90
 
 - type: speciesBaseSprites
   id: MobHarpySprites
@@ -15,6 +17,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobHarpyTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -48,7 +52,7 @@
       required: true
       defaultMarkings: [ HarpyEarsDefault ]
     Chest:
-      points: 1
+      points: 2
       required: true
       defaultMarkings: [ HarpyChestDefault ]
     Legs:

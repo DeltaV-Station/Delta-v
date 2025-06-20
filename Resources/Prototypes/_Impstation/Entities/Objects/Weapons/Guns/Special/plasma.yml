@@ -1,0 +1,120 @@
+- type: entity
+  name: Adder
+  parent: BaseItem
+  id: WeaponPlasmaAdder
+  description: While not the intended product of Cybersun's research, the Adder's liquid-ammo platform is a fearsome technology. Uses Echion, produced from advanced synthesizers.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Special/adder.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Special/adder.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: Appearance
+  - type: AmmoCounter
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Gun
+    clumsyProof: false
+    cameraRecoilScalar: 1
+    fireRate: 3.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/adder.ogg
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: Echion
+          Quantity: 75
+        maxVol: 75 #12 shots
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: BulletPlasmaAdder
+    fireCost: 6.25
+  - type: SolutionItemStatus
+    solution: chamber
+  - type: SolutionRefuel
+    fuelSolutionName: chamber
+    fuelReagent: Echion
+  - type: ExaminableSolution
+    solution: chamber
+  - type: Tag
+    tags:
+     - EchionGun
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  name: Akurra
+  parent: [WeaponPlasmaAdder, BaseGunWieldable]
+  id: WeaponPlasmaAkurra
+  description: Critics call the Adder's successor "a beautiful marriage of technology and malice in a single package". Uses Echion, produced from advanced synthesizers.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Special/akurra.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Special/akurra.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: Appearance
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,0
+    - 0,1,3,1
+  - type: Gun
+    clumsyProof: false
+    cameraRecoilScalar: 1
+    fireRate: 5.3
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    minAngle: 21
+    maxAngle: 39
+    angleIncrease: 2
+    angleDecay: 18
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/akurra.ogg
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: Echion
+          Quantity: 150
+        maxVol: 150 #30 shots
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: BulletPlasmaAkurra
+    fireCost: 5
+  - type: Tag
+    tags:
+      - EchionGun
+  - type: StaticPrice
+    price: 100

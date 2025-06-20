@@ -10,18 +10,19 @@
     cost: 150
   - id: Soap
     cost: 200
-  - id: SeismicCharge
-    cost: 250
   - id: WeaponGrapplingGun
     cost: 300
   # TODO: laser pointer 300, toy facehugger 300
   # TODO: stabilizing serum for 400
   - id: FultonBeacon
     cost: 400
-  # TODO: bluespace shelter capsule for 400
+  - id: ShelterCapsule
+    cost: 400
   - id: ClothingEyesGlassesGarMeson
     cost: 500
   - id: ClothingBeltSalvageWebbing
+    cost: 500
+  - id: PlasteelArmingSword
     cost: 500
   - id: MedkitBruteFilled
     cost: 600
@@ -39,6 +40,16 @@
   - id: Fulton
     cost: 1000
   # TODO: lazarus injector for 1k
+  # TODO: tracer rounds / chassis mods for 100/150/250/300
+  - id: PKAUpgradeRange
+    cost: 1000
+  - id: PKAUpgradeDamage
+    cost: 1000
+  - id: PKAUpgradeFireRate
+    cost: 1000
+  # TODO: AOE modkit for 2k
+  - id: SeismicCharge
+    cost: 1250
   - id: ClothingBackpackDuffelSalvageConscription
     cost: 1500
   - id: SpaceCash1000
@@ -47,7 +58,8 @@
   # TODO: jump boots for 2500
   - id: ClothingOuterHardsuitSalvage
     cost: 3000
-  # TODO: luxury shelter capsule for 3k
-  # TODO: luxury elite bar capsule for 10k
-  # TODO: pka mods
+  - id: ShelterCapsuleLuxury
+    cost: 3000
+  - id: ShelterCapsuleBar
+    cost: 10000
   # TODO: mining drone stuff

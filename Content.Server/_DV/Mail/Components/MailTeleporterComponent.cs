@@ -1,4 +1,6 @@
+using Content.Shared.Radio;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.Mail.Components
 {
@@ -29,6 +31,18 @@ namespace Content.Server._DV.Mail.Components
         /// </summary>
         [DataField]
         public string MailPool = "RandomDeltaVMailDeliveryPool"; // Frontier / DeltaV: Mail rework
+
+        /// <summary>
+        /// Imp. Whether or not the telepad should output a message upon recieving mail.
+        /// </summary>
+        [DataField]
+        public bool RadioNotification = false;
+
+        [DataField]
+        public LocId ShipmentReceivedMessage = "mail-received-message";
+
+        [DataField]
+        public ProtoId<RadioChannelPrototype> RadioChannel = "Supply";
 
         /// <summary>
         /// How many mail candidates do we need per actual delivery sent when

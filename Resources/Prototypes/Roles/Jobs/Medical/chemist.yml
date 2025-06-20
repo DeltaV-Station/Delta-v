@@ -3,11 +3,11 @@
   name: job-name-chemist
   description: job-description-chemist
   playTimeTracker: JobChemist
-  antagAdvantage: 4 # DeltaV - Synthesize any chem you want with little oversight. 
+  antagAdvantage: 4 # DeltaV - Synthesize any chem you want with little oversight.
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 28800 # DeltaV - 8 hours
+      time: 18000 #5 hrs
   startingGear: ChemistGear
   icon: "JobIconChemist"
   supervisors: job-supervisors-cmo
@@ -15,6 +15,12 @@
   - Medical
   - Chemistry
   - Maintenance
+  # Shitmed Change, DeltaV - role modifiers bad
+  # special:
+  # - !type:AddComponentSpecial
+  #   components:
+  #   - type: SurgerySpeedModifier
+  #    speedModifier: 1.75
 
 - type: startingGear
   id: ChemistGear

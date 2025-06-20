@@ -8,6 +8,7 @@ using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Maps;
+using Content.Shared._DV.CosmicCult.Components; // DeltaV - Cosmic Cult
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -65,7 +66,7 @@ namespace Content.Server.Voting.Managers
                 DirtyCanCallVoteAll();
             });
 
-            foreach (var kvp in _voteTypesToEnableCVars)
+            foreach (var kvp in VoteTypesToEnableCVars)
             {
                 _cfg.OnValueChanged(kvp.Value, _ =>
                 {
@@ -346,7 +347,7 @@ namespace Content.Server.Voting.Managers
             if (!_cfg.GetCVar(CCVars.VoteEnabled))
                 return false;
             // Specific standard vote types can be disabled with cvars.
-            if (voteType != null && _voteTypesToEnableCVars.TryGetValue(voteType.Value, out var cvar) && !_cfg.GetCVar(cvar))
+            if (voteType != null && VoteTypesToEnableCVars.TryGetValue(voteType.Value, out var cvar) && !_cfg.GetCVar(cvar))
                 return false;
 
             // Cannot start vote if vote is already active (as non-admin).
@@ -453,6 +454,14 @@ namespace Content.Server.Voting.Managers
                     return false;
             }
 
+            // Begin DeltaV - Cosmic Cult
+            if (eligibility == VoterEligibility.CosmicCult)
+            {
+                if (!_entityManager.HasComponent<CosmicCultComponent>(player.AttachedEntity))
+                    return false;
+            }
+            // End DeltaV - Cosmic Cult
+
             return true;
         }
 
@@ -550,7 +559,8 @@ namespace Content.Server.Voting.Managers
             All,
             Ghost, // Player needs to be a ghost
             GhostMinimumPlaytime, // Player needs to be a ghost, with a minimum playtime and deathtime as defined by votekick CCvars.
-            MinimumPlaytime //Player needs to have a minimum playtime and deathtime as defined by votekick CCvars.
+            MinimumPlaytime, //Player needs to have a minimum playtime and deathtime as defined by votekick CCvars.
+            CosmicCult, // DeltaV - Player needs to be a cosmic cultist. Used by the cosmic cult gamemode.
         }
 
         #endregion

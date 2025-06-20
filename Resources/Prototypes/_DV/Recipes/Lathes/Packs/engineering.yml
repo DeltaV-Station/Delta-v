@@ -1,0 +1,40 @@
+## Static
+
+- type: latheRecipePack
+  id: EngineeringStaticDeltaV
+  recipes:
+  - Oilpack
+  - HoloprojectorEngineering
+
+## Dynamic
+
+- type: latheRecipePack
+  id: AtmosToolsDeltaV
+  recipes:
+  - FireExtinguisherBluespace
+  - RCDAmmo # RE
+  - RCDRecharging
+
+- type: latheRecipePack
+  id: PowerCellsDeltaV
+  recipes:
+  - PowerCellHyper # RE
+
+- type: latheRecipePack
+  id: EngineeringBoardsDeltaV
+  recipes:
+  - AlertsComputerCircuitboard
+
+- type: latheRecipePack
+  id: UpgradeKits
+  recipes:
+  - LatheUpgradeKitHyper
+  - LatheUpgradeKitCryo
+
+- type: latheRecipePack
+  id: EngineeringHardsuits
+  recipes:
+  - ClothingOuterHardsuitEngineering
+  - ClothingOuterHardsuitAtmos
+  - ClothingOuterSuitAtmosFire
+  - ClothingHeadHelmetAtmosFire

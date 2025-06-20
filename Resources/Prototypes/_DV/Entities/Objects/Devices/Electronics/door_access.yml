@@ -88,12 +88,36 @@
 
 - type: entity
   parent: DoorElectronics
+  id: DoorElectronicsSurgery
+  suffix: Surgery, Locked
+  components:
+  - type: AccessReader
+    access: [["Surgery"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsSurgeryResearch
+  suffix: Surgery/Epistemics, Locked
+  components:
+  - type: AccessReader
+    access: [["Research"], ["Surgery"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsSurgeryRobotics
+  suffix: Surgery/Robotics, Locked
+  components:
+  - type: AccessReader
+    access: [["Robotics"], ["Surgery"]]
+
+- type: entity
+  parent: DoorElectronics
   id: DoorElectronicsMail
   suffix: Mail, Locked
   components:
   - type: AccessReader
     access: [["Mail"]]
-    
+
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsChiefJustice
@@ -101,7 +125,7 @@
   components:
   - type: AccessReader
     access: [["ChiefJustice"]]
-    
+
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsJustice
@@ -109,7 +133,7 @@
   components:
   - type: AccessReader
     access: [["Justice"]]
-    
+
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsProsecutor
@@ -117,7 +141,7 @@
   components:
   - type: AccessReader
     access: [["Prosecutor"]]
-    
+
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsClerk

@@ -1,5 +1,8 @@
 using System.Linq;
+using Content.Shared._DV.SmartFridge; // DeltaV - ough why do you not use events for this
 using Content.Shared.Disposal;
+using Content.Shared.Disposal.Components;
+using Content.Shared.Disposal.Unit;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
@@ -23,6 +26,7 @@ public sealed class DumpableSystem : EntitySystem
     [Dependency] private readonly SharedDisposalUnitSystem _disposalUnitSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!; // DeltaV - ough why do you not use events for this
 
     private EntityQuery<ItemComponent> _itemQuery;
 
@@ -41,7 +45,7 @@ public sealed class DumpableSystem : EntitySystem
         if (!args.CanReach || args.Handled)
             return;
 
-        if (!_disposalUnitSystem.HasDisposals(args.Target) && !HasComp<PlaceableSurfaceComponent>(args.Target))
+        if (!HasComp<DisposalUnitComponent>(args.Target) && !HasComp<PlaceableSurfaceComponent>(args.Target))
             return;
 
         if (!TryComp<StorageComponent>(uid, out var storage))
@@ -82,7 +86,7 @@ public sealed class DumpableSystem : EntitySystem
         if (!TryComp<StorageComponent>(uid, out var storage) || !storage.Container.ContainedEntities.Any())
             return;
 
-        if (_disposalUnitSystem.HasDisposals(args.Target))
+        if (HasComp<DisposalUnitComponent>(args.Target) || HasComp<SmartFridgeComponent>(args.Target)) // DeltaV - add fridge check
         {
             UtilityVerb verb = new()
             {
@@ -161,7 +165,7 @@ public sealed class DumpableSystem : EntitySystem
 
         var dumped = false;
 
-        if (_disposalUnitSystem.HasDisposals(target))
+        if (HasComp<DisposalUnitComponent>(target))
         {
             dumped = true;
 
@@ -181,6 +185,20 @@ public sealed class DumpableSystem : EntitySystem
                 _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, targetRot);
             }
         }
+        // Begin DeltaV - ough why do you not use events for this
+        else if (TryComp<SmartFridgeComponent>(target, out var fridge))
+        {
+            dumped = true;
+            if (_container.TryGetContainer(target!.Value, fridge.Container, out var container))
+            {
+                foreach (var entity in dumpQueue)
+                {
+                    _container.Insert(entity, container);
+                }
+            }
+
+        }
+        // End DeltaV - ough why do you not use events for this
         else
         {
             var targetPos = _transformSystem.GetWorldPosition(uid);

@@ -1,4 +1,5 @@
 job-description-medical-borg = Half-human, Half-machine. Follow your laws, serve the crew, and assist the medical department.
+job-description-surgeon = Fix missing limbs, tend to emergency patients, try not to play god and get fired.
 job-description-chief-justice = Manage the justice department, act as a judge, and ensure everyone recieves fair and just treatment.
 job-description-clerk = Organize trials, notarize documents, review charges, and act as a judge if needed.
 job-description-prosecutor = Take statements from security and prepare cases against those accused of commiting crimes.
@@ -7,3 +8,5 @@ job-description-security-borg = Purpose-built to ensure the right of every crew 
 job-description-roboticist = Fabricate borgs and other robots, repair and upgrade the station's silicon life, and scream "State Laws" when the AI takes too long to open a door.
 job-description-cargo-assistant = Learn the basics of the logistics department, deliver crates and take buy orders from the rest of the station.
 job-description-admin-assistant = Assist command in their day-to-day activities, grab the captain a coffee, answer faxes in the bridge.
+job-description-mime-delta = Entertain the crew while remaining silent, and engage with light rivalry with the clown.
+job-description-assistant = Get your space legs, assist people, ask a Command member to give you a job.

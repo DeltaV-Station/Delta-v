@@ -37,9 +37,6 @@
       types:
         Slash: 4
         Piercing: 1
-#  - type: DiseaseCarrier
-#    naturalImmunities:
-#    - OwOnavirus
   - type: Speech
     speechSounds: Alto
     speechVerb: Felinid
@@ -64,6 +61,10 @@
       Male: MaleFelinid
       Female: FemaleFelinid
       Unsexed: MaleFelinid
+  - type: ItemCougher
+    item: Hairball
+    action: ActionHairball
+    coughPopup: hairball-cough
   - type: Felinid
   - type: NoShoesSilentFootsteps
 

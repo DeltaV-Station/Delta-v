@@ -61,7 +61,8 @@ tips-dataset-60 = As the Clown, spice your gimmicks up! Nobody likes a one-trick
 tips-dataset-61 = As the Clown, if you lose your banana peels and soap, you can still slip people with your PDA! Honk!
 tips-dataset-62 = As the Chef, your knife can act as a weapon in an emergency.
 tips-dataset-63 = As the Chef, you can sneak liquids into your foods. As a traitor, putting a little bit of amatoxin or other poison can greatly annoy the crew!
-tips-dataset-64 = As the Mime, your oath of silence is your source of power. Breaking it robs you of your powers and of your honor.
+# DeltaV
+tips-dataset-64 = As the Mime, your vow to not speak is your source of power. Breaking it robs you of your powers and of your honor.
 tips-dataset-65 = As the Lawyer, try to negotiate with the Warden if sentences seem too high for the crime.
 tips-dataset-66 = As a Security Officer, communicate and coordinate with your fellow officers using the security radio channel to avoid confusion.
 tips-dataset-67 = As a Security Officer, remember that correlation does not equal causation. Someone may have just been at the wrong place at the wrong time!
@@ -133,20 +134,7 @@ tips-dataset-132 = By right clicking on a player, and then clicking the heart ic
 tips-dataset-133 = Monkeys and kobolds have a rare chance to be sentient. Ook!
 tips-dataset-134 = You can tell if an area with firelocks up is spaced by looking to see if the firelocks have lights beside them.
 tips-dataset-135 = Instead of picking it up, you can alt-click food to eat it. This also works for mice and other creatures without hands.
-# Nyanotrasen - Specific tips below
-tips-dataset-136 = Psionic insulation prevents you from using or being targeted by psionic abilities. Look for insulative headgear or cryptobiolin pills.
-tips-dataset-137 = Lotophagoi oil from the oracle will drug you up for a long time, but is one of the most reliable sources of psionics.
-tips-dataset-138 = Turn off glimmer probers when glimmer approaches cautious levels.
-tips-dataset-139 = Glimmer probers power themselves when glimmer gets too high.
-tips-dataset-140 = Oneirophages have psionic invisiblity. Psionic insulation will allow you to see them.
-tips-dataset-141 = Someone who looks just like you may be a paradox anomaly.
-tips-dataset-142 = Rat kings can command their rats to attack someone by pointing at them.
-tips-dataset-143 = Some rat kings are known to be friendly. As long as the rat army never goes rogue, it could be a great boon to the station.
-tips-dataset-144 = The reverse engineering machine benefits greatly from machine upgrades.
-tips-dataset-145 = The reverse engineering machine can reverse engineer blood red hardsuits.
-tips-dataset-146 = The metempsychotic machine's chance to reincarnate you into a humanoid is guaranteed for a number of times equal to its scanning module tier.
-tips-dataset-147 = Glimmer wisps will only attack you if they detect you are psionic, or you aggravate them by damaging them or dragging away a body they are trying to drain.
-tips-dataset-148 = Bibles, holy water, and the anti-psychic knife can deal holy damage, which has strong effects against some creatures."
-tips-dataset-149 = Ectoplasm is used in the recipe for normality crystals.
-# DeltaV - Specific tips below
-tips-dataset-150 = As a Security Officer, if you're not sure how to determine the severity of a crime or the appropriate punishment, take a look at the Crime Assist application in your PDA!
+tips-dataset-136 = If you're trapped behind an electrified door, disable the APC or throw your ID at the door to avoid getting shocked!
+tips-dataset-137 = If the AI electrifies a door and you have insulated gloves, snip and mend the power wire to reset their electrification!
+tips-dataset-138 = If you want to stop your prisoner from escaping from the cell right after being uncuffed, turn on combat mode while uncuffing - this will shove the prisoner down.
+tips-dataset-139 = Make sure to clean your illegal implanters with a soap or a damp rag after you use them! Detectives can scan used implanters for incriminating DNA evidence, but not if they've been wiped clean.

@@ -2,6 +2,7 @@
 holopad-command-lo = Command - LO
 holopad-command-mysta = Command - Mysta
 holopad-command-cj = Command - CJ
+holopad-command-evac = Command - Evac
 
 # Epistemics
 holopad-epistemics-anomaly = Epistemics - Anomaly
@@ -30,3 +31,31 @@ holopad-justice-clerk = Justice - Clerk
 
 # Security
 holopad-security-corpsman = Security - Corpsman
+
+# General
+holopad-general-park = General - Park
+holopad-general-nitrogen-lounge = General - Nitrogen Lounge
+holopad-general-shipyard-dock = General - Shipyard Dock
+
+# Medical
+holopad-medical-psychologist = Medical - Psychologist
+holopad-medical-outpost = Medical - Outpost
+
+# Engineering
+holopad-engineering-pa-control = Engineering - PA Control
+
+# Service
+holopad-service-toolroom = Service - Toolroom
+holopad-service-barber-shop = Service - Barber Shop
+
+# Station Specific
+holopad-security-perma-kitchen = Security - Perma Kitchen
+holopad-security-perma-botany = Security - Perma Botany
+holopad-security-perma-yard-one = Security - Perma Yard One
+holopad-security-perma-yard-two = Security - Perma Yard Two
+holopad-security-perma-workshop = Security - Perma Workshop
+holopad-security-perma-guard-complex = Security - Perma Guard Complex
+holopad-security-perma-mineshaft = Security - Perma Mineshaft
+holopad-security-perma-arena = Security - Arena
+holopad-security-perma-gladiator-lounge = Security - Gladiator Lounge
+holopad-general-spesscar-track = General - Spesscar Track

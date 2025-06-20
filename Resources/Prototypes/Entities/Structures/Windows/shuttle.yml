@@ -53,6 +53,8 @@
       sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
     price: 150
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WindowCosmicCult
 
 - type: entity
   parent: ShuttleWindow
@@ -67,6 +69,9 @@
     drawdepth: WallTops
     sprite: Structures/Windows/shuttle_window_diagonal.rsi
     state: state0
+  - type: Tag
+    tags:
+    - Diagonal
   - type: IconSmooth
     mode: Diagonal
     key: windows

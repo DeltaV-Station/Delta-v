@@ -428,8 +428,8 @@
       roleLoadout: [ RoleSurvivalClown ]
     - type: RandomMetadata
       nameSegments:
-      - names_clown
-      
+      - NamesClown
+
 - type: randomHumanoidSettings
   id: VisitorJanitor
   parent: VisitorCivilian
@@ -578,8 +578,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimChiefEngineer
@@ -597,8 +598,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimCMO
@@ -616,8 +618,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimHeadOfPersonnel
@@ -635,8 +638,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimHeadOfSecurity
@@ -654,8 +658,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimResearchDirector
@@ -673,8 +678,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ChallengeVictimQuartermaster
@@ -692,8 +698,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 # Security
 # Following use EventHumanoidMindShielded since they are heads and probably should have mindshields
@@ -716,8 +723,9 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
 
 # Engineering
 
@@ -743,6 +751,8 @@
       name: ghost-role-information-syndie-soldier-teamlead-name
       description: ghost-role-information-syndie-soldier-teamlead-description
       rules: ghost-role-information-rules-team-antagonist
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: default
     - type: Loadout
@@ -761,6 +771,8 @@
       name: ghost-role-information-syndie-soldier-name
       description: ghost-role-information-syndie-soldier-description
       rules: ghost-role-information-rules-team-antagonist
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: default
     - type: Loadout
@@ -778,6 +790,8 @@
       name: ghost-role-information-syndie-disaster-victim-name
       description: ghost-role-information-syndie-disaster-victim-description
       rules: ghost-role-information-syndicate-refugee-rules # DeltaV - Removed free agent mention on the rules for a custom one. Was ghost-role-information-freeagent-rules
+      mindRoles:
+      - MindRoleGhostRoleNeutral # DeltaV - replace free agent with neutral to be in line with its rules
       raffle:
         settings: short
     - type: Loadout
@@ -795,6 +809,8 @@
       name: ghost-role-information-pirate-name
       description: ghost-role-information-pirate-description
       rules: ghost-role-information-rules-team-antagonist
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: default
     - type: Loadout
@@ -812,6 +828,8 @@
       name: ghost-role-information-pirate-captain-name
       description: ghost-role-information-pirate-captain-description
       rules: ghost-role-information-rules-team-antagonist
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: default
     - type: Loadout
@@ -828,6 +846,8 @@
       name: ghost-role-information-blackmarketeer-name
       description: ghost-role-information-blackmarketeer-description
       rules: ghost-role-information-freeagent-rules
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
       raffle:
         settings: default
     - type: Loadout
@@ -846,6 +866,8 @@
       name: ghost-role-information-cossack-name
       description: ghost-role-information-cossack-description
       rules: ghost-role-information-freeagent-rules
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
       raffle:
         settings: default
     - type: Loadout

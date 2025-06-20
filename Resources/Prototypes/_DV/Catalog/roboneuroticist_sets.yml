@@ -1,0 +1,102 @@
+- type: thiefBackpackSet
+  id: RoboNeuroticistCommander
+  name: roboneuroticist-set-commander-name
+  description: roboneuroticist-set-commander-description
+  sprite:
+    entity: ClothingMaskGasVoiceChameleon
+  content:
+  - ClothingMaskGasVoiceChameleon
+  - BorgModuleSyndicateWeapon
+  - EncryptionKeyCommon
+
+- type: thiefBackpackSet
+  id: RoboNeuroticistSaboteur
+  name: roboneuroticist-set-saboteur-name
+  description: roboneuroticist-set-saboteur-description
+  sprite:
+    entity: PowerSink
+  content:
+  - PowerSink
+  - BorgModuleRCD
+  - BorgModuleRCD
+  - RCDRecharging
+  - RCDRecharging
+
+- type: thiefBackpackSet
+  id: RoboNeuroticistMechanic
+  name: roboneuroticist-set-mechanic-name
+  description: roboneuroticist-set-mechanic-description
+  sprite:
+    entity: ClothingBeltChiefEngineerFilled
+  content:
+  - ClothingBackpackDuffelSyndicateEliteHardsuitBundle
+  - ClothingBeltChiefEngineerFilled
+
+- type: thiefBackpackSet
+  id: RoboNeuroticistInfiltrator
+  name: roboneuroticist-set-infiltrator-name
+  description: roboneuroticist-set-infiltrator-description
+  sprite:
+    entity: BorgChassisSyndicateSaboteur
+  content:
+  - PlayerBorgSyndicateSaboteurGhostRole
+  - BorgModuleEsword
+  - BorgModuleRCD
+  - RCDRecharging
+  - BorgModuleChameleonProjector
+
+- type: thiefBackpackSet
+  id: RoboNeuroticistWarmonger
+  name: roboneuroticist-set-warmonger-name
+  description: roboneuroticist-set-warmonger-description
+  sprite:
+    entity: BorgChassisSyndicateAssault
+  content:
+  - PlayerBorgSyndicateAssaultGhostRole
+
+- type: thiefBackpackSet
+  id: RoboNeuroticistClown
+  name: roboneuroticist-set-clown-name
+  description: roboneuroticist-set-clown-description
+  sprite:
+    entity: ClothingMaskClown
+  content:
+  - ClothingOuterHardsuitClown
+  - ClothingHeadHatJesterAlt
+  - BorgChassisService
+  - BorgModuleClowning
+  - SoapOmega
+  - ClothingBackpackDuffelSyndicateCostumeClown
+  - MobJonkBot
+  - HappyHonk
+
+- type: thiefBackpackSet
+  id: RoboNeuroticistPirate
+  name: roboneuroticist-set-pirate-name
+  description: roboneuroticist-set-pirate-description
+  sprite:
+    entity: CannonBall
+  content:
+  - BorgModuleCannon
+  - BorgModuleBuccaneer
+  - BorgModuleBuccaneer
+  - ClothingOuterHardsuitPirateCap
+  - ClothingHeadHatPirate
+  - ClothingHeadHatPirateTricord
+  - ClothingHeadHatPirateTricord
+  - ClothingHeadHatPirateTricord
+
+- type: thiefBackpackSet
+  id: RoboNeuroticistMalpractice
+  name: roboneurotocist-set-malpractice-name
+  description: roboneurotocist-set-malpractice-description
+  sprite:
+    entity: BorgHypo
+  content:
+  - PlayerBorgSyndicateMedical
+  - PowerCellHyper
+  - DefibrillatorSyndicate
+  - ClothingHandsGlovesMechanicalSurgical
+  - ClothingBackpackDuffelSyndicateFilledAutodoc
+  - BorgModuleSleeper
+  - SoapOmega # Scrubadubdub

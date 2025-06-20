@@ -10,7 +10,6 @@
   - type: Thirst
   - type: Hunger
     baseDecayRate: 0.0467 # 33% faster than usual
-  - type: Carriable # Carrying system from nyanotrasen.
   - type: Inventory
     speciesId: rodentia
   - type: Icon
@@ -45,6 +44,8 @@
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
@@ -62,8 +63,8 @@
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "belt" ]
-      - map: [ "neck" ]
       - map: [ "back" ]
+      - map: [ "neck" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -112,6 +113,9 @@
     spitDamageThreshold: 3
   - type: CrawlUnderObjects
     actionProto: ActionToggleSneakMode
+  - type: DrawDepthVisualizer
+    key: enum.SneakingVisuals.Sneaking
+    depth: SmallMobs
 
 - type: entity
   save: false

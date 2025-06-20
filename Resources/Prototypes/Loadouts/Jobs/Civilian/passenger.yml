@@ -48,51 +48,14 @@
   equipment:
     jumpsuit: ClothingUniformColorRainbow
 
-# Rose Hoodie w/ Skirt - DeltaV
+# Rainbow Jumpskirt
 - type: loadout
-  id: MioSkirt
+  id: RainbowJumpskirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GreyTider
   equipment:
-    jumpsuit: ClothingCostumeMioSkirt
-
-# Turqoise Hoodie w/ Shorts - DeltaV
-- type: loadout
-  id: NaotaHoodie
-  equipment:
-    jumpsuit: ClothingCostumeNaota
-
-# Casual Blue - DeltaV
-- type: loadout
-  id: CasualRedSkirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtCasualRed
-
-- type: loadout
-  id: CasualRedSuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitCasualRed
-
-
-# Casual Blue - DeltaV
-- type: loadout
-  id: CasualBlueSkirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtCasualBlue
-
-- type: loadout
-  id: CasualBlueSuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitCasualBlue
-
-# Casual Purple - DeltaV
-- type: loadout
-  id: CasualPurpleSkirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtCasualPurple
-
-- type: loadout
-  id: CasualPurpleSuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitCasualPurple
+    jumpsuit: ClothingUniformJumpskirtColorRainbow
 
 # Ancient
 - type: loadout

@@ -52,6 +52,8 @@
     price: 100
   - type: RadiationBlocker
     resistance: 2
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WindowCosmicCult
 
 - type: entity
   id: PlasmaWindowDirectional
@@ -122,6 +124,9 @@
     drawdepth: WallTops
     sprite: Structures/Windows/plasma_diagonal.rsi
     state: state0
+  - type: Tag
+    tags:
+    - Diagonal
   - type: IconSmooth
     mode: Diagonal
     key: windows

@@ -1,12 +1,13 @@
+# Tier 2
+
 - type: technology
-  id: SyringeGun
-  name: research-technology-syringe-gun
+  id: ParamedicHardsuit
+  name: research-technology-paramedic-eva
   icon:
-    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
-    state: syringe_gun
+    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+    state: icon
   discipline: CivilianServices
   tier: 2
-  cost: 10000
+  cost: 7000
   recipeUnlocks:
-    - LauncherSyringe
-    - MiniSyringe
+  - ClothingOuterHardsuitVoidParamed

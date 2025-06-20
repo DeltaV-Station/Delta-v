@@ -9,17 +9,65 @@
   equipment:
     id: VisitorPDALoadout
 
-- type: loadout
-  id: TouristPDA
-  equipment:
-    id: TouristPDA
+#  Tourists dont visit evil space stations anymore.
+#- type: loadout
+#  id: TouristPDA
+#  equipment:
+#    id: TouristPDA
 
 - type: loadout
   id: OffDutyCrewPDA
   equipment:
     id: OffDutyCrewPDA
 
+# Students don't visit evil stations. maybe we can rebrand this to like corporate intern or something
+#- type: loadout
+#  id: StudentPDA
+#   equipment:
+#   id: StudentPDA
+
+# Jumpsuit
+# Rose Hoodie w/ Skirt
 - type: loadout
-  id: StudentPDA
+  id: MioSkirt
   equipment:
-    id: StudentPDA
+    jumpsuit: ClothingCostumeMioSkirt
+
+# Turqoise Hoodie w/ Shorts
+- type: loadout
+  id: NaotaHoodie
+  equipment:
+    jumpsuit: ClothingCostumeNaota
+
+# Casual Red
+- type: loadout
+  id: CasualRedSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCasualRed
+
+- type: loadout
+  id: CasualRedSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualRed
+
+# Casual Blue
+- type: loadout
+  id: CasualBlueSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCasualBlue
+
+- type: loadout
+  id: CasualBlueSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualBlue
+
+# Casual Purple
+- type: loadout
+  id: CasualPurpleSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCasualPurple
+
+- type: loadout
+  id: CasualPurpleSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualPurple

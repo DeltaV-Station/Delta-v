@@ -20,7 +20,6 @@
           #command
             Captain: [ 1, 1 ]
             StationAi: [ 1, 1 ]
-            AdministrativeAssistant: [ 1, 1 ]
           #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 3 ]
@@ -41,11 +40,12 @@
             TechnicalAssistant: [ 2, 4 ]
           #medical
             ChiefMedicalOfficer: [ 1, 1 ]
-            Chemist: [ 1, 1 ]
+            Chemist: [ 2, 2 ]
             Paramedic: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
             MedicalDoctor: [ 2, 3 ]
-            MedicalIntern: [ 2, 3 ]
+            MedicalIntern: [ 2, 2 ]
+            Surgeon: [ 1, 1 ]
           #science
             ResearchDirector: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
@@ -75,5 +75,5 @@
             ChiefJustice: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
             Prosecutor: [ 1, 1 ]
-            Clerk: [ 1, 1 ] 
+            Clerk: [ 1, 1 ]
 

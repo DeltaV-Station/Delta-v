@@ -8,7 +8,7 @@
   - type: Sprite
     sprite: _DV/Clothing/Neck/mantles/ryuzo.rsi
   - type: Clothing
-    sprite: _DV/Clothing/Neck/mantles/ryuzo.rsi    
+    sprite: _DV/Clothing/Neck/mantles/ryuzo.rsi
 
 - type: entity
   parent: ClothingNeckBase
@@ -20,4 +20,14 @@
     sprite: _DV/Clothing/Neck/mantles/cjmantle.rsi
   - type: Clothing
     sprite: _DV/Clothing/Neck/mantles/cjmantle.rsi
-    
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMantleCentcom
+  name: central commander's mantle
+  description: A comfortable and elite green mantle with a nice gold trim, tailored specifically for to the Central Commander. There's a shiny red gemstone holding it together in the middle.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/mantles/centcommantle.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/mantles/centcommantle.rsi

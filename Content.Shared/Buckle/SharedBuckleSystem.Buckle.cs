@@ -362,7 +362,6 @@ public abstract partial class SharedBuckleSystem
 
         _audio.PlayPredicted(strap.Comp.BuckleSound, strap, user);
 
-        SetBuckledTo(buckle, strap!);
         Appearance.SetData(strap, StrapVisuals.State, true);
         Appearance.SetData(buckle, BuckleVisuals.Buckled, true);
 
@@ -380,9 +379,11 @@ public abstract partial class SharedBuckleSystem
                 _standing.Stand(buckle, force: true);
                 break;
             case StrapPosition.Down:
-                _standing.Down(buckle, false, false, force: true);
+                _standing.Down(buckle, false, false);
                 break;
         }
+
+        SetBuckledTo(buckle, strap!); // DeltaV - Allow standing system to handle Down/Stand before buckling
 
         var ev = new StrappedEvent(strap, buckle);
         RaiseLocalEvent(strap, ref ev);
@@ -416,7 +417,7 @@ public abstract partial class SharedBuckleSystem
 
     public bool TryUnbuckle(Entity<BuckleComponent?> buckle, EntityUid? user, bool popup)
     {
-        if (!Resolve(buckle.Owner, ref buckle.Comp))
+        if (!Resolve(buckle.Owner, ref buckle.Comp, false))
             return false;
 
         if (!CanUnbuckle(buckle, user, popup, out var strap))
@@ -458,7 +459,7 @@ public abstract partial class SharedBuckleSystem
         var buckleXform = Transform(buckle);
         var oldBuckledXform = Transform(strap);
 
-        if (buckleXform.ParentUid == strap.Owner && !Terminating(buckleXform.ParentUid))
+        if (buckleXform.ParentUid == strap.Owner && !Terminating(oldBuckledXform.ParentUid))
         {
             _transform.PlaceNextTo((buckle, buckleXform), (strap.Owner, oldBuckledXform));
             buckleXform.ActivelyLerping = false;

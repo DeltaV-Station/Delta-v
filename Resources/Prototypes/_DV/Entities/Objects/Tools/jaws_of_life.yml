@@ -1,0 +1,23 @@
+- type: entity
+  parent: [JawsOfLife, PowerCellSlotMediumItem]
+  id: EmergencyJawsOfLife
+  name: emergency jaws of life
+  description: A set of Jaws of Life. EMTs may use them to pry open powered airlocks in an emergency.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Tools/emergency_jaws_of_life.rsi
+  - type: Clothing
+    sprite: _DV/Objects/Tools/emergency_jaws_of_life.rsi
+  - type: ToolTileCompatible
+    delay: .75
+  - type: Prying
+    speedModifier: 1 # High torque low speed, Half speed of proper JoL
+  - type: MultipleTool
+    entries:
+    - behavior: Prying
+      sprite:
+        sprite: _DV/Objects/Tools/emergency_jaws_of_life.rsi
+        state: jaws_pry
+      useSound: /Audio/Items/jaws_pry.ogg
+  - type: PryingRequiresPower
+    powerCost: 144 # 5 uses from medium power cell

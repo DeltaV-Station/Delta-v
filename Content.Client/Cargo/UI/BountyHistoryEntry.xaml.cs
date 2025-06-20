@@ -19,7 +19,7 @@ public sealed partial class BountyHistoryEntry : BoxContainer
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        if (!_prototype.TryIndex<CargoBountyPrototype>(bounty.Bounty, out var bountyPrototype))
+        if (!_prototype.TryIndex(bounty.Bounty, out var bountyPrototype))
             return;
 
         var items = new List<string>();
@@ -29,26 +29,21 @@ public sealed partial class BountyHistoryEntry : BoxContainer
                 ("amount", entry.Amount),
                 ("item", Loc.GetString(entry.Name))));
         }
+
         ManifestLabel.SetMarkup(Loc.GetString("bounty-console-manifest-label", ("item", string.Join(", ", items))));
         RewardLabel.SetMarkup(Loc.GetString("bounty-console-reward-label", ("reward", bountyPrototype.Reward)));
         IdLabel.SetMarkup(Loc.GetString("bounty-console-id-label", ("id", bounty.Id)));
 
-        var stationTime = bounty.Timestamp.ToString("hh\\:mm\\:ss");
-        if (bounty.ActorName == null)
+        TimestampLabel.SetMarkup(bounty.Timestamp.ToString(@"hh\:mm\:ss"));
+
+        if (bounty.Result == CargoBountyHistoryData.BountyResult.Completed)
         {
-            StatusLabel.SetMarkup(Loc.GetString("bounty-console-history-completed-label"));
-            NoticeLabel.SetMarkup(Loc.GetString("bounty-console-history-notice-completed-label", ("time", stationTime)));
+            NoticeLabel.SetMarkup(Loc.GetString("bounty-console-history-notice-completed-label"));
         }
         else
         {
-            StatusLabel.SetMarkup(Loc.GetString("bounty-console-history-skipped-label"));
             NoticeLabel.SetMarkup(Loc.GetString("bounty-console-history-notice-skipped-label",
-                ("id", bounty.ActorName),
-                ("time", stationTime)));
+                ("id", bounty.ActorName ?? "")));
         }
-    }
-    protected override void FrameUpdate(FrameEventArgs args)
-    {
-        base.FrameUpdate(args);
     }
 }

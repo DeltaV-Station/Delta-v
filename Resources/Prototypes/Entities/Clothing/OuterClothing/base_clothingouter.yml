@@ -8,6 +8,7 @@
     - outerClothing
   - type: Sprite
     state: icon
+  - type: AllowSuitStorage # DeltaV - allow suit storage for all outer clothing, no whitelist
 
 - type: entity
   abstract: true
@@ -108,6 +109,8 @@
   id: ClothingOuterHardsuitBase
   name: base hardsuit
   components:
+  - type: SlotBlock
+    slots: [innerclothing, feet]
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -153,6 +156,8 @@
   id: ClothingOuterEVASuitBase
   name: base EVA Suit
   components:
+  - type: SlotBlock
+    slots: [innerclothing, feet]
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000

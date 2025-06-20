@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Light.Components;
 using Content.Shared.Weather;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
@@ -57,6 +58,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
         // Work out tiles nearby to determine volume.
         if (TryComp<MapGridComponent>(entXform.GridUid, out var grid))
         {
+            TryComp(entXform.GridUid, out RoofComponent? roofComp);
             var gridId = entXform.GridUid.Value;
             // FloodFill to the nearest tile and use that for audio.
             var seed = _mapSystem.GetTileRef(gridId, grid, entXform.Coordinates);
@@ -71,7 +73,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
                 if (!visited.Add(node.GridIndices))
                     continue;
 
-                if (!CanWeatherAffect(entXform.GridUid.Value, grid, node))
+                if (!CanWeatherAffect(entXform.GridUid.Value, grid, node, roofComp))
                 {
                     // Add neighbors
                     // TODO: Ideally we pick some deterministically random direction and use that
@@ -127,6 +129,20 @@ public sealed class WeatherSystem : SharedWeatherSystem
 
         if (!Timing.IsFirstTimePredicted)
             return true;
+
+        // Begin DeltaV Additions: Prevent hearing weather in the lobby
+        if (_playerManager.LocalEntity is not {} ent)
+            return false;
+
+        var map = Transform(uid).MapUid;
+        var entMap = Transform(ent).MapUid;
+
+        if (map == null || entMap != map)
+        {
+            weather.Stream = _audio.Stop(weather.Stream);
+            return false;
+        }
+        // End DeltaV Additions
 
         // TODO: Fades (properly)
         weather.Stream = _audio.Stop(weather.Stream);

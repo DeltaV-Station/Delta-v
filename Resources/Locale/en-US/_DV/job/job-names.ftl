@@ -1,4 +1,5 @@
 job-name-medical-borg = Medical Cyborg
+job-name-surgeon = Surgeon
 job-name-chief-justice = Chief Justice
 job-name-clerk = Clerk
 job-name-prosecutor = Prosecutor
@@ -6,7 +7,6 @@ job-name-lawyer = Attorney
 job-name-courier = Courier
 job-name-cargo-assistant = Cargo Assistant
 job-name-security-borg = Security Cyborg
-job-name-admin-assistant = Administrative Assistant
 # Used by the Agent ID
 job-name-senior-physician = Senior Physician
 job-name-senior-researcher = Senior Researcher
@@ -30,6 +30,7 @@ job-alt-title-resident = Resident
 
 job-alt-title-senior-physician = Senior Physician
 job-alt-title-clinician = Clinician
+job-alt-title-cryogenics-specialist = Cryogenics Specialist
 
 job-alt-title-life-support = Life Support Technician
 job-alt-title-plasma-scientist = Plasma Scientist
@@ -61,6 +62,9 @@ job-alt-title-psychiatrist = Psychiatrist
 job-alt-title-social-worker = Social Worker
 job-alt-title-therapist = Therapist
 
+job-title-admeme-overwriting = Overwriting
+job-title-admeme-adding = Adding
+
 # Role timers
 JobMedicalBorg = Medical Cyborg
 JobCourier = Courier
@@ -70,4 +74,3 @@ JobProsecutor = Prosecutor
 JobSecurityBorg = Security Cyborg
 JobRoboticist = Roboticist
 JobCargoAssistant = Cargo Assistant
-JobAdminAssistant = Administrative Assistant

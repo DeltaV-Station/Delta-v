@@ -7,6 +7,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
@@ -26,6 +27,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using System.Numerics;
+using Content.Shared._DV.Polymorph;
 
 namespace Content.Shared._DV.Carrying;
 
@@ -58,6 +60,7 @@ public sealed class CarryingSystem : EntitySystem
         SubscribeLocalEvent<CarryingComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<CarryingComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<CarryingComponent, DownedEvent>(OnDowned);
+        SubscribeLocalEvent<CarryingComponent, BeforePolymorphedEvent>(OnBeforePolymorphed);
         SubscribeLocalEvent<BeingCarriedComponent, InteractionAttemptEvent>(OnInteractionAttempt);
         SubscribeLocalEvent<BeingCarriedComponent, UpdateCanMoveEvent>(OnMoveAttempt);
         SubscribeLocalEvent<BeingCarriedComponent, StandAttemptEvent>(OnStandAttempt);
@@ -69,6 +72,7 @@ public sealed class CarryingSystem : EntitySystem
         SubscribeLocalEvent<BeingCarriedComponent, StrappedEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, UnstrappedEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, EscapeInventoryEvent>(OnDrop);
+        SubscribeLocalEvent<BeingCarriedComponent, ComponentRemove>(OnRemoved);
         SubscribeLocalEvent<CarriableComponent, CarryDoAfterEvent>(OnDoAfter);
     }
 
@@ -164,6 +168,12 @@ public sealed class CarryingSystem : EntitySystem
         DropCarried(ent, ent.Comp.Carried);
     }
 
+    private void OnBeforePolymorphed(Entity<CarryingComponent> ent, ref BeforePolymorphedEvent args)
+    {
+        if (HasComp<MindContainerComponent>(ent.Comp.Carried))
+            DropCarried(ent, ent.Comp.Carried);
+    }
+
     /// <summary>
     /// Only let the person being carried interact with their carrier and things on their person.
     /// </summary>
@@ -203,6 +213,19 @@ public sealed class CarryingSystem : EntitySystem
     private void OnDrop<TEvent>(Entity<BeingCarriedComponent> ent, ref TEvent args) // Augh
     {
         DropCarried(ent.Comp.Carrier, ent);
+    }
+
+    private void OnRemoved(Entity<BeingCarriedComponent> ent, ref ComponentRemove args)
+    {
+        /*
+            This component has been removed for whatever reason, so just make sure that the
+            carrier is cleaned up.
+        */
+        if (!TryComp<CarryingComponent>(ent.Comp.Carrier, out var carryingComponent))
+            // This carrier has probably already been cleaned, no reason to try again
+            return;
+
+        CleanupCarrier(ent.Comp.Carrier, ent);
     }
 
     private void OnDoAfter(Entity<CarriableComponent> ent, ref CarryDoAfterEvent args)
@@ -245,8 +268,11 @@ public sealed class CarryingSystem : EntitySystem
 
     private void Carry(EntityUid carrier, EntityUid carried)
     {
-        if (TryComp<PullableComponent>(carried, out var pullable))
-            _pulling.TryStopPull(carried, pullable);
+        if (TryComp<PullableComponent>(carried, out var carriedPullable))
+            _pulling.TryStopPull(carried, carriedPullable);
+
+        if (TryComp<PullableComponent>(carrier, out var carrierPullable))
+            _pulling.TryStopPull(carrier, carrierPullable);
 
         var carrierXform = Transform(carrier);
         var xform = Transform(carried);
@@ -295,6 +321,11 @@ public sealed class CarryingSystem : EntitySystem
     public void DropCarried(EntityUid carrier, EntityUid carried)
     {
         Drop(carried);
+        CleanupCarrier(carrier, carried);
+    }
+
+    private void CleanupCarrier(EntityUid carrier, EntityUid carried)
+    {
         RemComp<CarryingComponent>(carrier); // get rid of this first so we don't recursively fire that event
         RemComp<CarryingSlowdownComponent>(carrier);
         _virtualItem.DeleteInHandsMatching(carrier, carried);

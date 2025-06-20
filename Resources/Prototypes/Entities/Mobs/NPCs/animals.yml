@@ -62,6 +62,20 @@
     damage:
       types:
         Piercing: 5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      30: Critical
+      60: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 120
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
   - type: Tag
     tags:
     - VimPilot
@@ -108,6 +122,17 @@
         Base: dead
       Dead:
         Base: dead
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: GroundBee
+          Quantity: 5 # DeltaV - was 1
+  - type: Butcherable
+    spawned:
+    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
   - type: Item
     size: Tiny
   - type: Tag
@@ -115,6 +140,7 @@
     - Bee
     - Trash
   - type: Bloodstream
+    bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
@@ -126,15 +152,16 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
-  - type: Extractable # DeltaV - Make it so bees can be ground up
-    grindableSolutionName: bee
-  - type: SolutionContainerManager
-    solutions:
-      bee:
-        reagents:
-        - ReagentId: GroundBee
-          Quantity: 5
   - type: ZombieImmune
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 20
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
 
 - type: entity
   name: bee
@@ -183,7 +210,7 @@
     noMovementLayers:
       movement:
         state: chicken-0
-  - type: Carriable #Delta-V
+  - type: Carriable # DeltaV
     freeHandsRequired: 1
   - type: Fixtures
     fixtures:
@@ -240,6 +267,7 @@
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
+  - type: ExaminableHunger
   - type: ReplacementAccent
     accent: chicken
   - type: SentienceTarget
@@ -330,6 +358,7 @@
   - type: Item
     size: Tiny
   - type: HTN
+    constantlyReplan: false
     rootTask:
       task: MouseCompound
   - type: Physics
@@ -396,7 +425,9 @@
         damageType: Blunt
         damage: 10
       behaviors:
-      - !type:GibBehavior { }
+      - !type:GibBehavior
+        gibContents: Skip # Shitmed Change
+        recursive: false
   - type: NonSpreaderZombie
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
@@ -454,6 +485,8 @@
     name: ghost-role-information-mothroach-name
     description: ghost-role-information-mothroach-description
     rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
   - type: Fixtures
     fixtures:
       fix1:
@@ -474,7 +507,7 @@
     insertingState: inserting_mothroach
   - type: MothAccent
   - type: Sprite
-    sprite: Mobs/Animals/mothroach.rsi
+    sprite: Mobs/Animals/mothroach/mothroach.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mothroach
@@ -489,7 +522,7 @@
     size: Normal
   - type: Clothing
     quickEquip: false
-    sprite: Mobs/Animals/mothroach.rsi
+    sprite: Mobs/Animals/mothroach/mothroach.rsi
     equippedPrefix: 0
     slots:
     - HEAD
@@ -512,7 +545,7 @@
     baseSprintSpeed : 4
     weightlessAcceleration: 1.5
     weightlessFriction: 1
-    weightlessModifier: 1
+    baseWeightlessModifier: 1
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Moth
@@ -551,7 +584,6 @@
     tags:
     - Trash
     - CannotSuicide
-    - DoorBumpOpener # DeltaV - After all, why not? Why shouldn't they be able to open doors?
     - VimPilot
   - type: CanEscapeInventory
   - type: NpcFactionMember
@@ -559,6 +591,7 @@
     - Mouse
   - type: Body
     prototype: Mothroach
+  - type: SurgeryTarget # Shitmed
   - type: TypingIndicator
     proto: moth
   - type: Destructible
@@ -568,10 +601,48 @@
         damageType: Blunt
         damage: 60
       behaviors:
-      - !type:GibBehavior { }
+      - !type:GibBehavior
+        recursive: false
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key: # Shitmed
+        type: SurgeryBui
+  - type: InventorySlots
+  - type: Inventory
+    speciesId: hamster
+    templateId: hamster
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: mask
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: suitstorage
+      eyes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: eyes
+      neck:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: neck
 
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
@@ -643,6 +714,7 @@
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
+  - type: ExaminableHunger
   - type: ReplacementAccent
     accent: duck
   - type: SentienceTarget
@@ -749,10 +821,36 @@
         Base: dead
       Dead:
         Base: dead
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 1
+  - type: Butcherable
+    spawned:
+    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - Trash
   - type: Bloodstream
+    bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 20
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
 
 - type: entity
   name: cow
@@ -808,6 +906,7 @@
     reagentId: Milk
     quantityPerUpdate: 25
     growthDelay: 30
+  - type: ExaminableHunger
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -830,6 +929,11 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: HTN
     rootTask:
       task: RuminantCompound
@@ -907,6 +1011,11 @@
       task: RuminantCompound
   - type: Body
     prototype: AnimalHemocyanin
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
 
 - type: entity
   name: goat
@@ -967,6 +1076,7 @@
     reagentId: MilkGoat
     quantityPerUpdate: 25
     growthDelay: 20
+  - type: ExaminableHunger
   - type: Wooly
   - type: Food
     solution: wool
@@ -983,6 +1093,15 @@
   - type: Grammar
     attributes:
       gender: female # Here because of UdderComponent
+  - type: Speech
+    speechSounds: Goat
+    speechVerb: Goat
+  - type: Vocal
+    sounds:
+      Female: Goat
+      Male: Goat
+      Unsexed: Goat
+  - type: BleatingAccent
   - type: InteractionPopup
     successChance: 0.2
     interactSuccessString: petting-success-goat
@@ -995,6 +1114,11 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: NPCRetaliation
     attackMemoryLength: 5
   - type: FactionException
@@ -1167,9 +1291,6 @@
   - type: Vocal
     sounds:
       Unsexed: Kangaroo
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: FootstepBounce
   - type: Puller
     needsHands: false
   - type: StaminaDamageOnHit
@@ -1213,6 +1334,13 @@
   abstract: true
   components:
   - type: CombatMode
+  # Shitmed Change Start
+  - type: SurgeryTarget
+  - type: Targeting
+  - type: HumanoidAppearance
+    species: Monkey
+  # Shitmed Change End
+  - type: CosmicCenserTarget # DeltaV - Cosmic Cult
   - type: Inventory
     templateId: monkey
     speciesId: monkey
@@ -1237,24 +1365,48 @@
   - type: Sprite
     drawdepth: Mobs
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: monkey
-      sprite: Mobs/Animals/monkey.rsi
-    - map: [ "jumpsuit" ]
-    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+  # Shitmed Change Start
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: ["jumpsuit"]
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
     - map: [ "ears" ]
-    - map: [ "outerClothing" ]
     - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "neck" ]
+    - map: [ "back" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
     - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
     - map: [ "clownedon" ]
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
       visible: false
+  # Shitmed Change End
   - type: Carriable # DeltaV
   - type: Hands
   - type: ComplexInteraction
@@ -1264,9 +1416,15 @@
         clownedon:
           True: {visible: true}
           False: {visible: false}
-  - type: Body
-    prototype: Primate
-    requiredLegs: 1 # TODO: More than 1 leg
+  - type: Body # Shitmed Change
+    prototype: Monkey
+    requiredLegs: 2
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: CreamPied
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -1381,6 +1539,9 @@
     name: ghost-role-information-monkey-name
     description: ghost-role-information-monkey-description
     rules: ghost-role-information-syndicate-reinforcement-rules
+    mindRoles:
+    # This is for syndicate monkeys that randomly gain sentience, thus have no summoner to team with
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -1415,10 +1576,17 @@
   - type: LizardAccent
   - type: ReplacementAccent
     accent: kobold
+  # Shitmed Change Start
+  - type: HumanoidAppearance
+    species: Kobold
+  - type: Body
+    prototype: Kobold
+    requiredLegs: 2
+  # Shitmed Change End
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
-    allowedEmotes: ['Thump']
+    allowedEmotes: ['Thump', 'Hiss'] # Impstation
   - type: Vocal
     sounds:
       Male: MaleReptilian
@@ -1459,47 +1627,6 @@
     coldDamageThreshold: 285
     currentTemperature: 310.15
     specificHeat: 42
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      sprite: Mobs/Animals/kobold.rsi
-      state: kobold
-    - map: [ "outline" ]
-      sprite: Mobs/Animals/kobold.rsi
-      state: outline
-    - map: [ "horns" ]
-      sprite: Mobs/Customization/reptilian_parts.rsi
-      state: horns_short
-    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-      color: "#ffffff"
-      sprite: Objects/Misc/handcuffs.rsi
-      state: body-overlay-2
-      visible: false
-    - map: [ "ears" ]
-    - map: [ "id" ]
-    - map: [ "mask" ]
-    - map: [ "head" ]
-    - map: [ "clownedon" ]
-      sprite: "Effects/creampie.rsi"
-      state: "creampie_human"
-      visible: false
-  - type: RandomSprite
-    getAllGroups: true
-    available:
-      - enum.DamageStateVisualLayers.Base:
-          kobold: KoboldColors
-      - horns:
-          horns_curled: KoboldHornColors
-          horns_ram: KoboldHornColors
-          horns_short: KoboldHornColors
-          horns_myrsore: KoboldHornColors
-          horns_bighorn: KoboldHornColors
-          horns_argali: KoboldHornColors
-          horns_ayrshire: KoboldHornColors
-          horns_floppy_kobold_ears: Inherit
-          horns_double: Inherit
-          horns_kobold_ears: Inherit
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -1540,7 +1667,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Critical
+      100: Critical
       200: Dead
   - type: NpcFactionMember
     factions:
@@ -1581,6 +1708,11 @@
   components:
   - type: Body
     prototype: Mouse
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -1588,6 +1720,8 @@
     name: ghost-role-information-mouse-name
     description: ghost-role-information-mouse-description
     rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
   - type: GhostTakeoverAvailable
   - type: Speech
     speechSounds: Squeak
@@ -1619,6 +1753,7 @@
     factions:
       - Mouse
   - type: HTN
+    constantlyReplan: false
     rootTask:
       task: MouseCompound
   - type: Physics
@@ -1744,6 +1879,15 @@
       Taco: RatTaco
       Burger: RatBurger
       Skewer: RatSkewer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 60
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
 
 - type: entity
   parent: MobMouse
@@ -1841,6 +1985,17 @@
   id: MobLizard
   description: A harmless dragon.
   components:
+  - type: ReplacementAccent # Impstation starts here
+    accent: kobold
+  - type: Speech
+    speechSounds: Lizard
+    speechVerb: Reptilian
+    allowedEmotes: ['Hiss'] # Can't thump tail because no body component
+  - type: Vocal
+    sounds:
+      Male: MaleReptilian
+      Female: FemaleReptilian
+      Unsexed: MaleReptilian # Impstation ends here
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 3
@@ -2000,6 +2155,15 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 60
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
@@ -2268,6 +2432,11 @@
   - type: CombatMode
   - type: Body
     prototype: AnimalHemocyanin
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -2350,6 +2519,8 @@
     name: ghost-role-information-giant-spider-name
     description: ghost-role-information-giant-spider-description
     rules: deltav-ghost-role-information-softantag-rules # DeltaV
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: short
   - type: GhostTakeoverAvailable
@@ -2393,8 +2564,8 @@
 
 - type: entity
   parent:
-  - MobGiantSpider
   - MobSpiderAngryBase
+  - MobGiantSpider
   id: MobGiantSpiderAngry
 
 - type: entity
@@ -2665,9 +2836,10 @@
     - VimPilot
 
 - type: entity
-  name: corgi
+  abstract: true
   parent: [SimpleMobBase, StripableInventoryBase]
-  id: MobCorgi
+  id: MobCorgiBase
+  name: corgi
   description: Finally, a space corgi!
   components:
   - type: Sprite
@@ -2680,6 +2852,7 @@
   - type: Physics
   - type: Speech
     speechVerb: Canine
+    speechSounds: Dog
   - type: Fixtures
     fixtures:
       fix1:
@@ -2694,6 +2867,22 @@
   - type: Inventory
     speciesId: dog
     templateId: pet
+  - type: InteractionPopup
+    interactSuccessString: petting-success-dog
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/small_dog_bark_happy.ogg
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: MobPrice
+    price: 200
+
+- type: entity
+  parent: MobCorgiBase
+  id: MobCorgi
+  components:
   - type: DamageStateVisuals
     states:
       Alive:
@@ -2708,19 +2897,8 @@
       amount: 2
   - type: ReplacementAccent
     accent: dog
-  - type: InteractionPopup
-    interactSuccessString: petting-success-dog
-    interactFailureString: petting-failure-generic
-    interactSuccessSpawn: EffectHearts
-    interactSuccessSound:
-      path: /Audio/Animals/small_dog_bark_happy.ogg
-  - type: Grammar
-    attributes:
-      gender: epicene
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-corgi
-  - type: MobPrice
-    price: 200
   - type: Tag
     tags:
     - VimPilot
@@ -2883,6 +3061,9 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
   - type: HTN # DeltaV - make all cats eat mice
     rootTask:
       task: SimpleHostileCompound
@@ -2933,6 +3114,8 @@
     allowMovement: true
     description: ghost-role-information-SyndiCat-description
     rules: ghost-role-information-SyndiCat-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -3303,6 +3486,15 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 120
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
 
 - type: entity
   name: pig
@@ -3465,3 +3657,64 @@
   components:
   - type: ReplacementAccent
     accent: nymph
+
+- type: entity
+  parent: MobCorgiBase
+  id: MobCorgiSmart
+  name: smart corgi
+  description: An unusually smart dog.
+  components:
+  # Use corgi sprite, need to add handcuff layer
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: corgi
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi # Would do a custom dog handcuff sprite but unfortunately handcuffs have their overlay baked-in to the cuff itself so this is mostly filler
+      state: body-overlay-2
+      visible: false
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  # Custom inventory template
+  - type: Inventory
+    speciesId: dog
+    templateId: SmartCorgi
+    displacements:
+      belt:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/corgi.rsi
+            state: belt_displacement
+      ears:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/corgi.rsi
+            state: belt_displacement
+  - type: Hands # HANDS!
+  - type: Puller
+  - type: Cuffable # bad dog!
+  - type: BlockWriting # dogs can't write, paws unwieldy; mouth-writing is a myth
+  - type: Stripping
+  - type: ComplexInteraction
+  # Implement custom borgi body type
+  - type: Body
+    prototype: SmartCorgi
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 180
+  - type: Grammar
+    attributes:
+      gender: epicene # Gender neutral
+      proper: true
+  - type: Tag
+    tags:
+    - VimPilot
+    - CanPilot
+    - DoorBumpOpener
+  - type: StatusIcon # marks them as crew
+    bounds: -0.5,-0.5,0.5,0.5

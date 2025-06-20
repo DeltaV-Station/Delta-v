@@ -1,5 +1,4 @@
 using Content.Server.Bible.Components;
-using Content.Server._DV.Cloning;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
@@ -72,7 +71,7 @@ public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
 
         // finally gib the targets old body
         if (TryComp<BodyComponent>(target, out var body))
-            _body.GibBody(target, gibOrgans: true, body, launchGibs: true);
+            _body.GibBody(target, acidify: true, body, launchGibs: true);
         else
             QueueDel(target);
     }
@@ -118,7 +117,7 @@ public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
             return;
         }
 
-        if (!HasComp<HumanoidAppearanceComponent>(target) && !HasComp<MetempsychosisKarmaComponent>(target))
+        if (!HasComp<HumanoidAppearanceComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("altar-failure-reason-target-humanoid", ("target", target)), ent, user, PopupType.SmallCaution);
             return;

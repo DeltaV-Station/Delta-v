@@ -6,17 +6,14 @@
   antagAdvantage: 4 # DeltaV - Reduced TC: Security Radio and Access
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
-    - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
-      department: Security
-      time: 14400 # 4 hours
+      time: 9000 # 2.5 hrs
   startingGear: LawyerGear
   icon: "JobIconLawyer"
-  supervisors: job-supervisors-cj  # Delta V - Change supervisor to chief justice
+  supervisors: job-supervisors-cj # DeltaV - Change supervisor to chief justice
   access:
-  # - Service - DeltaV, removed from service department
-  - Justice # DeltaV - Justice dept
+  - Justice # DeltaV - Justice dept, replaces Service
   - Lawyer
+  #- Brig # DeltaV - Removed brig access
   - Maintenance
 
 - type: startingGear

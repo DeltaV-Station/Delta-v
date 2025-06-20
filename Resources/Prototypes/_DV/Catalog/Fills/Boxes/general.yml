@@ -16,7 +16,18 @@
     whitelist:
       components:
       - EncryptionKey
-      
+
+- type: entity
+  parent: BoxEncryptionKeyPassenger
+  id: BoxEncryptionKeyTraffic
+  name: traffic encryption key box
+  description: A box of spare encryption keys.
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeyTraffic
+      amount: 4
+
 - type: entity
   name: justice encryption key box
   parent: BoxEncryptionKeyPassenger
@@ -42,3 +53,83 @@
     contents:
     - id: SyndicateRadioImplanter
       amount: 2
+
+- type: entity
+  name: syndicate hostage implanter box
+  parent: BoxCardboard
+  id: BoxSyndicateHostageImplanter
+  description: Contains hostage implants.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: implant
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,3
+    whitelist:
+      components:
+      - Implanter
+  - type: StorageFill
+    contents:
+    - id: HostageImplanter
+      amount: 6
+
+- type: entity
+  name: syndicate handcuff box
+  parent: BoxCardboard
+  id: BoxSyndicateHandcuffBundle
+  description: Contains a large amount of handcuffs
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: handcuff
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,4,3
+    whitelist:
+      components:
+      - Handcuff
+  - type: StorageFill
+    contents:
+    - id: Handcuffs
+      amount: 10
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxSyndicateStunBundle
+  name: syndicate stun box
+  description: A box of two basic stun weapons.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: writing_of_doom
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+    - id: Stunbaton
+    - id: WeaponDisabler
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxSyndicateFirebugsFestival
+  name: firebug's festival box
+  description: A box containing bottles of Firebug's Favorite. The front of it shows a chitinid operative in a thermal suit giving a thumbs up
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: writing_of_doom
+  - type: StorageFill
+    contents:
+    - id: ChemistryBottleFirebugsFriend
+      amount: 8
+    - id: SyndicateFlippo
+      amount: 1

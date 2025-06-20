@@ -1,10 +1,40 @@
 ## This is for Nyano and Delta V tags
 
 - type: Tag
+  id: AugmentAPCBoard
+
+- type: Tag
+  id: AugmentBotanyToolBelt
+
+- type: Tag
+  id: AugmentCellCasing
+
+- type: Tag
+  id: AugmentChargerCasing
+
+- type: Tag
+  id: AugmentPaperworkToolBelt
+
+- type: Tag
+  id: AugmentStationBoard
+
+- type: Tag
+  id: AugmentSurgeryToolBelt
+
+- type: Tag
+  id: AugmentToolBelt
+
+- type: Tag
+  id: AugmentToolPanelCasing
+
+- type: Tag
   id: Bayonet #Craftable Musket
 
 - type: Tag
   id: BeltSlotNotBelt #not a 'belt'
+
+- type: Tag
+  id: BluespaceCrystal
 
 - type: Tag
   id: BorgModuleSecurity
@@ -13,25 +43,16 @@
   id: BorgSecurityArmour
 
 - type: Tag
-  id: BorgSecurityHead
+  id: BorgMaterial # for materials that can be used in a borg construction module
 
 - type: Tag
-  id: BorgSecurityLArm
-
-- type: Tag
-  id: BorgSecurityLLeg
-
-- type: Tag
-  id: BorgSecurityRArm
-
-- type: Tag
-  id: BorgSecurityRLeg
-
-- type: Tag
-  id: BorgSecurityTorso
+  id: BorgStockPart
 
 - type: Tag
   id: BulletBB
+
+- type: Tag
+  id: CartridgeLaser
 
 - type: Tag
   id: CartridgeSpecial # For the .38 special ammo and revolver
@@ -40,7 +61,13 @@
   id: CartridgeMusket #For the Craftable Musket
 
 - type: Tag
+  id: ChitinSharkminnow
+
+- type: Tag
   id: ConcealCarry # For objects that can be stored in military-style boots or similar items
+
+- type: Tag
+  id: CoreSilver
 
 - type: Tag
   id: Directional
@@ -58,6 +85,9 @@
   id: ForensicBeltEquip
 
 - type: Tag
+  id: GamblagatorCartridge
+
+- type: Tag
   id: Gavel
 
 - type: Tag
@@ -68,12 +98,27 @@
 
 - type: Tag
   id: HidesHarpyWings
-  
+
 - type: Tag
   id: HudMedicalSecurity #Craftable Corpsman Glasses
 
+- type: Tag # prevents ID chips being used for an id computer privileged id
+  id: IdChip
+
+- type: Tag
+  id: LightFixture
+
+- type: Tag
+  id: MagazineLaser
+
 - type: Tag
   id: MagazinePistolSpecial # For the .38 special ammo and pistol
+
+- type: Tag
+  id: MagazineUniversalMagnum
+
+- type: Tag
+  id: Magboots
 
 - type: Tag
   id: ModularBreech #Craftable Musket
@@ -82,7 +127,16 @@
   id: ModularTrigger #Craftable Musket
 
 - type: Tag
+  id: MothroachHide
+
+- type: Tag
+  id: NormalityCrystal
+
+- type: Tag
   id: PaperSlip
+
+- type: Tag
+  id: PlutoniumCore
 
 - type: Tag
   id: PreventLabel
@@ -97,6 +151,9 @@
   id: SpeedLoaderSpecial
 
 - type: Tag
+  id: Vial
+
+- type: Tag
   id: Wakizashi
 
 - type: Tag
@@ -104,3 +161,12 @@
 
 - type: Tag
   id: GlassesCorpsman # Prescription corpsman glasses.
+
+- type: Tag
+  id: PermissibleForSurgery # Can be worn on the body during surgery
+
+- type: Tag
+  id: CommanderUplink # Used for allowing commander to buy their suit
+
+- type: Tag
+  id: AgentUplink # Used for allowing agent to buy their suit

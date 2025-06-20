@@ -1,5 +1,6 @@
 using Content.Server.GameTicking;
 using Content.Server.Shuttles.Systems;
+using Content.Shared._DV.CustomObjectiveSummary; // DeltaV
 using Content.Shared.Cuffs.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
@@ -12,9 +13,13 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Objectives.Commands;
+using Content.Shared._DV.CCVars;
+using Content.Shared._DV.CustomObjectiveSummary; // DeltaV
+using Content.Shared.CCVar;
 using Content.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Objectives;
@@ -27,14 +32,23 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private IEnumerable<string>? _objectives;
+
+    private bool _showGreentext;
+
+    private int _maxLengthSummaryLength; // DeltaV
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
+
+        Subs.CVar(_cfg, CCVars.GameShowGreentext, value => _showGreentext = value, true);
+
+        Subs.CVar(_cfg, DCCVars.MaxObjectiveSummaryLength, len => _maxLengthSummaryLength = len, true); // DeltaV
 
         _prototypeManager.PrototypesReloaded += CreateCompletions;
     }
@@ -162,28 +176,70 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                     totalObjectives++;
 
                     agentSummary.Append("- ");
-                    if (progress > 0.99f)
+                    if (!_showGreentext)
+                    {
+                        agentSummary.AppendLine(objectiveTitle);
+                    }
+                    else if (progress > 0.99f)
                     {
                         agentSummary.AppendLine(Loc.GetString(
                             "objectives-objective-success",
                             ("objective", objectiveTitle),
-                            ("markupColor", "green")
+                            ("progress", progress)
                         ));
                         completedObjectives++;
+                    }
+                    else if (progress <= 0.99f && progress >= 0.5f)
+                    {
+                        agentSummary.AppendLine(Loc.GetString(
+                            "objectives-objective-partial-success",
+                            ("objective", objectiveTitle),
+                            ("progress", progress)
+                        ));
+                    }
+                    else if (progress < 0.5f && progress > 0f)
+                    {
+                        agentSummary.AppendLine(Loc.GetString(
+                            "objectives-objective-partial-failure",
+                            ("objective", objectiveTitle),
+                            ("progress", progress)
+                        ));
                     }
                     else
                     {
                         agentSummary.AppendLine(Loc.GetString(
                             "objectives-objective-fail",
                             ("objective", objectiveTitle),
-                            ("progress", (int) (progress * 100)),
-                            ("markupColor", "red")
+                            ("progress", progress)
                         ));
                     }
                 }
             }
 
             var successRate = totalObjectives > 0 ? (float) completedObjectives / totalObjectives : 0f;
+            // Begin DeltaV Additions - custom objective response.
+            if (TryComp<CustomObjectiveSummaryComponent>(mindId, out var customComp) &&
+                customComp.ObjectiveSummary.Length <= _maxLengthSummaryLength)
+            {
+                // We have to spit it like this to make it readable. Yeah, it sucks but for some reason the entire thing
+                // is just one long string...
+                var words = customComp.ObjectiveSummary.Split(" ");
+                var currentLine = "";
+                foreach (var word in words)
+                {
+                    currentLine += word + " ";
+
+                    // magic number
+                    if (currentLine.Length <= 50)
+                        continue;
+
+                    agentSummary.AppendLine(Loc.GetString("custom-objective-format", ("line", currentLine)));
+                    currentLine = "";
+                }
+
+                agentSummary.AppendLine(Loc.GetString("custom-objective-format", ("line", currentLine)));
+            }
+            // End DeltaV Additions
             agentSummaries.Add((agentSummary.ToString(), successRate, completedObjectives));
         }
 

@@ -93,6 +93,18 @@
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
         />
+    <!-- DeltaV - Add CHelp -->
+    <ui:MenuButton
+        Name="CHelpButton"
+        Access="Internal"
+        Icon="{xe:Tex '/Textures/_DV/Interface/curator2.svg.192dpi.png'}"
+        BoundKey = "{x:Static is:ContentKeyFunctions.OpenCHelp}"
+        ToolTip="{Loc 'ui-options-function-open-c-help'}"
+        MinSize="42 64"
+        HorizontalExpand="True"
+        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        />
+    <!-- End DeltaV - Add CHelp -->
     <ui:MenuButton
         Name="AHelpButton"
         Access="Internal"

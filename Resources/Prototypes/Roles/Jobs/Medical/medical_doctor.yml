@@ -6,7 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 14400 #4 hrs
+      time: 9000 #2.5 hrs
   startingGear: DoctorGear
   icon: "JobIconMedicalDoctor"
   supervisors: job-supervisors-cmo
@@ -15,7 +15,20 @@
   - Maintenance
   extendedAccess:
   - Chemistry
-  - Paramedic # DeltaV - Add Paramedic access
+  # Begin DeltaV Additions
+  - Paramedic # Add Paramedic access
+  - Surgery # Add Surgery access
+  # End DeltaV Additions
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: DoctorDay
+    prototype: WehMedipen
+  # Begin DeltaV Removals
+  #- !type:AddComponentSpecial # Shitmed change
+  #  components:
+  #  - type: SurgerySpeedModifier
+  #    speedModifier: 1.75
+  # End DeltaV Removals
 
 - type: startingGear
   id: DoctorGear

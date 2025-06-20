@@ -393,6 +393,7 @@ public enum LogType
     Tile = 86,
     BagOfHolding = 420, //Nyano - Summary: adds bag of holding.
     Psionics = 421, //Nyano - Summary: ads psionic as a log type.
+    ObjectiveSummary = 422, // DeltaV
 
     /// <summary>
     /// A client has sent too many chat messages recently and is temporarily blocked from sending more.
@@ -441,4 +442,38 @@ public enum LogType
     /// A ghost warped to an entity through the ghost warp menu.
     /// </summary>
     GhostWarp = 95,
+
+    /// <summary>
+    /// A player interacted with a PDA or its cartridge component
+    /// </summary>
+    PdaInteract = 96,
+
+    /// <summary>
+    /// An atmos networked device (such as a vent or pump) has had its settings changed, usually through an air alarm
+    /// </summary>
+    AtmosDeviceSetting = 97,
+
+    /// <summary>
+    /// Commands related to admemes. Stuff like config changes, etc.
+    /// </summary>
+    AdminCommands = 98,
+
+    /// <summary>
+    /// A player was selected or assigned antag status
+    /// </summary>
+    AntagSelection = 99,
+
+    /// <summary>
+    /// Logs related to botany, such as planting and harvesting crops
+    /// </summary>
+    Botany = 100,
+    /// <summary>
+    /// Artifact node got activated.
+    /// </summary>
+    ArtifactNode = 101,
+
+    /// <summary>
+    /// Damaging grid collision has occurred.
+    /// </summary>
+    ShuttleImpact = 102
 }

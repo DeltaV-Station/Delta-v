@@ -1,4 +1,6 @@
 using Content.Shared.Access.Systems;
+using Content.Shared.Advertise.Systems;
+using Content.Shared.Advertise.Components;
 using Content.Shared._DV.Salvage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Popups;
@@ -23,6 +25,7 @@ public abstract class SharedShopVendorSystem : EntitySystem
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private readonly SharedSpeakOnUIClosedSystem _speakOnUIClosed = default!;
 
     public override void Initialize()
     {
@@ -117,11 +120,8 @@ public abstract class SharedShopVendorSystem : EntitySystem
 
         Log.Debug($"Player {ToPrettyString(user):user} purchased {listing.Id} from {ToPrettyString(ent):vendor}");
 
-        AfterPurchase(ent);
-    }
-
-    protected virtual void AfterPurchase(Entity<ShopVendorComponent> ent)
-    {
+        if (TryComp<SpeakOnUIClosedComponent>(ent, out var speak))
+            _speakOnUIClosed.TrySetFlag((ent, speak));
     }
 
     private void Deny(Entity<ShopVendorComponent> ent, EntityUid user)

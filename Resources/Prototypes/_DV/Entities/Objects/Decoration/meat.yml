@@ -1,0 +1,102 @@
+- type: entity
+  id: MeatDecorBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Decoration/Flesh/meat.rsi
+    noRot: false
+    state: teeth1
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+        params:
+          variation: 0.05
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: gib
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          FoodMeat:
+            min: 1
+            max: 1
+
+- type: entity
+  id: FleshTeethBase
+  name: flesh teeth
+  description: Tooth-like protrusions.
+  parent: [MeatDecorBase, BaseRock]
+  abstract: true
+
+- type: entity
+  parent: FleshTeethBase
+  id: FleshTeeth1
+  components:
+  - type: Sprite
+    state: teeth1
+
+- type: entity
+  parent: FleshTeethBase
+  id: FleshTeeth2
+  components:
+  - type: Sprite
+    state: teeth2
+
+- type: entity
+  parent: FleshTeethBase
+  id: FleshTeeth3
+  components:
+  - type: Sprite
+    state: teeth3
+
+- type: entity
+  parent: [MeatDecorBase, BaseSign]
+  id: MeatWallMouth
+  name: wall mouth
+  description: It hungers.
+  components:
+  - type: Sprite
+    noRot: true
+    snapCardinals: false
+    state: wallmouth
+
+- type: entity
+  parent: [MeatDecorBase, BaseSign]
+  id: MeatWhisperers
+  name: whisperers
+  description: It whispers.
+  placement:
+    mode: SnapgridBorder
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Overdoors
+    snapCardinals: false
+    sprite: _DV/Objects/Decoration/Flesh/bigmeat.rsi
+    state: whisperers
+
+- type: entity
+  parent: MeatDecorBase
+  id: MeatFloorMouth
+  name: floor mouth
+  description: "It's starving."
+  components:
+  - type: Clickable
+  - type: Tag
+    tags:
+    - Structure
+  - type: Sprite
+    drawdepth: FloorObjects
+    sprite: _DV/Objects/Decoration/Flesh/bigmeat.rsi
+    state: floormouth

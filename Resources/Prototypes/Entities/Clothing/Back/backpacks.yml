@@ -57,16 +57,16 @@
       collection: IanBark
 
 - type: entity
-  parent: [ClothingBackpack, BaseRestrictedContraband]
+  parent: [ClothingBackpack, BaseSecurityContraband]
   id: ClothingBackpackSecurity
   name: security backpack
   description: It's a very robust backpack.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/security.rsi
+    sprite: _DV/Clothing/Back/Backpacks/security.rsi # DeltaV - resprite security backpacks
 
 - type: entity
-  parent: [ClothingBackpack, BaseRestrictedContraband]
+  parent: [ClothingBackpack, BaseSecurityContraband]
   id: ClothingBackpackBrigmedic
   name: corpsman backpack # DeltaV - rename brig medic to corpsman
   description: It's a very sterile backpack.
@@ -203,6 +203,8 @@
   - type: Storage
     grid:
     - 0,0,10,3
+  - type: ExplosionResistance # DeltaV
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackERTLeader
@@ -279,6 +281,10 @@
     sprite: Clothing/Back/Backpacks/syndicate.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.1
+  - type: Storage
+    grid:
+    - 0,0,7,3
+    - 8,1,8,3
 
 #Special
 - type: entity

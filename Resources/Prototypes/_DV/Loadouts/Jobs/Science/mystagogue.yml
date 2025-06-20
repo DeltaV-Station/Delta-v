@@ -1,9 +1,28 @@
+# Neck
 - type: loadout
   id: MystagogueCloak
   equipment:
     neck: ClothingNeckCloakMystagogue
 
+# Head
+- type: loadout # DeltaV
+  id: ResearchDirectorHood
+  equipment:
+    head: ClothingHeadHoodMysta
+
 - type: loadout
   id: MystagogueBeret
   equipment:
     head: ClothingHeadHatBeretMysta
+
+# OuterClothing
+- type: loadout
+  id: MystaLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatRndMysta
+
+# Shoes
+- type: loadout
+  id: ResearchDirectorWinterBoots
+  equipment:
+    shoes: ClothingShoesBootsWinterMystagogue

@@ -55,6 +55,7 @@
   physicalDesc: reagent-physical-desc-nondescript
   metabolisms:
     Poison:
+      metabolismRate: 0.25 # DeltaV: chloral hydrate should last longer for surgery
       effects:
       - !type:Emote
         emote: Yawn
@@ -69,6 +70,16 @@
         time: 4
         type: Add
         refresh: false
+      - !type:GenericStatusEffect # DeltaV: anesthesia
+        conditions:
+        - !type:ReagentThreshold
+          reagent: ChloralHydrate
+          min: 10
+        key: Anesthesia
+        component: Anesthesia
+        refresh: false
+        time: 4.0
+        type: Add
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -171,7 +182,6 @@
   flavor: sour
   color: "#48b3b8"
   physicalDesc: reagent-physical-desc-ferrous
-  slippery: false
   metabolisms:
     Drink:
       effects:
@@ -298,7 +308,7 @@
   id: HeartbreakerToxin
   name: reagent-name-heartbreaker-toxin
   group: Toxins
-  desc: reagent-desc-heartbreaker-toxin
+  desc: reagent-desc-heartbreaker-toxin-deltav # Deltav - Remove mention of dex plus
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#5f959c"
   metabolisms:
@@ -486,6 +496,9 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -496,10 +509,16 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:OrganType
           type: Animal
+          shouldHave: false
+        - !type:OrganType
+          type: Vox
           shouldHave: false
         damage:
           types:
@@ -508,9 +527,14 @@
         conditions:
         - !type:OrganType
           type: Animal
-          shouldHave: true
         reagent: Protein
         amount: 0.5
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Vox
+        reagent: Protein
+        amount: 0.25
 
 - type: reagent
   id: Allicin
@@ -710,3 +734,19 @@
           shouldHave: false
         walkSpeedModifier: 0.4
         sprintSpeedModifier: 0.4
+
+- type: reagent
+  id: ToxinTrash
+  name: reagent-name-toxintrash
+  group: Toxins
+  desc: reagent-desc-toxintrash
+  flavor: trashy
+  physicalDesc: reagent-physical-desc-nondescript
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        factor: 1
+        conditions:
+        - !type:OrganType
+          type: Vox

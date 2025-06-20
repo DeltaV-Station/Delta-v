@@ -49,5 +49,5 @@ public sealed partial class BinComponent : Component
     /// that can be stored in the bin.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public int MaxItems = 20;
+    public int MaxItems = 24; // DeltaV - Max size to fit all the paper in a ream
 }

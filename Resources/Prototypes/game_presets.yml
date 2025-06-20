@@ -5,6 +5,7 @@
   name: survival-title
   showInVote: true # secret # DeltaV - Me when the survival. Used for periapsis.
   description: survival-description
+  cooldown: 2 # Imp - Can't occur thrice
   rules:
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
@@ -12,6 +13,7 @@
     #- SpaceTrafficControlFriendlyEventScheduler # DeltaV: spam of garbage roles nobody takes every 10-20 minutes
     - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
+    - SubGamemodesRule # DeltaV
 
 - type: gamePreset
   id: KesslerSyndrome
@@ -41,6 +43,8 @@
     - Traitor
     - Revolutionary
     - Zombie
+    - Wizard
+    - CosmicCult # DeltaV
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
@@ -62,6 +66,7 @@
     - Traitor
     - Revolutionary
     - Zombie
+    - Wizard
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
     - MeteorSwarmMildScheduler
@@ -96,7 +101,7 @@
   showInVote: true #4boring4vote # DeltaV - Enable greenshift in gamemode vote
   description: greenshift-description
   rules:
-  - SpaceTrafficControlFriendlyEventScheduler 
+  - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
@@ -133,7 +138,7 @@
   showInVote: false #Admin Use
   description: secret-description
   rules:
-  - SpaceTrafficControlFriendlyEventScheduler 
+  - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
@@ -155,15 +160,17 @@
     - tator
   name: traitor-title
   description: traitor-description
+  cooldown: 2 # Imp - Can't occur thrice
   showInVote: false
   rules:
-    - Traitor
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - GlimmerEventScheduler # DeltaV
+  - DummyNonAntagChance
+  - Traitor
+  - SubGamemodesRule
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: Deathmatch
@@ -185,14 +192,16 @@
   name: nukeops-title
   description: nukeops-description
   showInVote: false
+  cooldown: 2 # Imp - Can't occur thrice
   rules:
-    - Nukeops
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - GlimmerEventScheduler # DeltaV
+  - Nukeops
+  - DummyNonAntagChance
+  - SubGamemodesRule
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: Revolutionary
@@ -204,13 +213,31 @@
   description: rev-description
   showInVote: false
   rules:
-    - Revolutionary
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - GlimmerEventScheduler # DeltaV
+  - DummyNonAntagChance
+  - Revolutionary
+  - SubGamemodesRule
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - GlimmerEventScheduler # DeltaV
+
+- type: gamePreset
+  id: Wizard
+  alias:
+  - wizard
+  name: wizard-title
+  description: wizard-description
+  showInVote: false
+  rules:
+  - Wizard
+  - DummyNonAntagChance
+  - SubGamemodesRuleNoWizard #No Dual Wizards at the start, midround is fine
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: Zombie
@@ -222,6 +249,7 @@
   - zomber
   name: zombie-title
   description: zombie-description
+  cooldown: 2 # Imp - Can't occur thrice
   showInVote: false
   rules:
   - Zombie

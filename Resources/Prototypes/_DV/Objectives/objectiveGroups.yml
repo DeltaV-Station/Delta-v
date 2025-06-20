@@ -33,3 +33,8 @@
     NinjaIanDossierStealObjective: 1
     NinjaLuckyBillStealObjective: 1
     NinjaCaptainsCloakStealObjective: 0.75
+
+- type: weightedRandom
+  id: TraitorObjectiveGroupSpecial
+  weights:
+    UploadAILawObjective: 1

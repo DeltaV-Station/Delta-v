@@ -46,14 +46,22 @@
 
 - type: entity
   parent: RubberStampBase
-  id: RubberStampAdminAssistant
-  name: administrative assistant rubber stamp
-  suffix: DO NOT MAP
+  id: RubberStampHatePaperwork
+  name: paperwork hater rubber stamp
+  description: An incandescent stamp, its so hot that any paper you stamp with it is sure to catch on fire.
   components:
   - type: Stamp
-    stampedName: stamp-component-stamped-name-admin-assistant
-    stampedColor: "#4191f2"
-    stampState: "paper_stamp-admin-assistant"
+    stampedName: stamp-component-stamped-name-hate-paperwork
+    stampedColor: "#ff0000"
+    stampState: "paper_stamp-generic"
   - type: Sprite
     sprite: _DV/Objects/Misc/stamps.rsi
-    state: stamp-admin-assistant
+    state: stamp-hate-paperwork
+  - type: IgnitionSource
+    ignited: true
+    temperature: 10
+  - type: PointLight
+    enabled: true
+    netsync: false
+    radius: 1.2
+    color: orange

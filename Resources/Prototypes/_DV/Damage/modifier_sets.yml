@@ -18,6 +18,13 @@
     Piercing: 1.15
 
 - type: damageModifierSet
+  id: Feroxi
+  coefficients:
+    Cold: 0.9
+    Blunt: 0.9
+    Slash: 1.1
+
+- type: damageModifierSet
   id: StorageTank
   coefficients:
     Blunt: 0.7
@@ -29,3 +36,51 @@
     Slash: 5
     Piercing: 5
     Heat: 5
+
+- type: damageModifierSet
+  id: Chitinid
+  coefficients:
+    Blunt: 0.9
+    Piercing: 0.9
+    Slash: 0.9
+    Cold: 1.1
+    Shock: 1.15
+    Radiation: 0.2
+
+- type: damageModifierSet
+  id: Kitsune
+  coefficients:
+    Blunt: 1.2
+    Slash: 1.1
+    Piercing: 1.1
+    Radiation: 1.5
+    Heat: 0.85
+    Cold: 0.85
+    Holy: 0.5
+
+- type: damageModifierSet
+  id: KitsuneFox
+  coefficients:
+    Blunt: 1.3
+    Piercing: 1.2
+    Slash: 1.2
+    Radiation: 1.5
+    Holy: 0.5
+
+# Represents which damage types should be modified
+# in relation to how they cause bleed rate.
+- type: damageModifierSet
+  id: BloodlossIPC
+  coefficients:
+    Blunt: 0.00 # no evil doublestack damage
+    Slash: 0.25
+    Piercing: 0.2
+    Shock: 0.0
+    Heat: -0.5 # heat damage cauterizes wounds, but will still hurt obviously.
+    Cold: 0.0
+    Poison: 0.0
+    Radiation: 0.0
+    Asphyxiation: 0.0
+    Bloodloss: 0.0
+    Cellular: 0.0
+    Caustic: 0.0

@@ -1,26 +1,26 @@
 # Tier 1
 
-- type: technology
-  id: DraconicMunitions
-  name: research-technology-draconic-munitions
-  icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
-    state: incendiarydisplay
-  discipline: Arsenal
-  tier: 2 # DeltaV moved to t2 from t1
-  cost: 10000
-  recipeUnlocks:
-  - BoxShotgunIncendiary
-  - MagazineRifleIncendiary
-  - MagazinePistolIncendiary
-  - MagazineLightRifleIncendiary
-  - SpeedLoaderMagnumIncendiary
-  - MagazineShotgunIncendiary
-  - MagazineBoxPistolIncendiary
-  - MagazineBoxMagnumIncendiary
-  - MagazineBoxLightRifleIncendiary
-  - MagazineBoxRifleIncendiary
-  - MagazineBoxSpecialIncendiary # DeltaV
+#- type: technology # DeltaV merged draconic and uranium munitions and moved to our namespace
+#  id: DraconicMunitions
+#  name: research-technology-draconic-munitions
+#  icon:
+#    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
+#    state: incendiarydisplay
+#  discipline: Arsenal
+#  tier: 1
+#  cost: 10000
+#  recipeUnlocks:
+#  - BoxShotgunIncendiary
+#  - MagazineRifleIncendiary
+#  - MagazinePistolIncendiary
+#  - MagazinePistolSubMachineGunIncendiary
+#  - MagazineLightRifleIncendiary
+#  - SpeedLoaderMagnumIncendiary
+#  - MagazineShotgunIncendiary
+#  - MagazineBoxPistolIncendiary
+#  - MagazineBoxMagnumIncendiary
+#  - MagazineBoxLightRifleIncendiary
+#  - MagazineBoxRifleIncendiary
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -34,72 +34,58 @@
   recipeUnlocks:
   - WeaponLaserCarbine
 
-- type: technology
-  id: NonlethalAmmunition
-  name: research-technology-nonlethal-ammunition
-  icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
-    state: beanbag
-  discipline: Arsenal
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - MagazineShotgunBeanbag
-  - BoxShellTranquilizer
-  - BoxBeanbag
-  - WeaponDisabler
-  # DeltaV - rubber ammo which upstream removed
-  - MagazineRifleRubber
-  - MagazinePistolRubber
-  - MagazineLightRifleRubber
-  - SpeedLoaderMagnumRubber
-  - SpeedLoaderSpecialRubber
-  - MagazineBoxPistolRubber
-  - MagazineBoxMagnumRubber
-  - MagazineBoxLightRifleRubber
-  - MagazineBoxRifleRubber
-  - MagazineBoxSpecialRubber
-  # End of modified code
+# DeltaV: made nonlethals roundstart, see #2758
+#- type: technology
+#  id: NonlethalAmmunition
+#  name: research-technology-nonlethal-ammunition
+#  icon:
+#    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
+#    state: beanbag
+#  discipline: Arsenal
+#  tier: 1
+#  cost: 5000
+#  recipeUnlocks:
+#  - MagazineShotgunBeanbag
+#  - BoxShellTranquilizer
+#  - BoxBeanbag
+#  - WeaponDisabler
 
-- type: technology
-  id: UraniumMunitions
-  name: research-technology-uranium-munitions
-  icon:
-    sprite: Objects/Materials/Sheets/other.rsi
-    state: uranium
-  discipline: Arsenal
-  tier: 2 # DeltaV moved to t2 from t1
-  cost: 7500
-  recipeUnlocks:
-  - MagazineRifleUranium
-  - MagazinePistolUranium
-  - MagazineLightRifleUranium
-  - SpeedLoaderMagnumUranium
-  - MagazineBoxPistolUranium
-  - MagazineBoxMagnumUranium
-  - MagazineBoxLightRifleUranium
-  - MagazineBoxRifleUranium
-  - BoxShotgunUranium
-  # DeltaV - .38 special uranium ammo - Adds .38 special uranium ammo to the research tree
-  - SpeedLoaderSpecialUranium
-  - MagazineBoxSpecialUranium
-  # End of modified code
+#- type: technology # DeltaV merged draconic and uranium munitions and moved to our namespace
+#  id: UraniumMunitions
+#  name: research-technology-uranium-munitions
+#  icon:
+#    sprite: Objects/Materials/Sheets/other.rsi
+#    state: uranium
+#  discipline: Arsenal
+#  tier: 1
+#  cost: 7500
+#  recipeUnlocks:
+#  - MagazineRifleUranium
+#  - MagazinePistolUranium
+#  - MagazinePistolSubMachineGunUranium
+#  - MagazineLightRifleUranium
+#  - SpeedLoaderMagnumUranium
+#  - MagazineBoxPistolUranium
+#  - MagazineBoxMagnumUranium
+#  - MagazineBoxLightRifleUranium
+#  - MagazineBoxRifleUranium
+#  - BoxShotgunUranium
 
-- type: technology
-  id: AdvancedRiotControl
-  name: research-technology-advanced-riot-control
-  icon:
-    sprite: Objects/Weapons/Melee/truncheon.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 1
-  cost: 5000 # DeltaV - Lowered from 8000
-  recipeUnlocks:
-  - Truncheon
-  - TelescopicShield
-  - HoloprojectorSecurity
-  - WeaponDisablerSMG
-  - BorgModuleSecurityEscalate # Delta-V : SecBorg Research
+#- type: technology # DeltaV - Moved to our own namespace, see _DV/Research/Arsenal.yml
+#  id: AdvancedRiotControl
+#  name: research-technology-advanced-riot-control
+#  icon:
+#    sprite: Objects/Weapons/Melee/truncheon.rsi
+#    state: icon
+#  discipline: Arsenal
+# tier: 1
+#  cost: 5000 # DeltaV - Lowered from 8000
+#  recipeUnlocks:
+#  - Truncheon
+#  - TelescopicShield
+#  - HoloprojectorSecurity
+#  - WeaponDisablerSMG
+#  - BorgModuleSecurityEscalate # Delta-V : SecBorg Research
 
 - type: technology
   id: ExplosiveTechnology
@@ -118,6 +104,7 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  - SignallerDeadMans # DeltaV - Dead Man's Signaller
 
 - type: technology
   id: SpecialMeans
@@ -144,7 +131,7 @@
   cost: 12500 # DeltaV: increased from 10000
   recipeUnlocks:
   - WeaponLaserCannon
-  - WeaponXrayCannon
+  - WeaponXrayCannon # DeltaV
   - WeaponBeamCannon # DeltaV - Adds Beam cannon
 
 # DeltaV: merged with concentrated laser weaponry
@@ -161,20 +148,18 @@
 #  - WeaponXrayCannon
 
 - type: technology
-  id: ExperimentalSalvageWeaponry
-  name: research-technology-experimental-salvage-weaponry
+  id: KineticModifications
+  name: research-technology-kinetic-modifications
   icon:
-    sprite: Objects/Weapons/Melee/crusher_glaive.rsi
-    state: icon
+    sprite: Objects/Tools/upgrade.rsi
+    state: display
   discipline: Arsenal
   tier: 2
-  cost: 10000
+  cost: 7500
   recipeUnlocks:
-  - WeaponCrusher
-  - WeaponCrusherDagger
-  - WeaponCrusherGlaive
-  - BorgModuleFauna
-  - ShuttleGunKineticCircuitboard
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate
 
 - type: technology
   id: BasicShuttleArmament
@@ -191,7 +176,7 @@
   - PowerCageMedium
   - MagazineGrenadeEmpty
   - GrenadeFlash
-  - GrenadeBlast 
+  - GrenadeBlast
   - ShuttleGunSvalinnMachineGunCircuitboard
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunFriendshipCircuitboard
@@ -212,18 +197,21 @@
   recipeUnlocks:
   - WeaponAdvancedLaser
   - PortableRecharger
+  - GamblagatorCapacitor # DeltaV - added for superweapon
+  - WeaponEnergyGunAdvanced # DeltaV - Advanced Energy Gun
 
 - type: technology
-  id: ExperimentalBatteryAmmo
-  name: research-technology-experimental-battery-ammo
+  id: ThermalWeaponry
+  name: research-technology-thermal-weaponry
   icon:
-    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+    sprite: Objects/Weapons/Guns/Battery/temp_gun.rsi
     state: icon
   discipline: Arsenal
-  tier: 2 # DeltaV: moved to t2 from t3
+  tier: 3
   cost: 15000
   recipeUnlocks:
-  - WeaponLaserSvalinn
+  - WeaponTemperatureGun
+  - WeaponColdCannon # DeltaV
 
 - type: technology
   id: AdvancedShuttleWeapon

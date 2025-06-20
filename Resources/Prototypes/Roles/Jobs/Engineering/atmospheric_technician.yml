@@ -5,9 +5,9 @@
   playTimeTracker: JobAtmosphericTechnician
   antagAdvantage: 4 # DeltaV - Reduced TC: External Access + Fireaxe + Free Hardsuit
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 36000 # DeltaV - 10 hours
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 9000 #2.5 hrs
   startingGear: AtmosphericTechnicianGear
   icon: "JobIconAtmosphericTechnician"
   supervisors: job-supervisors-ce
@@ -16,6 +16,10 @@
   - Engineering
   - External
   - Atmospherics
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FirefighterDay
+    prototype: FireAxe
 
 - type: startingGear
   id: AtmosphericTechnicianGear

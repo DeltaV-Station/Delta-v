@@ -1,7 +1,39 @@
 - type: entity
   parent: LockableButton
-  suffix: Robotics
   id: LockableButtonRobotics
+  suffix: Robotics
   components:
   - type: AccessReader
     access: [["Robotics"]]
+
+- type: entity
+  parent: LockableButton
+  id: LockableButtonJustice
+  suffix: Justice
+  components:
+  - type: AccessReader
+    access: [["Justice"]]
+
+- type: entity
+  parent: LockableButton
+  id: LockableButtonProsecutor
+  suffix: Prosecutor
+  components:
+  - type: AccessReader
+    access: [["Prosecutor"]]
+
+- type: entity
+  parent: LockableButton
+  id: LockableButtonClerk
+  suffix: Clerk
+  components:
+  - type: AccessReader
+    access: [["Clerk"]]
+
+- type: entity
+  parent: LockableButton
+  id: LockableButtonCJ
+  suffix: Chief Justice
+  components:
+  - type: AccessReader
+    access: [["ChiefJustice"]]
