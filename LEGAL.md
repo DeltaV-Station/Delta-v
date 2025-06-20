@@ -4,7 +4,7 @@
 
 Namespace refers to a subdirectory beginning with `_` indicating the authorship of its contents.
 
-Code refers to any C# source code files, YML files in `Resources` and any scripts these require such as `Tools`.
+Code refers to any C# source code files and compiled assemblies, YML files in `Resources` and any scripts these may require such as the `Tools` subdirectory.
 
 ## Copyright
 
@@ -18,7 +18,7 @@ The project as a whole is licensed under the terms of the [AGPLv3](/LICENSE-AGPL
 
 Where code from other authors is used, you must follow the terms of both the AGPLv3 *and* their license.
 
-> For MIT this means you **must not** remove the copy of the MIT license from any distribution.
+For MIT this means you **must not** remove the copy of the MIT license from any distribution.
 
 - Code created by Delta-V contributors is found in `_DV` Namespaces.
 
