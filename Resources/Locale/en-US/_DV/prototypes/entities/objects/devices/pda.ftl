@@ -1,4 +1,4 @@
-ent-SeniorEngineerPDA = mentor engineer PDA
-ent-SeniorResearcherPDA = mentor researcher PDA
-ent-SeniorPhysicianPDA = mentor physician PDA
-ent-SeniorOfficerPDA = mentor security officer PDA
+ent-SeniorEngineerPDA = engineer mentor PDA
+ent-SeniorResearcherPDA = research mentor PDA
+ent-SeniorPhysicianPDA = physician mentor PDA
+ent-SeniorOfficerPDA = security mentor PDA

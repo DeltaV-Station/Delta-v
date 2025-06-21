@@ -8,10 +8,10 @@ job-name-courier = Courier
 job-name-cargo-assistant = Cargo Assistant
 job-name-security-borg = Security Cyborg
 # Used by the Agent ID
-job-name-senior-physician = Mentor Physician
-job-name-senior-researcher = Mentor Researcher
-job-name-senior-engineer = Mentor Engineer
-job-name-senior-officer = Mentor Officer
+job-name-senior-physician = Physician Mentor
+job-name-senior-researcher = Research Mentor
+job-name-senior-engineer = Engineering Mentor
+job-name-senior-officer = Security Mentor
 job-name-qm = Logistics Officer
 
 # Alternate titles
@@ -28,14 +28,14 @@ job-alt-title-pizzaiolo = Pizzaiolo
 job-alt-title-practical-nurse = Practical Nurse
 job-alt-title-resident = Resident
 
-job-alt-title-senior-physician = Mentor Physician
+job-alt-title-senior-physician = Physician Mentor
 job-alt-title-clinician = Clinician
 job-alt-title-cryogenics-specialist = Cryogenics Specialist
 
 job-alt-title-life-support = Life Support Technician
 job-alt-title-plasma-scientist = Plasma Scientist
 
-job-alt-title-senior-engineer = Mentor Engineer
+job-alt-title-senior-engineer = Engineering Mentor
 job-alt-title-electrician = Electrician
 job-alt-title-mechanic = Mechanic
 
@@ -47,11 +47,11 @@ job-alt-title-mail-carrier = Mail Carrier
 job-alt-title-prospector = Prospector
 job-alt-title-excavator = Excavator
 
-job-alt-title-senior-researcher = Mentor Researcher
+job-alt-title-senior-researcher = Research Mentor
 job-alt-title-lab-technician = Lab Technician
 job-alt-title-xenoarch = Xenoarchaeologist
 
-job-alt-title-senior-officer = Mentor Officer
+job-alt-title-senior-officer = Security Mentor
 
 job-alt-title-jester = Jester
 job-alt-title-fool = Fool
