@@ -5,6 +5,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared._DV.Recruiter;
 using Content.Shared.Popups;
+using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Server._DV.Recruiter;
 
@@ -15,11 +16,12 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
 {
     [Dependency] private readonly ForensicsSystem _forensics = default!;
     [Dependency] private readonly SolutionTransferSystem _transfer = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     protected override void DrawBlood(EntityUid uid, Entity<SolutionComponent> dest, EntityUid user)
     {
         // how did you even use this mr plushie...
-        if (CompOrNull<BloodstreamComponent>(user)?.BloodSolution is not {} blood)
+        if (CompOrNull<BloodstreamComponent>(user)?.BloodSolution is not { } blood)
             return;
 
         var desired = dest.Comp.Solution.AvailableVolume;
@@ -45,10 +47,17 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
         if (!ent.Comp.Recruited.Add(user))
             return;
 
-        if (ent.Comp.RecruiterMind is {} mindId &&
+        if (ent.Comp.RecruiterMind is { } mindId &&
             Mind.TryGetObjectiveComp<RecruitingConditionComponent>(mindId, out var obj, null))
         {
             obj.Recruited++;
+            Reward(ent, user);
         }
+    }
+
+    public void Reward(Entity<RecruiterPenComponent> ent, EntityUid user)
+    {
+        var pay = Spawn(ent.Comp.Currency);
+        _hands.PickupOrDrop(user, pay);
     }
 }

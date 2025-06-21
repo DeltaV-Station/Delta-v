@@ -1,0 +1,62 @@
+- type: listing
+  id: UplinkRecruiterCigarettes
+  name: uplink-cigarettes-name
+  description: uplink-cigarettes-desc
+  productEntity: CigPackSyndicate
+  cost:
+    TreatCoin: 4
+  categories:
+  - RecruiterTreasure
+
+- type: listing
+  id: UplinkRecruiterRealcapfruit
+  name: uplink-recruiter-realcapfruit-name
+  description: uplink-recruiter-realcapfruit-desc
+  productEntity: RealCapfruitSeeds
+  cost:
+    TreatCoin: 8
+  categories:
+  - RecruiterTreasure
+
+- type: listing
+  id: UplinkRecruiterMaid
+  name: uplink-recruiter-maid-name
+  description: uplink-recruiter-maid-desc
+  productEntity: LunchboxRecruiterMaid
+  cost:
+    TreatCoin: 10
+  categories:
+  - RecruiterTreasure
+
+- type: listing
+  id: UplinkRecruiterCyberpen
+  name: uplink-recruiter-cyberpen-name
+  description: uplink-recruiter-cyberpen-desc
+  productEntity: CyberPen
+  cost:
+    TreatCoin: 10
+  categories:
+  - RecruiterTreasure
+
+- type: listing
+  id: UplinkRecruiterMicrowave
+  name: uplink-recruiter-microwave-name
+  description: uplink-recruiter-microwave-desc
+  productEntity: SyndicateMicrowave
+  cost:
+    TreatCoin: 10
+  categories:
+  - RecruiterTreasure
+
+- type: listing
+  id: UplinkRecruiterBribe5k
+  name: uplink-recruiter-bribe5k-name
+  description: uplink-recruiter-bribe5k-desc
+  productEntity: SpaceCash5000
+  cost:
+    TreatCoin: 10
+  categories:
+  - RecruiterTreasure
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 5
