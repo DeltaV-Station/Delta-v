@@ -1,0 +1,4 @@
+ent-ClothingUniformJumpsuitSeniorEngineer = mentor engineer jumpsuit
+ent-ClothingUniformJumpsuitSeniorResearcher = mentor researcher jumpsuit
+ent-ClothingUniformJumpsuitSeniorPhysician = mentor physician jumpsuit
+ent-ClothingUniformJumpsuitSeniorOfficer = mentor security officer jumpsuit
