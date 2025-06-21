@@ -155,10 +155,6 @@
   - type: Battery
     maxCharge: 1080
     startingCharge: 1080
-  - type: ReverseEngineering # DeltaV: Upgrade line of high -> hyper -> microreactor
-    difficulty: 3
-    recipes:
-    - PowerCellHyper
 
 - type: entity
   id: PowerCellHighPrinted
@@ -194,10 +190,6 @@
   - type: Battery
     maxCharge: 1800
     startingCharge: 1800
-  - type: ReverseEngineering # DeltaV
-    difficulty: 4
-    recipes:
-    - PowerCellMicroreactor
 
 - type: entity
   id: PowerCellHyperPrinted
@@ -236,6 +228,10 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 12 # takes 1 minute to charge itself back to full
+  - type: ReverseEngineering # DeltaV
+    difficulty: 3
+    recipes:
+    - PowerCellHyper
 
 - type: entity
   parent: PowerCellMicroreactor
