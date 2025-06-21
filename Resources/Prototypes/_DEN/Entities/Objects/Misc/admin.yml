@@ -1,0 +1,107 @@
+# SPDX-FileCopyrightText: 2025 MajorMoth <61519600+MajorMoth@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BoxFolderAdmin
+  parent: BoxBase
+  name: admin folder
+  description: A special folder for more than just paper.
+  suffix: Admin
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: folder-colormap
+      color: "#702963"
+    - state: folder-base
+  - type: Item
+    sprite: Objects/Misc/bureaucracy.rsi
+    size: Small
+    shape: null
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,9,3
+  - type: ItemMapper
+    mapLayers:
+      folder-overlay-paper:
+        whitelist:
+          tags:
+          - Document
+  - type: Appearance
+  - type: Tag
+    tags:
+    - Folder
+  - type: StorageFill
+    contents:
+      - id: Paper
+        amount: 6
+      - id: FoodLollipop
+
+- type: entity
+  id: AdminToolbelt
+  parent: ClothingBeltChiefEngineer
+  name: admin toolbelt
+  description: A magical toolbelt that is NOT a shrunken chief engineer's toolbelt.
+  suffix: Admin
+  components:
+  - type: Item
+    size: Small
+    shape: null
+  - type: StorageFill
+    contents:
+      - id: ToolDebug
+      - id: WelderExperimental
+      - id: Multitool
+      - id: HolofanProjector
+      - id: GasAnalyzer
+      - id: trayScanner
+      - id: OmnimedTool
+      - id: BaseUplinkRadioDebug
+      - id: LightReplacer
+      - id: SprayPainter
+      - id: GeigerCounter
+      - id: AccessConfigurator
+      - id: AdminRCD
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    whitelist: null
+
+- type: entity
+  id: AdminMaterialBox
+  parent: BoxCardboard
+  name: admin material box
+  description: A box of basic materials.
+  suffix: Admin
+  components:
+  - type: Item
+    size: Normal
+    shape: 
+    - 0,0,1,1
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,5,3
+  - type: StorageFill
+    contents:
+    - id: SheetSteel
+    - id: SheetGlass
+    - id: SheetPlastic
+    - id: MaterialWoodPlank
+    - id: MaterialCloth
+    - id: PartRodMetal
+
+- type: entity
+  id: AdminRCD
+  parent: RCD
+  name: admin RCD
+  description: An RCD with a never-ending supply of compressed matter.
+  suffix: Admin
+  components:
+  - type: LimitedCharges
+    maxCharges: 100
+    charges: 100
+  - type: AutoRecharge
+    rechargeDuration: 0
