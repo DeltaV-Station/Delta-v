@@ -1,4 +1,0 @@
-ent-ClothingUniformJumpskirtSeniorEngineer = mentor engineer jumpskirt
-ent-ClothingUniformJumpskirtSeniorResearcher = mentor researcher jumpskirt
-ent-ClothingUniformJumpskirtSeniorPhysician = mentor physician jumpskirt
-ent-ClothingUniformJumpskirtSeniorOfficer = mentor security officer jumpskirt
