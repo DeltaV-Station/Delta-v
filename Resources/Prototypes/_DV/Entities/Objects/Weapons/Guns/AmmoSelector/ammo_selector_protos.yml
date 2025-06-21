@@ -1,0 +1,17 @@
+- type: selectableAmmo
+  id: BulletEnergyLethal
+  desc: The classic energy bolt, standard and powerful
+  icon:
+   sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+   state: medium
+  protoid: BulletEnergyGunLaser
+  firecost: 50
+
+- type: selectableAmmo
+  id: BulletEnergyDisabler
+  desc: A disabler energy bolt for non-lethal detainment
+  icon:
+   sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+   state: mediumstun
+  protoid: BulletEnergyGunDisabler
+  firecost: 25
