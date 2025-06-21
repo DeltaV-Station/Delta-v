@@ -1,0 +1,20 @@
+- type: entity
+  id: DogWhistle
+  parent: BaseItem
+  name: dog whistle
+  description: For canines and canine-adjacent sophants
+  components:
+  - type: Item
+    sprite: Objects/Fun/whistles.rsi
+    size: Tiny
+  - type: Sprite
+    sprite: Objects/Fun/whistles.rsi
+    state: whistle
+  - type: Clothing
+    sprite: Objects/Fun/whistles.rsi
+    equippedPrefix: whistle
+    quickEquip: false
+    slots: neck
+  - type: UseDelay
+    delay: 3
+  - type: DogWhistle

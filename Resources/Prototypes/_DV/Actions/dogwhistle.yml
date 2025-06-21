@@ -1,0 +1,9 @@
+- type: entity
+  id: ActionToggleDogWhistle
+  name: Toggle dog whistle orders
+  description: Toggles whether pointing should send orders
+  components:
+  - type: InstantAction
+    iconOn: Interface/Default/blocked.png
+    event: !type:ToggleDogWhistleEvent
+    useDelay: 1
