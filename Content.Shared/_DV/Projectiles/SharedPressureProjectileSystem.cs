@@ -13,7 +13,8 @@ public abstract class SharedPressureProjectileSystem : EntitySystem
 
     private void OnProjectileHit(Entity<PressureProjectileComponent> ent, ref ProjectileHitEvent args)
     {
-        if (GetPressure(ent) > ent.Comp.MaxPressure)
+        float pressure = GetPressure(ent);
+        if (pressure < ent.Comp.MinPressure || pressure > ent.Comp.MaxPressure)
             args.Damage *= ent.Comp.Modifier;
     }
 
@@ -30,7 +31,7 @@ public abstract class SharedPressureProjectileSystem : EntitySystem
         // (and projectile hit event isnt predicted anyway)
     }
 
-    // client assumes it to be in a vacuum to correctly predict for the intended use case of lavaland/space.
+    // client assumes it to always be at minimum allowed pressure to correctly predict for the intended use case of lavaland.
     // it also means it would mispredict targets staying alive rather than falsely falling over which is far more annoying.
-    protected virtual float GetPressure(EntityUid uid) => 0f;
+    protected virtual float GetPressure(Entity<PressureProjectileComponent> ent) => ent.Comp.MinPressure;
 }

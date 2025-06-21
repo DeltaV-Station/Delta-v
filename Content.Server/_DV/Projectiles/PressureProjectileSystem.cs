@@ -7,8 +7,8 @@ public sealed class PressureProjectileSystem : SharedPressureProjectileSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
 
-    protected override float GetPressure(EntityUid uid)
+    protected override float GetPressure(Entity<PressureProjectileComponent> ent)
     {
-        return _atmos.GetContainingMixture(uid)?.Pressure ?? 0f;
+        return _atmos.GetContainingMixture(ent.Owner)?.Pressure ?? 0f;
     }
 }
