@@ -1,0 +1,197 @@
+- type: entity
+  id: PuddleRandomBlood
+  parent: PuddleTemporary
+  suffix: Random, Body Fluids
+  components:
+  - type: RandomFillSolution
+    solution: puddle
+    weightedRandomId: RandomFillPuddleBlood
+
+- type: weightedRandomFillSolution
+  id: RandomFillPuddleBlood
+  fills:
+  - quantity: 10
+    reagents:
+    - Blood
+    - CopperBlood
+    - Slime
+    - Vomit
+    - InsectBlood
+    - Sap
+    - ZombieBlood
+    - AmmoniaBlood
+    - Ichor
+    - SynthBlood
+
+- type: entity
+  id: PuddleRandomDrinks
+  parent: PuddleTemporary
+  suffix: Random, Drinks
+  components:
+  - type: RandomFillSolution
+    solution: puddle
+    weightedRandomId: RandomFillPuddleDrinks
+
+- type: weightedRandomFillSolution
+  id: RandomFillPuddleDrinks
+  fills:
+  - quantity: 10
+    reagents:
+    - Coffee
+    - Tea
+    - Cola
+    - RootBeer
+    - DrGibb
+    - GrapeSoda
+    - Starkist
+    - SpaceUp
+    - SpaceMountainWind
+    - LemonLime
+    - LemonLimeCranberry
+    - PwrGame
+    - Whiskey
+    - Vodka
+    - Beer
+    - Ale
+    - Rum
+    - Tequila
+    - Absinthe
+    - MilkSpoiled
+    - FourteenLoko
+    - Cream
+    - HotRamen
+    - Mopwata
+    - JuiceApple
+    - JuiceBanana
+    - JuiceBungo
+    - Lean
+
+- type: entity
+  id: PuddleRandomChems
+  parent: PuddleTemporary
+  suffix: Random, Chems
+  components:
+  - type: RandomFillSolution
+    solution: puddle
+    weightedRandomId: RandomFillPuddleChems
+
+- type: weightedRandomFillSolution
+  id: RandomFillPuddleChems
+  fills:
+  - quantity: 10
+    reagents:
+    - SpaceDrugs
+    - Acetone
+    - Iodine
+    - Mercury
+    - Potassium
+    - Sodium
+    - Diphenhydramine
+    - Ethylredoxrazine
+    - Epinephrine
+    - Ipecac
+    - Saline
+    - Tricordrazine
+    - Omnizine
+    - Cognizine
+    - Diphenylmethylamine
+    - Psicodine
+    - Desoxyephedrine
+    - Ephedrine
+    - Stimulants
+    - THC
+    - Nocturine
+    - Happiness
+    - ChloralHydrate
+    - UnstableMutagen
+    - MindbreakerToxin
+    - Histamine
+    - Romerol
+    - SalicylicAcid
+
+- type: entity
+  id: PuddleRandomKitchen
+  parent: PuddleTemporary
+  suffix: Random, Kitchen
+  components:
+  - type: RandomFillSolution
+    solution: puddle
+    weightedRandomId: RandomFillPuddleKitchen
+
+- type: weightedRandomFillSolution
+  id: RandomFillPuddleKitchen
+  fills:
+  - quantity: 10
+    reagents:
+    - Mold
+    - BbqSauce
+    - Cornoil
+    - Hotsauce
+    - Ketchup
+    - Mayo
+    - Soysauce
+    - TableSalt
+    - Syrup
+    - Oil
+    - Butter
+    - TomatoSauce
+    - CoffeeGrounds
+    - Flour
+    - Enzyme
+    - TableSalt
+    - Egg
+    - JuiceTomato
+    - JuiceWatermelon
+    - Milk
+
+- type: entity
+  id: PuddleRandomMisc
+  parent: PuddleTemporary
+  suffix: Random, Misc
+  components:
+  - type: RandomFillSolution
+    solution: puddle
+    weightedRandomId: RandomFillPuddleMisc
+
+- type: weightedRandomFillSolution
+  id: RandomFillPuddleMisc
+  fills:
+  - quantity: 10
+    reagents:
+    - SpaceLube
+    - SpaceGlue
+    - SpaceCleaner
+    - SoapReagent
+    - Bleach
+    - Chlorine
+    - Laughter
+    - JuiceThatMakesYouWeh
+    - JuiceThatMakesYouHew
+    - Holywater
+    - WeldingFuel
+    - Toxin
+    - VentCrud
+    - UncookedAnimalProteins
+    - Honk
+    - ToxinTrash
+    - Nausium
+    - LotophagoiOil
+
+- type: entity
+  parent: MarkerBase
+  id: PuddleRandomAll
+  name: Random Puddle Spawner
+  suffix: All
+  components:
+  - type: Sprite
+    sprite: Fluids/puddle.rsi
+    layers:
+    - state: splat0
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: PuddleRandomBlood
+      - id: PuddleRandomDrinks
+      - id: PuddleRandomChems
+      - id: PuddleRandomKitchen
+      - id: PuddleRandomMisc
