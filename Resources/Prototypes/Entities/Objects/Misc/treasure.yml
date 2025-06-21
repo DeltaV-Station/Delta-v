@@ -17,7 +17,7 @@
     castShadows: false
     color: "#0000ff"
   - type: StaticPrice
-    price: 500
+    price: 750 #DeltaV - was 500
 
 - type: entity
   parent: BaseItem
@@ -39,7 +39,7 @@
         harddisk_mini: ""
         harddisk_micro: ""
   - type: StaticPrice
-    price: 275
+    price: 550 #DeltaV - was 275
 
 - type: entity
   parent: BaseItem
@@ -54,7 +54,7 @@
   - type: Item
     storedRotation: -90
   - type: StaticPrice
-    price: 350
+    price: 700 #DeltaV - was 350
 
 - type: entity
   parent: BaseItem
@@ -69,7 +69,7 @@
   - type: Item
     storedRotation: -90
   - type: StaticPrice
-    price: 300
+    price: 600 #DeltaV - was 300
 
 - type: entity
   parent: BaseItem
@@ -107,7 +107,7 @@
         synchronizer: ""
         stabilizer: ""
   - type: StaticPrice
-    price: 120
+    price: 360 #DeltaV - was 120
 
 - type: entityTable
   id: TreasureCoinPile
@@ -151,7 +151,7 @@
   - type: Item
     size: Tiny
   - type: StaticPrice
-    price: 75
+    price: 125 #DeltaV - was 75
 
 - type: entity
   parent: TreasureCoinIron
@@ -160,7 +160,7 @@
   - type: Sprite
     state: coin_silver
   - type: StaticPrice
-    price: 125
+    price: 240 #DeltaV - was 125
 
 - type: entity
   parent: TreasureCoinIron
@@ -169,7 +169,7 @@
   - type: Sprite
     state: coin_gold
   - type: StaticPrice
-    price: 175
+    price: 355 #DeltaV - was 175
 
 - type: entity
   parent: TreasureCoinIron
@@ -178,7 +178,7 @@
   - type: Sprite
     state: coin_adamantine
   - type: StaticPrice
-    price: 250
+    price: 490 #DeltaV - was 250
 
 - type: entity
   parent: TreasureCoinIron
@@ -187,5 +187,5 @@
   - type: Sprite
     state: coin_diamond
   - type: StaticPrice
-    price: 500
+    price: 1150 #DeltaV - was 500
 
