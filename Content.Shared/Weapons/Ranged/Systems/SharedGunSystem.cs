@@ -621,6 +621,26 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
     }
 
+    public void SetFireRate(GunComponent component, float fireRate) // Goobstation
+    {
+        component.FireRate = fireRate;
+    }
+
+    public void SetUseKey(GunComponent component, bool useKey) // Goobstation
+    {
+        component.UseKey = useKey;
+    }
+
+    public void SetSoundGunshot(GunComponent component, SoundSpecifier? sound) // Goobstation
+    {
+        component.SoundGunshot = sound;
+    }
+
+    public void SetClumsyProof(GunComponent component, bool clumsyProof) // Goobstation
+    {
+        component.ClumsyProof = clumsyProof;
+    }
+
     protected abstract void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null);
 
     /// <summary>

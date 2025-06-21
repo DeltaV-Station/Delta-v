@@ -14,11 +14,10 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
     layers:
-    - state: omnilaser_greyscale
+    - state: medium
       shader: unshaded
-      color: red
   - type: Ammo
   - type: Fixtures
     fixtures:
@@ -39,7 +38,7 @@
         - LowImpassable
         hard: False
   - type: Projectile
-    impactEffect: BulletImpactEffectRedDisabler
+    impactEffect: BulletImpactEffectRedEnergy
     damage:
       types:
         Heat: 24 # these will hurt but not quite a 4 shot
