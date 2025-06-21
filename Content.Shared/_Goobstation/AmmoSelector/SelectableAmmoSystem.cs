@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared._Goobstation.Wizard.UserInterface;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Content.Shared.Toggleable;

@@ -59,7 +59,7 @@
   name: x-01 multiphase energy gun
   parent: BaseWeaponBatterySmall
   id: WeaponEnergyGunMultiphase
-  description: This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
+  description: This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, and charges itself after a delay
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
@@ -110,6 +110,13 @@
     price: 750
   - type: StealTarget
     stealGroup: WeaponEnergyGunMultiphase
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.AmmoSelectorUiKey.Key
 
 - type: entity
   name: miniature energy gun

@@ -4,7 +4,8 @@
   icon:
    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
    state: medium
-  protoid: BulletEnergyGunLaser
+  protoId: BulletEnergyGunLaser
+  color: red
   firecost: 50
 
 - type: selectableAmmo
@@ -13,5 +14,6 @@
   icon:
    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
    state: mediumstun
-  protoid: BulletEnergyGunDisabler
+  protoId: BulletDisabler
+  color: blue
   firecost: 25
