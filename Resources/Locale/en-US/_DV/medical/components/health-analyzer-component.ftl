@@ -10,3 +10,5 @@ health-analyzer-window-triage-status-Immediate = Immediate
     .ToolTip = Victim can be helped by immediate intervention and transport. Requires medical attention for survival.
 health-analyzer-window-triage-status-Expectant = Expectant
     .ToolTip = Victim unlikely to survive, or is already dead.
+
+health-analyzer-window-entity-uncloneable-text = [color=yellow]Cloning incompatibility detected! Patient can't be cloned![/color]
