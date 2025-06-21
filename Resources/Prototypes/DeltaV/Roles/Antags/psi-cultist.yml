@@ -1,0 +1,18 @@
+- type: antag
+  id: PsiCultist
+  name: roles-antag-psi-cultist-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-psi-cultist-objective
+  guides: [ Psi Cultists ]
+  requirements: # DeltaV - Playtime requirement
+  - !type:OverallPlaytimeRequirement 
+    time: 86400 # DeltaV - 24 hours
+
+#TODO
+# - type: startingGear
+#  id: PsiCultistGear
+#  storage:
+#    back:
+#    - CultSymbol  #this will be a pin or necklace with the symbol of the cult
+#    - CultHolyBook #this will be a book with the cult 'codewords' in it. Having the codewords as a physical item means the cult can be potentially infiltrated by the mantis for example (this means more mantis gameplay)
