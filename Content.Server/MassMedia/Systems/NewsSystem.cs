@@ -212,10 +212,16 @@ public sealed class NewsSystem : SharedNewsSystem
         }
 
         if (_webhookSendDuringRound)
-            Task.Run(async () => await SendArticleToDiscordWebhook(article));
+            AddNewsSendWebhook(article.Value);
 
         UpdateWriterDevices();
     }
+
+    private async void AddNewsSendWebhook(NewsArticle article)
+    {
+        await Task.Run(async () => await SendArticleToDiscordWebhook(article));
+    }
+
     #endregion
 
     #region Reader Event Handlers
