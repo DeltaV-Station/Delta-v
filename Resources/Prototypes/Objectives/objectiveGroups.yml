@@ -27,10 +27,10 @@
     HandTeleporterStealObjective: 0.5
     #EnergyShotgunStealObjective: 0.5 # DeltaV - replaced by X-01 objective
     ClerkNotaryStealObjective: 0.5 # DeltaV
-    LOLuckyBillStealObjective: 0.5 # DeltaV - LO steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
     HoPBookIanDossierStealObjective: 1 # DeltaV - HoP steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
     HoSGunStealObjective: 0.5 # DeltaV
     BibleMystagogueStealObjective: 0.5 # DeltaV - Mysta steal objective see Resources/Prototypes/_DV/Objectives/traitor.yml
+    HardsuitRhinoStealObjective: 0.5 # DeltaV - LO steal objective see Resources/Prototypes/_DV/Objectives/traitor.yml
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
