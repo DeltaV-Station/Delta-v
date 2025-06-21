@@ -39,19 +39,6 @@
   - RecruiterTreasure
 
 - type: listing
-  id: UplinkRecruiterGGF
-  name: uplink-recruiter-ggf-name
-  description: uplink-recruiter-ggf-desc
-  productEntity: BookGorlexGirlfriends
-  cost:
-    TreatCoin: 20
-  categories:
-  - RecruiterTreasure
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 3
-
-- type: listing
   id: UplinkRecruiterMicrowave
   name: uplink-recruiter-microwave-name
   description: uplink-recruiter-microwave-desc

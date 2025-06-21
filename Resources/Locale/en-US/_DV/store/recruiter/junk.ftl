@@ -20,16 +20,16 @@ uplink-recruiter-utilitybelt-name = Syndicate utility belt
 uplink-recruiter-utilitybelt-desc = A sleek black toolbelt designed to hold your tools while looking stylish. Comes Empty.
 
 uplink-recruiter-syndiehat-name = Syndicate hat
-uplink-recruiter-syndiehat-desc = A souvenir from "syndieland", their production has long since stopped but bootlegs still appear.
+uplink-recruiter-syndiehat-desc = A sleek hat decorated with an S. For Sublety.
 
 uplink-recruiter-randomdonk-name = Donk pocket grab bag
 uplink-recruiter-randomdonk-desc = We throw a random box of Donk pockets at you, could be limited edition, could be berry.
 
 uplink-recruiter-wintercoat-name = Syndicate's winter coat
-uplink-recruiter-wintercoat-desc = An insulated winter coat, Syndieland production.
+uplink-recruiter-wintercoat-desc = An insulated winter coat.
 
 uplink-recruiter-winterboots-name = Syndicate's winter boots
-uplink-recruiter-winterboots-desc = Durable, heavy boots, Syndieland production.
+uplink-recruiter-winterboots-desc = Durable, heavy boots.
 
 uplink-recruiter-lingsting-name = Changeling Sting soda
 uplink-recruiter-lingsting-desc = A Stylish soda with an inconsistent appearance.

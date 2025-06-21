@@ -5,10 +5,7 @@ uplink-recruiter-maid-name = Tactical Maid kit
 uplink-recruiter-maid-desc = A full tactical maid uniform. The gloves are insulated! Comes in a snazzy lunchbox.
 
 uplink-recruiter-cyberpen-name = Cybersun Pen
-uplink-recruiter-cyberpen-desc = Cybersun's legal department pen with a hard-light tip. Can forge documents, act as a scredriver or emergency weapon. Pricy.
-
-uplink-recruiter-ggf-name = Gorlex Girlfriends issue 197
-uplink-recruiter-ggf-desc = Our most successful propadanga campaign yet, we only have three magazines left to give to you.
+uplink-recruiter-cyberpen-desc = Cybersun's legal department pen with a hard-light tip. Can forge documents, act as a screwdriver or emergency weapon. Pricy.
 
 uplink-recruiter-microwave-name = Donk Co. microwave
 uplink-recruiter-microwave-desc = An advanced microwave that cooks at double speed. If somebody knew how they could also use it to make edible weapons, but how would they?
