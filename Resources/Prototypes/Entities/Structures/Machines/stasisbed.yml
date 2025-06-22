@@ -60,13 +60,3 @@
     guides:
     - Medical Doctor
   - type: PowerSwitch
-  # Begin DeltaV changes - allow autodoc use
-  - type: OperatingTable
-  - type: DeviceList
-  - type: DeviceNetwork
-    deviceNetId: Wired
-  - type: DeviceLinkSource
-    range: 2
-    ports:
-    - OperatingTable
-  # End DeltaV changes
