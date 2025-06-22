@@ -40,7 +40,7 @@ public sealed class SiliconChargeSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedJetpackSystem _jetpack = default!; // TheDen - - IPC Dynamic Power draw
+    [Dependency] private readonly SharedJetpackSystem _jetpack = default!; // TheDen - IPC Dynamic Power draw
     public override void Initialize()
     {
         base.Initialize();
