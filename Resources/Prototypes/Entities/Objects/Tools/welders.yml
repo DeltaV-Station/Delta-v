@@ -123,6 +123,9 @@
       collection: Welder
     endSound:
       collection: WelderOff
+  - type: Tag # DeltaV - To make it work w/ the guns
+    tags:
+    - WeldingTool
 
 - type: entity
   name: industrial welding tool
