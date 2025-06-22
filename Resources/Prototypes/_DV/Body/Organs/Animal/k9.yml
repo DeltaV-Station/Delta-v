@@ -9,6 +9,15 @@
   - type: AugmentJaws
   - type: Organ
     slotId: headImplant
+    onAdd:
+    - type: K9StunJaws
+    - type: StaminaDamageOnHit
+      damage: 35
+      sound: /Audio/Weapons/egloves.ogg
+    - type: ItemToggleMeleeWeapon
+      activatedDamage:
+        types:
+          Shock: 5
   - type: Tag
     tags:
     - Organ
