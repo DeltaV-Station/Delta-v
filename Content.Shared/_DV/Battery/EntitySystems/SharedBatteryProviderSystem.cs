@@ -27,12 +27,15 @@ public abstract partial class SharedBatteryProviderSystem : EntitySystem
     /// <param name="wearer">The wearer/user of the equipment.</param>
     /// <param name="equipment">The equipment to add.</param>
     /// <returns>True if the equipment was newly connected, false otherwise.</returns>
-    public bool AddConnectedEquipment(EntityUid wearer, EntityUid equipment)
+    public bool AddConnectedEquipment(EntityUid wearer, EntityUid equipment, [NotNullWhen(true)] out EntityUid? providerId)
     {
-        if (!TryFindProvider(wearer, out var suit))
+        providerId = null;
+
+        if (!TryFindProvider(wearer, out var provider))
             return false;
 
-        return AddConnectedEquipment((wearer, suit), equipment);
+        providerId = provider.Owner;
+        return AddConnectedEquipment(provider, equipment);
     }
 
     /// <summary>
@@ -61,7 +64,7 @@ public abstract partial class SharedBatteryProviderSystem : EntitySystem
         if (!TryFindProvider(wearer, out var suit))
             return false;
 
-        return RemoveConnectedEquipment((wearer, suit), equipment);
+        return RemoveConnectedEquipment(suit, equipment);
     }
 
 
@@ -87,14 +90,17 @@ public abstract partial class SharedBatteryProviderSystem : EntitySystem
     /// <param name="wearer">The wearer to iterate over.</param>
     /// <param name="provider">Out param for the found provider, if any.</param>
     /// <returns>True if a provider was found, false otherwise.</returns>
-    private bool TryFindProvider(EntityUid wearer, [NotNullWhen(true)] out BatteryProviderComponent? provider)
+    private bool TryFindProvider(EntityUid wearer, [NotNullWhen(true)] out Entity<BatteryProviderComponent?> provider)
     {
-        provider = null; // Safety first, null it out
+        provider = default;
 
         foreach (var item in _inventorySystem.GetHandOrInventoryEntities(wearer))
         {
-            if (TryComp(item, out provider))
+            if (TryComp(item, out provider.Comp))
+            {
+                provider.Owner = item;
                 return true; // First thing that provides battery in our list
+            }
         }
 
         return false;

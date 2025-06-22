@@ -1,0 +1,24 @@
+- type: entity
+  id: ActionToggleDogWhistle
+  name: Toggle dog whistle orders
+  description: Toggles whether pointing should send orders
+  components:
+  - type: InstantAction
+    iconOn: Interface/Default/blocked.png
+    event: !type:ToggleDogWhistleEvent
+    useDelay: 1
+
+- type: entity
+  id: ActionToggleK9ShockJaws
+  name: Toggle k9 shock jaws
+  description: Toggles the K9's shock jaws
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _DV/Objects/Augments/jaws.rsi
+      state: jaws
+    iconOn:
+      sprite: _DV/Objects/Augments/jaws.rsi
+      state: jaws-on
+    event: !type:ToggleK9ShockJawsEvent
+    useDelay: 1
