@@ -31,6 +31,16 @@ public sealed partial class AccessComponent : Component
     [DataField(readOnly: true)]
     [AutoNetworkedField]
     public HashSet<ProtoId<AccessGroupPrototype>> Groups = new();
+
+    // Begin DeltaV Additions - Mind only access
+    /// <summary>
+    /// Determines whether the access available in this ID should only be applied if the owning
+    /// entity has a mind (i.e. A player) attached to it.
+    /// Helpful to stop AA from being abused by dragging NPCs into doors.
+    /// </summary>
+    [DataField]
+    public bool MindOnlyAccess = false;
+    // End DeltaV additions - Mind only access
 }
 
 /// <summary>

@@ -1,4 +1,5 @@
 using Content.Shared.Access.Components;
+using Content.Shared.Mind; // DeltaV
 using Content.Shared.Roles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -9,6 +10,7 @@ namespace Content.Shared.Access.Systems
     public abstract class SharedAccessSystem : EntitySystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly SharedMindSystem _mindSystem = default!; // DeltaV
 
         public override void Initialize()
         {
@@ -35,6 +37,11 @@ namespace Content.Shared.Access.Systems
         {
             if (!component.Enabled)
                 return;
+
+            // Begin DeltaV additions - Mind only access
+            if (!_mindSystem.TryGetMind(uid, out _, out _) && component.MindOnlyAccess)
+                return;
+            // end DeltaV additions - Mind only access
 
             args.Tags.UnionWith(component.Tags);
         }
