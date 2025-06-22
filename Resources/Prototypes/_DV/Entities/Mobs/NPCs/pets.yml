@@ -85,6 +85,19 @@
         type: StrippableBoundUserInterface
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
+  - type: IdCard
+    fullName: Laika
+    jobIcon: JobIconSecurityOfficer
+    jobTitle: job-alt-title-k9-officer
+  - type: Access
+    tags:
+      - Security
+      - External
+      - Maintainance
+    mindOnlyAccess: true # Don't let people abuse the dog
+  - type: AutoImplant
+    implants:
+    - TrackingImplant
 
 - type: entity
   parent: MobCarp

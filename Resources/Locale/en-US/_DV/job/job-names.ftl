@@ -65,6 +65,8 @@ job-alt-title-therapist = Therapist
 job-title-admeme-overwriting = Overwriting
 job-title-admeme-adding = Adding
 
+job-alt-title-k9-officer = K9 Officer
+
 # Role timers
 JobMedicalBorg = Medical Cyborg
 JobCourier = Courier
