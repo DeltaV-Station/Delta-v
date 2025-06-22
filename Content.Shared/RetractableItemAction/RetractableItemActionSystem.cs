@@ -3,6 +3,7 @@ using Content.Shared.Cuffs;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -28,6 +29,7 @@ public sealed class RetractableItemActionSystem : EntitySystem
         SubscribeLocalEvent<RetractableItemActionComponent, OnRetractableItemActionEvent>(OnRetractableItemAction);
 
         SubscribeLocalEvent<ActionRetractableItemComponent, ComponentShutdown>(OnActionSummonedShutdown);
+        Subs.SubscribeWithRelay<ActionRetractableItemComponent, HeldRelayedEvent<TargetHandcuffedEvent>>(OnItemHandcuffed, inventory: false);
     }
 
     private void OnActionInit(Entity<RetractableItemActionComponent> ent, ref MapInitEvent args)
@@ -62,10 +64,7 @@ public sealed class RetractableItemActionSystem : EntitySystem
 
         if (_hands.IsHolding(args.Performer, ent.Comp.ActionItemUid))
         {
-            RemComp<UnremoveableComponent>(ent.Comp.ActionItemUid.Value);
-            var container = _containers.GetContainer(ent, RetractableItemActionComponent.ContainerId);
-            _containers.Insert(ent.Comp.ActionItemUid.Value, container);
-            _audio.PlayPredicted(ent.Comp.RetractSounds, action.Comp.AttachedEntity.Value, action.Comp.AttachedEntity.Value);
+            RetractRetractableItem(args.Performer, ent.Comp.ActionItemUid.Value, ent.Owner);
         }
         else
         {
