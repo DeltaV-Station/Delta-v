@@ -35,6 +35,7 @@
       tableId: BasicAntagEventsTableDeltaV
     - id: ClosetSkeleton
     - id: DragonSpawn
+    - id: ColossusSpawn # DeltaV
     #- id: KingRatMigration # DeltaV - disabled
     - id: NinjaSpawn
     - id: ParadoxCloneSpawn
@@ -577,11 +578,11 @@
   id: LoneOpsSpawn
   components:
   - type: StationEvent
-    earliestStart: 45
-    weight: 3.5 # DeltaV - was 5
+    earliestStart: 45 # DeltaV - was 35
+    weight: 3.5 # DeltaV - was 5.5
     minimumPlayers: 30 # DeltaV - was 20
-    reoccurrenceDelay: 30
-    duration: 1
+    reoccurrenceDelay: 30 # DeltaV
+    duration: null # LoneOpsSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end scrreen (not always "Neutral outcome!") and... ending the game if the station is nuked.
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-lone-ops-spawn-result-message
   - type: RuleGrids
