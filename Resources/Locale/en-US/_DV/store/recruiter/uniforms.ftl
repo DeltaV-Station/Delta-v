@@ -5,7 +5,7 @@ uplink-recruiter-cybersuncasual-name = Cybersun casual jumpsuit
 uplink-recruiter-cybersuncasual-desc = A crisp Cybersun uniform for general and service staff.
 
 uplink-recruiter-cybersunhazard-name = Cybersun hazard jumpsuit
-uplink-recruiter-cybersunhazard-desc = A hi-vis Cybersun uniform for freshly hired engineers.
+uplink-recruiter-cybersunhazard-desc = A hi-viz Cybersun uniform for freshly hired engineers.
 
 uplink-recruiter-cybersunsurgeon-name = Cybersun Surgeon onboardking kit
 uplink-recruiter-cybersunsurgeon-desc = Everything your new hire needs for their new job in the Cybersun bioscience division. Comes with ballistic armor!

@@ -2,13 +2,13 @@ uplink-recruiter-soda-name = Blood-red Brew 6pack
 uplink-recruiter-soda-desc = A 6pack of stimulating, mildly toxic Blood-red Brew.
 
 uplink-recruiter-toysword-name = Toy sword
-uplink-recruiter-toysword-desc = New Sandy-Cat plastic sword! Comes with realistic sound and full color! Looks almost like the real thing! You'd Know.
+uplink-recruiter-toysword-desc = New Sandy-Cat plastic sword! Comes with realistic sound and full color! Looks almost like the real thing! You'd know.
 
 uplink-recruiter-figurinebox-name = Syndicate figurine set
 uplink-recruiter-figurinebox-desc = A box containing a full set of Syndicate figurines, depicting what a nuclear operative team might look like!
 
 uplink-recruiter-lunchbox-name = Syndicate lunchbox
-uplink-recruiter-lunchbox-desc = A lunchbox for the discering des(s)erter. Empty.
+uplink-recruiter-lunchbox-desc = A lunchbox for the discerning des(s)erter. Empty.
 
 uplink-recruiter-toolbox-name = Suspicious toolbox
 uplink-recruiter-toolbox-desc = A black and red toolbox with extra space that packs quite a punch. Does NOT come pre-filled.
@@ -35,4 +35,4 @@ uplink-recruiter-lingsting-name = Changeling Sting soda
 uplink-recruiter-lingsting-desc = A Stylish soda with an inconsistent appearance.
 
 uplink-recruiter-nukieplush-name = Nuclear Operative Plush
-uplink-recruiter-nukieplush-desc = A Plushie depicting a 100% fictitious "nuclear operative" in their equally fictional Blood-red hardsuit.
+uplink-recruiter-nukieplush-desc = A Plushie depicting a 100% fictitious "nuclear operative" in their equally fictional blood-red hardsuit.
