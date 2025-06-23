@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations;
 using Content.Shared.NPC.Prototypes;
-using Content.Shared.Storage;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
