@@ -14,8 +14,7 @@
 
   defaultModules:
   - BorgModuleTool
-  - BorgModuleArtifact
-  - BorgModuleAnomaly
+
   radioChannels:
   - Science
 
@@ -91,9 +90,8 @@
     - BorgModuleCargo
 
   defaultModules:
-  - BorgModuleTool
+  - BorgModuleGrapplingGun
   - BorgModuleMining
-  - BorgModuleTraversal
   - BorgModuleAppraisal
 
   job: SalvageSpecialist # DeltaV - borg job requirements
@@ -136,9 +134,8 @@
     - BorgModuleJanitor
 
   defaultModules:
-  - BorgModuleTool
+  - BorgModuleLightReplacer
   - BorgModuleCleaning
-  - BorgModuleCustodial
 
   lawset: Janitor # DeltaV - Custom lawset
   job: Janitor # DeltaV - borg job requirements
@@ -181,10 +178,9 @@
     - BorgModuleMedical
 
   defaultModules:
-  - BorgModuleTool
-  - BorgModuleChemical
-  - BorgModuleTopicals
-  - BorgModuleRescue
+  - BorgModuleTreatment
+  - BorgModuleSurgery # DeltaV
+  - BorgModuleDefibrillator # DeltaV
 
   radioChannels:
   - Science
@@ -247,12 +243,10 @@
     - BorgModuleService
 
   defaultModules:
-  - BorgModuleTool
   - BorgModuleMusique
   - BorgModuleService
   - BorgModuleClowning
-  - BorgModuleGardening
-  - BorgModuleHarvesting
+
   radioChannels:
   - Science
   - Service

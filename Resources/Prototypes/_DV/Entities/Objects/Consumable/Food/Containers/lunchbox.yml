@@ -18,7 +18,8 @@
   - type: Storage
     maxItemSize: Normal
     grid:
-    - 0,0,2,1
+    - 0,0,1,1
+    - 3,0,1,1
     - 4,0,4,1
   - type: PhysicalComposition
     materialComposition:
@@ -43,70 +44,70 @@
     contents:
     #Main
     - id: FoodPizzaArnoldSlice
-      orGroup: Main
+      orGroup: HealthyOrUnhealthyMain
       prob: 0.2
       amount: 2
     - id: FoodBurgerCheese
-      orGroup: Main
+      orGroup: HealthyOrUnhealthyMain
       prob: 0.2
     - id: FoodCarrot
-      orGroup: Main
+      orGroup: HealthyOrUnhealthyMain
       prob: 0.2
     - id: FoodMothCapreseSalad
-      orGroup: Main
+      orGroup: HealthyOrUnhealthyMain
       prob: 0.2
     - id: FoodEggBoiled
-      orGroup: Main
+      orGroup: HealthyOrUnhealthyMain
       prob: 0.2
     #Drink
     - id: DrinkJuiceOrangeJuicebox
-      orGroup: Drink
+      orGroup: HealthyOrUnhealthyDrink
       prob: 0.15
     - id: DrinkJuicePineappleJuicebox
-      orGroup: Drink
+      orGroup: HealthyOrUnhealthyDrink
       prob: 0.15
     - id: DrinkJuiceAppleJuicebox
-      orGroup: Drink
+      orGroup: HealthyOrUnhealthyDrink
       prob: 0.15
     - id: DrinkJuiceGrapeJuicebox
-      orGroup: Drink
+      orGroup: HealthyOrUnhealthyDrink
       prob: 0.15
     - id: DrinkChocolateJuicebox
-      orGroup: Drink
+      orGroup: HealthyOrUnhealthyDrink
       prob: 0.15
     - id: DrinkWaterBottleFull
-      orGroup: Drink
+      orGroup: HealthyOrUnhealthyDrink
       prob: 0.15
     #Snack
     - id: FoodSnackCheesie
-      orGroup: Snack
+      orGroup: HealthyOrUnhealthySnack
       prob: 0.15
     - id: FoodSnackBoritos
-      orGroup: Snack
+      orGroup: HealthyOrUnhealthySnack
       prob: 0.15
     - id: FoodSnackChips
-      orGroup: Snack
+      orGroup: HealthyOrUnhealthySnack
       prob: 0.15
     - id: FoodSnackPistachios
-      orGroup: Snack
+      orGroup: HealthyOrUnhealthySnack
       prob: 0.15
     - id: FoodSnackChocolate
-      orGroup: Snack
+      orGroup: HealthyOrUnhealthySnack
       prob: 0.15
     - id: FoodSnackSus
-      orGroup: Snack
+      orGroup: HealthyOrUnhealthySnack
       prob: 0.15
     - id: FoodMothMoffin
-      orGroup: Snack
+      orGroup: HealthyOrUnhealthySnack
       prob: 0.05
     - id: FoodMothMothmallowSlice
-      orGroup: Snack
+      orGroup: HealthyOrUnhealthySnack
       prob: 0.05
     - id: FoodApple
-      orGroup: Snack
+      orGroup: HealthyOrUnhealthySnack
       prob: 0.15
     - id: FoodBanana
-      orGroup: Snack
+      orGroup: HealthyOrUnhealthySnack
       prob: 0.15
     #Note
     - id: PaperWrittenNoteFromMumGeneric

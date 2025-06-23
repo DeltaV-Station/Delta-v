@@ -36,18 +36,8 @@
         - PlushieMoth
         - PlushieMothRandom # Nyanotrasen Random Moth Plushies
         - PlushieArachind
-        # Begin DeltaV - see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
-        - PlushieMort
-        - PlushieIPC
-        - PlushieFelinid
-        - PlushieOni
-        - PlushieHarpy
-        - PlushieRodentia
-        - PlushieFeroxi
-        - PlushieChitinid
-        - PlushieKitsune
-        # End DeltaV
-        - PlushieThaven # IMP port
+        - PlushieMort # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
+        - PlushieIPC # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
       chance: 0.5
       offset: 0.2
 
@@ -103,7 +93,6 @@
       rarePrototypes:
       - ToyFigurineNukieElite
       - ToyFigurineNukieCommander
-      - ToyFigurineCosmicCultist # DeltaV Figurine, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
       rareChance: 0.05
       prototypes:
       - ToyFigurinePassenger

@@ -8,7 +8,6 @@ using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
-using Robust.Shared.Timing;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 
@@ -17,7 +16,6 @@ public sealed class CosmicConversionSystem : EntitySystem
     [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
     [Dependency] private readonly CosmicGlyphSystem _cosmicGlyph = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
@@ -32,7 +30,7 @@ public sealed class CosmicConversionSystem : EntitySystem
 
     private void OnConversionGlyph(Entity<CosmicGlyphConversionComponent> uid, ref TryActivateGlyphEvent args)
     {
-        var possibleTargets = _cosmicGlyph.GetTargetsNearGlyph(uid, uid.Comp.ConversionRange, entity => _cosmicCult.EntityIsCultist(entity));
+        var possibleTargets = _cosmicGlyph.GetTargetsNearGlyph(uid, uid.Comp.ConversionRange, entity => !_cosmicCult.EntityIsCultist(entity));
         if (possibleTargets.Count == 0)
         {
             _popup.PopupEntity(Loc.GetString("cult-glyph-conditions-not-met"), uid, args.User);
@@ -68,6 +66,12 @@ public sealed class CosmicConversionSystem : EntitySystem
                 _stun.TryStun(target, TimeSpan.FromSeconds(4f), false);
                 _damageable.TryChangeDamage(target, uid.Comp.ConversionHeal * -1);
                 _cultRule.CosmicConversion(uid, target);
+                var finaleQuery = EntityQueryEnumerator<CosmicFinaleComponent>(); // Enumerator for The Monument's Finale
+                while (finaleQuery.MoveNext(out var monument, out var comp) && comp.CurrentState == FinaleState.ActiveBuffer)
+                {
+                    comp.BufferTimer -= TimeSpan.FromSeconds(45);
+                    _popup.PopupCoordinates(Loc.GetString("cosmiccult-finale-speedup"), Transform(monument).Coordinates, PopupType.Large);
+                }
             }
         }
     }

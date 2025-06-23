@@ -15,17 +15,12 @@ public sealed partial class EditChatPopup : DefaultWindow
     private string _originalNumber = "";
     private string _originalName = "";
     private string _originalJob = "";
-    private int _maxNameLength;
-    private int _maxIdJobLength;
 
     public event Action<uint, string, string?>? OnContactEdited;
 
-    public EditChatPopup(int maxNameLength, int maxIdJobLength)
+    public EditChatPopup()
     {
         RobustXamlLoader.Load(this);
-
-        _maxNameLength = maxNameLength;
-        _maxIdJobLength = maxIdJobLength;
 
         // margins trolling
         ContentsContainer.Margin = new Thickness(3);
@@ -43,15 +38,15 @@ public sealed partial class EditChatPopup : DefaultWindow
         // Input validation
         NameInput.OnTextChanged += args =>
         {
-            if (args.Text.Length > _maxNameLength)
-                NameInput.Text = args.Text[.._maxNameLength];
+            if (args.Text.Length > IdCardConsoleComponent.MaxFullNameLength)
+                NameInput.Text = args.Text[..IdCardConsoleComponent.MaxFullNameLength];
             ValidateInputs();
         };
 
         JobInput.OnTextChanged += args =>
         {
-            if (args.Text.Length > _maxIdJobLength)
-                JobInput.Text = args.Text[.._maxIdJobLength];
+            if (args.Text.Length > IdCardConsoleComponent.MaxJobTitleLength)
+                JobInput.Text = args.Text[..IdCardConsoleComponent.MaxJobTitleLength];
             ValidateInputs();
         };
     }

@@ -1,5 +1,4 @@
 using Content.Shared.Mind;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.FeedbackOverwatch;
@@ -8,7 +7,6 @@ public sealed partial class SharedFeedbackOverwatchSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
 
     public List<string> FeedbackPopupProtoIds { get; } = new();
 
@@ -61,27 +59,27 @@ public sealed partial class SharedFeedbackOverwatchSystem : EntitySystem
     /// <summary>
     ///     Send a popup to the given client controlling the given mind.
     /// </summary>
-    /// <param name="mindId">UID of the players mind.</param>
+    /// <param name="uid">UID of the players mind.</param>
     /// <param name="popupPrototype">Popup to send them.</param>
     /// <param name="sendOnlyOnce">If true, if the popup is sent to the same mind again, it will not be displayed.</param>
     /// <returns>Returns true if the popup message was sent to the client successfully.</returns>
-    public bool SendPopupMind(EntityUid? mindId, ProtoId<FeedbackPopupPrototype> popupPrototype, bool sendOnlyOnce = true)
+    public bool SendPopupMind(EntityUid? uid, ProtoId<FeedbackPopupPrototype> popupPrototype, bool sendOnlyOnce = true)
     {
-        if (mindId is not {} uid || CompOrNull<MindComponent>(mindId)?.UserId is not {} userId)
+        if (uid == null)
             return false;
 
         if (sendOnlyOnce)
         {
-            EnsureComp<FeedbackPopupInformationComponent>(uid, out var feedbackInfoComp);
+            EnsureComp<FeedbackPopupInformationComponent>(uid.Value, out var feedbackInfoComp);
 
             // If it's already been seen, don't resend it.
             if (!feedbackInfoComp.SeenPopups.Add(popupPrototype))
                 return false;
 
-            Dirty(uid, feedbackInfoComp);
+            Dirty(uid.Value, feedbackInfoComp);
         }
 
-        if (!_player.TryGetSessionById(userId, out var session))
+        if (!_mind.TryGetSession(uid, out var session))
             return false;
 
         var msg = new FeedbackPopupMessage(popupPrototype);

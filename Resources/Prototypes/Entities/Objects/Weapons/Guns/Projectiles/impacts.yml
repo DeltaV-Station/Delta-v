@@ -27,8 +27,8 @@
       layers:
         - shader: unshaded
           map: ["enum.EffectLayers.Unshaded"]
-          sprite: _Impstation/Objects/Weapons/Guns/Projectiles/impacts.rsi # Impstation - Delta V Port
-          state: stun # Impstation - Delta V Port
+          sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+          state: impact_laser_blue
     - type: EffectVisuals
     - type: Tag
       tags:
@@ -45,8 +45,9 @@
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
-      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/impacts.rsi # Impstation - Delta V Port
-      state: red # Impstation - Delta V Port
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+      state: impact_laser_greyscale
+      color: orangered
   - type: EffectVisuals
   - type: Tag
     tags:

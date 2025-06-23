@@ -8,36 +8,10 @@
     issuer: objective-issuer-cosmiccult
   - type: RoleRequirement
     roles:
-    - CosmicCultRole
-
-- type: entity
-  abstract: true
-  parent: BaseObjective
-  id: BaseCosmicColossusObjective
-  components:
-  - type: Objective
-    difficulty: 1.5
-    issuer: objective-issuer-cosmiccult
-  - type: RoleRequirement
-    roles:
-    - CosmicColossusRole
+      mindRoles:
+      - CosmicCultRole
 
 ############################### COSMIC CULT'S OBJECTIVES
-
-- type: entity
-  parent: BaseCosmicCultObjective
-  id: CosmicConversionObjective
-  components:
-  - type: Objective
-    icon:
-      sprite: _DV/CosmicCult/Icons/objectives.rsi
-      state: infection
-  - type: NumberObjective
-    min: 7
-    max: 14
-    title: objective-condition-conversion-title
-    description: objective-condition-conversion-desc
-  - type: CosmicConversionCondition
 
 - type: entity
   parent: BaseCosmicCultObjective
@@ -48,8 +22,8 @@
       sprite: _DV/CosmicCult/Icons/objectives.rsi
       state: siphon
   - type: NumberObjective
-    min: 70
-    max: 90
+    min: 40
+    max: 60
     title: objective-condition-entropy-title
     description: objective-condition-entropy-desc
   - type: CosmicEntropyCondition
@@ -84,27 +58,44 @@
     description: objective-condition-victory-desc
   - type: CosmicVictoryCondition
 
-############################### COLOSSI OBJECTIVES
+############################### ROGUE ASCENDED OBJECTIVES
 
 - type: entity
-  parent: [BaseCosmicColossusObjective, BaseSurviveObjective]
-  id: ColossusSurviveObjective
-  name: PERSIST
-  description: Persist until the end of all things.
+  abstract: true
+  parent: BaseObjective
+  id: BaseRogueAscendedObjective
+  components:
+  - type: Objective
+    # difficulty isn't used since all objectives are picked
+    difficulty: 1.5
+    issuer: rogue-ascended-objective-issuer
+  - type: RoleRequirement
+    roles:
+      mindRoles:
+      - RogueAscendedRole
+
+- type: entity
+  parent: BaseRogueAscendedObjective
+  id: RogueAscendedInfectionObjective
   components:
   - type: Objective
     icon:
       sprite: _DV/CosmicCult/Icons/objectives.rsi
-      state: colossus
+      state: infection
+  - type: NumberObjective
+    min: 5
+    max: 10
+    title: objective-condition-maligninfection-title
+    description: objective-condition-maligninfection-description
+  - type: RogueInfectionCondition
 
 - type: entity
-  parent: [BaseCosmicColossusObjective, BaseCodeObjective]
-  id: ColossusEffigyObjective
-  name: BECKON
-  description: Call forth an Effigy of Entropy.
+  parent: [BaseRogueAscendedObjective, BaseSurviveObjective]
+  id: RogueAscendedSurviveObjective
+  name: Survive
+  description: Survive until the end of all things.
   components:
   - type: Objective
     icon:
       sprite: _DV/CosmicCult/Icons/objectives.rsi
-      state: effigy
-  - type: CosmicEffigyCondition
+      state: summon

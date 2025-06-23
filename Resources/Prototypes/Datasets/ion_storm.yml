@@ -348,9 +348,13 @@
   - MUSICIANS
   - NON-CREW
   - PARAMEDICS
-  - ASSISTANTS # DeltaV - Replace passengers with assistants
-  - LOGISTICS OFFICERS # DeltaV - Replace Quartermaster with Logistics Officer
-  - MYSTAGOGUES   # DeltaV - Replace Research Director with Mystagogue
+  - PASSENGERS
+  # DeltaV - Logistics Department - Replace Quartermaster with Logistics Officer
+  - LOGISTICS OFFICERS
+  # End of modified code
+  # DeltaV - Epistemics Department - Replace Research Director with Mystagogue
+  - MYSTAGOGUES
+  # End of modified code
   - ROBOTICISTS
   - RODENTS
   - SALVAGE SPECIALISTS
@@ -503,7 +507,7 @@
   - HIT A HOMERUN
   - HONK
   - HOST C&C
-  - IGNORE ASSISTANTS # DeltaV - Replace passengers with Assistants
+  - IGNORE PASSENGERS
   - IGNORE THE CAPTAIN
   - IGNORE THE CLOWN
   - INFORM THE CREW OF EVERYTHING

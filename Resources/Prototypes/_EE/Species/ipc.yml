@@ -31,11 +31,7 @@
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
-    # Begin DeltaV Additions - Adds new layer types for markings-sake
-    Eyes: MobHumanoidAnyMarking
-    Hair: MobHumanoidAnyMarking
-    Snout: MobHumanoidAnyMarking
-    # End DeltaV Additions
+    Hair: MobHumanoidMarkingMatchSkin
     Chest: MobIPCTorso
     LArm: MobIPCLArm
     RArm: MobIPCRArm
@@ -49,19 +45,6 @@
 - type: markingPoints
   id: MobIPCMarkingLimits
   points:
-    Hair:
-      points: 1 # DeltaV - Fixes hair not displaying
-      required: false
-    FacialHair:
-      points: 1 # DeltaV - Fixes hair not displaying
-      required: false
-    Tail: # DeltaV - Adds ability to use more marking types
-      points: 1
-      required: false
-    Eyes: # DeltaV - Moves screen to the eyes layer
-      points: 1
-      required: true
-      defaultMarkings: [ MobIPCEyesDefault ]
     Head:
       points: 1
       required: true
@@ -78,9 +61,6 @@
       points: 4
       required: true
       defaultMarkings: [ MobIPCLArmDefault, MobIPCLHandDefault, MobIPCRArmDefault, MobIPCRHandDefault ]
-    Snout: # DeltaV - Adds ability to use more marking types
-        points: 1
-        required: false
     HeadSide:
       points: 1
       required: false

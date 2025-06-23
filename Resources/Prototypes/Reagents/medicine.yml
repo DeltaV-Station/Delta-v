@@ -183,7 +183,6 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: medicine
   color: "#0091ff"
-  worksOnTheDead: true
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: -5
@@ -193,8 +192,6 @@
   metabolisms:
     Medicine:
       effects:
-        - !type:ModifyBloodLevel
-          amount: 4
         - !type:HealthChange
           conditions:
           - !type:Temperature
@@ -203,7 +200,10 @@
           damage:
           # todo scale with temp like SS13
             groups:
-              Airloss: -10
+              Airloss: -6
+              Brute: -4
+              Burn: -6
+              Toxin: -4
 
 - type: reagent
   id: Doxarubixadone
@@ -261,7 +261,7 @@
   id: Dexalin
   name: reagent-name-dexalin
   group: Medicine
-  desc: reagent-desc-dexalin-deltav # Deltav - Remove mention of dex+
+  desc: reagent-desc-dexalin
   physicalDesc: reagent-physical-desc-opaque
   flavor: medicine
   color: "#0041a8"
@@ -842,12 +842,13 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:EvenHealthChange
+      - !type:HealthChange
         damage:
-          Burn: -2
-          Toxin: -2
-          Airloss: -2
-          Brute: -2
+          groups:
+            Burn: -2
+            Toxin: -2
+            Airloss: -2
+            Brute: -2
 
 - type: reagent
   id: Ultravasculine
@@ -1113,6 +1114,12 @@
       effects:
       - !type:SatiateThirst
         factor: 3
+    Medicine:
+      effects:
+      - !type:CleanseCult # DeltaV - Cosmic Cult
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
@@ -1124,7 +1131,6 @@
             Heat: -0.2
             Shock: -0.2
             Cold: -0.2
-
   reactiveEffects:
     Extinguish:
       methods: [ Touch ]
@@ -1224,7 +1230,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 12
-
+          
 - type: reagent
   id: Opporozidone #Name based of an altered version of the startreck chem "Opporozine"
   name: reagent-name-opporozidone
@@ -1276,7 +1282,7 @@
               Poison: -2
 
 - type: reagent
-  id: Aloxadone
+  id : Aloxadone
   name: reagent-name-aloxadone
   group: Medicine
   desc: reagent-desc-aloxadone
@@ -1293,29 +1299,10 @@
           max: 213.0
         damage:
           types:
-            Cold: -5 # DeltaV - was -4
-            Heat: -5 # DeltaV - was -4
-            Shock: -5 # DeltaV - was -4
-            Caustic: -2 # DeltaV - was -1.5
-
-- type: reagent
-  id: Traumoxadone
-  name: reagent-name-traumoxadone
-  group: Medicine
-  desc: reagent-desc-traumoxadone
-  physicalDesc: reagent-physical-desc-cloudy
-  flavor: medicine
-  color: "#69304D"
-  worksOnTheDead: true
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:EvenHealthChange
-        conditions:
-        - !type:Temperature
-          max: 213.0
-        damage:
-          Brute: -4
+            Heat: -5.0 # DeltaV - Increased from -3.0 to -5.0
+            Shock: -5.0 # DeltaV - Increased from -3.0 to -5.0
+            Cold: -5.0 # DeltaV - Added Cold healing to match Heat/Shock
+            Caustic: -2.0 # DeltaV - Increased from -1.0 to -2.0
 
 - type: reagent
   id : Mannitol # currently this is just a way to create psicodine
@@ -1459,27 +1446,3 @@
       - !type:AdjustReagent
         reagent: MindbreakerToxin
         amount: -3.0
-
-- type: reagent
-  id: Stelloxadone
-  name: reagent-name-stelloxadone
-  group: Medicine
-  desc: reagent-desc-stelloxadone
-  physicalDesc: reagent-physical-desc-murky
-  flavor: medicine
-  color: "#FFC683"
-  worksOnTheDead: true
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:Temperature
-          max: 213.0
-        damage:
-          groups:
-            Brute: 3
-            Genetic: 1
-          types:
-            Poison: -6
-            Radiation: -3

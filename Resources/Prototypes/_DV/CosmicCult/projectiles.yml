@@ -45,11 +45,19 @@
     mobile: true
 
 - type: entity
-  id: ProjectileCosmic
-  name: Malign Bolt
+  id: ProjectileRogueCosmicNova
+  parent: ProjectileCosmicNova
+  name: Usurped Astral Nova
+  components:
+    - type: CosmicAstralNova
+      doStun: false
+
+- type: entity
+  id: ProjectileCosmicRazor
+  name: Astral Bolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: Ouch.
+  description: Marks a target for additional damage.
   components:
   - type: Reflective
     reflective:
@@ -60,22 +68,30 @@
     layers:
       - state: razor
         shader: unshaded
+  - type: GatheringProjectile
+  - type: DamageMarkerOnCollide
+    whitelist:
+      components:
+      - MobState
+    damage:
+      types:
+        Cold: 15
+        Asphyxiation: 10
   - type: Projectile
     impactEffect: BulletImpactEffectCosmic
     damage:
       types:
-        Cold: 12
+        Cold: 10
+        Asphyxiation: 5
     soundHit:
-      path: /Audio/_DV/CosmicCult/projectile_razor_hit.ogg
-      params:
-        variation: 0.08
+      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
   - type: Ammo
     muzzleFlash: null
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.6
   - type: SingularityDistortion
-    intensity: +5
+    intensity: +10
     falloffPower: 1.5
   - type: PointLight
     color: "#42a4ae"
@@ -94,27 +110,6 @@
         enabled: true
         reverseWhenFinished: true
 
-- type: entity
-  id: ProjectileCosmicRazor
-  name: Astral Bolt
-  parent: ProjectileCosmic
-  categories: [ HideSpawnMenu ]
-  description: Ouch.
-  components:
-  - type: DamageMarkerOnCollide
-    whitelist:
-      components:
-      - MobState
-    damage:
-      types:
-        Cold: 15
-        Asphyxiation: 10
-  - type: Projectile
-    impactEffect: BulletImpactEffectCosmic
-    damage:
-      types:
-        Cold: 10
-        Asphyxiation: 5
 
 - type: entity
   id: BulletImpactEffectCosmic

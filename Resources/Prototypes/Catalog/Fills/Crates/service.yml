@@ -7,7 +7,7 @@
   - type: StorageFill
     contents:
       - id: MopItem
-      - id: MopBucketCubeWrapped
+      - id: MopBucket
       - id: Bucket
         amount: 3
       - id: WetFloorSign
@@ -148,7 +148,7 @@
     - id: NewtonCradle
     - id: BoxEnvelope
     - id: BrbSign
-    # Begin DeltaV - More folders & colored paper reams in the bureaucracy crate + denied/approved stamp, low chance of paperwork hater stamp
+    # Begin DeltaV - More folders & colored paper reams in the bureaucracy crate, low chance of paperwork hater stamp
     - id: BoxFolderBlack
       amount: 2
     - id: BoxFolderGrey
@@ -159,9 +159,7 @@
     - id: BoxReamBright
     - id: RubberStampHatePaperwork
       prob: 0.05
-    - id: RubberStampApproved
-    - id: RubberStampDenied
-    # End DeltaV - More folders & colored paper reams in the bureaucracy crate + denied/approved stamp, low chance of paperwork hater stamp
+    # End DeltaV - More folders & colored paper reams in the bureaucracy crate, low chance of paperwork hater stamp
 
 - type: entity
   id: CrateServiceFaxMachine
@@ -380,14 +378,3 @@
         amount: 2
       - id: BoxCandleSmall
         amount: 2
-
-- type: entity
-  parent: CrateGenericSteel
-  id: CrateServiceColorfulLights
-  name: colorful lights crate
-  description: It's not a party until it's hard to see, a little disorienting, and your ears hurt.
-  components:
-  - type: StorageFill
-    contents:
-    - id: BoxLightbulbColorfulMixed
-    - id: BoxLighttubeColorfulMixed

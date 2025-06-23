@@ -11,13 +11,6 @@
     sprite: Mobs/Species/Vox/parts.rsi
   - type: BodyPart # Shitmed Change
     species: Vox
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 3
-      - ReagentId: AmmoniaBlood
-        Quantity: 10
 
 - type: entity
   parent: [ PartVoxBase, BaseTorso ]
@@ -28,13 +21,6 @@
     state: "torso"
   - type: Icon
     state: "torso"
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 10
-      - ReagentId: AmmoniaBlood
-        Quantity: 20
 
 - type: entity
   parent: [ PartVoxBase, BaseHead ]
@@ -45,13 +31,6 @@
     state: "head"
   - type: Icon
     state: "head"
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 5
-      - ReagentId: AmmoniaBlood
-        Quantity: 10
 
 - type: entity
   parent: [ PartVoxBase, BaseLeftArm ]

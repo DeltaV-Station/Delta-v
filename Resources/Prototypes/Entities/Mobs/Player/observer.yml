@@ -54,7 +54,6 @@
       - PsionicInvisibility
       - Ghost
       - Normal
-      - CosmicCultMonument # DeltaV - Cosmic Cult
   - type: Input
     context: "ghost"
   - type: Examiner
@@ -70,9 +69,7 @@
     tags:
     - BypassInteractionRangeChecks
   - type: PointLight
-    netsync: false
     radius: 6
-    castShadows: false
     enabled: false
 
 # proto for player ghosts specifically

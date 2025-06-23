@@ -1,11 +1,7 @@
 # put this in a burn chamber or something you don't want to have show up as dangerous
 - type: entity
-  parent: [ AirSensor, BaseUnsetSensor ]
+  parent: AirSensor
   id: AirSensorUnset
-
-- type: entity
-  abstract: true
-  id: BaseUnsetSensor
   suffix: Unset
   components:
   - type: AtmosMonitor

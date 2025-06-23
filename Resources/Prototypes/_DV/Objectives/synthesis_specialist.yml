@@ -7,7 +7,8 @@
     difficulty: 0 # difficulty is unused
   - type: RoleRequirement
     roles:
-    - SynthesisRole
+      mindRoles:
+      - SynthesisRole
 
 - type: entity
   parent: [BaseSynthesisObjective, BaseSurviveObjective]

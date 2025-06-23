@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseLandMine
-  id: LandMineHEUnarmed
+  id: LandMineHE
   name: explosive mine
   suffix: DeltaV, High Explosive
   components:
@@ -13,23 +13,9 @@
     canCreateVacuum: false
 
 - type: entity
-  parent: LandMineHEUnarmed
-  id: LandMineHE
-  name: explosive mine
-  suffix: DeltaV, High Explosive, Armed
-  components:
-  - type: ItemToggle
-    activated: true
-    onActivate: false
-  - type: Sprite
-    layers:
-    - state: landmine
-
-- type: entity
   parent: BaseLandMine
-  id: LandMineShrapnelUnarmed
+  id: LandMineShrapnel
   name: shrapnel mine
-  suffix: DeltaV
   components:
   - type: DeleteOnTrigger
   - type: ContainerContainer
@@ -38,16 +24,3 @@
   - type: ProjectileGrenade
     fillPrototype: PelletClusterLethal
     capacity: 30
-
-- type: entity
-  parent: LandMineShrapnelUnarmed
-  id: LandMineShrapnel
-  name: shrapnel mine
-  suffix: DeltaV, Armed
-  components:
-  - type: ItemToggle
-    activated: true
-    onActivate: false
-  - type: Sprite
-    layers:
-    - state: landmine

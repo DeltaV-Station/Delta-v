@@ -10,18 +10,12 @@ namespace Content.Client._DV.CartridgeLoader.Cartridges;
 public sealed partial class NewChatPopup : DefaultWindow
 {
     private const int MaxNumberLength = 4; // i hardcoded it to be 4 so suffer
-    private int _maxNameLength;
-    private int _maxIdJobLength;
 
     public event Action<uint, string, string?>? OnChatCreated;
 
-    public NewChatPopup(int maxNameLength, int maxIdJobLength)
+    public NewChatPopup()
     {
         RobustXamlLoader.Load(this);
-        IoCManager.InjectDependencies(this);
-
-        _maxNameLength = maxNameLength;
-        _maxIdJobLength = maxIdJobLength;
 
         // margins trolling
         ContentsContainer.Margin = new Thickness(3);
@@ -55,15 +49,15 @@ public sealed partial class NewChatPopup : DefaultWindow
 
         NameInput.OnTextChanged += args =>
         {
-            if (args.Text.Length > _maxNameLength)
-                NameInput.Text = args.Text[.._maxNameLength];
+            if (args.Text.Length > IdCardConsoleComponent.MaxFullNameLength)
+                NameInput.Text = args.Text[..IdCardConsoleComponent.MaxFullNameLength];
             ValidateInputs();
         };
 
         JobInput.OnTextChanged += args =>
         {
-            if (args.Text.Length > _maxIdJobLength)
-                JobInput.Text = args.Text[.._maxIdJobLength];
+            if (args.Text.Length > IdCardConsoleComponent.MaxJobTitleLength)
+                JobInput.Text = args.Text[..IdCardConsoleComponent.MaxJobTitleLength];
         };
     }
 

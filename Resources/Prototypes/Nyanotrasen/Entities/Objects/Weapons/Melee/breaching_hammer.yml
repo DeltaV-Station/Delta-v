@@ -10,7 +10,7 @@
   - type: Item
     size: Huge
   - type: MeleeWeapon
-    attackRate: 0.4
+    attackRate: 0.75
     range: 1.70
     damage:
       types:
@@ -27,9 +27,9 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 20
+        Blunt: 5
         Piercing: 2
-        Structural: 20
+        Structural: 25
   - type: Tool
     qualities:
       - Prying

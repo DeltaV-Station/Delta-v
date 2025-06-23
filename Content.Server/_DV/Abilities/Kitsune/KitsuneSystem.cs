@@ -6,11 +6,9 @@ using Content.Shared._DV.Abilities.Kitsune;
 using Content.Shared.Damage.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
-using Content.Shared.Humanoid;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Polymorph;
-using Content.Shared.Speech.Components;
 using Robust.Shared.Player;
 
 namespace Content.Server._DV.Abilities.Kitsune;
@@ -19,6 +17,7 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
 {
     [Dependency] private readonly AccessReaderSystem _reader = default!;
     [Dependency] private readonly AccessSystem _access = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -39,14 +38,12 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
             return;
 
         newKitsune.Color = oldKitsune.Color;
-        newKitsune.ColorLight = oldKitsune.ColorLight;
         _appearance.SetData(newEntity, KitsuneColorVisuals.Color, newKitsune.Color ?? Color.Orange);
 
         // Ensure that the fox fire action state is transferred properly.
         newKitsune.ActiveFoxFires = oldKitsune.ActiveFoxFires;
 
-        if (oldKitsune.FoxfireAction is {} oldAction && newKitsune.FoxfireAction is {} newAction)
-            _charges.SetCharges(newAction, _charges.GetCurrentCharges(oldAction));
+        _actions.SetCharges(newKitsune.FoxfireAction, _actions.GetCharges(oldKitsune.FoxfireAction));
 
         foreach (var fireUid in newKitsune.ActiveFoxFires)
         {
@@ -55,9 +52,6 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
             foxfire.Kitsune = newEntity;
             Dirty(fireUid, foxfire);
         }
-
-        if (TryComp<HumanoidAppearanceComponent>(oldEntity, out var humanoidAppearance))
-            RaiseLocalEvent(newEntity, new SexChangedEvent(Sex.Unsexed, humanoidAppearance.Sex));
 
         // Code after this point will not run when reverting to human form.
         if (HasComp<KitsuneFoxComponent>(oldEntity))

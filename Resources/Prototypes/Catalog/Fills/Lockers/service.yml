@@ -21,7 +21,7 @@
         amount: 2
       - id: RagItem
         amount: 2
-      - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
+      - id: LunchboxServiceFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
 
 #- type: entity
@@ -32,10 +32,11 @@
 - type: entity
   id: ClosetChefFilled
   suffix: Filled
-  parent: LockerKitchen # DeltaV - Use DV secure lockers/sprites
+  parent: ClosetChef
   components:
   - type: StorageFill
     contents:
+      - id: CrowbarRed
       - id: VariantCubeBox
       - id: BoxMousetrap
         amount: 2
@@ -55,13 +56,13 @@
       - id: DrinkMilkCarton
         amount: 2
       - id: DrinkSoyMilkCarton
-      - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
+      - id: LunchboxServiceFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
 
 - type: entity
   id: ClosetJanitorFilled
   suffix: Filled
-  parent: LockerJanitor # DeltaV - Use DV secure lockers/sprites
+  parent: ClosetJanitor
   components:
   - type: StorageFill
     contents:
@@ -82,7 +83,7 @@
         amount: 2
       - id: Plunger
         amount: 2
-      - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
+      - id: LunchboxServiceFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
 
 - type: entity
@@ -116,7 +117,7 @@
       - id: ClothingUniformOveralls
       - id: ClothingHeadHatTrucker
         prob: 0.1
-      - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
+      - id: LunchboxServiceFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
 
 - type: entity

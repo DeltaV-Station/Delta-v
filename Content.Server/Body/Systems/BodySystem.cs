@@ -15,7 +15,6 @@ using Robust.Shared.Timing;
 using System.Numerics;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
-using Content.Shared.Damage.Components;
 
 // Shitmed Change
 using System.Linq;
@@ -124,9 +123,6 @@ public sealed class BodySystem : SharedBodySystem
         {
             return new HashSet<EntityUid>();
         }
-
-        if (HasComp<GodmodeComponent>(bodyId))
-            return new HashSet<EntityUid>();
 
         // If a polymorph configured to revert on death is gibbed without dying,
         // revert it then gib so the parent is gibbed instead of the polymorph.

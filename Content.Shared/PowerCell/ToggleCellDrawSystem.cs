@@ -38,6 +38,7 @@ public sealed class ToggleCellDrawSystem : EntitySystem
     {
         var uid = ent.Owner;
         var draw = Comp<PowerCellDrawComponent>(uid);
+        _cell.QueueUpdate((uid, draw));
         _cell.SetDrawEnabled((uid, draw), args.Activated);
     }
 

@@ -19,7 +19,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Client.Hands.Systems
 {
@@ -31,7 +30,6 @@ namespace Content.Client.Hands.Systems
 
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly StrippableSystem _stripSys = default!;
-        [Dependency] private readonly SpriteSystem _sprite = default!;
         [Dependency] private readonly ExamineSystem _examine = default!;
         [Dependency] private readonly DisplacementMapSystem _displacement = default!;
 
@@ -332,7 +330,7 @@ namespace Content.Client.Hands.Systems
             {
                 foreach (var key in revealedLayers)
                 {
-                    _sprite.RemoveLayer((uid, sprite), key);
+                    sprite.RemoveLayer(key);
                 }
 
                 revealedLayers.Clear();
@@ -368,7 +366,7 @@ namespace Content.Client.Hands.Systems
                     continue;
                 }
 
-                var index = _sprite.LayerMapReserve((uid, sprite), key);
+                var index = sprite.LayerMapReserveBlank(key);
 
                 // In case no RSI is given, use the item's base RSI as a default. This cuts down on a lot of unnecessary yaml entries.
                 if (layerData.RsiPath == null
@@ -376,23 +374,21 @@ namespace Content.Client.Hands.Systems
                     && sprite[index].Rsi == null)
                 {
                     if (TryComp<ItemComponent>(held, out var itemComponent) && itemComponent.RsiPath != null)
-                        _sprite.LayerSetRsi((uid, sprite), index, new ResPath(itemComponent.RsiPath));
+                        sprite.LayerSetRSI(index, itemComponent.RsiPath);
                     else if (TryComp(held, out SpriteComponent? clothingSprite))
-                        _sprite.LayerSetRsi((uid, sprite), index, clothingSprite.BaseRSI);
+                        sprite.LayerSetRSI(index, clothingSprite.BaseRSI);
                 }
 
-                _sprite.LayerSetData((uid, sprite), index, layerData);
+                sprite.LayerSetData(index, layerData);
 
-                // Add displacement maps
-                var displacement = hand.Location switch
-                {
-                    HandLocation.Left => handComp.LeftHandDisplacement,
-                    HandLocation.Right => handComp.RightHandDisplacement,
-                    _ => handComp.HandDisplacement
-                };
-
-                if (displacement is not null && _displacement.TryAddDisplacement(displacement, (uid, sprite), index, key, out var displacementKey))
-                    revealedLayers.Add(displacementKey);
+                //Add displacement maps
+                if (hand.Location == HandLocation.Left && handComp.LeftHandDisplacement is not null)
+                    _displacement.TryAddDisplacement(handComp.LeftHandDisplacement, sprite, index, key, revealedLayers);
+                else if (hand.Location == HandLocation.Right && handComp.RightHandDisplacement is not null)
+                    _displacement.TryAddDisplacement(handComp.RightHandDisplacement, sprite, index, key, revealedLayers);
+                //Fallback to default displacement map
+                else if (handComp.HandDisplacement is not null)
+                    _displacement.TryAddDisplacement(handComp.HandDisplacement, sprite, index, key, revealedLayers);
             }
 
             RaiseLocalEvent(held, new HeldVisualsUpdatedEvent(uid, revealedLayers), true);

@@ -11,7 +11,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.NPC;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
@@ -75,8 +74,8 @@ public sealed class CosmicSiphonSystem : EntitySystem
             return;
         args.Handled = true;
 
-        if (TryComp<ActorComponent>(uid, out var actor))
-            RaiseNetworkEvent(new CosmicSiphonIndicatorEvent(GetNetEntity(target)), actor.PlayerSession);
+        if (_mind.TryGetMind(uid, out var _, out var mind) && mind.Session != null)
+            RaiseNetworkEvent(new CosmicSiphonIndicatorEvent(GetNetEntity(target)), mind.Session);
 
         uid.Comp.EntropyStored += uid.Comp.CosmicSiphonQuantity;
         uid.Comp.EntropyBudget += uid.Comp.CosmicSiphonQuantity;

@@ -22,17 +22,13 @@
     - BaseStationAlertLevels
     - BaseStationMagnet
     - BaseStationExpeditions
-    - BaseStationSalvageJobs
     - BaseStationSiliconLawCrewsimov
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
-    # Begin DeltaV - Station additions
-    - BaseStationMail
-    - BaseStationAutomaticSpareId
-    - BaseStationStockMarket
-    - BaseStationLavaland
-    - BaseStationExfiltration
-    # End DeltaV - Station additions
+    - BaseStationMail # Nyano component, required for station mail to function
+    - BaseStationCaptainState # DeltaV
+    - BaseStationStockMarket # DeltaV
+    - BaseStationLavaland # DeltaV
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform

@@ -11,7 +11,6 @@ namespace Content.Shared.Humanoid.Markings
         Head,
         HeadTop,
         HeadSide,
-        Eyes, // DeltaV - Add Eyes Category for IPCs
         Snout,
         Chest,
         UndergarmentTop,
@@ -34,7 +33,6 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.Head => MarkingCategories.Head,
                 HumanoidVisualLayers.HeadTop => MarkingCategories.HeadTop,
                 HumanoidVisualLayers.HeadSide => MarkingCategories.HeadSide,
-                HumanoidVisualLayers.Eyes => MarkingCategories.Eyes, // DeltaV - Add Eyes Category for IPCs
                 HumanoidVisualLayers.Snout => MarkingCategories.Snout,
                 HumanoidVisualLayers.Chest => MarkingCategories.Chest,
                 HumanoidVisualLayers.UndergarmentTop => MarkingCategories.UndergarmentTop,

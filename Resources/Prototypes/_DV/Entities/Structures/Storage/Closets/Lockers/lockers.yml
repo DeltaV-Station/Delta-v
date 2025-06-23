@@ -76,6 +76,18 @@
     access: [ [ "Surgery" ] ]
 
 - type: entity
+  parent: CommandLockerBaseSecureDeltaV
+  id: LockerAdministrativeAssistant
+  name: administrative assistant's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: admin_assist
+    stateDoorOpen: admin_assist_open
+    stateDoorClosed: admin_assist_door
+  - type: AccessReader
+    access: [["Command"]]
+
+- type: entity
   parent: LockerBaseSecureDeltaV
   id: LockerKitchen
   name: kitchen locker

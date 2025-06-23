@@ -39,14 +39,8 @@
         Caustic: -1.5
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
   - type: Stack
     stackType: Ointment
     count: 10
@@ -97,14 +91,8 @@
         Caustic: -10
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
   - type: Stack
     stackType: RegenerativeMesh
     count: 10
@@ -119,15 +107,6 @@
   - type: Stack
     stackType: RegenerativeMesh
     count: 1
-
-- type: entity
-  parent: RegenerativeMesh
-  id: RegenerativeMeshLingering0
-  suffix: 0, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
 
 - type: entity
   name: bruise pack
@@ -152,14 +131,8 @@
         Brute: -15 # 5 for each type in the group
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
   - type: Stack
     stackType: Brutepack
     count: 10
@@ -209,14 +182,8 @@
     bloodlossModifier: -10 # a suture should stop ongoing bleeding
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
   - type: Stack
     stackType: MedicatedSuture
     count: 10
@@ -231,15 +198,6 @@
   - type: Stack
     stackType: MedicatedSuture
     count: 1
-
-- type: entity
-  parent: MedicatedSuture
-  id: MedicatedSutureLingering0
-  suffix: 0, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
 
 - type: entity
   name: blood pack
@@ -265,14 +223,8 @@
     ModifyBloodLevel: 15 #restores about 5% blood per use on standard humanoids.
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
   - type: Stack
     stackType: Bloodpack
     count: 10
@@ -286,7 +238,6 @@
   components:
   - type: Stack
     lingering: true
-    count: 10
 
 - type: entity
   parent: BaseHealingItem
@@ -314,14 +265,8 @@
       delay: 0.5
       healingBeginSound:
         path: "/Audio/Items/Medical/brutepack_begin.ogg"
-        params:
-          volume: 1.0
-          variation: 0.125
       healingEndSound:
         path: "/Audio/Items/Medical/brutepack_end.ogg"
-        params:
-          volume: 1.0
-          variation: 0.125
 
 - type: entity
   name: roll of gauze
@@ -351,14 +296,8 @@
     bloodlossModifier: -10
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
   - type: Stack
     stackType: Gauze
     count: 10
@@ -418,14 +357,8 @@
     selfHealPenaltyMultiplier: 0
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
 
 # Pills
 - type: entity

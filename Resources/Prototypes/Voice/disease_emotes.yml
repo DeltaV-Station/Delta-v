@@ -13,8 +13,10 @@
     components:
     - Vocal
   blacklist:
-    tags:
-    - SiliconEmotes
+    components:
+    - BorgChassis
+    tags: # DeltaV - Allow bots to emote
+    - Bot
   chatMessages: ["chat-emote-msg-cough"]
   chatTriggers:
     - cough
@@ -60,8 +62,10 @@
     components:
     - Vocal
   blacklist:
-    tags:
-    - SiliconEmotes
+    components:
+    - BorgChassis
+    tags: # DeltaV - Allow bots to emote
+    - Bot
   chatMessages: ["chat-emote-msg-yawn"]
   chatTriggers:
     - yawn

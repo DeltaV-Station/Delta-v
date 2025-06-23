@@ -41,7 +41,7 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: _DV/Structures/Piping/Atmospherics/vent.rsi # DeltaV
+      sprite: Structures/Piping/Atmospherics/vent.rsi
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeHalf
@@ -92,7 +92,7 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: _DV/Structures/Piping/Atmospherics/vent.rsi # DeltaV
+      sprite: Structures/Piping/Atmospherics/vent.rsi
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeHalf
@@ -132,7 +132,7 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: _DV/Structures/Piping/Atmospherics/scrubber.rsi # DeltaV
+      sprite: Structures/Piping/Atmospherics/scrubber.rsi
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeHalf

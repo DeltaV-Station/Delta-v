@@ -2,12 +2,13 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.UI;
 using Content.Server.Disposal.Tube;
+using Content.Server.Disposal.Tube.Components;
 using Content.Server.EUI;
+using Content.Server.GameTicking;
 using Content.Server.Ghost.Roles;
-using Content.Server.Mind.Commands;
 using Content.Server.Mind;
+using Content.Server.Mind.Commands;
 using Content.Server.Prayer;
-using Content.Server.Silicons.Laws;
 using Content.Server.Station.Systems;
 using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
@@ -18,26 +19,27 @@ using Content.Shared.Configurable;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
-using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
-using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
-using Content.Shared.Silicons.Laws.Components;
-using Content.Shared.Silicons.StationAi;
 using Content.Shared.Verbs;
 using Robust.Server.Console;
 using Robust.Server.GameObjects;
-using Robust.Server.Player;
 using Robust.Shared.Console;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Server.Silicons.Laws;
+using Content.Shared.Movement.Components;
+using Content.Shared.Silicons.Laws.Components;
+using Robust.Server.Player;
+using Content.Shared.Silicons.StationAi;
+using Robust.Shared.Physics.Components;
 using static Content.Shared.Configurable.ConfigurationComponent;
 using Content.Shared._Impstation.Thaven.Components; // DeltaV
 using Content.Server._Impstation.Thaven; // DeltaV
@@ -58,6 +60,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly AdminSystem _adminSystem = default!;
         [Dependency] private readonly DisposalTubeSystem _disposalTubes = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
+        [Dependency] private readonly GameTicker _ticker = default!;
         [Dependency] private readonly GhostRoleSystem _ghostRoleSystem = default!;
         [Dependency] private readonly ArtifactSystem _artifactSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
@@ -121,16 +124,6 @@ namespace Content.Server.Administration.Systems
                     verb.Impact = LogImpact.Low;
                     args.Verbs.Add(verb);
 
-                    // DeltaV - CuratorHelp
-                    Verb cHelpVerb = new();
-                    cHelpVerb.Text = Loc.GetString("chelp-verb-get-data-text");
-                    cHelpVerb.Category = VerbCategory.Admin;
-                    cHelpVerb.Icon = new SpriteSpecifier.Texture(new("/Textures/_DV/Interface/curator2.svg.192dpi.png"));
-                    cHelpVerb.Act = () =>
-                        _console.RemoteExecuteCommand(player, $"openchelp \"{targetActor.PlayerSession.UserId}\"");
-                    cHelpVerb.Impact = LogImpact.Low;
-                    args.Verbs.Add(cHelpVerb);
-
                     // Subtle Messages
                     Verb prayerVerb = new();
                     prayerVerb.Text = Loc.GetString("prayer-verbs-subtle-message");
@@ -161,7 +154,7 @@ namespace Content.Server.Administration.Systems
 
                             var stationUid = _stations.GetOwningStation(args.Target);
 
-                            var profile = _gameTicker.GetPlayerProfile(targetActor.PlayerSession);
+                            var profile = _ticker.GetPlayerProfile(targetActor.PlayerSession);
                             var mobUid = _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
 
                             if (_mindSystem.TryGetMind(args.Target, out var mindId, out var mindComp))
@@ -187,7 +180,7 @@ namespace Content.Server.Administration.Systems
 
                             var stationUid = _stations.GetOwningStation(args.Target);
 
-                            var profile = _gameTicker.GetPlayerProfile(targetActor.PlayerSession);
+                            var profile = _ticker.GetPlayerProfile(targetActor.PlayerSession);
                             _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
                         },
                         ConfirmationPopup = true,
@@ -204,7 +197,7 @@ namespace Content.Server.Administration.Systems
                     });
                 }
 
-                if (_mindSystem.TryGetMind(args.Target, out var mindId, out var mindComp) && mindComp.UserId != null)
+                if (_mindSystem.TryGetMind(args.Target, out _, out var mind) && mind.UserId != null)
                 {
                     // Erase
                     args.Verbs.Add(new Verb
@@ -216,7 +209,7 @@ namespace Content.Server.Administration.Systems
                             new("/Textures/Interface/VerbIcons/delete_transparent.svg.192dpi.png")),
                         Act = () =>
                         {
-                            _adminSystem.Erase(mindComp.UserId.Value);
+                            _adminSystem.Erase(mind.UserId.Value);
                         },
                         Impact = LogImpact.Extreme,
                         ConfirmationPopup = true
@@ -229,19 +222,10 @@ namespace Content.Server.Administration.Systems
                         Category = VerbCategory.Admin,
                         Act = () =>
                         {
-                            _console.ExecuteCommand(player, $"respawn \"{mindComp.UserId}\"");
+                            _console.ExecuteCommand(player, $"respawn \"{mind.UserId}\"");
                         },
                         ConfirmationPopup = true,
                         // No logimpact as the command does it internally.
-                    });
-
-                    // Inspect mind
-                    args.Verbs.Add(new Verb
-                    {
-                        Text = Loc.GetString("inspect-mind-verb-get-data-text"),
-                        Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/sentient.svg.192dpi.png")),
-                        Category = VerbCategory.Debug,
-                        Act = () => _console.RemoteExecuteCommand(player, $"vv {GetNetEntity(mindId)}"),
                     });
                 }
 
@@ -408,7 +392,7 @@ namespace Content.Server.Administration.Systems
                 }
 
                 // Begin DeltaV Additions - thaven moods
-                if (TryComp<ThavenMoodsComponent>(args.Target, out var moods))
+                if (TryComp<ThavenMoodsComponent>(args.Target, out var moods)) 
                 {
                     args.Verbs.Add(new Verb()
                     {
@@ -423,7 +407,7 @@ namespace Content.Server.Administration.Systems
                             _euiManager.OpenEui(ui, session);
                             ui.UpdateMoods(moods, args.Target);
                         },
-                        Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
+                        Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"), 
                     });
                 }
             }
@@ -524,34 +508,19 @@ namespace Content.Server.Administration.Systems
                 args.Verbs.Add(verb);
             }
 
-            if (TryComp<InventoryComponent>(args.Target, out var inventoryComponent))
+            // Set clothing verb
+            if (_groupController.CanCommand(player, "setoutfit") &&
+                EntityManager.HasComponent<InventoryComponent>(args.Target))
             {
-                // Strip all verb
-                if (_groupController.CanCommand(player, "stripall"))
+                Verb verb = new()
                 {
-                    args.Verbs.Add(new Verb
-                    {
-                        Text = Loc.GetString("strip-all-verb-get-data-text"),
-                        Category = VerbCategory.Debug,
-                        Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
-                        Act = () => _console.RemoteExecuteCommand(player, $"stripall \"{args.Target}\""),
-                        Impact = LogImpact.Medium
-                    });
-                }
-
-                // set outfit verb
-                if (_groupController.CanCommand(player, "setoutfit"))
-                {
-                    Verb verb = new()
-                    {
-                        Text = Loc.GetString("set-outfit-verb-get-data-text"),
-                        Category = VerbCategory.Debug,
-                        Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
-                        Act = () => _euiManager.OpenEui(new SetOutfitEui(GetNetEntity(args.Target)), player),
-                        Impact = LogImpact.Medium
-                    };
-                    args.Verbs.Add(verb);
-                }
+                    Text = Loc.GetString("set-outfit-verb-get-data-text"),
+                    Category = VerbCategory.Debug,
+                    Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
+                    Act = () => _euiManager.OpenEui(new SetOutfitEui(GetNetEntity(args.Target)), player),
+                    Impact = LogImpact.Medium
+                };
+                args.Verbs.Add(verb);
             }
 
             // In range unoccluded verb

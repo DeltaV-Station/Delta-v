@@ -284,7 +284,7 @@ public sealed partial class MarkingSet
             }
 
             var index = 0;
-            while (points.Points > 0 && index < points.DefaultMarkings.Count) // DeltaV - don't throw
+            while (points.Points > 0 || index < points.DefaultMarkings.Count)
             {
                 if (markingManager.Markings.TryGetValue(points.DefaultMarkings[index], out var prototype))
                 {

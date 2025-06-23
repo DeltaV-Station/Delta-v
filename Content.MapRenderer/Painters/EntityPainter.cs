@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Numerics;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -33,7 +32,7 @@ public sealed class EntityPainter
         _errorImage = Image.Load<Rgba32>(_resManager.ContentFileRead("/Textures/error.rsi/error.png"));
     }
 
-    public void Run(Image canvas, List<EntityData> entities, Vector2 customOffset = default)
+    public void Run(Image canvas, List<EntityData> entities)
     {
         var stopwatch = new Stopwatch();
         stopwatch.Start();
@@ -44,13 +43,13 @@ public sealed class EntityPainter
 
         foreach (var entity in entities)
         {
-            Run(canvas, entity, xformSystem, customOffset);;
+            Run(canvas, entity, xformSystem);
         }
 
         Console.WriteLine($"{nameof(EntityPainter)} painted {entities.Count} entities in {(int) stopwatch.Elapsed.TotalMilliseconds} ms");
     }
 
-    public void Run(Image canvas, EntityData entity, SharedTransformSystem xformSystem, Vector2 customOffset = default)
+    public void Run(Image canvas, EntityData entity, SharedTransformSystem xformSystem)
     {
         if (!entity.Sprite.Visible || entity.Sprite.ContainerOccluded)
         {
@@ -103,7 +102,7 @@ public sealed class EntityPainter
                 var frames = stateCount / entity.Sprite.GetLayerDirectionCount(layer);
                 var target = direction * frames;
                 var targetY = target / statesX;
-                var targetX = target % statesX;
+                var targetX = target % statesY;
                 return (targetX * rsi.Size.X, targetY * rsi.Size.Y, rsi.Size.X, rsi.Size.Y);
             }
 
@@ -136,8 +135,8 @@ public sealed class EntityPainter
             coloredImage.Mutate(o => o.BackgroundColor(imageColor));
 
             var (imgX, imgY) = rsi?.Size ?? (EyeManager.PixelsPerMeter, EyeManager.PixelsPerMeter);
-            var offsetX = (int) (entity.Sprite.Offset.X + customOffset.X) * EyeManager.PixelsPerMeter;
-            var offsetY = (int) (entity.Sprite.Offset.Y + customOffset.X) * EyeManager.PixelsPerMeter;
+            var offsetX = (int) (entity.Sprite.Offset.X * EyeManager.PixelsPerMeter);
+            var offsetY = (int) (entity.Sprite.Offset.Y * EyeManager.PixelsPerMeter);
             image.Mutate(o => o
                 .DrawImage(coloredImage, PixelColorBlendingMode.Multiply, PixelAlphaCompositionMode.SrcAtop, 1)
                 .Resize(imgX, imgY)

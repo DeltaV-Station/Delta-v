@@ -31,7 +31,6 @@
   - HoloprojectorField
   - SignallerAdvanced
   - DeviceQuantumSpinInverter
-  - DeviceDesynchronizer
 
 - type: latheRecipePack
   id: ScienceClothing
@@ -55,14 +54,10 @@
   id: ScienceWeapons
   recipes:
   - WeaponPistolCHIMP
-  # Begin DeltaV Removals - lrp/moved to logi techfab
-  #- WeaponForceGun
-  #- WeaponProtoKineticAccelerator
-  #- PKAUpgradeDamage
-  #- PKAUpgradeRange
-  #- PKAUpgradeFireRate
-  #- WeaponTetherGun
-  # End DeltaV Removals
+  #- WeaponForceGun # DeltaV
+  #- WeaponLaserSvalinn # DeltaV
+  - WeaponProtoKineticAccelerator
+  #- WeaponTetherGun # DeltaV
   - WeaponGauntletGorilla
 
 - type: latheRecipePack

@@ -10,10 +10,6 @@
   - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
-  # Begin DeltaV Additions
-  - PlushieExperiment
-  - PlushieBee
-  # End DeltaV Additions
   - ThreeCandles
   - Lighter
   - CigPackGreen
@@ -33,10 +29,8 @@
   - ClothingNeckLesbianPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
-  - ClothingNeckPluralPin
   - ClothingNeckOmnisexualPin
   - ClothingNeckGenderqueerPin
-  - ClothingNeckGenderfluidPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
@@ -243,7 +237,6 @@
   # Begin DeltaV additions
   - AncientJumpsuit
   - RainbowJumpsuit
-  - RainbowJumpskirt
 
 - type: loadoutGroup
   id: PassengerFace
@@ -620,7 +613,6 @@
   loadouts:
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
-  - EmergencySpeciesMothMime
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
   - EmergencyWaterVaporMime # DeltaV
@@ -734,11 +726,11 @@
   id: CargoTechnicianJumpsuit
   name: loadout-group-cargo-technician-jumpsuit
   loadouts:
+ #- CargoTechnicianJumpsuit
+ #- CargoTechnicianJumpskirt
   - ClothingUniformJumpsuitCargoTechPants # DeltaV
   - ClothingUniformJumpsuitCargoTechOveralls # DeltaV
   - ClothingUniformJumpskirtCargoTechRomper # DeltaV
-  - CargoTechnicianJumpsuit
-  - CargoTechnicianJumpskirt
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -1454,20 +1446,8 @@
   name: loadout-group-paramedic-shoes
   loadouts:
   - BlueShoes
-  - WhiteShoes
   - MedicalWinterBoots
   - ParamedicWinterBoots # DeltaV
-
-- type: loadoutGroup
-  id: MedicalEyewear
-  name: loadout-group-medical-glasses
-  minLimit: 0
-  loadouts:
-  - MedicalHud
-  - MedicalEyePatchHud
-  - Glasses
-  - GlassesJamjar
-  - GlassesJensen
 
 - type: loadoutGroup
   id: SurvivalMedical

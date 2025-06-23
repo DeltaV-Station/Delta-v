@@ -7,7 +7,8 @@
     difficulty: 0 # difficulty is unused
   - type: RoleRequirement
     roles:
-    - RecruiterRole
+      mindRoles:
+      - RecruiterRole
 
 - type: entity
   parent: [BaseRecruiterObjective, EscapeShuttleObjective]

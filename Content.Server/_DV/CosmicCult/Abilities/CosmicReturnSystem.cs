@@ -47,6 +47,5 @@ public sealed class CosmicReturnSystem : EntitySystem
         mind.PreventGhosting = false;
         QueueDel(uid);
         RemComp<CosmicBlankComponent>(uid.Comp.OriginalBody);
-        RemComp<CosmicCultExamineComponent>(uid.Comp.OriginalBody);
     }
 }

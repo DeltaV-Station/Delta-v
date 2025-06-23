@@ -75,10 +75,7 @@ public record struct GenerateDnaEvent()
 /// </summary>
 public sealed class TryAccessFingerprintEvent : CancellableEntityEventArgs, IInventoryRelayEvent
 {
-    SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.WITHOUT_POCKET;
+    SlotFlags IInventoryRelayEvent.TargetSlots => ~SlotFlags.POCKET;
 
-    /// <summary>
-    ///     Entity that blocked access.
-    /// </summary>
     public EntityUid? Blocker;
 }

@@ -8,7 +8,8 @@
     difficulty: 1
   - type: RoleRequirement
     roles:
-    - FugitiveRole
+      mindRoles:
+      - FugitiveRole
 
 - type: entity
   parent: [BaseFugitiveObjective, BaseLivingObjective]

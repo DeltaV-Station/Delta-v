@@ -28,7 +28,6 @@
   parent: BaseMagazineBoxSpecial
   id: MagazineBoxSpecial
   name: ammunition box (.38 special)
-  description: A cardboard box of .38 special rounds. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecial
@@ -43,7 +42,6 @@
   parent: BaseMagazineBoxSpecial
   id: MagazineBoxSpecialPractice
   name: ammunition box (.38 special practice)
-  description: A cardboard box of .38 special rounds. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialPractice
@@ -59,7 +57,6 @@
   parent: BaseMagazineBoxSpecial
   id: MagazineBoxSpecialRubber
   name: ammunition box (.38 special rubber)
-  description: A cardboard box of .38 special rounds. Intended to hold less-lethal rubber ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialRubber
@@ -75,7 +72,6 @@
   parent: BaseMagazineBoxSpecial
   id: MagazineBoxSpecialIncendiary
   name: ammunition box (.38 special incendiary)
-  description: A cardboard box of .38 special rounds. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialIncendiary
@@ -91,7 +87,6 @@
   parent: BaseMagazineBoxSpecial
   id: MagazineBoxSpecialUranium
   name: ammunition box (.38 special uranium)
-  description: A cardboard box of .38 special rounds. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialUranium
@@ -107,7 +102,6 @@
   parent: BaseMagazineBoxSpecial
   id: MagazineBoxSpecialMindbreaker
   name: ammunition box (.38 special mindbreaker)
-  description: A cardboard box of .38 special rounds. Intended to hold psionic-removing mindbreaker ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialMindbreaker
@@ -123,7 +117,6 @@
   parent: MagazineBoxSpecialMindbreaker
   id: MagazineBoxSpecialHoly
   name: ammunition box (.38 special holy)
-  description: A cardboard box of .38 special rounds. Intended to hold anti-paranormal entity ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialHoly

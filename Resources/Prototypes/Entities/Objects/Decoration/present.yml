@@ -284,8 +284,6 @@
         orGroup: GiftPool
       - id: FoodBoxDonkpocketHonk
         orGroup: GiftPool
-      - id: FoodBoxDonkpocketMoth
-        orGroup: GiftPool
       - id: ClothingHandsGlovesColorPurple
         orGroup: GiftPool
       - id: ClothingHandsGlovesColorYellow
@@ -329,8 +327,6 @@
       - id: ClothingUniformJumpsuitColorMaroon
         orGroup: GiftPool
       - id: ClothingUniformColorRainbow
-        orGroup: GiftPool
-      - id: ClothingUniformJumpskirtColorRainbow
         orGroup: GiftPool
       - id: ClothingUniformOveralls
         orGroup: GiftPool
@@ -382,30 +378,12 @@
         orGroup: GiftPool
       - id: RGBStaff
         orGroup: GiftPool
-        # Begin DeltaV - see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
-      - id: ToyRenault
+      - id: ToyRenault # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
         orGroup: GiftPool
-      - id: ToySiobhan
+      - id: ToySiobhan # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
         orGroup: GiftPool
-      - id: PlushieIPC
+      - id: PlushieIPC # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
         orGroup: GiftPool
-      - id: PlushieFelinid
-        orGroup: GiftPool
-      - id: PlushieOni
-        orGroup: GiftPool
-      - id: PlushieHarpy
-        orGroup: GiftPool
-      - id: PlushieRodentia
-        orGroup: GiftPool
-      - id: PlushieFeroxi
-        orGroup: GiftPool
-      - id: PlushieChitinid
-        orGroup: GiftPool
-      - id: PlushieKitsune
-        orGroup: GiftPool
-      - id: PlushieThaven
-        orGroup: GiftPool
-        # End DeltaV
     sound:
       path: /Audio/Effects/unwrap.ogg
 

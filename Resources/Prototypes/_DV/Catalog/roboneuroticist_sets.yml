@@ -19,8 +19,6 @@
   - PowerSink
   - BorgModuleRCD
   - BorgModuleRCD
-  - RCDRecharging
-  - RCDRecharging
 
 - type: thiefBackpackSet
   id: RoboNeuroticistMechanic
@@ -42,7 +40,6 @@
   - PlayerBorgSyndicateSaboteurGhostRole
   - BorgModuleEsword
   - BorgModuleRCD
-  - RCDRecharging
   - BorgModuleChameleonProjector
 
 - type: thiefBackpackSet
@@ -69,34 +66,3 @@
   - ClothingBackpackDuffelSyndicateCostumeClown
   - MobJonkBot
   - HappyHonk
-
-- type: thiefBackpackSet
-  id: RoboNeuroticistPirate
-  name: roboneuroticist-set-pirate-name
-  description: roboneuroticist-set-pirate-description
-  sprite:
-    entity: CannonBall
-  content:
-  - BorgModuleCannon
-  - BorgModuleBuccaneer
-  - BorgModuleBuccaneer
-  - ClothingOuterHardsuitPirateCap
-  - ClothingHeadHatPirate
-  - ClothingHeadHatPirateTricord
-  - ClothingHeadHatPirateTricord
-  - ClothingHeadHatPirateTricord
-
-- type: thiefBackpackSet
-  id: RoboNeuroticistMalpractice
-  name: roboneurotocist-set-malpractice-name
-  description: roboneurotocist-set-malpractice-description
-  sprite:
-    entity: BorgHypo
-  content:
-  - PlayerBorgSyndicateMedical
-  - PowerCellHyper
-  - DefibrillatorSyndicate
-  - ClothingHandsGlovesMechanicalSurgical
-  - ClothingBackpackDuffelSyndicateFilledAutodoc
-  - BorgModuleSleeper
-  - SoapOmega # Scrubadubdub

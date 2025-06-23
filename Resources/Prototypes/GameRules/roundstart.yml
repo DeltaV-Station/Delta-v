@@ -424,13 +424,11 @@
   - type: NextEvent # DeltaV: Queue Event for precognition
   - type: RampingStationEventScheduler
     timeKeyPoints: # DeltaV
-    - 10, 12
-    - 32, 6
-    - 32, 3
-    - 12, 1
+    - 14, 16
+    - 32, 8
     - 32, 4
-    - 32, 2
-    - 32, 1.5
+    - 8, 2
+    - 32, 8
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
 
@@ -479,5 +477,3 @@
       orGroup: puddleMess
     - id: SmugglerStashVariationPass
       prob: 0.90
-    #- id: SolarPanelDamageVariationPass # DeltaV - we have random solar panel spawner
-    #- id: SolarPanelEmptyVariationPass # DeltaV

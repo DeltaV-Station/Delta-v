@@ -15,7 +15,7 @@
       MonumentCollider:
         shape:
           !type:PhysShapeAabb
-          bounds: "-1.5,-0.5,1.5,0.6"
+          bounds: "-1.1,-0.2,1.1,0.7"
         mask:
         - LargeMobMask
         layer:
@@ -24,7 +24,7 @@
         hard: false
   - type: Visibility
     layer: 16
-  # - type: SpriteFade
+  - type: SpriteFade
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
@@ -78,6 +78,11 @@
        enabled: true
        isLooped: true
        reverseWhenFinished: true
+  - type: AmbientSound
+    range: 3.5
+    volume: -9
+    sound:
+      path: /Audio/_DV/CosmicCult/god_ambient.ogg
   - type: ActivatableUI
     singleUser: false
     requiresComplex: true
@@ -109,7 +114,6 @@
  ########### SPAWN-IN ANIMATION #############
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   id: MonumentCosmicCultSpawnIn
   name: The Monument
   parent: BaseStructure
@@ -167,7 +171,6 @@
  ########### RELOCATION ANIMATIONS #############
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   id: MonumentCosmicCultMoveStart
   name: The Monument
   parent: BaseStructure
@@ -222,7 +225,6 @@
        reverseWhenFinished: true
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   id: MonumentCosmicCultMoveEnd
   name: The Monument
   parent: BaseStructure
@@ -280,7 +282,6 @@
  ########### COLLIDER LAY-Z FIX #############
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   id: MonumentCollider
   suffix: Debug, DO NOT MAP
   parent: BaseStructure
@@ -303,7 +304,6 @@
  ########### TIER 3 SUPPRESSION AURA #############
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   id: MonumentSlowZone
   suffix: Debug, DO NOT MAP
   placement:
@@ -339,7 +339,6 @@
  ########### STAGE 1 #############
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   parent: MonumentCosmicCultBase
   id: MonumentCosmicCult1
   suffix: Base, DO NOT MAP

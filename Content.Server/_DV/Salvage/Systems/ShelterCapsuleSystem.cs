@@ -9,7 +9,6 @@ using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
-using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 
@@ -23,18 +22,11 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SmokeSystem _smoke = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
-    public static readonly EntProtoId SmokePrototype = "Smoke";
+    public EntProtoId SmokePrototype = "Smoke";
 
-    private EntityQuery<FixturesComponent> _fixturesQuery;
-    private HashSet<EntityUid> _entities = new();
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        _fixturesQuery = GetEntityQuery<FixturesComponent>();
-    }
+    private HashSet<Entity<TransformComponent>> _entities = new();
 
     protected override LocId? TrySpawnRoom(Entity<ShelterCapsuleComponent> ent)
     {
@@ -42,16 +34,13 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
         if (xform.GridUid is not {} gridUid || !TryComp<MapGridComponent>(gridUid, out var grid))
             return "shelter-capsule-error-space";
 
+        var gridXform = Transform(gridUid);
         var center = _map.LocalToTile(gridUid, grid, xform.Coordinates);
         var room = _proto.Index(ent.Comp.Room);
         var origin = center - room.Size / 2;
 
         // check that every tile it needs isn't blocked
-        var mask = (int) CollisionGroup.MobMask;
-        if (IsAreaBlocked(gridUid, center, room.Size, mask))
-            return "shelter-capsule-error-obstructed";
-
-        // check that it isn't on space or SpawnRoom will crash
+        var mask = CollisionGroup.MobMask;
         for (int y = 0; y < room.Size.Y; y++)
         {
             for (int x = 0; x < room.Size.X; x++)
@@ -60,6 +49,9 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
                 var tile = _map.GetTileRef((gridUid, grid), pos);
                 if (tile.Tile.IsEmpty)
                     return "shelter-capsule-error-space";
+
+                if (_turf.IsTileBlocked(gridUid, pos, mask, grid, gridXform))
+                    return "shelter-capsule-error-obstructed";
             }
         }
 
@@ -80,30 +72,5 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
 
         QueueDel(ent);
         return null;
-    }
-
-    private bool IsAreaBlocked(EntityUid grid, Vector2i center, Vector2i size, int mask)
-    {
-        // This is scaled to 95 % so it doesn't encompass walls on other tiles.
-        var aabb = Box2.CenteredAround(center, size * 0.95f);
-        _entities.Clear();
-        _lookup.GetLocalEntitiesIntersecting(grid, aabb, _entities, LookupFlags.Dynamic | LookupFlags.Static);
-        foreach (var uid in _entities)
-        {
-            // don't care about non-physical entities
-            if (!_fixturesQuery.TryComp(uid, out var fixtures))
-                continue;
-
-            foreach (var fixture in fixtures.Fixtures.Values)
-            {
-                if (!fixture.Hard)
-                    continue;
-
-                if ((fixture.CollisionLayer & mask) != 0)
-                    return true;
-            }
-        }
-
-        return false; // no entities colliding with the mask found
     }
 }

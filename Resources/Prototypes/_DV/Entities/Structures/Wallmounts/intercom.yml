@@ -25,16 +25,3 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyTraffic
-
-- type: entity
-  parent: BaseIntercom
-  id: IntercomPrsion
-  suffix: Prison
-  components:
-  - type: ContainerFill
-    containers:
-      board:
-      - IntercomElectronics
-      key_slots:
-      - EncryptionKeyCommon
-      - EncryptionKeyPrison

@@ -19,7 +19,6 @@ public sealed class SmartFridgeBoundUserInterface : BoundUserInterface
 
         _menu = this.CreateWindow<SmartFridgeMenu>();
         _menu.OnItemSelected += OnItemSelected;
-        _menu.OnRemoveButtonPressed += OnRemoveButtonPressed;
         Refresh();
     }
 
@@ -39,10 +38,5 @@ public sealed class SmartFridgeBoundUserInterface : BoundUserInterface
         if (data is not SmartFridgeListData entry)
             return;
         SendPredictedMessage(new SmartFridgeDispenseItemMessage(entry.Entry));
-    }
-
-    private void OnRemoveButtonPressed(SmartFridgeListData data)
-    {
-        SendPredictedMessage(new SmartFridgeRemoveEntryMessage(data.Entry));
     }
 }

@@ -43,7 +43,7 @@ namespace Content.MapRenderer.Painters
             _decals = GetDecals();
         }
 
-        public void Run(Image gridCanvas, EntityUid gridUid, MapGridComponent grid, Vector2 customOffset = default)
+        public void Run(Image gridCanvas, EntityUid gridUid, MapGridComponent grid)
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -56,10 +56,10 @@ namespace Content.MapRenderer.Painters
 
             // Decals are always painted before entities, and are also optional.
             if (_decals.TryGetValue(gridUid, out var decals))
-                _decalPainter.Run(gridCanvas, CollectionsMarshal.AsSpan(decals), customOffset);
+                _decalPainter.Run(gridCanvas, CollectionsMarshal.AsSpan(decals));
 
 
-            _entityPainter.Run(gridCanvas, entities, customOffset);
+            _entityPainter.Run(gridCanvas, entities);
             Console.WriteLine($"{nameof(GridPainter)} painted grid {gridUid} in {(int) stopwatch.Elapsed.TotalMilliseconds} ms");
         }
 

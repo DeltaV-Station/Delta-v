@@ -1,10 +1,9 @@
 # .35 auto
 
 - type: entity
-  parent: BaseMagazinePistol
   id: MagazinePistolRubber
   name: pistol magazine (.35 auto rubber)
-  description: 10-round single-stack magazine for pistols. Intended to hold less-lethal rubber ammunition.
+  parent: BaseMagazinePistol
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolRubber
@@ -17,10 +16,9 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  parent: BaseMagazinePistolSubMachineGun
   id: MagazinePistolSubMachineGunRubber
   name: SMG magazine (.35 auto rubber)
-  description: 30-round double-stack magazine for submachine guns. Intended to hold less-lethal rubber ammunition.
+  parent: BaseMagazinePistolSubMachineGun
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolRubber
@@ -35,19 +33,19 @@
 # .38 special
 
 - type: entity
-  abstract: true
-  parent: BaseItem
   id: BaseMagazinePistolSpecial
   name: pistol magazine (.38 special)
+  parent: BaseItem
+  abstract: true
   components:
   - type: Tag
     tags:
-    - MagazinePistolSpecial
+      - MagazinePistolSpecial
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
-      - CartridgeSpecial
+        - CartridgeSpecial
     capacity: 5
   - type: Item
     size: Small
@@ -68,9 +66,9 @@
   - type: Appearance
 
 - type: entity
-  parent: BaseMagazinePistolSpecial
   id: MagazinePistolSpecial
-  description: 5-round single-stack magazine for the psi-breaker pistol. Intended to hold general-purpose kinetic ammunition.
+  name: pistol magazine (.38 special)
+  parent: BaseMagazinePistolSpecial
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecial
@@ -82,10 +80,9 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  parent: BaseMagazinePistolSpecial
   id: MagazinePistolSpecialPractice
   name: pistol magazine (.38 special practice)
-  description: 5-round single-stack magazine for the psi-breaker pistol. Intended to hold non-harmful chalk ammunition.
+  parent: BaseMagazinePistolSpecial
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialPractice
@@ -97,10 +94,9 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  parent: BaseMagazinePistolSpecial
   id: MagazinePistolSpecialRubber
   name: pistol magazine (.38 special rubber)
-  description: 5-round single-stack magazine for the psi-breaker pistol. Intended to hold less-lethal rubber ammunition.
+  parent: BaseMagazinePistolSpecial
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialRubber
@@ -112,10 +108,9 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  parent: BaseMagazinePistolSpecial
   id: MagazinePistolSpecialMindbreaker
   name: pistol magazine (.38 special mindbreaker)
-  description: 5-round single-stack magazine for the psi-breaker pistol. Intended to hold psionic-removing mindbreaker ammunition.
+  parent: BaseMagazinePistolSpecial
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialMindbreaker

@@ -10,7 +10,6 @@
       - PsionicInvisibility
       - Ghost
       - Normal
-      - CosmicCultMonument # DeltaV - Cosmic Cult
   - type: ContentEye
     maxZoom: 8.916104, 8.916104
   - type: Tag
@@ -31,7 +30,6 @@
   - type: Hands
   - type: ComplexInteraction
   - type: Puller
-    needsHands: false
   - type: CombatMode
   - type: Physics
     ignorePaused: true
@@ -116,7 +114,6 @@
   - type: SolutionScanner
   - type: IgnoreUIRange
   - type: ShowAntagIcons
-  - type: ShowContrabandDetails
   - type: Inventory
     templateId: aghost
   - type: Loadout

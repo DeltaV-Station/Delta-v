@@ -30,6 +30,8 @@ entities:
     - type: MetaData
       name: Kizame
     - type: Transform
+      pos: -0.46875128,0.5997219
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -337,7 +339,6 @@ entities:
           - 0
         chunkSize: 4
     - type: GasTileOverlay
-    - type: GlobalResearchGrid
 - proto: ActionToggleInternals
   entities:
   - uid: 29
@@ -1248,6 +1249,13 @@ entities:
       name: borg-launcher-9000
     - type: Transform
       pos: 1.5,1.5
+      parent: 1
+- proto: ExosuitFabricator
+  entities:
+  - uid: 112
+    components:
+    - type: Transform
+      pos: -4.5,3.5
       parent: 1
 - proto: Firelock
   entities:

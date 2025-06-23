@@ -13,7 +13,6 @@
   - MiningDrill
   - MineralScannerEmpty
   - OreProcessorIndustrialMachineCircuitboard
-  - SalvageExpeditionsComputerCircuitboard # DeltaV
   - ClothingMaskWeldingGas
 
 - type: technology
@@ -28,7 +27,8 @@
   recipeUnlocks:
   - RadarConsoleCircuitboard
   - HandHeldMassScanner
-  
+  - BorgModuleGPS
+
 - type: technology
   id: AdvancedPowercells
   name: research-technology-advanced-powercells
@@ -190,7 +190,6 @@
     - OreBagOfHolding
     - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
-    - BorgModuleAdvancedMining
 
 # Tier 3
 

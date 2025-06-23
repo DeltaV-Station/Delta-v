@@ -25,7 +25,6 @@
   - type: Tag
     tags:
     - Recyclable
-    - SalvageScrap
 
 - type: entity
   parent: BaseStructure
@@ -91,7 +90,7 @@
         metal-3: ""
   - type: PhysicalComposition
     materialComposition:
-      Steel: 6000 # DeltaV: 60 sheets, was 30
+      Steel: 3000 # 30 sheets
 
 - type: entity
   parent: BaseScrap
@@ -120,8 +119,7 @@
   - type: PhysicalComposition
     materialComposition:
       Glass: 1500 # 15 sheets
-      Steel: 2000 # DeltaV: 20 sheets, was 5
-      Plastic: 1000 # DeltaV: 10 sheets, was 0
+      Steel: 500 # 5 sheets
 
 - type: entity
   parent: BaseScrap
@@ -146,8 +144,7 @@
   - type: MultiHandedItem
   - type: PhysicalComposition
     materialComposition:
-      Steel: 2400 # DeltaV: 24 sheets, was 15
-      Plastic: 600 # DeltaV: 6 sheets, was 0
+      Steel: 1500 # 15 sheets
 
 - type: entity
   parent: BaseScrap
@@ -164,9 +161,8 @@
     - 0,0,3,0
   - type: PhysicalComposition
     materialComposition:
-      Steel: 200 # DeltaV: 5 sheets, was 2
+      Steel: 200 # 2 sheets
       Glass: 500 # 5 sheets
-      Plastic: 200 # DeltaV: 2 sheets, was 0
 
 - type: entity
   parent: BaseScrap
@@ -179,7 +175,7 @@
     - state: junk-bucket
   - type: PhysicalComposition
     materialComposition:
-      Plastic: 800 # DeltaV: 8 sheets, was 3
+      Plastic: 300 # 3 sheets
 
 - type: entity
   parent: BaseScrap
@@ -193,8 +189,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 500 # 5 sheets
-      Glass: 200 # DeltaV: 2 sheets, was 1 sheet
-      Plastic: 300 # DeltaV: 3 sheets, was 0
+      Glass: 100 # 1 sheet
 
 - type: entity
   parent: BaseScrap
@@ -207,7 +202,7 @@
     - state: junk-canister-1
   - type: PhysicalComposition
     materialComposition:
-      Steel: 500 # DeltaV: 5 sheets, was 3
+      Steel: 300 # 3 sheets
 
 - type: entity
   parent: BaseScrap
@@ -222,7 +217,7 @@
     size: Small
   - type: PhysicalComposition
     materialComposition:
-      Steel: 400 # DeltaV: 4 sheets, was 2
+      Steel: 200 # 2 sheets
 
 - type: entity
   parent: BaseScrap
@@ -241,8 +236,7 @@
     - 0,0,5,2
   - type: PhysicalComposition
     materialComposition:
-      Steel: 1500 # DeltaV: 28 sheets, was 15 - huge item
-      Plastic: 200 # DeltaV: 2 sheets, was 0
+      Steel: 1500 # 15 sheets
 
 - type: entity
   parent: BaseScrap
@@ -257,8 +251,8 @@
     size: Huge
   - type: PhysicalComposition
     materialComposition:
-      Plastic: 1900 # DeltaV: 19 sheets, was 8 sheets - huge item
-      Steel: 1100 # DeltaV: 11 sheets, was 2
+      Plastic: 800 # 8 sheets
+      Steel: 200 # 2 sheets
 
 - type: entity
   parent: BaseScrap
@@ -272,7 +266,6 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 600 # 6 sheets
-      Plastic: 600 # DeltaV: 6 sheets, was 0
 
 - type: entity
   parent: BaseScrap
@@ -291,7 +284,7 @@
   - type: MultiHandedItem
   - type: PhysicalComposition
     materialComposition:
-      Steel: 2600 # DeltaV: 26 sheets, was 20
+      Steel: 2000 # 20 sheets
 
 - type: entity
   parent: BaseScrap
@@ -310,7 +303,7 @@
   - type: MultiHandedItem
   - type: PhysicalComposition
     materialComposition:
-      Steel: 2400 # DeltaV: 24 sheets, was 20
+      Steel: 2000 # 20 sheets
 
 - type: entity
   parent: BaseScrap
@@ -324,7 +317,7 @@
     size: Large
   - type: PhysicalComposition
     materialComposition:
-      Steel: 1100 # DeltaV: 11 sheets, was 7
+      Steel: 700 # 7 sheets
 
 - type: entity
   parent: BaseScrap
@@ -346,7 +339,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 400 # 4 sheets
-      Plastic: 900 # DeltaV: 9 sheets, was 3
+      Plastic: 300 # 3 sheets
 
 - type: entity
   parent: BaseScrap
@@ -363,7 +356,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 1000 # 10 sheets
-      Plastic: 800 # DeltaV: 8 sheets, was 2
+      Plastic: 200 # 2 sheets
 
 - type: entity
   parent: BaseScrap
@@ -384,7 +377,7 @@
     size: Large
   - type: PhysicalComposition
     materialComposition:
-      Plastic: 1100 # DeltaV: 11 sheets, was 5
+      Plastic: 500 # 5 sheets
 
 - type: entity
   parent: BaseScrap
@@ -399,7 +392,7 @@
     size: Huge
   - type: PhysicalComposition
     materialComposition:
-      Plastic: 2100 # DeltaV: 21 sheets, was 15
+      Plastic: 1500 # 15 sheets
 
 - type: entity
   parent: BaseScrap
@@ -415,8 +408,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 300 # 3 sheets
-      Plastic: 600 # DeltaV: 6 sheets, was 2
-      Glass: 300 # DeltaV: 3 sheets, was 0
+      Plastic: 200 # 2 sheets
 
 - type: entity
   parent: BaseScrap
@@ -431,9 +423,8 @@
     size: Small
   - type: PhysicalComposition
     materialComposition:
-      Gold: 300 # DeltaV: 3 sheets, was 1
-      Plastic: 500 # DeltaV: 8 sheets, was 4
-      Glass: 300 # DeltaV: 3 sheets, was 0
+      Gold: 100 # 1 sheet
+      Plastic: 400 # 4 sheets
 
 - type: entity
   parent: BaseScrap
@@ -459,7 +450,7 @@
   - type: PhysicalComposition
     materialComposition:
       Glass: 500 # 5 sheets
-      Plastic: 300 # DeltaV: 3 sheets, was 1
+      Plastic: 100 # 1 sheet
 
 - type: entity
   parent: BaseScrapLarge
@@ -475,9 +466,9 @@
       - state: old_generator_plasma_fuel_leak
   - type: PhysicalComposition
     materialComposition:
-      Steel: 6000 # DeltaV: 60 sheets, was 40
-      Plasma: 6000 # DeltaV: 60 sheets, was 25
-      Plastic: 1500 # DeltaV: 15 sheets, was 5
+      Steel: 4000 # 40 sheets
+      Plasma: 2500 # 25 sheets
+      Plastic: 500 # 5 sheets
 
 - type: entity
   parent: BaseScrapLarge
@@ -491,9 +482,9 @@
       - state: old_generator_plasma
   - type: PhysicalComposition
     materialComposition:
-      Steel: 6000 # DeltaV: 60 sheets, was 40
-      Plasma: 2500 # DeltaV: 25 sheets, was 10
-      Plastic: 1500 # DeltaV: 15 sheets, was 5
+      Steel: 4000 # 40 sheets
+      Plasma: 1000 # 10 sheets
+      Plastic: 500 # 5 sheets
 
 - type: entity
   parent: BaseScrapLarge
@@ -518,9 +509,9 @@
   - type: MultiHandedItem
   - type: PhysicalComposition
     materialComposition:
-      Steel: 6000 # DeltaV: 60 sheets, was 40
-      Uranium: 4700 # DeltaV: 47 sheets, was 25
-      Plastic: 1500 # DeltaV: 15 sheets, was 5
+      Steel: 4000 # 40 sheets
+      Uranium: 2500 # 25 sheets
+      Plastic: 500 # 5 sheets
   - type: RadiationSource
     intensity: 1.0
 
@@ -542,9 +533,9 @@
         nothing: ""
   - type: PhysicalComposition
     materialComposition:
-      Steel: 6000 # DeltaV: 60 sheets, was 40
-      Uranium: 2100 # DeltaV: 21 sheets, was 10
-      Plastic: 1500 # DeltaV: 15 sheets, was 5
+      Steel: 4000 # 40 sheets
+      Uranium: 1000 # 10 sheets
+      Plastic: 500 # 5 sheets
   - type: RadiationSource
     intensity: 0.5
 
@@ -560,8 +551,7 @@
       - state: generator_frame
   - type: PhysicalComposition
     materialComposition:
-      Steel: 3000 # DeltaV: 30 sheets, was 15
-      Plastic: 500 # DeltaV: 5 sheets, was 0
+      Steel: 1500 # 15 sheets
 
 - type: entity
   parent: BaseScrap
@@ -575,5 +565,5 @@
       - state: uranium_generator_fuel_tank
   - type: PhysicalComposition
     materialComposition:
-      Steel: 500 # DeltaV: 5 sheets, was 2
-      Uranium: 1100 # DeltaV: 11 sheets, was 5
+      Steel: 200 # 2 sheets
+      Uranium: 500 # 5 sheets

@@ -24,7 +24,6 @@
     - type: Tag
       tags:
         - CapacitorStockPart
-        - BorgStockPart # DeltaV - engiborgs can hold stock parts
     - type: Stack
       stackType: Capacitor
 
@@ -37,9 +36,6 @@
   components:
     - type: Sprite
       state: micro_mani
-    - type: Tag # DeltaV - engiborgs can hold stock parts
-      tags:
-      - BorgStockPart
     - type: Stack
       stackType: Manipulator
 
@@ -52,8 +48,5 @@
   components:
     - type: Sprite
       state: matter_bin
-    - type: Tag # DeltaV - engiborgs can hold stock parts
-      tags:
-      - BorgStockPart
     - type: Stack
       stackType: MatterBin

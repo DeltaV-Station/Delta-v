@@ -1,6 +1,6 @@
 - type: preloadedGrid
   id: ShuttleCargoLost
-  path: /Maps/_DV/Shuttles/lost_cargo_dv.yml # DeltaV - Custom lost cargo shuttle
+  path: /Maps/Shuttles/ShuttleEvent/lost_cargo.yml
   copies: 2
 
 - type: preloadedGrid
@@ -21,7 +21,7 @@
 
 - type: preloadedGrid
   id: SyndieEvacPod
-  path: /Maps/_DV/Shuttles/ShuttleEvent/syndie_evacpod.yml # DeltaV - Switched to our version, was /Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml
+  path: /Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml
   copies: 2
 
 - type: preloadedGrid

@@ -253,7 +253,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 _cargoSystem.UpdateBankAccount(
                     (station, account),
                     component.Bounty,
-                    _cargoSystem.CreateAccountDistribution((station, account)));
+                    _cargoSystem.CreateAccountDistribution(account.PrimaryAccount, account, account.PrimaryCut));
             }
         }
 
@@ -313,7 +313,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 _cargoSystem.UpdateBankAccount(
                     (station, account),
                     component.Penalty,
-                    _cargoSystem.CreateAccountDistribution((station, account)));
+                    _cargoSystem.CreateAccountDistribution(account.PrimaryAccount, account, account.PrimaryCut));
                 return;
             }
         }

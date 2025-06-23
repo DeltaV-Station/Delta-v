@@ -7,13 +7,11 @@ using Content.Server.Radio.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
-using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared._DV.CartridgeLoader.Cartridges;
 using Content.Shared._DV.NanoChat;
 using Content.Shared.PDA;
 using Content.Shared.Radio.Components;
-using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -23,7 +21,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly CartridgeLoaderSystem _cartridge = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedNanoChatSystem _nanoChat = default!;
@@ -37,18 +34,12 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     // The max length of the name and job title on the notification before being truncated.
     private const int NotificationTitleMaxLength = 32;
 
-    private int _maxNameLength;
-    private int _maxIdJobLength;
-
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeMessageEvent>(OnMessage);
-
-        Subs.CVar(_cfg, CCVars.MaxNameLength, x => _maxNameLength = x, true);
-        Subs.CVar(_cfg, CCVars.MaxIdJobLength, x => _maxIdJobLength = x, true);
     }
 
     private void UpdateClosed(Entity<NanoChatCartridgeComponent> ent)
@@ -177,16 +168,16 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!string.IsNullOrWhiteSpace(name))
         {
             name = name.Trim();
-            if (name.Length > _maxNameLength)
-                name = name[.._maxNameLength];
+            if (name.Length > IdCardConsoleComponent.MaxFullNameLength)
+                name = name[..IdCardConsoleComponent.MaxFullNameLength];
         }
 
         var jobTitle = msg.RecipientJob;
         if (!string.IsNullOrWhiteSpace(jobTitle))
         {
             jobTitle = jobTitle.Trim();
-            if (jobTitle.Length > _maxIdJobLength)
-                jobTitle = jobTitle[.._maxIdJobLength];
+            if (jobTitle.Length > IdCardConsoleComponent.MaxJobTitleLength)
+                jobTitle = jobTitle[..IdCardConsoleComponent.MaxJobTitleLength];
         }
 
         // Add new recipient
@@ -238,16 +229,16 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!string.IsNullOrWhiteSpace(name))
         {
             name = name.Trim();
-            if (name.Length > _maxNameLength)
-                name = name[.._maxNameLength];
+            if (name.Length > IdCardConsoleComponent.MaxFullNameLength)
+                name = name[..IdCardConsoleComponent.MaxFullNameLength];
         }
 
         var jobTitle = msg.RecipientJob;
         if (!string.IsNullOrWhiteSpace(jobTitle))
         {
             jobTitle = jobTitle.Trim();
-            if (jobTitle.Length > _maxIdJobLength)
-                jobTitle = jobTitle[.._maxIdJobLength];
+            if (jobTitle.Length > IdCardConsoleComponent.MaxJobTitleLength)
+                jobTitle = jobTitle[..IdCardConsoleComponent.MaxJobTitleLength];
         }
 
         // Update recipient

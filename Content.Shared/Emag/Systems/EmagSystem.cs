@@ -23,7 +23,7 @@ public sealed class EmagSystem : EntitySystem
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // DeltaV
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
+    [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -68,8 +68,8 @@ public sealed class EmagSystem : EntitySystem
             return false;
         // End DeltaV Additions
 
-        Entity<LimitedChargesComponent?> chargesEnt = ent.Owner;
-        if (_sharedCharges.IsEmpty(chargesEnt))
+        TryComp<LimitedChargesComponent>(ent, out var charges);
+        if (_charges.IsEmpty(ent, charges))
         {
             _popup.PopupClient(Loc.GetString("emag-no-charges"), user, user);
             return false;
@@ -87,8 +87,8 @@ public sealed class EmagSystem : EntitySystem
 
         _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target} with flag(s): {ent.Comp.EmagType}");
 
-        if (emaggedEvent.Handled)
-            _sharedCharges.TryUseCharge(chargesEnt);
+        if (charges != null  && emaggedEvent.Handled)
+            _charges.UseCharge(ent, charges);
 
         if (!emaggedEvent.Repeatable)
         {

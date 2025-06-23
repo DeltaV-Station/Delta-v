@@ -7,7 +7,7 @@
     - to: casing
       steps:
       - tag: AugmentCellCasing
-        name: construction-graph-tag-augment-casing
+        name: casing
         icon:
           sprite: _DV/Objects/Augments/power.rsi
           state: incomplete_cell
@@ -37,7 +37,7 @@
     - to: casing
       steps:
       - tag: AugmentChargerCasing
-        name: construction-graph-tag-augment-casing
+        name: casing
         icon:
           sprite: _DV/Objects/Augments/power.rsi
           state: incomplete_charger
@@ -54,14 +54,14 @@
     - to: apc
       steps:
       - tag: AugmentAPCBoard
-        name: construction-graph-tag-cell-recharger-board
+        name: "cell recharger machine board"
         icon:
           sprite: Objects/Misc/module.rsi
           state: charger_APC
     - to: station
       steps:
       - tag: AugmentStationBoard
-        name: construction-graph-tag-cyborg-recharger-board
+        name: "cyborg recharging station machine board"
         icon:
           sprite: Objects/Misc/module.rsi
           state: charger_APC
@@ -79,7 +79,7 @@
     - to: casing
       steps:
       - tag: AugmentToolPanelCasing
-        name: construction-graph-tag-augment-casing
+        name: casing
         icon:
           sprite: _DV/Objects/Augments/arm.rsi
           state: base
@@ -96,28 +96,28 @@
     - to: "botany tools panel"
       steps:
       - tag: AugmentBotanyToolBelt
-        name: construction-graph-tag-botany-tools-panel
+        name: botany tools panel electronics
         icon:
           sprite: Objects/Misc/module.rsi
           state: mainboard
     - to: "paperwork tools panel"
       steps:
       - tag: AugmentPaperworkToolBelt
-        name: construction-graph-tag-paperwork-tools-panel
+        name: paperwork tools panel electronics
         icon:
           sprite: Objects/Misc/module.rsi
           state: mainboard
     - to: "utility tools panel"
       steps:
       - tag: AugmentToolBelt
-        name: construction-graph-tag-utility-tools-panel
+        name: utility tools panel electronics
         icon:
           sprite: Objects/Misc/module.rsi
           state: mainboard
     - to: "surgery tools panel"
       steps:
       - tag: AugmentSurgeryToolBelt
-        name: construction-graph-tag-surgery-tools-panel
+        name: surgery tools panel electronics
         icon:
           sprite: Objects/Misc/module.rsi
           state: mainboard

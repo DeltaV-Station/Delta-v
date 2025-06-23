@@ -1,10 +1,9 @@
 # .45 magnum
 
 - type: entity
-  parent: BaseMagazineMagnum
   id: MagazineMagnumRubber
   name: pistol magazine (.45 magnum rubber)
-  description: 7-round single stack pistol magazine. Intended to hold less-lethal rubber ammunition.
+  parent: BaseMagazineMagnum
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumRubber

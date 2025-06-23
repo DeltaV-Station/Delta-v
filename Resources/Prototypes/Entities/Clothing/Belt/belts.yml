@@ -507,7 +507,6 @@
         - MagazineMagnum
         - CombatKnife
         - Truncheon
-        - HandGrenade
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -528,7 +527,7 @@
       gasgrenade:
         whitelist:
           tags:
-          - HandGrenade
+            - Grenade
       slp:
         whitelist:
           tags:
@@ -721,7 +720,7 @@
   - type: Clothing
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: ExplosionResistance
-    damageCoefficient: 0.1
+    damageCoefficient: 0.5
   - type: Storage # DeltaV - Split Inventory
     grid:
     - 0,0,2,1

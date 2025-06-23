@@ -200,14 +200,14 @@
 
 - type: entity
   parent: BaseComputerCircuitboard
-  id: SalvageJobBoardComputerCircuitboard
-  name: salvage job board computer board
-  description: A computer printed circuit board for a salvage job board computer.
+  id: CargoShuttleComputerCircuitboard
+  name: cargo shuttle computer board
+  description: A computer printed circuit board for a cargo shuttle computer.
   components:
-  - type: Sprite
-    state: cpu_supply
-  - type: ComputerBoard
-    prototype: ComputerSalvageJobBoard
+    - type: Sprite
+      state: cpu_supply
+    - type: ComputerBoard
+      prototype: ComputerCargoShuttle
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -321,7 +321,7 @@
     - CrewMonitoringComputerCircuitboard
 
 - type: entity
-  parent: [BaseComputerCircuitboard, BaseCommandContraband]
+  parent: [BaseComputerCircuitboard, BaseGrandTheftContraband]
   id: IDComputerCircuitboard
   name: ID card computer board
   description: A computer printed circuit board for an ID card console.
@@ -348,7 +348,7 @@
       prototype: computerBodyScanner
 
 - type: entity
-  parent: [ BaseComputerCircuitboard, BaseCommandContraband ]
+  parent: [ BaseComputerCircuitboard, BaseGrandTheftContraband ]
   id: CommsComputerCircuitboard
   name: communications computer board
   description: A computer printed circuit board for a communications console.
@@ -456,7 +456,7 @@
     prototype: ComputerShuttle
 
 - type: entity
-  parent: [ BaseComputerCircuitboard, BaseSyndicateContraband ]
+  parent: BaseComputerCircuitboard
   id: SyndicateShuttleConsoleCircuitboard
   name: syndicate shuttle console board
   description: A computer printed circuit board for a syndicate shuttle console.
@@ -489,7 +489,7 @@
       prototype: ComputerIFF
 
 - type: entity
-  parent: [ BaseComputerCircuitboard, BaseSyndicateContraband ]
+  parent: BaseComputerCircuitboard
   id: ComputerIFFSyndicateCircuitboard
   name: syndicate IFF console board
   description: Allows you to control the IFF and stealth characteristics of this vessel.

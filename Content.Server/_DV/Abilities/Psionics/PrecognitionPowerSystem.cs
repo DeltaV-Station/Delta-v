@@ -130,8 +130,9 @@ public sealed class PrecognitionPowerSystem : EntitySystem
         var minDetectWindow = TimeSpan.FromSeconds(30);
         var maxDetectWindow = TimeSpan.FromMinutes(10);
 
-        if (!TryComp<ActorComponent>(uid, out var actor))
+        if (!_mind.TryGetMind(uid, out _, out var mindComponent) || mindComponent.Session == null)
             return;
+
         var nextEvent = FindEarliestNextEvent(minDetectWindow, maxDetectWindow);
         LocId? message = nextEvent?.NextEventId is {} nextEventId
             ? GetResultMessage(nextEventId)
@@ -151,7 +152,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
             Loc.GetString("chat-manager-server-wrap-message", ("message", msg)),
             uid,
             false,
-            actor.PlayerSession.Channel,
+            mindComponent.Session.Channel,
             Color.PaleVioletRed);
 
         component.DoAfter = null;

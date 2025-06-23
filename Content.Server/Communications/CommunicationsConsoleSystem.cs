@@ -1,8 +1,9 @@
-using Content.Server._DV.Station.Components; // DeltaV - Exfiltration shuttle
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
+using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
+using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Server.RoundEnd;
 using Content.Server.Screens.Components;
@@ -15,7 +16,6 @@ using Content.Shared.Chat;
 using Content.Shared.Communications;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
-using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
@@ -23,7 +23,7 @@ using Robust.Shared.Configuration;
 
 namespace Content.Server.Communications
 {
-    public sealed partial class CommunicationsConsoleSystem : EntitySystem // DeltaV - Partial Class
+    public sealed class CommunicationsConsoleSystem : EntitySystem
     {
         [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
         [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
@@ -53,8 +53,6 @@ namespace Content.Server.Communications
             SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleBroadcastMessage>(OnBroadcastMessage);
             SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleCallEmergencyShuttleMessage>(OnCallShuttleMessage);
             SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleRecallEmergencyShuttleMessage>(OnRecallShuttleMessage);
-
-            InitializeExfiltration(); // DeltaV - Exfiltration shuttle
 
             // On console init, set cooldown
             SubscribeLocalEvent<CommunicationsConsoleComponent, MapInitEvent>(OnCommunicationsConsoleMapInit);
@@ -138,7 +136,6 @@ namespace Content.Server.Communications
             List<string>? levels = null;
             string currentLevel = default!;
             float currentDelay = 0;
-            TimeSpan? exfiltrationTime = null; // DeltaV - exfiltration shuttle
 
             if (stationUid != null)
             {
@@ -160,12 +157,6 @@ namespace Content.Server.Communications
                     currentLevel = alertComp.CurrentLevel;
                     currentDelay = _alertLevelSystem.GetAlertLevelDelay(stationUid.Value, alertComp);
                 }
-                // Begin DeltaV - exfiltration shuttle
-                if (TryComp<StationExfiltrationComponent>(stationUid, out var exfiltration))
-                {
-                    exfiltrationTime = exfiltration.ArrivalTime;
-                }
-                // End DeltaV - exfiltration shuttle
             }
 
             _uiSystem.SetUiState(uid, CommunicationsConsoleUiKey.Key, new CommunicationsConsoleInterfaceState(
@@ -174,8 +165,7 @@ namespace Content.Server.Communications
                 levels,
                 currentLevel,
                 currentDelay,
-                _roundEndSystem.ExpectedCountdownEnd,
-                exfiltrationTime // DeltaV - exfiltration shuttle
+                _roundEndSystem.ExpectedCountdownEnd
             ));
         }
 
@@ -270,9 +260,7 @@ namespace Content.Server.Communications
             Loc.TryGetString(comp.Title, out var title);
             title ??= comp.Title;
 
-            if (author != "()") // DeltaV - complete goidacode to only hide it for blank IDs
-                msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
-
+            msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
             if (comp.Global)
             {
                 _chatSystem.DispatchGlobalAnnouncement(msg, title, announcementSound: comp.Sound, colorOverride: comp.Color);

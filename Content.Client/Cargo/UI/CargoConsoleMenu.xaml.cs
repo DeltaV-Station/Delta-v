@@ -40,8 +40,6 @@ namespace Content.Client.Cargo.UI
         private readonly List<string> _categoryStrings = new();
         private string? _category;
 
-        public List<ProtoId<CargoProductPrototype>> ProductCatalogue = new();
-
         public CargoConsoleMenu(EntityUid owner, IEntityManager entMan, IPrototypeManager protoManager, SpriteSystem spriteSystem)
         {
             RobustXamlLoader.Load(this);
@@ -115,16 +113,14 @@ namespace Content.Client.Cargo.UI
             Categories.SelectId(id);
         }
 
-        private IEnumerable<CargoProductPrototype> ProductPrototypes
+        public IEnumerable<CargoProductPrototype> ProductPrototypes
         {
             get
             {
                 var allowedGroups = _entityManager.GetComponentOrNull<CargoOrderConsoleComponent>(_owner)?.AllowedGroups;
 
-                foreach (var cargoPrototypeId in ProductCatalogue)
+                foreach (var cargoPrototype in _protoManager.EnumeratePrototypes<CargoProductPrototype>())
                 {
-                    var cargoPrototype = _protoManager.Index(cargoPrototypeId);
-
                     if (!allowedGroups?.Contains(cargoPrototype.Group) ?? false)
                         continue;
 
@@ -212,7 +208,6 @@ namespace Content.Client.Cargo.UI
 
                 var product = _protoManager.Index<EntityPrototype>(order.ProductId);
                 var productName = product.Name;
-                var account = _protoManager.Index(order.Account);
 
                 var row = new CargoOrderRow
                 {
@@ -224,9 +219,7 @@ namespace Content.Client.Cargo.UI
                             "cargo-console-menu-populate-orders-cargo-order-row-product-name-text",
                             ("productName", productName),
                             ("orderAmount", order.OrderQuantity),
-                            ("orderRequester", order.Requester),
-                            ("accountColor", account.Color),
-                            ("account", Loc.GetString(account.Code)))
+                            ("orderRequester", order.Requester))
                     },
                     Description =
                     {
@@ -289,9 +282,6 @@ namespace Content.Client.Cargo.UI
             AccountActionButton.Disabled = TransferSpinBox.Value <= 0 ||
                                            TransferSpinBox.Value > bankAccount.Accounts[orderConsole.Account] * orderConsole.TransferLimit ||
                                            _timing.CurTime < orderConsole.NextAccountActionTime;
-
-            OrdersSpacer.Visible = !orderConsole.SlipPrinter;
-            Orders.Visible = !orderConsole.SlipPrinter;
         }
     }
 }

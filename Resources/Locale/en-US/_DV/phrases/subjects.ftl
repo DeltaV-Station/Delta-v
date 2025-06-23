@@ -210,11 +210,6 @@ phrase-gas-analyzer = gas analyzer
 phrase-planetside = planetside
 phrase-holopad = holopad
 phrase-upgrade = upgrade
-phrase-gloves = gloves
-phrase-shoes = shoes
-phrase-limbs = limbs
-phrase-release = release
-phrase-parole = parole
 
 # colors
 phrase-color-red = red

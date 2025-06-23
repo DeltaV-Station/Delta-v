@@ -7,7 +7,7 @@
     useDelay: 50
     whitelist:
       components:
-      - HumanoidAppearance
+        - HumanoidAppearance
     blacklist:
       components:
       - CosmicCult
@@ -22,13 +22,14 @@
   id: ActionCosmicBlank
   name: Shunt Subjectivity
   description: Shunt your target's mind out of their body and unto the cosmic dark, temporarily rendering their body mindless.
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     canTargetSelf: true
     useDelay: 120
     whitelist:
       components:
-      - HumanoidAppearance
+        - HumanoidAppearance
     blacklist:
       components:
       - CosmicCult
@@ -43,6 +44,7 @@
   id: ActionCosmicPlaceMonument
   name: Beckon The Monument
   description: Call forth The Monument into realspace. Keep it hidden and safe from non-cultists!
+  categories: [ HideSpawnMenu ]
   components:
   - type: ConfirmableAction
     popup: cosmicability-monument-spawn-confirm
@@ -61,6 +63,7 @@
   id: ActionCosmicMoveMonument
   name: Relocate The Monument
   description: Your work is imperative, and the end is inevitable. Ensure that it is completed under your watch.
+  categories: [ HideSpawnMenu ]
   components:
   - type: ConfirmableAction
     popup: cosmicability-monument-move-confirm
@@ -79,9 +82,9 @@
   id: ActionCosmicReturn
   name: Return
   description: Dissipate your astral projection and return to your body.
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    checkCanInteract: false
     itemIconStyle: NoItem
     useDelay: 0
     icon:
@@ -93,13 +96,14 @@
   id: ActionCosmicLapse
   name: Abberant Lapse
   description: Lapse your target's corporeal form, temporarily rendering it immutable, impassible, and frozen in place.
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     canTargetSelf: true
     useDelay: 45
     whitelist:
       components:
-      - HumanoidAppearance
+        - HumanoidAppearance
     blacklist:
       components:
       - BibleUser
@@ -112,15 +116,15 @@
 - type: entity
   id: ActionCosmicGlare
   name: Null Glare
-  description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you. Its effects are amplified against silicon-based entities.
+  description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you.
+  categories: [ HideSpawnMenu ]
   components:
   - type: ConfirmableAction
     popup: cosmicability-glare-confirm
     confirmDelay: 0.1
     primeTime: 5 #increased to give you more time to figure out where you want to put it
   - type: InstantAction
-    useDelay: 60
-    checkCanInteract: false
+    useDelay: 55
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -131,9 +135,10 @@
   id: ActionCosmicIngress
   name: Force Ingress
   description: Use a concentrated blast of power to force a secure doorway open.
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    useDelay: 25
+    useDelay: 40
     whitelist:
       components:
         - Door
@@ -147,10 +152,10 @@
   id: ActionCosmicImposition
   name: Vacuous Imposition
   description: You negate any incoming damage for a short time.
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     useDelay: 160
-    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -161,9 +166,10 @@
   id: ActionCosmicNova
   name: Astral Nova
   description: Hurl a large and disruptive blast of astral energy.
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
-    useDelay: 45
+    useDelay: 30
     raiseOnUser: true
     range: 60
     itemIconStyle: NoItem
@@ -172,83 +178,78 @@
       state: nova
     event: !type:EventCosmicNova {}
 
-- type: entity
-  id: ActionCosmicFragmentation
-  name: Null Fragmentation
-  description: Transfer your malign empowerment into a digital system, such as an AI Upload Console or Cyborg, corrupting it in the process. Doing so will expend your empowerment.
-  components:
-  - type: LimitedCharges
-    maxCharges: 1
-  - type: EntityTargetAction
-    useDelay: 25
-    whitelist:
-      components:
-      - BorgChassis
-      - SiliconLawUpdater
-    itemIconStyle: NoItem
-    icon:
-      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: corruption
-    event: !type:EventCosmicFragmentation {}
-
-## COLOSSUS ACTIONS
+#################################### ROGUE ASCENDANT ACTIONS ######################################
 
 - type: entity
-  id: ActionCosmicColossusSunder
-  name: Entropic Sunder
-  description: Warp to the target location and unleash a cascading detonation of malign energy.
+  id: ActionRogueCosmicNova
+  name: Usurped Astral Nova
+  description: Hurl a large and disruptive blast of astral energy.
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
-    useDelay: 18
-    range: 7
+    useDelay: 10
+    raiseOnUser: true
+    range: 60
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: sunder
-    event: !type:EventCosmicColossusSunder
+      state: roguenova
+    event: !type:EventRogueCosmicNova {}
 
 - type: entity
-  id: ActionCosmicColossusIngress
-  name: Colossal Ingress
-  description: Use your colossal strength to force open a doorway.
+  id: ActionRogueInfection
+  name: Malign Corruption
+  description: Instill the essence of endings into a subdued target.
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    useDelay: 8
-    range: 2
+    useDelay: 5
     whitelist:
       components:
-        - Door
+        - HumanoidAppearance
+    blacklist:
+      components:
+        - RogueAscendedInfection
+        - CosmicCult
+        - BibleUser
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: ingress
-    event: !type:EventCosmicColossusIngress
+      state: rogueinfect
+    event: !type:EventRogueInfection {}
 
 - type: entity
-  id: ActionCosmicColossusHibernate
+  id: ActionRogueSlumber
   name: Slumber Shell
-  description: Slumber your body for a period of time to regenerate integrity. Must be done on stable ground.
+  description: Instantly slumber a target's mortal shell, rendering them asleep and ready for Malign Corruption.
+  categories: [ HideSpawnMenu ]
   components:
-  - type: LimitedCharges
-    maxCharges: 2
-  - type: InstantAction
-    useDelay: 120
-    checkCanInteract: false
+  - type: EntityTargetAction
+    useDelay: 55
+    whitelist:
+      components:
+        - HumanoidAppearance
+    blacklist:
+      components:
+        - RogueAscendedInfection
+        - CosmicCult
+        - BibleUser
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: slumber
-    event: !type:EventCosmicColossusHibernate {}
+      state: rogueshatter
+    event: !type:EventRogueSlumber {}
 
 - type: entity
-  id: ActionCosmicColossusEffigy
-  name: Beckon an Effigy
-  description: Draw out an Effigy of Entropy into realspace.
+  id: ActionRogueGrandShunt
+  name: Malign Mindspike
+  description: Shunt the minds of all nearby out of their body and unto the cosmic dark, temporarily rendering their body mindless.
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 999
+    useDelay: 100
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: nova
-    event: !type:EventCosmicColossusEffigy {}
+      state: rogueshunt
+    event: !type:EventRogueGrandShunt {}

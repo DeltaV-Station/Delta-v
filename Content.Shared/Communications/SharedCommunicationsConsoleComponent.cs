@@ -18,9 +18,8 @@ namespace Content.Shared.Communications
         public List<string>? AlertLevels;
         public string CurrentAlert;
         public float CurrentAlertDelay;
-        public readonly TimeSpan? ExpectedExfiltrationCountdownEnd;
 
-        public CommunicationsConsoleInterfaceState(bool canAnnounce, bool canCall, List<string>? alertLevels, string currentAlert, float currentAlertDelay, TimeSpan? expectedCountdownEnd, TimeSpan? expectedExfiltrationCountdownEnd) // DeltaV - Exfiltration Shuttle
+        public CommunicationsConsoleInterfaceState(bool canAnnounce, bool canCall, List<string>? alertLevels, string currentAlert, float currentAlertDelay, TimeSpan? expectedCountdownEnd = null)
         {
             CanAnnounce = canAnnounce;
             CanCall = canCall;
@@ -29,7 +28,6 @@ namespace Content.Shared.Communications
             AlertLevels = alertLevels;
             CurrentAlert = currentAlert;
             CurrentAlertDelay = currentAlertDelay;
-            ExpectedExfiltrationCountdownEnd = expectedExfiltrationCountdownEnd; // DeltaV - Exfiltration Shuttle
         }
     }
 

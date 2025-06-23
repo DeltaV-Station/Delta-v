@@ -1,5 +1,4 @@
 using Content.Shared.Silicons.StationAi;
-using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Player;
@@ -10,7 +9,6 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
 {
     [Dependency] private readonly IOverlayManager _overlayMgr = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     private StationAiOverlay? _overlay;
 
@@ -24,7 +22,6 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
         SubscribeLocalEvent<StationAiOverlayComponent, LocalPlayerDetachedEvent>(OnAiDetached);
         SubscribeLocalEvent<StationAiOverlayComponent, ComponentInit>(OnAiOverlayInit);
         SubscribeLocalEvent<StationAiOverlayComponent, ComponentRemove>(OnAiOverlayRemove);
-        SubscribeLocalEvent<StationAiCoreComponent, AppearanceChangeEvent>(OnAppearanceChange);
     }
 
     private void OnAiOverlayInit(Entity<StationAiOverlayComponent> ent, ref ComponentInit args)
@@ -73,17 +70,6 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
     private void OnAiDetached(Entity<StationAiOverlayComponent> ent, ref LocalPlayerDetachedEvent args)
     {
         RemoveOverlay();
-    }
-
-    private void OnAppearanceChange(Entity<StationAiCoreComponent> entity, ref AppearanceChangeEvent args)
-    {
-        if (args.Sprite == null)
-            return;
-
-        if (_appearance.TryGetData<PrototypeLayerData>(entity.Owner, StationAiVisualState.Key, out var layerData, args.Component))
-            args.Sprite.LayerSetData(StationAiVisualState.Key, layerData);
-
-        args.Sprite.LayerSetVisible(StationAiVisualState.Key, layerData != null);
     }
 
     public override void Shutdown()

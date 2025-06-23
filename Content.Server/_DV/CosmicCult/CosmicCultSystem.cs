@@ -25,7 +25,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.Popups;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -160,10 +159,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     private void OnGotHeld(Entity<CosmicEquipmentComponent> ent, ref GotEquippedHandEvent args)
     {
         if (!EntityIsCultist(args.User))
-        {
             _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.User, EntropicDegen, TimeSpan.FromDays(1), true);
-            _popup.PopupEntity(Loc.GetString("cosmiccult-gear-pickup", ("ITEM", args.Equipped)), args.User, args.User, PopupType.MediumCaution);
-        }
     }
 
     private void OnGotUnheld(Entity<CosmicEquipmentComponent> ent, ref GotUnequippedHandEvent args)
@@ -195,11 +191,11 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private void OnRefreshMoveSpeed(EntityUid uid, InfluenceStrideComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
-        args.ModifySpeed(1.1f, 1.1f);
+        args.ModifySpeed(1.05f, 1.05f);
     }
     private void OnImpositionMoveSpeed(EntityUid uid, CosmicImposingComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
-        args.ModifySpeed(0.65f, 0.65f);
+        args.ModifySpeed(0.55f, 0.55f);
     }
     #endregion
 

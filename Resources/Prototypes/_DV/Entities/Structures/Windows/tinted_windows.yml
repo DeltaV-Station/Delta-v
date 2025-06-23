@@ -11,8 +11,6 @@
     state: tinted_window
   - type: Tag
     tags:
-      - Window
-      - Directional
       - ForceNoFixRotations
   - type: Occluder
     boundingBox: "-0.5,-0.5,0.5,-0.3"
@@ -30,8 +28,6 @@
     state: tinted_reinforced_window
   - type: Tag
     tags:
-      - Window
-      - Directional
       - ForceNoFixRotations
   - type: Occluder
     boundingBox: "-0.5,-0.5,0.5,-0.3"

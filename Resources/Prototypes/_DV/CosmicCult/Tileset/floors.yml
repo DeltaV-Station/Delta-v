@@ -133,12 +133,16 @@
     sprite: /Textures/_DV/CosmicCult/Tileset/cosmicdecay.rsi
     state: full
   - type: IconSmooth
-    key: decay
+    key: floor
     base: decay
   - type: Tag
     tags:
+      - Entropy
       - HideContextMenu
-  - type: TileEmission
+  - type: PointLight
+    radius: 4.25
+    energy: 1.75
+    castShadows: false
     color: "#42a4ae"
 
 - type: entity
