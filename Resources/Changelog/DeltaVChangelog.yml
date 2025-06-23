@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: Fixed the Shitmed locale in the controls keybind menu
-    type: Fix
-  id: 983
-  time: '2025-02-03T12:05:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2859
 - author: SolStar
   changes:
   - message: Fixed bug causing precognition power to sometimes fail to display a message.
@@ -4132,3 +4125,10 @@
   id: 1482
   time: '2025-06-22T16:36:22.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3868
+- author: ZigTag
+  changes:
+  - message: IPCs will drain power based off movement speed
+    type: Tweak
+  id: 1483
+  time: '2025-06-23T06:51:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3917
