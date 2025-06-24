@@ -7,6 +7,8 @@
   components:
     - type: Shadekin
     # - type: Absorbable # Delta-V: Commented out, we got no Absorbable
+    - type: Hunger
+    - type: Thirst
     - type: HumanoidAppearance
       species: Shadekin
     - type: Icon
