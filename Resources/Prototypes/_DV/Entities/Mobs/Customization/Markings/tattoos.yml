@@ -1,0 +1,43 @@
+- type: marking
+  id: TattooHiveChestFemale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Oni, Kitsune]
+  sexRestriction: [Female]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _DV/Mobs/Customization/tattoos.rsi
+    state: tattoo_hive_chest_female
+
+- type: marking
+  id: TattooNightlingChestFemale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Oni, Kitsune]
+  sexRestriction: [Female]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _DV/Mobs/Customization/tattoos.rsi
+    state: tattoo_nightling_female
+
+- type: marking
+  id: TattooNanotrasenChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _DV/Mobs/Customization/tattoos.rsi
+    state: tattoo_nanotrasen_chest

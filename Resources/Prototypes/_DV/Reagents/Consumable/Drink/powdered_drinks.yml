@@ -1,0 +1,191 @@
+- type: reagent
+  id: BasePowderedBeverage
+  abstract: true
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: terrible
+  metabolisms:
+    Poison:
+      effects:
+      - !type:Emote
+        emote: Cough
+        showInChat: true
+        probability: 0.33
+      - !type:ChemVomit
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+
+- type: reagent
+  parent: BasePowderedBeverage
+  id: PowderedMilk
+  name: reagent-name-powdered-milk
+  group: Foods
+  desc: reagent-desc-powdered-milk
+  flavor: sweet
+  color: "#FAFAFA"
+
+- type: reagent
+  parent: BasePowderedBeverage
+  id: PowderedMilkSoy
+  name: reagent-name-powdered-milk-soy
+  group: Foods
+  desc: reagent-desc-powdered-milk-soy
+  flavor: soy
+  color: "#FFFCE3"
+
+- type: reagent
+  parent: BasePowderedBeverage
+  id: PowderedJuiceOrange
+  name: reagent-name-powdered-juice-orange
+  group: Foods
+  desc: reagent-desc-powdered-juice-orange
+  flavor: sour
+  color: "#FFC420"
+
+- type: reagent
+  parent: BasePowderedBeverage
+  id: PowderedJuiceLime
+  name: reagent-name-powdered-juice-lime
+  group: Foods
+  desc: reagent-desc-powdered-juice-lime
+  flavor: sour
+  color: "#B4FF64"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 0.5
+      - !type:Emote
+        emote: Cough
+        showInChat: true
+        probability: 0.33
+      - !type:ChemVomit
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+
+- type: reagent
+  parent: BasePowderedBeverage
+  id: PowderedJuiceLemon
+  name: reagent-name-powdered-juice-lemon
+  group: Foods
+  desc: reagent-desc-powdered-juice-lemon
+  flavor: sour
+  color: "#FFFC69"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 0.5
+      - !type:Emote
+        emote: Cough
+        showInChat: true
+        probability: 0.33
+      - !type:ChemVomit
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+
+- type: reagent
+  parent: BasePowderedBeverage
+  id: PowderedJuicePineapple
+  name: reagent-name-powdered-juice-pineapple
+  group: Foods
+  desc: reagent-desc-powdered-juice-pineapple
+  flavor: sour
+  color: "#FFD644"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 0.5
+      - !type:Emote
+        emote: Cough
+        showInChat: true
+        probability: 0.33
+      - !type:ChemVomit
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+
+- type: reagent
+  parent: BasePowderedBeverage
+  id: PowderedJuiceBanana
+  name: reagent-name-powdered-juice-banana
+  group: Foods
+  desc: reagent-desc-powdered-juice-banana
+  flavor: terrible
+  color: "#FFFEBF"
+
+- type: reagent
+  parent: BasePowderedBeverage
+  id: PowderedJuiceBerry
+  name: reagent-name-powdered-juice-berry
+  group: Foods
+  desc: reagent-desc-powdered-juice-berry
+  flavor: bitter
+  color: "#D366FF"
+
+- type: reagent
+  parent: BasePowderedBeverage
+  id: PowderedJuiceWatermelon
+  name: reagent-name-powdered-juice-watermelon
+  group: Foods
+  desc: reagent-desc-powdered-juice-watermelon
+  flavor: terrible
+  color: "#FFBCDB"
+
+- type: reagent
+  parent: BasePowderedBeverage
+  id: PowderedJuiceGrape
+  name: reagent-name-powdered-juice-grape
+  group: Foods
+  desc: reagent-desc-powdered-juice-grape
+  flavor: sour
+  color: "#E57DFF"
+
+- type: reagent
+  parent: BasePowderedBeverage
+  id: PowderedJuiceApple
+  name: reagent-name-powdered-juice-apple
+  group: Foods
+  desc: reagent-desc-powdered-juice-apple
+  flavor: sour
+  color: "#FFC67E"
+
+- type: reagent
+  parent: BasePowderedBeverage
+  id: PowderedJuiceCherry
+  name: reagent-name-powdered-juice-cherry
+  group: Foods
+  desc: reagent-desc-powdered-juice-cherry
+  flavor: sour
+  color: "#A9536C"
+
+- type: reagent
+  parent: BasePowderedBeverage
+  id: PowderedJuiceCarrot
+  name: reagent-name-powdered-juice-carrot
+  group: Foods
+  desc: reagent-desc-powdered-juice-carrot
+  flavor: bitter
+  color: "#FFA06B"
+
+- type: reagent
+  parent: BasePowderedBeverage
+  id: PowderedJuiceTomato
+  name: reagent-name-powdered-juice-tomato
+  group: Foods
+  desc: reagent-desc-powdered-juice-tomato
+  flavor: bitter
+  color: "#D85553"

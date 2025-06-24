@@ -18,10 +18,18 @@
     damageOnUntrainedUse: ## What a non-chaplain takes when attempting to heal someone
       groups:
         Burn: 10
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Holy: 10 # DeltaV: was 25
+        Blunt: 1
   - type: Prayable
     bibleUserOnly: true
   - type: Summonable
     specialItem: SpawnPointGhostRemilia
+  - type: RevealRevenantOnCollide # Imp
   - type: ReactionMixer
     mixMessage: "bible-mixing-success"
     reactionTypes:
@@ -42,16 +50,13 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
-  - type: MeleeWeapon # Nyanotrasen - Bibles do Holy damage
-    damage:
-      types:
-        Blunt: 3
-        Holy: 10
   - type: Tag
     tags:
     - Book
   - type: StealTarget
     stealGroup: Bible
+  - type: CollisionWake # DeltaV
+    enabled: false
 
 - type: entity
   parent: [Bible, BaseSyndicateContraband]

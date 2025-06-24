@@ -1,0 +1,24 @@
+- type: entity
+  parent: Defibrillator
+  id: Portafib
+  name: portafib
+  description: Less weight, same great ZZZAP!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Medical/portafib.rsi
+  - type: Item
+    size: Normal
+  - type: PowerCellDraw
+    useRate: 140
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  id: PortafibEmpty
+  parent: Portafib
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

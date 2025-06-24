@@ -16,7 +16,7 @@
     - id: GiftsVendingRestock
 
 # Game Rules
-    
+
 - type: entity
   id: CargoGiftsBase
   parent: BaseGameRule
@@ -26,6 +26,8 @@
     delay:
       min: 10
       max: 10
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-cargo-gifts-base-result-message
   - type: StationEvent
     startColor: "#18abf5"
     startAudio:
@@ -63,7 +65,7 @@
     description: cargo-gift-pizza-large
     dest: cargo-gift-dest-bar
     gifts:
-      FoodPizzaLarge: 1              # 16 pizzas
+      FoodPizza: 2 # DeltaV - Changed to 2 small pizza crates, 8 pizzas total
       FoodBarSupply: 1
       FoodSoftdrinksLarge: 1
 
@@ -213,3 +215,4 @@
       SecurityRiot: 2
       SecurityRestraints: 2
       SecurityNonLethal: 2
+      SecurityNonlethalThrowables: 1

@@ -32,6 +32,9 @@
     state: full
   - type: Transform
     noRot: true # players rotation and anchor is used instead
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Damageable
   - type: ChameleonDisguise
 
 # actions
@@ -42,6 +45,7 @@
   components:
   - type: InstantAction
     icon: Interface/VerbIcons/refresh.svg.192dpi.png
+    itemIconStyle: BigAction
     event: !type:DisguiseToggleNoRotEvent
 
 - type: entity
@@ -53,4 +57,5 @@
     icon:
       sprite: Objects/Tools/wrench.rsi
       state: icon
+    itemIconStyle: BigAction
     event: !type:DisguiseToggleAnchoredEvent

@@ -43,6 +43,13 @@
     state: qm_clipboard
 
 - type: stealTargetGroup
+  id: ClothingHandsKnuckleDustersQM
+  name: steal-target-groups-clothing-hands-knuckledusters-qm
+  sprite:
+    sprite: Clothing/Hands/Gloves/KnuckleDusters/goldenknuckleduster.rsi
+    state: goldenknuckleduster
+
+- type: stealTargetGroup
   id: FoodMeatCorgi
   name: steal-target-groups-food-meat-corgi
   sprite:
@@ -75,13 +82,6 @@
   name: steal-target-groups-nuke-disk
   sprite:
     sprite: Objects/Misc/nukedisk.rsi
-    state: icon
-
-- type: stealTargetGroup # DeltaV, upstream reverted
-  id: PlutoniumCore
-  name: steal-target-groups-plutonium-core
-  sprite:
-    sprite: Objects/Misc/plutonium_core.rsi
     state: icon
 
 - type: stealTargetGroup
@@ -134,6 +134,13 @@
   sprite:
     sprite: Objects/Misc/module.rsi
     state: datadisk_base
+
+- type: stealTargetGroup
+  id: Mail
+  name: steal-target-groups-mail
+  sprite:
+    sprite: Nyanotrasen/Objects/Specific/Mail/mail.rsi # DeltaV
+    state: icon
 
 - type: stealTargetGroup
   id: IDCard
@@ -380,7 +387,7 @@
     state: fox
 
 - type: stealTargetGroup
-  id: AnimalSecurity #DeltaV - Adjusts because we have multiple possible sec animals
+  id: AnimalSecurity # DeltaV - Adjusts because we have multiple possible sec animals
   name: steal-target-groups-animal-shiva
   sprite:
     sprite: Mobs/Pets/shiva.rsi

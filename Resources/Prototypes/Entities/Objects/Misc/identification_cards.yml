@@ -22,8 +22,11 @@
     tags:
     - DoorBumpOpener
     - WhitelistChameleon
+    - WhitelistChameleonIdCard
   - type: StealTarget
     stealGroup: IDCard
+  - type: NanoChatCard # DeltaV
+  - type: MiningPoints # DeltaV
 
 #IDs with layers
 
@@ -83,6 +86,7 @@
   - type: PresetIdCard
     job: SecurityCadet
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: default
     - state: idintern-cadet
@@ -116,6 +120,7 @@
     tags:
     - DoorBumpOpener
     - WhitelistChameleon
+    - WhitelistChameleonIdCard
     - HighRiskItem
   - type: StealTarget
     stealGroup: CaptainIDCard
@@ -126,6 +131,7 @@
   name: security ID card
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: default
     - state: idsecurityofficer
@@ -138,6 +144,7 @@
   name: warden ID card
   components:
     - type: Sprite
+      sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
       layers:
         - state: default
         - state: idwarden
@@ -274,7 +281,7 @@
     - type: Sprite
       layers:
         - state: default
-        - sprite: DeltaV/Objects/Misc/id_cards.rsi # DeltaV - Give Chaplain ID Epistemics colors
+        - sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - Give Chaplain ID Epistemics colors
           state: idchaplain
     - type: PresetIdCard
       job: Chaplain
@@ -315,6 +322,9 @@
     - type: PresetIdCard
       job: Bartender
       name: Pun Pun
+    - type: Tag #  Ignore Chameleon tags
+      tags:
+      - DoorBumpOpener
 
 - type: entity
   parent: IDCardStandard
@@ -360,7 +370,7 @@
     - type: Sprite
       layers:
         - state: default
-        - sprite: DeltaV/Objects/Misc/id_cards.rsi # DeltaV - Give Lawyer ID Justice colors
+        - sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - Give Lawyer ID Justice colors
           state: idlawyer
     - type: PresetIdCard
       job: Lawyer
@@ -427,6 +437,7 @@
   name: head of security ID card
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: silver
     - state: idheadofsecurity
@@ -456,10 +467,11 @@
   name: corpsman ID card # DeltaV - rename brigmedic to corpsman
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: default
     - state: idbrigmedic
-  - type: PresetIdCard # Delta V - Brigmedic, see Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
+  - type: PresetIdCard # DeltaV - Brigmedic, see Prototypes/_DV/Roles/Jobs/Security/brigmedic.yml
     job: Brigmedic
 
 - type: entity
@@ -475,6 +487,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: CentralCommandOfficial
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -489,6 +503,8 @@
     job: ERTLeader
   - type: Item
     heldPrefix: gold
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -503,6 +519,8 @@
     job: ERTChaplain
   - type: Item
     heldPrefix: blue
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -515,6 +533,8 @@
     - state: ert_engineer
   - type: PresetIdCard
     job: ERTEngineer
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -527,6 +547,8 @@
     - state: ert_janitor
   - type: PresetIdCard
     job: ERTJanitor
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -539,6 +561,8 @@
     - state: ert_medic
   - type: PresetIdCard
     job: ERTMedical
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -551,6 +575,8 @@
     - state: ert_security
   - type: PresetIdCard
     job: ERTSecurity
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -576,6 +602,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: DeathSquad
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   name: passenger ID card
@@ -603,12 +631,15 @@
   - type: ChameleonClothing
     slot: [idcard]
     default: PassengerIDCard
+    requireTag: WhitelistChameleonIdCard
   - type: UserInterface
     interfaces:
       enum.AgentIDCardUiKey.Key:
         type: AgentIDCardBoundUserInterface
       enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   name: passenger ID card
@@ -635,7 +666,7 @@
     job: AtmosphericTechnician
 
 - type: entity
-  parent: IDCardStandard
+  parent: [ IDCardStandard, BaseSyndicateContraband ]
   id: SyndicateIDCard
   name: syndicate ID card
   components:
@@ -646,9 +677,11 @@
     tags:
     - NuclearOperative
     - SyndicateAgent
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
-  parent: IDCardStandard
+  parent: [ IDCardStandard, BaseMajorContraband ]
   id: PirateIDCard
   name: pirate ID card
   components:
@@ -659,6 +692,8 @@
     tags:
     - NuclearOperative
     - SyndicateAgent
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -714,11 +749,46 @@
   name: detective ID card
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: default
     - state: iddetective
   - type: PresetIdCard
     job: Detective
+
+- type: entity
+  parent: IDCardStandard
+  id: PrisonerIDCard
+  name: prisoner ID card
+  description: A generically printed ID card for scummy prisoners.
+  components:
+  - type: Sprite
+    layers:
+    - state: orange
+  - type: Item
+    heldPrefix: orange
+  - type: Access
+    tags:
+    - GenpopEnter
+  - type: GenpopIdCard
+  - type: IdCard
+    jobTitle: job-name-prisoner
+    jobIcon: JobIconPrisoner
+    canMicrowave: false
+  - type: ExpireIdCard
+    expireMessage: genpop-prisoner-id-expire
+    expiredAccess:
+    - GenpopLeave
+  - type: Speech
+    speechVerb: Robotic
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - WhitelistChameleon
+    - WhitelistChameleonIdCard
+    - Recyclable
+  - type: StaticPrice # these are infinitely producible.
+    price: 0
 
 - type: entity
   parent: CentcomIDCard
@@ -733,6 +803,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: CBURN
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -747,6 +819,8 @@
   - type: IdCard
     jobTitle: job-title-cluwne
   - type: Unremoveable
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: EngineeringIDCard
@@ -793,12 +867,28 @@
   name: senior officer ID card
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: default
     - state: idseniorofficer
   - type: IdCard # DeltaV - Change senior job titles
     jobTitle: job-alt-title-senior-officer
     jobIcon: JobIconSeniorOfficer
+
+- type: entity
+  parent: IDCardStandard
+  id: WizardIDCard
+  name: wizard ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: wizard
+    - state: idwizard
+  - type: Access
+    tags:
+    - Wizard
+    - External
+    - Maintenance
 
 - type: entity
   parent: IDCardStandard
@@ -822,8 +912,28 @@
   - type: Access
     groups:
     - AllAccess
+    - Silicon
     tags:
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent
+    - Wizard
+    - Xenoborg
     - DV-SpareSafe # DeltaV
+    - Admeme1 # DeltaV
+    - Admeme2 # DeltaV
+    - Admeme3 # DeltaV
+  - type: NanoChatCard # DeltaV
+    notificationsMuted: true
+    listNumber: false
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener
+  - type: AgentIDCard
+  - type: ActivatableUI
+    key: enum.AgentIDCardUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.AgentIDCardUiKey.Key:
+        type: AgentIDCardBoundUserInterface

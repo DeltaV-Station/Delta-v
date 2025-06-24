@@ -55,6 +55,16 @@
         amount: 12
 
 - type: entity
+  name: lightbulb box warm
+  parent: BoxLightbulb
+  id: BoxWarmLightbulb
+  components:
+  - type: StorageFill
+    contents:
+      - id: WarmLightBulb
+        amount: 12
+
+- type: entity
   name: lighttube box
   parent: BoxLightbulb
   id: BoxLighttube
@@ -155,7 +165,7 @@
       - id: DrinkMREFlask
       - id: FoodSnackNutribrick
       - id: FoodSnackMREBrownie
-      - id: FoodCondimentPacketKetchup
+      - id: FoodTinMRE # DeltaV - Replaced FoodCondimentPacketKetchup with this (tinned meat)
   - type: Sprite
     layers:
       - state: box_olive
@@ -199,6 +209,7 @@
     contents:
       - id: ClothingShoesBootsPerformer
       - id: ClothingUniformJumpskirtPerformer
+      - id: ClothingHeadPerformerWig
       - id: FoodMealMemoryleek
         amount: 2
 
@@ -446,3 +457,20 @@
     contents:
       - id: Envelope
         amount: 9
+
+- type: entity
+  name: utensil box
+  parent: BoxCardboard
+  id: BoxUtensil
+  description: A box filled with forks and spoons.
+  components:
+  - type: Sprite
+    layers:
+      - state: box
+      - state: utensils
+  - type: StorageFill
+    contents:
+      - id: Fork
+        amount: 2
+      - id: Spoon
+        amount: 2

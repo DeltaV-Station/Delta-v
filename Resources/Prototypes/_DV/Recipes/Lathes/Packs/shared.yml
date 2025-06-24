@@ -1,0 +1,44 @@
+## Dynamic
+
+- type: latheRecipePack
+  id: EquipmentDeltaV
+  recipes:
+  - SignallerDeadMans
+  - JetpackVoid # RE
+
+- type: latheRecipePack
+  id: EVASuit
+  recipes:
+  - ClothingOuterHardsuitEVA
+  - ClothingHeadHelmetEVA
+  - ClothingOuterSuitEmergency
+
+## Static
+
+- type: latheRecipePack
+  id: LVCablesStatic
+  recipes:
+  - CableStack
+
+- type: latheRecipePack
+  id: PartsStaticDeltaV
+  recipes:
+  - Beaker
+  - HandLabeler
+
+- type: latheRecipePack
+  id: ReportingStatic
+  recipes:
+  - CassetteTape
+  - TapeRecorder
+
+- type: latheRecipePack
+  id: SimpleElectronicsStatic
+  recipes:
+  - DoorElectronics
+  - StationMapElectronics
+  - MailingUnitElectronics
+  - APCElectronics
+  - CellRechargerCircuitboard
+  - WeaponCapacitorRechargerCircuitboard
+  - FreezerElectronics

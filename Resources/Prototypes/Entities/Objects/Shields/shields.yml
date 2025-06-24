@@ -59,12 +59,22 @@
                   max: 2
     - type: StaticPrice
       price: 100
+    # Begin DeltaV additions
+    - type: MeleeWeapon
+      canWideSwing: false
+      damage:
+        types:
+          Blunt: 3
+      soundHit:
+        collection: MetalThud
+      bluntStaminaDamageFactor: 1.5
+    # End DeltaV additions
 
 #Security Shields
 
 - type: entity
   name: riot shield
-  parent: [ BaseShield, BaseRestrictedContraband ]
+  parent: [ BaseShield, BaseSecurityContraband ]
   id: RiotShield
   description: A large tower shield. Good for controlling crowds.
   components:
@@ -84,10 +94,10 @@
           Slash: 1
 
 - type: entity
-  name: riot laser shield
-  parent: [ BaseShield, BaseRestrictedContraband ]
+  name: laser shield
+  parent: [ BaseShield, BaseSecurityContraband ]
   id: RiotLaserShield
-  description: A riot shield built for withstanding lasers, but not much else.
+  description: A shield built for withstanding lasers, but not much else.
   components:
     - type: Sprite
       state: riot_laser-icon
@@ -104,10 +114,10 @@
           Heat: 1
 
 - type: entity
-  name: riot bullet shield
-  parent: [ BaseShield, BaseRestrictedContraband ]
+  name: ballistic shield
+  parent: [ BaseShield, BaseSecurityContraband ]
   id: RiotBulletShield
-  description: A ballistic riot shield built for withstanding bullets, but not much else.
+  description: A shield built for protecting against ballistics, but not much else.
   components:
     - type: Sprite
       state: riot_bullet-icon
@@ -418,7 +428,7 @@
       color: blue
     - type: ItemTogglePointLight
     - type: Reflect
-      reflectProb: 0.95
+      reflectProb: 0.5 # DeltaV - Was 0.95
       reflects:
         - Energy
     - type: Blocking
@@ -426,8 +436,8 @@
         coefficients:
           Blunt: 1.0
           Slash: 0.9
-          Piercing: 0.85
-          Heat: 0.6
+          Piercing: 0.7 # DeltaV - Was 0.85
+          Heat: 0.5 # DeltaV - Was 0.6
       activeBlockModifier:
         coefficients:
           Blunt: 1.2
@@ -444,13 +454,13 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 180
+            damage: 380 # DeltaV - Was 180
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
-            damage: 100
+            damage: 300 # DeltaV - Was 100
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]

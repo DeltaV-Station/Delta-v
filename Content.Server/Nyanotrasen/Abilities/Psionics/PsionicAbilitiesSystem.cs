@@ -12,7 +12,6 @@ using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 using Robust.Server.GameObjects;
-using Robust.Server.Player;
 using Robust.Shared.Player;
 
 namespace Content.Server.Abilities.Psionics
@@ -22,12 +21,10 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly IComponentFactory _componentFactory = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
         [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly MindSystem _mindSystem = default!;
 
         public override void Initialize()
         {
@@ -53,20 +50,14 @@ namespace Content.Server.Abilities.Psionics
                 return;
 
             //Don't know if this will work. New mind state vs old.
-            if (!TryComp<MindContainerComponent>(uid, out var mindContainer) ||
-                !_mindSystem.TryGetMind(uid, out _, out var mind ))
-            //||
-            //!_mindSystem.TryGetMind(uid, out var mind, mindContainer))
+            if (!TryComp<ActorComponent>(uid, out var actor))
             {
                 EnsureComp<PsionicAwaitingPlayerComponent>(uid);
                 return;
             }
 
-            if (!_mindSystem.TryGetSession(mind, out var client))
-                return;
-
-            if (warn && TryComp<ActorComponent>(uid, out var actor))
-                _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), client);
+            if (warn)
+                _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), actor.PlayerSession);
             else
                 AddRandomPsionicPower(uid);
         }

@@ -1,0 +1,23 @@
+- type: construction
+  id: CrateLivestockSteel
+  graph: CrateLivestockSecure
+  startNode: start
+  targetNode: cratelivestocksteel
+  category: construction-category-storage
+  objectType: Structure
+
+- type: construction
+  id: CrateLivestockSecure
+  graph: CrateLivestockSecure
+  startNode: cratelivestocksteel
+  targetNode: cratelivestocksteelsecure
+  category: construction-category-storage
+  objectType: Structure
+
+- type: construction
+  id: CrateLivestockReinforced
+  graph: CrateLivestockSecure
+  startNode: cratelivestocksteelsecure
+  targetNode: cratelivestocksecurereinforced
+  category: construction-category-storage
+  objectType: Structure

@@ -1,0 +1,19 @@
+- type: constructionGraph
+  id: N14TableMetalGrateRecipes
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: TableMetalGrate
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 2
+
+    - node: TableMetalGrate
+      entity: N14TableMetalGrate

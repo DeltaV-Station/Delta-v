@@ -19,9 +19,23 @@ public abstract class SharedArmorSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<CoefficientQueryEvent>>(OnCoefficientQuery);
         SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<DamageModifyEvent>>(OnDamageModify);
         SubscribeLocalEvent<ArmorComponent, BorgModuleRelayedEvent<DamageModifyEvent>>(OnBorgDamageModify);
         SubscribeLocalEvent<ArmorComponent, GetVerbsEvent<ExamineVerb>>(OnArmorVerbExamine);
+    }
+
+    /// <summary>
+    /// Get the total Damage reduction value of all equipment caught by the relay.
+    /// </summary>
+    /// <param name="ent">The item that's being relayed to</param>
+    /// <param name="args">The event, contains the running count of armor percentage as a coefficient</param>
+    private void OnCoefficientQuery(Entity<ArmorComponent> ent, ref InventoryRelayedEvent<CoefficientQueryEvent> args)
+    {
+        foreach (var armorCoefficient in ent.Comp.Modifiers.Coefficients)
+        {
+            args.Args.DamageModifiers.Coefficients[armorCoefficient.Key] = args.Args.DamageModifiers.Coefficients.TryGetValue(armorCoefficient.Key, out var coefficient) ? coefficient * armorCoefficient.Value : armorCoefficient.Value;
+        }
     }
 
     private void OnDamageModify(EntityUid uid, ArmorComponent component, InventoryRelayedEvent<DamageModifyEvent> args)
@@ -37,10 +51,10 @@ public abstract class SharedArmorSystem : EntitySystem
 
     private void OnArmorVerbExamine(EntityUid uid, ArmorComponent component, GetVerbsEvent<ExamineVerb> args)
     {
-        if (!args.CanInteract || !args.CanAccess)
+        if (!args.CanInteract || !args.CanAccess || !component.ShowArmorOnExamine)
             return;
 
-        var examineMarkup = GetArmorExamine(component.Modifiers);
+        var examineMarkup = GetArmorExamine(component); // DeltaV - Changed argument type to ArmorComponent
 
         var ev = new ArmorExamineEvent(examineMarkup);
         RaiseLocalEvent(uid, ref ev);
@@ -50,12 +64,13 @@ public abstract class SharedArmorSystem : EntitySystem
             Loc.GetString("armor-examinable-verb-message"));
     }
 
-    private FormattedMessage GetArmorExamine(DamageModifierSet armorModifiers)
+    // DeltaV - Changed to take ArmorComponent instead of DamageModifierSet
+    private FormattedMessage GetArmorExamine(ArmorComponent component)
     {
         var msg = new FormattedMessage();
         msg.AddMarkupOrThrow(Loc.GetString("armor-examine"));
 
-        foreach (var coefficientArmor in armorModifiers.Coefficients)
+        foreach (var coefficientArmor in component.Modifiers.Coefficients) // DeltaV
         {
             msg.PushNewline();
 
@@ -66,7 +81,7 @@ public abstract class SharedArmorSystem : EntitySystem
             ));
         }
 
-        foreach (var flatArmor in armorModifiers.FlatReduction)
+        foreach (var flatArmor in component.Modifiers.FlatReduction) // DeltaV
         {
             msg.PushNewline();
 
@@ -76,6 +91,17 @@ public abstract class SharedArmorSystem : EntitySystem
                 ("value", flatArmor.Value)
             ));
         }
+
+        // Begin DeltaV Additions - Add melee stamina resistance information if it has any
+        if (!MathHelper.CloseTo(component.StaminaMeleeDamageCoefficient, 1.0f))
+        {
+            msg.PushNewline();
+            var reduction = (1 - component.StaminaMeleeDamageCoefficient) * 100;
+            msg.AddMarkupOrThrow(Loc.GetString("armor-stamina-melee-coefficient-value",
+                ("value", MathF.Round(reduction, 1))
+            ));
+        }
+        // End DeltaV
 
         return msg;
     }

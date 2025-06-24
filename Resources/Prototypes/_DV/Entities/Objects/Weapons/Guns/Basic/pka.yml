@@ -1,0 +1,18 @@
+- type: entity
+  parent: WeaponProtoKineticAccelerator
+  id: WeaponProtoKineticAcceleratorOneHanded
+  suffix: One-Handed, DO NOT MAP
+  description: Fires low-damage kinetic bolts at a short range. This kind has a gyroscope to keep a cyborg's aim steady.
+  components:
+  - type: GunWieldBonus
+    wieldBonusExamineMessage: null
+    minAngle: 0
+    maxAngle: 0
+  - type: Gun
+    minAngle: 1
+    maxAngle: 2
+  - type: UseDelay
+    delay: 0 # You can't dual wield this as a borg so no need for a delay
+  - type: MappingCategories
+    categories:
+    - Debug # no mistaking it for regular pka...

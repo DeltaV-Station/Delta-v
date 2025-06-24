@@ -127,8 +127,8 @@
   maxLength: 60
   damage:
     types:
-      Heat: 45
-      Structural: 10
+      Heat: 75 # DeltaV - Increased to 90 from 45
+      Structural: 100 # DeltaV - Increased to 100 from 10
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_beam_heavy2

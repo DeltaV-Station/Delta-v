@@ -1,0 +1,59 @@
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: BionicVoiceMaskImplanter
+  name: bionic voice mask implanter
+  components:
+  - type: Implanter
+    implant: BionicVoiceMaskImplant
+
+- type: entity
+  parent: BionicVoiceMaskImplanter
+  id: BionicSyrinxImplanter
+  name: bionic syrinx implanter
+  components:
+  - type: Implanter
+    implant: BionicSyrinxImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: GenericRadioImplanter
+  name: generic radio implanter
+  components:
+  - type: Implanter
+    implant: RadioImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: WatchdogImplanter
+  name: watchdog implanter
+  components:
+  - type: Implanter
+    implant: WatchdogImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: CentCommImplanter
+  name: centcomm implanter
+  components:
+  - type: Implanter
+    implant: CentCommImplant
+
+# Nukie implants
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: HostageImplanter
+  name: hostage implanter
+  components:
+  - type: Implanter
+    implant: HostageImplant
+    implantTime: 20
+    drawTime: 15
+
+- type: entity
+  id: NukeopsUplinkImplanter
+  suffix: Nukeops Uplink
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: NukeopsUplinkImplant

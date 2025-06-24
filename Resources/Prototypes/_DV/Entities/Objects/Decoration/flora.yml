@@ -1,0 +1,91 @@
+- type: entity
+  id: BushPlain
+  name: plain bush
+  description: A pretty bush.
+  placement:
+    mode: PlaceFree
+  components:
+  - type: SpriteFade
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    noRot: true
+    sprite: _DV/Objects/Decoration/Flora/bush.rsi
+    state: base
+    drawdepth: Mobs
+  - type: Tag
+    tags:
+      - Structure
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: /Audio/Effects/chop.ogg
+        params:
+          variation: 0.05
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: WoodDestroy
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            MaterialWoodPlank:
+              min: 0
+              max: 1
+
+- type: entity
+  parent: BushPlain
+  id: BushPlainLight
+  components:
+  - type: Sprite
+    layers:
+    - state: base_light
+
+- type: entity
+  parent: BushPlain
+  id: BushHibiscus
+  name: hibiscus bush
+  description: A pretty bush, with hibiscuses!
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: hibiscus
+
+- type: entity
+  parent: BushHibiscus
+  id: BushHibiscusLight
+  components:
+  - type: Sprite
+    layers:
+    - state: base_light
+    - state: hibiscus
+
+- type: entity
+  parent: BushPlain
+  id: BushHydrangea
+  name: hydrangea bush
+  description: A pretty bush, with hydrangeas!
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: hydrangea
+
+- type: entity
+  parent: BushHydrangea
+  id: BushHydrangeaLight
+  components:
+  - type: Sprite
+    layers:
+    - state: base_light
+    - state: hydrangea

@@ -1,0 +1,17 @@
+- type: entity
+  id: SentientSmileCore
+  parent: SentientSlimesCore
+  name: sentient smile core
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Pets/Smile/organs.rsi
+    state: brain-smile
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 5
+        reagents:
+        - ReagentId: SentientGreyMatter
+          Quantity: 5

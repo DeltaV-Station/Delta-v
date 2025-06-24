@@ -36,6 +36,9 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Vending
+  - type: SpookySpeaker
+    messageSet: SpookySpeakerMessagesGeneric
+    speakChance: 0.2
   - type: Anchorable
   - type: Pullable
   - type: StaticPrice
@@ -122,6 +125,18 @@
     - PlushieSharkBlue
     - PlushieVox
     - PlushieXeno
+    # Begin DeltaV - see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
+    - PlushieMort
+    - PlushieIPC
+    - PlushieFelinid
+    - PlushieOni
+    - PlushieHarpy
+    - PlushieRodentia
+    - PlushieFeroxi
+    - PlushieChitinid
+    - PlushieKitsune
+    # End DeltaV
+    - PlushieThaven # IMP Port
     - PlasticBanana
     - RevolverCapGun
     - SnapPopBox
@@ -148,8 +163,8 @@
     - ToyAmongPequeno
     - ToyRubberDuck
     - ToyHammer
-    - ToyRenault # DeltaV Toy, see Resources/Prototypes/DeltaV/Entities/Objects/Fun/toys.yml
-    - ToySiobhan # DeltaV Toy, see Resources/Prototypes/DeltaV/Entities/Objects/Fun/toys.yml
+    - ToyRenault # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
+    - ToySiobhan # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
     - WeaponWaterPistol
     - WhoopieCushion
     - Whistle

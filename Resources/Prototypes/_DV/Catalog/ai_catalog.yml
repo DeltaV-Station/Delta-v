@@ -1,0 +1,77 @@
+- type: listing
+  id: AiRgbLighting
+  name: ai-rgb-lighting-name
+  description: ai-rgb-lighting-desc
+  productAction: ActionStationAiRgbLighting
+  cost:
+    AiMemory: 1
+  categories:
+  - AiAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AiHolopointer
+  name: ai-holopointer-name
+  description: ai-holopointer-desc
+  productAction: ActionStationAiHoloPointer
+  cost:
+    AiMemory: 1
+  categories:
+  - AiAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AiLightSynthesizer
+  name: ai-light-synthesizer-name
+  description: ai-light-synthesizer-desc
+  productAction: ActionStationAiLightSynthesizer
+  cost:
+    AiMemory: 1
+  categories:
+  - AiAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AiBikeHorn
+  name: ai-bike-horn-name
+  description: ai-bike-horn-desc
+  productAction: ActionStationAiBikeHorn
+  cost:
+    AiMemory: 1
+  categories:
+  - AiAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AiEmergencySealant
+  name: ai-emergency-sealant-name
+  description: ai-emergency-sealant-desc
+  productAction: ActionStationAiEmergencySealant
+  cost:
+    AiMemory: 2
+  categories:
+  - AiAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AiRepairNanites
+  name: ai-repair-nanites-name
+  description: ai-repair-nanites-desc
+  productAction: ActionStationAiRepairNanites
+  cost:
+    AiMemory: 2
+  categories:
+  - AiAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

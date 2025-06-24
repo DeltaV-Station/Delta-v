@@ -1,0 +1,127 @@
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BionicVoiceMaskImplant
+  categories: [ HideSpawnMenu ]
+  name: bionic voice mask implant
+  description: This implant lets its user adjust their voice to whoever they can think of.
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionChangeVoiceMask
+  - type: VoiceMask
+  - type: UserInterface
+    interfaces:
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+
+- type: entity
+  parent: BionicVoiceMaskImplant
+  id: BionicSyrinxImplant
+  categories: [ HideSpawnMenu ]
+  name: bionic syrinx implant
+  description: This implant lets a harpy adjust their voice to whoever they can think of.
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionSyrinxChangeVoiceMask
+    whitelist:
+      components:
+      - HarpySinger # Ensure this is only for harpies and if this component gets renamed, CHANGE IT TO THE NEW VALUE!!!
+
+- type: entity
+  parent: StorageImplant
+  id: RadioImplant
+  categories: [ HideSpawnMenu ]
+  name: generic radio implant
+  description: This implant contains a radio augmentation with a hidden compartment for an encryption key. It allows its user to communicate on the key's channels.
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionOpenRadioImplant
+    whitelist:
+      components:
+      - Hands # the user needs to have hands to actually insert or remove a key, much like the storage implant
+    blacklist:
+      components:
+      - BorgChassis # borgs have "hands", but can't pick stuff up so the implant would be useless for them
+  - type: Storage
+    grid:
+    - 0,0,0,1
+    whitelist:
+      components:
+      - EncryptionKey # encryption keys only!
+  - type: RadioImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SyndicateRadioImplant
+  categories: [ HideSpawnMenu ]
+  name: syndicate radio implant
+  description: This implant contains a radio augmentation that allows its user to communicate on the Syndicate channel.
+  components:
+  - type: RadioImplant
+    channels:
+    - Syndicate
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RadioImplantCentcomm
+  categories: [ HideSpawnMenu ]
+  name: centcomm radio implant
+  description: This implant grants access to the Centcomm channel without a headset. Only authorized for Centcomm employees.
+  components:
+  - type: RadioImplant
+    channels:
+    - CentCom
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: WatchdogImplant
+  categories: [ HideSpawnMenu ]
+  name: watchdog implant
+  description: This implant transmits a message on the security channel in case the user goes into critical state.
+  components:
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Critical
+  - type: Rattle
+    radioChannel: Security
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: CentCommImplant
+  name: centcomm implant
+  description: This implant includes a MindShield and something labeled as "antag immune"? Whatever that is.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: AntagImmune
+    - type: MindShield
+
+# Nukie implants
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: HostageImplant
+  name: hostage implant
+  description: Perfect for all your hostage ops needs! Allows the implanted entity to be ignored by syndicate turrets.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: Pacified
+      disallowDisarm: true
+      disallowAllCombat: true
+  - type: AddFactionsImplant
+    factions:
+    - Hostage
+
+- type: entity
+  parent: UplinkImplant
+  id: NukeopsUplinkImplant
+  name: uplink implant
+  description: This implant lets the user access a hidden Nuclear Operative uplink at will.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - NukeOpsUplink

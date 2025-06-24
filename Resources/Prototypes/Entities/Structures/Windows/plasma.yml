@@ -5,9 +5,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: DeltaV/Structures/Windows/plasma_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/plasma_window.rsi #Delta V - Resprite windows
   - type: Icon
-    sprite: DeltaV/Structures/Windows/plasma_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/plasma_window.rsi #Delta V - Resprite windows
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Glass
@@ -52,6 +52,8 @@
     price: 100
   - type: RadiationBlocker
     resistance: 2
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WindowCosmicCult
 
 - type: entity
   id: PlasmaWindowDirectional
@@ -64,10 +66,10 @@
     - Window
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: plasma_window
   - type: Icon
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: plasma_window
   - type: Construction
     graph: WindowDirectional
@@ -122,6 +124,9 @@
     drawdepth: WallTops
     sprite: Structures/Windows/plasma_diagonal.rsi
     state: state0
+  - type: Tag
+    tags:
+    - Diagonal
   - type: IconSmooth
     mode: Diagonal
     key: windows

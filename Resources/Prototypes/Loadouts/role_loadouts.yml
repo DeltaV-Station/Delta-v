@@ -31,8 +31,14 @@
 
 # Silicons
 - type: roleLoadout
+  id: JobBorg
+  nameDataset: NamesBorg
+  canCustomizeName: true
+
+- type: roleLoadout
   id: JobStationAi
-  nameDataset: names_ai
+  nameDataset: NamesAIDeltaV # DeltaV
+  canCustomizeName: true
 
 # Civilian
 - type: roleLoadout
@@ -143,6 +149,7 @@
   - JanitorNeck # DeltaV
   - JanitorJumpsuit
   - JanitorGloves
+  - JanitorPDADelta # DeltaV
   - CommonBackpack
   - JanitorOuterClothing
   - Glasses
@@ -167,6 +174,7 @@
 
 - type: roleLoadout
   id: JobClown
+  canCustomizeName: true
   groups:
   - GroupTankHarness
   - ClownHead
@@ -182,6 +190,7 @@
 
 - type: roleLoadout
   id: JobMime
+  canCustomizeName: true
   groups:
   - GroupTankHarness
   - MimeHead
@@ -245,6 +254,7 @@
   id: JobSalvageSpecialist
   groups:
   - SalvageSpecialistNeck # DeltaV
+  - SalvageSpecialistJumpsuit # DeltaV - more jumpskirts
   - GroupTankHarness
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
@@ -364,12 +374,14 @@
   - HeadofSecurityJumpsuit
   - SecurityBackpack
   - SecurityBelt
-  - HeadofSecurityOuterClothing
+  - HeadofSecurityOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was HeadofSecurityOuterClothing
   - HeadofSecurityShoes # DeltaV - winter boots
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityAllFirearm # DeltaV - loadouts
+  - SecurityAllAmmo # DeltaV - loadouts
 
 - type: roleLoadout
   id: JobWarden
@@ -379,12 +391,14 @@
   - WardenJumpsuit
   - SecurityBackpack
   - SecurityBelt
-  - WardenOuterClothing
+  - WardenOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was WardenOuterClothing
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar 
+  - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityAllFirearm # DeltaV - loadouts
+  - SecurityAllAmmo # DeltaV - loadouts
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -393,7 +407,7 @@
   - SecurityNeck # DeltaV
   - SecurityJumpsuit
   - SecurityBackpack
-  - SecurityOuterClothing
+  - SecurityOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was SecurityOuterClothing
   - SecurityShoes
   - SecurityPDA
   - SecurityBelt
@@ -401,21 +415,24 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityFirearm # DeltaV - loadouts
+  - SecurityFirearmAmmo # DeltaV - loadouts
 
 - type: roleLoadout
   id: JobDetective
   groups:
-  - GroupTankHarness
   - DetectiveHead
   - SecurityNeck # DeltaV - replace DetectiveNeck for incongruence
-  - DetectiveJumpsuit
+  - DetectiveJumpsuitDeltaV # DeltaV - Replaced with DeltaV version, was DetectiveJumpsuit
   - SecurityBackpack
-  - DetectiveOuterClothing
+  - DetectiveOuterClothingDeltaV # DeltaV - Replaced with DeltaV version, was DetectiveOuterClothing
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityRevolverFirearm # DeltaV - loadouts
+  - SecurityRevolverAmmo # DeltaV - loadouts
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -441,7 +458,7 @@
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -459,7 +476,7 @@
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -471,7 +488,7 @@
   - MedicalInternJumpsuit
   - MedicalBackpack
   - MedicalInternPDADelta # DeltaV
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -503,7 +520,7 @@
   - MedicalBackpack
   - ParamedicOuterClothing
   - ParamedicShoes
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -538,6 +555,11 @@
   - MedicalBackpack
   - Glasses
   - SurvivalMedical # DeltaV, replaces Survival
+  - PsychologistPDADelta # DeltaV
+  - PsychologistHead # DeltaV
+  - Scarfs # DeltaV
+  - PsychologistOuterClothing # DeltaV
+  - PsychologistShoes # DeltaV
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -556,11 +578,20 @@
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
 
+# gives vox a harness and breathing mask
+# nitrogen tank not included
 - type: roleLoadout
   id: RoleSurvivalVoxSupport
   groups:
   - GroupSpeciesBreathTool
   - GroupTankHarness
+
+# gives vox a nitrogen breathing tank
+# other species get nothing
+- type: roleLoadout
+  id: RoleSurvivalVoxTank
+  groups:
+  - GroupEVATankVox
 
 - type: roleLoadout
   id: RoleSurvivalStandard

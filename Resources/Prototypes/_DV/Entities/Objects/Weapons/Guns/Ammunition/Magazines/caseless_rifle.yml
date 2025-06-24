@@ -1,0 +1,50 @@
+# .25 caseless
+
+- type: entity
+  parent: BaseMagazinePistolCaselessRifle
+  id: MagazinePistolCaselessRifleRubber
+  name: pistol magazine (.25 caseless rubber)
+  description: 10-round magazine for the Cobra pistol. Intended to hold less-lethal rubber ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifleRubber
+  - type: Sprite
+    layers:
+    - state: rubber
+      sprite: _DV/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineCaselessRifle
+  id: MagazineCaselessRifleRubber
+  name: magazine (.25 caseless rubber)
+  description: 30-round magazine for caseless rifles. Intended to hold less-lethal rubber ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifleRubber
+  - type: Sprite
+    layers:
+    - state: rubber
+      sprite: _DV/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineCaselessRifleShort
+  id: MagazineCaselessRifleShortRubber
+  name: short magazine (.25 caseless rubber)
+  description: 20-round short magazine for caseless rifles. Intended to hold less-lethal rubber ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifleRubber
+    capacity: 20
+  - type: Sprite
+    layers:
+    - state: rubber
+      sprite: _DV/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag_short.rsi
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

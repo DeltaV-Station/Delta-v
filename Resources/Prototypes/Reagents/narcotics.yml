@@ -15,6 +15,7 @@
         damage:
           types:
             Poison: 0.75
+            Cellular: 1 # DeltaV - meth rots you just like in real life :D
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -48,16 +49,12 @@
         key: Drowsiness
         time: 10
         type: Remove
-      - !type:AdjustReagent # Delta-V - Addictive
+      - !type:Addicted # Delta-V - Addictive
         probability: 0.6 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
-          reagent: Addictine
-          max: 20 # maximum addiction severity for this reagent
-        - !type:ReagentThreshold
           min: 0.25
-        reagent: Addictine
-        amount: 0.2
+      - !type:SuppressAddiction
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -214,16 +211,12 @@
         type: Add
         time: 16
         refresh: false
-      - !type:AdjustReagent # Delta-V - Addictive
+      - !type:Addicted # Delta-V - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
-          reagent: Addictine
-          max: 20 # maximum addiction severity for this reagent
-        - !type:ReagentThreshold
           min: 0.25
-        reagent: Addictine
-        amount: 0.2
+      - !type:SuppressAddiction
 
 - type: reagent
   id: Nicotine
@@ -236,6 +229,16 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
+  metabolisms: # DeltaV - nicotine gives you the smallest amount of cell damage just like real life :D
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 0.01
+    Food:
+      effects:
+      - !type:SatiateHunger
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent
@@ -266,16 +269,12 @@
         probability: 0.05
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
         boozePower: 5
-      - !type:AdjustReagent # Delta-V - Addictive
+      - !type:Addicted # Delta-V - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
-          reagent: Addictine
-          max: 20 # maximum addiction severity for this reagent
-        - !type:ReagentThreshold
           min: 0.25
-        reagent: Addictine
-        amount: 0.2
+      - !type:SuppressAddiction
 
 - type: reagent
   id: SpaceDrugs
@@ -294,21 +293,17 @@
         type: Add
         time: 5
         refresh: false
-      - !type:ChemRerollPsionic #Nyano - Summary: lets the imbiber become psionic. 
+      - !type:ChemRerollPsionic #Nyano - Summary: lets the imbiber become psionic.
         conditions:
         - !type:ReagentThreshold
           reagent: SpaceDrugs
           min: 15
-      - !type:AdjustReagent # Delta-V - Addictive
+      - !type:Addicted # Delta-V - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
-          reagent: Addictine
-          max: 10 # maximum addiction severity for this reagent
-        - !type:ReagentThreshold
           min: 0.25
-        reagent: Addictine
-        amount: 0.1
+      - !type:SuppressAddiction
 
 - type: reagent
   id: Bananadine
@@ -348,6 +343,11 @@
           min: 8
         key: ForcedSleep
         component: ForcedSleeping
+        refresh: false
+        type: Add
+      - !type:GenericStatusEffect # DeltaV: anesthesia
+        key: Anesthesia
+        component: Anesthesia
         refresh: false
         type: Add
 

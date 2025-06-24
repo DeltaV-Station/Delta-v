@@ -22,6 +22,26 @@
     rules:
     - id: Thief
       prob: 0.5
+    #- id: SubWizard # DeltaV - removed until its touched up
+    #  prob: 0.05
+
+- type: entity
+  parent: BaseGameRule
+  id: SubGamemodesRuleNoWizard
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: Thief
+      prob: 0.5
+
+- type: entity
+  parent: BaseGameRule
+  id: DummyNonAntagChance
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: DummyNonAntag
+      prob: 0.3
 
 - type: entity
   id: DeathMatch31
@@ -75,8 +95,9 @@
   components:
   - type: RandomMetadata #this generates the random operation name cuz it's cool.
     nameSegments:
-    - operationPrefix
-    - operationSuffix
+    - NamesOperationPrefix
+    - NamesOperationSuffix
+    nameFormat: name-format-nuclear-operation
   - type: NukeopsRule
   - type: RuleGrids
   - type: AntagSelection
@@ -96,6 +117,8 @@
     minPlayers: 20
   - type: LoadMapRule
     mapPath: /Maps/Nonstations/nukieplanet.yml
+  - type: NukieOperation # DeltaV - Nukie operations!
+    operations: NukieOperations
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
@@ -107,10 +130,11 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-commander
-        - SyndicateNamesElite
+        - NamesSyndicateElite
+        nameFormat: name-format-nukie-commander
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -124,10 +148,11 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-agent
-        - SyndicateNamesNormal
+        - NamesSyndicateNormal
+        nameFormat: name-format-nukie-agent
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -137,16 +162,17 @@
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 3
-      playerRatio: 10
+      playerRatio: 12 # DeltaV
       startingGear: SyndicateOperativeGearFull
       roleLoadout:
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-operator
-        - SyndicateNamesNormal
+        - NamesSyndicateNormal
+        nameFormat: name-format-nukie-operator
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -178,10 +204,11 @@
       min: 240
       max: 420
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 8
-      playerRatio: 10
+      max: 12 # DeltaV - raised from 8
+      playerRatio: 8 # DeltaV - lowered from 10
       blacklist:
         components:
         - AntagImmune
@@ -191,12 +218,17 @@
 
 - type: entity
   id: TraitorReinforcement
-  parent: Traitor
+  parent: BaseTraitorRule
   components:
   - type: TraitorRule
     giveUplink: false
     giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
     giveBriefing: false
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Traitor ]
+      mindRoles:
+      - MindRoleTraitorReinforcement
 
 - type: entity
   id: Revolutionary
@@ -206,6 +238,7 @@
     minPlayers: 15
   - type: RevolutionaryRule
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ HeadRev ]
       max: 2 # DeltaV - Was 3
@@ -234,6 +267,57 @@
   - type: SecretRule
 
 - type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseWizardRule
+  components:
+  - type: AntagObjectives
+    objectives:
+    - WizardSurviveObjective
+    - WizardDemonstrateObjective
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/wizard.yml
+  - type: RuleGrids
+  - type: AntagSelection
+  - type: AntagLoadProfileRule
+    speciesOverride: Human
+
+- type: entity
+  parent: BaseWizardRule
+  id: Wizard
+  components:
+  - type: GameRule
+    minPlayers: 10
+  - type: AntagSelection
+    agentName: wizard-round-end-name
+    selectionTime: PrePlayerSpawn
+    definitions:
+    - prefRoles: [ Wizard ]
+      max: 1
+      playerRatio: 1
+      spawnerPrototype: SpawnPointGhostWizard
+      roleLoadout:
+       - RoleSurvivalExtended
+      briefing:
+        text: wizard-role-greeting
+        color: Turquoise
+        # TODO: Need Wizard Start sound
+        #sound: "/Audio/Ambience/Antag/wizard_start.ogg"
+      startingGear: WizardBlueGear
+      # TODO: WizardComp as needed
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+      - type: RandomMetadata
+        nameSegments:
+        - NamesWizardFirst
+        - NamesWizardLast
+        nameFormat: name-format-wizard
+      mindRoles:
+      - MindRoleWizard
+
+- type: entity
   id: Zombie
   parent: BaseGameRule
   components:
@@ -243,7 +327,15 @@
       min: 600
       max: 900
   - type: ZombieRule
+  - type: DelayedRule # DeltaV: Grace period of 5 minutes before you can turn, to avoid a random passenger ruining your plan
+    delay: 300
+    delayedComponents:
+    - type: PendingZombie
+    - type: ZombifyOnDeath
+    - type: IncurableZombie
+    endedPopup: zombie-bioterrorist-romerol-active
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ InitialInfected ]
       max: 6
@@ -253,16 +345,37 @@
         - ZombieImmune
         - AntagImmune
       briefing:
-        text: zombie-patientzero-role-greeting
+        text: zombie-bioterrorist-role-greeting # DeltaV: Different greeting
         color: Plum
         sound: "/Audio/Ambience/Antag/zombie_start.ogg"
       components:
-      - type: PendingZombie
-      - type: ZombifyOnDeath
-      - type: IncurableZombie
+      # Begin DeltaV Removals: Moved to DelayedRule above
+      #- type: PendingZombie
+      #- type: ZombifyOnDeath
+      #- type: IncurableZombie
+      # End DeltaV Removals
       - type: InitialInfected
+      - type: AutoImplant # DeltaV: Let them communicate to come up with a plan of action
+        implants:
+        - SyndicateRadioImplant
       mindRoles:
       - MindRoleInitialInfected
+
+# This rule makes the chosen players unable to get other antag rules, as a way to prevent metagaming job rolls.
+# Put this before antags assigned to station jobs, but after non-job antags (NukeOps/Wiz).
+- type: entity
+  id: DummyNonAntag
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 5
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn # Pre-selection before jobs; assignment doesn't really matter though, we only care about the pre-selection to block other antags.
+    removeUponFailedSpawn: false
+    definitions:
+    - prefRoles: [ InitialInfected, Traitor, Thief, HeadRev ]
+      max: 2
+      playerRatio: 30
 
 # event schedulers
 
@@ -280,7 +393,6 @@
         tableId: CalmPestEventsTable
       - !type:NestedSelector
         tableId: SpicyPestEventsTable
-        
 
 - type: entityTable
   id: SpaceTrafficControlTable
@@ -297,6 +409,7 @@
   id: BasicStationEventScheduler
   parent: BaseGameRule
   components:
+  - type: NextEvent # DeltaV: Queue Event for precognition
   - type: BasicStationEventScheduler
     minMaxEventTiming: # DeltaV
       min: 300 # DeltaV - 5 mins, was 3
@@ -308,9 +421,16 @@
   id: RampingStationEventScheduler
   parent: BaseGameRule
   components:
+  - type: NextEvent # DeltaV: Queue Event for precognition
   - type: RampingStationEventScheduler
-    averageChaos: 4.5 # DeltaV
-    averageEndTime: 180 # DeltaV
+    timeKeyPoints: # DeltaV
+    - 10, 12
+    - 32, 6
+    - 32, 3
+    - 12, 1
+    - 32, 4
+    - 32, 2
+    - 32, 1.5
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
 
@@ -318,6 +438,7 @@
   id: SpaceTrafficControlEventScheduler # iff we make a selector for EntityTables that can respect StationEventComp restrictions, or somehow impliment them otherwise in said tables,
   parent: BaseGameRule                  # we can remerge this with the other schedulers, but it will silently fail due to that limitation without a separate scheduler to balance atm.
   components:
+  - type: NextEvent # DeltaV: Queue Event for precognition
   - type: BasicStationEventScheduler
     minimumTimeUntilFirstEvent: 2700 # 45 mins #shows up like half way through shift.
     minMaxEventTiming:
@@ -330,6 +451,7 @@
   id: SpaceTrafficControlFriendlyEventScheduler
   parent: BaseGameRule
   components:
+  - type: NextEvent # DeltaV: Queue Event for precognition
   - type: BasicStationEventScheduler
     minimumTimeUntilFirstEvent: 1200 # 20 mins
     minMaxEventTiming:
@@ -355,3 +477,7 @@
     - id: BloodbathPuddleMessVariationPass
       prob: 0.01
       orGroup: puddleMess
+    - id: SmugglerStashVariationPass
+      prob: 0.90
+    #- id: SolarPanelDamageVariationPass # DeltaV - we have random solar panel spawner
+    #- id: SolarPanelEmptyVariationPass # DeltaV

@@ -1,0 +1,10 @@
+- type: entity
+  parent: CrateCommandSecure
+  id: EmergencyLaserCrate
+  name: emergency lasers crate
+  description: A crate of four emergency laser rifles, for situations where getting clearance isn't an option.
+  components:
+  - type: StorageFill
+    contents:
+    - id: EmergencyWeaponLaserCarbine
+      amount: 4

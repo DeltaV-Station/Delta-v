@@ -1,0 +1,42 @@
+- type: entity
+  parent: Cigarette
+  id: CigaretteOlive
+  suffix: olive
+  description: A roll of tobacco and nicotine soaked in some chemical, smells like olives.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 15
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 10
+          - ReagentId: OilOlive
+            Quantity: 5
+
+- type: entity
+  parent: [Cigarette, FoodBase]
+  id: CigaretteCandy
+  suffix: candy
+  description: Sugar sticks designed to look like a roll of nicotine and tobacco.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - Cigarette
+    - Trash
+  - type: FlavorProfile
+    flavors:
+    - sweet
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 10
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 10

@@ -1,0 +1,90 @@
+- type: entity
+  id: PartThaven
+  parent: [BaseItem, BasePart]
+  name: "thaven body part"
+  abstract: true
+  components:
+  - type: Sprite # Shitmed Change
+    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Thaven
+
+- type: entity
+  id: TorsoThaven
+  name: "thaven torso"
+  parent: [PartThaven, BaseTorso]
+  components:
+  - type: Sprite
+    state: "torso"
+
+- type: entity
+  id: HeadThaven
+  name: "thaven head"
+  parent: [PartThaven, BaseHead]
+  components:
+  - type: Sprite
+    state: "head"
+
+- type: entity
+  id: LeftArmThaven
+  name: "left thaven arm"
+  parent: [PartThaven, BaseLeftArm]
+  components:
+  - type: Sprite
+    state: "l_arm"
+
+- type: entity
+  id: RightArmThaven
+  name: "right thaven arm"
+  parent: [PartThaven, BaseRightArm]
+  components:
+  - type: Sprite
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandThaven
+  name: "left thaven hand"
+  parent: [PartThaven, BaseLeftHand]
+  components:
+  - type: Sprite
+    state: "l_hand"
+
+- type: entity
+  id: RightHandThaven
+  name: "right thaven hand"
+  parent: [PartThaven, BaseRightHand]
+  components:
+  - type: Sprite
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegThaven
+  name: "left thaven leg"
+  parent: [PartThaven, BaseLeftLeg]
+  components:
+  - type: Sprite
+    state: "l_leg"
+
+- type: entity
+  id: RightLegThaven
+  name: "right thaven leg"
+  parent: [PartThaven, BaseRightLeg]
+  components:
+  - type: Sprite
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootThaven
+  name: "left thaven foot"
+  parent: [PartThaven, BaseLeftFoot]
+  components:
+  - type: Sprite
+    state: "l_foot"
+
+- type: entity
+  id: RightFootThaven
+  name: "right thaven foot"
+  parent: [PartThaven, BaseRightFoot]
+  components:
+  - type: Sprite
+    state: "r_foot"

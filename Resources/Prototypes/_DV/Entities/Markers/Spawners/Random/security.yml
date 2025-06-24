@@ -1,0 +1,42 @@
+- type: entity
+  id: LootSpawnerSecuritySuperweapon
+  name: security superweapon spawner
+  suffix: superweapon
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _DV/Objects/Weapons/Guns/Battery/beam_devestator.rsi
+      state: base
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomSuperweaponTable
+
+#Table
+- type: entityTable
+  id: RandomSuperweaponTable
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: RPGTable
+    - !type:NestedSelector
+      tableId: GamblagatorTable
+    - id: WeaponBeamDevastator
+
+- type: entityTable
+  id: RPGTable
+  table: !type:AllSelector
+    children:
+    - id: WeaponLauncherRocket
+    - id: CartridgeRocket
+      prob: 0.2
+
+- type: entityTable
+  id: GamblagatorTable
+  table: !type:AllSelector
+    children:
+    - id: WeaponSniperGamblagator
+    - id: GamblagatorCapacitor
+      amount: !type:ConstantNumberSelector
+        value: 4

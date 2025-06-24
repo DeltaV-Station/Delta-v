@@ -1,0 +1,32 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterApronChemist
+  name: chemical resistant apron
+  suffix: Chemistry
+  description: Made out of thick rubber, the color of this apron still leaves you perplexed.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Misc/chemapron.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Misc/chemapron.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.25
+
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: ClothingOuterInterdyneChemistrySuit
+  name: interdyne chemistry suit
+  description: A spotless suit and durable, designed to protect you from chemical spills.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Misc/interdynechemsuit.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Misc/interdynechemsuit.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.40
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatInterdyneChemistryHood

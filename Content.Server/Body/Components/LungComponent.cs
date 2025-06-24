@@ -26,7 +26,7 @@ public sealed partial class LungComponent : Component
     /// <summary>
     /// The solution on this entity that these lungs act on.
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public Entity<SolutionComponent>? Solution = null;
 
     /// <summary>
@@ -34,4 +34,11 @@ public sealed partial class LungComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<AlertPrototype> Alert = "LowOxygen";
+
+    /// <summary>
+    /// DeltaV: Multiplier on saturation passively lost.
+    /// Higher values require more air, lower require less.
+    /// </summary>
+    [DataField]
+    public float SaturationLoss = 1f;
 }

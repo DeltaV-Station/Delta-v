@@ -54,12 +54,14 @@
       - PsionicInvisibility
       - Ghost
       - Normal
+      - CosmicCultMonument # DeltaV - Cosmic Cult
   - type: Input
     context: "ghost"
   - type: Examiner
     skipChecks: true
   - type: Ghost
   - type: GhostHearing
+  - type: ShowElectrocutionHUD
   - type: IntrinsicRadioReceiver
   - type: ActiveRadio
     receiveAllChannels: true
@@ -67,6 +69,11 @@
   - type: Tag
     tags:
     - BypassInteractionRangeChecks
+  - type: PointLight
+    netsync: false
+    radius: 6
+    castShadows: false
+    enabled: false
 
 # proto for player ghosts specifically
 - type: entity
@@ -74,6 +81,9 @@
   id: MobObserver
   components:
   - type: Spectral
+  - type: Tag
+    tags:
+    - AllowGhostShownByEvent
 
 - type: entity
   id: ActionGhostBoo
@@ -89,8 +99,8 @@
 
 - type: entity
   id: ActionToggleLighting
-  name: Toggle All Lighting
-  description: Toggle all light rendering to better observe dark areas.
+  name: Toggle Lighting
+  description: Toggle light rendering to better observe dark areas.
   components:
   - type: InstantAction
     icon: Interface/VerbIcons/light.svg.192dpi.png

@@ -1,0 +1,79 @@
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyJustice
+  name: justice encryption key
+  description: An encryption key used by the justice department.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Justice
+    defaultChannel: Justice
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - sprite: _DV/Objects/Devices/encryption_keys.rsi
+      state: justice_label
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyPrison
+  name: Prison encryption key
+  description: An encryption key used by anybody who needs to speak with the prisoners
+  components:
+  - type: EncryptionKey
+    channels:
+    - Prison
+    defaultChannel: Prison
+  - type: Sprite
+    sprite: _DV/Objects/Devices/encryption_keys.rsi
+    layers:
+    - state: crypt_orange
+    - state: prisoner_label
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyAdmeme1
+  name: Channel 1 encryption key
+  suffix: Admeme
+  description: An encryption key for Channel 1
+  components:
+  - type: EncryptionKey
+    channels:
+    - Admeme1
+    defaultChannel: Admeme1
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: common_label
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyAdmeme2
+  name: Channel 2 encryption key
+  suffix: Admeme
+  description: An encryption key for Channel 2
+  components:
+  - type: EncryptionKey
+    channels:
+    - Admeme2
+    defaultChannel: Admeme2
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: common_label
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyAdmeme3
+  name: Channel 3 encryption key
+  suffix: Admeme
+  description: An encryption key for Channel 3
+  components:
+  - type: EncryptionKey
+    channels:
+    - Admeme3
+    defaultChannel: Admeme3
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: common_label

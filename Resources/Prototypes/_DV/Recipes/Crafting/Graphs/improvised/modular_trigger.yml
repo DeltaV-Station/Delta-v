@@ -1,0 +1,14 @@
+#In its own file and not musket.yml in case anyone ever wants to add more guns that use it.
+- type: constructionGraph
+  id: ModularTriggerGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: modulartrigger
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 4
+  - node: modulartrigger
+    entity: ModularTrigger

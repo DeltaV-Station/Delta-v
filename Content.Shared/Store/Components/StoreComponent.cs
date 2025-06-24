@@ -37,10 +37,10 @@ public sealed partial class StoreComponent : Component
     public HashSet<ProtoId<CurrencyPrototype>> CurrencyWhitelist = new();
 
     /// <summary>
-    /// The person who "owns" the store/account. Used if you want the listings to be fixed
+    /// The person/mind who "owns" the store/account. Used if you want the listings to be fixed
     /// regardless of who activated it. I.E. role specific items for uplinks.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public EntityUid? AccountOwner = null;
 
     /// <summary>
@@ -72,6 +72,12 @@ public sealed partial class StoreComponent : Component
     /// </summary>
     [ViewVariables, DataField]
     public bool RefundAllowed;
+
+    /// <summary>
+    /// DeltaV: Should the store grant actions to the mind?
+    /// </summary>
+    [DataField]
+    public bool GrantActionsToMind = true;
 
     /// <summary>
     ///     Checks if store can be opened by the account owner only.

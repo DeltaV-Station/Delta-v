@@ -284,6 +284,8 @@
         orGroup: GiftPool
       - id: FoodBoxDonkpocketHonk
         orGroup: GiftPool
+      - id: FoodBoxDonkpocketMoth
+        orGroup: GiftPool
       - id: ClothingHandsGlovesColorPurple
         orGroup: GiftPool
       - id: ClothingHandsGlovesColorYellow
@@ -327,6 +329,8 @@
       - id: ClothingUniformJumpsuitColorMaroon
         orGroup: GiftPool
       - id: ClothingUniformColorRainbow
+        orGroup: GiftPool
+      - id: ClothingUniformJumpskirtColorRainbow
         orGroup: GiftPool
       - id: ClothingUniformOveralls
         orGroup: GiftPool
@@ -378,22 +382,51 @@
         orGroup: GiftPool
       - id: RGBStaff
         orGroup: GiftPool
-      - id: ToyRenault # DeltaV Toy, see Resources/Prototypes/DeltaV/Entities/Objects/Fun/toys.yml
+        # Begin DeltaV - see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
+      - id: ToyRenault
         orGroup: GiftPool
-      - id: ToySiobhan # DeltaV Toy, see Resources/Prototypes/DeltaV/Entities/Objects/Fun/toys.yml
+      - id: ToySiobhan
         orGroup: GiftPool
+      - id: PlushieIPC
+        orGroup: GiftPool
+      - id: PlushieFelinid
+        orGroup: GiftPool
+      - id: PlushieOni
+        orGroup: GiftPool
+      - id: PlushieHarpy
+        orGroup: GiftPool
+      - id: PlushieRodentia
+        orGroup: GiftPool
+      - id: PlushieFeroxi
+        orGroup: GiftPool
+      - id: PlushieChitinid
+        orGroup: GiftPool
+      - id: PlushieKitsune
+        orGroup: GiftPool
+      - id: PlushieThaven
+        orGroup: GiftPool
+        # End DeltaV
     sound:
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  id: PresentRandomAsh
+  id: PresentRandomCoal
   parent: [PresentBase, BaseItem]
-  suffix: Filled Ash
+  suffix: Filled Coal
   components:
   - type: SpawnItemsOnUse
     items:
       - id: PresentTrash
-      - id: Ash # No coal yet!
+      - id: Coal1
+        orGroup: GiftPool
+      - id: Coal5
+        prob: .4
+        orGroup: GiftPool
+      - id: Coal10
+        prob: .2
+        orGroup: GiftPool
+      - id: Coal15
+        prob: .1
         orGroup: GiftPool
     sound:
       path: /Audio/Effects/unwrap.ogg

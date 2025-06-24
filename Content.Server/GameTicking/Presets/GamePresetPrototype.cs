@@ -9,7 +9,7 @@ namespace Content.Server.GameTicking.Presets
     /// <summary>
     ///     A round-start setup preset, such as which antagonists to spawn.
     /// </summary>
-    [Prototype("gamePreset")]
+    [Prototype]
     public sealed partial class GamePresetPrototype : IPrototype
     {
         [IdDataField]
@@ -32,6 +32,15 @@ namespace Content.Server.GameTicking.Presets
 
         [DataField("maxPlayers")]
         public int? MaxPlayers;
+
+        // Begin Imp
+        /// <summary>
+        /// Ensures that this gamemode does not get selected for a number of rounds
+        /// by something like Secret. This is not considered when the preset is forced.
+        /// </summary>
+        [DataField]
+        public int Cooldown = 0;
+        // End Imp
 
         [DataField("rules", customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>))]
         public IReadOnlyList<string> Rules { get; private set; } = Array.Empty<string>();

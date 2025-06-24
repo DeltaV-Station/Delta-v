@@ -1,4 +1,4 @@
-using Content.Shared.Nyanotrasen.Abilities.Oni;
+using System.Numerics;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
@@ -8,8 +8,8 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
-[Access(typeof(SharedGunSystem), typeof(SharedOniSystem))] // DeltaV - I didn't feel like rewriting big chunks of code
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
+[Access(typeof(SharedGunSystem))]
 public sealed partial class GunComponent : Component
 {
     #region Sound
@@ -144,6 +144,14 @@ public sealed partial class GunComponent : Component
     [ViewVariables]
     public EntityUid? Target = null;
 
+    // Begin DeltaV additions
+    /// <summary>
+    /// Who the gun is being held by
+    /// </summary>
+    [ViewVariables]
+    public EntityUid? Holder = null;
+    // End DeltaV additions
+
     /// <summary>
     ///     The base value for how many shots to fire per burst.
     /// </summary>
@@ -156,6 +164,30 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public int ShotsPerBurstModified = 3;
+
+    /// <summary>
+    /// How long time must pass between burstfire shots.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float BurstCooldown = 0.25f;
+
+    /// <summary>
+    /// The fire rate of the weapon in burst fire mode.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float BurstFireRate = 8f;
+
+    /// <summary>
+    /// Whether the burst fire mode has been activated.
+    /// </summary>
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public bool BurstActivated = false;
+
+    /// <summary>
+    /// The burst fire bullet count.
+    /// </summary>
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public int BurstShotsCount = 0;
 
     /// <summary>
     /// Used for tracking semi-auto / burst
@@ -233,6 +265,12 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     public bool ClumsyProof = false;
+
+    /// <summary>
+    /// Firing direction for an item not being held (e.g. shuttle cannons, thrown guns still firing).
+    /// </summary>
+    [DataField]
+    public Vector2 DefaultDirection = new Vector2(0, -1);
 }
 
 [Flags]

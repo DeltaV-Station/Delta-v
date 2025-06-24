@@ -51,11 +51,11 @@ public sealed partial class SubdermalImplantComponent : Component
     public EntityWhitelist? Blacklist;
 
     /// <summary>
-    /// DeltaV: Used to replace mindshield tag logic
-    /// Components to add to and remove from the user when implanted and removed.
+    /// If set, this ProtoId is used when attempting to draw the implant instead.
+    /// Useful if the implant is a child to another implant and you don't want to differentiate between them when drawing.
     /// </summary>
     [DataField]
-    public ComponentRegistry? AddedComponents;
+    public EntProtoId? DrawableProtoIdOverride;
 }
 
 /// <summary>

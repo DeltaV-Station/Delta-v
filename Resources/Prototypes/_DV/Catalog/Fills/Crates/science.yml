@@ -1,0 +1,10 @@
+- type: entity
+  id: CrateOilPack
+  parent: CrateScience
+  name: oil pack crate
+  description: Pristine oil bagged in bulk.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Oilpack
+      amount: 5

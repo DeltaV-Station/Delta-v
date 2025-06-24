@@ -1,0 +1,10 @@
+- type: marking
+  id: ScarChestFemale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Feroxi, Kitsune]
+  sexRestriction: [Female]
+  followSkinColor: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/scars.rsi
+    state: scar_chest_female

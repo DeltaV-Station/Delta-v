@@ -19,6 +19,6 @@ namespace Content.Server.Psionics
         ///     Punish when used against a non-psychic.
         /// </summary
         [DataField("punish")]
-        public bool Punish = true;
+        public bool Punish = false;
     }
 }

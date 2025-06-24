@@ -1,0 +1,64 @@
+- type: entity
+  parent: ClothingHeadsetService
+  id: ClothingHeadsetHoP
+  name: hop headset
+  description: A headset used by the head of personnel.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyService
+      - EncryptionKeyCommand
+      - EncryptionKeyCommon
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetJustice
+  name: justice headset
+  description: This is used by the justice department.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyJustice
+      - EncryptionKeySecurity
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: _DV/Clothing/Ears/Headsets/justice.rsi
+    state: icon
+  - type: Clothing
+    sprite: _DV/Clothing/Ears/Headsets/justice.rsi
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetPrison
+  name: prison headset
+  description: Headset used by anybody who needs direct contact with prisoners
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyPrison
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: _DV/Clothing/Ears/Headsets/prisoner.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Ears/Headsets/prisoner.rsi
+
+- type: entity
+  parent: ClothingHeadsetSecurity
+  id: ClothingHeadsetPrisonGuard
+  name: guard headset
+  description: Headset used by prison guards.
+
+- type: entity
+  parent: ClothingHeadsetGrey
+  id: ClothingHeadsetGreySyndicate
+  suffix: Recruiter
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyTraffic
+      # - EncryptionKeySyndie # Taken out until remodeling of recruiter is done.
+      - EncryptionKeyCommon

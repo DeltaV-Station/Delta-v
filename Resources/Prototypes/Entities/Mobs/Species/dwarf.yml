@@ -7,9 +7,8 @@
   components:
   - type: Hunger
   - type: Thirst
-  - type: Carriable # Carrying system from nyanotrasen.
   - type: Icon
-    sprite: Mobs/Species/Slime/parts.rsi # It was like this beforehand, no idea why.
+    sprite: Mobs/Species/Human/parts.rsi
     state: full
   - type: Respirator
     damage:
@@ -53,7 +52,7 @@
   - type: Speech
     speechSounds: Bass
   - type: HumanoidAppearance
-    species: Human
+    species: Dwarf
     hideLayersOnEquip:
     - Hair
     - Snout
@@ -64,6 +63,9 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: FootPrints # DeltaV port from EE, blood splatter
+    leftBarePrint: "footprint-left-bare-dwarf"
+    rightBarePrint: "footprint-right-bare-dwarf"
 
 - type: entity
   parent: BaseSpeciesDummy

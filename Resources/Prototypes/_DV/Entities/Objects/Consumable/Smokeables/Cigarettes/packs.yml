@@ -1,0 +1,29 @@
+- type: entity
+  id: CigPackPurple
+  parent: CigPackBase
+  name: De Jure packet
+  description: Your divine right to smoke. Tastes like olives and fake gold.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Packs/purple.rsi
+  - type: Item
+    sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Packs/purple.rsi
+  - type: StorageFill
+    contents:
+    - id: CigaretteOlive
+      amount: 10
+
+- type: entity
+  id: CigPackCandy
+  parent: CigPackBase
+  name: Sugar Rush packet
+  description: It's sweetened!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Packs/pink.rsi
+  - type: Item
+    sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Packs/pink.rsi
+  - type: StorageFill
+    contents:
+    - id: CigaretteCandy
+      amount: 10

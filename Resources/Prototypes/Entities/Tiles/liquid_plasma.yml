@@ -7,6 +7,8 @@
     snap:
     - Wall
   components:
+  - type: TileEmission
+    color: "#974988"
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.1
@@ -52,3 +54,5 @@
   - type: Tag
     tags:
     - HideContextMenu
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: FloorCosmicDecay

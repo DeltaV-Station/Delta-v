@@ -13,6 +13,13 @@
   copyright: "MEL -Aggravated Assault by melcom"
   source: "https://modarchive.org/index.php?request=view_by_moduleid&query=176234"
 
+- files: ["the_wizard.ogg"]
+  license: "Custom"
+  copyright: "The Wizard by Chris Remo is used with special permission from the author, under the condition that the project remains non-commercial and open source. The author also requested that a link to his bandcamp be included: https://chrisremo.bandcamp.com/"
+  source: "https://idlethumbs.bandcamp.com/track/the-wizard"
+  # The source is a direct link the the track, but not the "main" bandcamp of the author. Hence the link is also included separately in the copyright.
+  # Got permission from Chris for this song as well on 02/25/25, requires same attributions
+
 - files: ["autumnal_equinox.xm.ogg"]
   license: "CC-BY-NC-4.0"
   copyright: "Autumnal Equinox by lemonade"
@@ -21,7 +28,7 @@
 - files: ["comet_haley.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Comet Haley by Stellardrone. Converted from MP3 to OGG."
-  source: "https://freemusicarchive.org/music/Stellardrone/Light_Years_1227/07_Comet_Halley"
+  source: "https://stellardrone.bandcamp.com/track/comet-halley"
 
 - files: ["drozerix_-_alone.xm.ogg"]
   license: "Custom"
@@ -57,6 +64,16 @@
   license: "Custom"
   copyright: "Flip Flap by X-ceed is licensed under a short but clear license (see flip-flap.txt in this directory) and is free for non-commercial use. It was converted from MOD to WAV using Schism Tracker, in 16 Bit, Non-Interpolated mode, no output equalizer settings, Ramp volume at start of sample enabled. From there it was converted to OGG Vorbis with `ffmpeg -i flip-flap.wav -q 2.9 flip-flap-renc.ogg` (quality scale chosen to match size of the OGG file being replaced). Non-interpolated mode was chosen as the module has a high enough sample rate to balance it out, but seems muffled in other interpolation modes. If 'Ramp volume at start of sample' is not enabled, a clicking phenomenon results."
   source: "http://aminet.net/package/mods/xceed/Flipflap"
+
+- files: ["mod.flip-flap.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "lasers rip apart the bulkhead by Sunbeamstress/Lauren Loveless."
+  source: "https://soundcloud.com/sunbeamstress/lasers-rip-apart-the-bulkhead"
+
+- files: ["every_light_is_blinking_at_once.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "every light is blinking at once by Sunbeamstress/Lauren Loveless."
+  source: "https://soundcloud.com/sunbeamstress/every-light-is-blinking-at-once"
 
 - files: ["Patricia_Taxxon_-_Chipshop.ogg"]
   license: "CC-BY-SA-3.0"
@@ -112,4 +129,8 @@
   license: "CC0-1.0"
   copyright: "Get It Done by A-Guy, converted from mp3 to OGG"
   source: "https://github.com/A-Guy173/Music/blob/main/getitdone.mp3"
-  
+
+- files: ["Undefined_Theory.ogg"]
+  license: "CC0-1.0"
+  copyright: "Undefined Theory by A-Guy, converted to OGG"
+  source: "https://www.youtube.com/watch?v=FIOs2t84MKo"

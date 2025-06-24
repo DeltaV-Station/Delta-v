@@ -5,9 +5,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: DeltaV/Structures/Windows/reinforced_plasma_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_plasma_window.rsi #Delta V - Resprite windows
   - type: Icon
-    sprite: DeltaV/Structures/Windows/reinforced_plasma_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_plasma_window.rsi #Delta V - Resprite windows
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
@@ -55,6 +55,17 @@
       sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
     price: 132
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000
 
 - type: entity
   id: PlasmaReinforcedWindowDirectional
@@ -67,10 +78,10 @@
     - Window
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: plasma_reinforced_window
   - type: Icon
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: plasma_reinforced_window
   - type: Construction
     graph: WindowDirectional
@@ -111,6 +122,8 @@
         acts: [ "Destruction" ]
   - type: StaticPrice
     price: 66
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WindowCosmicCult
 
 - type: entity
   parent: ReinforcedPlasmaWindow
@@ -123,14 +136,17 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: DeltaV/Structures/Windows/reinforced_plasma_diagonal.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_plasma_diagonal.rsi #Delta V - Resprite windows
     state: state0
+  - type: Tag
+    tags:
+    - Diagonal
   - type: IconSmooth
     mode: Diagonal
     key: windows
     base: state
   - type: Icon
-    sprite: DeltaV/Structures/Windows/reinforced_plasma_diagonal.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_plasma_diagonal.rsi #Delta V - Resprite windows
     state: state0
   - type: Fixtures
     fixtures:
@@ -145,6 +161,7 @@
         - FullTileMask
         layer:
         - GlassLayer
+        density: 2000
   - type: Airtight
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:

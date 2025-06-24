@@ -1,0 +1,29 @@
+# not using base kill/keep alive objectives since these intentionally conflict with eachother
+- type: entity
+  parent: BaseParadoxCloneObjective
+  id: ParadoxAnomalyKillObjective
+  description: This universe doesn't have room for both of us.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      state: icon
+  - type: TargetObjective
+    title: objective-paradox-anomaly-kill-title
+  - type: PickSpecificPerson
+  - type: KillPersonCondition
+    requireDead: true
+
+- type: entity
+  parent: BaseParadoxCloneObjective
+  id: ParadoxAnomalyFriendObjective
+  description: Perhaps there is room, as friends.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/folders.rsi
+      state: folder-white
+  - type: TargetObjective
+    title: objective-paradox-anomaly-friend-title
+  - type: PickSpecificPerson
+  - type: KeepAliveCondition

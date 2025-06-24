@@ -13,6 +13,7 @@
       blackboard:
         NavSmash: !type:Bool
           true
+    - type: NoFriendlyFire # don't let fish hurt their dragon, and dont let sentient fish bypass FactionClothing
     - type: NpcFactionMember
       factions:
       - Dragon
@@ -22,7 +23,7 @@
       layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alive
-    - type: Carriable #DeltaV - this is for you, deltanedas o7
+    - type: Carriable # DeltaV - this is for you, deltanedas o7
     - type: CombatMode
     - type: Physics
     - type: Fixtures
@@ -86,6 +87,13 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
+    - type: Body # Shitmed: Special carp organs
+      prototype: Carp
+    - type: SurgeryTarget # Shitmed
+    - type: UserInterface # Shitmed
+      interfaces:
+        enum.SurgeryUIKey.Key:
+          type: SurgeryBui
 
 - type: entity
   parent: BaseMobCarp
@@ -185,8 +193,9 @@
       name: ghost-role-information-sentient-carp-name
       description: ghost-role-information-sentient-carp-description
       rules: ghost-role-information-space-dragon-summoned-carp-rules
-      raffle:
-        settings: short
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonistFlock
+      raffle: null # DeltaV - disable raffle for fish
     - type: GhostTakeoverAvailable
     - type: HTN
       rootTask:
@@ -251,13 +260,20 @@
     - type: Body
       prototype: Bloodsucker
       requiredLegs: 1
+    - type: SurgeryTarget # Shitmed
+    - type: UserInterface # Shitmed
+      interfaces:
+        enum.SurgeryUIKey.Key:
+          type: SurgeryBui
     - type: Butcherable
       spawned:
         - id: FoodMeatFish
           amount: 4
         - id: MaterialToothSharkminnow1
+          amount: 3
+        - id: MaterialChitinSharkminnow1 # DeltaV
           amount: 1
-          maxAmount: 3
+          maxAmount: 4
     - type: MeleeWeapon
       damage:
         types:

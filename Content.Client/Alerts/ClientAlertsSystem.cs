@@ -2,6 +2,8 @@ using System.Linq;
 using Content.Shared.Alert;
 using JetBrains.Annotations;
 using Robust.Client.Player;
+using Robust.Client.UserInterface;
+using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
@@ -14,6 +16,7 @@ public sealed class ClientAlertsSystem : AlertsSystem
 
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
     public event EventHandler? ClearAlerts;
     public event EventHandler<IReadOnlyDictionary<AlertKey, AlertState>>? SyncAlerts;
@@ -24,9 +27,14 @@ public sealed class ClientAlertsSystem : AlertsSystem
 
         SubscribeLocalEvent<AlertsComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<AlertsComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
-
-        SubscribeLocalEvent<AlertsComponent, AfterAutoHandleStateEvent>(ClientAlertsHandleState);
+        SubscribeLocalEvent<AlertsComponent, ComponentHandleState>(OnHandleState);
     }
+
+    protected override void HandledAlert()
+    {
+        _ui.ClickSound();
+    }
+
     protected override void LoadPrototypes()
     {
         base.LoadPrototypes();
@@ -47,17 +55,22 @@ public sealed class ClientAlertsSystem : AlertsSystem
         }
     }
 
+    private void OnHandleState(Entity<AlertsComponent> alerts, ref ComponentHandleState args)
+    {
+        if (args.Current is not AlertComponentState cast)
+            return;
+
+        alerts.Comp.Alerts = new(cast.Alerts);
+
+        UpdateHud(alerts);
+    }
+
     protected override void AfterShowAlert(Entity<AlertsComponent> alerts)
     {
         UpdateHud(alerts);
     }
 
     protected override void AfterClearAlert(Entity<AlertsComponent> alerts)
-    {
-        UpdateHud(alerts);
-    }
-
-    private void ClientAlertsHandleState(Entity<AlertsComponent> alerts, ref AfterAutoHandleStateEvent args)
     {
         UpdateHud(alerts);
     }

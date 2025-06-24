@@ -1,0 +1,201 @@
+### ASTRAL PROJECTION
+- type: entity
+  parent: [ Incorporeal, BaseMob ]
+  id: MobCosmicAstralProjection
+  name: astral projection
+  description: Neither here nor there.
+  components:
+  - type: ActionGrant
+    actions:
+    - ActionCosmicReturn
+  - type: Input
+    context: "ghost"
+  - type: Spectral
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Sprite
+    sprite: _DV/CosmicCult/Mobs/astralform.rsi
+    layers:
+    - state: base-body
+      shader: unshaded
+    drawdepth: Ghosts
+  - type: NoSlip
+  - type: CosmicAstralBody
+  - type: Eye
+    drawFov: false
+    visMask:
+    - Normal
+    - Ghost
+  - type: SSDIndicator
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: MindContainer
+    showExamineInfo: true
+  - type: Examiner
+  - type: ContentEye
+    maxZoom: 1.2, 1.2
+  - type: Speech
+    enabled: false
+  - type: PointLight
+    color: "#42a4ae"
+    radius: 2
+    energy: 3.5
+    softness: 1
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 5.5
+       maxDuration: 5.5
+       startValue: 2
+       endValue: 3.5
+       property: Energy
+       enabled: true
+       isLooped: true
+       reverseWhenFinished: true
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - CosmicRadio
+  - type: Visibility
+    layer: 2 #ghost vis layer
+
+- type: entity
+  parent: [ BaseSimpleMob ]
+  id: MobCosmicAstralAscended
+  name: astral ascended
+  description: Transcendant, ascendant.
+  components:
+  - type: Puller
+    needsHands: false
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 6
+    baseSprintSpeed: 6
+    weightlessModifier: 1.5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 50
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: Sprite
+    sprite: _DV/CosmicCult/Mobs/astralform.rsi
+    layers:
+    - state: effect-underlay
+      shader: unshaded
+    - state: ascended-body
+      shader: unshaded
+  - type: Physics
+    bodyStatus: InAir
+  - type: NoSlip
+  - type: CanMoveInAir
+  - type: Eye
+    drawFov: true
+  - type: ContentEye
+    maxZoom: 1.2, 1.2
+  - type: Speech
+    speechVerb: Ghost
+  - type: TypingIndicator
+    proto: CosmicTyping
+  - type: PointLight
+    color: "#42a4ae"
+    radius: 2
+    energy: 2
+    softness: 1
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 5.5
+       maxDuration: 5.5
+       startValue: 0.5
+       endValue: 2
+       property: Energy
+       enabled: true
+       isLooped: true
+       reverseWhenFinished: true
+
+- type: entity
+  parent: MobCosmicAstralAscended
+  id: MobCosmicCustodian
+  name: malign custodian
+  description: An abomination wrought of malign mass. It floats with a weightless, unnerving grace.
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+    weightlessModifier: 1
+  - type: Sprite
+    sprite: _DV/CosmicCult/Mobs/custodian.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: custodian
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: custodian_unshaded
+      shader: unshaded
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: custodian
+        BaseUnshaded: custodian_unshaded
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_unshaded
+
+- type: entity
+  parent: MobCosmicAstralAscended
+  id: MobCosmicOracle
+  name: malign oracle
+  description: An abomination wrought of malign mass. Its gaze seeks relentlessly.
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+    weightlessModifier: 1
+  - type: Sprite
+    sprite: _DV/CosmicCult/Mobs/oracle.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: oracle
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: oracle_unshaded
+      shader: unshaded
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: oracle
+        BaseUnshaded: oracle_unshaded
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_unshaded
+
+- type: entity
+  parent: MobCosmicAstralAscended
+  id: MobCosmicLodestar
+  name: malign lodestar
+  description: An abomination wrought of malign mass. A searing light glimmers within.
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Mobs/lodestar.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: lodestar
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: lodestar_unshaded
+      shader: unshaded
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: lodestar
+        BaseUnshaded: lodestar_unshaded
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_unshaded

@@ -1,28 +1,21 @@
-using Robust.Shared.Serialization;
 using Content.Shared.DoAfter;
+using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared.Psionics.Events
+namespace Content.Shared.Psionics.Events;
+
+[Serializable, NetSerializable]
+public sealed partial class PsionicRegenerationDoAfterEvent : SimpleDoAfterEvent
 {
-    [Serializable, NetSerializable]
-    public sealed partial class PsionicRegenerationDoAfterEvent : DoAfterEvent
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan StartedAt;
+
+    private PsionicRegenerationDoAfterEvent()
     {
-        [DataField("startedAt", required: true)]
-        public TimeSpan StartedAt;
-
-        private PsionicRegenerationDoAfterEvent()
-        {
-        }
-
-        public PsionicRegenerationDoAfterEvent(TimeSpan startedAt)
-        {
-            StartedAt = startedAt;
-        }
-
-        public override DoAfterEvent Clone() => this;
     }
 
-    [Serializable, NetSerializable]
-    public sealed partial class GlimmerWispDrainDoAfterEvent : SimpleDoAfterEvent
+    public PsionicRegenerationDoAfterEvent(TimeSpan startedAt)
     {
+        StartedAt = startedAt;
     }
 }

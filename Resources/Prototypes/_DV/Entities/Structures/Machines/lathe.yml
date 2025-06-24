@@ -1,0 +1,220 @@
+- type: entity
+  parent: ExosuitFabricator
+  id: SyndicateExosuitFabricator
+  name: syndicate exosuit fabricator
+  description: Creates parts for evil robotics and other mechanical needs
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Machines/synd_exosuit_fabricator.rsi
+  - type: Lathe
+    staticPacks:
+    - BorgModulesSyndicateStatic
+    - RoboticsStaticDeltaV
+    - RoboticsStatic
+    - BorgModulesStatic
+    - BorgLimbsStatic
+    - BorgModulesResearched
+  - type: Machine
+    board: SyndieExosuitFabricatorMachineCircuitboard
+
+- type: entity
+  parent: BaseLatheLube
+  id: BaseTechFabDepartamental
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - SecurityAmmoStatic
+    emagDynamicPacks:
+    - SecurityAmmo
+    - SecurityExplosives
+    - SecurityEquipment
+    - SecurityWeapons
+  - type: BlueprintReceiver
+    whitelist:
+      tags:
+      - BlueprintAutolathe
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: OreSiloClient
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - blueprint
+
+- type: entity
+  parent: BaseTechFabDepartamental
+  id: EngineeringTechFab
+  name: engineering techfab
+  description: Prints equipment for engineers.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: engi
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    staticPacks:
+    - ToolsStatic
+    - PartsStatic
+    - AtmosStatic
+    - CablesStatic
+    - PowerCellsStatic
+    - ElectronicsStatic
+    - LightsStatic
+    - MaterialsStatic
+    - ReportingStatic
+    - EVASuit
+    - EngineeringStaticDeltaV
+    dynamicPacks:
+    - AdvancedTools
+    - PowerCells
+    - AtmosTools
+    - EngineeringWeapons
+    - FauxTiles
+    - Equipment
+    - UpgradeKits
+    - EngineeringHardsuits
+  - type: Machine
+    board: EngineeringTechFabCircuitboard
+  - type: StealTarget
+    stealGroup: EngineeringTechFabCircuitboard
+  - type: LatheAnnouncing
+    channels: [Engineering]
+
+- type: entity
+  parent: BaseTechFabDepartamental
+  id: LogisticsTechFab
+  name: logistics techfab
+  description: Prints equipment for the logistics department.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: cargo
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    staticPacks:
+    - ToolsStatic
+    - PartsStatic
+    - PowerCellsStatic
+    - LVCablesStatic
+    - CargoStatic
+    - ReportingStatic
+    - SimpleElectronicsStatic
+    - EVASuit
+    dynamicPacks:
+    - Equipment
+    - Mining
+    - SalvageWeapons
+    - SalvageHardsuits
+  - type: Machine
+    board: LogisticsTechFabCircuitboard
+  - type: StealTarget
+    stealGroup: LogisticsTechFabCircuitboard
+  - type: LatheAnnouncing
+    channels: [Supply]
+
+- type: entity
+  parent: BaseTechFabDepartamental
+  id: ServiceTechFab
+  name: service techfab
+  description: Prints equipment for the service department.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: service
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    staticPacks:
+    - RingsStatic
+    - ReportingStatic
+    - LVCablesStatic
+    - PowerCellsStatic
+    - LightsStatic
+    - ServiceStatic
+    - PartsStaticDeltaV # Add Beaker and Hand Labeler to the service techfab
+    - SimpleElectronicsStatic
+    - EVASuit
+    dynamicPacks:
+    - Janitor
+    - Instruments
+    - Botany
+  - type: Machine
+    board: ServiceTechFabCircuitboard
+  - type: StealTarget
+    stealGroup: ServiceTechFabCircuitboard
+  - type: LatheAnnouncing
+    channels: [Service]
+
+- type: entity
+  parent: BaseTechFabDepartamental
+  id: EpistemicsTechFab
+  name: epistemics techfab
+  description: Prints equipment for the epistemics department.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: sci
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    staticPacks:
+    - ToolsStatic
+    - PartsStatic
+    - LVCablesStatic
+    - MaterialsStatic
+    - BasicChemistryStatic
+    - ChemistryStatic
+    - PowerCellsStatic
+    - ReportingStatic
+    - SimpleElectronicsStatic
+    - EVASuit
+    dynamicPacks:
+    - ScienceEquipment
+    - ScienceClothing
+    - ScienceWeapons
+    - Chemistry
+    - PowerCells
+  - type: Machine
+    board: EpistemicsTechFabCircuitboard
+  - type: StealTarget
+    stealGroup: EpistemicsTechFabCircuitboard

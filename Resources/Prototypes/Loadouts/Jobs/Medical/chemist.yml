@@ -1,9 +1,3 @@
-# Neck - DeltaV
-- type: loadout # DeltaV
-  id: ChemistTie
-  equipment:
-    neck: ClothingNeckTieChem
-
 # Jumpsuit
 - type: loadout
   id: ChemistJumpsuit
@@ -14,11 +8,6 @@
   id: ChemistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtChemistry
-
-- type: loadout # DeltaV
-  id: ChemistFormalSuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitChemShirt
 
 # Back
 - type: loadout
@@ -46,27 +35,3 @@
   id: ChemistWintercoat
   equipment:
     outerClothing: ClothingOuterWinterChem
-
-## Start DeltaV Changes
-- type: loadout
-  id: ChemistApron
-  equipment:
-    outerClothing: ClothingOuterApronChemist
-
-# Gloves - DeltaV
-- type: loadout
-  id: ChemistGloves
-  equipment:
-    gloves: ClothingHandsGlovesChemist
-
-# Shoes - DeltaV
-- type: loadout
-  id: ChemistWinterBoots
-  equipment:
-    shoes: ClothingShoesBootsWinterChem
-
-- type: loadout
-  id: ChemistShoes
-  equipment:
-    shoes: ClothingShoesEnclosedChem
-## End DeltaV Changes

@@ -1,0 +1,17 @@
+- type: entity
+  parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
+  id: DrinkAngobittersBottleFull
+  name: angobitters bottle
+  description: Commonly used for mixed drinks, not drunk neat.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Angobitters
+          Quantity: 50
+  - type: Label
+    currentLabel: reagent-name-angobitters
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/angobitters.rsi
+  - type: Sealable

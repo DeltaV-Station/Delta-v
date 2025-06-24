@@ -1,0 +1,38 @@
+- type: entity
+  parent: BoxCardboard
+  id: BoxTapeRecorder
+  name: tape recorder box
+  description: A box with colorful cassette tapes and a tape recorder.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_security
+    - sprite: _DV/Objects/Storage/boxes.rsi
+      state: recorder
+  - type: StorageFill
+    contents:
+    - id: CassetteTape
+      amount: 4
+    - id: TapeRecorder
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxMindshield
+  name: mindshield box
+  description: A box filled with mindshield implants.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MindShieldImplanter
+      amount: 4
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxC4
+  name: c4 box
+  description: A box filled with C4s.
+  components:
+  - type: StorageFill
+    contents:
+    - id: C4
+      amount: 4

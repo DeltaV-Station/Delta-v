@@ -1,0 +1,127 @@
+# .35 auto
+
+- type: entity
+  parent: BaseMagazinePistol
+  id: MagazinePistolRubber
+  name: pistol magazine (.35 auto rubber)
+  description: 10-round single-stack magazine for pistols. Intended to hold less-lethal rubber ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolRubber
+  - type: Sprite
+    layers:
+    - state: rubber
+      sprite: _DV/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazinePistolSubMachineGun
+  id: MagazinePistolSubMachineGunRubber
+  name: SMG magazine (.35 auto rubber)
+  description: 30-round double-stack magazine for submachine guns. Intended to hold less-lethal rubber ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolRubber
+  - type: Sprite
+    layers:
+    - state: rubber
+      sprite: _DV/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+# .38 special
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazinePistolSpecial
+  name: pistol magazine (.38 special)
+  components:
+  - type: Tag
+    tags:
+    - MagazinePistolSpecial
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - CartridgeSpecial
+    capacity: 5
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_special_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazinePistolSpecial
+  id: MagazinePistolSpecial
+  description: 5-round single-stack magazine for the psi-breaker pistol. Intended to hold general-purpose kinetic ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecial
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazinePistolSpecial
+  id: MagazinePistolSpecialPractice
+  name: pistol magazine (.38 special practice)
+  description: 5-round single-stack magazine for the psi-breaker pistol. Intended to hold non-harmful chalk ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialPractice
+  - type: Sprite
+    layers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazinePistolSpecial
+  id: MagazinePistolSpecialRubber
+  name: pistol magazine (.38 special rubber)
+  description: 5-round single-stack magazine for the psi-breaker pistol. Intended to hold less-lethal rubber ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialRubber
+  - type: Sprite
+    layers:
+    - state: rubber
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazinePistolSpecial
+  id: MagazinePistolSpecialMindbreaker
+  name: pistol magazine (.38 special mindbreaker)
+  description: 5-round single-stack magazine for the psi-breaker pistol. Intended to hold psionic-removing mindbreaker ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialMindbreaker
+  - type: Sprite
+    layers:
+    - state: mindbreaker
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

@@ -7,8 +7,7 @@
     issuer: objective-issuer-thief
   - type: RoleRequirement
     roles:
-      mindRoles:
-      - ThiefRole
+    - ThiefRole
 
 - type: entity
   abstract: true
@@ -60,7 +59,7 @@
   - type: StealCondition
     stealGroup: HeadCloak
     minCollectionSize: 3
-    maxCollectionSize: 6
+    maxCollectionSize: 5 # DeltaV: Reduced from 6 since captain cloak no longer counts
   - type: Objective
     difficulty: 1.5
 
@@ -107,6 +106,20 @@
     stealGroup: TechnologyDisk
     minCollectionSize: 5
     maxCollectionSize: 15
+    verifyMapExistence: false
+  - type: Objective
+    difficulty: 0.8
+
+- type: entity
+  parent: BaseThiefStealCollectionObjective
+  id: MailStealCollectionObjective
+  components:
+  - type: NotJobRequirement
+    job: Courier # DeltaV - couriers deliver mail
+  - type: StealCondition
+    stealGroup: Mail
+    minCollectionSize: 4
+    maxCollectionSize: 8
     verifyMapExistence: false
   - type: Objective
     difficulty: 0.8
@@ -477,7 +490,7 @@
   - type: NotJobRequirement
     job: SecurityOfficer
   - type: StealCondition
-    stealGroup: AnimalSecurity #DeltaV - Adjusts because we have multiple possible sec animals
+    stealGroup: AnimalSecurity # DeltaV - Adjusts because we have multiple possible sec animals
   - type: Objective
     difficulty: 2
 
