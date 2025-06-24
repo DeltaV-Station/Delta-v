@@ -1,325 +1,4 @@
 ﻿Entries:
-- author: beck-thompson
-  changes:
-  - message: Hostage ops. This is an alternative to nuclear operatives where you must
-      kidnap the heads of the station!
-    type: Add
-  - message: Hostage implants. These implants pacify anyone implanted and make them
-      immune from syndicate turrets.
-    type: Add
-  id: 946
-  time: '2025-01-25T01:29:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2545
-- author: Emily9031
-  changes:
-  - message: Added a dead man's signaller that will activate when dropped. Find it
-      in the uplink and research! Make sure you arm it!
-    type: Add
-  id: 947
-  time: '2025-01-25T04:09:54.540837+00:00'
-  url: null
-- author: ElusiveCoin
-  changes:
-  - message: Updated Chitinid Resistances to make them more tank like while still
-      being harder to heal in the midst of a battle.
-    type: Tweak
-  - message: Fixed a bug where anomalies that gave the player a point light would
-      remove the Chitinid's bio light if cured.
-    type: Fix
-  - message: Updated Guidebook text of the Chitinid species.
-    type: Tweak
-  id: 948
-  time: '2025-01-25T19:55:31.266176+00:00'
-  url: null
-- author: Smugman
-  changes:
-  - message: Emagged Uniform Printers can now Print even more Syndicate Uniforms and
-      a new, sleek toolbelt. Sprites by JustAnOrange
-    type: Add
-  - message: Sci-, Engi- and Lawdrobes have been "accidentally" Stocked with Cybersun
-      Uniforms, locked behind the MNGR Wire.
-    type: Add
-  - message: Syndicate Recruiters and Synthesis specialists have been given updated
-      Loadouts.
-    type: Add
-  id: 949
-  time: '2025-01-26T21:33:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2789
-- author: TadJohnson00
-  changes:
-  - message: Adjusted crawling speed to half its original value. Break a leg.
-    type: Tweak
-  id: 950
-  time: '2025-01-27T05:39:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2807
-- author: rosieposieeee
-  changes:
-  - message: Ported a metric fuckton of props from N14.
-    type: Add
-  id: 951
-  time: '2025-01-27T05:40:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2760
-- author: Stop-Signs
-  changes:
-  - message: Firelocks have less health
-    type: Tweak
-  id: 952
-  time: '2025-01-27T18:28:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2804
-- author: SolStar
-  changes:
-  - message: Mindshield implants will now make people immune to becoming sleeper agents.
-    type: Tweak
-  id: 953
-  time: '2025-01-28T08:47:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2803
-- author: rosieposieeee
-  changes:
-  - message: Added some meat decorations.
-    type: Add
-  id: 954
-  time: '2025-01-28T12:32:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2427
-- author: sowelipililimute
-  changes:
-  - message: Prescription departamental glasses and HUDs no longer require glue to
-      obtain
-    type: Tweak
-  id: 955
-  time: '2025-01-28T12:36:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2629
-- author: hivehum, crocodilecarousel
-  changes:
-  - message: "From Impstation: government regulatory agencies don\u2019t want you\
-      \ to know this but you can cook a bunch of cigarettes into a soup to get some\
-      \ extra bang for your buck"
-    type: Add
-  id: 956
-  time: '2025-01-28T15:26:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2757
-- author: leonardo-dabepis
-  changes:
-  - message: Meth will now fuck you up (this is immersive)
-    type: Tweak
-  id: 957
-  time: '2025-01-28T15:36:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2736
-- author: deltanedas
-  changes:
-  - message: Merged last 2 weeks' changes from upstream.
-    type: Add
-  - message: You can now have 2 storage windows open at the same time.
-    type: Tweak
-  id: 958
-  time: '2025-01-29T14:36:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2813
-- author: Toby222
-  changes:
-  - message: Fixed mail teleporter having wrong sprite at round start
-    type: Fix
-  id: 959
-  time: '2025-01-29T15:44:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2814
-- author: makyo
-  changes:
-  - message: Lowered panic bunker hours requirement.
-    type: Tweak
-  id: 960
-  time: '2025-01-29T21:48:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2815
-- author: Field Command
-  changes:
-  - message: Added many missing roles to Byoin and expanded Byoin to accommodate these
-      roles. Soft cap also up from 4 to 20.
-    type: Tweak
-  id: 961
-  time: '2025-01-30T04:16:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2795
-- author: Colin-Tel
-  changes:
-  - message: Asterisk Station now has administrative assistants and AI turrets, also
-      its parallax is back.
-    type: Add
-  id: 962
-  time: '2025-01-30T04:17:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2770
-- author: kushbreth
-  changes:
-  - message: Added new uniforms for cargo techs
-    type: Add
-  id: 963
-  time: '2025-01-30T07:21:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2782
-- author: Toby222
-  changes:
-  - message: Fixed Silicon Law UI being blank
-    type: Fix
-  id: 964
-  time: '2025-01-30T20:49:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2818
-- author: kushbreth
-  changes:
-  - message: Added new uniforms for cargo techs)
-    type: Add
-  id: 965
-  time: '2025-01-30T23:52:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2822
-- author: beck-thompson
-  changes:
-  - message: 'Stun bundle: 4 tc for a stun baton and disabler!'
-    type: Add
-  - message: Hostage ops now receive free body bags and stun bundle in their uplink!
-    type: Add
-  id: 966
-  time: '2025-01-31T03:29:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2816
-- author: deltanedas
-  changes:
-  - message: Fixed storage stars being wonky.
-    type: Fix
-  id: 967
-  time: '2025-01-31T05:16:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2824
-- author: beck-thompson
-  changes:
-  - message: Thieves can now roll in survival.
-    type: Add
-  - message: Survival gamemode weight -5%, traitor gamemode weight +5%
-    type: Add
-  id: 968
-  time: '2025-02-01T06:55:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2823
-- author: deltanedas
-  changes:
-  - message: Made uranium far less radioactive.
-    type: Tweak
-  id: 969
-  time: '2025-02-01T18:10:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2841
-- author: sowelipililimute
-  changes:
-  - message: Autodoc can now operate on patients only under the effect of chloral
-      hydrate
-    type: Add
-  id: 970
-  time: '2025-02-01T18:30:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2843
-- author: Lyndomen
-  changes:
-  - message: Re-added pride cloaks to the PrideVend
-    type: Add
-  id: 971
-  time: '2025-02-01T19:28:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2826
-- author: Niomi0
-  changes:
-  - message: New keybind to swap hands in reverse, 'Shift-X' by default. Should only
-      matter if you play borg.
-    type: Add
-  id: 972
-  time: '2025-02-01T19:49:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2829
-- author: IAmNotGray
-  changes:
-  - message: Elegance, a service station, is now recieving crew members!
-    type: Add
-  - message: The new NTES Transport is here to take you to Central Command. _In style!_
-    type: Add
-  id: 973
-  time: '2025-02-02T04:03:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2020
-- author: Velcroboy
-  changes:
-  - message: Removed Hammurabi Prison Station. Map is undergoing a significant overhaul.
-      It will be back...eventually.
-    type: Remove
-  id: 974
-  time: '2025-02-02T04:32:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2851
-- author: Radezolid
-  changes:
-  - message: The medical multitool is no longer available as a researcheable technology.
-    type: Tweak
-  id: 975
-  time: '2025-02-02T06:08:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2834
-- author: Radezolid
-  changes:
-  - message: Universals are now way more expensive.
-    type: Tweak
-  id: 976
-  time: '2025-02-02T06:09:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2833
-- author: Radezolid
-  changes:
-  - message: Ported the conveyor arrows from Frontier Station!
-    type: Tweak
-  id: 977
-  time: '2025-02-02T06:12:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2846
-- author: Stop-Signs
-  changes:
-  - message: Svallin laser pistols have been removed from the research tree.
-    type: Remove
-  id: 978
-  time: '2025-02-02T18:57:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2835
-- author: sowelipililimute
-  changes:
-  - message: Bureaucracy crate has more and more varied folders
-    type: Add
-  id: 979
-  time: '2025-02-03T01:51:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2863
-- author: sowelipililimute
-  changes:
-  - message: Added folders to the LawDrobe
-    type: Add
-  id: 980
-  time: '2025-02-03T02:04:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2862
-- author: AeraAuling
-  changes:
-  - message: Skeletons now take Holy damage as they are undead.
-    type: Tweak
-  id: 981
-  time: '2025-02-03T11:44:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2854
-- author: sowelipililimute
-  changes:
-  - message: Sticky notes exist, and can be found in the bureaucracy crate
-    type: Add
-  id: 982
-  time: '2025-02-03T11:51:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2853
-- author: Radezolid
-  changes:
-  - message: Fixed the Shitmed locale in the controls keybind menu
-    type: Fix
-  id: 983
-  time: '2025-02-03T12:05:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2859
-- author: SolStar
-  changes:
-  - message: Fixed bug causing precognition power to sometimes fail to display a message.
-    type: Fix
-  id: 984
-  time: '2025-02-03T12:05:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2865
-- author: Spielern
-  changes:
-  - message: Added IPCs as a playable species.
-    type: Add
-  id: 985
-  time: '2025-02-03T12:08:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2800
-- author: Fox & Lyndomen
-  changes:
-  - message: Overhauls the Interdyne ship to be 99% less valid
-    type: Tweak
-  id: 986
-  time: '2025-02-03T12:16:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2646
 - author: Colin-Tel
   changes:
   - message: Adjusted the credits in the Patrons tab. Thank you to everyone who donated!
@@ -4115,3 +3794,344 @@
   id: 1445
   time: '2025-06-04T13:48:56.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3871
+- author: ZigTag
+  changes:
+  - message: synthetic lizard and zenghu alternative IPC parts
+    type: Add
+  - message: whitelist more markings for IPCs
+    type: Tweak
+  - message: IPC screens now render under hair and are in their own category
+    type: Tweak
+  - message: change naming scheme of rodentia and feroxi accessories to fall in line
+      with vulpkanin
+    type: Tweak
+  - message: IPCs are no longer bald
+    type: Fix
+  id: 1446
+  time: '2025-06-05T19:09:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3875
+- author: SolStar2
+  changes:
+  - message: 'Apoapsis: reduced the time at CC to 30 seconds pending changes to the
+      CC map.'
+    type: Tweak
+  - message: Evac shuttle transit time changed to 15 seconds.
+    type: Tweak
+  id: 1447
+  time: '2025-06-07T02:59:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3886
+- author: HTMLSystem, whatston3
+  changes:
+  - message: Barrels now have a sprite when you put paper on them.
+    type: Fix
+  id: 1448
+  time: '2025-06-07T07:41:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3907
+- author: AftrLite
+  changes:
+  - message: Shuttle travel time re-lengthened.
+    type: Tweak
+  id: 1449
+  time: '2025-06-08T04:49:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3915
+- author: Avalon-Proto
+  changes:
+  - message: The Homerun Bat has been modified by top syndicate operatives, and is
+      now far more effect. Knock em outta the park slugger!
+    type: Tweak
+  id: 1450
+  time: '2025-06-09T14:28:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3896
+- author: BlitzTheSquishy
+  changes:
+  - message: Unique helmets for Feroxi added
+    type: Add
+  id: 1451
+  time: '2025-06-10T08:10:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3822
+- author: SolStar2
+  changes:
+  - message: Revamped Curator Help (CHelp) with a new (purple) coat of paint!
+    type: Tweak
+  id: 1452
+  time: '2025-06-10T10:56:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3870
+- author: Radezolid
+  changes:
+  - message: Removed the administrative assistant.
+    type: Remove
+  - message: The administrative assistant clothes have been renamed into secretary
+      ones, find them at a clothesvend.
+    type: Tweak
+  id: 1453
+  time: '2025-06-10T20:53:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3857
+- author: Radezolid
+  changes:
+  - message: Lobotomies are no longer a surgery option.
+    type: Remove
+  id: 1454
+  time: '2025-06-11T03:36:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3926
+- author: Avalon-Proto
+  changes:
+  - message: Cybersun has developed several new weapons for the cause. The Adder,
+      Akurra, and Xiucoatl, and for Gorlex the Leviathan Missile launcher. Also in
+      surplus crates
+    type: Add
+  id: 1455
+  time: '2025-06-12T18:55:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3845
+- author: AftrLite
+  changes:
+  - message: 'NEW MID-ROUND ANTAG: Entropic Colossus.'
+    type: Add
+  - message: Cosmic Cultists now have an additional gameplay objective.
+    type: Add
+  - message: The Guidebook entry for Cosmic Cult has been updated! PLEASE read it.
+    type: Tweak
+  - message: The Cosmic Cult's finale/beckoning is now always six minutes long.
+    type: Tweak
+  - message: To hotfix a critical bug, the Cosmic Cult's finale can no longer be sped
+      up by converting people.
+    type: Fix
+  - message: Background polish and behind-the-scenes bugfixing for Cosmic Cult.
+    type: Fix
+  id: 1456
+  time: '2025-06-13T09:51:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3905
+- author: Eternally-Confused
+  changes:
+  - message: Nuclear operatives are now able to purchase their own uplink implanters
+    type: Add
+  id: 1457
+  time: '2025-06-13T18:56:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3930
+- author: AftrLite
+  changes:
+  - message: Hotfixed a cosmic cult finale bug.
+    type: Fix
+  id: 1458
+  time: '2025-06-14T05:03:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3948
+- author: HTMLSystem
+  changes:
+  - message: Arachnids and Moths now have species specific sprites for DeltaV eyewear.
+    type: Add
+  id: 1459
+  time: '2025-06-15T02:53:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3934
+- author: Quanteey
+  changes:
+  - message: Changed the description of mindshields to reflect they do not enforce
+      loyalty to Nanotrasen in any form.
+    type: Tweak
+  id: 1460
+  time: '2025-06-15T02:54:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3936
+- author: Eternally-Confused
+  changes:
+  - message: Surgical duffel bags and syndicate surgical duffels now contain soap
+    type: Tweak
+  id: 1461
+  time: '2025-06-15T02:59:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3928
+- author: Stop-Signs
+  changes:
+  - message: homerun bat no longer has a guaranteed stun
+    type: Tweak
+  id: 1462
+  time: '2025-06-15T15:49:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3959
+- author: HTMLSystem
+  changes:
+  - message: Fixed the suit storage UI for arachnids.
+    type: Fix
+  id: 1463
+  time: '2025-06-15T16:07:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3942
+- author: AftrLite
+  changes:
+  - message: DeltaV's branding has recieved a fresh coat of paint!
+    type: Add
+  id: 1464
+  time: '2025-06-16T09:26:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3964
+- author: kotobdev
+  changes:
+  - message: Shotguns can now be reloaded while moving.
+    type: Tweak
+  id: 1465
+  time: '2025-06-16T14:00:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3939
+- author: Radezolid
+  changes:
+  - message: Changed HOP's office a bit.
+    type: Tweak
+  - message: Logistic's conveyor belt has been moved a little to the right.
+    type: Tweak
+  - message: The recyclers are now properly configured.
+    type: Fix
+  id: 1466
+  time: '2025-06-17T05:08:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3952
+- author: AftrLite
+  changes:
+  - message: Atmos gases have recieved a fresh coat of paint!
+    type: Tweak
+  id: 1467
+  time: '2025-06-17T06:19:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3973
+- author: AlgisAlphonse
+  changes:
+  - message: Buffs materials output from recycling scrap significantly, especially
+      in terms of plastic.
+    type: Tweak
+  - message: Nerfs materials output for ore somewhat, especially for gold and plasma.
+    type: Tweak
+  - message: Buffs spesos gain from selling coins and harddrives found on debris and
+      wrecks.
+    type: Tweak
+  id: 1468
+  time: '2025-06-17T08:22:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3924
+- author: Avalon-Proto
+  changes:
+  - message: Let the flames burn higher, the Xiucoatl has received some upgrades to
+      make it more efficient
+    type: Tweak
+  id: 1469
+  time: '2025-06-17T12:15:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3947
+- author: Ilya246
+  changes:
+  - message: Fixed anomaly locator and spectral analyzer not working
+    type: Fix
+  id: 1470
+  time: '2025-06-17T16:11:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3975
+- author: rebe83
+  changes:
+  - message: A diona corpse nymphing while they are ghosted once again returns them
+      to their new body!
+    type: Fix
+  id: 1471
+  time: '2025-06-17T16:17:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3976
+- author: Radezolid
+  changes:
+  - message: Increased the stun cooldown of the ninja's gloves to 6 seconds.
+    type: Tweak
+  id: 1472
+  time: '2025-06-17T20:11:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3925
+- author: Avalon-Proto
+  changes:
+  - message: The leviathan launcher has been streamlined, and can now fit in duffel
+      bags
+    type: Tweak
+  - message: The Leviathan's payloads have been modified and made more effective
+    type: Tweak
+  - message: All rocket ammo boxes now contain 1 more round
+    type: Tweak
+  id: 1473
+  time: '2025-06-17T20:12:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3953
+- author: HTMLSystem
+  changes:
+  - message: Voxes can now be carried
+    type: Fix
+  id: 1474
+  time: '2025-06-18T16:26:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3957
+- author: Avalon-Proto
+  changes:
+  - message: Syndicate Robotocists across the system have new equipment, involving
+      3 new modules, 2 new kits, and some changes to existing modules
+    type: Tweak
+  id: 1475
+  time: '2025-06-18T19:47:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3949
+- author: J0w03L
+  changes:
+  - message: Cargo Technicians can now access the Mail room when working as part of
+      a skeleton crew.
+    type: Add
+  id: 1476
+  time: '2025-06-19T13:45:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3986
+- author: perryprog
+  changes:
+  - message: The Autodoc can now fit arm augments in its storage.
+    type: Add
+  id: 1477
+  time: '2025-06-19T23:36:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3967
+- author: Radezolid
+  changes:
+  - message: Added two handheld GPS to the security suit storages
+    type: Add
+  id: 1478
+  time: '2025-06-20T14:30:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3728
+- author: Stop-Signs
+  changes:
+  - message: survival values have been changed, and should make  the mode more exciting
+    type: Tweak
+  id: 1479
+  time: '2025-06-20T14:33:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3980
+- author: Colin-Tel
+  changes:
+  - message: Adjusted Rule S8 to have the silicon definition of crew be more similar
+      to SOP's definition.
+    type: Tweak
+  id: 1480
+  time: '2025-06-21T10:07:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3994
+- author: Colin-Tel
+  changes:
+  - message: Updated the list of Patrons in the Credits!
+    type: Tweak
+  id: 1481
+  time: '2025-06-21T16:18:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3979
+- author: deltanedas
+  changes:
+  - message: Update prisoner rights in SOP, notably sec is no longer allowed to deprive
+      IPCs of power.
+    type: Tweak
+  id: 1482
+  time: '2025-06-22T16:36:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3868
+- author: ZigTag
+  changes:
+  - message: IPCs will drain power based off movement speed
+    type: Tweak
+  id: 1483
+  time: '2025-06-23T06:51:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3917
+- author: Radezolid
+  changes:
+  - message: Senior roles have been renamed to Mentor as to properly convey the purpose
+      of the alt title.
+    type: Tweak
+  id: 1484
+  time: '2025-06-23T12:46:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3981
+- author: perryprog
+  changes:
+  - message: Advanced operating tables can now be switched between preventing rot
+      and increasing surgery speed.
+    type: Add
+  id: 1485
+  time: '2025-06-23T12:48:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3968
+- author: Radezolid
+  changes:
+  - message: Universals now cost 6k less and they fire at half the rate of fire as
+      before.
+    type: Tweak
+  id: 1486
+  time: '2025-06-24T04:07:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4004

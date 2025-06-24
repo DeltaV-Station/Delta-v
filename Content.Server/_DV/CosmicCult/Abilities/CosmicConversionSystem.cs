@@ -68,14 +68,6 @@ public sealed class CosmicConversionSystem : EntitySystem
                 _stun.TryStun(target, TimeSpan.FromSeconds(4f), false);
                 _damageable.TryChangeDamage(target, uid.Comp.ConversionHeal * -1);
                 _cultRule.CosmicConversion(uid, target);
-                var finaleQuery = EntityQueryEnumerator<CosmicFinaleComponent>(); // Enumerator for The Monument's Finale
-                while (finaleQuery.MoveNext(out var monument, out var comp) && comp.CurrentState == FinaleState.ActiveBuffer)
-                {
-                    if (comp.BufferTimer - _timing.CurTime < comp.ConversionSpeedup) // don't speed up if there's less than the speedup left.
-                        return;
-                    comp.BufferTimer -= comp.ConversionSpeedup;
-                    _popup.PopupCoordinates(Loc.GetString("cosmiccult-finale-speedup"), Transform(monument).Coordinates, PopupType.Large);
-                }
             }
         }
     }
