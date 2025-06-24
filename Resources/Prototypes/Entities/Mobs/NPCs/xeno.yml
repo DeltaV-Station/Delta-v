@@ -24,7 +24,7 @@
   - type: Prying
     pryPowered: true
     force: true
-    speedModifier: 1.5
+    speedModifier: 3 # DeltaV - Make them faster at door prying so they can actually get around
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: Reactive
@@ -141,7 +141,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead  # DeltaV - Make Xenos Scary
+      250: Dead  # DeltaV - Make Xenos Scary
   - type: Stamina
     critThreshold: 300
  # - type: SlowOnDamage  # DeltaV - Make Xenos Scary
@@ -228,7 +228,7 @@
   - type: MeleeWeapon
     damage:
      types:
-       Slash: 30 # DeltaV - Make Xenos Scary
+       Slash: 35 # DeltaV - Make Xenos Scary
        Structural: 60 # DeltaV - The queen is VERY good at breaking stuff
   - type: Fixtures
     fixtures:
@@ -264,13 +264,14 @@
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: MeleeWeapon
+    attackRate: 2 # DeltaV - One of the deadliest if you get too close
     damage:
      types:
        Slash: 20 # DeltaV - Make Xenos Scary
        Structural: 40 # DeltaV - The ravager is pretty good at breaking stuff
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      50: 0.7
+#  - type: SlowOnDamage
+#    speedModifierThresholds:
+#      50: 0.7
   - type: Fixtures
     fixtures:
       fix1:
@@ -298,6 +299,7 @@
   - type: MovementSpeedModifier
     baseSprintSpeed: 6.0
   - type: MeleeWeapon
+    attackRate: 2 # DeltaV - Hits fast, but not as hard
     damage:
      types:
        Slash: 10 # DeltaV - Make Xenos Scary
@@ -315,7 +317,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Dead # DeltaV - Make Xenos Scary
+      125: Dead # DeltaV - Make Xenos Scary
 
 - type: entity
   name: rouny
