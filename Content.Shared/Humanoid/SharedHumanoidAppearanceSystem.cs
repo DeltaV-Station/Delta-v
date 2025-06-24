@@ -200,7 +200,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         ref bool dirty)
     {
 #if DEBUG
-        if (source is {} s)
+        if (source is { } s)
         {
             DebugTools.AssertNotEqual(s, SlotFlags.NONE);
             // Check that only a single bit in the bitflag is set
@@ -211,7 +211,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         if (visible)
         {
-            if (source is not {} slot)
+            if (source is not { } slot)
             {
                 dirty |= ent.Comp.PermanentlyHidden.Remove(layer);
             }
@@ -313,6 +313,33 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         if (sync)
             Dirty(uid, humanoid);
     }
+
+    // Starlight - Start
+    /// <summary>
+    ///     Sets the eye color of this humanoid mob.
+    /// </summary>
+    /// <param name="uid">The humanoid mob's UID.</param>
+    /// <param name="eyeColor">Eye color to set on the humanoid mob.</param>
+    /// <param name="sync">Whether to synchronize this to the humanoid mob, or not.</param>
+    /// <param name="verify">Whether to verify the eye color can be set on this humanoid or not</param>
+    /// <param name="humanoid">Humanoid component of the entity</param>
+    public virtual void SetEyeColor(EntityUid uid, Color eyeColor, bool sync = true, bool verify = true, HumanoidAppearanceComponent? humanoid = null)
+    {
+        if (!Resolve(uid, ref humanoid))
+            return;
+
+        if (!_proto.TryIndex<SpeciesPrototype>(humanoid.Species, out var species))
+            return;
+
+        if (verify && !EyeColor.VerifyEyeColor(species.EyeColoration, eyeColor))
+            eyeColor = EyeColor.ValidEyeColor(species.EyeColoration, eyeColor);
+
+        humanoid.EyeColor = eyeColor;
+
+        if (sync)
+            Dirty(uid, humanoid);
+    }
+    // Starlight - End
 
     /// <summary>
     ///     Sets the base layer ID of this humanoid mob. A humanoid mob's 'base layer' is
