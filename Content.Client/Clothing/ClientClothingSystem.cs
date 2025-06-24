@@ -3,6 +3,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.DisplacementMap;
 using Content.Client.Inventory;
+using Content.Shared._DV.Silicon.IPC; // DeltaV - IPC Snouts
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
@@ -52,6 +53,7 @@ public sealed class ClientClothingSystem : ClothingSystem
     [Dependency] private readonly IResourceCache _cache = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -74,10 +76,10 @@ public sealed class ClientClothingSystem : ClothingSystem
         UpdateAllSlots(uid, component);
 
         // No clothing equipped -> make sure the layer is hidden, though this should already be handled by on-unequip.
-        if (args.Sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out var layer))
+        if (_sprite.LayerMapTryGet((uid, args.Sprite), HumanoidVisualLayers.StencilMask, out var layer, false))
         {
             DebugTools.Assert(!args.Sprite[layer].Visible);
-            args.Sprite.LayerSetVisible(layer, false);
+            _sprite.LayerSetVisible((uid, args.Sprite), layer, false);
         }
     }
 
@@ -105,17 +107,24 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         List<PrototypeLayerData>? layers = null;
 
+        // Begin DeltaV Additions - IPC snouts
+        var speciesId = inventory.SpeciesId;
+
+        if (TryComp(args.Equipee, out SnoutHelmetComponent? helmetComponent) && helmetComponent.EnableAlternateHelmet)
+            speciesId = helmetComponent.ReplacementRace;
+
         // first attempt to get species specific data.
-        if (inventory.SpeciesId != null)
-            item.ClothingVisuals.TryGetValue($"{args.Slot}-{inventory.SpeciesId}", out layers);
+        if (speciesId != null)
+            item.ClothingVisuals.TryGetValue($"{args.Slot}-{speciesId}", out layers);
 
         // if that returned nothing, attempt to find generic data
         if (layers == null && !item.ClothingVisuals.TryGetValue(args.Slot, out layers))
         {
             // No generic data either. Attempt to generate defaults from the item's RSI & item-prefixes
-            if (!TryGetDefaultVisuals(uid, item, args.Slot, inventory.SpeciesId, out layers))
+            if (!TryGetDefaultVisuals(uid, item, args.Slot, speciesId, out layers))
                 return;
         }
+        // End DeltaV Additions
 
         // add each layer to the visuals
         var i = 0;
@@ -192,9 +201,9 @@ public sealed class ClientClothingSystem : ClothingSystem
         RenderEquipment(uid, item, clothing.InSlot, component, null, clothing);
     }
 
-    private void OnDidUnequip(EntityUid uid, SpriteComponent component, DidUnequipEvent args)
+    private void OnDidUnequip(Entity<SpriteComponent> entity, ref DidUnequipEvent args)
     {
-        if (!TryComp(uid, out InventorySlotsComponent? inventorySlots))
+        if (!TryComp(entity, out InventorySlotsComponent? inventorySlots))
             return;
 
         if (!inventorySlots.VisualLayerKeys.TryGetValue(args.Slot, out var revealedLayers))
@@ -204,7 +213,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         // may eventually bloat the player with lots of invisible layers.
         foreach (var layer in revealedLayers)
         {
-            component.RemoveLayer(layer);
+            _sprite.RemoveLayer(entity.AsNullable(), layer);
         }
         revealedLayers.Clear();
     }
@@ -247,7 +256,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         {
             foreach (var key in revealedLayers)
             {
-                sprite.RemoveLayer(key);
+                _sprite.RemoveLayer((equipee, sprite), key);
             }
             revealedLayers.Clear();
         }
@@ -268,7 +277,7 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         // temporary, until layer draw depths get added. Basically: a layer with the key "slot" is being used as a
         // bookmark to determine where in the list of layers we should insert the clothing layers.
-        bool slotLayerExists = sprite.LayerMapTryGet(slot, out var index);
+        var slotLayerExists = _sprite.LayerMapTryGet((equipee, sprite), slot, out var index, false);
 
         // Select displacement maps
         var displacementData = inventory.Displacements.GetValueOrDefault(slot); //Default unsexed map
@@ -302,16 +311,16 @@ public sealed class ClientClothingSystem : ClothingSystem
             {
                 index++;
                 // note that every insertion requires reshuffling & remapping all the existing layers.
-                sprite.AddBlankLayer(index);
-                sprite.LayerMapSet(key, index);
+                _sprite.AddBlankLayer((equipee, sprite), index);
+                _sprite.LayerMapSet((equipee, sprite), key, index);
 
                 if (layerData.Color != null)
-                    sprite.LayerSetColor(key, layerData.Color.Value);
+                    _sprite.LayerSetColor((equipee, sprite), key, layerData.Color.Value);
                 if (layerData.Scale != null)
-                    sprite.LayerSetScale(key, layerData.Scale.Value);
+                    _sprite.LayerSetScale((equipee, sprite), key, layerData.Scale.Value);
             }
             else
-                index = sprite.LayerMapReserveBlank(key);
+                index = _sprite.LayerMapReserve((equipee, sprite), key);
 
             if (sprite[index] is not Layer layer)
                 continue;
@@ -322,11 +331,11 @@ public sealed class ClientClothingSystem : ClothingSystem
                 && layer.RSI == null
                 && TryComp(equipment, out SpriteComponent? clothingSprite))
             {
-                layer.SetRsi(clothingSprite.BaseRSI);
+                _sprite.LayerSetRsi(layer, clothingSprite.BaseRSI);
             }
 
-            sprite.LayerSetData(index, layerData);
-            layer.Offset += slotDef.Offset;
+            _sprite.LayerSetData((equipee, sprite), index, layerData);
+            _sprite.LayerSetOffset(layer, layer.Offset + slotDef.Offset);
 
             if (displacementData is not null)
             {
@@ -334,7 +343,7 @@ public sealed class ClientClothingSystem : ClothingSystem
                 if (layerData.State is not null && inventory.SpeciesId is not null && layerData.State.EndsWith(inventory.SpeciesId))
                     continue;
 
-                if (_displacement.TryAddDisplacement(displacementData, sprite, index, key, out var displacementKey))
+                if (_displacement.TryAddDisplacement(displacementData, (equipee, sprite), index, key, out var displacementKey))
                 {
                     revealedLayers.Add(displacementKey);
                     index++;
