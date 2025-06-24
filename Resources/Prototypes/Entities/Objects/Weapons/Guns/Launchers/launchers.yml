@@ -81,7 +81,7 @@
     containers:
       revolver-ammo: !type:Container
   - type: RevolverAmmoProvider
-    whitelist: 
+    whitelist:
       tags:
       - CleaningGrenade # DeltaV - Changing ammo tag
     proto: GrenadeCleanade
