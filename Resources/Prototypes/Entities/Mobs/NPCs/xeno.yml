@@ -181,8 +181,8 @@
     thresholds:
       0: Alive
       160: Dead # DeltaV - Was 80
-  - type: SlowOnDamage 
-    speedModifierThresholds: 
+  - type: SlowOnDamage
+    speedModifierThresholds:
       40: 0.7
   - type: MeleeWeapon
     damage:
