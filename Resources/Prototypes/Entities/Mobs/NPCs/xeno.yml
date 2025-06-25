@@ -24,7 +24,7 @@
   - type: Prying
     pryPowered: true
     force: true
-    speedModifier: 3 # DeltaV - Make them faster at door prying so they can actually get around
+    speedModifier: 3 # DeltaV - Was 1.5
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: Reactive
@@ -60,10 +60,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Dead # DeltaV - Make Xenos Scary
- # - type: SlowOnDamage
- #  speedModifierThresholds:
- #    25: 0.5
+      150: Dead # DeltaV - Was 50
+  - type: SlowOnDamage
+    speedModifierThresholds:
+     25: 0.5
   - type: Stamina
     critThreshold: 200
   - type: Bloodstream
@@ -76,9 +76,11 @@
      collection: AlienClaw
     animation: WeaponArcBite
     damage:
+# Begin Delta V Changes
       types:
-        Slash: 12 # DeltaV - Make Xenos Scary
-        Structural: 35 # DeltaV - Some Xenos are good at breakign stuff
+        Slash: 12
+        Structural: 35
+# End DeltaV Changes
   - type: DamageStateVisuals
     rotate: true
     states:
@@ -141,12 +143,12 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      250: Dead  # DeltaV - Make Xenos Scary
+      250: Dead  # DeltaV - Was 100
   - type: Stamina
     critThreshold: 300
- # - type: SlowOnDamage  # DeltaV - Make Xenos Scary
- #   speedModifierThresholds:
- #     50: 0.7
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      50: 0.7
   - type: Fixtures
     fixtures:
       fix1:
@@ -158,15 +160,10 @@
         - MobMask
         layer:
         - MobLayer
-  - type: MeleeWeapon
-    altDisarm: false
-    angle: 0
-    soundHit:
-     collection: AlienClaw
-    animation: WeaponArcBite
+  - type: MeleeWeapon # DeltaV - Make Xenos Scary
     damage:
       types:
-        Slash: 20 # DeltaV - Make Xenos Scary
+        Slash: 20 
 
 - type: entity
   name: drone
@@ -183,14 +180,16 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      160: Dead # DeltaV - Make Xenos Scary
-#  - type: SlowOnDamage # DeltaV - Make Xenos Scary
-#    speedModifierThresholds: # DeltaV - Make Xenos Scary
-#      40: 0.7
+      160: Dead # DeltaV - Was 80
+  - type: SlowOnDamage 
+    speedModifierThresholds: 
+      40: 0.7
   - type: MeleeWeapon
     damage:
+# Begin DeltaV Changes
       types:
-        Slash: 10 # DeltaV - Make Xenos Scary
+        Slash: 10
+# End DeltaV Changes
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: Fixtures
@@ -220,16 +219,18 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      600: Dead # DeltaV - Make Xenos Scary
-#  - type: SlowOnDamage # DeltaV - Make Xenos Scary
-#   speedModifierThresholds:
-#      150: 0.7
+      600: Dead # DeltaV - Was 300
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      150: 0.7
   - type: MovementSpeedModifier
   - type: MeleeWeapon
     damage:
+# Begin DeltaV Changes
      types:
-       Slash: 35 # DeltaV - Make Xenos Scary
-       Structural: 60 # DeltaV - The queen is VERY good at breaking stuff
+       Slash: 35
+       Structural: 60
+# End DeltaV Changes
   - type: Fixtures
     fixtures:
       fix1:
@@ -260,18 +261,20 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+      200: Dead # DeltaV - Was 100
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: MeleeWeapon
     attackRate: 2 # DeltaV - One of the deadliest if you get too close
     damage:
+# Begin DeltaV Changes
      types:
-       Slash: 20 # DeltaV - Make Xenos Scary
-       Structural: 40 # DeltaV - The ravager is pretty good at breaking stuff
-#  - type: SlowOnDamage
-#    speedModifierThresholds:
-#      50: 0.7
+       Slash: 20
+       Structural: 40
+# End DeltaV Changes
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      50: 0.7
   - type: Fixtures
     fixtures:
       fix1:
@@ -302,7 +305,7 @@
     attackRate: 2 # DeltaV - Hits fast, but not as hard
     damage:
      types:
-       Slash: 10 # DeltaV - Make Xenos Scary
+       Slash: 10 # DeltaV - Was 5 Brute
   - type: Fixtures
     fixtures:
       fix1:
@@ -314,10 +317,10 @@
         - MobMask
         layer:
         - MobLayer
-  - type: MobThresholds
+  - type: MobThresholds # DeltaV - Make Xenos Scary
     thresholds:
       0: Alive
-      125: Dead # DeltaV - Make Xenos Scary
+      125: Dead
 
 - type: entity
   name: rouny
@@ -349,10 +352,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead # DeltaV - Make Xenos Scary
-#  - type: SlowOnDamage # DeltaV - Make Xenos Scary
-#    speedModifierThresholds:
-#      25: 0.7
+      100: Dead # DeltaV - Was 50
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      25: 0.7
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
