@@ -22,7 +22,7 @@
           #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 2 ]
-            Botanist: [ 2, 2 ]
+            Botanist: [ 2, 3 ]
             Boxer: [ 2, 2 ]
             Chef: [ 2, 2 ]
             Clown: [ 1, 1 ]
@@ -33,8 +33,8 @@
           #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 4 ]
-            StationEngineer: [ 4, 6 ]
-            TechnicalAssistant: [ 2, 5 ]
+            StationEngineer: [ 4, 5 ]
+            TechnicalAssistant: [ 2, 4 ]
           #justice
             ChiefJustice: [ 1, 1 ]
             Clerk: [ 1, 1 ]
@@ -43,9 +43,9 @@
           #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 2, 2 ]
-            Paramedic: [ 2, 3 ]
+            Paramedic: [ 2, 2 ]
             MedicalDoctor: [ 3, 5 ]
-            MedicalIntern: [ 2, 4 ]
+            MedicalIntern: [ 3, 5 ]
             Surgeon: [ 2, 2 ]
           #science
             ResearchDirector: [ 1, 1 ]
