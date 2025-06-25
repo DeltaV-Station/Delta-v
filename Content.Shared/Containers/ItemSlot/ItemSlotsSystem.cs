@@ -255,7 +255,7 @@ namespace Content.Shared.Containers.ItemSlots
             }
 
             // Drop the held item onto the floor. Return if the user cannot drop.
-            if (!_handsSystem.TryDrop(args.User, args.Used, handsComp: hands))
+            if (!_handsSystem.TryDrop(args.User, args.Used))
                 return;
 
             slots.Sort(SortEmpty);
@@ -395,17 +395,17 @@ namespace Content.Shared.Containers.ItemSlots
             if (!Resolve(user, ref hands, false))
                 return false;
 
-            if (hands.ActiveHand?.HeldEntity is not { } held)
+            if (!_handsSystem.TryGetActiveItem((uid, hands), out var held))
                 return false;
 
-            if (!CanInsert(uid, held, user, slot))
+            if (!CanInsert(uid, held.Value, user, slot))
                 return false;
 
             // hands.Drop(item) checks CanDrop action blocker
-            if (!_handsSystem.TryDrop(user, hands.ActiveHand))
+            if (!_handsSystem.TryDrop(user, hands.ActiveHandId!))
                 return false;
 
-            Insert(uid, slot, held, user, excludeUserAudio: excludeUserAudio);
+            Insert(uid, slot, held.Value, user, excludeUserAudio: excludeUserAudio);
             return true;
         }
 
@@ -422,6 +422,49 @@ namespace Content.Shared.Containers.ItemSlots
         /// <returns>False if failed to insert item</returns>
         public bool TryInsertEmpty(Entity<ItemSlotsComponent?> ent, EntityUid item, EntityUid? user, bool excludeUserAudio = false)
         {
+            if (!Resolve(ent, ref ent.Comp, false))
+                return false;
+
+            if (!TryGetAvailableSlot(ent,
+                    item,
+                    user,
+                    out var itemSlot,
+                    emptyOnly: true))
+                return false;
+
+            if (user != null && !_handsSystem.TryDrop(user.Value, item))
+                return false;
+
+            Insert(ent, itemSlot, item, user, excludeUserAudio: excludeUserAudio);
+            return true;
+        }
+
+        /// <summary>
+        /// Tries to get any slot that the <paramref name="item"/> can be inserted into.
+        /// </summary>
+        /// <param name="ent">Entity that <paramref name="item"/> is being inserted into.</param>
+        /// <param name="item">Entity being inserted into <paramref name="ent"/>.</param>
+        /// <param name="userEnt">Entity inserting <paramref name="item"/> into <paramref name="ent"/>.</param>
+        /// <param name="itemSlot">The ItemSlot on <paramref name="ent"/> to insert <paramref name="item"/> into.</param>
+        /// <param name="emptyOnly"> True only returns slots that are empty.
+        /// False returns any slot that is able to receive <paramref name="item"/>.</param>
+        /// <returns>True when a slot is found. Otherwise, false.</returns>
+        public bool TryGetAvailableSlot(Entity<ItemSlotsComponent?> ent,
+            EntityUid item,
+            Entity<HandsComponent?>? userEnt,
+            [NotNullWhen(true)] out ItemSlot? itemSlot,
+            bool emptyOnly = false)
+        {
+            itemSlot = null;
+
+            if (userEnt is { } user
+                && Resolve(user, ref user.Comp)
+                && _handsSystem.IsHolding(user, item))
+            {
+                if (!_handsSystem.CanDrop(user, item))
+                    return false;
+            }
+
             if (!Resolve(ent, ref ent.Comp, false))
                 return false;
 

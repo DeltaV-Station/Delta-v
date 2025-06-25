@@ -82,7 +82,7 @@ public abstract partial class InventorySystem
         if (!TryComp(actor, out InventoryComponent? inventory) || !TryComp<HandsComponent>(actor, out var hands))
             return;
 
-        var held = hands.ActiveHandEntity;
+        var held = _handsSystem.GetActiveItem((actor, hands));
         TryGetSlotEntity(actor, ev.Slot, out var itemUid, inventory);
 
         // attempt to perform some interaction
@@ -114,7 +114,7 @@ public abstract partial class InventorySystem
             return;
         }
 
-        if (!_handsSystem.CanDropHeld(actor, hands.ActiveHand!, checkActionBlocker: false))
+        if (!_handsSystem.CanDropHeld(actor, hands.ActiveHandId!, checkActionBlocker: false))
             return;
 
         RaiseLocalEvent(held.Value, new HandDeselectedEvent(actor));
