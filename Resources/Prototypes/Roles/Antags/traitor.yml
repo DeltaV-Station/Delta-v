@@ -8,6 +8,8 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 86400 # DeltaV - 24 hours, was 3600
+  requirements:
+  - !type:WhitelistRequirement # DeltaV - Whitelist requirement
 
 - type: antag
   id: TraitorSleeper
@@ -19,6 +21,8 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 86400 # DeltaV - 24 hours, was 3600
+  requirements:
+  - !type:WhitelistRequirement # DeltaV - Whitelist requirement
 
 # Syndicate Operative Outfit - Monkey
 - type: startingGear

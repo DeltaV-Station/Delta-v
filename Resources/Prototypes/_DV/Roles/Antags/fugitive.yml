@@ -8,6 +8,7 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 3600 # 1 hour
+  - !type:WhitelistRequirement # DeltaV - Whitelist requirement
 
 - type: startingGear
   id: FugitiveGear

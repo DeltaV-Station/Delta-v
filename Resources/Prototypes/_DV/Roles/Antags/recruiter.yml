@@ -9,6 +9,8 @@
   - !type:RoleTimeRequirement
     role: JobLawyer
     time: 3600 # 1h as lawyer so you maybe know how to paperwork
+  requirements:
+  - !type:WhitelistRequirement # DeltaV - Whitelist requirement
 
 - type: startingGear
   id: SyndicateRecruiterGear

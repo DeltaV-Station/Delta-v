@@ -3,3 +3,5 @@
   name: roles-antag-dragon-name
   antagonist: true
   objective: roles-antag-dragon-objective
+  requirements:
+  - !type:WhitelistRequirement # DeltaV - Whitelist requirement

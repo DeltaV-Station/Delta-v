@@ -8,6 +8,8 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 84600 # DeltaV - was 3600, 24 hours
+  requirements:
+  - !type:WhitelistRequirement # DeltaV - Whitelist requirement
 
 - type: startingGear
   id: ThiefGear

@@ -17,6 +17,7 @@
   - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
     department: Security
     time: 36000 # DeltaV - 10 hours
+  - !type:WhitelistRequirement # DeltaV - Whitelist requirement
 
 - type: antag
   id: NukeopsMedic
@@ -31,6 +32,7 @@
   - !type:RoleTimeRequirement #Delta V - they should be able to make basic chems
     role: JobChemist
     time: 14400 # DeltaV - 4 hours
+  - !type:WhitelistRequirement # DeltaV - Whitelist requirement
 
 - type: antag
   id: NukeopsCommander
