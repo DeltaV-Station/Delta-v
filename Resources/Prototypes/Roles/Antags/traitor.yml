@@ -7,9 +7,10 @@
   guides: [ Traitors ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 86400 # DeltaV - 24 hours, was 3600
-  requirements:
-  - !type:WhitelistRequirement # DeltaV - Whitelist requirement
+  # - begin DeltaV additions -
+    time: 86400 # 24 hours, was 3600
+  - !type:WhitelistRequirement
+  # - end DeltaV additions -
 
 - type: antag
   id: TraitorSleeper
@@ -20,9 +21,10 @@
   guides: [ Traitors ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 86400 # DeltaV - 24 hours, was 3600
-  requirements:
-  - !type:WhitelistRequirement # DeltaV - Whitelist requirement
+  # - begin DeltaV additions -
+    time: 86400 # 24 hours, was 3600
+  - !type:WhitelistRequirement
+  # - end DeltaV additions -
 
 # Syndicate Operative Outfit - Monkey
 - type: startingGear

@@ -39,29 +39,33 @@
     - SecurityCadet
     - SecurityOfficer
 
-- type: whitelistTier
-  id: PurpleTier
-  name: Antagonist Whitelist
-  color: "#c000e6"
-  jobs:
-    - CosmicAntagColossus
-    - CosmicAntagCultist
-    - Dragon
-    - Fugitive
-    - InitialInfected
-    - ListeningPost
-    - Nukeops
-    - NukeopsCommander
-    - NukeopsMedic
-    - ParadoxAnomaly
-    - ParadoxClone
-    - Recruiter
-    - RoboNeuroticist
-    - SpaceNinja
-    - SynthesisSpecialist
-    - Thief
-    - Traitor
-    - TraitorSleeper
+# BEGIN COMMENT - removed until functional
+
+#- type: whitelistTier
+#  id: PurpleTier
+#  name: Antagonist Whitelist
+#  color: "#c000e6"
+#  jobs:
+#    - CosmicAntagColossus
+#    - CosmicAntagCultist
+#    - Dragon
+#    - Fugitive
+#    - InitialInfected
+#    - ListeningPost
+#    - Nukeops
+#    - NukeopsCommander
+#    - NukeopsMedic
+#    - ParadoxAnomaly
+#    - ParadoxClone
+#    - Recruiter
+#    - RoboNeuroticist
+#    - SpaceNinja
+#    - SynthesisSpecialist
+#    - Thief
+#    - Traitor
+#    - TraitorSleeper
+
+# END COMMENT
 
 - type: whitelistTier
   id: Gold Tier
