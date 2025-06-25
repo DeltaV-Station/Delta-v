@@ -9,7 +9,6 @@
   - !type:RoleTimeRequirement
     role: JobRoboticist
     time: 7200 # 2h roboticist so you know how to make robot
-  requirements:
   - !type:WhitelistRequirement
 
 - type: startingGear
