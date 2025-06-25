@@ -25,7 +25,7 @@ public sealed partial class PressureProjectileComponent : Component
     public float MaxPressure = Atmospherics.OneAtmosphere * 0.5f;
 
     /// <summary>
-    /// Multiplies projectile damage by this modifier when above <see cref="MinPressure"/> or below <see cref="MaxPressure"/>.
+    /// Multiplies projectile damage by this modifier when below <see cref="MinPressure"/> or above <see cref="MaxPressure"/>.
     /// </summary>
     [DataField]
     public float Modifier = 0.25f;
