@@ -10,7 +10,7 @@
     role: JobRoboticist
     time: 7200 # 2h roboticist so you know how to make robot
   requirements:
-  - !type:WhitelistRequirement # DeltaV - Whitelist requirement
+  - !type:WhitelistRequirement
 
 - type: startingGear
   id: RoboNeuroticistGear
