@@ -518,14 +518,20 @@ public sealed partial class StationSystem : SharedStationSystem
         return stations;
     }
 
-    public List<(string Name, NetEntity Entity)> GetStationNames()
+    public List<StationRecord> GetStationNames()
     {
         var stations = GetStationsSet();
-        var stats = new List<(string Name, NetEntity Station)>();
+        var stats = new List<StationRecord>();
 
-        foreach (var weh in stations)
+        foreach (var station in stations)
         {
-            stats.Add((MetaData(weh).EntityName, GetNetEntity(weh)));
+            var data_comp = EntityManager.GetComponent<StationDataComponent>(station);
+            var list = data_comp.Grids.ToArray();
+            var netgrids = new List<NetEntity>();
+            for (int i = 0; i < list.Length; i++) {
+                netgrids.Add(GetNetEntity(list[i]));
+            }
+            stats.Add(new StationRecord(MetaData(station).EntityName, GetNetEntity(station), netgrids));
         }
 
         return stats;
