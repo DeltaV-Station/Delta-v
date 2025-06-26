@@ -7,7 +7,7 @@ namespace Content.Client.Station;
 /// </summary>
 public sealed partial class StationSystem : SharedStationSystem
 {
-    private readonly List<(string Name, NetEntity Entity)> _stations = new();
+    private readonly List<StationRecord> _stations = new();
 
     /// <summary>
     /// All stations that currently exist.
@@ -16,7 +16,7 @@ public sealed partial class StationSystem : SharedStationSystem
     /// I'd have this just invoke an entity query, but we're on the client and the client barely knows about stations.
     /// </remarks>
     // TODO: Stations have a global PVS override now, this can probably be changed into a query.
-    public IReadOnlyList<(string Name, NetEntity Entity)> Stations => _stations;
+    public IReadOnlyList<StationRecord> Stations => _stations;
 
     /// <inheritdoc/>
     public override void Initialize()

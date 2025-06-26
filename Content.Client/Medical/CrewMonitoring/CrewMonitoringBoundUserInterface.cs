@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.Linq;
 using Content.Shared.Station.Components;
 using Robust.Shared.Log;
+using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client.Medical.CrewMonitoring;
 
@@ -20,18 +22,26 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
     protected override void Open()
     {
         base.Open();
-        var debug = Logger.GetSawmill("crewmon-ui");
+        var log = Logger.GetSawmill("crewmon-ui");
         EntityUid? gridUid = null;
         var stationName = string.Empty;
         // Delta-v start of crew monitor display correction
-        var station = EntMan.EntitySysManager.GetEntitySystem<StationSystem>().Stations;
-        var station0 = station.FirstOrDefault();
+        var tagcomp = EntMan.GetComponent<TagComponent>(Owner).Tags.ToArray();
+        EntityUid mappedGrid = default!;
+        if (Array.Exists(tagcomp, v => v.Id == "Syndicate")) // Crew monitor marked as belonging to LPO or syndicate agent
+        {
+            var station = EntMan.EntitySysManager.GetEntitySystem<StationSystem>().Stations;
+            var station0 = station.FirstOrDefault();
+            log.Debug($"Amount of grids {station0.StationGrids.Count}");
+            var station0_grid0 = station0.StationGrids[0];
+            mappedGrid = EntMan.GetEntity(station0_grid0);
+        }
+        else // continue as usual...
+        {
+            mappedGrid = Owner;
+        }
         
-        debug.Debug($"Stations: {station.Count} Station 0 name: {station0.Name}");
-        var station0_uid = EntMan.GetEntity(station0.Entity);
-        debug.Debug($"Station 0 ENT-UID: {station0_uid}, station 0 netid: {station0.Entity.Id}");
-        
-        if (EntMan.TryGetComponent<TransformComponent>(station0_uid, out var xform))
+        if (EntMan.TryGetComponent<TransformComponent>(mappedGrid, out var xform))
         {
             gridUid = xform.GridUid;
 
