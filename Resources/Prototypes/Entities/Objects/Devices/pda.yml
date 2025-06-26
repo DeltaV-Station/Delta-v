@@ -480,7 +480,7 @@
     accentVColor: "#a23e3e"
   - type: Icon
     state: pda-qm
-  - type: CartridgeLoader # DeltaV - append nanochat, mail metrics and stock trading
+  - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
@@ -489,6 +489,7 @@
     - NanoChatCartridge
     - MailMetricsCartridge
     - StockTradingCartridge
+    - AstroNavCartridge
 
 - type: entity
   parent: BasePDA
