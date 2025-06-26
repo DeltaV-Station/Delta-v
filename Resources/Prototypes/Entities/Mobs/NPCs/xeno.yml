@@ -302,10 +302,12 @@
   - type: MovementSpeedModifier
     baseSprintSpeed: 6.0
   - type: MeleeWeapon
-    attackRate: 2 # DeltaV - Hits fast, but not as hard
+# Begin DeltaV Changes
+    attackRate: 2 
     damage:
      types:
-       Slash: 10 # DeltaV - Was 5 Brute
+       Slash: 10
+# End DeltaV Changes
   - type: Fixtures
     fixtures:
       fix1:
