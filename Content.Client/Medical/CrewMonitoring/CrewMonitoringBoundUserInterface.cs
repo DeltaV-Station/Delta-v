@@ -22,7 +22,6 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
     protected override void Open()
     {
         base.Open();
-        var log = Logger.GetSawmill("crewmon-ui");
         EntityUid? gridUid = null;
         var stationName = string.Empty;
         // Delta-v start of crew monitor display correction
@@ -32,7 +31,6 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
         {
             var station = EntMan.EntitySysManager.GetEntitySystem<StationSystem>().Stations;
             var station0 = station.FirstOrDefault();
-            log.Debug($"Amount of grids {station0.StationGrids.Count}");
             var station0_grid0 = station0.StationGrids[0];
             mappedGrid = EntMan.GetEntity(station0_grid0);
         }
@@ -40,7 +38,7 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
         {
             mappedGrid = Owner;
         }
-        
+        // end delta-v
         if (EntMan.TryGetComponent<TransformComponent>(mappedGrid, out var xform))
         {
             gridUid = xform.GridUid;
