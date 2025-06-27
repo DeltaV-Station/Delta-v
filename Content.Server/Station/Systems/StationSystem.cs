@@ -182,6 +182,7 @@ public sealed partial class StationSystem : SharedStationSystem
     private void OnStationGridAdded(StationGridAddedEvent ev)
     {
         // When a grid is added to a station, update all trackers on that grid
+        RaiseNetworkEvent(new StationsUpdatedEvent(GetStationNames()), Filter.Broadcast());
         UpdateTrackersOnGrid(ev.GridId, ev.Station);
     }
 
@@ -527,6 +528,7 @@ public sealed partial class StationSystem : SharedStationSystem
         {
             var data_comp = EntityManager.GetComponent<StationDataComponent>(station);
             var list = data_comp.Grids.ToArray();
+            _sawmill.Debug($"Grids amount {list.Length}");
             var netgrids = new List<NetEntity>();
             for (int i = 0; i < list.Length; i++) {
                 netgrids.Add(GetNetEntity(list[i]));
