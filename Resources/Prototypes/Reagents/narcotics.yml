@@ -205,11 +205,10 @@
   metabolisms:
     Narcotic:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
-        type: Add
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         time: 16
+        type: Add
         refresh: false
       - !type:Addicted # Delta-V - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
@@ -259,11 +258,10 @@
         damage:
           types:
             Poison: 2
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
-        type: Add
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         time: 10
+        type: Add
         refresh: false
       - !type:ChemVomit # Vomiting is a symptom of brain damage
         probability: 0.05
@@ -287,9 +285,8 @@
   metabolisms:
     Narcotic:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
         refresh: false
@@ -316,9 +313,8 @@
   metabolisms:
     Narcotic:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
         refresh: false
@@ -512,9 +508,8 @@
         conditions:
         - !type:ReagentThreshold
           max: 20
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
         refresh: false
