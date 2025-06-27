@@ -7,10 +7,7 @@
   guides: [ Thieves ]
   requirements:
   - !type:OverallPlaytimeRequirement
-  # - begin DeltaV additions -
-    time: 84600 # was 3600, now 24 hours
-  - !type:WhitelistRequirement
-  # - end DeltaV additions -
+    time: 84600 # DeltaV - was 3600, 24 hours
 
 - type: startingGear
   id: ThiefGear

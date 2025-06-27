@@ -7,14 +7,11 @@
   guides: [ Zombies ]
   requirements:
   - !type:OverallPlaytimeRequirement
-  # - begin DeltaV additions -
     time: 43200 # DeltaV - was 3600, 12 hours
-  - !type:SpeciesRequirement
+  - !type:SpeciesRequirement # DeltaV
     inverted: true
     species:
     - IPC
-  - !type:WhitelistRequirement
-  # - end DeltaV additions -
 
 - type: antag
   id: Zombie
