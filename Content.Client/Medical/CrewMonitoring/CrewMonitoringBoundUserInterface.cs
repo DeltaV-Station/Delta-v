@@ -1,12 +1,8 @@
 using Content.Shared.Medical.CrewMonitoring;
 using Robust.Client.UserInterface;
 using Content.Client.Station;
-using System.Diagnostics;
 using System.Linq;
-using Content.Shared.Station.Components;
-using Robust.Shared.Log;
 using Content.Shared.Tag;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client.Medical.CrewMonitoring;
 
