@@ -35,6 +35,7 @@ public sealed class ReplicatorSystem : EntitySystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PinpointerSystem _pinpointer = default!;
+    [Dependency] private readonly SharedReplicatorNestSystem _replicatorNest = default!;
 
     public override void Initialize()
     {
@@ -72,7 +73,7 @@ public sealed class ReplicatorSystem : EntitySystem
 
     private void OnMindRemoved(Entity<ReplicatorComponent> ent, ref MindRemovedMessage args)
     {
-        // remove all the actions when the mind is removed. 
+        // remove all the actions when the mind is removed.
         foreach (var action in ent.Comp.Actions)
         {
             QueueDel(action);
@@ -122,6 +123,12 @@ public sealed class ReplicatorSystem : EntitySystem
         // remove queen status from this replicator
         ent.Comp.Queen = false;
 
+        // remove the Crown
+        if (HasComp<ReplicatorSignComponent>(ent))
+            RemComp<ReplicatorSignComponent>(ent);
+
+        _replicatorNest.ForceUpgrade(ent, ent.Comp.FirstStage);
+
         // then we need to remove the action, to ensure it can't be used infinitely.
         QueueDel(args.Action);
     }
@@ -161,7 +168,7 @@ public sealed class ReplicatorSystem : EntitySystem
         if (!TryComp<CombatModeComponent>(ent, out var combat))
             return;
 
-        // visual indicator that the replicator is aggressive. 
+        // visual indicator that the replicator is aggressive.
         _appearance.SetData(ent, ReplicatorVisuals.Combat, combat.IsInCombatMode);
     }
 
