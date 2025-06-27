@@ -528,7 +528,6 @@ public sealed partial class StationSystem : SharedStationSystem
         {
             var data_comp = EntityManager.GetComponent<StationDataComponent>(station);
             var list = data_comp.Grids.ToArray();
-            _sawmill.Debug($"Grids amount {list.Length}");
             var netgrids = new List<NetEntity>();
             for (int i = 0; i < list.Length; i++) {
                 netgrids.Add(GetNetEntity(list[i]));
