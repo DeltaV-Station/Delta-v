@@ -19,30 +19,6 @@
   parent: DrinkCanPack
   name: Blood-red brew 6pack
   components:
-  - type: Sprite
-    sprite: Objects/Misc/6pack.rsi
-    layers:
-      - state: plastic-thingy
-      - state: 6pack1
-        map: ["6pack1"]
-        visible: false
-      - state: 6pack2
-        map: ["6pack2"]
-        visible: false
-      - state: 6pack3
-        map: ["6pack3"]
-        visible: false
-      - state: 6pack4
-        map: ["6pack4"]
-        visible: false
-      - state: 6pack5
-        map: ["6pack5"]
-        visible: false
-      - state: 6pack6
-        map: ["6pack6"]
-        visible: false
-  - type: Item
-    size: Normal
   - type: Storage
     grid:
     - 0,0,2,3
@@ -57,12 +33,4 @@
   - type: ItemCounter
     count:
       tags: [DrinkCan]
-    composite: true
-    layerStates:
-    - 6pack1
-    - 6pack2
-    - 6pack3
-    - 6pack4
-    - 6pack5
-    - 6pack6
   - type: Appearance
