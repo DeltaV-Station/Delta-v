@@ -20,12 +20,9 @@
   name: Blood-red brew 6pack
   components:
   - type: Storage
-    grid:
-    - 0,0,2,3
     whitelist:
       tags:
         - DrinkCan
-    hideStackVisualsWhenClosed: false
   - type: StorageFill
     contents:
       - id: DrinkNukieCan
@@ -33,4 +30,3 @@
   - type: ItemCounter
     count:
       tags: [DrinkCan]
-  - type: Appearance
