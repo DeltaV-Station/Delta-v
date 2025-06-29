@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: sowelipililimute
-  changes:
-  - message: Autodoc only lists surgeries relevant to the given part, e.g. it won't
-      suggest that you can lobotomise a left leg
-    type: Tweak
-  id: 999
-  time: '2025-02-06T10:23:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2844
 - author: deltanedas
   changes:
   - message: Increased seismic charge cost to 1250 mining points.
@@ -4142,3 +4134,11 @@
   id: 1498
   time: '2025-06-29T02:39:08.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3232
+- author: perryprog
+  changes:
+  - message: The SmartFridge will no longer erase the contents of plant bags dumped
+      into it.
+    type: Fix
+  id: 1499
+  time: '2025-06-29T02:57:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3929
