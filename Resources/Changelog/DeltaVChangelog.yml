@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Fixed non-crew being picked for traitor kill objectives.
-    type: Fix
-  id: 1002
-  time: '2025-02-06T13:22:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2799
-- author: deltanedas
-  changes:
   - message: Added back the station AI overlay to the diagnostic HUD as it no longer
       gives you infinite reach.
     type: Add
@@ -4146,3 +4139,10 @@
   id: 1501
   time: '2025-06-29T08:01:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3933
+- author: Avalon-Proto
+  changes:
+  - message: Colossi are no longer effected by stamina damage
+    type: Tweak
+  id: 1502
+  time: '2025-06-29T19:39:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4023
