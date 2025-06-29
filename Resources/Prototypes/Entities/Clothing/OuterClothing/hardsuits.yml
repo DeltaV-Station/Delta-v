@@ -102,6 +102,7 @@
     - Hardsuit
     - WhitelistChameleon
     - HardsuitSpatio
+    - HidesHarpyWings # DeltaV: Used by harpies to help render their hardsuit sprites
 
 #Salvage Hardsuit
 - type: entity
@@ -1066,7 +1067,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
-  - type: Construction 
+  - type: Construction
     graph: MimeHardsuit
     node: mimeHardsuit
   - type: ToggleableClothing
