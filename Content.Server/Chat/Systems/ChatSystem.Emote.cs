@@ -1,3 +1,4 @@
+using Content.Server._RMC14.Emote; //RMC emote system
 using System.Collections.Frozen;
 using System.Collections.Immutable;
 using Content.Shared.Chat.Prototypes;
@@ -168,6 +169,10 @@ public partial class ChatSystem
     {
         var actionTrimmedLower = TrimPunctuation(textInput.ToLower());
         if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emotes)) // DeltaV, renames to emotes
+            return;
+
+        //RMC emote system
+        if (!_rmcEmote.TryEmote(uid))
             return;
 
         bool validEmote = false; // DeltaV - Multiple emotes for the same trigger

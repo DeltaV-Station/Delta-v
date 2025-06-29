@@ -1,3 +1,4 @@
+using Content.Server._RMC14.Emote; //RMC emote system
 using Content.Server.Actions;
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.Components;
@@ -19,6 +20,7 @@ public sealed class VocalSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly RMCEmoteSystem _rmcEmote = default!; //RMC emote system
 
     public override void Initialize()
     {
