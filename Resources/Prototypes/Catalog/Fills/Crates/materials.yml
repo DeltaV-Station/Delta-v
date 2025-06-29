@@ -52,6 +52,7 @@
   - type: StorageFill
     contents:
       - id: MaterialWoodPlank
+        amount: 3 # Delta-V
 
 - type: entity
   id: CrateMaterialBrass
@@ -68,11 +69,12 @@
   id: CrateMaterialPlasteel
   parent: CrateGenericSteel
   name: plasteel crate
-  description: 30 sheets of plasteel.
+  description: 90 sheets of plasteel. # Delta-V - was 90 sheets
   components:
   - type: StorageFill
     contents:
       - id: SheetPlasteel
+        amount: 3 # Delta-V
 
 - type: entity
   id: CrateMaterialPlasma
