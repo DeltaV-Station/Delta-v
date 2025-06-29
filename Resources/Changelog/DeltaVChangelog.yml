@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Fixed not being able to put spy monitors in your storage implant.
-    type: Fix
-  id: 1001
-  time: '2025-02-06T11:41:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2901
-- author: deltanedas
-  changes:
   - message: Fixed non-crew being picked for traitor kill objectives.
     type: Fix
   id: 1002
@@ -4142,3 +4135,14 @@
   id: 1500
   time: '2025-06-29T03:06:28.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3897
+- author: whatston3
+  changes:
+  - message: Harpies should no longer have their bare shoulder showing when facing
+      East.
+    type: Fix
+  - message: The harpy sprite for the spationaut hardsuit actually hides their wings
+      now.
+    type: Fix
+  id: 1501
+  time: '2025-06-29T08:01:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3933
