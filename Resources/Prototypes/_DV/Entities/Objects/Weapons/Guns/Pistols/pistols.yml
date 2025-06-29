@@ -297,3 +297,51 @@
         whitelist:
           tags:
           - CartridgeMagnum
+
+- type: entity
+  parent: WeaponPistolUniversal
+  id: WeaponPistolUniversalIncendiary
+  suffix: Incendiary
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineUniversalMagnumIncendiary
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineUniversalMagnum
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnumIncendiary
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeMagnum
+
+- type: entity
+  parent: WeaponPistolUniversal
+  id: WeaponPistolUniversalNonLethal
+  suffix: Non-lethal
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineUniversalMagnumRubber
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineUniversalMagnum
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnumRubber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeMagnum

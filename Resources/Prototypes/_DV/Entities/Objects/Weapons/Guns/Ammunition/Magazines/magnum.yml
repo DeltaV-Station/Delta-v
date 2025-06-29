@@ -15,3 +15,12 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: MagazineUniversalMagnum
+  id: MagazineUniversalMagnumIncendiary
+  name: "Universal magazine (.45 magnum incendiary)"
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumIncendiary
+    capacity: 12
