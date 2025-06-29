@@ -135,9 +135,9 @@
     board: LogisticsTechFabCircuitboard
   - type: StealTarget
     stealGroup: LogisticsTechFabCircuitboard
-  - type: MaterialStorageMagnetPickup # DeltaV - Adds magnet pull from Frontier
+  - type: MaterialStorageMagnetPickup
     magnetEnabled: True
-    range: 0.30 # DeltaV - End Magnet Pull
+    range: 0.30
   - type: LatheAnnouncing
     channels: [Supply]
 
