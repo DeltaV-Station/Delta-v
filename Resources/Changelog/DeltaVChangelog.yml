@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: Spielern
-  changes:
-  - message: IPC Administrative Assistants will now spawn with encryption keys.
-    type: Fix
-  - message: Added Cyborg emotes to IPCs.
-    type: Add
-  id: 998
-  time: '2025-02-06T09:26:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2886
 - author: sowelipililimute
   changes:
   - message: Autodoc only lists surgeries relevant to the given part, e.g. it won't
@@ -4140,3 +4131,14 @@
   id: 1497
   time: '2025-06-28T16:13:19.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3784
+- author: Smugman
+  changes:
+  - message: Added the Recruiter uplink, hidden inside of the recruiters briefcase.
+    type: Add
+  - message: Syndicate recruiters now have syndicate access on their ID
+    type: Tweak
+  - message: Syndicate recruiters now get a figurine depicting their role!
+    type: Tweak
+  id: 1498
+  time: '2025-06-29T02:39:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3232
