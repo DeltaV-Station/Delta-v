@@ -1,6 +1,6 @@
 - type: whitelistTier
   id: BlueTier
-  name: Command Whitelist
+  name: Command
   color: "#3498db"
   jobs:
     - ChiefMedicalOfficer
@@ -13,7 +13,7 @@
 
 - type: whitelistTier
   id: RedTier
-  name: Security Whitelist
+  name: Security
   color: "#e74c3c"
   jobs:
     - Brigmedic
@@ -55,7 +55,7 @@
 
 - type: whitelistTier
   id: Gold Tier
-  name: CO Whitelist
+  name: Gold
   color: "#e6c200"
   jobs:
     - Captain
