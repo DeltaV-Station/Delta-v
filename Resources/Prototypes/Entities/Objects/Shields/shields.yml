@@ -117,7 +117,7 @@
     - type: Sprite
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-laser-shield.rsi
       state: icon
-      #state: riot_laser-icon 
+      #state: riot_laser-icon
     - type: Item
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-laser-shield.rsi
       size: Ginormous
@@ -148,7 +148,7 @@
     - type: Sprite
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-bullet-shield.rsi
       state: icon
-      #state: riot_bullet-icon 
+      #state: riot_bullet-icon
     - type: Item
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-bullet-shield.rsi
       size: Ginormous
@@ -157,7 +157,7 @@
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-bullet-shield.rsi
       quickEquip: false
       slots:
-      - suitStorage 
+      - suitStorage
 # End of Harmony Change
     - type: Blocking
       passiveBlockModifier:
@@ -291,24 +291,25 @@
 
 - type: entity
   name: makeshift shield
-  parent: BaseShield
+  parent: PaladinShield
   id: MakeshiftShield
   description: A rundown looking shield, not good for much.
   components:
-# Begin of Harmony Change: Shield Rework -- Suit Storage Slot
     - type: Sprite
-      sprite: _Harmony/Objects/Weapons/Melee/Shields/makeshift-shield.rsi 
+      sprite: _Starlight/Objects/Weapons/Melee/makeshift_shield.rsi
       state: icon
       #state: makeshift-icon
     - type: Item
-      sprite: _Harmony/Objects/Weapons/Melee/Shields/makeshift-shield.rsi
+      sprite: _Starlight/Objects/Weapons/Melee/makeshift_shield.rsi
+    - type: Clothing
+      sprite: _Starlight/Objects/Weapons/Melee/makeshift_shield.rsi
       size: Ginormous
       #heldPrefix: metal
     - type: Clothing
       sprite: _Harmony/Objects/Weapons/Melee/Shields/makeshift-shield.rsi
       quickEquip: false
       slots:
-      - suitStorage 
+      - suitStorage
   # End of Harmony Change
     - type: Blocking
       passiveBlockModifier:
@@ -328,6 +329,10 @@
           Slash: 0.5
           Piercing: 0.5
           Heat: 1
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 5
     - type: Construction
       graph: MakeshiftShield
       node: makeshiftShield
@@ -353,6 +358,8 @@
                 SheetSteel:
                   min: 1
                   max: 2
+
+#Starlight Changes End
 
 - type: entity
   name: web shield
