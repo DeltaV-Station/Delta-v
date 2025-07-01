@@ -13,8 +13,9 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 
 namespace Content.Server.Crayon;
 
@@ -26,6 +27,10 @@ public sealed class CrayonSystem : SharedCrayonSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public override void Initialize()
     {
@@ -67,8 +72,25 @@ public sealed class CrayonSystem : SharedCrayonSystem
             return;
         }
 
-        if (!_decals.TryAddDecal(component.SelectedState, args.ClickLocation.Offset(new Vector2(-0.5f, -0.5f)), out _, component.Color, cleanable: true))
+        var xform = Transform(uid); // Begin Delta-v Changes (Adding z-level to decals)
+        if (xform.GridUid is not { } gridUid || !TryComp<MapGridComponent>(gridUid, out var mapGrid))
             return;
+
+        var tileRef = _map.GetTileRef((gridUid, mapGrid), args.ClickLocation.Offset(new Vector2(-0.5f, -0.5f)));
+        var decalHashSet = _decals.GetDecalsInRange(tileRef.GridUid, args.ClickLocation.Position, 0.75f); // HashSet of tiles in range
+        var highestZ = 0;
+
+        if (decalHashSet != null)
+        {
+            foreach (var decalSet in decalHashSet)
+            {
+                highestZ = Math.Max(highestZ, decalSet.Decal.ZIndex); // Bigger is better
+            }
+
+            if (!_decals.TryAddDecal(component.SelectedState, args.ClickLocation.Offset(new Vector2(-0.5f, -0.5f)), out _, component.Color, zIndex: highestZ + 1, cleanable: true)) // Apply decal now with z-level
+                return;
+
+        } // End Delta-V Changes
 
         if (component.UseSound != null)
             _audio.PlayPvs(component.UseSound, uid, AudioParams.Default.WithVariation(0.125f));
