@@ -1,6 +1,9 @@
 using System.Linq;
+using Content.Server.Decals;
 using Content.Server._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared.Decals;
+using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Maps;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
@@ -27,9 +30,13 @@ public sealed class CosmicCorruptingSystem : EntitySystem
         new(1, -1),
     ];
 
+    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinition = default!;
+    [Dependency] private readonly DecalSystem _decalSystem = default!;
+    [Dependency] private readonly SharedDecalSystem _decal = default!;
+    [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly TurfSystem _turfs = default!;
 
@@ -98,9 +105,18 @@ public sealed class CosmicCorruptingSystem : EntitySystem
 
             if (_rand.Prob(ent.Comp.CorruptionChance)) //if it rolls good
             {
+
+                var coordinates = _maps.GridTileToLocal(tileRef.GridUid, mapGrid, tileRef.GridIndices); // Grab Coords of tile
+                var decals = _decal.GetDecalsInRange(tileRef.GridUid, coordinates.SnapToGrid(EntityManager, _mapManager).Position, 0.5f); //Get Decal HashSet
+
                 //replace & variantise the tile
                 _tile.ReplaceTile(tileRef, convertTile);
                 _tile.PickVariant(convertTile);
+
+                foreach (var singleDecal in decals) //For each decal in the HashSet, reapply the decal after replacement
+                {
+                    _decalSystem.TryAddDecal(singleDecal.Decal.Id, coordinates.SnapToGrid(EntityManager, _mapManager), out _, singleDecal.Decal.Color, singleDecal.Decal.Angle, singleDecal.Decal.ZIndex, singleDecal.Decal.Cleanable);
+                }
 
                 //then add the new neighbours as targets as long as they're not already corrupted
                 foreach (var neighbourPos in _neighbourPositions)
