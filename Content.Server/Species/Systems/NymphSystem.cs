@@ -42,7 +42,7 @@ public sealed partial class NymphSystem : EntitySystem
 
         // Move the mind if there is one and it's supposed to be transferred
         if (comp.TransferMind == true && _mindSystem.TryGetMind(args.OldBody, out var mindId, out var mind))
-            _mindSystem.TransferTo(mindId, nymph, mind: mind);
+            _mindSystem.TransferTo(mindId, nymph, true, mind: mind); // DeltaV - force ghost into nymph body and transfers mind to nymph
 
         // Delete the old organ
         QueueDel(uid);

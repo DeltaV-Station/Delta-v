@@ -686,6 +686,7 @@
     lowPressureMultiplier: 1000
   - type: TemperatureProtection # DeltaV
     coolingCoefficient: 0.2
+  - type: BreathMask # DeltaV - No more masks needed
 
 - type: entity
   parent: ClothingHeadHatWizardBase
