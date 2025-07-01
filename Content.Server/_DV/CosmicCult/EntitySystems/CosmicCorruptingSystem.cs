@@ -105,7 +105,7 @@ public sealed class CosmicCorruptingSystem : EntitySystem
 
             if (_rand.Prob(ent.Comp.CorruptionChance)) //if it rolls good
             {
-                var decals = _decal.GetDecalsInRange(tileRef.GridUid, tileRef.GridIndices, 1f); //Get Decal HashSet
+                var decals = _decal.GetDecalsInRange(tileRef.GridUid, tileRef.GridIndices, 1.5f); //Get Decal HashSet
 
                 //replace & variantise the tile
                 _tile.ReplaceTile(tileRef, convertTile);
