@@ -78,15 +78,9 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
             return;
 
         // Begin DeltaV - lpo record tablet requires finding right station without GetOwningStation
-        EntityUid? station = null;
-        if (console.ConsoleType == RecordConsoleType.Generic)
-        {
-            station = _station.GetStationInMap(Transform(entity).MapID);
-        }
-        else
-        {
-            station = _station.GetOwningStation(entity);
-        }
+        var station = console.ConsoleType == RecordConsoleType.Generic
+            ? _station.GetStationInMap(Transform(entity).MapID)
+            : _station.GetOwningStation(entity);
         if (!HasComp<StationRecordsComponent>(station) || !HasComp<CharacterRecordsComponent>(station))
         {
             SendState(entity, new CharacterRecordConsoleState { ConsoleType = console.ConsoleType });
