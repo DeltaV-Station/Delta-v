@@ -10,14 +10,14 @@
 
 - type: entity
   parent: BaseFigurineDeltaV
-  id: ToyFigurineAdminAssistant
-  name: administrative assistant figure
-  description: A figurine depicting the administrative assistant, on their way to fetch coffee for the Captain.
+  id: ToyFigurineSecretary
+  name: secretary figure
+  description: A figurine depicting a secretary, on their way to fetch coffee.
   components:
   - type: Sprite
-    state: adminassistant
+    state: secretary
   - type: SpeakOnTrigger
-    pack: FigurinesAdminAssistant
+    pack: FigurinesSecretary
 
 - type: entity
   parent: BaseFigurineDeltaV
@@ -172,3 +172,17 @@
     state: neuroticist
   - type: SpeakOnTrigger
     pack: FigurinesNeuroticist
+
+- type: entity
+  parent: BaseFigurineDeltaV
+  id: ToyFigurineCosmicCultist
+  name: cosmic cultist figure
+  description: A figurine depicting an iridescent, alien looking hardsuit. You can feel the gaze of the abyss in its lack-of-a-face.
+  components:
+  - type: Sprite
+    layers:
+      - state: cosmiccultist
+      - state: cosmiccultist_unshaded
+        shader: unshaded
+  - type: SpeakOnTrigger
+    pack: FigurinesCosmicCultist

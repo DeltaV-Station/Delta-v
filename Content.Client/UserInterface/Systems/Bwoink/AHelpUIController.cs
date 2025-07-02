@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
-using Content.Client._RMC14.Mentor; // RMC14
 using Content.Client.Administration.Managers;
 using Content.Client.Administration.Systems;
 using Content.Client.Administration.UI.Bwoink;
@@ -38,12 +37,11 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
-    [Dependency] private readonly StaffHelpUIController _staffHelp = default!; // RMC14 - Mentor Help
     [UISystemDependency] private readonly AudioSystem _audio = default!;
 
     private BwoinkSystem? _bwoinkSystem;
-    public MenuButton? GameAHelpButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.AHelpButton; // RMC14 - Mentor help
-    public Button? LobbyAHelpButton => (UIManager.ActiveScreen as LobbyGui)?.AHelpButton; // RMC14 - Mentor Help
+    private MenuButton? GameAHelpButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.AHelpButton;
+    private Button? LobbyAHelpButton => (UIManager.ActiveScreen as LobbyGui)?.AHelpButton;
     public IAHelpUIHandler? UIHelper;
     private bool _discordRelayActive;
     private bool _hasUnreadAHelp;
@@ -89,9 +87,8 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
 
     private void AHelpButtonPressed(BaseButton.ButtonEventArgs obj)
     {
-        _staffHelp.ToggleWindow(); // RMC 14 - Mentor Help
-        // EnsureUIHelper(); RMC 14 - Mentor Help
-        // UIHelper!.ToggleWindow(); RMC14 Mentor Help
+        EnsureUIHelper();
+        UIHelper!.ToggleWindow();
     }
 
     public void OnSystemLoaded(BwoinkSystem system)
@@ -249,7 +246,7 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         helper.Control.PopOut.Visible = false;
     }
 
-    public void UnreadAHelpReceived() // RMC14 - Mentor Help
+    private void UnreadAHelpReceived()
     {
         GameAHelpButton?.StyleClasses.Add(MenuButton.StyleClassRedTopButton);
         LobbyAHelpButton?.StyleClasses.Add(StyleNano.StyleClassButtonColorRed);

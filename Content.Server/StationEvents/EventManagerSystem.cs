@@ -64,7 +64,7 @@ public sealed class EventManagerSystem : EntitySystem
     }
 
     /// <summary>
-    /// DeltaV: Returns a random event from the list of events given that can be run at a given time.
+    /// DeltaV - Returns a random event from the list of events given that can be run at a given time.
     /// </summary>
     /// <param name="limitedEventsTable">The list of events that can be chosen.</param>
     /// <param name="eventRunTime">The time to use for checking time restrictions. Uses current time if null.</param>
@@ -74,7 +74,10 @@ public sealed class EventManagerSystem : EntitySystem
     /// </remarks>
     public EntProtoId? TryGenerateRandomEvent(EntityTableSelector limitedEventsTable, TimeSpan? eventRunTime = null)
     {
-        if (!TryBuildLimitedEvents(limitedEventsTable, out var limitedEvents, eventRunTime))
+        var availableEvents = AvailableEvents(eventRunTime: eventRunTime); // handles the player counts and individual event restrictions.
+                                                 // Putting this here only makes any sense in the context of the toolshed commands in BasicStationEventScheduler. Kill me.
+
+        if (!TryBuildLimitedEvents(limitedEventsTable, availableEvents, out var limitedEvents))
         {
             Log.Warning("Provided event table could not build dict!");
             return null;
@@ -99,11 +102,14 @@ public sealed class EventManagerSystem : EntitySystem
     /// <summary>
     /// Returns true if the provided EntityTableSelector gives at least one prototype with a StationEvent comp.
     /// </summary>
-    public bool TryBuildLimitedEvents(EntityTableSelector limitedEventsTable, out Dictionary<EntityPrototype, StationEventComponent> limitedEvents, TimeSpan? eventRunTime = null) // DeltaV - Add a time overide
+    public bool TryBuildLimitedEvents(
+        EntityTableSelector limitedEventsTable,
+        Dictionary<EntityPrototype, StationEventComponent> availableEvents,
+        out Dictionary<EntityPrototype, StationEventComponent> limitedEvents
+        )
     {
         limitedEvents = new Dictionary<EntityPrototype, StationEventComponent>();
-        // DeltaV - Overide time for stashing events
-        var availableEvents = AvailableEvents(eventRunTime: eventRunTime); // handles the player counts and individual event restrictions
+
         if (availableEvents.Count == 0)
         {
             Log.Warning("No events were available to run!");

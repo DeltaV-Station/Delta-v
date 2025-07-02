@@ -268,8 +268,11 @@ public sealed class CarryingSystem : EntitySystem
 
     private void Carry(EntityUid carrier, EntityUid carried)
     {
-        if (TryComp<PullableComponent>(carried, out var pullable))
-            _pulling.TryStopPull(carried, pullable);
+        if (TryComp<PullableComponent>(carried, out var carriedPullable))
+            _pulling.TryStopPull(carried, carriedPullable);
+
+        if (TryComp<PullableComponent>(carrier, out var carrierPullable))
+            _pulling.TryStopPull(carrier, carrierPullable);
 
         var carrierXform = Transform(carrier);
         var xform = Transform(carried);

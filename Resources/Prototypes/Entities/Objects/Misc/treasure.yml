@@ -17,7 +17,7 @@
     castShadows: false
     color: "#0000ff"
   - type: StaticPrice
-    price: 500
+    price: 750 #DeltaV - was 500
 
 - type: entity
   parent: BaseItem
@@ -39,7 +39,7 @@
         harddisk_mini: ""
         harddisk_micro: ""
   - type: StaticPrice
-    price: 275
+    price: 550 #DeltaV - was 275
 
 - type: entity
   parent: BaseItem
@@ -54,7 +54,7 @@
   - type: Item
     storedRotation: -90
   - type: StaticPrice
-    price: 350
+    price: 700 #DeltaV - was 350
 
 - type: entity
   parent: BaseItem
@@ -69,7 +69,7 @@
   - type: Item
     storedRotation: -90
   - type: StaticPrice
-    price: 300
+    price: 600 #DeltaV - was 300
 
 - type: entity
   parent: BaseItem
@@ -83,11 +83,6 @@
     - state: cpu_super
   - type: Item
     size: Tiny
-  - type: PhysicalComposition
-    materialComposition: # big mats if you don't sell it
-      Steel: 500
-      Glass: 1000
-      Silver: 300
   - type: StaticPrice
     price: 750
 
@@ -112,7 +107,7 @@
         synchronizer: ""
         stabilizer: ""
   - type: StaticPrice
-    price: 120
+    price: 360 #DeltaV - was 120
 
 - type: entityTable
   id: TreasureCoinPile
@@ -155,11 +150,8 @@
     state: coin_iron
   - type: Item
     size: Tiny
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 300
   - type: StaticPrice
-    price: 75
+    price: 125 #DeltaV - was 75
 
 - type: entity
   parent: TreasureCoinIron
@@ -167,12 +159,8 @@
   components:
   - type: Sprite
     state: coin_silver
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 100 # coins are fake on the inside
-      Silver: 200
   - type: StaticPrice
-    price: 135
+    price: 240 #DeltaV - was 125
 
 - type: entity
   parent: TreasureCoinIron
@@ -180,12 +168,8 @@
   components:
   - type: Sprite
     state: coin_gold
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 100
-      Gold: 200
   - type: StaticPrice
-    price: 175
+    price: 355 #DeltaV - was 175
 
 - type: entity
   parent: TreasureCoinIron
@@ -193,12 +177,8 @@
   components:
   - type: Sprite
     state: coin_adamantine
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 400
-      Diamond: 5
   - type: StaticPrice
-    price: 250
+    price: 490 #DeltaV - was 250
 
 - type: entity
   parent: TreasureCoinIron
@@ -206,10 +186,6 @@
   components:
   - type: Sprite
     state: coin_diamond
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 300
-      Diamond: 15
   - type: StaticPrice
-    price: 500
+    price: 1150 #DeltaV - was 500
 

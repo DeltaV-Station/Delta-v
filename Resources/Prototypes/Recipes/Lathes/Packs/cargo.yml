@@ -1,6 +1,8 @@
 ## Static
 
 - type: latheRecipePack
+  parent:
+  - CargoStaticDeltaV # DeltaV
   id: CargoStatic
   recipes:
   - AppraisalTool
@@ -26,6 +28,8 @@
   - OreBagOfHolding
 
 - type: latheRecipePack
+  parent:
+  - LogisticsBoards # DeltaV
   id: CargoBoards
   recipes:
   - OreProcessorIndustrialMachineCircuitboard

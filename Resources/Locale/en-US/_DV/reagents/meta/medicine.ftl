@@ -1,9 +1,3 @@
-reagent-name-hemoxadone = hemoxadone
-reagent-desc-hemoxadone = A cryogenics chemical. Used to treat severe blood loss by regenerating red blood cells and promoting reperfusion. Works regardless of the patient being alive or dead.
-
-reagent-name-cyanoxadone = cyanoxadone
-reagent-desc-cyanoxadone = A cryogenics chemical. Used to treat severe blood loss in blue-blooded creatures by regenerating hemocyanin and promoting reperfusion. Works regardless of the patient being alive or dead.
-
 reagent-desc-doxarubixadone-deltav = A cryogenics chemical. Heals certain types of cellular damage caused by dangerous gases and chemicals. Works regardless of the patient being alive or dead.
 
 reagent-name-netinadone = netinadone
@@ -17,3 +11,8 @@ reagent-desc-unholy-water = Water treated with blood and sulfur. Just looking at
 
 reagent-name-anodynafil = anodynafil
 reagent-desc-anodynafil = An effective short-lasting anesthetic that doesn't interfere with consciousness, but results in prolonged pain suppression.
+
+reagent-name-trinoxadone = trinoxadone
+reagent-desc-trinoxadone = A complex cryogenics chemical. Treats most damage types in alive and critical patients at a slower metabolism rate, however, only offers limited tissue regeneration in dead patients.
+
+reagent-desc-dexalin-deltav = Used for treating minor oxygen deprivation and bloodloss. A required reagent for salbutamol and convermol.

@@ -19,6 +19,7 @@
     - PinpointerNuclear
     - Zipties
     - Zipties
+    - DoorRemoteOmni
 
 - type: startingGear
   parent: ERTLeaderGearAmber
@@ -70,23 +71,22 @@
     jumpsuit: ClothingUniformJumpsuitERTChaplain
     back: ClothingBackpackERTChaplain
     shoes: ClothingShoesLeather
-    head: ClothingHeadHatFez
     eyes: ClothingEyesGlassesSecurity
     neck: ClothingNeckStoleChaplain
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterVestPlateCarrierAdv
     id: ERTChaplainPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
     pocket1: FlashlightSeclite
-    pocket2: DrinkWaterBottleFull
+    pocket2: WeaponDisabler
   storage:
     back:
     - BoxBodyBag
     - Lantern
     - Bible
     - CrowbarRed
-    - WeaponDisabler
+    - CosmicCenser
     belt:
     - Zipties
     - Zipties
@@ -151,7 +151,7 @@
     - Flare # Without this flare the survival box gets dropped onto the ground. I love startingGear.
     - SheetPlasteel
     - SheetSteel
-    - WeaponEnergyGun
+    - WeaponBeamCannon
 
 - type: startingGear
   parent: ERTEngineerGearRed
@@ -180,7 +180,7 @@
     head: ClothingHeadHelmetERTSecurity
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterVestPlateCarrierAdv
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
@@ -190,7 +190,7 @@
     back:
     - CrowbarRed
     - BoxFlashbang
-    - WeaponLaserCarbine
+    - WeaponLaserCannon
     belt:
     - Zipties
     - Zipties
@@ -208,6 +208,7 @@
     - CrowbarRed
     - MagazineLaser
     - MagazineLaser
+    - MagazineLaser
     - WeaponRifleLaserERT
 
 - type: startingGear
@@ -219,10 +220,10 @@
     pocket1: CrowbarRed
   inhand:
   - WeaponImmolatorMulti
+  - PortableRecharger
   storage:
     back:
     - WeaponEnergyGunAdvanced
-    - FireExtinguisherMini
     - BoxC4
 
 # Medical
@@ -236,7 +237,7 @@
     head: ClothingHeadHelmetERTMedic
     eyes: ClothingEyesHudMedical
     gloves: ClothingHandsGlovesNitrile
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterVestPlateCarrierAdv
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMedicalFilled
@@ -303,7 +304,7 @@
     head: ClothingHeadHelmetERTJanitor
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterVestPlateCarrierAdv
     id: ERTJanitorPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltJanitorFilled
