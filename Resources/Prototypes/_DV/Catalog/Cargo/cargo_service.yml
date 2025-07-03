@@ -1,0 +1,19 @@
+- type: cargoProduct
+  id: ServiceHydra
+  icon:
+    sprite: Objects/Weapons/Guns/Launchers/hydra_launcher.rsi
+    state: icon
+  product: HydraLocker
+  cost: 8000
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: ServiceCleanadeGrenade
+  icon:
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    state: cleanade
+  product: CleanadeGrenadeCrate
+  cost: 3000
+  category: cargoproduct-category-name-service
+  group: market
