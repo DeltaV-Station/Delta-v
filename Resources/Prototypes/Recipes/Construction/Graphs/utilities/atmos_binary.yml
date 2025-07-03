@@ -58,6 +58,12 @@
         amount: 2
         doAfter: 1
 
+    - to: pressureregulator
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
     - to: valve
       steps:
       - material: Steel
@@ -266,6 +272,22 @@
 
   - node: passivegateAlt2
     entity: GasPassiveGateAlt2
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: pressureregulator
+    entity: GasPressureRegulator
     edges:
     - to: start
       conditions:
