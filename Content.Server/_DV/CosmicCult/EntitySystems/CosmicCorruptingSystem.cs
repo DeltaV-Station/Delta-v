@@ -99,8 +99,7 @@ public sealed class CosmicCorruptingSystem : EntitySystem
             if (_rand.Prob(ent.Comp.CorruptionChance)) //if it rolls good
             {
                 //replace & variantise the tile
-                _tile.ReplaceTile(tileRef, convertTile);
-                _tile.PickVariant(convertTile);
+                _map.SetTile(gridUid, mapGrid, pos, new Tile(convertTile.TileId, variant: _tile.PickVariant(convertTile)));
 
                 //then add the new neighbours as targets as long as they're not already corrupted
                 foreach (var neighbourPos in _neighbourPositions)
