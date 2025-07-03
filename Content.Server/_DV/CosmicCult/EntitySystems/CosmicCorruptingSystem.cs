@@ -7,8 +7,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Damage;
 using Content.Shared.Coordinates;
 
 namespace Content.Server._DV.CosmicCult.EntitySystems;
@@ -35,8 +33,6 @@ public sealed class CosmicCorruptingSystem : EntitySystem
     [Dependency] private readonly ITileDefinitionManager _tileDefinition = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly TurfSystem _turfs = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
     /// <remarks>
@@ -126,25 +122,17 @@ public sealed class CosmicCorruptingSystem : EntitySystem
                     if (ent.Comp.EntityConversionDict.TryGetValue(proto?.ID!, out var conversion))
                     {
                         var targetTransformComp = Transform(convertedEnt);
-                        var child = Spawn(conversion, _transform.GetMapCoordinates(convertedEnt, targetTransformComp), rotation: _transform.GetWorldRotation(convertedEnt));
-                        if (TryComp<DamageableComponent>(child, out var damageParent) &&
-                            _mobThreshold.GetScaledDamage(convertedEnt, child, out var damage) &&
-                            damage != null)
-                        {
-                            _damageable.SetDamage(child, damageParent, damage);
-                        }
+                        var child = Spawn(conversion, _transform.GetMapCoordinates(convertedEnt, targetTransformComp));
+                        var childXform = Transform(child);
+                        _transform.SetLocalRotation(child, targetTransformComp.LocalRotation, childXform);
                         QueueDel(convertedEnt);
                     }
                     else if (TryComp<CosmicCorruptibleComponent>(convertedEnt, out var corruptible))
                     {
                         var targetTransformComp = Transform(convertedEnt);
-                        var child = Spawn(corruptible.ConvertTo, _transform.GetMapCoordinates(convertedEnt, targetTransformComp), rotation: _transform.GetWorldRotation(convertedEnt));
-                        if (TryComp<DamageableComponent>(child, out var damageParent) &&
-                            _mobThreshold.GetScaledDamage(convertedEnt, child, out var damage) &&
-                            damage != null)
-                        {
-                            _damageable.SetDamage(child, damageParent, damage);
-                        }
+                        var child = Spawn(corruptible.ConvertTo, _transform.GetMapCoordinates(convertedEnt, targetTransformComp));
+                        var childXform = Transform(child);
+                        _transform.SetLocalRotation(child, targetTransformComp.LocalRotation, childXform);
                         QueueDel(convertedEnt);
                     }
                 }
