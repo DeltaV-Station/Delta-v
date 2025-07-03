@@ -39,6 +39,30 @@ public sealed class DamageStateVisualizerSystem : VisualizerSystem<DamageStateVi
             _sprite.LayerSetRsiState((uid, sprite), key, state);
         }
 
+        // Begin DeltaV Additions - Hideable Layers
+        var toShow = new List<string>(component.HiddenLayers);
+        component.HiddenLayers.Clear();
+        if (component.ToHide.TryGetValue(data, out var toHide))
+        {
+            foreach (var key in toHide)
+            {
+                toShow.Remove(key);
+                if (component.HiddenLayers.Contains(key))
+                    continue; // Already hidden, nothing else to do
+
+                // Hide the specified layer and store it for later
+                _sprite.LayerSetVisible((uid, sprite), key, false);
+                component.HiddenLayers.Add(key);
+            }
+        }
+
+        // Show any layers that have not been explicitly mentioned
+        foreach (var key in toShow)
+        {
+            _sprite.LayerSetVisible((uid, sprite), key, true);
+        }
+        // End DeltaV Additions - Hideable Layers
+
         // So they don't draw over mobs anymore
         if (data == MobState.Dead)
         {
