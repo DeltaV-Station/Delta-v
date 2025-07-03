@@ -84,6 +84,8 @@
     damageModifierSet: Metallic
   - type: Anchorable
   - type: Rotatable
+  - type: Physics
+    bodyType: Static
   - type: Transform
     anchored: true
 
