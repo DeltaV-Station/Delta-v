@@ -125,7 +125,7 @@ public sealed class CosmicCorruptingSystem : EntitySystem
                     }
                     else if (TryComp<CosmicCorruptibleComponent>(convertedEnt, out var corruptible))
                     {
-                        ConvertEntity(corruptible.ConvertTo, conversion);
+                        ConvertEntity(convertedEnt, corruptible.ConvertTo);
                     }
                 }
 
