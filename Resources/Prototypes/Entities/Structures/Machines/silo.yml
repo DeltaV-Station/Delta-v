@@ -23,6 +23,11 @@
       - Sheet
       - RawMaterial
       - Ingot
+  - type: AutomationSlots # DeltaV - add goob factorio integration to the material silo.
+    slots:
+    - !type:AutomatedStorage
+      input: AutomationSlotStorage
+      output: AutomationSlotStorage
   - type: ActivatableUI
     key: enum.OreSiloUiKey.Key
   - type: ActivatableUIRequiresPower
