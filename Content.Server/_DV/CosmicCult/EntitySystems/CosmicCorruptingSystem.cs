@@ -1,8 +1,6 @@
 using System.Linq;
-using Content.Server.Decals;
 using Content.Server._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Components;
-using Content.Shared.Decals;
 using Content.Shared.Maps;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
