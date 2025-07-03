@@ -105,17 +105,9 @@ public sealed class CosmicCorruptingSystem : EntitySystem
 
             if (_rand.Prob(ent.Comp.CorruptionChance)) //if it rolls good
             {
-                var decals = _decal.GetDecalsInRange(tileRef.GridUid, tileRef.GridIndices, 1.5f); //Get Decal HashSet
 
                 //replace & variantise the tile
-                _tile.ReplaceTile(tileRef, convertTile);
-                _tile.PickVariant(convertTile);
-
-                foreach (var decalSet in decals) //For each decal in the HashSet, reapply the decal after replacement
-                {
-                    var coords = decalSet.Decal.Coordinates;
-                    _decalSystem.TryAddDecal(decalSet.Decal.Id, new EntityCoordinates(tileRef.GridUid, coords), out _, decalSet.Decal.Color, decalSet.Decal.Angle, decalSet.Decal.ZIndex, decalSet.Decal.Cleanable); // Reapply decal
-                }
+                _map.SetTile(gridUid, mapGrid, pos, new Tile(convertTile.TileId, variant: _tile.PickVariant(convertTile)));
 
                 //then add the new neighbours as targets as long as they're not already corrupted
                 foreach (var neighbourPos in _neighbourPositions)
