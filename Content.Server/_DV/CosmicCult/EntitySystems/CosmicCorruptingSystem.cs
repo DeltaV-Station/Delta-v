@@ -8,6 +8,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Coordinates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.CosmicCult.EntitySystems;
 
@@ -120,19 +121,11 @@ public sealed class CosmicCorruptingSystem : EntitySystem
                     var proto = Prototype(convertedEnt);
                     if (ent.Comp.EntityConversionDict.TryGetValue(proto?.ID!, out var conversion))
                     {
-                        var targetTransformComp = Transform(convertedEnt);
-                        var child = Spawn(conversion, _transform.GetMapCoordinates(convertedEnt, targetTransformComp));
-                        var childXform = Transform(child);
-                        _transform.SetLocalRotation(child, targetTransformComp.LocalRotation, childXform);
-                        QueueDel(convertedEnt);
+                        ConvertEntity(convertedEnt, conversion);
                     }
                     else if (TryComp<CosmicCorruptibleComponent>(convertedEnt, out var corruptible))
                     {
-                        var targetTransformComp = Transform(convertedEnt);
-                        var child = Spawn(corruptible.ConvertTo, _transform.GetMapCoordinates(convertedEnt, targetTransformComp));
-                        var childXform = Transform(child);
-                        _transform.SetLocalRotation(child, targetTransformComp.LocalRotation, childXform);
-                        QueueDel(convertedEnt);
+                        ConvertEntity(corruptible.ConvertTo, conversion);
                     }
                 }
 
@@ -143,6 +136,15 @@ public sealed class CosmicCorruptingSystem : EntitySystem
                 ent.Comp.CorruptableTiles.Remove(pos);
             }
         }
+    }
+
+    private void ConvertEntity(EntityUid convertedEnt, EntProtoId conversion)
+    {
+        var targetTransformComp = Transform(convertedEnt);
+        var child = Spawn(conversion, _transform.GetMapCoordinates(convertedEnt, targetTransformComp));
+        var childXform = Transform(child);
+        _transform.SetLocalRotation(child, targetTransformComp.LocalRotation, childXform);
+        QueueDel(convertedEnt);
     }
 
     #region API
