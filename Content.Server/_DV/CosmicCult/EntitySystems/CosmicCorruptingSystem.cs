@@ -27,7 +27,6 @@ public sealed class CosmicCorruptingSystem : EntitySystem
         new(1, -1),
     ];
 
-
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinition = default!;
