@@ -22,7 +22,7 @@ public sealed partial class BatteryProviderComponent : Component
     /// Alert to show for power levels.
     /// </summary>
     [DataField]
-    public ProtoId<AlertPrototype> PowerAlert = "SuitPower"; //TODO: Custom Icon?
+    public ProtoId<AlertPrototype> PowerAlert = "BatteryProvider";
 
     /// <summary>
     /// Unique set of all equipment connected to this battery.

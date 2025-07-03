@@ -4,3 +4,6 @@ alerts-vow-broken-desc-delta = You've broken your vows to Mimes everywhere. You 
 
 alerts-grappled-name = [color=yellow]Grappled[/color]
 alerts-grappled-desc = You're [color=yellow]grappled[/color] and cannot move, your hands may be bound.
+
+alerts-battery-provider-name = Battery Power
+alerts-battery-provider-desc = How much power is left in your battery.

@@ -4,3 +4,27 @@
   icons: [ /Textures/_DV/Interface/Alerts/Grappled/Grappled.png ]
   name: alerts-grappled-name
   description: alerts-grappled-desc
+
+- type: alert
+  id: BatteryProvider
+  icons:
+  - sprite: /Textures/_DV/Interface/Alerts/battery_provider.rsi
+    state: power0
+  - sprite: /Textures/_DV/Interface/Alerts/battery_provider.rsi
+    state: power1
+  - sprite: /Textures/_DV/Interface/Alerts/battery_provider.rsi
+    state: power2
+  - sprite: /Textures/_DV/Interface/Alerts/battery_provider.rsi
+    state: power3
+  - sprite: /Textures/_DV/Interface/Alerts/battery_provider.rsi
+    state: power4
+  - sprite: /Textures/_DV/Interface/Alerts/battery_provider.rsi
+    state: power5
+  - sprite: /Textures/_DV/Interface/Alerts/battery_provider.rsi
+    state: power6
+  - sprite: /Textures/_DV/Interface/Alerts/battery_provider.rsi
+    state: power7
+  name: alerts-battery-provider-name
+  description: alerts-battery-provider-desc
+  minSeverity: 0
+  maxSeverity: 7
