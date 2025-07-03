@@ -3,7 +3,6 @@ using Content.Server.Decals;
 using Content.Server._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Decals;
-using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Maps;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
@@ -30,13 +29,10 @@ public sealed class CosmicCorruptingSystem : EntitySystem
         new(1, -1),
     ];
 
-    [Dependency] private readonly IMapManager _mapManager = default!;
+
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinition = default!;
-    [Dependency] private readonly DecalSystem _decalSystem = default!;
-    [Dependency] private readonly SharedDecalSystem _decal = default!;
-    [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly TurfSystem _turfs = default!;
 
@@ -105,7 +101,6 @@ public sealed class CosmicCorruptingSystem : EntitySystem
 
             if (_rand.Prob(ent.Comp.CorruptionChance)) //if it rolls good
             {
-
                 //replace & variantise the tile
                 _map.SetTile(gridUid, mapGrid, pos, new Tile(convertTile.TileId, variant: _tile.PickVariant(convertTile)));
 
