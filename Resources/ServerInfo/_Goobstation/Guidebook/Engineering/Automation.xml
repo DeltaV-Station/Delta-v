@@ -122,4 +122,25 @@ In the future, you wil also be able to use automated disposal units to flush ite
 
 You can also use a chain or robotic arms for transportation, but this is power inefficient.
 
+## Radiation Collector and gas canister ports
+
+Both the radiator collector and gas canisters can be also upgraded with an automation upgrade kit. This will allow to automate insertion and extraction of gas tanks and add a series of signal ports.
+
+Upon applying the automation upgrade gas canisters will gain a series of signal ports:
+
+Input:
+- Open - opens the gas release valve
+- Close - closes the release valve
+- Toggle - toggles the state of the release valve
+
+
+With an upgrade, the radiation collector will gain the following signal ports:
+
+Output:
+- RadEmpty - sets signal to HIGH if the gas tank is either missing or below 33% pressure. Otherwise, outputs a LOW signal.
+- RadLow - sets signal to HIGH if the gas tank is below 66% pressure. Otherwise, outputs a LOW signal.
+- RadHigh- sets signal to HIGH if the gas tank is above 66% pressure. Otherwise, outputs a LOW signal.
+
+You can use an Edge Detector (crafted in the construction menu) to differentiate between a HIGH and LOW signals.
+
 </Document>

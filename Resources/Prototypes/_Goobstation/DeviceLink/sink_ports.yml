@@ -82,3 +82,15 @@
   id: AutomationSlotGasTank
   name: signal-port-name-automation-slot-gas-tank
   description: signal-port-description-automation-slot-gas-tank
+
+# Fax Machine
+
+- type: sinkPort
+  id: AutomationSlotPaper
+  name: signal-port-name-automation-slot-paper
+  description: signal-port-description-automation-slot-paper
+
+- type: sinkPort
+  id: FaxCopy
+  name: signal-port-name-fax-copy
+  description: signal-port-description-fax-copy
