@@ -46,9 +46,10 @@
     range: -1
     checkCanAccess: false
     checkCanInteract: false
-    useDelay: 300
+    useDelay: 0
     event: !type:StationAiLightSynthesizerActionEvent
-      bulbPrototype: LightTube
+      bulbPrototype: LightBulb
+      tubePrototype: LightTube
 
 - type: entity
   id: ActionStationAiBikeHorn
