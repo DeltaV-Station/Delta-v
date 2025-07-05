@@ -48,6 +48,11 @@
   - type: StaticPrice
     price: 800
   - type: ResearchClient
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedMaterialStorage
+      input: AutomationSlotMaterials
+      output: null
   - type: TechnologyDatabase
     supportedDisciplines: # DeltaV - don't add it to every map
     - Industrial
@@ -282,6 +287,7 @@
     - CameraBoards
     - MechBoards
     - ShuttleBoards
+    - EngineeringBoardsGoob #Goob Factorio port
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards
