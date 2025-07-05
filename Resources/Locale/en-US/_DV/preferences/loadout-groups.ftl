@@ -74,6 +74,7 @@ loadout-group-psychologist-head = Psychologist head
 loadout-group-psychologist-outerclothing = Psychologist outer clothing
 loadout-group-psychologist-shoes = Psychologist shoes
 loadout-group-psychologist-id-delta = Psychologist PDA
+loadout-group-psychologist-belt = Psychologist Belt
 
 loadout-group-surgeon-head = Surgeon head
 loadout-group-surgeon-mask = Surgeon mask
