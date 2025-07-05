@@ -198,3 +198,14 @@
   - type: MappingCategories
     categories:
     - Debug
+
+- type: entity
+  parent: ComputerCrewMonitoring
+  id: ComputerCrewMonitoringSyndicate
+  suffix: Syndicate, Long Range
+  components:
+  # TODO: unique sprite please someone
+  - type: LongRangeCrewMonitor
+  - type: MappingCategories
+    categories:
+    - Syndicate
