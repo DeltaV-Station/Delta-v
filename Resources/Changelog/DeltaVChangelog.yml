@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Darkmajia, Lyndomen
-  changes:
-  - message: Ports turret fixes from Impstation, they may now shoot at prone entities.
-      Grenades can also hit prone entities.
-    type: Tweak
-  id: 1010
-  time: '2025-02-06T19:57:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2910
 - author: AeraAuling
   changes:
   - message: due to budget cuts, Nanotrasen has started stocking their stations with
@@ -4145,3 +4137,10 @@
   id: 1509
   time: '2025-07-03T15:53:10.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4033
+- author: Git-Kanbaru
+  changes:
+  - message: Harpies now properly poisoned by theobromine and allicin
+    type: Fix
+  id: 1510
+  time: '2025-07-05T04:35:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4034
