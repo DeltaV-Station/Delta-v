@@ -253,6 +253,16 @@
   - type: IdCard
     jobTitle: job-alt-title-cryogenics-specialist
 
+# Chemist
+
+- type: entity
+  parent: ChemistIDCard
+  id: PharmacistIDCard
+  name: pharmacist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-pharmacist
+
 # Psychologist
 
 - type: entity
