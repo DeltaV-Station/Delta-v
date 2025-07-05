@@ -28,6 +28,9 @@ using Robust.Shared.Map.Components;
 using Content.Shared.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
+using Robust.Shared.Containers;
+using Content.Shared.Storage.Components;
+using Content.Shared.Storage.EntitySystems;
 
 namespace Content.Shared._Impstation.Replicator;
 
@@ -55,12 +58,11 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly SharedEntityStorageSystem _entStorage = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<ReplicatorNestComponent, StepTriggeredOffEvent>(OnStepTriggered);
 
         SubscribeLocalEvent<ReplicatorComponent, ReplicatorUpgradeActionEvent>(OnUpgrade);
     }
@@ -84,44 +86,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         }
     }
 
-    private void OnStepTriggered(Entity<ReplicatorNestComponent> ent, ref StepTriggeredOffEvent args)
-    {
-        // dont accept if they are already falling
-        if (HasComp<ReplicatorNestFallingComponent>(args.Tripper))
-            return;
-
-        // *reject* if blacklisted
-        if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, args.Tripper))
-        {
-            if (TryComp<PullableComponent>(args.Tripper, out var pullable) && pullable.BeingPulled)
-                _pulling.TryStopPull(args.Tripper, pullable);
-
-            var xform = Transform(ent);
-            var xformQuery = GetEntityQuery<TransformComponent>();
-            var worldPos = _xform.GetWorldPosition(xform, xformQuery);
-
-            var direction = _xform.GetWorldPosition(args.Tripper, xformQuery) - worldPos;
-            _throwing.TryThrow(args.Tripper, direction * 10, 7, ent, 0);
-            return;
-        }
-
-        var isReplicator = HasComp<ReplicatorComponent>(args.Tripper);
-
-        // Allow dead replicators regardless of current level.
-        if (TryComp<MobStateComponent>(args.Tripper, out var mobState) && isReplicator && _mobState.IsDead(args.Tripper))
-        {
-            StartFalling(ent, args.Tripper);
-            return;
-        }
-
-        // Don't allow living beings. If you want those sweet bonus points, you have to kill.
-        if (mobState != null && _mobState.IsAlive(args.Tripper))
-            return;
-
-        StartFalling(ent, args.Tripper);
-    }
-
-    private void StartFalling(Entity<ReplicatorNestComponent> ent, EntityUid tripper, bool playSound = true)
+    public void StartFalling(Entity<ReplicatorNestComponent> ent, EntityUid tripper, bool playSound = true)
     {
         HandlePoints(ent, tripper);
 
