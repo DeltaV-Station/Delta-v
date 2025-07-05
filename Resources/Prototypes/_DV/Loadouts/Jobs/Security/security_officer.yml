@@ -78,6 +78,22 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecTurtle
 
+- type: loadout
+  id: SeniorSecOfficerFormalSuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecFormal
+
+- type: loadout
+  id: SeniorSecOfficerFormalSkirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSecFormal
+
 # OuterClothing
 
 - type: loadout
