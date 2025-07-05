@@ -205,6 +205,7 @@ loadout-group-medical-glasses = Medical glasses
 loadout-group-reporter-jumpsuit = Reporter jumpsuit
 
 loadout-group-psychologist-jumpsuit = Psychologist jumpsuit
+loadout-group-psychologist-belt = Psychologist Belt
 
 loadout-group-boxer-jumpsuit = Boxer jumpsuit
 loadout-group-boxer-gloves = Boxer gloves
