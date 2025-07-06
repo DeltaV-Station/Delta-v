@@ -773,6 +773,13 @@
   - ResidentPDA
 
 - type: loadoutGroup
+  id: ChemistryPDA
+  name: loadout-group-chemist-id
+  loadouts:
+  - ChemistryPDA
+  - PharmacistPDA # DeltaV
+
+- type: loadoutGroup
   id: AtmosPDADelta
   name: loadout-group-atmos-id-delta
   loadouts:
