@@ -26,6 +26,11 @@ public sealed class ComponentTogglerSystem : EntitySystem
             ent.Comp.Target = target;
 
             EntityManager.AddComponents(target, ent.Comp.Components);
+
+            // Begin DeltaV - allow swapping components
+            if (ent.Comp.DeactivatedComponents is { } deactivatedComps)
+                EntityManager.RemoveComponents(target, deactivatedComps);
+            // End DeltaV
         }
         else
         {
@@ -36,6 +41,11 @@ public sealed class ComponentTogglerSystem : EntitySystem
                 return;
 
             EntityManager.RemoveComponents(ent.Comp.Target.Value, ent.Comp.RemoveComponents ?? ent.Comp.Components);
+
+            // Begin DeltaV - allow swapping components
+            if (ent.Comp.DeactivatedComponents is { } reactivatedComps)
+                EntityManager.AddComponents(ent.Comp.Target.Value, reactivatedComps);
+            // End DeltaV
         }
     }
 }

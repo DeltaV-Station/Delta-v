@@ -139,6 +139,9 @@
   - type: SpentAmmoVisuals
     state: frag
     suffix: false
+  - type: Tag # DeltaV - Changing Whitelist Tag
+    tags:
+    - CleaningGrenade
 
 - type: entity
   id: GrenadeEMP
