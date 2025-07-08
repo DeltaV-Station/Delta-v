@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 07/07/2025 23:01:40
-  entityCount: 25769
+  time: 07/08/2025 17:53:17
+  entityCount: 25790
 maps:
 - 1
 grids:
@@ -9050,6 +9050,16 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 47.5,20.5
+      parent: 2
+  - uid: 25779
+    components:
+    - type: Transform
+      pos: -53.5,-0.5
+      parent: 2
+  - uid: 25780
+    components:
+    - type: Transform
+      pos: -57.5,-3.5
       parent: 2
 - proto: AirlockMaintHeadOfSecurityLocked
   entities:
@@ -56933,13 +56943,6 @@ entities:
     - type: Transform
       pos: 32.755375,12.801209
       parent: 2
-- proto: ClothingHeadHatHairflower
-  entities:
-  - uid: 25741
-    components:
-    - type: Transform
-      pos: 44.685284,34.54488
-      parent: 2
 - proto: ClothingHeadHatHardhatOrange
   entities:
   - uid: 9760
@@ -70957,6 +70960,13 @@ entities:
     components:
     - type: Transform
       pos: -3.5064795,28.717031
+      parent: 2
+- proto: FoodPoppy
+  entities:
+  - uid: 25741
+    components:
+    - type: Transform
+      pos: 44.685284,34.54488
       parent: 2
 - proto: FoodShakerPepper
   entities:
@@ -124743,6 +124753,16 @@ entities:
     - type: Transform
       pos: 17.5,-21.5
       parent: 2
+  - uid: 25781
+    components:
+    - type: Transform
+      pos: -55.5,-3.5
+      parent: 2
+  - uid: 25782
+    components:
+    - type: Transform
+      pos: -53.5,-1.5
+      parent: 2
 - proto: RandomPosterContraband
   entities:
   - uid: 19492
@@ -125596,6 +125616,16 @@ entities:
     components:
     - type: Transform
       pos: 41.5,13.5
+      parent: 2
+  - uid: 25789
+    components:
+    - type: Transform
+      pos: -14.5,14.5
+      parent: 2
+  - uid: 25790
+    components:
+    - type: Transform
+      pos: -27.5,28.5
       parent: 2
 - proto: RandomProduce
   entities:
@@ -133204,6 +133234,83 @@ entities:
     components:
     - type: Transform
       pos: -25.5,37.5
+      parent: 2
+- proto: SpawnPointLocationMidRoundAntag
+  entities:
+  - uid: 25770
+    components:
+    - type: Transform
+      pos: 10.5,-26.5
+      parent: 2
+  - uid: 25771
+    components:
+    - type: Transform
+      pos: 47.5,-28.5
+      parent: 2
+  - uid: 25772
+    components:
+    - type: Transform
+      pos: 52.5,5.5
+      parent: 2
+  - uid: 25773
+    components:
+    - type: Transform
+      pos: 33.5,15.5
+      parent: 2
+  - uid: 25774
+    components:
+    - type: Transform
+      pos: 16.5,42.5
+      parent: 2
+  - uid: 25775
+    components:
+    - type: Transform
+      pos: -7.5,20.5
+      parent: 2
+  - uid: 25776
+    components:
+    - type: Transform
+      pos: -28.5,27.5
+      parent: 2
+  - uid: 25777
+    components:
+    - type: Transform
+      pos: -37.5,0.5
+      parent: 2
+  - uid: 25778
+    components:
+    - type: Transform
+      pos: -56.5,-4.5
+      parent: 2
+  - uid: 25783
+    components:
+    - type: Transform
+      pos: -44.5,10.5
+      parent: 2
+  - uid: 25784
+    components:
+    - type: Transform
+      pos: 12.5,21.5
+      parent: 2
+  - uid: 25785
+    components:
+    - type: Transform
+      pos: 20.5,9.5
+      parent: 2
+  - uid: 25786
+    components:
+    - type: Transform
+      pos: 24.5,52.5
+      parent: 2
+  - uid: 25787
+    components:
+    - type: Transform
+      pos: -16.5,52.5
+      parent: 2
+  - uid: 25788
+    components:
+    - type: Transform
+      pos: -38.5,47.5
       parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
