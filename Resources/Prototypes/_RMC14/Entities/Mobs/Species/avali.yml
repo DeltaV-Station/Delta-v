@@ -10,6 +10,14 @@
     hideLayersOnEquip:
     - HeadTop
     - HeadSide
+  - type: Hunger # DeltaV
+  - type: Thirst # DeltaV
+  - type: Icon # DeltaV
+    sprite: _RMC14/Mobs/Avali/parts.rsi
+    state: full
+  - type: Body # DeltaV
+    prototype: Avali
+    requiredLegs: 2
   - type: Sprite
     drawdepth: Mobs
   - type: Vocal
@@ -25,12 +33,33 @@
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#7a8bf2"
-  - type: MeleeWeapon
+  - type: MeleeWeapon # DeltaV
     soundHit:
       path: /Audio/Weapons/pierce.ogg
+    damage:
+      types:
+        Slash: 5 # DeltaV - sharp claws
     animation: WeaponArcClaw
   - type: Inventory
     speciesId: avali
+  - type: Temperature # DeltaV - thrives in the cold, like moths
+    heatDamageThreshold: 320
+    coldDamageThreshold: 230
+    currentTemperature: 310.15
+    specificHeat: 46
+    coldDamage:
+      types:
+        Cold : 0.05
+    heatDamage:
+      types:
+        Heat : 1.5
+  - type: TemperatureSpeed # DeltaV
+    thresholds:
+      289: 0.8
+      275: 0.6
+      250: 0.4
+# - type: FixedIdentity
+#   name: cm-chatsan-replacement-avali # DeltaV - unneeded
 
 - type: entity
   parent: BaseSpeciesDummy

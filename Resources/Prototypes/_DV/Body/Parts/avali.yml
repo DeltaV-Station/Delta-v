@@ -1,0 +1,90 @@
+- type: entity
+  id: PartAvali
+  parent: [BaseItem, BasePart]
+  name: "avali body part"
+  abstract: true
+  components:
+  - type: Sprite # Shitmed Change
+    sprite: _RMC14/Mobs/Avali/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Avali
+
+- type: entity
+  id: TorsoAvali
+  name: "avali torso"
+  parent: [PartAvali, BaseTorso]
+  components:
+  - type: Sprite
+    state: "torso"
+
+- type: entity
+  id: HeadAvali
+  name: "avali head"
+  parent: [PartAvali, BaseHead]
+  components:
+  - type: Sprite
+    state: "head"
+
+- type: entity
+  id: LeftArmAvali
+  name: "left avali arm"
+  parent: [PartAvali, BaseLeftArm]
+  components:
+  - type: Sprite
+    state: "l_arm"
+
+- type: entity
+  id: RightArmAvali
+  name: "right avali arm"
+  parent: [PartAvali, BaseRightArm]
+  components:
+  - type: Sprite
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandAvali
+  name: "left avali hand"
+  parent: [PartAvali, BaseLeftHand]
+  components:
+  - type: Sprite
+    state: "l_hand"
+
+- type: entity
+  id: RightHandAvali
+  name: "right avali hand"
+  parent: [PartAvali, BaseRightHand]
+  components:
+  - type: Sprite
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegAvali
+  name: "left avali leg"
+  parent: [PartAvali, BaseLeftLeg]
+  components:
+  - type: Sprite
+    state: "l_leg"
+
+- type: entity
+  id: RightLegAvali
+  name: "right avali leg"
+  parent: [PartAvali, BaseRightLeg]
+  components:
+  - type: Sprite
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootAvali
+  name: "left avali foot"
+  parent: [PartAvali, BaseLeftFoot]
+  components:
+  - type: Sprite
+    state: "l_foot"
+
+- type: entity
+  id: RightFootAvali
+  name: "right avali foot"
+  parent: [PartAvali, BaseRightFoot]
+  components:
+  - type: Sprite
+    state: "r_foot"
