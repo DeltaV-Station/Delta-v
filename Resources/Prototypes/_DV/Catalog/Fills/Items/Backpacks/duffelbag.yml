@@ -29,3 +29,15 @@
     - id: Multitool
     - id: ChemistryBottleChloralHydrate # stronger than n2o as you can be awake during safe operation
     - id: Syringe
+
+- type: entity
+  parent: ClothingBackpackDuffelMedical
+  id: ClothingBackpackDuffelRecruiterInterdyne
+  suffix: Interdyne, Uniform
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskInterdyneChemistry
+    - id: ClothingEyesGlassesChemicalInterdyne
+    - id: ClothingOuterInterdyneChemistrySuit
+    - id: ClothingUniformInterdyneChemist
