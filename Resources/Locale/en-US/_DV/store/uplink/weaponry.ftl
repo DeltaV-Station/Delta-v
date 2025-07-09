@@ -5,3 +5,6 @@ uplink-home-run-bat-desc = Rigged bat pre-coated in blood for Syndicate tee-ball
 
 uplink-foam-sabre-name = Sharp Foam Sabre
 uplink-foam-sabre-desc = A blade disguised as a toy foam sabre. Perfect for assassins that pretend playing around.
+
+uplink-rigged-laser-tag-gun-name = Rigged Laser Tag Gun
+uplink-rigged-laser-tag-gun-desc = This laser tag gun has been tampered with to fire a much more harmful laser and can switch modes to be more covert and look like a regular laser tag gun.
