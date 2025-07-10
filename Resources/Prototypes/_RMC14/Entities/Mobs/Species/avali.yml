@@ -22,42 +22,65 @@
     drawdepth: Mobs
   - type: Vocal
     sounds:
-      Male: RMCMaleAvali
-      Unsexed: RMCMaleAvali
-      Female: RMCFemaleAvali
+      Male: RMCUnisexAvali # DeltaV - vocal fix
+      Unsexed: RMCUnisexAvali
+      Female: RMCUnisexAvali
   - type: Speech
     speechVerb: Parrot # Didn't come with one
     speechSounds: MaleAvali
+  - type: Fixtures # DeltaV - somewhat lower weight
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 160
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#7a8bf2"
+  - type: Bloodstream # DeltaV
+    bloodReagent: AmmoniaBlood
+  - type: PlayerAccuracyModifier # DeltaV - more accurate with firearms
+    spreadMultiplier: 0.65
+  - type: BonusMeleeDamage # DeltaV - significantly weaker with melee
+    damageModifierSet:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.75
+        Piercing: 0.85
   - type: MeleeWeapon # DeltaV
     soundHit:
       path: /Audio/Weapons/pierce.ogg
     damage:
       types:
-        Slash: 5 # DeltaV - sharp claws
+        Slash: 6.5 # DeltaV - evens out to about 5 after damage modifier
     animation: WeaponArcClaw
   - type: Inventory
     speciesId: avali
-  - type: Temperature # DeltaV - thrives in the cold, like moths
-    heatDamageThreshold: 320
-    coldDamageThreshold: 230
+  - type: Temperature # DeltaV - thrives in the cold, similar to moths
+    heatDamageThreshold: 315
+    coldDamageThreshold: 225
     currentTemperature: 310.15
-    specificHeat: 46
+    specificHeat: 25 # DeltaV - makes temp more lethal
     coldDamage:
       types:
         Cold : 0.05
     heatDamage:
       types:
-        Heat : 1.5
-  - type: TemperatureSpeed # DeltaV
+        Heat : 5 # DeltaV - extremely high
+    damageCap: 20 # DeltaV - greatly increased temp damage cap
+  - type: TemperatureSpeed # DeltaV - less punishing cold
     thresholds:
-      289: 0.8
-      275: 0.6
-      250: 0.4
+      289: 0.9
+      275: 0.75
+      250: 0.65
 # - type: FixedIdentity
 #   name: cm-chatsan-replacement-avali # DeltaV - unneeded
 
