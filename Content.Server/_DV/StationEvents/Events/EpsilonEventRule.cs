@@ -60,9 +60,10 @@ namespace Content.Server.StationEvents.Events
                 }
             }
 
-            component.Unpowered.Clear();
-
-            _alertLevelSystem.SetLevel(component.AffectedStation, "epsilon", true, true, true); //From AlertLevelInterceptionRule.cs
+            if (TryComp(component.AffectedStation, out AlertLevelComponent? _))
+            {
+                _alertLevelSystem.SetLevel(component.AffectedStation, component.AlertLevel, true, true, true); //From AlertLevelInterceptionRule.cs
+            }
 
             // Can't use the default EndAudio
             if (component.PlaySoundOnEnd)
@@ -74,6 +75,7 @@ namespace Content.Server.StationEvents.Events
                     Audio.PlayGlobal(component.PowerOnSound, Filter.Broadcast(), true);
                 }, component.AnnounceCancelToken.Token);
             }
+            component.Unpowered.Clear();
         }
 
         protected override void ActiveTick(EntityUid uid, EpsilonEventRuleComponent component, GameRuleComponent gameRule, float frameTime)

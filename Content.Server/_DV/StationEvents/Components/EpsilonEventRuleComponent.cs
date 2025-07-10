@@ -19,6 +19,7 @@ public sealed partial class EpsilonEventRuleComponent : Component
     /// Sound of the announcement to play when power is back on.
     /// </summary>
     [DataField]
+    public string AlertLevel = "epsilon";
     public bool PlaySoundOnEnd = false;
     public SoundSpecifier PowerOnSound = new SoundCollectionSpecifier(DefaultPowerOn, AudioParams.Default.WithVolume(-4f));
 
