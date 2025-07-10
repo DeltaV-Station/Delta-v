@@ -575,9 +575,9 @@
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/Tesla/energy_miniball.rsi
-    shader: unshaded
     layers:
     - state: tesla_projectile
+      shader: unshaded
   - type: Item
     inhandVisuals:
       left:
@@ -609,8 +609,9 @@
   components:
   - type: Sprite
     sprite: Objects/Fun/pondering_orb.rsi
-    state: icon
-    shader: unshaded
+    layers:
+    - state: icon
+      shader: unshaded
   - type: PointLight
     radius: 2
     color: "#00CCFF"
@@ -851,7 +852,6 @@
   - type: Sprite
     sprite: Objects/Fun/whoopie.rsi
     state: icon
-    quickEquip: false
   - type: Tag
     tags:
     - Payload
