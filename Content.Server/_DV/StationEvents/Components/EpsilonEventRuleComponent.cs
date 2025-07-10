@@ -10,7 +10,6 @@ namespace Content.Server.StationEvents.Components;
 [RegisterComponent, Access(typeof(EpsilonEventRule))]
 public sealed partial class EpsilonEventRuleComponent : Component
 {
-    /* Remove the announcement sound playing.
     /// <summary>
     /// Default sound of the announcement when power is back on.
     /// </summary>
@@ -20,10 +19,10 @@ public sealed partial class EpsilonEventRuleComponent : Component
     /// Sound of the announcement to play when power is back on.
     /// </summary>
     [DataField]
+    public bool PlaySoundOnEnd = false;
     public SoundSpecifier PowerOnSound = new SoundCollectionSpecifier(DefaultPowerOn, AudioParams.Default.WithVolume(-4f));
 
     public CancellationTokenSource? AnnounceCancelToken;
-    */
 
     public EntityUid AffectedStation;
     public readonly List<EntityUid> Powered = new();

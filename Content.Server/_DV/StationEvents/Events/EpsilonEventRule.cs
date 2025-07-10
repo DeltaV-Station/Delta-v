@@ -59,20 +59,21 @@ namespace Content.Server.StationEvents.Events
                         _apcSystem.ApcToggleBreaker(entity, apcComponent);
                 }
             }
-            /* Remove the announcement after power comes online
 
-            // Can't use the default EndAudio
-
-            component.AnnounceCancelToken?.Cancel();
-            component.AnnounceCancelToken = new CancellationTokenSource();
-            Timer.Spawn(3000, () =>
-            {
-                Audio.PlayGlobal(component.PowerOnSound, Filter.Broadcast(), true);
-            }, component.AnnounceCancelToken.Token);
-            */
             component.Unpowered.Clear();
 
             _alertLevelSystem.SetLevel(component.AffectedStation, "epsilon", true, true, true); //From AlertLevelInterceptionRule.cs
+
+            // Can't use the default EndAudio
+            if (component.PlaySoundOnEnd)
+            {
+                component.AnnounceCancelToken?.Cancel();
+                component.AnnounceCancelToken = new CancellationTokenSource();
+                Timer.Spawn(3000, () =>
+                {
+                    Audio.PlayGlobal(component.PowerOnSound, Filter.Broadcast(), true);
+                }, component.AnnounceCancelToken.Token);
+            }
         }
 
         protected override void ActiveTick(EntityUid uid, EpsilonEventRuleComponent component, GameRuleComponent gameRule, float frameTime)
