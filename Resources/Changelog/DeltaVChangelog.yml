@@ -1,15 +1,4 @@
 ﻿Entries:
-- author: Lyndomen
-  changes:
-  - message: Nukeops no longer start with armor, but their armors are purchasable
-      in the uplink. Some are restricted by which role you have on the team (Only
-      commander can buy a suit of commander armor, etc)
-    type: Tweak
-  - message: Nukeops get 5 extra TC each
-    type: Tweak
-  id: 1017
-  time: '2025-02-08T05:40:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2916
 - author: Toby222
   changes:
   - message: Wrong text when trying to drain an empty APC as IPC
@@ -4142,3 +4131,10 @@
   id: 1516
   time: '2025-07-08T14:05:56.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4011
+- author: NoElkaTheGod
+  changes:
+  - message: Energy shield price reduced from 16 to 12 telecrystals.
+    type: Tweak
+  id: 1517
+  time: '2025-07-11T15:31:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4045
