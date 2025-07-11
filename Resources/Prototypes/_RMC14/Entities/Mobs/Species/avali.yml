@@ -49,6 +49,8 @@
     bloodReagent: AmmoniaBlood
   - type: PlayerAccuracyModifier # DeltaV - more accurate with firearms
     spreadMultiplier: 0.65
+  - type: BonusStaminaDamage
+    multiplier: 0.65 # DeltaV - less melee stamina damage
   - type: BonusMeleeDamage # DeltaV - significantly weaker with melee
     damageModifierSet:
       coefficients:
@@ -65,9 +67,9 @@
   - type: Inventory
     speciesId: avali
   - type: Temperature # DeltaV - thrives in the cold, similar to moths
-    heatDamageThreshold: 315
-    coldDamageThreshold: 225
-    currentTemperature: 310.15
+    heatDamageThreshold: 310
+    coldDamageThreshold: 223
+    currentTemperature: 296.15 # DeltaV - lower natural body temp
     specificHeat: 25 # DeltaV - makes temp more lethal
     coldDamage:
       types:
@@ -76,11 +78,19 @@
       types:
         Heat : 5 # DeltaV - extremely high
     damageCap: 20 # DeltaV - greatly increased temp damage cap
+  - type: ThermalRegulator # DeltaV - CD values
+    metabolismHeat: 400
+    radiatedHeat: 100
+    implicitHeatRegulation: 500
+    sweatHeatRegulation: 2000
+    shiveringHeatRegulation: 2000
+    normalBodyTemperature: 296.15
+    thermalRegulationTemperatureThreshold: 10
   - type: TemperatureSpeed # DeltaV - less punishing cold
     thresholds:
-      289: 0.9
-      275: 0.75
-      250: 0.65
+      279: 0.9
+      265: 0.8
+      240: 0.7
 # - type: FixedIdentity
 #   name: cm-chatsan-replacement-avali # DeltaV - unneeded
 

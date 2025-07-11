@@ -43,14 +43,16 @@
 
 - type: markingPoints
   id: MobAvaliMarkingLimits
-  onlyWhitelisted: true
+# onlyWhitelisted: true # DeltaV - some categories (underwear) must not be whitelisted
   points:
     Hair:
       points: 1
       required: false
+      onlyWhitelisted: true
     FacialHair:
       points: 0
       required: false
+      onlyWhitelisted: true
     Tail:
       points: 1
       required: true
@@ -66,7 +68,7 @@
       required: true
       defaultMarkings: [ AvaliEarsBase ]
     Chest:
-      points: 1
+      points: 2 # DeltaV
       required: false
     UndergarmentBottom: # DeltaV - modified point name
       points: 1
