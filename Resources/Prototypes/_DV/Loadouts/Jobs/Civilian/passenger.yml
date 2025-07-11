@@ -27,49 +27,138 @@
 #   id: StudentPDA
 
 # Head
-
-# Masks
-## Black Bandana
+## Black Bandana Head
 - type: loadout
   id: BlackBandana
   equipment:
-    mask: ClothingMaskBandBlack
+    head: ClothingHeadBandBlack
 
-## Blue Bandana
+## Blue Bandana Head
 - type: loadout
   id: BlueBandana
   equipment:
-    mask: ClothingMaskBandBlue
+    head: ClothingHeadBandBlue
 
-## Gold Bandana
+## Gold Bandana Head
 - type: loadout
   id: GoldBandana
   equipment:
-    mask: ClothingMaskBandGold
+    head: ClothingHeadBandGold
 
-## Green Bandana
+## Green Bandana Head
 - type: loadout
   id: GreenBandana
   equipment:
-    mask: ClothingMaskBandGreen
+    head: ClothingHeadBandGreen
 
-## Grey Bandana
+## Grey Bandana Head
 - type: loadout
   id: GreyBandana
   equipment:
-    mask: ClothingMaskBandGrey
+    head: ClothingHeadBandGrey
 
-## Red Bandana
+## Red Bandana Head
 - type: loadout
   id: RedBandana
   equipment:
-    mask: ClothingMaskBandRed
+    head: ClothingHeadBandRed
 
-## Brown Bandana
+## Brown Bandana Head
 - type: loadout
   id: BrownBandana
   equipment:
+    head: ClothingHeadBandBrown
+
+## Skull Bandana Head
+- type: loadout
+  id: SkullBandana
+  equipment:
+    head: ClothingHeadBandSkull
+
+## Beret
+- type: loadout
+  id: RedBeret
+  equipment:
+    head: ClothingHeadHatBeret
+
+## Brown Fedora
+- type: loadout
+  id: BrownFedora
+  equipment:
+    head: ClothingHeadHatFedoraBrown
+
+## Grey Fedora
+- type: loadout
+  id: GreyFedora
+  equipment:
+    head: ClothingHeadHatFedoraGrey
+
+## Outlaw Hat
+- type: loadout
+  id: OutlawHat
+  equipment:
+    head: ClothingHeadHatOutlawHat
+
+## Witch Hat
+- type: loadout
+  id: WitchHat
+  equipment:
+    head: ClothingHeadHatWitch1
+
+## Pirate Hat
+- type: loadout
+  id: PirateHat
+  equipment:
+    head: ClothingHeadHatPirate
+
+# Masks
+## Black Bandana Mask
+- type: loadout
+  id: BlackBandanaMask
+  equipment:
+    mask: ClothingMaskBandBlack
+
+## Blue Bandana Mask
+- type: loadout
+  id: BlueBandanaMask
+  equipment:
+    mask: ClothingMaskBandBlue
+
+## Gold Bandana Mask
+- type: loadout
+  id: GoldBandanaMask
+  equipment:
+    mask: ClothingMaskBandGold
+
+## Green Bandana Mask
+- type: loadout
+  id: GreenBandanaMask
+  equipment:
+    mask: ClothingMaskBandGreen
+
+## Grey Bandana Mask
+- type: loadout
+  id: GreyBandanaMask
+  equipment:
+    mask: ClothingMaskBandGrey
+
+## Red Bandana Mask
+- type: loadout
+  id: RedBandanaMask
+  equipment:
+    mask: ClothingMaskBandRed
+
+## Brown Bandana Mask
+- type: loadout
+  id: BrownBandanaMask
+  equipment:
     mask: ClothingMaskBandBrown
+
+## Skull Bandana Mask
+- type: loadout
+  id: SkullBandanaMask
+  equipment:
+    mask: ClothingMaskBandSkull
 
 # Jumpsuit
 ## Black Jumpsuit
