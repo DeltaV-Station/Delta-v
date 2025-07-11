@@ -243,6 +243,7 @@
     - components:
       - type: BatteryDrainer
       - type: StunProvider
+        cooldown: 6 # DeltaV - Made it have a 6 seconds cooldown.
         noPowerPopup: ninja-no-power
         whitelist:
           components:
@@ -275,6 +276,10 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+  - type: DamageOnShootProtection # imp
+    damageProtection: 
+      flatReductions:
+        Blunt: 4   
 
 # can't parent combat gloves since they are butcherable
 - type: entity
@@ -290,6 +295,10 @@
   - type: Insulated
   - type: Fiber
     fiberColor: fibers-black
+  - type: DamageOnShootProtection # imp - These are just reskinned combat gloves
+    damageProtection: 
+      flatReductions:
+        Blunt: 4   
 
 - type: entity
   parent: [ BaseSecurityCargoContraband, ClothingHandsGlovesCombat ]
@@ -308,6 +317,10 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-olive
+  - type: DamageOnShootProtection # imp
+    damageProtection: 
+      flatReductions:
+        Blunt: 4   
 
 - type: entity
   parent: ClothingHandsButcherable

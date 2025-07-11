@@ -1,0 +1,74 @@
+- type: entity
+  name: Leviathan
+  parent: [ BaseWeaponLauncher, BaseGunWieldable ]
+  id: WeaponLauncherBazooka
+  description: Rumor has it, the original commissioner of the Leviathan continuously escalated their demands resulting in the sheer, destructive behemoth before you. Its manual strongly recommends the use of powered armor when operating this weapon.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/leviathan.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/leviathan.rsi
+  - type: HeldSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.6
+  - type: GunRequiresWield  
+  - type: Gun
+    fireRate: 0.5
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/leviathan.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeBazooka
+    proto: CartridgeBazookaExp
+    capacity: 1
+    soundInsert:
+      path: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: DamageOnShoot
+    damage:
+      types:
+        Blunt: 8
+    stunChance: 1
+    stunSeconds: 5
+    popupText: damage-on-shoot-leviathan
+    damageSound: /Audio/Weapons/boxingpunch3.ogg
+  - type: Appearance
+  - type: MeleeWeapon
+    range: 1
+    attackRate: 0.2
+    damage:
+      types:
+        Blunt: 16
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    damage:
+      types:
+        Blunt: 20
+  - type: StaminaDamageOnHit
+    damage: 50
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.5
+    speed: 5
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,8,0
+    - 0,1,8,1
+    - 0,2,8,2
