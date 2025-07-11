@@ -164,13 +164,10 @@
   - type: Store
     balance:
       Telecrystal: 0
-  - type: Contracts # DeltaV - Forced 0 reputation to prevent buying bloodreds etc on it
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.ContractsUiKey.Key: # DeltaV
-        type: ContractsBUI
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -338,7 +335,7 @@
   parent: BaseSubdermalImplant
   id: MindShieldImplant
   name: mindshield implant
-  description: This implant will ensure loyalty to Nanotrasen and prevent mind control devices.
+  description: This implant will shield the brain from external influences and prevent mind control devices. # DeltaV - mindshield does not enforce loyalty
   categories: [ HideSpawnMenu ]
   components:
    - type: SubdermalImplant

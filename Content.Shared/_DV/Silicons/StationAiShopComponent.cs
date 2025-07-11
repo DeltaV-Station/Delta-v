@@ -31,6 +31,8 @@ public sealed partial class StationAiLightSynthesizerActionEvent : EntityTargetA
 {
     [DataField(required: true)]
     public EntProtoId BulbPrototype;
+    [DataField(required: true)]
+    public EntProtoId TubePrototype;
 }
 
 /// <summary>

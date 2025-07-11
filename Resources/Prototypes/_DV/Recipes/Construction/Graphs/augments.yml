@@ -7,7 +7,7 @@
     - to: casing
       steps:
       - tag: AugmentCellCasing
-        name: casing
+        name: construction-graph-tag-augment-casing
         icon:
           sprite: _DV/Objects/Augments/power.rsi
           state: incomplete_cell
@@ -37,7 +37,7 @@
     - to: casing
       steps:
       - tag: AugmentChargerCasing
-        name: casing
+        name: construction-graph-tag-augment-casing
         icon:
           sprite: _DV/Objects/Augments/power.rsi
           state: incomplete_charger
@@ -54,14 +54,14 @@
     - to: apc
       steps:
       - tag: AugmentAPCBoard
-        name: "cell recharger machine board"
+        name: construction-graph-tag-cell-recharger-board
         icon:
           sprite: Objects/Misc/module.rsi
           state: charger_APC
     - to: station
       steps:
       - tag: AugmentStationBoard
-        name: "cyborg recharging station machine board"
+        name: construction-graph-tag-cyborg-recharger-board
         icon:
           sprite: Objects/Misc/module.rsi
           state: charger_APC
@@ -79,7 +79,7 @@
     - to: casing
       steps:
       - tag: AugmentToolPanelCasing
-        name: casing
+        name: construction-graph-tag-augment-casing
         icon:
           sprite: _DV/Objects/Augments/arm.rsi
           state: base
@@ -96,28 +96,28 @@
     - to: "botany tools panel"
       steps:
       - tag: AugmentBotanyToolBelt
-        name: botany tools panel electronics
+        name: construction-graph-tag-botany-tools-panel
         icon:
           sprite: Objects/Misc/module.rsi
           state: mainboard
     - to: "paperwork tools panel"
       steps:
       - tag: AugmentPaperworkToolBelt
-        name: paperwork tools panel electronics
+        name: construction-graph-tag-paperwork-tools-panel
         icon:
           sprite: Objects/Misc/module.rsi
           state: mainboard
     - to: "utility tools panel"
       steps:
       - tag: AugmentToolBelt
-        name: utility tools panel electronics
+        name: construction-graph-tag-utility-tools-panel
         icon:
           sprite: Objects/Misc/module.rsi
           state: mainboard
     - to: "surgery tools panel"
       steps:
       - tag: AugmentSurgeryToolBelt
-        name: surgery tools panel electronics
+        name: construction-graph-tag-surgery-tools-panel
         icon:
           sprite: Objects/Misc/module.rsi
           state: mainboard

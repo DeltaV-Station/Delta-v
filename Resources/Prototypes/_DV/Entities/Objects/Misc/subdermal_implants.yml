@@ -84,6 +84,18 @@
   - type: Rattle
     radioChannel: Security
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: CentCommImplant
+  name: centcomm implant
+  description: This implant includes a MindShield and something labeled as "antag immune"? Whatever that is.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: AntagImmune
+    - type: MindShield
+
 # Nukie implants
 
 - type: entity
@@ -102,3 +114,14 @@
   - type: AddFactionsImplant
     factions:
     - Hostage
+
+- type: entity
+  parent: UplinkImplant
+  id: NukeopsUplinkImplant
+  name: uplink implant
+  description: This implant lets the user access a hidden Nuclear Operative uplink at will.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - NukeOpsUplink

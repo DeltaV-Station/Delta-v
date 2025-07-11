@@ -19,16 +19,16 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.6
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.4
-        Heat: 0.4
-        Radiation: 0.4
-        Caustic: 0.4
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+        Radiation: 0.6
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -39,6 +39,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+    - HidesHarpyWings
 #Shoulder mounted flashlight
   - type: ToggleableLightVisuals
     spriteLayer: light
@@ -82,7 +83,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
-
+  - type: TypingIndicatorClothing
+    proto: CosmicTyping
 
 # COSMIC CULT HARDSUIT HELMET
 - type: entity

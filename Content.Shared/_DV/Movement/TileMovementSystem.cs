@@ -33,7 +33,9 @@ public sealed class TileMovementSystem : EntitySystem
     private EntityQuery<MobMoverComponent> _mobMoverQuery;
     private EntityQuery<MovementSpeedModifierComponent> _modifierQuery;
     private EntityQuery<NoRotateOnMoveComponent> _noRotQuery;
+    private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<PullerComponent> _pullerQuery;
+    private EntityQuery<RelayInputMoverComponent> _relayQuery;
 
     private HashSet<EntityUid> _ticked = new();
 
@@ -47,7 +49,9 @@ public sealed class TileMovementSystem : EntitySystem
         _mobMoverQuery = GetEntityQuery<MobMoverComponent>();
         _modifierQuery = GetEntityQuery<MovementSpeedModifierComponent>();
         _noRotQuery = GetEntityQuery<NoRotateOnMoveComponent>();
+        _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _pullerQuery = GetEntityQuery<PullerComponent>();
+        _relayQuery = GetEntityQuery<RelayInputMoverComponent>();
 
         SubscribeLocalEvent<TileMovementComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<TileMovementComponent, PullStartedMessage>(OnPullStarted);
@@ -63,16 +67,12 @@ public sealed class TileMovementSystem : EntitySystem
 
     private void OnMapInit(Entity<TileMovementComponent> ent, ref MapInitEvent args)
     {
-        if (!TryComp<InputMoverComponent>(ent, out var mover))
-            return;
-
-        if (GetTarget((ent, mover)) is not {} target)
+        if (GetTarget(ent) is not {} target)
             return;
 
         // when adding tile movement immediately move them to the tile center
-        var player = (ent, mover, ent.Comp);
-        StartSlideTo(player, target, target.Comp2.LocalPosition);
-        UpdateSlide(player, target);
+        StartSlideTo(target, target.Comp4.LocalPosition);
+        UpdateSlide(target);
     }
 
     private void OnPullStarted(Entity<TileMovementComponent> ent, ref PullStartedMessage args)
@@ -99,18 +99,17 @@ public sealed class TileMovementSystem : EntitySystem
         RemCompDeferred(ent, ent.Comp);
     }
 
-    // crazy that this isnt in MoverController and client/server copy paste it
-    private Entity<PhysicsComponent, TransformComponent>? GetTarget(Entity<InputMoverComponent> player)
+    private Entity<InputMoverComponent, TileMovementComponent, PhysicsComponent, TransformComponent>? GetTarget(EntityUid player)
     {
-        var xform = Transform(player);
-        var target = player.Owner;
-        if (player.Comp.ToParent && HasComp<RelayInputMoverComponent>(xform.ParentUid))
-            target = xform.ParentUid;
+        if (_relayQuery.TryComp(player, out var relay))
+            player = relay.RelayEntity;
 
-        if (!TryComp<PhysicsComponent>(target, out var physics))
+        if (!_query.TryComp(player, out var comp) ||
+            !_moverQuery.TryComp(player, out var mover) ||
+            !_physicsQuery.TryComp(player, out var physics))
             return null;
 
-        return (target, physics, Transform(target));
+        return (player, mover, comp, physics, Transform(player));
     }
 
     private TimeSpan CurrentTime => _physics.EffectiveCurTime ?? _timing.CurTime;
@@ -127,14 +126,16 @@ public sealed class TileMovementSystem : EntitySystem
     /// <param name="target">The movement target if not the player, i.e. a mech</param>
     /// <returns>True if it was handled</returns>
     public bool TryTick(
-        Entity<InputMoverComponent, MovementRelayTargetComponent?> player,
-        Entity<PhysicsComponent, TransformComponent> target,
+        Entity<InputMoverComponent, PhysicsComponent, TransformComponent> player,
+        EntityUid? relaySource,
         ContentTileDefinition? tileDef,
         bool weightless,
         float frameTime)
     {
         if (!_query.TryComp(player, out var comp))
             return false;
+
+        var ent = (player.Owner, player.Comp1, comp, player.Comp2, player.Comp3);
 
         // let client predict pulled movement so it looks good
         // this is needed since client only predicts its own movement
@@ -145,9 +146,9 @@ public sealed class TileMovementSystem : EntitySystem
         SetWeightless((player, comp), weightless);
 
         // no tiles in space...
-        if (weightless || target.Comp1.BodyStatus != BodyStatus.OnGround)
+        if (weightless || player.Comp2.BodyStatus != BodyStatus.OnGround)
         {
-            EndSlide((player, comp), (target, target.Comp1));
+            EndSlide((player, comp, player.Comp2));
             SetButtons((player, comp), MoveButtons.None);
             return false;
         }
@@ -156,9 +157,9 @@ public sealed class TileMovementSystem : EntitySystem
         // a slide towards the center of the tile we're on. It just ends up feeling better this way.
         if (wasWeightless)
         {
-            StartSlideTo((player, player.Comp1, comp), target, target.Comp2.LocalPosition);
+            StartSlideTo(ent, player.Comp3.LocalPosition);
             SetButtons((player, comp), MoveButtons.None);
-            UpdateSlide((player, player.Comp1, comp), target);
+            UpdateSlide(ent);
             return true;
         }
 
@@ -166,52 +167,49 @@ public sealed class TileMovementSystem : EntitySystem
         var buttons = StripWalk(player.Comp1.HeldMoveButtons);
         if (buttons == MoveButtons.None && !comp.SlideActive)
         {
-            var velocity = target.Comp1.LinearVelocity;
+            var velocity = player.Comp2.LinearVelocity;
             var moveSpeed = _modifierQuery.CompOrNull(player);
             var friction = GetEntityFriction(player.Comp1, moveSpeed, tileDef);
             var minSpeed = moveSpeed?.MinimumFrictionSpeed ?? MovementSpeedModifierComponent.DefaultMinimumFrictionSpeed;
             _mover.Friction(minSpeed, frameTime, friction, ref velocity);
 
-            _physics.SetLinearVelocity(target, velocity, body: target.Comp1);
-            _physics.SetAngularVelocity(target, 0, body: target.Comp1);
+            _physics.SetLinearVelocity(player, velocity, body: player.Comp2);
+            _physics.SetAngularVelocity(player, 0, body: player.Comp2);
             return true;
         }
 
         // Otherwise, begin tile movement.
 
         // Set WorldRotation so that our character is facing the way we're walking.
-        if (!_noRotQuery.HasComp(player)) // this should probably be target instead but thats what the MoverController code does too
-            Rotate((player, player.Comp1, comp), (target, target.Comp2));
+        if (!_noRotQuery.HasComp(player))
+            Rotate((player, player.Comp1, comp, player.Comp3));
 
         // Play step sound.
-        TryPlaySound(player, (target, target.Comp2), tileDef);
+        TryPlaySound((player, player.Comp1, player.Comp3), relaySource, tileDef);
 
         // If we're sliding possibly end the slide or continue it
         if (comp.SlideActive)
-            TryEndSlide((player, player.Comp1, comp), target);
+            TryEndSlide(ent);
         // Start sliding otherwise
         else if (buttons != MoveButtons.None)
-            StartSlide((player, player.Comp1, comp), target);
+            StartSlide(ent);
 
         return true;
     }
 
     private void RelayPulled(EntityUid puller, float frameTime)
     {
-        if (_pullerQuery.CompOrNull(puller)?.Pulling is not {} player || !_query.HasComp(player))
+        if (_pullerQuery.CompOrNull(puller)?.Pulling is not {} player)
+            return;
+
+        if (GetTarget(player) is not {} target)
             return;
 
         // don't stack overflow if there's a pull circle A -> B -> C -> A ...
         if (!_ticked.Add(player))
             return;
 
-        if (!TryComp<InputMoverComponent>(player, out var mover))
-            return;
-
-        if (GetTarget((player, mover)) is not {} target)
-            return;
-
-        _mover.HandleMobMovement(player, mover, target.Owner, target.Comp1, target.Comp2, frameTime);
+        _mover.HandleMobMovement(target, frameTime);
     }
 
     public void SetWeightless(Entity<TileMovementComponent> player, bool weightless)
@@ -232,7 +230,7 @@ public sealed class TileMovementSystem : EntitySystem
         DirtyField(player, player.Comp, nameof(TileMovementComponent.CurrentSlideMoveButtons));
     }
 
-    public void Rotate(Entity<InputMoverComponent, TileMovementComponent> player, Entity<TransformComponent> target)
+    public void Rotate(Entity<InputMoverComponent, TileMovementComponent, TransformComponent> player)
     {
         if (!player.Comp2.SlideActive || player.Comp1.RelativeEntity is not {} rel)
             return;
@@ -240,16 +238,16 @@ public sealed class TileMovementSystem : EntitySystem
         var relXform = Transform(rel);
         var delta = player.Comp2.Destination - player.Comp2.Origin;
         var worldRot = _transform.GetWorldRotation(relXform).RotateVec(delta).ToWorldAngle();
-        _transform.SetWorldRotation(target.Comp, worldRot);
+        _transform.SetWorldRotation(player.Comp3, worldRot);
     }
 
     public void TryPlaySound(
-        Entity<InputMoverComponent, MovementRelayTargetComponent?> player,
-        Entity<TransformComponent> target,
+        Entity<InputMoverComponent, TransformComponent> player,
+        EntityUid? relaySource,
         ContentTileDefinition? tileDef)
     {
         if (!_mobMoverQuery.TryComp(player, out var mobMover) ||
-            !_mover.TryGetSound(false, player, player.Comp1, mobMover, target.Comp, out var sound, tileDef))
+            !_mover.TryGetSound(false, player, player.Comp1, mobMover, player.Comp2, out var sound, tileDef))
         {
             return;
         }
@@ -258,33 +256,31 @@ public sealed class TileMovementSystem : EntitySystem
         var audioParams = sound.Params
             .WithVolume(sound.Params.Volume + soundModifier)
             .WithVariation(sound.Params.Variation ?? mobMover.FootstepVariation);
-        _audio.PlayPredicted(sound, player, player.Comp2?.Source ?? player, audioParams);
+        _audio.PlayPredicted(sound, player, relaySource ?? player, audioParams);
     }
 
-    public void TryEndSlide(
-        Entity<InputMoverComponent, TileMovementComponent> player,
-        Entity<PhysicsComponent, TransformComponent> target)
+    public void TryEndSlide(Entity<InputMoverComponent, TileMovementComponent, PhysicsComponent, TransformComponent> player)
     {
-        var speed = GetEntityMoveSpeed(target, player.Comp1.Sprinting);
+        var speed = GetEntityMoveSpeed(player, player.Comp1.Sprinting);
         var buttons = StripWalk(player.Comp1.HeldMoveButtons);
-        if (!ShouldSlideEnd(buttons, target.Comp2, player.Comp2, speed))
+        if (!ShouldSlideEnd(buttons, player.Comp4, player.Comp2, speed))
         {
-            UpdateSlide(player, target);
+            UpdateSlide(player);
             return;
         }
 
         // stop sliding now
-        EndSlide((player, player.Comp2), (target, target.Comp1));
+        EndSlide((player, player.Comp2, player.Comp3));
         SetButtons((player, player.Comp2), buttons);
         if (buttons == MoveButtons.None)
         {
-            ForceSnapToTile(target);
+            ForceSnapToTile((player, player.Comp3, player.Comp4));
             return;
         }
 
         // if a button is still being held start sliding again immediately
-        StartSlide(player, target);
-        UpdateSlide(player, target);
+        StartSlide(player);
+        UpdateSlide(player);
     }
 
     public bool ShouldSlideEnd(MoveButtons buttons, TransformComponent xform, TileMovementComponent comp, float movementSpeed)
@@ -302,23 +298,21 @@ public sealed class TileMovementSystem : EntitySystem
         return reachedDestination || stoppedPressing;
     }
 
-    public void StartSlide(
-        Entity<InputMoverComponent, TileMovementComponent> player,
-        Entity<PhysicsComponent, TransformComponent> target)
+    public void StartSlide(Entity<InputMoverComponent, TileMovementComponent, PhysicsComponent, TransformComponent> player)
     {
         var buttons = player.Comp1.HeldMoveButtons;
         var offset = _mover.DirVecForButtons(buttons);
         offset = player.Comp1.TargetRelativeRotation.RotateVec(offset);
-        StartSlideTo(player, target, target.Comp2.LocalPosition + offset);
+        StartSlideTo(player, player.Comp4.LocalPosition + offset);
         SetButtons((player, player.Comp2), StripWalk(buttons));
     }
 
+    // physics isnt used but it makes calling it a bit easier
     public void StartSlideTo(
-        Entity<InputMoverComponent, TileMovementComponent> player,
-        Entity<PhysicsComponent, TransformComponent> target,
+        Entity<InputMoverComponent, TileMovementComponent, PhysicsComponent, TransformComponent> player,
         Vector2 dest)
     {
-        player.Comp2.Origin = target.Comp2.LocalPosition;
+        player.Comp2.Origin = player.Comp4.LocalPosition;
         player.Comp2.Destination = SnapCoordinatesToTile(dest);
         player.Comp2.MovementKeyPressedAt = CurrentTime;
         DirtyField(player, player.Comp2, nameof(TileMovementComponent.Origin));
@@ -329,58 +323,54 @@ public sealed class TileMovementSystem : EntitySystem
         if (_pullerQuery.CompOrNull(player)?.Pulling is not {} pulling || !_query.TryComp(pulling, out var pullingComp))
             return;
 
-        if (!_moverQuery.TryComp(pulling, out var mover) || GetTarget((pulling, mover)) is not {} pullTarget)
+        if (GetTarget(pulling) is not {} pullTarget)
             return;
 
         // already set, don't stack overflow for pull circles
         if (pullingComp.Destination.EqualsApprox(player.Comp2.Origin, 0.01f))
             return;
 
-        StartSlideTo((pulling, mover, pullingComp), pullTarget, player.Comp2.Origin);
-        UpdateSlide((pulling, mover, pullingComp), pullTarget);
+        StartSlideTo(pullTarget, player.Comp2.Origin);
+        UpdateSlide(pullTarget);
     }
 
     /// <summary>
     /// Forces the target entity's velocity based on where the player is moving to.
     /// </summary>
-    public void UpdateSlide(
-        Entity<InputMoverComponent, TileMovementComponent> player,
-        Entity<PhysicsComponent, TransformComponent> target)
+    public void UpdateSlide(Entity<InputMoverComponent, TileMovementComponent, PhysicsComponent, TransformComponent> player)
     {
         var parentRot = _mover.GetParentGridAngle(player.Comp1);
-        var speed = GetEntityMoveSpeed(target, player.Comp1.Sprinting);
+        var speed = GetEntityMoveSpeed(player, player.Comp1.Sprinting);
 
         // Determine velocity based on movespeed, and rotate it so that it's in the right direction.
-        var velocity = player.Comp2.Destination - target.Comp2.LocalPosition;
+        var velocity = player.Comp2.Destination - player.Comp4.LocalPosition;
         velocity.Normalize();
         velocity *= speed;
         velocity = parentRot.RotateVec(velocity);
-        _physics.SetLinearVelocity(target, velocity, body: target.Comp1);
-        _physics.SetAngularVelocity(target, 0, body: target.Comp1);
+        _physics.SetLinearVelocity(player, velocity, body: player.Comp3);
+        _physics.SetAngularVelocity(player, 0, body: player.Comp3);
     }
 
     /// <summary>
     /// Kills the target entity's velocity and stops the current slide.
     /// </summary>
-    public void EndSlide(
-        Entity<TileMovementComponent> player,
-        Entity<PhysicsComponent> target)
+    public void EndSlide(Entity<TileMovementComponent, PhysicsComponent> player)
     {
-        if (!player.Comp.SlideActive)
+        if (!player.Comp1.SlideActive)
             return;
 
-        player.Comp.MovementKeyPressedAt = null;
-        DirtyField(player, player.Comp, nameof(TileMovementComponent.MovementKeyPressedAt));
+        player.Comp1.MovementKeyPressedAt = null;
+        DirtyField(player, player.Comp1, nameof(TileMovementComponent.MovementKeyPressedAt));
 
-        _physics.SetLinearVelocity(target, Vector2.Zero, body: target.Comp);
-        _physics.SetAngularVelocity(target, 0, body: target.Comp);
+        _physics.SetLinearVelocity(player, Vector2.Zero, body: player.Comp2);
+        _physics.SetAngularVelocity(player, 0, body: player.Comp2);
     }
 
     #region Helpers
 
-    private float GetEntityMoveSpeed(EntityUid target, bool sprinting)
+    private float GetEntityMoveSpeed(EntityUid player, bool sprinting)
     {
-        var moveSpeed = _modifierQuery.CompOrNull(target); // use target speed so speedboots in a mech goes at mech speed
+        var moveSpeed = _modifierQuery.CompOrNull(player);
         return sprinting
             ? moveSpeed?.CurrentSprintSpeed ?? MovementSpeedModifierComponent.DefaultBaseSprintSpeed
             : moveSpeed?.CurrentWalkSpeed ?? MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
@@ -412,11 +402,11 @@ public sealed class TileMovementSystem : EntitySystem
         MovementSpeedModifierComponent? moveSpeed,
         ContentTileDefinition? tileDef)
     {
-        if (StripWalk(mover.HeldMoveButtons) != MoveButtons.None || moveSpeed?.FrictionNoInput == null)
+        if (StripWalk(mover.HeldMoveButtons) != MoveButtons.None || moveSpeed == null)
         {
             return tileDef?.MobFriction ?? moveSpeed?.Friction ?? MovementSpeedModifierComponent.DefaultFriction;
         }
-        return tileDef?.MobFrictionNoInput ?? moveSpeed.FrictionNoInput ?? MovementSpeedModifierComponent.DefaultFrictionNoInput;
+        return tileDef?.Friction ?? moveSpeed.FrictionNoInput;
     }
 
     /// <summary>

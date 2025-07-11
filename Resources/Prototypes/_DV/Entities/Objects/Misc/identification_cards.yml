@@ -143,21 +143,6 @@
   - type: PresetIdCard
     job: CargoAssistant
 
-- type: entity
-  parent: IDCardStandard
-  id: AdminAssistantIDCard
-  name: administrative assistant ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: silver
-    - sprite: _DV/Objects/Misc/id_cards.rsi
-      state: idadminassistant
-  - type: Item
-    heldPrefix: silver
-  - type: PresetIdCard
-    job: AdministrativeAssistant
-
 ## Alternate Job Titles
 
 # Passenger
@@ -267,6 +252,16 @@
   components:
   - type: IdCard
     jobTitle: job-alt-title-cryogenics-specialist
+
+# Chemist
+
+- type: entity
+  parent: ChemistIDCard
+  id: PharmacistIDCard
+  name: pharmacist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-pharmacist
 
 # Psychologist
 
@@ -519,3 +514,23 @@
   - type: MappingCategories
     categories:
     - Debug
+
+#Recruiter
+- type: entity
+  parent: SyndicateIDCard
+  id: RecruiterIDCard
+  suffix: Recruiter
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idpassenger
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+    - External
+    - Maintenance
+  - type: IdCard
+    jobTitle: job-name-passenger
+    jobIcon: JobIconPassenger
