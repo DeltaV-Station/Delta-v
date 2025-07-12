@@ -13,14 +13,13 @@ public sealed partial class EpsilonEventRuleComponent : Component
     /// <summary>
     /// Default sound of the announcement when power is back on.
     /// </summary>
-    private static readonly ProtoId<SoundCollectionPrototype> DefaultPowerOn = new("PowerOn");
+    private static readonly ProtoId<SoundCollectionPrototype> DefaultPowerOn = new("PowerOff");
 
     /// <summary>
     /// Sound of the announcement to play when power is back on.
     /// </summary>
     [DataField]
     public string AlertLevel = "epsilon";
-    public bool PlaySoundOnEnd = false;
     public SoundSpecifier PowerOnSound = new SoundCollectionSpecifier(DefaultPowerOn, AudioParams.Default.WithVolume(-4f));
 
     public CancellationTokenSource? AnnounceCancelToken;

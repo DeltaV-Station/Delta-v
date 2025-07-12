@@ -27,6 +27,13 @@ namespace Content.Server.StationEvents.Events
         {
             base.Started(uid, component, gameRule, args);
 
+            component.AnnounceCancelToken?.Cancel();
+            component.AnnounceCancelToken = new CancellationTokenSource();
+            Timer.Spawn(10, () =>
+            {
+                Audio.PlayGlobal(component.PowerOnSound, Filter.Broadcast(), true);
+            }, component.AnnounceCancelToken.Token);
+
             if (!TryGetRandomStation(out var chosenStation))
                 return;
 
@@ -65,16 +72,6 @@ namespace Content.Server.StationEvents.Events
                 _alertLevelSystem.SetLevel(component.AffectedStation, component.AlertLevel, true, true, true); //From AlertLevelInterceptionRule.cs
             }
 
-            // Can't use the default EndAudio
-            if (component.PlaySoundOnEnd)
-            {
-                component.AnnounceCancelToken?.Cancel();
-                component.AnnounceCancelToken = new CancellationTokenSource();
-                Timer.Spawn(3000, () =>
-                {
-                    Audio.PlayGlobal(component.PowerOnSound, Filter.Broadcast(), true);
-                }, component.AnnounceCancelToken.Token);
-            }
             component.Unpowered.Clear();
         }
 
