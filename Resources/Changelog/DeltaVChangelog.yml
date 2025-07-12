@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Made air alarms less sensitive to higher oxygen and slightly lower pressure.
-      Opening random firelocks is more likely to actually be dangerous!
-    type: Tweak
-  id: 1019
-  time: '2025-02-09T03:00:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2939
 - author: Lyndomen
   changes:
   - message: Surgical procedures repairing burns and brute damage are slightly more
@@ -4138,3 +4130,12 @@
   id: 1518
   time: '2025-07-12T10:46:24.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4050
+- author: NoElkaTheGod
+  changes:
+  - message: Null Glare now ignores flash protection if the user is empowered.
+    type: Tweak
+  - message: Null glare duration while empowered 10 -> 6 seconds.
+    type: Tweak
+  id: 1519
+  time: '2025-07-12T14:58:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4048
