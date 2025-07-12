@@ -244,16 +244,6 @@
     Plastic: 250
 
 - type: latheRecipe
-  parent: BaseWeaponRecipeLong
-  id: WeaponEnergyGunPistol
-  result: WeaponEnergyGunPistol
-  materials:
-    Steel: 1500
-    Glass: 600
-    Plastic: 400
-    Gold: 150
-
-- type: latheRecipe
   parent: ClothingShoesBootsMagSci
   id: ClothingShoesBootsSecurityMagboots
   result: ClothingShoesBootsSecurityMagboots
@@ -301,14 +291,6 @@
     Bluespace: 100
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineLaser
-  result: MagazineLaser
-  materials:
-    Steel: 300
-    Plasma: 200
-
-- type: latheRecipe
   parent: BaseWeaponRecipeLong
   id: WeaponImmolator
   result: WeaponImmolator
@@ -317,16 +299,6 @@
     Glass: 500
     Plastic: 250
     Gold: 300
-
-- type: latheRecipe
-  parent: BaseWeaponRecipeLong
-  id: WeaponEnergyGunAdvanced
-  result: WeaponEnergyGunAdvanced
-  materials:
-    Steel: 1500
-    Glass: 1200
-    Gold: 500
-    Silver: 500
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
