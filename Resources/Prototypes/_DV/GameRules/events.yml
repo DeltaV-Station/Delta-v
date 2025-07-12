@@ -239,10 +239,10 @@
   id: NoosphericStorm
   parent: BaseGameRule
   components:
-    - type: StationEvent
-      startAnnouncement: station-event-noospheric-storm-announcement
-      startAudio:
-        path: /Audio/Announcements/noosphericstorm.ogg
-      weight: 5
-      earliestStart: 15
-    - type: NoosphericStormRule
+  - type: StationEvent
+    startAnnouncement: station-event-noospheric-storm-announcement
+    startAudio:
+      path: /Audio/Announcements/noosphericstorm.ogg
+    weight: 5
+    earliestStart: 15
+  - type: NoosphericStormRule
