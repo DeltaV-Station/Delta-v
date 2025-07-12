@@ -32,6 +32,8 @@ loadout-group-janitor-id-delta = Janitor PDA
 loadout-group-serviceworker-head = Service Worker head
 loadout-group-serviceworker-jumpsuit = Service Worker jumpsuit
 
+loadout-group-assistant-head = Passanger head
+
 # Logistics
 
 loadout-group-cargo-technician-neck = Cargo Technician neck
