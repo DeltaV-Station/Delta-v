@@ -68,3 +68,25 @@
     contents:
     - id: WatchdogImplanter
       amount: 3
+
+- type: entityTable
+  id: CrateFillSLP67
+  table: !type:AllSelector
+    children:
+    - id: WeaponPistolSLP67
+      amount: !type:ConstantNumberSelector
+        value: 3
+    - id: MagazinePistolHighCapacity
+      amount: !type:ConstantNumberSelector
+        value: 3
+
+- type: entity
+  parent: CrateWeaponSecure
+  id: CrateSLP67
+  name: SLP-67 "Volk" crate
+  description: A crate containing 3 SLP-67 and 3 high-capacity .35 magazines. Requires Armory access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: CrateFillSLP67
