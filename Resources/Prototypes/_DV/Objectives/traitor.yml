@@ -8,6 +8,16 @@
     stealGroup: SpaceCashLuckyBill
     # owner: job-name-qm
 
+- type: entity # Logistics Officer steal objective.
+  parent: BaseTraitorStealObjective
+  id: HardsuitRhinoStealObjective
+  components:
+  - type: NotJobRequirement
+    job: Quartermaster
+  - type: StealCondition
+    stealGroup: HardsuitRhino
+    # owner: job-name-qm
+
 - type: entity # Head of Personnel steal objective.
   parent: BaseTraitorStealObjective
   id: HoPBookIanDossierStealObjective
