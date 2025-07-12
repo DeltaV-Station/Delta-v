@@ -26,6 +26,8 @@
   id: MundaneDischarge
   parent: BaseGlimmerEvent
   components:
+    - type: StationEvent
+      weight: 18 # DeltaV - increase mundane chance to compensate for zap removal
     - type: GlimmerEvent
       maximumGlimmer: 300
       glimmerBurnLower: 18
@@ -36,6 +38,7 @@
   parent: BaseGlimmerEvent
   components:
     - type: GlimmerEvent
+      minimumGlimmer: 450 # DeltaV - no more seizures for no reason
     - type: NoosphericZapRule
 
 - type: entity
