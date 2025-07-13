@@ -1,18 +1,12 @@
-//NOTE: This is a just direct copy from PowerGridCheckRule.cs with some altercations
-// And some additions from AlertLevelInterceptionRule.cs
-
 using System.Threading;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using JetBrains.Annotations;
-using Robust.Shared.Audio;
 using Robust.Shared.Player;
-using Robust.Shared.Utility;
-using Content.Server.AlertLevel; // Taken from AlertLevelInterceptionRule.cs
+using Content.Server.AlertLevel;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.StationEvents.Events
@@ -31,7 +25,7 @@ namespace Content.Server.StationEvents.Events
             component.AnnounceCancelToken = new CancellationTokenSource();
             Timer.Spawn(10, () =>
             {
-                Audio.PlayGlobal(component.PowerOnSound, Filter.Broadcast(), true);
+                Audio.PlayGlobal(component.PowerOffSound, Filter.Broadcast(), true);
             }, component.AnnounceCancelToken.Token);
 
             if (!TryGetRandomStation(out var chosenStation))
@@ -40,68 +34,31 @@ namespace Content.Server.StationEvents.Events
             component.AffectedStation = chosenStation.Value;
 
             var query = AllEntityQuery<ApcComponent, TransformComponent>();
-            while (query.MoveNext(out var apcUid ,out var apc, out var transform))
+            while (query.MoveNext(out var apcUid, out var apc, out var transform))
             {
+                // Toggle all APCs on the station off, store for later
                 if (apc.MainBreakerEnabled && CompOrNull<StationMemberComponent>(transform.GridUid)?.Station == chosenStation)
-                    component.Powered.Add(apcUid);
+                {
+                    _apcSystem.ApcToggleBreaker(apcUid, apc);
+                    component.ToggledAPCs.Add((apcUid, apc));
+                }
             }
-
-            RobustRandom.Shuffle(component.Powered);
-
-            component.NumberPerSecond = Math.Max(1, (int)(component.Powered.Count / component.SecondsUntilOff)); // Number of APCs to turn off every second. At least one.
         }
 
         protected override void Ended(EntityUid uid, EpsilonEventRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
         {
-            base.Ended(uid, component, gameRule, args);
-
-            foreach (var entity in component.Unpowered)
-            {
-                if (Deleted(entity))
-                    continue;
-
-                if (TryComp(entity, out ApcComponent? apcComponent))
-                {
-                    if(!apcComponent.MainBreakerEnabled)
-                        _apcSystem.ApcToggleBreaker(entity, apcComponent);
-                }
-            }
-
             if (TryComp(component.AffectedStation, out AlertLevelComponent? _))
             {
-                _alertLevelSystem.SetLevel(component.AffectedStation, component.AlertLevel, true, true, true); //From AlertLevelInterceptionRule.cs
+                _alertLevelSystem.SetLevel(component.AffectedStation, "epsilon", true, true, true);
             }
 
-            component.Unpowered.Clear();
-        }
-
-        protected override void ActiveTick(EntityUid uid, EpsilonEventRuleComponent component, GameRuleComponent gameRule, float frameTime)
-        {
-            base.ActiveTick(uid, component, gameRule, frameTime);
-
-            var updates = 0;
-            component.FrameTimeAccumulator += frameTime;
-            if (component.FrameTimeAccumulator > component.UpdateRate)
+            // Toggle all disabled APCs back on
+            foreach (var apc in component.ToggledAPCs)
             {
-                updates = (int) (component.FrameTimeAccumulator / component.UpdateRate);
-                component.FrameTimeAccumulator -= component.UpdateRate * updates;
+                if (!Deleted(apc) && !apc.Comp.MainBreakerEnabled)
+                    _apcSystem.ApcToggleBreaker(apc, apc);
             }
-
-            for (var i = 0; i < updates; i++)
-            {
-                if (component.Powered.Count == 0)
-                    break;
-
-                var selected = component.Powered.Pop();
-                if (Deleted(selected))
-                    continue;
-                if (TryComp<ApcComponent>(selected, out var apcComponent))
-                {
-                    if (apcComponent.MainBreakerEnabled)
-                        _apcSystem.ApcToggleBreaker(selected, apcComponent);
-                }
-                component.Unpowered.Add(selected);
-            }
+            component.ToggledAPCs.Clear();
         }
     }
 }

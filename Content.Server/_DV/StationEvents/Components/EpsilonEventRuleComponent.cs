@@ -1,36 +1,31 @@
-//NOTE: This is a just direct copy from PowerGridCheckRuleComponent.cs with some altercations
-
 using System.Threading;
+using Content.Server.Power.Components;
 using Content.Server.StationEvents.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.StationEvents.Components;
 
+/// <summary>
+///     When fired, turns off power on the station for a few seconds, playing <see cref="EpsilonEventRuleComponent.PowerOffSound"/>
+///     Afterwards turns power back on and sets alert level to epsilon
+/// </summary>
 [RegisterComponent, Access(typeof(EpsilonEventRule))]
 public sealed partial class EpsilonEventRuleComponent : Component
 {
     /// <summary>
-    /// Default sound of the announcement when power is back on.
+    /// Default sound of the announcement when power turns off.
     /// </summary>
-    private static readonly ProtoId<SoundCollectionPrototype> DefaultPowerOn = new("PowerOff");
+    private static readonly ProtoId<SoundCollectionPrototype> DefaultPowerOff = new("PowerOff");
 
     /// <summary>
-    /// Sound of the announcement to play when power is back on.
+    /// Sound of the announcement to play when power turns off.
     /// </summary>
     [DataField]
-    public string AlertLevel = "epsilon";
-    public SoundSpecifier PowerOnSound = new SoundCollectionSpecifier(DefaultPowerOn, AudioParams.Default.WithVolume(-4f));
+    public SoundSpecifier PowerOffSound = new SoundCollectionSpecifier(DefaultPowerOff, AudioParams.Default.WithVolume(-4f));
 
     public CancellationTokenSource? AnnounceCancelToken;
 
     public EntityUid AffectedStation;
-    public readonly List<EntityUid> Powered = new();
-    public readonly List<EntityUid> Unpowered = new();
-
-    public float SecondsUntilOff = 0.1f;
-
-    public int NumberPerSecond = 50;
-    public float UpdateRate => 1.0f / NumberPerSecond;
-    public float FrameTimeAccumulator = 0.0f;
+    public readonly HashSet<Entity<ApcComponent>> ToggledAPCs = new();
 }
