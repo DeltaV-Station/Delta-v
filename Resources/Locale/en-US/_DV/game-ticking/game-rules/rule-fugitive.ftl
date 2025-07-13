@@ -41,7 +41,7 @@ fugitive-crime-8 = Kidnapping
 fugitive-crime-9 = Grand Possession
 fugitive-crime-10 = Mindbreaking
 fugitive-crime-11 = Sabotage
- fugitive-crime-12 = Abuse of Power
+fugitive-crime-12 = Abuse of Power
 fugitive-crime-13 = Grand Larceny
 fugitive-crime-14 = Black Marketeering
 
