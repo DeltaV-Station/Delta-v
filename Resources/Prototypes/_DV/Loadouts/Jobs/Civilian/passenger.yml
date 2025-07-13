@@ -69,12 +69,6 @@
   equipment:
     head: ClothingHeadBandBrown
 
-## Skull Bandana Head
-- type: loadout
-  id: SkullBandana
-  equipment:
-    head: ClothingHeadBandSkull
-
 ## Beret
 - type: loadout
   id: RedBeret
@@ -92,6 +86,90 @@
   id: GreyFedora
   equipment:
     head: ClothingHeadHatFedoraGrey
+
+## Black Fedora
+- type: loadout
+  id: BlackFedora
+  equipment:
+    head: ClothingHeadHatFedoraBlack
+
+## Chocolate Fedora
+- type: loadout
+  id: ChocFedora
+  equipment:
+    head: ClothingHeadHatFedoraChoc
+
+## White Fedora
+- type: loadout
+  id: WhiteFedora
+  equipment:
+    head: ClothingHeadHatFedoraWhite
+
+## Grey Flat Cap
+- type: loadout
+  id: GreyFlatCap
+  equipment:
+    head: ClothingHeadHatGreyFlatcap
+
+## Black Flat Cap
+- type: loadout
+  id: BlackFlatCap
+  equipment:
+    head: ClothingHeadHatFlatBlack
+
+## Brown Flat Cap
+- type: loadout
+  id: BrownFlatCap
+  equipment:
+    head: ClothingHeadHatFlatBrown
+
+## Brown Cowboy Hat
+- type: loadout
+  id: BrownCowboyHat
+  equipment:
+    head: ClothingHeadHatCowboyBrown
+
+## Black Cowboy Hat
+- type: loadout
+  id: BlackCowboyHat
+  equipment:
+    head: ClothingHeadHatCowboyBlack
+
+## Grey Cowboy Hat
+- type: loadout
+  id: GreyCowboyHat
+  equipment:
+    head: ClothingHeadHatCowboyGrey
+
+## Red Cowboy Hat
+- type: loadout
+  id: RedCowboyHat
+  equipment:
+    head: ClothingHeadHatCowboyRed
+
+## White Cowboy Hat
+- type: loadout
+  id: WhiteCowboyHat
+  equipment:
+    head: ClothingHeadHatCowboyWhite
+
+## Bounty Hunter Hat
+- type: loadout
+  id: BountyHunterHat
+  equipment:
+    head: ClothingHeadHatCowboyBountyHunter
+
+## Straw hat
+- type: loadout
+  id: StrawHat
+  equipment:
+    head: ClothingHeadHatStrawHat
+
+## Head Band
+- type: loadout
+  id: HeadBand
+  equipment:
+    head: ClothingHeadHatSolidHeadband
 
 ## Outlaw Hat
 - type: loadout
@@ -442,13 +520,13 @@
 - type: loadout
   id: RedGloves
   equipment:
-    hands: ClothingHandsGlovesColorRed
+    gloves: ClothingHandsGlovesColorRed
 
 ## Blue Gloves
 - type: loadout
   id: BlueGloves
   equipment:
-    hands: ClothingHandsGlovesColorBlue
+    gloves: ClothingHandsGlovesColorBlue
 
 ## Teal Gloves
 - type: loadout
@@ -460,134 +538,134 @@
 - type: loadout
   id: BrownGloves
   equipment:
-    hands: ClothingHandsGlovesColorBrown
+    gloves: ClothingHandsGlovesColorBrown
 
 ## Light Brown Gloves
 - type: loadout
   id: LightBrownGloves
   equipment:
-    hands: ClothingHandsGlovesColorLightBrown
+    gloves: ClothingHandsGlovesColorLightBrown
 
 ## Grey Gloves
 - type: loadout
   id: GreyGloves
   equipment:
-    hands: ClothingHandsGlovesColorGray
+    gloves: ClothingHandsGlovesColorGray
 
 ## Green Gloves
 - type: loadout
   id: GreenGloves
   equipment:
-    hands: ClothingHandsGlovesColorGreen
+    gloves: ClothingHandsGlovesColorGreen
 
 ## Black Gloves
 - type: loadout
   id: BlackGloves
   equipment:
-    hands: ClothingHandsGlovesColorBlack
+    gloves: ClothingHandsGlovesColorBlack
 
 ## Fingerless Black Gloves
 - type: loadout
   id: FingerlessGloves
   equipment:
-    hands: ClothingHandsGlovesFingerless
+    gloves: ClothingHandsGlovesFingerless
 
 # Outer Clothing/Jackets
 ## Black Winter Coat
 - type: loadout
   id: BlackWinterCoat
   equipment:
-    outerclothing: ClothingOuterWinterColorBlack
+    outerClothing: ClothingOuterWinterColorBlack
 
 ## Purple Winter Coat
 - type: loadout
   id: PurpleWinterCoat
   equipment:
-    outerclothing: ClothingOuterWinterColorPurple
+    outerClothing: ClothingOuterWinterColorPurple
 
 ## Red Winter Coat
 - type: loadout
   id: RedWinterCoat
   equipment:
-    outerclothing: ClothingOuterWinterColorRed
+    outerClothing: ClothingOuterWinterColorRed
 
 ## Blue Winter Coat
 - type: loadout
   id: BlueWinterCoat
   equipment:
-    outerclothing: ClothingOuterWinterColorBlue
+    outerClothing: ClothingOuterWinterColorBlue
 
 ## Brown Winter Coat
 - type: loadout
   id: BrownWinterCoat
   equipment:
-    outerclothing: ClothingOuterWinterColorBrown
+    outerClothing: ClothingOuterWinterColorBrown
 
 ## Light Brown Winter Coat
 - type: loadout
   id: LightBrownWinterCoat
   equipment:
-    outerclothing: ClothingOuterWinterColorLightBrown
+    outerClothing: ClothingOuterWinterColorLightBrown
 
 ## Gray Winter Coat
 - type: loadout
   id: GrayWinterCoat
   equipment:
-    outerclothing: ClothingOuterWinterColorGray
+    outerClothing: ClothingOuterWinterColorGray
 
 ## Green Winter Coat
 - type: loadout
   id: GreenWinterCoat
   equipment:
-    outerclothing: ClothingOuterWinterColorGreen
+    outerClothing: ClothingOuterWinterColorGreen
 
 ## Orange Winter Coat
 - type: loadout
   id: OrangeWinterCoat
   equipment:
-    outerclothing: ClothingOuterWinterColorOrange
+    outerClothing: ClothingOuterWinterColorOrange
 
 ## White Winter Coat
 - type: loadout
   id: WhiteWinterCoat
   equipment:
-    outerclothing: ClothingOuterWinterColorWhite
+    outerClothing: ClothingOuterWinterColorWhite
 
 ## Yellow Winter Coat
 - type: loadout
   id: YellowWinterCoat
   equipment:
-    outerclothing: ClothingOuterWinterColorYellow
+    outerClothing: ClothingOuterWinterColorYellow
 
 ## Black Hoodie
 - type: loadout
   id: BlackHoodie
   equipment:
-    outerclothing: ClothingOuterHoodieBlack
+    outerClothing: ClothingOuterHoodieBlack
 
 ## Gray Hoodie
 - type: loadout
   id: GrayHoodie
   equipment:
-    outerclothing: ClothingOuterHoodieGrey
+    outerClothing: ClothingOuterHoodieGrey
 
 ## Flannel Red
 - type: loadout
   id: FlannelRed
   equipment:
-    outerclothing: ClothingOuterFlannelRed
+    outerClothing: ClothingOuterFlannelRed
 
 ## Flannel Blue
 - type: loadout
   id: FlannelBlue
   equipment:
-    outerclothing: ClothingOuterFlannelBlue
+    outerClothing: ClothingOuterFlannelBlue
 
 ## Flannel Green
 - type: loadout
   id: FlannelGreen
   equipment:
-    outerclothing: ClothingOuterFlannelGreen
+    outerClothing: ClothingOuterFlannelGreen
 
 # Shoes
 ## Green Shoes
