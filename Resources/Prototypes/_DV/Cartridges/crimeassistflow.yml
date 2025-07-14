@@ -74,18 +74,18 @@
 - type: crimeAssistPage
   id: "questionWasSuspectSeenTaking"
   locKey: "crime-assist-question-wassuspectseentaking"
-  onYes: "questionIsItemExtremelyDangerousTheft"
-  onNo: "questionIsItemExtremelyDangerousPossession"
+  onYes: "questionIsObjectControlledItem"
+  onNo: "questionIsItemCategoryCDE"
 
 - type: crimeAssistPage
-  id: "questionIsItemExtremelyDangerousTheft"
-  locKey: "crime-assist-question-isitemextremelydangerous"
+  id: "questionIsObjectControlledItem"
+  locKey: "crime-assist-question-isitcontrolleditem"
   onYes: "resultGrandTheft"
   onNo: "resultTheft"
 
 - type: crimeAssistPage
-  id: "questionIsItemExtremelyDangerousPossession"
-  locKey: "crime-assist-question-isitemextremelydangerous"
+  id: "questionIsItemCategoryCDE"
+  locKey: "crime-assist-question-isitcategorycde"
   onYes: "resultGrandPossession"
   onNo: "resultPossession"
 
@@ -193,18 +193,18 @@
   id: "questionWasItVigilantismTwo" # A second check, for if the suspect was a vigilante without harming someone
   locKey: "crime-assist-question-wasitvigilantism"
   onYes: "resultVigilantism"
-  onNo: "questionDidTheyImpersonate"
-
-- type: crimeAssistPage
-  id: "questionDidTheyImpersonate"
-  locKey: "crime-assist-question-didtheyimpersonate"
-  onYes: "resultIdentityTheft"
   onNo: "questionToCommandStaff"
 
 - type: crimeAssistPage
   id: "questionToCommandStaff"
   locKey: "crime-assist-question-tocommandstaff"
   onYes: "resultSedition"
+  onNo: "questionDidTheyImpersonate"
+
+- type: crimeAssistPage
+  id: "questionDidTheyImpersonate"
+  locKey: "crime-assist-question-didtheyimpersonate"
+  onYes: "resultIdentityTheft"
   onNo: "questionWasNegligent"
 
 - type: crimeAssistPage
