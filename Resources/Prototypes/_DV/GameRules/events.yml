@@ -198,16 +198,6 @@
       - MindRoleFugitive
 
 - type: entity
-  parent: BaseGlimmerEvent
-  id: ThavenMoodUpset
-  components:
-  - type: GlimmerEvent
-    minimumGlimmer: 500
-    glimmerBurnLower: 30
-    glimmerBurnUpper: 70
-  - type: ThavenMoodUpsetRule
-
-- type: entity
   parent: BaseGameRule
   id: RoboNeuroticist
   components:
@@ -254,3 +244,15 @@
         - Syndicate
       mindRoles:
       - MindRoleRoboNeuroticist
+
+- type: entity
+  id: NoosphericStorm
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-noospheric-storm-announcement
+    startAudio:
+      path: /Audio/Announcements/noosphericstorm.ogg
+    weight: 5
+    earliestStart: 15
+  - type: NoosphericStormRule
