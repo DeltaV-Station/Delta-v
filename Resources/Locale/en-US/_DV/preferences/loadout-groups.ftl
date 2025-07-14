@@ -9,12 +9,6 @@ loadout-group-captain-shoes = Captain shoes
 loadout-group-hop-gloves = Head of Personnel gloves
 loadout-group-hop-shoes = Head of Personnel shoes
 
-loadout-group-admin-assistant-head = Administrative Assistant head
-loadout-group-admin-assistant-jumpsuit = Administrative Assistant jumpsuit
-loadout-group-admin-assistant-outerclothing = Administrative Assistant outer clothing
-loadout-group-admin-assistant-shoes = Administrative Assistant shoes
-loadout-group-admin-assistant-gloves = Administrative Assistant gloves
-
 # Civilian
 loadout-group-librarian-neck = Librarian neck
 
@@ -71,6 +65,7 @@ loadout-group-salvage-id-delta = Salvage Specialist PDA
 loadout-group-chemist-gloves = Chemist gloves
 loadout-group-chemist-shoes = Chemist shoes
 loadout-group-chemist-neck = Chemist neck
+loadout-group-chemist-id = Chemist PDA
 
 loadout-group-medical-doctor-neck = Medical Doctor neck
 
@@ -80,6 +75,7 @@ loadout-group-psychologist-head = Psychologist head
 loadout-group-psychologist-outerclothing = Psychologist outer clothing
 loadout-group-psychologist-shoes = Psychologist shoes
 loadout-group-psychologist-id-delta = Psychologist PDA
+loadout-group-psychologist-belt = Psychologist Belt
 
 loadout-group-surgeon-head = Surgeon head
 loadout-group-surgeon-mask = Surgeon mask

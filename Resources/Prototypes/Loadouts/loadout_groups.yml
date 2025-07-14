@@ -1113,7 +1113,7 @@
   name: loadout-group-head-of-security-shoes
   loadouts:
   # Begin DeltaV changes
-  #- CombatBoots # Removed for standardisation of equipment
+  - CombatBoots
   - JackBoots
   - HeadOfSecurityWinterBoots
   # End DeltaV changes
@@ -1205,6 +1205,7 @@
   id: SecurityShoes
   name: loadout-group-security-shoes
   loadouts:
+  - CombatBoots # DeltaV
   - JackBoots
   - SecurityWinterBoots
 

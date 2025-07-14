@@ -269,6 +269,7 @@
     - Normal
   - type: JetpackUser # DeltaV: Lets cyborgs fly in space
   - type: PreventDropOnDowned # Frontier: borgs don't drop items when falling (e.g. critical/dead)
+  - type: EmoteCooldown # DeltaV - implement RMC emote cooldown
 
 - type: entity
   abstract: true

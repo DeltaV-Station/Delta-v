@@ -429,6 +429,12 @@
   - PsychologistSweater
 
 - type: loadoutGroup
+  id: PsychologistBelt
+  name: loadout-group-psychologist-belt
+  loadouts:
+  - PaperworkBelt
+
+- type: loadoutGroup
   id: PsychologistShoes
   name: loadout-group-psychologist-shoes
   loadouts:
@@ -695,46 +701,6 @@
   - ScienceWinterBoots
 
 # Command
-## Administrative Assistant
-- type: loadoutGroup
-  id: AdminAssistantJumpsuit
-  name: loadout-group-admin-assistant-jumpsuit
-  loadouts:
-  - AdminAssistantJumpsuit
-  - AdminAssistantJumpskirt
-
-- type: loadoutGroup
-  id: AdminAssistantHead
-  name: loadout-group-admin-assistant-head
-  minLimit: 0
-  loadouts:
-  - AdminAssistanthat
-
-- type: loadoutGroup
-  id: AdminAssistantShoes
-  name: loadout-group-admin-assistant-shoes
-  loadouts:
-  - BrownLeatherShoes
-  - WhiteLeatherShoes
-  - LaceupShoes
-
-- type: loadoutGroup
-  id: AdminAssistantOuter
-  name: loadout-group-admin-assistant-outerclothing
-  loadouts:
-  - BartenderVest
-  - WinterCoatBlack
-  - WinterCoatBrown
-  - CorporateJacket
-
-- type: loadoutGroup
-  id: AdminAssistantGloves
-  name: loadout-group-admin-assistant-gloves
-  minLimit: 0
-  loadouts:
-  - HoPGloves
-  - InspectionGloves
-
 ## Captain
 - type: loadoutGroup
   id: CaptainGloves
@@ -805,6 +771,13 @@
   - MedicalInternPDA
   - PracticalNursePDA
   - ResidentPDA
+
+- type: loadoutGroup
+  id: ChemistryPDA
+  name: loadout-group-chemist-id
+  loadouts:
+  - ChemistryPDA
+  - PharmacistPDA # DeltaV
 
 - type: loadoutGroup
   id: AtmosPDADelta
