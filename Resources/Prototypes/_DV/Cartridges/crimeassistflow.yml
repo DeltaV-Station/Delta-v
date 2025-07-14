@@ -19,14 +19,8 @@
 - type: crimeAssistPage
   id: "questionWasItSophont"
   locKey: "crime-assist-question-wasitsophont"
-  onYes: "questionWasItVigilantism"
+  onYes: "questionDidVictimDie"
   onNo: "resultAnimalCruelty"
-
-- type: crimeAssistPage
-  id: "questionWasItVigilantism"
-  locKey: "crime-assist-question-wasitvigilantism"
-  onYes: "resultVigilantism"
-  onNo: "questionDidVictimDie"
 
 - type: crimeAssistPage
   id: "questionDidVictimDie"
@@ -56,14 +50,8 @@
 - type: crimeAssistPage
   id: "questionHadRestrictedItem"
   locKey: "crime-assist-question-hadillicititem"
-  onYes: "questionWasItAPerson"
-  onNo: "questionDidSuspectBreakSomething"
-
-- type: crimeAssistPage
-  id: "questionWasItAPerson"
-  locKey: "crime-assist-question-wasitaperson"
-  onYes: "resultKidnapping"
-  onNo: "questionWasSuspectSelling"
+  onYes: "questionWasSuspectSelling"
+  onNo: "questionWasItAPerson"
 
 - type: crimeAssistPage
   id: "questionWasSuspectSelling"
@@ -88,6 +76,12 @@
   locKey: "crime-assist-question-isitcategorycde"
   onYes: "resultGrandPossession"
   onNo: "resultPossession"
+
+- type: crimeAssistPage
+  id: "questionWasItAPerson"
+  locKey: "crime-assist-question-wasitaperson"
+  onYes: "resultKidnapping"
+  onNo: "questionDidSuspectBreakSomething"
 
 # Branch 3 - Breaking Things
 - type: crimeAssistPage
@@ -187,10 +181,10 @@
   id: "questionForcedMindbreakerToxin"
   locKey: "crime-assist-question-forcedmindbreakertoxin"
   onYes: "resultMindbreaking"
-  onNo: "questionWasItVigilantismTwo"
+  onNo: "questionWasItVigilantism"
 
 - type: crimeAssistPage
-  id: "questionWasItVigilantismTwo" # A second check, for if the suspect was a vigilante without harming someone
+  id: "questionWasItVigilantism"
   locKey: "crime-assist-question-wasitvigilantism"
   onYes: "resultVigilantism"
   onNo: "questionToCommandStaff"
