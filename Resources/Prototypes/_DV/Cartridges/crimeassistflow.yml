@@ -43,7 +43,7 @@
 - type: crimeAssistPage
   id: "questionIsVictimUnrevivable"
   locKey: "crime-assist-question-isvictimunrevivable"
-  onYes: "resultDecorporealisation"
+  onYes: "resultPreventionOfRevival"
   onNo: "resultMurder"
 
 - type: crimeAssistPage
@@ -415,11 +415,11 @@
   locKeyPunishment: "crime-assist-crimepunishment-grandsabotage"
 
 - type: crimeAssistPage
-  id: "resultDecorporealisation"
-  locKeyTitle: "crime-assist-crime-decorporealisation"
-  locKeyDescription: "crime-assist-crimedetail-decorporealisation"
+  id: "resultPreventionOfRevival"
+  locKeyTitle: "crime-assist-crime-preventionofrevival"
+  locKeyDescription: "crime-assist-crimedetail-preventionofrevival"
   crimeSeverity: Capital
-  locKeyPunishment: "crime-assist-crimepunishment-decorporealisation"
+  locKeyPunishment: "crime-assist-crimepunishment-preventionofrevival"
 
 - type: crimeAssistPage
   id: "resultSedition"

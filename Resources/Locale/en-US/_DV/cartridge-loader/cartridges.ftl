@@ -45,7 +45,7 @@ crime-assist-crime-blackmarketeering = Code 308: Black Marketeering
 crime-assist-crime-murder = Code 401: Murder
 crime-assist-crime-terrorism = Code 402: Terrorism
 crime-assist-crime-grandsabotage = Code 403: Grand Sabotage
-crime-assist-crime-decorporealisation = Code 404: Prevention of Revival
+crime-assist-crime-preventionofrevival = Code 404: Prevention of Revival
 crime-assist-crime-sedition = Code 405: Sedition
 crime-assist-crime-breachofcustody = Code 406: Breach of Custody
 
@@ -112,7 +112,7 @@ crime-assist-crimedetail-blackmarketeering = To sell, distribute, or otherwise c
 crime-assist-crimedetail-murder = To maliciously commit an act resulting in the death of a sophont, with reckless indifference to their life.
 crime-assist-crimedetail-terrorism = To maliciously commit an act or take hostages with reckless indifference to life in order to provoke a state of terror in, intimidate, or otherwise compel an entity to act or abstain from acting.
 crime-assist-crimedetail-grandsabotage = To maliciously commit an act that, directly or indirectly, renders a vessel or its part uninhabitable or inoperable; or, to commit an act that causes irreversible damage to High Security Areas and/or systems of a vessel.
-crime-assist-crimedetail-decorporealisation = To commit an act that prevents the revival of a sophont by standard medical care following their death.
+crime-assist-crimedetail-preventionofrevival = To commit an act that prevents the revival of a sophont by standard medical care following their death.
 crime-assist-crimedetail-sedition = To act to overthrow a lawfully established Chain of Command or governing body without lawful or legitimate cause.
 crime-assist-crimedetail-breachofcustody = To escape the custody of law enforcement while serving a legal sentence, or awaiting trial for a capital offense.
 
@@ -145,7 +145,7 @@ crime-assist-crimepunishment-blackmarketeering = Punishment: 12 minutes
 crime-assist-crimepunishment-murder = Punishment: Capital
 crime-assist-crimepunishment-terrorism = Punishment: Capital
 crime-assist-crimepunishment-grandsabotage = Punishment: Capital
-crime-assist-crimepunishment-decorporealisation = Punishment: Capital
+crime-assist-crimepunishment-preventionofrevival = Punishment: Capital
 crime-assist-crimepunishment-sedition = Punishment: Capital
 crime-assist-crimepunishment-breachofcustody = Punishment: Capital
 
