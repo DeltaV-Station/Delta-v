@@ -237,6 +237,7 @@
       - MindRoleRoboNeuroticist
 
 - type: entity
+  parent: BaseGameRule
   id: NoosphericStorm
   components:
   - type: StationEvent
@@ -248,7 +249,6 @@
   - type: NoosphericStormRule
 
 - type: entity
-  parent: BaseGameRule
   parent: BaseMidRoundAntag
   id:  MenaceSkeleton
   components:
