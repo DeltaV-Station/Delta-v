@@ -32,7 +32,7 @@ loadout-group-janitor-id-delta = Janitor PDA
 loadout-group-serviceworker-head = Service Worker head
 loadout-group-serviceworker-jumpsuit = Service Worker jumpsuit
 
-loadout-group-assistant-head = Passanger head
+loadout-group-assistant-head = Assistant head
 
 # Logistics
 
