@@ -65,6 +65,7 @@ loadout-group-salvage-id-delta = Salvage Specialist PDA
 loadout-group-chemist-gloves = Chemist gloves
 loadout-group-chemist-shoes = Chemist shoes
 loadout-group-chemist-neck = Chemist neck
+loadout-group-chemist-id = Chemist PDA
 
 loadout-group-medical-doctor-neck = Medical Doctor neck
 
@@ -74,6 +75,7 @@ loadout-group-psychologist-head = Psychologist head
 loadout-group-psychologist-outerclothing = Psychologist outer clothing
 loadout-group-psychologist-shoes = Psychologist shoes
 loadout-group-psychologist-id-delta = Psychologist PDA
+loadout-group-psychologist-belt = Psychologist Belt
 
 loadout-group-surgeon-head = Surgeon head
 loadout-group-surgeon-mask = Surgeon mask
