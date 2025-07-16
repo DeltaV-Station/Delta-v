@@ -552,11 +552,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                 var cultistQuery = EntityQueryEnumerator<CosmicCultComponent>();
                 while (cultistQuery.MoveNext(out var cultist, out var cultistComp))
                 {
-                    var mins = timer.Minutes;
-                    var secs = timer.Seconds;
                     _antag.SendBriefing(cultist,
-                        Loc.GetString("cosmiccult-finale-autocall-briefing",
-                            ("minutesandseconds", $"{mins} minutes and {secs} seconds")),
+                        Loc.GetString("cosmiccult-finale-autocall-briefing"),
                         Color.FromHex("#4cabb3"),
                         _monumentAlert);
                 }
