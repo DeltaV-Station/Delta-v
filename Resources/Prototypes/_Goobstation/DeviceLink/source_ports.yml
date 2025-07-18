@@ -124,3 +124,10 @@
   id: AutomationSlotPaper
   name: signal-port-name-automation-slot-paper
   description: signal-port-description-automation-slot-paper
+
+  # Disposal Unit
+
+- type: sourcePort
+  id: DisposalReady
+  name: signal-port-name-ready
+  description: signal-port-description-ready

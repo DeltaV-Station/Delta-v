@@ -94,3 +94,15 @@
   id: FaxCopy
   name: signal-port-name-fax-copy
   description: signal-port-description-fax-copy
+
+# Disposal Unit
+
+- type: sinkPort
+  id: DisposalFlush
+  name: signal-port-name-flush
+  description: signal-port-description-flush
+
+- type: sinkPort
+  id: DisposalEject
+  name: signal-port-name-eject
+  description: signal-port-description-eject

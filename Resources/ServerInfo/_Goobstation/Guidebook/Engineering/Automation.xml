@@ -41,7 +41,7 @@ Note that currently, only some machines can be activated with a signal - for exa
 
 <GuideEntityEmbed Entity="StorageBin"/>
 
-The Storage Bin is a large storage space that can be accessed by robotic arms by default, without the need for an automation upgrade (like a material silo).
+The Storage Bin is a large storage space that can be accessed by robotic arms by default, without the need for an automation upgrade (unlike a disposals bin, for example).
 
 It has a filter slot to control what items can be inserted, similar to a robotic arm.
 
@@ -62,7 +62,7 @@ It will search for [bold]any entity[/bold] without a filter, even things like co
 It has 5 signal ports:
 Input:
 - Start, used to try interacting with something
-- Auto Start, which when enabled will automatically try to interact after a successful interaction. If not interaction happens, it will automatically deactivate.
+- Auto Start, which when enabled will automatically try to interact after a successful interaction. If no interaction happens, it will automatically deactivate.
 Output:
 - Started, invoked if the interaction starts an interaction
 - Completed, invoked on interaction succeeds OR when the interaction ends
