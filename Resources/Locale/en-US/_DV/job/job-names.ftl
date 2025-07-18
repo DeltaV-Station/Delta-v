@@ -32,6 +32,8 @@ job-alt-title-senior-physician = Physician Mentor
 job-alt-title-clinician = Clinician
 job-alt-title-cryogenics-specialist = Cryogenics Specialist
 
+job-alt-title-pharmacist = Pharmacist
+
 job-alt-title-life-support = Life Support Technician
 job-alt-title-plasma-scientist = Plasma Scientist
 

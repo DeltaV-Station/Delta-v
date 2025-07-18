@@ -1,122 +1,4 @@
 ﻿Entries:
-- author: Darkmajia, Lyndomen
-  changes:
-  - message: Ports turret fixes from Impstation, they may now shoot at prone entities.
-      Grenades can also hit prone entities.
-    type: Tweak
-  id: 1010
-  time: '2025-02-06T19:57:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2910
-- author: AeraAuling
-  changes:
-  - message: due to budget cuts, Nanotrasen has started stocking their stations with
-      older, worn labcoats.
-    type: Add
-  id: 1011
-  time: '2025-02-06T20:32:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2872
-- author: sowelipililimute
-  changes:
-  - message: The Streamer lawset now exists for silicons, transforming them into Nanotrasen's
-      funniest content creators
-    type: Add
-  id: 1012
-  time: '2025-02-06T20:48:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2866
-- author: Spielern
-  changes:
-  - message: Replaced the microreactor cell in the Syndicate Observations Kit with
-      a high capacity cell.
-    type: Tweak
-  - message: Removed the power drain from the Syndicate Crew Monitor.
-    type: Tweak
-  id: 1013
-  time: '2025-02-07T08:05:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2919
-- author: AeraAuling
-  changes:
-  - message: the anti-psychic knife isn't strictly anti-psychic anymore
-    type: Tweak
-  id: 1014
-  time: '2025-02-07T08:07:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2918
-- author: PathOwOgen
-  changes:
-  - message: Added Ushankas to the Trinkets list, allowing characters to take a Ushanka
-      as a Round Start item as a Trinket.
-    type: Add
-  id: 1015
-  time: '2025-02-07T09:07:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2849
-- author: Field Command
-  changes:
-  - message: Some more lockable buttons for the justice department specifically.
-    type: Tweak
-  id: 1016
-  time: '2025-02-07T18:02:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2923
-- author: Lyndomen
-  changes:
-  - message: Nukeops no longer start with armor, but their armors are purchasable
-      in the uplink. Some are restricted by which role you have on the team (Only
-      commander can buy a suit of commander armor, etc)
-    type: Tweak
-  - message: Nukeops get 5 extra TC each
-    type: Tweak
-  id: 1017
-  time: '2025-02-08T05:40:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2916
-- author: Toby222
-  changes:
-  - message: Wrong text when trying to drain an empty APC as IPC
-    type: Fix
-  id: 1018
-  time: '2025-02-08T10:46:09.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2927
-- author: deltanedas
-  changes:
-  - message: Made air alarms less sensitive to higher oxygen and slightly lower pressure.
-      Opening random firelocks is more likely to actually be dangerous!
-    type: Tweak
-  id: 1019
-  time: '2025-02-09T03:00:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2939
-- author: Lyndomen
-  changes:
-  - message: Surgical procedures repairing burns and brute damage are slightly more
-      effective.
-    type: Tweak
-  id: 1020
-  time: '2025-02-09T05:31:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2935
-- author: Lyndomen
-  changes:
-  - message: Nukie medic and commander armor can now actually get purchased, and they
-      get 5 extra TC.
-    type: Tweak
-  id: 1021
-  time: '2025-02-09T05:32:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2934
-- author: Quanteey
-  changes:
-  - message: NT now stocks brute trauma kits with additional bicaridine pills
-    type: Tweak
-  id: 1022
-  time: '2025-02-09T17:33:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2941
-- author: sowelipililimute
-  changes:
-  - message: Surgical tools get less dirtier than before from normal procedures and
-      dirtier from cross contamination, and have a lower base poison damage once they
-      become too dirty
-    type: Tweak
-  - message: Poor sanitation now deals poison damage on the specific part
-    type: Add
-  - message: Poison damage from surgery is no longer unbounded
-    type: Fix
-  id: 1023
-  time: '2025-02-09T19:24:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2926
 - author: Smugman
   changes:
   - message: Added the Chainsmoker Bundle to the Uplink. 6 Packs of Interdynes plus
@@ -4145,3 +4027,108 @@
   id: 1509
   time: '2025-07-03T15:53:10.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4033
+- author: Git-Kanbaru
+  changes:
+  - message: Harpies now properly poisoned by theobromine and allicin
+    type: Fix
+  id: 1510
+  time: '2025-07-05T04:35:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4034
+- author: SirWarock
+  changes:
+  - message: Gave the Psychologist a paperwork belt for their loadout!
+    type: Add
+  id: 1511
+  time: '2025-07-05T18:12:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4037
+- author: SirrRequiem
+  changes:
+  - message: Added Pharmacist as alt job title for chemists!
+    type: Add
+  id: 1512
+  time: '2025-07-06T05:47:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4038
+- author: Avalon-Proto
+  changes:
+  - message: Chitinids can now use their 2nd set of arms to drag crates and other
+      items
+    type: Tweak
+  id: 1513
+  time: '2025-07-06T05:54:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4029
+- author: Field Command, SubspaceEmber
+  changes:
+  - message: Add laser tag guns that can be requested at the cargo console. Watch
+      out, some laser tag guns may be rigged to be more dangerous than you'd expect.
+    type: Add
+  id: 1514
+  time: '2025-07-06T10:25:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3963
+- author: kotobdev
+  changes:
+  - message: Xenomorph raffle timer is now 10 seconds, down from 30.
+    type: Tweak
+  id: 1515
+  time: '2025-07-06T22:07:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4042
+- author: AlgisAlphonse
+  changes:
+  - message: 'Added a short range materials magnet to the logistics techlathe. Cargo
+      Technicians rejoice! WARNING: This does not fix the existing bug with diamonds
+      being stuck in lathes. Use with caution.'
+    type: Add
+  id: 1516
+  time: '2025-07-08T14:05:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4011
+- author: NoElkaTheGod
+  changes:
+  - message: Energy shield price reduced from 16 to 12 telecrystals.
+    type: Tweak
+  id: 1517
+  time: '2025-07-11T15:31:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4045
+- author: YomieI
+  changes:
+  - message: Sticks of butter and butter slices are now grindable
+    type: Tweak
+  id: 1518
+  time: '2025-07-12T10:46:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4050
+- author: NoElkaTheGod
+  changes:
+  - message: Null Glare now ignores flash protection if the user is empowered.
+    type: Tweak
+  - message: Null glare duration while empowered 10 -> 6 seconds.
+    type: Tweak
+  id: 1519
+  time: '2025-07-12T14:58:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4048
+- author: kotobdev
+  changes:
+  - message: Glimmer seizures will now only occur above 450 glimmer.
+    type: Tweak
+  id: 1520
+  time: '2025-07-13T22:29:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4049
+- author: SirrRequiem
+  changes:
+  - message: Oh my god! Shoes! Sec gets combat boots in their loadouts
+    type: Add
+  id: 1521
+  time: '2025-07-14T02:23:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4056
+- author: deltanedas
+  changes:
+  - message: The Listening Post's crew monitoring console now shows the station instead
+      of the post.
+    type: Tweak
+  id: 1522
+  time: '2025-07-18T15:12:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4015
+- author: kotobdev
+  changes:
+  - message: Listening Post Operatives now get records tablets.
+    type: Add
+  id: 1523
+  time: '2025-07-18T15:30:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4030
