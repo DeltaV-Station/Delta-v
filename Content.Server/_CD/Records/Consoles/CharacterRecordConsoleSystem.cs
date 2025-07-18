@@ -77,13 +77,16 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
         if (!Resolve(entity, ref console))
             return;
 
-        var station = _station.GetOwningStation(entity);
-        if (!HasComp<StationRecordsComponent>(station) ||
-            !HasComp<CharacterRecordsComponent>(station))
+        // Begin DeltaV - lpo record tablet requires finding right station without GetOwningStation
+        var station = console.ConsoleType == RecordConsoleType.Generic
+            ? _station.GetStationInMap(Transform(entity).MapID)
+            : _station.GetOwningStation(entity);
+        if (!HasComp<StationRecordsComponent>(station) || !HasComp<CharacterRecordsComponent>(station))
         {
             SendState(entity, new CharacterRecordConsoleState { ConsoleType = console.ConsoleType });
             return;
         }
+        // End DeltaV - lpo record tablet requires finding right station without GetOwningStation
 
         var characterRecords = _characterRecords.QueryRecords(station.Value);
         // Get the name and station records key display from the list of records
