@@ -3,6 +3,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Temperature.Components;
+using Content.Shared._DV.CosmicCult.Components; // DeltaV
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
@@ -24,6 +25,7 @@ public sealed class TemperatureSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
+    private EntityQuery<TemperatureImmunityComponent> _immuneQuery; // DeltaV
 
     /// <summary>
     ///     All the components that will have their damage updated at the end of the tick.
@@ -57,6 +59,7 @@ public sealed class TemperatureSystem : EntitySystem
             OnParentThresholdStartup);
         SubscribeLocalEvent<ContainerTemperatureDamageThresholdsComponent, ComponentShutdown>(
             OnParentThresholdShutdown);
+        _immuneQuery = GetEntityQuery<TemperatureImmunityComponent>(); // DeltaV
     }
 
     public override void Update(float frameTime)
@@ -191,7 +194,7 @@ public sealed class TemperatureSystem : EntitySystem
         float threshold;
         float idealTemp;
 
-        if (!TryComp<TemperatureComponent>(uid, out var temperature))
+        if (!TryComp<TemperatureComponent>(uid, out var temperature) || _immuneQuery.HasComp(uid)) // DeltaV - hide alerts if immune
         {
             _alerts.ClearAlertCategory(uid, TemperatureAlertCategory);
             return;
@@ -244,6 +247,10 @@ public sealed class TemperatureSystem : EntitySystem
 
     private void EnqueueDamage(Entity<TemperatureComponent> temperature, ref OnTemperatureChangeEvent args)
     {
+        // Begin DeltaV Additions - cosmic cult temperature immunity
+        if (_immuneQuery.HasComp(temperature))
+            return;
+        // End DeltaV Additions
         ShouldUpdateDamage.Add(temperature);
     }
 
