@@ -1,6 +1,5 @@
-using Content.Shared._Shitmed.Body.Organ;
+using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Actions;
-using Content.Shared.Body.Organ;
 
 namespace Content.Shared._DV.Augments;
 
@@ -13,26 +12,20 @@ public sealed class AugmentActionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AugmentActionComponent, OrganEnableChangedEvent>(OnOrganEnableChanged);
+        SubscribeLocalEvent<AugmentActionComponent, MechanismEnabledEvent>(OnEnabled);
+        SubscribeLocalEvent<AugmentActionComponent, MechanismDisabledEvent>(OnDisabled);
     }
 
-    private void OnOrganEnableChanged(Entity<AugmentActionComponent> augment, ref OrganEnableChangedEvent args)
+    private void OnEnabled(Entity<AugmentActionComponent> augment, ref MechanismEnabledEvent args)
     {
-        if (!TryComp<OrganComponent>(augment, out var organ) || organ.Body is not {} body)
-            return;
+        var ev = new GetItemActionsEvent(_actionContainer, args.Body, augment);
+        RaiseLocalEvent(augment, ev);
 
-        var actionsComponent = EnsureComp<ActionsComponent>(body);
+        _actions.GrantActions(args.Body, ev.Actions, augment);
+    }
 
-        if (args.Enabled)
-        {
-            var ev = new GetItemActionsEvent(_actionContainer, body, augment);
-            RaiseLocalEvent(augment, ev);
-
-            _actions.GrantActions(body, ev.Actions, augment, actionsComponent);
-        }
-        else
-        {
-            _actions.RemoveProvidedActions(body, augment, actionsComponent);
-        }
+    private void OnDisabled(Entity<AugmentActionComponent> augment, ref MechanismDisabledEvent args)
+    {
+        _actions.RemoveProvidedActions(args.Body, augment);
     }
 }
