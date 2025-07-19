@@ -1,0 +1,15 @@
+- type: antag
+  id: MenaceSkeleton
+  name: roles-antag-menace-skeleton-name
+  objective: roles-antag-menace-skeleton-objective
+  antagonist: true
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 172800 # 48 hours overall
+
+- type: startingGear
+  id: MenaceSkeletonGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    ears: ClothingHeadsetGrey
+    shoes: ClothingShoesChameleonNoSlips
