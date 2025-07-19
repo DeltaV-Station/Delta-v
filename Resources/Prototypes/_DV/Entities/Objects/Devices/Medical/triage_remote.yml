@@ -1,0 +1,17 @@
+- type: entity
+  parent: [BaseItem, BaseCommandContraband]
+  id: TriageRemote
+  name: triage remote
+  description: A gadget which can assign a triage status to patients remotely
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/door_remote.rsi
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#e6e600"
+    - state: door_remotescreencolour
+      color: "#9f9f00"
+  - type: Item
+    storedRotation: -90
+  - type: TriageRemote

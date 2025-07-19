@@ -1,3 +1,4 @@
+using System.ComponentModel.Design;
 using Content.Server.Body.Components;
 using Content.Server.Medical.Components;
 using Content.Server.PowerCell;
@@ -58,6 +59,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             subs.Event<HealthAnalyzerPartMessage>(OnHealthAnalyzerPartSelected);
             subs.Event<HealthAnalyzerTriageStatusMessage>(OnHealthAnalyzerTriageStatusSelected);
             subs.Event<HealthAnalyzerTriageClaimMessage>(OnHealthAnalyzerTriageClaimSelected);
+            subs.Event<HealthAnalyzerTriageUnclaimMessage>(OnHealthAnalyzerTriageUnclaimSelected);
         });
         // Shitmed Change End
     }
@@ -141,7 +143,6 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         OpenUserInterface(args.User, uid);
         BeginAnalyzingEntity(uid, args.Target.Value);
-        uid.Comp.StationRecordKey = _medicalRecords.GetMedicalRecordsKey(args.Target.Value); // DeltaV - Medical Records
         args.Handled = true;
     }
 
@@ -253,18 +254,31 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     // Begin DeltaV - Medical Records
     private void OnHealthAnalyzerTriageStatusSelected(Entity<HealthAnalyzerComponent> healthAnalyzer, ref HealthAnalyzerTriageStatusMessage args)
     {
-        if (healthAnalyzer.Comp.StationRecordKey is not {} key)
-            return;
-
-        _medicalRecords.SetPatientStatus(key, args.TriageStatus);
+        // todo add checks here
+        EntityUid? patient = healthAnalyzer.Comp.ScannedEntity;
+        if (patient.HasValue)
+        {
+            _medicalRecords.SetPatientStatus(patient.Value, args.Actor, args.TriageStatus);
+        }
     }
 
     private void OnHealthAnalyzerTriageClaimSelected(Entity<HealthAnalyzerComponent> healthAnalyzer, ref HealthAnalyzerTriageClaimMessage args)
     {
-        if (healthAnalyzer.Comp.StationRecordKey is not {} key)
-            return;
+        EntityUid? patient = healthAnalyzer.Comp.ScannedEntity;
+        if (patient.HasValue)
+        {
+            _medicalRecords.ClaimPatient(patient.Value, args.Actor);
+        }
+    }
 
-        _medicalRecords.ClaimPatient(key, args.Actor);
+    private void OnHealthAnalyzerTriageUnclaimSelected(Entity<HealthAnalyzerComponent> healthAnalyzer, ref HealthAnalyzerTriageUnclaimMessage args)
+    {
+        EntityUid? patient = healthAnalyzer.Comp.ScannedEntity;
+        if (patient.HasValue)
+        {
+            _medicalRecords.UnclaimPatient(patient.Value);
+        }
+
     }
     // End DeltaV - Medical Records
 

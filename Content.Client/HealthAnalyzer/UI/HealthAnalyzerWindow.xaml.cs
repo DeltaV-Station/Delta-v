@@ -57,6 +57,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
         public event Action<TriageStatus>? OnTriageStatusChanged;
         public event Action? OnClaimPatient;
+        public event Action? OnUnclaimPatient;
         // End DeltaV - Medical Records
 
         public HealthAnalyzerWindow()
@@ -101,7 +102,12 @@ namespace Content.Client.HealthAnalyzer.UI
                 btn.Group = _triageStatusGroup;
                 btn.Text = Loc.GetString($"health-analyzer-window-triage-status-{ftlKey}");
                 btn.ToolTip = Loc.GetString($"health-analyzer-window-triage-status-{ftlKey}.ToolTip");
-                btn.OnPressed += _ => OnTriageStatusChanged?.Invoke(item);
+                // OnButtonDown is used instead of OnPressed so the CMO can confirm a triage to make it command level.
+                btn.OnButtonDown += _ =>
+                {
+                    btn.Pressed = true;
+                    OnTriageStatusChanged?.Invoke(item);
+                };
                 btn.AddStyleClass("ButtonSquare");
                 StatusBox.AddChild(btn);
                 _triageControls[item] = btn;
@@ -111,6 +117,7 @@ namespace Content.Client.HealthAnalyzer.UI
             StatusBox.Children.Last().AddStyleClass("OpenLeft");
             StatusBox.Children.Last().RemoveStyleClass("ButtonSquare");
             ClaimButton.OnPressed += _ => OnClaimPatient?.Invoke();
+            UnclaimButton.OnPressed += _ => OnUnclaimPatient?.Invoke();
             // End DeltaV - Medical Records
         }
 
