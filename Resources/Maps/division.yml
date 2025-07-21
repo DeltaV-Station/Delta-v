@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 07/18/2025 18:09:10
-  entityCount: 25821
+  time: 07/21/2025 16:48:15
+  entityCount: 25824
 maps:
 - 1
 grids:
@@ -132757,6 +132757,22 @@ entities:
     - type: Transform
       pos: -29.672272,-35.485603
       parent: 2
+- proto: SpaceCreatureAISpawner
+  entities:
+  - uid: 25823
+    components:
+    - type: Transform
+      pos: 15.5,27.5
+      parent: 2
+    - type: RandomSpawner
+      chance: 0.05
+  - uid: 25824
+    components:
+    - type: Transform
+      pos: -43.5,4.5
+      parent: 2
+    - type: RandomSpawner
+      chance: 0.05
 - proto: SpaceDisposalUnit
   entities:
   - uid: 20842
@@ -133023,6 +133039,15 @@ entities:
     - type: Transform
       pos: 17.5,4.5
       parent: 2
+- proto: SpawnMobXenoBurrower
+  entities:
+  - uid: 25822
+    components:
+    - type: Transform
+      pos: 46.5,11.5
+      parent: 2
+    - type: ConditionalSpawner
+      chance: 0.05
 - proto: SpawnPointAtmos
   entities:
   - uid: 20882
