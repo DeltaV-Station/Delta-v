@@ -38,3 +38,22 @@
   id: TraitorObjectiveGroupSpecial
   weights:
     UploadAILawObjective: 1
+
+## Wizard
+- type: weightedRandom
+  id: WizardObjectiveGroupDelta
+  weights:
+    WizardObjectiveGroupDeltaObjectives1: 1 # gotta add another group or some shit idk
+    WizardObjectiveGroupDeltaObjectives2: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupDeltaObjectives1
+  weights:
+    WizardMagicocracyObjective: 1
+    WizardTeachObjective: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupDeltaObjectives2
+  weights:
+    WizardProfitObjective: 1
+    WizardBalanceObjective: 1

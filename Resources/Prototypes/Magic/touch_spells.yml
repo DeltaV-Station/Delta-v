@@ -4,7 +4,7 @@
   description: Instantly gibs a target.
   components:
   - type: EntityTargetAction
-    useDelay: 90
+    useDelay: 300 # DeltaV - was 90, increased because jesus christ
     itemIconStyle: BigAction
     whitelist:
       components:

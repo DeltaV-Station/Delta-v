@@ -1,0 +1,43 @@
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardMagicocracyObjective
+  name: Magicocracy
+  description: Establish Magicocracy amidst the secular on this station!
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Head/Hats/wizardhat.rsi
+      state: icon
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardTeachObjective
+  name: Teach
+  description: Train crew in the arts of the arcane, whether by mentorship or experimentation!
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: spell_default
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardProfitObjective
+  name: Profit
+  description: Utilize the station for the purpose of profit for the wizard federation!
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Economy/cash.rsi
+      state: cash_1000000
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardBalanceObjective
+  name: Balance
+  description: Establish a cosmic balance on the station by eradicating chaos through the use of wit and the arcane!
+  components:
+  - type: Objective
+    icon:
+      sprite: _DV/Misc/wizard.rsi
+      state: scale
