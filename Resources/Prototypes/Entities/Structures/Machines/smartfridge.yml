@@ -22,26 +22,13 @@
     - state: smartfridge_door
       map: ["enum.StorageVisualLayers.Door"]
       shader: unshaded
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.2
     energy: 3.0
     color: "#9dc5c9"
-  #- type: Machine # DeltaV - Put these components on ours
-  #  board: SmartFridgeCircuitboard
   - type: ContainerContainer
     containers:
       smart_fridge_inventory: !type:Container
-      machine_board: !type:Container
-      machine_parts: !type:Container
-  #- type: Construction # DeltaV - Put these components on ours
-  #  graph: Machine
-  #  node: machine
-  #  containers:
-  #  - machine_parts
-  #  - machine_board
-  #  - smart_fridge_inventory
   - type: LitOnPowered
   - type: ApcPowerReceiver
     powerLoad: 200
@@ -49,7 +36,6 @@
   - type: SmartFridge
     whitelist:
       components:
-      - Edible
       - FitsInDispenser
       - Pill
       - Produce
@@ -66,8 +52,6 @@
     interfaces:
       enum.SmartFridgeUiKey.Key:
         type: SmartFridgeBoundUserInterface
-  - type: WiresPanel
-  - type: WiresVisuals
   - type: AccessReader
   - type: UseDelay
     delay: 1
@@ -117,15 +101,13 @@
       collection: MetalThud
   - type: ExplosionResistance
     damageCoefficient: 0.1
-  - type: Airtight
 
 - type: entity
   parent: SmartFridge
   id: SmartFridgeMedical
-  categories: [ HideSpawnMenu ]
   suffix: Medical
   components:
   - type: SmartFridge
-    #flavorText: smart-fridge-request-chemistry
+    flavorText: smart-fridge-request-chemistry
   - type: AccessReader
     access: [["Medical"]]

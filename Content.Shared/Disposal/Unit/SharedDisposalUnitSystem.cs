@@ -18,6 +18,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Storage.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
@@ -80,13 +81,9 @@ public abstract partial class SharedDisposalUnitSystem : EntitySystem
         SubscribeLocalEvent<DisposalUnitComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<DisposalUnitComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<DisposalUnitComponent, ContainerRelayMovementEntityEvent>(OnMovement);
-        SubscribeLocalEvent<DisposalUnitComponent, CanDropTargetEvent>(OnCanDragDropOn);
-        SubscribeLocalEvent<DisposalUnitComponent, DragDropTargetEvent>(OnDragDropOn);
+
         SubscribeLocalEvent<DisposalUnitComponent, GetDumpableVerbEvent>(OnGetDumpableVerb);
         SubscribeLocalEvent<DisposalUnitComponent, DumpEvent>(OnDump);
-
-        // See SharedDisposalUnitSystem.Visuals
-        SubscribeLocalEvent<DisposalUnitComponent, DisposalUnitUiButtonPressedMessage>(OnUiButtonPressed);
     }
 
     #region: Event handling
@@ -514,5 +511,24 @@ public abstract partial class SharedDisposalUnitSystem : EntitySystem
     protected virtual void IntakeAir(Entity<DisposalUnitComponent> ent, TransformComponent xform)
     {
         // Handled by the server
+    }
+
+    private void OnGetDumpableVerb(Entity<DisposalUnitComponent> ent, ref GetDumpableVerbEvent args)
+    {
+        args.Verb = Loc.GetString("dump-disposal-verb-name", ("unit", ent));
+    }
+
+    private void OnDump(Entity<DisposalUnitComponent> ent, ref DumpEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+        args.PlaySound = true;
+
+        foreach (var entity in args.DumpQueue)
+        {
+            DoInsertDisposalUnit(ent, entity, args.User);
+        }
     }
 }
