@@ -79,7 +79,7 @@ namespace Content.Shared.Abilities.Psionics
         {
             if (args.Handled)
                 return;
-            
+
             if (args.Cancelled)
             {
                 _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
