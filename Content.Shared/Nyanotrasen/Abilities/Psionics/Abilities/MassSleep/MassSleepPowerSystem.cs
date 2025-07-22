@@ -9,7 +9,6 @@ using Content.Shared.Popups;
 using Content.Shared.Psionics.Events;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
-using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.Abilities.Psionics
 {
@@ -19,7 +18,6 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
@@ -81,6 +79,7 @@ namespace Content.Shared.Abilities.Psionics
         {
             if (args.Handled)
                 return;
+            
             if (args.Cancelled)
             {
                 _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
