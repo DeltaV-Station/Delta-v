@@ -38,3 +38,26 @@
   id: TraitorObjectiveGroupSpecial
   weights:
     UploadAILawObjective: 1
+
+## Wizard
+- type: weightedRandom
+  id: WizardObjectiveGroupDelta
+  weights:
+    WizardObjectiveGroupDeltaObjectives1: 0.75
+    WizardObjectiveGroupDeltaObjectives2: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupDeltaObjectives1
+  weights:
+    WizardMagicocracyObjective: 1
+    WizardBalanceObjective: 1
+    WizardDestroyObjective: 0.5
+
+- type: weightedRandom
+  id: WizardObjectiveGroupDeltaObjectives2
+  weights:
+    WizardProfitObjective: 0.75
+    WizardTeachObjective: 0.75
+    WizardPopularObjective: 0.75
+    WizardDataObjective: 0.75
+    WizardPreserveObjective: 1
