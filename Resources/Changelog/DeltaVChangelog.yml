@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Stop-Signs
-  changes:
-  - message: Food now gets metabolized 4 times faster.
-    type: Tweak
-  id: 1028
-  time: '2025-02-11T00:07:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2942
 - author: Quanteey
   changes:
   - message: The crew monitor handheld and console now beep when a crew member goes
@@ -4125,3 +4118,25 @@
   id: 1527
   time: '2025-07-21T22:04:01.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4064
+- author: AlgisAlphonse
+  changes:
+  - message: Magnet pull time has been increased from 6 min to 9 min.
+    type: Tweak
+  - message: Magnet release warning message time has been increased from 30 seconds
+      to 59 seconds.
+    type: Tweak
+  - message: Magnet offer refresh time has been decreased from 3 min to 2 min.
+    type: Tweak
+  - message: Probability of wrecks for the salvage magnet has been increased, and
+      probability of asteroids has been decreased.
+    type: Tweak
+  - message: Lowered the cost to pull wrecks from 1000 mining points to 500 mining
+      points, to put in line with nerfs to ore output and improved materials from
+      recycling scrap.
+    type: Tweak
+  - message: Time for a fulton to teleport has been decreased from 45 seconds to 30
+      seconds.
+    type: Tweak
+  id: 1528
+  time: '2025-07-22T12:15:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3944
