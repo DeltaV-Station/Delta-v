@@ -43,17 +43,21 @@
 - type: weightedRandom
   id: WizardObjectiveGroupDelta
   weights:
-    WizardObjectiveGroupDeltaObjectives1: 1 # gotta add another group or some shit idk
+    WizardObjectiveGroupDeltaObjectives1: 0.75
     WizardObjectiveGroupDeltaObjectives2: 1
 
 - type: weightedRandom
   id: WizardObjectiveGroupDeltaObjectives1
   weights:
     WizardMagicocracyObjective: 1
-    WizardTeachObjective: 1
+    WizardBalanceObjective: 1
+    WizardDestroyObjective: 0.5
 
 - type: weightedRandom
   id: WizardObjectiveGroupDeltaObjectives2
   weights:
-    WizardProfitObjective: 1
-    WizardBalanceObjective: 1
+    WizardProfitObjective: 0.75
+    WizardTeachObjective: 0.75
+    WizardPopularObjective: 0.75
+    WizardDataObjective: 0.75
+    WizardPreserveObjective: 1
