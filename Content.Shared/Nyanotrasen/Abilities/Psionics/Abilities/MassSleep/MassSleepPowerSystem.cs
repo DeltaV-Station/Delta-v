@@ -5,12 +5,11 @@ using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions.Events;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Events;
 using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
 
 namespace Content.Shared.Abilities.Psionics
 {
@@ -54,19 +53,22 @@ namespace Content.Shared.Abilities.Psionics
             var ev = new MassSleepDoAfterEvent();
             var doAfterArgs = new DoAfterArgs(EntityManager, uid, component.UseDelay, ev, uid)
             {
+                Hidden = true,
                 BreakOnDamage = true
             };
 
-            /*_popup.PopupCoordinates(
-                "{$name}'s presence makes you sleepy...",
-                Transform(args.Performer).Coordinates,
-                PopupType.LargeCaution);*/
+            foreach (var entity in _lookup.GetEntitiesInRange(args.Performer, component.WarningRadius))
+            {
+                if (HasComp<MobStateComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity))
+                {
+                    _popup.PopupEntity(Loc.GetString("psionic-power-mass-sleep-warning"),
+                        entity,
+                        entity,
+                        PopupType.LargeCaution);
+                }
+            }
 
-            _popup.PopupEntity(Loc.GetString("psionic-power-mass-sleep-warning", ("NAME", Identity.Entity(args.Performer, EntityManager))),
-                args.Performer,
-                Filter.PvsExcept(args.Performer, component.WarningRange),
-                true,
-                PopupType.LargeCaution);
+            _statusEffects.TryAddStatusEffect<SlowedDownComponent>(uid, "SlowedDown", component.UseDelay, true);
 
             _doAfter.TryStartDoAfter(doAfterArgs, out var doAfterId);
             component.DoAfter = doAfterId;
@@ -79,13 +81,18 @@ namespace Content.Shared.Abilities.Psionics
         {
             if (args.Handled)
                 return;
-            var duration = 5; // Duration of the mass sleep
+            if (args.Cancelled)
+            {
+                _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
+                return;
+            }
+
             foreach (var entity in _lookup.GetEntitiesInRange(args.User, component.Radius))
             {
                 if (HasComp<MobStateComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity))
                 {
                     if (TryComp<DamageableComponent>(entity, out var damageable) && damageable.DamageContainerID == "Biological")
-                        _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(entity, StatusEffectKey, TimeSpan.FromSeconds(duration), false);
+                        _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(entity, StatusEffectKey, TimeSpan.FromSeconds(component.Duration), false);
                 }
             }
 
