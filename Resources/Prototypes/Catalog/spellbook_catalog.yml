@@ -13,18 +13,18 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-- type: listing
-  id: SpellbookRodForm
-  name: spellbook-polymorph-rod-name
-  description: spellbook-polymorph-rod-desc
-  productAction: ActionPolymorphWizardRod
-  cost:
-    WizCoin: 3
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+# - type: listing # DeltaV - lol this shit is wild
+#   id: SpellbookRodForm
+#   name: spellbook-polymorph-rod-name
+#   description: spellbook-polymorph-rod-desc
+#   productAction: ActionPolymorphWizardRod
+#   cost:
+#     WizCoin: 3
+#   categories:
+#   - SpellbookOffensive
+#   conditions:
+#   - !type:ListingLimitedStockCondition
+#     stock: 1
 
 - type: listing
   id: SpellbookSmite
@@ -39,18 +39,18 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-- type: listing
-  id: SpellbookCluwne
-  name: spellbook-cluwne-name
-  description: spellbook-cluwne-desc
-  productAction: ActionCluwne
-  cost:
-    WizCoin: 3
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+# - type: listing # DeltaV - commented out in case of confusion where cluwnes are considered KOS by some
+#   id: SpellbookCluwne
+#   name: spellbook-cluwne-name
+#   description: spellbook-cluwne-desc
+#   productAction: ActionCluwne
+#   cost:
+#     WizCoin: 3
+#   categories:
+#   - SpellbookOffensive
+#   conditions:
+#   - !type:ListingLimitedStockCondition
+#     stock: 1
 
 - type: listing
   id: SpellbookSlip
