@@ -83,7 +83,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<CosmicImposingComponent, RefreshMovementSpeedModifiersEvent>(OnImpositionMoveSpeed);
 
         SubscribeLocalEvent<CosmicCultExamineComponent, ExaminedEvent>(OnCosmicCultExamined);
-        
+
         SubscribeLocalEvent<CosmicSubtleMarkComponent, ExaminedEvent>(OnSubtleMarkExamined);
 
         SubscribeFinale(); //Hook up the cosmic cult finale system
@@ -115,7 +115,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     }
 
     private void OnSubtleMarkExamined(Entity<CosmicSubtleMarkComponent> ent, ref ExaminedEvent args)
-    {            
+    {
         var ev = new SeeIdentityAttemptEvent();
         RaiseLocalEvent(ent, ev);
         if (ev.TotalCoverage == IdentityBlockerCoverage.EYES || ev.TotalCoverage == IdentityBlockerCoverage.FULL) return;
