@@ -26,6 +26,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Popups;
+using Content.Shared.IdentityManagement.Components;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -82,6 +83,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<CosmicImposingComponent, RefreshMovementSpeedModifiersEvent>(OnImpositionMoveSpeed);
 
         SubscribeLocalEvent<CosmicCultExamineComponent, ExaminedEvent>(OnCosmicCultExamined);
+        
+        SubscribeLocalEvent<CosmicSubtleMarkComponent, ExaminedEvent>(OnSubtleMarkExamined);
 
         SubscribeFinale(); //Hook up the cosmic cult finale system
     }
@@ -109,6 +112,15 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     private void OnCosmicCultExamined(Entity<CosmicCultExamineComponent> ent, ref ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString(EntitySeesCult(args.Examiner) ? ent.Comp.CultistText : ent.Comp.OthersText));
+    }
+
+    private void OnSubtleMarkExamined(Entity<CosmicSubtleMarkComponent> ent, ref ExaminedEvent args)
+    {            
+        var ev = new SeeIdentityAttemptEvent();
+        RaiseLocalEvent(ent, ev);
+        if (ev.TotalCoverage == IdentityBlockerCoverage.EYES) return;
+
+        args.PushMarkup(Loc.GetString(ent.Comp.ExamineText));
     }
     #endregion
 
