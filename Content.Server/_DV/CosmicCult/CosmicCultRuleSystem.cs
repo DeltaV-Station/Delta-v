@@ -188,11 +188,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             component.ExtraRiftTimer = null; // stop spawning more rifts
 
             //do spooky things
-            var query = EntityQueryEnumerator<CosmicCultComponent>();
+            /*var query = EntityQueryEnumerator<CosmicCultComponent>();
             while (query.MoveNext(out var cultist, out var cultComp))
             {
                 EnsureComp<CosmicStarMarkComponent>(cultist);
-            }
+            }*/
+            //don't spooky things
 
             var sender = Loc.GetString("cosmiccult-announcement-sender");
             var mapData = _map.GetMap(_transform.GetMapId(component.MonumentInGame.Owner.ToCoordinates()));

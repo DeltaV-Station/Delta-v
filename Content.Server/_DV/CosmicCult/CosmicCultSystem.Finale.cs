@@ -98,6 +98,12 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         Dirty(uid, monument);
         _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(monument));
+
+        var query = EntityQueryEnumerator<CosmicCultComponent>();
+        while (query.MoveNext(out var cultist, out var cultComp))
+        {
+            EnsureComp<CosmicStarMarkComponent>(cultist);
+        }
     }
 
     private void OnFinaleCancelDoAfter(Entity<CosmicFinaleComponent> uid, ref CancelFinaleDoAfterEvent args)
