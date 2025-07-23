@@ -41,23 +41,34 @@
 
 ## Wizard
 - type: weightedRandom
-  id: WizardObjectiveGroupDelta
+  id: WizardObjectiveGroupPrimaryDelta
   weights:
-    WizardObjectiveGroupDeltaObjectives1: 0.75
-    WizardObjectiveGroupDeltaObjectives2: 1
+    WizardObjectiveGroupDeltaObjectivesPrimary: 1
 
 - type: weightedRandom
-  id: WizardObjectiveGroupDeltaObjectives1
+  id: WizardObjectiveGroupSecondaryDelta
+  weights:
+    WizardObjectiveGroupDeltaObjectivesMean: 1
+    WizardObjectiveGroupDeltaObjectivesNice: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupDeltaObjectivesPrimary
   weights:
     WizardMagicocracyObjective: 1
     WizardBalanceObjective: 1
-    WizardDestroyObjective: 0.5
+    WizardDestroyObjective: 1
 
 - type: weightedRandom
-  id: WizardObjectiveGroupDeltaObjectives2
+  id: WizardObjectiveGroupDeltaObjectivesMean
+  weights:
+    WizardKillObjective: 1
+    WizardFearObjective: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupDeltaObjectivesNice
   weights:
     WizardProfitObjective: 0.75
-    WizardTeachObjective: 0.75
     WizardPopularObjective: 0.75
     WizardDataObjective: 0.75
     WizardPreserveObjective: 1
+    WizardTeachObjective: 1
