@@ -353,6 +353,8 @@
         - NamesWizardFirst
         - NamesWizardLast
         nameFormat: name-format-wizard
+      - type: RandomHumanoidAppearance # DeltaV - randomizes character
+        randomizeName: false
       mindRoles:
       - MindRoleWizard
 
