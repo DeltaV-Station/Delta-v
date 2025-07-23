@@ -185,7 +185,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (component.Tier3DelayTimer is { } tier3Timer && _timing.CurTime >= tier3Timer)
         {
             component.Tier3DelayTimer = null;
-            component.ExtraRiftTimer = null; // stop spawning more rifts
 
             //do spooky things
             /*var query = EntityQueryEnumerator<CosmicCultComponent>();
