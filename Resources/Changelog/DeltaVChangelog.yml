@@ -1,75 +1,4 @@
 ﻿Entries:
-- author: Quanteey
-  changes:
-  - message: NT now stocks brute trauma kits with additional bicaridine pills
-    type: Tweak
-  id: 1022
-  time: '2025-02-09T17:33:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2941
-- author: sowelipililimute
-  changes:
-  - message: Surgical tools get less dirtier than before from normal procedures and
-      dirtier from cross contamination, and have a lower base poison damage once they
-      become too dirty
-    type: Tweak
-  - message: Poor sanitation now deals poison damage on the specific part
-    type: Add
-  - message: Poison damage from surgery is no longer unbounded
-    type: Fix
-  id: 1023
-  time: '2025-02-09T19:24:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2926
-- author: Smugman
-  changes:
-  - message: Added the Chainsmoker Bundle to the Uplink. 6 Packs of Interdynes plus
-      a Valid Lighter that shoots fire!
-    type: Add
-  - message: After a "False Advertising" lawsuit, Cigarette Cartons now ACTUALLY Contain
-      6 packs. (except discount dan's)
-    type: Tweak
-  - message: Fixed Cigarette cartons aside from "Nomads" not displaying their Opened
-      State.
-    type: Fix
-  id: 1024
-  time: '2025-02-09T22:21:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2894
-- author: sowelipililimute, bogus_0451
-  changes:
-  - message: Added the autoclave to sterilise surgical tools in bulk
-    type: Add
-  id: 1025
-  time: '2025-02-10T12:22:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2933
-- author: Eternally-Confused
-  changes:
-  - message: surgical duffels and syndicate surgical duffels now contain a nitrous
-      oxide tank
-    type: Tweak
-  id: 1026
-  time: '2025-02-10T23:48:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2951
-- author: Eternally-Confused
-  changes:
-  - message: Returned "Clearly Nuclear"
-    type: Add
-  id: 1027
-  time: '2025-02-10T23:51:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2952
-- author: Stop-Signs
-  changes:
-  - message: Food now gets metabolized 4 times faster.
-    type: Tweak
-  id: 1028
-  time: '2025-02-11T00:07:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2942
-- author: Quanteey
-  changes:
-  - message: The crew monitor handheld and console now beep when a crew member goes
-      into critical condition or dies!
-    type: Tweak
-  id: 1029
-  time: '2025-02-11T08:40:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2930
 - author: AeraAuling
   changes:
   - message: NT has started to supply stations with high-quality arming swords. Security
@@ -4137,3 +4066,76 @@
   id: 1521
   time: '2025-07-14T02:23:24.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4056
+- author: deltanedas
+  changes:
+  - message: The Listening Post's crew monitoring console now shows the station instead
+      of the post.
+    type: Tweak
+  id: 1522
+  time: '2025-07-18T15:12:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4015
+- author: kotobdev
+  changes:
+  - message: Listening Post Operatives now get records tablets.
+    type: Add
+  id: 1523
+  time: '2025-07-18T15:30:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4030
+- author: SirWarock
+  changes:
+  - message: Re-added the Turtlenecks to the Winterdrobe - Stay fashionable and warm
+      on Glacier!
+    type: Fix
+  id: 1524
+  time: '2025-07-19T15:59:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4039
+- author: HTMLSystem
+  changes:
+  - message: Added a lot more clothes to assistant loadouts!
+    type: Add
+  id: 1525
+  time: '2025-07-21T00:05:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3554
+- author: deltanedas
+  changes:
+  - message: Fixed empowered cosmic cultists taking temperature damage.
+    type: Fix
+  id: 1526
+  time: '2025-07-21T19:35:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4054
+- author: kotobdev
+  changes:
+  - message: All jobs, again, now get the same starting TC.
+    type: Tweak
+  id: 1527
+  time: '2025-07-21T22:04:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4064
+- author: AlgisAlphonse
+  changes:
+  - message: Magnet pull time has been increased from 6 min to 9 min.
+    type: Tweak
+  - message: Magnet release warning message time has been increased from 30 seconds
+      to 59 seconds.
+    type: Tweak
+  - message: Magnet offer refresh time has been decreased from 3 min to 2 min.
+    type: Tweak
+  - message: Probability of wrecks for the salvage magnet has been increased, and
+      probability of asteroids has been decreased.
+    type: Tweak
+  - message: Lowered the cost to pull wrecks from 1000 mining points to 500 mining
+      points, to put in line with nerfs to ore output and improved materials from
+      recycling scrap.
+    type: Tweak
+  - message: Time for a fulton to teleport has been decreased from 45 seconds to 30
+      seconds.
+    type: Tweak
+  id: 1528
+  time: '2025-07-22T12:15:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3944
+- author: Colin-Tel, Pikepeicrer
+  changes:
+  - message: Wizards have been spotted around stations!
+    type: Add
+  id: 1529
+  time: '2025-07-22T14:42:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4066
