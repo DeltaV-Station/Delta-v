@@ -44,7 +44,7 @@
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
-    #- id: WizardSpawn # DeltaV - disabled until its touched up
+    - id: WizardSpawn
 
 - type: entity
   id: BaseStationEvent
@@ -353,6 +353,8 @@
         - NamesWizardFirst
         - NamesWizardLast
         nameFormat: name-format-wizard
+      - type: RandomHumanoidAppearance # DeltaV - randomizes character
+        randomizeName: false
       mindRoles:
       - MindRoleWizard
 

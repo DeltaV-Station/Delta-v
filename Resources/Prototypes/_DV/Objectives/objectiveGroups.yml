@@ -74,3 +74,37 @@
   id: SkeletonObjectiveGroupDrip
   weights:
     SkeletonDripObjective: 1
+    
+## Wizard
+- type: weightedRandom
+  id: WizardObjectiveGroupPrimaryDelta
+  weights:
+    WizardObjectiveGroupDeltaObjectivesPrimary: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupSecondaryDelta
+  weights:
+    WizardObjectiveGroupDeltaObjectivesMean: 1
+    WizardObjectiveGroupDeltaObjectivesNice: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupDeltaObjectivesPrimary
+  weights:
+    WizardMagicocracyObjective: 1
+    WizardBalanceObjective: 1
+    WizardDestroyObjective: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupDeltaObjectivesMean
+  weights:
+    WizardKillObjective: 1
+    WizardFearObjective: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupDeltaObjectivesNice
+  weights:
+    WizardProfitObjective: 0.75
+    WizardPopularObjective: 0.75
+    WizardDataObjective: 0.75
+    WizardPreserveObjective: 1
+    WizardTeachObjective: 1
