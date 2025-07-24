@@ -51,16 +51,15 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnPowerUsed(NoosphericZapPowerActionEvent args)
         {
-            _psionics.LogPowerUsed(args.Performer, "noospheric zap");
-            
-            if (HasComp<PotentialPsionicComponent>(args.Target))
+            if (!HasComp<PotentialPsionicComponent>(args.Target))
                 return;
 
-            if (!HasComp<PsionicInsulationComponent>(args.Target))
+            if (HasComp<PsionicInsulationComponent>(args.Target))
                 return;
 
             _lightning.ShootLightning(args.Performer, args.Target);
 
+            _psionics.LogPowerUsed(args.Performer, "noospheric zap");
             args.Handled = true;
         }
     }
