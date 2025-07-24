@@ -1,14 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Abilities.Psionics;
 using Content.Server.Psionics;
-using Content.Shared.StatusEffect;
-using Content.Server.Stunnable;
-using Content.Server.Beam;
-using Content.Server.Inventory;
 using Content.Server.Lightning;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
-using Content.Server.Mind;
 using Content.Shared.Actions.Events;
 
 namespace Content.Server.Abilities.Psionics
