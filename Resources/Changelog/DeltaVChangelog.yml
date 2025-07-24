@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: Eternally-Confused
   changes:
-  - message: Updated the in-game guidebook's alert procedure.
-    type: Tweak
-  id: 1033
-  time: '2025-02-13T00:42:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2971
-- author: Eternally-Confused
-  changes:
   - message: Replaced the music "Clearly Nuclear" with its remaster, "Blatantly Nuclear"
     type: Tweak
   id: 1034
@@ -4139,3 +4132,13 @@
   id: 1532
   time: '2025-07-24T04:38:49.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4072
+- author: Lyndomen
+  changes:
+  - message: Menace Skeletons are now rising from their graves, and will roll for
+      random objectives.
+    type: Add
+  - message: Removed Closet Skeletons in favor of Menace Skeleton.
+    type: Remove
+  id: 1533
+  time: '2025-07-24T16:49:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3660
