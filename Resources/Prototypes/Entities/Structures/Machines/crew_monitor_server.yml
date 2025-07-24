@@ -34,10 +34,9 @@
       transmitFrequencyId: CrewMonitor
       receiveFrequencyId: SuitSensor
       autoConnect: false
-    - type: StationLimitedNetwork
     - type: WirelessNetworkConnection
       range: 10000 # Delta-V Maximises the range for the Crew Monitor Server to make it work for Listening Post
-    #- type: StationLimitedNetwork # DeltaV
+    - type: StationLimitedNetwork # DeltaV
     - type: ApcPowerReceiver
       powerLoad: 200
     - type: ExtensionCableReceiver
