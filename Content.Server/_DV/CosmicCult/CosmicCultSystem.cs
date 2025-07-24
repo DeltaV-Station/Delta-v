@@ -61,6 +61,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private static readonly EntProtoId CosmicEchoVfx = "CosmicEchoVfx";
     private static readonly ProtoId<StatusEffectPrototype> EntropicDegen = "EntropicDegen";
+    private static readonly ProtoId<RadioChannelPrototype> CosmicRadio = "CosmicRadio";
 
     public override void Initialize()
     {
@@ -208,16 +209,21 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     }
     #endregion
 
-    private void OnTransmitterChannelsChangedCult(EntityUid uid, CosmicCultComponent component, EncryptionChannelsChangedEvent args) //Handles IPCs not regaining astral murmur after panel operations
+    /// <summary>
+    /// Edge Case to handle IPCs losing astral murmur after panel operations.
+    /// </summary>
+    private void OnTransmitterChannelsChangedCult(EntityUid uid, CosmicCultComponent component, EncryptionChannelsChangedEvent args)
     {
-        if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var transmitterComponent) && TryComp<ActiveRadioComponent>(uid, out var activeRadioComponent))
-        {
-            if (!transmitterComponent.Channels.Contains("CosmicRadio") && !activeRadioComponent.Channels.Contains("CosmicRadio"))
-            {
-                transmitterComponent.Channels.Add("CosmicRadio");
-                activeRadioComponent.Channels.Add("CosmicRadio");
-            }
-        }
+        if (!TryComp<IntrinsicRadioTransmitterComponent>(uid, out IntrinsicRadioTransmitterComponent? transmitter) || !TryComp<ActiveRadioComponent>(uid, out ActiveRadioComponent? activeRadio))
+            return;
+
+        if (transmitter.Channels.Contains(CosmicRadio) && activeRadio.Channels.Contains(CosmicRadio))
+            return;
+
+        transmitter.Channels.Add(CosmicRadio);
+        activeRadio.Channels.Add(CosmicRadio);
+
+
     }
 
 }
