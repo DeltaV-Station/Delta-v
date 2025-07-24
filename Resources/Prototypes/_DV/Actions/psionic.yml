@@ -104,6 +104,20 @@
     event: !type:MetapsionicPowerActionEvent
 
 - type: entity
+  id: ActionEruption
+  name: Psionic Eruption
+  description: Unleash a powerful psionic eruption destroying you and everything around you.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: eruption
+    useDelay: 45
+    checkCanInteract: false
+    event: !type:PsionicEruptionPowerActionEvent
+
+
+- type: entity
   id: ActionPsionicRegeneration
   name: Psionic Regeneration
   description: Push your natural metabolism to the limit to power your body's regenerative capability.
