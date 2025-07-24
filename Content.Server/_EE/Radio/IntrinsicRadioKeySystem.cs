@@ -29,10 +29,5 @@ public sealed class IntrinsicRadioKeySystem : EntitySystem
     {
         channels.Clear();
         channels.UnionWith(keyHolderComp.Channels);
-
-        if (TryComp<CosmicCultComponent>(_, out var cultComp)) //Begin Delta-V
-        {
-            channels.Add("CosmicRadio"); // Re add cosmic cult radio, fixes IPCs
-        }
-    } //End Delta-V
+    }
 }

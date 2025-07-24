@@ -9,6 +9,7 @@ using Content.Server.Popups;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
+using Content.Server._EE.Radio;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -26,6 +27,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Popups;
+using Content.Shared.Radio;
+using Content.Server.Radio.Components;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -82,6 +85,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<CosmicImposingComponent, RefreshMovementSpeedModifiersEvent>(OnImpositionMoveSpeed);
 
         SubscribeLocalEvent<CosmicCultExamineComponent, ExaminedEvent>(OnCosmicCultExamined);
+
+        SubscribeLocalEvent<CosmicCultComponent, EncryptionChannelsChangedEvent>(OnTransmitterChannelsChangedCult, after: new[] { typeof(IntrinsicRadioKeySystem) });
 
         SubscribeFinale(); //Hook up the cosmic cult finale system
     }
@@ -202,5 +207,17 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         args.ModifySpeed(0.65f, 0.65f);
     }
     #endregion
+
+    private void OnTransmitterChannelsChangedCult(EntityUid uid, CosmicCultComponent component, EncryptionChannelsChangedEvent args) //Handles IPCs not regaining astral murmur after panel operations
+    {
+        if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var transmitterComponent) && TryComp<ActiveRadioComponent>(uid, out var activeRadioComponent))
+        {
+            if (!transmitterComponent.Channels.Contains("CosmicRadio") && !activeRadioComponent.Channels.Contains("CosmicRadio"))
+            {
+                transmitterComponent.Channels.Add("CosmicRadio");
+                activeRadioComponent.Channels.Add("CosmicRadio");
+            }
+        }
+    }
 
 }
