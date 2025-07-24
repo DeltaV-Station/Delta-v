@@ -9,8 +9,8 @@ namespace Content.Server.Abilities.Psionics
     public sealed class NoosphericZapPowerSystem : EntitySystem
     {
         [Dependency] private readonly SharedActionsSystem _actions = default!;
-        [Dependency] private readonly LightningSystem _lightning = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+        [Dependency] private readonly LightningSystem _lightning = default!;
 
         public override void Initialize()
         {
