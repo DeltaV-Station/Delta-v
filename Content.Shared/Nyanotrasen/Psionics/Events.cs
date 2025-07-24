@@ -19,19 +19,3 @@ public sealed partial class PsionicRegenerationDoAfterEvent : SimpleDoAfterEvent
         StartedAt = startedAt;
     }
 }
-
-[Serializable, NetSerializable]
-public sealed partial class PsionicEruptionDoAfterEvent : SimpleDoAfterEvent
-{
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan StartedAt;
-
-    private PsionicEruptionDoAfterEvent()
-    {
-    }
-
-    public PsionicEruptionDoAfterEvent(TimeSpan startedAt)
-    {
-        StartedAt = startedAt;
-    }
-}
