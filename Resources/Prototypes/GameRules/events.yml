@@ -33,7 +33,7 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: BasicAntagEventsTableDeltaV
-    - id: ClosetSkeleton
+    #- id: ClosetSkeleton # DeltaV - replaced with MenaceSkeleton
     - id: DragonSpawn
     - id: ColossusSpawn # DeltaV
     #- id: KingRatMigration # DeltaV - disabled
@@ -168,7 +168,7 @@
   id: ClosetSkeleton
   components:
   - type: StationEvent
-    weight: 8 # DeltaV - was 10
+    weight: 5
     duration: 1
     minimumPlayers: 10
   - type: PrecognitionResult # DeltaV - Precogniton
