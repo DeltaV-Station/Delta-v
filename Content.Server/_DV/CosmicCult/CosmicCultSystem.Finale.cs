@@ -1,4 +1,6 @@
 using Content.Server._DV.CosmicCult.Components;
+using Content.Server.RoundEnd;
+using Content.Server.Shuttles.Systems;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Audio;
@@ -15,6 +17,10 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     /// <summary>
     ///     Used to calculate when the finale song should start playing
     /// </summary>
+
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly EmergencyShuttleSystem _evac = default!;
+
     public void SubscribeFinale()
     {
         SubscribeLocalEvent<CosmicFinaleComponent, InteractHandEvent>(OnInteract);
@@ -98,6 +104,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         Dirty(uid, monument);
         _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(monument));
+
+        if (!_evac.EmergencyShuttleArrived && _roundEnd.IsRoundEndRequested()) _roundEnd.CancelRoundEndCountdown(checkCooldown: false);
     }
 
     private void OnFinaleCancelDoAfter(Entity<CosmicFinaleComponent> uid, ref CancelFinaleDoAfterEvent args)
