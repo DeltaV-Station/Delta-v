@@ -7,7 +7,6 @@ using Content.Shared.Popups;
 using Content.Shared.Actions.Events;
 using Content.Shared.Body.Components;
 using Content.Server.Explosion.EntitySystems;
-using Content.Server.Station.Systems;
 using Content.Shared.DoAfter;
 using Content.Server.DoAfter;
 using Content.Shared.Psionics.Events;
@@ -18,12 +17,6 @@ using Content.Server.Jittering;
 using Content.Server.Lightning;
 using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Random;
-using Content.Server.Chat.Systems;
-using Content.Server.Pinpointer;
-using Robust.Shared.Player;
-using Content.Server.RoundEnd;
-using Robust.Shared.Utility;
-using Content.Shared.Humanoid;
 using Content.Server.EUI;
 using Content.Shared._DV.Abilities.Psionics;
 using Content.Shared.Mind;
@@ -37,8 +30,6 @@ namespace Content.Server._DV.Abilities.Psionics;
 public sealed class PsionicEruptionSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
     [Dependency] private readonly AudioSystem _audioSystem = default!;
@@ -51,9 +42,6 @@ public sealed class PsionicEruptionSystem : EntitySystem
     [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly GlimmerSystem _glimmer = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly EuiManager _euiManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
@@ -123,25 +111,10 @@ public sealed class PsionicEruptionSystem : EntitySystem
         int detonateTime = 10;
         int sparkFrom = 5;
 
-        // This is going to nuke the station,
         if (_glimmer.GetGlimmerTier(_glimmer.Glimmer) == GlimmerTier.Critical)
         {
-            // Count living creatures nearby
-            var mindsCount = _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(Transform(uid).Coordinates, 5f).Count;
-            if (mindsCount < 3)
-            {
-                _popups.PopupEntity(Loc.GetString("psionic-eruption-not-enough-creatures", ("count", $"{mindsCount}")), uid, uid, PopupType.Medium);
-                return;
-            }
-
             detonateTime = 30;
             sparkFrom = 15;
-            var pos = Transform(uid);
-            var stationUid = _station.GetStationInMap(pos.MapID);
-            var announcement = Loc.GetString("psionic-eruption-nuke-warning", ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, pos)))));
-            var sender = Loc.GetString("psionic-eruption-nuke-sender");
-            _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender, false, null, Color.Red);
-            _audioSystem.PlayGlobal(_nukeAlertSound, Filter.Broadcast(), false, AudioParams.Default);
         }
 
         var ev = new PsionicEruptionDoAfterEvent();
@@ -259,14 +232,9 @@ public sealed class PsionicEruptionSystem : EntitySystem
                 boom = 32;
                 break;
             case GlimmerTier.Critical:
-                _explosionSystem.QueueExplosion(pos, ExplosionSystem.DefaultExplosionPrototypeId, 5000000, 5, 100, uid);
-                Timer.Spawn(10000,
-                () =>
-                {
-                    _roundEnd.EndRound();
-                });
-                return;
+                boom = 64;
+                break;
         }
-        _explosionSystem.QueueExplosion(pos, ExplosionSystem.DefaultExplosionPrototypeId, boom, 1, 2, uid, maxTileBreak: 0);
+        _explosionSystem.QueueExplosion(pos, ExplosionSystem.DefaultExplosionPrototypeId, boom, 1, 5, uid, maxTileBreak: 0);
     }
 }
