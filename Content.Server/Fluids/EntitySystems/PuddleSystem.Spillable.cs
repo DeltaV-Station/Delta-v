@@ -15,6 +15,7 @@ using Content.Shared.Spillable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Player;
+using Content.Shared._DV.Chemistry.Systems;
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -113,6 +114,14 @@ public sealed partial class PuddleSystem
 
         if (args.User != null)
         {
+            // DeltaV - start of Beergoggles enable safe throw
+            var safeThrowEvent = new SafeSolutionThrowEvent();
+            RaiseLocalEvent(args.User.Value, safeThrowEvent);
+            if (safeThrowEvent.SafeThrow)
+            {
+                return;
+            }
+            // DeltaV - end of Beergoggles enable safe throw
             _adminLogger.Add(LogType.Landed,
                 $"{ToPrettyString(entity.Owner):entity} spilled a solution {SharedSolutionContainerSystem.ToPrettyString(solution):solution} on landing");
         }
@@ -139,6 +148,7 @@ public sealed partial class PuddleSystem
 
     private void OnDoAfter(Entity<SpillableComponent> entity, ref SpillDoAfterEvent args)
     {
+
         if (args.Handled || args.Cancelled || args.Args.Target == null)
             return;
 
