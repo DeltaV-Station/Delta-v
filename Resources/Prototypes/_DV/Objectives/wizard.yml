@@ -2,7 +2,7 @@
   parent: [BaseWizardObjective, BaseFreeObjective]
   id: WizardMagicocracyObjective
   name: Magicocracy
-  description: Establish Magicocracy amidst the secular on this station!
+  description: Usurp the powers that be and establish Magicocracy amidst the secular on this station!
   components:
   - type: Objective
     icon:
@@ -13,7 +13,7 @@
   parent: [BaseWizardObjective, BaseFreeObjective]
   id: WizardBalanceObjective
   name: Balance
-  description: Establish a cosmic balance on the station by eradicating chaos through the use of wit and the arcane!
+  description: Establish a cosmic balance on the station by striking a perfect blend of chaos and peace through the use of wit and the arcane!
   components:
   - type: Objective
     icon:
@@ -89,3 +89,30 @@
     title: objective-condition-wizard-preserve-person-title
   - type: PickRandomPerson
     onlyChoosableJobs: true
+
+- type: entity
+  parent: [BaseWizardObjective, BaseKillObjective]
+  id: WizardKillObjective
+  description: The Space Wizards Federation has tasked you with the handling of one of its rivals. Do it in the most public and awestriking of ways!
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Guns/Basic/wands.rsi
+      state: death
+  - type: TargetObjective
+    title: objective-condition-wizard-kill-person-title
+  - type: PickRandomPerson
+    onlyChoosableJobs: true
+  - type: KillPersonCondition
+    requireDead: true
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardFearObjective
+  name: Become Fear
+  description: Seek to become the most feared person on the station. Make them recoil at the mention of your name!
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Mask/cluwne.rsi
+      state: icon

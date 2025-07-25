@@ -9,6 +9,7 @@ using Content.Server.Popups;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
+using Content.Server._EE.Radio;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -26,6 +27,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Popups;
+using Content.Shared.Radio;
+using Content.Server.Radio.Components;
 using Content.Shared.IdentityManagement.Components;
 
 namespace Content.Server._DV.CosmicCult;
@@ -59,6 +62,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private static readonly EntProtoId CosmicEchoVfx = "CosmicEchoVfx";
     private static readonly ProtoId<StatusEffectPrototype> EntropicDegen = "EntropicDegen";
+    private static readonly ProtoId<RadioChannelPrototype> CosmicRadio = "CosmicRadio";
 
     public override void Initialize()
     {
@@ -85,6 +89,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<CosmicCultExamineComponent, ExaminedEvent>(OnCosmicCultExamined);
 
         SubscribeLocalEvent<CosmicSubtleMarkComponent, ExaminedEvent>(OnSubtleMarkExamined);
+        SubscribeLocalEvent<CosmicCultComponent, EncryptionChannelsChangedEvent>(OnTransmitterChannelsChangedCult, after: new[] { typeof(IntrinsicRadioKeySystem) });
 
         SubscribeFinale(); //Hook up the cosmic cult finale system
     }
@@ -214,5 +219,22 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         args.ModifySpeed(0.65f, 0.65f);
     }
     #endregion
+
+    /// <summary>
+    /// Edge Case to handle IPCs losing astral murmur after panel operations.
+    /// </summary>
+    private void OnTransmitterChannelsChangedCult(EntityUid uid, CosmicCultComponent component, EncryptionChannelsChangedEvent args)
+    {
+        if (!TryComp<IntrinsicRadioTransmitterComponent>(uid, out IntrinsicRadioTransmitterComponent? transmitter) || !TryComp<ActiveRadioComponent>(uid, out ActiveRadioComponent? activeRadio))
+            return;
+
+        if (transmitter.Channels.Contains(CosmicRadio) && activeRadio.Channels.Contains(CosmicRadio))
+            return;
+
+        transmitter.Channels.Add(CosmicRadio);
+        activeRadio.Channels.Add(CosmicRadio);
+
+
+    }
 
 }
