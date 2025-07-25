@@ -130,7 +130,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
         var evacQuery = EntityQueryEnumerator<MonumentComponent, CosmicFinaleComponent>();
         while (evacQuery.MoveNext(out var ent, out var monuComp, out var finaleComp))
         {
-            finaleComp.CurrentState = FinaleState.Unavailable;
+            finaleComp.CurrentState = FinaleState.Unreachable;
         }
 
     }

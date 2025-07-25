@@ -43,7 +43,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             _doAfter.TryStartDoAfter(doargs);
             args.Handled = true;
         }
-        else if (EntityIsCultist(args.User) && !args.Handled && !ent.Comp.Occupied && !ent.Comp.FinaleActive && ent.Comp.CurrentState != FinaleState.Unavailable)
+        else if (EntityIsCultist(args.User) && !args.Handled && !ent.Comp.Occupied && !ent.Comp.FinaleActive && ent.Comp.CurrentState == FinaleState.ReadyFinale)
         {
             ent.Comp.Occupied = true;
             var doargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.InteractionTime, new StartFinaleDoAfterEvent(), ent, ent)
