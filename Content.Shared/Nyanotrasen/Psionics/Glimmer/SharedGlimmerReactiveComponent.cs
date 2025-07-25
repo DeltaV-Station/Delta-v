@@ -32,6 +32,27 @@ namespace Content.Shared.Psionics.Glimmer
         [DataField("glimmerToLightRadiusFactor")]
         public float GlimmerToLightRadiusFactor = 1.0f;
 
+        [DataField("locked")]
+        public bool Locked = false; // Delta-V
+
+        /// <summary>
+        /// If true, this component will scale its research generation based on the glimmer tier, as well as its glimmer generation.
+        /// </summary>
+        [DataField("scaleResearchGeneration")]
+        public bool ScaleResearchGeneration = true;
+        /// <summary>
+        /// For each tier of glimmer, take the maximum possible glimmer value and multiply it by this factor to get the research generation factor.
+        /// This is the research per second of this machine
+        /// </summary>
+        [DataField("researchGenerationFactor")]
+        public float ResearchGenerationFactor = 0.2f;
+        /// <summary>
+        /// For each tier of glimmer, take the maximum possible glimmer value and multiply it
+        /// by this factor to get the glimmer generation per second.
+        /// </summary>
+        [DataField("glimmerGenerationFactor")]
+        public float GlimmerGenerationFactor = 0.001f;
+
         /// <summary>
         /// Noises to play on failed turn off.
         /// </summary>
