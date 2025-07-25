@@ -11,3 +11,15 @@
   cost: 7000
   recipeUnlocks:
   - ClothingOuterHardsuitVoidParamed
+
+- type: technology # Adds separate research for Frontier Plant Analyzer
+  id: PlantAnalyzerTechnology
+  name: research-technology-plant-analyzer
+  icon:
+    sprite: _NF/Objects/Devices/plant_analyzer.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 7000
+  recipeUnlocks:
+  - PlantAnalyzer

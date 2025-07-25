@@ -1,66 +1,4 @@
 ﻿Entries:
-- author: AeraAuling
-  changes:
-  - message: NT has started to supply stations with high-quality arming swords. Security
-      and Salvage can pick one up from cargo for their work. (credit to MagnusCrowe)
-    type: Add
-  id: 1030
-  time: '2025-02-11T12:50:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2836
-- author: Lyndomen
-  changes:
-  - message: SPEED Legs can slip
-    type: Tweak
-  id: 1031
-  time: '2025-02-12T00:09:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2962
-- author: Smugman
-  changes:
-  - message: the all new "I hate paperwork" stamp is now available in Syndicate uplinks,
-      and sometimes smuggled into Bureaucracy crates.
-    type: Add
-  id: 1032
-  time: '2025-02-12T18:31:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2961
-- author: Eternally-Confused
-  changes:
-  - message: Updated the in-game guidebook's alert procedure.
-    type: Tweak
-  id: 1033
-  time: '2025-02-13T00:42:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2971
-- author: Eternally-Confused
-  changes:
-  - message: Replaced the music "Clearly Nuclear" with its remaster, "Blatantly Nuclear"
-    type: Tweak
-  id: 1034
-  time: '2025-02-13T17:38:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2967
-- author: deltanedas
-  changes:
-  - message: Fixed being able to hear ash storms in the lobby.
-    type: Fix
-  id: 1035
-  time: '2025-02-14T22:58:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2978
-- author: Toby222
-  changes:
-  - message: Fixed health analyzer dummy sprite being too big when you first open
-      it
-    type: Fix
-  id: 1036
-  time: '2025-02-14T23:02:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2977
-- author: deltanedas
-  changes:
-  - message: Merged last fortnight's changes from upstream, excluding the resprites
-      and access breaker.
-    type: Add
-  - message: Fixed not being able to make medical huds in the medical techfab.
-    type: Fix
-  id: 1037
-  time: '2025-02-15T03:50:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2946
 - author: nkokic
   changes:
   - message: AME is back to linear with advanced efficiency drop.
@@ -4139,3 +4077,68 @@
   id: 1529
   time: '2025-07-22T14:42:30.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4066
+- author: AlgisAlphonse
+  changes:
+  - message: The Plant Analyzer has been imported from the Frontier Sector. It tells
+      you detailed information about plants and their seeds, such as mutations, tolerances
+      and more! Available from a service techfab after a tier 2 civilian research.
+    type: Add
+  id: 1530
+  time: '2025-07-23T13:52:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4061
+- author: Colin-Tel
+  changes:
+  - message: Wizards have been doing more exciting things on NT stations!
+    type: Tweak
+  id: 1531
+  time: '2025-07-23T14:44:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4069
+- author: YeenJunk
+  changes:
+  - message: Admin Ghosts can see the crew monitor again.
+    type: Fix
+  id: 1532
+  time: '2025-07-24T04:38:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4072
+- author: Lyndomen
+  changes:
+  - message: Menace Skeletons are now rising from their graves, and will roll for
+      random objectives.
+    type: Add
+  - message: Removed Closet Skeletons in favor of Menace Skeleton.
+    type: Remove
+  id: 1533
+  time: '2025-07-24T16:49:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3660
+- author: TJohnson
+  changes:
+  - message: Whitelist requirements for Command and Security roles are now in place!
+      If your application has been approved and it's not being reflected in game,
+      please AHelp.
+    type: Add
+  id: 1534
+  time: '2025-07-24T18:09:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4025
+- author: YeenJunk
+  changes:
+  - message: IPCs no longer lose Astral Murmur when unlocking and locking their panels.
+    type: Fix
+  id: 1535
+  time: '2025-07-24T19:17:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4075
+- author: Proxysseia
+  changes:
+  - message: Updated Alert Procedure, go read it again.
+    type: Tweak
+  - message: SoP now explains what Martial Law is.
+    type: Add
+  id: 1536
+  time: '2025-07-25T09:41:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4057
+- author: AveriV2
+  changes:
+  - message: Now you can take diamonds out of techfabs again!
+    type: Fix
+  id: 1537
+  time: '2025-07-25T15:58:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4081
