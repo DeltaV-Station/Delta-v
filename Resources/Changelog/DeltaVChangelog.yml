@@ -1,15 +1,4 @@
 ﻿Entries:
-- author: Stop-Signs
-  changes:
-  - message: The book of mysteries is now a steal objective, spawning in the locker
-      instead of on the mystagogue.
-    type: Tweak
-  - message: The book of mysteries can no longer summon ifrits, instead granting the
-      secret of forcewall!
-    type: Tweak
-  id: 1039
-  time: '2025-02-15T18:42:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2975
 - author: HTMLSystem
   changes:
   - message: Added jumpskirts for prison guards, salvagers, chemist, and scientist.
@@ -4141,3 +4130,16 @@
   id: 1538
   time: '2025-07-25T22:27:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4079
+- author: NoElkaTheGod
+  changes:
+  - message: Monument no longer gets bricked when evac departs.
+    type: Tweak
+  - message: Cosmic cult's finale can no longer be triggered when evac docks to the
+      station.
+    type: Tweak
+  - message: If evac was on it's way to the station when cosmic cult's finale is activated,
+      it gets automatically recalled.
+    type: Tweak
+  id: 1539
+  time: '2025-07-25T22:36:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4083
