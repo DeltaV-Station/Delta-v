@@ -87,4 +87,5 @@ public enum FinaleState : byte
     ReadyFinale,
     ActiveFinale,
     Victory,
+    Unreachable,
 }
