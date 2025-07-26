@@ -1,42 +1,4 @@
 ﻿Entries:
-- author: Toby222
-  changes:
-  - message: Fixed health analyzer dummy sprite being too big when you first open
-      it
-    type: Fix
-  id: 1036
-  time: '2025-02-14T23:02:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2977
-- author: deltanedas
-  changes:
-  - message: Merged last fortnight's changes from upstream, excluding the resprites
-      and access breaker.
-    type: Add
-  - message: Fixed not being able to make medical huds in the medical techfab.
-    type: Fix
-  id: 1037
-  time: '2025-02-15T03:50:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2946
-- author: nkokic
-  changes:
-  - message: AME is back to linear with advanced efficiency drop.
-    type: Tweak
-  - message: Decreased AME injection adjustment rate to 1.
-    type: Tweak
-  id: 1038
-  time: '2025-02-15T03:51:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2783
-- author: Stop-Signs
-  changes:
-  - message: The book of mysteries is now a steal objective, spawning in the locker
-      instead of on the mystagogue.
-    type: Tweak
-  - message: The book of mysteries can no longer summon ifrits, instead granting the
-      secret of forcewall!
-    type: Tweak
-  id: 1039
-  time: '2025-02-15T18:42:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2975
 - author: HTMLSystem
   changes:
   - message: Added jumpskirts for prison guards, salvagers, chemist, and scientist.
@@ -4144,3 +4106,40 @@
   id: 1535
   time: '2025-07-24T19:17:08.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4075
+- author: Proxysseia
+  changes:
+  - message: Updated Alert Procedure, go read it again.
+    type: Tweak
+  - message: SoP now explains what Martial Law is.
+    type: Add
+  id: 1536
+  time: '2025-07-25T09:41:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4057
+- author: AveriV2
+  changes:
+  - message: Now you can take diamonds out of techfabs again!
+    type: Fix
+  id: 1537
+  time: '2025-07-25T15:58:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4081
+- author: kotobdev
+  changes:
+  - message: Noospheric Zap now takes the form of an actual electric zap, and is thwarted
+      by insuls.
+    type: Tweak
+  id: 1538
+  time: '2025-07-25T22:27:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4079
+- author: NoElkaTheGod
+  changes:
+  - message: Monument no longer gets bricked when evac departs.
+    type: Tweak
+  - message: Cosmic cult's finale can no longer be triggered when evac docks to the
+      station.
+    type: Tweak
+  - message: If evac was on it's way to the station when cosmic cult's finale is activated,
+      it gets automatically recalled.
+    type: Tweak
+  id: 1539
+  time: '2025-07-25T22:36:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4083
