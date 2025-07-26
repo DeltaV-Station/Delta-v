@@ -52,6 +52,9 @@
     onAdd:
     - type: HasAugmentPowerCellSlot
   - type: AugmentPowerCellSlot
+  - type: PowerCellDraw
+    enabled: false
+    drawRate: 0
   - type: Construction
     graph: CreatePowerCellAugment
     node: augment
