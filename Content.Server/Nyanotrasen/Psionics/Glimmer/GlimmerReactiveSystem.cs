@@ -26,6 +26,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
+using Content.Server.Research.Components;
 
 namespace Content.Server.Psionics.Glimmer
 {
@@ -60,13 +61,30 @@ namespace Content.Server.Psionics.Glimmer
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, ComponentRemove>(OnComponentRemove);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, PowerChangedEvent>(OnPowerChanged);
-            SubscribeLocalEvent<SharedGlimmerReactiveComponent, GlimmerTierChangedEvent>(OnTierChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, GetVerbsEvent<AlternativeVerb>>(AddShockVerb);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, DestructionEventArgs>(OnDestroyed);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, AttemptMeleeThrowOnHitEvent>(OnMeleeThrowOnHitAttempt);
+        }
+
+        /// <summary>
+        /// Gets the 'maximum' glimmer value for a given tier.
+        /// </summary>
+        /// <param name="tier">The tier to get the maximum glimmer value for.</param>
+        private int GetMaxGlimmerByTier(GlimmerTier tier)
+        {
+            return tier switch
+            {
+                GlimmerTier.Minimal => 49,
+                GlimmerTier.Low => 99,
+                GlimmerTier.Moderate => 299,
+                GlimmerTier.High => 499,
+                GlimmerTier.Dangerous => 899,
+                GlimmerTier.Critical => 1000,
+                _ => throw new ArgumentOutOfRangeException(nameof(tier), tier, null)
+            };
         }
 
         /// <summary>
@@ -92,6 +110,16 @@ namespace Content.Server.Psionics.Glimmer
             {
                 if (spec != null)
                     _sharedAmbientSoundSystem.SetSound(uid, spec, ambientSoundComponent);
+            }
+
+            // Improve research generation but increase glimmer generation based on tier, if component.ScaleResearchGeneration is true.
+            if (component.ScaleResearchGeneration)
+            {
+                int maxGlimmerByTier = GetMaxGlimmerByTier(currentGlimmerTier);
+                if (TryComp<ResearchPointSourceComponent>(uid, out var researchGenerator))
+                    researchGenerator.PointsPerSecond = (int)(maxGlimmerByTier * component.ResearchGenerationFactor);
+                if (TryComp<GlimmerSourceComponent>(uid, out var glimmerSource))
+                    glimmerSource.SecondsPerGlimmer = 1f / (maxGlimmerByTier * component.GlimmerGenerationFactor);
             }
 
             if (component.ModulatesPointLight) //SharedPointLightComponent is now being fetched via TryGetLight.
@@ -141,27 +169,6 @@ namespace Content.Server.Psionics.Glimmer
         {
             if (component.RequiresApcPower)
                 UpdateEntityState(uid, component, LastGlimmerTier, 0);
-        }
-
-        /// <summary>
-        ///     Enable / disable special effects from higher tiers.
-        /// </summary>
-        private void OnTierChanged(EntityUid uid, SharedGlimmerReactiveComponent component, GlimmerTierChangedEvent args)
-        {
-            if (!TryComp<ApcPowerReceiverComponent>(uid, out var receiver))
-                return;
-
-            if (args.CurrentTier >= GlimmerTier.Dangerous)
-            {
-                if (!Transform(uid).Anchored)
-                    AnchorOrExplode(uid);
-
-                receiver.PowerDisabled = false;
-                receiver.NeedsPower = false;
-            } else
-            {
-                receiver.NeedsPower = true;
-            }
         }
 
         private void AddShockVerb(EntityUid uid, SharedGlimmerReactiveComponent component, GetVerbsEvent<AlternativeVerb> args)
@@ -223,7 +230,7 @@ namespace Content.Server.Psionics.Glimmer
 
         private void OnUnanchorAttempt(EntityUid uid, SharedGlimmerReactiveComponent component, UnanchorAttemptEvent args)
         {
-            if (_glimmerSystem.GetGlimmerTier() >= GlimmerTier.Dangerous)
+            if (component.Locked)
             {
                 _sharedAudioSystem.PlayPvs(component.ShockNoises, args.User);
                 _electrocutionSystem.TryDoElectrocution(args.User, null, _glimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _glimmerSystem.Glimmer / 100), false);
@@ -233,7 +240,7 @@ namespace Content.Server.Psionics.Glimmer
 
         private void OnAnchorStateChanged(EntityUid uid, SharedGlimmerReactiveComponent component, AnchorStateChangedEvent args)
         {
-            if (!args.Anchored && _glimmerSystem.GetGlimmerTier() >= GlimmerTier.Dangerous)
+            if (!args.Anchored && component.Locked)
             {
                 AnchorOrExplode(uid);
             }
@@ -301,6 +308,23 @@ namespace Content.Server.Psionics.Glimmer
             BeamCooldown += 3f;
         }
 
+        public void LockProber(EntityUid uid)
+        {
+            if (!TryComp<ApcPowerReceiverComponent>(uid, out var powerReceiver))
+                return;
+
+            if (!Transform(uid).Anchored)
+                AnchorOrExplode(uid);
+
+            powerReceiver.PowerDisabled = false;
+            powerReceiver.NeedsPower = false;
+
+            if (TryComp<SharedGlimmerReactiveComponent>(uid, out var glimmerReactive))
+            {
+                glimmerReactive.Locked = true;
+                UpdateEntityState(uid, glimmerReactive, _glimmerSystem.GetGlimmerTier(), 0);
+            }
+        }
         private void AnchorOrExplode(EntityUid uid)
         {
             var xform = Transform(uid);
