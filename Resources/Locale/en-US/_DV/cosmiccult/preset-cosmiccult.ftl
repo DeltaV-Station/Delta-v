@@ -18,7 +18,7 @@ cosmiccult-vote-steward-briefing =
     Ensure that The Monument is placed in a secure location, and organize the cult to ensure your collective victory.
     You are not permitted to instruct cultists on how to use or spend their Entropy.
 
-cosmiccult-finale-autocall-briefing = The Monument activates in {$minutesandseconds}! Gather yourselves, and prepare for the end.
+cosmiccult-finale-autocall-briefing = The Monument has been completed! Gather yourselves, activate it, and prepare for the end.
 cosmiccult-finale-ready = A terrifying light surges forth from The Monument!
 cosmiccult-finale-speedup = The beckoning quickens! Energy surges through the surroundings...
 
@@ -104,9 +104,8 @@ cosmiccult-monument-stage2-briefing =
     Its influence will affect realspace in {$time} seconds.
 
 cosmiccult-monument-stage3-briefing =
-    The Monument has been completed!
+    The Monument grows in power!
     Its influence will begin to overlap with realspace in {$time} seconds.
-    This is the final stretch! Amass as much entropy as you can muster.
 
 
 ## MALIGN RIFTS
