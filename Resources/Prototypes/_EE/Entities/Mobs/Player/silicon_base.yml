@@ -156,8 +156,8 @@
     - type: Bloodstream # begin DeltaV - uncommented
       damageBleedModifiers: BloodlossIPC
       bloodReagent: Oil
-      bleedReductionAmount: 0
-      bloodMaxVolume: 100
+      bleedReductionAmount: 0.2
+      bloodMaxVolume: 150
       chemicalMaxVolume: 0
       bleedPuddleThreshold: 3
       bloodRefreshAmount: 0
