@@ -1,0 +1,25 @@
+# Static
+
+- type: latheRecipePack
+  id: ImpCircuitStatic
+  recipes:
+  - ServiceTechFabCircuitboard
+  - ShipyardComputerCircuitboard # dv doesnt have this craftable but we did so whatever
+  - SupermatterComputerCircuitboard
+  - ImpCoffeeMachineCircuitboard
+  - PrizeCounterMachineCircuitboard
+
+# Dynamic
+
+- type: latheRecipePack
+  id: ImpCircuitDynamic
+  recipes:
+  - MiniGyroscopeMachineCircuitboard
+
+# Emagged
+
+- type: latheRecipePack
+  id: ImpCircuitEmagged
+  recipes:
+  - SyndicateMicrowaveMachineCircuitboard
+  - SyndicateElectricRangeMachineCircuitboard

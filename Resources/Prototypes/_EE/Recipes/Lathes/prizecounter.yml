@@ -1,0 +1,328 @@
+﻿# SPDX-FileCopyrightText: 2024 Blu <79374236+BlueHNT@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 FoxxoTrystan <45297731+FoxxoTrystan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 FoxxoTrystan <trystan.garnierhein@gmail.com>
+# SPDX-FileCopyrightText: 2024 sleepyyapril <***>
+# SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 sleepyyapril <flyingkarii@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# imp edit: rewrote basically every recipe lol
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: PrizeBall
+  result: PrizeBall
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieBee
+  result: PlushieBee
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieHampter
+  result: PlushieHampter
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieRouny
+  result: PlushieRouny
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieLamp
+  result: PlushieLamp
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieArachind
+  result: PlushieArachind
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieLizard
+  result: PlushieLizard
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieSpaceLizard
+  result: PlushieSpaceLizard
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieSharkBlue
+  result: PlushieSharkBlue
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieSharkPink
+  result: PlushieSharkPink
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieSharkGrey
+  result: PlushieSharkGrey
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieCarp
+  result: PlushieCarp
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieMagicarp
+  result: PlushieMagicarp
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieHolocarp
+  result: PlushieHolocarp
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieSlime
+  result: PlushieSlime
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieSnake
+  result: PlushieSnake
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: ToyMouse
+  result: ToyMouse
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: ToyRubberDuck
+  result: ToyRubberDuck
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieVox
+  result: PlushieVox
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieAtmosian
+  result: PlushieAtmosian
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushiePenguin
+  result: PlushiePenguin
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieHuman
+  result: PlushieHuman
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: ToyAi
+  result: ToyAi
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: ToyIan
+  result: ToyIan
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: BalloonNT
+  result: BalloonNT
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: BalloonCorgi
+  result: BalloonCorgi
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: CrayonBox
+  result: CrayonBox
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: PetRockCarrier
+  result: PetRockCarrier
+  materials:
+    PrizeTicket: 50
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieXeno
+  result: PlushieXeno
+  materials:
+    PrizeTicket: 80
+    Cloth: 100
+
+- type: latheRecipe
+  parent: PrizeCounterWeapons
+  id: FoamCrossbow
+  result: FoamCrossbow
+
+- type: latheRecipe
+  parent: PrizeCounterWeapons
+  id: RevolverCapGun
+  result: RevolverCapGun
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: PonderingOrb
+  result: PonderingOrb
+  materials:
+    PrizeTicket: 80
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: ToyAmongPequeno
+  result: ToyAmongPequeno
+  materials:
+    PrizeTicket: 80
+    Cloth: 100
+
+- type: latheRecipe
+  parent: PrizeCounterWeapons
+  id: FoamCutlass
+  result: FoamCutlass
+
+- type: latheRecipe
+  parent: PrizeCounterWeapons
+  id: ToyHammer
+  result: ToyHammer
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: WhoopieCushion
+  result: WhoopieCushion
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: PlasticBanana
+  result: PlasticBanana
+  materials:
+    PrizeTicket: 80
+
+- type: latheRecipe
+  parent: PrizeCounterWeapons
+  id: WeaponWaterPistol
+  result: WeaponWaterPistol
+  materials:
+    PrizeTicket: 250
+
+- type: latheRecipe
+  parent: PrizeCounterWeapons
+  id: WeaponWaterBlaster
+  result: WeaponWaterBlaster
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: NewtonCradle
+  result: NewtonCradle
+  materials:
+    PrizeTicket: 80
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: SnapPopBox
+  result: SnapPopBox
+  materials:
+    PrizeTicket: 80
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: MrDips
+  result: MrDips
+  materials:
+    PrizeTicket: 80
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: MrChips
+  result: MrChips
+  materials:
+    PrizeTicket: 80
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: CrazyGlue
+  result: CrazyGlue
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  parent: PrizeCounterPlushieExpensive
+  id: PlushieRatvar
+  result: PlushieRatvar
+
+- type: latheRecipe
+  parent: PrizeCounterPlushieExpensive
+  id: PlushieNar
+  result: PlushieNar
+
+# EMAG
+
+- type: latheRecipe
+  parent: PrizeCounterPlushieExpensive
+  id: PlushieGhost
+  result: PlushieGhost
+
+- type: latheRecipe
+  parent: PrizeCounterPlushieExpensive
+  id: PlushieRGBee
+  result: PlushieRGBee
+
+- type: latheRecipe
+  parent: PrizeCounterPlushieExpensive
+  id: PlushieRainbowCarp
+  result: PlushieRainbowCarp
+
+- type: latheRecipe
+  parent: PrizeCounterPlushieExpensive
+  id: PlushieNuke
+  result: PlushieNuke
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: ToyNuke
+  result: ToyNuke
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  parent: PrizeCounterWeapons
+  id: FoamBlade
+  result: FoamBlade
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: BalloonSyn
+  result: BalloonSyn
+  materials:
+    PrizeTicket: 100
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: SingularityToy
+  result: SingularityToy
+  materials:
+    PrizeTicket: 150
+
+- type: latheRecipe
+  parent: PrizeCounterJunk
+  id: TeslaToy
+  result: TeslaToy
+  materials:
+    PrizeTicket: 150
+
+- type: latheRecipe
+  parent: PrizeCounterWeapons
+  id: ToySword
+  result: ToySword

@@ -1,0 +1,51 @@
+# Recipes - Impstation Custom Additions
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ShipyardComputerCircuitboard
+  result: ShipyardComputerCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: MiniGyroscopeMachineCircuitboard
+  result: MiniGyroscopeMachineCircuitboard
+
+- type: latheRecipe
+  id: SGDRecipe
+  result: ClothingNeckSGD
+  completetime: 10
+  materials:
+    Steel: 300
+    Glass: 300
+    Plastic: 100
+    Gold: 100
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ServiceTechFabCircuitboard
+  result: ServiceTechFabCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ImpCoffeeMachineCircuitboard
+  result: ImpCoffeeMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: CameraHandheld
+  result: CameraHandheld
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: PrizeCounterMachineCircuitboard
+  result: PrizeCounterMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: SyndicateMicrowaveMachineCircuitboard
+  result: SyndicateMicrowaveMachineCircuitboard
+
+- type: latheRecipe # yeah frontier didnt make a lathe recipe for this ig
+  parent: BaseCircuitboardRecipe
+  id: SyndicateElectricRangeMachineCircuitboard
+  result: SyndicateElectricRangeMachineCircuitboard

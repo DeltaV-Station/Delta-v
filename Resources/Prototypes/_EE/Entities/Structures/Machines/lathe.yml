@@ -1,0 +1,57 @@
+﻿- type: entity
+  parent: BaseLathe
+  id: PrizeCounter
+  name: prize counter
+  description: Claim your prize and win some toys and cute plushies!
+  components:
+  - type: Sprite
+    sprite: _EE/Structures/Machines/prizecounter.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine # imp
+    board: PrizeCounterMachineCircuitboard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - PrizeTicket
+      - Sheet # imp
+      - RawMaterial # imp
+      - Ingot # imp
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticPacks: # imp
+    - PrizeStatic
+  - type: EmagLatheRecipes # imp
+    emagStaticPacks:
+    - PrizeEmagged
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 3
+    enabled: false
+    sound:
+      path: /Audio/Ambience/Objects/vending_machine_hum.ogg
+  - type: LitOnPowered
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: Advertise
+    pack: CuddlyCritterAds
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#4b93ad"
+  - type: Transform
+    noRot: false

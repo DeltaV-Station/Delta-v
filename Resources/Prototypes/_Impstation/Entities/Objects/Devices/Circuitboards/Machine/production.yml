@@ -1,0 +1,60 @@
+- type: entity
+  id: MiniGyroscopeMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: mini gyroscope machine board
+  components:
+  - type: MachineBoard
+    prototype: MiniGyroscope
+    stackRequirements:
+      Manipulator: 2
+      Glass: 2
+
+- type: entity
+  id: ServiceTechFabCircuitboard
+  parent: BaseMachineCircuitboard
+  name: service techfab machine board
+  description: A machine printed circuit board for a Service techfab.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ServiceTechFab
+      stackRequirements:
+        Manipulator: 4
+      tagRequirements:
+        GlassBeaker:
+          amount: 2
+          defaultPrototype: Beaker
+    - type: StealTarget
+      stealGroup: ServiceTechFab
+
+- type: entity
+  id: ImpCoffeeMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: spacepresso machine board
+  description: A machine printed circuit board for a spacepresso machine.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ImpCoffeeMachineEmpty
+      stackRequirements:
+        Steel: 5
+      tagRequirements:
+          GlassBeaker:
+            amount: 1
+            defaultPrototype: Beaker
+
+- type: entity
+  id: PrizeCounterMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: prize counter machine board
+  description: A machine printed circuit board for a prize counter.
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: PrizeCounter
+    stackRequirements:
+      Manipulator: 4
+      Glass: 1

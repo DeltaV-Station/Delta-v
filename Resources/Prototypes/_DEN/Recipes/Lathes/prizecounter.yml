@@ -1,0 +1,55 @@
+﻿# SPDX-FileCopyrightText: 2025 portfiend <109661617+portfiend@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# imp edit basically all of these recipes were rewritten
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieTeddyBear
+  result: PlushieTeddyBear
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieTeddyBearRecolorableRandom
+  result: PlushieTeddyBearRecolorableRandom
+  name: lathe-recipe-PlushieTeddyBearRecolorableRandom-name
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieAlienGerm
+  result: PlushieAlienGerm
+  applyMaterialDiscount: false
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieAlienGermMini
+  result: PlushieAlienGermMini
+
+# squeaky toys are discounted because they're not plushies (no stash, not edible, etc)
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: SqueakySmileyGuy
+  result: SqueakySmileyGuy
+  materials:
+    PrizeTicket: 40
+    Cloth: 50
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: SqueakySmileyGuyRandom
+  result: SqueakySmileyGuyRandom
+  name: lathe-recipe-SqueakySmileyGuyRandom-name
+  materials:
+    PrizeTicket: 40
+    Cloth: 50
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: SqueakySmileyBall
+  result: SqueakySmileyBall
+  materials:
+    PrizeTicket: 40
+    Cloth: 50

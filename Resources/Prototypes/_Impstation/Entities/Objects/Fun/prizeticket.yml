@@ -1,0 +1,111 @@
+﻿- type: entity
+  abstract: true
+  parent: BaseItem
+  id: PrizeTicketBase
+  description: A shiny ticket! Can be redeemed for... something? It's mostly just used as fake money.
+  components:
+  - type: Item
+    sprite: _Impstation/Objects/Fun/prizeticket.rsi
+    size: Tiny
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      PrizeTicket: 1
+  - type: Stack
+    stackType: PrizeTicket
+    count: 1
+    baseLayer: base
+    layerStates:
+    - bronze
+    - silver
+    - gold
+    - diamond
+    layerFunction: Threshold
+  - type: StackLayerThreshold
+    thresholds: [ 10, 100, 1000, 1000000 ]
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/prizeticket.rsi
+    state: bronze
+    layers:
+    - state: bronze
+      map: ["base"]
+  - type: Appearance
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 0
+  - type: Tag
+    tags:
+    - Sheet
+    - PrizeTicket
+
+- type: entity
+  parent: PrizeTicketBase
+  id: PrizeTicket10
+  name: prize ticket
+  suffix: 10
+  components:
+  - type: Sprite
+    state: bronze
+  - type: Stack
+    stackType: PrizeTicket
+    count: 10
+
+- type: entity
+  parent: PrizeTicketBase
+  id: PrizeTicket100
+  name: prize ticket
+  suffix: 100
+  components:
+  - type: Sprite
+    state: silver
+  - type: Stack
+    stackType: PrizeTicket
+    count: 100
+
+- type: entity
+  parent: PrizeTicketBase
+  id: PrizeTicket
+  name: prize ticket
+  suffix: 1000
+  components:
+  - type: Sprite
+    state: gold
+  - type: Stack
+    stackType: PrizeTicket
+    count: 1000
+  - type: Appearance
+
+- type: entity
+  parent: PrizeTicketBase
+  id: PrizeTicket1000000
+  name: prize ticket
+  suffix: 1000000
+  components:
+  - type: Sprite
+    state: diamond
+  - type: Stack
+    stackType: PrizeTicket
+    count: 1000000

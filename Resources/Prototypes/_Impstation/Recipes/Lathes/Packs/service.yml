@@ -1,0 +1,224 @@
+# Static
+
+- type: latheRecipePack
+  id: ImpLightPack
+  recipes:
+  - UvLightTube
+  - LightReplacer
+
+- type: latheRecipePack
+  id: ImpServiceStatic
+  recipes:
+  - Mousetrap
+  - TrashBag
+  - DeskBell
+  - PrizeTicket
+  - PrizeTicket100
+  - PrizeTicket10
+
+- type: latheRecipePack
+  id: CleanPack
+  recipes:
+  - Plunger
+  - MopBucketCube
+  - WelderJanitorial
+
+- type: latheRecipePack
+  id: BotanyPack
+  recipes:
+  - DiseaseSwab
+  - HydroponicsToolMiniHoe
+  - HydroponicsToolScythe
+  - HydroponicsToolHatchet
+  - HydroponicsToolSpade
+  - HydroponicsToolClippers
+  - Shovel
+  - PlantBag
+
+- type: latheRecipePack
+  id: BarPack
+  recipes:
+  - DrinkShaker
+  - DrinkJigger
+  - DrinkFlaskBar
+  - DrinkVacuumFlask
+  - DrinkVacuumFlaskXL
+  - DrinkTeapotEmpty
+  - DrinkTeacupEmpty
+  - DrinkWaterBottleEmpty
+  - Pitcher
+  - BarSpoon
+  - DrinkDisposableCup
+  - DrinkNoveltyMug
+
+- type: latheRecipePack
+  id: KitchenPack
+  recipes:
+  - KitchenKnife
+  - RollingPin
+  - Fork
+  - Spoon
+  - ForkPlastic
+  - SpoonPlastic
+  - KnifePlastic
+  - PairedChopsticks
+  - CandyBowl
+  - MeatBowl
+  - FruitBowl
+
+- type: latheRecipePack
+  id: ServiceMiscPack
+  recipes:
+  - Dropper
+  - ClothingHeadHatCone
+  - SprayPainter
+  - FlashlightLantern
+  - ClothingBeltPlushie
+
+- type: latheRecipePack
+  id: LunchboxPack
+  recipes:
+  - SteelLunchbox
+  - SteelLunchboxBlue
+  - SteelLunchboxPink
+  - SteelLunchboxOrange
+
+- type: latheRecipePack
+  id: PrizeStatic
+  recipes:
+  - BalloonCorgi
+  - BalloonNT
+  - Basketball
+  - BeachBall
+  - BirdToyInstrument
+  - BoxCartridgeCap
+  - BoxDonkSoftBox
+  - CandyBucket
+  - ClothingHeadHatCowboyRed
+  - CrayonBox
+  - CrazyGlue
+  - FoamCrossbow
+  - FoamCutlass
+  - Football
+  - GlowstickBase
+  - GlowstickBlue
+  - GlowstickPurple
+  - GlowstickRed
+  - GlowstickYellow
+  - GunpetInstrument
+  - HarmonicaInstrument
+  - MrChips
+  - MrDips
+  - NewtonCradle
+  - OcarinaInstrument
+  - PetRockCarrier
+  - PlasticBanana
+  - PlasticBanana
+  - PlushieAlienGerm
+  - PlushieAlienGermMini
+  - PlushieApid
+  - PlushieArachind
+  - PlushieAtmosian
+  - PlushieBee
+  - PlushieCarp
+  - PlushieDecapoid
+  - PlushieDiona
+  - PlushieDoll
+  - PlushieDollHair
+  - PlushieDwarf
+  - PlushieFinfin
+  - PlushieGiantBear
+  - PlushieGoblin
+  - PlushieGray
+  - PlushieGriffy
+  - PlushieHampter
+  - PlushieHolocarp
+  - PlushieHuman
+  - PlushieJumboGray
+  - PlushieKodepiia
+  - PlushieLamp
+  - PlushieLizard
+  - PlushieMagicarp
+  - PlushieMoth
+  - PlushieNar
+  - PlushiePenguin
+  - PlushieRainbowLizard
+  - PlushieRatvar
+  - PlushieRouny
+  - PlushieSharkBlue
+  - PlushieSharkGrey
+  - PlushieSharkPink
+  - PlushieSlime
+  - PlushieSnail
+  - PlushieSnake
+  - PlushieSpaceLizard
+  - PlushieTeddyBear
+  - PlushieTeddyBearRecolorableRandom
+  - PlushieThaven
+  - PlushieUrsaMinor
+  - PlushieVox
+  - PlushieXeno
+  - PonderingOrb
+  - PrizeBall
+  - RecorderInstrument
+  - RevolverCapGun
+  - SnapPopBox
+  - SqueakySmileyBall
+  - SqueakySmileyGuy
+  - SqueakySmileyGuyRandom
+  - ToyAi
+  - ToyAmongPequeno
+  - ToyHammer
+  - ToyIan
+  - ToyMouse
+  - ToyRubberDuck
+  - WeaponWaterBlaster
+  - WeaponWaterPistol
+  - Whistle
+  - WhoopieCushion
+
+# Dynamic
+
+- type: latheRecipePack
+  id: CleanPackDynamic
+  recipes:
+  - MegaSprayBottle
+  - AdvMopItem
+  - WeaponSprayNozzle
+  - ClothingBackpackWaterTank
+
+#- type: latheRecipePack # disabled until there is something to fish
+#  id: ServiceMiscPackDynamic
+#  recipes:
+#    - FishingRod
+
+# Emagged
+
+- type: latheRecipePack
+  id: ServiceEmagged
+  recipes:
+  - ButchCleaver
+  - PrizeTicket1000000
+
+- type: latheRecipePack
+  id: PrizeEmagged
+  recipes:
+  - BalloonSyn
+  - FoamBlade
+  - PlushieBug
+  - PlushieCaptain
+  - PlushieGhost
+  - PlushieGnomeChild
+  - PlushieGollylad
+  - PlushieHeadofPersonnel
+  - PlushieIba
+  - PlushieImp
+  - PlushieNuke
+  - PlushieOdds
+  - PlushieRainbowCarp
+  - PlushieRGBee
+  - PlushieThavenWeird
+  - SingularityToy
+  - TeslaToy
+  - ToyNuke
+  - ToySword

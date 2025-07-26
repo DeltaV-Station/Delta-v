@@ -1,0 +1,95 @@
+- type: latheRecipe
+  id: PrizeTicket
+  result: PrizeTicket
+  completetime: 1
+  materials:
+    Cardboard: 10000
+
+- type: latheRecipe
+  id: PrizeTicket100
+  result: PrizeTicket100
+  completetime: 1
+  materials:
+    Cardboard: 1000
+
+- type: latheRecipe
+  id: PrizeTicket10
+  result: PrizeTicket10
+  completetime: 1
+  materials:
+    Cardboard: 100
+
+- type: latheRecipe
+  id: PrizeTicket1000000
+  result: PrizeTicket1000000
+  completetime: 1
+  materials:
+    Cardboard: 10000000
+
+- type: latheRecipe
+  id: DrinkVacuumFlaskXL
+  result: DrinkVacuumFlaskXL
+  completetime: 1
+  materials:
+    Steel: 450
+
+- type: latheRecipe
+  id: SteelLunchbox
+  result: SteelLunchbox
+  completetime: 2
+  materials:
+    Steel: 300
+
+- type: latheRecipe
+  id: SteelLunchboxBlue
+  result: SteelLunchboxBlue
+  completetime: 2
+  materials:
+    Steel: 300
+
+- type: latheRecipe
+  id: SteelLunchboxPink
+  result: SteelLunchboxPink
+  completetime: 2
+  materials:
+    Steel: 300
+
+- type: latheRecipe
+  id: SteelLunchboxOrange
+  result: SteelLunchboxOrange
+  completetime: 2
+  materials:
+    Steel: 300
+
+- type: latheRecipe
+  id: ClothingBeltPlushie
+  result: ClothingBeltPlushie
+  completetime: 1
+  materials:
+    Cloth: 100
+
+- type: latheRecipe
+  id: DrinkNoveltyMug
+  parent: DrinkMugMetal
+  result: DrinkNoveltyMug
+
+- type: latheRecipe
+  id: CandyBowl
+  result: CandyBowl
+  completetime: 1
+  materials:
+    Glass: 200 # turns into up to 2 glass shards when broken so kind of a steep price to keep from the worlds most obscure resource exploit
+
+- type: latheRecipe
+  id: MeatBowl
+  result: MeatBowl
+  completetime: 1
+  materials:
+    Plastic: 200
+
+- type: latheRecipe
+  id: FruitBowl
+  result: FruitBowl
+  completetime: 1
+  materials:
+    Wood: 200
