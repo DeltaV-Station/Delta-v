@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 07/27/2025 08:11:58
-  entityCount: 19167
+  time: 07/27/2025 10:09:02
+  entityCount: 19171
 maps:
 - 1
 grids:
@@ -2550,6 +2550,7 @@ entities:
             5188: -25,-17
             5189: -24,-17
             5190: -23,-17
+            6771: -20,-12
         - node:
             color: '#D381C996'
             id: BrickTileWhiteLineS
@@ -18315,6 +18316,12 @@ entities:
     components:
     - type: Transform
       pos: 29.5,-9.5
+      parent: 2
+  - uid: 19170
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 33.5,39.5
       parent: 2
 - proto: CableApcExtension
   entities:
@@ -45572,12 +45579,27 @@ entities:
     - type: Transform
       pos: -3.5,8.5
       parent: 2
+- proto: ComputerCargoOrdersJustice
+  entities:
+  - uid: 16243
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 46.5,41.5
+      parent: 2
 - proto: ComputerCargoOrdersMedical
   entities:
   - uid: 11981
     components:
     - type: Transform
       pos: -0.5,-20.5
+      parent: 2
+- proto: ComputerCargoOrdersScience
+  entities:
+  - uid: 19168
+    components:
+    - type: Transform
+      pos: 31.5,-10.5
       parent: 2
 - proto: ComputerCargoOrdersSecurity
   entities:
@@ -46506,6 +46528,13 @@ entities:
     components:
     - type: Transform
       pos: -17.5,10.5
+      parent: 2
+- proto: CrateLockBoxJustice
+  entities:
+  - uid: 18889
+    components:
+    - type: Transform
+      pos: 40.5,41.5
       parent: 2
 - proto: CrateLockBoxMedical
   entities:
@@ -54974,11 +55003,6 @@ entities:
     components:
     - type: Transform
       pos: 20.5,44.5
-      parent: 2
-  - uid: 18889
-    components:
-    - type: Transform
-      pos: 46.5,41.5
       parent: 2
 - proto: FireAlarm
   entities:
@@ -89478,6 +89502,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 26.5,-13.5
       parent: 2
+  - uid: 19169
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 27.5,43.5
+      parent: 2
 - proto: JetpackMiniFilled
   entities:
   - uid: 1611
@@ -94551,11 +94581,6 @@ entities:
     components:
     - type: Transform
       pos: 28.5,-10.5
-      parent: 2
-  - uid: 16243
-    components:
-    - type: Transform
-      pos: 31.5,-10.5
       parent: 2
   - uid: 16434
     components:
@@ -103274,6 +103299,19 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         16482:
+        - - Pressed
+          - Toggle
+  - uid: 19171
+    components:
+    - type: MetaData
+      name: Service Light
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 33.5,39.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        19169:
         - - Pressed
           - Toggle
 - proto: SignalButtonDirectional
