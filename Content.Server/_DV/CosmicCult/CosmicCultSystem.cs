@@ -123,7 +123,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     {
         var ev = new SeeIdentityAttemptEvent();
         RaiseLocalEvent(ent, ev);
-        if (ev.TotalCoverage == IdentityBlockerCoverage.EYES || ev.TotalCoverage == IdentityBlockerCoverage.FULL) return;
+        if (ev.TotalCoverage.HasFlag(IdentityBlockerCoverage.EYES)) return;
 
         args.PushMarkup(Loc.GetString(ent.Comp.ExamineText));
     }
