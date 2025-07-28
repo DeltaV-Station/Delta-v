@@ -159,7 +159,6 @@ public sealed partial class PuddleSystem
 
     private void OnDoAfter(Entity<SpillableComponent> entity, ref SpillDoAfterEvent args)
     {
-
         if (args.Handled || args.Cancelled || args.Args.Target == null)
             return;
 
