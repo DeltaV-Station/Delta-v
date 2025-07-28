@@ -15,12 +15,15 @@ using Content.Shared.Spillable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Player;
-using Content.Shared._DV.Chemistry.Systems;
+using Content.Shared._DV.Chemistry.Systems; // DeltaV Beergoggles enable safe throw
+using Robust.Shared.Physics.Systems; // DeltaV Beergoggles enable safe throw
 
 namespace Content.Server.Fluids.EntitySystems;
 
 public sealed partial class PuddleSystem
 {
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!; // DeltaV - Beergoggles enable safe throw
+
     protected override void InitializeSpillable()
     {
         base.InitializeSpillable();
@@ -119,6 +122,7 @@ public sealed partial class PuddleSystem
             RaiseLocalEvent(args.User.Value, safeThrowEvent);
             if (safeThrowEvent.SafeThrow)
             {
+                _physics.SetAngularVelocity(entity, 0);
                 Transform(entity).LocalRotation = Angle.Zero;
                 return;
             }
