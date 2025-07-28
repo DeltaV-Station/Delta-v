@@ -45,3 +45,14 @@
   cost: 2 # Changed weight to 2 in accordance with other accents
   components:
     - type: IrishAccent
+
+# Anglish, for the Beowulf in you
+- type: trait
+  id: AnglishAccent
+  name: trait-anglish-name
+  description: trait-anglish-desc
+  category: SpeechTraits
+  cost: 2 # Changed weight to 2 in accordance with other accents
+  components:
+    - type: ReplacementAccent
+      accent: anglish

@@ -41,3 +41,6 @@ trait-depression-desc = No mechanical effect. The world is dark but there is a l
 
 trait-dysgraphia-name = Unable to write
 trait-dysgraphia-desc = You cannot write, whether because of a disability, your history, or by choice.
+
+trait-anglish-name = Anglish tung
+trait-anglish-desc = Your tung is of the saxons, and say unlike others aboard this skyship.
