@@ -23,4 +23,3 @@ public sealed class SafeSolutionThrowEvent : EntityEventArgs, IInventoryRelayEve
     public bool SafeThrow;
     public SlotFlags TargetSlots => SlotFlags.HEAD | SlotFlags.MASK | SlotFlags.EYES;
 }
-
