@@ -119,6 +119,7 @@ public sealed partial class PuddleSystem
             RaiseLocalEvent(args.User.Value, safeThrowEvent);
             if (safeThrowEvent.SafeThrow)
             {
+                Transform(entity).LocalRotation = Angle.Zero;
                 return;
             }
             // DeltaV - end of Beergoggles enable safe throw
@@ -143,6 +144,12 @@ public sealed partial class PuddleSystem
         if (!_solutionContainerSystem.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out _, out var solution) || solution.Volume <= 0)
             return;
 
+        // DeltaV - start of Beergoggles enable safe throw
+        var safeThrowEvent = new SafeSolutionThrowEvent();
+        RaiseLocalEvent(args.PlayerUid, safeThrowEvent);
+        if (safeThrowEvent.SafeThrow)
+            return;
+        // DeltaV - end of Beergoggles enable safe throw
         args.Cancel("pacified-cannot-throw-spill");
     }
 

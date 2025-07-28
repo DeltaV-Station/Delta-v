@@ -2,6 +2,7 @@ using Content.Server.Damage.Components;
 using Content.Shared.Damage;
 using Content.Shared.Throwing;
 using Content.Shared._DV.Chemistry.Systems; // DeltaV - Beergoggles enable safe throw
+using Content.Shared.Chemistry.Components.SolutionManager; // DeltaV - Beergoggles enable safe throw
 
 namespace Content.Server.Damage.Systems
 {
@@ -21,7 +22,7 @@ namespace Content.Server.Damage.Systems
         private void DamageOnLand(EntityUid uid, DamageOnLandComponent component, ref LandEvent args)
         {
             // DeltaV - start of Beergoggles enable safe throw
-            if (args.User.HasValue)
+            if (args.User.HasValue && HasComp<SolutionContainerManagerComponent>(uid))
             {
                 var safeThrowEvent = new SafeSolutionThrowEvent();
                 RaiseLocalEvent(args.User.Value, safeThrowEvent);
