@@ -1,0 +1,17 @@
+- type: entity
+  parent: MobSkeletonPerson
+  id: MobMenaceSkeleton
+  name: menace skeleton
+  components:
+  - type: GhostRole
+    name: ghost-role-information-menace-skeleton-name
+    description: ghost-role-information-menace-skeleton-description
+    rules: ghost-role-information-menace-skeleton-rules
+    mindRoles:
+    - MindRoleMenaceSkeleton
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [MenaceSkeletonGear]
+  - type: RandomHumanoidAppearance

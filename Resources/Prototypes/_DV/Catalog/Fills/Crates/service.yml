@@ -1,0 +1,22 @@
+- type: entity
+  parent: LockerJanitor
+  id: HydraLocker
+  name: cleanade launcher locker
+  description: For the janitor on a mission, this locker contains a hydra launcher and 2 boxes of cleanade ammo.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponLauncherHydra
+    - id: CleanadeGrenadeBox
+      amount: 2
+
+- type: entity
+  parent: CratePlastic
+  id: CleanadeGrenadeCrate
+  name: cleanade grenade crate
+  description: A crate of cleanade grenades. Contains 2 boxes of cleanade grenades for the hydra launcher.
+  components:
+  - type: StorageFill
+    contents:
+    - id: CleanadeGrenadeBox
+      amount: 2
