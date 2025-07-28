@@ -22,7 +22,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly MindSwapPowerSystem _mindSwap = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
-        [Dependency] private readonly AtmosphereSystem _atmosSys = default!;
+        [Dependency] private readonly AtmosphereSystem _atmos = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
         [Dependency] private readonly SharedMindSystem _mind = default!;
 
@@ -39,8 +39,8 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, TelegnosisPowerComponent component, ComponentInit args)
         {
-            _actions.AddAction(uid, ref component.TelegnosisActionEntity, component.TelegnosisActionId );
-            _actions.TryGetActionData( component.TelegnosisActionEntity, out var actionData );
+            _actions.AddAction(uid, ref component.TelegnosisActionEntity, component.TelegnosisActionId);
+            _actions.TryGetActionData(component.TelegnosisActionEntity, out var actionData);
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.TelegnosisActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
@@ -74,45 +74,46 @@ namespace Content.Server.Abilities.Psionics
         private void OnMindRemoved(EntityUid uid, TelegnosticProjectionComponent component, MindRemovedMessage args)
         {
             // This is called during transfer to, so the MindSwappedComponent is still present.
-            if (TryComp<MindSwappedComponent>(uid, out var mindSwapped)){
+            if (TryComp<MindSwappedComponent>(uid, out var mindSwapped))
+            {
                 _mind.ShowExamineInfo(mindSwapped.OriginalEntity, true);
             }
             QueueDel(uid);
         }
 
-        public (EntityUid uid, TelegnosticProjectionComponent? comp) GetCasterProjection(EntityUid uid)
+        public EntityUid GetCasterProjection(Entity<TelegnosisPowerComponent> entity)
         {
-            if (!TryComp<MindSwappedComponent>(uid, out var mindSwapped) ||
-                !TryComp<TelegnosticProjectionComponent>(mindSwapped.OriginalEntity, out var projection))
+            if (!TryComp<MindSwappedComponent>(entity, out var mindSwapped) ||
+                !HasComp<TelegnosticProjectionComponent>(mindSwapped.OriginalEntity))
             {
-                return (default, null);
+                return default;
             }
-            return (mindSwapped.OriginalEntity, projection);
+            return mindSwapped.OriginalEntity;
         }
 
-        private void OnInhaleLocation(EntityUid uid, TelegnosisPowerComponent component, ref InhaleLocationEvent args)
+        private void OnInhaleLocation(Entity<TelegnosisPowerComponent> entity, ref InhaleLocationEvent args)
         {
-            var (sensorUid, projection) = GetCasterProjection(uid);
-            if (projection == null)
+            var sensorUid = GetCasterProjection(entity);
+            if (sensorUid == default)
                 return;
             // Determine the distance to the sensor, this will be used to dilute the amount of air we take in.
             var sensorPosition = _transform.GetWorldPosition(sensorUid);
-            var projectionPosition = _transform.GetWorldPosition(uid);
+            var projectionPosition = _transform.GetWorldPosition(entity);
             // A linear curve from 1.0 at 7 tiles away, to 0 at 57 tiles away
             var distance = Vector2.Distance(sensorPosition, projectionPosition);
             float gasMult = Math.Clamp(1f - (distance - 7f) / 50f, 0f, 1f);
-            args.Gas = (args.Gas ?? _atmosSys.GetContainingMixture(uid, excite: true))?.RemoveVolume(Atmospherics.BreathVolume * gasMult);
+            args.Gas = (args.Gas ?? _atmos.GetContainingMixture(entity.Owner, excite: true))?.RemoveVolume(Atmospherics.BreathVolume * gasMult);
             if (args.Gas == null)
                 return;
             args.Gas.Volume = Math.Min(args.Gas.Volume, Atmospherics.BreathVolume);
         }
 
-        private void OnExamine(EntityUid uid, TelegnosisPowerComponent entity, ref ExaminedEvent args)
+        private void OnExamine(Entity<TelegnosisPowerComponent> entity, ref ExaminedEvent args)
         {
-            if (GetCasterProjection(uid).comp == null)
+            if (GetCasterProjection(entity) == default)
                 return;
 
-            args.PushMarkup($"[color=yellow]{Loc.GetString("telegnosis-power-ssd", ("ent", uid))}[/color]");
+            args.PushMarkup($"[color=yellow]{Loc.GetString("telegnosis-power-ssd", ("ent", entity))}[/color]");
         }
     }
 }
