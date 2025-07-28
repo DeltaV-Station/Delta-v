@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 06/12/2025 02:52:16
-  entityCount: 197
+  time: 07/28/2025 07:32:22
+  entityCount: 198
 maps: []
 grids:
 - 1
@@ -1143,6 +1143,13 @@ entities:
     components:
     - type: Transform
       pos: 2.5968878,0.50475234
+      parent: 1
+- proto: ShelfMetal
+  entities:
+  - uid: 198
+    components:
+    - type: Transform
+      pos: -2.5,4.5
       parent: 1
 - proto: ShuttersNormalOpen
   entities:
