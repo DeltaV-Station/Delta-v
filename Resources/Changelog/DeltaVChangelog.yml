@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Borgs and IPCs now leave metal fibers when touching things.
-    type: Add
-  - message: Fixed IPCs not leaving fibers when using gloves.
-    type: Fix
-  id: 1044
-  time: '2025-02-17T03:25:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2992
 - author: Stop-Signs
   changes:
   - message: Some adjustments have been made to the arsenal tech tree.
@@ -4161,3 +4152,10 @@
   id: 1543
   time: '2025-07-28T11:41:01.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4070
+- author: Eternally-Confused
+  changes:
+  - message: Fugitives warrants no longer include crimes that don't currently exist.
+    type: Fix
+  id: 1544
+  time: '2025-07-28T14:03:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4055
