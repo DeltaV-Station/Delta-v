@@ -175,12 +175,18 @@
   id: "questionEscapedSecurity"
   locKey: "crime-assist-question-escapedsecurity"
   onYes: "resultBreachOfCustody"
-  onNo: "questionForcedMindbreakerToxin"
+  onNo: "questionDidTamperWithNoosphere"
 
 - type: crimeAssistPage
-  id: "questionForcedMindbreakerToxin"
-  locKey: "crime-assist-question-forcedmindbreakertoxin"
-  onYes: "resultMindbreaking"
+  id: "questionDidTamperWithNoosphere"
+  locKey: "crime-assist-question-didtamperwithnoosphere"
+  onYes: "resultNoosphericTampering"
+  onNo: "questionRaiseGlimmer"
+
+- type: crimeAssistPage
+  id: "questionRaiseGlimmer"
+  locKey: "crime-assist-question-didthreatenreality"
+  onYes: "resultNoosphericTampering"
   onNo: "questionWasItVigilantism"
 
 - type: crimeAssistPage
@@ -352,11 +358,11 @@
   locKeyPunishment: "crime-assist-crimepunishment-grandpossession"
 
 - type: crimeAssistPage
-  id: "resultMindbreaking"
-  locKeyTitle: "crime-assist-crime-mindbreaking"
-  locKeyDescription: "crime-assist-crimedetail-mindbreaking"
+  id: "resultNoosphericTampering"
+  locKeyTitle: "crime-assist-crime-noospherictampering"
+  locKeyDescription: "crime-assist-crimedetail-noospherictampering"
   crimeSeverity: GrandFelony
-  locKeyPunishment: "crime-assist-crimepunishment-mindbreaking"
+  locKeyPunishment: "crime-assist-crimepunishment-noospherictampering"
 
 - type: crimeAssistPage
   id: "resultSabotage"
