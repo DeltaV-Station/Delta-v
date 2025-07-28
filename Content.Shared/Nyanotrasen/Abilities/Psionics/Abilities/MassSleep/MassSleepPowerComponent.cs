@@ -19,12 +19,12 @@ namespace Content.Shared.Abilities.Psionics
         public DoAfterId? DoAfter;
 
         [DataField]
-        public TimeSpan UseDelay = TimeSpan.FromSeconds(2.5);
+        public TimeSpan UseDelay = TimeSpan.FromSeconds(4);
 
         [DataField]
         public float Duration = 5f;
 
         [DataField]
-        public float WarningRadius = 3f;
+        public float WarningRadius = 6f;
     }
 }

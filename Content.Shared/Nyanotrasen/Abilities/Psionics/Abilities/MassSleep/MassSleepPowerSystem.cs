@@ -51,7 +51,6 @@ namespace Content.Shared.Abilities.Psionics
             var ev = new MassSleepDoAfterEvent();
             var doAfterArgs = new DoAfterArgs(EntityManager, uid, component.UseDelay, ev, uid)
             {
-                Hidden = true,
                 BreakOnDamage = true
             };
 
