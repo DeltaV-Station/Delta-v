@@ -28,7 +28,7 @@ fugitive-report-crime = - {$count ->
 } of {$crime}
 fugitive-report-last-line = GALPOL prefers the fugitive to be returned alive so they may face trial at Central Command.
 
-# All (non erp) felonies and capital crimes in Space Law as of July 2025
+# All (non erp) felonies and capital crimes in Space Law as of August 2025
 fugitive-crime-1 = Murder
 fugitive-crime-2 = Terrorism
 fugitive-crime-3 = Grand Sabotage
@@ -39,7 +39,7 @@ fugitive-crime-6 = Breach of Custody
 fugitive-crime-7 = Manslaughter
 fugitive-crime-8 = Kidnapping
 fugitive-crime-9 = Grand Possession
-fugitive-crime-10 = Mindbreaking
+fugitive-crime-10 = Noöspheric Tampering
 fugitive-crime-11 = Sabotage
 fugitive-crime-12 = Abuse of Power
 fugitive-crime-13 = Grand Larceny
