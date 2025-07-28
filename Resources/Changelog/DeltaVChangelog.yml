@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Fixed uplink's objectives tab not existing.
-    type: Fix
-  id: 1043
-  time: '2025-02-16T18:41:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2991
-- author: deltanedas
-  changes:
   - message: Borgs and IPCs now leave metal fibers when touching things.
     type: Add
   - message: Fixed IPCs not leaving fibers when using gloves.
@@ -4154,3 +4147,17 @@
   id: 1542
   time: '2025-07-27T18:42:26.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4082
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic cultists can now hide their cult allegiance on stage 3 by covering
+      their eyes. Beckoning the unknown would still make them valid, though.
+    type: Tweak
+  - message: Cosmic cult now needs additional entropy (or converts) at stage 3 before
+      they can activate the finale. The total amount of entropy (or converts) needed
+      remains the same, so stages 1 and 2 are slightly faster now.
+    type: Tweak
+  - message: Malign rifts no longer stop spawning when stage 3 is reached.
+    type: Tweak
+  id: 1543
+  time: '2025-07-28T11:41:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4070
