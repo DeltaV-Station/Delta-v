@@ -3045,3 +3045,39 @@ accent-anglish-replacement-1017 = stead
 
 accent-anglish-words-1018 = really
 accent-anglish-replacement-1018 = soothly
+
+accent-anglish-words-1019 = trait
+accent-anglish-replacement-1019 = tie
+
+accent-anglish-words-1020 = traits
+accent-anglish-replacement-1020 = ties
+
+accent-anglish-words-1021 = add
+accent-anglish-replacement-1021 = eke
+
+accent-anglish-words-1022 = added
+accent-anglish-replacement-1022 = eked
+
+accent-anglish-words-1023 = adds
+accent-anglish-replacement-1023 = ekes
+
+accent-anglish-words-1024 = addition
+accent-anglish-replacement-1024 = eking
+
+accent-anglish-words-1025 = adding
+accent-anglish-replacement-1025 = eking
+
+accent-anglish-words-1026 = subtract
+accent-anglish-replacement-1026 = uneke
+
+accent-anglish-words-1027 = subtracts
+accent-anglish-replacement-1027 = unekes
+
+accent-anglish-words-1028 = subtracting
+accent-anglish-replacement-1028 = uneking
+
+accent-anglish-words-1029 = subtraction
+accent-anglish-replacement-1029 = uneking
+
+accent-anglish-words-1030 = additionally
+accent-anglish-replacement-1030 = yet
