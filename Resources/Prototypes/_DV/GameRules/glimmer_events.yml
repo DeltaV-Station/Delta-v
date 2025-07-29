@@ -14,6 +14,7 @@
     - id: GlimmerRandomSentience
     - id: ThavenMoodUpset
     - id: LockProbers
+    - id: PsionicNosebleedEvent
 
 - type: entity
   parent: BaseGameRule
@@ -167,3 +168,11 @@
   - type: GlimmerEvent
     minimumGlimmer: 500
   - type: LockProbersRule
+
+- type: entity
+  parent: BaseGlimmerEvent
+  id: PsionicNosebleedEvent
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 400
+  - type: PsionicNosebleedRule
