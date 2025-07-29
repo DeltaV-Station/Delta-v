@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 07/27/2025 10:09:02
-  entityCount: 19171
+  time: 07/29/2025 08:59:50
+  entityCount: 19183
 maps:
 - 1
 grids:
@@ -44942,6 +44942,13 @@ entities:
     - type: Transform
       pos: 76.6841,-20.511726
       parent: 2
+- proto: ClothingNeckScarfStripedBlue
+  entities:
+  - uid: 19183
+    components:
+    - type: Transform
+      pos: 16.420704,-2.5022464
+      parent: 2
 - proto: ClothingNeckScarfStripedGreen
   entities:
   - uid: 11286
@@ -88961,6 +88968,20 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 12.5,12.5
       parent: 2
+- proto: IntercomAssembly
+  entities:
+  - uid: 19178
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 71.5,14.5
+      parent: 2
+  - uid: 19180
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 74.5,35.5
+      parent: 2
 - proto: IntercomCommand
   entities:
   - uid: 7555
@@ -89103,6 +89124,22 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 64.5,-25.5
+      parent: 2
+  - uid: 19172
+    components:
+    - type: Transform
+      pos: 25.5,51.5
+      parent: 2
+  - uid: 19174
+    components:
+    - type: Transform
+      pos: 17.5,34.5
+      parent: 2
+  - uid: 19177
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 42.5,34.5
       parent: 2
 - proto: IntercomEngineering
   entities:
@@ -89389,6 +89426,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 39.5,24.5
       parent: 2
+  - uid: 19179
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 47.5,35.5
+      parent: 2
 - proto: IntercomService
   entities:
   - uid: 7205
@@ -89424,6 +89467,17 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 2.5,12.5
+      parent: 2
+  - uid: 19175
+    components:
+    - type: Transform
+      pos: 20.5,54.5
+      parent: 2
+  - uid: 19176
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 30.5,54.5
       parent: 2
 - proto: IntercomSupply
   entities:
@@ -98393,6 +98447,16 @@ entities:
     - type: Transform
       pos: 51.5,41.5
       parent: 2
+  - uid: 19181
+    components:
+    - type: Transform
+      pos: 15.5,54.5
+      parent: 2
+  - uid: 19182
+    components:
+    - type: Transform
+      pos: 14.5,37.5
+      parent: 2
 - proto: RandomPosterContraband
   entities:
   - uid: 2956
@@ -98869,6 +98933,11 @@ entities:
     components:
     - type: Transform
       pos: 77.5,35.5
+      parent: 2
+  - uid: 19173
+    components:
+    - type: Transform
+      pos: 24.5,41.5
       parent: 2
 - proto: RandomSpawner100
   entities:
