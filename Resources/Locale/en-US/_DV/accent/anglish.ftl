@@ -3042,3 +3042,6 @@ accent-anglish-replacement-1016 = twoth
 
 accent-anglish-words-1017 = station
 accent-anglish-replacement-1017 = stead
+
+accent-anglish-words-1018 = really
+accent-anglish-replacement-1018 = soothly
