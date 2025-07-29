@@ -263,7 +263,7 @@ accent-anglish-words-88 = citizen
 accent-anglish-replacement-88 = townsman
 
 accent-anglish-words-89 = citizens
-accent-anglish-replacement-89 = townspeople
+accent-anglish-replacement-89 = townsfolk
 
 accent-anglish-words-90 = civilian
 accent-anglish-replacement-90 = meanfolk
@@ -569,7 +569,7 @@ accent-anglish-words-190 = fuck off
 accent-anglish-replacement-190 = be damned
 
 accent-anglish-words-191 = fuck you
-accent-anglish-replacement-191 = plague take you
+accent-anglish-replacement-191 = blight take you
 
 accent-anglish-words-192 = fuel
 accent-anglish-replacement-192 = firefood
@@ -845,7 +845,7 @@ accent-anglish-words-282 = million
 accent-anglish-replacement-282 = thousand thousand
 
 accent-anglish-words-283 = mime
-accent-anglish-replacement-283 = silent player
+accent-anglish-replacement-283 = hushed player
 
 accent-anglish-words-284 = miner
 accent-anglish-replacement-284 = delver
@@ -884,7 +884,7 @@ accent-anglish-words-295 = nukies
 accent-anglish-replacement-295 = fearstrikers
 
 accent-anglish-words-296 = officer
-accent-anglish-replacement-296 = sherrif
+accent-anglish-replacement-296 = sheriff
 
 accent-anglish-words-297 = oxygen
 accent-anglish-replacement-297 = sourstuff
@@ -1070,7 +1070,7 @@ accent-anglish-words-357 = secular
 accent-anglish-replacement-357 = worldly
 
 accent-anglish-words-358 = security
-accent-anglish-replacement-358 = lawmen
+accent-anglish-replacement-358 = law
 
 accent-anglish-words-359 = select
 accent-anglish-replacement-359 = choose
@@ -1112,7 +1112,7 @@ accent-anglish-words-371 = silicon
 accent-anglish-replacement-371 = flintshaft
 
 accent-anglish-words-372 = singuloose
-accent-anglish-replacement-372 = the gravity knot broke free from its fetters
+accent-anglish-replacement-372 = the heftiness knot broke free from its fetters
 
 accent-anglish-words-373 = SMES
 accent-anglish-replacement-373 = power hoard
@@ -1787,7 +1787,7 @@ accent-anglish-words-594 = personnel
 accent-anglish-replacement-594 = staff
 
 accent-anglish-words-595 = person
-accent-anglish-replacement-595 = someone
+accent-anglish-replacement-595 = wight
 
 accent-anglish-words-596 = personal
 accent-anglish-replacement-596 = selfly
@@ -2405,10 +2405,10 @@ accent-anglish-words-801 = wizards
 accent-anglish-replacement-801 = dwimmermen
 
 accent-anglish-words-805 = creature
-accent-anglish-replacement-805 = wight
+accent-anglish-replacement-805 = being
 
 accent-anglish-words-806 = creatures
-accent-anglish-replacement-806 = wights
+accent-anglish-replacement-806 = beings
 
 accent-anglish-words-807 = assistant
 accent-anglish-replacement-807 = helper
@@ -2426,7 +2426,619 @@ accent-anglish-words-811 = assists
 accent-anglish-replacement-811 = helps
 
 accent-anglish-words-812 = assisting
-accent-anglish-replacement-812 = helped
+accent-anglish-replacement-812 = helping
 
-accent-anglish-words-813 =
-accent-anglish-replacement-813 =
+accent-anglish-words-813 = assisted
+accent-anglish-replacement-813 = helped
+
+accent-anglish-words-814 = medical
+accent-anglish-replacement-814 = healcraft
+
+accent-anglish-words-815 = medicine
+accent-anglish-replacement-815 = healing
+
+accent-anglish-words-816 = medicines
+accent-anglish-replacement-816 = healings
+
+accent-anglish-words-817 = prophecy
+accent-anglish-replacement-817 = soothsaying
+
+accent-anglish-words-818 = prophet
+accent-anglish-replacement-818 = soothsayer
+
+accent-anglish-words-819 = prophesize
+accent-anglish-replacement-819 = soothsay
+
+accent-anglish-words-820 = prophets
+accent-anglish-replacement-820 = soothsayers
+
+accent-anglish-words-821 = medic
+accent-anglish-replacement-821 = healer
+
+accent-anglish-words-822 = atmos
+accent-anglish-replacement-822 = lifthelm
+
+accent-anglish-words-823 = atmosia
+accent-anglish-replacement-823 = lifthelm hall
+
+accent-anglish-words-824 = chemists
+accent-anglish-replacement-824 = salvesellers
+
+accent-anglish-words-825 = botanist
+accent-anglish-replacement-825 = acreman
+
+accent-anglish-words-826 = botanists
+accent-anglish-replacement-826 = acremen
+
+accent-anglish-words-827 = attire
+accent-anglish-replacement-827 = cladding
+
+accent-anglish-words-828 = attention
+accent-anglish-replacement-828 = aught
+
+accent-anglish-words-829 = attract
+accent-anglish-replacement-829 = draw
+
+accent-anglish-words-830 = attracted
+accent-anglish-replacement-830 = drawn
+
+accent-anglish-words-831 = attracting
+accent-anglish-replacement-831 = drawing in
+
+accent-anglish-words-832 = attractive
+accent-anglish-replacement-832 = sightly
+
+accent-anglish-words-833 = attribute
+accent-anglish-replacement-833 = ownship
+
+accent-anglish-words-834 = attributes
+accent-anglish-replacement-834 = ownships
+
+accent-anglish-words-835 = attorney
+accent-anglish-replacement-835 = lawman
+
+accent-anglish-words-836 = attorneys
+accent-anglish-replacement-836 = lawmen
+
+accent-anglish-words-837 = officers
+accent-anglish-replacement-837 = sheriffs
+
+accent-anglish-words-838 = service
+accent-anglish-replacement-838 = besteading
+
+accent-anglish-words-839 = services
+accent-anglish-replacement-839 = besteadings
+
+accent-anglish-words-840 = carry
+accent-anglish-replacement-840 = bear
+
+accent-anglish-words-841 = carries
+accent-anglish-replacement-841 = bears
+
+accent-anglish-words-842 = carried
+accent-anglish-replacement-842 = bore
+
+accent-anglish-words-843 = carrying
+accent-anglish-replacement-843 = bearing
+
+accent-anglish-words-844 = courier
+accent-anglish-replacement-844 = ferryman
+
+accent-anglish-words-845 = couriers
+accent-anglish-replacement-845 = ferrymen
+
+accent-anglish-words-846 = forensic
+accent-anglish-replacement-846 = truthseek
+
+accent-anglish-words-847 = forensically
+accent-anglish-replacement-847 = truthseekingly
+
+accent-anglish-words-848 = paramedic
+accent-anglish-replacement-848 = healdriver
+
+accent-anglish-words-849 = paramedics
+accent-anglish-replacement-849 = healdrivers
+
+accent-anglish-words-850 = research
+accent-anglish-replacement-850 = underseek
+
+accent-anglish-words-851 = researching
+accent-anglish-replacement-851 = underseeking
+
+accent-anglish-words-852 = researched
+accent-anglish-replacement-852 = undersought
+
+accent-anglish-words-853 = nurses
+accent-anglish-replacement-853 = carers
+
+accent-anglish-words-854 = engineer
+accent-anglish-replacement-854 = craftsman
+
+accent-anglish-words-855 = engineers
+accent-anglish-replacement-855 = craftsmen
+
+accent-anglish-words-856 = engineering
+accent-anglish-replacement-856 = craftwork
+
+accent-anglish-words-857 = cadet
+accent-anglish-replacement-857 = forefighter
+
+accent-anglish-words-858 = cadets
+accent-anglish-replacement-858 = forefighters
+
+accent-anglish-words-859 = move
+accent-anglish-replacement-859 = shift
+
+accent-anglish-words-860 = moved
+accent-anglish-replacement-860 = shifted
+
+accent-anglish-words-861 = moving
+accent-anglish-replacement-861 = shifting
+
+accent-anglish-words-862 = mimes
+accent-anglish-replacement-862 = hushed players
+
+accent-anglish-words-863 = clowns
+accent-anglish-replacement-863 = funnimen
+
+accent-anglish-words-864 = nonsense
+accent-anglish-replacement-864 = unwit
+
+accent-anglish-words-865 = nonsensical
+accent-anglish-replacement-865 = unwitty
+
+accent-anglish-words-866 = nonsensically
+accent-anglish-replacement-866 = unwitly
+
+accent-anglish-words-867 = mover
+accent-anglish-replacement-867 = shifter
+
+accent-anglish-words-868 = note
+accent-anglish-replacement-868 = log
+
+accent-anglish-words-869 = notes
+accent-anglish-replacement-869 = logs
+
+accent-anglish-words-870 = history
+accent-anglish-replacement-870 = yore
+
+accent-anglish-words-871 = histories
+accent-anglish-replacement-871 = timelines
+
+accent-anglish-words-872 = historic
+accent-anglish-replacement-872 = sheedly
+
+accent-anglish-words-873 = historically
+accent-anglish-replacement-873 = formerly
+
+accent-anglish-words-874 = previously
+accent-anglish-replacement-874 = afore
+
+accent-anglish-words-875 = previous
+accent-anglish-replacement-875 = yester
+
+accent-anglish-words-876 = price
+accent-anglish-replacement-876 = toll
+
+accent-anglish-words-877 = prices
+accent-anglish-replacement-877 = tolls
+
+accent-anglish-words-878 = priest
+accent-anglish-replacement-878 = father
+
+accent-anglish-words-879 = priests
+accent-anglish-replacement-879 = fathers
+
+accent-anglish-words-880 = pretend
+accent-anglish-replacement-880 = fake
+
+accent-anglish-words-881 = pretending
+accent-anglish-replacement-881 = faking
+
+accent-anglish-words-882 = pretended
+accent-anglish-replacement-882 = faked
+
+accent-anglish-words-883 = preview
+accent-anglish-replacement-883 = forelook
+
+accent-anglish-words-884 = previews
+accent-anglish-replacement-884 = forelooks
+
+accent-anglish-words-885 = print
+accent-anglish-replacement-885 = thrutch
+
+accent-anglish-words-886 = printed
+accent-anglish-replacement-886 = thrutched
+
+accent-anglish-words-887 = printing
+accent-anglish-replacement-887 = thrutching
+
+accent-anglish-words-888 = prior
+accent-anglish-replacement-888 = beforehand
+
+accent-anglish-words-889 = priority
+accent-anglish-replacement-889 = forehood
+
+accent-anglish-words-890 = priorities
+accent-anglish-replacement-890 = forehoods
+
+accent-anglish-words-891 = fragile
+accent-anglish-replacement-891 = brittle
+
+accent-anglish-words-892 = fragility
+accent-anglish-replacement-892 = brittleness
+
+accent-anglish-words-893 = fraud
+accent-anglish-replacement-893 = swindle
+
+accent-anglish-words-894 = frequent
+accent-anglish-replacement-894 = often
+
+accent-anglish-words-895 = frequently
+accent-anglish-replacement-895 = over and over
+
+accent-anglish-words-896 = front
+accent-anglish-replacement-896 = foreside
+
+accent-anglish-words-897 = fruit
+accent-anglish-replacement-897 = apple
+
+accent-anglish-words-898 = fruits
+accent-anglish-replacement-898 = apples
+
+accent-anglish-words-899 = fry
+accent-anglish-replacement-899 = hirst
+
+accent-anglish-words-900 = fried
+accent-anglish-replacement-900 = hirsted
+
+accent-anglish-words-901 = fun
+accent-anglish-replacement-901 = play
+
+accent-anglish-words-902 = future
+accent-anglish-replacement-902 = to-be
+
+accent-anglish-words-903 = PDA
+accent-anglish-replacement-903 = handheld reckoner
+
+accent-anglish-words-904 = AI
+accent-anglish-replacement-904 = craftly keenness
+
+accent-anglish-words-905 = artifical
+accent-anglish-replacement-905 = craftly
+
+accent-anglish-words-906 = intelligence
+accent-anglish-replacement-906 = keenness
+
+accent-anglish-words-907 = ID
+accent-anglish-replacement-907 = whoness
+
+accent-anglish-words-908 = identify
+accent-anglish-replacement-908 = betoken
+
+accent-anglish-words-909 = money
+accent-anglish-replacement-909 = penny
+
+accent-anglish-words-910 = monkey
+accent-anglish-replacement-910 = tailape
+
+accent-anglish-words-911 = monkeys
+accent-anglish-replacement-911 = tailapes
+
+accent-anglish-words-912 = gorilla
+accent-anglish-replacement-912 = brawnape
+
+accent-anglish-words-913 = grain
+accent-anglish-replacement-913 = corn
+
+accent-anglish-words-914 = gravity
+accent-anglish-replacement-914 = weightfulness
+
+accent-anglish-words-915 = group
+accent-anglish-replacement-915 = gathering
+
+accent-anglish-words-916 = groups
+accent-anglish-replacement-916 = gatherings
+
+accent-anglish-words-917 = guarantee
+accent-anglish-replacement-917 = bond
+
+accent-anglish-words-918 = guard
+accent-anglish-replacement-918 = bewatch
+
+accent-anglish-words-919 = guarded
+accent-anglish-replacement-919 = bewatched
+
+accent-anglish-words-920 = guarding
+accent-anglish-replacement-920 = bewatching
+
+accent-anglish-words-921 = flour
+accent-anglish-replacement-921 = meal
+
+accent-anglish-words-922 = pie
+accent-anglish-replacement-922 = rindcake
+
+accent-anglish-words-923 = piece
+accent-anglish-replacement-923 = bit
+
+accent-anglish-words-924 = pieces
+accent-anglish-replacement-924 = bits
+
+accent-anglish-words-925 = pilot
+accent-anglish-replacement-925 = flyer
+
+accent-anglish-words-926 = pile
+accent-anglish-replacement-926 = heap
+
+accent-anglish-words-927 = piles
+accent-anglish-replacement-927 = heaps
+
+accent-anglish-words-928 = pirate
+accent-anglish-replacement-928 = seareaver
+
+accent-anglish-words-929 = pirates
+accent-anglish-replacement-929 = seareavers
+
+accent-anglish-words-930 = place
+accent-anglish-replacement-930 = spot
+
+accent-anglish-words-931 = places
+accent-anglish-replacement-931 = spots
+
+accent-anglish-words-932 = plastic
+accent-anglish-replacement-932 = newclay
+
+accent-anglish-words-933 = plasteel
+accent-anglish-replacement-933 = newsteel
+
+accent-anglish-words-934 = save
+accent-anglish-replacement-934 = spare
+
+accent-anglish-words-935 = saved
+accent-anglish-replacement-935 = spared
+
+accent-anglish-words-936 = saving
+accent-anglish-replacement-936 = sparing
+
+accent-anglish-words-937 = scout
+accent-anglish-replacement-937 = foretrekker
+
+accent-anglish-words-938 = scouts
+accent-anglish-replacement-938 = foretrekkers
+
+accent-anglish-words-939 = scouting
+accent-anglish-replacement-939 = foretrekking
+
+accent-anglish-words-940 = martial art
+accent-anglish-replacement-940 = wyecraft
+
+accent-anglish-words-941 = martial arts
+accent-anglish-replacement-941 = wyecrafts
+
+accent-anglish-words-942 = martial artist
+accent-anglish-replacement-942 = wyecraftsman
+
+accent-anglish-words-943 = martial artists
+accent-anglish-replacement-943 = wyecraftsmen
+
+accent-anglish-words-944 = corpsman
+accent-anglish-replacement-944 = healward
+
+accent-anglish-words-945 = plank
+accent-anglish-replacement-945 = board
+
+accent-anglish-words-946 = pain
+accent-anglish-replacement-946 = soreness
+
+accent-anglish-words-947 = painful
+accent-anglish-replacement-947 = acheful
+
+accent-anglish-words-948 = planks
+accent-anglish-replacement-948 = boards
+
+accent-anglish-words-949 = pro
+accent-anglish-replacement-949 = craftsman
+
+accent-anglish-words-950 = professional
+accent-anglish-replacement-950 = craftsman
+
+accent-anglish-words-951 = professionals
+accent-anglish-replacement-951 = craftsmen
+
+accent-anglish-words-952 = professionally
+accent-anglish-replacement-952 = skillfully
+
+accent-anglish-words-953 = profit
+accent-anglish-replacement-953 = gain
+
+accent-anglish-words-954 = profits
+accent-anglish-replacement-954 = gains
+
+accent-anglish-words-955 = profited
+accent-anglish-replacement-955 = gained
+
+accent-anglish-words-956 = combine
+accent-anglish-replacement-956 = fasten
+
+accent-anglish-words-957 = combined
+accent-anglish-replacement-957 = fastened
+
+accent-anglish-words-958 = combination
+accent-anglish-replacement-958 = fastening
+
+accent-anglish-words-959 = comfortable
+accent-anglish-replacement-959 = lithe
+
+accent-anglish-words-960 = comfy
+accent-anglish-replacement-960 = soft
+
+accent-anglish-words-961 = cozy
+accent-anglish-replacement-961 = snug
+
+accent-anglish-words-962 = cute
+accent-anglish-replacement-962 = pretty
+
+accent-anglish-words-963 = cutie
+accent-anglish-replacement-963 = pretty little thing
+
+accent-anglish-words-964 = adorable
+accent-anglish-replacement-964 = dear
+
+accent-anglish-words-965 = adopt
+accent-anglish-replacement-965 = foster
+
+accent-anglish-words-966 = adopted
+accent-anglish-replacement-966 = fostered
+
+accent-anglish-words-967 = adoption
+accent-anglish-replacement-967 = fostering
+
+accent-anglish-words-968 = lettuce
+accent-anglish-replacement-968 = sleepwort
+
+accent-anglish-words-969 = vocabulary
+accent-anglish-replacement-969 = wordhoard
+
+accent-anglish-words-970 = general
+accent-anglish-replacement-970 = whole
+
+accent-anglish-words-971 = generally
+accent-anglish-replacement-971 = broadly
+
+accent-anglish-words-972 = TV
+accent-anglish-replacement-972 = gogglebox
+
+accent-anglish-words-973 = television
+accent-anglish-replacement-973 = gogglebox
+
+accent-anglish-words-974 = tempurature
+accent-anglish-replacement-974 = heat
+
+accent-anglish-words-975 = temporary
+accent-anglish-replacement-975 = short-lived
+
+accent-anglish-words-976 = terminal
+accent-anglish-replacement-976 = endbound
+
+accent-anglish-words-977 = territory
+accent-anglish-replacement-977 = turf
+
+accent-anglish-words-978 = territories
+accent-anglish-replacement-978 = turfs
+
+accent-anglish-words-979 = territorial
+accent-anglish-replacement-979 = landly
+
+accent-anglish-words-980 = noosphere
+accent-anglish-replacement-980 = mindfield
+
+accent-anglish-words-981 = noosphereic
+accent-anglish-replacement-981 = mindfieldly
+
+accent-anglish-words-982 = sophont
+accent-anglish-replacement-982 = thinkbeing
+
+accent-anglish-words-983 = sophonts
+accent-anglish-replacement-983 = thinkbeings
+
+accent-anglish-words-984 = arachnid
+accent-anglish-replacement-984 = spidery one
+
+accent-anglish-words-985 = arachnids
+accent-anglish-replacement-985 = spidery ones
+
+accent-anglish-words-986 = vox
+accent-anglish-replacement-986 = starbird
+
+accent-anglish-words-987 = voxes
+accent-anglish-replacement-987 = starbirds
+
+accent-anglish-words-988 = feroxi
+accent-anglish-replacement-988 = seadogfolk
+
+accent-anglish-words-989 = felinid
+accent-anglish-replacement-989 = catty one
+
+accent-anglish-words-990 = felinids
+accent-anglish-replacement-990 = catty ones
+
+accent-anglish-words-991 = kitsune
+accent-anglish-replacement-991 = werefox
+
+accent-anglish-words-992 = oni
+accent-anglish-replacement-992 = demonfolk
+
+accent-anglish-words-993 = thaven
+accent-anglish-replacement-993 = saxear
+
+accent-anglish-words-994 = harpy
+accent-anglish-replacement-994 = hawkwight
+
+accent-anglish-words-995 = harpies
+accent-anglish-replacement-995 = hawkwights
+
+accent-anglish-words-996 = skeletons
+accent-anglish-replacement-996 = frames
+
+accent-anglish-words-997 = rodentia
+accent-anglish-replacement-997 = mouseling
+
+accent-anglish-words-998 = chitinid
+accent-anglish-replacement-998 = bugwight
+
+accent-anglish-words-999 = chitinids
+accent-anglish-replacement-999 = bugwights
+
+accent-anglish-words-1000 = vulpkanin
+accent-anglish-replacement-1000 = foxfolk
+
+accent-anglish-words-1001 = vulp
+accent-anglish-replacement-1001 = foxfolk
+
+accent-anglish-words-1002 = vulps
+accent-anglish-replacement-1002 = foxfolk
+
+accent-anglish-words-1003 = diona
+accent-anglish-replacement-1003 = woodwight
+
+accent-anglish-words-1004 = IPC
+accent-anglish-replacement-1004 = wileman
+
+accent-anglish-words-1005 = IPCs
+accent-anglish-replacement-1005 = wilemen
+
+accent-anglish-words-1006 = reptile
+accent-anglish-replacement-1006 = slinkend
+
+accent-anglish-words-1007 = reptiles
+accent-anglish-replacement-1007 = slinkends
+
+accent-anglish-words-1008 = reptilian
+accent-anglish-replacement-1008 = slinkwight
+
+accent-anglish-words-1009 = reptilians
+accent-anglish-replacement-1009 = slinkfolk
+
+accent-anglish-words-1010 = species
+accent-anglish-replacement-1010 = lifekind
+
+accent-anglish-words-1011 = bloody
+accent-anglish-replacement-1011 = blasted
+
+accent-anglish-words-1012 = racism
+accent-anglish-replacement-1012 = kindhatred
+
+accent-anglish-words-1013 = racist
+accent-anglish-replacement-1013 = kindhater
+
+accent-anglish-words-1014 = radar
+accent-anglish-replacement-1014 = forereader
+
+accent-anglish-words-1015 = second
+accent-anglish-replacement-1015 = moment
+
+accent-anglish-words-1016 = 2nd
+accent-anglish-replacement-1016 = twoth
+
+accent-anglish-words-1017 = station
+accent-anglish-replacement-1017 = stead
