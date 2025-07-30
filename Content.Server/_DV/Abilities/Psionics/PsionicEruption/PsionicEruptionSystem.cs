@@ -20,6 +20,7 @@ using Content.Shared.Psionics.Glimmer;
 using Robust.Server.Audio;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -43,6 +44,8 @@ public sealed class PsionicEruptionSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+
+    private static readonly EntProtoId? Sparks = "EffectSparks";
 
     public override void Initialize()
     {
@@ -146,10 +149,10 @@ public sealed class PsionicEruptionSystem : EntitySystem
                 {
                     if (_glimmer.GetGlimmerTier(_glimmer.Glimmer) == GlimmerTier.Critical && _random.Prob(0.125f))
                     {
-                        _lightning.ShootRandomLightnings(uid, 5f, _random.Next(1, 3), "Lightning", 0, false);
+                        _lightning.ShootRandomLightnings(uid, 5f, _random.Next(1, 3));
                     }
                     _jittering.DoJitter(uid, TimeSpan.FromSeconds(5), true, 10, 32);
-                    Spawn("EffectSparks", Transform(uid).Coordinates);
+                    Spawn(Sparks, Transform(uid).Coordinates);
 
                     comp.NextSpark = t + TimeSpan.FromMilliseconds(500);
                 }
