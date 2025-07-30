@@ -9,25 +9,20 @@ namespace Content.Shared._DV.Abilities.Psionics;
 [RegisterComponent]
 public sealed partial class PsionicEruptionPowerComponent : Component
 {
-    [DataField("doAfter")]
+    [DataField]
     public DoAfterId? DoAfter;
-    public InstantActionComponent? PsionicEruptionAction = null;
-    [DataField("eruptionActionId",
-    customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? EruptionActionId = "ActionEruption";
-
-    [DataField("eruptionActionEntity")]
+    [DataField]
+    public EntProtoId EruptionActionId = "ActionEruption";
+    [DataField]
     public EntityUid? EruptionActionEntity;
-
-    [DataField("soundUse")]
-
+    [DataField]
     public SoundSpecifier SoundUse = new SoundPathSpecifier("/Audio/Nyanotrasen/Psionics/heartbeat_fast.ogg");
-    [DataField("soundDetonate")]
+    [DataField]
     public SoundSpecifier SoundDetonate = new SoundPathSpecifier("/Audio/Nyanotrasen/Psionics/eruption.ogg");
-
-    [DataField("nextAnnoy")]
+    [DataField]
     public TimeSpan NextAnnoy = TimeSpan.FromSeconds(5);
-
-    [DataField("warned")]
+    [DataField]
+    public TimeSpan NextSpark = TimeSpan.MaxValue;
+    [DataField]
     public bool Warned = false;
 }
