@@ -9,8 +9,11 @@ public sealed partial class RandomAnimationRuleComponent : Component
     public int MinAnimates = 5;
 
     [DataField]
-    public int MaxAnimates = 7;
+    public int MaxAnimates = 10;
 
     [DataField]
-    public float AnimationTime = 10f;
+    public float MinTime = 7f;
+
+    [DataField]
+    public float MaxTime = 15f;
 }
