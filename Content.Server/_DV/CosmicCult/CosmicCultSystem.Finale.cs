@@ -38,7 +38,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             {
                 DistanceThreshold = 1f, Hidden = false, BreakOnHandChange = true, BreakOnDamage = true, BreakOnMove = true
             };
-            _popup.PopupEntity(Loc.GetString("cosmiccult-finale-cancel-begin"), args.User, args.User);
+            _popup.PopupEntity(Loc.GetString("cosmiccult-finale-cancel-begin"), args.User, args.User, type: LargeCaution);
             _doAfter.TryStartDoAfter(doargs);
             args.Handled = true;
         }
