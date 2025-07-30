@@ -1,57 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fixed nukie medic and commander not having gear.
-    type: Fix
-  id: 1041
-  time: '2025-02-15T19:49:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2983
-- author: Eternally-Confused
-  changes:
-  - message: returned the IPC "whirr" and "boop" emotes
-    type: Fix
-  id: 1042
-  time: '2025-02-16T18:09:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2985
-- author: deltanedas
-  changes:
-  - message: Fixed uplink's objectives tab not existing.
-    type: Fix
-  id: 1043
-  time: '2025-02-16T18:41:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2991
-- author: deltanedas
-  changes:
-  - message: Borgs and IPCs now leave metal fibers when touching things.
-    type: Add
-  - message: Fixed IPCs not leaving fibers when using gloves.
-    type: Fix
-  id: 1044
-  time: '2025-02-17T03:25:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2992
-- author: Stop-Signs
-  changes:
-  - message: Some adjustments have been made to the arsenal tech tree.
-    type: Tweak
-  - message: regular truncheons are now roundstart!
-    type: Tweak
-  id: 1045
-  time: '2025-02-18T03:44:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2993
-- author: deltanedas
-  changes:
-  - message: Shiva and Bingus are no longer thief objectives.
-    type: Remove
-  id: 1046
-  time: '2025-02-18T04:45:09.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3002
-- author: BlitzTheSquishy
-  changes:
-  - message: Lemon lime bitters! Australians Rejoice!
-    type: Add
-  id: 1047
-  time: '2025-02-18T09:06:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2464
 - author: Toby222
   changes:
   - message: Felinid footsteps no longer explode as soon as they put on shoes
@@ -4143,3 +4090,76 @@
   id: 1540
   time: '2025-07-26T09:58:06.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4084
+- author: AlgisAlphonse
+  changes:
+  - message: Ported Goobstation automation, including a guidebook entry! Featuring
+      the robotic arm, interactor, constructor and filters! Also the automation upgrade
+      kit! Note, at the moment automation is limited - you can't automate lathe production,
+      only inserting materials into the lathe. Nonetheless, have fun!
+    type: Add
+  - message: Added a guidebook entry for automation. Mostly based on the Goobstation
+      entry, with some rewriting. If you spot error, please report them!
+    type: Add
+  id: 1541
+  time: '2025-07-27T12:31:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4035
+- author: TehFlaminTaco
+  changes:
+  - message: Modified Glimmer Probers, they now generate more Glimmer and Research
+      based on the current Glimmer.
+    type: Tweak
+  - message: Glimmer Probers no-longer automatically lock themselves at 500 glimmer.
+    type: Tweak
+  - message: Added a new Glimmer Event which locks some Glimmer Probes.
+    type: Add
+  id: 1542
+  time: '2025-07-27T18:42:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4082
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic cultists can now hide their cult allegiance on stage 3 by covering
+      their eyes. Beckoning the unknown would still make them valid, though.
+    type: Tweak
+  - message: Cosmic cult now needs additional entropy (or converts) at stage 3 before
+      they can activate the finale. The total amount of entropy (or converts) needed
+      remains the same, so stages 1 and 2 are slightly faster now.
+    type: Tweak
+  - message: Malign rifts no longer stop spawning when stage 3 is reached.
+    type: Tweak
+  id: 1543
+  time: '2025-07-28T11:41:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4070
+- author: Eternally-Confused
+  changes:
+  - message: Fugitives warrants no longer include crimes that don't currently exist.
+    type: Fix
+  id: 1544
+  time: '2025-07-28T14:03:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4055
+- author: Proxysseia, NoElkaTheGod
+  changes:
+  - message: "Replaced 304: Mindbreaking with 304: No\xF6spheric Tampering"
+    type: Tweak
+  - message: Term "mindbreaking" has been replaced with "mindwiping", and now also
+      includes deconverting cultists.
+    type: Tweak
+  id: 1545
+  time: '2025-07-28T14:07:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4052
+- author: Colin-Tel
+  changes:
+  - message: Added Division Station to DeltaV, with a minimum population of 20 and
+      maximum of 70.
+    type: Add
+  id: 1546
+  time: '2025-07-29T05:08:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4006
+- author: SirrRequiem
+  changes:
+  - message: Terra Station
+    type: Add
+  - message: NTES Evac Yggdrasil shuttle
+    type: Add
+  id: 1547
+  time: '2025-07-30T06:30:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4005
