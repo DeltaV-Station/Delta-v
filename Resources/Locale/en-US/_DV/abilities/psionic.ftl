@@ -69,3 +69,5 @@ eruption-warning-window-prompt-text-part = You feel a strong pressure building u
                                             Do not detonately randomly, ensure proper buildup.
                                             Do you understand?
 eruption-warning-window-acknowledge-button = I Understand
+
+telegnosis-power-ssd = { CAPITALIZE(POSS-ADJ($ent)) } eyes are unfocused and darting around, as if trying to see something that isn't there.
