@@ -15,6 +15,7 @@
     - id: ThavenMoodUpset
     - id: LockProbers
     - id: PsionicNosebleedEvent
+    - id: RandomAnimationEvent
 
 - type: entity
   parent: BaseGameRule
@@ -176,3 +177,11 @@
   - type: GlimmerEvent
     minimumGlimmer: 350
   - type: PsionicNosebleedRule
+
+- type: entity
+  parent: BaseGlimmerSignaturesEvent
+  id: RandomAnimationEvent
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 550
+  - type: RandomAnimationRule
