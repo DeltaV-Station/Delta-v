@@ -758,6 +758,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         RemComp<PressureImmunityComponent>(uid);
         RemComp<TemperatureImmunityComponent>(uid);
         RemComp<CosmicStarMarkComponent>(uid);
+        RemComp<CosmicSubtleMarkComponent>(uid);
         _damage.SetDamageContainerID(uid.Owner, uid.Comp.StoredDamageContainer);
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-fluff"), Color.FromHex("#4cabb3"), _deconvertSound);
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), null);
