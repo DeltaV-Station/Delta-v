@@ -58,10 +58,11 @@ public sealed class CosmicSiphonSystem : EntitySystem
         {
             DistanceThreshold = 2f,
             Hidden = true,
-            BreakOnHandChange = true,
+            BreakOnHandChange = false,
             BreakOnDamage = true,
             BreakOnMove = true,
-            BreakOnDropItem = true,
+            BreakOnDropItem = false,
+            //TODO: make the cultist not rotate towards the target when we get #37958 from upstream
         };
         args.Handled = true;
         _doAfter.TryStartDoAfter(doargs);
@@ -82,7 +83,6 @@ public sealed class CosmicSiphonSystem : EntitySystem
         uid.Comp.EntropyBudget += uid.Comp.CosmicSiphonQuantity;
         Dirty(uid, uid.Comp);
 
-        _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(target, "EntropicDegen", TimeSpan.FromSeconds(21), true);
         if (_cosmicCult.EntityIsCultist(target))
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-siphon-cultist-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
@@ -96,6 +96,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
 
         if (uid.Comp.CosmicEmpowered) // if you're empowered there's a 50% chance to flicker lights on siphon
         {
+            _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(target, "EntropicDegen", TimeSpan.FromSeconds(21), true); //only applies when empowered now
             _lights.Clear();
             _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(uid).Coordinates, 5, _lights, LookupFlags.StaticSundries);
             foreach (var light in _lights) // static range of 5. because.
