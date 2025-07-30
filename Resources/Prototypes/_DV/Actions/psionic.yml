@@ -167,3 +167,16 @@
     checkCanInteract: false
     checkConsciousness: false
     event: !type:PrecognitionPowerActionEvent
+
+- type: entity
+  id: ActionFracturedForm
+  name: Swap Form
+  description: Switch to one of your alternate forms, if you have one.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: metapsionic
+    useDelay: 60
+    checkCanInteract: false
+    event: !type:FracturedFormPowerActionEvent
