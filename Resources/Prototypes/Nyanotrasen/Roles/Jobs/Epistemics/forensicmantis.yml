@@ -12,9 +12,8 @@
   startingGear: ForensicMantisGear
   icon: "JobIconForensicMantis"
   supervisors: job-supervisors-rd
-  antagAdvantage: 4 # DeltaV - Protolathe, Psionics, Has an objective item, anomaly stuff, glimmer factor
+  antagAdvantage: 2 # DeltaV - Psionics, Has an objective item
   canBeAntag: true # DeltaV - Mantis is no longer a Detective
-  # whitelistRequired: true
   access:
   - Research
   - Maintenance

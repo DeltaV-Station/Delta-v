@@ -628,97 +628,6 @@ entities:
     - type: ContainedSolution
       containerName: pen
       container: 1272
-- proto: ActionAGhostShowCommunications
-  entities:
-  - uid: 1268
-    components:
-    - type: Transform
-      parent: 1260
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 1260
-- proto: ActionAGhostShowCrewMonitoring
-  entities:
-  - uid: 1266
-    components:
-    - type: Transform
-      parent: 1260
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 1260
-- proto: ActionAGhostShowRadar
-  entities:
-  - uid: 1265
-    components:
-    - type: Transform
-      parent: 1260
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 1260
-- proto: ActionAGhostShowStationRecords
-  entities:
-  - uid: 1267
-    components:
-    - type: Transform
-      parent: 1260
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 1260
-- proto: ActionAIViewLaws
-  entities:
-  - uid: 1264
-    components:
-    - type: Transform
-      parent: 1260
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 1260
-- proto: ActionChangeVoiceMask
-  entities:
-  - uid: 646
-    components:
-    - type: Transform
-      parent: 644
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 644
-      attachedEntity: 620
-- proto: ActionJumpToCore
-  entities:
-  - uid: 1262
-    components:
-    - type: Transform
-      parent: 1260
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 1260
-- proto: ActionSurvCameraLights
-  entities:
-  - uid: 1263
-    components:
-    - type: Transform
-      parent: 1260
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 1260
-- proto: ActionToggleLight
-  entities:
-  - uid: 73
-    components:
-    - type: Transform
-      parent: 71
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 71
-- proto: ActionViewLaws
-  entities:
-  - uid: 1261
-    components:
-    - type: Transform
-      parent: 1260
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 1260
 - proto: AgentIDCard
   entities:
   - uid: 374
@@ -2772,11 +2681,7 @@ entities:
         actions: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 73
-    - type: HandheldLight
-      toggleActionEntity: 73
-    - type: ActionsContainer
+          ents: []
 - proto: BarberScissors
   entities:
   - uid: 1156
@@ -4139,16 +4044,8 @@ entities:
     components:
     - type: Transform
       parent: 620
-    - type: VoiceMask
-      actionEntity: 646
     - type: Physics
       canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 646
 - proto: ClothingNeckChameleon
   entities:
   - uid: 634
@@ -4251,7 +4148,7 @@ entities:
     - type: Transform
       pos: 1.5,2.5
       parent: 1
-- proto: ComputerCrewMonitoring
+- proto: ComputerCrewMonitoringSyndicate
   entities:
   - uid: 548
     components:
@@ -6114,9 +6011,6 @@ entities:
           showEnts: False
           occludes: False
           ent: 647
-    - type: Actions
-      actions:
-      - 646
 - proto: MedkitCombatFilled
   entities:
   - uid: 758
@@ -7335,112 +7229,6 @@ entities:
         - 0
         - 0
         - 0
-- proto: StationAiBrain
-  entities:
-  - uid: 1260
-    components:
-    - type: MetaData
-      name: positronic brain (PB-51)
-    - type: Transform
-      rot: 6.0597243309021 rad
-      pos: 10.5,0.5
-      parent: 1
-    - type: SiliconLawProvider
-      lawset:
-        obeysTo: laws-owner-crew
-        laws:
-        - lawIdentifierOverride: null
-          order: 1
-          lawString: law-ntdefault-1
-        - lawIdentifierOverride: null
-          order: 2
-          lawString: law-ntdefault-2
-        - lawIdentifierOverride: null
-          order: 3
-          lawString: law-ntdefault-3
-        - lawIdentifierOverride: null
-          order: 4
-          lawString: law-ntdefault-4-delta
-    - type: SiliconLawBound
-      lastLawProvider: 1260
-    - type: Access
-      tags:
-      - EmergencyShuttleRepealAll
-      - Captain
-      - HeadOfPersonnel
-      - ChiefEngineer
-      - ChiefMedicalOfficer
-      - HeadOfSecurity
-      - ResearchDirector
-      - Command
-      - Cryogenics
-      - Security
-      - Detective
-      - Armory
-      - Lawyer
-      - Engineering
-      - Medical
-      - Quartermaster
-      - Salvage
-      - Cargo
-      - Research
-      - Service
-      - Maintenance
-      - External
-      - Janitor
-      - Theatre
-      - Bar
-      - Chemistry
-      - Kitchen
-      - Chapel
-      - Hydroponics
-      - Atmospherics
-      - Mail
-      - Orders
-      - Mantis
-      - Paramedic
-      - Psychologist
-      - Boxer
-      - Clown
-      - Library
-      - Mime
-      - Musician
-      - Reporter
-      - Zookeeper
-      - Justice
-      - ChiefJustice
-      - Prosecutor
-      - Clerk
-      - Corpsman
-      - Robotics
-      - Surgery
-    - type: Eye
-      drawFov: True
-    - type: NameIdentifier
-      fullIdentifier: (PB-51)
-      identifier: 51
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 1261
-          - 1262
-          - 1263
-          - 1264
-          - 1265
-          - 1266
-          - 1267
-          - 1268
-    - type: MobMover
-    - type: MovementSpeedModifier
-    - type: Emoting
-    missingComponents:
-    - ActionGrant
-    - UserInterface
-    - IntrinsicRadioReceiver
-    - IntrinsicRadioTransmitter
-    - ActiveRadio
 - proto: StationAnchor
   entities:
   - uid: 1054

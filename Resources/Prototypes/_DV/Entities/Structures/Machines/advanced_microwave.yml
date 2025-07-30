@@ -12,6 +12,13 @@
     sprite: _DV/Structures/Machines/advanced_microwave.rsi
   - type: Machine
     board: AdvancedMicrowaveMachineCircuitBoard
+  - type: AutomationSlots # Goobstation factorio port
+    slots:
+    - !type:AutomatedContainer
+      input: AutomationSlotInput
+      output: AutomationSlotInput
+      containerId: microwave_entity_container
+      maxItems: 30 # have to manually keep it in sync with capacity on Microwave at the top
   - type: Explosive
     explosionType: Radioactive
     maxIntensity: 60

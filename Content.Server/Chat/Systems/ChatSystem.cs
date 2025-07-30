@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using Content.Server._RMC14.Emote; //RMC emote system
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
@@ -64,6 +65,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
+    [Dependency] private readonly RMCEmoteSystem _rmcEmote = default!; //RMC emote system
 
     //Nyano - Summary: pulls in the nyano chat system for psionics.
     [Dependency] private readonly NyanoChatSystem _nyanoChatSystem = default!;

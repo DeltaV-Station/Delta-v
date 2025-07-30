@@ -43,7 +43,6 @@ using Content.Shared.Parallax;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.Stunnable;
-using Content.Shared.Temperature.Components;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -186,13 +185,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (component.Tier3DelayTimer is { } tier3Timer && _timing.CurTime >= tier3Timer)
         {
             component.Tier3DelayTimer = null;
-            component.ExtraRiftTimer = null; // stop spawning more rifts
 
             //do spooky things
             var query = EntityQueryEnumerator<CosmicCultComponent>();
             while (query.MoveNext(out var cultist, out var cultComp))
             {
-                EnsureComp<CosmicStarMarkComponent>(cultist);
+                EnsureComp<CosmicSubtleMarkComponent>(cultist);
             }
 
             var sender = Loc.GetString("cosmiccult-announcement-sender");
@@ -552,11 +550,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                 var cultistQuery = EntityQueryEnumerator<CosmicCultComponent>();
                 while (cultistQuery.MoveNext(out var cultist, out var cultistComp))
                 {
-                    var mins = timer.Minutes;
-                    var secs = timer.Seconds;
                     _antag.SendBriefing(cultist,
-                        Loc.GetString("cosmiccult-finale-autocall-briefing",
-                            ("minutesandseconds", $"{mins} minutes and {secs} seconds")),
+                        Loc.GetString("cosmiccult-finale-autocall-briefing"),
                         Color.FromHex("#4cabb3"),
                         _monumentAlert);
                 }

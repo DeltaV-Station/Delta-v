@@ -1,0 +1,231 @@
+- type: listing
+  id: UplinkRecruiterSoda
+  name: uplink-recruiter-soda-name
+  description: uplink-recruiter-soda-desc
+  productEntity: DrinkCanPackBloodRed
+  cost:
+    TreatCoin: 5
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterSnackbox
+  name: uplink-snack-box-name
+  description: uplink-snack-box-desc
+  productEntity: HappyHonkNukieSnacks
+  cost:
+    TreatCoin: 5
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterRevolverCapGun
+  name: uplink-revolver-cap-gun-name
+  description: uplink-revolver-cap-gun-desc
+  productEntity: RevolverCapGun
+  cost:
+    TreatCoin: 4
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterSyndicateStamp
+  name: uplink-syndicate-stamp-name
+  description: uplink-syndicate-stamp-desc
+  productEntity: RubberStampSyndicate
+  cost:
+    TreatCoin: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterostumePyjama
+  name: uplink-costume-pyjama-name
+  description: uplink-costume-pyjama-desc
+  productEntity: ClothingBackpackDuffelSyndicatePyjamaBundle
+  cost:
+    TreatCoin: 6
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterBalloon
+  name: uplink-balloon-name
+  description: uplink-balloon-desc
+  productEntity: BalloonSyn
+  cost:
+    TreatCoin: 10
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterScarfSyndieGreen
+  name: uplink-scarf-syndie-green-name
+  description: uplink-scarf-syndie-green-desc
+  productEntity: ClothingNeckScarfStripedSyndieGreen
+  cost:
+    TreatCoin: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterScarfSyndieRed
+  name: uplink-scarf-syndie-red-name
+  description: uplink-scarf-syndie-red-desc
+  productEntity: ClothingNeckScarfStripedSyndieRed
+  cost:
+    TreatCoin: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterOutlawHat
+  name: uplink-outlaw-hat-name
+  description: uplink-outlaw-hat-desc
+  productEntity: ClothingHeadHatOutlawHat
+  cost:
+    TreatCoin: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterOutlawGlasses
+  name: uplink-outlaw-glasses-name
+  description: uplink-outlaw-glasses-desc
+  productEntity: ClothingEyesGlassesOutlawGlasses
+  cost:
+    TreatCoin: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterSyndicateBusinessCard
+  name: uplink-business-card-name
+  description: uplink-business-card-desc
+  productEntity: SyndicateBusinessCard
+  categories:
+    - RecruiterJunk
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+
+- type: listing
+  id: UplinkRecruiterToysword
+  name: uplink-recruiter-toysword-name
+  description: uplink-recruiter-toysword-desc
+  productEntity: ToySword
+  cost:
+    TreatCoin: 6
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterFigurineBox
+  name: uplink-recruiter-figurinebox-name
+  description: uplink-recruiter-figurinebox-desc
+  productEntity: BoxSyndicateFigurines
+  cost:
+    TreatCoin: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterLunchbox
+  name: uplink-recruiter-lunchbox-name
+  description: uplink-recruiter-lunchbox-desc
+  productEntity: LunchboxSyndicate
+  cost:
+    TreatCoin: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterToolbox
+  name: uplink-recruiter-toolbox-name
+  description: uplink-recruiter-toolbox-desc
+  productEntity: ToolboxSyndicate
+  cost:
+    TreatCoin: 6
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterBanner
+  name: uplink-recruiter-banner-name
+  description: uplink-recruiter-banner-desc
+  productEntity: BannerSyndicate
+  cost:
+    TreatCoin: 4
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterUtilitybelt
+  name: uplink-recruiter-utilitybelt-name
+  description: uplink-recruiter-utilitybelt-desc
+  productEntity: ClothingBeltSyndicateUtility
+  cost:
+    TreatCoin: 4
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterSyndiehat
+  name: uplink-recruiter-syndiehat-name
+  description: uplink-recruiter-syndiehat-desc
+  productEntity: ClothingHeadHatSyndie
+  cost:
+    TreatCoin: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterRandomdonk
+  name: uplink-recruiter-randomdonk-name
+  description: uplink-recruiter-randomdonk-desc
+  productEntity: BoxRandomDonk
+  icon: { sprite: Objects/Consumable/Food/Baked/donkpocket.rsi, state: box }
+  cost:
+    TreatCoin: 4
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterWintercoat
+  name: uplink-recruiter-wintercoat-name
+  description: uplink-recruiter-wintercoat-desc
+  productEntity: ClothingOuterWinterSyndie
+  cost:
+    TreatCoin: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterWinterboots
+  name: uplink-recruiter-winterboots-name
+  description: uplink-recruiter-winterboots-desc
+  productEntity: ClothingShoesBootsWinterSyndicate
+  cost:
+    TreatCoin: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterLingSting
+  name: uplink-recruiter-lingsting-name
+  description: uplink-recruiter-lingsting-desc
+  productEntity: DrinkChangelingStingCan
+  cost:
+    TreatCoin: 2
+  categories:
+  - RecruiterJunk
+
+- type: listing
+  id: UplinkRecruiterNukiePlush
+  name: uplink-recruiter-nukieplush-name
+  description: uplink-recruiter-nukieplush-desc
+  productEntity: PlushieNuke
+  cost:
+    TreatCoin: 2
+  categories:
+  - RecruiterJunk
