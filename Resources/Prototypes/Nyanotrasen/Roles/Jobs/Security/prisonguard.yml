@@ -15,6 +15,7 @@
   icon: "JobIconPrisonGuard"
   supervisors: job-supervisors-warden
   setPreference: true
+  whitelisted: true
   access:
   - Security
   #- Brig #Delta V: Removed brig access
