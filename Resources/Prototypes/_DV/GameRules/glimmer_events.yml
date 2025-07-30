@@ -12,7 +12,7 @@
     - id: GlimmerRevenantSpawn
     - id: GlimmerMiteSpawn
     - id: GlimmerRandomSentience
-    - id: RandomAnimationEvent
+    - id: GlimmerRandomAnimation
     - id: ThavenMoodUpset
     - id: LockProbers
     - id: PsionicNosebleedEvent
@@ -154,7 +154,7 @@
 
 - type: entity
   parent: BaseGlimmerSignaturesEvent
-  id: RandomAnimationEvent
+  id: GlimmerRandomAnimation
   components:
   - type: GlimmerEvent
     minimumGlimmer: 500
