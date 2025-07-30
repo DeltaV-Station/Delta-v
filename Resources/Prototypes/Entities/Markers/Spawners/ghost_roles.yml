@@ -254,6 +254,9 @@
     - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
+      time: 90000 # DeltaV - 25 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

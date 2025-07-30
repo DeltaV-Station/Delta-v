@@ -12,6 +12,7 @@
     - id: Fugitive
     - id: ListeningPost
     - id: RoboNeuroticist
+    - id: MenaceSkeleton
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -44,8 +45,8 @@
   - type: EpsilonEventRule
 
 - type: entity
-  id: XenoVents
   parent: BaseGameRule
+  id: XenoVents
   components:
   - type: StationEvent
     startAnnouncement: station-event-xeno-vent-start-announcement
@@ -78,8 +79,8 @@
         weight: 0.01
 
 - type: entity
-  id: MothroachSpawn
   parent: BaseGameRule
+  id: MothroachSpawn
   components:
   - type: StationEvent
     earliestStart: 15
@@ -96,8 +97,8 @@
       id: MobMothroach
 
 - type: entity
-  id: ListeningPost
   parent: BaseGameRule
+  id: ListeningPost
   components:
   - type: StationEvent
     earliestStart: 15
@@ -246,8 +247,8 @@
       - MindRoleRoboNeuroticist
 
 - type: entity
-  id: NoosphericStorm
   parent: BaseGameRule
+  id: NoosphericStorm
   components:
   - type: StationEvent
     startAnnouncement: station-event-noospheric-storm-announcement
@@ -256,3 +257,40 @@
     weight: 5
     earliestStart: 15
   - type: NoosphericStormRule
+
+- type: entity
+  parent: BaseMidRoundAntag
+  id:  MenaceSkeleton
+  components:
+  - type: StationEvent
+    weight: 6
+    duration: 1
+    minimumPlayers: 30
+  - type: PrecognitionResult
+    message: psionic-power-precognition-closet-skeleton-result-message
+  - type: AntagSpawner
+    prototype: MobMenaceSkeleton
+  - type: AntagRandomObjectives
+    sets:
+    - groups: SkeletonObjectiveGroup
+      maxPicks: 2 # only pick 2 of 4
+    maxDifficulty: 100 # ignore difficulty, use maxPicks instead
+  - type: AntagSelection
+    agentName: menace-skeleton-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointMenaceSkeleton
+      min: 1
+      max: 1
+      pickPlayer: false
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
+        nameFormat: name-format-standard
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      - type: EmitSoundOnSpawn # fell out of the ceiling
+        sound: /Audio/Effects/clang.ogg
+      mindRoles:
+      - MindRoleMenaceSkeleton
