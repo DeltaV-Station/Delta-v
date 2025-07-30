@@ -31,32 +31,32 @@ namespace Content.Shared.Abilities.Psionics
             SubscribeLocalEvent<MassSleepPowerComponent, MassSleepDoAfterEvent>(OnMassSleepDoAfter);
         }
 
-        private void OnInit(EntityUid uid, MassSleepPowerComponent component, ComponentInit args)
+        private void OnInit(Entity<MassSleepPowerComponent> ent, ref ComponentInit args)
         {
-            _actions.AddAction(uid, ref component.MassSleepActionEntity, component.MassSleepActionId );
-            _actions.TryGetActionData( component.MassSleepActionEntity, out var actionData );
+            _actions.AddAction(ent, ref ent.Comp.MassSleepActionEntity, ent.Comp.MassSleepActionId );
+            _actions.TryGetActionData( ent.Comp.MassSleepActionEntity, out var actionData );
             if (actionData is { UseDelay: not null })
-                _actions.StartUseDelay(component.MassSleepActionEntity);
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.MassSleepActionEntity;
+                _actions.StartUseDelay(ent.Comp.MassSleepActionEntity);
+            if (TryComp<PsionicComponent>(ent, out var psionic) && psionic.PsionicAbility == null)
+                psionic.PsionicAbility = ent.Comp.MassSleepActionEntity;
         }
 
-        private void OnShutdown(EntityUid uid, MassSleepPowerComponent component, ComponentShutdown args)
+        private void OnShutdown(Entity<MassSleepPowerComponent> ent, ref ComponentShutdown args)
         {
-            _actions.RemoveAction(uid, component.MassSleepActionEntity);
+            _actions.RemoveAction(ent, ent.Comp.MassSleepActionEntity);
         }
 
-        private void OnPowerUsed(EntityUid uid, MassSleepPowerComponent component, MassSleepPowerActionEvent args)
+        private void OnPowerUsed(Entity<MassSleepPowerComponent> ent, ref MassSleepPowerActionEvent args)
         {
             var ev = new MassSleepDoAfterEvent();
-            var doAfterArgs = new DoAfterArgs(EntityManager, uid, component.UseDelay, ev, uid)
+            var doAfterArgs = new DoAfterArgs(EntityManager, ent, ent.Comp.UseDelay, ev, ent)
             {
                 BreakOnDamage = true
             };
 
-            foreach (var entity in _lookup.GetEntitiesInRange(args.Performer, component.WarningRadius))
+            foreach (var entity in _lookup.GetEntitiesInRange(args.Performer, ent.Comp.WarningRadius))
             {
-                if (HasComp<MobStateComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity))
+                if (HasComp<MobStateComponent>(entity) && entity != (EntityUid)ent && !HasComp<PsionicInsulationComponent>(entity))
                 {
                     _popup.PopupEntity(Loc.GetString("psionic-power-mass-sleep-warning"),
                         entity,
@@ -65,36 +65,36 @@ namespace Content.Shared.Abilities.Psionics
                 }
             }
 
-            _statusEffects.TryAddStatusEffect<SlowedDownComponent>(uid, "SlowedDown", component.UseDelay, true);
+            _statusEffects.TryAddStatusEffect<SlowedDownComponent>(ent, "SlowedDown", ent.Comp.UseDelay, true);
 
             _doAfter.TryStartDoAfter(doAfterArgs, out var doAfterId);
-            component.DoAfter = doAfterId;
+            ent.Comp.DoAfter = doAfterId;
 
-            _psionics.LogPowerUsed(uid, "mass sleep");
+            _psionics.LogPowerUsed(ent, "mass sleep");
             args.Handled = true;
         }
 
-        private void OnMassSleepDoAfter(EntityUid uid, MassSleepPowerComponent component, MassSleepDoAfterEvent args)
+        private void OnMassSleepDoAfter(Entity<MassSleepPowerComponent> ent, ref MassSleepDoAfterEvent args)
         {
             if (args.Handled)
                 return;
 
             if (args.Cancelled)
             {
-                _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
+                _statusEffects.TryRemoveStatusEffect(ent, "SlowedDown");
                 return;
             }
 
-            foreach (var entity in _lookup.GetEntitiesInRange(args.User, component.Radius))
+            foreach (var entity in _lookup.GetEntitiesInRange(args.User, ent.Comp.Radius))
             {
-                if (HasComp<MobStateComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity))
+                if (HasComp<MobStateComponent>(entity) && entity != (EntityUid)ent && !HasComp<PsionicInsulationComponent>(entity))
                 {
                     if (TryComp<DamageableComponent>(entity, out var damageable) && damageable.DamageContainerID == "Biological")
-                        _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(entity, StatusEffectKey, TimeSpan.FromSeconds(component.Duration), false);
+                        _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(entity, StatusEffectKey, TimeSpan.FromSeconds(ent.Comp.Duration), false);
                 }
             }
 
-            component.DoAfter = null;
+            ent.Comp.DoAfter = null;
         }
     }
 }
