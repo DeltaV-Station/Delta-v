@@ -1360,7 +1360,7 @@ accent-anglish-replacement-452 = malarkey
 accent-anglish-words-453 = banana
 accent-anglish-replacement-453 = moonapple
 
-accent-anglish-words-454 = banana
+accent-anglish-words-454 = bananas
 accent-anglish-replacement-454 = moonapples
 
 accent-anglish-words-455 = banner
