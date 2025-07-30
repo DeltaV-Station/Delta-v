@@ -49,6 +49,9 @@
     guides:
     - Chef
     - FoodRecipes
+  - type: CosmicTransmutable #DeltaV
+    transumtesTo: SwordCosmicCult
+    requiredGlyphType: CosmicGlyphBlades
 
 - type: entity
   name: butcher's cleaver
