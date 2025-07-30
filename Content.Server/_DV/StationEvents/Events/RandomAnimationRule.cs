@@ -37,7 +37,6 @@ public sealed class RandomAnimationRule : StationEventSystem<RandomAnimationRule
         for (var i = 0; i < toAnimate && targetList.Count > 0; i++)
         {
             var animateTarget = _random.Pick(targetList);
-            Log.Info("Animating " + animateTarget.Owner);
             _revenantAnimated.TryAnimateObject(animateTarget, TimeSpan.FromSeconds(comp.AnimationTime));
             targetList.Remove(animateTarget);
         }
