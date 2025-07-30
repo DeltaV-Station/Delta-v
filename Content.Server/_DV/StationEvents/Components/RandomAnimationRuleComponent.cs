@@ -6,7 +6,7 @@ namespace Content.Server._DV.StationEvents.Components;
 public sealed partial class RandomAnimationRuleComponent : Component
 {
     [DataField]
-    public int MinAnimates = 5;
+    public int MinAnimates = 7;
 
     [DataField]
     public int MaxAnimates = 10;

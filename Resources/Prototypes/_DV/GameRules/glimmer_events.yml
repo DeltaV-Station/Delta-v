@@ -153,6 +153,14 @@
   - type: RandomSentienceRule
 
 - type: entity
+  parent: BaseGlimmerSignaturesEvent
+  id: RandomAnimationEvent
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 500
+  - type: RandomAnimationRule
+
+- type: entity
   parent: BaseGlimmerEvent
   id: ThavenMoodUpset
   components:
@@ -177,11 +185,3 @@
   - type: GlimmerEvent
     minimumGlimmer: 350
   - type: PsionicNosebleedRule
-
-- type: entity
-  parent: BaseGlimmerSignaturesEvent
-  id: RandomAnimationEvent
-  components:
-  - type: GlimmerEvent
-    minimumGlimmer: 500
-  - type: RandomAnimationRule
