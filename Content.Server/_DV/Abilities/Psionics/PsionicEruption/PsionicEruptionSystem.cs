@@ -182,19 +182,19 @@ public sealed class PsionicEruptionSystem : EntitySystem
                     msg = "psionic-eruption-annoy-high";
                     minwait = TimeSpan.FromSeconds(25);
                     msgSize = PopupType.Medium;
-                    Spawn("EffectSparks", Transform(uid).Coordinates);
+                    Spawn(Sparks, Transform(uid).Coordinates);
                     break;
                 case GlimmerTier.Dangerous:
                     msg = "psionic-eruption-annoy-dangerous";
                     minwait = TimeSpan.FromSeconds(20);
                     msgSize = PopupType.Large;
-                    Spawn("EffectSparks", Transform(uid).Coordinates);
+                    Spawn(Sparks, Transform(uid).Coordinates);
                     break;
                 case GlimmerTier.Critical:
                     msg = "psionic-eruption-annoy-critical";
                     minwait = TimeSpan.FromSeconds(10);
                     msgSize = PopupType.LargeCaution;
-                    Spawn("EffectSparks", Transform(uid).Coordinates);
+                    Spawn(Sparks, Transform(uid).Coordinates);
                     break;
             }
             // Prompt the user to use the power.
