@@ -1,45 +1,4 @@
 ﻿Entries:
-- author: BlitzTheSquishy
-  changes:
-  - message: Lemon lime bitters! Australians Rejoice!
-    type: Add
-  id: 1047
-  time: '2025-02-18T09:06:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2464
-- author: Toby222
-  changes:
-  - message: Felinid footsteps no longer explode as soon as they put on shoes
-    type: Fix
-  id: 1048
-  time: '2025-02-18T17:08:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3004
-- author: Lyndomen
-  changes:
-  - message: IPC batteries now last 15% longer
-    type: Tweak
-  - message: IPCs can no longer be emagged
-    type: Remove
-  - message: IPCs now start with a survival box full of healing items
-    type: Add
-  - message: IPCs now take radiation and cold damage, with 50% resistance to both
-    type: Tweak
-  - message: IPCs may be cleansed of radiation with Plasma Sheets
-    type: Add
-  - message: IPCs now have a bloodstream of Oil. They do not regenerate oil, or stop
-      bleeding without intervention. They will very very slowly tick Blunt damage
-      when low on Oil.
-    type: Add
-  - message: IPC bleeding may be stopped with a Plastic Sheet or welding
-    type: Tweak
-  - message: IPCs may get back Oil by using an Oil Pack, printable at the medical
-      techfab or exosuit fabricator roundstart, or purchasable by logistics
-    type: Add
-  - message: Syndicate members may purchase a Silicon focused repair and recharge
-      kit; the Omnipatch Kit
-    type: Add
-  id: 1049
-  time: '2025-02-18T19:44:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2979
 - author: dvir001
   changes:
   - message: Added the plant box storage, you can now buy a big storage for plants
@@ -4161,3 +4120,28 @@
   id: 1546
   time: '2025-07-29T05:08:46.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4006
+- author: SirrRequiem
+  changes:
+  - message: Terra Station
+    type: Add
+  - message: NTES Evac Yggdrasil shuttle
+    type: Add
+  id: 1547
+  time: '2025-07-30T06:30:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4005
+- author: TehFlaminTaco
+  changes:
+  - message: Telegnosis can now cause suffocation if overused
+    type: Tweak
+  - message: Telegnosis users are no-longer considered SSD
+    type: Tweak
+  id: 1548
+  time: '2025-07-30T07:51:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4090
+- author: NoElkaTheGod
+  changes:
+  - message: Fixed borgs trapped in a vacuous chantry having weird names.
+    type: Fix
+  id: 1549
+  time: '2025-07-30T14:28:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4101
