@@ -37,7 +37,7 @@ public abstract class SharedCosmicCultSystem : EntitySystem
             return;
         var result = _proto.Index(component.TransmutesTo).Name;
         var glyph = _proto.Index(component.RequiredGlyphType).Name;
-        var = Loc.GetString("cosmic-examine-transmutable", ("result", result), ("glyph", glyph));
+        var text = Loc.GetString("cosmic-examine-transmutable", ("result", result), ("glyph", glyph));
         var msg = new FormattedMessage();
         msg.AddMarkupOrThrow(text);
         _examine.AddHoverExamineVerb(args,
