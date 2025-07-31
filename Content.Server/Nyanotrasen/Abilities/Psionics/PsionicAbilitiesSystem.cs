@@ -5,14 +5,10 @@ using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Server.EUI;
 using Content.Server.Psionics;
-using Content.Server.Mind;
 using Content.Shared.Jittering;
-using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
-using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 
 namespace Content.Server.Abilities.Psionics
