@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: Lyndomen
-  changes:
-  - message: IPC bloodloss no longer causes more bleeding
-    type: Tweak
-  - message: IPCs eyes may be repaired with glass again
-    type: Fix
-  id: 1054
-  time: '2025-02-20T01:08:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3016
 - author: Eternally-Confused
   changes:
   - message: omnipatch stacks now correctly include 10 patches
@@ -4132,3 +4123,10 @@
   id: 1553
   time: '2025-07-31T11:40:30.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4110
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic subtle mark now gets properly removed on deconversion.
+    type: Fix
+  id: 1554
+  time: '2025-07-31T16:26:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4104
