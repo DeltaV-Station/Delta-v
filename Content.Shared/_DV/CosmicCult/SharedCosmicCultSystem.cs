@@ -3,9 +3,13 @@ using Content.Shared.Antag;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
+using Content.Shared.Examine;
+using Content.Shared.Verbs;
 using Content.Shared._DV.Roles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._DV.CosmicCult;
 
@@ -13,6 +17,8 @@ public abstract class SharedCosmicCultSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     public override void Initialize()
     {
@@ -22,6 +28,31 @@ public abstract class SharedCosmicCultSystem : EntitySystem
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentGetStateAttemptEvent>(OnCosmicCultCompGetStateAttempt);
         SubscribeLocalEvent<CosmicCultComponent, ComponentStartup>(DirtyCosmicCultComps);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentStartup>(DirtyCosmicCultComps);
+        SubscribeLocalEvent<CosmicTransmutableComponent, GetVerbsEvent<ExamineVerb>>(OnDetailedExamine);
+    }
+
+    private void OnDetailedExamine(EntityUid ent, CosmicTransmutableComponent component, ref GetVerbsEvent<ExamineVerb> args)
+    {
+        if (!EntityIsCultist(args.User)) //non-cultists don't need to know this anyway
+            return;
+        String text;
+        if (_proto.Index(component.TransumtesTo) == null || _proto.Index(component.RequiredGlyphType) == null)
+        {
+            text = Loc.GetString("cosmic-examine-transmutable-error");
+        }
+        else
+        {
+            var result = _proto.Index(component.TransumtesTo).Name;
+            var glyph = _proto.Index(component.RequiredGlyphType).Name;
+            text = Loc.GetString("cosmic-examine-transmutable", ("result", result), ("glyph", glyph));
+        }
+        var msg = new FormattedMessage();
+        msg.AddMarkupOrThrow(text);
+        _examine.AddHoverExamineVerb(args,
+            component,
+            Loc.GetString("cosmic-examine-transmutable-verb-text"),
+            msg.ToMarkup(),
+            "/Textures/_DV/CosmicCult/Interface/transmute_inspect.png");
     }
 
     public bool EntityIsCultist(EntityUid user)
