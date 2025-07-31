@@ -1,9 +1,9 @@
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Antag;
+using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
-using Content.Shared.Examine;
 using Content.Shared.Verbs;
 using Content.Shared._DV.Roles;
 using Robust.Shared.GameStates;
@@ -33,6 +33,7 @@ public abstract class SharedCosmicCultSystem : EntitySystem
 
     private void OnDetailedExamine(EntityUid ent, CosmicTransmutableComponent component, ref GetVerbsEvent<ExamineVerb> args)
     {
+        if (component.TransmutesTo == null || component.RequiredGlyphType == null)
         if (!EntityIsCultist(args.User)) //non-cultists don't need to know this anyway
             return;
         var result = _proto.Index(component.TransmutesTo).Name;
