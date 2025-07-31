@@ -690,8 +690,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         cultComp.StoredDamageContainer = Comp<DamageableComponent>(uid).DamageContainerID!.Value;
         EnsureComp<IntrinsicRadioReceiverComponent>(uid);
         TransferCultAssociation(converter, uid);
-        TryComp<CosmicFinaleComponent>(component.MonumentInGame, out var finaleComp);
-        if (finaleComp.FinaleActive)
+        if (TryComp<CosmicFinaleComponent>(cult.Comp.MonumentInGame, out var finaleComp) && finaleComp.FinaleActive)
         {
             EnsureComp<CosmicStarMarkComponent>(uid);
         }
