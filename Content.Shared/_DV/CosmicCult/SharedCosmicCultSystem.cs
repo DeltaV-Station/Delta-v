@@ -35,14 +35,14 @@ public abstract class SharedCosmicCultSystem : EntitySystem
     {
         if (!EntityIsCultist(args.User)) //non-cultists don't need to know this anyway
             return;
-        String text;
-        if (_proto.Index(component.TransumtesTo) == null || _proto.Index(component.RequiredGlyphType) == null)
+        string text;
+        if (_proto.Index(component.TransmutesTo) == null || _proto.Index(component.RequiredGlyphType) == null)
         {
             text = Loc.GetString("cosmic-examine-transmutable-error");
         }
         else
         {
-            var result = _proto.Index(component.TransumtesTo).Name;
+            var result = _proto.Index(component.TransmutesTo).Name;
             var glyph = _proto.Index(component.RequiredGlyphType).Name;
             text = Loc.GetString("cosmic-examine-transmutable", ("result", result), ("glyph", glyph));
         }

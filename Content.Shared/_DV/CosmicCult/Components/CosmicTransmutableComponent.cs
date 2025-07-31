@@ -9,7 +9,7 @@ namespace Content.Shared._DV.CosmicCult.Components;
 public sealed partial class CosmicTransmutableComponent : Component
 {
     [DataField(required: true)]
-    public EntProtoId TransumtesTo;
+    public EntProtoId TransmutesTo;
 
     [DataField(required: true)]
     public EntProtoId RequiredGlyphType;
