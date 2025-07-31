@@ -6,6 +6,7 @@ using Content.Shared.Random.Helpers;
 using Content.Server.EUI;
 using Content.Server.Psionics;
 using Content.Server.Mind;
+using Content.Shared.Jittering;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.StatusEffect;
@@ -23,6 +24,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+        [Dependency] private readonly SharedJitteringSystem _jittering = default!;
         [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
@@ -129,6 +131,8 @@ namespace Content.Server.Abilities.Psionics
             _glimmerSystem.Glimmer -= _random.Next(50, 70);
 
             _statusEffectsSystem.TryAddStatusEffect(uid, "Stutter", TimeSpan.FromMinutes(1), false, "StutteringAccent");
+            _statusEffectsSystem.TryAddStatusEffect(uid, "KnockedDown", TimeSpan.FromSeconds(3), false, "KnockedDown");
+            _jittering.DoJitter(uid, TimeSpan.FromSeconds(10), false);
 
             RemComp<PsionicComponent>(uid);
         }
