@@ -20,7 +20,6 @@ public sealed class CosmicFragmentationSystem : EntitySystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly CosmicCultSystem _cult = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -99,7 +98,6 @@ public sealed class CosmicFragmentationSystem : EntitySystem
         EnsureComp<CosmicChantryComponent>(chantry, out var chantryComponent);
         chantryComponent.InternalVictim = wisp;
         chantryComponent.VictimBody = ent;
-        _metaData.SetEntityName(wisp, $"{ent}");
         _mind.TransferTo(mindId, wisp, mind: mind);
 
         var mins = chantryComponent.EventTime.Minutes;
