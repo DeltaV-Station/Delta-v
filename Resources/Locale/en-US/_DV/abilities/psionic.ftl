@@ -48,4 +48,28 @@ psionic-power-precognition-unknown-shuttle-cargo-lost-result-message = You see a
 psionic-power-precognition-unknown-shuttle-traveling-cuisine-result-message = You see a vision of peace, a cozy meal sizzling on a warm stove. A delicious smells wafts through the air.
 psionic-power-precognition-unknown-shuttle-disaster-evac-pod-result-message = You see a vision of death and blood, of a destruction so complete only few survive, drifting through the coldness of space.
 
+psionic-eruption-begin = {CAPITALIZE(THE($user))} is being consumed by a psionic energy!
+psionic-eruption-annoy-minimal = You feel a pressure building up in your mind.
+psionic-eruption-annoy-low = Your head aches from the psionic energy.
+psionic-eruption-annoy-medium = You feel a strong pressure in your mind. Make it stop!
+psionic-eruption-annoy-high = Your head is pounding from the psionic energy. You need to release it!
+psionic-eruption-annoy-dangerous = Your head is about to explode from the psionic energy!
+psionic-eruption-annoy-critical = Make it stop! Make it stop! Make it stop!
+
+psionic-eruption-nuke-warning = Attention! An overwhelming psionic energy has been detected at {$location}.
+psionic-eruption-nuke-sender = ???
+
+psionic-eruption-not-enough-creatures = You need at least 3 living creatures nearby to unleash the eruption. You only have {$count}.
+
+eruption-warning-window-title = Your Brain isn't Ready!
+eruption-warning-window-prompt-text-part = You feel a strong pressure building up in your mind
+                                            and you need to release it before it overwhelms you.
+                                            When you are ready, you can unleash a psionic eruption.
+                                            Doing so will cause a massive psionic discharge,
+                                            which will destroy yourself and the station around you.
+                                            THIS ALONE DOES NOT MAKE YOU AN ANTAGONIST.
+                                            Do not detonately randomly, ensure proper buildup.
+                                            Do you understand?
+eruption-warning-window-acknowledge-button = I Understand
+
 telegnosis-power-ssd = { CAPITALIZE(POSS-ADJ($ent)) } eyes are unfocused and darting around, as if trying to see something that isn't there.
