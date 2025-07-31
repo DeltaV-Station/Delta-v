@@ -14,8 +14,20 @@
   equipment:
     id: PlasmaScientistPDA
 
+# Head
+- type: loadout
+  id: AtmosHardHatBlue
+  equipment:
+    head: ClothingHeadHatHardhatBlue
+
 #Jumpsuits
 - type: loadout
   id: AtmosphericTechnicianJumpskirtCasual
   equipment:
     jumpsuit: ClothingUniformJumpskirtAtmosCasual
+
+# Shoes
+- type: loadout
+  id: AtmosWinterBoots
+  equipment:
+    shoes: ClothingShoesBootsWinterAtmos
