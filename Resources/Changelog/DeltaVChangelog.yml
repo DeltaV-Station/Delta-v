@@ -1,24 +1,6 @@
 ﻿Entries:
 - author: Lyndomen
   changes:
-  - message: Emergency Evac shuttle now takes 3 minutes to depart
-    type: Tweak
-  - message: Periapsis & Horizon now have a 3 hour default timer. Feel free to leave
-      earlier by calling the shuttle.
-    type: Tweak
-  - message: Command may now truly early launch the shuttle. Do not abuse this, command
-      is held to a high standard.
-    type: Tweak
-  - message: Recalling the shuttle got a little easier, it can now be recalled 2~
-      minutes later.
-    type: Tweak
-  - message: The shuttle will now arrive in 10 minutes on Code Delta, not 20.
-    type: Tweak
-  id: 1051
-  time: '2025-02-19T04:04:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2944
-- author: Lyndomen
-  changes:
   - message: Ahelping the exact same thing 6 times will get one automatically banned.
       File an appeal if this was in error.
     type: Add
@@ -4144,3 +4126,10 @@
   id: 1550
   time: '2025-07-30T18:49:07.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4093
+- author: HTMLSystem
+  changes:
+  - message: Cleanade rounds are now recyclable
+    type: Tweak
+  id: 1551
+  time: '2025-07-31T09:54:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4046
