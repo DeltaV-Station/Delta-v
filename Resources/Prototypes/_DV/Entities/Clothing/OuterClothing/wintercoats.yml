@@ -160,3 +160,14 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/mimelongcoat.rsi
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/WinterCoats/mimelongcoat.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterChaplain
+  name: chaplain's winter coat
+  description: A nice and warm jacket, holy enough to warm any chaplain.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/chaplain_winter_coat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/chaplain_winter_coat.rsi
