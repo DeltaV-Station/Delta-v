@@ -33,7 +33,7 @@ public abstract class SharedCosmicCultSystem : EntitySystem
 
     private void OnDetailedExamine(EntityUid ent, CosmicTransmutableComponent component, ref GetVerbsEvent<ExamineVerb> args)
     {
-        if (component.TransmutesTo == null || component.RequiredGlyphType == null)
+        if (component.TransmutesTo == null || component.RequiredGlyphType == null) return;
         if (!EntityIsCultist(args.User)) //non-cultists don't need to know this anyway
             return;
         var result = _proto.Index(component.TransmutesTo).Name;
