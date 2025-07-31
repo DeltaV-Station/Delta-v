@@ -31,18 +31,18 @@ public abstract class SharedCosmicCultSystem : EntitySystem
         SubscribeLocalEvent<CosmicTransmutableComponent, GetVerbsEvent<ExamineVerb>>(OnDetailedExamine);
     }
 
-    private void OnDetailedExamine(EntityUid ent, CosmicTransmutableComponent component, ref GetVerbsEvent<ExamineVerb> args)
+    private void OnDetailedExamine(Entity<CosmicTransmutableComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
-        if (component.TransmutesTo == "" || component.RequiredGlyphType == "") return;
+        if (ent.Comp.TransmutesTo == "" || ent.Comp.RequiredGlyphType == "") return;
         if (!EntityIsCultist(args.User)) //non-cultists don't need to know this anyway
             return;
-        var result = _proto.Index(component.TransmutesTo).Name;
-        var glyph = _proto.Index(component.RequiredGlyphType).Name;
+        var result = _proto.Index(ent.Comp.TransmutesTo).Name;
+        var glyph = _proto.Index(ent.Comp.RequiredGlyphType).Name;
         var text = Loc.GetString("cosmic-examine-transmutable", ("result", result), ("glyph", glyph));
         var msg = new FormattedMessage();
         msg.AddMarkupOrThrow(text);
         _examine.AddHoverExamineVerb(args,
-            component,
+            ent.Comp,
             Loc.GetString("cosmic-examine-transmutable-verb-text"),
             msg.ToMarkup(),
             "/Textures/_DV/CosmicCult/Interface/transmute_inspect.png");
