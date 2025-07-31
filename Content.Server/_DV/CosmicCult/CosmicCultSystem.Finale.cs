@@ -8,6 +8,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.UserInterface;
+using Content.Shared.Popups;
 using Robust.Shared.Utility;
 
 namespace Content.Server._DV.CosmicCult;
@@ -38,7 +39,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             {
                 DistanceThreshold = 1f, Hidden = false, BreakOnHandChange = true, BreakOnDamage = true, BreakOnMove = true
             };
-            _popup.PopupEntity(Loc.GetString("cosmiccult-finale-cancel-begin"), args.User, args.User, type: PopupType.LargeCaution);
+            _popup.PopupEntity(Loc.GetString("cosmiccult-finale-cancel-begin"), args.User, args.User, PopupType.LargeCaution);
             _doAfter.TryStartDoAfter(doargs);
             args.Handled = true;
         }
