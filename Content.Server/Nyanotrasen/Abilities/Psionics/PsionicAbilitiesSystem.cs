@@ -126,6 +126,8 @@ namespace Content.Server.Abilities.Psionics
                 }
             }
 
+            _glimmerSystem.Glimmer -= _random.Next(50, 70);
+
             _statusEffectsSystem.TryAddStatusEffect(uid, "Stutter", TimeSpan.FromMinutes(5), false, "StutteringAccent");
 
             RemComp<PsionicComponent>(uid);
