@@ -690,7 +690,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         cultComp.StoredDamageContainer = Comp<DamageableComponent>(uid).DamageContainerID!.Value;
         EnsureComp<IntrinsicRadioReceiverComponent>(uid);
         TransferCultAssociation(converter, uid);
-
+        if (TryComp<CosmicFinaleComponent>(cult.Comp.MonumentInGame, out var finaleComp) && finaleComp.FinaleActive)
+        {
+            EnsureComp<CosmicStarMarkComponent>(uid);
+        }
         if (cult.Comp.CurrentTier == 3)
         {
             _damage.SetDamageContainerID(uid, "BiologicalMetaphysical");
@@ -702,7 +705,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                 cultComp.UnlockedInfluences.Add(influenceProto.ID);
             }
 
-            EnsureComp<CosmicStarMarkComponent>(uid);
+            EnsureComp<CosmicSubtleMarkComponent>(uid);
             EnsureComp<PressureImmunityComponent>(uid);
             EnsureComp<TemperatureImmunityComponent>(uid);
         }
