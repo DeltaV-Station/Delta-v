@@ -39,7 +39,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             {
                 DistanceThreshold = 1f, Hidden = false, BreakOnHandChange = true, BreakOnDamage = true, BreakOnMove = true
             };
-            _popup.PopupEntity(Loc.GetString("cosmiccult-finale-cancel-begin"), args.User, args.User, PopupType.LargeCaution);
+            _popup.PopupEntity(Loc.GetString("cosmiccult-finale-cancel-begin"), args.User, args.User);
             _doAfter.TryStartDoAfter(doargs);
             args.Handled = true;
         }
@@ -50,7 +50,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             {
                 DistanceThreshold = 1f, Hidden = false, BreakOnHandChange = true, BreakOnDamage = true, BreakOnMove = true
             };
-            _popup.PopupEntity(Loc.GetString("cosmiccult-finale-beckon-begin"), args.User, args.User);
+            _popup.PopupEntity(Loc.GetString("cosmiccult-finale-beckon-begin"), args.User, args.User, PopupType.LargeCaution);
             _doAfter.TryStartDoAfter(doargs);
             args.Handled = true;
         }
