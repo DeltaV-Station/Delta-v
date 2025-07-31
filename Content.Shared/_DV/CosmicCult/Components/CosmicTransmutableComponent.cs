@@ -9,8 +9,8 @@ namespace Content.Shared._DV.CosmicCult.Components;
 public sealed partial class CosmicTransmutableComponent : Component
 {
     [DataField(required: true)]
-    public EntProtoId TransmutesTo;
+    public EntProtoId TransmutesTo = "Skub"; //Why? Because.
 
     [DataField(required: true)]
-    public EntProtoId RequiredGlyphType;
+    public EntProtoId RequiredGlyphType = "CosmicGlyphBlades";
 }
