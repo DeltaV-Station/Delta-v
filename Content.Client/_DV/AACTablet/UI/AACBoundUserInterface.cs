@@ -30,9 +30,10 @@ public sealed class AACBoundUserInterface : BoundUserInterface
         _window.SubmitPressed += OnSubmit;
     }
 
-    private void OnPhraseButtonPressed(List<ProtoId<QuickPhrasePrototype>> phraseId)
+    // starcup: added prefix for radio messages
+    private void OnPhraseButtonPressed(List<ProtoId<QuickPhrasePrototype>> phraseId, string prefix)
     {
-        SendMessage(new AACTabletSendPhraseMessage(phraseId));
+        SendMessage(new AACTabletSendPhraseMessage(phraseId, prefix));
     }
 
     private void OnTyping()
@@ -45,5 +46,16 @@ public sealed class AACBoundUserInterface : BoundUserInterface
     {
         _typing ??= EntMan.System<TypingIndicatorSystem>();
         _typing?.ClientSubmittedChatText();
+    }
+
+    // starcup
+    protected override void UpdateState(BoundUserInterfaceState state)
+    {
+        base.UpdateState(state);
+
+        if (state is not AACTabletBuiState msg)
+            return;
+
+        _window?.Update(msg);
     }
 }
