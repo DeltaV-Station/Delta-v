@@ -1,39 +1,6 @@
 ﻿Entries:
 - author: Lyndomen
   changes:
-  - message: Emergency Evac shuttle now takes 3 minutes to depart
-    type: Tweak
-  - message: Periapsis & Horizon now have a 3 hour default timer. Feel free to leave
-      earlier by calling the shuttle.
-    type: Tweak
-  - message: Command may now truly early launch the shuttle. Do not abuse this, command
-      is held to a high standard.
-    type: Tweak
-  - message: Recalling the shuttle got a little easier, it can now be recalled 2~
-      minutes later.
-    type: Tweak
-  - message: The shuttle will now arrive in 10 minutes on Code Delta, not 20.
-    type: Tweak
-  id: 1051
-  time: '2025-02-19T04:04:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2944
-- author: Lyndomen
-  changes:
-  - message: Ahelping the exact same thing 6 times will get one automatically banned.
-      File an appeal if this was in error.
-    type: Add
-  id: 1052
-  time: '2025-02-19T04:21:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3010
-- author: Toby222
-  changes:
-  - message: Mail teleporters now notify about new mail in the Logistics comms channel
-    type: Add
-  id: 1053
-  time: '2025-02-19T11:37:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2989
-- author: Lyndomen
-  changes:
   - message: IPC bloodloss no longer causes more bleeding
     type: Tweak
   - message: IPCs eyes may be repaired with glass again
@@ -4144,3 +4111,24 @@
   id: 1550
   time: '2025-07-30T18:49:07.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4093
+- author: HTMLSystem
+  changes:
+  - message: Cleanade rounds are now recyclable
+    type: Tweak
+  id: 1551
+  time: '2025-07-31T09:54:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4046
+- author: TehFlaminTaco
+  changes:
+  - message: Added a new power, Psionic Eruption
+    type: Add
+  id: 1552
+  time: '2025-07-31T11:39:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4078
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic cult conversion at late stages now applies subtle/star marks properly.
+    type: Fix
+  id: 1553
+  time: '2025-07-31T11:40:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4110
