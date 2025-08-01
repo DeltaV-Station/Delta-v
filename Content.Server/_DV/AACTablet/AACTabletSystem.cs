@@ -81,9 +81,9 @@ public sealed class AACTabletSystem : EntitySystem
 
         if (_localisedPhrases.Count <= 0)
             return;
-
         // begin starcup: Radio support
-        // removed voicemask
+        EnsureComp<VoiceOverrideComponent>(ent).NameOverride = speakerName;
+
 
         // Set the player's currently available channels before sending the message
         EnsureComp(ent, out IntrinsicRadioTransmitterComponent transmitter);
