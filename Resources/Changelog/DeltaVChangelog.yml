@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: Stop-Signs
-  changes:
-  - message: Disaster pizza crate is no longer orderable
-    type: Remove
-  - message: Emergency pizza crate now costs more
-    type: Tweak
-  id: 1057
-  time: '2025-02-22T01:30:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3013
 - author: deltanedas
   changes:
   - message: Fixed atmos lockers with hardsuits not having insulated gloves.
@@ -4130,3 +4121,10 @@
   id: 1556
   time: '2025-08-01T08:12:15.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4089
+- author: kotobdev
+  changes:
+  - message: The Mantis' psibreaker pistol actually removes psionics now.
+    type: Fix
+  id: 1557
+  time: '2025-08-01T08:13:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4119
