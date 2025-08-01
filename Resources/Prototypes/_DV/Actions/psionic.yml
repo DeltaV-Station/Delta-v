@@ -20,14 +20,11 @@
   name: Mass Sleep
   description: Put targets in a small area to sleep.
   components:
-  - type: WorldTargetAction
+  - type: InstantAction
     icon:
       sprite: _DV/Interface/Actions/actions_psionics.rsi
       state: mass_sleep
     useDelay: 60
-    checkCanAccess: false
-    checkCanInteract: false
-    range: 8
     itemIconStyle: BigAction
     event: !type:MassSleepPowerActionEvent
 
