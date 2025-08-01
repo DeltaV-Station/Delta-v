@@ -5,7 +5,6 @@ using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC;
@@ -24,7 +23,6 @@ public sealed class CosmicSiphonSystem : EntitySystem
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly CosmicCultSystem _cosmicCult = default!;
@@ -82,7 +80,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
         uid.Comp.EntropyStored += uid.Comp.CosmicSiphonQuantity;
         uid.Comp.EntropyBudget += uid.Comp.CosmicSiphonQuantity;
         Dirty(uid, uid.Comp);
-
+        _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(target, "EntropicDegen", TimeSpan.FromSeconds(_random.Next(21) + 40), true); //40-60 seconds, 4-6 cold damage per siphon
         if (_cosmicCult.EntityIsCultist(target))
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-siphon-cultist-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
@@ -96,7 +94,6 @@ public sealed class CosmicSiphonSystem : EntitySystem
 
         if (uid.Comp.CosmicEmpowered) // if you're empowered there's a 50% chance to flicker lights on siphon
         {
-            _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(target, "EntropicDegen", TimeSpan.FromSeconds(21), true); //only applies when empowered now
             _lights.Clear();
             _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(uid).Coordinates, 5, _lights, LookupFlags.StaticSundries);
             foreach (var light in _lights) // static range of 5. because.
