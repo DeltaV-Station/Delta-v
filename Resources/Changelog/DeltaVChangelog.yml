@@ -1,76 +1,4 @@
 ﻿Entries:
-- author: Lyndomen
-  changes:
-  - message: Emergency Evac shuttle now takes 3 minutes to depart
-    type: Tweak
-  - message: Periapsis & Horizon now have a 3 hour default timer. Feel free to leave
-      earlier by calling the shuttle.
-    type: Tweak
-  - message: Command may now truly early launch the shuttle. Do not abuse this, command
-      is held to a high standard.
-    type: Tweak
-  - message: Recalling the shuttle got a little easier, it can now be recalled 2~
-      minutes later.
-    type: Tweak
-  - message: The shuttle will now arrive in 10 minutes on Code Delta, not 20.
-    type: Tweak
-  id: 1051
-  time: '2025-02-19T04:04:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2944
-- author: Lyndomen
-  changes:
-  - message: Ahelping the exact same thing 6 times will get one automatically banned.
-      File an appeal if this was in error.
-    type: Add
-  id: 1052
-  time: '2025-02-19T04:21:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3010
-- author: Toby222
-  changes:
-  - message: Mail teleporters now notify about new mail in the Logistics comms channel
-    type: Add
-  id: 1053
-  time: '2025-02-19T11:37:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2989
-- author: Lyndomen
-  changes:
-  - message: IPC bloodloss no longer causes more bleeding
-    type: Tweak
-  - message: IPCs eyes may be repaired with glass again
-    type: Fix
-  id: 1054
-  time: '2025-02-20T01:08:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3016
-- author: Eternally-Confused
-  changes:
-  - message: omnipatch stacks now correctly include 10 patches
-    type: Fix
-  id: 1055
-  time: '2025-02-20T23:06:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3014
-- author: Spielern
-  changes:
-  - message: Radiation no longer causes bleeding in IPCs.
-    type: Tweak
-  id: 1056
-  time: '2025-02-20T23:20:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3020
-- author: Stop-Signs
-  changes:
-  - message: Disaster pizza crate is no longer orderable
-    type: Remove
-  - message: Emergency pizza crate now costs more
-    type: Tweak
-  id: 1057
-  time: '2025-02-22T01:30:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3013
-- author: deltanedas
-  changes:
-  - message: Fixed atmos lockers with hardsuits not having insulated gloves.
-    type: Fix
-  id: 1058
-  time: '2025-02-22T01:34:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3025
 - author: makyo
   changes:
   - message: Add back hugging buckled characters.
@@ -4144,3 +4072,59 @@
   id: 1550
   time: '2025-07-30T18:49:07.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4093
+- author: HTMLSystem
+  changes:
+  - message: Cleanade rounds are now recyclable
+    type: Tweak
+  id: 1551
+  time: '2025-07-31T09:54:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4046
+- author: TehFlaminTaco
+  changes:
+  - message: Added a new power, Psionic Eruption
+    type: Add
+  id: 1552
+  time: '2025-07-31T11:39:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4078
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic cult conversion at late stages now applies subtle/star marks properly.
+    type: Fix
+  id: 1553
+  time: '2025-07-31T11:40:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4110
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic subtle mark now gets properly removed on deconversion.
+    type: Fix
+  id: 1554
+  time: '2025-07-31T16:26:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4104
+- author: HTMLSystem
+  changes:
+  - message: Gave bluespace ore a new sprite.
+    type: Tweak
+  id: 1555
+  time: '2025-07-31T18:15:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4024
+- author: Radezolid
+  changes:
+  - message: Moved the energy shotgun to the warden's locker.
+    type: Tweak
+  id: 1556
+  time: '2025-08-01T08:12:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4089
+- author: kotobdev
+  changes:
+  - message: The Mantis' psibreaker pistol actually removes psionics now.
+    type: Fix
+  id: 1557
+  time: '2025-08-01T08:13:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4119
+- author: kotobdev
+  changes:
+  - message: Random objects may become animated at high glimmer levels.
+    type: Add
+  id: 1558
+  time: '2025-08-01T12:58:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4105

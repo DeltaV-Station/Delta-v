@@ -25,6 +25,9 @@ station-beacon-janitor-office = Jani Office
 station-beacon-janitor-closet = Jani Closet
 station-beacon-reporter = Reporter
 station-beacon-shop = Shop
+station-beacon-clown = Clown
+station-beacon-mime = Mime
+station-beacon-musician = Musician
 
 station-beacon-camera-servers = Cameras
 
