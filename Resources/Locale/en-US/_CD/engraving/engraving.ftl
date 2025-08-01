@@ -1,6 +1,6 @@
 ﻿engraving-verb-engrave = Engrave
 engraving-popup-ui-message = Description
 
-engraving-dogtags-no-message = It doesn't seem to have any kind of engraving.
-engraving-dogtags-has-message = It's engraved with a message that reads:{" "}
-engraving-dogtags-succeed = You successfully engrave it with your message.
+engraving-no-message = No engraving is present on {THE($item)}.
+engraving-has-message = An engraving on {THE($item)} reads:{" "}
+engraving-succeed = You successfully engrave {THE($item)} with your message.

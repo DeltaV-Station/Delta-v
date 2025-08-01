@@ -8,7 +8,6 @@
     layers:
       - state: ring
         color: "#ffc833"
-  - type: Engraveable # DeltaV
 
 - type: entity
   parent: [ RingBase, SilverRingBase ]
@@ -19,7 +18,6 @@
   - type: Sprite
     layers:
       - state: ring
-  - type: Engraveable # DeltaV
 
 - type: entity
   parent: [ RingBase, GoldRingBase ]
@@ -35,7 +33,6 @@
         color: "#c1ffff"
   - type: StaticPrice
     price: 1500
-  - type: Engraveable # DeltaV
 
 - type: entity
   parent: [ RingBase, SilverRingBase ]
@@ -50,7 +47,6 @@
         color: "#c1ffff"
   - type: StaticPrice
     price: 1400
-  - type: Engraveable # DeltaV
 
 - type: entity
   parent: [ RingBase, GoldRingBase ]
@@ -71,7 +67,6 @@
     available:
       - gemColor:
           gem: Rainbow
-  - type: Engraveable # DeltaV
 
 - type: entity
   parent: [ RingBase, SilverRingBase ]
@@ -91,4 +86,3 @@
     available:
       - gemColor:
           gem: Rainbow
-  - type: Engraveable # DeltaV
