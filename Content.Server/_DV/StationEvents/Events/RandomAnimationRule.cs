@@ -16,6 +16,15 @@ public sealed class RandomAnimationRule : StationEventSystem<RandomAnimationRule
     [Dependency] private readonly RevenantAnimatedSystem _revenantAnimated = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
 
+    private EntityQuery<ItemComponent> _itemQuery;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _itemQuery = GetEntityQuery<ItemComponent>();
+    }
+
     protected override void Started(EntityUid uid, RandomAnimationRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, comp, gameRule, args);
@@ -30,7 +39,7 @@ public sealed class RandomAnimationRule : StationEventSystem<RandomAnimationRule
             if (StationSystem.GetOwningStation(ent) != station)
                 continue;
 
-            if (!HasComp<ItemComponent>(ent) || !_revenantAnimated.CanAnimateObject(ent) || _container.IsEntityInContainer(ent))
+            if (!_itemQuery.HasComp(ent) || !_revenantAnimated.CanAnimateObject(ent) || _container.IsEntityInContainer(ent))
                 continue;
 
             targetList.Add((ent, animateable));
