@@ -12,8 +12,10 @@
     - id: GlimmerRevenantSpawn
     - id: GlimmerMiteSpawn
     - id: GlimmerRandomSentience
+    - id: GlimmerRandomAnimation
     - id: ThavenMoodUpset
     - id: LockProbers
+    - id: PsionicNosebleedEvent
 
 - type: entity
   parent: BaseGameRule
@@ -151,6 +153,14 @@
   - type: RandomSentienceRule
 
 - type: entity
+  parent: BaseGlimmerSignaturesEvent
+  id: GlimmerRandomAnimation
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 500
+  - type: RandomAnimationRule
+
+- type: entity
   parent: BaseGlimmerEvent
   id: ThavenMoodUpset
   components:
@@ -167,3 +177,11 @@
   - type: GlimmerEvent
     minimumGlimmer: 500
   - type: LockProbersRule
+
+- type: entity
+  parent: BaseGlimmerEvent
+  id: PsionicNosebleedEvent
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 350
+  - type: PsionicNosebleedRule
