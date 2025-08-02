@@ -1,58 +1,4 @@
 ﻿Entries:
-- author: Lyndomen
-  changes:
-  - message: IPC bloodloss no longer causes more bleeding
-    type: Tweak
-  - message: IPCs eyes may be repaired with glass again
-    type: Fix
-  id: 1054
-  time: '2025-02-20T01:08:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3016
-- author: Eternally-Confused
-  changes:
-  - message: omnipatch stacks now correctly include 10 patches
-    type: Fix
-  id: 1055
-  time: '2025-02-20T23:06:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3014
-- author: Spielern
-  changes:
-  - message: Radiation no longer causes bleeding in IPCs.
-    type: Tweak
-  id: 1056
-  time: '2025-02-20T23:20:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3020
-- author: Stop-Signs
-  changes:
-  - message: Disaster pizza crate is no longer orderable
-    type: Remove
-  - message: Emergency pizza crate now costs more
-    type: Tweak
-  id: 1057
-  time: '2025-02-22T01:30:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3013
-- author: deltanedas
-  changes:
-  - message: Fixed atmos lockers with hardsuits not having insulated gloves.
-    type: Fix
-  id: 1058
-  time: '2025-02-22T01:34:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3025
-- author: makyo
-  changes:
-  - message: Add back hugging buckled characters.
-    type: Tweak
-  id: 1059
-  time: '2025-02-22T01:44:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3024
-- author: IAmNotGray
-  changes:
-  - message: Elegance Station has recieved further tweaks according to community feedback.
-      Thank you for your continued patience!
-    type: Tweak
-  id: 1060
-  time: '2025-02-22T06:18:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2931
 - author: sowelipililimute
   changes:
   - message: Added an indicator to the hotbar of how dirty a tool or glove is for
@@ -4132,3 +4078,60 @@
   id: 1553
   time: '2025-07-31T11:40:30.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4110
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic subtle mark now gets properly removed on deconversion.
+    type: Fix
+  id: 1554
+  time: '2025-07-31T16:26:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4104
+- author: HTMLSystem
+  changes:
+  - message: Gave bluespace ore a new sprite.
+    type: Tweak
+  id: 1555
+  time: '2025-07-31T18:15:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4024
+- author: Radezolid
+  changes:
+  - message: Moved the energy shotgun to the warden's locker.
+    type: Tweak
+  id: 1556
+  time: '2025-08-01T08:12:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4089
+- author: kotobdev
+  changes:
+  - message: The Mantis' psibreaker pistol actually removes psionics now.
+    type: Fix
+  id: 1557
+  time: '2025-08-01T08:13:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4119
+- author: kotobdev
+  changes:
+  - message: Random objects may become animated at high glimmer levels.
+    type: Add
+  id: 1558
+  time: '2025-08-01T12:58:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4105
+- author: kotobdev
+  changes:
+  - message: Mass Sleep now has a cast time and visual warning.
+    type: Tweak
+  id: 1559
+  time: '2025-08-01T20:40:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4067
+- author: NoElkaTheGod
+  changes:
+  - message: 'Cosmic cult''s weapons are now created slightly differently: entropic
+      blade can be made from any sword or knife (including shivs), while vacous lances
+      can be created from spears.'
+    type: Tweak
+  - message: Cosmic cultists can now examine an item to see if it can be used for
+      transmutation.
+    type: Tweak
+  - message: Astral razor, a new cult weapon, has been finally added! It works not
+      unlike a crusher, and can be created from one using glyph of blades.
+    type: Add
+  id: 1560
+  time: '2025-08-01T22:14:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4114
