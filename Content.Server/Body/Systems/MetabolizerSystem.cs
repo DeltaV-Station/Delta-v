@@ -14,6 +14,7 @@ using Robust.Shared.Collections;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Body.Prototypes;
 
 namespace Content.Server.Body.Systems
 {
@@ -41,6 +42,22 @@ namespace Content.Server.Body.Systems
             SubscribeLocalEvent<MetabolizerComponent, EntityUnpausedEvent>(OnUnpaused);
             SubscribeLocalEvent<MetabolizerComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
         }
+
+        // Begin DeltaV additions - Addable metabolizer types
+        public void AddMetabolizerType(Entity<MetabolizerComponent?> ent, ProtoId<MetabolizerTypePrototype> type)
+        {
+            AddMetabolizerTypes(ent, [type]);
+        }
+
+        public void AddMetabolizerTypes(Entity<MetabolizerComponent?> ent, HashSet<ProtoId<MetabolizerTypePrototype>> types)
+        {
+            if (!Resolve(ent.Owner, ref ent.Comp))
+                return;
+
+            ent.Comp.MetabolizerTypes ??= [];
+            ent.Comp.MetabolizerTypes.UnionWith(types);
+        }
+        // End DeltaV additions - Addable metabolizer types
 
         private void OnMapInit(Entity<MetabolizerComponent> ent, ref MapInitEvent args)
         {
@@ -182,7 +199,7 @@ namespace Content.Server.Body.Systems
                     // Remove $rate, as long as there's enough reagent there to actually remove that much
                     mostToRemove = FixedPoint2.Clamp(rate, 0, quantity);
 
-                    float scale = (float) mostToRemove / (float) rate;
+                    float scale = (float)mostToRemove / (float)rate;
 
                     // if it's possible for them to be dead, and they are,
                     // then we shouldn't process any effects, but should probably
