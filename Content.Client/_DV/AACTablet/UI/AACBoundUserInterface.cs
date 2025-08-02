@@ -7,7 +7,8 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._DV.AACTablet.UI;
 
-public sealed class AACBoundUserInterface : BoundUserInterface
+public sealed partial class AACBoundUserInterface(EntityUid owner, Enum uiKey)
+    : BoundUserInterface(owner, uiKey) // starcup: made partial
 {
     [ViewVariables]
     private AACWindow? _window;
@@ -30,8 +31,7 @@ public sealed class AACBoundUserInterface : BoundUserInterface
         _window.SubmitPressed += OnSubmit;
     }
 
-    // starcup: added prefix for radio messages
-    private void OnPhraseButtonPressed(List<ProtoId<QuickPhrasePrototype>> phraseId, string prefix)
+    private void OnPhraseButtonPressed(List<ProtoId<QuickPhrasePrototype>> phraseId, string prefix) // starcup: prefix
     {
         SendMessage(new AACTabletSendPhraseMessage(phraseId, prefix));
     }
@@ -46,16 +46,5 @@ public sealed class AACBoundUserInterface : BoundUserInterface
     {
         _typing ??= EntMan.System<TypingIndicatorSystem>();
         _typing?.ClientSubmittedChatText();
-    }
-
-    // starcup
-    protected override void UpdateState(BoundUserInterfaceState state)
-    {
-        base.UpdateState(state);
-
-        if (state is not AACTabletBuiState msg)
-            return;
-
-        _window?.Update(msg);
     }
 }

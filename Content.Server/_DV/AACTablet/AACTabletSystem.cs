@@ -11,7 +11,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._DV.AACTablet;
 
-public sealed class AACTabletSystem : EntitySystem
+public sealed partial class AACTabletSystem : EntitySystem // starcup: made partial
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
@@ -27,6 +27,7 @@ public sealed class AACTabletSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<AACTabletComponent, AACTabletSendPhraseMessage>(OnSendPhrase);
+
         // begin starcup
         Subs.BuiEvents<AACTabletComponent>(AACTabletKey.Key, subs =>
         {
@@ -34,30 +35,6 @@ public sealed class AACTabletSystem : EntitySystem
         });
         // end starcup
     }
-
-    // begin starcup
-    private HashSet<string> GetAvailableChannels(EntityUid entity)
-    {
-        var channels = new HashSet<string>();
-
-        // Get all the intrinsic radio channels (IPCs, implants)
-        if (TryComp(entity, out ActiveRadioComponent? intrinsicRadio))
-            channels.UnionWith(intrinsicRadio.Channels);
-
-        // Get the user's headset channels, if any
-        if (TryComp(entity, out WearingHeadsetComponent? headset)
-            && TryComp(headset.Headset, out ActiveRadioComponent? headsetRadio))
-            channels.UnionWith(headsetRadio.Channels);
-
-        return channels;
-    }
-
-    private void OnBoundUIOpened(Entity<AACTabletComponent> ent, ref BoundUIOpenedEvent args)
-    {
-        var state = new AACTabletBuiState(GetAvailableChannels(args.Actor));
-        _userInterface.SetUiState(args.Entity, AACTabletKey.Key, state);
-    }
-    // end starcup
 
     private void OnSendPhrase(Entity<AACTabletComponent> ent, ref AACTabletSendPhraseMessage message)
     {

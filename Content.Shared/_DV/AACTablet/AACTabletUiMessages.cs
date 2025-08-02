@@ -11,15 +11,8 @@ public enum AACTabletKey : byte
 }
 
 [Serializable, NetSerializable]
-public sealed class AACTabletSendPhraseMessage(List<ProtoId<QuickPhrasePrototype>> phraseIds, string prefix) : BoundUserInterfaceMessage
+public sealed class AACTabletSendPhraseMessage(List<ProtoId<QuickPhrasePrototype>> phraseIds, string prefix) : BoundUserInterfaceMessage // starcup: added prefix
 {
     public List<ProtoId<QuickPhrasePrototype>> PhraseIds = phraseIds;
-    public string Prefix = prefix; // starcup
-}
-
-// starcup
-[Serializable, NetSerializable]
-public sealed class AACTabletBuiState(HashSet<string> radioChannels) : BoundUserInterfaceState
-{
-    public HashSet<string> RadioChannels = radioChannels;
+    public string Prefix = prefix; // starcup: radio-enabled aac
 }
