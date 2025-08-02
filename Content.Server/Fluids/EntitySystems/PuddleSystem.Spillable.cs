@@ -148,8 +148,6 @@ public sealed partial class PuddleSystem
             return;
 
         // DeltaV - start of Beergoggles enable safe throw
-
-
         if (_safesolthrower.GetSafeThrow(args.PlayerUid))
             return;
         // DeltaV - end of Beergoggles enable safe throw
