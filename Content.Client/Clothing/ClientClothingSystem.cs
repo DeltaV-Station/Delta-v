@@ -12,6 +12,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
+using Content.Shared.Mobs; // DeltaV
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -54,6 +55,7 @@ public sealed class ClientClothingSystem : ClothingSystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!; // DeltaV
 
     public override void Initialize()
     {
@@ -104,6 +106,13 @@ public sealed class ClientClothingSystem : ClothingSystem
     {
         if (!TryComp(args.Equipee, out InventoryComponent? inventory))
             return;
+
+        // Begin DeltaV Additions
+        if (item.HideOnCrit &&
+            _appearance.TryGetData<MobState>(args.Equipee, MobStateVisuals.State, out var data) &&
+            data != MobState.Alive)
+            return; // They aren't alive, hide the clothing
+        // End DeltaV Additions
 
         List<PrototypeLayerData>? layers = null;
 
