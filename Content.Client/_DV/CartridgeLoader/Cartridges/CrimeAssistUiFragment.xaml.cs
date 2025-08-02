@@ -78,6 +78,7 @@ public sealed partial class CrimeAssistUiFragment : BoxContainer
                 CrimeSeverity.Innocent => "#39a300",
                 CrimeSeverity.Misdemeanour => "#7b7b30",
                 CrimeSeverity.Felony => "#7b5430",
+                CrimeSeverity.GrandFelony => "#7b3730",
                 CrimeSeverity.Capital => "#7b2e30",
                 _ => "#ff00ff"
             };
