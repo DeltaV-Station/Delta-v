@@ -66,6 +66,12 @@ public sealed partial class RoboticArmComponent : Component
     public ProtoId<SinkPortPrototype>? OutputMachinePort;
 
     /// <summary>
+    /// DeltaV - The sink signal port to turn robotic arm on or off.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public ProtoId<SinkPortPrototype> TogglePort = "Toggle"; // DeltaV I sure hope I did this right
+
+    /// <summary>
     /// The resolved automation input slot of the output machine to insert items into.
     /// </summary>
     [ViewVariables]
