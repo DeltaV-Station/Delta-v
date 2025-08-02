@@ -7,8 +7,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._DV.AACTablet.UI;
 
-public sealed partial class AACBoundUserInterface(EntityUid owner, Enum uiKey)
-    : BoundUserInterface(owner, uiKey) // starcup: made partial
+public sealed partial class AACBoundUserInterface : BoundUserInterface // starcup: made partial
 {
     [ViewVariables]
     private AACWindow? _window;
@@ -31,9 +30,9 @@ public sealed partial class AACBoundUserInterface(EntityUid owner, Enum uiKey)
         _window.SubmitPressed += OnSubmit;
     }
 
-    private void OnPhraseButtonPressed(List<ProtoId<QuickPhrasePrototype>> phraseId, string prefix) // starcup: prefix
+    private void OnPhraseButtonPressed(List<ProtoId<QuickPhrasePrototype>> phraseId, string prefix)
     {
-        SendMessage(new AACTabletSendPhraseMessage(phraseId, prefix));
+        SendMessage(new AACTabletSendPhraseMessage(phraseId, prefix)); // starcup: prefix parameter
     }
 
     private void OnTyping()
