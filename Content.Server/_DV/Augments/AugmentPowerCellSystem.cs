@@ -14,6 +14,7 @@ namespace Content.Server._DV.Augments;
 public sealed class AugmentPowerCellSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly AugmentSystem _augment = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
@@ -25,6 +26,9 @@ public sealed class AugmentPowerCellSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HasAugmentPowerCellSlotComponent, SearchForBatteryEvent>(OnSearchForBattery);
+
+        SubscribeLocalEvent<AugmentPowerCellSlotComponent, ChargeChangedEvent>(OnChargeChanged);
+        SubscribeLocalEvent<AugmentPowerCellSlotComponent, PowerCellChangedEvent>(OnPowerCellChanged);
     }
 
     private void OnSearchForBattery(Entity<HasAugmentPowerCellSlotComponent> ent, ref SearchForBatteryEvent args)
@@ -37,6 +41,39 @@ public sealed class AugmentPowerCellSystem : EntitySystem
             args.Handled = true;
             return;
         }
+    }
+
+    private void OnChargeChanged(Entity<AugmentPowerCellSlotComponent> ent, ref ChargeChangedEvent args)
+    {
+        CheckCharge(ent);
+    }
+
+    private void OnPowerCellChanged(Entity<AugmentPowerCellSlotComponent> ent, ref PowerCellChangedEvent args)
+    {
+        CheckCharge(ent);
+    }
+
+    private void CheckCharge(Entity<AugmentPowerCellSlotComponent> ent)
+    {
+        var hasCharge = _powerCell.HasDrawCharge(ent);
+        if (hasCharge == ent.Comp.HasCharge)
+            return;
+
+        if (CompOrNull<OrganComponent>(ent)?.Body is not {} body)
+            return;
+
+        ent.Comp.HasCharge = hasCharge;
+        Dirty(ent);
+        if (!hasCharge)
+        {
+            _popup.PopupEntity(Loc.GetString("augments-power-cell-emptied"), body, body, PopupType.MediumCaution);
+            // not raising event here since PowerCellDraw update should do it
+            return;
+        }
+
+        // inform augments they now have some power available
+        var ev = new AugmentPowerAvailableEvent(body);
+        _augment.RelayEvent(body, ref ev);
     }
 
     public (Entity<AugmentPowerCellSlotComponent, OrganComponent, PowerCellSlotComponent> Organ, Entity<BatteryComponent>? Battery)? TryGetAugmentPowerCell(EntityUid body)
@@ -59,18 +96,19 @@ public sealed class AugmentPowerCellSystem : EntitySystem
 
     public (Entity<AugmentPowerCellSlotComponent, OrganComponent, PowerCellSlotComponent> Organ, Entity<BatteryComponent>? Battery)? TryGetAugmentPowerCellFromAugment(EntityUid augment)
     {
-        if (!TryComp<OrganComponent>(augment, out var organ) || organ.Body is not {} uid)
+        if (CompOrNull<OrganComponent>(augment)?.Body is not {} body)
             return null;
 
-        return TryGetAugmentPowerCell(uid);
+        return TryGetAugmentPowerCell(body);
     }
 
     public bool TryDrawPower(EntityUid augment, float amount)
     {
-        if (!TryComp<OrganComponent>(augment, out var organ) || organ.Body is not {} body)
+        // need it for popups so getting it explicitly instead of using above method
+        if (CompOrNull<OrganComponent>(augment)?.Body is not {} body)
             return false;
 
-        if (TryGetAugmentPowerCellFromAugment(augment) is not (_, var battery))
+        if (TryGetAugmentPowerCell(body) is not (_, var battery))
         {
             _popup.PopupEntity(Loc.GetString("augments-no-power-cell-slot"), body, body);
             return false;
