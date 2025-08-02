@@ -7,19 +7,31 @@ public sealed class SafeSolutionThrowerSystem : EntitySystem
 {
     public override void Initialize()
     {
-        SubscribeLocalEvent<SafeSolutionThrowerComponent, SafeSolutionThrowEvent>(OnSafeSolutionThrowAttempt);
-        SubscribeLocalEvent<SafeSolutionThrowerComponent, InventoryRelayedEvent<SafeSolutionThrowEvent>>((e, c, ev) => OnSafeSolutionThrowAttempt(e, c, ev.Args));
+        base.Initialize();
+        Subs.SubscribeWithRelay<SafeSolutionThrowerComponent, SafeSolutionThrowEvent>(OnSafeSolutionThrowAttempt);
     }
 
-    private void OnSafeSolutionThrowAttempt(EntityUid eid, SafeSolutionThrowerComponent component, SafeSolutionThrowEvent args)
+    /// <summary>
+    /// Call this to check if a player can throw a solution safely.
+    /// </summary>
+    public bool GetSafeThrow(EntityUid playeruid)
+    {
+        var safeThrowEvent = new SafeSolutionThrowEvent();
+        RaiseLocalEvent(playeruid, ref safeThrowEvent);
+        return safeThrowEvent.SafeThrow;
+    }
+
+    private void OnSafeSolutionThrowAttempt(Entity<SafeSolutionThrowerComponent> ent, ref SafeSolutionThrowEvent args)
     {
         args.SafeThrow = true;
     }
 }
 
-
-public sealed class SafeSolutionThrowEvent : EntityEventArgs, IInventoryRelayEvent
+/// <summary>
+/// Raised on an entity and its inventory to determine if it can throw spillable objects safely.
+/// </summary>
+[ByRefEvent]
+public record struct SafeSolutionThrowEvent(bool SafeThrow = false) : IInventoryRelayEvent
 {
-    public bool SafeThrow;
-    public SlotFlags TargetSlots => SlotFlags.HEAD | SlotFlags.MASK | SlotFlags.EYES;
+    SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.HEAD | SlotFlags.MASK | SlotFlags.EYES;
 }

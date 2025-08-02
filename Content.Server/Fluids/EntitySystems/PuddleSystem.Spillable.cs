@@ -23,6 +23,7 @@ namespace Content.Server.Fluids.EntitySystems;
 public sealed partial class PuddleSystem
 {
     [Dependency] private readonly SharedPhysicsSystem _physics = default!; // DeltaV - Beergoggles enable safe throw
+    [Dependency] private readonly SafeSolutionThrowerSystem _safesolthrower = default!; // DeltaV - Beergoggles enable safe throw
 
     protected override void InitializeSpillable()
     {
@@ -118,9 +119,7 @@ public sealed partial class PuddleSystem
         if (args.User != null)
         {
             // DeltaV - start of Beergoggles enable safe throw
-            var safeThrowEvent = new SafeSolutionThrowEvent();
-            RaiseLocalEvent(args.User.Value, safeThrowEvent);
-            if (safeThrowEvent.SafeThrow)
+            if (_safesolthrower.GetSafeThrow(args.User.Value))
             {
                 _physics.SetAngularVelocity(entity, 0);
                 Transform(entity).LocalRotation = Angle.Zero;
@@ -149,9 +148,9 @@ public sealed partial class PuddleSystem
             return;
 
         // DeltaV - start of Beergoggles enable safe throw
-        var safeThrowEvent = new SafeSolutionThrowEvent();
-        RaiseLocalEvent(args.PlayerUid, safeThrowEvent);
-        if (safeThrowEvent.SafeThrow)
+
+
+        if (_safesolthrower.GetSafeThrow(args.PlayerUid))
             return;
         // DeltaV - end of Beergoggles enable safe throw
         args.Cancel("pacified-cannot-throw-spill");
