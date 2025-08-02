@@ -32,6 +32,10 @@
   - type: ItemToggle
     predictable: false
   - type: CosmicCenser
+    failedDeconversionDamage:
+      types:
+        Cold: 80
+        Asphyxiation: 40
   - type: Tool
     qualities: Censer
   - type: Welder
