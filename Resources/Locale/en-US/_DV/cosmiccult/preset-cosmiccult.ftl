@@ -25,7 +25,7 @@ cosmiccult-finale-speedup = The beckoning quickens! Energy surges through the su
 cosmiccult-finale-degen = You feel yourself unravelling!
 cosmiccult-finale-location = Scanners are detecting an enormous Λ-CDM spike {$location}!
 cosmiccult-finale-cancel-begin = Your mind's willpower begins to shatter the ritual...
-cosmiccult-finale-beckon-begin = The whispers in the back of your mind intensify...
+cosmiccult-finale-beckon-begin = Doing this will activate the final stage! Are you sure?
 cosmiccult-finale-beckon-success = You beckon for the final curtain call.
 
 cosmiccult-monument-powerdown = The Monument falls eerily silent.
