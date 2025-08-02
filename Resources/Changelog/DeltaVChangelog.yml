@@ -1,16 +1,4 @@
 ﻿Entries:
-- author: Lyndomen
-  changes:
-  - message: Dragons despawn in 10 minutes with no rifts, up from 5
-    type: Tweak
-  - message: Dragons now are gibbed upon being removed for having no rifts; not deleted.
-      Collect the corpses!
-    type: Tweak
-  - message: Dragons are only weakened for 1 minute after rift destruction, not 2
-    type: Tweak
-  id: 1062
-  time: '2025-02-23T13:45:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3017
 - author: Possumongus
   changes:
   - message: Added new HoP backpacks to keep visual consistency!
@@ -4135,3 +4123,12 @@
   id: 1561
   time: '2025-08-02T15:43:32.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3985
+- author: kotobdev
+  changes:
+  - message: "Mindbreaking now reduces glimmer by 50\u03A8-70\u03A8."
+    type: Tweak
+  - message: It is now more obvious when somebody gets mindbroken.
+    type: Tweak
+  id: 1562
+  time: '2025-08-02T21:12:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4121
