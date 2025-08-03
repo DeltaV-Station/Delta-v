@@ -10,7 +10,6 @@ public partial class InventorySystem
         base.Initialize();
         InitializeEquip();
         InitializeRelay();
-        InitializeRelayDV(); // DeltaV
         InitializeSlots();
     }
 

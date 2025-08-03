@@ -5,9 +5,12 @@ namespace Content.Shared._DV.Chemistry.Systems;
 
 public sealed class SafeSolutionThrowerSystem : EntitySystem
 {
+    [Dependency] private readonly InventorySystem _inventory = default!;
+
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<InventoryComponent, SafeSolutionThrowEvent>(_inventory.RelayEvent);
         Subs.SubscribeWithRelay<SafeSolutionThrowerComponent, SafeSolutionThrowEvent>(OnSafeSolutionThrowAttempt);
     }
 
