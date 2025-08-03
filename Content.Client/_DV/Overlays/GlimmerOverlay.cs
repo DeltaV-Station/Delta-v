@@ -6,12 +6,14 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using Serilog;
 
 namespace Content.Client._DV.Overlays;
 
 public sealed partial class GlimmerOverlay : Overlay
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
@@ -19,6 +21,9 @@ public sealed partial class GlimmerOverlay : Overlay
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     private readonly ShaderInstance _glimmerShader;
     private readonly ProtoId<ShaderPrototype> _shaderProto = "HighGlimmer";
+
+    private float oldGlimmerLevel = 0f;
+    public int currentGlimmerLevel = 0;
 
     public GlimmerOverlay()
     {
@@ -38,12 +43,40 @@ public sealed partial class GlimmerOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        //_glimmerShader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
+        var lastFrameTime = (float) _timing.FrameTime.TotalSeconds;
+
+        if (!MathHelper.CloseTo(oldGlimmerLevel, currentGlimmerLevel, 0.001f))
+        {
+            var diff = currentGlimmerLevel - oldGlimmerLevel;
+            oldGlimmerLevel += GetDiff(diff, lastFrameTime);
+        }
+        else
+        {
+            oldGlimmerLevel = currentGlimmerLevel;
+        }
+
+        //clamp glimmer to 0-1, map to exponential ease-out
+        var progress = Math.Clamp((oldGlimmerLevel - 700f) / 300f,0,1);
+        var size = 1f - MathF.Pow(2f, -8f * progress);
+
+        _glimmerShader.SetParameter("size",size);
 
         var worldHandle = args.WorldHandle;
         var viewport = args.WorldBounds;
         worldHandle.UseShader(_glimmerShader);
         worldHandle.DrawRect(viewport, Color.White);
         worldHandle.UseShader(null);
+    }
+
+    private float GetDiff(float value, float lastFrameTime)
+    {
+        var adjustment = value * 5f * lastFrameTime;
+
+        if (value < 0f)
+            adjustment = Math.Clamp(adjustment, value, -value);
+        else
+            adjustment = Math.Clamp(adjustment, -value, value);
+
+        return adjustment;
     }
 }

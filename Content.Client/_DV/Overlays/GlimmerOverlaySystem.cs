@@ -12,25 +12,21 @@ public sealed partial class GlimmerOverlaySystem : EntitySystem
 
     public override void Initialize()
     {
-        Log.Debug("dawg i fucking hate this system lowkey");
         base.Initialize();
 
         _overlayMan.AddOverlay(_overlay = new());
+        SubscribeNetworkEvent<GlimmerChangedEvent>(OnGlimmerChanged);
     }
 
-    public override void Update(float frameTime)
+    private void OnGlimmerChanged(GlimmerChangedEvent eventArgs)
     {
-        base.Update(frameTime);
-
-        Log.Debug("hell yeah glimmer is like " + _glimmer.Glimmer);
-        Log.Debug("erm wait our glimmer tier is like " + _glimmer.GetGlimmerTier());
-
-        if(_glimmer.Glimmer > 750)
+        if(eventArgs.Glimmer > 700)
         {
             if (!_overlayMan.HasOverlay<GlimmerOverlay>())
             {
                 _overlayMan.AddOverlay(_overlay);
             }
+            _overlay.currentGlimmerLevel = eventArgs.Glimmer;
         }
         else
         {

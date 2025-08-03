@@ -1,14 +1,12 @@
-//Shader by Xor, taken and modified from https://www.shadertoy.com/view/3fKSzc.
-//Licensed under CC BY-NC-SA 3.0: https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en
+// Shader by Xor, taken and modified from https://www.shadertoy.com/view/3fKSzc.
+// Licensed under CC BY-NC-SA 3.0: https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en
 
-const highp float TimeScale = 0.1;
+const highp float TimeScale = 0.2;
 
 uniform highp float size = 1;
 
-uniform highp float test = 1;
-
 void fragment() {
-    vec2 iResolution = vec2(1.0); // placeholder
+    vec2 iResolution = vec2(1.0);
     vec2 I = UV * iResolution;
 
 	//Raymarch depth
@@ -22,13 +20,13 @@ void fragment() {
 
     vec4 O = vec4(0.0);
 
-	//Clear fragColor and raymarch 100 steps
-    while (i++ < 50) {
+	//Clear fragColor and raymarch (some amount of) steps
+    while (i++ < 25) {
         // sample point (from ray direction)
         vec3 p = z * normalize(vec3(I + I, 0.0) - iResolution.xyx) + 0.1;
 
         // polar coordinates
-        p = vec3(atan(p.y, p.x) * 2.0, p.z / (3.0*(3.0-size)), length(p.xy) - 5.0 - z * (0.5 * 3.0-size));
+        p = vec3(atan(p.y, p.x) * 2.0, p.z / (3.0*(3.0-size)), length(p.xy) - 4.5 - z * (0.5 * 2.8-size));
 
         // apply turbulence
         d = 0.0;
