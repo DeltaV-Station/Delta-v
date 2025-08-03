@@ -163,6 +163,7 @@
       launchForwardsMultiplier: 1.5
   - type: StepTrigger
     intersectRatio: 0.04
+  - type: TriggerOnStepTrigger
   - type: Item
     heldPrefix: syndie
   - type: Fixtures
@@ -183,10 +184,12 @@
         - ItemMask
   - type: DeleteOnTrigger
   - type: EmitSoundOnTrigger
+    predicted: true
+    positional: true
     sound:
       path: "/Audio/Effects/Fluids/splat.ogg"
       params:
-        volume: -20
+        volume: -8
 
 - type: entity
   name: soap

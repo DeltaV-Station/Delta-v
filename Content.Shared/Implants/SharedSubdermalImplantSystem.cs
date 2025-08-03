@@ -184,7 +184,7 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
         if (!_container.TryGetContainer(uid, ImplanterComponent.ImplantSlotId, out var implantContainer))
             return;
 
-        var relayEv = new ImplantRelayEvent<T>(args);
+        var relayEv = new ImplantRelayEvent<T>(args, uid);
         foreach (var implant in implantContainer.ContainedEntities)
         {
             if (args is HandledEntityEventArgs { Handled : true })
@@ -199,9 +199,12 @@ public sealed class ImplantRelayEvent<T> where T : notnull
 {
     public readonly T Event;
 
-    public ImplantRelayEvent(T ev)
+    public readonly EntityUid ImplantedEntity;
+
+    public ImplantRelayEvent(T ev, EntityUid implantedEntity)
     {
         Event = ev;
+        ImplantedEntity = implantedEntity;
     }
 }
 
