@@ -1,176 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Shiva and Bingus are no longer thief objectives.
-    type: Remove
-  id: 1046
-  time: '2025-02-18T04:45:09.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3002
-- author: BlitzTheSquishy
-  changes:
-  - message: Lemon lime bitters! Australians Rejoice!
-    type: Add
-  id: 1047
-  time: '2025-02-18T09:06:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2464
-- author: Toby222
-  changes:
-  - message: Felinid footsteps no longer explode as soon as they put on shoes
-    type: Fix
-  id: 1048
-  time: '2025-02-18T17:08:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3004
-- author: Lyndomen
-  changes:
-  - message: IPC batteries now last 15% longer
-    type: Tweak
-  - message: IPCs can no longer be emagged
-    type: Remove
-  - message: IPCs now start with a survival box full of healing items
-    type: Add
-  - message: IPCs now take radiation and cold damage, with 50% resistance to both
-    type: Tweak
-  - message: IPCs may be cleansed of radiation with Plasma Sheets
-    type: Add
-  - message: IPCs now have a bloodstream of Oil. They do not regenerate oil, or stop
-      bleeding without intervention. They will very very slowly tick Blunt damage
-      when low on Oil.
-    type: Add
-  - message: IPC bleeding may be stopped with a Plastic Sheet or welding
-    type: Tweak
-  - message: IPCs may get back Oil by using an Oil Pack, printable at the medical
-      techfab or exosuit fabricator roundstart, or purchasable by logistics
-    type: Add
-  - message: Syndicate members may purchase a Silicon focused repair and recharge
-      kit; the Omnipatch Kit
-    type: Add
-  id: 1049
-  time: '2025-02-18T19:44:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2979
-- author: dvir001
-  changes:
-  - message: Added the plant box storage, you can now buy a big storage for plants
-      from cargo.
-    type: Add
-  id: 1050
-  time: '2025-02-18T19:47:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2994
-- author: Lyndomen
-  changes:
-  - message: Emergency Evac shuttle now takes 3 minutes to depart
-    type: Tweak
-  - message: Periapsis & Horizon now have a 3 hour default timer. Feel free to leave
-      earlier by calling the shuttle.
-    type: Tweak
-  - message: Command may now truly early launch the shuttle. Do not abuse this, command
-      is held to a high standard.
-    type: Tweak
-  - message: Recalling the shuttle got a little easier, it can now be recalled 2~
-      minutes later.
-    type: Tweak
-  - message: The shuttle will now arrive in 10 minutes on Code Delta, not 20.
-    type: Tweak
-  id: 1051
-  time: '2025-02-19T04:04:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2944
-- author: Lyndomen
-  changes:
-  - message: Ahelping the exact same thing 6 times will get one automatically banned.
-      File an appeal if this was in error.
-    type: Add
-  id: 1052
-  time: '2025-02-19T04:21:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3010
-- author: Toby222
-  changes:
-  - message: Mail teleporters now notify about new mail in the Logistics comms channel
-    type: Add
-  id: 1053
-  time: '2025-02-19T11:37:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2989
-- author: Lyndomen
-  changes:
-  - message: IPC bloodloss no longer causes more bleeding
-    type: Tweak
-  - message: IPCs eyes may be repaired with glass again
-    type: Fix
-  id: 1054
-  time: '2025-02-20T01:08:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3016
-- author: Eternally-Confused
-  changes:
-  - message: omnipatch stacks now correctly include 10 patches
-    type: Fix
-  id: 1055
-  time: '2025-02-20T23:06:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3014
-- author: Spielern
-  changes:
-  - message: Radiation no longer causes bleeding in IPCs.
-    type: Tweak
-  id: 1056
-  time: '2025-02-20T23:20:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3020
-- author: Stop-Signs
-  changes:
-  - message: Disaster pizza crate is no longer orderable
-    type: Remove
-  - message: Emergency pizza crate now costs more
-    type: Tweak
-  id: 1057
-  time: '2025-02-22T01:30:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3013
-- author: deltanedas
-  changes:
-  - message: Fixed atmos lockers with hardsuits not having insulated gloves.
-    type: Fix
-  id: 1058
-  time: '2025-02-22T01:34:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3025
-- author: makyo
-  changes:
-  - message: Add back hugging buckled characters.
-    type: Tweak
-  id: 1059
-  time: '2025-02-22T01:44:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3024
-- author: IAmNotGray
-  changes:
-  - message: Elegance Station has recieved further tweaks according to community feedback.
-      Thank you for your continued patience!
-    type: Tweak
-  id: 1060
-  time: '2025-02-22T06:18:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2931
-- author: sowelipililimute
-  changes:
-  - message: Added an indicator to the hotbar of how dirty a tool or glove is for
-      surgery
-    type: Add
-  id: 1061
-  time: '2025-02-23T03:08:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3026
-- author: Lyndomen
-  changes:
-  - message: Dragons despawn in 10 minutes with no rifts, up from 5
-    type: Tweak
-  - message: Dragons now are gibbed upon being removed for having no rifts; not deleted.
-      Collect the corpses!
-    type: Tweak
-  - message: Dragons are only weakened for 1 minute after rift destruction, not 2
-    type: Tweak
-  id: 1062
-  time: '2025-02-23T13:45:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3017
-- author: Possumongus
-  changes:
-  - message: Added new HoP backpacks to keep visual consistency!
-    type: Add
-  - message: Removed default bags from the hop loadout
-    type: Remove
-  id: 1063
-  time: '2025-02-23T15:27:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2856
 - author: BarryNorfolk
   changes:
   - message: Fixed Oni punches having modifiers apply twice
@@ -4160,3 +3988,145 @@
   id: 1545
   time: '2025-07-28T14:07:33.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4052
+- author: Colin-Tel
+  changes:
+  - message: Added Division Station to DeltaV, with a minimum population of 20 and
+      maximum of 70.
+    type: Add
+  id: 1546
+  time: '2025-07-29T05:08:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4006
+- author: SirrRequiem
+  changes:
+  - message: Terra Station
+    type: Add
+  - message: NTES Evac Yggdrasil shuttle
+    type: Add
+  id: 1547
+  time: '2025-07-30T06:30:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4005
+- author: TehFlaminTaco
+  changes:
+  - message: Telegnosis can now cause suffocation if overused
+    type: Tweak
+  - message: Telegnosis users are no-longer considered SSD
+    type: Tweak
+  id: 1548
+  time: '2025-07-30T07:51:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4090
+- author: NoElkaTheGod
+  changes:
+  - message: Fixed borgs trapped in a vacuous chantry having weird names.
+    type: Fix
+  id: 1549
+  time: '2025-07-30T14:28:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4101
+- author: kotobdev
+  changes:
+  - message: Psionics may now get nosebleeds at higher glimmer levels.
+    type: Add
+  id: 1550
+  time: '2025-07-30T18:49:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4093
+- author: HTMLSystem
+  changes:
+  - message: Cleanade rounds are now recyclable
+    type: Tweak
+  id: 1551
+  time: '2025-07-31T09:54:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4046
+- author: TehFlaminTaco
+  changes:
+  - message: Added a new power, Psionic Eruption
+    type: Add
+  id: 1552
+  time: '2025-07-31T11:39:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4078
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic cult conversion at late stages now applies subtle/star marks properly.
+    type: Fix
+  id: 1553
+  time: '2025-07-31T11:40:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4110
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic subtle mark now gets properly removed on deconversion.
+    type: Fix
+  id: 1554
+  time: '2025-07-31T16:26:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4104
+- author: HTMLSystem
+  changes:
+  - message: Gave bluespace ore a new sprite.
+    type: Tweak
+  id: 1555
+  time: '2025-07-31T18:15:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4024
+- author: Radezolid
+  changes:
+  - message: Moved the energy shotgun to the warden's locker.
+    type: Tweak
+  id: 1556
+  time: '2025-08-01T08:12:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4089
+- author: kotobdev
+  changes:
+  - message: The Mantis' psibreaker pistol actually removes psionics now.
+    type: Fix
+  id: 1557
+  time: '2025-08-01T08:13:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4119
+- author: kotobdev
+  changes:
+  - message: Random objects may become animated at high glimmer levels.
+    type: Add
+  id: 1558
+  time: '2025-08-01T12:58:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4105
+- author: kotobdev
+  changes:
+  - message: Mass Sleep now has a cast time and visual warning.
+    type: Tweak
+  id: 1559
+  time: '2025-08-01T20:40:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4067
+- author: NoElkaTheGod
+  changes:
+  - message: 'Cosmic cult''s weapons are now created slightly differently: entropic
+      blade can be made from any sword or knife (including shivs), while vacous lances
+      can be created from spears.'
+    type: Tweak
+  - message: Cosmic cultists can now examine an item to see if it can be used for
+      transmutation.
+    type: Tweak
+  - message: Astral razor, a new cult weapon, has been finally added! It works not
+      unlike a crusher, and can be created from one using glyph of blades.
+    type: Add
+  id: 1560
+  time: '2025-08-01T22:14:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4114
+- author: Field Command
+  changes:
+  - message: 'Shuttles: Changed out traveling cuisines and recruiter shuttles for
+      better ones.'
+    type: Tweak
+  id: 1561
+  time: '2025-08-02T15:43:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3985
+- author: kotobdev
+  changes:
+  - message: "Mindbreaking now reduces glimmer by 50\u03A8-70\u03A8."
+    type: Tweak
+  - message: It is now more obvious when somebody gets mindbroken.
+    type: Tweak
+  id: 1562
+  time: '2025-08-02T21:12:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4121
+- author: NoElkaTheGod
+  changes:
+  - message: Cult helmets now provide flash protection.
+    type: Tweak
+  id: 1563
+  time: '2025-08-02T21:12:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4108

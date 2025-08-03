@@ -20,14 +20,11 @@
   name: Mass Sleep
   description: Put targets in a small area to sleep.
   components:
-  - type: WorldTargetAction
+  - type: InstantAction
     icon:
       sprite: _DV/Interface/Actions/actions_psionics.rsi
       state: mass_sleep
     useDelay: 60
-    checkCanAccess: false
-    checkCanInteract: false
-    range: 8
     itemIconStyle: BigAction
     event: !type:MassSleepPowerActionEvent
 
@@ -102,6 +99,20 @@
     useDelay: 45
     checkCanInteract: false
     event: !type:MetapsionicPowerActionEvent
+
+- type: entity
+  id: ActionEruption
+  name: Psionic Eruption
+  description: Unleash a powerful psionic eruption destroying you and everything around you.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: eruption
+    useDelay: 45
+    checkCanInteract: false
+    event: !type:PsionicEruptionPowerActionEvent
+
 
 - type: entity
   id: ActionPsionicRegeneration
