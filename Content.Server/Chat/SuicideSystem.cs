@@ -71,6 +71,9 @@ public sealed class SuicideSystem : EntitySystem
 
         return false; // DeltaV - Prevent Suicide. We allow the event to go out anyways in case anything relies on the event for a message or whatever.
 
+        // TODO: fix this
+        // This is a handled event, but the result is never used
+        // It looks like TriggerOnMobstateChange is supposed to prevent you from suiciding
         var suicideEvent = new SuicideEvent(victim);
         RaiseLocalEvent(victim, suicideEvent);
 
