@@ -12,5 +12,5 @@ public sealed partial class CosmicMarkVisualsComponent : Component
     public Vector2 Offset = Vector2.Zero;
 
     [DataField]
-    public string SubtleState = "default"
+    public string SubtleState = "default";
 }
