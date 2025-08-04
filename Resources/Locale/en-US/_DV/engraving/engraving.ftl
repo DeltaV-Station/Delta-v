@@ -1,4 +1,4 @@
-﻿engraving-verb-engrave = Engrave
+engraving-verb-engrave = Engrave
 engraving-popup-ui-message = Description
 
 engraving-no-message = No engraving is present on {THE($item)}.
