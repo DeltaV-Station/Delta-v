@@ -21,11 +21,12 @@ public sealed partial class GlimmerOverlaySystem : EntitySystem
     {
         if(eventArgs.Glimmer > 700)
         {
+            _overlay.ActualGlimmerLevel = eventArgs.Glimmer;
             if (!_overlayMan.HasOverlay<GlimmerOverlay>())
             {
+                _overlay.Reset();
                 _overlayMan.AddOverlay(_overlay);
             }
-            _overlay.ActualGlimmerLevel = eventArgs.Glimmer;
         }
         else
         {

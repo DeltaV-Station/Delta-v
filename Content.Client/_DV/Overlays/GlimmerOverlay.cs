@@ -6,7 +6,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._DV.Overlays;
 
-public sealed partial class GlimmerOverlay : Overlay
+public sealed class GlimmerOverlay : Overlay
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
@@ -62,15 +62,10 @@ public sealed partial class GlimmerOverlay : Overlay
         worldHandle.UseShader(null);
     }
 
-    private float GetDiff(float value, float lastFrameTime)
+    // used to avoid lerp jump if overlay was removed weirdly prior
+    public void Reset()
     {
-        var adjustment = value * 5f * lastFrameTime;
-
-        if (value < 0f)
-            adjustment = Math.Clamp(adjustment, value, -value);
-        else
-            adjustment = Math.Clamp(adjustment, -value, value);
-
-        return adjustment;
+        _visualGlimmerLevel = ActualGlimmerLevel;
     }
+
 }
