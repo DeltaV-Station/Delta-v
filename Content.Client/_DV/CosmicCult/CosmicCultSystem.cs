@@ -31,11 +31,11 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<IdentityComponent, DidEquipEvent>((uid, _, _) => UpdateSubtleMarkVisibility(uid));
-        SubscribeLocalEvent<IdentityComponent, DidEquipHandEvent>((uid, _, _) => UpdateSubtleMarkVisibility(uid));
-        SubscribeLocalEvent<IdentityComponent, DidUnequipEvent>((uid, _, _) => UpdateSubtleMarkVisibility(uid));
-        SubscribeLocalEvent<IdentityComponent, DidUnequipHandEvent>((uid, _, _) => UpdateSubtleMarkVisibility(uid));
-        SubscribeLocalEvent<IdentityComponent, WearerMaskToggledEvent>((uid, _, _) => UpdateSubtleMarkVisibility(uid));
+        SubscribeLocalEvent<CosmicSubtleMarkComponent, DidEquipEvent>((uid, _, _) => UpdateSubtleMarkVisibility(uid));
+        SubscribeLocalEvent<CosmicSubtleMarkComponent, DidEquipHandEvent>((uid, _, _) => UpdateSubtleMarkVisibility(uid));
+        SubscribeLocalEvent<CosmicSubtleMarkComponent, DidUnequipEvent>((uid, _, _) => UpdateSubtleMarkVisibility(uid));
+        SubscribeLocalEvent<CosmicSubtleMarkComponent, DidUnequipHandEvent>((uid, _, _) => UpdateSubtleMarkVisibility(uid));
+        SubscribeLocalEvent<CosmicSubtleMarkComponent, WearerMaskToggledEvent>((uid, _, _) => UpdateSubtleMarkVisibility(uid));
 
         SubscribeLocalEvent<CosmicStarMarkComponent, ComponentStartup>(OnCosmicStarMarkAdded);
         SubscribeLocalEvent<CosmicStarMarkComponent, ComponentShutdown>(OnCosmicStarMarkRemoved);

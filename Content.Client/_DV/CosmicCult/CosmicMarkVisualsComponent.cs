@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace Content.Shared._DV.CosmicCult.Components;
+namespace Content.Client._DV.CosmicCult;
 
 /// <summary>
 /// This is used to apply an offset to the star mark, and select the proper state for the subtle mark depending on the species.
