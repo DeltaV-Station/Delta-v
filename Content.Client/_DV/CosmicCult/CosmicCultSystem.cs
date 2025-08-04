@@ -107,6 +107,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         sprite.LayerMapSet(CosmicRevealedKey.Key, layer);
         sprite.LayerSetShader(layer, "unshaded");
 
+        UpdateSubtleMarkVisibility(uid);
+
         //I am NOT accounting for IPCs here. If you want it, do it yourself. You guys wanted them to be able to look like any other species, not me.
         //Also there's probably a better solution but meh, this works.
         if (TryComp<CosmicMarkVisualsComponent>(uid, out var offset))
