@@ -181,27 +181,39 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
 
-# DeltaV: disabled sentience due to very rarely being good RP, and usually ending the round early
-#- type: artifactEffect
-#  id: EffectSentience
-#  targetDepth: 3
-#  effectHint: artifact-effect-hint-sentience
-#  permanentComponents:
-#  - type: GhostRole
-#    allowMovement: true
-#    allowSpeech: true
-#    makeSentient: true
-#    name: ghost-role-information-artifact-name
-#    description: ghost-role-information-artifact-description
-#    rules: ghost-role-information-freeagent-rules
-#    mindRoles:
-#    - MindRoleGhostRoleFreeAgent
-#    raffle:
-#      settings: default
-#  - type: GhostTakeoverAvailable
-#  - type: MovementSpeedModifier
-#    baseWalkSpeed: 0.25
-#    baseSprintSpeed: 0.5
+- type: artifactEffect
+  id: EffectSentience
+  targetDepth: 3
+  effectHint: artifact-effect-hint-sentience
+  permanentComponents:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-artifact-name
+    description: ghost-role-information-artifact-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.25
+    baseSprintSpeed: 0.5
+  - type: Destructible # DeltaV - Destroyable sentient artifacts
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+  - type: Repairable # DeltaV - Destroyable sentient artifacts
+    doAfterDelay: 5 
 
 - type: artifactEffect
   id: EffectMultitool
