@@ -931,7 +931,7 @@
   id: ChiefEngineerShoes
   name: loadout-group-chief-engineer-shoes
   loadouts:
-  #- BrownShoes
+  #- BrownShoes # DeltaV - Engi loadout rework
   - EngineeringWinterBoots
   # Begin DeltaV Additions
   - AtmosWinterBoots
@@ -1038,8 +1038,8 @@
   id: AtmosphericTechnicianShoes
   name: loadout-group-atmospheric-technician-shoes
   loadouts:
-  #- WhiteShoes
-  #- EngineeringWinterBoots
+  #- WhiteShoes # DeltaV - Engi loadout rework
+  #- EngineeringWinterBoots # DeltaV - Engi loadout rework
   # Begin DeltaV Additions
   - WorkBoots
   - BlueShoes
