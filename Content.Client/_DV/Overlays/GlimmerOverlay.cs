@@ -1,13 +1,8 @@
-using System.Diagnostics;
-using System.Numerics;
-using Content.Shared._DV.Pain;
-using Content.Shared.Psionics;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Serilog;
 
 namespace Content.Client._DV.Overlays;
 
@@ -16,7 +11,6 @@ public sealed partial class GlimmerOverlay : Overlay
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     private readonly ShaderInstance _glimmerShader;
