@@ -3,6 +3,8 @@ using Content.Shared.Antag;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
+using Content.Shared.Mindshield.Components;
+using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.Verbs;
 using Content.Shared._DV.Roles;
@@ -17,6 +19,7 @@ public abstract class SharedCosmicCultSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
 
@@ -24,6 +27,7 @@ public abstract class SharedCosmicCultSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<MindShieldComponent, ComponentStartup>(MindShieldImplanted);
         SubscribeLocalEvent<CosmicCultComponent, ComponentGetStateAttemptEvent>(OnCosmicCultCompGetStateAttempt);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentGetStateAttemptEvent>(OnCosmicCultCompGetStateAttempt);
         SubscribeLocalEvent<CosmicCultComponent, ComponentStartup>(DirtyCosmicCultComps);
@@ -113,5 +117,12 @@ public abstract class SharedCosmicCultSystem : EntitySystem
         {
             Dirty(uid, comp);
         }
+    }
+
+    private void MindShieldImplanted(EntityUid uid, MindShieldComponent comp, ComponentStartup args)
+    {
+        if (!HasComp<CosmicCultComponent>(uid)) return;
+        RemCompDeferred<MindShieldComponent>(uid);
+        _popup.PopupEntity(Loc.GetString("cosmic-mindshield-failed"), uid);
     }
 }

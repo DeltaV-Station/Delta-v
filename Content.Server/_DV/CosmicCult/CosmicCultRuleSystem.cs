@@ -35,6 +35,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
+using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs;
@@ -679,6 +680,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (!_mind.TryGetMind(uid, out var mindId, out var mind) ||
             !_playerMan.TryGetSessionById(mind.UserId, out var session))
             return;
+
+        if (HasComp<MindShieldComponent>(uid)) RemCompDeferred<MindShieldComponent>(uid);
 
         _role.MindAddRole(mindId, MindRole, mind, true);
 

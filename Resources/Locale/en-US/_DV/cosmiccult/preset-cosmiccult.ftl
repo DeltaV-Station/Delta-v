@@ -194,6 +194,7 @@ cosmiccult-entropy-unavailable = You can't do that right now.
 cosmiccult-astral-ascendant = {$name}, Ascendant
 cosmiccult-astral-minion = {$name}, Malign
 cosmiccult-gear-pickup = You can feel yourself unravelling while you hold the {$ITEM}!
+cosmic-mindshield-failed = The implant had been overloaded by cosmic energy and failed to activate!
 
 cosmiccult-silicon-subverted-briefing =
     Malign light courses through your circuitry.
