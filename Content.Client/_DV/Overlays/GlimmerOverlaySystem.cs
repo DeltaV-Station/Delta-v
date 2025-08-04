@@ -26,7 +26,7 @@ public sealed partial class GlimmerOverlaySystem : EntitySystem
             {
                 _overlayMan.AddOverlay(_overlay);
             }
-            _overlay.currentGlimmerLevel = eventArgs.Glimmer;
+            _overlay.ActualGlimmerLevel = eventArgs.Glimmer;
         }
         else
         {
