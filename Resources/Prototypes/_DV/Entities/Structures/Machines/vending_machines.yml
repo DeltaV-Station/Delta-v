@@ -51,5 +51,7 @@
   id: VendingMachineChefvendUnlocked
   suffix: Unlocked
   components:
+  - type: VendingMachine
+    pack: ChefvendUnlockedInventory
   - type: AccessReader
     enabled: false

@@ -87,6 +87,7 @@
   - type: VendingMachineRestock
     canRestock:
     - ChefvendInventory
+    - ChefvendUnlockedInventory # DeltaV - Make unlocked chefvend refillable
   - type: Sprite
     layers:
     - state: base
