@@ -1,16 +1,14 @@
-using Content.Shared.Chemistry.Reagent;
-using Content.Server.Psionics;
 using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Chemistry.ReagentEffects
+namespace Content.Shared.Nyanotrasen.Chemistry.Effects
 {
     /// <summary>
     /// Rerolls psionics once.
     /// </summary>
     [UsedImplicitly]
-    public sealed partial class ChemRerollPsionic : EntityEffect
+    public sealed partial class ChemRerollPsionic : EventEntityEffect<ChemRerollPsionic>
     {
         protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
             => Loc.GetString("reagent-effect-guidebook-chem-reroll-psionic", ("chance", Probability));
@@ -20,12 +18,5 @@ namespace Content.Server.Chemistry.ReagentEffects
         /// </summary>
         [DataField("bonusMultiplier")]
         public float BonusMuliplier = 1f;
-
-        public override void Effect(EntityEffectBaseArgs args)
-        {
-            var psySys = args.EntityManager.EntitySysManager.GetEntitySystem<PsionicsSystem>();
-
-            psySys.RerollPsionics(args.TargetEntity, bonusMuliplier: BonusMuliplier);
-        }
     }
 }

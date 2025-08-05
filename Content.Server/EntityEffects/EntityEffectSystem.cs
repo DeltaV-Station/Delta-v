@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server.Abilities.Psionics;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
@@ -16,11 +17,13 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Medical;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
+using Content.Server.Psionics;
 using Content.Server.Speech.Components;
 using Content.Server.Spreader;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Server.Traits.Assorted;
+using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Server.Zombies;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
@@ -30,8 +33,10 @@ using Content.Shared.EntityEffects.Effects.PlantMetabolism;
 using Content.Shared.EntityEffects.Effects.StatusEffects;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.EntityEffects;
+using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Shared.Mind.Components;
+using Content.Shared.Nyanotrasen.Chemistry.Effects;
 using Content.Shared.Popups;
 using Content.Shared.Random;
 using Content.Shared.Zombies;
@@ -123,6 +128,13 @@ public sealed class EntityEffectSystem : EntitySystem
         SubscribeLocalEvent<ExecuteEntityEffectEvent<PlantSpeciesChange>>(OnExecutePlantSpeciesChange);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<PolymorphEffect>>(OnExecutePolymorph);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ResetNarcolepsy>>(OnExecuteResetNarcolepsy);
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<ActivateArtifact>>(OnActivateArtifact);
+
+        // Nyanotrasen
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemRemovePsionic>>(OnChemRemovePsionic);
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemRerollPsionic>>(OnChemRerollPsionic);
+        // Nyanotrasen end
+
     }
 
     private void OnCheckTemperature(ref CheckEntityEffectConditionEvent<TemperatureCondition> args)
@@ -761,8 +773,18 @@ public sealed class EntityEffectSystem : EntitySystem
             return;
         }
 
+        // Delta-V: Do not allow humanoids to become sentient. Intended to stop people from
+        // repeatedly cloning themselves and using cognizine on their bodies.
+        // HumanoidAppearanceComponent is common to all player species, and is also used for the
+        // Ripley pilot whitelist, so there's a precedent for using it for this kind of check.
+        if (HasComp<HumanoidAppearanceComponent>(uid))
+        {
+            return;
+        }
+
         ghostRole = AddComp<GhostRoleComponent>(uid);
         EnsureComp<GhostTakeoverAvailableComponent>(uid);
+        EnsureComp<PotentialPsionicComponent>(uid); //Nyano - Summary:. Makes the animated body able to get psionics.
 
         var entityData = EntityManager.GetComponent<MetaDataComponent>(uid);
         ghostRole.RoleName = entityData.EntityName;
@@ -972,4 +994,31 @@ public sealed class EntityEffectSystem : EntitySystem
 
         _narcolepsy.AdjustNarcolepsyTimer(args.Args.TargetEntity, args.Effect.TimerReset);
     }
+
+    private void OnActivateArtifact(ref ExecuteEntityEffectEvent<ActivateArtifact> args)
+    {
+        var artifact = args.Args.EntityManager.EntitySysManager.GetEntitySystem<ArtifactSystem>();
+        artifact.TryActivateArtifact(args.Args.TargetEntity, logMissing: false);
+    }
+
+    // Nyanotrasen
+    private void OnChemRemovePsionic(ref ExecuteEntityEffectEvent<ChemRemovePsionic> args)
+    {
+        if (args.Args is EntityEffectReagentArgs reagentArgs)
+        {
+            if (reagentArgs.Scale != 1f)
+                return;
+        }
+
+        var psySys = args.Args.EntityManager.EntitySysManager.GetEntitySystem<PsionicAbilitiesSystem>();
+
+        psySys.RemovePsionics(args.Args.TargetEntity);
+    }
+
+    private void OnChemRerollPsionic(ref ExecuteEntityEffectEvent<ChemRerollPsionic> args)
+    {
+        var psySys = args.Args.EntityManager.EntitySysManager.GetEntitySystem<PsionicsSystem>();
+        psySys.RerollPsionics(args.Args.TargetEntity, bonusMuliplier: args.Effect.BonusMuliplier);
+    }
+    // Nyanotrasen end
 }

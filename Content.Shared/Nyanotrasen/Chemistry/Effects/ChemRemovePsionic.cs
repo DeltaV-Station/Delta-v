@@ -8,22 +8,9 @@ namespace Content.Shared.Nyanotrasen.Chemistry.Effects
     /// Rerolls psionics once.
     /// </summary>
     [UsedImplicitly]
-    public sealed partial class ChemRemovePsionic : EntityEffect
+    public sealed partial class ChemRemovePsionic : EventEntityEffect<ChemRemovePsionic>
     {
         protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
             => Loc.GetString("reagent-effect-guidebook-chem-remove-psionic", ("chance", Probability));
-
-        public override void Effect(EntityEffectBaseArgs args)
-        {
-            if (args is EntityEffectReagentArgs reagentArgs)
-            {
-                if (reagentArgs.Scale != 1f)
-                    return;
-            }
-
-            var psySys = args.EntityManager.EntitySysManager.GetEntitySystem<PsionicAbilitiesSystem>();
-
-            psySys.RemovePsionics(args.TargetEntity);
-        }
     }
 }

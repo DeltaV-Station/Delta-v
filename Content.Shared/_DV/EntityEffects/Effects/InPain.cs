@@ -2,7 +2,7 @@ using Content.Shared._DV.Pain;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.EntityEffects.Effects;
+namespace Content.Shared._DV.EntityEffects.Effects;
 
 public sealed partial class InPain : EntityEffect
 {
