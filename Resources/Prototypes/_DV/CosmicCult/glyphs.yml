@@ -79,11 +79,6 @@
       state: cessation
     drawdepth: Puddles
   - type: CosmicGlyphTransmute
-    transmutations:
-    - CosmicVacuousSpire
-    whitelist:
-      components:
-      - PortableScrubber
   - type: CosmicGlyph
     requiredCultists: 1
     activationDamage:
@@ -103,12 +98,6 @@
     - state: blades
     drawdepth: Puddles
   - type: CosmicGlyphTransmute
-    transmutations:
-    - SwordCosmicCult
-    - SpearCosmicCult
-    whitelist:
-      components:
-      - Sharp
   - type: CosmicGlyph
     requiredCultists: 2
     activationDamage:
@@ -128,13 +117,6 @@
     - state: warding
     drawdepth: Puddles
   - type: CosmicGlyphTransmute
-    transmutations:
-    - ClothingOuterHardsuitCosmicCult
-    whitelist:
-      requireAll: true
-      components:
-      - ClothingSpeedModifier
-      - PressureProtection
   - type: CosmicGlyph
     requiredCultists: 2
     activationDamage:
