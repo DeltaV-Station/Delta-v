@@ -1,5 +1,7 @@
 psionic-nosebleed-message = Your nose starts gushing blood!
 
+psionic-power-mass-sleep-warning = Your eyelids begin to droop...
+
 psionic-power-precognition-failure-by-damage = Your concentration was broken! You fail to decipher anything of use.
 psionic-power-precognition-no-event-result-message = You see a vision of an undisturbed lake.
 

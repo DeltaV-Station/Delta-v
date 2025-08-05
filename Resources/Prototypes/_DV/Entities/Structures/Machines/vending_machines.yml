@@ -45,3 +45,11 @@
     pack: BoozeOMatCommandInventory
   - type: AccessReader
     access: [["Command"]]
+
+- type: entity
+  parent: VendingMachineChefvend
+  id: VendingMachineChefvendUnlocked
+  suffix: Unlocked
+  components:
+  - type: AccessReader
+    enabled: false

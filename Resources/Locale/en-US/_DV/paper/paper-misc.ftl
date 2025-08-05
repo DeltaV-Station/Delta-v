@@ -19,3 +19,17 @@ book-text-subscription-notice = [head=2]Greetings loyal subscriber,[/head]
       All that and more waiting for you inside!
 
       Signing off,
+
+paper-salvage-gun-safe-notice = SALVAGE SPECIALIST SELF DEFENSE ARMAMENT NOTICE
+
+      Greetings, salvage specialist!
+
+      With the growing concern for the safety of our brave salvage workers, we have deployed a standard-issue gun safe.
+
+      Responsible handing of these firearms is expected. Any use that does not fall under work-related self-defense is strictly prohibited and may result in the removal of firearm privileges and/or termination from the salvage specialist team.
+
+      Misuse of firearms resulting in endangerment of the station and/or threat or harm to another employee will be prosecuted by the station's justice department.
+
+      Remember, safety and responsible firearm use in your hands!
+
+      Nanotrasen Corporate Salvage Division

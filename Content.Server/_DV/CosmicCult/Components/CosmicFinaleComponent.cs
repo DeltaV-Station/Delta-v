@@ -38,7 +38,7 @@ public sealed partial class CosmicFinaleComponent : Component
     public TimeSpan FinaleRemainingTime = TimeSpan.FromSeconds(362);
 
     [DataField, AutoNetworkedField]
-    public TimeSpan VisualsThreshold = TimeSpan.FromSeconds(240);
+    public TimeSpan VisualsThreshold = TimeSpan.FromSeconds(125);
 
     [DataField, AutoNetworkedField]
     public TimeSpan CheckWait = TimeSpan.FromSeconds(5);
