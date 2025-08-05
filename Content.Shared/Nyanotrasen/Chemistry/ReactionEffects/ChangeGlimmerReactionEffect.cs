@@ -1,9 +1,8 @@
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
 using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Chemistry.ReactionEffects;
+namespace Content.Shared.Nyanotrasen.Chemistry.ReactionEffects;
 
 [DataDefinition]
 public sealed partial class ChangeGlimmerReactionEffect : EntityEffect

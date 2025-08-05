@@ -1,10 +1,8 @@
-using Content.Shared.Chemistry.Reagent;
-using Content.Server.Abilities.Psionics;
 using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Chemistry.ReagentEffects
+namespace Content.Shared.Nyanotrasen.Chemistry.Effects
 {
     /// <summary>
     /// Rerolls psionics once.
