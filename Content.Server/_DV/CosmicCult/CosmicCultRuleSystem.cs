@@ -681,7 +681,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             !_playerMan.TryGetSessionById(mind.UserId, out var session))
             return;
 
-        if (HasComp<MindShieldComponent>(uid)) RemCompDeferred<MindShieldComponent>(uid);
+        RemCompDeferred<MindShieldComponent>(uid);
 
         _role.MindAddRole(mindId, MindRole, mind, true);
 
