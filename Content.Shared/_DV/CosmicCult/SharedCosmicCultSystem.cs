@@ -28,7 +28,7 @@ public abstract class SharedCosmicCultSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MindShieldComponent, ImplantImplantedEvent>(MindShieldImplanted);
+        SubscribeLocalEvent<MindShieldImplantComponent, ImplantImplantedEvent>(MindShieldImplanted);
         SubscribeLocalEvent<CosmicCultComponent, ComponentGetStateAttemptEvent>(OnCosmicCultCompGetStateAttempt);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentGetStateAttemptEvent>(OnCosmicCultCompGetStateAttempt);
         SubscribeLocalEvent<CosmicCultComponent, ComponentStartup>(DirtyCosmicCultComps);
@@ -120,10 +120,10 @@ public abstract class SharedCosmicCultSystem : EntitySystem
         }
     }
 
-    private void MindShieldImplanted(Entity<MindShieldComponent> ent, ref ImplantImplantedEvent args)
+    private void MindShieldImplanted(Entity<MindShieldImplantComponent> ent, ref ImplantImplantedEvent args)
     {
-        if (!HasComp<CosmicCultComponent>(ent)) return;
-        RemCompDeferred<MindShieldComponent>(ent);
+        if (args.Implanted is not {} target || !HasComp<CosmicCultComponent>(target)) return;
+        RemCompDeferred<MindShieldComponent>(target);
         _popup.PopupEntity(Loc.GetString("cosmic-mindshield-failed"), ent);
     }
 }
