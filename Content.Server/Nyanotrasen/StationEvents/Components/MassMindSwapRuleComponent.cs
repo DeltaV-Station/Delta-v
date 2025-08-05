@@ -1,5 +1,5 @@
 using Content.Server.Nyanotrasen.StationEvents.Events;
-using Content.Server.StationEvents.Events;
+using Robust.Shared.Audio;
 
 namespace Content.Server.StationEvents.Components;
 
@@ -11,4 +11,21 @@ public sealed partial class MassMindSwapRuleComponent : Component
     /// </summary>
     [DataField("isTemporary")]
     public bool IsTemporary;
+
+    [DataField]
+    public int Timer = 90;
+
+    [DataField]
+    public float RemainingTime;
+
+    [DataField]
+    public SoundSpecifier AnnouncementSound = new SoundPathSpecifier("/Audio/Misc/notice1.ogg");
+
+    [DataField]
+    public SoundSpecifier SwapWarningSound = new SoundPathSpecifier("/Audio/_DV/Effects/clang2.ogg");
+
+    public bool Started = false;
+
+    public bool PlayedWarningSound = false;
+
 }
