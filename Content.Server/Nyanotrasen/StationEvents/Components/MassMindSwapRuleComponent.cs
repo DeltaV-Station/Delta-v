@@ -13,16 +13,15 @@ public sealed partial class MassMindSwapRuleComponent : Component
     public bool IsTemporary;
 
     [DataField]
-    public int Timer = 90;
-
-    [DataField]
-    public float RemainingTime;
+    public TimeSpan Delay = TimeSpan.FromSeconds(90);
 
     [DataField]
     public SoundSpecifier AnnouncementSound = new SoundPathSpecifier("/Audio/Misc/notice1.ogg");
 
     [DataField]
     public SoundSpecifier SwapWarningSound = new SoundPathSpecifier("/Audio/_DV/Effects/clang2.ogg");
+
+    public TimeSpan StartTime;
 
     public bool Started = false;
 

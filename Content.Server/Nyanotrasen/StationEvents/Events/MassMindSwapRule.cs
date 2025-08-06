@@ -25,17 +25,17 @@ internal sealed class MassMindSwapRule : StationEventSystem<MassMindSwapRuleComp
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
 
-    private float _warningSoundLength;
+    private TimeSpan _warningSoundLength;
     private ResolvedSoundSpecifier _resolvedWarningSound = String.Empty;
     protected override void Started(EntityUid uid, MassMindSwapRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
-        component.RemainingTime = component.Timer;
+        component.StartTime = Timing.CurTime;
 
         _resolvedWarningSound = _audio.ResolveSound(component.SwapWarningSound);
-        _warningSoundLength = (float) _audio.GetAudioLength(_resolvedWarningSound).TotalSeconds;
+        _warningSoundLength = _audio.GetAudioLength(_resolvedWarningSound);
 
-        var announcement = Loc.GetString("mass-mind-swap-event-announcement", ("time", component.Timer));
+        var announcement = Loc.GetString("mass-mind-swap-event-announcement", ("time", component.Delay.TotalSeconds));
         var sender = Loc.GetString("mass-mind-swap-event-sender");
         _chat.DispatchGlobalAnnouncement(announcement, sender, true, component.AnnouncementSound, Color.White);
     }
@@ -47,18 +47,19 @@ internal sealed class MassMindSwapRule : StationEventSystem<MassMindSwapRuleComp
         var query = EntityQueryEnumerator<MassMindSwapRuleComponent, GameRuleComponent>();
         while (query.MoveNext(out var uid, out var comp, out var ruleComp))
         {
-            comp.RemainingTime -= frameTime;
-            if (comp.RemainingTime <= _warningSoundLength && !comp.PlayedWarningSound)
+            var remainingTime = comp.Delay - (Timing.CurTime - comp.StartTime);
+            if (remainingTime <= _warningSoundLength && !comp.PlayedWarningSound)
             {
                 _audio.PlayGlobal(_resolvedWarningSound, Filter.Broadcast(), true);
                 comp.PlayedWarningSound = true;
             }
-            if (comp.RemainingTime <= 0f && !comp.Started)
-            {
-                SwapMinds(comp);
-                comp.Started = true;
-                GameTicker.EndGameRule(uid, ruleComp);
-            }
+
+            if (remainingTime > TimeSpan.Zero || comp.Started)
+                continue;
+
+            SwapMinds(comp);
+            comp.Started = true;
+            GameTicker.EndGameRule(uid, ruleComp);
         }
     }
 
