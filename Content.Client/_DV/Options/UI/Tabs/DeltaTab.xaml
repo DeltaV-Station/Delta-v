@@ -14,6 +14,7 @@
                    FontColorOverride="{xNamespace:Static s:StyleNano.NanoGold}"
                    StyleClasses="LabelKeyText"/>
             <CheckBox Name="DisableFiltersCheckBox" Text="{Loc 'ui-options-no-filters'}" />
+            <CheckBox Name="DisableGlimmerEffectCheckBox" Text="{Loc 'ui-options-disable-glimmer-effect'}" />
             <CheckBox Name="AutoFillHighlightsCheckBox" Text="{Loc 'ui-options-auto-fill-highlights'}" />
             <dvui:OptionColorSlider Name="HighlightsColorSlider"
                 Title="{Loc 'ui-options-highlights-color'}"
