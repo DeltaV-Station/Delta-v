@@ -108,7 +108,11 @@
     containers:
       - scanner-body
   - type: CryoPod
+    beakerTransferAmount: 0.5 # DeltaV - Inject Evenly
+    injectEvenly: true # DeltaV - Inject Evenly
   - type: CryoPodAir
+  - type: Climbable # so that ejected bodies don't get stuck
+    vaultable: false
   - type: ContainerTemperatureDamageThresholds
     coldDamageThreshold: 10
   - type: GuideHelp
