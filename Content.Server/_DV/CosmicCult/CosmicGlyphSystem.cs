@@ -22,6 +22,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     private readonly HashSet<Entity<CosmicCultComponent>> _cultists = [];
     private readonly HashSet<Entity<HumanoidAppearanceComponent>> _humanoids = [];
@@ -30,6 +31,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     {
         SubscribeLocalEvent<CosmicGlyphComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<CosmicGlyphComponent, ActivateInWorldEvent>(OnUseGlyph);
+        SubscribeLocalEvent<CosmicGlyphComponent, ComponentStartup>(OnGlyphCreated);
     }
 
     #region Base trigger
@@ -46,11 +48,45 @@ public sealed class CosmicGlyphSystem : EntitySystem
         }
     }
 
+    private void OnGlyphCreated(Entity<CosmicGlyphComponent> ent, ref ComponentStartup args)
+    {
+        comp.Timer = _timing.CurTime + comp.SpawningTime;
+        if (!TryComp<SpriteComponent>(ent, out var sprite)) return;
+    }
+
+    public void UnscribeGlyph(Entity<CosmicGlyphComponent> ent)
+    {
+        _appearance.SetData(ent, GlyphVisuals.Status, GlyphStatus.Despawning);
+        ent.Comp.State = GlyphStatus.Despawning;
+        var delete = EnsureComp<TimedDespawnComponent>(ent);
+        delete.Lifetime = ent.Comp.DespawnTime;
+    }
+    
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime); 
+        
+        var glyphQuery = EntityQueryEnumerator<CosmicGlyphComponent>();
+        while (glyphQuery.MoveNext(out var uid, out var comp))
+        {
+            if (_timing.CurTime >= comp.Timer && (comp.State == GlyphStatus.Spawning || comp.State == GlyphStatus.Cooldown))
+            {
+                _appearance.SetData(uid, GlyphVisuals.Status, GlyphStatus.Ready);
+                comp.State = GlyphStatus.Ready;
+                return;
+            }
+            if (_timing.CurTime >= comp.Timer && comp.State == GlyphStatus.Active)
+            {
+                ActivateGlyph(uid);
+            }
+        }
+    }
+
     private void OnUseGlyph(Entity<CosmicGlyphComponent> uid, ref ActivateInWorldEvent args)
     {
         var tgtpos = Transform(uid).Coordinates;
         var userCoords = Transform(args.User).Coordinates;
-        if (args.Handled || !userCoords.TryDistance(EntityManager, tgtpos, out var distance) || distance > uid.Comp.ActivationRange || !_cosmicCult.EntityIsCultist(args.User))
+        if (args.Handled || !userCoords.TryDistance(EntityManager, tgtpos, out var distance) || distance > uid.Comp.ActivationRange || !_cosmicCult.EntityIsCultist(args.User) || comp.State != GlyphStatus.Ready)
             return;
         var cultists = GatherCultists(uid, uid.Comp.ActivationRange);
         if (cultists.Count < uid.Comp.RequiredCultists)
@@ -60,20 +96,34 @@ public sealed class CosmicGlyphSystem : EntitySystem
         }
 
         args.Handled = true;
-        var tryInvokeEv = new TryActivateGlyphEvent(args.User, cultists);
-        RaiseLocalEvent(uid, tryInvokeEv);
-        if (tryInvokeEv.Cancelled)
-            return;
+        uid.Comp.User = args.User;
+        comp.State = GlyphStatus.Active
+        comp.Timer = _timing.CurTime + comp.ActivationTime;
+    }
 
-        var damage = uid.Comp.ActivationDamage / cultists.Count;
+    private void ActivateGlyph(Entity<CosmicGlyphComponent> ent)
+    {
+        _appearance.SetData(ent, GlyphVisuals.Status, GlyphStatus.Cooldown);
+        comp.State = GlyphStatus.Cooldown;
+        comp.Timer = _timing.CurTime + comp.CooldownTime;
+
+        var tryInvokeEv = new TryActivateGlyphEvent(ent.Comp.User, cultists);
+        RaiseLocalEvent(ent, tryInvokeEv);
+        var cultists = GatherCultists(uid, uid.Comp.ActivationRange);
+        if (tryInvokeEv.Cancelled || cultists.Count < uid.Comp.RequiredCultists)
+        {
+            //TODO: SFX and/or VFX for failed activation?
+            return;
+        }
+
+        var damage = ent.Comp.ActivationDamage / cultists.Count;
         foreach (var cultist in cultists)
         {
             _damageable.TryChangeDamage(cultist, damage, true);
         }
 
-        _audio.PlayPvs(uid.Comp.GylphSFX, tgtpos, AudioParams.Default.WithVolume(+1f));
-        Spawn(uid.Comp.GylphVFX, tgtpos);
-        QueueDel(uid);
+        _audio.PlayPvs(ent.Comp.GylphSFX, tgtpos, AudioParams.Default.WithVolume(+1f));
+        Spawn(ent.Comp.GylphVFX, tgtpos);
     }
     #endregion
 
