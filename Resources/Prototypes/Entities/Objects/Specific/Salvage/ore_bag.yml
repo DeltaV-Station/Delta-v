@@ -42,7 +42,7 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Enabled:
+      enum.ToggleableVisuals.Enabled:
         enum.ToggleableVisuals.Layer:
           True: { state: icon_on }
           False: { state: icon }
