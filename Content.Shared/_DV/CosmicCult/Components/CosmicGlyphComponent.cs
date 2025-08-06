@@ -1,10 +1,14 @@
 using Content.Shared.Damage;
+using Robust.Shared.GameStates;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._DV.CosmicCult.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentPause]
 public sealed partial class CosmicGlyphComponent : Component
 {
     [DataField] public int RequiredCultists = 1;
@@ -15,6 +19,7 @@ public sealed partial class CosmicGlyphComponent : Component
     /// </summary>
     [DataField] public DamageSpecifier ActivationDamage = new();
     [DataField] public bool CanBeErased = true;
+    [DataField] public bool EraseOnUse = false;
     [DataField] public EntProtoId GylphVFX = "CosmicGenericVFX";
     [DataField] public SoundSpecifier GylphSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/glyph_trigger.ogg");
     [DataField] public GlyphStatus State = GlyphStatus.Spawning;
@@ -28,6 +33,12 @@ public sealed partial class CosmicGlyphComponent : Component
 }
 
 public sealed class TryActivateGlyphEvent(EntityUid user, HashSet<Entity<CosmicCultComponent>> cultists) : CancellableEntityEventArgs
+{
+    public EntityUid User = user;
+    public HashSet<Entity<CosmicCultComponent>> Cultists = cultists;
+}
+
+public sealed class CheckGlyphConditionsEvent(EntityUid user, HashSet<Entity<CosmicCultComponent>> cultists) : CancellableEntityEventArgs
 {
     public EntityUid User = user;
     public HashSet<Entity<CosmicCultComponent>> Cultists = cultists;

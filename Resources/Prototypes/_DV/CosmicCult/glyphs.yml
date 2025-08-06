@@ -22,7 +22,7 @@
   - type: CosmicCultExamine
     othersText: cosmic-examine-text-glyphs
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_truth.rsi
     layers:
       - state: spawning
         map: ["base"]
@@ -64,9 +64,10 @@
   name: Glyph of Knowledge
   components:
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_knowledge.rsi
     layers:
-    - state: knowledge
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
     requiredCultists: 2
@@ -82,9 +83,10 @@
   name: Glyph of Cessation
   components:
   - type: Sprite
+    sprite: _DV/CosmicCult/Objects/glyph_cessation.rsi
     layers:
-    - sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
-      state: cessation
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphTransmute
   - type: CosmicGlyph
     requiredCultists: 1
@@ -100,9 +102,10 @@
   name: Glyph of Blades
   components:
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_blades.rsi
     layers:
-    - state: blades
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphTransmute
   - type: CosmicGlyph
     requiredCultists: 2
@@ -118,9 +121,10 @@
   name: Glyph of Warding
   components:
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_warding.rsi
     layers:
-    - state: warding
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphTransmute
   - type: CosmicGlyph
     requiredCultists: 2
@@ -136,11 +140,13 @@
   name: Glyph of Projection
   components:
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_projection.rsi
     layers:
-    - state: projection
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphAstralProjection
   - type: CosmicGlyph
     requiredCultists: 1
+    EraseOnUse: true # This is something that you may use early into the round where there aren't many cultists to hide it for you, so it erases automaticaly.
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-projection

@@ -28,9 +28,10 @@ public sealed class CosmicConversionSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<CosmicGlyphConversionComponent, TryActivateGlyphEvent>(OnConversionGlyph);
+        SubscribeLocalEvent<CosmicGlyphConversionComponent, CheckGlyphConditionsEvent>(OnCheckGlyphConditions);
     }
 
-    private void OnConversionGlyph(Entity<CosmicGlyphConversionComponent> uid, ref TryActivateGlyphEvent args)
+    private void OnCheckGlyphConditions(Entity<CosmicGlyphConversionComponent> uid, ref CheckGlyphConditionsEvent args)
     {
         var possibleTargets = _cosmicGlyph.GetTargetsNearGlyph(uid, uid.Comp.ConversionRange, entity => _cosmicCult.EntityIsCultist(entity));
         if (possibleTargets.Count == 0)
@@ -45,7 +46,20 @@ public sealed class CosmicConversionSystem : EntitySystem
             args.Cancel();
             return;
         }
+    }
 
+    private void OnConversionGlyph(Entity<CosmicGlyphConversionComponent> uid, ref TryActivateGlyphEvent args)
+    {
+        var ev = new CheckGlyphConditionsEvent(args.User, args.Cultists);
+        RaiseLocalEvent(uid, ev);
+        if (ev.Cancelled)
+        {
+            args.Cancel();
+            return;
+        }
+
+        var possibleTargets = _cosmicGlyph.GetTargetsNearGlyph(uid, uid.Comp.ConversionRange, entity => _cosmicCult.EntityIsCultist(entity));
+        
         foreach (var target in possibleTargets)
         {
             if (_mobState.IsDead(target))
