@@ -3,8 +3,10 @@ using Content.Shared.CCVar;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
+using Content.Shared.Standing; // DeltaV
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
+
 
 namespace Content.Shared.Movement.Systems
 {
@@ -39,6 +41,33 @@ namespace Content.Shared.Movement.Systems
             ent.Comp.Friction = _frictionModifier * ent.Comp.BaseFriction;
             ent.Comp.FrictionNoInput = _frictionModifier * ent.Comp.BaseFriction;
             Dirty(ent);
+        }
+
+        private void OnDowned(Entity<MovementSpeedModifierComponent> entity, ref DownedEvent args)
+        {
+            RefreshFrictionModifiers(entity);
+            RefreshMovementSpeedModifiers(entity);
+        }
+
+        private void OnStand(Entity<MovementSpeedModifierComponent> entity, ref StoodEvent args)
+        {
+            RefreshFrictionModifiers(entity);
+            RefreshMovementSpeedModifiers(entity);
+        }
+
+        /// <summary>
+        /// Copy this component's datafields from one entity to another.
+        /// This needs to refresh the modifiers after using CopyComp.
+        /// <summary>
+        public void CopyComponent(Entity<MovementSpeedModifierComponent?> source, EntityUid target)
+        {
+            if (!Resolve(source, ref source.Comp))
+                return;
+
+            CopyComp(source, target, source.Comp);
+            RefreshWeightlessModifiers(target);
+            RefreshMovementSpeedModifiers(target);
+            RefreshFrictionModifiers(target);
         }
 
         public void RefreshWeightlessModifiers(EntityUid uid, MovementSpeedModifierComponent? move = null)
