@@ -6,7 +6,7 @@
   components:
   - type: Action
     itemIconStyle: BigAction
-    useDelay: 90
+    useDelay: 300 # DeltaV - fix delay because jesus christ
   - type: TargetAction
     interactOnMiss: false
   - type: EntityTargetAction
