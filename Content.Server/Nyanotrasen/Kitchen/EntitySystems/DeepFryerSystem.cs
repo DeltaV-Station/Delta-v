@@ -41,6 +41,7 @@ using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
+using Content.Shared.Nutrition.Components;
 using Content.Shared.Nyanotrasen.Kitchen;
 using Content.Shared.Nyanotrasen.Kitchen.Components;
 using Content.Shared.Nyanotrasen.Kitchen.UI;
