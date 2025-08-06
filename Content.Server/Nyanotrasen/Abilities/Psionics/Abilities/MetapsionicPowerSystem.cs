@@ -23,9 +23,12 @@ namespace Content.Server.Abilities.Psionics
         private void OnInit(EntityUid uid, MetapsionicPowerComponent component, ComponentInit args)
         {
             _actions.AddAction(uid, ref component.MetapsionicActionEntity, component.MetapsionicActionId );
-            _actions.TryGetActionData( component.MetapsionicActionEntity, out var actionData );
-            if (actionData is { UseDelay: not null })
+
+            if (_actions.GetAction(component.MetapsionicActionEntity) is { Comp.UseDelay: not null })
+            {
                 _actions.StartUseDelay(component.MetapsionicActionEntity);
+            }
+
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
             {
                 psionic.PsionicAbility = component.MetapsionicActionEntity;

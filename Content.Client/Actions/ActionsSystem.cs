@@ -300,59 +300,67 @@ namespace Content.Client.Actions
             if (_playerManager.LocalEntity is not { } user)
                 return;
 
-            if (stream.Documents[0].RootNode.ToDataNode() is not SequenceDataNode sequence)
+            var yamlStream = new YamlStream();
+
+            if (yamlStream.Documents[0].RootNode.ToDataNode() is not SequenceDataNode sequence)
                 return;
+
+            var actions = EnsureComp<ActionsComponent>(user);
 
             ClearAssignments?.Invoke();
 
             var assignments = new List<SlotAssignment>();
             var existingActions = GetClientActions();
-            var existingActionsList = existingActions.ToList();
 
             foreach (var entry in sequence.Sequence)
             {
                 if (entry is not MappingDataNode map)
                     continue;
 
-                if (!map.TryGet("action", out var actionNode))
-                    continue;
-
-                if (!map.TryGet<ValueDataNode>("name", out var nameNode))
-                    continue;
-
-                var action = _serialization.Read<BaseActionComponent>(actionNode, notNullableOverride: true);
-
-                // Prevent spawning actions multiple times
-                var existing = existingActionsList.FirstOrNull(a =>
-                    Name(a.Id) == nameNode.Value);
-
-                EntityUid actionId;
-                if (existing == null)
-                {
-                    actionId = Spawn(null);
-                    AddComp(actionId, action);
-                    _metaData.SetEntityName(actionId, nameNode.Value);
-                    DirtyEntity(actionId);
-                    AddActionDirect(user, actionId);
-                }
-                else
-                {
-                    actionId = existing.Value.Id;
-                }
-
                 if (!map.TryGet("assignments", out var assignmentNode))
                     continue;
 
-                var nodeAssignments = _serialization.Read<List<(byte Hotbar, byte Slot)>>(assignmentNode, notNullableOverride: true);
-
-                foreach (var index in nodeAssignments)
+                var actionId = EntityUid.Invalid;
+                if (map.TryGet<ValueDataNode>("action", out var actionNode))
                 {
-                    var assignment = new SlotAssignment(index.Hotbar, index.Slot, actionId);
-                    assignments.Add(assignment);
+                    var id = new EntProtoId(actionNode.Value);
+                    actionId = Spawn(id);
                 }
-            }
+                else if (map.TryGet<ValueDataNode>("entity", out var entityNode))
+                {
+                    var id = new EntProtoId(entityNode.Value);
+                    var proto = _proto.Index(id);
+                    actionId = Spawn(MappingEntityAction);
+                    SetIcon(actionId, new SpriteSpecifier.EntityPrototype(id));
+                    SetEvent(actionId, new StartPlacementActionEvent()
+                    {
+                        PlacementOption = "SnapgridCenter",
+                        EntityType = id
+                    });
+                    _metaData.SetEntityName(actionId, proto.Name);
+                }
+                else if (map.TryGet<ValueDataNode>("tileId", out var tileNode))
+                {
+                    var id = new ProtoId<ContentTileDefinition>(tileNode.Value);
+                    var proto = _proto.Index(id);
+                    actionId = Spawn(MappingEntityAction);
+                    if (proto.Sprite is {} sprite)
+                        SetIcon(actionId, new SpriteSpecifier.Texture(sprite));
+                    SetEvent(actionId, new StartPlacementActionEvent()
+                    {
+                        PlacementOption = "AlignTileAny",
+                        TileId = id
+                    });
+                    _metaData.SetEntityName(actionId, Loc.GetString(proto.Name));
+                }
+                else
+                {
+                    Log.Error($"Mapping actions from yamlstream had unknown action data!");
+                    continue;
+                }
 
-            AssignSlot?.Invoke(assignments);
+                AddActionDirect((user, actions), actionId);
+            }
         }
 
         private void OnWorldTargetAttempt(Entity<WorldTargetActionComponent> ent, ref ActionTargetAttemptEvent args)

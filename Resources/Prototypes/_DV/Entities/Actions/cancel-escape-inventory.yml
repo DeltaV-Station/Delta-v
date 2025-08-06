@@ -3,7 +3,8 @@
   name: Stop escaping
   description: Calm down and sit peacefuly in your carrier's inventory
   components:
-  - type: InstantAction
+  - type: Action
     icon: _DV/Actions/escapeinventory.rsi/cancel-escape.png
-    event: !type:EscapeInventoryCancelActionEvent
     useDelay: 2
+  - type: InstantAction
+    event: !type:EscapeInventoryCancelActionEvent

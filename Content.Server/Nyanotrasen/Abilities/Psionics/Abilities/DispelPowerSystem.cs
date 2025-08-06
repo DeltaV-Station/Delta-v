@@ -49,9 +49,14 @@ namespace Content.Server.Abilities.Psionics
         private void OnInit(EntityUid uid, DispelPowerComponent component, ComponentInit args)
         {
             _actions.AddAction(uid, ref component.DispelActionEntity, component.DispelActionId );
-            _actions.TryGetActionData( component.DispelActionEntity, out var actionData );
-            if (actionData is { UseDelay: not null })
+            if (_actions.GetAction(component.DispelActionEntity) is not { } actionData)
+                return;
+
+            if (actionData.Comp.UseDelay is not null)
+            {
                 _actions.StartUseDelay(component.DispelActionEntity);
+            }
+
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
             {
                 psionic.PsionicAbility = component.DispelActionEntity;

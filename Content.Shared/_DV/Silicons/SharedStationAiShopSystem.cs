@@ -34,7 +34,7 @@ public abstract class SharedStationAiShopSystem : EntitySystem
 
     private void OnShutdown(Entity<StationAiShopComponent> ent, ref ComponentShutdown args)
     {
-        _actions.RemoveAction(ent, ent.Comp.ShopAction);
+        _actions.RemoveAction(ent.Owner, ent.Comp.ShopAction);
     }
 
     private void OnRgbLighting(Entity<StationAiShopComponent> ent, ref StationAiRgbLightingActionEvent args)

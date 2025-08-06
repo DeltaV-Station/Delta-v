@@ -1,22 +1,26 @@
 - type: entity
+  parent: BaseAction
   id: ActionFabricateLollipop
   name: Fabricate Lollipop
   description: Fabricate a lollipop that contains a small dose of Omnizine.
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite: _DV/Objects/Consumable/Food/candy.rsi, state: lollipop }
     useDelay: 120
+  - type: InstantAction
     event: !type:FabricateCandyActionEvent
       item: FoodLollipop
 
 - type: entity
+  parent: BaseAction
   id: ActionFabricateGumball
   name: Fabricate Gumball
   description: Fabricate a gumball full of sugar and medicine to treat small injuries.
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite: _DV/Objects/Consumable/Food/candy.rsi, state: gumball }
     iconColor: '#FFAED7'
     useDelay: 40
+  - type: InstantAction
     event: !type:FabricateCandyActionEvent
       item: FoodGumball

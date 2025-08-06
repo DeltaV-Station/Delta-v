@@ -52,9 +52,12 @@ namespace Content.Server.Abilities.Psionics
         private void OnInit(EntityUid uid, PsionicRegenerationPowerComponent component, ComponentInit args)
         {
             _actions.AddAction(uid, ref component.PsionicRegenerationActionEntity, component.PsionicRegenerationActionId );
-            _actions.TryGetActionData( component.PsionicRegenerationActionEntity, out var actionData );
-            if (actionData is { UseDelay: not null })
+
+            if (_actions.GetAction(component.PsionicRegenerationActionEntity) is not { Comp.UseDelay: not null })
+            {
                 _actions.StartUseDelay(component.PsionicRegenerationActionEntity);
+            }
+
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
             {
                 psionic.PsionicAbility = component.PsionicRegenerationActionEntity;

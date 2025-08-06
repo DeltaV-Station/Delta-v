@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Abilities;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
