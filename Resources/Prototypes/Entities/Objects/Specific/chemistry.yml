@@ -611,12 +611,11 @@
     size: Tiny
     sprite: _DV/Objects/Specific/Chemistry/pills.rsi # DeltaV - Resprited some medical items
   - type: Pill
-  - type: Food
+  - type: Edible
     delay: 0.6
     forceFeedDelay: 2
     transferAmount: null
-    eatMessage: food-swallow
-    useSound: /Audio/Items/pill.ogg
+    edible: Pill
   - type: BadFood
   - type: FlavorProfile
     ignoreReagents: []
