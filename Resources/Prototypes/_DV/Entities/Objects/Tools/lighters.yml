@@ -39,7 +39,7 @@
       showExamineText: false
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
+      enum.ToggleableVisuals.Enabled:
         flame:
           True: { visible: true }
           False: { visible: false }
@@ -52,7 +52,7 @@
         base:
           True: { visible: false }
           False: { visible: true }
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: lighter_flame
     inhandVisuals:
       left:
@@ -61,6 +61,7 @@
       right:
       - state: inhand-right-lit
         shader: unshaded
+  - type: ItemTogglePointLight
   - type: PointLight
     enabled: false
     netsync: false

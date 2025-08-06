@@ -41,12 +41,13 @@
     - WhitelistChameleon
     - HidesHarpyWings
 #Shoulder mounted flashlight
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: light
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-light
         shader: unshaded
+  - type: ItemTogglePointLight
   - type: Appearance
   - type: HandheldLight
     addPrefix: false
