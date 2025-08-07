@@ -199,7 +199,7 @@ namespace Content.Client.Lobby
             }
 
             var minutesToday = _playtimeTracking.PlaytimeMinutesToday;
-            if (minutesToday > 60)
+            if (minutesToday > 150) // DeltaV - 2.5 hours
             {
                 Lobby!.PlaytimeComment.Visible = true;
 
@@ -207,8 +207,8 @@ namespace Content.Client.Lobby
 
                 var chosenString = minutesToday switch
                 {
-                    < 180 => "lobby-state-playtime-comment-normal",
-                    < 360 => "lobby-state-playtime-comment-concerning",
+                    < 270 => "lobby-state-playtime-comment-normal", // DeltaV - Before 4.5 hours
+                    < 420 => "lobby-state-playtime-comment-concerning", // DeltaV - Before 7 hours
                     < 720 => "lobby-state-playtime-comment-grasstouchless",
                     _ => "lobby-state-playtime-comment-selfdestructive"
                 };
