@@ -34,6 +34,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
         SubscribeLocalEvent<CosmicGlyphComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<CosmicGlyphComponent, ActivateInWorldEvent>(OnUseGlyph);
         SubscribeLocalEvent<CosmicGlyphComponent, ComponentStartup>(OnGlyphCreated);
+        SubscribeLocalEvent<CosmicGlyphComponent, EraseGlyphEvent>(EraseGlyph);
     }
 
     #region Base trigger
@@ -55,7 +56,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
         ent.Comp.Timer = _timing.CurTime + ent.Comp.SpawnTime;
     }
 
-    public void EraseGlyph(Entity<CosmicGlyphComponent> ent)
+    public void EraseGlyph(Entity<CosmicGlyphComponent> ent, ref EraseGlyphEvent args)
     {
         _appearance.SetData(ent, GlyphVisuals.Status, GlyphStatus.Despawning);
         ent.Comp.State = GlyphStatus.Despawning;
@@ -105,7 +106,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
 
         args.Handled = true;
         uid.Comp.User = args.User;
-        _appearance.SetData(ent, GlyphVisuals.Status, GlyphStatus.Active);
+        _appearance.SetData(uid, GlyphVisuals.Status, GlyphStatus.Active);
         uid.Comp.State = GlyphStatus.Active;
         uid.Comp.Timer = _timing.CurTime + uid.Comp.ActivationTime;
     }
@@ -139,7 +140,8 @@ public sealed class CosmicGlyphSystem : EntitySystem
         _audio.PlayPvs(ent.Comp.GylphSFX, tgtpos, AudioParams.Default.WithVolume(+1f));
         Spawn(ent.Comp.GylphVFX, tgtpos);
         ent.Comp.User = null;
-        if (ent.Comp.EraseOnUse) EraseGlyph(ent);
+        var ev = new EraseGlyphEvent();
+        if (ent.Comp.EraseOnUse) EraseGlyph(ent, ref ev); // This is probably not the correct way to do it.
     }
     #endregion
 

@@ -94,8 +94,11 @@ public abstract class SharedMonumentSystem : EntitySystem
         var localTile = _map.GetTileRef(xform.GridUid.Value, grid, xform.Coordinates);
         var targetIndices = localTile.GridIndices + new Vector2i(0, -1);
 
-        if (ent.Comp.CurrentGlyph is not null)
-            EraseGlyph(ent.Comp.CurrentGlyph);
+        if (ent.Comp.CurrentGlyph is { } curGlyph)
+        {
+            var ev = new EraseGlyphEvent(); // Apparently I can't use server._DV namespace from here for some reason?
+            RaiseLocalEvent(curGlyph, ev);
+        }
 
         var glyphEnt = Spawn(proto.Entity, _map.ToCenterCoordinates(xform.GridUid.Value, targetIndices, grid));
         ent.Comp.CurrentGlyph = glyphEnt;
@@ -107,8 +110,11 @@ public abstract class SharedMonumentSystem : EntitySystem
 
     private void OnGlyphRemove(Entity<MonumentComponent> ent, ref GlyphRemovedMessage args)
     {
-        if (ent.Comp.CurrentGlyph is not null)
-            EraseGlyph(ent.Comp.CurrentGlyph);
+        if (ent.Comp.CurrentGlyph is { } curGlyph)
+        {
+            var ev = new EraseGlyphEvent();
+            RaiseLocalEvent(curGlyph, ev);
+        }
 
         _ui.SetUiState(ent.Owner, MonumentKey.Key, new MonumentBuiState(ent.Comp));
     }
