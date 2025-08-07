@@ -215,10 +215,11 @@
   description: View all of the character records
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
     iconOn: Structures/Machines/parts.rsi/box_2.png
     keywords: [ "AI", "console", "interface" ]
     priority: -10
+  - type: InstantAction
     event: !type:ToggleIntrinsicUIEvent { key: enum.CharacterRecordConsoleKey.Key }
 # Edn CD - Character Records

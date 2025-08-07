@@ -125,6 +125,6 @@
   components:
   - type: Action
     itemIconStyle: BigItem
+    useDelay: 3 # DeltaV - Add delay to avoid spamming magboots to avoid lube puddles.
   - type: InstantAction
     event: !type:ToggleActionEvent
-    useDelay: 3 # DeltaV - Add delay to avoid spamming magboots to avoid lube puddles.

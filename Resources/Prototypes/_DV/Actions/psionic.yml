@@ -101,9 +101,9 @@
       sprite: _DV/Interface/Actions/actions_psionics.rsi
       state: pyrokinesis
     useDelay: 50
-    checkCanAccess: false
   - type: TargetAction
     range: 6
+    checkCanAccess: false
   - type: EntityTargetAction
     event: !type:PyrokinesisPowerActionEvent
 
