@@ -13,7 +13,7 @@ public sealed partial class MassMindSwapRuleComponent : Component
     public bool IsTemporary;
 
     [DataField]
-    public TimeSpan Delay = TimeSpan.FromSeconds(90);
+    public TimeSpan Delay = TimeSpan.FromSeconds(15);
 
     [DataField]
     public SoundSpecifier AnnouncementSound = new SoundPathSpecifier("/Audio/Misc/notice1.ogg");
