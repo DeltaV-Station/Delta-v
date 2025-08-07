@@ -62,11 +62,11 @@ public sealed class CosmicGlyphSystem : EntitySystem
         ent.Comp.State = GlyphStatus.Despawning;
         ent.Comp.Timer = _timing.CurTime + ent.Comp.DespawnTime;
     }
-    
+
     public override void Update(float frameTime)
     {
-        base.Update(frameTime); 
-        
+        base.Update(frameTime);
+
         var glyphQuery = EntityQueryEnumerator<CosmicGlyphComponent>();
         while (glyphQuery.MoveNext(out var uid, out var comp))
         {
@@ -135,7 +135,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
         {
             _damageable.TryChangeDamage(cultist, damage, true);
         }
-        
+
         var tgtpos = Transform(ent).Coordinates;
         _audio.PlayPvs(ent.Comp.GylphSFX, tgtpos, AudioParams.Default.WithVolume(+1f));
         Spawn(ent.Comp.GylphVFX, tgtpos);

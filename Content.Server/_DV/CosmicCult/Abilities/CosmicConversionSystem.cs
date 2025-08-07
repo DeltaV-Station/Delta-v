@@ -59,7 +59,7 @@ public sealed class CosmicConversionSystem : EntitySystem
         }
 
         var possibleTargets = _cosmicGlyph.GetTargetsNearGlyph(uid, uid.Comp.ConversionRange, entity => _cosmicCult.EntityIsCultist(entity));
-        
+
         foreach (var target in possibleTargets)
         {
             if (_mobState.IsDead(target))
