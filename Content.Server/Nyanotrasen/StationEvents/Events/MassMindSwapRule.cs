@@ -30,10 +30,12 @@ internal sealed class MassMindSwapRule : StationEventSystem<MassMindSwapRuleComp
     protected override void Started(EntityUid uid, MassMindSwapRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
-        component.StartTime = Timing.CurTime;
 
         _resolvedWarningSound = _audio.ResolveSound(component.SwapWarningSound);
         _warningSoundLength = _audio.GetAudioLength(_resolvedWarningSound);
+
+        component.SwapTime = Timing.CurTime + component.Delay;
+        component.SoundTime = component.SwapTime - _warningSoundLength;
 
         var announcement = Loc.GetString("mass-mind-swap-event-announcement", ("time", component.Delay.TotalSeconds));
         var sender = Loc.GetString("mass-mind-swap-event-sender");
@@ -47,18 +49,17 @@ internal sealed class MassMindSwapRule : StationEventSystem<MassMindSwapRuleComp
         var query = EntityQueryEnumerator<MassMindSwapRuleComponent, GameRuleComponent>();
         while (query.MoveNext(out var uid, out var comp, out var ruleComp))
         {
-            var remainingTime = comp.Delay - (Timing.CurTime - comp.StartTime);
-            if (remainingTime <= _warningSoundLength && !comp.PlayedWarningSound)
+            if (comp.SoundTime != null && comp.SoundTime <= Timing.CurTime)
             {
                 _audio.PlayGlobal(_resolvedWarningSound, Filter.Broadcast(), true);
-                comp.PlayedWarningSound = true;
+                comp.SoundTime = null;
             }
 
-            if (remainingTime > TimeSpan.Zero || comp.Started)
+            if (comp.SwapTime == null || !(comp.SwapTime <= Timing.CurTime))
                 continue;
 
             SwapMinds(comp);
-            comp.Started = true;
+            comp.SwapTime = null;
             GameTicker.EndGameRule(uid, ruleComp);
         }
     }
