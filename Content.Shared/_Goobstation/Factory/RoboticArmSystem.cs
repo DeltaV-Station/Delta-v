@@ -62,11 +62,8 @@ public sealed class RoboticArmSystem : EntitySystem
         SubscribeLocalEvent<RoboticArmComponent, LinkAttemptEvent>(OnLinkAttempt);
         SubscribeLocalEvent<RoboticArmComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<RoboticArmComponent, PortDisconnectedEvent>(OnPortDisconnected);
-        SubscribeLocalEvent<RoboticArmComponent, SignalReceivedEvent>(OnSignalReceived); //DeltaV
     }
 
-
-    // This checks if robotic arm is recieving power to work - basically this is the toggling area
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -80,7 +77,7 @@ public sealed class RoboticArmSystem : EntitySystem
         var query = EntityQueryEnumerator<RoboticArmComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (!_power.IsPowered(uid)) // The entire power check. Yeah.
+            if (!_power.IsPowered(uid))
                 continue;
 
             if (comp.NextMove is {} nextMove && now < nextMove)
@@ -106,7 +103,7 @@ public sealed class RoboticArmSystem : EntitySystem
 
     private void OnInit(Entity<RoboticArmComponent> ent, ref ComponentInit args)
     {
-        _device.EnsureSinkPorts(ent, ent.Comp.InputPort, ent.Comp.TogglePort); //DeltaV - added a toggle power port
+        _device.EnsureSinkPorts(ent, ent.Comp.InputPort);
         _device.EnsureSourcePorts(ent, ent.Comp.OutputPort, ent.Comp.MovedPort);
 
         UpdateSlots(ent);
@@ -237,11 +234,6 @@ public sealed class RoboticArmSystem : EntitySystem
         }
     }
 
-    private void OnSignalReceived(Entity<RoboticArmComponent> ent, ref SignalReceivedEvent args) // DeltaV
-    {
-        if (args.Port == ent.Comp.TogglePort)
-            _power.TogglePower(ent); // DeltaV - If recieved signal is to the toggle port, toggle machine power. jfc I hope this works.
-    }
     private void OnNewLink(Entity<RoboticArmComponent> ent, ref NewLinkEvent args)
     {
         if (args.SinkPort == ent.Comp.InputPort)

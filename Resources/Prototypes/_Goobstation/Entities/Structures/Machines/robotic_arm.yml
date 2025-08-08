@@ -99,10 +99,11 @@
   - type: DeviceLinkSink
     ports:
     - RoboticArmInput
-    - Toggle #DeltaV
+    - PowerToggle #DeltaV
     # - On
     # - Off
     # TODO: ports to disable it
+  - type: PowerTogglePort #DeltaV
   - type: DeviceLinkSource
     ports:
     - RoboticArmOutput
