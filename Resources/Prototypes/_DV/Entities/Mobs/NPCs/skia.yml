@@ -18,6 +18,12 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: skia
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: skia
+      Dead:
+        Base: dead
   - type: MobState
     allowedStates:
     - Alive
@@ -76,3 +82,7 @@
   - type: ToggleLightAction
   - type: ShatterLightsAbility
     lineOfSight: true
+  - type: Butcherable
+    spawned:
+    - id: Ectoplasm
+      amount: 1
