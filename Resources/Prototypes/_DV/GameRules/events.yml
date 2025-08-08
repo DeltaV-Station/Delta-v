@@ -284,3 +284,33 @@
         sound: /Audio/Effects/clang.ogg
       mindRoles:
       - MindRoleMenaceSkeleton
+
+- type: entity
+  parent: BaseMidRoundAntag
+  id: SkiaSpawn
+  components:
+  - type: StationEvent
+    weight: 6
+    duration: 1
+    minimumPlayers: 30
+  - type: PrecognitionResult
+    message: psionic-power-precognition-skia-result-message
+  - type: AntagSpawner
+    prototype: MobSkia
+  - type: AntagObjectives
+    objectives:
+    - SkiaReapObjective
+  - type: AntagSelection
+    agentName: skia-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointSkia
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleSkia
+      components:
+        - type: EmitSoundOnSpawn # fell out of the ceiling
+          sound: /Audio/_DV/Effects/creepyshriek.ogg
+        - type: BreakLightsOnSpawn
+          radius: 10

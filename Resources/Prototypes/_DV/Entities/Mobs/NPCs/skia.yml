@@ -1,0 +1,73 @@
+- type: entity
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  id: MobSkia
+  name: skia
+  description: A shadow given form, lashing out at anything that comes too close.
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Animals/skia.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: skia
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.5
+    baseSprintSpeed: 2.5
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Blunt: 7
+        Cold: 7
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: ReplacementAccent
+    accent: genericAggressive
+  - type: Insulated
+  - type: LightReactive
+    manual: true
+  - type: LightLevelHealth
+    darkThreshold: 0.3
+    lightThreshold: 0.7
+    darkDamage:
+      groups:
+        Brute: -5
+    lightDamage:
+      groups:
+        Brute: 5
+    darkMovementSpeedMultiplier: 1.5
+    lightMovementSpeedMultiplier: 0.5
+  - type: Bloodstream
+    maxBleedAmount: 0
+  - type: PointLight
+    netsync: false
+    radius: 100
+    energy: 10
+    castShadows: false
+    enabled: false
+    color: "#444444"
+  - type: ToggleLightAction
