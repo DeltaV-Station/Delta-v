@@ -86,3 +86,9 @@
     spawned:
     - id: Ectoplasm
       amount: 1
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2.5 # needs to be fast because they'll get ganked otherwise
+    useSound:
+      path: /Audio/Items/crowbar.ogg
