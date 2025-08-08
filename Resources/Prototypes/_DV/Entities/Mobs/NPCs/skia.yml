@@ -38,7 +38,7 @@
     damage:
       types:
         Blunt: 7
-        Cold: 7
+        Poison: 7
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -56,6 +56,9 @@
     darkDamage:
       groups:
         Brute: -5
+        Toxic: -5
+        Airloss: -5
+        Burn: -5
     lightDamage:
       groups:
         Brute: 5
@@ -71,3 +74,5 @@
     enabled: false
     color: "#444444"
   - type: ToggleLightAction
+  - type: ShatterLightsAbility
+    lineOfSight: true
