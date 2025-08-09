@@ -13,6 +13,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Mobs;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Content.Shared.Pulling.Events;
@@ -54,6 +55,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
 
         SubscribeLocalEvent<GrapplerComponent, StartPullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<GrapplerComponent, EscapeGrappleAlertEvent>(OnEscapeGrapplerAlert);
+        SubscribeLocalEvent<GrapplerComponent, MobStateChangedEvent>(OnGrapplerStateChanged);
 
         SubscribeLocalEvent<GrappledComponent, MoveInputEvent>(OnGrappledMove);
         SubscribeLocalEvent<GrappledComponent, GrappledEscapeDoAfter>(OnEscapeDoAfter);
@@ -409,6 +411,23 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     private void OnEscapeGrapplerAlert(Entity<GrapplerComponent> grappler, ref EscapeGrappleAlertEvent args)
     {
         ReleaseGrapple(grappler.AsNullable(), manualRelease: true);
+    }
+
+    /// <summary>
+    /// Handles when a grappler enters crit or dies while holding a grappler, which will then release it.
+    /// </summary>
+    /// <param name="grappler">Grappler player entity which has entered crit or death.</param>
+    /// <param name="args">Args for the event.</param>
+    private void OnGrapplerStateChanged(Entity<GrapplerComponent> grappler, ref MobStateChangedEvent args)
+    {
+        if (!grappler.Comp.ActiveVictim.HasValue)
+            return; // Not actively grappling anything
+
+        if (args.NewMobState == MobState.Critical ||
+            args.NewMobState == MobState.Dead)
+        {
+            ReleaseGrapple(grappler.AsNullable(), manualRelease: true);
+        }
     }
 
     /// <summary>
