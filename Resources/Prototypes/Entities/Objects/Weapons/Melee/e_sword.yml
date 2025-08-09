@@ -324,7 +324,7 @@
       malus: 0.7
     - type: Execution
       doAfterDuration: 4.0
-  #- type:  # DeltaV - commented out
+  #- type: Wieldable # DeltaV - commented out
   #  wieldSound: null # esword light sound instead
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -346,8 +346,8 @@
     size: Small
     sprite: _DV/Objects/Weapons/Melee/e_sword_double-inhands.rsi # DeltaV - fancier inhands sprite
   - type: Reflect
-    reflectProb: .10
-    spread: 75 # DeltaV: Having two blades isn't really practical for reflecting shots.
+    reflectProb: .10 # DeltaV: Having two blades isn't really practical for reflecting shots.
+    spread: 75
   - type: UseDelay
     delay: 1
 
