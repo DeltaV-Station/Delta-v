@@ -37,6 +37,6 @@ public sealed class SlavedBorgSystem : SharedSlavedBorgSystem
     /// </summary>
     public void AddLaw(SiliconLawset lawset, ProtoId<SiliconLawPrototype> law)
     {
-        lawset.Laws.Insert(0, _proto.Index(law));
+        lawset.Laws.Insert(0, _proto.Index(law).ShallowClone());
     }
 }

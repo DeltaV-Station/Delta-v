@@ -63,11 +63,12 @@
       - JetpackVoid
 
 - type: entity
+  parent: BaseAction
   id: ActionToggleJetpack
   name: Toggle jetpack
   description: Toggles the jetpack, giving you movement outside the station.
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: Objects/Tanks/Jetpacks/blue.rsi
       state: icon
@@ -75,6 +76,7 @@
       sprite: Objects/Tanks/Jetpacks/blue.rsi
       state: icon-on
     useDelay: 1.0
+  - type: InstantAction
     event: !type:ToggleJetpackEvent
 
 #Empty blue
@@ -127,6 +129,8 @@
     #slots:
     #  - Back
     # End DeltaV modifications
+  - type: StaticPrice
+    price: 1000
 
 # Filled black
 - type: entity

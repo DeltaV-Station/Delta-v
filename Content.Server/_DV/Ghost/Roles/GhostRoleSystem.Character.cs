@@ -1,4 +1,5 @@
 using Content.Server.Administration.Commands;
+using Content.Server.Clothing.Systems;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Preferences.Managers;
@@ -12,6 +13,7 @@ namespace Content.Server.Ghost.Roles
     {
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private readonly OutfitSystem _outfit = default!;
 
         private void OnSpawnerTakeCharacter(Entity<GhostRoleCharacterSpawnerComponent> ent,
             ref TakeGhostRoleEvent args)
@@ -39,7 +41,7 @@ namespace Content.Server.Ghost.Roles
 
             GhostRoleInternalCreateMindAndTransfer(args.Player, uid, mob, ghostRole);
 
-            SetOutfitCommand.SetOutfit(mob, component.OutfitPrototype, _entityManager);
+            _outfit.SetOutfit(mob, component.OutfitPrototype);
 
             EntityManager.AddComponents(mob, component.AddedComponents);
 

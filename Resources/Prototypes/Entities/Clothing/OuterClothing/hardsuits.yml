@@ -92,7 +92,7 @@
         Radiation: 0.3 #salv is supposed to have radiation hazards in the future
         Caustic: 0.8
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
+    walkModifier: 0.8
     sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing
@@ -163,9 +163,9 @@
         Caustic: 0.8
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection: 
+    damageProtection:
       flatReductions:
-        Blunt: 10     
+        Blunt: 10
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -203,9 +203,9 @@
         Radiation: 0.1
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection: 
+    damageProtection:
       flatReductions:
-        Blunt: 10 
+        Blunt: 10
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: TemperatureProtection
@@ -336,9 +336,9 @@
         Caustic: 0.6
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection: 
+    damageProtection:
       flatReductions:
-        Blunt: 10 
+        Blunt: 10
   - type: StaminaResistance # DeltaV
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -376,7 +376,7 @@
         Radiation: 0.0
         Caustic: 0.7
   - type: ClothingSpeedModifier
-    walkModifier: 0.75
+    walkModifier: 0.8
     sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing
@@ -403,7 +403,7 @@
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
+    walkModifier: 0.95
     sprintModifier: 0.95
   - type: HeldSpeedModifier
   - type: ToggleableClothing
@@ -434,9 +434,9 @@
         Caustic: 0.2
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection: 
+    damageProtection:
       flatReductions:
-        Blunt: 10 
+        Blunt: 10
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: ClothingSpeedModifier
@@ -486,9 +486,9 @@
         Caustic: 0.6
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection: 
+    damageProtection:
       flatReductions:
-        Blunt: 10 
+        Blunt: 10
   - type: StaminaResistance # DeltaV
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -526,11 +526,11 @@
         Caustic: 0.8
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection: 
+    damageProtection:
       flatReductions:
-        Blunt: 10 
+        Blunt: 10
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
+    walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing
@@ -569,9 +569,9 @@
         Cold: 0.8 # DeltaV - Cold res
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection: 
+    damageProtection:
       flatReductions:
-        Blunt: 10 
+        Blunt: 10
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -592,6 +592,8 @@
   - type: MappingCategories # DeltaV
     categories:
     - Syndicate
+  - type: StaticPrice
+    price: 5000
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -647,13 +649,13 @@
         Cold: 0.4 # DeltaV - Cold res
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection: 
+    damageProtection:
       flatReductions:
-        Blunt: 10 
+        Blunt: 10
   - type: Item
     size: Huge
   - type: ClothingSpeedModifier
-    walkModifier: 1.0
+    walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing
@@ -689,9 +691,9 @@
         Cold: 0.8 # DeltaV - Cold res
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection: 
+    damageProtection:
       flatReductions:
-        Blunt: 10 
+        Blunt: 10
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -732,11 +734,11 @@
         Cold: 0.6 # DeltaV - Cold res
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection: 
+    damageProtection:
       flatReductions:
-        Blunt: 10 
+        Blunt: 10
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
+    walkModifier: 0.65
     sprintModifier: 0.65
   - type: HeldSpeedModifier
   - type: ToggleableClothing
@@ -744,7 +746,7 @@
   - type: Tag
     tags:
     - MonkeyWearable
-    - WhitelistChameleon # DeltaV - gamer forgor
+    - WhitelistChameleon
   # Begin DeltaV Additions
   - type: ReverseEngineering # DeltaV
     difficulty: 5
@@ -783,9 +785,9 @@
         Caustic: 0.75
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection: 
+    damageProtection:
       flatReductions:
-        Blunt: 10 
+        Blunt: 10
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -1030,9 +1032,9 @@
         Caustic: 0.1
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection: 
+    damageProtection:
       flatReductions:
-        Blunt: 10 
+        Blunt: 10
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
@@ -1072,9 +1074,9 @@
         Caustic: 0.1
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection: 
+    damageProtection:
       flatReductions:
-        Blunt: 10 
+        Blunt: 10
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.25
   - type: ClothingSpeedModifier

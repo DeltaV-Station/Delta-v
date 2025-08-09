@@ -35,6 +35,15 @@
     Plastic: 250
     Steel: 25
 
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: ClothingEyesHudDiagnostic
+  result: ClothingEyesHudDiagnostic
+  materials:
+    Steel: 200
+    Plastic: 100
+    Glass: 300
+
 # Robo Neuroling recipes
 
 - type: latheRecipe

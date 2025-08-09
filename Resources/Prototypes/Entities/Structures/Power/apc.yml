@@ -89,11 +89,8 @@
     interfaces:
       enum.ApcUiKey.Key:
         type: ApcBoundUserInterface
-      enum.WiresUiKey.Key: # DeltaV - APC wires
+      enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
-  - type: Wires # DeltaV - APC wires
-    boardName: wires-board-name-apc
-    layoutId: APC
   - type: ActivatableUI
     inHandsOnly: false
     key: enum.ApcUiKey.Key
@@ -107,6 +104,10 @@
     supplyRampRate: 500
   - type: WallMount
   - type: WiresPanel
+  - type: Wires
+    alwaysRandomize: true
+    boardName: wires-board-name-apc
+    layoutId: APC
   - type: WiresVisuals
   - type: Damageable
     damageContainer: StructuralInorganic

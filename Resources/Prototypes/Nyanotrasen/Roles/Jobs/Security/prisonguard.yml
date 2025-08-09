@@ -36,3 +36,17 @@
     - Flash
    # - MagazinePistol # end DeltaV
 
+# DeltaV
+- type: chameleonOutfit
+  id: PrisonGuardChameleonOutfit
+  job: PrisonGuard
+  hasMindShield: true
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+    id: PrisonGuardPDA
+    ears: ClothingHeadsetPrisonGuard
+    head: ClothingHeadPrisonGuard
+    jumpsuit: ClothingUniformJumpsuitPrisonGuard
+    mask: ClothingMaskGasSecurity
+    gloves: ClothingHandsGlovesColorBlack
+

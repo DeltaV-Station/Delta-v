@@ -21,3 +21,12 @@
     id: GladiatorPDA
     ears: ClothingHeadsetGrey
   #any other possessions, spawn in cell
+
+- type: chameleonOutfit
+  id: GladiatorChameleonOutfit
+  job: Gladiator
+  equipment:
+    id: GladiatorPDA
+    ears: ClothingHeadsetGrey
+    jumpsuit: ClothingUniformJumpsuitGladiator
+    outerClothing: ClothingOuterArmorGladiator

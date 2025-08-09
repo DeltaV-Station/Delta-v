@@ -549,7 +549,7 @@ namespace Content.Server._DV.Mail.EntitySystems
             var accessReader = EnsureComp<AccessReaderComponent>(uid);
             foreach (var access in recipient.AccessTags)
             {
-                accessReader.AccessLists.Add([access]);
+                _accessSystem.AddAccess((uid, accessReader), access);
             }
         }
 

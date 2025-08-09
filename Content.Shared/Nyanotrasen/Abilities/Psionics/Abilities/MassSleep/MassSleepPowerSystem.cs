@@ -34,16 +34,19 @@ namespace Content.Shared.Abilities.Psionics
         private void OnInit(Entity<MassSleepPowerComponent> ent, ref ComponentInit args)
         {
             _actions.AddAction(ent, ref ent.Comp.MassSleepActionEntity, ent.Comp.MassSleepActionId );
-            _actions.TryGetActionData( ent.Comp.MassSleepActionEntity, out var actionData );
-            if (actionData is { UseDelay: not null })
+
+            if (_actions.GetAction(ent.Comp.MassSleepActionEntity) is not { Comp.UseDelay: not null })
+            {
                 _actions.StartUseDelay(ent.Comp.MassSleepActionEntity);
+            }
+
             if (TryComp<PsionicComponent>(ent, out var psionic) && psionic.PsionicAbility == null)
                 psionic.PsionicAbility = ent.Comp.MassSleepActionEntity;
         }
 
         private void OnShutdown(Entity<MassSleepPowerComponent> ent, ref ComponentShutdown args)
         {
-            _actions.RemoveAction(ent, ent.Comp.MassSleepActionEntity);
+            _actions.RemoveAction(ent.Owner, ent.Comp.MassSleepActionEntity);
         }
 
         private void OnPowerUsed(Entity<MassSleepPowerComponent> ent, ref MassSleepPowerActionEvent args)
