@@ -62,7 +62,7 @@ public sealed class CosmicFragmentationSystem : EntitySystem
         RaiseLocalEvent(args.Target, ref evt);
         if (evt.Cancelled) return;
         args.Handled = true;
-        _popup.PopupEntity(Loc.GetString(Loc.GetString("cosmicability-fragmentation-success"), ("user", ent), ("target", args.Target)), ent, PopupType.MediumCaution);
+        _popup.PopupEntity(Loc.GetString("cosmicability-fragmentation-success", ("user", ent), ("target", args.Target)), ent, PopupType.MediumCaution);
         _cult.MalignEcho(ent);
         UnEmpower(ent);
     }
