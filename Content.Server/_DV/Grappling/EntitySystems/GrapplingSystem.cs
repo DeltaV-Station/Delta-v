@@ -157,8 +157,11 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     /// <param name="victim">Entity to be grappled.</param>
     private void StartGrapple(Entity<GrapplerComponent> grappler, EntityUid victim)
     {
-        // Throw the victim prone
+        // Throw the victim and grappler (if requested) prone
         _standingStateSystem.Down(victim);
+
+        if (grappler.Comp.ProneOnGrapple)
+            _standingStateSystem.Down(grappler);
 
         // Ensure they have the grappled component for handling escapes and blocking movement.
         EnsureComp<GrappledComponent>(victim, out var grappled);
@@ -471,6 +474,10 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         // Cleanup the grappling on the victim
         RemComp<GrappledComponent>(victim);
         _actionBlockerSystem.UpdateCanMove(victim); // Must be done AFTER the component is removed.
+
+        // Automatically get the grappler back up
+        if (grappler.Comp.ProneOnGrapple && _standingStateSystem.IsDown(grappler))
+            _standingStateSystem.Stand(grappler);
 
         _alerts.ClearAlert(grappler, grappler.Comp.GrappledAlert);
         _alerts.ClearAlert(victim, grappler.Comp.GrappledAlert);

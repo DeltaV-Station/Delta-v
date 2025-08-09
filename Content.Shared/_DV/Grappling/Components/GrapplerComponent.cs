@@ -32,6 +32,12 @@ public sealed partial class GrapplerComponent : Component
     public bool CanMoveWhileGrappling = false;
 
     /// <summary>
+    /// Whether this entity should also lay prone when grappling.
+    /// </summary>
+    [DataField]
+    public bool ProneOnGrapple = false;
+
+    /// <summary>
     /// Whether grapples from this entity should disable no, a random, or all hands of the victim.
     /// </summary>
     [DataField]
