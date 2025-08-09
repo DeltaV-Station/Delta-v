@@ -9,3 +9,21 @@
     sprite: _DV/Clothing/Head/Hoods/interdynechemhood.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hoods/interdynechemhood.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoodSkiaHood
+  categories: [ HideSpawnMenu ]
+  name: skia hood
+  description: Smells like Tartarus in here.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hoods/skia_hoodie.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hoods/skia_hoodie.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Hair

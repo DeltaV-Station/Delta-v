@@ -1,0 +1,9 @@
+- type: entity
+  id: ActionShatterLights
+  name: Shatter Lights
+  description: Shatter all lights in the area.
+  components:
+  - type: InstantAction
+    icon: { sprite: _DV/Actions/shatterlights.rsi, state: shatter-lights }
+    event: !type:ShatterLightsActionEvent
+    useDelay: 60

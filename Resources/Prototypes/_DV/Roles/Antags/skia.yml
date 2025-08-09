@@ -1,0 +1,8 @@
+- type: antag
+  id: Skia
+  name: roles-antag-skia-name
+  objective: roles-antag-skia-objective
+  antagonist: true
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 172800 # 48 hours overall
