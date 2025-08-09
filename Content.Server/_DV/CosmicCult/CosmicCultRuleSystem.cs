@@ -397,10 +397,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     private bool CultistsAlive()
     {
         var query = EntityQueryEnumerator<CosmicCultComponent, MobStateComponent>();
-        while (query.MoveNext(out _, out var comp, out var mob))
+        while (query.MoveNext(out var ent, out _, out var mobComp))
         {
-            if (TryComp<CuffableComponent>(mob, out var cuffed) && cuffed.CuffedHandCount > 0) continue;
-            if (mob.Running && mob.CurrentState != MobState.Dead)
+            if (TryComp<CuffableComponent>(ent, out var cuffed) && cuffed.CuffedHandCount > 0) continue;
+            if (mobComp.Running && mobComp.CurrentState != MobState.Dead)
                 return true;
         }
 
@@ -409,12 +409,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     private void OnMobStateChanged(Entity<CosmicCultComponent> ent, ref MobStateChangedEvent args)
     {
-        CheckForActiveCultists()
+        CheckForActiveCultists();
     }
 
     private void OnCuffStateChanged(Entity<CosmicCultComponent> ent, ref CuffedStateChangeEvent args)
     {
-        CheckForActiveCultists()
+        CheckForActiveCultists();
     }
 
     private void CheckForActiveCultists()
@@ -454,7 +454,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         else if (CultistsAtCentcom >= 2)
             SetWinType(ent, WinType.CultMinor); //The Monument wasn't completed, but at least two cultists are alive and at Midpoint.
         else 
-            SetWinType(ent, WinType.CrewMinor); //The monument wasn't completed, no cultists escaped to midpoint. Some cultists still remain on the station, though.
+            SetWinType(ent, WinType.Neutral); //The monument wasn't completed, no cultists escaped to midpoint. Some cultists still remain on the station, though.
 
         if (CultistsAlive()) return; //If there are no cultists alive, ignore all previous checks, crew alreay won.
 
