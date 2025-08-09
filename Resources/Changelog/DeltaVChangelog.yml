@@ -1,65 +1,4 @@
 ﻿Entries:
-- author: Dutch-VanDerLinde, TadJohnson00
-  changes:
-  - message: Jumpsuits now support mechanics for rolling sleeves AND folding down
-      jackets.
-    type: Tweak
-  id: 1068
-  time: '2025-02-24T06:32:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3036
-- author: whatston3, FireNameFN, sowelipililimute
-  changes:
-  - message: Ported the ability to respawn mid-round from Frontier Station
-    type: Add
-  id: 1069
-  time: '2025-02-24T06:33:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3021
-- author: TadJohnson00
-  changes:
-  - message: Removed security cyborgs from general play.
-    type: Remove
-  id: 1070
-  time: '2025-02-24T08:33:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3038
-- author: Eternally-Confused
-  changes:
-  - message: Added missing Chief Justice, AA, and other command uniforms to the uniform
-      printer
-    type: Add
-  id: 1071
-  time: '2025-02-24T22:04:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3037
-- author: TadJohnson00
-  changes:
-  - message: Added Delta-V specific HE and shrapnel mines for mappers to use.
-    type: Add
-  id: 1072
-  time: '2025-02-25T08:26:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3039
-- author: Colin-Tel
-  changes:
-  - message: Updated rule S4 to allow law changes in certain situations.
-    type: Tweak
-  id: 1073
-  time: '2025-02-25T08:50:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2809
-- author: Toby222
-  changes:
-  - message: Fixed being able to add empty NanoChat contacts
-    type: Fix
-  id: 1074
-  time: '2025-02-25T09:42:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3045
-- author: widgetbeck, crocodilecarousel, TGRCdev, airfryerbuyonegetonefree, sowelipililimute,
-    honeyed_lemons_, DinnerCalzone, kushbreth
-  changes:
-  - message: Thaven have been added as a species! These fey creatures are struck by
-      Moods, a new mechanic similar to silicon laws- but far more dramatic. Ported
-      from Impstation with love.
-    type: Add
-  id: 1075
-  time: '2025-02-25T09:45:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2948
 - author: deltanedas
   changes:
   - message: Fixed being able to immediately respawn after observing, it now has a
@@ -4107,3 +4046,61 @@
   id: 1567
   time: '2025-08-05T17:34:14.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4129
+- author: kotobdev
+  changes:
+  - message: Warops is back, albeit optional this time.
+    type: Add
+  id: 1568
+  time: '2025-08-07T00:36:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4107
+- author: Cepelinas1
+  changes:
+  - message: You can now engrave rings.
+    type: Add
+  id: 1569
+  time: '2025-08-07T01:29:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4103
+- author: Proxysseia
+  changes:
+  - message: Security Hardsuits are no longer insulated
+    type: Remove
+  id: 1570
+  time: '2025-08-07T12:05:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4144
+- author: Proxysseia
+  changes:
+  - message: dispensations are now tied to your personal access instead of your departments access
+    type: Tweak
+  - message: dispensations now cover items printed by your departments lathe
+    type: Tweak
+  id: 1571
+  time: '2025-08-07T19:05:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4141
+- author: Proxysseia
+  changes:
+  - message: self experimentation is legal again
+    type: Tweak
+  id: 1572
+  time: '2025-08-08T00:12:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4132
+- author: Cepelinas1
+  changes:
+  - message: Epistemics can now invent the Trash Bag Of Holding. Janitors rejoice!
+    type: Add
+  id: 1573
+  time: '2025-08-08T15:44:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4138
+- author: NoElkaTheGod
+  changes:
+  - message: Double-bladed energy sword is back! But not the way you remember it.
+    type: Add
+  id: 1574
+  time: '2025-08-09T13:16:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4145
+- author: NoElkaTheGod
+  changes:
+  - message: Null fragmentation is now instantaneous.
+    type: Tweak
+  id: 1575
+  time: '2025-08-09T15:30:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4102
