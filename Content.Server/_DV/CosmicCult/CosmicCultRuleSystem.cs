@@ -439,7 +439,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         while (wrapup.MoveNext(out var cultist, out _, out var cultistLocation))
         {
             if (cultistLocation.MapUid != null && centcomm.Contains(cultistLocation.MapUid.Value))
-            { 
+            {
                 if (TryComp<CuffableComponent>(cultist, out var cuffed) && cuffed.CuffedHandCount > 0) continue; // If they are cuffed, they should be deconverted soon, so we don't count them.
                 CultistsAtCentcom++;
                 if (HasComp<CosmicCultLeadComponent>(cultist))
@@ -453,7 +453,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             SetWinType(ent, WinType.CultMajor); //The Monument wasn't completed, but the cult leader's alive and at Midpoint.
         else if (CultistsAtCentcom >= 2)
             SetWinType(ent, WinType.CultMinor); //The Monument wasn't completed, but at least two cultists are alive and at Midpoint.
-        else 
+        else
             SetWinType(ent, WinType.Neutral); //The monument wasn't completed, no cultists escaped to midpoint. Some cultists still remain on the station, though.
 
         if (CultistsAlive()) return; //If there are no cultists alive, ignore all previous checks, crew alreay won.
