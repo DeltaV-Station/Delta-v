@@ -58,10 +58,11 @@ public sealed class CosmicFragmentationSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("cosmicability-generic-fail"), ent, ent);
             return;
         }
-        args.Handled = true;
-        _popup.PopupEntity(Loc.GetString(Loc.GetString("cosmicability-fragmentation-success"), ("user", ent), ("target", args.Target)), ent, PopupType.MediumCaution);
         var evt = new MalignFragmentationEvent(ent, args.Target);
         RaiseLocalEvent(args.Target, ref evt);
+        if (evt.Cancelled) return;
+        args.Handled = true;
+        _popup.PopupEntity(Loc.GetString(Loc.GetString("cosmicability-fragmentation-success"), ("user", ent), ("target", args.Target)), ent, PopupType.MediumCaution);
         _cult.MalignEcho(ent);
         UnEmpower(ent);
     }
@@ -69,7 +70,10 @@ public sealed class CosmicFragmentationSystem : EntitySystem
     private void OnFragmentBorg(Entity<BorgChassisComponent> ent, ref MalignFragmentationEvent args)
     {
         if (!_mind.TryGetMind(args.Target, out var mindId, out var mind))
+        {
+            args.Cancelled = true;
             return;
+        }
         var wisp = Spawn("CosmicChantryWisp", Transform(args.Target).Coordinates);
         var chantry = Spawn("CosmicBorgChantry", Transform(args.Target).Coordinates);
         EnsureComp<CosmicChantryComponent>(chantry, out var chantryComponent);
@@ -111,4 +115,4 @@ public sealed class CosmicFragmentationSystem : EntitySystem
 }
 
 [ByRefEvent]
-public record struct MalignFragmentationEvent(Entity<CosmicCultComponent> User, EntityUid Target);
+public record struct MalignFragmentationEvent(Entity<CosmicCultComponent> User, EntityUid Target, bool Cancelled = false);
