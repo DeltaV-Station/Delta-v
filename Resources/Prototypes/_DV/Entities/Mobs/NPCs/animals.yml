@@ -91,7 +91,10 @@
     sprite: _DV/Mobs/Pets/secdog.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: secdog
+      state: base
+    - map: [ "outerClothing" ]
+    - map: ["tail"]
+      state: tail_animated
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
