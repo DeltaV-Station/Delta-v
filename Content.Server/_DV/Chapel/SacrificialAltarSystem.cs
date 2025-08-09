@@ -29,6 +29,8 @@ public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SoulCrystalSystem _soul = default!;
+
 
     public override void Initialize()
     {
@@ -44,7 +46,7 @@ public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
 
         var user = args.Args.User;
 
-        if (args.Cancelled || args.Handled || args.Args.Target is not {} target)
+        if (args.Cancelled || args.Handled || args.Args.Target is not { } target)
             return;
 
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
@@ -67,7 +69,8 @@ public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
             Spawn(id, coords);
         }
 
-        // TODO GOLEMS: create a soul crystal and transfer mind into it
+        // Create a soul crystal and transfer mind into it
+        _soul.SealSoul(ent.Comp.SealsInto, mindId, target, coords);
 
         // finally gib the targets old body
         if (TryComp<BodyComponent>(target, out var body))
