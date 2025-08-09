@@ -229,8 +229,10 @@
   name: Slumber Shell
   description: Slumber your body for a period of time to regenerate integrity. Must be done on stable ground.
   components:
-  - type: LimitedCharges
-    maxCharges: 2
+  - type: ConfirmableAction
+    popup: cosmicability-hibernate-confirm
+    confirmDelay: 0.1
+    primeTime: 5
   - type: InstantAction
     useDelay: 120
     checkCanInteract: false
