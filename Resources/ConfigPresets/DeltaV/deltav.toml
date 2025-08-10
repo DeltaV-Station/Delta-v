@@ -89,8 +89,8 @@ startup_time = 10 # 4.5 seconds longer than the default
 travel_time = 5 # 15 seconds less than the default
 emergency_dock_time = 360 # an extra 2 minutes over the default
 emergency_transit_time_min = 90
-auto_call_time = 120 # rounds are longer
-auto_call_extension_time = 30 # next auto call at 2h30
+auto_call_time = 90 # rounds are shorter
+auto_call_extension_time = 30 # next auto call at 2h
 emergency_early_launch_allowed = true # MRP server command ban time
 recall_turning_point = 0.33
 
