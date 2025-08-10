@@ -131,6 +131,8 @@ loadout-group-security-gun-ammo = Ammunition
 loadout-group-revolver-ammo = Ammunition
 loadout-group-all-ammo = Ammunition
 
+loadout-group-security-hands = Security Gloves
+
 # Justice
 loadout-group-chiefjustice-head = Chief Justice head
 loadout-group-chiefjustice-jumpsuit = Chief Justice jumpsuit

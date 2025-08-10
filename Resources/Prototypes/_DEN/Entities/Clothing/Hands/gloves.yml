@@ -3,16 +3,16 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-- type: entity
-  parent: ClothingHandsBase
-  id: ClothingHandsGoldenRing
-  name: golden ring
-  description: A well made ring made of real gold, usually given to the people you cherish the most.
-  components:
-  - type: Sprite
-    sprite: _DEN/Clothing/Hands/goldenring.rsi
-  - type: Clothing
-    sprite: _DEN/Clothing/Hands/goldenring.rsi
+#- type: entity
+#  parent: ClothingHandsBase
+#  id: ClothingHandsGoldenRing
+#  name: golden ring
+#  description: A well made ring made of real gold, usually given to the people you cherish the most.
+#  components:
+#  - type: Sprite
+#    sprite: _DEN/Clothing/Hands/goldenring.rsi
+#  - type: Clothing
+#    sprite: _DEN/Clothing/Hands/goldenring.rsi
 
 - type: entity
   parent: ClothingHandsGlovesColorBlack
@@ -24,9 +24,7 @@
     sprite: Clothing/Hands/Gloves/combat.rsi
   - type: Clothing
     sprite: Clothing/Hands/Gloves/combat.rsi
-  - type: GloveHeatResistance
-    heatResistance: 1400
   - type: Insulated
     coefficient: 0.2
   - type: Fiber
-    fiberMaterial: fibers-insulative
+    fiberMaterial: fibers-insulative-frayed
