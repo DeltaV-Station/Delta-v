@@ -76,7 +76,7 @@
     supercriticalSound:
       path: /Audio/_DV/CosmicCult/effigy_supercritical.ogg
     nextPulseTime: 1
-    minPulseLength: 60
+    minPulseLength: 40
     maxPulseLength: 80
     minContituty: 0.4
     maxContituty: 0.8
@@ -85,8 +85,8 @@
     entries:
     - settings:
         spawnOnPulse: true
-        minAmount: 2
-        maxAmount: 3
+        minAmount: 4
+        maxAmount: 6
         minRange: 3
         maxRange: 4.5
       spawns:
