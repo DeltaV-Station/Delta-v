@@ -30,7 +30,8 @@ public sealed partial class ArtifactAnalyzerComponent : Component
     /// <summary>
     /// The maximum added multiplier, reached at max glimmer.
     /// </summary>
-    public float PointGlimmerMultiplier = 1.0f;
+    [DataField]
+    public float PointGlimmerMultiplier = 1.5f;
     // End DeltaV - Tie point output to glimmer
 
     /// <summary>
