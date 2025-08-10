@@ -17,7 +17,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout Master
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.BOT_TOKEN }}
           ref: "${{ vars.CHANGELOG_BRANCH }}"
@@ -29,9 +29,9 @@ jobs:
         shell: bash
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 22.x
 
       - name: Install Dependencies
         run: |
