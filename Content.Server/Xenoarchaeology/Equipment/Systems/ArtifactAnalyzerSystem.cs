@@ -344,8 +344,15 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         msg.AddMarkupOrThrow(Loc.GetString("analysis-console-info-edges", ("edges", n.Edges.Count)));
         msg.PushNewline();
 
+        // Begin DeltaV - show glimmer multiplier
         if (component.LastAnalyzerPointValue != null)
-            msg.AddMarkupOrThrow(Loc.GetString("analysis-console-info-value", ("value", component.LastAnalyzerPointValue)));
+        {
+            msg.AddMarkupOrThrow(Loc.GetString("analysis-console-info-value", ("value", (int) (component.LastAnalyzerPointValue * GetGlimmerMultiplier(component)))));
+            msg.PushNewline();
+        }
+
+        msg.AddMarkupOrThrow(Loc.GetString("old-analysis-console-glimmer-multiplier-text", ("mult", GetGlimmerMultiplier(component).ToString("N2"))));
+        // End DeltaV - show glimmer multiplier
 
         return msg;
     }
@@ -370,19 +377,22 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
 
         var pointValue = _artifact.GetResearchPointValue(artifact.Value);
 
+        // Begin DeltaV Additions - extracting artifacts raises glimmer proportional to the points, floored,
+        // and artifact point output is proportional to glimmer.
+        if (TryComp<ArtifactAnalyzerComponent>(component.AnalyzerEntity.Value, out var analyzer) &&
+            analyzer != null)
+        {
+            _glimmerSystem.Glimmer += (int) pointValue / analyzer.ExtractRatio;
+            pointValue = (int) (pointValue * GetGlimmerMultiplier(analyzer));
+        }
+
+
         // no new nodes triggered so nothing to add
         if (pointValue == 0)
             return;
 
         _research.ModifyServerPoints(server.Value, pointValue, serverComponent);
         _artifact.AdjustConsumedPoints(artifact.Value, pointValue);
-
-        // Begin DeltaV Additions - extracting artifacts raises glimmer proportional to the points, floored
-        if (TryComp<ArtifactAnalyzerComponent>(component.AnalyzerEntity.Value, out var analyzer) &&
-            analyzer != null)
-        {
-            _glimmerSystem.Glimmer += (int) pointValue / analyzer.ExtractRatio;
-        }
         // End DeltaV Additions
 
         _audio.PlayPvs(component.ExtractSound, component.AnalyzerEntity.Value, AudioParams.Default.WithVolume(2f));
@@ -525,5 +535,12 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             ResumeScan(uid, null, active);
         }
     }
+
+    // Begin DeltaV - glimmer mult calculation
+    private float GetGlimmerMultiplier(ArtifactAnalyzerComponent comp)
+    {
+        return 1 + (_glimmerSystem.Glimmer / 1000f) * comp.PointGlimmerMultiplier;
+    }
+    // End DeltaV - glimmer mult calculation
 }
 
