@@ -52,6 +52,13 @@ public sealed partial class RadioJammerComponent : Component
     [DataField]
     [AutoNetworkedField]
     public int SelectedPowerLevel = 1;
+
+    /// <summary>
+    /// DeltaV: If true, the jammer cannot be activated, instead only working when anchored.
+    /// </summary>
+    [DataField]
+    [AutoNetworkedField]
+    public bool ActiveWhenAnchored = false;
 }
 
 [Serializable, NetSerializable]

@@ -23,6 +23,7 @@ public sealed class JammerSystem : SharedJammerSystem
         SubscribeLocalEvent<RadioJammerComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<ActiveRadioJammerComponent, PowerCellChangedEvent>(OnPowerCellChanged);
         SubscribeLocalEvent<RadioSendAttemptEvent>(OnRadioSendAttempt);
+        SubscribeLocalEvent<RadioJammerComponent, AnchorStateChangedEvent>(OnAnchorStateChange); //DeltaV - jammer active when anchored
     }
 
     public override void Update(float frameTime)
@@ -31,7 +32,7 @@ public sealed class JammerSystem : SharedJammerSystem
 
         while (query.MoveNext(out var uid, out var _, out var jam))
         {
-
+            if (jam.ActiveWhenAnchored) continue; //DeltaV - jammer active when anchored
             if (_powerCell.TryGetBatteryFromSlot(uid, out var batteryUid, out var battery))
             {
                 if (!_battery.TryUseCharge(batteryUid.Value, GetCurrentWattage((uid, jam)) * frameTime, battery))
@@ -59,7 +60,7 @@ public sealed class JammerSystem : SharedJammerSystem
 
     private void OnActivate(Entity<RadioJammerComponent> ent, ref ActivateInWorldEvent args)
     {
-        if (args.Handled || !args.Complex)
+        if (args.Handled || !args.Complex || ent.Comp.ActiveWhenAnchored) //DeltaV - jammer active when anchored
             return;
 
         var activated = !HasComp<ActiveRadioJammerComponent>(ent) &&
@@ -101,6 +102,28 @@ public sealed class JammerSystem : SharedJammerSystem
             args.Cancelled = true;
         }
     }
+
+    //Begin DeltaV additions
+    private void OnAnchorStateChange(Entity<RadioJammerComponent> ent, ref AnchorStateChangedEvent args)
+    {
+        if (!ent.Comp.ActiveWhenAnchored)
+            return;
+        if (args.Anchored)
+        {
+            //ChangeLEDState(ent.Owner, true); //Uncomment this if you need it for some reason, I'm too lazy to see if it breaks shit or not
+            EnsureComp<ActiveRadioJammerComponent>(ent);
+            EnsureComp<DeviceNetworkJammerComponent>(ent, out var jammingComp);
+            _jammer.SetRange((ent, jammingComp), GetCurrentRange(ent));
+            _jammer.AddJammableNetwork((ent, jammingComp), DeviceNetworkComponent.DeviceNetIdDefaults.Wireless.ToString());
+        }
+        else
+        {
+            //ChangeLEDState(ent.Owner, false); //Uncomment this if you need it for some reason, I'm too lazy to see if it breaks shit or not
+            RemCompDeferred<ActiveRadioJammerComponent>(ent);
+            RemCompDeferred<DeviceNetworkJammerComponent>(ent);
+        }
+    }
+    //End DeltaV additions
 
     private bool ShouldCancelSend(EntityUid sourceUid)
     {
