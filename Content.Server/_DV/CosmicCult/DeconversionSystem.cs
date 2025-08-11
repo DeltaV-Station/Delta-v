@@ -18,7 +18,6 @@ using Content.Shared.Tools.Systems;
 using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Server._DV.CosmicCult;
@@ -87,10 +86,9 @@ public sealed class DeconversionSystem : EntitySystem
 
     private void OnDoAfter(Entity<CosmicCenserTargetComponent> uid, ref CleanseOnDoAfterEvent args)
     {
-        if (args.Args.Target is not {} target)
-            return;
+        var target = args.Args.Target;
 
-        if (args.Cancelled || args.Handled || _mobState.IsIncapacitated(target.Value))
+        if (args.Cancelled || args.Handled || target == null || _mobState.IsIncapacitated(target.Value))
             return;
 
         if (args.Args.Used is not {} used || !TryComp<CosmicCenserComponent>(used, out var censer))
@@ -125,8 +123,8 @@ public sealed class DeconversionSystem : EntitySystem
             _popup.PopupCoordinates(Loc.GetString("cleanse-deconvert-attempt-rebound"), targetPosition, PopupType.MediumCaution);
             _damageable.TryChangeDamage(args.User, censer.FailedDeconversionDamage, true);
             _damageable.TryChangeDamage(args.Target, censer.FailedDeconversionDamage, true);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(2), true);
-            if (_mind.TryGetMind(target, out _, out var mind) && _playerMan.TryGetSessionById(mind.UserId, out var session))
+            _stun.TryKnockdown(target.Value, TimeSpan.FromSeconds(2), true);
+            if (_mind.TryGetMind(target.Value, out _, out var mind) && _playerMan.TryGetSessionById(mind.UserId, out var session))
             {
                 _euiMan.OpenEui(new CosmicMindwipedEui(), session);
             }
