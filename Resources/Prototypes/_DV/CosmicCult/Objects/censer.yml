@@ -39,14 +39,15 @@
     qualities: Censer
   - type: Welder
     fuelSolutionName: Censer
-    fuelReagent: Holywater
+    fuelReagent: MindbreakerToxin
+    fuelConsumption: 0.5
   - type: RefillableSolution
     solution: Censer
   - type: SolutionContainerManager
     solutions:
       Censer:
         reagents:
-        - ReagentId: Holywater
+        - ReagentId: MindbreakerToxin
           Quantity: 100
         maxVol: 100
   - type: ItemTogglePointLight
