@@ -87,7 +87,6 @@ public sealed class DeconversionSystem : EntitySystem
     private void OnDoAfter(Entity<CosmicCenserTargetComponent> uid, ref CleanseOnDoAfterEvent args)
     {
         var target = args.Args.Target;
-
         if (args.Cancelled || args.Handled || target == null || _mobState.IsIncapacitated(target.Value))
             return;
 
