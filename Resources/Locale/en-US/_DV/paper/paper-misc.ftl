@@ -20,7 +20,7 @@ book-text-subscription-notice = [head=2]Greetings loyal subscriber,[/head]
 
       Signing off,
 
-paper-salvage-gun-safe-notice = SALVAGE SPECIALIST SELF DEFENCE ARMAMENT NOTICE
+paper-salvage-gun-safe-notice = SALVAGE SPECIALIST SELF DEFENSE ARMAMENT NOTICE
 
       Greetings, salvage specialist!
 
@@ -28,7 +28,7 @@ paper-salvage-gun-safe-notice = SALVAGE SPECIALIST SELF DEFENCE ARMAMENT NOTICE
 
       Responsible handing of these firearms is expected. Any use that does not fall under work-related self-defense is strictly prohibited and may result in the removal of firearm privileges and/or termination from the salvage specialist team.
 
-      Misuse of firearms resulting in endangerment of the station and/or threat or harm to another employee will be prosecuted by the station's justice department. of firearms resulting in endangerment of the station and/or threat or harm to another employee will be prosecuted by the station's justice department.
+      Misuse of firearms resulting in endangerment of the station and/or threat or harm to another employee will be prosecuted by the station's justice department.
 
       Remember, safety and responsible firearm use in your hands!
 
