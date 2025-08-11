@@ -5,11 +5,12 @@
   playTimeTracker: JobLibrarian
   startingGear: LibrarianGear
   icon: "JobIconLibrarian"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-rd # DeltaV - Moved to epistemics department
   access:
   - Service
   - Maintenance
   - Library # DeltaV - Add Library access
+  - Research
 
 - type: startingGear
   id: LibrarianGear

@@ -1,0 +1,101 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  abstract: true
+  id: AncientBookBase
+  name: Ancient Book
+  components:
+  - type: Sprite
+    layers:
+      - sprite: Objects/Materials/Shards/shard.rsi
+        state: shard1
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  parent: AncientBookBase
+  id: AncientBookCommon
+  name: Common Ancient Book
+  description: A very old book commonly found in archives. Read it to discover what it is.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#0f204f"
+    - state: decor_wingette_circle
+      color: "#2c5491"
+    - state: decor_vertical_middle
+      color: "#3c6ab0"
+    - state: icon_fish
+    - state: detail_bookmark
+      color: "#2c5491"
+  - type: SpawnItemsOnUse
+    items:
+      - id: ResearchDisk
+      - id: AncientBookCommon1
+        orGroup: AncientBookCommonPool
+      - id: AncientBookCommon2
+        orGroup: AncientBookCommonPool
+      - id: AncientBookCommon3
+        orGroup: AncientBookCommonPool
+
+- type: entity
+  parent: AncientBookBase
+  id: AncientBookUncommon
+  name: Uncommon Ancient Book
+  description: A very old book generally only found in private collections. Read it to discover what it is.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#0f204f"
+    - state: decor_wingette_circle
+      color: "#2c5491"
+    - state: decor_vertical_middle
+      color: "#3c6ab0"
+    - state: icon_fish
+    - state: detail_bookmark
+      color: "#2c5491"
+  - type: SpawnItemsOnUse
+    items:
+      - id: ResearchDisk5000
+      - id: AncientBookUncommon1
+        orGroup: AncientBookUncommonPool
+      - id: AncientBookUncommon2
+        orGroup: AncientBookUncommonPool
+      - id: AncientBookUncommon3
+        orGroup: AncientBookUncommonPool
+
+- type: entity
+  parent: AncientBookBase
+  id: AncientBookRare
+  name: Rare Ancient Book
+  description: A very old book sought after for it's rarity and value. Read it to discover what it is.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#0f204f"
+    - state: decor_wingette_circle
+      color: "#2c5491"
+    - state: decor_vertical_middle
+      color: "#3c6ab0"
+    - state: icon_fish
+    - state: detail_bookmark
+      color: "#2c5491"
+  - type: SpawnItemsOnUse
+    items:
+      - id: ResearchDisk10000
+      - id: AncientBookRare1
+        orGroup: AncientBookRarePool
+      - id: AncientBookRare2
+        orGroup: AncientBookRarePool
+      - id: AncientBookRare3
+        orGroup: AncientBookRarePool

@@ -108,3 +108,201 @@
     guides:
     - Cargo
     - Salvage
+
+- type: entity
+  parent: BookBase
+  id: AncientBookCommon1
+  name: Common Ancient Book 1
+  description: placeholder name and desc until story is written.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#0f204f"
+    - state: decor_wingette_circle
+      color: "#2c5491"
+    - state: decor_vertical_middle
+      color: "#3c6ab0"
+    - state: icon_fish
+    - state: detail_bookmark
+      color: "#2c5491"
+  - type: Paper
+    content: book-text-fishops
+
+- type: entity
+  parent: BookBase
+  id: AncientBookCommon2
+  name: Common Ancient Book 2
+  description: placeholder name and desc until story is written.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#0f204f"
+    - state: decor_wingette_circle
+      color: "#2c5491"
+    - state: decor_vertical_middle
+      color: "#3c6ab0"
+    - state: icon_fish
+    - state: detail_bookmark
+      color: "#2c5491"
+  - type: Paper
+    content: book-text-fishops
+
+- type: entity
+  parent: BookBase
+  id: AncientBookCommon3
+  name: Common Ancient Book 3
+  description: placeholder name and desc until story is written.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#0f204f"
+    - state: decor_wingette_circle
+      color: "#2c5491"
+    - state: decor_vertical_middle
+      color: "#3c6ab0"
+    - state: icon_fish
+    - state: detail_bookmark
+      color: "#2c5491"
+  - type: Paper
+    content: book-text-fishops
+
+- type: entity
+  parent: BookBase
+  id: AncientBookUncommon1
+  name: Uncommon Ancient Book 1
+  description: placeholder name and desc until story is written.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#0f204f"
+    - state: decor_wingette_circle
+      color: "#2c5491"
+    - state: decor_vertical_middle
+      color: "#3c6ab0"
+    - state: icon_fish
+    - state: detail_bookmark
+      color: "#2c5491"
+  - type: Paper
+    content: book-text-fishops
+
+- type: entity
+  parent: BookBase
+  id: AncientBookUncommon2
+  name: Uncommon Ancient Book 2
+  description: placeholder name and desc until story is written.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#0f204f"
+    - state: decor_wingette_circle
+      color: "#2c5491"
+    - state: decor_vertical_middle
+      color: "#3c6ab0"
+    - state: icon_fish
+    - state: detail_bookmark
+      color: "#2c5491"
+  - type: Paper
+    content: book-text-fishops
+
+- type: entity
+  parent: BookBase
+  id: AncientBookUncommon3
+  name: Uncommon Ancient Book 3
+  description: placeholder name and desc until story is written.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#0f204f"
+    - state: decor_wingette_circle
+      color: "#2c5491"
+    - state: decor_vertical_middle
+      color: "#3c6ab0"
+    - state: icon_fish
+    - state: detail_bookmark
+      color: "#2c5491"
+  - type: Paper
+    content: book-text-fishops
+
+- type: entity
+  parent: BookBase
+  id: AncientBookRare1
+  name: Rare Ancient Book 1
+  description: placeholder name and desc until story is written.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#0f204f"
+    - state: decor_wingette_circle
+      color: "#2c5491"
+    - state: decor_vertical_middle
+      color: "#3c6ab0"
+    - state: icon_fish
+    - state: detail_bookmark
+      color: "#2c5491"
+  - type: Paper
+    content: book-text-fishops
+
+- type: entity
+  parent: BookBase
+  id: AncientBookRare2
+  name: Rare Ancient Book 2
+  description: placeholder name and desc until story is written.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#0f204f"
+    - state: decor_wingette_circle
+      color: "#2c5491"
+    - state: decor_vertical_middle
+      color: "#3c6ab0"
+    - state: icon_fish
+    - state: detail_bookmark
+      color: "#2c5491"
+  - type: Paper
+    content: book-text-fishops
+
+- type: entity
+  parent: BookBase
+  id: AncientBookRare3
+  name: Rare Ancient Book 3
+  description: placeholder name and desc until story is written.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#0f204f"
+    - state: decor_wingette_circle
+      color: "#2c5491"
+    - state: decor_vertical_middle
+      color: "#3c6ab0"
+    - state: icon_fish
+    - state: detail_bookmark
+      color: "#2c5491"
+  - type: Paper
+    content: book-text-fishops

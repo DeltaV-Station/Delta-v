@@ -1,0 +1,43 @@
+- type: entity
+  id: DisplayCaseArtifact
+  parent: [BaseMachinePowered, CrateArtifactContainer]
+  name: Artifact Display Case
+  description: A sturdy display case for showing off interesting artifacts.
+  components:
+  - type: AccessReader
+    access: [["Research"]]
+  - type: Sprite
+    drawdepth: Objects
+    sprite: _DV/Structures/Storage/display_cases.rsi
+    layers:
+    - state: display_case
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: display_case_glass
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: paper
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Icon
+    sprite: _DV/Structures/Storage/display_cases.rsi
+    state: display_case_icon
+  - type: EntityStorageVisuals
+    sprite: _DV/Structures/Storage/display_cases.rsi
+    stateDoorOpen: display_case_open
+    stateDoorClosed: display_case_glass
+  - type: ResearchPointSource
+    pointspersecond: 5
+    active: true
+  - type: PowerSwitch
+  - type: ResearchClient
+  - type: ActivatableUI
+    key: enum.ResearchClientUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
