@@ -8,7 +8,7 @@ public sealed class CosmicMindwipedEui : BaseEui
 
     public CosmicMindwipedEui()
     {
-        _menu = new CosmicMindwiped();
+        _menu = new CosmicMindwipedMenu();
     }
 
     public override void Opened()
