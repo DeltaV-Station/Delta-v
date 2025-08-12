@@ -9,7 +9,7 @@ namespace Content.Shared._DV.CosmicCult.Components;
 [RegisterComponent]
 public sealed partial class CosmicJammerComponent : Component
 {
-    [DataField] public float Range = 25f;
+    [DataField] public float Range = 18f;
     [DataField] public bool Active = false;
 }
 
