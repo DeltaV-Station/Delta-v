@@ -146,7 +146,9 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
                 ? null
                 : (ArtifactNode?) _artifact.GetNodeFromId(artifact.CurrentNodeId.Value, artifact).Clone();
             component.LastAnalyzedNode = lastNode;
-            component.LastAnalyzerPointValue = _artifact.GetResearchPointValue(component.LastAnalyzedArtifact.Value, artifact);
+            // DeltaV - dynamic glimmer multiplier doesn't play nice with static artifact point values,
+            // so clamp this to prevent negative values on analyzer.
+            component.LastAnalyzerPointValue = Math.Clamp(_artifact.GetResearchPointValue(component.LastAnalyzedArtifact.Value, artifact), 0, int.MaxValue);
         }
     }
 
@@ -382,10 +384,10 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         if (TryComp<ArtifactAnalyzerComponent>(component.AnalyzerEntity.Value, out var analyzer) &&
             analyzer != null)
         {
-            _glimmerSystem.Glimmer += (int) pointValue / analyzer.ExtractRatio;
+            // DeltaV - divide by multiplier to avoid insane glimmer nukes at high multiplier values. cast to float to avoid loss of fraction
+            _glimmerSystem.Glimmer += (int)(pointValue / (float)analyzer.ExtractRatio / GetGlimmerMultiplier(analyzer));
             pointValue = (int) (pointValue * GetGlimmerMultiplier(analyzer));
         }
-
 
         // no new nodes triggered so nothing to add
         if (pointValue == 0)
@@ -537,9 +539,10 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
     }
 
     // Begin DeltaV - glimmer mult calculation
+    // Exponential curve that reaches 1 + PointGlimmerMultiplier at 1000 glimmer.
     private float GetGlimmerMultiplier(ArtifactAnalyzerComponent comp)
     {
-        return 1 + (_glimmerSystem.Glimmer / 1000f) * comp.PointGlimmerMultiplier;
+        return 1 + (MathF.Pow(_glimmerSystem.Glimmer / 1000f, 2f) * comp.PointGlimmerMultiplier);
     }
     // End DeltaV - glimmer mult calculation
 }
