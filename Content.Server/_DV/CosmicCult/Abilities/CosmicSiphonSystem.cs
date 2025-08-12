@@ -1,6 +1,6 @@
-using Content.Server.Bible.Components;
 using Content.Server.Ghost;
 using Content.Server.Light.Components;
+using Content.Server.Revolutionary.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Alert;
@@ -86,8 +86,8 @@ public sealed class CosmicSiphonSystem : EntitySystem
 
         if (TryComp<MobStateComponent>(args.Target, out var state) && state.CurrentState == MobState.Critical) // If the target is in crit, we get much more entropy from them, but kill them in the process.
         {
-            if (HasComp<BibleUserComponent>(target))
-                siphonQuantity = uid.Comp.SiphonQuantityCritBibleUser;
+            if (HasComp<CommandStaffComponent>(target))
+                siphonQuantity = uid.Comp.SiphonQuantityCritCommand;
             else if (HasComp<MindShieldComponent>(target))
                 siphonQuantity = uid.Comp.SiphonQuantityCritMindshield;
             else
