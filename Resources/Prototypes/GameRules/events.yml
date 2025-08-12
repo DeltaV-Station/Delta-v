@@ -182,7 +182,7 @@
   components:
   - type: StationEvent
     weight: 2 # DeltaV - was 6.5
-    earliestStart: 20 # DeltaV - was 40
+    earliestStart: 60 # DeltaV - was 40
     reoccurrenceDelay: 20
     minimumPlayers: 45 # DeltaV - was 20
     duration: null
@@ -214,7 +214,7 @@
   - type: StationEvent
     weight: 5 # DeltaV - was 6
     duration: null
-    earliestStart: 20 # DeltaV - was 30
+    earliestStart: 30
     reoccurrenceDelay: 60 # DeltaV - was 20
     minimumPlayers: 40 # DeltaV - was 30
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -545,7 +545,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 65 # DeltaV - was 50
+    earliestStart: 90 # DeltaV - was 50
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
@@ -580,7 +580,7 @@
   id: LoneOpsSpawn
   components:
   - type: StationEvent
-    earliestStart: 35
+    earliestStart: 45 # DeltaV - was 35
     weight: 3.5 # DeltaV - was 5.5
     minimumPlayers: 30 # DeltaV - was 20
     reoccurrenceDelay: 30 # DeltaV
@@ -620,7 +620,7 @@
   id: SleeperAgents
   components:
   - type: StationEvent
-    earliestStart: 20 # DeltaV - was 30
+    earliestStart: 30
     weight: 5 # DeltaV - Was 8 now 5
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
