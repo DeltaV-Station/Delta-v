@@ -387,7 +387,7 @@
     sprite: _DV/CosmicCult/Tileset/cosmicradiojammer.rsi
     offset: 0, 0.5
     layers:
-      - state: base-disabled
+      - state: base
         map: ["base"]
       - state: overlay
         map: ["vfx"]
@@ -398,9 +398,6 @@
   - type: GenericVisualizer
     visuals:
       enum.JammerVisuals.Status:
-        base:
-          On: {state: base-enabled}
-          Off: {state: base-disabled}
         vfx:
           On: {visible: True}
           Off: {visible: False}
