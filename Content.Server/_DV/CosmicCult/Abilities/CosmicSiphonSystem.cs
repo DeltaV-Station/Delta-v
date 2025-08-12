@@ -32,6 +32,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly CosmicCultSystem _cosmicCult = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     private readonly HashSet<Entity<PoweredLightComponent>> _lights = [];
 
@@ -50,7 +51,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("cosmicability-siphon-full"), uid, uid);
             return;
         }
-        if (HasComp<ActiveNPCComponent>(args.Target) || TryComp<MobStateComponent>(args.Target, out var state) && state.CurrentState == MobState.Dead)
+        if (HasComp<ActiveNPCComponent>(args.Target) || _mobState.IsDead(target))
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-siphon-fail", ("target", Identity.Entity(args.Target, EntityManager))), uid, uid);
             return;
@@ -84,7 +85,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
 
         var siphonQuantity = uid.Comp.CosmicSiphonQuantity;
 
-        if (TryComp<MobStateComponent>(args.Target, out var state) && state.CurrentState == MobState.Critical) // If the target is in crit, we get much more entropy from them, but kill them in the process.
+        if (_mobState.IsCritical(target)) // If the target is in crit, we get much more entropy from them, but kill them in the process.
         {
             if (HasComp<CommandStaffComponent>(target))
                 siphonQuantity = uid.Comp.SiphonQuantityCritCommand;
