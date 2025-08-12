@@ -11,6 +11,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
