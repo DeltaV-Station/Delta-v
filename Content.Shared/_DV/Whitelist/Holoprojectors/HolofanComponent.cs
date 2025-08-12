@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._DV.Whitelist;
+namespace Content.Shared._DV.Whitelist.Holoprojectors;
 
 /// <summary>
 /// Marker component for holofans, used for reclaiming charges of the projector.

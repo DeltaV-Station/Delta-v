@@ -13,12 +13,8 @@
   - type: Sprite
     sprite: Structures/Holo/wetfloor.rsi
     state: icon
-  - type: TimedDespawn
-    lifetime: 90
-  - type: PointLight # DeltaV - lit holograms
-    enabled: true
-    radius: 3
-    color: yellow
+  #- type: TimedDespawn # DeltaV - Replaced by TimedDespawnDetailed
+  #  lifetime: 90
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -29,10 +25,19 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  # DeltaV Additions
+  - type: TimedDespawnDetailed
+    lifetime: 90
+  - type: Holosign
+  - type: PointLight # DeltaV - lit holograms
+    enabled: true
+    radius: 3
+    color: yellow
+  # END DeltaV
 
 - type: entity
   id: HoloFan
-  parent: BaseHolosign # DeltaV - don't include TimedDespawn
+  parent: HolosignWetFloor
   name: holofan
   description: A barrier of hard light that blocks air, but nothing else.
   components:
@@ -45,17 +50,15 @@
         shape:
           !type:PhysShapeAabb
             bounds: "-0.5,-0.5,0.5,0.5"
-  #- type: TimedDespawn # DeltaV - no despawning for holofans
-  #  lifetime: 180
-  - type: Transform # DeltaV
-    noRot: true
+  - type: TimedDespawn
+    lifetime: 180
   - type: Airtight
     noAirWhenFullyAirBlocked: false
-  - type: Holofan # DeltaV - for whitelisting
-  - type: PointLight # DeltaV - lit holograms
-    enabled: true
-    radius: 3
-    color: yellow
+  # DeltaV Additions
+  - type: TimedDespawnDetailed
+    lifetime: 300
+  - type: Holofan
+  # END DeltaV
 
 - type: entity
   id: HoloPeel
@@ -83,8 +86,8 @@
         hard: false
         layer:
         - SlipLayer
-  - type: TimedDespawn
-    lifetime: 30
+  #- type: TimedDespawn # DeltaV - Replaced by TimedDespawnDetailed
+  #  lifetime: 30
   - type: Clickable
   - type: Destructible
     thresholds:
@@ -94,6 +97,11 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  # DeltaV Additions
+  - type: TimedDespawnDetailed
+    lifetime: 30
+  - type: Holopeel
+  # END DeltaV
 
 - type: entity
   id: HolosignSecurity
@@ -117,14 +125,19 @@
             - TableMask
           layer:
             - TableLayer
-    - type: TimedDespawn
-      lifetime: 180
+    #- type: TimedDespawn # DeltaV - Replaced by TimedDespawnDetailed
+    #  lifetime: 180
     - type: PointLight
       enabled: true
       radius: 3
       color: red
     - type: Climbable
     - type: Clickable
+    # DeltaV Additions
+    - type: TimedDespawnDetailed
+      lifetime: 180
+    - type: Holobarrier
+    # END DeltaV
 
 - type: entity
   id: HolosignForcefield
@@ -148,8 +161,8 @@
         - FullTileMask
         layer:
         - GlassLayer
-  - type: TimedDespawn
-    lifetime: 180
+  #- type: TimedDespawn # DeltaV - Replaced by TimedDespawnDetailed
+  #  lifetime: 180
   - type: PointLight
     enabled: true
     radius: 3
@@ -165,3 +178,7 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  # DeltaV Additions
+  - type: TimedDespawnDetailed
+    lifetime: 180
+  # END DeltaV

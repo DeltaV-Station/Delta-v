@@ -36,7 +36,6 @@ public sealed class ChargeHolosignSystem : EntitySystem
         if (string.IsNullOrEmpty(ent.Comp.SignComponentName))
             return;
 
-        ent.Comp.Container = _container.EnsureContainer<Container>(ent, ent.Comp.ContainerId);
         ent.Comp.SignComponent = EntityManager.ComponentFactory.GetRegistration(ent.Comp.SignComponentName).Type;
     }
 
@@ -44,16 +43,6 @@ public sealed class ChargeHolosignSystem : EntitySystem
     {
         if (!TryComp<LimitedChargesComponent>(ent, out var charges))
             return;
-
-        var containers = Comp<ContainerManagerComponent>(ent);
-        for (var i = 0; i < charges.MaxCharges; i++)
-        {
-            if (!TrySpawnInContainer(ent.Comp.SignProto, ent, ent.Comp.ContainerId, out _))
-            {
-                Log.Error($"Failed to spawn sign {ent.Comp.SignProto} for {ToPrettyString(ent)}!");
-                return;
-            }
-        }
     }
 
     private void OnBeforeInteract(Entity<ChargeHolosignProjectorComponent> ent, ref BeforeRangedInteractEvent args)
@@ -66,47 +55,45 @@ public sealed class ChargeHolosignSystem : EntitySystem
         // first check if there's any existing holofans to clear
         var coords = args.ClickLocation.SnapToGrid(EntityManager);
         var mapCoords = _transform.ToMapCoordinates(coords);
+
         _signs.Clear();
+
         _lookup.GetEntitiesInRange(ent.Comp.SignComponent, mapCoords, 0.25f, _signs);
+
         if (_signs.Count == 0)
-            TryPlaceSign((ent, ent, charges), coords, args.User);
+            TryPlaceSign((ent, ent, charges), args);
         else
             TryRemoveSign((ent, ent, charges), _signs.First(), args.User);
 
         args.Handled = true;
     }
 
-    public bool TryPlaceSign(Entity<ChargeHolosignProjectorComponent, LimitedChargesComponent> ent, EntityCoordinates coords, EntityUid user)
+    public bool TryPlaceSign(Entity<ChargeHolosignProjectorComponent, LimitedChargesComponent> ent, BeforeRangedInteractEvent args)
     {
-        var container = ent.Comp1.Container;
-        if (container.Count == 0 || !_charges.TryUseCharge((ent, ent.Comp2)))
+        if (!_charges.TryUseCharge((ent, ent.Comp2)))
         {
-            _popup.PopupClient(Loc.GetString("charge-holoprojector-no-charges", ("item", ent)), ent, user);
+            _popup.PopupClient(Loc.GetString("charge-holoprojector-no-charges", ("item", ent)), ent, args.User);
             return false;
         }
 
-        var placed = container.ContainedEntities.First(); // checked Count beforehand so this won't fail
-        _transform.SetCoordinates(placed, coords);
-        _transform.AnchorEntity(placed);
+        var holoUid = EntityManager.PredictedSpawnAtPosition(ent.Comp1.SignProto, args.ClickLocation.SnapToGrid(EntityManager));
+        var xform = Transform(holoUid);
+        if (!xform.Anchored)
+            _transform.AnchorEntity(holoUid, xform); // anchor to prevent any tempering with (don't know what could even interact with it)
+
         return true;
     }
 
     public bool TryRemoveSign(Entity<ChargeHolosignProjectorComponent, LimitedChargesComponent> ent, EntityUid sign, EntityUid user)
     {
+        if(string.IsNullOrEmpty(ent.Comp1.SignComponentName))
+            return false;
+
         // don't overfill
-        if (_charges.GetCurrentCharges((ent, ent.Comp2)) >= ent.Comp2.MaxCharges)
+        if (_charges.GetCurrentCharges((ent, ent.Comp2)) < ent.Comp2.MaxCharges)
         {
-            _popup.PopupClient(Loc.GetString("charge-holoprojector-charges-full", ("item", ent)), sign, user);
-            return false;
+            _charges.AddCharges((ent, ent.Comp2), 1);
         }
-
-        if (!_container.Insert(sign, ent.Comp1.Container, force: true))
-        {
-            Log.Error($"Failed to insert holosign {ToPrettyString(sign)} back into {ToPrettyString(ent)}!");
-            return false;
-        }
-
-        _charges.AddCharges((ent, ent.Comp2), 1);
 
         var userIdentity = Identity.Name(user, EntityManager);
         _popup.PopupPredicted(
@@ -114,6 +101,8 @@ public sealed class ChargeHolosignSystem : EntitySystem
             Loc.GetString("charge-holoprojector-reclaim-others", ("sign", sign), ("user", userIdentity)),
             ent,
             user);
+
+        EntityManager.PredictedDeleteEntity(sign);
         return true;
     }
 }

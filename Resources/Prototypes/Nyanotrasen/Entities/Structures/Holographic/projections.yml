@@ -1,13 +1,15 @@
 - type: entity
+  parent: HolosignWetFloor
   id: HolosignEng
-  name: engineering warning sign
+  name: engineering caution sign
   description: What's the worst that could lie beyond?
   components:
   - type: Sprite
     sprite: Nyanotrasen/Structures/Holo/eng.rsi
     state: icon
-  - type: TimedDespawn
-    lifetime: 180
+  - type: TimedDespawnDetailed
+    lifetime: 90
+  - type: Holosign
   - type: PointLight
     enabled: true
     radius: 3

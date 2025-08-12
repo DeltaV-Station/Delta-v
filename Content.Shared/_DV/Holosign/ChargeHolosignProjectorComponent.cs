@@ -6,7 +6,6 @@ namespace Content.Shared._DV.Holosign;
 
 /// <summary>
 /// A holosign projector that uses <c>LimitedCharges</c> instead of a power cell slot.
-/// If there is already a sign on the clicked tile it reclaims it for a charge instead of stacking it.
 /// Currently there is no spawning prediction so signs are spawned once in a container and moved out to allow prediction.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(ChargeHolosignSystem))]
@@ -15,23 +14,15 @@ public sealed partial class ChargeHolosignProjectorComponent : Component
     /// <summary>
     /// The entity to spawn.
     /// </summary>
-    [DataField(required: true)]
-    public EntProtoId SignProto;
+    [DataField]
+    public EntProtoId SignProto = "HolosignWetFloor";
 
     /// <summary>
-    /// Component on <see cref="SignProto"/> to check for duplicates.
-    /// </summary>
-    [DataField(required: true)]
-    public string SignComponentName;
-
-    public Type SignComponent = default!;
-
-    /// <summary>
-    /// Container to store sign entities in before they are "spawned" on use.
+    /// Component on <see cref="SignProto"/> to check if the holosign projector can pick up the entity.
+    /// If null, the holosign projector cannot pick up existing signs.
     /// </summary>
     [DataField]
-    public string ContainerId = "signs";
+    public string? SignComponentName = null;
 
-    [ViewVariables]
-    public Container Container = default!;
+    public Type SignComponent = default!;
 }
