@@ -110,199 +110,334 @@
     - Salvage
 
 - type: entity
-  parent: BookBase
+  parent: BaseItem
   id: AncientBookCommon1
   name: Common Ancient Book 1
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
-    sprite: Objects/Misc/books.rsi
-    layers:
-    - state: paper
-    - state: cover_strong
-      color: "#0f204f"
-    - state: decor_wingette_circle
-      color: "#2c5491"
-    - state: decor_vertical_middle
-      color: "#3c6ab0"
-    - state: icon_fish
-    - state: detail_bookmark
-      color: "#2c5491"
+    sprite: _DV/Objects/Misc/books.rsi
+    state: ancientbookcommon1
   - type: Paper
     content: book-text-fishops
+    contentSize: 12000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+    - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
-  parent: BookBase
+  parent: BaseItem
   id: AncientBookCommon2
   name: Common Ancient Book 2
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
-    sprite: Objects/Misc/books.rsi
-    layers:
-    - state: paper
-    - state: cover_strong
-      color: "#0f204f"
-    - state: decor_wingette_circle
-      color: "#2c5491"
-    - state: decor_vertical_middle
-      color: "#3c6ab0"
-    - state: icon_fish
-    - state: detail_bookmark
-      color: "#2c5491"
+    sprite: _DV/Objects/Misc/books.rsi
+    state: ancientbookcommon2
   - type: Paper
     content: book-text-fishops
+    contentSize: 12000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+    - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
-  parent: BookBase
+  parent: BaseItem
   id: AncientBookCommon3
   name: Common Ancient Book 3
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
-    sprite: Objects/Misc/books.rsi
-    layers:
-    - state: paper
-    - state: cover_strong
-      color: "#0f204f"
-    - state: decor_wingette_circle
-      color: "#2c5491"
-    - state: decor_vertical_middle
-      color: "#3c6ab0"
-    - state: icon_fish
-    - state: detail_bookmark
-      color: "#2c5491"
+    sprite: _DV/Objects/Misc/books.rsi
+    state: ancientbookcommon3
   - type: Paper
     content: book-text-fishops
+    contentSize: 12000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+    - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
-  parent: BookBase
+  parent: BaseItem
   id: AncientBookUncommon1
   name: Uncommon Ancient Book 1
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
-    sprite: Objects/Misc/books.rsi
-    layers:
-    - state: paper
-    - state: cover_strong
-      color: "#0f204f"
-    - state: decor_wingette_circle
-      color: "#2c5491"
-    - state: decor_vertical_middle
-      color: "#3c6ab0"
-    - state: icon_fish
-    - state: detail_bookmark
-      color: "#2c5491"
+    sprite: _DV/Objects/Misc/books.rsi
+    state: ancientbookuncommon1
   - type: Paper
     content: book-text-fishops
+    contentSize: 12000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+    - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
-  parent: BookBase
+  parent: BaseItem
   id: AncientBookUncommon2
   name: Uncommon Ancient Book 2
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
-    sprite: Objects/Misc/books.rsi
-    layers:
-    - state: paper
-    - state: cover_strong
-      color: "#0f204f"
-    - state: decor_wingette_circle
-      color: "#2c5491"
-    - state: decor_vertical_middle
-      color: "#3c6ab0"
-    - state: icon_fish
-    - state: detail_bookmark
-      color: "#2c5491"
+    sprite: _DV/Objects/Misc/books.rsi
+    state: ancientbookuncommon2
   - type: Paper
     content: book-text-fishops
+    contentSize: 12000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+    - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
-  parent: BookBase
+  parent: BaseItem
   id: AncientBookUncommon3
   name: Uncommon Ancient Book 3
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
-    sprite: Objects/Misc/books.rsi
-    layers:
-    - state: paper
-    - state: cover_strong
-      color: "#0f204f"
-    - state: decor_wingette_circle
-      color: "#2c5491"
-    - state: decor_vertical_middle
-      color: "#3c6ab0"
-    - state: icon_fish
-    - state: detail_bookmark
-      color: "#2c5491"
+    sprite: _DV/Objects/Misc/books.rsi
+    state: ancientbookuncommon3
   - type: Paper
     content: book-text-fishops
+    contentSize: 12000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+    - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
-  parent: BookBase
+  parent: BaseItem
   id: AncientBookRare1
   name: Rare Ancient Book 1
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
-    sprite: Objects/Misc/books.rsi
-    layers:
-    - state: paper
-    - state: cover_strong
-      color: "#0f204f"
-    - state: decor_wingette_circle
-      color: "#2c5491"
-    - state: decor_vertical_middle
-      color: "#3c6ab0"
-    - state: icon_fish
-    - state: detail_bookmark
-      color: "#2c5491"
+    sprite: _DV/Objects/Misc/books.rsi
+    state: ancientbookrare1
   - type: Paper
     content: book-text-fishops
+    contentSize: 12000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+    - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
-  parent: BookBase
+  parent: BaseItem
   id: AncientBookRare2
   name: Rare Ancient Book 2
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
-    sprite: Objects/Misc/books.rsi
-    layers:
-    - state: paper
-    - state: cover_strong
-      color: "#0f204f"
-    - state: decor_wingette_circle
-      color: "#2c5491"
-    - state: decor_vertical_middle
-      color: "#3c6ab0"
-    - state: icon_fish
-    - state: detail_bookmark
-      color: "#2c5491"
+    sprite: _DV/Objects/Misc/books.rsi
+    state: ancientbookrare2
   - type: Paper
     content: book-text-fishops
+    contentSize: 12000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+    - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
-  parent: BookBase
+  parent: BaseItem
   id: AncientBookRare3
   name: Rare Ancient Book 3
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
-    sprite: Objects/Misc/books.rsi
-    layers:
-    - state: paper
-    - state: cover_strong
-      color: "#0f204f"
-    - state: decor_wingette_circle
-      color: "#2c5491"
-    - state: decor_vertical_middle
-      color: "#3c6ab0"
-    - state: icon_fish
-    - state: detail_bookmark
-      color: "#2c5491"
+    sprite: _DV/Objects/Misc/books.rsi
+    state: ancientbookrare3
   - type: Paper
     content: book-text-fishops
+    contentSize: 12000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+    - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 1

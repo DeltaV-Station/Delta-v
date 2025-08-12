@@ -15,6 +15,57 @@
 
 - type: entity
   parent: AncientBookBase
+  id: AncientBookDamagedCommon
+  name: Damaged Ancient Book
+  description: An ancient book that has seen better times. The cover and words are illegible, but surely someone could restore it.
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _DV/Objects/Misc/books.rsi
+        state: ancientbookdamaged2
+  - type: Construction
+    graph: AncientBookCommonRestored
+    node: start
+  - type: Tag
+    tags:
+      - AncientBookDamagedCommon
+
+- type: entity
+  parent: AncientBookBase
+  id: AncientBookDamagedUncommon
+  name: Damaged Ancient Book
+  description: An ancient book that has seen better times. The cover and words are illegible, but surely someone could restore it.
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _DV/Objects/Misc/books.rsi
+        state: ancientbookdamaged3
+  - type: Construction
+    graph: AncientBookUncommonRestored
+    node: start
+  - type: Tag
+    tags:
+      - AncientBookDamagedUncommon
+
+- type: entity
+  parent: AncientBookBase
+  id: AncientBookDamagedRare
+  name: Damaged Ancient Book
+  description: An ancient book that has seen better times. The cover and words are illegible, but surely someone could restore it.
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _DV/Objects/Misc/books.rsi
+        state: ancientbookdamaged1
+  - type: Construction
+    graph: AncientBookRareRestored
+    node: start
+  - type: Tag
+    tags:
+      - AncientBookDamagedRare
+
+- type: entity
+  parent: AncientBookBase
   id: AncientBookCommon
   name: Common Ancient Book
   description: A very old book commonly found in archives. Read it to discover what it is.
@@ -32,6 +83,9 @@
     - state: icon_fish
     - state: detail_bookmark
       color: "#2c5491"
+  - type: Construction
+    graph: AncientBookCommonRestored
+    node: bookrestored
   - type: SpawnItemsOnUse
     items:
       - id: ResearchDisk
@@ -61,6 +115,9 @@
     - state: icon_fish
     - state: detail_bookmark
       color: "#2c5491"
+  - type: Construction
+    graph: AncientBookUncommonRestored
+    node: bookrestored
   - type: SpawnItemsOnUse
     items:
       - id: ResearchDisk5000
@@ -90,6 +147,9 @@
     - state: icon_fish
     - state: detail_bookmark
       color: "#2c5491"
+  - type: Construction
+    graph: AncientBookRareRestored
+    node: bookrestored
   - type: SpawnItemsOnUse
     items:
       - id: ResearchDisk10000
