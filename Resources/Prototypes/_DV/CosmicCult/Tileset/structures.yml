@@ -367,13 +367,7 @@
     bodyType: Dynamic
   - type: Transform
     anchored: false
-  - type: RadioJammer
-    activeWhenAnchored: true
-    settings:
-    - wattage: 0
-      range: 25
-      message: radio-jammer-component-set-message-high
-      name: radio-jammer-component-setting-high
+  - type: CosmicJammer
   - type: CosmicCultExamine
     cultistText: cosmic-examine-text-forthecult
   - type: SpriteFade
@@ -403,7 +397,7 @@
     noRot: true
   - type: GenericVisualizer
     visuals:
-      enum.SpireVisuals.Status:
+      enum.JammerVisuals.Status:
         base:
           On: {state: base-enabled}
           Off: {state: base-disabled}
