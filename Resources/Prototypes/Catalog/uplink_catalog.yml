@@ -23,7 +23,7 @@
   discountDownTo:
     Telecrystal: 3 # DeltaV - was 2
   cost:
-    Telecrystal: 6 # DeltaV - was 4
+    Telecrystal: 4 # DeltaV - was 4
   categories:
   - UplinkWeaponry
 
@@ -1212,7 +1212,7 @@
   productEntity: ReinforcementRadioSyndicateCyborgAssault
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
   cost:
-    Telecrystal: 65
+    Telecrystal: 40
   categories:
     - UplinkAllies
   conditions:
@@ -1689,7 +1689,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   cost:
-    Telecrystal: 10 # DeltaV - was 12
+    Telecrystal: 14 # DeltaV - was 12
   categories:
   - UplinkWearables
   conditions:
