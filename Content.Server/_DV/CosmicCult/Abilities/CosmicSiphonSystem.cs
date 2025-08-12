@@ -94,7 +94,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
                 siphonQuantity = uid.Comp.SiphonQuantityCrit;
 
             _damageable.TryChangeDamage(target, uid.Comp.SiphonCritDamage);
-            _popup.PopupEntity(Loc.GetString("cosmicability-siphon-crit", ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager))), uid, PopupType.MediumCaution)
+            _popup.PopupEntity(Loc.GetString("cosmicability-siphon-crit", ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager))), uid, PopupType.MediumCaution);
         }
         if (siphonQuantity + uid.Comp.EntropyStored > uid.Comp.EntropyStoredCap)
             siphonQuantity = uid.Comp.EntropyStoredCap - uid.Comp.EntropyStored;

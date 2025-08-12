@@ -126,7 +126,7 @@ public sealed partial class CosmicCultComponent : Component
     /// <summary>
     /// The amount of damage dealt by Siphon Entropy when used on a person in critical condition
     /// </summary>
-    [DataField] DamageSpecifier SiphonCritDamage = new() {
+    [DataField] public DamageSpecifier SiphonCritDamage = new() {
         DamageDict = new() {
             { "Cold", 200 }
         }
