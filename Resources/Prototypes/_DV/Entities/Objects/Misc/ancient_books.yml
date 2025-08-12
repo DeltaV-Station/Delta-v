@@ -5,11 +5,6 @@
   id: AncientBookBase
   name: Ancient Book
   components:
-  - type: Sprite
-    layers:
-      - sprite: Objects/Materials/Shards/shard.rsi
-        state: shard1
-        map: [ "enum.DamageStateVisualLayers.Base" ]
   - type: StaticPrice
     price: 10
 

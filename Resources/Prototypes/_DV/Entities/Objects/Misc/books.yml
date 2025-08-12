@@ -111,6 +111,37 @@
 
 - type: entity
   parent: BaseItem
+  id: BaseAncientBookReadable
+  name: Base Ancient Book
+  abstract: true
+  components:
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+    - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 1
+
+- type: entity
+  parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookCommon1
   name: Common Ancient Book 1
   description: placeholder name and desc until story is written.
@@ -121,33 +152,9 @@
   - type: Paper
     content: book-text-fishops
     contentSize: 12000
-  - type: ActivatableUI
-    key: enum.PaperUiKey.Key
-    requiresComplex: false
-  - type: UserInterface
-    interfaces:
-      enum.PaperUiKey.Key:
-        type: PaperBoundUserInterface
-  - type: Tag
-    tags:
-    - Book
-  - type: PaperVisuals
-    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
-    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
-    contentMargin: 20.0, 20.0, 20.0, 20.0
-  - type: MeleeWeapon
-    soundHit:
-      collection: Punch
-    damage:
-      types:
-        Blunt: 1
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 1
 
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookCommon2
   name: Common Ancient Book 2
   description: placeholder name and desc until story is written.
@@ -158,33 +165,9 @@
   - type: Paper
     content: book-text-fishops
     contentSize: 12000
-  - type: ActivatableUI
-    key: enum.PaperUiKey.Key
-    requiresComplex: false
-  - type: UserInterface
-    interfaces:
-      enum.PaperUiKey.Key:
-        type: PaperBoundUserInterface
-  - type: Tag
-    tags:
-    - Book
-  - type: PaperVisuals
-    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
-    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
-    contentMargin: 20.0, 20.0, 20.0, 20.0
-  - type: MeleeWeapon
-    soundHit:
-      collection: Punch
-    damage:
-      types:
-        Blunt: 1
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 1
 
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookCommon3
   name: Common Ancient Book 3
   description: placeholder name and desc until story is written.
@@ -195,33 +178,9 @@
   - type: Paper
     content: book-text-fishops
     contentSize: 12000
-  - type: ActivatableUI
-    key: enum.PaperUiKey.Key
-    requiresComplex: false
-  - type: UserInterface
-    interfaces:
-      enum.PaperUiKey.Key:
-        type: PaperBoundUserInterface
-  - type: Tag
-    tags:
-    - Book
-  - type: PaperVisuals
-    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
-    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
-    contentMargin: 20.0, 20.0, 20.0, 20.0
-  - type: MeleeWeapon
-    soundHit:
-      collection: Punch
-    damage:
-      types:
-        Blunt: 1
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 1
 
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookUncommon1
   name: Uncommon Ancient Book 1
   description: placeholder name and desc until story is written.
@@ -229,36 +188,9 @@
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookuncommon1
-  - type: Paper
-    content: book-text-fishops
-    contentSize: 12000
-  - type: ActivatableUI
-    key: enum.PaperUiKey.Key
-    requiresComplex: false
-  - type: UserInterface
-    interfaces:
-      enum.PaperUiKey.Key:
-        type: PaperBoundUserInterface
-  - type: Tag
-    tags:
-    - Book
-  - type: PaperVisuals
-    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
-    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
-    contentMargin: 20.0, 20.0, 20.0, 20.0
-  - type: MeleeWeapon
-    soundHit:
-      collection: Punch
-    damage:
-      types:
-        Blunt: 1
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 1
 
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookUncommon2
   name: Uncommon Ancient Book 2
   description: placeholder name and desc until story is written.
@@ -269,33 +201,9 @@
   - type: Paper
     content: book-text-fishops
     contentSize: 12000
-  - type: ActivatableUI
-    key: enum.PaperUiKey.Key
-    requiresComplex: false
-  - type: UserInterface
-    interfaces:
-      enum.PaperUiKey.Key:
-        type: PaperBoundUserInterface
-  - type: Tag
-    tags:
-    - Book
-  - type: PaperVisuals
-    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
-    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
-    contentMargin: 20.0, 20.0, 20.0, 20.0
-  - type: MeleeWeapon
-    soundHit:
-      collection: Punch
-    damage:
-      types:
-        Blunt: 1
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 1
 
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookUncommon3
   name: Uncommon Ancient Book 3
   description: placeholder name and desc until story is written.
@@ -306,33 +214,9 @@
   - type: Paper
     content: book-text-fishops
     contentSize: 12000
-  - type: ActivatableUI
-    key: enum.PaperUiKey.Key
-    requiresComplex: false
-  - type: UserInterface
-    interfaces:
-      enum.PaperUiKey.Key:
-        type: PaperBoundUserInterface
-  - type: Tag
-    tags:
-    - Book
-  - type: PaperVisuals
-    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
-    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
-    contentMargin: 20.0, 20.0, 20.0, 20.0
-  - type: MeleeWeapon
-    soundHit:
-      collection: Punch
-    damage:
-      types:
-        Blunt: 1
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 1
 
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookRare1
   name: Rare Ancient Book 1
   description: placeholder name and desc until story is written.
@@ -343,33 +227,9 @@
   - type: Paper
     content: book-text-fishops
     contentSize: 12000
-  - type: ActivatableUI
-    key: enum.PaperUiKey.Key
-    requiresComplex: false
-  - type: UserInterface
-    interfaces:
-      enum.PaperUiKey.Key:
-        type: PaperBoundUserInterface
-  - type: Tag
-    tags:
-    - Book
-  - type: PaperVisuals
-    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
-    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
-    contentMargin: 20.0, 20.0, 20.0, 20.0
-  - type: MeleeWeapon
-    soundHit:
-      collection: Punch
-    damage:
-      types:
-        Blunt: 1
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 1
 
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookRare2
   name: Rare Ancient Book 2
   description: placeholder name and desc until story is written.
@@ -380,33 +240,9 @@
   - type: Paper
     content: book-text-fishops
     contentSize: 12000
-  - type: ActivatableUI
-    key: enum.PaperUiKey.Key
-    requiresComplex: false
-  - type: UserInterface
-    interfaces:
-      enum.PaperUiKey.Key:
-        type: PaperBoundUserInterface
-  - type: Tag
-    tags:
-    - Book
-  - type: PaperVisuals
-    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
-    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
-    contentMargin: 20.0, 20.0, 20.0, 20.0
-  - type: MeleeWeapon
-    soundHit:
-      collection: Punch
-    damage:
-      types:
-        Blunt: 1
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 1
 
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookRare3
   name: Rare Ancient Book 3
   description: placeholder name and desc until story is written.
@@ -417,27 +253,3 @@
   - type: Paper
     content: book-text-fishops
     contentSize: 12000
-  - type: ActivatableUI
-    key: enum.PaperUiKey.Key
-    requiresComplex: false
-  - type: UserInterface
-    interfaces:
-      enum.PaperUiKey.Key:
-        type: PaperBoundUserInterface
-  - type: Tag
-    tags:
-    - Book
-  - type: PaperVisuals
-    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
-    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
-    contentMargin: 20.0, 20.0, 20.0, 20.0
-  - type: MeleeWeapon
-    soundHit:
-      collection: Punch
-    damage:
-      types:
-        Blunt: 1
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 1
