@@ -12,16 +12,3 @@ public sealed partial class CosmicJammerComponent : Component
     [DataField] public float Range = 18f;
     [DataField] public bool Active = false;
 }
-
-[Serializable, NetSerializable]
-public enum JammerVisuals : byte
-{
-    Status,
-}
-
-[Serializable, NetSerializable]
-public enum JammerStatus : byte
-{
-    Off,
-    On,
-}

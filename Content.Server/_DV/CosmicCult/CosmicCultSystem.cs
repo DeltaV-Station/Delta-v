@@ -246,17 +246,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private void OnJammerAnchorStateChange(Entity<CosmicJammerComponent> ent, ref AnchorStateChangedEvent args)
     {
-        if (args.Anchored)
-        {
-            ent.Comp.Active = true;
-            _appearance.SetData(ent, JammerVisuals.Status, JammerStatus.On);
-        }
-        else
-        {
-            ent.Comp.Active = false;
-            _appearance.SetData(ent, JammerVisuals.Status, JammerStatus.Off);
-        }
-
+        ent.Comp.Active = args.Anchored;
         _ambient.SetAmbience(ent, args.Anchored);
         _lights.SetEnabled(ent, args.Anchored);
     }

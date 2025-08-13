@@ -357,16 +357,10 @@
 
 - type: entity
   id: CosmicRadioJammer
-  parent: BaseStructure
+  parent: BaseStructureDynamic
   name: multispectral inhibitor
   description: Radiates powerful cosmic energy, preventing radio communications within a large area.
   components:
-  - type: Pullable
-  - type: Anchorable
-  - type: Physics
-    bodyType: Dynamic
-  - type: Transform
-    anchored: false
   - type: CosmicJammer
   - type: CosmicCultExamine
     cultistText: cosmic-examine-text-forthecult
@@ -397,10 +391,10 @@
     noRot: true
   - type: GenericVisualizer
     visuals:
-      enum.JammerVisuals.Status:
+      enum.AnchorVisuals.Anchored:
         vfx:
-          On: {visible: True}
-          Off: {visible: False}
+          True: {visible: True}
+          False: {visible: False}
   - type: Appearance
   - type: AmbientSound
     enabled: false
