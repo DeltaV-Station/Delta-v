@@ -131,6 +131,7 @@ cosmiccult-chantry-powerup = The vacuous chantry flares to life!
 
 cosmiccult-ui-deconverted-title = Deconverted
 cosmiccult-ui-converted-title = Converted
+cosmiccult-ui-mindwiped-title = Mindwiped
 cosmiccult-ui-roundstart-title = The Unknown
 
 cosmiccult-ui-converted-text-1 =
@@ -150,6 +151,12 @@ cosmiccult-ui-deconverted-text-1 =
 cosmiccult-ui-deconverted-text-2 =
     You have lost all memories pertaining to the Cosmic Cult.
     If you are converted back, these memories will return.
+
+cosmiccult-ui-mindwiped-text-1 =
+    You have been mindwiped with a censer.
+cosmiccult-ui-mindwiped-text-2 =
+    You no longer remember anything that happened during this round.
+    There is no way to recover your memory.
 
 cosmiccult-ui-popup-confirm = Confirm
 

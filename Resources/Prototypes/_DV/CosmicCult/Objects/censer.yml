@@ -9,7 +9,7 @@
   parent: BaseItem
   id: CosmicCenser
   name: ardent censer
-  description: Cleanses and sanctifies the air around it.
+  description: Cleanses and sanctifies the air around it. If used on another being, it would irreversibly wipe their memories.
   components:
   - type: Item
     size: Small
@@ -35,21 +35,21 @@
     failedDeconversionDamage:
       types:
         Cold: 80
-        Asphyxiation: 40
   - type: Tool
     qualities: Censer
   - type: Welder
     fuelSolutionName: Censer
-    fuelReagent: Holywater
+    fuelReagent: MindbreakerToxin
+    fuelConsumption: 0.5
   - type: RefillableSolution
     solution: Censer
   - type: SolutionContainerManager
     solutions:
       Censer:
         reagents:
-        - ReagentId: Holywater
-          Quantity: 100
-        maxVol: 100
+        - ReagentId: MindbreakerToxin
+          Quantity: 50
+        maxVol: 50
   - type: ItemTogglePointLight
   - type: ToggleableLightVisuals
     spriteLayer: flame
