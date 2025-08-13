@@ -166,10 +166,10 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     private void OnGotEquipped(Entity<CosmicEquipmentComponent> ent, ref GotEquippedEvent args)
     {
         if (!EntityIsCultist(args.Equipee))
-            {
-                _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.Equipee, EntropicDegen, TimeSpan.FromDays(1), true); // TimeSpan.MaxValue causes a crash here, so we use FromDays(1) instead.
-                if (TryComp<CosmicEntropyDebuffComponent>(args.Equipee, out var comp)) comp.Degen = new(){DamageDict = new(){{"Cold", 0.5}, {"Asphyxiation", 1.5}}};
-            }
+        {
+            _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.Equipee, EntropicDegen, TimeSpan.FromDays(1), true); // TimeSpan.MaxValue causes a crash here, so we use FromDays(1) instead.
+            if (TryComp<CosmicEntropyDebuffComponent>(args.Equipee, out var comp)) comp.Degen = new(){DamageDict = new(){{"Cold", 0.5}, {"Asphyxiation", 1.5}}};
+        }
     }
 
     private void OnGotUnequipped(Entity<CosmicEquipmentComponent> ent, ref GotUnequippedEvent args)
