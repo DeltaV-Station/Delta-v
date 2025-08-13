@@ -1,4 +1,3 @@
-using Content.Client.Parallax.Data;
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
@@ -116,7 +115,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     /// Mind role to add to cultists.
     /// </summary>
     public static readonly EntProtoId MindRole = "MindRoleCosmicCult";
-    private static readonly ProtoId<ParallaxPrototype> FinaleParallax = "CosmicFinaleParallax";
 
     public override void Initialize()
     {
@@ -184,7 +182,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             _audio.PlayGlobal(_tier3Sound, Filter.Broadcast(), false, AudioParams.Default);
 
             EnsureComp<ParallaxComponent>(mapData, out var parallax);
-            parallax.Parallax = FinaleParallax;
+            parallax.Parallax = "CosmicFinaleParallax";
             Dirty(mapData, parallax);
 
             EnsureComp<MapLightComponent>(mapData, out var mapLight);
