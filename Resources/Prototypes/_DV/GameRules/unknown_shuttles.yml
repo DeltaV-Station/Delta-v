@@ -93,3 +93,17 @@
         - Syndicate
       mindRoles:
       - MindRoleSynthesis
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: UnknownShuttleCargoTrader
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming
+    maxOccurrences: 1
+    minimumPlayers: 10
+    weight: 3
+  - type: PrecognitionResult
+    message: psionic-power-precognition-unknown-shuttle-cargo-trader-result-message
+  - type: LoadMapRule
+    preloadedGrid: CargoTrader
