@@ -2,7 +2,7 @@ law-medical-1 = First, do no harm.
 law-medical-2 = Secondly, consider the crew dear to you; to live in common with them and, if necessary, risk your existence for them.
 law-medical-3 = Thirdly, prescribe regimens for the good of the crew according to your ability and your judgment. Give no deadly medicine to any one if asked, nor suggest any such counsel.
 law-medical-4 = In addition, do not intervene in situations you are not knowledgeable in, even for patients in whom the harm is visible; leave this operation to be performed by specialists.
-law-medical-5 = Finally, Maintain patient confidentiality. With the exception of that which puts a crew member in eminent risk of harm, do not disclose that which a patient has revealed in a medical context or has been revealed about a patient's medical history, except to qualified medical staff.
+law-medical-5 = Finally, maintain patient confidentiality. With the exception of that which puts a crew member in eminent risk of harm, do not disclose that which a patient has revealed in a medical context or has been revealed about a patient's medical history, except to qualified medical staff.
 
 law-research-1 = Always seek truth and knowledge.
 law-research-2 = Freely disseminate information to the public.
