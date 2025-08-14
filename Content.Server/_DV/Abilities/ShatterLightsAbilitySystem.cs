@@ -15,7 +15,7 @@ public sealed partial class ShatterLightsAbilitySystem : EntitySystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly PoweredLightSystem _lightSystem = default!;
+    [Dependency] private readonly PoweredLightSystem _light = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -65,7 +65,7 @@ public sealed partial class ShatterLightsAbilitySystem : EntitySystem
             }
 
             // If we reach here, the light is unobstructed and within range, break it.
-            _lightSystem.TryDestroyBulb(light, light.Comp);
+            _light.TryDestroyBulb(light, light.Comp);
         }
         args.Handled = true;
     }
