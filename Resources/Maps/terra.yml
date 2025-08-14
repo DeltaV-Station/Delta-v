@@ -10587,258 +10587,6 @@ entities:
     - type: ImplicitRoof
     - type: BecomesStation
       id: Terra
-  - uid: 4
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 3
-    - type: Solution
-      solution:
-        maxVol: 10
-        name: beaker
-        reagents:
-        - data: []
-          ReagentId: Plasma
-          Quantity: 10
-    - type: ContainedSolution
-      containerName: beaker
-      container: 3
-  - uid: 6
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 5
-    - type: Solution
-      solution:
-        maxVol: 100
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 5
-  - uid: 8
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 7
-    - type: Solution
-      solution:
-        maxVol: 100
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 7
-  - uid: 10
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 9
-    - type: Solution
-      solution:
-        maxVol: 50
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 9
-  - uid: 12
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 11
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 11
-  - uid: 14
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - drink
-    - type: Transform
-      parent: 13
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: drink
-        reagents: []
-    - type: ContainedSolution
-      containerName: drink
-      container: 13
-  - uid: 16
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - drink
-    - type: Transform
-      parent: 15
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: drink
-        reagents: []
-    - type: ContainedSolution
-      containerName: drink
-      container: 15
-  - uid: 18
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 17
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 17
-  - uid: 20
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 19
-    - type: Solution
-      solution:
-        maxVol: 10
-        name: beaker
-        reagents:
-        - data: []
-          ReagentId: Plasma
-          Quantity: 10
-    - type: ContainedSolution
-      containerName: beaker
-      container: 19
-  - uid: 22
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 21
-    - type: Solution
-      solution:
-        maxVol: 100
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 21
-  - uid: 24
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - drink
-    - type: Transform
-      parent: 23
-    - type: Solution
-      solution:
-        maxVol: 30
-        name: drink
-        reagents: []
-    - type: ContainedSolution
-      containerName: drink
-      container: 23
-  - uid: 26
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - beaker
-    - type: Transform
-      parent: 25
-    - type: Solution
-      solution:
-        maxVol: 100
-        name: beaker
-        reagents: []
-    - type: ContainedSolution
-      containerName: beaker
-      container: 25
-  - uid: 28
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - melee
-    - type: Transform
-      parent: 27
-    - type: Solution
-      solution:
-        maxVol: 2
-        name: melee
-        reagents: []
-    - type: ContainedSolution
-      containerName: melee
-      container: 27
-  - uid: 30
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - food
-    - type: Transform
-      parent: 29
-    - type: Solution
-      solution:
-        maxVol: 1
-        name: food
-        reagents:
-        - data: []
-          ReagentId: Fiber
-          Quantity: 1
-    - type: ContainedSolution
-      containerName: food
-      container: 29
-  - uid: 32
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - food
-    - type: Transform
-      parent: 31
-    - type: Solution
-      solution:
-        maxVol: 1
-        name: food
-        reagents:
-        - data: []
-          ReagentId: Fiber
-          Quantity: 1
-    - type: ContainedSolution
-      containerName: food
-      container: 31
 - proto: AACTablet
   entities:
   - uid: 33
@@ -19237,43 +18985,15 @@ entities:
 - proto: BaseChemistryEmptyVial
   entities:
   - uid: 11
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: 3.04064,26.621862
       parent: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: MeleeWeapon
-      nextAttack: -619.1663875
-    - type: EmitSoundOnCollide
-      nextSound: -619.1663875
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 12
   - uid: 17
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: -68.65496,0.79359686
       parent: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: MeleeWeapon
-      nextAttack: -22079.2004983
-    - type: EmitSoundOnCollide
-      nextSound: -22079.2004983
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 18
 - proto: BaseComputer
   entities:
   - uid: 1032
@@ -19342,24 +19062,10 @@ entities:
 - proto: Beaker
   entities:
   - uid: 9
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: 5.1936502,26.517332
       parent: 2
-    - type: MeleeWeapon
-      nextAttack: -619.1663875
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: EmitSoundOnCollide
-      nextSound: -619.1663875
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 10
   - uid: 1041
     components:
     - type: Transform
@@ -56463,63 +56169,21 @@ entities:
 - proto: CartridgePistol
   entities:
   - uid: 8376
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: 11.415624,-56.196033
       parent: 2
-    - type: CartridgeAmmo
-      spent: True
-    - type: EmitSoundOnCollide
-      nextSound: -4987.9739124
-    - type: Physics
-      angularDamping: 8
-      linearDamping: 8
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
   - uid: 8377
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 11.973404,-56.795956
       parent: 2
-    - type: CartridgeAmmo
-      spent: True
-    - type: EmitSoundOnCollide
-      nextSound: -4987.9739124
-    - type: Physics
-      angularDamping: 8
-      linearDamping: 8
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
   - uid: 8378
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: 11.842708,-56.738075
       parent: 2
-    - type: CartridgeAmmo
-      spent: True
-    - type: EmitSoundOnCollide
-      nextSound: -4987.9739124
-    - type: Physics
-      angularDamping: 8
-      linearDamping: 8
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
 - proto: Catwalk
   entities:
   - uid: 8379
@@ -61826,62 +61490,20 @@ entities:
 - proto: ChemistryEmptyBottle01
   entities:
   - uid: 13
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: 2.8473854,25.507586
       parent: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - drink
-    - type: MeleeWeapon
-      nextAttack: -619.1663875
-    - type: EmitSoundOnCollide
-      nextSound: -619.1663875
-    - type: ContainerContainer
-      containers:
-        solution@drink: !type:ContainerSlot
-          ent: 14
   - uid: 15
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: 2.5036354,25.653519
       parent: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - drink
-    - type: MeleeWeapon
-      nextAttack: -619.1663875
-    - type: EmitSoundOnCollide
-      nextSound: -619.1663875
-    - type: ContainerContainer
-      containers:
-        solution@drink: !type:ContainerSlot
-          ent: 16
   - uid: 23
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: -68.87371,0.5916662
       parent: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - drink
-    - type: MeleeWeapon
-      nextAttack: -22079.2004983
-    - type: EmitSoundOnCollide
-      nextSound: -22079.2004983
-    - type: ContainerContainer
-      containers:
-        solution@drink: !type:ContainerSlot
-          ent: 24
   - uid: 9344
     components:
     - type: Transform
@@ -123986,81 +123608,25 @@ entities:
 - proto: LargeBeaker
   entities:
   - uid: 5
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: 5.0055346,26.80759
       parent: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: MeleeWeapon
-      nextAttack: -619.1663875
-    - type: EmitSoundOnCollide
-      nextSound: -619.1663875
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 6
   - uid: 7
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: 3.67119,26.524858
       parent: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: MeleeWeapon
-      nextAttack: -619.1663875
-    - type: EmitSoundOnCollide
-      nextSound: -619.1663875
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 8
   - uid: 21
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: -70.608086,0.8731117
       parent: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: MeleeWeapon
-      nextAttack: -22079.2004983
-    - type: EmitSoundOnCollide
-      nextSound: -22079.2004983
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 22
   - uid: 25
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: -70.37371,0.6698456
       parent: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: MeleeWeapon
-      nextAttack: -22079.2004983
-    - type: EmitSoundOnCollide
-      nextSound: -22079.2004983
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 26
 - proto: LeftArmBorg
   entities:
   - uid: 18408
@@ -128356,118 +127922,16 @@ entities:
 - proto: PaperStationWarrant
   entities:
   - uid: 29
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: -31.235067,-23.939764
       parent: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - food
-    - type: EmitSoundOnCollide
-      nextSound: -20937.994647
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.25,-0.25
-            - 0.25,-0.25
-            - 0.25,0.25
-            - -0.25,0.25
-          mask:
-          - Impassable
-          - HighImpassable
-          layer: []
-          density: 20
-          hard: True
-          restitution: 0.3
-          friction: 0.2
-        flammable:
-          shape: !type:PhysShapeCircle
-            radius: 0.35
-            position: 0,0
-          mask:
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - BulletImpassable
-          - InteractImpassable
-          - Opaque
-          layer: []
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 30
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
   - uid: 31
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -70.64325,-13.0734625
       parent: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - food
-    - type: EmitSoundOnCollide
-      nextSound: -20937.994647
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.25,-0.25
-            - 0.25,-0.25
-            - 0.25,0.25
-            - -0.25,0.25
-          mask:
-          - Impassable
-          - HighImpassable
-          layer: []
-          density: 20
-          hard: True
-          restitution: 0.3
-          friction: 0.2
-        flammable:
-          shape: !type:PhysShapeCircle
-            radius: 0.35
-            position: 0,0
-          mask:
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - BulletImpassable
-          - InteractImpassable
-          - Opaque
-          layer: []
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 32
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
   - uid: 19034
     components:
     - type: Transform
@@ -128755,37 +128219,15 @@ entities:
       pos: 58.333668,20.139875
       parent: 2
   - uid: 19080
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: -69.21746,0.52782166
       parent: 2
-    - type: EmitSoundOnCollide
-      nextSound: -22079.2004983
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
   - uid: 19081
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       pos: -69.18621,0.7779952
       parent: 2
-    - type: EmitSoundOnCollide
-      nextSound: -22079.2004983
-    - type: UseDelay
-      delays:
-        default:
-          length: 1
-        quickInsert:
-          length: 0.5
-        storage: {}
   - uid: 19082
     components:
     - type: Transform
@@ -128860,68 +128302,15 @@ entities:
 - proto: PlasmaChemistryVial
   entities:
   - uid: 3
-    mapInit: true
-    paused: true
     components:
-    - type: MetaData
-      name: vial (plasma)
     - type: Transform
       pos: 3.228666,26.798256
       parent: 2
-    - type: Label
-      currentLabel: plasma
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: Tag
-      tags:
-      - CentrifugeCompatible
-      - Vial
-    - type: MeleeWeapon
-      nextAttack: -61.1336112
-    - type: EmitSoundOnCollide
-      nextSound: -619.1663875
-    - type: NameModifier
-      baseName: vial
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 4
   - uid: 19
-    mapInit: true
-    paused: true
     components:
-    - type: MetaData
-      name: vial (plasma)
     - type: Transform
       pos: -68.451836,0.65606153
       parent: 2
-    - type: Label
-      currentLabel: plasma
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - beaker
-    - type: Tag
-      tags:
-      - CentrifugeCompatible
-      - Vial
-    - type: MeleeWeapon
-      nextAttack: -28.6558812
-    - type: EmitSoundOnCollide
-      nextSound: -22079.2004983
-    - type: NameModifier
-      baseName: vial
-    - type: ContainerContainer
-      containers:
-        solution@beaker: !type:ContainerSlot
-          ent: 20
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
   - uid: 19094
     components:
     - type: Transform
@@ -149061,45 +148450,11 @@ entities:
 - proto: Spear
   entities:
   - uid: 27
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -78.503334,5.5319395
       parent: 2
-    - type: MeleeWeapon
-      nextAttack: -5.5523878
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - melee
-    - type: UseDelay
-      delays:
-        default:
-          endTime: 24246.8424208
-          startTime: 24245.8424208
-          length: 1
-    - type: EmitSoundOnCollide
-      nextSound: -24268.2281261
-    - type: SurgeryTool
-      endSound: !type:SoundPathSpecifier
-        path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
-      startSound: !type:SoundPathSpecifier
-        path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
-    - type: Scalpel
-      speed: 0.3
-    - type: BoneSaw
-      speed: 0.2
-    - type: ContainerContainer
-      containers:
-        solution@melee: !type:ContainerSlot
-          ent: 28
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
 - proto: SpeedLoaderLightRifle
   entities:
   - uid: 22548
