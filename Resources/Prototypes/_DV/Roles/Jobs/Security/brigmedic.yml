@@ -14,7 +14,6 @@
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
   canBeAntag: false
-  whitelisted: true
   access:
   - Medical
   - Security
@@ -46,3 +45,19 @@
     - BurnAutoInjector
     - BurnAutoInjector
   #  - MagazinePistol # DeltaV - loadouts
+
+- type: chameleonOutfit
+  id: BrigMedicChameleonOutfit
+  job: Brigmedic
+  hasMindShield: true
+  equipment:
+    eyes: ClothingEyesHudMedical
+    id: CorpsmanPDA
+    ears: ClothingHeadsetBrigmedic
+    belt: ClothingBeltCorpsmanWebbing
+    jumpsuit: ClothingUniformJumpsuitBrigmedic
+    back: ClothingBackpackBrigmedic
+    outerClothing: ClothingOuterCoatStasecCorpsman
+    head: ClothingHeadHatBeretCorpsman
+    mask: ClothingMaskGasSecurity
+    gloves: ClothingHandsGlovesColorBlack

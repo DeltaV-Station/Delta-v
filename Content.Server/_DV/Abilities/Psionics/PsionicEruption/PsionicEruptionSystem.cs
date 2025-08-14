@@ -62,9 +62,12 @@ public sealed class PsionicEruptionSystem : EntitySystem
     {
         var component = entity.Comp;
         _actions.AddAction(entity, ref component.EruptionActionEntity, component.EruptionActionId);
-        _actions.TryGetActionData(component.EruptionActionEntity, out var actionData);
-        if (actionData is { UseDelay: not null })
-            _actions.StartUseDelay(component.EruptionActionEntity);
+
+        if (_actions.GetAction(component.EruptionActionEntity) is { Comp.UseDelay: not null } action)
+        {
+            _actions.StartUseDelay(action.Owner);
+        }
+
         if (TryComp<PsionicComponent>(entity, out var psionic) && psionic.PsionicAbility == null)
         {
             psionic.PsionicAbility = component.EruptionActionEntity;
@@ -88,7 +91,7 @@ public sealed class PsionicEruptionSystem : EntitySystem
 
     private void OnShutdown(Entity<PsionicEruptionPowerComponent> entity, ref ComponentShutdown args)
     {
-        _actions.RemoveAction(entity, entity.Comp.EruptionActionEntity);
+        _actions.RemoveAction(entity.Owner, entity.Comp.EruptionActionEntity);
 
         if (TryComp<PsionicComponent>(entity, out var psionic))
         {
