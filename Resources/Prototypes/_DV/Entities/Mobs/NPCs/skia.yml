@@ -79,7 +79,6 @@
     castShadows: false
     enabled: false
     color: "#444444"
-  - type: ToggleLightAction
   - type: ShatterLightsAbility
     lineOfSight: true
   - type: Butcherable
@@ -92,3 +91,5 @@
     speedModifier: 2.5 # needs to be fast because they'll get ganked otherwise
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: NightVision
+    color: "#808080"
