@@ -287,12 +287,12 @@
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Battery/cold_cannon.rsi
   - type: Gun
-    fireRate: 1.5
+    fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
     proto: ColdLaser
-    fireCost: 100
+    fireCost: 75
 
 - type: entity
   parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]
