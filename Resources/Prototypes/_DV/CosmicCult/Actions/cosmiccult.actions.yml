@@ -270,6 +270,10 @@
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: slumber
+  - type: ConfirmableAction
+    popup: cosmicability-hibernate-confirm
+    confirmDelay: 0.1
+    primeTime: 5
   - type: InstantAction
     event: !type:EventCosmicColossusHibernate {}
   - type: LimitedCharges
