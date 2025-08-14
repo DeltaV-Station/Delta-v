@@ -3,7 +3,7 @@
   parent: BaseItem
   abstract: true
   id: BaseMail
-  name: mail-item-name-unaddressed
+#  name: mail-item-name-unaddressed # DeltaV - use fluent attributes instead
   components:
   - type: Item
 #    size: Normal # Frontier

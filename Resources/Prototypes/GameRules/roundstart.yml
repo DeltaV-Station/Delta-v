@@ -492,3 +492,11 @@
       prob: 0.90
     #- id: SolarPanelDamageVariationPass # DeltaV - we have random solar panel spawner
     #- id: SolarPanelEmptyVariationPass # DeltaV
+    - id: BasicDecalDirtVariationPass
+    - id: BasicDecalGraffitiVariationPass
+    - id: BasicDecalBrunsVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals
+    - id: BasicDecalDirtMonospaceVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals
