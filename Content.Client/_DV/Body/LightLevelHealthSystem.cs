@@ -13,10 +13,10 @@ public sealed class LightLevelHealthSystem : SharedLightLevelHealthSystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly LightReactiveSystem _lightReactive = default!;
 
-    private static ProtoId<AlertPrototype> _lightLevelDarkIcon = "LightLevelDarkIcon";
-    private static ProtoId<AlertPrototype> _lightLevelNeutralIcon = "LightLevelNeutralIcon";
-    private static ProtoId<AlertPrototype> _lightLevelBrightIcon = "LightLevelBrightIcon";
-    private static ProtoId<AlertCategoryPrototype> _lightAlertCategory = "Light";
+    private ProtoId<AlertPrototype> _lightLevelDarkIcon = "LightLevelDarkIcon";
+    private ProtoId<AlertPrototype> _lightLevelNeutralIcon = "LightLevelNeutralIcon";
+    private ProtoId<AlertPrototype> _lightLevelBrightIcon = "LightLevelBrightIcon";
+    private ProtoId<AlertCategoryPrototype> _lightAlertCategory = "Light";
 
     private int _lastThreshold = 0;
 

@@ -16,19 +16,22 @@ public sealed partial class BreakLightsOnSpawnSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
+    private readonly HashSet<Entity<PoweredLightComponent>> _lightsInRange = new();
+
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<BreakLightsOnSpawnComponent, MapInitEvent>(OnComponentInit);
+        SubscribeLocalEvent<BreakLightsOnSpawnComponent, MapInitEvent>(OnMapInit);
     }
 
-    private void OnComponentInit(Entity<BreakLightsOnSpawnComponent> entity, ref MapInitEvent args)
+    private void OnMapInit(Entity<BreakLightsOnSpawnComponent> entity, ref MapInitEvent args)
     {
         var xform = Transform(entity);
         var pos = _transform.GetWorldPosition(xform);
         // Get all light entities within the specified radius
-        var lights = _lookup.GetEntitiesInRange<PoweredLightComponent>(xform.Coordinates, entity.Comp.Radius);
-        foreach (var light in lights)
+        _lightsInRange.Clear();
+        _lookup.GetEntitiesInRange(xform.Coordinates, entity.Comp.Radius, _lightsInRange);
+        foreach (var light in _lightsInRange)
         {
             if (entity.Comp.LineOfSight) // If LoS is required, test it.
             {

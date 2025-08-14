@@ -15,6 +15,8 @@ public sealed class RerollAfterCompletionSystem : EntitySystem
     [Dependency] private readonly JobSystem _job = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
 
+    private readonly HashSet<(EntityUid mind, MindComponent mindComponent, EntityUid objective)> _objectivesToAdd = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -26,21 +28,15 @@ public sealed class RerollAfterCompletionSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        List<EntityUid> toRemove = new();
-
+        _objectivesToAdd.Clear();
         var query = EntityQueryEnumerator<RerollAfterCompletionComponent>();
 
-        // Apparently, I need to collect these all before I generate new objectives.
-        List<Entity<RerollAfterCompletionComponent>> rerollers = new();
         while (query.MoveNext(out var uid, out var component))
-            rerollers.Add(new(uid, component));
-
-        foreach (var (uid, component) in rerollers)
         {
             if (component.Rerolled) // If already rerolled, skip.
                 continue;
 
-            if (!TryComp<ObjectiveComponent>(uid, out var objective))
+            if (!HasComp<ObjectiveComponent>(uid))
                 continue; // If the entity doesn't have an ObjectiveComponent, skip.
 
             if (!TryComp<MindComponent>(component.MindUid, out var mind))
@@ -50,38 +46,39 @@ public sealed class RerollAfterCompletionSystem : EntitySystem
             if (!_objectives.IsCompleted(uid, new(component.MindUid, mind)))
                 continue;
 
-            if (component.RerollObjectivePrototype is null) // Ensure prototype is set. Shouldn't happen most of the time.
-                continue;
-
             component.Rerolled = true;
 
             var bodyUid = mind.CurrentEntity ?? component.MindUid;
 
             // Create a new objective with the specified prototype.
-            var newObjUid = _objectives.TryCreateObjective(component.MindUid, mind, component.RerollObjectivePrototype);
-            if (newObjUid is not null && component.RerollObjectiveMessage is not null)
+            if (_objectives.TryCreateObjective(component.MindUid, mind, component.RerollObjectivePrototype) is { } newObjUid)
             {
-                _mind.AddObjective(component.MindUid, mind, newObjUid.Value);
-                // Check if this has a target component, and if so, get it's name for Localization.
-                if (TryComp<TargetObjectiveComponent>(newObjUid, out var targetComp) && TryComp<MindComponent>(targetComp.Target, out var targetMindComp))
+                _objectivesToAdd.Add((component.MindUid, mind, newObjUid));
+                if (component.RerollObjectiveMessage is not null)
                 {
-                    var newTarget = targetMindComp.CharacterName ?? "Unknown";
-                    var targetJob = _job.MindTryGetJobName(targetComp.Target);
-                    _popup.PopupEntity(Loc.GetString(component.RerollObjectiveMessage, ("targetName", newTarget), ("job", targetJob)), bodyUid, bodyUid, PopupType.Large);
-                }
-                else
-                {
-                    _popup.PopupEntity(Loc.GetString(component.RerollObjectiveMessage), bodyUid, bodyUid, PopupType.Large);
+                    // Check if this has a target component, and if so, get it's name for Localization.
+                    if (TryComp<TargetObjectiveComponent>(newObjUid, out var targetComp) && TryComp<MindComponent>(targetComp.Target, out var targetMindComp))
+                    {
+                        var newTarget = targetMindComp.CharacterName ?? "Unknown";
+                        var targetJob = _job.MindTryGetJobName(targetComp.Target);
+                        _popup.PopupEntity(Loc.GetString(component.RerollObjectiveMessage, ("targetName", newTarget), ("job", targetJob)), bodyUid, bodyUid, PopupType.Large);
+                    }
+                    else
+                    {
+                        _popup.PopupEntity(Loc.GetString(component.RerollObjectiveMessage), bodyUid, bodyUid, PopupType.Large);
+                    }
                 }
             }
 
 
             // Destroy this commponent as it is no longer needed, and this will speed up the next check.
-            toRemove.Add(uid);
+            RemCompDeferred<RerollAfterCompletionComponent>(uid);
         }
 
-        foreach (var uid in toRemove)
-            RemCompDeferred<RerollAfterCompletionComponent>(uid);
+        foreach (var (mind, mindComponent, objective) in _objectivesToAdd)
+        {
+            _mind.AddObjective(mind, mindComponent, objective);
+        }
     }
 
     private void OnObjectiveAfterAssign(EntityUid uid, RerollAfterCompletionComponent comp, ref ObjectiveAfterAssignEvent args)

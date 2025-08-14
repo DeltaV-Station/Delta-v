@@ -15,6 +15,7 @@ public abstract class SharedLightReactiveSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+
     public override void Update(float frameTime)
     {
 
@@ -31,7 +32,7 @@ public abstract class SharedLightReactiveSystem : EntitySystem
         }
     }
 
-    public abstract List<Entity<SharedPointLightComponent>> GetLights();
+    public abstract HashSet<Entity<SharedPointLightComponent>> GetLights(EntityUid targetEntity);
 
     /// <summary>
     /// Gets the current light level of an entity.
@@ -65,12 +66,8 @@ public abstract class SharedLightReactiveSystem : EntitySystem
             val += (mapLight.AmbientLightColor.R + mapLight.AmbientLightColor.G + mapLight.AmbientLightColor.B) / 3f;
         var pos = _transform.GetWorldPosition(uid);
 
-        foreach (var (lightUid, lightComp) in GetLights())
+        foreach (var (lightUid, lightComp) in GetLights(uid))
         {
-            if (!lightComp.Enabled || lightComp.Deleted)
-                continue; // Skip lights that are not enabled
-            if (!lightComp.NetSyncEnabled)
-                continue; // Skip lights that are not synced. This is used for ghosts and things.
             // Ensure we're on the same grid as the light source
             if (_transform.GetMap(lightUid) != map)
                 continue;

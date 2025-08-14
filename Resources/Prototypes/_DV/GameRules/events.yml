@@ -13,6 +13,7 @@
     - id: ListeningPost
     - id: RoboNeuroticist
     - id: MenaceSkeleton
+    - id: SkiaSpawn
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -291,7 +292,7 @@
   components:
   - type: StationEvent
     weight: 6
-    duration: 1
+    duration: null
     minimumPlayers: 30
   - type: PrecognitionResult
     message: psionic-power-precognition-skia-result-message
@@ -310,7 +311,7 @@
       mindRoles:
       - MindRoleSkia
       components:
-        - type: EmitSoundOnSpawn # fell out of the ceiling
+        - type: EmitSoundOnSpawn
           sound: /Audio/_DV/Effects/creepyshriek.ogg
         - type: BreakLightsOnSpawn
           radius: 10

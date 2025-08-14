@@ -20,8 +20,6 @@ public abstract class SharedLightLevelHealthSystem : EntitySystem
         SubscribeLocalEvent<LightLevelHealthComponent, RefreshMovementSpeedModifiersEvent>(OnGetMoveSpeedModifiers);
     }
 
-
-
     public int CurrentThreshold(float lightLevel, LightLevelHealthComponent comp)
     {
         bool lowLight = lightLevel < comp.DarkThreshold;

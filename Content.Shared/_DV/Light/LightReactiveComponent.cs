@@ -34,11 +34,11 @@ public sealed partial class LightReactiveComponent : Component
     /// The next time the component should update.
     /// </summary>
     [AutoNetworkedField]
-    public TimeSpan NextUpdate { get; set; } = TimeSpan.Zero;
+    public TimeSpan NextUpdate = TimeSpan.Zero;
 
     /// <summary>
     /// The current light level of this entity.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public float CurrentLightLevel { get; set; }
+    [DataField]
+    public float CurrentLightLevel = 0f;
 }

@@ -24,12 +24,12 @@ public sealed partial class LightLevelHealthComponent : Component
     /// <summary>
     /// Amount of health or damage per second when in darkness. Positive values harm, negative values heal.
     /// </summary>
-    [DataField]
+    [DataField(required: true)]
     public DamageSpecifier DarkDamage = default!;
     /// <summary>
     /// Amount of health or damage per second when in light. Positive values harm, negative values heal.
     /// </summary>
-    [DataField]
+    [DataField(required: true)]
     public DamageSpecifier LightDamage = default!;
     /// <summary>
     /// Movement speed multiplier when in darkness.
@@ -52,5 +52,6 @@ public sealed partial class LightLevelHealthComponent : Component
     /// -1 for darkness, 1 for light.
     /// 0 for neither.
     /// </summary>
+    [DataField]
     public int CurrentThreshold = 0;
 }

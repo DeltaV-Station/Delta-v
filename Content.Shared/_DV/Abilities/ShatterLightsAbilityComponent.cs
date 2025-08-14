@@ -38,4 +38,4 @@ public sealed partial class ShatterLightsAbilityComponent : Component
     public SoundSpecifier AbilitySound = new SoundPathSpecifier("/Audio/_DV/Effects/creepyshriek.ogg");
 }
 
-public sealed partial class ShatterLightsActionEvent : InstantActionEvent { }
+public sealed partial class ShatterLightsActionEvent : InstantActionEvent;
