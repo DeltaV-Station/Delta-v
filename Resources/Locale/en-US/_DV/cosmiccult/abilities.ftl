@@ -1,6 +1,7 @@
 cosmicability-generic-fail = Your influence fails to take hold..
 
 cosmicability-glare-confirm = Press again to activate Null Glare.
+cosmicability-hibernate-confirm = Press again to activate Slumber Shell.
 
 cosmicability-siphon-cultist-success = Your attempts to draw entropy chill {CAPITALIZE(THE($target))}
 cosmicability-siphon-success = You silently draw Entropy from {CAPITALIZE(THE($target))}.
@@ -20,3 +21,5 @@ cosmicability-monument-spawn-error-grid = Invalid location! The Monument must be
 cosmicability-monument-spawn-error-station = Invalid location! The Monument must be beckoned upon the station.
 cosmicability-monument-spawn-error-intersection = Too crowded! The Monument requires an empty 3x1 area to be beckoned.
 cosmicability-monument-spawn-error-space = Too close to space! The Monument must be be at least {$DISTANCE}m away.
+
+cosmicability-fragmentation-success = {CAPITALIZE(THE($user))} pours cosmic energies into {CAPITALIZE(THE($target))}!

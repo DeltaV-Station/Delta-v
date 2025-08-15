@@ -17,7 +17,6 @@
   requireAdminNotify: true # DeltaV
   supervisors: job-supervisors-captain
   canBeAntag: false
-  whitelisted: true # DeltaV
   access:
   - Research
   - Command
@@ -51,4 +50,15 @@
   storage:
     back:
     - Flash
-    - CosmicCenser # DeltaV - Cosmic Cult
+
+- type: chameleonOutfit
+  id: ResearchDirectorChameleonOutfit
+  job: ResearchDirector
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretRND
+    eyes: ClothingEyesGlasses
+    mask: ClothingMaskGas
+    neck: ClothingNeckCloakRd
+    outerClothing: ClothingOuterCoatRD
+    gloves: ClothingHandsGlovesColorPurple
