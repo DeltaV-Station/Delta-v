@@ -21,10 +21,6 @@ public abstract class SharedCosmicGlyphSystem : EntitySystem
         {
             args.PushMarkup(Loc.GetString("cosmic-examine-glyph-cultcount", ("COUNT", uid.Comp.RequiredCultists)));
         }
-        else
-        {
-            args.PushMarkup(Loc.GetString("cosmic-examine-text-glyphs"));
-        }
     }
 
     public void EraseGlyph(EntityUid ent)

@@ -85,18 +85,31 @@ public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
 
         args.Handled = true;
         uid.Comp.User = args.User;
-        _appearance.SetData(uid, GlyphVisuals.Status, GlyphStatus.Active);
-        uid.Comp.State = GlyphStatus.Active;
-        uid.Comp.Timer = _timing.CurTime + uid.Comp.ActivationTime;
+        if (uid.Comp.ActivationTime > TimeSpan.FromSeconds(0))
+        {
+            _appearance.SetData(uid, GlyphVisuals.Status, GlyphStatus.Active);
+            uid.Comp.State = GlyphStatus.Active;
+            uid.Comp.Timer = _timing.CurTime + uid.Comp.ActivationTime;
+        }
+        else ActivateGlyph(uid);
     }
 
     private void ActivateGlyph(Entity<CosmicGlyphComponent> ent)
     {
-        if (!ent.Comp.EraseOnUse)
+        if (ent.Comp.EraseOnUse) 
+        {
+            EraseGlyph(ent);
+        }
+        else if (ent.Comp.CooldownTime > TimeSpan.FromSeconds(0))
         {
             _appearance.SetData(ent, GlyphVisuals.Status, GlyphStatus.Cooldown);
             ent.Comp.State = GlyphStatus.Cooldown;
             ent.Comp.Timer = _timing.CurTime + ent.Comp.CooldownTime;
+        }
+        else
+        {
+            _appearance.SetData(ent, GlyphVisuals.Status, GlyphStatus.Ready);
+            ent.Comp.State = GlyphStatus.Ready;
         }
 
         if (ent.Comp.User is not { } user) return;
@@ -116,10 +129,9 @@ public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
         }
 
         var tgtpos = Transform(ent).Coordinates;
-        _audio.PlayPvs(ent.Comp.GylphSFX, tgtpos, AudioParams.Default.WithVolume(+1f));
-        Spawn(ent.Comp.GylphVFX, tgtpos);
+        _audio.PlayPvs(ent.Comp.GlyphSFX, tgtpos, AudioParams.Default.WithVolume(+1f));
+        Spawn(ent.Comp.GlyphVFX, tgtpos);
         ent.Comp.User = null;
-        if (ent.Comp.EraseOnUse) EraseGlyph(ent);
     }
     #endregion
 
