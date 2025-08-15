@@ -41,14 +41,12 @@ public sealed class LightLevelHealthSystem : SharedLightLevelHealthSystem
 
         if (currentThreshold != _lastThreshold)
         {
-            if(_prototype.Index(_lightAlertCategory) is { } alertCategory)
-                _alerts.ClearAlertCategory(ent, alertCategory);
+            var alertCategory = _prototype.Index(_lightAlertCategory);
+            _alerts.ClearAlertCategory(ent, alertCategory);
         }
         _lastThreshold = currentThreshold;
 
-        if (_prototype.Index(alertIcon) is not { } alertProto)
-            return;
-
+        var alertProto = _prototype.Index(alertIcon);
         _alerts.ShowAlert(ent, alertProto);
     }
 }

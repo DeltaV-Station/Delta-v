@@ -33,6 +33,9 @@ public sealed class RerollAfterCompletionSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var component))
         {
+            // Destroy this commponent as it is no longer needed, and this will speed up the next check.
+            RemCompDeferred<RerollAfterCompletionComponent>(uid);
+
             if (component.Rerolled) // If already rerolled, skip.
                 continue;
 
@@ -51,28 +54,24 @@ public sealed class RerollAfterCompletionSystem : EntitySystem
             var bodyUid = mind.CurrentEntity ?? component.MindUid;
 
             // Create a new objective with the specified prototype.
-            if (_objectives.TryCreateObjective(component.MindUid, mind, component.RerollObjectivePrototype) is { } newObjUid)
+            if (_objectives.TryCreateObjective(component.MindUid, mind, component.RerollObjectivePrototype) is not { } newObjUid)
+                continue;
+            
+            _objectivesToAdd.Add((component.MindUid, mind, newObjUid));
+            if (component.RerollObjectiveMessage is null)
+                continue;
+            
+            // Check if this has a target component, and if so, get it's name for Localization.
+            if (TryComp<TargetObjectiveComponent>(newObjUid, out var targetComp) && TryComp<MindComponent>(targetComp.Target, out var targetMindComp))
             {
-                _objectivesToAdd.Add((component.MindUid, mind, newObjUid));
-                if (component.RerollObjectiveMessage is not null)
-                {
-                    // Check if this has a target component, and if so, get it's name for Localization.
-                    if (TryComp<TargetObjectiveComponent>(newObjUid, out var targetComp) && TryComp<MindComponent>(targetComp.Target, out var targetMindComp))
-                    {
-                        var newTarget = targetMindComp.CharacterName ?? "Unknown";
-                        var targetJob = _job.MindTryGetJobName(targetComp.Target);
-                        _popup.PopupEntity(Loc.GetString(component.RerollObjectiveMessage, ("targetName", newTarget), ("job", targetJob)), bodyUid, bodyUid, PopupType.Large);
-                    }
-                    else
-                    {
-                        _popup.PopupEntity(Loc.GetString(component.RerollObjectiveMessage), bodyUid, bodyUid, PopupType.Large);
-                    }
-                }
+                var newTarget = targetMindComp.CharacterName ?? "Unknown";
+                var targetJob = _job.MindTryGetJobName(targetComp.Target);
+                _popup.PopupEntity(Loc.GetString(component.RerollObjectiveMessage, ("targetName", newTarget), ("job", targetJob)), bodyUid, bodyUid, PopupType.Large);
             }
-
-
-            // Destroy this commponent as it is no longer needed, and this will speed up the next check.
-            RemCompDeferred<RerollAfterCompletionComponent>(uid);
+            else
+            {
+                _popup.PopupEntity(Loc.GetString(component.RerollObjectiveMessage), bodyUid, bodyUid, PopupType.Large);
+            }
         }
 
         foreach (var (mind, mindComponent, objective) in _objectivesToAdd)

@@ -4,6 +4,7 @@ using Content.Shared._DV.Abilities;
 using Content.Shared.Actions;
 using Content.Shared.Physics;
 using Robust.Server.Audio;
+using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using System.Linq;
@@ -50,19 +51,25 @@ public sealed partial class ShatterLightsAbilitySystem : EntitySystem
         if (entity.Comp.AbilitySound != null)
             _audio.PlayPvs(entity.Comp.AbilitySound, entity);
 
-        var xform = Transform(entity);
-        var pos = _transform.GetWorldPosition(xform);
+        ShatterLightsAround(entity.Owner, entity.Comp.Radius, entity.Comp.LineOfSight);
+        args.Handled = true;
+    }
+
+    public void ShatterLightsAround(EntityUid center, float range, bool lineOfSight)
+    {
+        var pos = _transform.GetWorldPosition(center);
+
         // Get all light entities within the specified radius
         _lightsInRange.Clear();
-        _lookup.GetEntitiesInRange(xform.Coordinates, entity.Comp.Radius, _lightsInRange);
+        _lookup.GetEntitiesInRange(Transform(center).Coordinates, range, _lightsInRange);
         foreach (var light in _lightsInRange)
         {
-            if (entity.Comp.LineOfSight) // If LoS is required, test it.
+            if (lineOfSight) // If LoS is required, test it.
             {
                 var lightPos = _transform.GetWorldPosition(light);
                 var sqrDistance = Vector2.DistanceSquared(pos, lightPos);
                 var ray = new CollisionRay(pos, (lightPos - pos).Normalized(), (int)CollisionGroup.Opaque);
-                var hit = _physics.IntersectRay(_transform.GetMapId(entity.Owner), ray, MathF.Sqrt(sqrDistance) - 0.5f, returnOnFirstHit: true);
+                var hit = _physics.IntersectRay(_transform.GetMapId(center), ray, MathF.Sqrt(sqrDistance) - 0.5f, returnOnFirstHit: true);
                 if (hit.Any() && hit.First().Distance != 0)
                     continue;
             }
@@ -70,7 +77,6 @@ public sealed partial class ShatterLightsAbilitySystem : EntitySystem
             // If we reach here, the light is unobstructed and within range, break it.
             _light.TryDestroyBulb(light, light.Comp);
         }
-        args.Handled = true;
     }
 
 }

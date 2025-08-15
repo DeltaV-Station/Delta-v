@@ -1,10 +1,11 @@
 using Content.Shared.Actions;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Abilities;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ShatterLightsAbilityComponent : Component
 {
     /// <summary>
@@ -28,7 +29,7 @@ public sealed partial class ShatterLightsAbilityComponent : Component
     /// <summary>
     /// Standing reference to the action entity, if it exists.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? ShatterLightsActionEntity;
 
     /// <summary>

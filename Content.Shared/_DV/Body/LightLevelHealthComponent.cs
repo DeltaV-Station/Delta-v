@@ -1,5 +1,6 @@
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._DV.Body;
 
@@ -8,7 +9,7 @@ namespace Content.Shared._DV.Body;
 /// Either damaged or healed by certain light levels.
 /// This is used for the Skia, which is a creature that is harmed by light.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class LightLevelHealthComponent : Component
 {
     /// <summary>
