@@ -11,6 +11,3 @@ public sealed partial class CosmicSiphonIndicatorEvent(NetEntity target) : Entit
     {
     }
 }
-
-[Serializable, NetSerializable]
-public sealed partial class EraseGlyphEvent() : EntityEventArgs {}

@@ -14,7 +14,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._DV.CosmicCult;
 
-public sealed class CosmicGlyphSystem : EntitySystem
+public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -31,36 +31,15 @@ public sealed class CosmicGlyphSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<CosmicGlyphComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<CosmicGlyphComponent, ActivateInWorldEvent>(OnUseGlyph);
         SubscribeLocalEvent<CosmicGlyphComponent, ComponentStartup>(OnGlyphCreated);
-        SubscribeLocalEvent<CosmicGlyphComponent, EraseGlyphEvent>(EraseGlyph);
     }
 
     #region Base trigger
 
-    private void OnExamine(Entity<CosmicGlyphComponent> uid, ref ExaminedEvent args)
-    {
-        if (_cosmicCult.EntityIsCultist(args.Examiner))
-        {
-            args.PushMarkup(Loc.GetString("cosmic-examine-glyph-cultcount", ("COUNT", uid.Comp.RequiredCultists)));
-        }
-        else
-        {
-            args.PushMarkup(Loc.GetString("cosmic-examine-text-glyphs"));
-        }
-    }
-
     private void OnGlyphCreated(Entity<CosmicGlyphComponent> ent, ref ComponentStartup args)
     {
         ent.Comp.Timer = _timing.CurTime + ent.Comp.SpawnTime;
-    }
-
-    public void EraseGlyph(Entity<CosmicGlyphComponent> ent, ref EraseGlyphEvent args)
-    {
-        _appearance.SetData(ent, GlyphVisuals.Status, GlyphStatus.Despawning);
-        ent.Comp.State = GlyphStatus.Despawning;
-        ent.Comp.Timer = _timing.CurTime + ent.Comp.DespawnTime;
     }
 
     public override void Update(float frameTime)
@@ -140,8 +119,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
         _audio.PlayPvs(ent.Comp.GylphSFX, tgtpos, AudioParams.Default.WithVolume(+1f));
         Spawn(ent.Comp.GylphVFX, tgtpos);
         ent.Comp.User = null;
-        var ev = new EraseGlyphEvent();
-        if (ent.Comp.EraseOnUse) EraseGlyph(ent, ref ev); // This is probably not the correct way to do it.
+        if (ent.Comp.EraseOnUse) EraseGlyph(ent);
     }
     #endregion
 
