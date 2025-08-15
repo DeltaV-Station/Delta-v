@@ -87,10 +87,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
 
         if (_mobState.IsCritical(target)) // If the target is in crit, we get much more entropy from them, but kill them in the process.
         {
-            if (HasComp<MindShieldComponent>(target))
-                siphonQuantity = uid.Comp.SiphonQuantityCritMindshield;
-            else
-                siphonQuantity = uid.Comp.SiphonQuantityCrit;
+            siphonQuantity = HasComp<MindShieldComponent>(target) ? uid.Comp.SiphonQuantityCritMindshield : uid.Comp.SiphonQuantityCrit;
 
             _damageable.TryChangeDamage(target, uid.Comp.SiphonCritDamage);
             _popup.PopupEntity(Loc.GetString("cosmicability-siphon-crit", ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager))), uid, PopupType.MediumCaution);
