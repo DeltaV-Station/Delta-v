@@ -7407,9 +7407,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
     - type: Parallax
@@ -7426,17 +7424,6 @@ entities:
     - type: Transform
       pos: 14.549229,-26.422525
       parent: 100
-- proto: ActionToggleLight
-  entities:
-  - uid: 14830
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 19144
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 19144
 - proto: AirAlarm
   entities:
   - uid: 14
@@ -47323,20 +47310,6 @@ entities:
     - type: Transform
       pos: -11.552576,-54.76211
       parent: 100
-    - type: HandheldLight
-      toggleActionEntity: 14830
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 14830
-    - type: ActionsContainer
 - proto: ClothingHeadHatHoodChaplainHood
   entities:
   - uid: 10803

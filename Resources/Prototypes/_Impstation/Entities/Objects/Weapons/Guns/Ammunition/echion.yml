@@ -17,8 +17,8 @@
     size: Small
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
   - type: SolutionContainerVisuals
@@ -30,10 +30,10 @@
     solution: tank
   - type: ReagentTank
     tankType: Fuel
-    fuelWhitelist: 
+    fuelWhitelist:
       tags:
         - EchionGun
-    fuelBlacklist: 
+    fuelBlacklist:
       tags:
         - WeldingTool
   - type: SolutionContainerManager

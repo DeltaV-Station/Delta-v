@@ -11,7 +11,6 @@
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
   canBeAntag: false
-  whitelisted: true # DeltaV
   access:
   - Security
   #- Brig # DeltaV - Removed brig access
@@ -33,3 +32,13 @@
     back:
     - Flash
     #- MagazinePistol # DeltaV - loadouts
+
+- type: chameleonOutfit
+  id: SecurityOfficerChameleonOutfit
+  job: SecurityOfficer
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretSecurity
+    mask: ClothingMaskGasSecurity
+    neck: Dinkystar
+    gloves: ClothingHandsGlovesColorBlack
