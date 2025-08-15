@@ -1,4 +1,3 @@
-
 - type: entity
   name: malign injector
   parent: BaseItem # Not inheriting from ChemicalMedipen so that you can't transmute an empty injector into a filled one.
@@ -19,12 +18,12 @@
       left:
       - state: base-needle-inhand-left
       - state: base-colorA-inhand-left
-        color: "#439822"
+        color: "#491365"
       - state: base-colorB-inhand-left
       right:
       - state: base-needle-inhand-right
       - state: base-colorA-inhand-right
-        color: "#439822"
+        color: "#491365"
       - state: base-colorB-inhand-right
     size: Tiny
   - type: SolutionContainerVisuals
