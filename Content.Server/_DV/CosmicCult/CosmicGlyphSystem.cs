@@ -96,7 +96,7 @@ public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
 
     private void ActivateGlyph(Entity<CosmicGlyphComponent> ent)
     {
-        if (ent.Comp.EraseOnUse) 
+        if (ent.Comp.EraseOnUse)
         {
             EraseGlyph(ent);
         }
