@@ -94,12 +94,3 @@
           components:
           - type: CosmicCult
           shouldHave: false
-      - !type:GenericStatusEffect
-        key: Stutter
-        component: StutteringAccent
-        conditions:
-        - !type:HasComponent
-          explanation: reagent-condition-is-not-cultist
-          components:
-          - type: CosmicCult
-          shouldHave: false
