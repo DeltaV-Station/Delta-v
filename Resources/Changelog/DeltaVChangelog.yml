@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Quanteey
-  changes:
-  - message: Added a multitool and a screwdriver to the chief medical officer's locker
-    type: Add
-  id: 1098
-  time: '2025-03-03T19:40:43.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3103
 - author: sowelipililimute, kushbreth
   changes:
   - message: thaven moodupsets possible at 500 glimmer, new thaven markings, new thaven
@@ -4104,3 +4097,13 @@
   id: 1597
   time: '2025-08-14T23:51:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4181
+- author: NoElkaTheGod
+  changes:
+  - message: Entropy is now less efficient for progressing the cosmic cult's monument.
+    type: Tweak
+  - message: Siphoning entropy now deals it's damage much slower, and the total amount
+      is randomized to make it less metagameable.
+    type: Tweak
+  id: 1598
+  time: '2025-08-15T06:24:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4099
