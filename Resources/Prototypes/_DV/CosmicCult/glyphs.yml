@@ -51,6 +51,7 @@
   - type: CosmicGlyphConversion
     negateProtection: true
   - type: CosmicGlyph
+    ActivationTime: 4 # To prevent people from just using the glyph the moment a target's shunt ends. Go get cuffs.
     requiredCultists: 3
     activationDamage:
       types:
@@ -70,6 +71,7 @@
         map: ["base"]
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
+    ActivationTime: 4 # To prevent people from just using the glyph the moment a target's shunt ends. Go get cuffs.
     requiredCultists: 2
     activationDamage:
       types:
