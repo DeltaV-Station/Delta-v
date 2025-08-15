@@ -66,9 +66,9 @@
           Brute: -1 # Not great, but will help you to tank an extra bullet or two
         conditions: # This one only works for cultists
         - !type:HasComponent
+          explanation: reagent-condition-is-cultist
           components:
-          - type: CosmicCultComponent
-          Explanation: reagent-condition-is-cultist
+          - type: CosmicCult
       - !type:Jitter
       - !type:GenericStatusEffect
         key: StaminaModifier
@@ -91,16 +91,16 @@
             Asphyxiation: 3
         conditions:
         - !type:HasComponent
+          explanation: reagent-condition-is-not-cultist
           components:
-          - type: CosmicCultComponent
-          ShouldHave: false
-          Explanation: reagent-condition-is-not-cultist
+          - type: CosmicCult
+          shouldHave: false
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
         conditions:
         - !type:HasComponent
+          explanation: reagent-condition-is-not-cultist
           components:
-          - type: CosmicCultComponent
-          ShouldHave: false
-          Explanation: reagent-condition-is-not-cultist
+          - type: CosmicCult
+          shouldHave: false
