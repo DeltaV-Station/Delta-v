@@ -83,7 +83,6 @@
         key: KnockedDown
         time: 3
         type: Remove
-      - !type:GenericStatusEffect
       - !type:HealthChange # Only affects non-cultists. Examine text is there for a reason.
         damage:
           types:
