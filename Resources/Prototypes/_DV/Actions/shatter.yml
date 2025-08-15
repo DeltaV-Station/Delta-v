@@ -3,7 +3,8 @@
   name: Shatter Lights
   description: Shatter all lights in the area.
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite: _DV/Actions/shatterlights.rsi, state: shatter-lights }
-    event: !type:ShatterLightsActionEvent
     useDelay: 60
+  - type: InstantAction
+    event: !type:ShatterLightsActionEvent
