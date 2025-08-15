@@ -57,14 +57,6 @@
   - type: Label
     currentLabel: holopad-justice-lobby
 
-- type: entity
-  parent: Holopad
-  id: HolopadJusticeAttorney
-  suffix: Attorney
-  components:
-  - type: Label
-    currentLabel: holopad-justice-attorney
-
 #Logistics
 - type: entity
   parent: Holopad
