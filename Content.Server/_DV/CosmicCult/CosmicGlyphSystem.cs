@@ -90,6 +90,7 @@ public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
             _appearance.SetData(uid, GlyphVisuals.Status, GlyphStatus.Active);
             uid.Comp.State = GlyphStatus.Active;
             uid.Comp.Timer = _timing.CurTime + uid.Comp.ActivationTime;
+            _audio.PlayPvs(uid.Comp.ChargeSFX, Transform(uid).Coordinates);
         }
         else ActivateGlyph(uid);
     }
@@ -116,9 +117,10 @@ public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
         var cultists = GatherCultists(ent, ent.Comp.ActivationRange);
         var tryInvokeEv = new TryActivateGlyphEvent(user, cultists);
         RaiseLocalEvent(ent, tryInvokeEv);
+        var tgtpos = Transform(ent).Coordinates;
         if (tryInvokeEv.Cancelled || cultists.Count < ent.Comp.RequiredCultists)
         {
-            //TODO: SFX and/or VFX for failed activation?
+            _audio.PlayPvs(ent.Comp.FailSFX, tgtpos);
             return;
         }
 
@@ -128,8 +130,7 @@ public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
             _damageable.TryChangeDamage(cultist, damage, true);
         }
 
-        var tgtpos = Transform(ent).Coordinates;
-        _audio.PlayPvs(ent.Comp.GlyphSFX, tgtpos, AudioParams.Default.WithVolume(+1f));
+        _audio.PlayPvs(ent.Comp.TriggerSFX, tgtpos, AudioParams.Default.WithVolume(+1f));
         Spawn(ent.Comp.GlyphVFX, tgtpos);
         ent.Comp.User = null;
     }

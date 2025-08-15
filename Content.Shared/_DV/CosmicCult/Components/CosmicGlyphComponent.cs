@@ -21,7 +21,9 @@ public sealed partial class CosmicGlyphComponent : Component
     [DataField] public bool CanBeErased = true;
     [DataField] public bool EraseOnUse = false;
     [DataField] public EntProtoId GlyphVFX = "CosmicGenericVFX";
-    [DataField] public SoundSpecifier GlyphSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/glyph_trigger.ogg");
+    [DataField] public SoundSpecifier TriggerSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/glyph_trigger.ogg");
+    [DataField] public SoundSpecifier ChargeSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/glyph_charge.ogg");
+    [DataField] public SoundSpecifier FailSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/glyph_fail.ogg");
     [DataField] public GlyphStatus State = GlyphStatus.Spawning;
     [DataField] public EntityUid? User = null;
     [DataField] public TimeSpan SpawnTime = TimeSpan.FromSeconds(1.2);
