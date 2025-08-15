@@ -56,11 +56,11 @@ public sealed class RerollAfterCompletionSystem : EntitySystem
             // Create a new objective with the specified prototype.
             if (_objectives.TryCreateObjective(component.MindUid, mind, component.RerollObjectivePrototype) is not { } newObjUid)
                 continue;
-            
+
             _objectivesToAdd.Add((component.MindUid, mind, newObjUid));
             if (component.RerollObjectiveMessage is null)
                 continue;
-            
+
             // Check if this has a target component, and if so, get it's name for Localization.
             if (TryComp<TargetObjectiveComponent>(newObjUid, out var targetComp) && TryComp<MindComponent>(targetComp.Target, out var targetMindComp))
             {
