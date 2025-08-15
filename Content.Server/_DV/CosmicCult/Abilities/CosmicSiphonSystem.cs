@@ -27,7 +27,6 @@ public sealed class CosmicSiphonSystem : EntitySystem
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly CosmicCultSystem _cosmicCult = default!;
@@ -63,10 +62,11 @@ public sealed class CosmicSiphonSystem : EntitySystem
         {
             DistanceThreshold = 2f,
             Hidden = true,
-            BreakOnHandChange = true,
+            BreakOnHandChange = false,
             BreakOnDamage = true,
             BreakOnMove = true,
-            BreakOnDropItem = true,
+            BreakOnDropItem = false,
+            //TODO: make the cultist not rotate towards the target when we get #37958 from upstream
         };
         args.Handled = true;
         _doAfter.TryStartDoAfter(doargs);
@@ -98,8 +98,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
         uid.Comp.EntropyStored += siphonQuantity;
         uid.Comp.EntropyBudget += siphonQuantity;
         Dirty(uid, uid.Comp);
-
-        _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(target, "EntropicDegen", TimeSpan.FromSeconds(21), true);
+        _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(target, "EntropicDegen", TimeSpan.FromSeconds(_random.Next(21) + 40), true); //40-60 seconds, 4-6 cold damage per siphon
         if (_cosmicCult.EntityIsCultist(target))
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-siphon-cultist-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);

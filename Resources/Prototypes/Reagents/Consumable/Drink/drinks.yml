@@ -447,8 +447,9 @@
       effects:
       - !type:SatiateThirst
         factor: 4
-    Gas: # DeltaV - Feroxi get to breathe with this too!
+    Gas:
       effects:
+      # DeltaV - Begin changes (feroxi)
       - !type:Oxygenate
         conditions:
         - !type:OrganType
@@ -467,7 +468,6 @@
         - !type:OrganType
           type: FeroxiDehydrated
         factor: 2
-      # DeltaV Converts H2O into CO2 for Feroxi
       - !type:ModifyLungGas
         conditions:
         - !type:OrganType
@@ -482,6 +482,17 @@
         ratios: # DeltaV no duplicating O2 >:3
           CarbonDioxide: 0.5
           WaterVapor: -1.0
+      # DeltaV - End changes
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: true
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Heat: 3
 
 - type: reagent
   id: Ice
@@ -603,7 +614,7 @@
   parent: BaseDrink
   desc: reagent-desc-rewriter
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: rewriter      #Delta-V Flavor additions
+  flavor: sweet
   color: "#485000"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/rewriter.rsi

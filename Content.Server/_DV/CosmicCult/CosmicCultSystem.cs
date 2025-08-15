@@ -6,6 +6,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Events;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
+using Content.Server.Radio;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
@@ -57,6 +58,9 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly AmbientSoundSystem _ambient = default!;
+    [Dependency] private readonly SharedPointLightSystem _lights = default!;
 
     private readonly ResPath _mapPath = new("Maps/_DV/Nonstations/cosmicvoid.yml");
 
@@ -90,6 +94,9 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         SubscribeLocalEvent<CosmicSubtleMarkComponent, ExaminedEvent>(OnSubtleMarkExamined);
         SubscribeLocalEvent<CosmicCultComponent, EncryptionChannelsChangedEvent>(OnTransmitterChannelsChangedCult, after: new[] { typeof(IntrinsicRadioKeySystem) });
+
+        SubscribeLocalEvent<RadioSendAttemptEvent>(OnRadioSendAttempt);
+        SubscribeLocalEvent<CosmicJammerComponent, AnchorStateChangedEvent>(OnJammerAnchorStateChange);
 
         SubscribeFinale(); //Hook up the cosmic cult finale system
     }
@@ -166,7 +173,10 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     private void OnGotEquipped(Entity<CosmicEquipmentComponent> ent, ref GotEquippedEvent args)
     {
         if (!EntityIsCultist(args.Equipee))
+        {
             _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.Equipee, EntropicDegen, TimeSpan.FromDays(1), true); // TimeSpan.MaxValue causes a crash here, so we use FromDays(1) instead.
+            if (TryComp<CosmicEntropyDebuffComponent>(args.Equipee, out var comp)) comp.Degen = new(){DamageDict = new(){{"Cold", 0.5}, {"Asphyxiation", 1.5}}};
+        }
     }
 
     private void OnGotUnequipped(Entity<CosmicEquipmentComponent> ent, ref GotUnequippedEvent args)
@@ -179,6 +189,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         if (!EntityIsCultist(args.User))
         {
             _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.User, EntropicDegen, TimeSpan.FromDays(1), true);
+            if (TryComp<CosmicEntropyDebuffComponent>(args.User, out var comp)) comp.Degen = new(){DamageDict = new(){{"Cold", 0.5}, {"Asphyxiation", 1.5}}};
             _popup.PopupEntity(Loc.GetString("cosmiccult-gear-pickup", ("ITEM", args.Equipped)), args.User, args.User, PopupType.MediumCaution);
         }
     }
@@ -237,4 +248,27 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     }
 
+    private void OnJammerAnchorStateChange(Entity<CosmicJammerComponent> ent, ref AnchorStateChangedEvent args)
+    {
+        ent.Comp.Active = args.Anchored;
+        _ambient.SetAmbience(ent, args.Anchored);
+        _lights.SetEnabled(ent, args.Anchored);
+    }
+
+    private void OnRadioSendAttempt(ref RadioSendAttemptEvent args)
+    {
+        if (args.Channel == CosmicRadio) return; // Cult can still communicate within range of a jammer.
+
+        var source = Transform(args.RadioSource).Coordinates;
+        var query = EntityQueryEnumerator<CosmicJammerComponent, TransformComponent>();
+
+        while (query.MoveNext(out var uid, out var jammer, out var transform))
+        {
+            if (_transform.InRange(source, transform.Coordinates, jammer.Range) && jammer.Active)
+            {
+                args.Cancelled = true;
+                return;
+            }
+        }
+    }
 }
