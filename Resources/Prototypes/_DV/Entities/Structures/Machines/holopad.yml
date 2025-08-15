@@ -16,6 +16,22 @@
   - type: Label
     currentLabel: holopad-command-evac
 
+- type: entity
+  parent: Holopad
+  id: HolopadCommandBridgeLobby
+  suffix: Bridge Lobby
+  components:
+  - type: Label
+    currentLabel: holopad-command-lobby
+
+- type: entity
+  parent: Holopad
+  id: HolopadCommandBar
+  suffix: Command Bar
+  components:
+  - type: Label
+    currentLabel: holopad-command-bar
+
 #Justice
 - type: entity
   parent: Holopad
@@ -32,6 +48,22 @@
   components:
   - type: Label
     currentLabel: holopad-justice-clerk
+
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeLobby
+  suffix: Justice Lobby
+  components:
+  - type: Label
+    currentLabel: holopad-justice-lobby
+
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeAttorney
+  suffix: Attorney
+  components:
+  - type: Label
+    currentLabel: holopad-justice-attorney
 
 #Logistics
 - type: entity
@@ -50,6 +82,14 @@
   - type: Label
     currentLabel: holodpad-logistics-mailfront
 
+- type: entity
+  parent: Holopad
+  id: HolopadCargoLobby
+  suffix: Logistics Lobby
+  components:
+  - type: Label
+    currentLabel: holopad-logistics-lobby
+
 #Epistemics
 - type: entity
   parent: Holopad
@@ -67,6 +107,14 @@
   - type: Label
     currentLabel: holopad-epistemics-oracle
 
+- type: entity
+  parent: Holopad
+  id: HolopadEpistemicsLobby
+  suffix: Epistemics Lobby
+  components:
+  - type: Label
+    currentLabel: holopad-epistemics-lobby
+
 #Security
 - type: entity
   parent: Holopad
@@ -75,6 +123,14 @@
   components:
   - type: Label
     currentLabel: holopad-security-corpsman
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityLobby
+  suffix: Security Lobby
+  components:
+  - type: Label
+    currentLabel: holopad-security-lobby
 
 #Station Specific - Security
 - type: entity
@@ -149,6 +205,38 @@
   - type: Label
     currentLabel: holopad-security-perma-gladiator-lounge
 
+- type: entity
+  parent: Holopad
+  id: HolopadSecuritySolitary
+  suffix: Solitary Confinement
+  components:
+  - type: Label
+    currentLabel: holopad-security-solitary
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityBomb
+  suffix: Bomb Training Room
+  components:
+  - type: Label
+    currentLabel: holopad-security-bomb-training
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityHall
+  suffix: Security Hallway
+  components:
+  - type: Label
+    currentLabel: holopad-security-hallway
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityEvidence
+  suffix: Evidence
+  components:
+  - type: Label
+    currentLabel: holopad-security-evidence
+
 #General
 - type: entity
   parent: Holopad
@@ -183,6 +271,38 @@
   - type: Label
     currentLabel: holopad-general-spesscar-track
 
+- type: entity
+  parent: Holopad
+  id: HolopadGeneralShootingRange
+  suffix: Shooting Range
+  components:
+  - type: Label
+    currentLabel: holopad-general-shooting-range
+
+- type: entity
+  parent: Holopad
+  id: HolopadGeneralLaundromat
+  suffix: Laundromat
+  components:
+  - type: Label
+    currentLabel: holopad-general-laundromat
+
+- type: entity
+  parent: Holopad
+  id: HolopadGeneralPool
+  suffix: Pool
+  components:
+  - type: Label
+    currentLabel: holopad-general-pool
+
+- type: entity
+  parent: Holopad
+  id: HolopadGeneralZoo
+  suffix: Zoo
+  components:
+  - type: Label
+    currentLabel: holopad-general-zoo
+
 #Medical
 - type: entity
   parent: Holopad
@@ -200,6 +320,14 @@
   - type: Label
     currentLabel: holopad-medical-psychologist
 
+- type: entity
+  parent: Holopad
+  id: HolopadMedicalLobby
+  suffix: Medical Lobby
+  components:
+  - type: Label
+    currentLabel: holopad-medical-lobby
+
 #Engineering
 - type: entity
   parent: Holopad
@@ -208,6 +336,14 @@
   components:
   - type: Label
     currentLabel: holopad-engineering-pa-control
+
+- type: entity
+  parent: Holopad
+  id: HolopadEngineeringLobby
+  suffix: Engineering Lobby
+  components:
+  - type: Label
+    currentLabel: holopad-engineering-lobby
 
 #Service
 - type: entity

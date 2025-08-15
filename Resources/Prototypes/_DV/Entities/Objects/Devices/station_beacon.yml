@@ -1,3 +1,4 @@
+
 #Command
 - type: entity
   parent: DefaultStationBeaconCommand
@@ -118,27 +119,11 @@
 
 - type: entity
   parent: DefaultStationBeaconService
-  id: DefaultStationBeaconClown
-  suffix: Clown
+  id: DefaultStationBeaconRestroom
+  suffix: Restroom
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-clown
-
-- type: entity
-  parent: DefaultStationBeaconService
-  id: DefaultStationBeaconMime
-  suffix: Mime
-  components:
-  - type: NavMapBeacon
-    defaultText: station-beacon-mime
-
-- type: entity
-  parent: DefaultStationBeaconService
-  id: DefaultStationBeaconMusician
-  suffix: Musician
-  components:
-  - type: NavMapBeacon
-    defaultText: station-beacon-musician
+    defaultText: station-beacon-restroom
 
 #Surveilance
 - type: entity
@@ -174,6 +159,46 @@
   - type: NavMapBeacon
     defaultText: station-beacon-laser-tag
 
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconPool
+  suffix: Pool
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-pool
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconLaundromat
+  suffix: Laundromat
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-laundromat
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconBarbershop
+  suffix: Barbershop
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-barbershop
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconArcade
+  suffix: Arcade
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-arcade
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconZoo
+  suffix: Zoo
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-zoo
+
 #Security
 - type: entity
   parent: DefaultStationBeaconSecurity
@@ -182,6 +207,30 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-corpsman
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconSolitary
+  suffix: Solitary Confinement
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-security-solitary
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconBombTraining
+  suffix: Bomb Training
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-bomb-training
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconPermaBrigDisposals
+  suffix: Perma Disposals
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-perma-disposals
 
 #Justice
 - type: entity
@@ -216,3 +265,11 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-clerk
+
+- type: entity
+  parent: DefaultStationBeaconJustice
+  id: DefaultStationBeaconAttorney
+  suffix: Attorney
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-attorney
