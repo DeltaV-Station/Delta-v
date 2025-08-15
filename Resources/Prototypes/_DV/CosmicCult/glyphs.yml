@@ -51,7 +51,7 @@
   - type: CosmicGlyphConversion
     negateProtection: true
   - type: CosmicGlyph
-    ActivationTime: 4 # To prevent people from just using the glyph the moment a target's shunt ends. Go get cuffs.
+    activationTime: 4 # To prevent people from just using the glyph the moment a target's shunt ends. Go get cuffs.
     requiredCultists: 3
     activationDamage:
       types:
@@ -80,7 +80,7 @@
           Cooldown: {state: cooldown}
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
-    ActivationTime: 4 # To prevent people from just using the glyph the moment a target's shunt ends. Go get cuffs.
+    activationTime: 4 # To prevent people from just using the glyph the moment a target's shunt ends. Go get cuffs.
     requiredCultists: 2
     activationDamage:
       types:
@@ -189,6 +189,6 @@
   - type: CosmicGlyphAstralProjection
   - type: CosmicGlyph
     requiredCultists: 1
-    EraseOnUse: true # This is something that you may use early into the round where there aren't many cultists to hide it for you, so it erases automaticaly.
+    eraseOnUse: true # This is something that you may use early into the round where there aren't many cultists to hide it for you, so it erases automaticaly.
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-projection
