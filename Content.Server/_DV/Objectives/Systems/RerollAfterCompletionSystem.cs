@@ -5,6 +5,7 @@ using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Objectives.Systems;
 using Content.Shared.Popups;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.Objectives.Systems;
 
@@ -15,7 +16,7 @@ public sealed class RerollAfterCompletionSystem : EntitySystem
     [Dependency] private readonly JobSystem _job = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
 
-    private readonly HashSet<(EntityUid mind, MindComponent mindComponent, EntityUid objective)> _objectivesToAdd = new();
+    private readonly HashSet<RerollAfterCompletionComponent> _objectivesToAdd = new();
 
     public override void Initialize()
     {
@@ -33,9 +34,6 @@ public sealed class RerollAfterCompletionSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var component))
         {
-            // Destroy this commponent as it is no longer needed, and this will speed up the next check.
-            RemCompDeferred<RerollAfterCompletionComponent>(uid);
-
             if (component.Rerolled) // If already rerolled, skip.
                 continue;
 
@@ -49,18 +47,30 @@ public sealed class RerollAfterCompletionSystem : EntitySystem
             if (!_objectives.IsCompleted(uid, new(component.MindUid, mind)))
                 continue;
 
+            // Destroy this commponent as it is no longer needed, and this will speed up the next check.
+            RemCompDeferred<RerollAfterCompletionComponent>(uid);
+
             component.Rerolled = true;
 
-            var bodyUid = mind.CurrentEntity ?? component.MindUid;
+            // I'd be a lot happier if I could do all the rerolling here
+            // But creating the new objective causes the Query to freak out
+            // And I need the objective to do everything else.
+            _objectivesToAdd.Add(component);
+        }
 
-            // Create a new objective with the specified prototype.
-            if (_objectives.TryCreateObjective(component.MindUid, mind, component.RerollObjectivePrototype) is not { } newObjUid)
+        foreach (var component in _objectivesToAdd)
+        {
+            var mind = component.MindUid;
+            if (!TryComp<MindComponent>(mind, out var mindComponent))
                 continue;
-            
-            _objectivesToAdd.Add((component.MindUid, mind, newObjUid));
+            // Create a new objective with the specified prototype.
+            if (_objectives.TryCreateObjective(mind, mindComponent, component.RerollObjectivePrototype) is not { } newObjUid)
+                continue;
             if (component.RerollObjectiveMessage is null)
                 continue;
-            
+
+            var bodyUid = mindComponent.CurrentEntity ?? component.MindUid;
+
             // Check if this has a target component, and if so, get it's name for Localization.
             if (TryComp<TargetObjectiveComponent>(newObjUid, out var targetComp) && TryComp<MindComponent>(targetComp.Target, out var targetMindComp))
             {
@@ -72,11 +82,7 @@ public sealed class RerollAfterCompletionSystem : EntitySystem
             {
                 _popup.PopupEntity(Loc.GetString(component.RerollObjectiveMessage), bodyUid, bodyUid, PopupType.Large);
             }
-        }
-
-        foreach (var (mind, mindComponent, objective) in _objectivesToAdd)
-        {
-            _mind.AddObjective(mind, mindComponent, objective);
+            _mind.AddObjective(mind, mindComponent, newObjUid);
         }
     }
 
