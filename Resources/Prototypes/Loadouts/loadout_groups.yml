@@ -913,7 +913,12 @@
   loadouts:
   - ChiefEngineerCloak
   - ChiefEngineerMantle
-  - ScarfOrange # DeltaV
+  # Begin DeltaV Additions
+  - ScarfOrange
+  - ScarfRed
+  - ScarfBlue
+  - ScarfGreen
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: ChiefEngineerOuterClothing
@@ -926,9 +931,18 @@
   id: ChiefEngineerShoes
   name: loadout-group-chief-engineer-shoes
   loadouts:
-  - BrownShoes
+  #- BrownShoes # DeltaV - Engi loadout rework
   - EngineeringWinterBoots
-  - ChiefEngineerWinterBoots # DeltaV
+  # Begin DeltaV Additions
+  - AtmosWinterBoots
+  - ChiefEngineerWinterBoots
+  - WorkBoots
+  - RedShoes
+  - OrangeShoes
+  - YellowShoes
+  - BlueShoes
+  - GreenShoes
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -979,6 +993,11 @@
   loadouts:
   - WorkBoots
   - EngineeringWinterBoots
+  # Begin DeltaV Additions
+  - RedShoes
+  - OrangeShoes
+  - YellowShoes
+  # End DeltaV additions
 
 - type: loadoutGroup
   id: StationEngineerID
@@ -1019,8 +1038,16 @@
   id: AtmosphericTechnicianShoes
   name: loadout-group-atmospheric-technician-shoes
   loadouts:
-  - WhiteShoes
-  - EngineeringWinterBoots
+  #- WhiteShoes # DeltaV - Engi loadout rework
+  #- EngineeringWinterBoots # DeltaV - Engi loadout rework
+  # Begin DeltaV Additions
+  - WorkBoots
+  - BlueShoes
+  - RedShoes
+  - OrangeShoes
+  - RedShoes
+  - AtmosWinterBoots
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: SurvivalExtended
