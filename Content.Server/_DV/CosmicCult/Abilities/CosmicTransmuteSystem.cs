@@ -34,7 +34,7 @@ public sealed class CosmicTransmuteSystem : EntitySystem
     private void OnTransmuteGlyph(Entity<CosmicGlyphTransmuteComponent> uid, ref TryActivateGlyphEvent args)
     {
         var ev = new CheckGlyphConditionsEvent(args.User, args.Cultists);
-        RaiseLocalEvent(uid, ev);
+        RaiseLocalEvent(uid, ref ev);
         if (ev.Cancelled)
         {
             args.Cancel();

@@ -80,7 +80,7 @@ public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
         }
 
         var ev = new CheckGlyphConditionsEvent(args.User, cultists);
-        RaiseLocalEvent(uid, ev);
+        RaiseLocalEvent(uid, ref ev);
         if (ev.Cancelled) return;
 
         args.Handled = true;
@@ -116,7 +116,7 @@ public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
         if (ent.Comp.User is not { } user) return;
         var cultists = GatherCultists(ent, ent.Comp.ActivationRange);
         var tryInvokeEv = new TryActivateGlyphEvent(user, cultists);
-        RaiseLocalEvent(ent, tryInvokeEv);
+        RaiseLocalEvent(ent, ref tryInvokeEv);
         var tgtpos = Transform(ent).Coordinates;
         if (tryInvokeEv.Cancelled || cultists.Count < ent.Comp.RequiredCultists)
         {

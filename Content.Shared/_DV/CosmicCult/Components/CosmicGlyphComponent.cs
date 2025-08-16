@@ -34,16 +34,22 @@ public sealed partial class CosmicGlyphComponent : Component
     public TimeSpan Timer = default!;
 }
 
-public sealed class TryActivateGlyphEvent(EntityUid user, HashSet<Entity<CosmicCultComponent>> cultists) : CancellableEntityEventArgs
+[ByRefEvent]
+public record struct TryActivateGlyphEvent(EntityUid User, HashSet<Entity<CosmicCultComponent>> Cultists, bool Cancelled = false)
 {
-    public EntityUid User = user;
-    public HashSet<Entity<CosmicCultComponent>> Cultists = cultists;
+    public void Cancel()
+    {
+        Cancelled = true;
+    }
 }
 
-public sealed class CheckGlyphConditionsEvent(EntityUid user, HashSet<Entity<CosmicCultComponent>> cultists) : CancellableEntityEventArgs
+[ByRefEvent]
+public record struct CheckGlyphConditionsEvent(EntityUid User, HashSet<Entity<CosmicCultComponent>> Cultists, bool Cancelled = false)
 {
-    public EntityUid User = user;
-    public HashSet<Entity<CosmicCultComponent>> Cultists = cultists;
+    public void Cancel()
+    {
+        Cancelled = true;
+    }
 }
 
 [Serializable, NetSerializable]

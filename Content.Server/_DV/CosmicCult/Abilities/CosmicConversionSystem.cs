@@ -62,7 +62,7 @@ public sealed class CosmicConversionSystem : EntitySystem
     private void OnConversionGlyph(Entity<CosmicGlyphConversionComponent> uid, ref TryActivateGlyphEvent args)
     {
         var ev = new CheckGlyphConditionsEvent(args.User, args.Cultists);
-        RaiseLocalEvent(uid, ev);
+        RaiseLocalEvent(uid, ref ev);
         if (ev.Cancelled)
         {
             args.Cancel();
