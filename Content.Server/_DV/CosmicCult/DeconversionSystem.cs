@@ -1,4 +1,5 @@
 using Content.Server._DV.CosmicCult.Components;
+using Content.Server.Antag;
 using Content.Server.Bible.Components;
 using Content.Server.EUI;
 using Content.Shared._DV.CosmicCult.Components.Examine;
@@ -38,6 +39,8 @@ public sealed class DeconversionSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly EuiManager _euiMan = default!;
+    [Dependency] private readonly CosmicCultSystem _cult = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
 
     public override void Initialize()
     {
@@ -64,7 +67,20 @@ public sealed class DeconversionSystem : EntitySystem
             if (_timing.CurTime >= comp.CleanseTime && !HasComp<CosmicBlankComponent>(uid))
             {
                 RemComp<CleanseCultComponent>(uid);
-                DeconvertCultist(uid);
+                if (!TryComp<CosmicCultComponent>(uid, out var cultComp)) continue;
+                if (cultComp.CosmicEmpowered)
+                {
+                    _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
+                    _cult.UnEmpower(uid);
+                    _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-unempowered-fluff"), Color.FromHex("#4cabb3"), null);
+                    _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-unempowered-briefing"), Color.FromHex("#cae8e8"), null);
+                    if (_mind.TryGetMind(uid, out _, out var mind) && _playerMan.TryGetSessionById(mind.UserId, out var session))
+                        _euiMan.OpenEui(new CosmicUnempoweredEui(), session);
+                }
+                else
+                {
+                    DeconvertCultist(uid);
+                }
             }
         }
     }

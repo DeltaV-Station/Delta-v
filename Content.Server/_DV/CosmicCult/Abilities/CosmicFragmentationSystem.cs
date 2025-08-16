@@ -1,5 +1,4 @@
 using Content.Server._DV.Objectives.Events;
-using Content.Server.Actions;
 using Content.Server.Antag;
 using Content.Shared.Popups;
 using Content.Server.Radio.Components;
@@ -24,7 +23,6 @@ public sealed class CosmicFragmentationSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
 
     private ProtoId<RadioChannelPrototype> _cultRadio = "CosmicRadio";
 
@@ -40,21 +38,6 @@ public sealed class CosmicFragmentationSystem : EntitySystem
         SubscribeLocalEvent<CosmicCultComponent, EventCosmicFragmentation>(OnCosmicFragmentation);
     }
 
-    private void UnEmpower(Entity<CosmicCultComponent> ent)
-    {
-        var comp = ent.Comp;
-        comp.CosmicEmpowered = false; // empowerment spent! Now we set all the values back to their default.
-        comp.CosmicSiphonQuantity = CosmicCultComponent.DefaultCosmicSiphonQuantity;
-        comp.CosmicGlareRange = CosmicCultComponent.DefaultCosmicGlareRange;
-        comp.CosmicGlareDuration = CosmicCultComponent.DefaultCosmicGlareDuration;
-        comp.CosmicGlareStun = CosmicCultComponent.DefaultCosmicGlareStun;
-        comp.CosmicImpositionDuration = CosmicCultComponent.DefaultCosmicImpositionDuration;
-        comp.CosmicBlankDuration = CosmicCultComponent.DefaultCosmicBlankDuration;
-        comp.CosmicBlankDelay = CosmicCultComponent.DefaultCosmicBlankDelay;
-        _actions.RemoveAction(ent.Owner, comp.CosmicFragmentationActionEntity);
-        comp.CosmicFragmentationActionEntity = null;
-    }
-
     private void OnCosmicFragmentation(Entity<CosmicCultComponent> ent, ref EventCosmicFragmentation args)
     {
         if (args.Handled || HasComp<ActiveNPCComponent>(args.Target) || _mobStateSystem.IsIncapacitated(args.Target))
@@ -68,7 +51,7 @@ public sealed class CosmicFragmentationSystem : EntitySystem
         args.Handled = true;
         _popup.PopupEntity(Loc.GetString("cosmicability-fragmentation-success", ("user", ent), ("target", args.Target)), ent, PopupType.MediumCaution);
         _cult.MalignEcho(ent);
-        UnEmpower(ent);
+        _cult.UnEmpower(ent);
     }
 
     private void OnFragmentBorg(Entity<BorgChassisComponent> ent, ref MalignFragmentationEvent args)
