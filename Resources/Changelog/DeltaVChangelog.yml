@@ -1,42 +1,4 @@
 ﻿Entries:
-- author: Field Command
-  changes:
-  - message: Reworked engineering, bridge and sec. Added perma to now include prisoner
-      slots and all that entails with that. Soft cap up from 20 to 25.
-    type: Tweak
-  id: 1095
-  time: '2025-03-02T17:30:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2960
-- author: deltanedas
-  changes:
-  - message: Renamed ammonia back to miasma.
-    type: Tweak
-  id: 1096
-  time: '2025-03-02T18:06:30.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3083
-- author: sowelipililimute
-  changes:
-  - message: The HoP, LO, MG, and CE now have spare boards for their departments'
-      techfabs
-    type: Add
-  id: 1097
-  time: '2025-03-03T17:59:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3073
-- author: Quanteey
-  changes:
-  - message: Added a multitool and a screwdriver to the chief medical officer's locker
-    type: Add
-  id: 1098
-  time: '2025-03-03T19:40:43.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3103
-- author: sowelipililimute, kushbreth
-  changes:
-  - message: thaven moodupsets possible at 500 glimmer, new thaven markings, new thaven
-      speech bubble
-    type: Add
-  id: 1099
-  time: '2025-03-03T23:56:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3088
 - author: sowelipililimute
   changes:
   - message: Epistemics techfab now has a label
@@ -4104,3 +4066,43 @@
   id: 1594
   time: '2025-08-14T10:25:33.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4185
+- author: kotobdev
+  changes:
+  - message: Blinking is now an emote, and plays a silly noise.
+    type: Add
+  id: 1595
+  time: '2025-08-14T20:57:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4155
+- author: Quanteey
+  changes:
+  - message: Merged upstream until June 20.
+    type: Add
+  id: 1596
+  time: '2025-08-14T17:21:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4142
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic cult can now create a multispectral inhibitor, which jams any
+      radio communication in a large area, by putting a telecommunication server on
+      a glyph of cessation.
+    type: Add
+  id: 1597
+  time: '2025-08-14T23:51:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4181
+- author: NoElkaTheGod
+  changes:
+  - message: Entropy is now less efficient for progressing the cosmic cult's monument.
+    type: Tweak
+  - message: Siphoning entropy now deals it's damage much slower, and the total amount
+      is randomized to make it less metagameable.
+    type: Tweak
+  id: 1598
+  time: '2025-08-15T06:24:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4099
+- author: Proxysseia
+  changes:
+  - message: IK30 has had its fire rate halved and now requires two hands to fire
+    type: Tweak
+  id: 1599
+  time: '2025-08-15T18:54:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4189
