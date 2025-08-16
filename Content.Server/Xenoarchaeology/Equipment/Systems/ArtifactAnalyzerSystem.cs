@@ -146,7 +146,9 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
                 ? null
                 : (ArtifactNode?) _artifact.GetNodeFromId(artifact.CurrentNodeId.Value, artifact).Clone();
             component.LastAnalyzedNode = lastNode;
-            component.LastAnalyzerPointValue = _artifact.GetResearchPointValue(component.LastAnalyzedArtifact.Value, artifact);
+            // DeltaV - dynamic glimmer multiplier doesn't play nice with static artifact point values,
+            // so clamp this to prevent negative values on analyzer.
+            component.LastAnalyzerPointValue = Math.Clamp(_artifact.GetResearchPointValue(component.LastAnalyzedArtifact.Value, artifact), 0, int.MaxValue);
         }
     }
 
@@ -344,8 +346,15 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         msg.AddMarkupOrThrow(Loc.GetString("analysis-console-info-edges", ("edges", n.Edges.Count)));
         msg.PushNewline();
 
+        // Begin DeltaV - show glimmer multiplier
         if (component.LastAnalyzerPointValue != null)
-            msg.AddMarkupOrThrow(Loc.GetString("analysis-console-info-value", ("value", component.LastAnalyzerPointValue)));
+        {
+            msg.AddMarkupOrThrow(Loc.GetString("analysis-console-info-value", ("value", (int) (component.LastAnalyzerPointValue * GetGlimmerMultiplier(component)))));
+            msg.PushNewline();
+        }
+
+        msg.AddMarkupOrThrow(Loc.GetString("old-analysis-console-glimmer-multiplier-text", ("mult", GetGlimmerMultiplier(component).ToString("N2"))));
+        // End DeltaV - show glimmer multiplier
 
         return msg;
     }
@@ -370,19 +379,22 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
 
         var pointValue = _artifact.GetResearchPointValue(artifact.Value);
 
+        // Begin DeltaV Additions - extracting artifacts raises glimmer proportional to the points, floored,
+        // and artifact point output is proportional to glimmer.
+        if (TryComp<ArtifactAnalyzerComponent>(component.AnalyzerEntity.Value, out var analyzer) &&
+            analyzer != null)
+        {
+            // DeltaV - divide by multiplier to avoid insane glimmer nukes at high multiplier values. cast to float to avoid loss of fraction
+            _glimmerSystem.Glimmer += (int)(pointValue / (float)analyzer.ExtractRatio / GetGlimmerMultiplier(analyzer));
+            pointValue = (int) (pointValue * GetGlimmerMultiplier(analyzer));
+        }
+
         // no new nodes triggered so nothing to add
         if (pointValue == 0)
             return;
 
         _research.ModifyServerPoints(server.Value, pointValue, serverComponent);
         _artifact.AdjustConsumedPoints(artifact.Value, pointValue);
-
-        // Begin DeltaV Additions - extracting artifacts raises glimmer proportional to the points, floored
-        if (TryComp<ArtifactAnalyzerComponent>(component.AnalyzerEntity.Value, out var analyzer) &&
-            analyzer != null)
-        {
-            _glimmerSystem.Glimmer += (int) pointValue / analyzer.ExtractRatio;
-        }
         // End DeltaV Additions
 
         _audio.PlayPvs(component.ExtractSound, component.AnalyzerEntity.Value, AudioParams.Default.WithVolume(2f));
@@ -525,5 +537,13 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             ResumeScan(uid, null, active);
         }
     }
+
+    // Begin DeltaV - glimmer mult calculation
+    // Exponential curve that reaches 1 + PointGlimmerMultiplier at 1000 glimmer.
+    private float GetGlimmerMultiplier(ArtifactAnalyzerComponent comp)
+    {
+        return 1 + (MathF.Pow(_glimmerSystem.Glimmer / 1000f, 2f) * comp.PointGlimmerMultiplier);
+    }
+    // End DeltaV - glimmer mult calculation
 }
 

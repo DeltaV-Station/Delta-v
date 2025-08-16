@@ -26,6 +26,14 @@ public sealed partial class ArtifactAnalyzerComponent : Component
     public int ExtractRatio = 750;
     // Nyano - End modified code block.
 
+    // Begin DeltaV - Tie point output to glimmer
+    /// <summary>
+    /// The maximum added multiplier, reached at max glimmer.
+    /// </summary>
+    [DataField]
+    public float PointGlimmerMultiplier = 8f;
+    // End DeltaV - Tie point output to glimmer
+
     /// <summary>
     /// The corresponding console entity.
     /// Can be null if not linked.

@@ -3,8 +3,8 @@
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
     Title="{Loc 'analysis-console-menu-title'}"
-    MinSize="620 280"
-    SetSize="620 280">
+    MinSize="620 295"
+    SetSize="620 295"> <!-- DeltaV - increase vertical size for glimmer multiplier -->
     <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
         <BoxContainer Margin="10 10 10 10" MinWidth="150" Orientation="Vertical"
             VerticalExpand="True" SizeFlagsStretchRatio="1">
