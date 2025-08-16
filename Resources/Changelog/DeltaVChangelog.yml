@@ -1,41 +1,4 @@
 ﻿Entries:
-- author: sowelipililimute
-  changes:
-  - message: The HoP, LO, MG, and CE now have spare boards for their departments'
-      techfabs
-    type: Add
-  id: 1097
-  time: '2025-03-03T17:59:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3073
-- author: Quanteey
-  changes:
-  - message: Added a multitool and a screwdriver to the chief medical officer's locker
-    type: Add
-  id: 1098
-  time: '2025-03-03T19:40:43.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3103
-- author: sowelipililimute, kushbreth
-  changes:
-  - message: thaven moodupsets possible at 500 glimmer, new thaven markings, new thaven
-      speech bubble
-    type: Add
-  id: 1099
-  time: '2025-03-03T23:56:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3088
-- author: sowelipililimute
-  changes:
-  - message: Epistemics techfab now has a label
-    type: Fix
-  id: 1100
-  time: '2025-03-04T08:14:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3106
-- author: beck-thompson
-  changes:
-  - message: Removed Hostage Ops - waiting on improvements
-    type: Remove
-  id: 1101
-  time: '2025-03-04T08:19:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3091
 - author: KZhProgram
   changes:
   - message: Locker health rework! Gun safes now have 125 health, department head
@@ -4103,3 +4066,48 @@
   id: 1596
   time: '2025-08-14T17:21:58.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4142
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic cult can now create a multispectral inhibitor, which jams any
+      radio communication in a large area, by putting a telecommunication server on
+      a glyph of cessation.
+    type: Add
+  id: 1597
+  time: '2025-08-14T23:51:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4181
+- author: NoElkaTheGod
+  changes:
+  - message: Entropy is now less efficient for progressing the cosmic cult's monument.
+    type: Tweak
+  - message: Siphoning entropy now deals it's damage much slower, and the total amount
+      is randomized to make it less metagameable.
+    type: Tweak
+  id: 1598
+  time: '2025-08-15T06:24:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4099
+- author: Proxysseia
+  changes:
+  - message: IK30 has had its fire rate halved and now requires two hands to fire
+    type: Tweak
+  id: 1599
+  time: '2025-08-15T18:54:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4189
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic cult win conditions are more fair now. Check PR for details.
+    type: Tweak
+  id: 1600
+  time: '2025-08-16T12:24:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4156
+- author: Proxysseia
+  changes:
+  - message: Laser Rifles now deal more damage
+    type: Tweak
+  - message: Laser Cannons now deal more damage
+    type: Tweak
+  - message: Laser Rifles and their practice counterparts can be shot more before
+      needing to recharge
+    type: Tweak
+  id: 1601
+  time: '2025-08-16T18:16:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4198
