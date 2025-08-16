@@ -1,0 +1,55 @@
+- type: entity
+  parent: BaseItem
+  id: CrystalSoul
+  name: soul crystal
+  description: Contains a soul. Placeholder sprite.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Materials/materials.rsi
+    state: bluespace
+    color: purple
+  - type: Input
+    context: Ghost
+  - type: BlockMovement
+  - type: Examiner
+  - type: Actions
+  - type: Psionic
+  - type: TypingIndicator
+    proto: alien
+  - type: Speech
+    speechVerb: Ghost
+    speechSounds: Alto
+  - type: SoulCrystal
+  - type: PointLight
+    color: "#43286a"
+    radius: 2.25
+    energy: 12
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 5.5
+      maxDuration: 5.5
+      startValue: 4
+      endValue: 12
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
+  - type: SolutionContainerManager
+    solutions:
+      ectoplasm:
+        maxVol: 25
+        reagents:
+        - ReagentId: Ectoplasm
+          Quantity: 25
+  - type: Extractable
+    grindableSolutionName: ectoplasm
+  - type: ChangeVoiceInContainer
+    whitelist:
+      components:
+      - SecretStash
+  - type: GuideHelp
+    guides:
+    - AltarsGolemancy

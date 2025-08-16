@@ -41,6 +41,12 @@ public sealed partial class SacrificialAltarComponent : Component
 
     [DataField]
     public ProtoId<EntityTablePrototype> RewardPool = "PsionicSacrificeRewards";
+
+    /// <summary>
+    /// Sacrificed Entity seals into given prototype
+    /// </summary>
+    [DataField]
+    public EntProtoId SealsInto = "CrystalSoul";
 }
 
 [Serializable, NetSerializable]

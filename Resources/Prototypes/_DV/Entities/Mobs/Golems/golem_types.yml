@@ -1,0 +1,21 @@
+- type: entity
+  id: GolemCult
+  parent: BaseGolem
+  components:
+  - type: Sprite
+    layers:
+    - state: silver_base
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: silver_base
+      Critical:
+        Base: silver_base
+      Dead:
+        Base: silver_base
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      25: Critical
+      50: Dead

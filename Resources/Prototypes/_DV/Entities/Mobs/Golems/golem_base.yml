@@ -1,0 +1,127 @@
+- type: entity
+  parent: [BaseMob, StripableInventoryBase]
+  id: BaseGolem
+  name: golem
+  description: An artificial construct imitating life. This one has no soul installed yet.
+  save: false
+  abstract: true
+  components:
+  - type: Reactive
+    groups:
+      Acidic: [ Touch ]
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: CombatMode
+  - type: NoSlip
+  - type: StaticPrice
+    price: 1250 # TODO: Fix this price and make it like dead/alive for hostage
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 400
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier # TODO: Balance
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 4.5
+  - type: Sprite
+    sprite: Nyanotrasen/Mobs/Golem/silver.rsi
+  - type: RotationVisuals
+    horizontalRotation: 90
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+  - type: MobThresholds # TODO: Balance and stateAlertDict
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+    showOverlays: false
+    allowRevives: true
+  - type: HealthExaminable # TODO Damage Balance + Prefix
+    examinableTypes:
+    - Blunt
+    - Slash
+    - Piercing
+    - Heat
+    - Shock
+  - type: UserInterface # TODO: "Owner" etc and other things
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: InteractionPopup
+  - type: Inventory
+    templateId: golem
+  - type: Hands
+    disableExplosionRecursion: true
+    canBeStripped: false
+  - type: ComplexInteraction
+  - type: ZombieImmune
+  # Healing stuff
+  # Dirtying for surgery
+  # Detective stuff
+  # NameIdentifier
+  - type: ContainerContainer
+    containers:
+      soul_gem: !type:ContainerSlot { }
+  - type: ItemToggle
+    onActivate: false
+    activated: false
+    onUse: false
+  - type: Body # TODO: if custom body
+  - type: StatusEffects # TODO Damage balance
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+    - Flashed
+  - type: TypingIndicator # TODO
+    proto: guardian
+  - type: Speech # TODO
+    speechVerb: Ghost
+    speechSounds: Xenoborg
+  - type: UnblockableSpeech
+  # - type: FootstepModifier
+  # Construction
+  - type: Damageable # TODO
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  # Destructible
+  # lightbehavior
+  - type: Pullable
+  - type: Puller
+    needsHands: false
+  - type: StandingState
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - CanPilot
+    - Unimplantable
+  - type: Emoting
+  - type: GuideHelp
+    guides:
+    - AltarsGolemancy
+  - type: ProtectedFromStepTriggers
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
+  - type: Eye # can see psionically invisible creatures
+    visMask:
+    - PsionicInvisibility
+    - Normal
+  - type: JetpackUser
+  - type: PreventDropOnDowned
+  - type: EmoteCooldown
