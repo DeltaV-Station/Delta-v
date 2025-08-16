@@ -38,6 +38,7 @@ station-beacon-restroom = Restroom
 station-beacon-arcade = Arcade
 station-beacon-laundromat = Laundromat
 station-beacon-pool = Pool
+station-beacon-barbershop = Barbershop
 
 station-beacon-corpsman = Corpsman
 station-beacon-security-solitary = Solitary Confinement
