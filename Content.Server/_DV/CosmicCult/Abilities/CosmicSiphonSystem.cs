@@ -3,10 +3,14 @@ using Content.Server.Light.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Alert;
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mind;
+using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
@@ -26,6 +30,8 @@ public sealed class CosmicSiphonSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly CosmicCultSystem _cosmicCult = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     private readonly HashSet<Entity<PoweredLightComponent>> _lights = [];
 
@@ -44,7 +50,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("cosmicability-siphon-full"), uid, uid);
             return;
         }
-        if (HasComp<ActiveNPCComponent>(args.Target) || TryComp<MobStateComponent>(args.Target, out var state) && state.CurrentState != MobState.Alive)
+        if (HasComp<ActiveNPCComponent>(args.Target) || _mobState.IsDead(args.Target))
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-siphon-fail", ("target", Identity.Entity(args.Target, EntityManager))), uid, uid);
             return;
@@ -77,8 +83,20 @@ public sealed class CosmicSiphonSystem : EntitySystem
         if (TryComp<ActorComponent>(uid, out var actor))
             RaiseNetworkEvent(new CosmicSiphonIndicatorEvent(GetNetEntity(target)), actor.PlayerSession);
 
-        uid.Comp.EntropyStored += uid.Comp.CosmicSiphonQuantity;
-        uid.Comp.EntropyBudget += uid.Comp.CosmicSiphonQuantity;
+        var siphonQuantity = uid.Comp.CosmicSiphonQuantity;
+
+        if (_mobState.IsCritical(target)) // If the target is in crit, we get much more entropy from them, but kill them in the process.
+        {
+            siphonQuantity = HasComp<MindShieldComponent>(target) ? uid.Comp.SiphonQuantityCritMindshield : uid.Comp.SiphonQuantityCrit;
+
+            _damageable.TryChangeDamage(target, uid.Comp.SiphonCritDamage);
+            _popup.PopupEntity(Loc.GetString("cosmicability-siphon-crit", ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager))), uid, PopupType.MediumCaution);
+        }
+        if (siphonQuantity + uid.Comp.EntropyStored > uid.Comp.EntropyStoredCap)
+            siphonQuantity = uid.Comp.EntropyStoredCap - uid.Comp.EntropyStored;
+
+        uid.Comp.EntropyStored += siphonQuantity;
+        uid.Comp.EntropyBudget += siphonQuantity;
         Dirty(uid, uid.Comp);
         _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(target, "EntropicDegen", TimeSpan.FromSeconds(_random.Next(21) + 40), true); //40-60 seconds, 4-6 cold damage per siphon
         if (_cosmicCult.EntityIsCultist(target))
