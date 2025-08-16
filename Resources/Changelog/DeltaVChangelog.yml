@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: beck-thompson
-  changes:
-  - message: Removed Hostage Ops - waiting on improvements
-    type: Remove
-  id: 1101
-  time: '2025-03-04T08:19:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3091
 - author: KZhProgram
   changes:
   - message: Locker health rework! Gun safes now have 125 health, department head
@@ -4106,3 +4099,15 @@
   id: 1600
   time: '2025-08-16T12:24:12.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4156
+- author: Proxysseia
+  changes:
+  - message: Laser Rifles now deal more damage
+    type: Tweak
+  - message: Laser Cannons now deal more damage
+    type: Tweak
+  - message: Laser Rifles and their practice counterparts can be shot more before
+      needing to recharge
+    type: Tweak
+  id: 1601
+  time: '2025-08-16T18:16:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4198
