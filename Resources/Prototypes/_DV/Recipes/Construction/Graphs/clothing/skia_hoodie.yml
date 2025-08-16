@@ -1,0 +1,21 @@
+- type: constructionGraph
+  id: SkiaHoodie
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: skiaHoodie
+      steps:
+      - tag: Hoodie
+        name: construction-graph-tag-hoodie
+        icon:
+          sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
+          state: icon
+      - tag: Ectoplasm
+        name: construction-graph-tag-ectoplasm
+        icon:
+          sprite: _DV/Mobs/Ghosts/revenant.rsi
+          state: ectoplasm
+        doAfter: 10
+  - node: skiaHoodie
+    entity: ClothingOuterHoodieSkia

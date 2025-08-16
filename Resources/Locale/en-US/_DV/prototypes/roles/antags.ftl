@@ -21,3 +21,6 @@ roles-antag-nuclear-operative-corpsman-objective = The team's combat medic taske
 
 roles-antag-menace-skeleton-name = Menace Skeleton
 roles-antag-menace-skeleton-objective = Rattle 'Em
+
+roles-antag-skia-name = Skia
+roles-antag-skia-objective = Rend souls from the living.

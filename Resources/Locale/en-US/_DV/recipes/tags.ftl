@@ -34,3 +34,6 @@ construction-graph-tag-carp-plushie = carp plushie
 
 # Moth plushie
 construction-graph-tag-mothroach-hide = mothroach hide
+
+# Hoodies
+construction-graph-tag-hoodie = hoodie
