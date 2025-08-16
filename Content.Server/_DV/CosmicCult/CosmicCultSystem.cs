@@ -271,4 +271,20 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             }
         }
     }
+
+    public void UnEmpower(Entity<CosmicCultComponent> ent)
+    {
+        if (!ent.Comp.CosmicEmpowered) return;
+        var comp = ent.Comp;
+        comp.CosmicEmpowered = false; // empowerment spent! Now we set all the values back to their default.
+        comp.CosmicSiphonQuantity = CosmicCultComponent.DefaultCosmicSiphonQuantity;
+        comp.CosmicGlareRange = CosmicCultComponent.DefaultCosmicGlareRange;
+        comp.CosmicGlareDuration = CosmicCultComponent.DefaultCosmicGlareDuration;
+        comp.CosmicGlareStun = CosmicCultComponent.DefaultCosmicGlareStun;
+        comp.CosmicImpositionDuration = CosmicCultComponent.DefaultCosmicImpositionDuration;
+        comp.CosmicBlankDuration = CosmicCultComponent.DefaultCosmicBlankDuration;
+        comp.CosmicBlankDelay = CosmicCultComponent.DefaultCosmicBlankDelay;
+        _actions.RemoveAction(ent.Owner, comp.CosmicFragmentationActionEntity);
+        comp.CosmicFragmentationActionEntity = null;
+    }
 }
