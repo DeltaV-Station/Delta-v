@@ -14,6 +14,7 @@ public sealed partial class DeltaTab : Control
         IoCManager.InjectDependencies(this);
 
         Control.AddOptionCheckBox(DCCVars.NoVisionFilters, DisableFiltersCheckBox);
+        Control.AddOptionCheckBox(DCCVars.DisableGlimmerShader, DisableGlimmerEffectCheckBox);
         Control.AddOptionCheckBox(DCCVars.ChatAutoFillHighlights, AutoFillHighlightsCheckBox);
         Control.AddOptionColorSlider(DCCVars.ChatHighlightsColor, HighlightsColorSlider);
 
