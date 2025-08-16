@@ -93,8 +93,19 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: base
     - map: [ "outerClothing" ]
-    - map: ["tail"]
+    - map: ["enum.DamageStateVisualLayers.Tail"]
       state: tail_animated
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: base
+        Tail: tail_animated
+      Critical:
+        Base: base
+        Tail: tail_static
+      Dead:
+        Base: base
+        Tail: tail_static
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
