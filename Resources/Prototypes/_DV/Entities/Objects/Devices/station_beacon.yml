@@ -1,4 +1,3 @@
-
 #Command
 - type: entity
   parent: DefaultStationBeaconCommand
@@ -116,6 +115,31 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-shop
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconClown
+  suffix: Clown
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-clown
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconMime
+  suffix: Mime
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-mime
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconMusician
+  suffix: Musician
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-musician
+
 
 - type: entity
   parent: DefaultStationBeaconService
