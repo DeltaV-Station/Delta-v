@@ -34,3 +34,8 @@ construction-graph-tag-carp-plushie = carp plushie
 
 # Moth plushie
 construction-graph-tag-mothroach-hide = mothroach hide
+
+# Ancient books
+construction-graph-tag-ancientbook-common = Damaged Ancient Book
+construction-graph-tag-ancientbook-uncommon = Damaged Ancient Book
+construction-graph-tag-ancientbook-rare = Damaged Ancient Book
