@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: whatston3
-  changes:
-  - message: Ported better borgs from Frontier. Certain borg modules can drop and
-      pick up their items like ore bags and beakers.
-    type: Add
-  id: 1104
-  time: '2025-03-04T12:10:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3110
 - author: beck-thompson
   changes:
   - message: Greentexts are now not visible at the end of round screen. (Test merge)
@@ -4108,3 +4100,10 @@
   id: 1603
   time: '2025-08-17T12:56:47.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4210
+- author: Quanteey
+  changes:
+  - message: Fixed IK-30 and IK-60 spread glitches when wielded
+    type: Fix
+  id: 1604
+  time: '2025-08-17T21:31:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4212
