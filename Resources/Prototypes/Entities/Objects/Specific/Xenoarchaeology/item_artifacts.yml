@@ -54,6 +54,9 @@
       enum.IntercomUiKey.Key:
         type: IntercomBoundUserInterface
   - type: Appearance
+  - type: Tag
+    tags:
+      - Artifact
   - type: Item
     size: Normal
     sprite: Objects/Specific/Xenoarchaeology/item_artifacts.rsi

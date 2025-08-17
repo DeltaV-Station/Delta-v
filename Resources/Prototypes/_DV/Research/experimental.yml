@@ -1,0 +1,11 @@
+- type: technology
+  id: ArtifactDisplayCases
+  name: Artifact Display Technology
+  icon:
+    sprite: _DV/Structures/Storage/display_cases.rsi
+    state: display_case_icon
+  discipline: Experimental
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - ArtifactDisplayCaseMachineCircuitBoard

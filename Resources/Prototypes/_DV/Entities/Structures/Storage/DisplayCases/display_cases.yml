@@ -1,17 +1,33 @@
 - type: entity
   id: DisplayCaseArtifact
-  parent: [BaseMachinePowered, DisplayCase, CrateArtifactContainer]
+  parent: [BaseMachinePowered, DisplayCase]
   name: Artifact Display Case
   description: A sturdy display case for showing off interesting artifacts.
   components:
   - type: ResearchPointSource
     pointspersecond: 5
     active: true
+  - type: Machine
+    board: ArtifactDisplayCaseMachineCircuitBoard
   - type: PowerSwitch
   - type: ResearchClient
   - type: ActivatableUI
     key: enum.ResearchClientUiKey.Key
   - type: ActivatableUIRequiresPower
+  - type: PointLight # DeltaV
+    radius: 0.8
+    energy: 0.5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.29"
+        density: 50
+        mask:
+        - CrateMask #this is so they can go under plastic flaps
+        layer:
+        - MachineLayer
   - type: UserInterface
     interfaces:
       enum.ResearchClientUiKey.Key:
@@ -41,6 +57,17 @@
       shader: unshaded
     - state: paper
       map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.29"
+        density: 50
+        mask:
+        - CrateMask #this is so they can go under plastic flaps
+        layer:
+        - MachineLayer
   - type: Icon
     sprite: _DV/Structures/Storage/display_cases.rsi
     state: display_case_icon
