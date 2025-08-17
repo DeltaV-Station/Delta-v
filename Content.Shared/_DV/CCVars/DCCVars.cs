@@ -212,7 +212,7 @@ public sealed partial class DCCVars
     /// How much entropy a convert is worth towards the next monument tier.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultistEntropyValue =
-        CVarDef.Create("cosmiccult.cultist_entropy_value", 7, CVar.SERVER);
+        CVarDef.Create("cosmiccult.cultist_entropy_value", 10, CVar.SERVER);
 
     /// <summary>
     /// How much of the crew the cult is aiming to convert for a tier 3 monument.
@@ -233,16 +233,16 @@ public sealed partial class DCCVars
         CVarDef.Create("cosmiccult.steward_vote_delay", 25, CVar.SERVER);
 
     /// <summary>
-    /// The delay between the monument getting upgraded to tier 2 and the crew learning of that fact. the monument cannot be upgraded again in this time.
+    /// The delay between the monument getting upgraded to tier 2 and rifts starting to appear. the monument cannot be upgraded again in this time.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultT2RevealDelaySeconds =
-        CVarDef.Create("cosmiccult.t2_reveal_delay_seconds", 180, CVar.SERVER);
+        CVarDef.Create("cosmiccult.t2_reveal_delay_seconds", 30, CVar.SERVER);
 
     /// <summary>
     /// The delay between the monument getting upgraded to tier 3 and the crew learning of that fact. the monument cannot be upgraded again in this time.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultT3RevealDelaySeconds =
-        CVarDef.Create("cosmiccult.t3_reveal_delay_seconds", 100, CVar.SERVER);
+        CVarDef.Create("cosmiccult.t3_reveal_delay_seconds", 180, CVar.SERVER);
 
     /// <summary>
     /// The delay between the monument getting upgraded to tier 3 and the finale starting.
