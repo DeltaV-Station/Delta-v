@@ -10,6 +10,18 @@
       types:
         Slash: 10
         Holy: 5
+# Begin DeltaV Additions - let's the knife be used to clear rifts. Requires defined damage types so just set all to 0.
+  - type: Bible
+    damage:
+      types:
+        Caustic: 0
+    damageOnFail:
+      groups:
+        Brute: 0
+    damageOnUntrainedUse:
+      types:
+        Caustic: 0
+# End DeltaV Additions
   - type: StaminaDamageOnHit
     damage: 0
   - type: AntiPsionicWeapon
