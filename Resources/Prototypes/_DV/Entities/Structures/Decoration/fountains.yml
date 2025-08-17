@@ -1,0 +1,68 @@
+- type: entity
+  parent: BaseStructure
+  id: FountainLargeRound
+  name: large round fountain
+  description: A fountain full of yummy water's.
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: FloorObjects
+    offset: "0.0,0.1"
+    sprite: _DV/Structures/Decoration/fountains.rsi
+    layers:
+      - state: large-round-base
+      - state: large-round-base-water
+  - type: SolutionContainerManager
+    solutions:
+      fountain:
+        maxVol: 100
+  - type: SolutionRegeneration
+    solution: fountain
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 100
+  - type: Drink
+    solution: fountain
+  - type: DrawableSolution
+    solution: fountain
+  - type: DrainableSolution
+    solution: fountain
+  - type: ExaminableSolution
+    solution: fountain
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 400
+        layer:
+        - HalfWallLayer
+
+- type: entity
+  parent: FountainLargeRound
+  id: FountainLargeRoundTop
+  name: large round fountain top
+  description: Sprinkel!
+  components:
+  - type: SpriteFade
+  - type: Sprite
+    noRot: true
+    drawdepth: Overdoors
+    offset: "0.0,0.1"
+    sprite: _DV/Structures/Decoration/fountains.rsi
+    layers:
+      - state: large-round-top
+      - state: large-round-top-water
+      - state: large-round-flows
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 400
+        layer:
+        - HalfWallLayer
