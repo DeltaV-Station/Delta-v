@@ -48,7 +48,7 @@ public sealed class CosmicRiftSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        
+
         var query = EntityQueryEnumerator<CosmicMalignRiftComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
