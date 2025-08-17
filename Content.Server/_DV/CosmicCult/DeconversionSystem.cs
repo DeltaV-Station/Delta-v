@@ -74,8 +74,6 @@ public sealed class DeconversionSystem : EntitySystem
                     _cult.UnEmpower(new Entity<CosmicCultComponent>(uid, cultComp));
                     _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-unempowered-fluff"), Color.FromHex("#4cabb3"), null);
                     _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-unempowered-briefing"), Color.FromHex("#cae8e8"), null);
-                    if (_mind.TryGetMind(uid, out _, out var mind) && _playerMan.TryGetSessionById(mind.UserId, out var session))
-                        _euiMan.OpenEui(new CosmicUnempoweredEui(), session);
                 }
                 else
                 {

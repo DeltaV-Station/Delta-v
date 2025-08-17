@@ -100,7 +100,6 @@ cosmiccult-role-unempowered-fluff =
     Malign power had protected your mind, but it no longer powers your body.
 
 cosmiccult-role-unempowered-briefing =
-    Endured!
     You are still a Cosmic Cultist.
 
 cosmiccult-monument-stage1-briefing =
@@ -166,12 +165,6 @@ cosmiccult-ui-mindwiped-text-1 =
 cosmiccult-ui-mindwiped-text-2 =
     You no longer remember anything that happened during this round.
     There is no way to recover your memory.
-
-cosmiccult-ui-unempowered-text-1 =
-    The light burned your mind, but your power held it off enough.
-cosmiccult-ui-unempowered-text-2 =
-    You are still a Cosmic Cultist, but your power has diminished.
-    Your memory is intact, but you may want to pretend otherwise.
 
 cosmiccult-ui-popup-confirm = Confirm
 
