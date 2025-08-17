@@ -258,6 +258,7 @@
     fireCost: 50 #Delta-V was 62.5
   - type: StaticPrice
     price: 300
+  - type: PacifismAllowedGun
 
 - type: entity
   name: laser carbine
@@ -521,7 +522,7 @@
     - Taser
     - Sidearm
     - ConcealCarry # DeltaV - can be stowed in military boots for now
-  - type: PacifismAllowedGun # DeltaV - allow pacifist to use the disabler
+  - type: PacifismAllowedGun
 
 - type: entity
   name: disabler
@@ -550,6 +551,7 @@
     guides:
     - Security
     - Antagonists
+  - type: PacifismAllowedGun
 
 - type: entity
   name: disabler SMG
@@ -590,7 +592,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 260
-  - type: PacifismAllowedGun # DeltaV - allow pacifist to use the disabler
+  - type: PacifismAllowedGun
 
 - type: entity
   name: taser
