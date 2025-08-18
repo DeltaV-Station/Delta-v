@@ -164,8 +164,8 @@
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
-      flatReductions:
-        Blunt: 10
+      flatReductions: 
+        Blunt: 10     
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -203,9 +203,9 @@
         Radiation: 0.1
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection:
+    damageProtection: 
       flatReductions:
-        Blunt: 10
+        Blunt: 10 
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: TemperatureProtection
@@ -336,9 +336,9 @@
         Caustic: 0.6
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection:
+    damageProtection: 
       flatReductions:
-        Blunt: 10
+        Blunt: 10 
   - type: StaminaResistance # DeltaV
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -434,9 +434,9 @@
         Caustic: 0.2
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection:
+    damageProtection: 
       flatReductions:
-        Blunt: 10
+        Blunt: 10 
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: ClothingSpeedModifier
@@ -486,9 +486,9 @@
         Caustic: 0.6
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection:
+    damageProtection: 
       flatReductions:
-        Blunt: 10
+        Blunt: 10 
   - type: StaminaResistance # DeltaV
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -526,9 +526,9 @@
         Caustic: 0.8
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection:
+    damageProtection: 
       flatReductions:
-        Blunt: 10
+        Blunt: 10 
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.9
@@ -569,9 +569,9 @@
         Cold: 0.8 # DeltaV - Cold res
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection:
+    damageProtection: 
       flatReductions:
-        Blunt: 10
+        Blunt: 10 
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -647,9 +647,9 @@
         Cold: 0.4 # DeltaV - Cold res
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection:
+    damageProtection: 
       flatReductions:
-        Blunt: 10
+        Blunt: 10 
   - type: Item
     size: Huge
   - type: ClothingSpeedModifier
@@ -689,9 +689,9 @@
         Cold: 0.8 # DeltaV - Cold res
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection:
+    damageProtection: 
       flatReductions:
-        Blunt: 10
+        Blunt: 10 
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -732,9 +732,9 @@
         Cold: 0.6 # DeltaV - Cold res
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection:
+    damageProtection: 
       flatReductions:
-        Blunt: 10
+        Blunt: 10 
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.65
@@ -783,9 +783,9 @@
         Caustic: 0.75
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection:
+    damageProtection: 
       flatReductions:
-        Blunt: 10
+        Blunt: 10 
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -1030,9 +1030,9 @@
         Caustic: 0.1
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection:
+    damageProtection: 
       flatReductions:
-        Blunt: 10
+        Blunt: 10 
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
@@ -1072,9 +1072,9 @@
         Caustic: 0.1
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection:
+    damageProtection: 
       flatReductions:
-        Blunt: 10
+        Blunt: 10 
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.25
   - type: ClothingSpeedModifier
