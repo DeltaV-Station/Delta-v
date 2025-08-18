@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: sowelipililimite, bogus_0451
-  changes:
-  - message: Added the Advanced Surgical Bed and Mechanical Surgical Gloves as unlockable
-      technologies! Both entities boost the surgical speed of the relevant surgeon.
-    type: Add
-  id: 1107
-  time: '2025-03-05T01:49:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2842
 - author: deltanedas
   changes:
   - message: Replaced the security borg lawset with a better one.
@@ -4107,3 +4099,12 @@
   id: 1606
   time: '2025-08-18T11:57:52.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4226
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic cultists can now siphon targets that are in critical condition.
+      This would give much more entropy, but also kill the target. Mindshielded targets
+      give even more entropy.
+    type: Tweak
+  id: 1607
+  time: '2025-08-18T12:57:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4178
