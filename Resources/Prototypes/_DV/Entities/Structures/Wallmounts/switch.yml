@@ -45,3 +45,11 @@
   components:
   - type: AccessReader
     access: [["SyndicateAgent"]]
+
+- type: entity
+  parent: LockableButton
+  id: LockableButtonNukeop
+  suffix: Nukeop
+  components:
+  - type: AccessReader
+    access: [["NuclearOperative"]]
