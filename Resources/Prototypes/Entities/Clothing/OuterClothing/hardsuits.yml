@@ -163,8 +163,8 @@
         Caustic: 0.8
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
-    damageProtection:
-      flatReductions: 
+    damageProtection: 
+      flatReductions:
         Blunt: 10     
   - type: ClothingSpeedModifier
     walkModifier: 0.8
