@@ -1,15 +1,4 @@
 ﻿Entries:
-- author: beck-thompson
-  changes:
-  - message: Greentexts are now not visible at the end of round screen. (Test merge)
-    type: Remove
-  - message: You can now write custom objective summaries as traitors. (Test merge)
-    type: Add
-  - message: Round weights have been changed around slightly. (Test merge)
-    type: Tweak
-  id: 1105
-  time: '2025-03-04T22:32:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2940
 - author: deltanedas
   changes:
   - message: Merged late February's changes from upstream, wizard is temporarily disabled
@@ -4107,3 +4096,12 @@
   id: 1604
   time: '2025-08-17T21:31:39.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4212
+- author: Proxysseia
+  changes:
+  - message: Emergency Lasers now come in boxes of 10
+    type: Tweak
+  - message: Emergency Lasers now do almost as much damage as a real gun
+    type: Tweak
+  id: 1605
+  time: '2025-08-18T10:13:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4197
