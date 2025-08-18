@@ -27,8 +27,11 @@
       allowNonHumans: true
       multiAntagSetting: NotExclusive
       startingGear: ThiefGear
-      #components: # DeltaV - forced pacifism is lame
-      #- type: Pacified
+      # components:
+      # - type: Pacified # DeltaV - forced pacifism is lame
+      # - type: Thieving # DeltaV - remove innate thieving ability
+      #  stripTimeReduction: 2
+      #  stealthy: true
       mindRoles:
       - MindRoleThief
       briefing:
