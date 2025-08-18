@@ -181,7 +181,7 @@ namespace Content.Shared.Damage
         public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
             bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null,
             // Shitmed Change
-            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null)
+            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null, bool doPartDamage = true, bool onlyDamageParts = false)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
             {
@@ -231,6 +231,8 @@ namespace Content.Shared.Damage
                 }
             }
 
+            if (onlyDamageParts) //Shitmed change
+                return null;
             damage = ApplyUniversalAllModifiers(damage);
 
             // TODO DAMAGE PERFORMANCE

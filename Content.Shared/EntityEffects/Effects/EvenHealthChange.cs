@@ -94,7 +94,65 @@ public sealed partial class EvenHealthChange : EntityEffect
         var universalReagentDamageModifier = damagableSystem.UniversalReagentDamageModifier;
         var universalReagentHealModifier = damagableSystem.UniversalReagentHealModifier;
 
-        var dspec = new DamageSpecifier();
+        var dspec = GetDamageSpec(protoMan, damageable);
+
+        damagableSystem.TryChangeDamage(
+            args.TargetEntity,
+            dspec * scale,
+            IgnoreResistances,
+            interruptsDoAfters: false,
+            // Shitmed Change Start
+            doPartDamage: false);
+            // Shitmed Change End
+
+            var bodySystem = args.EntityManager.System<SharedBodySystem>();
+        var bodyParts = SharedTargetingSystem.GetValidParts();
+        foreach (var bodyPart in bodyParts)
+        {
+            var (targetType, targetSymmetry) =  bodySystem.ConvertTargetBodyPart(bodyPart);
+            if (bodySystem.GetBodyChildrenOfType(args.TargetEntity, targetType, symmetry: targetSymmetry) is { } part)
+            {
+                if (!args.EntityManager.TryGetComponent<DamageableComponent>(part.FirstOrDefault().Id, out var damageablePart))
+                    continue;
+                dspec = GetDamageSpec(protoMan, damageablePart);
+
+                if (universalReagentDamageModifier != 1 || universalReagentHealModifier != 1)
+                {
+                    foreach (var (type, val) in dspec.DamageDict)
+                    {
+                        if (val < 0f)
+                        {
+                            dspec.DamageDict[type] = val * universalReagentHealModifier;
+                        }
+                        if (val > 0f)
+                        {
+                            dspec.DamageDict[type] = val * universalReagentDamageModifier;
+                        }
+                    }
+                }
+
+                if (dspec.GetTotal() == 0)
+                    continue;
+
+                damagableSystem.TryChangeDamage(
+                    args.TargetEntity,
+                    dspec * scale,
+                    IgnoreResistances,
+                    interruptsDoAfters: false,
+                    // Shitmed Change Start
+                    targetPart: bodyPart,
+                    onlyDamageParts: true,
+                    partMultiplier: 0.5f,
+                    canSever: false);
+                    // Shitmed Change End
+            }
+        }
+
+    }
+
+    private DamageSpecifier GetDamageSpec(IPrototypeManager protoMan, DamageableComponent damageable)
+    {
+        var damageSpecifier = new DamageSpecifier();
 
         foreach (var (group, amount) in Damage)
         {
@@ -110,30 +168,11 @@ public sealed partial class EvenHealthChange : EntityEffect
             var sum = groupDamage.Values.Sum();
             foreach (var (damageId, damageAmount) in groupDamage)
             {
-                var existing = dspec.DamageDict.GetOrNew(damageId);
-                dspec.DamageDict[damageId] = existing + damageAmount / sum * amount;
+                var existing = damageSpecifier.DamageDict.GetOrNew(damageId);
+                damageSpecifier.DamageDict[damageId] = existing + damageAmount / sum * amount;
             }
         }
 
-        if (universalReagentDamageModifier != 1 || universalReagentHealModifier != 1)
-        {
-            foreach (var (type, val) in dspec.DamageDict)
-            {
-                if (val < 0f)
-                {
-                    dspec.DamageDict[type] = val * universalReagentHealModifier;
-                }
-                if (val > 0f)
-                {
-                    dspec.DamageDict[type] = val * universalReagentDamageModifier;
-                }
-            }
-        }
-
-        damagableSystem.TryChangeDamage(
-            args.TargetEntity,
-            dspec * scale,
-            IgnoreResistances,
-            interruptsDoAfters: false);
+        return damageSpecifier;
     }
 }
