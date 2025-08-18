@@ -12,6 +12,7 @@ using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Server.Light.Components;
 using Content.Server.Objectives.Components;
+using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
 using Content.Server.Radio.Components;
 using Content.Server.Roles;
@@ -288,7 +289,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         while (cultQuery.MoveNext(out var cult, out _, out var metadata))
         {
             var playerInfo = metadata.EntityName;
-            cultists.Add((playerInfo, cult));
+            if (TryComp<PolymorphedEntityComponent>(cult, out var polyComp)) // If the cultist is polymorphed, we use the priginal entity instead and hope that they'll polymorph back eventually
+                cultists.Add((playerInfo, polyComp.Parent));
+            else
+                cultists.Add((playerInfo, cult));
         }
 
         var options = new VoteOptions
