@@ -24,6 +24,9 @@
     thresholds:
       0: Alive
       120: Dead
+  - type: Damageable
+    damageModifierSet: ManifestedSpirit
+    damageContainer: BiologicalMetaphysical
   - type: Armor
     modifiers:
       coefficients:
@@ -33,7 +36,6 @@
         Heat: 0.8
         Radiation: 0.2
         Caustic: 0.2
-        Holy: 5.0
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
     baseSprintSpeed: 3.75
@@ -71,9 +73,11 @@
     darkDamage:
       groups:
         Brute: -5
+        Burn: -5
         Toxin: -5
         Airloss: -5
-        Burn: -5
+        Genetic: -5
+        Metaphysical: -1
     lightDamage:
       groups:
         Brute: 5
@@ -84,13 +88,6 @@
     lightDealtMultiplier: 0.5
   - type: Bloodstream
     maxBleedAmount: 0
-  - type: PointLight
-    netsync: false
-    radius: 100
-    energy: 10
-    castShadows: false
-    enabled: false
-    color: "#444444"
   - type: ShatterLightsAbility
     lineOfSight: true
   - type: TechnokineticPulseAbility
