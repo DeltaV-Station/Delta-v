@@ -1,1 +1,1 @@
-﻿dog bed = pet bed
+dog bed = pet bed
