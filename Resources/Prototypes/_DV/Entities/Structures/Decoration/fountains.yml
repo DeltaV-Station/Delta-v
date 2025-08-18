@@ -31,18 +31,22 @@
   - type: ExaminableSolution
     solution: fountain
   - type: InteractionOutline
+  - type: Prayable
+    sentMessage: prayer-popup-notify-fountainwish-sent
+    notificationPrefix: prayer-chat-notify-fountainwish
+    verb: prayer-verbs-fountainwish
+    verbImage: null
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.25
+          radius: 0.75
         density: 400
-        layer:
-        - HalfWallLayer
+        hard: false
 
 - type: entity
-  parent: FountainLargeRound
+  parent: BaseStructure
   id: FountainLargeRoundTop
   name: large round fountain top
   description: Sprinkel!
