@@ -4,6 +4,7 @@ using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
@@ -18,6 +19,8 @@ public abstract class SharedLightLevelHealthSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<LightLevelHealthComponent, RefreshMovementSpeedModifiersEvent>(OnGetMoveSpeedModifiers);
+        SubscribeLocalEvent<LightLevelDamageMultComponent, DamageModifyEvent>(OnDamageModify);
+        SubscribeLocalEvent<LightLevelDamageMultComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
     }
 
     public int CurrentThreshold(float lightLevel, LightLevelHealthComponent comp)
@@ -48,4 +51,52 @@ public abstract class SharedLightLevelHealthSystem : EntitySystem
         else if (lightReactive.CurrentLightLevel > ent.Comp.LightThreshold)
             args.ModifySpeed(ent.Comp.LightMovementSpeedMultiplier);
     }
+
+    private void OnDamageModify(Entity<LightLevelDamageMultComponent> ent, ref DamageModifyEvent args)
+    {
+        if (!TryComp<LightLevelHealthComponent>(ent, out var lightHealth))
+            return;
+
+        // On the receiving end.
+        args.Damage *= lightHealth.CurrentThreshold switch
+        {
+            -1 => ent.Comp.DarkReceivedMultiplier,
+            1 => ent.Comp.LightReceivedMultiplier,
+            _ => 1.0f
+        };
+
+        var modifiers = lightHealth.CurrentThreshold switch
+        {
+            -1 => ent.Comp.DarkReceivedModifiers,
+            1 => ent.Comp.LightReceivedModifiers,
+            _ => null
+        };
+
+        if (modifiers != null)
+            args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifiers);
+    }
+
+    private void OnGetMeleeDamage(Entity<LightLevelDamageMultComponent> ent, ref GetMeleeDamageEvent args)
+    {
+        if (!TryComp<LightLevelHealthComponent>(ent, out var lightHealth))
+            return;
+
+        args.Damage *= lightHealth.CurrentThreshold switch
+        {
+            -1 => ent.Comp.DarkDealtMultiplier,
+            1 => ent.Comp.LightDealtMultiplier,
+            _ => 1.0f
+        };
+
+        var modifiers = lightHealth.CurrentThreshold switch
+        {
+            -1 => ent.Comp.DarkDealtModifiers,
+            1 => ent.Comp.LightDealtModifiers,
+            _ => null
+        };
+
+        if (modifiers != null)
+            args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifiers);
+    }
+
 }

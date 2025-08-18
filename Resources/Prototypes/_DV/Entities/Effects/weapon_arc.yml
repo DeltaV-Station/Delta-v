@@ -1,0 +1,29 @@
+- type: entity
+  id: WeaponArcSkiaLunge
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WeaponArcVisuals
+  - type: Sprite
+    scale: .5, .5
+    layers:
+    - sprite: _DV/Effects/arcs.rsi
+      state: skialunge
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 0.399
+
+- type: entity
+  id: WeaponArcSkiaSwipe
+  parent: WeaponArcSlash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WeaponArcVisuals
+  - type: Sprite
+    scale: .5, .5
+    layers:
+    - sprite: _DV/Effects/arcs.rsi
+      state: skiaswipe
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 0.399
