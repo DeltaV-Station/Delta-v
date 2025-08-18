@@ -3,6 +3,7 @@ using Content.Server.Bible.Components;
 using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
+using Content.Shared._EE.Silicon.Components;
 using Content.Shared.Damage;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
@@ -32,7 +33,7 @@ public sealed class CosmicConversionSystem : EntitySystem
 
     private void OnConversionGlyph(Entity<CosmicGlyphConversionComponent> uid, ref TryActivateGlyphEvent args)
     {
-        var possibleTargets = _cosmicGlyph.GetTargetsNearGlyph(uid, uid.Comp.ConversionRange, entity => _cosmicCult.EntityIsCultist(entity));
+        var possibleTargets = _cosmicGlyph.GetTargetsNearGlyph(uid, uid.Comp.ConversionRange, entity => _cosmicCult.EntityIsCultist(entity) || HasComp<SiliconComponent>(entity));
         if (possibleTargets.Count == 0)
         {
             _popup.PopupEntity(Loc.GetString("cult-glyph-conditions-not-met"), uid, args.User);

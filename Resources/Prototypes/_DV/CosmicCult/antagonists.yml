@@ -7,6 +7,10 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 86400 # 24h i really just want people to read the guidebook please please please
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - IPC # They cause waaay too many issues
   guides: [ CosmicCult ]
 
 - type: antag
