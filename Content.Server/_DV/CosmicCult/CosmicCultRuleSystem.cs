@@ -60,7 +60,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Collections.Immutable;
 using System.Linq;
-using Content.Shared._EE.Silicon.Components;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -732,9 +731,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         }
         if (cult.Comp.CurrentTier == 3)
         {
-            var damageContainerId =
-                HasComp<SiliconComponent>(uid) ? "HumanoidSiliconMetaphysical" : "BiologicalMetaphysical";
-            _damage.SetDamageContainerID(uid, damageContainerId);
+            _damage.SetDamageContainerID(uid, "BiologicalMetaphysical");
             cultComp.EntropyBudget = 48; // pity balance
             cultComp.Respiration = false;
 
