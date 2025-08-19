@@ -157,7 +157,7 @@ public sealed partial class CosmicCultComponent : Component
     /// <summary>
     /// A string for storing what damage container this cultist had upon conversion.
     /// </summary>
-    [DataField, AutoNetworkedField] public ProtoId<DamageContainerPrototype> StoredDamageContainer;
+    [DataField, AutoNetworkedField] public ProtoId<DamageContainerPrototype> StoredDamageContainer = "Biological";
 
     /// <summary>
     /// The alert for displaying the cultist's currently held Entropy.
