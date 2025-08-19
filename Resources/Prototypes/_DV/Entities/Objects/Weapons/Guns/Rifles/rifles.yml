@@ -256,6 +256,9 @@
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: 0
+    maxAngle: 0
   - type: Gun
     fireRate: 1.5
     minAngle: 1

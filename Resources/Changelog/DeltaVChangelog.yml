@@ -1,79 +1,4 @@
 ﻿Entries:
-- author: KZhProgram
-  changes:
-  - message: Locker health rework! Gun safes now have 125 health, department head
-      lockers have 75, and every other secure locker now has 50 with psionic mantis
-      cabinet health suffering the biggest nerf. No more 250 health mantis cabinets
-    type: Tweak
-  id: 1102
-  time: '2025-03-04T08:34:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3084
-- author: deltanedas
-  changes:
-  - message: Borgs now use their respective job requirements, with none for generic
-      borgs.
-    type: Tweak
-  id: 1103
-  time: '2025-03-04T11:39:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3109
-- author: whatston3
-  changes:
-  - message: Ported better borgs from Frontier. Certain borg modules can drop and
-      pick up their items like ore bags and beakers.
-    type: Add
-  id: 1104
-  time: '2025-03-04T12:10:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3110
-- author: beck-thompson
-  changes:
-  - message: Greentexts are now not visible at the end of round screen. (Test merge)
-    type: Remove
-  - message: You can now write custom objective summaries as traitors. (Test merge)
-    type: Add
-  - message: Round weights have been changed around slightly. (Test merge)
-    type: Tweak
-  id: 1105
-  time: '2025-03-04T22:32:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2940
-- author: deltanedas
-  changes:
-  - message: Merged late February's changes from upstream, wizard is temporarily disabled
-      thoughd.
-    type: Add
-  id: 1106
-  time: '2025-03-04T12:32:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3082
-- author: sowelipililimite, bogus_0451
-  changes:
-  - message: Added the Advanced Surgical Bed and Mechanical Surgical Gloves as unlockable
-      technologies! Both entities boost the surgical speed of the relevant surgeon.
-    type: Add
-  id: 1107
-  time: '2025-03-05T01:49:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2842
-- author: deltanedas
-  changes:
-  - message: Replaced the security borg lawset with a better one.
-    type: Tweak
-  id: 1108
-  time: '2025-03-05T20:27:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3113
-- author: deltanedas
-  changes:
-  - message: Borg hand items are now much nicer to pick up and drop. (They are predicted
-      now)
-    type: Tweak
-  id: 1109
-  time: '2025-03-06T01:45:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3126
-- author: deltanedas
-  changes:
-  - message: Fixed implanter dealing damage if someone had no implants and having
-      a UI.
-    type: Fix
-  id: 1110
-  time: '2025-03-06T15:24:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3133
 - author: deltanedas
   changes:
   - message: Cyborg's lock access is now command robotics and the relevant department,
@@ -4111,3 +4036,74 @@
   id: 1601
   time: '2025-08-16T18:16:57.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4198
+- author: kotobdev
+  changes:
+  - message: Mantises now get two mindbreaker pills in their locker.
+    type: Add
+  id: 1602
+  time: '2025-08-17T00:12:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4207
+- author: Quanteey
+  changes:
+  - message: The AI shop is now properly localized
+    type: Fix
+  id: 1603
+  time: '2025-08-17T12:56:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4210
+- author: Quanteey
+  changes:
+  - message: Fixed IK-30 and IK-60 spread glitches when wielded
+    type: Fix
+  id: 1604
+  time: '2025-08-17T21:31:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4212
+- author: Proxysseia
+  changes:
+  - message: Emergency Lasers now come in boxes of 10
+    type: Tweak
+  - message: Emergency Lasers now do almost as much damage as a real gun
+    type: Tweak
+  id: 1605
+  time: '2025-08-18T10:13:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4197
+- author: NoElkaTheGod
+  changes:
+  - message: Fixed ghosts not being able to see things like the monument or telegnostic
+      projections.
+    type: Fix
+  - message: Fixed entropic colossi not being able to see the monument.
+    type: Fix
+  id: 1606
+  time: '2025-08-18T11:57:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4226
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic cultists can now siphon targets that are in critical condition.
+      This would give much more entropy, but also kill the target. Mindshielded targets
+      give even more entropy.
+    type: Tweak
+  id: 1607
+  time: '2025-08-18T12:57:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4178
+- author: HTMLSystem
+  changes:
+  - message: The engi department loadouts has had more options added.
+    type: Tweak
+  id: 1608
+  time: '2025-08-19T00:07:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4115
+- author: kotobdev
+  changes:
+  - message: Artifact research point output is now tied to glimmer level, becoming
+      exponentially more efficient as glimmer increases.
+    type: Tweak
+  id: 1609
+  time: '2025-08-19T00:48:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4164
+- author: kotobdev
+  changes:
+  - message: Anti-psionic ammunition no longer requires bluespace crystals to manufacture.
+    type: Tweak
+  id: 1610
+  time: '2025-08-19T00:53:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4208
