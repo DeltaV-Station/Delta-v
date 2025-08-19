@@ -102,6 +102,8 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             filter = Filter.Pvs(user, entityManager: EntityManager);
         }
 
+        if (TryComp<MeleeWeaponComponent>(weapon, out var comp) && comp.ChangeSwingDirection) comp.SwingLeft = !comp.SwingLeft; // DeltaV - Nice swing animation for desword
+
         RaiseNetworkEvent(new MeleeLungeEvent(GetNetEntity(user), GetNetEntity(weapon), angle, localPos, animation), filter);
     }
 

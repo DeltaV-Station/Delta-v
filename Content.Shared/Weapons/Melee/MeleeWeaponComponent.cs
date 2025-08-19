@@ -115,6 +115,12 @@ public sealed partial class MeleeWeaponComponent : Component
     [DataField, AutoNetworkedField]
     public bool SwingLeft;
 
+    /// <summary>
+    /// DeltaV: if true, weapon will swing in different direction each strike. Purely cosmetic.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ChangeSwingDirection;
+
 
     // Sounds
 
