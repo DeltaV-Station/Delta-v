@@ -1,14 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Cyborg's lock access is now command robotics and the relevant department,
-      scientists can no longer unlock every borg.
-    type: Tweak
-  id: 1111
-  time: '2025-03-06T20:56:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3111
-- author: deltanedas
-  changes:
   - message: Massively reworked glacier's atmos system, everywhere on the station
       has passive vents and is centrally regulated in atmos.
     type: Tweak
@@ -4107,3 +4099,13 @@
   id: 1610
   time: '2025-08-19T00:53:16.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4208
+- author: kotobdev
+  changes:
+  - message: 'From Harmony: Riot Shields, Makeshift Shields, and Bucklers can now
+      be put into your Suit Storage Slot!'
+    type: Add
+  - message: Open-carrying shields is now disallowed on code green, per Alert Procedure.
+    type: Tweak
+  id: 1611
+  time: '2025-08-19T14:46:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4193
