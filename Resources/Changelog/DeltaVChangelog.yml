@@ -1,14 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Fixed implanter dealing damage if someone had no implants and having
-      a UI.
-    type: Fix
-  id: 1110
-  time: '2025-03-06T15:24:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3133
-- author: deltanedas
-  changes:
   - message: Cyborg's lock access is now command robotics and the relevant department,
       scientists can no longer unlock every borg.
     type: Tweak
@@ -4108,3 +4100,10 @@
   id: 1609
   time: '2025-08-19T00:48:50.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4164
+- author: kotobdev
+  changes:
+  - message: Anti-psionic ammunition no longer requires bluespace crystals to manufacture.
+    type: Tweak
+  id: 1610
+  time: '2025-08-19T00:53:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4208
