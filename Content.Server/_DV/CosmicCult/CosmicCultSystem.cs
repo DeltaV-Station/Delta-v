@@ -81,6 +81,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnStartCultist);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentInit>(OnStartCultLead);
+        SubscribeLocalEvent<CosmicCultLeadComponent, ComponentShutdown>(OnCultLeadShutdown);
         SubscribeLocalEvent<CosmicCultComponent, GetVisMaskEvent>(OnGetVisMask);
 
         SubscribeLocalEvent<CosmicEquipmentComponent, GotEquippedEvent>(OnGotEquipped);
@@ -303,6 +304,15 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         radio.Channels.Add("CosmicRadio");
         transmitter.Channels.Add("CosmicRadio");
         associatedComp.CultGamerule = cult;
+
+    }
+
+    private void OnCultLeadShutdown(Entity<CosmicCultLeadComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(uid))
+            return;
+        _actions.RemoveAction(ent, ent.Comp.CosmicMonumentPlaceActionEntity);
+        _actions.RemoveAction(ent, ent.Comp.CosmicMonumentMoveActionEntity);
     }
     #endregion
     

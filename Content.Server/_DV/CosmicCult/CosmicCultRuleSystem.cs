@@ -781,6 +781,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     {
         if (AssociatedGamerule(uid) is not { } cult)
             return;
+        if (TerminatingOrDeleted(uid))
+            return;
         var cosmicGamerule = cult.Comp;
 
         _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
