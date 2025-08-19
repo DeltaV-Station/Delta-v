@@ -244,7 +244,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
   - type: Gun
-  - fireRate: 2 # DeltaV - parent changed to 1.5
+    fireRate: 2 # DeltaV - parent changed to 1.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -621,7 +621,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
   - type: Gun
-  - fireRate: 2 # DeltaV - parent changed to 1.5
+    fireRate: 2 # DeltaV - parent changed to 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
@@ -669,7 +669,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
   - type: Gun
-  - fireRate: 2 # DeltaV - parent changed to 1.5
+    fireRate: 2 # DeltaV - parent changed to 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
