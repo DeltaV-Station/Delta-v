@@ -309,10 +309,10 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private void OnCultLeadShutdown(Entity<CosmicCultLeadComponent> ent, ref ComponentShutdown args)
     {
-        if (TerminatingOrDeleted(uid))
+        if (TerminatingOrDeleted(ent))
             return;
-        _actions.RemoveAction(ent, ent.Comp.CosmicMonumentPlaceActionEntity);
-        _actions.RemoveAction(ent, ent.Comp.CosmicMonumentMoveActionEntity);
+        _actions.RemoveAction(ent.Owner, ent.Comp.CosmicMonumentPlaceActionEntity);
+        _actions.RemoveAction(ent.Owner, ent.Comp.CosmicMonumentMoveActionEntity);
     }
     #endregion
     
