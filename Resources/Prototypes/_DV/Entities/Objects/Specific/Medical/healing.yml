@@ -293,6 +293,7 @@
   - type: Healing
     damageContainers:
     - HumanoidSilicon
+    - HumanoidSiliconMetaphysical
     damage:
       groups:
         Burn: 0 # funny cant remove
@@ -325,6 +326,7 @@
   - type: Healing
     damageContainers:
     - HumanoidSilicon
+    - HumanoidSiliconMetaphysical
     - Silicon
     damage:
       groups:

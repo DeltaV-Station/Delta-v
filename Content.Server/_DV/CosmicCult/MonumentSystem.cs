@@ -12,6 +12,7 @@ using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Prototypes;
 using Content.Server._DV.Shuttles.Events;
+using Content.Shared._EE.Silicon.Components;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
@@ -417,7 +418,9 @@ public sealed class MonumentSystem : SharedMonumentSystem
             EnsureComp<PressureImmunityComponent>(cultist);
             EnsureComp<TemperatureImmunityComponent>(cultist);
 
-            _damage.SetDamageContainerID(cultist, "BiologicalMetaphysical");
+            var damageContainerId =
+                HasComp<SiliconComponent>(cultist) ? "HumanoidSiliconMetaphysical" : "BiologicalMetaphysical";
+            _damage.SetDamageContainerID(cultist, damageContainerId);
 
             foreach (var influenceProto in _protoMan.EnumeratePrototypes<InfluencePrototype>().Where(influenceProto => influenceProto.Tier == 3))
             {
