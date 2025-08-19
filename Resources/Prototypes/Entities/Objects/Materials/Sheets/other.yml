@@ -88,6 +88,7 @@
     delay: 2.0
     damageContainers:
     - HumanoidSilicon
+    - HumanoidSiliconMetaphysical # DeltaV - CC IPC fix
     damage:
       types:
         Radiation: -5.0
@@ -170,6 +171,7 @@
     delay: 3.0
     damageContainers:
     - HumanoidSilicon
+    - HumanoidSiliconMetaphysical # DeltaV - CC IPC fix
     damage:
       groups:
         Brute: 0 # funny
