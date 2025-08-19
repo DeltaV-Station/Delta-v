@@ -63,6 +63,7 @@ public sealed class CosmicRiftSystem : EntitySystem
                 foreach(var humanoid in _humanoids)
                 {
                     if (!pos.TryDistance(EntityManager, Transform(humanoid).Coordinates, out var distance)) continue;
+                    if (!_random.Prob(comp.PulseProb)) continue;
                     var damageMultiplier = Math.Clamp(comp.PulseRange / distance, 1, 10); //0.2 damage per second at max distance, up to 2 per second if closer
                     var effectDuration = _random.Next(10, 40); //2-8 damage at max distance, 20-80 damage at min distance
                     _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(humanoid, "EntropicDegen", TimeSpan.FromSeconds(effectDuration), true);

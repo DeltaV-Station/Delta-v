@@ -35,13 +35,19 @@ public sealed partial class CosmicMalignRiftComponent : Component
     public TimeSpan MinPulseTime = TimeSpan.FromSeconds(20);
 
     [DataField]
-    public TimeSpan MaxPulseTime = TimeSpan.FromSeconds(80);
+    public TimeSpan MaxPulseTime = TimeSpan.FromSeconds(60);
 
     [DataField]
     public float PulseRange = 15f;
+    /// <summary>
+    /// The chance for each entity in range to be affected by a pulse
+    /// </summary>
+    [DataField]
+    public float PulseProb = 0.75f;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextPulseTime = default!;
 
-    [DataField] public EntProtoId PulseVFX = "CosmicGenericVFX";
+    [DataField]
+    public EntProtoId PulseVFX = "CosmicGenericVFX";
 }
