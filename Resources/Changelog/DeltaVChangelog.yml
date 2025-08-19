@@ -1,14 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Borg hand items are now much nicer to pick up and drop. (They are predicted
-      now)
-    type: Tweak
-  id: 1109
-  time: '2025-03-06T01:45:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3126
-- author: deltanedas
-  changes:
   - message: Fixed implanter dealing damage if someone had no implants and having
       a UI.
     type: Fix
@@ -4108,3 +4100,11 @@
   id: 1608
   time: '2025-08-19T00:07:01.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4115
+- author: kotobdev
+  changes:
+  - message: Artifact research point output is now tied to glimmer level, becoming
+      exponentially more efficient as glimmer increases.
+    type: Tweak
+  id: 1609
+  time: '2025-08-19T00:48:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4164
