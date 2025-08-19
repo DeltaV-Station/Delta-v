@@ -1,1 +1,1 @@
-damage-type-corruption = Software
+damage-type-corruption = Software corruption
