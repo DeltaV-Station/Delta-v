@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 08/14/2025 12:04:57
-  entityCount: 28235
+  time: 08/19/2025 00:40:47
+  entityCount: 28229
 maps:
 - 1
 grids:
@@ -21653,6 +21653,46 @@ entities:
       parent: 2
 - proto: CableApcExtension
   entities:
+  - uid: 14
+    components:
+    - type: Transform
+      pos: -30.5,-80.5
+      parent: 2
+  - uid: 16
+    components:
+    - type: Transform
+      pos: -30.5,-81.5
+      parent: 2
+  - uid: 18
+    components:
+    - type: Transform
+      pos: -30.5,-82.5
+      parent: 2
+  - uid: 20
+    components:
+    - type: Transform
+      pos: -30.5,-83.5
+      parent: 2
+  - uid: 22
+    components:
+    - type: Transform
+      pos: -18.5,-80.5
+      parent: 2
+  - uid: 24
+    components:
+    - type: Transform
+      pos: -18.5,-81.5
+      parent: 2
+  - uid: 26
+    components:
+    - type: Transform
+      pos: -18.5,-82.5
+      parent: 2
+  - uid: 28
+    components:
+    - type: Transform
+      pos: -18.5,-83.5
+      parent: 2
   - uid: 1484
     components:
     - type: Transform
@@ -130238,6 +130278,16 @@ entities:
       parent: 2
 - proto: PowerCellRecharger
   entities:
+  - uid: 6
+    components:
+    - type: Transform
+      pos: 47.5,24.5
+      parent: 2
+  - uid: 30
+    components:
+    - type: Transform
+      pos: 39.5,29.5
+      parent: 2
   - uid: 19420
     components:
     - type: Transform
@@ -143401,10 +143451,10 @@ entities:
       parent: 2
 - proto: SheetGlass
   entities:
-  - uid: 21837
+  - uid: 4
     components:
     - type: Transform
-      pos: 47.42885,24.72716
+      pos: 47.260574,23.841545
       parent: 2
   - uid: 21838
     components:
@@ -143501,10 +143551,10 @@ entities:
       parent: 2
 - proto: SheetPlastic
   entities:
-  - uid: 21852
+  - uid: 32
     components:
     - type: Transform
-      pos: 47.444473,23.898458
+      pos: 47.540962,23.759697
       parent: 2
   - uid: 21853
     components:
@@ -143541,10 +143591,10 @@ entities:
       canCollide: False
 - proto: SheetSteel
   entities:
-  - uid: 21858
+  - uid: 8
     components:
     - type: Transform
-      pos: 47.597622,24.323168
+      pos: 47.67745,23.85197
       parent: 2
   - uid: 21859
     components:
@@ -176022,11 +176072,6 @@ entities:
     - type: Transform
       pos: 14.5,12.5
       parent: 2
-  - uid: 27677
-    components:
-    - type: Transform
-      pos: 39.5,29.5
-      parent: 2
   - uid: 27678
     components:
     - type: Transform
@@ -176481,14 +176526,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -42.5,-57.5
       parent: 2
-  - uid: 27750
-    components:
-    - type: Transform
-      pos: -9.5,25.5
-      parent: 2
-    - type: AccessReader
-      access:
-      - - ChiefMedicalOfficer
   - uid: 27751
     components:
     - type: Transform
@@ -176515,14 +176552,6 @@ entities:
         27751:
         - - DoorStatus
           - DoorBolt
-  - uid: 27753
-    components:
-    - type: Transform
-      pos: -8.5,25.5
-      parent: 2
-    - type: AccessReader
-      access:
-      - - ChiefMedicalOfficer
 - proto: WindoorSecureArmoryLocked
   entities:
   - uid: 27754
@@ -176614,6 +176643,22 @@ entities:
       parent: 2
 - proto: WindoorSecureCommandLocked
   entities:
+  - uid: 10
+    components:
+    - type: Transform
+      pos: -8.5,25.5
+      parent: 2
+    - type: AccessReader
+      access:
+      - - ChiefMedicalOfficer
+  - uid: 12
+    components:
+    - type: Transform
+      pos: -9.5,25.5
+      parent: 2
+    - type: AccessReader
+      access:
+      - - ChiefMedicalOfficer
   - uid: 27769
     components:
     - type: Transform
