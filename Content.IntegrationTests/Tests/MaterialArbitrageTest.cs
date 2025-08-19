@@ -49,10 +49,18 @@ public sealed class MaterialArbitrageTest
 
         Assert.That(mapSystem.IsInitialized(testMap.MapId));
 
+<<<<<<< HEAD
         var constructionName = compFact.GetComponentName(typeof(ConstructionComponent));
         var compositionName = compFact.GetComponentName(typeof(PhysicalCompositionComponent));
         var materialName = compFact.GetComponentName(typeof(MaterialComponent));
         var destructibleName = compFact.GetComponentName(typeof(DestructibleComponent));
+=======
+        var constructionName = compFact.GetComponentName<ConstructionComponent>();
+        var compositionName = compFact.GetComponentName<PhysicalCompositionComponent>();
+        var materialName = compFact.GetComponentName<MaterialComponent>();
+        var destructibleName = compFact.GetComponentName<DestructibleComponent>();
+        var refinableName = compFact.GetComponentName<ToolRefinableComponent>();
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 
         // get the inverted lathe recipe dictionary
         var latheRecipes = latheSys.InverseRecipes;

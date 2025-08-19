@@ -27,6 +27,26 @@
     Glass: 600
     Silver: 200
 
+<<<<<<< HEAD
+=======
+- type: latheRecipe
+  id: Oilpack
+  result: Oilpack1
+  completetime: 1
+  materials:
+    Plastic: 250
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: ClothingEyesHudDiagnostic
+  result: ClothingEyesHudDiagnostic
+  materials:
+    Steel: 200
+    Plastic: 100
+    Glass: 300
+
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 # Robo Neuroling recipes
 
 - type: latheRecipe

@@ -136,6 +136,8 @@
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
       params:
         volume: 2.25
+  - type: StaticPrice
+    price: 1500 # Botany can shit these out like candy, but let's see how it goes
 
 - type: entity
   parent: WeaponRevolverPython
@@ -169,3 +171,18 @@
     capacity: 5
     chambers: [ True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null ]
+<<<<<<< HEAD
+=======
+
+- type: entity
+  parent: WeaponRevolverPirate
+  id: WeaponRevolverPirateEmpty
+  suffix: Empty
+  components:
+  - type: RevolverAmmoProvider
+    proto: null
+    capacity: 5
+    chambers: [ null, null, null, null, null ]
+    ammoSlots: [ null, null, null, null, null ]
+
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30

@@ -12,8 +12,12 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Atmos;
 using Content.Shared.Database;
+<<<<<<< HEAD:Content.Server/Disposal/Unit/EntitySystems/DisposalUnitSystem.cs
 using Content.Shared.Destructible;
 using Content.Shared.Disposal;
+=======
+using Content.Shared.DeviceLinking; // Goobstation
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30:Content.Shared/Disposal/Unit/SharedDisposalUnitSystem.cs
 using Content.Shared.Disposal.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
@@ -35,13 +39,21 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
+<<<<<<< HEAD:Content.Server/Disposal/Unit/EntitySystems/DisposalUnitSystem.cs
 using Robust.Shared.Player;
+=======
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
+using Robust.Shared.Prototypes; // Goobstation
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30:Content.Shared/Disposal/Unit/SharedDisposalUnitSystem.cs
 using Robust.Shared.Utility;
 
 namespace Content.Server.Disposal.Unit.EntitySystems;
 
 public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
 {
+<<<<<<< HEAD:Content.Server/Disposal/Unit/EntitySystems/DisposalUnitSystem.cs
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
@@ -57,6 +69,37 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+=======
+}
+
+public abstract class SharedDisposalUnitSystem : EntitySystem
+{
+    [Dependency] protected readonly ActionBlockerSystem ActionBlockerSystem = default!;
+    [Dependency] private   readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] protected readonly MetaDataSystem Metadata = default!;
+    [Dependency] private   readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] protected readonly SharedAudioSystem Audio = default!;
+    [Dependency] protected readonly IGameTiming GameTiming = default!;
+    [Dependency] private   readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private   readonly ClimbSystem _climb = default!;
+    [Dependency] protected readonly SharedContainerSystem Containers = default!;
+    [Dependency] protected readonly SharedJointSystem Joints = default!;
+    [Dependency] private   readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private   readonly SharedDisposalTubeSystem _disposalTubeSystem = default!;
+    [Dependency] private   readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private   readonly SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private   readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
+    [Dependency] private   readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private   readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedDeviceLinkSystem _device = default!; // Goobstation
+    public static readonly ProtoId<SourcePortPrototype> ReadyPort = "DisposalReady"; // Goobstation
+
+    protected static TimeSpan ExitAttemptDelay = TimeSpan.FromSeconds(0.5);
+
+    // Percentage
+    public const float PressurePerSecond = 0.05f;
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30:Content.Shared/Disposal/Unit/SharedDisposalUnitSystem.cs
 
     public override void Initialize()
     {
@@ -507,7 +550,61 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
     }
 
 
+<<<<<<< HEAD:Content.Server/Disposal/Unit/EntitySystems/DisposalUnitSystem.cs
     public bool TryFlush(EntityUid uid, SharedDisposalUnitComponent component)
+=======
+        component.State = state;
+        UpdateVisualState(uid, component);
+        Dirty(uid, component, metadata);
+
+        if (state == DisposalsPressureState.Ready)
+        {
+            component.NextPressurized = TimeSpan.Zero;
+            _device.InvokePort(uid, ReadyPort); // Goobstation
+
+            // Manually engaged
+            if (component.Engaged)
+            {
+                component.NextFlush = GameTiming.CurTime + component.ManualFlushTime;
+            }
+            else if (component.Container.ContainedEntities.Count > 0)
+            {
+                component.NextFlush = GameTiming.CurTime + component.AutomaticEngageTime;
+            }
+            else
+            {
+                component.NextFlush = null;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Work out if we can stop updating this disposals component i.e. full pressure and nothing colliding.
+    /// </summary>
+    private void Update(EntityUid uid, DisposalUnitComponent component, MetaDataComponent metadata)
+    {
+        var state = GetState(uid, component, metadata);
+
+        // Pressurizing, just check if we need a state update.
+        if (component.NextPressurized > GameTiming.CurTime)
+        {
+            UpdateState(uid, state, component, metadata);
+            return;
+        }
+
+        if (component.NextFlush != null)
+        {
+            if (component.NextFlush.Value < GameTiming.CurTime)
+            {
+                TryFlush(uid, component);
+            }
+        }
+
+        UpdateState(uid, state, component, metadata);
+    }
+
+    public bool TryFlush(EntityUid uid, DisposalUnitComponent component)
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30:Content.Shared/Disposal/Unit/SharedDisposalUnitSystem.cs
     {
         if (!CanFlush(uid, component))
         {

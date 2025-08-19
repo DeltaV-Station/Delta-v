@@ -1,0 +1,118 @@
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardMagicocracyObjective
+  name: Magicocracy
+  description: Usurp the powers that be and establish Magicocracy amidst the secular on this station!
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Head/Hats/wizardhat.rsi
+      state: icon
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardBalanceObjective
+  name: Balance
+  description: Establish a cosmic balance on the station by striking a perfect blend of chaos and peace through the use of wit and the arcane!
+  components:
+  - type: Objective
+    icon:
+      sprite: _DV/Misc/wizard.rsi
+      state: scale
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardDestroyObjective
+  name: Find the funniest way for the station to end
+  description: Seek the most hilarious possible apocalypse scenario. Test options. Simulate disasters. Take crew "input" surveys. Choose your favorite ending and try to make it happen.
+  components:
+  - type: Objective
+    difficulty: 2
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: fireball
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardTeachObjective
+  name: Teach
+  description: Establish a movement based around training, instructing, or discussing with crew in the arts of the arcane, whether by mentorship or experimentation!
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: spell_default
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardProfitObjective
+  name: Profit
+  description: Utilize the station for the purpose of profit for the wizard federation!
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Economy/cash.rsi
+      state: cash_1000000
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardPopularObjective
+  name: Become Popular
+  description: Seek to be the most liked, talked-about, or sought-after person on the station!
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+      state: icon
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardDataObjective
+  name: Collect Pointless Data
+  description: Record and analyze bizarre metrics like "Average Doorway Hesitation Time," "Crew Punchability Ratings," or "How many feathers is too many feathers?" If questioned, simply tell them "it's for science."
+  components:
+  - type: Objective
+    icon:
+      sprite: _DV/Clothing/Head/Hats/propellerhat.rsi
+      state: icon
+
+- type: entity
+  parent: [BaseWizardObjective, BaseKeepAliveObjective]
+  id: WizardPreserveObjective
+  description: An arcane cosmic entity has prophesized that a mortal aboard the station will go on to do great things, and you must preserve their life by any means necessary.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: shield
+  - type: TargetObjective
+    title: objective-condition-wizard-preserve-person-title
+  - type: PickRandomPerson
+    onlyChoosableJobs: true
+
+- type: entity
+  parent: [BaseWizardObjective, BaseKillObjective]
+  id: WizardKillObjective
+  description: The Space Wizards Federation has tasked you with the handling of one of its rivals. Do it in the most public and awestriking of ways!
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Guns/Basic/wands.rsi
+      state: death
+  - type: TargetObjective
+    title: objective-condition-wizard-kill-person-title
+  - type: PickRandomPerson
+    onlyChoosableJobs: true
+  - type: KillPersonCondition
+    requireDead: true
+
+- type: entity
+  parent: [BaseWizardObjective, BaseFreeObjective]
+  id: WizardFearObjective
+  name: Become Fear
+  description: Seek to become the most feared person on the station. Make them recoil at the mention of your name!
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Mask/cluwne.rsi
+      state: icon

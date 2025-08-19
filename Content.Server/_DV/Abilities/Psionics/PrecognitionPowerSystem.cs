@@ -6,6 +6,7 @@ using Content.Server.Mind;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions.Events;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Eye.Blinding.Components;
@@ -118,12 +119,13 @@ public sealed class PrecognitionPowerSystem : EntitySystem
                 uid,
                 PopupType.SmallCaution);
 
-            if (_actions.TryGetActionData(component.PrecognitionActionEntity, out var actionData))
-                // If canceled give a short delay before being able to try again
-                actionData.Cooldown =
-                    (_gameTicker.RoundDuration(),
+            if (_actions.GetAction(component.PrecognitionActionEntity) is {} actionData)
+            {
+                _actions.SetCooldown(
+                    actionData.Owner,
+                    _gameTicker.RoundDuration(),
                     _gameTicker.RoundDuration() + TimeSpan.FromSeconds(15));
-            return;
+            }
         }
 
         // Determines the window that will be looked at for events, avoiding events that are too close or too far to be useful.

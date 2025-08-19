@@ -8,3 +8,19 @@
     board: OperatingTableAdvancedCircuitboard
   - type: SurgerySpeedModifier
     speedModifier: 1.25
+  # Begin DeltaV Additions - toggle between stasis and surgery speed
+  - type: ItemToggle
+    verbToggleOn: advanced-operating-table-verb-activate-stasis
+    verbToggleOff: advanced-operating-table-verb-activate-surgery
+    soundActivate: /Audio/Machines/machine_switch.ogg
+    soundDeactivate: /Audio/Machines/machine_switch.ogg
+  - type: ItemToggleExamine
+    on: advanced-operating-table-stasis-mode
+    off: advanced-operating-table-surgery-mode
+  - type: ComponentToggler
+    components:
+    - type: AntiRotOnBuckle
+    deactivatedComponents:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.25
+  # End DeltaV Additions

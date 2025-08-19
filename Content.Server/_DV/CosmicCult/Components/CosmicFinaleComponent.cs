@@ -32,7 +32,11 @@ public sealed partial class CosmicFinaleComponent : Component
     public TimeSpan BufferRemainingTime = TimeSpan.FromSeconds(300);
 
     [DataField, AutoNetworkedField]
+<<<<<<< HEAD
     public TimeSpan FinaleRemainingTime = TimeSpan.FromSeconds(126);
+=======
+    public TimeSpan VisualsThreshold = TimeSpan.FromSeconds(125);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 
     [DataField, AutoNetworkedField]
     public TimeSpan CheckWait = TimeSpan.FromSeconds(5);
@@ -86,4 +90,5 @@ public enum FinaleState : byte
     ActiveBuffer,
     ActiveFinale,
     Victory,
+    Unreachable,
 }

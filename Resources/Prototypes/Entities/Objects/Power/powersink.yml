@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: PowerSink
   parent: [BaseMachine, BaseSyndicateContraband]
   name: power sink
@@ -6,6 +6,10 @@
   components:
     - type: Item
       size: Huge
+    - type: MultiHandedItem
+    - type: HeldSpeedModifier #verrryy heavy
+      walkModifier: 0.6
+      sprintModifier: 0.6
     - type: NodeContainer
       examinable: true
       nodes:
@@ -47,3 +51,11 @@
       state: powersink
     - type: WarpPoint
       location: powersink
+<<<<<<< HEAD
+=======
+      blacklist:
+        tags:
+        - GhostOnlyWarp
+    - type: StaticPrice
+      price: 3000
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30

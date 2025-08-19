@@ -22,7 +22,14 @@ public sealed partial class DungeonJob
 
         foreach (var tile in dungeon.CorridorTiles)
         {
+<<<<<<< HEAD:Content.Server/Procedural/DungeonJob/DungeonJob.PostGenCornerClutter.cs
             var blocked = _anchorable.TileFree(_grid, tile, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask);
+=======
+            if (reservedTiles.Contains(tile))
+                continue;
+
+            var blocked = _anchorable.TileFree((_gridUid, _grid), tile, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30:Content.Server/Procedural/DungeonJob/DungeonJob.CornerClutter.cs
 
             if (blocked)
                 continue;
@@ -45,8 +52,13 @@ public sealed partial class DungeonJob
                 if (random.Prob(gen.Chance))
                 {
                     var coords = _maps.GridTileToLocal(_gridUid, _grid, tile);
+<<<<<<< HEAD:Content.Server/Procedural/DungeonJob/DungeonJob.PostGenCornerClutter.cs
                     var protos = EntitySpawnCollection.GetSpawns(_prototype.Index(corner).Entries, random);
                     _entManager.SpawnEntities(coords, protos);
+=======
+                    var protos = _entTable.GetSpawns(contentsTable, random);
+                    _entManager.SpawnEntitiesAttachedTo(coords, protos);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30:Content.Server/Procedural/DungeonJob/DungeonJob.CornerClutter.cs
                 }
 
                 break;

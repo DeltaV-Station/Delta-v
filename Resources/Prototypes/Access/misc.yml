@@ -13,7 +13,7 @@
   - Security
   - Detective
   - Armory
-  #- Brig #Delta V Removed
+  # - Brig  # DeltaV removed
   - Lawyer
   - Engineering
   - Medical
@@ -32,6 +32,7 @@
   - Chapel
   - Hydroponics
   - Atmospherics
+<<<<<<< HEAD
   - Mail # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
   - Orders # DeltaV - Orders, see Resources/Prototypes/_DV/Access/cargo.yml
   - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/_DV/Access/epistemics.yml
@@ -52,3 +53,34 @@
   - Robotics # DeltaV: Robotics access
   - Surgery # DeltaV: Surgery access
   - Funding # DeltaV: Funding access
+=======
+  - GenpopEnter
+  - GenpopLeave
+  # Begin DeltaV Additions
+  - Mail
+  - Orders
+  - Mantis
+  - Paramedic
+  - Psychologist
+  - Boxer
+  - Clown
+  - Library
+  - Mime
+  - Musician
+  - Reporter
+  - Zookeeper
+  - Justice
+  - ChiefJustice
+  - Prosecutor
+  - Clerk
+  - Corpsman
+  - Robotics
+  - Surgery
+  - Funding
+  # End DeltaV Additions
+
+- type: accessGroup
+  id: General
+  tags:
+  - Maintenance
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30

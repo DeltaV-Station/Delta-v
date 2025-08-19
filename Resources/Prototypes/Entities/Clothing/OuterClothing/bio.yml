@@ -12,7 +12,17 @@
   - type: Armor
     modifiers:
       coefficients:
+<<<<<<< HEAD
         Caustic: 0.5
+=======
+        Caustic: 0.75
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.35
+  - type: GroupExamine
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 
 - type: entity
   parent: ClothingOuterBioGeneral

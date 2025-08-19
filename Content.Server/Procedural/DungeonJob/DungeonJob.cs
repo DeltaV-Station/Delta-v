@@ -123,12 +123,23 @@ public sealed partial class DungeonJob : Job<List<Dungeon>>
 
             foreach (var layer in layers)
             {
+<<<<<<< HEAD
                 await RunLayer(dungeons, data, position, layer, reservedTiles, seed, random);
 
                 if (config.ReserveTiles)
                 {
                     foreach (var dungeon in dungeons)
+=======
+                var dungCount = dungeons.Count;
+                await RunLayer(dungeons, position, layer, reservedTiles, seed, random);
+
+                if (config.ReserveTiles)
+                {
+                    // Reserve tiles on any new dungeons.
+                    for (var d = dungCount; d < dungeons.Count; d++)
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
                     {
+                        var dungeon = dungeons[d];
                         reservedTiles.UnionWith(dungeon.AllTiles);
                     }
                 }
@@ -176,6 +187,7 @@ public sealed partial class DungeonJob : Job<List<Dungeon>>
             npcSystem.WakeNPC(npc.Owner, npc.Comp);
         }
 
+        _sawmill.Info($"Finished generating dungeon {_gen} with seed {_seed}");
         return dungeons;
     }
 
@@ -251,7 +263,7 @@ public sealed partial class DungeonJob : Job<List<Dungeon>>
                 await PostGen(mob, dungeons[^1], random);
                 break;
             case EntityTableDunGen entityTable:
-                await PostGen(entityTable, dungeons[^1], random);
+                await PostGen(entityTable, dungeons, reservedTiles, random);
                 break;
             case NoiseDistanceDunGen distance:
                 dungeons.Add(await GenerateNoiseDistanceDunGen(position, distance, reservedTiles, seed, random));
@@ -260,7 +272,7 @@ public sealed partial class DungeonJob : Job<List<Dungeon>>
                 dungeons.Add(await GenerateNoiseDunGen(position, noise, reservedTiles, seed, random));
                 break;
             case OreDunGen ore:
-                await PostGen(ore, dungeons[^1], random);
+                await PostGen(ore, dungeons, reservedTiles, random);
                 break;
             case PrefabDunGen prefab:
                 dungeons.Add(await GeneratePrefabDunGen(position, data, prefab, reservedTiles, random));

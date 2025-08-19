@@ -117,6 +117,10 @@
     account: Justice
     announcementChannel: Justice
     removeLimitAccess: [ "ChiefJustice" ]
+<<<<<<< HEAD
+=======
+    mode: PrintSlip
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   - type: ActiveRadio
     channels:
     - Justice
@@ -197,3 +201,14 @@
   - type: MappingCategories
     categories:
     - Debug
+
+- type: entity
+  parent: ComputerCrewMonitoring
+  id: ComputerCrewMonitoringSyndicate
+  suffix: Syndicate, Long Range
+  components:
+  # TODO: unique sprite please someone
+  - type: LongRangeCrewMonitor
+  - type: MappingCategories
+    categories:
+    - Syndicate

@@ -322,6 +322,29 @@ public abstract class SharedStorageSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
+<<<<<<< HEAD
+=======
+    /// <summary>
+    /// Tries to get the storage location of an item.
+    /// </summary>
+    public bool TryGetStorageLocation(Entity<ItemComponent?> itemEnt, [NotNullWhen(true)] out BaseContainer? container, [NotNullWhen(true)] out StorageComponent? storage, out ItemStorageLocation loc)
+    {
+        loc = default;
+        storage = null;
+
+        if (!ContainerSystem.TryGetContainingContainer(itemEnt.Owner, out container) ||
+            container.ID != StorageComponent.ContainerId ||
+            !TryComp(container.Owner, out storage) ||
+            !_itemQuery.Resolve(itemEnt, ref itemEnt.Comp, false))
+        {
+            return false;
+        }
+
+        loc = storage.StoredItems[itemEnt];
+        return true;
+    }
+
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     public void OpenStorageUI(EntityUid uid, EntityUid actor, StorageComponent? storageComp = null, bool silent = true)
     {
         // Handle recursively opening nested storages.
@@ -1248,9 +1271,74 @@ public abstract class SharedStorageSystem : EntitySystem
 
         for (var y = storageBounding.Bottom; y <= storageBounding.Top; y++)
         {
+<<<<<<< HEAD
             for (var x = storageBounding.Left; x <= storageBounding.Right; x++)
             {
                 for (var angle = startAngle; angle <= Angle.FromDegrees(360 - startAngle); angle += Math.PI / 2f)
+=======
+            AddOccupied(itemEnt, existing, _ignored);
+        }
+
+        // This uses a faster path than the typical codepaths
+        // as we can cache a bunch more data and re-use it to avoid a bunch of component overhead.
+
+        // So if we have an item that occupies 0,0 and is a single rectangle we can assume that the tile itself we're checking
+        // is always in its shapes regardless of angle. This matches virtually every item in the game and
+        // means we can skip getting the item's rotated shape at all if the tile is occupied.
+        // This mostly makes heavy checks (e.g. area insert) much, much faster.
+        var fastPath = false;
+        var itemShape = ItemSystem.GetItemShape(itemEnt);
+        var fastAngles = itemShape.Count == 1;
+
+        if (itemShape.Count == 1 && itemShape[0].Contains(Vector2i.Zero))
+            fastPath = true;
+
+        var chunkEnumerator = new ChunkIndicesEnumerator(storageBounding, StorageComponent.ChunkSize);
+        var angles = new ValueList<Angle>();
+
+        if (!fastAngles)
+        {
+            angles.Clear();
+
+            for (var angle = startAngle; angle <= Angle.FromDegrees(360 - startAngle); angle += Math.PI / 2f)
+            {
+                angles.Add(angle);
+            }
+        }
+        else
+        {
+            var shape = itemShape[0];
+
+            // At least 1 check for a square.
+            angles.Add(startAngle);
+
+            // If it's a rectangle make it 2.
+            if (shape.Width != shape.Height)
+            {
+                // Idk if there's a preferred facing but + or - 90 pick one.
+                angles.Add(startAngle + Angle.FromDegrees(90));
+            }
+        }
+
+        while (chunkEnumerator.MoveNext(out var storageChunk))
+        {
+            var storageChunkOrigin = storageChunk.Value * StorageComponent.ChunkSize;
+
+            var left = Math.Max(storageChunkOrigin.X, storageBounding.Left);
+            var bottom = Math.Max(storageChunkOrigin.Y, storageBounding.Bottom);
+            var top = Math.Min(storageChunkOrigin.Y + StorageComponent.ChunkSize - 1, storageBounding.Top);
+            var right = Math.Min(storageChunkOrigin.X + StorageComponent.ChunkSize - 1, storageBounding.Right);
+
+            // No data so assume empty.
+            if (!storageEnt.Comp.OccupiedGrid.TryGetValue(storageChunkOrigin, out var occupied))
+                continue;
+
+            // This has a lot of redundant tile checks but with the fast path it shouldn't matter for average ss14
+            // use cases.
+            for (var y = bottom; y <= top; y++)
+            {
+                for (var x = left; x <= right; x++)
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
                 {
                     var location = new ItemStorageLocation(angle, (x, y));
                     if (ItemFitsInGridLocation(itemEnt, storageEnt, location))

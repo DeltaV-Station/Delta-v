@@ -102,8 +102,19 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         if (!base.TryInsertMaterialEntity(user, toInsert, receiver, storage, material, composition))
             return false;
         _audio.PlayPvs(storage.InsertingSound, receiver);
+<<<<<<< HEAD
         _popup.PopupEntity(Loc.GetString("machine-insert-item", ("user", user), ("machine", receiver),
             ("item", toInsert)), receiver);
+=======
+        _popup.PopupEntity(Loc.GetString("machine-insert-item",
+                ("user", user),
+                ("machine", receiver),
+                ("item", toInsert)),
+            receiver);
+        if (user != receiver) // Goobstation - for automation to not spam popups
+            _popup.PopupEntity(Loc.GetString("machine-insert-item", ("user", user), ("machine", receiver),
+                ("item", toInsert)), receiver);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         QueueDel(toInsert);
 
         // Logging

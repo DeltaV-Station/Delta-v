@@ -65,6 +65,7 @@
   - type: Tag
     tags:
     - HudMedical
+    - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
@@ -79,6 +80,7 @@
   - type: Tag
     tags:
     - HudSecurity
+    - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesBase, BaseCommandContraband]
@@ -106,6 +108,7 @@
   - type: StealTarget
     stealGroup: ClothingEyesHudBeer
   - type: SolutionScanner
+  - type: SafeSolutionThrower # DeltaV - Beergoggles enable safe throw
 
 - type: entity
   parent: ClothingEyesBase

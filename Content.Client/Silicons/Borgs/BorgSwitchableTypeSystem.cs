@@ -14,6 +14,7 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
 {
     [Dependency] private readonly BorgSystem _borgSystem = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -43,8 +44,16 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
         // End DeltaV Code
         if (TryComp(entity, out SpriteComponent? sprite))
         {
+<<<<<<< HEAD
             sprite.LayerSetState(BorgVisualLayers.Body, prototype.SpriteBodyState);
             sprite.LayerSetState(BorgVisualLayers.LightStatus, prototype.SpriteToggleLightState);
+=======
+            // Begin DeltaV Additions - work around engine bug with AddComponents
+            ((ISerializationHooks) sprite).AfterDeserialization();
+            // End DeltaV Additions
+            _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.Body, prototype.SpriteBodyState);
+            _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.LightStatus, prototype.SpriteToggleLightState);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         }
 
         if (TryComp(entity, out BorgChassisComponent? chassis))

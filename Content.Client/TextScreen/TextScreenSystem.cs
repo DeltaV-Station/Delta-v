@@ -89,11 +89,19 @@ public sealed class TextScreenSystem : VisualizerSystem<TextScreenVisualsCompone
 
         for (var i = 0; i < screen.RowLength; i++)
         {
+<<<<<<< HEAD
             sprite.LayerMapReserveBlank(TimerMapKey + i);
             timer.LayerStatesToDraw.Add(TimerMapKey + i, null);
             sprite.LayerSetRSI(TimerMapKey + i, new ResPath(TextPath));
             sprite.LayerSetColor(TimerMapKey + i, screen.Color);
             sprite.LayerSetState(TimerMapKey + i, DefaultState);
+=======
+            SpriteSystem.LayerMapReserve((uid, sprite), TimerMapKey + i);
+            timer.LayerStatesToDraw.Add(TimerMapKey + i, null);
+            SpriteSystem.LayerSetRsi((uid, sprite), TimerMapKey + i, new ResPath(TextPath));
+            SpriteSystem.LayerSetColor((uid, sprite), TimerMapKey + i, screen.Color);
+            SpriteSystem.LayerSetRsiState((uid, sprite), TimerMapKey + i, DefaultState);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         }
     }
 
@@ -154,7 +162,11 @@ public sealed class TextScreenSystem : VisualizerSystem<TextScreenVisualsCompone
             return;
 
         foreach (var key in timer.LayerStatesToDraw.Keys)
+<<<<<<< HEAD
             sprite.RemoveLayer(key);
+=======
+            SpriteSystem.RemoveLayer((uid, sprite), key);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 
         RemComp<TextScreenTimerComponent>(uid);
 
@@ -190,7 +202,11 @@ public sealed class TextScreenSystem : VisualizerSystem<TextScreenVisualsCompone
             return;
 
         foreach (var key in component.LayerStatesToDraw.Keys)
+<<<<<<< HEAD
             sprite.RemoveLayer(key);
+=======
+            SpriteSystem.RemoveLayer((uid, sprite), key);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 
         component.LayerStatesToDraw.Clear();
 
@@ -198,11 +214,19 @@ public sealed class TextScreenSystem : VisualizerSystem<TextScreenVisualsCompone
             for (var i = 0; i < component.RowLength; i++)
             {
                 var key = TextMapKey + row + i;
+<<<<<<< HEAD
                 sprite.LayerMapReserveBlank(key);
                 component.LayerStatesToDraw.Add(key, null);
                 sprite.LayerSetRSI(key, new ResPath(TextPath));
                 sprite.LayerSetColor(key, component.Color);
                 sprite.LayerSetState(key, DefaultState);
+=======
+                SpriteSystem.LayerMapReserve((uid, sprite), key);
+                component.LayerStatesToDraw.Add(key, null);
+                SpriteSystem.LayerSetRsi((uid, sprite), key, new ResPath(TextPath));
+                SpriteSystem.LayerSetColor((uid, sprite), key, component.Color);
+                SpriteSystem.LayerSetRsiState((uid, sprite), key, DefaultState);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
             }
     }
 
@@ -228,7 +252,12 @@ public sealed class TextScreenSystem : VisualizerSystem<TextScreenVisualsCompone
             for (var chr = 0; chr < min; chr++)
             {
                 component.LayerStatesToDraw[TextMapKey + rowIdx + chr] = GetStateFromChar(row[chr]);
+<<<<<<< HEAD
                 sprite.LayerSetOffset(
+=======
+                SpriteSystem.LayerSetOffset(
+                    (uid, sprite),
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
                     TextMapKey + rowIdx + chr,
                     Vector2.Multiply(
                         new Vector2((chr - min / 2f + 0.5f) * CharWidth, -rowIdx * component.RowOffset),
@@ -258,7 +287,12 @@ public sealed class TextScreenSystem : VisualizerSystem<TextScreenVisualsCompone
         for (int i = 0; i < min; i++)
         {
             timer.LayerStatesToDraw[TimerMapKey + i] = GetStateFromChar(time[i]);
+<<<<<<< HEAD
             sprite.LayerSetOffset(
+=======
+            SpriteSystem.LayerSetOffset(
+                (uid, sprite),
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
                 TimerMapKey + i,
                 Vector2.Multiply(
                     new Vector2((i - min / 2f + 0.5f) * CharWidth, 0f),
@@ -277,7 +311,11 @@ public sealed class TextScreenSystem : VisualizerSystem<TextScreenVisualsCompone
             return;
 
         foreach (var (key, state) in layerStates.Where(pairs => pairs.Value != null))
+<<<<<<< HEAD
             sprite.LayerSetState(key, state);
+=======
+            SpriteSystem.LayerSetRsiState((uid, sprite), key, state);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     }
 
     public override void Update(float frameTime)

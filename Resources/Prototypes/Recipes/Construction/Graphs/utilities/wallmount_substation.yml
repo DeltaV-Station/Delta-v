@@ -57,12 +57,17 @@
             sprite: "Objects/Power/power_cells.rsi"
             state: "medium"
           doAfter: 0.5
+<<<<<<< HEAD
         - tag: CapacitorStockPart
           name: a capacitor
           store: capacitor
           icon:
             sprite: "Objects/Misc/stock_parts.rsi"
             state: "capacitor"
+=======
+        - material: Manipulator
+          amount: 1
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
           doAfter: 0.5
       - to: frame
         completed:

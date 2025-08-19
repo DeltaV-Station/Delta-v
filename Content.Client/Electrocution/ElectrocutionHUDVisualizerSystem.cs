@@ -58,10 +58,14 @@ public sealed class ElectrocutionHUDVisualizerSystem : VisualizerSystem<Electroc
             if (!AppearanceSystem.TryGetData<bool>(uid, ElectrifiedVisuals.IsElectrified, out var electrified, appearanceComp))
                 continue;
 
+<<<<<<< HEAD
             if (electrified)
                 spriteComp.LayerSetVisible(ElectrifiedLayers.HUD, true);
             else
                 spriteComp.LayerSetVisible(ElectrifiedLayers.HUD, false);
+=======
+            SpriteSystem.LayerSetVisible((uid, spriteComp), ElectrifiedLayers.HUD, electrified);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         }
     }
 
@@ -72,8 +76,12 @@ public sealed class ElectrocutionHUDVisualizerSystem : VisualizerSystem<Electroc
         var electrifiedQuery = AllEntityQuery<ElectrocutionHUDVisualsComponent, AppearanceComponent, SpriteComponent>();
         while (electrifiedQuery.MoveNext(out var uid, out var _, out var appearanceComp, out var spriteComp))
         {
+<<<<<<< HEAD
 
             spriteComp.LayerSetVisible(ElectrifiedLayers.HUD, false);
+=======
+            SpriteSystem.LayerSetVisible((uid, spriteComp), ElectrifiedLayers.HUD, false);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         }
     }
 
@@ -87,9 +95,13 @@ public sealed class ElectrocutionHUDVisualizerSystem : VisualizerSystem<Electroc
             return;
 
         var player = _playerMan.LocalEntity;
+<<<<<<< HEAD
         if (electrified && HasComp<ShowElectrocutionHUDComponent>(player))
             args.Sprite.LayerSetVisible(ElectrifiedLayers.HUD, true);
         else
             args.Sprite.LayerSetVisible(ElectrifiedLayers.HUD, false);
+=======
+        SpriteSystem.LayerSetVisible((uid, args.Sprite), ElectrifiedLayers.HUD, electrified && HasComp<ShowElectrocutionHUDComponent>(player));
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     }
 }

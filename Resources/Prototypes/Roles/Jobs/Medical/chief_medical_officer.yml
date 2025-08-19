@@ -16,8 +16,11 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 36000 #10 hrs
+<<<<<<< HEAD
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
+=======
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
@@ -61,3 +64,15 @@
   storage:
     back:
     - Flash
+
+- type: chameleonOutfit
+  id: ChiefMedicalOfficerChameleonOutfit
+  job: ChiefMedicalOfficer
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretCmo
+    eyes: ClothingEyesHudMedical
+    mask: ClothingMaskSterile
+    neck: ClothingCloakCmo
+    outerClothing: ClothingOuterCoatLabCmo
+    gloves: ClothingHandsGlovesNitrile

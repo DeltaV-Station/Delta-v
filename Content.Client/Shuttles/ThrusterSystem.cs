@@ -17,7 +17,11 @@ public sealed class ThrusterSystem : VisualizerSystem<ThrusterComponent>
         || !AppearanceSystem.TryGetData<bool>(uid, ThrusterVisualState.State, out var state, args.Component))
             return;
 
+<<<<<<< HEAD
         args.Sprite.LayerSetVisible(ThrusterVisualLayers.ThrustOn, state);
+=======
+        SpriteSystem.LayerSetVisible((uid, args.Sprite), ThrusterVisualLayers.ThrustOn, state);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         SetThrusting(
             uid,
             state && AppearanceSystem.TryGetData<bool>(uid, ThrusterVisualState.Thrusting, out var thrusting, args.Component) && thrusting,
@@ -30,6 +34,7 @@ public sealed class ThrusterSystem : VisualizerSystem<ThrusterComponent>
     /// </summary>
     private static void SetThrusting(EntityUid _, bool value, SpriteComponent sprite)
     {
+<<<<<<< HEAD
         if (sprite.LayerMapTryGet(ThrusterVisualLayers.Thrusting, out var thrustingLayer))
         {
             sprite.LayerSetVisible(thrustingLayer, value);
@@ -38,6 +43,16 @@ public sealed class ThrusterSystem : VisualizerSystem<ThrusterComponent>
         if (sprite.LayerMapTryGet(ThrusterVisualLayers.ThrustingUnshaded, out var unshadedLayer))
         {
             sprite.LayerSetVisible(unshadedLayer, value);
+=======
+        if (SpriteSystem.LayerMapTryGet((uid, sprite), ThrusterVisualLayers.Thrusting, out var thrustingLayer, false))
+        {
+            SpriteSystem.LayerSetVisible((uid, sprite), thrustingLayer, value);
+        }
+
+        if (SpriteSystem.LayerMapTryGet((uid, sprite), ThrusterVisualLayers.ThrustingUnshaded, out var unshadedLayer, false))
+        {
+            SpriteSystem.LayerSetVisible((uid, sprite), unshadedLayer, value);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         }
     }
 }

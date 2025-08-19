@@ -133,9 +133,9 @@
   productEntity: EnergyShield
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 12 # DeltaV - was 4
+    Telecrystal: 8 # DeltaV - was 4
   cost:
-    Telecrystal: 16 # DeltaV - Was 8
+    Telecrystal: 12 # DeltaV - Was 8
   categories:
   - UplinkWeaponry
   conditions:
@@ -169,6 +169,20 @@
     Telecrystal: 10
   cost:
     Telecrystal: 17
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkEstocBundle
+  name: uplink-estoc-bundle-name
+  description: uplink-estoc-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledRifle
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 11
+  cost:
+    Telecrystal: 18
   categories:
   - UplinkWeaponry
 
@@ -485,6 +499,29 @@
   categories:
   - UplinkAmmo
 
+# For the Bulldog
+- type: listing
+  id: UplinkMagazineShotgunPellet
+  name: uplink-magazine-bulldog-pellet-name
+  description: uplink-magazine-bulldog-pellet-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: pellets }
+  productEntity: MagazineShotgun
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineShotgunSlug
+  name: uplink-magazine-bulldog-slug-name
+  description: uplink-magazine-bulldog-slug-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: slug }
+  productEntity: MagazineShotgunSlug
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkAmmo
+
 # For the Cobra
 - type: listing
   id: UplinkMagazinePistolCaselessRifle
@@ -517,6 +554,17 @@
   productEntity: MagazineBoxLightRifle
   cost:
     Telecrystal: 1
+  categories:
+  - UplinkAmmo
+
+# For the Estoc
+- type: listing
+  id: UplinkEstocAmmo
+  name: uplink-estoc-ammo-name
+  description: uplink-estoc-ammo-desc
+  productEntity: MagazineRifle
+  cost:
+    Telecrystal: 2
   categories:
   - UplinkAmmo
 
@@ -1533,6 +1581,10 @@
   categories:
   - UplinkWearables
 
+<<<<<<< HEAD
+=======
+# DeltaV - add back thieving gloves
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 - type: listing
   id: UplinkgClothingThievingGloves
   name: uplink-clothing-thieving-gloves-name
@@ -1545,6 +1597,7 @@
     Telecrystal: 7 # DeltaV - Was 4, 4TC was too cheap for the items power
   categories:
   - UplinkWearables
+# DeltaV - end of changes
 
 - type: listing
   id: UplinkClothingOuterVestWeb

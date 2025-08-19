@@ -18,7 +18,8 @@ public sealed partial class EntSelector : EntityTableSelector
 
     protected override IEnumerable<EntProtoId> GetSpawnsImplementation(System.Random rand,
         IEntityManager entMan,
-        IPrototypeManager proto)
+        IPrototypeManager proto,
+        EntityTableContext ctx)
     {
         var num = (int) Math.Round(Amount.Get(rand, entMan, proto));
         for (var i = 0; i < num; i++)

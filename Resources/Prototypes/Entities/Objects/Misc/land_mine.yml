@@ -22,7 +22,22 @@
   - type: Sprite
     drawdepth: Items
     sprite: Objects/Misc/landmine.rsi
+<<<<<<< HEAD
     state: landmine
+=======
+    layers:
+    - state: landmine
+    - state: landmine-unshaded
+      shader: unshaded
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: {visible: true}
+          False: {visible: false}
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -52,6 +67,19 @@
   - type: DeleteOnTrigger
 
 - type: entity
+<<<<<<< HEAD
+=======
+  id: LandMineKick
+  suffix: armed
+  parent: LandMineKickUnarmed
+  components:
+  - type: ItemToggle
+    activated: true
+    onActivate: false
+  - type: Armable
+
+- type: entity
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   name: modular mine
   description: This bad boy could be packing any number of dangers. Or a bike horn.
   parent: BaseLandMine
@@ -63,6 +91,19 @@
     node: emptyCase
 
 - type: entity
+<<<<<<< HEAD
+=======
+  id: LandMineModular
+  suffix: armed
+  parent: LandMineModularUnarmed
+  components:
+  - type: ItemToggle
+    activated: true
+    onActivate: false
+  - type: Armable
+
+- type: entity
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   name: explosive mine
   parent: BaseLandMine
   id: LandMineExplosive
@@ -74,3 +115,16 @@
     intensitySlope: 3
     totalIntensity: 120 # about a ~4 tile radius
     canCreateVacuum: false
+<<<<<<< HEAD
+=======
+
+- type: entity
+  suffix: armed
+  parent: LandMineExplosiveUnarmed
+  id: LandMineExplosive
+  components:
+  - type: ItemToggle
+    activated: true
+    onActivate: false
+  - type: Armable
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30

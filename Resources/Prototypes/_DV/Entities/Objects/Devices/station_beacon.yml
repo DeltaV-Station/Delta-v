@@ -100,6 +100,41 @@
   - type: NavMapBeacon
     defaultText: station-beacon-reporter
 
+<<<<<<< HEAD
+=======
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconShop
+  suffix: Shop
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-shop
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconClown
+  suffix: Clown
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-clown
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconMime
+  suffix: Mime
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-mime
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconMusician
+  suffix: Musician
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-musician
+
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 #Surveilance
 - type: entity
   parent: DefaultStationBeaconAI

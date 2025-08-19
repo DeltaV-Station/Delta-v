@@ -45,7 +45,7 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ReagentDispenserComponent, ReagentDispenserDispenseReagentMessage>(OnDispenseReagentMessage);
             SubscribeLocalEvent<ReagentDispenserComponent, ReagentDispenserClearContainerSolutionMessage>(OnClearContainerSolutionMessage);
 
-            SubscribeLocalEvent<ReagentDispenserComponent, MapInitEvent>(OnMapInit, before: new []{typeof(ItemSlotsSystem)});
+            SubscribeLocalEvent<ReagentDispenserComponent, MapInitEvent>(OnMapInit, before: new[] { typeof(ItemSlotsSystem) });
         }
 
         private void SubscribeUpdateUiState<T>(Entity<ReagentDispenserComponent> ent, ref T ev)
@@ -123,8 +123,14 @@ namespace Content.Server.Chemistry.EntitySystems
         private void OnDispenseReagentMessage(Entity<ReagentDispenserComponent> reagentDispenser, ref ReagentDispenserDispenseReagentMessage message)
         {
             // Ensure that the reagent is something this reagent dispenser can dispense.
+<<<<<<< HEAD
             var storedContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, message.SlotId);
             if (storedContainer == null)
+=======
+            var storageLocation = message.StorageLocation;
+            var storedContainer = storage.StoredItems.FirstOrDefault(kvp => kvp.Value == storageLocation).Key;
+            if (storedContainer == EntityUid.Invalid)
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
                 return;
 
             var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, SharedReagentDispenser.OutputSlotName);
@@ -146,6 +152,24 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound(reagentDispenser);
         }
 
+<<<<<<< HEAD
+=======
+        private void OnEjectReagentMessage(Entity<ReagentDispenserComponent> reagentDispenser, ref ReagentDispenserEjectContainerMessage message)
+        {
+            if (!TryComp<StorageComponent>(reagentDispenser.Owner, out var storage))
+            {
+                return;
+            }
+
+            var storageLocation = message.StorageLocation;
+            var storedContainer = storage.StoredItems.FirstOrDefault(kvp => kvp.Value == storageLocation).Key;
+            if (storedContainer == EntityUid.Invalid)
+                return;
+
+            _handsSystem.TryPickupAnyHand(message.Actor, storedContainer);
+        }
+
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         private void OnClearContainerSolutionMessage(Entity<ReagentDispenserComponent> reagentDispenser, ref ReagentDispenserClearContainerSolutionMessage message)
         {
             var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, SharedReagentDispenser.OutputSlotName);

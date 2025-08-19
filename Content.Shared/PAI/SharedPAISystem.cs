@@ -23,6 +23,7 @@ namespace Content.Shared.PAI
             SubscribeLocalEvent<PAIComponent, ComponentShutdown>(OnShutdown);
         }
 
+<<<<<<< HEAD
         private void OnMapInit(EntityUid uid, PAIComponent component, MapInitEvent args)
         {
             _actionsSystem.AddAction(uid, ref component.MidiAction, component.MidiActionId);
@@ -34,6 +35,11 @@ namespace Content.Shared.PAI
             _actionsSystem.RemoveAction(uid, component.MidiAction);
             _actionsSystem.RemoveAction(uid, component.MapAction);
         }
+=======
+    private void OnShutdown(Entity<PAIComponent> ent, ref ComponentShutdown args)
+    {
+        _actions.RemoveAction(ent.Owner, ent.Comp.ShopAction);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     }
 }
 

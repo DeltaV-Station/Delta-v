@@ -63,8 +63,21 @@ public sealed class CosmicGlareSystem : EntitySystem
         var targets = new HashSet<NetEntity>(targetFilter.RemovePlayerByAttachedEntity(uid).Recipients.Select(ply => GetNetEntity(ply.AttachedEntity!.Value)));
         foreach (var target in targets)
         {
+<<<<<<< HEAD
             _flash.Flash(GetEntity(target), uid, args.Action, (float)uid.Comp.CosmicGlareDuration.TotalMilliseconds, uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun);
             _color.RaiseEffect(Color.CadetBlue, new List<EntityUid>() { GetEntity(target) }, Filter.Pvs(GetEntity(target), entityManager: EntityManager));
+=======
+            var targetEnt = GetEntity(target);
+
+            _flash.Flash(targetEnt, uid, args.Action, (float)uid.Comp.CosmicGlareDuration.TotalMilliseconds, uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun, ignoreProtection: uid.Comp.CosmicEmpowered);
+
+            if (HasComp<BorgChassisComponent>(targetEnt) || HasComp<SiliconComponent>(targetEnt)) //For paralyzing borgs and IPCs specifically.
+            {
+                _stun.TryParalyze(targetEnt, uid.Comp.CosmicGlareDuration / 2, true);
+            }
+
+            _color.RaiseEffect(Color.CadetBlue, new List<EntityUid>() { targetEnt }, Filter.Pvs(targetEnt, entityManager: EntityManager));
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         }
     }
 }

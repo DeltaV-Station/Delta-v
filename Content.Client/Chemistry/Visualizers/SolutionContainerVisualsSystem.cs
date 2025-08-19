@@ -49,7 +49,11 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
         if (args.Sprite == null)
             return;
 
+<<<<<<< HEAD
         if (!args.Sprite.LayerMapTryGet(component.Layer, out var fillLayer))
+=======
+        if (!SpriteSystem.LayerMapTryGet((uid, args.Sprite), component.Layer, out var fillLayer, false))
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
             return;
 
         var maxFillLevels = component.MaxFillLevels;
@@ -67,9 +71,15 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
         }
         if (component.Metamorphic)
         {
+<<<<<<< HEAD
             if (args.Sprite.LayerMapTryGet(component.BaseLayer, out var baseLayer))
             {
                 var hasOverlay = args.Sprite.LayerMapTryGet(component.OverlayLayer, out var overlayLayer);
+=======
+            if (SpriteSystem.LayerMapTryGet((uid, args.Sprite), component.BaseLayer, out var baseLayer, false))
+            {
+                var hasOverlay = SpriteSystem.LayerMapTryGet((uid, args.Sprite), component.OverlayLayer, out var overlayLayer, false);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 
                 if (AppearanceSystem.TryGetData<string>(uid, SolutionContainerVisuals.BaseOverride,
                         out var baseOverride,
@@ -79,16 +89,24 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
 
                     if (reagentProto?.MetamorphicSprite is { } sprite)
                     {
+<<<<<<< HEAD
                         args.Sprite.LayerSetSprite(baseLayer, sprite);
                         if (reagentProto.MetamorphicMaxFillLevels > 0)
                         {
                             args.Sprite.LayerSetVisible(fillLayer, true);
+=======
+                        SpriteSystem.LayerSetSprite((uid, args.Sprite), baseLayer, sprite);
+                        if (reagentProto.MetamorphicMaxFillLevels > 0)
+                        {
+                            SpriteSystem.LayerSetVisible((uid, args.Sprite), fillLayer, true);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
                             maxFillLevels = reagentProto.MetamorphicMaxFillLevels;
                             fillBaseName = reagentProto.MetamorphicFillBaseName;
                             changeColor = reagentProto.MetamorphicChangeColor;
                             fillSprite = sprite;
                         }
                         else
+<<<<<<< HEAD
                             args.Sprite.LayerSetVisible(fillLayer, false);
 
                         if (hasOverlay)
@@ -101,13 +119,31 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
                             args.Sprite.LayerSetVisible(overlayLayer, true);
                         if (component.MetamorphicDefaultSprite != null)
                             args.Sprite.LayerSetSprite(baseLayer, component.MetamorphicDefaultSprite);
+=======
+                            SpriteSystem.LayerSetVisible((uid, args.Sprite), fillLayer, false);
+
+                        if (hasOverlay)
+                            SpriteSystem.LayerSetVisible((uid, args.Sprite), overlayLayer, false);
+                    }
+                    else
+                    {
+                        SpriteSystem.LayerSetVisible((uid, args.Sprite), fillLayer, true);
+                        if (hasOverlay)
+                            SpriteSystem.LayerSetVisible((uid, args.Sprite), overlayLayer, true);
+                        if (component.MetamorphicDefaultSprite != null)
+                            SpriteSystem.LayerSetSprite((uid, args.Sprite), baseLayer, component.MetamorphicDefaultSprite);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
                     }
                 }
             }
         }
         else
         {
+<<<<<<< HEAD
             args.Sprite.LayerSetVisible(fillLayer, true);
+=======
+            SpriteSystem.LayerSetVisible((uid, args.Sprite), fillLayer, true);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         }
 
         var closestFillSprite = ContentHelpers.RoundToLevels(fraction, 1, maxFillLevels + 1);
@@ -119,6 +155,7 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
 
             var stateName = fillBaseName + closestFillSprite;
             if (fillSprite != null)
+<<<<<<< HEAD
                 args.Sprite.LayerSetSprite(fillLayer, fillSprite);
             args.Sprite.LayerSetState(fillLayer, stateName);
 
@@ -126,10 +163,20 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
                 args.Sprite.LayerSetColor(fillLayer, color);
             else
                 args.Sprite.LayerSetColor(fillLayer, Color.White);
+=======
+                SpriteSystem.LayerSetSprite((uid, args.Sprite), fillLayer, fillSprite);
+            SpriteSystem.LayerSetRsiState((uid, args.Sprite), fillLayer, stateName);
+
+            if (changeColor && AppearanceSystem.TryGetData<Color>(uid, SolutionContainerVisuals.Color, out var color, args.Component))
+                SpriteSystem.LayerSetColor((uid, args.Sprite), fillLayer, color);
+            else
+                SpriteSystem.LayerSetColor((uid, args.Sprite), fillLayer, Color.White);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         }
         else
         {
             if (component.EmptySpriteName == null)
+<<<<<<< HEAD
                 args.Sprite.LayerSetVisible(fillLayer, false);
             else
             {
@@ -138,6 +185,16 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
                     args.Sprite.LayerSetColor(fillLayer, component.EmptySpriteColor);
                 else
                     args.Sprite.LayerSetColor(fillLayer, Color.White);
+=======
+                SpriteSystem.LayerSetVisible((uid, args.Sprite), fillLayer, false);
+            else
+            {
+                SpriteSystem.LayerSetRsiState((uid, args.Sprite), fillLayer, component.EmptySpriteName);
+                if (changeColor)
+                    SpriteSystem.LayerSetColor((uid, args.Sprite), fillLayer, component.EmptySpriteColor);
+                else
+                    SpriteSystem.LayerSetColor((uid, args.Sprite), fillLayer, Color.White);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
             }
         }
 

@@ -56,6 +56,58 @@ namespace Content.Server.Cargo.Systems
             args.Handled = true;
         }
 
+<<<<<<< HEAD
+=======
+        private void OnInteractUsingSlip(Entity<CargoOrderConsoleComponent> ent, ref InteractUsingEvent args, CargoSlipComponent slip)
+        {
+            if (slip.OrderQuantity <= 0)
+                return;
+
+            var stationUid = _station.GetOwningStation(ent);
+
+            if (!TryGetOrderDatabase(stationUid, out var orderDatabase))
+                return;
+
+            if (!_protoMan.TryIndex(slip.Product, out var product))
+            {
+                Log.Error($"Tried to add invalid cargo product {slip.Product} as order!");
+                return;
+            }
+
+            if (!ent.Comp.AllowedGroups.Contains(product.Group))
+                return;
+
+            var orderId = GenerateOrderId(orderDatabase);
+            var data = new CargoOrderData(orderId, product.Product, product.Name, product.Cost, slip.OrderQuantity, slip.Requester, slip.Reason, slip.Account);
+
+            if (!TryAddOrder(stationUid.Value, ent.Comp.Account, data, orderDatabase))
+            {
+                PlayDenySound(ent, ent.Comp);
+                return;
+            }
+
+            // Log order addition
+            _audio.PlayPvs(ent.Comp.ScanSound, ent);
+            _adminLogger.Add(LogType.Action,
+                LogImpact.Low,
+                $"{ToPrettyString(args.User):user} inserted order slip [orderId:{data.OrderId}, quantity:{data.OrderQuantity}, product:{data.ProductId}, requester:{data.Requester}, reason:{data.Reason}]");
+            QueueDel(args.Used);
+            args.Handled = true;
+        }
+
+        private void OnInteractUsing(EntityUid uid, CargoOrderConsoleComponent component, ref InteractUsingEvent args)
+        {
+            if (HasComp<CashComponent>(args.Used))
+            {
+                OnInteractUsingCash(uid, component, ref args);
+            }
+            else if (TryComp<CargoSlipComponent>(args.Used, out var slip) && component.Mode == CargoOrderConsoleMode.DirectOrder)
+            {
+                OnInteractUsingSlip((uid, component), ref args, slip);
+            }
+        }
+
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         private void OnInit(EntityUid uid, CargoOrderConsoleComponent orderConsole, ComponentInit args)
         {
             var station = _station.GetOwningStation(uid);
@@ -94,6 +146,12 @@ namespace Content.Server.Cargo.Systems
             if (args.Actor is not { Valid: true } player)
                 return;
 
+<<<<<<< HEAD
+=======
+            if (component.Mode != CargoOrderConsoleMode.DirectOrder)
+                return;
+
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
             if (!_accessReaderSystem.IsAllowed(player, uid))
             {
                 ConsolePopup(args.Actor, Loc.GetString("cargo-console-order-not-allowed"));
@@ -128,7 +186,11 @@ namespace Content.Server.Cargo.Systems
                 return;
             }
 
+<<<<<<< HEAD
             var amount = GetOutstandingOrderCount(orderDatabase, component.Account);
+=======
+            var amount = GetOutstandingOrderCount((station.Value, orderDatabase), order.Account);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
             var capacity = orderDatabase.Capacity;
 
             // Too many orders, avoid them getting spammed in the UI.
@@ -259,6 +321,12 @@ namespace Content.Server.Cargo.Systems
         {
             var station = _station.GetOwningStation(uid);
 
+<<<<<<< HEAD
+=======
+            if (component.Mode != CargoOrderConsoleMode.DirectOrder)
+                return;
+
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
             if (!TryGetOrderDatabase(station, out var orderDatabase))
                 return;
 
@@ -278,6 +346,9 @@ namespace Content.Server.Cargo.Systems
             if (!TryGetOrderDatabase(stationUid, out var orderDatabase))
                 return;
 
+            if (!TryComp<StationBankAccountComponent>(stationUid, out var bank))
+                return;
+
             if (!_protoMan.TryIndex<CargoProductPrototype>(args.CargoProductId, out var product))
             {
                 Log.Error($"Tried to add invalid cargo product {args.CargoProductId} as order!");
@@ -287,9 +358,21 @@ namespace Content.Server.Cargo.Systems
             if (!component.AllowedGroups.Contains(product.Group))
                 return;
 
+<<<<<<< HEAD
             var data = GetOrderData(args, product, GenerateOrderId(orderDatabase));
+=======
+            if (component.Mode == CargoOrderConsoleMode.PrintSlip)
+            {
+                OnAddOrderMessageSlipPrinter(uid, component, args, product);
+                return;
+            }
 
-            if (!TryAddOrder(stationUid.Value, component.Account, data, orderDatabase))
+            var targetAccount = component.Mode == CargoOrderConsoleMode.SendToPrimary ? bank.PrimaryAccount : component.Account;
+
+            var data = GetOrderData(args, product, GenerateOrderId(orderDatabase), component.Account);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
+
+            if (!TryAddOrder(stationUid.Value, targetAccount, data, orderDatabase))
             {
                 PlayDenySound(uid, component);
                 return;
@@ -324,12 +407,35 @@ namespace Content.Server.Cargo.Systems
                     CargoConsoleUiKey.Orders,
                     new CargoConsoleInterfaceState(
                     MetaData(station.Value).EntityName,
-                    GetOutstandingOrderCount(orderDatabase, console.Account),
+                    GetOutstandingOrderCount((station!.Value, orderDatabase), console.Account),
                     orderDatabase.Capacity,
                     GetNetEntity(station.Value),
+<<<<<<< HEAD
                     orderDatabase.Orders[console.Account]
+=======
+                    RelevantOrders((station!.Value, orderDatabase), (consoleUid, console)),
+                    GetAvailableProducts((consoleUid, console))
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
                 ));
             }
+        }
+
+        /// <summary>
+        /// Gets orders relevant to this account, i.e. orders on the account directly or orders on behalf of the account in the primary account.
+        /// </summary>
+        private List<CargoOrderData> RelevantOrders(Entity<StationCargoOrderDatabaseComponent> station, Entity<CargoOrderConsoleComponent> console)
+        {
+            if (!TryComp<StationBankAccountComponent>(station, out var bank))
+                return [];
+
+            var ourOrders = station.Comp.Orders[console.Comp.Account];
+
+            if (console.Comp.Account == bank.PrimaryAccount)
+                return ourOrders;
+
+            var otherOrders = station.Comp.Orders[bank.PrimaryAccount].Where(order => order.Account == console.Comp.Account);
+
+            return ourOrders.Concat(otherOrders).ToList();
         }
 
         private void ConsolePopup(EntityUid actor, string text)
@@ -347,12 +453,27 @@ namespace Content.Server.Cargo.Systems
             return new CargoOrderData(id, cargoProduct.Product, cargoProduct.Name, cargoProduct.Cost, args.Amount, args.Requester, args.Reason);
         }
 
-        public static int GetOutstandingOrderCount(StationCargoOrderDatabaseComponent component, ProtoId<CargoAccountPrototype> account)
+        public int GetOutstandingOrderCount(Entity<StationCargoOrderDatabaseComponent> station, ProtoId<CargoAccountPrototype> account)
         {
             var amount = 0;
 
-            foreach (var order in component.Orders[account])
+            if (!TryComp<StationBankAccountComponent>(station, out var bank))
+                return amount;
+
+            foreach (var order in station.Comp.Orders[account])
             {
+                if (!order.Approved)
+                    continue;
+                amount += order.OrderQuantity - order.NumDispatched;
+            }
+
+            if (account == bank.PrimaryAccount)
+                return amount;
+
+            foreach (var order in station.Comp.Orders[bank.PrimaryAccount])
+            {
+                if (order.Account != account)
+                    continue;
                 if (!order.Approved)
                     continue;
                 amount += order.OrderQuantity - order.NumDispatched;

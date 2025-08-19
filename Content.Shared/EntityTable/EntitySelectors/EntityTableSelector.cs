@@ -28,22 +28,56 @@ public abstract partial class EntityTableSelector
 
     public IEnumerable<EntProtoId> GetSpawns(System.Random rand,
         IEntityManager entMan,
-        IPrototypeManager proto)
+        IPrototypeManager proto,
+        EntityTableContext ctx)
     {
+<<<<<<< HEAD
         var rolls = Rolls.Get(rand, entMan, proto);
+=======
+        if (!CheckConditions(entMan, proto, ctx))
+            yield break;
+
+        var rolls = Rolls.Get(rand);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         for (var i = 0; i < rolls; i++)
         {
             if (!rand.Prob(Prob))
                 continue;
 
-            foreach (var spawn in GetSpawnsImplementation(rand, entMan, proto))
+            foreach (var spawn in GetSpawnsImplementation(rand, entMan, proto, ctx))
             {
                 yield return spawn;
             }
         }
     }
 
+<<<<<<< HEAD
+=======
+    public bool CheckConditions(IEntityManager entMan, IPrototypeManager proto, EntityTableContext ctx)
+    {
+        if (Conditions.Count == 0)
+            return true;
+
+        var success = false;
+        foreach (var condition in Conditions)
+        {
+            var res = condition.Evaluate(this, entMan, proto, ctx);
+
+            if (RequireAll && !res)
+                return false; // intentional break out of loop and function
+
+            success |= res;
+        }
+
+        if (RequireAll)
+            return true;
+
+        return success;
+    }
+
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     protected abstract IEnumerable<EntProtoId> GetSpawnsImplementation(System.Random rand,
         IEntityManager entMan,
-        IPrototypeManager proto);
+        IPrototypeManager proto,
+        EntityTableContext ctx);
 }

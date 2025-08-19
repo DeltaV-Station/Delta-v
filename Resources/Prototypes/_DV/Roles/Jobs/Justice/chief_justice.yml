@@ -57,3 +57,15 @@
     #innerClothingSkirt: ClothingUniformJumpskirtChiefJustice
     #satchel: ClothingBackpackSatchelFilled # TODO- make Justice departmebt bags
     #duffelbag: ClothingBackpackDuffelFilled
+
+- type: chameleonOutfit
+  id: ChiefJusticeChameleonOutfit
+  job: ChiefJustice
+  hasMindShield: true
+  equipment:
+    id: ChiefJusticePDA
+    ears: ClothingHeadsetAltJustice
+    head: ClothingHeadHatCJToque
+    jumpsuit: ClothingUniformJumpsuitChiefJustice
+    outerClothing: ClothingOuterChiefJustice
+    shoes: ClothingShoesLeather

@@ -28,8 +28,11 @@ namespace Content.Server.Stunnable.Systems
             SubscribeLocalEvent<StunbatonComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<StunbatonComponent, SolutionContainerChangedEvent>(OnSolutionChange);
             SubscribeLocalEvent<StunbatonComponent, StaminaDamageOnHitAttemptEvent>(OnStaminaHitAttempt);
+<<<<<<< HEAD
             SubscribeLocalEvent<StunbatonComponent, ItemToggleActivateAttemptEvent>(TryTurnOn);
             SubscribeLocalEvent<StunbatonComponent, ItemToggledEvent>(ToggleDone);
+=======
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
             SubscribeLocalEvent<StunbatonComponent, ChargeChangedEvent>(OnChargeChanged);
         }
 
@@ -56,13 +59,19 @@ namespace Content.Server.Stunnable.Systems
             }
         }
 
+<<<<<<< HEAD
         private void ToggleDone(Entity<StunbatonComponent> entity, ref ItemToggledEvent args)
         {
             _item.SetHeldPrefix(entity.Owner, args.Activated ? "on" : "off");
         }
 
         private void TryTurnOn(Entity<StunbatonComponent> entity, ref ItemToggleActivateAttemptEvent args)
+=======
+        protected override void TryTurnOn(Entity<StunbatonComponent> entity, ref ItemToggleActivateAttemptEvent args)
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         {
+            base.TryTurnOn(entity, ref args);
+
             if (!TryComp<BatteryComponent>(entity, out var battery) || battery.CurrentCharge < entity.Comp.EnergyPerUse)
             {
                 args.Cancelled = true;

@@ -432,6 +432,27 @@
     accentHColor: "#447987"
     accentVColor: "#85c2e6"
 
+# Chemist
+
+- type: entity
+  parent: ChemistryPDA
+  id: PharmacistPDA
+  name: pharmacist PDA
+  description: Conveniently has a small compartment for your daily medications!
+  components:
+  - type: Pda
+    id: PharmacistIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-pharmacist
+  - type: PdaBorderColor
+    borderColor: "#ff8200"
+    accentHColor: "#ffffff"
+    accentVColor: "#ffffff"
+
+
+
 # Psychologist
 
 - type: entity
@@ -692,3 +713,13 @@
   components:
   - type: Pda
     id: RoboNeuroticistIDCard
+
+# Recruiter
+
+- type: entity
+  parent: PassengerPDA
+  id: RecruiterPDA
+  suffix: Recruiter
+  components:
+  - type: Pda
+    id: RecruiterIDCard

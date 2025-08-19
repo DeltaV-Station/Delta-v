@@ -20,7 +20,31 @@ public sealed class ComponentTogglerSystem : EntitySystem
 
         if (args.Activated)
             EntityManager.AddComponents(target, ent.Comp.Components);
+<<<<<<< HEAD
         else
             EntityManager.RemoveComponents(target, ent.Comp.RemoveComponents ?? ent.Comp.Components);
+=======
+
+            // Begin DeltaV - allow swapping components
+            if (ent.Comp.DeactivatedComponents is { } deactivatedComps)
+                EntityManager.RemoveComponents(target, deactivatedComps);
+            // End DeltaV
+        }
+        else
+        {
+            if (ent.Comp.Target == null)
+                return;
+
+            if (TerminatingOrDeleted(ent.Comp.Target.Value))
+                return;
+
+            EntityManager.RemoveComponents(ent.Comp.Target.Value, ent.Comp.RemoveComponents ?? ent.Comp.Components);
+
+            // Begin DeltaV - allow swapping components
+            if (ent.Comp.DeactivatedComponents is { } reactivatedComps)
+                EntityManager.AddComponents(ent.Comp.Target.Value, reactivatedComps);
+            // End DeltaV
+        }
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     }
 }

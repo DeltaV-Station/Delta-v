@@ -48,6 +48,11 @@
   - type: StaticPrice
     price: 800
   - type: ResearchClient
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedMaterialStorage
+      input: AutomationSlotMaterials
+      output: null
   - type: TechnologyDatabase
 
 # a lathe that can be sped up with space lube / slowed down with glue
@@ -275,6 +280,7 @@
     - CameraBoards
     - MechBoards
     - ShuttleBoards
+    - EngineeringBoardsGoob #Goob Factorio port
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards

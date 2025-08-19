@@ -199,6 +199,9 @@ namespace Content.Client.Cargo.UI
         /// </summary>
         public void PopulateOrders(IEnumerable<CargoOrderData> orders)
         {
+            if (!_orderConsoleQuery.TryComp(_owner, out var orderConsole))
+                return;
+
             Requests.DisposeAllChildren();
 
             foreach (var order in orders)
@@ -230,6 +233,7 @@ namespace Content.Client.Cargo.UI
                 row.Cancel.OnPressed += (args) => { OnOrderCanceled?.Invoke(args); };
 
                 // TODO: Disable based on access.
+                row.SetApproveVisible(orderConsole.Mode != CargoOrderConsoleMode.SendToPrimary);
                 row.Approve.OnPressed += (args) => { OnOrderApproved?.Invoke(args); };
                 Requests.AddChild(row);
             }
@@ -282,6 +286,12 @@ namespace Content.Client.Cargo.UI
             AccountActionButton.Disabled = TransferSpinBox.Value <= 0 ||
                                            TransferSpinBox.Value > bankAccount.Accounts[orderConsole.Account] * orderConsole.TransferLimit ||
                                            _timing.CurTime < orderConsole.NextAccountActionTime;
+<<<<<<< HEAD
+=======
+
+            OrdersSpacer.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip;
+            Orders.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip;
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         }
     }
 }

@@ -27,7 +27,10 @@
   recipeUnlocks:
   - RadarConsoleCircuitboard
   - HandHeldMassScanner
+<<<<<<< HEAD
   - BorgModuleGPS
+=======
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 
 - type: technology
   id: AdvancedPowercells
@@ -74,6 +77,13 @@
   - LatheUpgradeKitHyper
   - LatheUpgradeKitCryo
   # End DeltaV Additions
+  # Begin Goobstation Additions
+  - UpgradeKitAutomation
+  - RoboticArmCircuitboard
+  - StorageBinCircuitboard
+  - InteractorCircuitboard
+  - ConstructorCircuitboard
+  # End Goobstation Additions
   - SheetifierMachineCircuitboard
 
 - type: technology
@@ -208,8 +218,8 @@
   - ClothingBackpackDuffelHolding
 
 - type: technology
-  id: PortableFission
-  name: research-technology-portable-fission
+  id: OptimizedMicrogalvanism
+  name: research-technology-optimized-microgalvanism
   icon:
     sprite: Objects/Power/power_cells.rsi
     state: microreactor
@@ -218,5 +228,6 @@
   cost: 10000
   recipeUnlocks:
   - PowerCellMicroreactor
+  - PowerCellHyper
   technologyPrerequisites:
   - AdvancedPowercells

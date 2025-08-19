@@ -10,7 +10,15 @@ Space Station 14 is a remake of SS13 that runs on [Robust Toolbox](https://githu
 ## Links
 
 #### DeltaV
+<<<<<<< HEAD
 [Website](https://deltav.gay/) | [Wiki](https://wiki.deltav.gay/view/Main_Page) | [Discord](https://discord.gg/deltav)
+=======
+<div class="header" align="center">
+
+[Website](https://deltav.gay/) | [Wiki](https://wiki.deltav.gay/view/Main_Page) | [Discord](https://discord.gg/deltav)
+
+</div>
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 
 #### Space Station 14
 

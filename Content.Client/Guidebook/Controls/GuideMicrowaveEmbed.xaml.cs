@@ -24,7 +24,7 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
 
-    private ISawmill _sawmill = default!;
+    private readonly ISawmill _sawmill = default!;
 
     public GuideMicrowaveEmbed()
     {
@@ -32,7 +32,7 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
         IoCManager.InjectDependencies(this);
         MouseFilter = MouseFilterMode.Stop;
 
-        _sawmill = _logManager.GetSawmill("guidemicrowaveembed");
+        _sawmill = _logManager.GetSawmill("guidebook.microwave");
     }
 
     public GuideMicrowaveEmbed(string recipe) : this()

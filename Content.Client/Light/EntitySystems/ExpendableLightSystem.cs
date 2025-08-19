@@ -55,15 +55,23 @@ public sealed class ExpendableLightSystem : VisualizerSystem<ExpendableLightComp
                 comp.PlayingStream = _audioSystem.PlayPvs(
                     comp.LoopedSound, uid)?.Entity;
 
+<<<<<<< HEAD
                 if (args.Sprite.LayerMapTryGet(ExpendableLightVisualLayers.Overlay, out var layerIdx, true))
                 {
                     if (!string.IsNullOrWhiteSpace(comp.IconStateLit))
                         args.Sprite.LayerSetState(layerIdx, comp.IconStateLit);
+=======
+                if (SpriteSystem.LayerMapTryGet((uid, args.Sprite), ExpendableLightVisualLayers.Overlay, out var layerIdx, true))
+                {
+                    if (!string.IsNullOrWhiteSpace(comp.IconStateLit))
+                        SpriteSystem.LayerSetRsiState((uid, args.Sprite), layerIdx, comp.IconStateLit);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
                     if (!string.IsNullOrWhiteSpace(comp.SpriteShaderLit))
                         args.Sprite.LayerSetShader(layerIdx, comp.SpriteShaderLit);
                     else
                         args.Sprite.LayerSetShader(layerIdx, null, null);
                     if (comp.GlowColorLit.HasValue)
+<<<<<<< HEAD
                         args.Sprite.LayerSetColor(layerIdx, comp.GlowColorLit.Value);
                     args.Sprite.LayerSetVisible(layerIdx, true);
                 }
@@ -71,21 +79,41 @@ public sealed class ExpendableLightSystem : VisualizerSystem<ExpendableLightComp
                 if (comp.GlowColorLit.HasValue)
                     args.Sprite.LayerSetColor(ExpendableLightVisualLayers.Glow, comp.GlowColorLit.Value);
                 args.Sprite.LayerSetVisible(ExpendableLightVisualLayers.Glow, true);
+=======
+                        SpriteSystem.LayerSetColor((uid, args.Sprite), layerIdx, comp.GlowColorLit.Value);
+                    SpriteSystem.LayerSetVisible((uid, args.Sprite), layerIdx, true);
+                }
+
+                if (comp.GlowColorLit.HasValue)
+                    SpriteSystem.LayerSetColor((uid, args.Sprite), ExpendableLightVisualLayers.Glow, comp.GlowColorLit.Value);
+                SpriteSystem.LayerSetVisible((uid, args.Sprite), ExpendableLightVisualLayers.Glow, true);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 
                 break;
             case ExpendableLightState.Dead:
                 comp.PlayingStream = _audioSystem.Stop(comp.PlayingStream);
+<<<<<<< HEAD
                 if (args.Sprite.LayerMapTryGet(ExpendableLightVisualLayers.Overlay, out layerIdx, true))
                 {
                     if (!string.IsNullOrWhiteSpace(comp.IconStateSpent))
                         args.Sprite.LayerSetState(layerIdx, comp.IconStateSpent);
+=======
+                if (SpriteSystem.LayerMapTryGet((uid, args.Sprite), ExpendableLightVisualLayers.Overlay, out layerIdx, true))
+                {
+                    if (!string.IsNullOrWhiteSpace(comp.IconStateSpent))
+                        SpriteSystem.LayerSetRsiState((uid, args.Sprite), layerIdx, comp.IconStateSpent);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
                     if (!string.IsNullOrWhiteSpace(comp.SpriteShaderSpent))
                         args.Sprite.LayerSetShader(layerIdx, comp.SpriteShaderSpent);
                     else
                         args.Sprite.LayerSetShader(layerIdx, null, null);
                 }
 
+<<<<<<< HEAD
                 args.Sprite.LayerSetVisible(ExpendableLightVisualLayers.Glow, false);
+=======
+                SpriteSystem.LayerSetVisible((uid, args.Sprite), ExpendableLightVisualLayers.Glow, false);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
                 break;
         }
     }

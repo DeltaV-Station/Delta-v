@@ -79,6 +79,7 @@
     entityType: enum.SiliconType.Player
     batteryPowered: true
     drainPerSecond: 1.3 # DeltaV change from 1.5
+    idleDrainReduction: 0.6 # TheDen - 60% less power usage while idling, for IPC Dynamic Power Draw
     chargeThresholdMid: 0.80
     chargeThresholdLow: 0.35
     chargeThresholdCritical: 0.10

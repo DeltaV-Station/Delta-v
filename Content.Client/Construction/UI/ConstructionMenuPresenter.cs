@@ -38,7 +38,11 @@ namespace Content.Client.Construction.UI
         private ConstructionSystem? _constructionSystem;
         private ConstructionPrototype? _selected;
         private List<ConstructionPrototype> _favoritedRecipes = [];
+<<<<<<< HEAD
         private Dictionary<string, TextureButton> _recipeButtons = new();
+=======
+        private readonly Dictionary<string, ContainerButton> _recipeButtons = new();
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         private string _selectedCategory = string.Empty;
         private string _favoriteCatName = "construction-category-favorites";
         private string _forAllCategoryName = "construction-category-all";
@@ -270,7 +274,80 @@ namespace Content.Client.Construction.UI
             {
                 foreach (var recipe in recipes)
                 {
+<<<<<<< HEAD
                     recipesList.Add(GetItem(recipe, recipesList));
+=======
+                    Scale = new Vector2(1.2f),
+                };
+                protoView.SetPrototype(recipe.TargetPrototype);
+
+                var itemButton = new ContainerButton()
+                {
+                    VerticalAlignment = Control.VAlignment.Center,
+                    Name = recipe.Prototype.Name,
+                    ToolTip = recipe.Prototype.Name,
+                    ToggleMode = true,
+                    Children = { protoView },
+                };
+
+                var itemButtonPanelContainer = new PanelContainer
+                {
+                    PanelOverride = new StyleBoxFlat { BackgroundColor = StyleNano.ButtonColorDefault },
+                    Children = { itemButton },
+                };
+
+                itemButton.OnToggled += buttonToggledEventArgs =>
+                {
+                    SelectGridButton(itemButton, buttonToggledEventArgs.Pressed);
+
+                    if (buttonToggledEventArgs.Pressed &&
+                        _selected != null &&
+                        _recipeButtons.TryGetValue(_selected.ID, out var oldButton))
+                    {
+                        oldButton.Pressed = false;
+                        SelectGridButton(oldButton, false);
+                    }
+
+                    OnGridViewRecipeSelected(this, buttonToggledEventArgs.Pressed ? recipe.Prototype : null);
+                };
+
+                recipesGrid.AddChild(itemButtonPanelContainer);
+                _recipeButtons[recipe.Prototype.ID] = itemButton;
+                var isCurrentButtonSelected = _selected == recipe.Prototype;
+                itemButton.Pressed = isCurrentButtonSelected;
+                SelectGridButton(itemButton, isCurrentButtonSelected);
+            }
+        }
+
+        private List<ConstructionMenu.ConstructionMenuListData> GetAndSortRecipes((string, string) args)
+        {
+            var recipes = new List<ConstructionMenu.ConstructionMenuListData>();
+
+            var (search, category) = args;
+            var isEmptyCategory = string.IsNullOrEmpty(category) || category == ForAllCategoryName;
+            _selectedCategory = isEmptyCategory ? string.Empty : category;
+
+            foreach (var recipe in _prototypeManager.EnumeratePrototypes<ConstructionPrototype>())
+            {
+                if (recipe.Hide)
+                    continue;
+
+                if (_playerManager.LocalSession == null
+                    || _playerManager.LocalEntity == null
+                    || _whitelistSystem.IsWhitelistFail(recipe.EntityWhitelist, _playerManager.LocalEntity.Value))
+                    continue;
+
+                if (!string.IsNullOrEmpty(search) && (recipe.Name is { } name &&
+                                                      !name.Contains(search.Trim(),
+                                                          StringComparison.InvariantCultureIgnoreCase)))
+                    continue;
+
+                if (!isEmptyCategory)
+                {
+                    if ((category != FavoriteCatName || !_favoritedRecipes.Contains(recipe)) &&
+                        recipe.Category != category)
+                        continue;
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
                 }
             }
         }
@@ -280,7 +357,11 @@ namespace Content.Client.Construction.UI
             if (button.Parent is not PanelContainer buttonPanel)
                 return;
 
+<<<<<<< HEAD
             button.Modulate = select ? Color.Green : Color.White;
+=======
+            button.Children.Single().Modulate = select ? Color.Green : Color.White;
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
             var buttonColor = select ? StyleNano.ButtonColorDefault : Color.Transparent;
             buttonPanel.PanelOverride = new StyleBoxFlat { BackgroundColor = buttonColor };
         }

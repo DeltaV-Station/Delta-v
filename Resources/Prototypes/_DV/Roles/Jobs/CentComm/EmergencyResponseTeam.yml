@@ -325,6 +325,9 @@
     mask: ClothingMaskGasERT
     outerClothing: ClothingOuterHardsuitERTJanitorBase
     pocket1: WeaponEnergyGunMini
+  storage:
+    belt:
+    - TrashBagOfHolding
 
 - type: startingGear
   parent: ERTJanitorGearRed
@@ -334,7 +337,6 @@
     outerClothing: ClothingOuterHardsuitERTJanitorElite
   inhand:
   - AdvMopItem
-  - BagOfSummoningGarbage
   storage:
     back:
     - CrowbarRed

@@ -27,6 +27,7 @@ public sealed class PoweredLightVisualizerSystem : VisualizerSystem<PoweredLight
             return;
 
         if (comp.SpriteStateMap.TryGetValue(state, out var spriteState))
+<<<<<<< HEAD
             args.Sprite.LayerSetState(PoweredLightLayers.Base, spriteState);
 
         if (args.Sprite.LayerExists(PoweredLightLayers.Glow))
@@ -37,6 +38,18 @@ public sealed class PoweredLightVisualizerSystem : VisualizerSystem<PoweredLight
             }
 
             args.Sprite.LayerSetVisible(PoweredLightLayers.Glow, state == PoweredLightState.On);
+=======
+            SpriteSystem.LayerSetRsiState((uid, args.Sprite), PoweredLightLayers.Base, spriteState);
+
+        if (SpriteSystem.LayerExists((uid, args.Sprite), PoweredLightLayers.Glow))
+        {
+            if (TryComp<PointLightComponent>(uid, out var light))
+            {
+                SpriteSystem.LayerSetColor((uid, args.Sprite), PoweredLightLayers.Glow, light.Color);
+            }
+
+            SpriteSystem.LayerSetVisible((uid, args.Sprite), PoweredLightLayers.Glow, state == PoweredLightState.On);
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         }
 
         SetBlinkingAnimation(

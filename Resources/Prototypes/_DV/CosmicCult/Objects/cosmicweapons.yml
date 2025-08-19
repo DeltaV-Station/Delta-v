@@ -190,7 +190,6 @@
     projectileSpeed: 14
     soundGunshot: /Audio/_DV/CosmicCult/projectile_razor.ogg
     fireRate: 1
-    useKey: false
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 2
     rechargeSound:
@@ -227,6 +226,7 @@
       params:
         variation: 0.2
         volume: -11
+<<<<<<< HEAD
   - type: Reflect
     reflectProb: .21
     spread: 120
@@ -235,6 +235,10 @@
       params:
         variation: 0.2
         volume: -6
+=======
+  - type: AltFireMelee
+    attackType: Heavy
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   - type: Wieldable
     wieldSound:
       path: /Audio/_DV/CosmicCult/cosmic_wield.ogg

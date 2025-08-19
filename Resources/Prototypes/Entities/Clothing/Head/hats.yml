@@ -40,6 +40,10 @@
   - type: Tag
     tags:
     - ClothMade
+<<<<<<< HEAD
+=======
+    - Recyclable
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     - WhitelistChameleon
 
 - type: entity
@@ -342,6 +346,8 @@
     sprite: Clothing/Head/Hats/outlawhat.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/outlawhat.rsi
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   parent: ClothingHeadBase
@@ -415,8 +421,19 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/santahat.rsi
+<<<<<<< HEAD
   - type: Clothing
     sprite: Clothing/Head/Hats/santahat.rsi
+=======
+    layers:
+    - state: icon
+      map: ["unfoldedLayer"]
+    - state: icon-nobeard
+      map: [ "foldedLayer" ]
+      visible: true
+
+
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 
 - type: entity
   parent: ClothingHeadBase
@@ -576,6 +593,7 @@
     lowPressureMultiplier: 1000
   - type: TemperatureProtection # DeltaV
     coolingCoefficient: 0.2
+  - type: BreathMask # DeltaV - No more masks needed
 
 - type: entity
   parent: ClothingHeadHatWizardBase

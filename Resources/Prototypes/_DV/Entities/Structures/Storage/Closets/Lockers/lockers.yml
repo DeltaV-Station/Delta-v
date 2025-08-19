@@ -162,3 +162,11 @@
           MaterialWoodPlank1:
             min: 1
             max: 2
+
+- type: entity
+  id: SalvageGunSafeBaseSecure
+  parent: GunSafe
+  suffix: LO, Locked
+  components:
+  - type: AccessReader
+    access: [["Quartermaster"]]

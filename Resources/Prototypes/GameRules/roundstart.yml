@@ -22,8 +22,8 @@
     rules:
     - id: Thief
       prob: 0.5
-    #- id: SubWizard # DeltaV - removed until its touched up
-    #  prob: 0.05
+    - id: SubWizard
+      prob: 0.05
 
 - type: entity
   parent: BaseGameRule
@@ -271,10 +271,17 @@
   parent: BaseGameRule
   id: BaseWizardRule
   components:
-  - type: AntagObjectives
-    objectives:
-    - WizardSurviveObjective
-    - WizardDemonstrateObjective
+  #- type: AntagObjectives # DeltaV - begin changes
+    #objectives:
+    #- WizardSurviveObjective
+    #- WizardDemonstrateObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: WizardObjectiveGroupPrimaryDelta
+      maxPicks: 1
+    - groups: WizardObjectiveGroupSecondaryDelta
+      maxPicks: 2
+    maxDifficulty: 5 # DeltaV - end changes
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/wizard.yml
   - type: RuleGrids
@@ -424,11 +431,25 @@
   - type: NextEvent # DeltaV: Queue Event for precognition
   - type: RampingStationEventScheduler
     timeKeyPoints: # DeltaV
+<<<<<<< HEAD
     - 14, 16
     - 32, 8
     - 32, 4
     - 8, 2
     - 32, 8
+=======
+    - 10, 10
+    - 10, 6
+    - 10, 1
+    - 10, 3
+    - 15, 5
+    - 15, 4
+    - 20, 2
+    - 10, 1
+    - 10, 4
+    - 10, 3
+    - 70, 4
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
 
@@ -477,3 +498,16 @@
       orGroup: puddleMess
     - id: SmugglerStashVariationPass
       prob: 0.90
+<<<<<<< HEAD
+=======
+    #- id: SolarPanelDamageVariationPass # DeltaV - we have random solar panel spawner
+    #- id: SolarPanelEmptyVariationPass # DeltaV
+    - id: BasicDecalDirtVariationPass
+    - id: BasicDecalGraffitiVariationPass
+    - id: BasicDecalBrunsVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals
+    - id: BasicDecalDirtMonospaceVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30

@@ -467,4 +467,21 @@ public enum LogType
     /// Logs related to botany, such as planting and harvesting crops
     /// </summary>
     Botany = 100,
+<<<<<<< HEAD
+=======
+    /// <summary>
+    /// Artifact node got activated.
+    /// </summary>
+    ArtifactNode = 101,
+
+    /// <summary>
+    /// Damaging grid collision has occurred.
+    /// </summary>
+    ShuttleImpact = 102,
+
+    /// <summary>
+    /// Events relating to midi playback.
+    /// </summary>
+    Instrument = 103,
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 }

@@ -60,6 +60,7 @@
             - material: Cable
               amount: 2
               doAfter: 1
+<<<<<<< HEAD
             - tag: CapacitorStockPart
               name: capacitor
               icon:
@@ -70,5 +71,9 @@
               icon:
                 sprite: Objects/Misc/stock_parts.rsi
                 state: capacitor
+=======
+            - material: Manipulator
+              amount: 2
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     - node: potatoaichip
       entity: PotatoAIChip

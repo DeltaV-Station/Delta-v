@@ -23,6 +23,13 @@ station-beacon-engi-outpost = Engi Outpost
 station-beacon-janitor-office = Jani Office
 station-beacon-janitor-closet = Jani Closet
 station-beacon-reporter = Reporter
+<<<<<<< HEAD
+=======
+station-beacon-shop = Shop
+station-beacon-clown = Clown
+station-beacon-mime = Mime
+station-beacon-musician = Musician
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 
 station-beacon-camera-servers = Cameras
 

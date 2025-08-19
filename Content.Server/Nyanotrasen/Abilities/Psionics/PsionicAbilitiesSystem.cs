@@ -5,14 +5,15 @@ using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Server.EUI;
 using Content.Server.Psionics;
-using Content.Server.Mind;
-using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
+using Content.Shared.Jittering;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
+<<<<<<< HEAD
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
+=======
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 using Robust.Shared.Player;
 
 namespace Content.Server.Abilities.Psionics
@@ -25,6 +26,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+        [Dependency] private readonly SharedJitteringSystem _jittering = default!;
         [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
@@ -128,14 +130,17 @@ namespace Content.Server.Abilities.Psionics
                     RemComp(uid, psionicPower);
             }
             if (psionic.PsionicAbility != null){
-                _actionsSystem.TryGetActionData( psionic.PsionicAbility, out var psiAbility );
-                if (psiAbility != null){
-                    var owner = psiAbility.Owner;
+                if (_actionsSystem.GetAction(psionic.PsionicAbility) is { } psiAbility)
+                {
                     _actionsSystem.RemoveAction(uid, psiAbility.Owner);
                 }
             }
 
-            _statusEffectsSystem.TryAddStatusEffect(uid, "Stutter", TimeSpan.FromMinutes(5), false, "StutteringAccent");
+            _glimmerSystem.Glimmer -= _random.Next(50, 70);
+
+            _statusEffectsSystem.TryAddStatusEffect(uid, "Stutter", TimeSpan.FromMinutes(1), false, "StutteringAccent");
+            _statusEffectsSystem.TryAddStatusEffect(uid, "KnockedDown", TimeSpan.FromSeconds(3), false, "KnockedDown");
+            _jittering.DoJitter(uid, TimeSpan.FromSeconds(10), false);
 
             RemComp<PsionicComponent>(uid);
         }

@@ -49,13 +49,15 @@
       provided_container: !type:Container { }
 
 - type: entity
+  parent: BaseAction
   id: ActionBorgSwapModule
   name: Swap Module
   description: Select this module, enabling you to use the tools it provides.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigAction
     useDelay: 0.5
+  - type: InstantAction
     event: !type:BorgModuleActionSelectedEvent
 
 - type: entity
@@ -513,7 +515,23 @@
       whitelist:
         components:
         - FloorTile
+<<<<<<< HEAD
     # End DeltaV Additions
+=======
+    - id: FloorTileItemWhite
+      whitelist:
+        components:
+        - FloorTile
+    - id: FloorTileItemDark
+      whitelist:
+        components:
+        - FloorTile
+    - id: MicroManipulatorStockPart
+      whitelist:
+        tags:
+        - BorgStockPart
+  # End DeltaV Additions
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: construction-module }
 
@@ -608,9 +626,24 @@
     items:
     - AdvMopItem
     - HoloprojectorBorg
+<<<<<<< HEAD
     - SprayBottleSpaceCleaner
     - Dropper
     - TrashBag
+=======
+    - WeaponLauncherHydraBorg # DeltaV - Let borgs have cleannades!
+    - BorgDropper
+    #- BorgBeaker # DeltaV - made droppable
+  # Begin DeltaV Additions
+  - type: DroppableBorgModule
+    moduleId: AdvancedCleaning
+    items:
+    - id: Beaker
+      whitelist:
+        tags:
+        - GlassBeaker
+  # End DeltaV Additions
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-cleaning-module }
 
@@ -953,6 +986,8 @@
       - state: base-part-inhand-right
       - state: base-stripes-inhand-right
         color: "#7B0F12"
+  - type: StaticPrice
+    price: 2500
 
 - type: entity
   id: BorgModuleOperative
@@ -1047,3 +1082,244 @@
         - state: base-part-inhand-right
         - state: base-stripes-inhand-right
           color: "#7B0F12"
+<<<<<<< HEAD
+=======
+    - type: StaticPrice
+      price: 2000
+
+# xenoborg modules
+- type: entity
+  parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleBasic
+  name: basic xenoborg module
+  description: Essential items for any xenoborg.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_generic
+    - state: icon-xenoborg-basic
+  - type: ItemBorgModule
+    moduleId: XenoborgBasic # DeltaV
+    items:
+    - MaterialBag
+    - PinpointerMothership
+    - HandheldGPSBasic
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-basic-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleTool
+  name: tool xenoborg module
+  description: Simple tools for most xenoborgs.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_generic
+    - state: icon-xenoborg-tools
+  - type: ItemBorgModule
+    moduleId: XenoborgTool # DeltaV
+    items:
+    - Crowbar
+    - Wrench
+    - Screwdriver
+    - Wirecutter
+    - Multitool
+    - RefuelingWelder
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-tool-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleAccessBreaker
+  name: access breaker xenoborg module
+  description: Module with a access breaker.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-access-breaker
+  - type: ItemBorgModule
+    moduleId: XenoborgAccessBreaker # DeltaV
+    items:
+    - Doorjack # DeltaV - replaces AccessBreaker
+    - Emag # DeltaV - for lockers/etc
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-access-breaker-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleFireExtinguisher
+  name: fire extinguisher xenoborg module
+  description: Module with a self-refueling fire extinguisher.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-fire-extinguisher
+  - type: ItemBorgModule
+    moduleId: XenoborgFireExtinguisher # DeltaV
+    items:
+    - SelfRechargingFireExtinguisher
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-extinguisher-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleJammer
+  name: jammer xenoborg module
+  description: Module with a communication jammer.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_heavy
+    - state: icon-xenoborg-jammer
+  - type: ItemBorgModule
+    moduleId: XenoborgJammer # DeltaV
+    items:
+    - XenoborgRadioJammer
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-jammer-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleLaser
+  name: laser xenoborg module
+  description: Module with a laser gun.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_heavy
+    - state: icon-xenoborg-laser
+  - type: ItemBorgModule
+    moduleId: XenoborgLaser # DeltaV
+    items:
+    - XenoborgLaserGun
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-laser-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleHeavyLaser
+  name: heavy laser xenoborg module
+  description: Module with a heavy laser gun.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_heavy
+    - state: icon-xenoborg-laser2
+  - type: ItemBorgModule
+    moduleId: XenoborgHeavyLaser # DeltaV
+    items:
+    - XenoborgHeavyLaserGun
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-laser2-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleSpaceMovement
+  name: space movement xenoborg module
+  description: Module that helps a xenoborg move better in space.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_scout
+    - state: icon-xenoborg-space-movement
+  - type: ItemBorgModule
+    moduleId: XenoborgSpaceMovement # DeltaV
+    items:
+    - HandheldGPSBasic
+    - HandHeldMassScannerBorg
+    - HandheldStationMapUnpowered
+    - WeaponGrapplingGun
+    - JetpackXenoborg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-space-movement-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleSword
+  name: sword xenoborg module
+  description: Module with a kukri knife.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_scout
+    - state: icon-xenoborg-sword
+  - type: ItemBorgModule
+    moduleId: XenoborgSword # DeltaV
+    items:
+    - KukriKnife
+    - JetpackXenoborg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-sword-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleEnergySword
+  name: energy sword xenoborg module
+  description: Module with an energy dagger.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_scout
+    - state: icon-xenoborg-sword2
+  - type: ItemBorgModule
+    moduleId: XenoborgEnergySword # DeltaV
+    items:
+    - EnergyDaggerLoudBlue
+    - JetpackXenoborg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-sword2-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleHypo
+  name: nocturine hypo xenoborg module
+  description: Module with a self-refilling nocturine hypo.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_stealth
+    - state: icon-xenoborg-hypo
+  - type: ItemBorgModule
+    moduleId: XenoborgHypo # DeltaV
+    items:
+    - NocturineHypo
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-hypo-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleChameleonProjector
+  name: chameleon projector xenoborg module
+  description: Module with a chameleon projector.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_stealth
+    - state: icon-xenoborg-projector
+  - type: ItemBorgModule
+    moduleId: XenoborgChameleonProjector # DeltaV
+    items:
+    - ChameleonProjector
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-projector-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleCloakDevice
+  name: cloaking device xenoborg module
+  description: Module with a device that allows xenoborgs to become invisible for some time.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_stealth
+    - state: icon-xenoborg-cloak
+  - type: ItemBorgModule
+    moduleId: XenoborgCloakDevice # DeltaV
+    items:
+    - CloakingDevice
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-eye-module }
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30

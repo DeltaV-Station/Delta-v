@@ -8,7 +8,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._DV.CosmicCult.EntitySystems;
@@ -125,10 +124,15 @@ public sealed class CosmicRiftSystem : EntitySystem
         args.Handled = true;
         var tgtpos = Transform(target).Coordinates;
         Spawn(uid.Comp.AbsorbVFX, tgtpos);
+<<<<<<< HEAD
+=======
+        comp.ActionEntities.Add(actionEnt);
+        comp.CosmicFragmentationActionEntity = actionEnt;
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         comp.CosmicEmpowered = true;
         comp.CosmicSiphonQuantity = 2;
         comp.CosmicGlareRange = 10;
-        comp.CosmicGlareDuration = TimeSpan.FromSeconds(10);
+        comp.CosmicGlareDuration = TimeSpan.FromSeconds(6);
         comp.CosmicGlareStun = TimeSpan.FromSeconds(1);
         comp.CosmicImpositionDuration = TimeSpan.FromSeconds(7.2);
         comp.Respiration = false;

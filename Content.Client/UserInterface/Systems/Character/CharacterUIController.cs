@@ -29,7 +29,6 @@ namespace Content.Client.UserInterface.Systems.Character;
 public sealed class CharacterUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnSystemChanged<CharacterInfoSystem>
 {
     [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly ILogManager _logMan = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly CustomObjectiveSummaryUIController _objective = default!; // DeltaV
@@ -37,13 +36,9 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
     [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
     [UISystemDependency] private readonly SpriteSystem _sprite = default!;
 
-    private ISawmill _sawmill = default!;
-
     public override void Initialize()
     {
         base.Initialize();
-
-        _sawmill = _logMan.GetSawmill("character");
 
         SubscribeNetworkEvent<MindRoleTypeChangedEvent>(OnRoleTypeChanged);
     }
@@ -236,6 +231,7 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         if (!_ent.TryGetComponent<MindComponent>(container.Mind.Value, out var mind))
             return;
 
+<<<<<<< HEAD
         var roleText = Loc.GetString("role-type-crew-aligned-name");
         var color = Color.White;
         if (_prototypeManager.TryIndex(mind.RoleType, out var proto))
@@ -245,6 +241,10 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         }
         else
             _sawmill.Error($"{_player.LocalEntity} has invalid Role Type '{mind.RoleType}'. Displaying '{roleText}' instead");
+=======
+        if (!_prototypeManager.TryIndex(mind.RoleType, out var proto))
+            Log.Error($"Player '{_player.LocalSession}' has invalid Role Type '{mind.RoleType}'. Displaying default instead");
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 
         _window.RoleType.Text = roleText;
         _window.RoleType.FontColorOverride = color;

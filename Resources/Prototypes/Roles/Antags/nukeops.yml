@@ -80,16 +80,41 @@
     pocket2: BaseUplinkRadio45TC # DeltaV removal of armor
     outerClothing: ClothingOuterCoatSyndieCap # DeltaV removal of armor
 
+- type: chameleonOutfit
+  id: NukeopsOutfit
+  name: roles-antag-nuclear-operative-name
+  startingGear: SyndicateOperativeGearFullNoUplink
+  icon: "JobIconSyndicate"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndie
+    neck: ClothingNeckScarfStripedSyndieRed
+
 #Nuclear Operative Commander Gear
 - type: startingGear
   id: SyndicateCommanderGearFull
   parent: SyndicateOperativeGearFull
   equipment:
     neck: SyndicateWhistle
+<<<<<<< HEAD
     pocket2: CommanderUplinkRadio45TC # DeltaV allows them to buy commander armor
     outerClothing: ClothingOuterCoatSyndieCapArmored # DeltaV removal of armor
 #  inhand: # DeltaV - Removal Of War.
 #  - NukeOpsDeclarationOfWar
+=======
+    pocket2: CommanderUplinkRadio45TC # DeltaV - allows them to buy commander armor
+    outerClothing: ClothingOuterCoatSyndieCapArmored # DeltaV - removal of armor
+  inhand:
+  - NukeOpsDeclarationOfWar
+
+- type: chameleonOutfit
+  id: NukeopsCommanderOutfit
+  name: roles-antag-nuclear-operative-commander-name
+  startingGear: SyndicateCommanderGearFull
+  icon: "JobIconSyndicate"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndieCommander
+    neck: ClothingNeckScarfStripedSyndieGreen
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 
 #Nuclear Operative Medic Gear
 - type: startingGear
@@ -115,6 +140,15 @@
     - DeathAcidifierImplanter
     - BionicVoiceMaskImplanter # Delta-V - Voice masking implant
     - OmnimedToolSyndie # Shitmed
+
+- type: chameleonOutfit
+  id: NukeopsMedicOutfit
+  name: roles-antag-nuclear-operative-agent-name
+  startingGear: SyndicateOperativeMedicFull
+  icon: "JobIconSyndicate"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndieMedic
+    neck: ClothingNeckScarfStripedLightBlue
 
 #Lone Operative Gear
 - type: startingGear

@@ -186,6 +186,8 @@
     sprite: Clothing/Head/Hats/catears.rsi
 #  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
 #    accent: OwOAccent
+  - type: StaticPrice
+    price: 15000
 
 - type: entity
   parent: [ClothingHeadHatCatEars, BaseToggleClothing]
@@ -210,13 +212,10 @@
 #    accent: OwOAccent
 
 - type: entity
-  categories: [ Actions, HideSpawnMenu ]
+  parent: BaseToggleAction
   id: ActionBecomeValid
   name: Become Valid
   description: "*notices your killsign* owo whats this"
-  components:
-  - type: InstantAction
-    event: !type:ToggleActionEvent
 
 - type: entity
   parent: ClothingHeadBase
@@ -244,6 +243,15 @@
     sprite: Clothing/Head/Misc/squiddy.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
+<<<<<<< HEAD
+=======
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide
+    - FacialHair
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 
 - type: entity
   parent: ClothingHeadBase

@@ -17,7 +17,7 @@ namespace Content.Shared.Construction.Conditions
 
             foreach (var entity in location.GetEntitiesInTile(LookupFlags.Approximate | LookupFlags.Static))
             {
-                if (IoCManager.Resolve<IEntityManager>().HasComponent<SharedCanBuildWindowOnTopComponent>(entity))
+                if (entManager.HasComponent<SharedCanBuildWindowOnTopComponent>(entity))
                     result = true;
             }
 

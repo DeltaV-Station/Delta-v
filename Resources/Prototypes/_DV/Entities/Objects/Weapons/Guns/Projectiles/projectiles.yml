@@ -126,3 +126,17 @@
     proto: BulletEnergyGunLightImmolator
     count: 6
     spread: 20
+<<<<<<< HEAD
+=======
+
+- type: entity
+  parent: BaseBullet
+  id: BulletBuccaneer
+  name: buccaneer bullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30

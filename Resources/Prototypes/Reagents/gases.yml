@@ -323,6 +323,42 @@
   boilingPoint: -195.8
   meltingPoint: -210.0
   metabolisms:
+<<<<<<< HEAD
+=======
+    Narcotic:
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Cellular: 1
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 15
+        refresh: false
+      - !type:Drunk
+        boozePower: 15
+      - !type:PopupMessage
+        type: Local
+        messages: [ "frezon-lungs-cold" ]
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 0.5
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages: [ "frezon-euphoric" ]
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 1
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     Gas:
       effects:
       - !type:HealthChange

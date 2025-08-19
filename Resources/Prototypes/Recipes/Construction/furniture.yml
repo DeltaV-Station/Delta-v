@@ -240,6 +240,7 @@
 - type: construction
   name: comfortable red bench
   id: RedComfBench
+  name: construction-recipe-red-comf-bench
   graph: Seat
   startNode: start
   targetNode: redComfBench
@@ -257,6 +258,7 @@
 - type: construction
   name: comfortable blue bench
   id: BlueComfBench
+  name: construction-recipe-blue-comf-bench
   graph: Seat
   startNode: start
   targetNode: blueComfBench
@@ -411,6 +413,7 @@
 - type: construction
   name: fancy black table
   id: TableFancyBlack
+  name: construction-recipe-table-fancy-black
   graph: Table
   startNode: start
   targetNode: TableFancyBlack
@@ -428,6 +431,7 @@
 - type: construction
   name: fancy blue table
   id: TableFancyBlue
+  name: construction-recipe-table-fancy-blue
   graph: Table
   startNode: start
   targetNode: TableFancyBlue
@@ -445,6 +449,7 @@
 - type: construction
   name: fancy cyan table
   id: TableFancyCyan
+  name: construction-recipe-table-fancy-cyan
   graph: Table
   startNode: start
   targetNode: TableFancyCyan
@@ -462,6 +467,7 @@
 - type: construction
   name: fancy green table
   id: TableFancyGreen
+  name: construction-recipe-table-fancy-green
   graph: Table
   startNode: start
   targetNode: TableFancyGreen
@@ -479,6 +485,7 @@
 - type: construction
   name: fancy orange table
   id: TableFancyOrange
+  name: construction-recipe-table-fancy-orange
   graph: Table
   startNode: start
   targetNode: TableFancyOrange
@@ -496,6 +503,7 @@
 - type: construction
   name: fancy purple table
   id: TableFancyPurple
+  name: construction-recipe-table-fancy-purple
   graph: Table
   startNode: start
   targetNode: TableFancyPurple
@@ -513,6 +521,7 @@
 - type: construction
   name: fancy pink table
   id: TableFancyPink
+  name: construction-recipe-table-fancy-pink
   graph: Table
   startNode: start
   targetNode: TableFancyPink
@@ -530,6 +539,7 @@
 - type: construction
   name: fancy red table
   id: TableFancyRed
+  name: construction-recipe-table-fancy-red
   graph: Table
   startNode: start
   targetNode: TableFancyRed
@@ -547,6 +557,7 @@
 - type: construction
   name: fancy white table
   id: TableFancyWhite
+  name: construction-recipe-table-fancy-white
   graph: Table
   startNode: start
   targetNode: TableFancyWhite
@@ -720,8 +731,12 @@
 
 - type: construction
   id: Curtains
+<<<<<<< HEAD
   name: curtains
   description: Contains less than 1% mercury.
+=======
+  name: construction-recipe-curtains-cloth
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   graph: Curtains
   startNode: start
   targetNode: Curtains
@@ -735,8 +750,12 @@
     
 - type: construction
   id: CurtainsBlack
+<<<<<<< HEAD
   name: black curtains
   description: Hides what others shouldn't see.
+=======
+  name: construction-recipe-curtains-black
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   graph: Curtains
   startNode: start
   targetNode: CurtainsBlack
@@ -750,8 +769,12 @@
 
 - type: construction
   id: CurtainsBlue
+<<<<<<< HEAD
   name: blue curtains
   description: Hides what others shouldn't see.
+=======
+  name: construction-recipe-curtains-blue
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   graph: Curtains
   startNode: start
   targetNode: CurtainsBlue
@@ -765,8 +788,12 @@
     
 - type: construction
   id: CurtainsCyan
+<<<<<<< HEAD
   name: cyan curtains
   description: Hides what others shouldn't see.
+=======
+  name: construction-recipe-curtains-cyan
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   graph: Curtains
   startNode: start
   targetNode: CurtainsCyan
@@ -780,8 +807,12 @@
     
 - type: construction
   id: CurtainsGreen
+<<<<<<< HEAD
   name: green curtains
   description: Hides what others shouldn't see.
+=======
+  name: construction-recipe-curtains-green
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   graph: Curtains
   startNode: start
   targetNode: CurtainsGreen
@@ -795,8 +826,12 @@
     
 - type: construction
   id: CurtainsOrange
+<<<<<<< HEAD
   name: orange curtains
   description: Hides what others shouldn't see.
+=======
+  name: construction-recipe-curtains-orange
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   graph: Curtains
   startNode: start
   targetNode: CurtainsOrange
@@ -810,8 +845,12 @@
     
 - type: construction
   id: CurtainsPink
+<<<<<<< HEAD
   name: pink curtains
   description: Hides what others shouldn't see.
+=======
+  name: construction-recipe-curtains-pink
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   graph: Curtains
   startNode: start
   targetNode: CurtainsPink
@@ -825,8 +864,12 @@
     
 - type: construction
   id: CurtainsPurple
+<<<<<<< HEAD
   name: purple curtains
   description: Hides what others shouldn't see.
+=======
+  name: construction-recipe-curtains-purple
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   graph: Curtains
   startNode: start
   targetNode: CurtainsPurple
@@ -840,8 +883,12 @@
     
 - type: construction
   id: CurtainsRed
+<<<<<<< HEAD
   name: red curtains
   description: Hides what others shouldn't see.
+=======
+  name: construction-recipe-curtains-red
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   graph: Curtains
   startNode: start
   targetNode: CurtainsRed
@@ -855,8 +902,12 @@
 
 - type: construction
   id: CurtainsWhite
+<<<<<<< HEAD
   name: white curtains
   description: Hides what others shouldn't see.
+=======
+  name: construction-recipe-curtains-white
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
   graph: Curtains
   startNode: start
   targetNode: CurtainsWhite

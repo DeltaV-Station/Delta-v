@@ -10,12 +10,15 @@ using Content.Shared._DV.CCVars;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Prototypes;
+<<<<<<< HEAD
+=======
+using Content.Server._DV.Shuttles.Events;
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
-using Content.Shared.Temperature.Components;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
@@ -53,6 +56,10 @@ public sealed class MonumentSystem : SharedMonumentSystem
     {
         base.Initialize();
 
+<<<<<<< HEAD
+=======
+        SubscribeLocalEvent<EvacShuttleDockedEvent>(OnEvacDocked); // for no more finale once the evac shuttle docks
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         SubscribeLocalEvent<MonumentComponent, InteractUsingEvent>(OnInfuseHeldEntropy);
         SubscribeLocalEvent<MonumentComponent, ActivateInWorldEvent>(OnInfuseEntropy);
     }
@@ -126,6 +133,22 @@ public sealed class MonumentSystem : SharedMonumentSystem
         }
     }
 
+<<<<<<< HEAD
+=======
+    /// <summary>
+    /// on shuttle evac, disable the monument's UI, disable it from being activated, and stop the finale music if it was playing
+    /// </summary>
+    private void OnEvacDocked(EvacShuttleDockedEvent args)
+    {
+        var evacQuery = EntityQueryEnumerator<MonumentComponent, CosmicFinaleComponent>();
+        while (evacQuery.MoveNext(out var ent, out var monuComp, out var finaleComp))
+        {
+            finaleComp.CurrentState = FinaleState.Unreachable;
+        }
+
+    }
+
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     private void OnMonumentPhaseOut(Entity<MonumentComponent> ent)
     {
         //todo check if anything gets messed up by doing this to the monument?
@@ -259,10 +282,10 @@ public sealed class MonumentSystem : SharedMonumentSystem
             _appearance.SetData(ent, MonumentVisuals.FinaleReached, true);
     }
 
-    //note - these ar the thresholds for moving to the next tier
-    //so t1 -> 2 needs 20% of the crew
-    //t2 -> 3 needs 40%
-    //and t3 -> finale needs an extra 20 entropy
+    //note - these are the thresholds for moving to the next tier
+    //so t1 -> 2 needs 1/3 of CosmicCultTargetConversionPercent
+    //t2 -> 3 needs 2/3 of CosmicCultTargetConversionPercent
+    //and t3 -> finale needs full CosmicCultTargetConversionPercent
     public void UpdateMonumentReqsForTier(Entity<MonumentComponent> monument, int tier)
     {
         if (_cosmicRule.AssociatedGamerule(monument) is not { } cult)
@@ -274,15 +297,15 @@ public sealed class MonumentSystem : SharedMonumentSystem
         {
             case 1:
                 monument.Comp.ProgressOffset = 0;
-                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 / 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 / 3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
                 break;
             case 2:
-                monument.Comp.ProgressOffset = (int)(numberOfCrewForTier3 / 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //reset the progress offset
-                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+                monument.Comp.ProgressOffset = (int)(numberOfCrewForTier3 / 3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //reset the progress offset
+                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 / 3 * 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
                 break;
             case 3:
-                monument.Comp.ProgressOffset = (int)(numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
-                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //removed offset; replaced with timer
+                monument.Comp.ProgressOffset = (int)(numberOfCrewForTier3 / 3 * 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
                 break;
         }
     }

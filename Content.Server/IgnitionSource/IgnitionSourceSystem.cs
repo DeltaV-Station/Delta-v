@@ -6,10 +6,14 @@ using Robust.Server.GameObjects;
 
 namespace Content.Server.IgnitionSource;
 
+<<<<<<< HEAD
 /// <summary>
 /// This handles ignition, Jez basically coded this.
 /// </summary>
 public sealed class IgnitionSourceSystem : EntitySystem
+=======
+public sealed partial class IgnitionSourceSystem : SharedIgnitionSourceSystem
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 {
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly TransformSystem _transform = default!;

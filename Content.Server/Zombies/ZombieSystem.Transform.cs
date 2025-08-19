@@ -39,6 +39,7 @@ using Robust.Shared.Audio.Systems;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
+using Content.Shared.NPC.Prototypes;
 
 namespace Content.Server.Zombies;
 
@@ -65,6 +66,11 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
+<<<<<<< HEAD
+=======
+    private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
+    private static readonly ProtoId<NpcFactionPrototype> ZombieFaction = "Zombie";
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 
     /// <summary>
     /// Handles an entity turning into a zombie when they die or go into crit
@@ -246,7 +252,7 @@ public sealed partial class ZombieSystem
         _mobState.ChangeMobState(target, MobState.Alive);
 
         _faction.ClearFactions(target, dirty: false);
-        _faction.AddFaction(target, "Zombie");
+        _faction.AddFaction(target, ZombieFaction);
         EnsureComp<NoFriendlyFireComponent>(target); // DeltaV - prevent shitters biting other zombies
 
         //gives it the funny "Zombie ___" name.

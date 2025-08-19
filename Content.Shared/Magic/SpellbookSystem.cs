@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 ﻿using Content.Shared.Actions;
+=======
+using Content.Shared.Actions;
+﻿using Content.Shared.Actions.Components;
+using Content.Shared.Charges.Systems;
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Magic.Components;
@@ -58,7 +64,7 @@ public sealed class SpellbookSystem : EntitySystem
 
         if (!ent.Comp.LearnPermanently)
         {
-            _actions.GrantActions(args.Args.User, ent.Comp.Spells, ent);
+            _actions.GrantActions(args.Args.User, ent.Comp.Spells, ent.Owner);
             return;
         }
 

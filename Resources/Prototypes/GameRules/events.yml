@@ -33,7 +33,7 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: BasicAntagEventsTableDeltaV
-    - id: ClosetSkeleton
+    #- id: ClosetSkeleton # DeltaV - replaced with MenaceSkeleton
     - id: DragonSpawn
     #- id: KingRatMigration # DeltaV - disabled
     - id: NinjaSpawn
@@ -43,7 +43,7 @@
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
-    #- id: WizardSpawn # DeltaV - disabled until its touched up
+    - id: WizardSpawn
 
 - type: entity
   id: BaseStationEvent
@@ -167,7 +167,7 @@
   id: ClosetSkeleton
   components:
   - type: StationEvent
-    weight: 8 # DeltaV - was 10
+    weight: 5
     duration: 1
     minimumPlayers: 10
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -352,6 +352,8 @@
         - NamesWizardFirst
         - NamesWizardLast
         nameFormat: name-format-wizard
+      - type: RandomHumanoidAppearance # DeltaV - randomizes character
+        randomizeName: false
       mindRoles:
       - MindRoleWizard
 

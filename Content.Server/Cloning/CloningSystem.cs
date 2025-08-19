@@ -26,7 +26,6 @@ namespace Content.Server.Cloning;
 /// </summary>
 public sealed partial class CloningSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
@@ -114,6 +113,60 @@ public sealed partial class CloningSystem : EntitySystem
     }
 
     /// <summary>
+<<<<<<< HEAD
+=======
+    ///     Copy components from one entity to another based on a CloningSettingsPrototype.
+    /// </summary>
+    /// <param name="original">The orignal Entity to clone components from.</param>
+    /// <param name="clone">The target Entity to clone components to.</param>
+    /// <param name="settings">The clone settings prototype containing the list of components to clone.</param>
+    public void CloneComponents(EntityUid original, EntityUid clone, CloningSettingsPrototype settings)
+    {
+        var componentsToCopy = settings.Components;
+        var componentsToEvent = settings.EventComponents;
+
+        // don't make status effects permanent
+        if (TryComp<StatusEffectsComponent>(original, out var statusComp))
+        {
+            var statusComps = statusComp.ActiveEffects.Values.Select(s => s.RelevantComponent).Where(s => s != null).ToList();
+            componentsToCopy.ExceptWith(statusComps!);
+            componentsToEvent.ExceptWith(statusComps!);
+        }
+
+        foreach (var componentName in componentsToCopy)
+        {
+            if (!Factory.TryGetRegistration(componentName, out var componentRegistration))
+            {
+                Log.Error($"Tried to use invalid component registration for cloning: {componentName}");
+                continue;
+            }
+
+            // If the original does not have the component, then the clone shouldn't have it either.
+            RemComp(clone, componentRegistration.Type);
+            if (EntityManager.TryGetComponent(original, componentRegistration.Type, out var sourceComp)) // Does the original have this component?
+            {
+                CopyComp(original, clone, sourceComp);
+            }
+        }
+
+        foreach (var componentName in componentsToEvent)
+        {
+            if (!Factory.TryGetRegistration(componentName, out var componentRegistration))
+            {
+                Log.Error($"Tried to use invalid component registration for cloning: {componentName}");
+                continue;
+            }
+
+            // If the original does not have the component, then the clone shouldn't have it either.
+            RemComp(clone, componentRegistration.Type);
+        }
+
+        var cloningEv = new CloningEvent(settings, clone);
+        RaiseLocalEvent(original, ref cloningEv); // used for datafields that cannot be directly copied using CopyComp
+    }
+
+    /// <summary>
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     ///     Copies the equipment the original has to the clone.
     ///     This uses the original prototype of the items, so any changes to components that are done after spawning are lost!
     /// </summary>

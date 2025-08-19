@@ -249,7 +249,34 @@
   targetNode: hardsuitGoliath
   category: construction-category-clothing
   objectType: Item
+<<<<<<< HEAD
   description: A lightweight hardsuit, adorned with a patchwork of thick, chitinous goliath hide.
   icon:
     sprite: Clothing/OuterClothing/Hardsuits/goliath.rsi
     state: icon
+=======
+
+- type: construction
+  id: scraparmor
+  graph: scraparmor
+  startNode: start
+  targetNode: scraparmorfinished
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: scraphelmet
+  graph: scraphelmet
+  startNode: start
+  targetNode: scraphelmet
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: ClothingBagPet
+  graph: ClothingBagPet
+  startNode: start
+  targetNode: bagPet
+  category: construction-category-clothing
+  objectType: Item
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30

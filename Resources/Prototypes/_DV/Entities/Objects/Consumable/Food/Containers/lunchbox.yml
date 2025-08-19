@@ -436,3 +436,14 @@
       map: [ "openLayer" ]
   - type: Item
     heldPrefix: justice
+
+- type: entity
+  parent: LunchboxSyndicate
+  id: LunchboxRecruiterMaid
+  suffix: Syndicate, Tactical maid
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingUniformJumpskirtTacticalMaid
+    - id: ClothingHeadHatTacticalMaidHeadband
+    - id: ClothingHandsTacticalMaidGloves

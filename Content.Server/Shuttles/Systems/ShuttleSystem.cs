@@ -1,20 +1,30 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
+<<<<<<< HEAD
 using Content.Server.Doors.Systems;
+=======
+using Content.Server.Buckle.Systems;
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 using Content.Server.Parallax;
 using Content.Server.Procedural;
 using Content.Server.Shuttles.Components;
 using Content.Server.Station.Systems;
 using Content.Server.Stunnable;
+<<<<<<< HEAD
 using Content.Shared.GameTicking;
 using Content.Shared.Mobs.Systems;
+=======
+using Content.Shared.Buckle.Components;
+using Content.Shared.Damage;
+using Content.Shared.Light.Components;
+using Content.Shared.Movement.Events;
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.Throwing;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.EntitySerialization.Systems;
@@ -33,7 +43,6 @@ namespace Content.Server.Shuttles.Systems;
 public sealed partial class ShuttleSystem : SharedShuttleSystem
 {
     [Dependency] private readonly IAdminLogManager _logger = default!;
-    [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
@@ -46,7 +55,10 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
     [Dependency] private readonly DockingSystem _dockSystem = default!;
     [Dependency] private readonly DungeonSystem _dungeon = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+<<<<<<< HEAD
     [Dependency] private readonly FixtureSystem _fixtures = default!;
+=======
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     [Dependency] private readonly MapLoaderSystem _loader = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly PvsOverrideSystem _pvs = default!;
@@ -63,8 +75,11 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
 
     private EntityQuery<MapGridComponent> _gridQuery;
 
+<<<<<<< HEAD
     public const float TileMassMultiplier = 0.5f;
 
+=======
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     public override void Initialize()
     {
         base.Initialize();
@@ -80,7 +95,6 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
         SubscribeLocalEvent<ShuttleComponent, ComponentShutdown>(OnShuttleShutdown);
 
         SubscribeLocalEvent<GridInitializeEvent>(OnGridInit);
-        SubscribeLocalEvent<FixturesComponent, GridFixtureChangeEvent>(OnGridFixtureChange);
     }
 
     public override void Update(float frameTime)
@@ -89,6 +103,7 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
         UpdateHyperspace();
     }
 
+<<<<<<< HEAD
     private void OnGridFixtureChange(EntityUid uid, FixturesComponent manager, GridFixtureChangeEvent args)
     {
         foreach (var fixture in args.NewFixtures)
@@ -98,6 +113,8 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
         }
     }
 
+=======
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     private void OnGridInit(GridInitializeEvent ev)
     {
         if (HasComp<MapComponent>(ev.EntityUid))

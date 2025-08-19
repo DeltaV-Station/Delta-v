@@ -5,6 +5,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Stunnable; // DeltaV
 using Content.Server.Temperature.Systems; // DeltaV Heat Change system
 using Content.Server.Weapons.Ranged.Components;
+using Content.Shared.Cargo;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
@@ -32,14 +33,16 @@ namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem : SharedGunSystem
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
     [Dependency] private readonly PricingSystem _pricing = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly SharedMapSystem _map = default!;
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
     [Dependency] private readonly TemperatureSystem _temperature = default!; // DeltaV Heat change system
 
     private const float DamagePitchVariation = 0.05f;

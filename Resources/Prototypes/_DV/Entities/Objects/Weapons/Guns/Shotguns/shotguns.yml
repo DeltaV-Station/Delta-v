@@ -73,3 +73,11 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 20
+
+- type: entity
+  parent: WeaponShotgunKammerer
+  id: WeaponShotgunKammererIncendiary
+  suffix: Incendiary
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunIncendiary

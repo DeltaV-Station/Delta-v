@@ -106,7 +106,11 @@ public sealed class SpeedModifierContactsSystem : EntitySystem
                 var evSlippery = new GetSlowedOverSlipperyModifierEvent();
                 RaiseLocalEvent(uid, ref evSlippery);
 
+<<<<<<< HEAD
                 if (evSlippery.SlowdownModifier != 1)
+=======
+                if (!MathHelper.CloseTo(evSlippery.SlowdownModifier, 1))
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
                 {
                     walkSpeed += evSlippery.SlowdownModifier;
                     sprintSpeed += evSlippery.SlowdownModifier;

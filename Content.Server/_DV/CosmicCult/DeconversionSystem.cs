@@ -1,5 +1,11 @@
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Bible.Components;
+<<<<<<< HEAD
+=======
+using Content.Server.EUI;
+using Content.Shared._DV.CosmicCult.Components.Examine;
+using Content.Shared._DV.CosmicCult.Components;
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Components.Examine;
@@ -8,9 +14,17 @@ using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Jittering;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Stunnable;
 using Content.Shared.Timing;
+<<<<<<< HEAD
+=======
+using Content.Shared.Tools.Systems;
+using Robust.Server.Player;
+using Robust.Shared.Audio.Systems;
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
@@ -28,6 +42,10 @@ public sealed class DeconversionSystem : EntitySystem
     [Dependency] private readonly SharedJitteringSystem _jittering = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly IPlayerManager _playerMan = default!;
+    [Dependency] private readonly EuiManager _euiMan = default!;
 
     public override void Initialize()
     {
@@ -123,6 +141,17 @@ public sealed class DeconversionSystem : EntitySystem
         else
         {
             _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-notcorrupted", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
+<<<<<<< HEAD
+=======
+            _popup.PopupCoordinates(Loc.GetString("cleanse-deconvert-attempt-rebound"), targetPosition, PopupType.MediumCaution);
+            _damageable.TryChangeDamage(args.User, censer.FailedDeconversionDamage, true);
+            _damageable.TryChangeDamage(args.Target, censer.FailedDeconversionDamage, true);
+            _stun.TryKnockdown(target.Value, TimeSpan.FromSeconds(2), true);
+            if (_mind.TryGetMind(target.Value, out _, out var mind) && _playerMan.TryGetSessionById(mind.UserId, out var session))
+            {
+                _euiMan.OpenEui(new CosmicMindwipedEui(), session);
+            }
+>>>>>>> 496c0c511e446e3b6ce133b750e6003484d66e30
         }
         _delay.TryResetDelay((uid, useDelay));
         args.Handled = true;
