@@ -168,7 +168,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         if (_cultRule.AssociatedGamerule(uid) is not { } cult)
             return;
         if (!HasComp<HumanoidAppearanceComponent>(uid)) return; // Non-humanoids don't get abilities
-        
+
         if (!cult.Comp.MonumentPlaced) // There's no monument, grant them an action to place one
             _actions.AddAction(uid, ref uid.Comp.CosmicMonumentPlaceActionEntity, uid.Comp.CosmicMonumentPlaceAction, uid);
         if (cult.Comp.MonumentMoved) return; // If the monument was already moved, don't let them do it again.
@@ -315,7 +315,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         _actions.RemoveAction(ent.Owner, ent.Comp.CosmicMonumentMoveActionEntity);
     }
     #endregion
-    
+
     #region Cosmic jammer
     private void OnJammerAnchorStateChange(Entity<CosmicJammerComponent> ent, ref AnchorStateChangedEvent args)
     {
