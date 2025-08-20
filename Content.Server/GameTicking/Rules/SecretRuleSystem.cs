@@ -9,7 +9,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Random;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
-using Robust.Shared.Player;
+using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
@@ -114,7 +114,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
                 break;
             }
 
-            if (CanPick(selectedPreset, players))
+            if (CanPick(selectedPreset, players, totalPlayers)) // DeltaV - total playercount
             {
                 preset = selectedPreset;
                 return true;
@@ -151,12 +151,13 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     public bool CanPickAny(IEnumerable<ProtoId<GamePresetPrototype>> protos)
     {
         var players = GameTicker.ReadyPlayerCount();
+        var totalPlayers = _playerManager.PlayerCount; //DeltaV
         foreach (var id in protos)
         {
             if (!_prototypeManager.TryIndex(id, out var selectedPreset))
                 Log.Error($"Invalid preset {selectedPreset} in secret rule weights: {id}");
 
-            if (CanPick(selectedPreset, players))
+            if (CanPick(selectedPreset, players, totalPlayers)) // DeltaV - total playercount
                 return true;
         }
 
