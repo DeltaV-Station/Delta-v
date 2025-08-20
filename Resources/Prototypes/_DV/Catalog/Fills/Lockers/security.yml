@@ -7,7 +7,7 @@
   - type: AccessReader
     access: [["CentralCommand"]]
   - type: Lock
-    BreakOnAccessBreaker: false # If crew can't get those, so do antags
+    breakOnAccessBreaker: false # If crew can't get those, so do antags
   - type: AntiTamper # Breaking the safes isn't an option either, unless you love gambling
     containers: [ entity_storage ]
   - type: UnlockOnAlertLevel
