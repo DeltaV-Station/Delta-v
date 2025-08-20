@@ -3,7 +3,7 @@
 
 const highp float TimeScale = 0.2;
 
-uniform highp float size = 1;
+uniform highp float size;
 
 void fragment() {
     vec2 iResolution = vec2(1.0);
