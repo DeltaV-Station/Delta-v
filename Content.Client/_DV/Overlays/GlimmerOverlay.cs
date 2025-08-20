@@ -27,7 +27,7 @@ public sealed class GlimmerOverlay : Overlay
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        if (_player.LocalEntity is not { Valid: true } player)
+        if (_player.LocalEntity == null)
         {
             return false;
         }
@@ -40,14 +40,9 @@ public sealed class GlimmerOverlay : Overlay
         var lastFrameTime = (float) _timing.FrameTime.TotalSeconds;
 
         // lerp glimmer level to avoid jumps
-        if (!MathHelper.CloseTo(_visualGlimmerLevel, ActualGlimmerLevel, 0.001f))
-        {
-            _visualGlimmerLevel = float.Lerp(_visualGlimmerLevel, ActualGlimmerLevel, 0.1f * lastFrameTime);
-        }
-        else
-        {
-            _visualGlimmerLevel = ActualGlimmerLevel;
-        }
+        _visualGlimmerLevel = !MathHelper.CloseTo(_visualGlimmerLevel, ActualGlimmerLevel, 0.001f)
+            ? float.Lerp(_visualGlimmerLevel, ActualGlimmerLevel, 0.1f * lastFrameTime)
+            : ActualGlimmerLevel;
 
         // clamp glimmer to 0-1, map to exponential ease-out
         var progress = Math.Clamp((_visualGlimmerLevel - 700f) / 300f,0,1);

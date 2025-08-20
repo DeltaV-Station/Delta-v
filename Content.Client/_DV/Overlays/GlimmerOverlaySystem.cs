@@ -12,18 +12,20 @@ public sealed partial class GlimmerOverlaySystem : EntitySystem
 
     private GlimmerOverlay _overlay = default!;
 
+    private bool _cvarDisabled;
+
     public override void Initialize()
     {
         base.Initialize();
 
         _overlay = new GlimmerOverlay();
         SubscribeNetworkEvent<GlimmerChangedEvent>(OnGlimmerChanged);
-        Subs.CVar(_cfg, DCCVars.DisableGlimmerShader, OnDisableGlimmerShaderChanged);
+        _cfg.OnValueChanged(DCCVars.DisableGlimmerShader, OnDisableGlimmerShaderChanged);
     }
 
     private void OnGlimmerChanged(GlimmerChangedEvent eventArgs)
     {
-        if(_cfg.GetCVar(DCCVars.DisableGlimmerShader))
+        if(_cvarDisabled)
             return;
 
         if(eventArgs.Glimmer > 700)
@@ -52,6 +54,7 @@ public sealed partial class GlimmerOverlaySystem : EntitySystem
 
     private void OnDisableGlimmerShaderChanged(bool enabled)
     {
+        _cvarDisabled = enabled;
         if (enabled)
             _overlayMan.RemoveOverlay(_overlay);
         else if (_overlay.ActualGlimmerLevel > 700)
