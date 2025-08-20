@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/20/2025 11:12:39
-  entityCount: 29429
+  time: 08/20/2025 14:59:38
+  entityCount: 29425
 maps:
 - 1
 grids:
@@ -15291,7 +15291,7 @@ entities:
       pos: -65.5,-3.5
       parent: 6747
     - type: Door
-      secondsUntilStateChange: -3268.9902
+      secondsUntilStateChange: -3312.2869
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -22034,32 +22034,13 @@ entities:
     components:
     - type: Transform
       parent: 1500
-    - type: Storage
-      storedItems:
-        2931:
-          position: 0,0
-          _rotation: South
-        2932:
-          position: 1,0
-          _rotation: South
-        2951:
-          position: 2,0
-          _rotation: South
-        3034:
-          position: 0,2
-          _rotation: East
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 2931
-          - 2932
-          - 2951
-          - 3034
+    - type: UserInterface
+      actors:
+        enum.StorageUiKey.Key:
+        - invalid
     - type: Physics
       canCollide: False
+    - type: ActiveUserInterface
     - type: InsideEntityStorage
 - proto: BoxPerformer
   entities:
@@ -127206,7 +127187,7 @@ entities:
       pos: 18.5,-28.5
       parent: 6747
     - type: Door
-      secondsUntilStateChange: -6145.121
+      secondsUntilStateChange: -6188.418
       state: Opening
   - uid: 4060
     components:
@@ -127219,7 +127200,7 @@ entities:
       pos: -24.5,-13.5
       parent: 6747
     - type: Door
-      secondsUntilStateChange: -5080.3887
+      secondsUntilStateChange: -5123.6855
       state: Opening
   - uid: 8252
     components:
@@ -129092,8 +129073,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.8856695
-        - 7.0937095
+        - 1.8968438
+        - 7.1357465
         - 0
         - 0
         - 0
@@ -129110,15 +129091,15 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 1764
-          - 2148
-          - 3072
-          - 3071
-          - 3070
           - 2768
-          - 1633
-          - 1763
+          - 2148
           - 2486
+          - 1763
+          - 1633
+          - 3070
+          - 3071
+          - 3072
+          - 1764
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -142860,16 +142841,6 @@ entities:
       parent: 4412
     - type: Physics
       canCollide: False
-- proto: PrisonGuardPDA
-  entities:
-  - uid: 2932
-    components:
-    - type: MetaData
-      name: executioner PDA
-    - type: Transform
-      parent: 2768
-    - type: Physics
-      canCollide: False
 - proto: PsychBed
   entities:
   - uid: 7577
@@ -155138,24 +155109,6 @@ entities:
     - type: Transform
       pos: -19.252937,-4.3929734
       parent: 6747
-- proto: SecurityPDA
-  entities:
-  - uid: 2931
-    components:
-    - type: MetaData
-      name: guard PDA
-    - type: Transform
-      parent: 2768
-    - type: Physics
-      canCollide: False
-  - uid: 2951
-    components:
-    - type: MetaData
-      name: guard PDA
-    - type: Transform
-      parent: 2768
-    - type: Physics
-      canCollide: False
 - proto: SeedExtractorMachineCircuitboard
   entities:
   - uid: 22947
@@ -155164,16 +155117,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 60.38245,-16.485804
       parent: 6747
-- proto: SeniorOfficerPDA
-  entities:
-  - uid: 3034
-    components:
-    - type: MetaData
-      name: knight PDA
-    - type: Transform
-      parent: 2768
-    - type: Physics
-      canCollide: False
 - proto: SentientSmileCore
   entities:
   - uid: 29735
