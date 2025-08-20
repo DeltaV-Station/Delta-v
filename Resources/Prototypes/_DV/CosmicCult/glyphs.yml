@@ -27,6 +27,15 @@
       - state: spawning
         map: ["base"]
     drawdepth: Puddles
+  - type: GenericVisualizer
+    visuals:
+      enum.GlyphVisuals.Status:
+        base:
+          Spawning: {state: spawning}
+          Despawning: {state: despawning}
+          Ready: {state: ready}
+          Active: {state: active}
+          Cooldown: {state: cooldown}
   - type: Appearance
   - type: InteractionOutline
 
@@ -40,15 +49,6 @@
     layers:
       - state: spawning
         map: ["base"]
-  - type: GenericVisualizer
-    visuals:
-      enum.GlyphVisuals.Status:
-        base:
-          Spawning: {state: spawning}
-          Despawning: {state: despawning}
-          Ready: {state: ready}
-          Active: {state: active}
-          Cooldown: {state: cooldown}
   - type: CosmicGlyphConversion
     negateProtection: true
   - type: CosmicGlyph
@@ -70,15 +70,6 @@
     layers:
       - state: spawning
         map: ["base"]
-  - type: GenericVisualizer
-    visuals:
-      enum.GlyphVisuals.Status:
-        base:
-          Spawning: {state: spawning}
-          Despawning: {state: despawning}
-          Ready: {state: ready}
-          Active: {state: active}
-          Cooldown: {state: cooldown}
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
     activationTime: 4 # To prevent people from just using the glyph the moment a target's shunt ends. Go get cuffs.
@@ -99,14 +90,6 @@
     layers:
       - state: spawning
         map: ["base"]
-  - type: GenericVisualizer
-    visuals:
-      enum.GlyphVisuals.Status:
-        base:
-          Spawning: {state: spawning}
-          Despawning: {state: despawning}
-          Ready: {state: ready}
-          Cooldown: {state: cooldown}
   - type: CosmicGlyphTransmute
   - type: CosmicGlyph
     requiredCultists: 1
@@ -126,14 +109,6 @@
     layers:
       - state: spawning
         map: ["base"]
-  - type: GenericVisualizer
-    visuals:
-      enum.GlyphVisuals.Status:
-        base:
-          Spawning: {state: spawning}
-          Despawning: {state: despawning}
-          Ready: {state: ready}
-          Cooldown: {state: cooldown}
   - type: CosmicGlyphTransmute
   - type: CosmicGlyph
     requiredCultists: 2
@@ -153,14 +128,6 @@
     layers:
       - state: spawning
         map: ["base"]
-  - type: GenericVisualizer
-    visuals:
-      enum.GlyphVisuals.Status:
-        base:
-          Spawning: {state: spawning}
-          Despawning: {state: despawning}
-          Ready: {state: ready}
-          Cooldown: {state: cooldown}
   - type: CosmicGlyphTransmute
   - type: CosmicGlyph
     requiredCultists: 2
@@ -180,13 +147,6 @@
     layers:
       - state: spawning
         map: ["base"]
-  - type: GenericVisualizer
-    visuals:
-      enum.GlyphVisuals.Status:
-        base:
-          Spawning: {state: spawning}
-          Despawning: {state: despawning}
-          Ready: {state: ready}
   - type: CosmicGlyphAstralProjection
   - type: CosmicGlyph
     requiredCultists: 1

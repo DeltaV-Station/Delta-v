@@ -49,17 +49,18 @@ public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
         var glyphQuery = EntityQueryEnumerator<CosmicGlyphComponent>();
         while (glyphQuery.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime >= comp.Timer && (comp.State == GlyphStatus.Spawning || comp.State == GlyphStatus.Cooldown))
+            if (_timing.CurTime < comp.Timer) continue;
+            if (comp.State == GlyphStatus.Spawning || comp.State == GlyphStatus.Cooldown)
             {
                 _appearance.SetData(uid, GlyphVisuals.Status, GlyphStatus.Ready);
                 comp.State = GlyphStatus.Ready;
                 return;
             }
-            if (_timing.CurTime >= comp.Timer && comp.State == GlyphStatus.Active)
+            if (comp.State == GlyphStatus.Active)
             {
                 ActivateGlyph(new Entity<CosmicGlyphComponent>(uid, comp));
             }
-            if (_timing.CurTime >= comp.Timer && comp.State == GlyphStatus.Despawning)
+            if (comp.State == GlyphStatus.Despawning)
             {
                 QueueDel(uid);
             }
