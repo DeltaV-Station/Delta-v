@@ -2,7 +2,6 @@ using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Antag;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
-using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Content.Shared.Verbs;
@@ -29,13 +28,10 @@ public abstract class SharedCosmicCultSystem : EntitySystem
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentGetStateAttemptEvent>(OnCosmicCultCompGetStateAttempt);
         SubscribeLocalEvent<CosmicCultComponent, ComponentStartup>(DirtyCosmicCultComps);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentStartup>(DirtyCosmicCultComps);
-
-        SubscribeLocalEvent<CosmicTransmutableComponent, GetVerbsEvent<ExamineVerb>>(OnTransmutableExamined);
-        SubscribeLocalEvent<CosmicCultExamineComponent, ExaminedEvent>(OnCosmicCultExamined);
-        SubscribeLocalEvent<CosmicSubtleMarkComponent, ExaminedEvent>(OnSubtleMarkExamined);
+        SubscribeLocalEvent<CosmicTransmutableComponent, GetVerbsEvent<ExamineVerb>>(OnDetailedExamine);
     }
 
-    private void OnTransmutableExamined(Entity<CosmicTransmutableComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
+    private void OnDetailedExamine(Entity<CosmicTransmutableComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
         if (ent.Comp.TransmutesTo == "" || ent.Comp.RequiredGlyphType == "") return;
         if (!EntityIsCultist(args.User)) //non-cultists don't need to know this anyway
@@ -50,20 +46,6 @@ public abstract class SharedCosmicCultSystem : EntitySystem
             Loc.GetString("cosmic-examine-transmutable-verb-text"),
             msg.ToMarkup(),
             "/Textures/_DV/CosmicCult/Interface/transmute_inspect.png");
-    }
-
-    private void OnCosmicCultExamined(Entity<CosmicCultExamineComponent> ent, ref ExaminedEvent args)
-    {
-        args.PushMarkup(Loc.GetString(EntitySeesCult(args.Examiner) ? ent.Comp.CultistText : ent.Comp.OthersText));
-    }
-
-    private void OnSubtleMarkExamined(Entity<CosmicSubtleMarkComponent> ent, ref ExaminedEvent args)
-    {
-        var ev = new SeeIdentityAttemptEvent();
-        RaiseLocalEvent(ent, ev);
-        if (ev.TotalCoverage.HasFlag(IdentityBlockerCoverage.EYES)) return;
-
-        args.PushMarkup(Loc.GetString(ent.Comp.ExamineText));
     }
 
     public bool EntityIsCultist(EntityUid user)
