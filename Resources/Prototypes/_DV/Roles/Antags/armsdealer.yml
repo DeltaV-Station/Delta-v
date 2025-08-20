@@ -1,0 +1,35 @@
+- type: antag
+  id: SyndicateArmsdealer
+  name: roles-antag-syndicate-armsdealer-name
+  objective: roles-antag-syndicate-armsdealer-objective
+  antagonist: true # Trading guns for your benefit and watch the chaos commence
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 172800 # 48h overall (so you know some general lore and handling of the game)
+  - !type:RoleTimeRequirement
+    role: JobSecurityOfficer
+    time: 43200 # 12h Securety Officer (so you know how to handle and use guns and such)
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 43200 # 12h Command (so you know to handle the responsibility of an armsdealer)
+
+- type: startingGear
+  id: SyndicateArmsdealerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitJeansBrown
+    back: ClothingBackpackSatchelLeather
+    belt: ClothingBeltHolster
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ClothingOuterCoatJensen
+    shoes: ClothingShoesBootsLaceup
+    id: SyndiPDA
+    ears: ClothingHeadsetAltSyndicateInterdyne
+    pocket1: CyberPen
+    pocket2: RubberStampSyndicate
+    mask: ClothingMaskNeckGaiter
+    head: ClothingHeadHatFedoraBlack
+  inhand:
+  - CybersunBriefcase
+  - WeaponRevolverPython
+

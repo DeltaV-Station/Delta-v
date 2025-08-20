@@ -1,0 +1,470 @@
+#Sydicate base gun selection
+- type: entity
+  parent: SyndicateGunSafeBaseSecure
+  id: ArmsdealerGunSafeCommon
+  name: Arms dealer gun safe
+  suffix: Filled, Syndicate, Common
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:GroupSelector
+        children:
+        - !type:NestedSelector
+          tableId: ArmsdealerViper
+          weight: 1.4
+        - !type:NestedSelector
+          tableId: ArmsdealerCobra
+          weight: 0.4
+        - !type:NestedSelector
+          tableId: ArmsdealerPython
+          weight: 1.2
+        - !type:NestedSelector
+          tableId: ArmsdealerMosin
+          weight: 1.6
+        - !type:NestedSelector
+          tableId: ArmsdealerDoubleBarreled
+          weight: 1
+
+- type: entityTable
+  id: ArmsdealerViper
+  table: !type:AllSelector
+    children:
+    - id: WeaponPistolViper
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazinePistol
+      amount: !type:RangeNumberSelector
+        range: 1, 4
+
+- type: entityTable
+  id: ArmsdealerCobra
+  table: !type:AllSelector
+    children:
+    - id: WeaponPistolCobra
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazinePistolCaselessRifle
+      amount: !type:RangeNumberSelector
+        range: 1, 4
+
+- type: entityTable
+  id: ArmsdealerPython
+  table: !type:AllSelector
+    children:
+    - id: WeaponRevolverPython
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: SpeedLoaderMagnum
+      amount: !type:RangeNumberSelector
+        range: 1, 4
+
+- type: entityTable
+  id: ArmsdealerMosin
+  table: !type:AllSelector
+    children:
+    - id: WeaponSniperMosin
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazineBoxLightRifle
+      amount: !type:RangeNumberSelector
+        range: 0, 2
+
+- type: entityTable
+  id: ArmsdealerDoubleBarreled
+  table: !type:AllSelector
+    children:
+    - id: WeaponShotgunDoubleBarreled
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: BoxLethalshot
+      amount: !type:RangeNumberSelector
+        range: 1, 4
+
+#Syndicate premium gun selection
+- type: entity
+  parent: SyndicateGunSafeBaseSecure
+  id: ArmsdealerGunSafeRare
+  name: Arms dealer gun safe
+  suffix: Filled, Syndicate, Rare
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:GroupSelector
+        children:
+        - !type:NestedSelector
+          tableId: ArmsdealerEstoc
+          weight: 0.6
+        - !type:NestedSelector
+          tableId: ArmsdealerC20r
+          weight: 0.8
+        - !type:NestedSelector
+          tableId: ArmsdealerBulldog
+          weight: 1
+
+- type: entityTable
+  id: ArmsdealerEstoc
+  table: !type:AllSelector
+    children:
+    - id: WeaponRifleEstoc
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazineRifle
+      amount: !type:RangeNumberSelector
+        range: 1, 4
+
+- type: entityTable
+  id: ArmsdealerC20r
+  table: !type:AllSelector
+    children:
+    - id: WeaponSubMachineGunC20r
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazinePistolSubMachineGun
+      amount: !type:RangeNumberSelector
+        range: 1, 4
+
+- type: entityTable
+  id: ArmsdealerBulldog
+  table: !type:AllSelector
+    children:
+    - id: WeaponShotgunBulldog
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazineShotgun
+      amount: !type:RangeNumberSelector
+        range: 1, 4
+
+#Sydicate the more exotic guns
+- type: entity
+  parent: SyndicateGunSafeBaseSecure
+  id: ArmsdealerGunSafeExotic
+  name: Arms dealer gun safe
+  suffix: Filled, Syndicate, Exotic
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:GroupSelector
+        children:
+        - !type:NestedSelector
+          tableId: ArmsdealerHristov
+          weight: 1.5
+        - !type:NestedSelector
+          tableId: ArmsdealerL6
+          weight: 0.1
+
+- type: entityTable
+  id: ArmsdealerHristov
+  table: !type:AllSelector
+    children:
+    - id: WeaponSniperHristov
+    - id: MagazineBoxAntiMateriel
+      amount: !type:RangeNumberSelector
+        range: 1, 4
+
+- type: entityTable
+  id: ArmsdealerL6
+  table: !type:AllSelector
+    children:
+    - id: WeaponLightMachineGunL6
+    - id: MagazineLightRifleBox
+      prob: 0.2
+
+# Stolen guns from NT
+- type: entity
+  parent: SyndicateGunSafeBaseSecure
+  id: ArmsdealerGunSafeStolen
+  name: Arms dealer gun safe
+  suffix: Filled, Syndicate, Stolen
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:GroupSelector
+        children:
+        - !type:NestedSelector
+          tableId: ArmsdealerMk58
+          weight: 1.4
+        - !type:NestedSelector
+          tableId: ArmsdealerDrozd
+          weight: 0.8
+        - !type:NestedSelector
+          tableId: ArmsdealerGrand
+          weight: 1.2
+        - !type:NestedSelector
+          tableId: ArmsdealerLecter
+          weight: 0.3
+        - !type:NestedSelector
+          tableId: ArmsdealerVulcan
+          weight: 0.6
+        - !type:NestedSelector
+          tableId: ArmsdealerKammerer
+          weight: 1
+
+- type: entityTable
+  id: ArmsdealerMk58
+  table: !type:AllSelector
+    children:
+    - id: WeaponPistolMk58
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazinePistol
+      amount: !type:RangeNumberSelector
+        range: 0, 4
+
+- type: entityTable
+  id: ArmsdealerDrozd
+  table: !type:AllSelector
+    children:
+    - id: WeaponSubMachineGunDrozd
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazinePistolSubMachineGun
+      amount: !type:RangeNumberSelector
+        range: 0, 4
+
+- type: entityTable
+  id: ArmsdealerGrand
+  table: !type:AllSelector
+    children:
+    - id: WeaponSniperGrand
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: SpeedLoaderLightRifle
+      amount: !type:RangeNumberSelector
+        range: 0, 4
+
+- type: entityTable
+  id: ArmsdealerLecter
+  table: !type:AllSelector
+    children:
+    - id: WeaponRifleLecter
+    - id: MagazineRifle
+      amount: !type:RangeNumberSelector
+        range: 0, 3
+
+- type: entityTable
+  id: ArmsdealerVulcan
+  table: !type:AllSelector
+    children:
+    - id: WeaponRifleVulcan
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazineLightRifle
+      amount: !type:RangeNumberSelector
+        range: 0, 4
+
+- type: entityTable
+  id: ArmsdealerKammerer
+  table: !type:AllSelector
+    children:
+    - id: WeaponShotgunKammerer
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: BoxLethalshot
+      amount: !type:RangeNumberSelector
+        range: 1, 4
+
+# All the ammo needs for your nefarious deeds
+- type: entity
+  parent: SyndicateGunSafeBaseSecure
+  id: ArmsdealerGunSafeMagazine
+  name: Arms dealer gun safe
+  suffix: Filled, Syndicate, Magazine
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: ArmsdealerAmmoPistol
+        - !type:NestedSelector
+          tableId: ArmsdealerAmmoRevolver
+        - !type:NestedSelector
+          tableId: ArmsdealerAmmoShotgun
+        - !type:NestedSelector
+          tableId: ArmsdealerAmmoSMG
+        - !type:NestedSelector
+          tableId: ArmsdealerAmmoRifle
+        - !type:NestedSelector
+          tableId: ArmsdealerAmmoMix
+
+- type: entityTable
+  id: ArmsdealerAmmoPistol
+  table: !type:AllSelector
+    children:
+    - id: MagazinePistol
+      prob: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazinePistolIncendiary
+      prob: 0.2
+    - id: MagazinePistolRubber
+      prob: 0.75
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+
+- type: entityTable
+  id: ArmsdealerAmmoRevolver
+  table: !type:AllSelector
+    children:
+    - id: SpeedLoaderMagnum
+      prob: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: SpeedLoaderMagnumIncendiary
+      prob: 0.2
+    - id: SpeedLoaderMagnumRubber
+      prob: 0.75
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+
+- type: entityTable
+  id: ArmsdealerAmmoShotgun
+  table: !type:AllSelector
+    children:
+    - id: MagazineShotgun
+      prob: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazineShotgunIncendiary
+      prob: 0.2
+    - id: MagazineShotgunBeanbag
+      prob: 0.75
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+
+- type: entityTable
+  id: ArmsdealerAmmoSMG
+  table: !type:AllSelector
+    children:
+    - id: MagazinePistolSubMachineGun
+      prob: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazinePistolSubMachineGunIncendiary
+      prob: 0.2
+    - id: MagazinePistolSubMachineGunRubber
+      prob: 0.75
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+
+- type: entityTable
+  id: ArmsdealerAmmoRifle
+  table: !type:AllSelector
+    children:
+    - id: MagazineRifle
+      prob: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazineRifleIncendiary
+      prob: 0.2
+    - id: MagazineRifleRubber
+      prob: 0.75
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    table: !type:GroupSelector
+      - id: MagazineLightRifle
+        prob: 0.5
+        amount: !type:RangeNumberSelector
+          range: 1, 2
+      - id: MagazineLightRifleIncendiary
+        prob: 0.2
+      - id: MagazineLightRifleRubber
+        prob: 0.75
+        amount: !type:RangeNumberSelectord
+          range: 1, 2
+
+- type: entityTable
+  id: ArmsdealerAmmoMix
+  table: !type:AllSelector
+    children:
+    - id: MagazinePistolCaselessRifle
+      prob: 0.5
+    - id: MagazineLightRifleBox
+      prob: 0.2
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: SpeedLoaderLightRifle
+      prob: 0.75
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+
+- type: entity
+  parent: SyndicateGunSafeBaseSecure
+  id: ArmsdealerGunSafeAmmoBoxes
+  name: Arms dealer gun safe
+  suffix: Filled, Syndicate, Ammo
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: ArmsdealerAmmo35
+        - !type:NestedSelector
+          tableId: ArmsdealerAmmo45
+        - !type:NestedSelector
+          tableId: ArmsdealerAmmo50
+        - !type:NestedSelector
+          tableId: ArmsdealerAmmo30
+        - !type:NestedSelector
+          tableId: ArmsdealerAmmo20
+
+- type: entityTable
+  id: ArmsdealerAmmo35
+  table: !type:AllSelector
+    children:
+    - id: MagazineBoxCaselessRifle
+      prob: 0.2
+    - id: MagazineBoxPistol
+      prob: 0.5
+    - id: MagazineBoxPistolRubber
+      prob: 0.75
+    - id: MagazineBoxPistolIncendiary
+      prob: 0.2
+
+- type: entityTable
+  id: ArmsdealerAmmo45
+  table: !type:AllSelector
+    children:
+    - id: MagazineBoxMagnum
+      prob: 0.5
+    - id: MagazineBoxMagnumRubber
+      prob: 0.75
+    - id: MagazineBoxMagnumIncendiary
+      prob: 0.2
+
+- type: entityTable
+  id: ArmsdealerAmmo50
+  table: !type:AllSelector
+    children:
+    - id: BoxLethalshot
+      prob: 0.5
+    - id: BoxBeanbag
+      prob: 0.75
+    - id: BoxShotgunIncendiary
+      prob: 0.2
+    - id: MagazineBoxAntiMateriel
+      amount: !type:RangeNumberSelector
+        range: 0, 2
+
+- type: entityTable
+  id: ArmsdealerAmmo30
+  table: !type:AllSelector
+    children:
+    - id: MagazineBoxLightRifle
+      prob: 0.5
+    - id: MagazineBoxLightRifleRubber
+      prob: 0.75
+    - id: MagazineBoxLightRifleIncendiary
+      prob: 0.2
+
+- type: entityTable
+  id: ArmsdealerAmmo20
+  table: !type:AllSelector
+    children:
+    - id: MagazineBoxRifle
+      prob: 0.5
+    - id: MagazineBoxRifleRubber
+      prob: 0.75
+    - id: MagazineBoxRifleRubber
+      prob: 0.2
