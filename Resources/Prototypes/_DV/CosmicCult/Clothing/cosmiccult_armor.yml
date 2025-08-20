@@ -84,6 +84,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
+  - type: TypingIndicatorClothing
+    proto: CosmicTyping
 
 # COSMIC CULT HARDSUIT HELMET
 - type: entity
@@ -110,10 +112,3 @@
         Piercing: 0.90
         Heat: 0.90
   - type: EyeProtection
-  - type: TypingIndicatorClothing
-    proto: CosmicTyping
-  - type: SpeechOverride
-    overrideIDs:
-      Male: CosmicEmotesMale
-      Female: CosmicEmotesFemale
-      Unsexed: CosmicEmotesMale # Humans use male soudns for unsexed so here we are.
