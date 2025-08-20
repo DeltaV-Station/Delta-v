@@ -23,6 +23,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Polymorph;
+using Content.Shared.Speech.Components;
 using Content.Shared.StatusEffect;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
@@ -84,8 +85,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentShutdown>(OnCultLeadShutdown);
         SubscribeLocalEvent<CosmicCultComponent, GetVisMaskEvent>(OnGetVisMask);
 
-        SubscribeLocalEvent<CosmicEquipmentComponent, GotEquippedEvent>(OnGotEquipped);
-        SubscribeLocalEvent<CosmicEquipmentComponent, GotUnequippedEvent>(OnGotUnequipped);
+        SubscribeLocalEvent<CosmicEquipmentComponent, GotEquippedEvent>(OnGotCosmicItemEquipped);
+        SubscribeLocalEvent<CosmicEquipmentComponent, GotUnequippedEvent>(OnGotCosmicItemUnequipped);
         SubscribeLocalEvent<CosmicEquipmentComponent, GotEquippedHandEvent>(OnGotHeld);
         SubscribeLocalEvent<CosmicEquipmentComponent, GotUnequippedHandEvent>(OnGotUnheld);
 
@@ -105,6 +106,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<CosmicJammerComponent, AnchorStateChangedEvent>(OnJammerAnchorStateChange);
 
         SubscribeLocalEvent<CosmicCultComponent, PolymorphedEvent>(OnCultistPolymorphed);
+        SubscribeLocalEvent<SpeechOverrideComponent, GotEquippedEvent>(OnGotSpeechOverrideEquipped);
+        SubscribeLocalEvent<SpeechOverrideComponent, GotUnequippedEvent>(OnGotSpeechOverrideUnequipped);
 
         SubscribeFinale(); //Hook up the cosmic cult finale system
     }
@@ -187,7 +190,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     #endregion
 
     #region Equipment Pickup
-    private void OnGotEquipped(Entity<CosmicEquipmentComponent> ent, ref GotEquippedEvent args)
+    private void OnGotCosmicItemEquipped(Entity<CosmicEquipmentComponent> ent, ref GotEquippedEvent args)
     {
         if (!EntityIsCultist(args.Equipee))
         {
@@ -196,7 +199,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         }
     }
 
-    private void OnGotUnequipped(Entity<CosmicEquipmentComponent> ent, ref GotUnequippedEvent args)
+    private void OnGotCosmicItemUnequipped(Entity<CosmicEquipmentComponent> ent, ref GotUnequippedEvent args)
     {
         if (!EntityIsCultist(args.Equipee))
             _statusEffects.TryRemoveStatusEffect(args.Equipee, EntropicDegen);
@@ -215,6 +218,24 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     {
         if (!EntityIsCultist(args.User))
             _statusEffects.TryRemoveStatusEffect(args.User, EntropicDegen);
+    }
+
+    private void OnGotSpeechOverrideEquipped(Entity<SpeechOverrideComponent> ent, ref GotEquippedEvent args)
+    {
+        if (ent.Comp.OverrideIDs is not { } overrides || !TryComp<VocalComponent>(args.Equipee, out var vocalComp)) return;
+        ent.Comp.StoredIDs = vocalComp.Sounds;
+        vocalComp.Sounds = overrides;
+        var ev = new SoundsChangedEvent();
+        RaiseLocalEvent(args.Equipee, ref ev);
+    }
+
+    private void OnGotSpeechOverrideUnequipped(Entity<SpeechOverrideComponent> ent, ref GotUnequippedEvent args)
+    {
+        if (ent.Comp.StoredIDs is not { } stored || !TryComp<VocalComponent>(args.Equipee, out var vocalComp)) return;
+        ent.Comp.StoredIDs = null;
+        vocalComp.Sounds = stored;
+        var ev = new SoundsChangedEvent();
+        RaiseLocalEvent(args.Equipee, ref ev);
     }
     #endregion
 
