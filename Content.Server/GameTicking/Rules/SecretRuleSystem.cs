@@ -9,6 +9,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Random;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
@@ -22,6 +23,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!; // DeltaV
     [Dependency] private readonly GameTicker _ticker = default!; // begin Imp
 
     // Dictionary that contains the minimum round number for certain preset
@@ -90,6 +92,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     {
         var options = _prototypeManager.Index(weights).Weights.ShallowClone();
         var players = GameTicker.ReadyPlayerCount();
+        var totalPlayers = _playerManager.PlayerCount; //DeltaV
 
         GamePresetPrototype? selectedPreset = null;
         var sum = options.Values.Sum();
@@ -163,7 +166,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     /// <summary>
     /// Can the given preset be picked, taking into account the currently available player count?
     /// </summary>
-    private bool CanPick([NotNullWhen(true)] GamePresetPrototype? selected, int players)
+    private bool CanPick([NotNullWhen(true)] GamePresetPrototype? selected, int players, int totalPlayers) // DeltaV - respect total playercount
     {
         if (selected == null)
             return false;
@@ -179,6 +182,8 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
 
             if (ruleComp.MinPlayers > players && ruleComp.CancelPresetOnTooFewPlayers)
                 return false;
+
+            if (ruleComp.MinTotalPlayers > totalPlayers) return false; // DeltaV
         }
 
         if (_configurationManager.GetCVar(DCCVars.EnableBacktoBack) == true) // DeltaV
