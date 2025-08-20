@@ -255,12 +255,12 @@
     sprite: _DV/Objects/Weapons/Guns/Rifles/lasercarbine.rsi
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
-  - type: GunRequiresWield
+  - type: Wieldable
   - type: GunWieldBonus
     minAngle: 0
     maxAngle: 0
   - type: Gun
-    fireRate: 1.5
+    fireRate: 2.0
     minAngle: 1
     maxAngle: 4
     selectedMode: SemiAuto
