@@ -15,15 +15,7 @@ namespace Content.Shared.Psionics.Glimmer
         public int Glimmer
         {
             get { return _glimmer; }
-            set
-            {
-                var newGlimmer = _enabled ? Math.Clamp(value, 0, 1000) : 0;
-                if (_glimmer == newGlimmer)
-                    return;
-
-                _glimmer = newGlimmer;
-                RaiseNetworkEvent(new GlimmerChangedEvent(_glimmer));
-            }
+            set { _glimmer = _enabled ? Math.Clamp(value, 0, 1000) : 0; }
         }
         private bool _enabled;
         public override void Initialize()
@@ -69,16 +61,5 @@ namespace Content.Shared.Psionics.Glimmer
         High,
         Dangerous,
         Critical,
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class GlimmerChangedEvent : EntityEventArgs
-    {
-        public int Glimmer { get; }
-
-        public GlimmerChangedEvent(int glimmer)
-        {
-            Glimmer = glimmer;
-        }
     }
 }
