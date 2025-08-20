@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/20/2025 18:56:20
-  entityCount: 29425
+  time: 08/20/2025 19:49:17
+  entityCount: 29421
 maps:
 - 1
 grids:
@@ -15291,7 +15291,7 @@ entities:
       pos: -65.5,-3.5
       parent: 6747
     - type: Door
-      secondsUntilStateChange: -3345.1196
+      secondsUntilStateChange: -3388.386
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -21997,34 +21997,10 @@ entities:
       parent: 6747
 - proto: BoxPDAPrisoner
   entities:
-  - uid: 4412
+  - uid: 2931
     components:
     - type: Transform
       parent: 4401
-    - type: Storage
-      storedItems:
-        4413:
-          position: 0,0
-          _rotation: South
-        4476:
-          position: 1,0
-          _rotation: South
-        4477:
-          position: 2,0
-          _rotation: South
-        4688:
-          position: 0,2
-          _rotation: East
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 4413
-          - 4476
-          - 4477
-          - 4688
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -127217,7 +127193,7 @@ entities:
       pos: 18.5,-28.5
       parent: 6747
     - type: Door
-      secondsUntilStateChange: -6221.2505
+      secondsUntilStateChange: -6264.5166
       state: Opening
   - uid: 4060
     components:
@@ -127230,7 +127206,7 @@ entities:
       pos: -24.5,-13.5
       parent: 6747
     - type: Door
-      secondsUntilStateChange: -5156.518
+      secondsUntilStateChange: -5199.784
       state: Opening
   - uid: 8252
     components:
@@ -129103,8 +129079,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.8977377
-        - 7.139109
+        - 1.8978093
+        - 7.139378
         - 0
         - 0
         - 0
@@ -129121,15 +129097,15 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 2148
           - 1764
-          - 3072
-          - 3071
-          - 3070
-          - 1633
-          - 1763
-          - 2486
           - 2768
+          - 2486
+          - 1763
+          - 1633
+          - 3070
+          - 3071
+          - 3072
+          - 2148
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -129637,8 +129613,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
         - 0
         - 0
         - 0
@@ -129655,13 +129631,13 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 4412
           - 4701
           - 4740
           - 4742
           - 4854
           - 4896
           - 5398
+          - 2931
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -142845,32 +142821,6 @@ entities:
     - type: Transform
       pos: 93.02573,-20.423328
       parent: 6747
-- proto: PrisonerPDA
-  entities:
-  - uid: 4413
-    components:
-    - type: Transform
-      parent: 4412
-    - type: Physics
-      canCollide: False
-  - uid: 4476
-    components:
-    - type: Transform
-      parent: 4412
-    - type: Physics
-      canCollide: False
-  - uid: 4477
-    components:
-    - type: Transform
-      parent: 4412
-    - type: Physics
-      canCollide: False
-  - uid: 4688
-    components:
-    - type: Transform
-      parent: 4412
-    - type: Physics
-      canCollide: False
 - proto: PsychBed
   entities:
   - uid: 7577
