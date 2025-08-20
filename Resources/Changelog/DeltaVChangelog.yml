@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: ThataKat
-  changes:
-  - message: The uplink Python now comes with standard rounds, and standard speedloaders
-      can be purchased in the uplink.
-    type: Tweak
-  id: 1119
-  time: '2025-03-08T19:56:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3093
 - author: deltanedas
   changes:
   - message: Water vapor canisters can now be purchased by logistics.
@@ -4111,3 +4103,10 @@
   id: 1618
   time: '2025-08-20T20:10:21.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4232
+- author: 0vrseer
+  changes:
+  - message: removed some IPC markings that resulted in invisible body parts.
+    type: Remove
+  id: 1619
+  time: '2025-08-20T20:10:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4140
