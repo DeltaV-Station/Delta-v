@@ -13,11 +13,11 @@ using Content.Shared._DV.CosmicCult;
 using Content.Server._EE.Radio;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
-using Content.Shared.Examine;
 using Content.Shared.Eye;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Speech.Components;
 using Content.Shared.StatusEffect;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
@@ -30,7 +30,6 @@ using Robust.Shared.Utility;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Server.Radio.Components;
-using Content.Shared.IdentityManagement.Components;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -78,8 +77,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentInit>(OnStartCultLead);
         SubscribeLocalEvent<CosmicCultComponent, GetVisMaskEvent>(OnGetVisMask);
 
-        SubscribeLocalEvent<CosmicEquipmentComponent, GotEquippedEvent>(OnGotEquipped);
-        SubscribeLocalEvent<CosmicEquipmentComponent, GotUnequippedEvent>(OnGotUnequipped);
+        SubscribeLocalEvent<CosmicEquipmentComponent, GotEquippedEvent>(OnGotCosmicItemEquipped);
+        SubscribeLocalEvent<CosmicEquipmentComponent, GotUnequippedEvent>(OnGotCosmicItemUnequipped);
         SubscribeLocalEvent<CosmicEquipmentComponent, GotEquippedHandEvent>(OnGotHeld);
         SubscribeLocalEvent<CosmicEquipmentComponent, GotUnequippedHandEvent>(OnGotUnheld);
 
@@ -90,13 +89,13 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<CosmicImposingComponent, ComponentRemove>(OnEndImposition);
         SubscribeLocalEvent<CosmicImposingComponent, RefreshMovementSpeedModifiersEvent>(OnImpositionMoveSpeed);
 
-        SubscribeLocalEvent<CosmicCultExamineComponent, ExaminedEvent>(OnCosmicCultExamined);
-
-        SubscribeLocalEvent<CosmicSubtleMarkComponent, ExaminedEvent>(OnSubtleMarkExamined);
         SubscribeLocalEvent<CosmicCultComponent, EncryptionChannelsChangedEvent>(OnTransmitterChannelsChangedCult, after: new[] { typeof(IntrinsicRadioKeySystem) });
 
         SubscribeLocalEvent<RadioSendAttemptEvent>(OnRadioSendAttempt);
         SubscribeLocalEvent<CosmicJammerComponent, AnchorStateChangedEvent>(OnJammerAnchorStateChange);
+
+        SubscribeLocalEvent<SpeechOverrideComponent, GotEquippedEvent>(OnGotSpeechOverrideEquipped);
+        SubscribeLocalEvent<SpeechOverrideComponent, GotUnequippedEvent>(OnGotSpeechOverrideUnequipped);
 
         SubscribeFinale(); //Hook up the cosmic cult finale system
     }
@@ -121,19 +120,6 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             _map.SetPaused(map.Value.Comp.MapId, false);
     }
 
-    private void OnCosmicCultExamined(Entity<CosmicCultExamineComponent> ent, ref ExaminedEvent args)
-    {
-        args.PushMarkup(Loc.GetString(EntitySeesCult(args.Examiner) ? ent.Comp.CultistText : ent.Comp.OthersText));
-    }
-
-    private void OnSubtleMarkExamined(Entity<CosmicSubtleMarkComponent> ent, ref ExaminedEvent args)
-    {
-        var ev = new SeeIdentityAttemptEvent();
-        RaiseLocalEvent(ent, ev);
-        if (ev.TotalCoverage.HasFlag(IdentityBlockerCoverage.EYES)) return;
-
-        args.PushMarkup(Loc.GetString(ent.Comp.ExamineText));
-    }
     #endregion
 
     #region Init Cult
@@ -170,7 +156,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     #endregion
 
     #region Equipment Pickup
-    private void OnGotEquipped(Entity<CosmicEquipmentComponent> ent, ref GotEquippedEvent args)
+    private void OnGotCosmicItemEquipped(Entity<CosmicEquipmentComponent> ent, ref GotEquippedEvent args)
     {
         if (!EntityIsCultist(args.Equipee))
         {
@@ -179,7 +165,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         }
     }
 
-    private void OnGotUnequipped(Entity<CosmicEquipmentComponent> ent, ref GotUnequippedEvent args)
+    private void OnGotCosmicItemUnequipped(Entity<CosmicEquipmentComponent> ent, ref GotUnequippedEvent args)
     {
         if (!EntityIsCultist(args.Equipee))
             _statusEffects.TryRemoveStatusEffect(args.Equipee, EntropicDegen);
@@ -199,6 +185,24 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         if (!EntityIsCultist(args.User))
             _statusEffects.TryRemoveStatusEffect(args.User, EntropicDegen);
     }
+
+    private void OnGotSpeechOverrideEquipped(Entity<SpeechOverrideComponent> ent, ref GotEquippedEvent args)
+    {
+        if (ent.Comp.OverrideIDs is not { } overrides || !TryComp<VocalComponent>(args.Equipee, out var vocalComp)) return;
+        ent.Comp.StoredIDs = vocalComp.Sounds;
+        vocalComp.Sounds = overrides;
+        var ev = new SoundsChangedEvent();
+        RaiseLocalEvent(args.Equipee, ref ev);
+    }
+
+    private void OnGotSpeechOverrideUnequipped(Entity<SpeechOverrideComponent> ent, ref GotUnequippedEvent args)
+    {
+        if (ent.Comp.StoredIDs is not { } stored || !TryComp<VocalComponent>(args.Equipee, out var vocalComp)) return;
+        ent.Comp.StoredIDs = null;
+        vocalComp.Sounds = stored;
+        var ev = new SoundsChangedEvent();
+        RaiseLocalEvent(args.Equipee, ref ev);
+    }
     #endregion
 
     #region Movespeed
@@ -213,12 +217,10 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     private void OnStartImposition(Entity<CosmicImposingComponent> uid, ref ComponentInit args) // these functions just make sure
     {
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
-        EnsureComp<CosmicCultExamineComponent>(uid).CultistText = "cosmic-examine-text-malignecho";
     }
     private void OnEndImposition(Entity<CosmicImposingComponent> uid, ref ComponentRemove args) // as various cosmic cult effects get added and removed
     {
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
-        RemComp<CosmicCultExamineComponent>(uid);
     }
 
     private void OnRefreshMoveSpeed(EntityUid uid, InfluenceStrideComponent comp, RefreshMovementSpeedModifiersEvent args)
