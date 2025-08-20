@@ -62,8 +62,8 @@ public sealed partial class CosmicCultComponent : Component
     /// <summary>
     /// The duration of the doAfter for Shunt Subjectivity
     /// </summary>
-    [DataField] public TimeSpan CosmicBlankDelay = TimeSpan.FromSeconds(0.6f);
-    public static readonly TimeSpan DefaultCosmicBlankDelay = TimeSpan.FromSeconds(0.6f);
+    [DataField] public TimeSpan CosmicBlankDelay = TimeSpan.FromSeconds(1.0f);
+    public static readonly TimeSpan DefaultCosmicBlankDelay = TimeSpan.FromSeconds(1.0f);
 
     /// <summary>
     /// The duration of Shunt Subjectivity's trip to the cosmic void

@@ -50,6 +50,10 @@ public sealed class CosmicBlankSystem : EntitySystem
         }
         if (args.Handled)
             return;
+        if (!TryComp<MindContainerComponent>(target, out var mindContainer) || !mindContainer.HasMind)
+        {
+            return;
+        }
 
         var doargs = new DoAfterArgs(EntityManager, uid, uid.Comp.CosmicBlankDelay, new EventCosmicBlankDoAfter(), uid, args.Target)
         {
