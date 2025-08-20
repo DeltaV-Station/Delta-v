@@ -6,31 +6,31 @@ const highp float TimeScale = 0.2;
 uniform highp float size;
 
 void fragment() {
-    vec2 iResolution = vec2(1.0);
-    vec2 I = UV * iResolution;
+    highp vec2 iResolution = vec2(1.0);
+    highp vec2 I = UV * iResolution;
 
 	//Raymarch depth
-    float z = 0.0;
+    highp float z = 0.0;
 	//Step distance
-    float d = 0.0;
+    highp float d = 0.0;
 	//Raymarch iterator
-    float i = 0.0;
+    highp float i = 0.0;
 	//Animation time
-    float t = TIME * TimeScale;
+    highp float t = TIME * TimeScale;
 
-    vec4 O = vec4(0.0);
+    highp vec4 O = vec4(0.0);
 
 	//Clear fragColor and raymarch (some amount of) steps
-    while (i++ < 25) {
+    while (i++ < 25.0) {
         // sample point (from ray direction)
-        vec3 p = z * normalize(vec3(I + I, 0.0) - iResolution.xyx) + 0.1;
+        highp vec3 p = z * normalize(vec3(I + I, 0.0) - iResolution.xyx) + 0.1;
 
         // polar coordinates
         p = vec3(atan(p.y, p.x) * 2.0, p.z / (3.0*(3.0-size)), length(p.xy) - 4.5 - z * (0.5 * 2.8-size));
 
         // apply turbulence
         d = 0.0;
-        float j = 0.0;
+        highp float j = 0.0;
         while (++j < 9.0)
             p += sin(p.yzx * j - t + 0.2 * i) / j;
 
