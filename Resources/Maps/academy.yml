@@ -4,7 +4,7 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/19/2025 23:42:15
+  time: 08/20/2025 00:37:14
   entityCount: 28978
 maps:
 - 1
@@ -13933,7 +13933,7 @@ entities:
       pos: 34.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -43996.74
+      secondsUntilStateChange: -44095.8
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14422,7 +14422,7 @@ entities:
       pos: -35.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -112924.83
+      secondsUntilStateChange: -113023.89
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15346,7 +15346,7 @@ entities:
       pos: -19.5,40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -74818.8
+      secondsUntilStateChange: -74917.86
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -65033,7 +65033,6 @@ entities:
   - uid: 7676
     components:
     - type: Transform
-      anchored: True
       pos: -17.5,27.5
       parent: 2
   - uid: 12782
@@ -181189,7 +181188,7 @@ entities:
       pos: -60.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -167559.36
+      secondsUntilStateChange: -167658.42
       state: Opening
 - proto: WebShield
   entities:
@@ -181897,7 +181896,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -102218.055
+      secondsUntilStateChange: -102317.12
       state: Opening
     - type: Airlock
       autoClose: False
