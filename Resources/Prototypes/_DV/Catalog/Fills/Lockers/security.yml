@@ -1,4 +1,18 @@
 - type: entity
+  abstract: true
+  parent: GunSafeBaseSecure
+  id: GunSafeBaseSuperweapon
+  name: Superweapon safe
+  components:
+  - type: AccessReader
+    access: [["CentralCommand"]]
+  - type: UnlockOnAlertLevel
+    alertLevels:
+    - delta
+    - gamma
+    - octarine
+
+- type: entity
   parent: GunSafeBaseSecure
   id: GunSafePistolUniversal
   name: mk32 safe
@@ -79,7 +93,7 @@
       amount: 4
 
 - type: entity
-  parent: GunSafeBaseSecure
+  parent: GunSafeBaseSuperweapon
   id: GunSafeRocketLauncher
   name: RPG safe
   components:
@@ -90,7 +104,7 @@
       prob: 0.2
 
 - type: entity
-  parent: GunSafeBaseSecure
+  parent: GunSafeBaseSuperweapon
   id: GunSafeBeamDevastator
   name: Devastator safe
   components:
@@ -116,7 +130,7 @@
     - id: PrisonKnife # Bread cutting knife, does 4 damage total.
 
 - type: entity
-  parent: GunSafeBaseSecure
+  parent: GunSafeBaseSuperweapon
   id: GunSafeGamblagator
   name: Gamblagator safe
   components:
