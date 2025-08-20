@@ -43,19 +43,17 @@ public sealed class CosmicBlankSystem : EntitySystem
 
     private void OnCosmicBlank(Entity<CosmicCultComponent> uid, ref EventCosmicBlank args)
     {
-        if (_cosmicCult.EntityIsCultist(args.Target) || HasComp<CosmicBlankComponent>(args.Target) || HasComp<BibleUserComponent>(args.Target) || HasComp<ActiveNPCComponent>(args.Target))
+        if (args.Args.Target is not { } target)
+            return;
+        if (_cosmicCult.EntityIsCultist(target) || HasComp<CosmicBlankComponent>(target) || HasComp<BibleUserComponent>(target) || HasComp<ActiveNPCComponent>(target) || !TryComp<MindContainerComponent>(target, out var mindContainer) || !mindContainer.HasMind)
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-generic-fail"), uid, uid);
             return;
         }
         if (args.Handled)
             return;
-        if (!TryComp<MindContainerComponent>(target, out var mindContainer) || !mindContainer.HasMind)
-        {
-            return;
-        }
 
-        var doargs = new DoAfterArgs(EntityManager, uid, uid.Comp.CosmicBlankDelay, new EventCosmicBlankDoAfter(), uid, args.Target)
+        var doargs = new DoAfterArgs(EntityManager, uid, uid.Comp.CosmicBlankDelay, new EventCosmicBlankDoAfter(), uid, target)
         {
             DistanceThreshold = 1.5f,
             Hidden = true,
