@@ -150,6 +150,8 @@
   - type: BlockInjection
   - type: Puller # Put those extra hands to work!
     needsHands: false
+  - type: CosmicMarkVisuals
+    subtleState: moth
 
 - type: entity
   parent: BaseSpeciesDummy

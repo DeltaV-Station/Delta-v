@@ -46,6 +46,7 @@
   groups:
   - Scarfs # DeltaV
   - GroupTankHarness
+  - AssistantHead # DeltaV
   - PassengerJumpsuit
   - CommonBackpack
   - PassengerNeck
@@ -284,8 +285,10 @@
   id: JobTechnicalAssistant
   groups:
   - GroupTankHarness
+  - StationEngineerNeck # DeltaV
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
+  - StationEngineerShoes # DeltaV
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
@@ -308,7 +311,7 @@
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
-  - StationEngineerHead # DeltaV - Safety First!
+  - AtmosphericTechnicianHead # DeltaV
   - AtmosphericTechnicianNeck # DeltaV
   - GroupTankHarness
   - AtmosphericTechnicianJumpsuit

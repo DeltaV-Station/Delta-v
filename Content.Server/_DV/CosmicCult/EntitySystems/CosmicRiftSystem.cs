@@ -9,7 +9,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._DV.CosmicCult.EntitySystems;
@@ -53,12 +52,6 @@ public sealed class CosmicRiftSystem : EntitySystem
         if (cultist.CosmicEmpowered)
         {
             _popup.PopupEntity(Loc.GetString("cosmiccult-rift-alreadyempowered"), args.User, args.User);
-            return;
-        }
-
-        if (cultist.WasEmpowered)
-        {
-            _popup.PopupEntity(Loc.GetString("cosmiccult-rift-wasempowered"), args.User, args.User);
             return;
         }
 
@@ -135,11 +128,11 @@ public sealed class CosmicRiftSystem : EntitySystem
         var actionEnt = _actions.AddAction(uid, uid.Comp.CosmicFragmentationAction);
         Spawn(uid.Comp.AbsorbVFX, tgtpos);
         comp.ActionEntities.Add(actionEnt);
-        comp.WasEmpowered = true;
+        comp.CosmicFragmentationActionEntity = actionEnt;
         comp.CosmicEmpowered = true;
         comp.CosmicSiphonQuantity = 2;
         comp.CosmicGlareRange = 10;
-        comp.CosmicGlareDuration = TimeSpan.FromSeconds(10);
+        comp.CosmicGlareDuration = TimeSpan.FromSeconds(6);
         comp.CosmicGlareStun = TimeSpan.FromSeconds(1);
         comp.CosmicImpositionDuration = TimeSpan.FromSeconds(7.4);
         comp.CosmicBlankDuration = TimeSpan.FromSeconds(26);

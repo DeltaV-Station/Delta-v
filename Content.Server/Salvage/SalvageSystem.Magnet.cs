@@ -107,7 +107,7 @@ public sealed partial class SalvageSystem
                 {
                     EndMagnet((uid, magnetData));
                 }
-                else if (!magnetData.Announced && (magnetData.EndTime.Value - curTime).TotalSeconds < 31)
+                else if (!magnetData.Announced && (magnetData.EndTime.Value - curTime).TotalSeconds < 59) //DeltaV: was 31 seconds. Increased to give time to actually fulton a crate out.
                 {
                     var magnet = GetMagnet((uid, magnetData));
 

@@ -4,6 +4,7 @@
     children:
     - id: MothroachSpawn
     - id: XenoVents
+    - id: MalignRiftSpawn
 
 - type: entityTable
   id: BasicAntagEventsTableDeltaV
@@ -12,6 +13,7 @@
     - id: Fugitive
     - id: ListeningPost
     - id: RoboNeuroticist
+    - id: MenaceSkeleton
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -34,8 +36,8 @@
   - type: MeteorSwarmRule
 
 - type: entity
-  id: XenoVents
   parent: BaseGameRule
+  id: XenoVents
   components:
   - type: StationEvent
     startAnnouncement: station-event-xeno-vent-start-announcement
@@ -68,8 +70,8 @@
         weight: 0.01
 
 - type: entity
-  id: MothroachSpawn
   parent: BaseGameRule
+  id: MothroachSpawn
   components:
   - type: StationEvent
     earliestStart: 15
@@ -86,8 +88,8 @@
       id: MobMothroach
 
 - type: entity
-  id: ListeningPost
   parent: BaseGameRule
+  id: ListeningPost
   components:
   - type: StationEvent
     earliestStart: 15
@@ -128,6 +130,21 @@
         - Syndicate
       mindRoles:
       - MindRoleListeningPost
+
+- type: entity
+  parent: BaseGameRule
+  id: MalignRiftSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    weight: 6
+  - type: PrecognitionResult
+    message: psionic-power-precognition-rift-spawn-result-message
+  - type: RandomMultipleSpawnRule
+    prototype: CosmicMalignRift
+    minAmount: 1
+    maxAmount: 3
+
 
 # Mid round antag spawns
 - type: entity
@@ -188,16 +205,6 @@
       - MindRoleFugitive
 
 - type: entity
-  parent: BaseGlimmerEvent
-  id: ThavenMoodUpset
-  components:
-  - type: GlimmerEvent
-    minimumGlimmer: 500
-    glimmerBurnLower: 30
-    glimmerBurnUpper: 70
-  - type: ThavenMoodUpsetRule
-
-- type: entity
   parent: BaseGameRule
   id: RoboNeuroticist
   components:
@@ -244,3 +251,52 @@
         - Syndicate
       mindRoles:
       - MindRoleRoboNeuroticist
+
+- type: entity
+  parent: BaseGameRule
+  id: NoosphericStorm
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-noospheric-storm-announcement
+    startAudio:
+      path: /Audio/Announcements/noosphericstorm.ogg
+    weight: 5
+    earliestStart: 15
+  - type: NoosphericStormRule
+
+- type: entity
+  parent: BaseMidRoundAntag
+  id:  MenaceSkeleton
+  components:
+  - type: StationEvent
+    weight: 6
+    duration: 1
+    minimumPlayers: 30
+  - type: PrecognitionResult
+    message: psionic-power-precognition-closet-skeleton-result-message
+  - type: AntagSpawner
+    prototype: MobMenaceSkeleton
+  - type: AntagRandomObjectives
+    sets:
+    - groups: SkeletonObjectiveGroup
+      maxPicks: 2 # only pick 2 of 4
+    maxDifficulty: 100 # ignore difficulty, use maxPicks instead
+  - type: AntagSelection
+    agentName: menace-skeleton-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointMenaceSkeleton
+      min: 1
+      max: 1
+      pickPlayer: false
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
+        nameFormat: name-format-standard
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      - type: EmitSoundOnSpawn # fell out of the ceiling
+        sound: /Audio/Effects/clang.ogg
+      mindRoles:
+      - MindRoleMenaceSkeleton
