@@ -58,7 +58,7 @@
     #tags: [ GunUpgradeRange ] # DeltaV - allow multiple
     examineText: gun-upgrade-examine-text-range
   - type: GunUpgradeRange # DeltaV - actually change range not speed
-    coefficient: 1.05 # DeltaV - was 1.5, lowered further to account for increased base range
+    coefficient: 1.1 # DeltaV - was 1.5, lowered further to account for increased base range
   - type: GunUpgradeCost # DeltaV
     cost: 25
 
