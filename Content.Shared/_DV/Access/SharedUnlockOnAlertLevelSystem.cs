@@ -3,7 +3,7 @@ using Content.Shared.Examine;
 namespace Content.Shared._DV.Access;
 
 /// <summary>
-///     Allows an ID card to set the access level of interacted items
+///     Hanldes the examination of an entity with a UnlockOnAlertLevelComponent
 /// </summary>
 
 public abstract class SharedUnlockOnAlertLevelSystem : EntitySystem
@@ -17,17 +17,17 @@ public abstract class SharedUnlockOnAlertLevelSystem : EntitySystem
 
     private void OnExamined(Entity<UnlockOnAlertLevelComponent> ent, ref ExaminedEvent args)
     {
-        var levels = ""; // 90% sure there's actually a smartass way to do this with fluent but I'm doing this becasue I fucking love for loops
+        var levels = new StringBuilder();
         for (int i = 0; i < ent.Comp.AlertLevels.Count; i++)
         {
             if (i == ent.Comp.AlertLevels.Count - 2)
-                levels += ent.Comp.AlertLevels[i] + ", or ";
+                levels.Append(ent.Comp.AlertLevels[i] + ", or ");
             else
             if (i == ent.Comp.AlertLevels.Count - 1)
-                levels += ent.Comp.AlertLevels[i];
+                levels.Append(ent.Comp.AlertLevels[i]);
             else
-                levels += ent.Comp.AlertLevels[i] + ", ";
+                levels.Append(ent.Comp.AlertLevels[i] + ", ");
         }
-        args.PushText(Loc.GetString("unlock-on-alert-level-examine", ("levels", levels)));
+        args.PushText(Loc.GetString("unlock-on-alert-level-examine", ("levels", levels.ToString())));
     }
 }

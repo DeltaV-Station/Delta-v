@@ -5,7 +5,7 @@ using Content.Shared.Lock;
 namespace Content.Server._DV.Access;
 
 /// <summary>
-///     Allows an ID card to set the access level of interacted items
+///     When alert level is changed, checks if any entities with an UnlockOnAlertLevelComponent need to be opened.
 /// </summary>
 
 public sealed class UnlockOnAlertLevelSystem : SharedUnlockOnAlertLevelSystem
@@ -28,7 +28,10 @@ public sealed class UnlockOnAlertLevelSystem : SharedUnlockOnAlertLevelSystem
             foreach (var level in unlockComp.AlertLevels)
             {
                 if (level == args.AlertLevel)
+                {
                     _lock.Unlock(uid, null, lockComp);
+                    break;
+                }
             }
         }
     }
