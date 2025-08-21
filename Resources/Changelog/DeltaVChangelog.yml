@@ -1,18 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Added ID chips which the roboticist can make. They are like ID cards
-      but need to be installed in a cyborg to work.
-    type: Add
-  - message: Borgs can have accesses added by using an ID chip in an ID card computer.
-    type: Tweak
-  - message: Borgs built during the round no longer have pseudo-AA.
-    type: Remove
-  id: 1123
-  time: '2025-03-08T22:26:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3116
-- author: deltanedas
-  changes:
   - message: Added bluespace shelter capsules, available from the salvage vendor!
     type: Add
   - message: Added the Explorer mining voucher kit, containing a mining rig and a
@@ -4107,3 +4095,13 @@
   id: 1622
   time: '2025-08-21T08:04:19.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4169
+- author: NoElkaTheGod
+  changes:
+  - message: Secret game mode now not only checks for amount of players ready, but
+      also for the total player count.
+    type: Tweak
+  - message: Game modes now generally require less players to be ready during lobby.
+    type: Tweak
+  id: 1623
+  time: '2025-08-21T08:53:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4246
