@@ -1,4 +1,5 @@
 using Content.Shared.Examine;
+using System.Text;
 
 namespace Content.Shared._DV.Access;
 
