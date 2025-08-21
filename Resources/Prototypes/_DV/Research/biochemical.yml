@@ -13,19 +13,6 @@
   - AugmentPowerCellSlotCasing
   - AugmentRechargerCasing
 
-- type: technology
-  id: SyringeGun
-  name: research-technology-syringe-gun
-  icon:
-    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
-    state: syringe_gun
-  discipline: Biochemical
-  tier: 1
-  cost: 10000
-  recipeUnlocks:
-  - LauncherSyringe
-  - MiniSyringe
-
 # Tier 2
 
 - type: technology

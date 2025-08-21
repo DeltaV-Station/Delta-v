@@ -4,7 +4,7 @@
   description: job-description-cburn
   playTimeTracker: JobCBURN
   setPreference: false
-  startingGear: CBURNGear
+  startingGear: CBURNGearDeltaV # DeltaV - Different startingGear
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -38,3 +38,11 @@
     - GrenadeFlashBang
     - PillAmbuzolPlus
     - PillAmbuzol
+
+- type: chameleonOutfit
+  id: CBURNChameleonOutfit
+  job: CBURN
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHelmetCBURN
+    neck: ClothingNeckScarfStripedBrown

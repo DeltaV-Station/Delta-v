@@ -19,16 +19,15 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.6
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.4
-        Heat: 0.4
-        Radiation: 0.4
-        Caustic: 0.4
+        Blunt: 0.8
+        Slash: 0.7
+        Piercing: 0.5
+        Heat: 0.5
+        Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -39,13 +38,15 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+    - HidesHarpyWings
 #Shoulder mounted flashlight
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: light
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-light
         shader: unshaded
+  - type: ItemTogglePointLight
   - type: Appearance
   - type: HandheldLight
     addPrefix: false
@@ -83,7 +84,6 @@
     autoRecharge: true
     autoRechargeRate: 5
 
-
 # COSMIC CULT HARDSUIT HELMET
 - type: entity
   parent: [ ClothingHeadHardsuitBase ]
@@ -108,3 +108,11 @@
         Slash: 0.90
         Piercing: 0.90
         Heat: 0.90
+  - type: EyeProtection
+  - type: TypingIndicatorClothing
+    proto: CosmicTyping
+  - type: SpeechOverride
+    overrideIDs:
+      Male: CosmicEmotesMale
+      Female: CosmicEmotesFemale
+      Unsexed: CosmicEmotesMale # Humans use male soudns for unsexed so here we are.

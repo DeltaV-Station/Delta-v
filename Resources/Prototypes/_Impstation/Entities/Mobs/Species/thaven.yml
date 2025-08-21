@@ -61,8 +61,8 @@
     proto: Thaven # DeltaV unique typing indicator
   - type: Vocal
     sounds:
-      Male: UnisexThaven
-      Female: UnisexThaven
+      Male: MaleThaven
+      Female: FemaleThaven
       Unsexed: UnisexThaven
   - type: Speech
     speechSounds: Alto
@@ -128,6 +128,8 @@
       # Shitmed
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
+  - type: CosmicMarkVisuals # DeltaV - cosmic cult
+    offset: 0, 0.0625 #2 pixels up
 
 
 - type: entity

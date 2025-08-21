@@ -13,7 +13,6 @@
   weight: 5
   startingGear: WardenGear
   icon: "JobIconWarden"
-  ransomModifier: 2.5 # DeltaV - between sec and a head
   requireAdminNotify: true # DeltaV
   supervisors: job-supervisors-hos
   canBeAntag: false
@@ -43,3 +42,17 @@
     back:
     - Flash
     #- MagazinePistol # DeltaV - loadouts
+
+- type: chameleonOutfit
+  id: WardenChameleonOutfit
+  job: Warden
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatWarden
+    mask: ClothingMaskGasSecurity
+    outerClothing: ClothingOuterCoatWarden
+    jumpsuit: ClothingUniformJumpsuitWarden
+    neck: Dinkystar
+    belt: ClothingBeltSecurity
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsJack

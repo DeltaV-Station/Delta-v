@@ -7,13 +7,15 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Materials/materials.rsi
     layers:
-      - state: bluespace_3
-        map: ["base"]
+    - state: bluespace_3
+      map: ["base"]
   - type: Appearance
   - type: Material
   - type: PhysicalComposition
     materialComposition:
       Bluespace: 100
+  - type: Item
+    size: Tiny
   - type: Tag
     tags:
     - BluespaceCrystal
@@ -38,8 +40,40 @@
       map: ["base"]
   - type: Stack
     count: 1
-  - type: Item
-    size: Tiny
+
+- type: entity
+  parent: MaterialBluespace
+  id: CrystalNormality # this is 1 not full because other stuff may assume its single
+  name: normality crystal
+  suffix: 1
+  description: It looks... normal.
+  components:
+  - type: Sprite
+    layers:
+    - state: bluespace
+      map: ["base"]
+    color: gray
+  - type: PhysicalComposition
+    materialComposition:
+      NormalityCrystal: 100
+  - type: Stack
+    stackType: NormalityCrystal
+    count: 1
+  - type: Tag
+    tags:
+    - NormalityCrystal
+
+- type: entity
+  parent: CrystalNormality
+  id: CrystalNormality5
+  suffix: 5
+  components:
+  - type: Sprite
+    layers:
+    - state: bluespace_3
+      map: ["base"]
+  - type: Stack
+    count: 5
 
 - type: entity
   parent: BaseItem

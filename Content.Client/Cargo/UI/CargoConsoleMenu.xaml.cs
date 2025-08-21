@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Client.Cargo.Systems;
 using Content.Client.UserInterface.Controls;
-using Content.Shared._DV.Traitor; // DeltaV
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
@@ -33,7 +32,6 @@ namespace Content.Client.Cargo.UI
         public event Action<ButtonEventArgs>? OnItemSelected;
         public event Action<ButtonEventArgs>? OnOrderApproved;
         public event Action<ButtonEventArgs>? OnOrderCanceled;
-        public event Action<NetEntity>? OnRansomPurchase; // DeltaV
 
         public event Action<ProtoId<CargoAccountPrototype>?, int>? OnAccountAction;
 
@@ -41,6 +39,8 @@ namespace Content.Client.Cargo.UI
 
         private readonly List<string> _categoryStrings = new();
         private string? _category;
+
+        public List<ProtoId<CargoProductPrototype>> ProductCatalogue = new();
 
         public CargoConsoleMenu(EntityUid owner, IEntityManager entMan, IPrototypeManager protoManager, SpriteSystem spriteSystem)
         {
@@ -59,7 +59,6 @@ namespace Content.Client.Cargo.UI
 
             SearchBar.OnTextChanged += OnSearchBarTextChanged;
             Categories.OnItemSelected += OnCategoryItemSelected;
-            RansomContainer.OnPurchase += ent => OnRansomPurchase?.Invoke(ent); // DeltaV
 
             if (entMan.TryGetComponent<CargoOrderConsoleComponent>(owner, out var orderConsole))
             {
@@ -116,14 +115,16 @@ namespace Content.Client.Cargo.UI
             Categories.SelectId(id);
         }
 
-        public IEnumerable<CargoProductPrototype> ProductPrototypes
+        private IEnumerable<CargoProductPrototype> ProductPrototypes
         {
             get
             {
                 var allowedGroups = _entityManager.GetComponentOrNull<CargoOrderConsoleComponent>(_owner)?.AllowedGroups;
 
-                foreach (var cargoPrototype in _protoManager.EnumeratePrototypes<CargoProductPrototype>())
+                foreach (var cargoPrototypeId in ProductCatalogue)
                 {
+                    var cargoPrototype = _protoManager.Index(cargoPrototypeId);
+
                     if (!allowedGroups?.Contains(cargoPrototype.Group) ?? false)
                         continue;
 
@@ -202,6 +203,9 @@ namespace Content.Client.Cargo.UI
         /// </summary>
         public void PopulateOrders(IEnumerable<CargoOrderData> orders)
         {
+            if (!_orderConsoleQuery.TryComp(_owner, out var orderConsole))
+                return;
+
             Requests.DisposeAllChildren();
 
             foreach (var order in orders)
@@ -236,17 +240,10 @@ namespace Content.Client.Cargo.UI
                 row.Cancel.OnPressed += (args) => { OnOrderCanceled?.Invoke(args); };
 
                 // TODO: Disable based on access.
+                row.SetApproveVisible(orderConsole.Mode != CargoOrderConsoleMode.SendToPrimary);
                 row.Approve.OnPressed += (args) => { OnOrderApproved?.Invoke(args); };
                 Requests.AddChild(row);
             }
-        }
-
-        /// <summary>
-        /// DeltaV: Forwards new ransom data to the ransom container.
-        /// </summary>
-        public void UpdateRansoms(List<RansomData> ransoms, int balance)
-        {
-            RansomContainer.UpdateRansoms(ransoms, balance);
         }
 
         public void PopulateAccountActions()
@@ -275,7 +272,6 @@ namespace Content.Client.Cargo.UI
         public void UpdateStation(EntityUid station)
         {
             _station = station;
-            RansomContainer.UpdateStation(_station); // DeltaV
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
@@ -298,8 +294,8 @@ namespace Content.Client.Cargo.UI
                                            TransferSpinBox.Value > bankAccount.Accounts[orderConsole.Account] * orderConsole.TransferLimit ||
                                            _timing.CurTime < orderConsole.NextAccountActionTime;
 
-            OrdersSpacer.Visible = !orderConsole.SlipPrinter;
-            Orders.Visible = !orderConsole.SlipPrinter;
+            OrdersSpacer.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip;
+            Orders.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip;
         }
     }
 }

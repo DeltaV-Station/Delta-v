@@ -477,6 +477,23 @@
   # TODO: could have a unique sprite in the future
 
 - type: entity
+  parent: Paper
+  id: PaperRecruiterUplink
+  name: Briefcase Uplink Instructions
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Paper
+    stampState: paper_stamp-syndicate
+    stampedBy:
+    - stampedColor: "#850000FF"
+      stampedName: Syndicate
+    content: |2
+      This DNA-Secure and extra-spacious briefcase is an uplink to one of our surplus warehouses.
+      Use them as incentives to join for potential recruits, or to reward yourself for a job well done.
+      You have been given an initial budget of 50"TC", spend it wisely.
+      To insert more, make sure the briefcase is locked before inserting the TC.
+
+- type: entity
   parent: BoxFolderRed
   id: BoxFolderFakeNukeCodes
   name: fake nuclear code folder

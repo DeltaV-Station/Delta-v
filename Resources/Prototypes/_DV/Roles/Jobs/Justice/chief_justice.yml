@@ -18,11 +18,10 @@
   weight: 20
   startingGear: CJGear
   icon: "JobIconChiefJustice"
-  ransomModifier: 3
   requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
-  whitelisted: true # whitelist requirement because I don't want any dingus judges
+  whitelisted: true # DeltaV: whitelist requirement because I don't want any dingus judges
   access:
   - Command
   - ChiefJustice
@@ -32,6 +31,7 @@
   - Clerk
   - Maintenance
   - External
+  - Cryogenics
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -58,3 +58,15 @@
     #innerClothingSkirt: ClothingUniformJumpskirtChiefJustice
     #satchel: ClothingBackpackSatchelFilled # TODO- make Justice departmebt bags
     #duffelbag: ClothingBackpackDuffelFilled
+
+- type: chameleonOutfit
+  id: ChiefJusticeChameleonOutfit
+  job: ChiefJustice
+  hasMindShield: true
+  equipment:
+    id: ChiefJusticePDA
+    ears: ClothingHeadsetAltJustice
+    head: ClothingHeadHatCJToque
+    jumpsuit: ClothingUniformJumpsuitChiefJustice
+    outerClothing: ClothingOuterChiefJustice
+    shoes: ClothingShoesLeather

@@ -19,15 +19,25 @@
         - SlipLayer
   - type: Physics
   - type: Clickable
-  - type: CosmicGlyph
   - type: CosmicCultExamine
     othersText: cosmic-examine-text-glyphs
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_truth.rsi
     layers:
-      - state: aid
+      - state: spawning
+        map: ["base"]
     drawdepth: Puddles
+  - type: GenericVisualizer
+    visuals:
+      enum.GlyphVisuals.Status:
+        base:
+          Spawning: {state: spawning}
+          Despawning: {state: despawning}
+          Ready: {state: ready}
+          Active: {state: active}
+          Cooldown: {state: cooldown}
   - type: Appearance
+  - type: InteractionOutline
 
 - type: entity
   parent: CosmicGlyphBase
@@ -35,13 +45,14 @@
   name: Glyph of Truth
   components:
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_truth.rsi
     layers:
-      - state: truth
-    drawdepth: Puddles
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphConversion
     negateProtection: true
   - type: CosmicGlyph
+    activationTime: 4 # To prevent people from just using the glyph the moment a target's shunt ends. Go get cuffs.
     requiredCultists: 3
     activationDamage:
       types:
@@ -55,12 +66,13 @@
   name: Glyph of Knowledge
   components:
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_knowledge.rsi
     layers:
-    - state: knowledge
-    drawdepth: Puddles
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
+    activationTime: 4 # To prevent people from just using the glyph the moment a target's shunt ends. Go get cuffs.
     requiredCultists: 2
     activationDamage:
       types:
@@ -74,16 +86,11 @@
   name: Glyph of Cessation
   components:
   - type: Sprite
+    sprite: _DV/CosmicCult/Objects/glyph_cessation.rsi
     layers:
-    - sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
-      state: cessation
-    drawdepth: Puddles
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphTransmute
-    transmutations:
-    - CosmicVacuousSpire
-    whitelist:
-      components:
-      - PortableScrubber
   - type: CosmicGlyph
     requiredCultists: 1
     activationDamage:
@@ -98,17 +105,11 @@
   name: Glyph of Blades
   components:
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_blades.rsi
     layers:
-    - state: blades
-    drawdepth: Puddles
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphTransmute
-    transmutations:
-    - SwordCosmicCult
-    - SpearCosmicCult
-    whitelist:
-      components:
-      - Sharp
   - type: CosmicGlyph
     requiredCultists: 2
     activationDamage:
@@ -123,18 +124,11 @@
   name: Glyph of Warding
   components:
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_warding.rsi
     layers:
-    - state: warding
-    drawdepth: Puddles
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphTransmute
-    transmutations:
-    - ClothingOuterHardsuitCosmicCult
-    whitelist:
-      requireAll: true
-      components:
-      - ClothingSpeedModifier
-      - PressureProtection
   - type: CosmicGlyph
     requiredCultists: 2
     activationDamage:
@@ -149,12 +143,13 @@
   name: Glyph of Projection
   components:
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_projection.rsi
     layers:
-    - state: projection
-    drawdepth: Puddles
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphAstralProjection
   - type: CosmicGlyph
     requiredCultists: 1
+    eraseOnUse: true # This is something that you may use early into the round where there aren't many cultists to hide it for you, so it erases automaticaly.
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-projection

@@ -7,7 +7,7 @@
   cost: 4
   delay: 4
   collisionMask: FullTileMask
-  rotation: Camera
+  rotation: User
   fx: EffectRCDConstruct4
 
 - type: rcd
@@ -73,7 +73,7 @@
   collisionMask: Impassable
   rules:
     - IsWindow
-  rotation: Fixed
+  rotation: User
   fx: EffectRCDConstruct2
 
 - type: rcd
@@ -87,7 +87,7 @@
   collisionMask: Impassable
   rules:
     - IsWindow
-  rotation: Fixed
+  rotation: User
   fx: EffectRCDConstruct2
 
 - type: rcd

@@ -9,7 +9,6 @@
     time: 18000 #5 hrs
   startingGear: DetectiveGear
   icon: "JobIconDetective"
-  ransomModifier: 2 # DeltaV - Sec is less than heads
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
@@ -37,3 +36,13 @@
     - Flash
     - ForensicPad
     - ForensicScanner
+
+- type: chameleonOutfit
+  id: DetectiveChameleonOutfit
+  job: Detective
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatFedoraBrown
+    mask: ClothingMaskGasSecurity
+    neck: ClothingNeckTieDet
+    gloves: ClothingHandsGlovesForensic

@@ -1,0 +1,13 @@
+- type: entity
+  name: trash bag of holding
+  id: TrashBagOfHolding
+  parent: TrashBagBlue
+  description: A robust bag of holding to strike fear into all trash and banana peels.
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,19,9
+    quickInsert: true
+    areaInsert: true
+    areaInsertRadius: 5

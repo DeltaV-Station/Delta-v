@@ -62,13 +62,11 @@
   components:
   - type: Objective
     unique: false
-  # Begin DeltaV Removals - kill and social are no longer mutually exclusive
-  #- type: ObjectiveBlacklistRequirement
-  #  blacklist:
-  #    components:
-  #    - KillPersonCondition
-  #- type: SocialObjective
-  # End DeltaV Removals
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - KillPersonCondition
+  - type: SocialObjective
 
 # requires that the target survives the round
 - type: entity

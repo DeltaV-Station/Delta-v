@@ -19,6 +19,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Random;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
+using Content.Shared.Hands.Components;
 
 namespace Content.Server.Forensics
 {
@@ -32,9 +33,8 @@ namespace Content.Server.Forensics
 
         public override void Initialize()
         {
-            SubscribeLocalEvent<FingerprintComponent, ContactInteractionEvent>(OnInteract);
-            SubscribeLocalEvent<FiberComponent, ContactInteractionEvent>(OnFiberInteract); // DeltaV
-            SubscribeLocalEvent<FiberComponent, MapInitEvent>(OnFiberInit, after: [typeof(BloodstreamSystem)]); // DeltaV #1455 - unique glove fibers
+            SubscribeLocalEvent<HandsComponent, ContactInteractionEvent>(OnInteract);
+            SubscribeLocalEvent<FiberComponent, MapInitEvent>(OnFiberInit, after: [typeof(BloodstreamSystem)]); // DeltaV - (#1455) unique glove fibers
             SubscribeLocalEvent<FingerprintComponent, MapInitEvent>(OnFingerprintInit, after: new[] { typeof(BloodstreamSystem) });
             // The solution entities are spawned on MapInit as well, so we have to wait for that to be able to set the DNA in the bloodstream correctly without ResolveSolution failing
             SubscribeLocalEvent<DnaComponent, MapInitEvent>(OnDNAInit, after: new[] { typeof(BloodstreamSystem) });
@@ -62,18 +62,12 @@ namespace Content.Server.Forensics
             }
         }
 
-        private void OnInteract(EntityUid uid, FingerprintComponent component, ContactInteractionEvent args)
+        private void OnInteract(EntityUid uid, HandsComponent component, ContactInteractionEvent args)
         {
             ApplyEvidence(uid, args.Other);
         }
 
         // Begin DeltaV Additions
-        // ipcs and borgs leave metal fibers
-        private void OnFiberInteract(Entity<FiberComponent> ent, ref ContactInteractionEvent args)
-        {
-            ApplyEvidence(ent, args.Other);
-        }
-
         // #1455 - unique glove fibers
         private void OnFiberInit(Entity<FiberComponent> ent, ref MapInitEvent args)
         {

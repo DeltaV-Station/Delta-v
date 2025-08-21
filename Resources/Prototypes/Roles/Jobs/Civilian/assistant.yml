@@ -5,7 +5,6 @@
   playTimeTracker: JobPassenger
   startingGear: PassengerGear
   icon: "JobIconPassenger"
-  ransomModifier: 0.5 # DeltaV - random civilians dont fetch as much as employees
   supervisors: job-supervisors-everyone
   access:
   - Maintenance
@@ -18,3 +17,14 @@
   #storage:
     #back:
     #- Stuff
+
+- type: chameleonOutfit
+  id: PassengerChameleonOutfit
+  job: Passenger
+  equipment:
+    head: ClothingHeadHatWelding
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskGas
+    neck: ClothingNeckMantle
+    outerClothing: ClothingOuterWinterCoat
+    gloves: ClothingHandsGlovesColorYellowBudget

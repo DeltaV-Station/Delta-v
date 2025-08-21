@@ -17,10 +17,4 @@ public sealed partial class NukieOperationPrototype : IPrototype
 
     [DataField]
     public LocId? NukeCodePaperOverride;
-
-    /// <summary>
-    /// If non-null, calls war after the given duration
-    /// </summary>
-    [DataField]
-    public TimeSpan? AutoWarAfter;
 }

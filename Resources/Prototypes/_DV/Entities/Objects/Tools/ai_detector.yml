@@ -8,7 +8,7 @@
     - state: icon
     - state: green-unlit
       shader: unshaded
-      map: [ enum.CollidingVisuals.Layer ]
+      map: [ enum.AiDetectorVisuals.Layer ]
   - type: Physics
     canCollide: true
   - type: Fixtures
@@ -35,23 +35,20 @@
         hard: false
         mask:
         - GhostImpassable
-  - type: CollisionWake # don't stop checking for AI just because this isn't moving
-    enabled: false
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.CollidingVisuals.Fixture:
-        enum.CollidingVisuals.Layer:
+      enum.AiDetectorVisuals.Light:
+        enum.AiDetectorVisuals.Layer:
           none: { state: "green-unlit" }
           yellow: { state: "yellow-unlit" }
           red: { state: "red-unlit" }
-  - type: CollidingVisuals
-    whitelist:
-      components:
-      - AiDetectable
-    fixtures:
-    - red
-    - yellow
+  - type: AiDetector
+    ranges:
+    - state: red
+      range: 5
+    - state: yellow
+      range: 12
   - type: MappingCategories # don't map valid multitool by mistake
     categories:
     - Syndicate

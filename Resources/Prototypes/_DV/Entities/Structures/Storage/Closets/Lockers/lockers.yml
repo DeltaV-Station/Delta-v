@@ -76,18 +76,6 @@
     access: [ [ "Surgery" ] ]
 
 - type: entity
-  parent: CommandLockerBaseSecureDeltaV
-  id: LockerAdministrativeAssistant
-  name: administrative assistant's locker
-  components:
-  - type: EntityStorageVisuals
-    stateBaseClosed: admin_assist
-    stateDoorOpen: admin_assist_open
-    stateDoorClosed: admin_assist_door
-  - type: AccessReader
-    access: [["Command"]]
-
-- type: entity
   parent: LockerBaseSecureDeltaV
   id: LockerKitchen
   name: kitchen locker
@@ -162,3 +150,11 @@
           MaterialWoodPlank1:
             min: 1
             max: 2
+
+- type: entity
+  id: SalvageGunSafeBaseSecure
+  parent: GunSafe
+  suffix: LO, Locked
+  components:
+  - type: AccessReader
+    access: [["Quartermaster"]]

@@ -52,22 +52,6 @@
   description: Headset used by prison guards.
 
 - type: entity
-  parent: ClothingHeadset
-  id: ClothingHeadsetAdminAssistant
-  name: adminstrative assistant headset
-  description: A headset used by the administrative assistant.
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyCommand
-      - EncryptionKeyCommon
-  - type: Sprite
-    sprite: _DV/Clothing/Ears/Headsets/adminassistant.rsi
-  - type: Clothing
-    sprite: _DV/Clothing/Ears/Headsets/adminassistant.rsi
-
-- type: entity
   parent: ClothingHeadsetGrey
   id: ClothingHeadsetGreySyndicate
   suffix: Recruiter

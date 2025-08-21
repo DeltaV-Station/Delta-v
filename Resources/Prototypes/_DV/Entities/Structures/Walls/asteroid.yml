@@ -159,3 +159,100 @@
     - state: rock_bluespace
       sprite: _DV/Structures/Walls/rock.rsi
       map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+# Gibtonite - emo was lazy and only made 2 of them
+
+- type: entity
+  parent: [ BaseRockGibtonite, WallRock ]
+  id: WallRockGibtonite
+  components:
+  - type: Sprite
+    layers:
+    - state: rock
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_west
+    - state: gibtonite_inactive
+      visible: false
+      map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  parent: [ BaseRockGibtonite, WallRockBasalt ]
+  id: WallRockBasaltGibtonite
+  components:
+  - type: Sprite
+    layers:
+    - state: rock_wall
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_wall_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_wall_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_wall_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_wall_west
+    - state: gibtonite_inactive
+      visible: false
+      map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  parent: [ BaseRockGibtonite, WallRockChromite ]
+  id: WallRockChromiteGibtonite
+  components:
+  - type: Sprite
+    layers:
+    - state: rock_chromite
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_chromite_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_chromite_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_chromite_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_chromite_west
+    - state: gibtonite_inactive
+      visible: false
+      map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  parent: [ BaseRockGibtonite, WallRockSand ]
+  id: WallRockSandGibtonite
+  components:
+  - type: Sprite
+    layers:
+    - state: rock_sand
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_sand_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_sand_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_sand_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_sand_west
+    - state: gibtonite_inactive
+      visible: false
+      map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  parent: [ BaseRockGibtonite, WallRockSnow ]
+  id: WallRockSnowGibtonite
+  components:
+  - type: Sprite
+    layers:
+    - state: rock_snow
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_snow_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_snow_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_snow_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_snow_west
+    - state: gibtonite_inactive
+      visible: false
+      map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]

@@ -22,7 +22,6 @@
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
-  ransomModifier: 5 # DeltaV - Most important of them all
   requireAdminNotify: true # DeltaV
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
@@ -51,3 +50,13 @@
     back:
     - Flash
     # - StationCharter
+
+- type: chameleonOutfit
+  id: CaptainChameleonOutfit
+  job: Captain
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatCapcap
+    eyes: ClothingEyesGlassesCommand
+    mask: ClothingMaskGasCaptain
+    neck: ClothingNeckCloakCap

@@ -1,50 +1,3 @@
-- type: latheRecipe
-  abstract: true
-  id: BaseHardsuitRecipe
-  categories:
-  - Hardsuits
-  completetime: 10 # Hardsuit beeg
-  materials:
-    Plasteel: 500
-    Durathread: 500
-    Steel: 1000
-    Glass: 500
-    Plastic: 400
-
-- type: latheRecipe
-  abstract: true
-  parent: BaseHardsuitRecipe
-  id: BaseHardsuitArmoredRecipe
-  materials:
-    Plasteel: 1000
-    Durathread: 600
-    Steel: 1500
-    Glass: 800
-    Plastic: 400
-
-- type: latheRecipe
-  abstract: true
-  id: BaseSoftsuitRecipe
-  categories:
-  - Softsuits
-  completetime: 7 # Softsuit less beeg
-  materials:
-    Durathread: 700
-    Steel: 500
-    Glass: 200
-    Plastic: 400
-
-- type: latheRecipe
-  abstract: true
-  parent: BaseSoftsuitRecipe
-  id: BaseSoftsuitHelmetRecipe
-  completetime: 4 # Helmet is smaller
-  materials:
-    Durathread: 200
-    Steel: 100
-    Glass: 100
-    Plastic: 100
-
 # Jumpsuits - Security
 
 - type: latheRecipe
@@ -103,6 +56,11 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtWardenGrey
   result: ClothingUniformJumpskirtWardenGrey
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitPrisonGuard
+  result: ClothingUniformJumpsuitPrisonGuard
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -205,6 +163,30 @@
   id: ClothingUniformJumpskirtProsecutor
   result: ClothingUniformJumpskirtProsecutor
 
+# Mantis
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitMantis
+  result: ClothingUniformJumpsuitMantis
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSkirtMantis
+  result: ClothingUniformSkirtMantis
+
+# Courier
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformCourier
+  result: ClothingUniformCourier
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSkirtCourier
+  result: ClothingUniformSkirtCourier
+
 # Salvage Specialist
 
 - type: latheRecipe
@@ -212,17 +194,17 @@
   id: ClothingUniformJumpskirtSalvageSpecialist
   result: ClothingUniformJumpskirtSalvageSpecialist
 
-# Administrative Assistant
+# Secretary
 
 - type: latheRecipe
   parent: BaseCommandJumpsuitRecipe
-  id: ClothingUniformJumpsuitAdminAssistant
-  result: ClothingUniformJumpsuitAdminAssistant
+  id: ClothingUniformJumpsuitSecretary
+  result: ClothingUniformJumpsuitSecretary
 
 - type: latheRecipe
   parent: BaseCommandJumpsuitRecipe
-  id: ClothingUniformJumpskirtAdminAssistant
-  result: ClothingUniformJumpskirtAdminAssistant
+  id: ClothingUniformJumpskirtSecretary
+  result: ClothingUniformJumpskirtSecretary
 
 # Command Hats
 
@@ -489,12 +471,6 @@
   parent: BaseHardsuitRecipe
   id: ClothingOuterHardsuitVoidParamed
   result: ClothingOuterHardsuitVoidParamed
-
-## General
-- type: latheRecipe # Not used for now.
-  parent: BaseHardsuitRecipe
-  id: ClothingOuterHardsuitBasic
-  result: ClothingOuterHardsuitBasic
 
 # Softsuits
 

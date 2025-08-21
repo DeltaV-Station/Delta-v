@@ -21,6 +21,9 @@
   - type: Tool
     qualities:
     - Slicing
+  - type: CosmicTransmutable # DeltaV
+    transmutesTo: SwordCosmicCult
+    requiredGlyphType: CosmicGlyphBlades
 
 #Shortswords
 - type: entity
@@ -172,7 +175,7 @@
     - Belt
   - type: Reflect
     slotFlags:
-      - NONE
+    - NONE
 
 #Greatswords
 - type: entity

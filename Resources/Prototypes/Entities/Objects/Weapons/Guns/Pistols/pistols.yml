@@ -68,6 +68,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
+  - type: FireOnLand # DeltaV - gun safety
 
 - type: entity
   name: viper
@@ -104,6 +105,8 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 1000
 
 - type: entity
   name: echis
@@ -188,6 +191,8 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 1500
 
 - type: entity
   name: mk 58

@@ -1,6 +1,20 @@
 - type: stack
   id: SharkminnowChitin
-  name: sharkminnow chitin
+  name: stack-sharkminnow-chitin
   icon: { sprite: _DV/Objects/Materials/Mob/sharkchitin.rsi, state: chitin}
   spawn: MaterialChitinSharkminnow1
   maxCount: 30
+
+- type: stack
+  id: Bluespace
+  name: stack-bluespace
+  icon: { sprite: Nyanotrasen/Objects/Materials/materials.rsi, state: bluespace }
+  spawn: MaterialBluespace
+  maxCount: 5
+
+- type: stack
+  id: NormalityCrystal
+  name: stack-normality-crystal
+  icon: { sprite: Nyanotrasen/Objects/Materials/materials.rsi, state: bluespace }
+  spawn: CrystalNormality
+  maxCount: 5

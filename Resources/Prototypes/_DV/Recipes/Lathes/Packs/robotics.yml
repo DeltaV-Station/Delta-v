@@ -17,14 +17,28 @@
   - BorgModuleSyndicateWeapon
   - BorgModuleRadioJammerRecharging
   - BorgModuleMartyr
-  - BorgModuleBlades
   - BorgModuleCHIMP
   - BorgModuleSyndicateRadio
   - BorgModuleCrewMonitor
   - SyndicateNeuroling
   - BorgModuleOperative
   - BorgModuleChameleonProjector
+  - BorgModuleBuccaneer
+  - BorgModuleSleeper
   - IdChipRoboNeuroticist
+
+- type: latheRecipePack
+  id: BorgModulesResearched # For SRN, else they can NEVER get the advanced modules
+  recipes:
+  - BorgModuleSecurityChase
+  - BorgModuleSecurityEscalate
+  - BorgModuleSecurityBastion
+  - BorgModuleFauna
+  - BorgModuleAdvancedCleaning
+  - BorgModuleAdvancedTool
+  - BorgModuleAdvancedChemical
+  - BorgModuleAdvancedMining
+  - BorgModuleAdvancedSurgery
 
 ## Dynamic
 

@@ -20,15 +20,7 @@
 
 ## Dynamic
 
-# available in medfab and emagged protolathe
 - type: latheRecipePack
-  id: SyringeGuns
-  recipes:
-  - LauncherSyringe
-  - MiniSyringe
-
-- type: latheRecipePack
-  parent: SyringeGuns
   id: MedicalDeltaV
   recipes:
   - HandheldCrewMonitor # RE

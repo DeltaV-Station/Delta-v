@@ -46,7 +46,9 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
-  - type: GunRequiresWield # DeltaV - Firing a bolt action is.. incredibly unweildy with one hand.
+  - type: GunRequiresWield
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   name: Hristov
@@ -79,6 +81,8 @@
   - type: EyeCursorOffset
     maxOffset: 3
     pvsIncrease: 0.3
+  - type: StaticPrice
+    price: 3500
 
 - type: entity
   name: musket
@@ -117,7 +121,7 @@
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-  - type: GunRequiresWield # DeltaV - Firing a muzzle loader is.. incredibly unweildy with one hand.
+  - type: GunRequiresWield
 
 - type: entity
   name: flintlock pistol
@@ -151,10 +155,8 @@
     price: 0
 
 - type: entity
-  name: flintlock pistol
   parent: WeaponPistolFlintlock
   id: WeaponPistolFlintlockEmpty
-  description: A pirate's companion. Yarrr! Uses .45 magnum ammo.
   suffix: Empty
   components:
   - type: BallisticAmmoProvider

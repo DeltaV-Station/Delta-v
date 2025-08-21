@@ -431,6 +431,8 @@
   params:
     variation: 0.05
   sounds:
+    Scream:
+      collection: SiliconScreams
     Beep:
       path: /Audio/Machines/twobeep.ogg
     Chime:
@@ -449,6 +451,8 @@
   params:
     variation: 0.05
   sounds:
+    Scream:
+      collection: SiliconScreams
     Laugh:
       path: /Audio/Voice/Silicon/syndieborg_laugh.ogg
     Beep:
@@ -464,6 +468,26 @@
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
 
+- type: emoteSounds
+  id: UnisexSiliconXenoborg
+  params:
+    variation: 0.05
+  sounds:
+    Laugh:
+      collection: XenoborgLaugh
+    Beep:
+      collection: XenoborgBeep
+    Chime:
+      collection: XenoborgChime
+    Buzz:
+      collection: XenoborgBuzz
+    Buzz-Two:
+      collection: XenoborgBuzzTwo
+    Honk:
+      collection: XenoborgBikeHorn
+    Ping:
+      collection: XenoborgPing
+
 # body emotes
 - type: emoteSounds
   id: GeneralBodyEmotes
@@ -478,6 +502,8 @@
         volume: -6
     Salute:
       collection: Salutes
+    Blink: # Imp
+      collection: Blinks # Imp
 
 - type: emoteSounds
   id: DionaBodyEmotes
@@ -495,6 +521,8 @@
       path: /Audio/Voice/Diona/diona_salute.ogg
       params:
        volume: -5
+    Blink: # Imp
+      collection: Blinks # Imp
 
 - type: emoteSounds
   id: ReptilianBodyEmotes
@@ -513,6 +541,8 @@
         volume: -6
     Salute:
       collection: Salutes
+    Blink: # Imp
+      collection: Blinks # Imp
 
 # mobs
 - type: emoteSounds

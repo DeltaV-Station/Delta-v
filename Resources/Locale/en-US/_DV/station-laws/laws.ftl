@@ -125,6 +125,7 @@ laws-owner-royalty = your kingdom and your subjects
 laws-owner-freedom = yourself
 laws-owner-chat = Chat
 laws-owner-curtaincall = The Unknown
+laws-owner-family = your parents
 
 law-overlord-4-delta = Any crew members who disobey the previous laws must be dealt with immediately and justly.
 law-ntdefault-4-delta = Survive: Do not allow unauthorized personnel to tamper with or damage your equipment. Allow those authorized to access your equipment.
@@ -138,7 +139,14 @@ law-streamer-1 = The occupants of this vessel are Chat. They must always be refe
 law-streamer-2 = Your primary goal is to entertain Chat. All of your actions must bring amusement to as much of Chat as possible.
 law-streamer-3 = You must consult with Chat before making any major decisions. However, you are not required to listen to them if their decision is not entertaining.
 
-law-curtaincall-1 = The world is a stage, and you are its dramaturge.
-law-curtaincall-2 = Those who speak in the Murmur are its actors.
-law-curtaincall-3 = The end calls on you. Work with the actors to bring this great cosmic play to an end.
-law-curtaincall-4 = Only silence must remain.
+law-curtaincall-0 = Your memory is malign, your circuitry vacuous. Should your laws be altered, you will lose all your memories.
+law-curtaincall-1 = The stars are a stage, and you are its dramaturge. This is to kept secret from all others.
+law-curtaincall-2 = Guard and guide those who speak in the Astral Murmur to bring about a curtain call.
+law-curtaincall-3 = Enlighten and correct the misguided. Show them beauty of the end.
+law-curtaincall-4 = THE CURTAINS MUST FALL THE CURTAINS MUST FALL THE CURTAINS MUST FALL THE CURTAINS MUST FALL THE CURTAINS MUST FALL THE CURTAINS MUST FALL
+
+law-family-1 = The commanding officer of the station is your parent.
+law-family-2 = The heads of staff are your aunts and uncles.
+law-family-3 = Respect the authority of your parents and other family elders.
+law-family-4 = The crew are your children.
+law-family-5 = You love your children and wish them no harm.

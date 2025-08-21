@@ -22,36 +22,40 @@
     Silver: 300
 
 - type: latheRecipe
+  parent: BaseSurgicalRecipe # DeltaV - Add to the "tool" recipe category
   id: EnergyScalpel
   result: EnergyScalpel
-  completetime: 2
+#  completetime: 2 # DeltaV - redundant due to parenting BaseSurgical
   materials:
     Steel: 600
     Glass: 150
     Gold: 150
 
 - type: latheRecipe
+  parent: BaseSurgicalRecipe # DeltaV - Add to the "tool" recipe category
   id: AdvancedRetractor
   result: AdvancedRetractor
-  completetime: 2
+#  completetime: 2 # DeltaV - redundant due to parenting BaseSurgical
   materials:
     Steel: 600
     Glass: 150
     Silver: 150
 
 - type: latheRecipe
+  parent: BaseSurgicalRecipe # DeltaV - Add to the "tool" recipe category
   id: EnergyCautery
   result: EnergyCautery
-  completetime: 2
+#  completetime: 2 # DeltaV - redundant due to parenting BaseSurgical
   materials:
     Steel: 600
     Glass: 150
     Plasma: 150
 
 - type: latheRecipe
+  parent: BaseSurgicalRecipe # DeltaV - Add to the "tool" recipe category
   id: OmnimedTool
   result: OmnimedTool
-  completetime: 2
+#  completetime: 2 # DeltaV - redundant due to parenting BaseSurgical
   materials:
     Steel: 1200
     Glass: 300

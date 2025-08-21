@@ -9,6 +9,11 @@
   - type: Lathe
     staticPacks:
     - BorgModulesSyndicateStatic
+    - RoboticsStaticDeltaV
+    - RoboticsStatic
+    - BorgModulesStatic
+    - BorgLimbsStatic
+    - BorgModulesResearched
   - type: Machine
     board: SyndieExosuitFabricatorMachineCircuitboard
 
@@ -85,6 +90,7 @@
     - FauxTiles
     - Equipment
     - UpgradeKits
+    - UpgradeKits_Goob
     - EngineeringHardsuits
   - type: Machine
     board: EngineeringTechFabCircuitboard
@@ -130,6 +136,9 @@
     board: LogisticsTechFabCircuitboard
   - type: StealTarget
     stealGroup: LogisticsTechFabCircuitboard
+  - type: MaterialStorageMagnetPickup
+    magnetEnabled: True
+    range: 0.30
   - type: LatheAnnouncing
     channels: [Supply]
 

@@ -11,6 +11,7 @@
     - id: CargoSaleComputerCircuitboard
     - id: CargoShuttleConsoleCircuitboard
     - id: SalvageMagnetMachineCircuitboard
+    #- id: SalvageJobBoardComputerCircuitboard # DeltaV - unneeded mechanic with mining points vendor
     - id: CigPackGreen
       prob: 0.50
     - id: ClothingHeadsetAltCargo
@@ -19,6 +20,8 @@
     - id: RubberStampDenied
     - id: RubberStampQm
     - id: AstroNavCartridge
+    #- id: ClothingHandsKnuckleDustersQM # DeltaV - No weaponry for LO.
+    #- id: MailTeleporterMachineCircuitboard # DeltaV - upstream deliveries not ported yet
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -54,6 +57,10 @@
     - id: SpaceCash1000
     - id: WeaponDisabler
     - id: ClothingEyesGlassesCommand
+    - id: HeadSkeleton # A skull to accompany your skeleton crew
+      conditions:
+      - !type:PlayerCountCondition
+        max: 15
 
 # No laser table + Laser table
 - type: entityTable
@@ -117,7 +124,7 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfPersonnelDeltaV
-    #- id: AccessConfigurator # DeltaV - They don't really need it, moved to the administrative assistant starting gear.
+    - id: AccessConfigurator
     - id: BoxEncryptionKeyPassenger
     - id: BoxEncryptionKeyService
     - id: BoxHeadset
@@ -172,6 +179,7 @@
     - id: RCD
     - id: RCDAmmo
     - id: RubberStampCE
+    - id: MetalFoamGrenade
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -334,7 +342,7 @@
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfSecurityDeltaV
     - id: BookSecretDocuments
-    - id: WeaponEnergyShotgun
+    # - id: WeaponEnergyShotgun # DeltaV - Moved to warden locker
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
@@ -401,7 +409,6 @@
   - type: StorageFill
     contents:
     - id: WeaponRevolverDeckard
-    - id: ClothingOuterHardsuitBasic
     - id: JetpackBlue
     - id: SpaceCash1000
     - id: BeachBall

@@ -35,6 +35,15 @@
     Plastic: 250
     Steel: 25
 
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: ClothingEyesHudDiagnostic
+  result: ClothingEyesHudDiagnostic
+  materials:
+    Steel: 200
+    Plastic: 100
+    Glass: 300
+
 # Robo Neuroling recipes
 
 - type: latheRecipe
@@ -44,12 +53,12 @@
   - Robotics
   completetime: 10
   materials:
-    Steel: 1500
-    Glass: 3000
-    Plasteel: 1500
-    Gold: 1500
+    Steel: 1000
+    Glass: 1000
+    Gold: 500
+    Silver: 500
     Plastic: 1000
-    Uranium: 1000
+    Uranium: 500
     Plasma: 1000
 
 - type: latheRecipe
@@ -76,17 +85,6 @@
     Glass: 1000
     Plastic: 1000
     Silver: 500
-
-- type: latheRecipe
-  id: BorgModuleBlades
-  result: BorgModuleBlades
-  categories:
-  - Robotics
-  completetime: 5
-  materials:
-    Steel: 1500
-    Glass: 500
-    Plastic: 500
 
 - type: latheRecipe
   id: BorgModuleCHIMP
@@ -159,8 +157,33 @@
     Steel: 1200
     Glass: 1000
     Gold: 1000
-    Plastic: 2000
+    Plastic: 1000
     Uranium: 1000
+
+- type: latheRecipe
+  id: BorgModuleBuccaneer
+  result: BorgModuleBuccaneer
+  categories:
+  - Robotics
+  completetime: 10
+  materials:
+    Steel: 1200
+    Glass: 1000
+    Plastic: 1000
+    Silver: 200
+
+- type: latheRecipe
+  id: BorgModuleSleeper
+  result: BorgModuleSleeper
+  categories:
+  - Robotics
+  completetime: 10
+  materials:
+    Steel: 1200
+    Glass: 1000
+    Plastic: 1500
+    Silver: 300
+    Gold: 300
 
 - type: latheRecipe
   parent: BaseRoboticsRecipe

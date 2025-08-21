@@ -1,4 +1,5 @@
 using Content.Server._DV.CosmicCult.Components;
+using Content.Server.Actions;
 using Content.Server.Atmos.Components;
 using Content.Server.Bible.Components;
 using Content.Server.Popups;
@@ -8,13 +9,13 @@ using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._DV.CosmicCult.EntitySystems;
 
 public sealed class CosmicRiftSystem : EntitySystem
 {
+    [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -124,13 +125,18 @@ public sealed class CosmicRiftSystem : EntitySystem
 
         args.Handled = true;
         var tgtpos = Transform(target).Coordinates;
+        var actionEnt = _actions.AddAction(uid, uid.Comp.CosmicFragmentationAction);
         Spawn(uid.Comp.AbsorbVFX, tgtpos);
+        comp.ActionEntities.Add(actionEnt);
+        comp.CosmicFragmentationActionEntity = actionEnt;
         comp.CosmicEmpowered = true;
         comp.CosmicSiphonQuantity = 2;
         comp.CosmicGlareRange = 10;
-        comp.CosmicGlareDuration = TimeSpan.FromSeconds(10);
+        comp.CosmicGlareDuration = TimeSpan.FromSeconds(6);
         comp.CosmicGlareStun = TimeSpan.FromSeconds(1);
-        comp.CosmicImpositionDuration = TimeSpan.FromSeconds(7.2);
+        comp.CosmicImpositionDuration = TimeSpan.FromSeconds(7.4);
+        comp.CosmicBlankDuration = TimeSpan.FromSeconds(26);
+        comp.CosmicBlankDelay = TimeSpan.FromSeconds(0.4);
         comp.Respiration = false;
         EnsureComp<PressureImmunityComponent>(args.User);
         EnsureComp<TemperatureImmunityComponent>(args.User);

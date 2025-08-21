@@ -1,0 +1,82 @@
+- type: gameMap
+  id: Terra
+  mapName: 'Terra'
+  mapPath: /Maps/terra.yml
+  minPlayers: 40
+  stations:
+    Terra:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Terra Station {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'DV'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Yggdrasil.yml
+        - type: StationCargoShuttle
+          path: /Maps/_DV/Shuttles/cargo_model_B.yml
+        - type: StationJobs
+          availableJobs:
+          #civilian
+            Passenger: [ -1, -1 ]
+          #command
+            Captain: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
+          #engineering
+            AtmosphericTechnician: [ 2, 3 ]
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 6, 8 ]
+            TechnicalAssistant: [ 3, 4 ]
+          #justice
+            ChiefJustice: [ 1, 1 ]
+            Clerk: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            Prosecutor: [ 1, 1 ]
+          #medical
+            Chemist: [ 2, 2 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 4, 6 ]
+            MedicalIntern: [ 2, 4 ]
+            Paramedic: [ 2, 2 ]
+            Psychologist: [ 1, 1 ]
+            Surgeon: [ 1, 1 ]
+          #security
+            Brigmedic: [ 1, 1 ]
+            Detective: [ 1, 1 ]
+            Gladiator: [ 2, 2 ]
+            HeadOfSecurity: [ 1, 1 ]
+            Prisoner: [ 2, 3 ]
+            PrisonGuard: [ 2, 2 ]
+            SecurityOfficer: [ 6, 8 ]
+            SecurityCadet: [ 2, 4 ]
+            Warden: [ 1, 1 ]
+          #service
+            Bartender: [ 2, 2 ]
+            Botanist: [ 2, 2 ]
+            Boxer: [ 2, 2 ]
+            Chef: [ 2, 2 ]
+            Clown: [ 1, 2 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            Janitor: [ 2, 3 ]
+            Librarian: [ 1, 1 ]
+            MartialArtist: [ 1, 1 ]
+            Mime: [ 1, 2 ]
+            Musician: [ 2, 3 ]
+            Reporter: [ 2, 2 ]
+            ServiceWorker: [ 2, 3 ]
+            Zookeeper: [ 1, 1 ]
+          #science
+            Chaplain: [ 1, 1 ]
+            Borg: [ 2, 3 ]
+            ForensicMantis: [ 1, 1 ]
+            ResearchAssistant: [ 2, 4 ]
+            ResearchDirector: [ 1, 1 ]
+            Roboticist: [ 1, 2 ]
+            Scientist: [ 4, 5 ]
+          #supply
+            CargoAssistant: [ 1, 2 ]
+            CargoTechnician: [ 2, 3 ]
+            Courier: [ 2, 2 ]
+            SalvageSpecialist: [ 3, 4 ]
+            Quartermaster: [ 1, 1 ]

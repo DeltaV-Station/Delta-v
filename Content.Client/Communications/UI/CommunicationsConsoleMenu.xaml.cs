@@ -29,6 +29,12 @@ namespace Content.Client.Communications.UI
         public event Action<string>? OnAnnounce;
         public event Action<string>? OnBroadcast;
 
+        // Begin DeltaV - Exfiltration Shuttle
+        public bool CanExfiltrate;
+        public TimeSpan? ExfiltrationCountdownEnd;
+        public event Action? OnExfiltrationLevel;
+        // End DeltaV - Exfiltration Shuttle
+
         public CommunicationsConsoleMenu()
         {
             IoCManager.InjectDependencies(this);
@@ -72,12 +78,18 @@ namespace Content.Client.Communications.UI
 
             EmergencyShuttleButton.OnPressed += _ => OnEmergencyLevel?.Invoke();
             EmergencyShuttleButton.Disabled = !CanCall;
+
+            // Begin DeltaV - Exfiltration Shuttle
+            ExfiltrationShuttleButton.OnPressed += _ => OnExfiltrationLevel?.Invoke();
+            ExfiltrationShuttleButton.Disabled = !CanExfiltrate;
+            // End DeltaV - Exfiltration Shuttle
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
         {
             base.FrameUpdate(args);
             UpdateCountdown();
+            UpdateExfiltrationCountdown(); // DeltaV - Exfiltration shuttle
         }
 
         // The current alert could make levels unselectable, so we need to ensure that the UI reacts properly.
@@ -116,6 +128,25 @@ namespace Content.Client.Communications.UI
                 }
             }
         }
+
+        // Begin DeltaV - Exfiltration Shuttle
+        public void UpdateExfiltrationCountdown()
+        {
+            if (ExfiltrationCountdownEnd is null)
+            {
+                ExfiltrationCountdownLabel.SetMessage(string.Empty);
+                ExfiltrationShuttleButton.Text = Loc.GetString("comms-console-menu-call-exfiltration");
+                return;
+            }
+
+            var exfiltrationDiff = MathHelper.Max((ExfiltrationCountdownEnd - _timing.CurTime) ?? TimeSpan.Zero, TimeSpan.Zero);
+            ExfiltrationShuttleButton.Text = Loc.GetString("comms-console-menu-recall-exfiltration");
+
+            var exfiltrationInfoText = Loc.GetString("comms-console-menu-exfiltration-time-remaining",
+                ("time", exfiltrationDiff.ToString(@"hh\:mm\:ss", CultureInfo.CurrentCulture)));
+            ExfiltrationCountdownLabel.SetMessage(exfiltrationInfoText);
+        }
+        // End DeltaV - Exfiltration Shuttle
 
         public void UpdateCountdown()
         {

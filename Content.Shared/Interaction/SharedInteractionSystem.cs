@@ -17,6 +17,7 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Popups;
@@ -27,6 +28,7 @@ using Content.Shared.Timing;
 using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
 using Content.Shared.Wall;
+using Content.Shared._Goobstation.DoAfter; // Goobstation
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Input;
@@ -34,6 +36,7 @@ using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
@@ -53,21 +56,23 @@ namespace Content.Shared.Interaction
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly ISharedChatManager _chat = default!;
         [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
+        [Dependency] private readonly EntityLookupSystem _lookup = default!;
+        [Dependency] private readonly InventorySystem _inventory = default!;
+        [Dependency] private readonly PullingSystem _pullSystem = default!;
         [Dependency] private readonly RotateToFaceSystem _rotateToFaceSystem = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+        [Dependency] private readonly SharedMapSystem _map = default!;
         [Dependency] private readonly SharedPhysicsSystem _broadphase = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly SharedVerbSystem _verbSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly UseDelaySystem _useDelay = default!;
-        [Dependency] private readonly PullingSystem _pullSystem = default!;
-        [Dependency] private readonly InventorySystem _inventory = default!;
-        [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
         [Dependency] private readonly SharedStrippableSystem _strippable = default!;
         [Dependency] private readonly SharedPlayerRateLimitManager _rateLimit = default!;
-        [Dependency] private readonly ISharedChatManager _chat = default!;
+        [Dependency] private readonly TagSystem _tagSystem = default!;
+        [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
         private EntityQuery<IgnoreUIRangeComponent> _ignoreUiRangeQuery;
         private EntityQuery<FixturesComponent> _fixtureQuery;
@@ -211,7 +216,10 @@ namespace Content.Shared.Interaction
         /// </summary>
         private void OnRemoveAttempt(EntityUid uid, UnremoveableComponent item, ContainerGettingRemovedAttemptEvent args)
         {
-            args.Cancel();
+            // don't prevent the server state for the container from being applied to the client correctly
+            // otherwise this will cause an error if the client predicts adding UnremoveableComponent
+            if (!_gameTiming.ApplyingState)
+                args.Cancel();
         }
 
         /// <summary>
@@ -472,22 +480,21 @@ namespace Content.Shared.Interaction
             return uid != null && IsDeleted(uid.Value);
         }
 
-        public void InteractHand(EntityUid user, EntityUid target)
+        public bool InteractHand(EntityUid user, EntityUid target) // Goobstation - useful return value
         {
             if (IsDeleted(user) || IsDeleted(target))
-                return;
+                return false; // Goobstation
 
             var complexInteractions = _actionBlockerSystem.CanComplexInteract(user);
             if (!complexInteractions)
             {
-                InteractionActivate(user,
+                return InteractionActivate(user, // Goobstation
                     target,
                     checkCanInteract: false,
                     checkUseDelay: true,
                     checkAccess: false,
                     complexInteractions: complexInteractions,
                     checkDeletion: false);
-                return;
             }
 
             // allow for special logic before main interaction
@@ -496,7 +503,7 @@ namespace Content.Shared.Interaction
             if (ev.Handled)
             {
                 _adminLogger.Add(LogType.InteractHand, LogImpact.Low, $"{ToPrettyString(user):user} interacted with {ToPrettyString(target):target}, but it was handled by another system");
-                return;
+                return false; // Goobstation
             }
 
             DebugTools.Assert(!IsDeleted(user) && !IsDeleted(target));
@@ -506,11 +513,11 @@ namespace Content.Shared.Interaction
             _adminLogger.Add(LogType.InteractHand, LogImpact.Low, $"{ToPrettyString(user):user} interacted with {ToPrettyString(target):target}");
             DoContactInteraction(user, target, message);
             if (message.Handled)
-                return;
+                return true;
 
             DebugTools.Assert(!IsDeleted(user) && !IsDeleted(target));
             // Else we run Activate.
-            InteractionActivate(user,
+            return InteractionActivate(user,
                 target,
                 checkCanInteract: false,
                 checkUseDelay: true,
@@ -565,8 +572,11 @@ namespace Content.Shared.Interaction
             if (_transform.GetMapId(coordinates) != Transform(user).MapID)
                 return false;
 
-            if (!HasComp<NoRotateOnInteractComponent>(user))
+            // Only rotate to face if they're not moving.
+            if (!HasComp<NoRotateOnInteractComponent>(user) && (!TryComp(user, out InputMoverComponent? mover) || (mover.HeldMoveButtons & MoveButtons.AnyDirection) == 0x0))
+            {
                 _rotateToFaceSystem.TryFaceCoordinates(user, _transform.ToMapCoordinates(coordinates).Position);
+            }
 
             return true;
         }
@@ -855,7 +865,20 @@ namespace Content.Shared.Interaction
             {
                 // If the target is an item, we ignore any colliding entities. Currently done so that if items get stuck
                 // inside of walls, users can still pick them up.
-                ignored.UnionWith(_broadphase.GetEntitiesIntersectingBody(target, (int) collisionMask, false, physics)); // Note: This also bypasses items underneath doors, which may be problematic if it'd cause undesirable behavior.
+                // TODO: Bandaid, alloc spam
+                // We use 0.01 range just in case it's perfectly in between 2 walls and 1 gets missed.
+                foreach (var otherEnt in _lookup.GetEntitiesInRange(target, 0.01f, flags: LookupFlags.Static))
+                {
+                    if (target == otherEnt ||
+                        !_physicsQuery.TryComp(otherEnt, out var otherBody) ||
+                        !otherBody.CanCollide ||
+                        ((int) collisionMask & otherBody.CollisionLayer) == 0x0)
+                    {
+                        continue;
+                    }
+
+                    ignored.Add(otherEnt);
+                }
             }
             else if (_wallMountQuery.TryComp(target, out var wallMount))
             {
@@ -871,8 +894,8 @@ namespace Content.Shared.Interaction
                     ignoreAnchored = angleDelta < wallMount.Arc / 2 || Math.Tau - angleDelta < wallMount.Arc / 2;
                 }
 
-                if (ignoreAnchored && _mapManager.TryFindGridAt(targetCoords, out _, out var grid))
-                    ignored.UnionWith(grid.GetAnchoredEntities(targetCoords));
+                if (ignoreAnchored && _mapManager.TryFindGridAt(targetCoords, out var gridUid, out var grid))
+                    ignored.UnionWith(_map.GetAnchoredEntities((gridUid, grid), targetCoords));
             }
 
             Ignored combinedPredicate = e => e == target || (predicate?.Invoke(e) ?? false) || ignored.Contains(e);

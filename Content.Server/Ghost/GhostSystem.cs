@@ -28,6 +28,7 @@ using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
+using Content.Shared.Warps;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -114,6 +115,11 @@ namespace Content.Server.Ghost
             if (ent.Comp.LifeStage <= ComponentLifeStage.Running)
             {
                 args.VisibilityMask |= (int)VisibilityFlags.Ghost;
+                // Begin DeltaV additions
+                args.VisibilityMask |= (int)VisibilityFlags.TelegnosticProjection;
+                args.VisibilityMask |= (int)VisibilityFlags.PsionicInvisibility;
+                args.VisibilityMask |= (int)VisibilityFlags.CosmicCultMonument;
+                // End DeltaV additions
             }
         }
 

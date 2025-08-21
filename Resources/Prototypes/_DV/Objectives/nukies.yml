@@ -4,17 +4,10 @@
   id: NukieOperations
   weights:
     NukieOperationDestroyStation: 1
-    NukieOperationDestroyStationWar: 1
 #    NukieOperationKidnapHeads: 1
 
 - type: nukieOperation
   id: NukieOperationDestroyStation
-  operationObjectives:
-  - NukeStationObjective
-
-- type: nukieOperation
-  id: NukieOperationDestroyStationWar
-  autoWarAfter: 120
   operationObjectives:
   - NukeStationObjective
 

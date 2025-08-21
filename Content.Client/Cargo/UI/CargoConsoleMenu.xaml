@@ -1,7 +1,6 @@
 ﻿<controls:FancyWindow xmlns="https://spacestation14.io"
                            xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                            xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                           xmlns:traitor="clr-namespace:Content.Client._DV.Traitor.UI"
                            SetSize="600 600"
                            MinSize="600 600">
     <BoxContainer Orientation="Vertical" Margin="15 5 15 10">
@@ -17,7 +16,6 @@
             <RichTextLabel Name="PointsLabel"
                    Text="$0" />
         </BoxContainer>
-        <traitor:RansomContainer Name="RansomContainer"/> <!-- DeltaV - show ransomed mobs -->
         <Control MinHeight="10"/>
         <TabContainer Name="TabContainer" VerticalExpand="True">
             <BoxContainer Orientation="Vertical" VerticalExpand="True">

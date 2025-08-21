@@ -30,6 +30,12 @@
   - type: AutomaticSpareId
 
 - type: entity
+  id: BaseStationExfiltration
+  abstract: true
+  components:
+  - type: StationExfiltration
+
+- type: entity
   abstract: true
   id: BaseStationLavaland
   components:

@@ -9,7 +9,6 @@
       time: 9000 #2.5 hrs
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
-  ransomModifier: 2 # DeltaV - Sec is less than heads
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
@@ -33,3 +32,13 @@
     back:
     - Flash
     #- MagazinePistol # DeltaV - loadouts
+
+- type: chameleonOutfit
+  id: SecurityOfficerChameleonOutfit
+  job: SecurityOfficer
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretSecurity
+    mask: ClothingMaskGasSecurity
+    neck: Dinkystar
+    gloves: ClothingHandsGlovesColorBlack

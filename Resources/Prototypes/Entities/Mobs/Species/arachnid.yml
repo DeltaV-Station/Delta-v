@@ -12,7 +12,6 @@
     species: Arachnid
   - type: Hunger
     baseDecayRate: 0.0125 # Spiders have slow metabolisms all things considered, so I decided to just make their hunger drain slower.
-  - type: Carriable # Carrying system from nyanotrasen.
   - type: Thirst
   - type: Sericulture
     action: ActionSericulture
@@ -92,8 +91,6 @@
       - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: [ "gloves" ]
       - map: [ "shoes" ]
-      - map: [ "ears" ]
-      - map: [ "eyes" ]
       - map: [ "belt" ]
       - map: [ "id" ]
       - map: [ "outerClothing" ]
@@ -103,6 +100,8 @@
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ] # Do these need to be here? (arachnid hair arachnid hair)
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "ears" ]
+      - map: [ "eyes" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
       - map: [ "head" ]
@@ -123,6 +122,8 @@
   - type: Inventory
     templateId: arachnid
     speciesId: arachnid
+  - type: CosmicMarkVisuals # DeltaV - cosmic cult
+    subtleState: arachnid
 
 
 - type: entity

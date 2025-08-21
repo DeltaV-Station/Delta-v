@@ -11,12 +11,18 @@
     HandheldHealthAnalyzer: 3
     Scalpel: 2
     SawElectric: 2
-    #Bonesetter: 2 add when robotics
+    # Begin DeltaV additions
+    Retractor: 2
+    Hemostat: 2
+    Cautery: 2
+    BoneGel: 2
+    # End DeltaV additions
     NitrousOxideTankFilled: 2
     ClothingMaskBreathMedical: 5
-    ClothingHeadHatWeldingMaskFlame: 1
-    Welder: 1
+    ClothingHeadHatWeldingMaskFlame: 2 # DeltaV - Changed from 1 to 2
+    Welder: 2 # DeltaV - Changed from 1 to 2
     Screwdriver: 2
     Crowbar: 2
+    ClothingBeltUtility: 2 # DeltaV - Added utility belt
   contrabandInventory:
     FoodBurgerRobot: 1  

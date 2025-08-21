@@ -7,11 +7,12 @@ using Content.Server.PDA.Ringer;
 using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
 using Content.Server.Traitor.Uplink;
-using Content.Shared._DV.Reputation; // DeltaV
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Chat;
 using Content.Shared.DeviceNetwork.Components;
+using Content.Shared.Implants;
+using Content.Shared.Inventory;
 using Content.Shared.Light;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.PDA;
@@ -36,7 +37,6 @@ namespace Content.Server.PDA
         [Dependency] private readonly UnpoweredFlashlightSystem _unpoweredFlashlight = default!;
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly IdCardSystem _idCard = default!;
-        [Dependency] private readonly ReputationSystem _reputation = default!; // DeltaV
 
         public override void Initialize()
         {
@@ -52,13 +52,20 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<PdaComponent, PdaShowMusicMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowUplinkMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaLockUplinkMessage>(OnUiMessage);
-            SubscribeLocalEvent<PdaComponent, PdaShowContractsMessage>(OnShowContracts); // DeltaV
 
             SubscribeLocalEvent<PdaComponent, CartridgeLoaderNotificationSentEvent>(OnNotification);
 
             SubscribeLocalEvent<StationRenamedEvent>(OnStationRenamed);
             SubscribeLocalEvent<EntityRenamedEvent>(OnEntityRenamed, after: new[] { typeof(IdCardSystem) });
             SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
+            SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent>>(ChameleonControllerOutfitItemSelected);
+        }
+
+        private void ChameleonControllerOutfitItemSelected(Entity<PdaComponent> ent, ref InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent> args)
+        {
+            // Relay it to your ID so it can update as well.
+            if (ent.Comp.ContainedId != null)
+                RaiseLocalEvent(ent.Comp.ContainedId.Value, args);
         }
 
         private void OnEntityRenamed(ref EntityRenamedEvent ev)
@@ -280,18 +287,6 @@ namespace Content.Server.PDA
                 UpdatePdaUi(uid, pda);
             }
         }
-
-        // End DeltaV Additions
-        private void OnShowContracts(EntityUid uid, PdaComponent pda, PdaShowContractsMessage msg)
-        {
-            if (!PdaUiKey.Key.Equals(msg.UiKey))
-                return;
-
-            // check if its locked again to prevent malicious clients opening locked uplinks
-            if (HasComp<ContractsComponent>(uid) && IsUnlocked(uid))
-                _reputation.ToggleUI(msg.Actor, uid);
-        }
-        // End DeltaV Additions
 
         private bool IsUnlocked(EntityUid uid)
         {

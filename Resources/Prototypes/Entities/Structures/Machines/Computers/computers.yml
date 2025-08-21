@@ -510,6 +510,12 @@
     channels:
     - Science
   - type: TechnologyDatabase
+    supportedDisciplines: # DeltaV - don't change it in maps
+    - Industrial
+    - Biochemical
+    - Arsenal
+    - Experimental
+    - CivilianServices
   - type: ActivatableUI
     key: enum.ResearchConsoleUiKey.Key
   - type: UserInterface
@@ -739,6 +745,7 @@
     canShuttle: false
     global: true #announce to everyone they're about to fuck shit up
     sound: /Audio/Announcements/intercept.ogg # DeltaV
+    announceSentBy: false # The title already says who they are.
   - type: Computer
     board: SyndicateCommsComputerCircuitboard
   - type: PointLight
@@ -771,6 +778,7 @@
     color: "#ff00ff"
     canShuttle: false
     global: true #announce to everyone they're about to fuck shit up
+    announceSentBy: false
     sound: /Audio/Announcements/war.ogg
   - type: Computer
     board: WizardCommsComputerCircuitboard
@@ -958,7 +966,7 @@
     account: Engineering
     announcementChannel: Engineering
     removeLimitAccess: [ "ChiefEngineer" ]
-    slipPrinter: true
+    mode: SendToPrimary
   - type: ActiveRadio
     channels:
     - Engineering
@@ -991,7 +999,7 @@
     account: Medical
     announcementChannel: Medical
     removeLimitAccess: [ "ChiefMedicalOfficer" ]
-    slipPrinter: true
+    mode: SendToPrimary
   - type: ActiveRadio
     channels:
     - Medical
@@ -1024,7 +1032,7 @@
     account: Science
     announcementChannel: Science
     removeLimitAccess: [ "ResearchDirector" ]
-    slipPrinter: true
+    mode: SendToPrimary
   - type: ActiveRadio
     channels:
     - Science
@@ -1057,7 +1065,7 @@
     account: Security
     announcementChannel: Security
     removeLimitAccess: [ "HeadOfSecurity" ]
-    slipPrinter: true
+    mode: SendToPrimary
   - type: ActiveRadio
     channels:
     - Security
@@ -1090,7 +1098,7 @@
     account: Service
     announcementChannel: Service
     removeLimitAccess: [ "HeadOfPersonnel" ]
-    slipPrinter: true
+    mode: SendToPrimary
   - type: ActiveRadio
     channels:
     - Service
@@ -1099,7 +1107,7 @@
   - type: PointLight
     color: "#afe837"
   - type: AccessReader
-    access: [["Service"]]
+    access: [["Service"], ["Theatre"]]
 
 - type: entity
   id: ComputerCargoBounty
@@ -1230,6 +1238,42 @@
   - type: GuideHelp
     guides:
     - Cloning
+
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerSalvageJobBoard
+  name: salvage job board
+  description: Console for accessing salvage jobs, if you're tough enough.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: salvjob # givin em a salvjob like hawk tuah
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: SalvageJobBoardConsole
+  - type: ActivatableUI
+    key: enum.SalvageJobBoardUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SalvageJobBoardUiKey.Key:
+        type: SalvageJobBoardBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: ActiveRadio
+    channels: [ Supply ]
+  - type: Computer
+    board: SalvageJobBoardComputerCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89f25"
 
 - type: entity
   id: ComputerSalvageExpedition

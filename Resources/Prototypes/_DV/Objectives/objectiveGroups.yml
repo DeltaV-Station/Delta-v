@@ -1,27 +1,3 @@
-## Traitor
-# Stealing
-- type: weightedRandom
-  id: TraitorObjectiveGroupStealMinor
-  weights:
-    ClerkNotaryStealObjective: 1
-    RCDStealObjective: 1
-    CargoRequestStealObjective: 1
-    ResearchComputerStealObjective: 1
-    CriminalRecordsStealObjective: 0.75
-
-# Ransom
-- type: weightedRandom
-  id: TraitorObjectiveGroupRansom
-  weights:
-    RansomRandomPersonObjective: 1
-    RansomRandomHeadObjective: 0.5
-
-# Assisting
-- type: weightedRandom
-  id: TraitorObjectiveGroupAssist
-  weights:
-    RandomTraitorAssistObjective: 1
-
 ## Ninja
 # Hacking things
 - type: weightedRandom
@@ -58,8 +34,77 @@
     NinjaLuckyBillStealObjective: 1
     NinjaCaptainsCloakStealObjective: 0.75
 
+## Traitor
 - type: weightedRandom
   id: TraitorObjectiveGroupSpecial
   weights:
     UploadAILawObjective: 1
-    DieObjective: 1
+
+## MenaceSkeleton
+- type: weightedRandom
+  id: SkeletonObjectiveGroup
+  weights:
+    SkeletonObjectiveGroupMilk: 1
+    SkeletonObjectiveGroupHaunt: 1
+    SkeletonObjectiveGroupFrame: 1
+    SkeletonObjectiveGroupBone: 0.5
+    SkeletonObjectiveGroupDrip: 1
+
+- type: weightedRandom
+  id: SkeletonObjectiveGroupMilk
+  weights:
+    SkeletonMilkObjective: 1
+
+- type: weightedRandom
+  id: SkeletonObjectiveGroupHaunt
+  weights:
+    SkeletonHauntObjective: 1
+
+- type: weightedRandom
+  id: SkeletonObjectiveGroupFrame
+  weights:
+    SkeletonFrameObjective: 1
+
+- type: weightedRandom
+  id: SkeletonObjectiveGroupBone
+  weights:
+    SkeletonBoneObjective: 1
+
+- type: weightedRandom
+  id: SkeletonObjectiveGroupDrip
+  weights:
+    SkeletonDripObjective: 1
+
+## Wizard
+- type: weightedRandom
+  id: WizardObjectiveGroupPrimaryDelta
+  weights:
+    WizardObjectiveGroupDeltaObjectivesPrimary: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupSecondaryDelta
+  weights:
+    WizardObjectiveGroupDeltaObjectivesMean: 1
+    WizardObjectiveGroupDeltaObjectivesNice: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupDeltaObjectivesPrimary
+  weights:
+    WizardMagicocracyObjective: 1
+    WizardBalanceObjective: 1
+    WizardDestroyObjective: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupDeltaObjectivesMean
+  weights:
+    WizardKillObjective: 1
+    WizardFearObjective: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupDeltaObjectivesNice
+  weights:
+    WizardProfitObjective: 0.75
+    WizardPopularObjective: 0.75
+    WizardDataObjective: 0.75
+    WizardPreserveObjective: 1
+    WizardTeachObjective: 1
