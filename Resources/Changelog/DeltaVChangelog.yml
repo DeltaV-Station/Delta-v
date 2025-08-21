@@ -1,34 +1,4 @@
 ﻿Entries:
-- author: Oxdeception
-  changes:
-  - message: AAC Tablet now has a searchable tab
-    type: Add
-  - message: AAC Tablet no longer has its tabs hidden by scrolling
-    type: Tweak
-  id: 1121
-  time: '2025-03-08T20:46:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3154
-- author: HTMLSystem
-  changes:
-  - message: Fixed epistemics lab coats not having an unzipped sprite
-    type: Fix
-  - message: Made the Mystagogue lab coat unzippable
-    type: Add
-  id: 1122
-  time: '2025-03-08T20:56:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3136
-- author: deltanedas
-  changes:
-  - message: Added ID chips which the roboticist can make. They are like ID cards
-      but need to be installed in a cyborg to work.
-    type: Add
-  - message: Borgs can have accesses added by using an ID chip in an ID card computer.
-    type: Tweak
-  - message: Borgs built during the round no longer have pseudo-AA.
-    type: Remove
-  id: 1123
-  time: '2025-03-08T22:26:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3116
 - author: deltanedas
   changes:
   - message: Added bluespace shelter capsules, available from the salvage vendor!
@@ -4110,3 +4080,28 @@
   id: 1620
   time: '2025-08-20T20:12:55.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4247
+- author: NoElkaTheGod
+  changes:
+  - message: Double-bladed energy sword and vacuous lance have had their swing animations
+      improved.
+    type: Tweak
+  id: 1621
+  time: '2025-08-21T07:53:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4235
+- author: kotobdev
+  changes:
+  - message: Warops can now be declared with just 3 nukies.
+    type: Tweak
+  id: 1622
+  time: '2025-08-21T08:04:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4169
+- author: NoElkaTheGod
+  changes:
+  - message: Secret game mode now not only checks for amount of players ready, but
+      also for the total player count.
+    type: Tweak
+  - message: Game modes now generally require less players to be ready during lobby.
+    type: Tweak
+  id: 1623
+  time: '2025-08-21T08:53:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4246
