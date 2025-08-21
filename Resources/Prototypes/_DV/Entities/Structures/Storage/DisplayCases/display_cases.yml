@@ -1,6 +1,6 @@
 - type: entity
   id: DisplayCaseArtifact
-  parent: [BaseMachinePowered, DisplayCase]
+  parent: [ DisplayCase, BaseMachinePowered ]
   name: Artifact Display Case
   description: A sturdy display case for showing off interesting artifacts.
   components:
