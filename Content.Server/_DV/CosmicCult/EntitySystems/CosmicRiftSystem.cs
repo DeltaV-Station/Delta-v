@@ -54,7 +54,7 @@ public sealed class CosmicRiftSystem : EntitySystem
         {
             if (_timing.CurTime < comp.NextPulseTime) continue;
             comp.NextPulseTime = _timing.CurTime + _random.Next(comp.MinPulseTime, comp.MaxPulseTime);
-            
+
             var pos = Transform(uid).Coordinates;
             Spawn(comp.PulseVFX, pos);
             _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(pos, comp.PulseRange, _humanoids);
