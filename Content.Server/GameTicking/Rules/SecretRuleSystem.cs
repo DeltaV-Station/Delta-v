@@ -23,7 +23,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!; // DeltaV
+    [Dependency] private readonly IPlayerManager _player = default!; // DeltaV
     [Dependency] private readonly GameTicker _ticker = default!; // begin Imp
 
     // Dictionary that contains the minimum round number for certain preset
@@ -92,7 +92,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     {
         var options = _prototypeManager.Index(weights).Weights.ShallowClone();
         var players = GameTicker.ReadyPlayerCount();
-        var totalPlayers = _playerManager.PlayerCount; //DeltaV
+        var totalPlayers = _player.PlayerCount; //DeltaV
 
         GamePresetPrototype? selectedPreset = null;
         var sum = options.Values.Sum();
@@ -151,7 +151,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     public bool CanPickAny(IEnumerable<ProtoId<GamePresetPrototype>> protos)
     {
         var players = GameTicker.ReadyPlayerCount();
-        var totalPlayers = _playerManager.PlayerCount; //DeltaV
+        var totalPlayers = _player.PlayerCount; //DeltaV
         foreach (var id in protos)
         {
             if (!_prototypeManager.TryIndex(id, out var selectedPreset))
