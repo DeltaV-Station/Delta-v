@@ -60,7 +60,7 @@ public sealed class MobThresholdSystem : EntitySystem
     /// <param name="mobState">Supplied MobState</param>
     /// <param name="nextState">The following MobState. Can be null if there isn't one.</param>
     /// <param name="thresholdsComponent">Threshold Component Owned by the target</param>
-    /// <returns>True if the next mob state exists</re
+    /// <returns>True if the next mob state exists</returns>
     public bool TryGetNextState(
         EntityUid target,
         MobState mobState,

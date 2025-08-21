@@ -23,7 +23,7 @@ public sealed partial class TechnokineticPulseAbilityComponent : Component
     /// <summary>
     /// The duration for which devices are disabled.
     /// </summary>
-    [DataField("disableDuration"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public float DisableDuration = 20f;
 
     /// <summary>

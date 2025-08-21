@@ -16,6 +16,15 @@ public abstract class SharedLightReactiveSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
+
+    private EntityQuery<LightReactiveComponent> _lightReactive;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        _lightReactive = GetEntityQuery<LightReactiveComponent>();
+    }
+
     public override void Update(float frameTime)
     {
 
@@ -44,7 +53,7 @@ public abstract class SharedLightReactiveSystem : EntitySystem
     /// </remarks>
     public float GetLightLevel(EntityUid uid, bool forceUpdate = false)
     {
-        if (TryComp(uid, out LightReactiveComponent? comp))
+        if (_lightReactive.TryComp(uid, out LightReactiveComponent? comp))
         {
             if (forceUpdate)
                 comp.CurrentLightLevel = GetLightLevelForPoint(uid);
