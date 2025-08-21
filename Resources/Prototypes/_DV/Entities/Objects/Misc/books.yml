@@ -143,113 +143,116 @@
 - type: entity
   parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookCommon1
-  name: Common Ancient Book 1
+  name: Ancient Worn Book
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookcommon1
   - type: Paper
-    content: book-text-fishops
+    content: book-text-ancientbookcommon-1
     contentSize: 12000
 
 - type: entity
   parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookCommon2
-  name: Common Ancient Book 2
+  name: Ancient Tattered Book
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookcommon2
   - type: Paper
-    content: book-text-fishops
+    content: book-text-ancientbookcommon-1
     contentSize: 12000
 
 - type: entity
   parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookCommon3
-  name: Common Ancient Book 3
+  name: Ancient Fractured Book
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookcommon3
   - type: Paper
-    content: book-text-fishops
+    content: book-text-ancientbookcommon-1
     contentSize: 12000
 
 - type: entity
   parent: [ BaseItem, BaseAncientBookReadable ]
-  id: AncientBookUncommon1
+  id: Ancient Heavy Book
   name: Uncommon Ancient Book 1
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookuncommon1
+  - type: Paper
+    content: book-text-ancientbookcommon-1
+    contentSize: 12000
 
 - type: entity
   parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookUncommon2
-  name: Uncommon Ancient Book 2
+  name: Ancient Dusty Book
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookuncommon2
   - type: Paper
-    content: book-text-fishops
+    content: book-text-ancientbookcommon-1
     contentSize: 12000
 
 - type: entity
   parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookUncommon3
-  name: Uncommon Ancient Book 3
+  name: Ancient Wellworn Book
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookuncommon3
   - type: Paper
-    content: book-text-fishops
+    content: book-text-ancientbookcommon-1
     contentSize: 12000
 
 - type: entity
   parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookRare1
-  name: Rare Ancient Book 1
+  name: Ancient Mysterious Book
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookrare1
   - type: Paper
-    content: book-text-fishops
+    content: book-text-ancientbookcommon-1
     contentSize: 12000
 
 - type: entity
   parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookRare2
-  name: Rare Ancient Book 2
+  name: Ancient Ominous Book
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookrare2
   - type: Paper
-    content: book-text-fishops
+    content: book-text-ancientbookcommon-1
     contentSize: 12000
 
 - type: entity
   parent: [ BaseItem, BaseAncientBookReadable ]
   id: AncientBookRare3
-  name: Rare Ancient Book 3
+  name: Ancient Shining Book
   description: placeholder name and desc until story is written.
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookrare3
   - type: Paper
-    content: book-text-fishops
+    content: book-text-ancientbookcommon-1
     contentSize: 12000
