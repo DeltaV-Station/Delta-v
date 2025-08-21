@@ -52,23 +52,21 @@ public sealed class CosmicRiftSystem : EntitySystem
         var query = EntityQueryEnumerator<CosmicMalignRiftComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime >= comp.NextPulseTime)
+            if (_timing.CurTime < comp.NextPulseTime) continue;
+            comp.NextPulseTime = _timing.CurTime + _random.Next(comp.MinPulseTime, comp.MaxPulseTime);
+            
+            var pos = Transform(uid).Coordinates;
+            Spawn(comp.PulseVFX, pos);
+            _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(pos, comp.PulseRange, _humanoids);
+            _humanoids.RemoveWhere(target => HasComp<BibleUserComponent>(target) || HasComp<CosmicCultComponent>(target));
+            foreach(var humanoid in _humanoids)
             {
-                comp.NextPulseTime = _timing.CurTime + _random.Next(comp.MinPulseTime, comp.MaxPulseTime);
-
-                var pos = Transform(uid).Coordinates;
-                Spawn(comp.PulseVFX, pos);
-                _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(pos, comp.PulseRange, _humanoids);
-                _humanoids.RemoveWhere(target => HasComp<BibleComponent>(target) || HasComp<CosmicCultComponent>(target));
-                foreach(var humanoid in _humanoids)
-                {
-                    if (!pos.TryDistance(EntityManager, Transform(humanoid).Coordinates, out var distance)) continue;
-                    if (!_random.Prob(comp.PulseProb)) continue;
-                    var damageMultiplier = Math.Clamp(comp.PulseRange / distance, 1, 10); //0.2 damage per second at max distance, up to 2 per second if closer
-                    var effectDuration = _random.Next(10, 40); //2-8 damage at max distance, 20-80 damage at min distance
-                    _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(humanoid, "EntropicDegen", TimeSpan.FromSeconds(effectDuration), true);
-                    if (TryComp<CosmicEntropyDebuffComponent>(humanoid, out var debuff)) debuff.Degen = new(){DamageDict = new(){{"Cold", 0.05 * damageMultiplier}, {"Asphyxiation", 0.15 * damageMultiplier}}};
-                }
+                if (!pos.TryDistance(EntityManager, Transform(humanoid).Coordinates, out var distance)) continue;
+                if (!_random.Prob(comp.PulseProb)) continue;
+                var damageMultiplier = Math.Clamp(comp.PulseRange / distance, 1, 10); //0.2 damage per second at max distance, up to 2 per second if closer
+                var effectDuration = _random.Next(10, 40); //2-8 damage at max distance, 20-80 damage at min distance
+                _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(humanoid, "EntropicDegen", TimeSpan.FromSeconds(effectDuration), true);
+                if (TryComp<CosmicEntropyDebuffComponent>(humanoid, out var debuff)) debuff.Degen = new(){DamageDict = new(){{"Cold", 0.05 * damageMultiplier}, {"Asphyxiation", 0.15 * damageMultiplier}}};
             }
         }
     }

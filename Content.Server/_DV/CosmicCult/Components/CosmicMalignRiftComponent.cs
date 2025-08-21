@@ -5,6 +5,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Server._DV.CosmicCult.Components;
 
 [RegisterComponent]
+[AutoGenerateComponentPause]
 public sealed partial class CosmicMalignRiftComponent : Component
 {
     [DataField]
@@ -45,7 +46,7 @@ public sealed partial class CosmicMalignRiftComponent : Component
     [DataField]
     public float PulseProb = 0.75f;
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoPausedField, DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextPulseTime = default!;
 
     [DataField]
