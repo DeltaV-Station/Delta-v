@@ -90,7 +90,7 @@
       Dead:
         Base: dead
   - type: MeleeWeapon
-    soundHit: 
+    soundHit:
       path: "/Audio/Items/wirecutter.ogg"
     angle: 0
     wideAnimationRotation: 0
@@ -115,8 +115,8 @@
       groups:
         Brute: -0.5
         Burn: -0.5
-  - type: ThermalVision
-    lightRadius: 7
+  #- type: ThermalVision # TODO: Uncomment once #4152 is merged
+  #  lightRadius: 7
   - type: FlashImmunity
   - type: Puller
     needsHands: false
@@ -140,7 +140,7 @@
   - type: Replicator
     queen: true
 
-# Tier 1: These guys are mooks. They're vulnerable, bad at dragging, and don't do much damage, but they have the highest stun & a disabler ranged attack. 
+# Tier 1: These guys are mooks. They're vulnerable, bad at dragging, and don't do much damage, but they have the highest stun & a disabler ranged attack.
 - type: entity
   id: MobReplicator
   parent: BaseMobReplicator
@@ -189,7 +189,7 @@
   - type: Body
     prototype: Replicator1
 
-# Tier 2: Deconstructors. These guys are a little bit tougher, and have tools to take things apart, but they don't have anywhere near as much stun & their attacks are just as weak as T1s. 
+# Tier 2: Deconstructors. These guys are a little bit tougher, and have tools to take things apart, but they don't have anywhere near as much stun & their attacks are just as weak as T1s.
 - type: entity
   id: MobReplicatorTier2
   parent: BaseMobReplicator
@@ -233,7 +233,7 @@
     prototypes:
       - StartingGearReplicatorTools
 
-# Tier 3: These guys are tanks. Their job is to tear shit apart and kill things. They're slow, tanky, and have a weapon that does 25 blunt 30 struct. 
+# Tier 3: These guys are tanks. Their job is to tear shit apart and kill things. They're slow, tanky, and have a weapon that does 25 blunt 30 struct.
 - type: entity
   id: MobReplicatorTier3
   parent: BaseMobReplicator
