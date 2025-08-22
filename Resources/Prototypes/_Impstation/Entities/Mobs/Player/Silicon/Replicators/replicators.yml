@@ -170,7 +170,7 @@
 - type: entity
   id: MobReplicatorQueen
   name: spore
-  parent: BaseMobReplicator
+  parent: MobReplicator
   categories: [ HideSpawnMenu ]
   suffix: Queen
   components:
@@ -178,7 +178,6 @@
     queen: true
     upgradeActions:
     - ActionReplicatorUpgrade1
-  - type: VentCrawler # unique to queens at the moment, for stealth purposes
   - type: Sprite
     granularLayersRendering: true
     drawDepth: SmallMobs
@@ -204,6 +203,8 @@
     weightlessFrictionNoInput: 2
     weightlessAcceleration: 1.8
   - type: NoSlip
+  - type: Body
+    prototype: Replicator1
   - type: Fixtures
     fixtures:
       fix1:
