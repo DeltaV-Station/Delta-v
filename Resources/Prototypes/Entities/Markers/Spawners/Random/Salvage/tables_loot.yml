@@ -107,7 +107,6 @@
       tableId: RandomInstrumentTable
     - id: AncientBookDamagedCommon # DeltaV
 
-
 - type: entityTable
   id: SalvageTreasureUncommon
   table: !type:GroupSelector
@@ -167,7 +166,6 @@
     - !type:NestedSelector
       tableId: RingTableRare
     - id: AncientBookDamagedRare # DeltaV
-
 
 - type: entityTable
   id: SalvageTreasureLegendary

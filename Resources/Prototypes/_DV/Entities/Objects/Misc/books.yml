@@ -110,7 +110,7 @@
     - Salvage
 
 - type: entity
-  parent: BaseItem
+  parent: BaseItem # inherits from baseitem instead of BookBase because sprites break using BookBase
   id: BaseAncientBookReadable
   name: Base Ancient Book
   abstract: true
@@ -129,6 +129,9 @@
     backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
     backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
     contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: Paper
+    content: book-text-ancientbookcommon-1
+    contentSize: 12000
   - type: MeleeWeapon
     soundHit:
       collection: Punch
@@ -141,118 +144,91 @@
         Blunt: 1
 
 - type: entity
-  parent: [ BaseItem, BaseAncientBookReadable ]
+  parent: BaseAncientBookReadable
   id: AncientBookCommon1
-  name: Ancient Worn Book
-  description: placeholder name and desc until story is written.
+  name: ancient worn book
+  description: An ancient book lost to time. One can only wonder what can be learned from these...
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookcommon1
-  - type: Paper
-    content: book-text-ancientbookcommon-1
-    contentSize: 12000
 
 - type: entity
-  parent: [ BaseItem, BaseAncientBookReadable ]
+  parent: BaseAncientBookReadable
   id: AncientBookCommon2
-  name: Ancient Tattered Book
-  description: placeholder name and desc until story is written.
+  name: ancient tattered book
+  description: An ancient book lost to time. One can only wonder what can be learned from these...
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookcommon2
-  - type: Paper
-    content: book-text-ancientbookcommon-1
-    contentSize: 12000
 
 - type: entity
-  parent: [ BaseItem, BaseAncientBookReadable ]
+  parent: BaseAncientBookReadable
   id: AncientBookCommon3
-  name: Ancient Fractured Book
-  description: placeholder name and desc until story is written.
+  name: ancient fractured book
+  description: An ancient book lost to time. One can only wonder what can be learned from these...
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookcommon3
-  - type: Paper
-    content: book-text-ancientbookcommon-1
-    contentSize: 12000
 
 - type: entity
-  parent: [ BaseItem, BaseAncientBookReadable ]
+  parent: BaseAncientBookReadable
   id: AncientBookUncommon1
-  name: Ancient Heavy Book
-  description: placeholder name and desc until story is written.
+  name: ancient heavy book
+  description: An ancient book lost to time. One can only wonder what can be learned from these...
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookuncommon1
-  - type: Paper
-    content: book-text-ancientbookcommon-1
-    contentSize: 12000
 
 - type: entity
-  parent: [ BaseItem, BaseAncientBookReadable ]
+  parent: BaseAncientBookReadable
   id: AncientBookUncommon2
   name: Ancient Dusty Book
-  description: placeholder name and desc until story is written.
+  description: An ancient book lost to time. One can only wonder what can be learned from these...
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookuncommon2
-  - type: Paper
-    content: book-text-ancientbookcommon-1
-    contentSize: 12000
 
 - type: entity
-  parent: [ BaseItem, BaseAncientBookReadable ]
+  parent: BaseAncientBookReadable
   id: AncientBookUncommon3
-  name: Ancient Wellworn Book
-  description: placeholder name and desc until story is written.
+  name: ancient wellworn book
+  description: An ancient book lost to time. One can only wonder what can be learned from these...
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookuncommon3
-  - type: Paper
-    content: book-text-ancientbookcommon-1
-    contentSize: 12000
 
 - type: entity
-  parent: [ BaseItem, BaseAncientBookReadable ]
+  parent: BaseAncientBookReadable
   id: AncientBookRare1
-  name: Ancient Mysterious Book
-  description: placeholder name and desc until story is written.
+  name: ancient mysterious book
+  description: An ancient book lost to time. One can only wonder what can be learned from these...
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookrare1
-  - type: Paper
-    content: book-text-ancientbookcommon-1
-    contentSize: 12000
 
 - type: entity
-  parent: [ BaseItem, BaseAncientBookReadable ]
+  parent: BaseAncientBookReadable
   id: AncientBookRare2
-  name: Ancient Ominous Book
-  description: placeholder name and desc until story is written.
+  name: ancient ominous book
+  description: An ancient book lost to time. One can only wonder what can be learned from these...
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookrare2
-  - type: Paper
-    content: book-text-ancientbookcommon-1
-    contentSize: 12000
 
 - type: entity
-  parent: [ BaseItem, BaseAncientBookReadable ]
+  parent: BaseAncientBookReadable
   id: AncientBookRare3
-  name: Ancient Shining Book
-  description: placeholder name and desc until story is written.
+  name: ancient shining book
+  description: An ancient book lost to time. One can only wonder what can be learned from these...
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookrare3
-  - type: Paper
-    content: book-text-ancientbookcommon-1
-    contentSize: 12000

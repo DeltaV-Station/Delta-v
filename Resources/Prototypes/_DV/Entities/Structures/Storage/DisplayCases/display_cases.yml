@@ -1,7 +1,7 @@
 - type: entity
   id: DisplayCaseArtifact
   parent: [ DisplayCase, BaseMachinePowered ]
-  name: Artifact Display Case
+  name: artifact display case
   description: A sturdy display case for showing off interesting artifacts.
   components:
   - type: ResearchPointSource
@@ -36,7 +36,7 @@
 - type: entity
   id: DisplayCase
   parent: [CrateBaseSecure]
-  name: Display Case
+  name: display case
   description: A sturdy display case. This one doesn't give any research points, but you can put whatever you want in it.
   components:
   - type: AccessReader

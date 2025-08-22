@@ -1,5 +1,4 @@
 - type: entity
-  categories: [ HideSpawnMenu ]
   parent: BaseItem
   abstract: true
   id: AncientBookBase
@@ -11,7 +10,7 @@
 - type: entity
   parent: AncientBookBase
   id: AncientBookDamagedCommon
-  name: Damaged Ancient Book
+  name: damaged ancient book
   description: An ancient book that has seen better times. The cover and words are illegible, but surely someone could restore it.
   components:
   - type: Sprite
@@ -28,7 +27,7 @@
 - type: entity
   parent: AncientBookBase
   id: AncientBookDamagedUncommon
-  name: Damaged Ancient Book
+  name: damaged ancient book
   description: An ancient book that has seen better times. The cover and words are illegible, but surely someone could restore it.
   components:
   - type: Sprite
@@ -45,7 +44,7 @@
 - type: entity
   parent: AncientBookBase
   id: AncientBookDamagedRare
-  name: Damaged Ancient Book
+  name: damaged ancient book
   description: An ancient book that has seen better times. The cover and words are illegible, but surely someone could restore it.
   components:
   - type: Sprite
@@ -62,7 +61,7 @@
 - type: entity
   parent: AncientBookBase
   id: AncientBookCommon
-  name: Common Ancient Book
+  name: common ancient book
   description: A very old book commonly found in archives. Read it to discover what it is.
   components:
   - type: Sprite
@@ -89,7 +88,7 @@
 - type: entity
   parent: AncientBookBase
   id: AncientBookUncommon
-  name: Uncommon Ancient Book
+  name: uncommon ancient book
   description: A very old book generally only found in private collections. Read it to discover what it is.
   components:
   - type: Sprite
@@ -116,7 +115,7 @@
 - type: entity
   parent: AncientBookBase
   id: AncientBookRare
-  name: Rare Ancient Book
+  name: rare ancient book
   description: A very old book sought after for it's rarity and value. Read it to discover what it is.
   components:
   - type: Sprite
