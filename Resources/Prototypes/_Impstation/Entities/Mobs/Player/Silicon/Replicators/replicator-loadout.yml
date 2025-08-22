@@ -36,7 +36,7 @@
   - type: MeleeWeapon
     attackRate: 0.7
     wideAnimationRotation: 180
-    soundHit: 
+    soundHit:
       path: "/Audio/Effects/metal_slam4.ogg"
     animation: WeaponArcSlash
     damage:
@@ -85,6 +85,10 @@
     autoRechargeRate: 1000
   - type: MeleeWeapon
     wideAnimationRotation: -80
+    damage:
+      types:
+        Blunt: 5
+        Structural: 5
   - type: StaminaDamageOnHit
     damage: 20
     sound: /Audio/Weapons/egloves.ogg
