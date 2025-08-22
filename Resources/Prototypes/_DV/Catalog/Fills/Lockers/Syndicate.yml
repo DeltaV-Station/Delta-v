@@ -159,7 +159,7 @@
     - id: WeaponSniperHristov
     - id: MagazineBoxAntiMateriel
       amount: !type:RangeNumberSelector
-        range: 1, 4
+        range: 0, 2
 
 - type: entityTable
   id: ArmsdealerL6
@@ -361,17 +361,16 @@
       prob: 0.75
       amount: !type:RangeNumberSelector
         range: 1, 2
-    table: !type:GroupSelector
-      - id: MagazineLightRifle
-        prob: 0.5
-        amount: !type:RangeNumberSelector
-          range: 1, 2
-      - id: MagazineLightRifleIncendiary
-        prob: 0.2
-      - id: MagazineLightRifleRubber
-        prob: 0.75
-        amount: !type:RangeNumberSelectord
-          range: 1, 2
+    - id: MagazineLightRifle
+      prob: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazineLightRifleIncendiary
+      prob: 0.2
+    - id: MagazineLightRifleRubber
+      prob: 0.75
+      amount: !type:RangeNumberSelector
+        range: 1, 2
 
 - type: entityTable
   id: ArmsdealerAmmoMix

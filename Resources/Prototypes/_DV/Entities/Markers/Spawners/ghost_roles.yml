@@ -156,7 +156,7 @@
       time: 172800 # 48h
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointGhostArmsdealer
   components:
