@@ -417,8 +417,6 @@ public sealed class MonumentSystem : SharedMonumentSystem
             EnsureComp<PressureImmunityComponent>(cultist);
             EnsureComp<TemperatureImmunityComponent>(cultist);
 
-            _damage.SetDamageContainerID(cultist, "BiologicalMetaphysical");
-
             foreach (var influenceProto in _protoMan.EnumeratePrototypes<InfluencePrototype>().Where(influenceProto => influenceProto.Tier == 3))
             {
                 cultComp.UnlockedInfluences.Add(influenceProto.ID);
