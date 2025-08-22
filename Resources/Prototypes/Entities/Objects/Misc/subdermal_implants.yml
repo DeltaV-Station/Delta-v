@@ -183,6 +183,9 @@
       range: 2.75
       energyConsumption: 50000
       disableDuration: 10
+      damage: # DeltaV - EMP damage
+        types:
+          Ion: 45 # Would take all 3 charges if you want to actually kill with it
 
 - type: entity
   parent: BaseSubdermalImplant
