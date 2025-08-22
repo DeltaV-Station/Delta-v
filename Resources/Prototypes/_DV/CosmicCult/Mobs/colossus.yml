@@ -160,6 +160,10 @@
       reverseWhenFinished: true
   - type: ContentEye
     maxZoom: 1.2, 1.2
+  - type: Eye
+    visMask:
+      - Normal
+      - CosmicCultMonument
   - type: StatusEffects
     allowed:
     - Stutter
@@ -276,6 +280,7 @@
       0: Alive
       400: Dead
   - type: CosmicColossus
+    hibernationWait: 30
 
 - type: speechSounds
   id: ColossusSpeech
