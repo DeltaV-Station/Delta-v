@@ -37,4 +37,3 @@ construction-graph-tag-mothroach-hide = mothroach hide
 
 # Ancient books
 construction-graph-tag-ancientbook = Damaged Ancient Book
-
