@@ -1,22 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Added bluespace shelter capsules, available from the salvage vendor!
-    type: Add
-  - message: Added the Explorer mining voucher kit, containing a mining rig and a
-      shelter capsule.
-    type: Add
-  id: 1124
-  time: '2025-03-08T23:22:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2566
-- author: BlitzTheSquishy
-  changes:
-  - message: Feroxi are here! A collection of shark-like peoples, who can use Water
-      Vapor instead of oxygen!
-    type: Add
-  id: 1125
-  time: '2025-03-08T23:38:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1669
 - author: Avalon-Proto
   changes:
   - message: Secborg equipment has been reassessed and redesigned, go out there and
@@ -4105,3 +4087,25 @@
   id: 1623
   time: '2025-08-21T08:53:50.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4246
+- author: NoElkaTheGod
+  changes:
+  - message: Malign rifts sometimes deal damage to everyone around them now. Get away,
+      or you may get hurt! Further away. Like, don't even look at it.
+    type: Tweak
+  id: 1624
+  time: '2025-08-22T07:43:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4216
+- author: NoElkaTheGod
+  changes:
+  - message: Added ion damage type. Only silicons can take it, and it regenerates
+      over time.
+    type: Add
+  - message: Cosmic cult's weapons and glyphs now deal ion damage to compensate for
+      IPCs being immune to asphyxiation.
+    type: Tweak
+  - message: Disablers deal ion damage now. Don't look at me like that, direction
+      asked to add this, not my idea.
+    type: Tweak
+  id: 1625
+  time: '2025-08-22T10:38:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4245
