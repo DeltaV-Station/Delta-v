@@ -6,9 +6,20 @@
     torso:
       part: TorsoBorg
       connections:
-      - hand 1
-    hand 1:
+      - right arm
+      - left arm
+    right arm:
+      part: RightArmBorg
+      connections:
+      - right hand
+    left arm:
       part: LeftArmBorg
+      connections:
+      - left hand
+    right hand:
+      part: RightHandIPC # shitmed moment
+    left hand:
+      part: LeftHandIPC
 
 - type: body
   id: Replicator2
@@ -18,12 +29,34 @@
     torso:
       part: TorsoBorg
       connections:
-      - hand 1
-      - hand 2
-    hand 1:
-      part: LeftArmBorg
-    hand 2: 
+      - right arm
+      - right arm 2
+      - left arm
+      - left arm 2
+    right arm:
       part: RightArmBorg
+      connections:
+      - right hand
+    right arm 2:
+      part: RightArmBorg
+      connections:
+      - right hand 2
+    left arm:
+      part: LeftArmBorg
+      connections:
+      - left hand
+    left arm 2:
+      part: LeftArmBorg
+      connections:
+      - left hand 2
+    right hand:
+      part: RightHandIPC # shitmed moment
+    right hand 2:
+      part: RightHandIPC
+    left hand:
+      part: LeftHandIPC
+    left hand 2:
+      part: LeftHandIPC
 
 - type: body
   id: Replicator3
@@ -33,6 +66,31 @@
     torso:
       part: TorsoBorg
       connections:
-      - hand 1
-    hand 1:
+      - right arm
+      - right arm 2
+      - left arm
+      - left arm 2
+    right arm:
+      part: RightArmBorg
+      connections:
+      - right hand
+    right arm 2:
+      part: RightArmBorg
+      connections:
+      - right hand 2
+    left arm:
       part: LeftArmBorg
+      connections:
+      - left hand
+    left arm 2:
+      part: LeftArmBorg
+      connections:
+      - left hand 2
+    right hand:
+      part: RightHandIPC # shitmed moment
+    right hand 2:
+      part: RightHandIPC
+    left hand:
+      part: LeftHandIPC
+    left hand 2:
+      part: LeftHandIPC
