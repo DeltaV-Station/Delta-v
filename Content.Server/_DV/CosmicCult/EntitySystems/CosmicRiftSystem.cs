@@ -29,6 +29,9 @@ public sealed class CosmicRiftSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     private readonly HashSet<Entity<HumanoidAppearanceComponent>> _humanoids = [];
+    
+    private EntityQuery<CosmicCultComponent> _cultistsQuery;
+    private EntityQuery<BibleUserComponent> _chaplainsQuery;
 
     public override void Initialize()
     {
@@ -38,6 +41,9 @@ public sealed class CosmicRiftSystem : EntitySystem
         SubscribeLocalEvent<CosmicCultComponent, EventAbsorbRiftDoAfter>(OnAbsorbDoAfter);
         SubscribeLocalEvent<CosmicMalignRiftComponent, EventPurgeRiftDoAfter>(OnPurgeDoAfter);
         SubscribeLocalEvent<CosmicMalignRiftComponent, ComponentInit>(OnRiftStarted);
+        
+        _cultistsQuery = GetEntityQuery<CosmicCultComponent>();
+        _chaplainsQuery = GetEntityQuery<BibleUserComponent>();
     }
 
     private void OnRiftStarted(Entity<CosmicMalignRiftComponent> ent, ref ComponentInit args)
@@ -58,7 +64,7 @@ public sealed class CosmicRiftSystem : EntitySystem
             var pos = Transform(uid).Coordinates;
             Spawn(comp.PulseVFX, pos);
             _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(pos, comp.PulseRange, _humanoids);
-            _humanoids.RemoveWhere(target => HasComp<BibleUserComponent>(target) || HasComp<CosmicCultComponent>(target));
+            _humanoids.RemoveWhere(target => _chaplainsQuery.HasComp<BibleUserComponent>(target) || _cultistsQuery.HasComp<CosmicCultComponent>(target));
             foreach(var humanoid in _humanoids)
             {
                 if (!pos.TryDistance(EntityManager, Transform(humanoid).Coordinates, out var distance)) continue;
