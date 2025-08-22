@@ -64,7 +64,7 @@ public sealed class CosmicRiftSystem : EntitySystem
             var pos = Transform(uid).Coordinates;
             Spawn(comp.PulseVFX, pos);
             _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(pos, comp.PulseRange, _humanoids);
-            _humanoids.RemoveWhere(target => _chaplainsQuery.HasComp<BibleUserComponent>(target) || _cultistsQuery.HasComp<CosmicCultComponent>(target));
+            _humanoids.RemoveWhere(target => _chaplainsQuery.HasComp(target) || _cultistsQuery.HasComp(target));
             foreach(var humanoid in _humanoids)
             {
                 if (!pos.TryDistance(EntityManager, Transform(humanoid).Coordinates, out var distance)) continue;
