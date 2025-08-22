@@ -29,7 +29,7 @@ public sealed class CosmicRiftSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     private readonly HashSet<Entity<HumanoidAppearanceComponent>> _humanoids = [];
-    
+
     private EntityQuery<CosmicCultComponent> _cultistsQuery;
     private EntityQuery<BibleUserComponent> _chaplainsQuery;
 
@@ -41,7 +41,7 @@ public sealed class CosmicRiftSystem : EntitySystem
         SubscribeLocalEvent<CosmicCultComponent, EventAbsorbRiftDoAfter>(OnAbsorbDoAfter);
         SubscribeLocalEvent<CosmicMalignRiftComponent, EventPurgeRiftDoAfter>(OnPurgeDoAfter);
         SubscribeLocalEvent<CosmicMalignRiftComponent, ComponentInit>(OnRiftStarted);
-        
+
         _cultistsQuery = GetEntityQuery<CosmicCultComponent>();
         _chaplainsQuery = GetEntityQuery<BibleUserComponent>();
     }
