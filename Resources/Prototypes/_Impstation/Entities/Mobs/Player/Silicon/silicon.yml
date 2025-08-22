@@ -62,6 +62,8 @@
     channels:
     - Binary
     - Common
+  - type: TypingIndicator
+    proto: replicator
   - type: DoAfter
   - type: Pullable
   - type: Examiner
