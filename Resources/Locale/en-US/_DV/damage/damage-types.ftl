@@ -1,1 +1,1 @@
-damage-type-corruption = Software corruption
+damage-type-ion = Ion

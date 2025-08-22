@@ -76,7 +76,7 @@ public sealed partial class CosmicFinaleComponent : Component
             { "Cold", 2.25},
             { "Radiation", 2.25},
             { "Asphyxiation", 2.25},
-            { "Software", 2.25}
+            { "Ion", 2.25}
         }
     };
 }
