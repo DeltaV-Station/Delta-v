@@ -185,7 +185,7 @@
       disableDuration: 10
       damage: # DeltaV - EMP damage
         types:
-          Ion: 45 # Would take all 3 charges if you want to actually kill with it
+          Ion: 80 # Would take 2 charges if you want to actually kill with it
 
 - type: entity
   parent: BaseSubdermalImplant

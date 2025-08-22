@@ -1,6 +1,6 @@
-using Content.Shared._EE.Silicon.Components;
 using Content.Server.Emp;
 using Content.Shared.Damage;
+using Content.Shared._DV.Silicons
 
 namespace Content.Server._DV.Silicons;
 
