@@ -40,7 +40,6 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly ContainerSystem _containerSystem = default!;
@@ -81,7 +80,11 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             var nestComp = falling.FallingTarget.Comp;
 
             // delete entities that have anything on the blacklist, OR don't have anything on the whitelist AND don't have a mind.
-            if (_whitelist.IsBlacklistPass(nestComp.PreservationBlacklist, uid) || !_whitelist.IsWhitelistPass(nestComp.PreservationWhitelist, uid)
+            if (_whitelist.IsBlacklistPass(nestComp.PreservationBlacklist, uid)
+                || !_whitelist.IsWhitelistPass(nestComp.PreservationWhitelist, uid)
+                && HasComp<SiliconLawBoundComponent>(uid) // Delete borgs
+                && !HasComp<HumanoidAppearanceComponent>(uid) // Store people
+                && !HasComp<StealTargetComponent>(uid) // Store steal targets
                 && !TryComp<MindContainerComponent>(uid, out var mind) | (mind != null && !mind!.HasMind))
                 toDel.Add(uid);
 
