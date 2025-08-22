@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: BlitzTheSquishy
-  changes:
-  - message: Feroxi are here! A collection of shark-like peoples, who can use Water
-      Vapor instead of oxygen!
-    type: Add
-  id: 1125
-  time: '2025-03-08T23:38:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1669
 - author: Avalon-Proto
   changes:
   - message: Secborg equipment has been reassessed and redesigned, go out there and
@@ -4103,3 +4095,17 @@
   id: 1624
   time: '2025-08-22T07:43:25.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4216
+- author: NoElkaTheGod
+  changes:
+  - message: Added ion damage type. Only silicons can take it, and it regenerates
+      over time.
+    type: Add
+  - message: Cosmic cult's weapons and glyphs now deal ion damage to compensate for
+      IPCs being immune to asphyxiation.
+    type: Tweak
+  - message: Disablers deal ion damage now. Don't look at me like that, direction
+      asked to add this, not my idea.
+    type: Tweak
+  id: 1625
+  time: '2025-08-22T10:38:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4245
