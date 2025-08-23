@@ -236,6 +236,13 @@
   - type: GuideHelp
     guides:
     - CosmicColossus
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -0.1 #2 of each type per minute
+        Burn: -0.066 #~1 of each type per minute
 
 - type: entity
   parent: [ MobCosmicColossusBase ]
