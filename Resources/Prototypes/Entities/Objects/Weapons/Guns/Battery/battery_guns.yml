@@ -540,10 +540,11 @@
         shader: unshaded
   - type: Gun
     selectedMode: FullAuto
-    AngleDecay: 3 # DeltaV
-    AngleIncrease: 2 # DeltaV
+    angleDecay: 3 # DeltaV
+    angleIncrease: 2 # DeltaV
     fireRate: 8 # DeltaV - was 4.5
-    MaxAngle: 18 # DeltaV
+    minAngle: 4 # DeltaV
+    maxAngle: 18 # DeltaV
     availableModes:
       - SemiAuto
       - FullAuto
@@ -551,7 +552,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
-    fireCost: 25
+    fireCost: 12.5 # DeltaV - was 25
   - type: MagazineVisuals
     magState: mag
     steps: 5
