@@ -82,9 +82,6 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             // delete entities that have anything on the blacklist, OR don't have anything on the whitelist AND don't have a mind.
             if (_whitelist.IsBlacklistPass(nestComp.PreservationBlacklist, uid)
                 || !_whitelist.IsWhitelistPass(nestComp.PreservationWhitelist, uid)
-                && HasComp<SiliconLawBoundComponent>(uid) // Delete borgs
-                && !HasComp<HumanoidAppearanceComponent>(uid) // Store people
-                && !HasComp<StealTargetComponent>(uid) // Store steal targets
                 && !TryComp<MindContainerComponent>(uid, out var mind) | (mind != null && !mind!.HasMind))
                 toDel.Add(uid);
 
