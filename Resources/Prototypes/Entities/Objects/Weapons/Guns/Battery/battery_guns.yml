@@ -540,7 +540,10 @@
         shader: unshaded
   - type: Gun
     selectedMode: FullAuto
-    fireRate: 4.5
+    AngleDecay: 3 # DeltaV
+    AngleIncrease: 2 # DeltaV
+    fireRate: 8 # DeltaV - was 4.5
+    MaxAngle: 18 # DeltaV
     availableModes:
       - SemiAuto
       - FullAuto
