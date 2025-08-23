@@ -183,6 +183,9 @@
       range: 2.75
       energyConsumption: 50000
       disableDuration: 10
+      damage: # DeltaV - EMP damage
+        types:
+          Ion: 80 # Would take 2 charges if you want to actually kill with it
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -208,6 +211,23 @@
       whitelist:
         components:
         - HumanoidAppearance # syndies cant turn hamlet into a human
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseSubdermalImplant
+  id: ChameleonControllerImplant
+  name: chameleon controller implant
+  description: This implant allows you to instantly change the appearance of all worn chameleon clothing.
+  components:
+  - type: ChameleonControllerImplant
+  - type: SubdermalImplant
+    implantAction: ActionChameleonController
+  - type: UseDelay
+    delay: 1
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonControllerKey.Key:
+        type: ChameleonControllerBoundUserInterface
 
 #Nuclear Operative/Special Exclusive implants
 
