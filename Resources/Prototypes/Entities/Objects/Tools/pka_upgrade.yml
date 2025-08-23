@@ -37,7 +37,7 @@
   - type: GunUpgradeDamage
     damage:
       types:
-        Blunt: 5
+        Blunt: 5 # DeltaV - lowers upgrade damage a bit
         #Structural: 15 # DeltaV - modkits can still exist, 5 blunt per shot only
 
 - type: entity
@@ -62,23 +62,23 @@
   - type: GunUpgradeCost # DeltaV
     cost: 25
 
-# DeltaV - kill for old firerate and recharge rate. doesn't even really do anything because fire rate is capped by the recharge rate
-#- type: entity
-#  id: PKAUpgradeFireRate
-#  parent: BasePKAUpgrade
-#  name: PKA modkit (fire rate)
-#  components:
-#  - type: Sprite
-#    layers:
-#    - state: base
-#    - state: overlay-1
-#      color: "#bbf134"
-#    - state: overlay-2
-#      color: "#07901b"
-#    - state: overlay-3
-#      color: "#9bf134"
-#  - type: GunUpgrade
-#    #tags: [ GunUpgradeReloadSpeed ] # DeltaV - allow multiple
-#    examineText: gun-upgrade-examine-text-reload
-#  - type: GunUpgradeFireRate
-#    coefficient: 1.25 # DeltaV - was 1.5, SS13 parity (maths used is different but same result: 0.64s recharge time with 3 upgrades)
+- type: entity
+  id: PKAUpgradeFireRate
+  parent: BasePKAUpgrade
+  name: PKA modkit (fire rate)
+  abstract: true # DeltaV - firerate is kill
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#bbf134"
+    - state: overlay-2
+      color: "#07901b"
+    - state: overlay-3
+      color: "#9bf134"
+  - type: GunUpgrade
+    #tags: [ GunUpgradeReloadSpeed ] # DeltaV - allow multiple
+    examineText: gun-upgrade-examine-text-reload
+  - type: GunUpgradeFireRate
+    coefficient: 1.25 # DeltaV - was 1.5, SS13 parity (maths used is different but same result: 0.64s recharge time with 3 upgrades)
