@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Avalon-Proto
-  changes:
-  - message: Secborg equipment has been reassessed and redesigned, go out there and
-      show em what you're made of peacekeepers!
-    type: Tweak
-  id: 1126
-  time: '2025-03-09T18:47:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2059
 - author: Velcroboy
   changes:
   - message: Arena security has an evidence room now and some additional tweaks.
@@ -4109,3 +4101,13 @@
   id: 1625
   time: '2025-08-22T10:38:51.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4245
+- author: NoElkaTheGod
+  changes:
+  - message: EMP no longer drains power from IPCs and cyborgs. Instead, it deals high
+      amount of ion damage, enough to instantly down the target in most cases. EMP
+      implants deal less daamge, though, so you will need all 3 charges to kill somoene
+      with it.
+    type: Tweak
+  id: 1626
+  time: '2025-08-23T08:39:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4255
