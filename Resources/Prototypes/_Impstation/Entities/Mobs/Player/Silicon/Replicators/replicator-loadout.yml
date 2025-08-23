@@ -27,6 +27,7 @@
     - ReplicatorT3Weapon
   equipment:
     pocket1: PinpointerReplicatorUnremoveable
+    pocket2: ReplicatorAAC
 
 - type: entity
   id: ReplicatorT1Weapon
@@ -183,6 +184,23 @@
   id: PinpointerReplicatorUnremoveable
   categories: [HideSpawnMenu]
   components:
+  - type: Unremoveable
+
+- type: entity
+  parent: AACTablet
+  id: ReplicatorAAC
+  name: verbal interface
+  description: Communication.
+  components:
+  - type: AACTablet
+  - type: VoiceMask
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Replicator
+  - type: Sprite
+    sprite: _Impstation/Mobs/Replicator/replicator_tablet.rsi
+    state: aac_tablet
+  - type: Item
   - type: Unremoveable
 
 - type: hitscan
