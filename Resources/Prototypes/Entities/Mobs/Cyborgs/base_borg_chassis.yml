@@ -389,6 +389,7 @@
     - Syndicate
   - type: ActiveRadio
     channels:
+    - Binary
     - Syndicate
   - type: ShowSyndicateIcons
   - type: MovementAlwaysTouching
@@ -425,6 +426,19 @@
   - type: ShowJobIcons
   - type: Fiber # DeltaV - derelict borgs have degraded plasteel fibers
     fiberMaterial: fibers-degraded-plasteel
+
+- type: entity
+  id: BaseBorgChassisSyndicateDerelict #For assault borg and maybe others in time
+  parent: BaseBorgChassisSyndicate
+  abstract: true
+  components:
+  - type: SiliconLawProvider
+    laws: SyndicateStatic #Non-subverted version so they can still be changed
+  - type: StartIonStormed
+    ionStormAmount: 3
+  - type: IonStormTarget
+    chance: 1
+  - type: ShowJobIcons
 
 - type: entity
   parent: BaseBorgChassisNotIonStormable
