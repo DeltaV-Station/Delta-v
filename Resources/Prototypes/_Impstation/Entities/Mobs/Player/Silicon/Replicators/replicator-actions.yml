@@ -11,10 +11,10 @@
     itemIconStyle: NoItem
     icon: _Impstation/Interface/Actions/spawn_nest.png
     useDelay: 20
-  - type: ConfirmableAction
-    popup: replicator-nest-confirm
   - type: InstantAction
     event: !type:ReplicatorSpawnNestActionEvent
+  - type: ConfirmableAction
+    popup: replicator-nest-confirm
 
 - type: entity
   id: BaseReplicatorLevelupAction
