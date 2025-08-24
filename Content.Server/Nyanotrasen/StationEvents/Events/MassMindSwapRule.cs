@@ -55,7 +55,7 @@ internal sealed class MassMindSwapRule : StationEventSystem<MassMindSwapRuleComp
                 comp.SoundTime = null;
             }
 
-            if (comp.SwapTime == null || !(comp.SwapTime <= Timing.CurTime))
+            if (comp.SwapTime == null || comp.SwapTime > Timing.CurTime)
                 continue;
 
             SwapMinds(comp);
