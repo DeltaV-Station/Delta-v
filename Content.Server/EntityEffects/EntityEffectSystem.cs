@@ -25,6 +25,7 @@ using Content.Server.Traits.Assorted;
 using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Server.Zombies;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.EntityEffects;
