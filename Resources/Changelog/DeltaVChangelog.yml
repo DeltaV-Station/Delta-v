@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Velcroboy
-  changes:
-  - message: Arena security has an evidence room now and some additional tweaks.
-    type: Tweak
-  id: 1127
-  time: '2025-03-09T20:38:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3165
 - author: IAmNotGray
   changes:
   - message: Elegance has been changed up slightly. The Examination Room has been
@@ -4111,3 +4104,11 @@
   id: 1626
   time: '2025-08-23T08:39:03.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4255
+- author: cmorley191
+  changes:
+  - message: Fixed custom-named station beacons sometimes not being shown on the station
+      map UIs.
+    type: Fix
+  id: 1627
+  time: '2025-08-24T01:15:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4211
