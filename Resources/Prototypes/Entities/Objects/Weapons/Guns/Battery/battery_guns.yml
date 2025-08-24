@@ -540,11 +540,11 @@
         shader: unshaded
   - type: Gun
     selectedMode: FullAuto
-    angleDecay: 3 # DeltaV
-    angleIncrease: 2 # DeltaV
     fireRate: 8 # DeltaV - was 4.5
-    minAngle: 4 # DeltaV
-    maxAngle: 18 # DeltaV
+    angleDecay: 3 # Begin DeltaV - Disabler SMG changes 
+    angleIncrease: 2
+    minAngle: 4
+    maxAngle: 18 # End DeltaV - Disabler SMG changes 
     availableModes:
       - SemiAuto
       - FullAuto
