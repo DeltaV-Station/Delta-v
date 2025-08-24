@@ -272,7 +272,7 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         if (configuration.TransferHumanoidAppearance)
         {
-            _humanoid.CloneAppearance(uid, child);
+            _humanoid.CloneAppearance(child, uid);
         }
 
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
