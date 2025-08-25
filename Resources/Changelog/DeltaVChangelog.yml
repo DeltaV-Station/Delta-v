@@ -1,90 +1,4 @@
 ﻿Entries:
-- author: Oxdeception
-  changes:
-  - message: AAC Tablet now has a searchable tab
-    type: Add
-  - message: AAC Tablet no longer has its tabs hidden by scrolling
-    type: Tweak
-  id: 1121
-  time: '2025-03-08T20:46:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3154
-- author: HTMLSystem
-  changes:
-  - message: Fixed epistemics lab coats not having an unzipped sprite
-    type: Fix
-  - message: Made the Mystagogue lab coat unzippable
-    type: Add
-  id: 1122
-  time: '2025-03-08T20:56:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3136
-- author: deltanedas
-  changes:
-  - message: Added ID chips which the roboticist can make. They are like ID cards
-      but need to be installed in a cyborg to work.
-    type: Add
-  - message: Borgs can have accesses added by using an ID chip in an ID card computer.
-    type: Tweak
-  - message: Borgs built during the round no longer have pseudo-AA.
-    type: Remove
-  id: 1123
-  time: '2025-03-08T22:26:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3116
-- author: deltanedas
-  changes:
-  - message: Added bluespace shelter capsules, available from the salvage vendor!
-    type: Add
-  - message: Added the Explorer mining voucher kit, containing a mining rig and a
-      shelter capsule.
-    type: Add
-  id: 1124
-  time: '2025-03-08T23:22:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2566
-- author: BlitzTheSquishy
-  changes:
-  - message: Feroxi are here! A collection of shark-like peoples, who can use Water
-      Vapor instead of oxygen!
-    type: Add
-  id: 1125
-  time: '2025-03-08T23:38:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1669
-- author: Avalon-Proto
-  changes:
-  - message: Secborg equipment has been reassessed and redesigned, go out there and
-      show em what you're made of peacekeepers!
-    type: Tweak
-  id: 1126
-  time: '2025-03-09T18:47:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2059
-- author: Velcroboy
-  changes:
-  - message: Arena security has an evidence room now and some additional tweaks.
-    type: Tweak
-  id: 1127
-  time: '2025-03-09T20:38:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3165
-- author: IAmNotGray
-  changes:
-  - message: Elegance has been changed up slightly. The Examination Room has been
-      updated, and freezers are now cold.
-    type: Tweak
-  id: 1128
-  time: '2025-03-09T21:44:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3157
-- author: deltanedas
-  changes:
-  - message: Pressing F1 is back to immediately opening AHelp, hold shift to open
-      curator chat.
-    type: Tweak
-  id: 1129
-  time: '2025-03-10T02:19:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3176
-- author: deltanedas
-  changes:
-  - message: Fixed robo-neuroticists not being able to lock their evil borgs.
-    type: Fix
-  id: 1130
-  time: '2025-03-10T03:07:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3177
 - author: deltanedas
   changes:
   - message: Removed raffles from carp ghost roles. Rrrr!
@@ -4110,3 +4024,107 @@
   id: 1620
   time: '2025-08-20T20:12:55.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4247
+- author: NoElkaTheGod
+  changes:
+  - message: Double-bladed energy sword and vacuous lance have had their swing animations
+      improved.
+    type: Tweak
+  id: 1621
+  time: '2025-08-21T07:53:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4235
+- author: kotobdev
+  changes:
+  - message: Warops can now be declared with just 3 nukies.
+    type: Tweak
+  id: 1622
+  time: '2025-08-21T08:04:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4169
+- author: NoElkaTheGod
+  changes:
+  - message: Secret game mode now not only checks for amount of players ready, but
+      also for the total player count.
+    type: Tweak
+  - message: Game modes now generally require less players to be ready during lobby.
+    type: Tweak
+  id: 1623
+  time: '2025-08-21T08:53:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4246
+- author: NoElkaTheGod
+  changes:
+  - message: Malign rifts sometimes deal damage to everyone around them now. Get away,
+      or you may get hurt! Further away. Like, don't even look at it.
+    type: Tweak
+  id: 1624
+  time: '2025-08-22T07:43:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4216
+- author: NoElkaTheGod
+  changes:
+  - message: Added ion damage type. Only silicons can take it, and it regenerates
+      over time.
+    type: Add
+  - message: Cosmic cult's weapons and glyphs now deal ion damage to compensate for
+      IPCs being immune to asphyxiation.
+    type: Tweak
+  - message: Disablers deal ion damage now. Don't look at me like that, direction
+      asked to add this, not my idea.
+    type: Tweak
+  id: 1625
+  time: '2025-08-22T10:38:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4245
+- author: NoElkaTheGod
+  changes:
+  - message: EMP no longer drains power from IPCs and cyborgs. Instead, it deals high
+      amount of ion damage, enough to instantly down the target in most cases. EMP
+      implants deal less daamge, though, so you will need all 3 charges to kill somoene
+      with it.
+    type: Tweak
+  id: 1626
+  time: '2025-08-23T08:39:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4255
+- author: cmorley191
+  changes:
+  - message: Fixed custom-named station beacons sometimes not being shown on the station
+      map UIs.
+    type: Fix
+  id: 1627
+  time: '2025-08-24T01:15:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4211
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic cult's conversion glyphs charging animation has been removed.
+    type: Remove
+  id: 1628
+  time: '2025-08-25T00:52:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4259
+- author: Halo3moth
+  changes:
+  - message: Python reduced to 4 tc.
+    type: Tweak
+  - message: Assault borg reduced to 40 tc.
+    type: Tweak
+  - message: Thermal suit pierce resistance brought up to 40%.
+    type: Tweak
+  - message: Thermal suit now cost 14 tc.
+    type: Tweak
+  id: 1629
+  time: '2025-08-25T01:34:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4177
+- author: NoElkaTheGod
+  changes:
+  - message: Entropic colossi now have increased damage and resistances. 15% reflect
+      chance has been removed, though.
+    type: Tweak
+  - message: Entropic colossi now take holy damage, but don't take structural damage
+      anymore.
+    type: Tweak
+  - message: Slumber Shell (colossus' healing) cooldown 120 -> 180 seconds.
+    type: Tweak
+  - message: Entropic colossi can no longer attack immediately after teleporting,
+      which allowed unavoidable one-shot kills.
+    type: Fix
+  - message: Midround entropic colossi now take 30 seconds to heal, just like ones
+      created by cult.
+    type: Fix
+  id: 1630
+  time: '2025-08-25T11:47:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4251

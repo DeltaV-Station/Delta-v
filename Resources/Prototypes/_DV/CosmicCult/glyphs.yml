@@ -52,11 +52,11 @@
   - type: CosmicGlyphConversion
     negateProtection: true
   - type: CosmicGlyph
-    activationTime: 4 # To prevent people from just using the glyph the moment a target's shunt ends. Go get cuffs.
     requiredCultists: 3
     activationDamage:
       types:
         Asphyxiation: 60
+        Ion: 60
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-truth
 
@@ -72,11 +72,11 @@
         map: ["base"]
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
-    activationTime: 4 # To prevent people from just using the glyph the moment a target's shunt ends. Go get cuffs.
     requiredCultists: 2
     activationDamage:
       types:
         Asphyxiation: 40
+        Ion: 40
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-knowledge
 
@@ -96,6 +96,7 @@
     activationDamage:
       types:
         Asphyxiation: 25
+        Ion: 25
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-cessation
 
@@ -115,6 +116,7 @@
     activationDamage:
       types:
         Asphyxiation: 50
+        Ion: 50
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-blades
 
@@ -134,6 +136,7 @@
     activationDamage:
       types:
         Asphyxiation: 50
+        Ion: 50
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-warding
 
@@ -151,5 +154,9 @@
   - type: CosmicGlyph
     requiredCultists: 1
     eraseOnUse: true # This is something that you may use early into the round where there aren't many cultists to hide it for you, so it erases automaticaly.
+    activationDamage:
+      types:
+        Asphyxiation: 25
+        Ion: 25
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-projection
