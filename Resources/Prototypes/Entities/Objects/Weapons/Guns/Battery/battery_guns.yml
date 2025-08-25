@@ -541,10 +541,12 @@
   - type: Gun
     selectedMode: FullAuto
     fireRate: 8 # DeltaV - was 4.5
-    angleDecay: 3 # Begin DeltaV - Disabler SMG changes 
+    # Begin DeltaV - Disabler SMG changes 
+    angleDecay: 3
     angleIncrease: 2
     minAngle: 4
-    maxAngle: 18 # End DeltaV - Disabler SMG changes 
+    maxAngle: 18
+    # End DeltaV - Disabler SMG changes 
     availableModes:
       - SemiAuto
       - FullAuto
