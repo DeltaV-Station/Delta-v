@@ -4,6 +4,7 @@
     children:
     - id: MothroachSpawn
     - id: XenoVents
+    - id: MalignRiftSpawn
 
 - type: entityTable
   id: BasicAntagEventsTableDeltaV
@@ -129,6 +130,21 @@
         - Syndicate
       mindRoles:
       - MindRoleListeningPost
+
+- type: entity
+  parent: BaseGameRule
+  id: MalignRiftSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    weight: 6
+  - type: PrecognitionResult
+    message: psionic-power-precognition-rift-spawn-result-message
+  - type: RandomMultipleSpawnRule
+    prototype: CosmicMalignRift
+    minAmount: 1
+    maxAmount: 3
+
 
 # Mid round antag spawns
 - type: entity

@@ -42,3 +42,17 @@
     Telecrystal: 10
   categories:
   - UplinkWeaponry
+
+- type: listing
+  id: UplinkDesword
+  name: uplink-desword-name
+  description: uplink-desword-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword_double.rsi, state: icon }
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  productEntity: EnergySwordDouble
+  cost:
+    Telecrystal: 9
+  categories:
+  - UplinkWeaponry

@@ -237,9 +237,9 @@
 #   - type: Golem
 #   - type: GenericVisualizer
 #     visuals:
-#       enum.ToggleVisuals.Toggled:
-#         enum.ToggleVisuals.Layer:
-#           True: { visible: true }
+#       enum.ToggleVisuals.Toggled:  // todo this needs to be migrated
+#         enum.ToggleVisuals.Layer:  // if this is ever re-enabled
+#           True: { visible: true }  // https://github.com/space-wizards/space-station-14/pull/35341
 #           False: { visible: false }
 #       enum.CreamPiedVisuals.Creamed:
 #         clownedon:
