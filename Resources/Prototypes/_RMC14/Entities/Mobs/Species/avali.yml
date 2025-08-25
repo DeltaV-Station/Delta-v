@@ -11,14 +11,6 @@
     hideLayersOnEquip:
     - HeadTop
     - HeadSide
-  - type: Hunger # DeltaV
-  - type: Thirst # DeltaV
-  - type: Icon # DeltaV
-    sprite: _RMC14/Mobs/Avali/parts.rsi
-    state: full
-  - type: Body # DeltaV
-    prototype: Avali
-    requiredLegs: 2
   - type: Sprite
     drawdepth: Mobs
   - type: Vocal
@@ -28,8 +20,34 @@
       Female: RMCUnisexAvali
   - type: Speech
     speechVerb: Parrot # Didn't come with one
-    speechSounds: MaleAvali
-  - type: Fixtures # DeltaV - somewhat lower weight
+    speechSounds: MaleAvali    
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#7a8bf2"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi # DeltaV
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    damage:
+      types:
+        Slash: 6 # DeltaV - evens out to about 5 after damage modifier
+  - type: Inventory
+    speciesId: avali
+# - type: FixedIdentity
+#   name: cm-chatsan-replacement-avali # DeltaV - unneeded
+# Begin DeltaV additions
+  - type: Hunger
+  - type: Thirst
+  - type: Icon
+    sprite: _RMC14/Mobs/Avali/parts.rsi
+    state: full
+  - type: Body
+    prototype: Avali
+    requiredLegs: 2
+  - type: Fixtures # somewhat lower weight
     fixtures:
       fix1:
         shape:
@@ -41,46 +59,33 @@
         - MobMask
         layer:
         - MobLayer
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#7a8bf2"
-  - type: Bloodstream # DeltaV
+  - type: Bloodstream
     bloodReagent: AmmoniaBlood
-  - type: PlayerAccuracyModifier # DeltaV - more accurate with firearms
+  - type: PlayerAccuracyModifier # more accurate with firearms
     spreadMultiplier: 0.65
   - type: BonusStaminaDamage
-    multiplier: 0.85 # DeltaV - less melee stamina damage
-  - type: BonusMeleeDamage # DeltaV - significantly weaker with melee
+    multiplier: 0.85 # less melee stamina damage
+  - type: BonusMeleeDamage # significantly weaker with melee
     damageModifierSet:
       coefficients:
         Blunt: 0.65
         Slash: 0.85
-  - type: Damageable # DeltaV
+  - type: Damageable
     damageModifierSet: Avali
-  - type: MeleeWeapon # DeltaV
-    soundHit:
-      path: /Audio/Weapons/pierce.ogg
-    damage:
-      types:
-        Slash: 6 # DeltaV - evens out to about 5 after damage modifier
     animation: WeaponArcClaw
-  - type: Inventory
-    speciesId: avali
-  - type: Temperature # DeltaV - thrives in the cold, similar to moths
+  - type: Temperature # thrives in the cold, similar to moths
     heatDamageThreshold: 310
     coldDamageThreshold: 223
-    currentTemperature: 296.15 # DeltaV - lower natural body temp
-    specificHeat: 25 # DeltaV - makes temp more lethal
+    currentTemperature: 296.15 # lower natural body temp
+    specificHeat: 25 # makes temp more lethal
     coldDamage:
       types:
         Cold : 0.05
     heatDamage:
       types:
-        Heat : 5 # DeltaV - extremely high
-    damageCap: 20 # DeltaV - greatly increased temp damage cap
-  - type: ThermalRegulator # DeltaV - CD values
+        Heat : 5 # extremely high
+    damageCap: 20 # greatly increased temp damage cap
+  - type: ThermalRegulator # CD values
     metabolismHeat: 400
     radiatedHeat: 100
     implicitHeatRegulation: 500
@@ -88,13 +93,12 @@
     shiveringHeatRegulation: 2000
     normalBodyTemperature: 296.15
     thermalRegulationTemperatureThreshold: 10
-  - type: TemperatureSpeed # DeltaV - less punishing cold
+  - type: TemperatureSpeed # less punishing cold
     thresholds:
-      279: 0.9
-      265: 0.8
-      240: 0.7
-# - type: FixedIdentity
-#   name: cm-chatsan-replacement-avali # DeltaV - unneeded
+      279: 0.95
+      265: 0.9
+      240: 0.85
+# End DeltaV additions
 
 - type: entity
   parent: BaseSpeciesDummy
