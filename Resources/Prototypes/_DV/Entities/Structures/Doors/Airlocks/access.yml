@@ -594,3 +594,22 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSecurity ]
+
+#Syndicate high security door
+- type: entity
+  parent: HighSecDoor
+  id: HighSecDoorSyndicateAgentLocked
+  suffix: Syndicate, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAgent ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecDoorNukeopLocked
+  suffix: Nukeop, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNukeop ]

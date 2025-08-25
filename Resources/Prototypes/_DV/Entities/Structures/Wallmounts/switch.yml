@@ -37,3 +37,19 @@
   components:
   - type: AccessReader
     access: [["ChiefJustice"]]
+
+- type: entity
+  parent: LockableButton
+  id: LockableButtonSyndicate
+  suffix: Syndicate
+  components:
+  - type: AccessReader
+    access: [["SyndicateAgent"]]
+
+- type: entity
+  parent: LockableButton
+  id: LockableButtonNukeop
+  suffix: Nukeop
+  components:
+  - type: AccessReader
+    access: [["NuclearOperative"]]

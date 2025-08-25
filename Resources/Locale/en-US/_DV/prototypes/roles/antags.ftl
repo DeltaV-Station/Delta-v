@@ -21,3 +21,6 @@ roles-antag-nuclear-operative-corpsman-objective = The team's combat medic taske
 
 roles-antag-menace-skeleton-name = Menace Skeleton
 roles-antag-menace-skeleton-objective = Rattle 'Em
+
+roles-antag-syndicate-armsdealer-name = Arms Dealer
+roles-antag-syndicate-armsdealer-objective = Sell your firearms and stay away from the law.
