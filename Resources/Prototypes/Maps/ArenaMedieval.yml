@@ -1,0 +1,80 @@
+- type: gameMap
+  id: ArenaMedieval
+  mapName: 'ArenaMedieval'
+  mapPath: /Maps/_DV/Events/ArenaMedieval.yml
+  minPlayers: 30
+  maxPlayers: 80
+  stations:
+    ArenaMedieval:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Arena Station {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'NY'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_UCLB.yml
+        - type: StationCargoShuttle
+          path: /Maps/_DV/Shuttles/NTCS_Duster.yml
+        - type: StationJobs
+          availableJobs:
+          #civilian
+            Passenger: [ -1, -1 ]
+            Librarian: [ 1, 1 ]
+          #command
+            Captain: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
+          #engineering
+            AtmosphericTechnician: [ 1, 2 ]
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 2, 3 ]
+            TechnicalAssistant: [ 2, 3 ]
+          #justice
+            ChiefJustice: [ 1, 1 ]
+            Clerk: [ 1, 1 ]
+            Lawyer: [ 2, 2 ]
+            Prosecutor: [ 1, 1 ]
+          #medical
+            Chemist: [ 2, 2 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 3, 4 ]
+            MedicalIntern: [ 2, 3 ]
+            Paramedic: [ 1, 2 ]
+            Psychologist: [ 1, 1 ]
+            Surgeon: [ 1, 1 ]
+          #security
+            Brigmedic: [ 1, 1 ]
+            Detective: [ 1, 1 ]
+            Gladiator: [ 2, 2 ]
+            HeadOfSecurity: [ 1, 1 ]
+            Prisoner: [ 2, 2 ]
+            PrisonGuard: [ 1, 1 ]
+            SecurityOfficer: [ 5, 7 ]
+            SecurityCadet: [ 2, 2 ]
+            Warden: [ 1, 1 ]
+          #service
+            Bartender: [ 1, 2 ]
+            Botanist: [ 2, 2 ]
+            Chef: [ 2, 2 ]
+            Clown: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            Janitor: [ 2, 2 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            Reporter: [ 2, 2 ]
+            ServiceWorker: [ 1, 2 ]
+          #science
+            Borg: [ 2, 2 ]
+            Chaplain: [ 1, 1 ]
+            ForensicMantis: [ 1, 1 ]
+            ResearchAssistant: [ 2, 4 ]
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 3, 5 ]
+            Roboticist: [ 1, 1 ]
+          #supply
+            CargoAssistant: [ 1, 2 ]
+            CargoTechnician: [ 2, 3 ]
+            Courier: [ 1, 2 ]
+            SalvageSpecialist: [ 2, 3 ]
+            Quartermaster: [ 1, 1 ]
