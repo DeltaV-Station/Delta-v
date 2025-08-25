@@ -24,3 +24,6 @@ roles-antag-menace-skeleton-objective = Rattle 'Em
 
 roles-antag-skia-name = Skia
 roles-antag-skia-objective = Rend souls from the living.
+
+roles-antag-syndicate-armsdealer-name = Arms Dealer
+roles-antag-syndicate-armsdealer-objective = Sell your firearms and stay away from the law.
