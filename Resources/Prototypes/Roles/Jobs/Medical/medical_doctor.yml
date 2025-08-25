@@ -35,9 +35,12 @@
   equipment:
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
-  #storage:
-    #back:
+  # Begin DeltaV additions
+  storage:
+    back:
     #- Stuff
+    - Syringe
+  # End DeltaV additions
 
 - type: chameleonOutfit
   id: MedicalDoctorChameleonOutfit
