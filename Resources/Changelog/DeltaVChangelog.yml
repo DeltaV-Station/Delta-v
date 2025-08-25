@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Fixed robo-neuroticists not being able to lock their evil borgs.
-    type: Fix
-  id: 1130
-  time: '2025-03-10T03:07:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3177
-- author: deltanedas
-  changes:
   - message: Removed raffles from carp ghost roles. Rrrr!
     type: Tweak
   id: 1131
@@ -4116,3 +4109,22 @@
   id: 1629
   time: '2025-08-25T01:34:46.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4177
+- author: NoElkaTheGod
+  changes:
+  - message: Entropic colossi now have increased damage and resistances. 15% reflect
+      chance has been removed, though.
+    type: Tweak
+  - message: Entropic colossi now take holy damage, but don't take structural damage
+      anymore.
+    type: Tweak
+  - message: Slumber Shell (colossus' healing) cooldown 120 -> 180 seconds.
+    type: Tweak
+  - message: Entropic colossi can no longer attack immediately after teleporting,
+      which allowed unavoidable one-shot kills.
+    type: Fix
+  - message: Midround entropic colossi now take 30 seconds to heal, just like ones
+      created by cult.
+    type: Fix
+  id: 1630
+  time: '2025-08-25T11:47:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4251
