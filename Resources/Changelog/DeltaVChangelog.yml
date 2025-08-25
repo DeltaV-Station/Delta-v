@@ -1,17 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Added lathe upgrade kits to the Industrial Engineering tech, they can
-      be used on any kind of lathe including techfabs.
-    type: Add
-  - message: Added the cryo-stabilizing lathe upgrade kit, it makes lathes faster
-      in exchange for freezing the air.
-    type: Add
-  id: 1132
-  time: '2025-03-10T19:26:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3169
-- author: deltanedas
-  changes:
   - message: Added a new T3 industrial tech, Matter-Energy Conversion, which lets
       you make self-recharging RCDs.
     type: Add
@@ -4129,3 +4118,10 @@
   id: 1631
   time: '2025-08-25T19:06:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4250
+- author: Stop-Signs
+  changes:
+  - message: 'TESTMERGE: The emergency shuttle travel time and docked time are shorter.'
+    type: Tweak
+  id: 1632
+  time: '2025-08-25T21:16:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4162
