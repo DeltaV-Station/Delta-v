@@ -1,14 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Pressing F1 is back to immediately opening AHelp, hold shift to open
-      curator chat.
-    type: Tweak
-  id: 1129
-  time: '2025-03-10T02:19:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3176
-- author: deltanedas
-  changes:
   - message: Fixed robo-neuroticists not being able to lock their evil borgs.
     type: Fix
   id: 1130
@@ -4111,3 +4103,16 @@
   id: 1628
   time: '2025-08-25T00:52:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4259
+- author: Halo3moth
+  changes:
+  - message: Python reduced to 4 tc.
+    type: Tweak
+  - message: Assault borg reduced to 40 tc.
+    type: Tweak
+  - message: Thermal suit pierce resistance brought up to 40%.
+    type: Tweak
+  - message: Thermal suit now cost 14 tc.
+    type: Tweak
+  id: 1629
+  time: '2025-08-25T01:34:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4177
