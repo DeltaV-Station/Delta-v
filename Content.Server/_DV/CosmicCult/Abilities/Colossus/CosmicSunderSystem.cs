@@ -1,5 +1,6 @@
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared.Stunnable;
 using Robust.Shared.Timing;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
@@ -9,6 +10,7 @@ public sealed class CosmicSunderSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
     public override void Initialize()
     {
@@ -25,6 +27,7 @@ public sealed class CosmicSunderSystem : EntitySystem
         _appearance.SetData(ent, ColossusVisuals.Status, ColossusStatus.Action);
         _transform.SetCoordinates(ent, args.Target);
         _transform.AnchorEntity(ent);
+        _stun.TryStun(ent, ent.Comp.AttackWait, true);
 
         comp.Attacking = true;
         comp.AttackHoldTimer = comp.AttackWait + _timing.CurTime;
