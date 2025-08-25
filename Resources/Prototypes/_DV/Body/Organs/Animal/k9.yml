@@ -1,0 +1,23 @@
+- type: entity
+  id: OrganK9ShockJaws
+  parent: BaseAugment
+  name: k9 shock jaws
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Augments/jaws.rsi
+    state: jaws
+  - type: AugmentJaws
+  - type: Organ
+    slotId: headImplant
+    onAdd:
+    - type: K9StunJaws
+    - type: StaminaDamageOnHit
+      damage: 35
+      sound: /Audio/Weapons/egloves.ogg
+    - type: ItemToggleMeleeWeapon
+      activatedDamage:
+        types:
+          Shock: 5
+  - type: Tag
+    tags:
+    - Organ
