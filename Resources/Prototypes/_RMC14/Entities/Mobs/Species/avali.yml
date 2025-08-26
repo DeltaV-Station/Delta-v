@@ -37,13 +37,26 @@
     animation: WeaponArcClaw
   - type: Inventory
     speciesId: avali
-# - type: FixedIdentity # DeltaV - unneeded
-#   name: cm-chatsan-replacement-avali
+    # Begin DeltaV - displacements from Harmony
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+            state: mask
+    # End DeltaV - displacements from Harmony
+  #- type: FixedIdentity # DeltaV - unneeded
+  #  name: cm-chatsan-replacement-avali
 # Begin DeltaV additions
   - type: Hunger
   - type: Thirst
   - type: Icon
-    sprite: _RMC14/Mobs/Avali/parts.rsi
+    sprite: _Starlight/Mobs/Species/Avali/parts.rsi # DeltaV - Using Starlight Avali Sprites
     state: full
   - type: Body
     prototype: Avali
