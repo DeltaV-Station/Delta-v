@@ -279,6 +279,40 @@
 
 - type: entity
   parent: BaseHealingItem
+  id: Oilpack
+  name: oil pack
+  suffix: Full
+  description: Fit with a proprietary and disposable connector, oil can easily be injected to top off a bleeding IPC
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Medical/Oilpack.rsi
+    state: icon
+  - type: Item
+    sprite: _DV/Objects/Medical/Oilpack.rsi
+    heldPrefix: icon
+  - type: Healing
+    damageContainers:
+    - HumanoidSilicon
+    damage:
+      groups:
+        Burn: 0 # funny cant remove
+    ModifyBloodLevel: 20 # restores a lot of blood for IPCs.
+  - type: Stack
+    stackType: Oilpack
+    count: 5
+  - type: StackPrice
+    price: 10
+
+- type: entity
+  parent: Oilpack
+  id: Oilpack1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: Oilpack
   id: OmniPatch
   suffix: Full
   name: omni patch
@@ -286,10 +320,8 @@
   components:
   - type: Sprite
     sprite: _DV/Objects/Medical/Omnipatch.rsi
-    state: icon
   - type: Item
     sprite: _DV/Objects/Medical/Omnipatch.rsi
-    heldPrefix: icon
   - type: Healing
     damageContainers:
     - HumanoidSilicon
@@ -301,8 +333,6 @@
   - type: Stack
     stackType: OmniPatch
     count: 10
-  - type: StackPrice
-    price: 10
 
 - type: entity
   id: Omnipatch1
