@@ -12,5 +12,4 @@ public sealed partial class PowerTogglePortComponent : Component
 {
     [DataField, AutoNetworkedField]
     public ProtoId<SinkPortPrototype> PowerTogglePort = "PowerToggle";
-
 };
