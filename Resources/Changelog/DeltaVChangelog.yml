@@ -1,15 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Added a new T3 industrial tech, Matter-Energy Conversion, which lets
-      you make self-recharging RCDs.
-    type: Add
-  - message: The borg RCD module now has to be reloaded with compressed matter or
-      replaced with a different RCD.
-    type: Tweak
-  id: 1133
-  time: '2025-03-10T20:19:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3168
 - author: Field Command
   changes:
   - message: Pebble is now as compliant as it can be with current mapping standards
@@ -4125,3 +4114,13 @@
   id: 1632
   time: '2025-08-25T21:16:54.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4162
+- author: NoElkaTheGod
+  changes:
+  - message: IPCs no longer bleed.
+    type: Remove
+  - message: IPCs are no longer immune to barotrauma damage, be that from space or
+      standing in a burn chamber.
+    type: Tweak
+  id: 1633
+  time: '2025-08-26T10:44:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4258
