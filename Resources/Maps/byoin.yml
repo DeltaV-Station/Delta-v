@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/25/2025 10:46:58
-  entityCount: 19401
+  time: 08/26/2025 10:49:41
+  entityCount: 19402
 maps:
 - 1
 grids:
@@ -796,6 +796,7 @@ entities:
             6129: 38,23
             6134: 38,27
             6144: 46,34
+            6788: 47,37
         - node:
             color: '#EFB34196'
             id: BrickTileWhiteCornerNe
@@ -954,6 +955,7 @@ entities:
             6130: 37,23
             6133: 37,27
             6143: 45,34
+            6787: 45,37
         - node:
             color: '#EFB34196'
             id: BrickTileWhiteCornerNw
@@ -1120,6 +1122,7 @@ entities:
             6135: 38,25
             6146: 46,31
             6453: 38,29
+            6789: 47,36
         - node:
             color: '#EFB34196'
             id: BrickTileWhiteCornerSe
@@ -1274,6 +1277,7 @@ entities:
             6136: 37,25
             6145: 45,31
             6451: 37,29
+            6790: 45,36
         - node:
             color: '#EFB34196'
             id: BrickTileWhiteCornerSw
@@ -2268,6 +2272,7 @@ entities:
             4997: 26,23
             5230: 41,19
             6086: 50,37
+            6792: 46,37
         - node:
             color: '#EFB34196'
             id: BrickTileWhiteLineN
@@ -2640,6 +2645,7 @@ entities:
             5270: 41,22
             5271: 42,22
             6095: 50,33
+            6791: 46,36
         - node:
             color: '#EFB34196'
             id: BrickTileWhiteLineS
@@ -3511,6 +3517,7 @@ entities:
             6666: 26,51
             6667: 42,38
             6772: -11,-33
+            6793: 22,12
         - node:
             color: '#334E6DC8'
             id: DiagonalCheckerAOverlay
@@ -17094,18 +17101,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 3.5,26.5
-      parent: 2
-- proto: BluespaceOre1
-  entities:
-  - uid: 15890
-    components:
-    - type: Transform
-      pos: 33.290627,-17.530811
-      parent: 2
-  - uid: 15891
-    components:
-    - type: Transform
-      pos: 33.4,-17.343311
       parent: 2
 - proto: Blunt
   entities:
@@ -43523,6 +43518,11 @@ entities:
       parent: 2
 - proto: ChemistryBottleRobustHarvest
   entities:
+  - uid: 11679
+    components:
+    - type: Transform
+      pos: 56.952488,37.7695
+      parent: 2
   - uid: 14608
     components:
     - type: Transform
@@ -90121,6 +90121,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -19.5,1.5
       parent: 2
+  - uid: 10941
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 65.5,-9.5
+      parent: 2
   - uid: 16435
     components:
     - type: Transform
@@ -90179,12 +90185,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 41.5,2.5
-      parent: 2
-  - uid: 6677
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 65.5,-9.5
       parent: 2
   - uid: 7272
     components:
@@ -92651,13 +92651,6 @@ entities:
     - type: Transform
       pos: 34.099907,14.390897
       parent: 2
-- proto: MagazineMagnumRubber
-  entities:
-  - uid: 12436
-    components:
-    - type: Transform
-      pos: 33.86061,14.422147
-      parent: 2
 - proto: MagazinePistolPractice
   entities:
   - uid: 15429
@@ -92997,6 +92990,18 @@ entities:
     components:
     - type: Transform
       pos: -16.526192,-30.49661
+      parent: 2
+- proto: MaterialBluespace1
+  entities:
+  - uid: 6677
+    components:
+    - type: Transform
+      pos: 33.32287,-17.465847
+      parent: 2
+  - uid: 10927
+    components:
+    - type: Transform
+      pos: 33.26037,-17.247097
       parent: 2
 - proto: MaterialCloth
   entities:
@@ -105962,6 +105967,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,-7.5
+      parent: 2
+- proto: Skimmer
+  entities:
+  - uid: 12436
+    components:
+    - type: Transform
+      pos: 57.375298,30.29801
       parent: 2
 - proto: SmallLight
   entities:
