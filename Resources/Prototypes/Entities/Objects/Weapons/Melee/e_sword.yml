@@ -34,6 +34,7 @@
   - type: ItemToggleSize
     activatedSize: Huge
   - type: ItemTogglePointLight
+    toggleableVisualsColorModulatesLights: true
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/Weapons/eblade1.ogg
@@ -70,7 +71,7 @@
     color: white
     netsync: false
   - type: Appearance
-  - type: ToggleableLightVisuals # Add support for multiple layers
+  - type: ToggleableVisuals # Add support for multiple layers
     spriteLayer: blade
     inhandVisuals:
       left:
@@ -100,6 +101,8 @@
       map: [ "blade" ]
   - type: Item
     sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
+  - type: StaticPrice
+    price: 2500
 
 - type: entity
   name: energy dagger
@@ -329,6 +332,7 @@
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 2.0 # DeltaV - was 1.5
+    changeSwingDirection: true # DeltaV
     angle: 100
     damage:
       types:

@@ -21,8 +21,10 @@ public sealed class ListPsionicsCommand : IConsoleCommand
         var entMan = IoCManager.Resolve<IEntityManager>();
         foreach (var (actor, mob, psionic, meta) in entMan.EntityQuery<ActorComponent, MobStateComponent, PsionicComponent, MetaDataComponent>()){
             // filter out xenos, etc, with innate telepathy
-            actions.TryGetActionData( psionic.PsionicAbility, out var actionData );
-            if (actionData == null || actionData.ToString() == null)
+            if (actions.GetAction(psionic.PsionicAbility) is not { } actionData)
+                return;
+
+            if (actionData.Comp.ToString() == null)
                 return;
 
             var psiPowerName = actionData.ToString();

@@ -9,6 +9,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Random;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
+using Robust.Server.Player; // DeltaV
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
@@ -22,7 +23,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IComponentFactory _compFact = default!;
+    [Dependency] private readonly IPlayerManager _player = default!; // DeltaV
     [Dependency] private readonly GameTicker _ticker = default!; // begin Imp
 
     // Dictionary that contains the minimum round number for certain preset
@@ -34,7 +35,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     public override void Initialize()
     {
         base.Initialize();
-        _ruleCompName = _compFact.GetComponentName(typeof(GameRuleComponent));
+        _ruleCompName = Factory.GetComponentName<GameRuleComponent>();
     }
 
     protected override void Added(EntityUid uid, SecretRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
@@ -91,6 +92,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     {
         var options = _prototypeManager.Index(weights).Weights.ShallowClone();
         var players = GameTicker.ReadyPlayerCount();
+        var totalPlayers = _player.PlayerCount; //DeltaV
 
         GamePresetPrototype? selectedPreset = null;
         var sum = options.Values.Sum();
@@ -112,7 +114,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
                 break;
             }
 
-            if (CanPick(selectedPreset, players))
+            if (CanPick(selectedPreset, players, totalPlayers)) // DeltaV - total playercount
             {
                 preset = selectedPreset;
                 return true;
@@ -149,12 +151,13 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     public bool CanPickAny(IEnumerable<ProtoId<GamePresetPrototype>> protos)
     {
         var players = GameTicker.ReadyPlayerCount();
+        var totalPlayers = _player.PlayerCount; //DeltaV
         foreach (var id in protos)
         {
             if (!_prototypeManager.TryIndex(id, out var selectedPreset))
                 Log.Error($"Invalid preset {selectedPreset} in secret rule weights: {id}");
 
-            if (CanPick(selectedPreset, players))
+            if (CanPick(selectedPreset, players, totalPlayers)) // DeltaV - total playercount
                 return true;
         }
 
@@ -164,7 +167,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     /// <summary>
     /// Can the given preset be picked, taking into account the currently available player count?
     /// </summary>
-    private bool CanPick([NotNullWhen(true)] GamePresetPrototype? selected, int players)
+    private bool CanPick([NotNullWhen(true)] GamePresetPrototype? selected, int players, int totalPlayers) // DeltaV - respect total playercount
     {
         if (selected == null)
             return false;
@@ -180,6 +183,8 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
 
             if (ruleComp.MinPlayers > players && ruleComp.CancelPresetOnTooFewPlayers)
                 return false;
+
+            if (ruleComp.MinTotalPlayers > totalPlayers) return false; // DeltaV
         }
 
         if (_configurationManager.GetCVar(DCCVars.EnableBacktoBack) == true) // DeltaV

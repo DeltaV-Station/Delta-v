@@ -170,8 +170,15 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
     private void OnNavMapBeaconMapInit(EntityUid uid, NavMapBeaconComponent component, MapInitEvent args)
     {
+        // DeltaV - start of beacon map bugfix
         if (component.DefaultText == null || component.Text != null)
+        {
+            // temporary fix until issue is resolved upstream:
+            // https://github.com/space-wizards/space-station-14/issues/37691
+            UpdateNavMapBeaconData(uid, component);
             return;
+        }
+        // DeltaV - end of beacon map bugfix
 
         component.Text = Loc.GetString(component.DefaultText);
         Dirty(uid, component);

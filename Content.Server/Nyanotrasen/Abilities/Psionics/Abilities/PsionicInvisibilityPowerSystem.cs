@@ -42,9 +42,12 @@ namespace Content.Server.Abilities.Psionics
         private void OnInit(EntityUid uid, PsionicInvisibilityPowerComponent component, ComponentInit args)
         {
             _actions.AddAction(uid, ref component.PsionicInvisibilityActionEntity, component.PsionicInvisibilityActionId );
-            _actions.TryGetActionData( component.PsionicInvisibilityActionEntity, out var actionData );
-            if (actionData is { UseDelay: not null })
+
+            if (_actions.GetAction(component.PsionicInvisibilityActionEntity) is not { Comp.UseDelay: not null })
+            {
                 _actions.StartUseDelay(component.PsionicInvisibilityActionEntity);
+            }
+
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
             {
                 psionic.PsionicAbility = component.PsionicInvisibilityActionEntity;
@@ -69,9 +72,11 @@ namespace Content.Server.Abilities.Psionics
             ToggleInvisibility(args.Performer);
             var action = Spawn(PsionicInvisibilityUsedComponent.PsionicInvisibilityUsedActionPrototype);
             _actions.AddAction(uid, action, action);
-            _actions.TryGetActionData( action, out var actionData );
-            if (actionData is { UseDelay: not null })
+
+            if (_actions.GetAction(action) is not { Comp.UseDelay: not null })
+            {
                 _actions.StartUseDelay(action);
+            }
 
             _psionics.LogPowerUsed(uid, "psionic invisibility");
             args.Handled = true;

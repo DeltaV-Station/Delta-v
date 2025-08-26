@@ -50,6 +50,8 @@ psionic-power-precognition-unknown-shuttle-cargo-lost-result-message = You see a
 psionic-power-precognition-unknown-shuttle-traveling-cuisine-result-message = You see a vision of peace, a cozy meal sizzling on a warm stove. A delicious smells wafts through the air.
 psionic-power-precognition-unknown-shuttle-disaster-evac-pod-result-message = You see a vision of death and blood, of a destruction so complete only few survive, drifting through the coldness of space.
 psionic-power-precognition-unknown-shuttle-cargo-trader-result-message = You see a vision of a lone vessel, a long journey coming to an end, its hold bristling with goods.
+psionic-power-precognition-syndicate-armsdealer-result-message = You see a vision of a ship lurking in the shadows, its cargo deadly.
+psionic-power-precognition-rift-spawn-result-message = You see a small spark of energy, quickly expanding as it tears reality apart, twisting everything around it.
 
 psionic-eruption-begin = {CAPITALIZE(THE($user))} is being consumed by a psionic energy!
 psionic-eruption-annoy-minimal = You feel a pressure building up in your mind.
