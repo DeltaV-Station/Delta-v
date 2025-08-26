@@ -3,7 +3,7 @@
   name: Urist McRaptor # DeltaV - we ain't marines here
   parent: BaseMobSpeciesOrganic # DeltaV - set proper parent
   id: BaseMobAvali # DeltaV - rename base entity
-  abstract: true
+  abstract: true # DeltaV - define MobAvali elsewhere
 # suffix: RMC14 # DeltaV - no suffix needed
   components:
   - type: HumanoidAppearance
@@ -15,9 +15,9 @@
     drawdepth: Mobs
   - type: Vocal
     sounds:
-      Male: RMCUnisexAvali # DeltaV - vocal fix
-      Unsexed: RMCUnisexAvali
-      Female: RMCUnisexAvali
+      Male: RMCMaleAvali
+      Unsexed: RMCMaleAvali
+      Female: RMCFemaleAvali
   - type: Speech
     speechVerb: Parrot # Didn't come with one
     speechSounds: MaleAvali    
@@ -26,14 +26,15 @@
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#7a8bf2"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi # DeltaV
+      Burn: # DeltaV
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/pierce.ogg
     damage:
       types:
-        Slash: 6 # DeltaV - evens out to about 5 after damage modifier
+        Slash: 6 # DeltaV - evens out to about 5 after damage modifier    
+    animation: WeaponArcClaw
   - type: Inventory
     speciesId: avali
 # - type: FixedIdentity # DeltaV - unneeded
@@ -72,7 +73,6 @@
         Slash: 0.85
   - type: Damageable
     damageModifierSet: Avali
-    animation: WeaponArcClaw
   - type: Temperature # thrives in the cold, similar to moths
     heatDamageThreshold: 310
     coldDamageThreshold: 223
@@ -98,6 +98,9 @@
       279: 0.95
       265: 0.9
       240: 0.85
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 5.0
 # End DeltaV additions
 
 - type: entity
