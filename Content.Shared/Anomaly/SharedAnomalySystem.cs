@@ -150,7 +150,7 @@ public abstract class SharedAnomalySystem : EntitySystem
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="component"></param>
-    public void DoAnomalySupercriticalEvent(EntityUid uid, AnomalyComponent? component = null, bool delete = true) // DeltaV - "delete" parameter
+    public void DoAnomalySupercriticalEvent(EntityUid uid, AnomalyComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
@@ -174,10 +174,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         var ev = new AnomalySupercriticalEvent(uid, powerMod);
         RaiseLocalEvent(uid, ref ev, true);
 
-        if (delete == true) // Begin DeltaV additions
-            EndAnomaly(uid, component, true, logged: true);
-        else
-            ChangeAnomalySeverity(uid, -.6f, component); // End DeltaV additions
+        EndAnomaly(uid, component, true, logged: true);
     }
 
     /// <summary>
@@ -255,12 +252,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         var newVal = component.Severity + change;
 
         if (newVal >= 1)
-        { // Begin DeltaV additions
-            if (component.DeleteOnSupercrit == false)
-                DoAnomalySupercriticalEvent(uid, component, delete: false);
-            else 
-                StartSupercriticalEvent((uid, component));
-        }   // End DeltaV additions
+            StartSupercriticalEvent((uid, component));
 
         component.Severity = Math.Clamp(newVal, 0, 1);
         Dirty(uid, component);
