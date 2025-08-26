@@ -178,6 +178,12 @@ public sealed partial class AnomalyComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public AnomalousParticleType TransformationParticleType;
+    
+    /// <summary>
+    /// DeltaV: if false, instead of exploding when supercritical, the anomaly would stay, but lose in severity. Used by effigy of entropy.
+    /// </summary>
+    [DataField]
+    public bool DeleteOnSupercrit = true;
 
     #region Points and Vessels
     /// <summary>
