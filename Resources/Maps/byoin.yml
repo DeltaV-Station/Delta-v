@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/26/2025 10:49:41
-  entityCount: 19402
+  time: 08/26/2025 14:56:39
+  entityCount: 19400
 maps:
 - 1
 grids:
@@ -92644,13 +92644,6 @@ entities:
     - type: Transform
       pos: 42.794758,21.463425
       parent: 2
-- proto: MagazineMagnum
-  entities:
-  - uid: 12600
-    components:
-    - type: Transform
-      pos: 34.099907,14.390897
-      parent: 2
 - proto: MagazinePistolPractice
   entities:
   - uid: 15429
@@ -95658,6 +95651,11 @@ entities:
     components:
     - type: Transform
       pos: 35.5,-24.5
+      parent: 2
+  - uid: 6618
+    components:
+    - type: Transform
+      pos: 47.5,17.5
       parent: 2
   - uid: 7300
     components:
@@ -106716,18 +106714,6 @@ entities:
     components:
     - type: Transform
       pos: 0.5,12.5
-      parent: 2
-- proto: SpawnMobCleanBot
-  entities:
-  - uid: 3679
-    components:
-    - type: Transform
-      pos: -6.5,-26.5
-      parent: 2
-  - uid: 6618
-    components:
-    - type: Transform
-      pos: 6.5,-6.5
       parent: 2
 - proto: SpawnMobCMOPetSilvia
   entities:
@@ -123951,15 +123937,15 @@ entities:
     - type: Transform
       pos: 54.575718,-21.594376
       parent: 2
-- proto: WeaponPistolN1984Nonlethal
+- proto: WeaponPistolN1984
   entities:
-  - uid: 12374
+  - uid: 3679
     components:
     - type: MetaData
       desc: An older model of N1984, covered in dents, scrapes, and gouges, yet the mechanical components are well maintained. You can see "Maniacel" crudely engraved on the slide.
       name: N1984 "Maniacal"
     - type: Transform
-      pos: 33.427536,14.4358425
+      pos: 33.645405,14.502918
       parent: 2
 - proto: WeaponRifleFoam
   entities:
