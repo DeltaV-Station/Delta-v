@@ -494,7 +494,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
         ent.Comp.CurrentGlyph = glyphEnt;
         var evt = new CosmicCultAssociateRuleEvent(ent, glyphEnt);
         RaiseLocalEvent(ref evt);
-        
+
         var objectiveQuery = EntityQueryEnumerator<CosmicTierConditionComponent>();
         while (objectiveQuery.MoveNext(out var _, out var objectiveComp))
         {
