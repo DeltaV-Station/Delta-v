@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Field Command
-  changes:
-  - message: Pebble is now as compliant as it can be with current mapping standards
-    type: Fix
-  id: 1134
-  time: '2025-03-10T23:55:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3186
 - author: sowelipililimute
   changes:
   - message: Departamental lathes can be emagged for access to weapons
@@ -4124,3 +4117,33 @@
   id: 1633
   time: '2025-08-26T10:44:12.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4258
+- author: Proxysseia
+  changes:
+  - message: removed Trials
+    type: Remove
+  - message: added hearings, a quicker way to check if you have the right guy
+    type: Add
+  - message: you can no longer 'detain' people. Just put the cuffs on them.
+    type: Remove
+  - message: being coerced into crime is now a legal defense
+    type: Add
+  - message: Procedural Defense is now a right outside of trial
+    type: Add
+  - message: Permanent Prisoners may now receive solitary confinement as a punishment
+    type: Add
+  - message: Permanent Prisoners pending a hearing may be released after being implanted
+      with a tracker
+    type: Add
+  - message: removed decorp as a valid capital sentence
+    type: Remove
+  - message: civil trials are no longer spelled out in SoP, doesnt mean you can't
+      do them anymore though.
+    type: Remove
+  - message: evidence now is secured in the Justice department
+    type: Tweak
+  - message: and much more, re-read the "Security and Justice Regulations" in SoP,
+      i promise its shorter now.
+    type: Tweak
+  id: 1634
+  time: '2025-08-26T16:49:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4199
