@@ -14,6 +14,7 @@ using Content.Shared._DV.CosmicCult.Prototypes;
 using Content.Server._DV.Shuttles.Events;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
+using Content.Shared.Eye;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
@@ -21,6 +22,7 @@ using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -44,6 +46,9 @@ public sealed class MonumentSystem : SharedMonumentSystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly SharedCosmicGlyphSystem _glyph = default!;
+    [Dependency] private readonly VisibilitySystem _visibility = default!;
 
     private static readonly EntProtoId CosmicGod = "MobCosmicGodSpawn";
     private static readonly EntProtoId MonumentCollider = "MonumentCollider";
@@ -437,7 +442,12 @@ public sealed class MonumentSystem : SharedMonumentSystem
             if (TryComp<PolymorphedEntityComponent>(leader, out var polyComp) && TryComp<CosmicCultLeadComponent>(polyComp.Parent, out var polyLeaderComp))
                 _actions.RemoveAction(polyComp.Parent, polyLeaderComp.CosmicMonumentMoveActionEntity);
         }
-
+        if (uid.Comp.CurrentGlyph is EntityUid glyphEnt && TryComp<VisibilityComponent>(glyphEnt, out var visibility)) // Make the currently scribed glyph visible to everyone
+        {
+            _visibility.AddLayer((glyphEnt, visibility), (int) VisibilityFlags.Normal, false);
+            _visibility.RemoveLayer((glyphEnt, visibility), (int) VisibilityFlags.CosmicCultMonument, false);
+            _visibility.RefreshVisibility(glyphEnt, visibilityComponent: visibility);
+        }
         Dirty(uid);
     }
 
@@ -461,5 +471,43 @@ public sealed class MonumentSystem : SharedMonumentSystem
         uid.Comp.TargetProgress = uid.Comp.CurrentProgress;
 
         _popup.PopupCoordinates(Loc.GetString("cosmiccult-finale-ready"), Transform(uid).Coordinates, PopupType.Large);
+    }
+
+    protected override void OnGlyphSelected(Entity<MonumentComponent> ent, ref GlyphSelectedMessage args)
+    {
+        ent.Comp.SelectedGlyph = args.GlyphProtoId;
+
+        if (!_prototype.TryIndex(args.GlyphProtoId, out var proto))
+            return;
+
+        var xform = Transform(ent);
+
+        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
+            return;
+
+        var localTile = _map.GetTileRef(xform.GridUid.Value, grid, xform.Coordinates);
+        var targetIndices = localTile.GridIndices + new Vector2i(0, -1);
+
+        if (ent.Comp.CurrentGlyph is { } curGlyph) _glyph.EraseGlyph(curGlyph);
+
+        var glyphEnt = Spawn(proto.Entity, _map.ToCenterCoordinates(xform.GridUid.Value, targetIndices, grid));
+        ent.Comp.CurrentGlyph = glyphEnt;
+        var evt = new CosmicCultAssociateRuleEvent(ent, glyphEnt);
+        RaiseLocalEvent(ref evt);
+        
+        var objectiveQuery = EntityQueryEnumerator<CosmicTierConditionComponent>();
+        while (objectiveQuery.MoveNext(out var _, out var objectiveComp))
+        {
+            if (objectiveComp.Tier <= 2) // If we're below stage 3, make the glyph invisible to non-cultists
+            {
+                var visibility = EnsureComp<VisibilityComponent>(glyphEnt);
+                _visibility.AddLayer((glyphEnt, visibility), (int) VisibilityFlags.CosmicCultMonument, false);
+                _visibility.RemoveLayer((glyphEnt, visibility), (int) VisibilityFlags.Normal, false);
+                _visibility.RefreshVisibility(glyphEnt, visibilityComponent: visibility);
+                break;
+            }
+        }
+
+        _ui.SetUiState(ent.Owner, MonumentKey.Key, new MonumentBuiState(ent.Comp));
     }
 }
