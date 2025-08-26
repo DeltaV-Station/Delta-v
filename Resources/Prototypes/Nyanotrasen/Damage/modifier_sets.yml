@@ -9,8 +9,8 @@
   id: Felinid
   coefficients:
     Blunt: 1.15
-    Slash: 1.15
-    Piercing: 1.15
+    Slash: 1 # DeltaV - change from 1.15 
+    Piercing: 1 #DeltaV - change from 1.15
 
 # For airlocks, etc, to prevent cheesing.
 - type: damageModifierSet
