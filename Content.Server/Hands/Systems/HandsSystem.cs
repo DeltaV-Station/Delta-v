@@ -235,13 +235,10 @@ namespace Content.Server.Hands.Systems
             var holderVelocity = _physicsQuery.TryComp(entity, out var physics) ? physics.LinearVelocity : Vector2.Zero;
             var spreadMaxAngle = Angle.FromDegrees(DropHeldItemsSpread);
 
-            var fellEvent = new FellDownEvent(entity);
-            RaiseLocalEvent(entity, fellEvent);
 
             if (HasComp<PreventDropOnDownedComponent>(entity)) // Frontier: stop dropping items when falling over.
                 return; // Frontier
 
-            var worldRotation = TransformSystem.GetWorldRotation(entity).ToVec();
             foreach (var hand in entity.Comp.Hands.Keys)
             {
                 if (!TryGetHeldItem(entity.AsNullable(), hand, out var heldEntity))
