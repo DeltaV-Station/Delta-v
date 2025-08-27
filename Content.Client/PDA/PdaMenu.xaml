@@ -43,6 +43,9 @@
             <ContainerButton Name="StationTimeButton">
                 <RichTextLabel Name="StationTimeLabel" Access="Public"/>
             </ContainerButton>
+            <ContainerButton Name="CurrentDateButton">
+                <RichTextLabel Name="CurrentDateLabel" Access="Public"/>
+            </ContainerButton>
             <ContainerButton Name="StationAlertLevelInstructionsButton">
                 <RichTextLabel Name="StationAlertLevelInstructions" Access="Public"/>
             </ContainerButton>
