@@ -7,21 +7,9 @@
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
       paper_label: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
       machine_board: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
       machine_parts: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
   - type: ResearchPointSource
     pointspersecond: 5
     active: true
@@ -32,7 +20,7 @@
   - type: ActivatableUI
     key: enum.ResearchClientUiKey.Key
   - type: ActivatableUIRequiresPower
-  - type: PointLight # DeltaV
+  - type: PointLight
     radius: 0.8
     energy: 0.5
   - type: Fixtures
@@ -53,7 +41,7 @@
 
 - type: entity
   id: DisplayCase
-  parent: [CrateBaseSecure]
+  parent: CrateBaseSecure
   name: display case
   description: A sturdy display case. This one doesn't give any research points, but you can put whatever you want in it.
   components:
