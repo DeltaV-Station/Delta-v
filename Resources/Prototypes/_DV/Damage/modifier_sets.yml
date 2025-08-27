@@ -126,3 +126,11 @@
   flatReductions:
     Blunt: 5
     Heat: 5
+
+- type: damageModifierSet
+  id: Spirit
+  coefficients:
+    Cold: 0.0
+    Shock: 0.2
+    Heat: 3.0
+    Holy: 5.0
