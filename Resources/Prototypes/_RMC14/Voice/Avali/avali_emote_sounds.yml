@@ -8,7 +8,7 @@
 #      path: /Audio/_RMC14/Voice/Avali/avali_laugh.ogg
 
 - type: emoteSounds
-# parent: [RMCUnisexAvali, RMCMaleHuman] # DeltaV - no inheritence
+  #parent: [RMCUnisexAvali, RMCMaleHuman] # DeltaV - no inheritence
   id: RMCMaleAvali
   # Begin DeltaV Additions
   sounds:
@@ -41,7 +41,7 @@
   # End DeltaV Additions
 
 - type: emoteSounds
-# parent: [RMCUnisexAvali, RMCFemaleHuman] # DeltaV - no inheritence
+  #parent: [RMCUnisexAvali, RMCFemaleHuman] # DeltaV - no inheritence
   id: RMCFemaleAvali
   # Begin DeltaV Additions
   sounds:
