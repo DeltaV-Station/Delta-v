@@ -236,6 +236,7 @@ namespace Content.Client.Actions
 
             var actions = EnsureComp<ActionsComponent>(user);
 
+            ClearActions(); // DeltaV - this is needed here for mapping XX commands to work properly
             ClearAssignments?.Invoke();
 
             var assignments = new List<SlotAssignment>();
@@ -290,6 +291,7 @@ namespace Content.Client.Actions
             }
         }
 
+        // DeltaV - begin changes
         /// <summary>
         ///     Load actions and their toolbar assignments from a file.
         ///     DeltaV - Load from an existing yaml stream instead
@@ -299,17 +301,15 @@ namespace Content.Client.Actions
             if (_playerManager.LocalEntity is not { } user)
                 return;
 
-            var yamlStream = new YamlStream();
-
-            if (yamlStream.Documents[0].RootNode.ToDataNode() is not SequenceDataNode sequence)
+            if (stream.Documents[0].RootNode.ToDataNode() is not SequenceDataNode sequence)
                 return;
 
             var actions = EnsureComp<ActionsComponent>(user);
 
-            ClearAssignments?.Invoke();
+            // We need to clear previously loaded actions, otherwise they keep adding up, filling the screen
+            ClearActions();
 
-            var assignments = new List<SlotAssignment>();
-            var existingActions = GetClientActions();
+            ClearAssignments?.Invoke();
 
             foreach (var entry in sequence.Sequence)
             {
@@ -361,6 +361,26 @@ namespace Content.Client.Actions
                 AddActionDirect((user, actions), actionId);
             }
         }
+
+        private void ClearActions()
+        {
+            var existingActions = GetClientActions().ToList();
+
+            foreach (var actionId in existingActions)
+            {
+                var meta = MetaData(actionId);
+
+                if (meta.EntityPrototype == null)
+                    continue;
+
+                if (meta.EntityPrototype.ID == MappingEntityAction ||
+                    meta.EntityPrototype.ID == "ActionMappingEraser")
+                {
+                    RemoveAction(actionId.AsNullable());
+                }
+            }
+        }
+        // DeltaV - end changes
 
         private void OnWorldTargetAttempt(Entity<WorldTargetActionComponent> ent, ref ActionTargetAttemptEvent args)
         {
