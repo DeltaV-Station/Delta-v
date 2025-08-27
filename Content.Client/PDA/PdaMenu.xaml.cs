@@ -197,7 +197,7 @@ namespace Content.Client.PDA
             );
             // Begin DeltaV additions
             if (state.PdaOwnerInfo.CurrentDate is { } curDate)
-                _currentDate = curDate.ToString("d");
+                _currentDate = curDate.ToString("dd/mm/yyyy");
                 CurrentDateLabel.SetMarkup(Loc.GetString(
                     "comp-pda-ui-current-date",
                     ("date", _currentDate)
