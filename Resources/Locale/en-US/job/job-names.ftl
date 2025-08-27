@@ -25,8 +25,7 @@ job-name-cburn = Centcomm Quarantine Officer
 job-name-deathsquad = Centcomm Agent
 job-name-reporter = Reporter
 job-name-musician = Musician
-# DeltaV - Changed Librarian to Archivist
-# job-name-librarian = Librarian
+job-name-librarian = Librarian
 # DeltaV - Changed Lawyer to Attorney
 # job-name-lawyer = Lawyer
 job-name-mime = Mime

@@ -56,5 +56,3 @@ book-text-gorlexgirlfriend = It's the 197th version of the infamous Gorlex Girlf
     Most of the magazine is either Syndicate propaganda or advertisements for Syndicate-branded items like soda or merch from the show. At least there are some coupons on the back for them.
 
     On the last page is an ad for the Gorlex Girlfriends dating app... and the Gorlex Girlfriends Hotline.
-
-book-text-ancientbookcommon-1 = the text seems to shift and move, rendering it completely unreadable... but you feel as though these stories will become legible in time, and feel determined to keep uncovering the past.
