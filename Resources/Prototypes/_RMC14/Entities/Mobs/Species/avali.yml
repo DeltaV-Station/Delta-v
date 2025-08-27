@@ -4,13 +4,13 @@
   parent: BaseMobSpeciesOrganic # DeltaV - set proper parent
   id: BaseMobAvali # DeltaV - rename base entity
   abstract: true # DeltaV - define MobAvali elsewhere
-# suffix: RMC14 # DeltaV - no suffix needed
+  #suffix: RMC14 # DeltaV - no suffix needed
   components:
   - type: HumanoidAppearance
     species: Avali
     hideLayersOnEquip:
     - HeadTop
-    - HeadSide
+    #- HeadSide # DeltaV - show ears under helmets
   - type: Sprite
     drawdepth: Mobs
   - type: Vocal
@@ -39,11 +39,7 @@
     speciesId: avali
     # Begin DeltaV - displacements from Harmony
     displacements:
-      head:
-        sizeMaps:
-          32:
-            sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
-            state: head
+      # head displacements don't play nice with sec combat hardsuit, ignoring those
       mask:
         sizeMaps:
           32:

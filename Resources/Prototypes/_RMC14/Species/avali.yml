@@ -20,8 +20,10 @@
     Chest: MobAvaliTorso
     UndergarmentTop: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
-#   Underwear: MobHumanoidAnyMarking # DeltaV - no underwear/undershirt
-#   Undershirt: MobHumanoidAnyMarking
+    # Begin DeltaV - no underwear/undershirt
+    #Underwear: MobHumanoidAnyMarking
+    #Undershirt: MobHumanoidAnyMarking
+    # End DeltaV - no underwear/undershirt
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -43,7 +45,7 @@
 
 - type: markingPoints
   id: MobAvaliMarkingLimits
-# onlyWhitelisted: true # DeltaV - some categories (underwear) must not be whitelisted
+  #onlyWhitelisted: true # DeltaV - some categories (underwear) must not be whitelisted
   points:
     Hair:
       points: 1
