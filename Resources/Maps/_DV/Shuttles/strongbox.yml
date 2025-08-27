@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/27/2025 17:49:35
-  entityCount: 460
+  time: 08/27/2025 19:06:05
+  entityCount: 461
 maps: []
 grids:
 - 1
@@ -435,6 +435,13 @@ entities:
       name: 'APC: IPC charger'
     - type: Transform
       pos: 3.5,5.5
+      parent: 1
+- proto: AppraisalTool
+  entities:
+  - uid: 461
+    components:
+    - type: Transform
+      pos: 2.3874404,-0.044408023
       parent: 1
 - proto: ArmsdealerGunSafeAmmoBoxes
   entities:
