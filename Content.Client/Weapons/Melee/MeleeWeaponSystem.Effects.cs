@@ -55,6 +55,7 @@ public sealed partial class MeleeWeaponSystem
 
             if (meleeWeaponComponent.SwingLeft)
                 angle *= -1;
+            if (meleeWeaponComponent.ChangeSwingDirection) meleeWeaponComponent.SwingLeft = !meleeWeaponComponent.SwingLeft; // DeltaV - Nice swing animation for desword
         }
         _sprite.SetRotation((animationUid, sprite), localPos.ToWorldAngle());
         var distance = Math.Clamp(localPos.Length() / 2f, 0.2f, 1f);

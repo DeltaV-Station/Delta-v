@@ -264,7 +264,7 @@
   description: Slumber your body for a period of time to regenerate integrity. Must be done on stable ground.
   components:
   - type: Action
-    useDelay: 120
+    useDelay: 180
     checkCanInteract: false
     itemIconStyle: NoItem
     icon:
@@ -276,8 +276,6 @@
     primeTime: 5
   - type: InstantAction
     event: !type:EventCosmicColossusHibernate {}
-  - type: LimitedCharges
-    maxCharges: 2
 
 - type: entity
   id: ActionCosmicColossusEffigy
