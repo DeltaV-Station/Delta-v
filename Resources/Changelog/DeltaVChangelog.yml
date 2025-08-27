@@ -1,29 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Added a new T3 industrial tech, Matter-Energy Conversion, which lets
-      you make self-recharging RCDs.
-    type: Add
-  - message: The borg RCD module now has to be reloaded with compressed matter or
-      replaced with a different RCD.
-    type: Tweak
-  id: 1133
-  time: '2025-03-10T20:19:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3168
-- author: Field Command
-  changes:
-  - message: Pebble is now as compliant as it can be with current mapping standards
-    type: Fix
-  id: 1134
-  time: '2025-03-10T23:55:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3186
-- author: sowelipililimute
-  changes:
-  - message: Departamental lathes can be emagged for access to weapons
-    type: Add
-  id: 1135
-  time: '2025-03-11T04:42:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3146
 - author: BlitzTheSquishy
   changes:
   - message: Feroxi now get tinned meat in their survival boxes instead of PSB, except
@@ -4125,3 +4100,50 @@
   id: 1632
   time: '2025-08-25T21:16:54.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4162
+- author: NoElkaTheGod
+  changes:
+  - message: IPCs no longer bleed.
+    type: Remove
+  - message: IPCs are no longer immune to barotrauma damage, be that from space or
+      standing in a burn chamber.
+    type: Tweak
+  id: 1633
+  time: '2025-08-26T10:44:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4258
+- author: Proxysseia
+  changes:
+  - message: removed Trials
+    type: Remove
+  - message: added hearings, a quicker way to check if you have the right guy
+    type: Add
+  - message: you can no longer 'detain' people. Just put the cuffs on them.
+    type: Remove
+  - message: being coerced into crime is now a legal defense
+    type: Add
+  - message: Procedural Defense is now a right outside of trial
+    type: Add
+  - message: Permanent Prisoners may now receive solitary confinement as a punishment
+    type: Add
+  - message: Permanent Prisoners pending a hearing may be released after being implanted
+      with a tracker
+    type: Add
+  - message: removed decorp as a valid capital sentence
+    type: Remove
+  - message: civil trials are no longer spelled out in SoP, doesnt mean you can't
+      do them anymore though.
+    type: Remove
+  - message: evidence now is secured in the Justice department
+    type: Tweak
+  - message: and much more, re-read the "Security and Justice Regulations" in SoP,
+      i promise its shorter now.
+    type: Tweak
+  id: 1634
+  time: '2025-08-26T16:49:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4199
+- author: AlgisAlphonse
+  changes:
+  - message: Added a "Toggle Power" link port for the automated robotic arms.
+    type: Tweak
+  id: 1635
+  time: '2025-08-26T20:05:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4117
