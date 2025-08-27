@@ -36,10 +36,16 @@
         Slash: 6 # DeltaV - evens out to about 5 after damage modifier    
     animation: WeaponArcClaw
   - type: Inventory
-    speciesId: avali
+    speciesId: moth # DeltaV - same eyes
     # Begin DeltaV - displacements from Harmony
     displacements:
-      # head displacements don't play nice with sec combat hardsuit, ignoring those
+      # head displacement doesn't play nice with sec combat hardsuit, ignoring those until fixed
+      #displacements:
+      #head:
+      #  sizeMaps:
+      #    32:
+      #      sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+      #      state: head
       mask:
         sizeMaps:
           32:
