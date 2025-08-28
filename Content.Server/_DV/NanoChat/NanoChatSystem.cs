@@ -63,6 +63,13 @@ public sealed class NanoChatSystem : SharedNanoChatSystem
         if (!TryComp<MicrowaveComponent>(args.Microwave, out var micro) || micro.Broken)
             return;
 
+        // DeltaV: only works with irradiation (actual microwaves)
+        if (!args.BeingIrradiated)
+        {
+            return;
+        }
+        // End DeltaV
+
         var randomPick = _random.NextFloat();
 
         // Super lucky - erase all messages (10% chance)

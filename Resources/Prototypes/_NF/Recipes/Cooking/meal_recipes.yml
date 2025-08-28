@@ -9,6 +9,8 @@
     FoodOrange: 2
   reagents:
     Wine: 10
+  recipeType:
+  - Assembler
 
 - type: microwaveMealRecipe
   id: RecipePearsBelleHelene
@@ -22,6 +24,8 @@
     FoodLemon: 1
   reagents:
     Cream: 5
+  recipeType:
+  - Assembler
 
 - type: microwaveMealRecipe
   id: RecipePearMuffin
@@ -35,6 +39,8 @@
     Flour: 5
     Oats: 5
     Sugar: 5
+  recipeType:
+    - Oven
 
 - type: microwaveMealRecipe
   id: RecipePearCheeseTart
@@ -46,3 +52,5 @@
     FoodDoughPie: 1
     FoodPear: 2
     FoodChevre: 1
+  recipeType:
+  - Oven

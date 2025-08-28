@@ -3,6 +3,8 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom; // Frontier
+using Robust.Shared.Serialization; // Frontier
 
 namespace Content.Shared.Kitchen
 {
@@ -34,6 +36,10 @@ namespace Content.Shared.Kitchen
         [DataField("time")]
         public uint CookTime { get; private set; } = 5;
 
+        // Frontier: separate microwave recipe types.
+        [DataField("recipeType", customTypeSerializer: typeof(FlagSerializer<MicrowaveRecipeTypeFlags>))]
+        public int RecipeType = (int)MicrowaveRecipeType.Microwave; // DeltaV - keeping this around so if type is not specified, it defaults to being a microwave recipe
+
         public string Name => Loc.GetString(_name);
 
         // TODO Turn this into a ReagentQuantity[]
@@ -62,4 +68,18 @@ namespace Content.Shared.Kitchen
             return n;
         }
     }
+
+    // Frontier: microwave recipe types, to limit certain recipes to certain machines
+    [Flags, FlagsFor(typeof(MicrowaveRecipeTypeFlags))]
+    [Serializable, NetSerializable]
+    public enum MicrowaveRecipeType : int
+    {
+        Microwave = 1,
+        Oven = 2,
+        Assembler = 4,
+        MedicalAssembler = 8,
+    }
+
+    public sealed class MicrowaveRecipeTypeFlags { }
+    // end Frontier
 }

@@ -138,6 +138,13 @@ public sealed class NukeSystem : EntitySystem
         if (ent.Comp.TimeModifier != null)
             return;
 
+        // DeltaV: only works with irradiation (actual microwaves)
+        if (!args.BeingIrradiated)
+        {
+            return;
+        }
+        // End DeltaV
+
         var seconds = _random.NextGaussian(ent.Comp.MicrowaveMean.TotalSeconds, ent.Comp.MicrowaveStd.TotalSeconds);
         ent.Comp.TimeModifier = TimeSpan.FromSeconds(seconds);
         _popups.PopupEntity(Loc.GetString("nuke-disk-component-microwave"), ent.Owner, PopupType.Medium);
