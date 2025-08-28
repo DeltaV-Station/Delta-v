@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/22/2025 13:32:16
-  entityCount: 457
+  time: 08/27/2025 19:06:05
+  entityCount: 461
 maps: []
 grids:
 - 1
@@ -40,7 +40,7 @@ entities:
           version: 7
         0,-1:
           ind: 0,-1
-          tiles: BAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAIAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAACAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAwAAAAAAAAIAAAAAAAAGAAAAAAMABgAAAAACAAMAAAAAAAAIAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAMAAAAAAAACAAAAAAAABgAAAAAAAAYAAAAAAwACAAAAAAAAAwAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAAAAAAAAAAAwAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAwAAAAAAAAIAAAAAAAAGAAAAAAIABgAAAAABAAIAAAAAAAADAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAMAAAAAAAACAAAAAAAABgAAAAADAAYAAAAAAQACAAAAAAAAAwAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAAAAAAAAAAAwAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAwAAAAAAAAIAAAAAAAABAAAAAAIAAQAAAAADAAEAAAAAAAADAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAMAAAAAAAACAAAAAAAAAQAAAAAAAAEAAAAAAwABAAAAAAIABQAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAABAAAAAAAAAgAAAAAAAAUAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAwAAAAAAAAEAAAAAAwABAAAAAAMAAQAAAAAAAAIAAAAAAAADAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAA==
+          tiles: BAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAIAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAACAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAwAAAAAAAAIAAAAAAAAGAAAAAAMABgAAAAACAAMAAAAAAAAIAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAMAAAAAAAACAAAAAAAABgAAAAAAAAYAAAAAAwACAAAAAAAAAwAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAAAAAAAAAAAwAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAwAAAAAAAAIAAAAAAAAGAAAAAAIABgAAAAABAAIAAAAAAAADAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAMAAAAAAAACAAAAAAAABgAAAAADAAYAAAAAAQACAAAAAAAAAwAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAAAAAAAAAAAwAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAwAAAAAAAAIAAAAAAAABAAAAAAIAAQAAAAADAAEAAAAAAAADAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAMAAAAAAAACAAAAAAAAAQAAAAAAAAEAAAAAAwABAAAAAAIABQAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAABAAAAAAAAAQAAAAAAAAUAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAwAAAAAAAAEAAAAAAwABAAAAAAMAAQAAAAAAAAIAAAAAAAADAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAA==
           version: 7
         -1,-1:
           ind: -1,-1
@@ -87,9 +87,9 @@ entities:
             id: MiniTileSteelCornerNe
           decals:
             2: 3,4
-            8: 4,-3
             9: 2,1
             35: -1,1
+            93: 4,-2
         - node:
             color: '#FF0000FF'
             id: MiniTileSteelCornerNe
@@ -104,10 +104,10 @@ entities:
             color: '#646464FF'
             id: MiniTileSteelCornerNw
           decals:
-            10: 1,1
             11: 2,-3
             12: 1,4
             34: -4,1
+            92: 1,1
         - node:
             color: '#FF0000FF'
             id: MiniTileSteelCornerNw
@@ -154,7 +154,7 @@ entities:
             color: '#646464FF'
             id: MiniTileSteelInnerNe
           decals:
-            88: 3,-3
+            97: 3,-2
         - node:
             color: '#FF0000FF'
             id: MiniTileSteelInnerNe
@@ -164,7 +164,7 @@ entities:
             color: '#646464FF'
             id: MiniTileSteelInnerNw
           decals:
-            33: 3,-3
+            96: 3,-3
         - node:
             color: '#646464FF'
             id: MiniTileSteelInnerSw
@@ -174,7 +174,6 @@ entities:
             color: '#646464FF'
             id: MiniTileSteelLineE
           decals:
-            19: 3,-2
             20: 3,-1
             21: 3,0
             22: 3,1
@@ -182,6 +181,7 @@ entities:
             24: 3,3
             28: 2,0
             86: -1,0
+            95: 4,-3
         - node:
             color: '#FF0000FF'
             id: MiniTileSteelLineE
@@ -223,13 +223,13 @@ entities:
             color: '#646464FF'
             id: MiniTileSteelLineW
           decals:
-            15: 3,-2
             16: 3,-1
             17: 3,0
             18: 3,1
             25: 1,3
             29: 1,0
             43: -4,0
+            94: 3,-2
         - node:
             color: '#FF0000FF'
             id: MiniTileSteelLineW
@@ -367,8 +367,11 @@ entities:
   - uid: 264
     components:
     - type: Transform
+      anchored: True
       pos: -2.5,-5.5
       parent: 1
+    - type: Physics
+      bodyType: Static
 - proto: AirlockExternalShuttleSyndicateLocked
   entities:
   - uid: 121
@@ -432,6 +435,13 @@ entities:
       name: 'APC: IPC charger'
     - type: Transform
       pos: 3.5,5.5
+      parent: 1
+- proto: AppraisalTool
+  entities:
+  - uid: 461
+    components:
+    - type: Transform
+      pos: 2.3874404,-0.044408023
       parent: 1
 - proto: ArmsdealerGunSafeAmmoBoxes
   entities:
@@ -504,6 +514,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -4.5,1.5
       parent: 1
+- proto: BarberScissors
+  entities:
+  - uid: 140
+    components:
+    - type: Transform
+      pos: -0.39858198,5.6797037
+      parent: 1
 - proto: Bed
   entities:
   - uid: 13
@@ -527,20 +544,6 @@ entities:
     components:
     - type: Transform
       pos: -3.5,3.5
-      parent: 1
-- proto: BionicVoiceMaskImplanter
-  entities:
-  - uid: 332
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 3.3058841,6.73857
-      parent: 1
-  - uid: 424
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 3.437438,6.606142
       parent: 1
 - proto: BlastDoorOpen
   entities:
@@ -630,10 +633,11 @@ entities:
       parent: 1
 - proto: BoxFolderBlue
   entities:
-  - uid: 97
+  - uid: 417
     components:
     - type: Transform
-      pos: -0.25170505,5.7114305
+      rot: 1.5707963267948966 rad
+      pos: 1.3844824,6.523277
       parent: 1
 - proto: BoxFolderClipboard
   entities:
@@ -651,17 +655,19 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.488452,-0.5546005
       parent: 1
-  - uid: 457
-    components:
-    - type: Transform
-      pos: -0.56420505,5.5395555
-      parent: 1
 - proto: BoxInflatable
   entities:
   - uid: 445
     components:
     - type: Transform
       pos: -2.733499,-2.3077452
+      parent: 1
+- proto: BrbSign
+  entities:
+  - uid: 459
+    components:
+    - type: Transform
+      pos: 1.4577575,0.46701932
       parent: 1
 - proto: ButtonFrameCaution
   entities:
@@ -1065,11 +1071,6 @@ entities:
     - type: Transform
       pos: 4.5,-0.5
       parent: 1
-  - uid: 140
-    components:
-    - type: Transform
-      pos: 4.5,-1.5
-      parent: 1
   - uid: 144
     components:
     - type: Transform
@@ -1210,26 +1211,24 @@ entities:
     - type: Transform
       pos: 3.5,8.5
       parent: 1
-- proto: CrateEmptySpawner
+- proto: CratePlastic
   entities:
-  - uid: 340
+  - uid: 327
     components:
     - type: Transform
       pos: 4.5,1.5
       parent: 1
-- proto: CrateMaterialCardboard
-  entities:
-  - uid: 338
-    components:
-    - type: Transform
-      pos: 4.5,-1.5
-      parent: 1
-- proto: CratePlastic
-  entities:
   - uid: 339
     components:
     - type: Transform
       pos: 4.5,-0.5
+      parent: 1
+- proto: CyberPen
+  entities:
+  - uid: 447
+    components:
+    - type: Transform
+      pos: 2.4603934,0.16772866
       parent: 1
 - proto: DecalSpawnerBurns
   entities:
@@ -1300,6 +1299,13 @@ entities:
     - type: Transform
       pos: 2.5,-8.5
       parent: 1
+- proto: DeskBell
+  entities:
+  - uid: 458
+    components:
+    - type: Transform
+      pos: 0.58275753,0.7326443
+      parent: 1
 - proto: DrinkWaterBottleFull
   entities:
   - uid: 335
@@ -1311,18 +1317,6 @@ entities:
     components:
     - type: Transform
       pos: -3.2904136,4.721858
-      parent: 1
-- proto: EncryptionKeyCommon
-  entities:
-  - uid: 326
-    components:
-    - type: Transform
-      pos: 3.6838555,6.7131267
-      parent: 1
-  - uid: 327
-    components:
-    - type: Transform
-      pos: 3.6057305,6.4631267
       parent: 1
 - proto: filingCabinetRandom
   entities:
@@ -2208,6 +2202,8 @@ entities:
   entities:
   - uid: 303
     components:
+    - type: MetaData
+      name: Hold Open Outer Windoor
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 0.5,1.5
@@ -2262,6 +2258,48 @@ entities:
         429:
         - - Pressed
           - Toggle
+- proto: MaterialCardboard
+  entities:
+  - uid: 332
+    components:
+    - type: Transform
+      pos: 4.4365616,-1.3921682
+      parent: 1
+  - uid: 424
+    components:
+    - type: Transform
+      pos: 4.5459366,-1.517168
+      parent: 1
+- proto: MirrorModern
+  entities:
+  - uid: 449
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,2.5
+      parent: 1
+- proto: NoticeBoard
+  entities:
+  - uid: 457
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,0.5
+      parent: 1
+- proto: Paper
+  entities:
+  - uid: 61
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.4104364,0.31193876
+      parent: 1
+  - uid: 97
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.4729364,0.20256376
+      parent: 1
 - proto: PaperBin20
   entities:
   - uid: 346
@@ -2532,6 +2570,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,-5.5
       parent: 1
+  - uid: 326
+    components:
+    - type: Transform
+      pos: 4.5,-1.5
+      parent: 1
   - uid: 345
     components:
     - type: Transform
@@ -2539,17 +2582,17 @@ entities:
       parent: 1
 - proto: RadioHandheld
   entities:
-  - uid: 417
-    components:
-    - type: Transform
-      pos: -2.202249,-6.35462
-      parent: 1
-- proto: RubberStampTrader
-  entities:
   - uid: 416
     components:
     - type: Transform
-      pos: 2.488452,-0.28897548
+      pos: 3.7408504,6.524542
+      parent: 1
+- proto: RagItem
+  entities:
+  - uid: 161
+    components:
+    - type: Transform
+      pos: -0.27358198,5.6172037
       parent: 1
 - proto: SheetUranium
   entities:
@@ -2628,9 +2671,9 @@ entities:
     - type: Transform
       pos: -4.5,3.5
       parent: 1
-- proto: SMESBasic
+- proto: SMESAdvanced
   entities:
-  - uid: 161
+  - uid: 412
     components:
     - type: MetaData
       name: 'SMES: Strongbox'
@@ -2654,24 +2697,19 @@ entities:
     - type: Transform
       pos: 4.7555017,-3.4291477
       parent: 1
+- proto: SoapSyndie
+  entities:
+  - uid: 340
+    components:
+    - type: Transform
+      pos: -0.38111848,5.791412
+      parent: 1
 - proto: SolidSecretDoorShuttle
   entities:
   - uid: 192
     components:
     - type: Transform
       pos: 3.5,-7.5
-      parent: 1
-- proto: SpaceCash1000
-  entities:
-  - uid: 61
-    components:
-    - type: Transform
-      pos: 1.5976341,6.556426
-      parent: 1
-  - uid: 449
-    components:
-    - type: Transform
-      pos: 1.4097984,6.7946177
       parent: 1
 - proto: SpawnPointNukies
   entities:
@@ -2680,10 +2718,10 @@ entities:
     - type: Transform
       pos: 2.5,7.5
       parent: 1
-  - uid: 447
+  - uid: 460
     components:
     - type: Transform
-      pos: 1.5,0.5
+      pos: -2.5,3.5
       parent: 1
 - proto: SubstationBasic
   entities:
@@ -2696,10 +2734,10 @@ entities:
       parent: 1
 - proto: SyndicatePersonalAI
   entities:
-  - uid: 412
+  - uid: 338
     components:
     - type: Transform
-      pos: 2.51849,0.30982804
+      pos: 3.4853024,6.5672026
       parent: 1
 - proto: TableReinforced
   entities:
