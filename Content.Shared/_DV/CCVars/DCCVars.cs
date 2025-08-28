@@ -95,6 +95,12 @@ public sealed partial class DCCVars
         CVarDef.Create("accessibility.no_vision_filters", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// Disables the fullscreen shader at 700+ glimmer.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableGlimmerShader =
+        CVarDef.Create("accessibility.disable_glimmer_shader", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
     /// Whether the Shipyard is enabled.
     /// </summary>
     public static readonly CVarDef<bool> Shipyard =
@@ -212,7 +218,7 @@ public sealed partial class DCCVars
     /// How much entropy a convert is worth towards the next monument tier.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultistEntropyValue =
-        CVarDef.Create("cosmiccult.cultist_entropy_value", 10, CVar.SERVER);
+        CVarDef.Create("cosmiccult.cultist_entropy_value", 8, CVar.SERVER);
 
     /// <summary>
     /// How much of the crew the cult is aiming to convert for a tier 3 monument.

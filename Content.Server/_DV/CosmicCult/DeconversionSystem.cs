@@ -1,6 +1,8 @@
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Bible.Components;
 using Content.Server.EUI;
+using Content.Server.Polymorph.Components;
+using Content.Server.Polymorph.Systems;
 using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
@@ -38,6 +40,7 @@ public sealed class DeconversionSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly EuiManager _euiMan = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
 
     public override void Initialize()
     {
@@ -134,5 +137,10 @@ public sealed class DeconversionSystem : EntitySystem
     private void DeconvertCultist(EntityUid uid)
     {
         RemComp<CosmicCultComponent>(uid);
+        if (TryComp<PolymorphedEntityComponent>(uid, out var polyComp)) // If the cultist is polymorphed, we revert the polymorph and deconvert the original entity too.
+        {
+            _polymorph.Revert((uid, polyComp));
+            RemCompDeferred<CosmicCultComponent>(polyComp.Parent);
+        }
     }
 }
