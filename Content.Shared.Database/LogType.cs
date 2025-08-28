@@ -467,7 +467,6 @@ public enum LogType
     /// Logs related to botany, such as planting and harvesting crops
     /// </summary>
     Botany = 100,
-
     /// <summary>
     /// Artifact node got activated.
     /// </summary>
@@ -482,9 +481,4 @@ public enum LogType
     /// Events relating to midi playback.
     /// </summary>
     Instrument = 103,
-
-    /// <summary>
-    /// For anything relating to bug reports.
-    /// </summary>
-    BugReport = 104,
 }
