@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fixed not being able to install the escalation cyborg module.
-    type: Fix
-  id: 1138
-  time: '2025-03-11T05:22:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3193
 - author: Radezolid
   changes:
   - message: A salvage expeditions computer board spawns inside the LO's locker now.
@@ -4145,3 +4138,12 @@
   id: 1637
   time: '2025-08-27T17:32:21.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4272
+- author: 0vrseer
+  changes:
+  - message: IPCs can heal again while empowered as a cultist
+    type: Fix
+  - message: IPCs can be deconverted from cultist
+    type: Fix
+  id: 1638
+  time: '2025-08-28T01:42:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4230
