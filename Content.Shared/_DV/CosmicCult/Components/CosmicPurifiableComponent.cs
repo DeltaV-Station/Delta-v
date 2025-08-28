@@ -23,5 +23,5 @@ public sealed partial class CosmicPurifiableComponent : Component
     /// If true, only an entity with a BibleUserComponent can purge this entity
     ///</summary>
     [DataField]
-    public bool BibleUserRequired = false;
+    public bool BibleUserRequired;
 }

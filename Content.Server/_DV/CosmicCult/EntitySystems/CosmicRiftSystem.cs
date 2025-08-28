@@ -7,13 +7,11 @@ using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -22,7 +20,6 @@ namespace Content.Server._DV.CosmicCult.EntitySystems;
 public sealed class CosmicRiftSystem : EntitySystem
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
@@ -67,14 +64,14 @@ public sealed class CosmicRiftSystem : EntitySystem
             Spawn(comp.PulseVFX, pos);
             _lookup.GetEntitiesInRange<MobStateComponent>(pos, comp.PulseRange, _mobs);
             _mobs.RemoveWhere(target => _chaplainsQuery.HasComp(target) || _cultistsQuery.HasComp(target) || _colossiQuery.HasComp(target));
-            foreach(var humanoid in _mobs)
+            foreach(var mob in _mobs)
             {
-                if (!pos.TryDistance(EntityManager, Transform(humanoid).Coordinates, out var distance)) continue;
+                if (!pos.TryDistance(EntityManager, Transform(mob).Coordinates, out var distance)) continue;
                 if (!_random.Prob(comp.PulseProb)) continue;
                 var damageMultiplier = Math.Clamp(comp.PulseRange / distance, 1, 10); //0.2 damage per second at max distance, up to 2 per second if closer
                 var effectDuration = _random.Next(10, 40); //2-8 damage at max distance, 20-80 damage at min distance
-                _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(humanoid, "EntropicDegen", TimeSpan.FromSeconds(effectDuration), true);
-                if (TryComp<CosmicEntropyDebuffComponent>(humanoid, out var debuff)) debuff.Degen = 
+                _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(mob, "EntropicDegen", TimeSpan.FromSeconds(effectDuration), true);
+                if (TryComp<CosmicEntropyDebuffComponent>(mob, out var debuff)) debuff.Degen = 
                 new(){DamageDict = new(){
                     {"Cold", 0.05 * damageMultiplier}, 
                     {"Asphyxiation", 0.15 * damageMultiplier}, 

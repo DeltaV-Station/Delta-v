@@ -1,32 +1,21 @@
 using Content.Server._DV.CosmicCult.Components;
-using Content.Server.Actions;
-using Content.Server.Atmos.Components;
 using Content.Server.Bible.Components;
 using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.DoAfter;
-using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server._DV.CosmicCult.EntitySystems;
 
 public sealed class CosmicPurifiableSystem : EntitySystem
 {
-    [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {
