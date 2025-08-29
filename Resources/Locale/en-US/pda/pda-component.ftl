@@ -54,5 +54,3 @@ comp-pda-ui-unassigned = Unassigned
 
 pda-notification-message = [font size=12][bold]PDA[/bold] { $header }: [/font]
     "{ $message }"
-
-comp-pda-ui-current-date = Current date: [color=white]{ $date }[/color]
