@@ -1,77 +1,4 @@
 ﻿Entries:
-- author: BlitzTheSquishy
-  changes:
-  - message: Feroxi now get tinned meat in their survival boxes instead of PSB, except
-      you mimes, you get to keep your freshly baked bread
-    type: Tweak
-  id: 1136
-  time: '2025-03-11T04:50:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3191
-- author: Radezolid
-  changes:
-  - message: The overlord board price is back to 10 TC with a possible discount to
-      7 TC.
-    type: Tweak
-  id: 1137
-  time: '2025-03-11T04:54:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3167
-- author: deltanedas
-  changes:
-  - message: Fixed not being able to install the escalation cyborg module.
-    type: Fix
-  id: 1138
-  time: '2025-03-11T05:22:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3193
-- author: Radezolid
-  changes:
-  - message: A salvage expeditions computer board spawns inside the LO's locker now.
-    type: Tweak
-  - message: Removed the salvage expeditions computer board from research and lathes.
-    type: Remove
-  id: 1139
-  time: '2025-03-11T15:23:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3166
-- author: dffdff2423, Aquif, MilonPL, sowelipililimute, Lyndomen
-  changes:
-  - message: You can now create medical, security, and employment records in the character
-      editor. They can be accessed in game from their respective consoles. Ported
-      from Cosmatic Drift with love.
-    type: Add
-  - message: The station records console is now the employment records console. Please
-      use the security/criminal records console to match DNA/Fingerprints. Ported
-      from Cosmatic Drift with appreciation.
-    type: Tweak
-  id: 1140
-  time: '2025-03-11T15:34:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2236
-- author: KZhProgram
-  changes:
-  - message: MOTH CAN NOW EAT PILLS!! YIPPEEEEE
-    type: Add
-  id: 1141
-  time: '2025-03-11T21:06:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3199
-- author: deltanedas
-  changes:
-  - message: Fixed harpies being immune to anomaly infections.
-    type: Fix
-  id: 1142
-  time: '2025-03-11T22:06:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3201
-- author: KZhProgram
-  changes:
-  - message: Fixed feroxi not being able to eat prepackaged sustenance bars!
-    type: Fix
-  id: 1143
-  time: '2025-03-12T00:15:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3202
-- author: deltanedas
-  changes:
-  - message: Melee attacks made when laying down are much weaker.
-    type: Tweak
-  id: 1144
-  time: '2025-03-12T00:26:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3173
 - author: Lyndomen
   changes:
   - message: Survival has gotten 20% less spicy
@@ -4147,3 +4074,70 @@
   id: 1635
   time: '2025-08-26T20:05:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4117
+- author: NoElkaTheGod
+  changes:
+  - message: Cosmic cult's abilities got a rebalance. Check the PR for details.
+    type: Tweak
+  id: 1636
+  time: '2025-08-27T17:20:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4260
+- author: NoElkaTheGod
+  changes:
+  - message: Tweaked some values to make cult rounds faster and more dynamic.
+    type: Tweak
+  id: 1637
+  time: '2025-08-27T17:32:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4272
+- author: 0vrseer
+  changes:
+  - message: IPCs can heal again while empowered as a cultist
+    type: Fix
+  - message: IPCs can be deconverted from cultist
+    type: Fix
+  id: 1638
+  time: '2025-08-28T01:42:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4230
+- author: kotobdev
+  changes:
+  - message: Nukeops and Cosmic Cult now have the same chance to occur on Secret rounds.
+    type: Tweak
+  id: 1639
+  time: '2025-08-28T01:54:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4222
+- author: NoElkaTheGod
+  changes:
+  - message: Cult helmets now actually provide flash protection. For real this time.
+    type: Fix
+  id: 1640
+  time: '2025-08-28T13:38:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4281
+- author: Field Command
+  changes:
+  - message: Arms dealer tweaks.
+    type: Tweak
+  id: 1641
+  time: '2025-08-28T14:36:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4279
+- author: kotobdev
+  changes:
+  - message: The Mass Mindswap glimmer event has been reworked, adding both a station
+      announcement, and a 15 second delay before activating. Grab your tinfoil hats!
+    type: Tweak
+  id: 1642
+  time: '2025-08-29T02:22:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4136
+- author: NoElkaTheGod
+  changes:
+  - message: PDAs now display the current in-universe date! It was 2575 all along.
+    type: Add
+  id: 1643
+  time: '2025-08-29T14:41:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4277
+- author: NoElkaTheGod
+  changes:
+  - message: Kitsune and felinids are no longer as bad at dragging things. Still worse
+      than most other species, though.
+    type: Tweak
+  id: 1644
+  time: '2025-08-29T15:44:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4265
