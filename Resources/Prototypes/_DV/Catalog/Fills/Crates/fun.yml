@@ -36,3 +36,13 @@
       amount: 3
     - id: ClothingNeckScarfStripedBlue
       amount: 3
+
+- type: entity
+  parent: CratePirate
+  id: CrateLuxuryCollar
+  name: luxury collar crate
+  description: A crate containing a one-of-a-kind high-end designer luxury collar.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingNeckCollarBlack

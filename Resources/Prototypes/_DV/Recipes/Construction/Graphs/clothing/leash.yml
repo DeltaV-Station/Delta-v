@@ -1,0 +1,14 @@
+- type: constructionGraph
+  id: BasicLeash
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: basicLeash
+      steps:
+      - material: Cloth
+        amount: 3
+        doAfter: 8
+
+  - node: basicLeash
+    entity: LeashBasic
