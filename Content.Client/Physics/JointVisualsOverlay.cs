@@ -23,6 +23,7 @@ public sealed class JointVisualsOverlay : Overlay
     protected override void Draw(in OverlayDrawArgs args)
     {
         var worldHandle = args.WorldHandle;
+        worldHandle.SetTransform(Vector2.Zero, Angle.Zero); // Floofstation: fix incorrect drawing box location due to incorrect coordinate system
 
         var spriteSystem = _entManager.System<SpriteSystem>();
         var xformSystem = _entManager.System<SharedTransformSystem>();

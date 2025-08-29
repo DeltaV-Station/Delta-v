@@ -12,6 +12,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -30,6 +31,7 @@ public abstract class SharedPortalSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedJointSystem _joints = default!; // Floofstation
 
     private const string PortalFixture = "portalFixture";
     private const string ProjectileFixture = "projectile";
@@ -206,6 +208,8 @@ public abstract class SharedPortalSystem : EntitySystem
         }
 
         LogTeleport(portal, subject, Transform(subject).Coordinates, target);
+
+        _joints.RecursiveClearJoints(subject); // Floofstation - clear all joints on teleported entities so they don't end up being pulled 'cross the map or worse.
 
         _transform.SetCoordinates(subject, target);
 

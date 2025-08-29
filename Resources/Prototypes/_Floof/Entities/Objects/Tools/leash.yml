@@ -1,0 +1,32 @@
+- type: entity
+  id: BaseLeash
+  parent: BaseItem
+  name: leash
+  description: Helps keep animals- and ONLY animals- close to you. Attach to supported entities to use. You can pull attached entities while holding the leash. # DeltaV - changed description
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Floof/Objects/Tools/leash.rsi
+    layers:
+    - state: icon
+    scale: 0.7, 0.7
+  - type: Leash
+    pullInterval: 0.75
+    leashSprite:
+      sprite: _Floof/Objects/Tools/leash-rope.rsi
+      state: rope
+  - type: Anchorable
+    delay: 3
+    snap: false # The first ever entity to set this field to false! However, this doesn't seem to work :c
+
+- type: entity
+  id: LeashBasic
+  parent: BaseLeash
+  components:
+  - type: Leash
+    length: 2.25 # DeltaV - different base length
+    lengthConfigs: [1.5, 2.25, 3]
+    maxDistance: 6
+    attachDelay: 4
+    detachDelay: 4
+    selfDetachDelay: 10

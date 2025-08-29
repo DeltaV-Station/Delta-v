@@ -65,6 +65,7 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: LeashAnchor # Floofstation
 
 - type: entity
   parent: SimpleMobBase
@@ -178,6 +179,7 @@
   - type: Vocal
     sounds:
       Unsexed: MobDog
+  - type: LeashAnchor # Floofstation
 
 - type: entity
   parent: MobMouse
@@ -280,3 +282,5 @@
     damage:
       types:
         Piercing: 0.5 # Minimal damage, 'mostly harmless'.
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic

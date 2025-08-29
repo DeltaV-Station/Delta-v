@@ -1,0 +1,20 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCollarBase
+  abstract: true
+  components:
+  - type: Clothing
+  - type: LeashAnchor
+    offset: 0, 0.22
+    kind: Clothing
+
+- type: entity
+  parent: ClothingNeckCollarBase
+  id: ClothingNeckCollarBlack
+  name: black collar
+  description: A luxurious black collar, made of genuine space dragon leather. # DeltaV
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/Neck/collar_black.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/Neck/collar_black.rsi

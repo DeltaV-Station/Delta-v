@@ -275,6 +275,8 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 - type: entity
   parent: MobChicken
@@ -643,6 +645,8 @@
           32:
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
@@ -722,6 +726,8 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 - type: entity
   name: white duck #Quack
@@ -941,6 +947,8 @@
     guides:
     - Chef
     - FoodRecipes
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 - type: entity
   name: crab
@@ -1125,6 +1133,8 @@
   - type: HTN
     rootTask:
       task: RuminantHostileCompound
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 # Note that we gotta make this bitch vomit someday when you feed it anthrax or sumthin. Needs to be a small item thief too and aggressive if attacked.
 - type: entity
@@ -1175,6 +1185,8 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 - type: entity
   name: gorilla
@@ -1336,6 +1348,8 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 - type: entity
   name: boxing kangaroo
@@ -1501,6 +1515,8 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 
 
@@ -2067,6 +2083,8 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 
 - type: entity
@@ -2117,6 +2135,8 @@
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
     bloodMaxVolume: 50
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 - type: entity
   name: frog
@@ -2703,6 +2723,8 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 - type: entity
   name: possum
@@ -2778,6 +2800,8 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 - type: entity
   name: fox
@@ -2857,6 +2881,8 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 - type: entity
   abstract: true
@@ -2901,6 +2927,8 @@
       gender: epicene
   - type: MobPrice
     price: 200
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 - type: entity
   parent: MobCorgiBase
@@ -3093,6 +3121,8 @@
   - type: NpcFactionMember # DeltaV - give cats faction so they fight mice
     factions:
     - Cat
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 - type: entity
   name: calico cat
@@ -3370,6 +3400,8 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 - type: entity
   name: hamster
@@ -3522,6 +3554,8 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  - type: LeashAnchor # Floofstation
+    kind: Intrinsic
 
 - type: entity
   name: pig
