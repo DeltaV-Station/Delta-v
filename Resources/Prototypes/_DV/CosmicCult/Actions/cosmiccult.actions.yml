@@ -5,7 +5,7 @@
   description: Silently siphon entropy from your target, dealing some damage in the process.
   components:
   - type: Action
-    useDelay: 50
+    useDelay: 30
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -151,7 +151,7 @@
   description: Use a concentrated blast of power to force a secure doorway open.
   components:
   - type: Action
-    useDelay: 25
+    useDelay: 15
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -170,7 +170,7 @@
   description: You negate any incoming damage for a short time.
   components:
   - type: Action
-    useDelay: 160
+    useDelay: 80
     checkCanInteract: false
     itemIconStyle: NoItem
     icon:
@@ -186,13 +186,13 @@
   description: Hurl a large and disruptive blast of astral energy.
   components:
   - type: Action
-    useDelay: 45
+    useDelay: 60
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: nova
   - type: TargetAction
-    range: 60
+    range: 6000 # You're just picking a direction anyways
   - type: WorldTargetAction
     event: !type:EventCosmicNova {}
 
