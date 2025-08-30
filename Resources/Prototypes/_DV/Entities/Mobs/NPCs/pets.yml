@@ -25,6 +25,8 @@
   id: MobSecDogLaika
   description: Much like her namesake, Laika is a specimen of indeterminate breed, fresh off the streets and ready to tussle.
   components:
+  - type: Body
+    prototype: K9
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -53,11 +55,51 @@
     - CannotSuicide
     - VimPilot
     - DoorBumpOpener
+    - K9
   - type: StealTarget
     stealGroup: AnimalSecurity # DeltaV - Adjusts because we have multiple possible sec animals
   - type: Temperature
     heatDamageThreshold: 315 # 10 lower than base
     coldDamageThreshold: 240 # 20 lower than base
+  - type: Grappler
+    handDisabling: SingleActive
+    grapplingPart: grapple-part-jaws
+    grappleSound:
+      collection: VulpkaninGrowls
+  - type: DogWhistleReciever
+    canUnderstand: true
+  - type: HTN
+    rootTask:
+      task: k9Compound
+    blackboard:
+      CatchRange: !type:Single
+        0.3 # NPCs must be this close to grapple
+      IdleRange: !type:Single
+        0.5 # Trained doggo stays in the right place
+      FollowCloseRange: !type:Single
+        1.5
+      FollowRange: !type:Single
+        2.0
+  - type: SurgeryTarget
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+  - type: IdCard
+    fullName: Laika
+    jobIcon: JobIconSecurityOfficer
+    jobTitle: job-alt-title-k9-officer
+  - type: Access
+    tags:
+      - Security
+      - External
+      - Maintainance
+    mindOnlyAccess: true # Don't let people abuse the dog
+  - type: AutoImplant
+    implants:
+    - TrackingImplant
 
 - type: entity
   parent: MobCarp
