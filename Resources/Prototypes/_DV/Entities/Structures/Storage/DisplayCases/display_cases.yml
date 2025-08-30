@@ -1,0 +1,83 @@
+- type: entity
+  id: DisplayCaseArtifact
+  parent: [ DisplayCase, BaseMachinePowered ]
+  name: artifact display case
+  description: A sturdy display case for showing off interesting artifacts.
+  components:
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+      paper_label: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: ResearchPointSource
+    pointspersecond: 5
+    active: true
+  - type: Machine
+    board: ArtifactDisplayCaseMachineCircuitBoard
+  - type: PowerSwitch
+  - type: ResearchClient
+  - type: ActivatableUI
+    key: enum.ResearchClientUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: PointLight
+    radius: 0.8
+    energy: 0.5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.29"
+        density: 50
+        mask:
+        - CrateMask #this is so they can go under plastic flaps
+        layer:
+        - MachineLayer
+  - type: UserInterface
+    interfaces:
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+
+- type: entity
+  id: DisplayCase
+  parent: CrateBaseSecure
+  name: display case
+  description: A sturdy display case. This one doesn't give any research points, but you can put whatever you want in it.
+  components:
+  - type: AccessReader
+    access: [["Research"]]
+  - type: Sprite
+    drawdepth: Objects
+    sprite: _DV/Structures/Storage/display_cases.rsi
+    layers:
+    - state: display_case
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: display_case_glass
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: paper
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.29"
+        density: 50
+        mask:
+        - CrateMask #this is so they can go under plastic flaps
+        layer:
+        - MachineLayer
+  - type: Icon
+    sprite: _DV/Structures/Storage/display_cases.rsi
+    state: display_case_icon
+  - type: EntityStorageVisuals
+    sprite: _DV/Structures/Storage/display_cases.rsi
+    stateDoorOpen: display_case_open
+    stateDoorClosed: display_case_glass
