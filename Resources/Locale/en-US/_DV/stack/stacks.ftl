@@ -5,3 +5,8 @@ stack-entropy = mote of entropy
 
 stack-rough-bluespace = rough bluespace
 stack-treatcoin = treatcoin
+
+#Biogenerator plastic
+stack-biogenerator-plastic1 = plastic (single)
+stack-biogenerator-plastic10 = plastic (10)
+stack-biogenerator-plastic30 = plastic (30)
