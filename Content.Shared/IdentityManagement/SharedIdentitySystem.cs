@@ -1,4 +1,5 @@
 using Content.Shared.Clothing;
+using Content.Shared.Examine; // DeltaV
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory;
 using Robust.Shared.Containers;
@@ -18,7 +19,15 @@ public abstract class SharedIdentitySystem : EntitySystem
         SubscribeLocalEvent<IdentityBlockerComponent, SeeIdentityAttemptEvent>(OnSeeIdentity);
         SubscribeLocalEvent<IdentityBlockerComponent, InventoryRelayedEvent<SeeIdentityAttemptEvent>>((e, c, ev) => OnSeeIdentity(e, c, ev.Args));
         SubscribeLocalEvent<IdentityBlockerComponent, ItemMaskToggledEvent>(OnMaskToggled);
+        SubscribeLocalEvent<IdentityBlockerComponent, ExaminedEvent>(OnExamine); // DeltaV
     }
+
+//Begin DeltaV additions
+    private void OnExamine(Entity<IdentityBlockerComponent> ent, ref ExaminedEvent args)
+    {
+        args.PushMarkup(Loc.GetString("identity-blocker-examine", ("coverage", (int)ent.Comp.Coverage)));
+    }
+//End DeltaV additions
 
     private void OnSeeIdentity(EntityUid uid, IdentityBlockerComponent component, SeeIdentityAttemptEvent args)
     {
