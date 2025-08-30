@@ -4,6 +4,7 @@
     children:
     - id: MothroachSpawn
     - id: XenoVents
+    - id: MalignRiftSpawn
 
 - type: entityTable
   id: BasicAntagEventsTableDeltaV
@@ -130,6 +131,21 @@
       mindRoles:
       - MindRoleListeningPost
 
+- type: entity
+  parent: BaseGameRule
+  id: MalignRiftSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    weight: 6
+  - type: PrecognitionResult
+    message: psionic-power-precognition-rift-spawn-result-message
+  - type: RandomMultipleSpawnRule
+    prototype: CosmicMalignRift
+    minAmount: 1
+    maxAmount: 3
+
+
 # Mid round antag spawns
 - type: entity
   abstract: true
@@ -200,7 +216,7 @@
     maxOccurrences: 1
   - type: RuleGrids
   - type: LoadMapRule
-    gridPath: /Maps/_DV/Shuttles/roboneuroticist_ship.yml
+    gridPath: /Maps/_DV/Shuttles/haibu.yml # was roboneuroticist_ship.yml
   - type: AntagSpawner
     prototype: MobHuman
   - type: AntagObjectives

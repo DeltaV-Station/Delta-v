@@ -1,5 +1,11 @@
 psionic-nosebleed-message = Your nose starts gushing blood!
 
+mass-mind-swap-event-announcement = Warning: abnormal glimmer discharge detected. Mass consciousness transfer event imminent, T-{$time} seconds. Please equip psionically-insulating headwear immediately.
+
+mass-mind-swap-event-sender = Sophic Grammateus
+
+psionic-power-mass-sleep-warning = Your eyelids begin to droop...
+
 psionic-power-precognition-failure-by-damage = Your concentration was broken! You fail to decipher anything of use.
 psionic-power-precognition-no-event-result-message = You see a vision of an undisturbed lake.
 
@@ -47,6 +53,8 @@ psionic-power-precognition-random-sentience-result-message = Something bright an
 psionic-power-precognition-unknown-shuttle-cargo-lost-result-message = You see a vision of a simple ship of old Terra, adrift of the sea, far away from home.
 psionic-power-precognition-unknown-shuttle-traveling-cuisine-result-message = You see a vision of peace, a cozy meal sizzling on a warm stove. A delicious smells wafts through the air.
 psionic-power-precognition-unknown-shuttle-disaster-evac-pod-result-message = You see a vision of death and blood, of a destruction so complete only few survive, drifting through the coldness of space.
+psionic-power-precognition-syndicate-armsdealer-result-message = You see a vision of a ship lurking in the shadows, its cargo deadly.
+psionic-power-precognition-rift-spawn-result-message = You see a small spark of energy, quickly expanding as it tears reality apart, twisting everything around it.
 
 psionic-eruption-begin = {CAPITALIZE(THE($user))} is being consumed by a psionic energy!
 psionic-eruption-annoy-minimal = You feel a pressure building up in your mind.

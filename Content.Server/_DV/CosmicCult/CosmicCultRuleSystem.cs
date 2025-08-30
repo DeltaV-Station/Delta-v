@@ -12,11 +12,14 @@ using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Server.Light.Components;
 using Content.Server.Objectives.Components;
+using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
 using Content.Server.Radio.Components;
 using Content.Server.Roles;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
+using Content.Shared.Cuffs;
+using Content.Shared.Cuffs.Components;
 using Content.Server.Voting.Managers;
 using Content.Server.Voting;
 using Content.Shared._DV.CCVars;
@@ -130,6 +133,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         SubscribeLocalEvent<CosmicCultComponent, ComponentShutdown>(OnComponentShutdown);
         SubscribeLocalEvent<CosmicGodComponent, ComponentInit>(OnGodSpawn);
         SubscribeLocalEvent<CosmicCultComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<CosmicCultComponent, CuffedStateChangeEvent>(OnCuffStateChanged);
 
         Subs.CVar(_config,
             DCCVars.CosmicCultT2RevealDelaySeconds,
@@ -175,6 +179,28 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             component.PrepareFinaleTimer = null;
 
+            var sender = Loc.GetString("cosmiccult-announcement-sender");
+            var mapData = _map.GetMap(_transform.GetMapId(component.MonumentInGame.Owner.ToCoordinates()));
+            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-pre-finale-progress"), sender, false, null, Color.FromHex("#4cabb3"));
+            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-pre-finale-warning"), null, false, null, Color.FromHex("#cae8e8"));
+            _audio.PlayGlobal(_tier3Sound, Filter.Broadcast(), false, AudioParams.Default);
+
+            EnsureComp<ParallaxComponent>(mapData, out var parallax);
+            parallax.Parallax = "CosmicFinaleParallax";
+            Dirty(mapData, parallax);
+
+            EnsureComp<MapLightComponent>(mapData, out var mapLight);
+            mapLight.AmbientLightColor = Color.FromHex("#210746");
+            Dirty(mapData, mapLight);
+
+            var lights = EntityQueryEnumerator<PoweredLightComponent>();
+            while (lights.MoveNext(out var light, out _))
+            {
+                if (!_rand.Prob(0.50f))
+                    continue;
+                _ghost.DoGhostBooEvent(light);
+            }
+
             if (TryComp<CosmicFinaleComponent>(component.MonumentInGame, out var finaleComp))
             {
                 _monument.ReadyFinale(component.MonumentInGame, finaleComp);
@@ -197,15 +223,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             var mapData = _map.GetMap(_transform.GetMapId(component.MonumentInGame.Owner.ToCoordinates()));
             _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier3-progress"), sender, false, null, Color.FromHex("#4cabb3"));
             _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier3-warning"), null, false, null, Color.FromHex("#cae8e8"));
-            _audio.PlayGlobal(_tier3Sound, Filter.Broadcast(), false, AudioParams.Default);
-
-            EnsureComp<ParallaxComponent>(mapData, out var parallax);
-            parallax.Parallax = "CosmicFinaleParallax";
-            Dirty(mapData, parallax);
-
-            EnsureComp<MapLightComponent>(mapData, out var mapLight);
-            mapLight.AmbientLightColor = Color.FromHex("#210746");
-            Dirty(mapData, mapLight);
+            _audio.PlayGlobal(_tier2Sound, Filter.Broadcast(), false, AudioParams.Default);
 
             var lights = EntityQueryEnumerator<PoweredLightComponent>();
             while (lights.MoveNext(out var light, out _))
@@ -235,17 +253,13 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             component.Tier2DelayTimer = null;
             component.ExtraRiftTimer = _timing.CurTime + TimeSpan.FromSeconds(15);
 
-            //do spooky effects
+            //don't spooky effects
+            /*
             var sender = Loc.GetString("cosmiccult-announcement-sender");
             var mapData = _map.GetMap(_transform.GetMapId(component.MonumentInGame.Owner.ToCoordinates()));
             _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier2-progress"), sender, false, null, Color.FromHex("#4cabb3"));
             _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier2-warning"), null, false, null, Color.FromHex("#cae8e8"));
             _audio.PlayGlobal(_tier2Sound, Filter.Broadcast(), false, AudioParams.Default);
-
-            for (var i = 0; i < Convert.ToInt16(component.TotalCrew / 6); i++) // spawn # malign rifts equal to 16.67% of the playercount
-            {
-                SpawnRift();
-            }
 
             var lights = EntityQueryEnumerator<PoweredLightComponent>();
             while (lights.MoveNext(out var light, out _))
@@ -253,6 +267,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                 if (!_rand.Prob(0.50f))
                     continue;
                 _ghost.DoGhostBooEvent(light);
+            }
+            */
+
+            for (var i = 0; i < Convert.ToInt16(component.TotalCrew / 6); i++) // spawn # malign rifts equal to 16.67% of the playercount
+            {
+                SpawnRift();
             }
 
             _monument.SetCanTierUp(component.MonumentInGame, true);
@@ -269,7 +289,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         while (cultQuery.MoveNext(out var cult, out _, out var metadata))
         {
             var playerInfo = metadata.EntityName;
-            cultists.Add((playerInfo, cult));
+            if (TryComp<PolymorphedEntityComponent>(cult, out var polyComp)) // If the cultist is polymorphed, we use the original entity instead and hope that they'll polymorph back eventually
+                cultists.Add((playerInfo, polyComp.Parent));
+            else
+                cultists.Add((playerInfo, cult));
         }
 
         var options = new VoteOptions
@@ -325,7 +348,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         var query = QueryActiveRules();
         while (query.MoveNext(out var ruleUid, out _, out var cultRule, out _))
         {
-            SetWinType((ruleUid, cultRule), WinType.CultComplete); //here's no coming back from this. Cult wins this round
+            SetWinType((ruleUid, cultRule), WinType.CultComplete); // There's no coming back from this. Cult wins this round
             QueueDel(cultRule.MonumentInGame); // The monument doesn't need to stick around postround! Into the bin with you.
             QueueDel(cultRule.MonumentSlowZone); // cease exist
 
@@ -394,9 +417,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     private bool CultistsAlive()
     {
         var query = EntityQueryEnumerator<CosmicCultComponent, MobStateComponent>();
-        while (query.MoveNext(out _, out var comp, out var mob))
+        while (query.MoveNext(out var ent, out _, out var mobComp))
         {
-            if (mob.Running && mob.CurrentState == MobState.Alive)
+            if (TryComp<CuffableComponent>(ent, out var cuffed) && cuffed.CuffedHandCount > 0) continue;
+            if (mobComp.Running && mobComp.CurrentState != MobState.Dead)
                 return true;
         }
 
@@ -404,6 +428,16 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     }
 
     private void OnMobStateChanged(Entity<CosmicCultComponent> ent, ref MobStateChangedEvent args)
+    {
+        CheckForActiveCultists();
+    }
+
+    private void OnCuffStateChanged(Entity<CosmicCultComponent> ent, ref CuffedStateChangeEvent args)
+    {
+        CheckForActiveCultists();
+    }
+
+    private void CheckForActiveCultists()
     {
         if (CultistsAlive())
             return;
@@ -418,35 +452,37 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     private void ConfirmWinState(Entity<CosmicCultRuleComponent> ent)
     {
         var tier = ent.Comp.CurrentTier;
-        var leaderAlive = false;
+        var LeaderAtCentcom = false;
+        var CultistsAtCentcom = 0;
         var centcomm = _emergency.GetCentcommMaps();
         var wrapup = AllEntityQuery<CosmicCultComponent, TransformComponent>();
         while (wrapup.MoveNext(out var cultist, out _, out var cultistLocation))
         {
             if (cultistLocation.MapUid != null && centcomm.Contains(cultistLocation.MapUid.Value))
             {
+                if (TryComp<CuffableComponent>(cultist, out var cuffed) && cuffed.CuffedHandCount > 0) continue; // If they are cuffed, they should be deconverted soon, so we don't count them.
+                CultistsAtCentcom++;
                 if (HasComp<CosmicCultLeadComponent>(cultist))
-                    leaderAlive = true;
-            }
-        }
-        if (tier < 3 && leaderAlive)
-            SetWinType(ent, WinType.Neutral); //The Monument isn't Tier 3, but the cult leader's alive and at Centcomm! a Neutral outcome
-        var monument = AllEntityQuery<CosmicFinaleComponent>();
-        while (monument.MoveNext(out var monumentUid, out var comp))
-        {
-            _sound.StopStationEventMusic(ent, StationEventMusicType.CosmicCult);
-            if (tier == 3 && comp.CurrentState == FinaleState.Unavailable)
-            {
-                SetWinType(ent, WinType.CultMinor); //The crew escaped, and The Monument wasn't fully empowered. a small win
-            }
-            else if (comp.CurrentState != FinaleState.Unavailable)
-            {
-                SetWinType(ent, WinType.CultMajor); //Despite the crew's escape, The Finale is available or active. Major win
+                    LeaderAtCentcom = true;
             }
         }
 
-        if (CultistsAlive())
-            return; // There's still cultists alive! stop checking stuff
+        if (tier < 3)
+            SetWinType(ent, WinType.CrewMinor); //The monument didn't even reach tier 3, which means that either cult had a skill issue, or crew evacuated early. Minor win.
+        else if (LeaderAtCentcom) //If the monument reached tier 3, all cultists have glowing eyes now, so you shouldn't let them evacuate without cuffs on.
+            SetWinType(ent, WinType.CultMajor); //The Monument wasn't completed, but the cult leader's alive and at Midpoint.
+        else if (CultistsAtCentcom >= 2)
+            SetWinType(ent, WinType.CultMinor); //The Monument wasn't completed, but at least two cultists are alive and at Midpoint.
+        else
+            SetWinType(ent, WinType.Neutral); //The monument wasn't completed, no cultists escaped to midpoint. Some cultists still remain on the station, though.
+
+        if (CultistsAlive()) return; //If there are no cultists alive, ignore all previous checks, crew alreay won.
+
+        if (tier <= 1) //Prevent the cult getting cooked by accident before anyone even knows there's a cult.
+        {
+            SetWinType(ent, WinType.CrewMinor); //If we somehow get here at the end of the round, we'll still count this as a crew minor.
+            return;
+        }
 
         _roundEnd.DoRoundEndBehavior(ent.Comp.RoundEndBehavior, ent.Comp.EvacShuttleTime, ent.Comp.RoundEndTextSender, ent.Comp.RoundEndTextShuttleCall, ent.Comp.RoundEndTextAnnouncement);
         ent.Comp.RoundEndBehavior = RoundEndBehavior.Nothing; // prevent this being called multiple times.
@@ -455,7 +491,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         var gameruleMonument = ent.Comp.MonumentInGame;
         if (TryComp<CosmicFinaleComponent>(gameruleMonument, out var finComp))
         {
-            _monument.Disable(gameruleMonument);
             finComp.CurrentState = FinaleState.Unavailable;
             _popup.PopupCoordinates(Loc.GetString("cosmiccult-monument-powerdown"), Transform(gameruleMonument).Coordinates, PopupType.Large);
             _sound.StopStationEventMusic(gameruleMonument, StationEventMusicType.CosmicCult);
@@ -465,7 +500,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (ent.Comp.TotalCult == 0)
             SetWinType(ent, WinType.CrewComplete); // No cultists registered! That means everyone got deconverted
         else
-            SetWinType(ent, WinType.CrewMajor); // There's still cultists registered, but if we got here, that means they're all dead
+            SetWinType(ent, WinType.CrewMajor); // There's still cultists registered, but if we got here, that means they're all dead or in cuffs
     }
 
     protected override void AppendRoundEndText(EntityUid uid,
@@ -696,7 +731,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         }
         if (cult.Comp.CurrentTier == 3)
         {
-            _damage.SetDamageContainerID(uid, "BiologicalMetaphysical");
             cultComp.EntropyBudget = 48; // pity balance
             cultComp.Respiration = false;
 
@@ -746,6 +780,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     {
         if (AssociatedGamerule(uid) is not { } cult)
             return;
+        if (TerminatingOrDeleted(uid))
+            return;
         var cosmicGamerule = cult.Comp;
 
         _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
@@ -762,7 +798,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         RemComp<TemperatureImmunityComponent>(uid);
         RemComp<CosmicStarMarkComponent>(uid);
         RemComp<CosmicSubtleMarkComponent>(uid);
-        _damage.SetDamageContainerID(uid.Owner, uid.Comp.StoredDamageContainer);
+
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-fluff"), Color.FromHex("#4cabb3"), _deconvertSound);
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), null);
 

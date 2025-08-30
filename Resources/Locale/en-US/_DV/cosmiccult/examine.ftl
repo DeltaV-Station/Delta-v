@@ -16,6 +16,9 @@ cosmic-examine-text-subtle-mark = [color=#4cabb3]Otherwordly energies surge with
 cosmic-examine-text-forthecult = [color=#4cabb3]This is our doing. As things should be.[/color]
 cosmic-examine-text-cultentity = [color=#4cabb3]A powerful ally.[/color]
 cosmic-examine-text-culteffigy = [color=#4cabb3]This may prove useful.[/color]
+cosmic-examine-transmutable = This can be transmuted into [color=#4cabb3]{$result}[/color] by using [color=#4cabb3]{$glyph}[/color].
+cosmic-examine-transmutable-verb-text = Transmutability.
+cosmic-examine-transmutable-error = This item should be transmutable, but it doesn't seem to work.
 
 ## GLYPH EXAMINES
 cosmic-examine-glyph-cultcount = {$COUNT ->
@@ -25,7 +28,7 @@ cosmic-examine-glyph-cultcount = {$COUNT ->
 
 cosmic-examine-glyph-truth = [color=#4cabb3]Instills the pure, indelible truth. Able to convert absolutely anyone to join our ranks.[/color]
 cosmic-examine-glyph-knowledge = [color=#4cabb3]Instills the spark of indelible knowledge. Able to convert most to join our ranks.[/color]
-cosmic-examine-glyph-cessation = [color=#4cabb3]Transmutes a portable atmospherics scrubber into a Vacuous Spire for our use.[/color]
+cosmic-examine-glyph-cessation = [color=#4cabb3]Transmutes various machinery into mysterious devices for our use.[/color]
 cosmic-examine-glyph-projection = [color=#4cabb3]Allows us to ascend in a temporary astral form to spy on those around us.[/color]
 cosmic-examine-glyph-blades = [color=#4cabb3]Transmutes and extrudes sharp objects into more lethal weaponry.[/color]
 cosmic-examine-glyph-warding = [color=#4cabb3]Transmutes pressure-resistant clothing into entropic garb.[/color]

@@ -28,12 +28,13 @@
     Silver: 200
 
 - type: latheRecipe
-  id: Oilpack
-  result: Oilpack1
-  completetime: 1
+  parent: BaseRoboticsRecipe
+  id: ClothingEyesHudDiagnostic
+  result: ClothingEyesHudDiagnostic
   materials:
-    Plastic: 250
-    Steel: 25
+    Steel: 200
+    Plastic: 100
+    Glass: 300
 
 # Robo Neuroling recipes
 
