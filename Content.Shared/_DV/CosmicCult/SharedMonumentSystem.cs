@@ -80,29 +80,9 @@ public abstract class SharedMonumentSystem : EntitySystem
     }
 
     #region UI listeners
-    private void OnGlyphSelected(Entity<MonumentComponent> ent, ref GlyphSelectedMessage args)
+    protected virtual void OnGlyphSelected(Entity<MonumentComponent> ent, ref GlyphSelectedMessage args)
     {
-        ent.Comp.SelectedGlyph = args.GlyphProtoId;
-
-        if (!_prototype.TryIndex(args.GlyphProtoId, out var proto))
-            return;
-
-        var xform = Transform(ent);
-
-        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
-            return;
-
-        var localTile = _map.GetTileRef(xform.GridUid.Value, grid, xform.Coordinates);
-        var targetIndices = localTile.GridIndices + new Vector2i(0, -1);
-
-        if (ent.Comp.CurrentGlyph is { } curGlyph) _glyph.EraseGlyph(curGlyph);
-
-        var glyphEnt = Spawn(proto.Entity, _map.ToCenterCoordinates(xform.GridUid.Value, targetIndices, grid));
-        ent.Comp.CurrentGlyph = glyphEnt;
-        var evt = new CosmicCultAssociateRuleEvent(ent, glyphEnt);
-        RaiseLocalEvent(ref evt);
-
-        _ui.SetUiState(ent.Owner, MonumentKey.Key, new MonumentBuiState(ent.Comp));
+        // This never worked on the client anyway, moved to server (in a lazy way) because I can't check current tier here.
     }
 
     private void OnGlyphRemove(Entity<MonumentComponent> ent, ref GlyphRemovedMessage args)
