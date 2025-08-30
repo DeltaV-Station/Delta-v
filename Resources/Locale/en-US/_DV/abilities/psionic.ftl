@@ -1,5 +1,9 @@
 psionic-nosebleed-message = Your nose starts gushing blood!
 
+mass-mind-swap-event-announcement = Warning: abnormal glimmer discharge detected. Mass consciousness transfer event imminent, T-{$time} seconds. Please equip psionically-insulating headwear immediately.
+
+mass-mind-swap-event-sender = Sophic Grammateus
+
 psionic-power-mass-sleep-warning = Your eyelids begin to droop...
 
 psionic-power-precognition-failure-by-damage = Your concentration was broken! You fail to decipher anything of use.
