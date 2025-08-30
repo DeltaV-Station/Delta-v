@@ -1,0 +1,27 @@
+- type: entity
+  parent: BaseLogicItem
+  id: SignalTimerItem
+  name: timer
+  description: Sends a signal after a specified time after receiving a signal.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: timer
+  - type: Construction
+    node: timer
+  - type: SignalTimer
+    canEditLabel: false
+  - type: DeviceLinkSource
+    ports:
+      - Start
+      - Timer
+  - type: DeviceLinkSink
+    ports:
+      - Trigger
+  - type: ActivatableUI
+    key: enum.SignalTimerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SignalTimerUiKey.Key:
+        type: SignalTimerBoundUserInterface

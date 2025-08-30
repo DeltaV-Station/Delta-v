@@ -41,7 +41,7 @@ public sealed class InteractorSystem : SharedInteractorSystem
         if (!InteractWith(ent, target))
         {
             // have to remove it since user's filter was bad due to unhandled interaction
-            RemoveTarget(ent, target);
+            // RemoveTarget(ent, target); // Mono
             Machine.Failed(ent.Owner);
             return;
         }

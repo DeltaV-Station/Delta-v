@@ -1,0 +1,10 @@
+- type: construction
+  name: timer
+  id: Timer
+  graph: LogicGate
+  startNode: start
+  targetNode: timer
+  category: construction-category-tools
+  description: Sends a signal after a specified time after receiving a signal.
+  icon: { sprite: Objects/Devices/gates.rsi, state: timer }
+  objectType: Item

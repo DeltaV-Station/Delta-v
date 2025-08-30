@@ -15,8 +15,11 @@ public sealed partial class SignalTimerWindow : DefaultWindow
     private const int MaxTextLength = 5;
 
     public event Action<string>? OnCurrentTextChanged;
-    public event Action<string>? OnCurrentDelayMinutesChanged;
-    public event Action<string>? OnCurrentDelaySecondsChanged;
+    // Begin Monolith
+    // public event Action<string>? OnCurrentDelayMinutesChanged;
+    // public event Action<string>? OnCurrentDelaySecondsChanged;
+    public event Action<TimeSpan>? OnCurrentDelayChanged;
+    // End Monolith
 
     private TimeSpan? _triggerTime;
 
@@ -30,8 +33,11 @@ public sealed partial class SignalTimerWindow : DefaultWindow
         IoCManager.InjectDependencies(this);
 
         CurrentTextEdit.OnTextChanged += e => OnCurrentTextChange(e.Text);
-        CurrentDelayEditMinutes.OnTextChanged += e => OnCurrentDelayMinutesChange(e.Text);
-        CurrentDelayEditSeconds.OnTextChanged += e => OnCurrentDelaySecondsChange(e.Text);
+        // Begin Monolith
+        // CurrentDelayEditMinutes.OnTextChanged += e => OnCurrentDelayMinutesChange(e.Text);
+        // CurrentDelayEditSeconds.OnTextChanged += e => OnCurrentDelaySecondsChange(e.Text);
+        CurrentDelayEdit.OnValueChanged += e => CurrentDelayChange(TimeSpan.FromSeconds(e.Value));
+        // End Monolith
         StartTimer.OnPressed += _ => StartTimerWeh();
     }
 
@@ -77,81 +83,38 @@ public sealed partial class SignalTimerWindow : DefaultWindow
         OnCurrentTextChanged?.Invoke(text);
     }
 
-    public void OnCurrentDelayMinutesChange(string text)
+    // Begin Monolith
+    // public void OnCurrentDelayMinutesChange(string text)
+    // {
+    //     OnCurrentDelayChanged?.Invoke(newValue);
+    // }
+
+    public void CurrentDelayChange(TimeSpan newValue)
     {
-        List<char> toRemove = new();
-
-        foreach (var a in text)
-        {
-            if (!char.IsDigit(a))
-                toRemove.Add(a);
-        }
-
-        foreach (var a in toRemove)
-        {
-            CurrentDelayEditMinutes.Text = text.Replace(a.ToString(),"");
-        }
-
-        if (CurrentDelayEditMinutes.Text == "")
-            return;
-
-        while (CurrentDelayEditMinutes.Text[0] == '0' && CurrentDelayEditMinutes.Text.Length > 2)
-        {
-            CurrentDelayEditMinutes.Text = CurrentDelayEditMinutes.Text.Remove(0, 1);
-        }
-
-        if (CurrentDelayEditMinutes.Text.Length > 2)
-        {
-            CurrentDelayEditMinutes.Text = CurrentDelayEditMinutes.Text.Remove(2);
-        }
-        OnCurrentDelayMinutesChanged?.Invoke(CurrentDelayEditMinutes.Text);
+        OnCurrentDelayChanged?.Invoke(newValue);
     }
-
-    public void OnCurrentDelaySecondsChange(string text)
-    {
-        List<char> toRemove = new();
-
-        foreach (var a in text)
-        {
-            if (!char.IsDigit(a))
-                toRemove.Add(a);
-        }
-
-        foreach (var a in toRemove)
-        {
-            CurrentDelayEditSeconds.Text = text.Replace(a.ToString(), "");
-        }
-
-        if (CurrentDelayEditSeconds.Text == "")
-            return;
-
-        while (CurrentDelayEditSeconds.Text[0] == '0' && CurrentDelayEditSeconds.Text.Length > 2)
-        {
-            CurrentDelayEditSeconds.Text = CurrentDelayEditSeconds.Text.Remove(0, 1);
-        }
-
-        if (CurrentDelayEditSeconds.Text.Length > 2)
-        {
-            CurrentDelayEditSeconds.Text = CurrentDelayEditSeconds.Text.Remove(2);
-        }
-        OnCurrentDelaySecondsChanged?.Invoke(CurrentDelayEditSeconds.Text);
-    }
+    // End Monolith
 
     public void SetCurrentText(string text)
     {
         CurrentTextEdit.Text = text;
     }
+    // Begin Monolith
+    // public void SetCurrentDelayMinutes(string delay)
+    // {
+    //     CurrentDelayEditMinutes.Text = delay;
+    // }
 
-    public void SetCurrentDelayMinutes(string delay)
+    // public void SetCurrentDelaySeconds(string delay)
+    // {
+    //     CurrentDelayEditSeconds.Text = delay;
+    // }
+
+    public void SetCurrentDelay(TimeSpan delay)
     {
-        CurrentDelayEditMinutes.Text = delay;
+        CurrentDelayEdit.Value = (float)delay.TotalSeconds;
     }
-
-    public void SetCurrentDelaySeconds(string delay)
-    {
-        CurrentDelayEditSeconds.Text = delay;
-    }
-
+    // End Monolith
     public void SetShowText(bool showTime)
     {
         TextEdit.Visible = showTime;
@@ -176,8 +139,11 @@ public sealed partial class SignalTimerWindow : DefaultWindow
     public void SetHasAccess(bool hasAccess)
     {
         CurrentTextEdit.Editable = hasAccess;
-        CurrentDelayEditMinutes.Editable = hasAccess;
-        CurrentDelayEditSeconds.Editable = hasAccess;
+        // Begin Monolith
+        // CurrentDelayEditMinutes.Editable = hasAccess;
+        // CurrentDelayEditSeconds.Editable = hasAccess;
+        CurrentDelayEdit.Editable = hasAccess;
+        // End Monolith
         StartTimer.Disabled = !hasAccess;
     }
 
@@ -186,10 +152,13 @@ public sealed partial class SignalTimerWindow : DefaultWindow
     /// </summary>
     public TimeSpan GetDelay()
     {
-        if (!double.TryParse(CurrentDelayEditMinutes.Text, out var minutes))
-            minutes = 0;
-        if (!double.TryParse(CurrentDelayEditSeconds.Text, out var seconds))
-            seconds = 0;
-        return TimeSpan.FromMinutes(minutes) + TimeSpan.FromSeconds(seconds);
+        // Begin Monolith
+        // if (!double.TryParse(CurrentDelayEditMinutes.Text, out var minutes))
+        //     minutes = 0;
+        // if (!double.TryParse(CurrentDelayEditSeconds.Text, out var seconds))
+        //     seconds = 0;
+        // return TimeSpan.FromMinutes(minutes) + TimeSpan.FromSeconds(seconds);
+        return TimeSpan.FromSeconds(CurrentDelayEdit.Value);
+        // End Monolith
     }
 }
