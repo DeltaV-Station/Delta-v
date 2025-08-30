@@ -1,17 +1,4 @@
 ﻿Entries:
-- author: sowelipililimute
-  changes:
-  - message: Netinadone has been added. It can de-rot people with cryogenics and surgical
-      intervention, and is cheaper and weaker than opporozidone.
-    type: Add
-  - message: Opporozidone is now more effective at derotting people
-    type: Tweak
-  - message: Heart transplants no longer derot people to the point where they're immune
-      to rot
-    type: Remove
-  id: 1147
-  time: '2025-03-13T08:26:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3185
 - author: Quanteey
   changes:
   - message: Increased chemistry and medical doctor playtime requirements for the
@@ -4143,3 +4130,19 @@
   id: 1646
   time: '2025-08-30T05:45:05.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4290
+- author: NoElkaTheGod
+  changes:
+  - message: Malign rifts are more dangerous now.
+    type: Tweak
+  - message: Chaplains and mystagogues now have an easier time purging malign rifts.
+      Cultists also absorb them faster now.
+    type: Tweak
+  - message: Vacuous chantry, multispectral inhibitor and vacuous spire are no longer
+      destructible. Instead, you have to purge them with a bible, just like a malign
+      rift.
+    type: Tweak
+  - message: Cosmic cult's glyphs can now be purged with a bible.
+    type: Tweak
+  id: 1647
+  time: '2025-08-30T14:34:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4284
