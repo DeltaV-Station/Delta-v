@@ -15,11 +15,11 @@
     canEditLabel: false
   - type: DeviceLinkSource
     ports:
-      - Start
-      - Timer
+    - Start
+    - Timer
   - type: DeviceLinkSink
     ports:
-      - Trigger
+    - Trigger
   - type: ActivatableUI
     key: enum.SignalTimerUiKey.Key
   - type: UserInterface
