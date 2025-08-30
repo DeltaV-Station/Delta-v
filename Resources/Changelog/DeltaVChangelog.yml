@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Quanteey
-  changes:
-  - message: Increased chemistry and medical doctor playtime requirements for the
-      nuclear operative agent
-    type: Tweak
-  id: 1148
-  time: '2025-03-13T08:26:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3181
 - author: deltanedas
   changes:
   - message: Added the AI detector to traitor and nukie uplinks for 1 TC.
@@ -4146,3 +4138,12 @@
   id: 1647
   time: '2025-08-30T14:34:17.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4284
+- author: NoElkaTheGod
+  changes:
+  - message: Loneops get 75TC instead of 67 now (they no longer get free suit).
+    type: Tweak
+  - message: Nuclear operative war declaration now uses the correct sound.
+    type: Fix
+  id: 1648
+  time: '2025-08-30T14:38:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4285
