@@ -9,6 +9,7 @@
   - Revolutionary
   - AllHostile
   - Wizard
+  - Replicator # imp
 
 - type: npcFaction
   id: NanoTrasen
@@ -22,6 +23,7 @@
   - AllHostile
   - Wizard
   - Xenoborg
+  - Replicator # imp
 
 - type: npcFaction
   id: Mouse
@@ -43,6 +45,7 @@
   - AllHostile
   - Wizard
   - Dragon
+  - Replicator # imp
 
 - type: npcFaction
   id: SimpleHostile
@@ -58,6 +61,7 @@
   - AllHostile
   - Wizard
   - Xenoborg
+  - Replicator # imp
 
 - type: npcFaction
   id: SimpleNeutral
@@ -73,6 +77,7 @@
   - Dragon
   - AllHostile
   - Wizard
+  - Replicator # imp
   friendly:
   - Hostage # DeltaV - Nukie hostage ops
   - Xenoborg
@@ -90,6 +95,7 @@
   - Wizard
   - Dragon
   - Xenoborg
+  - Replicator # imp
 
 - type: npcFaction
   id: Zombie
@@ -105,6 +111,7 @@
   - Wizard
   - Dragon
   - Xenoborg
+  - Replicator # imp
 
 - type: npcFaction
   id: Revolutionary
@@ -116,6 +123,7 @@
   - AllHostile
   - Wizard
   - Xenoborg
+  - Replicator # imp
 
 - type: npcFaction
   id: AllHostile
@@ -133,6 +141,7 @@
   - Revolutionary
   - Wizard
   - Xenoborg
+  - Replicator # imp
 
 - type: npcFaction
   id: Wizard
@@ -150,6 +159,7 @@
   - Revolutionary
   - AllHostile
   - Xenoborg
+  - Replicator # imp
 
 - type: npcFaction
   id: Xenoborg
@@ -164,5 +174,5 @@
   - Xeno # rivalry
 
   # cause they are hostile to them
-  - SimpleHostile 
+  - SimpleHostile
   - AllHostile
