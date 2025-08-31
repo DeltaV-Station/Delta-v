@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Merged last weeks' changes from upstream, notably excluding their mail
-      system.
-    type: Add
-  - message: Removed the metempsychosis machine, the research is now for cloning instead.
-    type: Remove
-  id: 1150
-  time: '2025-03-13T14:52:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3171
 - author: Tirochora
   changes:
   - message: Added furred limbs as markings for felinids that allow them to recolor
@@ -4148,3 +4138,11 @@
   id: 1649
   time: '2025-08-31T01:27:39.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/3927
+- author: Quanteey
+  changes:
+  - message: Fixed the glitch that happens when eating food items that leave trash
+      behind
+    type: Fix
+  id: 1650
+  time: '2025-08-31T01:39:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4296
