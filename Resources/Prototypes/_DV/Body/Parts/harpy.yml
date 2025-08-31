@@ -44,11 +44,19 @@
   parent: [ PartHarpyBase, BaseLeftLeg ]
   id: LeftLegHarpy
   name: "left harpy leg"
+  components:
+    - type: MovementBodyPart
+      walkSpeed: 2.5
+      sprintSpeed: 5
 
 - type: entity
   parent: [ PartHarpyBase, BaseRightLeg ]
   id: RightLegHarpy
   name: "right harpy leg"
+  components:
+  - type: MovementBodyPart
+    walkSpeed: 2.5
+    sprintSpeed: 5
 
 - type: entity
   parent: [ PartHarpyBase, BaseLeftFoot ]
