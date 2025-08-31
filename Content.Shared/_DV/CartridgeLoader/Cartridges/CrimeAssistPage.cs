@@ -42,5 +42,6 @@ public enum CrimeSeverity : byte
     Innocent,
     Misdemeanour,
     Felony,
+    GrandFelony,
     Capital
 }

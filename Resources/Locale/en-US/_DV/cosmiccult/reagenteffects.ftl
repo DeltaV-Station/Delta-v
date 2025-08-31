@@ -10,4 +10,6 @@ reagent-name-entropy = liquid entropy
 
 reagent-desc-entropy = An unnerving, malign substance.
 
+flavor-complex-entropy = sharply eerie
+
 reagent-physical-desc-malign = malign

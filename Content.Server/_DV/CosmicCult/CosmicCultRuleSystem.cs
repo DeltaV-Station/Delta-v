@@ -12,6 +12,7 @@ using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Server.Light.Components;
 using Content.Server.Objectives.Components;
+using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
 using Content.Server.Radio.Components;
 using Content.Server.Roles;
@@ -288,7 +289,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         while (cultQuery.MoveNext(out var cult, out _, out var metadata))
         {
             var playerInfo = metadata.EntityName;
-            cultists.Add((playerInfo, cult));
+            if (TryComp<PolymorphedEntityComponent>(cult, out var polyComp)) // If the cultist is polymorphed, we use the original entity instead and hope that they'll polymorph back eventually
+                cultists.Add((playerInfo, polyComp.Parent));
+            else
+                cultists.Add((playerInfo, cult));
         }
 
         var options = new VoteOptions
@@ -727,7 +731,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         }
         if (cult.Comp.CurrentTier == 3)
         {
-            _damage.SetDamageContainerID(uid, "BiologicalMetaphysical");
             cultComp.EntropyBudget = 48; // pity balance
             cultComp.Respiration = false;
 
@@ -777,6 +780,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     {
         if (AssociatedGamerule(uid) is not { } cult)
             return;
+        if (TerminatingOrDeleted(uid))
+            return;
         var cosmicGamerule = cult.Comp;
 
         _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
@@ -793,7 +798,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         RemComp<TemperatureImmunityComponent>(uid);
         RemComp<CosmicStarMarkComponent>(uid);
         RemComp<CosmicSubtleMarkComponent>(uid);
-        _damage.SetDamageContainerID(uid.Owner, uid.Comp.StoredDamageContainer);
+
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-fluff"), Color.FromHex("#4cabb3"), _deconvertSound);
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), null);
 
