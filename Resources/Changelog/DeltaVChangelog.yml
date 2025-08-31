@@ -1,63 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Melee attacks made when laying down are much weaker.
-    type: Tweak
-  id: 1144
-  time: '2025-03-12T00:26:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3173
-- author: Lyndomen
-  changes:
-  - message: Survival has gotten 20% less spicy
-    type: Tweak
-  id: 1145
-  time: '2025-03-12T15:11:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3210
-- author: deltanedas
-  changes:
-  - message: IPCs can now use steel to heal Caustic damage.
-    type: Tweak
-  id: 1146
-  time: '2025-03-13T08:24:43.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3206
-- author: sowelipililimute
-  changes:
-  - message: Netinadone has been added. It can de-rot people with cryogenics and surgical
-      intervention, and is cheaper and weaker than opporozidone.
-    type: Add
-  - message: Opporozidone is now more effective at derotting people
-    type: Tweak
-  - message: Heart transplants no longer derot people to the point where they're immune
-      to rot
-    type: Remove
-  id: 1147
-  time: '2025-03-13T08:26:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3185
-- author: Quanteey
-  changes:
-  - message: Increased chemistry and medical doctor playtime requirements for the
-      nuclear operative agent
-    type: Tweak
-  id: 1148
-  time: '2025-03-13T08:26:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3181
-- author: deltanedas
-  changes:
-  - message: Added the AI detector to traitor and nukie uplinks for 1 TC.
-    type: Add
-  id: 1149
-  time: '2025-03-13T08:39:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3192
-- author: deltanedas
-  changes:
-  - message: Merged last weeks' changes from upstream, notably excluding their mail
-      system.
-    type: Add
-  - message: Removed the metempsychosis machine, the research is now for cloning instead.
-    type: Remove
-  id: 1150
-  time: '2025-03-13T14:52:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3171
 - author: Tirochora
   changes:
   - message: Added furred limbs as markings for felinids that allow them to recolor
@@ -4140,3 +4081,68 @@
   id: 1643
   time: '2025-08-29T14:41:38.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4277
+- author: NoElkaTheGod
+  changes:
+  - message: Kitsune and felinids are no longer as bad at dragging things. Still worse
+      than most other species, though.
+    type: Tweak
+  id: 1644
+  time: '2025-08-29T15:44:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4265
+- author: HTMLSystem
+  changes:
+  - message: Medical belts can now hold syringes
+    type: Tweak
+  - message: Medical doctors will now start with a syringe in their bag
+    type: Tweak
+  id: 1645
+  time: '2025-08-29T23:33:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4196
+- author: AeraAuling
+  changes:
+  - message: Chaplains can be evil again, just not cult evil.
+    type: Tweak
+  id: 1646
+  time: '2025-08-30T05:45:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4290
+- author: NoElkaTheGod
+  changes:
+  - message: Malign rifts are more dangerous now.
+    type: Tweak
+  - message: Chaplains and mystagogues now have an easier time purging malign rifts.
+      Cultists also absorb them faster now.
+    type: Tweak
+  - message: Vacuous chantry, multispectral inhibitor and vacuous spire are no longer
+      destructible. Instead, you have to purge them with a bible, just like a malign
+      rift.
+    type: Tweak
+  - message: Cosmic cult's glyphs can now be purged with a bible.
+    type: Tweak
+  id: 1647
+  time: '2025-08-30T14:34:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4284
+- author: NoElkaTheGod
+  changes:
+  - message: Loneops get 75TC instead of 67 now (they no longer get free suit).
+    type: Tweak
+  - message: Nuclear operative war declaration now uses the correct sound.
+    type: Fix
+  id: 1648
+  time: '2025-08-30T14:38:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4285
+- author: Eternally-Confused
+  changes:
+  - message: The crime assist PDA App has been updated to match current Space Law
+      and SOP
+    type: Fix
+  id: 1649
+  time: '2025-08-31T01:27:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3927
+- author: Quanteey
+  changes:
+  - message: Fixed the glitch that happens when eating food items that leave trash
+      behind
+    type: Fix
+  id: 1650
+  time: '2025-08-31T01:39:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4296
