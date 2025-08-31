@@ -75,3 +75,30 @@
   - OreBluespace
   - OreArtifactFragment
   - GlacierGibtonite
+
+- type: planet
+  id: AkashicFold
+  biome: Fold # biomeTemplate vs biome? hmm???
+  mapName: Akashic Fold # TODO: localize real
+  mapLight: "#926cc4" # purple...
+  addedComponents:
+  - type: Parallax
+    parallax: CosmicFinaleParallax # replace with menu parallax
+  atmosphere: # look i'm not an atmos main i don't know what's Normal im leaving this untouched
+    volume: 2500
+    temperature: 215 # probably normal idk
+    moles: # 119kPa, 21% O2
+    - 42
+    - 158
+  #biomeMarkerLayers: # hopefully we dont need this :godo:
+  #- OreIron
+  #- OreQuartz
+  #- OreCoal
+  #- OreGold
+  #- OreSilver
+  #- OrePlasma3
+  #- OreUranium2
+  #- OreDiamond
+  #- OreBluespace
+  #- OreArtifactFragment
+  #- GlacierGibtonite

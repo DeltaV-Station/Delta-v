@@ -42,3 +42,11 @@
   - type: StationPlanetSpawner
     planet: Lavaland
     gridPath: /Maps/_DV/Nonstations/lavaland_mining_base.yml
+
+- type: entity
+  abstract: true
+  id: BaseStationAkashicFold
+  components:
+  - type: AkashicFoldSpawner
+    planet: AkashicFold
+    gridPath: /Maps/_DV/Nonstations/glacier_surface_outpost.yml # yeah just use this sure

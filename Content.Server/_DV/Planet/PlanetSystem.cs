@@ -1,6 +1,7 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Parallax;
 using Content.Shared._DV.Planet;
+using Content.Shared.Parallax;
 using Content.Shared.Parallax.Biomes;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
@@ -30,6 +31,8 @@ public sealed class PlanetSystem : EntitySystem
 
         var map = _map.CreateMap(out _, runMapInit: runMapInit);
         _biome.EnsurePlanet(map, _proto.Index(planet.Biome), mapLight: planet.MapLight);
+
+        var parallax = EnsureComp<ParallaxComponent>(map); // god please work
 
         // add each marker layer
         var biome = Comp<BiomeComponent>(map);
