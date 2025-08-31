@@ -42,19 +42,19 @@
 
 - type: entity
   abstract: true
-  id: HarpyLegBase
+  id: BaseHarpyLeg
   components:
   - type: MovementBodyPart
     walkSpeed: 2.5
     sprintSpeed: 5
 
 - type: entity
-  parent: [ PartHarpyBase, BaseLeftLeg, HarpyLegBase]
+  parent: [ PartHarpyBase, BaseHarpyLeg, BaseLeftLeg ]
   id: LeftLegHarpy
   name: "left harpy leg"
 
 - type: entity
-  parent: [ PartHarpyBase, BaseRightLeg, HarpyLegBase ]
+  parent: [ PartHarpyBase, BaseHarpyLeg, BaseRightLeg ]
   id: RightLegHarpy
   name: "right harpy leg"
 
