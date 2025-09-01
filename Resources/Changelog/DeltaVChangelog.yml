@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: ID computer now toggles accesses so it works nicer when spam clicking.
-    type: Tweak
-  - message: Fixed not being able to change borg id chip access.
-    type: Fix
-  id: 1156
-  time: '2025-03-14T21:44:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3238
 - author: sowelipililimute
   changes:
   - message: Randomly spawned characters have a consistent size
@@ -4152,3 +4143,12 @@
   id: 1655
   time: '2025-09-01T20:04:47.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4194
+- author: Proxysseia
+  changes:
+  - message: Omni patches have been updated to purge radiation as well
+    type: Tweak
+  - message: IPC now heal twice as much per cable
+    type: Tweak
+  id: 1656
+  time: '2025-09-01T21:24:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4283
