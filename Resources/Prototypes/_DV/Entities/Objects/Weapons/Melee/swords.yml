@@ -9,7 +9,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 7
+        Slash: 15
   - type: Item
     sprite: _DV/Objects/Weapons/Melee/silversword.rsi
   - type: Construction
@@ -50,7 +50,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 7
+        Slash: 15
         Holy: 15
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
