@@ -1,0 +1,39 @@
+
+- type: latheRecipe
+  id: BioGenSheetPlastic1
+  result: SheetPlastic1
+  categories:
+  - Materials
+  icon:
+    sprite: Objects/Materials/Sheets/other.rsi
+    state: plastic
+  name: stack-biogenerator-plastic1
+  completetime: 1
+  materials:
+    Biomass: 2
+
+- type: latheRecipe
+  id: BioGenSheetPlastic10
+  result: SheetPlastic10
+  categories:
+  - Materials
+  icon:
+    sprite: Objects/Materials/Sheets/other.rsi
+    state: plastic_2
+  name: stack-biogenerator-plastic10
+  completetime: 1
+  materials:
+    Biomass: 20
+
+- type: latheRecipe
+  id: BioGenSheetPlastic30
+  result: SheetPlastic
+  categories:
+  - Materials
+  icon:
+    sprite: Objects/Materials/Sheets/other.rsi
+    state: plastic_3
+  name: stack-biogenerator-plastic30
+  completetime: 1
+  materials:
+    Biomass: 60
