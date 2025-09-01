@@ -20,3 +20,5 @@ admin-logs-include-non-player = Include Non-players
 admin-logs-search-logs-placeholder = Search Logs
 admin-logs-refresh = Refresh
 admin-logs-next = Next
+admin-logs-order-ascending = Asc
+admin-logs-order-descending = Desc
