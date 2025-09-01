@@ -1,103 +1,4 @@
 ﻿Entries:
-- author: Lyndomen
-  changes:
-  - message: Survival has gotten 20% less spicy
-    type: Tweak
-  id: 1145
-  time: '2025-03-12T15:11:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3210
-- author: deltanedas
-  changes:
-  - message: IPCs can now use steel to heal Caustic damage.
-    type: Tweak
-  id: 1146
-  time: '2025-03-13T08:24:43.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3206
-- author: sowelipililimute
-  changes:
-  - message: Netinadone has been added. It can de-rot people with cryogenics and surgical
-      intervention, and is cheaper and weaker than opporozidone.
-    type: Add
-  - message: Opporozidone is now more effective at derotting people
-    type: Tweak
-  - message: Heart transplants no longer derot people to the point where they're immune
-      to rot
-    type: Remove
-  id: 1147
-  time: '2025-03-13T08:26:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3185
-- author: Quanteey
-  changes:
-  - message: Increased chemistry and medical doctor playtime requirements for the
-      nuclear operative agent
-    type: Tweak
-  id: 1148
-  time: '2025-03-13T08:26:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3181
-- author: deltanedas
-  changes:
-  - message: Added the AI detector to traitor and nukie uplinks for 1 TC.
-    type: Add
-  id: 1149
-  time: '2025-03-13T08:39:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3192
-- author: deltanedas
-  changes:
-  - message: Merged last weeks' changes from upstream, notably excluding their mail
-      system.
-    type: Add
-  - message: Removed the metempsychosis machine, the research is now for cloning instead.
-    type: Remove
-  id: 1150
-  time: '2025-03-13T14:52:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3171
-- author: Tirochora
-  changes:
-  - message: Added furred limbs as markings for felinids that allow them to recolor
-      their limbs.
-    type: Add
-  id: 1151
-  time: '2025-03-13T17:42:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3218
-- author: sowelipililimute
-  changes:
-  - message: Criminal records console can now set the wanted status again
-    type: Fix
-  id: 1152
-  time: '2025-03-14T13:23:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3222
-- author: sowelipililimute
-  changes:
-  - message: The clean meter of a surgery tool in the hotbar now also indicates the
-      cleanliness of the gloves and absence of a mask
-    type: Tweak
-  id: 1153
-  time: '2025-03-14T14:26:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3215
-- author: deltanedas
-  changes:
-  - message: Fixed some names being funny.
-    type: Fix
-  id: 1154
-  time: '2025-03-14T19:35:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3235
-- author: SlamBamActionman, sowelipililimute
-  changes:
-  - message: Roundstart antagonist roles now roll before job selection. Early cherry-pick
-      from upstream.
-    type: Add
-  id: 1155
-  time: '2025-03-14T19:36:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3231
-- author: deltanedas
-  changes:
-  - message: ID computer now toggles accesses so it works nicer when spam clicking.
-    type: Tweak
-  - message: Fixed not being able to change borg id chip access.
-    type: Fix
-  id: 1156
-  time: '2025-03-14T21:44:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3238
 - author: sowelipililimute
   changes:
   - message: Randomly spawned characters have a consistent size
@@ -4141,3 +4042,113 @@
   id: 1644
   time: '2025-08-29T15:44:42.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4265
+- author: HTMLSystem
+  changes:
+  - message: Medical belts can now hold syringes
+    type: Tweak
+  - message: Medical doctors will now start with a syringe in their bag
+    type: Tweak
+  id: 1645
+  time: '2025-08-29T23:33:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4196
+- author: AeraAuling
+  changes:
+  - message: Chaplains can be evil again, just not cult evil.
+    type: Tweak
+  id: 1646
+  time: '2025-08-30T05:45:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4290
+- author: NoElkaTheGod
+  changes:
+  - message: Malign rifts are more dangerous now.
+    type: Tweak
+  - message: Chaplains and mystagogues now have an easier time purging malign rifts.
+      Cultists also absorb them faster now.
+    type: Tweak
+  - message: Vacuous chantry, multispectral inhibitor and vacuous spire are no longer
+      destructible. Instead, you have to purge them with a bible, just like a malign
+      rift.
+    type: Tweak
+  - message: Cosmic cult's glyphs can now be purged with a bible.
+    type: Tweak
+  id: 1647
+  time: '2025-08-30T14:34:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4284
+- author: NoElkaTheGod
+  changes:
+  - message: Loneops get 75TC instead of 67 now (they no longer get free suit).
+    type: Tweak
+  - message: Nuclear operative war declaration now uses the correct sound.
+    type: Fix
+  id: 1648
+  time: '2025-08-30T14:38:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4285
+- author: Eternally-Confused
+  changes:
+  - message: The crime assist PDA App has been updated to match current Space Law
+      and SOP
+    type: Fix
+  id: 1649
+  time: '2025-08-31T01:27:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3927
+- author: Quanteey
+  changes:
+  - message: Fixed the glitch that happens when eating food items that leave trash
+      behind
+    type: Fix
+  id: 1650
+  time: '2025-08-31T01:39:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4296
+- author: Quanteey
+  changes:
+  - message: Fixed a bug causing harpies to not have their speed bonus
+    type: Fix
+  id: 1651
+  time: '2025-08-31T17:31:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4300
+- author: Elpersonn
+  changes:
+  - message: Fixed LPO crew monitor focusing on the wrong grid.
+    type: Fix
+  id: 1652
+  time: '2025-08-31T17:31:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4273
+- author: TehFlaminTaco
+  changes:
+  - message: Added a new Midround Antagonist, the Skia
+    type: Add
+  - message: Adds new fancy Night Vision and Thermal Vision
+    type: Add
+  - message: Adds a new Psionic Power that shatters lights
+    type: Add
+  id: 1653
+  time: '2025-09-01T08:46:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4152
+- author: AlgisAlphonse
+  changes:
+  - message: The biogenerator can now produce plastic thanks to the wonders of modern
+      chemistry.
+    type: Add
+  - message: The biogenerator has been upgraded to use less biomass.
+    type: Tweak
+  id: 1654
+  time: '2025-09-01T17:31:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4298
+- author: NoElkaTheGod
+  changes:
+  - message: Added malign injectors, which cosmic cultists can create from any medipen
+      with a glyph of blades. They give a powerful speed boost when used, but be wary
+      of the possible side effects!
+    type: Add
+  id: 1655
+  time: '2025-09-01T20:04:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4194
+- author: Proxysseia
+  changes:
+  - message: Omni patches have been updated to purge radiation as well
+    type: Tweak
+  - message: IPC now heal twice as much per cable
+    type: Tweak
+  id: 1656
+  time: '2025-09-01T21:24:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4283
