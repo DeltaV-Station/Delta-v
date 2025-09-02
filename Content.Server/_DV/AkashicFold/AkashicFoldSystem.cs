@@ -7,6 +7,7 @@ using Content.Server.Parallax;
 using Content.Server.Procedural;
 using Content.Shared._DV.Planet;
 using Content.Shared.Decals;
+using Content.Shared.Light.Components;
 using Content.Shared.Maps;
 using Content.Shared.Parallax.Biomes;
 using Robust.Shared.EntitySerialization.Systems;
@@ -130,8 +131,10 @@ public sealed class AkashicFoldSystem : EntitySystem
 
         _transform.SetCoordinates(spawned, new EntityCoordinates(_map.Value, coords));
 
+        RemComp<ImplicitRoofComponent>(spawned); // un-fuck lighting. do this on non-merged grids ideally
+
         // oh god
-        GoidaMerge(spawned, (_map.Value, _gridQuery.Comp(_map.Value)), coords, out _); // oh GOD
+        //GoidaMerge(spawned, (_map.Value, _gridQuery.Comp(_map.Value)), coords, out _); // this is probably more trouble then its worth
 
         _biome.ReserveTiles(_map.Value, Comp<MapGridComponent>(spawned).LocalAABB, new List<(Vector2i, Tile)>(), Comp<BiomeComponent>(_map.Value), Comp<MapGridComponent>(_map.Value)); // erm
     }
