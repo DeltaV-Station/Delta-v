@@ -109,6 +109,8 @@ loadout-group-atmospheric-technician-neck = Atmospheric Technician neck
 
 loadout-group-atmos-id-delta = Atmospheric Technician PDA
 
+loadout-group-atmospheric-technician-head = Atmospheric Technician Head
+
 # Security
 loadout-group-head-of-security-shoes = Head of Security shoes
 
