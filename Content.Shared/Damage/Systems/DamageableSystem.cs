@@ -194,6 +194,8 @@ namespace Content.Shared.Damage
                 return damage;
             }
 
+            damage = ApplyUniversalAllModifiers(damage);
+
             var before = new BeforeDamageChangedEvent(damage, origin, targetPart); // Shitmed Change
             RaiseLocalEvent(uid.Value, ref before);
 
@@ -201,12 +203,14 @@ namespace Content.Shared.Damage
                 return null;
 
             // Shitmed Change Start
-            var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
-            RaiseLocalEvent(uid.Value, ref partDamage);
-
-            if (partDamage.Evaded || partDamage.Cancelled)
-                return null;
-
+            if (doPartDamage)
+            {
+                var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
+                RaiseLocalEvent(uid.Value, ref partDamage);
+                
+                if (partDamage.Evaded || partDamage.Cancelled)
+                    return null;
+            }
             // Shitmed Change End
 
             // Apply resistances
@@ -233,7 +237,6 @@ namespace Content.Shared.Damage
 
             if (onlyDamageParts) //Shitmed change
                 return null;
-            damage = ApplyUniversalAllModifiers(damage);
 
             // TODO DAMAGE PERFORMANCE
             // Consider using a local private field instead of creating a new dictionary here.

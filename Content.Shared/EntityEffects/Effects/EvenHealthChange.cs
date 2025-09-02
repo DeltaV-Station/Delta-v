@@ -1,3 +1,6 @@
+using System.Linq;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects;
@@ -91,9 +94,6 @@ public sealed partial class EvenHealthChange : EntityEffect
         }
 
         var damagableSystem = args.EntityManager.System<DamageableSystem>();
-        var universalReagentDamageModifier = damagableSystem.UniversalReagentDamageModifier;
-        var universalReagentHealModifier = damagableSystem.UniversalReagentHealModifier;
-
         var dspec = GetDamageSpec(protoMan, damageable);
 
         damagableSystem.TryChangeDamage(
@@ -105,7 +105,7 @@ public sealed partial class EvenHealthChange : EntityEffect
             doPartDamage: false);
             // Shitmed Change End
 
-            var bodySystem = args.EntityManager.System<SharedBodySystem>();
+        var bodySystem = args.EntityManager.System<SharedBodySystem>();
         var bodyParts = SharedTargetingSystem.GetValidParts();
         foreach (var bodyPart in bodyParts)
         {
@@ -115,21 +115,6 @@ public sealed partial class EvenHealthChange : EntityEffect
                 if (!args.EntityManager.TryGetComponent<DamageableComponent>(part.FirstOrDefault().Id, out var damageablePart))
                     continue;
                 dspec = GetDamageSpec(protoMan, damageablePart);
-
-                if (universalReagentDamageModifier != 1 || universalReagentHealModifier != 1)
-                {
-                    foreach (var (type, val) in dspec.DamageDict)
-                    {
-                        if (val < 0f)
-                        {
-                            dspec.DamageDict[type] = val * universalReagentHealModifier;
-                        }
-                        if (val > 0f)
-                        {
-                            dspec.DamageDict[type] = val * universalReagentDamageModifier;
-                        }
-                    }
-                }
 
                 if (dspec.GetTotal() == 0)
                     continue;
