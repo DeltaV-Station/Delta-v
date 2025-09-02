@@ -4,3 +4,4 @@ fibers-steel = steel
 fibers-plasteel = plasteel
 fibers-degraded-plasteel = degraded plasteel
 fibers-replicated-plasteel = replicated plasteel
+fibers-nanomachine = nanomachine
