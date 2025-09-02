@@ -77,8 +77,6 @@ public partial class MobStateSystem
                 break;
             case MobState.Critical:
                 break;
-            case MobState.SoftCritical:
-                break;
             case MobState.Dead:
                 RemComp<CollisionWakeComponent>(target);
                 break;
