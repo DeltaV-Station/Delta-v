@@ -76,9 +76,11 @@ public partial class MobStateSystem
                 //unused
                 break;
             case MobState.Critical:
+                //_standing.Stand(target);    DeltaV - Remove Redundancy
                 break;
             case MobState.Dead:
                 RemComp<CollisionWakeComponent>(target);
+                //_standing.Stand(target);    DeltaV - Remove Redundancy
                 break;
             case MobState.Invalid:
                 //unused
@@ -100,7 +102,7 @@ public partial class MobStateSystem
         {
             case MobState.Alive:
                 if (!TryComp(target, out BuckleComponent? buckle)
-                    || !buckle.Buckled)
+                    || !buckle.Buckled)    // DeltaV - Stop buckled mobs from standing up.
                     _standing.Stand(target);
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
