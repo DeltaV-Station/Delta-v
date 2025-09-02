@@ -1,0 +1,53 @@
+# base prototpes
+- type: latheRecipe
+  abstract: true
+  id: PrizeCounterJunk
+  applyMaterialDiscount: false
+  categories:
+  - Miscellaneous
+  completetime: 0.1
+  materials:
+    PrizeTicket: 30
+
+- type: latheRecipe
+  abstract: true
+  id: PrizeCounterInstrument
+  applyMaterialDiscount: false
+  categories:
+  - Instruments
+  completetime: 0.1
+  materials:
+    PrizeTicket: 200
+
+- type: latheRecipe
+  abstract: true
+  id: PrizeCounterWeapons
+  applyMaterialDiscount: false
+  categories:
+  - Weapons
+  completetime: 0.1
+  materials:
+    PrizeTicket: 500
+    Plastic: 500
+
+- type: latheRecipe
+  abstract: true
+  id: PrizeCounterPlushie
+  applyMaterialDiscount: false
+  categories:
+  - Plushies
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+    Cloth: 500
+
+- type: latheRecipe
+  abstract: true
+  id: PrizeCounterPlushieExpensive
+  applyMaterialDiscount: false
+  categories:
+  - Plushies
+  completetime: 1
+  materials:
+    PrizeTicket: 100
+    Durathread: 1000
