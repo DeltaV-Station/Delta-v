@@ -1,4 +1,4 @@
-using System.Linq;
+using System.Linq; // DeltaV
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
@@ -94,7 +94,7 @@ public sealed partial class EvenHealthChange : EntityEffect
         }
 
         var damagableSystem = args.EntityManager.System<DamageableSystem>();
-        var dspec = GetDamageSpec(protoMan, damageable);
+        var dspec = GetDamageSpec(protoMan, damageable); // DeltaV - Fix EvenHealing with Limbs.
 
         damagableSystem.TryChangeDamage(
             args.TargetEntity,
@@ -105,6 +105,7 @@ public sealed partial class EvenHealthChange : EntityEffect
             doPartDamage: false);
             // Shitmed Change End
 
+        // DeltaV Start - Fix EvenHealing with Limbs.
         var bodySystem = args.EntityManager.System<SharedBodySystem>();
         var bodyParts = SharedTargetingSystem.GetValidParts();
         foreach (var bodyPart in bodyParts)
@@ -132,12 +133,12 @@ public sealed partial class EvenHealthChange : EntityEffect
                     // Shitmed Change End
             }
         }
-
+        // DeltaV End - Fix EvenHealing with Limbs.
     }
 
-    private DamageSpecifier GetDamageSpec(IPrototypeManager protoMan, DamageableComponent damageable)
+    private DamageSpecifier GetDamageSpec(IPrototypeManager protoMan, DamageableComponent damageable) // DeltaV - Fix EvenHealing with Limbs.
     {
-        var damageSpecifier = new DamageSpecifier();
+        var damageSpecifier = new DamageSpecifier();    // DeltaV
 
         foreach (var (group, amount) in Damage)
         {
@@ -154,10 +155,9 @@ public sealed partial class EvenHealthChange : EntityEffect
             foreach (var (damageId, damageAmount) in groupDamage)
             {
                 var existing = damageSpecifier.DamageDict.GetOrNew(damageId);
-                damageSpecifier.DamageDict[damageId] = existing + damageAmount / sum * amount;
+                damageSpecifier.DamageDict[damageId] = existing + damageAmount / sum * amount; // DeltaV
             }
         }
-
         return damageSpecifier;
     }
 }

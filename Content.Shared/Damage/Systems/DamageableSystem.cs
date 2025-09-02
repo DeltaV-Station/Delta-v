@@ -194,7 +194,7 @@ namespace Content.Shared.Damage
                 return damage;
             }
 
-            damage = ApplyUniversalAllModifiers(damage);
+            damage = ApplyUniversalAllModifiers(damage); // DeltaV
 
             var before = new BeforeDamageChangedEvent(damage, origin, targetPart); // Shitmed Change
             RaiseLocalEvent(uid.Value, ref before);
@@ -207,7 +207,7 @@ namespace Content.Shared.Damage
             {
                 var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
                 RaiseLocalEvent(uid.Value, ref partDamage);
-                
+
                 if (partDamage.Evaded || partDamage.Cancelled)
                     return null;
             }
@@ -235,7 +235,7 @@ namespace Content.Shared.Damage
                 }
             }
 
-            if (onlyDamageParts) //Shitmed change
+            if (onlyDamageParts) //DeltaV - Fix EvenHealing with Limbs.
                 return null;
 
             // TODO DAMAGE PERFORMANCE
