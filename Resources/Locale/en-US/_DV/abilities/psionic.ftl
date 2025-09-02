@@ -1,5 +1,9 @@
 psionic-nosebleed-message = Your nose starts gushing blood!
 
+mass-mind-swap-event-announcement = Warning: abnormal glimmer discharge detected. Mass consciousness transfer event imminent, T-{$time} seconds. Please equip psionically-insulating headwear immediately.
+
+mass-mind-swap-event-sender = Sophic Grammateus
+
 psionic-power-mass-sleep-warning = Your eyelids begin to droop...
 
 psionic-power-precognition-failure-by-damage = Your concentration was broken! You fail to decipher anything of use.
@@ -20,6 +24,7 @@ psionic-power-precognition-breaker-flip-result-message = You see torches snuff a
 psionic-power-precognition-bureaucratic-error-result-message = You see a vision of yourself trapped in a room, trying to solve a puzzle with both missing and duplicate pieces.
 psionic-power-precognition-clerical-error-result-message = You see faces you once knew being obscured in a fog of static, identities lost.
 psionic-power-precognition-closet-skeleton-result-message = You hear a crackling laugh echo and clinking bones in the dusty recesses of the station.
+psionic-power-precognition-skia-result-message = The shadows around you gnash and scratch at you, a great beast of the noösphere is stalking you. You feel its breath on your neck.
 psionic-power-precognition-dragon-spawn-result-message = Reality around you bulges and breaks as a great beast cries for war. The smell of salty sea and blood fills the air.
 psionic-power-precognition-colossus-spawn-result-message = You see the vast shadow of a monstrosity so large that it casts all beneath it into darkness. The noösphere shifts precariously in its wake.
 psionic-power-precognition-ninja-spawn-result-message = You see a vision of shadows brought to life, hounds of war howling their cries as they chase it through dark corners of the station.
@@ -49,6 +54,8 @@ psionic-power-precognition-random-sentience-result-message = Something bright an
 psionic-power-precognition-unknown-shuttle-cargo-lost-result-message = You see a vision of a simple ship of old Terra, adrift of the sea, far away from home.
 psionic-power-precognition-unknown-shuttle-traveling-cuisine-result-message = You see a vision of peace, a cozy meal sizzling on a warm stove. A delicious smells wafts through the air.
 psionic-power-precognition-unknown-shuttle-disaster-evac-pod-result-message = You see a vision of death and blood, of a destruction so complete only few survive, drifting through the coldness of space.
+psionic-power-precognition-syndicate-armsdealer-result-message = You see a vision of a ship lurking in the shadows, its cargo deadly.
+psionic-power-precognition-rift-spawn-result-message = You see a small spark of energy, quickly expanding as it tears reality apart, twisting everything around it.
 
 psionic-eruption-begin = {CAPITALIZE(THE($user))} is being consumed by a psionic energy!
 psionic-eruption-annoy-minimal = You feel a pressure building up in your mind.
