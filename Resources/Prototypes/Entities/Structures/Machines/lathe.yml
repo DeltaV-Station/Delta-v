@@ -341,6 +341,7 @@
     - BorgModules
     - MechParts
     - MechEquipment
+    - Surgery # Shitmed change - No need for soap, IPC's cant get poisoned.
     - Cybernetics # Shitmed change
     - PowerAugments # DeltaV - augments
     - ToolAugments # DeltaV - augments
@@ -536,6 +537,7 @@
     - ReportingStatic
     - EVASuit
     - PowerCellsStatic
+    - IPCLimbsStatic
     # End DeltaV Additions
     dynamicPacks:
     - Chemistry
@@ -544,6 +546,9 @@
     # Being DeltaV Additions
     - MedicalDeltaV
     - ParamedicHardsuit
+    - Cybernetics # Shitmed change
+    - PowerAugments
+    - ToolAugments
     # End DeltaV Additions
   - type: Machine
     board: MedicalTechFabCircuitboard

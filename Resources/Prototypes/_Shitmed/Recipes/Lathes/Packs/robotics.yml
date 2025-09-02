@@ -1,18 +1,23 @@
 ## Static
 
 - type: latheRecipePack
-  id: IPCPartsStatic
+  id: IPCLimbsStatic
   recipes:
-  - TorsoIPC
   - LeftArmIPC
   - RightArmIPC
   - LeftLegIPC
   - RightLegIPC
-  - HeadIPC
   - LeftHandIPC
   - RightHandIPC
   - LeftFootIPC
   - RightFootIPC
+
+- type: latheRecipePack
+  parent: IPCLimbsStatic
+  id: IPCPartsStatic
+  recipes:
+  - TorsoIPC
+  - HeadIPC
   - OrganIPCEyes
   - OrganIPCPump
 
