@@ -2,7 +2,7 @@
   abstract: true
   parent: BaseItem
   id: PrizeTicketBase
-  description: A shiny ticket! Can be redeemed for... something? It's mostly just used as fake money.
+  description: A shiny ticket! Can be redeemed at the Prize Counter. # DeltaV - more helpful description
   components:
   - type: Item
     sprite: _Impstation/Objects/Fun/prizeticket.rsi

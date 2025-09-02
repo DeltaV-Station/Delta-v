@@ -62,11 +62,9 @@
   result: WarmLightBulb
 
 - type: latheRecipe
-  parent: BaseLightRecipe # imp
+  parent: GlowstickRed
   id: Flare
   result: Flare
-  materials: # imp
-    Plastic: 50
 
 - type: latheRecipe
   parent: BaseLightRecipe
