@@ -87,11 +87,8 @@
           reagent: LotophagoiOil
           min: 20
       - !type:GenericStatusEffect
-        key: Stutter
-        component: ScrambledAccent
-      - !type:GenericStatusEffect
         key: SlurredSpeech
-        component: TelepathicRepeater
+        component: ScrambledAccent
 
 - type: reagent
   id: Ectoplasm
