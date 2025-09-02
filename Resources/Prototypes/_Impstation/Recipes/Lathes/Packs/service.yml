@@ -1,199 +1,107 @@
 # Static
-
-- type: latheRecipePack
-  id: ImpLightPack
-  recipes:
-  - UvLightTube
-  - LightReplacer
-
-- type: latheRecipePack
-  id: ImpServiceStatic
-  recipes:
-  - Mousetrap
-  - TrashBag
-  - DeskBell
-  - PrizeTicket
-  - PrizeTicket100
-  - PrizeTicket10
-
-- type: latheRecipePack
-  id: CleanPack
-  recipes:
-  - Plunger
-  - MopBucketCube
-  - WelderJanitorial
-
-- type: latheRecipePack
-  id: BotanyPack
-  recipes:
-  - DiseaseSwab
-  - HydroponicsToolMiniHoe
-  - HydroponicsToolScythe
-  - HydroponicsToolHatchet
-  - HydroponicsToolSpade
-  - HydroponicsToolClippers
-  - Shovel
-  - PlantBag
-
-- type: latheRecipePack
-  id: BarPack
-  recipes:
-  - DrinkShaker
-  - DrinkJigger
-  - DrinkFlaskBar
-  - DrinkVacuumFlask
-  - DrinkVacuumFlaskXL
-  - DrinkTeapotEmpty
-  - DrinkTeacupEmpty
-  - DrinkWaterBottleEmpty
-  - Pitcher
-  - BarSpoon
-  - DrinkDisposableCup
-  - DrinkNoveltyMug
-
-- type: latheRecipePack
-  id: KitchenPack
-  recipes:
-  - KitchenKnife
-  - RollingPin
-  - Fork
-  - Spoon
-  - ForkPlastic
-  - SpoonPlastic
-  - KnifePlastic
-  - PairedChopsticks
-  - CandyBowl
-  - MeatBowl
-  - FruitBowl
-
-- type: latheRecipePack
-  id: ServiceMiscPack
-  recipes:
-  - Dropper
-  - ClothingHeadHatCone
-  - SprayPainter
-  - FlashlightLantern
-  - ClothingBeltPlushie
-
-- type: latheRecipePack
-  id: LunchboxPack
-  recipes:
-  - SteelLunchbox
-  - SteelLunchboxBlue
-  - SteelLunchboxPink
-  - SteelLunchboxOrange
-
 - type: latheRecipePack
   id: PrizeStatic
   recipes:
-  - BalloonCorgi
-  - BalloonNT
-  - Basketball
-  - BeachBall
-  - BirdToyInstrument
-  - BoxCartridgeCap
-  - BoxDonkSoftBox
-  - CandyBucket
-  - ClothingHeadHatCowboyRed
-  - CrayonBox
-  - CrazyGlue
-  - FoamCrossbow
-  - FoamCutlass
-  - Football
-  - GlowstickBase
-  - GlowstickBlue
-  - GlowstickPurple
-  - GlowstickRed
-  - GlowstickYellow
-  - GunpetInstrument
-  - HarmonicaInstrument
-  - MrChips
-  - MrDips
-  - NewtonCradle
-  - OcarinaInstrument
-  - PetRockCarrier
-  - PlasticBanana
-  - PlasticBanana
-  - PlushieAlienGerm
-  - PlushieAlienGermMini
-  - PlushieApid
-  - PlushieArachind
-  - PlushieAtmosian
-  - PlushieBee
-  - PlushieCarp
-  - PlushieDecapoid
-  - PlushieDiona
-  - PlushieDoll
-  - PlushieDollHair
-  - PlushieDwarf
-  - PlushieFinfin
-  - PlushieGiantBear
-  - PlushieGoblin
-  - PlushieGray
-  - PlushieGriffy
-  - PlushieHampter
-  - PlushieHolocarp
-  - PlushieHuman
-  - PlushieJumboGray
-  - PlushieKodepiia
-  - PlushieLamp
-  - PlushieLizard
-  - PlushieMagicarp
-  - PlushieMoth
-  - PlushieNar
-  - PlushiePenguin
-  - PlushieRainbowLizard
-  - PlushieRatvar
-  - PlushieRouny
-  - PlushieSharkBlue
-  - PlushieSharkGrey
-  - PlushieSharkPink
-  - PlushieSlime
-  - PlushieSnail
-  - PlushieSnake
-  - PlushieSpaceLizard
-  - PlushieTeddyBear
-  - PlushieTeddyBearRecolorableRandom
-  - PlushieThaven
-  - PlushieUrsaMinor
-  - PlushieVox
-  - PlushieXeno
-  - PonderingOrb
-  - PrizeBall
-  - RecorderInstrument
-  - RevolverCapGun
-  - SnapPopBox
-  - SqueakySmileyBall
-  - SqueakySmileyGuy
-  - SqueakySmileyGuyRandom
-  - ToyAi
-  - ToyAmongPequeno
-  - ToyHammer
-  - ToyIan
-  - ToyMouse
-  - ToyRubberDuck
-  - WeaponWaterBlaster
-  - WeaponWaterPistol
-  - Whistle
-  - WhoopieCushion
+  - type: latheRecipe
+  parent: PrizeCounterJunk
+  id: BoxDonkSoftBox
+  id: BoxCartridgeCap
+  id: BeachBall
+  id: CandyBucket
+  id: ClothingHeadHatCowboyRed
+  id: Football
+  id: GlowstickBase #green
+  id: GlowstickBlue
+  id: GlowstickYellow
+  id: GlowstickPurple
+  id: GlowstickRed
+  id: HarmonicaInstrument
+  id: OcarinaInstrument
+  id: RecorderInstrument
+  id: GunpetInstrument
+  id: BirdToyInstrument
+  id: MysteryFigureBox
+  id: MysteryFigureBox
+  id: PlushieRainbow
+  id: PlushieMoth
+  id: PlushieDiona
+  id: PlushieMort
+  id: PlushieIPC
+  id: PlushieFelinid
+  id: PlushieOni
+  id: PlushieHarpy
+  id: PlushieRodentia
+  id: PlushieFeroxi
+  id: PlushieChitinid
+  id: PlushieKitsune
+  id: PlushieThaven
+  id: ToyGriffin
+  id: ToyHonk
+  id: ToyMarauder
+  id: ToyMauler
+  id: ToyGygax
+  id: ToyOdysseus
+  id: ToyOwlman
+  id: ToyDeathRipley
+  id: ToyPhazon
+  id: ToyFireRipley
+  id: ToyReticence
+  id: ToyRipley
+  id: ToySeraph
+  id: ToyDurand
+  id: ToySkeleton
+  id: ToyRenault
+  id: ToySiobhan
+  id: # End DeltaV additions
+  id: PrizeBall
+  id: PlushieBee
+  id: PlushieHampter
+  id: PlushieRouny
+  id: PlushieLamp
+  id: PlushieArachind
+  id: PlushieLizard
+  id: PlushieSpaceLizard
+  id: PlushieSharkBlue
+  id: PlushieSharkPink
+  id: PlushieSharkGrey
+  id: PlushieCarp
+  id: PlushieMagicarp
+  id: PlushieHolocarp
+  id: PlushieSlime
+  id: PlushieSnake
+  id: ToyMouse
+  id: ToyRubberDuck
+  id: PlushieVox
+  id: PlushieAtmosian
+  id: PlushiePenguin
+  id: PlushieHuman
+  id: ToyAi
+  id: ToyIan
+  id: BalloonNT
+  id: BalloonCorgi
+  id: CrayonBox
+  id: PetRockCarrier
+  id: PlushieXeno
+  id: FoamCrossbow
+  id: RevolverCapGun
+  id: PonderingOrb
+  id: ToyAmongPequeno
+  id: FoamCutlass
+  id: ToyHammer
+  id: WhoopieCushion
+  id: PlasticBanana
+  id: WeaponWaterPistol
+  id: WeaponWaterBlaster
+  id: NewtonCradle
+  id: SnapPopBox
+  id: MrDips
+  id: MrChips
+  id: CrazyGlue
+  id: PlushieRatvar
+  id: PlushieNar
 
 # Dynamic
-
-- type: latheRecipePack
-  id: CleanPackDynamic
-  recipes:
-  - MegaSprayBottle
-  - AdvMopItem
-  - WeaponSprayNozzle
-  - ClothingBackpackWaterTank
-
-#- type: latheRecipePack # disabled until there is something to fish
-#  id: ServiceMiscPackDynamic
-#  recipes:
-#    - FishingRod
-
 # Emagged
-
 - type: latheRecipePack
   id: ServiceEmagged
   recipes:
@@ -205,19 +113,10 @@
   recipes:
   - BalloonSyn
   - FoamBlade
-  - PlushieBug
-  - PlushieCaptain
   - PlushieGhost
-  - PlushieGnomeChild
-  - PlushieGollylad
-  - PlushieHeadofPersonnel
-  - PlushieIba
-  - PlushieImp
   - PlushieNuke
-  - PlushieOdds
   - PlushieRainbowCarp
   - PlushieRGBee
-  - PlushieThavenWeird
   - SingularityToy
   - TeslaToy
   - ToyNuke
