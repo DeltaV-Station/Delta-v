@@ -7,7 +7,7 @@ using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 using System.Linq;
-using Content.Shared.Mobs; // DeltaV - Stop buckled Patients standing up.
+using Content.Shared.Mobs; // The Den - Nuke Health icons.
 
 
 namespace Content.Client.Overlays;
