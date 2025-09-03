@@ -80,6 +80,7 @@ public sealed class ThermalVisionOverlay : Overlay
             _lightEntity ??= _entity.SpawnAttachedTo(null, playerXform.Coordinates);
             _transform.SetParent(_lightEntity.Value, player.Value);
             var light = _entity.EnsureComponent<PointLightComponent>(_lightEntity.Value);
+            light.NetSyncEnabled = false;
             _light.SetRadius(_lightEntity.Value, LightRadius, light);
             _light.SetEnergy(_lightEntity.Value, alpha, light);
             _light.SetColor(_lightEntity.Value, Comp.Color, light);
