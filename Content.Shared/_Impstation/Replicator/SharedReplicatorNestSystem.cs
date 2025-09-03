@@ -245,25 +245,28 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         if (_net.IsClient || !_timing.IsFirstTimePredicted)
             return;
 
-        foreach (var replicator in ent.Comp.SpawnedMinions)
+        // this upgrades *all living replicators.* all nests are one hive
+        var query = EntityQueryEnumerator<ReplicatorComponent, MindContainerComponent>();
+        while (query.MoveNext(out var uid, out var replicatorComp, out var mindContainerComp))
         {
-            if (!TryComp<ReplicatorComponent>(replicator, out var comp) || comp.UpgradeActions.Count == 0)
+            if (replicatorComp.UpgradeActions.Count == 0 || replicatorComp.HasBeenGivenUpgradeActions == true || mindContainerComp.Mind == null)
                 continue;
 
-            if (comp.UpgradeStage >= ent.Comp.MaxUpgradeStage || comp.HasBeenGivenUpgradeActions == true)
-                continue;
+            //if (comp.UpgradeStage >= ent.Comp.MaxUpgradeStage || comp.HasBeenGivenUpgradeActions == true)
+            //    continue;
 
-            if (!TryComp<MindContainerComponent>(replicator, out var mindContainer) || mindContainer.Mind == null)
-                continue;
+            //if (!TryComp<MindContainerComponent>(replicator, out var mindContainer) || mindContainer.Mind == null)
+            //    continue;
 
-            foreach (var action in comp.UpgradeActions)
+            foreach (var action in replicatorComp.UpgradeActions)
             {
-                if (!mindContainer.HasMind)
-                    comp.Actions.Add(_actions.AddAction(replicator, action));
-                else if (mindContainer.Mind != null)
-                    comp.Actions.Add(_actionContainer.AddAction((EntityUid)mindContainer.Mind, action));
+                if (!mindContainerComp.HasMind)
+                    replicatorComp.Actions.Add(_actions.AddAction(uid, action));
+                else
+                    replicatorComp.Actions.Add(_actionContainer.AddAction((EntityUid)mindContainerComp.Mind, action));
             }
-            comp.HasBeenGivenUpgradeActions = true;
+
+            replicatorComp.HasBeenGivenUpgradeActions = true;
         }
     }
 

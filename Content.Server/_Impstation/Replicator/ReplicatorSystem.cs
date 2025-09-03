@@ -17,6 +17,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Pinpointer;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
@@ -37,6 +38,7 @@ public sealed class ReplicatorSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PinpointerSystem _pinpointer = default!;
     [Dependency] private readonly SharedReplicatorNestSystem _replicatorNest = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -103,7 +105,13 @@ public sealed class ReplicatorSystem : EntitySystem
         // then set that nest's spawned minions to our saved list of related replicators.
         // while we're in here, we might as well update all their pinpointers.
         HashSet<EntityUid> newMinions = [];
-        foreach (var (uid, comp) in ent.Comp.RelatedReplicators)
+        HashSet<(EntityUid, ReplicatorComponent)> livingReplicators = [];
+        var query = EntityQueryEnumerator<ReplicatorComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            livingReplicators.Add((uid, comp));
+        }
+        foreach (var (uid, comp) in livingReplicators)
         {
             newMinions.Add(uid);
 
@@ -175,16 +183,19 @@ public sealed class ReplicatorSystem : EntitySystem
 
     private void OnMobStateChanged(Entity<ReplicatorComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState != MobState.Critical | args.NewMobState != MobState.Dead)
+        if (_mobState.IsAlive(ent))
             return;
 
         _appearance.SetData(ent, ReplicatorVisuals.Combat, false);
 
         if (HasComp<ReplicatorSignComponent>(ent))
         {
-            foreach (var (uid, comp) in ent.Comp.RelatedReplicators)
+            RemComp<ReplicatorSignComponent>(ent);
+            // notify all living replicators that they are likely orphaned.
+            var query = EntityQueryEnumerator<ReplicatorComponent>();
+            while (query.MoveNext(out var uid, out var replicatorComp))
             {
-                _popup.PopupEntity(Loc.GetString(comp.QueenDiedMessage), uid, uid, PopupType.LargeCaution);
+                _popup.PopupEntity(Loc.GetString(replicatorComp.QueenDiedMessage), uid, uid, PopupType.LargeCaution);
             }
         }
     }
