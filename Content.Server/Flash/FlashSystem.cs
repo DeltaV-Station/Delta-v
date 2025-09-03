@@ -22,6 +22,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using InventoryComponent = Content.Shared.Inventory.InventoryComponent;
 using Robust.Shared.Prototypes;
+using Content.Shared._Goobstation.Flashbang;
 
 namespace Content.Server.Flash
 {
@@ -45,7 +46,7 @@ namespace Content.Server.Flash
         public override void Initialize()
         {
             base.Initialize();
-
+            SubscribeLocalEvent<FlashImmunityComponent, ExaminedEvent>(OnExamine);
             SubscribeLocalEvent<FlashComponent, MeleeHitEvent>(OnFlashMeleeHit);
             // ran before toggling light for extra-bright lantern
             SubscribeLocalEvent<FlashComponent, UseInHandEvent>(OnFlashUseInHand, before: new[] { typeof(HandheldLightSystem) });
@@ -54,7 +55,13 @@ namespace Content.Server.Flash
             SubscribeLocalEvent<PermanentBlindnessComponent, FlashAttemptEvent>(OnPermanentBlindnessFlashAttempt);
             SubscribeLocalEvent<TemporaryBlindnessComponent, FlashAttemptEvent>(OnTemporaryBlindnessFlashAttempt);
         }
+        
+        private void OnExamine(Entity<FlashImmunityComponent> ent, ref ExaminedEvent args)
 
+        {
+            args.PushMarkup(Loc.GetString("flash-protection"));
+        }
+        
         private void OnFlashMeleeHit(EntityUid uid, FlashComponent comp, MeleeHitEvent args)
         {
             if (!args.IsHit ||
@@ -126,8 +133,14 @@ namespace Content.Server.Flash
             if (attempt.Cancelled)
                 return;
 
+            // Goobstation start
+            var multiplierEv = new FlashDurationMultiplierEvent();
+            RaiseLocalEvent(target, multiplierEv);
+            var multiplier = multiplierEv.Multiplier;
+            // Goobstation end
+
             // don't paralyze, slowdown or convert to rev if the target is immune to flashes
-            if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, TimeSpan.FromSeconds(flashDuration / 1000f), true) && !ignoreProtection) //DeltaV: allow flashing to ignore flash protection
+            if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, TimeSpan.FromSeconds(flashDuration * multiplier / 1000f), true) && !ignoreProtection) //DeltaV: allow flashing to ignore flash protection
                 return;
 
             if (stunDuration != null)
@@ -136,7 +149,7 @@ namespace Content.Server.Flash
             }
             else
             {
-                _stun.TrySlowdown(target, TimeSpan.FromSeconds(flashDuration / 1000f), true,
+                _stun.TrySlowdown(target, TimeSpan.FromSeconds(flashDuration * multiplier / 1000f), true,
                 slowTo, slowTo);
             }
 

@@ -4,6 +4,7 @@
     children:
     - id: MothroachSpawn
     - id: XenoVents
+    - id: MalignRiftSpawn
 
 - type: entityTable
   id: BasicAntagEventsTableDeltaV
@@ -13,6 +14,7 @@
     - id: ListeningPost
     - id: RoboNeuroticist
     - id: MenaceSkeleton
+    - id: SkiaSpawn
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -140,6 +142,21 @@
       mindRoles:
       - MindRoleListeningPost
 
+- type: entity
+  parent: BaseGameRule
+  id: MalignRiftSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    weight: 6
+  - type: PrecognitionResult
+    message: psionic-power-precognition-rift-spawn-result-message
+  - type: RandomMultipleSpawnRule
+    prototype: CosmicMalignRift
+    minAmount: 1
+    maxAmount: 3
+
+
 # Mid round antag spawns
 - type: entity
   abstract: true
@@ -210,7 +227,7 @@
     maxOccurrences: 1
   - type: RuleGrids
   - type: LoadMapRule
-    gridPath: /Maps/_DV/Shuttles/roboneuroticist_ship.yml
+    gridPath: /Maps/_DV/Shuttles/haibu.yml # was roboneuroticist_ship.yml
   - type: AntagSpawner
     prototype: MobHuman
   - type: AntagObjectives
@@ -294,3 +311,33 @@
         sound: /Audio/Effects/clang.ogg
       mindRoles:
       - MindRoleMenaceSkeleton
+
+- type: entity
+  parent: BaseMidRoundAntag
+  id: SkiaSpawn
+  components:
+  - type: StationEvent
+    weight: 6
+    duration: null
+    minimumPlayers: 30
+  - type: PrecognitionResult
+    message: psionic-power-precognition-skia-result-message
+  - type: AntagSpawner
+    prototype: MobSkia
+  - type: AntagObjectives
+    objectives:
+    - SkiaReapObjective
+  - type: AntagSelection
+    agentName: skia-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointSkia
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleSkia
+      components:
+        - type: EmitSoundOnSpawn
+          sound: /Audio/_DV/Effects/creepyshriek.ogg
+        - type: BreakLightsOnSpawn
+          radius: 10

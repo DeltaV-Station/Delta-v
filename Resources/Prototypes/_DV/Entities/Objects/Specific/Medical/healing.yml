@@ -330,8 +330,8 @@
       groups:
         Burn: -60 # 25 per type
         Brute: -60 # 20 per type, mostly irrelevant cause welder gaming
-    ModifyBloodLevel: 25 # restores a lot of blood for IPCs.
-    bloodlossModifier: -20 # DeltaV - IPCs bleed
+      types:
+        Radiation: -20
   - type: Stack
     stackType: OmniPatch
     count: 10

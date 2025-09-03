@@ -233,7 +233,7 @@ namespace Content.Server.RoundEnd
             }
 
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-recalled-announcement"),
-                Loc.GetString("Station"), false, colorOverride: Color.Gold);
+                Loc.GetString("round-end-system-shuttle-sender-announcement"), false, colorOverride: Color.Gold);
 
             _audio.PlayGlobal("/Audio/_DV/Announcements/shuttlerecalled.ogg", Filter.Broadcast(), true); // DeltaV - custom announcer
 
