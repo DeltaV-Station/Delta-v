@@ -175,6 +175,11 @@
   - type: BureaucraticErrorRule
     ignoredJobs:
     - StationAi
+    - ResearchAssistant
+    - MedicalIntern
+    - SecurityCadet
+    - TechnicalAssistant
+
 # Clerical Error
 - type: entity
   id: ClericalError
