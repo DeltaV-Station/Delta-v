@@ -3,7 +3,7 @@
   parent: BaseItemCabinet
   id: DefibrillatorCabinet
   name: defibrillator cabinet
-  description: A small wall mounted cabinet designed to hold a defibrillator. It slowly recharges the battery within. # DeltaV - Recharging Defibrillator Cabinets
+  description: A small wall mounted cabinet designed to hold a defibrillator.
   placement:
     mode: SnapgridCenter
   components:
@@ -33,7 +33,7 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
-  # DeltaV Start - Recharging Defibrillator Cabinets
+  # Begin DeltaV additions
   - type: Charger
     slotId: ItemCabinet
   - type: ApcPowerReceiver
@@ -41,7 +41,7 @@
   - type: ExtensionCableReceiver
   - type: LightningTarget
     priority: 1
-  # DeltaV End - Recharging Defibrillator Cabinets
+  # End DeltaV additions
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
