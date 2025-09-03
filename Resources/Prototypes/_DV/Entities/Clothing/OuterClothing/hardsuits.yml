@@ -424,12 +424,12 @@
     walkModifier: 0.7
     sprintModifier: 0.7
   - type: GasTank
-    outputPressure: 42.6
+    outputPressure: 21.3
     air:
-      volume: 0.75
+      volume: 5
       temperature: 293.15
       moles:
-      - 0.153853429 # oxygen
-      - 0.153853429 # nitrogen
+        - 1.025689525 # oxygen
+        - 1.025689525 # nitrogen
   - type: StealTarget
     stealGroup: HardsuitRhino
