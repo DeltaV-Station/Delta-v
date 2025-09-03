@@ -33,7 +33,7 @@ replicator-nest-destroyed = Your nest has been destroyed.
                             A Replicator has been selected to replace it.
                             Your pinpointer has been updated to follow them.
 replicator-queen-died-msg = The Queen has been deactivated.
-                            You are orphaned from the nest.
+                            It is probable that you are orphaned from your nest.
 
 # action confirmations
 replicator-nest-confirm = Are you sure? Use the action again to confirm.
