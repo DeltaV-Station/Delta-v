@@ -1,26 +1,4 @@
 ﻿Entries:
-- author: sowelipililimute
-  changes:
-  - message: Randomly spawned characters have a consistent size
-    type: Fix
-  id: 1157
-  time: '2025-03-14T21:57:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3237
-- author: KZhProgram
-  changes:
-  - message: Emergency toolboxes now stocked with prepackaged sustenance bars instead
-      of chocolate, MREs now have tinned meat instead of ketchup.
-    type: Tweak
-  id: 1158
-  time: '2025-03-14T21:57:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3198
-- author: Field Command
-  changes:
-  - message: Bluespace holopad and centcomm communication console added to CC
-    type: Tweak
-  id: 1159
-  time: '2025-03-15T00:03:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3228
 - author: Toby222
   changes:
   - message: Fixed missing tooltip for staff chat button
@@ -4152,3 +4130,27 @@
   id: 1656
   time: '2025-09-01T21:24:59.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4283
+- author: AlgisAlphonse
+  changes:
+  - message: Pneumatic cannon can now be equipped in the suit storage slot.
+    type: Tweak
+  id: 1657
+  time: '2025-09-02T05:11:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4299
+- author: NoElkaTheGod
+  changes:
+  - message: You can now examine items to see if they cover your face (or parts of
+      your face, like eyes).
+    type: Add
+  id: 1658
+  time: '2025-09-02T08:25:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4295
+- author: Proxysseia
+  changes:
+  - message: IPC now take 10% more heat damage (instead of 50%)
+    type: Tweak
+  - message: IPC now take 10% less cold damage (instead of 50%)
+    type: Tweak
+  id: 1659
+  time: '2025-09-02T21:44:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4306
