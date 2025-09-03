@@ -1,0 +1,79 @@
+- type: entity
+  parent: BaseStructure
+  id: AbnormalityEngine
+  name: Abnormality Engine
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: AbnormalityEngine
+  - type: DeviceLinkSource
+    ports:
+      - AbnormalityEngine
+  - type: SpriteFade
+  - type: Sprite
+    sprite: Structures/Machines/Anomaly/anomaly_generator.rsi
+    offset: 0,1
+    drawdepth: Mobs
+    layers:
+    - state: base
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-0.5,1.5,0.6"
+        density: 50
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+
+- type: entity
+  parent: BaseStructure
+  id: SyncPod
+  name: subjectivity sync pod
+  components:
+  - type: DeviceLinkSink
+    ports:
+      - SyncPod
+  - type: SyncPod
+  - type: Sprite
+    noRot: true
+    sprite: Structures/cryostorage.rsi
+    layers:
+    - state: sleeper_0
+      map: ["base"]
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.05"
+        density: 190
+        mask:
+        - TableMask
+  - type: DragInsertContainer
+    containerId: storage
+    entryDelay: 2
+  - type: ExitContainerOnMove
+    containerId: storage
+  - type: PointLight
+    color: Lime
+    radius: 1.5
+    energy: 0.5
+    castShadows: false
+  - type: ContainerContainer
+    containers:
+      storage: !type:ContainerSlot
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.CryostorageVisuals.Full:
+        base:
+          True: { state: sleeper_1 }
+          False: { state: sleeper_0 }
