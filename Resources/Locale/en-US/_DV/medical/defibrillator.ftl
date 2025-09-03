@@ -1,4 +1,4 @@
-﻿ent-DefibrillatorCabinet = defibrillator cabinet
+ent-DefibrillatorCabinet = defibrillator cabinet
     .desc = A small wall mounted cabinet designed to hold a defibrillator. It slowly recharges the battery within.
 ent-DefibrillatorCabinetFilled = defibrillator cabinet
     .desc = A small wall mounted cabinet designed to hold a defibrillator. It slowly recharges the battery within.
