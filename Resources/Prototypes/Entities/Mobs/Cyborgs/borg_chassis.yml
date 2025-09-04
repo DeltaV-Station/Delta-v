@@ -72,8 +72,6 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: medical
-  - type: SurgerySpeedModifier # DeltaV - +0.5 than CMO, Borgs are specialized.
-    speedModifier: 2
 
 - type: entity
   id: BorgChassisService
