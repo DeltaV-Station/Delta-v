@@ -1,7 +1,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._DV.AkashicFold;
+namespace Content.Server._DV.AkashicFold;
 
 /// <summary>
 /// Prototype for any ruin that spawns in the Akashic Fold.
