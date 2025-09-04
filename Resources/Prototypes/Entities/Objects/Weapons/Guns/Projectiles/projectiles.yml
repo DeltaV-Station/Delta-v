@@ -515,7 +515,7 @@
         Structural: 30
   # Short lifespan
   - type: TimedDespawn
-    lifetime: 0.4 # DeltaV - Revert to Prebase stats
+    lifetime: 0.4 # DeltaV - Revert to Prebase stats, was 0.22
   - type: GatheringProjectile
 
 - type: entity
