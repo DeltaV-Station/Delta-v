@@ -1,6 +1,6 @@
 - type: latheRecipe
   id: ClothingShoesBootsMagAdv
-  result: ClothingShoesBootsMagAdv 
+  result: ClothingShoesBootsMagAdv
   completetime: 12
   materials:
     Silver: 1000
@@ -13,3 +13,17 @@
   materials:
     Glass: 100
     Plastic: 100
+
+- type: latheRecipe
+  id: FoodFrozenPopsicleTrash
+  result: FoodFrozenPopsicleTrash # I know, it has 'trash' in the name, but it's used in cooking!
+  completetime: 0.5
+  materials:
+    Wood: 25
+
+- type: latheRecipe
+  id: DrinkWaterCup
+  result: DrinkWaterCup
+  completetime: 0.5
+  materials:
+    Paper: 25

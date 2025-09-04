@@ -11,6 +11,18 @@
       Cable: 5
 
 - type: entity
+  parent: MicrowaveMachineCircuitboard
+  id: CheapMicrowaveMachineCircuitBoard
+  name: cheap microwave machine board
+  components:
+  - type: MachineBoard
+    prototype: KitchenMicrowaveCheap
+    stackRequirements:
+      Manipulator: 2
+      Glass: 4
+      Cable: 5
+
+- type: entity
   parent: ExosuitFabricatorMachineCircuitboard
   id: SyndieExosuitFabricatorMachineCircuitboard
   name: syndicate exosuit fabricator machine board
