@@ -348,21 +348,24 @@ public abstract partial class SharedSurgerySystem
     {
         var group = ent.Comp.MainGroup == "Brute" ? BruteDamageTypes : BurnDamageTypes;
 
-        if (!HasDamageGroup(args.Body, group, out var damageable)
-            && !HasDamageGroup(args.Part, group, out var _)
+        if (!HasDamageGroup(args.Part, group, out var damageable)
+            && !HasDamageGroup(args.Body, group, out var _)
             || damageable == null) // This shouldnt be possible but the compiler doesn't shut up.
             return;
 
 
         // Right now the bonus is based off the body's total damage, maybe we could make it based off each part in the future.
+        // We did make it based of each part, the future is here - DeltaV
         var bonus = ent.Comp.HealMultiplier * damageable.DamagePerGroup[ent.Comp.MainGroup];
         if (_mobState.IsDead(args.Body))
-            bonus *= 0.2;
+            bonus *= 0.1;
 
         var adjustedDamage = new DamageSpecifier(ent.Comp.Damage);
 
         foreach (var type in group)
+        {
             adjustedDamage.DamageDict[type] -= bonus;
+        }
 
         var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, adjustedDamage, 0.5f);
         RaiseLocalEvent(args.Body, ref ev);
@@ -372,8 +375,7 @@ public abstract partial class SharedSurgerySystem
     {
         var group = ent.Comp.MainGroup == "Brute" ? BruteDamageTypes : BurnDamageTypes;
 
-        if (HasDamageGroup(args.Body, group, out var _)
-            || HasDamageGroup(args.Part, group, out var _))
+        if (HasDamageGroup(args.Part, group, out var _))
             args.Cancelled = true;
     }
 
