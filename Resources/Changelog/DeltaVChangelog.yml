@@ -1,26 +1,4 @@
 ﻿Entries:
-- author: Field Command
-  changes:
-  - message: Bluespace holopad and centcomm communication console added to CC
-    type: Tweak
-  id: 1159
-  time: '2025-03-15T00:03:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3228
-- author: Toby222
-  changes:
-  - message: Fixed missing tooltip for staff chat button
-    type: Fix
-  id: 1160
-  time: '2025-03-15T22:55:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3244
-- author: Binbagg
-  changes:
-  - message: Added sharkminnow chitin which can be harvested from sharkminnows and
-      crafted into shoes.
-    type: Add
-  id: 1161
-  time: '2025-03-15T23:00:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3224
 - author: makyo
   changes:
   - message: Renamed the dysgraphia trait to the more illustrative 'unable to write'.
@@ -4152,3 +4130,27 @@
   id: 1658
   time: '2025-09-02T08:25:50.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4295
+- author: Proxysseia
+  changes:
+  - message: IPC now take 10% more heat damage (instead of 50%)
+    type: Tweak
+  - message: IPC now take 10% less cold damage (instead of 50%)
+    type: Tweak
+  id: 1659
+  time: '2025-09-02T21:44:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4306
+- author: SirWarock
+  changes:
+  - message: Moved Atmospherics Recipes to their own category!
+    type: Tweak
+  id: 1660
+  time: '2025-09-03T17:04:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4320
+- author: turtlemutt
+  changes:
+  - message: Felinids now take a normal amount of slash and pierce damage. Dufflebag
+      mains rejoice!
+    type: Tweak
+  id: 1661
+  time: '2025-09-03T17:05:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4269
