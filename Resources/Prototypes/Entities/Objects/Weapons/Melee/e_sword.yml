@@ -312,9 +312,8 @@
         variation: 0.250
     activatedDamage:
         types: # DeltaV - was 12 slash, 12 heat, 15 structural
-            Slash: 9
-            Heat: 9
-            Structural: 8
+            Slash: 15
+            Heat: 10
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -331,7 +330,7 @@
   #  wieldSound: null # esword light sound instead
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 2.0 # DeltaV - was 1.5
+    attackRate: 1.8 # DeltaV - was 1.5
     changeSwingDirection: true # DeltaV
     angle: 100
     damage:
