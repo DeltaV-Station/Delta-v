@@ -95,10 +95,22 @@ public sealed partial class DCCVars
         CVarDef.Create("accessibility.no_vision_filters", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// Disables the fullscreen shader at 700+ glimmer.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableGlimmerShader =
+        CVarDef.Create("accessibility.disable_glimmer_shader", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
     /// Whether the Shipyard is enabled.
     /// </summary>
     public static readonly CVarDef<bool> Shipyard =
         CVarDef.Create("shuttle.shipyard", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// What year it is in the game. Actual value shown in game is server date + this value.
+    /// </summary>
+    public static readonly CVarDef<int> YearOffset =
+        CVarDef.Create("game.current_year_offset", 550, CVar.SERVERONLY);
 
     /*
      * Feedback webhook
@@ -212,7 +224,7 @@ public sealed partial class DCCVars
     /// How much entropy a convert is worth towards the next monument tier.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultistEntropyValue =
-        CVarDef.Create("cosmiccult.cultist_entropy_value", 7, CVar.SERVER);
+        CVarDef.Create("cosmiccult.cultist_entropy_value", 8, CVar.SERVER);
 
     /// <summary>
     /// How much of the crew the cult is aiming to convert for a tier 3 monument.

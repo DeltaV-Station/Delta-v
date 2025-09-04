@@ -75,7 +75,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.25
+          radius: 0.42
         density: 2500
         mask:
         - FlyingMobMask
@@ -101,7 +101,7 @@
     baseWalkSpeed: 2
     baseSprintSpeed: 3
     baseWeightlessModifier: 1
-    weightlessAcceleration: 1.5
+    weightlessAcceleration: 2.5
     weightlessFriction: 1
   - type: AmbientSound
     volume: +8
@@ -117,8 +117,8 @@
     - DoorBumpOpener
     - Unimplantable
   - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
+    damageContainer: InorganicMetaphysical
+    damageModifierSet: EntropicColossus
   - type: Bloodstream
     bloodMaxVolume: 650
     maxBleedAmount: 0.1
@@ -160,6 +160,10 @@
       reverseWhenFinished: true
   - type: ContentEye
     maxZoom: 1.2, 1.2
+  - type: Eye
+    visMask:
+      - Normal
+      - CosmicCultMonument
   - type: StatusEffects
     allowed:
     - Stutter
@@ -203,9 +207,9 @@
     range: 2
     damage:
       types:
-        Blunt: 25
-        Asphyxiation: 5
-        Cold: 5
+        Blunt: 35
+        Asphyxiation: 10
+        Cold: 10
         Structural: 60
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
@@ -220,14 +224,6 @@
   - type: MeleeThrowOnHit
     speed: 8
     distance: 7
-  - type: Reflect
-    reflectProb: .15
-    spread: 120
-    soundOnReflect:
-      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
-      params:
-        variation: 0.2
-        volume: -6
   - type: GhostRole
     name: ghost-role-information-colossus-name
     description: ghost-role-information-colossus-description
@@ -261,6 +257,13 @@
     mobile: true
     autoDisable: false
     corruptionReduction: 0
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -1
+        Burn: -0.5
 
 - type: entity
   parent: [ MobCosmicColossusBase ]
@@ -276,7 +279,6 @@
       0: Alive
       400: Dead
   - type: CosmicColossus
-    hibernationWait: 30
 
 - type: speechSounds
   id: ColossusSpeech
