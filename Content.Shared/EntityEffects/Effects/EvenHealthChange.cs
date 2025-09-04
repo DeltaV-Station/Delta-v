@@ -1,4 +1,4 @@
-using System.Linq; // DeltaV
+using System.Linq; // DeltaV - Fix EvenHealing with Limbs.
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
@@ -138,7 +138,7 @@ public sealed partial class EvenHealthChange : EntityEffect
 
     private DamageSpecifier GetDamageSpec(IPrototypeManager protoMan, DamageableComponent damageable) // DeltaV - Fix EvenHealing with Limbs.
     {
-        var damageSpecifier = new DamageSpecifier();    // DeltaV
+        var damageSpecifier = new DamageSpecifier();    // DeltaV - Fix EvenHealing with Limbs.
 
         foreach (var (group, amount) in Damage)
         {
@@ -155,7 +155,7 @@ public sealed partial class EvenHealthChange : EntityEffect
             foreach (var (damageId, damageAmount) in groupDamage)
             {
                 var existing = damageSpecifier.DamageDict.GetOrNew(damageId);
-                damageSpecifier.DamageDict[damageId] = existing + damageAmount / sum * amount; // DeltaV
+                damageSpecifier.DamageDict[damageId] = existing + damageAmount / sum * amount; // DeltaV - Fix EvenHealing with Limbs.
             }
         }
         return damageSpecifier;
