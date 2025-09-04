@@ -181,7 +181,7 @@ namespace Content.Shared.Damage
         public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
             bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null,
             // Shitmed Change
-            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null)
+            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null, bool doPartDamage = true, bool onlyDamageParts = false)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
             {
@@ -194,6 +194,8 @@ namespace Content.Shared.Damage
                 return damage;
             }
 
+            damage = ApplyUniversalAllModifiers(damage); // DeltaV
+
             var before = new BeforeDamageChangedEvent(damage, origin, targetPart); // Shitmed Change
             RaiseLocalEvent(uid.Value, ref before);
 
@@ -201,12 +203,14 @@ namespace Content.Shared.Damage
                 return null;
 
             // Shitmed Change Start
-            var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
-            RaiseLocalEvent(uid.Value, ref partDamage);
+            if (doPartDamage)
+            {
+                var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
+                RaiseLocalEvent(uid.Value, ref partDamage);
 
-            if (partDamage.Evaded || partDamage.Cancelled)
-                return null;
-
+                if (partDamage.Evaded || partDamage.Cancelled)
+                    return null;
+            }
             // Shitmed Change End
 
             // Apply resistances
@@ -231,7 +235,8 @@ namespace Content.Shared.Damage
                 }
             }
 
-            damage = ApplyUniversalAllModifiers(damage);
+            if (onlyDamageParts) //DeltaV - Fix EvenHealing with Limbs.
+                return null;
 
             // TODO DAMAGE PERFORMANCE
             // Consider using a local private field instead of creating a new dictionary here.
