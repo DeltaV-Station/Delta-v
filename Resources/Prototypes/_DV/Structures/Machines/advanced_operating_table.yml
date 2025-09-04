@@ -1,14 +1,11 @@
 - type: entity
   id: OperatingTableAdvanced
-  parent: OperatingTable
+  parent: [ MedicalBed, OperatingTable ]
   name: advanced operating table
   description: An operating table specially built to keep the patient precisely still, allowing the surgeon to work faster with confidence.
   components:
   - type: Machine
     board: OperatingTableAdvancedCircuitboard
-  - type: SurgerySpeedModifier
-    speedModifier: 1.25
-  # Begin DeltaV Additions - toggle between stasis and surgery speed
   - type: ItemToggle
     verbToggleOn: advanced-operating-table-verb-activate-stasis
     verbToggleOff: advanced-operating-table-verb-activate-surgery
@@ -17,10 +14,30 @@
   - type: ItemToggleExamine
     on: advanced-operating-table-stasis-mode
     off: advanced-operating-table-surgery-mode
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
   - type: ComponentToggler
     components:
     - type: AntiRotOnBuckle
-    deactivatedComponents:
     - type: SurgerySpeedModifier
       speedModifier: 1.25
-  # End DeltaV Additions
+    deactivatedComponents:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.5
+  - type: Sprite
+    sprite: _DV/Structures/Furniture/Tables/advanced_optable.rsi
+    noRot: true
+    layers:
+    - state: state_unpowered
+    - state: state_speed
+      shader: unshaded
+    - state: state_stasis
+      map: [ "enum.ToggleableVisuals.Layer" ]
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: True }
+          False: { visible: False }
