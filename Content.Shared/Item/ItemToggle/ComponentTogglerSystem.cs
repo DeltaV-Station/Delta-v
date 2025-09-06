@@ -25,12 +25,12 @@ public sealed class ComponentTogglerSystem : EntitySystem
 
             ent.Comp.Target = target;
 
-            EntityManager.AddComponents(target, ent.Comp.Components);
-
             // Begin DeltaV - allow swapping components
             if (ent.Comp.DeactivatedComponents is { } deactivatedComps)
                 EntityManager.RemoveComponents(target, deactivatedComps);
             // End DeltaV
+
+            EntityManager.AddComponents(target, ent.Comp.Components);
         }
         else
         {
