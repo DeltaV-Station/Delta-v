@@ -12,3 +12,9 @@ uplink-hardsuit-syndieelite-desc-deltav = An alternate version of the blood-red 
 
 uplink-cwpgorlex-name = Gorlex Cold Weather Poncho
 uplink-cwpgorlex-desc = A warm poncho for extreme weather. Made of cut-proof fabric, and protects against freezing weapons as well.
+
+uplink-night-vision-goggles-name = Night Vision Goggles
+uplink-night-vision-goggles-desc = High-tech goggles that allow you to see in the dark.
+
+uplink-thermal-goggles-name = Thermal Goggles
+uplink-thermal-goggles-desc = High-tech goggles that allow you to see heat signatures. These ones look like Night Vision Goggles to avoid detection.
