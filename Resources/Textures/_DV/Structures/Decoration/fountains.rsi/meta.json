@@ -1,0 +1,44 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "rosieposieeee (Github)",
+    "size": {
+        "x": 128,
+        "y": 128
+    },
+    "states": [
+        {
+            "name": "large-round-base"
+        },
+        {
+            "name": "large-round-base-water",
+            "delays": [
+                [
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "large-round-top"
+        },
+        {
+            "name": "large-round-top-water",
+            "delays": [
+                [
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "large-round-flows",
+            "delays": [
+                [
+                    0.3,
+                    0.3
+                ]
+            ]
+        }
+    ]
+}
