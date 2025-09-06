@@ -181,7 +181,7 @@ namespace Content.Shared.Damage
         public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
             bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null,
             // Shitmed Change
-            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null, bool doPartDamage = true, bool onlyDamageParts = false)
+            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null, bool doPartDamage = true, bool onlyDamageParts = false) // DeltaV - Fix EvenHealing on Limbs.
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
             {
@@ -194,7 +194,7 @@ namespace Content.Shared.Damage
                 return damage;
             }
 
-            damage = ApplyUniversalAllModifiers(damage); // DeltaV
+            damage = ApplyUniversalAllModifiers(damage); // // DeltaV - Fix EvenHealing with Limbs.
 
             var before = new BeforeDamageChangedEvent(damage, origin, targetPart); // Shitmed Change
             RaiseLocalEvent(uid.Value, ref before);
@@ -202,8 +202,7 @@ namespace Content.Shared.Damage
             if (before.Cancelled)
                 return null;
 
-            // Shitmed Change Start
-            if (doPartDamage)
+            if (doPartDamage) // DeltaV - Fix EvenHealing with Limbs.
             {
                 var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
                 RaiseLocalEvent(uid.Value, ref partDamage);
@@ -211,7 +210,6 @@ namespace Content.Shared.Damage
                 if (partDamage.Evaded || partDamage.Cancelled)
                     return null;
             }
-            // Shitmed Change End
 
             // Apply resistances
             if (!ignoreResistances)

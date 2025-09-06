@@ -1,6 +1,8 @@
-using System.Linq; // DeltaV - Fix EvenHealing with Limbs.
+// DeltaV Start - Fix EvenHealing with Limbs.
+using System.Linq;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
+// DeltaV End - Fix EvenHealing with Limbs.
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects;
@@ -101,9 +103,7 @@ public sealed partial class EvenHealthChange : EntityEffect
             dspec * scale,
             IgnoreResistances,
             interruptsDoAfters: false,
-            // Shitmed Change Start
-            doPartDamage: false);
-            // Shitmed Change End
+            doPartDamage: false);   // DeltaV - Fix EvenHealing with Limbs.
 
         // DeltaV Start - Fix EvenHealing with Limbs.
         var bodySystem = args.EntityManager.System<SharedBodySystem>();
@@ -125,12 +125,10 @@ public sealed partial class EvenHealthChange : EntityEffect
                     dspec * scale,
                     IgnoreResistances,
                     interruptsDoAfters: false,
-                    // Shitmed Change Start
                     targetPart: bodyPart,
                     onlyDamageParts: true,
                     partMultiplier: 0.5f,
                     canSever: false);
-                    // Shitmed Change End
             }
         }
         // DeltaV End - Fix EvenHealing with Limbs.
@@ -154,8 +152,8 @@ public sealed partial class EvenHealthChange : EntityEffect
             var sum = groupDamage.Values.Sum();
             foreach (var (damageId, damageAmount) in groupDamage)
             {
-                var existing = damageSpecifier.DamageDict.GetOrNew(damageId);
-                damageSpecifier.DamageDict[damageId] = existing + damageAmount / sum * amount; // DeltaV - Fix EvenHealing with Limbs.
+                var existing = damageSpecifier.DamageDict.GetOrNew(damageId);           // DeltaV - Fix EvenHealing with Limbs.
+                damageSpecifier.DamageDict[damageId] = existing + damageAmount / sum * amount;    // DeltaV - Fix EvenHealing with Limbs.
             }
         }
         return damageSpecifier;
