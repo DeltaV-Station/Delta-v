@@ -235,7 +235,7 @@ namespace Content.Shared.Damage
                 }
             }
 
-            if (onlyDamageParts) //DeltaV - Fix EvenHealing with Limbs.
+            if (onlyDamageParts) // DeltaV - Fix EvenHealing with Limbs.
                 return null;
 
             // TODO DAMAGE PERFORMANCE
