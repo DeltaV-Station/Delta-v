@@ -1630,8 +1630,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      60: Critical
-      125: Dead
+      80: Critical # DeltaV - was 60
+      160: Dead # DeltaV - was 125
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5
     baseSprintSpeed: 5
