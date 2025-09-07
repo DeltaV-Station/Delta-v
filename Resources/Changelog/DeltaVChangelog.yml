@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Zephyrpak
-  changes:
-  - message: Added propeller hat and Silly Guy Overalls to the Autodrobe!
-    type: Add
-  id: 1165
-  time: '2025-03-16T18:11:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3223
 - author: deltanedas
   changes:
   - message: Fixed job-picked mediborgs and secborgs not having any access.
@@ -4154,3 +4147,23 @@
   id: 1664
   time: '2025-09-06T12:10:28.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4337
+- author: TehFlaminTaco
+  changes:
+  - message: New fancy scream effect for the Shatter Lights ability.
+    type: Add
+  - message: Can now purchase Night Vision and Thermal Goggles from an uplink.
+    type: Add
+  - message: Salvagers can purchase Night Vision goggles from their vending machine.
+    type: Add
+  - message: Skia now also get Thermal Vision.
+    type: Add
+  - message: Night Vision and Thermal Goggles are no-longer craftable at Lathes, except
+      Night Visions at Seclathes
+    type: Remove
+  - message: Nukies no-longer spawn with Night Visions, Buy some.
+    type: Remove
+  - message: Skia can now mouse walk through doors.
+    type: Tweak
+  id: 1665
+  time: '2025-09-07T08:11:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4308
