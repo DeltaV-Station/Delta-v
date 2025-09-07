@@ -152,10 +152,10 @@ public sealed partial class EvenHealthChange : EntityEffect
             var sum = groupDamage.Values.Sum();
             foreach (var (damageId, damageAmount) in groupDamage)
             {
-                var existing = damageSpecifier.DamageDict.GetOrNew(damageId);           // DeltaV - Fix EvenHealing with Limbs.
-                damageSpecifier.DamageDict[damageId] = existing + damageAmount / sum * amount;    // DeltaV - Fix EvenHealing with Limbs.
+                var existing = damageSpecifier.DamageDict.GetOrNew(damageId); // DeltaV - Fix EvenHealing with Limbs.
+                damageSpecifier.DamageDict[damageId] = existing + damageAmount / sum * amount; // DeltaV - Fix EvenHealing with Limbs.
             }
         }
-        return damageSpecifier;
+        return damageSpecifier; // DeltaV - Fix EvenHealing with Limbs.
     }
 }
