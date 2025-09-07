@@ -241,7 +241,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
     {
         var damageChange = ent.Comp.Damage;
         if (HasComp<AnesthesiaComponent>(args.Body) || _mobState.IsDead(args.Body)) // DeltaV - anesthesia
-            damageChange *= ent.Comp.SleepModifier;
+            damageChange = damageChange * ent.Comp.SleepModifier;
 
         SetDamage(args.Body, damageChange, 0.5f, args.User, args.Part);
     }

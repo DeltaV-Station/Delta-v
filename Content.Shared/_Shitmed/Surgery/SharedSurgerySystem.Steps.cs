@@ -365,7 +365,6 @@ public abstract partial class SharedSurgerySystem
         foreach (var type in group)
             adjustedDamage.DamageDict[type] -= bonus;
 
-
         var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, adjustedDamage, 0.5f);
         RaiseLocalEvent(args.Body, ref ev);
     }
