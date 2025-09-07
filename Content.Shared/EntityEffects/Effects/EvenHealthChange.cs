@@ -103,7 +103,7 @@ public sealed partial class EvenHealthChange : EntityEffect
             dspec * scale,
             IgnoreResistances,
             interruptsDoAfters: false,
-            doPartDamage: false);   // DeltaV - Fix EvenHealing with Limbs.
+            doPartDamage: false); // DeltaV - Fix EvenHealing with Limbs.
 
         // DeltaV Start - Fix EvenHealing with Limbs.
         var bodySystem = args.EntityManager.System<SharedBodySystem>();
