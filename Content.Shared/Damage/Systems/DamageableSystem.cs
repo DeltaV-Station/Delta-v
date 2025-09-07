@@ -194,7 +194,7 @@ namespace Content.Shared.Damage
                 return damage;
             }
 
-            damage = ApplyUniversalAllModifiers(damage); // // DeltaV - Fix EvenHealing with Limbs.
+            damage = ApplyUniversalAllModifiers(damage); // DeltaV - Fix EvenHealing with Limbs.
 
             var before = new BeforeDamageChangedEvent(damage, origin, targetPart); // Shitmed Change
             RaiseLocalEvent(uid.Value, ref before);
