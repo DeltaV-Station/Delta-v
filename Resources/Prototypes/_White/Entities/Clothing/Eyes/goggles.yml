@@ -74,9 +74,9 @@
   description: A high-tech pair of thermal goggles.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Eyes/Goggles/sthermals.rsi
+    sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi # Look like standard NVs to avoid gank.
   - type: Clothing
-    sprite: _White/Clothing/Eyes/Goggles/sthermals.rsi
+    sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
   - type: ThermalVision
     flashDurationMultiplier: 2
     isEquipment: true
