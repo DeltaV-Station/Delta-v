@@ -192,7 +192,7 @@
   parent: BaseSignDirectional
   id: SignDirectionalSalvage
   name: salvage sign
-  description: A direction sign, pointing out which way the Salvage department is.
+  description: A direction sign, pointing out which way Salvage is. # DeltaV - Salvage isn't a department
   components:
   - type: Sprite
     state: direction_salvage
