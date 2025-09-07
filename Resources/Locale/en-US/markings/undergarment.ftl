@@ -1,5 +1,3 @@
-# DeltaV: Fixed missing FTL entries for undergarments. About all lines edited
-
 marking-UndergarmentTopTanktop = Tanktop
 marking-UndergarmentTopBinder = Binder
 marking-UndergarmentTopBra = Classic Bra
