@@ -1,7 +1,7 @@
 ## Static
 
 - type: latheRecipePack
-  id: IPCLimbsStatic
+  id: IPCLimbsStatic # DeltaV - Share Surgery Parts between Epi and Med.
   recipes:
   - LeftArmIPC
   - RightArmIPC
@@ -12,7 +12,7 @@
   - LeftFootIPC
   - RightFootIPC
 
-- type: latheRecipePack
+- type: latheRecipePack # DeltaV - Share Surgery Parts between Epi and Med.
   parent: IPCLimbsStatic
   id: IPCPartsStatic
   recipes:
@@ -42,7 +42,7 @@
   - SpeedRightLeg
   - ClothingHandsGlovesMechanicalSurgical
 
-- type: latheRecipePack
+- type: latheRecipePack # DeltaV - Share Surgery Parts between Epi and Med.
   parent: Cybernetics
   id: CyberneticsRobotics
   recipes:
