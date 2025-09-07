@@ -136,7 +136,7 @@ public sealed partial class EvenHealthChange : EntityEffect
 
     private DamageSpecifier GetDamageSpec(IPrototypeManager protoMan, DamageableComponent damageable) // DeltaV - Fix EvenHealing with Limbs.
     {
-        var damageSpecifier = new DamageSpecifier();    // DeltaV - Fix EvenHealing with Limbs.
+        var damageSpecifier = new DamageSpecifier(); // DeltaV - Fix EvenHealing with Limbs.
 
         foreach (var (group, amount) in Damage)
         {
