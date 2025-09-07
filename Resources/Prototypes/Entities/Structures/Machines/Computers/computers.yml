@@ -375,7 +375,7 @@
   parent: BaseComputerAiAccess
   id: ComputerCriminalRecords
   name: criminal records computer
-  description: This can be used to check criminal records. Only security and justice can modify them. # DeltaV Justice can access too 
+  description: This can be used to check criminal records. Only security and justice can modify them. # DeltaV Justice can access too
   components:
   - type: CriminalRecordsConsole
   - type: UserInterface
@@ -411,7 +411,7 @@
   - type: Computer
     board: CriminalRecordsComputerCircuitboard
   - type: AccessReader
-    access: [["Security"], ["Justice"]] # DeltaV Justice can access too 
+    access: [["Security"], ["Justice"]] # DeltaV Justice can access too
   - type: GuideHelp
     guides:
     - CriminalRecords
@@ -779,7 +779,7 @@
     canShuttle: false
     global: true #announce to everyone they're about to fuck shit up
     announceSentBy: false
-    sound: /Audio/Announcements/announce.ogg # Delta V - changed from war.oog to annouce.ogg
+    sound: /Audio/Announcements/announce.ogg # DeltaV - changed from war.oog to announce.ogg
   - type: Computer
     board: WizardCommsComputerCircuitboard
   - type: PointLight
