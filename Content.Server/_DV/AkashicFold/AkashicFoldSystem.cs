@@ -82,7 +82,11 @@ public sealed class AkashicFoldSystem : EntitySystem
 
         var spawned = spawnedBoundedGrid.Value;
         _transform.SetCoordinates(spawned, new EntityCoordinates(_mapEntUid.Value, coords));
-        _biome.ReserveTiles(_mapEntUid.Value, Comp<MapGridComponent>(spawned).LocalAABB, new List<(Vector2i, Tile)>(), Comp<BiomeComponent>(_mapEntUid.Value), Comp<MapGridComponent>(_mapEntUid.Value)); // erm
+        _biome.ReserveTiles(_mapEntUid.Value,
+            Comp<MapGridComponent>(spawned).LocalAABB,
+            new List<(Vector2i, Tile)>(),
+            Comp<BiomeComponent>(_mapEntUid.Value),
+            Comp<MapGridComponent>(_mapEntUid.Value));
 
         return spawned;
     }
