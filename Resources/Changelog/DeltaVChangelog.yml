@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: beck-thompson
-  changes:
-  - message: Various QOL fixes to objective summary windows
-    type: Tweak
-  id: 1169
-  time: '2025-03-17T00:20:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3150
 - author: DoctorFeels
   changes:
   - message: All winter coats can now hold tanks. Vox on glacier rejoice!
@@ -4166,3 +4159,20 @@
   id: 1668
   time: '2025-09-08T05:49:22.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4348
+- author: SirWarock
+  changes:
+  - message: Added a new Sprite for Operating tables!
+    type: Add
+  - message: Operating Tables now speed up Surgery by 1.25x!
+    type: Tweak
+  - message: Added sprites for each mode of the advanced operating table!
+    type: Add
+  - message: The Stasis mode of the advanced operating table now speeds up surgery
+      by 1.25x.
+    type: Tweak
+  - message: The Speed mode of the advanced operating table now speeds up surgery
+      by 1.5x.
+    type: Tweak
+  id: 1669
+  time: '2025-09-08T11:56:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4333
