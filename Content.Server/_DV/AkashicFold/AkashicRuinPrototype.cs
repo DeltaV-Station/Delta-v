@@ -23,5 +23,5 @@ public sealed partial class AkashicRuinPrototype : IPrototype
     /// Keep the grid's roof? Enable for ruins that are mostly indoors. Mainly matters for planetary lighting.
     /// </summary>
     [DataField]
-    public bool RoofEnabled { get; set; } = true;
+    public bool RoofEnabled;
 }
