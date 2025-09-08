@@ -78,27 +78,15 @@
 
 - type: planet
   id: AkashicFold
-  biome: Fold # biomeTemplate vs biome? hmm???
-  mapName: Akashic Fold # TODO: localize real
-  mapLight: "#583d7a" # purple...
+  biome: Fold
+  mapName: map-name-akashic-fold
+  mapLight: "#583d7a" # purple
   addedComponents:
   - type: Parallax
-    parallax: CosmicFinaleParallax # replace with menu parallax
-  atmosphere: # look i'm not an atmos main i don't know what's Normal im leaving this untouched
+    parallax: CosmicFinaleParallax
+  atmosphere: # glacier but warm
     volume: 2500
-    temperature: 310 # probably normal idk
+    temperature: 310 
     moles: # 119kPa, 21% O2
     - 42
     - 158
-  #biomeMarkerLayers: # hopefully we dont need this :godo:
-  #- OreIron
-  #- OreQuartz
-  #- OreCoal
-  #- OreGold
-  #- OreSilver
-  #- OrePlasma3
-  #- OreUranium2
-  #- OreDiamond
-  #- OreBluespace
-  #- OreArtifactFragment
-  #- GlacierGibtonite

@@ -94,19 +94,6 @@
         - WallRock
     - !type:BiomeDummyLayer
       id: Loot
-    # Chromite gaming
-    #- !type:BiomeTileLayer
-    #  tile: FloorChromite
-    #  threshold: -0.30 # was -0.30
-    #  noise:
-    #    seed: 4
-    #    noiseType: Cellular
-    #    frequency: 0.05
-    #    lacunarity: 2
-    #    fractalType: FBm
-    #    octaves: 5
-    #    cellularDistanceFunction: Euclidean
-    #    cellularReturnType: Distance2
     # Water
     - !type:BiomeEntityLayer
       allowedTiles:
@@ -122,7 +109,7 @@
         octaves: 1
       entities:
         - FloorWaterEntity
-    # Fill remainder with dirt. (no CHROMITE!!!)
+    # Fill remainder with Chromite
     - !type:BiomeTileLayer
       threshold: -1.0
       tile: FloorChromite
@@ -144,7 +131,7 @@
         lacunarity: 1.50
         fractalType: Ridged
         octaves: 1
-    # Chromite REAL
+    # Chromite decoration
     - !type:BiomeDecalLayer
       allowedTiles:
       - FloorChromite
@@ -173,7 +160,7 @@
       entities:
         - ShadowBasaltRandom  
         - FloraRockSolid
-    # kill everything raaah
+    # Evil space rivers
     - !type:BiomeTileLayer
       tile: Space
       threshold: 0.6
