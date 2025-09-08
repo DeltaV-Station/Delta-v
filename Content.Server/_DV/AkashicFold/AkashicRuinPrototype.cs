@@ -16,5 +16,12 @@ public sealed partial class AkashicRuinPrototype : IPrototype
     /// <summary>
     /// Relative directory path to the given grid, i.e. `Maps/_DV/AkashicFold/Ruins/example.yml`
     /// </summary>
-    [DataField(required: true)] public ResPath MapPath;
+    [DataField(required: true)]
+    public ResPath MapPath;
+
+    /// <summary>
+    /// Keep the grid's roof? Enable for ruins that are mostly indoors. Mainly matters for planetary lighting.
+    /// </summary>
+    [DataField]
+    public bool RoofEnabled { get; set; } = true;
 }
