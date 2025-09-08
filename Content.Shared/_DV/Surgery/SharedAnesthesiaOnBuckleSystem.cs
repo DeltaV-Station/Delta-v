@@ -1,4 +1,4 @@
-﻿using Content.Shared.Buckle.Components;
+using Content.Shared.Buckle.Components;
 using Content.Shared.Examine;
 
 namespace Content.Shared._DV.Surgery
