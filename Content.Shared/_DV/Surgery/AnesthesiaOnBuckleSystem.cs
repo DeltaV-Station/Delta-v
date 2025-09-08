@@ -3,7 +3,7 @@ using Content.Shared.Examine;
 
 namespace Content.Shared._DV.Surgery;
 
-public sealed class SharedAnesthesiaOnBuckleSystem : EntitySystem
+public sealed class AnesthesiaOnBuckleSystem : EntitySystem
 {
     public override void Initialize()
     {
