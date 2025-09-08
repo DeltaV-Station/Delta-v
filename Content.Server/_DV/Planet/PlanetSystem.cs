@@ -32,7 +32,7 @@ public sealed class PlanetSystem : EntitySystem
         var map = _map.CreateMap(out _, runMapInit: runMapInit);
         _biome.EnsurePlanet(map, _proto.Index(planet.Biome), mapLight: planet.MapLight);
 
-        var parallax = EnsureComp<ParallaxComponent>(map); // god please work
+        var parallax = EnsureComp<ParallaxComponent>(map);
 
         // add each marker layer
         var biome = Comp<BiomeComponent>(map);
