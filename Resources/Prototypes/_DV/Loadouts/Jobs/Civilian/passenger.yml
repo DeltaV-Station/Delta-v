@@ -244,132 +244,156 @@
   id: BlackJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBlack
+  groupBy: "colorjumpsuits"
 
 - type: loadout
   id: BlackJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorBlack
+  groupBy: "colorjumpsuits"
 
 ## Blue Jumpsuit
 - type: loadout
   id: BlueJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBlue
+  groupBy: "colorjumpsuits"
 
 - type: loadout
   id: BlueJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorBlue
+  groupBy: "colorjumpsuits"
 
 ## Dark Blue Jumpsuit
 - type: loadout
   id: DarkBlueJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorDarkBlue
+  groupBy: "colorjumpsuits"
 
 - type: loadout
   id: DarkBlueJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorDarkBlue
+  groupBy: "colorjumpsuits"
 
 ## Teal Jumpsuit
 - type: loadout
   id: TealJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorTeal
+  groupBy: "colorjumpsuits"
 
 - type: loadout
   id: TealJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorTeal
+  groupBy: "colorjumpsuits"
 
 ## Green Jumpsuit
 - type: loadout
   id: GreenJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorGreen
+  groupBy: "colorjumpsuits"
 
 - type: loadout
   id: GreenJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorGreen
+  groupBy: "colorjumpsuits"
 
 ## Dark Green Jumpsuit
 - type: loadout
   id: DarkGreenJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorDarkGreen
+  groupBy: "colorjumpsuits"
 
 - type: loadout
   id: DarkGreenJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorDarkGreen
+  groupBy: "colorjumpsuits"
 
 ## Orange Jumpsuit
 - type: loadout
   id: OrangeJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorOrange
+  groupBy: "colorjumpsuits"
 
 - type: loadout
   id: OrangeJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorOrange
+  groupBy: "colorjumpsuits"
 
 ## Pink Jumpsuit
 - type: loadout
   id: PinkJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorPink
+  groupBy: "colorjumpsuits"
 
 - type: loadout
   id: PinkJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorPink
+  groupBy: "colorjumpsuits"
 
 ## Purple Jumpsuit
 - type: loadout
   id: PurpleJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorPurple
+  groupBy: "colorjumpsuits"
 
 - type: loadout
   id: PurpleJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorPurple
+  groupBy: "colorjumpsuits"
 
 ## Light Brown Jumpsuit
 - type: loadout
   id: LightBrownJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorLightBrown
+  groupBy: "colorjumpsuits"
 
 - type: loadout
   id: LightBrownJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorLightBrown
+  groupBy: "colorjumpsuits"
 
 ## Brown Jumpsuit
 - type: loadout
   id: BrownJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBrown
+  groupBy: "colorjumpsuits"
 
 - type: loadout
   id: BrownJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorBrown
+  groupBy: "colorjumpsuits"
 
 ## Maroon Jumpsuit
 - type: loadout
   id: MaroonJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorMaroon
+  groupBy: "colorjumpsuits"
 
 - type: loadout
   id: MaroonJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorMaroon
+  groupBy: "colorjumpsuits"
 
 ## Rose Hoodie w/ Skirt
 - type: loadout
@@ -385,36 +409,42 @@
 
 ## Casual Red
 - type: loadout
-  id: CasualRedSkirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtCasualRed
-
-- type: loadout
   id: CasualRedSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCasualRed
+  groupBy: "casualjumpsuits"
+
+- type: loadout
+  id: CasualRedSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCasualRed
+  groupBy: "casualjumpsuits"
 
 ## Casual Blue
-- type: loadout
-  id: CasualBlueSkirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtCasualBlue
-
 - type: loadout
   id: CasualBlueSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCasualBlue
+  groupBy: "casualjumpsuits"
+
+- type: loadout
+  id: CasualBlueSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCasualBlue
+  groupBy: "casualjumpsuits"
 
 ## Casual Purple
-- type: loadout
-  id: CasualPurpleSkirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtCasualPurple
-
 - type: loadout
   id: CasualPurpleSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCasualPurple
+  groupBy: "casualjumpsuits"
+
+- type: loadout
+  id: CasualPurpleSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCasualPurple
+  groupBy: "casualjumpsuits"
 
 # Elegant dresses
 ## Black elegant dress
@@ -422,30 +452,35 @@
   id: BlackElegantDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtBlackElegantDress
+  groupBy: "dress"
 
 ## Red Elegant Dress
 - type: loadout
   id: RedElegantDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtRedElegantDress
+  groupBy: "dress"
 
 ## Green Elegant Dress
 - type: loadout
   id: GreenElegantDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtGreenElegantDress
+  groupBy: "dress"
 
 ## Blue Elegant Dress
 - type: loadout
   id: BlueElegantDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtBlueElegantDress
+  groupBy: "dress"
 
 ## Purple Elegant Dress
 - type: loadout
   id: PurpleElegantDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtPurpleElegantDress
+  groupBy: "dress"
 
 # Striped Dresses
 ## Cyan Striped Dress
@@ -453,30 +488,35 @@
   id: CyanStripedDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtCyanStripedDress
+  groupBy: "dress"
 
 ## Red Striped Dress
 - type: loadout
   id: RedStripedDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtRedStripedDress
+  groupBy: "dress"
 
 ## Green Striped Dress
 - type: loadout
   id: GreenStripedDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtGreenStripedDress
+  groupBy: "dress"
 
 ## Pink Striped Dress
 - type: loadout
   id: PinkStripedDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtPinkStripedDress
+  groupBy: "dress"
 
 ## Orange Striped Dress
 - type: loadout
   id: OrangeStripedDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtOrangeStripedDress
+  groupBy: "dress"
 
 # Turtleneck Dresses
 ## Purple Turtleneck Dress
@@ -484,36 +524,42 @@
   id: PurpleTurtleneckDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtPurpleTurtleneckDress
+  groupBy: "dress"
 
 ## Red Turtleneck Dress
 - type: loadout
   id: RedTurtleneckDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtRedTurtleneckDress
+  groupBy: "dress" # DeltaV
 
 ## Green Turtleneck Dress
 - type: loadout
   id: GreenTurtleneckDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtGreenTurtleneckDress
+  groupBy: "dress" # DeltaV
 
 ## Blue Turtleneck Dress
 - type: loadout
   id: BlueTurtleneckDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtBlueTurtleneckDress
+  groupBy: "dress" # DeltaV
 
 ## Yellow Turtleneck Dress
 - type: loadout
   id: YellowTurtleneckDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtYellowTurtleneckDress
+  groupBy: "dress" # DeltaV
 
 ## Yellow Old Dress
 - type: loadout
   id: OldYellowDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtYellowOldDress
+  groupBy: "dress" # DeltaV
 
 # Gloves
 ## Red Gloves
