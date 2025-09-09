@@ -241,12 +241,13 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             playTimes ??= new Dictionary<string, TimeSpan>();
         }
 
-        var isWhitelisted = player.ContentData()?.Whitelisted ?? false; // DeltaV - Whitelist requirement
+        var isWhitelisted = player.ContentData()?.Whitelisted ?? false; // DeltaV - Whitelist Requirement
 
         for (var i = 0; i < jobs.Count; i++)
         {
-            if (_prototypes.TryIndex(jobs[i], out var job)
-                && JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(userId).SelectedCharacter, isWhitelisted))
+            if (_prototypes.Resolve(jobs[i], out var job)
+                && JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(userId).SelectedCharacter,
+                    isWhitelisted)) // DeltaV - Whitelist Requirement
             {
                 continue;
             }
