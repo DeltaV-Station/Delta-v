@@ -21,6 +21,12 @@ public sealed partial class ShatterLightsAbilityComponent : Component
     public bool LineOfSight = false;
 
     /// <summary>
+    /// The radius to ignore line of sight restrictions.
+    /// </summary>
+    [DataField]
+    public float PenetratingRadius = 0f;
+
+    /// <summary>
     /// The action that triggers the shatter lights ability.
     /// </summary>
     [DataField]
