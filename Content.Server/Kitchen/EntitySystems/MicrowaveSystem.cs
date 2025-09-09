@@ -444,14 +444,15 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnAnchorChanged(EntityUid uid, MicrowaveComponent component, ref AnchorStateChangedEvent args)
         {
-            if (!args.Anchored) {
-                // DeltaV - start of microwave ejection bugfix
+            // DeltaV - start of microwave ejection bugfix
+            if (!args.Anchored) 
+            {
                 // DeltaV's MicrowaveEventsSystem changes prevent ejection from active microwave, so stop cooking first
                 StopCooking((uid, component));
                 _container.EmptyContainer(component.Storage);
                 UpdateUserInterfaceState(uid, component);
-                // DeltaV - end of microwave ejection bugfix
             }
+            // DeltaV - end of microwave ejection bugfix
         }
 
         private void OnSignalReceived(Entity<MicrowaveComponent> ent, ref SignalReceivedEvent args)
