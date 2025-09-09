@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: Security winter coats are now able to hold weaponry in the suit storage
-      slot again.
-    type: Fix
-  id: 1174
-  time: '2025-03-18T00:32:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3263
 - author: sowelipililimute
   changes:
   - message: SmartFridges are now implemented. You can store large amounts of chemicals
@@ -4174,3 +4166,11 @@
   id: 1673
   time: '2025-09-08T22:11:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4315
+- author: cmorley191
+  changes:
+  - message: microwaves now eject their contents after cooking, instead of locking
+      them in
+    type: Fix
+  id: 1674
+  time: '2025-09-09T05:54:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4352
