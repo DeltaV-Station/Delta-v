@@ -103,7 +103,7 @@ public partial class MobStateSystem
         {
             case MobState.Alive:
                 if (!TryComp(target, out BuckleComponent? buckle)
-                    || !buckle.Buckled)    // DeltaV - Stop buckled mobs from standing up.
+                    || !buckle.Buckled) // DeltaV - Stop buckled mobs from standing up.
                     _standing.Stand(target);
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
