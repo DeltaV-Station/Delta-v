@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/08/2025 22:31:34
-  entityCount: 253
+  time: 09/09/2025 00:09:34
+  entityCount: 249
 maps: []
 grids:
 - 1
@@ -1303,28 +1303,6 @@ entities:
     components:
     - type: Transform
       pos: 0.57914853,2.5188215
-      parent: 1
-- proto: WallLockerSalvage
-  entities:
-  - uid: 80
-    components:
-    - type: Transform
-      pos: 9.5,2.5
-      parent: 1
-  - uid: 81
-    components:
-    - type: Transform
-      pos: 3.5,2.5
-      parent: 1
-  - uid: 82
-    components:
-    - type: Transform
-      pos: 5.5,2.5
-      parent: 1
-  - uid: 83
-    components:
-    - type: Transform
-      pos: 7.5,2.5
       parent: 1
 - proto: WallMining
   entities:
