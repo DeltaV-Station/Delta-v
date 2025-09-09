@@ -111,7 +111,7 @@ namespace Content.Client.Access.UI
             var targetAccesses = job.Access.ToHashSet();
             foreach (var group in job.AccessGroups)
             {
-                if (!_prototypeManager.TryIndex(group, out AccessGroupPrototype? groupPrototype))
+                if (!_prototypeManager.Resolve(group, out AccessGroupPrototype? groupPrototype))
                 {
                     continue;
                 }
