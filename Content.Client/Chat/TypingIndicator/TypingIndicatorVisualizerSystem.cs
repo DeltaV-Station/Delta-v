@@ -35,7 +35,7 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
         }
         // End DeltaV Additions
 
-        if (!_prototypeManager.TryIndex(currentTypingIndicator, out var proto))
+        if (!_prototypeManager.Resolve(currentTypingIndicator, out var proto))
         {
             Log.Error($"Unknown typing indicator id: {component.TypingIndicatorPrototype}");
             return;
