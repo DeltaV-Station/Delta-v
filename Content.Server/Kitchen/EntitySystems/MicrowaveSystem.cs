@@ -444,8 +444,14 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnAnchorChanged(EntityUid uid, MicrowaveComponent component, ref AnchorStateChangedEvent args)
         {
-            if (!args.Anchored)
+            if (!args.Anchored) {
+                // DeltaV - start of microwave ejection bugfix
+                // DeltaV's MicrowaveEventsSystem changes prevent ejection from active microwave, so stop cooking first
+                StopCooking((uid, component));
                 _container.EmptyContainer(component.Storage);
+                UpdateUserInterfaceState(uid, component);
+                // DeltaV - end of microwave ejection bugfix
+            }
         }
 
         private void OnSignalReceived(Entity<MicrowaveComponent> ent, ref SignalReceivedEvent args)
@@ -463,7 +469,12 @@ namespace Content.Server.Kitchen.EntitySystems
         {
             _userInterface.SetUiState(uid, MicrowaveUiKey.Key, new MicrowaveUpdateUserInterfaceState(
                 GetNetEntityArray(component.Storage.ContainedEntities.ToArray()),
-                HasComp<ActiveMicrowaveComponent>(uid),
+                // DeltaV - start of microwave ejection bugfix
+                (
+                    EntityManager.TryGetComponent<ActiveMicrowaveComponent>(uid, out var active) 
+                    && active.LifeStage < ComponentLifeStage.Stopping
+                ),
+                // DeltaV - end of microwave ejection bugfix
                 component.CurrentCookTimeButtonIndex,
                 component.CurrentCookTimerTime,
                 component.CurrentCookTimeEnd
@@ -489,6 +500,10 @@ namespace Content.Server.Kitchen.EntitySystems
         /// <param name="ent"></param>
         public void Explode(Entity<MicrowaveComponent> ent)
         {
+            // DeltaV - start of microwave ejection bugfix
+            // DeltaV's MicrowaveEventsSystem changes prevent ejection from active microwave, so stop cooking first
+            StopCooking(ent);
+            // DeltaV - end of microwave ejection bugfix
             ent.Comp.Broken = true; // Make broken so we stop processing stuff
             _explosion.TriggerExplosive(ent);
             if (TryComp<MachineComponent>(ent, out var machine))
@@ -497,6 +512,10 @@ namespace Content.Server.Kitchen.EntitySystems
                 _container.EmptyContainer(machine.PartContainer);
             }
 
+            // DeltaV - start of microwave ejection bugfix
+            UpdateUserInterfaceState(ent, ent.Comp);
+            // DeltaV - end of microwave ejection bugfix
+            
             _adminLogger.Add(LogType.Action, LogImpact.Medium,
                 $"{ToPrettyString(ent)} exploded from unsafe cooking!");
         }
@@ -710,11 +729,16 @@ namespace Content.Server.Kitchen.EntitySystems
                     }
                 }
 
+                // DeltaV - start of microwave ejection bugfix
+                // StopCooking should be in front of both:
+                //  - EmptyContainer() call, because DeltaV MicrowaveEventsSystem prevents ejection from active microwave
+                //  - UpdateUserInterfaceState() call - not very relevant, but UI shouldn't be "busy" after cooking is done
+                StopCooking((uid, microwave));
                 _container.EmptyContainer(microwave.Storage);
                 microwave.CurrentCookTimeEnd = TimeSpan.Zero;
                 UpdateUserInterfaceState(uid, microwave);
                 _audio.PlayPvs(microwave.FoodDoneSound, uid);
-                StopCooking((uid, microwave));
+                // DeltaV - end of microwave ejection bugfix
             }
         }
 
