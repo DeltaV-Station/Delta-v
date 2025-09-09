@@ -77,7 +77,7 @@ public partial class MobStateSystem
                 //unused
                 break;
             case MobState.Critical:
-                //_standing.Stand(target);    DeltaV - Remove Redundancy
+                //_standing.Stand(target); // DeltaV - Remove Redundancy
                 break;
             case MobState.Dead:
                 RemComp<CollisionWakeComponent>(target);
