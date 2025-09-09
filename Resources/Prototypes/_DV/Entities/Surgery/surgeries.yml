@@ -168,3 +168,11 @@
   - type: SurgeryOrganCondition
     organ:
     - type: AugmentArm
+
+- type: entity
+  parent: SurgeryInsertHeart
+  id: SurgeryInsertPump
+  name: Insert Heart
+  components:
+  - type: SurgeryOrganSlotCondition
+    organSlot: pump
