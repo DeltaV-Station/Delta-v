@@ -1,0 +1,106 @@
+#region base
+- type: entity
+  id: NFPouchBase
+  name: pouch
+  parent: [ BaseStorageItem ]
+  description: A pouch for organizing miscellaneous items.
+  suffix: Empty
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Storage/Pouches/pouch.rsi
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Clothing
+    quickEquip: false
+    sprite: _NF/Objects/Storage/Pouches/pouch.rsi
+    slots: [ belt, pocket ]
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,1
+    blacklist:
+      components: [ Storage ] # No bagception
+  - type: StaticPrice
+    price: 50
+  - type: ItemCounter
+    count:
+      components: [ Item ]
+    composite: true
+    layerStates:
+    - pouchFill1
+    - pouchFill2
+    - pouchFill3
+    - pouchFill4
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.SharedBagOpenVisuals.BagState:
+        closeLayer:
+          Open: { visible: false }
+          Closed: { visible: true }
+        openLayer:
+          Open: { visible: true }
+          Closed: { visible: false }
+        insideLayer:
+          Open: { visible: true }
+          Closed: { visible: false }
+        decal1:
+          Open: { visible: false }
+          Closed: { visible: true }
+        decal2:
+          Open: { visible: false }
+          Closed: { visible: true }
+
+#region trash
+- type: entity
+  id: NFGoblinMadeTrashPouch
+  parent: [ NFPouchBase ]
+  name: trashuch
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Storage/Pouches/trash_pouch.rsi
+    layers:
+    - state: closed
+      map: ["closeLayer"]
+    - state: open
+      map: ["openLayer"]
+      visible: false
+    - state: fill-trash-1
+      map: [ "pouchFill1" ]
+      visible: false
+    - state: fill-trash-2
+      map: [ "pouchFill2" ]
+      visible: false
+    - state: fill-trash-3
+      map: [ "pouchFill3" ]
+      visible: false
+    - state: fill-trash-4
+      map: [ "pouchFill4" ]
+      visible: false
+  - type: Item
+    sprite: _NF/Objects/Storage/Pouches/trash_pouch.rsi
+  - type: Clothing
+    sprite: _NF/Objects/Storage/Pouches/trash_pouch.rsi
+  - type: GoblinMade
+  - type: Dumpable
+  - type: Storage
+    maxItemSize: Small
+    areaInsert: true
+    storageOpenSound:
+      collection: trashBagRustle
+    storageInsertSound:
+      collection: trashBagRustle
+    whitelist:
+      tags:
+        - Cartridge
+        - Trash
+      components:
+        - GoblinMade
+    blacklist:
+      components: []
+  - type: Construction
+    graph: NFGoblinMadeTrashPouch
+    node: NFGoblinMadeTrashPouch

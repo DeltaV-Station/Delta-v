@@ -1,0 +1,18 @@
+- type: emote
+  id: GoblinMutter
+  name: chat-emote-name-goblin-muttering
+  category: Vocal
+  available: false
+  icon: _NF/Interface/Emotes/mutter.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-goblin-muttering"]
+  chatTriggers:
+    - mutter
+    - mutters
+    - muttered
+    - muttering
