@@ -16,6 +16,7 @@
       types:
         Blunt: 15
         Asphyxiation: 5
+        Structural: 5
     soundHit:
       path: /Audio/Nyanotrasen/Weapons/club.ogg
     bluntStaminaDamageFactor: 2.4 # 36 stamina damage when unwielded, 6 more than normal truncheon.
@@ -28,6 +29,7 @@
       types:
         Blunt: 5
         Asphyxiation: 5
+        Structural: 10
   - type: Clothing
     sprite: _DV/Objects/Weapons/Melee/advanced_truncheon.rsi
     quickEquip: false
