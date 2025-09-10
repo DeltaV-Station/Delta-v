@@ -10,22 +10,24 @@
   - type: Item
     size: Normal
   - type: MeleeWeapon
-    attackRate: 0.75
+    attackRate: 1
     range: 1.75
     damage:
       types:
-        Blunt: 16
+        Blunt: 15
+        Asphyxiation: 5
     soundHit:
       path: /Audio/Nyanotrasen/Weapons/club.ogg
-    bluntStaminaDamageFactor: 1.60 # 25.6 stamina damage
+    bluntStaminaDamageFactor: 2.4 # 36 stamina damage when unwielded, 6 more than normal truncheon.
 #  - type: MeleeStaminaCost
 #    swing: 10
-#    wieldCoefficient: 0.35 #if wielded you will only consume 3.5 stam its a weapon after all
+#    wieldCoefficient: 0.35 #if wielded you will only consume 3.5 stam it's a weapon after all
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 14
+        Blunt: 5
+        Asphyxiation: 5
   - type: Clothing
     sprite: _DV/Objects/Weapons/Melee/advanced_truncheon.rsi
     quickEquip: false
