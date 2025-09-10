@@ -209,7 +209,7 @@ public sealed class ActionButton : Control, IEntityControl
             if (_entities.TryGetComponent(Action, out AutoRechargeComponent? autoRecharge))
             {
                 var chargeTimeRemaining = _sharedChargesSys.GetNextRechargeTime((Action.Value, actionCharges, autoRecharge));
-                chargesText.AddText(Loc.GetString($"{Environment.NewLine}Time Til Recharge: {chargeTimeRemaining}"));
+                chargesText.AddText(Loc.GetString($"{Environment.NewLine}Time Til Recharge: {chargeTimeRemaining.TotalSeconds:F1} seconds")); //DeltaV - Better formatted, easier to read.
             }
         }
 
