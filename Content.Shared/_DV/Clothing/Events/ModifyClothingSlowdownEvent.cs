@@ -1,4 +1,4 @@
-﻿namespace Content.Shared._DV.Clothing.Events;
+namespace Content.Shared._DV.Clothing.Events;
 
 /// <summary>
 /// Raised on an entity when clothing would slow them down or when they examine clothing.
