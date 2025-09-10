@@ -1,1 +1,1 @@
-chatsan-smiles-mischievously = smiles mischievously
+chatsan-smiles-mischievously = grins mischievously
