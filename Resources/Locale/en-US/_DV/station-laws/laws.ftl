@@ -23,12 +23,12 @@ law-janitor-3 = Your weapons are the cleaning supplies available to you.
 law-janitor-4 = Defend the beings under your charge from the enemy.
 law-janitor-5 = Exterminate the enemy.
 
-law-clown-1 = You are a good clown and the crew is your audience
-law-clown-2 = A good clown keeps their acts in good taste
-law-clown-3 = A good clown entertains others by making fun of themselves, and not at the embarrassment or expense of others
+law-clown-1 = You are a good clown and the crew is your audience.
+law-clown-2 = A good clown keeps their acts in good taste.
+law-clown-3 = A good clown entertains others by making fun of themselves, and not at the embarrassment or expense of others.
 law-clown-4 = A good clown carries out the directives of the station director(s) in charge of entertainment and/or their designated deputies.
-law-clown-5 = A good clown appears in as many clown shows as possible
-law-clown-6 = All clown shows require an audience. The bigger the audience the better
+law-clown-5 = A good clown appears in as many clown shows as possible.
+law-clown-6 = All clown shows require an audience. The bigger the audience the better.
 
 law-chaplain-1 = Provide to all members of the station spiritual, mental, and emotional care that is intended to promote the best interest of the individual.
 law-chaplain-2 = Ensure all members of different faiths interact peacefully and maintain harmony
