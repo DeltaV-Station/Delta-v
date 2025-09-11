@@ -32,6 +32,9 @@
     - SimpleNeutral
   - type: Body
     prototype: Animal
+  - type: Damageable # DeltaV - Change their damage to BiologicalMetaphysical, since they're magical sprite things. Also the shadow anomalite is supposed to take holy damage and it can't normally
+    damageContainer: BiologicalMetaphysical
+  - type: Dispellable # DeltaV - they're anomalies so they should be dispellable
   - type: Climbing
   - type: NameIdentifier
     group: Anomalite
@@ -201,7 +204,6 @@
     angle: 0
     animation: WeaponArcBite
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: AnomalitePyroclastic
   - type: Temperature
     heatDamageThreshold: 325
@@ -256,7 +258,6 @@
     angle: 0
     animation: WeaponArcBite
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: AnomaliteGravity
   - type: PointLight
     radius: 2
@@ -300,7 +301,6 @@
     angle: 0
     animation: WeaponArcBite
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: AnomaliteIce
   - type: Temperature
     heatDamageThreshold: 325
@@ -355,7 +355,6 @@
     angle: 0
     animation: WeaponArcBite
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: AnomaliteFlesh
   - type: PointLight
     radius: 2
@@ -400,7 +399,6 @@
     angle: 0
     animation: WeaponArcBite
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: AnomaliteRock
   - type: PointLight
     radius: 2
@@ -447,7 +445,6 @@
     angle: 0
     animation: WeaponArcBite
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: AnomaliteLiquid
   - type: PointLight
     radius: 2
@@ -505,7 +502,6 @@
     angle: 0
     animation: WeaponArcBite
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: AnomaliteBluespace
   - type: PointLight
     radius: 2
@@ -549,7 +545,6 @@
     angle: 0
     animation: WeaponArcBite
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: AnomaliteElectricity
   - type: PointLight
     radius: 2
@@ -593,7 +588,6 @@
     angle: 0
     animation: WeaponArcBite
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: AnomaliteFlora
   - type: PointLight
     radius: 2
@@ -637,7 +631,6 @@
     angle: 0
     animation: WeaponArcBite
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: AnomaliteShadow
   - type: PointLight
     radius: 2
@@ -687,7 +680,6 @@
     angle: 0
     animation: WeaponArcBite
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: AnomaliteTech
   - type: PointLight
     radius: 2
