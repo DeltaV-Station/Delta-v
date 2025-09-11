@@ -72,21 +72,3 @@
   sprites:
   - sprite: _NF/Mobs/Customization/goblin_tusks.rsi
     state: goblin_tusks_none
-
-- type: marking
-  id: GoblinTusksSmall
-  bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [Goblin]
-  sprites:
-  - sprite: _NF/Mobs/Customization/goblin_tusks.rsi
-    state: goblin_tusks_small
-
-- type: marking
-  id: GoblinTusksBig
-  bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [Goblin]
-  sprites:
-  - sprite: _NF/Mobs/Customization/goblin_tusks.rsi
-    state: goblin_tusks_big
