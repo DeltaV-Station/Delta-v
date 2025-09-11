@@ -1,9 +1,9 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Emp;
-using Content.Server.Radio.Components;
 using Content.Shared.Cuffs; // DeltaV
 using Content.Shared.Cuffs.Components; // DeltaV
-using Content.Shared.Hands.Components; // DeltaV
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems; // DeltaV
 using Content.Shared.Inventory.Events;
 using Content.Shared.Popups; // DeltaV
 using Content.Shared.Radio;
@@ -59,8 +59,7 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             && keys.Channels.Contains(args.Channel.ID))
         {
             // Begin DeltaV Additions: No using headsets if you lost your hands or are cuffed
-            if (!TryComp<HandsComponent>(uid, out var hands) ||
-                hands.Count < 1 ||
+            if (!TryComp<HandsComponent>(uid, out var hands) || hands.Count < 1 ||
                 TryComp<CuffableComponent>(uid, out var cuffable) && _cuffable.IsCuffed((uid, cuffable)))
             {
                 _popup.PopupEntity(Loc.GetString("headset-cant-reach"), uid, uid, PopupType.SmallCaution);
