@@ -22,9 +22,7 @@ public sealed partial class EpsilonEventRuleComponent : Component
     /// Sound of the announcement to play when power turns off.
     /// </summary>
     [DataField]
-    public SoundSpecifier PowerOffSound = new SoundCollectionSpecifier(DefaultPowerOff, AudioParams.Default.WithVolume(-4f));
-
-    public CancellationTokenSource? AnnounceCancelToken;
+    public SoundSpecifier PowerOffSound = new SoundCollectionSpecifier(DefaultPowerOff, AudioParams.Default.WithVolume(-2f));
 
     public EntityUid AffectedStation;
     public readonly HashSet<Entity<ApcComponent>> ToggledAPCs = new();

@@ -30,7 +30,7 @@ public sealed class EpsilonEventRule : StationEventSystem<EpsilonEventRuleCompon
             return;
         component.AffectedStation = chosenStation.Value;
 
-        //Plays the power off sound to the station.
+        // Plays the power off sound to the station.
         _sound.PlayGlobalOnStation(component.AffectedStation, _audio.ResolveSound(component.PowerOffSound));
 
         var query = AllEntityQuery<ApcComponent, TransformComponent>();
@@ -40,7 +40,7 @@ public sealed class EpsilonEventRule : StationEventSystem<EpsilonEventRuleCompon
             if (CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != chosenStation)
                 continue;
 
-            //Turns off APCs during the event. Basic power-outage event.
+            // Turns off APCs during the event. Basic power-outage event.
             if (apc.MainBreakerEnabled)
             {
                 _apcSystem.ApcToggleBreaker(apcUid, apc);
