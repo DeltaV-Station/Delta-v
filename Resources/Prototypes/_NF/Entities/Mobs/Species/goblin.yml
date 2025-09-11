@@ -50,12 +50,10 @@
         Blunt: 1
   - type: Stamina
   - type: PseudoItem
-    shape: # Parallelogram, 16 squares (vs. 26 for felinid bean) - TODO: fix odd rotation, swapped X/Y values.
-      - 0,0,0,3
-      - 1,1,1,4
-      - 2,2,2,5
-      - 3,3,3,6
-    storedRotation: -67.5 # Bug: must be half the angle.
+    storedOffset: -10,0
+    shape:
+      - 0, 0, 3, 2
+      - 0, 2, 5, 4
   - type: Vocal
     wilhelm: "/Audio/_NF/Voice/Goblin/goblin_cackle_5.ogg"
     sounds:
@@ -66,7 +64,6 @@
   - type: NpcFactionMember
     factions:
     - NanoTrasen
-    - Goblin
   - type: DamageVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     targetLayers:
