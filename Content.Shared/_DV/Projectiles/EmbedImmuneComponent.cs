@@ -1,3 +1,4 @@
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._DV.Projectiles;
@@ -13,5 +14,5 @@ public sealed partial class EmbedImmuneComponent : Component
     /// If null, the entity is immune to all projectiles.
     /// </summary>
     [DataField(required: true)]
-    public HashSet<string> ImmuneTo = default!;
+    public EntityWhitelist ImmuneTo = default!;
 }

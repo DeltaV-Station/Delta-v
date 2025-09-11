@@ -119,4 +119,5 @@
   - type: Targeting
   - type: EmbedImmune
     immuneTo:
-    - PelletShotgunFlare
+      components:
+      - FlareGunPellet
