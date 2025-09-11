@@ -52,13 +52,13 @@ public sealed partial class ShatterLightsAbilitySystem : EntitySystem
         if (entity.Comp.AbilitySound != null)
             _audio.PlayPvs(entity.Comp.AbilitySound, entity);
 
-        ShatterLightsAround(entity.Owner, entity.Comp.Radius, entity.Comp.LineOfSight);
+        ShatterLightsAround(entity.Owner, entity.Comp.Radius, entity.Comp.LineOfSight, entity.Comp.PenetratingRadius);
 
         SpawnAttachedTo(entity.Comp.Effect, entity.Owner.ToCoordinates());
         args.Handled = true;
     }
 
-    public void ShatterLightsAround(EntityUid center, float range, bool lineOfSight)
+    public void ShatterLightsAround(EntityUid center, float range, bool lineOfSight, float penetratingRadius = 0f)
     {
         var pos = _transform.GetWorldPosition(center);
 
@@ -71,10 +71,14 @@ public sealed partial class ShatterLightsAbilitySystem : EntitySystem
             {
                 var lightPos = _transform.GetWorldPosition(light);
                 var sqrDistance = Vector2.DistanceSquared(pos, lightPos);
-                var ray = new CollisionRay(pos, (lightPos - pos).Normalized(), (int)CollisionGroup.Opaque);
-                var hit = _physics.IntersectRay(_transform.GetMapId(center), ray, MathF.Sqrt(sqrDistance) - 0.5f, returnOnFirstHit: true);
-                if (hit.Any() && hit.First().Distance != 0)
-                    continue;
+                if (sqrDistance > penetratingRadius * penetratingRadius)
+                {
+                    // If the light is outside the penetrating radius, do a LoS check.
+                    var ray = new CollisionRay(pos, (lightPos - pos).Normalized(), (int)CollisionGroup.Opaque);
+                    var hit = _physics.IntersectRay(_transform.GetMapId(center), ray, MathF.Sqrt(sqrDistance) - 0.5f, returnOnFirstHit: true);
+                    if (hit.Any() && hit.First().Distance != 0)
+                        continue;
+                }
             }
 
             // If we reach here, the light is unobstructed and within range, break it.
