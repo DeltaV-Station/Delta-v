@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Enabled suit storage of guns and air tanks for all outer clothing.
-    type: Add
-  id: 1178
-  time: '2025-03-19T01:25:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3265
-- author: deltanedas
-  changes:
   - message: Syndie and omega soap now clean dirt from surgical tools twice as fast.
     type: Tweak
   id: 1179
@@ -4171,3 +4164,17 @@
   id: 1677
   time: '2025-09-10T22:00:27.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4367
+- author: TehFlaminTaco
+  changes:
+  - message: Skia can now resurrect if left un-attended.
+    type: Add
+  - message: Skia's Shatter Light now has a shorter range, but can more consistently
+      shatter close-range lights.
+    type: Tweak
+  - message: Flare gun pellets no-longer stick to Skia.
+    type: Tweak
+  - message: Skia no-longer touch every door they pass through
+    type: Fix
+  id: 1678
+  time: '2025-09-11T06:02:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4355
