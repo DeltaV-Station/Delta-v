@@ -536,6 +536,14 @@
           type: Vox
         reagent: Protein
         amount: 0.25
+      # Frontier: goblin metabolism
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Goblin
+        reagent: Protein
+        amount: 0.5
+      # End Frontier: goblin metabolism
 
 - type: reagent
   id: Allicin
