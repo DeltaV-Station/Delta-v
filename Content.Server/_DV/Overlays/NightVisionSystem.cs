@@ -11,7 +11,7 @@ public sealed partial class NightVisionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<NightVisionComponent, FlashAttemptEvent>(OnFlashAttempt, after: [typeof(FlashImmunityComponent)]);
+        SubscribeLocalEvent<NightVisionComponent, FlashAttemptEvent>(OnFlashAttempt);
     }
 
     private void OnFlashAttempt(Entity<NightVisionComponent> ent, ref FlashAttemptEvent args)
