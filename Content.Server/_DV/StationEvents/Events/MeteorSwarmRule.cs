@@ -20,7 +20,7 @@ namespace Content.Server.StationEvents.Events
         [Dependency] private readonly IChatManager _chatManager = default!;
 
 
-        private (MapCoordinates target, Box2 targetArea) GetTarget() 
+        private (MapCoordinates target, Box2 targetArea) GetTarget()
         {
             var targetOnEntity = GameTicker.GetObserverSpawnPoint();
             var target = _transform.ToMapCoordinates(targetOnEntity);
@@ -45,7 +45,7 @@ namespace Content.Server.StationEvents.Events
                 component.IsEnding = true;
                 component.Cooldown = 0;
             }
-            else 
+            else
             {
                 (var target, var targetArea) = GetTarget();
                 _chatManager.SendAdminAlert(Loc.GetString(
@@ -97,7 +97,7 @@ namespace Content.Server.StationEvents.Events
             var maximumDistance = minimumDistance + component.SpawnDistanceVariation;
 
             (var target, var targetArea) = GetTarget();
-            var targetSpread = (targetArea.TopRight - targetArea.Center).Length() * component.TargetingSpread; 
+            var targetSpread = (targetArea.TopRight - targetArea.Center).Length() * component.TargetingSpread;
 
             float minImpactTime = 0;
             float maxImpactTime = 0;
@@ -106,7 +106,7 @@ namespace Content.Server.StationEvents.Events
                 var angle = new Angle(RobustRandom.NextFloat() * MathF.Tau);
                 var offset = angle.RotateVec(new Vector2((maximumDistance - minimumDistance) * RobustRandom.NextFloat() + minimumDistance, 0));
                 var spawnPosition = new MapCoordinates(
-                    target.X + targetSpread * (2f * RobustRandom.NextFloat() - 1f) + offset.X, 
+                    target.X + targetSpread * (2f * RobustRandom.NextFloat() - 1f) + offset.X,
                     target.Y + targetSpread * (2f * RobustRandom.NextFloat() - 1f) + offset.Y,
                     mapId
                 );
@@ -126,7 +126,7 @@ namespace Content.Server.StationEvents.Events
                     (relativeSpawnPosition.X * velocity.X + relativeSpawnPosition.Y * velocity.Y) /
                     (MathF.Pow(velocity.X, 2f) + MathF.Pow(velocity.Y, 2f))
                 );
-                if (i == 0 || timeUntilClosestApproach < minImpactTime) 
+                if (i == 0 || timeUntilClosestApproach < minImpactTime)
                 {
                     minImpactTime = timeUntilClosestApproach;
                 }
@@ -143,7 +143,7 @@ namespace Content.Server.StationEvents.Events
             ));
 
             component.WaveCounter--;
-            if (component.WaveCounter <= 0) 
+            if (component.WaveCounter <= 0)
             {
                 // DeltaV space maps are quite large so it can take 1-2 minutes for the meteors to arrive.
                 // Delay "meteor swarm finished" announcement until just after last meteor is scheduled to strike
