@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Syndie and omega soap now clean dirt from surgical tools twice as fast.
-    type: Tweak
-  id: 1179
-  time: '2025-03-19T01:28:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3273
-- author: deltanedas
-  changes:
   - message: Fixed not being able to clean autodocs with soap.
     type: Fix
   id: 1180
@@ -4178,3 +4171,13 @@
   id: 1678
   time: '2025-09-11T06:02:49.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4355
+- author: EmberAstra
+  changes:
+  - message: Added pressurized micro pumps, allowing IPCs to be pressure immune. Ask
+      your local roboticist for one!
+    type: Add
+  - message: micro pumps can now be inserted in IPCs and not just removed
+    type: Fix
+  id: 1679
+  time: '2025-09-12T07:51:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4356
