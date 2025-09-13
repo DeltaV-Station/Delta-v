@@ -236,7 +236,7 @@ namespace Content.Server.Flash
         public readonly EntityUid Target;
         public readonly EntityUid? User;
         public readonly EntityUid? Used;
-        public readonly bool IgnoreProtection; //DeltaV: allow flashing to ignore flash protection
+        public bool IgnoreProtection; //DeltaV: allow flashing to ignore flash protection
 
         public FlashAttemptEvent(EntityUid target, EntityUid? user, EntityUid? used, bool ignoreProtection) //DeltaV: allow flashing to ignore flash protection
         {
