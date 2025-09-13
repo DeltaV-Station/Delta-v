@@ -8,3 +8,21 @@
   - blink
   - blinks
   - blinked
+
+- type: emote
+  id: Coo
+  name: chat-emote-name-coo
+  category: Vocal
+  available: false
+  icon: _Impstation/Interface/Emotes/coo.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-coo"]
+  chatTriggers:
+   - coo
+   - coos
+   - cooed

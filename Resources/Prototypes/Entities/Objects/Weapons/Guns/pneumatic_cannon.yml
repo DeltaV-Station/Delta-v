@@ -14,9 +14,11 @@
   - type: Item
     size: Huge
   - type: Clothing
+    sprite: Objects/Weapons/Guns/Cannons/pneumatic_cannon.rsi # DeltaV
     quickEquip: false
     slots:
     - Back
+    - suitStorage # DeltaV
   - type: Gun
     fireRate: 2
     selectedMode: SemiAuto
