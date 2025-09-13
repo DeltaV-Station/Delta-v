@@ -6,6 +6,8 @@
   components:
   - type: Microwave
     capacity: 10
+    validRecipeTypes: Microwave
+    recipeDebug: true #DeltaV - temporary stopgap as part of implementing Frontier recipe split
   - type: Appearance
   - type: GenericVisualizer
     visuals:
