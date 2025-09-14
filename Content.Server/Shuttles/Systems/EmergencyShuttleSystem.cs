@@ -478,6 +478,17 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         }
 
         _commsConsole.UpdateCommsConsoleInterface();
+
+        // DeltaV - start of escape pod docking
+        var podAirlockQuery = AllEntityQuery<DockingComponent>();
+        while (podAirlockQuery.MoveNext(out var uid, out var dockingComp))
+        {
+            if (HasComp<EscapePodComponent>(Transform(uid).ParentUid) && dockingComp.DockedWith != null)
+            {
+                _dock.TryOpenDockedDoors((uid, dockingComp));
+            }
+        }
+        // DeltaV - end of escape pod docking
     }
 
     private void SetupEmergencyShuttle()

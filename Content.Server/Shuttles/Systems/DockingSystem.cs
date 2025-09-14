@@ -278,6 +278,42 @@ namespace Content.Server.Shuttles.Systems
             dockA.Comp.DockedWith = dockBUid;
             dockB.Comp.DockedWith = dockAUid;
 
+            // DeltaV - start of escape pod docking
+            TryOpenDockedDoors(dockA);
+            // DeltaV - end of escape pod docking
+
+            if (_pathfinding.TryCreatePortal(dockAXform.Coordinates, dockBXform.Coordinates, out var handle))
+            {
+                dockA.Comp.PathfindHandle = handle;
+                dockB.Comp.PathfindHandle = handle;
+            }
+
+            var msg = new DockEvent
+            {
+                DockA = dockA,
+                DockB = dockB,
+                GridAUid = gridA,
+                GridBUid = gridB,
+            };
+
+            _console.RefreshShuttleConsoles();
+            RaiseLocalEvent(dockAUid, msg);
+            RaiseLocalEvent(dockBUid, msg);
+            RaiseLocalEvent(msg);
+        }
+
+        // DeltaV - start of escape pod docking
+        /// <summary>
+        /// Performs just the "open doors" step of the docking sequence on a door and its docked door.
+        /// </summary>
+        public void TryOpenDockedDoors(Entity<DockingComponent> dockA)
+        {
+            if (dockA.Comp.DockedWith == null)
+                return;
+
+            var dockAUid = dockA.Owner;
+            var dockBUid = dockA.Comp.DockedWith.Value;
+
             if (TryComp(dockAUid, out DoorComponent? doorA))
             {
                 if (_doorSystem.TryOpen(dockAUid, doorA))
@@ -301,26 +337,8 @@ namespace Content.Server.Shuttles.Systems
                 }
                 doorB.ChangeAirtight = false;
             }
-
-            if (_pathfinding.TryCreatePortal(dockAXform.Coordinates, dockBXform.Coordinates, out var handle))
-            {
-                dockA.Comp.PathfindHandle = handle;
-                dockB.Comp.PathfindHandle = handle;
-            }
-
-            var msg = new DockEvent
-            {
-                DockA = dockA,
-                DockB = dockB,
-                GridAUid = gridA,
-                GridBUid = gridB,
-            };
-
-            _console.RefreshShuttleConsoles();
-            RaiseLocalEvent(dockAUid, msg);
-            RaiseLocalEvent(dockBUid, msg);
-            RaiseLocalEvent(msg);
         }
+        // DeltaV - end of escape pod docking
 
         /// <summary>
         /// Attempts to dock 2 ports together and will return early if it's not possible.
@@ -446,7 +464,7 @@ namespace Content.Server.Shuttles.Systems
 
             var xformA = Transform(dockA);
             var xformB = Transform(dockB);
-
+            
             if (!xformA.Anchored || !xformB.Anchored)
                 return false;
 
