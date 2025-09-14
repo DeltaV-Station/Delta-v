@@ -4,6 +4,7 @@ using Content.Client.Movement.Components;
 using Content.Client.Movement.Systems;
 using Content.Shared._DV.Movement;
 using Content.Shared.Camera;
+using Content.Shared.Movement.Components;
 using Robust.Client.Timing;
 
 namespace Content.Client._DV.Movement;
@@ -18,26 +19,14 @@ public sealed class CursorOffsetActionSystem : SharedCursorOffsetActionSystem
         base.Initialize();
 
         //SubscribeLocalEvent<CursorOffsetActionComponent, CursorOffsetActionEvent>(OnAction);
-        SubscribeLocalEvent<CursorOffsetActionComponent, GetEyeOffsetEvent>(OnGetEyeOffset);
+        //SubscribeLocalEvent<CursorOffsetActionComponent, GetEyeOffsetEvent>(OnGetEyeOffset);
     }
 
     protected override void OnAction(Entity<CursorOffsetActionComponent> ent, ref CursorOffsetActionEvent args)
     {
         base.OnAction(ent, ref args);
 
-        if (args.Handled)
-            return;
-
-        Log.Info("okay running the client code now trust");
-
-        if (!TryComp(ent.Owner, out EyeCursorOffsetComponent? cursorOffsetComp))
-            return;
-
-        if (!ent.Comp.Active && _gameTiming.IsFirstTimePredicted)
-        {
-            cursorOffsetComp.CurrentPosition = Vector2.Zero;
-            Log.Info("firsttimepredicted not on, goodbye!!!");
-        }
+        Log.Info("no OnAction client code (awesome)");
     }
 
     private void OnGetEyeOffset(Entity<CursorOffsetActionComponent> ent, ref GetEyeOffsetEvent args)
@@ -52,5 +41,17 @@ public sealed class CursorOffsetActionSystem : SharedCursorOffsetActionSystem
         Log.Info("Current offset " + offset.Value);
 
         args.Offset += offset.Value;
+    }
+
+    public override void AddOrRemoveEyeOffset(Entity<CursorOffsetActionComponent> ent, bool add)
+    {
+        if (add)
+        {
+            AddComp<EyeCursorOffsetComponent>(ent);
+        }
+        else
+        {
+            RemComp<EyeCursorOffsetComponent>(ent);
+        }
     }
 }
