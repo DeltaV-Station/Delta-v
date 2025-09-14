@@ -21,36 +21,31 @@ public sealed class CursorOffsetActionSystem : SharedCursorOffsetActionSystem
         SubscribeLocalEvent<CursorOffsetActionComponent, GetEyeOffsetEvent>(OnGetEyeOffset);
     }
 
-    protected override void OnAction(Entity<CursorOffsetActionComponent> ent, ref CursorOffsetActionEvent args)
+    public void OnAction(Entity<CursorOffsetActionComponent> ent, ref CursorOffsetActionEvent args)
     {
-        base.OnAction(ent, ref args);
-
-        if (args.Handled)
-            return;
-
-        Log.Info("okay running the client code now trust");
-
         if (!TryComp(ent.Owner, out EyeCursorOffsetComponent? cursorOffsetComp))
             return;
 
         if (!ent.Comp.Active && _gameTiming.IsFirstTimePredicted)
-        {
             cursorOffsetComp.CurrentPosition = Vector2.Zero;
-            Log.Info("firsttimepredicted not on, goodbye!!!");
-        }
     }
 
     private void OnGetEyeOffset(Entity<CursorOffsetActionComponent> ent, ref GetEyeOffsetEvent args)
     {
         if (!ent.Comp.Active)
+        {
+            Log.Info("action not active, setting to zero");
+            args.Offset = Vector2.Zero;
             return;
+        }
 
         var offset = _eyeOffset.OffsetAfterMouse(ent.Owner, null);
         if (offset == null)
+        {
+            Log.Info("offset was null, skipping");
             return;
+        }
 
-        Log.Info("Current offset " + offset.Value);
-
-        args.Offset += offset.Value;
+        args.Offset += offset.Value; //?????
     }
 }

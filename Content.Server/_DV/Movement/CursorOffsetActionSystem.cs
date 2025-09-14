@@ -27,12 +27,8 @@ public sealed class CursorOffsetActionSystem : SharedCursorOffsetActionSystem
         }
     }
 
-    protected override void OnAction(Entity<CursorOffsetActionComponent> ent, ref CursorOffsetActionEvent args)
+    private void OnAction(Entity<CursorOffsetActionComponent> ent, ref CursorOffsetActionEvent args)
     {
-        base.OnAction(ent, ref args);
-
-        Log.Info("okay running the server code now trust");
-
-        _eye.UpdatePvsScale(args.Performer);
+        args.Handled = true;
     }
 }

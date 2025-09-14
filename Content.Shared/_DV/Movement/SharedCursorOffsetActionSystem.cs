@@ -29,7 +29,7 @@ public abstract class SharedCursorOffsetActionSystem : EntitySystem
         }
     }
 
-    protected virtual void OnAction(Entity<CursorOffsetActionComponent> ent, ref CursorOffsetActionEvent args)
+    private void OnAction(Entity<CursorOffsetActionComponent> ent, ref CursorOffsetActionEvent args)
     {
         if (args.Handled)
             return;
@@ -38,6 +38,8 @@ public abstract class SharedCursorOffsetActionSystem : EntitySystem
 
         ent.Comp.Active = !ent.Comp.Active;
         Dirty(ent);
+
+        _eye.UpdatePvsScale(args.Performer);
 
         args.Handled = true;
     }
