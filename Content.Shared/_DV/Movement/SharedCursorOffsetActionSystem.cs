@@ -1,5 +1,4 @@
 using Content.Shared.Actions;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 
 namespace Content.Shared._DV.Movement;
@@ -38,21 +37,8 @@ public abstract class SharedCursorOffsetActionSystem : EntitySystem
         Log.Info("kotob crashout arc 2025");
 
         ent.Comp.Active = !ent.Comp.Active;
-
-        if(ent.Comp.Active)
-        {
-            //AddComp<SharedEyeCursorOffsetComponent>(ent.Owner);
-            AddOrRemoveEyeOffset(ent, true);
-        }
-        else
-        {
-            //RemComp<EyeCursorOffsetComponent>(ent.Owner);
-            AddOrRemoveEyeOffset(ent, false);
-        }
         Dirty(ent);
 
         args.Handled = true;
     }
-
-    public abstract void AddOrRemoveEyeOffset(Entity<CursorOffsetActionComponent> ent, bool add);
 }
