@@ -35,6 +35,20 @@
   equipment:
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
-  #storage:
-    #back:
+  # Begin DeltaV additions
+  storage:
+    back:
     #- Stuff
+    - Syringe
+  # End DeltaV additions
+
+- type: chameleonOutfit
+  id: MedicalDoctorChameleonOutfit
+  job: MedicalDoctor
+  equipment:
+    head: ClothingHeadNurseHat
+    eyes: ClothingEyesHudMedical
+    mask: ClothingMaskSterile
+    neck: ClothingNeckStethoscope
+    outerClothing: ClothingOuterCoatLab
+    gloves: ClothingHandsGlovesLatex

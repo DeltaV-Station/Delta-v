@@ -106,6 +106,30 @@
   allowed:
   - Stamps # Trader stamp
 
+- type: mapCategories
+  id: TravelingCuisineDv
+  map: /Maps/_DV/Shuttles/traveling_cuisines_dv.yml
+  allowed:
+  - Stamps # Trader stamp
+
+- type: mapCategories
+  id: HaibuShuttleSRN
+  map: /Maps/_DV/Shuttles/haibu.yml
+  allowed:
+  - Syndicate
+
+- type: mapCategories
+  id: HammerShuttleLOP
+  map: /Maps/_DV/Shuttles/hammer.yml
+  allowed:
+  - Syndicate
+
+- type: mapCategories
+  id: StrongboxShuttle
+  map: /Maps/_DV/Shuttles/strongbox.yml
+  allowed:
+  - Syndicate
+
 # Ruins
 
 - type: mapCategories

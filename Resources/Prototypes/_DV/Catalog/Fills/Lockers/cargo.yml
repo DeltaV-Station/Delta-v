@@ -15,3 +15,63 @@
       prob: 0.2
     - id: LunchboxLogisticsFilledRandom
       prob: 0.3
+
+- type: entity
+  parent: [SalvageGunSafeBaseSecure, BaseSecurityCargoContraband]
+  id: SalvageGunSafeSniperGrand
+  name: Mark 1 rifle salvage safe
+  suffix: DO NOT MAP
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSniperGrand
+      amount: 2
+    - id: MagazineBoxLightRifle
+      amount: 2
+    - id: PaperSalvageGunSafeNotice
+      amount: 1
+
+- type: entity
+  parent: [SalvageGunSafeBaseSecure, BaseSecurityCargoContraband]
+  id: SalvageGunSafeShotgunDoubleBarreled
+  name: Double-barreled shotgun salvage safe
+  suffix: DO NOT MAP
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunDoubleBarreled
+      amount: 2
+    - id: BoxLethalshot
+      amount: 2
+    - id: PaperSalvageGunSafeNotice
+      amount: 1
+
+- type: entity
+  parent: [SalvageGunSafeBaseSecure, BaseSecurityCargoContraband]
+  id: SalvageGunSafeRevolverSnub
+  name: Snubbed .45 salvage safe
+  suffix: DO NOT MAP
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRevolverSnub
+      amount: 1
+    - id: MagazineBoxMagnum
+      amount: 1
+    - id: PaperSalvageGunSafeNotice
+      amount: 1
+
+- type: entity
+  parent: [SalvageGunSafeBaseSecure, BaseSecurityCargoContraband]
+  id: SalvageGunSafeVulcan
+  name: Vulcan salvage safe
+  suffix: DO NOT MAP
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleVulcan
+      amount: 1
+    - id: MagazineBoxLightRifle
+      amount: 1
+    - id: PaperSalvageGunSafeNotice
+      amount: 1

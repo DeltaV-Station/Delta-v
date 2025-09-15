@@ -8,3 +8,6 @@ uplink-foam-sabre-desc = A blade disguised as a toy foam sabre. Perfect for assa
 
 uplink-rigged-laser-tag-gun-name = Rigged Laser Tag Gun
 uplink-rigged-laser-tag-gun-desc = This laser tag gun has been tampered with to fire a much more harmful laser and can switch modes to be more covert and look like a regular laser tag gun.
+
+uplink-desword-name = Double-Bladed Energy Sword
+uplink-desword-desc = Now with twice as much energy per sword! Not the most practical design, but at least you can swing it faster now, albeit at a cost of lower damage per hit. Good luck blocking any bullets with it.
