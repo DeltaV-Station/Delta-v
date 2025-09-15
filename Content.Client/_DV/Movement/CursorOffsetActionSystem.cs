@@ -8,7 +8,6 @@ namespace Content.Client._DV.Movement;
 
 public sealed class CursorOffsetActionSystem : SharedCursorOffsetActionSystem
 {
-    [Dependency] private readonly EyeCursorOffsetSystem _eyeOffset = default!;
     [Dependency] private readonly IClientGameTiming _gameTiming = default!;
 
     protected override void OnAction(Entity<CursorOffsetActionComponent> ent, ref CursorOffsetActionEvent args)
@@ -22,7 +21,5 @@ public sealed class CursorOffsetActionSystem : SharedCursorOffsetActionSystem
 
         if (_gameTiming.IsFirstTimePredicted)
             eyeOffset.CurrentPosition = Vector2.Zero;
-
-        Log.Info("im gonna cri");
     }
 }
