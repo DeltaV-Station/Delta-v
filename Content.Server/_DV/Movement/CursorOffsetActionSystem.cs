@@ -1,6 +1,7 @@
 using Content.Server.Movement.Components;
 using Content.Shared._DV.Movement;
 using Content.Shared.Actions;
+using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 
 namespace Content.Server._DV.Movement;
@@ -28,24 +29,12 @@ public sealed class CursorOffsetActionSystem : SharedCursorOffsetActionSystem
         }
     }
 
-    protected override void OnAction(Entity<CursorOffsetActionComponent> ent, ref CursorOffsetActionEvent args)
+    /* protected override void OnAction(Entity<CursorOffsetActionComponent> ent, ref CursorOffsetActionEvent args)
     {
         base.OnAction(ent, ref args);
 
         Log.Info("okay running the server code now trust (just pvsscale)");
 
         _eye.UpdatePvsScale(args.Performer);
-    }
-
-    public override void AddOrRemoveEyeOffset(Entity<CursorOffsetActionComponent> ent, bool add)
-    {
-        if (add)
-        {
-            AddComp<EyeCursorOffsetComponent>(ent);
-        }
-        else
-        {
-            RemComp<EyeCursorOffsetComponent>(ent);
-        }
-    }
+    }*/
 }

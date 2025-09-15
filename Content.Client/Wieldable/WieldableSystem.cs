@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Client.Movement.Components;
 using Content.Client.Movement.Systems;
 using Content.Shared.Camera;
 using Content.Shared.Hands;

@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using System.Numerics;
-using Content.Client.Movement.Components;
 using Content.Client.Movement.Systems;
 using Content.Shared._DV.Movement;
 using Content.Shared.Camera;
@@ -19,14 +18,23 @@ public sealed class CursorOffsetActionSystem : SharedCursorOffsetActionSystem
         base.Initialize();
 
         //SubscribeLocalEvent<CursorOffsetActionComponent, CursorOffsetActionEvent>(OnAction);
-        //SubscribeLocalEvent<CursorOffsetActionComponent, GetEyeOffsetEvent>(OnGetEyeOffset);
+        SubscribeLocalEvent<CursorOffsetActionComponent, GetEyeOffsetEvent>(OnGetEyeOffset);
     }
 
     protected override void OnAction(Entity<CursorOffsetActionComponent> ent, ref CursorOffsetActionEvent args)
     {
         base.OnAction(ent, ref args);
 
-        Log.Info("no OnAction client code (awesome)");
+        if (!TryComp(ent.Owner, out EyeCursorOffsetComponent? cursorOffsetComp))
+            return;
+
+        Log.Info("im gonna go fucking insane");
+
+        if (_gameTiming.IsFirstTimePredicted)
+        {
+            Log.Info("goidapredict");
+            cursorOffsetComp.CurrentPosition = Vector2.Zero;
+        }
     }
 
     private void OnGetEyeOffset(Entity<CursorOffsetActionComponent> ent, ref GetEyeOffsetEvent args)
@@ -41,17 +49,5 @@ public sealed class CursorOffsetActionSystem : SharedCursorOffsetActionSystem
         Log.Info("Current offset " + offset.Value);
 
         args.Offset += offset.Value;
-    }
-
-    public override void AddOrRemoveEyeOffset(Entity<CursorOffsetActionComponent> ent, bool add)
-    {
-        if (add)
-        {
-            AddComp<EyeCursorOffsetComponent>(ent);
-        }
-        else
-        {
-            RemComp<EyeCursorOffsetComponent>(ent);
-        }
     }
 }

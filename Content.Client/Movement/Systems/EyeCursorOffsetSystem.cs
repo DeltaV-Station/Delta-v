@@ -1,6 +1,6 @@
 using System.Numerics;
-using Content.Client.Movement.Components;
 using Content.Shared.Camera;
+using Content.Shared.Movement.Components;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Shared.Map;
@@ -29,6 +29,12 @@ public sealed partial class EyeCursorOffsetSystem : EntitySystem
 
     private void OnGetEyeOffsetEvent(EntityUid uid, EyeCursorOffsetComponent component, ref GetEyeOffsetEvent args)
     {
+        if (!component.Enabled)
+        {
+            args.Offset = Vector2.Zero;
+            return;
+        }
+
         var offset = OffsetAfterMouse(uid, component);
         if (offset == null)
             return;
