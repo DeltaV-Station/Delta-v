@@ -35,23 +35,24 @@ public abstract class SharedCursorOffsetActionSystem : EntitySystem
         if (args.Handled)
             return;
 
+        Log.Info("kotob crashout arc 2025");
+
         ent.Comp.Active = !ent.Comp.Active;
 
-        Log.Debug("shared active is now " + ent.Comp.Active);
-
-        /*if(ent.Comp.Active)
+        if(ent.Comp.Active)
         {
-            AddComp<EyeCursorOffsetComponent>(ent.Owner);
-            Log.Debug("we ADDING this component for REAL!");
+            //AddComp<SharedEyeCursorOffsetComponent>(ent.Owner);
+            AddOrRemoveEyeOffset(ent, true);
         }
         else
         {
-            RemComp<EyeCursorOffsetComponent>(ent.Owner);
-            Log.Debug("we REMOVING this component for REAL!");
-        }*/
-
+            //RemComp<EyeCursorOffsetComponent>(ent.Owner);
+            AddOrRemoveEyeOffset(ent, false);
+        }
         Dirty(ent);
 
         args.Handled = true;
     }
+
+    public abstract void AddOrRemoveEyeOffset(Entity<CursorOffsetActionComponent> ent, bool add);
 }
