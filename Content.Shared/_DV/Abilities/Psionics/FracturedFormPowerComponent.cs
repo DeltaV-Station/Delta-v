@@ -1,21 +1,18 @@
 using Content.Shared.Cloning;
-using Content.Shared.Actions;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._DV.Abilities.Psionics;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class FracturedFormPowerComponent : Component
 {
-    public InstantActionComponent? MetapsionicPowerAction = null;
-    [DataField("fracturedFormActionId",
-        customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? FracturedFormActionId = "ActionFracturedForm";
-
     [DataField]
+    public EntProtoId FracturedFormActionId = "ActionFracturedForm";
+
+    [DataField, AutoNetworkedField]
     public EntityUid? FracturedFormActionEntity;
 
     [DataField]

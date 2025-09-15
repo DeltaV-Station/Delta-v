@@ -1,46 +1,44 @@
-using Content.Shared.Actions;
-using Content.Shared.Abilities.Psionics;
-using Content.Shared.Popups;
-using Content.Shared.Actions.Events;
-using Content.Shared._DV.Abilities.Psionics;
-using Robust.Shared.Random;
-using Content.Server.Cloning;
-using Robust.Server.GameObjects;
-using Robust.Shared.Prototypes;
-using Content.Shared.Inventory;
-using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.Preferences;
-using Content.Server.Station.Systems;
-using System.Linq;
-using Content.Shared.Mind.Components;
-using Content.Server.Mind;
-using Content.Shared.Mind;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Bed.Sleep;
-using Robust.Shared.Timing;
-using Robust.Shared.Audio.Systems;
 using Content.Server.Chat.Systems;
+using Content.Server.Cloning;
+using Content.Server.Mind;
+using Content.Server.Station.Systems;
+using Content.Shared._DV.Abilities.Psionics;
+using Content.Shared.Abilities.Psionics;
+using Content.Shared.Actions;
+using Content.Shared.Actions.Events;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Mind.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
+using Content.Shared.Preferences;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Server._DV.Abilities.Psionics;
 
 public sealed class FracturedFormPowerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedPopupSystem _popups = default!;
-    [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SleepingSystem _sleeping = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popups = default!;
+    [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+    [Dependency] private readonly SleepingSystem _sleeping = default!;
+    [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -54,9 +52,7 @@ public sealed class FracturedFormPowerSystem : EntitySystem
     {
         var component = entity.Comp;
         _actions.AddAction(entity, ref component.FracturedFormActionEntity, component.FracturedFormActionId);
-        _actions.TryGetActionData(component.FracturedFormActionEntity, out var actionData);
-        if (actionData is { UseDelay: not null })
-            _actions.StartUseDelay(component.FracturedFormActionEntity);
+        _actions.StartUseDelay(component.FracturedFormActionEntity);
         if (TryComp<PsionicComponent>(entity, out var psionic) && psionic.PsionicAbility == null)
         {
             psionic.PsionicAbility = component.FracturedFormActionEntity;
@@ -74,7 +70,7 @@ public sealed class FracturedFormPowerSystem : EntitySystem
 
     private void OnShutdown(Entity<FracturedFormPowerComponent> entity, ref ComponentShutdown args)
     {
-        _actions.RemoveAction(entity, entity.Comp.FracturedFormActionEntity);
+        _actions.RemoveAction(entity.Owner, entity.Comp.FracturedFormActionEntity);
 
         if (TryComp<PsionicComponent>(entity, out var psionic))
         {
