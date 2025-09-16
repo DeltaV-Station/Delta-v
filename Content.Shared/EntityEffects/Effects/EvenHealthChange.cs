@@ -1,3 +1,8 @@
+// DeltaV Start - Fix EvenHealing with Limbs.
+using System.Linq;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Body.Systems;
+// DeltaV End - Fix EvenHealing with Limbs.
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects;
@@ -91,10 +96,47 @@ public sealed partial class EvenHealthChange : EntityEffect
         }
 
         var damagableSystem = args.EntityManager.System<DamageableSystem>();
-        var universalReagentDamageModifier = damagableSystem.UniversalReagentDamageModifier;
-        var universalReagentHealModifier = damagableSystem.UniversalReagentHealModifier;
+        var dspec = GetDamageSpec(protoMan, damageable); // DeltaV - Fix EvenHealing with Limbs.
 
-        var dspec = new DamageSpecifier();
+        damagableSystem.TryChangeDamage(
+            args.TargetEntity,
+            dspec * scale,
+            IgnoreResistances,
+            interruptsDoAfters: false,
+            doPartDamage: false); // DeltaV - Fix EvenHealing with Limbs.
+
+        // DeltaV Start - Fix EvenHealing with Limbs.
+        var bodySystem = args.EntityManager.System<SharedBodySystem>();
+        var bodyParts = SharedTargetingSystem.GetValidParts();
+        foreach (var bodyPart in bodyParts)
+        {
+            var (targetType, targetSymmetry) =  bodySystem.ConvertTargetBodyPart(bodyPart);
+            if (bodySystem.GetBodyChildrenOfType(args.TargetEntity, targetType, symmetry: targetSymmetry) is { } part)
+            {
+                if (!args.EntityManager.TryGetComponent<DamageableComponent>(part.FirstOrDefault().Id, out var damageablePart))
+                    continue;
+                dspec = GetDamageSpec(protoMan, damageablePart);
+
+                if (dspec.GetTotal() == 0)
+                    continue;
+
+                damagableSystem.TryChangeDamage(
+                    args.TargetEntity,
+                    dspec * scale,
+                    IgnoreResistances,
+                    interruptsDoAfters: false,
+                    targetPart: bodyPart,
+                    onlyDamageParts: true,
+                    partMultiplier: 0.5f,
+                    canSever: false);
+            }
+        }
+        // DeltaV End - Fix EvenHealing with Limbs.
+    }
+
+    private DamageSpecifier GetDamageSpec(IPrototypeManager protoMan, DamageableComponent damageable) // DeltaV - Fix EvenHealing with Limbs.
+    {
+        var damageSpecifier = new DamageSpecifier(); // DeltaV - Fix EvenHealing with Limbs.
 
         foreach (var (group, amount) in Damage)
         {
@@ -110,30 +152,10 @@ public sealed partial class EvenHealthChange : EntityEffect
             var sum = groupDamage.Values.Sum();
             foreach (var (damageId, damageAmount) in groupDamage)
             {
-                var existing = dspec.DamageDict.GetOrNew(damageId);
-                dspec.DamageDict[damageId] = existing + damageAmount / sum * amount;
+                var existing = damageSpecifier.DamageDict.GetOrNew(damageId); // DeltaV - Fix EvenHealing with Limbs.
+                damageSpecifier.DamageDict[damageId] = existing + damageAmount / sum * amount; // DeltaV - Fix EvenHealing with Limbs.
             }
         }
-
-        if (universalReagentDamageModifier != 1 || universalReagentHealModifier != 1)
-        {
-            foreach (var (type, val) in dspec.DamageDict)
-            {
-                if (val < 0f)
-                {
-                    dspec.DamageDict[type] = val * universalReagentHealModifier;
-                }
-                if (val > 0f)
-                {
-                    dspec.DamageDict[type] = val * universalReagentDamageModifier;
-                }
-            }
-        }
-
-        damagableSystem.TryChangeDamage(
-            args.TargetEntity,
-            dspec * scale,
-            IgnoreResistances,
-            interruptsDoAfters: false);
+        return damageSpecifier; // DeltaV - Fix EvenHealing with Limbs.
     }
 }

@@ -33,6 +33,15 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  # Begin DeltaV additions
+  - type: Charger
+    slotId: ItemCabinet
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+  - type: ExtensionCableReceiver
+  - type: LightningTarget
+    priority: 1
+  # End DeltaV additions
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
