@@ -46,5 +46,5 @@ nuke-codes-fax-paper-name = emergency scuttling codes
 nuke-slot-component-slot-name-disk = Disk
 
 ## Examine
-nuke-examine-armed = Hey uh, why's that [color=red]red light[/color] blinking?
-nuke-examine-exploding = Yeah... I think it's too late buddy.
+nuke-examine-armed = The device is armed!
+nuke-examine-exploding = good luck twin 🙏
