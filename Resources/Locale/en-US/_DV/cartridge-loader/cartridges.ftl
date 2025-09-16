@@ -172,7 +172,7 @@ mail-metrics-progress-percent = Success rate: {$successRate}%
 # General
 stock-trading-program-name = StockTrading
 stock-trading-title = Intergalactic Stock Market
-stock-trading-balance = Balance: {$balance} credits
+stock-trading-balance = Balance: {$balance} spesos
 stock-trading-no-entries = No entries
 stock-trading-owned-shares = Owned: {$shares}
 stock-trading-buy-button = Buy

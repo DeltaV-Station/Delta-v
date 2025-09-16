@@ -9,3 +9,5 @@ skia-role-briefing =
     You are bound to darkness and shadows, use the darkness to your advantage.
     Find your prey and reap their soul (kill them). Avoid ending the lives of innocents.
 skia-round-end-name = Skia
+
+skia-resurrecting-desc = [color=red]Their form shifts, it looks like they're trying to reform![/color]

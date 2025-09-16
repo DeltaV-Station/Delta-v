@@ -12,3 +12,8 @@
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertAugmentArm
   name: Add arm augment
+
+- type: entity
+  parent: SurgeryStepInsertOrgan
+  id: SurgeryStepInsertPump
+  name: Add pump
