@@ -1,6 +1,5 @@
 using Content.Server.Movement.Components;
 using Content.Shared._DV.Movement;
-using Content.Shared.Actions;
 using Content.Shared.Camera;
 using Content.Shared.Movement.Systems;
 
@@ -14,7 +13,7 @@ public sealed class CursorOffsetActionSystem : SharedCursorOffsetActionSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CursorOffsetActionComponent, GetEyePvsScaleRelayedEvent>(OnGetEyePvsScale);
+        SubscribeLocalEvent<CursorOffsetActionComponent, GetEyePvsScaleEvent>(OnGetEyePvsScale);
     }
 
     protected override void OnAction(Entity<CursorOffsetActionComponent> ent, ref CursorOffsetActionEvent args)
@@ -25,12 +24,9 @@ public sealed class CursorOffsetActionSystem : SharedCursorOffsetActionSystem
     }
 
     private void OnGetEyePvsScale(Entity<CursorOffsetActionComponent> entity,
-        ref GetEyePvsScaleRelayedEvent args)
+        ref GetEyePvsScaleEvent args)
     {
-        if (!TryComp(entity, out EyeCursorOffsetComponent? eyeCursorOffset))
-            return;
-
-        if (!entity.Comp.Active)
+        if (!TryComp(entity, out EyeCursorOffsetComponent? eyeCursorOffset) || !entity.Comp.Active)
             return;
 
         args.Scale += eyeCursorOffset.PvsIncrease;
