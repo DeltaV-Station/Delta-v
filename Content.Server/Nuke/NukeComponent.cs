@@ -106,14 +106,14 @@ namespace Content.Server.Nuke
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("maxIntensity")]
-        public float MaxIntensity = 100;
+        public float MaxIntensity = 1000;
 
         /// <summary>
         ///     How quickly the intensity drops off as you move away from the epicenter.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("intensitySlope")]
-        public float IntensitySlope = 5;
+        public float IntensitySlope = 2.5;
 
         /// <summary>
         ///     The total intensity of this explosion. The radius of the explosion scales like the cube root of this
