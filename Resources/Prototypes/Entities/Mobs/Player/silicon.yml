@@ -83,9 +83,10 @@
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
   - type: ShowJobIcons
-  # Begin DeltaV - AI Shop System
-  - type: StationAiShop
-  # End DeltaV - AI Shop System
+  - type: DamagedSiliconAccent
+    startPowerCorruptionAtCharIdx: 4
+    maxPowerCorruptionAtCharIdx: 20
+  - type: StationAiShop # DeltaV - AI Shop System
 
 - type: entity
   id: AiHeldIntellicard
@@ -457,9 +458,6 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
-  - type: DamagedSiliconAccent
-    startPowerCorruptionAtCharIdx: 4
-    maxPowerCorruptionAtCharIdx: 20
   - type: Tag
     tags:
     - HideContextMenu
