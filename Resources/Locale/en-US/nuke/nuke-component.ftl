@@ -3,7 +3,7 @@ nuke-component-cant-anchor-toggle = The nuclear authentication disk is required 
 nuke-component-announcement-sender = Nuclear Fission Explosive
 nuke-component-announcement-armed = Attention! The station's self-destruct mechanism has been engaged {$location}. {$time} seconds until detonation. If this was made in error, the mechanism may still be disarmed.
 nuke-component-announcement-unarmed = The station's self-destruct was deactivated! Have a nice day!
-nuke-component-announcement-send-codes = Attention! Self-destruction codes have been sent to designated fax machines.
+nuke-component-announcement-send-codes = Attention! Self-destruction has been authorised by Central Command! Please proceed to the Captain's fax machine for authentication codes!
 nuke-component-doafter-warning = You start fiddling with wires and knobs in order to disarm the nuke.. This may take a while.
 
 nuke-disk-component-microwave = The disk sparks and fizzles a bit, but seems mostly unharmed?
@@ -25,7 +25,7 @@ nuke-user-interface-first-status-device-cooldown = DEACTIVATED
 nuke-user-interface-status-error = ERROR
 
 ## Lower status
-nuke-user-interface-second-status-await-disk = AWAIT DISK
+nuke-user-interface-second-status-await-disk = INSERT NAD
 nuke-user-interface-second-status-time = TIME: {$time}
 nuke-user-interface-second-status-current-code = CODE: {$code}
 nuke-user-interface-second-status-cooldown-time = WAIT: {$time}
@@ -40,7 +40,7 @@ nuke-label-syndicate = SYN-{$serial}
 # Codes
 nuke-codes-message = [color=red]TOP SECRET![/color]
 nuke-codes-list = {$name} code: {$code}
-nuke-codes-fax-paper-name = nuclear authentication codes
+nuke-codes-fax-paper-name = emergency scuttling codes
 
 # Nuke disk slot
 nuke-slot-component-slot-name-disk = Disk
