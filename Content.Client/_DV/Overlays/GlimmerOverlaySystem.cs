@@ -21,6 +21,7 @@ public sealed partial class GlimmerOverlaySystem : EntitySystem
         _overlay = new GlimmerOverlay();
         SubscribeNetworkEvent<GlimmerChangedEvent>(OnGlimmerChanged);
         _cfg.OnValueChanged(DCCVars.DisableGlimmerShader, OnDisableGlimmerShaderChanged);
+        OnDisableGlimmerShaderChanged(_cfg.GetCVar(DCCVars.DisableGlimmerShader));
     }
 
     private void OnGlimmerChanged(GlimmerChangedEvent eventArgs)

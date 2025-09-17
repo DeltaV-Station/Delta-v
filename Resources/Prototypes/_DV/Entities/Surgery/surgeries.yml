@@ -168,3 +168,25 @@
   - type: SurgeryOrganCondition
     organ:
     - type: AugmentArm
+
+- type: entity
+  parent: SurgeryRemoveHeart
+  id: SurgeryRemovePump
+  name: Remove Pump
+  components:
+  - type: SurgeryOrganSlotCondition
+    organSlot: pump
+
+- type: entity
+  parent: SurgeryInsertHeart
+  id: SurgeryInsertPump
+  name: Insert Pump
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepInsertPump
+    - SurgeryStepSealOrganWound
+  - type: SurgeryOrganSlotCondition
+    organSlot: pump
