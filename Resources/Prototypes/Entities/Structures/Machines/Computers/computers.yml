@@ -779,7 +779,7 @@
     canShuttle: false
     global: true #announce to everyone they're about to fuck shit up
     announceSentBy: false
-    sound: /Audio/Announcements/war.ogg
+    sound: /Audio/Announcements/announce.ogg # DeltaV - changed from war.oog to announce.ogg
   - type: Computer
     board: WizardCommsComputerCircuitboard
   - type: PointLight

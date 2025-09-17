@@ -26,7 +26,7 @@ fugitive-report-crime = - {$count ->
     [1] One count
     *[other] {$count} counts
 } of {$crime}
-fugitive-report-last-line = GALPOL prefers the fugitive to be returned alive so they may face trial at Central Command.
+fugitive-report-last-line = GALPOL are entrusting Nanotrasen with securing this individual and conducting a trial at Central Command.  Please ensure they are kept alive and brought to Central Command.
 
 # All (non erp) felonies and capital crimes in Space Law as of August 2025
 fugitive-crime-1 = Murder
