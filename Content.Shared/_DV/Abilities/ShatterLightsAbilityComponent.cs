@@ -21,6 +21,12 @@ public sealed partial class ShatterLightsAbilityComponent : Component
     public bool LineOfSight = false;
 
     /// <summary>
+    /// The radius to ignore line of sight restrictions.
+    /// </summary>
+    [DataField]
+    public float PenetratingRadius = 0f;
+
+    /// <summary>
     /// The action that triggers the shatter lights ability.
     /// </summary>
     [DataField]
@@ -37,6 +43,12 @@ public sealed partial class ShatterLightsAbilityComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier AbilitySound = new SoundPathSpecifier("/Audio/_DV/Effects/creepyshriek.ogg");
+
+    /// <summary>
+    /// The effect to spawn when the ability is used.
+    /// </summary>
+    [DataField]
+    public EntProtoId Effect = "CMEffectScreech";
 }
 
 public sealed partial class ShatterLightsActionEvent : InstantActionEvent;
