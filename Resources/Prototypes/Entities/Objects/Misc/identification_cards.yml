@@ -675,13 +675,45 @@
   components:
   - type: Sprite
     layers:
-    - state: syndie
+    - state: black
+    - state: syndi
   - type: Access
     tags:
     - NuclearOperative
     - SyndicateAgent
   - type: NanoChatCard # DeltaV
     listNumber: false
+
+- type: entity
+  parent: [ SyndicateIDCard, BaseSyndicateContraband ]
+  id: SyndiOperativeIDCard
+  name: gorlex operative ID card # DeltaV - slight name change
+  components:
+  - type: Sprite
+    layers:
+    - state: black
+    - state: syndi_operative
+  - type: AgentIDCard
+
+- type: entity
+  parent: [ SyndiOperativeIDCard, BaseSyndicateContraband ]
+  id: SyndiAgentIDCard # DeltaV - Nukie agent is still agent
+  name: gorlex agent ID card # DeltaV - slight name change
+  components:
+  - type: Sprite
+    layers:
+    - state: black
+    - state: syndi_corpsman
+
+- type: entity
+  parent: [ SyndiOperativeIDCard, BaseSyndicateContraband ]
+  id: SyndiCommanderIDCard
+  name: gorlex commander ID card # DeltaV - slight name change
+  components:
+  - type: Sprite
+    layers:
+    - state: black
+    - state: syndi_commander
 
 - type: entity
   parent: [ IDCardStandard, BaseMajorContraband ]
