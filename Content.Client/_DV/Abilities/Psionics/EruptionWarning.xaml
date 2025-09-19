@@ -1,0 +1,10 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'eruption-warning-window-title'}">
+    <BoxContainer Orientation="Vertical" Margin="10">
+        <Label Text="{Loc 'eruption-warning-window-prompt-text-part'}" Margin="5" Align="Center"/>
+        <BoxContainer Orientation="Horizontal" Margin="5" Align="Center">
+            <Button Name="ConfirmButton" Text="{Loc 'eruption-warning-window-acknowledge-button'}"/>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

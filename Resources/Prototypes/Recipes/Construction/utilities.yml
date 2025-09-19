@@ -120,6 +120,15 @@
   canBuildInImpassable: false
 
 - type: construction
+  id: DisposalSignaller
+  graph: DisposalPipe
+  startNode: start
+  targetNode: signaller
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
   id: DisposalTrunk
   graph: DisposalPipe
   startNode: start
@@ -224,7 +233,7 @@
   graph: AirAlarm
   startNode: start
   targetNode: air_alarm
-  category: construction-category-structures
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   objectType: Structure
   canRotate: true
@@ -237,7 +246,7 @@
   graph: FireAlarm
   startNode: start
   targetNode: fire_alarm
-  category: construction-category-structures
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   objectType: Structure
   canRotate: true
@@ -250,7 +259,7 @@
   graph: AirSensor
   startNode: start
   targetNode: sensor
-  category: construction-category-structures
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   objectType: Structure
   canRotate: true
@@ -260,7 +269,7 @@
   graph: GasPipeSensor
   startNode: start
   targetNode: sensor
-  category: construction-category-structures
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   objectType: Structure
   canRotate: true
@@ -268,46 +277,219 @@
 # ATMOS PIPES
 - type: construction
   id: GasPipeHalf
+  name: construction-recipe-gas-pipe-half
   graph: GasPipe
   startNode: start
   targetNode: half
-  category: construction-category-utilities
-  placementMode: SnapgridCenter
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
+  alternativePrototypes:
+  - GasPipeHalf
+  - GasPipeHalfAlt1
+  - GasPipeHalfAlt2
+
+- type: construction
+  id: GasPipeHalfAlt1
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: halfAlt1
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  alternativePrototypes:
+  - GasPipeHalf
+  - GasPipeHalfAlt1
+  - GasPipeHalfAlt2
+
+- type: construction
+  id: GasPipeHalfAlt2
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: halfAlt2
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  alternativePrototypes:
+  - GasPipeHalf
+  - GasPipeHalfAlt1
+  - GasPipeHalfAlt2
 
 - type: construction
   id: GasPipeStraight
   graph: GasPipe
   startNode: start
   targetNode: straight
-  category: construction-category-utilities
-  placementMode: SnapgridCenter
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
+  alternativePrototypes:
+  - GasPipeStraight
+  - GasPipeStraightAlt1
+  - GasPipeStraightAlt2
+
+- type: construction
+  id: GasPipeStraightAlt1
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: straightAlt1
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  alternativePrototypes:
+  - GasPipeStraight
+  - GasPipeStraightAlt1
+  - GasPipeStraightAlt2
+
+- type: construction
+  id: GasPipeStraightAlt2
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: straightAlt2
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  alternativePrototypes:
+  - GasPipeStraight
+  - GasPipeStraightAlt1
+  - GasPipeStraightAlt2
 
 - type: construction
   id: GasPipeBend
+  name: construction-recipe-gas-pipe-bend
   graph: GasPipe
   startNode: start
   targetNode: bend
-  category: construction-category-utilities
-  placementMode: SnapgridCenter
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
+  alternativePrototypes:
+  - GasPipeBend
+  - GasPipeBendAlt1
+  - GasPipeBendAlt2
+
+- type: construction
+  id: GasPipeBendAlt1
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: bendAlt1
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  alternativePrototypes:
+  - GasPipeBend
+  - GasPipeBendAlt1
+  - GasPipeBendAlt2
+
+- type: construction
+  id: GasPipeBendAlt2
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: bendAlt2
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  alternativePrototypes:
+  - GasPipeBend
+  - GasPipeBendAlt1
+  - GasPipeBendAlt2
 
 - type: construction
   id: GasPipeTJunction
+  name: construction-recipe-gas-pipe-t-junction
   graph: GasPipe
   startNode: start
   targetNode: tjunction
-  category: construction-category-utilities
-  placementMode: SnapgridCenter
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
+  alternativePrototypes:
+  - GasPipeTJunction
+  - GasPipeTJunctionAlt1
+  - GasPipeTJunctionAlt2
+
+- type: construction
+  id: GasPipeTJunctionAlt1
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: tjunctionAlt1
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  alternativePrototypes:
+  - GasPipeTJunction
+  - GasPipeTJunctionAlt1
+  - GasPipeTJunctionAlt2
+
+- type: construction
+  id: GasPipeTJunctionAlt2
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: tjunctionAlt2
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  alternativePrototypes:
+  - GasPipeTJunction
+  - GasPipeTJunctionAlt1
+  - GasPipeTJunctionAlt2
 
 - type: construction
   id: GasPipeFourway
+  name: construction-recipe-gas-pipe-fourway
   graph: GasPipe
   startNode: start
   targetNode: fourway
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  alternativePrototypes:
+  - GasPipeFourway
+  - GasPipeFourwayAlt1
+  - GasPipeFourwayAlt2
+
+- type: construction
+  id: GasPipeFourwayAlt1
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: fourwayAlt1
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  alternativePrototypes:
+  - GasPipeFourway
+  - GasPipeFourwayAlt1
+  - GasPipeFourwayAlt2
+
+- type: construction
+  id: GasPipeFourwayAlt2
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: fourwayAlt2
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  alternativePrototypes:
+  - GasPipeFourway
+  - GasPipeFourwayAlt1
+  - GasPipeFourwayAlt2
+
+- type: construction
+  id: GasPipeManifold
+  graph: GasPipe
+  startNode: start
+  targetNode: manifold
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: true
 
@@ -317,7 +499,7 @@
   graph: GasUnary
   startNode: start
   targetNode: ventpump
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -328,7 +510,7 @@
   graph: GasUnary
   startNode: start
   targetNode: passivevent
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -339,7 +521,7 @@
   graph: GasUnary
   startNode: start
   targetNode: ventscrubber
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -350,7 +532,7 @@
   graph: GasUnary
   startNode: start
   targetNode: outletinjector
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -362,7 +544,7 @@
   graph: GasBinary
   startNode: start
   targetNode: pressurepump
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -373,7 +555,7 @@
   graph: GasBinary
   startNode: start
   targetNode: volumepump
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -384,7 +566,7 @@
   graph: GasBinary
   startNode: start
   targetNode: passivegate
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -395,7 +577,7 @@
   graph: GasBinary
   startNode: start
   targetNode: valve
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -406,7 +588,7 @@
   graph: GasBinary
   startNode: start
   targetNode: signalvalve
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -417,7 +599,7 @@
   graph: GasBinary
   startNode: start
   targetNode: port
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
@@ -428,7 +610,7 @@
   graph: GasBinary
   startNode: start
   targetNode: dualportventpump
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
 
@@ -437,16 +619,17 @@
   graph: GasBinary
   startNode: start
   targetNode: radiator
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
 
 - type: construction
   id: HeatExchangerBend
+  name: construction-recipe-heat-exchanger-bend
   graph: GasBinary
   startNode: start
   targetNode: bendradiator
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
 
@@ -456,7 +639,7 @@
   graph: GasTrinary
   startNode: start
   targetNode: filter
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   mirror: GasFilterFlipped
@@ -469,7 +652,7 @@
   graph: GasTrinary
   startNode: start
   targetNode: filterflipped
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   mirror: GasFilter
@@ -481,7 +664,7 @@
   graph: GasTrinary
   startNode: start
   targetNode: mixer
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   mirror: GasMixerFlipped
@@ -494,7 +677,7 @@
   graph: GasTrinary
   startNode: start
   targetNode: mixerflipped
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   mirror: GasMixer
@@ -506,7 +689,7 @@
   graph: GasTrinary
   startNode: start
   targetNode: pneumaticvalve
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:

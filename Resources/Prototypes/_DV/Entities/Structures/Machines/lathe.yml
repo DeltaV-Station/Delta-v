@@ -2,7 +2,7 @@
   parent: ExosuitFabricator
   id: SyndicateExosuitFabricator
   name: syndicate exosuit fabricator
-  description: Creates parts for evil robotics and other mechanical needs
+  description: Creates parts for evil robotics and other mechanical needs.
   components:
   - type: Sprite
     sprite: _DV/Structures/Machines/synd_exosuit_fabricator.rsi
@@ -90,6 +90,7 @@
     - FauxTiles
     - Equipment
     - UpgradeKits
+    - UpgradeKits_Goob
     - EngineeringHardsuits
   - type: Machine
     board: EngineeringTechFabCircuitboard

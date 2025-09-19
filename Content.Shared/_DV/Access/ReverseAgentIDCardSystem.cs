@@ -1,4 +1,5 @@
 using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 
@@ -7,6 +8,7 @@ namespace Content.Shared._DV.Access;
 public sealed class ReverseAgentIDCardSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
 
     public override void Initialize()
     {
@@ -46,9 +48,9 @@ public sealed class ReverseAgentIDCardSystem : EntitySystem
         if (!TryComp<AccessReaderComponent>(ent, out var access))
             return;
 
-        targetAccess.DenyTags = new(access.DenyTags);
-        targetAccess.AccessLists = new(access.AccessLists);
-        targetAccess.AccessKeys = new(access.AccessKeys);
+        _accessReader.SetDenyTags((args.Target.Value, targetAccess), access.DenyTags);
+        _accessReader.SetAccesses((args.Target.Value, targetAccess), access.AccessLists);
+        _accessReader.SetAccessKeys((args.Target.Value, targetAccess), access.AccessKeys);
 
         _popup.PopupClient(Loc.GetString("reverse-agent-access-overwrote"), args.User, args.User);
         Dirty(ent, access);

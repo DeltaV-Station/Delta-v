@@ -72,7 +72,7 @@ namespace Content.Shared.Containers.ItemSlots
                     continue;
 
                 var item = Spawn(slot.StartingItem, Transform(uid).Coordinates);
-                    
+
                 if (slot.ContainerSlot != null)
                     _containers.Insert(item, slot.ContainerSlot);
             }
@@ -144,7 +144,7 @@ namespace Content.Shared.Containers.ItemSlots
         {
             itemSlot = null;
 
-            if (!Resolve(uid, ref component))
+            if (!Resolve(uid, ref component, false)) // Goobstation - sane API
                 return false;
 
             return component.Slots.TryGetValue(slotId, out itemSlot);

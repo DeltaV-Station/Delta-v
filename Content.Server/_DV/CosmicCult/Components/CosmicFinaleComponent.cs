@@ -38,7 +38,7 @@ public sealed partial class CosmicFinaleComponent : Component
     public TimeSpan FinaleRemainingTime = TimeSpan.FromSeconds(362);
 
     [DataField, AutoNetworkedField]
-    public TimeSpan VisualsThreshold = TimeSpan.FromSeconds(240);
+    public TimeSpan VisualsThreshold = TimeSpan.FromSeconds(125);
 
     [DataField, AutoNetworkedField]
     public TimeSpan CheckWait = TimeSpan.FromSeconds(5);
@@ -75,7 +75,8 @@ public sealed partial class CosmicFinaleComponent : Component
             { "Blunt", 2.25},
             { "Cold", 2.25},
             { "Radiation", 2.25},
-            { "Asphyxiation", 2.25}
+            { "Asphyxiation", 2.25},
+            { "Ion", 2.25}
         }
     };
 }
@@ -87,4 +88,5 @@ public enum FinaleState : byte
     ReadyFinale,
     ActiveFinale,
     Victory,
+    Unreachable,
 }

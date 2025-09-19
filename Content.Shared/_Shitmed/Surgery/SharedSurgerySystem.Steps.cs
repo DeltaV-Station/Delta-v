@@ -814,7 +814,7 @@ public abstract partial class SharedSurgerySystem
         {
             var buckledEvent = new SurgerySpeedModifyEvent(speed);
             RaiseLocalEvent(buckledTo, ref buckledEvent);
-            speed = ev.Multiplier;
+            speed = buckledEvent.Multiplier;
         }
 
         return stepComp.Duration / speed;

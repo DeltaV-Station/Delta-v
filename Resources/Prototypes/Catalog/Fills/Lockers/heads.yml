@@ -342,7 +342,7 @@
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfSecurityDeltaV
     - id: BookSecretDocuments
-    - id: WeaponEnergyShotgun
+    # - id: WeaponEnergyShotgun # DeltaV - Moved to warden locker
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase

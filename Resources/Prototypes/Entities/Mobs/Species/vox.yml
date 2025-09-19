@@ -15,6 +15,7 @@
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
+    allowedEmotes: ['Hiss', 'Chitter', 'Coo'] # Impstation
   - type: TypingIndicator
     proto: vox
   - type: Vocal
@@ -166,6 +167,8 @@
         32:
           sprite: Mobs/Species/Vox/displacement.rsi
           state: hand_r
+  - type: CosmicMarkVisuals # DeltaV - cosmic cult
+    subtleState: vox
 
 - type: entity
   parent: BaseSpeciesDummy

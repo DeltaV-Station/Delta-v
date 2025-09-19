@@ -65,3 +65,20 @@
       - id: GunSafeBeamDevastator
       - id: GunSafeRocketLauncher
       - id: GunSafeGamblagator
+
+- type: entity
+  parent: BaseGunSafeSpawner
+  id: SalvageweaponSafeSpawner
+  suffix: Salvage, Random
+  components:
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: SalvageGunSafeSniperGrand
+      - id: SalvageGunSafeShotgunDoubleBarreled
+        weight: 0.95
+      - !type:GroupSelector
+        weight: 0.05
+        children:
+        - id: SalvageGunSafeRevolverSnub
+        - id: SalvageGunSafeVulcan

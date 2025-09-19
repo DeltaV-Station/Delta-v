@@ -73,3 +73,23 @@
       priority: 1
       blacklistedPrefix: folded
       blacklistPopup: deltav-fold-cannot
+
+- type: entity
+  abstract: true
+  parent: ClothingUniformBase
+  id: ClothingTurtleneckBase
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/color_turtle.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/color_turtle.rsi
+
+- type: entity
+  abstract: true
+  parent: ClothingUniformBase
+  id: ClothingTurtleneckSkirtBase
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/color_turtle.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/color_turtle.rsi
