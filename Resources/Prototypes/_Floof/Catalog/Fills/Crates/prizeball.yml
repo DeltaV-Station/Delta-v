@@ -1,0 +1,16 @@
+﻿# SPDX-FileCopyrightText: 2024 ShatteredSwords <135023515+ShatteredSwords@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rosycup <178287475+Rosycup@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  id: CratePrizeBall
+  parent: CrateGenericSteel
+  name: prize ball crate
+  description: For when you really, really suck at arcade games, like gacha games, or if your station does not have a prize vendor.
+  components:
+  - type: StorageFill
+    contents:
+    - id: PrizeBall
+      amount: 10
