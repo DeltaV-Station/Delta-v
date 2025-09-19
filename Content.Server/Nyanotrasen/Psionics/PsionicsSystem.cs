@@ -177,5 +177,15 @@ namespace Content.Server.Psionics
             RollPsionics(uid, psionic, multiplier: bonusMuliplier);
             psionic.Rerolled = true;
         }
+
+        // DeltaV - start of mindbreaking reroll
+        public void GrantNewPsionicReroll(EntityUid uid, PotentialPsionicComponent? psionic = null)
+        {
+            if (!Resolve(uid, ref psionic, false))
+                return;
+
+            psionic.Rerolled = false;
+        }
+        // DeltaV - end of mindbreaking reroll
     }
 }
