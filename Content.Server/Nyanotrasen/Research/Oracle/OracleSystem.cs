@@ -15,7 +15,9 @@ using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Research.Components; // DeltaV
 using Content.Shared.Research.Prototypes;
+using Content.Shared.Research.Systems; // DeltaV
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
@@ -34,6 +36,9 @@ public sealed class OracleSystem : EntitySystem
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly PuddleSystem _puddleSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    // DeltaV - start of oracle tech tier check
+    [Dependency] private readonly SharedResearchSystem _research = default!; 
+    // DeltaV - end of oracle tech tier check
 
     public override void Update(float frameTime)
     {
@@ -234,15 +239,41 @@ public sealed class OracleSystem : EntitySystem
         var allTechs = _prototypeManager.EnumeratePrototypes<TechnologyPrototype>();
         var allRecipes = new List<string>();
 
+        // DeltaV - start of oracle tech tier check
+        var researchServers = new List<(
+            EntityUid serverUid, 
+            TechnologyDatabaseComponent database, 
+            Dictionary<string, int> disciplineTiers
+        )>();
+        var query = EntityQueryEnumerator<ResearchServerComponent, TechnologyDatabaseComponent>();
+        while (query.MoveNext(out var serverUid, out var server, out var database))
+        {
+            researchServers.Add((serverUid, database, _research.GetDisciplineTiers(database)));
+        }
+
         foreach (var tech in allTechs)
         {
-            foreach (var recipe in tech.RecipeUnlocks)
+            if (
+                researchServers.Count == 0
+                || researchServers.Any(server => 
+                    _research.IsTechnologyUnlocked(server.serverUid, tech, server.database)
+                    || _research.IsTechnologyAvailable(server.database, tech, server.disciplineTiers)
+                    || (
+                        tech.Tier == server.disciplineTiers[tech.Discipline] + 1
+                        && _research.GetTechsRemainingToTierUp(server.database, tech.Discipline, server.disciplineTiers) <= 1
+                    )
+                )
+            )
             {
-                var recipeProto = _prototypeManager.Index(recipe);
-                if (recipeProto.Result is {} result)
-                    allRecipes.Add(result);
+                foreach (var recipe in tech.RecipeUnlocks)
+                {
+                    var recipeProto = _prototypeManager.Index(recipe);
+                    if (recipeProto.Result is {} result)
+                        allRecipes.Add(result);
+                }
             }
         }
+        // DeltaV - end of oracle tech tier check
 
         var allPlants = _prototypeManager.EnumeratePrototypes<SeedPrototype>().Select(x => x.ProductPrototypes[0])
             .ToList();
