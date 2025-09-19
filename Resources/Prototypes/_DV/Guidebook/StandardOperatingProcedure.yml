@@ -9,13 +9,23 @@
   - GeneralRegulations
   - ControlledISA
   - CommandingOfficer
+  - Security&JusticeRegulations
+  - Hearings
+  - MedicalRegulations
+
+
+
+# General Regulations Main Directory
 
 - type: guideEntry
   id: GeneralRegulations
   name: General Regulations
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/GeneralRegulations.xml"
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/empty.xml"
   priority: 1
-  filterEnabled: true
+  children:
+  - Definitions
+  - HiringProcedure
+  - RightsToRefuseService
 
 # Controlled ISA Main Directory and Subdirectories
 
@@ -47,6 +57,7 @@
   id: CommandingOfficer
   name: Commanding Officer
   text: "/ServerInfo/Guidebook/_DV/SPLAW/empty.xml"
+  priority: 1
   children:
   - CapsAuthority
   - LineOfSuccession
@@ -54,7 +65,68 @@
   - Mutiny
   - ForeignVessels
 
-# Controlled ISA Entries
+# Security And Justice Regulations Directories
+
+- type: guideEntry
+  id: Security&JusticeRegulations
+  name: Security And Justice Regulations
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/empty.xml"
+  priority: 1
+  children:
+  - SecurityJurisdiction
+  - ProbableCause
+  - RulesOfEngagement
+  - MartialLaw
+  - ArmoryProcedure
+  - TreatmentOfPrisoners
+  - Arrest&Sentencing
+  - AppealsParolePardons
+  - PressingCriminalCharges
+  - Warrants
+  - Injunctions
+
+# Hearings Main Directory
+- type: guideEntry
+  id: Hearings
+  name: Hearings
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/Hearings/Hearings.xml"
+  priority: 1
+  filterEnabled: true
+  children:
+  - HearingProcedure
+
+# Medical Regulations Main Directory
+- type: guideEntry
+  id: MedicalRegulations
+  name: Medical Regulations
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/empty.xml"
+  priority: 1
+  children:
+  - DNRs
+  - MedicalEvaluation
+  - Quarantine
+  - StandardOfCare
+
+## General Regulations Entries
+- type: guideEntry
+  id: Definitions
+  name: Definitions
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/GeneralRegulations/Definitions.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: HiringProcedure
+  name: Hiring Procedure
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/GeneralRegulations/HiringProcedure.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: RightsToRefuseService
+  name: Rights To Refuse Service
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/GeneralRegulations/RightsToRefuseService.xml"
+  filterEnabled: true
+
+## Controlled ISA Entries
 
 - type: guideEntry
   id: ControlledItems
@@ -86,7 +158,7 @@
   text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/Sophonts&Synth.xml"
   filterEnabled: true
 
-## Departmental Dispensations Entries
+### Departmental Dispensations Entries
 
 - type: guideEntry
   id: LogisticsDisp
@@ -106,7 +178,7 @@
   text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/DepartmentalDisp/MedicalDisp.xml"
   filterEnabled: true
 
-# Commanding Officer Entries
+## Commanding Officer Entries
 - type: guideEntry
   id: CapsAuthority
   name: Captain's Authority
@@ -137,3 +209,101 @@
   text: "/ServerInfo/Guidebook/_DV/SPLAW/CommandingOfficer/ForeignVessels.xml"
   filterEnabled: true
 
+## Security And Justice Regulations entries
+- type: guideEntry
+  id: SecurityJurisdiction
+  name: Security Jurisdiction
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/SecurityJurisdiction.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ProbableCause
+  name: Probable Cause
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/ProbableCause.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: RulesOfEngagement
+  name: Rules Of Engagement
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/RulesOfEngagement.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: MartialLaw
+  name: Martial Law
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/MartialLaw.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ArmoryProcedure
+  name: Armory Procedure
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/ArmoryProcedure.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: TreatmentOfPrisoners
+  name: Treatment Of Prisoners
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/TreatmentOfPrisoners.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: Arrest&Sentencing
+  name: Arrest & Sentencing
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/Arrest&Sentencing.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: AppealsParolePardons
+  name: Appeals Parole Pardons
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/AppealsParolePardons.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: PressingCriminalCharges
+  name: Pressing Criminal Charges
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/PressingCriminalCharges.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: Warrants
+  name: Warrants
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/Warrants.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: Injunctions
+  name: Injunctions
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/Injunctions.xml"
+  filterEnabled: true
+
+## Hearings Entries
+- type: guideEntry
+  id: HearingProcedure
+  name: Hearing Procedure
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/Hearings/HearingProcedure.xml"
+  filterEnabled: true
+
+## Medical Regulations Entries
+- type: guideEntry
+  id: DNRs
+  name: DNRs
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/MedicalRegulations/DNRs.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: MedicalEvaluation
+  name: Medical Evaluation
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/MedicalRegulations/MedicalEvaluation.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: Quarantine
+  name: Quarantine
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/MedicalRegulations/Quarantine.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: StandardOfCare
+  name: Standard Of Care
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/MedicalRegulations/StandardOfCare.xml"
+  filterEnabled: true
