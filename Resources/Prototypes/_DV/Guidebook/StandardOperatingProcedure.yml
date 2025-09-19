@@ -8,6 +8,7 @@
   children:
   - GeneralRegulations
   - ControlledISA
+  - CommandingOfficer
 
 - type: guideEntry
   id: GeneralRegulations
@@ -21,7 +22,7 @@
 - type: guideEntry
   id: ControlledISA
   name: Controlled Items, Substances & Areas
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/test.xml"
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/empty.xml"
   priority: 1
   children:
   - ControlledItems
@@ -40,8 +41,20 @@
   - ResearchDisp
   - MedicalDisp
 
+# Commanding Officer Main Directory
 
-# Controlled ISA
+- type: guideEntry
+  id: CommandingOfficer
+  name: Commanding Officer
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/empty.xml"
+  children:
+  - CapsAuthority
+  - LineOfSuccession
+  - CommandPromotions
+  - Mutiny
+  - ForeignVessels
+
+# Controlled ISA Entries
 
 - type: guideEntry
   id: ControlledItems
@@ -73,7 +86,7 @@
   text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/Sophonts&Synth.xml"
   filterEnabled: true
 
-## Departmental Dispensations
+## Departmental Dispensations Entries
 
 - type: guideEntry
   id: LogisticsDisp
@@ -93,5 +106,34 @@
   text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/DepartmentalDisp/MedicalDisp.xml"
   filterEnabled: true
 
+# Commanding Officer Entries
+- type: guideEntry
+  id: CapsAuthority
+  name: Captain's Authority
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/CommandingOfficer/CapsAuthority.xml"
+  filterEnabled: true
 
+- type: guideEntry
+  id: LineOfSuccession
+  name: Line Of Succession
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/CommandingOfficer/LineOfSuccession.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: CommandPromotions
+  name: Command Promotions
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/CommandingOfficer/CommandPromotions.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: Mutiny
+  name: Mutiny
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/CommandingOfficer/Mutiny.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ForeignVessels
+  name: Foreign Vessels
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/CommandingOfficer/ForeignVessels.xml"
+  filterEnabled: true
 
