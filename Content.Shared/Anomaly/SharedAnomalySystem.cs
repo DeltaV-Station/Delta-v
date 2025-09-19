@@ -124,6 +124,9 @@ public abstract class SharedAnomalySystem : EntitySystem
     /// <param name="ent">Entity to go supercritical</param>
     public void StartSupercriticalEvent(Entity<AnomalyComponent?> ent)
     {
+        if (!TryComp<AnomalyComponent>(ent, out var anomComp) || anomComp.CannotSupercrit) // imp
+            return;
+
         // don't restart it if it's already begun
         if (HasComp<AnomalySupercriticalComponent>(ent))
             return;
@@ -333,6 +336,9 @@ public abstract class SharedAnomalySystem : EntitySystem
         var anomalyQuery = EntityQueryEnumerator<AnomalyComponent>();
         while (anomalyQuery.MoveNext(out var ent, out var anomaly))
         {
+            if (anomaly.CannotRandomPulse) // imp
+                continue;
+
             // if the stability is under the death threshold,
             // update it every second to start killing it slowly.
             if (anomaly.Stability < anomaly.DecayThreshold)
@@ -359,6 +365,9 @@ public abstract class SharedAnomalySystem : EntitySystem
         var supercriticalQuery = EntityQueryEnumerator<AnomalySupercriticalComponent, AnomalyComponent>();
         while (supercriticalQuery.MoveNext(out var ent, out var super, out var anom))
         {
+            if (anom.CannotSupercrit) // imp
+                continue;
+
             if (Timing.CurTime <= super.EndTime)
                 continue;
             DoAnomalySupercriticalEvent(ent, anom);
