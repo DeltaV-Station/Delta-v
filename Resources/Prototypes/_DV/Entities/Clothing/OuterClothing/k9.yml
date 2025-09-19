@@ -1,0 +1,110 @@
+- type: entity
+  abstract: true
+  id: K9ClothingBase
+  components:
+  - type: SpecialisedClothing
+    whitelist:
+      tags:
+        - K9
+
+# K9 Combat suit
+- type: entity
+  parent: [ K9ClothingBase, ClothingOuterHardsuitBase ]
+  id: ClothingOuterHardsuitCombatK9
+  name: k9 combat hardsuit
+  description: A canine-built combat suit designed to protect its against all manner of enemy combatants in low pressure environments. This one has station security markings.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/k9.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/k9.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.50
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.50
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.60
+        Radiation: 0.75
+        Caustic: 0.75
+        Heat: 0.75
+  - type: StaminaResistance
+    damageCoefficient: 0.3
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCombatK9
+  - type: AllowSuitStorage
+  - type: Insulated
+  - type: Tag
+    tags:
+      - K9Armor
+
+- type: entity
+  parent: [ K9ClothingBase, ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ClothingHeadHelmetHardsuitCombatK9
+  name: k9 combat hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/k9.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/k9.rsi
+  - type: Tag
+    tags:
+      - K9Armor
+
+# K9 Riot suit
+- type: entity
+  parent: ClothingOuterHardsuitCombatK9
+  id: ClothingOuterHardsuitCombatRiotK9
+  name: k9 riot hardsuit
+  description: A canine-built combat suit designed for crowd control against armed combatants in low pressure environments.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/k9_riot.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/k9_riot.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Radiation: 0.80
+        Caustic: 0.80
+        Heat: 0.80
+  - type: ToggleableClothing
+    clothingPrototype: ClothingOuterHardsuitCombatRiotK9Helmet
+
+- type: entity
+  parent: [ K9ClothingBase, ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ClothingOuterHardsuitCombatRiotK9Helmet
+  name: K9 riot helmet
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/k9_riot.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/k9_riot.rsi
+  - type: Tag
+    tags:
+      - K9Armor
+
+# K9 Durathread
+
+- type: entity
+  parent: [ K9ClothingBase, ClothingOuterArmorDuraVest ]
+  id: ClothingOuterArmorDuraVestK9
+  name: K9 durathread vest
+  description: A tight-fitting and sturdy armor vest for canines, reinforced with durathread weave to protect against sharp objects and blunt force trauma.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Armor/duravest.rsi
+    states: icon-secdog
+  - type: Tag
+    tags:
+      - K9Armor
