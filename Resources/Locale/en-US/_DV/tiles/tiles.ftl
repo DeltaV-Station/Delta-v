@@ -1,0 +1,1 @@
+tiles-hull-reinforced-destructible = exterior reinforced hull plating [destructible]
