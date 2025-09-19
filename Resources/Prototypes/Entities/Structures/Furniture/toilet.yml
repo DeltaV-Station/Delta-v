@@ -36,13 +36,14 @@
   - type: DisposalUnit
     blacklist:
       components:
-      - HumanoidAppearance
+#      - HumanoidAppearance # Frontier - Allow goblins to jump inside.
       - Plunger
       - SolutionTransfer
       - EntityStorage
     whitelist:
       components:
       - Item
+      - Goblin # Frontier - Only goblins.
     soundFlush: /Audio/Effects/Fluids/flush.ogg
     soundInsert: /Audio/Effects/Fluids/splash.ogg
   - type: Toilet
