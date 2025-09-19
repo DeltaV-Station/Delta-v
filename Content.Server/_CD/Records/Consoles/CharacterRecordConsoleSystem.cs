@@ -167,10 +167,12 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
         {
             StationRecordFilterType.Name =>
                 !nameJob.Contains(filterLowerCaseValue, StringComparison.CurrentCultureIgnoreCase),
-            StationRecordFilterType.Prints => record.Fingerprint != null
-                && IsFilterWithSomeCodeValue(record.Fingerprint, filterLowerCaseValue),
-            StationRecordFilterType.DNA => record.DNA != null
-                                                && IsFilterWithSomeCodeValue(record.DNA, filterLowerCaseValue),
+            // DeltaV - start of silicon bio filters fix
+            StationRecordFilterType.Prints => record.Fingerprint == null
+                || IsFilterWithSomeCodeValue(record.Fingerprint, filterLowerCaseValue),
+            StationRecordFilterType.DNA => record.DNA == null
+                || IsFilterWithSomeCodeValue(record.DNA, filterLowerCaseValue),
+            // DeltaV - start of silicon bio filters fix
             _ => throw new ArgumentOutOfRangeException(nameof(filter), "Invalid Character Record filter type"),
         };
     }
