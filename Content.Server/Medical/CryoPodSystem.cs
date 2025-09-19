@@ -207,6 +207,7 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
             null,
             null,
             null,
+            null, // DeltaV - Unclonable Trait added
             null // Shitmed Change
         ));
     }
