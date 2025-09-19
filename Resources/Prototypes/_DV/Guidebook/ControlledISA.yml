@@ -1,0 +1,43 @@
+- type: guideEntry
+  id: ControlledISA
+  name: Controlled Items, Substances & Areas
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/test.xml"
+  children:
+  - ControlledItems
+  - ControlledSub
+  - ControlledArms
+  - DepartmentalDisp
+  - HSA
+  - Sophonts&Synth
+
+- type: guideEntry
+  id: ControlledItems
+  name: Controlled Items
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/ControlledItems.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ControlledSub
+  name: Controlled Substances
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/ControlledSub.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ControlledArms
+  name: Controlled Armaments
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/ControlledArms.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: HSA
+  name: High Security Areas
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/HighSecurity.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: Sophonts&Synth
+  name: Sophonts and Synthetics
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/Sophonts&Synth.xml"
+  filterEnabled: true
+
+

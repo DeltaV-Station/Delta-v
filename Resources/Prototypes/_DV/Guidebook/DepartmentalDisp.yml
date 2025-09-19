@@ -1,0 +1,28 @@
+- type: guideEntry
+  id: DepartmentalDisp
+  name: Departmental Dispensations
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/DepartmentalDisp/DepartmentalDisp.xml"
+  children:
+  - LogisticsDisp
+  - ResearchDisp
+  - MedicalDisp
+
+- type: guideEntry
+  id: LogisticsDisp
+  name: Logistics
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/DepartmentalDisp/LogisticsDisp.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: ResearchDisp
+  name: Research
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/DepartmentalDisp/ResearchDisp.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: MedicalDisp
+  name: Medical
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/DepartmentalDisp/MedicalDisp.xml"
+  filterEnabled: true
+
+
