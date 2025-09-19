@@ -1,0 +1,12 @@
+- type: entity
+  name: spicy pickle moffs
+  parent: FoodSnackBase
+  id: FoodSnackSpicyPickleMoffs
+  description: Moth shaped crackers with a spicy dill taste. 
+  components:
+  - type: FlavorProfile
+    flavors:
+      - flavor-complex-spicy-pickle
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Food/snacks.rsi
+    state: spicy-pickle-moffs
