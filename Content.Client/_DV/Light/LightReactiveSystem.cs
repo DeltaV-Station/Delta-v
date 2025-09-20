@@ -16,7 +16,7 @@ public sealed partial class LightReactiveSystem : SharedLightReactiveSystem
         _validLightsInRange.Clear();
         foreach (var light in _lightsInRange)
         {
-            if(light.Comp.Enabled && !light.Comp.Deleted && light.Comp.NetSyncEnabled)
+            if (light.Comp.Enabled && !light.Comp.Deleted)
                 _validLightsInRange.Add(new(light.Owner, light.Comp));
         }
         return _validLightsInRange;

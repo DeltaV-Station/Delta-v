@@ -1,4 +1,5 @@
 using Content.Client.Light.Components;
+using Content.Shared._DV.Light;
 using Content.Shared.Light.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.Audio.Systems;
@@ -16,6 +17,7 @@ public sealed class ExpendableLightSystem : VisualizerSystem<ExpendableLightComp
         base.Initialize();
 
         SubscribeLocalEvent<ExpendableLightComponent, ComponentShutdown>(OnLightShutdown);
+        SubscribeLocalEvent<ExpendableLightComponent, GetLightEnergyEvent>(GetLightEnergy); // DeltaV
     }
 
     private void OnLightShutdown(EntityUid uid, ExpendableLightComponent component, ComponentShutdown args)
@@ -87,4 +89,15 @@ public sealed class ExpendableLightSystem : VisualizerSystem<ExpendableLightComp
                 break;
         }
     }
+
+    // Begin DeltaV section
+    private void GetLightEnergy(Entity<ExpendableLightComponent> ent, ref GetLightEnergyEvent args)
+    {
+        if (!TryComp<PointLightComponent>(ent, out var pointLight))
+            return;
+        args.LightEnergy = pointLight.Energy;
+        args.LightRadius = pointLight.Radius;
+        args.Cancel();
+    }
+    // End DeltaV section
 }

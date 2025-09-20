@@ -1,3 +1,4 @@
+using Content.Shared._DV.Light;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Light.Components;
 using ItemTogglePointLightComponent = Content.Shared.Light.Components.ItemTogglePointLightComponent;
@@ -17,6 +18,7 @@ public sealed class ItemTogglePointLightSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<ItemTogglePointLightComponent, ItemToggledEvent>(OnLightToggled);
+        SubscribeLocalEvent<ItemTogglePointLightComponent, GetLightEnergyEvent>(GetLightEnergy); // DeltaV
     }
 
     private void OnLightToggled(Entity<ItemTogglePointLightComponent> ent, ref ItemToggledEvent args)
@@ -30,4 +32,19 @@ public sealed class ItemTogglePointLightSystem : EntitySystem
             _handheldLight.SetActivated(ent.Owner, args.Activated, handheldLight);
         }
     }
+
+    // Begin DeltaV
+    private void GetLightEnergy(Entity<ItemTogglePointLightComponent> ent, ref GetLightEnergyEvent args)
+    {
+        if (!_light.TryGetLight(ent.Owner, out var light))
+            return;
+
+        if (!light.Enabled)
+            return;
+
+        args.LightEnergy = light.Energy;
+        args.LightRadius = light.Radius;
+        args.Cancel();
+    }
+    // End DeltaV
 }

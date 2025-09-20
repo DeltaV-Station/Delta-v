@@ -16,7 +16,10 @@ public sealed partial class LightReactiveSystem : SharedLightReactiveSystem
         _validLightsInRange.Clear();
         foreach (var light in _lightsInRange)
         {
-            if(light.Comp.Enabled && !light.Comp.Deleted && light.Comp.NetSyncEnabled)
+            // On the server, we check if it's Enabled OR if netSyncEnabled is false
+            // Because sometimes the server doesn't actually know if it should be enabled or not.
+            // The Client however, can be assumed to always be right.
+            if ((light.Comp.Enabled || !light.Comp.NetSyncEnabled) && !light.Comp.Deleted)
                 _validLightsInRange.Add(new(light.Owner, light.Comp));
         }
         return _validLightsInRange;
