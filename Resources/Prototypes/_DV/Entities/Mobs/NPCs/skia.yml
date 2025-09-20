@@ -65,8 +65,7 @@
     factions:
     - SimpleHostile
   - type: Tag
-    tags:
-    - DoorBumpOpener
+    tags: [ ]
   - type: Speech
     speechVerb: Ghost
   - type: Insulated
@@ -86,15 +85,21 @@
     lightDamage:
       groups:
         Brute: 5
+    healWhenDead: true
     darkMovementSpeedMultiplier: 1.25
     lightMovementSpeedMultiplier: 1.0
   - type: LightLevelDamageMult
     lightReceivedMultiplier: 2.0
     lightDealtMultiplier: 0.5
+  - type: ResurrectWhenAble
+    timeToResurrect: 30.0
+    resurrectDesc: skia-resurrecting-desc
   - type: Bloodstream
     maxBleedAmount: 0
   - type: ShatterLightsAbility
     lineOfSight: true
+    radius: 7.0
+    penetratingRadius: 2.0
   - type: TechnokineticPulseAbility
     range: 5.0
     energyConsumption: 20000
@@ -112,3 +117,7 @@
   - type: NightVision
     drawOverlay: false
   - type: Targeting
+  - type: EmbedImmune
+    immuneTo:
+      components:
+      - FlareGunPellet
