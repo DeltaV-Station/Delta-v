@@ -1,42 +1,4 @@
 ﻿Entries:
-- author: JohnOakman
-  changes:
-  - message: You can now Import/Export programs in the autodoc!
-    type: Add
-  - message: Autodoc speed set to 1 instead of 0.5! (actually useful now)
-    type: Tweak
-  id: 1177
-  time: '2025-03-19T00:51:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3269
-- author: deltanedas
-  changes:
-  - message: Enabled suit storage of guns and air tanks for all outer clothing.
-    type: Add
-  id: 1178
-  time: '2025-03-19T01:25:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3265
-- author: deltanedas
-  changes:
-  - message: Syndie and omega soap now clean dirt from surgical tools twice as fast.
-    type: Tweak
-  id: 1179
-  time: '2025-03-19T01:28:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3273
-- author: deltanedas
-  changes:
-  - message: Fixed not being able to clean autodocs with soap.
-    type: Fix
-  id: 1180
-  time: '2025-03-19T01:31:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3272
-- author: Lyndomen
-  changes:
-  - message: Psionic Nullifier helmet now available for purchase in the uplink catalog;
-      a psionic proof hardsuit helmet
-    type: Add
-  id: 1181
-  time: '2025-03-19T01:43:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3259
 - author: Lyndomen
   changes:
   - message: Champagne and Cryptobiolin are less likely to obliterate your liver
@@ -4173,3 +4135,50 @@
   id: 1676
   time: '2025-09-09T22:25:38.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4349
+- author: EmberAstra
+  changes:
+  - message: The Mystagogue's Book of Mysteries can now charge Force Wall again.
+    type: Fix
+  id: 1677
+  time: '2025-09-10T22:00:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4367
+- author: TehFlaminTaco
+  changes:
+  - message: Skia can now resurrect if left un-attended.
+    type: Add
+  - message: Skia's Shatter Light now has a shorter range, but can more consistently
+      shatter close-range lights.
+    type: Tweak
+  - message: Flare gun pellets no-longer stick to Skia.
+    type: Tweak
+  - message: Skia no-longer touch every door they pass through
+    type: Fix
+  id: 1678
+  time: '2025-09-11T06:02:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4355
+- author: EmberAstra
+  changes:
+  - message: Added pressurized micro pumps, allowing IPCs to be pressure immune. Ask
+      your local roboticist for one!
+    type: Add
+  - message: micro pumps can now be inserted in IPCs and not just removed
+    type: Fix
+  id: 1679
+  time: '2025-09-12T07:51:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4356
+- author: Proxysseia
+  changes:
+  - message: the colossus defence values have been tweaked.
+    type: Tweak
+  id: 1680
+  time: '2025-09-12T09:05:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4344
+- author: cmorley191
+  changes:
+  - message: 'These abilities now actually function: Dispel, Mind Swap (Psionics);
+      RGB, Light Synth, Honk, Nanites (AI Abilities); Lapse (Cosmic Cult); Void Applause
+      (Wizard)'
+    type: Fix
+  id: 1681
+  time: '2025-09-19T06:00:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4423

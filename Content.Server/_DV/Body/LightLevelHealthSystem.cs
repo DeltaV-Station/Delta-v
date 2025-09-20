@@ -24,8 +24,8 @@ public sealed class LightLevelHealthSystem : SharedLightLevelHealthSystem
         var query = EntityQueryEnumerator<LightLevelHealthComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (_mobState.IsDead(uid))
-                continue; // Don't apply damage if the mob is dead
+            if (_mobState.IsDead(uid) && !comp.HealWhenDead)
+                continue; // Don't apply damage if the mob is dead, also don't heal if dead unless specified.
             // Get the light level at the entity's position
             var lightLevel = _lightReactive.GetLightLevel(uid, true);
 
@@ -36,10 +36,14 @@ public sealed class LightLevelHealthSystem : SharedLightLevelHealthSystem
                 _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
             }
 
-            if (currentThreshold == -1)
-                TryDealDamage(new(uid, comp), comp.DarkDamage);
-            if (currentThreshold == 1)
-                TryDealDamage(new(uid, comp), comp.LightDamage);
+            if (currentThreshold == 0)
+                continue; // No damage or healing to apply
+
+            var damage = currentThreshold == -1 ? comp.DarkDamage : comp.LightDamage;
+            if (damage.AnyPositive() && _mobState.IsDead(uid))
+                continue; // Don't apply damage if the mob is dead
+
+            TryDealDamage(new(uid, comp), damage);
         }
     }
 }
