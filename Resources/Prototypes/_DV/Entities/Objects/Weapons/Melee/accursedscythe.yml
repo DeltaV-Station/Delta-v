@@ -15,14 +15,14 @@
   - type: AmmoCounter
   - type: UseDelayOnShoot
   - type: UseDelay
-    delay: 15
+    delay: 1
   - type: Gun
     projectileSpeed: 5
     soundGunshot: /Audio/_DV/Weapons/scytheshot.ogg
     fireRate: 1
     useKey: false
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 15
+    rechargeCooldown: 5
     rechargeSound:
       path: /Audio/_DV/Weapons/shadowreload.ogg
   - type: BasicEntityAmmoProvider
