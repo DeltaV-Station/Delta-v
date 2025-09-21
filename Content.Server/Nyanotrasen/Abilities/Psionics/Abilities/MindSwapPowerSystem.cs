@@ -145,8 +145,8 @@ namespace Content.Server.Abilities.Psionics
             // DeltaV - start of trapped ghost fix
             // If you're able to swap back to your original body, you should swap back before you ghost.
             if (TryComp<MindSwappedComponent>(args.Mind.CurrentEntity, out var component)
-                && _actions.GetAction(component.MindSwapReturnActionEntity) is {} action
-                && action.Comp.AttachedEntity is {} user)
+                && _actions.GetAction(component.MindSwapReturnActionEntity) is { } action
+                && action.Comp.AttachedEntity is not null)
             {
                 args.Result = false;
                 args.Handled = true;
