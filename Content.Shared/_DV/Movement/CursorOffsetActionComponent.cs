@@ -8,7 +8,7 @@ namespace Content.Shared._DV.Movement;
 public sealed partial class CursorOffsetActionComponent : Component
 {
     [DataField]
-    public EntProtoId CursorOffsetActionId = "ActionAvaliZoom";
+    public EntProtoId CursorOffsetActionId = "ActionEyeZoom";
 
     [DataField]
     public EntityUid? CursorOffsetActionEntity;
