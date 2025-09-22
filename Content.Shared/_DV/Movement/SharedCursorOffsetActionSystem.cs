@@ -16,11 +16,6 @@ public abstract class SharedCursorOffsetActionSystem : EntitySystem
     private void OnInit(Entity<CursorOffsetActionComponent> ent, ref ComponentInit args)
     {
         _actions.AddAction(ent, ref ent.Comp.CursorOffsetActionEntity, ent.Comp.CursorOffsetActionId );
-
-        if (_actions.GetAction(ent.Comp.CursorOffsetActionEntity) is not { Comp.UseDelay: not null })
-        {
-            _actions.StartUseDelay(ent.Comp.CursorOffsetActionEntity);
-        }
     }
 
     protected virtual void OnAction(Entity<CursorOffsetActionComponent> ent, ref CursorOffsetActionEvent args)

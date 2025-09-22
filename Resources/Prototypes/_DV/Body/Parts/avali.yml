@@ -1,7 +1,9 @@
 - type: entity
   id: PartAvali
-  parent: [BaseItem, BasePart]
+  parent: BasePart
   name: "avali body part"
+  icon:
+    sprite: _Starlight/Mobs/Species/Avali/parts.rsi
   abstract: true
   components:
   - type: Sprite
