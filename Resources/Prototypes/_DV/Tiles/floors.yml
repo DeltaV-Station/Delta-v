@@ -18,11 +18,6 @@
 #destructible version
 - type: tile
   id: FloorHullReinforcedDestructible
+  parent: FloorAsteroidSandBorderless
   name: tiles-hull-reinforced-destructible
-  sprite: /Textures/Tiles/hull_reinforced.png
-  baseTurf: Plating
-  isSubfloor: false
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemSteel
-  heatCapacity: 100000 #/tg/ has this set as "INFINITY." I don't know if that exists here so I've just added an extra 0
+  indestructible: false
