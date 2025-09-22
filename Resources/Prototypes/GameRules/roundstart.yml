@@ -114,7 +114,7 @@
   id: Nukeops
   components:
   - type: GameRule
-    minPlayers: 15 # DeltaV - was 20
+    minPlayers: 10 # DeltaV - was 20
     minTotalPlayers: 35 # DeltaV
   - type: LoadMapRule
     mapPath: /Maps/Nonstations/nukieplanet.yml
