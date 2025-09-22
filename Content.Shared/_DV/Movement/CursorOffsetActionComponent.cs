@@ -7,12 +7,10 @@ namespace Content.Shared._DV.Movement;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class CursorOffsetActionComponent : Component
 {
-    [DataField("cursorOffsetActionId",
-        customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>),
-        required: true)]
-    public string? CursorOffsetActionId;
+    [DataField]
+    public EntProtoId CursorOffsetActionId = "ActionAvaliZoom";
 
-    [DataField("cursorOffsetActionEntity")]
+    [DataField]
     public EntityUid? CursorOffsetActionEntity;
 
     [DataField, AutoNetworkedField]
