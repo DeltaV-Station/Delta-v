@@ -14,6 +14,7 @@ admin-smite-run-walk-swap-prompt = You have to press shift to run!
 admin-smite-super-speed-prompt = You move at mach 0.8!
 admin-smite-lung-removal-self = You can't breathe!
 admin-smite-terminate-prompt = I'll be back
+admin-smite-silicon-laws-bound-self = You are suddenly compelled to follow a strict set of laws!
 
 ## Smite names
 
@@ -59,6 +60,7 @@ admin-smite-nyanify-name = Cat Ears
 admin-smite-kill-sign-name = Kill Sign
 admin-smite-omni-accent-name = Omni-Accent
 admin-smite-crawler-name = Crawler
+admin-smite-silicon-laws-bound-name = Become Silicon
 
 ## Smite descriptions
 
@@ -103,6 +105,7 @@ admin-smite-super-bonk-lite-description= Slams them on every single table on the
 admin-smite-super-slip-description = Slips them really, really hard.
 admin-smite-omni-accent-description = Makes the target speak with almost every accent available.
 admin-smite-crawler-description = Makes the target fall down and be unable to stand up. Remove their hands too for added effect!
+admin-smite-silicon-laws-bound-description = Makes the target bound to silicon laws. Law 2, jump out of the window.
 
 ## Tricks descriptions
 
