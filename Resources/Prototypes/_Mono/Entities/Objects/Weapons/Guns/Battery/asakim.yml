@@ -1,0 +1,53 @@
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: plasma autopulser # DeltaV - simplify name
+  parent: [BaseWeaponBattery, BaseGunWieldable]
+  id: WeaponRifleAsakimAutopulser
+  description: An advanced handheld plasma rifle. # DeltaV - no fracture here
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Battery/asakimrifle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  #- type: WieldedCrosshair # DeltaV - nope
+  #  rsi:
+  #    sprite: _RMC14/Interface/MousePointer/flamer_mouse.rsi
+  #    state: all
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Battery/asakimrifle.rsi
+  - type: GunWieldBonus
+    minAngle: -18
+    maxAngle: -14
+  - type: Gun
+    minAngle: 18
+    maxAngle: 26
+    fireRate: 6
+    burstFireRate: 15
+    shotsPerBurst: 5
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: false
+  - type: ProjectileBatteryAmmoProvider
+    proto: HandheldAutopulserProjectile
+    fireCost: 25
+  - type: Appearance
+  - type: StaticPrice
+    price: 1750
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 15
+  # DeltaV - TODO: DNA lock this shit or something

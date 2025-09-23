@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: HandheldAutopulserProjectile
+  name: plasma projectile
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Caustic: 5
+        Heat: 14
+        Radiation: 5
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # DeltaV
+    scale: 0.4, 0.4
+    layers:
+    - state: medium # DeltaV
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectOmnilaser # DeltaV - awesome imp sprites
+  - type: PointLight
+    color: "#FF00AA"
