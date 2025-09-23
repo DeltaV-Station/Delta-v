@@ -82,12 +82,12 @@ public abstract class SharedLightReactiveSystem : EntitySystem
             if (!lightComp.NetSyncEnabled)
             {
                 // Try to use the GetLightEnergyEvent if we can't rely on it being network synced.
-                var lightEnergyEvnt = new GetLightEnergyEvent(uid);
-                RaiseLocalEvent(lightUid, lightEnergyEvnt);
-                if (!lightEnergyEvnt.Cancelled)
-                    continue; // No component claimed this light, skip.
+                var lightEnergyEvnt = new OnGetLightEnergyEvent();
+                RaiseLocalEvent(lightUid, ref lightEnergyEvnt);
                 energy = lightEnergyEvnt.LightEnergy;
                 radius = lightEnergyEvnt.LightRadius;
+                if (MathHelper.CloseTo(energy, 0f))
+                    continue; // No light, no problem.
             }
 
             energy = MathF.Min(energy, 2f); // Clamp energy, to normalize strange values.
@@ -116,7 +116,8 @@ public abstract class SharedLightReactiveSystem : EntitySystem
                 continue;
 
             // Manual hack for cones.
-            if (lightComp.MaskPath == "/Textures/Effects/LightMasks/cone.png"){
+            if (lightComp.MaskPath == "/Textures/Effects/LightMasks/cone.png")
+            {
                 var forward = _transform.GetWorldRotation(lightUid).RotateVec(new Vector2(0.0f, -1.0f));
                 energy *= MathF.Max(0f, Vector2.Dot((pos - lightPos).Normalized(), forward));
             }
@@ -134,7 +135,8 @@ public abstract class SharedLightReactiveSystem : EntitySystem
 /// Passed to unsync'd light sources to get the expected light energy.
 /// ONLY called when NetSync is not enabled. Otherwise, uses the light directly.
 /// </summary>
-public sealed class GetLightEnergyEvent(EntityUid Target) : CancellableEntityEventArgs
+[ByRefEvent]
+public record struct OnGetLightEnergyEvent()
 {
     public float LightEnergy = 0f;
     public float LightRadius = 0f;

@@ -6,7 +6,7 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Client.Light.EntitySystems;
 
-public sealed class ExpendableLightSystem : VisualizerSystem<ExpendableLightComponent>
+public sealed partial class ExpendableLightSystem : VisualizerSystem<ExpendableLightComponent> // DeltaV - made partial
 {
     [Dependency] private readonly PointLightSystem _pointLightSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
@@ -17,7 +17,7 @@ public sealed class ExpendableLightSystem : VisualizerSystem<ExpendableLightComp
         base.Initialize();
 
         SubscribeLocalEvent<ExpendableLightComponent, ComponentShutdown>(OnLightShutdown);
-        SubscribeLocalEvent<ExpendableLightComponent, GetLightEnergyEvent>(GetLightEnergy); // DeltaV
+        SubscribeLocalEvent<ExpendableLightComponent, OnGetLightEnergyEvent>(GetLightEnergy); // DeltaV
     }
 
     private void OnLightShutdown(EntityUid uid, ExpendableLightComponent component, ComponentShutdown args)
@@ -89,15 +89,4 @@ public sealed class ExpendableLightSystem : VisualizerSystem<ExpendableLightComp
                 break;
         }
     }
-
-    // Begin DeltaV section
-    private void GetLightEnergy(Entity<ExpendableLightComponent> ent, ref GetLightEnergyEvent args)
-    {
-        if (!TryComp<PointLightComponent>(ent, out var pointLight))
-            return;
-        args.LightEnergy = pointLight.Energy;
-        args.LightRadius = pointLight.Radius;
-        args.Cancel();
-    }
-    // End DeltaV section
 }
