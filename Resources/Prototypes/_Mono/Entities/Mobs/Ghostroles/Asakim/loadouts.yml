@@ -15,11 +15,11 @@
     shoes: ClothingShoesBootsMagAsakim
     #pocket1: CrowbarPocket # DeltaV - fake
     pocket2: DoubleEmergencyOxygenTank
-    belt: ClothingBeltWebbingsBigBlack
+    belt: ClothingBeltSecurityWebbing # DeltaV - use our webbing
     suitStorage: OxygenTankFilled
   inhand:
   - WeaponRifleAsakimAutopulser
-  - WeaponHFKatana
+  - EnergyKatana # DeltaV - was WeaponHFKatana, maybe port that over instead of using busted OP ninja sword
   storage:
     back:
     #- RadioHandheldNF # DeltaV - fake

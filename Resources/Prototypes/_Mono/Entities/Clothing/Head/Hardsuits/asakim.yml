@@ -7,10 +7,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ClothingHeadHardsuitBase, ShowMedicalIcons]
+  parent: [ClothingHeadHardsuitBase, ShowMedicalIcons] # DeltaV - no contraband
   id: ClothingHelmetHardsuitAsakim
-  name: kasature-pattern combat harness helmet
-  description: Part of an advanced pre-fracture combat harness.
+  name: combat harness helmet # DeltaV - simple names
+  description: Part of an advanced combat harness. # DeltaV - no fracture
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/asakim.rsi

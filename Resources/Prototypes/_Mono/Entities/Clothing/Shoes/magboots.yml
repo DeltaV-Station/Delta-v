@@ -10,8 +10,8 @@
   name: pre-fracture magboots
   description: State-of-the-art magnetic boots made for combat with advanced harnesses.
   components:
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: FootstepHeavySuit
+  #- type: FootstepModifier # DeltaV - sneaky
+  #  footstepSoundCollection:
+  #    collection: FootstepHeavySuit
   - type: ClothingSlowOnDamageModifier
     modifier: 0.35

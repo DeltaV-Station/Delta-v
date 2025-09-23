@@ -6,10 +6,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ClothingOuterHardsuitBase # DeltaV - no contraband
   id: ClothingOuterHardsuitAsakim
-  name: kasature-pattern combat harness
-  description: An advanced pre-fracture harness. Incredibly rare, and practically alien in technology compared to modern tacsuits. Once equipped, the armor binds itself with the wearer and cannot be removed without external release.
+  name: combat harness # DeltaV - simple name
+  description: An advanced combat harness. Incredibly rare, and practically alien in technology compared to modern hardsuits. Once equipped, the armor binds itself with the wearer and cannot be removed without external release. # DeltaV - no fracture
   suffix: SelfUnremovable
   components:
   - type: Sprite
@@ -54,14 +54,12 @@
     requiredSlot: outerclothing
     blockUnequipWhenAttached: false
     replaceCurrentClothing: true
-    clothingPrototypes:
-      head: ClothingHelmetHardsuitAsakim
-      helmetcover: ClothingHeadHelmetCoverBlock
-      helmetattachment: ClothingHeadHelmetAttachmentBlock
+    clothingPrototype: ClothingHelmetHardsuitAsakim # DeltaV - simplified ToggleableClothing
   #- type: PirateBountyItem # DeltaV - no way we have this
   #  id: ClothingOuterHardsuitTacsuit
-  - type: StaminaDamageResistance
+  - type: StaminaResistance # DeltaV - different comp name here
     coefficient: 0.1
+  # DeltaV - make this do damage on removal or something
 
 - type: entity
   parent: ClothingOuterHardsuitAsakim
