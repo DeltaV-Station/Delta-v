@@ -24,6 +24,8 @@
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 180000 # 50 hrs # DeltaV - change this Perchance
+    mindRoles: # DeltaV
+    - MindRoleAsakim
   - type: GhostTakeoverAvailable
   - type: RandomMetadata
     nameSegments:

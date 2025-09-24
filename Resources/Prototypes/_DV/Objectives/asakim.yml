@@ -11,7 +11,7 @@
     issuer: objective-issuer-asakim
   - type: RoleRequirement
     roles:
-    - AsakimRole # please actually add this
+    - AsakimRole
 
 - type: entity
   parent: BaseAsakimObjective
@@ -59,7 +59,7 @@
   parent: [ BaseAsakimObjective, BaseSurviveObjective]
   id: AsakimLearningObjective
   name: \>INTERROGATE
-  description: WARNING\: Time-gap of [ERROR] years detected. Records may be outdated. Consult local population.
+  description: WARNING - Time-gap of [ERROR] years detected. Records may be outdated. Consult local population.
   components:
   - type: Objective
 

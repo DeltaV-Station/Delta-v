@@ -27,3 +27,6 @@ roles-antag-skia-objective = Rend souls from the living.
 
 roles-antag-syndicate-armsdealer-name = Arms Dealer
 roles-antag-syndicate-armsdealer-objective = Sell your firearms and stay away from the law.
+
+roles-antag-asakim-name = Asakim
+roles-antag-asakim-objective = Serve the ancient directives of your ship's AI.

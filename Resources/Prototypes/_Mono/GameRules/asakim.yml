@@ -10,16 +10,18 @@
       - id: UnknownShuttleAsakimSmall
 
 - type: entity # DeltaV - mono handles antag spawning a bit differently, but this should work regardless
-  parent: BaseUnknownShuttleRule
+  parent: BaseUnknownShuttleRule # DeltaV - was BaseRandomShuttleRule
   id: UnknownShuttleAsakimSmall
   components:
   - type: StationEvent
-    startAnnouncement: station-event-asakim-shuttle-detected
-    startAudio:
-      path: /Audio/Misc/notice1.ogg
+    #startAnnouncement: station-event-asakim-shuttle-detected # DeltaV - no
+    #  startAudio:
+    #    path: /Audio/Misc/notice1.ogg
     weight: 2
-    maxOccurrences: 1
-  - type: GameRule
-    minPlayers: 40
+    minimumPlayers: 25 # DeltaV
+    maxOccurrences: 1 # DeltaV - was 4
+    duration: null # DeltaV
+  #- type: GameRule # DeltaV - redundant
+  #  minPlayers: 40
   - type: LoadMapRule
     preloadedGrid: AsakimSmall
