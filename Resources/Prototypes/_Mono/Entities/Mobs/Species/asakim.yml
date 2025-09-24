@@ -103,9 +103,7 @@
     spawned:
     - id: FoodMeatLizard
       amount: 7
-  #- type: LizardAccent # DeltaV
-  - type: SyllableObfuscationAccent # DeltaV - unintelligable accent
-    accent: draconian
+  #- type: LizardAccent # DeltaV - replaced with language accent
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
@@ -150,11 +148,11 @@
       reagents:
       - ReagentId: GastroToxin
         Quantity: 20
-  - type: NightVision
-    isEquipment: false
-    color: "#ae65bf"
-    activateSound: null
-    deactivateSound: null
+  #- type: NightVision # DeltaV - moved to eye organ
+  #  isEquipment: false
+  #  color: "#ae65bf"
+  #  activateSound: null
+  #  deactivateSound: null
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 1
@@ -207,6 +205,10 @@
   #  guides:
   #  - Asakim
   #  # WWDP-Edit-End
+  # Begin DeltaV Additions
+  - type: SyllableObfuscationAccent # unintelligable accent
+    accent: draconian
+  # End DeltaV Additions
 
 - type: entity
   save: false

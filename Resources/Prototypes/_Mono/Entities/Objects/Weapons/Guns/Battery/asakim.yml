@@ -44,6 +44,12 @@
   - type: ProjectileBatteryAmmoProvider
     proto: HandheldAutopulserProjectile
     fireCost: 25
+  - type: BatteryWeaponFireModes # DeltaV - selectable disabler mode
+    fireModes:
+    - proto: HandheldAutopulserProjectile
+      fireCost: 25
+    - proto: HandheldAutopulserDisablerProjectile
+      fireCost: 25
   - type: Appearance
   - type: StaticPrice
     price: 1750

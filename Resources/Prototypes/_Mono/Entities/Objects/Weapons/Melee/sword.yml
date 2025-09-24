@@ -1,0 +1,35 @@
+- type: entity
+  name: high-frequency blade
+  parent: Katana # DeltaV - no contraband
+  id: WeaponHFKatana
+  description: A high-frequency blade. It's incredibly powerful. # Why the glorp would a katana be modified to have a HF blade :nerd::point_up:
+  components:
+   - type: Sprite
+     sprite: _Mono/Objects/Weapons/Melee/hfblade.rsi
+   - type: MeleeWeapon
+     attackRate: 1.25
+     wideAnimationRotation: -60
+     damage:
+       types: # It's still incredibly strong, but -reasonable-
+         Slash: 23
+         Shock: 6
+         Structural: 25 # Ion doesn't exist, according to Proto manager.
+   - type: Item
+     sprite: _Mono/Objects/Weapons/Melee/hfblade.rsi
+   - type: Clothing
+     sprite: _Mono/Objects/Weapons/Melee/hfblade.rsi
+     slots:
+     - Back
+     - Belt
+     - suitStorage
+   - type: Reflect
+     reflectProb: 0.1 # DeltaV - was 0.35, these guys are strong enough as-is come on
+   - type: DisarmMalus
+     malus: 0.9
+   - type: StaticPrice
+     price: 5000 # YOU CALL THAT A BLADE.... I'LL SHOW YOU A BLADE...
+   #- type: Construction # DeltaV - not gonna let tiders build this
+   #  graph: GraphWeaponHFKatana
+   #  node: WeaponHFKatana
+   #- type: PirateBountyItem # DeltaV
+   #  id: TSFEnergyWeapon

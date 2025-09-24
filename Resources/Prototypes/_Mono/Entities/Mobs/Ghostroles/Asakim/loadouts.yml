@@ -8,18 +8,18 @@
 - type: startingGear
   id: AsakimGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitNinja
-    back: ClothingBackpackERTLeader
+    jumpsuit: ClothingUniformJumpsuitAsakim # DeltaV - dedicated jumpsuit with goob sprites
+    back: ClothingBackpackAdvancedTactical # DeltaV - dedicated backpack
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitAsakimUnremoveable
     shoes: ClothingShoesBootsMagAsakim
     #pocket1: CrowbarPocket # DeltaV - fake
-    pocket2: DoubleEmergencyOxygenTank
+    pocket2: DoubleEmergencyOxygenTankFilled # DeltaV - filled
     belt: ClothingBeltSecurityWebbing # DeltaV - use our webbing
     suitStorage: OxygenTankFilled
   inhand:
   - WeaponRifleAsakimAutopulser
-  - EnergyKatana # DeltaV - was WeaponHFKatana, maybe port that over instead of using busted OP ninja sword
+  - WeaponHFKatana
   storage:
     back:
     #- RadioHandheldNF # DeltaV - fake
@@ -28,9 +28,9 @@
     - MedkitCombatFilled
     #- SyringeCaseAltFilled # DeltaV - fake
     - JetpackMiniFilled
-    - StorageImplanter
-    - FreedomImplanter
-    belt: # DeltaV - move pens to front so jwl can fit
+    #- StorageImplanter # DeltaV - implanters too OP they already got insane stamina resist
+    #- FreedomImplanter # DeltaV
+    belt: # DeltaV - move pens to front so jol can fit
     - HandHeldMassScannerBorg
     - PowerDrill
     - JawsOfLife

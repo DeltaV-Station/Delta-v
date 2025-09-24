@@ -57,7 +57,9 @@ public sealed class SyllableObfuscationAccentSystem : EntitySystem
                     var isAllCaps = originalWord.All(c => !char.IsLetter(c) || char.IsUpper(c));
 
                     var newWord = new StringBuilder();
-                    var newWordLength = PseudoRandomNumber(hashCode, prototype.MaxSyllables, prototype.MaxSyllables);
+                    var newWordLength = Math.Clamp((originalWord.Length + 1) / 2,
+                        prototype.MinSyllables,
+                        prototype.MaxSyllables);
 
                     for (var j = 0; j < newWordLength; j++)
                     {
@@ -86,7 +88,7 @@ public sealed class SyllableObfuscationAccentSystem : EntitySystem
 
     private static bool IsPunctuation(char ch)
     {
-        return ch is '.' or '!' or '?' or ',' or ':';
+        return ch is '.' or '!' or '?' or ',' or ':' or '-';
     }
 
     // EE function, doesn't use IRobustRandom for perf reasons, see Content.Shared/_EinsteinEngines/Language/Systems/SharedLanguageSystem.cs

@@ -29,10 +29,10 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 15
-  #- type: ThermalVision # DeltaV - uncomment when ready to test
-  #  pulseTime: 1
-  #  isEquipment: true
-  #  toggleAction: PulseThermalVision
+  - type: ThermalVision
+    pulseTime: 1
+    isEquipment: true
+    toggleAction: PulseThermalVision
   #- type: NightVision # DeltaV - redundant, species already has it
   #  flashDurationMultiplier: 0.85
   #  isEquipment: true
