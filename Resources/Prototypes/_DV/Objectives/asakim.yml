@@ -1,0 +1,80 @@
+# TODO: have all of these inherit from a BaseAsakimObjective maybe..?
+# have two sets: evil objectives for the evil gamers and good objectives for the good gamers
+# roll one of each. or maybe just two at complete random
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseAsakimObjective
+  components:
+  - type: Objective
+    difficulty: 1.5 # what does difficulty even do vro
+    issuer: objective-issuer-asakim
+  - type: RoleRequirement
+    roles:
+    - AsakimRole # please actually add this
+
+- type: entity
+  parent: BaseAsakimObjective
+  id: AsakimKillObjective
+  name: \>TERMINATE
+  description: Vital signs MUST reach zero in subject. Once.
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: objective-issuer-asakim
+    unique: false
+    icon:
+      sprite: Mobs/Ghosts/ghost_human.rsi
+      state: icon
+  - type: RoleRequirement
+    roles:
+    - SkiaRole
+  - type: KillPersonCondition
+    requireDead: true
+  - type: TargetObjective
+    title: objective-condition-asakim-terminate-title
+  - type: PickRandomPerson
+    onlyChoosableJobs: true
+  - type: RerollAfterCompletion
+    rerollObjectivePrototype: AsakimTerminateObjective
+    rerollObjectiveMessage: objective-condition-asakim-terminate-reroll-message
+
+- type: entity
+  parent: [ BaseAsakimObjective, BaseSurviveObjective]
+  id: AsakimTheftObjective
+  name: \>CONFISCATE
+  description: Records indicate that this sector may have valuable artifacts. Confiscate such items for further study.
+  components:
+  - type: Objective
+
+- type: entity
+  parent: [ BaseAsakimObjective, BaseSurviveObjective]
+  id: AsakimInfiltrateObjective
+  name: \>INFILTRATE
+  description: Ambient radio chatter mentions "High-Security Areas". Investigate such places, if they do exist.
+  components:
+  - type: Objective
+
+- type: entity
+  parent: [ BaseAsakimObjective, BaseSurviveObjective]
+  id: AsakimLearningObjective
+  name: \>INTERROGATE
+  description: WARNING\: Time-gap of [ERROR] years detected. Records may be outdated. Consult local population.
+  components:
+  - type: Objective
+
+- type: entity
+  parent: [ BaseAsakimObjective, BaseSurviveObjective]
+  id: AsakimUpgradeObjective
+  name: \>UPGRADE
+  description: Preliminary sector scans detect possible high-value cybernetics. Upgrade your body.
+  components:
+  - type: Objective
+
+- type: entity
+  parent: [ BaseAsakimObjective, BaseSurviveObjective]
+  id: AsakimAllyObjective
+  name: \>AFFILIATE
+  description: Prior records indicate possible persons-of-interest in this sector. Find or make allies in the local populace.
+  components:
+  - type: Objective
