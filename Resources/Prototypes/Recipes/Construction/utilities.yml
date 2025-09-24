@@ -579,7 +579,7 @@
   startNode: start
   targetNode: pressurepump
   category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
@@ -594,7 +594,7 @@
   graph: GasBinary
   startNode: start
   targetNode: pressurepumpAlt1
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
@@ -610,7 +610,7 @@
   graph: GasBinary
   startNode: start
   targetNode: pressurepumpAlt2
-  category: construction-category-utilities
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
@@ -760,17 +760,6 @@
   - GasPressureRegulator
   - GasPressureRegulatorAlt1
   - GasPressureRegulatorAlt2
-
-- type: construction
-  id: GasPressureRegulator
-  graph: GasBinary
-  startNode: start
-  targetNode: pressureregulator
-  category: construction-category-utilities
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-  - !type:NoUnstackableInTile
 
 - type: construction
   id: GasValve
