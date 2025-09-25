@@ -8,11 +8,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.Clothing;
 
-public sealed class SharedDamageOnUnequipSystem : EntitySystem
+public sealed class DamageOnUnequipSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedJitteringSystem _jittering = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -25,6 +26,9 @@ public sealed class SharedDamageOnUnequipSystem : EntitySystem
     private void OnUnequip(Entity<DamageOnUnequipComponent> ent, ref ClothingGotUnequippedEvent args)
     {
         if (ent.Comp.UnequipDamage == null || !TryComp<DamageableComponent>(args.Wearer, out var damageable))
+            return;
+
+        if (!_timing.IsFirstTimePredicted) // GOD, PLEASE...
             return;
 
         if (ent.Comp.UnequipSound != null)
