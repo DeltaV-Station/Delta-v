@@ -245,18 +245,24 @@
   metabolisms:
     Medicine:
       effects:
+      # Begin DeltaV additions
+      - !type:EvenHealthChange
+        conditions:
+        - !type:Temperature
+          min: 343.3 # completely arbitrary
+        damage: # Better than Trinox
+          Brute: -3
+          Burn: -3
+          Airloss: -3
+          Toxin: -3
       - !type:HealthChange
         conditions:
         - !type:Temperature
-          min: 337.3 # completely arbitrary
+          min: 343.3
         damage:
-          groups: # same as cryox
-            Airloss: -6
-            Brute: -4
-            Burn: -6
-            Toxin: -4
           types:
-            Heat: -3
+            Heat: -3 # offsets heat damage from the pod
+      # End DeltaV additions
 
 - type: reagent
   id: Ardthyrnkole
@@ -270,15 +276,21 @@
   metabolisms:
     Medicine:
       effects:
+      # Begin DeltaV additions
+      - !type:EvenHealthChange
+        conditions:
+        - !type:Temperature
+          min: 343.3
+        damage:
+          Burn: -7 # Delta-V - Same as Aloxadone.
       - !type:HealthChange
         conditions:
         - !type:Temperature
           min: 343.3
         damage:
           types:
-            Cold: -5
             Heat: -3 # offsets heat damage from the pod
-            Shock: -3
+      # End DeltaV additions
 
 - type: reagent
   id: Natusixadone
