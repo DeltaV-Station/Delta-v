@@ -31,6 +31,8 @@
         damage:
           Burn: -4
           Brute: -4
+      - !type:HealthChange
+        damage:
           types:
             Poison: -3
             Bloodloss: -3
