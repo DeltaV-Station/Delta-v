@@ -27,13 +27,11 @@
         amount: -1
       - !type:ModifyBloodLevel
         amount: 2
-      - !type:HealthChange
+      - !type:EvenHealthChange # DeltaV - Special Chems heal evenly.
         damage:
-          groups:
-            Burn: -5
-            Brute: -4
+          Burn: -4
+          Brute: -4
           types:
-            Caustic: -3
             Poison: -3
             Bloodloss: -3
 

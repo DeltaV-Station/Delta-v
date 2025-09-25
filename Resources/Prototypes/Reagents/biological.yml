@@ -166,15 +166,14 @@
     # Dragon doesn't require airloss healing, so omnizine is still best for humans.
       - !type:ModifyBloodLevel
         amount: 3
-      - !type:HealthChange
+      # Begin DeltaV additions
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Burn: -5
-            Brute: -5
-            Toxin: -4 # Funkychem - was -2
-            Airloss: -6 # Funkychem - ichor does airloss now too
-          types:
-            Bloodloss: -5
+          Brute: -2
+          Burn: -2
+          Toxin: -2 # Funkychem - Was -2
+          Airloss: -3 # Funkychem - Ichor heals Airloss now.
+      # End DeltaV additions
       - !type:ModifyBleedAmount
         amount: -1.5
   # Just in case you REALLY want to water your plants
