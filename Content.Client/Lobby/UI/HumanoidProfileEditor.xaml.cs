@@ -797,6 +797,9 @@ namespace Content.Client.Lobby.UI
             PreviewDummy = _controller.LoadProfileEntity(Profile, JobOverride, ShowClothes.Pressed);
             SpriteView.SetEntity(PreviewDummy);
             _entManager.System<MetaDataSystem>().SetEntityName(PreviewDummy, Profile.Name);
+
+            // Check and set the dirty flag to enable the save/reset buttons as appropriate.
+            SetDirty();
         }
 
         /// <summary>
@@ -862,6 +865,9 @@ namespace Content.Client.Lobby.UI
                 return;
 
             _entManager.System<HumanoidAppearanceSystem>().LoadProfile(PreviewDummy, Profile);
+
+            // Check and set the dirty flag to enable the save/reset buttons as appropriate.
+            SetDirty();
         }
 
         private void OnSpeciesInfoButtonPressed(BaseButton.ButtonEventArgs args)
