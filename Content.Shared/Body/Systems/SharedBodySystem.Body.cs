@@ -41,11 +41,10 @@ public partial class SharedBodySystem
      * - Each "connection" is a body part (e.g. arm, hand, etc.) and each part can also contain organs.
      */
 
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] protected readonly InventorySystem _inventory = default!; // Shitmed Change - was private, now protected
     [Dependency] private readonly GibbingSystem _gibbingSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!; // Shitmed Change
-    [Dependency] private readonly IGameTiming _gameTiming = default!; // Shitmed Change
 
     private const float GibletLaunchImpulse = 8;
     private const float GibletLaunchImpulseVariance = 3;

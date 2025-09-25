@@ -24,7 +24,6 @@ namespace Content.Shared.Body.Systems;
 public partial class SharedBodySystem
 {
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!; // Shitmed Change
-    [Dependency] private readonly InventorySystem _inventorySystem = default!; // Shitmed Change
 
     private void InitializeParts()
     {
@@ -133,7 +132,7 @@ public partial class SharedBodySystem
             && TryGetPartSlotContainerName(partEnt.Comp.PartType, out var containerNames))
         {
             foreach (var containerName in containerNames)
-                _inventorySystem.DropSlotContents(partEnt.Comp.Body.Value, containerName, inventory);
+                _inventory.DropSlotContents(partEnt.Comp.Body.Value, containerName, inventory); // Shitmed Fix
         }
 
     }
@@ -203,7 +202,7 @@ public partial class SharedBodySystem
         // I don't know if this can cause issues, since any part that's being detached HAS to have a Body.
         // though I really just want the compiler to shut the fuck up.
         var body = partEnt.Comp.Body.GetValueOrDefault();
-        if (TryComp(partEnt, out TransformComponent? transform) && _gameTiming.IsFirstTimePredicted)
+        if (TryComp(partEnt, out TransformComponent? transform) && _timing.IsFirstTimePredicted) // Shitmed Change wowowowow
         {
             var enableEvent = new BodyPartEnableChangedEvent(false);
             RaiseLocalEvent(partEnt, ref enableEvent);
