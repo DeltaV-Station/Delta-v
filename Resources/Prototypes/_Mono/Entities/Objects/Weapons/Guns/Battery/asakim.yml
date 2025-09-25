@@ -29,7 +29,7 @@
     maxAngle: 26
     fireRate: 6
     burstFireRate: 15
-    shotsPerBurst: 5
+    shotsPerBurst: 3 # DeltaV - was 5
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -43,17 +43,17 @@
     zeroVisible: false
   - type: ProjectileBatteryAmmoProvider
     proto: HandheldAutopulserProjectile
-    fireCost: 25
+    fireCost: 50 # DeltaV - doubled fire cost, was 25
   - type: BatteryWeaponFireModes # DeltaV - selectable disabler mode
     fireModes:
     - proto: HandheldAutopulserProjectile
-      fireCost: 25
+      fireCost: 50 # DeltaV - doubled fire cost, was 25
     - proto: HandheldAutopulserDisablerProjectile
-      fireCost: 25
+      fireCost: 35 # DeltaV - less than doubled fire cost for disable mode, was 25
   - type: Appearance
   - type: StaticPrice
     price: 1750
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 15
+    autoRechargeRate: 30 # DeltaV - double to compensate for increased cost, was 15
   # DeltaV - TODO: DNA lock this shit or something

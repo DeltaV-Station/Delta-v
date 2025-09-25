@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 starch
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+# DeltaV - this goes unused in our port, but it's being left in so admins can spawn these guys with their gear
 - type: entity
   parent: MobAsakim
   id: MobAsakimGhostrole
@@ -23,7 +25,7 @@
       settings: default
     requirements:
     - !type:OverallPlaytimeRequirement
-      time: 180000 # 50 hrs # DeltaV - change this Perchance
+      time: 172800 # DeltaV - 48 hours, sync with antag
     mindRoles: # DeltaV
     - MindRoleAsakim
   - type: GhostTakeoverAvailable

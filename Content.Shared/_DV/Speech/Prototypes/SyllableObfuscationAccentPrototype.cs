@@ -1,8 +1,8 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._DV.Speech.Prototypes;
+namespace Content.Shared._DV.Speech.Prototypes;
 
-[Prototype("syllableObfuscationAccent")]
+[Prototype]
 public sealed partial class SyllableObfuscationAccentPrototype : IPrototype
 {
     [IdDataField]
@@ -14,6 +14,6 @@ public sealed partial class SyllableObfuscationAccentPrototype : IPrototype
     [DataField]
     public int MaxSyllables = 4;
 
-    [DataField]
-    public List<String> Replacement = new() { "<?>" };
+    [DataField(required: true)]
+    public List<string> Replacement = [];
 }

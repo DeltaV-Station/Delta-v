@@ -1,19 +1,17 @@
 using System.Linq;
 using System.Text;
 using Content.Server._DV.Speech.Components;
-using Content.Server._DV.Speech.Prototypes;
+using Content.Shared._DV.Speech.Prototypes;
 using Content.Server.Speech;
 using Content.Shared.GameTicking;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 
 namespace Content.Server._DV.Speech.EntitySystems;
 
 public sealed class SyllableObfuscationAccentSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] protected readonly SharedGameTicker _ticker = default!;
+    [Dependency] private readonly SharedGameTicker _ticker = default!;
 
     public override void Initialize()
     {

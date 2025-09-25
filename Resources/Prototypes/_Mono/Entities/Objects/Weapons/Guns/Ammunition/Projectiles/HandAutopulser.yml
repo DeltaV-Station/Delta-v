@@ -11,9 +11,9 @@
   - type: Projectile
     damage:
       types:
-        Caustic: 5
-        Heat: 14
-        Radiation: 5
+        Caustic: 4 # DeltaV - was 5
+        Heat: 8 # DeltaV - was 14
+        Radiation: 4 # DeltaV - was 5
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # DeltaV
     scale: 0.4, 0.4

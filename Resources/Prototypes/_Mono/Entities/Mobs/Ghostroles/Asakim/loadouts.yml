@@ -8,8 +8,8 @@
 - type: startingGear
   id: AsakimGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitAsakim # DeltaV - dedicated jumpsuit with goob sprites
-    back: ClothingBackpackAdvancedTactical # DeltaV - dedicated backpack
+    jumpsuit: ClothingUniformJumpsuitAsakim # DeltaV - dedicated jumpsuit with goob sprites instead of base ninja one
+    back: ClothingBackpackAdvancedTactical # DeltaV - dedicated backpack instead of ERT one
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitAsakimUnremoveable
     shoes: ClothingShoesBootsMagAsakim
@@ -24,18 +24,21 @@
     back:
     #- RadioHandheldNF # DeltaV - fake
     - DoubleEmergencyOxygenTankFilled
-    - MedkitCombatFilled
+    #- MedkitCombatFilled # DeltaV - one is enough
     - MedkitCombatFilled
     #- SyringeCaseAltFilled # DeltaV - fake
     - JetpackMiniFilled
-    #- StorageImplanter # DeltaV - implanters too OP they already got insane stamina resist
+    #- StorageImplanter # DeltaV - implanters too OP they already have insane stamina resist
     #- FreedomImplanter # DeltaV
-    belt: # DeltaV - move pens to front so jol can fit
-    - HandHeldMassScannerBorg
-    - PowerDrill
+    belt: # DeltaV - reordered for better fit
+    #- HandHeldMassScannerBorg # DeltaV - redundant, their helmet is a mass scanner
+    #- PowerDrill # DeltaV - less gamer loot, replaced with below
+    - Screwdriver # DeltaV
+    - Wrench # DeltaV
+    - WelderIndustrial # DeltaV - less gamer loot roundstart, was WelderExperimental
     - JawsOfLife
-    - WelderExperimental
-    - CombatMedipen
-    - CombatMedipen
+    - Multitool # DeltaV - let them hack doors, also snugly fills out the chest rig
+    #- CombatMedipen # DeltaV - these things are so busted
+    #- CombatMedipen
     - CombatMedipen
     - CombatMedipen
