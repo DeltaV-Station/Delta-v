@@ -19,6 +19,14 @@
     stripDelay: 60
     equipDelay: 5
   - type: SelfUnremovableClothing
+  - type: DamageOnUnequip # DeltaV
+    unequipDamage:
+      types:
+        Blunt: 20 
+        Slash: 30
+        Piercing: 40
+    unequipSound: "/Audio/_DV/Effects/breakingbones.ogg"
+    screamOnUnequip: true
   - type: PressureProtection
     highPressureMultiplier: 0.1
     lowPressureMultiplier: 1000
