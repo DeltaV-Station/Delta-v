@@ -2,7 +2,7 @@
   parent: ExosuitFabricator
   id: SyndicateExosuitFabricator
   name: syndicate exosuit fabricator
-  description: Creates parts for evil robotics and other mechanical needs
+  description: Creates parts for evil robotics and other mechanical needs.
   components:
   - type: Sprite
     sprite: _DV/Structures/Machines/synd_exosuit_fabricator.rsi
@@ -19,7 +19,7 @@
 
 - type: entity
   parent: BaseLatheLube
-  id: BaseTechFabDepartamental
+  id: BaseTechFabDepartmental
   abstract: true
   components:
   - type: Sprite
@@ -52,7 +52,7 @@
     - blueprint
 
 - type: entity
-  parent: BaseTechFabDepartamental
+  parent: BaseTechFabDepartmental
   id: EngineeringTechFab
   name: engineering techfab
   description: Prints equipment for engineers.
@@ -100,7 +100,7 @@
     channels: [Engineering]
 
 - type: entity
-  parent: BaseTechFabDepartamental
+  parent: BaseTechFabDepartmental
   id: LogisticsTechFab
   name: logistics techfab
   description: Prints equipment for the logistics department.
@@ -143,7 +143,7 @@
     channels: [Supply]
 
 - type: entity
-  parent: BaseTechFabDepartamental
+  parent: BaseTechFabDepartmental
   id: ServiceTechFab
   name: service techfab
   description: Prints equipment for the service department.
@@ -183,7 +183,7 @@
     channels: [Service]
 
 - type: entity
-  parent: BaseTechFabDepartamental
+  parent: BaseTechFabDepartmental
   id: EpistemicsTechFab
   name: epistemics techfab
   description: Prints equipment for the epistemics department.
