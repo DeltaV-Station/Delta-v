@@ -159,7 +159,8 @@ public sealed class CrawlUnderObjectsSystem : EntitySystem
 
     private bool IsOnCollidingTile(EntityUid uid)
     {
-        if (Transform(uid).Coordinates.GetTileRef() is not {} tile)
+        var coords = Transform(uid).Coordinates;
+        if (_turf.GetTileRef(coords) is not { } tile)
             return false;
 
         return _turf.IsTileBlocked(tile, CollisionGroup.MobMask);
