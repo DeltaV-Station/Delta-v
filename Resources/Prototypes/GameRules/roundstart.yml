@@ -115,7 +115,7 @@
   components:
   - type: GameRule
     minPlayers: 10 # DeltaV - was 20
-    minTotalPlayers: 30 # DeltaV
+    minTotalPlayers: 35 # DeltaV
   - type: LoadMapRule
     mapPath: /Maps/Nonstations/nukieplanet.yml
   - type: NukieOperation # DeltaV - Nukie operations!
