@@ -3,10 +3,10 @@
   id: ColossusSpawn
   components:
   - type: StationEvent
-    weight: 4.5
-    earliestStart: 30
+    weight: 3.0
+    earliestStart: 45
     reoccurrenceDelay: 20
-    minimumPlayers: 25
+    minimumPlayers: 30
     duration: null
   - type: PrecognitionResult
     message: psionic-power-precognition-colossus-spawn-result-message
