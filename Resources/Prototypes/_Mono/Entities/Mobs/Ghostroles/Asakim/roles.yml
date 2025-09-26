@@ -16,7 +16,7 @@
     #width: 1.2 # DeltaV - non-functional
   - type: Loadout
     prototypes: [AsakimGear]
-    #roleLoadout: [RoleSurvivalTankOnly] # DeltaV - ?????
+    #roleLoadout: [RoleSurvivalTankOnly] # DeltaV - nope
   - type: GhostRole
     name: ghost-role-information-asakim-name
     description: ghost-role-information-asakim-description
@@ -38,7 +38,7 @@
     - Syndicate
   - type: SurgerySpeedModifier
     speedModifier: 1.5
-  #- type: IntrinsicRadioReceiver # DeltaV - UNCOMMENT WHEN UNIQUE CHANNEL......
+  #- type: IntrinsicRadioReceiver # DeltaV - unused
   #- type: IntrinsicRadioTransmitter
   #  channels:
   #  - Remnants
