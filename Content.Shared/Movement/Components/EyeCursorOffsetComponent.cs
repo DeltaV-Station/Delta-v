@@ -29,4 +29,7 @@ public abstract partial class SharedEyeCursorOffsetComponent : Component
     /// </summary>
     [DataField]
     public float PvsIncrease = 0.3f;
+
+    [DataField]
+    public bool Enabled = true; // DeltaV - enable/disable
 }
