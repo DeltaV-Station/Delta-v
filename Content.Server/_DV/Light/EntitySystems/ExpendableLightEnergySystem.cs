@@ -2,10 +2,17 @@ using Content.Server.Light.Components;
 using Content.Shared._DV.Light;
 using Content.Shared.Light.Components;
 
-namespace Content.Server.Light.EntitySystems;
+namespace Content.Server._DV.Light.EntitySystems;
 
-public sealed partial class ExpendableLightSystem
+public sealed partial class ExpendableLightEnergySystem : EntitySystem
 {
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<ExpendableLightComponent, OnGetLightEnergyEvent>(GetLightEnergy);
+    }
+
     private void GetLightEnergy(Entity<ExpendableLightComponent> ent, ref OnGetLightEnergyEvent args)
     {
         // This isn't a perfect clone of the Clientside code, as it relies on animation behaviours

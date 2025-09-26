@@ -1,6 +1,5 @@
 using Content.Server.Light.Components;
 using Content.Server.Stack;
-using Content.Shared._DV.Light;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.IgnitionSource;
@@ -21,7 +20,7 @@ using Robust.Shared.Utility;
 namespace Content.Server.Light.EntitySystems
 {
     [UsedImplicitly]
-    public sealed partial class ExpendableLightSystem : EntitySystem // DeltaV - made partial
+    public sealed class ExpendableLightSystem : EntitySystem
     {
         [Dependency] private readonly SharedItemSystem _item = default!;
         [Dependency] private readonly ClothingSystem _clothing = default!;
@@ -42,7 +41,6 @@ namespace Content.Server.Light.EntitySystems
             SubscribeLocalEvent<ExpendableLightComponent, GetVerbsEvent<ActivationVerb>>(AddIgniteVerb);
             SubscribeLocalEvent<ExpendableLightComponent, InteractUsingEvent>(OnInteractUsing);
             SubscribeLocalEvent<ExpendableLightComponent, RefreshNameModifiersEvent>(OnRefreshNameModifiers);
-            SubscribeLocalEvent<ExpendableLightComponent, OnGetLightEnergyEvent>(GetLightEnergy); // DeltaV
         }
 
         public override void Update(float frameTime)

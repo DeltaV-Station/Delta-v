@@ -1,4 +1,3 @@
-using Content.Shared._DV.Light;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Light.Components;
 using ItemTogglePointLightComponent = Content.Shared.Light.Components.ItemTogglePointLightComponent;
@@ -9,7 +8,7 @@ namespace Content.Shared.Light.EntitySystems;
 /// Implements the behavior of <see cref="ItemTogglePointLightComponent"/>, causing <see cref="ItemToggledEvent"/>s to
 /// enable and disable lights on the entity.
 /// </summary>
-public sealed partial class ItemTogglePointLightSystem : EntitySystem // DeltaV - made partial
+public sealed partial class ItemTogglePointLightSystem : EntitySystem
 {
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly SharedHandheldLightSystem _handheldLight = default!;
@@ -18,7 +17,6 @@ public sealed partial class ItemTogglePointLightSystem : EntitySystem // DeltaV 
     {
         base.Initialize();
         SubscribeLocalEvent<ItemTogglePointLightComponent, ItemToggledEvent>(OnLightToggled);
-        SubscribeLocalEvent<ItemTogglePointLightComponent, OnGetLightEnergyEvent>(GetLightEnergy); // DeltaV
     }
 
     private void OnLightToggled(Entity<ItemTogglePointLightComponent> ent, ref ItemToggledEvent args)

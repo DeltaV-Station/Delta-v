@@ -121,6 +121,11 @@ public abstract class SharedLightReactiveSystem : EntitySystem
                 var forward = _transform.GetWorldRotation(lightUid).RotateVec(new Vector2(0.0f, -1.0f));
                 energy *= MathF.Max(0f, Vector2.Dot((pos - lightPos).Normalized(), forward));
             }
+            else if (lightComp.MaskPath == "/Textures/Effects/LightMasks/double_cone.png")
+            {
+                var forward = _transform.GetWorldRotation(lightUid).RotateVec(new Vector2(0.0f, -1.0f));
+                energy *= MathF.Abs(Vector2.Dot((pos - lightPos).Normalized(), forward));
+            }
 
             // If we reach here, the light is unobstructed and within range, calculate a light value to add.
             val += energy * (1.0f - sqrDistance / (radius * radius));

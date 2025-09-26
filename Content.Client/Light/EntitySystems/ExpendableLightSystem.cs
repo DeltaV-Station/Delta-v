@@ -1,12 +1,11 @@
 using Content.Client.Light.Components;
-using Content.Shared._DV.Light;
 using Content.Shared.Light.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Client.Light.EntitySystems;
 
-public sealed partial class ExpendableLightSystem : VisualizerSystem<ExpendableLightComponent> // DeltaV - made partial
+public sealed class ExpendableLightSystem : VisualizerSystem<ExpendableLightComponent>
 {
     [Dependency] private readonly PointLightSystem _pointLightSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
@@ -17,7 +16,6 @@ public sealed partial class ExpendableLightSystem : VisualizerSystem<ExpendableL
         base.Initialize();
 
         SubscribeLocalEvent<ExpendableLightComponent, ComponentShutdown>(OnLightShutdown);
-        SubscribeLocalEvent<ExpendableLightComponent, OnGetLightEnergyEvent>(GetLightEnergy); // DeltaV
     }
 
     private void OnLightShutdown(EntityUid uid, ExpendableLightComponent component, ComponentShutdown args)
