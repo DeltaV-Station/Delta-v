@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Fixed not being able to reclaim biomass from monkeys.
-    type: Fix
-  id: 1185
-  time: '2025-03-20T00:40:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3279
-- author: deltanedas
-  changes:
   - message: Added back the Biochemical research discipline! Medical related techs
       are in it now.
     type: Add
@@ -4173,3 +4166,12 @@
   id: 1684
   time: '2025-09-24T09:49:34.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4393
+- author: TehFlaminTaco
+  changes:
+  - message: Fixed Flares, Flashlights, and more not effecting Skia.
+    type: Fix
+  - message: Skia now can weakly maneuver in space.
+    type: Add
+  id: 1685
+  time: '2025-09-26T10:03:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4417
