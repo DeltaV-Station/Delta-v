@@ -51,17 +51,14 @@
         sound: "/Audio/_DV/Ambience/Antag/asakimbriefing.ogg"
       components:
       - type: RandomHumanoidAppearance
-        randomizeName: True
-      #- type: RandomMetadata # KILL
-      #  nameSegments:
-      #  - NamesReptilianMale
+        randomizeName: true
       - type: NpcFactionMember
         factions:
         - Syndicate
       - type: SurgerySpeedModifier # not sure why this was in the original one but whatever
         speedModifier: 1.5
-      - type: PsionicBonusChance
-        multiplier: 999 # no way to guarentee random psionics so. next best thing
+      #- type: PsionicBonusChance # uncomment when psionics are cool
+      #  multiplier: 999 # no way to guarentee random psionics so. next best thing
       mindRoles:
       - MindRoleAsakim
   # End DeltaV Additions
