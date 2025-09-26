@@ -24,7 +24,8 @@
     back:
     #- RadioHandheldNF # DeltaV - fake
     - DoubleEmergencyOxygenTankFilled
-    #- MedkitCombatFilled # DeltaV - one is enough
+    - BoxSurvival # DeltaV
+    - MedkitCombatFilled
     - MedkitCombatFilled
     #- SyringeCaseAltFilled # DeltaV - fake
     - JetpackMiniFilled
@@ -39,6 +40,6 @@
     - JawsOfLife
     - Multitool # DeltaV - let them hack doors, also snugly fills out the chest rig
     #- CombatMedipen # DeltaV - these things are so busted
-    #- CombatMedipen
-    - CombatMedipen
-    - CombatMedipen
+    #- CombatMedipen # DeltaV
+    #- CombatMedipen # DeltaV
+    #- CombatMedipen # DeltaV

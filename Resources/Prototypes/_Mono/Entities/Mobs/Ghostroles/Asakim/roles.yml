@@ -12,8 +12,8 @@
   - type: RandomHumanoidAppearance
     randomizeName: True
   - type: HumanoidAppearance
-    height: 1.2
-    width: 1.2
+    #height: 1.2 # DeltaV - non-functional
+    #width: 1.2 # DeltaV - non-functional
   - type: Loadout
     prototypes: [AsakimGear]
     #roleLoadout: [RoleSurvivalTankOnly] # DeltaV - ?????

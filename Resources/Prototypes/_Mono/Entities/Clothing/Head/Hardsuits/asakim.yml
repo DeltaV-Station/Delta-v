@@ -37,11 +37,11 @@
   #  flashDurationMultiplier: 0.85
   #  isEquipment: true
   #  color: "#1584e6"
-  - type: RadarConsole # DeltaV - what even is this (???)
+  - type: RadarConsole
     maxRange: 1024
     followEntity: true
-    pannable: true
-  #- type: DetectionRangeMultiplier # upgraded thermal sensors # DeltaV - WHAT IS THIS UNCOMMENT WHEN READY TO TEST
+    #pannable: true # DeltaV - unimplemented
+  #- type: DetectionRangeMultiplier # upgraded thermal sensors # DeltaV - doesn't exist
   #  infraredMultiplier: 1.5 # from 1
   #  visualMultiplier: 8 # from 4
   - type: ActivatableUI

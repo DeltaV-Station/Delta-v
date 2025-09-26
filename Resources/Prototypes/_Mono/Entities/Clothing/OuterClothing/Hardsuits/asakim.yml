@@ -19,14 +19,6 @@
     stripDelay: 60
     equipDelay: 5
   - type: SelfUnremovableClothing
-  - type: DamageOnUnequip # DeltaV
-    unequipDamage:
-      types:
-        Blunt: 20 
-        Slash: 30
-        Piercing: 40
-    unequipSound: "/Audio/_DV/Effects/breakingbones.ogg"
-    screamOnUnequip: true
   - type: PressureProtection
     highPressureMultiplier: 0.1
     lowPressureMultiplier: 1000
@@ -60,14 +52,21 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
-    blockUnequipWhenAttached: false
-    replaceCurrentClothing: true
+    #blockUnequipWhenAttached: false # DeltaV - doesn't exist here
+    #replaceCurrentClothing: true # DeltaV - doesn't exist here
     clothingPrototype: ClothingHelmetHardsuitAsakim # DeltaV - simplified ToggleableClothing
   #- type: PirateBountyItem # DeltaV - no way we have this
   #  id: ClothingOuterHardsuitTacsuit
   - type: StaminaResistance # DeltaV - different comp name
     damageCoefficient: 0.4 # DeltaV - was 0.1
-  # DeltaV - make this do damage on removal or something
+  - type: DamageOnUnequip # DeltaV
+    unequipDamage:
+      types:
+        Blunt: 20 
+        Slash: 30
+        Piercing: 40
+    unequipSound: "/Audio/_DV/Effects/breakingbones.ogg"
+    screamOnUnequip: true
 
 - type: entity
   parent: ClothingOuterHardsuitAsakim
