@@ -344,6 +344,7 @@
           min: 8
         effectProto: StatusEffectForcedSleeping
         time: 3
+        delay: 6
         type: Add
       - !type:GenericStatusEffect # DeltaV: anesthesia
         key: Anesthesia
