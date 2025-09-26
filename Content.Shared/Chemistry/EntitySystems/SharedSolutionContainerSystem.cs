@@ -345,6 +345,24 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             AppearanceSystem.SetData(uid, SolutionContainerVisuals.BaseOverride, reagent.ToString(), appearanceComponent);
     }
 
+    // Floof Start - Make Cryotubes split chemicals evenly and exactly 0.5.
+    /// <summary>
+    /// Splits a solution removing a specified amount of each reagent, if available.
+    /// </summary>
+    /// <param name="soln">The container to split the solution from.</param>
+    /// <param name="quantity">The amount of each reagent to split.</param>
+    /// <returns></returns>
+    public Solution SplitSolutionReagentsEvenly(Entity<SolutionComponent> soln, FixedPoint2 quantity)
+    {
+        var (uid, comp) = soln;
+        var solution = comp.Solution;
+
+        var splitSol = solution.SplitSolutionReagentsEvenly(quantity);
+        UpdateChemicals(soln);
+        return splitSol;
+    }
+    // Floof End - Make Cryotubes split chemicals evenly and exactly 0.5.
+
     /// <summary>
     ///     Removes part of the solution in the container.
     /// </summary>

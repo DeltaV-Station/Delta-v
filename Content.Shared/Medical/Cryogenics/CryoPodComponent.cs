@@ -38,7 +38,7 @@ public sealed partial class CryoPodComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("beakerTransferAmount")]
-    public float BeakerTransferAmount = 1f;
+    public float BeakerTransferAmount = 0.5f; // Floof - Make Cryotubes split chemicals evenly and exactly 0.5.
 
     /// <summary>
     ///     Delay applied when inserting a mob in the pod.
