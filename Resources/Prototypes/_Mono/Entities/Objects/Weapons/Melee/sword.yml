@@ -11,8 +11,8 @@
      wideAnimationRotation: -60
      damage:
        types: # It's still incredibly strong, but -reasonable-
-         Slash: 23
-         Shock: 6
+         Slash: 19 # DeltaV - was 23
+         Shock: 6 # DeltaV - was 6
          Structural: 25 # Ion doesn't exist, according to Proto manager.
    - type: Item
      sprite: _Mono/Objects/Weapons/Melee/hfblade.rsi
@@ -23,7 +23,7 @@
      - Belt
      - suitStorage
    - type: Reflect
-     reflectProb: 0.1 # DeltaV - was 0.35, these guys are strong enough as-is come on
+     reflectProb: 0.15 # DeltaV - was 0.35, these guys are strong enough as-is come on
    - type: DisarmMalus
      malus: 0.9
    - type: StaticPrice
@@ -31,5 +31,5 @@
    #- type: Construction # DeltaV - not gonna let tiders build this
    #  graph: GraphWeaponHFKatana
    #  node: WeaponHFKatana
-   #- type: PirateBountyItem # DeltaV
+   #- type: PirateBountyItem # DeltaV - no pirates
    #  id: TSFEnergyWeapon

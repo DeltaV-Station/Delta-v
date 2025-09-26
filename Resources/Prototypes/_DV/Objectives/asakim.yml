@@ -33,8 +33,9 @@
   - type: TargetObjective
     title: objective-condition-asakim-terminate-title
   - type: PickRandomPerson
+    onlyChoosableJobs: true
   - type: RerollAfterCompletion
-    rerollObjectivePrototype: AsakimTerminateObjective
+    rerollObjectivePrototype: AsakimKillObjective
     rerollObjectiveMessage: objective-condition-asakim-terminate-reroll-message
 
 - type: entity

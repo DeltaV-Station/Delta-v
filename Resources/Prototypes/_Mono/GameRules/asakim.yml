@@ -3,15 +3,15 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entityTable # TODO: remove this and add it to UnknownShuttlesFreelanceTableDeltaV. PLEASE.
-  id: AsakimShipsTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-      - id: UnknownShuttleAsakimSmall
+#- type: entityTable # DeltaV - unused
+#  id: AsakimShipsTable
+#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+#    children:
+#      - id: UnknownShuttleAsakimSmall
 
-- type: entity # DeltaV - mono handles antag spawning a bit differently, but this should work regardless
+- type: entity
   parent: BaseUnknownShuttleRule # DeltaV - was BaseRandomShuttleRule
-  id: UnknownShuttleAsakimSmall
+  id: AsakimShuttle
   components:
   - type: StationEvent
     #startAnnouncement: station-event-asakim-shuttle-detected # DeltaV - no
@@ -26,6 +26,8 @@
   - type: LoadMapRule
     preloadedGrid: AsakimSmall
   # Begin DeltaV Additions
+  - type: PrecognitionResult
+    message: psionic-power-precognition-asakim-spawn-result-message
   - type: AntagSpawner
     prototype: MobAsakim
   - type: AntagRandomObjectives
@@ -46,6 +48,7 @@
       briefing:
         text: asakim-role-briefing
         color: "#5085fa"
+        sound: "/Audio/_DV/Ambience/Antag/asakimbriefing.ogg"
       components:
       - type: RandomHumanoidAppearance
         randomizeName: True
