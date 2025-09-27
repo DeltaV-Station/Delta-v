@@ -56,3 +56,22 @@
     Telecrystal: 9
   categories:
   - UplinkWeaponry
+
+- type: listing
+  id: UplinkHarbinger
+  name: uplink-harbinger-name
+  description: uplink-harbinger-desc
+  icon: { sprite: /Textures/_DV/Objects/Weapons/Melee/evilscythe.rsi, state: icon }
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  productEntity: ClothingBackpackDuffelSyndicateFilledHarbingerBundle
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chaplain
+    - Botanist

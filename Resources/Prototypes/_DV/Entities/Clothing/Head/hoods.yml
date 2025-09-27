@@ -27,3 +27,29 @@
   - type: HideLayerClothing
     slots:
     - Hair
+
+- type: entity
+  parent: ClothingHeadHelmetArmoredBase
+  id: ClothingHeadHatHarbingerHelmet
+  name: harbinger helmet
+  description: an old-fashioned helm under a leather hood to strike terror into your forces.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hoods/harbingerhood.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hoods/harbingerhood.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+        Holy: 0.9
+        Shadow: 0.9
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Hair
