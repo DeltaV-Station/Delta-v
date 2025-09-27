@@ -3,3 +3,17 @@
   id: OrganAvaliStomach
   name: avali stomach
   categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: OrganHumanEyes
+  id: OrganAvaliEyes
+  name: avali eyes
+  description: They seem as if they're looking at something far away...
+  components:
+  - type: Organ
+    onAdd:
+    - type: EyeCursorOffset
+      maxOffset: 5
+      pvsIncrease: 0.5
+      enabled: false
+    - type: CursorOffsetAction
