@@ -18,7 +18,7 @@ public sealed partial class TooShortForUIComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? Blacklist = null;
-    
+
     /// <summary>
     /// These entities will be allowed.
     /// Takes priority over Blacklist
