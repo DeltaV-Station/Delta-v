@@ -1,6 +1,6 @@
 - type: entity
   id: OperatingTableAdvanced
-  parent: [ MedicalBed, OperatingTable ]
+  parent: [ OperatingTable, MedicalBed ]
   name: advanced operating table
   description: An operating table specially built to keep the patient precisely still, allowing the surgeon to work faster with confidence.
   components:
