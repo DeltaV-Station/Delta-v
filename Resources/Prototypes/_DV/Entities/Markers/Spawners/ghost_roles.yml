@@ -189,3 +189,16 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 43200 # 12h Command (so you know to handle the responsibility of an armsdealer)
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostAsakim
+  components:
+  - type: GhostRole
+    name: ghost-role-information-asakim-name
+    description: ghost-role-information-asakim-description
+    rules: ghost-role-information-asakim-rules
+    requirements: # keep in sync with the antag prototype
+    - !type:OverallPlaytimeRequirement
+      time: 172800 # 48 hours, same reasoning as SRN

@@ -1,0 +1,162 @@
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: species
+  id: Asakim
+  name: species-name-asakim
+  roundStart: false # sad...
+  prototype: MobAsakim
+  sprites: MobAsakimSprites
+  dollPrototype: MobAsakimDummy
+  skinColoration: Hues
+  defaultSkinTone: "#444541"
+  markingLimits: MobAsakimMarkingLimits
+  maleFirstNames: NamesReptilianMale # DeltaV
+  femaleFirstNames: NamesReptilianFemale # DeltaV
+  naming: FirstDashFirst
+
+- type: speciesBaseSprites
+  id: MobAsakimSprites
+  sprites:
+    Special: MobAsakimAnyMarking
+    Head: MobAsakimHead
+    HeadTop: MobAsakimAnyMarking
+    Chest: MobAsakimTorso
+    Tail: MobHumanoidAnyMarking
+    Eyes: MobAsakimEyes
+    LArm: MobAsakimLArm
+    RArm: MobAsakimRArm
+    LHand: MobAsakimLHand
+    RHand: MobAsakimRHand
+    LLeg: MobAsakimLLeg
+    RLeg: MobAsakimRLeg
+    LFoot: MobAsakimLFoot
+    RFoot: MobAsakimRFoot
+
+- type: humanoidBaseSprite
+  id: MobAsakimAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobAsakimMarkingMatchSkin
+  markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: MobAsakimHead
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobAsakimHeadMale
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobAsakimHeadFemale
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobAsakimTorso
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobAsakimTorsoMale
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobAsakimTorsoFemale
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobAsakimLLeg
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobAsakimLArm
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobAsakimLHand
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobAsakimLFoot
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobAsakimRLeg
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobAsakimRArm
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobAsakimRHand
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobAsakimRFoot
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: r_foot
+
+- type: humanoidBaseSprite
+  id: MobAsakimEyes
+  baseSprite:
+    sprite: _Mono/Mobs/Customization/asakimeyes.rsi
+    state: eyes
+
+- type: markingPoints
+  id: MobAsakimMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 0
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ LizardTailSmooth ]
+    HeadTop:
+      points: 2
+      required: false
+    HeadSide:
+      points: 2 # WWDP-Edit
+      required: false
+    Chest:
+      points: 3
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false

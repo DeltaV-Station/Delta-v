@@ -16,3 +16,15 @@
   - type: Sprite
     sprite: _DV/Clothing/Back/Backpacks/hop.rsi
     state: icon
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackAdvancedTactical
+  name: advanced tactical backpack
+  description: A spacious backpack with lots of pockets.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertleader.rsi
+  - type: Storage
+    grid:
+    - 0,0,10,3

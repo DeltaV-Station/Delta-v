@@ -532,3 +532,14 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAsakim
+  name: combat jumpsuit
+  description: A comfortable and flexible jumpsuit, designed to be worn under a hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/ninja.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/ninja.rsi
