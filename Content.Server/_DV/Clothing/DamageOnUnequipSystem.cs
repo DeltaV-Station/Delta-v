@@ -26,15 +26,16 @@ public sealed class DamageOnUnequipSystem : SharedDamageOnUnequipSystem
 
     private void OnUnequip(Entity<DamageOnUnequipComponent> ent, ref ClothingGotUnequippedEvent args)
     {
-        if (ent.Comp.UnequipDamage == null || !TryComp<DamageableComponent>(args.Wearer, out var damageable))
+        // terminating check to avoid evil exception. bit weird but it's how a similar issue was fixed upstream
+        if (ent.Comp.UnequipDamage == null || !TryComp<DamageableComponent>(args.Wearer, out var damageable) || MetaData(args.Wearer).EntityLifeStage >= EntityLifeStage.Terminating)
             return;
 
         _popup.PopupEntity(Loc.GetString("damage-on-unequip-finish", ("item", ent), ("wearer", args.Wearer)), ent, PopupType.LargeCaution);
 
-        if (ent.Comp.UnequipSound != null) // this still plays twice for some reason but it's whatever
+        if (ent.Comp.UnequipSound != null)
             _audio.PlayPvs(ent.Comp.UnequipSound, ent);
 
-        if (ent.Comp.ScreamOnUnequip) // can't actually scream from Shared so OH WAIT WE'RE IN SERVER NOW
+        if (ent.Comp.ScreamOnUnequip)
         {
             _chat.TryEmoteWithChat(args.Wearer, ent.Comp.ScreamEmote);
             _jittering.DoJitter(args.Wearer, TimeSpan.FromSeconds(15), false);
