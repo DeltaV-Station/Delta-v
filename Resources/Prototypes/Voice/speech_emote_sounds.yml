@@ -250,23 +250,25 @@
       path: /Audio/Voice/Vox/shriek1.ogg
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
+    Cough:
+      path: /Audio/Voice/Vox/vox_cough.ogg
+    Sigh:
+      path: /Audio/Voice/Vox/vox_sigh.ogg
     Honk:
       collection: BikeHorn
+    Crying:
+      collection: VoxCry # DeltaV - Combined upstream and Imp sounds
+      params: # Imp
+        volume: -7
     Weh:
       collection: Weh
     Hew:
       collection: Hew
-    # Begin DeltaV Additions
     Gasp: 
-      collection: VoxGasp
+      collection: VoxGasp # DeltaV - Combined upstream and our sounds
     DefaultDeathgasp:
-      path: /Audio/_DV/Effects/Gasp/vox_deathgasp_1.ogg
-    # End DeltaV Additions
+      collection: VoxDeathgasp # DeltaV - Combined upstream and our sounds
     # Begin Impstation Additions
-    Crying:
-      collection: VoxCry
-      params:
-        volume: -7
     Chitter:
       collection: VoxChitter
       params:
