@@ -75,7 +75,7 @@
         effectProto: StatusEffectDrowsiness
         time: 4
         type: Add
-        refresh: false
+      # DeltaV Additions
       - !type:GenericStatusEffect # DeltaV: anesthesia
         conditions:
         - !type:ReagentThreshold
@@ -86,6 +86,7 @@
         refresh: false
         time: 4.0
         type: Add
+      # END DeltaV
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -370,7 +371,7 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 10
-        refresh: false
+      # DeltaV Additions
       - !type:AdjustReagent
         reagent: LotophagoiOil # DeltaV: prevent rapid remove/reroll/remove/reroll psionic loop
         amount: -100
@@ -379,6 +380,8 @@
           - !type:ReagentThreshold
             reagent: MindbreakerToxin
             min: 20
+      # END DeltaV
+
   # TODO: PROPER hallucinations
 
 - type: reagent
