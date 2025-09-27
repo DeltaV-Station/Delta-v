@@ -160,13 +160,15 @@
     earliestStart: 25
   - type: MidRoundAntagRule
 
-#- type: entity
-#  parent: BaseMidRoundAntag
-#  id: RatKingSpawn
-#  components:
-#  if you uncomment this update this for antag refactor, below wont work
-#  - type: MidRoundAntagRule
-#    spawner: SpawnPointGhostRatKing
+- type: entity
+  parent: BaseMidRoundAntag
+  id: RatKingSpawn
+  components:
+  - type: MidRoundAntagRule
+    spawner: SpawnPointGhostRatKing
+    MinimumPlayers: 30
+    MaxOccurrences: 1
+    Weight: 7
 
 - type: entity
   parent: BaseMidRoundAntag
