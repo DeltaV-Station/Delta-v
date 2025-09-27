@@ -141,6 +141,15 @@
     - Recyclable
     - HamsterWearable
     - WhitelistChameleon
+  # Begin DeltaV additions
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  # End DeltaV additions
 
 - type: entity
   parent: ClothingHeadBase
@@ -359,6 +368,15 @@
     - Recyclable
     - HamsterWearable
     - WhitelistChameleon
+  # Begin DeltaV additions
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  # End DeltaV additions
 
 - type: entity
   parent: ClothingHeadBase
