@@ -365,9 +365,10 @@
           type: Slime
           shouldHave: false
         effectProto: StatusEffectForcedSleeping
-        time: 200 # This reeks, but I guess it works LMAO
-        type: Add
-      - !type:GenericStatusEffect # DeltaV: anesthesia changes
+        time: 3
+        type: Update
+      # DeltaV - anesthesia changes
+      - !type:GenericStatusEffect 
         conditions:
         - !type:ReagentThreshold
           reagent: NitrousOxide
@@ -379,6 +380,7 @@
         component: Anesthesia
         time: 200
         type: Add
+      # END DeltaV
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -418,7 +420,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 15
-        refresh: false
       - !type:Drunk
         boozePower: 15
       - !type:PopupMessage
@@ -458,7 +459,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 500
-        refresh: false
       - !type:Drunk
         boozePower: 500
         conditions:
