@@ -32,10 +32,15 @@
   - type: Instrument
     allowPercussion: true
     allowProgramChange: true
-    respectMidiLimits: false
+    respectMidiLimits: true # Delta-V - No more crashing the server.
   - type: Sprite
     sprite: Objects/Fun/Instruments/h_synthesizer.rsi
     state: supersynth
+  - type: Clothing # Delta-V - The straps on the super synth have a use now.
+    quickEquip: false
+    slots:
+    - neck
+    sprite: Objects/Fun/Instruments/h_synthesizer.rsi
   - type: Item
     heldPrefix: super
 

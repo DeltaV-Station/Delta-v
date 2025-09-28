@@ -1,0 +1,14 @@
+# Instruments
+- type: loadout
+  id: SuperSynthesizerInstrument
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 360000 # Delta-V - 10hr originally, but changed to 100 for delta-V because I want the musicians to suffer.
+  storage:
+    back:
+    - SuperSynthesizerInstrument
+  groupBy: "Instruments"
+#Starlight-End
