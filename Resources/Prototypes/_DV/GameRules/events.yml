@@ -167,12 +167,11 @@
   components:
   - type: StationEvent
     weight: 7
-    MinimumPlayers: 30
-    MaxOccurrences: 1
+    minimumPlayers: 30
+    maxOccurrences: 1
   - type: AntagSpawner
     prototype: MobRatKing
   - type: AntagSelection
-    agentName: RatKing-round-end-name
     definitions:
     - spawnerPrototype: SpawnPointGhostRatKing
       min: 1
