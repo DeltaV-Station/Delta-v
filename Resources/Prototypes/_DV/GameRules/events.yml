@@ -164,11 +164,19 @@
   parent: BaseMidRoundAntag
   id: RatKingSpawn
   components:
-  - type: MidRoundAntagRule
-    spawner: SpawnPointGhostRatKing
+  - type: StationEvent
+    weight: 7
     MinimumPlayers: 30
     MaxOccurrences: 1
-    Weight: 7
+  - type: AntagSpawner
+    Prototype: MobRatKing
+  - type: AntagSelection
+    agentName: RatKing-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostRatKing
+      min: 1
+      Max: 1
+      pickPlayer: false
 
 - type: entity
   parent: BaseMidRoundAntag
