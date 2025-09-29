@@ -167,8 +167,7 @@
   components:
   - type: StationEvent
     weight: 7
-    minimumPlayers: 30
-    maxOccurrences: 1
+    minimumPlayers: 20
   - type: AntagSpawner
     prototype: MobRatKing
   - type: AntagSelection
