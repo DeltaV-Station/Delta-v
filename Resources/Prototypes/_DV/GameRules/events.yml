@@ -15,6 +15,7 @@
     - id: RoboNeuroticist
     - id: MenaceSkeleton
     - id: SkiaSpawn
+    - id: RatKingSpawn
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -169,7 +170,7 @@
     MinimumPlayers: 30
     MaxOccurrences: 1
   - type: AntagSpawner
-    Prototype: MobRatKing
+    prototype: MobRatKing
   - type: AntagSelection
     agentName: RatKing-round-end-name
     definitions:
