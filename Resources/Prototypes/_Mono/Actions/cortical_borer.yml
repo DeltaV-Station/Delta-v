@@ -1,0 +1,79 @@
+# SPDX-FileCopyrightText: 2025 Coenx-flex
+# SPDX-FileCopyrightText: 2025 Cojoke
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: ActionCorticalBorerChemMenu
+  name: Chemicals
+  description: Open the chemicals menu.
+  components:
+  - type: InstantAction
+    icon: _Mono/Interface/Action/borer_chem.png
+    event: !type:CorticalChemMenuActionEvent
+
+- type: entity
+  id: ActionCorticalBorerInfest
+  name: Infest
+  description: Infest target Humanoid. Target host must have a bloodstream.
+  components:
+  - type: EntityTargetAction
+    useDelay: 5
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon: _Mono/Interface/Action/borer_infest.png
+    event: !type:CorticalInfestEvent {}
+
+- type: entity
+  id: ActionCorticalBorerEject
+  name: Eject Host
+  description: Eject yourself from your host.
+  components:
+  - type: InstantAction
+    icon: _Mono/Interface/Action/borer_eject.png
+    event: !type:CorticalEjectEvent
+    useDelay: 5
+
+- type: entity
+  id: ActionCheckBlood
+  name: Check Blood
+  description: Inspect the blood of your host to see how they are doing.
+  components:
+  - type: InstantAction
+    icon: _Mono/Interface/Action/borer_bloodcheck.png
+    event: !type:CorticalCheckBloodEvent
+    useDelay: 5
+
+- type: entity
+  id: ActionControlHost
+  name: Take Control
+  description: Take full control of your host, lasts for 40 seconds on awake hosts.
+  components:
+  - type: InstantAction
+    icon: _Mono/Interface/Action/borer_control.png
+    event: !type:CorticalTakeControlEvent
+    useDelay: 340 #5 minutes and 40 seconds
+
+- type: entity
+  id: ActionEndControlHost
+  name: Relinquish Control
+  description: Give up hold of the host's body early.
+  components:
+  - type: InstantAction
+    icon: _Mono/Interface/Action/borer_eject.png
+    event: !type:CorticalEndControlEvent
+    useDelay: 5
+
+- type: entity
+  id: ActionLayEggHost
+  name: Lay Egg
+  description: Force your host to vomit an egg. Costs 200 chemicals. # needs to be changed if the base chem cost is changed
+  components:
+  - type: InstantAction
+    icon: _Mono/Interface/Action/borer_egg.png
+    event: !type:CorticalLayEggEvent
+    useDelay: 5
