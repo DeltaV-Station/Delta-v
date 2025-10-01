@@ -3,6 +3,7 @@ using Content.Shared.Alert;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._DV.Grappling.Components;
 
@@ -53,7 +54,7 @@ public sealed partial class GrapplerComponent : Component
     /// <summary>
     /// The entity, if any, which this unit is grappling.
     /// </summary>
-    [ViewVariables]
+    [DataField]
     [AutoNetworkedField]
     public EntityUid? ActiveVictim = null;
 
@@ -66,7 +67,7 @@ public sealed partial class GrapplerComponent : Component
     /// <summary>
     /// Time when the cooldown for the grapple will be over.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan CooldownEnd;
 
     /// <summary>

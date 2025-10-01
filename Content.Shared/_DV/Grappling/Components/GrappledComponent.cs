@@ -15,20 +15,20 @@ public sealed partial class GrappledComponent : Component
     /// <summary>
     /// The entity which is performing the grapple.
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public EntityUid Grappler = EntityUid.Invalid;
 
     /// <summary>
     /// How much time is required to escape.
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public TimeSpan EscapeTime = TimeSpan.FromSeconds(15);
 
     /// <summary>
     /// The in-progress DoAfter, if any.
     /// Used to cancel the doAfter if the grappler manually releases their victim.
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public DoAfterId? DoAfterId = null;
 
     /// <summary>
