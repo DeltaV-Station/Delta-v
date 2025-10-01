@@ -164,14 +164,14 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             args.Cancelled = true;
     }*/
 
-    // Begin Mono changes - borer
+    // Begin Mono Changes - borer
     private void OnCorticalBorerValid(Entity<SurgeryCorticalBorerConditionComponent> ent, ref SurgeryValidEvent args)
     {
         if (!HasComp<CorticalBorerInfestedComponent>(args.Body) ||
             !HasComp<IncisionOpenComponent>(args.Part))
             args.Cancelled = true;
     }
-    // End Mono changes - borer
+    // End Mono Changes - borer
 
     private void OnBodyComponentConditionValid(Entity<SurgeryBodyComponentConditionComponent> ent, ref SurgeryValidEvent args)
     {

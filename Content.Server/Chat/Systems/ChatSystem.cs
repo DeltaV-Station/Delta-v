@@ -251,7 +251,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (string.IsNullOrEmpty(message))
             return;
 
-        // Begin Mono Change: Is this being sent direct
+        // Begin Mono Changes - Is this being sent direct
         var targetEv = new CheckTargetedSpeechEvent();
         RaiseLocalEvent(source, targetEv);
 
@@ -260,7 +260,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             SendEntityDirect(source, message, range, nameOverride, targetEv.Targets);
             return;
         }
-        // End Mono Change: Is this being sent direct
+        // End Mono Changes - Is this being sent direct
 
         // This message may have a radio prefix, and should then be whispered to the resolved radio channel
         if (checkRadioPrefix)

@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-// SPDX-FileCopyrightText: 2025 Cojoke
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Shared.Alert.Components;
 using Robust.Client.GameObjects;

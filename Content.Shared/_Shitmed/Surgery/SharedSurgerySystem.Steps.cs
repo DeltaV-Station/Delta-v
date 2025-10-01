@@ -48,7 +48,7 @@ public abstract partial class SharedSurgerySystem
 
         SubSurgery<SurgeryTendWoundsEffectComponent>(OnTendWoundsStep, OnTendWoundsCheck);
         SubSurgery<SurgeryStepCavityEffectComponent>(OnCavityStep, OnCavityCheck);
-        SubSurgery<SurgeryStepRemoveCorticalBorerComponent>(OnCorticalBorerRemovalStep, OnCorticalBorerRemovalCheck); // mono
+        SubSurgery<SurgeryStepRemoveCorticalBorerComponent>(OnCorticalBorerRemovalStep, OnCorticalBorerRemovalCheck); // Mono
         SubSurgery<SurgeryAddPartStepComponent>(OnAddPartStep, OnAddPartCheck);
         SubSurgery<SurgeryAffixPartStepComponent>(OnAffixPartStep, OnAffixPartCheck);
         SubSurgery<SurgeryRemovePartStepComponent>(OnRemovePartStep, OnRemovePartCheck);
@@ -429,7 +429,7 @@ public abstract partial class SharedSurgerySystem
             args.Cancelled = true;
     }
 
-    // Begin Mono changes - borer
+    // Begin Mono Changes - borer
     private void OnCorticalBorerRemovalStep(Entity<SurgeryStepRemoveCorticalBorerComponent> ent, ref SurgeryStepEvent args)
     {
         if (TryComp<CorticalBorerInfestedComponent>(args.Body, out var infested) &&
@@ -442,7 +442,7 @@ public abstract partial class SharedSurgerySystem
         if (HasComp<CorticalBorerInfestedComponent>(args.Body))
             args.Cancelled = true;
     }
-    // End Mono changes - borer
+    // End Mono Changes - borer
 
     private void OnAddPartStep(Entity<SurgeryAddPartStepComponent> ent, ref SurgeryStepEvent args)
     {
