@@ -1,7 +1,6 @@
-using Content.Server.Popups;
-using Content.Server.Xenoarchaeology.Artifact;
-using Content.Shared.EntityEffects;
 using Content.Shared.Popups;
+using Content.Shared.Xenoarchaeology.Artifact;
+using Content.Shared.EntityEffects;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
@@ -18,8 +17,8 @@ public sealed partial class ArtifactUnlock : EntityEffect
     public override void Effect(EntityEffectBaseArgs args)
     {
         var entMan = args.EntityManager;
-        var xenoArtifactSys = entMan.System<XenoArtifactSystem>();
-        var popupSys = entMan.System<PopupSystem>();
+        var xenoArtifactSys = entMan.System<SharedXenoArtifactSystem>();
+        var popupSys = entMan.System<SharedPopupSystem>();
 
         if (!entMan.TryGetComponent<XenoArtifactComponent>(args.TargetEntity, out var xenoArtifact))
             return;

@@ -7,6 +7,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Actions.Components;
 
 namespace Content.Shared.Xenoarchaeology.Artifact.Components;
 
