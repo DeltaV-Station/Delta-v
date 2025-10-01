@@ -253,7 +253,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 _cargoSystem.UpdateBankAccount(
                     (station, account),
                     component.Bounty,
-                    _cargoSystem.CreateAccountDistribution(account.PrimaryAccount, account, account.PrimaryCut));
+                    _cargoSystem.CreateAccountDistribution((station, account)));
             }
         }
 
@@ -313,7 +313,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 _cargoSystem.UpdateBankAccount(
                     (station, account),
                     component.Penalty,
-                    _cargoSystem.CreateAccountDistribution(account.PrimaryAccount, account, account.PrimaryCut));
+                    _cargoSystem.CreateAccountDistribution((station, account)));
                 return;
             }
         }
@@ -549,7 +549,7 @@ namespace Content.Server._DV.Mail.EntitySystems
             var accessReader = EnsureComp<AccessReaderComponent>(uid);
             foreach (var access in recipient.AccessTags)
             {
-                accessReader.AccessLists.Add([access]);
+                _accessSystem.AddAccess((uid, accessReader), access);
             }
         }
 

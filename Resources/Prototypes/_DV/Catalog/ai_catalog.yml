@@ -1,0 +1,77 @@
+- type: listing
+  id: AiRgbLighting
+  name: ent-ActionStationAiRgbLighting
+  description: ent-ActionStationAiRgbLighting.desc
+  productAction: ActionStationAiRgbLighting
+  cost:
+    AiMemory: 1
+  categories:
+  - AiAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AiHolopointer
+  name: ent-ActionStationAiHoloPointer
+  description: ent-ActionStationAiHoloPointer.desc
+  productAction: ActionStationAiHoloPointer
+  cost:
+    AiMemory: 1
+  categories:
+  - AiAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AiLightSynthesizer
+  name: ent-ActionStationAiLightSynthesizer
+  description: ent-ActionStationAiLightSynthesizer.desc
+  productAction: ActionStationAiLightSynthesizer
+  cost:
+    AiMemory: 1
+  categories:
+  - AiAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AiBikeHorn
+  name: ent-ActionStationAiBikeHorn
+  description: ent-ActionStationAiBikeHorn.desc
+  productAction: ActionStationAiBikeHorn
+  cost:
+    AiMemory: 1
+  categories:
+  - AiAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AiEmergencySealant
+  name: ent-ActionStationAiEmergencySealant
+  description: ent-ActionStationAiEmergencySealant.desc
+  productAction: ActionStationAiEmergencySealant
+  cost:
+    AiMemory: 2
+  categories:
+  - AiAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: AiRepairNanites
+  name: ent-ActionStationAiRepairNanites
+  description: ent-ActionStationAiRepairNanites.desc
+  productAction: ActionStationAiRepairNanites
+  cost:
+    AiMemory: 2
+  categories:
+  - AiAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

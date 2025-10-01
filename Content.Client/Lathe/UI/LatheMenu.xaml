@@ -127,18 +127,23 @@
             HorizontalExpand="True"
             Orientation="Vertical">
             <Label Text="{Loc 'lathe-menu-materials-title'}" Margin="5 5 5 5" HorizontalAlignment="Center"/>
-            <BoxContainer
-                Orientation="Vertical"
-                VerticalExpand="True"
-                HorizontalExpand="True">
-                <ui:MaterialStorageControl Name="MaterialsList" SizeFlagsStretchRatio="8"/>
-            </BoxContainer>
-            <!-- Begin DeltaV Additions: Mining points -->
-            <BoxContainer Orientation="Horizontal" Name="MiningPointsContainer" Visible="False">
-                <Label Name="MiningPointsLabel" HorizontalExpand="True"/>
-                <Button Name="MiningPointsClaimButton" Text="{Loc 'lathe-menu-mining-points-claim-button'}"/>
-            </BoxContainer>
-            <!-- End DeltaV Additions: Mining points -->
+            <PanelContainer VerticalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer
+                    Orientation="Vertical"
+                    VerticalExpand="True"
+                    HorizontalExpand="True">
+                    <ui:MaterialStorageControl Name="MaterialsList" SizeFlagsStretchRatio="8"/>
+                    <!-- Begin DeltaV Additions - Mining points -->
+                    <BoxContainer Orientation="Horizontal" Name="MiningPointsContainer" Visible="False">
+                        <Label Name="MiningPointsLabel" HorizontalExpand="True"/>
+                        <Button Name="MiningPointsClaimButton" Text="{Loc 'lathe-menu-mining-points-claim-button'}"/>
+                    </BoxContainer>
+                    <!-- End DeltaV Additions -->
+                </BoxContainer>
+            </PanelContainer>
         </BoxContainer>
         </BoxContainer>
 

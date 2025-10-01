@@ -124,3 +124,181 @@
   - type: HeldSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieFelinid
+  name: felinid plushie
+  description: A stuffed toy that resembles a felinid. Nyan-tastic!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/plushies.rsi
+    state: felinid
+  - type: EmitSoundOnUse
+    sound:
+      collection: FelinidPlushieSounds
+  - type: EmitSoundOnLand
+    sound:
+      collection: FelinidScreams
+  - type: EmitSoundOnActivate
+    sound:
+      collection: FelinidPlushieSounds
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: FelinidScreams
+  - type: MeleeWeapon
+    soundHit:
+      collection: FelinidPlushieSounds
+  - type: Food
+    useSound:
+      collection: FelinidPlushieSounds
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieOni
+  name: oni plushie
+  description: A stuffed toy that resembles an oni. Its fists are weighted...
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/plushies.rsi
+    state: oni
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieHarpy
+  name: harpy plushie
+  description: A stuffed toy that resembles a harpy. It can even stand on its feet!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/plushies.rsi
+    state: harpy
+  - type: EmitSoundOnUse
+    sound:
+      collection: HarpyPlushieSounds
+  - type: EmitSoundOnLand
+    sound:
+      collection: HarpyPlushieScreams
+  - type: EmitSoundOnActivate
+    sound:
+      collection: HarpyPlushieSounds
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: HarpyPlushieScreams
+  - type: MeleeWeapon
+    soundHit:
+      collection: ToySqueak
+  - type: Food
+    useSound:
+      collection: HarpyPlushieSounds
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieRodentia
+  name: rodentia plushie
+  description: A stuffed toy that resembles a rodentia. It's not easy to represent such a visually varied species as a toy, but this fellow is as good of a try as any.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/plushies.rsi
+    state: rodentia
+  - type: EmitSoundOnUse
+    sound:
+      collection: RodentiaPlushieSounds
+  - type: EmitSoundOnLand
+    sound:
+      collection: ToySqueak
+  - type: EmitSoundOnActivate
+    sound:
+      collection: RodentiaPlushieSounds
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: RodentiaPlushieSounds
+  - type: MeleeWeapon
+    soundHit:
+      collection: ToySqueak
+  - type: Food
+    useSound:
+      collection: RodentiaPlushieSounds
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieFeroxi
+  name: feroxi plushie
+  description: A stuffed toy that resembles a feroxi. Surprisingly dry!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/plushies.rsi
+    state: feroxi
+  - type: EmitSoundOnUse
+    sound:
+      collection: FeroxiPlushieSounds
+  - type: EmitSoundOnLand
+    sound:
+      collection: ToySqueak
+  - type: EmitSoundOnActivate
+    sound:
+      collection: FeroxiPlushieSounds
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: FeroxiPlushieSounds
+  - type: MeleeWeapon
+    soundHit:
+      collection: FeroxiPlushieSounds
+  - type: Food
+    useSound:
+      collection: ToySqueak
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieChitinid
+  name: chitinid plushie
+  description: A stuffed toy that resembles a chitinid. Fits right in your palm.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/plushies.rsi
+    state: chitinid
+  - type: EmitSoundOnUse
+    sound:
+      collection: ChitinidPlushieSounds
+  - type: EmitSoundOnLand
+    sound:
+      collection: ToySqueak
+  - type: EmitSoundOnActivate
+    sound:
+      collection: ChitinidPlushieSounds
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: ChitinidPlushieSounds
+  - type: MeleeWeapon
+    soundHit:
+      collection: ToySqueak
+  - type: Food
+    useSound:
+      collection: ToySqueak
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieKitsune
+  name: kitsune plushie
+  description: A stuffed toy that resembles a kitsune. The tails are poseable.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/plushies.rsi
+    state: kitsune
+  - type: EmitSoundOnUse
+    sound:
+      collection: KitsuneSqueal
+  - type: EmitSoundOnLand
+    sound:
+      collection: KitsuneScream
+  - type: EmitSoundOnActivate
+    sound:
+      collection: KitsuneSqueal
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: KitsuneScream
+  - type: MeleeWeapon
+    soundHit:
+      collection: ToySqueak
+  - type: Food
+    useSound:
+      collection: KitsuneSqueal

@@ -4,7 +4,7 @@
     children:
     - id: SyndicateRecruiter
     - id: SynthesisSpecialist
-    - id: RoboNeuroticist
+    - id: SyndicateArmsdealer
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -97,44 +97,43 @@
 
 - type: entity
   parent: BaseUnknownShuttleRule
-  id: RoboNeuroticist
+  id: SyndicateArmsdealer
   components:
   - type: StationEvent
     weight: 2
-    minimumPlayers: 35 #big threat, but has to have ghosts to matter
+    minimumPlayers: 25
+    maxOccurrences: 1
+    duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-syndicate-armsdealer-result-message
   - type: LoadMapRule
-    preloadedGrid: RoboNeuroticistShip
+    preloadedGrid: SyndieArmsdealerShip
   - type: AntagSpawner
     prototype: MobHuman
   - type: AntagObjectives
     objectives:
-    - RoboNeuroticistSurviveObjective
-    - RoboNeuroticistBorgObjective
-    - RoboNeuroticistKillObjective
-    - RoboNeuroticistPlutoniumCoreStealObjective
-    - RoboNeuroticistUploadAILawObjective
+    - ArmsdealerSurviveObjective
+    - ArmsdealerSaleObjective
   - type: AntagSelection
-    agentName: roboneuroticist-round-end-agent-name
+    agentName: armsdealer-round-end-agent-name
     definitions:
-    - spawnerPrototype: SpawnPointGhostRoboNeuroticist
-      min: 1
-      max: 1
+    - spawnerPrototype: SpawnPointGhostArmsdealer
+      min: 2
+      max: 2
       pickPlayer: false
-      startingGear: RoboNeuroticistGear
+      startingGear: SyndicateArmsdealerGear
       roleLoadout:
       - RoleSurvivalStandard
       components:
       - type: RandomMetadata
         nameSegments:
-        - NamesHologram
-        - NamesMilitaryLast
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
         nameFormat: name-format-standard
-      - type: EmitSoundOnSpawn # evil sound
-        sound: /Audio/Ambience/Antag/emagged_borg.ogg
       - type: RandomHumanoidAppearance
         randomizeName: false
       - type: NpcFactionMember
         factions:
         - Syndicate
       mindRoles:
-      - MindRoleRoboNeuroticist
+      - MindRoleArmsdealer

@@ -1,0 +1,21 @@
+# Basic
+- type: entity
+  id: NFLockerBaseSecure
+  parent: LockerBaseSecure
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Storage/closet.rsi
+
+# Pilot
+- type: entity
+  id: LockerPilot
+  parent: NFLockerBaseSecure
+  name: pilot's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: pilot
+    stateDoorOpen: pilot_open
+    stateDoorClosed: pilot_door
+  - type: AccessReader

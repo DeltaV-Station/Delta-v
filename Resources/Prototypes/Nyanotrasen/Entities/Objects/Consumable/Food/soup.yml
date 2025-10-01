@@ -29,6 +29,7 @@
   - type: Tag
     tags:
       - ClothMade
+      - Soup
 #Tastes like cotton and broth
 
 - type: entity
@@ -61,6 +62,7 @@
   - type: Tag
     tags:
       - ClothMade # Mothic Food
+      - Soup
 
 - type: entity
   name: seed soup
@@ -90,6 +92,7 @@
   - type: Tag
     tags:
       - ClothMade # Mothic Food
+      - Soup
 
 - type: entity
   name: moth eyeball soup
@@ -113,6 +116,10 @@
             Quantity: 5
           - ReagentId: Vitamin
             Quantity: 3
+  - type: Tag
+    tags:
+      - Soup
+      - Meat
 # Tastes like tomato, squirming.
 
 - type: entity
@@ -206,6 +213,7 @@
   - type: Tag
     tags:
       - ClothMade # Mothic Food
+      - Soup
 #Tastes like oats, sweet potato, carrot and parsnip
 
 - type: entity
@@ -353,3 +361,4 @@
   - type: Tag
     tags:
       - ClothMade # Mothic Food
+      - ChiliBowl

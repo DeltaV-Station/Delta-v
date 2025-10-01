@@ -1,3 +1,4 @@
+using Content.Server._RMC14.Emote; //RMC emote system
 using Content.Server.Actions;
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.Components;
@@ -19,6 +20,7 @@ public sealed class VocalSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly RMCEmoteSystem _rmcEmote = default!; //RMC emote system
 
     public override void Initialize()
     {
@@ -29,6 +31,7 @@ public sealed class VocalSystem : EntitySystem
         SubscribeLocalEvent<VocalComponent, SexChangedEvent>(OnSexChanged);
         SubscribeLocalEvent<VocalComponent, EmoteEvent>(OnEmote);
         SubscribeLocalEvent<VocalComponent, ScreamActionEvent>(OnScreamAction);
+        SubscribeLocalEvent<VocalComponent, SoundsChangedEvent>(OnSoundsChanged); // DeltaV - support for changing vocal sounds on the go. Why it wasn't there in the first place is beyond me.
     }
 
     private void OnMapInit(EntityUid uid, VocalComponent component, MapInitEvent args)
@@ -49,8 +52,15 @@ public sealed class VocalSystem : EntitySystem
 
     private void OnSexChanged(EntityUid uid, VocalComponent component, SexChangedEvent args)
     {
+        LoadSounds(uid, component, args.NewSex);
+    }
+
+// Begin DeltaV additions
+    private void OnSoundsChanged(EntityUid uid, VocalComponent component, ref SoundsChangedEvent args)
+    {
         LoadSounds(uid, component);
     }
+// End DeltaV additions
 
     private void OnEmote(EntityUid uid, VocalComponent component, ref EmoteEvent args)
     {

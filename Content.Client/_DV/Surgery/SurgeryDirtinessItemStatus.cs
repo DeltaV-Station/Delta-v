@@ -59,7 +59,7 @@ public sealed class SurgeryDirtinessItemStatus : SplitBar
                         : FixedPoint2.Zero
                     : null;
 
-            if (_gloveDirtiness == glovesDirtiness)
+            if (glovesDirtiness is not null && _gloveDirtiness == glovesDirtiness)
                 return;
             _gloveDirtiness = glovesDirtiness;
 

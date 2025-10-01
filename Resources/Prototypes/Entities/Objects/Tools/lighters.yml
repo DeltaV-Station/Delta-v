@@ -47,11 +47,11 @@
           basic_icon_base-11: ""
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
+      enum.ToggleableVisuals.Enabled:
         flame:
           True: { visible: true }
           False: { visible: false }
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: lighter_flame
     inhandVisuals:
       left:
@@ -88,6 +88,7 @@
     radius: 1.1 #smallest possible
     color: orange
   - type: ItemTogglePointLight
+  - type: PhysicalComposition
   - type: Cautery # Shitmed
     speed: 0.45
   - type: SurgeryTool # Shitmed
@@ -96,6 +97,9 @@
     endSound:
       collection: lighterOffSounds
   - type: NFLighter # Frontier
+  - type: Tag # DeltaV
+    tags:
+      - WeldingTool
 
 - type: entity
   name: cheap lighter
@@ -171,7 +175,7 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
+      enum.ToggleableVisuals.Enabled:
         flame:
           True: { visible: true }
           False: { visible: false }
@@ -195,7 +199,7 @@
     fuelConsumption: 0.01
     fuelLitCost: 0.1
     tankSafe: true
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: lighter_flame
     inhandVisuals:
       left:
@@ -218,6 +222,9 @@
   - type: UseDelay
   - type: IgnitionSource
     ignited: false
+  - type: Tag # DeltaV
+    tags:
+    - WeldingTool
 
 - type: entity
   name: flippo engraved lighter

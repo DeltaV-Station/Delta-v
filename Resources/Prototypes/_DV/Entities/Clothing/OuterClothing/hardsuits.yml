@@ -23,7 +23,8 @@
         Radiation: 0.75
         Caustic: 0.75
         Heat: 0.75
-    staminaDamageCoefficient: 0.3 # It's a hardsuit, duh
+  - type: StaminaResistance
+    damageCoefficient: 0.3 # It's a hardsuit, duh
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -31,6 +32,11 @@
     clothingPrototype: ClothingHeadHelmetHardsuitCombatStandard
   - type: AllowSuitStorage
   - type: Insulated
+  - type: DamageOnShootProtection
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
 
 - type: entity
   parent: ClothingOuterHardsuitCombatStandard
@@ -70,7 +76,6 @@
         Radiation: 0.80
         Caustic: 0.80
         Heat: 0.80
-    staminaDamageCoefficient: 0.3 # still a hardsuit
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -115,7 +120,8 @@
         Radiation: 0.70
         Caustic: 0.70
         Heat: 0.40
-    staminaDamageCoefficient: 0.2
+  - type: StaminaResistance
+    damageCoefficient: 0.2
   - type: ClothingSpeedModifier
     walkModifier: 0.60
     sprintModifier: 0.60
@@ -160,7 +166,8 @@
         Radiation: 0.75
         Caustic: 0.75
         Heat: 0.75
-    staminaDamageCoefficient: 0.2
+  - type: StaminaResistance
+    damageCoefficient: 0.2
   - type: ClothingSpeedModifier
     walkModifier: 0.80
     sprintModifier: 0.80
@@ -209,7 +216,8 @@
         Radiation: 0.0
         Caustic: 0.4
         Heat: 0.70
-    staminaDamageCoefficient: 0.3
+  - type: StaminaResistance
+    damageCoefficient: 0.3
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -318,7 +326,8 @@
         Heat: 0.6
         Radiation: 0
         Caustic: 0.35
-    staminaDamageCoefficient: 0.2
+  - type: StaminaResistance
+    damageCoefficient: 0.2
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0

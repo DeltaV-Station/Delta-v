@@ -11,7 +11,6 @@
     baseDecayRate: 0.015 # DeltaV
   - type: Thirst
     baseDecayRate: 0.15 # DeltaV
-  - type: Carriable # Carrying system from nyanotrasen.
   - type: Icon
     sprite: Mobs/Species/Diona/parts.rsi
     state: full
@@ -93,6 +92,8 @@
       Male: UnisexDiona
       Female: UnisexDiona
       Unsexed: UnisexDiona
+  - type: TypingIndicator
+    proto: diona
   - type: BodyEmotes
     soundsId: DionaBodyEmotes
   - type: IgnoreKudzu
@@ -118,6 +119,7 @@
     baseWalkSpeed: 1.0
     baseSprintSpeed: 3.0
   - type: FTLKnockdownImmune # Frontier
+  - type: Rootable
 
 - type: entity
   parent: BaseSpeciesDummy

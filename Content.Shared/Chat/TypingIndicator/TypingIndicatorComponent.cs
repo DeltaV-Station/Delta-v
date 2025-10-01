@@ -16,4 +16,10 @@ public sealed partial class TypingIndicatorComponent : Component
     /// </summary>
     [DataField("proto"), AutoNetworkedField] // CD - AutoNetworkedField fixes a bug in synth trait
     public ProtoId<TypingIndicatorPrototype> TypingIndicatorPrototype = "default";
+
+    /// <summary>
+    ///  DeltaV - Allow the indicator to be temporarily overriden
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public ProtoId<TypingIndicatorPrototype>? TypingIndicatorOverridePrototype;
 }

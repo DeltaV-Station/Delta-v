@@ -77,13 +77,16 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
         if (!Resolve(entity, ref console))
             return;
 
-        var station = _station.GetOwningStation(entity);
-        if (!HasComp<StationRecordsComponent>(station) ||
-            !HasComp<CharacterRecordsComponent>(station))
+        // Begin DeltaV - lpo record tablet requires finding right station without GetOwningStation
+        var station = console.ConsoleType == RecordConsoleType.Generic
+            ? _station.GetStationInMap(Transform(entity).MapID)
+            : _station.GetOwningStation(entity);
+        if (!HasComp<StationRecordsComponent>(station) || !HasComp<CharacterRecordsComponent>(station))
         {
             SendState(entity, new CharacterRecordConsoleState { ConsoleType = console.ConsoleType });
             return;
         }
+        // End DeltaV - lpo record tablet requires finding right station without GetOwningStation
 
         var characterRecords = _characterRecords.QueryRecords(station.Value);
         // Get the name and station records key display from the list of records
@@ -164,10 +167,12 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
         {
             StationRecordFilterType.Name =>
                 !nameJob.Contains(filterLowerCaseValue, StringComparison.CurrentCultureIgnoreCase),
-            StationRecordFilterType.Prints => record.Fingerprint != null
-                && IsFilterWithSomeCodeValue(record.Fingerprint, filterLowerCaseValue),
-            StationRecordFilterType.DNA => record.DNA != null
-                                                && IsFilterWithSomeCodeValue(record.DNA, filterLowerCaseValue),
+            // DeltaV - start of silicon bio filters fix
+            StationRecordFilterType.Prints => record.Fingerprint == null
+                || IsFilterWithSomeCodeValue(record.Fingerprint, filterLowerCaseValue),
+            StationRecordFilterType.DNA => record.DNA == null
+                || IsFilterWithSomeCodeValue(record.DNA, filterLowerCaseValue),
+            // DeltaV - start of silicon bio filters fix
             _ => throw new ArgumentOutOfRangeException(nameof(filter), "Invalid Character Record filter type"),
         };
     }

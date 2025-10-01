@@ -1,0 +1,18 @@
+- type: entity
+  parent: PaperAcquisitionSlip
+  id: PaperAcquisitionSlipJustice
+  suffix: Justice
+  components:
+  - type: Sprite
+    layers:
+    - state: acquisition_form
+    - state: acquisition_form_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: acquisition_form_header
+      color: "#813659"
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_DV/Interface/Paper/AcquisitionSlips/justice.svg.192dpi.png"

@@ -117,6 +117,7 @@
     account: Justice
     announcementChannel: Justice
     removeLimitAccess: [ "ChiefJustice" ]
+    mode: PrintSlip
   - type: ActiveRadio
     channels:
     - Justice
@@ -126,3 +127,85 @@
     color: "#641327"
   - type: AccessReader
     access: [["Justice"]]
+
+- type: entity
+  parent: ComputerId
+  id: ComputerIdAdmeme
+  name: Universal ID card computer
+  suffix: Admeme
+  components:
+  - type: IdCardConsole
+    accessLevels:
+    - Admeme1
+    - Admeme2
+    - Admeme3
+    - Armory
+    - Atmospherics
+    - Bar
+    - BasicSilicon
+    - Borg
+    - Boxer
+    - Captain
+    - Cargo
+    - CentralCommand
+    - Chapel
+    - Chemistry
+    - ChiefEngineer
+    - ChiefJustice
+    - ChiefMedicalOfficer
+    - Clerk
+    - Clown
+    - Command
+    - Corpsman
+    - Cryogenics
+    - Detective
+    - DV-SpareSafe
+    - EmergencyShuttleRepealAll
+    - Engineering
+    - External
+    - HeadOfPersonnel
+    - HeadOfSecurity
+    - Hydroponics
+    - Janitor
+    - Justice
+    - Kitchen
+    - Lawyer
+    - Library
+    - Mail
+    - Maintenance
+    - Mantis
+    - Medical
+    - Mime
+    - Musician
+    - NuclearOperative
+    - Paramedic
+    - Prosecutor
+    - Psychologist
+    - Quartermaster
+    - Reporter
+    - Research
+    - ResearchDirector
+    - Robotics
+    - Salvage
+    - Security
+    - Service
+    - StationAi
+    - Surgery
+    - SyndicateAgent
+    - Theatre
+    - Wizard
+    - Zookeeper
+  - type: MappingCategories
+    categories:
+    - Debug
+
+- type: entity
+  parent: ComputerCrewMonitoring
+  id: ComputerCrewMonitoringSyndicate
+  suffix: Syndicate, Long Range
+  components:
+  # TODO: unique sprite please someone
+  - type: LongRangeCrewMonitor
+  - type: MappingCategories
+    categories:
+    - Syndicate

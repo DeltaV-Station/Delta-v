@@ -131,7 +131,7 @@
   cost: 12500 # DeltaV: increased from 10000
   recipeUnlocks:
   - WeaponLaserCannon
-  - WeaponXrayCannon
+  - WeaponXrayCannon # DeltaV
   - WeaponBeamCannon # DeltaV - Adds Beam cannon
 
 # DeltaV: merged with concentrated laser weaponry
@@ -146,6 +146,20 @@
 #  cost: 10000
 #  recipeUnlocks:
 #  - WeaponXrayCannon
+
+- type: technology
+  id: KineticModifications
+  name: research-technology-kinetic-modifications
+  icon:
+    sprite: Objects/Tools/upgrade.rsi
+    state: display
+  discipline: Arsenal
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate
 
 - type: technology
   id: BasicShuttleArmament
@@ -186,17 +200,18 @@
   - GamblagatorCapacitor # DeltaV - added for superweapon
   - WeaponEnergyGunAdvanced # DeltaV - Advanced Energy Gun
 
-#- type: technology # DeltaV - Removed for only causing issues
-#  id: ExperimentalBatteryAmmo
-#  name: research-technology-experimental-battery-ammo
-#  icon:
-#    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
-#    state: icon
-#  discipline: Arsenal
-#  tier: 3
-#  cost: 15000
-#  recipeUnlocks:
-#  - WeaponLaserSvalinn
+- type: technology
+  id: ThermalWeaponry
+  name: research-technology-thermal-weaponry
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/temp_gun.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - WeaponTemperatureGun
+  - WeaponColdCannon # DeltaV
 
 - type: technology
   id: AdvancedShuttleWeapon

@@ -136,3 +136,25 @@
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRndMysta]
   id: ClothingOuterCoatRndMystaOpened
   name: mystagogue lab coat
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: DetPlatedCoat
+  name: detective's long coat
+  description: Custom fitted coat worn on top of a plate carrier. Smells like rain and gunpowder.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/detectivearmouredcoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/detectivearmouredcoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.75
+  - type: AllowSuitStorage
+  - type: TemperatureProtection
+    coolingCoefficient: 0.1
+    heatingCoefficient: 1.1

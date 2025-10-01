@@ -52,7 +52,6 @@ public sealed partial class DeepFryerSystem
             RemComp<BarotraumaComponent>(mob);
             RemComp<BuckleComponent>(mob);
             RemComp<GhostTakeoverAvailableComponent>(mob);
-            RemComp<InternalsComponent>(mob);
             RemComp<PerishableComponent>(mob);
             RemComp<RespiratorComponent>(mob);
             RemComp<RottingComponent>(mob);

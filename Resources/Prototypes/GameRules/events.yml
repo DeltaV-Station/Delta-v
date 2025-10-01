@@ -33,8 +33,9 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: BasicAntagEventsTableDeltaV
-    - id: ClosetSkeleton
+    #- id: ClosetSkeleton # DeltaV - replaced with MenaceSkeleton
     - id: DragonSpawn
+    - id: ColossusSpawn # DeltaV
     #- id: KingRatMigration # DeltaV - disabled
     - id: NinjaSpawn
     - id: ParadoxCloneSpawn
@@ -43,7 +44,7 @@
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
-    #- id: WizardSpawn # DeltaV - disabled until its touched up
+    - id: WizardSpawn
 
 - type: entity
   id: BaseStationEvent
@@ -167,7 +168,7 @@
   id: ClosetSkeleton
   components:
   - type: StationEvent
-    weight: 8 # DeltaV - was 10
+    weight: 5
     duration: 1
     minimumPlayers: 10
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -352,6 +353,8 @@
         - NamesWizardFirst
         - NamesWizardLast
         nameFormat: name-format-wizard
+      - type: RandomHumanoidAppearance # DeltaV - randomizes character
+        randomizeName: false
       mindRoles:
       - MindRoleWizard
 
@@ -577,16 +580,16 @@
   id: LoneOpsSpawn
   components:
   - type: StationEvent
-    earliestStart: 45
-    weight: 3.5 # DeltaV - was 5
+    earliestStart: 45 # DeltaV - was 35
+    weight: 3.5 # DeltaV - was 5.5
     minimumPlayers: 30 # DeltaV - was 20
-    reoccurrenceDelay: 30
-    duration: 1
+    reoccurrenceDelay: 30 # DeltaV
+    duration: null # LoneOpsSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end scrreen (not always "Neutral outcome!") and... ending the game if the station is nuked.
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-lone-ops-spawn-result-message
   - type: RuleGrids
   - type: LoadMapRule
-    gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
+    gridPath: /Maps/_DV/Shuttles/hammer.yml # DeltaV - Was /Shuttles/ShuttleEvent/striker.yml
   - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: AntagSelection

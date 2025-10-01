@@ -145,6 +145,7 @@
     - InPain # DeltaV - Pain system
     - SuppressPain # DeltaV - Pain system
     - Anesthesia # DeltaV - Anesthesia
+    - PainNumbness # DeltaV - Pain numbness status effect
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -229,6 +230,9 @@
   - type: LayingDown # WD EDIT
   - type: Targeting # Shitmed Change
   - type: SurgeryTarget # Shitmed Change
+  - type: CosmicCenserTarget # DeltaV - Cosmic Cult
+  - type: Carriable # DeltaV
+  - type: EmoteCooldown # DeltaV - implement RMC emote cooldown
 
 - type: entity
   save: false

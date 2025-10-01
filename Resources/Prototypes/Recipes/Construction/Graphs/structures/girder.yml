@@ -145,21 +145,23 @@
               amount: 2
               doAfter: 2
 
+        # Begin DeltaV Additions
         - to: shuttleInteriorWall
           completed:
-            - !type:SnapToGrid
-              southRotation: true
+          - !type:SnapToGrid
+            southRotation: true
           conditions:
-            - !type:EntityAnchored { }
+          - !type:EntityAnchored
           steps:
-            - material: MetalRod
-              amount: 2
-              doAfter: 1
-            - tool: Screwing
-              doAfter: 1
-            - material: Steel
-              amount: 2
-              doAfter: 1
+          - material: MetalRod
+            amount: 2
+            doAfter: 1
+          - tool: Screwing
+            doAfter: 1
+          - material: Steel
+            amount: 2
+            doAfter: 1
+        # End DeltaV Additions
 
     - node: wall
       entity: WallSolid
@@ -267,22 +269,24 @@
             - tool: Prying
               doAfter: 5
 
+    # Begin DeltaV Additions
     - node: shuttleInteriorWall
       entity: WallShuttleInterior
       edges:
-        - to: girder
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetSteel1
-              amount: 2
-            - !type:SpawnPrototype
-              prototype: PartRodMetal1
-              amount: 2
-          steps:
-            - tool: Welding
-              doAfter: 10
-            - tool: Screwing
-              doAfter: 1
+      - to: girder
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        - !type:SpawnPrototype
+          prototype: PartRodMetal1
+          amount: 2
+        steps:
+        - tool: Welding
+          doAfter: 10
+        - tool: Screwing
+          doAfter: 1
+    # End DeltaV Additions
 
     - node: reinforcedGirder
       entity: ReinforcedGirder
@@ -315,9 +319,6 @@
               doAfter: 1
 
         - to: diagonalshuttleWall
-          completed:
-            - !type:SnapToGrid
-              southRotation: false
           conditions:
             - !type:EntityAnchored { }
           steps:

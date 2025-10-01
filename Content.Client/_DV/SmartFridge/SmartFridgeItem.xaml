@@ -13,4 +13,10 @@
             SizeFlagsStretchRatio="3"
             HorizontalExpand="True"
             ClipText="True"/>
+    <TextureButton Name="RemoveButton"
+                   StyleClasses="CrossButtonRed"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Scale="0.75 0.75"
+                   Visible="True" />
 </BoxContainer>

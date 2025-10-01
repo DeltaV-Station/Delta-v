@@ -24,10 +24,16 @@
       currentPrice: 30
 
 - type: entity
-  id: BaseStationCaptainState
+  id: BaseStationAutomaticSpareId
   abstract: true
   components:
-  - type: CaptainState
+  - type: AutomaticSpareId
+
+- type: entity
+  id: BaseStationExfiltration
+  abstract: true
+  components:
+  - type: StationExfiltration
 
 - type: entity
   abstract: true

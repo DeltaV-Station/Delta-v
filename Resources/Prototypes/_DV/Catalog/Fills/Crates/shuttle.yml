@@ -1,0 +1,9 @@
+- type: entity
+  parent: CratePlastic
+  id: CrateTrafficKey
+  name: traffic key crate
+  description: Contains a box of traffic keys
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxEncryptionKeyTraffic

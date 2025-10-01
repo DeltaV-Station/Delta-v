@@ -79,7 +79,7 @@
   parent: BaseSubdermalImplant
   id: TrackingImplant
   name: tracking implant
-  description: This implant has a tracking device attached to the suit sensor network, as well as a condition monitor for the Security radio channel.
+  description: This implant has a tracking device attached to the suit sensor network.
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -97,13 +97,6 @@
     - type: StationLimitedNetwork
     - type: WirelessNetworkConnection
       range: 500
-    # Begin DeltaV removal - Removal of Rattle from the tracking implant.
-    #- type: TriggerOnMobstateChange
-    #  mobState:
-    #  - Critical
-    #- type: Rattle
-    #  radioChannel: "Security"
-    # End DeltaV removal
 
 #Traitor implants
 
@@ -190,6 +183,9 @@
       range: 2.75
       energyConsumption: 50000
       disableDuration: 10
+      damage: # DeltaV - EMP damage
+        types:
+          Ion: 80 # Would take 2 charges if you want to actually kill with it
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -215,6 +211,23 @@
       whitelist:
         components:
         - HumanoidAppearance # syndies cant turn hamlet into a human
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseSubdermalImplant
+  id: ChameleonControllerImplant
+  name: chameleon controller implant
+  description: This implant allows you to instantly change the appearance of all worn chameleon clothing.
+  components:
+  - type: ChameleonControllerImplant
+  - type: SubdermalImplant
+    implantAction: ActionChameleonController
+  - type: UseDelay
+    delay: 1
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonControllerKey.Key:
+        type: ChameleonControllerBoundUserInterface
 
 #Nuclear Operative/Special Exclusive implants
 
@@ -342,18 +355,11 @@
   parent: BaseSubdermalImplant
   id: MindShieldImplant
   name: mindshield implant
-  description: This implant will ensure loyalty to Nanotrasen and prevent mind control devices.
+  description: This implant will shield the brain from external influences and prevent mind control devices. # DeltaV - mindshield does not enforce loyalty
   categories: [ HideSpawnMenu ]
   components:
    - type: SubdermalImplant
-     addedComponents: # DeltaV - replaces mindshield tag logic
-     - type: MindShield
-   # Begin DeltaV Removals - bad implementation replaced with comp reg
-   #- type: MindShieldImplant
-   #- type: Tag
-   #  tags:
-   #    - MindShield
-   # End DeltaV Removals
+   - type: MindShieldImplant
 
 - type: entity
   parent: DeathRattleImplant

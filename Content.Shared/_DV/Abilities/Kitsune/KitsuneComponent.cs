@@ -30,6 +30,12 @@ public sealed partial class KitsuneComponent : Component
     [DataField, AutoNetworkedField] public List<EntityUid> ActiveFoxFires = [];
 
     [DataField, AutoNetworkedField] public Color? Color;
+
+    /// <summary>
+    /// Represents a light coming from a light source.
+    /// As such it has its value maximised while not touching hue or saturation.
+    /// </summary>
+    [DataField, AutoNetworkedField] public Color? ColorLight;
 }
 
 [Serializable, NetSerializable]

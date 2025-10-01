@@ -39,7 +39,7 @@ public sealed class ThiefRuleSystem : GameRuleSystem<ThiefRuleComponent>
     {
         var isHuman = HasComp<HumanoidAppearanceComponent>(ent);
         var briefing = isHuman
-            ? Loc.GetString("thief-role-greeting-human")
+            ? Loc.GetString("thief-role-greeting-human-deltav") // DeltaV - no pacifism
             : Loc.GetString("thief-role-greeting-animal");
 
         if (isHuman)

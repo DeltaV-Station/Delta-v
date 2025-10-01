@@ -2,6 +2,7 @@
   parent: BaseMagazineBoxRifle
   id: MagazineBoxRifleBigRubber
   name: ammunition box (.20 rifle rubber)
+  description: A large cardboard box of .20 rifle rounds. Intended to hold less-lethal rubber ammunition.
   components:
   - type: BallisticAmmoProvider
     capacity: 200
@@ -21,6 +22,7 @@
   parent: BaseMagazineBoxRifle
   id: MagazineBoxRifleRubber
   name: ammunition box (.20 rifle rubber)
+  description: A cardboard box of .20 rifle rounds. Intended to hold less-lethal rubber ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleRubber

@@ -30,7 +30,7 @@
   name: skeleton torso
 
 - type: entity
-  parent: [ PartSkeletonBase, BaseHead ]
+  parent: [ PartSkeletonBase, BaseHead, BaseMob ]
   id: HeadSkeleton
   name: skull
   description: Alas poor Yorick...
@@ -40,10 +40,12 @@
     scale: 0.5, 0.5 # DeltaV - Scale down sprite because it looks too big
   - type: Icon
     state: "skull_icon"
+  - type: BlockMovement
   - type: Input
     context: "human"
   - type: Speech
     speechVerb: Skeleton
+    speechSounds: Alto
   - type: SkeletonAccent
   - type: Actions
   - type: Vocal

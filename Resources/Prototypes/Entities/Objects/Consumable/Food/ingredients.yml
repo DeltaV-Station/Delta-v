@@ -475,6 +475,7 @@
   - type: Tag
     tags:
     - Slice
+    - ClothMade
   - type: Construction
     graph: DoughRopeCotton
     node: start
@@ -512,6 +513,10 @@
           Quantity: 1.5
         - ReagentId: Fiber
           Quantity: 3.5
+  - type: Tag
+    tags:
+     - ClothMade
+     - Ingredient
 
 - type: entity
   name: raw pastry base
@@ -632,6 +637,8 @@
   - type: SliceableFood
     count: 3
     slice: FoodButterSlice
+  - type: Extractable # DeltaV - Makes butter extractable
+    grindableSolutionName: food
 
 - type: entity
   name: butter slice
@@ -651,6 +658,8 @@
   - type: Tag
     tags:
     - Slice
+  - type: Extractable # DeltaV - Makes butter extractable
+    grindableSolutionName: food
 
 - type: entity
   name: stick of cannabis butter
@@ -713,6 +722,12 @@
     entries:
       Taco: CheeseTaco
       Burger: CheeseBurger
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: cheesewedge-inhand-left
+      right:
+      - state: cheesewedge-inhand-right
 
 - type: entity
   name: chèvre log

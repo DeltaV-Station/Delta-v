@@ -78,19 +78,26 @@ public sealed class ItemCougherSystem : EntitySystem
         var coughing = EnsureComp<CoughingUpItemComponent>(ent);
         coughing.NextCough = _timing.CurTime + _audio.GetAudioLength(path);
         args.Handled = true;
+
+        // disable it until another system calls EnableAction
+        SetActionEnabled((ent, ent.Comp), false);
     }
 
     /// <summary>
-    /// Adds a charge to the coughing action.
-    /// Other systems have to call this.
+    /// Enables the coughing action.
+    /// Other systems have to call this, this is not used internally.
     /// </summary>
     public void EnableAction(Entity<ItemCougherComponent?> ent)
+    {
+        SetActionEnabled(ent, true);
+    }
+
+    public void SetActionEnabled(Entity<ItemCougherComponent?> ent, bool enabled)
     {
         if (!_query.Resolve(ent, ref ent.Comp) || ent.Comp.ActionEntity is not {} action)
             return;
 
-        _actions.SetCharges(action, 1);
-        _actions.SetEnabled(action, true);
+        _actions.SetEnabled(action, enabled);
     }
 }
 

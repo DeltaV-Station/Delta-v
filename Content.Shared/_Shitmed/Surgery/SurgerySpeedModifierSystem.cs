@@ -9,13 +9,19 @@ public sealed partial class SurgerySpeedModifierSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SurgerySpeedModifierComponent, InventoryRelayedEvent<SurgerySpeedModifyEvent>>(OnSpeedModify);
+        SubscribeLocalEvent<SurgerySpeedModifierComponent, SurgerySpeedModifyEvent>(OnSpeedModify);
+        SubscribeLocalEvent<SurgerySpeedModifierComponent, InventoryRelayedEvent<SurgerySpeedModifyEvent>>(OnSpeedModifyRelay);
         SubscribeLocalEvent<SurgerySpeedModifierComponent, ArmorExamineEvent>(OnExamineEquipment);
     }
 
-    private void OnSpeedModify(Entity<SurgerySpeedModifierComponent> ent, ref InventoryRelayedEvent<SurgerySpeedModifyEvent> args)
+    private void OnSpeedModify(Entity<SurgerySpeedModifierComponent> ent, ref SurgerySpeedModifyEvent args)
     {
-        args.Args.Multiplier *= ent.Comp.SpeedModifier;
+        args.Multiplier *= ent.Comp.SpeedModifier;
+    }
+
+    private void OnSpeedModifyRelay(Entity<SurgerySpeedModifierComponent> ent, ref InventoryRelayedEvent<SurgerySpeedModifyEvent> args)
+    {
+        OnSpeedModify(ent, ref args.Args);
     }
 
     private void OnExamineEquipment(Entity<SurgerySpeedModifierComponent> ent, ref ArmorExamineEvent args)

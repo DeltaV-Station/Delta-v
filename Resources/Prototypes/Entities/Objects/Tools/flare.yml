@@ -10,14 +10,15 @@
     - Trash
   - type: SpaceGarbage
   - type: ExpendableLight
-    spentName: expendable-light-spent-flare-name
-    spentDesc: expendable-light-spent-flare-desc
     glowDuration: 225
     fadeOutDuration: 15
     iconStateOn: flare_unlit
     iconStateSpent: flare_spent
     turnOnBehaviourID: turn_on
     fadeOutBehaviourID: fade_out
+    litRadius: 10.0 # DeltaV
+    litEnergy: 9.0 # DeltaV
+    fadeInDuration: 45.0 # DeltaV
     litSound:
       path: /Audio/Items/Flare/flare_on.ogg
     loopedSound:

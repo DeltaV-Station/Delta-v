@@ -1,4 +1,16 @@
+## Static
+
+- type: latheRecipePack
+  id: CargoStaticDeltaV
+  recipes:
+  - RadioHandheld
+
 ## Dynamic
+
+- type: latheRecipePack
+  id: LogisticsBoards
+  recipes:
+  - SalvageExpeditionsComputerCircuitboard
 
 - type: latheRecipePack
   id: MiningDeltaV
@@ -12,3 +24,13 @@
   - WeaponCrusher
   - WeaponCrusherDagger
   - WeaponCrusherGlaive
+  - WeaponProtoKineticAccelerator
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate
+
+- type: latheRecipePack
+  id: SalvageHardsuits
+  recipes:
+  - ClothingOuterHardsuitSpatio
+  - ClothingOuterHardsuitSalvage

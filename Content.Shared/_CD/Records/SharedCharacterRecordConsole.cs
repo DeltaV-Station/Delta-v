@@ -16,6 +16,7 @@ public enum RecordConsoleType : byte
     Security,
     Medical,
     Employment,
+    Generic, // DeltaV - Syndicate Record Tablet
     /// <summary>
     /// Admin console has the functionality of all other types and has some additional admin related functionality
     /// </summary>

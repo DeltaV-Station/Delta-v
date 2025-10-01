@@ -48,7 +48,18 @@
   - type: StaticPrice
     price: 800
   - type: ResearchClient
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedMaterialStorage
+      input: AutomationSlotMaterials
+      output: null
   - type: TechnologyDatabase
+    supportedDisciplines: # DeltaV - don't add it to every map
+    - Industrial
+    - Biochemical
+    - Arsenal
+    - Experimental
+    - CivilianServices
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -113,6 +124,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -191,6 +203,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -222,7 +235,6 @@
     - SecurityExplosives
     - SecurityEquipment
     - SecurityWeapons
-    - SyringeGuns # DeltaV
 
 - type: entity
   abstract: true # DeltaV - departmental lathes
@@ -275,6 +287,7 @@
     - CameraBoards
     - MechBoards
     - ShuttleBoards
+    - EngineeringBoardsGoob #Goob Factorio port
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards
@@ -284,6 +297,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
   - type: RequireProjectileTarget
 
 - type: entity
@@ -332,16 +346,23 @@
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
+    # Being DeltaV Additions
+    - EVASuit
     emagDynamicPacks:
     - SecurityCybernetics # having sechud eyes is good for evil people
     - SecurityHardsuits
-    - BorgModulesSecurityDeltaV # DeltaV - secfab borg modules
+    - BorgModulesSecurityDeltaV
+    - SalvageHardsuits
+    - ParamedicHardsuit
+    - EngineeringHardsuits
+    # End DeltaV Additions
   - type: MaterialStorage
     whitelist:
       tags:
       - Sheet
       - RawMaterial
       - Ingot
+  - type: OreSiloClient
   - type: GuideHelp
     guides:
     - Robotics
@@ -416,8 +437,12 @@
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
-    - SecurityRubberAmmoStatic # DeltaV
-    - ReportingStatic # DeltaV
+    # Being DeltaV Additions
+    - ReportingStatic
+    - SecurityRubberAmmoStatic
+    - PrisonerSoftsuits
+    - EVASuit
+    # End DeltaV Additions
     dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons
@@ -426,6 +451,7 @@
     - SecurityExplosives
     - SecurityAmmo
     - SecurityWeapons
+    - SpecOpsGoogles # DeltaV
     #- SecurityDisablers # DeltaV - made roundstart
   - type: MaterialStorage
     whitelist:
@@ -433,6 +459,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Security]
 
@@ -470,10 +497,11 @@
           - Sheet
           - RawMaterial
           - Ingot
+    - type: OreSiloClient
 
 - type: entity
   id: MedicalTechFab
-  parent: BaseTechFabDepartamental # DeltaV - make sure it inherits the emag recipes
+  parent: BaseTechFabDepartmental # DeltaV - make sure it inherits the emag recipes
   name: medical techfab
   description: Prints equipment for use by the medbay.
   components:
@@ -503,17 +531,24 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
-    - ReportingStatic # DeltaV
-    - PowerCellsStatic # DeltaV
+    # Being DeltaV Additions
+    - ReportingStatic
+    - EVASuit
+    - PowerCellsStatic
+    # End DeltaV Additions
     dynamicPacks:
     - Chemistry
     - CyberneticsMedical # Shitmed change
     - Surgery # Shitmed change
-    - MedicalDeltaV # DeltaV
+    # Being DeltaV Additions
+    - MedicalDeltaV
+    - ParamedicHardsuit
+    # End DeltaV Additions
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
+  - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Medical]
 
@@ -563,6 +598,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
 
 - type: entity
   id: Biogenerator
@@ -692,6 +728,7 @@
       tags:
       - Raw
       - Wooden
+      - Boll
   - type: Lathe
     idleState: base_machine
     runningState: base_machine_processing
@@ -733,3 +770,4 @@
         - Wooden
         - RawMaterial
         - Plastic
+  - type: OreSiloClient

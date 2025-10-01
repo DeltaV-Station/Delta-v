@@ -14,7 +14,7 @@
 Small fixes/refactors are exempt. -->
 
 ## Requirements
-<!-- Confirm the following by placing an X in the brackets [X]: -->
+<!-- Confirm the following by placing an X in the brackets: [X] -->
 - [ ] I have tested all added content and changes.
 - [ ] I have added media to this PR or it does not require an ingame showcase.
 <!-- You should understand that not following the above may get your PR closed at maintainer’s discretion -->

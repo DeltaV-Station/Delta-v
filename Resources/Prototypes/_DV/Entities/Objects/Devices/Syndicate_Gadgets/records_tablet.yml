@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseItem
+  id: HandheldStationMapRecordsTablet
+  name: station map
+  description: Displays a readout of the current station.
+  suffix: Records Tablet
+  components:
+  - type: CharacterRecordConsole
+    consoleType: Generic
+  - type: Sprite
+    sprite: Objects/Devices/tablets.rsi
+    layers:
+    - state: tablet
+    - state: generic
+      shader: unshaded
+  - type: ActivatableUI
+    inHandsOnly: false
+    singleUser: true
+    key: enum.CharacterRecordConsoleKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CharacterRecordConsoleKey.Key:
+        type: CharacterRecordConsoleBoundUserInterface
+  - type: MappingCategories
+    categories:
+    - Syndicate

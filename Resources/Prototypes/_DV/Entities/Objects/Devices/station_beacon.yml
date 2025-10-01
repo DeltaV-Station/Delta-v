@@ -7,6 +7,14 @@
   - type: NavMapBeacon
     defaultText: station-beacon-conference-room
 
+- type: entity
+  parent: DefaultStationBeaconCommand
+  id: DefaultStationBeaconCommandBar
+  suffix: Command Bar
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-command-bar
+
 #Medical
 - type: entity
   parent: DefaultStationBeaconMedical
@@ -100,6 +108,38 @@
   - type: NavMapBeacon
     defaultText: station-beacon-reporter
 
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconShop
+  suffix: Shop
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-shop
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconClown
+  suffix: Clown
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-clown
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconMime
+  suffix: Mime
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-mime
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconMusician
+  suffix: Musician
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-musician
+
 #Surveilance
 - type: entity
   parent: DefaultStationBeaconAI
@@ -125,6 +165,14 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-park
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconLaserTag
+  suffix: Laser Tag
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-laser-tag
 
 #Security
 - type: entity

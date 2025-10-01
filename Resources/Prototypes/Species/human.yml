@@ -66,13 +66,13 @@
       points: 1
       required: false
     Chest:
-      points: 1
+      points: 2
       required: false
     Legs:
-      points: 6
+      points: 6 # DeltaV - was 2
       required: false
     Arms:
-      points: 6
+      points: 6 # DeltaV - was 2
       required: false
 
 - type: humanoidBaseSprite

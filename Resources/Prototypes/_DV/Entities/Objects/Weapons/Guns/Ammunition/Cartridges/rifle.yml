@@ -1,14 +1,15 @@
 - type: entity
+  parent: BaseCartridgeRifle
   id: CartridgeRifleRubber
   name: cartridge (.20 rifle rubber)
-  parent: BaseCartridgeRifle
+  description: A modern intermediate cartridge for combat rifles. Rubber ammunition excels at less-lethal takedown of noncompliant suspects.
   components:
   - type: CartridgeAmmo
     proto: BulletRifleRubber
   - type: Sprite
     layers:
-      - state: base
-        map: [ "enum.AmmoVisualLayers.Base" ]
-      - state: tip
-        map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#43c4f7"
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#43c4f7"

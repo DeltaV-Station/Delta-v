@@ -20,3 +20,21 @@
     Uranium: 400
     Gold: 300
     Bluespace: 150
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: RadioHandheld
+  result: RadioHandheld
+  materials:
+    Steel: 200
+    Plastic: 200
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: HoloprojectorEngineering
+  result: HoloprojectorEngineeringEmpty
+  completetime: 8
+  materials:
+    Steel: 300
+    Glass: 50
+    Plastic: 50

@@ -122,7 +122,34 @@
   - type: SpentAmmoVisuals
     state: frag
     suffix: false
-    
+
+- type: entity
+  parent: BaseGrenade
+  id: GrenadeCleanade
+  name: cleanade grenade round
+  components:
+  - type: CartridgeAmmo
+    proto: BulletGrenadeCleanade
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: cleanade
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: frag
+    suffix: false
+  # Begin DeltaV Additions
+  - type: Tag
+    tags:
+    - CleaningGrenade
+    - Recyclable
+    - Grenade
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 500
+  # End DeltaV Additions
+
 - type: entity
   id: GrenadeEMP
   name: EMP grenade
@@ -154,7 +181,7 @@
   - type: Item
     size: Small
   - type: Sprite
-  
+
 - type: entity
   id: CannonBall
   name: cannonball

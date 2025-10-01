@@ -18,6 +18,17 @@
       - EncryptionKey
 
 - type: entity
+  parent: BoxEncryptionKeyPassenger
+  id: BoxEncryptionKeyTraffic
+  name: traffic encryption key box
+  description: A box of spare encryption keys.
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeyTraffic
+      amount: 4
+
+- type: entity
   name: justice encryption key box
   parent: BoxEncryptionKeyPassenger
   id: BoxEncryptionKeyJustice
@@ -105,6 +116,68 @@
     contents:
     - id: Stunbaton
     - id: WeaponDisabler
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxSyndicateFigurines
+  name: syndicate figurines box
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: writing_of_doom
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+    - id: ToyFigurineNukie
+    - id: ToyFigurineNukieElite
+    - id: ToyFigurineNukieCommander
+    - id: ToyFigurineFootsoldier
+  description: A box of a full set of syndicate figurines!
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxRandomDonk
+  components:
+  - type: Sprite
+    layers:
+    - state: box
+    - state: writing_of_doom
+  - type: Storage
+    maxItemSize: Normal
+  - type: StorageFill
+    contents:
+    #Main
+    - id: FoodBoxDonkpocketHonk
+      orGroup: RandomDonk
+      prob: 0.15
+    - id: FoodBoxDonkpocketBerry
+      orGroup: RandomDonk
+      prob: 0.1
+    - id: FoodBoxDonkpocketCarp
+      orGroup: RandomDonk
+      prob: 0.05
+    - id: FoodBoxDonkpocketDink
+      orGroup: RandomDonk
+      prob: 0.1
+    - id: FoodBoxDonkpocket
+      orGroup: RandomDonk
+      prob: 0.2
+    - id: FoodBoxDonkpocketStonk
+      orGroup: RandomDonk
+      prob: 0.05
+    - id: FoodBoxDonkpocketPizza
+      orGroup: RandomDonk
+      prob: 0.15
+    - id: FoodBoxDonkpocketSpicy
+      orGroup: RandomDonk
+      prob: 0.1
+    - id: FoodBoxDonkpocketTeriyaki
+      orGroup: RandomDonk
+      prob: 0.1
 
 - type: entity
   parent: BoxCardboard

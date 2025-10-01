@@ -49,6 +49,8 @@
         components:
         - FaxableObject #used to be PaperComponent - brainfood1183
       blacklist:
+        components:
+        - CargoSlip
         tags:
         - PaperSlip # DeltaV - Prevent the faxing of paper slips.
   - type: GenericVisualizer
@@ -65,6 +67,15 @@
   - type: ContainerContainer
     containers:
       Paper: !type:ContainerSlot
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedItemSlot
+      input: AutomationSlotPaper
+      output: AutomationSlotPaper
+      slotId: Paper
+    - !type:AutomatedPorts
+      sinks:
+      - FaxCopy
   - type: DeviceNetworkRequiresPower
   - type: DeviceNetwork
     deviceNetId: Wireless

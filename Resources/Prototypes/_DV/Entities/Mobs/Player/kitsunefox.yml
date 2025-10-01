@@ -2,7 +2,7 @@
   name: Kitsune
   parent: [SimpleMobBase, StripableInventoryBase, BaseMobKitsune]
   id: MobKitsuneFox
-  description: A Kitsune's fox from
+  description: A Kitsune's fox form.
   components:
   - type: KitsuneFox
   - type: MovementSpeedModifier
@@ -56,3 +56,9 @@
       task: IdleCompound
   - type: MindContainer
     showExamineInfo: true
+  - type: CosmicMarkVisuals
+    subtleState: kitsunefox
+    starState: kitsunefox
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: CosmicCenserTarget

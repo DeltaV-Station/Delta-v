@@ -1,13 +1,13 @@
 - type: entity
+  abstract: true
+  parent: BaseCartridge
   id: BaseCartridgeSpecial
   name: cartridge (.38 special)
-  parent: BaseCartridge
-  abstract: true
   components:
   - type: Tag
     tags:
-      - Cartridge
-      - CartridgeSpecial
+    - Cartridge
+    - CartridgeSpecial
   - type: CartridgeAmmo
     proto: BulletSpecial
   - type: Sprite
@@ -21,102 +21,105 @@
     price: 10
 
 - type: entity
-  id: CartridgeSpecial
-  name: cartridge (.38 special)
   parent: BaseCartridgeSpecial
-  components:
-  - type: CartridgeAmmo
-    proto: BulletSpecial
+  id: CartridgeSpecial
+  description: A compact revolver cartridge lighter than its magnum cousin. Standard kinetic ammunition is common and useful in most situations.
 
 - type: entity
+  parent: BaseCartridgeSpecial
   id: CartridgeSpecialPractice
   name: cartridge (.38 special practice)
-  parent: BaseCartridgeSpecial
+  description: A compact revolver cartridge lighter than its magnum cousin. Chalk ammunition is generally non-harmful, used for practice.
   components:
   - type: CartridgeAmmo
     proto: BulletSpecialPractice
   - type: Sprite
     layers:
-      - state: base
-        map: [ "enum.AmmoVisualLayers.Base" ]
-      - state: tip
-        map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#dbdbdb"
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#dbdbdb"
 
 - type: entity
+  parent: BaseCartridgeSpecial
   id: CartridgeSpecialRubber
   name: cartridge (.38 special rubber)
-  parent: BaseCartridgeSpecial
+  description: A compact revolver cartridge lighter than its magnum cousin. Rubber ammunition excels at less-lethal takedown of noncompliant suspects.
   components:
   - type: CartridgeAmmo
     proto: BulletSpecialRubber
   - type: Sprite
     layers:
-      - state: base
-        map: [ "enum.AmmoVisualLayers.Base" ]
-      - state: tip
-        map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#43c4f7"
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#43c4f7"
 
 - type: entity
+  parent: BaseCartridgeSpecial
   id: CartridgeSpecialIncendiary
   name: cartridge (.38 special incendiary)
-  parent: BaseCartridgeSpecial
+  description: A compact revolver cartridge lighter than its magnum cousin. Incendiary ammunition contains a self-igniting compound that sets the target ablaze.
   components:
   - type: CartridgeAmmo
     proto: BulletSpecialIncendiary
   - type: Sprite
     layers:
-      - state: base
-        map: [ "enum.AmmoVisualLayers.Base" ]
-      - state: tip
-        map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#ff6e52"
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#ff6e52"
 
 - type: entity
+  parent: BaseCartridgeSpecial
   id: CartridgeSpecialUranium
   name: cartridge (.38 special uranium)
-  parent: BaseCartridgeSpecial
+  description: A compact revolver cartridge lighter than its magnum cousin. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating the target from the inside.
   components:
   - type: CartridgeAmmo
     proto: BulletSpecialUranium
   - type: Sprite
     layers:
-      - state: base
-        map: [ "enum.AmmoVisualLayers.Base" ]
-      - state: tip
-        map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#65fe08"
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#65fe08"
 
 - type: entity
+  parent: BaseCartridgeSpecial
   id: CartridgeSpecialHoly
   name: cartridge (.38 special holy)
-  parent: BaseCartridgeSpecial
+  description: A compact revolver cartridge lighter than its magnum cousin. Silver-tipped rounds lean into superstition for the takedown of paranormal threats.
   components:
   - type: CartridgeAmmo
     proto: BulletSpecialHoly
   - type: Sprite
     layers:
-      - state: base
-        map: [ "enum.AmmoVisualLayers.Base" ]
-      - state: tip
-        map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#fff600"
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#fff600"
 
 - type: entity
+  parent: BaseCartridgeSpecial
   id: CartridgeSpecialMindbreaker
   name: cartridge (.38 special mindbreaker)
-  parent: BaseCartridgeSpecial
+  description: A compact revolver cartridge lighter than its magnum cousin. Mindbreaker-soaked rounds forcibly rid targets of psionic abilities.
   components:
   - type: CartridgeAmmo
     proto: BulletSpecialMindbreaker
   - type: Sprite
     layers:
-      - state: base
-        map: [ "enum.AmmoVisualLayers.Base" ]
-      - state: tip
-        map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#950ea9"
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#950ea9"
   - type: ChemicalAmmo
   - type: SolutionContainerManager
     solutions:

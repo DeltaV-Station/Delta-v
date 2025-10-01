@@ -30,10 +30,10 @@
   - GroupSpeciesBreathTool
 
 # Silicons
-#- type: roleLoadout
-#  id: JobBorg
-#  nameDataset: roleloadout doesn't support both so need to update that first.
-#  canCustomizeName: true
+- type: roleLoadout
+  id: JobBorg
+  nameDataset: NamesBorg
+  canCustomizeName: true
 
 - type: roleLoadout
   id: JobStationAi
@@ -46,6 +46,7 @@
   groups:
   - Scarfs # DeltaV
   - GroupTankHarness
+  - AssistantHead # DeltaV
   - PassengerJumpsuit
   - CommonBackpack
   - PassengerNeck
@@ -174,6 +175,7 @@
 
 - type: roleLoadout
   id: JobClown
+  canCustomizeName: true
   groups:
   - GroupTankHarness
   - ClownHead
@@ -189,6 +191,7 @@
 
 - type: roleLoadout
   id: JobMime
+  canCustomizeName: true
   groups:
   - GroupTankHarness
   - MimeHead
@@ -282,8 +285,10 @@
   id: JobTechnicalAssistant
   groups:
   - GroupTankHarness
+  - StationEngineerNeck # DeltaV
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
+  - StationEngineerShoes # DeltaV
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
@@ -306,7 +311,7 @@
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
-  - StationEngineerHead # DeltaV - Safety First!
+  - AtmosphericTechnicianHead # DeltaV
   - AtmosphericTechnicianNeck # DeltaV
   - GroupTankHarness
   - AtmosphericTechnicianJumpsuit
@@ -456,7 +461,7 @@
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -474,7 +479,7 @@
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -486,7 +491,7 @@
   - MedicalInternJumpsuit
   - MedicalBackpack
   - MedicalInternPDADelta # DeltaV
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -500,6 +505,7 @@
   - ChemistJumpsuit
   - ChemistGloves # DeltaV, replaces MedicalGloves
   - ChemistBackpack
+  - ChemistryPDA # DeltaV
   - ChemistOuterClothing
   - ChemistShoes # DeltaV, replaces MedicalShoes
   - SurvivalMedical
@@ -518,7 +524,7 @@
   - MedicalBackpack
   - ParamedicOuterClothing
   - ParamedicShoes
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -552,12 +558,15 @@
   - PsychologistJumpsuit
   - MedicalBackpack
   - Glasses
-  - SurvivalMedical # DeltaV, replaces Survival
-  - PsychologistPDADelta # DeltaV
-  - PsychologistHead # DeltaV
-  - Scarfs # DeltaV
-  - PsychologistOuterClothing # DeltaV
-  - PsychologistShoes # DeltaV
+  # Begin DeltaV additions
+  - SurvivalMedical # Replaces Survival
+  - PsychologistPDADelta
+  - PsychologistHead
+  - Scarfs
+  - PsychologistOuterClothing
+  - PsychologistShoes
+  - PsychologistBelt
+  # End DeltaV additions
   - Trinkets
   - GroupSpeciesBreathTool
 

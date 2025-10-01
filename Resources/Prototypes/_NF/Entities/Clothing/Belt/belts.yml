@@ -1,0 +1,10 @@
+- type: entity
+  parent: NFClothingBeltStorageBase
+  id: ClothingBeltPilot
+  name: pilot webbing
+  description: A webbing designed for someone seating a lot.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Belt/pilot.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Belt/pilot.rsi

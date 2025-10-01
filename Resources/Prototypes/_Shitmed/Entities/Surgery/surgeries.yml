@@ -422,6 +422,10 @@
   - type: SurgeryOrganCondition
     organ:
     - type: Heart
+  # Begin DeltaV Additions - Hides this from IPCs
+  - type: SurgeryOrganSlotCondition
+    organSlot: heart
+  # End DeltaV Additions
 
 - type: entity
   parent: SurgeryBase
@@ -586,31 +590,32 @@
     inverse: true
     reattaching: true
 
-- type: entity
-  parent: SurgeryBase
-  id: SurgeryLobotomize
-  name: Lobotomize
-  components:
-  - type: Surgery
-    requirement: SurgeryOpenIncision
-    steps:
-    - SurgeryStepLobotomize
-    - SurgeryStepCloseIncision
-  - type: SurgeryOrganCondition
-    organ:
-    - type: Brain
-  - type: SurgeryOrganOnAddCondition
-    components:
-      brain:
-        #- type: OhioAccent # DeltaV
-        - type: RatvarianLanguage
-        - type: Clumsy
-          #clumsyDamage: # Placeholder values to be able to initialize the component
-          #  types:
-          #    Blunt: 0
-    inverse: true
-  - type: SurgeryPartCondition
-    part: Head
+# DeltaV - removed.
+#- type: entity
+#  parent: SurgeryBase
+#  id: SurgeryLobotomize
+#  name: Lobotomize
+#  components:
+#  - type: Surgery
+#    requirement: SurgeryOpenIncision
+#    steps:
+#    - SurgeryStepLobotomize
+#    - SurgeryStepCloseIncision
+#  - type: SurgeryOrganCondition
+#    organ:
+#    - type: Brain
+#  - type: SurgeryOrganOnAddCondition
+#    components:
+#      brain:
+#        #- type: OhioAccent # DeltaV
+#        - type: RatvarianLanguage
+#        - type: Clumsy
+#          #clumsyDamage: # Placeholder values to be able to initialize the component
+#          #  types:
+#          #    Blunt: 0
+#    inverse: true
+#  - type: SurgeryPartCondition
+#    part: Head
 
 - type: entity
   parent: SurgeryBase

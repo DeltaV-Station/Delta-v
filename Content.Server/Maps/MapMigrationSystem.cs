@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using Robust.Server.GameObjects;
 using Robust.Shared.ContentPack;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map.Events;
@@ -18,10 +17,12 @@ namespace Content.Server.Maps;
 /// </summary>
 public sealed class MapMigrationSystem : EntitySystem
 {
+#pragma warning disable CS0414
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
+#pragma warning restore CS0414
     [Dependency] private readonly IResourceManager _resMan = default!;
 
-    private const string MigrationDir = "/Migrations/";
+    private const string MigrationDir = "/Migrations/"; // DeltaV - dir instead of a single file
 
     public override void Initialize()
     {
@@ -33,9 +34,9 @@ public sealed class MapMigrationSystem : EntitySystem
             return;
 
         // Verify that all of the entries map to valid entity prototypes.
-        foreach (var mapping in mappings)
+        foreach (var mapping in mappings) // DeltaV - iterate each mapping file
         {
-            foreach (var node in mapping.Values)
+            foreach (var node in mapping.Children.Values)
             {
                 var newId = ((ValueDataNode) node).Value;
                 if (!string.IsNullOrEmpty(newId) && newId != "null")
@@ -46,10 +47,11 @@ public sealed class MapMigrationSystem : EntitySystem
 #endif
     }
 
-    private bool TryReadFile([NotNullWhen(true)] out List<MappingDataNode>? mappings)
+    private bool TryReadFile([NotNullWhen(true)] out List<MappingDataNode>? mappings) // DeltaV - changed to a list
     {
         mappings = null;
 
+        // Begin DeltaV Changes - rewrote single path to finding files in a directory
         var files = _resMan.ContentFindFiles(MigrationDir)
             .Where(f => f.ToString().EndsWith(".yml"))
             .ToList();
@@ -73,6 +75,7 @@ public sealed class MapMigrationSystem : EntitySystem
         }
 
         return mappings != null && mappings.Count > 0;
+        // End DeltaV Changes
     }
 
     private void OnBeforeReadEvent(BeforeEntityReadEvent ev)
@@ -80,17 +83,17 @@ public sealed class MapMigrationSystem : EntitySystem
         if (!TryReadFile(out var mappings))
             return;
 
-        foreach (var mapping in mappings)
+        foreach (var mapping in mappings) // DeltaV - iterate a list of mappings
         {
             foreach (var (key, value) in mapping)
             {
-                if (key is not ValueDataNode keyNode || value is not ValueDataNode valueNode)
+                if (value is not ValueDataNode valueNode)
                     continue;
 
                 if (string.IsNullOrWhiteSpace(valueNode.Value) || valueNode.Value == "null")
-                    ev.DeletedPrototypes.Add(keyNode.Value);
+                    ev.DeletedPrototypes.Add(key);
                 else
-                    ev.RenamedPrototypes.Add(keyNode.Value, valueNode.Value);
+                    ev.RenamedPrototypes.Add(key, valueNode.Value);
             }
         }
     }

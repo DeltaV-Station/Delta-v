@@ -8,7 +8,7 @@
     <GuideEntityEmbed Entity="ClothingNeckCloakVoid" Caption=""/>
   </Box>
 
-  Thieves are petty yet crafty [color=green]criminals[/color] who can't keep their hands to themselves. You were forcefully given a [bold]pacifism implant[/bold] after your last arrest, but you won't let that stop you from trying to add to your collection.
+  Thieves are petty yet crafty [color=green]criminals[/color] who can't keep their hands to themselves. <!-- DeltaV - removed pacifism mention -->\t
 
   ## Art of the Steal
   Unlike other antagonists, [bold]staying out of trouble is almost a requirement for you[/bold] because of your implant.
@@ -43,7 +43,7 @@
   </Box>
   <Box>
     <GuideEntityEmbed Entity="StorageImplanter" Caption="Anatomy"/>
-    <GuideEntityEmbed Entity="C4" Caption="Breacher"/>
+    <GuideEntityEmbed Entity="BreachingCharge" Caption="Breacher"/> <!-- DeltaV - Breaching charge instead of C4 -->
     <GuideEntityEmbed Entity="ChameleonProjector" Caption="Chameleon"/>
     <GuideEntityEmbed Entity="EncryptionKeyStationMaster" Caption="Communicator"/>
   </Box>

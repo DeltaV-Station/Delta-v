@@ -69,3 +69,23 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: NukeopsUplinkUplinkImplanter
+  name: nukeops-uplink-uplink-implanter-name
+  description: nukeops-uplink-uplink-implanter-desc
+  icon: { sprite: /Textures/Objects/Devices/communication.rsi, state: old-radio }
+  productEntity: NukeopsUplinkImplanter
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkImplants
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NukeOpsUplink
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+          - SurplusBundle

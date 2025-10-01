@@ -29,3 +29,51 @@
     layers:
     - state: crypt_orange
     - state: prisoner_label
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyAdmeme1
+  name: Channel 1 encryption key
+  suffix: Admeme
+  description: An encryption key for Channel 1
+  components:
+  - type: EncryptionKey
+    channels:
+    - Admeme1
+    defaultChannel: Admeme1
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: common_label
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyAdmeme2
+  name: Channel 2 encryption key
+  suffix: Admeme
+  description: An encryption key for Channel 2
+  components:
+  - type: EncryptionKey
+    channels:
+    - Admeme2
+    defaultChannel: Admeme2
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: common_label
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyAdmeme3
+  name: Channel 3 encryption key
+  suffix: Admeme
+  description: An encryption key for Channel 3
+  components:
+  - type: EncryptionKey
+    channels:
+    - Admeme3
+    defaultChannel: Admeme3
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: common_label

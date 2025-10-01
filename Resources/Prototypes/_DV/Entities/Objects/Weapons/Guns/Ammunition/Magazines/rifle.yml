@@ -1,9 +1,10 @@
 # .20 rifle
 
 - type: entity
-  id: MagazineRifleRubber
-  name: "magazine (.20 rifle rubber)"
   parent: BaseMagazineRifle
+  id: MagazineRifleRubber
+  name: magazine (.20 rifle rubber)
+  description: 25-round double stack magazine for combat rifles. Intended to hold less-lethal rubber ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleRubber

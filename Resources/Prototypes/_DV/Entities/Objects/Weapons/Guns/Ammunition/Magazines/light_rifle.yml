@@ -1,9 +1,10 @@
 # .30 rifle
 
 - type: entity
-  id: MagazineLightRifleRubber
-  name: "magazine (.30 rifle rubber)"
   parent: BaseMagazineLightRifle
+  id: MagazineLightRifleRubber
+  name: magazine (.30 rifle rubber)
+  description: Curved 30-round double stack magazine for combat rifles. Intended to hold less-lethal rubber ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleRubber

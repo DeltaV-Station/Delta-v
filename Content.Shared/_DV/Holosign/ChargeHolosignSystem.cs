@@ -94,7 +94,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
     public bool TryRemoveSign(Entity<ChargeHolosignProjectorComponent, LimitedChargesComponent> ent, EntityUid sign, EntityUid user)
     {
         // don't overfill
-        if (ent.Comp2.Charges >= ent.Comp2.MaxCharges)
+        if (_charges.GetCurrentCharges((ent, ent.Comp2)) >= ent.Comp2.MaxCharges)
         {
             _popup.PopupClient(Loc.GetString("charge-holoprojector-charges-full", ("item", ent)), sign, user);
             return false;
@@ -106,7 +106,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
             return false;
         }
 
-        _charges.AddCharges(ent, 1, ent);
+        _charges.AddCharges((ent, ent.Comp2), 1);
 
         var userIdentity = Identity.Name(user, EntityManager);
         _popup.PopupPredicted(

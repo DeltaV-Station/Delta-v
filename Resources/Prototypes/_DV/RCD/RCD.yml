@@ -1,0 +1,115 @@
+- type: rcd
+  id: Windoor
+  category: Airlocks
+  sprite: /Textures/_DV/Interface/Radial/RCD/windoor.png
+  mode: ConstructObject
+  prototype: Windoor
+  cost: 4
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: PostLight
+  category: Lighting
+  sprite: /Textures/_DV/Interface/Radial/RCD/postlight.png
+  mode: ConstructObject
+  prototype: PoweredLightPostSmall
+  cost: 2
+  delay: 1
+  rotation: User
+  fx: EffectRCDConstruct1
+
+  #Experimental RCD
+- type: rcd
+  id: WallReinforced
+  category: WallsAndFlooring
+  sprite: /Textures/_DV/Interface/Radial/RCD/reinforced_wall.png
+  mode: ConstructObject
+  prototype: WallReinforced
+  cost: 8
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: PlasmaWindow
+  category: WindowsAndGrilles
+  sprite: /Textures/_DV/Interface/Radial/RCD/window_plasma.png
+  mode: ConstructObject
+  prototype: PlasmaWindow
+  cost: 4
+  delay: 2
+  collisionMask: Impassable
+  rules:
+    - IsWindow
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: ReinforcedPlasmaWindow
+  category: WindowsAndGrilles
+  sprite: /Textures/_DV/Interface/Radial/RCD/window_reinforced_plasma.png
+  mode: ConstructObject
+  prototype: ReinforcedPlasmaWindow
+  cost: 6
+  delay: 4
+  collisionMask: Impassable
+  rules:
+    - IsWindow
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: PlasmaWindowDirectional
+  category: WindowsAndGrilles
+  sprite: /Textures/_DV/Interface/Radial/RCD/directional_plasma.png
+  mode: ConstructObject
+  prototype: PlasmaWindowDirectional
+  cost: 4
+  delay: 2
+  collisionMask: Impassable
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: PlasmaReinforcedWindowDirectional
+  category: WindowsAndGrilles
+  sprite: /Textures/_DV/Interface/Radial/RCD/directional_reinforced_plasma.png
+  mode: ConstructObject
+  prototype: PlasmaReinforcedWindowDirectional
+  cost: 6
+  delay: 4
+  collisionMask: Impassable
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: AirlockExternal
+  category: Airlocks
+  sprite: /Textures/_DV/Interface/Radial/RCD/external.png
+  mode: ConstructObject
+  prototype: AirlockExternal
+  cost: 8
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: AirlockExternalGlass
+  category: Airlocks
+  sprite: /Textures/_DV/Interface/Radial/RCD/glass_external.png
+  mode: ConstructObject
+  prototype: AirlockExternalGlass
+  cost: 8
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct4

@@ -34,6 +34,9 @@
   id: BeltSlotNotBelt #not a 'belt'
 
 - type: Tag
+  id: BluespaceCrystal
+
+- type: Tag
   id: BorgModuleSecurity
 
 - type: Tag
@@ -41,6 +44,9 @@
 
 - type: Tag
   id: BorgMaterial # for materials that can be used in a borg construction module
+
+- type: Tag
+  id: BorgStockPart
 
 - type: Tag
   id: BulletBB
@@ -59,6 +65,9 @@
 
 - type: Tag
   id: ConcealCarry # For objects that can be stored in military-style boots or similar items
+
+- type: Tag
+  id: CoreSilver
 
 - type: Tag
   id: Directional
@@ -97,10 +106,16 @@
   id: IdChip
 
 - type: Tag
+  id: LightFixture
+
+- type: Tag
   id: MagazineLaser
 
 - type: Tag
   id: MagazinePistolSpecial # For the .38 special ammo and pistol
+
+- type: Tag
+  id: MagazineUniversalMagnum
 
 - type: Tag
   id: Magboots
@@ -110,6 +125,12 @@
 
 - type: Tag
   id: ModularTrigger #Craftable Musket
+
+- type: Tag
+  id: MothroachHide
+
+- type: Tag
+  id: NormalityCrystal
 
 - type: Tag
   id: PaperSlip
@@ -149,3 +170,9 @@
 
 - type: Tag
   id: AgentUplink # Used for allowing agent to buy their suit
+
+- type: Tag
+  id: CleaningGrenade
+
+- type: Tag
+  id: Hoodie

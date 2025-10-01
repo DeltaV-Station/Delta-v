@@ -121,6 +121,7 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         Log.Debug($"{ToPrettyString(args.Actor):user} is FTL-docking {ToPrettyString(shuttle):shuttle} to {ToPrettyString(grid):grid}");
 
         _shuttle.FTLToDock(shuttle, Comp<ShuttleComponent>(shuttle), grid, priorityTag: ent.Comp.DockTag);
+        UpdateUI(ent);
     }
 
     private EntityUid? FindLargestGrid(MapId map)

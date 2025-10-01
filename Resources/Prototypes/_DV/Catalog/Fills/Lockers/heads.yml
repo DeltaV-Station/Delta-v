@@ -13,6 +13,7 @@
     - id: StockTradingCartridge
     - id: LogisticsTechFabCircuitboard
     - id: SalvageExpeditionsComputerCircuitboard
+    - id: FundingAllocationComputerCircuitboard # To be removed when it's in techvault on all maps
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 
@@ -24,7 +25,6 @@
     - id: ClothingShoesLeather # fancy shoes for HoP and cap TODO: move to dresser
     - id: ClothingShoesMiscWhite
     - id: ClothingShoesBootsWinterCap
-    - id: FundingAllocationComputerCircuitboard # To be removed when it's in techvault on all maps
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 
@@ -87,6 +87,7 @@
     - id: EpistemicsTechFabCircuitboard
     - id: LunchboxCommandFilledRandom
       prob: 0.3
+    - id: CosmicCenser
 
 - type: entityTable
   id: LockerFillHeadOfSecurityDeltaV
