@@ -2,9 +2,9 @@
          xmlns:pllax="clr-namespace:Content.Client.Parallax"
          xmlns:clog="clr-namespace:Content.Client.Changelog">
     <pllax:ParallaxControl
-        ParallaxPrototype="TrainStation"
-        SpeedX="5"
-        SpeedY="20"
+        ParallaxPrototype="DeltaMenu"
+        SpeedX="0"
+        SpeedY="10"
         ScaleX="3"
         ScaleY="3"/>
     <BoxContainer Name="VBox"

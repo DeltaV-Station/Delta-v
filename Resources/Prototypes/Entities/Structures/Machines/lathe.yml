@@ -48,6 +48,11 @@
   - type: StaticPrice
     price: 800
   - type: ResearchClient
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedMaterialStorage
+      input: AutomationSlotMaterials
+      output: null
   - type: TechnologyDatabase
     supportedDisciplines: # DeltaV - don't add it to every map
     - Industrial
@@ -282,6 +287,7 @@
     - CameraBoards
     - MechBoards
     - ShuttleBoards
+    - EngineeringBoardsGoob #Goob Factorio port
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards
@@ -437,16 +443,16 @@
     - PrisonerSoftsuits
     - EVASuit
     # End DeltaV Additions
-    # Begin DeltaV Removals
-    # dynamicPacks:
-    # - SalvageSecurityBoards
-    # - SalvageSecurityWeapons
-    # - SecurityEquipment
-    # - SecurityBoards
-    # - SecurityExplosives
-    # - SecurityAmmo
-    # - SecurityWeapons
-    # End DeltaV Removals
+    dynamicPacks:
+    - SalvageSecurityBoards
+    - SalvageSecurityWeapons
+    - SecurityEquipment
+    - SecurityBoards
+    - SecurityExplosives
+    - SecurityAmmo
+    - SecurityWeapons
+    - SpecOpsGoogles # DeltaV
+
     #- SecurityDisablers # DeltaV - made roundstart
   - type: MaterialStorage
     whitelist:
@@ -508,7 +514,7 @@
 
 - type: entity
   id: MedicalTechFab
-  parent: BaseTechFabDepartamental # DeltaV - make sure it inherits the emag recipes
+  parent: BaseTechFabDepartmental # DeltaV - make sure it inherits the emag recipes
   name: medical techfab
   description: Prints equipment for use by the medbay.
   components:

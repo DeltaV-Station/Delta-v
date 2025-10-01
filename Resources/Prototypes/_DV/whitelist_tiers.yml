@@ -1,55 +1,64 @@
 - type: whitelistTier
-  id: GreyTier
-  name: Grey Tier
-  color: "#c3c3c3"
-  jobs:
-    - SalvageSpecialist
-    - SecurityCadet
-    - ForensicMantis
-    - Prisoner
-    - Gladiator
-    - Lawyer
-    - Prosecutor
-    - Clerk
-    - Borg
-
-- type: whitelistTier
   id: BlueTier
-  name: Blue Tier
+  name: Command
   color: "#3498db"
   jobs:
-    - CentralCommandOfficial
+    - ChiefMedicalOfficer
+    - ChiefEngineer
     - HeadOfPersonnel
     - Quartermaster
-    - ChiefEngineer
-    - ChiefMedicalOfficer
     - ResearchDirector
-    - ChiefJustice
+    - Warden
 
 
 - type: whitelistTier
   id: RedTier
-  name: Red Tier
+  name: Security
   color: "#e74c3c"
   jobs:
-    - SecurityOfficer
-    - Warden
-    - Detective
     - Brigmedic
+    - Clerk
+    - Detective
     - PrisonGuard
+    - Prosecutor
     - SecurityBorg
+    - SecurityCadet
+    - SecurityOfficer
 
-- type: whitelistTier
-  id: PurpleTier
-  name: Purple Tier
-  color: "#c000e6"
-  jobs:
-    - HeadOfSecurity
+# BEGIN COMMENT - removed until functional
+
+#- type: whitelistTier
+#  id: PurpleTier
+#  name: Antagonist Whitelist
+#  color: "#c000e6"
+#  jobs:
+#    - CosmicAntagColossus
+#    - CosmicAntagCultist
+#    - Dragon
+#    - Fugitive
+#    - InitialInfected
+#    - ListeningPost
+#    - Nukeops
+#    - NukeopsCommander
+#    - NukeopsMedic
+#    - ParadoxAnomaly
+#    - ParadoxClone
+#    - Recruiter
+#    - RoboNeuroticist
+#    - SpaceNinja
+#    - SynthesisSpecialist
+#    - Thief
+#    - Traitor
+#    - TraitorSleeper
+
+# END COMMENT
 
 - type: whitelistTier
   id: Gold Tier
-  name: Gold Tier
+  name: Gold
   color: "#e6c200"
   jobs:
     - Captain
     - StationAi
+    - HeadOfSecurity
+    - ChiefJustice

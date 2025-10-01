@@ -100,10 +100,6 @@ highlight-mystagogue-4 = Epistemics
 highlight-mystagogue-5 = "Epi"
 highlight-mystagogue-6 = Command
 
-highlight-administrative-assistant-1 = Administrative Assistant
-highlight-administrative-assistant-2 = "AA"
-highlight-administrative-assistant-3 = Command
-
 
 ###### Security
 highlight-detective-1 = Detective

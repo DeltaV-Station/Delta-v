@@ -65,7 +65,7 @@
   - CDDogtags # taken from Cosmatic Drift
   - TapeRecorder
   - ClothingHeadHatUshanka
-  - Wristwatch
+  - Eyepatch
   # End DeltaV Additions
 
 - type: loadoutGroup
@@ -232,6 +232,36 @@
   - GreyJumpsuit
   - GreyJumpskirt
   # Begin DeltaV additions
+  - WhiteJumpsuit
+  - WhiteJumpskirt
+  - BlackJumpsuit
+  - BlackJumpskirt
+  - BlueJumpsuit
+  - BlueJumpskirt
+  - DarkBlueJumpsuit
+  - DarkBlueJumpskirt
+  - TealJumpsuit
+  - TealJumpskirt
+  - GreenJumpsuit
+  - GreenJumpskirt
+  - DarkGreenJumpsuit
+  - DarkGreenJumpskirt
+  - OrangeJumpsuit
+  - OrangeJumpskirt
+  - PinkJumpsuit
+  - PinkJumpskirt
+  - RedJumpsuit
+  - RedJumpskirt
+  - YellowJumpsuit
+  - YellowJumpskirt
+  - PurpleJumpsuit
+  - PurpleJumpskirt
+  - LightBrownJumpsuit
+  - LightBrownJumpskirt
+  - BrownJumpsuit
+  - BrownJumpskirt
+  - MaroonJumpsuit
+  - MaroonJumpskirt
   - MioSkirt
   - NaotaHoodie
   - CasualBlueSkirt
@@ -240,7 +270,23 @@
   - CasualRedSuit
   - CasualPurpleSkirt
   - CasualPurpleSuit
-  # Begin DeltaV additions
+  - BlackElegantDress
+  - RedElegantDress
+  - GreenElegantDress
+  - BlueElegantDress
+  - PurpleElegantDress
+  - CyanStripedDress
+  - RedStripedDress
+  - GreenStripedDress
+  - PinkStripedDress
+  - OrangeStripedDress
+  - PurpleTurtleneckDress
+  - RedTurtleneckDress
+  - GreenTurtleneckDress
+  - BlueTurtleneckDress
+  - YellowTurtleneckDress
+  - OldYellowDress
+  # End DeltaV additions
   - AncientJumpsuit
   - RainbowJumpsuit
   - RainbowJumpskirt
@@ -251,6 +297,15 @@
   minLimit: 0
   loadouts:
   - PassengerFace
+  # Begin DeltaV additions
+  - BlackBandanaMask
+  - GoldBandanaMask
+  - GreenBandanaMask
+  - GreyBandanaMask
+  - RedBandanaMask
+  - SkullBandanaMask
+  - BrownBandanaMask
+  # End DeltaV additions
 
 - type: loadoutGroup
   id: PassengerGloves
@@ -258,6 +313,20 @@
   minLimit: 0
   loadouts:
   - PassengerGloves
+  # Begin DeltaV additions
+  - PurpleGloves
+  - RedGloves
+  - BlueGloves
+  - TealGloves
+  - BrownGloves
+  - LightBrownGloves
+  - GreyGloves
+  - GreenGloves
+  - OrangeGloves
+  - WhiteGloves
+  - BlackGloves
+  - FingerlessGloves
+  # End DeltaV additions
 
 - type: loadoutGroup
   id: CommonBackpack
@@ -280,6 +349,24 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
+  # Begin DeltaV additions
+  - BlackWinterCoat
+  - PurpleWinterCoat
+  - RedWinterCoat
+  - BlueWinterCoat
+  - BrownWinterCoat
+  - LightBrownWinterCoat
+  - GrayWinterCoat
+  - GreenWinterCoat
+  - OrangeWinterCoat
+  - WhiteWinterCoat
+  - YellowWinterCoat
+  - BlackHoodie
+  - GrayHoodie
+  - FlannelRed
+  - FlannelBlue
+  - FlannelGreen
+  # End DeltaV additions
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -287,6 +374,20 @@
   loadouts:
   - BlackShoes
   - WinterBoots
+  # Begin DeltaV additions
+  - WhiteShoes
+  - BlueShoes
+  - BrownShoes
+  - GreenShoes
+  - OrangeShoes
+  - RedShoes
+  - YellowShoes
+  - PurpleShoes
+  - HighHeels
+  - BrownCowboyBoots
+  - BlackCowboyBoots
+  - WhiteCowboyBoots
+  # End DeltaV additions
 
 - type: loadoutGroup
   id: BartenderHead
@@ -812,7 +913,12 @@
   loadouts:
   - ChiefEngineerCloak
   - ChiefEngineerMantle
-  - ScarfOrange # DeltaV
+  # Begin DeltaV Additions
+  - ScarfOrange
+  - ScarfRed
+  - ScarfBlue
+  - ScarfGreen
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: ChiefEngineerOuterClothing
@@ -825,9 +931,18 @@
   id: ChiefEngineerShoes
   name: loadout-group-chief-engineer-shoes
   loadouts:
-  - BrownShoes
+  #- BrownShoes # DeltaV - Engi loadout rework
   - EngineeringWinterBoots
-  - ChiefEngineerWinterBoots # DeltaV
+  # Begin DeltaV Additions
+  - AtmosWinterBoots
+  - ChiefEngineerWinterBoots
+  - WorkBoots
+  - RedShoes
+  - OrangeShoes
+  - YellowShoes
+  - BlueShoes
+  - GreenShoes
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -878,6 +993,11 @@
   loadouts:
   - WorkBoots
   - EngineeringWinterBoots
+  # Begin DeltaV Additions
+  - RedShoes
+  - OrangeShoes
+  - YellowShoes
+  # End DeltaV additions
 
 - type: loadoutGroup
   id: StationEngineerID
@@ -918,8 +1038,16 @@
   id: AtmosphericTechnicianShoes
   name: loadout-group-atmospheric-technician-shoes
   loadouts:
-  - WhiteShoes
-  - EngineeringWinterBoots
+  #- WhiteShoes # DeltaV - Engi loadout rework
+  #- EngineeringWinterBoots # DeltaV - Engi loadout rework
+  # Begin DeltaV Additions
+  - WorkBoots
+  - BlueShoes
+  - RedShoes
+  - OrangeShoes
+  - RedShoes
+  - AtmosWinterBoots
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: SurvivalExtended
@@ -1082,13 +1210,13 @@
   - HeadofSecurityTurtleneckSkirt
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
+  - HeadofSecurityParadeSuit
+  - HeadofSecurityParadeSkirt
   # Begin DeltaV changes
   - HeadofSecurityJumpsuitGrey
   - HeadofSecurityJumpskirtGrey
   - HeadofSecurityJumpsuitBlue
   - HeadofSecurityJumpskirtBlue
-  #- HeadofSecurityParadeSuit # Removed for incongruence
-  #- HeadofSecurityParadeSkirt # Removed for incongruence
   # End DeltaV changes
 
 - type: loadoutGroup
@@ -1099,6 +1227,7 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   - ScarfRed # DeltaV
+  - ScarfBlack # DeltaV
   - SecurityPoncho # DeltaV
 
 - type: loadoutGroup
@@ -1113,7 +1242,7 @@
   name: loadout-group-head-of-security-shoes
   loadouts:
   # Begin DeltaV changes
-  #- CombatBoots # Removed for standardisation of equipment
+  - CombatBoots
   - JackBoots
   - HeadOfSecurityWinterBoots
   # End DeltaV changes
@@ -1176,6 +1305,8 @@
   - SeniorSecOfficerTurtleskirt
   - SeniorSecOfficerJumpsuit
   - SeniorSecOfficerJumpskirt
+  - SeniorSecOfficerFormalSuit
+  - SeniorSecOfficerFormalSkirt
   # End DeltaV changes
 
 - type: loadoutGroup
@@ -1205,6 +1336,7 @@
   id: SecurityShoes
   name: loadout-group-security-shoes
   loadouts:
+  - CombatBoots # DeltaV
   - JackBoots
   - SecurityWinterBoots
 

@@ -1,4 +1,5 @@
 ﻿using Content.Shared.FixedPoint;
+using Content.Shared.Whitelist; // imp
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -12,6 +13,14 @@ public sealed partial class ReagentTankComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ReagentTankType TankType { get; set; } = ReagentTankType.Unspecified;
+
+    // imp start
+    [DataField]
+    public EntityWhitelist? FuelWhitelist;
+
+    [DataField]
+    public EntityWhitelist? FuelBlacklist;
+    // imp end
 }
 
 [Serializable, NetSerializable]

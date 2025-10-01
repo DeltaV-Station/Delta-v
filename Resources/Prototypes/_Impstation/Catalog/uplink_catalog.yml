@@ -1,0 +1,140 @@
+- type: listing
+  id: UplinkAdderBundle
+  name: uplink-adder-name
+  description: uplink-adder-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Special/adder.rsi, state: icon }
+  productEntity: AdderBox
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkWeaponry
+
+- type: listing
+  id: UplinkAkurraBundle
+  name: uplink-akurra-name
+  description: uplink-akurra-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Special/akurra.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledAkurra
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 7
+  cost:
+    Telecrystal: 15
+  categories:
+    - UplinkWeaponry
+
+- type: listing
+  id: uplinkFlamethrower
+  name: uplink-flamethrower-name
+  description: uplink-flamethrower-desc
+  productEntity: WeaponFlamerXiuhcoatl
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 12
+  cost:
+    Telecrystal: 15
+  categories:
+    - UplinkWeaponry
+
+- type: listing
+  id: uplinkLeviathanBundle
+  name: uplink-leviathan-name
+  description: uplink-leviathan-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Launchers/leviathan.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateLeviathan
+  cost:
+    Telecrystal: 35
+  categories:
+    - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      components:
+      - Pda
+
+- type: listing
+  id: UplinkMagazineEchion
+  name: uplink-magazine-echion-name
+  description: uplink-magazine-echion-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammuntion/Magazine/Special/echioncanister.rsi, state: icon }
+  productEntity: EchionCanister
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkEchionSynthNukie
+  name: uplink-echion-synth-name
+  description: uplink-echion-synth-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Specific/Syndicate/echionsynth.rsi, state: icon }
+  productEntity: EchionSynth
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkEchionSynthSyndie
+  name: uplink-echion-synth-name
+  description: uplink-echion-synth-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Specific/Syndicate/echionsynth.rsi, state: icon }
+  productEntity: EchionSynth
+  cost:
+    Telecrystal: 8
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkExplosiveRocketBundle
+  name: uplink-rocketexp-name
+  description: uplink-rocketexp-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: explosive }
+  productEntity: LeviathanExplosiveRocketBox
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkAmmo
+
+- type: listing
+  id: UplinkIncendiaryRocketBundle
+  name: uplink-rocketinc-name
+  description: uplink-rocketinc-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: incendiary }
+  productEntity: LeviathanIncendiaryRocketBox
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkAmmo
+
+- type: listing
+  id: UplinkConcussiveRocketBundle
+  name: uplink-rocketcon-name
+  description: uplink-rocketcon-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: concussion }
+  productEntity: LeviathanConcussionRocketBox
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkAmmo
+

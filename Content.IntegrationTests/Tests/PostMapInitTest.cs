@@ -67,6 +67,7 @@ namespace Content.IntegrationTests.Tests
             "Edge", // DeltaV
             "Shoukou", // DeltaV
             "Tortuga", // DeltaV
+            "Terra", //DeltaV
             "Arena", // DeltaV
             "Asterisk", // DeltaV
             "Byoin", // DeltaV
@@ -76,7 +77,9 @@ namespace Content.IntegrationTests.Tests
             "Lighthouse", // DeltaV
             "Micro", // DeltaV
             "Chibi", // DeltaV
-			"Elegance" // DeltaV
+            "Elegance", // DeltaV
+            "Division", // DeltaV
+            "ArenaMedieval" //DeltaV
         };
 
         /// <summary>

@@ -121,6 +121,16 @@ namespace Content.Server.Administration.Systems
                     verb.Impact = LogImpact.Low;
                     args.Verbs.Add(verb);
 
+                    // DeltaV - CuratorHelp
+                    Verb cHelpVerb = new();
+                    cHelpVerb.Text = Loc.GetString("chelp-verb-get-data-text");
+                    cHelpVerb.Category = VerbCategory.Admin;
+                    cHelpVerb.Icon = new SpriteSpecifier.Texture(new("/Textures/_DV/Interface/curator2.svg.192dpi.png"));
+                    cHelpVerb.Act = () =>
+                        _console.RemoteExecuteCommand(player, $"openchelp \"{targetActor.PlayerSession.UserId}\"");
+                    cHelpVerb.Impact = LogImpact.Low;
+                    args.Verbs.Add(cHelpVerb);
+
                     // Subtle Messages
                     Verb prayerVerb = new();
                     prayerVerb.Text = Loc.GetString("prayer-verbs-subtle-message");
@@ -398,7 +408,7 @@ namespace Content.Server.Administration.Systems
                 }
 
                 // Begin DeltaV Additions - thaven moods
-                if (TryComp<ThavenMoodsComponent>(args.Target, out var moods)) 
+                if (TryComp<ThavenMoodsComponent>(args.Target, out var moods))
                 {
                     args.Verbs.Add(new Verb()
                     {
@@ -413,7 +423,7 @@ namespace Content.Server.Administration.Systems
                             _euiManager.OpenEui(ui, session);
                             ui.UpdateMoods(moods, args.Target);
                         },
-                        Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"), 
+                        Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
                     });
                 }
             }

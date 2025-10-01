@@ -18,6 +18,8 @@
       - MindShield
     factionBlacklist:
     - Syndicate # no silly goose
+    currency: #currency prototype spawned on signing
+      TreatCoin5
   - type: SolutionContainerManager
     solutions:
       blood:
@@ -35,3 +37,52 @@
     stealGroup: RecruiterPen # not stolen, its for keeping it safe objective
   - type: EmitSoundOnUse
     handle: false # need to handle the event for pricking
+
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: TreatCoin
+  name: TreatCoin
+  suffix: 20 TC
+  description: It seems to be a cheap plastic carnival token with a T stamped into it. What did you expect?
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Syndicate/treatcoin.rsi
+    state: treatcoin
+  - type: Item
+    sprite: _DV/Objects/Specific/Syndicate/treatcoin.rsi
+    size: Tiny
+  - type: Appearance
+  - type: Stack
+    count: 20
+    stackType: TreatCoin
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 200
+  - type: Currency
+    price:
+      TreatCoin: 1
+
+- type: entity
+  parent: TreatCoin
+  id: TreatCoin1
+  suffix: 1 TC
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: TreatCoin
+  id: TreatCoin5
+  suffix: 5 TC
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: TreatCoin
+  id: TreatCoin10
+  suffix: 10 TC
+  components:
+  - type: Stack
+    count: 10

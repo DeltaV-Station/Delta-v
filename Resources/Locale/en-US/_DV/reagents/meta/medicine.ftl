@@ -14,3 +14,5 @@ reagent-desc-anodynafil = An effective short-lasting anesthetic that doesn't int
 
 reagent-name-trinoxadone = trinoxadone
 reagent-desc-trinoxadone = A complex cryogenics chemical. Treats most damage types in alive and critical patients at a slower metabolism rate, however, only offers limited tissue regeneration in dead patients.
+
+reagent-desc-dexalin-deltav = Used for treating minor oxygen deprivation and bloodloss. A required reagent for salbutamol and convermol.

@@ -20,7 +20,7 @@
     - id: RubberStampDenied
     - id: RubberStampQm
     - id: AstroNavCartridge
-    - id: ClothingHandsKnuckleDustersQM
+    #- id: ClothingHandsKnuckleDustersQM # DeltaV - No weaponry for LO.
     #- id: MailTeleporterMachineCircuitboard # DeltaV - upstream deliveries not ported yet
 
 - type: entity
@@ -124,7 +124,7 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfPersonnelDeltaV
-    #- id: AccessConfigurator # DeltaV - They don't really need it, moved to the administrative assistant starting gear.
+    - id: AccessConfigurator
     - id: BoxEncryptionKeyPassenger
     - id: BoxEncryptionKeyService
     - id: BoxHeadset
@@ -342,7 +342,7 @@
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfSecurityDeltaV
     - id: BookSecretDocuments
-    - id: WeaponEnergyShotgun
+    # - id: WeaponEnergyShotgun # DeltaV - Moved to warden locker
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase

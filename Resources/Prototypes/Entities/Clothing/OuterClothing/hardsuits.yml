@@ -92,7 +92,7 @@
         Radiation: 0.3 #salv is supposed to have radiation hazards in the future
         Caustic: 0.8
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
+    walkModifier: 0.8
     sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing
@@ -102,6 +102,7 @@
     - Hardsuit
     - WhitelistChameleon
     - HardsuitSpatio
+    - HidesHarpyWings # DeltaV: Used by harpies to help render their hardsuit sprites
 
 #Salvage Hardsuit
 - type: entity
@@ -160,6 +161,11 @@
         Heat: 0.7 #Goliath hide gets grilled instead of you
         Radiation: 0.3
         Caustic: 0.8
+  - type: DamageOnShootProtection # imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -195,6 +201,11 @@
         Piercing: 0.5
         Heat: 0.3
         Radiation: 0.1
+  - type: DamageOnShootProtection # imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: TemperatureProtection
@@ -323,6 +334,11 @@
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.6
+  - type: DamageOnShootProtection # imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: StaminaResistance # DeltaV
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -360,7 +376,7 @@
         Radiation: 0.0
         Caustic: 0.7
   - type: ClothingSpeedModifier
-    walkModifier: 0.75
+    walkModifier: 0.8
     sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing
@@ -387,7 +403,7 @@
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
+    walkModifier: 0.95
     sprintModifier: 0.95
   - type: HeldSpeedModifier
   - type: ToggleableClothing
@@ -416,6 +432,11 @@
         Heat: 0.3
         Radiation: 0.1
         Caustic: 0.2
+  - type: DamageOnShootProtection # imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: ClothingSpeedModifier
@@ -463,6 +484,11 @@
         Heat: 0.8
         Radiation: 0.5
         Caustic: 0.6
+  - type: DamageOnShootProtection # imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: StaminaResistance # DeltaV
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -498,8 +524,13 @@
         Heat: 0.9
         Radiation: 0.5
         Caustic: 0.8
+  - type: DamageOnShootProtection # imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
+    walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing
@@ -536,6 +567,11 @@
         Radiation: 0.5
         Caustic: 0.5
         Cold: 0.8 # DeltaV - Cold res
+  - type: DamageOnShootProtection # imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -556,6 +592,8 @@
   - type: MappingCategories # DeltaV
     categories:
     - Syndicate
+  - type: StaticPrice
+    price: 5000
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -604,15 +642,20 @@
       coefficients:
         Blunt: 0.8 # DeltaV - was 0.6
         Slash: 0.8 # DeltaV - was 0.6
-        Piercing: 0.7 # DeltaV - was 0.6
+        Piercing: 0.6
         Heat: 0.2
         Radiation: 0.01
         Caustic: 0.5
         Cold: 0.4 # DeltaV - Cold res
+  - type: DamageOnShootProtection # imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: Item
     size: Huge
   - type: ClothingSpeedModifier
-    walkModifier: 1.0
+    walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing
@@ -646,6 +689,11 @@
         Radiation: 0.25
         Caustic: 0.4
         Cold: 0.8 # DeltaV - Cold res
+  - type: DamageOnShootProtection # imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -684,8 +732,13 @@
         Radiation: 0.2
         Caustic: 0.2
         Cold: 0.6 # DeltaV - Cold res
+  - type: DamageOnShootProtection # imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
+    walkModifier: 0.65
     sprintModifier: 0.65
   - type: HeldSpeedModifier
   - type: ToggleableClothing
@@ -693,7 +746,7 @@
   - type: Tag
     tags:
     - MonkeyWearable
-    - WhitelistChameleon # DeltaV - gamer forgor
+    - WhitelistChameleon
   # Begin DeltaV Additions
   - type: ReverseEngineering # DeltaV
     difficulty: 5
@@ -730,6 +783,11 @@
         Heat: 0.25
         Radiation: 0.25
         Caustic: 0.75
+  - type: DamageOnShootProtection # imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -972,6 +1030,11 @@
         Heat: 0.1
         Radiation: 0.1
         Caustic: 0.1
+  - type: DamageOnShootProtection # imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
@@ -1009,6 +1072,11 @@
         Shock: 0.1
         Radiation: 0.1
         Caustic: 0.1
+  - type: DamageOnShootProtection # imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.25
   - type: ClothingSpeedModifier
@@ -1066,7 +1134,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
-  - type: Construction 
+  - type: Construction
     graph: MimeHardsuit
     node: mimeHardsuit
   - type: ToggleableClothing

@@ -49,13 +49,15 @@
       provided_container: !type:Container { }
 
 - type: entity
+  parent: BaseAction
   id: ActionBorgSwapModule
   name: Swap Module
   description: Select this module, enabling you to use the tools it provides.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigAction
     useDelay: 0.5
+  - type: InstantAction
     event: !type:BorgModuleActionSelectedEvent
 
 - type: entity
@@ -226,6 +228,7 @@
   - type: Tag
     tags:
     - BorgModuleSyndicate
+    - BorgModuleGeneric # DeltaV - Allows any borg to have an evil module if found
   - type: Item
     inhandVisuals:
       left:
@@ -254,6 +257,7 @@
   - type: Tag
     tags:
     - BorgModuleSyndicateAssault
+    - BorgModuleGeneric # DeltaV - Allows any borg to have an evil module
   - type: Item
     inhandVisuals:
       left:
@@ -667,15 +671,7 @@
       whitelist:
         components:
         - FloorTile
-    - id: CapacitorStockPart
-      whitelist:
-        tags:
-        - BorgStockPart
     - id: MicroManipulatorStockPart
-      whitelist:
-        tags:
-        - BorgStockPart
-    - id: MatterBinStockPart
       whitelist:
         tags:
         - BorgStockPart
@@ -795,6 +791,7 @@
     - AdvMopItem
     - BorgMegaSprayBottle
     - HoloprojectorBorg
+    - WeaponLauncherHydraBorg # DeltaV - Let borgs have cleannades!
     - BorgDropper
     #- BorgBeaker # DeltaV - made droppable
   # Begin DeltaV Additions
@@ -1185,6 +1182,8 @@
       - state: base-part-inhand-right
       - state: base-stripes-inhand-right
         color: "#7B0F12"
+  - type: StaticPrice
+    price: 2500
 
 - type: entity
   id: BorgModuleOperative
@@ -1279,6 +1278,8 @@
         - state: base-part-inhand-right
         - state: base-stripes-inhand-right
           color: "#7B0F12"
+    - type: StaticPrice
+      price: 2000
 
 # xenoborg modules
 - type: entity

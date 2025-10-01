@@ -12,7 +12,10 @@
     - id: GlimmerRevenantSpawn
     - id: GlimmerMiteSpawn
     - id: GlimmerRandomSentience
+    - id: GlimmerRandomAnimation
     - id: ThavenMoodUpset
+    - id: LockProbers
+    - id: PsionicNosebleedEvent
 
 - type: entity
   parent: BaseGameRule
@@ -24,6 +27,112 @@
       max: 1500
     scheduledGameRules: !type:NestedSelector
       tableId: GlimmerEventsTable
+
+# Base glimmer event
+- type: entity
+  id: BaseGlimmerEvent
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    # Favor glimmer events just a little more than regular events.
+    weight: 12
+  - type: GlimmerEvent
+
+## Glimmer events
+- type: entity
+  id: MundaneDischarge
+  parent: BaseGlimmerEvent
+  components:
+  - type: StationEvent
+    weight: 18
+  - type: GlimmerEvent
+    maximumGlimmer: 300
+    glimmerBurnLower: 18
+    glimmerBurnUpper: 40
+
+- type: entity
+  id: NoosphericZap
+  parent: BaseGlimmerEvent
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 450
+  - type: NoosphericZapRule
+
+- type: entity
+  id: NoosphericFry
+  parent: BaseGlimmerEvent
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 300
+    maximumGlimmer: 900
+  - type: NoosphericFryRule
+
+- type: entity
+  id: PsionicCatGotYourTongue
+  parent: BaseGlimmerEvent
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 500
+    maximumGlimmer: 900
+    glimmerBurnLower: 18
+    glimmerBurnUpper: 40
+  - type: PsionicCatGotYourTongueRule
+
+- type: entity
+  id: MassMindSwap
+  parent: BaseGlimmerEvent
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 900
+    glimmerBurnLower: 50
+    glimmerBurnUpper: 110
+  - type: MassMindSwapRule
+
+- type: entity
+  abstract: true
+  parent: BaseGlimmerEvent
+  id: BaseGlimmerSignaturesEvent
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 300
+    maximumGlimmer: 1000
+    report: glimmer-event-report-signatures
+
+- type: entity
+  id: GlimmerWispSpawn
+  parent: BaseGlimmerSignaturesEvent
+  components:
+  - type: GlimmerMobRule
+    mobPrototype: MobGlimmerWisp
+
+- type: entity
+  parent: BaseGlimmerSignaturesEvent
+  id: FreeProber
+  components:
+  - type: FreeProberRule
+
+# Converted from upstream event
+- type: entity
+  parent: BaseGlimmerSignaturesEvent
+  id: GlimmerRevenantSpawn
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 500
+    maximumGlimmer: 900
+  - type: GlimmerMobRule
+    mobPrototype: MobRevenant
+    maxSpawns: 1
+
+- type: entity
+  parent: BaseGlimmerSignaturesEvent
+  id: GlimmerMiteSpawn
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 50
+    maximumGlimmer: 900
+  - type: GlimmerMobRule
+    mobPrototype: MobGlimmerMite
+    glimmerTier: Low # get more mites earlier on
 
 # Like upstream's event but can reoccur and tied to glimmer.
 - type: entity
@@ -42,3 +151,37 @@
     glimmerBurnLower: 20
     glimmerBurnUpper: 60
   - type: RandomSentienceRule
+
+- type: entity
+  parent: BaseGlimmerSignaturesEvent
+  id: GlimmerRandomAnimation
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 500
+  - type: RandomAnimationRule
+
+- type: entity
+  parent: BaseGlimmerEvent
+  id: ThavenMoodUpset
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 500
+    glimmerBurnLower: 30
+    glimmerBurnUpper: 70
+  - type: ThavenMoodUpsetRule
+
+- type: entity
+  parent: BaseGlimmerEvent
+  id: LockProbers
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 500
+  - type: LockProbersRule
+
+- type: entity
+  parent: BaseGlimmerEvent
+  id: PsionicNosebleedEvent
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 350
+  - type: PsionicNosebleedRule

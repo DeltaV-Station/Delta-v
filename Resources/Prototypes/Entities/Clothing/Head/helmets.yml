@@ -267,9 +267,9 @@
   description: An atmos tech's best friend. Provides some heat resistance and looks cool.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Helmets/firehelmet.rsi
+    sprite: _DV/Clothing/Head/Helmets/firehelmet.rsi # DeltaV
   - type: Clothing
-    sprite: Clothing/Head/Helmets/firehelmet.rsi
+    sprite: _DV/Clothing/Head/Helmets/firehelmet.rsi # DeltaV
     quickEquip: true
   - type: IngestionBlocker
   - type: TemperatureProtection
@@ -295,9 +295,9 @@
   description: An atmos fire helmet, able to keep the user cool in any situation.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Helmets/atmos_firehelmet.rsi
+    sprite: _DV/Clothing/Head/Helmets/atmos_firehelmet.rsi # DeltaV
   - type: Clothing
-    sprite: Clothing/Head/Helmets/atmos_firehelmet.rsi
+    sprite: _DV/Clothing/Head/Helmets/atmos_firehelmet.rsi # DeltaV
     quickEquip: true
   - type: IngestionBlocker
   - type: TemperatureProtection
@@ -508,7 +508,8 @@
     action: ActionToggleJusticeHelm
     mustEquip: false
   - type: ItemTogglePointLight
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
     clothingVisuals:
       head:
       - state: on-equipped-HELMET
@@ -556,11 +557,13 @@
       Hair: HEAD
 
 - type: entity
+  parent: BaseAction
   id: ActionToggleJusticeHelm
   name: Toggle Justice Helm
   description: Toggles the justice helm on and off.
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 1
     itemIconStyle: BigItem
+  - type: InstantAction
     event: !type:ToggleActionEvent

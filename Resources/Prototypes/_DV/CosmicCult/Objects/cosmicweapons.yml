@@ -23,6 +23,7 @@
         Asphyxiation: 12
         Cold: 12
         Structural: 15
+        Ion: 15
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmicsword_hit.ogg
       params:
@@ -91,13 +92,16 @@
   - type: MeleeWeapon
     resistanceBypass: true
     angle: 0
+    wideAnimationRotation: 225
     animation: WeaponArcCosmic
+    wideAnimation: WeaponArcThrust
     attackRate: 0.62
     damage:
       types:
         Piercing: 12
         Asphyxiation: 10
         Cold: 10
+        Ion: 12
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmiclance_hit.ogg
       params:
@@ -187,15 +191,16 @@
       groups:
         Brute: -10
   - type: Gun
-    projectileSpeed: 14
+    projectileSpeed: 15
     soundGunshot: /Audio/_DV/CosmicCult/projectile_razor.ogg
     soundEmpty: null
     fireRate: 1
-    useKey: false
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 1.8
     rechargeSound:
       path: /Audio/_DV/CosmicCult/projectile_razor_reload.ogg
+      params:
+        variation: 0.08
   - type: BasicEntityAmmoProvider
     proto: ProjectileCosmicRazor
     capacity: 1
@@ -213,6 +218,7 @@
         Asphyxiation: 6
         Cold: 6
         Structural: 15
+        Ion: 8
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmicsword_hit.ogg
       params:
@@ -221,21 +227,15 @@
     soundSwing:
       path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
       params:
-        variation: 0.125
+        variation: 0.124
         volume: -4
     soundNoDamage:
       path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
       params:
         variation: 0.2
         volume: -11
-  - type: Reflect
-    reflectProb: .21
-    spread: 120
-    soundOnReflect:
-      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
-      params:
-        variation: 0.2
-        volume: -6
+  - type: AltFireMelee
+    attackType: Heavy
   - type: Wieldable
     wieldSound:
       path: /Audio/_DV/CosmicCult/cosmic_wield.ogg

@@ -3,7 +3,7 @@
   name: job-name-roboticist
   description: job-description-roboticist
   playTimeTracker: JobRoboticist
-  antagAdvantage: 6 # The shadow factory + scientist advantage
+  antagAdvantage: 4 # The shadow factory
   requirements:
   - !type:DepartmentTimeRequirement
     department: Epistemics
@@ -22,3 +22,12 @@
   id: RoboticistGear
   equipment:
     ears: ClothingHeadsetRobotics
+
+- type: chameleonOutfit
+  id: RoboticistChameleonOutfit
+  job: Roboticist
+  equipment:
+    id: RoboticistPDA
+    ears: ClothingHeadsetRobotics
+    head: ClothingOuterCardborg
+    shoes: ClothingShoesBootsWinterRobo

@@ -13,10 +13,10 @@
   id: ServiceWorkerJumpsuit
   name: loadout-group-serviceworker-jumpsuit
   loadouts:
-  - ServiceWorkerJumpsuit
-  - ServiceWorkerJumpskirt
-  - ServiceWorkerJumpsuitDark
-  - ServiceWorkerJumpskirtDark
+  - GreenJumpsuit
+  - GreenJumpskirt
+  - DarkGreenJumpsuit
+  - DarkGreenJumpskirt
   - BartenderJumpsuit
   - BartenderJumpskirt
   - BartenderJumpsuitPurple
@@ -83,6 +83,43 @@
   - ScarfBlack
   - ScarfPurple
   - ScarfZebra
+
+## Assistants
+- type: loadoutGroup
+  id: AssistantHead
+  name: loadout-group-assistant-head
+  minLimit: 0
+  loadouts:
+  - BlackBandana
+  - BlueBandana
+  - GoldBandana
+  - GreenBandana
+  - GreyBandana
+  - RedBandana
+  - BrownBandana
+  - SkullBandana
+  - BartenderHead
+  - BartenderBowler
+  - RedBeret
+  - BrownFedora
+  - GreyFedora
+  - BlackFedora
+  - ChocFedora
+  - WhiteFedora
+  - GreyFlatCap
+  - BlackFlatCap
+  - BrownFlatCap
+  - BrownCowboyHat
+  - BlackCowboyHat
+  - GreyCowboyHat
+  - RedCowboyHat
+  - WhiteCowboyHat
+  - BountyHunterHat
+  - StrawHat
+  - HeadBand
+  - OutlawHat
+  - WitchHat
+  - PirateHat
 
 # Logistics
 ## Courier
@@ -220,6 +257,7 @@
   minLimit: 0
   loadouts:
   - ScarfRed
+  - ScarfBlack
   - ScarfBlue
   - SecurityPoncho
 
@@ -353,6 +391,7 @@
   minLimit: 0
   loadouts:
   - ScarfRed
+  - ScarfBlack
   - SecurityPoncho
 
 - type: loadoutGroup
@@ -427,6 +466,12 @@
   - WinterCoatPlaid
   - PsychologistCoatBomber
   - PsychologistSweater
+
+- type: loadoutGroup
+  id: PsychologistBelt
+  name: loadout-group-psychologist-belt
+  loadouts:
+  - PaperworkBelt
 
 - type: loadoutGroup
   id: PsychologistShoes
@@ -568,6 +613,7 @@
   minLimit: 0
   loadouts:
   - ScarfOrange
+  - ScarfRed
 
 ## Atmospheric Technician
 - type: loadoutGroup
@@ -577,6 +623,16 @@
   loadouts:
   - ScarfLightBlue
   - ScarfOrange
+
+- type: loadoutGroup
+  id: AtmosphericTechnicianHead
+  name: loadout-group-atmospheric-technician-head
+  minLimit: 0
+  loadouts:
+  - StationEngineerHardhatYellow
+  - StationEngineerHardhatOrange
+  - StationEngineerHardhatRed
+  - AtmosHardHatBlue
 
 ## Clerk
 - type: loadoutGroup
@@ -695,46 +751,6 @@
   - ScienceWinterBoots
 
 # Command
-## Administrative Assistant
-- type: loadoutGroup
-  id: AdminAssistantJumpsuit
-  name: loadout-group-admin-assistant-jumpsuit
-  loadouts:
-  - AdminAssistantJumpsuit
-  - AdminAssistantJumpskirt
-
-- type: loadoutGroup
-  id: AdminAssistantHead
-  name: loadout-group-admin-assistant-head
-  minLimit: 0
-  loadouts:
-  - AdminAssistanthat
-
-- type: loadoutGroup
-  id: AdminAssistantShoes
-  name: loadout-group-admin-assistant-shoes
-  loadouts:
-  - BrownLeatherShoes
-  - WhiteLeatherShoes
-  - LaceupShoes
-
-- type: loadoutGroup
-  id: AdminAssistantOuter
-  name: loadout-group-admin-assistant-outerclothing
-  loadouts:
-  - BartenderVest
-  - WinterCoatBlack
-  - WinterCoatBrown
-  - CorporateJacket
-
-- type: loadoutGroup
-  id: AdminAssistantGloves
-  name: loadout-group-admin-assistant-gloves
-  minLimit: 0
-  loadouts:
-  - HoPGloves
-  - InspectionGloves
-
 ## Captain
 - type: loadoutGroup
   id: CaptainGloves
@@ -805,6 +821,13 @@
   - MedicalInternPDA
   - PracticalNursePDA
   - ResidentPDA
+
+- type: loadoutGroup
+  id: ChemistryPDA
+  name: loadout-group-chemist-id
+  loadouts:
+  - ChemistryPDA
+  - PharmacistPDA # DeltaV
 
 - type: loadoutGroup
   id: AtmosPDADelta

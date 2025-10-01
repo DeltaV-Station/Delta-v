@@ -7,7 +7,7 @@
   icon: "JobIconBoxer"
   supervisors: job-supervisors-hop
   access:
-  #- Service # DeltaV
+  - Service
   - Maintenance
   # Begin DeltaV Additions
   - Theatre # Boxer is vaguely a theatre role
@@ -28,3 +28,14 @@
   #storage:
     #back:
     #- Stuff
+
+- type: chameleonOutfit
+  id: BoxerChameleonOutfit
+  job: Boxer
+  equipment:
+    head: ClothingHeadHatBlacksoft
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskBreath
+    outerClothing: ClothingOuterWinterColorGray
+    jumpsuit: UniformShortsRedWithTop
+    neck: ClothingNeckScarfStripedRed

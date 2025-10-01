@@ -1,18 +1,24 @@
 - type: entity
+  parent: BaseAction
   id: ActionForceWall
-  name: forcewall
+  name: Force Wall # DeltaV
   description: Creates a magical barrier.
   components:
-  - type: InstantAction
-    useDelay: 10
+  - type: Action
+    useDelay: 15
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
     icon:
       sprite: Objects/Magic/magicactions.rsi
       state: shield
+  - type: InstantAction
     event: !type:InstantSpawnSpellEvent
       prototype: WallForce
       posData: !type:TargetInFront
   - type: SpeakOnAction
     sentence: action-speech-spell-forcewall
+  # Begin DeltaV Additions - Allows this to actually charge when learned from the Book of Mysteries.
+  - type: AutoRecharge
+    rechargeDuration: 90
+  # End DeltaV Additions

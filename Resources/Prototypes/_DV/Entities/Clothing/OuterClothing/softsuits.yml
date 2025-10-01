@@ -14,3 +14,11 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot { }
+  - type: Armor
+    modifiers:
+      coefficients:
+        Radiation: 0.2 # Little easier to steal the core when you have a rad suit
+        Heat: 0.75 # Take an extra shot or two
+  - type: ClothingSpeedModifier # Make em a bit more nimble so they can hide/Run
+    walkModifier: 1
+    sprintModifier: 1
