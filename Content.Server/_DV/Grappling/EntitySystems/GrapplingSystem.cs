@@ -134,15 +134,14 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         if (!Resolve(grappler, ref grappler.Comp))
             return false;
 
-        var victim = grappler.Comp.ActiveVictim;
-        if (!victim.HasValue)
+        if (grappler.Comp.ActiveVictim is not { } victim)
             return false; // Not grappling anything
 
         if (!TryComp<GrappledComponent>(victim, out var victimComp))
             return false; // Somehow not a grappled target
 
         ReleaseGrapple((grappler, grappler.Comp),
-            (victim.Value, victimComp),
+            (victim, victimComp),
             manualRelease: manualRelease);
 
         return true;
