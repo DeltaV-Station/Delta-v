@@ -84,10 +84,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
             !_tag.HasTag(tagComp, _grappleTargetId))
             return false; // Not a valid target
 
-        if (!_actionBlocker.CanInteract(grappler, victim))
-            return false;
-
-        return true;
+        return _actionBlocker.CanInteract(grappler, victim);
     }
 
     /// <summary>
