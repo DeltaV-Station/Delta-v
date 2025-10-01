@@ -29,7 +29,7 @@ using Robust.Shared.Timing;
 namespace Content.Server._DV.Grappling.EntitySystems;
 
 /// <summary>
-/// Service side handling of grappling
+/// Server side handling of grappling
 /// </summary>
 public sealed partial class GrapplingSystem : SharedGrapplingSystem
 {
