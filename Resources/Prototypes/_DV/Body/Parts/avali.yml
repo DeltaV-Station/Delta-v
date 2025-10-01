@@ -2,11 +2,11 @@
   id: PartAvali
   parent: BasePart
   name: "avali body part"
-  icon:
-    sprite: _Starlight/Mobs/Species/Avali/parts.rsi
   abstract: true
   components:
   - type: Sprite
+    sprite: _Starlight/Mobs/Species/Avali/parts.rsi
+  - type: Icon
     sprite: _Starlight/Mobs/Species/Avali/parts.rsi
   - type: BodyPart
     species: Avali
