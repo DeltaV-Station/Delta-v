@@ -80,9 +80,8 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         if (_gameTiming.CurTime < grappler.Comp.CooldownEnd)
             return false; // Cooldown on the grapple is not over yet
 
-        if (!TryComp<TagComponent>(victim, out var tagComp) ||
-            !_tag.HasTag(tagComp, _grappleTargetId))
-            return false; // Not a valid target
+        if (!HasComp<GrappleTargetComponent>(victim))
+            return false;  // Not a valid target
 
         return _actionBlocker.CanInteract(grappler, victim);
     }

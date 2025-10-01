@@ -225,7 +225,6 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-    - GrappleTarget # DeltaV - Allow targets to be grappled
   - type: PotentialPsionic # DeltaV - organic species can all be psionic
   - type: FootPrints # DeltaV port from EE, blood splatter
   - type: LayingDown # WD EDIT
@@ -234,6 +233,7 @@
   - type: CosmicCenserTarget # DeltaV - Cosmic Cult
   - type: Carriable # DeltaV
   - type: EmoteCooldown # DeltaV - implement RMC emote cooldown
+  - type: GrappleTarget # DeltaV - Allow targets to be grappled
 
 - type: entity
   save: false
