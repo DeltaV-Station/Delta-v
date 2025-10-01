@@ -2,7 +2,7 @@
   id: TriggerMetapsionic
   tip: xenoarch-trigger-tip-psionic
   components:
-  - type: XATMetapsionic
+  - type: ArtifactMetapsionicTrigger
   - type: MetapsionicPower # so the trigger receives the event from people using psionics
 
 # TODO: when golemization is ported, add a trigger for golemizing someone, target 7 or something
