@@ -33,18 +33,18 @@ namespace Content.Server._DV.Grappling.EntitySystems;
 /// </summary>
 public sealed partial class GrapplingSystem : SharedGrapplingSystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly InteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly JointSystem _jointSystem = default!;
-    [Dependency] private readonly HandsSystem _handsSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly InteractionSystem _interaction = default!;
+    [Dependency] private readonly JointSystem _joint = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly StandingStateSystem _standingStateSystem = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly StandingStateSystem _standingState = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
 
     private ProtoId<TagPrototype> _grappleTargetId = "GrappleTarget";
@@ -81,10 +81,10 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
             return false; // Cooldown on the grapple is not over yet
 
         if (!TryComp<TagComponent>(victim, out var tagComp) ||
-            !_tagSystem.HasTag(tagComp, _grappleTargetId))
+            !_tag.HasTag(tagComp, _grappleTargetId))
             return false; // Not a valid target
 
-        if (!_actionBlockerSystem.CanInteract(grappler, victim))
+        if (!_actionBlocker.CanInteract(grappler, victim))
             return false;
 
         return true;
@@ -118,7 +118,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         if (!CanGrapple(grappler, victim))
             return false;
 
-        if (!_interactionSystem.InRangeUnobstructed(grappler.Owner, victim))
+        if (!_interaction.InRangeUnobstructed(grappler.Owner, victim))
             return false;
 
         StartGrapple((grappler, grappler.Comp), victim);
@@ -160,10 +160,10 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     private void StartGrapple(Entity<GrapplerComponent> grappler, EntityUid victim)
     {
         // Throw the victim and grappler (if requested) prone
-        _standingStateSystem.Down(victim);
+        _standingState.Down(victim);
 
         if (grappler.Comp.ProneOnGrapple)
-            _standingStateSystem.Down(grappler);
+            _standingState.Down(grappler);
 
         // Ensure they have the grappled component for handling escapes and blocking movement.
         EnsureComp<GrappledComponent>(victim, out var grappled);
@@ -179,24 +179,24 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         Dirty(grappler);
 
         // Update any movement blocks that the grappler/grappled now have
-        _actionBlockerSystem.UpdateCanMove(grappler);
-        _actionBlockerSystem.UpdateCanMove(victim);
+        _actionBlocker.UpdateCanMove(grappler);
+        _actionBlocker.UpdateCanMove(victim);
 
         // Joint the two together so both the grappler and the victim can't be tugged away from one another.
-        _jointSystem.CreateDistanceJoint(grappler, victim, id: grappler.Comp.PullJointId);
+        _joint.CreateDistanceJoint(grappler, victim, id: grappler.Comp.PullJointId);
 
-        _popupSystem.PopupEntity(
+        _popup.PopupEntity(
             Loc.GetString("grapple-start", ("part", grappler.Comp.GrapplingPart), ("victim", victim)),
             victim,
             grappler,
             PopupType.MediumCaution);
-        _popupSystem.PopupEntity(
+        _popup.PopupEntity(
             Loc.GetString("grapple-start-victim", ("part", grappler.Comp.GrapplingPart), ("grappler", grappler)),
             victim,
             victim,
             PopupType.MediumCaution);
 
-        _audioSystem.PlayPvs(grappler.Comp.GrappleSound, victim);
+        _audio.PlayPvs(grappler.Comp.GrappleSound, victim);
 
         _alerts.ShowAlert(grappler, grappler.Comp.GrappledAlert);
         _alerts.ShowAlert(victim, grappler.Comp.GrappledAlert);
@@ -254,12 +254,12 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
                 toBlock.Add(handComp);
                 break;
             case HandDisabling.SingleActive:
-                var activeHand = _handsSystem.GetActiveHand((victim, hands));
+                var activeHand = _hands.GetActiveHand((victim, hands));
                 if (activeHand != null)
                     toBlock.Add(activeHand!);
                 break;
             case HandDisabling.All:
-                foreach (var hand in _handsSystem.EnumerateHands(victim, hands))
+                foreach (var hand in _hands.EnumerateHands(victim, hands))
                 {
                     toBlock.Add(hand);
                 }
@@ -298,7 +298,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         // can add virtual items immediately.
         foreach (var handName in victim.Comp.DisabledHands)
         {
-            if (!_handsSystem.TryGetHand(victim, handName, out var hand, hands))
+            if (!_hands.TryGetHand(victim, handName, out var hand, hands))
                 continue;
 
             if (!hand.HeldEntity.HasValue)
@@ -344,16 +344,16 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
             NeedHand = true
         };
 
-        if (!_doAfterSystem.TryStartDoAfter(escapeDoAfter, out var doAfterId))
+        if (!_doAfter.TryStartDoAfter(escapeDoAfter, out var doAfterId))
             return;
 
         grappled.Comp.DoAfterId = doAfterId;
 
-        _popupSystem.PopupEntity(Loc.GetString("grapple-start-escaping", ("victim", grappled)),
+        _popup.PopupEntity(Loc.GetString("grapple-start-escaping", ("victim", grappled)),
             grappled,
             grappled.Comp.Grappler,
             PopupType.MediumCaution);
-        _popupSystem.PopupEntity(Loc.GetString("grapple-start-escaping-victim", ("part", grappler.GrapplingPart)),
+        _popup.PopupEntity(Loc.GetString("grapple-start-escaping-victim", ("part", grappler.GrapplingPart)),
             grappled,
             grappled,
             PopupType.MediumCaution);
@@ -442,7 +442,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         // Ensure any jointing is cleaned up
         if (grappler.Comp.PullJointId != null)
         {
-            _jointSystem.RemoveJoint(grappler, grappler.Comp.PullJointId);
+            _joint.RemoveJoint(grappler, grappler.Comp.PullJointId);
             grappler.Comp.PullJointId = null;
         }
 
@@ -450,7 +450,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         grappler.Comp.ActiveVictim = null;
         grappler.Comp.CooldownEnd = _gameTiming.CurTime + grappler.Comp.Cooldown;
         Dirty(grappler);
-        _actionBlockerSystem.UpdateCanMove(grappler);
+        _actionBlocker.UpdateCanMove(grappler);
 
         // Clean up the hold on their hands we have
         EnableHands(grappler, victim);
@@ -460,15 +460,15 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         {
             if (victim.Comp.DoAfterId.HasValue)
             {
-                _doAfterSystem.Cancel(victim.Comp.DoAfterId.Value);
+                _doAfter.Cancel(victim.Comp.DoAfterId.Value);
             }
 
-            _popupSystem.PopupEntity(
+            _popup.PopupEntity(
                 Loc.GetString("grapple-manual-release", ("victim", victim), ("part", grappler.Comp.GrapplingPart)),
                 victim,
                 grappler,
                 PopupType.Medium);
-            _popupSystem.PopupEntity(Loc.GetString("grapple-manual-release-victim",
+            _popup.PopupEntity(Loc.GetString("grapple-manual-release-victim",
                     ("grappler", grappler),
                     ("part", grappler.Comp.GrapplingPart)),
                 victim,
@@ -477,13 +477,13 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         }
         else
         {
-            _popupSystem.PopupEntity(Loc.GetString("grapple-finished-escaping",
+            _popup.PopupEntity(Loc.GetString("grapple-finished-escaping",
                     ("victim", victim),
                     ("part", grappler.Comp.GrapplingPart)),
                 victim,
                 grappler,
                 PopupType.MediumCaution);
-            _popupSystem.PopupEntity(
+            _popup.PopupEntity(
                 Loc.GetString("grapple-finished-escaping-victim", ("part", grappler.Comp.GrapplingPart)),
                 victim,
                 victim,
@@ -492,11 +492,11 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
 
         // Cleanup the grappling on the victim
         RemComp<GrappledComponent>(victim);
-        _actionBlockerSystem.UpdateCanMove(victim); // Must be done AFTER the component is removed.
+        _actionBlocker.UpdateCanMove(victim); // Must be done AFTER the component is removed.
 
         // Automatically get the grappler back up
-        if (grappler.Comp.ProneOnGrapple && _standingStateSystem.IsDown(grappler))
-            _standingStateSystem.Stand(grappler);
+        if (grappler.Comp.ProneOnGrapple && _standingState.IsDown(grappler))
+            _standingState.Stand(grappler);
 
         _alerts.ClearAlert(grappler, grappler.Comp.GrappledAlert);
         _alerts.ClearAlert(victim, grappler.Comp.GrappledAlert);
