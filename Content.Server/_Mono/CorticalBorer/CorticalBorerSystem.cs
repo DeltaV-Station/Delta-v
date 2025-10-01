@@ -27,6 +27,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Nutrition.Components; // DeltaV - IngestionBlocker in shared
 using Content.Shared.Popups;
 using Content.Shared.SSDIndicator;
 using Robust.Server.GameObjects;
@@ -100,7 +101,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
 
     private void OnSpeakEvent(Entity<CorticalBorerComponent> ent, ref CheckTargetedSpeechEvent args)
     {
-        args.ChatTypeIgnore.Add(InGameICChatType.CollectiveMind);
+        //args.ChatTypeIgnore.Add(InGameICChatType.CollectiveMind); // DeltaV - eradicate language code
 
         if (ent.Comp.Host.HasValue)
         {

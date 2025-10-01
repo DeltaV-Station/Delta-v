@@ -889,13 +889,6 @@ public sealed partial class ChatSystem : SharedChatSystem
         return ev.IgnoreBlocker;
     }
 
-    // Begin Mono Changes
-    public sealed class CheckTargetedSpeechEvent : EntityEventArgs
-    {
-        public List<EntityUid> Targets = new List<EntityUid>();
-    }
-    // End Mono Changes
-
     private IEnumerable<INetChannel> GetDeadChatClients()
     {
         return Filter.Empty()
@@ -1042,6 +1035,13 @@ public sealed class CheckIgnoreSpeechBlockerEvent : EntityEventArgs
         IgnoreBlocker = ignoreBlocker;
     }
 }
+
+// Begin Mono Changes
+public sealed class CheckTargetedSpeechEvent : EntityEventArgs
+{
+    public List<EntityUid> Targets = new List<EntityUid>();
+}
+// End Mono Changes
 
 /// <summary>
 ///     Raised on an entity when it speaks, either through 'say' or 'whisper'.

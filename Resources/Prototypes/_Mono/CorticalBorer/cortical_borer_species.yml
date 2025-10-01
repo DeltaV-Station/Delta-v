@@ -93,8 +93,8 @@
         type: CorticalBorerDispenserBoundUserInterface
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
-  - type: CollectiveMind
-    channel: CorticalBorer
+  #- type: CollectiveMind # DeltaV - don't got it, maybe port it
+  #  channel: CorticalBorer
   - type: Speech
     enabled: false
   - type: HealthAnalyzer
@@ -102,12 +102,12 @@
       path: "/Audio/Voice/Slime/slime_squish.ogg"
     maxScanRange: .5
   - type: CanEscapeInventory
-  - type: GuideHelp
-    guides:
-    - CorticalBorerGuide
+  #- type: GuideHelp # DeltaV - nuh uh
+  #  guides:
+  #  - CorticalBorerGuide
   - type: Body
-    thermalVisibility: false
-  - type: UniversalLanguageSpeaker
+    #thermalVisibility: false # DeltaV - we dont got this (sad!)
+  #- type: UniversalLanguageSpeaker # DeltaV - no language (sad!)
 
 - type: entity
   parent: BaseItem
@@ -144,6 +144,6 @@
           collection: desecration
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: GuideHelp
-    guides:
-    - CorticalBorerGuide
+  #- type: GuideHelp # DeltaV - nuh uh
+  #  guides:
+  #  - CorticalBorerGuide

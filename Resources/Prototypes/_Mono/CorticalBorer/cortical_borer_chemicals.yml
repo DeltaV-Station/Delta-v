@@ -49,9 +49,9 @@
   reagent: NorepinephricAcid
 
 - type: borerChemical
-  id: borerDexalinPlus
+  id: borerSalbutamol # DeltaV - dex+ replaced with salbu
   cost: 10
-  reagent: DexalinPlus
+  reagent: Salbutamol
 
 - type: borerChemical
   id: borerHeartbreakerToxin
@@ -60,5 +60,5 @@
 
 - type: borerChemical
   id: borerNocturine
-  cost: 5 # needs 18u to start the sleep, so more than blind but still cheaper
+  cost: 10 # DeltaV - need way less of it here to sleep, doubled price
   reagent: Nocturine
