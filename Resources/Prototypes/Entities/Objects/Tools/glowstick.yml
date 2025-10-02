@@ -13,6 +13,8 @@
       fadeOutBehaviourID: fade_out
       iconStateLit: glowstick_lit
       iconStateSpent: glowstick_unlit
+      litRadius: 5.0 # DeltaV
+      litEnergy: 3.0 # DeltaV
       litSound:
         path: /Audio/Items/Handcuffs/rope_breakout.ogg
     - type: Sprite

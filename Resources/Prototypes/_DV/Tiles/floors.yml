@@ -14,3 +14,10 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemSteel #Same case as FloorSteelDamaged, make it null when possible
   heatCapacity: 10000
+
+#destructible version
+- type: tile
+  id: FloorHullReinforcedDestructible
+  parent: FloorAsteroidSandBorderless
+  name: tiles-hull-reinforced-destructible
+  indestructible: false
