@@ -15,10 +15,6 @@
     - state: ano30_on
       map: [ "enum.ArtifactsVisualLayers.Effect" ]
       visible: false
-  # Begin DeltaV Additions
-  - type: Item
-    size: Ginormous
-  # End DeltaV Additions
   - type: Damageable
   - type: Physics
     bodyType: Dynamic
@@ -57,23 +53,11 @@
     - enum.ArtifactsVisualLayers.Effect:
         ano01_on: Rainbow
   - type: Appearance
-# Begin DeltaV Additions
-  - type: Tag
-    tags:
-      - Artifact
-# End DeltaV Additions
   - type: Actions
   - type: Psionic #Nyano - Summary: Makes psionic on creation.
   - type: GuideHelp
     guides:
     - Xenoarchaeology
-# Begin DeltaV Additions
-  - type: MultiHandedItem
-  - type: ClothingSpeedModifier
-    walkModifier: 0.5
-    sprintModifier: 0.5
-  - type: HeldSpeedModifier
-# End DeltaV Additions
   - type: StealTarget
     stealGroup: XenoArtifact
   - type: ContainerContainer
