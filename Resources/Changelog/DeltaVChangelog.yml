@@ -1,124 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Syndie and omega soap now clean dirt from surgical tools twice as fast.
-    type: Tweak
-  id: 1179
-  time: '2025-03-19T01:28:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3273
-- author: deltanedas
-  changes:
-  - message: Fixed not being able to clean autodocs with soap.
-    type: Fix
-  id: 1180
-  time: '2025-03-19T01:31:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3272
-- author: Lyndomen
-  changes:
-  - message: Psionic Nullifier helmet now available for purchase in the uplink catalog;
-      a psionic proof hardsuit helmet
-    type: Add
-  id: 1181
-  time: '2025-03-19T01:43:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3259
-- author: Lyndomen
-  changes:
-  - message: Champagne and Cryptobiolin are less likely to obliterate your liver
-    type: Tweak
-  id: 1182
-  time: '2025-03-19T02:33:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3268
-- author: nkokic
-  changes:
-  - message: Added TEG parts in cargo computer.
-    type: Add
-  id: 1183
-  time: '2025-03-19T12:01:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3245
-- author: TGRCdev, formlessnameless, Lyndomen
-  changes:
-  - message: Revenants can now Haunt, which reveals them and gives them a small amount
-      of stolen essence and a boost in essence regeneration for every person that
-      witnesses them once. Revenants can see who has already been haunted by examining
-      them.
-    type: Add
-  - message: Added a new revenant ability to draw bloody glyphs on the ground.
-    type: Add
-  - message: Revenants can now animate items and make them attack living beings. Keep
-      your guns unbolted!
-    type: Add
-  - message: Revenants now enter stasis on death instead of dying outright. You can
-      kill a revenant in stasis by either destroying or exorcising its ectoplasm.
-      Grind ectoplasm with salt to destroy it.
-    type: Tweak
-  - message: Placing salt on the ground now reveals revenants who pass over it.
-    type: Tweak
-  id: 1184
-  time: '2025-03-19T16:15:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3063
-- author: deltanedas
-  changes:
-  - message: Fixed not being able to reclaim biomass from monkeys.
-    type: Fix
-  id: 1185
-  time: '2025-03-20T00:40:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3279
-- author: deltanedas
-  changes:
-  - message: Added back the Biochemical research discipline! Medical related techs
-      are in it now.
-    type: Add
-  - message: Removed the HONK mech research, it's now part of Civilian Mechs.
-    type: Remove
-  - message: Medical cyborgs now get the defibrillator module by default.
-    type: Tweak
-  id: 1186
-  time: '2025-03-20T13:48:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3275
-- author: deltanedas
-  changes:
-  - message: Added the syndie autodoc bundle for 10 TC, do evil surgeries!
-    type: Add
-  id: 1187
-  time: '2025-03-20T14:44:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3274
-- author: sowelipililimute
-  changes:
-  - message: Revenant ectoplasm doesn't freeze other players who look at it
-    type: Fix
-  id: 1188
-  time: '2025-03-20T14:54:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3281
-- author: Avalon-Proto
-  changes:
-  - message: Heads of Security rejoice, your equipment has been re-tuned. The X-01
-      now has been streamlined and can fire twice as many shots before needing a charge
-    type: Tweak
-  id: 1189
-  time: '2025-03-20T15:44:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3246
-- author: Stop-Signs
-  changes:
-  - message: Shuttle FTL cooldown has been raised to 2 minutes.
-    type: Tweak
-  id: 1190
-  time: '2025-03-21T00:12:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3283
-- author: Stop-Signs
-  changes:
-  - message: Battery weapons have been modified for better ergonomics.
-    type: Tweak
-  id: 1191
-  time: '2025-03-21T22:41:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3284
-- author: deltanedas
-  changes:
-  - message: Fixed Synthesis Specialists not being listed as Free Agent in the character
-      menu.
-    type: Fix
-  id: 1192
-  time: '2025-03-22T21:50:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3291
 - author: KashRas2
   changes:
   - message: Autodoc Russian phrases has become more Russian, than pseudo Russian.
@@ -4178,3 +4058,117 @@
   id: 1678
   time: '2025-09-11T06:02:49.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4355
+- author: EmberAstra
+  changes:
+  - message: Added pressurized micro pumps, allowing IPCs to be pressure immune. Ask
+      your local roboticist for one!
+    type: Add
+  - message: micro pumps can now be inserted in IPCs and not just removed
+    type: Fix
+  id: 1679
+  time: '2025-09-12T07:51:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4356
+- author: Proxysseia
+  changes:
+  - message: the colossus defence values have been tweaked.
+    type: Tweak
+  id: 1680
+  time: '2025-09-12T09:05:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4344
+- author: cmorley191
+  changes:
+  - message: 'These abilities now actually function: Dispel, Mind Swap (Psionics);
+      RGB, Light Synth, Honk, Nanites (AI Abilities); Lapse (Cosmic Cult); Void Applause
+      (Wizard)'
+    type: Fix
+  id: 1681
+  time: '2025-09-19T06:00:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4423
+- author: SirWarock
+  changes:
+  - message: Added black scarfs to Security - No longer must they wear red scarfs
+      after the paint change!
+    type: Add
+  - message: Added formal suits for Senior Security Officers - Now more than one person
+      can dress in style!
+    type: Add
+  id: 1682
+  time: '2025-09-21T09:08:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4036
+- author: TehFlaminTaco
+  changes:
+  - message: Having Night Vision Goggles on now lets you be flashed even when wearing
+      other flash protection.
+    type: Tweak
+  id: 1683
+  time: '2025-09-22T05:46:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4378
+- author: cmorley191
+  changes:
+  - message: Dying in telegnosis no longer prevents you from ghosting
+    type: Fix
+  id: 1684
+  time: '2025-09-24T09:49:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4393
+- author: TehFlaminTaco
+  changes:
+  - message: Fixed Flares, Flashlights, and more not effecting Skia.
+    type: Fix
+  - message: Skia now can weakly maneuver in space.
+    type: Add
+  id: 1685
+  time: '2025-09-26T10:03:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4417
+- author: Proxysseia
+  changes:
+  - message: made Zombies more likely
+    type: Tweak
+  - message: made CosCult less likely
+    type: Tweak
+  id: 1686
+  time: '2025-10-02T14:10:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4447
+- author: Proxysseia
+  changes:
+  - message: nukies now require 35 players instead of 30
+    type: Tweak
+  id: 1687
+  time: '2025-10-02T14:14:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4432
+- author: SirWarock
+  changes:
+  - message: Buffed Onis! They now receive 25% less slowdown by clothing to help them
+      get into melee distance!
+    type: Tweak
+  id: 1688
+  time: '2025-10-02T18:58:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4364
+- author: CrimsonAnnie
+  changes:
+  - message: Fixed one of Psionic eruption's flavour pop-ups
+    type: Fix
+  id: 1689
+  time: '2025-10-02T21:57:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4444
+- author: Vapetastic-Gaming
+  changes:
+  - message: Apoapsis Hits 100 pop
+    type: Tweak
+  id: 1690
+  time: '2025-10-02T22:11:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4472
+- author: kotobdev
+  changes:
+  - message: Avali have been ported - a species of feathery space raptors, who have
+      excellent eyesight and thrive in the cold! Read more about them in the guidebook.
+    type: Add
+  id: 1691
+  time: '2025-10-02T22:12:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4275
+- author: Lonestar827
+  changes:
+  - message: changed the Science guidebook tab to Epistemics to avoid confusion
+    type: Fix
+  id: 1692
+  time: '2025-10-02T22:21:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4468
