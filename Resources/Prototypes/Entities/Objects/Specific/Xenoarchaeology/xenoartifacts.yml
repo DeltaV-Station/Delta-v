@@ -63,3 +63,38 @@
     useDelay: 300
   - type: InstantAction
     event: !type:ArtifactSelfActivateEvent
+    
+- type: entity
+  id: SimpleXenoArtifact
+  parent: ComplexXenoArtifact
+  name: "Simple Artifact"
+  description: "A simple xeno artifact placeholder."
+  components: []
+
+- type: entity
+  id: MediumXenoArtifact
+  parent: ComplexXenoArtifact
+  name: "Medium Artifact"
+  description: "A medium xeno artifact placeholder."
+  components: []
+
+- type: entity
+  id: SimpleXenoArtifactItem
+  parent: ComplexXenoArtifactItem
+  name: "Simple Artifact Item"
+  description: "A simple artifact item placeholder."
+  components: []
+
+- type: entity
+  id: MediumXenoArtifactItem
+  parent: ComplexXenoArtifactItem
+  name: "Medium Artifact Item"
+  description: "A medium artifact item placeholder."
+  components: []
+
+- type: entity
+  id: VariedXenoArtifactItem
+  parent: ComplexXenoArtifactItem
+  name: "Varied Artifact Item"
+  description: "A varied artifact item placeholder."
+  components: []
