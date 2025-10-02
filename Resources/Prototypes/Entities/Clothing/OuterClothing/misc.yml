@@ -82,6 +82,10 @@
     sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
+  - type: Tag # DeltaV - It's a hoodie
+    tags:
+    - WhitelistChameleon
+    - Hoodie
 
 - type: entity
   parent: ClothingOuterBase
@@ -93,6 +97,10 @@
     sprite: Clothing/OuterClothing/Misc/grey_hoodie.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/grey_hoodie.rsi
+  - type: Tag # DeltaV - It's a hoodie
+    tags:
+    - WhitelistChameleon
+    - Hoodie
 
 - type: entity
   parent: ClothingOuterBase
@@ -122,6 +130,10 @@
     sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodChaplainHood
+  - type: Tag # DeltaV - It's a hoodie
+    tags:
+    - WhitelistChameleon
+    - Hoodie
 
 - type: entity
   parent: ClothingOuterBase
