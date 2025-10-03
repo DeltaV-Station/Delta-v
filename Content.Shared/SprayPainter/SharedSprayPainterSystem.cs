@@ -312,7 +312,6 @@ public abstract class SharedSprayPainterSystem : EntitySystem
 
     protected virtual void UpdateUi(Entity<SprayPainterComponent> ent)
     {
->>>>>>> 9ad99cfa64 (Make more objects spray paintable (Reviving #31328) (#37341))
     }
 
     #endregion
