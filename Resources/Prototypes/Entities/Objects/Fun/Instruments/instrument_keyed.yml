@@ -43,7 +43,7 @@
     sprite: Objects/Fun/Instruments/h_synthesizer.rsi
   - type: Item
     heldPrefix: super
-    size: Normal
+    size: Normal # Delta - V - Ensures that the sprite properly renders, had to add this because it wouldn't render properly on the ground and in UI/bag UI otherwise.
     sprite: Objects/Fun/Instruments/h_synthesizer.rsi
 
 - type: entity
