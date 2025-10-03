@@ -342,7 +342,8 @@
     - BorgModules
     - MechParts
     - MechEquipment
-    - Cybernetics # Shitmed change
+    - Surgery # DeltaV - Share Surgery Parts between Epi and Med.
+    - CyberneticsRobotics # DeltaV - Share Surgery Parts between Epi and Med.
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
@@ -535,6 +536,7 @@
     - ReportingStatic
     - EVASuit
     - PowerCellsStatic
+    - IPCLimbsStatic
     - PowerAugments
     - ToolAugments
     # End DeltaV Additions
@@ -545,6 +547,7 @@
     # Being DeltaV Additions
     - MedicalDeltaV
     - ParamedicHardsuit
+    - Cybernetics
     # End DeltaV Additions
   - type: Machine
     board: MedicalTechFabCircuitboard
