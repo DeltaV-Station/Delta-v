@@ -5,11 +5,11 @@ spray-painter-style-airlockglass-robotics = Robotics
 spray-painter-style-locker-cj = Chief Justice
 
 spray-painter-style-wallcloset-tools = Tools
-spray-painter-style-wallcloset-radiation = Radiation Suit
+spray-painter-style-wallcloset-radiation = Radiation suit
 spray-painter-style-wallcloset-biohazard = Biohazard
-spray-painter-style-wallcloset-biohazardjanitor = Janitor Biohazard
-spray-painter-style-wallcloset-biohazardsecurity = Security Biohazard
-spray-painter-style-wallcloset-biohazardvirology = Virology Biohazard
+spray-painter-style-wallcloset-biohazardjanitor = Janitor biohazard
+spray-painter-style-wallcloset-biohazardsecurity = Security biohazard
+spray-painter-style-wallcloset-biohazardvirology = Virology biohazard
 
 spray-painter-style-walllocker-atmos = Atmospherics
 spray-painter-style-walllocker-engi = Engineering
