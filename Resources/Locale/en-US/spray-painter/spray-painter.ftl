@@ -64,7 +64,8 @@ spray-painter-tab-group-walllocker = Secure (Wall)
 # Airlocks
 spray-painter-style-airlockstandard-atmospherics = Atmospheric
 spray-painter-style-airlockstandard-basic = Basic
-spray-painter-style-airlockstandard-cargo = Cargo
+# DeltaV: Logistics
+spray-painter-style-airlockstandard-cargo = Logistics
 spray-painter-style-airlockstandard-chemistry = Chemistry
 spray-painter-style-airlockstandard-command = Command
 spray-painter-style-airlockstandard-engineering = Engineering
@@ -73,13 +74,15 @@ spray-painter-style-airlockstandard-hydroponics = Hydroponics
 spray-painter-style-airlockstandard-maintenance = Maintenance
 spray-painter-style-airlockstandard-medical = Medical
 spray-painter-style-airlockstandard-salvage = Salvage
-spray-painter-style-airlockstandard-science = Science
+# DeltaV: Epistemics
+spray-painter-style-airlockstandard-science = Epistemics
 spray-painter-style-airlockstandard-security = Security
 spray-painter-style-airlockstandard-virology = Virology
 
 spray-painter-style-airlockglass-atmospherics = Atmospherics
 spray-painter-style-airlockglass-basic = Basic
-spray-painter-style-airlockglass-cargo = Cargo
+# DeltaV: Logistics
+spray-painter-style-airlockglass-cargo = Logistics
 spray-painter-style-airlockglass-chemistry = Chemistry
 spray-painter-style-airlockglass-command = Command
 spray-painter-style-airlockglass-engineering = Engineering
@@ -87,7 +90,8 @@ spray-painter-style-airlockglass-hydroponics = Hydroponics
 spray-painter-style-airlockglass-maintenance = Maintenance
 spray-painter-style-airlockglass-medical = Medical
 spray-painter-style-airlockglass-salvage = Salvage
-spray-painter-style-airlockglass-science = Science
+# DeltaV: Epistemics
+spray-painter-style-airlockglass-science = Epistemics
 spray-painter-style-airlockglass-security = Security
 spray-painter-style-airlockglass-virology = Virology
 
@@ -110,7 +114,8 @@ spray-painter-style-locker-hos = HOS
 spray-painter-style-locker-medicine = Medicine
 spray-painter-style-locker-mime = Mime
 spray-painter-style-locker-paramedic = Paramedic
-spray-painter-style-locker-quartermaster = Quartermaster
+# DeltaV: Logistics
+spray-painter-style-locker-quartermaster = Logistics Officer
 spray-painter-style-locker-rd = RD
 spray-painter-style-locker-representative = Representative
 spray-painter-style-locker-salvage = Salvage
@@ -158,7 +163,8 @@ spray-painter-style-cratesteel-basic = Basic
 spray-painter-style-cratesteel-electrical = Electrical
 spray-painter-style-cratesteel-engineering = Engineering
 spray-painter-style-cratesteel-radiation = Radiation
-spray-painter-style-cratesteel-science = Science
+# DeltaV: Epistemics
+spray-painter-style-cratesteel-science = Epistemics
 spray-painter-style-cratesteel-surgery = Surgery
 
 spray-painter-style-crateplastic-basic = Basic
@@ -176,13 +182,15 @@ spray-painter-style-cratesecure-hydroponics = Hydroponics
 spray-painter-style-cratesecure-medical = Medical
 spray-painter-style-cratesecure-plasma = Plasma
 spray-painter-style-cratesecure-private = Private
-spray-painter-style-cratesecure-science = Science
+# DeltaV: Epistemics
+spray-painter-style-cratesecure-science = Epistemics
 spray-painter-style-cratesecure-secgear = Secgear
 spray-painter-style-cratesecure-weapon = Weapon
 
 # Canisters
 spray-painter-style-canisters-air = Air
-spray-painter-style-canisters-ammonia = Ammonia
+# DeltaV: Miasma
+spray-painter-style-canisters-ammonia = Miasma
 spray-painter-style-canisters-carbon-dioxide = Carbon dioxide
 spray-painter-style-canisters-frezon = Frezon
 spray-painter-style-canisters-nitrogen = Nitrogen

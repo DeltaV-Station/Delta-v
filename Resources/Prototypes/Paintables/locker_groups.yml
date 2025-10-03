@@ -28,6 +28,8 @@
     scientist: LockerScientist
     security: LockerSecurity
     welding: LockerWeldingSupplies
+    # DeltaV: Justice
+    cj: LockerChiefJustice
 
 - type: paintableGroup
   id: Closet
@@ -70,6 +72,14 @@
     pink: ClosetWallPink
     white: ClosetWallWhite
     yellow: ClosetWallYellow
+    # Begin DeltaV changes
+    tools: WallClosetTools
+    radiation: WallClosetRadiationSuit
+    biohazard: WallClosetL3
+    biohazardjanitor: WallClosetL3Janitor
+    biohazardsecurity: WallClosetL3Security
+    biohazardvirology: WallClosetL3Virology
+    # End DeltaV changes
 
 - type: paintableGroup
   id: WallLocker
@@ -78,3 +88,17 @@
   styles:
     evac: LockerWallEvacRepair
     medical: LockerWallMedical
+    # Begin DeltaV changes
+    atmos: WallLockerAtmos
+    engi: WallLockerEngi
+    electrical: WallLockerElectrical
+    welding: WallLockerWelding
+    botany: WallLockerBotany
+    salvage: WallLockerSalvage
+    logistics: WallLockerLogistics
+    janitor: WallLockerJanitor
+    epistemics: WallLockerEpistemics
+    security: WallLockerSecurity
+    kitchen: WallLockerKitchen
+    justice: WallLockerJustice
+    # End DeltaV changes
