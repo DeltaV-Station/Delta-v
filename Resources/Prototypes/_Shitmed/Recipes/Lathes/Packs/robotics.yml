@@ -1,23 +1,27 @@
 ## Static
 
 - type: latheRecipePack
-  id: IPCLimbsStatic # DeltaV - Share Surgery Parts between Epi and Med.
+  id: IPCLimbsStatic # DeltaV - Share Surgery Parts between Epi and Med. Removed IPC Torso, Eyes, Pump and Head.
   recipes:
+  # - TorsoIPC DeltaV
   - LeftArmIPC
   - RightArmIPC
   - LeftLegIPC
   - RightLegIPC
+  # - HeadIPC DeltaV
   - LeftHandIPC
   - RightHandIPC
   - LeftFootIPC
   - RightFootIPC
 
-- type: latheRecipePack # DeltaV - Share Surgery Parts between Epi and Med.
+# Begin DeltaV additions
+- type: latheRecipePack
   parent: IPCLimbsStatic
   id: IPCPartsStatic
   recipes:
   - TorsoIPC
   - HeadIPC
+# End DeltaV additions
   - OrganIPCEyes
   - OrganIPCPump
 
@@ -40,12 +44,15 @@
   - JawsOfLifeRightArm
   - SpeedLeftLeg
   - SpeedRightLeg
+  # - BasicCyberneticEyes Deltav
   - ClothingHandsGlovesMechanicalSurgical
+  # - OrganIPCSpacePump
 
-
-- type: latheRecipePack # DeltaV - Share Surgery Parts between Epi and Med.
+  # Begin DeltaV additions
+- type: latheRecipePack # DeltaV - Share Surgery Parts between Epi and Med. Only Robotics have access to special IPC and Robotocist parts.
   parent: Cybernetics
   id: CyberneticsRobotics
   recipes:
   - BasicCyberneticEyes
-  - OrganIPCSpacePump # DeltaV
+  - OrganIPCSpacePump
+  # End DeltaV additions
