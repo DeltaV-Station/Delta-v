@@ -37,6 +37,12 @@ public sealed partial class PsychokineticScreamPowerComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier AbilitySound = new SoundPathSpecifier("/Audio/_DV/Effects/creepyshriek.ogg");
+
+    /// <summary>
+    /// The effect to spawn when the ability is used.
+    /// </summary>
+    [DataField]
+    public EntProtoId Effect = "CMEffectScreech";
 }
 
 public sealed partial class ShatterLightsActionEvent : InstantActionEvent;

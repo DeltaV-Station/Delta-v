@@ -422,6 +422,10 @@
   - type: SurgeryOrganCondition
     organ:
     - type: Heart
+  # Begin DeltaV Additions - Hides this from IPCs
+  - type: SurgeryOrganSlotCondition
+    organSlot: heart
+  # End DeltaV Additions
 
 - type: entity
   parent: SurgeryBase

@@ -33,6 +33,11 @@ public sealed partial class LightLevelHealthComponent : Component
     [DataField(required: true)]
     public DamageSpecifier LightDamage = default!;
     /// <summary>
+    /// If true, the entity will heal when dead if in the appropriate light level
+    /// </summary>
+    [DataField]
+    public bool HealWhenDead = false;
+    /// <summary>
     /// Movement speed multiplier when in darkness.
     /// </summary>
     [DataField]
