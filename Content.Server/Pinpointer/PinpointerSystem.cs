@@ -5,7 +5,6 @@ using System.Numerics;
 using Robust.Shared.Utility;
 using Content.Server.Shuttles.Events;
 using Content.Shared.IdentityManagement;
-
 namespace Content.Server.Pinpointer;
 
 public sealed class PinpointerSystem : SharedPinpointerSystem
@@ -51,7 +50,7 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
         TogglePinpointer(uid, component);
 
         if (!component.CanRetarget)
-            LocateTarget(uid, component);
+            LocateTarget(uid, component, args); //#IMP args
 
         args.Handled = true;
     }
@@ -73,7 +72,8 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
         }
     }
 
-    private void LocateTarget(EntityUid uid, PinpointerComponent component)
+    //#IMP ActivateInWorldEvent args: added this
+    private void LocateTarget(EntityUid uid, PinpointerComponent component, ActivateInWorldEvent? args = null)
     {
         // try to find target from whitelist
         if (component.IsActive && component.Component != null)
