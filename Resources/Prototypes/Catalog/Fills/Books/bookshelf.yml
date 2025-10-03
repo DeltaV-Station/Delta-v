@@ -127,3 +127,14 @@
       - id: BookInspiration
         prob: 0.1
         orGroup: BookAuthor
+      # Begin DeltaV Additions
+      - id: AncientBookDamagedCommon
+        prob: 0.07
+        orGroup: BookPool
+      - id: AncientBookDamagedUncommon
+        prob: 0.05
+        orGroup: BookPool
+      - id: AncientBookDamagedRare
+        prob: 0.03
+        orGroup: BookPool
+      # End DeltaV Additions

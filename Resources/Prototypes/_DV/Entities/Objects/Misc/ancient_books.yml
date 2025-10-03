@@ -1,0 +1,140 @@
+- type: entity
+  parent: BaseItem
+  abstract: true
+  id: AncientBookBase
+  name: Ancient Book
+  components:
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  parent: AncientBookBase
+  id: AncientBookDamagedCommon
+  name: damaged ancient book
+  description: An ancient book that has seen better times. The cover and words are illegible, but surely someone could restore it.
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _DV/Objects/Misc/books.rsi
+        state: ancientbookdamaged2
+  - type: Construction
+    graph: AncientBookCommonRestored
+    node: start
+  - type: Tag
+    tags:
+      - AncientBookDamagedCommon
+
+- type: entity
+  parent: AncientBookBase
+  id: AncientBookDamagedUncommon
+  name: damaged ancient book
+  description: An ancient book that has seen better times. The cover and words are illegible, but surely someone could restore it.
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _DV/Objects/Misc/books.rsi
+        state: ancientbookdamaged3
+  - type: Construction
+    graph: AncientBookUncommonRestored
+    node: start
+  - type: Tag
+    tags:
+      - AncientBookDamagedUncommon
+
+- type: entity
+  parent: AncientBookBase
+  id: AncientBookDamagedRare
+  name: damaged ancient book
+  description: An ancient book that has seen better times. The cover and words are illegible, but surely someone could restore it.
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _DV/Objects/Misc/books.rsi
+        state: ancientbookdamaged1
+  - type: Construction
+    graph: AncientBookRareRestored
+    node: start
+  - type: Tag
+    tags:
+      - AncientBookDamagedRare
+
+- type: entity
+  parent: AncientBookBase
+  id: AncientBookCommon
+  name: common ancient book
+  description: A very old book commonly found in archives. Read it to discover what it is.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#0f204f"
+    - state: decor_wingette_circle
+      color: "#a6adb8"
+  - type: Construction
+    graph: AncientBookCommonRestored
+    node: bookrestored
+  - type: SpawnItemsOnUse
+    items:
+      - id: ResearchDisk
+      - id: AncientBookCommon1
+        orGroup: AncientBookCommonPool
+      - id: AncientBookCommon2
+        orGroup: AncientBookCommonPool
+      - id: AncientBookCommon3
+        orGroup: AncientBookCommonPool
+
+- type: entity
+  parent: AncientBookBase
+  id: AncientBookUncommon
+  name: uncommon ancient book
+  description: A very old book generally only found in private collections. Read it to discover what it is.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#771c1c"
+    - state: decor_wingette_circle
+      color: "#a6adb8"
+  - type: Construction
+    graph: AncientBookUncommonRestored
+    node: bookrestored
+  - type: SpawnItemsOnUse
+    items:
+      - id: ResearchDisk5000
+      - id: AncientBookUncommon1
+        orGroup: AncientBookUncommonPool
+      - id: AncientBookUncommon2
+        orGroup: AncientBookUncommonPool
+      - id: AncientBookUncommon3
+        orGroup: AncientBookUncommonPool
+
+- type: entity
+  parent: AncientBookBase
+  id: AncientBookRare
+  name: rare ancient book
+  description: A very old book sought after for it's rarity and value. Read it to discover what it is.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#61104f"
+    - state: decor_wingette_circle
+      color: "#a6adb8"
+  - type: Construction
+    graph: AncientBookRareRestored
+    node: bookrestored
+  - type: SpawnItemsOnUse
+    items:
+      - id: ResearchDisk10000
+      - id: AncientBookRare1
+        orGroup: AncientBookRarePool
+      - id: AncientBookRare2
+        orGroup: AncientBookRarePool
+      - id: AncientBookRare3
+        orGroup: AncientBookRarePool
