@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: Hand labelers are now available to be printed at every techfab but security's.
-    type: Tweak
-  - message: Regular 50 units beakers are available to be printed at the service techfab.
-    type: Tweak
-  id: 1208
-  time: '2025-03-30T04:47:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3338
 - author: deltanedas
   changes:
   - message: Fixed crates and artifact containers not blocking radiation.
@@ -4176,3 +4167,11 @@
   id: 1707
   time: '2025-10-03T05:51:53.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4419
+- author: Lonestar827
+  changes:
+  - message: fixed a word in the revenant guidebook entry to properly refer to revenants
+      instead of wisps
+    type: Fix
+  id: 1708
+  time: '2025-10-03T21:42:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4482
