@@ -43,7 +43,6 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
             TryComp<ArtifactAnalyzerComponent>(analyzerEntityUid, out analyzer);
         }
 
-        var glimmerDeltas = new List<int>();
         foreach (var node in _xenoArtifact.GetAllNodes(artifact.Value))
         {
             var research = _xenoArtifact.GetResearchValue(node);
