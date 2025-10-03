@@ -1,0 +1,25 @@
+- type: constructionGraph
+  id: RadiantSword
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: embeddedsword
+          steps:
+            - tag: SilverSword
+              name: construction-graph-tag-silversword
+              icon:
+                sprite: Mobs/Ghosts/ghost_human.rsi
+                state: icon
+            - material: Bluespace
+              amount: 3
+              doAfter: 5
+    - node: embeddedsword
+      entity: EmbeddedSword
+      edges:
+        - to: radiantsword
+          steps:
+            - tool: Blessing
+              doAfter: 30
+    - node: radiantsword
+      entity: RadiantSword
