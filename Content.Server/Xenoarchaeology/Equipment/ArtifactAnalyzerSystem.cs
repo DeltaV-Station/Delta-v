@@ -5,6 +5,7 @@ using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Xenoarchaeology.Equipment;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 
 namespace Content.Server.Xenoarchaeology.Equipment;
 
@@ -16,6 +17,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
     [Dependency] private readonly ResearchSystem _research = default!;
     [Dependency] private readonly XenoArtifactSystem _xenoArtifact = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!; // DeltaV
+    [Dependency] private readonly IServerNetManager _netManager = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -34,14 +36,29 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
             return;
 
         var sumResearch = 0;
+        ArtifactAnalyzerComponent? analyzer = null;
+        if (ent.Comp.AnalyzerEntity is { } analyzerNetEntity)
+        {
+            var analyzerEntityUid = GetEntity(analyzerNetEntity); // Convert NetEntity to EntityUid
+            TryComp<ArtifactAnalyzerComponent>(analyzerEntityUid, out analyzer);
+        }
+
+        var glimmerDeltas = new List<int>();
         foreach (var node in _xenoArtifact.GetAllNodes(artifact.Value))
         {
             var research = _xenoArtifact.GetResearchValue(node);
             _xenoArtifact.SetConsumedResearchValue(node, node.Comp.ConsumedResearchValue + research);
+
+            if (analyzer != null)
+            {
+                _glimmerSystem.Glimmer += (int)(research / (float)analyzer.ExtractRatio / GetGlimmerMultiplier(analyzer));
+                research = (int)(research * GetGlimmerMultiplier(analyzer));
+            }
+
             sumResearch += research;
         }
 
-        // 4-16-25: It's a sad day when a scientist makes negative 5k research
+
         if (sumResearch <= 0)
             return;
 
@@ -49,6 +66,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         _audio.PlayPvs(ent.Comp.ExtractSound, artifact.Value);
         _popup.PopupEntity(Loc.GetString("analyzer-artifact-extract-popup"), artifact.Value, PopupType.Large);
     }
+
 
     private float GetGlimmerMultiplier(ArtifactAnalyzerComponent comp)
     {
