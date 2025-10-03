@@ -1,6 +1,7 @@
 using Content.Server.Research.Systems;
 using Content.Server.Xenoarchaeology.Artifact;
 using Content.Shared.Popups;
+using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Xenoarchaeology.Equipment;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Robust.Shared.Audio.Systems;
@@ -14,6 +15,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ResearchSystem _research = default!;
     [Dependency] private readonly XenoArtifactSystem _xenoArtifact = default!;
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!; // DeltaV
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -46,6 +48,11 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         _research.ModifyServerPoints(server.Value, sumResearch, serverComponent);
         _audio.PlayPvs(ent.Comp.ExtractSound, artifact.Value);
         _popup.PopupEntity(Loc.GetString("analyzer-artifact-extract-popup"), artifact.Value, PopupType.Large);
+    }
+
+    private float GetGlimmerMultiplier(ArtifactAnalyzerComponent comp)
+    {
+        return 1 + (MathF.Pow(_glimmerSystem.Glimmer / 1000f, 2f) * comp.PointGlimmerMultiplier);
     }
 }
 
