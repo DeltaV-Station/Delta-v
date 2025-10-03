@@ -89,6 +89,9 @@
       - !type:GenericStatusEffect
         key: ScrambledSpeech
         component: ScrambledAccent
+      - !type:GenericStatusEffect
+        key: RepeatingTelepath
+        component: TelepathicRepeater
 
 - type: reagent
   id: Ectoplasm
