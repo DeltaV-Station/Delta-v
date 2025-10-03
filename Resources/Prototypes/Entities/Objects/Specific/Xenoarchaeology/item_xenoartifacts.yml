@@ -44,6 +44,9 @@
     available:
     - enum.ArtifactsVisualLayers.UnlockingEffect:
         ano01_on: Rainbow
+  - type: Tag # DeltaV - allows for artifacts to be used in the crafting system
+    tags:
+      - Artifact
   # gameplay interactions
   - type: Item
     size: Normal
