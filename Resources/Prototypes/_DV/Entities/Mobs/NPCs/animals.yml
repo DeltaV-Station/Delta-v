@@ -91,7 +91,21 @@
     sprite: _DV/Mobs/Pets/secdog.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: secdog
+      state: base
+    - map: [ "outerClothing" ]
+    - map: ["enum.DamageStateVisualLayers.Tail"]
+      state: tail_animated
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: base
+        Tail: tail_animated
+      Critical:
+        Base: base
+        Tail: tail_static
+      Dead:
+        Base: base
+        Tail: tail_static
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -141,14 +155,6 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: secdog
-      Critical:
-        Base: secdog_crit
-      Dead:
-        Base: secdog_dead
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -178,6 +184,10 @@
   - type: Vocal
     sounds:
       Unsexed: MobDog
+  - type: LayingDown
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
 
 - type: entity
   parent: MobMouse
