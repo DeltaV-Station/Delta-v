@@ -9,9 +9,11 @@
   categories:
   - UplinkWearables
 # begin Harmony change - yeah let's not give this to syndies
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+  # Begin DeltaV additions - we ARE giving this to syndies
+  #conditions:
+  #- !type:StoreWhitelistCondition
+  #  whitelist:
+  #    tags:
+  #    - NukeOpsUplink
+  # End DeltaV additions - we ARE giving this to syndies
 # end Harmony change
