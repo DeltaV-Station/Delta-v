@@ -25,6 +25,17 @@
     available:
     - enum.ArtifactsVisualLayers.UnlockingEffect:
         ano01_on: Rainbow
+  # Begin DeltaV Additions
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.5
+    sprintModifier: 0.5
+  - type: Tag # DeltaV - allows for artifacts to be used in the crafting system
+    tags:
+      - Artifact
+  # End DeltaV Additions
   - type: Transform
     noRot: true
   - type: Fixtures
