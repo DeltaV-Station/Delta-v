@@ -104,7 +104,7 @@ public enum RevenantVisuals : byte
 }
 
 [NetSerializable, Serializable]
-public enum RevenantVisualLayers : byte
+public enum RevenantVisualLayers : byte // DeltaV - kept for impstation rev compatibility
 {
     Digit1,
     Digit2,
