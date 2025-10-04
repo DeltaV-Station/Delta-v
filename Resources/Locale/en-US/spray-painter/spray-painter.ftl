@@ -116,7 +116,8 @@ spray-painter-style-locker-mime = Mime
 spray-painter-style-locker-paramedic = Paramedic
 # DeltaV: Logistics
 spray-painter-style-locker-quartermaster = Logistics Officer
-spray-painter-style-locker-rd = RD
+# DeltaV: Epistemics
+spray-painter-style-locker-rd = Mystagogue
 spray-painter-style-locker-representative = Representative
 spray-painter-style-locker-salvage = Salvage
 spray-painter-style-locker-scientist = Scientist
