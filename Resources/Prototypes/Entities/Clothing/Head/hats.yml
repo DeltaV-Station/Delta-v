@@ -2,7 +2,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeaverHat
   name: beaver hat
-  description: 'Gentlemen?'
+  description: "\"Gentlemen?\""
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beaver_hat.rsi
@@ -13,7 +13,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeret
   name: beret
-  description: A beret, an artists favorite headwear.
+  description: An artist's favorite headwear.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret.rsi
@@ -30,7 +30,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretFrench
   name: french beret
-  description: A French beret, "vive la France".
+  description: A French beret. "Vive la France!"
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_french.rsi
@@ -48,7 +48,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretSecurity
   name: security beret
-  description: A stylish clothing option for security officers.
+  description: A beret with the security department's insignia. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Hats/beret_security.rsi # DeltaV - resprite
@@ -59,6 +59,21 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSecurityTrooper
+  name: trooper hat
+  description: A campaign hat for the Nanotrasen Troopers. It's supposed to come with a case, too...
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/security_trooper_hat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/security_trooper_hat.rsi
+  - type: Tag
+    tags:
+    - ClothMade
     - WhitelistChameleon
 
 - type: entity
@@ -93,7 +108,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretEngineering
   name: engineering beret
-  description: A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety.
+  description: A beret with the engineering department's insignia. For engineers that are more inclined towards style than safety.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_engineering.rsi
@@ -177,7 +192,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretBrigmedic
   name: brigmedical beret
-  description: White beret, looks like a cream pie on the head.
+  description: A white beret for brigmedics.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_brigmedic.rsi
@@ -188,7 +203,7 @@
   parent: [ ClothingHeadBase ]
   id: ClothingHeadHatBeretMerc
   name: mercenary beret
-  description: Olive beret, the badge depicts a jackal on a rock.
+  description: An olive beret with a badge depicting a jackal on a rock.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_merc.rsi
@@ -199,7 +214,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretCommand
   name: command beret
-  description: A beret with a Command insignia emblazoned on it. It has an aura of authority.
+  description: A beret with the Nanotrasen logo. It has an aura of authority.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_command.rsi
@@ -215,7 +230,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBowlerHat
   name: bowler hat
-  description: Stylish bowler hat.
+  description: A stylish bowler hat.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/bowler_hat.rsi
@@ -226,7 +241,7 @@
   parent: [ClothingHeadBase, BaseCommandContraband]
   id: ClothingHeadHatCaptain
   name: captain's hardhat
-  description: It's good being the king.
+  description: Feels good being the king.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/captain.rsi
@@ -258,7 +273,7 @@
   parent: [ ClothingHeadBase, BaseCentcommContraband ]
   id: ClothingHeadHatCentcom
   name: CentComm brand hat
-  description: "It's good to be the emperor."
+  description: Feels good being the king's boss.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/centcom.rsi
@@ -269,7 +284,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatChef
   name: chef's hat
-  description: "It's a hat used by chefs to keep hair out of your food. Judging by the food in the mess, they don't work."
+  description: A hat used by chefs to keep their hair out of your food. Judging by the food in the mess, they don't work.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/chefhat.rsi
@@ -300,7 +315,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatFedoraBrown
   name: brown fedora
-  description: It's a brown fedora.
+  description: A brown fedora.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/brownfedora.rsi
@@ -317,7 +332,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatFedoraGrey
   name: grey fedora
-  description: It's a grey fedora.
+  description: A grey fedora.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/greyfedora.rsi
@@ -339,7 +354,7 @@
   parent: [ClothingHeadBase, BaseCommandContraband]
   id: ClothingHeadHatHopcap
   name: head of personnel's cap
-  description: A grand, stylish head of personnel's cap.
+  description: A stylish cap worn by the Head of Personnel. Shows paperwork who's in charge.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Hats/hopcap.rsi # DeltaV - resprite
@@ -355,8 +370,8 @@
 - type: entity
   parent: [ClothingHeadBase, BaseCommandContraband]
   id: ClothingHeadHatHoshat
-  name: head of security's hat
-  description: "There's a new sheriff in station."
+  name: head of security cap
+  description: A stylish cap worn by the Head of Security. Shows the officers who's in charge.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Hats/hoshat.rsi # DeltaV - resprite
@@ -417,7 +432,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatPirate
   name: pirate hat
-  description: 'Yo ho ho and a bottle of rum!'
+  description: "\"Yo ho ho and a bottle of rum!\""
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pirate.rsi
@@ -449,7 +464,7 @@
   parent: ClothingHeadHatWizardBase
   id: ClothingHeadHatRedwizard
   name: red wizard hat
-  description: Strange-looking red hat-wear that most certainly belongs to a real magic user.
+  description: A strange-looking red hat that most certainly belongs to a powerful magic-user.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/redwizard.rsi
@@ -491,7 +506,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatSombrero
   name: sombrero
-  description: "Perfectly for Space Mexico, si?"
+  description: "\"Perfect for Space Mexico, si?\""
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/sombrero.rsi
@@ -576,7 +591,7 @@
   parent: [ClothingHeadBase, BaseFoldable]
   id: ClothingHeadHatUshanka
   name: ushanka
-  description: "Perfect for winter in Siberia, da?"
+  description: "\"Perfect for winter in Siberia, da?\""
   components:
   - type: Clothing
     sprite: Clothing/Head/Hats/ushanka.rsi
@@ -639,7 +654,7 @@
   parent: ClothingHeadHatWizardBase
   id: ClothingHeadHatVioletwizard
   name: violet wizard hat
-  description: "Strange-looking violet hat-wear that most certainly belongs to a real magic user."
+  description: A strange-looking violet hat that most certainly belongs to a powerful magic-user.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/violetwizard.rsi
@@ -683,7 +698,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatWizardFake
   name: fake wizard hat
-  description: It has WIZZARD written across it in sequins. Comes with a cool beard.
+  description: It has "WIZZARD" written across it in garish sequins. Comes with a cool beard.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/wizard_fake.rsi
@@ -712,7 +727,7 @@
   parent: ClothingHeadHatWizardBase
   id: ClothingHeadHatWizard
   name: wizard hat
-  description: Strange-looking blue hat-wear that most certainly belongs to a powerful magic user.
+  description: A strange-looking blue hat that most certainly belongs to a powerful magic-user.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/wizardhat.rsi
@@ -729,7 +744,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatXmasCrown
   name: xmas crown
-  description: 'Happy Christmas!'
+  description: "\"Happy Christmas!\""
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/xmascrown.rsi
@@ -740,7 +755,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatTrucker
   name: trucker hat
-  description: Formerly Chucks, this hat is yours now.
+  description: Formerly Chuck's, this hat is yours now.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/truckershat.rsi
@@ -799,7 +814,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadPaperSack
   name: papersack hat
-  description: A paper sack with crude holes cut out for eyes. Useful for hiding one's identity or ugliness.
+  description: A paper sack with crude holes cut out for eyes. Useful for hiding one's identity and/or ugliness.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/papersack.rsi
@@ -833,7 +848,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadFishCap
   name: fishing cap
-  description: Women fear me. Fish fear me. Men turn their eyes away from me. As I walk no beast dares make a sound in my presence. I am alone on this barren Earth.
+  description: "\"Women fear me. Fish fear me. Men turn their eyes away from me. As I walk no beast dares make a sound in my presence. I am alone on this barren Earth.\""
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/fishcap.rsi
@@ -844,7 +859,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadWehcellentCap
   name: wehcellent cap
-  description: It was a net hat! Tiders wear them all the time! It's got airholes in the back to keep a cross-breeze going and everything!
+  description: "\"It was a net hat! Tiders wear them all the time! It's got airholes in the back to keep a cross-breeze going and everything!\""
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/wehcellentcap.rsi
@@ -899,7 +914,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatJester
   name: jester hat
-  description: A hat with bells, to add some merriness to the suit.
+  description: A hat with bells, to add some merriness to your head.
   components:
     - type: Sprite
       sprite: Clothing/Head/Hats/jester.rsi
@@ -924,7 +939,7 @@
   parent: [ClothingHeadBase, BaseCommandContraband]
   id: ClothingHeadHatBeretCmo
   name: chief medical officer's beret
-  description: Turquoise beret with a cross on the front. The sight of it calms you down and makes it clear that you will be cured.
+  description: A turquoise beret with a cross on the front. The sight of it calms you down and makes it clear that you will be cured.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_cmo.rsi
@@ -941,7 +956,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatPirateTricord
   name: pirate hat
-  description: 'Yo ho ho and a bottle of rum!'
+  description: "\"Yo ho ho and a bottle of rum!\""
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/piratetricord.rsi
@@ -1004,7 +1019,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatTacticalMaidHeadband
   name: tactical maid headband
-  description: "A red headband - don't imagine yourself a Rambo and don't pick up a few machine guns."
+  description: A red headband - don't imagine yourself a Rambo and don't pick up a few machine guns.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/tacticalmaidheadband.rsi
@@ -1026,7 +1041,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatMagician
   name: magician's tophat
-  description: "A magician's tophat."
+  description: A magician's top hat.
   components:
   - type: Icon
     sprite: Clothing/Head/Hats/magician.rsi
@@ -1060,7 +1075,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatCapcap
   name: cap cap
-  description: A grand, stylish captain cap.
+  description: A grand, stylish cap worn by the Captain. Shows the station who's in charge.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/capcap.rsi
@@ -1083,7 +1098,7 @@
   parent: [ ClothingHeadBase, BaseCentcommContraband ]
   id: ClothingHeadHatCentcomcap
   name: CentComm cap
-  description: An extravagant, fancy Central Commander cap.
+  description: An extravagant, stylish cap worn by CentComm officials. Shows the Captain who's in charge.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/comcap.rsi
@@ -1188,7 +1203,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBrownFlatcap
   name: brown flatcap
-  description: Stupid clown! You made me look bad!
+  description: "\"Stupid clown! You made me look bad!\""
   components:
   - type: Tag
     tags:
@@ -1202,7 +1217,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatCowboyBrown
   name: brown cowboy hat
-  description: This hat ain't big enough for the both of us.
+  description: "\"This hat ain't big enough for the two of us.\""
   components:
     - type: Sprite
       sprite: Clothing/Head/Hats/cowboyhatbrown.rsi
@@ -1310,7 +1325,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretMedic
   name: medical beret
-  description: White beret that encourages you to be clean.
+  description: A sterile white beret.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_medic.rsi
@@ -1321,9 +1336,59 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatSolidHeadband
   name: solid headband
-  description: "You'll feel like you're Invisible while wearing this! (DISCLAIMER: DOES NOT ACTUALLY MAKE THE WEARER INVISIBLE)"
+  description: "\"You'll feel like you're Invisible while wearing this! (DISCLAIMER: DOES NOT ACTUALLY MAKE THE WEARER INVISIBLE)\""
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/solidheadband.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/solidheadband.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadPropellerHat
+  name: propeller hat
+  description: You're the bestest boy.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/propellerhat.rsi
+    layers:
+    - state: icon
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: Clothing
+    equippedPrefix: off
+    sprite: Clothing/Head/Hats/propellerhat.rsi
+  - type: ToggleableVisuals
+    spriteLayer: enum.ToggleableVisuals.Layer
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: {state: icon-on}
+          False: {state: icon}
+  - type: ItemToggle
+    predictable: true
+    soundActivate:
+      path: /Audio/Items/flashlight_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/flashlight_off.ogg
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretHop
+  name: head of personnel's beret
+  description: A dark blue beret with a ruby inserted in the center, for true connoisseurs of bureaucracy!
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_hop.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_hop.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon

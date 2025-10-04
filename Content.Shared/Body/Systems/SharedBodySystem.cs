@@ -1,10 +1,12 @@
 using Content.Shared.Body.Part; // Shitmed Change
 using Content.Shared.Damage;
+using Content.Shared.Humanoid;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+
 
 namespace Content.Shared.Body.Systems;
 
@@ -29,13 +31,14 @@ public abstract partial class SharedBodySystem : EntitySystem
     /// </summary>
     public const string OrganSlotContainerIdPrefix = "body_organ_slot_";
 
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] protected readonly IGameTiming _timing = default!; // Shitmed Change. Was private, now protected
     [Dependency] protected readonly IPrototypeManager Prototypes = default!;
     [Dependency] protected readonly DamageableSystem Damageable = default!;
     [Dependency] protected readonly MovementSpeedModifierSystem Movement = default!;
     [Dependency] protected readonly SharedContainerSystem Containers = default!;
     [Dependency] protected readonly SharedTransformSystem SharedTransform = default!;
     [Dependency] protected readonly StandingStateSystem Standing = default!;
+    [Dependency] protected readonly SharedHumanoidAppearanceSystem HumanoidAppearance = default!; // DeltaV
 
     public override void Initialize()
     {
