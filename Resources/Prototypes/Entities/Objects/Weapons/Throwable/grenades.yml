@@ -372,7 +372,7 @@
     sprite: Objects/Weapons/Grenades/empgrenade.rsi
   - type: EmpOnTrigger
     range: 5.5
-    energyConsumption: 50000
+    energyConsumption: 100000 # Delta V, Was 50000
   - type: DeleteOnTrigger
   - type: Appearance
   - type: TimerTriggerVisuals
