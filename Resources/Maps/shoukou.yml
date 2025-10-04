@@ -4,7 +4,7 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/04/2025 16:47:04
+  time: 10/04/2025 20:02:20
   entityCount: 16259
 maps:
 - 1
@@ -6916,18 +6916,9 @@ entities:
       parent: 2
   - uid: 320
     components:
-    - type: MetaData
-      name: Brig Cell 2
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 18.5,-7.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -267327.5
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 321
     components:
     - type: MetaData
@@ -9743,19 +9734,15 @@ entities:
           - Open
         - - Start
           - Close
+        320:
+        - - Timer
+          - Open
   - uid: 682
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 18.5,-8.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        320:
-        - - Timer
-          - Open
-        - - Start
-          - Close
   - uid: 683
     components:
     - type: Transform
@@ -37810,12 +37797,8 @@ entities:
   - uid: 5408
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 31.5,-36.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -101518.96
-      state: Closing
   - uid: 5409
     components:
     - type: Transform
