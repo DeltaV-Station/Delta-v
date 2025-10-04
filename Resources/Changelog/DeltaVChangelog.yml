@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: SirrRequiem
-  changes:
-  - message: Changed pill buffer to pull chemicals from beaker instead of chemmaster
-      to inject into pills
-    type: Tweak
-  id: 1211
-  time: '2025-03-31T13:58:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3329
 - author: deltanedas
   changes:
   - message: Removed the chemmaster flatpack from CMO's locker as pills can be made
@@ -4175,3 +4167,12 @@
   id: 1710
   time: '2025-10-04T05:21:29.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4434
+- author: BarryNorfolk
+  changes:
+  - message: Added new Armours for k9 units, covering combat and riot hardsuits.
+    type: Add
+  - message: Secdogs (not Vulps) can now wear/use Jetpacks in space.
+    type: Add
+  id: 1711
+  time: '2025-10-04T20:57:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4172
