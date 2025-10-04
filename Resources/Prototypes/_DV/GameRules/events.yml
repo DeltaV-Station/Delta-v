@@ -15,6 +15,7 @@
     - id: RoboNeuroticist
     - id: MenaceSkeleton
     - id: SkiaSpawn
+    - id: RatKingSpawn
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -160,13 +161,21 @@
     earliestStart: 25
   - type: MidRoundAntagRule
 
-#- type: entity
-#  parent: BaseMidRoundAntag
-#  id: RatKingSpawn
-#  components:
-#  if you uncomment this update this for antag refactor, below wont work
-#  - type: MidRoundAntagRule
-#    spawner: SpawnPointGhostRatKing
+- type: entity
+  parent: BaseMidRoundAntag
+  id: RatKingSpawn
+  components:
+  - type: StationEvent
+    weight: 7
+    minimumPlayers: 20
+  - type: AntagSpawner
+    prototype: MobRatKing
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostRatKing
+      min: 1
+      Max: 1
+      pickPlayer: false
 
 - type: entity
   parent: BaseMidRoundAntag
