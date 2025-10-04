@@ -99,17 +99,16 @@
     Medicine:
       metabolismRate: 0.35
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         conditions:
         - !type:Temperature
           max: 213.0
         - !type:MultiMobStateCondition
           states: [ Alive, Critical ]
         damage:
-          groups:
-            Brute: -4
-            Burn: -6
-            Toxin: -4
+          Brute: -1.5
+          Burn: -1.5
+          Toxin: -2
       - !type:EvenHealthChange
         conditions:
         - !type:Temperature
