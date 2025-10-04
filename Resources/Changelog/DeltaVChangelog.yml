@@ -1,87 +1,4 @@
 ﻿Entries:
-- author: Lyndomen
-  changes:
-  - message: Heights have been normalized a bit; default species now have a range
-      of +/- 10%
-    type: Tweak
-  - message: Felinid, Rodentia, Harpy can only go -5%/+10% height
-    type: Tweak
-  - message: Oni, Thaven can only go +5%/-10% height
-    type: Tweak
-  id: 1201
-  time: '2025-03-26T20:36:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3321
-- author: deltanedas
-  changes:
-  - message: Fixed vulpkanins getting [bold]cooked alive[/bold] in hardsuits.
-    type: Fix
-  id: 1202
-  time: '2025-03-26T20:56:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3324
-- author: deltanedas
-  changes:
-  - message: Fixed telegnostic projections not being able to return to body.
-    type: Fix
-  id: 1203
-  time: '2025-03-26T22:02:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3325
-- author: sowelipililimute
-  changes:
-  - message: Artifact extraction glimmer increase has been halved
-    type: Tweak
-  id: 1204
-  time: '2025-03-27T18:45:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3319
-- author: HTMLSystem
-  changes:
-  - message: Added a roboneuroticist jumpskirt to the syndiedrobe! Borg everyone in
-      a nice skirt now!
-    type: Add
-  - message: Resprited the syndie exosuit fabricator!
-    type: Tweak
-  - message: Fixed the inhand sprites for the roboneuroticist helmet!
-    type: Fix
-  id: 1205
-  time: '2025-03-27T19:50:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3296
-- author: Eternally-Confused
-  changes:
-  - message: Justice and prison radios can now be affected by solar flares
-    type: Fix
-  id: 1206
-  time: '2025-03-29T01:00:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3333
-- author: Stop-Signs
-  changes:
-  - message: New superweapon! The Gamblagator is a powerful laser sniper rifle that
-      uses special fuses as ammo.
-    type: Add
-  id: 1207
-  time: '2025-03-29T16:46:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3326
-- author: Radezolid
-  changes:
-  - message: Hand labelers are now available to be printed at every techfab but security's.
-    type: Tweak
-  - message: Regular 50 units beakers are available to be printed at the service techfab.
-    type: Tweak
-  id: 1208
-  time: '2025-03-30T04:47:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3338
-- author: deltanedas
-  changes:
-  - message: Fixed crates and artifact containers not blocking radiation.
-    type: Fix
-  id: 1209
-  time: '2025-03-30T19:22:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3344
-- author: deltanedas
-  changes:
-  - message: Made playing wizard require a whitelist.
-    type: Tweak
-  id: 1210
-  time: '2025-03-31T01:14:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3348
 - author: SirrRequiem
   changes:
   - message: Changed pill buffer to pull chemicals from beaker instead of chemmaster
@@ -4176,3 +4093,85 @@
   id: 1700
   time: '2025-10-03T04:52:41.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4307
+- author: Eternally-Confused
+  changes:
+  - message: The nicotine reagent is now obtainable through grinding cigarettes.
+    type: Tweak
+  id: 1701
+  time: '2025-10-03T05:11:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3931
+- author: kotobdev
+  changes:
+  - message: Kobolds now have the same crit/death thresholds as monkies and humans
+    type: Tweak
+  id: 1702
+  time: '2025-10-03T05:14:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4336
+- author: SirWarock
+  changes:
+  - message: Fixed Advanced Operating Tables being disassembled into medical beds
+      instead of machines!
+    type: Fix
+  id: 1703
+  time: '2025-10-03T05:16:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4415
+- author: SirWarock
+  changes:
+  - message: Added Health Scanners to Surgery Cyborg Modules!
+    type: Add
+  id: 1704
+  time: '2025-10-03T05:34:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4319
+- author: AeraAuling
+  changes:
+  - message: Added Artifact Display Cases. Go open a museum.
+    type: Add
+  - message: Added Ancient Books. Collect them all?
+    type: Add
+  - message: Renamed Librarian to Archivist
+    type: Tweak
+  id: 1705
+  time: '2025-10-03T05:41:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4274
+- author: SirWarock
+  changes:
+  - message: Shared IPC limbs, Cybernetics and Surgical Gloves to the Medical Techfab!
+    type: Tweak
+  - message: Shared advanced Surgical tools to the exosuit fabricator!
+    type: Tweak
+  id: 1706
+  time: '2025-10-03T05:42:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4312
+- author: SirWarock
+  changes:
+  - message: Increased Oni's prying speed to 50% to match their species guidebook
+      page.
+    type: Tweak
+  - message: Fixed Truncheons and similar weapons dealing only half their stamina
+      damage on armored targets!
+    type: Fix
+  id: 1707
+  time: '2025-10-03T05:51:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4419
+- author: Lonestar827
+  changes:
+  - message: fixed a word in the revenant guidebook entry to properly refer to revenants
+      instead of wisps
+    type: Fix
+  id: 1708
+  time: '2025-10-03T21:42:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4482
+- author: AeraAuling
+  changes:
+  - message: Archivists now have the right headset
+    type: Fix
+  id: 1709
+  time: '2025-10-03T21:51:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4477
+- author: kotobdev
+  changes:
+  - message: Colossuses will now only spawn 45 minutes into the round.
+    type: Tweak
+  id: 1710
+  time: '2025-10-04T05:21:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4434
