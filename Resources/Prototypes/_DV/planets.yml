@@ -75,3 +75,18 @@
   - OreBluespace
   - OreArtifactFragment
   - GlacierGibtonite
+
+- type: planet
+  id: AkashicFold
+  biome: Fold
+  mapName: map-name-akashic-fold
+  mapLight: "#583d7a" # purple
+  addedComponents:
+  - type: Parallax
+    parallax: CosmicFinaleParallax
+  atmosphere: # glacier but warm
+    volume: 2500
+    temperature: 310
+    moles: # 119kPa, 21% O2
+    - 42
+    - 158

@@ -34,7 +34,7 @@ public sealed class ParallaxOverlay : Overlay
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        if (args.MapId == MapId.Nullspace || _entManager.HasComponent<BiomeComponent>(_mapSystem.GetMapOrInvalid(args.MapId)))
+        if (args.MapId == MapId.Nullspace) // DeltaV - re-enable biome parallax
             return false;
 
         return true;
