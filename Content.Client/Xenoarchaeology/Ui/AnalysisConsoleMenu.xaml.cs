@@ -1,3 +1,4 @@
+using System.Numerics;
 using System.Text;
 using Content.Client.Message;
 using Content.Client.Resources;
@@ -21,7 +22,7 @@ namespace Content.Client.Xenoarchaeology.Ui;
 [GenerateTypedNameReferences]
 public sealed partial class AnalysisConsoleMenu : FancyWindow
 {
-    private static readonly TimeSpan ExtractInfoDisplayForDuration = TimeSpan.FromSeconds(3);
+    private static readonly TimeSpan ExtractInfoDisplayForDuration = TimeSpan.FromSeconds(5);
 
     [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly IResourceCache _resCache = default!;
@@ -37,6 +38,10 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
     private TimeSpan? _hideExtractInfoIn;
     private int _extractionSum;
+    private int _glimmerSum;
+    private float _multValue;
+    private float _ratioValue;
+    private bool _pressed;
 
     public event Action? OnServerSelectionButtonPressed;
     public event Action? OnExtractButtonPressed;
@@ -65,7 +70,11 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
             OnServerSelectionButtonPressed?.Invoke();
         };
 
-        ExtractButton.OnPressed += StartExtract;
+        ExtractButton.OnPressed += _ =>
+        {
+            _pressed = true;
+            OnExtractButtonPressed?.Invoke();
+        };
     }
 
     /// <summary>
@@ -84,7 +93,19 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         Update(_owner);
     }
 
-    private void StartExtract(BaseButton.ButtonEventArgs obj)
+    public void UpdateState(float mult, float ratio)
+    {
+        _multValue = mult;
+        _ratioValue = ratio;
+        if (_pressed)
+        {
+            _pressed = false;
+            StartExtract();
+            return;
+        }
+    }
+
+    private void StartExtract()
     {
         if (!_artifactAnalyzer.TryGetArtifactFromConsole(_owner, out var artifact))
             return;
@@ -93,6 +114,7 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         NodeViewContainer.Visible = false;
 
         _extractionSum = 0;
+        _glimmerSum = 0;
         var extractionMessage = new FormattedMessage();
 
         var nodes = _xenoArtifact.GetAllNodes(artifact.Value);
@@ -100,16 +122,21 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         var count = 0;
         foreach (var node in nodes)
         {
-            var pointValue = _xenoArtifact.GetResearchValue(node);
+            var pointValue = _xenoArtifact.GetResearchValue(node) * _multValue;
+            var glimmerValue = (pointValue / _ratioValue / _multValue);
             if (pointValue <= 0)
                 continue;
 
             count++;
 
             var nodeId = _xenoArtifact.GetNodeId(node);
-
-            var text = Loc.GetString("analysis-console-extract-value", ("id", nodeId), ("value", pointValue));
+            _extractionSum += (int)pointValue;
+            _glimmerSum += (int)(glimmerValue);
+            var text = Loc.GetString("analysis-console-extract-value", ("id", nodeId), ("value", (int)(pointValue)));
+            var text2 = Loc.GetString("analysis-console-glimmer-value", ("id", nodeId), ("value", (int)(glimmerValue)));
             extractionMessage.AddMarkupOrThrow(text);
+            extractionMessage.PushNewline();
+            extractionMessage.AddMarkupOrThrow(text2);
             extractionMessage.PushNewline();
         }
 
@@ -121,9 +148,11 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         ExtractionResearchLabel.SetMessage(extractionMessage);
 
         ExtractionSumLabel.SetMarkup(Loc.GetString("analysis-console-extract-sum", ("value", _extractionSum)));
+        GlimmerSumLabel.SetMarkup(Loc.GetString("analysis-console-glimmer-sum", ("value", _glimmerSum)));
+        MultLabel.SetMarkup(Loc.GetString("analysis-console-glimmer-mult", ("value", _multValue.ToString("F2"))));
 
         _audio.PlayGlobal(_owner.Comp.ScanFinishedSound, _owner, AudioParams.Default.WithVolume(1f));
-        OnExtractButtonPressed?.Invoke();
+
     }
 
     protected override void FrameUpdate(FrameEventArgs args)

@@ -1,7 +1,8 @@
 using Content.Shared.Research.Components;
+using Content.Shared.Xenoarchaeology.BUI;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
-using Robust.Client.UserInterface;
 using JetBrains.Annotations;
+using Robust.Client.UserInterface;
 
 namespace Content.Client.Xenoarchaeology.Ui;
 
@@ -54,5 +55,14 @@ public sealed class AnalysisConsoleBoundUserInterface(EntityUid owner, Enum uiKe
 
         _consoleMenu?.Dispose();
     }
+
+    protected override void UpdateState(BoundUserInterfaceState state)
+    {
+        if (state is not AnalysisConsoleBoundUserInterfaceState consoleState)
+            return;
+
+        _consoleMenu?.UpdateState(consoleState.Mult, consoleState.Ratio);
+    }
+
 }
 

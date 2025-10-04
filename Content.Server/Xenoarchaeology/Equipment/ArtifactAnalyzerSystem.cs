@@ -1,11 +1,15 @@
+using System;
 using Content.Server.Research.Systems;
 using Content.Server.Xenoarchaeology.Artifact;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Xenoarchaeology.BUI;
 using Content.Shared.Xenoarchaeology.Equipment;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
+using JetBrains.FormatRipper.Elf;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
+
 
 namespace Content.Server.Xenoarchaeology.Equipment;
 
@@ -17,7 +21,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
     [Dependency] private readonly ResearchSystem _research = default!;
     [Dependency] private readonly XenoArtifactSystem _xenoArtifact = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!; // DeltaV
-    [Dependency] private readonly IServerNetManager _netManager = default!;
+
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -36,6 +40,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
             return;
 
         var sumResearch = 0;
+        var sumGlimmer = 0;
         ArtifactAnalyzerComponent? analyzer = null;
         if (ent.Comp.AnalyzerEntity is { } analyzerNetEntity)
         {
@@ -50,20 +55,33 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
 
             if (analyzer != null)
             {
-                _glimmerSystem.Glimmer += (int)(research / (float)analyzer.ExtractRatio / GetGlimmerMultiplier(analyzer));
+                sumGlimmer += (int)(research / (float)analyzer.ExtractRatio / GetGlimmerMultiplier(analyzer));
                 research = (int)(research * GetGlimmerMultiplier(analyzer));
             }
 
             sumResearch += research;
+        }
+        if (analyzer != null)
+        {
+            UpdateClientUI(ent, analyzer);
         }
 
 
         if (sumResearch <= 0)
             return;
 
+        _glimmerSystem.Glimmer += sumGlimmer; // DeltaV - Add glimmer based on extracted points.    
         _research.ModifyServerPoints(server.Value, sumResearch, serverComponent);
         _audio.PlayPvs(ent.Comp.ExtractSound, artifact.Value);
         _popup.PopupEntity(Loc.GetString("analyzer-artifact-extract-popup"), artifact.Value, PopupType.Large);
+    }
+
+    private void UpdateClientUI(EntityUid console, ArtifactAnalyzerComponent analyzer)
+    {
+        var glimmer = _glimmerSystem.Glimmer;
+        var uiSystem = EntityManager.System<UserInterfaceSystem>();
+        uiSystem.SetUiState(console, ArtifactAnalyzerUiKey.Key,
+            new AnalysisConsoleBoundUserInterfaceState(GetGlimmerMultiplier(analyzer), (float)analyzer.ExtractRatio));
     }
 
 
