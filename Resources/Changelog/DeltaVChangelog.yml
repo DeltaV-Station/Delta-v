@@ -1,34 +1,4 @@
 ﻿Entries:
-- author: SirrRequiem
-  changes:
-  - message: Changed pill buffer to pull chemicals from beaker instead of chemmaster
-      to inject into pills
-    type: Tweak
-  id: 1211
-  time: '2025-03-31T13:58:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3329
-- author: deltanedas
-  changes:
-  - message: Removed the chemmaster flatpack from CMO's locker as pills can be made
-      from the beaker slot.
-    type: Remove
-  id: 1212
-  time: '2025-03-31T14:01:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3351
-- author: Stop-Signs
-  changes:
-  - message: Gamblagator now has more shots per capacitor.
-    type: Tweak
-  id: 1213
-  time: '2025-04-01T01:00:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3341
-- author: SolStar
-  changes:
-  - message: Paramedics now get Jaws of Life in order to get into places in an emergency
-    type: Tweak
-  id: 1214
-  time: '2025-04-01T01:04:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3219
 - author: Radezolid
   changes:
   - message: All paramedic lockers properly starts with the paramedic tools inside.
@@ -4175,3 +4145,36 @@
   id: 1710
   time: '2025-10-04T05:21:29.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4434
+- author: BarryNorfolk
+  changes:
+  - message: Added new Armours for k9 units, covering combat and riot hardsuits.
+    type: Add
+  - message: Secdogs (not Vulps) can now wear/use Jetpacks in space.
+    type: Add
+  id: 1711
+  time: '2025-10-04T20:57:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4172
+- author: kotobdev
+  changes:
+  - message: Reptilians are no longer bald! Unless they want to be.
+    type: Tweak
+  id: 1712
+  time: '2025-10-04T22:26:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4028
+- author: kotobdev
+  changes:
+  - message: The Cybersun Stealth Hardsuit has made its way into the hands of nuclear
+      operatives, available from the uplink for 15TC! They all become invisible...
+    type: Add
+  id: 1713
+  time: '2025-10-04T22:51:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4341
+- author: Halo3moth
+  changes:
+  - message: Beam Dev battery size to 250 from 500
+    type: Tweak
+  - message: Emp grenades now drain twice as much power
+    type: Tweak
+  id: 1714
+  time: '2025-10-04T22:52:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4358
