@@ -46,6 +46,7 @@
         amount: 2
         doAfter: 1
 
+<<<<<<< HEAD
     - to: passivegateAlt1
       steps:
       - material: Steel
@@ -53,6 +54,9 @@
         doAfter: 1
 
     - to: passivegateAlt2
+=======
+    - to: pressureregulator
+>>>>>>> f874459092 (Pressure Relief Valve (#36708))
       steps:
       - material: Steel
         amount: 2
@@ -248,6 +252,7 @@
       - tool: Welding
         doAfter: 1
 
+<<<<<<< HEAD
   - node: passivegateAlt1
     entity: GasPassiveGateAlt1
     edges:
@@ -266,6 +271,10 @@
 
   - node: passivegateAlt2
     entity: GasPassiveGateAlt2
+=======
+  - node: pressureregulator
+    entity: GasPressureRegulator
+>>>>>>> f874459092 (Pressure Relief Valve (#36708))
     edges:
     - to: start
       conditions:

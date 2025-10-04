@@ -269,8 +269,13 @@
   graph: GasPipeSensor
   startNode: start
   targetNode: sensor
+<<<<<<< HEAD
   category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: SnapgridCenter
+=======
+  category: construction-category-structures
   placementMode: AlignAtmosPipeLayers
+>>>>>>> fb69a0ae2c (More atmos devices can be placed on layers easier. (#38672))
   objectType: Structure
   canRotate: true
   alternativePrototypes:
@@ -284,7 +289,7 @@
   graph: GasPipeSensor
   startNode: start
   targetNode: sensorAlt1
-  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  category: construction-category-structures
   placementMode: AlignAtmosPipeLayers
   objectType: Structure
   canRotate: true
@@ -299,7 +304,7 @@
   graph: GasPipeSensor
   startNode: start
   targetNode: sensorAlt2
-  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  category: construction-category-structures
   placementMode: AlignAtmosPipeLayers
   objectType: Structure
   canRotate: true
@@ -537,7 +542,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+  - !type:NoUnstackableInTile
 
 - type: construction
   id: GasPassiveVent
@@ -548,7 +553,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+  - !type:NoUnstackableInTile
 
 - type: construction
   id: GasVentScrubber
@@ -559,7 +564,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+  - !type:NoUnstackableInTile
 
 - type: construction
   id: GasOutletInjector
@@ -570,7 +575,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+  - !type:NoUnstackableInTile
 
 # ATMOS BINARY
 - type: construction
@@ -578,8 +583,13 @@
   graph: GasBinary
   startNode: start
   targetNode: pressurepump
+<<<<<<< HEAD
   category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: SnapgridCenter
+=======
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
+>>>>>>> fb69a0ae2c (More atmos devices can be placed on layers easier. (#38672))
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
@@ -594,7 +604,7 @@
   graph: GasBinary
   startNode: start
   targetNode: pressurepumpAlt1
-  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
@@ -610,7 +620,7 @@
   graph: GasBinary
   startNode: start
   targetNode: pressurepumpAlt2
-  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
@@ -625,8 +635,13 @@
   graph: GasBinary
   startNode: start
   targetNode: volumepump
+<<<<<<< HEAD
   category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: SnapgridCenter
+=======
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
+>>>>>>> fb69a0ae2c (More atmos devices can be placed on layers easier. (#38672))
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
@@ -641,7 +656,7 @@
   graph: GasBinary
   startNode: start
   targetNode: volumepumpAlt1
-  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
@@ -657,7 +672,7 @@
   graph: GasBinary
   startNode: start
   targetNode: volumepumpAlt2
-  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
@@ -672,8 +687,13 @@
   graph: GasBinary
   startNode: start
   targetNode: passivegate
+<<<<<<< HEAD
   category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
   placementMode: SnapgridCenter
+=======
+  category: construction-category-utilities
+  placementMode: AlignAtmosPipeLayers
+>>>>>>> fb69a0ae2c (More atmos devices can be placed on layers easier. (#38672))
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
@@ -688,7 +708,7 @@
   graph: GasBinary
   startNode: start
   targetNode: passivegateAlt1
-  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
@@ -704,7 +724,7 @@
   graph: GasBinary
   startNode: start
   targetNode: passivegateAlt2
-  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
@@ -715,11 +735,13 @@
   - GasPassiveGateAlt2
 
 - type: construction
+<<<<<<< HEAD
+=======
   id: GasPressureRegulator
   graph: GasBinary
   startNode: start
   targetNode: pressureregulator
-  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
@@ -735,7 +757,7 @@
   graph: GasBinary
   startNode: start
   targetNode: pressureregulatorAlt1
-  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
@@ -751,7 +773,7 @@
   graph: GasBinary
   startNode: start
   targetNode: pressureregulatorAlt2
-  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
@@ -762,12 +784,18 @@
   - GasPressureRegulatorAlt2
 
 - type: construction
+>>>>>>> fb69a0ae2c (More atmos devices can be placed on layers easier. (#38672))
   id: GasValve
   graph: GasBinary
   startNode: start
   targetNode: valve
+<<<<<<< HEAD
   category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: SnapgridCenter
+=======
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
+>>>>>>> fb69a0ae2c (More atmos devices can be placed on layers easier. (#38672))
   canBuildInImpassable: false
   conditions:
     - !type:NoUnstackableInTile
@@ -782,7 +810,7 @@
   graph: GasBinary
   startNode: start
   targetNode: valveAlt1
-  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
@@ -798,7 +826,7 @@
   graph: GasBinary
   startNode: start
   targetNode: valveAlt2
-  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
@@ -813,8 +841,13 @@
   graph: GasBinary
   startNode: start
   targetNode: signalvalve
+<<<<<<< HEAD
   category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: SnapgridCenter
+=======
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
+>>>>>>> fb69a0ae2c (More atmos devices can be placed on layers easier. (#38672))
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
@@ -825,11 +858,10 @@
 
 - type: construction
   id: SignalControlledValveAlt1
-  hide: true
   graph: GasBinary
   startNode: start
   targetNode: signalvalveAlt1
-  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
@@ -841,11 +873,10 @@
 
 - type: construction
   id: SignalControlledValveAlt2
-  hide: true
   graph: GasBinary
   startNode: start
   targetNode: signalvalveAlt2
-  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
