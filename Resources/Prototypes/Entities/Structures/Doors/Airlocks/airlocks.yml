@@ -320,22 +320,24 @@
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/basic.rsi
 
-- type: entity
-  parent: Airlock
-  id: AirlockXeno
-  suffix: Xeno
-  components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/xeno.rsi
-  - type: Paintable
-    group: null
-
-- type: entity
-  parent: AirlockGlass
-  id: AirlockGlassXeno
-  suffix: Xeno
-  components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/xeno.rsi
-  - type: Paintable
-    group: null
+# Begin DeltaV removal: we don't have these things yet
+#- type: entity
+#  parent: Airlock
+#  id: AirlockXeno
+#  suffix: Xeno
+#  components:
+#  - type: Sprite
+#    sprite: Structures/Doors/Airlocks/Standard/xeno.rsi
+#  - type: Paintable
+#    group: null
+#
+#- type: entity
+#  parent: AirlockGlass
+#  id: AirlockGlassXeno
+#  suffix: Xeno
+#  components:
+#  - type: Sprite
+#    sprite: Structures/Doors/Airlocks/Glass/xeno.rsi
+#  - type: Paintable
+#    group: null
+# End DeltaV removal
