@@ -6,7 +6,7 @@ using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Xenoarchaeology.BUI;
 using Content.Shared.Xenoarchaeology.Equipment;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
-using JetBrains.FormatRipper.Elf;
+
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 
