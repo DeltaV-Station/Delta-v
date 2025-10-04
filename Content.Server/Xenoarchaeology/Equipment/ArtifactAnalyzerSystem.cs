@@ -55,7 +55,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
 
             if (analyzer != null)
             {
-                sumGlimmer += (int)(research / (float)analyzer.ExtractRatio / GetGlimmerMultiplier(analyzer));
+                sumGlimmer += (int)(research / (float)analyzer.ExtractRatio);
                 research = (int)(research * GetGlimmerMultiplier(analyzer));
             }
 
