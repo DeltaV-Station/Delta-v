@@ -2,7 +2,7 @@
   id: Submarine
   mapName: 'Submarine'
   mapPath: /Maps/submarine.yml
-  minPlayers: 60
+  minPlayers: 65
   stations:
     Submarine:
       stationProto: StandardNanotrasenStation
@@ -13,10 +13,8 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Propeller.yml
+          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Propeller.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
           #civilian
             Passenger: [ -1, -1 ]
@@ -78,6 +76,6 @@
             Clerk: [ 1, 1 ]
             Lawyer: [ 2, 2 ]
           #Synthetics
-            StationAI: [ 1, 1]
+            StationAi: [ 1, 1]
             Borg: [ 2, 4 ]
             MedicalBorg: [ 2, 2 ]
