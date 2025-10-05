@@ -335,14 +335,15 @@
     - RoboticsStatic
     - BorgModulesStatic
     - BorgLimbsStatic
+    - PowerAugments # DeltaV - augments
+    - ToolAugments # DeltaV - augments
     dynamicPacks:
     - Robotics
     - BorgModules
     - MechParts
     - MechEquipment
-    - Cybernetics # Shitmed change
-    - PowerAugments # DeltaV - augments
-    - ToolAugments # DeltaV - augments
+    - Surgery # DeltaV - Share Surgery Parts between Epi and Med.
+    - CyberneticsRobotics # DeltaV - Share Surgery Parts between Epi and Med.
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
@@ -535,6 +536,9 @@
     - ReportingStatic
     - EVASuit
     - PowerCellsStatic
+    - IPCLimbsStatic
+    - PowerAugments
+    - ToolAugments
     # End DeltaV Additions
     dynamicPacks:
     - Chemistry
@@ -543,6 +547,7 @@
     # Being DeltaV Additions
     - MedicalDeltaV
     - ParamedicHardsuit
+    - Cybernetics
     # End DeltaV Additions
   - type: Machine
     board: MedicalTechFabCircuitboard
