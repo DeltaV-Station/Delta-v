@@ -404,10 +404,12 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
                 !someRecord.JobTitle.ToLower().Contains(filterLowerCaseValue),
             StationRecordFilterType.Species =>
                 !someRecord.Species.ToLower().Contains(filterLowerCaseValue),
-            StationRecordFilterType.Prints => someRecord.Fingerprint != null
-                && IsFilterWithSomeCodeValue(someRecord.Fingerprint, filterLowerCaseValue),
-            StationRecordFilterType.DNA => someRecord.DNA != null
-                && IsFilterWithSomeCodeValue(someRecord.DNA, filterLowerCaseValue),
+            // DeltaV - start of silicon bio filters fix
+            StationRecordFilterType.Prints => someRecord.Fingerprint == null
+                || IsFilterWithSomeCodeValue(someRecord.Fingerprint, filterLowerCaseValue),
+            StationRecordFilterType.DNA => someRecord.DNA == null
+                || IsFilterWithSomeCodeValue(someRecord.DNA, filterLowerCaseValue),
+            // DeltaV - end of silicon bio filters fix
             _ => throw new IndexOutOfRangeException(nameof(filter.Type)),
         };
     }
