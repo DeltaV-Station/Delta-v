@@ -8298,12 +8298,6 @@ entities:
     - type: Transform
       pos: -18.5,-26.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -65033.266
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 157
     components:
     - type: MetaData
