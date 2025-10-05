@@ -36,7 +36,7 @@
     rerollObjectiveMessage: objective-condition-asakim-terminate-reroll-message
 
 - type: entity
-  parent: [ BaseAsakimObjective, BaseSurviveObjective]
+  parent: [BaseAsakimObjective, BaseSurviveObjective]
   id: AsakimTheftObjective
   name: ">CONFISCATE"
   description: Records indicate that this sector may have valuable artifacts. Confiscate such items for further study.
@@ -44,7 +44,7 @@
   - type: Objective
 
 - type: entity
-  parent: [ BaseAsakimObjective, BaseSurviveObjective]
+  parent: [BaseAsakimObjective, BaseSurviveObjective]
   id: AsakimInfiltrateObjective
   name: ">INFILTRATE"
   description: Ambient radio chatter mentions "High-Security Areas". Investigate such places, if they do exist.
@@ -52,7 +52,7 @@
   - type: Objective
 
 - type: entity
-  parent: [ BaseAsakimObjective, BaseSurviveObjective]
+  parent: [BaseAsakimObjective, BaseSurviveObjective]
   id: AsakimInterrogateObjective
   name: ">INTERROGATE"
   description: WARNING - Time-gap of [ERROR] years detected. Records may be outdated. Consult local population.
@@ -60,7 +60,7 @@
   - type: Objective
 
 - type: entity
-  parent: [ BaseAsakimObjective, BaseSurviveObjective]
+  parent: [BaseAsakimObjective, BaseSurviveObjective]
   id: AsakimUpgradeObjective
   name: ">UPGRADE"
   description: Preliminary sector scans detect possible high-value cybernetics. Upgrade your body.
@@ -68,7 +68,7 @@
   - type: Objective
 
 - type: entity
-  parent: [ BaseAsakimObjective, BaseSurviveObjective]
+  parent: [BaseAsakimObjective, BaseSurviveObjective]
   id: AsakimAllyObjective
   name: ">AFFILIATE"
   description: Prior records indicate possible persons-of-interest in this sector. Find or make allies in the local populace.
