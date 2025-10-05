@@ -102,7 +102,7 @@
   description: greenshift-description
   rules:
   - SpaceTrafficControlFriendlyEventScheduler
-  # BasicRoundstartVariation
+  - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
