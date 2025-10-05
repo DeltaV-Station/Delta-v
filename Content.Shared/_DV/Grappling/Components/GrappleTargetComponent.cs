@@ -7,6 +7,4 @@ namespace Content.Shared._DV.Grappling.Components;
 /// </summary>
 [RegisterComponent]
 [Access(typeof(SharedGrapplingSystem))]
-public sealed partial class GrappleTargetComponent : Component
-{
-}
+public sealed partial class GrappleTargetComponent : Component;
