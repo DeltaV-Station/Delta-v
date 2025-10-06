@@ -1,16 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Removed non-power wires having a chance to shock you.
-    type: Remove
-  - message: All wires are no longer randomized, it's the same behaviour as upstream
-      now.
-    type: Remove
-  id: 1225
-  time: '2025-04-05T14:47:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3373
-- author: deltanedas
-  changes:
   - message: APCs now have wires, notably the AI access wire which can be snipped
       to prevent the AI from toggling APCs.
     type: Add
@@ -4180,3 +4170,11 @@
   id: 1724
   time: '2025-10-06T01:02:52.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4452
+- author: Minerva
+  changes:
+  - message: Tape recorders can now be controlled using four signal ports corresponding
+      to their buttons.
+    type: Add
+  id: 1725
+  time: '2025-10-06T03:42:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4437
