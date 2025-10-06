@@ -148,6 +148,9 @@
   id: SecDogWearable # allows Laika to wear meson goggles (and more later?)
 
 - type: Tag
+  id: SiliconOrIPCEmotes # upstream's SiliconEmotes = only bots and borgs, this one includes IPCs
+
+- type: Tag
   id: Skirt
 
 - type: Tag
@@ -179,6 +182,12 @@
 
 - type: Tag
   id: Hoodie
+
+- type: Tag
+  id: K9Armor # Limits what equipment K9 units can wear
+
+- type: Tag
+  id: K9 # Lets K9 units wear specialized clothing
 
 - type: Tag
   id: AncientBookDamagedCommon

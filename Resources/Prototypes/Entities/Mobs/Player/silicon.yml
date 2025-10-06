@@ -83,14 +83,6 @@
   - type: ShowJobIcons
   # Begin DeltaV - AI Shop System
   - type: StationAiShop
-  - type: Store
-    categories:
-    - AiAbilities
-    currencyWhitelist:
-    - AiMemory
-    balance:
-      AiMemory: 3
-    grantActionsToMind: false
   # End DeltaV - AI Shop System
 
 - type: entity
@@ -279,6 +271,16 @@
   - type: ActionGrant
     actions:
     - ActionViewLaws
+  # Begin DeltaV - AI Shop System
+  - type: Store
+    categories:
+    - AiAbilities
+    currencyWhitelist:
+    - AiMemory
+    balance:
+      AiMemory: 3
+    grantActionsToMind: false
+  # End DeltaV - AI Shop System
   - type: UserInterface
     interfaces:
       enum.SiliconLawsUiKey.Key:

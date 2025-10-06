@@ -11,3 +11,6 @@ uplink-rigged-laser-tag-gun-desc = This laser tag gun has been tampered with to 
 
 uplink-desword-name = Double-Bladed Energy Sword
 uplink-desword-desc = Now with twice as much energy per sword! Not the most practical design, but at least you can swing it faster now, albeit at a cost of lower damage per hit. Good luck blocking any bullets with it.
+
+uplink-harbinger-name = Harbinger Bundle
+uplink-harbinger-desc = A bundle with a full set of Harbinger armor and an Accursed scythe. Strike fear into the hearts of your enemies with this ancient design.
