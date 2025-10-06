@@ -428,7 +428,6 @@ public abstract class SharedTapeRecorderSystem : EntitySystem
         else if (args.Port == ent.Comp.PlaybackPort)
         {
             SetMode(ent, TapeRecorderMode.Playing);
-
         }
         else if (args.Port == ent.Comp.RewindPort)
         {
