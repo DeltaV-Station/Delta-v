@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: IAmNotGray
-  changes:
-  - message: Lady Elegance's station beacons have finally been fixed. A few rooms
-      will be without beacons for the time being.
-    type: Fix
-  id: 1227
-  time: '2025-04-06T14:06:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3386
 - author: Radezolid
   changes:
   - message: Fixed the immolator and multi-lens immolator not showing at your back.
@@ -4177,3 +4169,11 @@
   id: 1726
   time: '2025-10-06T03:45:47.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4377
+- author: Lonestar827
+  changes:
+  - message: fixed the EMP damage caused by EMP implants to do the intended 80 ion
+      instead of 130 ion
+    type: Fix
+  id: 1727
+  time: '2025-10-06T08:32:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4484
