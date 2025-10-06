@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseAction
+  id: ActionEyeZoom
+  name: Zoom
+  description: Look further away!
+  components:
+  - type: Action
+    icon: _Impstation/Interface/Emotes/blink.png
+    useDelay: 0.5
+  - type: InstantAction
+    event: !type:CursorOffsetActionEvent
