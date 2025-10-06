@@ -171,7 +171,11 @@
   name: inlet pressure regulator
   description: A valve that releases gas when the inlet pressure exceeds a certain threshold.
   placement:
+<<<<<<< HEAD
     mode: AlignAtmosPipeLayers
+=======
+    mode: SnapgridCenter
+>>>>>>> f874459092 (Pressure Relief Valve (#36708))
   components:
   - type: Rotatable
   - type: Transform
@@ -187,11 +191,14 @@
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: pumpPressureRegulator
       map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+<<<<<<< HEAD
   - type: AtmosPipeLayers
     alternativePrototypes:
       Primary: GasPressureRegulator
       Secondary: GasPressureRegulatorAlt1
       Tertiary: GasPressureRegulatorAlt2
+=======
+>>>>>>> f874459092 (Pressure Relief Valve (#36708))
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -232,7 +239,7 @@
   name: passive gate
   description: A one-way air valve that does not require power.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: SubFloorHide
       visibleLayers:
@@ -453,7 +460,7 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: _DV/Structures/Piping/Atmospherics/vent.rsi # DeltaV
+      sprite: Structures/Piping/Atmospherics/vent.rsi
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeBinaryConnectors
