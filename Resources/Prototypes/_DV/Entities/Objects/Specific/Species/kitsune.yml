@@ -21,6 +21,9 @@
     canCollide: False
     bodyType: Static
     bodyStatus: InAir
+  - type: Anchorable
+    flags:
+    - None
   - type: Fixtures
     fixtures:
       fix1:
