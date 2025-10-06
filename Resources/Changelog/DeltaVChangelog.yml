@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Toby222
-  changes:
-  - message: Not having message highlights set up no longer breaks radio communications
-    type: Fix
-  id: 1224
-  time: '2025-04-05T14:35:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3378
 - author: deltanedas
   changes:
   - message: Removed non-power wires having a chance to shock you.
@@ -4177,3 +4170,13 @@
   id: 1723
   time: '2025-10-06T00:56:19.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4445
+- author: NicoSGF64
+  changes:
+  - message: Ported the Pressure release valve from upstream
+    type: Add
+  - message: More atmos devices can now be constructed on layers from the construction
+      menu.
+    type: Add
+  id: 1724
+  time: '2025-10-06T01:02:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4452
