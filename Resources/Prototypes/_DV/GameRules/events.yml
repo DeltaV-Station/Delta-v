@@ -45,7 +45,7 @@
     startAudio:
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 25
-    minimumPlayers: 20
+    minimumPlayers: 30
     weight: 2
     duration: 30
   - type: PrecognitionResult
@@ -270,7 +270,7 @@
   id:  MenaceSkeleton
   components:
   - type: StationEvent
-    weight: 3
+    weight: 5
     duration: 1
     minimumPlayers: 30
   - type: PrecognitionResult
