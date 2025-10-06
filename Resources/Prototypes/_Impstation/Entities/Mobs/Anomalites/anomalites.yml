@@ -1,0 +1,694 @@
+- type: entity
+  parent: BaseAnomalyInertCore
+  id: AnomaliteCore
+  name: anomalite core
+  description: It's empty.
+  components:
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/Cores/gravity_core.rsi
+
+# Base Anomalite
+- type: entity
+  parent: [ BaseMob, MobDamageable, MobPolymorphable, MobAtmosExposed, MobCombat, MobBloodstream, MobFlammable ]
+  id: BaseAnomalite
+  name: anomalite
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MindContainer
+    showExamineInfo: true
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    scale: 1, 1
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0 # this should be a custom type and value for each anomaly type.
+    angle: 0
+    animation: WeaponArcBite
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: Body
+    prototype: Animal
+  - type: Damageable # DeltaV - Change their damage to BiologicalMetaphysical, since they're magical sprite things. Also the shadow anomalite is supposed to take holy damage and it can't normally
+    damageContainer: BiologicalMetaphysical
+  - type: Dispellable # DeltaV - they're anomalies so they should be dispellable
+  - type: Climbing
+  - type: NameIdentifier
+    group: Anomalite
+  - type: GhostTakeoverAvailable
+  - type: Tag
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+    - AnomalyHost # this is potentially really funny. if not, or if it causes problems, we can remove it.
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 75
+        restitution: 0.0
+        mask:
+        - CrateMask # this is so they can fly over tables and through plastic flaps
+        layer:
+        - MobLayer
+  - type: Bloodstream
+    bloodMaxVolume: 75
+    bloodReagent: Entropy # DeltaV - Was Anomalium, not part of the initial Anomalite PR. Might port it eventually, but until then Entropy is our closest analogue.
+  - type: InteractionPopup
+    successChance: 0.1
+    interactSuccessString: petting-success-anomalite
+    interactFailureString: petting-success-anomalite
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/mouse_squeak.ogg # this should be unique per-type.
+    interactFailureSound:
+      path: /Audio/Effects/tesla_consume.ogg # this should be unique per-type.
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+    - Stutter
+    - Electrocution
+    - ForcedSleep
+    - TemporaryBlindness
+    - Pacified
+    - StaminaModifier
+    - Flashed
+    - RadiationProtection
+    - Drowsiness
+    - Adrenaline
+  - type: Puller
+    needsHands: false
+  - type: ComplexInteraction
+  - type: SSDIndicator
+  - type: Speech
+    speechVerb: Anomalite
+    speechSounds: Anomalite
+    allowedEmotes: [ 'Scream' ]
+  - type: Vocal
+    sounds:
+      Male: Anomalite
+      Female: Anomalite
+      Unsexed: Anomalite
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          AnomaliteCore:
+            min: 1
+            max: 1
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 1500
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior { }
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
+  - type: StandingState
+  # Anomaly component. Some settings changed to make them not be fucked-up powerful. now they're only a little bit fucked-up powerful.
+  - type: Anomaly
+    cannotSupercrit: true
+    cannotRandomPulse: true
+    deleteEntity: false
+    maxPointsPerSecond: 10
+    corePrototype: AnomaliteCore
+    healthChangePerSecond: 0.0
+    decayhreshold: 9999.0
+    growthThreshold: 9999.0
+  # apid-type always weightless movement
+  - type: MovementAlwaysTouching
+  - type: MovementIgnoreGravity
+    gravityState: true
+  - type: Physics
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: FloatingVisuals
+    animationKey: anomalyfloat
+  - type: AnimationPlayer
+  - type: MovementSpeedModifier
+    weightlessFriction: 1
+    weightlessFrictionNoInput: 2 # so they can actually stop moving
+    weightlessAcceleration: 1.5
+  - type: NoSlip
+  - type: Familiar # Provides information on core to the pinpointer
+  - type: Inventory
+    templateId: anomalite
+  - type: InventorySlots
+  - type: Loadout
+    prototypes:
+      - StartingGearAnomalitePinpointer
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: Hands
+
+# Anomalites:
+# Pyroclastic
+- type: entity
+  parent: [ BaseAnomalite ]
+  id: MobAnomalitePyroclastic
+  suffix: Pyroclastic
+  description: A flickering little sprite, born from the leftover energies of an anomaly core.
+  components:
+  - type: Icon
+    sprite: _Impstation/Mobs/Anomalites/fire.rsi
+    state: anom
+  - type: Sprite
+    sprite: _Impstation/Mobs/Anomalites/fire.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: anom
+    noRot: true
+    drawdepth: Mobs
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: anom
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Heat: 5
+    angle: 0
+    animation: WeaponArcBite
+  - type: Damageable
+    damageModifierSet: AnomalitePyroclastic
+  - type: Temperature
+    heatDamageThreshold: 325
+    coldDamageThreshold: 0
+    currentTemperature: 310.15
+    coldDamage:
+      types:
+        Cold: 0.1
+    specificHeat: 42
+    heatDamage:
+      types:
+        Heat: 0.0
+  - type: PointLight
+    radius: 2
+    energy: 1
+    softness: 10
+    color: "#E25822"
+  - type: NameIdentifier
+    group: AnomalitePyroclastic
+  # Anomaly functionality
+  - type: InnerBodyAnomaly
+    injectionProto: AnomalyInjectionPyroclastic
+    skipStun: true
+
+# Gravity
+- type: entity
+  parent: [ BaseAnomalite ]
+  id: MobAnomaliteGravity
+  suffix: Gravity
+  description: A strange little sprite, born from the leftover energies of an anomaly core.
+  components:
+  - type: Icon
+    sprite: _Impstation/Mobs/Anomalites/grav.rsi
+    state: anom
+  - type: Sprite
+    sprite: _Impstation/Mobs/Anomalites/grav.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: anom
+    noRot: true
+    drawdepth: Mobs
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: anom
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    angle: 0
+    animation: WeaponArcBite
+  - type: Damageable
+    damageModifierSet: AnomaliteGravity
+  - type: PointLight
+    radius: 2
+    energy: 1
+    softness: 10
+    color: "#1e070e"
+  - type: NameIdentifier
+    group: AnomaliteGravity
+  # Anomaly functionality
+  - type: InnerBodyAnomaly
+    injectionProto: AnomalyInjectionGravity
+    skipStun: true
+
+# Ice
+- type: entity
+  parent: [ BaseAnomalite ]
+  id: MobAnomaliteIce
+  suffix: Ice
+  description: A chilly little sprite, born from the leftover energies of an anomaly core.
+  components:
+  - type: Icon
+    sprite: _Impstation/Mobs/Anomalites/ice.rsi
+    state: anom
+  - type: Sprite
+    sprite: _Impstation/Mobs/Anomalites/ice.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: anom
+    noRot: true
+    drawdepth: Mobs
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: anom
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Cold: 5
+    angle: 0
+    animation: WeaponArcBite
+  - type: Damageable
+    damageModifierSet: AnomaliteIce
+  - type: Temperature
+    heatDamageThreshold: 325
+    coldDamageThreshold: 0
+    currentTemperature: 310.15
+    coldDamage:
+      types:
+        Cold: 0.0
+    specificHeat: 42
+    heatDamage:
+      types:
+        Heat: 1.5
+  - type: PointLight
+    radius: 2
+    energy: 1
+    softness: 10
+    color: "#befaff"
+  - type: NameIdentifier
+    group: AnomaliteIce
+  # Anomaly functionality
+  - type: InnerBodyAnomaly
+    injectionProto: AnomalyInjectionIce
+    skipStun: true
+
+# Flesh
+- type: entity
+  parent: [ BaseAnomalite ]
+  id: MobAnomaliteFlesh
+  suffix: Flesh
+  description: A gristly little sprite, born from the leftover energies of an anomaly core.
+  components:
+  - type: Icon
+    sprite: _Impstation/Mobs/Anomalites/flesh.rsi
+    state: anom
+  - type: Sprite
+    sprite: _Impstation/Mobs/Anomalites/flesh.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: anom
+    noRot: true
+    drawdepth: Mobs
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: anom
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 5
+    angle: 0
+    animation: WeaponArcBite
+  - type: Damageable
+    damageModifierSet: AnomaliteFlesh
+  - type: PointLight
+    radius: 2
+    energy: 1
+    softness: 10
+    color: "#cb5b7e"
+  - type: NameIdentifier
+    group: AnomaliteFlesh
+  # Anomaly functionality
+  - type: InnerBodyAnomaly
+    injectionProto: AnomalyInjectionFlesh
+    skipStun: true
+
+# Rock
+- type: entity
+  parent: [ BaseAnomalite ]
+  id: MobAnomaliteRock
+  suffix: Rock
+  description: A sturdy little sprite, born from the leftover energies of an anomaly core.
+  components:
+  - type: Icon
+    sprite: _Impstation/Mobs/Anomalites/rock.rsi
+    state: anom
+  - type: Sprite
+    sprite: _Impstation/Mobs/Anomalites/rock.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: anom
+    noRot: true
+    drawdepth: Mobs
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: anom
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+        Structural: 15
+    angle: 0
+    animation: WeaponArcBite
+  - type: Damageable
+    damageModifierSet: AnomaliteRock
+  - type: PointLight
+    radius: 2
+    energy: 1
+    softness: 10
+    color: "#5ca8cb"
+  - type: NameIdentifier
+    group: AnomaliteRock
+  # Anomaly functionality
+  - type: InnerBodyAnomaly
+    injectionProto: AnomalyInjectionRock
+    skipStun: true
+
+# Reagent
+- type: entity
+  parent: [ BaseAnomalite ]
+  id: MobAnomaliteLiquid
+  suffix: Liquid
+  description: A sopping little sprite, born from the leftover energies of an anomaly core.
+  components:
+  - type: Icon
+    sprite: _Impstation/Mobs/Anomalites/reagent.rsi
+    state: anom
+  - type: Sprite
+    sprite: _Impstation/Mobs/Anomalites/reagent.rsi
+    layers:
+    - state: anom
+      map: [ "enum.AnomalyVisualLayers.Base", "enum.DamageStateVisualLayers.Base" ]
+    - state: pulse
+      map: [ "enum.AnomalyVisualLayers.Animated" ]
+      visible: false
+    noRot: true
+    drawdepth: Mobs
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: anom
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Poison: 1 # reduced cus they inject their solution into you
+    angle: 0
+    animation: WeaponArcBite
+  - type: Damageable
+    damageModifierSet: AnomaliteLiquid
+  - type: PointLight
+    radius: 2
+    energy: 1
+    softness: 10
+    color: "#ffffff"
+  - type: NameIdentifier
+    group: AnomaliteReagent
+  # Anomaly functionality
+  - type: InnerBodyAnomaly
+    injectionProto: AnomalyInjectionLiquid
+    skipStun: true
+  - type: SolutionContainerManager
+    solutions:
+      anomaly:
+        maxVol: 1500
+  - type: MeleeChemicalInjector
+    solution: anomaly
+    transferAmount: 6
+  - type: RandomSprite
+    selected:
+      enum.AnomalyVisualLayers.Base:
+        anom: "#ffffff"
+      enum.AnomalyVisualLayers.Animated:
+        pulse: "#ffffff"
+  - type: SolutionScanner # i think it's fun for them to be able to scan their solutions
+
+# Bluespace
+- type: entity
+  parent: [ BaseAnomalite ]
+  id: MobAnomaliteBluespace
+  suffix: Bluespace
+  description: A non-euclidean little sprite, born from the leftover energies of an anomaly core.
+  components:
+  - type: Icon
+    sprite: _Impstation/Mobs/Anomalites/bluespace.rsi
+    state: anom
+  - type: Sprite
+    sprite: _Impstation/Mobs/Anomalites/bluespace.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: anom
+    noRot: true
+    drawdepth: Mobs
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: anom
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Cellular: 5 # there was a great big flash, everything just changed / his molecules got all rearranged
+    angle: 0
+    animation: WeaponArcBite
+  - type: Damageable
+    damageModifierSet: AnomaliteBluespace
+  - type: PointLight
+    radius: 2
+    energy: 1
+    softness: 10
+    color: "#00ccff"
+  - type: NameIdentifier
+    group: AnomaliteBluespace
+  # Anomaly functionality
+  - type: InnerBodyAnomaly
+    injectionProto: AnomalyInjectionBluespace
+    skipStun: true
+
+# Electricity
+- type: entity
+  parent: [ BaseAnomalite ]
+  id: MobAnomaliteElectricity
+  suffix: Electricity
+  description: A shocking little sprite, born from the leftover energies of an anomaly core.
+  components:
+  - type: Icon
+    sprite: _Impstation/Mobs/Anomalites/electric.rsi
+    state: anom
+  - type: Sprite
+    sprite: _Impstation/Mobs/Anomalites/electric.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: anom
+    noRot: true
+    drawdepth: Mobs
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: anom
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Shock: 5
+    angle: 0
+    animation: WeaponArcBite
+  - type: Damageable
+    damageModifierSet: AnomaliteElectricity
+  - type: PointLight
+    radius: 2
+    energy: 1
+    softness: 10
+    color: "#ffffaa"
+  - type: NameIdentifier
+    group: AnomaliteElectric
+  # Anomaly functionality
+  - type: InnerBodyAnomaly
+    injectionProto: AnomalyInjectionElectric
+    skipStun: true
+
+# Flora
+- type: entity
+  parent: [ BaseAnomalite ]
+  id: MobAnomaliteFlora
+  suffix: Flora
+  description: A blossoming little sprite, born from the leftover energies of an anomaly core.
+  components:
+  - type: Icon
+    sprite: _Impstation/Mobs/Anomalites/flower.rsi
+    state: anom
+  - type: Sprite
+    sprite: _Impstation/Mobs/Anomalites/flower.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: anom
+    noRot: true
+    drawdepth: Mobs
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: anom
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 5 # thorns?
+    angle: 0
+    animation: WeaponArcBite
+  - type: Damageable
+    damageModifierSet: AnomaliteFlora
+  - type: PointLight
+    radius: 2
+    energy: 1
+    softness: 10
+    color: "#6270bb"
+  - type: NameIdentifier
+    group: AnomaliteFlora
+  # Anomaly functionality
+  - type: InnerBodyAnomaly
+    injectionProto: AnomalyInjectionFlora
+    skipStun: true
+
+# Shadow
+- type: entity
+  parent: [ BaseAnomalite ]
+  id: MobAnomaliteShadow
+  suffix: Shadow
+  description: A dark little sprite, born from the leftover energies of an anomaly core.
+  components:
+  - type: Icon
+    sprite: _Impstation/Mobs/Anomalites/shadow.rsi
+    state: anom
+  - type: Sprite
+    sprite: _Impstation/Mobs/Anomalites/shadow.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: anom
+    noRot: true
+    drawdepth: Mobs
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: anom
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Asphyxiation: 10 # suffocating darkness
+    angle: 0
+    animation: WeaponArcBite
+  - type: Damageable
+    damageModifierSet: AnomaliteShadow
+  - type: PointLight
+    radius: 2
+    energy: 1
+    softness: 10
+    color: "#793a80"
+  - type: NameIdentifier
+    group: AnomaliteShadow
+  # Anomaly functionality
+  - type: InnerBodyAnomaly
+    injectionProto: AnomalyInjectionShadow
+    skipStun: true
+  - type: NightVision
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
+
+# Tech
+- type: entity
+  parent: [ BaseAnomalite ]
+  id: MobAnomaliteTech
+  suffix: Tech
+  description: A cybernetic little sprite, born from the leftover energies of an anomaly core.
+  components:
+  - type: Icon
+    sprite: _Impstation/Mobs/Anomalites/tech.rsi
+    state: anom
+  - type: Sprite
+    sprite: _Impstation/Mobs/Anomalites/tech.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: anom
+    noRot: true
+    drawdepth: Mobs
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: anom
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Radiation: 5 # there's not really a relevant damage type for this
+    angle: 0
+    animation: WeaponArcBite
+  - type: Damageable
+    damageModifierSet: AnomaliteTech
+  - type: PointLight
+    radius: 2
+    energy: 1
+    softness: 10
+    color: "#56c1e8"
+  - type: NameIdentifier
+    group: AnomaliteTech
+  # Anomaly functionality
+  - type: InnerBodyAnomaly
+    injectionProto: AnomalyInjectionTech
+    skipStun: true
