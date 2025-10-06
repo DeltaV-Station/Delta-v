@@ -1,20 +1,4 @@
 ﻿Entries:
-- author: Tryded, Stop-Signs
-  changes:
-  - message: 'Added the advanced energy gun which self-recharges and has two settings:
-      Disable and Kill. This can be unlocked from research.'
-    type: Add
-  - message: ERT now have better equipment, armor, and guns
-    type: Tweak
-  - message: Added the immolator cannon which shoots concentrated projectiles that
-      causes the target to catch on fire. This can be unlocked from research.
-    type: Add
-  - message: The IK60 is now the IK30, its still printable and has the same stats,
-      however it uses laser cartridges rather than an internal battery.
-    type: Tweak
-  id: 1222
-  time: '2025-04-04T21:34:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3365
 - author: Radezolid
   changes:
   - message: Fixed rubber ammunition not showing up in the security techfab.
@@ -4186,3 +4170,10 @@
   id: 1721
   time: '2025-10-06T00:38:35.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4446
+- author: KittenColony, Minerva
+  changes:
+  - message: Records now support monospace.
+    type: Tweak
+  id: 1722
+  time: '2025-10-06T00:42:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4451
