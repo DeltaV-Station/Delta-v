@@ -27,7 +27,7 @@
         amount: -1
       - !type:ModifyBloodLevel
         amount: 2
-      - !type:EvenHealthChange # DeltaV - Special Chems heal evenly.
+      - !type:EvenHealthChange
         damage:
           Burn: -4
           Brute: -4
