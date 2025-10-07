@@ -247,7 +247,7 @@
 
 - type: entity
   parent: BaseTraitorStealObjective
-  id: EnergyShotgunStealObjective
+  id: EnergyMagnumStealObjective
   components:
   - type: Objective
     # HoS will have this on them a lot of the time so..
@@ -255,8 +255,8 @@
   - type: NotJobRequirement
     job: HeadOfSecurity
   - type: StealCondition
-    stealGroup: WeaponEnergyShotgun
-    owner: job-name-warden # DeltaV - was job-name-hos
+    stealGroup: WeaponEnergyMagnum
+    owner: job-name-hos
 
 ## ce
 
