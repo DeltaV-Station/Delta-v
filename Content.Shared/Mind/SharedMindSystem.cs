@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Shared._DV.Mind;
+using Content.Shared._DV.Mind; // DeltaV
 using Content.Shared._EE.Silicon.Components; // Goobstation
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
