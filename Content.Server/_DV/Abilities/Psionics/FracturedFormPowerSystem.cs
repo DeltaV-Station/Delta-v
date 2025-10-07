@@ -133,7 +133,7 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
 
         var xform = Transform(original);
 
-        bool hasClothes = true;  // _random.Prob(0.4f);
+        bool hasClothes = _random.Prob(0.4f);
 
         EntityUid? newBody;
         if (_random.Prob(0.6f) || !_cloning.TryCloning(original, _transform.GetMapCoordinates(original), hasClothes ? original.Comp.CopyClothed : original.Comp.CopyNaked, out newBody)) // Slightly lower chance to copy the original body
