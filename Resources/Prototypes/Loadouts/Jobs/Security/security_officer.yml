@@ -2,16 +2,16 @@
 - type: loadoutEffectGroup
   id: SeniorOfficer
   effects:
- #   - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
- #   requirement:
- #     !type:RoleTimeRequirement
- #     role: JobWarden
- #     time: 21600 #6 hrs
+  # - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobWarden
+  #     time: 6h
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 216000 # 60 hrs
+      time: 60h
 
 #Security Star
 - type: loadoutEffectGroup
@@ -21,7 +21,7 @@
       requirement:
         !type:DepartmentTimeRequirement
         department: Security
-        time: 360000 #100 hrs
+        time: 100h
 
 # Head
 - type: loadout
@@ -59,6 +59,11 @@
   id: SecurityJumpskirtGrey
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecGrey
+
+- type: loadout
+  id: TrooperUniform
+  equipment:
+    jumpsuit: ClothingUniformSecurityTrooper
 
 - type: loadout
   id: SeniorOfficerJumpsuit
