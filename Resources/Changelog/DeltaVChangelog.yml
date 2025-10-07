@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fire alarms (the ones you manually pull to troll atmos techs) no longer
-      do anything.
-    type: Tweak
-  id: 1234
-  time: '2025-04-09T13:08:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3161
 - author: Stop-Signs
   changes:
   - message: Hristov no longer deals insane amounts of structural damage.
@@ -4182,3 +4174,11 @@
   id: 1733
   time: '2025-10-07T00:07:30.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4359
+- author: Solaris7518
+  changes:
+  - message: Fixed Super Synthesizers not being able to be played while being worn
+      on the neck.
+    type: Fix
+  id: 1734
+  time: '2025-10-07T23:55:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4505
