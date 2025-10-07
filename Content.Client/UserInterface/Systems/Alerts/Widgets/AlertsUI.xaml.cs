@@ -14,6 +14,10 @@ namespace Content.Client.UserInterface.Systems.Alerts.Widgets;
 [GenerateTypedNameReferences]
 public sealed partial class AlertsUI : UIWidget
 {
+    [Dependency] private readonly ILogManager _logManager = default!;
+
+    private readonly ISawmill _sawmill = default!;
+
     // also known as Control.Children?
     private readonly Dictionary<AlertKey, AlertControl> _alertControls = new();
 
@@ -21,6 +25,7 @@ public sealed partial class AlertsUI : UIWidget
     {
         RobustXamlLoader.Load(this);
         LayoutContainer.SetGrowHorizontal(this, LayoutContainer.GrowDirection.Begin);
+        _sawmill = _logManager.GetSawmill("alertsui");
     }
 
     public void SyncControls(AlertsSystem alertsSystem,
@@ -79,15 +84,15 @@ public sealed partial class AlertsUI : UIWidget
         {
             if (!alertKey.AlertType.HasValue)
             {
-                Logger.WarningS("alert", "found alertkey without alerttype," +
-                                         " alert keys should never be stored without an alerttype set: {0}", alertKey);
+                _sawmill.Warning("found alertkey without alerttype," +
+                                 " alert keys should never be stored without an alerttype set: {0}", alertKey);
                 continue;
             }
 
             var alertType = alertKey.AlertType.Value;
             if (!alertsSystem.TryGet(alertType, out var newAlert))
             {
-                Logger.ErrorS("alert", "Unrecognized alertType {0}", alertType);
+                _sawmill.Error("Unrecognized alertType {0}", alertType);
                 continue;
             }
 
