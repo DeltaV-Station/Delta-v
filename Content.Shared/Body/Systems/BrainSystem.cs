@@ -1,23 +1,19 @@
-using Content.Server.Body.Components;
-using Content.Server.Ghost.Components;
-using Content.Shared.Body.Components;
+﻿using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
+using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Pointing;
+using Content.Shared._Shitmed.Body.Organ; // Shitmed
+using Content.Shared.Body.Systems; // Shitmed 
 
-// Shitmed Change
-using Content.Shared._Shitmed.Body.Organ;
-using Content.Server._Shitmed.DelayedDeath;
-using Content.Shared.Body.Systems;
-
-namespace Content.Server.Body.Systems;
+namespace Content.Shared.Body.Systems;
 
 public sealed class BrainSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
+    [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed
     public override void Initialize()
     {
         base.Initialize();
