@@ -251,14 +251,14 @@
         - !type:Temperature
           min: 343.3 # completely arbitrary
         damage: # Better than Trinox
-          Brute: -3
-          Burn: -3
-          Airloss: -3
-          Toxin: -3
+          Brute: -3 # Was -4 with HealthChange
+          Burn: -3 # Was -6 with HealthChange
+          Airloss: -3 # Was -6 with HealthChange
+          Toxin: -3 # Was -4 with HealthChange
       - !type:HealthChange
         conditions:
         - !type:Temperature
-          min: 343.3
+          min: 343.3 # Parity with the other Pyrochems
         damage:
           types:
             Heat: -3 # offsets heat damage from the pod
@@ -290,6 +290,7 @@
         damage:
           types:
             Heat: -3 # offsets heat damage from the pod
+      # Previous values with HealthChange were: -3 Heat/Shock, -5 Cold.
       # End DeltaV additions
 
 - type: reagent
