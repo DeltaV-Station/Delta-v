@@ -16,7 +16,7 @@ public sealed partial class ArtifactAnalyzerComponent : Component
     [DataField]
     public TimeSpan AnalysisDuration = TimeSpan.FromSeconds(30);
 
-    // Nyano - Summary - Begin modified code block: tie artifacts to glimmer.
+    // DeltaV - Summary - Begin modified code block: tie artifacts to glimmer.
     /// <summary>
     /// The ratio of research points per one glimmer.
     /// </summary>
