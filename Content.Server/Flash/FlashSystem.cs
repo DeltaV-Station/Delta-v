@@ -221,7 +221,7 @@ namespace Content.Server.Flash
                 args.Cancel();
         }
 
-        private void OnTemporaryBlindnessFlashAttempt(EntityUid uid, TemporaryBlindnessComponent component, FlashAttemptEvent args)
+    private void OnTemporaryBlindnessFlashAttempt(EntityUid uid, TemporaryBlindnessComponent component, FlashAttemptEvent args)
         {
             args.Cancel();
         }

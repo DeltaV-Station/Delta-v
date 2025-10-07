@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._DV.Mind;
 using Content.Shared._EE.Silicon.Components; // Goobstation
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -158,6 +159,13 @@ public abstract partial class SharedMindSystem : EntitySystem
         // TODO: Move this out of the SharedMindSystem into its own comp and predict it
         if (_net.IsClient)
             return;
+
+        // Begin DeltaV Addition
+        var ev = new ShowSSDIndicatorEvent();
+        RaiseLocalEvent(uid, ref ev);
+        if (ev.Hidden)
+            return;
+        // End DeltaV Addition
 
         var dead = _mobState.IsDead(uid);
         var mind = CompOrNull<MindComponent>(mindContainer.Mind);

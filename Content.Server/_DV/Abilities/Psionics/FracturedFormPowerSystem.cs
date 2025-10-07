@@ -1,5 +1,7 @@
+using Content.Server.Abilities.Psionics;
 using Content.Server.Chat.Systems;
 using Content.Server.Cloning;
+using Content.Server.DoAfter;
 using Content.Server.Mind;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.Abilities.Psionics;
@@ -7,11 +9,14 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.DoAfter;
+using Content.Shared.Examine;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
+using Content.Shared.Psionics.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
@@ -21,11 +26,11 @@ using System.Linq;
 
 namespace Content.Server._DV.Abilities.Psionics;
 
-public sealed class FracturedFormPowerSystem : EntitySystem
+public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
 {
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -46,6 +51,9 @@ public sealed class FracturedFormPowerSystem : EntitySystem
         SubscribeLocalEvent<FracturedFormPowerComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<FracturedFormPowerComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<FracturedFormPowerComponent, FracturedFormPowerActionEvent>(OnPowerUsed);
+        SubscribeLocalEvent<FracturedFormPowerComponent, DispelledEvent>(OnDispelled);
+        SubscribeLocalEvent<FracturedFormPowerComponent, FracturedFormDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<FracturedFormBodyComponent, ExaminedEvent>(OnExamine);
     }
 
     private void OnInit(Entity<FracturedFormPowerComponent> entity, ref ComponentInit args)
@@ -158,6 +166,19 @@ public sealed class FracturedFormPowerSystem : EntitySystem
         return default!;
     }
 
+    public bool CanSwap(Entity<FracturedFormPowerComponent> entity)
+    {
+        var bodies = entity.Comp.Bodies
+            .Where(c =>
+                c != entity.Owner                                 // Not the current body
+             && TryComp<MindContainerComponent>(c, out var cmind) // Has a mindcontainer still
+             && !cmind.HasMind                                    // Is not current possessed somehow
+             && !HasComp<ForcedSleepingComponent>(c)              // Not forcefully unconsious either
+             && !_mobState.IsIncapacitated(c))                    // Isn't bleeding out somewhere (Or dead)
+            .ToList();
+        return bodies.Any();
+    }
+
     private bool TrySwap(Entity<FracturedFormPowerComponent> entity)
     {
         // Pick a random body, or the other one, if we have more than one.
@@ -188,13 +209,52 @@ public sealed class FracturedFormPowerSystem : EntitySystem
 
     private void OnPowerUsed(Entity<FracturedFormPowerComponent> entity, ref FracturedFormPowerActionEvent args)
     {
-        if (!TrySwap(entity))
+        if (!CanSwap(entity))
         {
             _popups.PopupEntity(Loc.GetString("fractured-form-nobodies"), entity, entity, PopupType.Large);
             return;
         }
 
+        entity.Comp.SleepWarned = true;
+        _chatSystem.TryEmoteWithChat(entity.Owner, "Yawn", ChatTransmitRange.Normal);
+        _popups.PopupEntity(Loc.GetString("fractured-form-sleepy"), entity, entity, PopupType.LargeCaution);
+        var ev = new FracturedFormDoAfterEvent();
+        var doAfterArgs = new DoAfterArgs(EntityManager, entity, entity.Comp.ManualSwapTime, ev, entity);
+        _doAfter.TryStartDoAfter(doAfterArgs, out var doAfterId);
+        entity.Comp.DoAfter = doAfterId;
         _psionics.LogPowerUsed(entity, "fractured form swap", 1, 3);
+
         args.Handled = true;
+    }
+
+    private void OnDispelled(Entity<FracturedFormPowerComponent> entity, ref DispelledEvent args)
+    {
+        if (entity.Comp.DoAfter == null)
+            return;
+
+        _doAfter.Cancel(entity.Comp.DoAfter);
+        entity.Comp.DoAfter = null;
+
+        args.Handled = true;
+    }
+
+    private void OnDoAfter(Entity<FracturedFormPowerComponent> entity, ref FracturedFormDoAfterEvent args)
+    {
+        entity.Comp.DoAfter = null;
+
+        if (args.Cancelled || args.Handled)
+            return;
+
+        _sleeping.TrySleeping(entity.Owner);
+    }
+
+    private void OnExamine(Entity<FracturedFormBodyComponent> entity, ref ExaminedEvent args)
+    {
+        if (HasComp<FracturedFormPowerComponent>(entity))
+            return;
+        if (TryComp<FracturedFormPowerComponent>(args.Examiner, out var fracturedHost) && fracturedHost.Bodies.Contains(entity.Owner))
+            args.PushMarkup($"[color=yellow]{Loc.GetString("fractured-form-examine-self", ("ent", entity))}[/color]");
+        else
+            args.PushMarkup($"[color=yellow]{Loc.GetString("fractured-form-ssd", ("ent", entity))}[/color]");
     }
 }

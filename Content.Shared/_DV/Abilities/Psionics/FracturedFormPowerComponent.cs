@@ -3,6 +3,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Content.Shared.DoAfter;
 
 namespace Content.Shared._DV.Abilities.Psionics;
 
@@ -14,6 +15,8 @@ public sealed partial class FracturedFormPowerComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? FracturedFormActionEntity;
+    [DataField]
+    public DoAfterId? DoAfter;
 
     [DataField]
     public ProtoId<CloningSettingsPrototype> CopyNaked = "CloningPod";
@@ -23,6 +26,8 @@ public sealed partial class FracturedFormPowerComponent : Component
     public ProtoId<JobPrototype> VisitorJob = "Passenger";
     [DataField]
     public TimeSpan NextSwap = TimeSpan.MaxValue;
+    [DataField]
+    public float ManualSwapTime = 5f;
     [DataField]
     public bool SleepWarned = false;
     [DataField]

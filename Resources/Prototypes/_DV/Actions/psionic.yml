@@ -226,12 +226,13 @@
 - type: entity
   id: ActionFracturedForm
   name: Swap Form
-  description: Switch to one of your alternate forms, if you have one.
+  description: Switch to one of your alternate forms, if you have one. This can also be done by sleeping.
   components:
-  - type: InstantAction
+  - type: Action
     icon:
-      sprite: _DV/Interface/Actions/actions_psionics.rsi
-      state: metapsionic
+      sprite: _DV/Interface/Actions/actions_psionics_small.rsi
+      state: fractured_form
     useDelay: 60
     checkCanInteract: false
+  - type: InstantAction
     event: !type:FracturedFormPowerActionEvent
