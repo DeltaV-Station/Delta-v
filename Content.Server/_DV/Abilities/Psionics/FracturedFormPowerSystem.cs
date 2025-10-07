@@ -17,6 +17,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
 using Content.Shared.Psionics.Events;
+using Content.Shared.Roles;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
@@ -148,6 +149,7 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
             }
             var species = _random.Pick(validSpecies);
             var character = HumanoidCharacterProfile.RandomWithSpecies(species);
+            if (!_prototype.HasIndex(original.Comp.VisitorJob)) hasClothes = false; // Fallback if the job doesn't exist (Some tests don't initialize the job prototypes?)
             newBody = _stationSpawning.SpawnPlayerMob(xform.Coordinates, hasClothes ? original.Comp.VisitorJob : "", character, _station.GetCurrentStation(original.Owner));
             if (newBody is not { } bodyV || Deleted(bodyV))
             {
