@@ -102,7 +102,7 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
                 _popups.PopupEntity(Loc.GetString("fractured-form-sleepy"), uid, uid, PopupType.LargeCaution);
                 _chatSystem.TryEmoteWithChat(uid, "Yawn", ChatTransmitRange.Normal);
             }
-            if (HasComp<SleepingComponent>(uid) || t > comp.NextSwap)
+            if (HasComp<SleepingComponent>(uid) || _mobState.IsIncapacitated(uid) || t > comp.NextSwap)
             {
                 toSwap.Add(new(uid, comp));
             }
