@@ -149,18 +149,18 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
             var species = _random.Pick(validSpecies);
             var character = HumanoidCharacterProfile.RandomWithSpecies(species);
             newBody = _stationSpawning.SpawnPlayerMob(xform.Coordinates, hasClothes ? original.Comp.VisitorJob : "", character, _station.GetCurrentStation(original.Owner));
-            if (newBody == null || Deleted(newBody.Value))
+            if (newBody is not { } bodyV || Deleted(bodyV))
             {
                 Log.Error($"Failed to create a new body for {ToPrettyString(original)}. This is a bug.");
                 return EntityUid.Invalid;
             }
         }
 
-        if (newBody != null && !Deleted(newBody.Value))
+        if (newBody is not { } body || !Deleted(body))
         {
-            AddComp<FracturedFormBodyComponent>(newBody.Value);
-            original.Comp.Bodies.Add(newBody.Value);
-            return newBody!.Value;
+            AddComp<FracturedFormBodyComponent>(body);
+            original.Comp.Bodies.Add(body);
+            return body;
         }
 
         return default!;
