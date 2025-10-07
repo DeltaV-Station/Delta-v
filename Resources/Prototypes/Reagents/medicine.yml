@@ -15,7 +15,7 @@
         component: PsionicInsulation #Nyano - Summary: see above.
         type: Add
       - !type:GenericStatusEffect
-        key: Stutter
+        key: ScrambledSpeech
         component: ScrambledAccent
       - !type:GenericStatusEffect
         key: PsionicsDisabled #Nyano - Summary: disables psinoics from being used by the wearer.
@@ -1132,6 +1132,12 @@
             Heat: -0.2
             Shock: -0.2
             Cold: -0.2
+      - !type:HealthChange # Delta-V
+        damage:
+          types:
+            Shadow: -2
+            Holy: 2
+
 
   reactiveEffects:
     Extinguish:

@@ -1,3 +1,4 @@
+using Content.Shared._DV.Clothing.Events; // DeltaV - Introduce ClothingSlowResistance to Species
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle;
@@ -54,8 +55,22 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
 
     private void OnRefreshMoveSpeed(EntityUid uid, ClothingSpeedModifierComponent component, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
-        if (_toggle.IsActivated(uid))
+        // DeltaV Start - Introduce ClothingSlowResistance to Species
+        if (!_toggle.IsActivated(uid))
+            return;
+
+        if (_container.TryGetContainingContainer((uid, null), out var container))
+        {
+            var ev = new ModifyClothingSlowdownEvent(component.WalkModifier, component.SprintModifier);
+            RaiseLocalEvent(container.Owner, ref ev);
+
+            args.Args.ModifySpeed(ev.WalkModifier, ev.RunModifier);
+        }
+        else
+        {
             args.Args.ModifySpeed(component.WalkModifier, component.SprintModifier);
+        }
+        // DeltaV End - Introduce ClothingSlowResistance to Species
     }
 
     private void OnClothingVerbExamine(EntityUid uid, ClothingSpeedModifierComponent component, GetVerbsEvent<ExamineVerb> args)
@@ -63,8 +78,13 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess)
             return;
 
-        var walkModifierPercentage = MathF.Round((1.0f - component.WalkModifier) * 100f, 1);
-        var sprintModifierPercentage = MathF.Round((1.0f - component.SprintModifier) * 100f, 1);
+        // DeltaV Start - Introduce ClothingSlowResistance to Species
+        var ev = new ModifyClothingSlowdownEvent(component.WalkModifier, component.SprintModifier);
+        RaiseLocalEvent(args.User, ref ev);
+
+        var walkModifierPercentage = MathF.Round((1.0f - ev.WalkModifier) * 100f, 1);
+        var sprintModifierPercentage = MathF.Round((1.0f - ev.RunModifier) * 100f, 1);
+        // DeltaV End - Introduce ClothingSlowResistance to Species
 
         if (walkModifierPercentage == 0.0f && sprintModifierPercentage == 0.0f)
             return;

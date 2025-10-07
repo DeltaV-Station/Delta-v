@@ -532,3 +532,14 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformHarbingerTunic
+  name: harbinger tunic
+  description: Something easy to move in. Good for hunting.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/harbingertunic.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/harbingertunic.rsi
