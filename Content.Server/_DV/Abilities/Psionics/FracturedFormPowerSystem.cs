@@ -156,7 +156,7 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
             }
         }
 
-        if (newBody is { } body || !Deleted(body))
+        if (newBody is { } body && !Deleted(body))
         {
             AddComp<FracturedFormBodyComponent>(body);
             original.Comp.Bodies.Add(body);
