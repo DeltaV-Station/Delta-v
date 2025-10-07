@@ -49,6 +49,7 @@ public sealed class MagnetPickupSystem : EntitySystem
                 continue;
 
             comp.NextScan += ScanDelay;
+            Dirty(uid, comp);
 
             // Begin DeltaV Addition: Make ore bags use ItemToggle
             if (!_toggle.IsActivated(uid))
