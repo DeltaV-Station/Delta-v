@@ -422,7 +422,8 @@
       task: SimpleHostileCompound
   - type: NpcFactionMember
     factions:
-    - SimpleHostile # DeltaV - Was Xeno
+    - Xeno
+    - SimpleHostile
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
