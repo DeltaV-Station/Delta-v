@@ -21,3 +21,37 @@
   parent: FloorAsteroidSandBorderless
   name: tiles-hull-reinforced-destructible
   indestructible: false
+
+#indoor grass tiles
+- type: tile
+  id: FloorGrassDark
+  name: tiles-dark-grass-floor-indoors
+  sprite: /Textures/Tiles/grassdark.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: FloorDirt
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepGrass
+  heatCapacity: 10000
+  weather: true
+- type: tile
+  id: FloorGrassLight
+  name: tiles-light-grass-floor-indoors
+  sprite: /Textures/Tiles/grasslight.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: FloorDirt
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepGrass
+  heatCapacity: 10000
+  weather: true
