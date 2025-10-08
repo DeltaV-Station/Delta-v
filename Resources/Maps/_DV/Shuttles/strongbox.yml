@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/27/2025 19:06:05
-  entityCount: 461
+  time: 10/08/2025 05:13:41
+  entityCount: 464
 maps: []
 grids:
 - 1
@@ -476,6 +476,13 @@ entities:
     - type: Transform
       pos: 1.5,-3.5
       parent: 1
+- proto: ArmsdealerGunSafeMelee
+  entities:
+  - uid: 166
+    components:
+    - type: Transform
+      pos: 4.5,0.5
+      parent: 1
 - proto: ArmsdealerGunSafeRare
   entities:
   - uid: 279
@@ -924,6 +931,11 @@ entities:
       parent: 1
 - proto: CableHV
   entities:
+  - uid: 167
+    components:
+    - type: Transform
+      pos: -1.5,-6.5
+      parent: 1
   - uid: 173
     components:
     - type: Transform
@@ -948,6 +960,11 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-2.5
+      parent: 1
+  - uid: 345
+    components:
+    - type: Transform
+      pos: -2.5,-6.5
       parent: 1
 - proto: CableMV
   entities:
@@ -1242,11 +1259,6 @@ entities:
     - type: Transform
       pos: 3.5,2.5
       parent: 1
-  - uid: 443
-    components:
-    - type: Transform
-      pos: -1.5,-6.5
-      parent: 1
   - uid: 444
     components:
     - type: Transform
@@ -1284,11 +1296,6 @@ entities:
     - type: Transform
       pos: 3.5,-3.5
       parent: 1
-  - uid: 438
-    components:
-    - type: Transform
-      pos: -1.5,-4.5
-      parent: 1
   - uid: 439
     components:
     - type: Transform
@@ -1298,6 +1305,16 @@ entities:
     components:
     - type: Transform
       pos: 2.5,-8.5
+      parent: 1
+  - uid: 443
+    components:
+    - type: Transform
+      pos: -1.5,-5.5
+      parent: 1
+  - uid: 462
+    components:
+    - type: Transform
+      pos: -1.5,-3.5
       parent: 1
 - proto: DeskBell
   entities:
@@ -1330,7 +1347,7 @@ entities:
   - uid: 383
     components:
     - type: Transform
-      pos: -2.514749,-6.557745
+      pos: -0.34578967,-5.619364
       parent: 1
 - proto: FoodSnackEnergy
   entities:
@@ -2067,6 +2084,18 @@ entities:
       pipeLayer: Tertiary
     - type: AtmosPipeColor
       color: '#FF1212FF'
+- proto: GeneratorBasic15kW
+  entities:
+  - uid: 163
+    components:
+    - type: Transform
+      pos: -0.5,-6.5
+      parent: 1
+  - uid: 438
+    components:
+    - type: Transform
+      pos: -2.5,-6.5
+      parent: 1
 - proto: GravityGeneratorMini
   entities:
   - uid: 431
@@ -2336,7 +2365,7 @@ entities:
         [head=3]We expect great things from you as one of our representitive as an arms dealer. However, we do not expect it will be easy to sell our goods, so we have seen fit to give you some tools to better your chances of success.
 
 
-        On your shuttle you will find a large batch of product entrusted to you to trade. At the back of your ship there is a hidden compartment with "Legally" acquired NT branded merchandise and our most exotic weapons commodity. Strive and bring home profit.
+        On your shuttle you will find a large batch of product entrusted to you to trade. At the back of your ship there is a hidden compartment with "Legally" acquired NT branded merchandise and our most exotic weapons commodity. Strive and bring home at least [color=#B5051d]50k spesos[/color] in profit each.
 
 
         It's important you don't leave the shuttle and guard it with your life. It's your home and livelyhood as far as you are concerned.
@@ -2420,12 +2449,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,-8.5
       parent: 1
-- proto: PortableGeneratorSuperPacman
+- proto: PlushieNuke
   entities:
-  - uid: 166
+  - uid: 463
     components:
     - type: Transform
-      pos: -0.5,-6.5
+      pos: -1.2507014,-6.5675864
       parent: 1
 - proto: PosterContrabandC20r
   entities:
@@ -2567,18 +2596,12 @@ entities:
   - uid: 205
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -0.5,-5.5
       parent: 1
   - uid: 326
     components:
     - type: Transform
       pos: 4.5,-1.5
-      parent: 1
-  - uid: 345
-    components:
-    - type: Transform
-      pos: -2.5,-6.5
       parent: 1
 - proto: RadioHandheld
   entities:
@@ -2593,18 +2616,6 @@ entities:
     components:
     - type: Transform
       pos: -0.27358198,5.6172037
-      parent: 1
-- proto: SheetUranium
-  entities:
-  - uid: 167
-    components:
-    - type: Transform
-      pos: -0.5978416,-5.440698
-      parent: 1
-  - uid: 409
-    components:
-    - type: Transform
-      pos: -0.42542493,-5.4738474
       parent: 1
 - proto: ShelfMetal
   entities:
@@ -2671,7 +2682,7 @@ entities:
     - type: Transform
       pos: -4.5,3.5
       parent: 1
-- proto: SMESAdvanced
+- proto: SMESBasic
   entities:
   - uid: 412
     components:
@@ -2877,10 +2888,10 @@ entities:
       parent: 1
 - proto: ToolboxSyndicateFilled
   entities:
-  - uid: 163
+  - uid: 409
     components:
     - type: Transform
-      pos: -2.592874,-6.32337
+      pos: -0.5489147,-5.384989
       parent: 1
 - proto: ToyFigurineNukie
   entities:
@@ -2888,6 +2899,13 @@ entities:
     components:
     - type: Transform
       pos: -0.98608005,5.7426805
+      parent: 1
+- proto: ToyNuke
+  entities:
+  - uid: 464
+    components:
+    - type: Transform
+      pos: -1.6413264,-6.4738364
       parent: 1
 - proto: VendingMachineSustenance
   entities:
