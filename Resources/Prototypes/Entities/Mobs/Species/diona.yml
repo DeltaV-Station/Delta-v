@@ -136,7 +136,7 @@
         Airloss: -0.1
     darkMovementSpeedMultiplier: 0.7
   - type: ClothingSlowResistance # DeltaV
-    modifier: 0.9 # Slowdowns incurred by worn clothing are 90% less effective.
+    modifier: 0.4 # Slowdowns incurred by worn clothing are 40% less effective.
 
 - type: entity
   parent: BaseSpeciesDummy
