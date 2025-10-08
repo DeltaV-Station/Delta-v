@@ -25,6 +25,8 @@ public sealed partial class FracturedFormPowerComponent : Component
     [DataField]
     public ProtoId<JobPrototype> VisitorJob = "Passenger";
     [DataField]
+    public ProtoId<JobPrototype> NakedJob = "ParadoxClone"; // This works, because paradox clones have no gear by default.
+    [DataField]
     public TimeSpan NextSwap = TimeSpan.MaxValue;
     [DataField]
     public float ManualSwapTime = 5f;
