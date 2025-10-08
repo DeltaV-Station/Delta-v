@@ -148,7 +148,7 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
                     validSpecies.Add(proto.ID);
             }
             var species = _random.Pick(validSpecies);
-            var character = HumanoidCharacterProfile.RandomWithSpecies(species);)
+            var character = HumanoidCharacterProfile.RandomWithSpecies(species);
             newBody = _stationSpawning.SpawnPlayerMob(xform.Coordinates, hasClothes ? original.Comp.VisitorJob : original.Comp.NakedJob, character, _station.GetCurrentStation(original.Owner));
             if (newBody is not { } bodyV || Deleted(bodyV))
             {
