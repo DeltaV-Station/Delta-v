@@ -543,3 +543,14 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/ninja.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/ninja.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformHarbingerTunic
+  name: harbinger tunic
+  description: Something easy to move in. Good for hunting.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/harbingertunic.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/harbingertunic.rsi
