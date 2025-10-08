@@ -163,7 +163,7 @@
   - type: MeleeWeapon # DeltaV - Make Xenos Scary
     damage:
       types:
-        Slash: 20
+        Slash: 20 
 
 - type: entity
   name: drone
@@ -303,7 +303,7 @@
     baseSprintSpeed: 6.0
   - type: MeleeWeapon
 # Begin DeltaV Changes
-    attackRate: 2
+    attackRate: 2 
     damage:
      types:
        Slash: 10
