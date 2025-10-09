@@ -288,6 +288,7 @@
       - id: ModularReceiver
       - id: WeaponFlareGun
       - id: BarberScissors
+      - id: ClothingShoesCreasedJordans # DeltaV
       - !type:GroupSelector
         children:
         - id: DrinkSpaceGlue
@@ -308,6 +309,7 @@
       - id: PetCarrier
       - id: DrinkMopwataBottleRandom
       #- id: SpectralLocator # DeltaV: no ghost locator
+      - id: ClothingShoesRealJordans # DeltaV
       - id: LidSalami
         weight: 0.05
 
@@ -336,6 +338,7 @@
       weight: 95
       children:
       - id: Machete
+      - id: Claymore
       - id: BaseBallBat
       - id: CombatKnife
       - id: Spear
