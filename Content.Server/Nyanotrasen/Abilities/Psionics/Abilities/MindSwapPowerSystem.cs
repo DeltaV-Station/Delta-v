@@ -15,6 +15,7 @@ using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared._DV.Abilities.Psionics;
 
 namespace Content.Server.Abilities.Psionics
 {

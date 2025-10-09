@@ -18,6 +18,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
+using Content.Shared._DV.Abilities.Psionics;
 
 namespace Content.Server.Psionics
 {

@@ -1,12 +1,13 @@
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 
 namespace Content.Shared.Abilities.Psionics
 {
-    [RegisterComponent, Access(typeof(SharedTelegnosisPowerSystem))]
+    [RegisterComponent, NetworkedComponent, Access(typeof(SharedTelegnosisPowerSystem))]
     public sealed partial class TelegnosisPowerComponent : Component
     {
         [DataField("prototype")]
