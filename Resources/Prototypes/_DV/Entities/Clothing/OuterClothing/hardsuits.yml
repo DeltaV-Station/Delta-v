@@ -39,7 +39,7 @@
     damageProtection:
       flatReductions:
         Blunt: 10
-
+# Security Combat Hardsuit
 - type: entity
   parent: ClothingOuterHardsuitCombatStandard
   id: ClothingOuterHardsuitCombatOfficer
@@ -85,7 +85,7 @@
     sprintModifier: 0.85
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatMedical
-
+# Corpsman Combat Hardsuit
 - type: entity
   parent: ClothingOuterHardsuitCombatMedical
   id: ClothingOuterHardsuitCombatCorpsman
@@ -133,7 +133,7 @@
     sprintModifier: 0.60
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatRiot
-
+# Warden Combat Hardsuit
 - type: entity
   parent: ClothingOuterHardsuitCombatRiot
   id: ClothingOuterHardsuitCombatWarden
@@ -177,11 +177,11 @@
   - type: StaminaResistance
     damageCoefficient: 0.2
   - type: ClothingSpeedModifier
-    walkModifier: 0.80
-    sprintModifier: 0.80
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatAdvanced
-
+# HoS Combat Hardsuit
 - type: entity
   parent: ClothingOuterHardsuitCombatAdvanced
   id: ClothingOuterHardsuitCombatHoS
