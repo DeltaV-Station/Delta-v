@@ -157,6 +157,7 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
+    - SyndicateAmmoStatic
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -468,6 +469,9 @@
     - SpecOpsGoogles # DeltaV
     #- SecurityDisablers # DeltaV - made roundstart
     - AdvancedPsionicProsthetics # DeltaV
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - SyndicateAmmoStatic
   - type: MaterialStorage
     whitelist:
       tags:
@@ -528,6 +532,9 @@
         machine_board: !type:Container
         machine_parts: !type:Container
         blueprint: !type:Container
+    - type: EmagLatheRecipes
+      emagStaticPacks:
+      - SyndicateAmmoStatic
     - type: MaterialStorage
       whitelist:
         tags:
