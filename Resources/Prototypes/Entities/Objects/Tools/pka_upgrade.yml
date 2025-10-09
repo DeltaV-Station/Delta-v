@@ -37,8 +37,8 @@
   - type: GunUpgradeDamage
     damage:
       types:
-        Blunt: 10
-        #Structural: 15 # DeltaV - SS13 parity, 10 blunt per shot only
+        Blunt: 5 # DeltaV - lowers upgrade damage a bit
+        #Structural: 15 # DeltaV - modkits can still exist, 5 blunt per shot only
 
 - type: entity
   id: PKAUpgradeRange
@@ -58,7 +58,7 @@
     #tags: [ GunUpgradeRange ] # DeltaV - allow multiple
     examineText: gun-upgrade-examine-text-range
   - type: GunUpgradeRange # DeltaV - actually change range not speed
-    coefficient: 1.25 # DeltaV - was 1.5, more in line with ss13
+    coefficient: 1.1 # DeltaV - was 1.5, lowered further to account for increased base range
   - type: GunUpgradeCost # DeltaV
     cost: 25
 
@@ -66,6 +66,7 @@
   id: PKAUpgradeFireRate
   parent: BasePKAUpgrade
   name: PKA modkit (fire rate)
+  abstract: true # DeltaV - firerate is kill
   components:
   - type: Sprite
     layers:
@@ -81,4 +82,3 @@
     examineText: gun-upgrade-examine-text-reload
   - type: GunUpgradeFireRate
     coefficient: 1.25 # DeltaV - was 1.5, SS13 parity (maths used is different but same result: 0.64s recharge time with 3 upgrades)
-
