@@ -149,12 +149,7 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
             }
             var species = _random.Pick(validSpecies);
             var character = HumanoidCharacterProfile.RandomWithSpecies(species);
-            if (!_prototype.HasIndex(original.Comp.VisitorJob) || !_prototype.HasIndex(original.Comp.NakedJob))
-            {
-                Log.Warning($"FracturedFormPowerComponent on {ToPrettyString(original)} has invalid job prototypes. This happens during tests. If this isn't a test, this is a bug!");
-                return EntityUid.Invalid;
-            }
-            newBody = _stationSpawning.SpawnPlayerMob(xform.Coordinates, hasClothes ? original.Comp.VisitorJob : original.Comp.NakedJob, character, _station.GetCurrentStation(original.Owner));
+            newBody = _stationSpawning.SpawnPlayerMob(xform.Coordinates, hasClothes ? original.Comp.VisitorJob : "", character, _station.GetCurrentStation(original.Owner));
             if (newBody is not { } bodyV || Deleted(bodyV))
             {
                 Log.Error($"Failed to create a new body for {ToPrettyString(original)}. This is a bug.");
