@@ -25,6 +25,7 @@ using System.Linq;
 
 using Content.Shared.Movement.Systems;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Clothing.Components;
 
 namespace Content.Shared.Flash;
 
@@ -268,6 +269,9 @@ public abstract class SharedFlashSystem : EntitySystem
 
     private void OnFlashImmunityFlashAttempt(Entity<FlashImmunityComponent> ent, ref FlashAttemptEvent args)
     {
+        if (TryComp<MaskComponent>(ent, out var mask) && mask.IsToggled)
+            return;
+
         if (ent.Comp.Enabled && !args.IgnoreProtection) //DeltaV: allow flashing to ignore flash protection
             args.Cancelled = true;
     }
