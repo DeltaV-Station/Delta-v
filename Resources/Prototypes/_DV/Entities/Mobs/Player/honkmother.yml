@@ -1,0 +1,107 @@
+- type: entity
+  abstract: true
+  id: MobHonkmotherBase
+  name: Honkmother
+  description: A glorious and holy entity. Your mind shatters upon witnessing her beauty. The end has come and it is nothing but pure comedy.
+  components:
+  - type: Sprite
+    sprite: Mobs/Demons/honkmother.rsi #Delta-V - THE HONKMOTHER HAS ARRIVED, AND BOY, SHE IS UGLY.
+    drawdepth: Ghosts
+    scale: 2.0,2.0
+    layers:
+    - state: honkmother
+      shader: unshaded
+
+#Delta-V - spawn animation, spawns the Honkmother when it ends
+- type: entity
+  parent: MobHonkmotherBase
+  id: MobHonkmotherSpawn
+  suffix: Spawn
+  categories: [ HideSpawnMenu ] #Delta-V - Can be bypassed with the spawn command but until that's fixed this will work for now.
+  components:
+  - type: Sprite
+    layers:
+    - state: spawn
+      shader: unshaded
+  #Delta-V - spawn animation lasts uhh... I didnt count this, someone can change this later.
+  - type: TimedDespawn
+    lifetime: 3.5
+  - type: SpawnOnDespawn
+    prototype: MobHonkmother
+
+- type: entity
+  parent: [MobHonkmotherBase, BaseMob]
+  id: MobHonkmother
+  categories: [ HideSpawnMenu ] #Delta-V - Can be bypassed with the spawn command but until that's fixed this will work for now.
+  components:
+  - type: AnnounceOnSpawn
+    message: THE-HONKMOTHER-HAS-AWOKEN
+    sender: honkmother-has-risen-sender
+    sound:
+      path: /Audio/Misc/honkmother_rises.ogg #Delta-V - SHE HAS RISEN! SHE BRINGS THE FANFARE OF THE HONKENING AND MILDLY BURST EARDRUMS.
+    color: red
+  - type: CargoSellBlacklist
+  #Delta-V - Honki sees all
+  - type: ContentEye
+    maxZoom: 2.0,2.0
+  - type: Fixtures
+    fixtures:
+      EventHorizonCollider:
+        shape:
+          !type:PhysShapeCircle
+            radius: 5
+        hard: false
+        restitution: 0.8
+        density: 99999
+        mask:
+        - SingularityLayer
+        layer:
+        - SingularityLayer
+      EventHorizonConsumer:
+        shape:
+          !type:PhysShapeCircle
+            radius: 5
+        hard: false
+        mask:
+        - SingularityLayer
+        layer:
+        - SingularityLayer
+  - type: Input
+    context: "ghost"
+  - type: MovementIgnoreGravity
+  #Delta-V - Honki hears all
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Syndicate
+    globalReceive: true
+  - type: Physics
+    bodyType: Dynamic
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  #Delta-V - Discount singularity because Honki needs to annihilate the sinners.
+  - type: EventHorizon
+    radius: 5
+    canBreachContainment: true
+  - type: GravityWell
+    baseRadialAcceleration: 6
+    maxRange: 8
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
+  - type: WarpPoint
+    follow: true
+    location: Honkmother
+    blacklist:
+      tags:
+      - GhostOnlyWarp
