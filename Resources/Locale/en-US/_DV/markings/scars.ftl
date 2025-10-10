@@ -21,10 +21,3 @@ marking-ScarVoxRArmSmall = Small Arm Scar (Right)
 marking-ScarVoxRArmSmall-scar_arm_right_small = Small Arm Scar (Right)
 marking-ScarVoxLArmSmall = Small Arm Scar (Left)
 marking-ScarVoxLArmSmall-scar_arm_left_small = Small Arm Scar (Left)
-
-
-
-
-
-
-
