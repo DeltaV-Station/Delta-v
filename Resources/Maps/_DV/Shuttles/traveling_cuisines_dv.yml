@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 260.2.0
+  engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/02/2025 10:55:39
-  entityCount: 471
+  time: 10/11/2025 07:34:25
+  entityCount: 487
 maps: []
 grids:
 - 1
@@ -283,6 +283,13 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
+- proto: AirGrenade
+  entities:
+  - uid: 480
+    components:
+    - type: Transform
+      pos: 5.462313,-0.31159377
+      parent: 1
 - proto: Airlock
   entities:
   - uid: 161
@@ -878,11 +885,18 @@ entities:
           showEnts: False
           occludes: True
           ents:
+          - 478
+          - 477
+          - 476
+          - 475
+          - 474
+          - 473
+          - 472
           - 246
-          - 250
-          - 248
-          - 247
           - 249
+          - 247
+          - 248
+          - 250
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -948,7 +962,30 @@ entities:
     - type: InsideEntityStorage
 - proto: ClothingHeadHelmetEVALarge
   entities:
-  - uid: 248
+  - uid: 474
+    components:
+    - type: Transform
+      parent: 245
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 475
+    components:
+    - type: Transform
+      parent: 245
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: ClothingMaskBreath
+  entities:
+  - uid: 250
+    components:
+    - type: Transform
+      parent: 245
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 478
     components:
     - type: Transform
       parent: 245
@@ -976,6 +1013,13 @@ entities:
 - proto: ClothingOuterHardsuitEVA
   entities:
   - uid: 246
+    components:
+    - type: Transform
+      parent: 245
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 249
     components:
     - type: Transform
       parent: 245
@@ -1170,6 +1214,38 @@ entities:
     components:
     - type: Transform
       pos: 3.5,4.5
+      parent: 1
+- proto: DecalSpawnerDirtWide
+  entities:
+  - uid: 482
+    components:
+    - type: Transform
+      pos: 5.5,-3.5
+      parent: 1
+  - uid: 483
+    components:
+    - type: Transform
+      pos: -2.5,-2.5
+      parent: 1
+  - uid: 484
+    components:
+    - type: Transform
+      pos: 1.5,4.5
+      parent: 1
+  - uid: 485
+    components:
+    - type: Transform
+      pos: -2.5,0.5
+      parent: 1
+  - uid: 486
+    components:
+    - type: Transform
+      pos: 5.5,4.5
+      parent: 1
+  - uid: 487
+    components:
+    - type: Transform
+      pos: 1.5,-1.5
       parent: 1
 - proto: DeskBell
   entities:
@@ -2368,6 +2444,15 @@ entities:
     - type: Transform
       pos: 6.5,0.5
       parent: 1
+- proto: HolopadLongRange
+  entities:
+  - uid: 479
+    components:
+    - type: Transform
+      pos: 1.5,4.5
+      parent: 1
+    - type: Label
+      currentLabel: Salami-Salami
 - proto: hydroponicsSoil
   entities:
   - uid: 171
@@ -2545,9 +2630,23 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: MetalFoamGrenade
+  entities:
+  - uid: 481
+    components:
+    - type: Transform
+      pos: 5.727938,-0.21784377
+      parent: 1
 - proto: NitrogenTankFilled
   entities:
-  - uid: 247
+  - uid: 472
+    components:
+    - type: Transform
+      parent: 245
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 473
     components:
     - type: Transform
       parent: 245
@@ -2564,7 +2663,14 @@ entities:
       parent: 1
 - proto: OxygenTankFilled
   entities:
-  - uid: 250
+  - uid: 476
+    components:
+    - type: Transform
+      parent: 245
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 477
     components:
     - type: Transform
       parent: 245
@@ -3543,7 +3649,14 @@ entities:
       location: Traveling Cuisines
 - proto: WaterVaporTankFilled
   entities:
-  - uid: 249
+  - uid: 247
+    components:
+    - type: Transform
+      parent: 245
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 248
     components:
     - type: Transform
       parent: 245

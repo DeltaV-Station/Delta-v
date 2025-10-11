@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 260.2.0
+  engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/02/2025 10:47:26
-  entityCount: 198
+  time: 10/11/2025 07:41:03
+  entityCount: 207
 maps: []
 grids:
 - 1
@@ -155,33 +155,49 @@ entities:
           0,0:
             0: 45311
           0,-1:
-            0: 15136
-            1: 64
+            0: 14624
+            1: 512
+            2: 64
           -1,0:
             0: 62459
           0,1:
             0: 59
-            1: 1024
+            2: 1024
           -1,1:
             0: 168
-            1: 1024
+            2: 1024
           1,0:
-            1: 256
+            2: 256
           1,-1:
-            1: 4096
+            2: 4096
           -2,-1:
-            1: 32768
+            2: 32768
           -2,1:
-            1: 8
+            2: 8
           -1,-1:
             0: 35712
-            1: 64
+            2: 64
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -545,6 +561,61 @@ entities:
     - type: Transform
       pos: 1.5503002,4.80635
       parent: 1
+- proto: ClosetWallEmergency
+  entities:
+  - uid: 199
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-1.5
+      parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 200
+          - 201
+          - 202
+          - 203
+          - 204
+- proto: ClothingMaskBreath
+  entities:
+  - uid: 200
+    components:
+    - type: Transform
+      parent: 199
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: ClothingOuterSuitEmergency
+  entities:
+  - uid: 204
+    components:
+    - type: Transform
+      parent: 199
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: ComputerIFFSyndicate
   entities:
   - uid: 58
@@ -565,6 +636,23 @@ entities:
     components:
     - type: Transform
       pos: -2.5,0.5
+      parent: 1
+- proto: DecalSpawnerDirtWide
+  entities:
+  - uid: 205
+    components:
+    - type: Transform
+      pos: 0.5,0.5
+      parent: 1
+  - uid: 206
+    components:
+    - type: Transform
+      pos: 0.5,3.5
+      parent: 1
+  - uid: 207
+    components:
+    - type: Transform
+      pos: -2.5,1.5
       parent: 1
 - proto: DrinkMugMetal
   entities:
@@ -590,6 +678,33 @@ entities:
     - type: Transform
       pos: -3.506381,0.6749289
       parent: 1
+- proto: EmergencyNitrogenTankFilled
+  entities:
+  - uid: 202
+    components:
+    - type: Transform
+      parent: 199
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: EmergencyOxygenTankFilled
+  entities:
+  - uid: 201
+    components:
+    - type: Transform
+      parent: 199
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: EmergencyWaterVaporTankFilled
+  entities:
+  - uid: 203
+    components:
+    - type: Transform
+      parent: 199
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: Envelope
   entities:
   - uid: 147
