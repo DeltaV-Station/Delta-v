@@ -55,7 +55,7 @@
       - id: trayScanner
       - id: Wristwatch
       - id: ClothingNeckBling
-      - id: ClothingMultipleHeadphones
+    # - id: ClothingMultipleHeadphones # DeltaV - Uncomment when merged from upstream
       - id: DiceBag
       - id: PersonalAI
       - id: CrayonBox
@@ -360,6 +360,15 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillWardrobeAtmospherics
+
+- type: entityTable
+  id: FillWardrobeAtmospherics
+  table: !type:AllSelector
+    children:
+    - id: ClothingUniformJumpsuitAtmos
+    - id: ClothingBackpackEngineering
+    - id: ClothingShoesColorWhite
+    - id: ClothingUniformJumpskirtAtmos
 
 - type: entity
   id: WardrobeEngineeringFilled
