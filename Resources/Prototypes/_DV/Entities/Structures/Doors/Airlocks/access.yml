@@ -595,6 +595,25 @@
     containers:
       board: [ DoorElectronicsSecurity ]
 
+# Station-Specific Airlocks
+- type: entity
+  parent: HighSecDoor
+  id: HighSecSecurityLocked
+  suffix: Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecEngineeringLocked
+  suffix: Engineering, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEngineering ]
+
 #Syndicate high security door
 - type: entity
   parent: HighSecDoor

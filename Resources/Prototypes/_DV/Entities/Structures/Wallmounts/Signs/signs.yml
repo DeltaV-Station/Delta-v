@@ -1,3 +1,4 @@
+# Directional Signs
 - type: entity
   parent: BaseSignDirectional
   id: SignDirectionalLogistics
@@ -47,3 +48,34 @@
   - type: Sprite
     sprite: _DV/Structures/Wallmounts/signs.rsi
     state: direction_aicore
+
+# Non-Directional Signs
+- type: entity
+  parent: BaseSign
+  id: SignPool
+  name: pool
+  description: A sign indicating where the pool is. Careful not to get a space sunburn!
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: pool
+
+- type: entity
+  parent: BaseSign
+  id: SignPark
+  name: park
+  description: A sign indicating where the park is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: park
+
+- type: entity
+  parent: BaseSign
+  id: SignEvidence
+  name: evidence room
+  description: A sign indicating where the evidence room is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: evidence
