@@ -467,3 +467,97 @@
       prob: 0.75
     - id: MagazineBoxRifleRubber
       prob: 0.2
+
+# Melee for all things close and personal
+- type: entity
+  parent: SyndicateGunSafeBaseSecure
+  id: ArmsdealerGunSafeMelee
+  name: Arms dealer gun safe
+  suffix: Filled, Syndicate, Melee
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: ArmsdealerMeleeKnife
+        - !type:NestedSelector
+          tableId: ArmsdealerMeleeBlunt
+        - !type:NestedSelector
+          tableId: ArmsdealerMeleeEsword
+          prob: 0.2
+        - !type:NestedSelector
+          tableId: ArmsdealerMeleeShield
+          prob: 0.5
+        - !type:NestedSelector
+          tableId: ArmsdealerMeleeSword
+
+- type: entityTable
+  id: ArmsdealerMeleeKnife
+  table: !type:AllSelector
+    children:
+    - id: CombatKnife
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: SurvivalKnife
+      amount: !type:RangeNumberSelector
+        range: 2, 4
+    - id: KukriKnife
+      amount: !type:RangeNumberSelector
+        range: 0, 3
+
+- type: entityTable
+  id: ArmsdealerMeleeBlunt
+  table: !type:GroupSelector
+    children:
+    - id: ClothingHandsKnuckleDustersSyndicate
+      weight: 0.4
+    - id: ClothingHandsKnuckleDusters
+      weight: 1.2
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: BaseBallBat
+      weight: 1
+      amount: !type:RangeNumberSelector
+        range: 1, 4
+    - id: Kanabou
+      weight: 0.4
+
+- type: entityTable
+  id: ArmsdealerMeleeEsword
+  table: !type:GroupSelector
+    children:
+    - id: EnergyDaggerLoud
+      weight: 1
+    - id: EnergySword
+      weight: 0.4
+    - id: EnergySwordDouble
+      weight: 0.1
+
+- type: entityTable
+  id: ArmsdealerMeleeShield
+  table: !type:GroupSelector
+    children:
+    - id: RiotLaserShield
+      weight: 0.6
+    - id: RiotBulletShield
+      weight: 0.8
+    - id: EnergyShield
+      weight: 0.1
+
+- type: entityTable
+  id: ArmsdealerMeleeSword
+  table: !type:GroupSelector
+    children:
+    - id: Claymore
+      weight: 0.6
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: PlasteelArmingSword
+      weight: 1
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: Katana
+      weight: 0.4
+    - id: Wakizashi
+      weight: 0.2
