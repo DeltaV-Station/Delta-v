@@ -29,7 +29,7 @@ namespace Content.Server._DV.Abilities.Psionics;
 
 public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
 {
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -101,7 +101,7 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
             {
                 comp.SleepWarned = true;
                 _popups.PopupEntity(Loc.GetString("fractured-form-sleepy"), uid, uid, PopupType.LargeCaution);
-                _chatSystem.TryEmoteWithChat(uid, "Yawn", ChatTransmitRange.Normal);
+                _chat.TryEmoteWithChat(uid, "Yawn", ChatTransmitRange.Normal);
             }
             if (HasComp<SleepingComponent>(uid) || _mobState.IsIncapacitated(uid) || t > comp.NextSwap)
             {
@@ -217,7 +217,7 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
         }
 
         entity.Comp.SleepWarned = true;
-        _chatSystem.TryEmoteWithChat(entity.Owner, "Yawn", ChatTransmitRange.Normal);
+        _chat.TryEmoteWithChat(entity.Owner, "Yawn", ChatTransmitRange.Normal);
         _popups.PopupEntity(Loc.GetString("fractured-form-sleepy"), entity, entity, PopupType.LargeCaution);
         var ev = new FracturedFormDoAfterEvent();
         var doAfterArgs = new DoAfterArgs(EntityManager, entity, entity.Comp.ManualSwapTime, ev, entity);
