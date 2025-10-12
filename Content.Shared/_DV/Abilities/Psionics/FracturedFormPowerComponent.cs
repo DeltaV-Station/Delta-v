@@ -25,6 +25,8 @@ public sealed partial class FracturedFormPowerComponent : Component
     [DataField]
     public ProtoId<JobPrototype> VisitorJob = "Passenger";
     [DataField]
+    public ProtoId<JobPrototype>? NakedJob = null; // Scary null, but we explicitely want no job for naked spawns.
+    [DataField]
     public TimeSpan NextSwap = TimeSpan.MaxValue;
     [DataField]
     public float ManualSwapTime = 5f;

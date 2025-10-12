@@ -17,13 +17,11 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
 using Content.Shared.Psionics.Events;
-using Content.Shared.Roles;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using System.Linq;
 
 namespace Content.Server._DV.Abilities.Psionics;
 
@@ -149,7 +147,7 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
             }
             var species = _random.Pick(validSpecies);
             var character = HumanoidCharacterProfile.RandomWithSpecies(species);
-            newBody = _stationSpawning.SpawnPlayerMob(xform.Coordinates, hasClothes ? original.Comp.VisitorJob : "", character, _station.GetCurrentStation(original.Owner));
+            newBody = _stationSpawning.SpawnPlayerMob(xform.Coordinates, hasClothes ? original.Comp.VisitorJob : original.Comp.NakedJob, character, _station.GetCurrentStation(original.Owner));
             if (newBody is not { } bodyV || Deleted(bodyV))
             {
                 Log.Error($"Failed to create a new body for {ToPrettyString(original)}. This is a bug.");
@@ -167,34 +165,51 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
         return default!;
     }
 
+    private bool IsValidBody(Entity<FracturedFormPowerComponent> entity, EntityUid body)
+    {
+        if (body == entity.Owner)
+            return false;
+        if (!entity.Comp.Bodies.Contains(body))
+            return false;
+        if (!TryComp<MindContainerComponent>(body, out var cmind))
+            return false;
+        if (cmind.HasMind)
+            return false;
+        if (HasComp<ForcedSleepingComponent>(body))
+            return false;
+        if (_mobState.IsIncapacitated(body))
+            return false;
+        return true;
+    }
+
+    private List<EntityUid> ValidBodies(Entity<FracturedFormPowerComponent> entity)
+    {
+        var bodies = new List<EntityUid>();
+        foreach (var body in entity.Comp.Bodies)
+        {
+            if (IsValidBody(entity, body))
+                bodies.Add(body);
+        }
+        return bodies;
+    }
+
     public bool CanSwap(Entity<FracturedFormPowerComponent> entity)
     {
-        var bodies = entity.Comp.Bodies
-            .Where(c =>
-                c != entity.Owner                                 // Not the current body
-             && TryComp<MindContainerComponent>(c, out var cmind) // Has a mindcontainer still
-             && !cmind.HasMind                                    // Is not current possessed somehow
-             && !HasComp<ForcedSleepingComponent>(c)              // Not forcefully unconsious either
-             && !_mobState.IsIncapacitated(c))                    // Isn't bleeding out somewhere (Or dead)
-            .ToList();
-        return bodies.Any();
+        foreach (var body in entity.Comp.Bodies)
+        {
+            if (IsValidBody(entity, body))
+                return true;
+        }
+        return false;
     }
 
     private bool TrySwap(Entity<FracturedFormPowerComponent> entity)
     {
         // Pick a random body, or the other one, if we have more than one.
         // Only picks bodies which don't have actives minds (In case of mindswap or something stupid)
-        var bodies = entity.Comp.Bodies
-            .Where(c =>
-                c != entity.Owner                                 // Not the current body
-             && TryComp<MindContainerComponent>(c, out var cmind) // Has a mindcontainer still
-             && !cmind.HasMind                                    // Is not current possessed somehow
-             && !HasComp<ForcedSleepingComponent>(c)              // Not forcefully unconsious either
-             && !_mobState.IsIncapacitated(c))                    // Isn't bleeding out somewhere (Or dead)
-            .ToList();
-        if (!bodies.Any())
+        if (!CanSwap(entity))
             return false;
-        var targetBody = _random.Pick(bodies);
+        var targetBody = _random.Pick(ValidBodies(entity));
         _audio.PlayPredicted(entity.Comp.SwapSound, entity, entity);
         if (TryComp<MindContainerComponent>(entity, out var mindContainer))
             _mind.TransferTo(mindContainer.Mind!.Value, targetBody);
