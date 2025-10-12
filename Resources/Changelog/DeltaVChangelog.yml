@@ -1,15 +1,6 @@
 ﻿Entries:
 - author: Radezolid
   changes:
-  - message: Security hardsuits are now insulated against electrical shock.
-    type: Tweak
-  - message: All magboots now have a toggle delay of 3 seconds.
-    type: Tweak
-  id: 1239
-  time: '2025-04-10T01:37:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3369
-- author: Radezolid
-  changes:
   - message: Shuttle FTL changes! FTL cooldown has been reduced to 60 seconds, the
       windup before going into FTL lasts 10 seconds while the travel itself takes
       only 5 seconds now.
@@ -4179,3 +4170,11 @@
   id: 1738
   time: '2025-10-11T17:04:41.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4514
+- author: Field Command
+  changes:
+  - message: Arms dealers now have melee weapons too. There is no longer a need to
+      barter for uranium, simply sell it for maximum profit.
+    type: Tweak
+  id: 1739
+  time: '2025-10-12T21:17:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4508
