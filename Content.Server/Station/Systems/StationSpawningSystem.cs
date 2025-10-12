@@ -167,7 +167,8 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             SetPdaAndIdCardData(entity.Value, metaData.EntityName, prototype, station);
         }
 
-        DoJobSpecials(job, entity.Value);
+        if (!string.IsNullOrWhiteSpace(job)) // Delta-V, empty job is okay, actually
+            DoJobSpecials(job, entity.Value);
         _identity.QueueIdentityUpdate(entity.Value);
         return entity.Value;
     }
