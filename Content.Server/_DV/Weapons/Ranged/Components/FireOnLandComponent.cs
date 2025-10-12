@@ -7,5 +7,5 @@ public sealed partial class FireOnLandComponent : Component
     /// Chance to trigger.
     /// </summary>
     [DataField]
-    public float Probability = 0.1f;
+    public float Probability = 1.0f;
 }
