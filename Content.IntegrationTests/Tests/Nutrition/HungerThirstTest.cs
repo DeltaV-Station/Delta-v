@@ -59,7 +59,7 @@ public sealed class HungerThirstTest : InteractionTest
         await UseInHand();
 
         // To see a change in hunger, we need to wait at least 30 seconds
-        await RunSeconds(15); // DeltaV - Was 30
+        await RunSeconds(30);
 
         // We ensure the food is fully eaten
         var foodEaten = HandSys.GetActiveItem((SPlayer, Hands));
@@ -82,7 +82,7 @@ public sealed class HungerThirstTest : InteractionTest
         await UseInHand();
 
         // To see a change in thirst, we need to wait at least 30 seconds
-        await RunSeconds(15); // DeltaV - Was 30
+        await RunSeconds(30);
 
         // Ensure the solution volume has decreased
         Assert.That(solution.Value.Comp.Solution.Volume, Is.LessThan(initialSolutionVolume), "Solution volume did not decrease after drinking");
