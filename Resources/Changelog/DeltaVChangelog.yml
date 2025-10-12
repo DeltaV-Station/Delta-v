@@ -1,91 +1,6 @@
 ﻿Entries:
 - author: Radezolid
   changes:
-  - message: Fixed the immolator and multi-lens immolator not showing at your back.
-    type: Fix
-  - message: Fixed IK-60 and IK-30 weird magazine placement and color changing.
-    type: Fix
-  id: 1228
-  time: '2025-04-07T12:58:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3390
-- author: Zephyrpak
-  changes:
-  - message: Vulpkanin now have scars whitelisted to them.
-    type: Tweak
-  id: 1229
-  time: '2025-04-07T16:50:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3396
-- author: Toby222
-  changes:
-  - message: Envelopes go in mail bags
-    type: Add
-  id: 1230
-  time: '2025-04-08T10:12:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3012
-- author: ShepardToTheStars
-  changes:
-  - message: Felinids no longer have human limbs! They are distinctly felinid now!
-    type: Fix
-  id: 1231
-  time: '2025-04-08T13:30:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3404
-- author: IAmNotGray
-  changes:
-  - message: Elegance is now significantly less miserable to play on for members of
-      Logistics. You have comms again.
-    type: Fix
-  id: 1232
-  time: '2025-04-08T14:41:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3402
-- author: Avalon-Proto
-  changes:
-  - message: Pyromaniacs rejoice, the syndicate has started distributing chemical
-      based molotovs
-    type: Add
-  id: 1233
-  time: '2025-04-08T17:26:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3395
-- author: deltanedas
-  changes:
-  - message: Fire alarms (the ones you manually pull to troll atmos techs) no longer
-      do anything.
-    type: Tweak
-  id: 1234
-  time: '2025-04-09T13:08:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3161
-- author: Stop-Signs
-  changes:
-  - message: Hristov no longer deals insane amounts of structural damage.
-    type: Tweak
-  id: 1235
-  time: '2025-04-09T13:08:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3406
-- author: ShepardToTheStars
-  changes:
-  - message: added an alternate Aloxadone recipe that uses siderlac, dermaline, and
-      cryoxadone.
-    type: Add
-  id: 1236
-  time: '2025-04-09T13:23:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3400
-- author: Colin-Tel
-  changes:
-  - message: Updated the Patrons tab of the credits. Thank you to everyone who helps
-      support DeltaV!
-    type: Tweak
-  id: 1237
-  time: '2025-04-09T17:32:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3408
-- author: Stop-Signs
-  changes:
-  - message: The syndicate thermal hardsuit is a side-grade once again, being cheaper
-      but with less brute resistance.
-    type: Tweak
-  id: 1238
-  time: '2025-04-10T00:20:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3407
-- author: Radezolid
-  changes:
   - message: Security hardsuits are now insulated against electrical shock.
     type: Tweak
   - message: All magboots now have a toggle delay of 3 seconds.
@@ -4177,3 +4092,90 @@
   id: 1727
   time: '2025-10-06T08:32:56.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4484
+- author: Proxysseia
+  changes:
+  - message: Promoted CMOs or Surgeons are now just as fast at surgery as their roundstart
+      counterparts.
+    type: Tweak
+  id: 1728
+  time: '2025-10-06T21:24:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4322
+- author: Solaris7518
+  changes:
+  - message: Added Super Synthesizers to trinkets! Musicians finally get a reward
+      for all of their pain and suffering!
+    type: Add
+  - message: Super Synthesizers can now be worn on the neck... Is it me or does that
+      RPG-Wielding Captain have their own boss music?
+    type: Add
+  id: 1729
+  time: '2025-10-06T21:31:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4462
+- author: weskerbun
+  changes:
+  - message: Added snake tails for reptilians
+    type: Add
+  id: 1730
+  time: '2025-10-06T21:34:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4493
+- author: Solaris7518
+  changes:
+  - message: Music may sound different now!
+    type: Add
+  id: 1731
+  time: '2025-10-06T23:33:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4463
+- author: Ertanic and whatston3, Minerva
+  changes:
+  - message: The spray painter can now paint gas canisters, crates, lockers, and floor
+      decals.
+    type: Add
+  - message: The spray painter now consumes compressed paint, available from the YouTool
+      or printable in some lathes.
+    type: Tweak
+  id: 1732
+  time: '2025-10-06T23:56:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4480
+- author: kotobdev
+  changes:
+  - message: Security officer sidearms are now loaded with lethal rounds at roundstart.
+    type: Tweak
+  id: 1733
+  time: '2025-10-07T00:07:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4359
+- author: Solaris7518
+  changes:
+  - message: Fixed Super Synthesizers not being able to be played while being worn
+      on the neck.
+    type: Fix
+  id: 1734
+  time: '2025-10-07T23:55:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4505
+- author: Vapetastic-Gaming
+  changes:
+  - message: Tweaked Midround antag weights
+    type: Tweak
+  id: 1735
+  time: '2025-10-08T01:19:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4498
+- author: kotobdev
+  changes:
+  - message: The Asakim Warrior, a new midround shuttle ghostrole, has been added.
+    type: Add
+  id: 1736
+  time: '2025-10-08T23:31:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4459
+- author: kotobdev
+  changes:
+  - message: Avali can now see slightly further.
+    type: Fix
+  id: 1737
+  time: '2025-10-09T01:26:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4510
+- author: BarryNorfolk
+  changes:
+  - message: Enabled any/all sec dogs to wear K9 armour
+    type: Tweak
+  id: 1738
+  time: '2025-10-11T17:04:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4514
