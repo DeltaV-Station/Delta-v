@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fixed not being able to heal familiars like Remilia with topicals.
-    type: Fix
-  id: 1243
-  time: '2025-04-10T17:59:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3423
 - author: Stop-Signs
   changes:
   - message: IK carbines must be wielded to be accurate.
@@ -4180,3 +4173,12 @@
   id: 1742
   time: '2025-10-13T01:24:14.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4515
+- author: TehFlaminTaco
+  changes:
+  - message: Diona now heal in light but suffer in darkness.
+    type: Tweak
+  - message: Diona are no-longer affected by spacewind when rooted.
+    type: Fix
+  id: 1743
+  time: '2025-10-13T08:31:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4502
