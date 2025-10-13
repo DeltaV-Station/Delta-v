@@ -113,3 +113,17 @@
         Blunt: 5
     soundHit:
       collection: MetalThud
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Airtight
+
+- type: entity
+  parent: SmartFridge
+  id: SmartFridgeMedical
+  categories: [ HideSpawnMenu ] # TODO: October - Fix
+  suffix: Medical
+  components:
+  - type: SmartFridge
+    flavorText: smart-fridge-request-chemistry
+  - type: AccessReader
+    access: [["Medical"]]
