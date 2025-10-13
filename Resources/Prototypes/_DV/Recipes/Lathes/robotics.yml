@@ -28,14 +28,6 @@
     Silver: 200
 
 - type: latheRecipe
-  id: Oilpack
-  result: Oilpack1
-  completetime: 1
-  materials:
-    Plastic: 250
-    Steel: 25
-
-- type: latheRecipe
   parent: BaseRoboticsRecipe
   id: ClothingEyesHudDiagnostic
   result: ClothingEyesHudDiagnostic
@@ -235,3 +227,13 @@
   parent: BaseBorgModuleRecipe
   id: AugmentPaperworkPanelElectronics
   result: AugmentPaperworkPanelElectronics
+
+- type: latheRecipe
+  parent: BaseIPCOrganRecipe
+  id: OrganIPCSpacePump
+  result: OrganIPCSpacePump
+  materials:
+    Steel: 2000
+    Plasma: 1000
+    Plastic: 1000
+    Gold: 500

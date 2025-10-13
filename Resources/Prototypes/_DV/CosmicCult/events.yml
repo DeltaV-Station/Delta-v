@@ -4,7 +4,7 @@
   components:
   - type: StationEvent
     weight: 4.5
-    earliestStart: 30
+    earliestStart: 45
     reoccurrenceDelay: 20
     minimumPlayers: 25
     duration: null
@@ -29,7 +29,7 @@
       briefing:
         text: ghost-role-colossus-briefing
         color: CadetBlue
-        sound: /Audio/_DV/CosmicCult/antag_cosmic_briefing.ogg
+        sound: /Audio/_DV/CosmicCult/antag_cosmic_AI_briefing.ogg
       components:
       - type: CosmicColossus
         timed: true

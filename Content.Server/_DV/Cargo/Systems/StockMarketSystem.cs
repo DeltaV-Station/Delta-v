@@ -175,7 +175,7 @@ public sealed class StockMarketSystem : EntitySystem
         var verb = amount > 0 ? "bought" : "sold";
         _adminLogger.Add(LogType.Action,
             LogImpact.Medium,
-            $"[StockMarket] {ToPrettyString(user):user} {verb} {Math.Abs(amount)} stocks of {company.LocalizedDisplayName} at {company.CurrentPrice:F2} credits each (Total: {totalValue})");
+            $"[StockMarket] {ToPrettyString(user):user} {verb} {Math.Abs(amount)} stocks of {company.LocalizedDisplayName} at {company.CurrentPrice:F2} spesos each (Total: {totalValue})");
 
         return true;
     }

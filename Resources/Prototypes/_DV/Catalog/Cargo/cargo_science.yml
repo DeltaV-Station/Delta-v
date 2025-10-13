@@ -1,9 +1,9 @@
 - type: cargoProduct
-  id: OilPackCrate
+  id: DisplayCase
   icon:
-    sprite: _DV/Objects/Medical/Oilpack.rsi
-    state: icon
-  product: CrateOilPack
-  cost: 1000
+    sprite: _DV/Structures/Storage/display_cases.rsi
+    state: display_case_icon
+  product: DisplayCase
+  cost: 500
   category: Science
   group: market

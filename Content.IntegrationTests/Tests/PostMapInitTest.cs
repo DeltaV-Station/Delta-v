@@ -79,6 +79,7 @@ namespace Content.IntegrationTests.Tests
             "Chibi", // DeltaV
             "Elegance", // DeltaV
             "Division", // DeltaV
+            "ArenaMedieval" //DeltaV
             "Academy", // DeltaV
         };
 

@@ -63,3 +63,20 @@
       Ammonia: ignore
       NitrousOxide: ignore
       Frezon: ignore
+
+# Elegance-specific sensors
+- type: entity
+  parent: GasPipeSensor
+  id: GasPipeSensorEleganceZooInput
+  suffix: Elegance, Snow Exhibit Distro
+  components:
+  - type: Label
+    currentLabel: gas-pipe-sensor-elegance-snow-distro
+
+- type: entity
+  parent: GasPipeSensor
+  id: GasPipeSensorEleganceZooOutput
+  suffix: Elegance, Snow Exhibit Waste
+  components:
+  - type: Label
+    currentLabel: gas-pipe-sensor-elegance-snow-waste

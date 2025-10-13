@@ -244,7 +244,7 @@
       board: [ DoorElectronicsReporter ]
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: AirlockScienceLocked
   id: AirlockLibraryLocked
   suffix: Library, Locked
   components:
@@ -594,3 +594,41 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSecurity ]
+
+# Station-Specific Airlocks
+- type: entity
+  parent: HighSecDoor
+  id: HighSecSecurityLocked
+  suffix: Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecEngineeringLocked
+  suffix: Engineering, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEngineering ]
+
+#Syndicate high security door
+- type: entity
+  parent: HighSecDoor
+  id: HighSecDoorSyndicateAgentLocked
+  suffix: Syndicate, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAgent ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecDoorNukeopLocked
+  suffix: Nukeop, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNukeop ]
