@@ -1,24 +1,5 @@
 # Harpy
 - type: emote
-  id: HarpyHonk
-  name: delta-chat-emote-name-honk
-  icon: Interface/Emotes/honk.png
-  category: Vocal
-  available: false
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: [honks.]
-  chatTriggers:
-    - honk
-    - honks
-    - honking
-    - honked
-
-- type: emote
   id: HarpyRing
   name: delta-chat-emote-name-ring
   icon: _DV/Interface/Emotes/ring.png
@@ -76,25 +57,6 @@
     - bangs
     - banging
     - banged
-
-- type: emote
-  id: HarpyBeep
-  name: delta-chat-emote-name-beep
-  icon: Interface/Emotes/beep.png
-  category: Vocal
-  available: false
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: [beeps.]
-  chatTriggers:
-    - beep
-    - beeps
-    - beeping
-    - beeped
 
 - type: emote
   id: HarpyRev
