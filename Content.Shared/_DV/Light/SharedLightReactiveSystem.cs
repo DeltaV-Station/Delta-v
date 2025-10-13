@@ -33,7 +33,7 @@ public abstract class SharedLightReactiveSystem : EntitySystem
             if (comp.Manual)
                 continue; // Don't auto update if it's manual
             if (_timing.CurTime < comp.NextUpdate)
-                return;
+                continue;
             comp.NextUpdate = _timing.CurTime + TimeSpan.FromSeconds(1);
             if (_mobState.IsDead(uid) && comp.OnlyWhileAlive)
                 continue; // Don't apply damage / healing if the mob is dead
