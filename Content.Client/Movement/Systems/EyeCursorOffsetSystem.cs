@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Client.Movement.Components;
+using Content.Shared.Movement.Components; // DeltaV - make EyeCursorOffsetComponent entirely Shared
 using Content.Shared.Camera;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
