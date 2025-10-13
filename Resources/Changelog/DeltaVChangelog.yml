@@ -1,65 +1,4 @@
 ﻿Entries:
-- author: Stop-Signs
-  changes:
-  - message: The syndicate thermal hardsuit is a side-grade once again, being cheaper
-      but with less brute resistance.
-    type: Tweak
-  id: 1238
-  time: '2025-04-10T00:20:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3407
-- author: Radezolid
-  changes:
-  - message: Security hardsuits are now insulated against electrical shock.
-    type: Tweak
-  - message: All magboots now have a toggle delay of 3 seconds.
-    type: Tweak
-  id: 1239
-  time: '2025-04-10T01:37:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3369
-- author: Radezolid
-  changes:
-  - message: Shuttle FTL changes! FTL cooldown has been reduced to 60 seconds, the
-      windup before going into FTL lasts 10 seconds while the travel itself takes
-      only 5 seconds now.
-    type: Tweak
-  id: 1240
-  time: '2025-04-10T02:09:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3309
-- author: Darklyac
-  changes:
-  - message: Added 4 new songs to the lobby and the jukebox
-    type: Add
-  id: 1241
-  time: '2025-04-10T15:26:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3385
-- author: LankLTE, ZigTag
-  changes:
-  - message: Ported the Synthetic trait from Cosmatic Drift.
-    type: Add
-  id: 1242
-  time: '2025-04-10T17:42:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3409
-- author: deltanedas
-  changes:
-  - message: Fixed not being able to heal familiars like Remilia with topicals.
-    type: Fix
-  id: 1243
-  time: '2025-04-10T17:59:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3423
-- author: Stop-Signs
-  changes:
-  - message: IK carbines must be wielded to be accurate.
-    type: Tweak
-  id: 1244
-  time: '2025-04-10T20:39:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3430
-- author: Quanteey
-  changes:
-  - message: Pacifists can now use disablers
-    type: Tweak
-  id: 1245
-  time: '2025-04-11T13:02:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3432
 - author: ewokswagger
   changes:
   - message: Paramedics will now start with 15tc (down from 16)
@@ -4180,3 +4119,67 @@
   id: 1737
   time: '2025-10-09T01:26:23.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4510
+- author: BarryNorfolk
+  changes:
+  - message: Enabled any/all sec dogs to wear K9 armour
+    type: Tweak
+  id: 1738
+  time: '2025-10-11T17:04:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4514
+- author: Field Command
+  changes:
+  - message: Arms dealers now have melee weapons too. There is no longer a need to
+      barter for uranium, simply sell it for maximum profit.
+    type: Tweak
+  id: 1739
+  time: '2025-10-12T21:17:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4508
+- author: Field Command
+  changes:
+  - message: NTES Basu, Census, and Traveling cuisines have been updated to address
+      missing mapping standards.
+    type: Tweak
+  id: 1740
+  time: '2025-10-12T21:22:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4517
+- author: Spielern
+  changes:
+  - message: Removed the Synthetic & Animal Species markings for IPCs. Please make
+      sure to visit your character customization to replace any missing markings if
+      you used them.
+    type: Remove
+  id: 1741
+  time: '2025-10-13T00:11:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4516
+- author: Spielern
+  changes:
+  - message: Added a bunch of new hairstyles! Find them at a local character customization
+      near you.
+    type: Add
+  id: 1742
+  time: '2025-10-13T01:24:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4515
+- author: TehFlaminTaco
+  changes:
+  - message: Diona now heal in light but suffer in darkness.
+    type: Tweak
+  - message: Diona are no-longer affected by spacewind when rooted.
+    type: Fix
+  id: 1743
+  time: '2025-10-13T08:31:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4502
+- author: BarryNorfolk
+  changes:
+  - message: Laika can now indeed wear K9 armour again
+    type: Fix
+  id: 1744
+  time: '2025-10-13T18:40:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4523
+- author: kotobdev
+  changes:
+  - message: The Head of Security's trenchcoat is available once more, in both loadouts
+      and their locker.
+    type: Add
+  id: 1745
+  time: '2025-10-13T18:57:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4509
