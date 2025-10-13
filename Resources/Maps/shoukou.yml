@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/04/2025 20:02:20
-  entityCount: 16259
+  time: 10/13/2025 19:02:42
+  entityCount: 16252
 maps:
 - 1
 grids:
@@ -4177,6 +4177,16 @@ entities:
     - type: ImplicitRoof
 - proto: AirAlarm
   entities:
+  - uid: 12
+    components:
+    - type: Transform
+      pos: -33.5,-6.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 8920
+      - 9062
+      - 6287
   - uid: 13
     components:
     - type: Transform
@@ -4916,15 +4926,15 @@ entities:
   - uid: 57
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -33.5,-6.5
+      rot: 1.5707963267948966 rad
+      pos: -36.5,-4.5
       parent: 2
     - type: DeviceList
       devices:
-      - 8920
-      - 9062
-      - 9063
-      - 8921
+      - 6239
+      - 6287
+      - 6445
+      - 6444
   - uid: 58
     components:
     - type: Transform
@@ -5081,26 +5091,6 @@ entities:
       - 9105
       - 8961
       - 9104
-  - uid: 15111
-    components:
-    - type: Transform
-      pos: -33.5,-2.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 6317
-      - 6318
-      - 6319
-      - 6320
-      - 6321
-      - 6322
-      - 6323
-      - 6287
-      - 15253
-      - 8921
-      - 9063
-      - 6444
-      - 6445
   - uid: 15263
     components:
     - type: Transform
@@ -7190,9 +7180,6 @@ entities:
     - type: Transform
       pos: -30.5,-7.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 15111
   - uid: 15254
     components:
     - type: Transform
@@ -9938,6 +9925,11 @@ entities:
     components:
     - type: Transform
       pos: -41.5,9.5
+      parent: 2
+  - uid: 629
+    components:
+    - type: Transform
+      pos: 33.5,1.5
       parent: 2
   - uid: 703
     components:
@@ -13239,22 +13231,22 @@ entities:
   - uid: 1366
     components:
     - type: Transform
-      pos: 33.5,7.5
+      pos: 33.5,2.5
       parent: 2
   - uid: 1367
     components:
     - type: Transform
-      pos: 33.5,6.5
+      pos: 33.5,0.5
       parent: 2
   - uid: 1368
     components:
     - type: Transform
-      pos: 33.5,5.5
+      pos: 33.5,3.5
       parent: 2
   - uid: 1369
     components:
     - type: Transform
-      pos: 33.5,5.5
+      pos: 33.5,-2.5
       parent: 2
   - uid: 1373
     components:
@@ -19604,22 +19596,22 @@ entities:
   - uid: 2656
     components:
     - type: Transform
-      pos: 32.5,1.5
+      pos: 33.5,-3.5
       parent: 2
   - uid: 2657
     components:
     - type: Transform
-      pos: 33.5,1.5
+      pos: 33.5,-1.5
       parent: 2
   - uid: 2658
     components:
     - type: Transform
-      pos: 34.5,1.5
+      pos: 33.5,-0.5
       parent: 2
   - uid: 2659
     components:
     - type: Transform
-      pos: 34.5,0.5
+      pos: 33.5,4.5
       parent: 2
   - uid: 2660
     components:
@@ -33078,12 +33070,6 @@ entities:
     - type: Transform
       pos: -20.508026,-6.5961885
       parent: 2
-  - uid: 4849
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -17.742748,4.1959763
-      parent: 2
   - uid: 4850
     components:
     - type: Transform
@@ -33264,6 +33250,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -55.50212,-46.377014
+      parent: 2
+  - uid: 6319
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -17.757187,3.5478206
       parent: 2
   - uid: 9579
     components:
@@ -37176,6 +37168,13 @@ entities:
     - type: Transform
       pos: -7.5,-34.5
       parent: 2
+- proto: CrateFreezer
+  entities:
+  - uid: 6317
+    components:
+    - type: Transform
+      pos: 10.5,-29.5
+      parent: 2
 - proto: CrateHydroponics
   entities:
   - uid: 5363
@@ -37257,10 +37256,10 @@ entities:
       parent: 2
 - proto: CrateLockBoxService
   entities:
-  - uid: 12
+  - uid: 4849
     components:
     - type: Transform
-      pos: -15.5,-7.5
+      pos: -17.5,4.5
       parent: 2
 - proto: CrateMedicalSecure
   entities:
@@ -37439,13 +37438,6 @@ entities:
         - 0
         - 0
         - 0
-- proto: CrateSurgery
-  entities:
-  - uid: 16021
-    components:
-    - type: Transform
-      pos: 10.5,-29.5
-      parent: 2
 - proto: CrateTrashCart
   entities:
   - uid: 5376
@@ -43811,17 +43803,15 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -25.5,-4.5
       parent: 2
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 57
     - type: DeviceList
       devices:
       - 6445
       - 6444
-      - 6323
-      - 6322
-      - 6321
-      - 6320
-      - 6319
-      - 6318
-      - 6317
   - uid: 6240
     components:
     - type: Transform
@@ -44156,8 +44146,11 @@ entities:
       pos: -32.5,-8.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
-      - 15111
+      - 12
+      - 57
   - uid: 6288
     components:
     - type: Transform
@@ -44354,76 +44347,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -8.5,-45.5
       parent: 2
-  - uid: 6317
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -31.5,-6.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 6239
-      - 15111
-  - uid: 6318
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -30.5,-6.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 6239
-      - 15111
-  - uid: 6319
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -29.5,-6.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 6239
-      - 15111
-  - uid: 6320
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -28.5,-6.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 6239
-      - 15111
-  - uid: 6321
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -28.5,-6.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 6239
-      - 15111
-  - uid: 6322
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -28.5,-7.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 6239
-      - 15111
-  - uid: 6323
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -28.5,-8.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 6239
-      - 15111
 - proto: FirelockGlass
   entities:
   - uid: 524
@@ -45239,18 +45162,22 @@ entities:
       pos: -31.5,-2.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 6239
-      - 15111
+      - 57
   - uid: 6445
     components:
     - type: Transform
       pos: -30.5,-2.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 6239
-      - 15111
+      - 57
   - uid: 6446
     components:
     - type: Transform
@@ -64946,7 +64873,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 57
+      - 12
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 8921
@@ -64955,10 +64882,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -30.5,-6.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 57
-      - 15111
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 8922
@@ -66332,7 +66255,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 57
+      - 12
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 9063
@@ -66341,10 +66264,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -29.5,-6.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 57
-      - 15111
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 9064
@@ -71813,6 +71732,13 @@ entities:
     - type: Transform
       pos: 28.5,-31.5
       parent: 2
+- proto: HolopadSecurityDetective
+  entities:
+  - uid: 6320
+    components:
+    - type: Transform
+      pos: 33.5,0.5
+      parent: 2
 - proto: HolopadSecurityFront
   entities:
   - uid: 15925
@@ -72267,6 +72193,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 40.5,1.5
+      parent: 2
+  - uid: 6318
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 41.5,-11.5
       parent: 2
 - proto: IntercomScience
   entities:
@@ -79856,20 +79788,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 56.5,-26.5
       parent: 2
-- proto: RailingCornerSmallDeltaVWood
-  entities:
-  - uid: 629
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -27.5,-8.5
-      parent: 2
-  - uid: 16085
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -27.5,-6.5
-      parent: 2
 - proto: RailingDeltaVGrey
   entities:
   - uid: 16075
@@ -79913,12 +79831,6 @@ entities:
     components:
     - type: Transform
       pos: -26.5,-6.5
-      parent: 2
-  - uid: 12582
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -27.5,-7.5
       parent: 2
 - proto: RandomArcade
   entities:
