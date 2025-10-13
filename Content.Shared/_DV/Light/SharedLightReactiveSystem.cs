@@ -27,10 +27,11 @@ public abstract class SharedLightReactiveSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-
         var query = EntityQueryEnumerator<LightReactiveComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
+            if (comp.Manual)
+                continue; // Don't auto update if it's manual
             if (_timing.CurTime < comp.NextUpdate)
                 return;
             comp.NextUpdate = _timing.CurTime + TimeSpan.FromSeconds(1);
