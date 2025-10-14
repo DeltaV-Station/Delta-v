@@ -5,29 +5,35 @@ namespace Content.Server._DV.Light;
 
 public sealed partial class LightReactiveSystem : SharedLightReactiveSystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    private readonly HashSet<Entity<SharedPointLightComponent>> _validLightsInRange = new();
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    private EntityQuery<PointLightComponent> _lightQuery = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+        _lightQuery = EntityManager.GetEntityQuery<PointLightComponent>();
+    }
+
+    private readonly HashSet<Entity<SharedPointLightComponent>> _validLightsInRange = [];
     public override HashSet<Entity<SharedPointLightComponent>> GetLights(EntityUid targetEntity)
     {
+
+        var entitiesInRange = _lookup.GetEntitiesInRange(targetEntity, 10f);
+
         _validLightsInRange.Clear();
-        var targetPos = _transform.GetWorldPosition(targetEntity);
-        // I want to use _lookup.GetEntitiesInRange, but serverside it does NOT love held items.
-        // Easier to manually implement than deal with fixing the upstream code.
-        var lights = AllEntityQuery<PointLightComponent>();
-        while (lights.MoveNext(out var lightUid, out var lightComp))
+        foreach (var ent in entitiesInRange)
         {
-            if (!lightComp.Enabled && lightComp.NetSyncEnabled)
+            if (!_lightQuery.TryComp(ent, out var comp))
                 continue;
-            if (lightComp.Deleted)
+            // On the server, we check if it's Enabled OR if netSyncEnabled i s false
+            // Because sometimes the server doesn't actually know if it should be enabled or not.
+            // The Client however, can be assumed to always be right.
+            if (!comp.Enabled && comp.NetSyncEnabled)
                 continue;
-            if (_transform.GetMapId(lightUid) != _transform.GetMapId(targetEntity))
+            if (comp.Deleted)
                 continue;
-            var pos = _transform.GetWorldPosition(lightUid);
-            // Ensure within 10 tiles dirty range
-            if (MathF.Max(MathF.Abs(pos.X - targetPos.X), MathF.Abs(pos.Y - targetPos.Y)) > 10f)
-                continue;
-            _validLightsInRange.Add(new(lightUid, lightComp));
+
+            _validLightsInRange.Add((ent, comp));
         }
         return _validLightsInRange;
     }
