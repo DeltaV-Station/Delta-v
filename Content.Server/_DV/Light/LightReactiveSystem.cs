@@ -5,22 +5,29 @@ namespace Content.Server._DV.Light;
 
 public sealed partial class LightReactiveSystem : SharedLightReactiveSystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-
-    private readonly HashSet<Entity<PointLightComponent>> _lightsInRange = new();
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     private readonly HashSet<Entity<SharedPointLightComponent>> _validLightsInRange = new();
+
     public override HashSet<Entity<SharedPointLightComponent>> GetLights(EntityUid targetEntity)
     {
-        _lightsInRange.Clear();
-        _lookup.GetEntitiesInRange(Transform(targetEntity).Coordinates, 10f, _lightsInRange);
         _validLightsInRange.Clear();
-        foreach (var light in _lightsInRange)
+        var targetPos = _transform.GetWorldPosition(targetEntity);
+        // I want to use _lookup.GetEntitiesInRange, but serverside it does NOT love held items.
+        // Easier to manually implement than deal with fixing the upstream code.
+        var lights = AllEntityQuery<PointLightComponent>();
+        while (lights.MoveNext(out var lightUid, out var lightComp))
         {
-            // On the server, we check if it's Enabled OR if netSyncEnabled is false
-            // Because sometimes the server doesn't actually know if it should be enabled or not.
-            // The Client however, can be assumed to always be right.
-            if ((light.Comp.Enabled || !light.Comp.NetSyncEnabled) && !light.Comp.Deleted)
-                _validLightsInRange.Add(new(light.Owner, light.Comp));
+            if (!lightComp.Enabled && lightComp.NetSyncEnabled)
+                continue;
+            if (lightComp.Deleted)
+                continue;
+            if (_transform.GetMapId(lightUid) != _transform.GetMapId(targetEntity))
+                continue;
+            var pos = _transform.GetWorldPosition(lightUid);
+            // Ensure within 10 tiles dirty range
+            if (MathF.Max(MathF.Abs(pos.X - targetPos.X), MathF.Abs(pos.Y - targetPos.Y)) > 10f)
+                continue;
+            _validLightsInRange.Add(new(lightUid, lightComp));
         }
         return _validLightsInRange;
     }
