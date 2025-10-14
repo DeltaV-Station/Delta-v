@@ -12,11 +12,11 @@
     Medicine:
       metabolismRate: 0.1
       effects:
-      - !type:GenericStatusEffect
-        key: ScrambledSpeech
-        component: ScrambledAccent
       - !type:ModifyStatusEffect
-        effectProto: StatusEffectSlurred
+        effectProto: StatusEffectScrambled
+        type: Update
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectWoozy
         time: 10.0 # DeltaV - 20 is ridiculous
       - !type:GenericStatusEffect # DeltaV
         key: PsionicsDisabled
