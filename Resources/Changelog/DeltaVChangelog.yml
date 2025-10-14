@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: ewokswagger
-  changes:
-  - message: Paramedics will now start with 15tc (down from 16)
-    type: Tweak
-  id: 1246
-  time: '2025-04-12T02:24:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3416
 - author: boogiebogus
   changes:
   - message: Revised juggernaut suit sprites, as well as its reverse engineered counterpart.
@@ -4183,3 +4176,15 @@
   id: 1745
   time: '2025-10-13T18:57:32.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4509
+- author: EmberAstra
+  changes:
+  - message: Fixed the criminal records computer board being called "security records"
+    type: Fix
+  - message: Fixed robotic arms (and other automation machines) icons in the circuit
+      lathe.
+    type: Fix
+  - message: Fixed unholy water's guidebook description.
+    type: Fix
+  id: 1746
+  time: '2025-10-14T13:39:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4511
