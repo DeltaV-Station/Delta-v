@@ -1,0 +1,279 @@
+# SPDX-FileCopyrightText: 2022 DrSmugleaf
+# SPDX-FileCopyrightText: 2022 EmoGarbage404
+# SPDX-FileCopyrightText: 2022 Flipp Syder
+# SPDX-FileCopyrightText: 2022 Jezithyr
+# SPDX-FileCopyrightText: 2022 Mervill
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2022 Paul
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 T-Stalker
+# SPDX-FileCopyrightText: 2022 ZeroDayDaemon
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 mirrorcult
+# SPDX-FileCopyrightText: 2022 och-och
+# SPDX-FileCopyrightText: 2022 rolfero
+# SPDX-FileCopyrightText: 2023 Alex Evgrashin
+# SPDX-FileCopyrightText: 2023 AndresE55
+# SPDX-FileCopyrightText: 2023 Cheackraze
+# SPDX-FileCopyrightText: 2023 Emisse
+# SPDX-FileCopyrightText: 2023 Errant
+# SPDX-FileCopyrightText: 2023 FoxxoTrystan
+# SPDX-FileCopyrightText: 2023 I.K
+# SPDX-FileCopyrightText: 2023 Kara
+# SPDX-FileCopyrightText: 2023 LankLTE
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-FileCopyrightText: 2023 Visne
+# SPDX-FileCopyrightText: 2023 notquitehadouken <1isthisameme>
+# SPDX-FileCopyrightText: 2023 potato1234_x
+# SPDX-FileCopyrightText: 2024 Aexxie
+# SPDX-FileCopyrightText: 2024 Dvir
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 KittenColony
+# SPDX-FileCopyrightText: 2024 Minemoder5000
+# SPDX-FileCopyrightText: 2024 Mnemotechnican
+# SPDX-FileCopyrightText: 2024 Morb
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2024 Nairod
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 Whatstone
+# SPDX-FileCopyrightText: 2024 lunarcomets
+# SPDX-FileCopyrightText: 2024 no
+# SPDX-FileCopyrightText: 2024 portfiend
+# SPDX-FileCopyrightText: 2025 ScyronX
+# SPDX-FileCopyrightText: 2025 SuperJoelDood
+# SPDX-FileCopyrightText: 2025 Suyo
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  save: false
+  name: Urist McAsakim
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobAsakim
+  abstract: true
+  components:
+  - type: HumanoidAppearance
+    species: Asakim
+    hideLayersOnEquip:
+    - Snout
+    #    - HeadTop # WWDP - Because visible horns its cool
+    - HeadSide
+  - type: Hunger
+  - type: Puller
+    needsHands: false
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.7
+    baseSprintSpeed : 4.65
+    weightlessAcceleration: 1.5 # Slightly more manueverable in space.
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.48
+        density: 275 # Its an abandoned bioweapon species with 4 arms, of course it should be able to fight a Oni.
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Sprite
+    scale: 1.2, 1.2
+  - type: PlayerToolModifier
+    pryTimeMultiplier: 0.7
+  - type: BonusMeleeDamage
+    damageModifierSet:
+      coefficients:
+        Blunt: 1.1
+        Slash: 1.1
+        Piercing: 1.1
+        Asphyxiation: 1
+  - type: Thirst
+  - type: Icon
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: full
+  - type: Body
+    prototype: Asakim
+    requiredLegs: 2
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatLizard
+      amount: 7
+  #- type: LizardAccent # DeltaV - replaced with language accent
+  - type: Speech
+    speechSounds: Lizard
+    speechVerb: Reptilian
+    allowedEmotes: ['Thump']
+  - type: TypingIndicator
+    proto: lizard
+  - type: Vocal
+    sounds:
+      Male: MaleReptilian
+      Female: FemaleReptilian
+      Unsexed: MaleReptilian
+  #- type: LanguageKnowledge # DeltaV - ee language port when
+  #  speaks:
+  #  - Draconic
+  #  - Azaziba
+  #  understands:
+  #  - Draconic
+  #  - Azaziba
+  - type: BodyEmotes
+    soundsId: ReptilianBodyEmotes
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: GenemoddedScale
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 15
+        Structural: 24
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: GastroToxin
+          Quantity: 20
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: GastroToxin
+        Quantity: 20
+  #- type: NightVision # DeltaV - moved to eye organ
+  #  isEquipment: false
+  #  color: "#ae65bf"
+  #  activateSound: null
+  #  deactivateSound: null
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 1
+  - type: Temperature
+    heatDamageThreshold: 400
+    coldDamageThreshold: 285
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold : 0.05 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 0.6 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      301: 0.8
+      295: 0.6
+      285: 0.4
+  - type: Wagging
+  - type: NpcFactionMember
+    factions:
+    - Syndicate # Making new AI factions is annoying with all the hostilities I have to add, whatever.
+  - type: Inventory
+    speciesId: asakim
+    # WWDP-Edit-Start
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+  #- type: GuideHelp # uncomment when you actually bring the guide over
+  #  guides:
+  #  - Asakim
+  #  # WWDP-Edit-End
+  # Begin DeltaV Additions
+  - type: SyllableObfuscationAccent # unintelligable language
+    accent: draconian
+  - type: BlockWriting # can't speak common can't write common. better get an AAC tablet
+  # End DeltaV Additions
+
+- type: entity
+  save: false
+  name: Urist McAsakim
+  suffix: Urisst' MzAsakim
+  parent: BaseMobAsakim
+  id: MobAsakim
+
+- type: entity
+  parent: BaseMobAsakim
+  id: MobAsakimRandom
+  name: Urist McAsakim
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesReptilianMale
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobAsakimDummy
+  categories: [ HideSpawnMenu ]
+  description: A dummy Asakim meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Asakim
+    hideLayersOnEquip: # WWDP
+    - Snout
+    #    - HeadTop # WWDP - Because visible horns its cool
+    - HeadSide
+  - type: Inventory
+    speciesId: asakim
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+
+- type: damageModifierSet
+  id: GenemoddedScale # Strong brute-focused scales.
+  coefficients:
+    Cold: 1.2
+    Radiation: 1.2
+    Poison: 1.2
+    Piercing: 0.8
+    Slash: 0.95 # DeltaV - emphasize slash weakness, was 0.75
+    Blunt: 0.75
+    Heat: 1.1
+    Shock: 1.1

@@ -262,6 +262,24 @@
     DefaultDeathgasp:
       path: /Audio/_DV/Effects/Gasp/vox_deathgasp_1.ogg
     # End DeltaV Additions
+    # Begin Impstation Additions
+    Crying:
+      collection: VoxCry
+      params:
+        volume: -7
+    Chitter:
+      collection: VoxChitter
+      params:
+        volume: -5
+    Coo:
+      collection: VoxCoo
+      params:
+        volume: -7
+    Hiss:
+      collection: VoxHiss
+      params:
+        volume: -5
+    # End Impstation Additions
   params:
     variation: 0.125
     # We need vox sounds for the other emotes
@@ -445,6 +463,12 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Boop: # DeltaV (EE)
+      path: /Audio/_EE/Voice/IPC/beep_500.ogg      
+    Whirr: # DeltaV (EE)
+      collection: IPCWhirrs
+      params:
+        variation: 0
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate
@@ -467,6 +491,12 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Boop: # DeltaV (EE)
+      path: /Audio/_EE/Voice/IPC/beep_500.ogg      
+    Whirr: # DeltaV (EE)
+      collection: IPCWhirrs
+      params:
+        variation: 0
 
 - type: emoteSounds
   id: UnisexSiliconXenoborg
@@ -487,6 +517,12 @@
       collection: XenoborgBikeHorn
     Ping:
       collection: XenoborgPing
+    Boop: # DeltaV (EE)
+      path: /Audio/_EE/Voice/IPC/beep_500.ogg      
+    Whirr: # DeltaV (EE)
+      collection: IPCWhirrs
+      params:
+        variation: 0
 
 # body emotes
 - type: emoteSounds

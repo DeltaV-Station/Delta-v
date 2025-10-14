@@ -56,11 +56,12 @@ psionic-power-precognition-unknown-shuttle-traveling-cuisine-result-message = Yo
 psionic-power-precognition-unknown-shuttle-disaster-evac-pod-result-message = You see a vision of death and blood, of a destruction so complete only few survive, drifting through the coldness of space.
 psionic-power-precognition-syndicate-armsdealer-result-message = You see a vision of a ship lurking in the shadows, its cargo deadly.
 psionic-power-precognition-rift-spawn-result-message = You see a small spark of energy, quickly expanding as it tears reality apart, twisting everything around it.
+psionic-power-precognition-asakim-spawn-result-message = You smell stale air from a cryopod opening, and the faint echo of an intelligence far away but very near.
 
 psionic-eruption-begin = {CAPITALIZE(THE($user))} is being consumed by a psionic energy!
 psionic-eruption-annoy-minimal = You feel a pressure building up in your mind.
 psionic-eruption-annoy-low = Your head aches from the psionic energy.
-psionic-eruption-annoy-medium = You feel a strong pressure in your mind. Make it stop!
+psionic-eruption-annoy-moderate = You feel a strong pressure in your mind. Make it stop!
 psionic-eruption-annoy-high = Your head is pounding from the psionic energy. You need to release it!
 psionic-eruption-annoy-dangerous = Your head is about to explode from the psionic energy!
 psionic-eruption-annoy-critical = Make it stop! Make it stop! Make it stop!
