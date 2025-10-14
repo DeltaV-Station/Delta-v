@@ -84,9 +84,9 @@
         - !type:ReagentCondition
           reagent: LotophagoiOil
           min: 20
-      - !type:GenericStatusEffect
-        key: ScrambledSpeech
-        component: ScrambledAccent
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectScrambled
+        type: Update
       - !type:GenericStatusEffect
         key: RepeatingTelepath
         component: TelepathicRepeater
