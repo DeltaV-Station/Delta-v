@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: erhardsteinhauer
-  changes:
-  - message: The Vulcan, Energy Gun, Ceremonial rifle and the Jackdaw now have proper
-      sprites when in the back.
-    type: Fix
-  - message: The Vulcan and Jackdaw now have wielded sprites.
-    type: Fix
-  id: 1248
-  time: '2025-04-12T02:45:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3405
 - author: deltanedas
   changes:
   - message: Merged last 2 weeks changes from upstream.
@@ -4188,3 +4178,13 @@
   id: 1747
   time: '2025-10-14T19:42:43.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4506
+- author: TehFlaminTaco
+  changes:
+  - message: Held items such as PDAs and Flashlights now count as light sources as
+      they were supposed to.
+    type: Fix
+  - message: Diona no-longer take 4 times the intended damage in darkness
+    type: Fix
+  id: 1748
+  time: '2025-10-15T09:37:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4525
