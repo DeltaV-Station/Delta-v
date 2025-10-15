@@ -343,7 +343,7 @@ public sealed partial class SupermatterSystem
         var mix = _atmosphere.GetContainingMixture(uid, true, true);
 
         // We're in space or there is no gas to process
-        if (!xform.GridUid.HasValue || mix is not { } || mix.TotalMoles == 0f)
+        if (!xform.GridUid.HasValue || mix is not { } || MathHelper.CloseTo(mix.TotalMoles, 0f, 0.0005f)) //#IMP change from == 0f to MathHelper.CloseTo(mix.TotalMoles, 0f, 0.0005f)
         {
             sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 0.1f);
             return;
