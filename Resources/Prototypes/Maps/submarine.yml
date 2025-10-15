@@ -14,6 +14,8 @@
             prefixCreator: 'DV'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Propeller.yml
+        - type: StationCargoShuttle
+          path: /Maps/_DV/Shuttles/cargo_model_B.yml
         - type: StationJobs
           availableJobs:
           #civilian
@@ -22,7 +24,7 @@
           #command
             Captain: [ 1, 1 ]
           #engineering
-            AtmosphericTechnician: [ 2, 4 ]
+            AtmosphericTechnician: [ 3, 4 ]
             ChiefEngineer: [ 1, 1 ]
             StationEngineer: [ 4, 6 ]
             TechnicalAssistant: [ 1, 2 ]
@@ -35,13 +37,13 @@
             Psychologist: [ 1, 2 ]
             Surgeon: [ 1, 2 ]
           #security
-            Brigmedic: [ 1, 2 ]
-            Detective: [ 1, 2 ]
+            Brigmedic: [ 2, 2 ]
+            Detective: [ 2, 2 ]
             HeadOfSecurity: [ 1, 1 ]
             Prisoner: [ 2, 4 ]
             PrisonGuard: [ 1, 2 ]
-            SecurityOfficer: [ 4, 6 ]
-            SecurityCadet: [ 1, 2 ]
+            SecurityOfficer: [ 6, 7 ]
+            SecurityCadet: [ 2, 4 ]
             Warden: [ 1, 1 ]
           #service
             Bartender: [ 2, 3 ]
@@ -67,7 +69,7 @@
           #supply
             CargoTechnician: [ 2, 4 ]
             CargoAssistant: [ 1, 2 ]
-            Courier: [ 2, 3 ]
+            Courier: [ 3, 3 ]
             SalvageSpecialist: [ 3, 5 ]
             Quartermaster: [ 1, 1 ]
           #Justice
