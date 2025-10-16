@@ -159,6 +159,38 @@
   - type: BorgModuleIcon
     icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: fauna-module }
 
+# Generic Modules
+
+- type: entity
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  id: BorgModuleDecoration
+  name: decoration deployment module
+  description: A borg module for painting patterns, guides or labels on the station.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-carp
+      sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: Pattern
+    items:
+    - CrayonMagic
+    - HandLabeler
+  - type: DroppableBorgModule
+    moduleId: Pattern
+    items:
+    - id: SprayPainter
+      whitelist:
+        components:
+          SprayPainter
+    - id: SprayPainterAmmo
+      whitelist:
+        components:
+          SprayPainterAmmo
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: fauna-module }
+
 # Syndicate modules
 
 - type: entity
