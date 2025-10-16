@@ -197,7 +197,7 @@
   parent: JobIcon
   id: JobIconBrigmedic
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi # DeltaV - resprite sec icons
+    sprite: &icon-rsi-dv /Textures/_DV/Interface/Misc/job_icons.rsi # DeltaV - resprite sec icons
     state: Brigmedic
   jobName: job-name-brigmedic
 
@@ -205,7 +205,7 @@
   parent: JobIcon
   id: JobIconDetective
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi # DeltaV - resprite sec icons
+    sprite: *icon-rsi-dv # DeltaV - resprite sec icons
     state: Detective
   jobName: job-name-detective
 
@@ -213,7 +213,7 @@
   parent: JobIcon
   id: JobIconSecurityCadet
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi # DeltaV - resprite sec icons
+    sprite: *icon-rsi-dv # DeltaV - resprite sec icons
     state: SecurityCadet
   jobName: job-name-cadet
 
@@ -221,7 +221,7 @@
   parent: JobIcon
   id: JobIconSecurityOfficer
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi # DeltaV - resprite sec icons
+    sprite: *icon-rsi-dv # DeltaV - resprite sec icons
     state: SecurityOfficer
   jobName: job-name-security
 
@@ -229,7 +229,7 @@
   parent: JobIcon
   id: JobIconWarden
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi # DeltaV - resprite sec icons
+    sprite: *icon-rsi-dv # DeltaV - resprite sec icons
     state: Warden
   jobName: job-name-warden
 
@@ -263,7 +263,7 @@
   parent: JobIcon
   id: JobIconChaplain
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi # DeltaV - Move Chaplain into Epistemics
+    sprite: *icon-rsi-dv # DeltaV - Move Chaplain into Epistemics
     state: Chaplain # DeltaV - Move Chaplain into Epistemics
   jobName: job-name-chaplain
 
@@ -287,7 +287,7 @@
   parent: JobIcon
   id: JobIconLawyer
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi # DeltaV - Move Lawyer into Justice
+    sprite: *icon-rsi-dv # DeltaV - Move Lawyer into Justice
     state: Lawyer
   jobName: job-name-lawyer
 
@@ -399,7 +399,7 @@
   parent: JobIcon
   id: JobIconPrisoner
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi # DeltaV - resprite prisoner jobicon
+    sprite: *icon-rsi-dv # DeltaV - resprite prisoner jobicon
     state: Prisoner
   jobName: job-name-prisoner
 
@@ -450,7 +450,7 @@
   parent: JobIcon
   id: JobIconSeniorOfficer
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi # DeltaV - resprite sec icons
+    sprite: *icon-rsi-dv # DeltaV - resprite sec icons
     state: SeniorOfficer
   allowSelection: true # DeltaV - Selectable, was false
   jobName: job-name-senior-officer # DeltaV - Agent ID localization
