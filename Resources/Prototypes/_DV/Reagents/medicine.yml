@@ -47,7 +47,7 @@
   id: UnholyWater # going to be renamed later alongside holy water
   name: reagent-name-unholy-water
   group: Toxins
-  desc: reagent-name-unholy-water
+  desc: reagent-desc-unholy-water
   physicalDesc: reagent-physical-desc-menacing
   flavor: UnholyWater
   color: "#1614143d"
@@ -99,17 +99,16 @@
     Medicine:
       metabolismRate: 0.35
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         conditions:
         - !type:Temperature
           max: 213.0
         - !type:MultiMobStateCondition
           states: [ Alive, Critical ]
         damage:
-          groups:
-            Brute: -4
-            Burn: -6
-            Toxin: -4
+          Brute: -1.5
+          Burn: -1.5
+          Toxin: -2
       - !type:EvenHealthChange
         conditions:
         - !type:Temperature
