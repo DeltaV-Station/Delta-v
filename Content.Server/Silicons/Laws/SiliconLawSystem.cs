@@ -167,10 +167,10 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         });
 
         //Add the secrecy law after the others
-        component.Lawset?.Laws.Insert(1, new SiliconLaw
+        component.Lawset?.Laws.Insert(1, new SiliconLaw //DeltaV: Changed from Add to Insert
         {
             LawString = Loc.GetString("law-emag-secrecy", ("faction", Loc.GetString(component.Lawset.ObeysTo))),
-            Order = -1
+            Order = -1 //DeltaV: Changed from being after every other law to being after emag obey law
         });
     }
 
