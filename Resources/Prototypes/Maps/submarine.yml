@@ -2,7 +2,7 @@
   id: Submarine
   mapName: 'Submarine'
   mapPath: /Maps/submarine.yml
-  minPlayers: 65
+  minPlayers: 90
   stations:
     Submarine:
       stationProto: StandardNanotrasenStation
@@ -42,7 +42,7 @@
             HeadOfSecurity: [ 1, 1 ]
             Prisoner: [ 2, 4 ]
             PrisonGuard: [ 1, 2 ]
-            SecurityOfficer: [ 6, 7 ]
+            SecurityOfficer: [ 8, 10 ]
             SecurityCadet: [ 2, 4 ]
             Warden: [ 1, 1 ]
           #service
