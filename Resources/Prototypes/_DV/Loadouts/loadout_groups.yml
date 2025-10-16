@@ -257,6 +257,7 @@
   minLimit: 0
   loadouts:
   - ScarfRed
+  - ScarfBlack
   - ScarfBlue
   - SecurityPoncho
 
@@ -390,6 +391,7 @@
   minLimit: 0
   loadouts:
   - ScarfRed
+  - ScarfBlack
   - SecurityPoncho
 
 - type: loadoutGroup
@@ -418,6 +420,7 @@
   - PlateCarrier
   - DuraVest
   - StasecWinterCoatHoS
+  - HeadOfSecurityTrenchcoat
 
 ## Detective
 - type: loadoutGroup
@@ -611,6 +614,7 @@
   minLimit: 0
   loadouts:
   - ScarfOrange
+  - ScarfRed
 
 ## Atmospheric Technician
 - type: loadoutGroup
@@ -620,6 +624,16 @@
   loadouts:
   - ScarfLightBlue
   - ScarfOrange
+
+- type: loadoutGroup
+  id: AtmosphericTechnicianHead
+  name: loadout-group-atmospheric-technician-head
+  minLimit: 0
+  loadouts:
+  - StationEngineerHardhatYellow
+  - StationEngineerHardhatOrange
+  - StationEngineerHardhatRed
+  - AtmosHardHatBlue
 
 ## Clerk
 - type: loadoutGroup

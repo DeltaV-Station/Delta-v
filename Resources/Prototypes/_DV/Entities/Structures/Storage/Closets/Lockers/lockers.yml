@@ -158,3 +158,12 @@
   components:
   - type: AccessReader
     access: [["Quartermaster"]]
+
+- type: entity
+  id: SyndicateGunSafeBaseSecure
+  parent: GunSafe
+  suffix: Syndicate, Locked
+  description: A red sticker with an "S" has been slapped over some existing text. All you can make out is "standard issue"
+  components:
+  - type: AccessReader
+    access: [["SyndicateAgent"]]

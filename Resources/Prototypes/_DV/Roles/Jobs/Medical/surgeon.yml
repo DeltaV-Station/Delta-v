@@ -14,14 +14,19 @@
   - Medical
   - Surgery
   - Maintenance
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: SurgerySpeedModifier
-      speedModifier: 1.25
 
 - type: startingGear
   id: SurgeonGear
   equipment:
     ears: ClothingHeadsetMedical
     belt: ClothingBeltSurgeonFilled
+
+- type: chameleonOutfit
+  id: SurgeonChameleonOutfit
+  job: Surgeon
+  equipment:
+    id: SurgeonPDA
+    ears: ClothingHeadsetMedical
+    belt: ClothingBeltSurgeonFilled
+    head: ClothingHeadHatSurgcapCyan
+    jumpsuit: UniformScrubsColorCyan

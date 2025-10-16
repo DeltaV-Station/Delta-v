@@ -6,6 +6,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.Objectives.Components;
+using Content.Server.Polymorph.Components;
 using Content.Shared._DV.CCVars;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
@@ -383,7 +384,10 @@ public sealed class MonumentSystem : SharedMonumentSystem
         var leaderQuery = EntityQueryEnumerator<CosmicCultLeadComponent>();
         while (leaderQuery.MoveNext(out var leader, out var leaderComp))
         {
-            _actions.AddAction(leader, ref leaderComp.CosmicMonumentMoveActionEntity, leaderComp.CosmicMonumentMoveAction, leader);
+            if (TryComp<PolymorphedEntityComponent>(leader, out var polyComp) && TryComp<CosmicCultLeadComponent>(polyComp.Parent, out var polyLeaderComp))
+                _actions.AddAction(polyComp.Parent, ref polyLeaderComp.CosmicMonumentMoveActionEntity, polyLeaderComp.CosmicMonumentMoveAction, polyComp.Parent);
+            else
+                _actions.AddAction(leader, ref leaderComp.CosmicMonumentMoveActionEntity, leaderComp.CosmicMonumentMoveAction, leader);
         }
 
         Dirty(uid);
@@ -413,8 +417,6 @@ public sealed class MonumentSystem : SharedMonumentSystem
             EnsureComp<PressureImmunityComponent>(cultist);
             EnsureComp<TemperatureImmunityComponent>(cultist);
 
-            _damage.SetDamageContainerID(cultist, "BiologicalMetaphysical");
-
             foreach (var influenceProto in _protoMan.EnumeratePrototypes<InfluencePrototype>().Where(influenceProto => influenceProto.Tier == 3))
             {
                 cultComp.UnlockedInfluences.Add(influenceProto.ID);
@@ -430,6 +432,8 @@ public sealed class MonumentSystem : SharedMonumentSystem
         while (leaderQuery.MoveNext(out var leader, out var leaderComp))
         {
             _actions.RemoveAction(leader, leaderComp.CosmicMonumentMoveActionEntity);
+            if (TryComp<PolymorphedEntityComponent>(leader, out var polyComp) && TryComp<CosmicCultLeadComponent>(polyComp.Parent, out var polyLeaderComp))
+                _actions.RemoveAction(polyComp.Parent, polyLeaderComp.CosmicMonumentMoveActionEntity);
         }
 
         Dirty(uid);

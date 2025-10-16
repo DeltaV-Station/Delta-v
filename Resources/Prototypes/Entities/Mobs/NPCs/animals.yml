@@ -1230,6 +1230,28 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      250: Dead
+  - type: StaminaResistance
+    damageCoefficient: 0.40
 
 - type: entity
   name: kangaroo
@@ -1605,11 +1627,11 @@
       path: /Audio/Animals/lizard_happy.ogg
     interactFailureSound:
       path: /Audio/Items/wirecutter.ogg
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      60: Critical
-      125: Dead
+  #- type: MobThresholds # DeltaV - buff kobolds
+  #  thresholds:
+  #    0: Alive
+  #    60: Critical
+  #    125: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5
     baseSprintSpeed: 5
@@ -2335,6 +2357,7 @@
         Brute: 5
   - type: Item
     size: Normal
+    sprite: Mobs/Animals/grenadepenguin.rsi
   - type: OnUseTimerTrigger
     delay: 10
     beepSound:
@@ -3127,6 +3150,10 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
+  - type: Access
+    tags: 
+    - NuclearOperative
+    - SyndicateAgent
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -3649,6 +3676,21 @@
     reformTime: 10
     popupText: diona-reform-attempt
     reformPrototype: MobDionaReformed
+  - type: LightReactive # DeltaV
+    manual: true
+  - type: LightLevelHealth # DeltaV
+    darkThreshold: 0.4
+    lightThreshold: 1.2
+    darkDamage:
+      groups:
+        Burn: 1.0
+    lightDamage:
+      groups:
+        Brute: -0.1
+        Burn: -0.1
+        Toxin: -0.1
+        Airloss: -0.1
+    darkMovementSpeedMultiplier: 0.7
 
 - type: entity
   parent: MobDionaNymph
@@ -3718,3 +3760,6 @@
     - DoorBumpOpener
   - type: StatusIcon # marks them as crew
     bounds: -0.5,-0.5,0.5,0.5
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen

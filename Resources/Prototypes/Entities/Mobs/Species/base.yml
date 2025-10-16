@@ -140,12 +140,16 @@
     - Adrenaline
     - PsionicsDisabled #Nyano - Summary: PCs can have psionics disabled.
     - PsionicallyInsulated #Nyano - Summary: PCs can be made insulated from psionic powers.
-    - Addicted # DeltaV - Psych med addictions system
-    - SuppressAddiction # DeltaV - Psych med addictions system
-    - InPain # DeltaV - Pain system
-    - SuppressPain # DeltaV - Pain system
-    - Anesthesia # DeltaV - Anesthesia
-    - PainNumbness # DeltaV - Pain numbness status effect
+    # Begin DeltaV additions
+    - Addicted # Psych med addictions system
+    - SuppressAddiction # Psych med addictions system
+    - InPain # Pain system
+    - SuppressPain # Pain system
+    - Anesthesia # Anesthesia
+    - PainNumbness # Pain numbness status effect
+    - ScrambledSpeech
+    - RepeatingTelepath
+    # End DeltaV additions
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -233,6 +237,7 @@
   - type: CosmicCenserTarget # DeltaV - Cosmic Cult
   - type: Carriable # DeltaV
   - type: EmoteCooldown # DeltaV - implement RMC emote cooldown
+  - type: GrappleTarget # DeltaV - Allow targets to be grappled
 
 - type: entity
   save: false

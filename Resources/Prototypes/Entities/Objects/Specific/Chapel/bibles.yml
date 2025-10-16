@@ -37,6 +37,9 @@
   - type: Sprite
     sprite: Objects/Specific/Chapel/bible.rsi
     state: icon
+  - type: Tool # DeltaV - Lets it be used to bless things.
+    qualities:
+      - Blessing
   - type: Item
     size: Small
     sprite: Objects/Specific/Chapel/bible.rsi
@@ -87,11 +90,13 @@
     sprite: Objects/Specific/Chapel/necronomicon.rsi
 
 - type: entity
+  parent: BaseAction
   id: ActionBibleSummon
   name: Summon familiar
   description: Summon a familiar that will aid you and gain humanlike intelligence once inhabited by a soul.
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite: Clothing/Head/Hats/witch.rsi, state: icon }
-    event: !type:SummonActionEvent
     useDelay: 1
+  - type: InstantAction
+    event: !type:SummonActionEvent

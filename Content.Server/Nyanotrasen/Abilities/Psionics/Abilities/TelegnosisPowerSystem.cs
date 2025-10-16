@@ -1,6 +1,7 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Disposal.Unit;
+using Content.Shared._DV.Abilities.Psionics;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
@@ -24,7 +25,6 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly AtmosphereSystem _atmos = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
-        [Dependency] private readonly SharedMindSystem _mind = default!;
 
         public override void Initialize()
         {
@@ -40,9 +40,12 @@ namespace Content.Server.Abilities.Psionics
         private void OnInit(EntityUid uid, TelegnosisPowerComponent component, ComponentInit args)
         {
             _actions.AddAction(uid, ref component.TelegnosisActionEntity, component.TelegnosisActionId);
-            _actions.TryGetActionData(component.TelegnosisActionEntity, out var actionData);
-            if (actionData is { UseDelay: not null })
+
+            if (_actions.GetAction(component.TelegnosisActionEntity) is not { Comp.UseDelay: not null })
+            {
                 _actions.StartUseDelay(component.TelegnosisActionEntity);
+            }
+
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
             {
                 psionic.PsionicAbility = component.TelegnosisActionEntity;
@@ -63,8 +66,6 @@ namespace Content.Server.Abilities.Psionics
         {
             var projection = Spawn(component.Prototype, Transform(uid).Coordinates);
 
-            _mind.ShowExamineInfo(uid, false); // Hide SSD indicator
-
             _transform.AttachToGridOrMap(projection);
             _mindSwap.Swap(uid, projection);
 
@@ -73,11 +74,6 @@ namespace Content.Server.Abilities.Psionics
         }
         private void OnMindRemoved(EntityUid uid, TelegnosticProjectionComponent component, MindRemovedMessage args)
         {
-            // This is called during transfer to, so the MindSwappedComponent is still present.
-            if (TryComp<MindSwappedComponent>(uid, out var mindSwapped))
-            {
-                _mind.ShowExamineInfo(mindSwapped.OriginalEntity, true);
-            }
             QueueDel(uid);
         }
 

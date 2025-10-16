@@ -63,3 +63,25 @@
     Telecrystal: 2
   categories:
   - UplinkWearables
+
+- type: listing
+  id: UplinkNightVisionGoggles
+  name: uplink-night-vision-goggles-name
+  description: uplink-night-vision-goggles-desc
+  icon: { sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi, state: icon }
+  productEntity: ClothingEyesNightVisionGoggles
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkThermalGoggles
+  name: uplink-thermal-goggles-name
+  description: uplink-thermal-goggles-desc
+  icon: { sprite: _White/Clothing/Eyes/Goggles/thermal.rsi, state: icon }
+  productEntity: ClothingEyesThermalVisionGogglesSyndie
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWearables

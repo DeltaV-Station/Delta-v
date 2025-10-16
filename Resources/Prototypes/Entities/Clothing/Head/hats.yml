@@ -41,7 +41,7 @@
   - type: Tag
     tags:
     - ClothMade
-    - Recyclable    
+    - Recyclable
     - WhitelistChameleon
 
 - type: entity
@@ -141,6 +141,15 @@
     - Recyclable
     - HamsterWearable
     - WhitelistChameleon
+  # Begin DeltaV additions
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  # End DeltaV additions
 
 - type: entity
   parent: ClothingHeadBase
@@ -359,6 +368,15 @@
     - Recyclable
     - HamsterWearable
     - WhitelistChameleon
+  # Begin DeltaV additions
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  # End DeltaV additions
 
 - type: entity
   parent: ClothingHeadBase
@@ -370,6 +388,8 @@
     sprite: Clothing/Head/Hats/outlawhat.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/outlawhat.rsi
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   parent: ClothingHeadBase
@@ -464,8 +484,8 @@
     - state: icon-nobeard
       map: [ "foldedLayer" ]
       visible: true
-  
-    
+
+
 
 - type: entity
   parent: ClothingHeadBase

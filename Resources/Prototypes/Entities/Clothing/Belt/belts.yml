@@ -35,6 +35,7 @@
       components:
         - StationMap
         - SprayPainter
+        - SprayPainterAmmo
         - NetworkConfigurator
         - RCD
         - RCDAmmo
@@ -80,6 +81,10 @@
             - Multitool
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+  - type: Tag
+    tags:
+    - UtilityBelt
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -115,6 +120,7 @@
       components:
         - StationMap
         - SprayPainter
+        - SprayPainterAmmo
         - NetworkConfigurator
         - RCD
         - RCDAmmo
@@ -272,7 +278,10 @@
         - DiscreteHealthAnalyzer
         - SurgeryTool
         - Dropper
-        - Vial # DeltaV - vial gaming
+        # Begin DeltaV additions
+        - Vial
+        - Syringe
+        # End DeltaV Additions
       components:
         - Defibrillator # DeltaV - Add PortaFib to EMT belt
         - Hypospray
@@ -643,6 +652,8 @@
         - Gun
         - BallisticAmmoProvider
         - CartridgeAmmo
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   parent: [ClothingBeltStorageBase, ClothingSlotBase] # DeltaV - add parent ClothingSlotBase
@@ -726,6 +737,8 @@
     grid:
     - 0,0,2,1
     - 4,0,7,1
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing

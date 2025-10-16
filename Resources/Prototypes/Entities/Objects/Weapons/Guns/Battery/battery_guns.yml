@@ -241,7 +241,7 @@
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
     proto: RedLaserPractice
-    fireCost: 62.5
+    fireCost: 50 #Delta-V was 62.5
   - type: StaticPrice
     price: 300
 
@@ -255,7 +255,7 @@
     price: 420
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
-    fireCost: 62.5
+    fireCost: 50 #Delta-V was 62.5
 
 - type: entity
   name: pulse pistol
@@ -483,7 +483,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 50
+    fireCost: 62.5
   - type: Tag
     tags:
     - Taser
@@ -513,7 +513,7 @@
       - Belt
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
+    fireCost: 62.5
   - type: GuideHelp
     guides:
     - Security

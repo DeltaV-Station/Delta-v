@@ -15,7 +15,7 @@
         component: PsionicInsulation #Nyano - Summary: see above.
         type: Add
       - !type:GenericStatusEffect
-        key: Stutter
+        key: ScrambledSpeech
         component: ScrambledAccent
       - !type:GenericStatusEffect
         key: PsionicsDisabled #Nyano - Summary: disables psinoics from being used by the wearer.
@@ -194,16 +194,15 @@
     Medicine:
       effects:
         - !type:ModifyBloodLevel
-          amount: 4
-        - !type:HealthChange
+          amount: 6 # DeltaV - Same as Saline, was 4.
+        - !type:EvenHealthChange # DeltaV - Cryochems heal evenly.
           conditions:
           - !type:Temperature
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
           damage:
           # todo scale with temp like SS13
-            groups:
-              Airloss: -10
+            Airloss: -7 # DeltaV - Was -10 with HealthChange.
 
 - type: reagent
   id: Doxarubixadone
@@ -327,6 +326,13 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Histamine
+          min: 45
+        reagent: Histamine
+        amount: -5
       - !type:HealthChange
         conditions:
           # they gotta be in crit first
@@ -1105,6 +1111,7 @@
   name: reagent-name-holywater
   group: Medicine
   desc: reagent-desc-holywater
+  evaporationSpeed: 0.3
   physicalDesc: reagent-physical-desc-holy
   flavor: holy
   color: "#91C3F7"
@@ -1124,6 +1131,12 @@
             Heat: -0.2
             Shock: -0.2
             Cold: -0.2
+      - !type:HealthChange # Delta-V
+        damage:
+          types:
+            Shadow: -2
+            Holy: 2
+
 
   reactiveEffects:
     Extinguish:
@@ -1264,16 +1277,20 @@
   metabolisms:
     Medicine:
       effects:
-        - !type:HealthChange
+        # Begin DeltaV additions
+        - !type:EvenHealthChange # DeltaV - Cryochems heal evenly.
           conditions:
+          - !type:MobStateCondition
+            mobstate: Dead # It's called NECROsol, not ALIVEsol
           - !type:Temperature
-            max: 213.0
+            max: 150.0 # Same as Opporozidone for flavor with chemicals for dead bodies.
           damage:
-            groups:
-              Brute: -4
-              Burn: -5
-            types:
-              Poison: -2
+            Brute: -5 # Was -4 with HealthChange.
+            Burn: -5
+            Airloss: -5 # Added as a buff.
+            Toxin: -5 # Was -2 Poison with HealthChange.
+            Genetic: -5 # Added as a buff.
+        # End DeltaV additions
 
 - type: reagent
   id: Aloxadone
@@ -1287,16 +1304,13 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange # DeltaV - Cryochems heal evenly.
         conditions:
         - !type:Temperature
           max: 213.0
         damage:
-          types:
-            Cold: -5 # DeltaV - was -4
-            Heat: -5 # DeltaV - was -4
-            Shock: -5 # DeltaV - was -4
-            Caustic: -2 # DeltaV - was -1.5
+          Burn: -7 # DeltaV - Cryochems heal evenly.
+          # Previous values with HealthChange were: -4 Heat/Cold/Shock, -1.5 Caustic
 
 - type: reagent
   id: Traumoxadone
@@ -1315,7 +1329,7 @@
         - !type:Temperature
           max: 213.0
         damage:
-          Brute: -4
+          Brute: -7 # DeltaV - Was -4
 
 - type: reagent
   id : Mannitol # currently this is just a way to create psicodine
@@ -1472,14 +1486,14 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange # DeltaV - Cryochems heal evenly.
         conditions:
         - !type:Temperature
           max: 213.0
         damage:
-          groups:
-            Brute: 3
-            Genetic: 1
-          types:
-            Poison: -6
-            Radiation: -3
+          # Begin DeltaV additions
+          Brute: 3
+          Genetic: 1
+          Toxin: -7 # Was -6 Poison and -3 Radiation.
+          # Previous values with HealthChange were: +3 Brute, +1 Genetic, -6 Poison, -3 Radiation
+          # End DeltaV additions
