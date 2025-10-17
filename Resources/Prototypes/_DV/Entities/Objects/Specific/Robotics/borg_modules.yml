@@ -183,11 +183,11 @@
     - id: SprayPainter
       whitelist:
         components:
-          SprayPainter
+        - SprayPainter
     - id: SprayPainterAmmo
       whitelist:
         components:
-          SprayPainterAmmo
+        - SprayPainterAmmo
   - type: BorgModuleIcon
     icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: decoration-module }
 
