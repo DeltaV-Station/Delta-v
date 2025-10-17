@@ -13,4 +13,3 @@ ert-box-wt550-description =
     A one handed submachine gun, chambered in .35.
     A versatile close to medium range weapon.
     Comes with 3 spare magazines.
-
