@@ -1,0 +1,15 @@
+- type: entity
+  parent: ToolboxThief
+  id: ERTBox
+  name: ERT Box
+  description: Your designated gear. Though you were in a such a rush to deploy, that you forgot what you brought with you!
+  components:
+#  - type: Sprite
+#    sprite: Objects/Tools/Toolboxes/toolbox_thief.rsi
+#    state: icon
+  - type: ThiefUndeterminedBackpack
+    maxSelectedSets: 1
+    possibleSets:
+    - Bulldog
+    - EnergyCarbine
+    - SubMachineGun

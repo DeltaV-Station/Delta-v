@@ -1,0 +1,35 @@
+- type: thiefBackpackSet
+  id: Bulldog
+  name: ert-box-bulldog-name
+  description: ert-box-bulldog-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    state: icon
+  content:
+  - WeaponShotgunBulldog
+
+- type: thiefBackpackSet
+  id: EnergyCarbine
+  name: ert-box-energy-carbine-name
+  description: ert-box-energy-carbine-description
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Rifles/lasercarbineert.rsi
+    state: icon
+  content:
+  - WeaponRifleLaserERT
+  - MagazineLaser
+  - MagazineLaser
+  - MagazineLaser
+
+- type: thiefBackpackSet
+  id: SubMachineGun
+  name: ert-box-wt550-name
+  description: ert-box-wt550-description
+  sprite:
+    sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunWt550
+  - MagazinePistolSubMachineGunTopMounted
+  - MagazinePistolSubMachineGunTopMounted
+  - MagazinePistolSubMachineGunTopMounted
