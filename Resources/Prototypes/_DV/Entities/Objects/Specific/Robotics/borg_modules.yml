@@ -165,20 +165,20 @@
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
   id: BorgModuleDecoration
   name: decoration deployment module
-  description: A borg module for painting patterns, guides or labels on the station.
+  description: A borg module for deploying patterns, guides or labels across the station.
   components:
   - type: Sprite
     layers:
     - state: generic
-    - state: icon-carp
+    - state: icon-deco
       sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
-    moduleId: Pattern
+    moduleId: Decoration
     items:
     - CrayonMagic
     - HandLabeler
   - type: DroppableBorgModule
-    moduleId: Pattern
+    moduleId: Decoration
     items:
     - id: SprayPainter
       whitelist:
@@ -189,7 +189,7 @@
         components:
           SprayPainterAmmo
   - type: BorgModuleIcon
-    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: fauna-module }
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: decoration-module }
 
 # Syndicate modules
 
