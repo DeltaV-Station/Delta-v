@@ -37,6 +37,9 @@
   - type: Sprite
     sprite: Objects/Specific/Chapel/bible.rsi
     state: icon
+  - type: Tool # DeltaV - Lets it be used to bless things.
+    qualities:
+      - Blessing
   - type: Item
     size: Small
     sprite: Objects/Specific/Chapel/bible.rsi
