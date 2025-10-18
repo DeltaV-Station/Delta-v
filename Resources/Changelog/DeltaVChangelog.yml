@@ -1,102 +1,4 @@
 ﻿Entries:
-- author: ewokswagger
-  changes:
-  - message: Paramedics will now start with 15tc (down from 16)
-    type: Tweak
-  id: 1246
-  time: '2025-04-12T02:24:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3416
-- author: boogiebogus
-  changes:
-  - message: Revised juggernaut suit sprites, as well as its reverse engineered counterpart.
-    type: Tweak
-  id: 1247
-  time: '2025-04-12T02:42:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3364
-- author: erhardsteinhauer
-  changes:
-  - message: The Vulcan, Energy Gun, Ceremonial rifle and the Jackdaw now have proper
-      sprites when in the back.
-    type: Fix
-  - message: The Vulcan and Jackdaw now have wielded sprites.
-    type: Fix
-  id: 1248
-  time: '2025-04-12T02:45:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3405
-- author: deltanedas
-  changes:
-  - message: Merged last 2 weeks changes from upstream.
-    type: Add
-  id: 1249
-  time: '2025-04-12T14:46:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3394
-- author: deltanedas
-  changes:
-  - message: Fixed operating on animals not making surgical tools dirty.
-    type: Fix
-  - message: Fixed held non-surgical items becoming dirty during surgery.
-    type: Fix
-  id: 1250
-  time: '2025-04-12T14:52:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3424
-- author: HTMLSystem
-  changes:
-  - message: Added jumpskirt versions of the casual atmos jumpsuit and botanist overalls.
-      Find them in the uniform printer and loadouts!
-    type: Add
-  - message: Added recipes for the senior bartender outfits in the uniform printer!
-    type: Add
-  id: 1251
-  time: '2025-04-13T02:09:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3399
-- author: sowelipililimute
-  changes:
-  - message: Robotics can now print IPC chasses that can receive a brain and limbs
-    type: Add
-  - message: IPCs do not feel pain in surgery anymore
-    type: Add
-  - message: MMIs can now be inserted into IPC chasses
-    type: Add
-  id: 1252
-  time: '2025-04-13T10:27:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3418
-- author: Toby222
-  changes:
-  - message: Disabled mob pushing for the time being
-    type: Remove
-  id: 1253
-  time: '2025-04-13T15:00:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3443
-- author: Quanteey
-  changes:
-  - message: Medical masks can now be found in surgeon lockers and made in the medical
-      techfab!
-    type: Tweak
-  id: 1254
-  time: '2025-04-13T22:47:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3391
-- author: Solaris7518
-  changes:
-  - message: Resprited a variety of objects that are commonly used by medical! Medical
-      mains rejoice!
-    type: Add
-  id: 1255
-  time: '2025-04-13T22:55:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3420
-- author: Field Command
-  changes:
-  - message: Reworked security on Pebble, alongside some other changes.
-    type: Tweak
-  id: 1256
-  time: '2025-04-13T23:51:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3440
-- author: Radezolid
-  changes:
-  - message: Now the tape recorder is able to be printed at every departamental TechFab.
-    type: Tweak
-  id: 1257
-  time: '2025-04-14T12:08:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3454
 - author: Blackdutchie
   changes:
   - message: Slimes can now digest and metabolize food, drinks, medicine, and other
@@ -4183,3 +4085,107 @@
   id: 1745
   time: '2025-10-13T18:57:32.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4509
+- author: EmberAstra
+  changes:
+  - message: Fixed the criminal records computer board being called "security records"
+    type: Fix
+  - message: Fixed robotic arms (and other automation machines) icons in the circuit
+      lathe.
+    type: Fix
+  - message: Fixed unholy water's guidebook description.
+    type: Fix
+  id: 1746
+  time: '2025-10-14T13:39:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4511
+- author: TehFlaminTaco
+  changes:
+  - message: Added a new psionic ability, "Fractured Form"
+    type: Add
+  id: 1747
+  time: '2025-10-14T19:42:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4506
+- author: TehFlaminTaco
+  changes:
+  - message: Held items such as PDAs and Flashlights now count as light sources as
+      they were supposed to.
+    type: Fix
+  - message: Diona no-longer take 4 times the intended damage in darkness
+    type: Fix
+  id: 1748
+  time: '2025-10-15T09:37:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4525
+- author: kotobdev
+  changes:
+  - message: Reworded the asakim >CONFISCATE objective for clarity.
+    type: Tweak
+  id: 1749
+  time: '2025-10-15T15:58:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4528
+- author: leonardo-dabepis
+  changes:
+  - message: "Added four paintings by Belgian surrealist painter Ren\xE9 Magritte"
+    type: Add
+  id: 1750
+  time: '2025-10-16T04:02:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3732
+- author: BarryNorfolk
+  changes:
+  - message: Added ability for Laika to grapple ne'er-do-wells with her jaws, grabbing
+      in combat mode will throw them to the floor!
+    type: Add
+  id: 1751
+  time: '2025-10-16T04:52:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4157
+- author: kotobdev
+  changes:
+  - message: Cortical Borers have been ported from Monolith, check Minor Antagonists
+      in the guidebook for more information. Remember to not listen to the voices
+      in your head.
+    type: Add
+  id: 1752
+  time: '2025-10-16T05:11:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4466
+- author: SirWarock
+  changes:
+  - message: Most Cryochemicals now evenly heal 7 damage of their respective type!
+    type: Tweak
+  - message: Necrosol has been buffed to even heal your emotional damage, as well
+      as every other damage type!
+    type: Tweak
+  - message: Prometheum and Ichor now evenly heal!
+    type: Tweak
+  - message: The infamous Pyrogenics also warmed up to evenly heal!
+    type: Tweak
+  - message: The Cryogenics guidebookpage has been updated!
+    type: Tweak
+  id: 1753
+  time: '2025-10-16T05:21:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4455
+- author: TehFlaminTaco
+  changes:
+  - message: Fractured Form bodies no-longer get stuck when left too long
+    type: Fix
+  id: 1754
+  time: '2025-10-16T05:54:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4530
+- author: SirWarock
+  changes:
+  - message: Buckled Patients do not stand up after recovering from critical state!
+    type: Tweak
+  id: 1755
+  time: '2025-10-16T09:04:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4316
+- author: Stop-Signs
+  changes:
+  - message: Added the Rhino Industrial hardsuit, a unique suit for logistics officers.
+    type: Add
+  id: 1756
+  time: '2025-10-16T13:47:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3911
+- author: Vapetastic-Gaming
+  changes:
+  - message: SUBMARINE RETURNS TO DELTA-V
+    type: Add
+  id: 1757
+  time: '2025-10-18T16:26:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4497
