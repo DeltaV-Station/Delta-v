@@ -108,7 +108,16 @@
         Tail: tail_static
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: k9Compound
+    blackboard:
+      CatchRange: !type:Single
+        0.3 # NPCs must be this close to grapple
+      IdleRange: !type:Single
+        2.0 # Trained doggo stays in the right place
+      FollowCloseRange: !type:Single
+        1.5
+      FollowRange: !type:Single
+        2.0
   - type: Physics
   - type: Speech
     allowedEmotes: ['Bark', 'Snarl', 'Whine', 'Howl', 'Awoo']
@@ -188,6 +197,14 @@
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
+  - type: RemoteControlReciever
+    canUnderstand: true
+    channelName: CanineDogWhistle
+    orderStrings:
+      EntityPoint: "dog-whistle-order-catch"
+      TilePoint: "dog-whistle-order-sit"
+      SelfPoint: "dog-whistle-order-comeback"
+      FreeUnit: "dog-whistle-order-at-ease"
 
 - type: entity
   parent: MobMouse
