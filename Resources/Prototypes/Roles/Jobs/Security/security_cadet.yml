@@ -21,6 +21,8 @@
   #- Service # DeltaV - Sec isn't service
   - External
   #- Cryogenics # DeltaV - No looting cryo for cadets
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
