@@ -1,0 +1,110 @@
+using Content.Server.Mind;
+using Content.Server.NPC.HTN;
+using Content.Server.NPC.Systems;
+using Content.Shared._DV.RemoteControl.Components;
+using Content.Shared._DV.RemoteControl.Events;
+using Content.Shared._DV.RemoteControl.EntitySystems;
+using Content.Shared.Pointing;
+using Content.Shared.Timing;
+using Robust.Server.Audio;
+using Robust.Shared.Random;
+
+namespace Content.Server._DV.RemoteControl.EntitySystems;
+
+/// <summary>
+/// Server side handling of Remote Controls
+/// </summary>
+public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
+{
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly HTNSystem _htn = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly NPCSystem _npc = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly UseDelaySystem _useDelay = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<RemoteControlHolderComponent, AfterPointedAtEvent>(OnPointedAtEntity);
+        SubscribeLocalEvent<RemoteControlHolderComponent, AfterPointedAtTileEvent>(OnPointedAtTile);
+
+        InitializeRecieverEvents();
+    }
+
+    /// <summary>
+    /// Handles when an entity using an active remote control points at an entity.
+    /// </summary>
+    /// <param name="holder">Entity holding/wearing the remote control.</param>
+    /// <param name="args">Args for the event, notably the entity pointed at.</param>
+    private void OnPointedAtEntity(Entity<RemoteControlHolderComponent> holder, ref AfterPointedAtEvent args)
+    {
+        if (!TryComp<RemoteControlComponent>(holder.Comp.Control, out var controlComp))
+            return;
+
+        var control = (holder.Comp.Control, controlComp);
+        if (!CanSendOrder(control))
+            return;
+
+        if (holder.Owner == args.Pointed)
+        {
+            var ev = new RemoteControlSelfPointOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs);
+            SendOrderToRecievers(control, ref ev);
+        }
+        else
+        {
+            var ev = new RemoteControlEntityPointOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs, args.Pointed);
+            SendOrderToRecievers(control, ref ev);
+        }
+    }
+
+    /// <summary>
+    /// Handles when an entity using an active remote control points at a tile.
+    /// </summary>
+    /// <param name="holder">Entity holding/wearing the remote control.</param>
+    /// <param name="args">Args for the event, notably the tile pointed at.</param>
+    private void OnPointedAtTile(Entity<RemoteControlHolderComponent> holder, ref AfterPointedAtTileEvent args)
+    {
+        if (!TryComp<RemoteControlComponent>(holder.Comp.Control, out var controlComp))
+            return;
+
+        var control = (holder.Comp.Control, controlComp);
+        if (!CanSendOrder(control))
+            return;
+
+        var ev = new RemoteControlTilePointOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs, args.Pointed);
+        SendOrderToRecievers(control, ref ev);
+    }
+
+    /// <summary>
+    /// Sends an order from the remote control to all possible recievers on that channel
+    /// </summary>
+    /// <typeparam name="T">Type of the order event to send.</typeparam>
+    /// <param name="control">Remote control sending this order.</param>
+    /// <param name="ev">Order event being sent.</param>
+    private void SendOrderToRecievers<T>(Entity<RemoteControlComponent> control, ref T ev) where T : notnull
+    {
+        var query = EntityQueryEnumerator<RemoteControlRecieverComponent>();
+        while (query.MoveNext(out var ent, out var recieverComp))
+        {
+            if (recieverComp.ChannelName != control.Comp.ChannelName)
+                continue; // Not on the same channel, ignore
+
+            RaiseLocalEvent(ent, ref ev);
+        }
+
+        _useDelay.TryResetDelay(control.Owner);
+    }
+
+    /// <summary>
+    /// Checks whether an order can be sent by this remote control, used to limited
+    /// the amount of spam one can send to recievers.
+    /// </summary>
+    /// <param name="control">Remote control being used.</param>
+    /// <returns>True if there is no use delay (cooldown) active for this remote control, false otherwise.</returns>
+    private bool CanSendOrder(Entity<RemoteControlComponent> control)
+    {
+        return !_useDelay.IsDelayed(control.Owner);
+    }
+}

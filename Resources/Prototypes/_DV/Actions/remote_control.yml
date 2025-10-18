@@ -1,0 +1,11 @@
+- type: entity
+  id: ActionToggleRemoteControl
+  name: Toggle remote control orders
+  description: Toggles whether pointing should send orders
+  components:
+  - type: Action
+    iconOn: Interface/Default/blocked.png
+    useDelay: 1
+  - type: InstantAction
+    event: !type:ToggleRemoteControlEvent
+
