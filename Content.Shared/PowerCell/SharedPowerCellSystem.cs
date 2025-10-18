@@ -77,9 +77,9 @@ public abstract class SharedPowerCellSystem : EntitySystem
         RaiseLocalEvent(uid, new PowerCellChangedEvent(true), false);
     }
 
-    private void OnCellEmpAttempt(EntityUid uid, PowerCellComponent component, EmpAttemptEvent args)
+    private void OnCellEmpAttempt(Entity<PowerCellComponent> entity, ref EmpAttemptEvent args)
     {
-        var parent = Transform(uid).ParentUid;
+        var parent = Transform(entity).ParentUid;
 
         if (_siliconEmp.ShouldTakeDamageInsteadOfPowerDrain(parent)) // DeltaV - Silicon EMP
             return;
