@@ -41,7 +41,8 @@ public abstract class SharedRemoteControlSystem : EntitySystem
         if (!Resolve(control, ref control.Comp))
             return;
 
-        control.Comp.BoundNPCs.Add(entity);
+        if (!control.Comp.BoundNPCs.Contains(entity))
+            control.Comp.BoundNPCs.Add(entity);
     }
 
     /// <summary>
