@@ -1,7 +1,7 @@
-using Content.Server.Chat.Systems;
 using Content.Shared.Cuffs; // DeltaV
 using Content.Shared.Cuffs.Components; // DeltaV
 using Content.Shared.Hands.Components; // DeltaV
+using Content.Shared.Chat;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Popups; // DeltaV
 using Content.Shared.Radio;
