@@ -46,10 +46,11 @@ public abstract class SharedRemoteControlSystem : EntitySystem
     }
 
     /// <summary>
-    /// Binds an entity to a remote control.
+    /// Unbinds an entity to a remote control.
     /// </summary>
-    /// <param name="control">The control the bind to.</param>
-    /// <param name="entity">The entity to bind.</param>
+    /// <param name="control">The control the unbind from.</param>
+    /// <param name="entity">The entity to unbind.</param>
+    /// <returns>True if the entity was unbound from the control, false otherwise.</returns>
     public bool UnbindEntity(Entity<RemoteControlComponent?> control, EntityUid entity)
     {
         if (!Resolve(control, ref control.Comp))
