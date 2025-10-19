@@ -39,9 +39,13 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <param name="args">Args for the event, notably sound and origin.</param>
     private void OnEntityPointOrder(Entity<RemoteControlRecieverComponent> ent, ref RemoteControlEntityPointOrderEvent args)
     {
+        if (!TryComp<RemoteControlComponent>(args.Control, out var controlComp) ||
+            controlComp.ChannelName != ent.Comp.ChannelName)
+            return;
+
         if (!IsNPC(ent))
         {
-            HandleOrderEffects(ent, args.User, args.Control, RemoteControlOrderType.EntityPoint);
+            HandleOrderEffects(ent, args.User, (args.Control, controlComp), RemoteControlOrderType.EntityPoint);
             return;
         }
 
@@ -66,9 +70,13 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <param name="args">Args for the event, notably sound and origin.</param>
     private void OnTilePointOrder(Entity<RemoteControlRecieverComponent> ent, ref RemoteControlTilePointOrderEvent args)
     {
+        if (!TryComp<RemoteControlComponent>(args.Control, out var controlComp) ||
+            controlComp.ChannelName != ent.Comp.ChannelName)
+            return;
+
         if (!IsNPC(ent))
         {
-            HandleOrderEffects(ent, args.User, args.Control, RemoteControlOrderType.TilePoint);
+            HandleOrderEffects(ent, args.User, (args.Control, controlComp), RemoteControlOrderType.TilePoint);
             return;
         }
 
@@ -92,9 +100,13 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <param name="args">Args for the event, notably sound and origin.</param>
     private void OnSelfPointOrder(Entity<RemoteControlRecieverComponent> ent, ref RemoteControlSelfPointOrderEvent args)
     {
+        if (!TryComp<RemoteControlComponent>(args.Control, out var controlComp) ||
+            controlComp.ChannelName != ent.Comp.ChannelName)
+            return;
+
         if (!IsNPC(ent))
         {
-            HandleOrderEffects(ent, args.User, args.Control, RemoteControlOrderType.SelfPoint);
+            HandleOrderEffects(ent, args.User, (args.Control, controlComp), RemoteControlOrderType.SelfPoint);
             return;
         }
 
@@ -121,9 +133,13 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <param name="args">Args for the event, notably sound and origin.</param>
     private void OnFreeUnitOrder(Entity<RemoteControlRecieverComponent> ent, ref RemoteControlFreeUnitOrderEvent args)
     {
+        if (!TryComp<RemoteControlComponent>(args.Control, out var controlComp) ||
+            controlComp.ChannelName != ent.Comp.ChannelName)
+            return;
+
         if (!IsNPC(ent))
         {
-            HandleOrderEffects(ent, args.User, args.Control, RemoteControlOrderType.FreeUnit);
+            HandleOrderEffects(ent, args.User, (args.Control, controlComp), RemoteControlOrderType.FreeUnit);
             return;
         }
 
@@ -197,12 +213,9 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <param name="orderString">The localisation string to use for this order.</param>
     private void HandleOrderEffects(Entity<RemoteControlRecieverComponent> ent,
         EntityUid user,
-        EntityUid control,
+        Entity<RemoteControlComponent> control,
         RemoteControlOrderType orderType)
     {
-        if (!TryComp<RemoteControlComponent>(control, out var controlComp))
-            return;
-
         var audioParams = new AudioParams
         {
             MaxDistance = 300f, // Long distance, TODO: Configurable?
@@ -219,10 +232,10 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
 
             // Lower the volume by a bunch so we don't overwhelm players that don't need to understand this
             audioParams.Volume = -10f;
-            message = Loc.GetString(_random.Pick(controlComp.Screeches));
+            message = Loc.GetString(_random.Pick(control.Comp.Screeches));
         }
 
-        _audio.PlayEntity(_audio.ResolveSound(controlComp.UseSound), ent, user, audioParams);
+        _audio.PlayEntity(_audio.ResolveSound(control.Comp.UseSound), ent, user, audioParams);
         Popup.PopupEntity(message, ent, ent, PopupType.Medium);
     }
 }
