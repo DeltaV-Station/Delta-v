@@ -1363,6 +1363,7 @@
   abstract: true
   components:
   - type: CombatMode
+    canDisarm: true
   # Shitmed Change Start
   - type: SurgeryTarget
   - type: Targeting
