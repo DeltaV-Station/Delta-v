@@ -1,0 +1,156 @@
+- type: species
+  id: Allulalo
+  name: species-name-allulalo
+  roundStart: false
+  randomViable: true
+  prototype: MobAllulalo
+  sprites: MobAllulaloSprites
+  defaultSkinTone: "#385878"
+  markingLimits: MobAllulaloMarkingLimits
+  dollPrototype: MobAllulaloDummy
+  skinColoration: Hues
+  maleFirstNames: AllulaloFirstNames
+  femaleFirstNames: AllulaloFirstNames
+  lastNames: AllulaloLastNames
+  sexes:
+  - Male
+  - Female
+  - Unsexed
+
+- type: speciesBaseSprites
+  id: MobAllulaloSprites
+  sprites:
+    TailBehind: MobHumanoidAnyMarking # floof
+    TailOversuit: MobHumanoidAnyMarking # floof
+    Eyes: MobAllulaloEyes
+    Head: MobAllulaloHead
+    HeadTop: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking
+    Chest: MobAllulaloTorso
+    LArm: MobAllulaloLArm
+    RArm: MobAllulaloRArm
+    LHand: MobAllulaloLHand
+    LLeg: MobAllulaloLLeg
+    RLeg: MobAllulaloRLeg
+    LFoot: MobAllulaloLFoot
+    RFoot: MobAllulaloRFoot
+    Tail: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+
+- type: markingPoints
+  id: MobAllulaloMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 1
+      required: false
+    Eyes:
+      points: 1
+      required: false
+      defaultMarkings: [ AllulaloEyesDefault ] # allows me to have more minute control over their color
+    Head:
+      points: 6
+      required: false
+    HeadTop:
+      points: 2
+      required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    Chest:
+      points: 4
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ AllulaloTailDefault ]
+    Snout:
+      points: 1
+      required: false
+    Overlay:
+      points: 1
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobAllulaloEyes
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobAllulaloHead
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobAllulaloHeadMale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobAllulaloHeadFemale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobAllulaloTorso
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: torso
+
+- type: humanoidBaseSprite
+  id: MobAllulaloTorsoMale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: torso
+
+- type: humanoidBaseSprite
+  id: MobAllulaloTorsoFemale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: torso
+
+- type: humanoidBaseSprite
+  id: MobAllulaloLLeg
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobAllulaloLHand
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: hands
+
+- type: humanoidBaseSprite
+  id: MobAllulaloLArm
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobAllulaloLFoot
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobAllulaloRLeg
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobAllulaloRArm
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobAllulaloRFoot
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: r_foot

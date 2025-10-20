@@ -1,0 +1,264 @@
+- type: entity
+  save: false
+  name: Uristia Mc-Hands
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobAllulalo
+  abstract: true
+  components:
+  - type: GoobAbsorbable
+    biomassRestored: 1.0
+  - type: Hunger
+  - type: Thirst
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.32
+        density: 75 #this is half the normal and makes them very light
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Icon
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: full
+  - type: Body
+    prototype: Allulalo
+    requiredLegs: 2
+  - type: UnableToWield
+  - type: CarrierOneHand # good luck.
+  - type: TooShortForUI
+  - type: AllulaloAccent
+  - type: HeavyweightDrunk #Their blood is alcoholic. also a bird drinking you under the table is funny
+  - type: CanEscapeInventory
+    baseResistTime: 1.0 #they break out of grabs FAST
+  - type: Damageable
+    damageContainer: Biological
+    #damageModifierSet:
+  - type: Bloodstream
+    bloodMaxVolume: 250 #should be 50 less than the default of 300. theyre small
+    bloodReagent: BloodAllulalo
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Impstation/Mobs/Effects/allulalo_brute_damage.rsi
+        color: "#e5efff"
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: MeleeWeapon #bites you
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcAllulaloBite
+    damage:
+      types:
+        Piercing: 4
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Ethanotoxin
+          Quantity: 2 #you can bite someone twice
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Ethanotoxin
+        Quantity: 0.05 #20 second cooldown between bites working full power
+  - type: StaminaResistance
+    damageCoefficient: 1.25 #takes the disabler/batong hits needed to stun from 4 > 3
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+      - id: FoodMeatChicken #this was yesters idea, not mine
+        amount: 5
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Monkey_burning
+  - type: Tag
+    tags:
+    - VimPilot #fuck it, theyre small enough
+    - DoorBumpOpener
+    - AnomalyHost
+    - CanPilot
+  - type: TypingIndicator
+    proto: allulalo
+  - type: Vocal
+    sounds:
+      Male: Allulalo
+      Female: Allulalo
+      Unsexed: Allulalo
+  - type: Speech
+    speechSounds: Allulalo
+    speechVerb: Allulalo
+    allowedEmotes: ['Chitter', 'Hiss']
+  - type: HumanoidAppearance
+    species: Allulalo
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: Inventory
+    speciesId: allulalo
+    templateId: allulalo
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: glasses
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: outerClothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: hands
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: feet
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: back
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: suitstorage
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+          state: hand_l
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: Mobs/Species/Vox/displacement.rsi
+          state: hand_r
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobAllulaloDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    scale: 1, 1
+  - type: Inventory
+    speciesId: allulalo
+    templateId: allulalo
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: glasses
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: outerClothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: hands
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: feet
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: back
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+            state: suitstorage
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: Mobs/Species/Vox/displacement.rsi
+          state: hand_l
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: Mobs/Species/Vox/displacement.rsi
+          state: hand_r
