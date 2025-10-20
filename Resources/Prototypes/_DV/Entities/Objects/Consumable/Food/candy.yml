@@ -113,3 +113,56 @@
           Quantity: 10
         - ReagentId: CarobPowder
           Quantity: 1
+
+- type: entity
+  name: chocolate heart
+  parent: FoodSnackBase
+  id: FoodSnackChocolateHeart
+  description: A cute chocolate heart to give someone special
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Food/candy.rsi
+    state: chocolateheart
+  - type: Tag
+    tags:
+      - FoodSnack
+      - ReptilianFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: CocoaPowder
+          Quantity: 1
+
+- type: entity
+  name: carob chocolate heart
+  parent: FoodSnackBase
+  id: FoodSnackCarobChocolateHeart
+  description: A cute carob chocolate heart to give someone special
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Food/candy.rsi
+    state: chocolateheart
+  - type: Tag
+    tags:
+      - FoodSnack
+      - ReptilianFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: CarobPowder
+          Quantity: 1
+

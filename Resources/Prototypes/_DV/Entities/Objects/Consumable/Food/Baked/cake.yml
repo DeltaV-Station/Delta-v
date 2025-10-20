@@ -1,0 +1,146 @@
+- type: entity
+  name: carob chocolate cake
+  parent: FoodCakeBase
+  id: FoodCakeCarob
+  description: A cake made with carob chocolate.
+  components:
+  - type: Sprite
+    layers:
+    - state: alpha
+      color: "#ba672e"
+  - type: SliceableFood
+    slice: FoodCakeChocolateSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 55
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 40
+        - ReagentId: Vitamin
+          Quantity: 5
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: alpha-inhand-left
+        color: "#ba672e"
+      right:
+      - state: alpha-inhand-right
+        color: "#ba672e"
+
+- type: entity
+  name: slice of carob chocolate cake
+  parent: FoodCakeSliceBase
+  id: FoodCakeCarobSlice
+  components:
+  - type: Sprite
+    layers:
+    - state: alpha-slice
+      color: "#ba672e"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 2
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: alpha-slice-inhand-left
+        color: "#ba672e"
+      right:
+      - state: alpha-slice-inhand-right
+        color: "#ba672e"
+
+- type: entity
+  name: luxury chocolate cake
+  parent: FoodCakeBase
+  id: FoodLuxuryCake
+  description: a luxurious chocolate cake topped with whipped cream and cherries. For those special occasions.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Food/Baked/cake.rsi
+    state: luxury
+  - type: SliceableFood
+    slice: FoodLuxuryCakeSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 80
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Vitamin
+          Quantity: 15
+        - ReagentId: Cream
+          Quantity: 15
+        - ReagentId: Theobromine
+          Quantity: 10
+
+- type: entity
+  name: slice of luxury chocolate cake
+  parent: FoodCakeSliceBase
+  id: FoodLuxuryCakeSlice
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Food/Baked/cake.rsi
+    state: luxury-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Cream
+          Quantity: 3
+        - ReagentId: Theobromine
+          Quantity: 3
+
+- type: entity
+  name: luxury carob chocolate cake
+  parent: FoodCakeBase
+  id: FoodCarobLuxuryCake
+  description: a luxurious chocolate cake topped with whipped cream and cherries. For those special occasions.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Food/Baked/cake.rsi
+    state: luxury
+  - type: SliceableFood
+    slice: FoodLuxuryCarobCakeSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 80
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Vitamin
+          Quantity: 15
+        - ReagentId: Cream
+          Quantity: 15
+
+- type: entity
+  name: slice of luxury carob chocolate cake
+  parent: FoodCakeSliceBase
+  id: FoodLuxuryCarobCakeSlice
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Food/Baked/cake.rsi
+    state: luxury-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Cream
+          Quantity: 5

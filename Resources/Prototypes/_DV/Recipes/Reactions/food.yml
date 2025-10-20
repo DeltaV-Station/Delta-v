@@ -45,3 +45,19 @@
       amount: 1
   products:
     Bechamel: 3
+
+- type: reaction
+  id: CreateCarob
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    CarobPowder:
+      amount: 4
+    Milk:
+      amount: 2
+    Sugar:
+      amount: 2
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodSnackCarobBar

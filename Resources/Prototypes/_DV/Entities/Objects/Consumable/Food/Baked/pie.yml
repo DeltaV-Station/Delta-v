@@ -1,0 +1,18 @@
+- type: entity
+  name: carob lava tart
+  parent: FoodPieBase
+  id: FoodTartCarob
+  description: A lava tart made with carob rather then chocolate. Still has a deliciously smooth liquid core.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    state: cocolava
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 25

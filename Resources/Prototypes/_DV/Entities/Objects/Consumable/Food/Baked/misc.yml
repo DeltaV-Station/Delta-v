@@ -1,0 +1,178 @@
+- type: entity
+  name: carob muffin
+  parent: FoodBakedMuffin
+  id: FoodBakedMuffinCarob
+  description: A delicious and spongy carob muffin.
+  components:
+  - type: Sprite
+    state: muffin-chocolate
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: CarobPowder
+          Quantity: 2
+
+- type: entity
+  name: carob brownies
+  parent: FoodBakedBase
+  id: FoodBakedCarobBrownieBatch
+  description: A pan of carob brownies.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - chocolate
+  - type: Sprite
+    sprite: Objects/Consumable/Food/Baked/brownie.rsi
+    state: brownie-batch
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 78
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+  - type: SliceableFood
+    count: 6
+    slice: FoodBakedCarobBrownie
+
+- type: entity
+  name: carob brownie
+  parent: FoodBakedBase
+  id: FoodBakedCarobBrownie
+  suffix: Fresh
+  description: A fresh baked carob brownie.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - chocolate
+  - type: Sprite
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: mre-brownie-open
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Slice
+
+- type: entity
+  name: special carob brownies
+  parent: FoodBakedBase
+  id: FoodBakedCannabisCarobBrownieBatch
+  description: A pan of "special" brownies made with carob instead of chocolate.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - magical
+      - chocolate
+  - type: Sprite
+    sprite: Objects/Consumable/Food/Baked/brownie.rsi
+    state: brownie-batch
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 228
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: THC
+          Quantity: 150
+  - type: SliceableFood
+    count: 6
+    slice: FoodBakedCannabisCarobBrownie
+
+- type: entity
+  name: special carob brownie
+  parent: FoodBakedBase
+  id: FoodBakedCarobCannabisBrownie
+  description: A "special" brownie made with carob instead of chocolate.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - magical
+      - chocolate
+  - type: Sprite
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: mre-brownie-open
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 38
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: THC
+          Quantity: 25
+  - type: Tag
+    tags:
+    - Slice
+
+- type: entity
+  name: carob chip pancake
+  parent: FoodBakedPancake
+  id: FoodBakedPancakeCarob
+  description: A fluffy and delicious carob chip pancake.
+  components:
+  - type: Stack
+    stackType: PancakeCc
+    layerStates:
+    - pancakescc1
+    - pancakescc2
+    - pancakescc3
+    - pancakescc4
+    - pancakescc5
+    - pancakescc6
+    - pancakescc7
+    - pancakescc8
+    - pancakescc9
+  - type: Sprite
+    state: pancakescc1
+    layers:
+    - state: pancakescc1
+      map: ["pancakescc1"]
+      visible: false
+    - state: pancakescc2
+      map: ["pancakescc2"]
+      visible: false
+    - state: pancakescc3
+      map: ["pancakescc3"]
+      visible: false
+    - state: pancakescc4
+      map: ["pancakescc4"]
+      visible: false
+    - state: pancakescc5
+      map: ["pancakescc5"]
+      visible: false
+    - state: pancakescc6
+      map: ["pancakescc6"]
+      visible: false
+    - state: pancakescc7
+      map: ["pancakescc7"]
+      visible: false
+    - state: pancakescc8
+      map: ["pancakescc8"]
+      visible: false
+    - state: pancakescc9
+      map: ["pancakescc9"]
+      visible: false
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5

@@ -30,3 +30,13 @@
       seedId: CosmicRevenant
     - type: Sprite
       sprite: _DV/Objects/Specific/Hydroponics/Cosmic_Revenant.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of carob seeds
+  id: CarobSeeds
+  components:
+    - type: Seed
+      seedId: carob
+    - type: Sprite
+      sprite: _DV/Objects/Specific/Hydroponics/carob.rsi

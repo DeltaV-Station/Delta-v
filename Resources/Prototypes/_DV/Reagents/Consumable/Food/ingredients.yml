@@ -23,3 +23,35 @@
     amount: 2
   - !type:PlantAdjustPests
     amount: 2
+
+- type: entity
+  name: carob beans
+  parent: FoodProduceBase
+  id: FoodCarobBeans
+  description: You can in fact have too much chocolate, so try this instead.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/cocoa.rsi
+    state: produce-beans
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: CarobPowder
+          Quantity: 2
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: CarobPowder
+        Quantity: 2
+  - type: Tag
+    tags:
+      - Ingredient
