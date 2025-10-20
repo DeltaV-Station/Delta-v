@@ -8,6 +8,7 @@ using Content.Shared.Pointing;
 using Content.Shared.Timing;
 using Robust.Server.Audio;
 using Robust.Shared.Random;
+using Robust.Shared.Map;
 
 namespace Content.Server._DV.RemoteControl.EntitySystems;
 
@@ -34,29 +35,130 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     }
 
     /// <summary>
+    /// Sends an order pointing to an entity to receivers on the same channel, or optionally to just
+    /// a single bound entity.
+    /// </summary>
+    /// <param name="holder">Entity holding the remote control.</param>
+    /// <param name="pointed">The entity pointed to by the holder.</param>
+    /// <param name="recipient">Optional recipient, if set then only that specific entity will receive the order.</param>
+    /// <returns>True if the order was sent successfuly, false otherwise.</returns>
+    public bool SendEntityPointOrder(Entity<RemoteControlHolderComponent?> holder, EntityUid pointed, EntityUid? recipient = null)
+    {
+        if (!Resolve(holder, ref holder.Comp))
+            return false;
+
+        if (!TryComp<RemoteControlComponent>(holder.Comp.Control, out var controlComp))
+            return false;
+
+        var control = (holder.Comp.Control, controlComp);
+        if (!CanSendOrder(control))
+            return false;
+
+        var ev = new RemoteControlEntityPointOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs, pointed);
+        if (recipient.HasValue)
+            RaiseLocalEvent(recipient.Value, ref ev);
+        else
+            SendOrderToRecievers(control, ref ev);
+
+        return true;
+    }
+
+    /// <summary>
+    /// Sends an order pointing to tile to receivers on the same channel, or optionally to just
+    /// a single bound entity.
+    /// </summary>
+    /// <param name="holder">Entity holding the remote control.</param>
+    /// <param name="tile">The map co-ordinates pointed to by the holder.</param>
+    /// <param name="recipient">Optional recipient, if set then only that specific entity will receive the order.</param>
+    /// <returns>True if the order was sent successfuly, false otherwise.</returns>
+    public bool SendTilePointOrder(Entity<RemoteControlHolderComponent?> holder, MapCoordinates tile, EntityUid? recipient = null)
+    {
+        if (!Resolve(holder, ref holder.Comp))
+            return false;
+
+        if (!TryComp<RemoteControlComponent>(holder.Comp.Control, out var controlComp))
+            return false;
+
+        var control = (holder.Comp.Control, controlComp);
+        if (!CanSendOrder(control))
+            return false;
+
+        var ev = new RemoteControlTilePointOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs, tile);
+        if (recipient.HasValue)
+            RaiseLocalEvent(recipient.Value, ref ev);
+        else
+            SendOrderToRecievers(control, ref ev);
+
+        return true;
+    }
+
+    /// <summary>
+    /// Sends an order pointing to the holder to receivers on the same channel, or optionally to just
+    /// a single unit.
+    /// </summary>
+    /// <param name="holder">Entity holding the remote control.</param>
+    /// <param name="recipient">Optional recipient, if set then only that specific entity will receive the order.</param>
+    /// <returns>True if the order was sent successfuly, false otherwise.</returns>
+    public bool SendSelfPointOrder(Entity<RemoteControlHolderComponent?> holder, EntityUid? recipient = null)
+    {
+        if (!Resolve(holder, ref holder.Comp))
+            return false;
+
+        if (!TryComp<RemoteControlComponent>(holder.Comp.Control, out var controlComp))
+            return false;
+
+        var control = (holder.Comp.Control, controlComp);
+        if (!CanSendOrder(control))
+            return false;
+
+        var ev = new RemoteControlSelfPointOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs);
+        if (recipient.HasValue)
+            RaiseLocalEvent(recipient.Value, ref ev);
+        else
+            SendOrderToRecievers(control, ref ev);
+
+        return true;
+    }
+
+    /// <summary>
+    /// Sends an order freeing the bound entities on the same channel, or optionally to just
+    /// a single unit.
+    /// </summary>
+    /// <param name="holder">Entity holding the remote control.</param>
+    /// <param name="recipient">Optional recipient, if set then only that specific entity will receive the order.</param>
+    /// <returns>True if the order was sent successfuly, false otherwise.</returns>
+    public bool SendFreeUnitOrder(Entity<RemoteControlHolderComponent?> holder, EntityUid? recipient = null)
+    {
+        if (!Resolve(holder, ref holder.Comp))
+            return false;
+
+        if (!TryComp<RemoteControlComponent>(holder.Comp.Control, out var controlComp))
+            return false;
+
+        var control = (holder.Comp.Control, controlComp);
+        if (!CanSendOrder(control))
+            return false;
+
+        var ev = new RemoteControlFreeUnitOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs);
+        if (recipient.HasValue)
+            RaiseLocalEvent(recipient.Value, ref ev);
+        else
+            SendOrderToRecievers(control, ref ev);
+
+        return true;
+    }
+
+    /// <summary>
     /// Handles when an entity using an active remote control points at an entity.
     /// </summary>
     /// <param name="holder">Entity holding/wearing the remote control.</param>
     /// <param name="args">Args for the event, notably the entity pointed at.</param>
     private void OnPointedAtEntity(Entity<RemoteControlHolderComponent> holder, ref AfterPointedAtEvent args)
     {
-        if (!TryComp<RemoteControlComponent>(holder.Comp.Control, out var controlComp))
-            return;
-
-        var control = (holder.Comp.Control, controlComp);
-        if (!CanSendOrder(control))
-            return;
-
         if (holder.Owner == args.Pointed)
-        {
-            var ev = new RemoteControlSelfPointOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs);
-            SendOrderToRecievers(control, ref ev);
-        }
+            SendSelfPointOrder(holder.AsNullable());
         else
-        {
-            var ev = new RemoteControlEntityPointOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs, args.Pointed);
-            SendOrderToRecievers(control, ref ev);
-        }
+            SendEntityPointOrder(holder.AsNullable(), args.Pointed);
     }
 
     /// <summary>
@@ -66,15 +168,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <param name="args">Args for the event, notably the tile pointed at.</param>
     private void OnPointedAtTile(Entity<RemoteControlHolderComponent> holder, ref AfterPointedAtTileEvent args)
     {
-        if (!TryComp<RemoteControlComponent>(holder.Comp.Control, out var controlComp))
-            return;
-
-        var control = (holder.Comp.Control, controlComp);
-        if (!CanSendOrder(control))
-            return;
-
-        var ev = new RemoteControlTilePointOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs, args.Pointed);
-        SendOrderToRecievers(control, ref ev);
+        SendTilePointOrder(holder.AsNullable(), args.Pointed);
     }
 
     /// <summary>
