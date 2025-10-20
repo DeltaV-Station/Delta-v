@@ -64,3 +64,52 @@
     - state: gumball
       map: [ "enum.CandyVisualLayers.Ball" ]
     - state: gumball-shine
+
+- type: entity
+  name: carob bar
+  parent: BaseItem
+  id: FoodSnackCarob
+  description: finally, safe chocolate.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: chocolatebar
+  - type: Item
+    heldPrefix: chocolatebar
+    size: Tiny
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodPacketChocolateTrash
+      - id: FoodSnackCarobBar
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: carob chocolate bar
+  parent: FoodSnackBase
+  id: FoodSnackCarobBar
+  description: Finally, safe chocolate.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    state: chocolatebar-open
+  - type: Item
+    heldPrefix: chocolatebar-open
+  - type: Tag
+    tags:
+      - FoodSnack
+      - ReptilianFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: CarobPowder
+          Quantity: 1
