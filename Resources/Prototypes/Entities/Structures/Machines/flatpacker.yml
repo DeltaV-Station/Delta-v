@@ -69,6 +69,9 @@
           components:
           - MachineBoard
           - ComputerBoard
+        blacklist: # DeltaV
+          tags:
+          - DisplayCaseBoard
   - type: AutomationSlots # Goobstation
     slots:
     - !type:AutomatedItemSlot
