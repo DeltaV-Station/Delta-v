@@ -81,7 +81,7 @@ namespace Content.IntegrationTests.Tests
             "Division", // DeltaV
             "ArenaMedieval", //DeltaV
             "Submarine", //DeltaV
-            "Academy", //DeltaV
+            "Academy" //DeltaV
         };
 
         /// <summary>
