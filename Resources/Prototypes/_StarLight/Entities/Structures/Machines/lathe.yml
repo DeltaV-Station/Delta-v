@@ -1,0 +1,60 @@
+
+#test
+- type: entity
+  abstract: true
+  parent: BaseLathe
+  id: BaseLatheFuel
+  components:
+  - type: ReagentSpeed
+    solution: fuel
+    modifiers:
+      WeldingFuel: 0.2
+  - type: SolutionContainerManager
+    solutions:
+      fuel:
+        maxVol: 500
+  - type: Spillable
+    solution: fuel
+  - type: RefillableSolution
+    solution: fuel
+  - type: ExaminableSolution
+    solution: fuel
+
+- type: entity
+  id: TiderLathe
+  parent: BaseLatheFuel
+  name: tider's anvil
+  description: Every maints blacksmith's dream, a forge for producing gear in bulk.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Structures/Machines/tider_anvil.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: AssortedForgeParts
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - TiderAnvilMats
+        - TiderAnvilParts
+  - type: OreSiloClient
+  - type: Lathe
+    idleState: icon
+    runningState: building
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+    staticPacks:
+    - TiderAnvilStatic
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
