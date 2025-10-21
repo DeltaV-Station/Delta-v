@@ -1,0 +1,22 @@
+- type: constructionGraph
+  id: AssortedForgeParts
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finish
+      steps:
+      - material: Plasteel
+        amount: 2
+        doAfter: 5
+      - material: Cable
+        amount: 4
+        doAfter: 2
+      - tag: Igniter
+        icon:
+          sprite: Objects/Devices/igniter.rsi
+          state: icon
+        name: construction-graph-tag-igniter
+        doAfter: 10
+  - node: finish
+    entity: AssortedForgeParts
