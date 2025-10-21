@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/13/2025 21:13:20
-  entityCount: 30724
+  time: 10/21/2025 00:32:32
+  entityCount: 30726
 maps:
 - 1
 grids:
@@ -10616,6 +10616,12 @@ entities:
       - 25141
       - 1503
       - 1489
+      - 25144
+      - 22847
+      - 25143
+      - 22846
+      - 25142
+      - 22845
   - uid: 1415
     components:
     - type: MetaData
@@ -11166,6 +11172,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: -11.5,-20.5
       parent: 2
+    - type: DeviceList
+      devices:
+      - 24574
+      - 22132
+      - 13372
   - uid: 27874
     components:
     - type: MetaData
@@ -11795,6 +11806,8 @@ entities:
       devices:
       - 24889
       - 22516
+      - 30410
+      - 30411
   - uid: 28210
     components:
     - type: MetaData
@@ -11940,6 +11953,11 @@ entities:
       devices:
       - 24890
       - 22513
+      - 6710
+      - 11159
+      - 2810
+      - 30410
+      - 30409
   - uid: 28227
     components:
     - type: MetaData
@@ -11952,6 +11970,9 @@ entities:
       devices:
       - 22519
       - 24888
+      - 30411
+      - 21312
+      - 11159
   - uid: 28228
     components:
     - type: MetaData
@@ -11966,6 +11987,10 @@ entities:
       - 22520
       - 22521
       - 24886
+      - 21310
+      - 21311
+      - 21312
+      - 28207
   - uid: 28230
     components:
     - type: MetaData
@@ -12012,7 +12037,7 @@ entities:
   - uid: 28235
     components:
     - type: MetaData
-      name: lone tree park
+      name: viro park
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -23.5,2.5
@@ -16063,7 +16088,7 @@ entities:
       pos: 34.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -128389.414
+      secondsUntilStateChange: -129151.01
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16561,7 +16586,7 @@ entities:
       pos: -35.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -197317.52
+      secondsUntilStateChange: -198079.11
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17534,7 +17559,7 @@ entities:
       pos: -19.5,40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -159211.47
+      secondsUntilStateChange: -159973.06
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -19443,6 +19468,11 @@ entities:
       parent: 2
 - proto: AtmosFixFreezerMarker
   entities:
+  - uid: 4982
+    components:
+    - type: Transform
+      pos: 49.5,33.5
+      parent: 2
   - uid: 11399
     components:
     - type: Transform
@@ -19522,6 +19552,16 @@ entities:
     components:
     - type: Transform
       pos: 45.5,31.5
+      parent: 2
+  - uid: 30726
+    components:
+    - type: Transform
+      pos: 44.5,32.5
+      parent: 2
+  - uid: 30727
+    components:
+    - type: Transform
+      pos: 46.5,30.5
       parent: 2
 - proto: AtmosFixNitrogenMarker
   entities:
@@ -69517,7 +69557,7 @@ entities:
   - uid: 28818
     components:
     - type: MetaData
-      name: Boxketball Court
+      name: Boxketball Gymnasium
     - type: Transform
       pos: 51.5,-2.5
       parent: 2
@@ -69600,10 +69640,10 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconCommandBar
   entities:
-  - uid: 11081
+  - uid: 30725
     components:
     - type: Transform
-      pos: -53.5,42.5
+      pos: -53.5,40.5
       parent: 2
 - proto: DefaultStationBeaconConferenceRoom
   entities:
@@ -69850,11 +69890,6 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconTechVault
   entities:
-  - uid: 4982
-    components:
-    - type: Transform
-      pos: 17.5,-44.5
-      parent: 2
   - uid: 29211
     components:
     - type: Transform
@@ -82421,7 +82456,7 @@ entities:
   - uid: 28347
     components:
     - type: MetaData
-      name: head of personnel
+      name: fire alarm
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 50.5,5.5
@@ -83383,6 +83418,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 28223
+      - 28226
   - uid: 7405
     components:
     - type: Transform
@@ -83712,6 +83748,10 @@ entities:
     - type: Transform
       pos: -35.5,18.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 28226
+      - 28227
   - uid: 11165
     components:
     - type: Transform
@@ -83995,6 +84035,7 @@ entities:
       - 28237
       - 28240
       - 28241
+      - 25847
   - uid: 13867
     components:
     - type: Transform
@@ -85069,16 +85110,26 @@ entities:
     - type: Transform
       pos: -32.5,12.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 28228
   - uid: 21311
     components:
     - type: Transform
       pos: -32.5,11.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 28228
   - uid: 21312
     components:
     - type: Transform
       pos: -33.5,14.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 28227
+      - 28228
   - uid: 21313
     components:
     - type: Transform
@@ -86170,6 +86221,7 @@ entities:
       deviceLists:
       - 28234
       - 28235
+      - 28228
   - uid: 28252
     components:
     - type: Transform
@@ -86873,16 +86925,25 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 30699
+      - 28226
   - uid: 30410
     components:
     - type: Transform
       pos: -35.5,23.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 28226
+      - 28208
   - uid: 30411
     components:
     - type: Transform
       pos: -33.5,19.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 28208
+      - 28227
   - uid: 30478
     components:
     - type: Transform
@@ -124754,6 +124815,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -10.5,-17.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 25847
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 22172
@@ -125739,6 +125803,9 @@ entities:
     - type: Transform
       pos: -15.5,42.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 860
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 22846
@@ -125746,6 +125813,9 @@ entities:
     - type: Transform
       pos: -18.5,42.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 860
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 22847
@@ -125753,6 +125823,9 @@ entities:
     - type: Transform
       pos: -21.5,42.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 860
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 22848
@@ -127217,6 +127290,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -37.5,18.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 28226
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 2811
@@ -128472,6 +128548,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -12.5,-18.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 25847
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 24575
@@ -129355,6 +129434,9 @@ entities:
     - type: Transform
       pos: -16.5,42.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 860
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 25143
@@ -129362,6 +129444,9 @@ entities:
     - type: Transform
       pos: -19.5,42.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 860
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 25144
@@ -129369,6 +129454,9 @@ entities:
     - type: Transform
       pos: -22.5,42.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 860
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 25165
@@ -194543,7 +194631,7 @@ entities:
       pos: -60.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -251952.06
+      secondsUntilStateChange: -252713.66
       state: Opening
 - proto: WebShield
   entities:
@@ -195175,7 +195263,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -186610.75
+      secondsUntilStateChange: -187372.34
       state: Opening
     - type: Airlock
       autoClose: False

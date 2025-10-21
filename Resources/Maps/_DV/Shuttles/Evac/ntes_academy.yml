@@ -4,7 +4,7 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/13/2025 19:17:52
+  time: 10/21/2025 00:18:09
   entityCount: 1982
 maps: []
 grids:
@@ -1187,6 +1187,8 @@ entities:
       - 1833
   - uid: 1931
     components:
+    - type: MetaData
+      name: engineering
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 6.5,-18.5
