@@ -189,3 +189,6 @@ crafting-menu-name-CYELO = yellow crayon
 
 crafting-menu-name-IRS = improvised .30/.45 speed loader
 crafting-menu-text-IRS = Little more than a spring-loaded tube that can hold bullets.
+
+crafting-menu-name-ASSFP = assorted forge parts
+crafting-menu-text-ASSFP = A small pile of components for making a forge for an anvil, contains an igniter and valves.
