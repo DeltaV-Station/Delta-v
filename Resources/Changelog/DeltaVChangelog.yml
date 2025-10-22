@@ -1,14 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Fixed borg selection button still saying locked after picking a different
-      type.
-    type: Fix
-  id: 1262
-  time: '2025-04-14T23:02:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3465
-- author: deltanedas
-  changes:
   - message: The autolathe and protolathe have been removed, as all maps have departmental
       techfabs now.
     type: Remove
@@ -4187,3 +4179,13 @@
   id: 1761
   time: '2025-10-22T15:28:22.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4560
+- author: Cepelinas1
+  changes:
+  - message: De-metashielded Code Epsilon. DeathSquads or DAP are still metashielded
+      however.
+    type: Add
+  - message: Added Alert Procedure entry for Code Epsilon.
+    type: Add
+  id: 1762
+  time: '2025-10-22T20:26:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3867
