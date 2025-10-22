@@ -17,7 +17,7 @@
   - type: UseDelay
     delay: 1
   - type: Gun
-    projectileSpeed: 5
+    projectileSpeed: 8
     soundGunshot: /Audio/_DV/Weapons/scytheshot.ogg
     fireRate: 1
     useKey: false
@@ -30,20 +30,20 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
-    attackRate: 1.2
+    attackRate: 1.5
     wideAnimationRotation: -135
     damage:
       types:
-        Slash: 6
-        Shadow: 6
+        Slash: 8
+        Shadow: 10
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Slash: 2
-        Shadow: 6
+        Slash: 4
+        Shadow: 8
   - type: GunRequiresWield
   - type: DisarmMalus
   - type: Prying
@@ -51,4 +51,4 @@
   - type: LimitedCharges
     maxCharges: 1
   - type: AutoRecharge
-    rechargeDuration: 60
+    rechargeDuration: 30
