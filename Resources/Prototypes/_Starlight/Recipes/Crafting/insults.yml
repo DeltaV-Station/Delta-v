@@ -1,0 +1,29 @@
+﻿- type: construction
+  name: crafting-menu-name-SINF
+  id: StandardInsulFabric
+  graph: StandardInsulFabric
+  startNode: start
+  targetNode: fabric
+  category: construction-category-tools
+  objectType: Item
+  description: crafting-menu-text-SINF
+
+- type: construction
+  name: crafting-menu-name-FLINS
+  id: FingerlessInsuls
+  graph: FingerlessInsuls
+  startNode: start
+  targetNode: fingerless
+  category: construction-category-tools
+  objectType: Item
+  description: crafting-menu-text-FLINS
+
+- type: construction
+  name: crafting-menu-name-TINS
+  id: InsulsFinal
+  graph: InsulsFinal
+  startNode: start
+  targetNode: insuls
+  category: construction-category-tools
+  objectType: Item
+  description: crafting-menu-text-TINS

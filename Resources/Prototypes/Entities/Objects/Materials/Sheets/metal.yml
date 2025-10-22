@@ -207,6 +207,10 @@
         - ReagentId: Carbon
           Quantity: 1
         canReact: false
+  - type: Butcherable #SL start
+    butcheringType: Knife
+    spawned:
+      - id: CheapInsulatedFabric #SL end
 
 - type: entity
   parent: SheetPlasteel

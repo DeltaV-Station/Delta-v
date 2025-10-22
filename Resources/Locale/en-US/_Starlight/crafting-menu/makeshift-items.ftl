@@ -192,3 +192,16 @@ crafting-menu-text-IRS = Little more than a spring-loaded tube that can hold bul
 
 crafting-menu-name-ASSFP = assorted forge parts
 crafting-menu-text-ASSFP = A small pile of components for making a forge for an anvil, contains an igniter and valves.
+
+crafting-menu-name-SINF = Insulated Fabric
+crafting-menu-text-SINF = A bolt of smooth insulated fabric, not much use in it's current form.
+
+crafting-menu-name-FLINS = Fingerless Insulated Gloves
+crafting-menu-text-FLINS = Insulated gloves resistant to shocks, or at least they used to.
+
+crafting-menu-name-TINS = Insulated Gloves
+crafting-menu-text-TINS = These gloves will protect the wearer from electric shocks.
+
+construction-graph-tag-cheapinsulfabric = cheap insulated fabric
+
+construction-graph-tag-plasteelfilament = plasteel filament

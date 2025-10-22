@@ -1,0 +1,20 @@
+﻿- type: constructionGraph
+  id: StandardInsulFabric
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: fabric
+          steps:
+            - tag: CheapInsulatedFabric
+              icon:
+                sprite: _Starlight/Objects/Misc/insults.rsi
+                state: cheapinsulativefabric
+              name: construction-graph-tag-cheapinsulfabric
+            - tag: PlasteelFilament
+              icon:
+                sprite: _Starlight/Objects/Misc/insults.rsi
+                state: plasteelfilament
+              name: construction-graph-tag-plasteelfilament
+    - node: fabric
+      entity: InsulatedFabric

@@ -357,6 +357,9 @@
     damageProtection:
       flatReductions:
         Heat: 0 # no protection
+  - type: Tag
+    tags:
+      - fingerlessinsuls
 
 - type: entity
   parent: ClothingHandsButcherable
