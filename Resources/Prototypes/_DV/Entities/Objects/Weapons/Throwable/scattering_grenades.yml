@@ -1,6 +1,6 @@
 - type: entity
   name: mothroach grenade
-  description: A grenade containing 4 dehydrated mothroaches, trained to attack everything nearby.
+  description: A grenade containing 8 dehydrated mothroaches, trained to attack everything nearby.
   parent: [ScatteringGrenadeBase, BaseSyndicateContraband]
   id: MothroachGrenade
   components:
@@ -17,7 +17,7 @@
           Unprimed: { state: icon }
   - type: ScatteringGrenade
     fillPrototype: MobMothroachEvil
-    capacity: 4
+    capacity: 8
   - type: OnUseTimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
