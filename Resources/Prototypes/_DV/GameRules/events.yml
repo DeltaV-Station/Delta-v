@@ -147,6 +147,15 @@
     minAmount: 1
     maxAmount: 3
 
+- type: entity
+  id: Epsilon
+  parent: BaseStationEvent
+  components:
+  - type: StationEvent
+    weight: 0
+    duration: 12
+    maxDuration: 12
+  - type: EpsilonEventRule
 
 # Mid round antag spawns
 - type: entity
