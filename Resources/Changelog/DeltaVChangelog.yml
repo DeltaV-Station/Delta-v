@@ -1,26 +1,4 @@
 ﻿Entries:
-- author: nkokic
-  changes:
-  - message: Game can now drop or rise in difficulty based on settings
-    type: Tweak
-  id: 1260
-  time: '2025-04-14T18:52:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3277
-- author: deltanedas
-  changes:
-  - message: Fixed weh slippers not being bouncy...
-    type: Fix
-  id: 1261
-  time: '2025-04-14T22:29:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3464
-- author: deltanedas
-  changes:
-  - message: Fixed borg selection button still saying locked after picking a different
-      type.
-    type: Fix
-  id: 1262
-  time: '2025-04-14T23:02:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3465
 - author: deltanedas
   changes:
   - message: The autolathe and protolathe have been removed, as all maps have departmental
@@ -4185,3 +4163,29 @@
   id: 1759
   time: '2025-10-21T18:39:12.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4543
+- author: Niomi0
+  changes:
+  - message: Roboticists/Borgs now have access to a new generic borg module containing
+      a spray painter, magic crayon and hand labeler. To allow restoration, pipe spraying
+      and other artistic endeavors.
+    type: Add
+  id: 1760
+  time: '2025-10-22T10:00:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4532
+- author: Toby222
+  changes:
+  - message: All winter clothing now properly protects against zombies
+    type: Fix
+  id: 1761
+  time: '2025-10-22T15:28:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4560
+- author: Cepelinas1
+  changes:
+  - message: De-metashielded Code Epsilon. DeathSquads or DAP are still metashielded
+      however.
+    type: Add
+  - message: Added Alert Procedure entry for Code Epsilon.
+    type: Add
+  id: 1762
+  time: '2025-10-22T20:26:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3867
