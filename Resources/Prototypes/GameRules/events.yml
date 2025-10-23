@@ -140,7 +140,7 @@
   - type: StationEvent
     startAnnouncement: station-event-bureaucratic-error-announcement
     startAudio: #Delta-V: Previously unheard announcer line for DeltaV's custom announcer
-      path: /Audio/Announcements/bureaucratic_error.ogg
+      path: /Audio/_DV/Announcements/bureaucratic_error.ogg # DeltaV - custom announcer
     minimumPlayers: 25
     weight: 5
     duration: 1
@@ -375,7 +375,7 @@
   - type: StationEvent
     startAnnouncement: station-event-gas-leak-start-announcement
     startAudio:
-      path: /Audio/Announcements/gas_leak.ogg # DeltaV - custom announcer
+      path: /Audio/_DV/Announcements/gas_leak.ogg # DeltaV - custom announcer
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 10 # DeltaV - was 8
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -404,7 +404,7 @@
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
     startAudio:
-      path: /Audio/Announcements/power_off.ogg
+      path: /Audio/_DV/Announcements/power_off.ogg # DeltaV - custom announcer
       params:
         volume: -4
     duration: 60
@@ -422,7 +422,7 @@
     startAnnouncement: station-event-solar-flare-start-announcement
     endAnnouncement: station-event-solar-flare-end-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_DV/Announcements/attention.ogg # DeltaV - custom announcer
     duration: 120
     maxDuration: 240
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -452,7 +452,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-clog-start-announcement
     startAudio:
-      path: /Audio/Announcements/ventclog.ogg # DeltaV - custom announcer
+      path: /Audio/_DV/Announcements/ventclog.ogg # DeltaV - custom announcer
     earliestStart: 20 # DeltaV - was 15
     minimumPlayers: 15
     weight: 7.5 # DeltaV - was 5
@@ -468,7 +468,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_DV/Announcements/attention.ogg # DeltaV - custom announcer
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -489,7 +489,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_DV/Announcements/attention.ogg # DeltaV - custom announcer
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -510,7 +510,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_DV/Announcements/attention.ogg # DeltaV - custom announcer
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -528,7 +528,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_DV/Announcements/attention.ogg # DeltaV - custom announcer
     earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
@@ -589,7 +589,7 @@
     message: psionic-power-precognition-lone-ops-spawn-result-message
   - type: RuleGrids
   - type: LoadMapRule
-    gridPath: /Maps/_DV/Shuttles/hammer.yml # DeltaV - Was /Shuttles/ShuttleEvent/striker.yml
+    gridPath: /Maps/_DV/Shuttles/Event/hammer.yml # DeltaV - Was /Shuttles/ShuttleEvent/striker.yml
   - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: AntagSelection
@@ -626,7 +626,7 @@
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
     startAudio:
-      path: /Audio/Announcements/attention.ogg # DeltaV - Use the generic announcement sound
+      path: /Audio/_DV/Announcements/attention.ogg # DeltaV - Use the generic announcement sound
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -693,7 +693,7 @@
   components:
   - type: StationEvent
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_DV/Announcements/attention.ogg # DeltaV - custom announcer
     weight: 5
     minimumPlayers: 25
     reoccurrenceDelay: 20
