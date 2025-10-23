@@ -11,10 +11,64 @@
                 sprite: _Starlight/Objects/Misc/insults.rsi
                 state: cheapinsulativefabric
               name: construction-graph-tag-cheapinsulfabric
+              doAfter: 5
             - tag: PlasteelFilament
               icon:
                 sprite: _Starlight/Objects/Misc/insults.rsi
                 state: plasteelfilament
               name: construction-graph-tag-plasteelfilament
+              doAfter: 5
     - node: fabric
       entity: InsulatedFabric
+      
+- type: constructionGraph
+  id: FingerlessInsuls
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: fingerless
+          steps:
+            - tag: InsulatedFabric
+              icon:
+                sprite: _Starlight/Objects/Misc/insults.rsi
+                state: insulativefabric
+              name: crafting-menu-name-SINF
+              doAfter: 10
+            - tag: InsulatedFabric
+              icon:
+                sprite: _Starlight/Objects/Misc/insults.rsi
+                state: insulativefabric
+              name: crafting-menu-name-SINF
+              doAfter: 5
+    - node: fingerless
+      entity: ClothingHandsGlovesFingerlessInsulated
+
+- type: constructionGraph
+  id: InsulsFinal
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: insuls
+          steps:
+            - tag: InsulatedFabric
+              icon:
+                sprite: _Starlight/Objects/Misc/insults.rsi
+                state: insulativefabric
+              name: crafting-menu-name-SINF
+              doAfter: 5
+            - tag: fingerlessinsuls
+              icon:
+                sprite: Clothing/Hands/Gloves/fingerlessinsuls.rsi
+                state: icon
+              name: crafting-menu-name-FLINS
+              doAfter: 10
+            - tag: InsulatedThread
+              icon:
+                sprite: _Starlight/Objects/Misc/insults.rsi
+                state: insulativethread
+              name: construction-graph-tag-insulthread
+              doAfter: 5
+    - node: insuls
+      entity: ClothingHandsGlovesColorYellow

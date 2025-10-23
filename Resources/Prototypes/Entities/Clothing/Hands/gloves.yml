@@ -357,9 +357,12 @@
     damageProtection:
       flatReductions:
         Heat: 0 # no protection
-  - type: Tag
+  - type: Tag #SL start
     tags:
       - fingerlessinsuls
+  - type: Construction
+    graph: FingerlessInsuls
+    node: fingerless #SL end
 
 - type: entity
   parent: ClothingHandsButcherable
