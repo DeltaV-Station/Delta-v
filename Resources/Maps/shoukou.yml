@@ -4,7 +4,7 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/13/2025 19:02:42
+  time: 10/23/2025 14:08:11
   entityCount: 16252
 maps:
 - 1
@@ -4931,10 +4931,12 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 6239
-      - 6287
-      - 6445
       - 6444
+      - 6445
+      - 6287
+      - 6239
+      - 8921
+      - 9063
   - uid: 58
     components:
     - type: Transform
@@ -37170,10 +37172,10 @@ entities:
       parent: 2
 - proto: CrateFreezer
   entities:
-  - uid: 6317
+  - uid: 6318
     components:
     - type: Transform
-      pos: 10.5,-29.5
+      pos: 9.5,-29.5
       parent: 2
 - proto: CrateHydroponics
   entities:
@@ -64874,6 +64876,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -30.5,-6.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 57
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 8922
@@ -66256,6 +66261,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -29.5,-6.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 57
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 9064
@@ -72186,11 +72194,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 40.5,1.5
       parent: 2
-  - uid: 6318
+  - uid: 6322
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 41.5,-11.5
+      pos: 41.5,-10.5
       parent: 2
 - proto: IntercomScience
   entities:
@@ -73161,13 +73169,6 @@ entities:
     - type: Transform
       pos: 15.5,-36.5
       parent: 2
-- proto: LockerMedicineFilled
-  entities:
-  - uid: 10074
-    components:
-    - type: Transform
-      pos: 9.5,-29.5
-      parent: 2
 - proto: LockerMime
   entities:
   - uid: 10075
@@ -73295,7 +73296,7 @@ entities:
       parent: 2
 - proto: LockerSurgeonFilled
   entities:
-  - uid: 9915
+  - uid: 6317
     components:
     - type: Transform
       pos: 11.5,-29.5
@@ -73309,6 +73310,11 @@ entities:
       parent: 2
 - proto: LockerWallMedicalFilled
   entities:
+  - uid: 6321
+    components:
+    - type: Transform
+      pos: 9.5,-25.5
+      parent: 2
   - uid: 10091
     components:
     - type: Transform
