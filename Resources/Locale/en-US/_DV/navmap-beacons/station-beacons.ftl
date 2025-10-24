@@ -41,3 +41,6 @@ station-beacon-justice = Justice
 station-beacon-chiefjustice = Chief Justice
 station-beacon-prosecutor = Prosecutor
 station-beacon-clerk = Clerk
+
+station-beacon-restroom = Restroom
+station-beacon-security-solitary = Solitary Confinement
