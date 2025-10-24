@@ -11,7 +11,7 @@
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     #- SpaceTrafficControlFriendlyEventScheduler # DeltaV: spam of garbage roles nobody takes every 10-20 minutes
-    #- BasicRoundstartVariation
+    - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
     - SubGamemodesRule # DeltaV
 
@@ -28,7 +28,7 @@
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
-    #- BasicRoundstartVariation
+    - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
@@ -48,7 +48,7 @@
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
-    #- BasicRoundstartVariation
+    - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
@@ -74,7 +74,7 @@
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
-    #- BasicRoundstartVariation
+    - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
@@ -89,7 +89,7 @@
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
-  #- BasicRoundstartVariation
+  - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
@@ -102,7 +102,7 @@
   description: greenshift-description
   rules:
   - SpaceTrafficControlFriendlyEventScheduler
-  #- BasicRoundstartVariation
+  - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
@@ -127,7 +127,7 @@
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
-    #- BasicRoundstartVariation
+    - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
@@ -139,7 +139,7 @@
   description: secret-description
   rules:
   - SpaceTrafficControlFriendlyEventScheduler
-  #- BasicRoundstartVariation
+  - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
@@ -169,7 +169,7 @@
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
-  #- BasicRoundstartVariation
+  - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
@@ -200,7 +200,7 @@
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
-  #- BasicRoundstartVariation
+  - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
@@ -219,7 +219,7 @@
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
-  #- BasicRoundstartVariation
+  - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
@@ -236,7 +236,7 @@
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
-  #- BasicRoundstartVariation
+  - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
@@ -256,7 +256,7 @@
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
-  #- BasicRoundstartVariation
+  - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
@@ -273,5 +273,5 @@
   - BasicStationEventScheduler
   - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
-  #- BasicRoundstartVariation
+  - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
