@@ -188,10 +188,6 @@ namespace Content.Client.Stylesheets
         public static readonly Color ServiceColorHovered = Color.FromHex("#667A76");
         // End DeltaV
 
-        //Bwoink
-        public const string StyleClassPinButtonPinned = "pinButtonPinned";
-        public const string StyleClassPinButtonUnpinned = "pinButtonUnpinned";
-
         public const string StyleClassCrewManifestGender = "CrewManifestGender"; //Delta-V - Manifest pronouns
 
         // i'm not sure what the missing symbols were referencing, and this is getting obseleted anyway so:
@@ -1959,21 +1955,6 @@ namespace Content.Client.Stylesheets
                 // Silicon law edit ui
                 Element<Label>().Class(SiliconLawContainer.StyleClassSiliconLawPositionLabel)
                     .Prop(Label.StylePropertyFontColor, NanoGold),
-                // Pinned button style
-                new StyleRule(
-                    new SelectorElement(typeof(TextureButton), new[] { StyleClassPinButtonPinned }, null, null),
-                    new[]
-                    {
-                        new StyleProperty(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/Interface/Bwoink/pinned.png"))
-                    }),
-
-                // Unpinned button style
-                new StyleRule(
-                    new SelectorElement(typeof(TextureButton), new[] { StyleClassPinButtonUnpinned }, null, null),
-                    new[]
-                    {
-                        new StyleProperty(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/Interface/Bwoink/un_pinned.png"))
-                    }),
 
                 Element<PanelContainer>()
                     .Class(StyleClassInset)
