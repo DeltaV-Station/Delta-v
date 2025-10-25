@@ -2,7 +2,7 @@
   parent: SimpleSpaceMobBase
   id: MobIfritFamiliar
   name: Ifrit
-  description: The mystagogue's servant.
+  description: The mystagogue's guardian.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -62,7 +62,7 @@
   - type: Dispellable
   - type: Damageable
     damageContainer: ManifestedSpirit
-    damageModifierSet: CorporealSpirit
+    damageModifierSet: Ifrit
   - type: Speech
     speechSounds: Bass
   - type: Puller
@@ -79,6 +79,7 @@
       - id: WelderIfrit
   - type: Hands
   - type: ZombieImmune # No zombie servant
+  - type: ComplexInteraction
   - type: RandomMetadata
     nameSegments: [NamesGolem]
   - type: PotentialPsionic
@@ -100,8 +101,8 @@
     makeSentient: true
     allowMovement: true
     allowSpeech: true
-    name: "Ifriit"
-    description: "You are a servant of the mystagogue. Obey them directly."
+    name: "Ifrit"
+    description: ghost-role-information-ifritDV-description
     requirements:
     - !type:DepartmentTimeRequirement
       department: Epistemics
