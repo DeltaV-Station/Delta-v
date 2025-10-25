@@ -24,6 +24,8 @@
     maxIntensity: 45
   - type: Physics
     bodyType: Dynamic
+  - type: TileFrictionModifier
+    modifier: 0
   - type: Fixtures
     fixtures:
       projectile:
@@ -77,6 +79,8 @@
     deleteOnCollide: false
   - type: Physics
     bodyType: Dynamic
+  - type: TileFrictionModifier
+    modifier: 0
   - type: Fixtures
     fixtures:
       projectile:
