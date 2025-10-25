@@ -29,6 +29,9 @@
   name: super synthesizer
   description: Blasting the ghetto with Touhou MIDIs since 2020.
   components:
+  - type: ActivatableUI #Delta-V - Allows Super Synths to be played while being worn on the neck.
+    inHandsOnly: false
+    requireActiveHand: false
   - type: Instrument
     allowPercussion: true
     allowProgramChange: true

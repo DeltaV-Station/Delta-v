@@ -27,13 +27,13 @@
         amount: -1
       - !type:ModifyBloodLevel
         amount: 2
+      - !type:EvenHealthChange
+        damage:
+          Burn: -4
+          Brute: -4
       - !type:HealthChange
         damage:
-          groups:
-            Burn: -5
-            Brute: -4
           types:
-            Caustic: -3
             Poison: -3
             Bloodloss: -3
 
