@@ -97,27 +97,6 @@
     state: bone
 
 - type: marking
-  id: SlimeNose
-  bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ SlimePerson ]
-  forcedColoring: true
-  followSkinColor: true
-  sprites:
-  - sprite: _Starlight/Mobs/Customization/SlimePerson/head.rsi
-    state: nose
-
-- type: marking
-  id: SlimeMouth
-  bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ SlimePerson ]
-  followSkinColor: true
-  sprites:
-  - sprite: _Starlight/Mobs/Customization/SlimePerson/head.rsi
-    state: mouth
-
-- type: marking
   id: SlimeBrain
   bodyPart: Head
   markingCategory: Head
@@ -130,48 +109,6 @@
 # Snout
 
 # Eyes
-
-- type: marking
-  id: SlimeEyesDefault
-  bodyPart: Eyes
-  markingCategory: Eyes
-  speciesRestriction: [ SlimePerson ]
-  forcedColoring: true
-  coloring:
-    default:
-      type:
-        !type:EyeColoring
-  sprites:
-  - sprite:  Mobs/Species/Slime/parts.rsi #Unfinished???
-    state: eyes
-
-- type: marking
-  id: SlimeEyesDroopy
-  bodyPart: Eyes
-  markingCategory: Eyes
-  speciesRestriction: [ SlimePerson ]
-  coloring:
-    default:
-      type:
-        !type:EyeColoring
-        negative: false
-  sprites:
-  - sprite: _Starlight/Mobs/Customization/SlimePerson/eyes.rsi
-    state: droopy
-
-- type: marking
-  id: SlimeEyesCyclops
-  bodyPart: Eyes
-  markingCategory: Eyes
-  speciesRestriction: [ SlimePerson ]
-  coloring:
-    default:
-      type:
-        !type:EyeColoring
-        negative: false
-  sprites:
-  - sprite: _Starlight/Mobs/Customization/SlimePerson/eyes.rsi
-    state: cyclops
 
 # RArm
 

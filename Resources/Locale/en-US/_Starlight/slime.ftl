@@ -13,9 +13,6 @@ marking-SlimeBonechest-bone = Floating Ribcage
 marking-SlimeCore = Core
 marking-SlimeCore-core = Core
 
-marking-SlimeCoreGlowing = Core (Glowing)
-marking-SlimeCoreGlowing-core = Core (Glowing)
-
 marking-SlimeLungs = Lungs
 marking-SlimeLungs-lungs = Lungs
 
@@ -32,36 +29,12 @@ marking-fizz-fizz = Fizz
 marking-SlimeBonehead = Floating Skull
 marking-SlimeBonehead-bone = Floating Skull
 
-marking-SlimeNose = Nose (Profile)
-marking-SlimeNose-nose = Nose (Profile)
-
-marking-SlimeMouth = Mouth
-marking-SlimeMouth-mouth = Mouth
-
 marking-SlimeBrain = Brain
 marking-SlimeBrain-brain = Brain
 
 # Snout
 
 # Eyes
-
-marking-SlimeEyesDefault = Eyes
-marking-SlimeEyesDefault-eyes = Eyes (Default)
-
-marking-SlimeEyeglow = Glowing Eyes
-marking-SlimeEyeglow-glow = Glowing Eyes
-
-marking-SlimeEyesDroopy = Droopy Eyes
-marking-SlimeEyesDroopy-droopy = Droopy Eyes
-
-marking-SlimeEyesDroopyGlowing = Droopy Glowing Eyes
-marking-SlimeEyesDroopyGlowing-droopyglow = Droopy Glowing Eyes
-
-marking-SlimeEyesCyclops = Cyclops Eye
-marking-SlimeEyesCyclops-cyclops = Cyclops Eye
-
-marking-SlimeEyesCyclopsGlowing = Cyclops Glowing Eye
-marking-SlimeEyesCyclopsGlowing-cyclopsglow = Cyclops Glowing Eye
 
 # RArm
 
