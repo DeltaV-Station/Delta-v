@@ -37,13 +37,13 @@
     angle: 0
     damage:
       types:
-        Heat: 10
+        Heat: 20
     animation: WeaponArcPunch
   - type: MobState
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Dead
+      150: Dead
   - type: Destructible
     thresholds:
     - trigger:
@@ -84,7 +84,7 @@
   - type: PotentialPsionic
   - type: Psionic
     removable: false
-  # - type: PyrokinesisPower # Pending psionic rework
+  - type: PyrokinesisPower
   - type: Grammar
     attributes:
       proper: true
