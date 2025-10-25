@@ -1,93 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fixed borg selection button still saying locked after picking a different
-      type.
-    type: Fix
-  id: 1262
-  time: '2025-04-14T23:02:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3465
-- author: deltanedas
-  changes:
-  - message: The autolathe and protolathe have been removed, as all maps have departmental
-      techfabs now.
-    type: Remove
-  id: 1263
-  time: '2025-04-15T02:40:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3079
-- author: Radezolid
-  changes:
-  - message: Cold weather ponchos can now be selected in the security officer's and
-      detective's neck loadout.
-    type: Add
-  id: 1264
-  time: '2025-04-15T02:41:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3442
-- author: TooSillyFennec, correspond, sowelipililimute
-  changes:
-  - message: Added six new exotic chemicals, listed in their own guidebook tab. Ported
-      from Funkystation
-    type: Add
-  - message: Added four new toxins, Heparin, Rhigoxan, Spewium, and Pestiline. Ported
-      from Funkystation.
-    type: Add
-  - message: Added three new pyrogenic chemicals. Ported from Funkystation
-    type: Add
-  - message: Granibitual has been added, a slow acting catch all chemical. Ported
-      from Funkystation.
-    type: Add
-  - message: Salicylic Acid from Funkystation has been added, replacing its Floofstation
-      counterpart as a midtier brute chemical.
-    type: Add
-  - message: Dexalin Plus is removed, replaced by Convermol and Salbutaoml. Ported
-      from Funkystation.
-    type: Remove
-  - message: 'Two new airloss chemicals have been added: Salbutamol and Convermol.
-      Ported from Funkystation.'
-    type: Add
-  - message: Advanced burn chemicals now mix into Licoxide. Ported from Funkystation.
-    type: Tweak
-  - message: Species can metabolise 3 chemicals as a baseline now, have fun making
-      mixes! Ported from Funkystation.
-    type: Tweak
-  - message: Chemical Dispensers now have welding fuel. Ported from Funkystation.
-    type: Tweak
-  - message: ChemVends now have Welding Fuel, bottle boxes, beaker boxes, more jugs,
-      and more Hydrogen. Ported from Funkystation.
-    type: Tweak
-  - message: The ratios for oil and acetone production have been adjusted, producing
-      more oil and acetone. Ported from Funkystation.
-    type: Tweak
-  - message: Added a guidebook page for chemists detailing frequently used chemicals
-    type: Add
-  id: 1265
-  time: '2025-04-15T17:14:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3403
-- author: deltanedas
-  changes:
-  - message: Holofans now work like in SS13, you can place up to 6 at once with charges
-      reclaimed by removing unused holofans.
-    type: Tweak
-  - message: Removed the battery requirement from holofan projectors.
-    type: Remove
-  id: 1266
-  time: '2025-04-15T18:28:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3462
-- author: leonardo-dabepis
-  changes:
-  - message: Finally added a proper sprite for telegnostic projection
-    type: Add
-  id: 1267
-  time: '2025-04-16T02:56:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3435
-- author: sowelipililimute
-  changes:
-  - message: Licoxide now flushes out of your system faster & is less likely to stun
-      you, but deals shock damage and may induce screaming
-    type: Tweak
-  id: 1268
-  time: '2025-04-16T03:48:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3475
 - author: Oxdeception
   changes:
   - message: The AAC Tablet can now combine phrases into a single message!
@@ -4187,3 +4098,58 @@
   id: 1761
   time: '2025-10-22T15:28:22.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4560
+- author: Cepelinas1
+  changes:
+  - message: De-metashielded Code Epsilon. DeathSquads or DAP are still metashielded
+      however.
+    type: Add
+  - message: Added Alert Procedure entry for Code Epsilon.
+    type: Add
+  id: 1762
+  time: '2025-10-22T20:26:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/3867
+- author: EmberAstra
+  changes:
+  - message: The syndicate has now weaponized mothroaches. Available in convenient
+      grenade form!
+    type: Add
+  id: 1763
+  time: '2025-10-23T23:59:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4558
+- author: Proxysseia
+  changes:
+  - message: 'guns are now cheaper, write a proper CL later :godo:'
+    type: Tweak
+  id: 1764
+  time: '2025-10-24T01:36:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4555
+- author: AeraAuling
+  changes:
+  - message: Now people with jobs can wear cute dresses too.
+    type: Tweak
+  id: 1765
+  time: '2025-10-24T01:37:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4542
+- author: Eternally-Confused
+  changes:
+  - message: Chemist winter boots are now available in the chemdrobe.
+    type: Fix
+  id: 1766
+  time: '2025-10-24T02:02:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4533
+- author: CheddaCheez
+  changes:
+  - message: Added a new jumpskirt for Clowns, ported from Starlight!
+    type: Add
+  - message: Added blushing masks to Clown and Mime loadouts.
+    type: Add
+  id: 1767
+  time: '2025-10-25T00:57:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4561
+- author: AeraAuling
+  changes:
+  - message: Added appropriate interactions with shadow damage to some relevant creatures
+    type: Tweak
+  id: 1768
+  time: '2025-10-25T15:41:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4541
