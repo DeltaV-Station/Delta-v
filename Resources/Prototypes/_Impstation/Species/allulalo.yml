@@ -46,19 +46,19 @@
       required: false
     Eyes:
       points: 1
-      required: false
-      defaultMarkings: [ AllulaloEyesDefault ] # allows me to have more minute control over their color
+      required: true
+      defaultMarkings: [ AllulaloEyesDefault ]
     Head:
-      points: 6
+      points: 3
       required: false
     HeadTop:
-      points: 2
+      points: 1
       required: false
     UndergarmentTop:
       points: 1
       required: false
     Chest:
-      points: 4
+      points: 2
       required: false
     Tail:
       points: 1
@@ -69,6 +69,13 @@
       required: false
     Overlay:
       points: 1
+      required: false
+    Arms:
+      points: 1
+      required: true
+      defaultMarkings: [ AllulaloWingsDefault ]
+    Legs:
+      points: 2
       required: false
 
 - type: humanoidBaseSprite
