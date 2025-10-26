@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/26/2025 03:17:43
-  entityCount: 30728
+  time: 10/26/2025 17:33:52
+  entityCount: 30723
 maps:
 - 1
 grids:
@@ -11903,7 +11903,7 @@ entities:
     - type: DeviceList
       devices:
       - 2914
-      - 2833
+      - 2824
       - 12106
       - 11944
       - 2880
@@ -11954,7 +11954,6 @@ entities:
       - 22513
       - 6710
       - 11159
-      - 2810
       - 30410
       - 30409
   - uid: 28227
@@ -16087,7 +16086,7 @@ entities:
       pos: 34.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -130129.79
+      secondsUntilStateChange: -130394.05
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16590,7 +16589,7 @@ entities:
       pos: -35.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -199057.89
+      secondsUntilStateChange: -199322.14
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17558,7 +17557,7 @@ entities:
       pos: -19.5,40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -160951.84
+      secondsUntilStateChange: -161216.1
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23215,6 +23214,11 @@ entities:
     components:
     - type: Transform
       pos: 45.5,-38.5
+      parent: 2
+  - uid: 2823
+    components:
+    - type: Transform
+      pos: -37.5,18.5
       parent: 2
   - uid: 3086
     components:
@@ -88302,6 +88306,13 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
+  - uid: 2825
+    components:
+    - type: Transform
+      pos: -39.5,14.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
   - uid: 2842
     components:
     - type: Transform
@@ -89136,13 +89147,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
-  - uid: 22230
-    components:
-    - type: Transform
-      pos: -39.5,15.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
   - uid: 22258
     components:
     - type: Transform
@@ -91187,13 +91191,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
-  - uid: 2823
-    components:
-    - type: Transform
-      pos: -41.5,18.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
   - uid: 2860
     components:
     - type: Transform
@@ -91976,30 +91973,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
-  - uid: 2824
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -38.5,18.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
-  - uid: 2825
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -39.5,18.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
-  - uid: 2826
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -40.5,18.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
   - uid: 2828
     components:
     - type: Transform
@@ -92074,14 +92047,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -45.5,8.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
-  - uid: 2845
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -41.5,17.5
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
@@ -119008,10 +118973,26 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
+  - uid: 2810
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -41.5,17.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
   - uid: 2817
     components:
     - type: Transform
       pos: -42.5,23.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
+  - uid: 2826
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -41.5,18.5
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
@@ -119042,14 +119023,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -46.5,8.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
-  - uid: 2843
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -39.5,14.5
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
@@ -127288,17 +127261,6 @@ entities:
       - 28223
     - type: AtmosPipeColor
       color: '#FF1212FF'
-  - uid: 2810
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -37.5,18.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28226
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
   - uid: 2811
     components:
     - type: Transform
@@ -127321,15 +127283,13 @@ entities:
       - 28225
     - type: AtmosPipeColor
       color: '#FF1212FF'
-  - uid: 2833
+  - uid: 2824
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -40.5,15.5
+      rot: -1.5707963267948966 rad
+      pos: -40.5,17.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 28223
     - type: AtmosPipeColor
@@ -157228,11 +157188,6 @@ entities:
     components:
     - type: Transform
       pos: -35.5,22.5
-      parent: 2
-  - uid: 2989
-    components:
-    - type: Transform
-      pos: -35.5,21.5
       parent: 2
   - uid: 3382
     components:
@@ -194659,7 +194614,7 @@ entities:
       pos: -60.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -253692.44
+      secondsUntilStateChange: -253956.69
       state: Opening
 - proto: WebShield
   entities:
@@ -195291,7 +195246,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -188351.12
+      secondsUntilStateChange: -188615.38
       state: Opening
     - type: Airlock
       autoClose: False
