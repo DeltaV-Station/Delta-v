@@ -228,3 +228,6 @@
         map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
         color: "#bb4b1e"
         shader: unshaded
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 172800
