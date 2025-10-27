@@ -4,7 +4,7 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/26/2025 17:33:52
+  time: 10/27/2025 23:55:06
   entityCount: 30723
 maps:
 - 1
@@ -16086,7 +16086,7 @@ entities:
       pos: 34.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -130394.05
+      secondsUntilStateChange: -131001.7
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16589,7 +16589,7 @@ entities:
       pos: -35.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -199322.14
+      secondsUntilStateChange: -199929.81
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17557,7 +17557,7 @@ entities:
       pos: -19.5,40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -161216.1
+      secondsUntilStateChange: -161823.77
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -194073,7 +194073,6 @@ entities:
     - type: Transform
       pos: -41.5,-52.5
       parent: 2
-    - type: BombingTarget
 - proto: WarpPointAtmos
   entities:
   - uid: 14466
@@ -194161,6 +194160,7 @@ entities:
     - type: Transform
       pos: 3.5,-39.5
       parent: 2
+    - type: BombingTarget
 - proto: WarpPointEpistemics
   entities:
   - uid: 28852
@@ -194168,7 +194168,6 @@ entities:
     - type: Transform
       pos: 5.5,-18.5
       parent: 2
-    - type: BombingTarget
 - proto: WarpPointEvac
   entities:
   - uid: 29414
@@ -194231,7 +194230,6 @@ entities:
     - type: Transform
       pos: -40.5,-19.5
       parent: 2
-    - type: BombingTarget
 - proto: WarpPointMorgue
   entities:
   - uid: 28861
@@ -194247,6 +194245,7 @@ entities:
     - type: Transform
       pos: -12.5,52.5
       parent: 2
+    - type: BombingTarget
 - proto: WarpPointReporter
   entities:
   - uid: 28863
@@ -194614,7 +194613,7 @@ entities:
       pos: -60.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -253956.69
+      secondsUntilStateChange: -254564.36
       state: Opening
 - proto: WebShield
   entities:
@@ -195246,7 +195245,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -188615.38
+      secondsUntilStateChange: -189223.05
       state: Opening
     - type: Airlock
       autoClose: False
