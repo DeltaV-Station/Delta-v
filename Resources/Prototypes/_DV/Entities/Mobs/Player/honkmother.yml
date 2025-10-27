@@ -34,8 +34,8 @@
   categories: [ HideSpawnMenu ] #Delta-V - Prevents in-game staff from accidentally spawning in a God and scaring the shit out of the crew.
   components:
   - type: AnnounceOnSpawn
-    message: "THE HONKMOTHER HAS AWOKEN"
-    sender: ???
+    message: "THE_HONKMOTHER_HAS_AWOKEN"
+    sender: "???"
     sound:
       path: /Audio/Items/airhorn.ogg #Delta-V - Temp Honkmother Spawn sound until I can be bothered to make an abomination that actually works for the honki.
     color: red
@@ -70,7 +70,7 @@
   - type: RandomWalk # To make Honki move around naturally when she isn't being controlled by staff or players.
     maxSpeed: 2.5
     minSpeed: 1.875
-  - type: MovementIgnoreGravity #disable if you want it to have standard singulo style movement. 
+  - type: MovementIgnoreGravity #disable if you want it to have standard singulo style movement.
   #Delta-V - Honki hears all. No justice comms because Honki doesn't give a shit about the mortals squabbles over space law.
   - type: IntrinsicRadioReceiver
   - type: ActiveRadio
