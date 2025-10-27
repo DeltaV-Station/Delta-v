@@ -17,7 +17,7 @@
   parent: MobHonkmotherBase
   id: MobHonkmotherSpawn
   suffix: Spawn
-  categories: [ HideSpawnMenu ] #Delta-V - Can be bypassed with the spawn command but until that's fixed this will work for now.
+  categories: [ HideSpawnMenu ] #Delta-V - Prevents in-game staff from accidentally spawning in a God and scaring the shit out of the crew.
   components:
   - type: Sprite
     layers:
@@ -32,13 +32,13 @@
 - type: entity
   parent: [MobHonkmotherBase, BaseMob]
   id: MobHonkmother
-  categories: [ HideSpawnMenu ] #Delta-V - Can be bypassed with the spawn command but until that's fixed this will work for now.
+  categories: [ HideSpawnMenu ] #Delta-V - Prevents in-game staff from accidentally spawning in a God and scaring the shit out of the crew.
   components:
   - type: AnnounceOnSpawn
     message: THE-HONKMOTHER-HAS-AWOKEN
     sender: honkmother-has-risen-sender
     sound:
-      path: /Audio/Misc/honkmother_rises.ogg #Delta-V - SHE HAS RISEN! SHE BRINGS THE FANFARE OF THE HONKENING AND MILDLY BURST EARDRUMS.
+      path: /Audio/Items/airhorn.ogg #Delta-V - Temp Honkmother Spawn sound until I can be bothered to make an abomination that actually works for the honki.
     color: red
   - type: CargoSellBlacklist
   #Delta-V - Honki sees all
