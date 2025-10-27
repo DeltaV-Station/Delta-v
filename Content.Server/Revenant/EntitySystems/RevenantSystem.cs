@@ -5,7 +5,7 @@ using Content.Server.Mind; // Imp
 using Content.Server.Revenant.Components; // Imp
 using Content.Server.Store.Systems;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Eye;

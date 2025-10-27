@@ -11,7 +11,7 @@ namespace Content.Server.Damage.Systems
     /// </summary>
     public sealed class DamageOnLandSystem : EntitySystem
     {
-        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+        [Dependency] private readonly Shared.Damage.Systems.DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly SafeSolutionThrowerSystem _safesolthrower = default!; // DeltaV - Beergoggles enable safe throw
 
         public override void Initialize()
