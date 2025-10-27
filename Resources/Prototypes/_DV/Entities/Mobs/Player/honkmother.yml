@@ -1,4 +1,4 @@
-- type: entity
+- type: entity #Delta-V - Spawns the Honkmother without her signature spawn animation.
   abstract: true
   id: MobHonkmotherBase
   name: Honkmother
@@ -12,7 +12,7 @@
     - state: honkmother
       shader: unshaded
 
-#Delta-V - spawn animation, spawns the Honkmother when it ends
+#Delta-V - Spawn animation, spawns the Honkmother when it ends.
 - type: entity
   parent: MobHonkmotherBase
   id: MobHonkmotherSpawn
@@ -23,7 +23,6 @@
     layers:
     - state: spawn
       shader: unshaded
-  #Delta-V - spawn animation lasts uhh... I didnt count this, someone can change this later.
   - type: TimedDespawn
     lifetime: 3.5
   - type: SpawnOnDespawn
@@ -41,7 +40,7 @@
       path: /Audio/Items/airhorn.ogg #Delta-V - Temp Honkmother Spawn sound until I can be bothered to make an abomination that actually works for the honki.
     color: red
   - type: CargoSellBlacklist
-  #Delta-V - Honki sees all
+  #Delta-V - Honki sees all.
   - type: ContentEye
     maxZoom: 2.0,2.0
   - type: Fixtures
@@ -69,7 +68,7 @@
   - type: Input
     context: "ghost"
   - type: MovementIgnoreGravity
-  #Delta-V - Honki hears all
+  #Delta-V - Honki hears all.
   - type: IntrinsicRadioReceiver
   - type: ActiveRadio
     channels:
