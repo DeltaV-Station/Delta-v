@@ -67,10 +67,10 @@
         - SingularityLayer
   - type: Input
     context: "ghost"
-  - type: RandomWalk # To make Honki move around naturally when she isnt being controlled by staff or players.
+  - type: RandomWalk # To make Honki move around naturally when she isn't being controlled by staff or players.
     maxSpeed: 2.5
     minSpeed: 1.875
-  - type: MovementIgnoreGravity
+  - type: MovementIgnoreGravity #disable if you want it to have standard singulo style movement. 
   #Delta-V - Honki hears all. No justice comms because Honki doesn't give a shit about the mortals squabbles over space law.
   - type: IntrinsicRadioReceiver
   - type: ActiveRadio
