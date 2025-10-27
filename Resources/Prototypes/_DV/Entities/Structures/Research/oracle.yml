@@ -1,0 +1,84 @@
+# Working Child prototypes
+- type: entity
+  parent: Oracle
+  suffix: CLASSIC, DO NOT MAP
+  id: OracleClassic
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Decoration/statues.rsi
+
+- type: entity
+  parent: SophicScribe
+  id: SophicScribeClassic
+  name: Sophia
+  suffix: CLASSIC, DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Decoration/statues.rsi
+    state: sophia
+    layers:
+      - state: sophia
+      - map: ["enum.SolutionContainerLayers.Fill"]
+
+# Non-functional mappable prototypes
+- type: entity
+  parent: BaseStructure
+  id: OracleClassicBroken
+  name: Oracle
+  suffix: FAKE
+  description: It would ask you for items in exchange for knowledge, but its voice fails it.
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+    sprite: Nyanotrasen/Structures/Decoration/statues.rsi
+    layers:
+      - state: oracle-0
+      - map: ["enum.SolutionContainerLayers.Fill"]
+        state: oracle-0
+  - type: SolutionContainerManager
+    solutions:
+      fountain:
+        maxVol: 200
+  - type: Drink
+    solution: fountain
+  - type: DrawableSolution
+    solution: fountain
+  - type: DrainableSolution
+    solution: fountain
+  - type: ExaminableSolution
+    solution: fountain
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 10
+    fillBaseName: oracle-
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Prayable
+  - type: SpriteFade
+  - type: Tag
+    tags: []
+
+- type: entity
+  parent: BaseStructure
+  id: SophicScribeClassicBroken
+  name: Sophia
+  suffix: FAKE
+  description: Yearns to give reports on the Noösphere, but it speaks no more.
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+    sprite: Nyanotrasen/Structures/Decoration/statues.rsi
+    layers:
+      - state: sophia
+      - map: ["enum.SolutionContainerLayers.Fill"]
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: SpriteFade
