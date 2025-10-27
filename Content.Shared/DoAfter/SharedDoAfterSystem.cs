@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Content.Shared._Goobstation.DoAfter; // Goobstation
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Tag;
 using Robust.Shared.GameStates;

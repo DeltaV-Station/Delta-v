@@ -4,7 +4,9 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
 // DeltaV End - Fix EvenHealing with Limbs.
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Localizations;
 using Robust.Shared.Prototypes;
@@ -31,12 +33,12 @@ public sealed partial class EvenHealthChangeEntityEffectSystem : EntityEffectSys
 
         damageSpec *= args.Scale;
 
+
         _damageable.TryChangeDamage(
-            entity,
+            entity.AsNullable(),
             damageSpec,
             args.Effect.IgnoreResistances,
             interruptsDoAfters: false,
-            damageable: entity.Comp,
             doPartDamage: false); // DeltaV - Even Healing with Limbs
 
         var bodyParts = SharedTargetingSystem.GetValidParts();
@@ -51,7 +53,7 @@ public sealed partial class EvenHealthChangeEntityEffectSystem : EntityEffectSys
                     continue;
 
                 _damageable.TryChangeDamage(
-                    entity,
+                    entity.AsNullable(),
                     dspec * args.Scale,
                     args.Effect.IgnoreResistances,
                     interruptsDoAfters: false,

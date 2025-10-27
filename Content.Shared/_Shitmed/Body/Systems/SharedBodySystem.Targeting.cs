@@ -22,6 +22,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Shared.Inventory;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 
 // Namespace has set accessors, leaving it on the default.
 namespace Content.Shared.Body.Systems;
@@ -63,7 +65,7 @@ public partial class SharedBodySystem
     private void InitializeIntegrityQueue()
     {
         _queryTargeting = GetEntityQuery<TargetingComponent>();
-        SubscribeLocalEvent<BodyComponent, TryChangePartDamageEvent>(OnTryChangePartDamage);
+        SubscribeLocalEvent<BodyComponent, BeforePartDamageChangedEvent>(OnTryChangePartDamage);
         SubscribeLocalEvent<BodyComponent, DamageModifyEvent>(OnBodyDamageModify);
         SubscribeLocalEvent<BodyPartComponent, DamageModifyEvent>(OnPartDamageModify);
         SubscribeLocalEvent<BodyPartComponent, DamageChangedEvent>(OnDamageChanged);
@@ -105,7 +107,7 @@ public partial class SharedBodySystem
         }
     }
 
-    private void OnTryChangePartDamage(Entity<BodyComponent> ent, ref TryChangePartDamageEvent args)
+    private void OnTryChangePartDamage(Entity<BodyComponent> ent, ref BeforePartDamageChangedEvent args)
     {
         // If our target has a TargetingComponent, that means they will take limb damage
         // And if their attacker also has one, then we use that part.
