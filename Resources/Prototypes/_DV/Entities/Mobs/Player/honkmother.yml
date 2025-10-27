@@ -34,8 +34,8 @@
   categories: [ HideSpawnMenu ] #Delta-V - Prevents in-game staff from accidentally spawning in a God and scaring the shit out of the crew.
   components:
   - type: AnnounceOnSpawn
-    message: THE-HONKMOTHER-HAS-AWOKEN
-    sender: honkmother-has-risen-sender
+    message: "THE HONKMOTHER HAS AWOKEN"
+    sender: ???
     sound:
       path: /Audio/Items/airhorn.ogg #Delta-V - Temp Honkmother Spawn sound until I can be bothered to make an abomination that actually works for the honki.
     color: red
