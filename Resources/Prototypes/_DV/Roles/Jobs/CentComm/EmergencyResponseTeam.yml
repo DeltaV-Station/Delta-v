@@ -110,6 +110,7 @@
     outerClothing: ClothingOuterHardsuitERTChaplainElite
   inhand:
   - WeaponEnergyGunAdvanced
+  - RadiantSword
 
 # Engineer
 
@@ -119,6 +120,7 @@
     jumpsuit: ClothingUniformJumpsuitERTEngineer
     back: ClothingBackpackERTEngineer
     shoes: ClothingShoesBootsMag
+    head: ClothingHeadHelmetERTEngineer
     eyes: ClothingEyesGlassesMeson
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTEngineerBase
@@ -143,6 +145,9 @@
   equipment:
     shoes: ClothingShoesBootsMagAdv
     mask: ClothingMaskGasERT
+    pocket1: WeaponEnergyGunPistol
+  inhand:
+  - JetpackVoid
   storage:
     back:
     - CableMVStack
@@ -151,14 +156,12 @@
     - Flare # Without this flare the survival box gets dropped onto the ground. I love startingGear.
     - SheetPlasteel
     - SheetSteel
-    - WeaponBeamCannon
 
 - type: startingGear
   parent: ERTEngineerGearRed
   id: ERTEngineerGearGamma
   equipment:
     outerClothing: ClothingOuterHardsuitERTEngineerElite
-    pocket1: WeaponEnergyGunPistol
   storage:
     back:
     - CableMVStack
@@ -166,6 +169,7 @@
     - CableApcStack
     - SheetPlasteel
     - SheetSteel
+    - WeaponBeamCannon
     belt:
     - RCDCombat
 
@@ -310,11 +314,12 @@
     belt: ClothingBeltJanitorFilled
     pocket1: WeaponDisabler
     pocket2: FlashlightSeclite
+  inhand:
+  - AdvMopItem
   storage:
     back:
     - CrowbarRed
     - BoxCleanerGrenades
-    - AdvMopItem
     belt:
     - TrashBag
 
@@ -326,7 +331,12 @@
     mask: ClothingMaskGasERT
     outerClothing: ClothingOuterHardsuitERTJanitorBase
     pocket1: WeaponEnergyGunMini
+    pocket2: FlashlightSeclite
   storage:
+    back:
+    - WeaponLauncherHydra
+    - CleanadeGrenadeBox
+    - CrowbarRed
     belt:
     - TrashBagOfHolding
 
@@ -336,10 +346,4 @@
   equipment:
     shoes: ClothingShoesBootsMagAdv
     outerClothing: ClothingOuterHardsuitERTJanitorElite
-  inhand:
-  - AdvMopItem
-  storage:
-    back:
-    - CrowbarRed
-    - BoxCleanerGrenades
-    - WeaponEnergyGun
+    pocket1: WeaponEnergyGunPistol

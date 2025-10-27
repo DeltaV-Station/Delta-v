@@ -1,0 +1,3 @@
+damage-on-unequip-examine = [color=red]You feel like removing this is a bad idea...[/color]
+damage-on-unequip-begin = The {$item} begins to creak and groan...
+damage-on-unequip-finish = The {$item} rips off of {$wearer}'s body!
