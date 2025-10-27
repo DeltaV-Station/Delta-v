@@ -34,8 +34,8 @@
   categories: [ HideSpawnMenu ] #Delta-V - Prevents in-game staff from accidentally spawning in a God and scaring the shit out of the crew.
   components:
   - type: AnnounceOnSpawn
-    message: the-honkmother-has-awoken #Delta-V - This shit keeps causing localization fails and its pissing me off. Message works fine in-game but its causing test fails for some reason.
-    sender: narsie-has-risen-sender #Delta-V - same sender name as ratvar and narsie. No need for a custom one.
+    message: honkmother-has-risen #Delta-V - Honki must announce their presence to the entire goddamn server.
+    sender: honkmother-has-risen-sender
     sound:
       path: /Audio/Items/airhorn.ogg #Delta-V - Temp Honkmother Spawn sound until I can be bothered to make an abomination that actually works for the honki.
     color: red
