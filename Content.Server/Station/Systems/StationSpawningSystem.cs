@@ -90,7 +90,11 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         EntityUid? station,
         EntityUid? entity = null)
     {
-        _prototypeManager.TryIndex(job ?? string.Empty, out var prototype);
+        // Delta-V, prevent errors if this is an empty job.
+        JobPrototype? prototype = null;
+        if (!string.IsNullOrWhiteSpace(job))
+            _prototypeManager.TryIndex(job ?? string.Empty, out prototype);
+        // Delta-V end
         RoleLoadout? loadout = null;
 
         // Need to get the loadout up-front to handle names if we use an entity spawn override.
@@ -163,7 +167,8 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             SetPdaAndIdCardData(entity.Value, metaData.EntityName, prototype, station);
         }
 
-        DoJobSpecials(job, entity.Value);
+        if (!string.IsNullOrWhiteSpace(job)) // Delta-V, empty job is okay, actually
+            DoJobSpecials(job, entity.Value);
         _identity.QueueIdentityUpdate(entity.Value);
         return entity.Value;
     }

@@ -26,7 +26,7 @@
   suffix: Mining, Filled, Locked
   components:
   - type: GridFill
-    path: /Maps/_DV/Shuttles/mining.yml
+    path: /Maps/_DV/Shuttles/Misc/mining.yml
     addComponents:
     - type: IFF
       flags:
@@ -39,7 +39,7 @@
   suffix: Glacier, Filled, Locked
   components:
   - type: GridFill
-    path: /Maps/_DV/Shuttles/glacier_surface_shuttle.yml
+    path: /Maps/_DV/Shuttles/Misc/glacier_surface_shuttle.yml
 
 # Delta V specific roles
 - type: entity
@@ -186,7 +186,7 @@
   suffix: External, Escape Sub, Glass, Docking
   components:
     - type: GridFill
-      path: /Maps/_DV/Shuttles/sub_escape_pod.yml
+      path: /Maps/_DV/Shuttles/Misc/sub_escape_pod.yml
 
 - type: entity
   parent: AirlockRobotics
@@ -244,7 +244,7 @@
       board: [ DoorElectronicsReporter ]
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: AirlockScienceLocked
   id: AirlockLibraryLocked
   suffix: Library, Locked
   components:
@@ -594,6 +594,25 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSecurity ]
+
+# Station-Specific Airlocks
+- type: entity
+  parent: HighSecDoor
+  id: HighSecSecurityLocked
+  suffix: Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecEngineeringLocked
+  suffix: Engineering, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEngineering ]
 
 #Syndicate high security door
 - type: entity

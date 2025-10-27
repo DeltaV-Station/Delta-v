@@ -1,4 +1,5 @@
-﻿using Content.Shared.CCVar;
+﻿using Content.Shared._DV.Mind; // DeltaV
+using Content.Shared.CCVar; // DeltaV
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
@@ -35,6 +36,12 @@ public sealed class SSDIndicatorSystem : EntitySystem
             TryComp<MindContainerComponent>(uid, out var mindContainer) &&
             mindContainer.ShowExamineInfo)
         {
+            // Begin DeltaV Addition
+            var ev = new ShowSSDIndicatorEvent();
+            RaiseLocalEvent(uid, ref ev);
+            if (ev.Hidden)
+                return;
+            // End DeltaV Addition
             args.StatusIcons.Add(_prototype.Index(component.Icon));
         }
     }
