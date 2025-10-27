@@ -6,3 +6,9 @@ tool-quality-fine-screwing-tool-name = Thin-Tipped Screwdriver
 
 tool-quality-censer-name = Censer
 tool-quality-censer-tool-name = Censer
+
+tool-quality-restoration-name = Restoring
+tool-quality-restoration-tool-name = Restoration Kit
+
+tool-quality-bible-name = Blessing
+tool-quality-bible-tool-name = Bible

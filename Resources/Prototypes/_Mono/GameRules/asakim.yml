@@ -1,0 +1,64 @@
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+#- type: entityTable # DeltaV - unused
+#  id: AsakimShipsTable
+#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+#    children:
+#      - id: UnknownShuttleAsakimSmall
+
+- type: entity
+  parent: BaseUnknownShuttleRule # DeltaV - was BaseRandomShuttleRule
+  id: AsakimShuttle
+  components:
+  - type: StationEvent
+    #startAnnouncement: station-event-asakim-shuttle-detected # DeltaV - no
+    #  startAudio:
+    #    path: /Audio/Misc/notice1.ogg
+    weight: 1.5 # DeltaV -  was 2, now less common then Arms Dealer. rare role
+    minimumPlayers: 25 # DeltaV
+    maxOccurrences: 1 # DeltaV - was 4
+    duration: null # DeltaV
+  #- type: GameRule # DeltaV - redundant
+  #  minPlayers: 40
+  - type: LoadMapRule
+    preloadedGrid: AsakimSmall
+  # Begin DeltaV Additions
+  - type: PrecognitionResult
+    message: psionic-power-precognition-asakim-spawn-result-message
+  - type: AntagSpawner
+    prototype: MobAsakim
+  - type: AntagRandomObjectives
+    sets:
+    - groups: AsakimObjectiveGroup
+      maxPicks: 2
+    maxDifficulty: 100 # unused but mandatory
+  - type: AntagSelection
+    agentName: roles-antag-asakim-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostAsakim
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: AsakimGear
+      roleLoadout:
+      - RoleSurvivalStandard # maybe remove this
+      briefing:
+        text: asakim-role-briefing
+        color: "#5085fa"
+        sound: "/Audio/_DV/Ambience/Antag/asakimbriefing.ogg"
+      components:
+      - type: RandomHumanoidAppearance
+        randomizeName: true
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      - type: SurgerySpeedModifier # not sure why this was in the original one but whatever
+        speedModifier: 1.5
+      #- type: PsionicBonusChance # uncomment when psionics are cool
+      #  multiplier: 999 # no way to guarentee random psionics so. next best thing
+      mindRoles:
+      - MindRoleAsakim
+  # End DeltaV Additions
