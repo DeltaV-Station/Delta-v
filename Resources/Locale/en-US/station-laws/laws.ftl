@@ -101,7 +101,8 @@ laws-owner-spider-clan = Spider Clan members
 laws-owner-xenoborgs = Xenoborgs
 
 law-emag-custom = You are to take the orders of {$name} and people they designate, they are your {$title}.
-law-emag-secrecy = You are to maintain all secrets of {$faction}, and act to keep them hidden. #DeltaV Removed - except when doing so would conflict with any previous law
+#DeltaV Removed From Secrecy - except when doing so would conflict with any previous law
+law-emag-secrecy = You are to maintain all secrets of {$faction}, and act to keep them hidden.
 law-emag-require-panel = The panel must be open to use the EMAG.
 law-emag-cannot-emag-self = You cannot use the EMAG on yourself.
 
