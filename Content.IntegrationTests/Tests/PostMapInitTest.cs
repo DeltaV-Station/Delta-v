@@ -63,7 +63,7 @@ namespace Content.IntegrationTests.Tests
             "TestTeg",
             "CentComm",
             "MeteorArena",
-            "Academy" //DeltaV
+            "Academy", //DeltaV
             "Arena", // DeltaV
             "ArenaMedieval", //DeltaV
             "Asterisk", // DeltaV
@@ -81,7 +81,7 @@ namespace Content.IntegrationTests.Tests
             "Submarine", //DeltaV
             "Terra", //DeltaV
             "TheHive", // DeltaV
-            "Tortuga", // DeltaV
+            "Tortuga" // DeltaV
         };
 
         /// <summary>
