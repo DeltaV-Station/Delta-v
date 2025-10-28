@@ -1,44 +1,6 @@
 # SPDX-FileCopyrightText: 2025 MajorMoth <61519600+MajorMoth@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
-- type: entity
-  id: BoxFolderAdmin
-  parent: BoxBase
-  name: admin folder
-  description: A special folder for more than just paper.
-  suffix: Admin
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
-    layers:
-    - state: folder-colormap
-      color: "#702963"
-    - state: folder-base
-  - type: Item
-    sprite: Objects/Misc/bureaucracy.rsi
-    size: Small
-    shape: null
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-    - 0,0,9,3
-  - type: ItemMapper
-    mapLayers:
-      folder-overlay-paper:
-        whitelist:
-          tags:
-          - Document
-  - type: Appearance
-  - type: Tag
-    tags:
-    - Folder
-  - type: StorageFill
-    contents:
-      - id: Paper
-        amount: 6
-      - id: FoodLollipop
-
 - type: entity
   id: AdminToolbelt
   parent: ClothingBeltChiefEngineer
@@ -62,7 +24,7 @@
       - id: LightReplacer
       - id: SprayPainter
       - id: GeigerCounter
-      - id: AccessConfigurator
+      - id: AccessConfiguratorUniversal
       - id: AdminRCD
   - type: Storage
     grid:
@@ -78,7 +40,7 @@
   components:
   - type: Item
     size: Normal
-    shape: 
+    shape:
     - 0,0,1,1
   - type: Storage
     maxItemSize: Normal
