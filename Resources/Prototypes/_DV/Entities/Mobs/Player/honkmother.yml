@@ -1,0 +1,109 @@
+- type: entity #Delta-V - Spawns the Honkmother without her signature spawn animation.
+  abstract: true
+  id: MobHonkmotherBase
+  name: Honkmother
+  description: A glorious and holy entity. Your mind shatters upon witnessing her beauty. The end has come and it is nothing but pure comedy.
+  components:
+  - type: Sprite
+    sprite: Mobs/Demons/honkmother.rsi #Delta-V - THE HONKMOTHER HAS ARRIVED, AND BOY, SHE IS UGLY.
+    drawdepth: Ghosts
+    scale: 2.0,2.0
+    layers:
+    - state: honkmother
+      shader: unshaded
+
+#Delta-V - Spawn animation, spawns the Honkmother when it ends.
+- type: entity
+  parent: MobHonkmotherBase
+  id: MobHonkmotherSpawn
+  suffix: Spawn
+  categories: [ HideSpawnMenu ] #Delta-V - Prevents in-game staff from accidentally spawning in a God and scaring the shit out of the crew.
+  components:
+  - type: Sprite
+    layers:
+    - state: spawn
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 3.5
+  - type: SpawnOnDespawn
+    prototype: MobHonkmother
+
+- type: entity
+  parent: [MobHonkmotherBase, BaseMob]
+  id: MobHonkmother
+  categories: [ HideSpawnMenu ] #Delta-V - Prevents in-game staff from accidentally spawning in a God and scaring the shit out of the crew.
+  components:
+  - type: AnnounceOnSpawn
+    message: honkmother-has-risen #Delta-V - Honki must announce their presence to the entire goddamn server.
+    sender: honkmother-has-risen-sender
+    sound:
+      path: /Audio/Items/airhorn.ogg #Delta-V - Temp Honkmother Spawn sound until I can be bothered to make an abomination that actually works for the honki.
+    color: red
+  - type: CargoSellBlacklist
+  #Delta-V - Honki sees all.
+  - type: ContentEye
+    maxZoom: 2.0,2.0
+  - type: Fixtures
+    fixtures:
+      EventHorizonCollider:
+        shape:
+          !type:PhysShapeCircle
+            radius: 5
+        hard: false
+        restitution: 0.8
+        density: 99999
+        mask:
+        - SingularityLayer
+        layer:
+        - SingularityLayer
+      EventHorizonConsumer:
+        shape:
+          !type:PhysShapeCircle
+            radius: 5
+        hard: false
+        mask:
+        - SingularityLayer
+        layer:
+        - SingularityLayer
+  - type: Input
+    context: "ghost"
+  - type: RandomWalk #Delta-V - To make Honki move around naturally when she isn't being controlled by staff or players.
+    maxSpeed: 2.5
+    minSpeed: 1.875
+  - type: MovementIgnoreGravity #disable if you want it to have standard singulo style movement.
+  #Delta-V - Honki hears all. No justice comms because Honki doesn't give a shit about the mortals squabbles over space law.
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Syndicate
+    globalReceive: true
+  - type: Physics
+    bodyType: Dynamic
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  #Delta-V - Discount singularity because Honki needs to annihilate the sinners.
+  - type: EventHorizon
+    radius: 5
+    canBreachContainment: true
+  - type: GravityWell
+    baseRadialAcceleration: 6
+    maxRange: 8
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
+  - type: WarpPoint
+    follow: true
+    location: Honkmother
+    blacklist:
+      tags:
+      - GhostOnlyWarp
