@@ -32,8 +32,6 @@
   - type: ComplexInteraction
   - type: Puller
     needsHands: false
-    pushAcceleration: 1000000 # Will still be capped in max speed
-    maxPushRange: 20
   - type: CombatMode
   - type: Physics
     ignorePaused: true

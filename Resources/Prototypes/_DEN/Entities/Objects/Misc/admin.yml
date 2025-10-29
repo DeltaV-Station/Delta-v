@@ -57,13 +57,12 @@
 
 - type: entity
   id: AdminRCD
-  parent: RCD
+  parent: RCDExperimental
   name: admin RCD
   description: An RCD with a never-ending supply of compressed matter.
   suffix: Admin
   components:
   - type: LimitedCharges
     maxCharges: 100
-    charges: 100
   - type: AutoRecharge
     rechargeDuration: 0
