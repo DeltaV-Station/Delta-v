@@ -4,11 +4,12 @@
   description: job-description-mantis
   playTimeTracker: JobForensicMantis
   requirements:
-    - !type:OverallPlaytimeRequirement
+    - !type:RoleTimeRequirement:
+      role: JobChaplain
       time: 18000
-    - !type:DepartmentTimeRequirement
-      department: Epistemics # DeltaV - Epistemics Department replacing Science
-      time: 3600
+    - !type:RoleTimeRequirement
+      role: JobScientist
+      time: 18000
   startingGear: ForensicMantisGear
   icon: "JobIconForensicMantis"
   supervisors: job-supervisors-rd
