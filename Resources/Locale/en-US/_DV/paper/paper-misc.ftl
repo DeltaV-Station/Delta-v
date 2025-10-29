@@ -33,3 +33,7 @@ paper-salvage-gun-safe-notice = SALVAGE SPECIALIST SELF DEFENSE ARMAMENT NOTICE
       Remember, safety and responsible firearm use in your hands!
 
       Nanotrasen Corporate Salvage Division
+
+paper-security-superweapon-removed = Due to recent budget cuts in your sector, we are currently unable to supply your station with a "superweapon".
+
+      We trust this will not be an issue.

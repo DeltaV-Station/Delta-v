@@ -62,9 +62,10 @@
   - type: EntityTableSpawner
     table: !type:GroupSelector
       children:
-      - id: GunSafeBeamDevastator
-      - id: GunSafeRocketLauncher
-      - id: GunSafeGamblagator
+      #- id: GunSafeBeamDevastator
+      #- id: GunSafeRocketLauncher
+      #- id: GunSafeGamblagator
+      - id: GunSafeSuperweaponEmpty
 
 - type: entity
   parent: BaseGunSafeSpawner

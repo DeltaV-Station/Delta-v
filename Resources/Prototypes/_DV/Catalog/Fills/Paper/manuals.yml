@@ -44,3 +44,14 @@
   components:
   - type: Paper
     content: paper-salvage-gun-safe-notice
+
+- type: entity
+  id: PaperSuperweaponRemoved
+  name: supply notice
+  parent: Paper
+  components:
+  - type: Paper
+    content: paper-security-superweapon-removed
+    stampedBy:
+    - stampedColor: "#006600"
+      stampedName: stamp-component-stamped-name-centcom
