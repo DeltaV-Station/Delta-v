@@ -212,7 +212,7 @@ public sealed class NewsSystem : SharedNewsSystem
         }
 
         if (_webhookSendDuringRound)
-            AddNewsSendWebhook(article.Value);
+            AddNewsSendWebhook(article);
 
         UpdateWriterDevices();
     }

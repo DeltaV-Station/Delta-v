@@ -29,7 +29,7 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
     [Dependency] private readonly IOverlayManager _overlay = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
@@ -97,7 +97,7 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
         var worldPos = _transform.GetWorldPosition(xform); //this is technically wrong but basically fine; if
         foreach (var tile in _map.GetTilesIntersecting(xform.GridUid.Value, grid, new Circle(worldPos, MinimumDistanceFromSpace)))
         {
-            if (tile.IsSpace(_tileDef))
+            iif (_turf.IsSpace(tile))
                 return false;
         }
 
