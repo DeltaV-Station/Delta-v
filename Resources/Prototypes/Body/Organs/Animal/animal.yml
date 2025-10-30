@@ -98,6 +98,7 @@
 - type: entity
   id: OrganMouseStomach
   parent: OrganAnimalStomach
+  name: mouse stomach # DeltaV
   categories: [ HideSpawnMenu ]
   components:
   - type: SolutionContainerManager
@@ -128,7 +129,6 @@
     metabolizerTypes: [ Animal ]
     groups:
     - id: Alcohol
-      rateModifier: 0.1
   - type: Liver # Shitmed
   - type: Tag # goob edit
     tags:
