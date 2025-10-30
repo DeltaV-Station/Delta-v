@@ -1,0 +1,11 @@
+- type: entity
+  id: AdminSatchelofHolding
+  parent: ClothingBackpackSatchelHolding
+  name: admin satchel of holding
+  description: A satchel of holding... for admins! Now with 100% less shards of broken glass!
+  suffix: Admin
+  components:
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
