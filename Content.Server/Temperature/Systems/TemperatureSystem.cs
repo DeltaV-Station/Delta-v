@@ -45,6 +45,8 @@ public sealed class TemperatureSystem : SharedTemperatureSystem
 
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<TemperatureComponent, OnTemperatureChangeEvent>(EnqueueDamage);
         SubscribeLocalEvent<TemperatureComponent, AtmosExposedUpdateEvent>(OnAtmosExposedUpdate);
         SubscribeLocalEvent<TemperatureComponent, RejuvenateEvent>(OnRejuvenate);
