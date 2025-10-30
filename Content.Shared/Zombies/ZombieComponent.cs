@@ -115,8 +115,10 @@ public sealed partial class ZombieComponent : Component
             { "Blunt", -0.4 },
             { "Slash", -0.2 },
             { "Piercing", -0.2 },
-            { "Heat", -0.02 },
-            { "Shock", -0.02 }
+            // DeltaV Start - Buff Zombies
+            { "Heat", -0.2 }, // Was -0.02
+            { "Shock", -0.2 } // Was -0.02
+            // DeltaV End - Buff Zombies
         }
     };
 
