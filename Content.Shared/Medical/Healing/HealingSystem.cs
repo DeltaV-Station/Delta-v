@@ -117,7 +117,7 @@ public sealed class HealingSystem : EntitySystem
         _audio.PlayPredicted(healing.HealingEndSound, target.Owner, args.User);
 
         // Logic to determine the whether or not to repeat the healing action
-        args.Repeat = (HasDamage((args.Used.Value, healing), target) || IsPartDamaged(args.User, target); // Shitmed Change
+        args.Repeat = (HasDamage((args.Used.Value, healing), target) || IsPartDamaged(args.User, target)); // Shitmed Change
         if (!args.Repeat && !dontRepeat)
             _popupSystem.PopupClient(Loc.GetString("medical-item-finished-using", ("item", args.Used)), target.Owner, args.User);
         args.Handled = true;

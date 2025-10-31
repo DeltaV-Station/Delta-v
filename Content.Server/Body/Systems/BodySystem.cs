@@ -217,8 +217,8 @@ public sealed class BodySystem : SharedBodySystem
         var bleeding = partEnt.Comp.SeverBleeding;
         if (partEnt.Comp.IsVital)
             bleeding *= 2f;
-        _bloodstream.TryModifyBleedAmount(bodyEnt, bleeding);
+        TryComp<BloodstreamComponent>(bodyEnt, out var bloodstream);
+        _bloodstream.TryModifyBleedAmount((bodyEnt, bloodstream), bleeding);
     }
-
     // Shitmed Change End
 }
