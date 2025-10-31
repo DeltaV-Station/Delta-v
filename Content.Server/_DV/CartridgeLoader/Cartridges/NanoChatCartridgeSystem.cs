@@ -948,8 +948,9 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         var isCreator = recipient.Value.CreatorId == card.Comp.Number.Value;
         var admins = recipient.Value.Admins ?? new HashSet<uint>();
         var isAdmin = admins.Contains(card.Comp.Number.Value);
+        var isSelfKick = kickeeNumber == card.Comp.Number.Value;
 
-        if (!isCreator && !isAdmin)
+        if (!isSelfKick && !isCreator && !isAdmin)
             return;
 
         // Allow creator to leave the group but not be kicked by other members.
