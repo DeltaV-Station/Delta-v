@@ -51,3 +51,19 @@
         reagents:
         - ReagentId: CocoaPowder
           Quantity: 50
+
+- type: entity
+  parent: ReagentPacketBase
+  id: ReagentContainerCarob
+  name: carob powder bag
+  description: A big bag of carob powder. Use this for people allergic to chocolate
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Food/ingredients.rsi
+    state: cocoa-chip-big
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: CarobPowder
+          Quantity: 50

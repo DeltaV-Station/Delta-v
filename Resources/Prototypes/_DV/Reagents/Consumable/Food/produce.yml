@@ -1,0 +1,32 @@
+- type: entity
+  name: carob pod
+  parent: FoodProduceBase
+  id: FoodCarobPod
+  description: You can in fact have too much chocolate, so try this instead.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: CarobPowder
+          Quantity: 1
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Hydroponics/carob.rsi
+  - type: Produce
+    seedId: carob
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodCarobBeans
+    sound:
+      path: /Audio/Effects/packetrip.ogg
+  - type: Tag
+    tags:
+    - Fruit

@@ -1,0 +1,57 @@
+- type: reagent
+  id: CarobPowder
+  name: reagent-name-carobpowder
+  group: Foods
+  desc: reagent-desc-carobpowder
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: chocolate
+  color: "#800000"
+  meltingPoint: 146.0
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:ReagentThreshold #Only satiates when eaten with nutriment
+          reagent: Nutriment
+          min: 0.1
+        factor: 1
+  plantMetabolism:
+  - !type:PlantAdjustNutrition
+    amount: 0.1
+  - !type:PlantAdjustWeeds
+    amount: 2
+  - !type:PlantAdjustPests
+    amount: 2
+
+- type: entity
+  name: carob beans
+  parent: FoodProduceBase
+  id: FoodCarobBeans
+  description: You can in fact have too much chocolate, so try this instead.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/cocoa.rsi
+    state: produce-beans
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: CarobPowder
+          Quantity: 2
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: CarobPowder
+        Quantity: 2
+  - type: Tag
+    tags:
+      - Ingredient
