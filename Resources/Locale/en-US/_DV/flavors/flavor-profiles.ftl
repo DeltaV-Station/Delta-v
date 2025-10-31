@@ -30,6 +30,7 @@ flavor-complex-candy-bubblegum = like bubble gum
 flavor-complex-double-ice-cream = like ice cream, twice
 flavor-complex-drgibbbloodred = like severe malpractice
 flavor-complex-lemon-lime-bitters = like an Aussie dessert
+flavor-complex-spicy-pickle = like spicy pickle crackers
 
 ## Delta-V additional drink flavors
 flavor-complex-absinthe-deltav = like green death
