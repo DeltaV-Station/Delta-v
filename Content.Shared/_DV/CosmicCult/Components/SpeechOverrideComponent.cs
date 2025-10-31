@@ -15,14 +15,12 @@ public sealed partial class SpeechOverrideComponent : Component
     /// <summary>
     /// Sounds to assign to the entity equipping this item.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdValueDictionarySerializer<Sex, EmoteSoundsPrototype>))]
     [AutoNetworkedField]
     public Dictionary<Sex, ProtoId<EmoteSoundsPrototype>>? OverrideIDs = null;
 
     /// <summary>
     /// Entity's original sounds to use when the item is unequipped.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdValueDictionarySerializer<Sex, EmoteSoundsPrototype>))]
     [AutoNetworkedField]
     public Dictionary<Sex, ProtoId<EmoteSoundsPrototype>>? StoredIDs = null;
 }
