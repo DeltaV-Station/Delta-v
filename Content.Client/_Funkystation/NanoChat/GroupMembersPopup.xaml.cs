@@ -109,7 +109,7 @@ public sealed partial class GroupMembersPopup : DefaultWindow
 
             var nameLabel = new Label
             {
-                Text = contact.Name + (isCreator ? " (Creator)" : isAdmin ? " (Admin)" : ""),
+                Text = contact.Name + (isCreator ? $" {Loc.GetString("nano-chat-owner-suffix")}" : isAdmin ? $" {Loc.GetString("nano-chat-admin-suffix")}" : ""),
                 HorizontalAlignment = HAlignment.Left,
                 HorizontalExpand = true
             };

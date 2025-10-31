@@ -304,8 +304,32 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             var members = recipient.Value.Members ?? new HashSet<uint>();
             if (members.Remove(card.Comp.Number.Value))
             {
+                var admins = recipient.Value.Admins ?? new HashSet<uint>();
+                admins.Remove(card.Comp.Number.Value);
+
+                // If the creator is leaving, transfer ownership
+                uint? newCreatorId = recipient.Value.CreatorId;
+                var isCreatorLeaving = card.Comp.Number.Value == recipient.Value.CreatorId;
+                if (isCreatorLeaving)
+                {
+                    if (admins.Count > 0)
+                    {
+                        newCreatorId = admins.First();
+                    }
+                    else if (members.Count > 0)
+                    {
+                        newCreatorId = members.First();
+                    }
+                    else
+                    {
+                        newCreatorId = null;
+                    }
+                }
+
                 // Update the group for all remaining members
-                var updatedRecipient = recipient.Value with { Members = members };
+                var updatedRecipient = newCreatorId != null
+                    ? recipient.Value with { Members = members, Admins = admins, CreatorId = newCreatorId }
+                    : recipient.Value with { Members = members, Admins = admins };
 
                 foreach (var memberNumber in members)
                 {
@@ -928,42 +952,12 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!isCreator && !isAdmin)
             return;
 
-        // Allow creator leave the group but not be kicked by other members.
+        // Allow creator to leave the group but not be kicked by other members.
         var isCreatorLeaving = kickeeNumber == recipient.Value.CreatorId && isCreator;
         if (kickeeNumber == recipient.Value.CreatorId && !isCreatorLeaving)
             return;
 
-        var members = recipient.Value.Members ?? new HashSet<uint>();
-        if (!members.Remove(kickeeNumber))
-            return; // Don't ask me how this would ever trigger
-
-        // Also remove from admins if they were one
-        admins.Remove(kickeeNumber);
-
-        // If the creator is leaving, transfer ownership
-        uint? newCreatorId = recipient.Value.CreatorId;
-        if (isCreatorLeaving)
-        {
-            if (admins.Count > 0)
-            {
-                newCreatorId = admins.First();
-            }
-            else if (members.Count > 0)
-            {
-                newCreatorId = members.First();
-            }
-            else
-            {
-                newCreatorId = null;
-            }
-        }
-
-        var updatedRecipient = newCreatorId != null
-            ? recipient.Value with { Members = members, Admins = admins, CreatorId = newCreatorId }
-            : recipient.Value with { Members = members, Admins = admins };
-
-        _nanoChat.SetRecipient((card, card.Comp), groupNumber, updatedRecipient);
-
+        // Find all cards belonging to the kickee
         var kickeeCards = new List<Entity<NanoChatCardComponent>>();
         var cardQuery = EntityQueryEnumerator<NanoChatCardComponent>();
         while (cardQuery.MoveNext(out var cardUid, out var kickeeCard))
@@ -976,35 +970,18 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         foreach (var kickeeCard in kickeeCards)
         {
-            _nanoChat.TryDeleteChat((kickeeCard, kickeeCard.Comp), groupNumber, false);
-            UpdateUIForCard(kickeeCard);
-        }
-
-        // Update stuff for all remaining members
-        foreach (var memberNumber in members)
-        {
-            var memberCards = new List<Entity<NanoChatCardComponent>>();
-            cardQuery = EntityQueryEnumerator<NanoChatCardComponent>();
-            while (cardQuery.MoveNext(out var cardUid, out var memberCard))
+            var deleteMsg = new NanoChatUiMessageEvent(NanoChatUiMessageType.DeleteChat, groupNumber, null, null)
             {
-                if (memberCard.Number == memberNumber)
-                {
-                    memberCards.Add((cardUid, memberCard));
-                }
-            }
-
-            foreach (var memberCard in memberCards)
-            {
-                _nanoChat.SetRecipient((memberCard, memberCard.Comp), groupNumber, updatedRecipient);
-                UpdateUIForCard(memberCard);
-            }
+                Actor = msg.Actor
+            };
+            HandleDeleteChat(kickeeCard, deleteMsg);
         }
 
         if (isCreatorLeaving)
         {
             _adminLogger.Add(LogType.Action,
                 LogImpact.Low,
-                $"{ToPrettyString(msg.Actor):user} left group chat #{groupNumber:D4}{(newCreatorId != null ? $" (transferred ownership to #{newCreatorId:D4})" : "")}");
+                $"{ToPrettyString(msg.Actor):user} left group chat #{groupNumber:D4}");
         }
         else
         {
