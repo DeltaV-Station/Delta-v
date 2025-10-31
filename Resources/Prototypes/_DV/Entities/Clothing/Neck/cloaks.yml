@@ -44,3 +44,14 @@
     sprite: _DV/Clothing/Neck/Cloaks/cjcloak.rsi
   - type: StealTarget
     stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakWitchCloak
+  name: Witch's cloak
+  description: a comfortable and encompassing brown cloak that comes up over your face.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/Cloaks/witchcloak.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/Cloaks/witchcloak.rsi
