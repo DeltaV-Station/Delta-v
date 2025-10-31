@@ -125,7 +125,7 @@ namespace Content.Shared.EntityEffects.Effects
                     interruptsDoAfters: false,
                     // Shitmed Change Start
                     targetPart: TargetBodyPart.All,
-                    partMultiplier: 0.5f,
+                    // partMultiplier: 0.5f, // DeltaV - Standardize PartDamage.
                     canSever: false);
                     // Shitmed Change End
         }

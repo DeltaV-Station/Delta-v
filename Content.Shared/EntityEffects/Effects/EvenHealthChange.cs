@@ -127,7 +127,6 @@ public sealed partial class EvenHealthChange : EntityEffect
                     interruptsDoAfters: false,
                     targetPart: bodyPart,
                     onlyDamageParts: true,
-                    partMultiplier: 0.5f,
                     canSever: false);
             }
         }
