@@ -1,0 +1,29 @@
+# Powder
+
+# Reagent Containers
+
+# Misc
+
+# Baking
+
+- type: entity
+  name: frosting
+  parent: FoodBakingBase
+  id: FoodFrosting
+  description: Soft, creamy, and sweet. Used for topping cakes.
+  components:
+  - type: Stack
+    stackType: Frosting
+    count: 1
+  - type: Sprite
+    sprite: _Floof/Objects/Consumable/Food/ingredients.rsi
+    state: frosting-pipe
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 24
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Sugar
+          Quantity: 15

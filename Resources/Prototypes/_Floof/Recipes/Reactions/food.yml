@@ -1,0 +1,13 @@
+- type: reaction
+  id: CreateFrosting
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    Butter:
+      amount: 5
+    Sugar:
+      amount: 15
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodFrosting
