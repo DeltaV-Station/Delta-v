@@ -1,0 +1,224 @@
+- type: entity
+  parent: WallClosetTools
+  id: WallClosetToolsFilled
+  name: tool wall closet
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillClosetTool
+
+- type: entity
+  parent: WallClosetRadiationSuit
+  id: WallClosetRadiationSuitFilled
+  name: radiation suit wall closet
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillRadiationSuit
+
+- type: entity
+  parent: WallClosetL3
+  id: WallClosetL3Filled
+  name: level 3 biohazard wall closet
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillBiohazardGearGeneric
+
+- type: entity
+  parent: WallClosetL3Janitor
+  id: WallClosetL3JanitorFilled
+  name: level 3 biohazard wall closet
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillBiohazardGearJanitor
+
+- type: entity
+  parent: WallClosetL3Security
+  id: WallClosetL3SecurityFilled
+  name: level 3 biohazard wall closet
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillBiohazardGearSecurity
+
+- type: entity
+  parent: WallClosetL3Virology
+  id: WallClosetL3VirologyFilled
+  name: level 3 biohazard wall closet
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillBiohazardGearVirology
+
+- type: entity
+  parent: WallLockerAtmos
+  id: WallLockerAtmosFilled
+  name: atmospherics wall locker
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerAtmospherics
+
+- type: entity
+  parent: WallLockerEngi
+  id: WallLockerEngiFilled
+  name: engineering wall locker
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerEngineer
+
+- type: entity
+  parent: WallLockerElectrical
+  id: WallLockerElectricalFilled
+  name: electrical wall locker
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillElectricalSupplies
+
+- type: entity
+  parent: WallLockerWelding
+  id: WallLockerWeldingFilled
+  name: welding tools wall locker
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillWelderSupplies
+          rolls: !type:ConstantNumberSelector
+            value: 3
+        - !type:NestedSelector
+          tableId: FillWelderSuppliesMask
+          rolls: !type:ConstantNumberSelector
+            value: 3
+
+- type: entity
+  parent: WallLockerBotany
+  id: WallLockerBotanyFilled
+  name: botanist wall locker
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerBotanist
+
+- type: entity
+  parent: WallLockerSalvage
+  id: WallLockerSalvageFilled
+  name: salvage wall locker
+  suffix: Filled
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        entity_storage: !type:NestedSelector
+          tableId: LockerFillSalvageSpecialist
+
+- type: entity
+  parent: WallLockerJanitor
+  id: WallLockerJanitorFilled
+  name: janitor wall locker
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillClosetJanitor
+
+- type: entity
+  parent: WallLockerEpistemics
+  id: WallLockerEpistemicsFilled
+  name: epistemics wall locker
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerScientist
+
+- type: entity
+  parent: WallLockerSecurity
+  id: WallLockerSecurityFilled
+  name: security wall locker
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerSecurity
+
+- type: entity
+  parent: WallLockerKitchen
+  id: WallLockerKitchenFilled
+  name: kitchen wall locker
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillClosetChef
+
+- type: entity
+  parent: ClosetWallBlack
+  id: LockerListeningPostStamps
+  name: stamp closet
+  description: A closet packed with forged stamps, CentComm not included.
+  suffix: DO NOT MAP, Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillListeningPostStamps
+
+- type: entityTable
+  id: FillListeningPostStamps
+  table: !type:AllSelector
+    children:
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    - id: RubberStampCaptain
+    - id: RubberStampChaplain
+    - id: RubberStampCE
+    - id: RubberStampChiefJustice
+    - id: RubberStampChaplain
+    - id: RubberStampCMO
+    - id: RubberStampClown
+    - id: RubberStampDetective
+    - id: RubberStampHop
+    - id: RubberStampHos
+    - id: RubberStampLawyer
+    - id: RubberStampQm
+    - id: RubberStampMime
+    - id: RubberStampRd
+    - id: RubberStampNotary
+    - id: RubberStampProsec
+    - id: RubberStampMantis
+    - id: RubberStampPsychologist
+    - id: RubberStampSyndicate
+    - id: RubberStampTrader
+    - id: RubberStampWarden
+    - id: RubberStampGreytide # a disturbance in the rising grey water.
