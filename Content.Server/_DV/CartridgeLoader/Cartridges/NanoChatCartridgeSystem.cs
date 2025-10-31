@@ -558,7 +558,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (sender.Comp.Number is not uint senderNumber)
             return;
 
-        var recipientNumber = chatNumber;
+        // For group chats, use the group number. For regular chats, use the sender's number
+        var recipientNumber = (groupRecipient != null && groupRecipient.Value.IsGroup) ? chatNumber : senderNumber;
 
         if (groupRecipient != null && groupRecipient.Value.IsGroup)
         {

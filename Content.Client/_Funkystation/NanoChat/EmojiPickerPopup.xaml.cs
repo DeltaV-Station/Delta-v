@@ -9,15 +9,18 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Client.ResourceManagement;
+using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
+using Robust.Shared.Utility;
 using System.Numerics;
-using Content.Client.Resources;
 
 namespace Content.Client._Funkystation.NanoChat;
 
 [GenerateTypedNameReferences]
 public sealed partial class EmojiPickerPopup : DefaultWindow
 {
-    private List<(string name, string texturePath)> _filteredEmojis;
+    private List<(string name, SpriteSpecifier specifier)> _filteredEmojis;
+    private SpriteSystem? _spriteSystem;
 
     public event Action<string>? OnEmojiSelected;
 
@@ -25,7 +28,7 @@ public sealed partial class EmojiPickerPopup : DefaultWindow
     {
         RobustXamlLoader.Load(this);
 
-        _filteredEmojis = NanoChatEmojis.EmojiPaths.Select(kv => (kv.Key, kv.Value)).ToList();
+        _filteredEmojis = NanoChatEmojis.EmojiSpecifiers.Select(kv => (kv.Key, kv.Value)).ToList();
 
         ContentsContainer.Margin = new Thickness(3);
 
@@ -65,11 +68,11 @@ public sealed partial class EmojiPickerPopup : DefaultWindow
 
         if (string.IsNullOrEmpty(search))
         {
-            _filteredEmojis = NanoChatEmojis.EmojiPaths.Select(kv => (kv.Key, kv.Value)).ToList();
+            _filteredEmojis = NanoChatEmojis.EmojiSpecifiers.Select(kv => (kv.Key, kv.Value)).ToList();
         }
         else
         {
-            _filteredEmojis = NanoChatEmojis.EmojiPaths
+            _filteredEmojis = NanoChatEmojis.EmojiSpecifiers
                 .Where(kv => kv.Key.Contains(search, StringComparison.OrdinalIgnoreCase))
                 .Select(kv => (kv.Key, kv.Value))
                 .ToList();
@@ -83,8 +86,9 @@ public sealed partial class EmojiPickerPopup : DefaultWindow
         EmojiGrid.RemoveAllChildren();
 
         var resCache = IoCManager.Resolve<IResourceCache>();
+        _spriteSystem ??= IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<SpriteSystem>();
 
-        foreach (var (name, texturePath) in _filteredEmojis)
+        foreach (var (name, specifier) in _filteredEmojis)
         {
             var button = new Button
             {
@@ -93,9 +97,27 @@ public sealed partial class EmojiPickerPopup : DefaultWindow
                 ToolTip = $":{name}:",
             };
 
+            Texture texture;
+            switch (specifier)
+            {
+                case SpriteSpecifier.Texture texSpecifier:
+                    if (!resCache.TryGetResource<TextureResource>(texSpecifier.TexturePath, out var textureResource))
+                        continue;
+                    texture = textureResource.Texture;
+                    break;
+
+                case SpriteSpecifier.Rsi rsiSpecifier:
+                    var state = _spriteSystem.GetState(rsiSpecifier);
+                    texture = state.Frame0;
+                    break;
+
+                default:
+                    continue;
+            }
+
             var textureRect = new TextureRect
             {
-                Texture = resCache.GetTexture(texturePath),
+                Texture = texture,
                 Stretch = TextureRect.StretchMode.KeepAspect,
                 MinSize = new Vector2(32, 32),
                 MaxSize = new Vector2(32, 32),
@@ -118,10 +140,10 @@ public sealed partial class EmojiPickerPopup : DefaultWindow
         UpdateGridColumns();
     }
 
-    public static string GetEmojiTexture(string emojiName)
+    public static SpriteSpecifier? GetEmojiSpecifier(string emojiName)
     {
-        return NanoChatEmojis.EmojiPaths.TryGetValue(emojiName, out var path) ? path : string.Empty;
+        return NanoChatEmojis.EmojiSpecifiers.TryGetValue(emojiName, out var specifier) ? specifier : null;
     }
 
-    public static Dictionary<string, string> GetEmojis() => new Dictionary<string, string>(NanoChatEmojis.EmojiPaths);
+    public static Dictionary<string, SpriteSpecifier> GetEmojis() => new Dictionary<string, SpriteSpecifier>(NanoChatEmojis.EmojiSpecifiers);
 }
