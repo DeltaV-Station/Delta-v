@@ -453,7 +453,8 @@ namespace Content.Shared.Containers.ItemSlots
             EntityUid item,
             Entity<HandsComponent?>? userEnt,
             [NotNullWhen(true)] out ItemSlot? itemSlot,
-            bool emptyOnly = false)
+            bool emptyOnly = false,
+            bool excludeUserAudio = false)  // DV - hand refactor fixes
         {
             itemSlot = null;
 
@@ -474,16 +475,16 @@ namespace Content.Shared.Containers.ItemSlots
                 if (slot.ContainerSlot?.ContainedEntity != null)
                     continue;
 
-                if (CanInsert(ent, item, user, slot))
+                if (CanInsert(ent, item, userEnt, slot)) // DV - hand refactor fixes
                     slots.Add(slot);
             }
 
             if (slots.Count == 0)
                 return false;
 
-            if (user != null && _handsSystem.IsHolding(user.Value, item))
+            if (userEnt != null && _handsSystem.IsHolding(userEnt.Value, item)) // DV - hand refactor fixes
             {
-                if (!_handsSystem.TryDrop(user.Value, item))
+                if (!_handsSystem.TryDrop(userEnt.Value, item)) // DV - hand refactor fixes
                     return false;
             }
 
@@ -491,10 +492,12 @@ namespace Content.Shared.Containers.ItemSlots
 
             foreach (var slot in slots)
             {
-                if (TryInsert(ent, slot, item, user, excludeUserAudio: excludeUserAudio))
+                itemSlot = slot;
+                if (TryInsert(ent, slot, item, userEnt, excludeUserAudio: excludeUserAudio)) // DV - hand refactor fixes
                     return true;
             }
 
+            itemSlot = null;
             return false;
         }
 

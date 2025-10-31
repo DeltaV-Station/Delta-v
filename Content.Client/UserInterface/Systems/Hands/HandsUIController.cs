@@ -149,7 +149,9 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
                 handButton.Blocked = true;
             }
             // Frontier - borg hand placeholder
-            else if (_entities.TryGetComponent(hand.HeldEntity, out HandPlaceholderVisualsComponent? placeholder))
+            else if (_entities.TryGetComponent(handsComp, out HandsComponent? hands)
+                && _handsSystem.GetHeldItem((handsComp, hands), name) is { } item
+                && _entities.TryGetComponent(item, out HandPlaceholderVisualsComponent? placeholder))
             {
                 handButton.SetEntity(placeholder.Dummy);
                 handButton.Blocked = true;

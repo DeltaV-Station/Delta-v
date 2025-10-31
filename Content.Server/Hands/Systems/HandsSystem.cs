@@ -114,6 +114,8 @@ namespace Content.Server.Hands.Systems
         }
 
         // Shitmed Change Start
+        // Most of what was changed is that HandleBodyPartAdded just calls TryAddHand, and that has a bit of extra
+        // logic for shitmed bullshit.
         private void TryAddHand(Entity<HandsComponent> ent, Entity<BodyPartComponent> part, string slot)
         // private void HandleBodyPartAdded(, ref BodyPartAddedEvent args)
         {
@@ -137,8 +139,8 @@ namespace Content.Server.Hands.Systems
                 AddHand(ent.AsNullable(), slot, location);
         }
 
-        private void HandleBodyPartAdded(Entity<HandsComponent> ent, ref BodyPartAddedEvent args)
-        {
+
+        private void HandleBodyPartAdded(Entity<HandsComponent> ent, ref BodyPartAddedEvent args) {
             TryAddHand(ent, args.Part, args.Slot);
         }
 
@@ -151,7 +153,7 @@ namespace Content.Server.Hands.Systems
         }
 
         private void HandleBodyPartEnabled(EntityUid uid, HandsComponent component, ref BodyPartEnabledEvent args) =>
-            TryAddHand(uid, component, args.Part, SharedBodySystem.GetPartSlotContainerId(args.Part.Comp.ParentSlot?.Id ?? string.Empty));
+            TryAddHand((uid, component), args.Part, SharedBodySystem.GetPartSlotContainerId(args.Part.Comp.ParentSlot?.Id ?? string.Empty));
 
         private void HandleBodyPartDisabled(EntityUid uid, HandsComponent component, ref BodyPartDisabledEvent args)
         {
