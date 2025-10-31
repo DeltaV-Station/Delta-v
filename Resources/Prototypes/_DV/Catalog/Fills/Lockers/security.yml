@@ -124,3 +124,14 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: GamblagatorTable
+
+- type: entity
+  parent: GunSafe
+  id: GunSafeSuperweaponEmpty
+  name: superweapon safe
+  description: Looks like someone got here before you did. It's... probably fine.
+  components:
+  - type: EntityStorage
+    open: true
+  - type: Lock
+    locked: false
