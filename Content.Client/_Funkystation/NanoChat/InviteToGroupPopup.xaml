@@ -1,0 +1,43 @@
+<!--
+SPDX-FileCopyrightText: 2025 EvaisaDev <mail@evaisa.dev>
+
+SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+-->
+
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+               Title="{Loc nano-chat-invite-to-group-title}"
+               MinSize="400 300">
+    <PanelContainer StyleClasses="AngleRect">
+        <BoxContainer Orientation="Vertical" Margin="4">
+            <!-- Search input -->
+            <BoxContainer Orientation="Vertical" Margin="0 4">
+                <Label Text="{Loc nano-chat-search-label}"
+                       StyleClasses="LabelHeading" />
+                <PanelContainer StyleClasses="ButtonSquare">
+                    <LineEdit Name="SearchInput"
+                              PlaceHolder="{Loc nano-chat-search-placeholder}" />
+                </PanelContainer>
+            </BoxContainer>
+
+            <!-- Contact list -->
+            <ScrollContainer VerticalExpand="True"
+                             HorizontalExpand="True"
+                             Margin="0 4">
+                <BoxContainer Name="ContactsList"
+                              Orientation="Vertical"
+                              VerticalExpand="True"
+                              HorizontalExpand="True" />
+            </ScrollContainer>
+
+            <!-- Action buttons -->
+            <BoxContainer Orientation="Horizontal"
+                          HorizontalAlignment="Right"
+                          Margin="0 8 0 0">
+                <Button Name="InviteCloseButton"
+                        Text="{Loc nano-chat-close}"
+                        MinSize="80 0" />
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</DefaultWindow>

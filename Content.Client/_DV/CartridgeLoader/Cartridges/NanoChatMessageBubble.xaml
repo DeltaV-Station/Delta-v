@@ -7,15 +7,22 @@
     <BoxContainer Name="MessageContainer"
                   Orientation="Horizontal"
                   HorizontalExpand="True">
-        <!-- Left spacer for other's messages -->
-        <Control Name="LeftSpacer"
-                 MinSize="12 0" />
+        <!--  Left spacer for other's messages  -->
+        <Control MinSize="12 0" Name="LeftSpacer" />
 
         <!-- Message panel -->
         <BoxContainer Name="MessageBox"
                       Orientation="Vertical"
                       MaxWidth="320"
                       HorizontalExpand="True">
+
+            <!-- Sender name -->
+            <Label HorizontalAlignment="Left"
+                   Margin="10,0,10,2"
+                   Name="SenderNameLabel"
+                   StyleClasses="LabelSmall"
+                   Visible="False" />
+
             <PanelContainer Name="MessagePanel"
                             MaxWidth="320"
                             HorizontalExpand="True">

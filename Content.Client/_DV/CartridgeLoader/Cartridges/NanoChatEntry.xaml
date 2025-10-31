@@ -26,6 +26,16 @@
                 </PanelContainer.PanelOverride>
             </PanelContainer>
 
+            <!-- Funky Station - Group chat icon -->
+            <TextureRect Name="GroupIcon"
+                         TexturePath="/Textures/_Funkystation/Interface/NanoChat/members.png"
+                         MinSize="16 16"
+                         MaxSize="16 16"
+                         Stretch="KeepAspectCentered"
+                         VerticalAlignment="Center"
+                         Margin="4 0 6 0"
+                         Visible="False" />
+
             <!-- Text container -->
             <BoxContainer Orientation="Vertical"
                           HorizontalExpand="True"

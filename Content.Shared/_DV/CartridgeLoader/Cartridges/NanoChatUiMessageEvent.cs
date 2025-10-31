@@ -57,6 +57,12 @@ public enum NanoChatUiMessageType : byte
     ToggleMute,
     ToggleMuteChat,
     ToggleListNumber,
+    CreateGroupChat, // Funky Station - Group Chats
+    InviteToGroup, // Funky Station - Group Chats
+    KickFromGroup, // Funky Station - Group Chats
+    ViewGroupMembers, // Funky Station - Group Chats
+    AdminUser, // Funky Station - Group Chats
+    DeadminUser, // Funky Station - Group Chats
 }
 
 // putting this here because i can
@@ -84,18 +90,53 @@ public struct NanoChatRecipient
     public bool HasUnread;
 
     /// <summary>
+    ///     Whether this is a group chat.
+    /// </summary>
+    public bool IsGroup; // Funky Station - Group Chats
+
+    /// <summary>
+    ///     For group chats: list of member NanoChat numbers.
+    /// </summary>
+    public HashSet<uint>? Members; // Funky Station - Group Chats
+
+    /// <summary>
+    ///     For group chats: the NanoChat number of the creator.
+    /// </summary>
+    public uint? CreatorId; // Funky Station - Group Chats
+
+    /// <summary>
+    ///     For group chats: set of admin NanoChat numbers who can invite/kick.
+    /// </summary>
+    public HashSet<uint>? Admins; // Funky Station - Group Chats
+
+    /// <summary>
     ///     Creates a new NanoChat recipient.
     /// </summary>
     /// <param name="number">The recipient's NanoChat number</param>
     /// <param name="name">The recipient's display name</param>
     /// <param name="jobTitle">Optional job title for the recipient</param>
     /// <param name="hasUnread">Whether there are unread messages from this recipient</param>
-    public NanoChatRecipient(uint number, string name, string? jobTitle = null, bool hasUnread = false)
+    /// <param name="isGroup">Whether this is a group chat</param>
+    /// <param name="members">For group chats: list of member NanoChat numbers</param>
+    /// <param name="creatorId">For group chats: the creator's NanoChat number</param>
+    /// <param name="admins">For group chats: set of admin NanoChat numbers</param>
+    public NanoChatRecipient(uint number,
+        string name,
+        string? jobTitle = null,
+        bool hasUnread = false,
+        bool isGroup = false, // Funky Station - Group Chats
+        HashSet<uint>? members = null, // Funky Station - Group Chats
+        uint? creatorId = null, // Funky Station - Group Chats
+        HashSet<uint>? admins = null) // Funky Station - Group Chats
     {
         Number = number;
         Name = name;
         JobTitle = jobTitle;
         HasUnread = hasUnread;
+        IsGroup = isGroup; // Funky Station - Group Chats
+        Members = members; // Funky Station - Group Chats
+        CreatorId = creatorId; // Funky Station - Group Chats
+        Admins = admins; // Funky Station - Group Chats
     }
 }
 
