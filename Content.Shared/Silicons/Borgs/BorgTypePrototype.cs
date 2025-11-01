@@ -17,7 +17,6 @@ namespace Content.Shared.Silicons.Borgs;
 [Prototype(-5)] // DeltaV - force load after shaders
 public sealed partial class BorgTypePrototype : IPrototype
 {
-    [ValidatePrototypeId<SoundCollectionPrototype>]
     private static readonly ProtoId<SoundCollectionPrototype> DefaultFootsteps = new("FootstepBorg");
 
     [IdDataField]

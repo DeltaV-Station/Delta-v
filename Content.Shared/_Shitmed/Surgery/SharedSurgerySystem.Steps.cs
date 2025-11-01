@@ -168,7 +168,7 @@ public abstract partial class SharedSurgerySystem
         }
 
 
-        //if (!HasComp<ForcedSleepingComponent>(args.Body))
+        //if (!HasComp<ForcedSleepingStatusEffectComponent>(args.Body))
         //    //RaiseLocalEvent(args.Body, new MoodEffectEvent("SurgeryPain"));
         // No mood on Goob :(
         if (!_inventory.TryGetSlotEntity(args.User, "gloves", out var _)

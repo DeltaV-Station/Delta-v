@@ -1,5 +1,5 @@
-using Content.Server.Flash;
-using Content.Server.Flash.Components;
+using Content.Shared.Flash;
+using Content.Shared.Flash.Components;
 using Content.Shared._Goobstation.Overlays;
 using Content.Shared.Inventory;
 
@@ -19,7 +19,7 @@ public sealed partial class NightVisionSystem : EntitySystem
         if (!ent.Comp.IsActive)
             return;
 
-        args.Uncancel();
+        args.Cancelled = false;
         args.IgnoreProtection = true;
     }
 }
