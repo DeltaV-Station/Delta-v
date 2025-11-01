@@ -39,7 +39,7 @@
     baseResistTime: 1.0 #they break out of grabs FAST
   - type: Damageable
     damageContainer: Biological
-    #damageModifierSet:
+    damageModifierSet: Allulalo #stops them from being oppressive hopefully
   - type: Bloodstream
     bloodMaxVolume: 250 #should be 50 less than the default of 300. theyre small
     bloodReagent: BloodAllulalo
