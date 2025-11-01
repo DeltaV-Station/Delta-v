@@ -191,11 +191,11 @@ public partial class ChatSystem
             if (!AllowedToUseEmote(uid, emote))
                 continue;
 
-            return TryInvokeEmoteEvent(uid, emote);
+            TryInvokeEmoteEvent(uid, emote);
+            validEmote = true; // DeltaV
         }
 
-        if (!validEmote) // DeltaV
-            return false;
+        return validEmote; // DeltaV
 
         static string TrimPunctuation(string textInput)
         {
