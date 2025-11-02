@@ -55,13 +55,3 @@
     - Drinks # DeltaV - doesn't exist
   - type: StealTarget
     stealGroup: BoozeDispenser
-
-- type: entity
-  id: BoozeDispenserEmpty
-  suffix: Empty
-  parent: BoozeDispenser
-  components:
-  - type: Storage
-    whitelist:
-      tags:
-      - DrinkBottle

@@ -280,20 +280,6 @@
   - type: AccessReader
     access: [["Salvage"]]
 
-# DeltaV - Adding Corpsman Suit Storage Unit
-- type: entity
-  id: SuitStorageCorpsman
-  parent: SuitStorageBase
-  suffix: Corpsman
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillLockerBrigmedicHarduit
-  - type: AccessReader
-    access: [[ "Corpsman" ]]
-# DeltaV - End Changes
-
 #Blood-red hardsuit
 - type: entity
   id: SuitStorageSyndie

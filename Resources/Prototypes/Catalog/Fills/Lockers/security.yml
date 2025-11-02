@@ -109,22 +109,6 @@
     - id: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier and stabproof vest
     - id: ClothingOuterArmorDuraVest # DeltaV
 
-# DeltaV - adding corpsman locker w/ hardsuit
-- type: entity
-  id: LockerBrigmedicFilledHardsuit
-  suffix: Corpsman, Filled, Hardsuit
-  parent: LockerBrigmedic
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - !type:NestedSelector
-          tableId: FillLockerBrigmedic
-        - !type:NestedSelector
-          tableId: FillLockerBrigmedicHarduit
-# End DeltaV - adding corpsman locker w/ hardsuit
-
 - type: entity
   id: LockerBrigmedicFilled
   suffix: Corpsman, Filled # DeltaV - rename brigmedic to corpsman
