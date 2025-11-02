@@ -148,9 +148,11 @@ public sealed partial class ZombieComponent : Component
     {
         DamageDict = new()
         {
-            { "Slash", 13 },
-            { "Piercing", 7 },
-            { "Structural", 10 }
+            // Delta-V Start - Shifting Piercing Damage to Slash.
+            { "Slash", 20 }, // Was 13.
+            //{ "Piercing", 7 }, // Removed, so a durathread vest properly protects against it now.
+            { "Structural", 15 } // Was 10.
+            // Delta-V End - Shifting Piercing Damage to Slash.
         }
     };
 
