@@ -17,7 +17,7 @@
     - id: DrinkShaker
     - id: ClothingEyesHudBeer
     - id: HandLabeler
-    - id: DrinkBottleBeer
+    - id: DrinkBeerBottleFull
       amount: !type:BinomialNumberSelector
         trials: 3
     - !type:AllSelector
@@ -25,9 +25,8 @@
       children:
       - id: BoxBeanbag
       - id: RagItem
-        amount: 2
-      - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
-        prob: 0.3
+    - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
+      prob: 0.3
 
 #- type: entity
 #  id: LockerFormalFilled
@@ -179,8 +178,8 @@
 - type: entity
   id: ClosetJanitorBombFilled
   parent: ClosetJanitorBomb
-  suffix: DO NOT MAP, Filled
-  categories: [ DoNotMap ]
+  suffix: Ask Before Mapping, Filled # DeltaV - Some maps may have these
+  #categories: [ DoNotMap ] # DeltaV - Some maps may have these
   components:
   - type: EntityTableContainerFill
     containers:
