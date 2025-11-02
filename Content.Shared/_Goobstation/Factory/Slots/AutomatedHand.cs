@@ -21,7 +21,7 @@ public sealed partial class AutomatedHand : AutomationSlot
     [DataField(required: true)]
     public string HandName = string.Empty;
 
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    protected SharedHandsSystem _hands;
 
     private Hand? _hand;
 
@@ -42,7 +42,7 @@ public sealed partial class AutomatedHand : AutomationSlot
     {
         base.Initialize();
 
-        //_hands = EntMan.System<SharedHandsSystem>();
+        _hands = EntMan.System<SharedHandsSystem>();
     }
 
     public override bool Insert(EntityUid item)
