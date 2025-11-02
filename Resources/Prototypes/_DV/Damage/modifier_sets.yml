@@ -66,6 +66,14 @@
     Slash: 1.2
     Radiation: 1.5
     Holy: 0.5
+    Shadow: 0.5
+
+- type: damageModifierSet
+  id: Avali
+  coefficients:
+    Blunt: 1.3
+    Piercing: 1.1
+    Slash: 1.1
 
 # Represents which damage types should be modified
 # in relation to how they cause bleed rate.
@@ -134,3 +142,4 @@
     Shock: 0.2
     Heat: 3.0
     Holy: 5.0
+    Shadow: 0.0

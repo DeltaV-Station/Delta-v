@@ -20,6 +20,7 @@ guide-entry-manualvalve = Manual Valve
 guide-entry-signalvalve = Signal Valve
 guide-entry-pneumaticvalve = Pneumatic Valve
 guide-entry-passivegate = Passive Gate
+guide-entry-ressureregulator = Pressure Regulator
 guide-entry-mixingandfiltering = Mixing and Filtering
 guide-entry-gascanisters = Gas Canisters
 guide-entry-thermomachines = Thermomachines
@@ -71,7 +72,9 @@ guide-entry-brute = Advanced Brute Medication
 guide-entry-botanicals = Botanicals
 guide-entry-cloning = Cloning
 guide-entry-cryogenics = Cryogenics
-guide-entry-science = Science
+# Beginning of DeltaV changes
+guide-entry-science = Epistemics
+# End of DeltaV Changes
 guide-entry-technologies = Technologies
 guide-entry-anomalous-research = Anomalous Research
 guide-entry-scanners-and-vessels = Scanners and Vessels

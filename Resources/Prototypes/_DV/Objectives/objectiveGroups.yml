@@ -31,7 +31,6 @@
   id: NinjaObjectiveGroupSteal
   weights:
     NinjaIanDossierStealObjective: 1
-    NinjaLuckyBillStealObjective: 1
     NinjaCaptainsCloakStealObjective: 0.75
 
 ## Traitor
@@ -108,3 +107,44 @@
     WizardDataObjective: 0.75
     WizardPreserveObjective: 1
     WizardTeachObjective: 1
+
+## Asakim
+- type: weightedRandom
+  id: AsakimObjectiveGroup
+  weights:
+    AsakimObjectiveGroupKill: 1
+    AsakimObjectiveGroupTheft: 1
+    AsakimObjectiveGroupInfiltrate: 1
+    AsakimObjectiveGroupInterrogate: 1
+    AsakimObjectiveGroupUpgrade: 1
+    AsakimObjectiveGroupAlly: 1
+
+- type: weightedRandom
+  id: AsakimObjectiveGroupKill
+  weights:
+    AsakimKillObjective: 1
+
+- type: weightedRandom
+  id: AsakimObjectiveGroupTheft
+  weights:
+    AsakimTheftObjective: 1
+
+- type: weightedRandom
+  id: AsakimObjectiveGroupInfiltrate
+  weights:
+    AsakimInfiltrateObjective: 1
+
+- type: weightedRandom
+  id: AsakimObjectiveGroupInterrogate
+  weights:
+    AsakimInterrogateObjective: 1
+
+- type: weightedRandom
+  id: AsakimObjectiveGroupUpgrade
+  weights:
+    AsakimUpgradeObjective: 1
+
+- type: weightedRandom
+  id: AsakimObjectiveGroupAlly
+  weights:
+    AsakimAllyObjective: 1
