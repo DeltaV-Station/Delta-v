@@ -146,7 +146,7 @@
     minimumPlayers: 0
   - type: MeteorSwarm
     announcement: station-event-space-dust-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
     nonDirectional: true
     meteors:
       MeteorSpaceDust: 1
@@ -203,7 +203,7 @@
     message: psionic-power-precognition-game-rule-urist-swarm-result-message
   - type: MeteorSwarm
     announcement: station-event-meteor-urist-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
     meteors:
       MeteorUrist: 1
     waves:
@@ -220,7 +220,7 @@
   - type: StationEvent
     startAnnouncement: station-event-immovable-rod-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
     weight: 3.5
     reoccurrenceDelay: 1
     duration: 1
@@ -266,7 +266,7 @@
     weight: 0.05
   - type: MeteorSwarm
     announcement: station-event-meteor-cow-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
     meteors:
       MeteorCow: 1
     waves:
@@ -284,7 +284,7 @@
     weight: 0.05
   - type: MeteorSwarm
     announcement: station-event-meteor-clown-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
     meteors:
       MeteorClown: 1
     waves:
@@ -302,7 +302,7 @@
     weight: 0.05
   - type: MeteorSwarm
     announcement: station-event-meteor-potato-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
     meteors:
       MeteorPotato: 1
     waves:
@@ -320,7 +320,7 @@
     weight: 0.03
   - type: MeteorSwarm
     announcement: station-event-fun-swarm-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
     meteors:
       MeteorClown: 1
       MeteorCow: 1
