@@ -67,11 +67,13 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
             SetSelectedNode(node);
         };
 
+        // DeltaV
         ServerButton.OnPressed += _ =>
         {
             OnServerSelectionButtonPressed?.Invoke();
         };
 
+        // DeltaV
         ExtractButton.OnPressed += _ =>
         {
             _pressed = true;
@@ -116,8 +118,8 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         ExtractContainer.Visible = true;
         NodeViewContainer.Visible = false;
 
-        _extractionSum = 0;
-        _glimmerSum = 0;
+        _extractionSum = 0;// DeltaV
+        _glimmerSum = 0;// DeltaV
         var extractionMessage = new FormattedMessage();
 
         var nodes = _xenoArtifact.GetAllNodes(artifact.Value);
@@ -125,7 +127,7 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         var count = 0;
         foreach (var node in nodes)
         {
-            var pointValue = _xenoArtifact.GetResearchValue(node) * _multValue;
+            var pointValue = _xenoArtifact.GetResearchValue(node) * _multValue;// DeltaV
             var glimmerValue = (pointValue / _ratioValue / _multValue);// DeltaV
             if (pointValue <= 0)
                 continue;
@@ -133,13 +135,13 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
             count++;
 
             var nodeId = _xenoArtifact.GetNodeId(node);
-            _extractionSum += (int)pointValue;
+            _extractionSum += (int)pointValue;// DeltaV
             _glimmerSum += (int)(glimmerValue);// DeltaV
-            var text = Loc.GetString("analysis-console-extract-value", ("id", nodeId), ("value", (int)(pointValue)));
-            var text2 = Loc.GetString("analysis-console-glimmer-value", ("id", nodeId), ("value", (int)(glimmerValue)));// DeltaV
-            extractionMessage.AddMarkupOrThrow(text);
+            var textPoints = Loc.GetString("analysis-console-extract-value", ("id", nodeId), ("value", (int)(pointValue)));
+            var textGlimmer = Loc.GetString("analysis-console-glimmer-value", ("id", nodeId), ("value", (int)(glimmerValue)));// DeltaV
+            extractionMessage.AddMarkupOrThrow(textPoints);
             extractionMessage.PushNewline();
-            extractionMessage.AddMarkupOrThrow(text2);
+            extractionMessage.AddMarkupOrThrow(textGlimmer);// DeltaV
             extractionMessage.PushNewline();
         }
 
@@ -150,7 +152,7 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         ExtractionResearchLabel.SetMessage(extractionMessage);
 
-        ExtractionSumLabel.SetMarkup(Loc.GetString("analysis-console-extract-sum", ("value", _extractionSum)));
+        ExtractionSumLabel.SetMarkup(Loc.GetString("analysis-console-extract-sum", ("value", _extractionSum)));// DeltaV
         GlimmerSumLabel.SetMarkup(Loc.GetString("analysis-console-glimmer-sum", ("value", _glimmerSum)));// DeltaV
         MultLabel.SetMarkup(Loc.GetString("analysis-console-glimmer-mult", ("value", _multValue.ToString("F2"))));// DeltaV
 

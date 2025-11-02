@@ -9,9 +9,10 @@ namespace Content.Shared.Xenoarchaeology.BUI;
 [Serializable, NetSerializable]
 public sealed class AnalysisConsoleBoundUserInterfaceState : BoundUserInterfaceState
 {
-    public float Mult { get; }
-    public float Ratio { get; }
+    public float Mult { get; }// DeltaV
+    public float Ratio { get; }// DeltaV
 
+    // DeltaV
     public AnalysisConsoleBoundUserInterfaceState(float mult, float ratio)
     {
         Mult = mult;

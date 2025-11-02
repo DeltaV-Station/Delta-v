@@ -79,13 +79,13 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
     // DeltaV
     private void UpdateClientUI(EntityUid console, ArtifactAnalyzerComponent analyzer)
     {
-        var glimmer = _glimmerSystem.Glimmer;
+
         var uiSystem = EntityManager.System<UserInterfaceSystem>();
         uiSystem.SetUiState(console, ArtifactAnalyzerUiKey.Key,
             new AnalysisConsoleBoundUserInterfaceState(GetGlimmerMultiplier(analyzer), (float)analyzer.ExtractRatio));
     }
 
-
+    // DeltaV
     private float GetGlimmerMultiplier(ArtifactAnalyzerComponent comp)
     {
         return 1 + (MathF.Pow(_glimmerSystem.Glimmer / 1000f, 2f) * comp.PointGlimmerMultiplier);
