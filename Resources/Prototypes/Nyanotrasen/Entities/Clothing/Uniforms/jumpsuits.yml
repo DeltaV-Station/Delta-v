@@ -115,17 +115,6 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitGalaxyBlue
-  name: blue galaxy suit
-  description: Blue lawsuit for those that conduct business on a galactic scale.
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
-  - type: Clothing
-    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
-
-- type: entity
-  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSecSummer
   name: summer security uniform
   description: A loose-fitting and casual variant of the standard security uniform.
