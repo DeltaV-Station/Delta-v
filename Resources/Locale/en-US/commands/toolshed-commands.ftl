@@ -98,8 +98,6 @@ command-description-xenoartifact-unlockAllNodes =
     Unlocks all nodes of artifact.
 command-description-stationevent-lsprobtime =
     Lists the probability of different station events occuring based on the specified length of a round.
-command-description-jobboard-completeJob =
-    Completes a given salvage job board job for the station.
 command-description-scale-set =
     Sets an entity's sprite size to a certain scale (without changing its fixture).
 command-description-scale-get =
