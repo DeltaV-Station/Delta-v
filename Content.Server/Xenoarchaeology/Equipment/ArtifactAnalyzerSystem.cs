@@ -2,8 +2,8 @@ using System;
 using Content.Server.Research.Systems;
 using Content.Server.Xenoarchaeology.Artifact;
 using Content.Shared.Popups;
-using Content.Shared.Psionics.Glimmer;
-using Content.Shared.Xenoarchaeology.BUI;
+using Content.Shared.Psionics.Glimmer;// DeltaV
+using Content.Shared._DV.Xenoarchaeology.BUI;// DeltaV
 using Content.Shared.Xenoarchaeology.Equipment;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
 
@@ -39,8 +39,10 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         if (!_research.TryGetClientServer(ent, out var server, out var serverComponent))
             return;
 
+        // Begin DeltaV - Variables for extraction totals
         var sumResearch = 0;
-        var sumGlimmer = 0;// DeltaV
+        var sumGlimmer = 0;
+        // End DeltaV
         ArtifactAnalyzerComponent? analyzer = null;
         if (ent.Comp.AnalyzerEntity is { } analyzerNetEntity)
         {
@@ -53,12 +55,13 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
             var research = _xenoArtifact.GetResearchValue(node);
             _xenoArtifact.SetConsumedResearchValue(node, node.Comp.ConsumedResearchValue + research);
 
+            // Begin DeltaV - Only run if we have an artifact ready for extraction
             if (analyzer != null)
             {
-                sumGlimmer += (int)(research / (float)analyzer.ExtractRatio);// DeltaV
+                sumGlimmer += (int)(research / (float)analyzer.ExtractRatio);
                 research = (int)(research * GetGlimmerMultiplier(analyzer));
             }
-
+            // End DeltaV
             sumResearch += research;
         }
         if (analyzer != null)

@@ -22,7 +22,7 @@ namespace Content.Client.Xenoarchaeology.Ui;
 [GenerateTypedNameReferences]
 public sealed partial class AnalysisConsoleMenu : FancyWindow
 {
-    private static readonly TimeSpan ExtractInfoDisplayForDuration = TimeSpan.FromSeconds(5);
+    private static readonly TimeSpan ExtractInfoDisplayForDuration = TimeSpan.FromSeconds(5);// DeltaV
 
     [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly IResourceCache _resCache = default!;
@@ -38,13 +38,13 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
     private TimeSpan? _hideExtractInfoIn;
 
-    // DeltaV
+    // Begin DeltaV - Variables for extraction calculation display
     private int _extractionSum;
     private int _glimmerSum;
     private float _multValue;
     private float _ratioValue;
     private bool _pressed;
-    // DeltaV
+    // End DeltaV
     public event Action? OnServerSelectionButtonPressed;
     public event Action? OnExtractButtonPressed;
 

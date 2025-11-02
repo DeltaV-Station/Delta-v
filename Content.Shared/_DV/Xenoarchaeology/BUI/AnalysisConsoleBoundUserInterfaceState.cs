@@ -3,16 +3,15 @@ using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Xenoarchaeology.BUI;
+namespace Content.Shared._DV.Xenoarchaeology.BUI;
 
 // DeltaV
 [Serializable, NetSerializable]
 public sealed class AnalysisConsoleBoundUserInterfaceState : BoundUserInterfaceState
 {
-    public float Mult { get; }// DeltaV
-    public float Ratio { get; }// DeltaV
+    public float Mult { get; }
+    public float Ratio { get; }
 
-    // DeltaV
     public AnalysisConsoleBoundUserInterfaceState(float mult, float ratio)
     {
         Mult = mult;
