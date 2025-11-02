@@ -73,8 +73,8 @@ public sealed class MimePowersSystem : EntitySystem
         _actionsSystem.AddAction(ent, ref ent.Comp.InvisibleWallActionEntity, ent.Comp.InvisibleWallAction);
 
         //DeltaV - Summary: Add Psionic Ability to Mime.
-        if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-            psionic.PsionicAbility = component.InvisibleWallActionEntity;
+        if (TryComp<PsionicComponent>(ent.Owner, out var psionic) && psionic.PsionicAbility == null)
+            psionic.PsionicAbility = ent.Comp.InvisibleWallActionEntity;
     }
 
     private void OnComponentShutdown(Entity<MimePowersComponent> ent, ref ComponentShutdown args)
