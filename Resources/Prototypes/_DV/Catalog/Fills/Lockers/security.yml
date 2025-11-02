@@ -98,23 +98,6 @@
     contents:
     - id: WeaponBeamDevastator
 
-- type: entityTable
-  id: LockerFillPrisonerDeltaV
-  table: !type:AllSelector
-    children:
-    - id: ClothingUniformJumpsuitPrisoner
-      amount: !type:ConstantNumberSelector
-        value: 2
-    - id: ClothingUniformJumpskirtPrisoner
-      amount: !type:ConstantNumberSelector
-        value: 2
-    - id: ClothingShoesColorBlack
-      amount: !type:ConstantNumberSelector
-        value: 2
-    - id: ClothingMaskMuzzle
-    - id: ClothingHeadsetPrison
-    - id: PrisonKnife # Bread cutting knife, does 4 damage total.
-
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeGamblagator
@@ -135,3 +118,26 @@
     open: true
   - type: Lock
     locked: false
+
+- type: entity
+  id: LockerBrigmedicFilledHardsuit
+  suffix: Corpsman, Filled, Hardsuit
+  parent: LockerBrigmedic
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillLockerBrigmedic
+        - !type:NestedSelector
+          tableId: LockerFillBrigmedicHardsuit
+
+- type: entityTable
+  id: LockerFillBrigmedicHardsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitCombatCorpsman
+    - id: ClothingShoesBootsSecurityMagboots
+    - id: OxygenTankFilled
+    - id: ClothingMaskBreath
