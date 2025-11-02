@@ -40,7 +40,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
             return;
 
         var sumResearch = 0;
-        var sumGlimmer = 0;
+        var sumGlimmer = 0;// DeltaV
         ArtifactAnalyzerComponent? analyzer = null;
         if (ent.Comp.AnalyzerEntity is { } analyzerNetEntity)
         {
@@ -55,7 +55,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
 
             if (analyzer != null)
             {
-                sumGlimmer += (int)(research / (float)analyzer.ExtractRatio);
+                sumGlimmer += (int)(research / (float)analyzer.ExtractRatio);// DeltaV
                 research = (int)(research * GetGlimmerMultiplier(analyzer));
             }
 
@@ -76,6 +76,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         _popup.PopupEntity(Loc.GetString("analyzer-artifact-extract-popup"), artifact.Value, PopupType.Large);
     }
 
+    // DeltaV
     private void UpdateClientUI(EntityUid console, ArtifactAnalyzerComponent analyzer)
     {
         var glimmer = _glimmerSystem.Glimmer;

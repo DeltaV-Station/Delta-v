@@ -5,6 +5,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Xenoarchaeology.BUI;
 
+// DeltaV
 [Serializable, NetSerializable]
 public sealed class AnalysisConsoleBoundUserInterfaceState : BoundUserInterfaceState
 {
