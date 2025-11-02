@@ -8,8 +8,8 @@ marking-AllulaloChestHeartMonitor-allulaloChestHeartMonitor = Heart monitor
 
 # Head
 
-marking-AllulaloHeadUnderbelly = Underbelly
-marking-AllulaloHeadUnderbelly-allulaloHeadUnderbelly = Underbelly
+marking-AllulaloHeadUnderbelly = Chin
+marking-AllulaloHeadUnderbelly-allulaloHeadUnderbelly = Chin
 
 marking-AllulaloHeadNeckFluff = Neck Plumage
 marking-AllulaloHeadNeckFluff-allulaloHeadNeckFluff = Plumage
