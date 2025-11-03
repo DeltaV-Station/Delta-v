@@ -563,24 +563,24 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             string? senderName = null;
             if (isGroupChat && !isOwnMessage)
             {
-                // Try to get sender name from contacts first, then recipients
-                if (_contacts != null)
+                // Funky Station - Try to get sender name from contacts first, then recipients
+                if (_recipients.TryGetValue(message.SenderId, out var senderRecipient))
+                {
+                    senderName = senderRecipient.Name;
+                }
+
+                // If not in recipients, try contacts list (station-wide directory)
+                if (senderName == null && _contacts != null)
                 {
                     var contact = _contacts.FirstOrDefault(c => c.Number == message.SenderId);
                     if (contact.Number != 0)
                         senderName = contact.Name;
                 }
 
-                // If not found in contacts, try recipients
-                if (senderName == null && _recipients.TryGetValue(message.SenderId, out var senderRecipient))
-                {
-                    senderName = senderRecipient.Name;
-                }
-
-                // Fallback to number if name not found
+                // Fallback to "Unknown" with number if name not found
                 if (senderName == null)
                 {
-                    senderName = $"#{message.SenderId:D4}";
+                    senderName = $"{Loc.GetString("nano-chat-unknown-sender")}#{message.SenderId:D4}"; // Funky Station
                 }
             }
 

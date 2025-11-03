@@ -36,3 +36,4 @@ nano-chat-emoji-search = Search emojis...
 
 # Department sorting
 nano-chat-other-department = Other
+nano-chat-unknown-sender = Unknown
