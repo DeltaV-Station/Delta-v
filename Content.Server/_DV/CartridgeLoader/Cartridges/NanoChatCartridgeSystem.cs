@@ -788,8 +788,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 jobTitle = idCard.LocalizedJobTitle;
                 name = idCard.FullName ?? name;
                 // Funky Station Start - Department Sorting: Get primary department
-                if (idCard.JobDepartments.Count > 0)
-                    department = idCard.JobDepartments[0];
+                if (idCard.JobDepartments is { } depts && depts.Count > 0)
+                    department = depts[0].ToString();
                 // Funky Station End - Department Sorting
             }
 
@@ -821,7 +821,9 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 {
                     // Funky Station Start - Department Sorting: Include department and job title in contacts
                     var jobTitle = idCardComponent.LocalizedJobTitle;
-                    var department = idCardComponent.JobDepartments.Count > 0 ? idCardComponent.JobDepartments[0].ToString() : null;
+                    string? department = null;
+                    if (idCardComponent.JobDepartments is { } depts && depts.Count > 0)
+                        department = depts[0].ToString();
                     contacts.Add(new NanoChatRecipient(nanoChatNumber, fullName, jobTitle, department));
                     // Funky Station End - Department Sorting
                 }
