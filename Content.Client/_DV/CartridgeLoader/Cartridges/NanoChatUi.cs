@@ -5,7 +5,7 @@ using Robust.Client.UserInterface;
 
 namespace Content.Client._DV.CartridgeLoader.Cartridges;
 
-public sealed partial class NanoChatUi : UIFragment
+public sealed partial class NanoChatUi : UIFragment, IDisposable // Funky: Disposable to clean popups
 {
     private NanoChatUiFragment? _fragment;
 
@@ -28,6 +28,12 @@ public sealed partial class NanoChatUi : UIFragment
     {
         if (state is NanoChatUiState cast)
             _fragment?.UpdateState(cast);
+    }
+
+    public void Dispose()
+    {
+        // Funky: Close all popups when switching apps or closing the PDA
+        _fragment?.CloseAllPopups();
     }
 
     private static void SendNanoChatUiMessage(NanoChatUiMessageType type,

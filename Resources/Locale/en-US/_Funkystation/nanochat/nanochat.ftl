@@ -33,3 +33,6 @@ nano-chat-admin-suffix = (Admin)
 # Emoji picker
 nano-chat-emoji-picker = Emoji Picker
 nano-chat-emoji-search = Search emojis...
+
+# Department sorting
+nano-chat-other-department = Other

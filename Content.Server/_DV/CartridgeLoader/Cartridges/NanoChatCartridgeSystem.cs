@@ -46,9 +46,42 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeMessageEvent>(OnMessage);
+        SubscribeLocalEvent<PdaComponent, BoundUIOpenedEvent>(OnPdaUiOpened);
+        SubscribeLocalEvent<PdaComponent, BoundUIClosedEvent>(OnPdaUiClosed);
 
         Subs.CVar(_cfg, CCVars.MaxNameLength, x => _maxNameLength = x, true);
         Subs.CVar(_cfg, CCVars.MaxIdJobLength, x => _maxIdJobLength = x, true);
+    }
+
+    private void OnPdaUiOpened(Entity<PdaComponent> ent, ref BoundUIOpenedEvent args)
+    {
+        if (!PdaUiKey.Key.Equals(args.UiKey))
+            return;
+
+        var cartridgeQuery = EntityQueryEnumerator<NanoChatCartridgeComponent, CartridgeComponent>();
+        while (cartridgeQuery.MoveNext(out var cartridgeUid, out var nanoChat, out var cartridge))
+        {
+            if (cartridge.LoaderUid == ent.Owner)
+            {
+                UpdateClosed((cartridgeUid, nanoChat));
+            }
+        }
+    }
+
+    private void OnPdaUiClosed(Entity<PdaComponent> ent, ref BoundUIClosedEvent args)
+    {
+        if (!PdaUiKey.Key.Equals(args.UiKey))
+            return;
+
+        // Update any NanoChat cartridges in this PDA
+        var cartridgeQuery = EntityQueryEnumerator<NanoChatCartridgeComponent, CartridgeComponent>();
+        while (cartridgeQuery.MoveNext(out var cartridgeUid, out var nanoChat, out var cartridge))
+        {
+            if (cartridge.LoaderUid == ent.Owner)
+            {
+                UpdateClosed((cartridgeUid, nanoChat));
+            }
+        }
     }
 
     private void UpdateClosed(Entity<NanoChatCartridgeComponent> ent)
@@ -209,7 +242,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         // Add new recipient
         var recipient = new NanoChatRecipient(msg.RecipientNumber.Value,
             name,
-            jobTitle);
+            jobTitle,
+            null); // Funky Station - Department Sorting: Department not needed for manual chat creation
 
         // Initialize or update recipient
         _nanoChat.SetRecipient((card, card.Comp), msg.RecipientNumber.Value, recipient);
@@ -651,7 +685,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 deliverableRecipients.AddRange(memberCards);
         }
 
-        return (false, deliverableRecipients);
+        // Delivery failed if no recipients could receive the message
+        return (deliverableRecipients.Count == 0, deliverableRecipients);
     }
 
     /// <summary>
@@ -746,14 +781,19 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
             // Try to get job title from ID card if possible
             string? jobTitle = null;
+            string? department = null; // Funky Station - Department Sorting
             var name = "Unknown";
             if (TryComp<IdCardComponent>(uid, out var idCard))
             {
                 jobTitle = idCard.LocalizedJobTitle;
                 name = idCard.FullName ?? name;
+                // Funky Station Start - Department Sorting: Get primary department
+                if (idCard.JobDepartments.Count > 0)
+                    department = idCard.JobDepartments[0];
+                // Funky Station End - Department Sorting
             }
 
-            return new NanoChatRecipient(number, name, jobTitle);
+            return new NanoChatRecipient(number, name, jobTitle, department); // Funky Station - Department Sorting: Added department param
         }
 
         return null;
@@ -779,7 +819,11 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             {
                 if (nanoChatCard.ListNumber && nanoChatCard.Number is uint nanoChatNumber && idCardComponent.FullName is string fullName && _station.GetOwningStation(entityId) == station)
                 {
-                    contacts.Add(new NanoChatRecipient(nanoChatNumber, fullName));
+                    // Funky Station Start - Department Sorting: Include department and job title in contacts
+                    var jobTitle = idCardComponent.LocalizedJobTitle;
+                    var department = idCardComponent.JobDepartments.Count > 0 ? idCardComponent.JobDepartments[0].ToString() : null;
+                    contacts.Add(new NanoChatRecipient(nanoChatNumber, fullName, jobTitle, department));
+                    // Funky Station End - Department Sorting
                 }
             }
             contacts.Sort((contactA, contactB) => string.CompareOrdinal(contactA.Name, contactB.Name));
@@ -852,11 +896,12 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         var recipient = new NanoChatRecipient(
             groupNumber,
             name,
-            null,
-            false,
-            true,
+            null, // jobTitle
+            null, // department // Funky Station - Department Sorting
+            false, // hasUnread
+            true, // isGroup
             members,
-            card.Comp.Number.Value
+            card.Comp.Number.Value // creatorId
         );
 
         _nanoChat.SetRecipient((card, card.Comp), groupNumber, recipient);

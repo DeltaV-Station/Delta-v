@@ -213,6 +213,10 @@ public sealed partial class NanoChatUiFragment : BoxContainer
     // Funky Station Start - Emoji Picker
     private void OpenEmojiPicker()
     {
+        // Close any existing emoji picker to prevent duplicates (shouldn't be happening anyway but it sure did)
+        if (_emojiPickerPopup.IsOpen)
+            _emojiPickerPopup.Close();
+
         _emojiPickerPopup.OpenCentered();
     }
 
@@ -227,6 +231,32 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         MessageInput.GrabKeyboardFocus();
     }
     // Funky Station End - Emoji Picker
+
+    // Funky Station Start - Clear Popups
+    /// <summary>
+    /// Closes all open popups. Called when switching apps or closing the PDA.
+    /// </summary>
+    public void CloseAllPopups()
+    {
+        if (_emojiPickerPopup.IsOpen)
+            _emojiPickerPopup.Close();
+
+        if (_inviteToGroupPopup.IsOpen)
+            _inviteToGroupPopup.Close();
+
+        if (_groupMembersPopup.IsOpen)
+            _groupMembersPopup.Close();
+
+        if (_newChatPopup.IsOpen)
+            _newChatPopup.Close();
+
+        if (_editChatPopup.IsOpen)
+            _editChatPopup.Close();
+
+        if (_createGroupChatPopup.IsOpen)
+            _createGroupChatPopup.Close();
+    }
+    // Funky Station End - Clear Popups
 
     private void ToggleView()
     {
@@ -350,8 +380,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             !recipient.IsGroup)
             return;
 
-        // Build available contacts from all recipients or use the contacts list if available
-        var availableContacts = _contacts ?? _recipients.Values.ToList();
+        var availableContacts = _contacts ?? new List<NanoChatRecipient>();
         var members = recipient.Members ?? new HashSet<uint>();
         _inviteToGroupPopup.SetContacts(availableContacts, members, _ownNumber);
         _inviteToGroupPopup.ClearSearch();
@@ -365,7 +394,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             !recipient.IsGroup)
             return;
 
-        var availableContacts = _contacts ?? _recipients.Values.ToList();
+        var availableContacts = _contacts ?? new List<NanoChatRecipient>();
         var members = recipient.Members ?? new HashSet<uint>();
         var admins = recipient.Admins ?? new HashSet<uint>();
         _groupMembersPopup.SetMembers(availableContacts, members, _ownNumber, recipient.CreatorId, admins);
@@ -388,7 +417,9 @@ public sealed partial class NanoChatUiFragment : BoxContainer
                 }
                 else
                 {
-                    var availableContacts = _contacts ?? _recipients.Values.ToList();
+                    // Use the contacts list from the server (same as Look Up Numbers)
+                    // Don't fall back to recipients as they contain outdated cached information
+                    var availableContacts = _contacts ?? new List<NanoChatRecipient>();
                     _inviteToGroupPopup.SetContacts(availableContacts, members, _ownNumber);
                 }
             }
@@ -411,7 +442,9 @@ public sealed partial class NanoChatUiFragment : BoxContainer
                 }
                 else
                 {
-                    var availableContacts = _contacts ?? _recipients.Values.ToList();
+                    // Use the contacts list from the server (same as Look Up Numbers)
+                    // Don't fall back to recipients as they contain outdated cached information
+                    var availableContacts = _contacts ?? new List<NanoChatRecipient>();
                     var admins = recipient.Admins ?? new HashSet<uint>();
                     _groupMembersPopup.SetMembers(availableContacts, members, _ownNumber, recipient.CreatorId, admins);
                 }

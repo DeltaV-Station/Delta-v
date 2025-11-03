@@ -85,6 +85,11 @@ public struct NanoChatRecipient
     public string? JobTitle;
 
     /// <summary>
+    ///     The recipient's department ID, if available. // Funky Station - Department Sorting
+    /// </summary>
+    public string? Department; // Funky Station - Department Sorting
+
+    /// <summary>
     ///     Whether this recipient has unread messages.
     /// </summary>
     public bool HasUnread;
@@ -115,6 +120,7 @@ public struct NanoChatRecipient
     /// <param name="number">The recipient's NanoChat number</param>
     /// <param name="name">The recipient's display name</param>
     /// <param name="jobTitle">Optional job title for the recipient</param>
+    /// <param name="department">Optional department ID for the recipient</param> // Funky Station - Department Sorting
     /// <param name="hasUnread">Whether there are unread messages from this recipient</param>
     /// <param name="isGroup">Whether this is a group chat</param>
     /// <param name="members">For group chats: list of member NanoChat numbers</param>
@@ -123,6 +129,7 @@ public struct NanoChatRecipient
     public NanoChatRecipient(uint number,
         string name,
         string? jobTitle = null,
+        string? department = null, // Funky Station - Department Sorting
         bool hasUnread = false,
         bool isGroup = false, // Funky Station - Group Chats
         HashSet<uint>? members = null, // Funky Station - Group Chats
@@ -132,6 +139,7 @@ public struct NanoChatRecipient
         Number = number;
         Name = name;
         JobTitle = jobTitle;
+        Department = department; // Funky Station - Department Sorting
         HasUnread = hasUnread;
         IsGroup = isGroup; // Funky Station - Group Chats
         Members = members; // Funky Station - Group Chats

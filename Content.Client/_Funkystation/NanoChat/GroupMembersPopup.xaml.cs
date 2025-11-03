@@ -108,9 +108,14 @@ public sealed partial class GroupMembersPopup : DefaultWindow
 
             var resCache = IoCManager.Resolve<IResourceCache>();
 
+            // Show name with job title if available
+            var displayName = contact.Name;
+            if (!string.IsNullOrWhiteSpace(contact.JobTitle))
+                displayName = $"{contact.Name} ({contact.JobTitle})";
+
             var nameLabel = new Label
             {
-                Text = contact.Name + (isCreator ? $" {Loc.GetString("nano-chat-owner-suffix")}" : isAdmin ? $" {Loc.GetString("nano-chat-admin-suffix")}" : ""),
+                Text = displayName + (isCreator ? $" {Loc.GetString("nano-chat-owner-suffix")}" : isAdmin ? $" {Loc.GetString("nano-chat-admin-suffix")}" : ""),
                 HorizontalAlignment = HAlignment.Left,
                 HorizontalExpand = true
             };
