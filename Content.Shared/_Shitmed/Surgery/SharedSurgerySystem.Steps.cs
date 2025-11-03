@@ -26,6 +26,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed.TypeParsers;
 using System.Linq;
+using Content.Shared._Mono.CorticalBorer; // Mono
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 
@@ -47,6 +48,7 @@ public abstract partial class SharedSurgerySystem
 
         SubSurgery<SurgeryTendWoundsEffectComponent>(OnTendWoundsStep, OnTendWoundsCheck);
         SubSurgery<SurgeryStepCavityEffectComponent>(OnCavityStep, OnCavityCheck);
+        SubSurgery<SurgeryStepRemoveCorticalBorerComponent>(OnCorticalBorerRemovalStep, OnCorticalBorerRemovalCheck); // Mono
         SubSurgery<SurgeryAddPartStepComponent>(OnAddPartStep, OnAddPartCheck);
         SubSurgery<SurgeryAffixPartStepComponent>(OnAffixPartStep, OnAffixPartCheck);
         SubSurgery<SurgeryRemovePartStepComponent>(OnRemovePartStep, OnRemovePartCheck);
@@ -348,16 +350,17 @@ public abstract partial class SharedSurgerySystem
     {
         var group = ent.Comp.MainGroup == "Brute" ? BruteDamageTypes : BurnDamageTypes;
 
-        if (!HasDamageGroup(args.Body, group, out var damageable)
-            && !HasDamageGroup(args.Part, group, out var _)
+        if (!HasDamageGroup(args.Part, group, out var damageable) // DeltaV - Surgery Healing Depends on Limbs.
+            && !HasDamageGroup(args.Body, group, out var _)
             || damageable == null) // This shouldnt be possible but the compiler doesn't shut up.
             return;
 
 
         // Right now the bonus is based off the body's total damage, maybe we could make it based off each part in the future.
+        // We did make it based of each part, the future is here - DeltaV
         var bonus = ent.Comp.HealMultiplier * damageable.DamagePerGroup[ent.Comp.MainGroup];
         if (_mobState.IsDead(args.Body))
-            bonus *= 0.2;
+            bonus *= 0.1; // DeltaV - Surgery Healing Depends on Limbs.
 
         var adjustedDamage = new DamageSpecifier(ent.Comp.Damage);
 
@@ -372,8 +375,7 @@ public abstract partial class SharedSurgerySystem
     {
         var group = ent.Comp.MainGroup == "Brute" ? BruteDamageTypes : BurnDamageTypes;
 
-        if (HasDamageGroup(args.Body, group, out var _)
-            || HasDamageGroup(args.Part, group, out var _))
+        if (HasDamageGroup(args.Part, group, out var _)) // DeltaV - Surgery Healing Depends on Limbs.
             args.Cancelled = true;
     }
 
@@ -426,6 +428,21 @@ public abstract partial class SharedSurgerySystem
             && itemComp.Slots[partComp.ContainerName].HasItem)
             args.Cancelled = true;
     }
+
+    // Begin Mono Changes - borer
+    private void OnCorticalBorerRemovalStep(Entity<SurgeryStepRemoveCorticalBorerComponent> ent, ref SurgeryStepEvent args)
+    {
+        if (TryComp<CorticalBorerInfestedComponent>(args.Body, out var infested) &&
+            infested.InfestationContainer.ContainedEntities.Count != 0)
+            _corticalBorer.TryEjectBorer(infested.Borer);
+    }
+
+    private void OnCorticalBorerRemovalCheck(Entity<SurgeryStepRemoveCorticalBorerComponent> ent, ref SurgeryStepCompleteCheckEvent args)
+    {
+        if (HasComp<CorticalBorerInfestedComponent>(args.Body))
+            args.Cancelled = true;
+    }
+    // End Mono Changes - borer
 
     private void OnAddPartStep(Entity<SurgeryAddPartStepComponent> ent, ref SurgeryStepEvent args)
     {

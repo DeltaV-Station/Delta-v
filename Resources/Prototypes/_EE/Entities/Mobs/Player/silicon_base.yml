@@ -196,7 +196,7 @@
         - CanPilot
         - FootstepSound
         - DoorBumpOpener
-        - SiliconEmotes # DeltaV
+        - SiliconOrIPCEmotes # DeltaV
     - type: Hands
     - type: Inventory
       templateId: human
@@ -331,3 +331,4 @@
           Electronic: -0.5
     - type: SiliconEmp # DeltaV - EMP damage
     - type: CosmicCenserTarget # DeltaV - Cosmic Cult
+    - type: GrappleTarget # DeltaV - Allow targets to be grappled

@@ -63,16 +63,16 @@ namespace Content.IntegrationTests.Tests
             "TestTeg",
             "CentComm",
             "MeteorArena",
-            "Pebble", // DeltaV
-            "Edge", // DeltaV
-            "Shoukou", // DeltaV
-            "Tortuga", // DeltaV
-            "Terra", //DeltaV
+            "Academy", //DeltaV
             "Arena", // DeltaV
+            "ArenaMedieval", //DeltaV
             "Asterisk", // DeltaV
             "Byoin", // DeltaV
+            "Chibi", // DeltaV
+            "Division", // DeltaV
+            "Edge", // DeltaV
+            "Elegance", // DeltaV
             "Glacier", // DeltaV
-            "TheHive", // DeltaV
             "Hammurabi", // DeltaV
             "Lighthouse", // DeltaV
             "Micro", // DeltaV
@@ -80,7 +80,13 @@ namespace Content.IntegrationTests.Tests
             "Elegance", // DeltaV
             "Division", // DeltaV
             "ArenaMedieval", //DeltaV
-			"Anvil" //DeltaV
+			      "Anvil", //DeltaV
+            "Pebble", // DeltaV
+            "Shoukou", // DeltaV
+            "Submarine", //DeltaV
+            "Terra", //DeltaV
+            "TheHive", // DeltaV
+            "Tortuga" // DeltaV
         };
 
         /// <summary>

@@ -44,6 +44,14 @@ public sealed partial class AdminLogsControl : Control
 
         ResetRoundButton.OnPressed += ResetRoundPressed;
 
+        // START DEN - Admin Log Sorting
+        AscendingOrderButton.Pressed = this.ReverseLogOrder;
+        DescendingOrderButton.Pressed = !this.ReverseLogOrder;
+
+        AscendingOrderButton.OnPressed += SetLogOrderAscending;
+        DescendingOrderButton.OnPressed += SetLogOrderDescending;
+        // END DEN - Admin Log Sorting
+
         SetImpacts(Enum.GetValues<LogImpact>().OrderBy(impact => impact).ToArray());
         SetTypes(Enum.GetValues<LogType>());
     }
@@ -56,6 +64,18 @@ public sealed partial class AdminLogsControl : Control
     private int TotalLogs { get; set; }
     private int RoundLogs { get; set; }
     public bool IncludeNonPlayerLogs { get; set; }
+
+    /// <summary>
+    /// THE DEN - Admin Log Sorting
+    /// Reverses the logs displayed when updating logs. True means logs will be ascending order.
+    /// The server sends the logs in descending order, so reversing means it will be ascending order.
+    /// </summary>
+    public bool ReverseLogOrder { get; set; } = true;
+    /// <summary>
+    /// THE DEN - Admin Log Sorting
+    /// The raw log entries recieved from the server. It should always be in descdending order.
+    /// </summary>
+    private List<SharedAdminLog> RawAdminLogs { get; set; } = new();
 
     public HashSet<LogType> SelectedTypes { get; } = new();
 
@@ -328,6 +348,59 @@ public sealed partial class AdminLogsControl : Control
         UpdateLogs();
     }
 
+    // BEGIN DEN - Admin Log Sorting
+    private void SetLogOrderAscending(ButtonEventArgs args)
+    {
+        // Invert the buttons. There's only two possible states, so probably not a big deal to directly reference the buttons.
+        AscendingOrderButton.Pressed = true;
+        DescendingOrderButton.Pressed = false;
+
+        this.ReverseLogOrder = true; // true = ascending
+
+        RedrawLogs();
+    }
+
+    private void SetLogOrderDescending(ButtonEventArgs args)
+    {
+        // Invert the buttons. There's only two possible states, so probably not a big deal to directly reference the buttons.
+        AscendingOrderButton.Pressed = false;
+        DescendingOrderButton.Pressed = true;
+
+        this.ReverseLogOrder = false; // false = descending
+
+        RedrawLogs();
+    }
+
+    private void RedrawLogs()
+    {
+        // Need to copy the list RawAdminLogs to a new list because we don't want to screw up the ordering from
+        // the 'source' of truth. If we did reverse the order of that list, we'd need to keep track of the order
+        // of what we get from the server and how we append/prepend those logs.
+        var tempLogs = new List<SharedAdminLog>(RawAdminLogs);
+        if (ReverseLogOrder) tempLogs.Reverse();
+
+        LogsContainer.RemoveAllChildren();
+        UpdateCount(0, 0);
+
+        for (var i = 0; i < tempLogs.Count; i++)
+        {
+            var log = tempLogs[i];
+            ref var logRef = ref log; // It didn't like me doing this as one line lmao
+            var separator = new HSeparator();
+            var label = new AdminLogLabel(ref logRef, separator);
+            label.Visible = ShouldShowLog(label);
+
+            TotalLogs++;
+            if (label.Visible) ShownLogs++;
+
+            LogsContainer.AddChild(label);
+            LogsContainer.AddChild(separator);
+        }
+
+        UpdateCount();
+    }
+    // END DEN - Admin Log Sorting
+
     private void ImpactButtonPressed(ButtonEventArgs args)
     {
         var button = (AdminLogImpactButton) args.Button;
@@ -464,31 +537,15 @@ public sealed partial class AdminLogsControl : Control
 
     public void AddLogs(List<SharedAdminLog> logs)
     {
-        var span = CollectionsMarshal.AsSpan(logs);
-        for (var i = 0; i < span.Length; i++)
-        {
-            ref var log = ref span[i];
-            var separator = new HSeparator();
-            var label = new AdminLogLabel(ref log, separator);
-            label.Visible = ShouldShowLog(label);
-
-            TotalLogs++;
-            if (label.Visible)
-            {
-                ShownLogs++;
-            }
-
-            LogsContainer.AddChild(label);
-            LogsContainer.AddChild(separator);
-        }
-
-        UpdateCount();
+        RawAdminLogs.AddRange(logs); // THE DEN - Admin Log Sorting - Logs will be sent in descending order
+        RedrawLogs(); // Drawing the logs has been encaspulated to its own function
     }
 
     public void SetLogs(List<SharedAdminLog> logs)
     {
         LogsContainer.RemoveAllChildren();
         UpdateCount(0, 0);
+        RawAdminLogs.Clear(); // THE DEN - Admin Log Sorting
         AddLogs(logs);
     }
 
@@ -529,6 +586,11 @@ public sealed partial class AdminLogsControl : Control
         IncludeNonPlayersButton.OnPressed -= IncludeNonPlayers;
         SelectAllPlayersButton.OnPressed -= SelectAllPlayers;
         SelectNoPlayersButton.OnPressed -= SelectNoPlayers;
+
+        // START DEN - Admin Log Sorting
+        AscendingOrderButton.OnPressed -= SetLogOrderAscending;
+        DescendingOrderButton.OnPressed -= SetLogOrderDescending;
+        // END DEN - Admin Log Sorting
 
         RoundSpinBox.IsValid = null;
         RoundSpinBox.ValueChanged -= RoundSpinBoxChanged;
