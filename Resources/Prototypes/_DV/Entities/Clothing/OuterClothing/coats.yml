@@ -182,3 +182,34 @@
   - type: TemperatureProtection
     coolingCoefficient: 0.1
     heatingCoefficient: 1.1
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatNavalCoat
+  name: Naval Coat
+  description: A thick naval coat with gold trimming for formal occasions.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/navalcoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/navalcoat.rsi
+  - type: TemperatureProtection
+    coolingCoefficient: 0.1
+    heatingCoefficient: 1.1
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterDusterCoat
+  name: rugged duster
+  description: A rugged duster with a bandana scarf made for keeping off the ash and dust. Not much of that up in space though.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/duster.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/duster.rsi
+  - type: TemperatureProtection
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.9
