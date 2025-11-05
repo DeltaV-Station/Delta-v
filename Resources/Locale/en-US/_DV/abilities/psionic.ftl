@@ -84,3 +84,8 @@ eruption-warning-window-prompt-text-part = You feel a strong pressure building u
 eruption-warning-window-acknowledge-button = I Understand
 
 telegnosis-power-ssd = { CAPITALIZE(POSS-ADJ($ent)) } eyes are unfocused and darting around, as if trying to see something that isn't there.
+
+fractured-form-nobodies = You have no alternate forms to switch to!
+fractured-form-sleepy = You feel very sleepy... You should find somewhere to rest.
+fractured-form-ssd = { CAPITALIZE(SUBJECT($ent)) } { CONJUGATE-BE($ent) } in a deep sleep. { CAPITALIZE(POSS-ADJ($ent)) } eyes seem to be darting around as if dreaming.
+fractured-form-examine-self = You feel a strange connection to { OBJECT($ent) }.

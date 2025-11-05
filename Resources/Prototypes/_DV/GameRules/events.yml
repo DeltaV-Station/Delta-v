@@ -15,6 +15,7 @@
     - id: RoboNeuroticist
     - id: MenaceSkeleton
     - id: SkiaSpawn
+    - id: RatKingSpawn
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -28,7 +29,7 @@
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
     startAudio:
-      path: /Audio/Announcements/meteors.ogg
+      path: /Audio/_DV/Announcements/meteors.ogg
       params:
         volume: -4
     duration: null #ending is handled by MeteorSwarmRule
@@ -43,7 +44,7 @@
   - type: StationEvent
     startAnnouncement: station-event-xeno-vent-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
+      path: /Audio/_DV/Announcements/aliens.ogg
     earliestStart: 25
     minimumPlayers: 30
     weight: 2
@@ -159,15 +160,23 @@
     minimumPlayers: 15
     earliestStart: 25
   - type: MidRoundAntagRule
-# Rat king
-#- type: entity
-#  parent: BaseMidRoundAntag
-#  id: RatKingSpawn
-#  components:
-#  if you uncomment this update this for antag refactor, below wont work
-#  - type: MidRoundAntagRule
-#    spawner: SpawnPointGhostRatKing
-# Fugitive
+
+- type: entity
+  parent: BaseMidRoundAntag
+  id: RatKingSpawn
+  components:
+  - type: StationEvent
+    weight: 7
+    minimumPlayers: 20
+  - type: AntagSpawner
+    prototype: MobRatKing
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostRatKing
+      min: 1
+      max: 1
+      pickPlayer: false
+
 - type: entity
   parent: BaseMidRoundAntag
   id: Fugitive
@@ -217,7 +226,7 @@
     maxOccurrences: 1
   - type: RuleGrids
   - type: LoadMapRule
-    gridPath: /Maps/_DV/Shuttles/haibu.yml # was roboneuroticist_ship.yml
+    gridPath: /Maps/_DV/Shuttles/Event/haibu.yml # was /Maps/_DV/Shuttles/Admin/roboneuroticist_ship.yml
   - type: AntagSpawner
     prototype: MobHuman
   - type: AntagObjectives
@@ -260,7 +269,7 @@
   - type: StationEvent
     startAnnouncement: station-event-noospheric-storm-announcement
     startAudio:
-      path: /Audio/Announcements/noosphericstorm.ogg
+      path: /Audio/_DV/Announcements/noosphericstorm.ogg
     weight: 5
     earliestStart: 15
   - type: NoosphericStormRule

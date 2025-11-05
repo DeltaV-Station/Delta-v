@@ -207,6 +207,39 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/littleguy_overalls.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWaitstaffFormal
+  name: waitstaff suit
+  description: A sharp vest with comfortable slacks made for serving tables and looking professional.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/waitingsuit.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/waitingsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWorkvest
+  name: work vest
+  description: A sturdy suspender vest over a rolled up workshirt, shorts, and a pair of blue leggings. For when you want to look good while you work.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/workvest.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/workvest.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitGalaxyBlue
+  name: blue galaxy suit
+  description: Blue lawsuit for those that conduct business on a galactic scale.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
+
 # Formal uniforms
 
 - type: entity
