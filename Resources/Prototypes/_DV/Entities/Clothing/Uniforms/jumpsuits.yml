@@ -229,6 +229,17 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/workvest.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitGalaxyBlue
+  name: blue galaxy suit
+  description: Blue lawsuit for those that conduct business on a galactic scale.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
+
 # Formal uniforms
 
 - type: entity
