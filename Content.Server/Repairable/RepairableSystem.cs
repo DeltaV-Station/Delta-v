@@ -33,6 +33,11 @@ namespace Content.Server.Repairable
             {
                 var damageChanged = _damageableSystem.TryChangeDamage(uid, component.Damage, true, false, origin: args.User);
                 _adminLogger.Add(LogType.Healed, $"{ToPrettyString(args.User):user} repaired {ToPrettyString(uid):target} by {damageChanged?.GetTotal()}");
+                // Delta-V Start - Make Repair-DoAfters repeat when the repair-target isn't fully repaired.
+                // Only try to repair the target if it is still damaged
+                if (damageable.TotalDamage > 0)
+                    args.Args.Event.Repeat = true;
+                // Delta-V End - Make Repair-DoAfters repeat when the repair-target isn't fully repaired.
             }
 
             else
