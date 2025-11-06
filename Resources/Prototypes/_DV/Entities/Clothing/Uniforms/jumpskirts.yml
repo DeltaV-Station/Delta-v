@@ -40,6 +40,17 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/overalls.rsi
 
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtWaitstaffFormal
+  name: waitstaff skirt
+  description: A sharp vest with a pencil skirt made for serving tables and looking professional.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/waitingskirt.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/waitingskirt.rsi
+
 # Formal uniforms
 
 - type: entity
