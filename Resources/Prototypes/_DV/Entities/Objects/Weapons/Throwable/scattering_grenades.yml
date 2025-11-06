@@ -1,0 +1,30 @@
+- type: entity
+  name: mothroach grenade
+  description: A grenade containing 8 dehydrated mothroaches, trained to attack everything nearby.
+  parent: [ScatteringGrenadeBase, BaseSyndicateContraband]
+  id: MothroachGrenade
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Grenades/mothroach_grenade.rsi
+    layers:
+    - state: icon
+      map: [ "enum.TriggerVisualLayers.Base" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.ConstructionVisuals.Layer:
+          Primed: { state: primed }
+          Unprimed: { state: icon }
+  - type: ScatteringGrenade
+    fillPrototype: MobMothroachEvil
+    capacity: 8
+  - type: OnUseTimerTrigger
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 5
+    initialBeepDelay: 0
+    beepInterval: 0.5
+  - type: SoundOnTrigger
+    sound:
+      path: "/Audio/Voice/Moth/moth_scream.ogg"

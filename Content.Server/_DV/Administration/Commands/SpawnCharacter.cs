@@ -1,32 +1,35 @@
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.GameTicking;
-using Content.Server.Players;
+using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Preferences.Managers;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
-using Robust.Server.Player;
+using Content.Shared.Roles;
+using Content.Shared.Station;
 using Robust.Shared.Console;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.Administration.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class SpawnCharacter : IConsoleCommand
+public sealed class SpawnCharacter : LocalizedEntityCommands
 {
     [Dependency] private readonly IEntitySystemManager _entitySys = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-    public string Command => "spawncharacter";
-    public string Description => Loc.GetString("spawncharacter-command-description");
-    public string Help => Loc.GetString("spawncharacter-command-help");
+    public override string Command => "spawncharacter";
+    public override string Description => Loc.GetString("cmd-spawncharacter-desc");
+    public override string Help => Loc.GetString("cmd-spawncharacter-help");
 
-    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (shell.Player is not ICommonSession player)
         {
@@ -49,8 +52,7 @@ public sealed class SpawnCharacter : IConsoleCommand
 
         if (args.Length >= 1)
         {
-            // This seems like a bad way to go about it, but it works so eh?
-            var name = string.Join(" ", args.ToArray());
+            var name = args[0]; // Auto-complete adds quotes around the name, so no need to worry about spaces.
             shell.WriteLine(Loc.GetString("loadcharacter-command-fetching", ("name", name)));
 
             if (!FetchCharacters(data.UserId, out var characters))
@@ -70,7 +72,16 @@ public sealed class SpawnCharacter : IConsoleCommand
             character = selectedCharacter;
         }
         else
-            character = (HumanoidCharacterProfile) _prefs.GetPreferences(data.UserId).SelectedCharacter;
+            character = (HumanoidCharacterProfile)_prefs.GetPreferences(data.UserId).SelectedCharacter;
+
+        var jobName = args.Length > 1 ? args[1] : "Passenger"; // just default to passenger
+        var jobExists = _prototypeManager.TryIndex<JobPrototype>(jobName, out var jobProto);
+
+        if (!jobExists)
+        {
+            shell.WriteError(Loc.GetString("cmd-spawncharacter-error-job"));
+            jobName = "Passenger"; // and if they fuck up, just default to passenger again
+        }
 
 
         var coordinates = player.AttachedEntity != null
@@ -81,14 +92,13 @@ public sealed class SpawnCharacter : IConsoleCommand
             !mindSystem.TryGetMind(player.AttachedEntity.Value, out var mindId, out var mind))
             return;
 
+        var mobUid = _entityManager.System<StationSpawningSystem>().SpawnPlayerMob(coordinates, profile: character, entity: null, job: jobName, station: null);
+        mindSystem.TransferTo(mindId, mobUid);
 
-        mindSystem.TransferTo(mindId, _entityManager.System<StationSpawningSystem>()
-            .SpawnPlayerMob(coordinates, profile: character, entity: null, job: null, station: null));
-
-        shell.WriteLine(Loc.GetString("spawncharacter-command-complete"));
+        shell.WriteLine(Loc.GetString("cmd-spawncharacter-complete"));
     }
 
-    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
         if (args.Length == 1)
         {
@@ -103,8 +113,15 @@ public sealed class SpawnCharacter : IConsoleCommand
                 return CompletionResult.Empty;
 
             return FetchCharacters(data.UserId, out var characters)
-                ? CompletionResult.FromOptions(characters.Select(c => c.Name))
+                ? CompletionResult.FromHintOptions(characters.Select(c => c.Name), Loc.GetString("cmd-spawncharacter-arg-character"))
                 : CompletionResult.Empty;
+        }
+
+        if (args.Length == 2)
+        {
+            return CompletionResult.FromHintOptions(
+                CompletionHelper.PrototypeIDs<JobPrototype>(),
+                Loc.GetString("cmd-spawncharacter-arg-job"));
         }
 
         return CompletionResult.Empty;
@@ -118,7 +135,7 @@ public sealed class SpawnCharacter : IConsoleCommand
 
         characters = prefs.Characters
             .Where(kv => kv.Value is HumanoidCharacterProfile)
-            .Select(kv => (HumanoidCharacterProfile) kv.Value)
+            .Select(kv => (HumanoidCharacterProfile)kv.Value)
             .ToArray();
 
         return true;
