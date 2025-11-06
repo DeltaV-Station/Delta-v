@@ -61,6 +61,8 @@
     - type: StaticPrice
       price: 100
     # Begin DeltaV additions
+    - type: ExaminableDamage
+      messages: ShieldMessages
     - type: MeleeWeapon
       canWideSwing: false
       damage:
@@ -359,7 +361,7 @@
 
 - type: entity
   name: clockwork shield
-  parent: BaseShield
+  parent: BaseRepairableShield # Delta-V - Repairable Shields
   id: ClockworkShield
   description: Ratvar oyrffrf lbh jvgu uvf cebgrpgvba.
   components:
@@ -532,6 +534,8 @@
                   max: 1
     - type: StaticPrice
       price: 350
+    - type: ExaminableDamage # Delta-V - Examinable Shield Damage
+      messages: EnergyShieldMessages
 
 - type: entity
   name: broken energy shield
@@ -549,7 +553,7 @@
 
 - type: entity
   name: telescopic shield
-  parent: BaseShield
+  parent: BaseRepairableShield # Delta-V - Repairable Shields
   id: TelescopicShield
   description: An advanced riot shield made of lightweight materials that collapses for easy storage.
   components:
