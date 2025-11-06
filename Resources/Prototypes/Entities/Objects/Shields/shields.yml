@@ -77,7 +77,7 @@
 
 - type: entity
   name: riot shield
-  parent: [ BaseShield, BaseSecurityContraband ]
+  parent: [ BaseRepairableShield, BaseSecurityContraband ] # Delta-V - Repairable Shields
   id: RiotShield
   description: A large tower shield. Good for controlling crowds.
   components:
@@ -111,7 +111,7 @@
 
 - type: entity
   name: laser shield
-  parent: [ BaseShield, BaseSecurityContraband ]
+  parent: [ BaseRepairableShield, BaseSecurityContraband ] # Delta-V - Repairable Shields
   id: RiotLaserShield
   description: A shield built for withstanding lasers, but not much else.
   components:
@@ -142,7 +142,7 @@
 
 - type: entity
   name: ballistic shield
-  parent: [ BaseShield, BaseSecurityContraband ]
+  parent: [ BaseRepairableShield, BaseSecurityContraband ] # Delta-V - Repairable Shields
   id: RiotBulletShield
   description: A shield built for protecting against ballistics, but not much else.
   components:
@@ -241,7 +241,7 @@
 
 - type: entity
   name: makeshift shield
-  parent: BaseShield
+  parent: BaseRepairableShield # Delta-V - Repairable Shields
   id: MakeshiftShield
   description: A rundown looking shield, not good for much.
   components:
