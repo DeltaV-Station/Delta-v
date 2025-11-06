@@ -1,4 +1,4 @@
-﻿# Shown when examining the shield. Each entry represents the shield's health condition
+# Shown when examining the shield. Each entry represents the shield's health condition
 comp-shield-damaged-1 = It looks fully intact.
 comp-shield-damaged-2 = It has a few scratches.
 comp-shield-damaged-3 = It has a few small holes and bends.
