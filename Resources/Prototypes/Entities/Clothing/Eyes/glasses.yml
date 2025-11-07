@@ -68,6 +68,8 @@
   - type: Tag
     tags:
     - SecDogWearable # DeltaV - let Laika wear meson goggles
+    - PetWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingEyesBase
@@ -143,6 +145,7 @@
   - type: Tag
     tags:
     - HamsterWearable
+    - PetWearable
     - WhitelistChameleon
     - SecDogWearable # DeltaV - let Laika wear sunglasses
   - type: IdentityBlocker
@@ -160,6 +163,7 @@
   - type: Tag
     tags:
     - Sunglasses
+    - PetWearable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -183,6 +187,7 @@
     tags:
     - GlassesSecurity # DeltaV - Added for prescription glasses.
     - HamsterWearable
+    - PetWearable
     - WhitelistChameleon
     - SecDogWearable # DeltaV - let Laika wear secglasses
   - type: GuideHelp
@@ -208,6 +213,7 @@
   - type: Tag
     tags:
     - HamsterWearable
+    - PetWearable
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
@@ -242,6 +248,10 @@
     - type: SolutionScanner
     - type: IdentityBlocker
       coverage: EYES
+    - type: Tag
+      tags:
+      - PetWearable
+      - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesBase, BaseMajorContraband]

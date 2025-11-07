@@ -1,28 +1,4 @@
 ﻿Entries:
-- author: Lyndomen
-  changes:
-  - message: Limbs will now delimb at 60 slash, from 100.
-    type: Tweak
-  id: 1282
-  time: '2025-04-18T22:33:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3511
-- author: deltanedas
-  changes:
-  - message: Fixed kitsunes not being able to eat raw meat.
-    type: Fix
-  id: 1283
-  time: '2025-04-19T00:01:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3516
-- author: sowelipililimute
-  changes:
-  - message: Chemists, bartenders, and chefs now have access to skimmers that can
-      remove 5u of the smallest reagent from a solution
-    type: Add
-  - message: Dropper can be printed from medical techfabs now
-    type: Add
-  id: 1284
-  time: '2025-04-19T00:24:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3496
 - author: Field Command
   changes:
   - message: Byoin departmental economy stuff.
@@ -4160,3 +4136,110 @@
   id: 1781
   time: '2025-11-02T09:38:11.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4547
+- author: TehFlaminTaco
+  changes:
+  - message: Upstream Merge from mid-June through end of July has been merged!
+    type: Add
+  - message: A new (very expensive) crate to order from cargo, worth 25,000 spesos
+      and containing a hydrated scurret. The hydrated scurret is a ghost role - a
+      non-antagonistic emotional support scurret.
+    type: Add
+  - message: A new atmospherics valve has been added, the Inlet Pressure Regulator!
+      You can learn more about its behavior and potential uses in the Engineering
+      Guidebook.
+    type: Add
+  - message: Added a Wire Brush to the Janitor's tool kit for scrubbing unsightly
+      rust off of the station's walls!
+    type: Add
+  - message: You can now catch basketballs, footballs and beach balls that are thrown
+      at you!
+    type: Add
+  - message: Added Jump Boots In T1 "Salvage Equipment" technology.
+    type: Add
+  - message: Golden PAI was added. It is extremely rare and expensive. This PAI can
+      be found in maint lockers
+    type: Add
+  - message: Parrots now parrot nearby speech, sometimes even using the radio if they
+      have one equipped.
+    type: Add
+  - message: pAIs can emote like borgs now
+    type: Add
+  - message: Grilles under diagonal windows no longer electrocute you.
+    type: Fix
+  - message: Added the "Open Camera" admin verb and the "camera" console command which
+      allow you to observe entities in separate window using a remote camera.
+    type: Add
+  - message: Adds a new slot for the Golden Plunger on the Janitor Trolley.
+    type: Add
+  - message: Holo and Magicarp plushies now show up in the mop bucket properly.
+    type: Tweak
+  - message: Two varieties of marble tile can now be produced at Cutter lathes.
+    type: Add
+  - message: Moproaches can sometimes appear from the station's sewage system.
+    type: Add
+  - message: Moved Bible/Holy Book choice to loadout options for chaplain.
+    type: Tweak
+  - message: New holy book sprites added!
+    type: Add
+  - message: And so much more! See the June/July upstream PR!
+    type: Add
+  id: 1782
+  time: '2025-11-06T18:22:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4607
+- author: ShepardToTheStars
+  changes:
+  - message: Upstream Merge from mid-June through end of July has been merged!
+    type: Add
+  - message: A new (very expensive) crate to order from cargo, worth 25,000 spesos
+      and containing a hydrated scurret. The hydrated scurret is a ghost role - a
+      non-antagonistic emotional support scurret.
+    type: Add
+  - message: A new atmospherics valve has been added, the Inlet Pressure Regulator!
+      You can learn more about its behavior and potential uses in the Engineering
+      Guidebook.
+    type: Add
+  - message: Added a Wire Brush to the Janitor's tool kit for scrubbing unsightly
+      rust off of the station's walls!
+    type: Add
+  - message: You can now catch basketballs, footballs and beach balls that are thrown
+      at you!
+    type: Add
+  - message: Added Jump Boots In T1 "Salvage Equipment" technology.
+    type: Add
+  - message: Golden PAI was added. It is extremely rare and expensive. This PAI can
+      be found in maint lockers
+    type: Add
+  - message: Parrots now parrot nearby speech, sometimes even using the radio if they
+      have one equipped.
+    type: Add
+  - message: pAIs can emote like borgs now
+    type: Add
+  - message: Grilles under diagonal windows no longer electrocute you.
+    type: Fix
+  - message: Added the "Open Camera" admin verb and the "camera" console command which
+      allow you to observe entities in separate window using a remote camera.
+    type: Add
+  - message: Adds a new slot for the Golden Plunger on the Janitor Trolley.
+    type: Add
+  - message: Holo and Magicarp plushies now show up in the mop bucket properly.
+    type: Tweak
+  - message: Two varieties of marble tile can now be produced at Cutter lathes.
+    type: Add
+  - message: Moproaches can sometimes appear from the station's sewage system.
+    type: Add
+  - message: Moved Bible/Holy Book choice to loadout options for chaplain.
+    type: Tweak
+  - message: New holy book sprites added!
+    type: Add
+  - message: And so much more! See the June/July upstream PR!
+    type: Add
+  id: 1783
+  time: '2025-11-05T09:03:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4587
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed emotes not emoting.
+    type: Fix
+  id: 1784
+  time: '2025-11-07T00:03:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4611

@@ -55,7 +55,7 @@
       - id: trayScanner
       - id: Wristwatch
       - id: ClothingNeckBling
-    # - id: ClothingMultipleHeadphones # DeltaV - Uncomment when merged from upstream
+      - id: ClothingMultipleHeadphones
       - id: DiceBag
       - id: PersonalAI
       - id: CrayonBox
@@ -78,10 +78,10 @@
       - id: GroundCannabis
         amount: !type:RangeNumberSelector
           range: 1, 6
-    # Begin DeltaV additions
+    # Begin DeltaV modifications
     - id: ClothingHeadsetPrison # Added prisoner headsets
     - id: PrisonKnife # Bread cutting knife, does 4 damage total.
-    # End DeltaV additions
+    # End DeltaV modifications
 
 #- type: entity
 #  id: WardrobePajamaFilled
@@ -201,7 +201,6 @@
     - id: CrowbarRed #The jojoke - hit video game Half-Life
       prob: 0.1
 
-
 - type: entity
   id: WardrobeBotanistFilled
   suffix: Filled
@@ -294,6 +293,7 @@
     - id: ClothingEyesGlassesSunglasses
     - id: ClothingHeadHelmetBasic
     - id: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier and stabproof vest
+    - id: ClothingOuterArmorDuraVest # DeltaV - ClothingOuterArmorBasicSlim replaced in favour of plate carrier and stabproof vest
     - id: ClothingUniformJumpskirtSec
 
 - type: entity

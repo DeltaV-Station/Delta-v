@@ -15,7 +15,6 @@
         Base: mite
       Dead:
         Base: mite_dead
-    baseDecayRate: 0.25
   - type: SolutionContainerManager
     solutions:
       food:
@@ -42,7 +41,6 @@
   components:
   # appearance
   - type: Sprite
-    drawDepth: Ghosts
     sprite: Nyanotrasen/Mobs/Monster/glimmer_wisp.rsi
     layers:
     - state: willowisp
