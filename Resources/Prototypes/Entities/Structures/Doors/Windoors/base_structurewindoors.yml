@@ -422,7 +422,7 @@
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 240
+        damage: 260
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -488,7 +488,7 @@
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 600
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:

@@ -15,7 +15,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 200
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -24,7 +24,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 80
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -94,7 +94,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 37
+        damage: 40
       behaviors:
       - !type:PlaySoundBehavior
         sound:
