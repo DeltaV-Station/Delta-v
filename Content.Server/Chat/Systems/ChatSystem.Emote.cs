@@ -179,23 +179,30 @@ public partial class ChatSystem
     {
         var actionTrimmedLower = TrimPunctuation(textInput.ToLower());
         if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emotes)) // DeltaV, renames to emotes
-            return false;
+            return true; // DeltaV - If its not an emote that has a prototype, allow it. Its probably RP.
 
         //RMC emote system
         if (!_rmcEmote.TryEmote(uid))
             return false;
 
-        bool validEmote = false; // DeltaV - Multiple emotes for the same trigger
+        // DeltaV - Multiple emotes for the same trigger
+        bool validEmote = false;
         foreach (var emote in emotes)
         {
+            // If its a valid emote, just break the loop and return.
+            if (validEmote)
+                break;
+
+            // Prevents doing meow sounds as a dog, etc.
             if (!AllowedToUseEmote(uid, emote))
                 continue;
 
-            TryInvokeEmoteEvent(uid, emote);
-            validEmote = true; // DeltaV
+            // This will check if you're blocked from vocal emotes, even if its an allowed emote for your species.
+            validEmote = TryInvokeEmoteEvent(uid, emote);
         }
 
-        return validEmote; // DeltaV
+        return validEmote;
+        // END DeltaV
 
         static string TrimPunctuation(string textInput)
         {
@@ -285,10 +292,16 @@ public partial class ChatSystem
             return false;
         }
 
-        var ev = new EmoteEvent(proto);
-        RaiseLocalEvent(uid, ref ev);
+        // DeltaV - Added if to prevent vocal emote from going to chat if its blocked
+        if (!beforeEv.Cancelled)
+        {
+            var ev = new EmoteEvent(proto);
+            RaiseLocalEvent(uid, ref ev);
+            return true;
+        }
 
-        return true;
+        return false;
+        // END DeltaV
     }
 }
 
