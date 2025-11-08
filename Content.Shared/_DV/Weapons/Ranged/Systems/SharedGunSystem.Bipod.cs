@@ -1,23 +1,14 @@
 ﻿using System.Linq;
 using Content.Shared._DV.Weapons.Ranged.Components;
 using Content.Shared.Actions;
-using Content.Shared.Blocking;
 using Content.Shared.DoAfter;
-using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Maps;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Physics;
-using Content.Shared.Popups;
 using Content.Shared.Toggleable;
-using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
-using Content.Shared.Wieldable.Components;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 
@@ -26,9 +17,6 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 public abstract partial class SharedGunSystem
 {
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly FixtureSystem _fixtureSystem = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
 
     private void InitializeBipods()
     {
@@ -101,6 +89,37 @@ public abstract partial class SharedGunSystem
 
     private void TrySetupBipod(Entity<GunBipodComponent> ent, EntityUid user)
     {
+        if (ent.Comp.IsSetup)
+        {
+            ent.Comp.BipodSetupTime = TimeSpan.Zero;
+            return;
+        }
+
+        var xform = Transform(user);
+
+        //Don't allow someone to set up the bipod if they're not parented to a grid
+        if (xform.GridUid != xform.ParentUid)
+        {
+            CantSetupError(user);
+            return;
+        }
+
+        // Don't allow someone to set up the bipod if they're not holding the weapon
+        if (!_hands.IsHolding(user, ent.Owner, out _))
+        {
+            CantSetupError(user);
+            return;
+        }
+
+        var gunName = Name(ent.Owner);
+
+        var bipodUser = Identity.Entity(user, EntityManager);
+        var msgUser = Loc.GetString("action-popup-bipod-user", ("gunName", gunName));
+        var msgOther = Loc.GetString("action-popup-bipod-other", ("bipodUser", bipodUser), ("gunName", gunName));
+
+        Actions.SetToggled(ent.Comp.BipodToggleActionEntity, true);
+        PopupSystem.PopupPredicted(msgUser, msgOther, user, user);
+
         var doAfterArgs = new DoAfterArgs(EntityManager, user, ent.Comp.SetupDelay, new BipodSetupFinishedEvent(), ent.Owner, target: ent.Owner, used: ent.Owner)
         {
             BreakOnDamage = false,
@@ -121,45 +140,27 @@ public abstract partial class SharedGunSystem
 
     private void SetupBipod(Entity<GunBipodComponent> ent, ref BipodSetupFinishedEvent bipodEvent)
     {
-        if (bipodEvent.Cancelled || ent.Comp.IsSetup)
-        {
-            ent.Comp.BipodSetupTime = TimeSpan.Zero;
+        if (bipodEvent.Cancelled)
             return;
-        }
 
-        var user = bipodEvent.User;
-
-        var xform = Transform(user);
-
-        var bipod = Name(ent.Owner);
-
-        var bipodUser = Identity.Entity(user, EntityManager);
-        var msgUser = Loc.GetString("action-popup-bipod-user", ("bipodName", bipod));
-        var msgOther = Loc.GetString("action-popup-bipod-other", ("bipodUser", bipodUser), ("bipodName", bipod));
-
-        //Don't allow someone to set up the bipod if they're not parented to a grid
-        if (xform.GridUid != xform.ParentUid)
-        {
-            CantSetupError(user);
-            return;
-        }
-
-        // Don't allow someone to set up the bipod if they're not holding the shield
-        if (!_hands.IsHolding(user, ent.Owner, out _))
-        {
-            CantSetupError(user);
-            return;
-        }
+        var xform = Transform(bipodEvent.User);
 
         //Don't allow someone to set up the bipod if they're somehow not anchored.
-        TransformSystem.AnchorEntity(user, xform);
+        TransformSystem.AnchorEntity(bipodEvent.User, xform);
         if (!xform.Anchored)
         {
-            CantSetupError(user);
+            CantSetupError(bipodEvent.User);
             return;
         }
+
+        var gunName = Name(ent.Owner);
+
+        var bipodUser = Identity.Entity(bipodEvent.User, EntityManager);
+        var msgUser = Loc.GetString("action-popup-bipod-finished-user", ("gunName", gunName));
+        var msgOther = Loc.GetString("action-popup-bipod-finished-other", ("bipodUser", bipodUser), ("gunName", gunName));
+
         Actions.SetToggled(ent.Comp.BipodToggleActionEntity, true);
-        PopupSystem.PopupPredicted(msgUser, msgOther, user, user);
+        PopupSystem.PopupPredicted(msgUser, msgOther, bipodEvent.User, bipodEvent.User);
 
         ent.Comp.IsSetup = true;
 
@@ -174,11 +175,11 @@ public abstract partial class SharedGunSystem
 
         var xform = Transform(user);
 
-        var bipodName = Name(ent.Owner);
+        var gunName = Name(ent.Owner);
 
         var bipodUser = Identity.Entity(user, EntityManager);
-        var msgUser = Loc.GetString("action-popup-bipod-disabling-user", ("bipod", bipodName));
-        var msgOther = Loc.GetString("action-popup-bipod-disabling-other", ("bipodUser", bipodUser), ("bipod", bipodName));
+        var msgUser = Loc.GetString("action-popup-bipod-disabling-user", ("gunName", gunName));
+        var msgOther = Loc.GetString("action-popup-bipod-disabling-other", ("bipodUser", bipodUser), ("gunName", gunName));
 
         if (xform.Anchored)
             TransformSystem.Unanchor(user, xform);
@@ -194,7 +195,7 @@ public abstract partial class SharedGunSystem
 
     private void CantSetupError(EntityUid user)
     {
-        var msgError = Loc.GetString("action-popup-blocking-user-cant-block");
+        var msgError = Loc.GetString("action-popup-bipod-user-cant-setup");
         PopupSystem.PopupClient(msgError, user, user);
     }
 
