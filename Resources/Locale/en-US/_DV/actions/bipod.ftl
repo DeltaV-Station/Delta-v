@@ -1,4 +1,4 @@
-﻿action-popup-bipod-user = You're setting up the bipod of your {$gunName}!
+action-popup-bipod-user = You're setting up the bipod of your {$gunName}!
 action-popup-bipod-disabling-user = You pack up the bipod of your {$gunName}!
 action-popup-bipod-finished-user = You've set up the bipod of your {$gunName}!
 
