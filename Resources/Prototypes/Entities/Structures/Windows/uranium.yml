@@ -16,13 +16,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 200 # DeltaV - Increased health Cap By 50
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 90
+        damage: 90 # DeltaV - Increased health By 15 (more then plasma) 
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -83,13 +83,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 100 # DeltaV - Increased health Cap By 25 
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 50 # DeltaV - Increased health By 13 (more then plasma)
       behaviors:
       - !type:PlaySoundBehavior
         sound:
