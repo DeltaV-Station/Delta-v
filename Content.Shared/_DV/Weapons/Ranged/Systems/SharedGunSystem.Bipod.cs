@@ -122,7 +122,10 @@ public abstract partial class SharedGunSystem
     private void SetupBipod(Entity<GunBipodComponent> ent, ref BipodSetupFinishedEvent bipodEvent)
     {
         if (bipodEvent.Cancelled || ent.Comp.IsSetup)
+        {
+            ent.Comp.BipodSetupTime = TimeSpan.Zero;
             return;
+        }
 
         var user = bipodEvent.User;
 
