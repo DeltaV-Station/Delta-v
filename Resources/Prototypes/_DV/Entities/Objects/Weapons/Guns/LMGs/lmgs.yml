@@ -1,0 +1,80 @@
+﻿- type: entity
+  name: NT-3
+  parent: BaseItem # The base LightMachineGun had unwanted components.
+  id: WeaponLightMachinegGunNT3
+  description: A rooty tooty point and shooty.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/LMGs/NT-3.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-3
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,4,3
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/LMGs/NT-3.rsi
+    quickEquip: false
+    slots:
+    - Back
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.9
+  - type: Appearance
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunRequiresWield
+  - type: Gun
+    minAngle: 12
+    maxAngle: 30
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: GunBipod
+    minAngle: -12
+    maxAngle: -20
+    angleDecay: 4
+    fireRateIncrease: 3
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
+  - type: AmmoCounter
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifleSmallBox
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineLightRifleSmallBox
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLightRifle
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLightRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 500
+  - type: UseDelay
+    delay: 1

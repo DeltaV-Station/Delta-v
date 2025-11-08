@@ -22,6 +22,8 @@
       tableId: RPGTable
     - !type:NestedSelector
       tableId: GamblagatorTable
+    - !type:NestedSelector
+      tableId: NT3Table
     - id: WeaponBeamDevastator
 
 - type: entityTable
@@ -40,3 +42,12 @@
     - id: GamblagatorCapacitor
       amount: !type:ConstantNumberSelector
         value: 4
+
+- type: entityTable
+  id: NT3Table
+  table: !type:AllSelector
+    children:
+    - id: WeaponLightMachinegGunNT3
+    - id: MagazineLightRifleSmallBox
+      amount: !type:ConstantNumberSelector
+        value: 2
