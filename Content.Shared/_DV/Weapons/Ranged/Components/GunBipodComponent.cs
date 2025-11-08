@@ -38,9 +38,6 @@ public sealed partial class GunBipodComponent : Component
     [DataField, AutoNetworkedField]
     public float FireRateIncrease = 3f;
 
-    [DataField]
-    public LocId? BipodBonusExamineMessage = "gunbipodbonus-component-examine";
-
     /// <summary>
     /// Time to set up the bipod.
     /// </summary>
