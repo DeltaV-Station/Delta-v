@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared._DV.Weapons.Ranged.Components;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
