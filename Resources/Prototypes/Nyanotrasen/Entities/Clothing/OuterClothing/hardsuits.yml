@@ -4,8 +4,17 @@
   name: mystagogue's hardsuit
   description: Lightweight hardsuit that has a helmet with a galaxy-first psionic passthrough system.
   components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/rd.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/rd.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMystagogue
+
+- type: entity
+  parent: [ClothingOuterHardsuitMystagogue, ClothingOuterStorageFoldableBaseOpened]
+  id: ClothingOuterHardsuitMystagogueLabcoat
+  name: mystagogue's hardsuit
 
 - type: entity
   parent: ClothingOuterHardsuitSyndie
