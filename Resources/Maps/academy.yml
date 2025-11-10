@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/08/2025 21:56:38
-  entityCount: 30777
+  time: 11/10/2025 01:37:43
+  entityCount: 30788
 maps:
 - 1
 grids:
@@ -9864,14 +9864,19 @@ entities:
             0: 29184
           15,2:
             0: 1911
-            1: 28672
+            1: 63488
           15,3:
-            1: 30513
+            1: 65329
           15,4:
             1: 103
             0: 61456
           15,0:
             0: 16384
+          16,2:
+            0: 4352
+          16,3:
+            0: 39321
+            1: 26214
           13,-4:
             0: 8191
           13,-3:
@@ -10034,7 +10039,8 @@ entities:
           -15,20:
             0: 255
           -14,17:
-            1: 61440
+            1: 61632
+            0: 32
           -14,18:
             1: 15
             0: 61440
@@ -10078,13 +10084,22 @@ entities:
           -10,20:
             1: 16368
           -10,21:
-            1: 13107
+            1: 48059
+          -10,22:
+            0: 8
           -16,21:
             1: 255
           -15,21:
             1: 255
           -14,21:
-            1: 52479
+            1: 56575
+          -14,22:
+            0: 1
+          -17,19:
+            0: 4
+            1: 17472
+          -17,20:
+            0: 4
           13,5:
             0: 65295
           13,6:
@@ -10230,11 +10245,8 @@ entities:
           18,-10:
             0: 16388
             1: 1088
-          16,3:
-            0: 34956
-            1: 17472
           16,4:
-            1: 17988
+            1: 18039
             0: 34952
           16,5:
             1: 17476
@@ -16160,7 +16172,7 @@ entities:
       pos: 34.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -141342.17
+      secondsUntilStateChange: -142685.34
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16653,7 +16665,7 @@ entities:
       pos: -35.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -210270.28
+      secondsUntilStateChange: -211613.45
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17627,7 +17639,7 @@ entities:
       pos: -19.5,40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -172164.23
+      secondsUntilStateChange: -173507.4
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -142736,6 +142748,338 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 37.622906,-6.279887
       parent: 2
+- proto: PaperDyedPink
+  entities:
+  - uid: 30778
+    components:
+    - type: Transform
+      pos: 24.791975,6.3616056
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-centcom
+      stampedBy:
+      - stampedColor: '#006600FF'
+        stampedName: stamp-component-stamped-name-centcom
+      content: >-
+        [head=3]NTDV Memorandum[/head]
+
+        Central Command
+
+        ─────────────────────────────────────────
+
+        [bold]TO:[/bold]
+
+        Epistemics and Security Departments
+
+
+        [bold]SUBJECT:[/bold]
+
+        Epistemics Brig
+
+
+        ─────────────────────────────────────────
+
+        To whom it may concern,
+
+
+        Academy Station is outfitted with an
+
+        [bold]Epistemics Brig[/bold]
+
+        to be used at the discretion of the following crew;
+
+        * Captain
+
+        * Head of Security
+
+        * Warden
+
+        * Mystagogue
+
+        * Psionic Mantis
+
+
+        The Epistemics Brig is intended to hold persons, sophonts, and other entities which exhibit, or may exhibit, psionic or paranormal abnormalities.
+
+        Epistemics and Security have access to the monitor the hall.
+
+        A Psionic Mantis is required to use the cells.
+
+        Additional straight jackets and head cages are provided for use where needed.
+
+
+        This is a new venture for inter-departmental co-operation.
+
+        Good luck on your endeavours and may your findings shed new light on the illusive Noosphere.
+
+
+        [italic]Ex Astris Scientia[/italic]
+
+        Central Command
+  - uid: 30781
+    components:
+    - type: Transform
+      pos: -7.1714506,32.396004
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-centcom
+      stampedBy:
+      - stampedColor: '#006600FF'
+        stampedName: stamp-component-stamped-name-centcom
+      content: >-
+        [head=3]NTDV Memorandum[/head]
+
+        Central Command
+
+        ─────────────────────────────────────────
+
+        [bold]TO:[/bold]
+
+        Epistemics and Security Departments
+
+
+        [bold]SUBJECT:[/bold]
+
+        Epistemics Brig
+
+
+        ─────────────────────────────────────────
+
+        To whom it may concern,
+
+
+        Academy Station is outfitted with an
+
+        [bold]Epistemics Brig[/bold]
+
+        to be used at the discretion of the following crew;
+
+        * Captain
+
+        * Head of Security
+
+        * Warden
+
+        * Mystagogue
+
+        * Psionic Mantis
+
+
+        The Epistemics Brig is intended to hold persons, sophonts, and other entities which exhibit, or may exhibit, psionic or paranormal abnormalities.
+
+        Epistemics and Security have access to the monitor the hall.
+
+        A Psionic Mantis is required to use the cells.
+
+        Additional straight jackets and head cages are provided for use where needed.
+
+
+        This is a new venture for inter-departmental co-operation.
+
+        Good luck on your endeavours and may your findings shed new light on the illusive Noosphere.
+
+
+        [italic]Ex Astris Scientia[/italic]
+
+        Central Command
+  - uid: 30782
+    components:
+    - type: Transform
+      pos: -23.850569,23.33299
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-centcom
+      stampedBy:
+      - stampedColor: '#006600FF'
+        stampedName: stamp-component-stamped-name-centcom
+      content: >-
+        [head=3]NTDV Memorandum[/head]
+
+        Central Command
+
+        ─────────────────────────────────────────
+
+        [bold]TO:[/bold]
+
+        Epistemics and Security Departments
+
+
+        [bold]SUBJECT:[/bold]
+
+        Epistemics Brig
+
+
+        ─────────────────────────────────────────
+
+        To whom it may concern,
+
+
+        Academy Station is outfitted with an
+
+        [bold]Epistemics Brig[/bold]
+
+        to be used at the discretion of the following crew;
+
+        * Captain
+
+        * Head of Security
+
+        * Warden
+
+        * Mystagogue
+
+        * Psionic Mantis
+
+
+        The Epistemics Brig is intended to hold persons, sophonts, and other entities which exhibit, or may exhibit, psionic or paranormal abnormalities.
+
+        Epistemics and Security have access to the monitor the hall.
+
+        A Psionic Mantis is required to use the cells.
+
+        Additional straight jackets and head cages are provided for use where needed.
+
+
+        This is a new venture for inter-departmental co-operation.
+
+        Good luck on your endeavours and may your findings shed new light on the illusive Noosphere.
+
+
+        [italic]Ex Astris Scientia[/italic]
+
+        Central Command
+  - uid: 30785
+    components:
+    - type: Transform
+      pos: 12.703046,28.245579
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-centcom
+      stampedBy:
+      - stampedColor: '#006600FF'
+        stampedName: stamp-component-stamped-name-centcom
+      content: >-
+        [head=3]NTDV Memorandum[/head]
+
+        Central Command
+
+        ─────────────────────────────────────────
+
+        [bold]TO:[/bold]
+
+        Epistemics and Security Departments
+
+
+        [bold]SUBJECT:[/bold]
+
+        Epistemics Brig
+
+
+        ─────────────────────────────────────────
+
+        To whom it may concern,
+
+
+        Academy Station is outfitted with an
+
+        [bold]Epistemics Brig[/bold]
+
+        to be used at the discretion of the following crew;
+
+        * Captain
+
+        * Head of Security
+
+        * Warden
+
+        * Mystagogue
+
+        * Psionic Mantis
+
+
+        The Epistemics Brig is intended to hold persons, sophonts, and other entities which exhibit, or may exhibit, psionic or paranormal abnormalities.
+
+        Epistemics and Security have access to the monitor the hall.
+
+        A Psionic Mantis is required to use the cells.
+
+        Additional straight jackets and head cages are provided for use where needed.
+
+
+        This is a new venture for inter-departmental co-operation.
+
+        Good luck on your endeavours and may your findings shed new light on the illusive Noosphere.
+
+
+        [italic]Ex Astris Scientia[/italic]
+
+        Central Command
+  - uid: 30788
+    components:
+    - type: Transform
+      pos: -44.420563,43.047134
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-centcom
+      stampedBy:
+      - stampedColor: '#006600FF'
+        stampedName: stamp-component-stamped-name-centcom
+      content: >-
+        [head=3]NTDV Memorandum[/head]
+
+        Central Command
+
+        ─────────────────────────────────────────
+
+        [bold]TO:[/bold]
+
+        Epistemics and Security Departments
+
+
+        [bold]SUBJECT:[/bold]
+
+        Epistemics Brig
+
+
+        ─────────────────────────────────────────
+
+        To whom it may concern,
+
+
+        Academy Station is outfitted with an
+
+        [bold]Epistemics Brig[/bold]
+
+        to be used at the discretion of the following crew;
+
+        * Captain
+
+        * Head of Security
+
+        * Warden
+
+        * Mystagogue
+
+        * Psionic Mantis
+
+
+        The Epistemics Brig is intended to hold persons, sophonts, and other entities which exhibit, or may exhibit, psionic or paranormal abnormalities.
+
+        Epistemics and Security have access to the monitor the hall.
+
+        A Psionic Mantis is required to use the cells.
+
+        Additional straight jackets and head cages are provided for use where needed.
+
+
+        This is a new venture for inter-departmental co-operation.
+
+        Good luck on your endeavours and may your findings shed new light on the illusive Noosphere.
+
+
+        [italic]Ex Astris Scientia[/italic]
+
+        Central Command
 - proto: PaperDyedPurple
   entities:
   - uid: 1366
@@ -142743,6 +143087,446 @@ entities:
     - type: Transform
       pos: 17.490572,-5.388072
       parent: 2
+- proto: PaperDyedSky
+  entities:
+  - uid: 30779
+    components:
+    - type: Transform
+      pos: -22.409065,16.996073
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-centcom
+      stampedBy:
+      - stampedColor: '#006600FF'
+        stampedName: stamp-component-stamped-name-centcom
+      content: >-
+        [head=3]NTDV Memorandum[/head]
+
+        Central Command
+
+        ─────────────────────────────────────────
+
+        [bold]TO:[/bold]
+
+        Medical, Engineering, and Security Departments
+
+
+        [bold]SUBJECT:[/bold]
+
+        Virology
+
+
+        ─────────────────────────────────────────
+
+        To whom it may concern,
+
+
+        Academy Station is outfitted with a secure
+
+        [bold]Virology Department[/bold]
+
+        to be used at the discretion of Command and Medical crew.
+
+
+        Virology has a dedicated;
+
+        * Atmospherics
+
+        * Chemistry
+
+        * Disposals (Janitor)
+
+        * Morgue
+
+        * Shuttle Dock
+
+        * Surgery
+
+
+        This is intended to ensure safety with any biological, physical, or metaphysical infections or other phenomena.
+
+
+        * Note: Virology Atmospherics are accessible from outside Virology by authorized crew.
+
+        * Note: The Shuttle Dock may also be used by Security crew without entering Virology.
+
+
+        It is highly encouraged that Security attend both checkpoints to prevent unauthorized movement into and out of the area.
+
+        See next page for diagram.
+
+
+        Good luck on your endeavours and may your findings shed new light on the illusive Noosphere.
+
+
+        [italic]Ex Astris Scientia[/italic]
+
+        Central Command
+  - uid: 30780
+    components:
+    - type: Transform
+      pos: -46.665356,41.96901
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-centcom
+      stampedBy:
+      - stampedColor: '#006600FF'
+        stampedName: stamp-component-stamped-name-centcom
+      content: >-
+        [head=3]NTDV Memorandum[/head]
+
+        Central Command
+
+        ─────────────────────────────────────────
+
+        [bold]TO:[/bold]
+
+        Medical, Engineering, and Security Departments
+
+
+        [bold]SUBJECT:[/bold]
+
+        Virology
+
+
+        ─────────────────────────────────────────
+
+        To whom it may concern,
+
+
+        Academy Station is outfitted with a secure
+
+        [bold]Virology Department[/bold]
+
+        to be used at the discretion of Command and Medical crew.
+
+
+        Virology has a dedicated;
+
+        * Atmospherics
+
+        * Chemistry
+
+        * Disposals (Janitor)
+
+        * Morgue
+
+        * Shuttle Dock
+
+        * Surgery
+
+
+        This is intended to ensure safety with any biological, physical, or metaphysical infections or other phenomena.
+
+
+        * Note: Virology Atmospherics are accessible from outside Virology by authorized crew.
+
+        * Note: The Shuttle Dock may also be used by Security crew without entering Virology.
+
+
+        It is highly encouraged that Security attend both checkpoints to prevent unauthorized movement into and out of the area.
+
+        See next page for diagram.
+
+
+        Good luck on your endeavours and may your findings shed new light on the illusive Noosphere.
+
+
+        [italic]Ex Astris Scientia[/italic]
+
+        Central Command
+  - uid: 30783
+    components:
+    - type: Transform
+      pos: -46.858063,44.233303
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-centcom
+      stampedBy:
+      - stampedColor: '#006600FF'
+        stampedName: stamp-component-stamped-name-centcom
+      content: >
+        [head=3]NTDV Memorandum[/head]
+
+        Central Command
+
+        ─────────────────────────────────────────
+
+        [bold]TO:[/bold]
+
+        Medical, Engineering, and Security Departments
+
+
+        [bold]SUBJECT:[/bold]
+
+        Virology
+
+
+        ─────────────────────────────────────────
+
+        To whom it may concern,
+
+
+        Academy Station is outfitted with a secure
+
+        [bold]Virology Department[/bold]
+
+        to be used at the discretion of Command and Medical crew.
+
+
+        Virology has a dedicated;
+
+        * Atmospherics
+
+        * Chemistry
+
+        * Disposals (Janitor)
+
+        * Morgue
+
+        * Shuttle Dock
+
+        * Surgery
+
+
+        This is intended to ensure safety with any biological, physical, or metaphysical infections or other phenomena.
+
+
+        * Note: Virology Atmospherics are accessible from outside Virology by authorized crew.
+
+        * Note: The Shuttle Dock may also be used by Security crew without entering Virology.
+
+
+        It is highly encouraged that Security attend both checkpoints to prevent unauthorized movement into and out of the area.
+
+        See next page for diagram.
+
+
+        Good luck on your endeavours and may your findings shed new light on the illusive Noosphere.
+
+
+        [italic]Ex Astris Scientia[/italic]
+
+        Central Command
+  - uid: 30784
+    components:
+    - type: Transform
+      pos: -31.19386,-30.616816
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-centcom
+      stampedBy:
+      - stampedColor: '#006600FF'
+        stampedName: stamp-component-stamped-name-centcom
+      content: >-
+        [head=3]NTDV Memorandum[/head]
+
+        Central Command
+
+        ─────────────────────────────────────────
+
+        [bold]TO:[/bold]
+
+        Medical, Engineering, and Security Departments
+
+
+        [bold]SUBJECT:[/bold]
+
+        Virology
+
+
+        ─────────────────────────────────────────
+
+        To whom it may concern,
+
+
+        Academy Station is outfitted with a secure
+
+        [bold]Virology Department[/bold]
+
+        to be used at the discretion of Command and Medical crew.
+
+
+        Virology has a dedicated;
+
+        * Atmospherics
+
+        * Chemistry
+
+        * Disposals (Janitor)
+
+        * Morgue
+
+        * Shuttle Dock
+
+        * Surgery
+
+
+        This is intended to ensure safety with any biological, physical, or metaphysical infections or other phenomena.
+
+
+        * Note: Virology Atmospherics are accessible from outside Virology by authorized crew.
+
+        * Note: The Shuttle Dock may also be used by Security crew without entering Virology.
+
+
+        It is highly encouraged that Security attend both checkpoints to prevent unauthorized movement into and out of the area.
+
+        See next page for diagram.
+
+
+        Good luck on your endeavours and may your findings shed new light on the illusive Noosphere.
+
+
+        [italic]Ex Astris Scientia[/italic]
+
+        Central Command
+  - uid: 30786
+    components:
+    - type: Transform
+      pos: 35.22458,-30.81916
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-centcom
+      stampedBy:
+      - stampedColor: '#006600FF'
+        stampedName: stamp-component-stamped-name-centcom
+      content: >-
+        [head=3]NTDV Memorandum[/head]
+
+        Central Command
+
+        ─────────────────────────────────────────
+
+        [bold]TO:[/bold]
+
+        Medical, Engineering, and Security Departments
+
+
+        [bold]SUBJECT:[/bold]
+
+        Virology
+
+
+        ─────────────────────────────────────────
+
+        To whom it may concern,
+
+
+        Academy Station is outfitted with a secure
+
+        [bold]Virology Department[/bold]
+
+        to be used at the discretion of Command and Medical crew.
+
+
+        Virology has a dedicated;
+
+        * Atmospherics
+
+        * Chemistry
+
+        * Disposals (Janitor)
+
+        * Morgue
+
+        * Shuttle Dock
+
+        * Surgery
+
+
+        This is intended to ensure safety with any biological, physical, or metaphysical infections or other phenomena.
+
+
+        * Note: Virology Atmospherics are accessible from outside Virology by authorized crew.
+
+        * Note: The Shuttle Dock may also be used by Security crew without entering Virology.
+
+
+        It is highly encouraged that Security attend both checkpoints to prevent unauthorized movement into and out of the area.
+
+        See next page for diagram.
+
+
+        Good luck on your endeavours and may your findings shed new light on the illusive Noosphere.
+
+
+        [italic]Ex Astris Scientia[/italic]
+
+        Central Command
+  - uid: 30787
+    components:
+    - type: Transform
+      pos: -3.149866,-33.805405
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-centcom
+      stampedBy:
+      - stampedColor: '#006600FF'
+        stampedName: stamp-component-stamped-name-centcom
+      content: >-
+        [head=3]NTDV Memorandum[/head]
+
+        Central Command
+
+        ─────────────────────────────────────────
+
+        [bold]TO:[/bold]
+
+        Medical, Engineering, and Security Departments
+
+
+        [bold]SUBJECT:[/bold]
+
+        Virology
+
+
+        ─────────────────────────────────────────
+
+        To whom it may concern,
+
+
+        Academy Station is outfitted with a secure
+
+        [bold]Virology Department[/bold]
+
+        to be used at the discretion of Command and Medical crew.
+
+
+        Virology has a dedicated;
+
+        * Atmospherics
+
+        * Chemistry
+
+        * Disposals (Janitor)
+
+        * Morgue
+
+        * Shuttle Dock
+
+        * Surgery
+
+
+        This is intended to ensure safety with any biological, physical, or metaphysical infections or other phenomena.
+
+
+        * Note: Virology Atmospherics are accessible from outside Virology by authorized crew.
+
+        * Note: The Shuttle Dock may also be used by Security crew without entering Virology.
+
+
+        It is highly encouraged that Security attend both checkpoints to prevent unauthorized movement into and out of the area.
+
+        See next page for diagram.
+
+
+        Good luck on your endeavours and may your findings shed new light on the illusive Noosphere.
+
+
+        [italic]Ex Astris Scientia[/italic]
+
+        Central Command
 - proto: PaperFugitiveReport
   entities:
   - uid: 11487
@@ -194975,7 +195759,7 @@ entities:
       pos: -60.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -264904.84
+      secondsUntilStateChange: -266248
       state: Opening
 - proto: WebShield
   entities:
@@ -195615,7 +196399,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -199563.52
+      secondsUntilStateChange: -200906.69
       state: Opening
     - type: Airlock
       autoClose: False
