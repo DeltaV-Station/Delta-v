@@ -11,7 +11,7 @@
   - type: TriggerOnMobstateChange
     mobState:
     - Dead
-  - type: TriggerImplantAction
+  - type: TriggerOnActivateImplant
   - type: DeleteParentOnTrigger
   - type: SpawnOnTrigger
     proto: BluespaceLifeline
