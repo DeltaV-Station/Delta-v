@@ -218,11 +218,11 @@
       path: /Audio/Effects/Grenades/Supermatter/smbeep.ogg
       params:
         volume: -5
-  - type: Explosive # DeltaV - made explosive again
-    explosionType: Default
-    totalIntensity: 200
-    intensitySlope: 30
-    maxIntensity: 120
+  #- type: Explosive # DeltaV - made explosive again # TODO: AUM - Clean-Up
+  #  explosionType: Default
+  #  totalIntensity: 200
+  #  intensitySlope: 30
+  #  maxIntensity: 120
   #- type: SoundOnTrigger
   #  removeOnTrigger: true
   - type: EmitSoundOnTrigger
