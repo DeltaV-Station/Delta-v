@@ -24,20 +24,15 @@
         volume: 5
     initialBeepDelay: 0
     beepInterval: 0.5
-  - type: TwoStageTrigger
-    triggerDelay: 3 # Same as the ScatteringGrenadeBase's delay
+  - type: EmitSoundOnTrigger
     keysIn:
     - timer
-    components:
-      - type: EmitSoundOnTrigger
-        keysIn:
-        - stageTwo
-        sound:
-          path: "/Audio/Voice/Moth/moth_scream.ogg"
-          params:
-            volume: 5
-      - type: ScatteringGrenade
-        fillPrototype: MobMothroachEvil
-        capacity: 8
-        keysIn: # TODO: AUM - Test this
-          - stageTwo
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+      params:
+        volume: 5
+    positional: true
+    predicted: true
+  - type: ScatteringGrenade
+    fillPrototype: MobMothroachEvil
+    capacity: 8
