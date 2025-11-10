@@ -29,7 +29,7 @@
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
     startAudio:
-      path: /Audio/Announcements/meteors.ogg
+      path: /Audio/_DV/Announcements/meteors.ogg
       params:
         volume: -4
     duration: null #ending is handled by MeteorSwarmRule
@@ -44,7 +44,7 @@
   - type: StationEvent
     startAnnouncement: station-event-xeno-vent-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
+      path: /Audio/_DV/Announcements/aliens.ogg
     earliestStart: 25
     minimumPlayers: 30
     weight: 2
@@ -269,7 +269,7 @@
   - type: StationEvent
     startAnnouncement: station-event-noospheric-storm-announcement
     startAudio:
-      path: /Audio/Announcements/noosphericstorm.ogg
+      path: /Audio/_DV/Announcements/noosphericstorm.ogg
     weight: 5
     earliestStart: 15
   - type: NoosphericStormRule
