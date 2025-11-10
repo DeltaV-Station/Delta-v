@@ -15,16 +15,30 @@
         enum.ConstructionVisuals.Layer:
           Primed: { state: primed }
           Unprimed: { state: icon }
-  - type: ScatteringGrenade
-    fillPrototype: MobMothroachEvil
-    capacity: 8
-  - type: OnUseTimerTrigger
+  - type: TimerTrigger
+    keysIn:
+    - trigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
       params:
         volume: 5
     initialBeepDelay: 0
     beepInterval: 0.5
-  - type: SoundOnTrigger
-    sound:
-      path: "/Audio/Voice/Moth/moth_scream.ogg"
+  - type: TwoStageTrigger
+    triggerDelay: 3 # Same as the ScatteringGrenadeBase's delay
+    keysIn:
+    - timer
+    components:
+      - type: EmitSoundOnTrigger
+        keysIn:
+        - stageTwo
+        sound:
+          path: "/Audio/Voice/Moth/moth_scream.ogg"
+          params:
+            volume: 5
+      - type: ScatteringGrenade
+        fillPrototype: MobMothroachEvil
+        capacity: 8
+        keysIn: # TODO: AUM - Test this
+          - stageTwo
+
