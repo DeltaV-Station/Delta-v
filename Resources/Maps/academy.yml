@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/10/2025 03:39:35
+  time: 11/11/2025 02:24:18
   entityCount: 30978
 maps:
 - 1
@@ -398,7 +398,7 @@ entities:
           version: 7
         3,0:
           ind: 3,0
-          tiles: BAAAAAACAAQAAAAAAAAEAAAAAAMABAAAAAADAAQAAAAAAgAEAAAAAAIABAAAAAADAAQAAAAAAgAEAAAAAAEABAAAAAAAAAIAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAQAAAAAAQAEAAAAAAEABAAAAAAAAAQAAAAAAgAEAAAAAAAABAAAAAADAAQAAAAAAAAEAAAAAAAABAAAAAADAAQAAAAAAwACAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAEAAAAAAEABAAAAAADAAQAAAAAAAAEAAAAAAEABAAAAAACAAQAAAAAAQAEAAAAAAIABAAAAAABAAQAAAAAAQAEAAAAAAAAAgAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAgAAAAAAAD4AAAAAAAACAAAAAAAANQAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAANQAAAAAAAAIAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAACAAAAAAAAAQAAAAAAAAwAAAAAAQAMAAAAAAIAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAQAAAAAAQACAAAAAAAABAAAAAAAAAQAAAAAAwACAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAMAAAAAAIADAAAAAACAAIAAAAAAAACAAAAAAAAAgAAAAAAADUAAAAAAAAEAAAAAAEABAAAAAABAAQAAAAAAAAEAAAAAAMAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAADAAAAAADAAwAAAAAAQACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAABAAAAAAAAAIAAAAAAAAEAAAAAAMABAAAAAABAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAQAAAAAAAAwAAAAAAAAMAAAAAAEANQAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAEAAAAAAAAMAAAAAAAADAAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAPgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAABAAAAAAAADAAAAAAAAAwAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAD4AAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAQAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAAAhAAAAAAAAIQAAAAAAACEAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAABAAAAAADAAQAAAAAAAAEAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAANQAAAAAAAAIAAAAAAAACAAAAAAAANQAAAAAAAAQAAAAAAQAEAAAAAAAABAAAAAADAAQAAAAAAQA+AAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAEAAAAAAIABAAAAAADAAQAAAAAAAAEAAAAAAEAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAACAAAAAAAAAgAAAAAAADUAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAABAAAAAABAAQAAAAAAgAEAAAAAAIAAgAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+          tiles: BAAAAAACAAQAAAAAAAAEAAAAAAMABAAAAAADAAQAAAAAAgAEAAAAAAIABAAAAAADAAQAAAAAAgAEAAAAAAEABAAAAAAAAAIAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAQAAAAAAQAEAAAAAAEABAAAAAAAAAQAAAAAAgAEAAAAAAAABAAAAAADAAQAAAAAAAAEAAAAAAAABAAAAAADAAQAAAAAAwACAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAEAAAAAAEABAAAAAADAAQAAAAAAAAEAAAAAAEABAAAAAACAAQAAAAAAQAEAAAAAAIABAAAAAABAAQAAAAAAQAEAAAAAAAAAgAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAgAAAAAAAD4AAAAAAAACAAAAAAAANQAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAANQAAAAAAAAIAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAACAAAAAAAAAQAAAAAAAAwAAAAAAQAMAAAAAAIAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAQAAAAAAQACAAAAAAAABAAAAAAAAAQAAAAAAwACAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAMAAAAAAIADAAAAAACAAIAAAAAAAACAAAAAAAAAgAAAAAAADUAAAAAAAAEAAAAAAEABAAAAAABAAQAAAAAAAAEAAAAAAMAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAADAAAAAADAAwAAAAAAQACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAABAAAAAAAAAIAAAAAAAAEAAAAAAMABAAAAAABAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAQAAAAAAAAwAAAAAAAAMAAAAAAEANQAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAEAAAAAAAAMAAAAAAAADAAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAPgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAABAAAAAAAADAAAAAAAAAwAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAD4AAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAQAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAAAhAAAAAAAAIQAAAAAAACEAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAABAAAAAADAAQAAAAAAAAEAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAANQAAAAAAAAIAAAAAAAACAAAAAAAANQAAAAAAAAQAAAAAAQAEAAAAAAAABAAAAAADAAQAAAAAAQA+AAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAEAAAAAAIABAAAAAADAAQAAAAAAAAEAAAAAAEAPgAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAACAAAAAAAAAgAAAAAAADUAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAABAAAAAABAAQAAAAAAgAEAAAAAAIAAgAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
           version: 7
         3,-1:
           ind: 3,-1
@@ -8685,7 +8685,7 @@ entities:
           2,-13:
             0: 28927
           3,-12:
-            0: 64319
+            0: 47935
           3,-11:
             0: 64315
           3,-10:
@@ -14469,12 +14469,6 @@ entities:
       parent: 2
 - proto: AirlockEngineeringGlassLocked
   entities:
-  - uid: 1305
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 14.5,-44.5
-      parent: 2
   - uid: 3386
     components:
     - type: Transform
@@ -16172,7 +16166,7 @@ entities:
       pos: 34.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -145983.98
+      secondsUntilStateChange: -148129.22
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16665,7 +16659,7 @@ entities:
       pos: -35.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -214912.1
+      secondsUntilStateChange: -217057.33
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17639,7 +17633,7 @@ entities:
       pos: -19.5,40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -176806.05
+      secondsUntilStateChange: -178951.28
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -19125,13 +19119,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -34.5,76.5
       parent: 2
-  - uid: 20926
+  - uid: 20948
     components:
-    - type: MetaData
-      name: AI core
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -57.5,78.5
+      pos: -57.5,77.5
       parent: 2
   - uid: 21383
     components:
@@ -39064,6 +39056,11 @@ entities:
     - type: Transform
       pos: -52.5,40.5
       parent: 2
+  - uid: 20926
+    components:
+    - type: Transform
+      pos: -57.5,77.5
+      parent: 2
   - uid: 20962
     components:
     - type: Transform
@@ -39338,11 +39335,6 @@ entities:
     components:
     - type: Transform
       pos: -52.5,76.5
-      parent: 2
-  - uid: 21017
-    components:
-    - type: Transform
-      pos: -57.5,78.5
       parent: 2
   - uid: 21053
     components:
@@ -48419,6 +48411,11 @@ entities:
     - type: Transform
       pos: -48.5,6.5
       parent: 2
+  - uid: 8082
+    components:
+    - type: Transform
+      pos: -57.5,77.5
+      parent: 2
   - uid: 8805
     components:
     - type: Transform
@@ -55563,26 +55560,6 @@ entities:
     components:
     - type: Transform
       pos: -57.5,76.5
-      parent: 2
-  - uid: 20948
-    components:
-    - type: Transform
-      pos: -58.5,76.5
-      parent: 2
-  - uid: 20949
-    components:
-    - type: Transform
-      pos: -58.5,77.5
-      parent: 2
-  - uid: 20950
-    components:
-    - type: Transform
-      pos: -58.5,78.5
-      parent: 2
-  - uid: 20951
-    components:
-    - type: Transform
-      pos: -57.5,78.5
       parent: 2
   - uid: 20952
     components:
@@ -79916,6 +79893,11 @@ entities:
     components:
     - type: Transform
       pos: -6.5,30.5
+      parent: 2
+  - uid: 8079
+    components:
+    - type: Transform
+      pos: 2.5,13.5
       parent: 2
   - uid: 9043
     components:
@@ -137345,6 +137327,11 @@ entities:
     - type: Transform
       pos: 49.5,3.5
       parent: 2
+  - uid: 28862
+    components:
+    - type: Transform
+      pos: 59.5,13.5
+      parent: 2
   - uid: 28988
     components:
     - type: Transform
@@ -137872,6 +137859,13 @@ entities:
     components:
     - type: Transform
       pos: -50.5,77.5
+      parent: 2
+- proto: HighSecEngineeringLocked
+  entities:
+  - uid: 1305
+    components:
+    - type: Transform
+      pos: 14.5,-44.5
       parent: 2
 - proto: HolofanProjector
   entities:
@@ -143712,10 +143706,10 @@ entities:
       parent: 2
 - proto: PaperDyedPink
   entities:
-  - uid: 30778
+  - uid: 2333
     components:
     - type: Transform
-      pos: 12.86852,28.665495
+      pos: 26.20212,6.0006437
       parent: 2
     - type: Paper
       stampState: paper_stamp-centcom
@@ -143746,22 +143740,10 @@ entities:
 
         Academy Station is outfitted with an
 
-        [bold]Epistemics Brig[/bold]
-
-        to be used at the discretion of the following crew;
-
-        * Captain
-
-        * Head of Security
-
-        * Warden
-
-        * Mystagogue
-
-        * Psionic Mantis
+        [bold]Epistemics Brig[/bold].
 
 
-        The Epistemics Brig is intended to hold persons, sophonts, and other entities which exhibit, or may exhibit, psionic or paranormal abnormalities.
+        The Epistemics Brig is intended to hold persons and other entities which exhibit, or may exhibit, psionic or paranormal abnormalities.
 
         Epistemics and Security have access to the monitor the hall.
 
@@ -143781,10 +143763,11 @@ entities:
         [italic]Ex Astris Scientia[/italic]
 
         Central Command
-  - uid: 30781
+      editingDisabled: True
+  - uid: 8078
     components:
     - type: Transform
-      pos: -6.828824,32.319115
+      pos: 14.248834,27.089886
       parent: 2
     - type: Paper
       stampState: paper_stamp-centcom
@@ -143815,22 +143798,10 @@ entities:
 
         Academy Station is outfitted with an
 
-        [bold]Epistemics Brig[/bold]
-
-        to be used at the discretion of the following crew;
-
-        * Captain
-
-        * Head of Security
-
-        * Warden
-
-        * Mystagogue
-
-        * Psionic Mantis
+        [bold]Epistemics Brig[/bold].
 
 
-        The Epistemics Brig is intended to hold persons, sophonts, and other entities which exhibit, or may exhibit, psionic or paranormal abnormalities.
+        The Epistemics Brig is intended to hold persons and other entities which exhibit, or may exhibit, psionic or paranormal abnormalities.
 
         Epistemics and Security have access to the monitor the hall.
 
@@ -143850,10 +143821,11 @@ entities:
         [italic]Ex Astris Scientia[/italic]
 
         Central Command
-  - uid: 30782
+      editingDisabled: True
+  - uid: 8080
     components:
     - type: Transform
-      pos: 26.307314,5.8682623
+      pos: -23.82114,23.265856
       parent: 2
     - type: Paper
       stampState: paper_stamp-centcom
@@ -143884,22 +143856,10 @@ entities:
 
         Academy Station is outfitted with an
 
-        [bold]Epistemics Brig[/bold]
-
-        to be used at the discretion of the following crew;
-
-        * Captain
-
-        * Head of Security
-
-        * Warden
-
-        * Mystagogue
-
-        * Psionic Mantis
+        [bold]Epistemics Brig[/bold].
 
 
-        The Epistemics Brig is intended to hold persons, sophonts, and other entities which exhibit, or may exhibit, psionic or paranormal abnormalities.
+        The Epistemics Brig is intended to hold persons and other entities which exhibit, or may exhibit, psionic or paranormal abnormalities.
 
         Epistemics and Security have access to the monitor the hall.
 
@@ -143919,10 +143879,11 @@ entities:
         [italic]Ex Astris Scientia[/italic]
 
         Central Command
-  - uid: 30783
+      editingDisabled: True
+  - uid: 8081
     components:
     - type: Transform
-      pos: -44.299595,42.972694
+      pos: -7.2205744,32.27009
       parent: 2
     - type: Paper
       stampState: paper_stamp-centcom
@@ -143953,22 +143914,10 @@ entities:
 
         Academy Station is outfitted with an
 
-        [bold]Epistemics Brig[/bold]
-
-        to be used at the discretion of the following crew;
-
-        * Captain
-
-        * Head of Security
-
-        * Warden
-
-        * Mystagogue
-
-        * Psionic Mantis
+        [bold]Epistemics Brig[/bold].
 
 
-        The Epistemics Brig is intended to hold persons, sophonts, and other entities which exhibit, or may exhibit, psionic or paranormal abnormalities.
+        The Epistemics Brig is intended to hold persons and other entities which exhibit, or may exhibit, psionic or paranormal abnormalities.
 
         Epistemics and Security have access to the monitor the hall.
 
@@ -143988,10 +143937,11 @@ entities:
         [italic]Ex Astris Scientia[/italic]
 
         Central Command
-  - uid: 30785
+      editingDisabled: True
+  - uid: 30980
     components:
     - type: Transform
-      pos: -24.263166,23.325684
+      pos: -44.657032,43.02443
       parent: 2
     - type: Paper
       stampState: paper_stamp-centcom
@@ -144022,22 +143972,10 @@ entities:
 
         Academy Station is outfitted with an
 
-        [bold]Epistemics Brig[/bold]
-
-        to be used at the discretion of the following crew;
-
-        * Captain
-
-        * Head of Security
-
-        * Warden
-
-        * Mystagogue
-
-        * Psionic Mantis
+        [bold]Epistemics Brig[/bold].
 
 
-        The Epistemics Brig is intended to hold persons, sophonts, and other entities which exhibit, or may exhibit, psionic or paranormal abnormalities.
+        The Epistemics Brig is intended to hold persons and other entities which exhibit, or may exhibit, psionic or paranormal abnormalities.
 
         Epistemics and Security have access to the monitor the hall.
 
@@ -144057,6 +143995,7 @@ entities:
         [italic]Ex Astris Scientia[/italic]
 
         Central Command
+      editingDisabled: True
 - proto: PaperDyedPurple
   entities:
   - uid: 1366
@@ -144139,6 +144078,7 @@ entities:
         [italic]Ex Astris Scientia[/italic]
 
         Central Command
+      editingDisabled: True
   - uid: 30780
     components:
     - type: Transform
@@ -144212,6 +144152,7 @@ entities:
         [italic]Ex Astris Scientia[/italic]
 
         Central Command
+      editingDisabled: True
   - uid: 30784
     components:
     - type: Transform
@@ -144285,6 +144226,7 @@ entities:
         [italic]Ex Astris Scientia[/italic]
 
         Central Command
+      editingDisabled: True
   - uid: 30786
     components:
     - type: Transform
@@ -144358,6 +144300,7 @@ entities:
         [italic]Ex Astris Scientia[/italic]
 
         Central Command
+      editingDisabled: True
   - uid: 30787
     components:
     - type: Transform
@@ -144431,6 +144374,7 @@ entities:
         [italic]Ex Astris Scientia[/italic]
 
         Central Command
+      editingDisabled: True
 - proto: PaperFugitiveReport
   entities:
   - uid: 11487
@@ -148934,12 +148878,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 46.5,-28.5
       parent: 2
-  - uid: 26104
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 55.5,13.5
-      parent: 2
   - uid: 27689
     components:
     - type: Transform
@@ -149026,6 +148964,11 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 26.5,-17.5
+      parent: 2
+  - uid: 30981
+    components:
+    - type: Transform
+      pos: 55.5,14.5
       parent: 2
 - proto: PoweredLightBlueInterior
   entities:
@@ -157428,21 +157371,6 @@ entities:
       parent: 2
 - proto: RandomVendingClothing
   entities:
-  - uid: 2333
-    components:
-    - type: Transform
-      pos: -23.5,-44.5
-      parent: 2
-  - uid: 10757
-    components:
-    - type: Transform
-      pos: -13.5,-17.5
-      parent: 2
-  - uid: 10758
-    components:
-    - type: Transform
-      pos: -13.5,-18.5
-      parent: 2
   - uid: 12777
     components:
     - type: Transform
@@ -160431,6 +160359,11 @@ entities:
     - type: Transform
       pos: 24.5,-59.5
       parent: 2
+  - uid: 12383
+    components:
+    - type: Transform
+      pos: 59.5,13.5
+      parent: 2
   - uid: 13048
     components:
     - type: Transform
@@ -161747,10 +161680,10 @@ entities:
       parent: 2
 - proto: SentientSmileCore
   entities:
-  - uid: 24594
+  - uid: 30979
     components:
     - type: Transform
-      pos: 23.5,0.5
+      pos: 2.4760747,13.405411
       parent: 2
 - proto: ServiceTechFab
   entities:
@@ -162873,7 +162806,7 @@ entities:
       linkedPorts:
         1634:
         - - Pressed
-          - Toggle
+          - Open
   - uid: 11426
     components:
     - type: MetaData
@@ -164439,10 +164372,10 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -60.5,6.5
       parent: 2
-  - uid: 30738
+  - uid: 24594
     components:
     - type: Transform
-      pos: 59.5,13.5
+      pos: 58.5,14.5
       parent: 2
 - proto: SignElectrical
   entities:
@@ -165424,10 +165357,10 @@ entities:
       parent: 2
 - proto: SpawnMobArcticFoxSiobhan
   entities:
-  - uid: 30776
+  - uid: 10758
     components:
     - type: Transform
-      pos: 20.5,1.5
+      pos: 23.5,0.5
       parent: 2
 - proto: SpawnMobCatClippy
   entities:
@@ -174529,6 +174462,41 @@ entities:
           - Forward
         - - Middle
           - Off
+  - uid: 26104
+    components:
+    - type: Transform
+      pos: 56.5,13.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        10460:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        13805:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        8950:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        16857:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
   - uid: 27687
     components:
     - type: Transform
@@ -174578,42 +174546,6 @@ entities:
           - Open
         - - Middle
           - Close
-  - uid: 28532
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 56.5,13.5
-      parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        13805:
-        - - Left
-          - Reverse
-        - - Right
-          - Forward
-        - - Middle
-          - Off
-        8950:
-        - - Left
-          - Reverse
-        - - Right
-          - Forward
-        - - Middle
-          - Off
-        10460:
-        - - Left
-          - Reverse
-        - - Right
-          - Forward
-        - - Middle
-          - Off
-        16857:
-        - - Left
-          - Reverse
-        - - Right
-          - Forward
-        - - Middle
-          - Off
   - uid: 30697
     components:
     - type: Transform
@@ -174787,6 +174719,13 @@ entities:
     components:
     - type: Transform
       pos: -13.5,-19.5
+      parent: 2
+- proto: VendingMachineClothing
+  entities:
+  - uid: 10757
+    components:
+    - type: Transform
+      pos: -13.5,-18.5
       parent: 2
 - proto: VendingMachineCoffee
   entities:
@@ -174963,6 +174902,11 @@ entities:
     - type: Transform
       pos: 29.5,22.5
       parent: 2
+  - uid: 28532
+    components:
+    - type: Transform
+      pos: -13.5,-17.5
+      parent: 2
 - proto: VendingMachineRepDrobe
   entities:
   - uid: 13918
@@ -175111,10 +175055,10 @@ entities:
       parent: 2
 - proto: VendingMachineTheater
   entities:
-  - uid: 10522
+  - uid: 8087
     components:
     - type: Transform
-      pos: -13.5,-16.5
+      pos: -23.5,-44.5
       parent: 2
   - uid: 28605
     components:
@@ -175147,6 +175091,11 @@ entities:
       parent: 2
 - proto: VendingMachineWinter
   entities:
+  - uid: 10522
+    components:
+    - type: Transform
+      pos: -13.5,-16.5
+      parent: 2
   - uid: 30672
     components:
     - type: Transform
@@ -185797,11 +185746,6 @@ entities:
     components:
     - type: Transform
       pos: 38.5,-42.5
-      parent: 2
-  - uid: 12383
-    components:
-    - type: Transform
-      pos: 59.5,13.5
       parent: 2
   - uid: 12401
     components:
@@ -196546,46 +196490,6 @@ entities:
       parent: 2
 - proto: WeaponEnergyTurretAI
   entities:
-  - uid: 8078
-    components:
-    - type: Transform
-      pos: -49.5,75.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28862
-  - uid: 8079
-    components:
-    - type: Transform
-      pos: -39.5,78.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28862
-  - uid: 8080
-    components:
-    - type: Transform
-      pos: -35.5,78.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28862
-  - uid: 8081
-    components:
-    - type: Transform
-      pos: -35.5,74.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28862
-  - uid: 8082
-    components:
-    - type: Transform
-      pos: -39.5,74.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28862
   - uid: 8083
     components:
     - type: Transform
@@ -196593,7 +196497,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 28862
+      - 20949
   - uid: 8084
     components:
     - type: Transform
@@ -196601,7 +196505,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 28862
+      - 20949
   - uid: 8085
     components:
     - type: Transform
@@ -196609,7 +196513,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 28862
+      - 20949
   - uid: 8086
     components:
     - type: Transform
@@ -196617,18 +196521,74 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 28862
-  - uid: 8087
+      - 20949
+- proto: WeaponEnergyTurretAIControlPanel
+  entities:
+  - uid: 20949
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -57.5,78.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 8085
+      - 8086
+      - 8083
+      - 8084
+- proto: WeaponEnergyTurretCommand
+  entities:
+  - uid: 30738
+    components:
+    - type: Transform
+      pos: -35.5,74.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 30782
+  - uid: 30776
+    components:
+    - type: Transform
+      pos: -39.5,78.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 30782
+  - uid: 30778
     components:
     - type: Transform
       pos: -41.5,75.5
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 28862
-- proto: WeaponEnergyTurretAIControlPanel
+      - 30782
+  - uid: 30781
+    components:
+    - type: Transform
+      pos: -49.5,75.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 30782
+  - uid: 30783
+    components:
+    - type: Transform
+      pos: -35.5,78.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 30782
+  - uid: 30785
+    components:
+    - type: Transform
+      pos: -39.5,74.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 30782
+- proto: WeaponEnergyTurretCommandControlPanel
   entities:
-  - uid: 28862
+  - uid: 30782
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -196636,16 +196596,12 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 8082
-      - 8081
-      - 8080
-      - 8079
-      - 8087
-      - 8078
-      - 8084
-      - 8083
-      - 8086
-      - 8085
+      - 30781
+      - 30778
+      - 30776
+      - 30783
+      - 30738
+      - 30785
 - proto: WebBed
   entities:
   - uid: 14367
@@ -196661,7 +196617,7 @@ entities:
       pos: -60.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -269546.66
+      secondsUntilStateChange: -271691.88
       state: Opening
 - proto: WebShield
   entities:
@@ -197301,7 +197257,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -204205.33
+      secondsUntilStateChange: -206350.56
       state: Opening
     - type: Airlock
       autoClose: False
