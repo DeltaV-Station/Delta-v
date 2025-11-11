@@ -28,7 +28,7 @@ public sealed partial class FlashComponent : Component
     /// These two times should be the same.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan FlashingTime = TimeSpan.FromSeconds(4);
+    public TimeSpan FlashingTime = TimeSpan.FromSeconds(1); // DeltaV - Reduce from 4 to 1 to match Security.yml
 
     /// <summary>
     /// For how long the target will lose vision when melee attacked with the flash.

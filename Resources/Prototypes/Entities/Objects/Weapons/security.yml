@@ -156,7 +156,8 @@
       size: Small
       sprite: Objects/Weapons/Melee/flash.rsi
     - type: UseDelay
-      delay: 4 # has to be the same as the FlashingTime datafield in FlashComponent
+      # DeltaV - Reduce delay from 4 to 1
+      delay: 1 # has to be the same as the FlashingTime datafield in FlashComponent
     - type: UseDelayOnMeleeHit
     - type: StaticPrice
       price: 40
