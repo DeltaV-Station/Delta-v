@@ -562,7 +562,7 @@
     - state: cargo
     - state: icon-mining-adv
   - type: ItemBorgModule
-    moduleId: AdvancedMining
+    moduleId: AdvancedMining # Frontier
     items:
     - MiningDrillDiamond
     - Shovel
@@ -1159,6 +1159,7 @@
     - state: service
     - state: icon-clown-adv
   - type: ItemBorgModule
+    moduleId: AdvancedClowning # Frontier
     items:
     - HoloprojectorClownBorg
     - BorgLauncherCreamPie
