@@ -15,7 +15,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200 # DeltaV - Increased health Cap By 50
+        damage: 200 # DeltaV - Increased health cap by 50
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -24,7 +24,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 80 # DeltaV - Increased health By 5 (less then uranium)
+        damage: 80 # DeltaV - Increased health by 5 (less than uranium)
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -94,7 +94,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 40 # DeltaV - Increased health By 3 (less then uranium)
+        damage: 40 # DeltaV - Increased health by 3 (less than uranium)
       behaviors:
       - !type:PlaySoundBehavior
         sound:
