@@ -492,6 +492,8 @@
     slots:
     - Back
   - type: AmmoCounter
+  - type: RadiationSource
+    intensity: 1.5
   - type: Gun
     fireRate: 0.7
     selectedMode: SemiAuto
