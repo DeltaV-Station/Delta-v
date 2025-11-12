@@ -193,7 +193,6 @@ public partial class ChatSystem
             if (validEmote)
                 break;
 
-            // Prevents doing meow sounds as a dog, etc.
             if (!AllowedToUseEmote(uid, emote))
                 continue;
 
@@ -244,10 +243,10 @@ public partial class ChatSystem
         }
 
         // Check if the emote is available for all
-        if (!emote.Available)
-        {
-            return false;
-        }
+        //if (!emote.Available) // DeltaV - Allow people to emote things. Don't worry, they don't get sound if their species doesn't have it natively.
+        //{
+        //    return false;
+        //}
 
         return true;
     }
