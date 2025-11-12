@@ -673,7 +673,7 @@
   startNode: start
   targetNode: passivegate
   category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
