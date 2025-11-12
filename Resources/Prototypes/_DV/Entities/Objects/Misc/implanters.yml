@@ -31,9 +31,10 @@
     implant: WatchdogImplant
 
 - type: entity
-  parent: BaseImplantOnlyImplanter
+  parent: BaseImplantOnlyImplanterCentcomm
   id: CentCommImplanter
   name: centcomm implanter
+  suffix: mindshield
   components:
   - type: Implanter
     implant: CentCommImplant
