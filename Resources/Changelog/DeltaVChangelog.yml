@@ -1,30 +1,4 @@
 ﻿Entries:
-- author: BarryNorfolk
-  changes:
-  - message: Shields can now be used as melee weapons for a small amount of damage.
-      No wide swings.
-    type: Add
-  id: 1293
-  time: '2025-04-21T02:46:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3519
-- author: corresp0nd, sowelipililimute
-  changes:
-  - message: Muigroc has been added, a vestine-derived chemical used to temporarily
-      corgify someone
-    type: Add
-  - message: Corgium now causes corgis to spawn when metabolised
-    type: Tweak
-  - message: Corgium no longer works on animals
-    type: Tweak
-  - message: Salicylic Acid now has its Floofstation recipe as a variant
-    type: Tweak
-  - message: Hyronalin now has its Wizard's Den recipe as a variant
-    type: Tweak
-  - message: Hypothium has been removed
-    type: Remove
-  id: 1294
-  time: '2025-04-21T02:49:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3481
 - author: Radezolid
   changes:
   - message: Added water vapor tanks at the tank dispensers.
@@ -4237,3 +4211,18 @@
   id: 1792
   time: '2025-11-12T01:22:42.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4635
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed emotes again by allowing players to use other species-specific
+      emotes.
+    type: Fix
+  id: 1793
+  time: '2025-11-12T15:06:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4621
+- author: snowywinters
+  changes:
+  - message: Changed uranium and plasma windows health
+    type: Tweak
+  id: 1794
+  time: '2025-11-12T15:12:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4617
