@@ -2,6 +2,7 @@ using Content.Server.Ghost;
 using Content.Server.Morgue.Components;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
+using Content.Shared._Goobstation.CrematorImmune;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
@@ -133,6 +134,8 @@ public sealed class CrematoriumSystem : EntitySystem
             for (var i = storage.Contents.ContainedEntities.Count - 1; i >= 0; i--)
             {
                 var item = storage.Contents.ContainedEntities[i];
+                if (HasComp<CrematoriumImmuneComponent>(item)) // GOOBCODE ALERT //
+                    continue;
                 _containers.Remove(item, storage.Contents);
                 Del(item);
             }
