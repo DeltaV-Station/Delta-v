@@ -5,12 +5,13 @@ using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
-using Content.Server.Botany;
 using Content.Server.Botany.Components;
 using Content.Server.Botany.Systems;
+using Content.Server.Botany;
 using Content.Server.Chat.Systems;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Flash;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Medical;
@@ -40,8 +41,6 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Nyanotrasen.Chemistry.Effects;
 using Content.Shared.Popups;
 using Content.Shared.Random;
-using Content.Shared.Xenoarchaeology.Artifact;
-using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Zombies;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -49,8 +48,9 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
+
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
+using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
 
 namespace Content.Server.EntityEffects;
 
@@ -1003,23 +1003,8 @@ public sealed class EntityEffectSystem : EntitySystem
 
     private void OnActivateArtifact(ref ExecuteEntityEffectEvent<ActivateArtifact> args)
     {
-        // Get the XenoArtifact system
-        var xenoArtifactSystem = EntityManager.EntitySysManager.GetEntitySystem<SharedXenoArtifactSystem>();
-
-        // Make sure the target entity has a XenoArtifactComponent
-        if (!TryComp<XenoArtifactComponent>(args.Args.TargetEntity, out var artifactComp))
-            return;
-
-        // Wrap the entity and component in the Entity<> type
-        var artifactEntity = new Entity<XenoArtifactComponent>(args.Args.TargetEntity, artifactComp);
-
-        // Try to activate the artifact
-        xenoArtifactSystem.TryActivateXenoArtifact(
-            artifact: artifactEntity,
-            user: null, // no performer info in the effect
-            target: args.Args.TargetEntity,
-            coordinates: Transform(args.Args.TargetEntity).Coordinates
-        );
+        var artifact = args.Args.EntityManager.EntitySysManager.GetEntitySystem<ArtifactSystem>();
+        artifact.TryActivateArtifact(args.Args.TargetEntity, logMissing: false);
     }
 
     // Nyanotrasen

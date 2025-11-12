@@ -1,5 +1,5 @@
 using Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Components;
-using Content.Shared.Xenoarchaeology.Artifact;
+using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
 using Content.Server.Revenant.EntitySystems;
 using Content.Shared.Item;
 using System.Linq;
@@ -19,10 +19,10 @@ public sealed class AnimateArtifactSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<AnimateArtifactComponent, XenoArtifactActivatedEvent>(OnActivated);
+        SubscribeLocalEvent<AnimateArtifactComponent, ArtifactActivatedEvent>(OnActivated);
     }
 
-    private void OnActivated(EntityUid uid, AnimateArtifactComponent component, XenoArtifactActivatedEvent args)
+    private void OnActivated(EntityUid uid, AnimateArtifactComponent component, ArtifactActivatedEvent args)
     {
         // Get a list of all nearby objects in range
 

@@ -560,6 +560,7 @@
       state: generic_panel_open
   - type: ResearchClient
   - type: AnalysisConsole
+    reportEntityId: PaperArtifactAnalyzer
   - type: DeviceList
   - type: DeviceNetwork
     deviceNetId: Wired
@@ -568,10 +569,10 @@
     ports:
       - ArtifactAnalyzerSender
   - type: ActivatableUI
-    key: enum.ArtifactAnalyzerUiKey.Key
+    key: enum.ArtifactAnalzyerUiKey.Key
   - type: UserInterface
     interfaces:
-      enum.ArtifactAnalyzerUiKey.Key:
+      enum.ArtifactAnalzyerUiKey.Key:
         type: AnalysisConsoleBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
