@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: Added water vapor tanks at the tank dispensers.
-    type: Add
-  id: 1295
-  time: '2025-04-21T09:20:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3535
-- author: sowelipililimute
-  changes:
-  - message: Kitsune can now have their health seen by medical HUDs and similar equipment
-    type: Fix
-  id: 1296
-  time: '2025-04-21T09:24:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3537
 - author: BarryNorfolk
   changes:
   - message: Kitsune holding intellicards no longer round remove AI players
@@ -4226,3 +4212,18 @@
   id: 1794
   time: '2025-11-12T15:12:23.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4617
+- author: SirWarock
+  changes:
+  - message: 'Cultists: Transmutating Objects will no longer use already transmutated
+      objects!'
+    type: Fix
+  id: 1795
+  time: '2025-11-13T13:09:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4646
+- author: SirWarock
+  changes:
+  - message: Removed the Damage caused by Cosmic Siphoning.
+    type: Tweak
+  id: 1796
+  time: '2025-11-13T14:35:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4627
