@@ -93,7 +93,7 @@ namespace Content.Shared.Abilities.Psionics
                 if (HasComp<MobStateComponent>(entity) && entity != (EntityUid)ent && !HasComp<PsionicInsulationComponent>(entity))
                 {
                     if (TryComp<DamageableComponent>(entity, out var damageable) && damageable.DamageContainerID == "Biological")
-                        _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(entity, StatusEffectKey, TimeSpan.FromSeconds(ent.Comp.Duration), false);
+                        _statusEffects.TryAddStatusEffect<ForcedSleepingStatusEffectComponent>(entity, StatusEffectKey, TimeSpan.FromSeconds(ent.Comp.Duration), false);
                 }
             }
 
