@@ -15,17 +15,6 @@
   parent: [ClothingOuterHardsuitMystagogue, ClothingOuterStorageFoldableBaseOpened]
   id: ClothingOuterHardsuitMystagogueLabcoat
   name: mystagogue's hardsuit
-  components:
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:ContainerSlot
-      showEnts: False
-      occludes: True
-      ent: null
-    storagebase: !type:Container
-      showEnts: False
-      occludes: True
-      ents: []
 
 - type: entity
   parent: ClothingOuterHardsuitSyndie
