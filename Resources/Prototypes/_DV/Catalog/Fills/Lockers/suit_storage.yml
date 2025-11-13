@@ -63,8 +63,8 @@
     - id: ClothingShoesBootsSecurityMagboots #Added security magboots.
 
 - type: entity
-  id: SuitStorageQM
   parent: SuitStorageBase
+  id: SuitStorageQM
   suffix: Logistics Officer
   components:
   - type: EntityTableContainerFill

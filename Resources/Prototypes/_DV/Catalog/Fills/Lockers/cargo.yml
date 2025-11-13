@@ -27,9 +27,10 @@
     - id: ClothingMaskBreath
 
 - type: entity
+  parent: LockerQuarterMaster
   id: LockerQuarterMasterFilledHardsuit # I know we don't use Quartermaster but I'm trying to be consistent with LockerQuarterMasterFilled
   suffix: Filled, Hardsuit
-  parent: LockerQuarterMaster
+
   components:
   - type: EntityTableContainerFill
     containers:
