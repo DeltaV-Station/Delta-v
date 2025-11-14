@@ -123,7 +123,8 @@ public sealed partial class CosmicCultComponent : Component
     /// </summary>
     [DataField] public DamageSpecifier SiphonCritDamage = new() {
         DamageDict = new() {
-            { "Cold", 200 }
+            { "Cold", 50 },
+            {"Asphyxiation", 50}
         }
     };
     #endregion
