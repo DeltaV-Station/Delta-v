@@ -4,6 +4,7 @@ namespace Content.Shared._DV.Clothing.Components;
 
 /// <summary>
 ///     Electrocutes players attempting to unequip clothes that have this component.
+///     Use AccessReaderComponent to stop shocking characters with certain access.
 /// </summary>
 [RegisterComponent]
 [NetworkedComponent]
@@ -20,4 +21,10 @@ public sealed partial class ShockOnUnequipComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(2);
+
+    /// <summary>
+    /// If true, only shock unequipping entity if lacking access specified in AccessReader component.
+    /// </summary>
+    [DataField]
+    public bool UseAccess = true;
 }
