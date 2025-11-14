@@ -13,7 +13,7 @@ using Content.Shared.Body.Systems;
 
 namespace Content.Server.Body.Systems
 {
-    public sealed class BrainSystem : EntitySystem
+    public sealed partial class BrainSystem : EntitySystem // DeltaV - made partial
     {
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
         [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
@@ -25,6 +25,7 @@ namespace Content.Server.Body.Systems
         // Shitmed Change Start
             SubscribeLocalEvent<BrainComponent, OrganRemovedFromBodyEvent>(HandleRemoval);
             SubscribeLocalEvent<BrainComponent, PointAttemptEvent>(OnPointAttempt);
+            InitializeGhostRole(); // DeltaV
         }
 
         private void HandleRemoval(EntityUid uid, BrainComponent brain, ref OrganRemovedFromBodyEvent args)
