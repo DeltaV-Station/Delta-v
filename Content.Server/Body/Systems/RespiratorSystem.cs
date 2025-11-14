@@ -5,6 +5,7 @@ using Content.Shared._Shitmed.Body.Components; // Shitmed Change
 using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Server.Chat.Systems;
 using Content.Server.EntityEffects;
+using Content.Shared._DV.Body.Components; // DeltaV - Addition of CPR
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
@@ -92,7 +93,7 @@ public sealed class RespiratorSystem : EntitySystem
             // End DeltaV Additions
             UpdateSaturation(uid, multiplier * (float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV: use multiplier instead of negating
 
-            if (!_mobState.IsIncapacitated(uid) && !HasComp<DebrainedComponent>(uid)) // Shitmed Change - Cannot breathe in crit or when no brain.
+            if (!_mobState.IsIncapacitated(uid) || HasComp<AffectedByCPRComponent>(uid) && !HasComp<DebrainedComponent>(uid)) // Shitmed Change - Cannot breathe in crit or when no brain. // DeltaV - Addition of CPR
             {
                 switch (respirator.Status)
                 {
