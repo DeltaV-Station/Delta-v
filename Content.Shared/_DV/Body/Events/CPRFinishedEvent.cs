@@ -1,4 +1,4 @@
-﻿using Content.Shared.DoAfter;
+using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 
 namespace Content.Server._DV.Body.Events;

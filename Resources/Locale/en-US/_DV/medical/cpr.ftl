@@ -1,4 +1,4 @@
-﻿cpr-verb-start = Perform CPR
+cpr-verb-start = Perform CPR
 cpr-verb-description = Enable the critical target to breathe.
 
 cpr-popup-start-user = You begin to perform CPR on {THE($patient)}'s chest.
