@@ -11,6 +11,7 @@ public abstract class SharedShockOnUnequipSystem : EntitySystem
 
         SubscribeLocalEvent<ShockOnUnequipComponent, ExaminedEvent>(OnExamined);
     }
+
     private void OnExamined(Entity<ShockOnUnequipComponent> selfUnremovableClothing, ref ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString("shock-on-unequip-examine"));
