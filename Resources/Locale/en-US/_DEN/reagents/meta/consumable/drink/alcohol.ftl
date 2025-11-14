@@ -8,13 +8,13 @@ reagent-name-jaegerita = jaegerita
 reagent-desc-jaegerita = Shaking things up a little...
 
 reagent-name-surfer = surfer
-reagent-desc-surfer = A tropical take on the classic.
+reagent-desc-surfer = Simple, but sweet. Or, bittersweet rather.
 
 reagent-name-surfer-on-acid = surfer on acid
 reagent-desc-surfer-on-acid = For when you need more than a vacation to relax.
 
 reagent-name-fizzball = fizzball
-reagent-desc-fizzball = Simple, but sweet. Or, bittersweet rather.
+reagent-desc-fizzball = A classic that's been everybody's third-favorite drink for centuries.
 
 reagent-name-tuxedo-sunset = tuxedo sunset
 reagent-desc-tuxedo-sunset = A slight twist on the popular Fizzball.

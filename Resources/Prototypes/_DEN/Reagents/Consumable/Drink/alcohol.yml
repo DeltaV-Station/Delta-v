@@ -150,7 +150,7 @@
   name: reagent-name-tuxedo-sunset
   parent: BaseAlcohol
   desc: reagent-desc-tuxedo-sunset
-  physicalDesc: reagent-physical-desc-cold
+  physicalDesc: reagent-physical-desc-inky
   flavor: tuxedo-sunset
   color: "#383734"
   metamorphicSprite:
@@ -264,7 +264,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.15
+        amount: 0.2
       - !type:GenericStatusEffect
         key: KnockedDown
         component: KnockedDown
