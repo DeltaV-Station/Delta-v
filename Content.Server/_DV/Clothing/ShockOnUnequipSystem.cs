@@ -1,7 +1,6 @@
 using Content.Server.Electrocution;
 using Content.Shared._DV.Clothing.Components;
 using Content.Shared._DV.Clothing.Systems;
-using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory;
