@@ -3,10 +3,7 @@
   id: BaseFlag
   abstract: true
   components:
-  - type: WallMount
-    arc: 360
   - type: Sprite
-    drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/flags.rsi
     # Begin DeltaV additions - Craftable Pride Flags
   - type: StaticPrice
@@ -60,7 +57,7 @@
   components:
   - type: Sprite
     state: syndie_flag
-    
+
 - type: entity
   parent: BaseFlag
   id: LGBTQFlag
