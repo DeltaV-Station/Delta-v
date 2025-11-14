@@ -38,7 +38,7 @@ paper-viral-care-package-manual = [color=#134975]░░██░░ [head=2]Vira
       ██████ [head=3][color=#5b97bc]For when the cough is more than[/color][/head]
       ░░██░░ [head=3][color=#5b97bc]just a harmless cough.[/color][/head]
       ──────────────────────────────────────────[/color]
-      Thank you for purchasing our viral carepackage!
+      Thank you for purchasing our viral care package!
       Due to a recent employee-satisfaction survey organized by our [color=darkblue][bold]Sophont Resources Department[/bold][/color], [color=darkblue][bold]Nanotrasen™[/bold][/color] offers you a quick and easy way to relieve the station from an ongoing [color=purple][bold]viral outbreak[/bold][/color], if the station's [color=#5b97bc][bold]medical facilities[/bold][/color] are failing.
 
       ​[head=2][color=#134975]How to mix Ambuzol:[/color][/head]
