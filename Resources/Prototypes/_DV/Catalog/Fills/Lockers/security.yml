@@ -109,6 +109,17 @@
         tableId: GamblagatorTable
 
 - type: entity
+  parent: GunSafe
+  id: GunSafeSuperweaponEmpty
+  name: superweapon safe
+  description: Looks like someone got here before you did. It's... probably fine.
+  components:
+  - type: EntityStorage
+    open: true
+  - type: Lock
+    locked: false
+
+- type: entity
   id: LockerBrigmedicFilledHardsuit
   suffix: Corpsman, Filled, Hardsuit
   parent: LockerBrigmedic

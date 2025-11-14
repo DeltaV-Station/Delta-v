@@ -18,11 +18,12 @@
   id: RandomSuperweaponTable
   table: !type:GroupSelector
     children:
-    - !type:NestedSelector
-      tableId: RPGTable
-    - !type:NestedSelector
-      tableId: GamblagatorTable
-    - id: WeaponBeamDevastator
+    #- !type:NestedSelector
+    #  tableId: RPGTable
+    #- !type:NestedSelector
+    #  tableId: GamblagatorTable
+    #- id: WeaponBeamDevastator
+    - id: PaperSuperweaponRemoved
 
 - type: entityTable
   id: RPGTable
