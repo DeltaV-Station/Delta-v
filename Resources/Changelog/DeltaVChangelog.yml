@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: Fixed departamental TechFabs not being able to accept blueprints.
-    type: Fix
-  id: 1303
-  time: '2025-04-21T21:14:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3546
 - author: Avalon-Proto
   changes:
   - message: Artifacts have torn reality asunder, levelling whole stations with the
@@ -4225,3 +4218,11 @@
   id: 1802
   time: '2025-11-14T23:18:53.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4653
+- author: BarryNorfolk
+  changes:
+  - message: Killing the grappled target of a grappler no longer causes them to be
+      stuck forever
+    type: Fix
+  id: 1803
+  time: '2025-11-14T23:32:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4546
