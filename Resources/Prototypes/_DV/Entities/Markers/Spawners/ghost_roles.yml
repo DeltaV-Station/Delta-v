@@ -213,6 +213,9 @@
     name: ghost-role-information-ifritDV-name
     description: ghost-role-information-ifritDV-description
     rules: ghost-role-information-ifritDV-rules
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 172800
     mindRoles:
     - MindRoleGhostRoleFamiliar
     raffle:
@@ -228,6 +231,3 @@
         map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
         color: "#bb4b1e"
         shader: unshaded
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 172800
