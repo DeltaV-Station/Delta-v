@@ -34,7 +34,7 @@ paper-salvage-gun-safe-notice = SALVAGE SPECIALIST SELF DEFENSE ARMAMENT NOTICE
 
       Nanotrasen Corporate Salvage Division
 
-paper-viral-care-package-manual = [color=#134975]░░██░░ [head=2]Viral CarePackage Manual[/head]
+paper-viral-care-package-manual = [color=#134975]░░██░░ [head=2]Viral Care Package Manual[/head]
       ██████ [head=3][color=#5b97bc]For when the cough is more than[/color][/head]
       ░░██░░ [head=3][color=#5b97bc]just a harmless cough.[/color][/head]
       ──────────────────────────────────────────[/color]
