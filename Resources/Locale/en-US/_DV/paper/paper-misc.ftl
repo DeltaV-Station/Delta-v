@@ -12,7 +12,7 @@ book-text-lunchbox-unhealthy = Hello Honey!
        - Mum.
 book-text-gorlex-girlfriends-subscription-notice = [head=2]Greetings loyal subscriber,[/head]
 
-      We hope you enjoy this months edition of Gorlex Girlfriends™ sponsored by the Syndicate.
+      We hope you enjoy this month's edition of Gorlex Girlfriends™ sponsored by the Syndicate.
 
       With this months issue we will be heading behind the scenes with some of our famous actors working on the amazing "[color=#780606]Nukies[/color]" TV show and maybe show some teasers for next season. Read up on the personal interview with beloved Operative November as she explains the troubles of fake blood getting in her hair!
 
@@ -22,7 +22,7 @@ book-text-gorlex-girlfriends-subscription-notice = [head=2]Greetings loyal subsc
 
 book-text-centcomm-chads-subscription-notice = [head=2]Greetings loyal subscriber,[/head]
 
-      We hope you enjoy this months edition of CentComm Chads™ sponsored by Nanotrasen!
+      We hope you enjoy this month's edition of CentComm Chads™ sponsored by Nanotrasen!
 
       With this months issue we will be investigating the sheer success of our famous CC Officials and their tips and strategies to climb the career ladder. Read up on the podcast with renowned Commander Chad as he explains how waking up at 3am is a lifehack for productivity!
 
