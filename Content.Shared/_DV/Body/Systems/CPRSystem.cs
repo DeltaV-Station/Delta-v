@@ -51,6 +51,9 @@ public sealed class CPRSystem : EntitySystem
 
     private void StartCPR(EntityUid user, EntityUid target)
     {
+        if (HasComp<AffectedByCPRComponent>(target))
+            return;
+
         var doAfterArgs = new DoAfterArgs(EntityManager, user, _cprTime, new CPRFinishedEvent(), user, target: target)
         {
             BreakOnDamage = true,
@@ -59,6 +62,7 @@ public sealed class CPRSystem : EntitySystem
             BreakOnHandChange = false,
             NeedHand = true,
         };
+
         var msgUser = Loc.GetString("cpr-popup-start-user", ("patient", target));
         var msgOthers = Loc.GetString("cpr-popup-start-others", ("patient", target), ("provider", user));
         _popupSystem.PopupPredicted(msgUser, msgOthers, user, user, PopupType.Medium);
@@ -73,6 +77,8 @@ public sealed class CPRSystem : EntitySystem
             !HasComp<CanDoCPRComponent>(ev.User))
             return;
 
+        var alreadyAffected = HasComp<AffectedByCPRComponent>(ev.Target);
+
         var user = ev.User;
         var target = ev.Target;
         AlternativeVerb verb = new()
@@ -83,7 +89,8 @@ public sealed class CPRSystem : EntitySystem
             },
             Text = Loc.GetString("cpr-verb-start"),
             Priority = 2,
-            Message = Loc.GetString("cpr-verb-description"),
+            Disabled = alreadyAffected,
+            Message = alreadyAffected ? Loc.GetString("cpr-verb-disabled-description") : Loc.GetString("cpr-verb-description"),
         };
 
         ev.Verbs.Add(verb);
