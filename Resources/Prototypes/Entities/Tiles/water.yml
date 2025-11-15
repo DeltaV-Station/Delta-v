@@ -75,12 +75,12 @@
   - type: TileEntityEffect
     effects:
     - !type:ExtinguishReaction
-  # Goobstation - fishing
+  # Begin Goobstation - fishing
   - type: FishingSpot
     fishList: !type:NestedSelector
       tableId: WaterFishingLootTable
     fishDefaultTimer: 25.0
     fishTimerVariety: 15.0
-  # Goobstation - fishing
+  # End Goobstation - fishing
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: FloorCosmicDecay
