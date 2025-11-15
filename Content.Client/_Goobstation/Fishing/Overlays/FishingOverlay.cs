@@ -13,7 +13,7 @@ using Robust.Shared.Enums;
 using Robust.Client.Player;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Goobstation.Fishing.Overlays;
+namespace Content.Goobstation.Client.Fishing.Overlays;
 
 public sealed class FishingOverlay : Overlay
 {
