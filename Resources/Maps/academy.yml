@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/15/2025 18:23:59
+  time: 11/15/2025 19:09:10
   entityCount: 30979
 maps:
 - 1
@@ -16166,7 +16166,7 @@ entities:
       pos: 34.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -149821.75
+      secondsUntilStateChange: -149879.34
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16639,7 +16639,7 @@ entities:
       pos: -35.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -218749.86
+      secondsUntilStateChange: -218807.45
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17620,7 +17620,7 @@ entities:
       pos: -19.5,40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -180643.81
+      secondsUntilStateChange: -180701.4
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -140500,7 +140500,7 @@ entities:
     - type: Transform
       pos: -40.5,-32.5
       parent: 2
-- proto: LockerQuarterMasterFilled
+- proto: LockerQuarterMasterFilledHardsuit
   entities:
   - uid: 7594
     components:
@@ -196611,7 +196611,7 @@ entities:
       pos: -60.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -273384.4
+      secondsUntilStateChange: -273442
       state: Opening
 - proto: WebShield
   entities:
@@ -197249,7 +197249,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -208043.1
+      secondsUntilStateChange: -208100.69
       state: Opening
     - type: Airlock
       autoClose: False
