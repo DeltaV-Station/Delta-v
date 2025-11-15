@@ -58,6 +58,12 @@
         amount: 2
         doAfter: 1
 
+    - to: pressureregulator
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
     - to: valve
       steps:
       - material: Steel

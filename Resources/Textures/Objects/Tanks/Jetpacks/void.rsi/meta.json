@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Drawn by Ubaser, modified by BarryNorkfolk for SUITSTORAGE-secdog",
+  "copyright": "Drawn by Ubaser, modified by BarryNorkfolk for SUITSTORAGE-secdog, Dog states modified from base states by Sparlight (GitHub).",
   "size": {
     "x": 32,
     "y": 32
@@ -48,6 +48,22 @@
     {
       "name": "on-equipped-SUITSTORAGE",
       "directions": 4
+    },
+    {
+        "name": "equipped-BACKPACK-dog",
+        "directions": 4
+    },
+    {
+        "name": "on-equipped-BACKPACK-dog",
+        "directions": 4
+    },
+    {
+        "name": "equipped-SUITSTORAGE-dog",
+        "directions": 4
+    },
+    {
+        "name": "on-equipped-SUITSTORAGE-dog",
+        "directions": 4
     }
   ]
 }
