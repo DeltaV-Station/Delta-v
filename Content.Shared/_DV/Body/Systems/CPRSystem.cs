@@ -1,13 +1,13 @@
 using Content.Server._DV.Body.Events;
 using Content.Shared._DV.Body.Components;
+using Content.Shared._DV.Body.Events;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
-using Robust.Shared.Utility;
 
-namespace Content.Server._DV.Body.Systems;
+namespace Content.Shared._DV.Body.Systems;
 
 public sealed class CPRSystem : EntitySystem
 {
