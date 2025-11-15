@@ -87,7 +87,7 @@ public sealed class BodySystem : SharedBodySystem
         }
     }
 
-    protected override void RemovePart(
+    public override void RemovePart( // DeltaV - Made public
         Entity<BodyComponent?> bodyEnt,
         Entity<BodyPartComponent> partEnt,
         string slotId)
