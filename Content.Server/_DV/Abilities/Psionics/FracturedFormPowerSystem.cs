@@ -71,7 +71,8 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
         component.NextSwap = _timing.CurTime + TimeSpan.FromSeconds(_random.Next(300, 1200));
 
         if (HasComp<FracturedFormBodyComponent>(entity)) return; // Don't generate a new body if we're already part of a network.
-        AddComp<FracturedFormBodyComponent>(entity);
+        var bodyComp = AddComp<FracturedFormBodyComponent>(entity);
+        bodyComp.ControllingForm = entity.Owner;
         component.Bodies.Add(entity);
         GenerateForm(entity);
     }
@@ -113,9 +114,9 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
         }
 
         var bodies = EntityQueryEnumerator<FracturedFormBodyComponent>();
-        while (bodies.MoveNext(out var uid, out var _))
+        while (bodies.MoveNext(out var uid, out var comp))
         {
-            if (!HasComp<SleepingComponent>(uid) && !HasComp<FracturedFormPowerComponent>(uid))
+            if (!HasComp<SleepingComponent>(uid) && !_mind.GetMind(uid).HasValue)
             {
                 _sleeping.TrySleeping(uid);
             }
@@ -125,6 +126,10 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
                 // Ensure the body isn't forcesleep'd by the SSD system.
                 ssd.IsSSD = false;
             }
+
+            // Cleanup the component from any out-of-network bodies. (See Mindbreaking)
+            if (!comp.ControllingForm.IsValid() || Deleted(comp.ControllingForm) || !HasComp<FracturedFormPowerComponent>(comp.ControllingForm))
+                RemCompDeferred<FracturedFormBodyComponent>(uid);
         }
     }
 
@@ -149,7 +154,7 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
             var speciesPrototypes = _prototype.EnumeratePrototypes<SpeciesPrototype>();
             foreach (var proto in speciesPrototypes)
             {
-                if (proto.RoundStart)
+                if (proto.RoundStart && proto.ID != "IPC")
                     validSpecies.Add(proto.ID);
             }
             var species = _random.Pick(validSpecies);
@@ -164,8 +169,9 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
 
         if (newBody is { } body && !Deleted(body))
         {
-            AddComp<FracturedFormBodyComponent>(body);
+            var bodyComp = AddComp<FracturedFormBodyComponent>(body);
             original.Comp.Bodies.Add(body);
+            bodyComp.ControllingForm = original.Owner;
             return body;
         }
 
@@ -226,6 +232,14 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
 
         var duplicate = AddComp<FracturedFormPowerComponent>(targetBody);
         duplicate.Bodies = entity.Comp.Bodies;
+        // Pass the controlling form to the new component's bodies.
+        foreach (var body in duplicate.Bodies)
+        {
+            if (TryComp<FracturedFormBodyComponent>(body, out var bodyComp))
+            {
+                bodyComp.ControllingForm = targetBody;
+            }
+        }
         RemCompDeferred(entity, entity.Comp);
         return true;
     }
