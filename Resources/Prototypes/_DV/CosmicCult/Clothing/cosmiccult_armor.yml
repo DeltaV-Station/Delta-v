@@ -83,6 +83,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
+  - type: TypingIndicatorClothing
+    proto: CosmicTyping
 
 # COSMIC CULT HARDSUIT HELMET
 - type: entity
@@ -108,11 +110,5 @@
         Slash: 0.90
         Piercing: 0.90
         Heat: 0.90
+  - type: EyeProtection
   - type: FlashImmunity
-  - type: TypingIndicatorClothing
-    proto: CosmicTyping
-  #- type: SpeechOverride # For some reason, this doesn't exist in the component, but it totally does. Problems for later.
-  #  overrideIDs:
-  #    Male: CosmicEmotesMale
-  #    Female: CosmicEmotesFemale
-  #    Unsexed: CosmicEmotesMale # Humans use male sounds for unsexed so here we are.
