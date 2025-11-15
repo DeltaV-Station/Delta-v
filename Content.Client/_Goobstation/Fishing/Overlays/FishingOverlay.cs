@@ -41,7 +41,7 @@ public sealed class FishingOverlay : Overlay
         _player = player;
         _transform = _entManager.EntitySysManager.GetEntitySystem<SharedTransformSystem>();
         _progressColor = _entManager.System<ProgressColorSystem>();
-		_sprite = sprite
+		_sprite = sprite;
         // Load the progress bar texture
         var sprite = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Interface/Misc/fish_bar.rsi"), "icon");
         _barTexture = _entManager.EntitySysManager.GetEntitySystem<SpriteSystem>().Frame0(sprite);
