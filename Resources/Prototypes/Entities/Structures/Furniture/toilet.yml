@@ -63,7 +63,7 @@
         - MachineMask
         layer:
         - None
-           # Goobstation - fishing
+      # Begin Goobstation - fishing
       fishing:
         shape:
           !type:PhysShapeCircle
@@ -74,7 +74,7 @@
         - HighImpassable
         density: 1000
         hard: false
-      # Goobstation - fishing   
+      # End Goobstation - fishing
   - type: PlungerUse
   - type: Appearance
   - type: SecretStash
