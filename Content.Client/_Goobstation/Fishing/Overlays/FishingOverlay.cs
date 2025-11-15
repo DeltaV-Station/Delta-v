@@ -93,7 +93,7 @@ public sealed class FishingOverlay : Overlay
 
             // Calculate the position of the progress bar relative to the entity
             var position = new Vector2(
-                sprite.Bounds.Width / 2f,
+                _sprite.GetLocalBounds((uid, sprite)).Width / 2f,
                 -scaledTextureSize.Y / 2f // Center vertically
             );
 
