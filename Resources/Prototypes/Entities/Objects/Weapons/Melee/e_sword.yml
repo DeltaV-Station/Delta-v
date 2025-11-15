@@ -293,17 +293,17 @@
   id: EnergySwordDouble
   description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. This can be stored in pockets.
   components:
-  #- type: ItemToggle # DeltaV - commented out
-  #  onUse: false # wielding events control it instead
-  #  onActivate: false # prevents the weapon from being able to be turned on when it is on the ground
-  #  soundActivate:
-  #    path: /Audio/Weapons/ebladeon.ogg
-  #    params:
-  #      volume: 3
-  #  soundDeactivate:
-  #    path: /Audio/Weapons/ebladeoff.ogg
-  #    params:
-  #      volume: 3
+  - type: ItemToggle
+    onUse: false # wielding events control it instead
+    onActivate: false # prevents the weapon from being able to be turned on when it is on the ground
+    soundActivate:
+      path: /Audio/Weapons/ebladeon.ogg
+      params:
+        volume: 3
+    soundDeactivate:
+      path: /Audio/Weapons/ebladeoff.ogg
+      params:
+        volume: 3
   - type: ItemToggleMeleeWeapon
     activatedSoundOnSwing:
       path: /Audio/Weapons/eblademiss.ogg
@@ -311,10 +311,10 @@
         volume: 3
         variation: 0.250
     activatedDamage:
-        types: # DeltaV - was 12 slash, 12 heat, 15 structural
-            Slash: 9
-            Heat: 9
-            Structural: 8
+        types:
+            Slash: 12
+            Heat: 12
+            Structural: 15
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -327,11 +327,11 @@
       malus: 0.7
     - type: Execution
       doAfterDuration: 4.0
-  #- type: Wieldable # DeltaV - commented out
-  #  wieldSound: null # esword light sound instead
+  - type: Wieldable
+    wieldSound: null # esword light sound instead
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 2.0 # DeltaV - was 1.5
+    attackRate: 1.5
     changeSwingDirection: true # DeltaV
     angle: 100
     damage:
@@ -348,10 +348,12 @@
         map: [ "blade" ]
   - type: Item
     size: Small
-    sprite: _DV/Objects/Weapons/Melee/e_sword_double-inhands.rsi # DeltaV - fancier inhands sprite
+    sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
   - type: Reflect
-    reflectProb: .10 # DeltaV: Having two blades isn't really practical for reflecting shots.
+    reflectProb: .75
     spread: 75
+    reflects:
+    - Energy # DeltaV: 80% Energy Reflection but no ballistics.
   - type: UseDelay
     delay: 1
 
