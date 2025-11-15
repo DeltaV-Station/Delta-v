@@ -12,7 +12,7 @@ using Robust.Client.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._Goobstation.Fishing;
+namespace Content.Goobstation.Client.Fishing;
 
 public sealed class FishingSystem : SharedFishingSystem
 {
