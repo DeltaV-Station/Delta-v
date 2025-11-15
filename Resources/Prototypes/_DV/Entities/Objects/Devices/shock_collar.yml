@@ -18,6 +18,12 @@
     slots:
     - neck
   - type: SelfUnremovableClothing
+  - type: ShockOnUnequip
+    damage: 10
+    duration: 3
+  - type: AccessReader
+    access:
+    - - Security
   - type: ShockOnTrigger
     damage: 5
     duration: 3
