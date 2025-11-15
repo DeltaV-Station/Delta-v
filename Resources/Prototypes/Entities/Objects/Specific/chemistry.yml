@@ -35,6 +35,7 @@
     solution: beaker
   - type: ExaminableSolution
     solution: beaker
+    exactVolume: true
   - type: DrawableSolution
     solution: beaker
   - type: InjectableSolution
@@ -133,6 +134,7 @@
     solution: beaker
   - type: ExaminableSolution
     solution: beaker
+    exactVolume: true
   - type: DrawableSolution
     solution: beaker
   - type: InjectableSolution
@@ -189,6 +191,7 @@
     solution: beaker
   - type: ExaminableSolution
     solution: beaker
+    exactVolume: true
   - type: DrawableSolution
     solution: beaker
   - type: InjectableSolution
@@ -353,6 +356,7 @@
     toggleState: 1 # draw
   - type: ExaminableSolution
     solution: dropper
+    exactVolume: true
   - type: UserInterface
     interfaces:
       enum.TransferAmountUiKey.Key:
@@ -425,6 +429,7 @@
     injectOnly: false
   - type: ExaminableSolution
     solution: injector
+    exactVolume: true
   - type: Spillable
     solution: injector
   - type: TrashOnSolutionEmpty
@@ -606,12 +611,11 @@
     size: Tiny
     sprite: _DV/Objects/Specific/Chemistry/pills.rsi # DeltaV - Resprited some medical items
   - type: Pill
-  - type: Food
+  - type: Edible
     delay: 0.6
     forceFeedDelay: 2
     transferAmount: null
-    eatMessage: food-swallow
-    useSound: /Audio/Items/pill.ogg
+    edible: Pill
   - type: BadFood
   - type: FlavorProfile
     ignoreReagents: []
