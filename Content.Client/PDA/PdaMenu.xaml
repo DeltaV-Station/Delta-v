@@ -43,11 +43,6 @@
             <ContainerButton Name="StationTimeButton">
                 <RichTextLabel Name="StationTimeLabel" Access="Public"/>
             </ContainerButton>
-            <!-- Begin DeltaV changes -->
-            <ContainerButton Name="CurrentDateButton">
-                <RichTextLabel Name="CurrentDateLabel" Access="Public"/>
-            </ContainerButton>
-            <!-- End DeltaV changes -->
             <ContainerButton Name="StationAlertLevelInstructionsButton">
                 <RichTextLabel Name="StationAlertLevelInstructions" Access="Public"/>
             </ContainerButton>
