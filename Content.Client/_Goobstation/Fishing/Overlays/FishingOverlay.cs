@@ -13,7 +13,7 @@ using Robust.Shared.Enums;
 using Robust.Client.Player;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Client.Fishing.Overlays;
+namespace Content.Client._Goobstation.Fishing.Overlays;
 
 public sealed class FishingOverlay : Overlay
 {
@@ -41,7 +41,7 @@ public sealed class FishingOverlay : Overlay
         _player = player;
         _transform = _entManager.EntitySysManager.GetEntitySystem<SharedTransformSystem>();
         _progressColor = _entManager.System<ProgressColorSystem>();
-		_sprite = sprite;
+		_sprite = _entManager.System<SpriteSystem>();
         // Load the progress bar texture
         var sprite = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Interface/Misc/fish_bar.rsi"), "icon");
         _barTexture = _entManager.EntitySysManager.GetEntitySystem<SpriteSystem>().Frame0(sprite);
