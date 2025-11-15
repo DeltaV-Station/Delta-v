@@ -393,7 +393,7 @@
     - entity_storage
   - type: StaticPrice
     price: 660
-    # Begin DeltaV additions - adjusted the health of gun safes to be 50 health stronger than LockerBaseSecure
+    # Begin DeltaV additions - adjusted the health of gun safes to be 50 health stronger than LockerBaseSecure. Safes now protect from radiation, like the Gamblagator.
   - type: Destructible
     thresholds:
     - trigger:
@@ -402,6 +402,8 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: RadiationBlockingContainer
+    resistance: 3
     # End DeltaV additions
 
 - type: entity
