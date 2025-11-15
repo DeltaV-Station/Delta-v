@@ -81,9 +81,22 @@ namespace Content.Server.Bible
                 {
                     Del(summonableComp.Summon.Value);
                     summonableComp.Summon = null;
+                    summonableComp.Deaths++; // DeltaV - Anomalite Limited Respawns
                 }
                 summonableComp.AlreadySummoned = false;
-                _popupSystem.PopupEntity(Loc.GetString("bible-summon-respawn-ready", ("book", uid)), uid, PopupType.Medium);
+
+                // DeltaV - Begin Anomalite Limited Respawns
+                // If lives are being used, if we have used them all then we can no longer respawn
+                if (summonableComp.Lives.HasValue && summonableComp.Deaths >= summonableComp.Lives.Value)
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("bible-summon-respawn-gone", ("book", uid)), uid, PopupType.Medium);
+                }
+                else
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("bible-summon-respawn-ready", ("book", uid)), uid, PopupType.Medium); // Original
+                }
+                // DeltaV - Begin Anomalite Limited Respawns
+
                 _audio.PlayPvs(summonableComp.SummonSound, uid);
                 // Clean up the accumulator and respawn tracking component
                 summonableComp.Accumulator = 0;
@@ -157,7 +170,7 @@ namespace Content.Server.Bible
 
         private void AddSummonVerb(EntityUid uid, SummonableComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
-            if (!args.CanInteract || !args.CanAccess || component.AlreadySummoned || component.SpecialItemPrototype == null)
+            if (!args.CanInteract || !args.CanAccess || !component.CanSummon) // DeltaV - Anomalite Limited Respawns
                 return;
 
             if (component.RequiresBibleUser && !HasComp<BibleUserComponent>(args.User))
@@ -180,7 +193,7 @@ namespace Content.Server.Bible
 
         private void GetSummonAction(EntityUid uid, SummonableComponent component, GetItemActionsEvent args)
         {
-            if (component.AlreadySummoned)
+            if (!component.CanSummon) // DeltaV - Anomalite Limited Respawns
                 return;
 
             args.AddAction(ref component.SummonActionEntity, component.SummonAction);
@@ -223,7 +236,7 @@ namespace Content.Server.Bible
         private void AttemptSummon(Entity<SummonableComponent> ent, EntityUid user, TransformComponent? position)
         {
             var (uid, component) = ent;
-            if (component.AlreadySummoned || component.SpecialItemPrototype == null)
+            if (!component.CanSummon) // DeltaV - Anomalite Limited Respawns
                 return;
             if (component.RequiresBibleUser && !HasComp<BibleUserComponent>(user))
                 return;

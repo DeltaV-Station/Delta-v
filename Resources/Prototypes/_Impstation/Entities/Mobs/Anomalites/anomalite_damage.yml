@@ -10,9 +10,9 @@
 - type: damageModifierSet
   id: AnomaliteGravity
   coefficients:
-    Blunt: 0.3
-    Piercing: 0.3
-    Slash: 0.3
+    Blunt: 0.7
+    Piercing: 0.7
+    Slash: 0.7
 
 # Ice
 - type: damageModifierSet
@@ -26,13 +26,13 @@
 - type: damageModifierSet
   id: AnomaliteFlesh
   coefficients:
-    Slash: 0.0
+    Slash: 0.5
 
 # Rock
 - type: damageModifierSet
   id: AnomaliteRock
   coefficients:
-    Blunt: 0.0
+    Blunt: 0.5
     Structural: 2.0
 
 # Reagent
@@ -58,7 +58,7 @@
 - type: damageModifierSet
   id: AnomaliteFlora
   coefficients:
-    Piercing: 0.0
+    Piercing: 0.5
 
 # Shadow
 - type: damageModifierSet
