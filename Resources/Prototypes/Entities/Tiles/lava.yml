@@ -21,6 +21,13 @@
       multiplier: 3.75
       multiplierOnExisting: 0.75
     - !type:Ignite
+  # Begin Goobstation - fishing
+  - type: FishingSpot
+    fishList: !type:NestedSelector
+      tableId: LavaFishingLootTable
+    fishDefaultTimer: 25.0
+    fishTimerVariety: 15.0
+  # End Goobstation - fishing
   - type: Transform
     anchored: true
   - type: SyncSprite
