@@ -49,7 +49,7 @@
           - ItemMask
         density: 1000
         hard: false
-      # Goobstation - fishing
+      # Begin Goobstation - fishing
       fishing:
         shape:
           !type:PhysShapeCircle
@@ -60,7 +60,7 @@
         - HighImpassable
         density: 1000
         hard: false
-      # Goobstation - fishing
+      # End Goobstation - fishing
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepWater
