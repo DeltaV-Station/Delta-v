@@ -15,3 +15,24 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineLightRifleSmallBox
+  name: "NT-3 magazine box (.30 rifle)"
+  parent: BaseMagazineLightRifle
+  description: An ancient design of a box containing containing a 60-round belt of linked .30 rifle rounds, used by refurbished light machine guns such as the NT-3. Intended to hold general-purpose kinetic ammunition.
+  components:
+  - type: Tag
+    tags:
+    - MagazineLightRifleSmallBox
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifle
+    capacity: 60
+  - type: Item
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_small_box.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
