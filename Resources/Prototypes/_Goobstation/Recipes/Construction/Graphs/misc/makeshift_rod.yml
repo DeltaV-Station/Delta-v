@@ -18,15 +18,5 @@
               amount: 5
               doAfter: 2
     - node: makeshiftRod
-  - node: start
-    edges:
-    - to: makeshiftRod
-      steps:
-      - material: Cloth
-        amount: 3
-        doAfter: 2
-      - material: WoodPlank
-        amount: 5
-        doAfter: 2
   - node: makeshiftRod
     entity: FishingRodMakeshift
