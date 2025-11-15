@@ -11,8 +11,8 @@ public sealed class ShuffleParticlesAnomalySystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<ShuffleParticlesAnomalyComponent, AnomalyPulseEvent>(OnPulse);
-        SubscribeLocalEvent<ShuffleParticlesAnomalyComponent, StartCollideEvent>(OnStartCollide);
+        SubscribeLocalEvent<ShuffleParticlesAnomalyComponent, AnomalyPulseEvent>(OnPulse, after: [typeof(AnomalySystem)]); // DeltaV - Add after: to change particles only after triggering effects
+        SubscribeLocalEvent<ShuffleParticlesAnomalyComponent, StartCollideEvent>(OnStartCollide, after: [typeof(AnomalySystem)]); // DeltaV - Add after: to change particles only after triggering effects
     }
 
     private void OnStartCollide(Entity<ShuffleParticlesAnomalyComponent> ent, ref StartCollideEvent args)
