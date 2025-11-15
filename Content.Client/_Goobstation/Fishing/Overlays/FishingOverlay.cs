@@ -21,7 +21,7 @@ public sealed class FishingOverlay : Overlay
     private readonly IPlayerManager _player;
     private readonly SharedTransformSystem _transform;
     private readonly ProgressColorSystem _progressColor;
-
+	private readonly SpriteSystem _sprite;
     private readonly Texture _barTexture;
 
     // Fractional positions for progress bar fill (relative to texture height/width)
@@ -41,7 +41,7 @@ public sealed class FishingOverlay : Overlay
         _player = player;
         _transform = _entManager.EntitySysManager.GetEntitySystem<SharedTransformSystem>();
         _progressColor = _entManager.System<ProgressColorSystem>();
-
+		_sprite = sprite
         // Load the progress bar texture
         var sprite = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Interface/Misc/fish_bar.rsi"), "icon");
         _barTexture = _entManager.EntitySysManager.GetEntitySystem<SpriteSystem>().Frame0(sprite);
