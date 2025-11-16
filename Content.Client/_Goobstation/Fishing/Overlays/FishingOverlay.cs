@@ -21,7 +21,7 @@ public sealed class FishingOverlay : Overlay
     private readonly IPlayerManager _player;
     private readonly SharedTransformSystem _transform;
     private readonly ProgressColorSystem _progressColor;
-	private readonly SpriteSystem _sprite;
+    private readonly SpriteSystem _sprite;
     private readonly Texture _barTexture;
 
     // Fractional positions for progress bar fill (relative to texture height/width)
