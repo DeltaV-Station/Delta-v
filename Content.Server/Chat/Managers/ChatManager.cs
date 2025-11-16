@@ -5,6 +5,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.Discord.DiscordLink;
+using Content.Server.Patreon;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Administration;
@@ -14,10 +15,12 @@ using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Players.RateLimiting;
 using Robust.Shared.Configuration;
+using Robust.Shared.ContentPack;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using YamlDotNet.RepresentationModel;
 
 namespace Content.Server.Chat.Managers;
 
@@ -29,7 +32,7 @@ internal sealed partial class ChatManager : IChatManager
     private static readonly Dictionary<string, string> PatronOocColors = new()
     {
         // I had plans for multiple colors and those went nowhere so...
-        { "nuclear_operative", "#aa00ff" },
+        { "nuclear_operative", "#e60597" },
         { "syndicate_agent", "#aa00ff" },
         { "revolutionary", "#aa00ff" }
     };
@@ -38,6 +41,7 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly IServerNetManager _netManager = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IResourceManager _resourceManager = default!;
     [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
@@ -55,6 +59,7 @@ internal sealed partial class ChatManager : IChatManager
     private bool _adminOocEnabled = true;
 
     private readonly Dictionary<NetUserId, ChatUser> _players = new();
+    private List<Patron> _nuclearPatrons = new();
 
     public void Initialize()
     {
@@ -65,6 +70,28 @@ internal sealed partial class ChatManager : IChatManager
         _configurationManager.OnValueChanged(CCVars.AdminOocEnabled, OnAdminOocEnabledChanged, true);
 
         RegisterRateLimits();
+        InitPatreonList();
+    }
+
+    private void InitPatreonList()
+    {
+        _nuclearPatrons.Clear();
+
+        var streamFind = _resourceManager.ContentFindFiles("/")
+            .Where(p => p.Filename == "Patrons.yml");
+
+        foreach (var stream in streamFind)
+        {
+            var yamlstream = _resourceManager.ContentFileReadYaml(stream);
+            var sequence = (YamlSequenceNode) yamlstream.Documents[0].RootNode;
+
+            var ListOfPatrons = sequence
+                .Cast<YamlMappingNode>()
+                .Select(m => new Patron(m["Name"].AsString(), m["Tier"].AsString()))
+                .ToList();
+
+            _nuclearPatrons = ListOfPatrons.Where<Patron>(x => x.Tier == "Nuclear Operative").ToList();
+        }
     }
 
     private void OnOocEnabledChanged(bool val)
@@ -279,9 +306,16 @@ internal sealed partial class ChatManager : IChatManager
             var prefs = _preferencesManager.GetPreferences(player.UserId);
             colorOverride = prefs.AdminOOCColor;
         }
-        if (  _netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor) && player.Channel.UserData.PatronTier is { } patron && PatronOocColors.TryGetValue(patron, out var patronColor))
+
+        // Seems to be for the upstream one?
+        //if (  (_netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor) && player.Channel.UserData.PatronTier is { } patron && PatronOocColors.TryGetValue(patron, out var patronColor)))
+        //{
+        //    wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+        //}
+
+        if (_nuclearPatrons.Any(m => m.Name == player.Name) && PatronOocColors.TryGetValue("nuclear_operative", out var patronColor))
         {
-            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor), ("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
         }
 
         //TODO: player.Name color, this will need to change the structure of the MsgChatMessage
