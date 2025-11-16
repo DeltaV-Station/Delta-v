@@ -93,7 +93,9 @@ public sealed class RespiratorSystem : EntitySystem
             // End DeltaV Additions
             UpdateSaturation(uid, multiplier * (float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV: use multiplier instead of negating
 
-            if ((!_mobState.IsIncapacitated(uid) || HasComp<AffectedByCPRComponent>(uid)) && !HasComp<DebrainedComponent>(uid)) // Shitmed Change - Cannot breathe in crit or when no brain. // DeltaV - Addition of CPR
+            if ((!_mobState.IsIncapacitated(uid)
+                || TryComp<AffectedByCPRComponent>(uid, out var cprComp) && cprComp.IsActive) // DeltaV - Addition of CPR
+                && !HasComp<DebrainedComponent>(uid)) // Shitmed Change - Cannot breathe in crit or when no brain.
             {
                 switch (respirator.Status)
                 {

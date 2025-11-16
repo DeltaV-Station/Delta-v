@@ -13,7 +13,6 @@ public sealed class CPRSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    private readonly float _cprTime = 10f;
 
     public override void Initialize()
     {
@@ -28,9 +27,10 @@ public sealed class CPRSystem : EntitySystem
         if (!ev.Target.HasValue || ev.Handled)
             return;
 
-        if (!ev.Cancelled && _mobStateSystem.IsCritical(ev.Target.Value))
+        if (!ev.Cancelled && !_mobStateSystem.IsAlive(ev.Target.Value)) // Allow CPR on Criticial and Dead patients.
         {
-            EnsureComp<AffectedByCPRComponent>(ev.Target.Value); // Enables the Crit Patient to breathe.
+            var comp = EnsureComp<AffectedByCPRComponent>(ev.Target.Value); // Enables the Crit Patient to breathe.
+            comp.IsActive = true;
             ev.Repeat = true;
 
             var msgUser = Loc.GetString("cpr-popup-continue-user", ("patient", ev.Target.Value));
@@ -48,12 +48,12 @@ public sealed class CPRSystem : EntitySystem
         ev.Handled = true;
     }
 
-    private void StartCPR(EntityUid user, EntityUid target)
+    private void StartCPR(EntityUid user, EntityUid target, float cprTime)
     {
         if (HasComp<AffectedByCPRComponent>(target))
             return;
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, _cprTime, new CPRFinishedEvent(), user, target: target)
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, cprTime, new CPRFinishedEvent(), user, target: target)
         {
             BreakOnDamage = true,
             BreakOnMove = true,
@@ -62,6 +62,7 @@ public sealed class CPRSystem : EntitySystem
             NeedHand = true,
         };
 
+        AddComp<AffectedByCPRComponent>(target);
         var msgUser = Loc.GetString("cpr-popup-start-user", ("patient", target));
         var msgOthers = Loc.GetString("cpr-popup-start-others", ("patient", target), ("provider", user));
         _popupSystem.PopupPredicted(msgUser, msgOthers, user, user, PopupType.Medium);
@@ -73,7 +74,7 @@ public sealed class CPRSystem : EntitySystem
         if (entity.Owner == ev.User ||
             !ev.CanInteract ||
             !_mobStateSystem.IsCritical(entity.Owner) ||
-            !HasComp<CanDoCPRComponent>(ev.User))
+            !TryComp<CanDoCPRComponent>(ev.User, out var cprComp))
             return;
 
         var alreadyAffected = HasComp<AffectedByCPRComponent>(ev.Target);
@@ -82,7 +83,7 @@ public sealed class CPRSystem : EntitySystem
         var target = ev.Target;
         AlternativeVerb verb = new()
         {
-            Act = () => StartCPR(user, target),
+            Act = () => StartCPR(user, target, cprComp.TimeLength),
             Text = Loc.GetString("cpr-verb-start"),
             Priority = 2,
             Disabled = alreadyAffected,
