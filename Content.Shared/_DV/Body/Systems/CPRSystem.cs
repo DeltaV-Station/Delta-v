@@ -71,10 +71,10 @@ public sealed class CPRSystem : EntitySystem
 
     private void AddCPRVerb(Entity<MobStateComponent> entity, ref GetVerbsEvent<AlternativeVerb> ev)
     {
-        if (entity.Owner == ev.User ||
-            !ev.CanInteract ||
-            !_mobStateSystem.IsCritical(entity.Owner) ||
-            !TryComp<CanDoCPRComponent>(ev.User, out var cprComp))
+        if (entity.Owner == ev.User
+            || !ev.CanInteract
+            || _mobStateSystem.IsAlive(entity.Owner)
+            || !TryComp<CanDoCPRComponent>(ev.User, out var cprComp))
             return;
 
         var alreadyAffected = HasComp<AffectedByCPRComponent>(ev.Target);
