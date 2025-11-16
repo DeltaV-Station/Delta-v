@@ -2,7 +2,7 @@
   parent: SimpleSpaceMobBase
   id: MobIfritFamiliar
   name: Ifrit
-  description: The mystagogue's servant.
+  description: The mystagogue's guardian.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -32,23 +32,24 @@
   - type: Bloodstream
     bloodReagent: Phlogiston
     bloodMaxVolume: 0
+  - type: TemperatureImmunity
   - type: MeleeWeapon
     altDisarm: false # No shoving
     angle: 0
     damage:
       types:
-        Heat: 10
+        Heat: 15
     animation: WeaponArcPunch
   - type: MobState
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Dead
+      150: Dead
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 150
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -62,7 +63,7 @@
   - type: Dispellable
   - type: Damageable
     damageContainer: ManifestedSpirit
-    damageModifierSet: CorporealSpirit
+    damageModifierSet: Ifrit
   - type: Speech
     speechSounds: Bass
   - type: Puller
@@ -79,12 +80,13 @@
       - id: WelderIfrit
   - type: Hands
   - type: ZombieImmune # No zombie servant
+  - type: ComplexInteraction
   - type: RandomMetadata
     nameSegments: [NamesGolem]
   - type: PotentialPsionic
   - type: Psionic
     removable: false
-  # - type: PyrokinesisPower # Pending psionic rework
+  - type: PyrokinesisPower
   - type: Grammar
     attributes:
       proper: true
@@ -100,8 +102,8 @@
     makeSentient: true
     allowMovement: true
     allowSpeech: true
-    name: "Ifriit"
-    description: "You are a servant of the mystagogue. Obey them directly."
+    name: "Ifrit"
+    description: ghost-role-information-ifritDV-description
     requirements:
     - !type:DepartmentTimeRequirement
       department: Epistemics
@@ -127,23 +129,24 @@
   - type: Welder
     fuelReagent: Phlogiston
     tankSafe: true
-#    welderOnSounds:
-#      collection: WelderIfritHandOn
-#    welderOffSounds:
-#      collection: WelderIfritHandOff
-#  - type: Tool
-#    useSound:
-#      collection: WelderIfritHand
-#  - type: MeleeWeapon
-#    soundHit:
-#      collection: WelderIfritHand
-# TODO some way to give the MeleeWeapon a separate soundHit for when it's on,
-# similar to EnergySword. will have to go in ToolSystem.Welder.cs
-# for now, just make it sound like it's on fire no matter what because it
-# sounds cooler than the default fizzling noise.
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+    deactivatedSoundOnHitNoDamage:
+      collection: MetalThud
+    activatedDamage:
+        types:
+            Heat: 15
   - type: MeleeWeapon
-    soundHit:
-      path: /Audio/Items/welder.ogg
+    damage:
+      types:
+        Blunt: 12
   - type: SolutionRegeneration
     solution: Welder
     generated:
