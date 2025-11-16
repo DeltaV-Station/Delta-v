@@ -44,9 +44,9 @@ public sealed class FootPrintsVisualizerSystem : VisualizerSystem<FootPrintCompo
 
         sprite.LayerSetState(layer, new RSI.StateId(printVisuals switch
         {
-            FootPrintVisuals.BareFootPrint => printsComponent.RightStep ? printsComponent.RightBarePrint : printsComponent.LeftBarePrint,
-            FootPrintVisuals.ShoesPrint => printsComponent.ShoesPrint,
-            FootPrintVisuals.SuitPrint => printsComponent.SuitPrint,
+            FootPrintVisuals.BareFootPrint => null,
+            FootPrintVisuals.ShoesPrint => null,
+            FootPrintVisuals.SuitPrint => null,
             FootPrintVisuals.Dragging => _random.Pick(printsComponent.DraggingPrint),
             _ => throw new ArgumentOutOfRangeException($"Unknown {printVisuals} parameter.")
         }), printsComponent.RsiPath);
