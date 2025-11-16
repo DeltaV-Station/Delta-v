@@ -1,4 +1,4 @@
-namespace Content.Server.Patreon;
+namespace Content.Server._DV.Patreon;
 public sealed class Patron
 {
     public string Name { get; set; }

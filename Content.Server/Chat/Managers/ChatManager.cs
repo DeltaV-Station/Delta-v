@@ -1,11 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.InteropServices;
+using Content.Server._DV.Patreon; // Delta V - Patron
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.Discord.DiscordLink;
-using Content.Server.Patreon;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Administration;
@@ -32,7 +32,7 @@ internal sealed partial class ChatManager : IChatManager
     private static readonly Dictionary<string, string> PatronOocColors = new()
     {
         // I had plans for multiple colors and those went nowhere so...
-        { "nuclear_operative", "#e60597" },
+        { "nuclear_operative", "#e60597" }, // Delta V - Changed #aa00ff to #e60597
         { "syndicate_agent", "#aa00ff" },
         { "revolutionary", "#aa00ff" }
     };
@@ -70,9 +70,10 @@ internal sealed partial class ChatManager : IChatManager
         _configurationManager.OnValueChanged(CCVars.AdminOocEnabled, OnAdminOocEnabledChanged, true);
 
         RegisterRateLimits();
-        InitPatreonList();
+        InitPatreonList(); // Delta V - Patron List Initializer
     }
 
+    // Delta V - Begin Patron List Initializer
     private void InitPatreonList()
     {
         _nuclearPatrons.Clear();
@@ -93,6 +94,7 @@ internal sealed partial class ChatManager : IChatManager
             _nuclearPatrons = ListOfPatrons.Where<Patron>(x => x.Tier == "Nuclear Operative").ToList();
         }
     }
+    // Delta V - End Patron List Initializer
 
     private void OnOocEnabledChanged(bool val)
     {
@@ -313,10 +315,12 @@ internal sealed partial class ChatManager : IChatManager
         //    wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
         //}
 
+        // Delta V - Start Patron OOC Name Wrapper
         if (_nuclearPatrons.Any(m => m.Name == player.Name) && PatronOocColors.TryGetValue("nuclear_operative", out var patronColor))
         {
             wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor), ("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
         }
+        // Delta V - End Patron OOC Name Wrapper
 
         //TODO: player.Name color, this will need to change the structure of the MsgChatMessage
         ChatMessageToAll(ChatChannel.OOC, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride: colorOverride, author: player.UserId);
