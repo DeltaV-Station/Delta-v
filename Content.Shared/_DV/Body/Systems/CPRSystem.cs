@@ -82,10 +82,7 @@ public sealed class CPRSystem : EntitySystem
         var target = ev.Target;
         AlternativeVerb verb = new()
         {
-            Act = () =>
-            {
-                StartCPR(user, target);
-            },
+            Act = () => StartCPR(user, target),
             Text = Loc.GetString("cpr-verb-start"),
             Priority = 2,
             Disabled = alreadyAffected,
