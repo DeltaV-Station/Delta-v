@@ -47,7 +47,7 @@
     - id: ClothingHeadsetAltCommand
     - id: ClothingOuterArmorCaptainCarapace
     - id: CommsComputerCircuitboard
-    - id: DoorRemoteCommand
+    - id: DoorRemoteCustom
     - id: MedalCase
     - id: NukeDisk
     - id: PinpointerNuclear
@@ -305,7 +305,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskBreath
-    - id: ClothingOuterHardsuitRd
+    - id: ClothingOuterHardsuitMystagogueLabcoat
     - id: OxygenTankFilled
 
 # No hardsuit locker

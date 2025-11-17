@@ -54,9 +54,10 @@
     - id: FoodCondimentBottleEnzyme
     - id: DrinkSoyMilkCarton
     - !type:AllSelector
-      rolls: 2
+      rolls: 3
       children:
       - id: DrinkMilkCarton
+      - id: DrinkSoyMilkCarton
       # really, milk should go in the fridge. Unfortunately saltern only has freezers.
       # yes, I'm using this as an excuse to not have to do extra work.
       - id: ReagentContainerFlour
@@ -97,7 +98,8 @@
       - id: SoapNT
       - id: FlashlightLantern
       - id: Plunger
-      #- id: WireBrush # DeltaV - Uncomment when merged from upstream
+      - id: WireBrush
+        amount: 2
       - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
         prob: 0.3
 
