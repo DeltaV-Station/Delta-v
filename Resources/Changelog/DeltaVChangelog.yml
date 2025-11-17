@@ -1,19 +1,4 @@
 ﻿Entries:
-- author: SolStar
-  changes:
-  - message: Stamina damage now transfers on polymorph.
-    type: Fix
-  - message: Innate accesses no longer transfers to kitsune human form.
-    type: Fix
-  - message: Kitsune human form no longer gains fox factions on polymorph.
-    type: Fix
-  - message: Equipment slowdown penalties now apply to Kitsune's polymorph.
-    type: Tweak
-  - message: Kitsune fox form base speed buffed sligtly
-    type: Tweak
-  id: 1310
-  time: '2025-04-22T23:17:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3528
 - author: KZhProgram
   changes:
   - message: Made Security Winter Boots, HoS Winter Boots, and Combat Boots behave
@@ -4228,3 +4213,11 @@
   id: 1809
   time: '2025-11-17T07:01:40.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4676
+- author: Cepelinas1
+  changes:
+  - message: A new clause in Medical Regulations SOP was added about parasitic alien
+      organisms.
+    type: Add
+  id: 1810
+  time: '2025-11-17T15:48:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4537
