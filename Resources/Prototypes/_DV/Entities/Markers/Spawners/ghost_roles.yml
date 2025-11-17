@@ -202,3 +202,32 @@
     requirements: # keep in sync with the antag prototype
     - !type:OverallPlaytimeRequirement
       time: 172800 # 48 hours, same reasoning as SRN
+
+- type: entity
+  id: SpawnPointGhostIfrit
+  name: ifrit role spawn point
+  suffix: Ifrit
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-ifritDV-name
+    description: ghost-role-information-ifritDV-description
+    rules: ghost-role-information-ifritDV-rules
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 172800
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+    raffle:
+      settings: short
+  - type: GhostRoleMobSpawner
+    prototype: MobIfritFamiliar
+  - type: Sprite
+    sprite: Mobs/Aliens/Guardians/guardians.rsi
+    layers:
+      - state: magic_base
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+      - state: magic_flare
+        map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        color: "#bb4b1e"
+        shader: unshaded

@@ -26,7 +26,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 175 # DeltaV - Increased health by 25 (less than uranium)
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -88,13 +88,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 200 # DeltaV - Increased health cap by 50
       behaviors: #excess damage, don't spawn entities.
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 110 # DeltaV - Increased health by 35 (less than uranium)
       behaviors:
       - !type:PlaySoundBehavior
         sound:
