@@ -44,8 +44,7 @@ public sealed class CosmicTransmuteSystem : EntitySystem
         var tgtpos = Transform(uid).Coordinates;
         var possibleTargets = GatherEntities(uid);
         var target = _random.Pick(possibleTargets);
-        if (!TryComp<CosmicTransmutableComponent>(target, out var comp))
-            return;
+        if (!TryComp<CosmicTransmutableComponent>(target, out var comp)) return;
         Spawn(comp.TransmutesTo, tgtpos);
         QueueDel(target);
     }
@@ -58,7 +57,7 @@ public sealed class CosmicTransmuteSystem : EntitySystem
     {
         _entities.Clear();
         _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.TransmuteRange, _entities);
-        _entities.RemoveWhere(item => !TryComp<CosmicTransmutableComponent>(item, out var comp) || comp.RequiredGlyphType != MetaData(ent).EntityPrototype!.ID || HasComp<CosmicEquipmentComponent>(item));
+        _entities.RemoveWhere(item => !TryComp<CosmicTransmutableComponent>(item, out var comp) || comp.RequiredGlyphType != MetaData(ent).EntityPrototype!.ID);
         return _entities;
     }
 }

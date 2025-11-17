@@ -436,18 +436,17 @@ public abstract partial class SharedMechSystem : EntitySystem
     private void BlockHands(EntityUid uid, EntityUid mech, HandsComponent handsComponent)
     {
         var freeHands = 0;
-        foreach (var hand in _hands.EnumerateHands((uid, handsComponent)))
+        foreach (var hand in _hands.EnumerateHands(uid, handsComponent))
         {
-            var heldEnt = _hands.GetHeldItem((uid, handsComponent), hand);  // DV - hand refactor fixes
-            if (heldEnt == null)
+            if (hand.HeldEntity == null)
             {
                 freeHands++;
                 continue;
             }
             // Is this entity removable? (they might have handcuffs on)
-            if (HasComp<UnremoveableComponent>(heldEnt) && heldEnt != mech)
+            if (HasComp<UnremoveableComponent>(hand.HeldEntity) && hand.HeldEntity != mech)
                 continue;
-            _hands.DoDrop((uid, handsComponent), hand, true); // DV - hand refactor fixes
+            _hands.DoDrop(uid, hand, true, handsComponent);
             freeHands++;
             if (freeHands == 2)
                 break;

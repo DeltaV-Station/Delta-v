@@ -23,7 +23,7 @@ public partial class SharedBodySystem
         BodyPartType.Foot,
     ];
 
-    // [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!; // Shitmed Change - Declared in SharedBodySystem.cs
+    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
 
     private void MapInitAppearance(Entity<BodyComponent> ent)
     {

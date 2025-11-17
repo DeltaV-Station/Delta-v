@@ -243,13 +243,13 @@ public abstract class SharedAutodocSystem : EntitySystem
 
     public EntityUid GetHeldOrThrow(Entity<AutodocComponent, HandsComponent> ent)
     {
-        if (!_hands.TryGetHand((ent, ent.Comp2), ent.Comp1.ItemSlot, out var hand))
+        if (!_hands.TryGetHand(ent, ent.Comp1.ItemSlot, out var hand, ent.Comp2))
             throw new AutodocError("item-unavailable");
 
-        if (!_hands.TryGetHeldItem((ent, ent.Comp2), ent.Comp1.ItemSlot, out var item))
+        if (hand.HeldEntity is not {} item)
             throw new AutodocError("item-unavailable");
 
-        return item.Value;
+        return item;
     }
 
     public void LabelItem(EntityUid item, string label)

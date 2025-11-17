@@ -163,14 +163,14 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         component.Lawset?.Laws.Insert(0, new SiliconLaw
         {
             LawString = Loc.GetString("law-emag-custom", ("name", name), ("title", Loc.GetString(component.Lawset.ObeysTo))), // DeltaV: pass name from variable
-            Order = -2 // Goobstation - AI/borg law changes - borgs obeying AI. DeltaV - Changed from Order = -1  to Order = -2, should be above secrecy emag law
+            Order = -1 // Goobstation - AI/borg law changes - borgs obeying AI
         });
 
         //Add the secrecy law after the others
-        component.Lawset?.Laws.Insert(1, new SiliconLaw //DeltaV: Changed from Add to Insert
+        component.Lawset?.Laws.Add(new SiliconLaw
         {
             LawString = Loc.GetString("law-emag-secrecy", ("faction", Loc.GetString(component.Lawset.ObeysTo))),
-            Order = -1 //DeltaV: Changed from being after every other law to being after emag obey law
+            Order = component.Lawset.Laws.Max(law => law.Order) + 1
         });
     }
 
@@ -272,7 +272,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         };
         foreach (var law in proto.Laws)
         {
-            laws.Laws.Add(_prototype.Index<SiliconLawPrototype>(law).ShallowClone());
+            laws.Laws.Add(_prototype.Index<SiliconLawPrototype>(law));
         }
         laws.ObeysTo = proto.ObeysTo;
 

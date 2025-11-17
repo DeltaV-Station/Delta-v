@@ -83,9 +83,10 @@ public sealed partial class DeepFryerSystem
         var user = args.Actor;
 
         if (!TryComp<HandsComponent>(user, out var handsComponent) ||
-            _handsSystem.GetActiveItem((user, handsComponent)) is not { } item)
+            handsComponent.ActiveHandEntity == null)
             return;
 
-        TryInsertItem(uid, component, user, item);
+        if (handsComponent.ActiveHandEntity != null)
+            TryInsertItem(uid, component, user, handsComponent.ActiveHandEntity.Value);
     }
 }

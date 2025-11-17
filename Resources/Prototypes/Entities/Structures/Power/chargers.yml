@@ -204,7 +204,7 @@
           - GamblagatorCartridge # DeltaV - Disallows recharging of superweapon
 
 - type: entity
-  parent: [ BaseItemRecharger, BaseWallmount ]
+  parent: BaseItemRecharger
   id: WallWeaponCapacitorRecharger
   name: wall recharger
   components:
@@ -216,6 +216,7 @@
     - map: ["enum.PowerChargerVisualLayers.Light"]
       state: "light-off"
       shader: "unshaded"
+  - type: WallMount
   - type: Charger
     chargeRate: 25
   - type: ItemSlots

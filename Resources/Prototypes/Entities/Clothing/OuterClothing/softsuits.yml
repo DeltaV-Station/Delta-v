@@ -13,7 +13,6 @@
     tags:
     - SuitEVA
     - MonkeyWearable
-    - CorgiWearable
     - WhitelistChameleon
     - HidesHarpyWings # DeltaV
 
@@ -62,8 +61,6 @@
       toggleable-clothing: !type:ContainerSlot {}
   - type: Tag
     tags:
-    - CorgiWearable
-    - ScurretWearable
     - MonkeyWearable
     - WhitelistChameleon
 
@@ -166,7 +163,3 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
-  - type: Tag
-    tags:
-    - CorgiWearable
-    - WhitelistChameleon

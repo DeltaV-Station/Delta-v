@@ -166,9 +166,8 @@
   id: RatKingSpawn
   components:
   - type: StationEvent
-    weight: 5
+    weight: 7
     minimumPlayers: 20
-    reoccurrenceDelay: 30
   - type: AntagSpawner
     prototype: MobRatKing
   - type: AntagSelection

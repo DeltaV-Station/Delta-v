@@ -16,31 +16,6 @@
     - id: LunchboxLogisticsFilledRandom
       prob: 0.3
 
-- type: entityTable
-  id: LockerFillQuarterMasterHardsuit
-  table: !type:AllSelector
-    children:
-    - id: ClothingOuterHardsuitRhino
-    - id: ClothingShoesBootsMag
-    - id: OxygenTankFilled
-    - id: NitrogenTankFilled
-    - id: ClothingMaskBreath
-
-- type: entity
-  parent: LockerQuarterMaster
-  id: LockerQuarterMasterFilledHardsuit # I know we don't use Quartermaster but I'm trying to be consistent with LockerQuarterMasterFilled
-  suffix: Filled, Hardsuit
-
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - !type:NestedSelector
-          tableId: LockerFillQuarterMaster
-        - !type:NestedSelector
-          tableId: LockerFillQuarterMasterHardsuit
-
 - type: entity
   parent: [SalvageGunSafeBaseSecure, BaseSecurityCargoContraband]
   id: SalvageGunSafeSniperGrand

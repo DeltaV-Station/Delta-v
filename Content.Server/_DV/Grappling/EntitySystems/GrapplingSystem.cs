@@ -57,7 +57,6 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         SubscribeLocalEvent<GrapplerComponent, EscapeGrappleAlertEvent>(OnEscapeGrapplerAlert);
         SubscribeLocalEvent<GrapplerComponent, MobStateChangedEvent>(OnGrapplerStateChanged);
 
-        SubscribeLocalEvent<GrappledComponent, MobStateChangedEvent>(OnGrappledStateChanged);
         SubscribeLocalEvent<GrappledComponent, MoveInputEvent>(OnGrappledMove);
         SubscribeLocalEvent<GrappledComponent, GrappledEscapeDoAfter>(OnEscapeDoAfter);
         SubscribeLocalEvent<GrappledComponent, EscapeGrappleAlertEvent>(OnEscapeGrappledAlert);
@@ -238,7 +237,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         if (grappler.Comp.HandDisabling == HandDisabling.None)
             return; // Nothing left to do
 
-        var toBlock = new List<string>(2); // Most entities have a maximum of two hands, so default to a list of two hands
+        var toBlock = new List<Hand>(2); // Most entities have a maximum of two hands, so default to a list of two hands
         switch (grappler.Comp.HandDisabling)
         {
             case HandDisabling.None:
@@ -247,7 +246,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
                 var randomHand = _random.Next(0, hands.Count);
                 var handName = hands.SortedHands[randomHand];
                 var handComp = hands.Hands[handName];
-                toBlock.Add(handName);
+                toBlock.Add(handComp);
                 break;
             case HandDisabling.SingleActive:
                 var activeHand = _hands.GetActiveHand((victim, hands));
@@ -255,7 +254,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
                     toBlock.Add(activeHand!);
                 break;
             case HandDisabling.All:
-                foreach (var hand in _hands.EnumerateHands((victim, hands)))
+                foreach (var hand in _hands.EnumerateHands(victim, hands))
                 {
                     toBlock.Add(hand);
                 }
@@ -267,7 +266,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
             if (_virtual.TrySpawnVirtualItemInHand(grappler, victim, out var virtItem, dropOthers: true, hand))
             {
                 EnsureComp<UnremoveableComponent>(virtItem.Value);
-                victim.Comp.DisabledHands.Add(hand);
+                victim.Comp.DisabledHands.Add(hand.Name);
             }
         }
     }
@@ -294,17 +293,13 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         // can add virtual items immediately.
         foreach (var handName in victim.Comp.DisabledHands)
         {
-            if (!_hands.TryGetHand((victim, hands), handName, out var hand))
+            if (!_hands.TryGetHand(victim, handName, out var hand, hands))
                 continue;
 
-
-            if (!_hands.TryGetHeldItem((victim, hands), handName, out var item))
+            if (!hand.HeldEntity.HasValue)
                 continue;
 
-            if (!item.HasValue)
-                continue;
-
-            RemComp<UnremoveableComponent>(item.Value);
+            RemComp<UnremoveableComponent>(hand.HeldEntity.Value);
         }
     }
 
@@ -427,24 +422,6 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
             args.NewMobState == MobState.Dead)
         {
             ReleaseGrapple(grappler.AsNullable(), manualRelease: true);
-        }
-    }
-
-    /// <summary>
-    /// Handles when a grappled entity enters crit or dies while being held by a grappler, releasing the
-    /// grappler for them.
-    /// </summary>
-    /// <param name="grappled">Grappled entity which has entered crit or death.</param>
-    /// <param name="args">Args for the event.</param>
-    private void OnGrappledStateChanged(Entity<GrappledComponent> grappled, ref MobStateChangedEvent args)
-    {
-        if (grappled.Comp.Grappler == EntityUid.Invalid)
-            return;
-
-        if (args.NewMobState == MobState.Critical ||
-            args.NewMobState == MobState.Dead)
-        {
-            ReleaseGrapple(grappled.Comp.Grappler, manualRelease: true);
         }
     }
 

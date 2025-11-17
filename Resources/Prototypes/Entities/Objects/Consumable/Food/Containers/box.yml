@@ -289,8 +289,7 @@
     - id: FoodPizzaCorncob # Nyanotrasen - Corncob Pizza
       prob: 0.01
       orGroup: Pizza
-
-
+  
 - type: entity
   name: pizza box
   parent: FoodBoxPizzaFilled
@@ -385,9 +384,6 @@
     contents:
     - id: FoodDonkpocket
       amount: 6
-    - id: DonkcoLighter
-      amount: 1
-      prob: 0.10
 
 - type: entity
   parent: FoodBoxDonkpocket

@@ -58,26 +58,22 @@ public sealed class AugmentToolPanelSystem : EntitySystem
             };
 
             var desiredHand = hands.Hands.Values.FirstOrDefault(hand => hand.Location == handLocation);
-
-            // god, I hate this hand refactor so much. This will be kind of messy since we can't get the ID of the hand
-            // from the hand entity. Im so sorry.
-            var desiredHandId = hands.Hands.Keys.FirstOrDefault(id => hands.Hands[id] == desiredHand);
-
-            _hands.TryGetHeldItem((body, hands), desiredHandId, out var heldItem);
+            if (desiredHand == null)
+                continue;
 
             // if we have a tool that's currently out
-            if (HasComp<AugmentToolPanelActiveItemComponent>(heldItem))
+            if (HasComp<AugmentToolPanelActiveItemComponent>(desiredHand.HeldEntity))
             {
                 // deposit it back into the storage
-                RemComp<AugmentToolPanelActiveItemComponent>(heldItem!.Value);
+                RemComp<AugmentToolPanelActiveItemComponent>(desiredHand.HeldEntity!.Value);
 
-                if (!_storage.PlayerInsertEntityInWorld(augment.Owner, body, heldItem!.Value))
+                if (!_storage.PlayerInsertEntityInWorld(augment.Owner, body, desiredHand.HeldEntity!.Value))
                 {
-                    EnsureComp<AugmentToolPanelActiveItemComponent>(heldItem!.Value);
+                    EnsureComp<AugmentToolPanelActiveItemComponent>(desiredHand.HeldEntity!.Value);
                     return;
                 }
             }
-            else if (heldItem is not null)
+            else if (desiredHand.HeldEntity is not null)
             {
                 _popup.PopupCursor(Loc.GetString("augment-tool-panel-hand-full"), body);
                 return;
@@ -86,7 +82,7 @@ public sealed class AugmentToolPanelSystem : EntitySystem
             if (GetEntity(args.DesiredTool) is not {} desiredTool)
                 return;
 
-            if (!_hands.TryPickup(body, desiredTool, desiredHandId))
+            if (!_hands.TryPickup(body, desiredTool, desiredHand))
             {
                 _popup.PopupCursor(Loc.GetString("augment-tool-panel-cannot-pick-up"), body);
                 return;

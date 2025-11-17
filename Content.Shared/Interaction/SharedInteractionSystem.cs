@@ -9,7 +9,6 @@ using Content.Shared.Database;
 using Content.Shared.Ghost;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Input;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
@@ -60,7 +59,6 @@ namespace Content.Shared.Interaction
         [Dependency] private readonly ISharedChatManager _chat = default!;
         [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
-        [Dependency] private readonly SharedHandsSystem _hands = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly PullingSystem _pullSystem = default!;
         [Dependency] private readonly RotateToFaceSystem _rotateToFaceSystem = default!;
@@ -351,7 +349,7 @@ namespace Content.Shared.Interaction
         public bool CombatModeCanHandInteract(EntityUid user, EntityUid? target)
         {
             // Always allow attack in these cases
-            if (target == null || !_handsQuery.TryComp(user, out var hands) || _hands.GetActiveItem((user, hands)) is not null)
+            if (target == null || !_handsQuery.TryComp(user, out var hands) || hands.ActiveHand?.HeldEntity is not null)
                 return false;
 
             // Only eat input if:
@@ -754,7 +752,7 @@ namespace Content.Shared.Interaction
             var inRange = true;
             MapCoordinates originPos = default;
             var targetPos = _transform.ToMapCoordinates(otherCoordinates);
-            Angle targetRot = _transform.GetWorldRotation(otherCoordinates.EntityId) + otherAngle;
+            Angle targetRot = default;
 
             // So essentially:
             // 1. If fixtures available check nearest point. We take in coordinates / angles because we might want to use a lag compensated position
@@ -773,7 +771,8 @@ namespace Content.Shared.Interaction
             {
                 var (worldPosA, worldRotA) = _transform.GetWorldPositionRotation(origin.Comp);
                 var xfA = new Transform(worldPosA, worldRotA);
-                var xfB = new Transform(targetPos.Position, targetRot);
+                var parentRotB = _transform.GetWorldRotation(otherCoordinates.EntityId);
+                var xfB = new Transform(targetPos.Position, parentRotB + otherAngle);
 
                 // Different map or the likes.
                 if (!_broadphase.TryGetNearest(
@@ -815,6 +814,8 @@ namespace Content.Shared.Interaction
             else
             {
                 originPos = _transform.GetMapCoordinates(origin, origin);
+                var otherParent = (other.Comp ?? Transform(other)).ParentUid;
+                targetRot = otherParent.IsValid() ? Transform(otherParent).LocalRotation + otherAngle : otherAngle;
             }
 
             // Do a raycast to check if relevant
@@ -855,7 +856,7 @@ namespace Content.Shared.Interaction
         /// if the target entity is a wallmount we ignore all other entities on the tile.
         /// </example>
         private Ignored GetPredicate(
-            MapCoordinates originCoords,
+            MapCoordinates origin,
             EntityUid target,
             MapCoordinates targetCoords,
             Angle targetRotation,
@@ -875,7 +876,7 @@ namespace Content.Shared.Interaction
                     if (target == otherEnt ||
                         !_physicsQuery.TryComp(otherEnt, out var otherBody) ||
                         !otherBody.CanCollide ||
-                        ((int)collisionMask & otherBody.CollisionLayer) == 0x0)
+                        ((int) collisionMask & otherBody.CollisionLayer) == 0x0)
                     {
                         continue;
                     }
@@ -892,7 +893,7 @@ namespace Content.Shared.Interaction
                     ignoreAnchored = true;
                 else
                 {
-                    var angle = Angle.FromWorldVec(originCoords.Position - targetCoords.Position);
+                    var angle = Angle.FromWorldVec(origin.Position - targetCoords.Position);
                     var angleDelta = (wallMount.Direction + targetRotation - angle).Reduced().FlipPositive();
                     ignoreAnchored = angleDelta < wallMount.Arc / 2 || Math.Tau - angleDelta < wallMount.Arc / 2;
                 }

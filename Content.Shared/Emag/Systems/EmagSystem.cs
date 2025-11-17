@@ -53,9 +53,9 @@ public sealed class EmagSystem : EntitySystem
     }
 
     /// <summary>
-    /// Does the emag effect on a specified entity with a specified EmagType. The optional field customEmagType can be used to override the emag type defined in the component.
+    /// Does the emag effect on a specified entity
     /// </summary>
-    public bool TryEmagEffect(Entity<EmagComponent?> ent, EntityUid user, EntityUid target, EmagType? customEmagType = null)
+    public bool TryEmagEffect(Entity<EmagComponent?> ent, EntityUid user, EntityUid target)
     {
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
@@ -75,9 +75,7 @@ public sealed class EmagSystem : EntitySystem
             return false;
         }
 
-        var typeToUse = customEmagType ?? ent.Comp.EmagType;
-
-        var emaggedEvent = new GotEmaggedEvent(user, typeToUse);
+        var emaggedEvent = new GotEmaggedEvent(user, ent.Comp.EmagType);
         RaiseLocalEvent(target, ref emaggedEvent);
 
         if (!emaggedEvent.Handled)
@@ -87,7 +85,7 @@ public sealed class EmagSystem : EntitySystem
 
         _audio.PlayPredicted(ent.Comp.EmagSound, ent, ent);
 
-        _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target} with flag(s): {typeToUse}");
+        _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target} with flag(s): {ent.Comp.EmagType}");
 
         if (emaggedEvent.Handled)
             _sharedCharges.TryUseCharge(chargesEnt);
@@ -96,7 +94,7 @@ public sealed class EmagSystem : EntitySystem
         {
             EnsureComp<EmaggedComponent>(target, out var emaggedComp);
 
-            emaggedComp.EmagType |= typeToUse;
+            emaggedComp.EmagType |= ent.Comp.EmagType;
             Dirty(target, emaggedComp);
         }
 
@@ -138,10 +136,9 @@ public sealed class EmagSystem : EntitySystem
 
 [Flags]
 [Serializable, NetSerializable]
-public enum EmagType
+public enum EmagType : byte
 {
     None = 0,
-    All = ~None,
     Interaction = 1 << 1,
     Access = 1 << 2
 }

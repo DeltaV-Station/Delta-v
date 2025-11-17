@@ -8,11 +8,10 @@ namespace Content.Shared.Eye
     {
         None = 0,
         Normal = 1 << 0,
-        Ghost = 1 << 1,
+        Ghost  = 1 << 1,
         Subfloor = 1 << 3, // DeltaV - 4 is occupied by PsionicInvisibility and changing that massively fucks up stuff
         PsionicInvisibility = 1 << 2, // DeltaV - Psionic Invisibility
         TelegnosticProjection = PsionicInvisibility | Normal, // DeltaV - Telegnostic Projection
         CosmicCultMonument = 1 << 4, // DeltaV - Cosmic Cult
-        Admin = 1 << 10, // Reserved for admins in stealth mode and admin tools. (DV - our flags are all over the place)
     }
 }

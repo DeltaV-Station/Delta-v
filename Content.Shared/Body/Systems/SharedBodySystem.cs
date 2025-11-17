@@ -1,6 +1,5 @@
+using Content.Shared.Body.Part; // Shitmed Change
 using Content.Shared.Damage;
-using Content.Shared.Inventory; // Shitmed Change
-using Content.Shared.Humanoid; // Shitmed Change
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Robust.Shared.Containers;
@@ -37,12 +36,6 @@ public abstract partial class SharedBodySystem : EntitySystem
     [Dependency] protected readonly SharedContainerSystem Containers = default!;
     [Dependency] protected readonly SharedTransformSystem SharedTransform = default!;
     [Dependency] protected readonly StandingStateSystem Standing = default!;
-    // Shitmed Change - the systems below are named like private dependencies because I want to reduce the amount of
-    // conflicts and for some reason, shitmed uses partial classes instead of being its own thing.
-#pragma warning disable IDE1006 // Ignore Naming Style Issues
-    [Dependency] protected readonly InventorySystem _inventory = default!;
-    [Dependency] protected readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
-#pragma warning restore IDE1006
 
     public override void Initialize()
     {

@@ -41,8 +41,7 @@
 - type: emote
   id: HarpyPew
   name: delta-chat-emote-name-pew
-  # icons in .rsi directories need to be specified this way, because they get packaged
-  icon: { sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi, state: base }
+  icon: Objects/Weapons/Guns/Battery/antiquelasergun.rsi/base.png
   category: Vocal
   available: false
   whitelist:
@@ -60,8 +59,7 @@
 - type: emote
   id: HarpyBang
   name: delta-chat-emote-name-bang
-  # icons in .rsi directories need to be specified this way, because they get packaged
-  icon: { sprite: Objects/Weapons/Grenades/grenade.rsi, state: icon }
+  icon: Objects/Weapons/Grenades/grenade.rsi/icon.png
   category: Vocal
   available: false
   whitelist:
@@ -99,8 +97,7 @@
 - type: emote
   id: HarpyRev
   name: delta-chat-emote-name-rev
-  # icons in .rsi directories need to be specified this way, because they get packaged
-  icon: { sprite: Structures/Machines/grinder.rsi, state: grinder_beaker_attached }
+  icon: Structures/Machines/grinder.rsi/grinder_beaker_attached.png
   category: Vocal
   available: false
   whitelist:

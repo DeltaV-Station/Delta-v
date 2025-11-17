@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Server.Body.Components;
 using Content.Server.Ghost;
 using Content.Server.Humanoid;
 using Content.Shared._Shitmed.Body.Part;
@@ -217,8 +218,8 @@ public sealed class BodySystem : SharedBodySystem
         var bleeding = partEnt.Comp.SeverBleeding;
         if (partEnt.Comp.IsVital)
             bleeding *= 2f;
-        TryComp<BloodstreamComponent>(bodyEnt, out var bloodstream);
-        _bloodstream.TryModifyBleedAmount((bodyEnt, bloodstream), bleeding);
+        _bloodstream.TryModifyBleedAmount(bodyEnt, bleeding);
     }
+
     // Shitmed Change End
 }

@@ -231,8 +231,8 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
             if (!TryComp(args.User, out HandsComponent? handsComponent))
                 return false;
 
-            doAfter.InitialHand = handsComponent.ActiveHandId;
-            doAfter.InitialItem = _hands.GetActiveItem((args.User, handsComponent));
+            doAfter.InitialHand = handsComponent.ActiveHand?.Name;
+            doAfter.InitialItem = handsComponent.ActiveHandEntity;
         }
 
         doAfter.NetInitialItem = GetNetEntity(doAfter.InitialItem);

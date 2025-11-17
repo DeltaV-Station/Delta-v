@@ -29,14 +29,6 @@
     canInteract: true
   - type: GhostHearing
   - type: Hands
-    hands:
-      hand_right:
-        location: Right
-      hand_left:
-        location: Left
-    sortedHands:
-    - hand_right
-    - hand_left
   - type: ComplexInteraction
   - type: Puller
     needsHands: false
@@ -44,6 +36,8 @@
   - type: Physics
     ignorePaused: true
     bodyType: Kinematic
+  - type: Body
+    prototype: Aghost
   - type: Access
     groups:
     - AllAccess
@@ -128,8 +122,6 @@
   - type: Loadout
     prototypes: [ MobAghostGear ]
   - type: BypassInteractionChecks
-  - type: ExplosionResistance
-    damageCoefficient: 0
 
 - type: entity
   abstract: true
@@ -138,7 +130,7 @@
   components:
   - type: Action
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
-    iconOn: { sprite: Structures/Machines/parts.rsi, state: box_2 }
+    iconOn: Structures/Machines/parts.rsi/box_2.png
     keywords: [ "AI", "console", "interface" ]
     priority: -10
 
@@ -159,7 +151,7 @@
   components:
   - type: Action
     icon: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
-    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
+    iconOn: Interface/Actions/actions_ai.rsi/comms_console.png
     keywords: [ "AI", "console", "interface" ]
     priority: -4
   - type: InstantAction
@@ -173,7 +165,7 @@
   components:
   - type: Action
     icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
-    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
+    iconOn: Interface/Actions/actions_ai.rsi/mass_scanner.png
     keywords: [ "AI", "console", "interface" ]
     priority: -6
   - type: InstantAction
@@ -196,7 +188,7 @@
   components:
   - type: Action
     icon: { sprite: Interface/Actions/actions_ai.rsi, state: crew_monitor }
-    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: crew_monitor }
+    iconOn: Interface/Actions/actions_ai.rsi/crew_monitor.png
     keywords: [ "AI", "console", "interface" ]
     priority: -8
   - type: InstantAction
@@ -210,7 +202,7 @@
   components:
   - type: Action
     icon: { sprite: Interface/Actions/actions_ai.rsi, state: station_records }
-    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: station_records }
+    iconOn: Interface/Actions/actions_ai.rsi/station_records.png
     keywords: [ "AI", "console", "interface" ]
     priority: -7
   - type: InstantAction
@@ -225,7 +217,7 @@
   components:
   - type: Action
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
-    iconOn: { sprite: Structures/Machines/parts.rsi, state: box_2 }
+    iconOn: Structures/Machines/parts.rsi/box_2.png
     keywords: [ "AI", "console", "interface" ]
     priority: -10
   - type: InstantAction

@@ -57,10 +57,13 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     [Dependency] private readonly SharedStutteringSystem _stuttering = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
 
-    private static readonly ProtoId<StatusEffectPrototype> StatusEffectKey = "Electrocution";
-    private static readonly ProtoId<DamageTypePrototype> DamageType = "Shock";
+    [ValidatePrototypeId<StatusEffectPrototype>]
+    private const string StatusEffectKey = "Electrocution";
+
+    [ValidatePrototypeId<DamageTypePrototype>]
+    private const string DamageType = "Shock";
+
     private static readonly ProtoId<TagPrototype> WindowTag = "Window";
 
     // Multiply and shift the log scale for shock damage.
@@ -134,7 +137,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             return false;
         if (electrified.NoWindowInTile)
         {
-            var tileRef = _turf.GetTileRef(transform.Coordinates);
+            var tileRef = transform.Coordinates.GetTileRef(EntityManager, _mapManager);
 
             if (tileRef != null)
             {
@@ -405,7 +408,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         if (shockDamage is { } dmg)
         {
             var actual = _damageable.TryChangeDamage(uid,
-                new DamageSpecifier(_prototypeManager.Index(DamageType), dmg), origin: sourceUid);
+                new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>(DamageType), dmg), origin: sourceUid);
 
             if (actual != null)
             {

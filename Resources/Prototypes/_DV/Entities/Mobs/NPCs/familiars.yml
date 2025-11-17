@@ -2,7 +2,7 @@
   parent: SimpleSpaceMobBase
   id: MobIfritFamiliar
   name: Ifrit
-  description: The mystagogue's guardian.
+  description: The mystagogue's servant.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -32,19 +32,18 @@
   - type: Bloodstream
     bloodReagent: Phlogiston
     bloodMaxVolume: 0
-  - type: TemperatureImmunity
   - type: MeleeWeapon
     altDisarm: false # No shoving
     angle: 0
     damage:
       types:
-        Heat: 15
+        Heat: 10
     animation: WeaponArcPunch
   - type: MobState
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Dead
+      120: Dead
   - type: Destructible
     thresholds:
     - trigger:
@@ -63,7 +62,7 @@
   - type: Dispellable
   - type: Damageable
     damageContainer: ManifestedSpirit
-    damageModifierSet: Ifrit
+    damageModifierSet: CorporealSpirit
   - type: Speech
     speechSounds: Bass
   - type: Puller
@@ -80,13 +79,12 @@
       - id: WelderIfrit
   - type: Hands
   - type: ZombieImmune # No zombie servant
-  - type: ComplexInteraction
   - type: RandomMetadata
     nameSegments: [NamesGolem]
   - type: PotentialPsionic
   - type: Psionic
     removable: false
-  - type: PyrokinesisPower
+  # - type: PyrokinesisPower # Pending psionic rework
   - type: Grammar
     attributes:
       proper: true
@@ -102,8 +100,8 @@
     makeSentient: true
     allowMovement: true
     allowSpeech: true
-    name: "Ifrit"
-    description: ghost-role-information-ifritDV-description
+    name: "Ifriit"
+    description: "You are a servant of the mystagogue. Obey them directly."
     requirements:
     - !type:DepartmentTimeRequirement
       department: Epistemics

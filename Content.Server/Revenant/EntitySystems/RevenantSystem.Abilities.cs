@@ -42,7 +42,6 @@ namespace Content.Server.Revenant.EntitySystems;
 
 public sealed partial class RevenantSystem
 {
-    [Dependency] private readonly EmagSystem _emagSystem = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -425,7 +424,8 @@ public sealed partial class RevenantSystem
                 _whitelistSystem.IsBlacklistPass(component.MalfunctionBlacklist, ent))
                 continue;
 
-            _emagSystem.TryEmagEffect(uid, uid, ent);
+            var ev = new GotEmaggedEvent(uid, EmagType.Interaction | EmagType.Access);
+            RaiseLocalEvent(ent, ref ev);
         }
     }
 
@@ -450,7 +450,7 @@ public sealed partial class RevenantSystem
             _handsSystem.AddHand(uid, "crayon", HandLocation.Middle);
             var crayon = Spawn("CrayonBlood");
             component.BloodCrayon = crayon;
-            _handsSystem.DoPickup(uid, "crayon", crayon); // DV - hand refactor fixes
+            _handsSystem.DoPickup(uid, hands.Hands["crayon"], crayon);
             EnsureComp<UnremoveableComponent>(crayon);
         }
     }

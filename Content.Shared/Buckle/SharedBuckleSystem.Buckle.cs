@@ -395,7 +395,6 @@ public abstract partial class SharedBuckleSystem
         if (TryComp<PhysicsComponent>(buckle, out var physics))
             _physics.ResetDynamics(buckle, physics);
 
-        // TOOD: DV - This fails when you try to buckle the entity you're carrying to something. Figure out why later.
         DebugTools.AssertEqual(xform.ParentUid, strap.Owner);
     }
 

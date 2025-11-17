@@ -116,6 +116,10 @@
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/mime.rsi
+      storageOpenSound:
+        collection: null
+      storageInsertSound:
+        collection: null
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -174,20 +178,12 @@
     - ClothingBackpackSatchelHolding
 
 - type: entity
-  parent: [ ClothingBackpackDuffelSyndicate, BaseSyndicateContraband ]
+  parent: ClothingBackpackDuffelSyndicate
   id: ClothingBackpackDuffelSyndicateBundle
   abstract: true
   components:
     - type: Tag
       tags: [] # ignore "WhitelistChameleon" tag
-
-- type: entity
-  parent: ClothingBackpackDuffel
-  id: ClothingBackpackDuffelBundle
-  abstract: true
-  components:
-  - type: Tag
-    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicate

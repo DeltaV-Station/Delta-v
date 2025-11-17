@@ -74,8 +74,8 @@
         id: blinking
         interpolate: Nearest
         maxDuration: 1.0
-        # minValue: 0.1 # These don't exist in the component
-        # maxValue: 2.0
+        minValue: 0.1
+        maxValue: 2.0
         isLooped: true
   - type: Battery
     maxCharge: 100
@@ -111,8 +111,8 @@
   - type: FlashImmunity
   - type: TypingIndicatorClothing
     proto: CosmicTyping
-  #- type: SpeechOverride # For some reason, this doesn't exist in the component, but it totally does. Problems for later.
-  #  overrideIDs:
-  #    Male: CosmicEmotesMale
-  #    Female: CosmicEmotesFemale
-  #    Unsexed: CosmicEmotesMale # Humans use male sounds for unsexed so here we are.
+  - type: SpeechOverride
+    overrideIDs:
+      Male: CosmicEmotesMale
+      Female: CosmicEmotesFemale
+      Unsexed: CosmicEmotesMale # Humans use male soudns for unsexed so here we are.

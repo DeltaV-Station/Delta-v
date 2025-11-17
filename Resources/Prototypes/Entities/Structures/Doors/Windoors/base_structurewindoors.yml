@@ -422,7 +422,7 @@
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 260 # DeltaV - Increased health by 20 (more than plasma)
+        damage: 240
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -488,7 +488,7 @@
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 600 # DeltaV - Increased health by 200 (more than plasma)
+        damage: 400
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:

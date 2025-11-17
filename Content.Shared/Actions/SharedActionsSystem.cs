@@ -584,7 +584,7 @@ public abstract class SharedActionsSystem : EntitySystem
     #region AddRemoveActions
 
     public EntityUid? AddAction(EntityUid performer,
-        [ForbidLiteral] string? actionPrototypeId,
+        string? actionPrototypeId,
         EntityUid container = default,
         ActionsComponent? component = null)
     {
@@ -604,7 +604,7 @@ public abstract class SharedActionsSystem : EntitySystem
     /// <param name="container">The entity that contains/enables this action (e.g., flashlight).</param>
     public bool AddAction(EntityUid performer,
         [NotNullWhen(true)] ref EntityUid? actionId,
-        [ForbidLiteral] string? actionPrototypeId,
+        string? actionPrototypeId,
         EntityUid container = default,
         ActionsComponent? component = null)
     {
@@ -615,7 +615,7 @@ public abstract class SharedActionsSystem : EntitySystem
     public bool AddAction(EntityUid performer,
         [NotNullWhen(true)] ref EntityUid? actionId,
         [NotNullWhen(true)] out ActionComponent? action,
-        [ForbidLiteral] string? actionPrototypeId,
+        string? actionPrototypeId,
         EntityUid container = default,
         ActionsComponent? component = null)
     {

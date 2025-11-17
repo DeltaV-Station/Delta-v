@@ -92,8 +92,9 @@
         key: Jitter
         time: 3.0
         type: Remove
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectDrowsiness
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
         time: 1.5
         type: Add
         refresh: false
@@ -151,9 +152,10 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:EvenHealthChange
+      - !type:HealthChange
         damage:
-          Brute: -1.5
+          groups:
+            Brute: -2
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -767,8 +769,8 @@
         key: KnockedDown
         time: 3.0
         type: Remove
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectSeeingRainbow
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
         time: 15.0
         type: Remove
 
@@ -864,34 +866,23 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:EvenHealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 0
-          max: 20
-        damage:
-          Toxin: -6
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 0
-          max: 20
+          max: 30
         damage:
           groups:
-            Brute: 1.5
-      - !type:EvenHealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 20
-        damage:
-          Toxin: -2
+            Toxin: -3
+            Brute: 0.5
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 20
+          min: 30
         damage:
           groups:
-            Brute: 6
+            Toxin: -1
+            Brute: 3
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -951,8 +942,8 @@
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectDrowsiness
+      - !type:GenericStatusEffect
+        key: Drowsiness
         time: 10
         type: Remove
       - !type:ResetNarcolepsy
@@ -976,8 +967,8 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectDrowsiness
+      - !type:GenericStatusEffect
+        key: Drowsiness
         time: 10
         type: Remove
       - !type:ResetNarcolepsy
@@ -1000,19 +991,18 @@
   color: "#e0a5b9"
   metabolisms:
     Medicine:
-      metabolismRate: 0.25
       effects:
       - !type:HealthChange
         damage:
           types:
-            Caustic: -1.25 # 5 per u
+            Caustic: -3
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 16
         damage:
           types:
-            Heat: 1 # 4 per u
+            Heat: 2
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
@@ -1056,20 +1046,18 @@
   color: "#283332"
   metabolisms:
     Medicine:
-      metabolismRate: 0.25
       effects:
       - !type:HealthChange
         damage:
           types:
-            Slash: -2 # 8 per u
-            Heat: 0.2 # 0.8 per u
+            Slash: -3
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 12
         damage:
           types:
-            Cold: 1.5 # 6 per u
+            Cold: 3
 
 - type: reagent
   id: Puncturase
@@ -1081,20 +1069,19 @@
   color: "#b9bf93"
   metabolisms:
     Medicine:
-      metabolismRate: 0.25
       effects:
       - !type:HealthChange
         damage:
           types:
-            Piercing: -2.5 # 10 per u
-            Radiation: 0.05 # 0.2 per u, 3 for 15u
+            Piercing: -4
+            Blunt: 0.1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 12
+          min: 11
         damage:
           types:
-            Blunt: 3 # 12 per u
+            Blunt: 5
 
 - type: reagent
   id: Bruizine
@@ -1106,21 +1093,18 @@
   color: "#ff3636"
   metabolisms:
     Medicine:
-      metabolismRate: 0.25
       effects:
       - !type:HealthChange
         damage:
           types:
-            Blunt: -2.25 # 9 per u
-      - !type:SatiateHunger
-        factor: -1
+            Blunt: -3.5
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10.5
         damage:
           types:
-            Poison: 2.5 # 10 per u
+            Poison: 4
 
 - type: reagent
   id: Holywater
@@ -1221,22 +1205,21 @@
   color: "#8147ff"
   metabolisms:
     Medicine:
-      metabolismRate: 0.25
       effects:
       # heals shocks and removes shock chems
       - !type:HealthChange
         damage:
           types:
-            Shock: -1.5 # 6 per u
+            Shock: -4
       - !type:AdjustReagent
         reagent: Licoxide
-        amount: -2
+        amount: -4
       - !type:AdjustReagent
         reagent:  Tazinide
-        amount: -2
+        amount: -4
       # makes you a little chilly when not oding
       - !type:AdjustTemperature
-        amount: -2500
+        amount: -5000
       # od makes you freeze to death
       - !type:HealthChange
         conditions:
@@ -1244,7 +1227,7 @@
           min: 12
         damage:
           types:
-            Cold: 1 # 4 per u
+            Cold: 2
       - !type:AdjustTemperature
         conditions:
         - !type:ReagentThreshold
@@ -1386,11 +1369,12 @@
         damage:
           types:
             Poison: 2
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectSeeingRainbow
+      - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
           min: 30
+        key: SeeingRainbows
+        component: SeeingRainbows
         type: Add
         time: 8
         refresh: false
@@ -1451,8 +1435,9 @@
         emote: Yawn
         showInChat: true
         probability: 0.1
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectDrowsiness
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
         time: 4
         type: Add
         refresh: false
@@ -1460,8 +1445,8 @@
         key: Jitter
         time: 4.0
         type: Remove
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectSeeingRainbow
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
         time: 10.0
         type: Remove
       - !type:AdjustReagent

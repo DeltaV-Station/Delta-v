@@ -229,10 +229,10 @@ public sealed class OracleSystem : EntitySystem
     }
 
 
-    public List<EntProtoId> GetAllProtos(OracleComponent component)
+    public List<string> GetAllProtos(OracleComponent component)
     {
         var allTechs = _prototypeManager.EnumeratePrototypes<TechnologyPrototype>();
-        var allRecipes = new List<EntProtoId>();
+        var allRecipes = new List<string>();
 
         foreach (var tech in allTechs)
         {

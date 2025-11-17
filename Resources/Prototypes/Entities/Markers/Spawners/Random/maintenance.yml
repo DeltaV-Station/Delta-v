@@ -56,7 +56,7 @@
       - id: ClothingHeadHatPaper
       - id: ClothingHeadHatPirate
       - id: ClothingMaskSterile
-      - id: ClothingMultipleHeadphones
+      - id: ClothingNeckHeadphones
       - id: ClothingNeckTieRed
       - id: ClothingOuterCoatGentle
       - !type:AllSelector
@@ -175,8 +175,6 @@
       - id: ClothingBeltFoamSheathFilled # DeltaV - Add small chance of it spawning in maints locker.
       - id: WeaponLaserTagGun # DeltaV - Add small chance of it spawning in maints locker.
       #- id: RubberStampGreytide # Delta-V: prevent greytide stamp from spawning
-      - id: MysteryLighterBox
-      - id: GoldenPersonalAI
 
 - type: entity
   name: Maint Loot Spawner

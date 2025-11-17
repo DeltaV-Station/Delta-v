@@ -84,8 +84,6 @@ namespace Content.IntegrationTests.Tests
             "Tortuga" // DeltaV
         };
 
-        private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
-
         /// <summary>
         /// Asserts that specific files have been saved as grids and not maps.
         /// </summary>
@@ -263,7 +261,7 @@ namespace Content.IntegrationTests.Tests
                 return;
 
             var yamlEntities = node["entities"];
-            if (!protoManager.TryIndex(DoNotMapCategory, out var dnmCategory))
+            if (!protoManager.TryIndex<EntityCategoryPrototype>("DoNotMap", out var dnmCategory))
                 return;
 
             Assert.Multiple(() =>

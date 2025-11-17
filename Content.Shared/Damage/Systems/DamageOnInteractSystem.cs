@@ -14,8 +14,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Effects;
 using Content.Shared.Stunnable;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
-using Content.Shared.Hands.Components;
-using Content.Shared.Hands.EntitySystems; // Shitmed Change
+using Content.Shared.Hands.Components; // Shitmed Change
 
 namespace Content.Shared.Damage.Systems;
 
@@ -30,7 +29,6 @@ public sealed class DamageOnInteractSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!; // Shitmed Change
 
     public override void Initialize()
     {
@@ -69,7 +67,7 @@ public sealed class DamageOnInteractSystem : EntitySystem
             // or checking the entity for  the comp itself if the inventory didn't work
             if (protectiveEntity.Comp == null && TryComp<DamageOnInteractProtectionComponent>(args.User, out var protectiveComp))
                 protectiveEntity = (args.User, protectiveComp);
-
+            
 
             // if protectiveComp isn't null after all that, it means the user has protection,
             // so let's calculate how much they resist
@@ -82,11 +80,9 @@ public sealed class DamageOnInteractSystem : EntitySystem
         // Shitmed Change Start
         TargetBodyPart? targetPart = null;
         var hands = CompOrNull<HandsComponent>(args.User);
-        if (hands != null
-            && _hands.GetActiveHand((args.User, hands)) is { } activeHand
-            && _hands.TryGetHand((args.User, hands), activeHand, out var hand))
+        if (hands is { ActiveHand: not null })
         {
-            targetPart = hand.Value.Location switch
+            targetPart = hands.ActiveHand.Location switch
             {
                 HandLocation.Left => TargetBodyPart.LeftHand,
                 HandLocation.Right => TargetBodyPart.RightHand,

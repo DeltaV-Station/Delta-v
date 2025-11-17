@@ -21,7 +21,7 @@ public sealed partial class AutomatedHand : AutomationSlot
     [DataField(required: true)]
     public string HandName = string.Empty;
 
-    protected SharedHandsSystem _hands;
+    private SharedHandsSystem _hands;
 
     private Hand? _hand;
 
@@ -49,20 +49,20 @@ public sealed partial class AutomatedHand : AutomationSlot
     {
         return Hand is { } hand
             && base.Insert(item)
-            && _hands.TryPickup(Owner, item, HandName);
+            && _hands.TryPickup(Owner, item, hand);
     }
 
     public override bool CanInsert(EntityUid item)
     {
         return Hand is { } hand
             && base.CanInsert(item)
-            && _hands.CanPickupToHand(Owner, item, HandName);
+            && _hands.CanPickupToHand(Owner, item, hand);
     }
 
     public override EntityUid? GetItem(EntityUid? filter)
     {
-        _hands.TryGetHeldItem(Owner, HandName, out var item);
-        if (item == null || _filter.IsBlocked(filter, item.Value))
+        if (Hand?.HeldEntity is not { } item
+            || _filter.IsBlocked(filter, item))
             return null;
 
         return item;

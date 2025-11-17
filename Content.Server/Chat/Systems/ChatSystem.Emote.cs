@@ -1,9 +1,7 @@
 using Content.Server._RMC14.Emote; //RMC emote system
 using System.Collections.Frozen;
 using System.Collections.Immutable;
-using Content.Server.Popups;
 using Content.Shared.Chat.Prototypes;
-using Content.Shared.Emoting;
 using Content.Shared.Speech;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -14,7 +12,6 @@ namespace Content.Server.Chat.Systems;
 // emotes using emote prototype
 public partial class ChatSystem
 {
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
     private FrozenDictionary<string, ImmutableList<EmotePrototype>> _wordEmoteDict = FrozenDictionary<string, ImmutableList<EmotePrototype>>.Empty; // DeltaV - Multiple emotes
 
     protected override void OnPrototypeReload(PrototypesReloadedEventArgs obj)
@@ -60,8 +57,7 @@ public partial class ChatSystem
     /// <param name="range">Conceptual range of transmission, if it shows in the chat window, if it shows to far-away ghosts or ghosts at all...</param>
     /// <param name="nameOverride">The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerNameEvent"/>. If this is set, the event will not get raised.</param>
     /// <param name="forceEmote">Bypasses whitelist/blacklist/availibility checks for if the entity can use this emote</param>
-    /// <returns>True if an emote was performed. False if the emote is unvailable, cancelled, etc.</returns>
-    public bool TryEmoteWithChat(
+    public void TryEmoteWithChat(
         EntityUid source,
         string emoteId,
         ChatTransmitRange range = ChatTransmitRange.Normal,
@@ -72,8 +68,8 @@ public partial class ChatSystem
         )
     {
         if (!_prototypeManager.TryIndex<EmotePrototype>(emoteId, out var proto))
-            return false;
-        return TryEmoteWithChat(source, proto, range, hideLog: hideLog, nameOverride, ignoreActionBlocker: ignoreActionBlocker, forceEmote: forceEmote);
+            return;
+        TryEmoteWithChat(source, proto, range, hideLog: hideLog, nameOverride, ignoreActionBlocker: ignoreActionBlocker, forceEmote: forceEmote);
     }
 
     /// <summary>
@@ -86,8 +82,7 @@ public partial class ChatSystem
     /// <param name="range">Conceptual range of transmission, if it shows in the chat window, if it shows to far-away ghosts or ghosts at all...</param>
     /// <param name="nameOverride">The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerNameEvent"/>. If this is set, the event will not get raised.</param>
     /// <param name="forceEmote">Bypasses whitelist/blacklist/availibility checks for if the entity can use this emote</param>
-    /// <returns>True if an emote was performed. False if the emote is unvailable, cancelled, etc.</returns>
-    public bool TryEmoteWithChat(
+    public void TryEmoteWithChat(
         EntityUid source,
         EmotePrototype emote,
         ChatTransmitRange range = ChatTransmitRange.Normal,
@@ -95,46 +90,43 @@ public partial class ChatSystem
         string? nameOverride = null,
         bool ignoreActionBlocker = false,
         bool forceEmote = false
-    )
+        )
     {
         if (!forceEmote && !AllowedToUseEmote(source, emote))
-            return false;
-
-        var didEmote = TryEmoteWithoutChat(source, emote, ignoreActionBlocker);
+            return;
 
         // check if proto has valid message for chat
-        if (didEmote && emote.ChatMessages.Count != 0)
+        if (emote.ChatMessages.Count != 0)
         {
             // not all emotes are loc'd, but for the ones that are we pass in entity
             var action = Loc.GetString(_random.Pick(emote.ChatMessages), ("entity", source));
             SendEntityEmote(source, action, range, nameOverride, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker);
         }
 
-        return didEmote;
+        // do the rest of emote event logic here
+        TryEmoteWithoutChat(source, emote, ignoreActionBlocker);
     }
 
     /// <summary>
     ///     Makes selected entity to emote using <see cref="EmotePrototype"/> without sending any messages to chat.
     /// </summary>
-    /// <returns>True if an emote was performed. False if the emote is unvailable, cancelled, etc.</returns>
-    public bool TryEmoteWithoutChat(EntityUid uid, string emoteId, bool ignoreActionBlocker = false)
+    public void TryEmoteWithoutChat(EntityUid uid, string emoteId, bool ignoreActionBlocker = false)
     {
         if (!_prototypeManager.TryIndex<EmotePrototype>(emoteId, out var proto))
-            return false;
+            return;
 
-        return TryEmoteWithoutChat(uid, proto, ignoreActionBlocker);
+        TryEmoteWithoutChat(uid, proto, ignoreActionBlocker);
     }
 
     /// <summary>
     ///     Makes selected entity to emote using <see cref="EmotePrototype"/> without sending any messages to chat.
     /// </summary>
-    /// <returns>True if an emote was performed. False if the emote is unvailable, cancelled, etc.</returns>
-    public bool TryEmoteWithoutChat(EntityUid uid, EmotePrototype proto, bool ignoreActionBlocker = false)
+    public void TryEmoteWithoutChat(EntityUid uid, EmotePrototype proto, bool ignoreActionBlocker = false)
     {
         if (!_actionBlocker.CanEmote(uid) && !ignoreActionBlocker)
-            return false;
+            return;
 
-        return TryInvokeEmoteEvent(uid, proto);
+        InvokeEmoteEvent(uid, proto);
     }
 
     /// <summary>
@@ -174,34 +166,28 @@ public partial class ChatSystem
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="textInput"></param>
-    /// <returns>True if the chat message should be displayed (because the emote was explicitly cancelled), false if it should not be.</returns>
-    private bool TryEmoteChatInput(EntityUid uid, string textInput)
+    private void TryEmoteChatInput(EntityUid uid, string textInput)
     {
         var actionTrimmedLower = TrimPunctuation(textInput.ToLower());
         if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emotes)) // DeltaV, renames to emotes
-            return true; // DeltaV - If its not an emote that has a prototype, allow it. Its probably RP.
+            return;
 
         //RMC emote system
         if (!_rmcEmote.TryEmote(uid))
-            return false;
+            return;
 
-        // DeltaV - Multiple emotes for the same trigger
-        bool validEmote = false;
+        bool validEmote = false; // DeltaV - Multiple emotes for the same trigger
         foreach (var emote in emotes)
         {
-            // If its a valid emote, just break the loop and return.
-            if (validEmote)
-                break;
-
             if (!AllowedToUseEmote(uid, emote))
                 continue;
 
-            // This will check if you're blocked from vocal emotes, even if its an allowed emote for your species.
-            validEmote = TryInvokeEmoteEvent(uid, emote);
+            InvokeEmoteEvent(uid, emote);
+            validEmote = true; // DeltaV
         }
 
-        return validEmote;
-        // END DeltaV
+        if (!validEmote) // DeltaV
+            return;
 
         static string TrimPunctuation(string textInput)
         {
@@ -243,64 +229,19 @@ public partial class ChatSystem
         }
 
         // Check if the emote is available for all
-        //if (!emote.Available) // DeltaV - Allow people to emote things. Don't worry, they don't get sound if their species doesn't have it natively.
-        //{
-        //    return false;
-        //}
+        if (!emote.Available)
+        {
+            return false;
+        }
 
         return true;
     }
 
-    /// <summary>
-    /// Creates and raises <see cref="BeforeEmoteEvent"/> and then <see cref="EmoteEvent"/> to let other systems do things like play audio.
-    /// In the case that the Before event is cancelled, EmoteEvent will NOT be raised, and will optionally show a message to the player
-    /// explaining why the emote didn't happen.
-    /// </summary>
-    /// <param name="uid">The entity which is emoting</param>
-    /// <param name="proto">The emote which is being performed</param>
-    /// <returns>True if the emote was performed, false otherwise.</returns>
-    private bool TryInvokeEmoteEvent(EntityUid uid, EmotePrototype proto)
+
+    private void InvokeEmoteEvent(EntityUid uid, EmotePrototype proto)
     {
-        var beforeEv = new BeforeEmoteEvent(uid, proto);
-        RaiseLocalEvent(uid, ref beforeEv);
-
-        if (beforeEv.Cancelled)
-        {
-            if (beforeEv.Blocker != null)
-            {
-                _popupSystem.PopupEntity(
-                    Loc.GetString(
-                        "chat-system-emote-cancelled-blocked",
-                        ("emote", Loc.GetString(proto.Name).ToLower()),
-                        ("blocker", beforeEv.Blocker.Value)
-                    ),
-                    uid,
-                    uid
-                );
-            }
-            else
-            {
-                _popupSystem.PopupEntity(
-                    Loc.GetString("chat-system-emote-cancelled-generic",
-                        ("emote", Loc.GetString(proto.Name).ToLower())),
-                    uid,
-                    uid
-                );
-            }
-
-            return false;
-        }
-
-        // DeltaV - Added if to prevent vocal emote from going to chat if its blocked
-        if (!beforeEv.Cancelled)
-        {
-            var ev = new EmoteEvent(proto);
-            RaiseLocalEvent(uid, ref ev);
-            return true;
-        }
-
-        return false;
-        // END DeltaV
+        var ev = new EmoteEvent(proto);
+        RaiseLocalEvent(uid, ref ev);
     }
 }
 
@@ -309,8 +250,9 @@ public partial class ChatSystem
 ///     Use it to play sound, change sprite or something else.
 /// </summary>
 [ByRefEvent]
-public sealed class EmoteEvent : HandledEntityEventArgs
+public struct EmoteEvent
 {
+    public bool Handled;
     public readonly EmotePrototype Emote;
 
     public EmoteEvent(EmotePrototype emote)

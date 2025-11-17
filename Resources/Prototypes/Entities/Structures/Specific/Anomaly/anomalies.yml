@@ -75,8 +75,6 @@
   - type: Anomaly
     corePrototype: AnomalyCorePyroclastic
     coreInertPrototype: AnomalyCorePyroclasticInert
-    supercriticalSoundAtAnimationStart:
-      collection: AnomalyPyroSupercritical
   - type: Sprite
     sprite: Structures/Specific/Anomalies/pyro_anom.rsi
     layers:
@@ -129,9 +127,6 @@
   - type: Anomaly
     corePrototype: AnomalyCoreGravity
     coreInertPrototype: AnomalyCoreGravityInert
-    supercriticalSoundAtAnimationStart:
-      collection: AnomalyGravitySupercritical
-    supercriticalDuration: 15s
   - type: Sprite
     layers:
     - state: anom2
@@ -164,8 +159,6 @@
   - type: Anomaly
     corePrototype: AnomalyCoreElectricity
     coreInertPrototype: AnomalyCoreElectricityInert
-    supercriticalSoundAtAnimationStart:
-      collection: AnomalyElectricitySupercritical
   - type: Sprite
     layers:
     - state: anom3
@@ -191,8 +184,6 @@
     coreInertPrototype: AnomalyCoreFleshInert
     minPulseLength: 180
     maxPulseLength: 300
-    supercriticalSoundAtAnimationStart:
-      collection: AnomalyFleshSupercritical
   - type: Sprite
     layers:
     - state: anom5
@@ -318,8 +309,6 @@
   - type: Anomaly
     corePrototype: AnomalyCoreBluespace
     coreInertPrototype: AnomalyCoreBluespaceInert
-    supercriticalSoundAtAnimationStart:
-      collection: AnomalyBluespaceSupercritical
     pulseSound:
       collection: RadiationPulse
       params:
@@ -346,8 +335,6 @@
   - type: Anomaly
     corePrototype: AnomalyCoreIce
     coreInertPrototype: AnomalyCoreIceInert
-    supercriticalSoundAtAnimationStart:
-      collection: AnomalyIceSupercritical
   - type: ExplosionAnomaly
     supercriticalExplosion: Cryo
     explosionTotalIntensity: 300
@@ -392,8 +379,6 @@
     coreInertPrototype: AnomalyCoreRockInert
     minPulseLength: 180
     maxPulseLength: 300
-    supercriticalSoundAtAnimationStart:
-      collection: AnomalyRockSupercritical
   - type: Sprite
     layers:
     - state: anom6
@@ -796,8 +781,6 @@
     coreInertPrototype: AnomalyCoreFloraInert
     minPulseLength: 60
     maxPulseLength: 120
-    supercriticalSoundAtAnimationStart:
-      collection: AnomalyFloraSupercritical
   - type: TileSpawnAnomaly
     entries:
     - settings:
@@ -901,8 +884,6 @@
     coreInertPrototype: AnomalyCoreLiquidInert
     minPulseLength: 60
     maxPulseLength: 120
-    supercriticalSoundAtAnimationStart:
-      collection: AnomalyFluidSupercritical
   - type: EntitySpawnAnomaly
     entries:
     - settings:
@@ -1019,8 +1000,6 @@
     maxPulseLength: 120
     animationTime: 4
     offset: "-0.1,0.1"
-    supercriticalSoundAtAnimationStart:
-      collection: AnomalyShadowSupercritical
   - type: EntitySpawnAnomaly
     entries:
     - settings:
@@ -1081,8 +1060,6 @@
     coreInertPrototype: AnomalyCoreTechInert
     minPulseLength: 60
     maxPulseLength: 120
-    supercriticalSoundAtAnimationStart:
-      collection: AnomalyTechSupercritical
   - type: TechAnomaly
   - type: DeviceLinkSource
     ports:
@@ -1141,8 +1118,6 @@
     coreInertPrototype: AnomalyCoreSantaInert
     minPulseLength: 60
     maxPulseLength: 120
-    supercriticalSoundAtAnimationStart:
-      collection: AnomalyPresentSupercritical
   - type: EntitySpawnAnomaly
     entries:
     - settings:

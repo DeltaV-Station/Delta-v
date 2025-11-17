@@ -537,7 +537,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
-  - !type:NoUnstackableInTile
+    - !type:NoUnstackableInTile
 
 - type: construction
   id: GasPassiveVent
@@ -548,7 +548,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
-  - !type:NoUnstackableInTile
+    - !type:NoUnstackableInTile
 
 - type: construction
   id: GasVentScrubber
@@ -559,7 +559,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
-  - !type:NoUnstackableInTile
+    - !type:NoUnstackableInTile
 
 - type: construction
   id: GasOutletInjector
@@ -570,7 +570,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
-  - !type:NoUnstackableInTile
+    - !type:NoUnstackableInTile
 
 # ATMOS BINARY
 - type: construction
@@ -673,7 +673,7 @@
   startNode: start
   targetNode: passivegate
   category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
-  placementMode: AlignAtmosPipeLayers
+  placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile

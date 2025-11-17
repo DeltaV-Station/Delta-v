@@ -182,7 +182,7 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
             return false;
         if (cmind.HasMind)
             return false;
-        if (HasComp<ForcedSleepingStatusEffectComponent>(body))
+        if (HasComp<ForcedSleepingComponent>(body))
             return false;
         if (_mobState.IsIncapacitated(body))
             return false;

@@ -33,8 +33,8 @@
     - id: ClothingEyesGlassesSecurity
     - id: ClothingHandsGlovesCombat
     - id: ClothingShoesBootsJack
-    #- id: ClothingOuterCoatWarden # DeltaV - removed for incongruence
-    #- id: ClothingOuterWinterWarden # DeltaV - removed for incongruence
+#   - id: ClothingOuterCoatWarden # DeltaV - removed for incongruence
+#   - id: ClothingOuterWinterWarden # DeltaV - removed for incongruence
     - id: RubberStampWarden
     - id: DoorRemoteArmory
     - id: HoloprojectorSecurity
@@ -53,8 +53,6 @@
       prob: 0.3
     - id: ClothingOuterVestPlateCarrierAdv
     - id: ClothingHeadsetAltSecurity # Restored from upstream merge.
-    - id: ClothingNeckShockCollar
-      amount: 2
     - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
     # End DeltaV additions
 
@@ -63,10 +61,9 @@
   table: !type:AllSelector
     children:
     - id: ClothingOuterHardsuitCombatWarden # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
-    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
     - id: OxygenTankFilled
-    - id: NitrogenTankFilled
     - id: ClothingMaskBreath
+    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
 
 - type: entity
   id: LockerSecurityFilled
@@ -85,13 +82,13 @@
     - id: FlashlightSeclite
       prob: 0.8
     - id: WeaponDisabler
-    #- id: ClothingUniformJumpsuitSecGrey # DeltaV - remove uniforms from sec lockers
-    #  prob: 0.3
+#   - id: ClothingUniformJumpsuitSecGrey # DeltaV - remove uniforms from sec lockers
+#     prob: 0.3
     - id: ClothingHeadHelmetBasic
-    #- id: ClothingOuterArmorBasic # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier and stabproof vest
+    - id: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier and stabproof vest
     - id: ClothingBeltSecurityFilled
     - id: Flash
-    #  prob: 0.5 # DeltaV - standardise spare flash
+#     prob: 0.5 # DeltaV - standardise spare flash
     - id: ClothingEyesGlassesSecurity
     - id: ClothingHeadsetSecurity
     - id: ClothingHandsGlovesColorBlack
@@ -106,8 +103,6 @@
       prob: 0.4
     - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
       prob: 0.3
-    - id: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier and stabproof vest
-    - id: ClothingOuterArmorDuraVest # DeltaV
 
 - type: entity
   id: LockerBrigmedicFilled
@@ -123,21 +118,18 @@
   id: FillLockerBrigmedic
   table: !type:AllSelector
     children:
-    - id: ClothingEyesGlassesCorpsman
+    - id: ClothingEyesGlassesSecurity
     - id: WeaponDisabler
     - id: TrackingImplanter
       amount: 2
-    #- id: ClothingOuterHardsuitCombatCorpsman # DeltaV - ClothingOuterHardsuitBrigmedic replaced in favour of corpsman's combat hardsuit; removing from standard filled locker to place in hardsuit filled locker.
+#   - id: ClothingOuterHardsuitCombatCorpsman # DeltaV - ClothingOuterHardsuitBrigmedic replaced in favour of corpsman's combat hardsuit; removing from standard filled locker to place in hardsuit filled locker.
     - id: BoxSterileMask
     - id: ClothingHeadHatBeretCorpsman # DeltaV - ClothingHeadHatBeretBrigmedic replaced in favour of corpsman beret.
-    - id: ClothingHeadsetBrigmedic # DeltaV - add spare headset.
 #   - id: ClothingOuterCoatAMG # DeltaV - removed until I can resprite it or replace it.
     - id: ClothingUniformJumpsuitBrigmedic
     - id: ClothingUniformJumpskirtBrigmedic
-    #- id: ClothingUniformJumpskirtOfLife # DeltaV - removed for incongruence
-    #  prob: 0.1
-    - id: ClothingBeltCorpsmanWebbing # DeltaV - added spare webbing
-    - id: HandheldGPSBasic # Delta V - added it for tracking the implant tracker pop up.
+#   - id: ClothingUniformJumpskirtOfLife # DeltaV - removed for incongruence
+#     prob: 0.1
     - id: MedkitFilled
     - !type:GroupSelector
       prob: 0.7
@@ -153,22 +145,15 @@
         weight: 0.8
       - id: MedkitBurnFilled
         weight: 1.8
-    #- id: ClothingNeckCloakMoth #bzzz Moth-pocalypse # DeltaV - removed for incongruence
-    #  prob: 0.15
+#   - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse # DeltaV - removed for incongruence
+#     prob: 0.15
+    # DeltaV - Begin additions
+    - id: ClothingHeadsetBrigmedic # DeltaV - add spare headset.
+    - id: ClothingBeltCorpsmanWebbing # DeltaV - added spare webbing
+    - id: HandheldGPSBasic # Delta V - added it for tracking the implant tracker pop up.
     - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
       prob: 0.3
-
-# DeltaV - adding corpsman locker w/ hardsuit
-- type: entityTable
-  id: FillLockerBrigmedicHarduit
-  table: !type:AllSelector
-    children:
-    - id: ClothingOuterHardsuitCombatCorpsman # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
-    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
-    - id: OxygenTankFilled
-    - id: NitrogenTankFilled
-    - id: ClothingMaskBreath
-# END DeltaV - adding corpsman locker w/ hardsuit
+    # DeltaV - End additions
 
 - type: entity
   id: LockerDetectiveFilled
@@ -191,7 +176,6 @@
     #- id: ClothingOuterVestDetective
     #- id: ClothingOuterCoatDetectiveLoadout
     # End DeltaV Removals
-    - id: ClothingHeadsetSecurity # DeltaV - add spare headset.
     - id: FlippoEngravedLighter
     - id: FlashlightSeclite
     - id: ForensicScanner
@@ -203,9 +187,11 @@
     - id: HoloprojectorSecurity
     - id: BoxEvidenceMarkers
     - id: HandLabeler
+    # Begin DeltaV Additions
+    - id: ClothingHeadsetSecurity # DeltaV - add spare headset.
     - id: BoxTapeRecorder # DeltaV
     - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
-      prob: 0.3
+    # End DeltaV Additions
 
 - type: entity
   id: ClosetBombFilled

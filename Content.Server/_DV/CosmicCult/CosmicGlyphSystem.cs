@@ -33,7 +33,6 @@ public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
     {
         SubscribeLocalEvent<CosmicGlyphComponent, ActivateInWorldEvent>(OnUseGlyph);
         SubscribeLocalEvent<CosmicGlyphComponent, ComponentStartup>(OnGlyphCreated);
-        base.Initialize();
     }
 
     #region Base trigger

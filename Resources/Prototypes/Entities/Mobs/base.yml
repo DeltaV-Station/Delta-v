@@ -45,7 +45,6 @@
   - type: RequireProjectileTarget
     active: False
   - type: AnimatedEmotes # goob edit - animated emotes
-  #- type: StunVisuals # DeltaV - disabled stun visuals for now
 
 - type: entity
   save: false
@@ -70,7 +69,7 @@
         damage: 400
       behaviors:
       - !type:GibBehavior { }
-#    - trigger:                       # DeltaV- We don't like round removing people for being in the same room as a plasma trapped crate.
+#    - trigger:                       # DeltaV- We don't like round removing people for being in the same room as a plasma trapped crate. 
 #        !type:DamageTypeTrigger
 #        damageType: Heat
 #        damage: 1500
