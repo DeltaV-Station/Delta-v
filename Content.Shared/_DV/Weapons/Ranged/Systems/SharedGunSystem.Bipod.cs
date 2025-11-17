@@ -1,15 +1,11 @@
-using System.Linq;
 using Content.Shared._DV.Weapons.Ranged.Components;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
-using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Maps;
 using Content.Shared.Toggleable;
 using Content.Shared.Weapons.Ranged.Events;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
@@ -31,22 +27,13 @@ public abstract partial class SharedGunSystem
         SubscribeLocalEvent<GunBipodComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
         SubscribeLocalEvent<GunBipodComponent, BipodSetupFinishedEvent>(SetupBipod);
         SubscribeLocalEvent<GunBipodComponent, ShotAttemptedEvent>(OnShotAttempted);
+        SubscribeLocalEvent<IsUsingBipodComponent, MoveEvent>(OnMove);
     }
 
-    private void OnMapInit(EntityUid uid, GunBipodComponent component, MapInitEvent args)
+    private void OnMapInit(Entity<GunBipodComponent> weapon, ref MapInitEvent args)
     {
-        _actionContainer.EnsureAction(uid, ref component.BipodToggleActionEntity, component.BipodToggleAction);
-        Dirty(uid, component);
-    }
-
-    private void OnUnequip(Entity<GunBipodComponent> ent, ref GotUnequippedHandEvent args)
-    {
-        PackUpBipod(ent, args.User);
-    }
-
-    private void OnDrop(Entity<GunBipodComponent> ent, ref DroppedEvent args)
-    {
-        PackUpBipod(ent, args.User);
+        _actionContainer.EnsureAction(weapon.Owner, ref weapon.Comp.BipodToggleActionEntity, weapon.Comp.BipodToggleAction);
+        Dirty(weapon);
     }
 
     private void OnGetActions(Entity<GunBipodComponent> ent, ref GetItemActionsEvent args)
@@ -54,33 +41,40 @@ public abstract partial class SharedGunSystem
         args.AddAction(ref ent.Comp.BipodToggleActionEntity, ent.Comp.BipodToggleAction);
     }
 
+    private void OnUnequip(Entity<GunBipodComponent> weapon, ref GotUnequippedHandEvent args)
+    {
+        if (weapon.Comp.IsSetup)
+            PackUpBipod(weapon, args.User, null);
+    }
+
+    private void OnDrop(Entity<GunBipodComponent> weapon, ref DroppedEvent args)
+    {
+        if (weapon.Comp.IsSetup)
+            PackUpBipod(weapon, args.User, null);
+    }
+
+    private void OnMove(Entity<IsUsingBipodComponent> bipodUser, ref MoveEvent args)
+    {
+        // This fires when the entity rotates. If the position didn't change, do not undo the bipod.
+        if (args.OldPosition.Equals(args.NewPosition))
+            return;
+        // Undo the Bipod of every gun currently used.
+        foreach (var weaponUid in bipodUser.Comp.BipodOwnerUids.ToArray())
+        {
+            if (!TryComp<GunBipodComponent>(weaponUid, out var bipod))
+                continue;
+
+            PackUpBipod((weaponUid, bipod), bipodUser.Owner, bipodUser.Comp);
+        }
+    }
+
     private void OnToggleAction(Entity<GunBipodComponent> ent, ref ToggleActionEvent args)
     {
         if (args.Handled)
             return;
 
-        var blockQuery = GetEntityQuery<GunBipodComponent>();
-        var handQuery = GetEntityQuery<HandsComponent>();
-
-        if (!handQuery.TryGetComponent(args.Performer, out var hands))
-            return;
-
-        var bipods = _hands.EnumerateHeld((args.Performer, hands)).ToArray();
-
-        foreach (var bipod in bipods)
-        {
-            if (bipod == ent.Owner)
-                continue;
-
-            if (blockQuery.TryGetComponent(bipod, out var otherBipodComp) && otherBipodComp.IsSetup)
-            {
-                CantSetupError(args.Performer);
-                return;
-            }
-        }
-
         if (ent.Comp.IsSetup)
-            PackUpBipod(ent, args.Performer);
+            PackUpBipod(ent, args.Performer, null);
         else
             TrySetupBipod(ent, args.Performer);
 
@@ -89,35 +83,28 @@ public abstract partial class SharedGunSystem
 
     private void TrySetupBipod(Entity<GunBipodComponent> ent, EntityUid user)
     {
-        if (ent.Comp.IsSetup)
-        {
-            ent.Comp.BipodSetupTime = TimeSpan.Zero;
-            return;
-        }
-
         var xform = Transform(user);
 
         //Don't allow someone to set up the bipod if they're not parented to a grid
         if (xform.GridUid != xform.ParentUid)
         {
-            CantSetupError(user);
+            CantSetupError(user, Loc.GetString("action-popup-bipod-user-cant-setup"));
             return;
         }
 
         // Don't allow someone to set up the bipod if they're not holding the weapon
         if (!_hands.IsHolding(user, ent.Owner, out _))
         {
-            CantSetupError(user);
+            CantSetupError(user, Loc.GetString("action-popup-bipod-user-not-holding"));
             return;
         }
 
         var gunName = Name(ent.Owner);
-
         var bipodUser = Identity.Entity(user, EntityManager);
+        // Show a popup for everyone to show them setting up their bipod.
         var msgUser = Loc.GetString("action-popup-bipod-user", ("gunName", gunName));
         var msgOther = Loc.GetString("action-popup-bipod-other", ("bipodUser", bipodUser), ("gunName", gunName));
 
-        Actions.SetToggled(ent.Comp.BipodToggleActionEntity, true);
         PopupSystem.PopupPredicted(msgUser, msgOther, user, user);
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, ent.Comp.SetupDelay, new BipodSetupFinishedEvent(), ent.Owner, target: ent.Owner, used: ent.Owner)
@@ -125,78 +112,64 @@ public abstract partial class SharedGunSystem
             BreakOnDamage = false,
             BreakOnMove = true,
         };
-
+        // This is used to prevent the gun from shooting while setting up the bipod.
         ent.Comp.BipodSetupTime = Timing.CurTime;
         _doAfter.TryStartDoAfter(doAfterArgs);
     }
 
-    private void OnShotAttempted(Entity<GunBipodComponent> ent, ref ShotAttemptedEvent args)
-    {
-        if (Timing.CurTime < ent.Comp.BipodSetupTime + ent.Comp.SetupDelay)
-        {
-            args.Cancel();
-        }
-    }
-
     private void SetupBipod(Entity<GunBipodComponent> ent, ref BipodSetupFinishedEvent bipodEvent)
     {
-        if (bipodEvent.Cancelled)
-            return;
-
-        var xform = Transform(bipodEvent.User);
-
-        //Don't allow someone to set up the bipod if they're somehow not anchored.
-        TransformSystem.AnchorEntity(bipodEvent.User, xform);
-        if (!xform.Anchored)
+        if (bipodEvent.Cancelled) // This method is called whether the DoAfter was successful - Hence the catch.
         {
-            CantSetupError(bipodEvent.User);
+            ent.Comp.BipodSetupTime = TimeSpan.Zero; // This allows them to shoot again when they cancel putting down the bipod.
             return;
         }
 
-        var gunName = Name(ent.Owner);
+        var bipodUseComp = EnsureComp<IsUsingBipodComponent>(bipodEvent.User); // Set a component on the user so we can track it for movement.
+        bipodUseComp.BipodOwnerUids.Add(ent.Owner); // Add it to the used Bipods.
 
+        var gunName = Name(ent.Owner);
         var bipodUser = Identity.Entity(bipodEvent.User, EntityManager);
+        // Send another popup that the bipod is successfully set up.
         var msgUser = Loc.GetString("action-popup-bipod-finished-user", ("gunName", gunName));
         var msgOther = Loc.GetString("action-popup-bipod-finished-other", ("bipodUser", bipodUser), ("gunName", gunName));
 
         Actions.SetToggled(ent.Comp.BipodToggleActionEntity, true);
         PopupSystem.PopupPredicted(msgUser, msgOther, bipodEvent.User, bipodEvent.User);
 
-        ent.Comp.IsSetup = true;
+        ent.Comp.IsSetup = true; // Activate the Bipod.
 
-        RefreshModifiers(ent.Owner);
+        RefreshModifiers(ent.Owner); // This will update the modifiers of the weapon, so the bipod is in effect.
         Dirty(ent);
     }
 
-    private void PackUpBipod(Entity<GunBipodComponent> ent, EntityUid user)
+    private void PackUpBipod(Entity<GunBipodComponent> weapon, EntityUid user, IsUsingBipodComponent? userComp)
     {
-        if (!ent.Comp.IsSetup)
+        if (!Resolve(user, ref userComp)) // Component can be nullable, so we resolve. Less expensive than TryComp.
             return;
 
-        var xform = Transform(user);
+        userComp.BipodOwnerUids.Remove(weapon); // Remove the bipod component from the list of used bipods.
+        if (userComp.BipodOwnerUids.Count == 0) // Remove the Component if no bipod is in use anymore.
+            RemComp<IsUsingBipodComponent>(user);
 
-        var gunName = Name(ent.Owner);
-
+        var gunName = Name(weapon);
         var bipodUser = Identity.Entity(user, EntityManager);
+        // Show a popup that the bipod has been removed.
         var msgUser = Loc.GetString("action-popup-bipod-disabling-user", ("gunName", gunName));
         var msgOther = Loc.GetString("action-popup-bipod-disabling-other", ("bipodUser", bipodUser), ("gunName", gunName));
 
-        if (xform.Anchored)
-            TransformSystem.Unanchor(user, xform);
-
-        Actions.SetToggled(ent.Comp.BipodToggleActionEntity, false);
+        Actions.SetToggled(weapon.Comp.BipodToggleActionEntity, false); // Set the action icon to red.
         PopupSystem.PopupPredicted(msgUser, msgOther, user, user);
 
-        ent.Comp.IsSetup = false;
+        weapon.Comp.IsSetup = false; // Deactivate the Bipod.
 
-        RefreshModifiers(ent.Owner);
-        Dirty(ent);
+        RefreshModifiers(weapon.Owner); // This will update the modifiers of the weapon, so the bipod bonus is lost.
+        Dirty(weapon);
     }
 
-    private void CantSetupError(EntityUid user)
+    private void CantSetupError(EntityUid user, string errorMessage)
     {
-        var msgError = Loc.GetString("action-popup-bipod-user-cant-setup");
-        PopupSystem.PopupClient(msgError, user, user);
+        PopupSystem.PopupClient(errorMessage, user, user);
     }
 
     private void OnGunRefreshModifiers(Entity<GunBipodComponent> bonus, ref GunRefreshModifiersEvent args)
@@ -209,6 +182,13 @@ public abstract partial class SharedGunSystem
             args.AngleIncrease += bonus.Comp.AngleIncrease;
             args.FireRate += bonus.Comp.FireRateIncrease;
         }
+    }
+
+    private void OnShotAttempted(Entity<GunBipodComponent> ent, ref ShotAttemptedEvent args)
+    {
+        // This is true when the bipod is being set up - Preventing the gun from shooting.
+        if (Timing.CurTime < ent.Comp.BipodSetupTime + ent.Comp.SetupDelay)
+            args.Cancel();
     }
 }
 

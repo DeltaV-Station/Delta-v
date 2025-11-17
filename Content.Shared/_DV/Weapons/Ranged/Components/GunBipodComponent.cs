@@ -9,13 +9,13 @@ namespace Content.Shared._DV.Weapons.Ranged.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class GunBipodComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite), DataField("minAngle"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public Angle MinAngle = Angle.FromDegrees(-43);
 
     /// <summary>
     /// Angle bonus applied upon the bipod being used.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("maxAngle"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public Angle MaxAngle = Angle.FromDegrees(-43);
 
     /// <summary>
@@ -60,7 +60,6 @@ public sealed partial class GunBipodComponent : Component
     /// The time when the Bipod has begun being set up.
     /// Used to stop it from firing while the bipod is being set up.
     /// </summary>
-    /// <returns></returns>
     [AutoNetworkedField]
-    public TimeSpan BipodSetupTime;
+    public TimeSpan BipodSetupTime = TimeSpan.Zero;
 }
