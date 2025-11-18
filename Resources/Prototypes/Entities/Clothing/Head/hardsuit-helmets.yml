@@ -110,6 +110,14 @@
       head-dog:
       - state: equipped-head-light-dog
         shader: unshaded
+      # Begin DeltaV species helmets
+      head-vulpkanin:
+      - state: equipped-head-light-vulpkanin
+        shader: unshaded
+      head-feroxi:
+      - state: equipped-head-light-feroxi
+        shader: unshaded
+      # End DeltaV species helmets
   - type: Clothing
     clothingVisuals:
       head:
@@ -120,6 +128,16 @@
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
         shader: unshaded
+      # Begin DeltaV species helmets
+      head-vulpkanin:
+      - state: equipped-head-vulpkanin
+      - state: equipped-head-unshaded-vulpkanin
+        shader: unshaded
+      head-feroxi:
+      - state: equipped-head-feroxi
+      - state: equipped-head-unshaded-feroxi
+        shader: unshaded
+      # End DeltaV species helmets
       head-dog:
       - state: equipped-head-dog
       - state: equipped-head-unshaded-dog
@@ -420,6 +438,17 @@
       head-vox:
       - state: equipped-head-light-vox
         shader: unshaded
+      # Begin DeltaV species helmets
+      head-vulpkanin:
+      - state: equipped-head-light-vulpkanin
+        shader: unshaded
+      head-harpy:
+      - state: equipped-head-light-harpy
+        shader: unshaded
+      head-feroxi:
+      - state: equipped-head-light-feroxi
+        shader: unshaded
+      # End DeltaV species helmets
       head-dog:
       - state: equipped-head-light-dog
         shader: unshaded
@@ -437,6 +466,20 @@
       - state: equipped-head-dog
       - state: equipped-head-unshaded-dog
         shader: unshaded
+      # Begin DeltaV species helmets
+      head-vulpkanin:
+      - state: equipped-head-vulpkanin
+      - state: equipped-head-unshaded-vulpkanin
+        shader: unshaded
+      head-harpy:
+      - state: equipped-head-harpy
+      - state: equipped-head-unshaded
+        shader: unshaded
+      head-feroxi:
+      - state: equipped-head-feroxi
+      - state: equipped-head-unshaded-feroxi
+        shader: unshaded
+      # End DeltaV species helmets
   - type: PointLight
     color: "#daffad"
   - type: PressureProtection
