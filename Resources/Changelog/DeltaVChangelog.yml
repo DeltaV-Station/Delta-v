@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: foxcurl
-  changes:
-  - message: Supplybots can be pet, and all bots can do animated and borg emotes.
-    type: Tweak
-  id: 1312
-  time: '2025-04-24T01:30:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3553
 - author: sowelipililimute
   changes:
   - message: The Funding Allocation Computer no longer redundantly displays Logistics
@@ -4215,3 +4208,14 @@
   id: 1811
   time: '2025-11-18T09:30:51.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4649
+- author: SirWarock
+  changes:
+  - message: Standardized Part Damage, so the crispy Salvager won't need twice the
+      dosage of Aloxadone to finally walk again.
+    type: Tweak
+  - message: Non-curing Medical Treatment now effictively reverts the damage of the
+      zombification on your limbs.
+    type: Tweak
+  id: 1812
+  time: '2025-11-18T09:38:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4584
