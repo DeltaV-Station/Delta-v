@@ -13,7 +13,6 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Temperature;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Physics.Events;
 using Content.Shared.Projectiles;
 using Content.Shared._Goobstation.Temperature.Components;
 using Content.Shared._Goobstation.Temperature;
@@ -134,6 +133,7 @@ public sealed class TemperatureSystem : EntitySystem
             args.CurrentTemperature = args.IdealTemperature;
     }
     // Goob end
+
     public void ForceChangeTemperature(EntityUid uid, float temp, TemperatureComponent? temperature = null)
     {
         if (!Resolve(uid, ref temperature))

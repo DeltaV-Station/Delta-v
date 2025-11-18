@@ -183,7 +183,7 @@ public sealed partial class DevilSystem : EntitySystem
 
         foreach (var ability in proto.PowerActions)
         {
-            if (args.NewLevel != ability.Key)
+            if (args.NewLevel < ability.Key) // DeltaV - Just incase of admin shenanigans
                 continue;
 
             foreach (var actionId in ability.Value)

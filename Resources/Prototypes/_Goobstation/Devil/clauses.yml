@@ -57,7 +57,7 @@
 - type: clause
   id: fearofdeath
   clauseWeight: -25
-  addedComponents:
+  overriddenComponents:
   - type: MobThresholds
     thresholds:
       0: Alive

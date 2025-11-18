@@ -366,6 +366,8 @@ public sealed partial class DevilContractSystem : EntitySystem
 
         AddComponents(target, clause);
 
+        OverrideComponents(target, clause); // DeltaV - Fix component modifications
+
         ChangeDamageModifier(target, clause);
 
         AddImplants(target, clause);
@@ -416,6 +418,16 @@ public sealed partial class DevilContractSystem : EntitySystem
         //foreach (var (name, data) in clause.AddedComponents)
         //    _sawmill.Debug($"Added {data.Component} to {ToPrettyString(target)}");
     }
+
+    // Begin DeltaV Addition - Fix component modifications
+    private void OverrideComponents(EntityUid target, DevilClausePrototype clause)
+    {
+        if (clause.OverriddenComponents == null)
+            return;
+
+        EntityManager.AddComponents(target, clause.OverriddenComponents, true);
+    }
+    // End DeltaV Addition
 
     private void SpawnItems(EntityUid target, DevilClausePrototype clause)
     {

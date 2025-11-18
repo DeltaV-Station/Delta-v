@@ -145,7 +145,7 @@ namespace Content.Server.Atmos.EntitySystems
         /// </summary>
         public float GetFeltLowPressure(EntityUid uid, BarotraumaComponent barotrauma, float environmentPressure)
         {
-            if (barotrauma.HasImmunity || HasComp<SpecialPressureImmunityComponent>(uid)) // Goob
+            if (barotrauma.HasImmunity || HasComp<SpecialPressureImmunityComponent>(uid)) // Goobstation - Special Immunity
             {
                 return Atmospherics.OneAtmosphere;
             }
@@ -159,7 +159,7 @@ namespace Content.Server.Atmos.EntitySystems
         /// </summary>
         public float GetFeltHighPressure(EntityUid uid, BarotraumaComponent barotrauma, float environmentPressure)
         {
-            if (barotrauma.HasImmunity || HasComp<SpecialPressureImmunityComponent>(uid)) // Goob
+            if (barotrauma.HasImmunity || HasComp<SpecialPressureImmunityComponent>(uid)) // Goobstation - Special Immunity
             {
                 return Atmospherics.OneAtmosphere;
             }

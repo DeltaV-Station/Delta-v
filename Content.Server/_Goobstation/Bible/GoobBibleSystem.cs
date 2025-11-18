@@ -22,7 +22,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Goobstation.Bible;
+namespace Content.Server._Goobstation.Bible;
 
 public sealed partial class GoobBibleSystem : EntitySystem
 {

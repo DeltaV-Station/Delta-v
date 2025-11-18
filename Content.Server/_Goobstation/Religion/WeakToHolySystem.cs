@@ -10,7 +10,7 @@
 
 using System.Linq;
 using Content.Shared._Goobstation.Religion;
-using Content.Shared._Goobstation.Bible;
+using Content.Server._Goobstation.Bible;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
@@ -42,9 +42,6 @@ public sealed class WeakToHolySystem : EntitySystem
         SubscribeLocalEvent<WeakToHolyComponent, MapInitEvent>(OnInit); // DeltaV - Add damage set
         SubscribeLocalEvent<WeakToHolyComponent, ComponentRemove>(OnRemove); // DeltaV - Clean up on removal
     }
-
-    private readonly ProtoId<DamageContainerPrototype> _biologicalMetaphysical = "BiologicalMetaphysical";
-    private readonly ProtoId<DamageContainerPrototype> _humanoidSilicon = "InorganicMetaphysical";
 
 
     // Begin DeltaV Additions - Holy Weakness

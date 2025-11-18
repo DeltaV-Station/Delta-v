@@ -44,7 +44,7 @@ namespace Content.Server.Bible.Components
         /// How much damage to deal to the entity being smitten - Goob
         /// </summary>
         [DataField]
-        public DamageSpecifier SmiteDamage = new() {DamageDict = new Dictionary<string, FixedPoint2>() {{ "Holy", 25 }}}; // Ungodly
+        public DamageSpecifier SmiteDamage = new() { DamageDict = new Dictionary<string, FixedPoint2>() { { "Holy", 25 } } }; // Ungodly
 
         /// <summary>
         /// How long to stun the entity being smitten - Goob

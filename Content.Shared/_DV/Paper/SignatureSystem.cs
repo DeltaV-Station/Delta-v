@@ -63,7 +63,7 @@ public sealed class SignatureSystem : EntitySystem
         if (ev.Cancelled)
             return false;
 
-         var paperEvent = new BeingSignedAttemptEvent(paper, signer); // Goobstation
+        var paperEvent = new BeingSignedAttemptEvent(paper, signer); // Goobstation
         RaiseLocalEvent(paper.Owner, ref paperEvent);
         if (paperEvent.Cancelled)
             return false;

@@ -49,7 +49,9 @@ public sealed partial class PossessionSystem : EntitySystem
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
-    private ProtoId<TagPrototype> _cannotSuicideAnyTag = "CannotSuicideAny"; // DeltaV - Don't use literals.
+    private ProtoId<TagPrototype> CannotSuicideAnyTag = "CannotSuicideAny"; // DeltaV - Don't use literals.
+    private EntProtoId LolipopProto = "FoodLollipop"; // DeltaV - Don't use literals.
+
     public override void Initialize()
     {
         base.Initialize();
@@ -87,7 +89,7 @@ public sealed partial class PossessionSystem : EntitySystem
 
         _action.AddAction(possessed, ref possessed.Comp.ActionEntity, possessed.Comp.EndPossessionAction);
 
-        _tag.AddTag(possessed, _cannotSuicideAnyTag); // DeltaV - Use ProtoId.
+        _tag.AddTag(possessed, CannotSuicideAnyTag); // DeltaV - Use ProtoId.
 
         possessed.Comp.PossessedContainer = _container.EnsureContainer<Container>(possessed, "PossessedContainer");
     }
@@ -115,7 +117,7 @@ public sealed partial class PossessionSystem : EntitySystem
         if (possessed.Comp.PolymorphEntity && HasComp<PolymorphedEntityComponent>(possessed))
             _polymorph.Revert(possessed.Owner);
 
-        _tag.RemoveTag(possessed, _cannotSuicideAnyTag); // DeltaV - Use ProtoId.
+        _tag.RemoveTag(possessed, CannotSuicideAnyTag); // DeltaV - Use ProtoId.
 
         // Remove associated components.
         if (!possessed.Comp.WasPacified)
@@ -248,7 +250,7 @@ public sealed partial class PossessionSystem : EntitySystem
             possessedComp.OriginalMindId = possessedMind;
 
             // Nobodies gonna know.
-            var dummy = Spawn("FoodSnackLollypop", MapCoordinates.Nullspace);
+            var dummy = Spawn(LolipopProto, MapCoordinates.Nullspace);
             _container.Insert(dummy, possessedComp.PossessedContainer);
 
             _mind.TransferTo(possessedMind, dummy);

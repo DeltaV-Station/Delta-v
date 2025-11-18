@@ -22,8 +22,8 @@ using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared._DV.CosmicCult.Components;
-using Content.Shared._Goobstation.Body.Components; // DeltaV
+using Content.Shared._DV.CosmicCult.Components; // DeltaV
+using Content.Shared._Goobstation.Body.Components; // Goobstation
 
 
 namespace Content.Server.Body.Systems;
