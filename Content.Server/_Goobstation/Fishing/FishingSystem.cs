@@ -24,7 +24,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Client._Goobstation.Fishing;
+namespace Content.Server._Goobstation.Fishing;
 
 public sealed class FishingSystem : SharedFishingSystem
 {
