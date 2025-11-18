@@ -546,7 +546,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
             if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
             {
-
                 //DeltaV - No Stamina Resistance Doubledipping, unless we want to.
                 var ignoreResist = true;
                 if (TryComp<StaminaResistanceComponent>(target, out var staminaResist))
@@ -716,7 +715,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
                     _stamina.TakeStaminaDamage(entity, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid, ignoreResist: ignoreResist);
                     // END DeltaV
-
                 }
 
                 appliedDamage += damageResult;
