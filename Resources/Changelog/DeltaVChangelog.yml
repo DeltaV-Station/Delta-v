@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: SolStar
-  changes:
-  - message: Equipment slowdown penalties no longer apply to Kitsune's polymorph.
-    type: Remove
-  - message: Fox fire color now uses the correct color when in fox form.
-    type: Fix
-  id: 1317
-  time: '2025-04-24T10:18:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3562
 - author: boogiebogus
   changes:
   - message: Fixed wall locker sprites.
@@ -4216,3 +4207,11 @@
   id: 1816
   time: '2025-11-18T18:51:57.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4636
+- author: pootslap
+  changes:
+  - message: Walking through puddles no longer makes the puddle smaller. Call your
+      local janitor!
+    type: Tweak
+  id: 1817
+  time: '2025-11-18T18:57:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4674
