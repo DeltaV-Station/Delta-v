@@ -36,3 +36,14 @@
   id: SalvageCloak
   equipment:
     neck: ClothingNeckSalvager
+
+- type: loadout
+  id: SalvageMantle
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSalvageSpecialist
+      time: 432000 # 120hr
+  equipment:
+    neck: ClothingNeckMantleSalvage
