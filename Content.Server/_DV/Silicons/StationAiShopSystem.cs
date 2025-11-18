@@ -1,10 +1,12 @@
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Light.EntitySystems;
+using Content.Server.Light.Components;
 using Content.Server.Spreader;
 using Content.Server.Store.Systems;
 using Content.Shared._DV.Silicons;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Coordinates.Helpers;
+using Content.Shared.Light.Components;
 using Content.Shared.Maps;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -19,6 +21,7 @@ public sealed class StationAiShopSystem : SharedStationAiShopSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SpreaderSystem _spreader = default!;
     [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     public override void Initialize()
     {
@@ -37,10 +40,20 @@ public sealed class StationAiShopSystem : SharedStationAiShopSystem
 
     private void OnLightSynthesizer(Entity<StationAiShopComponent> ent, ref StationAiLightSynthesizerActionEvent args)
     {
+        // Grab what light exists on the fixture, delete it. Then add light with respect to fixture.
+        var fixture = CompOrNull<PoweredLightComponent>(args.Target);
+        if (fixture is null) return;
+
+        var lightProto = fixture.BulbType switch
+        {
+            LightBulbType.Bulb => args.BulbPrototype,
+            LightBulbType.Tube => args.TubePrototype,
+            _ => args.BulbPrototype
+        };
+
         if (_poweredLight.EjectBulb(args.Target) is { } oldBulb)
             Del(oldBulb);
-
-        var bulb = Spawn(args.BulbPrototype);
+        var bulb = Spawn(lightProto);
         if (!_poweredLight.InsertBulb(args.Target, bulb))
         {
             Del(bulb);
@@ -60,7 +73,7 @@ public sealed class StationAiShopSystem : SharedStationAiShopSystem
             return;
         }
 
-        if (_spreader.RequiresFloorToSpread(args.SmokePrototype.ToString()) && tileRef.Tile.IsSpace())
+        if (_spreader.RequiresFloorToSpread(args.SmokePrototype.ToString()) && _turf.IsSpace(tileRef.Tile))
             return;
 
         var coords = grid.MapToGrid(mapCoords);

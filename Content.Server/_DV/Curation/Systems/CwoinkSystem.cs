@@ -180,7 +180,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
 
     private void OnAdminPermsChanged(AdminPermsChangedEventArgs args)
     {
-        if ((args.Flags & AdminFlags.CuratorHelp) != 0)
+        if (((args.Flags ?? 0) & AdminFlags.CuratorHelp) != 0)
             _activeCurators.Add(args.Player.Channel);
         else
         {

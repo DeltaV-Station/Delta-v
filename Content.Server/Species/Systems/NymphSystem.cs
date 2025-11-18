@@ -35,14 +35,14 @@ public sealed partial class NymphSystem : EntitySystem
 
         // Get the organs' position & spawn a nymph there
         var coords = Transform(uid).Coordinates;
-        var nymph = EntityManager.SpawnAtPosition(entityProto.ID, coords);
+        var nymph = SpawnAtPosition(entityProto.ID, coords);
 
         if (HasComp<ZombieComponent>(args.OldBody)) // Zombify the new nymph if old one is a zombie
             _zombie.ZombifyEntity(nymph);
 
         // Move the mind if there is one and it's supposed to be transferred
         if (comp.TransferMind == true && _mindSystem.TryGetMind(args.OldBody, out var mindId, out var mind))
-            _mindSystem.TransferTo(mindId, nymph, mind: mind);
+            _mindSystem.TransferTo(mindId, nymph, true, mind: mind); // DeltaV - force ghost into nymph body and transfers mind to nymph
 
         // Delete the old organ
         QueueDel(uid);

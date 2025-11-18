@@ -31,10 +31,120 @@
   id: NinjaObjectiveGroupSteal
   weights:
     NinjaIanDossierStealObjective: 1
-    NinjaLuckyBillStealObjective: 1
     NinjaCaptainsCloakStealObjective: 0.75
 
+## Traitor
 - type: weightedRandom
   id: TraitorObjectiveGroupSpecial
   weights:
     UploadAILawObjective: 1
+
+## MenaceSkeleton
+- type: weightedRandom
+  id: SkeletonObjectiveGroup
+  weights:
+    SkeletonObjectiveGroupMilk: 1
+    SkeletonObjectiveGroupHaunt: 1
+    SkeletonObjectiveGroupFrame: 1
+    SkeletonObjectiveGroupBone: 0.5
+    SkeletonObjectiveGroupDrip: 1
+
+- type: weightedRandom
+  id: SkeletonObjectiveGroupMilk
+  weights:
+    SkeletonMilkObjective: 1
+
+- type: weightedRandom
+  id: SkeletonObjectiveGroupHaunt
+  weights:
+    SkeletonHauntObjective: 1
+
+- type: weightedRandom
+  id: SkeletonObjectiveGroupFrame
+  weights:
+    SkeletonFrameObjective: 1
+
+- type: weightedRandom
+  id: SkeletonObjectiveGroupBone
+  weights:
+    SkeletonBoneObjective: 1
+
+- type: weightedRandom
+  id: SkeletonObjectiveGroupDrip
+  weights:
+    SkeletonDripObjective: 1
+
+## Wizard
+- type: weightedRandom
+  id: WizardObjectiveGroupPrimaryDelta
+  weights:
+    WizardObjectiveGroupDeltaObjectivesPrimary: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupSecondaryDelta
+  weights:
+    WizardObjectiveGroupDeltaObjectivesMean: 1
+    WizardObjectiveGroupDeltaObjectivesNice: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupDeltaObjectivesPrimary
+  weights:
+    WizardMagicocracyObjective: 1
+    WizardBalanceObjective: 1
+    WizardDestroyObjective: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupDeltaObjectivesMean
+  weights:
+    WizardKillObjective: 1
+    WizardFearObjective: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupDeltaObjectivesNice
+  weights:
+    WizardProfitObjective: 0.75
+    WizardPopularObjective: 0.75
+    WizardDataObjective: 0.75
+    WizardPreserveObjective: 1
+    WizardTeachObjective: 1
+
+## Asakim
+- type: weightedRandom
+  id: AsakimObjectiveGroup
+  weights:
+    AsakimObjectiveGroupKill: 1
+    AsakimObjectiveGroupTheft: 1
+    AsakimObjectiveGroupInfiltrate: 1
+    AsakimObjectiveGroupInterrogate: 1
+    AsakimObjectiveGroupUpgrade: 1
+    AsakimObjectiveGroupAlly: 1
+
+- type: weightedRandom
+  id: AsakimObjectiveGroupKill
+  weights:
+    AsakimKillObjective: 1
+
+- type: weightedRandom
+  id: AsakimObjectiveGroupTheft
+  weights:
+    AsakimTheftObjective: 1
+
+- type: weightedRandom
+  id: AsakimObjectiveGroupInfiltrate
+  weights:
+    AsakimInfiltrateObjective: 1
+
+- type: weightedRandom
+  id: AsakimObjectiveGroupInterrogate
+  weights:
+    AsakimInterrogateObjective: 1
+
+- type: weightedRandom
+  id: AsakimObjectiveGroupUpgrade
+  weights:
+    AsakimUpgradeObjective: 1
+
+- type: weightedRandom
+  id: AsakimObjectiveGroupAlly
+  weights:
+    AsakimAllyObjective: 1

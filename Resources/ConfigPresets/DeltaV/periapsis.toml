@@ -1,6 +1,6 @@
 [game]
 hostname           = "[EN][MRP] Delta-v (Ψ) | Periapsis [US East 2]"
-soft_max_players   = 50
+soft_max_players   = 60
 
 [vote]
 preset_enabled = true
@@ -22,3 +22,6 @@ enabled = true
 
 [hub]
 tags = "lang:en-US,region:am_n_e,rp:med,no_tag_infer"
+
+[debug]
+pow3r_disable_parallel = false

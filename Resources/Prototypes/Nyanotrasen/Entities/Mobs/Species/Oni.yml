@@ -11,7 +11,7 @@
   - type: Sprite
     scale: 1.2, 1.2
   - type: PlayerToolModifier
-    pryTimeMultiplier: 0.6
+    pryTimeMultiplier: 0.5
   - type: PlayerAccuracyModifier
     spreadMultiplier: 15
     maxSpreadAngle: 180
@@ -24,6 +24,8 @@
         Slash: 1.2
         Piercing: 1.2
         Asphyxiation: 1.35
+  - type: ClothingSlowResistance
+    modifier: 0.25 # Slowdowns incurred by worn clothing are 25% less effective.
   - type: Damageable
     damageModifierSet: Oni
   - type: Body

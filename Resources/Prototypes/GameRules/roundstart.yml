@@ -22,8 +22,8 @@
     rules:
     - id: Thief
       prob: 0.5
-    #- id: SubWizard # DeltaV - removed until its touched up
-    #  prob: 0.05
+    - id: SubWizard
+      prob: 0.05
 
 - type: entity
   parent: BaseGameRule
@@ -114,7 +114,8 @@
   id: Nukeops
   components:
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 10 # DeltaV - was 20
+    minTotalPlayers: 35 # DeltaV
   - type: LoadMapRule
     mapPath: /Maps/Nonstations/nukieplanet.yml
   - type: NukieOperation # DeltaV - Nukie operations!
@@ -271,12 +272,19 @@
   parent: BaseGameRule
   id: BaseWizardRule
   components:
-  - type: AntagObjectives
-    objectives:
-    - WizardSurviveObjective
-    - WizardDemonstrateObjective
+  #- type: AntagObjectives # DeltaV - begin changes
+    #objectives:
+    #- WizardSurviveObjective
+    #- WizardDemonstrateObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: WizardObjectiveGroupPrimaryDelta
+      maxPicks: 1
+    - groups: WizardObjectiveGroupSecondaryDelta
+      maxPicks: 2
+    maxDifficulty: 5 # DeltaV - end changes
   - type: LoadMapRule
-    gridPath: /Maps/Shuttles/wizard.yml
+    gridPath: /Maps/Shuttles/wizard.yml # DV - was /Maps/Nonstations/wizardsden.yml but switched it back for now
   - type: RuleGrids
   - type: AntagSelection
   - type: AntagLoadProfileRule
@@ -322,7 +330,8 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 10 # DeltaV - was 20
+    minTotalPlayers: 30 # DeltaV
     delay:
       min: 600
       max: 900
@@ -424,11 +433,17 @@
   - type: NextEvent # DeltaV: Queue Event for precognition
   - type: RampingStationEventScheduler
     timeKeyPoints: # DeltaV
-    - 14, 16
-    - 32, 8
-    - 32, 4
-    - 8, 2
-    - 32, 8
+    - 10, 10
+    - 10, 6
+    - 10, 1
+    - 10, 3
+    - 15, 5
+    - 15, 4
+    - 20, 2
+    - 10, 1
+    - 10, 4
+    - 10, 3
+    - 70, 4
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
 
@@ -479,3 +494,11 @@
       prob: 0.90
     #- id: SolarPanelDamageVariationPass # DeltaV - we have random solar panel spawner
     #- id: SolarPanelEmptyVariationPass # DeltaV
+    - id: BasicDecalDirtVariationPass
+    - id: BasicDecalGraffitiVariationPass
+    - id: BasicDecalBrunsVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals
+    - id: BasicDecalDirtMonospaceVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals

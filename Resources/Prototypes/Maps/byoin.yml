@@ -9,7 +9,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Basu.yml
+          emergencyShuttlePath: /Maps/_DV/Shuttles/Evac/ntes_basu.yml
         - type: StationNameSetup
           mapNameTemplate: '{0} Byōin Station {1}'
           nameGenerator:
@@ -26,7 +26,6 @@
             ChiefEngineer: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
             ResearchDirector: [ 1, 1 ]
-            AdministrativeAssistant: [ 1, 1 ]
             StationAi: [ 1, 1 ]
           #service
             Reporter: [ 1, 1 ]

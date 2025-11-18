@@ -194,17 +194,17 @@
   id: ClothingUniformJumpskirtSalvageSpecialist
   result: ClothingUniformJumpskirtSalvageSpecialist
 
-# Administrative Assistant
+# Secretary
 
 - type: latheRecipe
   parent: BaseCommandJumpsuitRecipe
-  id: ClothingUniformJumpsuitAdminAssistant
-  result: ClothingUniformJumpsuitAdminAssistant
+  id: ClothingUniformJumpsuitSecretary
+  result: ClothingUniformJumpsuitSecretary
 
 - type: latheRecipe
   parent: BaseCommandJumpsuitRecipe
-  id: ClothingUniformJumpskirtAdminAssistant
-  result: ClothingUniformJumpskirtAdminAssistant
+  id: ClothingUniformJumpskirtSecretary
+  result: ClothingUniformJumpskirtSecretary
 
 # Command Hats
 
@@ -454,6 +454,16 @@
   parent: BaseHardsuitArmoredRecipe
   id: ClothingOuterHardsuitCombatOfficer
   result: ClothingOuterHardsuitCombatOfficer
+
+- type: latheRecipe
+  parent: BaseHardsuitArmoredRecipe
+  id: ClothingOuterHardsuitCombatK9
+  result: ClothingOuterHardsuitCombatK9
+
+- type: latheRecipe
+  parent: BaseHardsuitArmoredRecipe
+  id: ClothingOuterHardsuitCombatRiotK9
+  result: ClothingOuterHardsuitCombatRiotK9
 
 ## Logistics
 - type: latheRecipe

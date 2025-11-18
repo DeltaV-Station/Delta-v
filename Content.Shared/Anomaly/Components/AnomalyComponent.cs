@@ -20,6 +20,18 @@ namespace Content.Shared.Anomaly.Components;
 public sealed partial class AnomalyComponent : Component
 {
     /// <summary>
+    /// Imp. If true, skips doing supercritical logic for this anomaly. Used for Anomalites.
+    /// </summary>
+    [DataField]
+    public bool CannotSupercrit;
+
+    /// <summary>
+    /// imp. if true, skips random pulsing and health change over time.
+    /// </summary>
+    [DataField]
+    public bool CannotRandomPulse;
+
+    /// <summary>
     /// How likely an anomaly is to grow more dangerous. Moves both up and down.
     /// Ranges from 0 to 1.
     /// Values less than 0.5 indicate stability, whereas values greater
@@ -135,6 +147,14 @@ public sealed partial class AnomalyComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? SupercriticalSoundAtAnimationStart;
+
+    /// <summary>
+    /// The length of the animation before it goes supercritical in seconds.
+    /// </summary>
+    ///
+    [DataField, AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan SupercriticalDuration = TimeSpan.FromSeconds(10f);
     #endregion
 
     /// <summary>

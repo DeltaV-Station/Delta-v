@@ -1,0 +1,34 @@
+- type: parallax
+  id: DeltaMenu
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_DV/Parallaxes/BG.png"
+      slowness: 0
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_DV/Parallaxes/STARS.png"
+      slowness: 0.25
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_DV/Parallaxes/PARALLAX_0.png"
+      slowness: 0.75
+    - texture: # Pride Month Begin
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_DV/Parallaxes/RAINBOW.png"
+      slowness: 0 # Pride Month End
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_DV/Parallaxes/PARALLAX_1.png"
+      slowness: 0.1
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_DV/Parallaxes/PARALLAX_2.png"
+      slowness: 1.75
+  layersLQ:
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: ""
+        configPath: "/Prototypes/Parallaxes/parallax_config.toml"
+      slowness: 0.875
+  layersLQUseHQ: false

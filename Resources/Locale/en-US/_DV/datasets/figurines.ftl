@@ -1,7 +1,7 @@
-figurines-adminassistant-1 = One soy latté, coming up.
-figurines-adminassistant-2 = Captain a tider needs to talk to you.
-figurines-adminassistant-3 = Wait I have a job?
-figurines-adminassistant-4 = wait why do you want me to set it to code red again?
+figurines-secretary-1 = One soy latté, coming up.
+figurines-secretary-2 = Who was I meant to send a fax again?
+figurines-secretary-3 = Wait I have a job?
+figurines-secretary-4 = Wait what did you want me to write?
 
 figurines-cj-1 = Prisoners must be provided with food, water, clothing, free movement within the brig, adequate medical care, access to the Common and Prison radio channels, and moral, spiritual, or legal counseling if requested and available.
 figurines-cj-2 = Hos, demote the Warden.

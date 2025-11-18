@@ -48,6 +48,15 @@
         ents: []
   - type: ApcPowerReceiver
     powerLoad: 10000
+  - type: AutomationSlots #Goobstation Factorio
+    slots:
+    - !type:AutomatedStorage
+      input: AutomationSlotStorage
+      output: AutomationSlotStorage
+    - !type:AutomatedHand
+      input: AutomationSlotAutodocHand
+      output: AutomationSlotAutodocHand
+      handName: surgery_specifi
   - type: DeviceList
   - type: DeviceNetwork
     deviceNetId: Wired
@@ -77,6 +86,8 @@
     speechSounds: Pai
   - type: Storage
     clickInsert: false # incredibly annoying
+    openOnActivate: false # DeltaV - also annoying
+    maxItemSize: Large # DeltaV - fit arm augments
     grid:
     - 0,0,3,3
   - type: SurgerySpeedModifier

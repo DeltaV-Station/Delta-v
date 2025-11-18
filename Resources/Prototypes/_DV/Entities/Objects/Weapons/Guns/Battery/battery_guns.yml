@@ -354,7 +354,7 @@
       path: /Audio/_DV/Weapons/Guns/Gunshots/beamcannon.ogg
   - type: HitscanBatteryAmmoProvider
     proto: BeamDev
-    fireCost: 600
+    fireCost: 1200
   - type: Battery
     maxCharge: 300000
     startingCharge: 300000
@@ -521,3 +521,101 @@
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+
+- type: entity
+  parent: BaseWeaponBattery
+  id: WeaponBorgBuccaneersRevolver
+  name: buccaneer's revolver
+  description: A basic sidearm used by synthetic raiders, with low capacity but higher power
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
+    state: icon
+  - type: Gun
+    fireRate: 1.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletBuccaneer
+    fireCost: 100
+  - type: Battery
+    maxCharge: 400
+    startingCharge: 400
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+
+- type: entity
+  parent: BaseWeaponBatterySmall
+  id: WeaponLaserTagGun
+  name: laser tag gun
+  description: A somewhat bulky toy laser gun used in laser tag that shoots a mostly harmless laser.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/laser_tag_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+    - state: mode-disabler
+      shader: unshaded
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Battery/laser_tag_gun.rsi
+    slots:
+    - Belt
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisablerPractice
+    fireCost: 50
+  - type: Tag
+    tags:
+    - Taser
+    - Sidearm
+  - type: PacifismAllowedGun
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: WeaponLaserTagGun
+  id: WeaponRiggedLaserTagGun
+  suffix: Rigged
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/laser_tag_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      map: [ "Firemode" ]
+      shader: unshaded
+    - state: mag-unshaded-4
+      map: [ "enum.GunVisualLayers.MagUnshaded" ]
+      shader: unshaded
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisablerPractice
+      fireCost: 50
+      name: disable
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 150
+      name: lethal
+      state: lethal
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }

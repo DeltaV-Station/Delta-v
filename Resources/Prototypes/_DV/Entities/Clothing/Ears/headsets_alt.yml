@@ -34,16 +34,6 @@
     sprite: _DV/Clothing/Ears/Headsets/justice.rsi
 
 - type: entity
-  parent: ClothingHeadsetAdminAssistant
-  id: ClothingHeadsetAltAdminAssistant
-  name: adminstrative assistant over-ear headset
-  components:
-  - type: Sprite
-    state: icon_alt
-  - type: Clothing
-    equippedPrefix: alt
-
-- type: entity
   parent: ClothingHeadsetAltSyndicate
   id: ClothingHeadsetAltSyndicateListening
   name: blood-red over-ear interception headset

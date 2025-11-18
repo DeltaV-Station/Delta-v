@@ -38,6 +38,16 @@
   - type: Tag
     tags:
     - HandGrenade
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 20 # derived from base_item
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   name: explosive grenade
@@ -143,6 +153,8 @@
       path: /Audio/Effects/minibombcountdown.ogg
       params:
         volume: 12
+  - type: StaticPrice
+    price: 2000
 
 - type: entity
   name: self destruct
@@ -230,6 +242,8 @@
           params:
             volume: 5
       - type: ExplodeOnTrigger # DeltaV - was DeleteOnTrigger, made explosive
+  - type: StaticPrice
+    price: 1000
 
 - type: entity
   name: whitehole grenade
@@ -277,6 +291,8 @@
           params:
             volume: 15
       - type: DeleteOnTrigger
+  - type: StaticPrice
+    price: 1000
 
 - type: entity
   name: the nuclear option
@@ -366,12 +382,14 @@
     sprite: Objects/Weapons/Grenades/empgrenade.rsi
   - type: EmpOnTrigger
     range: 5.5
-    energyConsumption: 50000
+    energyConsumption: 100000 # Delta V, Was 50000
   - type: DeleteOnTrigger
   - type: Appearance
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
+  - type: StaticPrice
+    price: 666 # 2000 for 3, I love fractions
 
 - type: entity
   name: holy hand grenade
@@ -397,6 +415,8 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/hallelujah.ogg
+  - type: StaticPrice
+    price: 10000
 
 - type: entity
   parent: [ GrenadeBase, BaseSecurityContraband ]
@@ -444,10 +464,11 @@
   - type: SmokeOnTrigger
     duration: 10
     spreadAmount: 30
+    smokePrototype: TearGasSmokeWhite
     solution:
       reagents:
       - ReagentId: TearGas
-        Quantity: 50
+        Quantity: 20
 
 - type: entity
   parent: [ BaseEngineeringContraband, SmokeGrenade ]
@@ -538,3 +559,5 @@
       path: /Audio/Effects/minibombcountdown.ogg
       params:
         volume: 12
+  - type: StaticPrice
+    price: 1000

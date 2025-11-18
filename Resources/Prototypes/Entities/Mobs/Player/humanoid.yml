@@ -17,7 +17,9 @@
   id: EventHumanoidMindShielded
   parent: EventHumanoid
   components:
-    - type: MindShield
+    - type: AutoImplant
+      implants:
+      - MindShieldImplant
     - type: AntagImmune
 
 - type: randomHumanoidSettings
@@ -27,6 +29,7 @@
   components:
   - type: AutoImplant
     implants:
+    - MindShieldImplant
     - DeathRattleImplantCentcomm
 
 ## Death Squad
@@ -574,7 +577,7 @@
       sprite: Markers/jobs.rsi
       state: cburn
     - type: RandomHumanoidSpawner
-      settings: CBURNAgent
+      settings: CBURNAgentDeltaV # DeltaV - was CBURNAgent
 
 - type: randomHumanoidSettings
   id: CBURNAgent
@@ -587,15 +590,6 @@
       name: ghost-role-information-cburn-agent-name
       description: ghost-role-information-cburn-agent-description
       rules: ghost-role-information-nonantagonist-rules
-      # Begin DeltaV additions
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 36000 #10 hrs
-      - !type:DepartmentTimeRequirement
-        department: Medical
-        time: 18000 #5 hrs
-      # End DeltaV additions
       raffle:
         settings: short
     - type: RandomMetadata

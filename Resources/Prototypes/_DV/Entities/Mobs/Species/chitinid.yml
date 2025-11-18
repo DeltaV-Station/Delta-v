@@ -14,7 +14,6 @@
     baseDecayRate: 0.0467 #needs to eat more to survive
   - type: Thirst
 
-  - type: Carriable
 
   - type: Icon
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
@@ -149,6 +148,10 @@
     coughPopup: chitzite-cough
   - type: Chitinid
   - type: BlockInjection
+  - type: Puller # Put those extra hands to work!
+    needsHands: false
+  - type: CosmicMarkVisuals
+    subtleState: moth
 
 - type: entity
   parent: BaseSpeciesDummy

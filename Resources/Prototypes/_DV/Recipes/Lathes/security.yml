@@ -88,7 +88,6 @@
   materials:
     Plastic: 1250
     Steel: 75
-    Bluespace: 75
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -97,7 +96,6 @@
   materials:
     Plastic: 300
     Steel: 200
-    Bluespace: 200
     Glass: 100
 
 # Tools
@@ -184,6 +182,14 @@
 - type: latheRecipe
   id: ClothingOuterArmorDuraVest
   result: ClothingOuterArmorDuraVest
+  completetime: 10
+  materials:
+    Steel: 500
+    Plastic: 1000
+
+- type: latheRecipe
+  id: ClothingOuterArmorDuraVestK9
+  result: ClothingOuterArmorDuraVestK9
   completetime: 10
   materials:
     Steel: 500
@@ -337,3 +343,12 @@
     Glass: 1000
     Gold: 500
     Plasma: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponSwordSilver
+  result: SilverSword
+  materials:
+    Silver: 1500
+    Gold: 500
+    Wood: 300

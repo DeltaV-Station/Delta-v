@@ -31,6 +31,6 @@ public sealed class ProximityBeeperSystem : EntitySystem
 
     private void OnNewProximityTarget(EntityUid owner, ProximityBeeperComponent proxBeeper, ref NewProximityTargetEvent args)
     {
-        _beeper.SetMute(owner, args.Target != null);
+        _beeper.SetMute(owner, args.Target == null);
     }
 }

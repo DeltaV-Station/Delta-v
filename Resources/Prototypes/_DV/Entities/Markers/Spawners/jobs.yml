@@ -108,19 +108,6 @@
 
 - type: entity
   parent: SpawnPointJobBase
-  id: SpawnPointAdminAssistant
-  name: administrative assistant
-  components:
-  - type: SpawnPoint
-    job_id: AdministrativeAssistant
-  - type: Sprite
-    layers:
-    - state: green
-    - sprite: _DV/Markers/jobs.rsi
-      state: adminassistant
-
-- type: entity
-  parent: SpawnPointJobBase
   id: SpawnPointSurgeon
   name: surgeon
   components:

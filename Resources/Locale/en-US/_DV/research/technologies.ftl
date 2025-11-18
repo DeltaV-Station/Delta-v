@@ -8,10 +8,12 @@ research-technology-engineering-eva = EVA PPE Suits
 
 # Experimental
 research-technology-cloning = Cloning
+research-technology-artifact-display = Artifact Display Technology
 
 # Civilian
 research-technology-civilian-mechs = Civilian Mechs
 research-technology-paramedic-eva = Emergency Services EVA suits
+research-technology-plant-analyzer = Plant Analyzer
 
 # Biochemical
 research-technology-basic-augmentation = Basic Augmentation

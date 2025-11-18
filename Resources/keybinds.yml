@@ -165,11 +165,11 @@ binds:
 - function: SwapHands
   type: State
   key: X
-  # DeltaV - Begin custom keybinds
-- function: SwapHandsReversed
+- function: SwapHandsReverse
   type: State
   key: X
   mod1: Shift
+  # DeltaV - Begin custom keybinds
 - function: NanoChatNavigateUp
   type: State
   key: Up

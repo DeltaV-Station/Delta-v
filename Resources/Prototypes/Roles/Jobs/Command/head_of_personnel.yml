@@ -58,7 +58,6 @@
   # Begin DeltaV Additions - fine-grained service accesses
   - Boxer
   - Clown
-  - Library
   - Mime
   - Musician
   - Reporter
@@ -84,3 +83,15 @@
   storage:
     back:
     - Flash
+
+- type: chameleonOutfit
+  id: HeadOfPersonnelChameleonOutfit
+  job: HeadOfPersonnel
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatHopcap
+    eyes: ClothingEyesHudCommand
+    mask: ClothingMaskNeckGaiterRed
+    neck: ClothingNeckCloakHop
+    outerClothing: ClothingOuterWinterHoP
+

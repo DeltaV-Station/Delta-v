@@ -262,3 +262,86 @@
         whitelist:
           tags:
             - CartridgePistol
+
+- type: entity
+  parent: BaseWeaponPistol
+  name: Mk32 "Universal"
+  id: WeaponPistolUniversal
+  description: The Mark 32 Offensive Handgun, produced by NanoTrasen's Small Arms Division. Uses .45 magnum ammo.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Pistols/universal.rsi
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Pistols/universal.rsi
+  - type: Gun
+    fireRate: 1.5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/universal.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineUniversalMagnum
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineUniversalMagnum
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnum
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeMagnum
+
+- type: entity
+  parent: WeaponPistolUniversal
+  id: WeaponPistolUniversalIncendiary
+  suffix: Incendiary
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineUniversalMagnumIncendiary
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineUniversalMagnum
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnumIncendiary
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeMagnum
+
+- type: entity
+  parent: WeaponPistolUniversal
+  id: WeaponPistolUniversalNonLethal
+  suffix: Non-lethal
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineUniversalMagnumRubber
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineUniversalMagnum
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnumRubber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeMagnum

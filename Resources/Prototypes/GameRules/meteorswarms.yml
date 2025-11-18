@@ -33,6 +33,10 @@
     - id: GameRuleMeteorSwarmMedium
     - id: GameRuleMeteorSwarmLarge
     - id: GameRuleUristSwarm
+    - id: GameRuleClownSwarm
+    - id: GameRuleCowSwarm
+    - id: GameRulePotatoSwarm
+    - id: GameRuleFunSwarm
     - id: ImmovableRodSpawn
 
 - type: weightedRandomEntity
@@ -72,7 +76,7 @@
   - type: NextEvent # DeltaV: Queue Event
   - type: GameRule
   - type: BasicStationEventScheduler
-    minimumTimeUntilFirstEvent: 600 # 10 min 
+    minimumTimeUntilFirstEvent: 600 # 10 min
     minMaxEventTiming:
       min: 750 # 12.5 min
       max: 930 # 17.5 min
@@ -142,7 +146,7 @@
     minimumPlayers: 0
   - type: MeteorSwarm
     announcement: station-event-space-dust-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
     nonDirectional: true
     meteors:
       MeteorSpaceDust: 1
@@ -199,7 +203,7 @@
     message: psionic-power-precognition-game-rule-urist-swarm-result-message
   - type: MeteorSwarm
     announcement: station-event-meteor-urist-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
     meteors:
       MeteorUrist: 1
     waves:
@@ -216,7 +220,7 @@
   - type: StationEvent
     startAnnouncement: station-event-immovable-rod-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
     weight: 3.5
     reoccurrenceDelay: 1
     duration: 1
@@ -253,3 +257,78 @@
     - id: ImmovableRodWeh
       prob: 0.0075
       orGroup: rodProto
+
+- type: entity
+  parent: GameRuleMeteorSwarm
+  id: GameRuleCowSwarm
+  components:
+  - type: StationEvent
+    weight: 0.05
+  - type: MeteorSwarm
+    announcement: station-event-meteor-cow-start-announcement
+    announcementSound: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
+    meteors:
+      MeteorCow: 1
+    waves:
+      min: 3
+      max: 3
+    meteorsPerWave:
+      min: 10
+      max: 10
+
+- type: entity
+  parent: GameRuleMeteorSwarm
+  id: GameRuleClownSwarm
+  components:
+  - type: StationEvent
+    weight: 0.05
+  - type: MeteorSwarm
+    announcement: station-event-meteor-clown-start-announcement
+    announcementSound: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
+    meteors:
+      MeteorClown: 1
+    waves:
+      min: 3
+      max: 3
+    meteorsPerWave:
+      min: 10
+      max: 10
+
+- type: entity
+  parent: GameRuleMeteorSwarm
+  id: GameRulePotatoSwarm
+  components:
+  - type: StationEvent
+    weight: 0.05
+  - type: MeteorSwarm
+    announcement: station-event-meteor-potato-start-announcement
+    announcementSound: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
+    meteors:
+      MeteorPotato: 1
+    waves:
+      min: 3
+      max: 3
+    meteorsPerWave:
+      min: 10
+      max: 10
+
+- type: entity
+  parent: GameRuleMeteorSwarm
+  id: GameRuleFunSwarm
+  components:
+  - type: StationEvent
+    weight: 0.03
+  - type: MeteorSwarm
+    announcement: station-event-fun-swarm-start-announcement
+    announcementSound: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
+    meteors:
+      MeteorClown: 1
+      MeteorCow: 1
+      MeteorPotato: 1
+      MeteorUrist: 1
+    waves:
+      min: 3
+      max: 3
+    meteorsPerWave:
+      min: 8
+      max: 12

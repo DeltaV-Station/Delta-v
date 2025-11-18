@@ -46,6 +46,7 @@
   groups:
   - Scarfs # DeltaV
   - GroupTankHarness
+  - AssistantHead # DeltaV
   - PassengerJumpsuit
   - CommonBackpack
   - PassengerNeck
@@ -136,6 +137,7 @@
   - ChaplainJumpsuit
   - CommonBackpack
   - ChaplainOuterClothing
+  - ChaplainBible
   - Glasses
   - Survival
   - Trinkets
@@ -178,6 +180,7 @@
   groups:
   - GroupTankHarness
   - ClownHead
+  - ClownMask # DeltaV
   - Scarfs # DeltaV
   - ClownJumpsuit
   - ClownBackpack
@@ -275,6 +278,7 @@
   - StationEngineerBackpack
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
+  - ChiefEngineerGloves # DeltaV
   - ChiefEngineerShoes
   - SurvivalExtended
   - Trinkets
@@ -284,8 +288,10 @@
   id: JobTechnicalAssistant
   groups:
   - GroupTankHarness
+  - StationEngineerNeck # DeltaV
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
+  - StationEngineerShoes # DeltaV
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
@@ -308,7 +314,7 @@
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
-  - StationEngineerHead # DeltaV - Safety First!
+  - AtmosphericTechnicianHead # DeltaV
   - AtmosphericTechnicianNeck # DeltaV
   - GroupTankHarness
   - AtmosphericTechnicianJumpsuit
@@ -502,6 +508,7 @@
   - ChemistJumpsuit
   - ChemistGloves # DeltaV, replaces MedicalGloves
   - ChemistBackpack
+  - ChemistryPDA # DeltaV
   - ChemistOuterClothing
   - ChemistShoes # DeltaV, replaces MedicalShoes
   - SurvivalMedical
@@ -554,12 +561,15 @@
   - PsychologistJumpsuit
   - MedicalBackpack
   - Glasses
-  - SurvivalMedical # DeltaV, replaces Survival
-  - PsychologistPDADelta # DeltaV
-  - PsychologistHead # DeltaV
-  - Scarfs # DeltaV
-  - PsychologistOuterClothing # DeltaV
-  - PsychologistShoes # DeltaV
+  # Begin DeltaV additions
+  - SurvivalMedical # Replaces Survival
+  - PsychologistPDADelta
+  - PsychologistHead
+  - Scarfs
+  - PsychologistOuterClothing
+  - PsychologistShoes
+  - PsychologistBelt
+  # End DeltaV additions
   - Trinkets
   - GroupSpeciesBreathTool
 

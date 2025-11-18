@@ -37,6 +37,28 @@
     nameSegments: [NamesBorg] # TODO: Make good names, this is a stupid list.
 
 - type: entity
+  parent: BorgChassisSyndicateMedical
+  id: PlayerBorgSyndicateMedical
+  suffix: Battery, Ghost Role
+  components:
+  - type: NukeOperative
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleTopicals
+      - BorgModuleAdvancedChemical
+      - BorgModuleAdvancedSurgery
+      borg_id_chip:
+      - IdChipSyndie
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+
+- type: entity
   id: SyndicateCircuitBoard
   parent: BaseElectronics
   name: law board (Syndicate)

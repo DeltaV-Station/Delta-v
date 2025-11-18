@@ -31,9 +31,10 @@
     implant: WatchdogImplant
 
 - type: entity
-  parent: BaseImplantOnlyImplanter
+  parent: BaseImplantOnlyImplanterCentcomm
   id: CentCommImplanter
   name: centcomm implanter
+  suffix: mindshield
   components:
   - type: Implanter
     implant: CentCommImplant
@@ -49,3 +50,11 @@
     implant: HostageImplant
     implantTime: 20
     drawTime: 15
+
+- type: entity
+  id: NukeopsUplinkImplanter
+  suffix: Nukeops Uplink
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: NukeopsUplinkImplant

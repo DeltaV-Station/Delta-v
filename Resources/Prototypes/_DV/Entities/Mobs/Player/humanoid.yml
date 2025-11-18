@@ -602,3 +602,21 @@
   - type: Loadout
     prototypes: [ ERTMedicalGearGamma ]
     roleLoadout: [ RoleSurvivalEVA ]
+
+## CBURN
+
+- type: randomHumanoidSettings
+  parent: CBURNAgent
+  id: CBURNAgentDeltaV
+  components:
+  - type: Loadout
+    prototypes: [CBURNGearDeltaV]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: GhostRole
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10 hrs
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 18000 # 5 hrs

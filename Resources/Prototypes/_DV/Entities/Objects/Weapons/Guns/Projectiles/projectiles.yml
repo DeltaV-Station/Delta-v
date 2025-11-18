@@ -126,3 +126,60 @@
     proto: BulletEnergyGunLightImmolator
     count: 6
     spread: 20
+
+- type: entity
+  parent: BaseBullet
+  id: BulletBuccaneer
+  name: buccaneer bullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+
+- type: entity
+  parent: BaseBullet
+  id: AccursedWave
+  name: accursed wave
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Power/Generation/PA/particle.rsi
+      color: purple
+      state: particle0
+      shader: unshaded
+      map: [ "unshaded" ]
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: .9
+    angularDamping: .9
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.48,-0.48,0.48,0.48"
+        hard: false
+        mask:
+        - Opaque
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+  - type: Projectile
+    deleteOnCollide: false
+    impactEffect: null
+    soundHit:
+      path: /Audio/_DV/Weapons/shatter.ogg
+    damage:
+      types:
+        Shadow: 20
+  - type: TimedDespawn
+    lifetime: 0.4 # really short, shouldn't travel far at all

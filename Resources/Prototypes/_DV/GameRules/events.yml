@@ -4,6 +4,7 @@
     children:
     - id: MothroachSpawn
     - id: XenoVents
+    - id: MalignRiftSpawn
 
 - type: entityTable
   id: BasicAntagEventsTableDeltaV
@@ -12,6 +13,9 @@
     - id: Fugitive
     - id: ListeningPost
     - id: RoboNeuroticist
+    - id: MenaceSkeleton
+    - id: SkiaSpawn
+    - id: RatKingSpawn
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -25,25 +29,25 @@
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
     startAudio:
-      path: /Audio/Announcements/meteors.ogg
+      path: /Audio/_DV/Announcements/meteors.ogg
       params:
         volume: -4
     duration: null #ending is handled by MeteorSwarmRule
   - type: PrecognitionResult
     message: psionic-power-precognition-meteor-swarm-result-message
   - type: MeteorSwarmRule
-
+# Xeno Vents
 - type: entity
-  id: XenoVents
   parent: BaseGameRule
+  id: XenoVents
   components:
   - type: StationEvent
     startAnnouncement: station-event-xeno-vent-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
-    earliestStart: 45
-    minimumPlayers: 20
-    weight: 1
+      path: /Audio/_DV/Announcements/aliens.ogg
+    earliestStart: 25
+    minimumPlayers: 30
+    weight: 2
     duration: 30
   - type: PrecognitionResult
     message: psionic-power-precognition-xeno-vents-result-message
@@ -66,15 +70,15 @@
         weight: 0.02
       - id: MobXenoQueen
         weight: 0.01
-
+# Mothroaches
 - type: entity
-  id: MothroachSpawn
   parent: BaseGameRule
+  id: MothroachSpawn
   components:
   - type: StationEvent
     earliestStart: 15
-    minimumPlayers: 15
-    weight: 4
+    minimumPlayers: 5
+    weight: 5
     duration: 30
   - type: PrecognitionResult
     message: psionic-power-precognition-mothroach-spawn-result-message
@@ -84,14 +88,14 @@
     playerRatio: 65 # mothroaches aren't dangerous, but don't need as many as mice
     table:
       id: MobMothroach
-
+# Listening Post
 - type: entity
-  id: ListeningPost
   parent: BaseGameRule
+  id: ListeningPost
   components:
   - type: StationEvent
-    earliestStart: 15
-    weight: 5
+    earliestStart: 30
+    weight: 4
     minimumPlayers: 25
     maxOccurrences: 1
     duration: null
@@ -128,6 +132,21 @@
         - Syndicate
       mindRoles:
       - MindRoleListeningPost
+# Malign Rifts
+- type: entity
+  parent: BaseGameRule
+  id: MalignRiftSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    weight: 6
+  - type: PrecognitionResult
+    message: psionic-power-precognition-rift-spawn-result-message
+  - type: RandomMultipleSpawnRule
+    prototype: CosmicMalignRift
+    minAmount: 1
+    maxAmount: 3
+
 
 # Mid round antag spawns
 - type: entity
@@ -142,13 +161,22 @@
     earliestStart: 25
   - type: MidRoundAntagRule
 
-#- type: entity
-#  parent: BaseMidRoundAntag
-#  id: RatKingSpawn
-#  components:
-#  if you uncomment this update this for antag refactor, below wont work
-#  - type: MidRoundAntagRule
-#    spawner: SpawnPointGhostRatKing
+- type: entity
+  parent: BaseMidRoundAntag
+  id: RatKingSpawn
+  components:
+  - type: StationEvent
+    weight: 5
+    minimumPlayers: 20
+    reoccurrenceDelay: 30
+  - type: AntagSpawner
+    prototype: MobRatKing
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostRatKing
+      min: 1
+      max: 1
+      pickPlayer: false
 
 - type: entity
   parent: BaseMidRoundAntag
@@ -186,30 +214,20 @@
         sound: /Audio/Effects/clang.ogg
       mindRoles:
       - MindRoleFugitive
-
-- type: entity
-  parent: BaseGlimmerEvent
-  id: ThavenMoodUpset
-  components:
-  - type: GlimmerEvent
-    minimumGlimmer: 500
-    glimmerBurnLower: 30
-    glimmerBurnUpper: 70
-  - type: ThavenMoodUpsetRule
-
+# Syndicate RoboNeurotocist
 - type: entity
   parent: BaseGameRule
   id: RoboNeuroticist
   components:
   - type: StationEvent
-    weight: 2
+    weight: 1
     minimumPlayers: 35 #big threat, but has to have ghosts to matter
     reoccurrenceDelay: 30
     duration: null # so it shows up in round end
     maxOccurrences: 1
   - type: RuleGrids
   - type: LoadMapRule
-    gridPath: /Maps/_DV/Shuttles/roboneuroticist_ship.yml
+    gridPath: /Maps/_DV/Shuttles/Event/haibu.yml # was /Maps/_DV/Shuttles/Admin/roboneuroticist_ship.yml
   - type: AntagSpawner
     prototype: MobHuman
   - type: AntagObjectives
@@ -244,3 +262,82 @@
         - Syndicate
       mindRoles:
       - MindRoleRoboNeuroticist
+# Noospheric Storm
+- type: entity
+  parent: BaseGameRule
+  id: NoosphericStorm
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-noospheric-storm-announcement
+    startAudio:
+      path: /Audio/_DV/Announcements/noosphericstorm.ogg
+    weight: 5
+    earliestStart: 15
+  - type: NoosphericStormRule
+# Menace Skeleton (Antagonistic)
+- type: entity
+  parent: BaseMidRoundAntag
+  id:  MenaceSkeleton
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: 1
+    minimumPlayers: 30
+  - type: PrecognitionResult
+    message: psionic-power-precognition-closet-skeleton-result-message
+  - type: AntagSpawner
+    prototype: MobMenaceSkeleton
+  - type: AntagRandomObjectives
+    sets:
+    - groups: SkeletonObjectiveGroup
+      maxPicks: 2 # only pick 2 of 4
+    maxDifficulty: 100 # ignore difficulty, use maxPicks instead
+  - type: AntagSelection
+    agentName: menace-skeleton-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointMenaceSkeleton
+      min: 1
+      max: 1
+      pickPlayer: false
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
+        nameFormat: name-format-standard
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      - type: EmitSoundOnSpawn # fell out of the ceiling
+        sound: /Audio/Effects/clang.ogg
+      mindRoles:
+      - MindRoleMenaceSkeleton
+# Skia
+- type: entity
+  parent: BaseMidRoundAntag
+  id: SkiaSpawn
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: null
+    minimumPlayers: 30
+  - type: PrecognitionResult
+    message: psionic-power-precognition-skia-result-message
+  - type: AntagSpawner
+    prototype: MobSkia
+  - type: AntagObjectives
+    objectives:
+    - SkiaReapObjective
+  - type: AntagSelection
+    agentName: skia-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointSkia
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleSkia
+      components:
+        - type: EmitSoundOnSpawn
+          sound: /Audio/_DV/Effects/creepyshriek.ogg
+        - type: BreakLightsOnSpawn
+          radius: 10

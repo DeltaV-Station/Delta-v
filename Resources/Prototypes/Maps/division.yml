@@ -1,0 +1,72 @@
+- type: gameMap
+  id: Division
+  mapName: 'Division'
+  mapPath: /Maps/division.yml
+  minPlayers: 20
+  maxPlayers: 70
+  stations:
+    Division:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_DV/Shuttles/Evac/ntes_right.yml
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Division Station {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'DV'
+        - type: StationJobs
+          availableJobs:
+            Captain: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
+          #service
+            HeadOfPersonnel: [ 1, 1 ]
+            Bartender: [ 2, 2 ]
+            Botanist: [ 2, 3 ]
+            Boxer: [ 2, 2 ]
+            Chef: [ 2, 2 ]
+            Clown: [ 1, 1 ]
+            Reporter: [ 1, 2 ]
+            Musician: [ 2, 3 ]
+            Janitor: [ 2, 3 ]
+            Mime: [ 1, 1 ]
+          #engineering
+            ChiefEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 3, 4 ]
+            StationEngineer: [ 4, 5 ]
+            TechnicalAssistant: [ 2, 4 ]
+          #justice
+            ChiefJustice: [ 1, 1 ]
+            Clerk: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            Prosecutor: [ 1, 1 ]
+          #medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+            Chemist: [ 2, 2 ]
+            Paramedic: [ 2, 2 ]
+            MedicalDoctor: [ 3, 5 ]
+            MedicalIntern: [ 3, 5 ]
+            Surgeon: [ 2, 2 ]
+          #science
+            ResearchDirector: [ 1, 1 ]
+            Chaplain: [ 1, 1 ]
+            ForensicMantis: [ 1, 1 ]
+            Roboticist: [ 2, 2 ]
+            Scientist: [ 2, 4 ]
+            ResearchAssistant: [ 2, 2 ]
+            Borg: [ 1, 2 ]
+          #security
+            HeadOfSecurity: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            Detective: [ 2, 2 ]
+            Brigmedic: [ 1, 1 ]
+            SecurityOfficer: [ 4, 6 ]
+            SecurityCadet: [ 2, 2 ]
+          #supply
+            Quartermaster: [ 1, 1 ]
+            Courier: [ 1, 3 ]
+            SalvageSpecialist: [ 3, 4 ]
+            CargoTechnician: [ 3, 4 ]
+            CargoAssistant: [ 2, 3 ]
+          #civilian
+            Passenger: [ -1, -1 ]
