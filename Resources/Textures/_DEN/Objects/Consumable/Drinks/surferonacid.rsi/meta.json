@@ -1,0 +1,53 @@
+{
+    "version": 1,
+    "size":
+    {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Original base glass sprite from https://github.com/discordia-space/CEV-Eris/raw/f7aa28fd4b4d0386c3393d829681ebca526f1d2d/icons/obj/drinks.dmi. Changes made by https://github.com/SubspaceEmber",
+    "states":
+    [
+        {
+            "name": "icon",
+            "delays":
+            [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "icon_empty",
+            "delays":
+            [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "fill-1"
+        },
+        {
+            "name": "fill-2"
+        },
+        {
+            "name": "fill-3"
+        },
+        {
+            "name": "fill-4"
+        }
+    ]
+}
