@@ -19,7 +19,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Goobstation.Fishing.Systems;
+namespace Content.Goobstation.Shared.Fishing.Systems;
 
 /// <summary>
 /// This handles... da fish
