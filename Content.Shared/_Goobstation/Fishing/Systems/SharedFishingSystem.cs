@@ -347,7 +347,7 @@ public abstract class SharedFishingSystem : EntitySystem
             var attachedEnt = lureComp.AttachedEntity.Value;
             var targetCoords = Xform.GetMapCoordinates(Transform(attachedEnt));
             var playerCoords = Xform.GetMapCoordinates(Transform(player));
-            var rand = new System.Random((int) Timing.CurTick.Value); // evil random prediction hack
+            var rand = new Random((int) Timing.CurTick.Value); // evil random prediction hack
 
             // Calculate throw direction
             var direction = (playerCoords.Position - targetCoords.Position) * rand.NextFloat(0.2f, 0.85f);
