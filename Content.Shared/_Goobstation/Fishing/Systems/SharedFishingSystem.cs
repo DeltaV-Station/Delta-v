@@ -6,8 +6,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Fishing.Components;
-using Content.Goobstation.Shared.Fishing.Events;
+using Content.Shared._Goobstation.Fishing.Components;
+using Content.Shared._Goobstation.Fishing.Events;
 using Content.Shared.Actions;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
@@ -19,7 +19,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Fishing.Systems;
+namespace Content.Shared._Goobstation.Fishing.Systems;
 
 /// <summary>
 /// This handles... da fish

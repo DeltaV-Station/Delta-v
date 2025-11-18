@@ -6,7 +6,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Fishing.Components;
+namespace Content.Shared._Goobstation.Fishing.Components;
 
 /// <summary>
 /// Applied to players that are pulling fish out from water

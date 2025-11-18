@@ -9,8 +9,8 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Shared.Fishing.Components;
-using Content.Goobstation.Shared.Fishing.Systems;
+using Content.Shared._Goobstation.Fishing.Components;
+using Content.Shared._Goobstation.Fishing.Events;
 using Content.Shared.EntityTable;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;

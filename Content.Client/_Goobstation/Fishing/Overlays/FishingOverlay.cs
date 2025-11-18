@@ -6,7 +6,7 @@
 
 using System.Numerics;
 using Content.Client.UserInterface.Systems;
-using Content.Goobstation.Shared.Fishing.Components;
+using Content.Shared._Goobstation.Fishing.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
