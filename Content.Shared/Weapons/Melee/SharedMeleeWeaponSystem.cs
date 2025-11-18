@@ -28,6 +28,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Zombies; // DeltaV - Buff Zombies
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -316,7 +317,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         // Use hands clothing if applicable.
         if (_inventory.TryGetSlotEntity(entity, "gloves", out var gloves) &&
-            TryComp<MeleeWeaponComponent>(gloves, out var glovesMelee))
+            TryComp<MeleeWeaponComponent>(gloves, out var glovesMelee)
+            && !HasComp<ZombieComponent>(entity)) // DeltaV - Zombies don't lose gloves, but also shouldn't use them for combat over their bite.
         {
             weaponUid = gloves.Value;
             melee = glovesMelee;
