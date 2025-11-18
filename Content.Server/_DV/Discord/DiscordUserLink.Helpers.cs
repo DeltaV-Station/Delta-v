@@ -12,7 +12,6 @@ public sealed partial class DiscordUserLink
     private readonly ulong[] _patreonRoleIds = new[]
     {
         (ulong) 1429160196902748211, // Nuclear Operative
-        (ulong) 1440410487002239017 // Bitch-Ass Debug
     };
 
     public bool IsPatreon(NetUserId userId)
