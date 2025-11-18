@@ -205,7 +205,7 @@ namespace Content.Shared.Damage
             if (doPartDamage) // DeltaV - Fix EvenHealing with Limbs.
             {
                 // ShitMed Start
-                var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
+                var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 0.5f); // DeltaV - Standardize PartDamage.
                 RaiseLocalEvent(uid.Value, ref partDamage);
 
                 if (partDamage.Evaded || partDamage.Cancelled)
