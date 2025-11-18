@@ -366,8 +366,8 @@
     sprite: _DV/Objects/Medical/purifyingsalts.rsi
   - type: Healing
     damageContainers:
-      - Biological
-      - BiologicalMetaphysical
+    - Biological
+    - BiologicalMetaphysical
     damage:
       groups:
         Metaphysical: -15 # 7.5 right now for each type in the group but will be 5 when psion is done
