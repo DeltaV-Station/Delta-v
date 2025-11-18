@@ -15,7 +15,7 @@ public sealed partial class DiscordUserLink : EntitySystem
 
     private HashSet<ActiveDiscordLink> _links = new();
     private HashSet<ulong> _readDisclaimer = new();
-    private HashSet<PendingLink>_pendingLinks = new();
+    private HashSet<PendingLink> _pendingLinks = new();
 
     private ISawmill _sawmill = default!;
 
@@ -49,7 +49,7 @@ public sealed partial class DiscordUserLink : EntitySystem
         var pendingCode = _pendingLinks.First(link => link.Code == code);
         _pendingLinks.Remove(pendingCode);
 
-        _links.Add(new ActiveDiscordLink(userId, pendingCode.DiscordUserId));
+        _links.Add(new (userId, pendingCode.DiscordUserId));
         UpdatePlayerLink(userId, pendingCode.DiscordUserId);
         return true;
     }
@@ -94,5 +94,6 @@ public sealed partial class DiscordUserLink : EntitySystem
         }
 
         _links.RemoveWhere(link => link.DiscordUserId == authorId);
+        UpdatePlayerLink(authorId, null);
     }
 }

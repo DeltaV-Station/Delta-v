@@ -11,12 +11,27 @@ public sealed partial class DiscordUserLink
 {
     private readonly ulong[] _patreonRoleIds = new[]
     {
-        (ulong) 1429160196902748211 // Nuclear Operative
+        (ulong) 1429160196902748211, // Nuclear Operative
+        (ulong) 1440410487002239017 // Bitch-Ass Debug
     };
 
     public bool IsPatreon(NetUserId userId)
     {
-        return false;
+        var link = GetLink(userId);
+
+        if (link is not { } discordLink)
+        {
+            return false;
+        }
+
+        var guildUser = GetDiscordIdAsUser(discordLink.DiscordUserId);
+
+        if (guildUser == null)
+        {
+            return false;
+        }
+
+        return guildUser.RoleIds.Any(roleId => _patreonRoleIds.Contains(roleId));
     }
 
     public ActiveDiscordLink? GetLink(NetUserId userId) => _links.FirstOrNull(link => link.UserId == userId);
@@ -29,20 +44,6 @@ public sealed partial class DiscordUserLink
             return null;
 
         return guild.Users.TryGetValue(discordId, out var user) ? user : null;
-    }
-
-    private async Task<GuildUser?> GetDiscordIdAsUserAsync(ulong discordId)
-    {
-        if (_discordLink.Client == null)
-        {
-            _sawmill.Info("invalid client");
-            return null;
-        }
-
-        var user = await _discordLink.Client.Rest.GetGuildUserAsync(_discordLink.GuildId, discordId);
-        _sawmill.Info($"{user.RoleIds.Count} roles found");
-
-        return user;
     }
 
     private async Task SendDirectMessage(ulong userId, string message)

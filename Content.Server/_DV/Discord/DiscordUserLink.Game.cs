@@ -1,5 +1,5 @@
-using Content.Server.Administration;
 using Content.Shared.Administration;
+using Content.Server.Discord.DiscordLink;
 using Robust.Shared.Console;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
@@ -36,11 +36,11 @@ public sealed partial class DiscordUserLink
             _discordLink.Client.Cache.CacheGuildUser(guildUser);
         }
 
-        _links.Add(new ActiveDiscordLink(userId, discordId));
+        _links.Add(new (userId, discordId));
     }
 }
 
-[AdminCommand(AdminFlags.None)]
+[AnyCommand]
 public sealed class VerifyCommand : IConsoleCommand
 {
     public string Command => "verify";
