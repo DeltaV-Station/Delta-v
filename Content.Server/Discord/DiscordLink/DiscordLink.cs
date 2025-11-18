@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using Content.Shared.CCVar;
 using NetCord;
 using NetCord.Gateway;
@@ -158,6 +158,9 @@ public sealed class DiscordLink : IPostInjectInit
         _sawmill = _logManager.GetSawmill("discord.link");
         _sawmillLog = _logManager.GetSawmill("discord.link.log");
     }
+
+    public GatewayClient? Client => _client;
+    public ulong GuildId => _guildId;
 
     private void OnGuildIdChanged(string guildId)
     {
