@@ -49,7 +49,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 150
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -129,23 +129,24 @@
   - type: Welder
     fuelReagent: Phlogiston
     tankSafe: true
-#    welderOnSounds:
-#      collection: WelderIfritHandOn
-#    welderOffSounds:
-#      collection: WelderIfritHandOff
-#  - type: Tool
-#    useSound:
-#      collection: WelderIfritHand
-#  - type: MeleeWeapon
-#    soundHit:
-#      collection: WelderIfritHand
-# TODO some way to give the MeleeWeapon a separate soundHit for when it's on,
-# similar to EnergySword. will have to go in ToolSystem.Welder.cs
-# for now, just make it sound like it's on fire no matter what because it
-# sounds cooler than the default fizzling noise.
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+    deactivatedSoundOnHitNoDamage:
+      collection: MetalThud
+    activatedDamage:
+        types:
+            Heat: 15
   - type: MeleeWeapon
-    soundHit:
-      path: /Audio/Items/welder.ogg
+    damage:
+      types:
+        Blunt: 12
   - type: SolutionRegeneration
     solution: Welder
     generated:
