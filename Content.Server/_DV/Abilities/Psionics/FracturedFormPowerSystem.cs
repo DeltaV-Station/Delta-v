@@ -154,8 +154,6 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
             var speciesPrototypes = _prototype.EnumeratePrototypes<SpeciesPrototype>();
             foreach (var proto in speciesPrototypes)
             {
-            foreach (var proto in speciesPrototypes)
-            {
                 var speciesEntityPrototype = _prototype.Index<EntityPrototype>(proto.Prototype);
 
                 if (proto.RoundStart && speciesEntityPrototype.TryGetComponent<PotentialPsionicComponent>(out var canBePsionic, Factory))
