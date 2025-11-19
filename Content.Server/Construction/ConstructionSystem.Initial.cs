@@ -76,7 +76,7 @@ namespace Content.Server.Construction
                     if(!containerSlot.ContainedEntity.HasValue)
                         continue;
 
-                    if (EntityManager.TryGetComponent(containerSlot.ContainedEntity.Value, out StorageComponent? storage))
+                    if (TryComp(containerSlot.ContainedEntity.Value, out StorageComponent? storage))
                     {
                         foreach (var storedEntity in storage.Container.ContainedEntities)
                         {
@@ -277,7 +277,7 @@ namespace Content.Server.Construction
             }
 
             var newEntityProto = graph.Nodes[edge.Target].Entity.GetId(null, user, new(EntityManager));
-            var newEntity = EntityManager.SpawnAttachedTo(newEntityProto, coords, rotation: angle);
+            var newEntity = SpawnAttachedTo(newEntityProto, coords, rotation: angle);
 
             if (!TryComp(newEntity, out ConstructionComponent? construction))
             {
@@ -508,9 +508,8 @@ namespace Content.Server.Construction
                     _beingBuilt[session].Remove(ack);
             }
 
-            HandsComponent? hands = null; // Goobstation
             if (!_actionBlocker.CanInteract(user, null)
-                || (senderSession != null && EntityManager.TryGetComponent(user, out hands) && hands.ActiveHandEntity == null)) // Goobstation - dont check hands for constructor
+                || !TryComp(user, out HandsComponent? hands) || _handsSystem.GetActiveItem((user, hands)) == null)
             {
                 Cleanup();
                 return false;
@@ -533,16 +532,14 @@ namespace Content.Server.Construction
             if(edge == null)
                 throw new InvalidDataException($"Can't find edge from starting node to the next node in pathfinding! Recipe: {prototypeName}");
 
-            if (senderSession != null) // Goobstation - don't check this for constructor machine
-            {
-                var valid = false;
+            var valid = false;
 
-                if (hands?.ActiveHandEntity is not { Valid: true } holding) // Goobstation - don't check for constructor machine
-                {
-                    Cleanup();
-                    return false;
-                }
-                // No support for conditions here!
+            if (_handsSystem.GetActiveItem((user, hands)) is not {Valid: true} holding)
+            {
+                Cleanup();
+                return false;
+            }
+            // No support for conditions here!
 
             foreach (var step in edge.Steps)
             {
@@ -556,17 +553,15 @@ namespace Content.Server.Construction
                         throw new InvalidDataException("Invalid first step for item recipe!");
                 }
 
-                    if (valid)
-                        break;
-                }
-
-                if (!valid)
-                {
-                    Cleanup();
-                    return false;
-                }
+                if (valid)
+                    break;
             }
 
+            if (!valid)
+            {
+                Cleanup();
+                return false;
+            }
 
             if (await Construct(user,
                     (ack + constructionPrototype.GetHashCode()).ToString(),

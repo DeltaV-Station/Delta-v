@@ -47,7 +47,7 @@ namespace Content.Server.Nyanotrasen.Chat
         private List<INetChannel> GetDreamers(IEnumerable<INetChannel> removeList)
         {
             var filtered = Filter.Empty()
-                .AddWhereAttachedEntity(entity => HasComp<SleepingComponent>(entity) || HasComp<SeeingRainbowsComponent>(entity) && !HasComp<PsionicsDisabledComponent>(entity) && !HasComp<PsionicInsulationComponent>(entity))
+                .AddWhereAttachedEntity(entity => HasComp<SleepingComponent>(entity) || HasComp<SeeingRainbowsStatusEffectComponent>(entity) && !HasComp<PsionicsDisabledComponent>(entity) && !HasComp<PsionicInsulationComponent>(entity))
                 .Recipients
                 .Select(p => p.Channel);
 
