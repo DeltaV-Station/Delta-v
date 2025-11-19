@@ -3,6 +3,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Cloning;
 using Content.Server.DoAfter;
 using Content.Server.Mind;
+using Content.Server.Psionics;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.Abilities.Psionics;
 using Content.Shared.Abilities.Psionics;
@@ -166,8 +167,6 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
                     if (chance > 0)
                         validSpecies.Add(proto.ID);
                 }
-            }
-                    validSpecies.Add(proto.ID);
             }
             var species = _random.Pick(validSpecies);
             var character = HumanoidCharacterProfile.RandomWithSpecies(species);
