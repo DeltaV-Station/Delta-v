@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: sowelipililimute
-  changes:
-  - message: Anodynafil now exists, an anesthetic that doesn't interfere with consciousness
-      but causes prolonged inability to sense pain
-    type: Add
-  id: 1323
-  time: '2025-04-26T15:23:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3581
 - author: Radezolid
   changes:
   - message: Edge's armory has gotten a re-work making it more secure.
@@ -4219,3 +4211,13 @@
   id: 1822
   time: '2025-11-18T21:06:59.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4615
+- author: Niomi0
+  changes:
+  - message: Some anomalites are no longer immune to physical damage. Gravity anomalites
+      are no longer more robust than nuclear operatives. Anomalites have less hp.
+    type: Tweak
+  - message: Anomalites can only spawn once per anomaly core.
+    type: Tweak
+  id: 1823
+  time: '2025-11-19T11:05:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4595
