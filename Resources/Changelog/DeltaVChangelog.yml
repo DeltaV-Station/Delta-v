@@ -1,95 +1,4 @@
 ﻿Entries:
-- author: SolStar
-  changes:
-  - message: Stamina damage now transfers on polymorph.
-    type: Fix
-  - message: Innate accesses no longer transfers to kitsune human form.
-    type: Fix
-  - message: Kitsune human form no longer gains fox factions on polymorph.
-    type: Fix
-  - message: Equipment slowdown penalties now apply to Kitsune's polymorph.
-    type: Tweak
-  - message: Kitsune fox form base speed buffed sligtly
-    type: Tweak
-  id: 1310
-  time: '2025-04-22T23:17:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3528
-- author: KZhProgram
-  changes:
-  - message: Made Security Winter Boots, HoS Winter Boots, and Combat Boots behave
-      the same as jackboots
-    type: Tweak
-  - message: Reflective vests can now be printed in sec techfabs for 5 steel, 12.5
-      plastic, and 2.5 glass
-    type: Add
-  - message: Cell Rechargers charge twice as fast compared to regular Rechargers (40W
-      compared to 20W)
-    type: Tweak
-  id: 1311
-  time: '2025-04-23T03:32:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3491
-- author: foxcurl
-  changes:
-  - message: Supplybots can be pet, and all bots can do animated and borg emotes.
-    type: Tweak
-  id: 1312
-  time: '2025-04-24T01:30:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3553
-- author: sowelipililimute
-  changes:
-  - message: The Funding Allocation Computer no longer redundantly displays Logistics
-      separately from their role as the primary station acconut
-    type: Tweak
-  - message: The Funding Allocation Computer is now the responsibility of the Logistics
-      Officer
-    type: Tweak
-  id: 1313
-  time: '2025-04-24T01:33:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3526
-- author: Oxdeception
-  changes:
-  - message: Epistemics, Logistics, and Reporter PDAs should now have NanoTask pre-installed
-    type: Fix
-  id: 1314
-  time: '2025-04-24T01:36:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3559
-- author: Stop-Signs
-  changes:
-  - message: Lobby time between rounds has been increased from 4 to 7 minutes
-    type: Tweak
-  id: 1315
-  time: '2025-04-24T01:44:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3543
-- author: SubspaceEmber
-  changes:
-  - message: Updated borg ID chip sprites
-    type: Tweak
-  id: 1316
-  time: '2025-04-24T08:12:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3478
-- author: SolStar
-  changes:
-  - message: Equipment slowdown penalties no longer apply to Kitsune's polymorph.
-    type: Remove
-  - message: Fox fire color now uses the correct color when in fox form.
-    type: Fix
-  id: 1317
-  time: '2025-04-24T10:18:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3562
-- author: boogiebogus
-  changes:
-  - message: Fixed wall locker sprites.
-    type: Fix
-  id: 1318
-  time: '2025-04-25T01:01:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3568
-- author: sowelipililimute
-  changes:
-  - message: Apoapsis now has 3 more minutes of wind-down time at Central Command
-    type: Add
-  id: 1319
-  time: '2025-04-25T01:09:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3544
 - author: kotobdev
   changes:
   - message: The Records Tablet has been added to Syndicate uplinks, allowing traitors
@@ -4228,3 +4137,84 @@
   id: 1809
   time: '2025-11-17T07:01:40.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4676
+- author: Cepelinas1
+  changes:
+  - message: A new clause in Medical Regulations SOP was added about parasitic alien
+      organisms.
+    type: Add
+  id: 1810
+  time: '2025-11-17T15:48:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4537
+- author: SirWarock
+  changes:
+  - message: NT enrolled the employees in a basic first aid training - You can do
+      CPR to stabilize critial patients until the paramedics show up!
+    type: Add
+  id: 1811
+  time: '2025-11-18T09:30:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4649
+- author: SirWarock
+  changes:
+  - message: Standardized Part Damage, so the crispy Salvager won't need twice the
+      dosage of Aloxadone to finally walk again.
+    type: Tweak
+  - message: Non-curing Medical Treatment now effictively reverts the damage of the
+      zombification on your limbs.
+    type: Tweak
+  id: 1812
+  time: '2025-11-18T09:38:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4584
+- author: kotobdev
+  changes:
+  - message: The random animation glimmer event is now a LOT more scary.
+    type: Tweak
+  id: 1813
+  time: '2025-11-18T18:27:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4641
+- author: snowywinters
+  changes:
+  - message: Added an experimental RCD and air grenade to chief engineer's locker
+    type: Tweak
+  id: 1814
+  time: '2025-11-18T18:33:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4648
+- author: Toby222
+  changes:
+  - message: Impermanent anomalies now trigger the scanned effect instead of the newly
+      generated one
+    type: Tweak
+  id: 1815
+  time: '2025-11-18T18:40:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4662
+- author: SirWarock
+  changes:
+  - message: Removed the Beam Devastator from random spawn tables.
+    type: Remove
+  id: 1816
+  time: '2025-11-18T18:51:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4636
+- author: pootslap
+  changes:
+  - message: Walking through puddles no longer makes the puddle smaller. Call your
+      local janitor!
+    type: Tweak
+  id: 1817
+  time: '2025-11-18T18:57:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4674
+- author: EmberAstra
+  changes:
+  - message: Added vox and harpy sprites for Rhino hardsuits
+    type: Add
+  - message: Added harpy sprites for Goliath hardsuits
+    type: Add
+  id: 1818
+  time: '2025-11-18T19:00:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4609
+- author: AeraAuling
+  changes:
+  - message: Psionic mantis time requirement has been changed. It now requires 5 hours
+      of scientist and 5 hours of chaplain.
+    type: Fix
+  id: 1819
+  time: '2025-11-18T19:14:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4579
