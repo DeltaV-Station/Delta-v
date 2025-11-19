@@ -24,7 +24,7 @@ using Content.Server.Bible.Components;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes; // Shitmed Change
 
-namespace Content.Shared._Goobstation.Religion;
+namespace Content.Server._Goobstation.Religion;
 
 public sealed class WeakToHolySystem : EntitySystem
 {

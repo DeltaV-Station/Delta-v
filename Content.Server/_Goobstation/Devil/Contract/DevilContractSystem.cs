@@ -52,8 +52,6 @@ public sealed partial class DevilContractSystem : EntitySystem
     [Dependency] private readonly ExplosionSystem _explosion = null!;
     [Dependency] private readonly MindSystem _mind = null!;
 
-    private ISawmill _sawmill = null!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -65,8 +63,6 @@ public sealed partial class DevilContractSystem : EntitySystem
         SubscribeLocalEvent<DevilContractComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
         SubscribeLocalEvent<DevilContractComponent, SignSuccessfulEvent>(OnSignStep);
         SubscribeLocalEvent<DevilContractComponent, AfterFullyEatenEvent>(OnEaten);
-
-        _sawmill = Logger.GetSawmill("devil-contract");
     }
 
     private readonly Dictionary<LocId, Func<DevilContractComponent, EntityUid?>> _targetResolvers = new()
@@ -138,7 +134,7 @@ public sealed partial class DevilContractSystem : EntitySystem
             slope: 1,
             maxTileIntensity: 1,
             maxTileBreak: 0,
-            addLog: false);
+            addLog: false); // DeltaV - Use EntitySystem Logger intead of _sawmill
     }
 
     #region Signing Steps
@@ -329,20 +325,20 @@ public sealed partial class DevilContractSystem : EntitySystem
 
             if (resolver(contract.Comp) == null)
             {
-                _sawmill.Warning($"Unknown resolver: {resolver(contract.Comp)}");
+                Log.Warning($"Unknown resolver: {resolver(contract.Comp)}"); // DeltaV - Use EntitySystem Logger intead of _sawmill
                 continue;
             }
 
             if (!_prototypeManager.TryIndex(clauseKey, out DevilClausePrototype? clause))
             {
-                _sawmill.Warning($"Unknown contract clause: {clauseKey}");
+                Log.Warning($"Unknown contract clause: {clauseKey}"); // DeltaV - Use EntitySystem Logger intead of _sawmill
                 continue;
             }
 
             // no duplicates
             if (!processedClauses.Add(clauseKey))
             {
-                _sawmill.Warning($"Attempted to apply duplicate clause: {clauseKey} on contract {ToPrettyString(contract)}");
+                Log.Warning($"Attempted to apply duplicate clause: {clauseKey} on contract {ToPrettyString(contract)}"); // DeltaV - Use EntitySystem Logger intead of _sawmill
                 continue;
             }
 
@@ -352,13 +348,12 @@ public sealed partial class DevilContractSystem : EntitySystem
             if (targetEntity is not null)
                 ApplyEffectToTarget(targetEntity.Value, clause, contract);
             else
-                _sawmill.Warning($"Invalid target entity from resolver for clause {clauseKey} in contract {ToPrettyString(contract)}");
+                Log.Warning($"Invalid target entity from resolver for clause {clauseKey} in contract {ToPrettyString(contract)}"); // DeltaV - Use EntitySystem Logger intead of _sawmill
         }
     }
 
     private void ApplyEffectToTarget(EntityUid target, DevilClausePrototype clause, Entity<DevilContractComponent>? contract)
     {
-        //_sawmill.Debug($"Applying {clause.ID} effect to {ToPrettyString(target)}");
 
         DoPolymorphs(target, clause);
 
@@ -383,7 +378,6 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         _damageable.SetDamageModifierSetId(target, clause.DamageModifierSet);
-        // _sawmill.Debug($"Changed {ToPrettyString(target)} modifier set to {clause.DamageModifierSet}");
     }
 
     private void RemoveComponents(EntityUid target, DevilClausePrototype clause)
@@ -392,9 +386,6 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         EntityManager.RemoveComponents(target, clause.RemovedComponents);
-
-        //foreach (var component in clause.RemovedComponents)
-        //    _sawmill.Debug($"Removed {component.Value.Component} from {ToPrettyString(target)}");
     }
 
     private void AddImplants(EntityUid target, DevilClausePrototype clause)
@@ -403,9 +394,6 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         _implant.AddImplants(target, clause.Implants);
-
-        //foreach (var implant in clause.Implants)
-        //    _sawmill.Debug($"Added {implant} to {ToPrettyString(target)}");
     }
 
     private void AddComponents(EntityUid target, DevilClausePrototype clause)
@@ -414,9 +402,6 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         EntityManager.AddComponents(target, clause.AddedComponents, false);
-
-        //foreach (var (name, data) in clause.AddedComponents)
-        //    _sawmill.Debug($"Added {data.Component} to {ToPrettyString(target)}");
     }
 
     // Begin DeltaV Addition - Fix component modifications
@@ -441,8 +426,6 @@ public sealed partial class DevilContractSystem : EntitySystem
 
             var spawnedItem = SpawnNextToOrDrop(item, target);
             _hands.TryPickupAnyHand(target, spawnedItem, false, false, false);
-
-            //_sawmill.Debug($"Spawned {item} for {ToPrettyString(target)}");
         }
     }
 
@@ -452,7 +435,6 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         _polymorph.PolymorphEntity(target, clause.Polymorph.Value);
-        //_sawmill.Debug($"Polymorphed {ToPrettyString(target)} to {clause.Polymorph} ");
     }
 
     private void DoSpecialActions(EntityUid target, Entity<DevilContractComponent>? contract, DevilClausePrototype clause)
@@ -468,7 +450,6 @@ public sealed partial class DevilContractSystem : EntitySystem
 
         // you gotta cast this shit to object, don't ask me vro idk either
         RaiseLocalEvent(target, (object)ev, true);
-        //_sawmill.Debug($"Raising event: {(object)ev} on {ToPrettyString(target)}. ");
     }
 
     public void AddRandomNegativeClause(EntityUid target)
@@ -483,7 +464,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         var selectedClause = _random.Pick(negativeClauses);
         ApplyEffectToTarget(target, selectedClause, null);
 
-        _sawmill.Debug($"Selected {selectedClause.ID} effect for {ToPrettyString(target)}");
+        Log.Debug($"Selected {selectedClause.ID} effect for {ToPrettyString(target)}"); // DeltaV - Use EntitySystem Logger intead of _sawmill
     }
 
     public void AddRandomPositiveClause(EntityUid target)
@@ -498,7 +479,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         var selectedClause = _random.Pick(positiveClauses);
         ApplyEffectToTarget(target, selectedClause, null);
 
-        _sawmill.Debug($"Selected {selectedClause.ID} effect for {ToPrettyString(target)}");
+        Log.Debug($"Selected {selectedClause.ID} effect for {ToPrettyString(target)}"); // DeltaV - Use EntitySystem Logger intead of _sawmill
     }
 
     public void AddRandomClause(EntityUid target)
@@ -511,7 +492,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         var selectedClause = _random.Pick(clauses);
         ApplyEffectToTarget(target, selectedClause, null);
 
-        _sawmill.Debug($"Selected {selectedClause.ID} effect for {ToPrettyString(target)}");
+        Log.Debug($"Selected {selectedClause.ID} effect for {ToPrettyString(target)}"); // DeltaV - Use EntitySystem Logger intead of _sawmill
     }
 
     #endregion

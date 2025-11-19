@@ -14,6 +14,9 @@ public sealed partial class DevilGripComponent : Component
     [DataField]
     public TimeSpan CooldownAfterUse = TimeSpan.FromSeconds(20);
 
+    /// <summary>
+    /// A blacklist of entities that cannot be gripped by the devil.
+    /// </summary>
     [DataField]
     public EntityWhitelist Blacklist = new();
 

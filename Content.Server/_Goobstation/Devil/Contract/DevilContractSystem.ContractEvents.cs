@@ -53,7 +53,7 @@ public sealed partial class DevilContractSystem
         QueueDel(pick.Id);
 
         Dirty(args.Target, body);
-        _sawmill.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}");
+        Log.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}"); // DeltaV - Use EntitySystem Logger intead of _sawmill
         QueueDel(pick.Id);
     }
 
@@ -76,7 +76,7 @@ public sealed partial class DevilContractSystem
         _bodySystem.RemovePart(new(args.Target, body), pick, _bodySystem.GetSlotFromBodyPart(pick.Component));
 
         Dirty(args.Target, body);
-        _sawmill.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}");
+        Log.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}"); // DeltaV - Use EntitySystem Logger intead of _sawmill
         QueueDel(pick.Id);
     }
 
@@ -93,7 +93,7 @@ public sealed partial class DevilContractSystem
         var pick = _random.Pick(eligibleOrgans);
 
         _bodySystem.RemoveOrgan(pick.Id, pick.Component);
-        _sawmill.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}");
+        Log.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}"); // DeltaV - Use EntitySystem Logger intead of _sawmill
         QueueDel(pick.Id);
     }
 

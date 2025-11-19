@@ -49,7 +49,6 @@ public sealed partial class PossessionSystem : EntitySystem
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
-    private ProtoId<TagPrototype> CannotSuicideAnyTag = "CannotSuicideAny"; // DeltaV - Don't use literals.
     private static readonly ProtoId<TagPrototype> CannotSuicideAnyTag = "CannotSuicideAny"; // DeltaV - Don't use literals.
     private static readonly EntProtoId LolipopProto = "FoodLollipop"; // DeltaV - Don't use literals.
 

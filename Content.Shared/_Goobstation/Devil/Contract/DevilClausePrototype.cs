@@ -43,11 +43,3 @@ public sealed class DevilClausePrototype : IPrototype
     public ProtoId<PolymorphPrototype>? Polymorph;
 
 }
-
-public enum SpecialCase : byte
-{
-    SoulOwnership,
-    RemoveHand,
-    RemoveLeg,
-    RemoveOrgan,
-}
