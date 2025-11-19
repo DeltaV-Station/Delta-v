@@ -32,11 +32,12 @@ namespace Content.Server.Bible.Components
         public bool RequiresBibleUser = true;
 
         // DeltaV - Begin Anomalite Limited Respawns
-        [DataField("lives")]
+        [DataField]
         public int? Lives = null;
+        [ViewVariables(VVAccess.ReadWrite)]
         public int Deaths = 0;
 
-        public bool CanSummon => !AlreadySummoned && (!Lives.HasValue || Deaths < Lives.Value) && SpecialItemPrototype != null;
+        public bool CanSummon => !AlreadySummoned && (Lives is null || Deaths < Lives) && SpecialItemPrototype != null;
         // DeltaV - End Anomalite Limited Respawns
 
         /// <summary>
