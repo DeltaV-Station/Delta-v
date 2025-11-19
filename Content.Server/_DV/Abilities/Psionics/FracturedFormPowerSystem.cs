@@ -154,7 +154,21 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
             var speciesPrototypes = _prototype.EnumeratePrototypes<SpeciesPrototype>();
             foreach (var proto in speciesPrototypes)
             {
-                if (proto.RoundStart && proto.ID != "IPC")
+            foreach (var proto in speciesPrototypes)
+            {
+                var speciesEntityPrototype = _prototype.Index<EntityPrototype>(proto.Prototype);
+
+                if (proto.RoundStart && speciesEntityPrototype.TryGetComponent<PotentialPsionicComponent>(out var canBePsionic, Factory))
+                {
+                    var chance = canBePsionic.Chance;
+
+                    if (speciesEntityPrototype.TryGetComponent<PsionicBonusChanceComponent>(out var bonusChance, Factory))
+                        chance = (chance * bonusChance.Multiplier) + bonusChance.FlatBonus;
+
+                    if (chance > 0)
+                        validSpecies.Add(proto.ID);
+                }
+            }
                     validSpecies.Add(proto.ID);
             }
             var species = _random.Pick(validSpecies);
