@@ -60,6 +60,17 @@
           - ItemMask
         density: 1000
         hard: false
+      # Delta-V - Enables fishing in lava.
+      fishing:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        layer:
+        - ItemMask
+        mask:
+        - HighImpassable
+        density: 1000
+        hard: false
   - type: Tag
     tags:
       - HideContextMenu
