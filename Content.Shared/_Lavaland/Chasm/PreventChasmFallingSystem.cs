@@ -41,7 +41,7 @@ public sealed class PreventChasmFallingSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
 
-    private readonly ResolvedSoundSpecifier FallSound = "/Audio/Items/Mining/fultext_launch.ogg"; // DeltaV - Avoid literal
+    private static readonly ResolvedPathSpecifier FallSound = new("/Audio/Items/Mining/fultext_launch.ogg"); // DeltaV - Avoid literal
 
     public override void Initialize()
     {
