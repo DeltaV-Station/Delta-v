@@ -39,6 +39,7 @@
           components:
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
-        blacklist: # DeltaV - Disallows recharging of superweapon
+        blacklist: # DeltaV - Disallows recharging of superweapons
           tags:
           - GamblagatorCartridge
+          - WeaponBeamDevastator
