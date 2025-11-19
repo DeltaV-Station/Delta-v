@@ -48,8 +48,8 @@
   - type: Action
     useDelay: 40 # Stop running you cowardly fucks.
     itemIconStyle: NoItem
-    checkCanInteract: true # DeltaV - Was false for some reason??
-    checkConsciousness: true # DeltaV - Was false for some reason??
+    checkCanInteract: false
+    #checkConsciousness: true # DeltaV - Nuh-uh, no death teleporting
     icon:
       sprite: _Goobstation/Actions/devil.rsi
       state: shadow-jaunt
