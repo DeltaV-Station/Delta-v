@@ -7,6 +7,8 @@ on:
 env:
   PR_NUMBER: ${{ github.event.number }}
   GITHUB_REPOSITORY: ${{ github.repository }}
+  # Fetches repo and PR with this bot's account
+  GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
   # Prefix of the changelog files; optional, case sensitive
   CHANGELOG_FILE_PREFIX: ${{ vars.CHANGELOG_FILE_PREFIX }}
   # Comma-separated list of categories that should generate changelog files; optional, case-insensitive
@@ -28,7 +30,7 @@ jobs:
       - name: Checkout Master
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.BOT_TOKEN }}
+          token: ${{ env.GITHUB_TOKEN }}
           ref: "${{ vars.CHANGELOG_BRANCH }}"
 
       - name: Setup Git
