@@ -1,6 +1,5 @@
 using System.Numerics;
 using Content.Server.Atmos.Components;
-using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
@@ -17,7 +16,6 @@ namespace Content.Server.StationEvents.Events
         [Dependency] private readonly SharedMapSystem _map = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
 
 
         private (MapCoordinates target, Box2 targetArea) GetTarget()
@@ -44,16 +42,6 @@ namespace Content.Server.StationEvents.Events
             {
                 component.IsEnding = true;
                 component.Cooldown = 0;
-            }
-            else
-            {
-                (var target, var targetArea) = GetTarget();
-                _chatManager.SendAdminAlert(Loc.GetString(
-                    "station-event-system-meteor-swarm-starting",
-                    ("count", component.WaveCounter),
-                    ("targetCorner1", $"{targetArea.TopLeft.X:F0},{targetArea.TopLeft.Y:F0}"),
-                    ("targetCorner2", $"{targetArea.BottomRight.X:F0},{targetArea.BottomRight.Y:F0}")
-                ));
             }
         }
 
@@ -99,7 +87,6 @@ namespace Content.Server.StationEvents.Events
             (var target, var targetArea) = GetTarget();
             var targetSpread = (targetArea.TopRight - targetArea.Center).Length() * component.TargetingSpread;
 
-            float minImpactTime = 0;
             float maxImpactTime = 0;
             for (var i = 0; i < component.MeteorsPerWave; i++)
             {
@@ -126,21 +113,11 @@ namespace Content.Server.StationEvents.Events
                     (relativeSpawnPosition.X * velocity.X + relativeSpawnPosition.Y * velocity.Y) /
                     (MathF.Pow(velocity.X, 2f) + MathF.Pow(velocity.Y, 2f))
                 );
-                if (i == 0 || timeUntilClosestApproach < minImpactTime)
-                {
-                    minImpactTime = timeUntilClosestApproach;
-                }
                 if (i == 0 || timeUntilClosestApproach > maxImpactTime)
                 {
                     maxImpactTime = timeUntilClosestApproach;
                 }
             }
-
-            _chatManager.SendAdminAlert(Loc.GetString(
-                "station-event-system-meteors-spawned",
-                ("count", component.MeteorsPerWave),
-                ("impactSeconds", $"{minImpactTime:F0}")
-            ));
 
             component.WaveCounter--;
             if (component.WaveCounter <= 0)
