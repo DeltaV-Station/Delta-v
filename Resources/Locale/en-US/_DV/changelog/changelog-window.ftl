@@ -1,2 +1,3 @@
 changelog-tab-title-DeltaVChangelog = DeltaV
-changelog-tab-title-DeltaV = Delta-V
+changelog-tab-title-DeltaVAdmin = Admin
+changelog-tab-title-DeltaVMaps = Maps
