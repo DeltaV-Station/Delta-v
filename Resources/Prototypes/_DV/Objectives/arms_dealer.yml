@@ -23,10 +23,10 @@
 - type: entity
   parent: [BaseArmsdealerObjective, BaseSurviveObjective]
   id: ArmsdealerSaleObjective
-  description: Sell your firearms and peddle them to the highest bidder.
-  name: Chaos and Profit
+  description: Your contractor has tasked you to earn 50k spesos.
+  name: All the spesos
   components:
   - type: Objective
     icon:
-      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      sprite: _DV/Objects/Misc/first_bill.rsi
       state: icon

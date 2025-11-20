@@ -83,14 +83,6 @@
   - type: ShowJobIcons
   # Begin DeltaV - AI Shop System
   - type: StationAiShop
-  - type: Store
-    categories:
-    - AiAbilities
-    currencyWhitelist:
-    - AiMemory
-    balance:
-      AiMemory: 3
-    grantActionsToMind: false
   # End DeltaV - AI Shop System
 
 - type: entity
@@ -211,6 +203,7 @@
         acts: [ "Destruction" ]
   - type: ApcPowerReceiver
     powerLoad: 1000
+    needsPower: false
   - type: StationAiCore
   - type: StationAiVision
   - type: InteractionOutline
@@ -239,7 +232,6 @@
     listeningRange: 0
     speakerVolume: Speak
     unlistedNumber: true
-    requiresPower: false
   - type: Holopad
   - type: StationAiWhitelist
   - type: UserInterface
@@ -279,6 +271,16 @@
   - type: ActionGrant
     actions:
     - ActionViewLaws
+  # Begin DeltaV - AI Shop System
+  - type: Store
+    categories:
+    - AiAbilities
+    currencyWhitelist:
+    - AiMemory
+    balance:
+      AiMemory: 3
+    grantActionsToMind: false
+  # End DeltaV - AI Shop System
   - type: UserInterface
     interfaces:
       enum.SiliconLawsUiKey.Key:

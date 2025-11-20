@@ -335,14 +335,17 @@
     - RoboticsStatic
     - BorgModulesStatic
     - BorgLimbsStatic
+    - PowerAugments # DeltaV - augments
+    - ToolAugments # DeltaV - augments
+    - BorgDVModulesStatic # DeltaV - modules
     dynamicPacks:
     - Robotics
     - BorgModules
     - MechParts
     - MechEquipment
-    - Cybernetics # Shitmed change
-    - PowerAugments # DeltaV - augments
-    - ToolAugments # DeltaV - augments
+    - Surgery # DeltaV - Share Surgery Parts between Epi and Med.
+    - CyberneticsRobotics # DeltaV - Share Surgery Parts between Epi and Med.
+    - PsionicProsthetics # DeltaV
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
@@ -355,6 +358,7 @@
     - SalvageHardsuits
     - ParamedicHardsuit
     - EngineeringHardsuits
+    - AdvancedPsionicProsthetics
     # End DeltaV Additions
   - type: MaterialStorage
     whitelist:
@@ -453,6 +457,7 @@
     - SecurityWeapons
     - SpecOpsGoogles # DeltaV
     #- SecurityDisablers # DeltaV - made roundstart
+    - AdvancedPsionicProsthetics # DeltaV
   - type: MaterialStorage
     whitelist:
       tags:
@@ -501,7 +506,7 @@
 
 - type: entity
   id: MedicalTechFab
-  parent: BaseTechFabDepartamental # DeltaV - make sure it inherits the emag recipes
+  parent: BaseTechFabDepartmental # DeltaV - make sure it inherits the emag recipes
   name: medical techfab
   description: Prints equipment for use by the medbay.
   components:
@@ -535,6 +540,9 @@
     - ReportingStatic
     - EVASuit
     - PowerCellsStatic
+    - IPCLimbsStatic
+    - PowerAugments
+    - ToolAugments
     # End DeltaV Additions
     dynamicPacks:
     - Chemistry
@@ -543,6 +551,7 @@
     # Being DeltaV Additions
     - MedicalDeltaV
     - ParamedicHardsuit
+    - Cybernetics
     # End DeltaV Additions
   - type: Machine
     board: MedicalTechFabCircuitboard

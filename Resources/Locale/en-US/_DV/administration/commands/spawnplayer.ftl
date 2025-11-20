@@ -1,0 +1,10 @@
+cmd-spawnplayer-desc = Spawns the selected player as their current character at the ADMIN's position.
+cmd-spawnplayer-help = Usage: spawnplayer [player_name] [job_id] [transfer_mind?]
+cmd-spawnplayer-complete = Player character spawned.
+cmd-spawnplayer-arg-player = [player name]
+cmd-spawnplayer-arg-job = [job id]
+cmd-spawnplayer-arg-transfer-mind = [transfer mind? (default: false)]
+cmd-spawnplayer-error-player = Player '{$player}' not found.
+cmd-spawnplayer-error-job = Job is invalid or not provided. Defaulting to passenger.
+cmd-spawnplayer-error-args = Not enough arguments provided.
+cmd-spawnplayer-info-mind-not-transferred = Mind not transferred. To transfer mind, run 'setmind {$entId} {$player}'

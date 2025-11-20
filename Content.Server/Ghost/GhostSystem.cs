@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.Administration.Managers; // DeltaV
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -26,6 +27,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
+using Content.Server.Preferences.Managers; // DeltaV
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
 using Content.Shared.Warps;
@@ -69,11 +71,14 @@ namespace Content.Server.Ghost
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
+        [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!; // DeltaV
+        [Dependency] private readonly IAdminManager _admin = default!; // DeltaV
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
         private static readonly ProtoId<TagPrototype> AllowGhostShownByEventTag = "AllowGhostShownByEvent";
+        private static readonly ProtoId<DamageTypePrototype> AsphyxiationDamageType = "Asphyxiation";
 
         public override void Initialize()
         {
@@ -509,6 +514,7 @@ namespace Content.Server.Ghost
             // we changed the entity name above
             // we have to call this after the mind has been transferred since some mind roles modify the ghost's name
             _nameMod.RefreshNameModifiers(ghost);
+            ApplyAdminOOCColor(ghost); // DeltaV
             return ghost;
         }
 
@@ -522,9 +528,9 @@ namespace Content.Server.Ghost
             if (playerEntity != null && viaCommand)
             {
                 if (forced)
-                    _adminLog.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} was forced to ghost via command");
+                    _adminLog.Add(LogType.Mind, $"{ToPrettyString(playerEntity.Value):player} was forced to ghost via command");
                 else
-                    _adminLog.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} is attempting to ghost via command");
+                    _adminLog.Add(LogType.Mind, $"{ToPrettyString(playerEntity.Value):player} is attempting to ghost via command");
             }
 
             var handleEv = new GhostAttemptHandleEvent(mind, canReturnGlobal);
@@ -590,14 +596,14 @@ namespace Content.Server.Ghost
                         dealtDamage = playerDeadThreshold - damageable.TotalDamage;
                     }
 
-                    DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>("Asphyxiation"), dealtDamage);
+                    DamageSpecifier damage = new(_prototypeManager.Index(AsphyxiationDamageType), dealtDamage);
 
                     _damageable.TryChangeDamage(playerEntity, damage, true);
                 }
             }
 
             if (playerEntity != null)
-                _adminLog.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}");
+                _adminLog.Add(LogType.Mind, $"{ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}");
 
             var ghost = SpawnGhost((mindId, mind), position, canReturn);
 
@@ -605,6 +611,38 @@ namespace Content.Server.Ghost
                 return false;
 
             return true;
+        }
+
+
+        /// <summary>
+        /// DeltaV - Applies the admin OOC color to a ghost entity if the player has one set.
+        /// </summary>
+        /// <param name="ghostEntity">The ghost entity to apply the color to</param>
+        /// <param name="mindId">The mind ID of the player</param>
+        public void ApplyAdminOOCColor(EntityUid ghostEntity) // Mono
+        {
+            if (!_player.TryGetSessionByEntity(ghostEntity, out var session))
+                return;
+
+            // Only apply admin OOC color if the player is actually an admin
+            if (!_admin.IsAdmin(session))
+                return;
+
+            if (!_preferencesManager.TryGetCachedPreferences(session.UserId, out var prefs))
+                return;
+
+            // Only apply the color if it's not transparent (the default)
+            if (prefs.AdminOOCColor == Color.Transparent)
+                return;
+
+            // Make the color slightly transparent for ghosts
+            var ghostColor = prefs.AdminOOCColor;
+
+            if (TryComp<GhostComponent>(ghostEntity, out var ghostComp))
+            {
+                ghostComp.Color = ghostColor;
+                Dirty(ghostEntity, ghostComp);
+            }
         }
     }
 

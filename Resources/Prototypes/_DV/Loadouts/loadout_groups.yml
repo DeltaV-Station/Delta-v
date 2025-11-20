@@ -65,6 +65,14 @@
   - ScarfGreen
   - ScarfBrown
 
+## Clown
+- type: loadoutGroup
+  id: ClownMask
+  name: loadout-group-clown-mask
+  loadouts:
+  - ClownMask
+  - BlushingClownMask
+
 ## Mime
 - type: loadoutGroup
   id: MimeNeck
@@ -233,6 +241,7 @@
   loadouts:
   - SalvageCloak
   - ScarfBrown
+  - SalvageMantle
 
 - type: loadoutGroup
   id: SalvageSpecialistJumpsuit
@@ -257,6 +266,7 @@
   minLimit: 0
   loadouts:
   - ScarfRed
+  - ScarfBlack
   - ScarfBlue
   - SecurityPoncho
 
@@ -390,6 +400,7 @@
   minLimit: 0
   loadouts:
   - ScarfRed
+  - ScarfBlack
   - SecurityPoncho
 
 - type: loadoutGroup
@@ -418,6 +429,7 @@
   - PlateCarrier
   - DuraVest
   - StasecWinterCoatHoS
+  - HeadOfSecurityTrenchcoat
 
 ## Detective
 - type: loadoutGroup
@@ -631,6 +643,7 @@
   - StationEngineerHardhatOrange
   - StationEngineerHardhatRed
   - AtmosHardHatBlue
+  - AtmosBeret
 
 ## Clerk
 - type: loadoutGroup
@@ -784,6 +797,14 @@
   - WhiteLeatherShoes
   - LaceupShoes
   - HoPWinterBoots
+
+## chift engenier
+- type: loadoutGroup
+  id: ChiefEngineerGloves
+  name: loadout-group-chief-engineer-gloves
+  minLimit: 0
+  loadouts:
+  - insulatedgloves
 
 # PDAs
 - type: loadoutGroup
