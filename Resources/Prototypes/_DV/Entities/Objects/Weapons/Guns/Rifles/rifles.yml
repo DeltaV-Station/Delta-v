@@ -16,14 +16,13 @@
     maxAngle: -30
   - type: Gun
     minAngle: 21
-    maxAngle: 54
+    maxAngle: 32
     angleIncrease: 6
     angleDecay: 24
-    fireRate: 5
+    fireRate: 3.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-    - FullAuto
   - type: ChamberMagazineAmmoProvider
   - type: ItemSlots
     slots:
@@ -43,6 +42,10 @@
         whitelist:
           tags:
             - CartridgeLightRifle
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 2.5
+    pvsIncrease: 0.25
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot

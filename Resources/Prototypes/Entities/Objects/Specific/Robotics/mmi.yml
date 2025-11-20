@@ -17,6 +17,7 @@
   - type: MMI
   - type: Organ # DeltaV - mmis also count as positronic brains for IPC chasses
     slotId: posbrain
+  - type: Brain # DeltaV - actually transfers from MMI to IPC the mind
   - type: BorgBrain
   - type: BlockMovement
   - type: Examiner
