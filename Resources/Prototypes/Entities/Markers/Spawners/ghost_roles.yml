@@ -11,9 +11,7 @@
 
 - type: entity
   id: SpawnPointGhostRatKing
-  name: ghost role spawn point
-  suffix: rat king
-  parent: MarkerBase
+  parent: BaseAntagSpawner 
   components:
   - type: GhostRole
     name: ghost-role-information-rat-king-name
@@ -21,10 +19,6 @@
     rules: ghost-role-information-antagonist-rules
     mindRoles:
     - MindRoleGhostRoleSoloAntagonist
-    raffle:
-      settings: default
-  - type: GhostRoleMobSpawner
-    prototype: MobRatKing
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
