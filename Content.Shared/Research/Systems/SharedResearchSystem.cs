@@ -158,6 +158,11 @@ public abstract class SharedResearchSystem : EntitySystem
             disciplineTiers == null
             ? GetHighestDisciplineTier(component, techDiscipline)
             : disciplineTiers[techDiscipline.ID];
+
+        if (tier >= techDiscipline.TierPrerequisites.Keys.Max())
+        {
+            return 0;
+        }
         
         var allTierTechCount = PrototypeManager.EnumeratePrototypes<TechnologyPrototype>()
             .Where(p => p.Discipline == techDiscipline.ID && p.Tier == tier && !p.Hidden)
