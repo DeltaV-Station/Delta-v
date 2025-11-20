@@ -1,5 +1,4 @@
 using Content.Shared._DV.CCVars;
-using Content.Shared._White.Standing;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Standing;
@@ -25,7 +24,7 @@ public sealed class LayingDownCombatSystem : EntitySystem
         base.Initialize();
 
         // subscribe to LayingDownComponent instead of StandingState so it only applies to mobs that can lie down on keypress
-        SubscribeLocalEvent<LayingDownComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
+        SubscribeLocalEvent<StandingStateComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
 
         Subs.CVar(_cfg, DCCVars.LayingDownMeleeMod, mod =>
         {
@@ -37,7 +36,7 @@ public sealed class LayingDownCombatSystem : EntitySystem
         }, true);
     }
 
-    private void OnGetMeleeDamage(Entity<LayingDownComponent> ent, ref GetMeleeDamageEvent args)
+    private void OnGetMeleeDamage(Entity<StandingStateComponent> ent, ref GetMeleeDamageEvent args)
     {
         if (!_standing.IsDown(ent))
             return;
