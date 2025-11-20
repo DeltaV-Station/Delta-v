@@ -1,7 +1,3 @@
-// HEAVILY EDITED
-// if wizden ever does something to this system we're FUCKED
-// regards.
-
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
