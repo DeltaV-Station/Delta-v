@@ -2,6 +2,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { exit } from "node:process";
+import { fileURLToPath } from "node:url";
 import yaml from "js-yaml";
 
 const DEFAULT_CATEGORY = "Changelog";
@@ -34,8 +35,13 @@ if (process.env.CHANGELOG_DIR === undefined) {
 	exitError("CHANGELOG_DIR not set");
 }
 const changelogDir = path.resolve(
-	path.join("../../", process.env.CHANGELOG_DIR),
+	path.join(
+		path.dirname(fileURLToPath(import.meta.url)),
+		"../../",
+		process.env.CHANGELOG_DIR,
+	),
 );
+
 try {
 	const stat = await fs.stat(changelogDir);
 	if (!stat.isDirectory()) {
@@ -75,18 +81,18 @@ function normalizeEntryType(entryType) {
  * @param {string} user
  */
 async function parsePRBody(body, user) {
-	const allCategories = new Set([DEFAULT_CATEGORY]);
+	const allCategories = new Set([DEFAULT_CATEGORY.toLowerCase()]);
 	if (process.env.CHANGELOG_EXTRA_CATEGORIES) {
 		for (const category of process.env.CHANGELOG_EXTRA_CATEGORIES.split(",")) {
-			allCategories.add(category);
+			allCategories.add(category.toLowerCase());
 		}
 	}
 
 	// Get author
 	const partialHeader = PartialHeaderRegex.test(body);
 	if (!partialHeader) {
-		console.log("No changelog entry found, skipping", PartialHeaderRegex, body);
-		exit(0);
+		console.log("No changelog entry found");
+		return undefined;
 	}
 
 	const headerMatch = HeaderRegex.exec(body);
@@ -153,13 +159,18 @@ const { merged_at, body, user } = await pr.json();
 
 if (!merged_at) {
 	console.log("PR not merged, skipping");
-	exit(0);
+	exit(2);
 }
 
 // Remove comments from the body
-const commentlessBody = body.replace(CommentRegex, "");
+const commentlessBody = body?.replace(CommentRegex, "") ?? "";
 
 const changelogData = await parsePRBody(commentlessBody, user.login);
+
+if (!changelogData) {
+	console.log("No changelog entry found, skipping");
+	exit(2);
+}
 
 const author = changelogData.author;
 for (const [category, changes] of Object.entries(changelogData.changes)) {
@@ -174,10 +185,12 @@ for (const [category, changes] of Object.entries(changelogData.changes)) {
 		filename: fileName,
 		json: false,
 	}) ?? { Entries: [] };
+	changelogData.Entries ??= [];
+
 	changelogData.Entries.push({
 		author,
 		changes,
-		id: (changelogData.Entries?.at(-1)?.id ?? 0) + 1,
+		id: Math.max(changelogData.Entries?.map((x) => x.id) ?? [0]) + 1,
 		time: merged_at.replace(/z$/i, ".0000000+00:00"),
 		url: `https://github.com/${process.env.GITHUB_REPOSITORY}/pull/${process.env.PR_NUMBER}`,
 	});

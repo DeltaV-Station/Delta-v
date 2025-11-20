@@ -53,16 +53,12 @@ jobs:
 
       - name: Generate Changelog
         run: |
-          cd "Tools/changelog"
-          node changelog.js
-        shell: bash
-        continue-on-error: false
-
-      - name: Commit Changelog
-        run: |
-          cd "Resources/Changelog"
-          git add *.yml
-          git commit -m "Automatic changelog update (#${{ env.PR_NUMBER }})"
-          git push
+          if node Tools/changelog/changelog.js;
+          then
+            cd "Resources/Changelog"
+            git add *.yml
+            git commit -m "Automatic changelog update (#${{ env.PR_NUMBER }})"
+            git push
+          fi
         shell: bash
         continue-on-error: false
