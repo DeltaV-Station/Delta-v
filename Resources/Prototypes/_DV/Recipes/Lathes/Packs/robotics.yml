@@ -39,6 +39,11 @@
   - BorgModuleAdvancedMining
   - BorgModuleAdvancedSurgery
 
+- type: latheRecipePack
+  id: BorgDVModulesStatic
+  recipes:
+  - BorgModuleDecoration
+
 ## Dynamic
 
 - type: latheRecipePack
@@ -71,3 +76,10 @@
   - AugmentBotanyPanelElectronics
   - AugmentSurgeryPanelElectronics
   - AugmentPaperworkPanelElectronics
+
+- type: latheRecipePack
+  id: PsionicProsthetics
+  recipes:
+  - DispelLeftArm
+  - RecallLeftArm
+  - ForcewallLeftArm

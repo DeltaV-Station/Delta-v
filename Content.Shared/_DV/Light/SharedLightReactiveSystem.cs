@@ -27,12 +27,13 @@ public abstract class SharedLightReactiveSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-
         var query = EntityQueryEnumerator<LightReactiveComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
+            if (comp.Manual)
+                continue; // Don't auto update if it's manual
             if (_timing.CurTime < comp.NextUpdate)
-                return;
+                continue;
             comp.NextUpdate = _timing.CurTime + TimeSpan.FromSeconds(1);
             if (_mobState.IsDead(uid) && comp.OnlyWhileAlive)
                 continue; // Don't apply damage / healing if the mob is dead
@@ -77,6 +78,21 @@ public abstract class SharedLightReactiveSystem : EntitySystem
 
         foreach (var (lightUid, lightComp) in GetLights(uid))
         {
+            var energy = lightComp.Energy;
+            var radius = lightComp.Radius;
+            if (!lightComp.NetSyncEnabled)
+            {
+                // Try to use the GetLightEnergyEvent if we can't rely on it being network synced.
+                var lightEnergyEvnt = new OnGetLightEnergyEvent();
+                RaiseLocalEvent(lightUid, ref lightEnergyEvnt);
+                energy = lightEnergyEvnt.LightEnergy;
+                radius = lightEnergyEvnt.LightRadius;
+                if (MathHelper.CloseTo(energy, 0f))
+                    continue; // No light, no problem.
+            }
+
+            energy = MathF.Min(energy, 2f); // Clamp energy, to normalize strange values.
+
             // Ensure we're on the same grid as the light source
             if (_transform.GetMap(lightUid) != map)
                 continue;
@@ -84,26 +100,50 @@ public abstract class SharedLightReactiveSystem : EntitySystem
             // Ensure we're within the light's radius.
             var lightPos = _transform.GetWorldPosition(lightUid);
             var sqrDistance = Vector2.DistanceSquared(pos, lightPos);
-            if (sqrDistance > lightComp.Radius * lightComp.Radius)
+            if (sqrDistance > radius * radius)
                 continue;
 
             if (sqrDistance < 0.01f)
             {
                 // If we're right on top of the light, just add its full energy value.
-                val += lightComp.Energy;
+                val += energy;
                 continue;
             }
 
             // Collision ray check from the entity to the light source
             var ray = new CollisionRay(pos, (lightPos - pos).Normalized(), (int)CollisionGroup.Opaque);
-            var hit = _physics.IntersectRay(_transform.GetMapId(uid), ray, MathF.Sqrt(sqrDistance) - 0.5f, returnOnFirstHit: true);
+            var hit = _physics.IntersectRay(_transform.GetMapId(uid), ray, MathF.Sqrt(sqrDistance) - 0.5f, ignoredEnt: lightUid, returnOnFirstHit: true);
             if (hit.Any() && hit.First().Distance != 0)
                 continue;
+
+            // Manual hack for cones.
+            if (lightComp.MaskPath == "/Textures/Effects/LightMasks/cone.png")
+            {
+                var forward = _transform.GetWorldRotation(lightUid).RotateVec(new Vector2(0.0f, -1.0f));
+                energy *= MathF.Max(0f, Vector2.Dot((pos - lightPos).Normalized(), forward));
+            }
+            else if (lightComp.MaskPath == "/Textures/Effects/LightMasks/double_cone.png")
+            {
+                var forward = _transform.GetWorldRotation(lightUid).RotateVec(new Vector2(0.0f, -1.0f));
+                energy *= MathF.Abs(Vector2.Dot((pos - lightPos).Normalized(), forward));
+            }
+
             // If we reach here, the light is unobstructed and within range, calculate a light value to add.
-            val += lightComp.Energy * (1.0f - sqrDistance / (lightComp.Radius * lightComp.Radius));
+            val += energy * (1.0f - sqrDistance / (radius * radius));
         }
 
 
         return val;
     }
+}
+
+/// <summary>
+/// Passed to unsync'd light sources to get the expected light energy.
+/// ONLY called when NetSync is not enabled. Otherwise, uses the light directly.
+/// </summary>
+[ByRefEvent]
+public record struct OnGetLightEnergyEvent()
+{
+    public float LightEnergy = 0f;
+    public float LightRadius = 0f;
 }

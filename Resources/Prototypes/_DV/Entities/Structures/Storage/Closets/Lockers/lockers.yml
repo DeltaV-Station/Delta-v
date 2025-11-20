@@ -167,3 +167,13 @@
   components:
   - type: AccessReader
     access: [["SyndicateAgent"]]
+
+- type: entity
+  parent: LockerForensicMantis
+  id: LockerArchivist
+  name: archivist's cabinet
+  suffix: Empty
+  description: You'll never know what's inside until you collapse the quantum superposition of all possible mysteries.
+  components:
+  - type: AccessReader
+    access: [["Library"]]

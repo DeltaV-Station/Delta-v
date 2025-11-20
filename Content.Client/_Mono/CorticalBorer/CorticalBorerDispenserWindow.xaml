@@ -1,0 +1,43 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:ui="clr-namespace:Content.Client.Chemistry.UI"
+    Title="{Loc 'reagent-dispenser-bound-user-interface-title'}"
+    MinSize="400 175"
+    SetSize="600 300">
+    <BoxContainer Orientation="Horizontal">
+        <BoxContainer Orientation="Vertical" MinWidth="170">
+            <Label Text="{Loc 'reagent-dispenser-window-amount-to-dispense-label'}" HorizontalAlignment="Center" />
+            <ui:ButtonGrid
+                Name="AmountGrid"
+                Access="Public"
+                Columns="3"
+                HorizontalAlignment="Center"
+                Margin="5"
+                ButtonList="1,5,10,15,20,25,30,50,100"
+                RadioGroup="True">
+            </ui:ButtonGrid>
+        </BoxContainer>
+        <SplitContainer Orientation="Vertical"
+                        HorizontalExpand="True"
+                        VerticalExpand="True">
+            <ScrollContainer HScrollEnabled="False"
+                             HorizontalExpand="True"
+                             VerticalExpand="True"
+                             MinHeight="50"
+                             SizeFlagsStretchRatio="2.5">
+                <GridContainer Name="ReagentList"
+                               HorizontalExpand="True"
+                               VerticalExpand="True"
+                               Access="Public"
+                               Columns="3" />
+            </ScrollContainer>
+            <ScrollContainer HScrollEnabled="False"
+                             HorizontalExpand="True"
+                             VerticalExpand="True"
+                             MinHeight="50">
+            </ScrollContainer>
+        </SplitContainer>
+    </BoxContainer>
+</controls:FancyWindow>

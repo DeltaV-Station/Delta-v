@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 260.2.0
+  engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/27/2025 10:32:25
+  time: 11/03/2025 09:38:41
   entityCount: 10272
 maps: []
 grids:
@@ -22428,32 +22428,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 4.479445,-23.346842
-      parent: 1
-- proto: CapacitorStockPart
-  entities:
-  - uid: 5060
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 17.104046,23.04522
-      parent: 1
-  - uid: 5548
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -9.732502,21.566046
-      parent: 1
-  - uid: 7934
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 12.86761,27.622923
-      parent: 1
-  - uid: 8091
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 17.229046,23.29522
       parent: 1
 - proto: CarbonDioxideCanister
   entities:
@@ -49691,13 +49665,6 @@ entities:
     - type: Transform
       pos: -28.709988,-5.60608
       parent: 1
-- proto: MatterBinStockPart
-  entities:
-  - uid: 786
-    components:
-    - type: Transform
-      pos: 15.822796,23.98272
-      parent: 1
 - proto: MechEquipmentGrabber
   entities:
   - uid: 10239
@@ -49869,16 +49836,45 @@ entities:
       parent: 1
 - proto: MicroManipulatorStockPart
   entities:
+  - uid: 786
+    components:
+    - type: Transform
+      pos: 15.822796,23.98272
+      parent: 1
   - uid: 953
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 15.6840725,22.97803
       parent: 1
+  - uid: 5060
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 17.104046,23.04522
+      parent: 1
   - uid: 5231
     components:
     - type: Transform
       pos: 15.713421,23.529594
+      parent: 1
+  - uid: 5548
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -9.732502,21.566046
+      parent: 1
+  - uid: 7934
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 12.86761,27.622923
+      parent: 1
+  - uid: 8091
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 17.229046,23.29522
       parent: 1
 - proto: Mirror
   entities:

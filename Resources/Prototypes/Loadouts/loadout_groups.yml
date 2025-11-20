@@ -66,6 +66,7 @@
   - TapeRecorder
   - ClothingHeadHatUshanka
   - Eyepatch
+  - SuperSynthesizerInstrument #Delta-V - Ports Super Synth Trinket from Starlight
   # End DeltaV Additions
 
 - type: loadoutGroup
@@ -174,6 +175,7 @@
   minLimit: 0
   loadouts:
   - HoPHead
+  - HoPBeret
 
 - type: loadoutGroup
   id: HoPJumpsuit
@@ -545,6 +547,17 @@
   - ScarfBlack # DeltaV
 
 - type: loadoutGroup
+  id: ChaplainBible
+  name: loadout-group-chaplain-bible
+  minLimit: 1
+  loadouts:
+  - Bible
+  - BibleDruid
+  - BibleNanoTrasen
+  - BibleSatanic
+  - BibleTanakh
+
+- type: loadoutGroup
   id: JanitorHead
   name: loadout-group-janitor-head
   minLimit: 0
@@ -627,6 +640,7 @@
   name: loadout-group-clown-jumpsuit
   loadouts:
   - ClownSuit
+  - ClownSkirt # Starlight
   - JesterSuit
   - JesterAltSuit
 
@@ -681,6 +695,7 @@
   - MimeMask
   - MimeMaskSad
   - MimeMaskScared
+  - MimeMaskBlushing # DeltaV
 
 - type: loadoutGroup
   id: MimeJumpsuit
@@ -1043,7 +1058,6 @@
   # Begin DeltaV Additions
   - WorkBoots
   - BlueShoes
-  - RedShoes
   - OrangeShoes
   - RedShoes
   - AtmosWinterBoots
@@ -1210,13 +1224,13 @@
   - HeadofSecurityTurtleneckSkirt
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
+  - HeadofSecurityParadeSuit
+  - HeadofSecurityParadeSkirt
   # Begin DeltaV changes
   - HeadofSecurityJumpsuitGrey
   - HeadofSecurityJumpskirtGrey
   - HeadofSecurityJumpsuitBlue
   - HeadofSecurityJumpskirtBlue
-  #- HeadofSecurityParadeSuit # Removed for incongruence
-  #- HeadofSecurityParadeSkirt # Removed for incongruence
   # End DeltaV changes
 
 - type: loadoutGroup
@@ -1227,6 +1241,7 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   - ScarfRed # DeltaV
+  - ScarfBlack # DeltaV
   - SecurityPoncho # DeltaV
 
 - type: loadoutGroup
@@ -1304,6 +1319,8 @@
   - SeniorSecOfficerTurtleskirt
   - SeniorSecOfficerJumpsuit
   - SeniorSecOfficerJumpskirt
+  - SeniorSecOfficerFormalSuit
+  - SeniorSecOfficerFormalSkirt
   # End DeltaV changes
 
 - type: loadoutGroup
