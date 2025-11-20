@@ -1031,13 +1031,11 @@ public sealed class EntityEffectSystem : EntitySystem
                 return;
         }
 
-        // DeltaV - start of mindbreaking reroll
         var psyAbilitiesSys = args.Args.EntityManager.EntitySysManager.GetEntitySystem<PsionicAbilitiesSystem>();
         psyAbilitiesSys.RemovePsionics(args.Args.TargetEntity);
 
         var psySys = args.Args.EntityManager.EntitySysManager.GetEntitySystem<PsionicsSystem>();
         psySys.GrantNewPsionicReroll(args.Args.TargetEntity);
-        // DeltaV - end of mindbreaking reroll
     }
 
     private void OnChemRerollPsionic(ref ExecuteEntityEffectEvent<ChemRerollPsionic> args)

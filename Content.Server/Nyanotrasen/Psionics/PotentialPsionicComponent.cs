@@ -9,7 +9,7 @@ namespace Content.Server.Psionics
         /// <summary>
         /// YORO (you only reroll once)
         /// </summary>
-        [DataField] // DeltaV - add to Variables UI for debugging assistance
+        [DataField]
         public bool Rerolled = false;
     }
 }
