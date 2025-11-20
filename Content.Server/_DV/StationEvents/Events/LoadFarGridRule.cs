@@ -1,7 +1,7 @@
 using Content.Server.GameTicking.Rules;
-using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Station.Components;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -12,6 +12,7 @@ namespace Content.Server.StationEvents.Events;
 public sealed class LoadFarGridRule : StationEventSystem<LoadFarGridRuleComponent>
 {
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     protected override void Added(EntityUid uid, LoadFarGridRuleComponent comp, GameRuleComponent rule, GameRuleAddedEvent args)
     {
@@ -41,7 +42,7 @@ public sealed class LoadFarGridRule : StationEventSystem<LoadFarGridRuleComponen
                 map = Transform(gridId).MapID;
 
             var gridComp = Comp<MapGridComponent>(gridId);
-            var gridAabb = Transform(gridId).WorldMatrix.TransformBox(gridComp.LocalAABB);
+            var gridAabb = _transform.GetWorldMatrix(gridId).TransformBox(gridComp.LocalAABB);
             aabb = aabb.Union(gridAabb);
         }
 
