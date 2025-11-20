@@ -15,9 +15,9 @@ using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Psionics.Glimmer;
-using Content.Shared.Research.Components; // DeltaV
+using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
-using Content.Shared.Research.Systems; // DeltaV
+using Content.Shared.Research.Systems;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
