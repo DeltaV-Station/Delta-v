@@ -235,12 +235,13 @@ public partial class ChatSystem
             return true;
         }
 
-        // Check the whitelist and blacklist
-        if (_whitelistSystem.IsWhitelistFail(emote.Whitelist, source) ||
-            _whitelistSystem.IsBlacklistPass(emote.Blacklist, source))
-        {
-            return false;
-        }
+        // DeltaV - For allowing Silicons etc. to use all emotes without changing an entire Yaml file.
+        //Check the whitelist and blacklist
+        //if (_whitelistSystem.IsWhitelistFail(emote.Whitelist, source) ||
+        //    _whitelistSystem.IsBlacklistPass(emote.Blacklist, source))
+        //{
+        //    return false;
+        //}
 
         // Check if the emote is available for all
         //if (!emote.Available) // DeltaV - Allow people to emote things. Don't worry, they don't get sound if their species doesn't have it natively.
