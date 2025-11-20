@@ -9,3 +9,17 @@
   cost: 5000
   recipeUnlocks:
   - ArtifactDisplayCaseMachineCircuitBoard
+
+- type: technology
+  id: PsionicProsthetics
+  name: research-technology-psionic-prosthetics
+  icon:
+    sprite: _DV/Interface/Actions/actions_psionics.rsi
+    state: dispel
+  discipline: Experimental
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - DispelLeftArm
+  - RecallLeftArm
+  - ForcewallLeftArm
