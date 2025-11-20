@@ -90,7 +90,7 @@ public sealed class CosmicConversionSystem : EntitySystem
             }
             else
             {
-                _stun.TryStun(target, TimeSpan.FromSeconds(4f), false);
+                _stun.TryUpdateStunDuration(target, TimeSpan.FromSeconds(4f));
                 _damageable.TryChangeDamage(target, uid.Comp.ConversionHeal * -1);
                 _cultRule.CosmicConversion(uid, target);
             }
