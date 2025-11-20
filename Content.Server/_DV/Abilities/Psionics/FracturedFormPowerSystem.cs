@@ -154,7 +154,7 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
             }
             var species = _random.Pick(validSpecies);
             var character = HumanoidCharacterProfile.RandomWithSpecies(species);
-            newBody = _stationSpawning.SpawnPlayerMob(xform.Coordinates, hasClothes ? original.Comp.VisitorJob : original.Comp.NakedJob, character, _station.GetCurrentStation(original.Owner));
+            newBody = _stationSpawning.SpawnPlayerMob(xform.Coordinates, hasClothes ? original.Comp.VisitorJob : original.Comp.NakedJob, character, _station.GetOwningStation(original.Owner));
             if (newBody is not { } bodyV || Deleted(bodyV))
             {
                 Log.Error($"Failed to create a new body for {ToPrettyString(original)}. This is a bug.");
