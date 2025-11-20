@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/20/2025 07:53:05
+  time: 11/20/2025 23:04:27
   entityCount: 22336
 maps:
 - 1313
@@ -11776,7 +11776,7 @@ entities:
       pos: -38.5,33.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -49766.586
+      secondsUntilStateChange: -49857.33
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12243,7 +12243,7 @@ entities:
       pos: -31.5,9.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -46913.29
+      secondsUntilStateChange: -47004.03
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -56255,12 +56255,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -13.5,73.5
       parent: 100
-  - uid: 11470
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -20.5,-17.5
-      parent: 100
   - uid: 11591
     components:
     - type: Transform
@@ -96014,6 +96008,13 @@ entities:
     components:
     - type: Transform
       pos: -14.5,48.5
+      parent: 100
+- proto: HolopadScienceFront
+  entities:
+  - uid: 11470
+    components:
+    - type: Transform
+      pos: -18.5,-11.5
       parent: 100
 - proto: HolopadSecurityArmory
   entities:
@@ -141268,7 +141269,7 @@ entities:
       pos: 6.5,-10.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -11166.787
+      secondsUntilStateChange: -11257.53
       state: Opening
   - uid: 226
     components:
