@@ -5,7 +5,7 @@ import { exit } from "node:process";
 import { fileURLToPath } from "node:url";
 import yaml from "js-yaml";
 
-const DEFAULT_CATEGORY = "Changelog";
+const DEFAULT_CATEGORY = "changelog".toLowerCase();
 
 const PartialHeaderRegex = /^\s*(?::cl:|🆑) *.*/im; // :cl: or 🆑 [0] followed by optional author name [1]
 const HeaderRegex = /^\s*(?::cl:|🆑) *([a-z0-9_\- ,&]+)?\s*$/im; // :cl: or 🆑 [0] followed by optional author name [1]
@@ -108,7 +108,7 @@ async function parsePRBody(body, user) {
 
 	body = body.substring(headerMatch.index + headerMatch[0].length);
 
-	let currentCategory = DEFAULT_CATEGORY;
+	let currentCategory = DEFAULT_CATEGORY.toLowerCase();
 	/** @type {{[category: string]: {type: string, message: string}[]}} */
 	const changes = { [currentCategory]: [] };
 
@@ -117,6 +117,8 @@ async function parsePRBody(body, user) {
 		if (categoryMatch) {
 			if (allCategories.has(categoryMatch[1])) {
 				currentCategory = categoryMatch[1];
+			} else {
+				console.warn("Found invalid category", categoryMatch[1]);
 			}
 			changes[currentCategory] ??= [];
 			continue;
@@ -181,16 +183,22 @@ for (const [category, changes] of Object.entries(changelogData.changes)) {
 			".yml",
 	);
 
-	const changelogData = yaml.load(await fs.readFile(fileName), {
-		filename: fileName,
-		json: false,
-	}) ?? { Entries: [] };
-	changelogData.Entries ??= [];
+	/** @type {{Entries: {author: string, changes: {type: string, message: string}[], id: number, time: string, url: string}[], Order: number|undefined}} */
+	let changelogData;
+	try {
+		changelogData = yaml.load(await fs.readFile(fileName), {
+			filename: fileName,
+			json: false,
+		}) ?? { Entries: [] };
+		changelogData.Entries ??= [];
+	} catch {
+		changelogData = { Entries: [] };
+	}
 
 	changelogData.Entries.push({
 		author,
 		changes,
-		id: Math.max(changelogData.Entries?.map((x) => x.id) ?? [0]) + 1,
+		id: Math.max(...(changelogData.Entries?.map((x) => x.id) ?? []), 0) + 1,
 		time: merged_at.replace(/z$/i, ".0000000+00:00"),
 		url: `https://github.com/${process.env.GITHUB_REPOSITORY}/pull/${process.env.PR_NUMBER}`,
 	});
