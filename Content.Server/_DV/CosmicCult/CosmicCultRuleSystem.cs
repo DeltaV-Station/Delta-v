@@ -784,7 +784,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             return;
         var cosmicGamerule = cult.Comp;
 
-        _stun.TryAddKnockdownDuration(uid, TimeSpan.FromSeconds(2));
+        if(TryComp<CrawlerComponent>(uid, out var crawlerComp))
+            _stun.TryCrawling((uid, crawlerComp), TimeSpan.FromSeconds(2), refresh: true);
+
         foreach (var actionEnt in uid.Comp.ActionEntities) _actions.RemoveAction(actionEnt);
 
         if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var transmitter))
