@@ -23,7 +23,7 @@ GITHUB_API_URL = os.environ.get("GITHUB_API_URL", "https://api.github.com")
 DISCORD_SPLIT_LIMIT = 2000
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
-CHANGELOG_FILE = "Resources/Changelog/DeltaVChangelog.yml"
+CHANGELOG_FILE = os.environ.get("CHANGELOG_FILE")
 
 TYPES_TO_EMOJI = {"Fix": "🐛", "Add": "🆕", "Remove": "❌", "Tweak": "⚒️"}
 
@@ -173,6 +173,7 @@ def changelog_entries_to_message_lines(entries: Iterable[ChangelogEntry]) -> lis
     message_lines = []
 
     for contributor_name, group in itertools.groupby(entries, lambda x: x["author"]):
+        message_lines.append("\n")
         message_lines.append(f"**{contributor_name}** updated:\n")
 
         for entry in group:

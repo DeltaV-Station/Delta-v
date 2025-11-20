@@ -463,6 +463,12 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Boop: # DeltaV (EE)
+      path: /Audio/_EE/Voice/IPC/beep_500.ogg      
+    Whirr: # DeltaV (EE)
+      collection: IPCWhirrs
+      params:
+        variation: 0
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate
@@ -485,6 +491,12 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Boop: # DeltaV (EE)
+      path: /Audio/_EE/Voice/IPC/beep_500.ogg      
+    Whirr: # DeltaV (EE)
+      collection: IPCWhirrs
+      params:
+        variation: 0
 
 - type: emoteSounds
   id: UnisexSiliconXenoborg
@@ -505,6 +517,12 @@
       collection: XenoborgBikeHorn
     Ping:
       collection: XenoborgPing
+    Boop: # DeltaV (EE)
+      path: /Audio/_EE/Voice/IPC/beep_500.ogg      
+    Whirr: # DeltaV (EE)
+      collection: IPCWhirrs
+      params:
+        variation: 0
 
 # body emotes
 - type: emoteSounds
@@ -631,3 +649,51 @@
     path: /Audio/Animals/goat_bah.ogg
     params:
       variation: 0.125
+
+- type: emoteSounds
+  id: Scurret
+  params:
+    variation: 0.125
+  sounds:
+    Thump:
+      path: /Audio/Effects/soft_thump.ogg
+      params:
+        variation: 0.125
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -6
+    Salute:
+      collection: Salutes
+    Laugh:
+      collection: WawaLaugh
+    Sneeze:
+      collection: WawaSneeze
+    Cough:
+      collection: MaleCoughs
+    Whistle:
+      collection: Whistles
+    Sigh:
+      collection: WawaSigh
+    Scream:
+      collection: WawaScream
+    Yawn:
+      collection: WawaYawn
+    Crying:
+      collection: WawaCry
+    Snore:
+      collection: Snores
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Honk:
+      collection: BikeHorn
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: WawaDeath

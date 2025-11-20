@@ -86,3 +86,23 @@ command-description-stationevent-simulate =
     Given a BasicStationEventScheduler prototype, N Rounds, N Players, mean round end, and stddev of round end, Simulates N number of rounds in which events will occur and prints the occurrences of every event after.
 command-description-jobboard-completeJob =
     Completes a given salvage job board job for the station.
+command-description-xenoartifact-list =
+    List all EntityUids of spawned artifacts.
+command-description-xenoartifact-printMatrix =
+    Prints out matrix that displays all edges between nodes.
+command-description-xenoartifact-totalResearch =
+    Gets all research points that can be extracted from artifact currently.
+command-description-xenoartifact-averageResearch =
+    Calculates amount of research points average generated xeno artifact will output when fully activated.
+command-description-xenoartifact-unlockAllNodes =
+    Unlocks all nodes of artifact.
+command-description-stationevent-lsprobtime =
+    Lists the probability of different station events occuring based on the specified length of a round.
+command-description-scale-set =
+    Sets an entity's sprite size to a certain scale (without changing its fixture).
+command-description-scale-get =
+    Get an entity's sprite scale as set by ScaleVisualsComponent. Does not include any changes directly made in the SpriteComponent.
+command-description-scale-multiply =
+    Multiply an entity's sprite size with a certain factor (without changing its fixture).
+command-description-scale-multiplywithfixture =
+    Multiply an entity's sprite size with a certain factor (including its fixture).

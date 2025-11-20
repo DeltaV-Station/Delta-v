@@ -16,6 +16,8 @@
   id: MobReptilianSprites
   sprites:
     Head: MobReptilianHead
+    Hair: MobHumanoidAnyMarking # DeltaV - unbaldify reptilians
+    FacialHair: MobHumanoidAnyMarking # DeltaV - unbaldify reptilians
     Snout: MobHumanoidAnyMarking
     UndergarmentTop: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
@@ -35,13 +37,13 @@
 
 - type: markingPoints
   id: MobReptilianMarkingLimits
-  onlyWhitelisted: true
+  onlyWhitelisted: false # DeltaV - unbaldify reptilians
   points:
     Hair:
-      points: 0
+      points: 1 # DeltaV - unbaldify reptilians
       required: false
     FacialHair:
-      points: 0
+      points: 1 # DeltaV - unbaldify reptilians
       required: false
     Tail:
       points: 1

@@ -1,7 +1,7 @@
 using Content.Server.Access.Systems;
 using Content.Server.Humanoid;
 using Content.Server.IdentityManagement;
-using Content.Server.Mind.Commands;
+using Content.Server.Mind;
 using Content.Server.PDA;
 using Content.Server.Spawners.Components; // DeltaV
 using Content.Server.Station.Components;
@@ -42,6 +42,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
 
     /// <summary>
     /// Attempts to spawn a player character onto the given station.
@@ -90,7 +91,11 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         EntityUid? station,
         EntityUid? entity = null)
     {
-        _prototypeManager.TryIndex(job ?? string.Empty, out var prototype);
+        // Delta-V, prevent errors if this is an empty job.
+        JobPrototype? prototype = null;
+        if (!string.IsNullOrWhiteSpace(job))
+            _prototypeManager.TryIndex(job ?? string.Empty, out prototype);
+        // Delta-V end
         RoleLoadout? loadout = null;
 
         // Need to get the loadout up-front to handle names if we use an entity spawn override.
@@ -112,8 +117,8 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         if (prototype?.JobEntity != null)
         {
             DebugTools.Assert(entity is null);
-            var jobEntity = EntityManager.SpawnEntity(prototype.JobEntity, coordinates);
-            MakeSentientCommand.MakeSentient(jobEntity, EntityManager);
+            var jobEntity = Spawn(prototype.JobEntity, coordinates);
+            _mindSystem.MakeSentient(jobEntity);
 
             // Make sure custom names get handled, what is gameticker control flow whoopy.
             if (loadout != null)
@@ -163,7 +168,8 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             SetPdaAndIdCardData(entity.Value, metaData.EntityName, prototype, station);
         }
 
-        DoJobSpecials(job, entity.Value);
+        if (!string.IsNullOrWhiteSpace(job)) // Delta-V, empty job is okay, actually
+            DoJobSpecials(job, entity.Value);
         _identity.QueueIdentityUpdate(entity.Value);
         return entity.Value;
     }

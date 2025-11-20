@@ -43,7 +43,7 @@
   - You can conjure a cloud of [color=#77b58e]ammonia[/color] using [color=purple][italic]Rat King's Domain[/italic][/color]. This purple gas is mildly poisonous to humans but heals rats.
   - [color=#9daa98][italic]Rummage[/italic][/color] through a disposal unit by using the context menu. Use this to find [bold]scraps of food[/bold] to grow your army.
   - Besides your abilities, [bold]you are stronger than most other animals.[/bold] You and your servants are capable of speech and you're both small enough to fit under airlocks and tables.
-  - [bold]Your underlings are still very fragile![/bold] Beware of spacings, explosions and the buisness end of a melee weapon.
+  - [bold]Your underlings are still very fragile![/bold] Beware of spacings, explosions and the business end of a melee weapon.
 
   # Space Dragon
 
@@ -74,4 +74,16 @@
   Slimes and spiders have no remarkable features, but will [color=cyan]infest the station[/color] from time to time regardless. Both will give chase and attack anything they see.
   - Slimes may [bold]deal extra cellular or poison damage[/bold], based upon their color. Water hurts them just as it would hurt a slime person.
   - Spiders have a venomous bite and can [bold]create webs[/bold] that are hard to move though. Webs are easily destroyed with a blade. They can also pry open doors, windoors, and airlocks.
+
+  
+  <!-- DeltaV - start cortical borer changes--># Cortical Borer
+
+  <Box>
+    <GuideEntityEmbed Entity="MobCorticalBorer"/>
+  </Box>
+  Cortical Borers are a worm-like parasitic species that inhabit the sector. They burrow into one's brain and feed off the body. It's said they can speak to their host, often to try to persuade them to do certain things for unknown reasons.
+  - As a Borer, you can view the health of your host, and inject them with harmful or helpful chemicals. When in a host, you regain chemicals over time, to a maximum of 250.
+  - You can additionally [color=yellow]control[/color] your host for up to 40 seconds, during which time you can [color=yellow]lay an egg[/color] if you have at least 200 chemicals stored. Said egg can hatch into a new borer once it's ready...
+  - A borer's abilities will temporarily stop working if the host ingests sugar. The borer can be removed from a host via surgery.
+ <!-- DeltaV - end cortical borer changes-->
 </Document>

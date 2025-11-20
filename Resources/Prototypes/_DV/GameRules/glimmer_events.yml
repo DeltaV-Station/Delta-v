@@ -14,7 +14,7 @@
     - id: GlimmerRandomSentience
     - id: GlimmerRandomAnimation
     - id: ThavenMoodUpset
-    - id: LockProbers
+    #- id: LockProbers
     - id: PsionicNosebleedEvent
 
 - type: entity
@@ -144,7 +144,7 @@
     duration: 1
     reoccurrenceDelay: 20
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_DV/Announcements/attention.ogg
   - type: GlimmerEvent
     minimumGlimmer: 300
     maximumGlimmer: 600
@@ -170,13 +170,13 @@
     glimmerBurnUpper: 70
   - type: ThavenMoodUpsetRule
 
-- type: entity
-  parent: BaseGlimmerEvent
-  id: LockProbers
-  components:
-  - type: GlimmerEvent
-    minimumGlimmer: 500
-  - type: LockProbersRule
+#- type: entity
+#  parent: BaseGlimmerEvent
+#  id: LockProbers
+#  components:
+#  - type: GlimmerEvent
+#    minimumGlimmer: 500
+#  - type: LockProbersRule
 
 - type: entity
   parent: BaseGlimmerEvent
