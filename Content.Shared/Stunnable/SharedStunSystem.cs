@@ -41,7 +41,6 @@ public abstract partial class SharedStunSystem : EntitySystem
     [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
     [Dependency] protected readonly SharedStaminaSystem Stamina = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
-
     public override void Initialize()
     {
         SubscribeLocalEvent<StunnedComponent, ComponentStartup>(UpdateCanMove);

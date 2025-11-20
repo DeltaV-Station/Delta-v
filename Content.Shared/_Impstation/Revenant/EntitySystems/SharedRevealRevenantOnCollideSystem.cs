@@ -41,6 +41,6 @@ public abstract class SharedRevealRevenantOnCollideSystem : EntitySystem
         _status.TryAddStatusEffect<CorporealComponent>(args.OtherEntity, CorporealStatusId, comp.RevealTime, true);
 
         if (comp.StunTime != null && !_status.HasStatusEffect(args.OtherEntity, StunStatusId))
-            _stun.TryStun(args.OtherEntity, comp.StunTime.Value, true);
+            _stun.TryUpdateStunDuration(args.OtherEntity, comp.StunTime.Value);
     }
 }
