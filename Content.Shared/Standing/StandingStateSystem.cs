@@ -2,9 +2,6 @@
 // if wizden ever does something to this system we're FUCKED
 // regards.
 
-using Content.Shared._White;
-using Content.Shared.Buckle;
-using Content.Shared.Buckle.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
@@ -20,8 +17,6 @@ public sealed class StandingStateSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!; // WD EDIT
-    [Dependency] private readonly SharedBuckleSystem _buckle = default!; // WD EDIT
 
     // If StandingCollisionLayer value is ever changed to more than one layer, the logic needs to be edited.
     public const int StandingCollisionLayer = (int) CollisionGroup.MidImpassable;
@@ -38,7 +33,7 @@ public sealed class StandingStateSystem : EntitySystem
 
     private void OnMobTargetCollide(Entity<StandingStateComponent> ent, ref AttemptMobTargetCollideEvent args)
     {
-        if (ent.Comp.CurrentState is StandingState.Lying) // DeltaV
+        if (!ent.Comp.Standing)
         {
             args.Cancelled = true;
         }
@@ -46,7 +41,7 @@ public sealed class StandingStateSystem : EntitySystem
 
     private void OnMobCollide(Entity<StandingStateComponent> ent, ref AttemptMobCollideEvent args)
     {
-        if (ent.Comp.CurrentState is StandingState.Lying) // DeltaV
+        if (!ent.Comp.Standing)
         {
             args.Cancelled = true;
         }
@@ -78,7 +73,7 @@ public sealed class StandingStateSystem : EntitySystem
         if (!Resolve(uid, ref standingState, false))
             return false;
 
-        return standingState.CurrentState is StandingState.Lying or StandingState.GettingUp;
+        return !standingState.Standing;
     }
 
     public bool Down(EntityUid uid, bool playSound = true, bool dropHeldItems = true,
@@ -92,7 +87,7 @@ public sealed class StandingStateSystem : EntitySystem
         // Optional component.
         Resolve(uid, ref appearance, ref hands, false);
 
-        if (standingState.CurrentState is StandingState.Lying or StandingState.GettingUp)
+        if (!standingState.Standing)
             return true;
 
         // This is just to avoid most callers doing this manually saving boilerplate
@@ -105,8 +100,9 @@ public sealed class StandingStateSystem : EntitySystem
             RaiseLocalEvent(uid, ref ev, false);
         }
 
-        if (TryComp(uid, out BuckleComponent? buckle) && buckle.Buckled && !_buckle.TryUnbuckle(uid, uid, buckleComp: buckle)) // WD EDIT
-            return false;
+        // DeltaV - Unsure if this is needed after ripping out the old laying down system. Left it in in case.
+        //if (TryComp(uid, out BuckleComponent? buckle) && buckle.Buckled && !_buckle.TryUnbuckle(uid, uid, buckleComp: buckle))
+        //    return false;
 
         var msg = new DownAttemptEvent();
         RaiseLocalEvent(uid, msg, false);
@@ -114,7 +110,7 @@ public sealed class StandingStateSystem : EntitySystem
         if (msg.Cancelled)
             return false;
 
-        standingState.CurrentState = StandingState.Lying;
+        standingState.Standing = false;
         Dirty(uid, standingState);
         RaiseLocalEvent(uid, new DownedEvent(), false);
 
@@ -141,7 +137,6 @@ public sealed class StandingStateSystem : EntitySystem
             _audio.PlayPredicted(standingState.DownSound, uid, null);
         }
 
-        _movement.RefreshMovementSpeedModifiers(uid); // WD EDIT
         return true;
     }
 
@@ -156,11 +151,12 @@ public sealed class StandingStateSystem : EntitySystem
         // Optional component.
         Resolve(uid, ref appearance, false);
 
-        if (standingState.CurrentState is StandingState.Standing)
+        if (standingState.Standing)
             return true;
 
-        if (TryComp(uid, out BuckleComponent? buckle) && buckle.Buckled && !_buckle.TryUnbuckle(uid, uid, buckleComp: buckle)) // WD EDIT
-            return false;
+        // DeltaV - Unsure if this is needed after ripping out the old laying down system. Left it in in case.
+        //if (TryComp(uid, out BuckleComponent? buckle) && buckle.Buckled && !_buckle.TryUnbuckle(uid, uid, buckleComp: buckle))
+        //    return false;
 
         if (!force)
         {
@@ -170,7 +166,7 @@ public sealed class StandingStateSystem : EntitySystem
                 return false;
         }
 
-        standingState.CurrentState = StandingState.Standing;
+        standingState.Standing = true;
         Dirty(uid, standingState);
         RaiseLocalEvent(uid, new StoodEvent(), false);
 
@@ -184,7 +180,6 @@ public sealed class StandingStateSystem : EntitySystem
             }
         }
         standingState.ChangedFixtures.Clear();
-        _movement.RefreshMovementSpeedModifiers(uid); // WD EDIT
 
         return true;
     }

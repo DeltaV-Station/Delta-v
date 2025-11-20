@@ -21,7 +21,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Containers;
-using Content.Shared._White.Standing;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Stunnable;
@@ -39,9 +38,6 @@ public abstract partial class SharedStunSystem : EntitySystem
     [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
     [Dependency] protected readonly SharedStaminaSystem Stamina = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly SharedLayingDownSystem _layingDown = default!; // WD EDIT
-    [Dependency] private readonly SharedContainerSystem _container = default!; // WD EDIT
-
     public override void Initialize()
     {
         SubscribeLocalEvent<SlowedDownComponent, ComponentInit>(OnSlowInit);
