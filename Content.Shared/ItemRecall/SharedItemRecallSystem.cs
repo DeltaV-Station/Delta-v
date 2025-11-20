@@ -62,9 +62,11 @@ public abstract partial class SharedItemRecallSystem : EntitySystem
                 return;
             }
 
-            if (TryMarkItem(ent, markItem.Value)) // DeltaV
+            // DeltaV
+            if (TryMarkItem(ent, markItem.Value))
                 _popups.PopupClient(Loc.GetString("item-recall-item-marked", ("item", markItem.Value)), args.Performer, args.Performer);
             return;
+            // DeltaV
         }
 
         RecallItem(ent.Comp.MarkedEntity.Value);
