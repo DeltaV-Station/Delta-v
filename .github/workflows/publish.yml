@@ -62,7 +62,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
-        CHANGELOG_FILE: "Resources/Changelog/Maps.yml"
+        CHANGELOG_FILE: "Resources/Changelog/DeltaVMaps.yml"
 
     - name: Publish changelog (RSS)
       continue-on-error: true

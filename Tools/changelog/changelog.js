@@ -1,153 +1,189 @@
 // Dependencies
-const fs = require("fs");
-const yaml = require("js-yaml");
-const axios = require("axios");
+import fs from "node:fs/promises";
+import path from "node:path";
+import { exit } from "node:process";
+import yaml from "js-yaml";
 
-// Use GitHub token if available
-if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `Bearer ${process.env.GITHUB_TOKEN}`;
+const MAIN_CATEGORY = "Main";
 
-// Regexes
-const HeaderRegex = /^\s*(?::cl:|🆑) *([a-z0-9_\- ]+)?\s+/im; // :cl: or 🆑 [0] followed by optional author name [1]
-const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/img; // * or - followed by change type [0] and change message [1]
-const CommentRegex = /<!--.*?-->/gs; // HTML comments
+const PartialHeaderRegex = /^\s*(?::cl:|🆑) *.*/im; // :cl: or 🆑 [0] followed by optional author name [1]
+const HeaderRegex = /^\s*(?::cl:|🆑) *([a-z0-9_\- ,&]+)?\s*$/im; // :cl: or 🆑 [0] followed by optional author name [1]
+const ChangeRegex =
+    /^\s*[\*\-]? *(add|remove|tweak|fix|bug|bugfix): *([^\n\r]+)\r?$/i; // * or - followed by change type [0] and change message [1]
+const CategoryRegex = /^\s*([a-z]+):\s*$/gi;
+const CommentRegex = /(?<!\\)<!--([^>]+)(?<!\\)-->/gs; // HTML comments
 
-// Main function
-async function main() {
-    // Get PR details
-    const pr = await axios.get(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/pulls/${process.env.PR_NUMBER}`);
-    const { merged_at, body, user } = pr.data;
+/**
+ * @param {Parameters<typeof console.error>} optionalParams
+ * @returns {ReturnType<typeof exit>}
+ */
+function exitError(...optionalParams) {
+    if (optionalParams.length > 0) {
+        console.error(...optionalParams);
+    }
+    exit(1);
+}
 
-    // Remove comments from the body
-    commentlessBody = body.replace(CommentRegex, '');
+if (process.env.GITHUB_REPOSITORY === undefined) {
+    exitError("GITHUB_REPOSITORY not set");
+}
+if (process.env.PR_NUMBER === undefined) {
+    exitError("PR_NUMBER not set");
+}
+if (process.env.CHANGELOG_DIR === undefined) {
+    exitError("CHANGELOG_DIR not set");
+}
+const changelogDir = path.resolve(
+    path.join("../../", process.env.CHANGELOG_DIR),
+);
+try {
+    const stat = await fs.stat(changelogDir);
+    if (!stat.isDirectory()) {
+        exitError("CHANGELOG_DIR is not a directory", changelogDir);
+    }
+} catch {
+    exitError("CHANGELOG_DIR is missing", changelogDir);
+}
+const changelogFilePrefix = process.env.CHANGELOG_FILE_PREFIX ?? "";
+const maxEntries = process.env.CHANGELOG_MAX_ENTRIES ? Number.parseInt(process.env.CHANGELOG_MAX_ENTRIES, 10) : undefined;
+
+/**
+ * @param {string} entryType
+ * @returns {string|undefined}
+ */
+function normalizeEntryType(entryType) {
+    switch (entryType.toLowerCase()) {
+        case "add":
+            return "add";
+        case "remove":
+            return "remove";
+        case "bug":
+        case "fix":
+        case "bugfix":
+            return "fix";
+        case "tweak":
+            return "tweak";
+        default:
+            return undefined;
+    }
+}
+
+/**
+ * @param {string} body
+ * @param {string} user
+ */
+async function parsePRBody(body, user) {
+    const allCategories = new Set([MAIN_CATEGORY]);
+    if (process.env.CHANGELOG_EXTRA_CATEGORIES) {
+        for (const category of process.env.CHANGELOG_EXTRA_CATEGORIES.split(",")) {
+            allCategories.add(category);
+        }
+    }
 
     // Get author
-    const headerMatch = HeaderRegex.exec(commentlessBody);
+    const partialHeader = PartialHeaderRegex.test(body);
+    if (!partialHeader) {
+        console.log("No changelog entry found, skipping", PartialHeaderRegex, body);
+        exit(0);
+    }
+
+    const headerMatch = HeaderRegex.exec(body);
     if (!headerMatch) {
-        console.log("No changelog entry found, skipping");
-        return;
+        exitError("Header found, but couldn't be parsed");
     }
 
     let author = headerMatch[1];
     if (!author) {
-        console.log("No author found, setting it to author of the PR\n");
-        author = user.login;
+        console.log("No author found, setting it to author of the PR");
+        author = user;
     }
 
-    // Get all changes from the body
-    const entries = getChanges(commentlessBody);
+    body = body.substring(headerMatch.index + headerMatch[0].length);
 
+    /** @type {{[category: string]: {type: string, message: string}[]}} */
+    let currentCategory = MAIN_CATEGORY;
+    const changes = { [currentCategory]: [] };
 
-    // Time is something like 2021-08-29T20:00:00Z
-    // Time should be something like 2023-02-18T00:00:00.0000000+00:00
-    let time = merged_at;
-    if (time)
-    {
-        time = time.replace("z", ".0000000+00:00").replace("Z", ".0000000+00:00");
+    for (const line of body.split(/\r?\n/g)) {
+        const categoryMatch = CategoryRegex.exec(line);
+        if (categoryMatch) {
+            if (allCategories.has(categoryMatch[1])) {
+                currentCategory = categoryMatch[1];
+            }
+            changes[currentCategory] ??= [];
+            continue;
+        }
+
+        const entryMatch = ChangeRegex.exec(line);
+        if (!entryMatch) {
+            continue
+        };
+
+        const type = normalizeEntryType(entryMatch[1]);
+        if (!type) continue;
+        const message = entryMatch[2].trim();
+
+        changes[currentCategory].push({ message, type, });
     }
-    else
-    {
-        console.log("Pull request was not merged, skipping");
-        return;
-    }
-
-
-    // Construct changelog yml entry
-    const entry = {
-        author: author,
-        changes: entries,
-        id: getHighestCLNumber() + 1,
-        time: time,
+    return {
+        author,
+        changes,
     };
-
-    // Write changelogs
-    writeChangelog(entry);
-
-    console.log(`Changelog updated with changes from PR #${process.env.PR_NUMBER}`);
 }
 
+const url = `https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/pulls/${process.env.PR_NUMBER}`;
+console.debug("fetching", url);
 
-// Code chunking
+// Get PR details
+// Use GitHub token if available
+const pr = await fetch(url, { headers: { Authorization: process.env.GITHUB_TOKEN ? `Bearer ${process.env.GITHUB_TOKEN}` : undefined } });
+if (pr.status !== 200) {
+    exitError(pr.status, pr.statusText, await pr?.text());
+}
 
-// Get all changes from the PR body
-function getChanges(body) {
-    const matches = [];
-    const entries = [];
+const { merged_at, body, user } = await pr.json();
 
-    for (const match of body.matchAll(EntryRegex)) {
-        matches.push([match[1], match[2]]);
-    }
+if (!merged_at) {
+    console.log("PR not merged, skipping")
+    exit(0);
+}
 
-    if (!matches)
-    {
-        console.log("No changes found, skipping");
-        return;
-    }
+// Remove comments from the body
+const commentlessBody = body.replace(CommentRegex, "");
 
+const changelogData = await parsePRBody(commentlessBody, user.login);
 
-    // Check change types and construct changelog entry
-    matches.forEach((entry) => {
-        let type;
+const author = changelogData.author;
+for (const [category, changes] of Object.entries(changelogData.changes)) {
+    const fileName = path.join(
+        changelogDir,
+        changelogFilePrefix +
+        (category === MAIN_CATEGORY ? "Changelog" : (category[0].toUpperCase() +
+            category.toLowerCase().substring(1))) +
+        ".yml",
+    );
 
-        switch (entry[0].toLowerCase()) {
-            case "add":
-                type = "Add";
-                break;
-            case "remove":
-                type = "Remove";
-                break;
-            case "tweak":
-                type = "Tweak";
-                break;
-            case "fix":
-                type = "Fix";
-                break;
-            default:
-                break;
-        }
+    const changelogData =
+        yaml.load(await fs.readFile(fileName), {
+            filename: fileName,
+            json: false,
+        }) ?? {};
+    changelogData.Entries.push({
+        author,
+        changes,
+        id: (changelogData.Entries?.at(-1)?.id ?? 0) + 1,
+        time: merged_at.replace(/z$/i, ".0000000+00:00"),
+        url: `https://github.com/${process.env.GITHUB_REPOSITORY}/pull/${process.env.PR_NUMBER}`
+    });
+    if (maxEntries)
+        changelogData.Entries = changelogData.Entries.slice(-maxEntries)
 
-        if (type) {
-            entries.push({
-                type: type,
-                message: entry[1],
-            });
-        }
+    const newChangelog = yaml.dump(changelogData, {
+        indent: 2,
+        noArrayIndent: true,
+        noRefs: true,
+        lineWidth: 90
     });
 
-    return entries;
+    await fs.writeFile(fileName, newChangelog);
 }
-
-// Get the highest changelog number from the changelogs file
-function getHighestCLNumber() {
-    // Read changelogs file
-    const file = fs.readFileSync(`../../${process.env.CHANGELOG_DIR}`, "utf8");
-
-    // Get list of CL numbers
-    const data = yaml.load(file);
-    const entries = data && data.Entries ? Array.from(data.Entries) : [];
-    const clNumbers = entries.map((entry) => entry.id);
-
-    // Return highest changelog number
-    return Math.max(...clNumbers, 0);
-}
-
-function writeChangelog(entry) {
-    let data = { Entries: [] };
-
-    // Create a new changelogs file if it does not exist
-    if (fs.existsSync(`../../${process.env.CHANGELOG_DIR}`)) {
-        const file = fs.readFileSync(`../../${process.env.CHANGELOG_DIR}`, "utf8");
-        data = yaml.load(file);
-    }
-
-    data.Entries.push(entry);
-
-    // Write updated changelogs file
-    fs.writeFileSync(
-        `../../${process.env.CHANGELOG_DIR}`,
-        "Entries:\n" +
-            yaml.dump(data.Entries, { indent: 2 }).replace(/^---/, "")
-    );
-}
-
-// Run main
-main();

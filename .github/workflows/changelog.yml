@@ -1,0 +1,66 @@
+name: PR Changelogs
+concurrency: commit_action
+on:
+  pull_request_target:
+    types: [closed]
+
+env:
+  PR_NUMBER: ${{ github.event.number }}
+  GITHUB_REPOSITORY: ${{ github.repository }}
+  # Prefix of the changelog files; optional, case sensitive
+  CHANGELOG_FILE_PREFIX: ${{ vars.CHANGELOG_FILE_PREFIX }}
+  # Comma-separated list of categories that should generate changelog files; optional, case-insensitive
+  # e.g. `MAPS,ADMIN`
+  CHANGELOG_EXTRA_CATEGORIES: ${{ vars.CHANGELOG_EXTRA_CATEGORIES }}
+  # Path to the Changelog directory; required
+  # e.g. Resources/Changelog/
+  CHANGELOG_DIR: ${{ vars.CHANGELOG_DIR }}
+  # How many changelog entries to keep; optional, defaults to not trimming the changelog
+  CHANGELOG_MAX_ENTRIES: ${{ vars.CHANGELOG_MAX_ENTRIES }} # 500
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Master
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          ref: "${{ vars.CHANGELOG_BRANCH }}"
+
+      - name: Setup Git
+        run: |
+          git config --global user.name "${{ vars.CHANGELOG_USER }}"
+          git config --global user.email "${{ vars.CHANGELOG_EMAIL }}"
+        shell: bash
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+
+      - name: Install Dependencies
+        run: |
+          cd "Tools/changelog"
+          npm install --omit=dev
+        shell: bash
+        continue-on-error: false
+
+      - name: Generate Changelog
+        run: |
+          cd "Tools/changelog"
+          node changelog.js
+        shell: bash
+        continue-on-error: false
+
+      - name: Commit Changelog
+        run: |
+          cd "Resources/Changelog"
+          git add *.yml
+          git commit -m "Automatic changelog update (#${{ env.PR_NUMBER }})"
+          git push
+        shell: bash
+        continue-on-error: false
