@@ -5,6 +5,12 @@
   name: mystagogue's hardsuit helmet
   description: Lightweight hardsuit helmet that has a galaxy-first psionic passthrough system.
   components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/rd.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/rd.rsi
+  - type: PointLight
+    color: "#d6adff"
   - type: Psionic
   - type: TinfoilHat
     passthrough: true
