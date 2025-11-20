@@ -46,9 +46,6 @@
   - type: EyeCursorOffset
     maxOffset: 2.5
     pvsIncrease: 0.25
-  - type: SpeedModifiedOnWield
-    walkModifier: 0.7
-    sprintModifier: 0.7
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
