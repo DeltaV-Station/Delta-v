@@ -21,7 +21,7 @@
   - type: InstantAction
     event: !type:OnItemRecallActionEvent
   - type: ItemRecall
-    markedEntityBlacklist:
+    markedEntityBlacklist: # DeltaV
       tags:
         - HighRiskItem
         - Backpack

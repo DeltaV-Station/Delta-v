@@ -62,7 +62,7 @@ public abstract partial class SharedItemRecallSystem : EntitySystem
                 return;
             }
 
-            if (TryMarkItem(ent, markItem.Value))
+            if (TryMarkItem(ent, markItem.Value)) // DeltaV
                 _popups.PopupClient(Loc.GetString("item-recall-item-marked", ("item", markItem.Value)), args.Performer, args.Performer);
             return;
         }
