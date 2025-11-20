@@ -2,6 +2,7 @@ using Content.Server.Ghost;
 using Content.Server.Morgue.Components;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
+using Content.Shared._Goobstation.CrematorImmune;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
@@ -133,8 +134,10 @@ public sealed class CrematoriumSystem : EntitySystem
             for (var i = storage.Contents.ContainedEntities.Count - 1; i >= 0; i--)
             {
                 var item = storage.Contents.ContainedEntities[i];
+                if (HasComp<CrematoriumImmuneComponent>(item)) // GOOBCODE ALERT //
+                    continue;
                 _containers.Remove(item, storage.Contents);
-                EntityManager.DeleteEntity(item);
+                Del(item);
             }
             var ash = Spawn("Ash", Transform(uid).Coordinates);
             _containers.Insert(ash, storage.Contents);
@@ -172,7 +175,7 @@ public sealed class CrematoriumSystem : EntitySystem
         }
         else
         {
-            EntityManager.DeleteEntity(victim);
+            Del(victim);
         }
         _entityStorage.CloseStorage(uid);
         Cremate(uid, component);

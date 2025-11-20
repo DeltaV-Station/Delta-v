@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Server.Body.Components;
 using Content.Server.Ghost;
 using Content.Server.Humanoid;
 using Content.Shared._Shitmed.Body.Part;
@@ -88,7 +87,7 @@ public sealed class BodySystem : SharedBodySystem
         }
     }
 
-    protected override void RemovePart(
+    public override void RemovePart( // DeltaV - Made public
         Entity<BodyComponent?> bodyEnt,
         Entity<BodyPartComponent> partEnt,
         string slotId)
@@ -218,8 +217,8 @@ public sealed class BodySystem : SharedBodySystem
         var bleeding = partEnt.Comp.SeverBleeding;
         if (partEnt.Comp.IsVital)
             bleeding *= 2f;
-        _bloodstream.TryModifyBleedAmount(bodyEnt, bleeding);
+        TryComp<BloodstreamComponent>(bodyEnt, out var bloodstream);
+        _bloodstream.TryModifyBleedAmount((bodyEnt, bloodstream), bleeding);
     }
-
     // Shitmed Change End
 }

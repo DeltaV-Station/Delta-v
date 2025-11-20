@@ -15,6 +15,7 @@
   table: !type:AllSelector
     children:
     - id: OxygenTankFilled
+    - id: NitrogenTankFilled
     - id: ClothingOuterHardsuitEVA
     - id: ClothingHeadHelmetEVA
     - id: ClothingMaskBreath
@@ -183,7 +184,9 @@
   table: !type:AllSelector
     children:
     - id: OxygenTankFilled
+    - id: NitrogenTankFilled
     - id: ClothingOuterHardsuitSecurity
+    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
     - id: ClothingMaskBreath
 
 #CE's hardsuit

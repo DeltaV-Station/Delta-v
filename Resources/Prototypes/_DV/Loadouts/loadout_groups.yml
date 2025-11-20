@@ -241,6 +241,7 @@
   loadouts:
   - SalvageCloak
   - ScarfBrown
+  - SalvageMantle
 
 - type: loadoutGroup
   id: SalvageSpecialistJumpsuit
@@ -642,6 +643,7 @@
   - StationEngineerHardhatOrange
   - StationEngineerHardhatRed
   - AtmosHardHatBlue
+  - AtmosBeret
 
 ## Clerk
 - type: loadoutGroup
@@ -795,6 +797,14 @@
   - WhiteLeatherShoes
   - LaceupShoes
   - HoPWinterBoots
+
+## chift engenier
+- type: loadoutGroup
+  id: ChiefEngineerGloves
+  name: loadout-group-chief-engineer-gloves
+  minLimit: 0
+  loadouts:
+  - insulatedgloves
 
 # PDAs
 - type: loadoutGroup
