@@ -90,15 +90,15 @@
         Base: critical
       Dead:
         Base: dead
-  # - type: GhostRole
-  #   makeSentient: true
-  #   name: ghost-role-information-rat-king-name
-  #   description: ghost-role-information-rat-king-description
-  #   rules: ghost-role-information-antagonist-rules
-  #   mindRoles:
-  #   - MindRoleGhostRoleSoloAntagonist
-  #   raffle:
-  #     settings: default
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-rat-king-name
+    description: ghost-role-information-rat-king-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
   - type: GhostTakeoverAvailable
   - type: Tag
     tags:
