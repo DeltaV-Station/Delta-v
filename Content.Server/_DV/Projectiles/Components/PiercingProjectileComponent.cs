@@ -1,6 +1,4 @@
-﻿using Content.Shared.FixedPoint;
-using Content.Shared.Tag;
-using Robust.Shared.GameStates;
+﻿using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.Projectiles.Components;
