@@ -345,6 +345,7 @@
     - MechEquipment
     - Surgery # DeltaV - Share Surgery Parts between Epi and Med.
     - CyberneticsRobotics # DeltaV - Share Surgery Parts between Epi and Med.
+    - PsionicProsthetics # DeltaV
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
@@ -357,6 +358,7 @@
     - SalvageHardsuits
     - ParamedicHardsuit
     - EngineeringHardsuits
+    - AdvancedPsionicProsthetics
     # End DeltaV Additions
   - type: MaterialStorage
     whitelist:
@@ -455,6 +457,7 @@
     - SecurityWeapons
     - SpecOpsGoogles # DeltaV
     #- SecurityDisablers # DeltaV - made roundstart
+    - AdvancedPsionicProsthetics # DeltaV
   - type: MaterialStorage
     whitelist:
       tags:
