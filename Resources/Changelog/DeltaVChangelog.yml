@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: Solar panels now can be upgraded by using the upgrade material glass
-      directly on it. You can also go back to a previous state by applying a different
-      glass on it.
-    type: Add
-  id: 1332
-  time: '2025-04-28T23:23:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3587
 - author: AveriV2
   changes:
   - message: fixed a minor typo in kitsune fox form
@@ -4217,3 +4208,16 @@
   id: 1831
   time: '2025-11-21T01:49:47.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4665
+- author: Cepelinas1
+  changes:
+  - message: Sophont and Synthetic definitions were removed in the SOP and other documents,
+      in exchange for the newer one.
+    type: Remove
+  - message: 'Added a new entry to SOP: Entity Definitions. They define what are entities,
+      synthetics, pets and Employees. Go give ''em a read!'
+    type: Add
+  - message: Changed sophont definitions in Space Law with the newer entity definitions.
+    type: Add
+  id: 1832
+  time: '2025-11-21T13:42:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4661
