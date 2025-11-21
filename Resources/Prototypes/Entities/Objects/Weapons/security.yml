@@ -144,6 +144,7 @@
         visible: false
         shader: unshaded
     - type: Flash
+      flashingTime: 2 # DeltaV - serialize flashingTime variable here to line up with delay variable, which have to match
     - type: LimitedCharges
       maxCharges: 5
     - type: MeleeWeapon
@@ -156,7 +157,8 @@
       size: Small
       sprite: Objects/Weapons/Melee/flash.rsi
     - type: UseDelay
-      delay: 4 # has to be the same as the FlashingTime datafield in FlashComponent
+      # DeltaV - Reduce delay from 4 to 2
+      delay: 2 # has to be the same as the FlashingTime datafield in FlashComponent
     - type: UseDelayOnMeleeHit
     - type: StaticPrice
       price: 40
