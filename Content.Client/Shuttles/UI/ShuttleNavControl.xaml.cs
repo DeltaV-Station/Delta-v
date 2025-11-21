@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Shared.Coordinates;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
@@ -221,7 +220,8 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
                 var gridCentre = Vector2.Transform(gridBody.LocalCenter, curGridToView);
 
-                var gridCenterPos = _transform.GetWorldPosition(gUid) + gridBody.LocalCenter;
+                
+                var gridCenterPos = _transform.GetWorldPosition(gUid) + (_transform.GetWorldRotation(gUid).ToVec() * gridBody.LocalCenter);
 
                 var gridDistance = Vector2.Distance(gridCenterPos, xform.LocalPosition);
                 var labelText = Loc.GetString("shuttle-console-iff-label", ("name", labelName),
