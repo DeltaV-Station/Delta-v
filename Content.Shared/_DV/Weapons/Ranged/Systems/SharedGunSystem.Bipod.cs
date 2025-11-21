@@ -12,7 +12,7 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem
 {
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private readonly ActionContainerSystem _actionContainerSystem = default!;
 
     private void InitializeBipods()
     {
@@ -32,7 +32,7 @@ public abstract partial class SharedGunSystem
 
     private void OnMapInit(Entity<GunBipodComponent> weapon, ref MapInitEvent args)
     {
-        _actionContainer.EnsureAction(weapon.Owner, ref weapon.Comp.BipodToggleActionEntity, weapon.Comp.BipodToggleAction);
+        _actionContainerSystem.EnsureAction(weapon.Owner, ref weapon.Comp.BipodToggleActionEntity, weapon.Comp.BipodToggleAction);
         Dirty(weapon);
     }
 
@@ -145,7 +145,8 @@ public abstract partial class SharedGunSystem
 
     private void PackUpBipod(Entity<GunBipodComponent> weapon, EntityUid user, IsUsingBipodComponent? userComp)
     {
-        if (!Resolve(user, ref userComp)) // Component can be nullable, so we resolve. Less expensive than TryComp.
+        if (Timing.ApplyingState
+            || !Resolve(user, ref userComp)) // Component can be nullable, so we resolve. Less expensive than TryComp.
             return;
 
         userComp.BipodOwnerUids.Remove(weapon); // Remove the bipod component from the list of used bipods.
