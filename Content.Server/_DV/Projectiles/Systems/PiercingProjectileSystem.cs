@@ -1,4 +1,4 @@
-﻿using Content.Server._DV.Projectiles.Components;
+using Content.Server._DV.Projectiles.Components;
 using Content.Server._DV.Projectiles.Events;
 using Content.Shared.Tag;
 

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   id: BulletLMGAntiMateriel
@@ -12,4 +12,3 @@
     penetrationThreshold: 200 # This is irrelevant - As long as it's above 0.
   - type: PiercingProjectile
     healthThreshold: 200 # Normal walls have a threshold of 200.
-
