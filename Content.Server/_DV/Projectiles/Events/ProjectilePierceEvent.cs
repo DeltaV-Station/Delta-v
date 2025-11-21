@@ -1,4 +1,4 @@
-﻿using Content.Shared.FixedPoint;
+using Content.Shared.FixedPoint;
 
 namespace Content.Server._DV.Projectiles.Events;
 
