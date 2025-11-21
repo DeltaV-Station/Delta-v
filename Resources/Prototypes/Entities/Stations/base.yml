@@ -65,7 +65,7 @@
           hide: true
           nameGrid: true
           minCount: 2
-          maxCount: 2
+          maxCount: 3
           stationGrid: false
           paths:
           #- /Maps/Ruins/abandoned_outpost.yml #  DeltaV - Moved to _DV/Salvage pool
@@ -75,7 +75,7 @@
           - /Maps/_DV/Ruins/derelict.yml # DeltaV - Moved to DV folder
           - /Maps/_DV/Ruins/djstation.yml # DeltaV - Moved to DV folder
           #- /Maps/Ruins/empty_flagship.yml # TODO
-          - /Maps/Ruins/hydro_outpost.yml
+          - /Maps/_DV/Ruins/hydro_outpost.yml # DeltaV - Moved to DV folder
           - /Maps/_DV/Ruins/old_ai_sat.yml # DeltaV - Moved to DV folder
           - /Maps/_DV/Ruins/relaystation.yml # DeltaV - upstream removed
           #- /Maps/Ruins/ruined_prison_ship.yml # TODO
