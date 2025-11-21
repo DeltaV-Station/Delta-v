@@ -1,0 +1,12 @@
+﻿- type: entity
+  parent: MagazineBoxAntiMateriel
+  id: MagazineBoxLMGAntiMateriel
+  name: ammunition box (.40 anti-materiel)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - CartridgeLMGAntiMateriel
+    proto: CartridgeLMGAntiMateriel
+    capacity: 30

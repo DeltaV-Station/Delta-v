@@ -109,16 +109,6 @@
         tableId: GamblagatorTable
 
 - type: entity
-  parent: GunSafeBaseSecure
-  id: GunSafeNT3
-  name: NT-3 safe
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: NT3Table
-
-- type: entity
   id: LockerBrigmedicFilledHardsuit
   suffix: Corpsman, Filled, Hardsuit
   parent: LockerBrigmedic

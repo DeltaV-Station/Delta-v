@@ -1,0 +1,13 @@
+﻿- type: entity
+  parent: BaseBlueprint
+  id: BlueprintMagazineBoxLMGAntiMateriel
+  name: ammuntion box blueprint (.40 anti-materiel)
+  description: A blueprint with a schematic of for .40 anti-materiel cartridges, used by the NT-3. It can be inserted into a Security Techfab.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - MagazineBoxLMGAntiMateriel
+  - type: Tag
+    tags:
+    - BlueprintSecurityTechfab
+    - BlueprintAmmoTechfab

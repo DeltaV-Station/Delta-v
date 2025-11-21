@@ -22,8 +22,6 @@
       tableId: RPGTable
     - !type:NestedSelector
       tableId: GamblagatorTable
-    - !type:NestedSelector
-      tableId: NT3Table
 
 - type: entityTable
   id: RPGTable
@@ -47,6 +45,7 @@
   table: !type:AllSelector
     children:
     - id: WeaponLightMachinegGunNT3
-    - id: MagazineLightRifleSmallBox
+    - id: BlueprintMagazineBoxLMGAntiMateriel
+    - id: MagazineLMGAntiMaterielBox
       amount: !type:ConstantNumberSelector
         value: 2

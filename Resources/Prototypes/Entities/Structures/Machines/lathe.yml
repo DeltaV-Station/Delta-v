@@ -461,6 +461,18 @@
         - Sheet
         - RawMaterial
         - Ingot
+  # End DeltaV Additions
+  - type: BlueprintReceiver
+    whitelist:
+      tags:
+      - BlueprintAutolathe
+      - BlueprintSecurityTechfab
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  # End DeltaV Additions
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Security]
@@ -493,6 +505,17 @@
       unlitRunningState: unlit-building # DeltaV - added animation sprite layers
       staticPacks:
       - SecurityAmmoStatic
+    # End DeltaV Additions
+    - type: BlueprintReceiver
+      whitelist:
+        tags:
+        - BlueprintAmmoTechfab
+    - type: ContainerContainer
+      containers:
+        machine_board: !type:Container
+        machine_parts: !type:Container
+        blueprint: !type:Container
+      # End DeltaV Additions
     - type: MaterialStorage
       whitelist:
         tags:
