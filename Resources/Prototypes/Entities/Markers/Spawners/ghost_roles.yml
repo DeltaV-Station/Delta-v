@@ -110,14 +110,13 @@
     description: ghost-role-information-loneop-description
     rules: ghost-role-information-loneop-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleLoneops
     requirements: # DeltaV
     - !type:OverallPlaytimeRequirement
       time: 172800 # 48 hours overall
     - !type:DepartmentTimeRequirement
       department: Security
       time: 36000 # 10 hours of sec
-    - MindRoleLoneops
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
