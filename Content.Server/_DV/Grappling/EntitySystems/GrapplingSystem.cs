@@ -512,8 +512,10 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         RemComp<GrappledComponent>(victim);
         _actionBlocker.UpdateCanMove(victim); // Must be done AFTER the component is removed.
 
+
+
         // Automatically get the grappler back up
-        if (grappler.Comp.ProneOnGrapple && _standingState.IsDown(grappler))
+        if (grappler.Comp.ProneOnGrapple && TryComp<StandingStateComponent>(grappler, out var standingState) && _standingState.IsDown((grappler, standingState)))
             _standingState.Stand(grappler);
 
         _alerts.ClearAlert(grappler, grappler.Comp.GrappledAlert);

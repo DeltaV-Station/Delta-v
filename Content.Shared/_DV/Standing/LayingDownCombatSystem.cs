@@ -38,7 +38,7 @@ public sealed class LayingDownCombatSystem : EntitySystem
 
     private void OnGetMeleeDamage(Entity<StandingStateComponent> ent, ref GetMeleeDamageEvent args)
     {
-        if (!_standing.IsDown(ent))
+        if (!_standing.IsDown((ent, ent.Comp)))
             return;
 
         args.Modifiers.Add(_meleeMod);
