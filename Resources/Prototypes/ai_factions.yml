@@ -47,6 +47,8 @@
 
 - type: npcFaction
   id: SimpleHostile
+  friendly:
+  - AnimalFriend
   hostile:
   - NanoTrasen
   - Syndicate
