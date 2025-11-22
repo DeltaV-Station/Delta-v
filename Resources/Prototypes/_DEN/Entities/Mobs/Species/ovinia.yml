@@ -23,8 +23,8 @@
         # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
         # sprite refactor when
         state: l_leg
-      - map: [ "enum.HumanoidVisualLayers.Underwear" ]
-      - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
+#      - map: [ "enum.HumanoidVisualLayers.Underwear" ] //Removed - Delta-V
+#      - map: [ "enum.HumanoidVisualLayers.Undershirt" ] //Removed - Delta-V
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
@@ -81,19 +81,19 @@
       Male: MaleOvinia
       Female: FemaleOvinia
       Unsexed: MaleOvinia
-  - type: LanguageKnowledge
-    speaks:
-    - TauCetiBasic
-    - Caprine
-    understands:
-    - TauCetiBasic
-    - Caprine
+  # type: LanguageKnowledge //Removed - Delta-V
+  #  speaks:
+  #  - TauCetiBasic
+  #  - Caprine
+  #  understands:
+  #  - TauCetiBasic
+  #  - Caprine
   - type: StepTriggerImmune
     whitelist:
       types:
         - Shard
         - Mousetrap
-        - SlipEntity
+  #      - SlipEntity //Removed - Delta-V
   - type: Tag
     tags:
     - CanPilot
