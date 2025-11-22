@@ -9,6 +9,7 @@ namespace Content.Server.Psionics
         /// <summary>
         /// YORO (you only reroll once)
         /// </summary>
+        [DataField]
         public bool Rerolled = false;
     }
 }
