@@ -25,6 +25,7 @@ using Content.Server.Traits.Assorted;
 using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Server.Zombies;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.EntityEffects;
@@ -914,7 +915,7 @@ public sealed class EntityEffectSystem : EntitySystem
         if (plantholder.Seed == null)
             return;
 
-        var gasses = plantholder.Seed.ExudeGasses;
+        var gasses = plantholder.Seed.ConsumeGasses;
 
         // Add a random amount of a random gas to this gas dictionary
         float amount = _random.NextFloat(args.Effect.MinValue, args.Effect.MaxValue);
@@ -936,7 +937,7 @@ public sealed class EntityEffectSystem : EntitySystem
         if (plantholder.Seed == null)
             return;
 
-        var gasses = plantholder.Seed.ConsumeGasses;
+        var gasses = plantholder.Seed.ExudeGasses;
 
         // Add a random amount of a random gas to this gas dictionary
         float amount = _random.NextFloat(args.Effect.MinValue, args.Effect.MaxValue);

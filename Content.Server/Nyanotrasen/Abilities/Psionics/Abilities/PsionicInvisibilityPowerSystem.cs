@@ -113,7 +113,7 @@ namespace Content.Server.Abilities.Psionics
             //Pretty sure this DOESN'T work as intended.
             _actions.RemoveAction(uid, component.PsionicInvisibilityUsedActionEntity);
 
-            _stunSystem.TryParalyze(uid, TimeSpan.FromSeconds(8), false);
+            _stunSystem.TryAddParalyzeDuration(uid, TimeSpan.FromSeconds(8));
             DirtyEntity(uid);
         }
 

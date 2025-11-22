@@ -3,7 +3,7 @@ using Content.Shared._EE.Silicon.Components;
 using Content.Server.Power.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Server.Temperature.Components;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Popups;

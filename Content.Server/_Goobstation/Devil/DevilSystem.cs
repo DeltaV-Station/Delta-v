@@ -26,11 +26,11 @@ using Content.Server.Jittering;
 using Content.Server.Mind;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
-using Content.Server.Speech;
-using Content.Server.Speech.Components;
+using Content.Shared.Speech;
+using Content.Shared.Speech.Components;
 using Content.Server.Stunnable;
 using Content.Server.Temperature.Components;
-using Content.Server.Zombies;
+using Content.Shared.Zombies;
 using Content.Shared._Lavaland.Chasm;
 using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Actions;
@@ -236,14 +236,14 @@ public sealed partial class DevilSystem : EntitySystem
         if (HasComp<BibleUserComponent>(args.Source))
         {
             _damageable.TryChangeDamage(devil, devil.Comp.DamageOnTrueName * devil.Comp.BibleUserDamageMultiplier, true);
-            _stun.TryParalyze(devil, devil.Comp.ParalyzeDurationOnTrueName * devil.Comp.BibleUserDamageMultiplier, false);
+            _stun.TryAddParalyzeDuration(devil, devil.Comp.ParalyzeDurationOnTrueName * devil.Comp.BibleUserDamageMultiplier);
 
             var popup = Loc.GetString("devil-true-name-heard-chaplain", ("speaker", args.Source), ("target", devil));
             _popup.PopupEntity(popup, devil, PopupType.LargeCaution);
         }
         else
         {
-            _stun.TryParalyze(devil, devil.Comp.ParalyzeDurationOnTrueName, false);
+            _stun.TryAddParalyzeDuration(devil, devil.Comp.ParalyzeDurationOnTrueName);
             _damageable.TryChangeDamage(devil, devil.Comp.DamageOnTrueName, true);
 
             var popup = Loc.GetString("devil-true-name-heard", ("speaker", args.Source), ("target", devil));

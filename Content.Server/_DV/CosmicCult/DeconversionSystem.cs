@@ -140,7 +140,9 @@ public sealed class DeconversionSystem : EntitySystem
         if (TryComp<PolymorphedEntityComponent>(uid, out var polyComp)) // If the cultist is polymorphed, we revert the polymorph and deconvert the original entity too.
         {
             _polymorph.Revert((uid, polyComp));
-            RemCompDeferred<CosmicCultComponent>(polyComp.Parent);
+
+            if (polyComp.Parent.HasValue) // This surely won't cause any bugs with deconversion, right?
+                RemCompDeferred<CosmicCultComponent>(polyComp.Parent.Value);
         }
     }
 }

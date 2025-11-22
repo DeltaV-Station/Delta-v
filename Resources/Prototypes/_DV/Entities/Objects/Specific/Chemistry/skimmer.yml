@@ -13,8 +13,9 @@
       visible: false
   - type: Injector
     targetSmallest: true
-    minTransferAmount: 5
-    transferAmount: 5
+    transferAmounts:
+    - 5
+    currentTransferAmount: 5
   - type: Item
     sprite: _DV/Objects/Specific/Chemistry/skimmer.rsi
   - type: SolutionContainerVisuals
