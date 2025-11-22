@@ -641,6 +641,7 @@
     - Syndicate
   - type: StaticPrice
     price: 5000
+  - type: Insulated # DeltaV - Add insulation
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -660,6 +661,7 @@
     - Hardsuit
     - WhitelistChameleon
     - HidesHarpyWings
+  - type: Insulated # DeltaV - Add insulation
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -712,6 +714,7 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: Insulated # DeltaV - Add insulation
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -760,6 +763,7 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: Insulated # DeltaV - Add insulation
 
 
 #Cybersun Juggernaut Hardsuit
@@ -801,6 +805,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
+  - type: Insulated # DeltaV - Add insulation
   - type: Tag
     tags:
     - MonkeyWearable
