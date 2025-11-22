@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobMusician
-      time: 720000 #Delta-V - 10hr originally, but changed to 200 for delta-V because I want the musicians to suffer.
+      time: 180000 # Delta-V - 50 hours, was 10
   storage:
     back:
     - SuperSynthesizerInstrument #Delta-V - Supersynth spawns in backpack if chosen as trinket.

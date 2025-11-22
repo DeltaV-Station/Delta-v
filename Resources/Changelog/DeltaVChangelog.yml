@@ -1,69 +1,4 @@
 ﻿Entries:
-- author: SubspaceEmber
-  changes:
-  - message: Added ability to build directional and directional reinforced uranium
-      windows.
-    type: Add
-  id: 1331
-  time: '2025-04-28T07:53:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3565
-- author: Radezolid
-  changes:
-  - message: Solar panels now can be upgraded by using the upgrade material glass
-      directly on it. You can also go back to a previous state by applying a different
-      glass on it.
-    type: Add
-  id: 1332
-  time: '2025-04-28T23:23:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3587
-- author: AveriV2
-  changes:
-  - message: fixed a minor typo in kitsune fox form
-    type: Fix
-  id: 1333
-  time: '2025-04-29T09:40:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3602
-- author: Radezolid
-  changes:
-  - message: CC's cloning pod is now fully linked for ease of use, also some extra
-      biomass is next to it.
-    type: Tweak
-  id: 1334
-  time: '2025-04-29T09:48:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3601
-- author: HazelGMiddleton
-  changes:
-  - message: Added "detective's long coat" to detdrobe and detective loadout
-    type: Add
-  id: 1335
-  time: '2025-04-30T13:41:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3520
-- author: SubspaceEmber
-  changes:
-  - message: Crafting menu now shows Delta-V airlocks and windows instead of upstream.
-    type: Tweak
-  - message: RCD wheel has new sprites to reflect Delta-V sprites for windows and
-      airlocks.
-    type: Tweak
-  id: 1336
-  time: '2025-05-01T11:41:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3564
-- author: deltanedas
-  changes:
-  - message: Thieves no longer have objectives, they are a freeform antag now.
-    type: Tweak
-  id: 1337
-  time: '2025-05-01T16:57:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3591
-- author: IAmNotGray
-  changes:
-  - message: Elegance's kitchen has gotten a rework. Chef mains rejoice.
-    type: Tweak
-  - message: Elegance's Crew Monitoring Server is no longer sus.
-    type: Fix
-  id: 1338
-  time: '2025-05-01T18:25:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3575
 - author: deltanedas
   changes:
   - message: Organs from gibbed/butchered mobs are now filthy and will require cleaning
@@ -4213,3 +4148,71 @@
   id: 1830
   time: '2025-11-20T10:11:10.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4639
+- author: Biddy Gelson
+  changes:
+  - message: sec and court doors are law+sec access. armory wall reinforced. more
+      station maps, med recep has door button.
+    type: Tweak
+  - message: added LO locker with hardsuit.
+    type: Add
+  - message: fixed directional signs
+    type: Fix
+  id: 1831
+  time: '2025-11-21T01:49:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4665
+- author: Cepelinas1
+  changes:
+  - message: Sophont and Synthetic definitions were removed in the SOP and other documents,
+      in exchange for the newer one.
+    type: Remove
+  - message: 'Added a new entry to SOP: Entity Definitions. They define what are entities,
+      synthetics, pets and Employees. Go give ''em a read!'
+    type: Add
+  - message: Changed sophont definitions in Space Law with the newer entity definitions.
+    type: Add
+  id: 1832
+  time: '2025-11-21T13:42:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4661
+- author: Coryler
+  changes:
+  - message: Nav/Radar Console Distance calculation more correct
+    type: Tweak
+  id: 1833
+  time: '2025-11-22T02:17:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4709
+- author: Coryler
+  changes:
+  - message: Cyborgs can now laugh silently again
+    type: Tweak
+  id: 1834
+  time: '2025-11-22T03:18:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4703
+- author: MolpeTheSeiren
+  changes:
+  - message: Gave Ifrit more of epistemics department access
+    type: Tweak
+  id: 1835
+  time: '2025-11-22T03:47:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4677
+- author: Toby222
+  changes:
+  - message: Rat servants are now edible. Yum...
+    type: Fix
+  id: 1836
+  time: '2025-11-22T03:50:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4687
+- author: MantasDab360
+  changes:
+  - message: MMI finally works in IPC chassis! Gibbed players rejoice!
+    type: Fix
+  id: 1837
+  time: '2025-11-22T03:59:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4699
+- author: kotobdev
+  changes:
+  - message: The Super Synthesizer now only requires 50 musician hours to unlock as
+      a trinket.
+    type: Tweak
+  id: 1838
+  time: '2025-11-22T05:35:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4710
