@@ -16,8 +16,6 @@ public sealed class AddFactionsImplantSystem : EntitySystem
 
     private void OnImplantImplantedEvent(Entity<AddFactionsImplantComponent> ent, ref ImplantImplantedEvent args)
     {
-        //if (args.Implanted is not {} target) // TODO: AUM - Cleanup
-        //    return;
         var target = args.Implanted;
 
         foreach (var faction in ent.Comp.Factions)
