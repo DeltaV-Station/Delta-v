@@ -13,14 +13,14 @@
 #    LotophagoiOil: 1
 
 - type: reaction
-  id: CreateNormalityCrystal
+  id: CrystalNormality
   impact: Low
   quantized: true
   minTemp: 400
   reactants:
     Ash:
       amount: 5
-    Water:
+    Holywater:
       amount: 5
     Blood:
       amount: 5
