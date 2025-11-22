@@ -14,10 +14,10 @@
   minHeight: 0.5
  # defaultHeight: 0.9 #Disabled due to EE bug
   maxHeight: 1.175
-  minWidth: 0.65
+ # minWidth: 0.65 // DV - We dont have width 
  # defaultWidth: 0.9 #Disabled due to EE Bug
-  maxWidth: 1.225
-  customName: true
+ # maxWidth: 1.225 // DV - We dont have width
+ # customName: true
 
 - type: speciesBaseSprites
   id: MobOviniaSprites
