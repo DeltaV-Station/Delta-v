@@ -23,8 +23,8 @@
         # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
         # sprite refactor when
         state: l_leg
-#      - map: [ "enum.HumanoidVisualLayers.Underwear" ] //Removed - Delta-V
-#      - map: [ "enum.HumanoidVisualLayers.Undershirt" ] //Removed - Delta-V
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ] #//Removed - Delta-V
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ] #//Removed - Delta-V
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
@@ -88,12 +88,12 @@
   #  understands:
   #  - TauCetiBasic
   #  - Caprine
-  - type: StepTriggerImmune
-    whitelist:
-      types:
-        - Shard
-        - Mousetrap
-  #      - SlipEntity //Removed - Delta-V
+  - type: ProtectedFromStepTriggers
+    #whitelist:
+    #  types:
+    #    - Shard
+    #    - Mousetrap
+    #    - SlipEntity //Removed - Delta-V
   - type: Tag
     tags:
     - CanPilot
@@ -104,26 +104,17 @@
     proto: ovinia
   - type: Inventory
     speciesId: ovinia
-    templateId: human
     displacements:
       jumpsuit:
-        layer:
-          sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
-          state: jumpsuit
-          copyToShaderParameters:
-            # Value required, provide a dummy. Gets overridden when applied.
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: jumpsuit
       shoes:
-        layer:
-          sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
-          state: shoes
-          copyToShaderParameters:
-            # Value required, provide a dummy. Gets overridden when applied.
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: shoes
   - type: Flammable
     fireStackIncreaseMultiplier: .75 #wool isnt flammable
   - type: Hunger
@@ -143,25 +134,3 @@
   components:
   - type: HumanoidAppearance
     species: Ovinia
-  - type: Inventory
-    speciesId: ovinia
-    templateId: human
-    displacements:
-      jumpsuit:
-        layer:
-          sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
-          state: jumpsuit
-          copyToShaderParameters:
-            # Value required, provide a dummy. Gets overridden when applied.
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
-      shoes:
-        layer:
-          sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
-          state: shoes
-          copyToShaderParameters:
-            # Value required, provide a dummy. Gets overridden when applied.
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
