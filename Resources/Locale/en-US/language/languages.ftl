@@ -15,51 +15,51 @@
 
 # language-Draconic-name = Sinta'Unathi
 # language-Draconic-description =
-    The common language of Moghes - composed of sibilant hisses and rattles. Spoken natively by Unathi.
+#    The common language of Moghes - composed of sibilant hisses and rattles. Spoken natively by Unathi.
 
 # language-Azaziba-name = Sinta'Azaziba
 # language-Azaziba-description =
-    A language of Moghes consisting of a combination of spoken word and gesticulation.
-    While waning since Moghes entered the galactic stage - it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance.
+#    A language of Moghes consisting of a combination of spoken word and gesticulation.
+#    While waning since Moghes entered the galactic stage - it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance.
 
 # language-SolCommon-name = Sol common
 # language-SolCommon-description =
-    With its roots in Mandarin Chinese - Common evolved as the official language of the Sol Alliance - with officials working to tie it together with a common tongue.
-    It's spoken by state officials - taught in schools - and spoken by those who either feel a sense of national pride in the Alliance or otherwise fell sway to the culture.
+#    With its roots in Mandarin Chinese - Common evolved as the official language of the Sol Alliance - with officials working to tie it together with a common tongue.
+#    It's spoken by state officials - taught in schools - and spoken by those who either feel a sense of national pride in the Alliance or otherwise fell sway to the culture.
 
 # language-NovuNederic-name = Novu-Nederic
 # language-NovuNederic-description =
-     Once the language of seafarers and merchants, now the voice of spacers, terraformers, and pioneers - and great enjoyers of agriculture.
-     Spoken in the New-Netherlands, this direct and pragmatic trade language carries the sharp consonants and clipped vowels of its old-world roots.
-     Built on centuries of seafaring, land reclamation, and commerce, it thrives among those who shape entire worlds — just as their ancestors shaped the land from the sea.
+#     Once the language of seafarers and merchants, now the voice of spacers, terraformers, and pioneers - and great enjoyers of agriculture.
+#     Spoken in the New-Netherlands, this direct and pragmatic trade language carries the sharp consonants and clipped vowels of its old-world roots.
+#     Built on centuries of seafaring, land reclamation, and commerce, it thrives among those who shape entire worlds — just as their ancestors shaped the land from the sea.
 
 # language-TauCetiBasic-name = Tau-Ceti Basic
 # language-TauCetiBasic-description =
-    A spiritual successor of Esperanto, established in 2404 in Tau Ceti by Ceti intellectuals.
-    Its unique, fully customized alphabet and structure allow it to be spoken even by most alien species.
-    It's the official language of Tau Ceti and has growing traction in diplomatic circles and Universalists across human space.
+#    A spiritual successor of Esperanto, established in 2404 in Tau Ceti by Ceti intellectuals.
+#    Its unique, fully customized alphabet and structure allow it to be spoken even by most alien species.
+#    It's the official language of Tau Ceti and has growing traction in diplomatic circles and Universalists across human space.
 
 # language-Tradeband-name = Tradeband
 # language-Tradeband-description =
-    Descended from latin and romance languages of old Earth - Tradeband remains the main tongue of the upper class of humanity.
-    The language sounds elegant and well structured to most ears. It remains in popular use with traders - diplomats - and those seeking to hold onto a piece of a romantic past.
+#    Descended from latin and romance languages of old Earth - Tradeband remains the main tongue of the upper class of humanity.
+#    The language sounds elegant and well structured to most ears. It remains in popular use with traders - diplomats - and those seeking to hold onto a piece of a romantic past.
 
 # language-Freespeak-name = Freespeak
 # language-Freespeak-description =
-     A language of renegades and frontiersmen descending from various languages from Earth-- like Hindi,
-     combined into a multi-rooted jumble that sounds incoherent or even barbarian to non-native speakers.
-     This language is the only common cultural identity for humans in the frontier. Speaking this language in itself boldly declares the speaker a free spirit.
-     It is often called 'Gutter' by Alliance citizens.
+#     A language of renegades and frontiersmen descending from various languages from Earth-- like Hindi,
+#     combined into a multi-rooted jumble that sounds incoherent or even barbarian to non-native speakers.
+#     This language is the only common cultural identity for humans in the frontier. Speaking this language in itself boldly declares the speaker a free spirit.
+#     It is often called 'Gutter' by Alliance citizens.
 
 # language-Elyran-name = Elyran Standard
 # language-Elyran-description =
-     Elyran Standard is the official tongue of the Republic of Elyra. Constructed using elements of Farsi - Arabic - and Turkish.
-     Influence from all three of these languages can be seen throughout its grammar and vocabulary.
+#    Elyran Standard is the official tongue of the Republic of Elyra. Constructed using elements of Farsi - Arabic - and Turkish.
+#     Influence from all three of these languages can be seen throughout its grammar and vocabulary.
 
 # language-Canilunzt-name = Canilunzt
 # language-Canilunzt-description =
-      The guttural language spoken and utilized by the inhabitants of the Vazzend system,
-      composed of growls, barks, yaps, and heavy utilization of ears and tail movements. Vulpkanin speak this language with ease.
+#      The guttural language spoken and utilized by the inhabitants of the Vazzend system,
+#      composed of growls, barks, yaps, and heavy utilization of ears and tail movements. Vulpkanin speak this language with ease.
 
 # language-Moffic-name = Moffic
 # language-Moffic-description = The language of the mothpeople borders on complete unintelligibility.
@@ -78,14 +78,14 @@
 
 # language-ValyrianStandard-name = Valyrian Standard
 # language-ValyrianStandard-description =
-     A language descended from eastern european languages of old earth - Valyrian Standard is the commonly spoken tongue of Harpies brought up on their homeworld of Valyrian 4b
-     It is rarely spoken outside of the worlds of its native speakers, and has in modern times been supplanted by the 'Conlangs of the Sol Alliance.
-     Its speakers are those who wish to uphold the traditions and beliefs of ancient peoples from before the colonial era.
+#     A language descended from eastern european languages of old earth - Valyrian Standard is the commonly spoken tongue of Harpies brought up on their homeworld of Valyrian 4b
+#     It is rarely spoken outside of the worlds of its native speakers, and has in modern times been supplanted by the 'Conlangs of the Sol Alliance.
+#     Its speakers are those who wish to uphold the traditions and beliefs of ancient peoples from before the colonial era.
 
 # language-Chittin-name = Chittin
 # language-Chittin-description =
-     A language consisting of clicks, buzzes, and some variety of harsh insect sounds.
-     Most of what makes up their speech comes from their antennae, making it a near-impossible language for those without to learn.
+#     A language consisting of clicks, buzzes, and some variety of harsh insect sounds.
+#     Most of what makes up their speech comes from their antennae, making it a near-impossible language for those without to learn.
 
 # language-Rodentian-name = Rodentian
 # language-Rodentian-description =  A language mostly consisting of squeaks spoken by Rodentia if all shapes and sizes.
@@ -145,8 +145,8 @@
 
 # language-Eldritch-name = Eldritch
 # language-Eldritch-description =
-    A language that is considered to be long forgotten - now the only speakers of this profaned tongue of screeches and
-    mumbles are the followers of an ancient God of Blood.
+#    A language that is considered to be long forgotten - now the only speakers of this profaned tongue of screeches and
+#    mumbles are the followers of an ancient God of Blood.
 
 # language-Penguin-name = Penguin
 # language-Penguin-description = Bwaap!
