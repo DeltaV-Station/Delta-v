@@ -66,3 +66,13 @@
     useDelay: 30
   - type: InstantAction
     event: !type:CoughItemActionEvent
+
+- type: entity
+  parent: BaseToggleAction
+  id: ActionToggleBipod
+  name: Set up your bipod
+  description: Increase the accuracy and fire rate of your firearm.
+  components:
+  - type: Action
+    icon: { sprite: _DV/Objects/Weapons/Guns/LMGs/NT-3.rsi, state: bipod-off }
+    iconOn: { sprite: _DV/Objects/Weapons/Guns/LMGs/NT-3.rsi, state: bipod-on }
