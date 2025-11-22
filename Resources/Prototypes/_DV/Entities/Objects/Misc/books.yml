@@ -176,12 +176,15 @@
 - type: entity
   parent: BaseAncientBookReadable
   id: AncientBookUncommon1
-  name: ancient heavy book
+  name: notes on the psionic part 4
   description: An ancient book lost to time. One can only wonder what can be learned from these...
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookuncommon1
+  - type: Paper
+    content: book-text-ancientbookuncommon-1
+    contentSize: 12000
 
 - type: entity
   parent: BaseAncientBookReadable
@@ -206,29 +209,38 @@
 - type: entity
   parent: BaseAncientBookReadable
   id: AncientBookRare1
-  name: ancient mysterious book
+  name: newkies defunct original manuscript
   description: An ancient book lost to time. One can only wonder what can be learned from these...
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookrare1
+  - type: Paper
+    content: book-text-ancientbookrare-1
+    contentSize: 12000
 
 - type: entity
   parent: BaseAncientBookReadable
   id: AncientBookRare2
-  name: ancient ominous book
+  name: and the machine is bleeding to death
   description: An ancient book lost to time. One can only wonder what can be learned from these...
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookrare2
+  - type: Paper
+    content: book-text-ancientbookrare-2
+    contentSize: 12000
 
 - type: entity
   parent: BaseAncientBookReadable
   id: AncientBookRare3
-  name: ancient shining book
+  name: making friends in strange spaces
   description: An ancient book lost to time. One can only wonder what can be learned from these...
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookrare3
+  - type: Paper
+    content: book-text-ancientbookrare-3
+    contentSize: 12000
