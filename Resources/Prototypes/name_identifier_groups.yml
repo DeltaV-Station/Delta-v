@@ -31,7 +31,7 @@
 
 - type: nameIdentifierGroup
   id: Xenoborg
-  format: name-identifier-format-xenoborg
+  prefix: XI # DeltaV - was don't have Format: Was name-identifier-format-xenoborg
   minValue: 1000
   maxValue: 9999
 
@@ -55,7 +55,7 @@
   prefix: TELE
   minValue: 0
   maxValue: 999
-  
+
 - type: nameIdentifierGroup
   id: XenoArtifactNode
   prefix: XAN
