@@ -1,12 +1,11 @@
-using System.Linq;
 using Content.Server._DV.Xenoarchaeology.XenoArtifacts.Effects.Components;
+using Content.Server.Xenoarchaeology.XenoArtifacts;
+using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
 using Content.Server.Psionics;
-using Content.Shared.Xenoarchaeology.Artifact;
-using Content.Shared.Xenoarchaeology.Artifact.Components;
 
 public sealed class PsionicProducingArtifactSystem : EntitySystem
 {
-    [Dependency] private readonly SharedXenoArtifactSystem _artifact = default!;
+    [Dependency] private readonly ArtifactSystem _artifact = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PsionicsSystem _psionics = default!;
 
@@ -16,39 +15,24 @@ public sealed class PsionicProducingArtifactSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PsionicProducingArtifactComponent, XenoArtifactActivatedEvent>(OnActivated);
+        SubscribeLocalEvent<PsionicProducingArtifactComponent, ArtifactActivatedEvent>(OnActivated);
     }
 
-    private void OnActivated(Entity<PsionicProducingArtifactComponent> ent, ref XenoArtifactActivatedEvent args)
+    private void OnActivated(Entity<PsionicProducingArtifactComponent> ent, ref ArtifactActivatedEvent args)
     {
         var (uid, comp) = ent;
+        if (!_artifact.TryGetNodeData(uid, NodeDataPsionicAmount, out int amount))
+            amount = 0;
 
-        // Resolve the artifact entity from the node
-        if (!TryComp<XenoArtifactComponent>(uid, out var artifactComp))
-            return;
-
-        var artifactEntity = new Entity<XenoArtifactComponent>(uid, artifactComp);
-
-        // Pick first active node
-        var node = _artifact.GetActiveNodes(artifactEntity).FirstOrDefault();
-        if (node == null)
-            return;
-
-        // Track psionic usage using ConsumedResearchValue
-        var currentAmount = _artifact.GetResearchValue(node);
-
-        if (currentAmount >= comp.Limit)
+        if (amount >= comp.Limit)
             return;
 
         var coords = Transform(uid).Coordinates;
-
         foreach (var target in _lookup.GetEntitiesInRange<PotentialPsionicComponent>(coords, comp.Range))
         {
             _psionics.TryMakePsionic(target);
         }
 
-        // Update node usage
-        _artifact.SetConsumedResearchValue(node, currentAmount + 1);
+        _artifact.SetNodeData(uid, NodeDataPsionicAmount, amount + 1);
     }
-
 }
