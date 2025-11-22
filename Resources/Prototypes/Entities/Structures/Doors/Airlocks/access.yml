@@ -612,6 +612,7 @@
   parent: AirlockStandardGlass
   id: AirlockChapelStandardGlassLocked
   suffix: Chapel, Locked
+  categories: [ HideSpawnMenu ] # DeltaV - Chapel is Epistemics and redundant
   components:
   - type: ContainerFill
     containers:
@@ -952,6 +953,7 @@
 - type: entity
   parent: AirlockMaintRnDLocked # DeltaV - Chapel is in Epistemics
   id: AirlockMaintChapelLocked
+  suffix: Chapel, Locked
   components:
   - type: Sprite
     sprite: _DV/Structures/Doors/Airlocks/Standard/maint.rsi # DeltaV - Changed to our sprites
