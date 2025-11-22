@@ -3,9 +3,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-# Resomi
-chat-emote-name-coo = Coo
-chat-emote-name-avali-honk = Hornk
-
 # Ovinia
 chat-emote-name-baa = Baa
