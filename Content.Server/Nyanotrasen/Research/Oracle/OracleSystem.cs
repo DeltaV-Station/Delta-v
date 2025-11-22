@@ -15,7 +15,9 @@ using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
+using Content.Shared.Research.Systems;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
@@ -35,6 +37,7 @@ public sealed class OracleSystem : EntitySystem
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly PuddleSystem _puddleSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private readonly SharedResearchSystem _research = default!; 
 
     public override void Update(float frameTime)
     {
@@ -274,13 +277,43 @@ public sealed class OracleSystem : EntitySystem
         var allTechs = _prototypeManager.EnumeratePrototypes<TechnologyPrototype>();
         var allRecipes = new List<EntProtoId>();
 
+        var researchServers = new List<(
+            EntityUid serverUid, 
+            TechnologyDatabaseComponent database, 
+            Dictionary<string, int> disciplineTiers,
+            Dictionary<string, int> disciplineTechsRemainingToTierUp
+        )>();
+        var query = EntityQueryEnumerator<ResearchServerComponent, TechnologyDatabaseComponent>();
+        while (query.MoveNext(out var serverUid, out var server, out var database))
+        {
+            var disciplineTiers = _research.GetDisciplineTiers(database);
+            var disciplineTechsRemainingToTierUp = disciplineTiers.Keys.ToDictionary(
+                d => d,
+                d => _research.GetTechsRemainingToTierUp(database, d, disciplineTiers)
+            );
+            researchServers.Add((serverUid, database, disciplineTiers, disciplineTechsRemainingToTierUp));
+        }
+
         foreach (var tech in allTechs)
         {
-            foreach (var recipe in tech.RecipeUnlocks)
+            if (
+                researchServers.Count == 0
+                || researchServers.Any(server => 
+                    _research.IsTechnologyUnlocked(server.serverUid, tech, server.database)
+                    || _research.IsTechnologyAvailable(server.database, tech, server.disciplineTiers)
+                    || (
+                        tech.Tier == server.disciplineTiers[tech.Discipline] + 1
+                        && server.disciplineTechsRemainingToTierUp[tech.Discipline] <= 1
+                    )
+                )
+            )
             {
-                var recipeProto = _prototypeManager.Index(recipe);
-                if (recipeProto.Result is {} result)
-                    allRecipes.Add(result);
+                foreach (var recipe in tech.RecipeUnlocks)
+                {
+                    var recipeProto = _prototypeManager.Index(recipe);
+                    if (recipeProto.Result is {} result)
+                        allRecipes.Add(result);
+                }
             }
         }
 
