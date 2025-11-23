@@ -3267,7 +3267,7 @@
       Dead:
         Base: cat2_dead
 
-- type: entity
+- type: entity # DeltaV - Readd SyndiCat with C4, removed implant
   name: syndicat
   id: MobCatSyndy
   parent: MobCatSpace
@@ -3296,9 +3296,6 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
-  - type: AutoImplant
-#   implants: DeltaV - Readd Syndicats with C4
-#   - MicroBombImplant
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: NpcFactionMember
