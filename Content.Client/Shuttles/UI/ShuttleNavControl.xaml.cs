@@ -220,9 +220,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
                 var gridCentre = Vector2.Transform(gridBody.LocalCenter, curGridToView);
 
-                var gridCenterPos = _transform.GetWorldPosition(gUid) + (_transform.GetWorldRotation(gUid).ToVec() * gridBody.LocalCenter); // Delta V - World + Local Center Offset Calculation
-
-                var gridDistance = Vector2.Distance(gridCenterPos, xform.LocalPosition); // Delta V - From (B-A).Length to Vector2.Distance(A,B)
+                var gridDistance = Vector2.Distance(Vector2.Transform(gridBody.LocalCenter, curGridToWorld), xform.LocalPosition); // Delta V - Distance instead of Length
                 var labelText = Loc.GetString("shuttle-console-iff-label", ("name", labelName),
                     ("distance", $"{gridDistance:0.0}"));
 
