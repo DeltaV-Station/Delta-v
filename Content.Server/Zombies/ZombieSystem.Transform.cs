@@ -41,6 +41,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.Movement.Pulling.Systems;
 
 namespace Content.Server.Zombies;
 
@@ -66,6 +67,8 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+
+    [Dependency] private readonly PullingSystem _puller = default!;
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
@@ -290,7 +293,10 @@ public sealed partial class ZombieSystem
 
         // Sloth: What the fuck?
         // How long until compregistry lmao.
-        RemComp<PullerComponent>(target);
+        // Delta-v change. I hate everything so much you can't even imagine
+        var pullerComp = EnsureComp<PullerComponent>(target);
+        _puller.ToggleNeedsHands(target, false);
+
 
         // No longer waiting to become a zombie:
         // Requires deferral because this is (probably) the event which called ZombifyEntity in the first place.

@@ -49,13 +49,13 @@ public sealed partial class ZombieComponent : Component
     /// The skin color of the zombie
     /// </summary>
     [DataField("skinColor")]
-    public Color SkinColor = new(0.45f, 0.51f, 0.29f);
+    public Color SkinColor = new(0.41f, 0.23f, 0.48f);
 
     /// <summary>
     /// The eye color of the zombie
     /// </summary>
     [DataField("eyeColor")]
-    public Color EyeColor = new(0.96f, 0.13f, 0.24f);
+    public Color EyeColor = new(0.96f, 0.33f, 0.86f);
 
     /// <summary>
     /// The base layer to apply to any 'external' humanoid layers upon zombification.
@@ -148,8 +148,9 @@ public sealed partial class ZombieComponent : Component
     {
         DamageDict = new()
         {
-            { "Slash", 13 },
+            { "Slash", 7 },
             { "Piercing", 7 },
+            { "Shadow", 4},
             { "Structural", 10 }
         }
     };
