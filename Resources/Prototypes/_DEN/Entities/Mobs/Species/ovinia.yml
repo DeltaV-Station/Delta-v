@@ -1,5 +1,4 @@
 - type: entity
-  save: false
   name: Urist McSheepy
   parent: BaseMobSpeciesOrganic
   id: MobOviniaBase
@@ -116,7 +115,7 @@
             sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
             state: shoes
   - damage:
-      types:
+      type:
         firestacks: -0.2 #wool isnt flammable
   - type: Hunger
     baseDecayRate: 0.0125 #25% slower than normal (chewin they cud)
