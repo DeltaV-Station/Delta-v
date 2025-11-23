@@ -310,7 +310,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             -dockRadius * UIScale,
             (Size.X + dockRadius) * UIScale,
             (Size.Y + dockRadius) * UIScale);
-        
+
         if (_docks.TryGetValue(nent, out var docks))
         {
             foreach (var state in docks)
@@ -323,7 +323,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
                     continue;
                 }
 
-                var color = Color.ToSrgb(Color.Magenta);
+                var color = Color.ToSrgb(state.HighlightedColor);
 
                 var verts = new[]
                 {

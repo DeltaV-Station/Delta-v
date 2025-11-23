@@ -1,35 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Organs from gibbed/butchered mobs are now filthy and will require cleaning
-      for transplant.
-    type: Tweak
-  id: 1339
-  time: '2025-05-02T02:30:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3614
-- author: AftrLite
-  changes:
-  - message: Fixes for Cosmic Cult
-    type: Fix
-  id: 1340
-  time: '2025-05-03T03:31:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3620
-- author: sowelipililimute
-  changes:
-  - message: Station AI can now choose from a selection of programs roundstart to
-      expand its abilities
-    type: Add
-  id: 1341
-  time: '2025-05-02T21:15:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3610
-- author: Radezolid
-  changes:
-  - message: Buzzochloric Bees has been removed from the possible reagent pool for
-      mutated plants.
-    type: Remove
-  id: 1342
-  time: '2025-05-03T03:31:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3617
 - author: M3739
   changes:
   - message: Kitsune can no longer shapeshift themselves out of existence right after
@@ -4216,3 +4185,74 @@
   id: 1838
   time: '2025-11-22T05:35:25.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4710
+- author: Coryler
+  changes:
+  - message: Fixed Ratking Double Spawn
+    type: Fix
+  id: 1839
+  time: '2025-11-22T18:14:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4702
+- author: cmorley191
+  changes:
+  - message: Oracle can now accept holofan projector and other tools through right-click
+      menu action
+    type: Fix
+  id: 1840
+  time: '2025-11-22T18:32:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4704
+- author: MantasDab360
+  changes:
+  - message: No more MMInception. The Positronic Brain and MMI can no longer be inserted
+      into the MMI.
+    type: Fix
+  id: 1841
+  time: '2025-11-23T22:21:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4723
+- author: ShepardToTheStars
+  changes:
+  - message: Upstream Changes from August have been merged!
+    type: Add
+  - message: A new cake, berry delight, that is made with a cake base, berries and
+      milk.
+    type: Add
+  - message: Craftable cardboard structures and equipment now available!
+    type: Add
+  - message: Captain and Head of Personnel starts with administration glasses and
+      HUD respectively.
+    type: Add
+  - message: The station AI will receive chat notifications when its sentry turrets
+      start firing upon hostile targets.
+    type: Add
+  - message: Shitmed's laying down system has been replaced by Wizden's crawling.
+    type: Tweak
+  - message: Various syndicate items can now be "locked" with your voice to hide their
+      true identity. The items are, all chameleon clothing, voice masks, no slips,
+      agent IDs, cane swords, and e daggers.
+    type: Add
+  - message: Meat spikes got an overhaul.
+    type: Tweak
+  - message: Two new (negative) traits! Hemophilia and impaired mobility!
+    type: Add
+  - message: Moths are less flammable now (but more flammable than others).
+    type: Tweak
+  - message: Added new Derelict Cyborg ghost roles, including the Derelict Engineer,
+      Janitor, Salvage, Medical, and Assault Cyborg!
+    type: Add
+  - message: Lathes now batch items into jobs, which can be moved around in priority
+      or deleted.
+    type: Add
+  - message: Many station structures and fixtures, such as walls and airlocks, can
+      now be re-anchored to the floor if they happen to be dislodged by an explosion
+      or other shenanigans.
+    type: Tweak
+  - message: Added atmospherics delta-pressure structure damage. Objects like windows,
+      thindows, windoors, etc. will have damage done to them depending on the pressure
+      difference across the sides of the object.
+    type: Add
+  - message: Normality crystals now require Holy Water instead of normal water!
+    type: Tweak
+  - message: and so much more! Like A LOT more.
+    type: Add
+  id: 1842
+  time: '2025-11-23T21:49:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4625
