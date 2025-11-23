@@ -71,6 +71,7 @@
     prototype: Ovinia
   - type: Damageable
     damageModifierSet: Ovinia
+    firestacks: -0.2 # fire resistant due to wool
   - type: Speech
     speechSounds: Alto
     speechVerb: Ovinia
@@ -114,8 +115,6 @@
           32:
             sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
             state: shoes
-  - type:
-      firestacks: -0.2 #wool isnt flammable
   - type: Hunger
     baseDecayRate: 0.0125 #25% slower than normal (chewin they cud)
   - type: Thirst
