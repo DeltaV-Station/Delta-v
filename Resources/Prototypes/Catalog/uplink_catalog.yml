@@ -1325,19 +1325,16 @@
       tags:
       - NukeOpsUplink
 
-#- type: listing # DeltaV - Remove syndicats
-#  id: UplinkMobCatMicrobomb
-#  name: uplink-mobcat-microbomb-name
-#  description: uplink-mobcat-microbomb-desc
-#  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-syndicat }
-#  productEntity: ReinforcementRadioSyndicateSyndiCat
-#  discountCategory: usualDiscounts
-#  discountDownTo:
-#    Telecrystal: 3
-#  cost:
-#    Telecrystal: 6
-#  categories:
-#    - UplinkAllies
+- type: listing # DeltaV - Readd Syndicat with C4
+  id: UplinkMobCatMicrobomb
+  name: uplink-mobcat-microbomb-name
+  description: uplink-mobcat-microbomb-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-syndicat }
+  productEntity: ReinforcementRadioSyndicateSyndiCat
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkPointless
 
 - type: listing
   id: UplinkSyndicatePersonalAI

@@ -3297,13 +3297,16 @@
       settings: default
   - type: GhostTakeoverAvailable
   - type: AutoImplant
-    implants:
-    - MicroBombImplant
+#   implants: DeltaV - Readd Syndicats with C4
+#   - MicroBombImplant
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: NpcFactionMember
     factions:
     - Syndicate
+  - type: Inventory
+    templateId: nfcat
+    speciesId: cat
   - type: Access
     tags:
     - NuclearOperative
