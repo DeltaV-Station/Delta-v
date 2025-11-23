@@ -1,5 +1,5 @@
 using Content.Server._DV.Xenoarchaeology.XenoArtifacts.Effects.Components;
-using Content.Shared.Xenoarchaeology.Artifact;
+using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
 using Content.Shared.Psionics.Glimmer;
 
 namespace Content.Server._DV.Xenoarchaeology.XenoArtifacts.Effects.Systems;
@@ -12,10 +12,10 @@ public sealed class GlimmerArtifactSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<GlimmerArtifactComponent, XenoArtifactActivatedEvent>(OnActivated);
+        SubscribeLocalEvent<GlimmerArtifactComponent, ArtifactActivatedEvent>(OnActivated);
     }
 
-    private void OnActivated(Entity<GlimmerArtifactComponent> ent, ref XenoArtifactActivatedEvent args)
+    private void OnActivated(Entity<GlimmerArtifactComponent> ent, ref ArtifactActivatedEvent args)
     {
         var range = ent.Comp.Range;
         var current = _glimmer.Glimmer;

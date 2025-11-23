@@ -1,1 +1,7 @@
-xenoarch-trigger-tip-psionic = Psionic disturbance
+# effects
+
+artifact-effect-hint-noosphere = Noöspheric shift
+
+# triggers
+
+artifact-trigger-hint-psionic = Psionic disturbance
