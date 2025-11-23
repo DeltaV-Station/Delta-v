@@ -32,8 +32,19 @@
 
       # Main effects
       - !type:MovementSpeedModifier
+        conditions: #imp
+        - !type:OrganType #imp
+          type: Allulalo
+          shouldHave: false
         walkSpeedModifier: 1.20
         sprintSpeedModifier: 1.20
+      - !type:MovementSpeedModifier
+        conditions: #imp
+        - !type:OrganType #imp
+          type: Allulalo
+          shouldHave: true
+        walkSpeedModifier: 1.10 # Delta V - Lowering these due to base modifier also being lower
+        sprintSpeedModifier: 1.10 # Delta V
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDesoxyStamina # You are on meth. You keep going.
         time: 3
@@ -86,10 +97,29 @@
   metabolisms:
     Bloodstream:
       effects:
-      # Main effects
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
+        conditions: #imp
+        - !type:OrganType #imp
+          type: Allulalo
+          shouldHave: false
         walkSpeedModifier: 1.15
         sprintSpeedModifier: 1.15
+      - !type:MovespeedModifier #imp
+        conditions:
+        - !type:OrganType #imp
+          type: Allulalo
+          shouldHave: true
+        walkSpeedModifier: 1.08 # Delta V - Lowering these due to base modifier also being lower
+        sprintSpeedModifier: 1.08
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        damage:
+          types:
+            Poison: 2 # this is added to the base damage of the meth.
+            Asphyxiation: 2
+      - !type:Jitter
       - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
         time: 1
@@ -144,13 +174,34 @@
   metabolisms:
     Bloodstream:
       effects:
-      # Main effects
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
+        conditions: #imp
+        - !type:OrganType #imp
+          type: Allulalo
+          shouldHave: false
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectStimulantsStamina # You are on meth. You keep going.
-        time: 3
+      - !type:MovespeedModifier #imp
+        conditions:
+        - !type:OrganType #imp
+          type: Allulalo
+          shouldHave: true
+        walkSpeedModifier: 1.12 # Delta V - Lowering these due to base modifier also being lower
+        sprintSpeedModifier: 1.12 # Delta V
+      - !type:HealthChange
+        conditions:
+          - !type:ReagentThreshold
+            min: 80 #please wait 3 minutes before using another stimpack
+        damage:
+          types:
+            Poison: 1
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: ChloralHydrate
+          min: 1
+        reagent: ChloralHydrate
+        amount: -10
       - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
         time: 3.5

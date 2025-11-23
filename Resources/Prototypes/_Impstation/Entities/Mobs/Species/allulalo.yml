@@ -8,7 +8,9 @@
   - type: GoobAbsorbable
     biomassRestored: 1.0
   - type: Hunger
+    baseDecayRate: 0.02 # 30% ish more than default
   - type: Thirst
+    baseDecayRate: 0.02 # 30% ish more than default
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
