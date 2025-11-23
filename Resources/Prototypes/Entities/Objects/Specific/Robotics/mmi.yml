@@ -47,8 +47,8 @@
           - Brain
         blacklist: # DeltaV
           components:
-          - BorgBrain
-          - MMI
+          - BorgBrain # DeltaV - prevents PB in MMI
+          - MMI # DeltaV - prevents MMI in MMI
           - Unborgable
   - type: ContainerContainer
     containers:
