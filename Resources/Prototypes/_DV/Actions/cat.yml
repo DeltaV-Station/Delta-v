@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseAction
+  id: ActionCatJump
+  name: Pounce
+  description: Being nature's more fearsome predator, you pounce forward in the direction of your gaze.
+  components:
+  - type: Action
+    useDelay: 3
+    icon: "Nyanotrasen/Icons/verbiconfangs.png"
+  - type: InstantAction
+    event: !type:GravityJumpEvent {}
