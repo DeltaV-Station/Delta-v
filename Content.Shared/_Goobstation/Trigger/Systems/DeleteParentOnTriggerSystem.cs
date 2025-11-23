@@ -32,7 +32,7 @@ public sealed class DeleteParentOnTriggerSystem : EntitySystem
         if (userXform.ParentUid == userXform.GridUid || userXform.ParentUid == userXform.MapUid)
             return;
 
-        EntityManager.QueueDeleteEntity(userXform.ParentUid);
+        EntityManager.PredictedQueueDeleteEntity(userXform.ParentUid);
         args.Handled = true;
     }
 }
