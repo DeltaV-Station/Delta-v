@@ -35,8 +35,9 @@ public sealed class HandHeldArmorSystem : EntitySystem
 
     private void OnCoefficientQuery(Entity<HandHeldArmorComponent> armor, ref HeldRelayedEvent<CoefficientQueryEvent> args)
     {
-        if (_whitelist.IsWhitelistFail(armor.Comp.Whitelist, armor.Comp.Holder) // If they pass the lists, add the coefficients.
-            || _whitelist.IsBlacklistPass(armor.Comp.Blacklist, armor.Comp.Holder))
+        if (!armor.Comp.Holder.HasValue
+            || _whitelist.IsWhitelistFail(armor.Comp.Whitelist, armor.Comp.Holder.Value) // If they pass the lists, add the coefficients.
+            || _whitelist.IsBlacklistPass(armor.Comp.Blacklist, armor.Comp.Holder.Value))
             return;
 
         foreach (var armorCoefficient in armor.Comp.Modifiers.Coefficients)
