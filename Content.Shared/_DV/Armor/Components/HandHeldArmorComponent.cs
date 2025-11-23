@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Armor.Systems;
+using Content.Shared._DV.Armor.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;

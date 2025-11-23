@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Armor.Components;
+using Content.Shared._DV.Armor.Components;
 using Content.Shared.Armor;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
