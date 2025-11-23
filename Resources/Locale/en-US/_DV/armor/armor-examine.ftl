@@ -8,3 +8,4 @@ held-armor-fail-examine = You do not pass the following requirements to profit f
 held-armor-whitelist-fail = You are not [color=yellow]{$reason}[/color].
 held-armor-blacklist-fail = You are [color=red]{$reason}[/color].
 
+held-armor-bible-user-fail = faithful

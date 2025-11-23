@@ -58,8 +58,21 @@
     - Book
   - type: StealTarget
     stealGroup: Bible
-  - type: CollisionWake # DeltaV
+  # Begin DeltaV Additions
+  - type: CollisionWake
     enabled: false
+  - type: HandHeldArmor # Holding the Bible protects you
+    modifiers:
+      coefficients:
+        Cold: 0.5
+        Asphyxiation: 0.5
+        Holy: 0.5
+        Shadow: 0.5
+    whitelist:
+      components:
+        - BibleUser # Only if you're the Chaplain or Mystagogue
+    whitelistFailMessage: held-armor-bible-user-fail
+  # End DeltaV Additions
 
 - type: entity
   parent: [Bible, BaseSyndicateContraband]
