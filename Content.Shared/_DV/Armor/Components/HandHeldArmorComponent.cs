@@ -15,7 +15,7 @@ public sealed partial class HandHeldArmorComponent : Component
     /// The Entity holding the handheld armor.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntityUid Holder;
+    public EntityUid? Holder;
 
     /// <summary>
     /// The damage reduction
