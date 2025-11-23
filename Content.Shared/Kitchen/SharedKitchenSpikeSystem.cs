@@ -317,7 +317,7 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
             foreach (var gib in gibs)
             {
                 if (HasComp<BodyPartComponent>(gib))
-                    QueueDel(gib);
+                    PredictedQueueDel(gib);
             }
             // END DeltaV
 
