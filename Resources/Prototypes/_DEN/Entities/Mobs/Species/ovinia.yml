@@ -23,8 +23,8 @@
         # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
         # sprite refactor when
         state: l_leg
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ] #//Removed - Delta-V
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ] #//Removed - Delta-V
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ] #Removed - Delta-V
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ] #Removed - Delta-V
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
@@ -117,7 +117,7 @@
             state: shoes
   - damage:
       types:
-        Heat: 0.075 #25% less heat damage, wool isnt flammable
+        firestacks: -0.2 #wool isnt flammable
   - type: Hunger
     baseDecayRate: 0.0125 #25% slower than normal (chewin they cud)
   - type: Thirst
