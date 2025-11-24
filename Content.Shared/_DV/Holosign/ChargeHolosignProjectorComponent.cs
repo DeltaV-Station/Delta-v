@@ -17,7 +17,6 @@ public sealed partial class ChargeHolosignProjectorComponent : Component
     [DataField]
     public EntProtoId SignProto = "HolosignWetFloor";
 
-
     [DataField]
     public string? SignComponentName = "Holosign";
 

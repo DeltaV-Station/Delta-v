@@ -207,7 +207,6 @@
     - type: ChargeHolosignProjector
       signProto: HolosignSecurity
       signComponentName: Holobarrier
-      maxCharges: 6 # same as it was on a medium cell
     - type: AutoRecharge
       rechargeDuration: 180 # Same as HolosignSecurity lifetime
     # End DeltaV Additions
