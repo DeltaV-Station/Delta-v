@@ -62,4 +62,3 @@ public sealed class VerifyCommand : IConsoleCommand
         shell.WriteLine($"Your discord account has{successText} been verified");
     }
 }
-
