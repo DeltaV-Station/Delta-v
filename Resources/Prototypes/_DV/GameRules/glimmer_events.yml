@@ -7,7 +7,6 @@
     - id: NoosphericFry
     - id: PsionicCatGotYourTongue
     - id: MassMindSwap
-    - id: MinorMassMindSwap
     - id: GlimmerWispSpawn
     - id: FreeProber
     - id: GlimmerRevenantSpawn
@@ -17,6 +16,7 @@
     - id: ThavenMoodUpset
     #- id: LockProbers
     - id: PsionicNosebleedEvent
+    - id: MinorMassMindSwap # Delta V
 
 - type: entity
   parent: BaseGameRule
@@ -94,7 +94,7 @@
   parent: BaseGlimmerEvent
   components:
   - type: GlimmerEvent
-    minimumGlimmer: 500
+    minimumGlimmer: 750
     glimmerBurnLower: 40
     glimmerBurnUpper: 80
   - type: MinorMassMindSwapRule

@@ -83,7 +83,7 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
 
         // We go with 4 pairs for now
         List<EntityUid> actorsToSwap = new();
-        var swapPairCount = _random.Next(1, 5);
+        var swapPairCount = _random.Next(1, 3);
 
         for (; swapPairCount > 0 && psionicActors.Count > 1; swapPairCount--) 
         {
