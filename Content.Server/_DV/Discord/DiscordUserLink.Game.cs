@@ -1,5 +1,5 @@
 using Content.Shared.Administration;
-using Content.Server.Discord.DiscordLink;
+using NetCord.Gateway;
 using Robust.Shared.Console;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;

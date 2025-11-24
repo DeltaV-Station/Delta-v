@@ -103,6 +103,7 @@ public sealed class DiscordLink : IPostInjectInit
             Intents = GatewayIntents.Guilds
                  | GatewayIntents.GuildUsers
                  | GatewayIntents.GuildMessages
+                 | GatewayIntents.GuildPresences
                  | GatewayIntents.MessageContent
                  | GatewayIntents.DirectMessages,
             Logger = new DiscordSawmillLogger(_sawmillLog),

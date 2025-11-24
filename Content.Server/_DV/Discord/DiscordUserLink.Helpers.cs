@@ -1,3 +1,4 @@
+using Content.Server.Discord.DiscordLink;
 using NetCord;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
@@ -11,6 +12,7 @@ public sealed partial class DiscordUserLink
 {
     private readonly ulong[] _patreonRoleIds = new[]
     {
+        (ulong) 1440410487002239017,
         (ulong) 1429160196902748211, // Nuclear Operative
     };
 
@@ -54,6 +56,11 @@ public sealed partial class DiscordUserLink
 
         var dm = await _discordLink.Client.Rest.GetDMChannelAsync(userId);
         await dm.SendMessageAsync(message);
+    }
+
+    private bool IsDirectMessage(CommandReceivedEventArgs command)
+    {
+        return command.Message.Guild == null;
     }
 
     private async void UpdatePlayerLink(ulong associateDiscordId, ulong? newDiscordId)

@@ -21,6 +21,7 @@ public sealed partial class DiscordUserLink : EntitySystem
 
     private readonly char[] CodeLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".ToCharArray();
     private const int CodeLength = 6;
+    private const string DMFailMessage = "Please send the command directly to me instead of on the server.";
 
     public override void Initialize()
     {
@@ -58,27 +59,43 @@ public sealed partial class DiscordUserLink : EntitySystem
     {
         if (args.Arguments.StartsWith("confirm") && _readDisclaimer.Contains(args.Message.Author.Id))
         {
+            if (!IsDirectMessage(args))
+            {
+                Task.Run(async () =>
+                {
+                    var replyMessage = await args.Message.ReplyAsync(DMFailMessage);
+                    await args.Message.DeleteAsync();
+                    await Task.Delay(3000);
+                    await replyMessage.DeleteAsync();
+                });
+                return;
+            }
+
             _readDisclaimer.Remove(args.Message.Author.Id);
             OnConfirmationReceived(args);
             return;
         }
 
-        args.Message.ReplyAsync("# Disclaimer\nBy linking your account to the game, " +
+        string replyMessage = "# Disclaimer\nBy linking your account to the game, " +
             "you understand that we are storing a reference between your discord account and your SS14 account. " +
-            "If you do not wish to have that connection, please stop here.\n\nTo confirm, please type !verify confirm\n You can opt our at any time with !unverify.");
-        _readDisclaimer.Add(args.Message.Author.Id);
+            "If you do not wish to have that connection, please stop here.\n\nTo confirm, please type !verify confirm\n You can opt our at any time with !unverify.";
+
+        Task.Run(async () =>
+        {
+            await SendDirectMessage(args.Message.Author.Id, replyMessage);
+            _readDisclaimer.Add(args.Message.Author.Id);
+            await args.Message.DeleteAsync();
+        });
     }
 
     private void OnConfirmationReceived(CommandReceivedEventArgs args)
     {
         var code = StartVerify(args.Message.Author.Id);
+        string message = $"On the game server, type ``verify {code}`` to verify your discord account.";
 
         Task.Run(async () =>
         {
-            await args.Message.ReplyAsync("You should have received a code in your direct messages with me. " +
-                "If you did not, re-run the command after lowering your messaging restrictions.");
-            await SendDirectMessage(args.Message.Author.Id,
-                $"On the game server, type ``verify {code}`` to verify your discord account.");
+            await SendDirectMessage(args.Message.Author.Id, message);
         });
 
     }
@@ -86,12 +103,34 @@ public sealed partial class DiscordUserLink : EntitySystem
     private void OnUnverifyCommandRun(CommandReceivedEventArgs args)
     {
         var authorId = args.Message.Author.Id;
-        args.Message.ReplyAsync("Done!");
+        var failMessage = "There was no account linked to your Discord Account.";
+        var message = "Your account has been unverified, and the stored data erased.";
 
-        if (_links.Any(link => link.DiscordUserId != authorId))
+        if (!IsDirectMessage(args))
         {
+            Task.Run(async () =>
+            {
+                var replyMessage = await args.Message.ReplyAsync(DMFailMessage);
+                await args.Message.DeleteAsync();
+                await Task.Delay(3000);
+                await replyMessage.DeleteAsync();
+            });
             return;
         }
+
+        if (!_links.Any(link => link.DiscordUserId == authorId))
+        {
+            Task.Run(async () =>
+            {
+                await SendDirectMessage(authorId, failMessage);
+            });
+            return;
+        }
+
+        Task.Run(async () =>
+        {
+            await SendDirectMessage(authorId, message);
+        });
 
         _links.RemoveWhere(link => link.DiscordUserId == authorId);
         UpdatePlayerLink(authorId, null);
