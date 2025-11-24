@@ -1,4 +1,5 @@
-using Content.Shared._DV.Overlays; // DeltaV
+using Content.Shared._DV.Overlays;
+using Content.Shared._DV.Psionics.Events; // DeltaV
 using Content.Shared.Armor;
 using Content.Shared.Atmos;
 using Content.Shared.Chat;
@@ -78,6 +79,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, WieldAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, UnwieldAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, IngestionAttemptEvent>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, CheckPsionicallyInsulativeGearEvent>(RefRelayInventoryEvent); // DeltaV - Psionicsrefactor
 
         // Eye/vision events
         SubscribeLocalEvent<InventoryComponent, CanSeeAttemptEvent>(RelayInventoryEvent);

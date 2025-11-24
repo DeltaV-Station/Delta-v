@@ -1,7 +1,9 @@
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Random;
@@ -9,7 +11,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Abilities.Psionics;
 
-public sealed class SharedPsionicAbilitiesSystem : EntitySystem
+public sealed partial class SharedPsionicAbilitiesSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -17,6 +19,7 @@ public sealed class SharedPsionicAbilitiesSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
 
     public override void Initialize()
     {
@@ -61,10 +64,10 @@ public sealed class SharedPsionicAbilitiesSystem : EntitySystem
     /// <summary>
     /// Checks whether the entity is eligible to use its psionic ability. This should be run after anything that could effect psionic eligibility.
     /// </summary>
-    public void SetPsionicsThroughEligibility(EntityUid uid)
+    public void SetPsionicsThroughEligibility(EntityUid psionic)
     {
         PsionicComponent? component = null;
-        if (!Resolve(uid, ref component, false))
+        if (!Resolve(psionic, ref component, false))
             return;
 
         if (component.PsionicAbility == null)
@@ -73,15 +76,17 @@ public sealed class SharedPsionicAbilitiesSystem : EntitySystem
         if (_actions.GetAction(component.PsionicAbility) is not { } actionData)
             return;
 
-        _actions.SetEnabled(actionData.Owner, IsEligibleForPsionics(uid));
+        _actions.SetEnabled(actionData.Owner, IsEligibleForPsionics(psionic));
     }
 
 
 
-    private bool IsEligibleForPsionics(EntityUid uid)
+    private bool IsEligibleForPsionics(EntityUid psionic)
     {
-        return !HasComp<PsionicInsulationComponent>(uid)
-            && (!TryComp<MobStateComponent>(uid, out var mobstate) || mobstate.CurrentState == MobState.Alive);
+        if (TryComp<PsionicallyInsulatedComponent>(psionic, out var insulComp))
+            return insulComp.AllowsPsionicUsage && _mobStateSystem.IsAlive(psionic);
+
+        return _mobStateSystem.IsAlive(psionic);
     }
 
     public void LogPowerUsed(EntityUid uid, string power, int minGlimmer = 8, int maxGlimmer = 12)

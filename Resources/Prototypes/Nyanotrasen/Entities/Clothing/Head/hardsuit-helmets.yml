@@ -12,9 +12,8 @@
   - type: PointLight
     color: "#d6adff"
   - type: Psionic
-  - type: TinfoilHat
-    passthrough: true
-    destroyOnFry: false
+  - type: PsionicallyInsulative
+    allowsPsionicUsage: true
   - type: ClothingGrantPsionicPower
     power: MetapsionicPower
   - type: GuideHelp
