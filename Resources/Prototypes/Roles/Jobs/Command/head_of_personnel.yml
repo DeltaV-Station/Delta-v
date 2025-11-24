@@ -78,8 +78,9 @@
     #shoes: ClothingShoesLeather # DeltaV - Commented for Loadouts
     id: HoPPDA
     #gloves: ClothingHandsGlovesHop # DeltaV - Commented for Loadouts
-    ears: ClothingHeadsetHoP # DeltaV - HoP is now a service role, replaces their all channels headset.
-    belt: BoxFolderClipboard
+    ears: ClothingHeadsetHoP # DeltaV - HoP is now a service role, replaces ClothingHeadsetAltCommand headset.
+    belt: BoxFolderClipboardThreePapers
+    eyes: ClothingEyesHudCommand
   storage:
     back:
     - Flash
