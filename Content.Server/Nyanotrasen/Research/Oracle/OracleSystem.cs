@@ -17,6 +17,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -67,6 +68,7 @@ public sealed class OracleSystem : EntitySystem
         SubscribeLocalEvent<OracleComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<OracleComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<OracleComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<OracleComponent, GetVerbsEvent<Verb>>(AddInsertDesiredItemVerb);
     }
 
     private void OnInit(EntityUid uid, OracleComponent component, ComponentInit args)
@@ -102,12 +104,15 @@ public sealed class OracleSystem : EntitySystem
         }
     }
 
-    private void OnInteractUsing(EntityUid uid, OracleComponent component, InteractUsingEvent args)
+    private void AddInsertDesiredItemVerb(Entity<OracleComponent> ent, ref GetVerbsEvent<Verb> args)
     {
-        if (HasComp<MobStateComponent>(args.Used))
+        if (!args.CanAccess || !args.CanInteract || args.Using == null)
             return;
 
-        if (!TryComp(args.Used, out MetaDataComponent? meta))
+        if (HasComp<MobStateComponent>(args.Using))
+            return;
+
+        if (!TryComp(args.Using, out MetaDataComponent? meta))
             return;
 
         if (HasComp<BorgChassisComponent>(args.User))
@@ -116,49 +121,84 @@ public sealed class OracleSystem : EntitySystem
         if (meta.EntityPrototype == null)
             return;
 
-        var validItem = CheckValidity(meta.EntityPrototype, component.DesiredPrototype);
+        var argsUser = args.User;
+        var argsUsing = args.Using;
+
+        Verb insertVerb = new()
+        {
+            Text = Name(argsUsing.Value),
+            Category = InsertDesiredItemVerbCategory,
+            Act = () =>
+            {
+                DoOnInteractUsing(ent, argsUser, argsUsing.Value);
+            }
+        };
+
+        args.Verbs.Add(insertVerb);
+    }
+
+    private void OnInteractUsing(EntityUid uid, OracleComponent component, InteractUsingEvent args)
+    {
+        DoOnInteractUsing((uid, component), args.User, args.Used);
+    }
+
+    private void DoOnInteractUsing(Entity<OracleComponent> oracle, EntityUid user, EntityUid used)
+    {
+        if (HasComp<MobStateComponent>(used))
+            return;
+
+        if (!TryComp(used, out MetaDataComponent? meta))
+            return;
+
+        if (HasComp<BorgChassisComponent>(user))
+            return;
+
+        if (meta.EntityPrototype == null)
+            return;
+
+        var validItem = CheckValidity(meta.EntityPrototype, oracle.Comp.DesiredPrototype);
 
         var nextItem = true;
 
-        if (component.LastDesiredPrototype != null &&
-            CheckValidity(meta.EntityPrototype, component.LastDesiredPrototype))
+        if (oracle.Comp.LastDesiredPrototype != null &&
+            CheckValidity(meta.EntityPrototype, oracle.Comp.LastDesiredPrototype))
         {
             nextItem = false;
             validItem = true;
-            component.LastDesiredPrototype = null;
+            oracle.Comp.LastDesiredPrototype = null;
         }
 
         if (!validItem)
         {
-            if (!HasComp<RefillableSolutionComponent>(args.Used) &&
-                component.RejectAccumulator >= component.RejectTime.TotalSeconds)
+            if (!HasComp<RefillableSolutionComponent>(used) &&
+                oracle.Comp.RejectAccumulator >= oracle.Comp.RejectTime.TotalSeconds)
             {
-                component.RejectAccumulator = 0;
-                _chat.TrySendInGameICMessage(uid, _random.Pick(component.RejectMessages), InGameICChatType.Speak, true);
+                oracle.Comp.RejectAccumulator = 0;
+                _chat.TrySendInGameICMessage(oracle.Owner, _random.Pick(oracle.Comp.RejectMessages), InGameICChatType.Speak, true);
             }
             return;
         }
 
-        QueueDel(args.Used);
+        QueueDel(used);
 
         _adminLog.Add(LogType.InteractHand,
             LogImpact.Medium,
-            $"{ToPrettyString(args.User):player} sold {ToPrettyString(args.Used)} to {ToPrettyString(uid)}.");
+            $"{ToPrettyString(user):player} sold {ToPrettyString(used)} to {ToPrettyString(oracle.Owner)}.");
 
-        Spawn("ResearchDisk5000", Transform(args.User).Coordinates);
+        Spawn("ResearchDisk5000", Transform(user).Coordinates);
 
-        DispenseLiquidReward(uid, component);
+        DispenseLiquidReward(oracle.Owner, oracle.Comp);
 
         var i = _random.Next(1, 4);
 
         while (i != 0)
         {
-            Spawn("MaterialBluespace1", Transform(args.User).Coordinates);
+            Spawn("MaterialBluespace1", Transform(user).Coordinates);
             i--;
         }
 
         if (nextItem)
-            NextItem(component);
+            NextItem(oracle.Comp);
     }
 
     private bool CheckValidity(EntityPrototype given, EntityPrototype target)
@@ -280,4 +320,7 @@ public sealed class OracleSystem : EntitySystem
 
         return allProtos;
     }
+
+    public static readonly VerbCategory InsertDesiredItemVerbCategory = new("verb-categories-oracle-insert-desired", null);
+
 }

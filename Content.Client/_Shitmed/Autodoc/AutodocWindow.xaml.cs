@@ -27,8 +27,8 @@ public sealed partial class AutodocWindow : FancyWindow
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly ISerializationManager _serMan = default!;
     [Dependency] private readonly ILogManager _logMan = default!;
-    [Dependency] private readonly SharedAutodocSystem _autodoc = default!;
 
+    private SharedAutodocSystem _autodoc;
     private EntityUid _owner;
     private bool _active;
     private int _programCount = 0;
@@ -52,7 +52,7 @@ public sealed partial class AutodocWindow : FancyWindow
         IoCManager.InjectDependencies(this);
 
         _sawmill = _logMan.GetSawmill("autodoc-ui");
-
+        _autodoc = entMan.System<SharedAutodocSystem>();
         _owner = owner;
 
         OnClose += () =>

@@ -1,13 +1,13 @@
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.Shuttles;
 using Content.Shared._DV.Shuttles.Components;
 using Content.Shared._DV.Shuttles.Systems;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
+using Content.Shared.Station.Components;
 using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
@@ -132,7 +132,7 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         if (_station.GetStationInMap(map) is {} station)
         {
             // prevent picking vgroid and stuff
-            return _station.GetLargestGrid(Comp<StationDataComponent>(station));
+            return _station.GetLargestGrid(station); // May need to get the StationDataComponent if this doesn't work
         }
 
         var query = EntityQueryEnumerator<MapGridComponent, TransformComponent>();

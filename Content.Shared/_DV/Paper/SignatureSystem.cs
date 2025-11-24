@@ -6,6 +6,8 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared._Goobstation.Devil;
+using Content.Shared._Goobstation.Paper;
 
 namespace Content.Shared._DV.Paper;
 
@@ -61,6 +63,11 @@ public sealed class SignatureSystem : EntitySystem
         if (ev.Cancelled)
             return false;
 
+        var paperEvent = new BeingSignedAttemptEvent(paper, signer); // Goobstation
+        RaiseLocalEvent(paper.Owner, ref paperEvent);
+        if (paperEvent.Cancelled)
+            return false;
+
         var signatureName = DetermineEntitySignature(signer);
 
         var stampInfo = new StampDisplayInfo()
@@ -78,20 +85,30 @@ public sealed class SignatureSystem : EntitySystem
             return false;
         }
 
-        // Show popups and play a paper writing sound
-        var signedOtherMessage = Loc.GetString("paper-signed-other", ("user", signer), ("target", paper.Owner));
-        _popup.PopupEntity(signedOtherMessage, signer, Filter.PvsExcept(signer, entityManager: EntityManager), true);
+        if (!HasComp<DevilComponent>(signer)) // Goobstation - Don't display popups for devils, it covers the others.
+        {
+            // Show popups and play a paper writing sound
+            var signedOtherMessage = Loc.GetString("paper-signed-other", ("user", signer), ("target", paper.Owner));
+            _popup.PopupEntity(signedOtherMessage, signer, Filter.PvsExcept(signer, entityManager: EntityManager), true);
 
-        var signedSelfMessage = Loc.GetString("paper-signed-self", ("target", paper.Owner));
-        _popup.PopupClient(signedSelfMessage, signer, signer);
+            var signedSelfMessage = Loc.GetString("paper-signed-self", ("target", paper.Owner));
+            _popup.PopupClient(signedSelfMessage, signer, signer);
+        }
 
         _audio.PlayPredicted(comp.Sound, signer, signer);
+
+        var evSignSucessfulEvent = new SignSuccessfulEvent(paper, signer); // Goobstation - Devil Antagonist
+        RaiseLocalEvent(paper, ref evSignSucessfulEvent); // Goobstation - Devil Antagonist
 
         return true;
     }
 
     private string DetermineEntitySignature(EntityUid uid)
     {
+        // Goobstation - Allow devils to sign their true name.
+        if (TryComp<DevilComponent>(uid, out var devilComp) && !string.IsNullOrWhiteSpace(devilComp.TrueName))
+            return devilComp.TrueName;
+
         // If the entity has an ID, use the name on it.
         if (_idCard.TryFindIdCard(uid, out var id) && !string.IsNullOrWhiteSpace(id.Comp.FullName))
         {

@@ -210,7 +210,6 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded"]
       state: eyes
       shader: unshaded
-
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -316,8 +315,19 @@
     - MinorAntagonists
   - type: FelinidFood # Nyanotrasen - Felinid, ability to eat rat, see Content.Server/Nyanotrasen/Abilities/Felinid/FelinidSystem.cs
   - type: Food
+  # Begin DeltaV - Make them edible and grabbable
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 3
+  - type: FlavorProfile
+    flavors:
+    - meaty
   - type: Item
-    size: Tiny # Delta V - Make them edible and pickable.
+    size: Tiny
+  # End DeltaV - Make them edible and grabbable
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning

@@ -385,7 +385,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
         while (leaderQuery.MoveNext(out var leader, out var leaderComp))
         {
             if (TryComp<PolymorphedEntityComponent>(leader, out var polyComp) && TryComp<CosmicCultLeadComponent>(polyComp.Parent, out var polyLeaderComp))
-                _actions.AddAction(polyComp.Parent, ref polyLeaderComp.CosmicMonumentMoveActionEntity, polyLeaderComp.CosmicMonumentMoveAction, polyComp.Parent);
+                _actions.AddAction(polyComp.Parent.Value, ref polyLeaderComp.CosmicMonumentMoveActionEntity, polyLeaderComp.CosmicMonumentMoveAction, polyComp.Parent.Value);
             else
                 _actions.AddAction(leader, ref leaderComp.CosmicMonumentMoveActionEntity, leaderComp.CosmicMonumentMoveAction, leader);
         }
@@ -433,7 +433,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
         {
             _actions.RemoveAction(leader, leaderComp.CosmicMonumentMoveActionEntity);
             if (TryComp<PolymorphedEntityComponent>(leader, out var polyComp) && TryComp<CosmicCultLeadComponent>(polyComp.Parent, out var polyLeaderComp))
-                _actions.RemoveAction(polyComp.Parent, polyLeaderComp.CosmicMonumentMoveActionEntity);
+                _actions.RemoveAction(polyComp.Parent.Value, polyLeaderComp.CosmicMonumentMoveActionEntity);
         }
 
         Dirty(uid);

@@ -15,7 +15,8 @@
         damageType: Blunt
         damage: 110
       behaviors:
-      - !type:GibPartBehavior
+      - !type:DoActsBehavior # For some reason, if this is GibPartBehavior and spawned skeleton part gets gibbed (by like the nuke), the server crashes.
+        acts: [ "Destruction" ]
   - type: BodyPart
     species: Skeleton # Shitmed Change
   - type: StaticPrice

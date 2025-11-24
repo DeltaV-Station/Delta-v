@@ -10,12 +10,10 @@ using Content.Server.EUI;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
-using Content.Server.Light.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
 using Content.Server.Radio.Components;
-using Content.Server.Roles;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Cuffs;
@@ -37,6 +35,7 @@ using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Light.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -45,6 +44,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Parallax;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Stunnable;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
@@ -289,8 +289,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         while (cultQuery.MoveNext(out var cult, out _, out var metadata))
         {
             var playerInfo = metadata.EntityName;
-            if (TryComp<PolymorphedEntityComponent>(cult, out var polyComp)) // If the cultist is polymorphed, we use the original entity instead and hope that they'll polymorph back eventually
-                cultists.Add((playerInfo, polyComp.Parent));
+            if (TryComp<PolymorphedEntityComponent>(cult, out var polyComp) && polyComp.Parent.HasValue) // If the cultist is polymorphed, we use the original entity instead and hope that they'll polymorph back eventually
+                cultists.Add((playerInfo, polyComp.Parent.Value));
             else
                 cultists.Add((playerInfo, cult));
         }
@@ -784,7 +784,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             return;
         var cosmicGamerule = cult.Comp;
 
-        _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
+        if(TryComp<CrawlerComponent>(uid, out var crawlerComp))
+            _stun.TryCrawling((uid, crawlerComp), TimeSpan.FromSeconds(2), refresh: true);
+
         foreach (var actionEnt in uid.Comp.ActionEntities) _actions.RemoveAction(actionEnt);
 
         if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var transmitter))

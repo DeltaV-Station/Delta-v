@@ -1,13 +1,18 @@
+using Content.Server.Chat.Systems;
+using Content.Shared._Goobstation.DelayedDeath;
 using Content.Shared.Medical;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
 
 namespace Content.Server._Shitmed.DelayedDeath;
 
 public partial class DelayedDeathSystem : EntitySystem
 {
+    [Dependency] private readonly ChatSystem _chat = default!; // Goobstation
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -30,6 +35,19 @@ public partial class DelayedDeathSystem : EntitySystem
                 // go crit then dead so deathgasp can happen
                 _mobState.ChangeMobState(ent, MobState.Critical, mob);
                 _mobState.ChangeMobState(ent, MobState.Dead, mob);
+
+                // goob code
+                var ev = new DelayedDeathEvent(ent, PreventRevive: comp.PreventAllRevives);
+                RaiseLocalEvent(ent, ref ev);
+
+                if (ev.Cancelled)
+                {
+                    RemCompDeferred<DelayedDeathComponent>(ent);
+                    continue;
+                }
+
+                if (!string.IsNullOrWhiteSpace(comp.DeathMessageId)) // Goobstation
+                    _popupSystem.PopupEntity(Loc.GetString(comp.DeathMessageId), ent, ent, PopupType.LargeCaution);
             }
         }
     }
@@ -38,5 +56,8 @@ public partial class DelayedDeathSystem : EntitySystem
     {
         // can't defib someone without a heart or brain pal
         args.Cancel();
+
+        var failPopup = Loc.GetString(ent.Comp.DefibFailMessageId); // Goobstation
+        _chat.TrySendInGameICMessage(args.Defib, failPopup, InGameICChatType.Speak, true);
     }
 }

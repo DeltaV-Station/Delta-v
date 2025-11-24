@@ -44,7 +44,12 @@
       state: icon
   - type: TargetObjective
     title: objective-roboneuroticist-kill-title
-  - type: PickRandomHead
+  - type: PickRandomPerson
+    filters:
+    - !type:BodyMindFilter
+      whitelist:
+        components:
+        - CommandStaff
   - type: KillPersonCondition
     requireDead: true
 

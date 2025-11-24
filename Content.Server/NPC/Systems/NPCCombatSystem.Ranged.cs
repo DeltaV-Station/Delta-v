@@ -206,7 +206,7 @@ public sealed partial class NPCCombatSystem
             }
 
             _gun.SetTarget(gun, comp.Target); // Imp
-            _gun.AttemptShoot(uid, gunUid, gun, targetCordinates);
+            _gun.AttemptShoot(uid, gunUid, gun, targetCordinates, comp.Target);
         }
     }
 }

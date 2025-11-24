@@ -193,8 +193,9 @@ public partial class ChatSystem
             if (validEmote)
                 break;
 
-            if (!AllowedToUseEmote(uid, emote))
-                continue;
+            // Delta V - For allowing Silicons etc. to use all emotes without changing an entire Yaml file.
+            //if (!AllowedToUseEmote(uid, emote))
+            //    continue;
 
             // This will check if you're blocked from vocal emotes, even if its an allowed emote for your species.
             validEmote = TryInvokeEmoteEvent(uid, emote);
