@@ -1,6 +1,6 @@
 using Content.Server.Abilities.Psionics;
 using Content.Server.Chat.Systems;
-using Content.Server.Nyanotrasen.StationEvents.Components._DV;
+using Content.Server._DV.StationEvents.Components;
 using Content.Server.Psionics;
 using Content.Server.StationEvents.Events;
 using Content.Shared.Abilities.Psionics;
@@ -12,7 +12,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 
-namespace Content.Server.Nyanotrasen.StationEvents.Events._DV;
+namespace Content.Server._DV.StationEvents.Events;
 
 /// <summary>
 /// Forces a mind swap on a small amount of non-insulated psionic entities.
@@ -26,7 +26,7 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
     [Dependency] private readonly MobStateSystem _mobstateSystem = default!;
 
     private TimeSpan _warningSoundLength;
-    private ResolvedSoundSpecifier _resolvedWarningSound = String.Empty;
+    private ResolvedSoundSpecifier _resolvedWarningSound = string.Empty;
 
     protected override void Started(EntityUid uid, MinorMassMindSwapRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -83,7 +83,7 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
 
         // We go with 4 pairs for now
         List<EntityUid> actorsToSwap = new();
-        int swapPairCount = _random.Next(1, 5);
+        var swapPairCount = _random.Next(1, 5);
 
         for (; swapPairCount > 0 && psionicActors.Count > 1; swapPairCount--) 
         {

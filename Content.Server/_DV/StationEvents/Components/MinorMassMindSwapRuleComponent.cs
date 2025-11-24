@@ -1,8 +1,8 @@
-using Content.Server.Nyanotrasen.StationEvents.Events._DV;
+using Content.Server._DV.StationEvents.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server.Nyanotrasen.StationEvents.Components._DV;
+namespace Content.Server._DV.StationEvents.Components;
 
 [RegisterComponent, Access(typeof(MinorMassMindSwapRule))]
 public sealed partial class MinorMassMindSwapRuleComponent : Component
@@ -11,7 +11,7 @@ public sealed partial class MinorMassMindSwapRuleComponent : Component
     /// The mind swap is only temporary if true.
     /// </summary>
     [DataField("isTemporary")]
-    public bool IsTemporary;
+    public bool IsTemporary = false;
 
     [DataField]
     public TimeSpan Delay = TimeSpan.FromSeconds(60);
