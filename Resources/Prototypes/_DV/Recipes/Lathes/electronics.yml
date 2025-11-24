@@ -22,3 +22,28 @@
   parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
   id: CloningPodMachineCircuitboard
   result: CloningPodMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseSilverCircuitboardRecipe
+  id: SalvageExpeditionsComputerCircuitboard
+  result: SalvageExpeditionsComputerCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: ReverseEngineeringMachineCircuitboard
+  result: ReverseEngineeringMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: CrewMonitoringComputerCircuitboard
+  result: CrewMonitoringComputerCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: DeepFryerMachineCircuitboard
+  result: DeepFryerMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: ArtifactDisplayCaseMachineCircuitBoard
+  result: ArtifactDisplayCaseMachineCircuitBoard

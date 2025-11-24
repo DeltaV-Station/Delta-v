@@ -46,6 +46,22 @@
     back:
     - Wristwatch
 
+  id: Eyepatch
+  equipment:
+    eyes: ClothingEyesEyepatch
+
+- type: loadout
+  id: PlushieExperiment
+  storage:
+    back:
+    - PlushieExperiment
+
+- type: loadout
+  id: PlushieBee
+  storage:
+    back:
+    - PlushieBee
+
 - type: loadout
   id: DrinkOniGourd
   effects:

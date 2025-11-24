@@ -8,3 +8,14 @@ ent-CargoRequestScienceComputerCircuitboard = epistemics request computer board
 
 ent-ComputerCargoOrdersScience = epistemics request computer
     .desc = Used by the epistemics department to order supplies.
+
+ent-PaperAcquisitionSlip =
+    .desc = A slip with order details on it. It can be given to Logistics to complete the order.
+
+ent-PaperAcquisitionSlipScience =
+    .desc = A slip with order details on it. It can be given to Logistics to complete the order.
+    .suffix = Epistemics
+
+ent-PaperAcquisitionSlipCargo =
+    .desc = A slip with order details on it. It can be given to Logistics to complete the order.
+    .suffix = Logistics

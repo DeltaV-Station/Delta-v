@@ -1,5 +1,5 @@
-using Content.Server.Body.Components;
 using Content.Server.Medical;
+using Content.Shared.Body.Components;
 using Content.Shared._DV.Abilities;
 using Content.Shared._DV.Abilities.Felinid;
 using Content.Shared.Chemistry.EntitySystems;

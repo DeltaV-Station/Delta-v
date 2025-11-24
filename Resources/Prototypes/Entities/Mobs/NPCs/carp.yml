@@ -78,6 +78,7 @@
       tags:
         - Carp
         - DoorBumpOpener
+        - CannotSuicide
     - type: ReplacementAccent
       accent: genericAggressive
     - type: Speech
@@ -195,7 +196,6 @@
       rules: ghost-role-information-space-dragon-summoned-carp-rules
       mindRoles:
       - MindRoleGhostRoleTeamAntagonistFlock
-      raffle: null # DeltaV - disable raffle for fish
     - type: GhostTakeoverAvailable
     - type: HTN
       rootTask:
@@ -270,11 +270,10 @@
         - id: FoodMeatFish
           amount: 4
         - id: MaterialToothSharkminnow1
-          amount: 1
-          maxAmount: 3
+          amount: 3
         - id: MaterialChitinSharkminnow1 # DeltaV
           amount: 1
-          maxAmount: 4 
+          maxAmount: 4
     - type: MeleeWeapon
       damage:
         types:

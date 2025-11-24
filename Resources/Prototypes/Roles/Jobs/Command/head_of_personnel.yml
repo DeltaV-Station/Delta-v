@@ -58,7 +58,6 @@
   # Begin DeltaV Additions - fine-grained service accesses
   - Boxer
   - Clown
-  - Library
   - Mime
   - Musician
   - Reporter
@@ -79,8 +78,21 @@
     #shoes: ClothingShoesLeather # DeltaV - Commented for Loadouts
     id: HoPPDA
     #gloves: ClothingHandsGlovesHop # DeltaV - Commented for Loadouts
-    ears: ClothingHeadsetHoP # DeltaV - HoP is now a service role, replaces their all channels headset.
-    belt: BoxFolderClipboard
+    ears: ClothingHeadsetHoP # DeltaV - HoP is now a service role, replaces ClothingHeadsetAltCommand headset.
+    belt: BoxFolderClipboardThreePapers
+    eyes: ClothingEyesHudCommand
   storage:
     back:
     - Flash
+
+- type: chameleonOutfit
+  id: HeadOfPersonnelChameleonOutfit
+  job: HeadOfPersonnel
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatHopcap
+    eyes: ClothingEyesHudCommand
+    mask: ClothingMaskNeckGaiterRed
+    neck: ClothingNeckCloakHop
+    outerClothing: ClothingOuterWinterHoP
+

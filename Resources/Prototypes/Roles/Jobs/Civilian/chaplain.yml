@@ -3,11 +3,10 @@
   name: job-name-chaplain
   description: job-description-chaplain
   playTimeTracker: JobChaplain
-  antagAdvantage: 4 # DeltaV - Protolathe, Increased Psionics, Gib machine, anomaly access, glimmer factor
+  antagAdvantage: 2 # DeltaV - Increased Psionics, Gib machine
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
   supervisors: job-supervisors-rd # DeltaV - Change supervisor to mystagogue
-  canBeAntag: false # DeltaV - Can't be antag in case of Cultist antag presence. Remove this flag when antagselection is granularized.
   access:
   - Chapel
   - Research # DeltaV - Move Chaplain into Epistemics
@@ -16,6 +15,8 @@
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
+    - type: Condemned
+      soulOwnedNotDevil: true # This just means they won't suffer the effects of being condemned, while still not being able to sell their soul. - Goobstation
     - type: PsionicBonusChance # DeltaV - makes it more likely to become psionic.
       multiplier: 3
 
@@ -27,6 +28,16 @@
     ears: ClothingHeadsetScience # DeltaV - Move Chaplain into Epistemics
   storage:
     back:
-    - Bible
     - RubberStampChaplain
-    - CosmicCenser # DeltaV - Cosmic Cult
+
+- type: chameleonOutfit
+  id: ChaplainChameleonOutfit
+  job: Chaplain
+  equipment:
+    head: ClothingHeadHatPlaguedoctor
+    eyes: ClothingEyesGlasses
+    mask: ClothingMaskPlague
+    neck: ClothingNeckStoleChaplain
+    outerClothing: ClothingOuterPlagueSuit
+    gloves: ClothingHandsGlovesColorBlack
+

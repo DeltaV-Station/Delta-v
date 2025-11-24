@@ -1,0 +1,14 @@
+# Instruments
+- type: loadout
+  id: SuperSynthesizerInstrument #Delta-V - ports supersynth trinket from Starlight.
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 180000 # Delta-V - 50 hours, was 10
+  storage:
+    back:
+    - SuperSynthesizerInstrument #Delta-V - Supersynth spawns in backpack if chosen as trinket.
+  groupBy: "Instruments"
+#Starlight-End

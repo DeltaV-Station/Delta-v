@@ -14,17 +14,16 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'NY'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Kaeri.yml
+          emergencyShuttlePath: /Maps/_DV/Shuttles/Evac/ntes_kaeri.yml
         - type: StationJobs
           availableJobs:
           #Command
             Captain: [ 1, 1 ]
-            AdministrativeAssistant: [ 1, 1 ]
           #Service
             HeadOfPersonnel: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 1, 2 ]
-            Reporter: [ 0, 1 ]
+            Reporter: [ 1, 1 ]
             Bartender: [ 1, 2 ]
             Botanist: [ 1, 2 ]
             MartialArtist: [ 2, 3 ]

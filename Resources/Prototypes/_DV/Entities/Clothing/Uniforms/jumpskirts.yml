@@ -40,6 +40,17 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/overalls.rsi
 
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtWaitstaffFormal
+  name: waitstaff skirt
+  description: A sharp vest with a pencil skirt made for serving tables and looking professional.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/waitingskirt.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/waitingskirt.rsi
+
 # Formal uniforms
 
 - type: entity
@@ -349,9 +360,9 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpskirtAdminAssistant
-  name: administrative assistant's jumpskirt
-  description: A suit worn by the Administrative Assistant. Smells of burnt coffee.
+  id: ClothingUniformJumpskirtSecretary
+  name: secretary's jumpskirt
+  description: A suit worn by secretary personnel. Smells of burnt coffee.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpskirt/admin_assistant.rsi

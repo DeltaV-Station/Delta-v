@@ -13,14 +13,15 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'NY'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Seal.yml
+          emergencyShuttlePath: /Maps/_DV/Shuttles/Evac/ntes_seal.yml
+        - type: StationCargoShuttle
+          path: /Maps/_DV/Shuttles/Cargo/cargo_model_b.yml
         - type: StationJobs
           availableJobs:
           #civilian
             Passenger: [ -1, -1 ]
             Librarian: [ 1, 1 ]
           #command
-            AdministrativeAssistant: [ 1, 1 ]
             Captain: [ 1, 1 ]
             StationAi: [ 1, 1 ]
           #engineering

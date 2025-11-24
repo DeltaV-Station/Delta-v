@@ -13,3 +13,35 @@
     - RoboNeuroticistInfiltrator
     - RoboNeuroticistWarmonger
     - RoboNeuroticistClown
+    - RoboNeuroticistPirate
+    - RoboNeuroticistMalpractice
+
+- type: entity
+  parent: BorgHypo
+  id: SyndicateNocturineHypo
+  name: nocturine hypo
+  description: A self-refilling injector for rapid administration of nocturine to victms.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nocturine
+          Quantity: 20
+  - type: SolutionRegeneration
+    solution: hypospray
+    generated:
+      reagents:
+      - ReagentId: Nocturine
+        Quantity: .1
+
+- type: entity
+  parent: PinpointerSyndicateNuclear
+  id: RoboNeuroticistPointer
+  name: shuttle pointer
+  description: Always points back to the Robotocist's trusty robotics console
+  components:
+  - type: Pinpointer
+    component: RoboticsConsole
+    targetName: robotics control console

@@ -28,6 +28,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using System.Numerics;
 using Content.Shared._DV.Polymorph;
+using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Shared._DV.Carrying;
 
@@ -43,7 +44,8 @@ public sealed class CarryingSystem : EntitySystem
     [Dependency] private readonly SharedPseudoItemSystem _pseudoItem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
-    [Dependency] private readonly SharedVirtualItemSystem  _virtualItem = default!;
+    [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -268,8 +270,11 @@ public sealed class CarryingSystem : EntitySystem
 
     private void Carry(EntityUid carrier, EntityUid carried)
     {
-        if (TryComp<PullableComponent>(carried, out var pullable))
-            _pulling.TryStopPull(carried, pullable);
+        if (TryComp<PullableComponent>(carried, out var carriedPullable))
+            _pulling.TryStopPull(carried, carriedPullable);
+
+        if (TryComp<PullableComponent>(carrier, out var carrierPullable))
+            _pulling.TryStopPull(carrier, carrierPullable);
 
         var carrierXform = Transform(carrier);
         var xform = Transform(carried);
@@ -363,8 +368,7 @@ public sealed class CarryingSystem : EntitySystem
             !HasComp<BeingCarriedComponent>(carrier) &&
             !HasComp<BeingCarriedComponent>(carried) &&
             // finally check that there are enough free hands
-            TryComp<HandsComponent>(carrier, out var hands) &&
-            hands.CountFreeHands() >= carried.Comp.FreeHandsRequired;
+            TryComp<HandsComponent>(carrier, out var hands) && _hands.CountFreeHands((carrier, hands)) >= carried.Comp.FreeHandsRequired;
     }
 
     private float MassContest(EntityUid roller, EntityUid target)

@@ -13,13 +13,14 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Transport.yml
+          emergencyShuttlePath: /Maps/_DV/Shuttles/Evac/ntes_transport.yml
         - type: StationJobs
           availableJobs:
           #civilian
             Passenger: [ -1, -1 ]
             Librarian: [ 1, 1 ]
             Boxer: [ 2, 2 ]
+            Zookeeper: [ 2, 2 ]
           #command
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -30,7 +31,6 @@
             ResearchDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
             StationAi: [ 1, 1 ]
-            AdministrativeAssistant: [ 1, 1 ]
           #engineering
             AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 4, 5 ]

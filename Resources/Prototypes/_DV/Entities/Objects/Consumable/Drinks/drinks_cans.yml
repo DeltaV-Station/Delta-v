@@ -13,3 +13,20 @@
           Quantity: 30
   - type: Sprite
     sprite: _DV/Objects/Consumable/Drinks/drgibbbloodred.rsi
+
+- type: entity
+  id: DrinkCanPackBloodRed
+  parent: DrinkCanPack
+  name: Blood-red brew 6pack
+  components:
+  - type: Storage
+    whitelist:
+      tags:
+        - DrinkCan
+  - type: StorageFill
+    contents:
+      - id: DrinkNukieCan
+        amount: 6
+  - type: ItemCounter
+    count:
+      tags: [DrinkCan]

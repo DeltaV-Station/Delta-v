@@ -26,6 +26,7 @@ guide-entry-deltav-rule-s10 = S10. You resolve conflicts between orders.
 
 guide-entry-alert-levels = Alert Levels
 guide-entry-justice = Justice
+guide-entry-whitelist = Whitelist
 
 guide-entry-glimmer-creatures = Glimmer Creatures
 

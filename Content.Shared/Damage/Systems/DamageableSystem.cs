@@ -181,7 +181,7 @@ namespace Content.Shared.Damage
         public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
             bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null,
             // Shitmed Change
-            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null)
+            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 0.5f, TargetBodyPart? targetPart = null, bool doPartDamage = true, bool onlyDamageParts = false) // DeltaV - Fix EvenHealing on Limbs && Standardize PartDamage.
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
             {
@@ -194,20 +194,24 @@ namespace Content.Shared.Damage
                 return damage;
             }
 
+            damage = ApplyUniversalAllModifiers(damage); // DeltaV - Fix EvenHealing with Limbs.
+
             var before = new BeforeDamageChangedEvent(damage, origin, targetPart); // Shitmed Change
             RaiseLocalEvent(uid.Value, ref before);
 
             if (before.Cancelled)
                 return null;
 
-            // Shitmed Change Start
-            var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
-            RaiseLocalEvent(uid.Value, ref partDamage);
+            if (doPartDamage) // DeltaV - Fix EvenHealing with Limbs.
+            {
+                // ShitMed Start
+                var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 0.5f); // DeltaV - Standardize PartDamage.
+                RaiseLocalEvent(uid.Value, ref partDamage);
 
-            if (partDamage.Evaded || partDamage.Cancelled)
-                return null;
-
-            // Shitmed Change End
+                if (partDamage.Evaded || partDamage.Cancelled)
+                    return null;
+                //ShitMed End
+            }
 
             // Apply resistances
             if (!ignoreResistances)
@@ -231,7 +235,8 @@ namespace Content.Shared.Damage
                 }
             }
 
-            damage = ApplyUniversalAllModifiers(damage);
+            if (onlyDamageParts) // DeltaV - Fix EvenHealing with Limbs.
+                return null;
 
             // TODO DAMAGE PERFORMANCE
             // Consider using a local private field instead of creating a new dictionary here.
@@ -337,17 +342,6 @@ namespace Content.Shared.Damage
             Dirty(uid, comp);
         }
 
-        // Begin DeltaV Additions - We need to be able to change DamageContainer to make cultists vulnerable to Holy Damage
-        public void SetDamageContainerID(Entity<DamageableComponent?> ent, string damageContainerId)
-        {
-            if (!_damageableQuery.Resolve(ent, ref ent.Comp))
-                return;
-
-            ent.Comp.DamageContainerID = damageContainerId;
-            Dirty(ent);
-        }
-        // End DeltaV Additions
-
         private void DamageableGetState(EntityUid uid, DamageableComponent component, ref ComponentGetState args)
         {
             if (_netMan.IsServer)
@@ -372,7 +366,7 @@ namespace Content.Shared.Damage
                 damage.DamageDict.Add(typeId, damageValue);
             }
 
-            TryChangeDamage(uid, damage, interruptsDoAfters: false);
+            TryChangeDamage(uid, damage, interruptsDoAfters: false, origin: args.Origin);
         }
 
         private void OnRejuvenate(EntityUid uid, DamageableComponent component, RejuvenateEvent args)
@@ -396,7 +390,7 @@ namespace Content.Shared.Damage
 
             // Has the damage actually changed?
             DamageSpecifier newDamage = new() { DamageDict = new(state.DamageDict) };
-            var delta = component.Damage - newDamage;
+            var delta = newDamage - component.Damage;
             delta.TrimZeros();
 
             if (!delta.Empty)

@@ -10,7 +10,8 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 15
+        Blunt: 25 # Get to WHACKIN!
+        Structural: 30
     soundHit:
       collection: ExplosionSmall
   - type: MeleeRequiresWield # You can't hit a home run with one hand, jimbo.

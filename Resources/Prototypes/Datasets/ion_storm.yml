@@ -342,19 +342,15 @@
   - HEADS OF STAFF
   - JANITORS
   - LAWYERS
-  - LIBRARIANS
+  - ARCHIVISTS # DeltaV - Replace librarians with Curators
   - MEDICAL DOCTORS
   - MIMES
   - MUSICIANS
   - NON-CREW
   - PARAMEDICS
-  - PASSENGERS
-  # DeltaV - Logistics Department - Replace Quartermaster with Logistics Officer
-  - LOGISTICS OFFICERS
-  # End of modified code
-  # DeltaV - Epistemics Department - Replace Research Director with Mystagogue
-  - MYSTAGOGUES
-  # End of modified code
+  - ASSISTANTS # DeltaV - Replace passengers with assistants
+  - LOGISTICS OFFICERS # DeltaV - Replace Quartermaster with Logistics Officer
+  - MYSTAGOGUES   # DeltaV - Replace Research Director with Mystagogue
   - ROBOTICISTS
   - RODENTS
   - SALVAGE SPECIALISTS
@@ -507,7 +503,7 @@
   - HIT A HOMERUN
   - HONK
   - HOST C&C
-  - IGNORE PASSENGERS
+  - IGNORE ASSISTANTS # DeltaV - Replace passengers with Assistants
   - IGNORE THE CAPTAIN
   - IGNORE THE CLOWN
   - INFORM THE CREW OF EVERYTHING

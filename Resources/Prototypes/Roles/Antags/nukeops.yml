@@ -30,7 +30,7 @@
     time: 108000 # DeltaV - 30 hours
   - !type:RoleTimeRequirement #Delta V - they should be able to make basic chems
     role: JobChemist
-    time: 14400 # DeltaV- 4 hours
+    time: 14400 # DeltaV - 4 hours
 
 - type: antag
   id: NukeopsCommander
@@ -69,16 +69,25 @@
     back:
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
-    - DeathAcidifierImplanter
-    - BionicVoiceMaskImplanter # Delta-V - Voice masking implant
+    # - DeathAcidifierImplanter # DeltaV - more TC less acid
+    - BionicVoiceMaskImplanter # DeltaV - Voice masking implant
 
 #Nuclear Operative Gear
 - type: startingGear
   id: SyndicateOperativeGearFull
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
-    pocket2: BaseUplinkRadio45TC # DeltaV removal of armor
-    outerClothing: ClothingOuterCoatSyndieCap # DeltaV removal of armor
+    pocket2: BaseUplinkRadio45TC # DeltaV - removal of armor
+    outerClothing: ClothingOuterCoatSyndieCap # DeltaV - removal of armor
+
+- type: chameleonOutfit
+  id: NukeopsOutfit
+  name: roles-antag-nuclear-operative-name
+  startingGear: SyndicateOperativeGearFullNoUplink
+  icon: "JobIconSyndicate"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndie
+    neck: ClothingNeckScarfStripedSyndieRed
 
 #Nuclear Operative Commander Gear
 - type: startingGear
@@ -86,20 +95,29 @@
   parent: SyndicateOperativeGearFull
   equipment:
     neck: SyndicateWhistle
-    pocket2: CommanderUplinkRadio45TC # DeltaV allows them to buy commander armor
-    outerClothing: ClothingOuterCoatSyndieCapArmored # DeltaV removal of armor
-#  inhand: # DeltaV - Removal Of War.
-#  - NukeOpsDeclarationOfWar
+    pocket2: CommanderUplinkRadio45TC # DeltaV - allows them to buy commander armor
+    outerClothing: ClothingOuterCoatSyndieCapArmored # DeltaV - removal of armor
+  inhand:
+  - NukeOpsDeclarationOfWar
+
+- type: chameleonOutfit
+  id: NukeopsCommanderOutfit
+  name: roles-antag-nuclear-operative-commander-name
+  startingGear: SyndicateCommanderGearFull
+  icon: "JobIconSyndicate"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndieCommander
+    neck: ClothingNeckScarfStripedSyndieGreen
 
 #Nuclear Operative Medic Gear
 - type: startingGear
   id: SyndicateOperativeMedicFull
   parent: SyndicateOperativeGearFull
   equipment:
-    pocket2: AgentUplinkRadio45TC #DeltaV allows them to buy Agent armor
+    pocket2: AgentUplinkRadio45TC # DeltaV - allows them to buy Agent armor
     eyes: ClothingEyesHudSyndicateAgent
-    outerClothing: ClothingOuterCoatCybersunWindbreaker # DeltaV removal of armor
-#    shoes: ClothingShoesBootsMagSyndie # DeltaV removal of armor
+    outerClothing: ClothingOuterCoatCybersunWindbreaker # DeltaV - removal of armor
+#    shoes: ClothingShoesBootsMagSyndie # DeltaV - removal of armor
     id: SyndiAgentPDA
     belt: ClothingBeltMilitaryWebbingMedFilled
   storage:
@@ -112,13 +130,22 @@
     - PinpointerSyndicateNuclear
     - HandheldHealthAnalyzer
     - CombatMedipen
-    - DeathAcidifierImplanter
-    - BionicVoiceMaskImplanter # Delta-V - Voice masking implant
+    # - DeathAcidifierImplanter # DeltaV - more TC less acid
+    - BionicVoiceMaskImplanter # DeltaV - Voice masking implant
     - OmnimedToolSyndie # Shitmed
+
+- type: chameleonOutfit
+  id: NukeopsMedicOutfit
+  name: roles-antag-nuclear-operative-agent-name
+  startingGear: SyndicateOperativeMedicFull
+  icon: "JobIconSyndicate"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndieMedic
+    neck: ClothingNeckScarfStripedLightBlue
 
 #Lone Operative Gear
 - type: startingGear
   id: SyndicateLoneOperativeGearFull
   parent: SyndicateOperativeGearFull
   equipment:
-    pocket2: BaseUplinkRadio65TC # DeltaV more TC less armor
+    pocket2: BaseUplinkRadio65TC # DeltaV - more TC less armor

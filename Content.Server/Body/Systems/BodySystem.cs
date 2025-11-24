@@ -1,10 +1,12 @@
-using Content.Server.Body.Components;
+using System.Numerics;
 using Content.Server.Ghost;
 using Content.Server.Humanoid;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Events;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
+using Content.Shared.Damage.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
@@ -15,6 +17,7 @@ using Robust.Shared.Timing;
 using System.Numerics;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
+using Content.Shared.Damage.Components;
 
 // Shitmed Change
 using System.Linq;
@@ -84,7 +87,7 @@ public sealed class BodySystem : SharedBodySystem
         }
     }
 
-    protected override void RemovePart(
+    public override void RemovePart( // DeltaV - Made public
         Entity<BodyComponent?> bodyEnt,
         Entity<BodyPartComponent> partEnt,
         string slotId)
@@ -124,15 +127,18 @@ public sealed class BodySystem : SharedBodySystem
             return new HashSet<EntityUid>();
         }
 
+        if (HasComp<GodmodeComponent>(bodyId))
+            return new HashSet<EntityUid>();
+
         // If a polymorph configured to revert on death is gibbed without dying,
         // revert it then gib so the parent is gibbed instead of the polymorph.
         if (TryComp<PolymorphedEntityComponent>(bodyId, out var polymorph)
             && polymorph.Configuration.RevertOnDeath)
         {
             _polymorph.Revert(bodyId);
-            if (polymorph.Configuration.TransferDamage)
-                GibBody(polymorph.Parent, acidify, null, launchGibs: launchGibs, splatDirection: splatDirection,
-                splatModifier: splatModifier, splatCone:splatCone);
+            if (polymorph.Configuration.TransferDamage && polymorph.Parent.HasValue)
+                GibBody(polymorph.Parent.Value, acidify, null, launchGibs: launchGibs, splatDirection: splatDirection,
+                splatModifier: splatModifier, splatCone: splatCone);
             return new HashSet<EntityUid>();
         }
 
@@ -211,8 +217,8 @@ public sealed class BodySystem : SharedBodySystem
         var bleeding = partEnt.Comp.SeverBleeding;
         if (partEnt.Comp.IsVital)
             bleeding *= 2f;
-        _bloodstream.TryModifyBleedAmount(bodyEnt, bleeding);
+        TryComp<BloodstreamComponent>(bodyEnt, out var bloodstream);
+        _bloodstream.TryModifyBleedAmount((bodyEnt, bloodstream), bleeding);
     }
-
     // Shitmed Change End
 }

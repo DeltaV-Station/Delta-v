@@ -1,16 +1,17 @@
 using System.Linq;
-using Content.Server._EE.Silicon.WeldingHealable;
 using Content.Server.Bible.Components;
 using Content.Server.Flash;
-using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._EE.Silicon.Components;
 using Content.Shared.Effects;
 using Content.Shared.Interaction;
+using Content.Shared.Light.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
+using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
@@ -67,11 +68,11 @@ public sealed class CosmicGlareSystem : EntitySystem
         {
             var targetEnt = GetEntity(target);
 
-            _flash.Flash(targetEnt, uid, args.Action, (float)uid.Comp.CosmicGlareDuration.TotalMilliseconds, uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun);
+            _flash.Flash(targetEnt, uid, args.Action, uid.Comp.CosmicGlareDuration, uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun, ignoreProtection: uid.Comp.CosmicEmpowered);
 
-            if (HasComp<WeldingHealableComponent>(targetEnt)) //This component is used exclusively by IPCs and borgs, so we use it here to target 'em specifically.
+            if (HasComp<BorgChassisComponent>(targetEnt) || HasComp<SiliconComponent>(targetEnt)) //For paralyzing borgs and IPCs specifically.
             {
-                _stun.TryParalyze(targetEnt, uid.Comp.CosmicGlareDuration / 2, true);
+                _stun.TryUpdateParalyzeDuration(targetEnt, uid.Comp.CosmicGlareDuration / 2);
             }
 
             _color.RaiseEffect(Color.CadetBlue, new List<EntityUid>() { targetEnt }, Filter.Pvs(targetEnt, entityManager: EntityManager));

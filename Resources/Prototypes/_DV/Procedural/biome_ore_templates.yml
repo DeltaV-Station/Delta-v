@@ -1,3 +1,49 @@
+# Bluespace
+
+- type: biomeMarkerLayer
+  id: OreBluespace
+  entityMask:
+    AsteroidRock: AsteroidRockBluespace
+    WallRock: WallRockBluespace
+    WallRockBasalt: WallRockBasaltBluespace
+    WallRockChromite: WallRockChromiteBluespace
+    WallRockSand: WallRockSandBluespace
+    WallRockSnow: WallRockSnowBluespace
+  maxCount: 6
+  minGroupSize: 1
+  maxGroupSize: 3
+  radius: 4
+
+# Gibtonite
+
+- type: biomeMarkerLayer
+  id: LavalandGibtonite
+  entityMask:
+    AsteroidRock: AsteroidRockGibtonite
+    WallRock: WallRockGibtonite
+    WallRockBasalt: WallRockBasaltGibtonite
+    WallRockChromite: WallRockChromiteGibtonite
+    WallRockSand: WallRockSandGibtonite
+    WallRockSnow: WallRockSnowGibtonite
+  maxCount: 40
+  minGroupSize: 1
+  maxGroupSize: 1
+  radius: 4
+
+- type: biomeMarkerLayer
+  id: GlacierGibtonite
+  entityMask:
+    AsteroidRock: AsteroidRockGibtonite
+    WallRock: WallRockGibtonite
+    WallRockBasalt: WallRockBasaltGibtonite
+    WallRockChromite: WallRockChromiteGibtonite
+    WallRockSand: WallRockSandGibtonite
+    WallRockSnow: WallRockSnowGibtonite
+  maxCount: 20 # Less gibotnite so its somewhat safer
+  minGroupSize: 1
+  maxGroupSize: 1
+  radius: 4
+
 # these have higher group size so more ores spawns
 
 # Plasma

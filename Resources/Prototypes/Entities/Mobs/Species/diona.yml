@@ -11,7 +11,6 @@
     baseDecayRate: 0.015 # DeltaV
   - type: Thirst
     baseDecayRate: 0.15 # DeltaV
-  - type: Carriable # Carrying system from nyanotrasen.
   - type: Icon
     sprite: Mobs/Species/Diona/parts.rsi
     state: full
@@ -120,6 +119,22 @@
     baseWalkSpeed: 1.0
     baseSprintSpeed: 3.0
   - type: FTLKnockdownImmune # Frontier
+  - type: Rootable
+  - type: LightReactive # DeltaV
+    manual: true
+  - type: LightLevelHealth # DeltaV
+    darkThreshold: 0.4
+    lightThreshold: 1.2
+    darkDamage:
+      types:
+        Heat: 1.0
+    lightDamage:
+      groups:
+        Brute: -0.1
+        Burn: -0.1
+        Toxin: -0.1
+        Airloss: -0.1
+    darkMovementSpeedMultiplier: 0.7
 
 - type: entity
   parent: BaseSpeciesDummy

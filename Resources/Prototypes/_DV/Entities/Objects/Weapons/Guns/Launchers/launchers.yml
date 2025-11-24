@@ -75,3 +75,74 @@
       fireCost: 200
     - proto: GrenadeEMP
       fireCost: 600
+
+- type: entity
+  parent: BaseWeaponLauncher
+  id: WeaponLauncherHydraBorg
+  name: cyborg mounted hydra
+  suffix: Robot, energy based
+  description: A cyborg mounted grenade launcher, made to fire cleannades. Refills over time.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/hydra_launcher.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 200
+  - type: ProjectileBatteryAmmoProvider
+    proto: GrenadeCleanade
+    fireCost: 100
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
+  - type: GunWieldBonus
+    wieldBonusExamineMessage: null
+    minAngle: 0
+    maxAngle: 0
+  - type: UseDelay
+    delay: 0
+
+- type: entity
+  parent: BaseWeaponLauncher
+  id: WeaponLauncherPirateCannonBorg
+  name: borg pirate cannon
+  suffix: Robot, energy based
+  description: A cyborg mounted cannon that fires assorted cannonballs. It has a built in replicator to slowly make more ammo.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Gun
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: Battery
+    maxCharge: 750
+    startingCharge: 750
+  - type: ProjectileBatteryAmmoProvider
+    proto: CannonBall
+    fireCost: 750
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+  - type: AmmoCounter
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: CannonBall
+      fireCost: 750
+    - proto: CannonBallGlassshot
+      fireCost: 375
+    - proto: CannonBallGrapeshot
+      fireCost: 250

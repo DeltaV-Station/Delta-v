@@ -9,7 +9,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Vertex.yml
+          emergencyShuttlePath: /Maps/_DV/Shuttles/Evac/ntes_vertex.yml
         - type: StationNameSetup
           mapNameTemplate: '{0} Edge Station {1}'
           nameGenerator:
@@ -20,7 +20,6 @@
           #command
             Captain: [ 1, 1 ]
             StationAi: [ 1, 1 ]
-            AdministrativeAssistant: [ 1, 1 ]
           #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 3 ]
@@ -41,7 +40,7 @@
             TechnicalAssistant: [ 2, 4 ]
           #medical
             ChiefMedicalOfficer: [ 1, 1 ]
-            Chemist: [ 1, 1 ]
+            Chemist: [ 2, 2 ]
             Paramedic: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
             MedicalDoctor: [ 2, 3 ]
@@ -76,5 +75,5 @@
             ChiefJustice: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
             Prosecutor: [ 1, 1 ]
-            Clerk: [ 1, 1 ] 
+            Clerk: [ 1, 1 ]
 

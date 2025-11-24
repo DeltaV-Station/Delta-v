@@ -1,0 +1,23 @@
+- type: entity
+  parent: BasePKAUpgrade
+  id: PKAUpgradeIndoors
+  name: PKA modkit (indoors)
+  description: A syndicate modification kit that increases the damage a kinetic accelerator does in high pressure environments.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+      color: "#666" # evil but also looks good
+    - state: overlay-1
+      color: "#b51e0e"
+    - state: overlay-2
+      color: "#eb4c13"
+    - state: overlay-3
+      color: "#b51e0e"
+  - type: GunUpgrade
+    examineText: gun-upgrade-examine-text-indoors
+  - type: GunUpgradeCost
+    cost: 35
+  - type: GunUpgradeIndoors
+  - type: MappingCategories # its evil
+    categories: [ Syndicate ]

@@ -37,22 +37,32 @@ Not every network will look like this, but hopefully, it's enough to give you th
 An important thing to note, winter clothing (and hardsuits) will make cryogenic treatment less, or completely ineffective. Be sure to remove cold preventative clothing before placing people in the pod.
 
 ## Using the Pod
-Once things have been set up, you're going to require a specific medication, Cryoxadone. Cryoxadone heals all damage types when a patient is chilled, and can either be pre-administered (with a pill), or loaded into the cell directly with a beaker. Do note, patients won't begin to heal until they've chilled to the appropriate temperature, it may be worthwhile to wait a bit before placing a beaker inside.
+Once things have been set up, you're going to require a specific medication, Cryochemicals.
+They evenly heal their damage types when a patient is chilled, and can either be pre-administered (with a pill), or loaded into the cell directly with a beaker.
+Do note, patients won't begin to heal until they've chilled to the appropriate temperature, it may be worthwhile to wait a bit before placing a beaker inside.
+Cryochemicals, such as Opporozidone and Netinadone can even reverse rotting on bodies - And Necrosol can heal all damage types on dead bodies.
 
 ## Additional Information:
+The standard pressure for a gas pump is 100.325 kpa. Cryoxadone works at under 213K body temperature, but it is standard practice to set the freezer to 100K for faster freezing.
 
-The standard pressure for a gas pump is 100.325 kpa. Cryoxadone works at under 170K, but it is standard practice to set the freezer to 100K for faster freezing.
-
-<GuideReagentEmbed Reagent="Aloxadone"/>
 <GuideReagentEmbed Reagent="Cryoxadone"/>
+<GuideReagentEmbed Reagent="Trinoxadone"/>
+<GuideReagentEmbed Reagent="Doxarubixadone"/>
+<GuideReagentEmbed Reagent="Aloxadone"/>
 <GuideReagentEmbed Reagent="Traumoxadone"/>
 <GuideReagentEmbed Reagent="Stelloxadone"/>
-<GuideReagentEmbed Reagent="Doxarubixadone"/>
-<GuideReagentEmbed Reagent="Hemoxadone"/>
-<GuideReagentEmbed Reagent="Cyanoxadone"/>
-<GuideReagentEmbed Reagent="Dexalin"/>
 <GuideReagentEmbed Reagent="Leporazine"/>
 <GuideReagentEmbed Reagent="Necrosol"/>
 <GuideReagentEmbed Reagent="Opporozidone"/>
+<GuideReagentEmbed Reagent="Netinadone"/>
+
+## Pyrogenics:
+Cryogenic's infamous sister, Pyrogenics, works inversely to Cryogenics. They require the body temperature to be raised to 343.3k to work.
+Unlike cold for cryogenics, the cryotubes do not prevent heat damage accumulated due to the raised body temperature. To mitigate this, all pyrogenic chemicals heal an additional amount of heat.
+Some Species heat up easier, some heat up slower.
+
+<GuideReagentEmbed Reagent="Pyroxadone"/>
+<GuideReagentEmbed Reagent="Natusixadone"/>
+<GuideReagentEmbed Reagent="Ardthyrnkole"/>
 
 </Document>

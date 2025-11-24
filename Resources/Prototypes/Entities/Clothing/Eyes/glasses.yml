@@ -68,6 +68,8 @@
   - type: Tag
     tags:
     - SecDogWearable # DeltaV - let Laika wear meson goggles
+    - PetWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingEyesBase
@@ -127,6 +129,8 @@
     sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
   - type: VisionCorrection
   - type: IdentityBlocker
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   parent: ClothingEyesBase
@@ -141,6 +145,7 @@
   - type: Tag
     tags:
     - HamsterWearable
+    - PetWearable
     - WhitelistChameleon
     - SecDogWearable # DeltaV - let Laika wear sunglasses
   - type: IdentityBlocker
@@ -158,6 +163,7 @@
   - type: Tag
     tags:
     - Sunglasses
+    - PetWearable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -181,6 +187,7 @@
     tags:
     - GlassesSecurity # DeltaV - Added for prescription glasses.
     - HamsterWearable
+    - PetWearable
     - WhitelistChameleon
     - SecDogWearable # DeltaV - let Laika wear secglasses
   - type: GuideHelp
@@ -206,6 +213,7 @@
   - type: Tag
     tags:
     - HamsterWearable
+    - PetWearable
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
@@ -227,25 +235,6 @@
   - type: IdentityBlocker
     coverage: EYES
 
-#Make a scanner category when these actually function and we get the trayson
-- type: entity
-  parent: ClothingEyesBase
-  id: ClothingEyesGlassesThermal
-  name: optical thermal scanner
-  description: Thermals in the shape of glasses.
-  components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/thermal.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/thermal.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Heat: 0.95
-  - type: GroupExamine
-  - type: IdentityBlocker
-    coverage: EYES
-
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesChemical
@@ -259,6 +248,10 @@
     - type: SolutionScanner
     - type: IdentityBlocker
       coverage: EYES
+    - type: Tag
+      tags:
+      - PetWearable
+      - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesBase, BaseMajorContraband]
@@ -271,3 +264,24 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: FlashImmunity
+
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
+  id: ClothingEyesGlassesNoir
+  name: noir-tech glasses
+  description: A pair of glasses that simulate what the world looked like before the invention of color.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/noir.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: NoirOverlay
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon

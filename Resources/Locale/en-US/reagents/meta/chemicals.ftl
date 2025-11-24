@@ -30,3 +30,9 @@ reagent-desc-cellulose = A crystaline polydextrose polymer, plants swear by this
 
 reagent-name-rororium = rororium
 reagent-desc-rororium = A strange substance which fills the cores of the hivelords that roam the mining asteroid. Thought to be the source of their regenerative powers.
+
+reagent-name-salicylic-acid = salicylic acid
+reagent-desc-salicylic-acid = A powdery substance used for dermatological treatments.
+
+reagent-name-lye = lye
+reagent-desc-lye = A translucent, orange, alkaline solution used in traditional soap production.

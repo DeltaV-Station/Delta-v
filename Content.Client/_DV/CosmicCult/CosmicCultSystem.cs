@@ -1,5 +1,9 @@
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
+using Content.Shared.Clothing;
+using Content.Shared.Hands;
+using Content.Shared.IdentityManagement.Components;
+using Content.Shared.Inventory.Events;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 using Robust.Client.GameObjects;
@@ -27,14 +31,17 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RogueAscendedInfectionComponent, ComponentStartup>(OnAscendedInfectionAdded);
-        SubscribeLocalEvent<RogueAscendedInfectionComponent, ComponentShutdown>(OnAscendedInfectionRemoved);
-
-        SubscribeLocalEvent<RogueAscendedAuraComponent, ComponentStartup>(OnAscendedAuraAdded);
-        SubscribeLocalEvent<RogueAscendedAuraComponent, ComponentShutdown>(OnAscendedAuraRemoved);
+        SubscribeLocalEvent<CosmicSubtleMarkComponent, DidEquipEvent>((uid, _, _) => UpdateSubtleMarkVisibility(uid));
+        SubscribeLocalEvent<CosmicSubtleMarkComponent, DidEquipHandEvent>((uid, _, _) => UpdateSubtleMarkVisibility(uid));
+        SubscribeLocalEvent<CosmicSubtleMarkComponent, DidUnequipEvent>((uid, _, _) => UpdateSubtleMarkVisibility(uid));
+        SubscribeLocalEvent<CosmicSubtleMarkComponent, DidUnequipHandEvent>((uid, _, _) => UpdateSubtleMarkVisibility(uid));
+        SubscribeLocalEvent<CosmicSubtleMarkComponent, WearerMaskToggledEvent>((uid, _, _) => UpdateSubtleMarkVisibility(uid));
 
         SubscribeLocalEvent<CosmicStarMarkComponent, ComponentStartup>(OnCosmicStarMarkAdded);
         SubscribeLocalEvent<CosmicStarMarkComponent, ComponentShutdown>(OnCosmicStarMarkRemoved);
+
+        SubscribeLocalEvent<CosmicSubtleMarkComponent, ComponentStartup>(OnCosmicSubtleMarkAdded);
+        SubscribeLocalEvent<CosmicSubtleMarkComponent, ComponentShutdown>(OnCosmicSubtleMarkRemoved);
 
         SubscribeLocalEvent<CosmicImposingComponent, ComponentStartup>(OnCosmicImpositionAdded);
         SubscribeLocalEvent<CosmicImposingComponent, ComponentShutdown>(OnCosmicImpositionRemoved);
@@ -75,28 +82,6 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     #endregion
 
     #region Layer Additions
-    private void OnAscendedInfectionAdded(Entity<RogueAscendedInfectionComponent> uid, ref ComponentStartup args)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(AscendedInfectionKey.Key, out _))
-            return;
-
-        var layer = sprite.AddLayer(uid.Comp.Sprite);
-
-        sprite.LayerMapSet(AscendedInfectionKey.Key, layer);
-        sprite.LayerSetShader(layer, "unshaded");
-    }
-
-    private void OnAscendedAuraAdded(Entity<RogueAscendedAuraComponent> uid, ref ComponentStartup args)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(AscendedAuraKey.Key, out _))
-            return;
-
-        var layer = sprite.AddLayer(uid.Comp.Sprite);
-
-        sprite.LayerMapSet(AscendedAuraKey.Key, layer);
-        sprite.LayerSetShader(layer, "unshaded");
-    }
-
     private void OnCosmicStarMarkAdded(Entity<CosmicStarMarkComponent> uid, ref ComponentStartup args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(CosmicRevealedKey.Key, out _))
@@ -107,9 +92,30 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         sprite.LayerSetShader(layer, "unshaded");
 
         //offset the mark if the mob has an offset comp, needed for taller species like Thaven
-        if (TryComp<CosmicStarMarkOffsetComponent>(uid, out var offset))
+        if (TryComp<CosmicMarkVisualsComponent>(uid, out var offset))
         {
             sprite.LayerSetOffset(CosmicRevealedKey.Key, offset.Offset);
+            sprite.LayerSetState(layer, offset.StarState);
+        }
+    }
+
+    private void OnCosmicSubtleMarkAdded(Entity<CosmicSubtleMarkComponent> uid, ref ComponentStartup args)
+    {
+        if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(CosmicRevealedKey.Key, out _))
+            return;
+
+        var layer = sprite.AddLayer(uid.Comp.Sprite);
+        sprite.LayerMapSet(CosmicRevealedKey.Key, layer);
+        sprite.LayerSetShader(layer, "unshaded");
+
+        UpdateSubtleMarkVisibility(uid);
+
+        //I am NOT accounting for IPCs here. If you want it, do it yourself. You guys wanted them to be able to look like any other species, not me.
+        //Also there's probably a better solution but meh, this works.
+        if (TryComp<CosmicMarkVisualsComponent>(uid, out var offset))
+        {
+            sprite.LayerSetOffset(CosmicRevealedKey.Key, offset.Offset);
+            sprite.LayerSetState(layer, offset.SubtleState);
         }
     }
 
@@ -126,23 +132,15 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     #endregion
 
     #region Layer Removals
-    private void OnAscendedInfectionRemoved(Entity<RogueAscendedInfectionComponent> uid, ref ComponentShutdown args)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
-            return;
-
-        sprite.RemoveLayer(AscendedInfectionKey.Key);
-    }
-
-    private void OnAscendedAuraRemoved(Entity<RogueAscendedAuraComponent> uid, ref ComponentShutdown args)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
-            return;
-
-        sprite.RemoveLayer(AscendedAuraKey.Key);
-    }
-
     private void OnCosmicStarMarkRemoved(Entity<CosmicStarMarkComponent> uid, ref ComponentShutdown args)
+    {
+        if (!TryComp<SpriteComponent>(uid, out var sprite))
+            return;
+
+        sprite.RemoveLayer(CosmicRevealedKey.Key);
+    }
+
+    private void OnCosmicSubtleMarkRemoved(Entity<CosmicSubtleMarkComponent> uid, ref ComponentShutdown args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
@@ -179,6 +177,18 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     {
         if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
+    }
+    #endregion
+
+    #region Mark updates
+    private void UpdateSubtleMarkVisibility(EntityUid uid)
+    {
+        if (!TryComp<SpriteComponent>(uid, out var sprite) || !sprite.LayerMapTryGet(CosmicRevealedKey.Key, out var layer)) return;
+        if (!TryComp<CosmicSubtleMarkComponent>(uid, out var markComp)) return;
+        var ev = new SeeIdentityAttemptEvent();
+        RaiseLocalEvent(uid, ev);
+        var eyesCovered = ev.TotalCoverage.HasFlag(IdentityBlockerCoverage.EYES);
+        sprite.LayerSetVisible(layer, !eyesCovered);
     }
     #endregion
 }

@@ -1,4 +1,5 @@
 using Content.Server.Abilities.Psionics;
+using Content.Shared._DV.CosmicCult;
 using Content.Shared.Anomaly;
 using Content.Shared.Anomaly.Components;
 using Robust.Shared.Random;
@@ -17,6 +18,8 @@ public sealed partial class AnomalySystem
     //Nyano - Summary: gives dispellable behavior to Anomalies.
     private void OnDispelled(Entity<AnomalyComponent> ent, ref DispelledEvent args)
     {
+        if (HasComp<CosmicCultExamineComponent>(ent)) // begone nyanocode interference with cosmic cult
+            return;
         _dispel.DealDispelDamage(ent);
         ChangeAnomalyHealth(ent, 0 - _random.NextFloat(0.4f, 0.8f), ent.Comp);
         args.Handled = true;

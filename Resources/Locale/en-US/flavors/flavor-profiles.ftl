@@ -53,6 +53,8 @@ flavor-base-horrible = horrible
 flavor-base-terrible = terrible
 flavor-base-mindful = mindful
 flavor-base-chewy = chewy
+flavor-base-trashy = trashy
+flavor-base-motivating = motivating
 
 # Complex flavors. Put a flavor here when you want something that's more
 # specific.
@@ -287,7 +289,7 @@ flavor-complex-moscowmule = like vodka and ginger ale
 flavor-complex-thesunalsorises = like an absinthe daiquiri
 flavor-complex-whiskeysour = like whiskey and egg
 flavor-complex-zombiecocktail = like eating brains
-flavor-complex-absinthe = like anise
+flavor-complex-absinthe = like bitter anise
 flavor-complex-blue-curacao = like orange flowers
 flavor-complex-acidspit = like French battery acid
 flavor-complex-allies-cocktail = like medicinal tincture

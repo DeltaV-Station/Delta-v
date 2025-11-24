@@ -16,6 +16,7 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 36000 #10 hrs
+  weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   requireAdminNotify: true # DeltaV
@@ -43,11 +44,6 @@
       - type: CommandStaff
       - type: PsionicBonusChance # DeltaV - makes it more likely to become psionic.
         flatBonus: 0.025
-  # Shitmed Change
-  - !type:AddComponentSpecial
-    components:
-    - type: SurgerySpeedModifier
-      speedModifier: 1.5 # DeltaV
 
 - type: startingGear
   id: CMOGear
@@ -58,3 +54,15 @@
   storage:
     back:
     - Flash
+
+- type: chameleonOutfit
+  id: ChiefMedicalOfficerChameleonOutfit
+  job: ChiefMedicalOfficer
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretCmo
+    eyes: ClothingEyesHudMedical
+    mask: ClothingMaskSterile
+    neck: ClothingCloakCmo
+    outerClothing: ClothingOuterCoatLabCmo
+    gloves: ClothingHandsGlovesNitrile

@@ -1,5 +1,8 @@
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Bible.Components;
+using Content.Server.EUI;
+using Content.Server.Polymorph.Components;
+using Content.Server.Polymorph.Systems;
 using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
@@ -8,10 +11,13 @@ using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Jittering;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Stunnable;
 using Content.Shared.Timing;
 using Content.Shared.Tools.Systems;
+using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
@@ -30,6 +36,11 @@ public sealed class DeconversionSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedToolSystem _tools = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly IPlayerManager _playerMan = default!;
+    [Dependency] private readonly EuiManager _euiMan = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
 
     public override void Initialize()
     {
@@ -63,7 +74,7 @@ public sealed class DeconversionSystem : EntitySystem
 
     private void OnAfterInteract(Entity<CosmicCenserComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled || args.Target is not {} target || !HasComp<CosmicCenserTargetComponent>(target) || _mobState.IsDead(target))
+        if (args.Handled || args.Target is not {} target || !HasComp<CosmicCenserTargetComponent>(target) || _mobState.IsIncapacitated(target))
             return;
 
         args.Handled = _tools.UseTool(
@@ -79,7 +90,7 @@ public sealed class DeconversionSystem : EntitySystem
     private void OnDoAfter(Entity<CosmicCenserTargetComponent> uid, ref CleanseOnDoAfterEvent args)
     {
         var target = args.Args.Target;
-        if (args.Cancelled || args.Handled || target == null || _mobState.IsDead(target.Value))
+        if (args.Cancelled || args.Handled || target == null || _mobState.IsIncapacitated(target.Value))
             return;
 
         if (args.Args.Used is not {} used || !TryComp<CosmicCenserComponent>(used, out var censer))
@@ -105,13 +116,6 @@ public sealed class DeconversionSystem : EntitySystem
             _audio.PlayPvs(censer.CleanseSound, targetPosition, AudioParams.Default.WithVolume(4f));
             _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-success", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
         }
-        else if (HasComp<RogueAscendedInfectionComponent>(target))
-        {
-            Spawn(censer.CleanseVFX, targetPosition);
-            RemComp<RogueAscendedInfectionComponent>(target.Value);
-            _audio.PlayPvs(censer.CleanseSound, targetPosition, AudioParams.Default.WithVolume(4f));
-            _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-success", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
-        }
         else
         {
             Spawn(censer.ReboundVFX, userPosition);
@@ -121,6 +125,11 @@ public sealed class DeconversionSystem : EntitySystem
             _popup.PopupCoordinates(Loc.GetString("cleanse-deconvert-attempt-rebound"), targetPosition, PopupType.MediumCaution);
             _damageable.TryChangeDamage(args.User, censer.FailedDeconversionDamage, true);
             _damageable.TryChangeDamage(args.Target, censer.FailedDeconversionDamage, true);
+            _stun.TryKnockdown(target.Value, TimeSpan.FromSeconds(2), true);
+            if (_mind.TryGetMind(target.Value, out _, out var mind) && _playerMan.TryGetSessionById(mind.UserId, out var session))
+            {
+                _euiMan.OpenEui(new CosmicMindwipedEui(), session);
+            }
         }
         args.Handled = true;
     }
@@ -128,6 +137,12 @@ public sealed class DeconversionSystem : EntitySystem
     private void DeconvertCultist(EntityUid uid)
     {
         RemComp<CosmicCultComponent>(uid);
-        RemComp<RogueAscendedInfectionComponent>(uid);
+        if (TryComp<PolymorphedEntityComponent>(uid, out var polyComp)) // If the cultist is polymorphed, we revert the polymorph and deconvert the original entity too.
+        {
+            _polymorph.Revert((uid, polyComp));
+
+            if (polyComp.Parent.HasValue) // This surely won't cause any bugs with deconversion, right?
+                RemCompDeferred<CosmicCultComponent>(polyComp.Parent.Value);
+        }
     }
 }

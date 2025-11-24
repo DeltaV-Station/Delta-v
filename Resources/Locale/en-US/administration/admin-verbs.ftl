@@ -2,12 +2,16 @@ delete-verb-get-data-text = Delete
 edit-solutions-verb-get-data-text = Edit Solutions
 explode-verb-get-data-text = Explode
 ahelp-verb-get-data-text = Message
+# DetlaV - add chelp verb
+chelp-verb-get-data-text = Cwoink
 admin-verbs-admin-logs-entity = Entity Logs
 admin-verbs-teleport-to = Teleport To
 admin-verbs-teleport-here = Teleport Here
 admin-verbs-freeze = Freeze
 admin-verbs-freeze-and-mute = Freeze And Mute
 admin-verbs-unfreeze = Unfreeze
+admin-verbs-camera = Open Camera
+admin-verbs-camera-description = Open a camera window that follows the selected entity.
 admin-verbs-erase = Erase
 admin-verbs-erase-description = Removes the player from the round and crew manifest and deletes their chat messages.
     Their items are dropped on the ground.

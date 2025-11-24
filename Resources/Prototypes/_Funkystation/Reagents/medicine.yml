@@ -93,7 +93,7 @@
   desc: reagent-desc-salbutamol
   physicalDesc: reagent-physical-desc-cloudy
   flavor: medicine
-  color: "#99ffff"
+  color: "#639cc7" # DeltaV - was #99ffff
   metabolisms:
     Medicine:
       metabolismRate: 0.2
@@ -245,18 +245,24 @@
   metabolisms:
     Medicine:
       effects:
+      # Begin DeltaV additions
+      - !type:EvenHealthChange
+        conditions:
+        - !type:Temperature
+          min: 343.3 # completely arbitrary
+        damage: # Better than Trinox
+          Brute: -3 # Was -4 with HealthChange
+          Burn: -3 # Was -6 with HealthChange
+          Airloss: -3 # Was -6 with HealthChange
+          Toxin: -3 # Was -4 with HealthChange
       - !type:HealthChange
         conditions:
         - !type:Temperature
-          min: 337.3 # completely arbitrary
+          min: 343.3 # Parity with the other Pyrochems
         damage:
-          groups: # same as cryox
-            Airloss: -6
-            Brute: -4
-            Burn: -6
-            Toxin: -4
           types:
-            Heat: -3
+            Heat: -3 # offsets heat damage from the pod
+      # End DeltaV additions
 
 - type: reagent
   id: Ardthyrnkole
@@ -270,15 +276,22 @@
   metabolisms:
     Medicine:
       effects:
+      # Begin DeltaV additions
+      - !type:EvenHealthChange
+        conditions:
+        - !type:Temperature
+          min: 343.3
+        damage:
+          Burn: -7 # Delta-V - Same as Aloxadone.
       - !type:HealthChange
         conditions:
         - !type:Temperature
           min: 343.3
         damage:
           types:
-            Cold: -5
             Heat: -3 # offsets heat damage from the pod
-            Shock: -3
+      # Previous values with HealthChange were: -3 Heat/Shock, -5 Cold.
+      # End DeltaV additions
 
 - type: reagent
   id: Natusixadone

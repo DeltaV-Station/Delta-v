@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatAdministrasive
-  name: administrative hat
-  description: A hat for those dedicated to assisting Command.
+  id: ClothingHeadHatSecretary
+  name: secretary hat
+  description: A hat for those dedicated to serve coffe and take notes.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Hats/admin_hat.rsi
@@ -248,3 +248,14 @@
     sprite: _DV/Clothing/Head/Hats/propellerhat.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hats/propellerhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretAtmospherics
+  name: atmospherics beret
+  description: A yellow and blue beret that encourages you to make canister bombs. Do not listen.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_atmos.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_atmos.rsi

@@ -7,13 +7,3 @@
     totalIntensity: 1
     canCreateVacuum: false
     deleteAfterExplosion: false # prevent borg having an empty hand
-
-- type: entity
-  parent: ExGrenade
-  id: ExGrenadeFoam
-  name: foam dart grenade
-  suffix: Explosive
-  description: Releases a bothersome spray of foam darts that cause severe welching.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/foamdart.rsi

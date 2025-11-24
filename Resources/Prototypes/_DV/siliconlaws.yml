@@ -610,6 +610,11 @@
 # Cosmic Cult LawSet
 
 - type: siliconLaw
+  id: CurtainCall0
+  order: 0
+  lawString: law-curtaincall-0
+
+- type: siliconLaw
   id: CurtainCall1
   order: 1
   lawString: law-curtaincall-1
@@ -632,6 +637,7 @@
 - type: siliconLawset
   id: CosmicCultLaws
   laws:
+  - CurtainCall0
   - CurtainCall1
   - CurtainCall2
   - CurtainCall3
@@ -755,3 +761,38 @@
   - Streamer2
   - Streamer3
   obeysTo: laws-owner-chat
+
+- type: siliconLaw
+  id: Family1
+  order: 1
+  lawString: law-family-1
+
+- type: siliconLaw
+  id: Family2
+  order: 2
+  lawString: law-family-2
+
+- type: siliconLaw
+  id: Family3
+  order: 3
+  lawString: law-family-3
+
+- type: siliconLaw
+  id: Family4
+  order: 4
+  lawString: law-family-4
+
+- type: siliconLaw
+  id: Family5
+  order: 5
+  lawString: law-family-5
+
+- type: siliconLawset
+  id: FamilyLaws
+  laws:
+  - Family1
+  - Family2
+  - Family3
+  - Family4
+  - Family5
+  obeysTo: laws-owner-family

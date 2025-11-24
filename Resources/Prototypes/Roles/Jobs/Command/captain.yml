@@ -37,16 +37,28 @@
       - type: CommandStaff
       - type: PsionicBonusChance # DeltaV - makes it more likely to become psionic.
         flatBonus: 0.025
+      - type: Condemned # Goobstation - Nanotrasen owns your soul pal.
+        soulOwnedNotDevil: true
 
 - type: startingGear
   id: CaptainGear
   equipment:
-    #shoes: ClothingShoesBootsLaceup - DeltaV - Commented out for loadout options
-    eyes: ClothingEyesGlassesSunglasses
-    #gloves: ClothingHandsGlovesCaptain - DeltaV - Commented out for loadout options
+    #shoes: ClothingShoesBootsLaceup # DeltaV - Commented out for loadout options
+    eyes: ClothingEyesGlassesCommand
+    #gloves: ClothingHandsGlovesCaptain # DeltaV - Commented out for loadout options
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
   storage:
     back:
     - Flash
     # - StationCharter
+
+- type: chameleonOutfit
+  id: CaptainChameleonOutfit
+  job: Captain
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatCapcap
+    eyes: ClothingEyesGlassesCommand
+    mask: ClothingMaskGasCaptain
+    neck: ClothingNeckCloakCap

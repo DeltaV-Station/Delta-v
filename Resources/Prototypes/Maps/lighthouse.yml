@@ -11,7 +11,7 @@
       stationProto: StandardNanotrasenStation
       components:
       - type: StationEmergencyShuttle
-        emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_BC20.yml
+        emergencyShuttlePath: /Maps/_DV/Shuttles/Evac/ntes_bc20.yml
       - type: StationNameSetup
         mapNameTemplate: '{0} Lighthouse {1}'
         nameGenerator:
@@ -21,7 +21,6 @@
         availableJobs:
         #command
           Captain: [ 1, 1 ]
-          AdministrativeAssistant: [ 1, 1 ]
           StationAi: [ 1, 1 ]
         #service
           HeadOfPersonnel: [ 1, 1 ]

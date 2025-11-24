@@ -9,8 +9,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: Advertise
-    pack: CourierDrobeAds
+  - type: DatasetVocalizer
+    dataset: CourierDrobeAds
   - type: SpeakOnUIClosed
     pack: CourierDrobeGoodbyes
   - type: Sprite
@@ -45,3 +45,35 @@
     pack: BoozeOMatCommandInventory
   - type: AccessReader
     access: [["Command"]]
+
+- type: entity
+  parent: VendingMachineChefvend
+  id: VendingMachineChefvendUnlocked
+  suffix: Unlocked
+  components:
+  - type: VendingMachine
+    pack: ChefvendUnlockedInventory
+  - type: AccessReader
+    enabled: false
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineCrescentMoon
+  name: crescentmoon vendor
+  description: Making the station look good one outfit at a time.
+  components:
+  - type: VendingMachine
+    pack: CrescentMoonInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Sprite
+    sprite: _DV/Structures/Machines/VendingMachines/crescentmoon.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]

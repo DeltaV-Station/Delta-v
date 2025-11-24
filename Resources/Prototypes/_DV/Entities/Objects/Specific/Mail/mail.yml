@@ -428,13 +428,7 @@
       prob: 0.19
     - id: CigPackMixed
       orGroup: Cigs
-      prob: 0.09 # Pool shared with CigPackMixedMedical, CigPackMixedNasty
-    - id: CigPackMixedMedical
-      orGroup: Cigs
-      prob: 0.05
-    - id: CigPackMixedNasty
-      orGroup: Cigs
-      prob: 0.05
+      prob: 0.19
       # Rare
     - id: CigPackSyndicate
       orGroup: Cigs
@@ -703,6 +697,22 @@
       prob: 0.5
       orGroup: Plushie
     - id: PlushieIPC
+      orGroup: Plushie
+    - id: PlushieFelinid
+      orGroup: Plushie
+    - id: PlushieOni
+      orGroup: Plushie
+    - id: PlushieHarpy
+      orGroup: Plushie
+    - id: PlushieRodentia
+      orGroup: Plushie
+    - id: PlushieFeroxi
+      orGroup: Plushie
+    - id: PlushieChitinid
+      orGroup: Plushie
+    - id: PlushieKitsune
+      orGroup: Plushie
+    - id: PlushieThaven
       orGroup: Plushie
 
 # Random snacks, replaces MailChocolate (lousy animal organs)
@@ -1167,7 +1177,7 @@
     - id: FoodDonutJellySweetpea
       amount: 2
       orGroup: Food
-    - id: FoodDonutJellySlugcat
+    - id: FoodDonutJellyScurret
       amount: 2
       orGroup: Food
     - id: FoodFrozenSandwich # ah yes, baked goods

@@ -26,7 +26,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 175 # DeltaV - Increased health by 25 (less than uranium)
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -53,6 +53,11 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
+  - type: DeltaPressure
+    minPressure: 150000
+    minPressureDelta: 100000
+    scalingType: Linear
+    scalingPower: 0.0001
   - type: StaticPrice
     price: 132
 
@@ -88,13 +93,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 200 # DeltaV - Increased health cap by 50
       behaviors: #excess damage, don't spawn entities.
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 110 # DeltaV - Increased health by 35 (less than uranium)
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -109,6 +114,10 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: DeltaPressure
+    minPressure: 37500
+    minPressureDelta: 25000
+    scalingType: Threshold
   - type: StaticPrice
     price: 66
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
@@ -130,6 +139,7 @@
   - type: Tag
     tags:
     - Diagonal
+    - Window
   - type: IconSmooth
     mode: Diagonal
     key: windows
@@ -150,6 +160,7 @@
         - FullTileMask
         layer:
         - GlassLayer
+        density: 2000
   - type: Airtight
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:

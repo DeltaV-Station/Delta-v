@@ -8,11 +8,11 @@
     bodyStatus: InAir
     sleepingAllowed: false
   - type: CanMoveInAir
-  # - type: ChasingWalk # DeltaV - Replaced with random pathfinding
-  #   minSpeed: 1
-  #   maxSpeed: 3
-  #   chasingComponent:
-  #   - type: LightningTarget
+  - type: ChasingWalk
+    minSpeed: 1
+    maxSpeed: 3
+    chasingComponent:
+    - type: LightningTarget
   - type: AmbientSound
     volume: 3
     range: 15
@@ -83,21 +83,27 @@
     shootMaxInterval: 5
     shootRange: 7
     lightningPrototype: Lightning #To do: change to HyperchargedLightning, after fix beam system
-  # - type: ChasingWalk # DeltaV - Replaced with random pathfinding
-  #   minSpeed: 1
-  #   maxSpeed: 3
+  - type: ChasingWalk
+    minSpeed: 1
+    maxSpeed: 3
   - type: ChaoticJump
     jumpMinInterval: 8
     jumpMaxInterval: 15
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
     location: tesla ball
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: Sprite
     drawdepth: Effects
     sprite: Structures/Power/Generation/Tesla/energy_ball.rsi
-    shader: unshaded
     layers:
     - state: energy_ball
+      shader: unshaded
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Effects/tesla_collapse.ogg
@@ -108,9 +114,6 @@
     interactSuccessString: petting-success-tesla
     interactFailureString: petting-failure-tesla
     interactSuccessSpawn: EffectHearts
-  - type: RandomWalk # DeltaV - The tesla here has random pathfinding and dies out as it goes on
-    maxSpeed: 2
-    minSpeed: 1
   - type: GuideHelp # For the curious among the brave.
     guides:
     - TeslaEngine
@@ -146,8 +149,8 @@
   - type: Sprite
     drawdepth: Effects
     sprite: Structures/Power/Generation/Tesla/energy_miniball.rsi
-    shader: unshaded
     layers:
     - state: tesla_projectile
+      shader: unshaded
   - type: Electrified
     requirePower: false

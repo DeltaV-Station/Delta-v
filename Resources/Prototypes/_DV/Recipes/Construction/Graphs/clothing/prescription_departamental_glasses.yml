@@ -2,50 +2,50 @@
   id: PrescriptionSecGlasses
   start: start
   graph:
-    - node: start
-      edges:
-        - to: prescsecglasses
-          steps:
-            - tag: GlassesSecurity
-              name: security glasses
-              icon:
-                sprite: Clothing/Eyes/Glasses/secglasses.rsi
-                state: icon
-              doAfter: 5
-            - component: VisionCorrection
-              name: glasses
-              icon:
-                sprite: Clothing/Eyes/Glasses/glasses.rsi
-                state: icon
-              doAfter: 5
-            - material: Cable
-              amount: 5
-              doAfter: 5
-    - node: prescsecglasses
-      entity: ClothingEyesPrescriptionSecurityGlasses
+  - node: start
+    edges:
+    - to: prescsecglasses
+      steps:
+      - tag: GlassesSecurity
+        name: construction-graph-tag-secglasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/secglasses.rsi
+          state: icon
+        doAfter: 5
+      - component: VisionCorrection
+        name: construction-graph-tag-glasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/glasses.rsi
+          state: icon
+        doAfter: 5
+      - material: Cable
+        amount: 5
+        doAfter: 5
+  - node: prescsecglasses
+    entity: ClothingEyesPrescriptionSecurityGlasses
 
 - type: constructionGraph
   id: PrescriptionCorpsmanGlasses
   start: start
   graph:
-    - node: start
-      edges:
-        - to: presccorpsglasses
-          steps:
-            - tag: GlassesCorpsman
-              name: corpsman glasses
-              icon:
-                sprite: _DV/Clothing/Eyes/Glasses/corpsglasses.rsi
-                state: icon
-              doAfter: 5
-            - component: VisionCorrection
-              name: glasses
-              icon:
-                sprite: Clothing/Eyes/Glasses/glasses.rsi
-                state: icon
-              doAfter: 5
-            - material: Cable
-              amount: 5
-              doAfter: 5
-    - node: presccorpsglasses
-      entity: ClothingEyesPrescriptionCorpsmanGlasses
+  - node: start
+    edges:
+    - to: presccorpsglasses
+      steps:
+      - tag: GlassesCorpsman
+        name: construction-graph-tag-corpsman-glasses
+        icon:
+          sprite: _DV/Clothing/Eyes/Glasses/corpsglasses.rsi
+          state: icon
+        doAfter: 5
+      - component: VisionCorrection
+        name: construction-graph-tag-glasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/glasses.rsi
+          state: icon
+        doAfter: 5
+      - material: Cable
+        amount: 5
+        doAfter: 5
+  - node: presccorpsglasses
+    entity: ClothingEyesPrescriptionCorpsmanGlasses

@@ -1,0 +1,17 @@
+- type: material
+  id: Bluespace
+  name: bluespace
+  unit: materials-unit-crystal
+  icon: { sprite: /Textures/Nyanotrasen/Objects/Materials/materials.rsi, state: bluespace }
+  color: "#53a9ff"
+  stackEntity: MaterialBluespace
+  price: 15
+
+- type: material
+  id: NormalityCrystal
+  name: normality
+  unit: materials-unit-crystal
+  icon: { sprite: /Textures/Nyanotrasen/Objects/Materials/materials.rsi, state: bluespace }
+  color: "#999999"
+  stackEntity: CrystalNormality
+  price: 30

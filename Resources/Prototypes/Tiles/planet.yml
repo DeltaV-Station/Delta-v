@@ -1,7 +1,7 @@
 - type: tile
   id: FloorPlanetDirt
   name: tiles-dirt-floor
-  sprite: /Textures/Tiles/Planet/dirt.rsi/dirt.png
+  sprite: /Textures/Tiles/dirt.png # DeltaV - Was /Textures/Tiles/Planet/dirt.rsi/dirt.png, this breaks.
   variants: 4
   placementVariants:
   - 1.0
@@ -139,9 +139,7 @@
   friction: 0.05
   heatCapacity: 10000
   weather: true
-  mobFriction: 0.5
-  mobFrictionNoInput: 0.05
-  mobAcceleration: 2
+  mobAcceleration: 0.1
   indestructible: true
 
 # Dug snow

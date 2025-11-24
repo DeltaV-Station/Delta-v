@@ -112,7 +112,7 @@ public sealed class PaperSystem : EntitySystem
                 if (entity.Comp.EditingDisabled)
                 {
                     var paperEditingDisabledMessage = Loc.GetString("paper-tamper-proof-modified-message");
-                    _popupSystem.PopupEntity(paperEditingDisabledMessage, entity, args.User);
+                    _popupSystem.PopupClient(paperEditingDisabledMessage, entity, args.User);
 
                     args.Handled = true;
                     return;
@@ -177,6 +177,7 @@ public sealed class PaperSystem : EntitySystem
     {
         var ev = new PaperWriteAttemptEvent(entity.Owner);
         RaiseLocalEvent(args.Actor, ref ev);
+
         if (ev.Cancelled)
             return;
 
@@ -201,7 +202,12 @@ public sealed class PaperSystem : EntitySystem
 
         entity.Comp.Mode = PaperAction.Read;
         UpdateUserInterface(entity);
+
+        var writeAfterEv = new PaperAfterWriteEvent(args.Actor);
+        RaiseLocalEvent(entity.Owner, ref writeAfterEv);
     }
+
+    // private void OnRandomPaperContentMapInit(Entity<RandomPaperContentComponent> ent, ref MapInitEvent args) // DV - removed
 
     private void OnPaperWrite(Entity<ActivateOnPaperOpenedComponent> entity, ref PaperWriteEvent args)
     {
@@ -247,6 +253,12 @@ public sealed class PaperSystem : EntitySystem
         }
     }
 
+    public void SetContent(EntityUid entity, string content)
+    {
+        if (!TryComp<PaperComponent>(entity, out var paper))
+            return;
+        SetContent((entity, paper), content);
+    }
 
     public void SetContent(Entity<PaperComponent> entity, string content)
     {
@@ -279,6 +291,14 @@ public record struct PaperWriteEvent(EntityUid User, EntityUid Paper);
 /// <summary>
 /// Cancellable event for attempting to write on a piece of paper.
 /// </summary>
-/// <param name="paper">The paper that the writing will take place on.</param>
+/// <param name="Paper">The paper that the writing will take place on.</param>
 [ByRefEvent]
 public record struct PaperWriteAttemptEvent(EntityUid Paper, string? FailReason = null, bool Cancelled = false);
+
+/// <summary>
+/// Event raised on paper after it was written on by someone.
+/// </summary>
+/// <param name="Actor">Entity that wrote something on the paper.</param>
+[ByRefEvent]
+public readonly record struct PaperAfterWriteEvent(EntityUid Actor);
+

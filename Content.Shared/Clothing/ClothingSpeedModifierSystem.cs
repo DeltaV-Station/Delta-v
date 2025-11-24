@@ -1,8 +1,10 @@
+using Content.Shared._DV.Clothing.Events; // DeltaV - Introduce ClothingSlowResistance to Species
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Standing;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -12,10 +14,11 @@ namespace Content.Shared.Clothing;
 
 public sealed class ClothingSpeedModifierSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
 
     public override void Initialize()
     {
@@ -54,8 +57,28 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
 
     private void OnRefreshMoveSpeed(EntityUid uid, ClothingSpeedModifierComponent component, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
-        if (_toggle.IsActivated(uid))
+        if (!_toggle.IsActivated(uid))
+            return;
+
+
+        // DeltaV Start - Introduce ClothingSlowResistance to Species
+        if (_container.TryGetContainingContainer((uid, null), out var container))
+        {
+            var ev = new ModifyClothingSlowdownEvent(component.WalkModifier, component.SprintModifier);
+            RaiseLocalEvent(container.Owner, ref ev);
+
+            args.Args.ModifySpeed(ev.WalkModifier, ev.RunModifier);
+        }
+        else
+        {
             args.Args.ModifySpeed(component.WalkModifier, component.SprintModifier);
+        }
+        // DeltaV End - Introduce ClothingSlowResistance to Species
+
+        if (component.Standing != null && !_standing.IsMatchingState(args.Owner, component.Standing.Value))
+            return;
+
+        args.Args.ModifySpeed(component.WalkModifier, component.SprintModifier);
     }
 
     private void OnClothingVerbExamine(EntityUid uid, ClothingSpeedModifierComponent component, GetVerbsEvent<ExamineVerb> args)
@@ -63,8 +86,13 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess)
             return;
 
-        var walkModifierPercentage = MathF.Round((1.0f - component.WalkModifier) * 100f, 1);
-        var sprintModifierPercentage = MathF.Round((1.0f - component.SprintModifier) * 100f, 1);
+        // DeltaV Start - Introduce ClothingSlowResistance to Species
+        var ev = new ModifyClothingSlowdownEvent(component.WalkModifier, component.SprintModifier);
+        RaiseLocalEvent(args.User, ref ev);
+
+        var walkModifierPercentage = MathF.Round((1.0f - ev.WalkModifier) * 100f, 1);
+        var sprintModifierPercentage = MathF.Round((1.0f - ev.RunModifier) * 100f, 1);
+        // DeltaV End - Introduce ClothingSlowResistance to Species
 
         if (walkModifierPercentage == 0.0f && sprintModifierPercentage == 0.0f)
             return;

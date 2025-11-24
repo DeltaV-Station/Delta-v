@@ -60,3 +60,57 @@
   - type: RoboNeuroticistRole
   - type: RoleBriefing
     briefing: roboneuroticist-role-briefing
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleMenaceSkeleton
+  name: Menace Skeleton Role
+  components:
+  - type: MindRole
+    roleType: FreeAgent
+    antagPrototype: MenaceSkeleton
+    exclusiveAntag: true
+  - type: MenaceSkeletonRole
+  - type: RoleBriefing
+    briefing: skeleton-role-briefing
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleSkia
+  name: Skia Role
+  components:
+  - type: MindRole
+    roleType: TeamAntagonist
+    antagPrototype: Skia
+    exclusiveAntag: true
+  - type: SkiaRole
+  - type: RoleBriefing
+    briefing: skia-role-briefing
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleArmsdealer
+  name: Arms Dealer Role
+  components:
+  - type: MindRole
+    roleType: FreeAgent
+    subtype: role-subtype-armsdealer
+    antagPrototype: SyndicateArmsdealer
+    exclusiveAntag: true
+  - type: ArmsdealerRole
+  - type: RoleBriefing
+    briefing: armsdealer-role-briefing
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleAsakim
+  name: Asakim Role
+  components:
+  - type: MindRole
+    roleType: FreeAgent
+    subtype: role-subtype-asakim
+    antagPrototype: Asakim
+    exclusiveAntag: true
+  - type: AsakimRole
+  - type: RoleBriefing
+    briefing: asakim-role-briefing

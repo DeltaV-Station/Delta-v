@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: 2025 Arcticular1
+# SPDX-FileCopyrightText: 2025 Onezero0
+# SPDX-FileCopyrightText: 2025 significant harassment
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: startingGear
+  id: AsakimGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAsakim # DeltaV - dedicated jumpsuit with goob sprites instead of base ninja one
+    back: ClothingBackpackAdvancedTactical # DeltaV - dedicated backpack instead of ERT one
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitAsakimUnremoveable
+    shoes: ClothingShoesBootsMagAsakim
+    #pocket1: CrowbarPocket # DeltaV - fake
+    pocket2: DoubleEmergencyOxygenTankFilled # DeltaV - filled instead of empty
+    belt: ClothingBeltSecurityWebbing # DeltaV - use our webbing
+    suitStorage: OxygenTankFilled
+  inhand:
+  - WeaponRifleAsakimAutopulser
+  - WeaponHFKatana
+  storage:
+    back: # DeltaV - reorganized to fit
+    #- RadioHandheldNF # DeltaV - fake
+    - DoubleEmergencyOxygenTankFilled
+    - BoxSurvival # DeltaV
+    - JetpackMiniFilled
+    - MedkitCombatFilled
+    - MedkitCombatFilled
+    #- SyringeCaseAltFilled # DeltaV - fake
+    #- StorageImplanter # DeltaV - implanters too OP they already have insane stamina resist
+    #- FreedomImplanter # DeltaV
+    belt: # DeltaV - reordered for better fit
+    #- HandHeldMassScannerBorg # DeltaV - redundant, their helmet is a mass scanner
+    #- PowerDrill # DeltaV - less gamer loot, replaced with below
+    - Screwdriver # DeltaV
+    - Wrench # DeltaV
+    - WelderIndustrial # DeltaV - less gamer loot roundstart, was WelderExperimental
+    - JawsOfLife
+    - Multitool # DeltaV - let them hack doors, also snugly fills out the chest rig
+    #- CombatMedipen # DeltaV - these things are so busted
+    #- CombatMedipen # DeltaV
+    #- CombatMedipen # DeltaV
+    #- CombatMedipen # DeltaV

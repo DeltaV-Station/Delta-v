@@ -1,9 +1,11 @@
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Whitelist; //DeltaV
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 
@@ -21,6 +23,7 @@ public abstract partial class SharedItemRecallSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly SharedProjectileSystem _proj = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; // DeltaV
 
     public override void Initialize()
     {
@@ -59,9 +62,11 @@ public abstract partial class SharedItemRecallSystem : EntitySystem
                 return;
             }
 
-            _popups.PopupClient(Loc.GetString("item-recall-item-marked", ("item", markItem.Value)), args.Performer, args.Performer);
-            TryMarkItem(ent, markItem.Value);
+            // DeltaV
+            if (TryMarkItem(ent, markItem.Value))
+                _popups.PopupClient(Loc.GetString("item-recall-item-marked", ("item", markItem.Value)), args.Performer, args.Performer);
             return;
+            // DeltaV
         }
 
         RecallItem(ent.Comp.MarkedEntity.Value);
@@ -73,23 +78,21 @@ public abstract partial class SharedItemRecallSystem : EntitySystem
         if (!Resolve(ent.Owner, ref ent.Comp, false))
             return;
 
-        if (!TryComp<InstantActionComponent>(ent.Comp.MarkedByAction, out var instantAction))
+        if (_actions.GetAction(ent.Comp.MarkedByAction) is not {} action)
             return;
 
-        var actionOwner = instantAction.AttachedEntity;
-
-        if (actionOwner == null)
+        if (action.Comp.AttachedEntity is not {} user)
             return;
 
         if (TryComp<EmbeddableProjectileComponent>(ent, out var projectile))
-            _proj.EmbedDetach(ent, projectile, actionOwner.Value);
+            _proj.EmbedDetach(ent, projectile, user);
 
         _popups.PopupPredicted(Loc.GetString("item-recall-item-summon-self", ("item", ent)),
-                               Loc.GetString("item-recall-item-summon-others", ("item", ent), ("name", Identity.Entity(actionOwner.Value, EntityManager))),
-                               actionOwner.Value, actionOwner.Value);
-        _popups.PopupPredictedCoordinates(Loc.GetString("item-recall-item-disappear", ("item", ent)), Transform(ent).Coordinates, actionOwner.Value);
+                               Loc.GetString("item-recall-item-summon-others", ("item", ent), ("name", Identity.Entity(user, EntityManager))),
+                               user, user);
+        _popups.PopupPredictedCoordinates(Loc.GetString("item-recall-item-disappear", ("item", ent)), Transform(ent).Coordinates, user);
 
-        _hands.TryForcePickupAnyHand(actionOwner.Value, ent);
+        _hands.TryForcePickupAnyHand(user, ent);
     }
 
     private void OnRecallMarkerShutdown(Entity<RecallMarkerComponent> ent, ref ComponentShutdown args)
@@ -97,79 +100,81 @@ public abstract partial class SharedItemRecallSystem : EntitySystem
         TryUnmarkItem(ent);
     }
 
-    private void TryMarkItem(Entity<ItemRecallComponent> ent, EntityUid item)
+    // DeltaV - Change to return bool and add blacklist check
+    private bool TryMarkItem(Entity<ItemRecallComponent> ent, EntityUid item)
     {
-        if (!TryComp<InstantActionComponent>(ent, out var instantAction))
-            return;
+        if (_actions.GetAction(ent.Owner) is not {} action)
+            return false;
 
-        var actionOwner = instantAction.AttachedEntity;
+        if (action.Comp.AttachedEntity is not {} user)
+            return false;
 
-        if (actionOwner == null)
-            return;
+        if (_whitelistSystem.IsBlacklistPass(ent.Comp.MarkedEntityBlacklist, item))
+        {
+            _popups.PopupClient(Loc.GetString("item-recall-item-steal-target", ("item", item)), user, user);
+            return false;
+        }
 
-        AddToPvsOverride(item, actionOwner.Value);
+        AddToPvsOverride(item, user);
 
-        var marker = AddComp<RecallMarkerComponent>(item);
         ent.Comp.MarkedEntity = item;
         Dirty(ent);
 
-        marker.MarkedByAction = ent.Owner;
-
-        UpdateActionAppearance(ent);
+        var marker = AddComp<RecallMarkerComponent>(item);
+        marker.MarkedByAction = ent;
         Dirty(item, marker);
+
+        UpdateActionAppearance((action, action, ent));
+        return true;
     }
+    // END DeltaV
 
     private void TryUnmarkItem(EntityUid item)
     {
         if (!TryComp<RecallMarkerComponent>(item, out var marker))
             return;
 
-        if (!TryComp<InstantActionComponent>(marker.MarkedByAction, out var instantAction))
+        if (_actions.GetAction(marker.MarkedByAction) is not {} action)
             return;
 
-        if (TryComp<ItemRecallComponent>(marker.MarkedByAction, out var action))
+        if (TryComp<ItemRecallComponent>(action, out var itemRecall))
         {
             // For some reason client thinks the station grid owns the action on client and this doesn't work. It doesn't work in PopupEntity(mispredicts) and PopupPredicted either(doesnt show).
             // I don't have the heart to move this code to server because of this small thing.
             // This line will only do something once that is fixed.
-            if (instantAction.AttachedEntity != null)
+            if (action.Comp.AttachedEntity is {} user)
             {
-                _popups.PopupClient(Loc.GetString("item-recall-item-unmark", ("item", item)), instantAction.AttachedEntity.Value, instantAction.AttachedEntity.Value, PopupType.MediumCaution);
-                RemoveFromPvsOverride(item, instantAction.AttachedEntity.Value);
+                _popups.PopupClient(Loc.GetString("item-recall-item-unmark", ("item", item)), user, user, PopupType.MediumCaution);
+                RemoveFromPvsOverride(item, user);
             }
 
-            action.MarkedEntity = null;
-            UpdateActionAppearance((marker.MarkedByAction.Value, action));
-            Dirty(marker.MarkedByAction.Value, action);
+            itemRecall.MarkedEntity = null;
+            UpdateActionAppearance((action, action, itemRecall));
+            Dirty(action, itemRecall);
         }
 
         RemCompDeferred<RecallMarkerComponent>(item);
     }
 
-    private void UpdateActionAppearance(Entity<ItemRecallComponent> action)
+    private void UpdateActionAppearance(Entity<ActionComponent, ItemRecallComponent> action)
     {
-        if (!TryComp<InstantActionComponent>(action, out var instantAction))
-            return;
-
-        if (action.Comp.MarkedEntity == null)
+        if (action.Comp2.MarkedEntity is {} marked)
         {
-            if (action.Comp.InitialName != null)
-                _metaData.SetEntityName(action, action.Comp.InitialName);
-            if (action.Comp.InitialDescription != null)
-                _metaData.SetEntityDescription(action, action.Comp.InitialDescription);
-            _actions.SetEntityIcon(action, null, instantAction);
+            if (action.Comp2.WhileMarkedName is {} name)
+                _metaData.SetEntityName(action, Loc.GetString(name, ("item", marked)));
+
+            if (action.Comp2.WhileMarkedDescription is {} desc)
+                _metaData.SetEntityDescription(action, Loc.GetString(desc, ("item", marked)));
+
+            _actions.SetEntityIcon((action, action), marked);
         }
         else
         {
-            if (action.Comp.WhileMarkedName != null)
-                _metaData.SetEntityName(action, Loc.GetString(action.Comp.WhileMarkedName,
-                    ("item", action.Comp.MarkedEntity.Value)));
-
-            if (action.Comp.WhileMarkedDescription != null)
-                _metaData.SetEntityDescription(action, Loc.GetString(action.Comp.WhileMarkedDescription,
-                    ("item", action.Comp.MarkedEntity.Value)));
-
-            _actions.SetEntityIcon(action, action.Comp.MarkedEntity, instantAction);
+            if (action.Comp2.InitialName is {} name)
+                _metaData.SetEntityName(action, name);
+            if (action.Comp2.InitialDescription is {} desc)
+                _metaData.SetEntityDescription(action, desc);
+            _actions.SetEntityIcon((action, action), null);
         }
     }
 

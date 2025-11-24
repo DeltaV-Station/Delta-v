@@ -47,11 +47,10 @@
     - state: security
     - state: icon-patrol
   - type: ItemBorgModule
-    moduleId: Patrol
-    items:
-    - FlashlightSecliteRecharging
-    - HoloprojectorSecurityRecharging
-    - SecurityWhistle
+    hands:
+    - item: FlashlightSecliteRecharging
+    - item: HoloprojectorSecurityRecharging
+    - item: SecurityWhistle
 
 - type: entity
   id: BorgModuleSecurityBastion # Research Locked - AdvancedRiotControl
@@ -63,11 +62,11 @@
     - state: security
     - state: icon-hold
   - type: ItemBorgModule
-    moduleId: Bastion
-    items:
-    - FlashRecharging
-    - WeaponLauncherNonLethal
-    - SecurityWhistle
+    hands:
+    - item: FlashRecharging
+    - item: WeaponLauncherNonLethal
+    - item: SecurityWhistle
+
 
 - type: entity
   id: BorgModuleSecurityDeescalate # Research Locked - AdvancedRiotControl
@@ -79,12 +78,11 @@
     - state: security
     - state: icon-detain
   - type: ItemBorgModule
-    moduleId: Deescalate
-    items:
-    - StunbatonSelfCharging
-    - FlashRecharging
-    - FlashlightSecliteRecharging
-    - SecurityWhistle
+    hands:
+    - item: StunbatonSelfCharging
+    - item: FlashRecharging
+    - item: FlashlightSecliteRecharging
+    - item: SecurityWhistle
   - type: DroppableBorgModule
     moduleId: Deescalate
     items:
@@ -108,12 +106,11 @@
     - state: security
     - state: icon-hurt
   - type: ItemBorgModule
-    moduleId: Escalate
-    items:
-    - Truncheon # Anti-Fauna option to stop them being relied on the Seclite (which will be removed when the Laws menu is fixed)
-    - CombatKnife # Anti-fauna for blunt resistant slimes
-    - WeaponRiotShotgunBorg
-    - SecurityWhistle
+    hands:
+    - item: Truncheon # Anti-Fauna option to stop them being relied on the Seclite (which will be removed when the Laws menu is fixed)
+    - item: CombatKnife # Anti-fauna for blunt resistant slimes
+    - item: WeaponRiotShotgunBorg
+    - item: SecurityWhistle
 
 - type: entity
   id: BorgModuleSecurityChase # Research Locked - NonLethalAmmunition
@@ -125,11 +122,10 @@
     - state: security
     - state: icon-chase
   - type: ItemBorgModule
-    moduleId: Chase
-    items:
-    - WeaponDisablerSelfCharge
-    - FlashlightSecliteRecharging
-    - SecurityWhistle
+    hands:
+    - item: WeaponDisablerSelfCharge
+    - item: FlashlightSecliteRecharging
+    - item: SecurityWhistle
 
 # Salvage modules
 
@@ -145,10 +141,9 @@
     - state: icon-carp
       sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
-    moduleId: Fauna
-    items:
-    - WeaponProtoKineticAcceleratorOneHanded
-    - WeaponCrusherDagger
+    hands:
+    - item: WeaponProtoKineticAcceleratorOneHanded
+    - item: WeaponCrusherDagger
   - type: DroppableBorgModule
     moduleId: Fauna
     items:
@@ -158,6 +153,37 @@
         - PKAUpgrade
   - type: BorgModuleIcon
     icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: fauna-module }
+
+# Generic Modules
+
+- type: entity
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  id: BorgModuleDecoration
+  name: decoration deployment module
+  description: A borg module for deploying patterns, guides or labels across the station.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-deco
+      sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: CrayonMagic
+    - item: HandLabeler
+  - type: DroppableBorgModule
+    moduleId: Decoration
+    items:
+    - id: SprayPainter
+      whitelist:
+        components:
+        - SprayPainter
+    - id: SprayPainterAmmo
+      whitelist:
+        components:
+        - SprayPainterAmmo
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: decoration-module }
 
 # Syndicate modules
 
@@ -196,8 +222,8 @@
   description: This unfinished module has a large space for an explosive payload, with "boom" helpfully scribbled under it.
   components:
   - type: ItemBorgModule
-    items:
-    - SelfDestructSeqDud
+    hands:
+    - item: SelfDestructSeqDud
   - type: Construction
     node: start
     defaultTarget: live
@@ -213,23 +239,8 @@
     - state: syndicate
     - state: icon-syndicate
   - type: ItemBorgModule
-    moduleId: RadioJammer
-    items:
-    - RechargingRadioJammer
-
-- type: entity
-  parent: BaseBorgModuleSyndie
-  id: BorgModuleBlades # locked behind Syndie exofab
-  name: blade cyborg module
-  description: "A module that comes with enough knives to poke your eye out."
-  components:
-  - type: ItemBorgModule
-    moduleId: Blade
-    items:
-    - Cutlass
-    - BarberScissors
-    - Crowbar
-    - KnifePlastic
+    hands:
+    - item: RechargingRadioJammer
 
 - type: entity
   parent: BaseBorgModuleSyndie
@@ -238,21 +249,19 @@
   description: "A module that comes with an unrechargable experimental C.H.I.M.P. handcannon. Cheap and disposable."
   components:
   - type: ItemBorgModule
-    moduleId: Chimp
-    items:
-    - WeaponPistolCHIMPUpgraded
+    hands:
+    - item: WeaponPistolCHIMPUpgraded
 
 - type: entity
   parent: [ BaseBorgModuleSyndie, ClothingEyesHudSyndicate]
   id: BorgModuleSyndicateRadio # locked behind Syndie exofab
   name: syndicate radio cyborg module
-  description: "A module that comes with a syndicate handheld radio and PDA."
+  description: "A module that comes with a syndicate handheld radio and pinpointer to the shuttle"
   components:
   - type: ItemBorgModule
-    moduleId: SyndicateRadio
-    items:
-    - RadioHandheldSyndicate
-    - SyndiPDA
+    hands:
+    - item: RadioHandheldSyndicate
+    - item: RoboNeuroticistPointer
   - type: ShowSyndicateIcons
   - type: ShowJobIcons
   - type: ShowHealthIcons
@@ -263,13 +272,13 @@
 - type: entity
   parent: BaseBorgModuleSyndie
   id: BorgModuleCrewMonitor # locked behind Syndie exofab
-  name: crew monitoring module
-  description: "A module that comes with a crew monitor."
+  name: infiltrator module
+  description: "A module that comes with a crew monitor and camera bug, perfect for spying."
   components:
   - type: ItemBorgModule
-    moduleId: CrewMonitor
-    items:
-    - SyndiCrewMonitorRecharging
+    hands:
+    - item: SyndiCrewMonitorRecharging
+    - item: CameraBug
 
 - type: entity
   parent: BaseBorgModuleSyndie
@@ -278,6 +287,38 @@
   description: "A module used to create a hard-light replica of any object around you."
   components:
   - type: ItemBorgModule
-    moduleId: ChameleonProjector
-    items:
-    - ChameleonProjector
+    hands:
+    - item: ChameleonProjector
+
+- type: entity
+  parent: BaseBorgModuleSyndie
+  id: BorgModuleCannon # locked behind Syndie exofab
+  name: cannon cyborg module
+  description: "A special module for pirating, come with a cannon with 3 types of shot"
+  components:
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponLauncherPirateCannonBorg
+
+- type: entity
+  parent: BaseBorgModuleSyndie
+  id: BorgModuleBuccaneer # locked behind Syndie exofab
+  name: buccaneer cyborg module
+  description: "A module containing a grappling hook, material bag, a cutlass, and a pirate's sidearm"
+  components:
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponGrapplingGun
+    - item: MaterialBag
+    - item: Cutlass
+    - item: WeaponBorgBuccaneersRevolver
+
+- type: entity
+  parent: BaseBorgModuleSyndie
+  id: BorgModuleSleeper
+  name: sleeper module
+  description: "A module with a sleep hypo, for silently abducting victims"
+  components:
+  - type: ItemBorgModule
+    hands:
+    - item: SyndicateNocturineHypo

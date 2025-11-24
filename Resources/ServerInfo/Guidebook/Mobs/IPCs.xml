@@ -31,6 +31,7 @@
   You can find new keys around the station or remove one from a sector radio using a [color=yellow]screwdriver[/color].
 
   ## Repairing
+  Due to their synthetic construction, [color=#1e90ff]IPCs cannot be poisoned.[/color] They also [color=#1e90ff]50% less Cold damage and 50% Radiation damage.[/color] However, they take [color=#ffa500]50% more heat damage and 100% more shock damage.[/color]
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="WelderIndustrialAdvanced" Caption="Welder"/>
     Welders can be used to repair [color=yellow]Brute[/color] damage and stop [color=orange]Bleeding[/color].
@@ -50,14 +51,6 @@
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="SheetPlasma" Caption="Plasma Sheets"/>
     Plasma Sheets can be used to repair [color=green]Radiation[/color] damage.
-  </Box>
-  <Box HorizontalAlignment="Stretch">
-    <GuideEntityEmbed Entity="SheetPlastic" Caption="Plastic Sheets"/>
-    Plastic Sheets can be used to stop [color=orange]Bleeding[/color].
-  </Box>
-  <Box HorizontalAlignment="Stretch">
-    <GuideEntityEmbed Entity="Oilpack" Caption="Oil Packs"/>
-    IPCs have no blood, but instead have [color=orange]Oil[/color]. Oil packs, which replenish their oil levels, can be ordered by Logistics and printed by Robotics or Engineering.
   </Box>
   In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by right-clicking).
 

@@ -37,7 +37,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawGold: 300 # DeltaV - was 100
+      RawGold: 200 # DeltaV - was 100
   - type: Extractable
     grindableSolutionName: goldore
   - type: SolutionContainerManager
@@ -48,6 +48,10 @@
           Quantity: 10
   - type: Item
     heldPrefix: gold
+  - type: Tag
+    tags:
+    - Ore
+    - OreGold
 
 - type: entity
   parent: GoldOre
@@ -136,7 +140,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawPlasma: 500 # DeltaV - was 100
+      RawPlasma: 300 # DeltaV - was 100
   - type: PointLight
     radius: 1.2
     energy: 0.6
@@ -152,6 +156,10 @@
           Quantity: 10
   - type: Item
     heldPrefix: plasma
+  - type: Tag
+    tags:
+    - Ore
+    - OrePlasma
 
 - type: entity
   parent: PlasmaOre
@@ -185,6 +193,10 @@
           Quantity: 10
   - type: Item
     heldPrefix: silver
+  - type: Tag
+    tags:
+    - Ore
+    - OreSilver
 
 - type: entity
   parent: SilverOre
@@ -207,7 +219,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawQuartz: 200 # DeltaV - was 100
+      RawQuartz: 150 # DeltaV - was 100
   - type: Extractable
     grindableSolutionName: quartzore
   - type: SolutionContainerManager
@@ -259,6 +271,10 @@
         canReact: false
   - type: Item
     heldPrefix: uranium
+  - type: Tag
+    tags:
+    - Ore
+    - OreUranium
 
 - type: entity
   parent: UraniumOre
@@ -301,6 +317,10 @@
           Quantity: 5
   - type: Item
     heldPrefix: bananium
+  - type: Tag
+    tags:
+    - Ore
+    - OreBananium
 
 - type: entity
   parent: BananiumOre
@@ -409,3 +429,4 @@
   components:
   - type: Stack
     count: 1
+

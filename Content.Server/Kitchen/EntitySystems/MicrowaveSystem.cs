@@ -70,8 +70,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedSuicideSystem _suicide = default!;
 
-        [ValidatePrototypeId<EntityPrototype>]
-        private const string MalfunctionSpark = "Spark";
+        private static readonly EntProtoId MalfunctionSpark = "Spark";
 
         private static readonly ProtoId<TagPrototype> MetalTag = "Metal";
         private static readonly ProtoId<TagPrototype> PlasticTag = "Plastic";
@@ -137,7 +136,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnActiveMicrowaveRemove(Entity<ActiveMicrowaveComponent> ent, ref EntRemovedFromContainerMessage args)
         {
-            EntityManager.RemoveComponentDeferred<ActivelyMicrowavedComponent>(args.Entity);
+            RemCompDeferred<ActivelyMicrowavedComponent>(args.Entity);
         }
 
         // Stop items from transforming through constructiongraphs while being microwaved.
@@ -444,8 +443,15 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnAnchorChanged(EntityUid uid, MicrowaveComponent component, ref AnchorStateChangedEvent args)
         {
-            if (!args.Anchored)
+            // DeltaV - start of microwave ejection bugfix
+            if (!args.Anchored) 
+            {
+                // DeltaV's MicrowaveEventsSystem changes prevent ejection from active microwave, so stop cooking first
+                StopCooking((uid, component));
                 _container.EmptyContainer(component.Storage);
+                UpdateUserInterfaceState(uid, component);
+            }
+            // DeltaV - end of microwave ejection bugfix
         }
 
         private void OnSignalReceived(Entity<MicrowaveComponent> ent, ref SignalReceivedEvent args)
@@ -463,7 +469,12 @@ namespace Content.Server.Kitchen.EntitySystems
         {
             _userInterface.SetUiState(uid, MicrowaveUiKey.Key, new MicrowaveUpdateUserInterfaceState(
                 GetNetEntityArray(component.Storage.ContainedEntities.ToArray()),
-                HasComp<ActiveMicrowaveComponent>(uid),
+                // DeltaV - start of microwave ejection bugfix
+                (
+                    EntityManager.TryGetComponent<ActiveMicrowaveComponent>(uid, out var active) 
+                    && active.LifeStage < ComponentLifeStage.Stopping
+                ),
+                // DeltaV - end of microwave ejection bugfix
                 component.CurrentCookTimeButtonIndex,
                 component.CurrentCookTimerTime,
                 component.CurrentCookTimeEnd
@@ -489,6 +500,10 @@ namespace Content.Server.Kitchen.EntitySystems
         /// <param name="ent"></param>
         public void Explode(Entity<MicrowaveComponent> ent)
         {
+            // DeltaV - start of microwave ejection bugfix
+            // DeltaV's MicrowaveEventsSystem changes prevent ejection from active microwave, so stop cooking first
+            StopCooking(ent);
+            // DeltaV - end of microwave ejection bugfix
             ent.Comp.Broken = true; // Make broken so we stop processing stuff
             _explosion.TriggerExplosive(ent);
             if (TryComp<MachineComponent>(ent, out var machine))
@@ -497,6 +512,10 @@ namespace Content.Server.Kitchen.EntitySystems
                 _container.EmptyContainer(machine.PartContainer);
             }
 
+            // DeltaV - start of microwave ejection bugfix
+            UpdateUserInterfaceState(ent, ent.Comp);
+            // DeltaV - end of microwave ejection bugfix
+            
             _adminLogger.Add(LogType.Action, LogImpact.Medium,
                 $"{ToPrettyString(ent)} exploded from unsafe cooking!");
         }
@@ -546,6 +565,10 @@ namespace Content.Server.Kitchen.EntitySystems
                 // special behavior when being microwaved ;)
                 var ev = new BeingMicrowavedEvent(uid, user, component.CurrentCookTimerTime);
                 RaiseLocalEvent(item, ev);
+
+                // TODO MICROWAVE SPARKS & EFFECTS
+                // Various microwaveable entities should probably spawn a spark, play a sound, and generate a pop=up.
+                // This should probably be handled by the microwave system, with fields in BeingMicrowavedEvent.
 
                 if (ev.Handled)
                 {
@@ -706,11 +729,16 @@ namespace Content.Server.Kitchen.EntitySystems
                     }
                 }
 
+                // DeltaV - start of microwave ejection bugfix
+                // StopCooking should be in front of both:
+                //  - EmptyContainer() call, because DeltaV MicrowaveEventsSystem prevents ejection from active microwave
+                //  - UpdateUserInterfaceState() call - not very relevant, but UI shouldn't be "busy" after cooking is done
+                StopCooking((uid, microwave));
                 _container.EmptyContainer(microwave.Storage);
                 microwave.CurrentCookTimeEnd = TimeSpan.Zero;
                 UpdateUserInterfaceState(uid, microwave);
                 _audio.PlayPvs(microwave.FoodDoneSound, uid);
-                StopCooking((uid, microwave));
+                // DeltaV - end of microwave ejection bugfix
             }
         }
 
@@ -745,7 +773,7 @@ namespace Content.Server.Kitchen.EntitySystems
             if (!HasContents(ent.Comp) || HasComp<ActiveMicrowaveComponent>(ent))
                 return;
 
-            _container.Remove(EntityManager.GetEntity(args.EntityID), ent.Comp.Storage);
+            _container.Remove(GetEntity(args.EntityID), ent.Comp.Storage);
             UpdateUserInterfaceState(ent, ent.Comp);
         }
 

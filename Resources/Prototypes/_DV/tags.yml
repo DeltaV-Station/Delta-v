@@ -1,6 +1,9 @@
 ## This is for Nyano and Delta V tags
 
 - type: Tag
+  id: Artifact
+
+- type: Tag
   id: AugmentAPCBoard
 
 - type: Tag
@@ -34,6 +37,9 @@
   id: BeltSlotNotBelt #not a 'belt'
 
 - type: Tag
+  id: BluespaceCrystal
+
+- type: Tag
   id: BorgModuleSecurity
 
 - type: Tag
@@ -41,6 +47,9 @@
 
 - type: Tag
   id: BorgMaterial # for materials that can be used in a borg construction module
+
+- type: Tag
+  id: BorgStockPart
 
 - type: Tag
   id: BulletBB
@@ -59,6 +68,9 @@
 
 - type: Tag
   id: ConcealCarry # For objects that can be stored in military-style boots or similar items
+
+- type: Tag
+  id: CoreSilver
 
 - type: Tag
   id: Directional
@@ -106,6 +118,9 @@
   id: MagazinePistolSpecial # For the .38 special ammo and pistol
 
 - type: Tag
+  id: MagazineUniversalMagnum
+
+- type: Tag
   id: Magboots
 
 - type: Tag
@@ -113,6 +128,12 @@
 
 - type: Tag
   id: ModularTrigger #Craftable Musket
+
+- type: Tag
+  id: MothroachHide
+
+- type: Tag
+  id: NormalityCrystal
 
 - type: Tag
   id: PaperSlip
@@ -124,7 +145,13 @@
   id: PreventLabel
 
 - type: Tag
+  id: SilverSword # Used to let the silver sword be used in the crafting system.
+
+- type: Tag
   id: SecDogWearable # allows Laika to wear meson goggles (and more later?)
+
+- type: Tag
+  id: SiliconOrIPCEmotes # upstream's SiliconEmotes = only bots and borgs, this one includes IPCs
 
 - type: Tag
   id: Skirt
@@ -152,3 +179,30 @@
 
 - type: Tag
   id: AgentUplink # Used for allowing agent to buy their suit
+
+- type: Tag
+  id: CleaningGrenade
+
+- type: Tag
+  id: Hoodie
+
+- type: Tag
+  id: K9Armor # Limits what equipment K9 units can wear
+
+- type: Tag
+  id: K9 # Lets K9 units wear specialized clothing
+
+- type: Tag
+  id: AncientBookDamagedCommon
+
+- type: Tag
+  id: AncientBookDamagedUncommon
+
+- type: Tag
+  id: AncientBookDamagedRare
+
+- type: Tag
+  id: DisplayCaseBoard
+
+- type: Tag
+  id: BeamDevastator

@@ -21,6 +21,9 @@
   - type: Tool
     qualities:
     - Slicing
+  - type: CosmicTransmutable # DeltaV
+    transmutesTo: SwordCosmicCult
+    requiredGlyphType: CosmicGlyphBlades
 
 #Shortswords
 - type: entity
@@ -153,6 +156,7 @@
       types:
         Slash: 30
   - type: Item
+    sprite: Objects/Weapons/Melee/energykatana.rsi # DeltaV - don't use the regular katana inhands
     storedSprite:
       state: storage
       sprite: Objects/Weapons/Melee/energykatana_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
@@ -171,7 +175,7 @@
     - Belt
   - type: Reflect
     slotFlags:
-      - NONE
+    - NONE
 
 #Greatswords
 - type: entity

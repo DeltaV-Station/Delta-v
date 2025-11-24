@@ -52,10 +52,19 @@
 
                 <RichTextLabel Name="CountdownLabel"/>
 
+                <!-- DeltaV - Exfiltration Shuttle -->
+                <RichTextLabel Name="ExfiltrationCountdownLabel"/>
+
                 <Button Name="EmergencyShuttleButton"
                     Access="Public" 
                     Text="Placeholder Text"
                     ToolTip="{Loc 'comms-console-menu-emergency-shuttle-button-tooltip'}"/>
+
+                <!-- DeltaV - Exfiltration Shuttle -->
+                <Button Name="ExfiltrationShuttleButton"
+                    Access="Public" 
+                    Text="Placeholder Text"
+                    ToolTip="{Loc 'comms-console-menu-exfiltration-shuttle-button-tooltip'}"/>
             </BoxContainer>
         </BoxContainer>
     </BoxContainer>

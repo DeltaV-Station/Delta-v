@@ -426,3 +426,13 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+
+- type: emoteSounds
+  id: WhimperletSounds
+  params:
+    variation: 0.075
+  sound:
+    path: /Audio/_DV/Voice/Kitsune/fox_squeal1.ogg
+  sounds:
+    Mew:
+      collection: FelinidMews

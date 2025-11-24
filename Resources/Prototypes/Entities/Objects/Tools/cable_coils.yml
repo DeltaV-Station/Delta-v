@@ -40,9 +40,9 @@
     - HumanoidSilicon # DeltaV
     damage:
       types: # these are all split across multiple types
-        Heat: -1.66
-        Shock: -1.66
-        Cold: -1.66 # DeltaV
+        Heat: -3.22 # DeltaV was -1.66
+        Shock: -3.22 # DeltaV was -1.66
+        Cold: -3.22 # DeltaV
   # EE Change End
   - type: GuideHelp
     guides:
@@ -108,15 +108,6 @@
     count: 10
 
 - type: entity
-  parent: CableHVStack10
-  id: CableHVStackLingering10
-  suffix: Lingering, 10
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
-
-- type: entity
   parent: CableHVStack
   id: CableHVStack1
   suffix: 1
@@ -173,15 +164,6 @@
     count: 10
 
 - type: entity
-  parent: CableMVStack10
-  id: CableMVStackLingering10
-  suffix: Lingering, 10
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
-
-- type: entity
   parent: CableMVStack
   id: CableMVStack1
   suffix: 1
@@ -235,15 +217,6 @@
       state: coillv-10
     - type: Stack
       count: 10
-
-- type: entity
-  parent: CableApcStack10
-  id: CableApcStackLingering10
-  suffix: Lingering, 10
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
 
 - type: entity
   parent: CableApcStack
