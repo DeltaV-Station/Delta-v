@@ -1,8 +1,8 @@
 - type: entity
   parent: RollerBed
-  id: RollerBedHolo
-  name: holographic rollerbed
-  description: Used to carry patients around without damaging them. This one seems to be holographic.
+  id: HoverBedHolo
+  name: holographic hoverbed
+  description: Used to frictionlessly carry around patients and is easily stored in a compacted form.
   components:
   - type: Item
     size: Small
@@ -10,23 +10,81 @@
     sprite: _DV/Structures/Furniture/rollerbeds.rsi
     noRot: true
     layers:
-    - state: holographic_rollerbed
+    - state: holographic_hoverbed_shaded
       map: ["unfoldedLayer"]
-    - state: holographic_rollerbed_folded
+    - state: holographic_hoverbed_unshaded
+      map: ["unfoldedLayerUnshaded"]
+      shader: unshaded
+    - state: holographic_hoverbed_folded_shaded
       map: ["foldedLayer"]
       visible: false
-    - state: holographic_rollerbed_buckled
+    - state: holographic_hoverbed_folded_unshaded
+      map: [ "foldedLayerUnshaded" ]
+      shader: unshaded
+      visible: false
+    - state: holographic_hoverbed_buckled_shaded
       map: ["buckledLayer"]
+    - state: holographic_hoverbed_buckled_unshaded
+      map: ["buckledLayerUnshaded"]
+      shader: unshaded
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 5
+        mask:
+        - MobMask
+  - type: GenericVisualizer
+    visuals:
+      enum.StrapVisuals.State:
+        buckledLayer:
+          True: { visible: true }
+          False: { visible: false }
+        buckledLayerUnshaded:
+          True: { visible: true }
+          False: { visible: false }
+        unfoldedLayer:
+          True: { visible: false }
+          False: { visible: true }
+        unfoldedLayerUnshaded:
+          True: { visible: false }
+          False: { visible: true }
+      enum.FoldedVisuals.State: # Copypasta from BaseFoldable b/c collections don't merge when overriding component prototypes.
+        foldedLayer:
+          True: { visible: true }
+          False: { visible: false }
+        foldedLayerUnshaded:
+          True: { visible: true }
+          False: { visible: false }
+        unfoldedLayer:
+          True: { visible: false }
+        unfoldedLayerUnshaded:
+          True: { visible: false }
+  - type: Strap
+    position: Down
+    rotation: -90
+    buckleOffset: "0,0.075"
+    buckleOnInteractHand: False
+  - type: PointLight
+    enabled: true
+    radius: 1.2
+    energy: 1
+    color: "#58b7b1"
+    netsync: false
   - type: StaticPrice
     price: 200
 
 
 - type: entity
-  parent: RollerBedHolo
-  id: RollerBedHoloSpawnFolded
+  parent: HoverBedHolo
+  id: HoverBedHoloSpawnFolded
   suffix: folded
   components:
   - type: Foldable
     folded: true
   - type: Strap
     enabled: False
+  - type: PointLight
+    enabled: false
