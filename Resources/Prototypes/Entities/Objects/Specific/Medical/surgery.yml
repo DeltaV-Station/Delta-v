@@ -43,6 +43,7 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/cautery2.ogg
   - type: Cautery
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 # Drill
 
@@ -73,6 +74,7 @@
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
   - type: Drill
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 # Scalpel
 
@@ -113,11 +115,12 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
   - type: Scalpel
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 - type: entity
   name: shiv
   id: ScalpelShiv
-  parent: Scalpel
+  parent: BaseToolSurgery # DeltaV - Changed parent from scalpel because I dont want it to inherit MedicalSurgeryTool
   description: A pointy piece of glass, abraded to an edge and wrapped in tape for a handle. # Could become a decent tool or weapon with right tool mods.
   components:
   - type: Sprite
@@ -127,6 +130,33 @@
     sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     storedRotation: 90
     heldPrefix: shiv
+  # DeltaV - Copied components from previous parent
+  - type: Sharp
+    butcherDelayModifier: 1.5 # Butchering with a scalpel, regardless of the type, will take 50% longer
+  - type: Tool
+    qualities:
+    - Slicing
+    speedModifier: 0.66 # pretend the sixes go on forever :)
+  - type: Utensil
+    types:
+      - Knife
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    swingLeft: true
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 8
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  # Shitmed Change
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
+  - type: Scalpel
+  # END DeltaV
 
 - type: entity
   name: advanced scalpel
@@ -147,6 +177,7 @@
         Slash: 12
   - type: Scalpel # Shitmed
     speed: 1.25
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 - type: entity
   name: laser scalpel
@@ -164,6 +195,7 @@
   - type: Scalpel # Shitmed
     speed: 1.5
   # TODO: prevent bleeding from incisions
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 # Retractor
 
@@ -186,6 +218,7 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
   - type: Retractor
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 # Hemostat
 
@@ -211,6 +244,7 @@
   - type: Hemostat
   - type: Tweezers # Shitmed
   - type: Tending # Shitmed
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 # Bone setter - Shitmed Change
 - type: entity
@@ -225,6 +259,7 @@
   - type: Item
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
   - type: BoneSetter
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 # Bone Gel - Shitmed Change
 - type: entity
@@ -237,9 +272,9 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
     state: bone-gel
   - type: BoneGel
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 # Saws
-
 - type: entity
   name: metal saw
   id: Saw
@@ -265,7 +300,8 @@
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
-# No melee for regular saw because have you ever seen someone use a band saw as a weapon? It's dumb.
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
+  # No melee for regular saw because have you ever seen someone use a band saw as a weapon? It's dumb.
 
 - type: entity
   name: choppa
@@ -311,6 +347,7 @@
     speedModifier: 1.5
   - type: BoneSaw # Shitmed
     speed: 1.5
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 - type: entity
   name: advanced circular saw
@@ -332,6 +369,7 @@
     speedModifier: 2.0
   - type: BoneSaw # Shitmed
     speed: 2
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 # Shitmed Tools
 
@@ -365,6 +403,7 @@
     speed: 1.5
   - type: Drill
     speed: 1.5
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 - type: entity
   name: energy scalpel
@@ -396,6 +435,7 @@
     speed: 1.5
   - type: BoneSaw
     speed: 1.5
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 - type: entity
   name: mechanical pinches
@@ -431,6 +471,7 @@
     speed: 1.5
   - type: Tending
     speed: 1.5
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 - type: entity
   name: medical multitool
@@ -465,6 +506,7 @@
     speed: 2
   - type: Tending
     speed: 2
+  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 - type: entity
   parent: [ OmnimedTool, BaseSyndicateContraband ]
