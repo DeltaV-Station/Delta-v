@@ -1,6 +1,6 @@
 using Content.Shared.Actions;
 using Content.Shared.Abilities.Psionics;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Popups;
 using Robust.Shared.Prototypes;
@@ -58,7 +58,7 @@ namespace Content.Server.Abilities.Psionics
             if (!TryComp<FlammableComponent>(args.Target, out var flammableComponent))
                 return;
 
-            flammableComponent.FireStacks += 5;
+            flammableComponent.FireStacks += 3;
             _flammableSystem.Ignite(args.Target, args.Target);
             _popupSystem.PopupEntity(Loc.GetString("pyrokinesis-power-used", ("target", args.Target)), args.Target, Shared.Popups.PopupType.LargeCaution);
 

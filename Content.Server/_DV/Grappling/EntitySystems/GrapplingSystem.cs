@@ -57,6 +57,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         SubscribeLocalEvent<GrapplerComponent, EscapeGrappleAlertEvent>(OnEscapeGrapplerAlert);
         SubscribeLocalEvent<GrapplerComponent, MobStateChangedEvent>(OnGrapplerStateChanged);
 
+        SubscribeLocalEvent<GrappledComponent, MobStateChangedEvent>(OnGrappledStateChanged);
         SubscribeLocalEvent<GrappledComponent, MoveInputEvent>(OnGrappledMove);
         SubscribeLocalEvent<GrappledComponent, GrappledEscapeDoAfter>(OnEscapeDoAfter);
         SubscribeLocalEvent<GrappledComponent, EscapeGrappleAlertEvent>(OnEscapeGrappledAlert);
@@ -430,6 +431,24 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     }
 
     /// <summary>
+    /// Handles when a grappled entity enters crit or dies while being held by a grappler, releasing the
+    /// grappler for them.
+    /// </summary>
+    /// <param name="grappled">Grappled entity which has entered crit or death.</param>
+    /// <param name="args">Args for the event.</param>
+    private void OnGrappledStateChanged(Entity<GrappledComponent> grappled, ref MobStateChangedEvent args)
+    {
+        if (grappled.Comp.Grappler == EntityUid.Invalid)
+            return;
+
+        if (args.NewMobState == MobState.Critical ||
+            args.NewMobState == MobState.Dead)
+        {
+            ReleaseGrapple(grappled.Comp.Grappler, manualRelease: true);
+        }
+    }
+
+    /// <summary>
     /// Handles releasing the effects of a grapple from both entities.
     /// </summary>
     /// <param name="grappler">Entity performing the grapple.</param>
@@ -493,8 +512,10 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         RemComp<GrappledComponent>(victim);
         _actionBlocker.UpdateCanMove(victim); // Must be done AFTER the component is removed.
 
+
+
         // Automatically get the grappler back up
-        if (grappler.Comp.ProneOnGrapple && _standingState.IsDown(grappler))
+        if (grappler.Comp.ProneOnGrapple && TryComp<StandingStateComponent>(grappler, out var standingState) && _standingState.IsDown((grappler, standingState)))
             _standingState.Stand(grappler);
 
         _alerts.ClearAlert(grappler, grappler.Comp.GrappledAlert);

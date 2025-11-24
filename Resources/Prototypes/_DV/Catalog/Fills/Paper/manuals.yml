@@ -56,3 +56,11 @@
   components:
   - type: Paper
     content: paper-salvage-gun-safe-notice
+
+- type: entity
+  parent: Paper
+  id: PaperViralCarePackageManual
+  name: viral care package manual
+  components:
+  - type: Paper
+    content: paper-viral-care-package-manual

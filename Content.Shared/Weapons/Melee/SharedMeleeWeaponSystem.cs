@@ -7,6 +7,7 @@ using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components; // DeltaV - Melee Stamina Resistance Override
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
@@ -28,6 +29,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Zombies; // DeltaV - Buff Zombies
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -316,7 +318,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         // Use hands clothing if applicable.
         if (_inventory.TryGetSlotEntity(entity, "gloves", out var gloves) &&
-            TryComp<MeleeWeaponComponent>(gloves, out var glovesMelee))
+            TryComp<MeleeWeaponComponent>(gloves, out var glovesMelee)
+            && !HasComp<ZombieComponent>(entity)) // DeltaV - Zombies don't lose gloves, but also shouldn't use them for combat over their bite.
         {
             weaponUid = gloves.Value;
             melee = glovesMelee;
@@ -543,7 +546,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
             if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
             {
-                _stamina.TakeStaminaDamage(target.Value, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid, ignoreResist: true); // DeltaV - No Stamina Resistance Doubledipping
+                //DeltaV - No Stamina Resistance Doubledipping, unless we want to.
+                var ignoreResist = true;
+                if (TryComp<StaminaResistanceComponent>(target, out var staminaResist))
+                    ignoreResist = !staminaResist.MeleeResistance;
+
+                _stamina.TakeStaminaDamage(target.Value, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid, ignoreResist: ignoreResist);
+                // END DeltaV
             }
 
             if (meleeUid == user)
@@ -699,7 +708,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
                 if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
                 {
-                    _stamina.TakeStaminaDamage(entity, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid, ignoreResist: true); // DeltaV - No Stamina Resistance Doubledipping
+                    //DeltaV - No Stamina Resistance Doubledipping, unless we want to.
+                    var ignoreResist = true;
+                    if (TryComp<StaminaResistanceComponent>(entity, out var staminaResist))
+                        ignoreResist = !staminaResist.MeleeResistance;
+
+                    _stamina.TakeStaminaDamage(entity, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid, ignoreResist: ignoreResist);
+                    // END DeltaV
                 }
 
                 appliedDamage += damageResult;

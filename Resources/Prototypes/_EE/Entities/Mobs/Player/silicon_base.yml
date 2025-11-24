@@ -317,7 +317,6 @@
     - type: Carriable
     - type: Targeting
     - type: SurgeryTarget
-    - type: LayingDown
     - type: Fiber # DeltaV - IPCs leave fibers instead of prints
       fiberMaterial: fibers-steel
     - type: Anesthesia # DeltaV - IPCs can be operated on without anesthesia
@@ -332,3 +331,4 @@
     - type: SiliconEmp # DeltaV - EMP damage
     - type: CosmicCenserTarget # DeltaV - Cosmic Cult
     - type: GrappleTarget # DeltaV - Allow targets to be grappled
+    - type: CanDoCPR # DeltaV - Addition of CPR
