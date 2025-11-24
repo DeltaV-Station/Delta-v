@@ -191,11 +191,11 @@
   name: holobarrier projector
   description: Creates a solid but fragile holographic barrier.
   components:
-  #  - type: HolosignProjector
+  #  - type: HolosignProjector # DeltaV - Holoprojectors dont need batteries
   #    signProto: HolosignSecurity
   #    chargeUse: 90
     - type: Sprite
-      sprite: Objects/Devices/Holoprojectors/security.rsi
+      sprite: _DV/Objects/Devices/Holoprojectors/security.rsi # DeltaV - resprite holobarrier projector
       state: icon
     - type: Tag
       tags:
