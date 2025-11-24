@@ -1,4 +1,13 @@
 - type: npcFaction
+  id: AnimalFriend
+  hostile:
+  - Syndicate
+  - Xeno
+  - Zombie
+  - AllHostile
+  - SalvageMob
+
+- type: npcFaction
   id: Dragon
   hostile:
   - NanoTrasen
@@ -9,6 +18,43 @@
   - Revolutionary
   - AllHostile
   - Wizard
+  - AnimalFriend
+
+- type: npcFaction
+  id: Coscult
+  hostile:
+  - SimpleHostile
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Dragon
+  - AllHostile
+  - Wizard
+  - Xenoborg
+  - PetsNT
+  - AnimalFriend
+  - Passive
+  - Nanotrasen
+  - SalvageMob
+
+- type: npcFaction
+  id: SalvageMob
+  friendly:
+  - SimpleHostile
+  hostile:
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Nanotrasen
+  - Wizard
+  - Dragon
+  - AllHostile
+  - Xenoborg
+  - PetsNT
+  - AnimalFriend
+  - Mouse
 
 - type: npcFaction
   id: NanoTrasen
@@ -49,6 +95,7 @@
   id: SimpleHostile
   friendly:
   - AnimalFriend
+  - SalvageMob
   hostile:
   - NanoTrasen
   - Syndicate
