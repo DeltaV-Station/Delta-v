@@ -301,6 +301,7 @@ public sealed partial class ZombieSystem
         // How long until compregistry lmao.
         // Delta-v changes start: i hate everything so much you can't even imagine
         // It looks really bad to me too but i don't know better yet
+        // Wizden comments mention compregistry and i see something like that in repo. See if it's real and works
         var pullerComp = EnsureComp<PullerComponent>(target);
         _puller.ToggleNeedsHands(target, false);
 
