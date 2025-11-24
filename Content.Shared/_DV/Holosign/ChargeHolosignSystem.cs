@@ -62,7 +62,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
 
         if (_signs.Count == 0)
             TryPlaceSign((ent, ent, charges), args);
-        else
+        else if(ent.Comp.SignComponent != null)
             TryRemoveSign((ent, ent, charges), _signs.First(), args.User);
 
         args.Handled = true;
@@ -86,7 +86,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
 
     public bool TryRemoveSign(Entity<ChargeHolosignProjectorComponent, LimitedChargesComponent> ent, EntityUid sign, EntityUid user)
     {
-        if(string.IsNullOrEmpty(ent.Comp1.SignComponentName))
+        if(!ent.Comp1.CanPickup)
             return false;
 
         // don't overfill

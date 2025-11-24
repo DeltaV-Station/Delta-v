@@ -44,7 +44,7 @@ public sealed class TimedDespawnDetailedSystem : EntitySystem
         if (timeLeft == null || ent.Comp.ExamineLocId == null)
             return;
 
-        var stringTime = timeLeft.Value.ToString();
+        var stringTime = double.Round(timeLeft.Value.TotalSeconds, 1);
         var examineText = Loc.GetString(ent.Comp.ExamineLocId, ("remaining", stringTime));
         args.PushMarkup(examineText, 1);
     }

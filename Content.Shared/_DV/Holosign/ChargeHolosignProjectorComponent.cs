@@ -17,12 +17,15 @@ public sealed partial class ChargeHolosignProjectorComponent : Component
     [DataField]
     public EntProtoId SignProto = "HolosignWetFloor";
 
-    /// <summary>
-    /// Component on <see cref="SignProto"/> to check if the holosign projector can pick up the entity.
-    /// If null, the holosign projector cannot pick up existing signs.
-    /// </summary>
+
     [DataField]
-    public string? SignComponentName = null;
+    public string? SignComponentName = "Holosign";
 
     public Type SignComponent = default!;
+
+    /// <summary>
+    /// If true, the holosign projector can pick up the entity whitelisted in the SignComponentName variable.
+    /// </summary>
+    [DataField]
+    public bool CanPickup = true;
 }
