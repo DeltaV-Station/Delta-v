@@ -57,7 +57,7 @@ book-text-gorlexgirlfriend = It's the 197th version of the infamous Gorlex Girlf
 
     On the last page is an ad for the Gorlex Girlfriends dating app... and the Gorlex Girlfriends Hotline.
 
-book-text-centcommchad = The 56th edition of the newly released CentComm Chads series. This edition includes several pictures of CentComm Officials and Station Command "on the grind", whether that is in the gym or in the office being productive. The best collection is from the cover model Commander Chad, who enjoys a beach vacation while listening to the CC podcast.
+book-text-centcomm-chad = The 56th edition of the newly released CentComm Chads series. This edition includes several pictures of CentComm Officials and Station Command "on the grind", whether that is in the gym or in the office being productive. The best collection is from the cover model Commander Chad, who enjoys a beach vacation while listening to the CC podcast.
 
     A good part of the magazine is about the CentComm Chads podcast, where they discuss the dangers of Unions in terms of career verticality, as well as "good grindsets" such as never taking PTO, or working better for less pay to improve yourself. A few pages advertise merch for either NT or CC apparel.
 
