@@ -62,7 +62,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
 
         if (_signs.Count == 0)
             TryPlaceSign((ent, ent, charges), args);
-        else if(ent.Comp.SignComponent != null)
+        else
             TryRemoveSign((ent, ent, charges), _signs.First(), args.User);
 
         args.Handled = true;
