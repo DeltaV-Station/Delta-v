@@ -11,9 +11,6 @@
   categories:
   - UplinkImplants
   conditions:
-  - !type:BuyerSpeciesCondition
-    whitelist:
-    - Harpy
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
