@@ -1,16 +1,4 @@
 ﻿Entries:
-- author: sowelipililimute
-  changes:
-  - message: Cosmic cultist conversion now converts non-cultists instead of cultists
-    type: Fix
-  - message: Cosmic cultist projection & blanking no longer leaves the examine text
-      lingering
-    type: Fix
-  - message: Ghosts can now see The Monument
-    type: Tweak
-  id: 1346
-  time: '2025-05-04T08:08:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3627
 - author: deltanedas
   changes:
   - message: Fixed cosmic cultists not being able to use glyphs.
@@ -4255,3 +4243,10 @@
   id: 1845
   time: '2025-11-24T19:15:19.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4738
+- author: Coryler
+  changes:
+  - message: distance to fit more
+    type: Tweak
+  id: 1846
+  time: '2025-11-25T04:07:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4719
