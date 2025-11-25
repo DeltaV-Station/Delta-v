@@ -30,7 +30,7 @@
       amount: 1
   - type: Lock
     lockOnClick: false
-  - type: ActivatableUIRequiresLock
+  - type: UIRequiresLock
     requireLocked: false
   - type: ActivatableUI
     key: enum.StoreUiKey.Key

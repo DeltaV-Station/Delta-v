@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/21/2025 02:06:23
-  entityCount: 264
+  time: 11/23/2025 16:40:26
+  entityCount: 270
 maps: []
 grids:
 - 1
@@ -143,6 +143,38 @@ entities:
           - 0
         chunkSize: 4
     - type: GasTileOverlay
+- proto: Barricade
+  entities:
+  - uid: 265
+    components:
+    - type: Transform
+      pos: -2.5,-10.5
+      parent: 1
+  - uid: 266
+    components:
+    - type: Transform
+      pos: -0.5,-10.5
+      parent: 1
+  - uid: 267
+    components:
+    - type: Transform
+      pos: 0.5,-10.5
+      parent: 1
+  - uid: 268
+    components:
+    - type: Transform
+      pos: 1.5,-10.5
+      parent: 1
+  - uid: 269
+    components:
+    - type: Transform
+      pos: -1.5,-10.5
+      parent: 1
+  - uid: 270
+    components:
+    - type: Transform
+      pos: -0.5,-9.5
+      parent: 1
 - proto: Bonfire
   entities:
   - uid: 244
