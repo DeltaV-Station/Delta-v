@@ -166,6 +166,18 @@ public sealed partial class XenoArtifactComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId<InstantActionComponent> SelfActivateAction = "ActionArtifactActivate";
+
+    /// <summary>
+    /// Probability for each node that its effect will be hidden in the analysis console until it is unlocked.
+    /// </summary>
+    [DataField]
+    public float LockedEffectHiddenProbability = 0.1f;
+
+    /// <summary>
+    /// Probability for each node that its effect will give a generic hint, rather than a specific one (until it is unlocked).
+    /// </summary>
+    [DataField]
+    public float LockedEffectVagueProbability = 0.33f;
 }
 
 /// <summary>
