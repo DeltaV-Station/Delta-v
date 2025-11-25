@@ -19,6 +19,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
 using Content.Shared._DV.Abilities.Psionics;
+using Content.Shared._DV.Psionics.Components;
 
 namespace Content.Server.Psionics
 {

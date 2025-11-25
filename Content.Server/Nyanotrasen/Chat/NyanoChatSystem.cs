@@ -15,6 +15,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
+using Content.Shared._DV.Psionics.Components;
 
 namespace Content.Server.Nyanotrasen.Chat
 {

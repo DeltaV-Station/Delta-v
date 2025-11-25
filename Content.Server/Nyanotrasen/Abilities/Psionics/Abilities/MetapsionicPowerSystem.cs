@@ -1,3 +1,4 @@
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Actions;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Popups;
@@ -29,10 +30,9 @@ namespace Content.Server.Abilities.Psionics
                 _actions.StartUseDelay(component.MetapsionicActionEntity);
             }
 
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+            if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.PsionicAbility = component.MetapsionicActionEntity;
-                psionic.ActivePowers.Add(component);
+                psionic.PsionicPowersActionEntities.Add(component.MetapsionicActionEntity);
             }
 
         }
@@ -43,7 +43,7 @@ namespace Content.Server.Abilities.Psionics
 
             if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.ActivePowers.Remove(component);
+                psionic.PsionicPowersActionEntities.Remove(component.MetapsionicActionEntity);
             }
         }
 

@@ -8,7 +8,9 @@ namespace Content.Shared._DV.Psionics.Events;
 /// <param name="AllowsPsionicUsage">Whether the entity can use psionic abilities.</param>
 /// <param name="ShieldsFromPsionics">Whether the entity is shielded from external psionic influence.</param>
 [ByRefEvent]
-public record struct CheckPsionicallyInsulativeGearEvent(bool? AllowsPsionicUsage, bool? ShieldsFromPsionics) : IInventoryRelayEvent
+public sealed class CheckPsionicallyInsulativeGearEvent() : IInventoryRelayEvent
 {
+    public bool AllowsPsionicUsage;
+    public bool ShieldsFromPsionics = true;
     SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.WITHOUT_POCKET;
 }

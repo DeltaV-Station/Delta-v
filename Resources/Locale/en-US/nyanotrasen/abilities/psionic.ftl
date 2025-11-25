@@ -5,7 +5,7 @@ cage-uncage-verb = Uncage
 
 metapsionic-pulse-success = You detect psychic presence nearby.
 metapsionic-pulse-failure = You don't detect any psychic presence nearby.
-metapsionic-pulse-power = You detect that {$power} was used nearby.
+metapsionic-pulse-power-detected = You detect that {$power} was used nearby.
 
 accept-psionics-window-title = Psionic!
 accept-psionics-window-prompt-text-part = You rolled a psionic power!

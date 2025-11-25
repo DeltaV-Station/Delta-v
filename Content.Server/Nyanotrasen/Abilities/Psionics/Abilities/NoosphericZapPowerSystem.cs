@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Abilities.Psionics;
 using Content.Server.Psionics;
 using Content.Server.Lightning;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Actions.Events;
 
 namespace Content.Server.Abilities.Psionics
@@ -29,10 +30,9 @@ namespace Content.Server.Abilities.Psionics
                 _actions.StartUseDelay(component.NoosphericZapActionEntity);
             }
 
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+            if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.PsionicAbility = component.NoosphericZapActionEntity;
-                psionic.ActivePowers.Add(component);
+                psionic.PsionicPowersActionEntities.Add(component.NoosphericZapActionEntity);
             }
         }
 
@@ -41,7 +41,7 @@ namespace Content.Server.Abilities.Psionics
             _actions.RemoveAction(uid, component.NoosphericZapActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.ActivePowers.Remove(component);
+                psionic.PsionicPowersActionEntities.Remove(component.NoosphericZapActionEntity);
             }
         }
 

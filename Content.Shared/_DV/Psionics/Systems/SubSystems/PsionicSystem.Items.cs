@@ -1,17 +1,16 @@
 ﻿using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Abilities.Psionics;
-using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 
 namespace Content.Shared._DV.Psionics.Systems;
 
-public sealed partial class PsionicSystem : EntitySystem
+public sealed partial class PsionicSystem
 {
     [Dependency] private readonly SharedPsionicAbilitiesSystem _psiAbilities = default!;
 
-    public override void Initialize()
+    private void InitializeItems()
     {
         base.Initialize();
         SubscribeLocalEvent<PsionicallyInsulativeComponent, GotEquippedEvent>(OnInsulativeGearEquipped);
@@ -35,10 +34,17 @@ public sealed partial class PsionicSystem : EntitySystem
         var ev = new CheckPsionicallyInsulativeGearEvent();
         RaiseLocalEvent(user, ref ev);
 
+        if (!ev.AllowsPsionicUsage && !ev.ShieldsFromPsionics)
+        {
+            RemComp<PsionicallyInsulatedComponent>(user);
+            _psiAbilities.SetPsionicsThroughEligibility(user);
+            return;
+        }
+
         var insulationComp = EnsureComp<PsionicallyInsulatedComponent>(user);
 
-        insulationComp.AllowsPsionicUsage = ev.AllowsPsionicUsage ?? insulationComp.AllowsPsionicUsage;
-        insulationComp.ShieldsFromPsionics = ev.ShieldsFromPsionics ?? insulationComp.ShieldsFromPsionics;
+        // insulationComp.AllowsPsionicUsage = ev.AllowsPsionicUsage ?? insulationComp.AllowsPsionicUsage;
+        // insulationComp.ShieldsFromPsionics = ev.ShieldsFromPsionics ?? insulationComp.ShieldsFromPsionics;
 
         _psiAbilities.SetPsionicsThroughEligibility(user);
     }
@@ -47,14 +53,15 @@ public sealed partial class PsionicSystem : EntitySystem
     {
         var evArgs = args.Args;
 
-        if (evArgs.AllowsPsionicUsage.HasValue)
-            evArgs.AllowsPsionicUsage = evArgs.AllowsPsionicUsage.Value && gear.Comp.AllowsPsionicUsage;
-        else
-            evArgs.AllowsPsionicUsage = gear.Comp.AllowsPsionicUsage;
-
-        if (evArgs.ShieldsFromPsionics.HasValue)
-            evArgs.ShieldsFromPsionics = evArgs.ShieldsFromPsionics.Value && gear.Comp.ShieldsFromPsionics;
-        else
-            evArgs.ShieldsFromPsionics = gear.Comp.ShieldsFromPsionics;
+        evArgs.AllowsPsionicUsage = false;
+        // if (evArgs.AllowsPsionicUsage.HasValue)
+        //     evArgs.AllowsPsionicUsage = evArgs.AllowsPsionicUsage.Value && gear.Comp.AllowsPsionicUsage;
+        // else
+        //     evArgs.AllowsPsionicUsage = gear.Comp.AllowsPsionicUsage;
+        //
+        // if (evArgs.ShieldsFromPsionics.HasValue)
+        //     evArgs.ShieldsFromPsionics = evArgs.ShieldsFromPsionics.Value && gear.Comp.ShieldsFromPsionics;
+        // else
+        //     evArgs.ShieldsFromPsionics = gear.Comp.ShieldsFromPsionics;
     }
 }

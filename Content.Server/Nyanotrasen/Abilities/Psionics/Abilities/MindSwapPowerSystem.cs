@@ -16,6 +16,7 @@ using Content.Shared.Mobs.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared._DV.Abilities.Psionics;
+using Content.Shared._DV.Psionics.Components;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -53,10 +54,9 @@ namespace Content.Server.Abilities.Psionics
                 _actions.StartUseDelay(component.MindSwapActionEntity);
             }
 
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+            if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.PsionicAbility = component.MindSwapActionEntity;
-                psionic.ActivePowers.Add(component);
+                psionic.PsionicPowersActionEntities.Add(component.MindSwapActionEntity);
             }
         }
 
@@ -65,7 +65,7 @@ namespace Content.Server.Abilities.Psionics
             _actions.RemoveAction(uid, component.MindSwapActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.ActivePowers.Remove(component);
+                psionic.PsionicPowersActionEntities.Remove(component.MindSwapActionEntity);
             }
         }
 
@@ -164,8 +164,8 @@ namespace Content.Server.Abilities.Psionics
                 _actions.StartUseDelay(component.MindSwapReturnActionEntity);
             }
 
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.MindSwapReturnActionEntity;
+            if (TryComp<PsionicComponent>(uid, out var psionic))
+                psionic.PsionicPowersActionEntities.Add(component.MindSwapReturnActionEntity);
         }
 
         public void Swap(EntityUid performer, EntityUid target, bool end = false)

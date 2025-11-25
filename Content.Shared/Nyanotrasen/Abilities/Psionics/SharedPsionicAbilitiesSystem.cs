@@ -1,4 +1,5 @@
 using Content.Shared._DV.Psionics.Components;
+using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Mobs;
@@ -13,9 +14,7 @@ namespace Content.Shared.Abilities.Psionics;
 
 public sealed partial class SharedPsionicAbilitiesSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedPopupSystem _popups = default!;
+    [Dependency] private readonly SharedActionsSystem _actionSystem = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
@@ -26,24 +25,8 @@ public sealed partial class SharedPsionicAbilitiesSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<PsionicsDisabledComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<PsionicsDisabledComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<PsionicComponent, PsionicPowerUsedEvent>(OnPowerUsed);
 
         SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobStateChanged);
-    }
-
-    private void OnPowerUsed(EntityUid uid, PsionicComponent component, PsionicPowerUsedEvent args)
-    {
-        var ev = new PsionicPowerDetectedEvent(uid, args.Power);
-        var coords = Transform(uid).Coordinates;
-        foreach (var ent in _lookup.GetEntitiesInRange<MetapsionicPowerComponent>(coords, 10f))
-        {
-            if (ent.Owner != uid && !(TryComp<PsionicInsulationComponent>(ent, out var insul) && !insul.Passthrough))
-            {
-                RaiseLocalEvent(ent, ref ev);
-                _popups.PopupEntity(Loc.GetString("metapsionic-pulse-power", ("power", args.Power)), ent, ent, PopupType.LargeCaution);
-                args.Handled = true;
-            }
-        }
     }
 
     private void OnInit(EntityUid uid, PsionicsDisabledComponent component, ComponentInit args)
@@ -58,28 +41,25 @@ public sealed partial class SharedPsionicAbilitiesSystem : EntitySystem
 
     private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
     {
-        SetPsionicsThroughEligibility(uid);
+        SetPsionicsThroughEligibility(args.Target);
     }
 
     /// <summary>
     /// Checks whether the entity is eligible to use its psionic ability. This should be run after anything that could effect psionic eligibility.
     /// </summary>
-    public void SetPsionicsThroughEligibility(EntityUid psionic)
+    public void SetPsionicsThroughEligibility(EntityUid psionic, PsionicComponent? psionicComp = null)
     {
-        PsionicComponent? component = null;
-        if (!Resolve(psionic, ref component, false))
+        if (!Resolve(psionic, ref psionicComp, false)
+            || psionicComp.PsionicPowersActionEntities.Count == 0)
             return;
 
-        if (component.PsionicAbility == null)
-            return;
+        var canUsePsionics = IsEligibleForPsionics(psionic);
 
-        if (_actions.GetAction(component.PsionicAbility) is not { } actionData)
-            return;
-
-        _actions.SetEnabled(actionData.Owner, IsEligibleForPsionics(psionic));
+        foreach (var power in psionicComp.PsionicPowersActionEntities)
+        {
+            _actionSystem.SetEnabled(power, canUsePsionics);
+        }
     }
-
-
 
     private bool IsEligibleForPsionics(EntityUid psionic)
     {
@@ -96,24 +76,6 @@ public sealed partial class SharedPsionicAbilitiesSystem : EntitySystem
         RaiseLocalEvent(uid, ev, false);
 
         _glimmerSystem.Glimmer += _robustRandom.Next(minGlimmer, maxGlimmer);
-    }
-}
-
-/// <summary>
-/// Event raised on a metapsionic entity when someone used a psionic power nearby.
-/// </summary>
-[ByRefEvent]
-public record struct PsionicPowerDetectedEvent(EntityUid Psionic, string Power);
-
-public sealed class PsionicPowerUsedEvent : HandledEntityEventArgs
-{
-    public EntityUid User { get; }
-    public string Power = string.Empty;
-
-    public PsionicPowerUsedEvent(EntityUid user, string power)
-    {
-        User = user;
-        Power = power;
     }
 }
 

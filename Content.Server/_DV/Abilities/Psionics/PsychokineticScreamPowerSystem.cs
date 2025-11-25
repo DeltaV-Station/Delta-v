@@ -1,4 +1,5 @@
 using Content.Shared._DV.Abilities;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Coordinates;
@@ -26,10 +27,9 @@ public sealed partial class PsychokineticScreamPowerSystem : EntitySystem
         _actions.AddAction(ent, ref ent.Comp.PsychokineticScreamActionEntity, ent.Comp.ShatterLightsActionId);
         _actions.StartUseDelay(ent.Comp.PsychokineticScreamActionEntity);
 
-        if (TryComp<PsionicComponent>(ent, out var psionic) && psionic.PsionicAbility == null)
+        if (TryComp<PsionicComponent>(ent, out var psionic))
         {
-            psionic.PsionicAbility = ent.Comp.PsychokineticScreamActionEntity;
-            psionic.ActivePowers.Add(ent.Comp);
+            psionic.PsionicPowersActionEntities.Add(ent.Comp.PsychokineticScreamActionEntity);
         }
     }
 
@@ -38,7 +38,7 @@ public sealed partial class PsychokineticScreamPowerSystem : EntitySystem
         _actions.RemoveAction(entity.Owner, entity.Comp.PsychokineticScreamActionEntity);
         if (TryComp<PsionicComponent>(entity, out var psionic))
         {
-            psionic.ActivePowers.Remove(entity.Comp);
+            psionic.PsionicPowersActionEntities.Remove(entity.Comp.PsychokineticScreamActionEntity);
         }
     }
 

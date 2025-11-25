@@ -6,6 +6,7 @@ using Content.Shared.Revenant.Components;
 using Content.Server.Guardian;
 using Content.Server.Bible.Components;
 using Content.Server.Popups;
+using Content.Shared._DV.Psionics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -46,21 +47,20 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<RevenantComponent, DispelledEvent>(OnRevenantDispelled);
         }
 
-        private void OnInit(EntityUid uid, DispelPowerComponent component, ComponentInit args)
+        private void OnInit(Entity<DispelPowerComponent> power, ref ComponentInit args)
         {
-            _actions.AddAction(uid, ref component.DispelActionEntity, component.DispelActionId );
-            if (_actions.GetAction(component.DispelActionEntity) is not { } actionData)
+            _actions.AddAction(power, ref power.Comp.DispelActionEntity, power.Comp.DispelActionId );
+            if (_actions.GetAction(power.Comp.DispelActionEntity) is not { } actionData)
                 return;
 
             if (actionData.Comp.UseDelay is not null)
             {
-                _actions.StartUseDelay(component.DispelActionEntity);
+                _actions.StartUseDelay(power.Comp.DispelActionEntity);
             }
 
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+            if (TryComp<PsionicComponent>(power, out var psionic))
             {
-                psionic.PsionicAbility = component.DispelActionEntity;
-                psionic.ActivePowers.Add(component);
+                psionic.PsionicPowersActionEntities.Add(power.Comp.DispelActionEntity);
             }
         }
 
@@ -70,7 +70,7 @@ namespace Content.Server.Abilities.Psionics
 
             if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.ActivePowers.Remove(component);
+                psionic.PsionicPowersActionEntities.Remove(component.DispelActionEntity);
             }
         }
 

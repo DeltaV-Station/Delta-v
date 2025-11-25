@@ -1,5 +1,6 @@
 using Content.Shared.Abilities.Psionics;
 using Content.Client.Chat.Managers;
+using Content.Shared._DV.Psionics.Components;
 using Robust.Client.Player;
 
 namespace Content.Client.Nyanotrasen.Chat
