@@ -20,12 +20,12 @@
   - type: Destructible
     thresholds:
     - trigger:
-        type: DamageTrigger
+        !type:DamageTrigger
         damage: 50
       behaviors:
-      - type: DoActsBehavior
+      - !type:DoActsBehavior
         acts: ["Destruction"]
-      - type: ExplodeBehavior
+      - !type:ExplodeBehavior
   - type: StickyVisualizer
   - type: Appearance
   - type: GenericVisualizer
