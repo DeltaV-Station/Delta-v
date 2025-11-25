@@ -39,3 +39,13 @@
     - id: GamblagatorCapacitor
       amount: !type:ConstantNumberSelector
         value: 4
+
+- type: entityTable
+  id: NT3Table
+  table: !type:AllSelector
+    children:
+    - id: WeaponLightMachinegGunNT3
+    - id: BlueprintMagazineBoxLMGAntiMateriel
+    - id: MagazineLMGAntiMaterielBox
+      amount: !type:ConstantNumberSelector
+        value: 2
