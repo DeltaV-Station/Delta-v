@@ -19,7 +19,7 @@ xenoarch-effect-tip-specific-junk = Create recyclable junk
 xenoarch-effect-tip-specific-flicker = Minor electromagnetic interference
 xenoarch-effect-tip-specific-potassium = Produces potassium
 xenoarch-effect-tip-specific-flora = Produces flora
-xenoarch-effect-tip-specific-puddle-basic = Produces puddle of chemical mixture 
+xenoarch-effect-tip-specific-puddle-basic = Produces puddle of chemical mixture
 xenoarch-effect-tip-specific-throw = Minor implosion
 xenoarch-effect-tip-specific-cold = Cools down surrounding gas
 xenoarch-effect-tip-specific-heat = Heats up surrounding gas greatly
@@ -81,7 +81,3 @@ xenoarch-effect-tip-vague-element = Elemental creation
 xenoarch-effect-tip-vague-chemical = Molecular reaction
 xenoarch-effect-tip-vague-biological = Organic manipulation
 xenoarch-effect-tip-vague-pattern = Pattern mimicry
-
-
-
-
