@@ -85,6 +85,22 @@
       types:
         Blunt: 1
 
+- type: entity
+  parent: BookGorlexGirlfriends
+  id: BookCentcommChads
+  name: CentComm Chads
+  description: Issue 56 - Starring Commander Chad
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/centcomm_magazine.rsi
+    state: icon
+  - type: Paper
+    contentSize: 12000
+    content: book-text-centcomm-chad
+    stampedBy:
+    - stampedColor: "#000080"
+      stampedName: stamp-component-stamped-name-nanotrasen
+
 
 - type: entity
   id: BookLogistics
