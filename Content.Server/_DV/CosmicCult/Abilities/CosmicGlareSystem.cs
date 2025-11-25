@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Server.Bible.Components;
 using Content.Server.Flash;
-using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared._DV.CosmicCult;
@@ -9,6 +8,7 @@ using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._EE.Silicon.Components;
 using Content.Shared.Effects;
 using Content.Shared.Interaction;
+using Content.Shared.Light.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Silicons.Borgs.Components;
@@ -72,7 +72,7 @@ public sealed class CosmicGlareSystem : EntitySystem
 
             if (HasComp<BorgChassisComponent>(targetEnt) || HasComp<SiliconComponent>(targetEnt)) //For paralyzing borgs and IPCs specifically.
             {
-                _stun.TryParalyze(targetEnt, uid.Comp.CosmicGlareDuration / 2, true);
+                _stun.TryUpdateParalyzeDuration(targetEnt, uid.Comp.CosmicGlareDuration / 2);
             }
 
             _color.RaiseEffect(Color.CadetBlue, new List<EntityUid>() { targetEnt }, Filter.Pvs(targetEnt, entityManager: EntityManager));
