@@ -1,44 +1,6 @@
 ﻿Entries:
 - author: sowelipililimute
   changes:
-  - message: Station AI can now choose from a selection of programs roundstart to
-      expand its abilities
-    type: Add
-  id: 1341
-  time: '2025-05-02T21:15:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3610
-- author: Radezolid
-  changes:
-  - message: Buzzochloric Bees has been removed from the possible reagent pool for
-      mutated plants.
-    type: Remove
-  id: 1342
-  time: '2025-05-03T03:31:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3617
-- author: M3739
-  changes:
-  - message: Kitsune can no longer shapeshift themselves out of existence right after
-      getting up from a stamina crit stun.
-    type: Fix
-  id: 1343
-  time: '2025-05-03T04:45:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3621
-- author: AftrLite
-  changes:
-  - message: Another cosmic cult fix
-    type: Fix
-  id: 1344
-  time: '2025-05-03T13:08:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3624
-- author: Oxdeception
-  changes:
-  - message: The AAC tablet now has its own typing indicator.
-    type: Add
-  id: 1345
-  time: '2025-05-03T22:36:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3595
-- author: sowelipililimute
-  changes:
   - message: Cosmic cultist conversion now converts non-cultists instead of cultists
     type: Fix
   - message: Cosmic cultist projection & blanking no longer leaves the examine text
@@ -4216,3 +4178,80 @@
   id: 1840
   time: '2025-11-22T18:32:38.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4704
+- author: MantasDab360
+  changes:
+  - message: No more MMInception. The Positronic Brain and MMI can no longer be inserted
+      into the MMI.
+    type: Fix
+  id: 1841
+  time: '2025-11-23T22:21:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4723
+- author: ShepardToTheStars
+  changes:
+  - message: Upstream Changes from August have been merged!
+    type: Add
+  - message: A new cake, berry delight, that is made with a cake base, berries and
+      milk.
+    type: Add
+  - message: Craftable cardboard structures and equipment now available!
+    type: Add
+  - message: Captain and Head of Personnel starts with administration glasses and
+      HUD respectively.
+    type: Add
+  - message: The station AI will receive chat notifications when its sentry turrets
+      start firing upon hostile targets.
+    type: Add
+  - message: Shitmed's laying down system has been replaced by Wizden's crawling.
+    type: Tweak
+  - message: Various syndicate items can now be "locked" with your voice to hide their
+      true identity. The items are, all chameleon clothing, voice masks, no slips,
+      agent IDs, cane swords, and e daggers.
+    type: Add
+  - message: Meat spikes got an overhaul.
+    type: Tweak
+  - message: Two new (negative) traits! Hemophilia and impaired mobility!
+    type: Add
+  - message: Moths are less flammable now (but more flammable than others).
+    type: Tweak
+  - message: Added new Derelict Cyborg ghost roles, including the Derelict Engineer,
+      Janitor, Salvage, Medical, and Assault Cyborg!
+    type: Add
+  - message: Lathes now batch items into jobs, which can be moved around in priority
+      or deleted.
+    type: Add
+  - message: Many station structures and fixtures, such as walls and airlocks, can
+      now be re-anchored to the floor if they happen to be dislodged by an explosion
+      or other shenanigans.
+    type: Tweak
+  - message: Added atmospherics delta-pressure structure damage. Objects like windows,
+      thindows, windoors, etc. will have damage done to them depending on the pressure
+      difference across the sides of the object.
+    type: Add
+  - message: Normality crystals now require Holy Water instead of normal water!
+    type: Tweak
+  - message: and so much more! Like A LOT more.
+    type: Add
+  id: 1842
+  time: '2025-11-23T21:49:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4625
+- author: SirWarock
+  changes:
+  - message: A new series of Magazine has been released - The elusive CentComm Chads!
+    type: Add
+  id: 1843
+  time: '2025-11-24T13:47:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4631
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed IPCs not being able to crawl.
+    type: Fix
+  id: 1844
+  time: '2025-11-24T15:03:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4737
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed engineering borgs duplicating items on switching modules.
+    type: Fix
+  id: 1845
+  time: '2025-11-24T19:15:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4738
