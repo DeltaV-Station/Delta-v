@@ -119,7 +119,7 @@ loadout-group-head-of-security-shoes = Head of Security shoes
 
 loadout-group-security-cadet-head = Security Cadet head
 loadout-group-security-neck = Security neck
-loadout-group-security-gloves = Security Gloves
+loadout-group-security-gloves = Security gloves
 
 loadout-group-brig-medic-head = Corpsman head
 loadout-group-brig-medic-jumpsuit = Corpsman jumpsuit
