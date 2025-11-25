@@ -132,7 +132,7 @@ public sealed class SlipperySystem : EntitySystem
         if (!knockedDown)
         {
             // Status effects should handle a TimeSpan of 0 properly...
-            _stun.TryUpdateStunDuration(other, component.SlipData.StunTime);
+            _stun.TryUpdateStunDuration(other, component.SlipData.KnockdownTime); // DeltaV - buff slips
 
             // Don't make a new status effect entity if the entity wouldn't do anything
             if (!MathHelper.CloseTo(component.SlipData.SlipFriction, 1f))
